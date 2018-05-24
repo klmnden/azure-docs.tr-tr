@@ -10,11 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 203dc3d604e56366fb1c1df9b6494fe74e6909e0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 921c68b6743749f9976d99d20a6c47311006f570
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34356061"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak, birden çok web sitesi barındıran bir uygulama ağ geçidi oluşturma
 
@@ -98,9 +99,9 @@ az network application-gateway create \
 Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Uygulama ağ geçidi oluşturulduktan sonra şu yeni özellikleri görürsünüz:
 
 - *appGatewayBackendPool* -bir uygulama ağ geçidi en az bir arka uç adres havuzuna sahip olmalıdır.
-- *appGatewayBackendHttpSettings* - iletişim için 80 numaralı bağlantı noktasının ve HTTP protokolünün kullanıldığını belirtir.
-- *appGatewayHttpListener* - *appGatewayBackendPool* ile ilişkili varsayılan dinleyicidir.
-- *appGatewayFrontendIP* - *appGatewayHttpListener*’a *myAGPublicIPAddress*’i atar.
+- *appGatewayBackendHttpSettings*: İletişim için 80 numaralı bağlantı noktasının ve HTTP protokolünün kullanıldığını belirtir.
+- *appGatewayHttpListener*: *appGatewayBackendPool* ile ilişkili varsayılan dinleyicidir.
+- *appGatewayFrontendIP*: *appGatewayHttpListener*’a *myAGPublicIPAddress*’i atar.
 - *kural 1* - *appGatewayHttpListener* ile ilişkili varsayılan yönlendirme kuralıdır.
 
 ### <a name="add-the-backend-pools"></a>Arka uç havuzlarını ekleme
@@ -214,7 +215,7 @@ for i in `seq 1 2`; do
     --name CustomScript \
     --resource-group myResourceGroupAG \
     --vmss-name myvmss$i \
-    --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"],
+    --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"],
   "commandToExecute": "./install_nginx.sh" }'
 
 done

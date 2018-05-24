@@ -11,12 +11,13 @@ ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
 ms.author: jgao
-ms.date: 05/07/2018
-ms.openlocfilehash: 63a876dc148129cd2a3eb93ed7ab6baf06a07c62
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/17/2018
+ms.openlocfilehash: eeb0f8134d21d42c8401f58828160d613e8ef92b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302058"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Öğretici: Azure HDInsight içindeki bir Apache Spark kümesinde veri yükleme ve sorgular çalıştırma
 
@@ -52,24 +53,12 @@ Uygulamalar, mevcut bir Esnek Dağıtımlı Veri Kümesinden (RDD), bir Hive tab
 
     ![Etkileşimli Spark SQL sorgusunun durumu](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-3. Aşağıdaki kodu çalıştırarak bir dataframe ve geçici bir tablo (**hvac**) oluşturun. Kod, CSV dosyasında bulunan tüm sütunları ayıklamaz. 
+3. Aşağıdaki kodu çalıştırarak bir dataframe ve geçici bir tablo (**hvac**) oluşturun. 
 
     ```PySpark
     # Create an RDD from sample data
-    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-    
-    # Create a schema for the data
-    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
-    
-    # Parse the data and create a schema
-    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-    
-    # Infer the schema and create a table       
-    hvacTable = sqlContext.createDataFrame(hvac)
-    hvacTable.registerTempTable('hvactemptable')
-    dfw = DataFrameWriter(hvacTable)
-    dfw.saveAsTable('hvac')
+    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]

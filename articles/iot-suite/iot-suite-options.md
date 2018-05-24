@@ -11,15 +11,16 @@ ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0d6fc2a49034b2e01a0397fe256a2b44030777b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0d38a41a33632e2c6427b75e365db468940d025d
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34300977"
 ---
 # <a name="compare-azure-iot-options"></a>Azure IoT seçeneklerini karşılaştırma
 
-[Azure ve Nesnelerin İnterneti](iot-suite-what-is-azure-iot.md) makalesi aşağıdaki katmanlarla tipik bir IoT çözüm mimarisini açıklar:
+[Azure ve Nesnelerin İnterneti](../iot-accelerators/iot-accelerators-what-is-azure-iot.md) makalesi aşağıdaki katmanlarla tipik bir IoT çözüm mimarisini açıklar:
 
 * Cihaz bağlantısı ve yönetimi
 * Veri işleme ve analizi
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/10/2018
 
 Bu mimariyi uygulamak için Azure IoT her biri farklı müşteri gereksinimlerine uygun olan birkaç seçenek sunar:
 
-* [Azure IoT çözüm hızlandırıcıları](index.md), özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan Azure Hizmet Olarak Platform (PaaS) ile tümleşik, [çözüm hızlandırıcılardan](iot-suite-what-are-solution-accelerators.md) oluşan, kurumsal düzeyde bir koleksiyondur.
+* [Azure IoT çözüm hızlandırıcıları](index.md), özel IoT çözümlerinin geliştirilmesini hızlandırmanızı sağlayan Azure Hizmet Olarak Platform (PaaS) ile tümleşik, [çözüm hızlandırıcılardan](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) oluşan, kurumsal düzeyde bir koleksiyondur.
 
 * [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions), bulut çözümü geliştirme uzmanlığı gerektiren kurumsal düzeyde IoT çözümleri oluşturmanıza olanak tanıyan model tabanlı bir yaklaşım kullanan bir Hizmet Olarak Yazılım (SaaS) çözümüdür.
 
@@ -63,6 +64,6 @@ IoT çözümünüzü oluşturmak için kullanılacak ürün son olarak şununla 
 
 Seçtiğiniz ürün ve yaklaşıma bağlı olarak, önerilen sonraki adımlar şunlardır:
 
-* **Azure IoT çözüm hızlandırıcıları**: [Azure IoT çözüm hızlandırıcıları nelerdir?](iot-suite-what-are-solution-accelerators.md)
+* **Azure IoT çözüm hızlandırıcıları**: [Azure IoT çözüm hızlandırıcıları nelerdir?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 * **Azure IoT Central**: [Azure IoT Central](https://www.microsoft.com/internet-of-things/iot-central-saas-solutions).
 * **IoT Hub**: [Azure IoT Hub hizmetine genel bakış](../iot-hub/iot-hub-what-is-iot-hub.md).

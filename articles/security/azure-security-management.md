@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f8e9a2fbf28ace78b4ad2d361358bd394ac69ac7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366656"
 ---
 # <a name="security-management-in-azure"></a>Azure’da Güvenlik Yönetimi
 Azure aboneleri yönetim iş istasyonları, geliştirici PC’leri ve hatta göreve özel izinleri bulunan ayrıcalıklı son kullanıcı cihazları dahil birden fazla cihazda kendi bulut ortamlarını yönetebilir. Bazı durumlarda, yönetim işlevleri [Azure portal](https://azure.microsoft.com/features/azure-portal/) gibi web tabanlı konsollar aracılığıyla gerçekleştirilir Diğer durumlarda, Sanal Özel Ağlar (VPN), Terminal Hizmetleri, istemci uygulaması protokolleri ya da (programlı olarak) Azure Service Management API (SMAPI) üzerinden şirket için sistemlerden Azure’a bağlantılar olabilir. Ayrıca, istemci uç noktaları ya da etki alanına katılmış veya yalıtılmış ve yönetilmeyen olabilir, tabletler veya akıllı telefonlar gibi.
@@ -111,7 +112,7 @@ Uzak Masaüstü Ağ geçidi, güvenlik gereksinimlerini uygulayan ilke tabanlı 
 * RD Ağ Geçidi’nin istemci makinesi adının geçerli (etki alanına katılmış) ve Azure portalına erişimine izin verilmiş olduğunu doğrulamasına izin vermek için, bir [istemci bağlantısı yetkilendirme ilkesi](http://technet.microsoft.com/library/cc753324.aspx) yapılandırın.
 * Yönetim trafiğini ileri gizli dinleme ve belirteç hırsızlığından korumak üzere [Azure VPN](https://azure.microsoft.com/documentation/services/vpn-gateway/) için IPsec kullanın ya da [Azure ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/) aracılığıyla yalıtılmış bir İnternet bağlantısını dikkate alın.
 * RD Ağ Geçidi üzerinden oturum açan yöneticiler için multi-factor authentication ([Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) aracılığıyla) ya da akıllı kart kimlik doğrulamasını etkinleştirin.
-* İzin verilen yönetim uç noktalarının sayısını en aza indirmek için Azure’da [IP adresi kısıtlamaları](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) ya da [Ağ Güvenlik Grupları](../virtual-network/virtual-networks-nsg.md) yapılandırın.
+* İzin verilen yönetim uç noktalarının sayısını en aza indirmek için Azure’da [IP adresi kısıtlamaları](http://azure.microsoft.com/blog/2013/08/27/confirming-dynamic-ip-address-restrictions-in-windows-azure-web-sites/) ya da [Ağ Güvenlik Grupları](../virtual-network/security-overview.md) yapılandırın.
 
 ## <a name="security-guidelines"></a>Güvenlik yönergeleri
 Genel olarak, bulutla kullanıma yönelik olarak yönetici iş istasyonlarının güvenliğini sağlamaya yardımcı olmak, şirket içi iş istasyonları için kullanılan uygulamalara benzerdir. Örneğin, en aza indirilmiş yapı ve kısıtlayıcı izinler. Bulut yönetiminin bazı benzersiz yönleri uzaktan ya da bant dışı kurumsal yönetime daha yakındır. Bunlar kimlik bilgilerini, gelişmiş güvenlikli uzaktan erişimin ve tehdit algılama ve yanıtın denetlenmesini içerir.
