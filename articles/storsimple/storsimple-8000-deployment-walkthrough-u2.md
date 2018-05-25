@@ -1,24 +1,24 @@
 ---
-title: "Azure portalında StorSimple 8000 serisi cihazınızı dağıtma | Microsoft Docs"
-description: "Güncelleştirme 3 ve üzerini çalıştıran StorSimple 8000 serisi cihazını ve StorSimple Cihaz Yöneticisi hizmetini dağıtmak için uygulanacak adımları ve en iyi yöntemleri açıklar."
+title: Azure portalında StorSimple 8000 serisi cihazınızı dağıtma | Microsoft Docs
+description: Güncelleştirme 3 ve üzerini çalıştıran StorSimple 8000 serisi cihazını ve StorSimple Cihaz Yöneticisi hizmetini dağıtmak için uygulanacak adımları ve en iyi yöntemleri açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: 
-ms.assetid: 
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2017
+ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: dc021d2277c419dd5a892aacd7bff0707e5564fa
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>Şirket içi StorSimple cihazınızı (Güncelleştirme 3 ve üzeri) dağıtma
 
@@ -195,6 +195,19 @@ Windows Server® 2012 çalıştıran bir Windows konağının iSCSI Tam Adını 
 StorSimple cihazınızda tek bir birim için bir isteğe bağlı el ile yedekleme oluşturmak üzere Azure portalında aşağıdaki adımları gerçekleştirin.
 
 [!INCLUDE [Create a manual backup](../../includes/storsimple-8000-create-manual-backup.md)]
+
+## <a name="view-the-pinout-diagram-for-serial-cable-for-storsimple"></a>StorSimple için seri kablo bağlantı diyagramını görüntüleyin
+Aşağıdaki bağlantı diyagramı StorSimple seri konsol kablosu için kullanılabilir.
+
+Burada DB9 dişi bağlayıcı P1 ve 3,5 mm bağlayıcı P2’dir.
+
+![StorSimple seri konsol kablosu için bağlantı diyagramı 1](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram1.png)
+
+Aşağıdaki diyagramda gösterildiği gibi, stereo jakın ucu PIN 3 RX, ortası PIN 2 TX ve tabanı PIN 1 GND olarak değerlendirilir.
+
+![StorSimple seri konsol kablosu için bağlantı diyagramı 2](./media/storsimple-8000-deployment-walkthrough-u2/pinout-diagram2.png)
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [StorSimple Cloud Appliance’ı yapılandırma](storsimple-8000-cloud-appliance-u2.md).

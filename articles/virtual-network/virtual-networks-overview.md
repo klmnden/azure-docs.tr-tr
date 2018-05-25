@@ -17,15 +17,15 @@ ms.workload: infrastructure-services
 ms.date: 3/23/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 072a4a483cb39a6f2827b6d5973ec544fd58d09c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 851c8c1eb13497355038ef4a8d5f1f9326c8c3bc
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Sanal Ağı nedir?
 
-Azure Sanal Ağı, Azure Sanal Makineleri (VM) gibi birçok Azure kaynağı türünün birbiriyle, İnternet ile ve şirket içi ağlarla güvenli şekilde iletişim kurmasına olanak sağlar. Azure Sanal Ağı aşağıdaki temel özellikleri sağlar: 
+Azure Sanal Ağı, Azure Sanal Makineleri (VM) gibi birçok Azure kaynağı türünün birbiriyle, İnternet ile ve şirket içi ağlarla güvenli şekilde iletişim kurmasına olanak sağlar. Azure Sanal Ağı aşağıdaki temel özellikleri sağlar:
 
 ## <a name="isolation-and-segmentation"></a>Yalıtma ve segmentasyon
 
@@ -42,7 +42,7 @@ Bir sanal ağdaki tüm kaynaklar varsayılan olarak İnternet’e giden yönde i
 
 Azure kaynakları, aşağıdaki yöntemlerden birini uygulayarak birbiriyle güvenli şekilde iletişim kurar:
 
-- **Bir sanal ağ üzerinden**: Azure App Service Ortamları ve Azure Sanal Makine Ölçek Kümeleri gibi sanal makineleri ve diğer birçok türde Azure kaynağını bir sanal ağa dağıtabilirsiniz. Bir sanal ağa dağıtabileceğiniz Azure kaynaklarının tam listesini görüntülemek için bkz. [Sanal ağ hizmeti tümleştirmesi](virtual-network-for-azure-services.md). 
+- **Bir sanal ağ üzerinden**: Azure App Service Ortamları, Azure Kubernetes Service (AKS) ve Azure Sanal Makine Ölçek Kümeleri gibi sanal makineleri ve diğer birçok türde Azure kaynağını bir sanal ağa dağıtabilirsiniz. Bir sanal ağa dağıtabileceğiniz Azure kaynaklarının tam listesini görüntülemek için bkz. [Sanal ağ hizmeti tümleştirmesi](virtual-network-for-azure-services.md). 
 - **Bir sanal ağ hizmeti uç noktası üzerinden**: Sanal ağ özel adres alanınızı ve sanal ağınızın kimliğini, doğrudan bir bağlantı üzerinden Azure Depolama hesapları ve Azure SQL Veritabanları gibi Azure hizmet kaynaklarına genişletin. Hizmet uç noktaları, kritik Azure hizmeti kaynaklarınızı yalnızca bir sanal ağla sınırlayarak güvenliğini sağlamanıza imkan verir. Daha fazla bilgi için bkz. [Sanal ağ hizmeti uç noktalarına genel bakış](virtual-network-service-endpoints-overview.md).
  
 ## <a name="communicate-with-on-premises-resources"></a>Şirket içi kaynaklarla iletişim kurma

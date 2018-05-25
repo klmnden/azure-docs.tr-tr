@@ -8,11 +8,11 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 071b209ffa8ffeb8ef6d998f08bcd68868e29911
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Depolama’ya Giriş
 
@@ -28,7 +28,7 @@ Azure Depolama, Microsoft’un modern veri depolama senaryolarına yönelik bulu
 
 Azure Depolama şu veri hizmetlerini içerir: 
 
-- [Azure Blobları](../blobs/storage-blobs-introduction.md): Metin ve ikili gün için yüksek düzeyde ölçeklenebilir nesne deposu.
+- [Azure Blobları](../blobs/storage-blobs-introduction.md): Metin ve ikili veriler için yüksek düzeyde ölçeklenebilir nesne deposu.
 - [Azure Dosyaları](../files/storage-files-introduction.md): Bulut veya şirket içi dağıtımlar için yönetilen dosya paylaşımları.
 - [Azure Kuyrukları](../queues/storage-queues-introduction.md): Uygulama bileşenleri arasında güvenilir mesajlaşmaya yönelik bir mesajlaşma deposu. 
 - [Azure Tabloları](../../cosmos-db/table-storage-overview.md): Yapılandırılmış verilerin şemasız depolanmasına yönelik bir NoSQL deposu.
@@ -179,7 +179,7 @@ Azure Storage kaynakları HTTP/HTTPS isteği yapabilen her dil ile erişilebilir
 * [Depolama Hizmetleri REST API'si](https://docs.microsoft.com/rest/api/storageservices/)
 * [.NET için Depolama İstemcisi Kitaplığı](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 * [Java/Android için Depolama İstemcisi Kitaplığı](https://docs.microsoft.com/java/api/overview/azure/storage)
-* [Node.js için Depolama İstemcisi Kitaplığı](https://docs.microsoft.com/en-us/javascript/api/azure-storage)
+* [Node.js için Depolama İstemcisi Kitaplığı](https://docs.microsoft.com/javascript/api/azure-storage)
 * [Python için Depolama İstemcisi Kitaplığı](https://github.com/Azure/azure-storage-python)
 * [PHP için Depolama İstemcisi Kitaplığı](https://github.com/Azure/azure-storage-php)
 * [Ruby için Depolama İstemcisi Kitaplığı](https://github.com/Azure/azure-storage-ruby)

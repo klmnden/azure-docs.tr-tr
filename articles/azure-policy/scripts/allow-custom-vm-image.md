@@ -1,38 +1,38 @@
 ---
-title: "Azure ilke json örnek - özel VM görüntüsü bir kaynak grubunda izin | Microsoft Docs"
-description: "Bu json örnek ilke özel resimler onaylanan kaynak grubundan gelen gerektirir."
+title: Azure İlkesi JSON örneği - Bir kaynak grubundan özel VM görüntüsüne izin verme | Microsoft Docs
+description: Bu JSON örnek ilkesi, özel görüntülerin onaylı bir kaynak grubundan gelmesini gerektirir.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 3da9a459f7e3008fc6a75473cc1a239d9cd5749b
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: ca2d25828bc184a783dd065df3cc8200a3af6ee3
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="allow-custom-vm-image-from-a-resource-group"></a>Bir kaynak grubundan özel VM görüntüsü'izin ver
+# <a name="allow-custom-vm-image-from-a-resource-group"></a>Bir kaynak grubundan özel VM kullanımına izin verin
 
-Bu json örnek ilke özel resimler onaylanan kaynak grubundan gelen gerektirir. Onaylanan kaynak grubunun adını belirtin.
+Bu JSON örnek ilkesi, özel görüntülerin onaylı bir kaynak grubundan gelmesini gerektirir. Onaylı kaynak grubunun adını belirtirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
 [!code-json[main](../../../policy-templates/samples/compute/custom-image-from-rg/azurepolicy.json "Allow custom VM image from a Resource Group")]
 
 
-Bu şablonu kullanarak dağıtabilirsiniz [Azure portal](#deploy-with-the-portal), ile [PowerShell](#deploy-with-powershell) veya [Azure CLI](#deploy-with-azure-cli).
+[Azure portalı](#deploy-with-the-portal) kullanarak, [PowerShell](#deploy-with-powershell) ile veya [Azure CLI](#deploy-with-azure-cli) ile bu şablonu dağıtabilirsiniz.
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
@@ -49,9 +49,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtım temizleme
+### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -67,9 +67,9 @@ az policy definition create --name 'custom-image-from-rg' --display-name 'Allow 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "custom-image-from-rg"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtım temizleme
+### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -77,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Ek Azure İlkesi şablon örnekleri Azure ilke belgelerinde bulunabilir.
+Ek Azure İlkesi şablon örnekleri Azure İlkesi belgelerinde bulunabilir

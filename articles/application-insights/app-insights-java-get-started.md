@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 36c70ff4d6f09faa99db2fdd06c6e2b27816c143
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a1212befd1cc6aaf74bc596459aa5be1ef689813
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/04/2018
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java web projesinde Application Insights ile başlarken
 
@@ -178,7 +178,7 @@ package devCamp.WebApp.configurations;
 
     import javax.servlet.Filter;
 
-    import org.springframework.boot.context.embedded.FilterRegistrationBean;
+    import org.springframework.boot.web.servlet.FilterRegistrationBean;
     import org.springframework.context.annotation.Bean;
     import org.springframework.core.Ordered;
     import org.springframework.beans.factory.annotation.Value;
@@ -217,6 +217,11 @@ package devCamp.WebApp.configurations;
             return new WebRequestTrackingFilter(applicationName);
         }   
     }
+```
+
+[!NOTE] Spring Boot 1.3.8 veya daha eski bir sürüm kullanıyorsanız, FilterRegistrationBean’i aşağıdaki satırla değiştirin
+```Java
+    import org.springframework.boot.context.embedded.FilterRegistrationBean;
 ```
 
 Bu sınıf, `WebRequestTrackingFilter` filtresini, http filtresi zincirinde ilk filtre olacak şekilde yapılandırır. Varsa, işletim sistemi ortam değişkeninden izleme anahtarını çeker.

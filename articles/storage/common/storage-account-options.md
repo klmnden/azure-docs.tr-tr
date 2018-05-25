@@ -2,18 +2,18 @@
 title: Azure Depolama hesabı seçenekleri | Microsoft Docs
 description: Azure Depolama kullanma seçeneklerini anlama.
 services: storage
-author: jirwin
+author: hux
 manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 01/17/2018
-ms.author: jirwin
-ms.openlocfilehash: 75d1580df5e36b2c88939fde9077c5a1948f6348
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.date: 05/02/2018
+ms.author: hux
+ms.openlocfilehash: 69da15b98e6c519a3a8352cc7ca7212286cb4e52
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="azure-storage-account-options"></a>Azure Depolama hesabı seçenekleri
 
@@ -32,7 +32,7 @@ Aşağıdaki bölümde her hesap türü daha ayrıntılı olarak açıklanmışt
 
 Genel amaçlı v2 (GPv2) hesapları bloblar, dosyalar, kuyruklar ve tablolar için en yeni özelliklerin tümünü destekleyen depolama hesaplarıdır. GPv2 hesapları, GPv1 ve Blob depolama hesaplarında desteklenen tüm API’leri ve özellikleri destekler. Bunlar, ilgili hesap türlerindeki dayanıklılık, kullanılabilirlik, ölçeklenebilirlik ve performans özelliklerini de destekler. GPv2 hesapları için fiyatlandırma, gigabayt başına en düşük fiyatları ve sektörle rekabet edebilecek düzeyde işlem fiyatları sunmak üzere tasarlanmıştır.
 
-PowerShell veya Azure CLI kullanarak GPv1 hesabınızı bir GPv2 hesabına yükseltebilirsiniz. 
+Azure portalı, PowerShell veya Azure CLI kullanarak GPv1 hesabınızı bir GPv2 hesabına yükseltebilirsiniz. 
 
 Bir GPv2 depolama hesabındaki blok blobları için hesap düzeyinde sık ve seyrek erişimli depolama katmanlarından birini, blob düzeyinde ise erişim düzenleri temelinde sık erişimli, seyrek erişimli ve arşiv katmanlarından birini seçebilirsiniz. Maliyetleri iyileştirmek için sık, seyrek ve nadiren erişilen verileri sırasıyla sık, seyrek ve arşiv depolama katmanlarında depolayın. 
 
@@ -72,8 +72,6 @@ Genel amaçlı v1 (GPv1) depolama hesapları, en eski depolama hesabı türüdü
 ### <a name="blob-storage-accounts"></a>Blob Storage hesapları
 
 Blob depolama hesapları, GPv2 hesaplarındaki tüm blok blobu özelliklerini destekler, ancak yalnızca blok bloblarını desteklemekle sınırlıdır. Fiyatlandırma, büyük ölçüde genel amaçlı v2 hesaplarının fiyatlandırması gibidir. Müşteriler Blob depolama hesapları ile GPv2 arasındaki fiyat farklarını gözden geçirmeli ve GPv2’ye yükseltmeyi göz önünde bulundurmalıdır. Bu yükseltme geri alınamaz.
-
-Blob depolama hesaplarını GPv2’ye yükseltme olanağı yakında sunulacaktır.
 
 > [!NOTE]
 > Blob Storage hesapları yalnızca blok ve ilave bloblarını destekler, sayfa bloblarını desteklemez.
@@ -115,9 +113,10 @@ Tüm depolama hesapları, blob depolama için her blobun katmanını temel alan 
 
 Bu bölümde Azure portalı kullanarak aşağıdaki senaryolar gösterilmektedir:
 
-* GPv2 depolama hesabı oluşturma.
-* GPv1 veya Blob depolama hesabını GPv2 depolama hesabına dönüştürme.
-* GPv2 depolama hesabında hesap ve blob katmanı ayarlama.
+* [GPv2 depolama hesabı oluşturma.](#create-a-gpv2-storage-account-using-the-azure-portal)
+* [GPv1 veya Blob depolama hesabını GPv2 depolama hesabına dönüştürme.](#convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal)
+* [GPv2 depolama hesabında hesap ayarlama.](#change-the-storage-tier-of-a-gpv2-storage-account-using-the-azure-portal)
+* [Blob depolama veya GPv2 depolama hesabında blob katmanı ayarlama.](#change-the-storage-tier-of-a-blob-using-the-azure-portal)
 
 Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde erişim katmanı arşiv olarak ayarlayamazsınız. Arşiv katmanını yalnızca belirli bir blob için ayarlayabilirsiniz.
 
@@ -141,7 +140,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 6. Depolama hesabı için çoğaltma seçeneğini seçin: **LRS**, **ZRS**, **GRS** veya **RA-GRS**. Varsayılan seçenek **RA-GRS**’dir.
 
-    LRS = yerel olarak yedekli depolama; ZRS = bölgesel olarak yedekli depolama; GRS = coğrafi olarak yedekli depolama (iki bölge); RA-GRS okuma erişimli, coğrafi olarak yedekli depolama (ikincisine okuma erişiminin bulunduğu 2 bölge).
+    LRS = yerel olarak yedekli depolama; ZRS = bölgesel olarak yedekli depolama; GRS = coğrafi olarak yedekli depolama (iki bölge); RA-GRS = okuma erişimli, coğrafi olarak yedekli depolama (ikincisine okuma erişiminin bulunduğu 2 bölge).
 
     Azure Storage çoğaltma seçenekleri ile ilgili ayrıntılar için bkz. [Azure Storage çoğaltma](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -155,7 +154,7 @@ Bu ayar tüm depolama hesabına uygulandığından aşağıdaki örneklerde eri�
 
 11. Depolama hesabını oluşturmak için **Oluştur**’a tıklayın.
 
-### <a name="convert-a-gpv1-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Azure portalını kullanarak bir GPv1 hesabını GPv2 depolama hesabına dönüştürme
+### <a name="convert-a-gpv1-or-blob-storage-account-to-a-gpv2-storage-account-using-the-azure-portal"></a>Azure portalını kullanarak GPv1 veya Blob depolama hesabını GPv2 depolama hesabına dönüştürme
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 
@@ -315,7 +314,7 @@ GPv2’den indirgeme desteklenmediğinden, hesaplarınızı GPv2’ye yükseltme
 
 **Mevcut depolama hesabımı GPv2 depolama hesabına yükseltebilir miyim?**
 
-Evet. GPv1 hesapları, portalda veya PowerShell ya da CLI kullanılarak kolayca GPv2’ye yükseltilebilir. Blob depolama hesapları PowerShell veya CLI kullanılarak GPv2’ye yükseltilebilir. Blob depolama hesaplarını portalda GPv2’ye yükseltme olanağı yakında sunulacaktır.
+Evet. GPv1 veya Blob depolama hesapları, portalda veya PowerShell ya da CLI kullanılarak kolayca GPv2’ye yükseltilebilir. 
 
 GPv2’den indirgeme desteklenmediğinden, hesaplarınızı GPv2’ye yükseltmeden önce tüm fiyatlandırma etkilerini göz önünde bulundurun.
 
@@ -329,7 +328,7 @@ Evet, depolama hesabındaki **Erişim Katmanı** özniteliğini ayarlayarak hesa
 
 **Blob depolama hesabımdaki depolama katmanını hangi sıklıkta değiştirebilirim?**
 
-Depolama katmanını değiştirme sıklığına ilişkin bir sınırlama koymuyoruz, ancak depolama katmanını seyrek erişimliden sık erişimliye değiştirmenin büyük maliyetler doğurduğuna dikkat edin. Depolama katmanını sık değiştirmeniz önerilmez.
+Depolama katmanını değiştirme sıklığına ilişkin bir sınırlama yoktur ancak depolama katmanını seyrek erişimliden sık erişimliye değiştirmenin büyük maliyetler doğurduğuna dikkat edin. Depolama katmanını sık değiştirmeniz önerilmez.
 
 **Seyrek erişimli depolama katmanındaki bloblar, sık erişimli depolama katmanındakilerden farklı mı davranır?**
 

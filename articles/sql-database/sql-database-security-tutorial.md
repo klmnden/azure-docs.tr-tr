@@ -7,13 +7,13 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/24/2018
 ms.author: daredis
-ms.openlocfilehash: 68a2a61dd5821470d30e3735ea6a2df89360cbb2
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="secure-your-azure-sql-database"></a>Azure SQL Veritabanınızın güvenliğini sağlama
 
@@ -106,7 +106,7 @@ Bir istemci uygulama ile SQL Veritabanı arasında güvenli, şifreli bir bağla
 - Şifreli bir bağlantı isteyecek ve
 - Sunucu sertifikasına güvenmeyecek şekilde. 
 
-Bu yapılandırma, Aktarım Katmanı Güvenliği (TLS) kullanarak bağlantı kurar ve ortadaki adam saldırılarının riskini azaltır. SQL Veritabanınızın desteklenen istemci sürücüleri için doğru şekilde yapılandırılmış bağlantı dizelerini, bu ekran görüntüsünde ADO.net için gösterildiği gibi Azure portalından alabilirsiniz.
+Bu yapılandırma, Aktarım Katmanı Güvenliği (TLS) kullanarak bağlantı kurar ve ortadaki adam saldırılarının riskini azaltır. SQL Veritabanınızın desteklenen istemci sürücüleri için doğru şekilde yapılandırılmış bağlantı dizelerini, bu ekran görüntüsünde ADO.net için gösterildiği gibi Azure portalından alabilirsiniz. TLS ve bağlantı hakkında daha fazla bilgi için bkz. [TLS konuları](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
 
 1. Soldaki menüden **SQL veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın.
 

@@ -1,37 +1,37 @@
 ---
-title: "Azure ilke json örnek - izin verilen SQL DB SKU'ları | Microsoft Docs"
-description: "Bu json örnek ilke onaylanmış bir SKU kullanmak için SQL veritabanları gerektirir."
+title: Azure İlkesi JSON örneği - İzin verilen SQL DB SKU’ları | Microsoft Docs
+description: Bu JSON örnek ilkesi, SQL veritabanlarının onaylı bir SKU kullanmasını gerektirir.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 3799c61993fd1e7713e2823e3f933525dc65b18d
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: 6e72816204d5d811715d8ef24e9d473e22a7c31c
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="allowed-sql-db-skus"></a>SQL DB SKU'ları izin
+# <a name="allowed-sql-db-skus"></a>İzin verilen SQL DB SKU’ları
 
-Bu ilke, onaylanmış bir SKU kullanmak için SQL veritabanları gerektirir. İzin verilen SKU kimlikleri bir dizi veya bir dizi izin verilen SKU adını belirtin.
+Bu ilke, SQL veritabanlarının onaylı bir SKU kullanmasını gerektirir. İzin verilen bir SKU kimlikleri dizisi veya izin verilen bir SKU adları dizisi belirtirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
 [!code-json[main](../../../policy-templates/samples/SQL/sql-db-skus/azurepolicy.json "Allowed SQL DB SKUs")]
 
-Bu şablonu kullanarak dağıtabilirsiniz [Azure portal](#deploy-with-the-portal), ile [PowerShell](#deploy-with-powershell) veya [Azure CLI](#deploy-with-azure-cli).
+[Azure portalı](#deploy-with-the-portal) kullanarak, [PowerShell](#deploy-with-powershell) ile veya [Azure CLI](#deploy-with-azure-cli) ile bu şablonu dağıtabilirsiniz.
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
@@ -49,9 +49,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtım temizleme
+### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -67,9 +67,9 @@ az policy definition create --name 'sql-db-skus' --display-name 'Allowed SQL DB 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "sql-db-skus"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtım temizleme
+### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -77,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ek Azure ilke şablonu örneklerdir adresindeki [Azure ilke şablonları](../json-samples.md).
+- Ek Azure İlkesi şablonu örnekleri [Azure İlkesi Şablonları](../json-samples.md)’ndadır.

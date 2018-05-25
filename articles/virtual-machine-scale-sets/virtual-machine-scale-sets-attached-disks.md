@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: negat
-ms.openlocfilehash: ec11a2d66530129fb61d97681e6882b887c8654c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dd13f1feedf53255daa351bd087845ec5cc845a
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Azure sanal makine ölçek kümeleri ve bağlı veri diskleri
 Kullanılabilir depolama alanınızı genişletmek için Azure [sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets/), bağlı veri diskleri içeren sanal makine örneklerini destekler. Ölçek kümesi oluşturulduğunda veya mevcut bir ölçek kümesine veri diskleri ekleyebilirsiniz.
@@ -91,21 +91,12 @@ Bir Linux kümesinde veri disklerini otomatik olarak hazırlamak için şunları
 ```
 
 
-## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>Önceden doldurulmuş veri disklerini mevcut bir ölçek kümesine ekleme 
-> Tasarım gereği, mevcut ölçek kümesi modeline disk eklediğinizde, disk her zaman boş oluşturulur. Bu senaryo ayrıca ölçek kümesi tarafından oluşturulan yeni örnekleri içerir. Bu davranışın nedeni ölçek kümesinin boş veri diski tanımına sahip olmasıdır. Mevcut bir ölçek kümesi modeli için önceden doldurulmuş veri sürücüleri oluşturmak için iki seçenekten birini seçebilirsiniz:
-
-* Örnek 0 VM’sinden verileri özel bir betik çalıştırarak diğer VM’lerdeki veri disklerine kopyalayabilirsiniz.
-* İşletim sistemi diskine ve veri diskine (gerekli verilerle) sahip yönetilen bir görüntü oluşturup görüntüde yeni bir ölçek kümesi oluşturabilirsiniz. Bu şekilde oluşturulan her yeni VM, ölçek kümesi tanımında sağlanan bir veri diskine sahip olur. Bu tanım, özelleştirilmiş verilere sahip bir veri disk görüntüsüne başvuracağından, ölçek kümesindeki her sanal makine bu değişiklikleri otomatik olarak içerir.
-
-> Özel bir görüntü oluşturmak için izlenecek yol şurada bulunabilir: [Azure’da genelleştirilmiş bir VM’nin yönetilen görüntüsü oluşturma](/azure/virtual-machines/windows/capture-image-resource/) 
-
-> Kullanıcının gerekli verileri içeren örnek 0 VM’yi yakalaması, ardından da görüntü tanımı için bu VHD’yi kullanması gerekir.
+## <a name="adding-pre-populated-data-disks-to-an-existing-scale-set"></a>Önceden doldurulmuş veri disklerini mevcut bir ölçek kümesine ekleme
+Ölçek kümesi modelinde belirtilen veri diskleri her zaman boştur. Ancak bir ölçek kümesindeki belirli bir VM’ye var olan bir veri diski ekleyebilirsiniz. Bu özellik [github](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)’da örnekler ile önizleme aşamasındadır. Verileri ölçek kümesindeki tüm VM’lere yaymak istiyorsanız, veri diskinizi çoğaltarak ölçek kümesindeki her bir VM’ye ekleyebilirsiniz, verileri içeren özel bir görüntü oluşturup ölçek kümesini bu özel görüntüden sağlayabilirsiniz veya Azure Dosyalar ya da benzer bir veri depolama teklifi kullanabilirsiniz.
 
 
 ## <a name="additional-notes"></a>Ek notlar
 Azure Yönetilen diskleri ve ölçek kümesi bağlı veri diskleri için destek, Microsoft.Compute API’sinin [_2016-04-30-preview_](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-compute/2016-04-30-preview/swagger/compute.json) veya üstü sürümlere eklenmiştir.
-
-Ölçek kümeleri için bağlı disk desteğinin ilk uygulamasında, veri disklerini ölçek kümesindeki VM’lere bağlama/VM’lerden ayırma işlemini her VM için ayrı ayrı gerçekleştiremezsiniz.
 
 Ölçek kümelerindeki bağlı veri diskleri için Azure portalı desteği başlangıçta sınırlıydı. Gereksinimlerinize bağlı olarak, bağlı diskleri yönetmek için Azure şablonları, CLI, PowerShell, SDK’lar ve REST API kullanabilirsiniz.
 

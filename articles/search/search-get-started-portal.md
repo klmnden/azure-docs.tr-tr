@@ -7,13 +7,13 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 12/04/2017
+ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: f24777fe5bb482eb74aba4acbd7313665f22c38b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9ee88b254131b40fdf1e01b771afa92127734e18
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Portalda Azure Search dizinini oluşturma, sorgulama ve filtreleme
 
@@ -110,7 +110,7 @@ Artık sorgulamaya hazır bir arama dizininiz var. **Arama gezgini**, portalda y
 
    ![Dizin ve API komutları][6]
 
-3. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Önizleme API’leri ile henüz genel kullanıma sunulmamış yeni özelliklere erişebilirsiniz. Aşağıdaki sorgular için yönlendirilmezseniz genel kullanıma sunulan sürümü (2016-09-01) kullanın. 
+3. Hangi REST API’lerin kullanılabildiğini görmek için komut çubuğundan **API sürümünü ayarla**’ya tıklayın. Önizleme API’leri ile henüz genel kullanıma sunulmamış yeni özelliklere erişebilirsiniz. Aşağıdaki sorgular için yönlendirilmezseniz genel kullanıma sunulan sürümü (2017-11-11) kullanın. 
 
     > [!NOTE]
     > [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) ve [.NET kitaplığı](search-howto-dotnet-sdk.md#core-scenarios) birbirine tamamen eşdeğerdir, ancak **Arama gezgini** yalnızca REST çağrılarını işleyebilir. Hem [basit sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) hem de [tam Lucene sorgu ayrıştırıcısına](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) yönelik söz dizimlerinin yanı sıra [Belgede Arama](https://docs.microsoft.com/rest/api/searchservice/search-documents) işlemlerinde kullanılabilen arama parametrelerini kabul eder.

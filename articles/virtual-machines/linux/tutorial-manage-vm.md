@@ -1,6 +1,6 @@
 ---
-title: Azure CLI ile Linux VM’leri Oluşturma ve Yönetme | Microsoft Docs
-description: Öğretici - Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
+title: Öğretici - Azure CLI ile Linux VM’leri oluşturma ve yönetme | Microsoft Docs
+description: Bu öğreticide, Azure CLI 2.0 kullanarak Azure’da Linux VM’leri oluşturup yönetmeyi öğrenirsiniz
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a3826db21d2e4ed447e1ef8d4016ff1dbbf75b1c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4e8be3af81ce74b033b2a15ceaf857540c1d9a6e
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Azure CLI ile Linux VM’leri Oluşturma ve Yönetme
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Öğretici: Azure CLI 2.0 ile Linux VM’leri Oluşturma ve Yönetme
 
 Azure sanal makineleri tam olarak yapılandırılabilir ve esnek bir bilgi işlem ortamı sağlar. Bu öğretici VM boyutu seçme, VM görüntüsü seçme ve VM dağıtma gibi temel Azure sanal makine dağıtımı öğelerini kapsar. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
@@ -33,10 +33,9 @@ Azure sanal makineleri tam olarak yapılandırılabilir ve esnek bir bilgi işle
 > * VM’yi yeniden boyutlandırma
 > * VM durumunu görüntüleme ve anlama
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Kaynak grubu oluşturma
 
@@ -85,7 +84,7 @@ VM’nin oluşturulması birkaç dakika sürebilir. VM oluşturulduktan sonra, A
 Artık Azure Cloud Shell’de SSH ile veya yerel bilgisayarınızdan VM’ye bağlanabilirsiniz. Örnek IP adresini önceki adımda not ettiğiniz `publicIpAddress` ile değiştirin.
 
 ```bash
-ssh 52.174.34.95
+ssh azureuser@52.174.34.95
 ```
 
 VM’de oturum açtıktan sonra, uygulamaları yükleyebilir ve yapılandırabilirsiniz. İşiniz bittiğinde, normal olarak SSH oturumunu kapatın:

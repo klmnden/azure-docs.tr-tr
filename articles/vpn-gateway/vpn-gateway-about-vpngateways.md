@@ -7,7 +7,7 @@ author: cherylmc
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
+Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
 ms.devlang: na
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 30a2029fdf169747570d8c07915270ffae8ef8f5
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Ağ Geçidi nedir?
 
@@ -28,9 +28,9 @@ VPN ağ geçidi, genel İnternet üzerinden bir Azure sanal ağı ile şirket i�
 
 ## <a name="whatis"></a>Sanal ağ geçidi nedir?
 
-Sanal bir ağ geçidi, *ağ geçidi alt ağı* olarak adlandırılan belirli bir alt ağa dağıtılmış iki ya da daha fazla sanal makineden oluşur. Ağ geçidi alt ağında bulunan VM'ler, sanal ağ geçidini oluşturduğunuzda oluşturulur. Sanal ağ geçidi VM'leri, ağ geçidine özgü yönlendirme tablolarını ve ağ geçidi hizmetlerini içerecek şekilde yapılandırılır. Sanal ağ geçidinin parçası olan VM'leri doğrudan yapılandıramazsınız ve ağ geçidi alt ağına hiçbir koşulda ek kaynak dağıtmamanız gerekir.
+Sanal bir ağ geçidi, sizin tarafınızdan oluşturulan ve *ağ geçidi alt ağı* olarak adlandırılan belirli bir alt ağa dağıtılmış iki ya da daha fazla sanal makineden oluşur. Ağ geçidi alt ağında bulunan VM'ler, sanal ağ geçidini oluşturduğunuzda oluşturulur. Sanal ağ geçidi VM'leri, ağ geçidine özgü yönlendirme tablolarını ve ağ geçidi hizmetlerini içerecek şekilde yapılandırılır. Sanal ağ geçidinin parçası olan VM'leri doğrudan yapılandıramazsınız ve ağ geçidi alt ağına hiçbir koşulda ek kaynak dağıtmamanız gerekir.
 
-Bir VPN ağ geçidinin oluşturulması 45 dakika sürebilir. Bir VPN ağ geçidi oluşturduğunuzda ağ geçidi VM’leri ağ geçidi alt ağına dağıtılır ve belirttiğiniz ayarlarla yapılandırılır. Bir VPN ağ geçidi oluşturduktan sonra bu VPN ağ geçidi ile başka bir VPN ağ geçidi arasında bir IPsec/IKE VPN tüneli bağlantısı (Sanal Ağlar arası) oluşturabilir veya VPN ağ geçidi ile bir şirket içi VPN cihazı (Siteden Siteye) arasında IPsec/IKE VPN tünel bağlantısı oluşturabilirsiniz. Ayrıca, bir konferans ya da ev gibi uzak bir konumdan sanal ağınıza bağlanmanızı sağlayan bir Noktadan Siteye VPN bağlantısı (IKEv2 veya SSTP üzerinden VPN) oluşturabilirsiniz.
+Bir sanal ağ geçidinin oluşturulması 45 dakika sürebilir. Bir sanal ağ geçidi oluşturduğunuzda ağ geçidi VM’leri ağ geçidi alt ağına dağıtılır ve belirttiğiniz ayarlarla yapılandırılır. Yapılandırdığınız ayarlardan biri ağ geçidi türüdür. 'vpn' ağ geçidi türü, oluşturulan sanal ağ geçidi türünün VPN ağ geçidi olduğunu gösterir. Bir VPN ağ geçidi oluşturduktan sonra bu VPN ağ geçidi ile başka bir VPN ağ geçidi arasında bir IPsec/IKE VPN tüneli bağlantısı (Sanal Ağlar arası) oluşturabilir veya VPN ağ geçidi ile bir şirket içi VPN cihazı (Siteden Siteye) arasında IPsec/IKE VPN tünel bağlantısı oluşturabilirsiniz. Ayrıca, bir konferans ya da ev gibi uzak bir konumdan sanal ağınıza bağlanmanızı sağlayan bir Noktadan Siteye VPN bağlantısı (IKEv2 veya SSTP üzerinden VPN) oluşturabilirsiniz.
 
 ## <a name="configuring"></a>VPN Gateway yapılandırma
 

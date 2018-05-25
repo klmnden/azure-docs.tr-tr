@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5b94092d1fbcb76210f132d4b08d131533e25397
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: be19130f7a2f45049cd7e08bb961ac6cb5aa14ff
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD denetim etkinliği başvurusu
 
@@ -38,7 +38,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
  
 
 
-## <a name="access-reviews"></a>Erişim Gözden Geçirmeleri
+## <a name="access-reviews"></a>Erişim gözden geçirmeleri
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -74,7 +74,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 
 
 
-## <a name="account-provisioning"></a>Hesap Sağlama
+## <a name="account-provisioning"></a>Hesap sağlama
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -86,7 +86,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Uygulama Yönetimi|OAuth2PermissionGrant ekleme|
 |Uygulama Yönetimi|Hizmet sorumlusuna uygulama rol ataması ekleme|
 
-## <a name="application-proxy"></a>Uygulama Ara Sunucusu
+## <a name="application-proxy"></a>Uygulama proxy’si
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -107,7 +107,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Kaynak|Hizmet sorumlusunu kaldırma|
 
 
-## <a name="automated-password-rollover"></a>Otomatik Parola Geçişi
+## <a name="automated-password-rollover"></a>Otomatik parola geçişi
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -343,7 +343,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Kaynak|Uygulamaya bir id_token verme|
 
 
-## <a name="core-directory"></a>Çekirdek Dizin
+## <a name="core-directory"></a>Çekirdek dizin
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -477,7 +477,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Kullanıcı Yönetimi|Ata|
 
 
-## <a name="identity-protection"></a>Kimlik Koruması
+## <a name="identity-protection"></a>Kimlik koruması
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -496,7 +496,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Kullanıcı Yönetimi|Erişim gözden geçirmesi oluşturma|
 
 
-## <a name="invited-users"></a>Davetli Kullanıcılar
+## <a name="invited-users"></a>Davetli kullanıcılar
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -547,7 +547,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 
 
 
-## <a name="self-service-group-management"></a>Self Servis Grup Yönetimi
+## <a name="self-service-group-management"></a>Self servis grup yönetimi
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -562,7 +562,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Grup Yönetimi|Yönetici geçici bir parola oluşturur|
 
 
-## <a name="self-service-password-management"></a>Self Servis Parola Yönetimi
+## <a name="self-service-password-management"></a>Self servis parola yönetimi
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|
@@ -578,7 +578,7 @@ Bu makalede, denetim günlüklerinize kaydedilebilecek denetim etkinlikleri list
 |Kullanıcı Yönetimi|Self servis parola sıfırlaması engellendi|
 
 
-## <a name="terms-of-use"></a>Kullanım Koşulları
+## <a name="terms-of-use"></a>Kullanım koşulları
 
 |Denetim Kategorisi|Etkinlik|
 |---|---|

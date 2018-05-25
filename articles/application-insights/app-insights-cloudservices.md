@@ -1,9 +1,9 @@
 ---
-title: "Azure Cloud Services için Application Insights | Microsoft Docs"
-description: "Application Insights ile web ve çalışan rollerinizi etkili bir şekilde izleyin"
+title: Azure Cloud Services için Application Insights | Microsoft Docs
+description: Application Insights ile web ve çalışan rollerinizi etkili bir şekilde izleyin
 services: application-insights
-documentationcenter: 
-keywords: "WAD2AI, Azure Tanılama"
+documentationcenter: ''
+keywords: WAD2AI, Azure Tanılama
 author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: dd35ef2239469be6ecf478f44a7e97389e5c5dd3
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/01/2018
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure Cloud Services için Application Insights
 [Microsoft Azure Cloud hizmeti uygulamaları](https://azure.microsoft.com/services/cloud-services/), Application Insights SDK'larındaki verilerle Bulut Hizmetlerinizdeki [Azure Tanılama](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) verileri birleştirilerek kullanılabilirlik, performans, hata ve kullanım açısından [Application Insights][start] tarafından izlenebilir. Uygulamanızın gerçek hayattaki performansı ve etkinliğine ilişkin aldığınız geri bildirimlerden yararlanarak her geliştirme yaşam döngüsünde tasarımın yönü konusunda bilinçli kararlar alabilirsiniz.
@@ -223,7 +223,7 @@ Sisteminizin genel bir görünümüne sahip olmak için temel izleme grafiklerin
 
 Sisteminiz tarafından Stream Analytics gibi diğer Azure hizmetleri kullanılıyorsa bunların izleme grafiklerini de dahil edin. 
 
-İstemci mobil uygulamanız varsa önemli kullanıcı işlemlerinde özel olaylar gönderilmesi için bir kod ekleyin ve bir [HockeyApp köprüsü](app-insights-hockeyapp-bridge-app.md) oluşturun. [Analiz](app-insights-analytics.md)’de olay sayılarını görüntüleyecek sorgular oluşturun ve bunları panoya sabitleyin.
+İstemci mobil uygulamanız varsa, [App Center](app-insights-mobile-center-quickstart.md) kullanın. [Analiz](app-insights-analytics.md)’de olay sayılarını görüntüleyecek sorgular oluşturun ve bunları panoya sabitleyin.
 
 ## <a name="example"></a>Örnek
 [Örnek](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService), bir web rolü ve iki çalışan rolüne sahip bir hizmeti izler.

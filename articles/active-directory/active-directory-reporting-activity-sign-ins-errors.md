@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 05/02/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47894f0a3d7b74c8d0e271afb7d2657ce7d3be0c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ebad9304c38333173cec66c6b5574a9b45b17cd1
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -67,14 +67,21 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50058|Sağlanan kimlik bilgilerinde kullanıcının kimliğiyle ilgili hiçbir bilgi bulunamadı veya Kullanıcı, kiracıda bulunamadı veya Sessiz bir oturum açma isteği gönderildi ancak hiçbir kullanıcı oturum açmadı veya Hizmet, kullanıcının kimliğini doğrulayamadı.|
 |50072|Kullanıcının ikinci faktör kimlik doğrulamasına kaydolması gerekir (etkileşimli)|
 |50074|Kullanıcı MFA testini geçemedi.|
+|50076|Kullanıcı MFA testini geçemedi (etkileşimsiz)|
 |50079|Kullanıcının ikinci faktör kimlik doğrulamasına kaydolması gerekir.|
 |50089|Akış belirteci doğrulaması, akış belirteci süre sonu nedeniyle başarısız oldu.|
 |50097|Cihazın kimliği doğrulanamadı.|
 |50105|Oturum açmış olan kullanıcı, bu uygulama için bir role atanmadı.|
+|50125|Oturum açma bir parola sıfırlama veya parola kayıt girişi nedeniyle yarıda kesildi|
 |50126|Geçersiz kullanıcı adı veya parola ya da Geçersiz şirket içi kullanıcı adı veya parola.|
+|50127|Kullanıcının bu içeriğe erişmek için bir aracı uygulaması yüklemesi gerekiyor.|
+|50129|Cihaz Çalışma alanına katılmamış - Cihazın kaydedilmesi için çalışma alanına katılması gerekiyor.|
 |50131|Çeşitli koşullu erişim hatalarında kullanılır. Örneğin: Hatalı Windows cihazı durumu, şüpheli etkinlik nedeniyle istek engellendi, erişim ilkesi ve güvenlik ilkesi kararları.|
 |50133|Süresi dolduğu veya yakın zamanda parola değiştirildiği için oturum geçersiz.|
+|50140|Kullanıcı cihazda oturumunu açık tutmak için onay istedi|
 |50144|Kullanıcının Active Directory parolasının süresi doldu.|
+|53000|Koşullu Erişim ilkesi uyumlu bir cihaz gerektiriyor ve cihaz uyumlu değil.|
+|53003|Koşullu erişim ilkeleri nedeniyle erişim engellendi.|
 |65001|X uygulamasının Y uygulamasına erişim izni yok veya erişim izni iptal edildi. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Bu kullanıcı veya kaynak için etkileşimli yetkilendirme isteği gönderin. Veya Kullanıcı ya da yönetici X kimliğiyle uygulamanın kullanılmasını onaylamadı. Kaynak: Z için Uygulama: Y adına işlem yapmak üzere kiracı yöneticinize bir yetkilendirme isteği gönderin.|
 |65005|Uygulamaya gereken kaynak erişim listesi, kaynak tarafından bulunabilen uygulamaları içermiyor veya İstemci uygulaması kendi gerekli kaynak erişim listesinde belirtilmemiş bir kaynağa erişim isteğinde bulundu veya Graph hizmeti hatalı istek döndürdü veya kaynak bulunamadı.|
 |70001|X adlı uygulama Y adlı kiracıda bulunamadı. Uygulama, kiracının yöneticisi tarafından yüklenmediyse veya kiracıdaki herhangi bir kullanıcı tarafından onaylanmadıysa bu durum ortaya çıkabilir. Kimlik doğrulaması isteğinizi yanlış kiracıya göndermiş olabilirsiniz.|
@@ -98,8 +105,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |81013|Kullanıcının Kerberos anahtarındaki bilgiler temel alınarak kullanıcı nesnesi bulunamadı.|
 |90014|Kimlik bilgilerinde beklenen bir alanın bulunamadığı çeşitli durumlarda kullanılır.|
 |90093|Graph istek için yasak hata kodu döndürdü.|
-
-
+|90094|Yönetici onayı gereklidir.|
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha ayrıntılı bilgi için bkz. [Azure Active Directory portalındaki oturum açma etkinlik raporları](active-directory-reporting-activity-sign-ins.md).

@@ -1,37 +1,37 @@
 ---
-title: "Azure ilke json örnek - izin verilen Express rota SKU'ları | Microsoft Docs"
-description: "Bu json örnek ilke Express yollar onaylanmış bir SKU kullanmanızı gerektirir."
+title: Azure İlkesi JSON örneği - İzin verilen Express Route SKU’ları | Microsoft Docs
+description: Bu JSON örnek ilkesi, Express Routes’un onaylı bir SKU kullanmasını gerektirir.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: f3b2cedbfe4bbeff16bcf65f3b45057ff75c3f7e
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: 103acb1d6b031f9ef1724ae72ce8c894403f40ed
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="allowed-express-route-skus"></a>İzin verilen hızlı rota SKU'ları
+# <a name="allowed-express-route-skus"></a>İzin verilen Express Route SKU’ları
 
-Bu ilke, Express yollar onaylanmış bir SKU kullanmanızı gerektirir. İzin verilen SKU'lar dizisi belirtin.
+Bu ilke, Express Routes’un onaylı bir SKU kullanmasını gerektirir. İzin verilen bir SKU dizisi belirtirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
 [!code-json[main](../../../policy-templates/samples/Network/express-route-skus/azurepolicy.json "Allowed Express Route SKUs")]
 
-Bu şablonu kullanarak dağıtabilirsiniz [Azure portal](#deploy-with-the-portal), ile [PowerShell](#deploy-with-powershell) veya [Azure CLI](#deploy-with-azure-cli).
+[Azure portalı](#deploy-with-the-portal) kullanarak, [PowerShell](#deploy-with-powershell) ile veya [Azure CLI](#deploy-with-azure-cli) ile bu şablonu dağıtabilirsiniz.
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
@@ -48,9 +48,9 @@ $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope> 
 $assignment
 ```
 
-### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtım temizleme
+### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup
@@ -66,9 +66,9 @@ az policy definition create --name 'express-route-skus' --display-name 'Allowed 
 az policy assignment create --name <assignmentname> --scope <scope> --policy "express-route-skus"
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtım temizleme
+### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes
@@ -76,4 +76,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ek Azure ilke şablonu örneklerdir adresindeki [Azure ilke şablonları](../json-samples.md).
+- Ek Azure İlkesi şablonu örnekleri [Azure İlkesi Şablonları](../json-samples.md)’ndadır.

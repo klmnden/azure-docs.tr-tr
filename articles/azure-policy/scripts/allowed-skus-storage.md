@@ -1,37 +1,37 @@
 ---
-title: "Azure ilke json Örnek - Depolama hesapları ve sanal makineler için izin verilen SKU'lar | Microsoft Docs"
-description: "Bu json örnek ilke depolama hesapları ve sanal makineleri onaylanan SKU'ları kullanmanızı gerektirir."
+title: Azure İlkesi JSON örneği - Depolama hesapları ve sanal makineler için izin verilen SKU’lar | Microsoft Docs
+description: Bu JSON örnek ilkesi, depolama hesapları ve sanal makinelerin onaylı SKU’lar kullanmasını gerektirir.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
+ms.tgt_pltfrm: ''
+ms.workload: ''
 ms.date: 10/30/2017
-ms.author: banders
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 9936af72dc7babfe8935dac1b49c25695e827042
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.openlocfilehash: 482408788b6d74c25350a9885e2bf4bd6ea306d7
+ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 05/04/2018
 ---
-# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>Depolama hesapları ve sanal makineler için izin verilen SKU'ları
+# <a name="allowed-skus-for-storage-accounts-and-virtual-machines"></a>Depolama hesapları ve sanal makineler için izin verilen SKU'lar
 
-Bu ilke, depolama hesapları ve sanal makineleri onaylanan SKU'ları kullanmanızı gerektirir. Sağlamak için kullandığı yerleşik ilkeleri SKU'ları onaylanmış. Bir dizi onaylanan sanal makinelerin SKU'ları ve bir dizi onaylanan depolama hesabı SKU'ları belirtin.
+Bu ilke, depolama hesapları ve sanal makinelerin onaylı SKU’lar kullanmasını gerektirir. Onaylı SKU’ları güvence altına almak için yerleşik ilkeleri kullanır. Onaylı bir sanal makine SKU’su dizisi ve onaylı bir depolama hesabı SKU’su dizisi belirtirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
-[!code-json[main](../../../policy-templates/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.json "Allowed SKUs for Storage Accounts and Virtual Machines")]
+[!code-json[main](../../../policy-templates/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.json "Allowed SKUs for Storage Accounts and Virtual Machines")]
 
-Bu şablonu kullanarak dağıtabilirsiniz [Azure portal](#deploy-with-the-portal) veya [PowerShell](#deploy-with-powershell).
+[Azure portalı](#deploy-with-the-portal) veya [PowerShell](#deploy-with-powershell) kullanarak bu şablonu dağıtabilirsiniz.
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
@@ -42,22 +42,42 @@ Bu şablonu kullanarak dağıtabilirsiniz [Azure portal](#deploy-with-the-portal
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
-$policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.definitions.json"
-$policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-mutiple-types/azurepolicyset.parameters.json"
+$policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json"
+$policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.parameters.json"
 
-$policyset= New-AzureRmPolicySetDefinition -Name "skus-for-mutiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters
-
-New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentname> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs >  -Sku @{"Name"="A1";"Tier"="Standard"}
+$policyset= New-AzureRmPolicySetDefinition -Name "skus-for-multiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters 
+ 
+New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentName> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs>
 ```
 
-### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtım temizleme
+### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+İlke ataması ve tanımını kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmPolicyAssignment -Name <assignmentName>
+Remove-AzureRmPolicySetDefinitions -Name "skus-for-multiple-types"
+```
+
+## <a name="deploy-with-azure-cli"></a>Azure CLI ile dağıtma
+
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
+
+```azurecli-interactive
+az policy set-definition create --name "skus-for-multiple-types" --display-name "Allowed SKUs for Storage Accounts and Virtual Machines" --description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" --definitions "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json" --params "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.parameters.json"
+
+az policy assignment create --name <assignmentName> --scope <scope> --policy-set-definition "skus-for-multiple-types" --params "{ 'LISTOFALLOWEDSKUS_1': { 'value': <VM SKU Array> }, 'LISTOFALLOWEDSKUS_2': { 'value': <Storage Account SKU Array> } }"
+```
+
+### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtımını temizleme
+
+İlke ataması ve tanımını kaldırmak için aşağıdaki komutu çalıştırın.
+
+```azurecli-interactive
+az policy assignment delete --name <assignmentName>
+az policy set-definition delete --name "skus-for-multiple-types"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ek Azure ilke şablonu örneklerdir adresindeki [Azure ilke şablonları](../json-samples.md).
+- Ek Azure İlkesi şablonu örnekleri [Azure İlkesi Şablonları](../json-samples.md)’ndadır.

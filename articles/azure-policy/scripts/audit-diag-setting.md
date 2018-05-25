@@ -1,59 +1,66 @@
 ---
-title: "Azure ilke json örnek - denetim tanılama ayarını | Microsoft Docs"
-description: "Belirtilen kaynak türleri için tanılama ayarları etkinleştirilmemiş varsa bu json örnek ilke denetler."
+title: Azure İlkesi JSON örneği - Tanılama ayarını denetleme | Microsoft Docs
+description: Bu JSON örnek ilkesi, tanılama ayarları belirli kaynak türleri için etkinleştirilmediyse denetler.
 services: azure-policy
-documentationcenter: 
-author: bandersmsft
+documentationcenter: ''
+author: DCtheGeek
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-policy
-ms.devlang: 
+ms.devlang: ''
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: 
-ms.date: 10/30/2017
-ms.author: banders
+ms.tgt_pltfrm: ''
+ms.workload: ''
+ms.date: 04/27/2018
+ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 0e97470491f548cafd5023851e2c2f6bd76cbe9f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
-ms.translationtype: MT
+ms.openlocfilehash: 1f87d411e244d10437e3b6f9befbdee13dde14e9
+ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 05/01/2018
 ---
-# <a name="audit-diagnostic-setting"></a>Tanılama ayarını denetleme
+# <a name="audit-diagnostic-setting"></a>Tanılama ayarını denetle
 
-Kaynak türleri için tanılama ayarları etkinleştirilmemişse denetimleri belirtilmiş. Tanılama ayarları etkin olup olmadığını denetlemek için kaynak türleri dizisi belirtin.
+Bu yerleşik ilke, tanılama ayarları belirli kaynak türleri için etkinleştirilmediyse denetler. Tanılama ayarlarının etki olup olmadığını denetlemek için bir kaynak türü dizisi belirtirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-template"></a>Örnek şablonu
+## <a name="sample-template"></a>Örnek şablon
 
 [!code-json[main](../../../policy-templates/samples/Monitoring/audit-diagnostic-setting/azurepolicy.json "Audit diagnostic setting")]
 
-Bu şablonu kullanarak dağıtabilirsiniz [Azure portal](#deploy-with-the-portal), ile [PowerShell](#deploy-with-powershell) veya [Azure CLI](#deploy-with-azure-cli).
+[Azure portalı](#deploy-with-the-portal) kullanarak, [PowerShell](#deploy-with-powershell) ile veya [Azure CLI](#deploy-with-azure-cli) ile bu şablonu dağıtabilirsiniz. Yerleşik ilkeyi almak için, `7f89b1eb-583c-429a-8828-af049802c1d9` kimliğini kullanın.
+
+## <a name="parameters"></a>Parametreler
+
+Parametre değerinde geçirmek için aşağıdaki biçimi kullanın:
+
+```json
+{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}
+```
 
 ## <a name="deploy-with-the-portal"></a>Portal ile dağıtma
 
-[![Azure’a dağıtma](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FMonitoring%2Faudit-diagnostic-setting%2Fazurepolicy.json)
+Bir ilke atarken, kullanılabilir yerleşik tanımlardan **Tanılama ayarını denetle**’yi seçin.
 
 ## <a name="deploy-with-powershell"></a>PowerShell ile dağıtma
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name "audit-diagnostic-setting" -DisplayName "Audit diagnostic setting" -description "Audit diagnostic setting for selected resource types" -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.parameters.json' -Mode All
-$definition
-$assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -listOfResourceTypes <Resource Types> -PolicyDefinition $definition
-$assignment
+$definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/7f89b1eb-583c-429a-8828-af049802c1d9
+
+New-AzureRmPolicyAssignment -name "Audit diagnostics" -PolicyDefinition $definition -PolicyParameter '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}' -Scope <scope>
 ```
 
-### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtım temizleme
+### <a name="clean-up-powershell-deployment"></a>PowerShell dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmPolicyAssignment -Name "Audit diagnostics" -Scope <scope>
 ```
 
 ## <a name="deploy-with-azure-cli"></a>Azure CLI ile dağıtma
@@ -61,19 +68,17 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 ```azurecli-interactive
-az policy definition create --name 'audit-diagnostic-setting' --display-name 'Audit diagnostic setting' --description 'Audit diagnostic setting for selected resource types' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Monitoring/audit-diagnostic-setting/azurepolicy.parameters.json' --mode All
-
-az policy assignment create --name <assignmentname> --scope <scope> --policy "audit-diagnostic-setting"
+az policy assignment create --scope <scope> --name "Audit diagnostics" --policy 7f89b1eb-583c-429a-8828-af049802c1d9 --params '{"listOfResourceTypes":{"value":["Microsoft.Cache/Redis","Microsoft.Compute/virtualmachines"]}}'
 ```
 
-### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtım temizleme
+### <a name="clean-up-azure-cli-deployment"></a>Azure CLI dağıtımını temizleme
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup --yes
+az policy assignment delete --name "Audit diagnostics" --resource-group myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ek Azure ilke şablonu örneklerdir adresindeki [Azure ilke şablonları](../json-samples.md).
+- Ek Azure İlkesi şablonu örnekleri [Azure İlkesi Şablonları](../json-samples.md)’ndadır.

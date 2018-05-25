@@ -1,21 +1,21 @@
 ---
-title: "Azure portalını kullanarak Azure Veritabanı Geçiş Hizmeti örneği oluşturma | Microsoft Docs"
-description: "Azure Veritabanı Geçiş Hizmeti örneği oluşturmak için Azure portalını kullanma"
+title: Azure portalını kullanarak Azure Veritabanı Geçiş Hizmeti örneği oluşturma | Microsoft Docs
+description: Azure Veritabanı Geçiş Hizmeti örneği oluşturmak için Azure portalını kullanma
 services: database-migration
 author: edmacauley
 ms.author: edmaca
 manager: craigg
-ms.reviewer: 
+ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 12/13/2017
-ms.openlocfilehash: 9dea80b0a6848bd69541aa9f7e0a0fe111fa0a28
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.date: 05/01/2018
+ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Azure portalını kullanarak Azure Veritabanı Geçiş Hizmeti örneği oluşturma
 Bu Hızlı Başlangıç kılavuzunda Azure Veritabanı Geçiş Hizmeti’nin bir örneğini oluşturmak için Azure portalını kullanacaksınız.  Hizmeti oluşturduktan sonra, şirket içi SQL Server’daki verileri bir Azure SQL veritabanına geçirmek için bu hizmeti kullanabilirsiniz.
@@ -39,9 +39,9 @@ Varsayılan görünüm hizmet panonuzu içerir.
 ![Kaynak sağlayıcısını kaydetme](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Hizmetin bir örneğini oluşturma
-1. Şu anda önizleme sürümünde olan Azure Veritabanı Geçiş Hizmeti’nin bir örneğini oluşturmak için **+ Kaynak oluştur**’a tıklayın.
+1. Azure Veritabanı Geçiş Hizmeti’nin bir örneğini oluşturmak için **+ Kaynak oluştur**’a tıklayın.
 
-2. "Geçiş" için marketi seçin, **Azure Veritabanı Geçiş Hizmeti**’ni seçin ve **Azure Veritabanı Geçiş Hizmeti (önizleme)** ekranında, **Oluştur**’a tıklayın.
+2. "Geçiş" için marketi arayın, **Azure Veritabanı Geçiş Hizmeti**’ni seçin ve **Azure Veritabanı Geçiş Hizmeti**  ekranında, **Oluştur**’a tıklayın.
 
 3. **Veritabanı Geçiş Hizmeti** ekranında: 
 

@@ -1,6 +1,6 @@
 ---
-title: Jenkins ile Azure’da bir geliştirme işlem hattı oluşturma | Microsoft Docs
-description: Azure’da her kod işlendiğinde GitHub’dan çekerek uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı oluşturan bir Jenkins sanal makinesi oluşturmayı öğrenin
+title: Öğretici - Jenkins ile Azure’da bir geliştirme işlem hattı oluşturma | Microsoft Docs
+description: Bu öğreticide, Azure’da işlenen her kodu GitHub’dan çeken ve uygulamanızı çalıştırmak için yeni bir Docker kapsayıcısı oluşturan bir Jenkins sanal makinesi oluşturmayı öğrenirsiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -16,13 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9250e40c491257b554333f4606cbf0b476d8db21
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturmayı öğrenin
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
+
 Uygulama geliştirme sürecinin derleme ve test aşamasını otomatikleştirmek için bir sürekli tümleştirme ve dağıtım (CI/CD) işlem hattı kullanabilirsiniz. Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:
 
 > [!div class="checklist"]
@@ -33,13 +34,12 @@ Uygulama geliştirme sürecinin derleme ve test aşamasını otomatikleştirmek 
 > * Uygulamanız için bir Docker görüntüsü oluşturma
 > * GitHub işlemelerinin yeni Docker görüntüsü oluşturduğunu ve çalışmakta olan uygulamayı güncelleştirdiğini doğrulama
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.22 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli). 
+CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.30 veya sonraki bir sürümünü çalıştırmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Jenkins örneği oluşturma
-[İlk önyüklemede Linux sanal makinelerini özelleştirme](tutorial-automate-vm-deployment.md) konulu önceki bir öğreticide, cloud-init ile VM özelleştirmeyi nasıl otomatikleştirebileceğinizi öğrendiniz. Bu öğreticide, cloud-init dosyası kullanarak bir VM’ye Jenkins and Docker yükleme öğretilir. Jenkins, sürekli tümleştirme (CI) ve sürekli teslimi (CD) etkinleştirmek için Azure ile sorunsuz bir şekilde tümleştirilen popüler bir açık kaynak otomasyon sunucusudur. Jenkins kullanmayla ilgili diğer öğreticiler için bkz. [Azure’da Jenkins merkezi](https://docs.microsoft.com/azure/jenkins/).
+[İlk önyüklemede Linux sanal makinelerini özelleştirme](tutorial-automate-vm-deployment.md) konulu önceki bir öğreticide, cloud-init ile VM özelleştirmeyi nasıl otomatikleştirebileceğinizi öğrendiniz. Bu öğreticide, bir VM’ye Jenkins ve Docker yüklemek için cloud-init dosyası kullanılır. Jenkins, sürekli tümleştirme (CI) ve sürekli teslimi (CD) etkinleştirmek için Azure ile sorunsuz bir şekilde tümleştirilen popüler bir açık kaynak otomasyon sunucusudur. Jenkins kullanmayla ilgili diğer öğreticiler için bkz. [Azure’da Jenkins merkezi](https://docs.microsoft.com/azure/jenkins/).
 
 Geçerli kabuğunuzda *cloud-init-jenkins.txt* adlı bir dosya oluşturup aşağıdaki yapılandırmayı yapıştırın. Örneğin, dosyayı yerel makinenizde değil Cloud Shell’de oluşturun. Dosyayı oluşturmak ve kullanılabilir düzenleyicilerin listesini görmek için `sensible-editor cloud-init-jenkins.txt` adını girin. Başta birinci satır olmak üzere cloud-init dosyasının tamamının doğru bir şekilde kopyalandığından emin olun:
 
@@ -58,8 +58,9 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
-  - sh -c 'echo deb http://pkg.jenkins-ci.org/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  - apt install default-jre -y
+  - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
+  - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
@@ -94,7 +95,7 @@ az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 1337 
 ```
 
 
-## <a name="configure-jenkins"></a>Jenkins’i Yapılandırma
+## <a name="configure-jenkins"></a>Jenkins’i yapılandırma
 Jenkins örneğinize erişmek için VM’nizin genel IP adresini edinin:
 
 ```azurecli-interactive 
@@ -127,7 +128,7 @@ Dosya henüz kullanılamıyorsa cloud-init tarafından Jenkins ve Docker yüklem
 
 
 ## <a name="create-github-webhook"></a>GitHub web kancası oluşturma
-GitHub tümleştirmesini yapılandırmak için Azure örnek deposundan [Node.js Hello World örnek uygulamasını](https://github.com/Azure-Samples/nodejs-docs-hello-world) açın. Depoyu kendi GitHub hesabınızla çatallamak için sağ üst köşedeki **Çatal Oluştur** düğmesini seçin.
+GitHub tümleştirmesini yapılandırmak için Azure örnek deposundan [Node.js Hello World örnek uygulamasını](https://github.com/Azure-Samples/nodejs-docs-hello-world) açın. Depo için GitHub hesabınızda çatal oluşturmak üzere sağ üst köşedeki **Fork** (Çatal Oluştur) düğmesini seçin.
 
 Oluşturduğunuz çatalın içinde bir web kancası oluşturun:
 

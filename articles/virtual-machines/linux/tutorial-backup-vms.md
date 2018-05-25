@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM’lerini Yedekleme | Microsoft Docs
-description: Linux VM’lerinizi Azure Backup ile yedekleyerek koruyun.
+title: Öğretici - Azure portalda Linux sanal makinelerini yedekleme | Microsoft Docs
+description: Bu öğreticide, Azure Backup ile Linux sanal makinelerinizi korumak için Azure portalını kullanmayı öğreneceksiniz.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,13 +16,13 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4bd532a570a978715ba61880047f3a7e49b446ba
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c91e2b1380e5048fa1dfb7a0e028c88e589cbaa4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 04/28/2018
 ---
-# <a name="back-up-linux--virtual-machines-in-azure"></a>Linux sanal makinelerini Azure’da yedekleme
+# <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>Öğretici: Azure’da Linux sanal makineleri için dosyaları yedekleme ve geri yükleme
 
 Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında depolanan kurtarma noktaları oluşturur. Bir kurtarma noktasından geri yükleme yaptığınızda VM’nin tamamını veya belirli dosyaları geri yükleyebilirsiniz. Bu makalede tek bir dosyanın nginx çalıştıran bir Linux VM’ye nasıl geri yükleneceği açıklanır. Kullanılabilecek bir VM’niz zaten yoksa [Linux hızlı başlangıcını](quick-create-cli.md) kullanarak VM oluşturabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -30,8 +30,6 @@ Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Bac
 > * Bir VM’nin yedeğini oluşturma
 > * Günlük yedekleme zamanlama
 > * Bir yedeklemeden bir dosyayı geri yükleme
-
-
 
 ## <a name="backup-overview"></a>Backup’a genel bakış
 
@@ -43,7 +41,7 @@ Veri aktarımı tamamlandığında, anlık görüntü kaldırılır ve bir kurta
 
 
 ## <a name="create-a-backup"></a>Yedekleme oluşturma
-Kurtarma Hizmetleri Kasasına basit bir zamanlanmış günlük yedekleme oluşturma. 
+Bir Kurtarma Hizmetleri Kasasına zamanlanmış günlük yedekleme oluşturun:
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Sol taraftaki menüden **Sanal makineler**'i seçin. 

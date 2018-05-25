@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 7b604f9a26fc4c9a2c76a28ca01d066fe1640718
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/03/2018
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded kullanmaya başlama
 
@@ -48,7 +48,7 @@ Başlamanıza yardımcı olmak size birkaç örnek sunuyoruz. Örnek bir kılavu
 Uygulamanıza üretim aşamasına geçirmek için Microsoft Azure'da Power BI Embedded kapasitesi oluşturun. Kapasite oluşturma hakkında bilgi almak için bkz. [Azure portalında Power BI Embedded kapasitesi oluşturma](create-capacity.md).
 
 > [!IMPORTANT]
-> Ekleme belirteçleri yalnızca geliştirme testlerine yönelik olduğu için, bir Power BI ana hesabının oluşturabileceği ekleme belirteçlerinin sayısı sınırlıdır. Üretim ekleme senaryoları için [kapasite satın alınmalıdır](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Bir kapasite satın alındığında ekleme belirteci oluşturma ile ilgili herhangi bir sınır yoktur.
+> Ekleme belirteçleri yalnızca geliştirme testlerine yönelik olduğu için, bir Power BI ana hesabının oluşturabileceği ekleme belirteçlerinin sayısı sınırlıdır. Üretim ekleme senaryoları için [kapasite satın alınmalıdır](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). Bir kapasite satın alındığında ekleme belirteci oluşturma ile ilgili herhangi bir sınır yoktur. Geçerli eklenen kullanım yüzdesini denetlemek için [Kullanılabilir Özellikleri Al](https://msdn.microsoft.com/en-us/library/mt846473.aspx)’a gidin.
 
 Kapasitenizi Power BI yönetim portalından yönetin. Uygulama çalışma alanlarınız hakkında destek almak için çalışma alanı atama özelliğini kullanın. Daha fazla bilgi için bkz. [Power BI Premium ve Power BI Embedded kapasitelerini yönetme](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/).
 

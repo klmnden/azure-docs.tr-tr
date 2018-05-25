@@ -5,21 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: analysis-services
 ms.topic: overview
-ms.date: 04/12/2018
+ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: da2ab7b0d8b83238def346790362b680cd8eda23
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 27b394a6b2d2f85afeb809fcad3b88564f3054e7
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
 ---
-# <a name="azure-analysis-services-overview"></a>Azure Analysis Services’e genel bakış
+# <a name="what-is-azure-analysis-services"></a>Azure Analysis Services nedir?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 Azure Analysis Services bulutta kurumsal düzeyde veri modelleme sağlar. Bu tümüyle yönetilen bir hizmet olarak platformdur (PaaS) ve Azure veri platformu hizmetleriyle tümleştirilmiştir. 
 
-Analysis Services ile birden fazla kaynaktan veri birleştirebilir, ölçümlerini tanımlayabilir ve tek, güvenilen bir anlam veri modelinde verilerinizin güvenliğini sağlayabilirsiniz. Veri modeli; kullanıcılarınızın Power BI, Excel, Raporlama Hizmetleri, üçüncü taraf ve özel uygulamalar gibi istemci uygulamalarıyla oldukça büyük miktardaki verilere göz atması için daha kolay ve hızlı bir yoldur.
+Analysis Services ile birden fazla veri kaynağından verileri birleştirebilir, ölçümlerini tanımlayabilir ve tek, güvenilen bir anlam veri modelinde verilerinizin güvenliğini sağlayabilirsiniz. Veri modeli; kullanıcılarınızın Power BI, Excel, Raporlama Hizmetleri, üçüncü taraf ve özel uygulamalar gibi istemci uygulamalarıyla oldukça büyük miktardaki verilere göz atması için daha kolay ve hızlı bir yoldur.
 
 ![Veri kaynakları](./media/analysis-services-overview/aas-overview-data-sources.png)
 
@@ -57,7 +57,7 @@ Azure Analysis Services sunucuları aşağıdaki [Azure bölgelerinde](https://a
 
 | Kuzey ve Güney Amerika | Avrupa | Asya Pasifik |
 |----------|--------|--------------|
-|  Güney Brezilya<br> Orta Kanada<br> Doğu ABD 2<br> Orta Kuzey ABD<br> Orta Güney ABD<br> Batı Orta ABD<br> Batı ABD | Kuzey Avrupa<br> Birleşik Krallık Güney<br> Batı Avrupa |   Avustralya Güneydoğu<br> Japonya Doğu<br> Güneydoğu Asya<br> Batı Hindistan  |
+|  Güney Brezilya<br> Orta Kanada<br> Doğu ABD<br> Doğu ABD 2<br> Orta Kuzey ABD<br> Orta ABD<br> Orta Güney ABD<br> Batı Orta ABD<br> Batı ABD<br> Batı ABD 2 | Kuzey Avrupa<br> Birleşik Krallık Güney<br> Batı Avrupa |   Avustralya Güneydoğu<br> Japonya Doğu<br> Güneydoğu Asya<br> Batı Hindistan  |
 
 Sürekli yeni bölgeler eklendiğinden bu liste eksik olabilir. Azure portalında sunucunuzu oluştururken veya Azure Resource Manager şablonlarını kullanarak konum seçersiniz. En iyi performansı elde etmek için, en büyük kullanıcı tabanınıza en yakın konumu seçin. Modellerinizi birden çok bölgedeki yedekli sunuculara dağıtarak [yüksek kullanılabilirliği](analysis-services-bcdr.md) güvence altına alın.
 
@@ -134,4 +134,5 @@ Bir öneriniz veya özellik isteğiniz mi var? [Azure Analysis Services Geri Bil
 Belgelerle ilgili önerileriniz mi var? Her makalenin altındaki Livefyre özelliğini kullanarak yorum ekleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Artık Azure Analysis Services hakkında daha çok şey bildiğinize göre, çalışmaya başlayabilirsiniz demektir. Azure'da [sunucu oluşturmayı](analysis-services-create-server.md) öğrenin. Sunucunuz hazır olduğunda, tamamen işlevsel bir tablosal model oluşturmayı ve bunu sunucunuza dağıtmayı öğrenmek için [Adventure Works öğreticisinin](tutorials/aas-adventure-works-tutorial.md) adımlarını izleyin.
+Azure'da [sunucu oluşturmayı](analysis-services-create-server.md) öğrenin.   
+Bir sunucu oluşturduktan sonra, [örnek bir model ekleyin](analysis-services-create-sample-model.md).   

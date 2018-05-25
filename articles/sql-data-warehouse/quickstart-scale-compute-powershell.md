@@ -10,11 +10,11 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 40fa33aad8bf5ac042f9d80493b97a914fe770bb
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0718365153390f525b22ef07559a822c777c2ff4
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Hızlı Başlangıç: PowerShell’den Azure SQL Veri Ambarı’nda işlemi ölçeklendirme
 
@@ -55,19 +55,19 @@ Duraklatmayı ve sürdürmeyi planladığınız veri ambarı için veritabanı a
 Veri ambarınız için konum bilgilerini bulmak amacıyla aşağıdaki adımları uygulayın.
 
 1. [Azure Portal](https://portal.azure.com/) oturum açın.
-2. Azure portalının sol taraftaki sayfasında **SQL veritabanları**’na tıklayın.
-3. **SQL veritabanları** sayfasından **mySampleDataWarehouse** seçeneğini belirleyin. Bu, veri ambarını açar.
+2. Azure portalının sol taraftaki sayfasında **SQL veri ambarları**’na tıklayın.
+3. **SQL veri ambarları** sayfasından **mySampleDataWarehouse** seçeneğini belirleyin. Bu, veri ambarını açar.
 
     ![Sunucu adı ve kaynak grubu](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. Veritabanı adı olarak kullanılacak olan veri ambarı adını not alın. Veri ambarının tek bir veritabanı türü olduğunu unutmayın. Ayrıca sunucu adını ve kaynak grubunu da not alın. Duraklatma ve sürdürme komutlarında bunları kullanacaksınız.
-5. Sunucunuz foo.database.windows.net ise, PowerShell cmdlet'lerinde sunucu adı olarak yalnızca ilk bölümü kullanın. Önceki görüntüde tam sunucu adı newserver-20171113.database.windows.net şeklindedir. PowerShell cmdlet’inde **newserver-20171113** sunucu adını kullanırız.
+5. Sunucunuz foo.database.windows.net ise, PowerShell cmdlet'lerinde sunucu adı olarak yalnızca ilk bölümü kullanın. Önceki görüntüde tam sunucu adı newserver-20171113.database.windows.net şeklindedir. PowerShell cmdlet’inde **newserver-20180430** sunucu adını kullanırız.
 
 ## <a name="scale-compute"></a>Hesaplamayı ölçeklendirme
 
 SQL Veri Ambarı’nda, veri ambarı birimlerini ayarlayarak işlem kaynaklarını artırabilir veya azaltabilirsiniz. [Oluşturma ve Bağlanma - portal](create-data-warehouse-portal.md) bölümünde **mySampleDataWarehouse** oluşturuldu ve 400 DWU ile başlatıldı. Aşağıdaki adımlar, **mySampleDataWarehouse** için DWU’ları ayarlar.
 
-Veri ambarı birimlerini değiştirmek için [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet'ini kullanın. Aşağıdaki örnekte **mynewserver-20171113** sunucusundaki **myResourceGroup** Kaynak grubunda barındırılan **mySampleDataWarehouse** veritabanı için veri ambarı birimleri DW300 olarak ayarlanır.
+Veri ambarı birimlerini değiştirmek için [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) PowerShell cmdlet'ini kullanın. Aşağıdaki örnekte **mynewserver-20180430** sunucusundaki **myResourceGroup** Kaynak grubunda barındırılan **mySampleDataWarehouse** veritabanı için veri ambarı birimleri DW300 olarak ayarlanır.
 
 ```Powershell
 Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
@@ -75,7 +75,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySam
 
 ## <a name="check-data-warehouse-state"></a>Veri ambarı durumunu denetleme
 
-Veri ambarının geçerli durumunu görmek için [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet’ini kullanın. Bu, **myResourceGroup** Kaynak Grubundaki ve **mynewserver-20171113.database.windows.net** sunucusundaki **mySampleDataWarehouse** veritabanının durumunu alır.
+Veri ambarının geçerli durumunu görmek için [Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase) PowerShell cmdlet’ini kullanın. Bu, **myResourceGroup** Kaynak Grubundaki ve **mynewserver-20180430.database.windows.net** sunucusundaki **mySampleDataWarehouse** veritabanının durumunu alır.
 
 ```powershell
 $database = Get-AzureRmSqlDatabase -ResourceGroupName myResourceGroup -ServerName mynewserver-20171113 -DatabaseName mySampleDataWarehouse

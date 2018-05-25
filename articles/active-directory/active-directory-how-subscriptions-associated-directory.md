@@ -6,21 +6,19 @@ documentationcenter: ''
 author: curtand
 manager: mtillman
 editor: ''
-ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: users-groups-roles
 ms.topic: get-started-article
 ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 1e258473614e01ca35eaa5970d02544844da6972
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6664a2b9bb6375314090bf4dae9190c7d52565d2
+ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory'ye bir Azure aboneliğini ekleme veya ilişkilendirme
 
@@ -53,6 +51,8 @@ Tüm kullanıcılar kimliklerini doğrulayan tek giriş dizinine sahiptir ancak 
 
     ![Değiştiriciyi gösteren ekran görüntüsü](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
 
+
+Sahip olduğunuz Azure anahtar kasaları da abonelik taşıma işleminden etkilenir, bu nedenle işlemlere devam etmeden önce [anahtar kasası kiracı kimliğini değiştirmeniz](../key-vault/key-vault-subscription-move-fix.md) gerekir.
 
 Abonelik dizininin değiştirilmesi, hizmet düzeyinde bir işlemdir. Abonelik faturalandırma sahipliğini etkilemez ve Hesap Yöneticisi hala [Hesap Merkezi](https://account.azure.com/subscriptions)’ni kullanarak Hizmet Yöneticisi’ni değiştirebilir. Özgün dizini silmek istiyorsanız, abonelik faturalandırma sahipliğini yeni bir Hesap Yöneticisine aktarmanız gerekir. Faturalandırma sahipliğini aktarma hakkında daha fazla bilgi için bkz. [Bir Azure aboneliğinin sahipliğini başka bir hesaba aktarma](../billing/billing-subscription-transfer.md). 
 

@@ -1,72 +1,167 @@
 ---
-title: Ağ bağlantıları Azure Ağ İzleyicisi - Azure portal ile izleme | Microsoft Docs
-description: Azure portalını kullanarak Azure Ağ İzleyicisi ile ağ bağlantısını izlemeniz öğrenin.
+title: Ağ iletişimini izleme - öğretici - Azure portalı | Microsoft Docs
+description: Azure Ağ İzleyicisi’nin bağlantı izleme özelliği ile iki sanal makine arasındaki ağ iletişiminin nasıl izleneceğini öğrenin.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: jeconnoc
 editor: ''
+tags: azure-resource-manager
+Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/16/2018
+ms.date: 04/27/2018
 ms.author: jdial
-ms.openlocfilehash: 242da9a3ce52d9c7d801215cde7b72b7f8fe9a91
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.custom: mvc
+ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
+ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/03/2018
 ---
-# <a name="monitor-network-connections-with-azure-network-watcher-using-the-azure-portal"></a>Azure portalını kullanarak Azure Ağ İzleyicisi ile ağ bağlantılarını izleme
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak iki sanal makine arasındaki ağ iletişimini izleme
 
-Bağlantı İzleyici bir Azure sanal makine (VM) ve bir IP adresi arasında ağ bağlantısı izlemek için nasıl kullanılacağını öğrenin. Bağlantı İzleyicisi, kaynak ve hedef IP adresi ve bağlantı noktası arasında izleme sağlar. Bağlantı İzleyici bağlantısını VM sanal ağ ile aynı veya farklı sanal ağda VM çalışan SQL server 1433 numaralı bağlantı noktası üzerinden izleme gibi senaryolara olanak sağlar. Bağlantı İzleyici bağlantı gecikmesi 60 saniyede kaydedilen bir Azure İzleyici ölçümü olarak sağlar. Ayrıca bir atlama atlamalı topolojisi sağlar ve bağlantınızı etkileyen yapılandırma sorunlarını tanımlar.
+Bir sanal makine (VM) ve başka bir sanal makine gibi bir uç nokta arasındaki iletişimin başarılı olması, kuruluşunuz için kritik olabilir. Bazen iletişimi kesebilecek yapılandırma değişiklikleri olur. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
-## <a name="prerequisites"></a>Önkoşullar
+> [!div class="checklist"]
+> * İki sanal makine oluşturma
+> * Ağ İzleyicisi’nin bağlantı izleme özelliği ile sanal makineler arasındaki iletişimi izleme
+> * İki sanal makine arasındaki bir iletişim sorununu tanılama ve nasıl çözümleyebileceğinizi öğrenme
 
-Bu makaledeki adımları gerçekleştirmeden önce aşağıdaki gereksinimleri karşılaması gerekir:
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
-* Ağ İzleyicisi bir bağlantı için izlemek istediğiniz bölgede bir örneği. Zaten yoksa, bir içindeki adımları tamamlayarak oluşturabilirsiniz [Azure Ağ İzleyicisi örnek oluşturmak](network-watcher-create.md).
-* Gelen izlemek için bir VM. Bir VM oluşturma konusunda bilgi almak için bkz bir [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) veya [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) VM.
-* Sahip `AzureNetworkWatcherExtension` öğesinden bir bağlantı izlemek istediğiniz VM yüklenir. Bir Windows VM uzantısı yüklemek için bkz: [Windows için Azure Ağ İzleyicisi Aracısı sanal makine uzantısı](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) ve bir Linux VM bakın uzantıyı yüklemek için [Azure Ağ İzleyicisi Aracısı sanal makine uzantısı Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). İzlemek istediğiniz hedef uç nokta uzantısı gerekli değildir.
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
 
-## <a name="sign-in-to-azure"></a>Azure'da oturum açma 
+[Azure Portal](https://portal.azure.com) oturum açın.
 
-[Azure Portal](http://portal.azure.com)’da oturum açın.
+## <a name="create-vms"></a>VM oluşturma
 
-## <a name="create-a-connection-monitor"></a>Bağlantı izleyici oluşturmak
+İki sanal makine oluşturma.
 
-Aşağıdaki adımları bağlantı 80 ve 1433 bağlantı noktaları üzerinden bir hedef VM için izlemeyi etkinleştir:
+### <a name="create-the-first-vm"></a>Birinci sanal makineyi oluşturma
 
-1. Portalın sol taraftan **tüm hizmetleri**.
-2. Yazmaya başlayın *Ağ İzleyicisi* içinde **filtre** kutusu. Zaman **Ağ İzleyicisi** arama sonuçlarında görünür.
-3. Altında **izleme**seçin **Bağlantı İzleyicisi**.
+1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
+2. **İşlem** seçeneğini belirleyin ve bir işletim sistemi seçin. Bu öğreticide **Windows Server 2016 Datacenter** kullanılmaktadır.
+3. Aşağıdaki bilgileri girin veya seçin, kalan ayarlar için varsayılan değerleri kabul edin ve sonra **Tamam**’ı seçin:
+
+    |Ayar|Değer|
+    |---|---|
+    |Adı|myVm1|
+    |Kullanıcı adı| Seçtiğiniz bir kullanıcı adını girin.|
+    |Parola| Seçtiğiniz bir parolayı girin. Parola en az 12 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
+    |Abonelik| Aboneliğinizi seçin.|
+    |Kaynak grubu| **Yeni oluştur**’u seçin ve **myResourceGroup** değerini girin.|
+    |Konum| **Doğu ABD**’yi seçin|
+
+4. Sanal makine için bir boyut seçin ve **Seç** seçeneğini belirleyin.
+5. **Ayarlar** bölümünde **Uzantılar**’ı seçin. Aşağıdaki resimde gösterildiği gibi **Uzantı ekle**’yi ve **Windows için Ağ İzleyicisi Aracısı**’nı seçin:
+
+    ![Ağ İzleyicisi aracısı uzantısı](./media/connection-monitor/nw-agent-extension.png)
+
+6. **Windows için Ağ İzleyicisi Aracısı** bölümünde **Oluştur**’u seçin, **Uzantıyı yükle** bölümünde **Tamam**’ı seçin ve sonra **Uzantılar** bölümünde **Tamam**’ı seçin.
+7. Diğer **Ayarlar** için varsayılan değerleri kabul edin ve **Tamam**’a tıklayın.
+8. **Özet**’in **Oluştur** bölümünde **Oluştur**’u seçerek sanal makine dağıtımını başlatın.
+
+### <a name="create-the-second-vm"></a>İkinci sanal makineyi oluşturma
+
+[İlk sanal makineyi oluşturma](#create-the-first-vm) bölümündeki adımları, aşağıdaki değişikliklerle tekrar tamamlayın:
+
+|Adım|Ayar|Değer|
+|---|---|---|
+| 1 | **Ubuntu Server 17.10 VM** seçeneğini belirleyin |                                                                         |
+| 3 | Adı                              | myVm2                                                                   |
+| 3 | Kimlik doğrulaması türü               | SSH genel anahtarınızı yapıştırın veya **Parola**’yı seçin bir parola girin. |
+| 3 | Kaynak grubu                    | **Mevcut olanı kullan**’ı seçin ve **myResourceGroup** seçeneğini belirleyin.                 |
+| 6 | Uzantılar                        | **Linux için Ağ Aracısı**                                             |
+
+Sanal makinenin dağıtılması birkaç dakika sürer. Kalan adımlara devam etmeden önce sanal makinenin dağıtımı tamamlamasını bekleyin.
+
+## <a name="create-a-connection-monitor"></a>Bağlantı izleyicisi oluşturma
+
+*myVm1*’den *myVm2*’ye 22 numaralı TCP bağlantı noktası üzerinden iletişimi izlemek için bir bağlantı izleyicisi oluşturun.
+
+1. Portalın sol tarafından **Tüm hizmetler**’i seçin.
+2. **Filtre** kutusuna *ağ izleyicisi* yazmaya başlayın. **Ağ İzleyicisi**, arama sonuçlarında görüntülendiğinde onu seçin.
+3. **İZLEME** bölümünde **Bağlantı izleyicisi**’ni seçin.
 4. **+ Ekle** öğesini seçin.
-5. Bağlantı için izleme ve ardından istediğiniz bilgileri girin veya seçin **Ekle**. Aşağıdaki resimde gösterilen örnekte, izlenen bağlantı arasındadır *MultiTierApp0* VM *Database0* bağlantı noktası 80 üzerinden VM:
+5. İzlemek istediğiniz bağlantı için bilgileri girin veya seçin ve sonra **Ekle**’yi seçin. Aşağıdaki resimde gösterilen örnekte izlenen bağlantı, 22 numaralı bağlantı noktası üzerinden *myVm1* sanal makinesinden *myVm2* sanal makinesine doğrudur:
 
-    ![Bağlantı monitör ekleme](./media/connection-monitor/add-connection-monitor.png)
+    | Ayar                  | Değer               |
+    | ---------                | ---------           |
+    | Adı                     | myVm1-myVm2(22)     |
+    | Kaynak                   |                     |
+    | Sanal makine          | myVm1               |
+    | Hedef              |                     |
+    | Sanal makine seçme |                     |
+    | Sanal makine          | myVm2               |
+    | Bağlantı noktası                     | 22                  |
 
-    İzlemeye başlar. Bağlantı İzleyici 60 saniyede araştırmaları.
-6. Aynı kaynak ve hedef VM'ler ve aşağıdaki değerleri belirtme adım 5 yeniden tamamlayın:
-    
-    |Ayar  |Değer          |
-    |---------|---------      |
-    |Ad     | AppToDB(1433) |
-    |Bağlantı noktası     | 1433          |
+    ![Bağlantı İzleyicisi ekleme](./media/connection-monitor/add-connection-monitor.png)
 
-## <a name="view-connection-monitoring"></a>Bağlantı izleme görünümü
+## <a name="view-a-connection-monitor"></a>Bağlantı izleyicisini görüntüleme
 
-1. Adım 1-3'te tamamlamak [bağlantı izleyici oluşturmak](#create-a-connection-monitor) bağlantı izleme görüntülemek için.
-2. Aşağıdaki resimde için ayrıntıları gösterir *AppToDB(80)* bağlantı. **Durum** ulaşılamıyor. **Grafik görünümü** gösterir **ortalama gidiş dönüş süresi** ve **% yoklamaları başarısız**. Grafik atlama atlamalı bilgi sağlar ve hedef ulaşılabilirlik herhangi bir sorun etkilediğini olduğunu gösterir.
+1. Bağlantı izlemeyi görüntülemek için [Bağlantı izleyicisi oluşturma](#create-a-connection-monitor) bölümündeki 1.-3. adımları tamamlayın. Aşağıdaki resimde gösterildiği gibi mevcut bağlantı izleyicilerinin bir listesini görürsünüz:
 
-    ![Grafik görünümü](./media/connection-monitor/view-graph.png)
+    ![Bağlantı izleyicileri](./media/connection-monitor/connection-monitors.png)
 
-3. Görüntüleme *AppToDB(1433)* bağlantı gösterilen aşağıdaki resimde gördüğünüz aynı kaynak ve hedef sanal makineleri için bağlantı noktası 1433 üzerinden durumu erişilemiyor. **Izgara Görünümü** Bu senaryoda atlama atlamalı bilgilerini ve ulaşılabilirlik etkileyen sorunu sağlar. Bu durumda, bir NSG kuralı ikinci atlama adresindeki 1433 numaralı bağlantı noktasındaki tüm trafiğini engelliyor.
+2. Aşağıdaki resimde gösterildiği gibi izleyiciye ilişkin ayrıntıları görmek için, önceki resimde gösterildiği gibi **myVm1-myVm2(22)** adlı izleyiciyi seçin:
 
-    ![Izgara görünümü](./media/connection-monitor/view-grid.png)
+    ![İzleyici ayrıntıları](./media/connection-monitor/vm-monitor.png)
+
+    Aşağıdaki bilgileri not edin:
+
+    | Öğe                     | Değer                      | Ayrıntılar                                                     |
+    | ---------                | ---------                  |--------                                                     |
+    | Durum                   | Erişilebilir                  | Uç noktanın erişilebilir olup olmadığını bilmenizi sağlar.|
+    | AVG. ROUND-TRIP          | Bağlantıyı kurmak için milisaniye cinsinden gidiş dönüş süresini bilmenizi sağlar. Bağlantı izleyicisi 60 saniyede bir bağlantıyı araştırır; böylece zaman içindeki gecikmeyi izleyebilirsiniz.                                         |
+    | Atlamalar                     | Bağlantı izleyicisi, iki uç nokta arasındaki atlamaları bilmenizi sağlar. Bu örnekte bağlantı, aynı sanal ağ üzerindeki iki sanal makine arasındadır, bu nedenle 10.0.0.5 IP adresine yalnızca bir atlama vardır. Örneğin, mevcut bir sistem veya özel rota, VPN ağ geçidi ya da ağ sanal gereci aracılığıyla sanal makineler arasında trafiği yönlendiriyorsa, ek atlamalar listelenir.                                                                                                                         |
+    | DURUM                   | Her uç nokta için yeşil onay işareti, her uç noktanın iyi durumda olduğunu bilmenizi sağlar.    ||
+
+## <a name="view-a-problem"></a>Sorunu görüntüleme
+
+Varsayılan olarak Azure, aynı sanal ağ üzerindeki sanal makineler arasında tüm bağlantı noktaları üzerinden iletişime izin verir. Zamanla siz veya kuruluşunuzdaki birisi, Azure’ın varsayılan kurallarını geçersiz kılarak yanlışlıkla bir iletişim hatasına neden olabilir. Aşağıdaki adımları tamamlayarak bir iletişim sorunu oluşturun ve sonra bağlantı izleyicisini yeniden görüntüleyin:
+
+1. Portalın üst kısmındaki arama kutusuna *myResourceGroup* değerini girin. **myResourceGroup** kaynak grubu, arama sonuçlarında görüntülendiğinde bu kaynak grubunu seçin.
+2. **myVm2-nsg** ağ güvenlik grubunu seçin.
+3. Aşağıdaki resimde gösterildiği gibi **elen güvenlik kuralları**’nı ve sonra **Ekle**’yi seçin:
+
+    ![Gelen güvenlik kuralları](./media/connection-monitor/inbound-security-rules.png)
+
+4. Bir sanal ağdaki tüm sanal makineler arasında iletişime izin veren varsayılan kural, **AllowVnetInBound** adlı kuraldır. 22 numaralı bağlantı numarası üzerinden gelen iletişimi reddeden **AllowVnetInBound** kuralından daha yüksek öncelikli (daha küçük sayılı) bir kural oluşturun. Aşağıdaki bilgileri girin veya seçin, kalan varsayılan değerleri kabul edin ve sonra **Ekle**’yi seçin:
+
+    | Ayar                 | Değer          |
+    | ---                     | ---            |
+    | Hedef bağlantı noktası aralıkları | 22             |
+    | Eylem                  | Reddet           |
+    | Öncelik                | 100            |
+    | Adı                    | DenySshInbound |
+
+5. Bağlantı izleyicisi 60’ar saniyelik aralıklarla araştırma yaptığından birkaç dakika bekleyin ve sonra portalın sol tarafında **Ağ İzleyicisi**’ni, ardından **Bağlantı izleyicisi**’ni ve sonra tekrar **myVm1-myVm2(22)** izleyicisini seçin. Aşağıdaki resimde gösterildiği gibi sonuçlar şimdi farklıdır:
+
+    ![İzleyici ayrıntıları hatası](./media/connection-monitor/vm-monitor-fault .png)
+
+    **myvm2529** ağ arabirimi için durum sütununda kırmızı bir ünlem simgesi olduğunu görebilirsiniz.
+
+6. Durumun neden değiştiğini öğrenmek için önceki resimde 10.0.0.5 seçeneğini belirleyin. Bağlantı izleyicisi size iletişim hatasının nedenini bildirir: *Trafik aşağıdaki ağ güvenlik grubu kuralı nedeniyle engellendi: UserRule_DenySshInbound*.
+
+    Birisinin 4. adımda oluşturduğunuz güvenlik kuralını uyguladığını bilmiyorsanız, bağlantı izleyicisinden bu kuralın iletişim sorununa yol açtığını öğrenirsiniz. Daha sonra sanal makineler arasındaki iletişimi geri yüklemek için kuralı değiştirebilir, geçersiz kılabilir veya kaldırabilirsiniz.
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Artık gerekli olmadığında kaynak grubunu ve içerdiği tüm kaynakları silin:
+
+1. Portalın üst kısmındaki **Ara** kutusuna *myResourceGroup* değerini girin. Arama sonuçlarında **myResourceGroup** seçeneğini gördüğünüzde bunu seçin.
+2. **Kaynak grubunu sil**'i seçin.
+3. **KAYNAK GRUBU ADINI YAZIN:** için *myResourceGroup* girin ve **Sil**’i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Paket yakalama tarafından VM uyarılarla otomatikleştirmeyi öğrenin [bir uyarıyı tetikleyen paket yakalama oluşturma](network-watcher-alert-triggered-packet-capture.md).
-- Belirli trafik içinde veya dışında VM kullanarak izin verilip verilmediğini belirlemek [IP akış doğrulayın](diagnose-vm-network-traffic-filtering-problem.md).
+Bu öğreticide, iki sanal makine arasındaki bir bağlantının nasıl izleneceğini öğrendiniz. Bir ağ güvenlik grubu kuralının, bir sanal makineyle iletişimi engellediğini öğrendiniz. Bağlantı izleyicisinin döndürebileceği farklı yanıtların tümü hakkında bilgi edinmek için [yanıt türleri](network-watcher-connectivity-overview.md#response) bölümüne bakın. Bir sanal makine, tam etki alanı adı, tekdüzen kaynak tanımlayıcısı veya IP adresi arasındaki bağlantıyı da izleyebilirsiniz.
+
+Belirli bir noktada, bir sanal ağ üzerindeki kaynakların, Azure sanal ağ geçidi tarafından bağlanan diğer ağlardaki kaynaklarla iletişim kuramadığını fark edebilirsiniz. Sanal ağ geçidi ile bir sorunu tanılama hakkında bilgi edinmek için sonraki öğreticiye ilerleyin.
+
+> [!div class="nextstepaction"]
+> [Ağlar arasındaki iletişim sorunlarını tanılama](diagnose-communication-problem-between-networks.md)
