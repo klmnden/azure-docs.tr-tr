@@ -12,13 +12,16 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/17/2018
 ms.author: wesmc
-ms.openlocfilehash: e24091b017a1c6c82cfe8d12873223b98c165c63
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: bc144fb1d7db9251871e7e181b012417a32de7e6
+ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/08/2018
+ms.locfileid: "33868118"
 ---
 # <a name="what-is-azure-signalr-service"></a>Azure SignalR Hizmeti nedir?
+
+Microsoft Azure SignalR Hizmeti şu an [Genel Önizleme](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) aşamasındadır.
 
 Azure SignalR Hizmeti, [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)’yi temel alan bir Azure hizmetidir. ASP.NET Core SignalR, HTTP üzerinden uygulamalara gerçek zamanlı web işlevselliği ekleme işlemini basitleştiren bir [açık kaynak kitaplıktır](https://github.com/aspnet/signalr). Bu gerçek zamanlı işlevsellik, web sunucusunun bağlı istemcilere içerik göndermesine olanak tanır. Sonuç olarak, istemciler sunucuyu yoklama veya yeni HTTP isteklerini güncelleştirmek üzere gönderme gereksinimi olmadan güncelleştirilir.
 
@@ -37,7 +40,7 @@ Dahili olarak SignalR, gerçek zamanlı web uygulamaları derlemek için kullan�
 
 ## <a name="developing-signalr-apps"></a>SignalR uygulamaları geliştirme
 
-Şu anda web uygulamalarınızla birlikte kullanabileceğiniz iki SignalR sürümü mevcuttur: ASP.NET için SignalR ve en yeni sürüm olan ASP.NET Core SignalR. Aynı zamanda *SignalR Hizmeti* olarak bilinen Azure SignalR Hizmeti, ASP.NET Core SignalR’yi temel alan, yönetilen bir Azure hizmetidir. 
+Şu anda web uygulamalarınızla birlikte kullanabileceğiniz iki SignalR sürümü mevcuttur: ASP.NET için SignalR ve en yeni sürüm olan ASP.NET Core SignalR. Azure SignalR Hizmeti, ASP.NET Core SignalR’yi temel alan, yönetilen bir Azure hizmetidir. 
 
 ASP.NET Core SignalR, önceki sürümün yeniden üretimidir. Sonuç olarak ASP.NET Core SignalR, önceki SignalR sürümüyle geriye dönük olarak uyumlu değildir. API’ler ve davranışlar farklıdır. ASP.NET Core SignalR SDK’sı, .NET Standard’dır; bu nedenle .NET Framework ile hala kullanabilirsiniz. Ancak, eski API’ler yerine yenilerini kullanmanız gerekir. SignalR kullanıyor ve ASP.NET Core SignalR’ye veya Azure SignalR Hizmeti’ne geçmek istiyorsanız, kodunuzu API’lerdeki farklılıkları işleyecek şekilde değiştirmeniz gerekir.
 
