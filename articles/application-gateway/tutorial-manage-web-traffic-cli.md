@@ -7,14 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 4/27/2018
+ms.date: 5/16/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 60d67693b7fa5a4c806f9fcd0f28506417f4a198
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: eb5a5090c0de56cecab47d05877cf14b56ca5e0c
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257397"
 ---
 # <a name="tutorial-manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak bir uygulama ağ geçidi ile web trafiğini yönetme
 
@@ -27,7 +28,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Uygulama ağ geçidi oluşturma
 > * Varsayılan arka uç havuzuyla bir sanal makine ölçek kümesi oluşturma
 
-Tercih ederseniz, [Azure PowerShell](tutorial-manage-web-traffic-powershell.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
+Tercih ederseniz, bu öğreticiyi [Azure PowerShell](tutorial-manage-web-traffic-powershell.md) kullanarak tamamlayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -92,12 +93,12 @@ az network application-gateway create \
  Uygulama ağ geçidinin oluşturulması birkaç dakika sürebilir. Uygulama ağ geçidi oluşturulduktan sonra şu yeni özellikleri görürsünüz:
 
 - *appGatewayBackendPool* -bir uygulama ağ geçidi en az bir arka uç adres havuzuna sahip olmalıdır.
-- *appGatewayBackendHttpSettings* - iletişim için 80 numaralı bağlantı noktasının ve HTTP protokolünün kullanıldığını belirtir.
-- *appGatewayHttpListener* - *appGatewayBackendPool* ile ilişkili varsayılan dinleyicidir.
-- *appGatewayFrontendIP* - *appGatewayHttpListener*’a *myAGPublicIPAddress*’i atar.
-- *kural 1* - *appGatewayHttpListener* ile ilişkili varsayılan yönlendirme kuralıdır.
+- *appGatewayBackendHttpSettings*: İletişim için 80 numaralı bağlantı noktasının ve HTTP protokolünün kullanıldığını belirtir.
+- *appGatewayHttpListener*: *appGatewayBackendPool* ile ilişkili varsayılan dinleyicidir.
+- *appGatewayFrontendIP*: *appGatewayHttpListener*’a *myAGPublicIPAddress*’i atar.
+- *kural 1*: *appGatewayHttpListener* ile ilişkili varsayılan yönlendirme kuralıdır.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
+## <a name="create-a-virtual-machine-scale-set"></a>Sanal Makine Ölçek Kümesi Oluşturma
 
 Bu örnekte uygulama ağ geçidinde arka uç havuzu için sunucu sağlayan bir sanal makine ölçek kümesi oluşturursunuz. Ölçek kümesindeki sanal makineler *myBackendSubnet* ve *appGatewayBackendPool* ile ilişkilidir. Ölçek kümesini oluşturmak için [az vmss create](/cli/azure/vmss#az_vmss_create) komutunu kullanın.
 
@@ -119,6 +120,8 @@ az vmss create \
 
 ### <a name="install-nginx"></a>NGINX yükleme
 
+Şimdi HTTP ile arka uç havuzu arasındaki bağlantıyı test edebilmek için sanal makine ölçek kümesindeki NGINX’i yükleyebilirsiniz.
+
 ```azurecli-interactive
 az vmss extension set \
   --publisher Microsoft.Azure.Extensions \
@@ -126,7 +129,7 @@ az vmss extension set \
   --name CustomScript \
   --resource-group myResourceGroupAG \
   --vmss-name myvmss \
-  --settings '{ "fileUris": ["https://raw.githubusercontent.com/vhorne/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
+  --settings '{ "fileUris": ["https://raw.githubusercontent.com/davidmu1/samplescripts/master/install_nginx.sh"], "commandToExecute": "./install_nginx.sh" }'
 ```
 
 ## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme

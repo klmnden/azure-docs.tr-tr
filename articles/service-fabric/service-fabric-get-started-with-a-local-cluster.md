@@ -1,11 +1,11 @@
 ---
-title: "Azure mikro hizmetlerini yerel olarak dağıtma ve yükseltme | Microsoft Docs"
-description: "Yerel bir Service Fabric kümesi ayarlama, var olan bir uygulamayı bu kümeye dağıtma ve ardından uygulamayı yükseltme hakkında bilgi edinin."
+title: Azure mikro hizmetlerini yerel olarak dağıtma ve yükseltme | Microsoft Docs
+description: Yerel bir Service Fabric kümesi ayarlama, var olan bir uygulamayı bu kümeye dağıtma ve ardından uygulamayı yükseltme hakkında bilgi edinin.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 60a1f6a5-5478-46c0-80a8-18fe62da17a8
 ms.service: service-fabric
 ms.devlang: dotNet
@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
-ms.author: ryanwi;mikhegn
-ms.openlocfilehash: 9d547039491f6b0c0d308c64d11e9c54b4b4e3d5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.author: ryanwi
+ms.openlocfilehash: ca19b70e3651f72d6fe87fcb3cd2ace2eecf3402
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205255"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>Yerel kümenizdeki uygulamaları dağıtma ve yükseltme işlemlerine giriş
 Azure Service Fabric SDK, yerel bir kümede hızlıca dağıtma ve uygulamaları yönetme işlemlerine başlamak için kullanabileceğiniz eksiksiz bir yerel geliştirme ortamı içerir. Bu makalede, yerel bir küme oluşturup var olan bir uygulamayı kümeye dağıtır, ardından uygulamayı yeni bir sürüme yükseltirsiniz ve tüm bu işlemleri Windows PowerShell'den gerçekleştirirsiniz.
