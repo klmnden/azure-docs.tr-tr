@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics'teki çalışma alanlarını yönetme | Microsoft Docs
-description: Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics'teki çalışma alanlarını yönetebilirsiniz.
+title: Azure Log Analytics ve OMS portalında çalışma alanlarını yönetme | Microsoft Docs
+description: Kullanıcılar, hesaplar, çalışma alanları ve Azure hesapları ile ilgili çeşitli yönetim görevlerini kullanarak Azure Log Analytics’teki çalışma alanlarını ve OMS portalını yönetebilirsiniz.
 services: log-analytics
 documentationcenter: ''
 author: MGoedtel
@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2017
+ms.date: 05/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 25a68fb535300e80efdf2adf9f3a8afe1b304667
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271679"
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -34,7 +35,7 @@ Bir çalışma alanı oluşturmak için şunlar gereklidir:
 ## <a name="determine-the-number-of-workspaces-you-need"></a>İhtiyacınız olan çalışma alanı sayısını belirleme
 Çalışma alanı, bir Azure kaynağıdır. Bu alan, verilerin toplandığı, derlendiği, çözümlendiği ve Azure portalında sunulduğu bir kapsayıcıdır.
 
-Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve birden çok çalışma alanına erişebilirsiniz. Daha önce verileri yalnızca geçerli çalışma alanından çözümleyebiliyordunuz ve bu, aboneliğinizde tanımlanmış olan birden çok çalışma alanında sorgu yapabilmenizi kısıtlıyordu. Artık [birden çok çalışma alanında sorgu yapabilirsiniz](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search), bu da verilerinize sistem genelinde bir görünüm sunar. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
+Azure aboneliği başına birden çok çalışma alanına sahip olabilir ve aralarında kolayca sorgulama yapma olanağı ile birden çok çalışma alanına erişebilirsiniz. Bu bölümde birden çok çalışma alanı oluşturmanın yararlı olabileceği durumlar açıklanır.
 
 Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 
@@ -51,21 +52,21 @@ Günümüzde bir çalışma alanı aşağıdakileri sağlar:
 * Yönetilen bir hizmet sağlayıcısıysanız ve yönettiğiniz her bir müşteriye ilişkin Log Analytics verilerini diğer müşterilerin verilerinden yalıtmak istiyorsanız.
 * Birden çok müşteriyi yönetiyorsanız ve her bir müşterinin/departmanın/iş grubunun yalnızca kendi verilerini görmesini istiyorsanız.
 
-Verileri toplamak için aracıları kullanıyorsanız [her bir aracıyı, bir veya daha fazla çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz](log-analytics-windows-agent.md).
+Verileri toplamak için Windows aracılarını kullanıyorsanız [her bir aracıyı, bir veya daha fazla çalışma alanına raporlama yapacak şekilde yapılandırabilirsiniz](log-analytics-windows-agents.md).
 
-System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager yönetim grubu yalnızca bir çalışma alanıyla bağlantılı olabilir. Ancak, bilgisayardaki Microsoft Monitoring Agent, hem Operations Manager hem de farklı bir Log Analytics çalışma alanına rapor verecek şekilde yapılandırılabilir.  
+System Center Operations Manager'ı kullanıyorsanız her bir Operations Manager yönetim grubu yalnızca bir çalışma alanıyla bağlantılı olabilir. Operations Manager tarafından yönetilen bilgisayarlara Microsoft İzleme Aracısını yükleyebilir ve hem Operations Manager hem de farklı bir Log Analytics çalışma alanı için aracı raporu alabilirsiniz.
 
 ### <a name="workspace-information"></a>Çalışma alanı bilgileri
 
-Azure portalında çalışma alanınızla ilgili bilgileri görüntüleyebilirsiniz. 
+Azure portalında çalışma alanınızla ilgili bilgileri görüntüleyebilirsiniz. Bu bilgileri ayrıca OMS portalından da görüntüleyebilirsiniz.
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Çalışma alanı bilgilerini Azure portalında görüntüleme
 
-1. [Azure Portal](https://portal.azure.com) oturum açın.
-2. **Tüm hizmetler**’e tıklayın.  Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
-    ![Azure sol menüsünü gösteren ekran görüntüsü](./media/log-analytics-manage-access/hub.png)  
-3. Log Analytics abonelikler sayfasında bir çalışma alanı seçin.
-4. Çalışma alanı sayfasında çalışma alanıyla ilgili ayrıntılar ve ek bilgi bağlantıları gösterilir.  
+1. Önceden yapmadıysanız Azure aboneliğinizi kullanarak [Azure portalında](https://portal.azure.com) oturum açın.
+2. **Hub** menüsünde **Diğer hizmetler**’e tıklayıp kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i tıklayın.  
+    ![Azure hub'ı](./media/log-analytics-manage-access/hub.png)  
+3. Log Analytics abonelikler dikey penceresinden bir çalışma alanı seçin.
+4. Çalışma alanı dikey penceresinde çalışma alanıyla ilgili bilgiler ve ek bilgi bağlantıları gösterilir.  
     ![çalışma alanı ayrıntıları](./media/log-analytics-manage-access/workspace-details.png)  
 
 
@@ -77,7 +78,7 @@ Her çalışma alanı kendisiyle ilişkilendirilmiş birden çok hesap içerebil
 Bir Log Analytics çalışma alanına erişimi denetleyen iki izin modeli vardır:
 
 1. Eski Log Analytics kullanıcı rolleri
-2. [Azure rol tabanlı erişim](../role-based-access-control/role-assignments-portal.md)
+2. [Azure rol tabanlı erişim](../active-directory/role-based-access-control-configure.md)
 
 Aşağıdaki tabloda her bir izin modeli kullanılarak ayarlanabilen erişim özellikleri özetlenmektedir:
 
@@ -104,7 +105,7 @@ Eski Log Analytics kullanıcı rolleri yalnızca [Log Analytics portalında](htt
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Azure izinlerini kullanarak Log Analytics’e erişimi yönetme
-Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../role-based-access-control/role-assignments-portal.md) bölümündeki adımları izleyin.
+Azure izinlerini kullanarak Log Analytics çalışma alanına izin vermek için, [Azure abonelik kaynaklarınıza erişimi yönetmek için rol atamalarını kullanma](../active-directory/role-based-access-control-configure.md) bölümündeki adımları izleyin.
 
 Azure Log Analytics için iki yerleşik kullanıcı rolüne sahiptir:
 - Log Analytics Okuyucusu
@@ -156,13 +157,13 @@ Bu rolleri, kullanıcılara farklı kapsamlarda erişim vermek için kullanın:
 - Kaynak grubu - Kaynak grubundaki tüm çalışma alanına erişim
 - Kaynak - Yalnızca belirtilen çalışma alanına erişim
 
-Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../role-based-access-control/custom-roles.md) kullanın.
+Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../active-directory/role-based-access-control-custom-roles.md) kullanın.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure kullanıcı rolleri ve Log Analytics portalı kullanıcı rolleri
-Log Analytics çalışma alanında en az Azure okuma izniniz varsa, Log Analytics çalışma alanını görüntülerken **OMS Portal** görevine tıklayarak OMS portalını açabilirsiniz.
+Log Analytics çalışma alanında en az Azure okuma izniniz varsa, Log Analytics çalışma alanını görüntülerken **OMS Portal** görevine tıklayarak Log Analytics portalını açabilirsiniz.
 
-OMS portalını açarken, eski Log Analytics kullanıcı rollerine geçiş yaparsınız. Log Analytics portalında bir rol atamanız yoksa, hizmet [çalışma alanında sahip olduğunuz Azure izinlerini denetler](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
-OMS portalındaki rol atamanız aşağıdaki şekilde belirlenir:
+Log Analytics portalını açarken, eski Log Analytics kullanıcı rollerine geçiş yaparsınız. Log Analytics portalında bir rol atamanız yoksa, hizmet [çalışma alanında sahip olduğunuz Azure izinlerini denetler](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource).
+Log Analytics portalındaki rol atamanız aşağıdaki şekilde belirlenir:
 
 | Koşullar                                                   | Atanan Log Analytics kullanıcı rolü | Notlar |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -174,7 +175,7 @@ OMS portalındaki rol atamanız aşağıdaki şekilde belirlenir:
 | Bulut Çözümü Sağlayıcısı (CSP) tarafından yönetilen abonelikler için <br> Oturum açtığınız hesap, çalışma alanına bağlı Azure Active Directory’dedir | Yönetici | Genellikle bir CSP’nin müşterisi |
 | Bulut Çözümü Sağlayıcısı (CSP) tarafından yönetilen abonelikler için <br> Oturum açtığınız hesap, çalışma alanına bağlı Azure Active Directory’de değildir | Katılımcı | Genellikle CSP |
 
-<sup>1</sup> Rol tanımları hakkında daha fazla bilgi için [Azure izinlerine](../role-based-access-control/custom-roles.md) bakın. Roller değerlendirilirken, `*` eylemi `Microsoft.OperationalInsights/workspaces/*` öğesine eşit değildir.
+<sup>1</sup> Rol tanımları hakkında daha fazla bilgi için [Azure izinlerine](../active-directory/role-based-access-control-custom-roles.md) bakın. Roller değerlendirilirken, `*` eylemi `Microsoft.OperationalInsights/workspaces/*` öğesine eşit değildir.
 
 Azure portalı hakkında dikkate alınması gereken bazı noktalar:
 
@@ -246,7 +247,7 @@ OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebili
 4. Liste sonuçlarından grubu seçin ve ardından **Ekle**'ye tıklayın.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Mevcut bir çalışma alanını Azure aboneliğine bağlama
-26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, oturum açtığınızda bir aboneliğe bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
+26 Eylül 2016'dan sonra oluşturulan tüm çalışma alanları, oluşturma zamanında bir Azure aboneliğine bağlanmalıdır. Bu tarihten önce oluşturulan çalışma alanları, oturum açtığınızda bir çalışma alanına bağlanmalıdır. Çalışma alanını Azure portalından oluşturduğunuzda veya çalışma alanınızı bir Azure aboneliğine bağladığınızda, Azure Active Directory'niz kuruluş hesabınız olarak bağlanır.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>Çalışma alanını OMS portalında bir Azure aboneliğine bağlama
 
@@ -280,6 +281,76 @@ OMS hesabınızla ilişkili bir kullanıcı için hesap rolünü değiştirebili
 >
 >
 
+## <a name="upgrade-a-workspace-to-a-paid-plan"></a>Çalışma alanını ücretli plana yükseltme
+OMS için üç çalışma alanı plan türü mevcuttur: **Ücretsiz**, **Tek Başına** ve **OMS**.  *Ücretsiz* plandaysanız bir günde Log Analytics’e gönderilebilecek veriler için üst sınır 500 MB’dir.  Bu miktarı aşarsanız bu sınırın üzerinde veri toplanmasını önlemek için çalışma alanınızı ücretli bir planla değiştirmeniz gerekir. Plan türünüzü istediğiniz zaman değiştirebilirsiniz.  OMS fiyatlandırması hakkında daha fazla bilgi için bkz. [Fiyatlandırma Ayrıntıları](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing).
+
+### <a name="using-entitlements-from-an-oms-subscription"></a>Bir OMS aboneliğinden gelen destek haklarını kullanma
+OMS E1, OMS E2 OMS veya System Center için OMS Eklentisi satın alındıktan sonra sunulan destek haklarını kullanmak için OMS Log Analytics’in *OMS* planını seçin.
+
+Bir OMS aboneliği satın aldığınızda, destek hakları Kurumsal Anlaşmanıza eklenir. Bu anlaşma kapsamında oluşturulan herhangi bir Azure aboneliği bu destek haklarını kullanabilir. Bu aboneliklerdeki tüm çalışma alanları OMS yetkilendirmelerini kullanır.
+
+Çalışma alanı kullanımının, OMS aboneliğinden gelen destek haklarınıza uygulandığından emin olmak için şunları yapmanız gerekir:
+
+1. OMS aboneliğini içeren Kurumsal Anlaşmanın parçası olan Azure aboneliğinde çalışma alanınızı oluşturma
+2. Çalışma alanı için *OMS* planını seçme
+
+> [!NOTE]
+> Çalışma alanınız 26 Eylül 2016’dan önce oluşturulduysa ve Log Analytics fiyatlandırma planınız *Premium* ise, bu çalışma alanı System Center için OMS Eklentisi’nden gelen destek haklarını kullanır. Destek haklarınızı, *OMS* fiyatlandırma katmanına geçerek de kullanabilirsiniz.
+>
+>
+
+OMS aboneliği destek hakları, Azure veya OMS portalında görünmez. Destek haklarını ve kullanımı Enterprise Portal'da görebilirsiniz.  
+
+Çalışma alanınızın bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.
+
+### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>Kurumsal Anlaşmadaki bir Azure Taahhüdünü Kullanma
+OMS aboneliğiniz yoksa OMS’nin her bir bileşeni için ayrı olarak ödeme yaparsınız ve kullanım Azure faturanızda görünür.
+
+Azure aboneliklerinizin bağlı olduğu kurumsal kayıt anlaşmasında bir Azure parasal taahhüdünüz varsa Log Analytics kullanımı, kalan parasal taahhüde otomatik olarak eklenir.
+
+Çalışma alanının bağlı olduğu Azure aboneliğini değiştirmeniz gerekiyorsa Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) cmdlet'ini kullanabilirsiniz.  
+
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>Azure portalında çalışma alanını ücretli fiyatlandırma katmanı olarak değiştirme
+1. [Azure portal](http://portal.azure.com) oturum açın.
+2. **Log Analytics**’e göz atın ve ardından bu seçeneği belirleyin.
+3. Mevcut çalışma alanlarınızın listesini görürsünüz. Bir çalışma alanı seçin.  
+4. **Genel** altındaki çalışma alanı dikey penceresinde **Fiyatlandırma katmanı**’na tıklayın.  
+5. **Fiyatlandırma katmanı** altında bir fiyatlandırma katmanı seçin ve ardından **Seç**'e tıklayın.  
+    ![plan seçme](./media/log-analytics-manage-access/manage-access-change-plan03.png)
+6. Azure portalında görünümü yenilediğinizde, **Fiyatlandırma katmanı**'nın seçtiğiniz katman için güncelleştirildiğini görürsünüz.  
+    ![güncelleştirilmiş plan](./media/log-analytics-manage-access/manage-access-change-plan04.png)
+
+> [!NOTE]
+> Çalışma alanınız bir Otomasyon hesabıyla bağlantılıysa, *Tek Başına (GB başına)* fiyatlandırma katmanını seçebilmeniz için tüm **Otomasyon ve Denetim** çözümlerini silmeniz ve Otomasyon hesabının bağlantısını kaldırmanız gerekir. Çalışma alanı dikey penceresindeki **Genel** altında **Çözümler**’e tıklayıp çözümleri silin. Bir Otomasyon hesabının bağlantısını kaldırmak için **Fiyatlandırma katmanı** dikey penceresinde Otomasyon hesabının adına tıklayın.
+>
+>
+
+### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>OMS portalında çalışma alanını ücretli fiyatlandırma katmanı olarak değiştirme
+
+OMS portalını kullanarak fiyatlandırma katmanını değiştirmek için, bir Azure aboneliğine sahip olmanız gerekir.
+
+1. OMS portalında **Ayarlar** kutucuğuna tıklayın.
+2. **Hesaplar** sekmesine ve ardından **Azure Aboneliği ve Veri Planı** sekmesine tıklayın.
+3. Kullanmak istediğiniz fiyatlandırma katmanına tıklayın.
+4. **Kaydet**’e tıklayın.  
+   ![abonelik ve veri planları](./media/log-analytics-manage-access/subscription-tab.png)
+
+Yeni veri planınız, web sayfanızın üst kısmındaki OMS portalı şeridinde görüntülenir.
+
+![OMS şeridi](./media/log-analytics-manage-access/data-plan-changed.png)
+
+
+## <a name="change-how-long-log-analytics-stores-data"></a>Log Analytics'in veri saklama süresini değiştirme
+
+Ücretsiz fiyatlandırma katmanında Log Analytics son yedi günün verilerini kullanımınıza sunar.
+Standart fiyatlandırma katmanında Log Analytics son 30 günün verilerini kullanımınıza sunar.
+Premium fiyatlandırma katmanında Log Analytics son 365 günün verilerini kullanımınıza sunar.
+Tek ve OMS fiyatlandırma katmanlarında Log Analytics varsayılan olarak son 31 günün verilerini kullanımınıza sunar.
+
+Tek başına ve OMS fiyatlandırma katmanlarını kullandığınızda 2 yıla (730 gün) kadar veri tutabilirsiniz. Varsayılan değer olan 31 günden daha fazla tutulan veriler için, veri bekletme ücreti alınır. Fiyatlandırma konusunda daha fazla bilgi için bkz. [fazla kullanım ücretleri](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Veri saklama uzunluğunu değiştirmek için bkz. [Log Analytics’te veri hacmi ve saklamayı denetleyerek maliyeti yönetme](log-analytics-manage-cost-storage.md).
+
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>Çalışma alanı için Azure Active Directory Kuruluşunu değiştirme
 
 Bir çalışma alanının Azure Active Directory kuruluşunu değiştirebilirsiniz. Azure Active Directory Kuruluşunun değiştirilmesi, bu dizinden çalışma alanına kullanıcı ve grup eklemenize olanak sağlar.
@@ -292,6 +363,14 @@ Bir çalışma alanının Azure Active Directory kuruluşunu değiştirebilirsin
 3. Azure Active Directory etki alanınızın yöneticisine ilişkin kimlik bilgilerini girin. Daha sonra, çalışma alanınızın Azure Active Directory etki alanınıza bağlandığını belirten bir bildirim görürsünüz.  
     ![bağlanan çalışma alanı bildirimi](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
+
+## <a name="delete-a-log-analytics-workspace"></a>Log Analytics çalışma alanını silme
+Bir Log Analytics çalışma alanını sildiğinizde, çalışma alanınızla ilişkili veriler 30 gün içerisinde Log Analytics hizmetinden silinir.
+
+Bir yöneticiyseniz ve çalışma alanıyla ilişkilendirilmiş birden çok kullanıcı varsa bu kullanıcılar ve çalışma alanı arasındaki ilişki kaybolur. Kullanıcılar başka çalışma alanlarıyla ilişkilendirilmişse bu diğer çalışma alanlarıyla Log Analytics'i kullanmaya devam edebilirler. Ancak, başka çalışma alanlarıyla ilişkili olmamaları durumunda hizmeti kullanmak için bir çalışma alanı oluşturmaları gerekir. Bir çalışma alanını silmek için bkz. [Bir Azure Log Analytics çalışma alanını silme](log-analytics-manage-del-workspace.md)
+
 ## <a name="next-steps"></a>Sonraki adımlar
-* Çözümler tarafından toplanan ve bilgisayarlardan gönderilen veri hacimlerini nasıl çözümleyeceğinizi öğrenmek için bkz. [Veri kullanımını anlama](log-analytics-usage.md).
-* İşlev eklemek ve veri toplamak için bkz. [Azure marketinden Log Analytics yönetim çözümleri ekleme](log-analytics-add-solutions.md).
+* Veri merkezinizde veya diğer bulut ortamlarında bulunan bilgisayarlardan veri toplamak için bkz. [Log Analytics ile ortamınızdaki bilgisayarlardan veri toplama](log-analytics-concept-hybrid.md).
+* Azure VM’lerden veri toplamayı yapılandırmak için bkz. [Azure Sanal Makineler hakkında veri toplama](log-analytics-quick-collect-azurevm.md).  
+* İşlev eklemek ve veri toplamak için bkz. [Çözüm Galerisinden Log Analytics çözümleri ekleme](log-analytics-add-solutions.md).
+

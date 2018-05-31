@@ -3,7 +3,8 @@ title: "Sorun giderme: 'Active Directory' öğesi eksik veya kullanılabilir de�
 description: Active Directory menü öğesi Azure Yönetim Portalı'nda görünmüyor ne yapmanız gerekenler.
 services: active-directory
 documentationcenter: na
-author: bryanla
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: mtillman
 editor: ''
 ms.assetid: 3383020d-6397-43ea-b7aa-c6a9d6a1e3df
@@ -13,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: bryanla
-ms.openlocfilehash: c6e8557ec66db51df0bb463a9511b0cdc94811d4
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8996eaf1d780f957445c63eac96cf9a343b9ef90
+ms.sourcegitcommit: c306be629977f6bc22bb7aefd0522a30ed591ff3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34181546"
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Sorun giderme: 'Active Directory' öğesi eksik veya kullanılabilir değil
 Azure Active Directory özelliklerini ve hizmetlerini kullanma yönergeleri çoğunu ile başlayan "Azure Yönetim Portalı'na gidin ve tıklayın **Active Directory**." Ancak ne yaparsınız Active Directory uzantısına veya menü öğesini görünmüyorsa veya işaretlenmiş olması durumunda **kullanılamaz**? Bu konuda yardımcı olmak için tasarlanmıştır. Hangi koşullar altında açıklar **Active Directory** görünmez veya kullanılamaz durumda ve devam etmek açıklanmaktadır.
@@ -32,13 +33,13 @@ Aşağıdaki koşullardan herhangi biri true olduğunda sol gezinti menüsünde 
 
 * Geçerli kullanıcının (eskiden Windows Live ID da bilinir) bir Microsoft hesabı ile oturum açmış.
   
-    OR
+    VEYA
 * Azure Kiracı bir dizine sahip ve bir dizin Yöneticisi geçerli hesabıdır.
   
-    OR
+    VEYA
 * Azure Kiracı en az bir Azure AD erişim denetimi (ACS) ad alanı vardır. Daha fazla bilgi için bkz: [erişim denetimi Namespace](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
-    OR
+    VEYA
 * Azure Kiracı en az bir Azure çok faktörlü kimlik doğrulama sağlayıcısı sahiptir. Daha fazla bilgi için bkz: [yönetme Azure çok faktörlü kimlik doğrulama sağlayıcıları](authentication/howto-mfa-getstarted.md).
 
 Erişim denetimi ad alanı veya çok faktörlü kimlik doğrulama sağlayıcısı oluşturmak için tıklatın **+ yeni** > **uygulama hizmetleri** > **Active Directory**.
