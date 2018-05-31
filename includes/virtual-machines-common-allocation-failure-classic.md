@@ -13,6 +13,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31531064"
 ---
 Sabitlenmelidir ayırma isteği neden ortak ayırma senaryolar aşağıda verilmiştir. Her senaryo bu makalenin sonraki bölümlerinde içine dalın.
 
@@ -79,7 +80,7 @@ Farklı bir VIP kullanın, özgün durduruldu (serbest bırakıldığında) sana
 ## <a name="stagingproduction-deployments-platform-as-a-service-only"></a>Hazırlama/üretim dağıtımları (yalnızca bir hizmet olarak platform)
 **Hata**
 
-New_General * veya New_VMSizeNotSupported *
+New_General * veya New_VMSizeNotSupported\*
 
 **Küme sabitleme nedeni**
 
@@ -92,7 +93,7 @@ Hazırlama dağıtımı ve bir bulut hizmeti Üretim dağıtımı aynı küme i�
 ## <a name="affinity-group-vmservice-proximity"></a>Benzeşim grubu (VM/hizmet yakınlık)
 **Hata**
 
-New_General * veya New_VMSizeNotSupported *
+New_General * veya New_VMSizeNotSupported\*
 
 **Küme sabitleme nedeni**
 
@@ -105,7 +106,7 @@ Bir benzeşim grubu gerekli değilse, olmayan bir benzeşim grubu kullanın veya
 ## <a name="affinity-group-based-virtual-network"></a>Benzeşim grubu tabanlı sanal ağ
 **Hata**
 
-New_General * veya New_VMSizeNotSupported *
+New_General * veya New_VMSizeNotSupported\*
 
 **Küme sabitleme nedeni**
 
