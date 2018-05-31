@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: 2e80a090d003770f47d28dfaacf7ba5140f7b41f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304574"
 ---
 # <a name="get-started"></a>Hızlı Başlangıç: Azure PowerShell kullanarak genel yük dengeleyici oluşturma
 Bu hızlı başlangıçta, Azure PowerShell kullanarak Temel Yük Dengeleyici oluşturma işlemi gösterilmektedir. Yük dengeleyiciyi test etmek için, Windows sunucusu çalıştıran iki sanal makine (VM) dağıtın ve sanal makineler arasında bir web uygulamasının yük dengelemesini yapın.
@@ -331,4 +332,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroupLB
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Azure Load Balancer hakkında daha fazla bilgi edinin](load-balancer-overview.md)
+
+Bu hızlı başlangıçta, bir Temel Load Balancer oluşturdunuz, buna VM’ler eklediniz, yük dengeleyici trafik kuralını ve durum araştırmasını yapılandırdınız ve yük dengeleyiciyi test ettiniz. Azure Load Balancer hakkında daha fazla bilgi almak için Azure Load Balancer öğreticisine devam edin.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer öğreticileri](tutorial-load-balancer-basic-internal-portal.md)

@@ -1,166 +1,167 @@
 ---
-title: "Sanal makine değişikliklerini - Azure olay kılavuz & Logic Apps izleme | Microsoft Docs"
-description: "Azure olay kılavuz ve Logic Apps kullanarak sanal makineleri (VM'ler) yapılandırma değişiklikleri denetleyin"
-keywords: "Logic apps, olay kılavuzları, sanal makine, VM"
+title: Sanal makine değişikliklerini izleme - Azure Event Grid ve Logic Apps | Microsoft Docs
+description: Azure Event Grid ve Logic Apps kullanarak sanal makinelerde (VM) yapılandırma değişikliklerini denetleme
+keywords: logic apps, event grids, sanal makine, VM
 services: logic-apps
 author: ecfan
 manager: anneta
-ms.assetid: 
+ms.assetid: ''
 ms.workload: logic-apps
 ms.service: logic-apps
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 3d99dabe778b9b9234db9fe130ba503cd8b57834
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: MT
+ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34303122"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure olay kılavuz ve Logic Apps ile sanal makine değişikliklerini izleme
+# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Azure Event Grid ve Logic Apps ile sanal makine değişikliklerini izleme
 
-Bir Otomatik Başlat [mantığı uygulama iş akışı](../logic-apps/logic-apps-overview.md) belirli olaylar olduğunda gerçekleşir Azure kaynakları veya üçüncü taraf kaynakları. Bu kaynaklar, bu olaylarla yayımlayabilirsiniz bir [Azure olay kılavuz](../event-grid/overview.md). Sırayla bu olayları olay kılavuz sıralar, Web kancalarını, abonelere iter veya [olay hub'ları](../event-hubs/event-hubs-what-is-event-hubs.md) uç noktalar olarak. Bir abone olarak mantıksal uygulamanızı bu olayları olay grid -, herhangi bir kod yazmadan görevler için otomatik iş akışları çalıştırmadan önce bekleyebilirsiniz.
+Azure kaynaklarında veya üçüncü taraf kaynaklarda belirli olaylar olduğunda otomatik bir [mantıksal uygulama iş akışı](../logic-apps/logic-apps-overview.md) başlatabilirsiniz. Bu kaynaklar bu olayları bir [Azure olay kılavuzuna](../event-grid/overview.md) yayımlayabilir. Olay kılavuzu da bu olayları uç nokta olarak kuyruk, web kancası veya [olay hub’ları](../event-hubs/event-hubs-what-is-event-hubs.md) olan abonelere gönderir. Bir abone olarak, mantıksal uygulamanız sizin herhangi bir kod yazmanıza gerek kalmadan görevleri gerçekleştirmek üzere otomatik iş akışlarını çalıştırmak için olay kılavuzundan bu olayları bekleyebilir.
 
-Örneğin, yayımcılar Azure olay kılavuz hizmeti aracılığıyla abonelere gönderebilirsiniz bazı olaylar şunlardır:
+Örneğin, yayımcıların Azure Event Grid hizmeti üzerinden abonelere gönderebileceği bazı olaylar şunlardır:
 
-* Oluşturma, okuma, güncelleştirme veya kaynak silme. Örneğin, Azure aboneliğinizde üzerinde ücretlendirme ve faturanızı etkileyen değişiklikleri izleyebilirsiniz. 
-* Ekleyebilir veya bir kişinin Azure aboneliğinden kaldırabilirsiniz.
-* Uygulamanızı belirli bir eylemi gerçekleştirir.
-* Bir kuyruktaki yeni bir ileti görüntülenir.
+* Kaynağı oluşturun, okuyun, güncelleştirin veya silin. Örneğin, Azure aboneliğinizde ücretlendirmeye neden olabilecek ve faturanızı etkileyebilecek değişiklikleri izleyebilirsiniz. 
+* Bir Azure aboneliğine kişi ekleyin veya kaldırın.
+* Uygulamanız belirli bir eylemi gerçekleştirir.
+* Bir kuyrukta yeni bir ileti görüntülenir.
 
-Bu öğretici bir sanal makine yapılan değişiklikleri izler ve bu değişiklikleri hakkında e-posta gönderen bir mantıksal uygulama oluşturur. Bir Azure kaynağı için bir olay aboneliği ile bir mantıksal uygulama oluşturduğunuzda, olayları olay kılavuz aracılığıyla bu kaynaktan mantıksal uygulama akışı. Öğretici, bu mantıksal uygulama oluşturma sürecinde yardımcı olur:
+Bu öğretici bir sanal makinedeki değişiklikleri izleyen ve bu değişiklikler hakkında e-posta gönderen bir mantıksal uygulama oluşturur. Bir Azure kaynağı için bir mantıksal uygulama oluşturduğunuzda, bu kaynaktan olayların bir mantık kılavuzu üzerinden mantıksal uygulamaya akışı yapılır. Öğretici size bu mantıksal uygulamayı oluşturma sürecinde yardımcı olur:
 
-![Genel Bakış - olay kılavuz ve mantığı uygulama ile yeni bir sanal makine İzleyicisi](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
+![Genel bakış - Olay kılavuzu ve mantıksal uygulama ile sanal makineyi izleme](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * Bir olay kılavuz olayları izler bir mantıksal uygulama oluşturun.
-> * Özellikle sanal makine değişiklikleri denetleyen bir koşul ekleyin.
+> * Bir olay kılavuzundan olayları izleyen bir mantıksal uygulama oluşturun.
+> * Özellikle sanal makine değişikliklerini izleyen bir koşul ekleyin.
 > * Sanal makineniz değiştiğinde e-posta gönderin.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Bir e-posta hesabından [Azure mantıksal uygulamaları tarafından desteklenen herhangi bir e-posta sağlayıcısına](../connectors/apis-list.md)Office 365 Outlook, Outlook.com veya bildirim göndermek için Gmail gibi. Bu öğreticide Office 365 Outlook kullanılmaktadır.
+* Bildirim göndermek için [Azure Logic Apps tarafından desteklenen](../connectors/apis-list.md) Office 365 Outlook, Outlook.com veya Gmail gibi bir e-posta sağlayıcıdan alınmış e-posta hesabı. Bu öğreticide Office 365 Outlook kullanılmaktadır.
 
-* A [sanal makine](https://azure.microsoft.com/services/virtual-machines). Zaten yapmadıysanız, bir sanal makine üzerinden oluşturmak bir [VM öğretici oluşturma](https://docs.microsoft.com/azure/virtual-machines/). Sanal makine olayları, yayımlama yapmak için [başka bir şey yapmanız gerekmez](../event-grid/overview.md).
+* Bir [sanal makine](https://azure.microsoft.com/services/virtual-machines). Zaten yapmadıysanız, bir [VM oluşturma öğreticisi](https://docs.microsoft.com/azure/virtual-machines/) kullanarak bir sanal makine oluşturun. Sanal makinenin olayları yayımlaması için, [başka bir işlem yapmanız gerekmez](../event-grid/overview.md).
 
-## <a name="create-a-logic-app-that-monitors-events-from-an-event-grid"></a>Bir olay kılavuz olayları izler bir mantıksal uygulama oluşturma
+## <a name="create-a-logic-app-that-monitors-events-from-an-event-grid"></a>Bir olay kılavuzundan olayları izleyen bir mantıksal uygulama oluşturma
 
-İlk olarak, bir mantıksal uygulama oluşturma ve kaynak grubu, sanal makine için izleyen olay kılavuz tetikleyicisi ekleyin. 
+İlk olarak, bir mantıksal uygulama oluşturun ve sanal makineniz için kaynak grubunu izleyen bir Olay kılavuzu tetikleyicisi ekleyin. 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın. 
 
-2. Ana Azure menü sol üst köşesinden seçin **kaynak oluşturma** > **Kurumsal tümleştirme** > **mantıksal uygulama**.
+2. Azure ana menüsünde sol üst köşeden **Kaynak oluştur** > **Kurumsal Tümleştirme** > **Mantıksal Uygulama**'yı seçin.
 
    ![Mantıksal uygulama oluşturma](./media/monitor-virtual-machine-changes-event-grid-logic-app/azure-portal-create-logic-app.png)
 
-3. Aşağıdaki tabloda belirtilen ayarlarla mantıksal uygulamanızı oluşturun:
+3. Aşağıdaki tabloda yer alan özelliklerle mantıksal uygulamanızı oluşturun:
 
    ![Mantıksal uygulama ayrıntılarını sağlayın](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
    | Ayar | Önerilen değer | Açıklama | 
    | ------- | --------------- | ----------- | 
-   | **Ad** | *{mantığı-uygulamanızın-adı}* | Mantıksal uygulama için benzersiz bir ad girin. | 
-   | **Abonelik** | *{your-Azure-subscription}* | Bu öğreticide tüm hizmetler için aynı Azure aboneliğini seçin. | 
-   | **Kaynak grubu** | *{your-Azure-resource-group}* | Bu öğreticide tüm hizmetler için aynı Azure kaynak grubu seçin. | 
-   | **Konum** | *{your-Azure-region}* | Tüm hizmetler için aynı bölgede Bu öğreticide seçin. | 
+   | **Ad** | *{mantıksal-uygulamanızın-adı}* | Mantıksal uygulama için benzersiz bir ad girin. | 
+   | **Abonelik** | *{Azure-aboneliğiniz}* | Bu öğreticideki tüm hizmetler için aynı Azure aboneliğini seçin. | 
+   | **Kaynak grubu** | *{Azure-kaynak-grubunuz}* | Bu öğreticideki tüm hizmetler için aynı Azure kaynak grubunu seçin. | 
+   | **Konum** | *{Azure-bölgeniz}* | Bu öğreticideki tüm hizmetler için aynı bölgeyi seçin. | 
    | | | 
 
-4. Hazır olduğunuzda, seçin **panoya Sabitle**ve seçin **oluşturma**.
+4. Hazır olduğunuzda **Panoya sabitle**'yi ve ardından **Oluştur**'u seçin.
 
    Mantıksal uygulamanız için bir Azure kaynağı oluşturdunuz. 
    Azure mantıksal uygulamanızı dağıttıktan sonra Logic Apps Tasarımcısı'nda hızlı bir başlangıç yapmanıza yardımcı olacak ortak desen şablonları gösterilir.
 
    > [!NOTE] 
-   > Seçtiğinizde, **panoya Sabitle**, mantıksal uygulamanızı Logic Apps Tasarımcısı'nda otomatik olarak açılır. Aksi takdirde, el ile bulabilir ve mantıksal uygulamanızı açın.
+   > **Panoya sabitle**’yi seçtiğinizde, mantıksal uygulama otomatik olarak Logic Apps Tasarımcısı’nda açılır. Aksi takdirde mantıksal uygulamanızı kendiniz bulup açabilirsiniz.
 
-5. Şimdi mantıksal uygulama şablonu seçin. Altında **şablonları**, seçin **boş mantıksal uygulama** mantıksal uygulamanızı sıfırdan oluşturabilirsiniz.
+5. Şimdi bir mantıksal uygulama şablonu seçin. Mantıksal uygulamanızı sıfırdan oluşturabilmek için **Şablonlar**'ın altından **Boş Mantıksal Uygulama**'yı seçin.
 
    ![Mantıksal uygulama şablonunu seçin](./media/monitor-virtual-machine-changes-event-grid-logic-app/choose-logic-app-template.png)
 
-   Logic Apps Tasarımcısı'nı şimdi, gösterir [ *Bağlayıcılar* ](../connectors/apis-list.md) ve [ *Tetikleyicileri* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) , mantıksal uygulama ve ayrıca eylemleri başlatmak için kullanabilirsiniz, görevleri gerçekleştirmek için bir tetikleyici sonra ekleyebilirsiniz. Bir tetikleyici bir mantıksal uygulama örneği oluşturur ve logic app akışınızı başlatan bir olaydır. 
-   Mantıksal uygulamanızı bir tetikleyici ilk öğe gerekir.
+   Logic Apps Tasarımcısı artık mantıksal uygulamanızı başlatmak için kullanabileceğiniz [*bağlayıcılar*](../connectors/apis-list.md) ve [*tetikleyiciler*](../logic-apps/logic-apps-overview.md#logic-app-concepts) ile görevleri gerçekleştirmek için bir tetikleyiciden sonra ekleyebileceğiniz eylemleri gösterir. Tetikleyici, bir mantıksal uygulama örneği oluşturan ve mantıksal uygulama iş akışınızı başlatan bir olaydır. 
+   Mantıksal uygulamanızın ilk öğesinin bir tetikleyici olması gerekir.
 
-6. Arama kutusuna "olay kılavuz", filtre olarak girin. Bu tetikleyici seçin: **Azure olay Kılavuzu - kaynak olayı**
+6. Arama kutusuna filtreniz olarak "olay kılavuzu" yazın. Bu tetikleyiciyi seçin: **Azure Event Grid - Kaynak olayında**
 
-   ![Bu tetikleyici seçin: "Azure olay Kılavuzu - kaynak olay"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
+   ![Bu tetikleyiciyi seçin: "Azure Event Grid - Kaynak olayında"](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger.png)
 
-7. İstendiğinde, Azure olay kılavuza Azure kimlik bilgilerinizle oturum açın.
+7. İstendiğinde, Azure kimlik bilgilerinizle Azure Event Grid oturumu açın.
 
-   ![Azure kimlik bilgilerinizle oturum](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
+   ![Azure kimlik bilgilerinizle oturum açın](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Kişisel bir Microsoft hesabıyla oturum gibi kapattığınızdan varsa @outlook.com veya @hotmail.com, olay kılavuz tetikleyici düzgün görünmeyebilir. Geçici bir çözüm olarak seçin [Connect ile hizmet sorumlusu](../azure-resource-manager/resource-group-create-service-principal-portal.md), veya örneğin, Azure aboneliğinizle ilişkili Azure Active Directory'nun bir üyesi olarak kimlik doğrulaması *kullanıcı adı* @emailoutlook.onmicrosoft.com.
+   > @outlook.com veya @hotmail.com gibi kişisel bir Microsoft hesabında oturum açtıysanız, Event Grid tetikleyicisi doğru görüntülenmeyebilir. Geçici bir çözüm olarak, [Hizmet Sorumlusu ile bağlan](../azure-resource-manager/resource-group-create-service-principal-portal.md)’ı seçin veya *user-name*@emailoutlook.onmicrosoft.com gibi Azure aboneliğinizle ilişkili bir Azure Active Directory’nin bir üyesi olarak kimlik doğrulaması yapın.
 
-8. Şimdi mantıksal uygulamanızı yayımcı olaylara abone olma. Aşağıdaki tabloda belirtildiği gibi olay aboneliğinizin ayrıntılarını verin:
+8. Şimdi mantıksal uygulamanızı yayımcı olaylarına kaydedin. Aşağıdaki tabloda belirtildiği gibi olay aboneliğinizin ayrıntılarını sağlayın:
 
-   ![Ayrıntılar için olay abonelik sağlayın](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
+   ![Olay aboneliğinin ayrıntılarını sağlayın](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details-generic.png)
 
    | Ayar | Önerilen değer | Açıklama | 
    | ------- | --------------- | ----------- | 
-   | **Abonelik** | *{virtual-machine-Azure-subscription}* | Olay publisher'ın Azure aboneliğini seçin. Bu öğretici için sanal makine için Azure aboneliğini seçin. | 
-   | **Kaynak Türü** | Microsoft.Resources.resourceGroups | Olay publisher'ın kaynak türü seçin. Yalnızca kaynak grupları mantıksal uygulamanızı izler şekilde Bu öğretici için belirtilen değer seçin. | 
-   | **Kaynak adı** | *{virtual-machine-resource-group-name}* | Publisher'ın kaynak adı seçin. Bu öğretici için sanal makine için kaynak grubu adını seçin. | 
-   | İsteğe bağlı ayarlarını seçin **Gelişmiş Seçenekleri Göster**. | *{açıklamalarına bakın}* | * **Filtre önek**: Bu öğretici için bu ayarı boş bırakın. Varsayılan davranış tüm değerleri eşleşir. Bununla birlikte, örneğin, bir yol ve belirli bir kaynak için bir parametre bir filtre olarak önek dizesi belirtebilirsiniz. <p>* **Sonek filtre**: Bu öğretici için bu ayarı boş bırakın. Varsayılan davranış tüm değerleri eşleşir. Ancak, yalnızca belirli dosya türlerini istediğinizde bir filtre, örneğin, bir dosya adı uzantısı, sonek dizesi belirtebilirsiniz.<p>* **Abonelik adı**: olay aboneliğiniz için benzersiz bir ad sağlayın. |
+   | **Abonelik** | *{virtual-machine-Azure-subscription}* | Olay yayımcısının Azure aboneliğini seçin. Bu öğretici için, sanal makinenizin Azure aboneliğini seçin. | 
+   | **Kaynak Türü** | Microsoft.Resources.resourceGroups | Olay yayımcısının kaynak türünü seçin. Bu öğretici için, mantıksal uygulamanızın yalnızca kaynak gruplarını izlemesi için belirtilen değeri seçin. | 
+   | **Kaynak Adı** | *{virtual-machine-resource-group-name}* | Yayımcının kaynak adını seçin. Bu öğretici için, sanal makineniz için kaynak grubunun adını seçin. | 
+   | İsteğe bağlı ayarları için **Gelişmiş seçenekleri göster**’i seçin. | *{açıklamalara bakın}* | * **Ön Ek Filtresi**: Bu öğretici için, bu ayarı boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak filtre olarak bir ön ek dizesi (örneğin belirli bir kaynak için bir yol ve bir parametre) belirtebilirsiniz. <p>* **Sonek Filtresi**: Bu öğretici için, bu ayarı boş bırakın. Varsayılan davranış tüm değerlerle eşleşir. Ancak yalnızca belirli dosya türlerini istediğinizde filtre olarak bir sonek dizesi (örneğin dosya adı uzantısı) belirtebilirsiniz.<p>* **Abonelik Adı**: Olay aboneliğiniz için benzersiz bir ad girin. |
    | | | 
 
-   İşiniz bittiğinde, olay kılavuz tetikleyicisi bu örnekteki gibi görünebilir:
+   İşiniz bittiğinde, olay kılavuzu tetikleyiciniz bu örnekteki gibi görünebilir:
    
-   ![Örnek olay kılavuz tetikleyici ayrıntıları](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
+   ![Örnek olay kılavuzu tetikleyici ayrıntıları](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-9. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin. Daraltma ve gizleme mantıksal uygulamanızı bir eylemin Ayrıntılar için eylemin başlık çubuğu seçin.
+9. Mantıksal uygulamanızı kaydedin. Tasarımcı araç çubuğunda **Kaydet**'i seçin. Mantıksal uygulamanızda bir eylemin ayrıntılarını daraltmak ve gizlemek için, eylemin başlık çubuğunu seçin.
 
    ![Mantıksal uygulamanızı kaydetme](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save.png)
 
-   Mantıksal uygulamanızı bir olay kılavuz tetikleyicisi ile kaydettiğinizde, Azure mantıksal uygulamanıza, seçilen kaynak için bir olay aboneliği otomatik olarak oluşturur. Bu nedenle, kaynağı olay kılavuza bir olay yayımlandığında, bu olay kılavuz otomatik olarak olay mantıksal uygulamanızı iter. Bu olay mantıksal uygulamanızı tetikler sonra oluşturur ve sonraki adımları tanımladığınız iş akışı örneğini çalıştırır.
+   Mantıksal uygulamanızı bir olay kılavuzu tetikleyicisiyle kaydettiğinizde, Azure seçtiğiniz kaynağa mantıksal uygulamanız için otomatik olarak bir olay aboneliği oluşturur. Bu nedenle kaynak bir olayı olay kılavuzuna yayımladığında, bu olay kılavuzu otomatik olarak olayı mantıksal uygulamanıza gönderir. Bu olay mantıksal uygulamanızı tetikler ve ardından sonraki adımlarda yapılandıracağınız iş akışının bir örneğini oluşturur ve çalıştırır.
 
-Mantıksal uygulamanız artık canlı ve olay kılavuzdan olayları dinler, ancak Eylemler iş akışı için eklenene kadar hiçbir şey yapmaz. 
+Mantıksal uygulamanız artık canlı ve olay kılavuzundan olayları dinliyor ancak siz eylemleri iş akışına ekleyene kadar herhangi bir işlem yapmayacak. 
 
-## <a name="add-a-condition-that-checks-for-virtual-machine-changes"></a>Sanal makine değişiklikleri denetleyen bir koşul Ekle
+## <a name="add-a-condition-that-checks-for-virtual-machine-changes"></a>Sanal makine değişikliklerini izleyen bir koşul ekleme
 
-Yalnızca belirli bir olay gerçekleştiğinde mantığı uygulama akışınızı çalıştırmak için sanal makine için "yazma işlemlerini" denetleyen bir koşul ekleyin. Bu koşul true olduğunda, mantıksal uygulamanızı güncelleştirilmiş sanal makineye ilişkin ayrıntıları içeren e-posta gönderir.
+Mantıksal uygulama iş akışınızı yalnızca belirli bir olay gerçekleştiğinde çalıştırmak için, sanal makine “write” işlemlerini denetleyen bir koşul ekleyin. Bu koşul true olduğunda, mantıksal uygulamanız size güncelleştirilen sanal makine hakkında ayrıntıları içeren bir e-posta gönderir.
 
-1. Mantıksal Uygulama Tasarımcısı'nda olay kılavuz tetikleyici altında seçin **yeni adım** > **bir koşul eklemek**.
+1. Logic Apps Tasarımcısı’nda olay kılavuzu tetikleyicisinin altında **Yeni adım** > **Koşul ekle**’yi seçin.
 
-   ![Mantıksal uygulamanız için bir koşul Ekle](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-add-condition-step.png)
+   ![Mantıksal uygulamanıza koşul ekleyin](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-add-condition-step.png)
 
-   Mantıksal Uygulama Tasarımcısı'nı koşul true veya false olup göre izlemek için eylem yolları dahil olmak üzere iş akışınıza, boş bir koşul ekler.
+   Logic App Tasarımcısı iş akışınıza koşulun true veya false olmasına bağlı olarak izlenecek eylem yolları dahil boş bir koşul ekler.
 
-   ![Boş koşulu](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-add-empty-condition.png)
+   ![Boş koşul](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-add-empty-condition.png)
 
-2. İçinde **koşulu** kutusunda, seçin **Gelişmiş modda Düzenle**.
-Bu ifade girin:
+2. **Koşul** kutusunda, **Gelişmiş modda düzenle**’yi seçin.
+Şu ifadeyi girin:
 
    `@equals(triggerBody()?['data']['operationName'], 'Microsoft.Compute/virtualMachines/write')`
 
    Koşulunuz şu örneğe benzer şekilde görünür:
 
-   ![Boş koşulu](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
+   ![Boş koşul](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-expression.png)
 
-   Bu ifade olayı denetler `body` için bir `data` nesne nerede `operationName` özelliği `Microsoft.Compute/virtualMachines/write` işlemi. 
-   Daha fazla bilgi edinmek [olay kılavuz olay şema](../event-grid/event-schema.md).
+   Bu ifade, `operationName` özelliği `Microsoft.Compute/virtualMachines/write` işlemi olduğunda olayın `body` öğesini bir `data` için denetler. 
+   [Event Grid olay şeması](../event-grid/event-schema.md) hakkında daha fazla bilgi edinin.
 
-3. Koşul için bir açıklama sağlayın, tercih **üç nokta** (**...** ) düğmesini koşul şekil üzerinde sonra seçin **yeniden adlandırma**.
+3. Koşul için bir açıklama sağlamak için, koşul şeklindeki **üç nokta** (**...**) düğmesini seçin ve ardından **Yeniden adlandır**’ı seçin.
 
    > [!NOTE] 
-   > Bu öğreticide daha sonra örnekler de adımları mantığı uygulama iş akışı için açıklamalar sağlar.
+   > Bu öğreticideki sonraki örneklerde mantıksal uygulama iş akışındaki adımlar için açıklamalar da sağlanmaktadır.
 
-4. Artık seçim **temel modunda Düzenle** böylece ifade gösterildiği gibi otomatik olarak çözer:
+4. Şimdi, ifadenin otomatik olarak aşağıdaki gibi çözümlenmesi için **Temel modda düzenle**’yi seçin:
 
-   ![Mantıksal uygulama durumu](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
+   ![Mantıksal uygulama koşulu](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-1.png)
 
 5. Mantıksal uygulamanızı kaydedin.
 
-## <a name="send-email-when-your-virtual-machine-changes"></a>Sanal makineniz değiştiğinde e-posta Gönder
+## <a name="send-email-when-your-virtual-machine-changes"></a>Sanal makineniz değiştiğinde e-posta gönderme
 
-Şimdi ekleyin bir [ *eylem* ](../logic-apps/logic-apps-overview.md#logic-app-concepts) böylece belirtilen koşulun doğru olması durumunda, bir e-posta alırsınız.
+Şimdi belirtilen koşul true olduğunda bir e-posta almak için bir [*eylem*](../logic-apps/logic-apps-overview.md#logic-app-concepts) ekleyin.
 
-1. Koşulunun içinde **true ise** kutusunda, seçin **Eylem Ekle**.
+1. Koşulun **True ise** kutusunda **Eylem ekle**’yi seçin.
 
-   ![Koşul true olduğunda için Eylem Ekle](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
+   ![Koşul true olduğunda kullanılacak eylemi ekleyin](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-condition-2.png)
 
-2. Arama kutusuna "e-posta", filtre olarak girin. E-posta sağlayıcınıza uygun bağlayıcıyı bulun ve seçin. Ardından bağlayıcı için "e-posta gönder" eylemini seçin. Örneğin: 
+2. Arama kutusuna filtreniz olarak "e-posta" yazın. E-posta sağlayıcınıza uygun bağlayıcıyı bulun ve seçin. Ardından bağlayıcı için "e-posta gönder" eylemini seçin. Örnek: 
 
    * Azure iş veya okul hesabı için Office 365 Outlook bağlayıcısını seçin. 
    * Kişisel Microsoft hesapları için Outlook.com bağlayıcısını seçin. 
@@ -169,72 +170,72 @@ Bu ifade girin:
    İşleme Office 365 Outlook bağlayıcısıyla devam edeceğiz. 
    Farklı bir sağlayıcı kullandığınızda adımlar aynı olacaktır ancak kullanıcı arabirimi farklı olabilir. 
 
-   !["E-posta Gönder" eylemini seçin](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
+   !["E-posta gönder" eylemini seçin](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email.png)
 
-3. E-posta sağlayıcınız için bir bağlantı zaten yoksa, kimlik doğrulaması için sorulduğunda e-posta hesabınızda oturum açın.
+3. E-posta sağlayıcınız için zaten bir bağlantınız yoksa, kimliğinizi doğrulamanız istendiğinde e-posta hesabınızda oturum açın.
 
-4. Aşağıdaki tabloda belirtildiği gibi e-posta için bilgileri sağlayın:
+4. Aşağıdaki tabloda belirtildiği gibi e-posta için ayrıntıları sağlayın:
 
-   ![Boş bir e-posta eylemi](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
+   ![Boş e-posta eylemi](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-empty-email-action.png)
 
    > [!TIP]
-   > İş akışınızda kullanılabilir alanları seçmek için bir düzenleme kutusuna böylece tıklattıktan **dinamik içerik** açılır liste veya seçin **dinamik içerik eklemek**. Daha fazla alan için seçin **daha fazla** listedeki her bölüm için. Kapatmak için **dinamik içerik** listesinde, seçin **dinamik içerik eklemek**.
+   > İş akışınızda kullanılabilir alanlardan seçim yapmak için, düzenleme kutusuna tıklayarak **Dinamik içerik** listesini açın veya **Dinamik içerik ekle**'yi seçin. Daha fazla alan için, listedeki her bölüm için **Daha fazla göster**’i seçin. **Dinamik içerik** listesini kapatmak için, **Dinamik içerik ekle**’yi seçin.
 
    | Ayar | Önerilen değer | Açıklama | 
    | ------- | --------------- | ----------- | 
    | **Alıcı** | *{recipient-email-address}* |Alıcının e-posta adresi girin. Test için kendi e-posta adresinizi kullanabilirsiniz. | 
-   | **Konu** | Güncelleştirilmiş kaynak: **konu**| E-posta konusunun içeriğini girin. Bu öğretici için önerilen metin girin ve olayın **konu** alan. Burada, e-posta konusu güncelleştirilmiş bir kaynak (sanal makine) adını içerir. | 
-   | **Gövde** | Kaynak grubu: **konu** <p>Olay türü: **olay türü**<p>Olay Kimliği: **kimliği**<p>Süre: **olay süresi** | E-posta gövdesinin içeriğini girin. Bu öğretici için önerilen metin girin ve olayın **konu**, **olay türü**, **kimliği**, ve **olay süresi** alanları için e-posta, kaynak grubu adı, olay türü, olay zaman damgası ve güncelleştirmesi olay Kimliğini içerir. <p>Boş satırlar, içeriği eklemek için SHIFT + Enter tuşuna basın. | 
+   | **Konu** | Güncelleştirilen kaynak: **Konu**| E-posta konusunun içeriğini girin. Bu öğreticide önerilen metni girin ve olayın **Konu** alanını seçin. Burada, e-postanızın konusu güncelleştirilen kaynağın (sanal makine) adını içerir. | 
+   | **Gövde** | Kaynak grubu: **Konu** <p>Olay türü: **Olay Türü**<p>Olay kimliği: **Kimlik**<p>Zaman: **Olay Saati** | E-posta gövdesinin içeriğini girin. Bu öğretici için, e-postanızın güncelleştirme için grup adı, olay türü, olay zaman damgası ve olay kimliğini içermesi için önerilen metni girin ve olay için **Konu**, **Olay Türü**, **Kimlik** ve **Olay Zamanı** alanlarını seçin. <p>İçeriğinize boş satır eklemek için Shift + Enter tuşlarını kullanın. | 
    | | | 
 
    > [!NOTE] 
-   > Tasarımcı otomatik olarak ekler, bir dizi temsil eden bir alan seçerseniz, bir **her** dizi başvuran eylem çevresine daire. Bu şekilde mantıksal uygulamanız ilgili eylemi dizideki tüm öğeler için gerçekleştirir.
+   > Bir diziyi temsil eden bir alan seçerseniz, tasarımcı eyleme otomatik olarak diziye başvuran bir **For each** döngüsü ekler. Bu şekilde mantıksal uygulamanız ilgili eylemi dizideki tüm öğeler için gerçekleştirir.
 
-   Şimdi, e-posta eyleminizi aşağıdaki örnekte olduğu gibi görünebilir:
+   Şimdi, e-posta eyleminiz bu örnekteki gibi görünebilir:
 
-   ![E-postayla içerecek şekilde çıkışları seçin](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
+   ![E-postaya eklenecek çıkışları seçme](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-send-email-details.png)
 
-   Ve tamamlanmış mantıksal uygulamanızı bu örnekteki gibi görünmelidir:
+   Tamamlanmış mantıksal uygulamanız örnekteki gibi görünebilir:
 
    ![Tamamlanmış mantıksal uygulama](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-completed.png)
 
-5. Mantıksal uygulamanızı kaydedin. Daraltma ve gizleme mantıksal uygulamanızı her eylemin Ayrıntılar için eylemin başlık çubuğu seçin.
+5. Mantıksal uygulamanızı kaydedin. Mantıksal uygulamanızda her eylemin ayrıntılarını daraltmak ve gizlemek için, eylemin başlık çubuğunu seçin.
 
    ![Mantıksal uygulamanızı kaydetme](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-save-completed.png)
 
-   Mantıksal uygulamanızı artık canlı, ancak hiçbir şey yapmadan önce sanal makinenize değişiklikler bekler. 
+   Mantıksal uygulamanız artık canlıdır ancak herhangi bir işlem gerçekleştirmeden önce sanal makinenizde yapılan değişiklikleri bekler. 
    Mantıksal uygulamanızı şimdi test etmek için sonraki bölüme geçin.
 
-## <a name="test-your-logic-app-workflow"></a>Mantıksal uygulama akışınızı test
+## <a name="test-your-logic-app-workflow"></a>Mantıksal uygulama iş akışınızı test etme
 
-1. Mantıksal uygulamanızı belirtilen olayları alınırken olduğunu denetlemek için sanal makinenizi güncelleştirin. 
+1. Mantıksal uygulamanızın belirtilen olayları alıp almadığını denetlemek için, sanal makinenizi güncelleştirin. 
 
-   Örneğin, sanal makinenizi Azure portalında boyutlandırabilirsiniz veya [Azure PowerShell ile VM'yi yeniden boyutlandırın](../virtual-machines/windows/resize-vm.md). 
+   Örneğin, Azure portalında sanal makinenizi yeniden boyutlandırabilir veya [VM’nizi Azure PowerShell ile yeniden boyutlandırabilirsiniz](../virtual-machines/windows/resize-vm.md). 
 
-   Birkaç dakika sonra bir e-posta almanız gerekir. Örneğin:
+   Birkaç dakika sonra bir e-posta almanız gerekir. Örnek:
 
    ![Sanal makine güncelleştirmesi hakkında e-posta](./media/monitor-virtual-machine-changes-event-grid-logic-app/email.png)
 
-2. Çalışmaları gözden geçirin ve logic app menünüzde mantıksal uygulamanızı geçmişini tetiklemek tercih **genel bakış**. Bir çalıştırma hakkında daha fazla bilgiye ulaşmak için çalıştırmayla ilgili satırı seçin.
+2. Mantıksal uygulamanız için çalıştırmaları ve tetikleyici geçmişini gözden geçirmek için **Genel Bakış**'ı seçin. Bir çalıştırma hakkında daha fazla bilgiye ulaşmak için çalıştırmayla ilgili satırı seçin.
 
-   ![Mantıksal uygulama geçmişi çalıştırır](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
+   ![Mantıksal uygulama çalıştırma geçmişi](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history.png)
 
 3. Her bir adımın giriş ve çıkışlarını görüntülemek için gözden geçirmek istediğiniz adımı genişletin. Bu bilgiler mantıksal uygulamanızdaki sorunları tespit etmenize ve gidermenize yardımcı olabilir.
  
-   ![Mantıksal uygulama geçmiş ayrıntıları çalıştırın](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
+   ![Mantıksal uygulama çalıştırma geçmişi ayrıntıları](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-run-history-details.png)
 
-Tebrikler, oluşturduğunuz ve bir olay kılavuz aracılığıyla kaynak olaylarını izler ve olaylar oluştuğunda e-postalar bir mantıksal uygulama çalıştırın. Ayrıca, sistemleri tümleştirme süreçlerini otomatikleştirmek ve bulut Hizmetleri iş akışları ne kadar kolay oluşturabilirsiniz öğrendiniz.
+Tebrikler, bir olay kılavuzuyla kaynak olaylarını izleyen ve bu olaylar gerçekleştiğinde size e-posta gönderen bir mantıksal uygulama oluşturdunuz. Ayrıca, süreçleri otomatik hale getiren iş akışlarını ne kadar kolay oluşturabileceğinizi ve sistemler ile bulut hizmetlerini tümleştirmeyi öğrendiniz.
 
-Örneğin olay kılavuzları ve logic apps ile diğer yapılandırma değişikliklerini izleyebilirsiniz:
+Olay kılavuzları ve mantıksal uygulamalarla diğer yapılandırma değişikliklerini izleyebilirsiniz, örneğin:
 
-* Bir sanal makine rol tabanlı erişim denetimi (RBAC) hakları alır.
-* Değişiklikler, bir ağ arabiriminde (NIC) bir ağ güvenlik grubu (NSG) yapılır.
-* Sanal makinesi için diskler eklenir veya kaldırılır.
-* Bir sanal makineye NIC genel bir IP adresi atanır
+* Bir sanal makine rol tabanlı erişim denetimi (RBAC) haklarını alır.
+* Değişiklikler bir ağ arabirimi (NIC) üzerindeki bir ağ güvenlik grubunda (NSG) yapılır.
+* Bir sanal makine için diskler eklenir veya kaldırılır.
+* Bir sanal makine NIC’sine genel bir IP adresi atanır.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu öğretici kaynaklarını kullanır ve Azure aboneliğinize üzerinde ücretlendirme eylemleri gerçekleştirir. Bu nedenle bu öğreticiyi işiniz bittiğinde ve test, olduğundan emin olun, devre dışı veya burada ücretlendirme istemediğiniz tüm kaynakları silmesini.
+Bu öğreticide Azure aboneliğinize ücret uygulanmasına neden olan kaynaklar kullanılmakta ve eylemler gerçekleştirilmektedir. Bu nedenle öğreticiyi ve testlerinizi tamamladıktan sonra ücret uygulanmasını istemediğiniz kaynakları devre dışı bırakmayı veya silmeyi unutmayın.
 
 * Çalışmanızı silmeden mantıksal uygulamanızı durdurmak için uygulamanızı devre dışı bırakın. Mantıksal uygulama menüsünden **Genel Bakış**'ı seçin. Araç çubuğunda **Devre dışı bırak**'ı seçin.
 
@@ -243,8 +244,8 @@ Bu öğretici kaynaklarını kullanır ve Azure aboneliğinize üzerinde ücretl
   > [!TIP]
   > Mantıksal uygulama menüsü görünmüyorsa Azure panosuna dönüp mantıksal uygulamanızı yeniden açmayı deneyin.
 
-* Mantıksal uygulama menüsünde, mantıksal uygulamanızı kalıcı olarak silmek mi seçin **genel bakış**. Araç çubuğunda **Sil**'i seçin. Mantıksal uygulamanızı silmek istediğinizi onaylayın ve **Sil**'i seçin.
+* Mantıksal uygulamanızı kalıcı olarak silmek için, mantıksal uygulama menüsünde **Genel Bakış**’ı seçin. Araç çubuğunda **Sil**'i seçin. Mantıksal uygulamanızı silmek istediğinizi onaylayın ve **Sil**'i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Oluşturma ve rota olay kılavuzuna özel olaylar](../event-grid/custom-event-quickstart.md)
+* [Event Grid ile özel olaylar oluşturma ve yönlendirme](../event-grid/custom-event-quickstart.md)

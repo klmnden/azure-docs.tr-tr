@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 05/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c1be4d649bf4b69a9f749003b5c66142006b78e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301616"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Öğretici: Maliyet yönetimi verilerine erişim atama
 
@@ -27,7 +28,8 @@ Azure sözleşmenizi veya hesabınızı kaydettiğinizde, bu öğreticideki tüm
 > [!div class="checklist"]
 > * Yönetici erişimi olan bir kullanıcı oluşturma
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
-> * Varlık oluşturma
+> * Varlık oluşturma ve yönetme
+
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -56,11 +58,11 @@ Pano ve raporlar gibi maliyet yönetimi verilerine erişmesi gereken tipik kulla
 
 Kullanıcı ekleme hakkında öğretici bir video izlemek için bkz. [Azure Maliyet Yönetimi’ne Kullanıcı Ekleme](https://youtu.be/Nzn7GLahx30).
 
-## <a name="create-entities"></a>Varlık oluşturma
+## <a name="create-and-manage-entities"></a>Varlık oluşturma ve yönetme
 
-Maliyet varlığı hiyerarşinizi tanımlarken en iyi uygulama, kuruluşunuzun yapısını tanımlamaktır.
+Maliyet varlığı hiyerarşinizi tanımlarken en iyi uygulama, kuruluşunuzun yapısını tanımlamaktır. Varlıklar, bireysel hesap veya aboneliklere göre harcamaları ayırmanıza olanak tanır. Mantıksal gruplar oluşturmak ve harcamaları izlemek için maliyet varlıkları oluşturursunuz. Ağacı oluştururken, maliyetlerin iş birimi, maliyet merkezi, ortam ve satış bölümlerine göre nasıl ayrılmasını istediğinizi veya nasıl ayrılması gerektiğini düşünün. Cloudyn’deki varlık ağacı, varlık devralma nedeniyle esnektir.
 
-Ağacı oluştururken, maliyetlerin iş birimi, maliyet merkezi, ortam ve satış bölümlerine göre nasıl ayrılmasını istediğinizi veya nasıl ayrılması gerektiğini düşünün. Cloudyn’deki varlık ağacı, varlık devralma nedeniyle esnektir. Bulut hesaplarınız için bireysel abonelikler belirli varlıklarla bağlantılıdır. Bu nedenle, varlıklar çok kiracılıdır. Belirli kullanıcılara yalnızca işletmenizin varlıkları kullanan kesimlerine erişim hakkı atayabilirsiniz. Bunun yapılması, bir işletmenin yan kuruluşlar gibi büyük bölümlerinde bile verilerin yalıtılmış olarak kalmasını sağlar. Ayrıca, veri yalıtımı idareye yardımcı olur.  
+Bulut hesaplarınız için bireysel abonelikler belirli varlıklarla bağlantılıdır. Bir varlığı, bulut hizmeti sağlayıcı hesabı ya da aboneliği ile ilişkilendirebilirsiniz. Bu nedenle, varlıklar çok kiracılıdır. Belirli kullanıcılara yalnızca işletmenizin varlıkları kullanan kesimlerine erişim hakkı atayabilirsiniz. Bunun yapılması, bir işletmenin yan kuruluşlar gibi büyük bölümlerinde bile verilerin yalıtılmış olarak kalmasını sağlar. Ayrıca, veri yalıtımı idareye yardımcı olur.  
 
 Azure sözleşmenizi veya hesabınızı Cloudyn’e kaydettiğinizde, aboneliklerinizdeki kullanım, performans, faturalandırma ve etiket verileri gibi Azure kaynak verileri Cloudyn hesabınıza kopyalanmıştır. Ancak, varlık ağacınızı el ile oluşturmanız gerekir. Azure Resource Manager kaydını atladıysanız, Cloudyn portalında yalnızca fatura verileri ve birkaç varlık raporu gösterilir.
 
@@ -74,6 +76,23 @@ Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Bulu
 
 İşiniz bittiğinde varlığı **Kaydedin**.
 
+### <a name="entity-access-levels"></a>Varlık erişim düzeyleri
+
+Bir kullanıcının erişimi ile birlikte varlık erişim düzeylerini kullanarak, Cloudyn portalındaki kullanılabilir eylem türlerini tanımlayabilirsiniz.
+
+- **Kurumsal** - Alt maliyet varlıkları oluşturma ve yönetme olanağı sağlar.
+- **Kurumsal ve Maliyet Ayırma** - Birleşik hesaplar için maliyet ayırma dahil olmak üzere alt maliyet varlıkları oluşturma ve yönetme olanağı sağlar.
+- **Kurumsal, Üst maliyet ayırmaya göre maliyet** - Alt maliyet varlıkları oluşturma ve yönetme olanağı sağlar. Hesabın maliyetleri, üst maliyet ayırma modelini temel alır.
+- **Yalnızca Özel Panolar** - Kullanıcıya yalnızca önceden tanımlı özel panoları görme olanağı sağlar.
+- **Yalnızca Panolar** - Kullanıcıya yalnızca panoları görme olanağı sağlar.
+
+### <a name="create-a-cost-entity-hierarchy"></a>Maliyet varlık hiyerarşisi oluşturma
+
+Maliyet varlık hiyerarşisi oluşturmak için kurumsal veya kurumsal ve maliyet ayırma erişimine sahip bir hesabınızın olması gerekir.
+
+Cloudyn portalında, sağ üst kısımdaki dişli simgesine tıklayın ve **Bulut Hesapları**'nı seçin. **Varlıklar** ağacı, sol bölmede gösterilir. Gerekirse, bir hesapla ilişkilendirmek istediğiniz varlığı görüntüleyebilmek için varlık ağacını genişletin.  Bulut hizmeti sağlayıcı hesaplarınız sağ bölmedeki sekmelerde gösterilir. Bir sekme seçin ve sonra varlığa bir hesabı/aboneliği sürükleyip bırakın. **Taşı** kutusu, hesabın başarıyla taşındığını size bildirir. **Tamam**’a tıklayın.
+
+Bir varlıkla birden fazla hesabı da ilişkilendirebilirsiniz. Hesapları seçin ve **Taşı**’ya tıklayın. Hesapları Taşı kutusunda, hesabı taşımak istediğiniz varlığı seçin ve ardından **Kaydet**’e tıklayın. Hesapları taşı kutusu, hesapları taşımak isteğinizi doğrulamanızı ister. **Evet**’e ve ardından **Tamam**’a tıklayın.
 
 Maliyet varlık hiyerarşisi oluşturma hakkında öğretici bir video izlemek için bkz. [Azure Maliyet Yönetimi’nde Maliyet Varlık Hiyerarşisi Oluşturma](https://youtu.be/dAd9G7u0FmU).
 
@@ -86,7 +105,8 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > [!div class="checklist"]
 > * Yönetici erişimi olan bir kullanıcı oluşturma
 > * Kullanıcı erişimi olan bir kullanıcı oluşturma
-> * Varlık oluşturma
+> * Varlık oluşturma ve yönetme
+
 
 Hesaplarınız için Azure Resource Manager API’si erişimini etkinleştirmediyseniz, aşağıdaki makaleden devam edin.
 
