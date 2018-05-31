@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790562"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Statik paketleme görevleri gerçekleştirmek için Azure Media Paketleyicisi'ni kullanma
 > [!NOTE]
@@ -707,7 +708,7 @@ AES-128 ile HLS şifrelemek isterseniz, dinamik şifreleme (önerilen seçenek) 
 > [!NOTE]
 > İçeriğinizi HLS dönüştürmek için önce convert/içeriğinizi kesintisiz akış kodlayın gerekir.
 > Ayrıca, HLS AES ile şifrelenmiş için aşağıdaki özellikleri MediaPackager_SmoothToHLS.xml dosyanızda ayarlamak emin olun: true, anahtar değeri ve authentication\authorization sunucuya işaret edecek şekilde keyuri değeri ayarlamak için şifreleme özelliğini ayarlayın.
-> Medya Hizmetleri bir anahtar dosyası oluşturun ve varlık kapsayıcısında yerleştirin. /Asset-containerguid/*.key dosya sunucunuza kopyalayın (veya gerekir anahtar dosyanızı oluşturun) ve varlık kapsayıcıdan *.key dosya silin.
+> Medya Hizmetleri bir anahtar dosyası oluşturun ve varlık kapsayıcısında yerleştirin. /Asset-containerguid/\*.key dosya sunucunuza kopyalayın (veya gerekir anahtar dosyanızı oluşturun) ve varlık kapsayıcıdan \*.key dosya silin.
 > 
 > 
 

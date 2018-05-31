@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31426277"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Veritabanı yedeklemesini Azure SQL Veritabanı Yönetilen Örneğine geri yükleme
 
@@ -56,7 +57,7 @@ Internet Explorer’ı kullanarak URL adres kutusuna https://github.com/Microsof
    |**Hesap türü**|Blob depolama||
    |**Performans**|Standart veya premium|Manyetik sürücüler veya SSD’ler|
    |**Çoğaltma**|Yerel olarak yedekli depolama||
-   |**Erişim katmanı (varsayılan)|Seyrek veya sık||
+   |\*\*Erişim katmanı (varsayılan)|Seyrek veya sık||
    |**Güvenli aktarım gerekir**|Devre dışı||
    |**Abonelik**|Aboneliğiniz|Abonelikleriniz hakkında daha ayrıntılı bilgi için bkz. [Abonelikler](https://account.windowsazure.com/Subscriptions).|
    |**Kaynak grubu**|Önceden oluşturduğunuz kaynak grubu|| 
