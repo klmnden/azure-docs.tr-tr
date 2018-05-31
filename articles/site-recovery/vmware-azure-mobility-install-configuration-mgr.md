@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942522"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Mobility hizmeti yüklemesi System Center Configuration Manager ile otomatikleştirme
 
@@ -233,7 +234,7 @@ Configuration Manager konsolunu kullanarak dağıtımının ilerleme durumunu iz
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
 6. Aşağıdaki dosyaları kopyalayın **MobSvcLinux** ağ paylaşımınızda klasörü:
-   * Microsoft ASR\_UA\*RHEL6 64*release.tar.gz
+   * Microsoft ASR\_UA\*RHEL6 64\*release.tar.gz
    * Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz
    * Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz
    * Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz
