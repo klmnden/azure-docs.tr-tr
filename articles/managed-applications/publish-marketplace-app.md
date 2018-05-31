@@ -1,180 +1,181 @@
 ---
-title: Azure Market uygulamalarda yönetilen | Microsoft Docs
-description: Azure açıklar yönetilen Market üzerinden kullanılabilir uygulamalar.
-services: azure-resource-manager
+title: Market’te Azure yönetilen uygulamalar | Microsoft Docs
+description: Market’te kullanılabilir olan Azure yönetilen uygulamalarını tanımlar.
+services: managed-applications
 author: tfitzmac
 manager: timlt
-ms.service: azure-resource-manager
+ms.service: managed-applications
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 03/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 753e13ea0dbfc7fe0c74987e1383f71329b76a63
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 39797bb4fe2b0576cd5696d7111826dcf807ff5c
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304540"
 ---
-# <a name="azure-managed-applications-in-the-marketplace"></a>Market'te Azure yönetilen uygulamalar
+# <a name="azure-managed-applications-in-the-marketplace"></a>Market’teki Azure yönetilen uygulamaları
 
-Satıcılar, Azure kullanabileceğiniz yönetilen tüm Azure Marketi müşterilere çözümleri sunmak için uygulamalar. Bu satıcılar, yönetilen hizmet sağlayıcıları (MSP'ler), bağımsız yazılım satıcılarının (ISV'ler) ve sistem tümleştiricileri (SIS) içerebilir. Yönetilen uygulamalar, Bakım ve müşteriler için ek yükü bakım azaltın. Altyapı ve Market üzerinden yazılım satıcıları satar. Yönetilen uygulamaların bunlar Hizmetleri ve işletimsel destek ekleyebilirsiniz. Daha fazla bilgi için bkz: [yönetilen uygulama genel bakış](overview.md).
+Satıcılar, çözümlerini tüm Azure Market müşterilerine sunmak üzere Azure yönetilen uygulamalarını kullanabilir. Bu satıcılar yönetilen hizmet sağlayıcıları (MSP’ler), bağımsız yazılım satıcıları (ISV’ler) ve sistem tümleştiricilerini (SI’lar) dahil edebilir. Yönetilen uygulamalar müşteriler için bakım ve servis masraflarını azaltır. Satıcılar market aracılığıyla altyapı ve yazılım satar. Yönetilen uygulamalara hizmetler ve işletimsel destek ekleyebilir. Daha fazla bilgi için bkz. [Yönetilen uygulamaya genel bakış](overview.md).
 
-Bu makalede Marketi'nde uygulama yayımlama ve müşterilere geniş çapta kullanılabilir duruma nasıl açıklanmaktadır.
+Bu makale bir uygulamayı markette yayımlamayı ve müşterilerin kullanımına açmayı açıklamaktadır.
 
-## <a name="prerequisites-for-publishing-a-managed-application"></a>Yönetilen bir uygulamayı yayımlamak için Önkoşullar
+## <a name="prerequisites-for-publishing-a-managed-application"></a>Yönetilen uygulama yayınlamaya yönelik önkoşullar
 
-Bu makalede tamamlamak için zaten .zip dosyası için yönetilen uygulama tanımı olması gerekir. Daha fazla bilgi için bkz: [hizmet Kataloğu uygulaması oluştur](publish-service-catalog-app.md).
+Bu makaleyi tamamlamak için yönetilen uygulama tanımınıza yönelik .zip dosyasına sahip olmanız gerekmektedir. Daha fazla bilgi için bkz. [Hizmet kataloğu uygulaması oluşturma](publish-service-catalog-app.md).
 
-Ayrıca, çeşitli iş önkoşulları vardır. Bunlar:
+Ek olarak birkaç iş önkoşulu bulunmaktadır. Bunlar:
 
-* Şirketiniz veya onun yan burada satış Marketi tarafından desteklenen bir ülkede bulunmalıdır.
-* Ürünü Marketi tarafından desteklenen faturalama modelleri ile uyumlu şekilde lisansına sahip olması gerekir.
-* Teknik Destek müşterilerine ticari koşulların elverdiği oranda makul bir biçimde erişilebilir. Destek Ücretli, boş veya topluluk desteklemez.
-* Lisans yazılımınız ve üçüncü taraf yazılım bağımlılıkları.
-* Teklifinizle Market ve Azure portalını listelenmiş ölçütlerini karşılayan içerik sağlar.
-* Azure Market katılım ilkeleri ve yayımcı Sözleşmesi koşullarını kabul ediyorsunuz.
-* Kullanım koşulları, Microsoft gizlilik bildirimi ve Microsoft Azure sertifikalı Program sözleşmesi uymak kabul etmiş olursunuz.
+* Şirketinizin veya yan kuruluşunun satışların market tarafından desteklendiği bir ülkede bulunması gerekir.
+* Ürününüz, marketin desteklediği faturalandırma modelleriyle uyumlu olacak şekilde lisanslandırılmalıdır.
+* Teknik desteği müşterilerin erişimine ticari açıdan sorumlu bir şekilde sunun. Destek ücretsiz, ücretli veya topluluk desteği aracılığıyla olabilir.
+* Yazılımınızı ve tüm üçüncü taraf yazılım bağımlılıklarını lisanslandırın.
+* Market’te ve Azure portalında listelenecek olan teklifinize ilişkin ölçütlere uyan içerikler sağlayın.
+* Azure Market Katılım İlkeleri ve Yayımcı Sözleşmesi’nin koşullarını kabul edin.
+* Kullanım Koşulları, Microsoft Gizlilik Bildirimi ve Microsoft Azure Sertifikalı Program Sözleşmesi’ne uymayı kabul edin.
 
-## <a name="become-a-publisher"></a>Bir yayımcı olur
+## <a name="become-a-publisher"></a>Yayımcı olma
 
-Azure Market Publisher'da olmasını yapmanız gerekir:
+Azure Market’te yayımcı olmak için şunları yapmanız gerekir:
 
-1. A Microsoft ID oluşturma - şirketinizin etki alanı, ancak tek ait bir e-posta adresi kullanarak, bir Microsoft hesabı oluşturun. Bu e-posta adresi Microsoft Developer Center'da ve bulut iş ortağı portalı için kullanılır. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
-1. Gönderme [Azure Market Adaylığı Form](https://aka.ms/ampnomination) - **yayımlamayı düşündüğünüz çözüm?**seçin **yönetilen uygulamayı**. Form gönderildikten sonra Market hazırlanma ekibi uygulama gözden geçirir ve isteği doğrular. Onay işlemi, bir ile üç gün sürebilir. Adaylığı onaylandığında, Geliştirici Merkezi kayıt ücret feragat etmiş bir promosyon kodu alırsınız. Bunu yaparsanız **değil** Market Adaylığı formu doldurun 99 kayıt ücret ödemeniz istenir.
-1. Kaydetmek [Geliştirici Merkezi](http://dev.windows.com/registration?accountprogram=azure) -Microsoft, kuruluşunuzun, kayıtlı ülke için geçerli bir vergi numarası geçerli yasal bir varlıkla olduğunu doğrular. Onay işlemi 5-10 gün sürebilir. Kayıt ücret önlemek için e-posta Adaylığı işleminden alınan promosyon kodu kullanın. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
-1. Oturum [bulut iş ortağı portalını](https://cloudpartner.azure.com) - yayımcı profilinde Geliştirici Merkezi hesabınızda Market yayımcı profille ilişkilendirin. Daha fazla bilgi için bkz: [Azure Market yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. Microsoft Kimliği oluşturma - Şirketinizin etki alanına ait olan ancak tek bir bireye ait olmayan bir e-posta adresini kullanarak Microsoft hesabınızı oluşturun. Bu e-posta adresi hem Microsoft Geliştirici Merkezi hem de Bulut İş Ortağı Portalı için kullanılır. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. [Azure Market Adaylık Formunu](https://aka.ms/ampnomination) gönderme - For **Yayımlamayı düşündüğünüz çözüm** için **Yönetilen Uygulama**’yı seçin. Form gönderildikten sonra Markete Ekleme ekibi uygulamayı gözden geçirir ve isteği doğrular. Onay süreci bir ile üç gün sürer. Adaylığınız onaylandığında geliştirici merkezine yönelik kayıt ücretinin silinmesini sağlayan bir promosyon kodu alırsınız. Market Adaylık Formunu **doldurmazsanız** 99 $ kayıt ücreti ödemeniz istenir.
+1. [Geliştirici Merkezine](http://dev.windows.com/registration?accountprogram=azure) Kaydolma - Microsoft, kuruluşunuzun kayıtlı olduğu ülkeye yönelik geçerli bir VERGİ kimliği olan geçerli bir tüzel kişi olduğunuzu doğrular. Onay işlemi 5 ile 10 gün sürebilir. Kayıt ücretini ödememek için adaylık sürecinde size gelen e-posta ile aldığınız promosyon kodunu kullanın. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
+1. [Bulut İş Ortağı Portalında](https://cloudpartner.azure.com) oturum açma - Yayımcı profilinde, Geliştirici Merkezi hesabınızı Market Yayımcı Profiliyle ilişkilendirin. Daha fazla bilgi için bkz. [Azure Market Yayımcı Kılavuzu](https://aka.ms/sellerguide).
 
-## <a name="create-a-new-azure-application-offer"></a>Yeni bir Azure uygulama teklifi oluşturma
+## <a name="create-a-new-azure-application-offer"></a>Yeni bir Azure uygulaması teklifi oluşturma
 
-İş ortağı portalı hesabınızı oluşturduktan sonra yönetilen uygulama teklifiniz oluşturmaya hazırsınız.
+İş ortağı portalı hesabınızı oluşturduktan sonra yönetilen uygulama teklifinizi oluşturmaya hazır olursunuz.
 
-### <a name="set-up-an-offer"></a>Bir teklif ayarlayın
+### <a name="set-up-an-offer"></a>Teklif ayarlama
 
-Teklif yönetilen bir uygulama için bir sınıf bir yayımcıdan sunumu ürünün karşılık gelir. Market kullanılabilir hale getirmek istediğiniz uygulama yeni bir tür varsa, bunu yeni bir teklif ayarlayabilirsiniz. Bir teklif, SKU'ları koleksiyonudur. Her teklif Market'te kendi varlık olarak görünür.
+Yönetilen uygulamaya yönelik teklif, bir yayımcının ürün teklifi sınıfına karşılık gelir. Markette kullanıma sunmak istediğiniz yeni bir uygulama türünüz varsa yeni bir teklif olarak ayarlayabilirsiniz. Teklif bir SKU koleksiyonudur. Tüm teklifler, marketteki kendi varlıkları olarak görünür.
 
-1. Oturum [bulut iş ortağı portalına](https://cloudpartner.azure.com/).
+1. [Bulut İş Ortağı portalında](https://cloudpartner.azure.com/) oturum açın.
 
-1. Sol gezinti bölmesinde seçin **+ yeni teklif** > **Azure uygulamaları**.
+1. Soldaki gezinti bölmesinde **+ Yeni teklif** > **Azure Uygulamaları**’nı seçin.
 
-1. İçinde **Düzenleyicisi** görünümü, gerekli formlarına bakın. Her form bu makalenin sonraki bölümlerinde açıklanmıştır.
+1. **Düzenleyici** görünümünde gereken formları görürsünüz. Her bir form, bu makalenin ilerleyen kısımlarında tanımlanmaktadır.
 
-## <a name="offer-settings-form"></a>Teklif ayarları formu
+## <a name="offer-settings-form"></a>Teklif Ayarları formu
 
-Alanlar için **teklif ayarları** şeklindedir:
+**Teklif Ayarları** formuna ilişkin alanlar şunlardır:
 
-* **Teklif kodu**: Yayımcı profilindeki teklif bu benzersiz tanımlayıcı tanımlar. Bu kimliği ürün URL'ler, Resource Manager şablonları görünür ve faturalama raporlar. Yalnızca küçük harf alfasayısal karakterler veya tire (-) birleştirilebilir. Kimliği, bir tire bitemez. Buna ait sınırlı en çok 50 karakter. Bu alan, bir teklif Canlı göründükten sonra kilitlendi.
-* **Yayımcı kimliği**: Bu teklif altında yayımlamak istediğiniz yayımcı profilini seçmek için bu açılan listeyi kullanın. Bu alan, bir teklif Canlı göründükten sonra kilitlendi.
-* **Ad**: teklifiniz için bu görünen ad Market ve Portalı'nda görünür. En çok 50 karakter olabilir. Ürününüzün tanınabilir bir marka adını ekleyin. Nasıl pazarlama olmadığı sürece, şirketinizin adını buraya dahil etmeyin. Kendi Web sitesinde bu teklif pazarlama, adı tam olarak, Web sitenizde şu şekilde görünür durumda olduğundan emin olun.
+* **Teklif Kimliği**: Bu benzersiz tanıtıcı, bir yayımcı profilindeki teklifi tanımlar. Bu kimlik; ürün URL’leri, Kaynak Yöneticisi şablonları ve faturalandırma raporlarında görünürdür. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimlik tire ile bitemez. En fazla 50 karakter sınırı vardır. Teklif yayımlandıktan sonra bu alan kilitlenir.
+* **Yayımcı Kimliği**: Bu teklifi yayımlamak istediğiniz yayımcı profilini seçmek için bu açılan listeyi kullanın. Teklif yayımlandıktan sonra bu alan kilitlenir.
+* **Ad**: Teklifinize ilişkin bu görünen ad, Market’te ve portalda görünür. En fazla 50 karakter olabilir. Ürününüz için tanınabilir bir marka adı ekleyin. Pazarlanma şekli bu olmadığı sürece şirket adınızı buraya eklemeyin. Bu teklifi kendi web sitenizde pazarlıyorsanız adın, web sitenizde göründüğü şekliyle aynı olduğundan emin olun.
 
-İşiniz bittiğinde, seçin **kaydetmek** ilerleme durumunuzu kaydetmek için.
+İşiniz bittiğinde ilerlemenizi kaydetmek için **Kaydet**’i seçin.
 
-## <a name="skus-form"></a>SKU'ları formu
+## <a name="skus-form"></a>SKU formu
 
-Sonraki adım, teklifiniz için SKU'ları eklemektir.
+Bir sonraki adım, teklifiniz için SKU eklemektir.
 
-Bir SKU en küçük purchasable bir teklif birimidir. Aynı ürün sınıfı (teklif) içinde bir SKU arasında ayırt etmek için kullanabilirsiniz:
+SKU, bir teklife ilişkin en küçük satın alınabilir birimdir. Şunlar arasında ayrım yapabilmek için aynı ürün sınıfı (teklif) içerisinde bir SKU kullanabilirsiniz:
 
-* Desteklenen farklı özellikleri
-* Teklif mi yönetilen veya yönetilmeyen
-* Desteklenen faturalama modelleri
+* Desteklenen farklı özellikler
+* Yönetilen ve yönetilmeyen teklifler
+* Desteklenen faturalandırma modelleri
 
-Bir SKU Market'te üst teklif altında görüntülenir. Azure portalında purchasable kendi varlık olarak görünür.
+SKU, marketteki ana teklifin altında görünür. Azure portalında kendi başına satın alınabilir varlık olarak görünür.
 
-1. Seçin **SKU'ları** > **yeni SKU**.
+1. **SKU’lar** > **Yeni SKU**’yu seçin.
 
-1. Girin bir **SKU kimliği**. Bir teklif içinde SKU için benzersiz bir tanımlayıcı SKU kimliğidir. Bu kimliği ürün URL'ler, Resource Manager şablonları görünür ve faturalama raporlar. Yalnızca küçük harf alfasayısal karakterler veya tire (-) birleştirilebilir. Kimliği, tire ve buna ait en çok 50 karakter sınırlı bitemez. Bu alan, bir teklif Canlı göründükten sonra kilitlendi. Bir teklif içinde birden çok SKU olabilir. Bir SKU yayımlamayı düşündüğünüz her görüntü için gerekir.
+1. Bir **SKU Kimliği** girin. SKU Kimliği, teklif içindeki SKU’ya yönelik bir benzersiz tanıtıcıdır. Bu kimlik; ürün URL’leri, Kaynak Yöneticisi şablonları ve faturalandırma raporlarında görünürdür. Yalnızca küçük harfli alfasayısal karakterler veya tirelerden (-) oluşabilir. Kimlik tire ile bitemez ve en fazla 50 karakterle sınırlıdır. Teklif yayımlandıktan sonra bu alan kilitlenir. Bir teklif içinde birden çok SKU’ya sahip olabilirsiniz. Yayımlamayı planladığınız her bir resim için bir SKU seçmeniz gerekir.
 
-1. Doldurmak **SKU ayrıntıları** aşağıdaki formda bölümü:
-
-   Aşağıdaki alanları doldurun:
-
-   * **Başlık**: Bu SKU için bir başlık girin. Bu öğe için galerisinde bu başlığı görüntülenir.
-   * **Özet**: kısa bir özeti için bu SKU girin. Bu metin başlığı altında görüntülenir.
-   * **Açıklama**: SKU hakkında ayrıntılı bir açıklama girin.
-   * **SKU tür**: izin verilen değerler: *yönetilen uygulamayı* ve *çözüm şablonları*. Bu durumda, seçin *yönetilen uygulamayı*.
-   * **Ülke/bölge kullanılabilirliği**: yönetilen uygulamayı kullanılabilir olduğu ülkelerin seçin.
-   * **Fiyatlandırma**: uygulama yönetimi için bir fiyat sağlayın. Fiyat ayarlamadan önce kullanılabilir ülke seçin.
-
-1. Yeni bir paket ekleyin. Doldurmak **Paket ayrıntılarını** aşağıdaki formda bölümü:
+1. Aşağıdaki formda **SKU Ayrıntıları** bölümünü doldurun:
 
    Aşağıdaki alanları doldurun:
 
-   * **Geçerli sürüm**: karşıya yüklediğiniz paket için bir sürümü girin. Şu biçimde olmalıdır `{number}.{number}.{number}{number}`.
-   * **Bir paket dosyası seçmek**: Bu paket .zip pakete sıkıştırılmış iki gerekli dosyaları içerir. Yönetilen uygulamayı dağıtmak için gereken kaynakları tanımlayan Resource Manager şablonu bir dosyadır. Diğer dosya tanımlar [kullanıcı arabirimi](create-uidefinition-overview.md) tüketiciler Portalı aracılığıyla yönetilen uygulamayı dağıtmak için. Kullanıcı arabiriminde parametre değerlerini sağlamak üzere tüketiciler etkinleştiren öğelerini belirtin.
-   * **Principalıd**: Bu özellik bir kullanıcının, kullanıcı grubu veya verilen uygulama Azure Active Directory (Azure AD) tanımlayıcısıdır Müşteri'nin abonelik içindeki kaynaklara erişim. Rol tanımı izinleri açıklar.
-   * **Rol tanımı**: Bu özellik Azure AD tarafından sağlanan tüm yerleşik rol tabanlı erişim denetimi (RBAC) rollerini listesidir. Kaynakları müşteri adına yönetmek üzere kullanmak en uygun olan rolü seçebilirsiniz.
+   * **Başlık**: Bu SKU için bir başlık girin. Bu başlık, bu öğe için olan galeride görünür.
+   * **Özet**: Bu SKU için bir kısa özet girin. Bu metin başlığın altında görünür.
+   * **Açıklama** : SKU hakkında ayrıntılı bir açıklama girin.
+   * **SKU Türü**: İzin verilen değerler *Yönetilen Uygulama* ve *Çözüm Şablonları*’dır. Bu durum için *Yönetilen Uygulama*’yı seçin.
+   * **Ülke/Bölge kullanılabilirliği**: Yönetilen uygulamanın kullanılabilir olduğu ülkeleri seçin.
+   * **Fiyatlandırma**: Uygulamanın yönetimi için bir fiyat sağlayın. Fiyatı ayarlamadan önce kullanılabilir ülkeleri seçin.
 
-Birden çok yetkilerini ekleyebilirsiniz. Bir AD kullanıcı grubu oluşturun ve kendi Kimliğini belirtin öneririz **Principalıd**. Bu şekilde, kullanıcı grubu SKU güncelleştirmeye gerek olmadan daha fazla kullanıcı ekleyebilirsiniz.
+1. Yeni bir paket ekleyin. Aşağıdaki formda yer alan **Paket Ayrıntıları** bölümünü doldurun:
 
-RBAC hakkında daha fazla bilgi için bkz: [Azure portalında RBAC ile çalışmaya başlama](../role-based-access-control/overview.md).
+   Aşağıdaki alanları doldurun:
+
+   * **Geçerli Sürüm**: Yüklediğiniz paket için bir sürüm girin. `{number}.{number}.{number}{number}` biçiminde olmalıdır.
+   * **Paket dosyası seçme**: Bu paket .zip paketi olarak sıkıştırılmış iki gerekli dosyayı içerir. Dosyalardan biri, yönetilen uygulamaya ilişkin dağıtılacak kaynakları tanımlayan Kaynak Yöneticisi şablonudur. İkinci dosya ise portal aracılığıyla yönetilen uygulamayı dağıtan tüketiciler için [kullanıcı arayüzünü](create-uidefinition-overview.md) tanımlamaktadır. Kullanıcı arayüzünde tüketicilerin parametre değerleri sağlamasına olanak tanıyan öğeleri belirlersiniz.
+   * **PrincipalId**: Bu özellik, müşterinin aboneliğindeki kaynaklara erişimin sağlandığı kullanıcı, kullanıcı grubu veya uygulamalanın Azure Active Directory (Azure AD) tanıtıcısıdır. Rol Tanımı izinleri açıklar.
+   * **Rol Tanımı**: Bu özellik, Azure AD tarafından sağlanan tüm yerleşik Rol Tabanlı Erişim Denetimi (RBAC) rollerinin bir listesidir. Müşteri adına kaynakları yönetmek için kullanılması en uygun olan rolü seçebilirsiniz.
+
+Birden çok yetkilendirme ekleyebilirsiniz. Bir AD kullanıcı grubu oluşturarak kimliğini **PrincipalId** olarak belirlemenizi öneririz. Bu şekilde SKU’yu güncelleştirme gereği olmadan kullanıcı grubuna daha fazla kullanıcı ekleyebilirsiniz.
+
+RBAC hakkında daha fazla bilgi için bkz. [Azure portalında RBAC ile çalışmaya başlama](../role-based-access-control/overview.md).
 
 ## <a name="marketplace-form"></a>Market formu
 
-Market form üzerinde göster alanların ister [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portal](https://portal.azure.com/).
+Market formu [Azure Market](https://azuremarketplace.microsoft.com) ve [Azure portal](https://portal.azure.com/) içinde görünen alanları sorar.
 
-### <a name="preview-subscription-ids"></a>Önizleme abonelik kimlikleri
+### <a name="preview-subscription-ids"></a>Abonelik kimliklerini önizleme
 
-Azure aboneliği yayımlandıktan sonra teklif erişebileceği kimlikleri listesini girin. Bunu yapmadan önce önizleme uygulanan teklif test etmek için bu beyaz listelenen abonelikleri kullanabileceğiniz Canlı. İş ortağı portalında en fazla 100 abonelikleri beyaz listesi derleyebilirsiniz.
+Yayımlandıktan sonra teklife erişebilen Azure aboneliği kimliklerinin listesini girin. Yayımlamadan önce bu beyaz listelenen abonelikleri kullanarak önizlemesi yapılan teklifi test edebilirsiniz. İş ortağı portalında 100’e kadar aboneliği içeren bir beyaz liste derleyebilirsiniz.
 
-### <a name="suggested-categories"></a>Önerilen kategorileri
+### <a name="suggested-categories"></a>Önerilen kategoriler
 
-Teklifiniz en iyi ile ilişkilendirilebilir listesinden en fazla beş kategorilerini seçin. Bu kategoriler kullanılabilir olan ürün kategorilerini teklifiniz eşlemek için kullanılır [Azure Marketi](https://azuremarketplace.microsoft.com) ve [Azure portal](https://portal.azure.com/).
+Listeden, teklifinizin en iyi ilişkilendirilebileceği beşe kadar kategori seçin. Bu kategoriler, teklifinizi [Azure Market](https://azuremarketplace.microsoft.com) ve [Azure portal](https://portal.azure.com/) içinde kullanılabilir olan ürün kategorileriyle eşlemek için kullanılır.
 
 #### <a name="azure-marketplace"></a>Azure Market
 
-Aşağıdaki alanları, yönetilen uygulamanızın özetini görüntüler:
+Yönetilen uygulamanızın özeti aşağıdaki alanları gösterir:
 
 ![Market özeti](./media/publish-marketplace-app/publishvm10.png)
 
-**Genel bakış** aşağıdaki alanları, yönetilen uygulamanızın görüntüler sekmesi:
+Yönetilen uygulamanıza yönelik **Genel Bakış** sekmesi aşağıdaki alanları gösterir:
 
 ![Market’e genel bakış](./media/publish-marketplace-app/publishvm11.png)
 
-**Planları + fiyatlandırma** aşağıdaki alanları, yönetilen uygulamanızın görüntüler sekmesi:
+Yönetilen uygulamanıza yönelik **Planlar + Fiyatlandırma** sekmesi aşağıdaki alanları gösterir:
 
 ![Market planları](./media/publish-marketplace-app/publishvm15.png)
 
 #### <a name="azure-portal"></a>Azure portalına
 
-Aşağıdaki alanları, yönetilen uygulamanızın özetini görüntüler:
+Yönetilen uygulamanızın özeti aşağıdaki alanları gösterir:
 
 ![Portal özeti](./media/publish-marketplace-app/publishvm12.png)
 
-Genel bakış, yönetilen uygulamanızın için aşağıdaki alanları görüntüler:
+Yönetilen uygulamanıza yönelik genel bakış aşağıdaki alanları gösterir:
 
-![Portal genel bakış](./media/publish-marketplace-app/publishvm13.png)
+![Portala genel bakış](./media/publish-marketplace-app/publishvm13.png)
 
 #### <a name="logo-guidelines"></a>Logo yönergeleri
 
-Bulut iş ortağı Portalı'nda karşıya logo aşağıdaki yönergeleri izleyin:
+Bulut İş Ortağı portalına yüklediğiniz tüm logolar için bu yönergeleri izleyin:
 
-*   Azure tasarım basit renk paletini sahiptir. Logonuzun ikincil renkleri ve birincil sayısını sınırlayın.
-*   Tema renkleri portalı beyaz ve siyah. Bu renkler arka plan rengi olarak logonuzun için kullanmayın. Logonuzun portalında belirgin hale getirir bir renk kullanın. Basit birincil renkleri öneririz. *Saydam arka plan kullanırsanız, logo ve metin beyaz, olduğundan emin olun siyah veya mavi.*
-*   Gradyan arka planı logosunu kullanmayın.
-*   Metin, logo, bile, şirket veya marka adı yerleştirmeyin. Logonuzun Görünüm ve yapısını düz ve gradyan olmaması gerekir.
-*   Logo uzatılmış olmadığından emin olun.
+*   Azure tasarımının basit bir renk paleti vardır. Logonuzdaki birincil ve ikincil renklerinin sayısını sınırlandırın.
+*   Portalın tema renkleri siyah ve beyazdır. Bu renkleri logonuzun arka plan rengi olarak kullanmayın. Logonuzun portalda öne çıkmasını sağlayan bir renk kullanın. Basit birincil renkleri öneririz. *Saydam bir arka plan kullanıyorsanız logo ve metnin beyaz, siyah ve mavi olmadığından emin olun.*
+*   Logoda gradyan arka plan kullanmayın.
+*   Şirket veya marka adınız dahil olmak üzere logoya metin yerleştirmeyin. Logonuzun genel görünümü düz olmalı ve gradyanlardan kaçınmalıdır.
+*   Logonuzun esnetilmediğinden emin olun.
 
-#### <a name="hero-logo"></a>Kahramanı logosu
+#### <a name="hero-logo"></a>Kahraman logosu
 
-Kahramanı logosu isteğe bağlıdır. Yayımcı kahramanı logosu yüklemek değil seçebilirsiniz. Kahramanı simgesi yüklendikten sonra silinemez. O anda iş ortağı kahramanı simgeler Market yönergeleri izlemeniz gerekir.
+Kahraman logosu isteğe bağlıdır. Yayımcı bir kahraman logosu eklememeyi seçebilir. Kahraman logosu yüklendikten sonra silinemez. Bu esnada iş ortağının kahraman simgelerine yönelik Market yönergelerini izlemesi gerekir.
 
-Kahramanı logo simgesini için aşağıdaki yönergeleri izleyin:
+Kahraman logosu simgesi için şu yönergeleri izleyin:
 
-*   Yayımcı görünen adı, planı başlık ve uzun Özet teklif beyaz görüntülenir. Bu nedenle, açık bir renk kahramanı simgesi arka plan için kullanmayın. Siyah, beyaz veya saydam arka plan kahramanı simgelerini izin verilmiyor.
-*   Teklif listelenen sonra öğeleri kahramanı logosunun içinde programlı olarak katıştırılır. Katıştırılmış öğelerini dahil yayımcı görünen adı, planı başlık, uzun Özet teklif ve **oluşturma** düğmesi. Sonuç olarak, kahramanı logosu tasarlarken herhangi bir metin girmeyin. Metni program aracılığıyla bu alana dahil olduğundan boş alanı sağ tarafta bırakın. Metin için boş alan sağdaki 415 x 100 piksel olmalıdır. Soldan 370 piksel uzakta bulunur.
+*   Yayımcı görünen adı, plan başlığı ve teklif uzun özeti beyaz olarak gösterilir. Dolayısıyla kahraman simgesinin arka planı için açık bir renk kullanmayın. Kahraman simgeleri için siyah, beyaz ve şeffaf arka plana izin verilmez.
+*   Teklif listelendikten sonra öğeler, kahraman logosunun içine program tarafından eklenir. Eklenmiş öğeler arasında yayımcı görünen adı, plan başlığı, teklif uzun özeti ve **Oluştur** düğmesi yer alır. Sonuç olarak kahraman logosunu tasarlarken hiçbir metin girmeyin. Sağda boş bir alan bırakın çünkü metin program tarafından bu alana eklenir. Metne yönelik boş alan sağ tarafta 415 x 100 piksel olmalıdır. Soldan 370 piksel kaydırılır.
 
-    ![Kahramanı logosu örneği](./media/publish-marketplace-app/publishvm14.png)
+    ![Kahraman logosu örneği](./media/publish-marketplace-app/publishvm14.png)
 
-## <a name="support-form"></a>Form desteği
+## <a name="support-form"></a>Destek formu
 
-Doldurmak **Destek** kişiler şirketinizden desteğiyle formu. Bu bilgileri, kişiler ve müşteri destek ilgili kişisi mühendislik.
+**Destek** formunu şirketinizin destek iletişim bilgileriyle doldurun. Bu bilgiler mühendislik veya müşteri destek iletişim bilgilerini içerebilir.
 
-## <a name="publish-an-offer"></a>Bir teklifi yayımlama
+## <a name="publish-an-offer"></a>Teklif yayımlama
 
-Tüm bölümleri doldurduktan sonra seçin **Yayımla** teklifiniz müşteriler için kullanılabilir hale getirir işlemini başlatmak üzere.
+Tüm bölümleri doldurduktan sonra teklifinizi müşterilerin kullanımına sunan işlemi başlatmak için **Yayımla**’yı seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Yönetilen uygulamalara giriş için [Yönetilen uygulamalara genel bakış](overview.md) konusunu inceleyin.
-* Hizmet Kataloğu yönetilen uygulama yayımlama hakkında daha fazla bilgi için bkz: [oluşturma ve bir hizmet Kataloğu yönetilen uygulamayı yayımlayın](publish-service-catalog-app.md).
+* Bir Hizmet Kataloğu yönetilen uygulaması yayımlama hakkında bilgi için bkz. [Hizmet kataloğu uygulaması oluşturma ve yayımlama](publish-service-catalog-app.md).

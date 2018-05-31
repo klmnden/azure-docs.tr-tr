@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 03/13/2018
 ms.author: mazha
 ms.custom: mvc
-ms.openlocfilehash: 91bb23b2790ed23c831bb1680f6f2bb2cdecc38f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198716"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Hızlı Başlangıç: Azure CDN profili ve uç noktası oluşturma
 Bu hızlı başlangıçta, yeni bir CDN profili ve CDN uç noktası oluşturarak Azure Content Delivery Network’ü (CDN) etkinleştireceksiniz. Bir profil ve uç nokta oluşturduktan sonra müşterilerinize içerik sunmaya başlayabilirsiniz.
@@ -70,7 +71,7 @@ CDN profili oluşturduktan sonra bir uç nokta oluşturmak için bunu kullanabil
    ![CDN uç noktası](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
    Kaydın yayılması zaman alacağından, uç nokta hemen kullanılabilir olmaz: 
-   - **Microsoft’tan Azure CDN Standart** profilleri için yayma işlemi genellikle on dakikada tamamlanır. 
+   - **Microsoft’tan Azure CDN Standart** profilleri için yayma işlemi genellikle 10 dakikada tamamlanır. 
    - **Akamai’den Azure CDN Standart** profilleri için yayma işlemi genellikle bir dakika içinde tamamlanır. 
    - **Verizon’dan Azure CDN Standart** ve **Verizon’dan Azure CDN Premium** profilleri için yayma işlemi genellikle 90 dakika içinde tamamlanır. 
 
@@ -87,6 +88,6 @@ CDN profili oluşturduktan sonra bir uç nokta oluşturmak için bunu kullanabil
 CDN uç noktanıza özel etki alanı ekleme hakkında bilgi edinmek için aşağıdaki öğreticiye bakın:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Bir web uygulamasına Azure CDN’yi ekleme](app-service-web-tutorial-content-delivery-network.md)
+> [Öğretici: Azure CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
 
 

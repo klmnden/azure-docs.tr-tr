@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 852c854de9feb9bcc98fc89aa9340b93f2c4e8d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 95d6673acaf3cbac2098ac7ae30114696f477045
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212798"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Şirket içi makinelerin çoğaltması için Azure kaynaklarını hazırlama
 
@@ -47,7 +48,7 @@ Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerle�
 Çoğaltılan makinelerin görüntüleri Azure depolama alanında tutulur. Şirket içinden Azure’a yük devretme gerçekleştirdiğinizde depolama alanından Azure sanal makineleri oluşturulur.
 
 1. [Azure portal](https://portal.azure.com)’da, **Yeni** > **Depolama** > **Depolama hesabı**’nı seçin.
-2. **Depolama hesabı oluştur** bölümüne hesap için bir ad girin. Bu öğreticiler için **contosovmsacct1910171607** adını kullanın. Ad, Azure içinde benzersiz olmalı, 3 ila 24 karakter uzunluğunda olmalı ve yalnızca rakamlar ve küçük harfler içermelidir.
+2. **Depolama hesabı oluştur** bölümüne hesap için bir ad girin. Bu öğreticiler için **contosovmsacct1910171607** adını kullanıyoruz. Seçtiğiniz ad, Azure içinde benzersiz olmalı, 3 ila 24 karakter uzunluğunda olmalı ve yalnızca rakamlar ve küçük harfler içermelidir.
 3. **Dağıtım modeli** bölümünde **Kaynak Yöneticisi**’ni seçin.
 4. **Hesap türü** bölümünde **Genel amaçlı**’yı seçin. **Performans** bölümünde **Standart**’ı seçin. Blob depolamayı seçmeyin.
 5. **Çoğaltma** bölümünde depolama yedeklemesi için **Okuma Erişimli Coğrafi Olarak Yedekli depolama**’yı seçin.
@@ -62,7 +63,7 @@ Bu görevleri tamamlamak için hesabınıza Sanal Makine Katkıda Bulunan yerle�
 ## <a name="create-a-vault"></a>Kasa oluşturma
 
 1. Azure portalında **Kaynak oluştur** > **İzleme ve Yönetim** > **Backup and Site Recovery** seçeneklerini belirleyin.
-2. **Ad** alanına kasayı tanımlamak için kolay bir ad girin. Bu öğretici için **ContosoVMVault** adını kullanın.
+2. **Ad** alanına kasayı tanımlamak için kolay bir ad girin. Bu öğretici dizisi için **ContosoVMVault**’u kullanacağız.
 3. **Kaynak grubu** bölümünde **contosoRG** adlı mevcut kaynak grubunu seçin.
 4. **Konum** bölümünde bu öğretici kümesinde kullanılan **Batı Avrupa** Azure bölgesini belirtin.
 5. Panodan kasaya hızlı şekilde erişmek için **Panoya sabitle** > **Oluştur**’u seçin.
