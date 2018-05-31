@@ -15,11 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3423103de774faaf9e7884626a9a1a102e351b68
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: add8e184db102d48275bd8d3faa42def63918c19
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360498"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch içe büyük ölçekli paralel işlem çözümleri geliştirme
 
@@ -82,7 +83,7 @@ Batch, şu Azure Depolama [hesap seçeneklerini](../storage/common/storage-accou
 
 * Genel amaçlı v2 (GPv2) hesapları 
 * Genel amaçlı v1 (GPv1) hesapları
-* Blob Storage hesapları
+* Blob depolama hesapları (şu anda Sanal Makine yapılandırmasındaki havuzlar için desteklenmektedir)
 
 Batch hesabını oluşturduğunuzda veya daha sonra Batch hesabınızla bir depolama hesabını ilişkilendirebilirsiniz. Bir depolama hesabı seçerken, maliyet ve performans gereksinimlerinizi göz önünde bulundurun. Örneğin, GPv2 ve blob depolama hesabı seçenekleri, GPv1’e kıyasla daha büyük [kapasite ve ölçeklenebilirlik sınırlarını](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) destekler. (Depolama sınırında artış istemek için Azure Desteğine başvurun.) Bu hesap seçenekleri, depolama hesabından okuma veya depolama hesabına yazma işlemi gerçekleştiren çok sayıda paralel görev içeren Batch çözümlerinin performansını artırabilir.
 

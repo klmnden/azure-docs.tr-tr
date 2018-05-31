@@ -12,13 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 4/18/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: fd706737491a4644b0730ea197f6a2a9ed5480e5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366537"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -198,6 +199,8 @@ Kapsayıcıya alınmış hizmetin iletişim sağlayabilmesi için bir uç nokta 
 ```
 
 Uç nokta tanımlandığında, Service Fabric uç noktayı Adlandırma hizmetinde yayımlar. Kümede çalışan diğer hizmetler bu kapsayıcıyı çözümleyebilir. Ayrıca, [ters proxy](service-fabric-reverseproxy.md)’yi kullanarak kapsayıcıdan kapsayıcıya iletişim kurabilirsiniz. İletişim, ters proxy’nin HTTP dinleme bağlantı noktasını ve iletişim kurmak istediğiniz hizmetlerin adlarının ortam değişkenleri olarak sağlanmasıyla gerçekleştirilir.
+
+Hizmet belirli bir bağlantı noktasında (bu örnekte 8081) dinliyor. Uygulama Azure'daki bir kümeye dağıtıldığında hem küme hem de uygulama bir Azure yük dengeleyicinin arkasında çalışır. Gelen trafiğin hizmete ulaşabilmesi için Azure yük dengeleyicide uygulama bağlantı noktası açık olmalıdır.  Azure yük dengeleyicide bu bağlantı noktasını bir [PowerShell betiği](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) kullanarak veya [Azure portalından](https://portal.azure.com) açabilirsiniz.
 
 ## <a name="configure-and-set-environment-variables"></a>Ortam değişkenlerini yapılandırma ve ayarlama
 Ortam değişkenleri, hizmet bildirimindeki her kod paketi için belirtilebilir. Bu özellik, kapsayıcı olarak mı dağıtıldıklarına yoksa konuk yürütülebilir dosyası olarak mı işlendiklerine bakılmaksızın tüm hizmetlerde sağlanır. Ortam değişkeni değerlerini, uygulama bildiriminde geçersiz kılabilir veya dağıtım sırasında uygulama parametresi olarak belirtebilirsiniz.

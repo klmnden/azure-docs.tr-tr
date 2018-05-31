@@ -1,24 +1,21 @@
 ---
-title: Azure portalını kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Docs
-description: "Bir Data Lake Analytics hesabı oluşturmak, U-SQL'yi kullanarak Data Lake Analytics işi oluşturmak ve bu işi göndermek için Azure portalının nasıl kullanılacağını öğrenin. "
+title: Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
+description: Bir Data Lake Analytics hesabı oluşturmak, U-SQL'yi kullanarak Data Lake Analytics işi oluşturmak ve bu işi göndermek için Azure portalının nasıl kullanılacağını öğrenin.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
+ms.author: saveenr
 manager: kfile
-editor: cgronlun
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.service: data-lake-analytics
-ms.devlang: na
 ms.topic: hero-article
-ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
-ms.author: saveenr
-ms.openlocfilehash: 34967a9853f907c61494e72229d75af1c625ea8f
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 63fc4272dc4b26e9eb4846118bc57cd6aa5bf361
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358294"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -64,11 +61,11 @@ OUTPUT @a
 
 ## <a name="submit-a-u-sql-job"></a>U-SQL işi gönderme
 
-1. Data Lake Analytics hesabında **Yeni İş**'e tıklayın.
-2. Yukarıda gösterilen U-SQL betiğinin metnine yapıştırın. 
-3. **İşi Gönder**'e tıklayın.   
-4. İş durumu **Başarılı** olarak değiştirilene kadar bekleyin.
-5. **Çıkış** sekmesine ve ardından `data.csv` öğesine tıklayın. 
+1. Data Lake Analytics hesabında **Yeni İş**'i seçin.
+2. Yukarıdaki U-SQL betiğinin metnine yapıştırın. İşin adı. 
+3. İşi başlatmak için **Gönder** düğmesini seçin.   
+4. İşin **Durumunu** izleyin ve iş durumu **Başarılı** olana kadar bekleyin.
+5. **Veri** sekmesini, ardından **Çıkışlar** sekmesini seçin. `data.csv` adlı çıkış dosyasını seçin ve çıktı verilerini görüntüleyin.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

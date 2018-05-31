@@ -1,18 +1,19 @@
 ---
-title: "Geliştiriciler için Azure Batch API'lerine ve araçlarına genel bakış | Microsoft Docs"
-description: "Azure Batch hizmeti ile çözüm geliştirmek için kullanılabilen API’ler ve araçlar hakkında bilgi edinin."
+title: Geliştiriciler için Azure Batch API'lerine ve araçlarına genel bakış | Microsoft Docs
+description: Azure Batch hizmeti ile çözüm geliştirmek için kullanılabilen API’ler ve araçlar hakkında bilgi edinin.
 services: batch
 author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: get-started-article
-ms.date: 02/26/2018
+ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 0d3720d33de2237b0d8cce2ae56bcc7ccf6acc43
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359331"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API'lerine ve araçlarına genel bakış
 
@@ -26,11 +27,10 @@ Kuruluşunuz için büyük ölçekli iş yüklerini verimli bir şekilde işleye
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Batch geliştirme için Azure hesapları
-Batch çözümleri geliştirdiğinizde, Microsoft Azure'de aşağıdaki hesapları kullanacaksınız.
+Batch çözümleri geliştirdiğinizde, Azure aboneliğinizdeki aşağıdaki hesapları kullanacaksınız:
 
-* **Azure hesabı ve aboneliği** -Henüz Azure aboneliğiniz yoksa [Visual Studio abone avantajlarınızı][msdn_benefits] etkinleştirebilir veya [ücretsiz Azure hesabı][free_account] için kaydolabilirsiniz. Hesap oluşturduğunuzda sizin için varsayılan bir abonelik oluşturulur.
-* **Batch hesabı** - Havuzlar, işlem düğümleri, işler ve görevler gibi bir Azure Batch hesabıyla ilişkilendirilmiş Azure Batch kaynakları. Uygulamanız, Batch hizmetinden bir istekte bulunduğunda istek Azure Batch hesabı adı, hesabın URL'si ve erişim anahtarı veya Azure Active Directory belirteci kullanılarak kimlik doğrulamasından geçirilir. Azure portalından veya kod kullanarak [Batch hesabı oluşturabilirsiniz](batch-account-create-portal.md).
-* **Depolama hesabı** - Batch’te [Azure Depolama][azure_storage] dosyalarıyla çalışmak için yerleşik destek bulunur. Neredeyse tüm Batch senaryolarında, görevlerinizin çalıştırdığı programların ve işlediği verilerin hazırlanmasının yanı sıra oluşturduğu çıktı verilerinin depolanması için Azure Blob depolama kullanılır. Storage hesabı oluşturmak için bkz. [Azure depolama hesapları hakkında](../storage/common/storage-create-storage-account.md).
+* **Batch hesabı** - Havuzlar, işlem düğümleri, işler ve görevler gibi bir Azure [Batch hesabıyla](batch-api-basics.md#account) ilişkilendirilmiş Azure Batch kaynakları. Uygulamanız, Batch hizmetinden bir istekte bulunduğunda istek Azure Batch hesabı adı, hesabın URL'si ve erişim anahtarı veya Azure Active Directory belirteci kullanılarak kimlik doğrulamasından geçirilir. Azure portalından veya kod kullanarak [Batch hesabı oluşturabilirsiniz](batch-account-create-portal.md).
+* **Depolama hesabı** - Batch’te [Azure Depolama][azure_storage] dosyalarıyla çalışmak için yerleşik destek bulunur. Neredeyse tüm Batch senaryolarında, görevlerinizin çalıştırdığı programların ve işlediği verilerin hazırlanmasının yanı sıra oluşturduğu çıktı verilerinin depolanması için Azure Blob depolama kullanılır. Batch’teki depolama hesabı seçenekleri için bkz. [Batch özelliğine genel bakış](batch-api-basics.md#azure-storage-account).
 
 ## <a name="batch-service-apis"></a>Batch hizmeti API’leri
 
