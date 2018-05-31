@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 023e55724124afb9c97d01540c6319a775681c84
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c8b3afcda4422fa5df599798bcd9cd94fe58486
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366758"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Öğretici: Bilişsel arama API’lerinin nasıl çağrılacağını öğrenin (Önizleme)
 
@@ -23,7 +24,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için REST API çağr
 
 > [!div class="checklist"]
 > * Bir dizine giden yolda kaynak verileri zenginleştiren dizin oluşturma işlem hattı oluşturma
-> * Örnek veri kümesinde yerleşik varlık tanıma, dil algılama, metin düzenleme ve anahtar tümcecik ayıklama becerilerini kullanma
+> * Örnek veri kümesinde yerleşik beceriler kullanma: varlık tanıma, dil algılama, metin düzenleme ve anahtar tümcecik ayıklama
 > * Bir beceri kümesindeki çıktılara girişleri eşleyerek becerilerin nasıl birbirine zincirleneceğini öğrenme
 > * İstekleri yürütme ve sonuçları gözden geçirme
 > * Daha fazla geliştirme için dizini ve dizin oluşturucuları sıfırlama
@@ -84,7 +85,7 @@ Zenginleştirme işlem hattı, Azure veri kaynaklarından çekme işlemi yapar. 
   Bağlantı dizesi, aşağıdaki örneğe benzer bir URL olmalıdır:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=y1NIlE9wFVBIabcd562GzZl+JO9TEGdqOerqfbT78C8zrn28Te8DsWlxvKKnjh67P/HM5k80zt4shOt9vqlbg==;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=aaAAAbb123123cccCCCdd456456EeEe789789ffFFgg==;EndpointSuffix=core.windows.net
       ```
 
 Paylaşılan erişim imzası sağlama gibi, bağlantı dizesini belirtmenin başka birçok yolu vardır. Veri kaynağı kimlik bilgileri hakkında daha fazla bilgi edinmek için bkz. [Azure Blob Depolama Alanı dizinini oluşturma](search-howto-indexing-azure-blob-storage.md#Credentials).

@@ -5,26 +5,27 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/16/2018
+ms.date: 05/18/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 33e31c47a6125ac363410a9a78e9c9310c74d51e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0d8ef36e001aaf417b84efaf99a992fd64f01b6f
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366350"
 ---
 # <a name="scenario-1-assess-on-premises-workloads-for-migration-to-azure"></a>Senaryo 1: Azure’a geçiş için şirket içi iş yüklerini değerlendirme
 
 Azure’a geçiş ile ilgili olarak Contoso şirketi, şirket içi iş yüklerinin buluta geçiş için uygun olup olmadığını öğrenmek amacıyla teknik ve finansal iç değerlendirme çalıştırmak istiyor. Özellikle geçiş için makine ve veritabanı uyumluluğunu değerlendirmek, Azure’da kaynaklarını çalıştırma maliyetlerini ve kapasitesini tahmin etmek istiyor.
 
-Söz konusu teknolojileri ilk kez kullanmak ve daha iyi anlamak için küçük bir şirket içi seyahat uygulamasını değerlendirip geçiriyor. Bu, bir web uygulamasının bir sanal makinede ve bir SQL Server veritabanının ikinci bir sanal makinede çalıştığı, iki katmanlı bir uygulamadır. Uygulama, VMware içinde dağıtılır ve ortam, vCenter Server tarafından yönetilir. Data Migration Yardımcısı (DMA) ve Azure Geçişi hizmetini kullanarak değerlendirmeyi gerçekleştirir.
+Söz konusu teknolojileri ilk kez kullanmak ve daha iyi anlamak için küçük bir şirket içi seyahat uygulamasını değerlendirip geçiriyor. Bu, bir web uygulamasının bir sanal makinede ve bir SQL Server veritabanının ikinci bir sanal makinede çalıştığı, iki katmanlı bir uygulamadır. Uygulama, VMware içinde dağıtılır ve ortam, vCenter Server tarafından yönetilir. Data Migration Yardımcısı (DMA) ve Azure Geçişi hizmetini kullanarak değerlendirmeyi gerçekleştirir. Bu örnek seyahat uygulamasını kullanarak bu senaryoyu denemek isterseniz, [github](https://github.com/Microsoft/SmartHotel360)’dan indirebilirsiniz.
 
 **Teknoloji** | **Açıklama** | **Maliyet**
 --- | --- | ---
-[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA, Azure’daki veritabanı işlevselliğini etkileyebilecek uyumluluk sorunlarını değerlendirir ve algılar. Ayrıca değerlendirme yapıp SQL Server kaynağınız ile hedefiniz arasında eşleme gerçekleştirir ve hedef ortamınız için performans ve güvenilirlik iyileştirmeleri önerir. | Ücretsiz olarak indirilebilir bir araçtır. 
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | DMA, Azure’daki veritabanı işlevselliğini etkileyebilecek uyumluluk sorunlarını değerlendirir ve algılar. Ayrıca değerlendirme yapıp SQL Server kaynağınız ile hedefiniz arasında eşleme gerçekleştirir ve hedef ortamınız için performans ve güvenilirlik iyileştirmeleri önerir. | Ücretsiz olarak indirilebilir bir araçtır.
 [Azure Geçişi](https://docs.microsoft.com/azure/migrate/migrate-overview) | Hizmet, Azure’a geçiş için şirket içi makineleri değerlendirmenize yardımcı olur. Makinelerin geçiş uygunluğunu değerlendirir ve Azure’da çalıştırmaya ilişkin boyutlandırma ve maliyet tahminleri sağlar. Şu anda, Azure Geçişi hizmeti, şirket içi VMware sanal makinelerini Azure’a geçiş için değerlendirebilir. | Şimdilik (Nisan 2018) bu hizmet ücretsiz kullanılabilir.
-[Hizmet Eşlemesi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Geçişi, geçirmek istediğiniz makineler arasındaki bağımlılıkları göstermek için Hizmet Eşlemesini kullanır. |  Hizmet Eşlemesi, Azure Log Analytics’in bir parçasıdır. Şu an ücretsiz olarak 180 gün kullanılabilir. 
+[Hizmet Eşlemesi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Geçişi, geçirmek istediğiniz makineler arasındaki bağımlılıkları göstermek için Hizmet Eşlemesini kullanır. |  Hizmet Eşlemesi, Azure Log Analytics’in bir parçasıdır. Şu an ücretsiz olarak 180 gün kullanılabilir.
 
 Bu senaryoda, seyahat uygulamamıza ilişkin şirket içi SQL Server veritabanını değerlendirmek için DMA’yı indirip çalıştıracağız. Uygulama sanal makinelerini Azure’a geçirmeden önce değerlendirmek için bağımlılık eşlemesi ile Azure geçişini kullanacağız.
 
@@ -33,11 +34,11 @@ Bu senaryoda, seyahat uygulamamıza ilişkin şirket içi SQL Server veritabanı
 
 ## <a name="architecture"></a>Mimari
 
-Bu senaryoda ayarlama yapacağız 
 
- ![Geçiş değerlendirmesi mimarisi](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
+![Geçiş değerlendirmesi mimarisi](./media/migrate-scenarios-assessment/migration-assessment-architecture.png)
 
 Bu senaryoda:
+- Contoso tipik bir kurumsal organizasyonu temsil eden kurgusal bir addır. Contoso iki katmanlı şirket içi seyahat uygulamalarını değerlendirmek ve geçirmek istiyor.
 - Contoso, şirket içi etki alanı denetleyicisi ( **contosodc1**) ile bir şirket içi veri merkezi (**contoso-datacenter**) içeriyor.
 - Dahili seyahat uygulaması, **WEBVM** ve **SQLVM** adlı iki sanal makinede katmanlanmış olup **contosohost1.contoso.com** adresindeki VMware ESXi ana bilgisayarında bulunur.
 - VMware ortamı bir sanal makine üzerinde çalıştırılan vCenter Server (**vcenter.contoso.com**) tarafından yönetilir.
@@ -50,7 +51,7 @@ Bu senaryoda:
 Bu senaryoyu dağıtmak için ihtiyacınız olanlar aşağıda verilmiştir:
 
 - 5.5, 6.0 veya 6.5 sürümünü çalıştıran bir şirket içi vCenter sunucusu.
-- vCenter sunucusunda salt okunur bir hesap veya hesap oluşturma izinleri. 
+- vCenter sunucusunda salt okunur bir hesap veya hesap oluşturma izinleri.
 - .OVA şablonu kullanarak, vCenter sunucusu üzerinde sanal makine oluşturma izni.
 - 5.0 veya üzeri bir sürümü çalıştıran en az bir ESXi ana bilgisayarı.
 - Biri, SQL Server veritabanı çalıştıran en az iki şirket içi VMware sanal makinesi.
@@ -106,15 +107,15 @@ Kaynak SQL Server örneğinizi, belirtilen bir hedefe karşı analiz etmek için
       Şu anda DMA, SQL Yönetilen Örneği’ne geçiş için değerlendirmeyi desteklemez. Geçici bir çözüm olarak, değerlendirme için beklenen hedefimiz olarak Azure Sanal Makineler'de SQL Server’ı kullanıyoruz.
 
 1.  **Hedef Sürümü Seçin** bölümünde, Azure’da çalıştırmak istediğiniz SQL Server’ın hedef sürümünü ve değerlendirmede neyi bulmak istediğinizi belirtin:
-    - **Uyumluluk Sorunları**, size geçişi bölebilecek veya geçişten önce düşük ölçekli ayarlama gerektiren değişiklikleri bildirir. Ayrıca, şu anda kullanmakta olduğunuz, ancak kullanımdan kaldırılmış olan özellikleri de size bildirir. Sorunlar, uyumluluk düzeyine göre düzenlenir. 
-    - **Yeni özellikler önerisi**, geçişten sonra veritabanınız için kullanılabilecek hedef SQL Server platformundaki yeni özellikleri size bildirir. Bunlar, Performansa, Güvenliğe ve Depolamaya göre düzenlenir. 
+    - **Uyumluluk Sorunları**, size geçişi bölebilecek veya geçişten önce düşük ölçekli ayarlama gerektiren değişiklikleri bildirir. Ayrıca, şu anda kullanmakta olduğunuz, ancak kullanımdan kaldırılmış olan özellikleri de size bildirir. Sorunlar, uyumluluk düzeyine göre düzenlenir.
+    - **Yeni özellikler önerisi**, geçişten sonra veritabanınız için kullanılabilecek hedef SQL Server platformundaki yeni özellikleri size bildirir. Bunlar, Performansa, Güvenliğe ve Depolamaya göre düzenlenir.
 
     ![Hedef seçin](./media/migrate-scenarios-assessment/dma-assessment-2.png)
 
 2. **Sunucuya bağlan** bölümünde, SQL Server örneğini çalıştıran makinenin adını, kimlik doğrulama türünü ve bağlantı ayrıntılarını belirtin. Ardından **Bağlan**’a tıklayın.
 
     ![Hedef seçin](./media/migrate-scenarios-assessment/dma-assessment-3.png)
-    
+
 3. **Kaynak ekle** bölümünde, değerlendirmek istediğiniz veritabanını seçin ve **Ekle**’ye tıklayın.
 4. Belirttiğiniz ada sahip bir değerlendirme oluşturulur.
 
@@ -126,7 +127,7 @@ Kaynak SQL Server örneğinizi, belirtilen bir hedefe karşı analiz etmek için
 
 ### <a name="analyze-the-database-assessment"></a>Veritabanı değerlendirmesini analiz etme
 
-Sonuçlar, kullanılabilir olduğu anda Yardımcı’da görüntülenir. 
+Sonuçlar, kullanılabilir olduğu anda Yardımcı’da görüntülenir.
 
 1. **Uyumluluk Sorunları** raporunda, veritabanınızın her bir uyumluluk düzeyi için sorun içerip içermediğini ve içeriyorsa nasıl düzeltileceğini denetleyin. Uyumluluk düzeyleri, SQL Server sürümleriyle aşağıdaki şekilde eşlenir:
     - 100: SQL Server 2008/Azure SQL Veritabanı
@@ -141,7 +142,7 @@ Sonuçlar, kullanılabilir olduğu anda Yardımcı’da görüntülenir.
 
     ![Özellik önerileri](./media/migrate-scenarios-assessment/dma-assessment-6.png)
 
-3. Herhangi bir sorunu düzeltirseniz, **Değerlendirmeyi Yeniden Başlat**’a tıklayarak yeniden çalıştırın. 
+3. Herhangi bir sorunu düzeltirseniz, **Değerlendirmeyi Yeniden Başlat**’a tıklayarak yeniden çalıştırın.
 4. **Raporu dışarı aktar**’a tıklayarak değerlendirme raporunu JSON veya CSV biçiminde alın.
 
 Büyük ölçekli bir değerlendirme çalıştırıyorsanız:
@@ -182,8 +183,8 @@ Dağıtımı başlatmadan önce vCenter Server için istatistik ayarları, 3 dü
     - Depolama için Azure Geçişi, Azure’da şirket içi diskle aynı boyutta standart bir disk önerir.
     - Ağ iletişimi için, her şirket içi ağ bağdaştırıcısına yönelik olarak Azure’da bir ağ bağdaştırıcısı önerilir.
     - İşlem için Azure Geçişi, sanal makine çekirdeklerine ve bellek boyutuna bakar ve aynı yapılandırmaya sahip bir Azure sanal makinesi önerir. Birden fazla uygun Azure sanal makinesi boyutu varsa, en düşük maliyetli olan önerilir.
-   
-    
+
+
 Düzey 3 ile boyutlandırma hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
 Düzeyi aşağıdaki gibi ayarlayın:
@@ -215,7 +216,7 @@ Bir Azure Geçişi projesi oluşturun, toplayıcı sanal makinesini indirip ayar
     ![Azure Geçişi](./media/migrate-scenarios-assessment/project-1.png)
 
 
-    
+
 
 ### <a name="download-the-collector-appliance"></a>Toplayıcı gerecini indirin
 
@@ -225,7 +226,7 @@ Azure Geçişi, toplayıcı gereci olarak bilinen bir şirket içi VM oluşturur
 2. **Makineleri keşfet** bölümünde .OVA dosyasını indirmek için **İndir**’e tıklayın.
 3. **Proje kimlik bilgilerini kopyala** bölümünde proje kimliğini ve anahtarı kopyalayın. Toplayıcıyı yapılandırırken bu bilgilere ihtiyaç duyarsınız.
 
-    ![.ova dosyasını indir](./media/migrate-scenarios-assessment/download-ova.png) 
+    ![.ova dosyasını indir](./media/migrate-scenarios-assessment/download-ova.png)
 
 ### <a name="verify-the-collector-appliance"></a>Toplayıcı gereci doğrulama
 
@@ -235,14 +236,14 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 2. OVA’nın karmasını oluşturmak için aşağıdaki komutu çalıştırın:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Örnek kullanım: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Oluşturulan karma bu ayarlara uygun olmalıdır (sürüm 1.0.9.7)
-    
+3. Oluşturulan karma bu ayarlara uygun olmalıdır (sürüm 1.0.9.8)
+
     **Algoritma** | **Karma değeri**
     --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-    
+    MD5 | b5d9f0caf15ca357ac0563468c2e6251
+    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+
 
 ### <a name="create-the-collector-appliance"></a>Toplayıcı gereci oluşturma
 
@@ -250,14 +251,14 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 
 1. vSphere Client konsolunda **Dosya** > **OVF Şablonu Dağıt**’a tıklayın.
 
-    ![OVF dağıtma](./media/migrate-scenarios-assessment/vcenter-wizard.png) 
+    ![OVF dağıtma](./media/migrate-scenarios-assessment/vcenter-wizard.png)
 
 2. OVF Şablonu Dağıtma Sihirbazı > **Kaynak** bölümünde .OVA dosyasının konumunu belirtin ve **İleri**’ye tıklayın.
 3. **OVF Şablonu Ayrıntıları** bölümünde **İleri**’ye tıklayın. **Son Kullanıcı Lisans Sözleşmesi** sayfasında **Kabul Et**’e tıklayarak sözleşmeyi kabul edin ve **İleri**’ye tıklayın.
 4. **Ad ve Konum** bölümünde, toplayıcı sanal makinesi için bir kolay ad ve sanal makinenin barındırılacağı envanter konumunu belirtip **İleri**’ye tıklayın. Toplayıcı gerecinin çalıştırılacağı ana bilgisayarı veya kümeyi belirtin.
 5. **Depolama** bölümünde, gereç için dosyaları depolamak istediğiniz yeri belirtin ve **İleri**’ye tıklayın.
 6. **Disk Biçimi** bölümünde, depolamayı nasıl sağlamak istediğinizi belirtin.
-7. **Ağ Eşleme** bölümünde toplayıcı VM’nin bağlanacağı ağı belirtin. Meta verileri Azure’a göndermek için ağ, İnternet bağlantısına sahip olmalıdır. 
+7. **Ağ Eşleme** bölümünde toplayıcı VM’nin bağlanacağı ağı belirtin. Meta verileri Azure’a göndermek için ağ, İnternet bağlantısına sahip olmalıdır.
 8. **Tamamlamaya Hazır** bölümünde ayarları gözden geçirin, **Dağıtımdan sonra güç aç**’ı seçin ve **Son**’a tıklayın.
 
 Gereç oluşturulduktan sonra tamamlamanın başarılı olduğunu onaylayan bir ileti görüntülenir.
@@ -270,22 +271,22 @@ Başlamadan önce, toplayıcının şu anda işletim sistemi dili ve toplayıcı
 2. Gereç için dil, saat dilimi ve parola tercihlerini belirtin.
 3. Masaüstünde **Toplayıcı çalıştır** kısayoluna tıklayın.
 
-    ![Toplayıcı kısayolu](./media/migrate-scenarios-assessment/collector-shortcut.png) 
-    
+    ![Toplayıcı kısayolu](./media/migrate-scenarios-assessment/collector-shortcut.png)
+
 4. Azure Geçişi Toplayıcısı’nda **Önkoşulları ayarla** seçeneğini açın.
     - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
-    - Toplayıcı, sanal makinenin İnternet erişimi olup olmadığını, saatin eşitlenmiş olup olmadığını ve toplayıcı hizmetinin çalışmakta (varsayılan olarak sanal makineye yüklenmiş) olup olmadığını denetler. VMWare PowerCLI’yi de yükler. 
-    
+    - Toplayıcı, sanal makinenin İnternet erişimi olup olmadığını, saatin eşitlenmiş olup olmadığını ve toplayıcı hizmetinin çalışmakta (varsayılan olarak sanal makineye yüklenmiş) olup olmadığını denetler. VMWare PowerCLI’yi de yükler.
+
     > [!NOTE]
     > Sanal makinenin, ara sunucu olmadan İnternet’e doğrudan erişiminin olduğunu varsayıyoruz.
 
     ![Önkoşulları doğrulama](./media/migrate-scenarios-assessment/collector-verify-prereqs.png)
-    
+
 
 5. **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
     - vCenter sunucusunun adını (FQDN) veya IP adresini belirtin.
     - **Kullanıcı Adı** ve **Parola** bölümünde, toplayıcının vCenter sunucusundaki sanal makineleri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin.
-    - **Kapsam seçin** bölümünde, sanal makine bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam en fazla 1500 VM’yi içermelidir. 
+    - **Kapsam seçin** bölümünde, sanal makine bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam en fazla 1500 VM’yi içermelidir.
 
     ![vCenter’a bağlanma](./media/migrate-scenarios-assessment/collector-connect-vcenter.png)
 
@@ -296,7 +297,7 @@ Başlamadan önce, toplayıcının şu anda işletim sistemi dili ve toplayıcı
 7. **Toplama durumunu görüntüle** bölümünde bulma işlemini izleyin ve VM’lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar.
 
     ![Koleksiyon işlemi sürüyor](./media/migrate-scenarios-assessment/collector-collection-process.png)
-   
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>VM’lerin portalda olup olmadığını doğrulama
@@ -309,7 +310,7 @@ Koleksiyon tamamlandıktan sonra sanal makinelerin portalda görüntülenip gör
     ![Bulunan makineler](./media/migrate-scenarios-assessment/discovery-complete.png)
 
 3. Makinelerde şu anda Azure Geçişi aracılarının yüklü olmadığını unutmayın. Bağımlılıkları görüntüleyebilmemiz için bunları yüklememiz gerekir.
-    
+
     ![Bulunan makineler](./media/migrate-scenarios-assessment/machines-no-agent.png)
 
 
@@ -322,7 +323,7 @@ Değerlendirmek istediğimiz sanal makineler arasındaki bağımlılıkları gö
 
 Sanal makinenizi değiştirmeden önce bir kopyasını istiyorsanız, aracıları yüklemeden önce anlık görüntü alın.
 
-![Makine anlık görüntüsü](./media/migrate-scenarios-assessment/snapshot-vm.png) 
+![Makine anlık görüntüsü](./media/migrate-scenarios-assessment/snapshot-vm.png)
 
 
 ### <a name="download-and-install-the-vm-agents"></a>Sanal makine aracılarını indirip yükleme
@@ -331,7 +332,7 @@ Sanal makinenizi değiştirmeden önce bir kopyasını istiyorsanız, aracılar�
 2.  **Makineleri Bul** sayfasında, her bir sanal makine için Microsoft Monitoring Agent (MMA) ve Bağımlılık aracısını indirip yükleyin.
 3.  Çalışma alanı kimliğini ve anahtarını kopyalayın. MMA’yı yüklediğinizde bunlar gerekir.
 
-    ![Aracıyı indirme](./media/migrate-scenarios-assessment/download-agents.png) 
+    ![Aracıyı indirme](./media/migrate-scenarios-assessment/download-agents.png)
 
 
 
@@ -339,12 +340,12 @@ Sanal makinenizi değiştirmeden önce bir kopyasını istiyorsanız, aracılar�
 
 1. İndirilen aracıya çift tıklayın.
 2. **Hoş Geldiniz** sayfasında **İleri**'ye tıklayın. **Lisans Koşulları** sayfasında **Kabul Ediyorum**’a tıklayarak lisansı kabul edin.
-3. **Hedef Klasör** bölümünde varsayılan yükleme klasörünü tutun > **İleri**’ye tıklayın. 
-4. **Aracı Kurulum Seçenekleri** bölümünde **Aracıyı Azure Log Analytics’e bağla** > **İleri** seçeneklerini belirleyin. 
+3. **Hedef Klasör** bölümünde varsayılan yükleme klasörünü tutun > **İleri**’ye tıklayın.
+4. **Aracı Kurulum Seçenekleri** bölümünde **Aracıyı Azure Log Analytics’e bağla** > **İleri** seçeneklerini belirleyin.
 
-    ![MMA yüklemesi](./media/migrate-scenarios-assessment/mma-install.png) 
+    ![MMA yüklemesi](./media/migrate-scenarios-assessment/mma-install.png)
 5. **Azure Log Analytics**’te, portaldan kopyaladığınız çalışma alanı kimliğini ve anahtarını yapıştırın. **İleri**’ye tıklayın.
-    ![MMA yüklemesi](./media/migrate-scenarios-assessment/mma-install2.png) 
+    ![MMA yüklemesi](./media/migrate-scenarios-assessment/mma-install2.png)
 
 6. **Yüklemeye Hazır** bölümünde MMA’yı yükleyin.
 
@@ -356,10 +357,10 @@ Sanal makinenizi değiştirmeden önce bir kopyasını istiyorsanız, aracılar�
 2.  **Lisans Koşulları** sayfasında **Lisansı kabul ediyorum**’a tıklayın.
 3.  **Yükleniyor** bölümünde, yüklemenin tamamlanmasını bekleyin. Ardından **İleri**'ye tıklayın.
 
-    ![Bağımlılık aracısı](./media/migrate-scenarios-assessment/dependency-agent.png) 
+    ![Bağımlılık aracısı](./media/migrate-scenarios-assessment/dependency-agent.png)
 
 
-       
+
 ## <a name="step-7-run-and-analyze-the-vm-assessment"></a>7. Adım: Sanal makine değerlendirmesini çalıştırma ve analiz etme
 
 Makine bağımlılıklarını doğrulayın ve bir grup oluşturun. Daha sonra değerlendirmeyi çalıştırın.
@@ -368,7 +369,7 @@ Makine bağımlılıklarını doğrulayın ve bir grup oluşturun. Daha sonra de
 
 1.  **Makineler** sayfasında, analiz etmek istediğiniz sanal makineler için **Bağımlılıkları Görüntüle**’ye tıklayın.
 
-    ![Makine bağımlılıklarını görüntüleme](./media/migrate-scenarios-assessment/view-machine-dependencies.png) 
+    ![Makine bağımlılıklarını görüntüleme](./media/migrate-scenarios-assessment/view-machine-dependencies.png)
 
 2. SQLVM için bağımlılık eşlemi, aşağıdaki ayrıntıları gösterir:
 
@@ -376,8 +377,8 @@ Makine bağımlılıklarını doğrulayın ve bir grup oluşturun. Daha sonra de
     - Tüm bağımlı makinelere/makinelerden gelen (istemci) ve giden (sunucu) TCP bağlantıları.
     - Azure Geçişi aracılarının yüklü olduğu bağımlı makineler, ayrı kutular olarak gösterilir
     - Aracıların yüklü olmadığı makineler, bağlantı noktası ve IP adresi bilgilerini gösterir.
-    
- 3. Aracının yüklü olduğu makineler için (WEBVM), FQDN, işletim sistemi ve MAC adresi gibi daha fazla bilgiyi görüntülemek için makine kutusuna tıklayın. 
+
+ 3. Aracının yüklü olduğu makineler için (WEBVM), FQDN, işletim sistemi ve MAC adresi gibi daha fazla bilgiyi görüntülemek için makine kutusuna tıklayın.
 
     ![Grup bağımlılıklarını görüntüleme](./media/migrate-scenarios-assessment/sqlvm-dependencies.png)
 
@@ -385,7 +386,7 @@ Makine bağımlılıklarını doğrulayın ve bir grup oluşturun. Daha sonra de
 5. **Grup Oluştur**’a tıklayın ve bir ad (smarthotelapp) belirtin.
 
 > [!NOTE]
-    > Daha ayrıntılı bağımlılıkları görüntülemek için zaman aralığını genişletebilirsiniz. Belirli bir süre veya başlangıç ve bitiş tarihleri seçebilirsiniz. 
+    > Daha ayrıntılı bağımlılıkları görüntülemek için zaman aralığını genişletebilirsiniz. Belirli bir süre veya başlangıç ve bitiş tarihleri seçebilirsiniz.
 
 
 ### <a name="run-an-assessment"></a>Değerlendirme çalıştırma
@@ -409,7 +410,7 @@ Bu öğretici için varsayılan değerlendirme ayarlarını kullandık, ancak a�
     **Ayar** | **Ayrıntılar** | **Varsayılan**
     --- | --- | ---
     **Hedef konum** | İçine geçişi yapmak istediğiniz Azure konumu | Varsayılan yoktur.
-    **Depolama yedekliliği** | Azure sanal makinelerinin geçişten sonra kullanacağı depolama yedekliliği türü. | Varsayılan değer, [Yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy-lrs.md) değeridir. Azure Geçişi yalnızca yönetilen diskleri temel alan değerlendirmeleri destekler ve yönetilen diskler yalnızca LRS’yi, bu nedenle de LRS seçeneğini destekler. 
+    **Depolama yedekliliği** | Azure sanal makinelerinin geçişten sonra kullanacağı depolama yedekliliği türü. | Varsayılan değer, [Yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy-lrs.md) değeridir. Azure Geçişi yalnızca yönetilen diskleri temel alan değerlendirmeleri destekler ve yönetilen diskler yalnızca LRS’yi, bu nedenle de LRS seçeneğini destekler.
     **Boyutlandırma ölçütü** | Azure için sanal makineleri doğru şekilde boyutlandırmak üzere Azure Geçişi tarafından kullanılacak ölçüt. Performans geçmişini dikkate almadan, *performans tabanlı* boyutlandırma yapabilir veya sanal makineleri *şirket içi olarak* boyutlandırabilirsiniz. | Varsayılan seçenek, performans tabanlı boyutlandırmadır.
     **Performans geçmişi** | Sanal makinelerin performansını değerlendirmek için dikkate alınacak süre. Bu özellik yalnızca boyutlandırma ölçütü *performans tabanlı boyutlandırma* olduğunda geçerlidir. | Varsayılan bir gündür.
     **Yüzdebirlik kullanımı** | Doğru boyutlandırma için dikkate alınacak performans örnek kümesinin yüzdebirlik değeri. Bu özellik yalnızca boyutlandırma ölçütü *performans tabanlı boyutlandırma* olduğunda geçerlidir.  | Varsayılan, 95. yüzdebirliktir.
@@ -425,7 +426,7 @@ Bu öğretici için varsayılan değerlendirme ayarlarını kullandık, ancak a�
 
 ### <a name="analyze-the-vm-assessment"></a>Sanal makine değerlendirmesini analiz etme
 
-Azure Geçişi değerlendirmesi, şirket içi sanal makinelerin Azure için uyumlu olup olmadığı, Azure sanal makinesi için önerilen doğru boyutlandırmanın olduğu ve tahmini aylık Azure maliyetleri hakkında bilgileri içerir. 
+Azure Geçişi değerlendirmesi, şirket içi sanal makinelerin Azure için uyumlu olup olmadığı, Azure sanal makinesi için önerilen doğru boyutlandırmanın olduğu ve tahmini aylık Azure maliyetleri hakkında bilgileri içerir.
 
 ![Değerlendirme raporu](./media/migrate-scenarios-assessment/assessment-overview.png)
 
@@ -470,12 +471,12 @@ Değerlendirme raporu, tabloda özetlenen bilgileri gösterir. Performans tabanl
 
 #### <a name="review-monthly-cost-estimates"></a>Aylık maliyet tahminlerini gözden geçirme
 
-Bu görünümde, Azure’da çalışan sanal makinelerin toplam işlem ve depolama maliyetinin yanı sıra her makineye ilişkin ayrıntılar da görüntülenir. 
+Bu görünümde, Azure’da çalışan sanal makinelerin toplam işlem ve depolama maliyetinin yanı sıra her makineye ilişkin ayrıntılar da görüntülenir.
 
-![Hazır olma durumu değerlendirmesi](./media/migrate-scenarios-assessment/azure-costs.png) 
+![Hazır olma durumu değerlendirmesi](./media/migrate-scenarios-assessment/azure-costs.png)
 
 - Maliyet tahminleri, makine için boyut önerileri kullanılarak hesaplanır.
-- İşlem ve depolama için tahmini aylık maliyetler gruptaki tüm VM’ler için birleştirilir. 
+- İşlem ve depolama için tahmini aylık maliyetler gruptaki tüm VM’ler için birleştirilir.
 
 
 ## <a name="conclusion"></a>Sonuç
@@ -489,7 +490,4 @@ Bu senaryoda yaptıklarımız:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Şirket içi sanal makineleri Azure’a lift-and-shift ile taşımak için sonraki senaryoyla devam edelim.
-
-
-
+Şirket içi sanal makineleri ve veritabanını Azure’a [lift-and-shift ile taşımak](migrate-scenarios-lift-and-shift.md) için sonraki senaryoyla devam edelim.
