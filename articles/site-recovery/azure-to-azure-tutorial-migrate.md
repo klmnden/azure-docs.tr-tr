@@ -5,14 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/24/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8de067ece55e13d32af6822e114cb9dab000bdff
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209717"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Azure VM’lerini başka bir bölgeye geçirme
 
@@ -102,7 +103,7 @@ Yeni kasa, **Pano**’da **Tüm kaynaklar** bölümüne ve ana **Kurtarma Hizmet
 ## <a name="select-the-source"></a>Kaynağı seçme
 
 1. Kurtarma Hizmetleri kasalarında **ConsotoVMVault** > **+Çoğalt** seçeneğine tıklayın.
-2. **Kaynak** bölümünde **Azure - PREVIEW** seçeneğini belirleyin.
+2. **Kaynak** bölümünde **Azure** seçeneğini belirleyin.
 3. **Kaynak konumu**’nda, VM’lerinizin çalışmakta olduğu kaynak Azure bölgesini seçin.
 4. Kaynak Yöneticisi dağıtım modelini seçin. Ardından **Çıkış kaynağı grubu**’nu seçin.
 5. Ayarları kaydetmek için **Tamam**’a tıklayın.
@@ -115,7 +116,7 @@ Site Recovery, abonelik ve kaynak grubu ile ilişkili VM’lerin listesini alır
 
 1. Azure portalında **Sanal makineler**’e tıklayın.
 2. Geçirmek istediğiniz sanal makineyi seçin. Daha sonra, **Tamam**'a tıklayın.
-3. **Ayarlar**’da **Olağanüstü durum kurtarma (önizleme)** seçeneğine tıklayın.
+3. **Ayarlar**’da **Olağanüstü durum kurtarma** seçeneğine tıklayın.
 4. **Olağanüstü durumdan kurtarma yapılandırma** > **Hedef bölge** bölümünde, çoğaltma yapacağınız hedef bölgeyi seçin.
 5. Bu öğretici için diğer varsayılan ayarları kabul edin.
 6. **Çoğaltmayı etkinleştir**’e tıklayın. Bu, sanal makineye yönelik çoğaltmayı etkinleştirmek için bir iş başlatır.

@@ -1,6 +1,6 @@
 ---
-title: "Windows masaüstü uygulamaları için kullanımı ve performansı izleme"
-description: "HockeyApp ve Application Insights ile Windows masaüstü uygulamanızın kullanımını ve performansını analiz edin."
+title: Windows masaüstü uygulamaları için kullanımı ve performansı izleme
+description: Application Insights ile Windows masaüstü uygulamanızın kullanımını ve performansını analiz edin.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -11,33 +11,26 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/26/2016
+ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b91996c12a27847befcacf6daf14457a0e066aa
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: ada38fc26f2fce9251ae648302733b04fe4c82ec
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195837"
 ---
-# <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>Windows Masaüstü uygulamalarında kullanımı ve performansı izleme
+# <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Klasik Windows Masaüstü uygulamalarında kullanımı ve performansı izleme
 
+Şirket içinde, Azure’da ve diğer bulutlarda barındırılan tüm uygulamalar Application Insights’tan faydalanabilir. Tek sınırlama Application Insights hizmetine [iletişim izni verme](app-insights-ip-addresses.md) gerekliliğidir. Evrensel Windows Platformu (UWP) uygulamalarını izlemek için [Visual Studio App Center](app-insights-mobile-center-quickstart.md)’ı öneririz.
 
-[Azure Application Insights](app-insights-overview.md) ve [HockeyApp](https://hockeyapp.net), dağıttığınız uygulamanın kullanımını ve performansını izlemenize imkan tanır.
-
-> [!IMPORTANT]
-> Masaüstü ve cihaz uygulamalarını dağıtmak için [HockeyApp](https://hockeyapp.net)’i öneririz. HockeyApp ile dağıtımı, canlı testleri ve kullanıcı geri bildirimini yönetmenin yanı sıra kullanımı ve kilitlenme raporlarını izleyebilirsiniz. Ayrıca, [telemetrinizi dışarı aktarıp Analytics ile sorgulayabilirsiniz](app-insights-hockeyapp-bridge-app.md).
-> 
-> Bir masaüstü uygulamasından Application Insights’a telemetri gönderilebilir, ancak bu çoğunlukla hata ayıklama ve deneme amaçları için kullanışlıdır.
-> 
-> 
-
-## <a name="to-send-telemetry-to-application-insights-from-a-windows-application"></a>Bir Windows uygulamasından Application Insights’a telemetri göndermek için
+## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>Bir Klasik Windows uygulamasından Application Insights’a telemetri göndermek için
 1. [Azure portalında](https://portal.azure.com) [bir Application Insights kaynağı oluşturun](app-insights-create-new-resource.md). Uygulama türü olarak ASP.NET uygulamasını seçin.
 2. İzleme Anahtarının bir kopyasını oluşturun. Yeni oluşturduğunuz kaynağın Temel Bileşenler açılan penceresinde anahtarı bulun. 
 3. Visual Studio’da uygulama projenizin NuGet paketlerini düzenleyin ve şunu ekleyin: Microsoft.ApplicationInsights.WindowsServer. (Alternatif olarak, standart telemetri toplama modülleri olmaksızın yalnızca API’nın kendisini istiyorsanız Microsoft.ApplicationInsights seçeneğini belirleyin.)
 4. İzleme anahtarını kodunuzda ayarlayın:
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *anahtarınız* `";` 
+    `TelemetryConfiguration.Active.InstrumentationKey = "` *anahtarınız* `";`
    
     veya ApplicationInsights.config öğesinde ayarlayın (standart telemetri paketlerinden birini yüklediyseniz):
    
