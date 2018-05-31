@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886791"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Tetikleyiciler ve Eylemler Azure Logic Apps içinde iş akışı tanımları
 
@@ -1394,7 +1395,7 @@ Daha fazla bilgi edinmek [logic apps koşullu ifadeler](../logic-apps/logic-apps
 | `"expression": "@greater(actions('action1').output.value, parameters('threshold'))"` | Karşılaştırma işlevlerini destekler. Yalnızca action1 çıktısını eşik değerden daha büyük olduğunda bu örnekte, eylem çalıştırır. | 
 | `"expression": "@or(greater(actions('action1').output.value, parameters('threshold')), less(actions('action1').output.value, 100))"` | İç içe geçmiş Boole ifadeleri oluşturmak için mantığı işlevlerini destekler. Action1 çıktısını eşikten ya da 100 altında daha fazla olduğunda bu örnekte, eylem çalışır. | 
 | `"expression": "@equals(length(actions('action1').outputs.errors), 0))"` | Bir dizinin tüm öğeleri olup olmadığını denetlemek için dizi işlevleri kullanabilirsiniz. Hataları dizi boş olduğunda bu örnekte, eylem çalıştırır. | 
-| `"expression": "parameters('hasSpecialAction')"` | Bu ifade bir hataya neden olur ve geçerli bir koşul değil. Koşullar kullanmalıdır "@" simgesi. | 
+| `"expression": "parameters('hasSpecialAction')"` | Bu ifade bir hataya neden olur ve geçerli bir koşul değil. Koşullar kullanmalıdır "\@" simgesi. | 
 ||| 
 
 ## <a name="switch-action"></a>Anahtar eylemi

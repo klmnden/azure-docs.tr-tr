@@ -10,9 +10,10 @@ ms.date: 03/21/2018
 ms.author: mihauss
 ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
 ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057868"
 ---
 # <a name="soft-delete-for-azure-storage-blobs-preview"></a>Azure Storage bloblarında (Önizleme) için geçici silme
 
@@ -63,13 +64,13 @@ Zaman **silmek Blob** çağrılır üzerinde anlık görüntü, bu anlık görü
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-*Etkin veri mavi modundayken yazılım silinen gri, verilerdir. Daha kısa süre önce yazılmış veriler eski verileri altında görünür. Zaman **anlık görüntü Blob** adlı B0 bir anlık görüntüsü olur ve B1 ise blob etkin durumu. B0 anlık görüntü silindiğinde, geçici olarak işaretlenmiş silindi.*
+*Etkin veri mavi modundayken yazılım silinen gri, verilerdir. Daha kısa süre önce yazılmış veriler eski verileri altında görünür. Zaman **anlık görüntü Blob** adlı B0 bir anlık görüntüsü olur ve B1 ise blob etkin durumu. B0 anlık görüntü silindiğinde, geçici olarak işaretlenmiş silindi.\*
 
 Zaman **silmek Blob** (herhangi bir blob diğer bir deyişle kendisi bir anlık görüntü) temel bir blob üzerindeki adlı bu blob olarak geçici olarak işaretlenmiş silindi. Önceki davranış ile tutarlı çağırma **silmek Blob** etkin anlık görüntülere sahip bir blob üzerindeki bir hata döndürür. Çağırma **silmek Blob** geçici silinen anlık görüntüler bir blob üzerinde bir hata döndürmez. Geçici silme açıldığında bir blob ve tek bir işlem içinde kendi anlık görüntüleri hala silebilirsiniz. Bunun yapılması temel blob işaretler ve anlık görüntüleri geçici olarak silinmiş.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-*Etkin veri mavi modundayken yazılım silinen gri, verilerdir. Daha kısa süre önce yazılmış veriler eski verileri altında görünür. Burada, bir **silmek Blob** B2 ve ilişkili tüm anlık görüntüleri silmek için çağrı yapılır. Etkin blob, B2 ve ilişkili tüm anlık görüntüleri olarak geçici olarak işaretlenmiş silindi.*
+*Etkin veri mavi modundayken yazılım silinen gri, verilerdir. Daha kısa süre önce yazılmış veriler eski verileri altında görünür. Burada, bir **silmek Blob** B2 ve ilişkili tüm anlık görüntüleri silmek için çağrı yapılır. Etkin blob, B2 ve ilişkili tüm anlık görüntüleri olarak geçici olarak işaretlenmiş silindi.\*
 
 > [!NOTE]
 > Geçici silinen blob üzerine yazma işlemi önce blob'un durumunun geçici silinen anlık görüntüsü otomatik olarak oluşturulur. Yeni blob üzerine blob katmanı devralır.
@@ -102,7 +103,7 @@ Bir blob çağırabilirsiniz belirli bir yazılım silinen anlık görüntüye g
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-*Etkin veri mavi modundayken yazılım silinen gri, verilerdir. Daha kısa süre önce yazılmış veriler eski verileri altında görünür. Burada, **silmeyi geri al Blob** B, böylece temel blob, B1 ve ilişkili tüm anlık görüntüler, buradan geri blob üzerindeki etkin olarak yalnızca B0 denir. İkinci adımda B0 temel blob kopyalanır. Bu kopyalama işlemi B1 geçici silinen görüntüsünü oluşturur.*
+*Etkin veri mavi modundayken yazılım silinen gri, verilerdir. Daha kısa süre önce yazılmış veriler eski verileri altında görünür. Burada, **silmeyi geri al Blob** B, böylece temel blob, B1 ve ilişkili tüm anlık görüntüler, buradan geri blob üzerindeki etkin olarak yalnızca B0 denir. İkinci adımda B0 temel blob kopyalanır. Bu kopyalama işlemi B1 geçici silinen görüntüsünü oluşturur.\*
 
 Geçici silinen BLOB'ları görüntülemek ve anlık görüntüleri blob için silinen verileri içerecek şekilde seçebileceğiniz **listesi BLOB'ları**. Yalnızca geçici silinen temel BLOB'ları görüntüleyin ya da geçici silinen blob anlık eklemek için seçebilirsiniz. Tüm yazılım Silinen veriler için verilerin yanı sıra verileri kalıcı olarak sona erecektir önceki gün sayısı ne zaman silindiğini zaman görüntüleyebilirsiniz.
 

@@ -1,6 +1,6 @@
 ---
-title: Bir gizli anahtar Kasası'nı okumak için bir Azure web uygulaması yapılandırma | Microsoft Docs
-description: Öğretici bir gizli anahtar Kasası'nı okumak için bir ASP.Net core uygulama yapılandırma
+title: Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma öğreticisi | Microsoft Docs
+description: Öğretici Anahtar Kasasından gizli dizi okumak için bir ASP.NET Core uygulaması yapılandırma
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -8,26 +8,27 @@ manager: mbaldwin
 ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: b4e317a82b93513c6161d9da0c55883e99580cbb
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.openlocfilehash: 146ea04081a4adebe4a6e9249bb1fe34ba76e3a4
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305183"
 ---
-# <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Öğretici: bir gizli anahtar Kasası'nı okumak için bir Azure web uygulaması yapılandırma
+# <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Öğretici: Anahtar Kasasından gizli dizi okumak için bir Azure web uygulaması yapılandırma
 
-Bu öğreticide, anahtar Kasası'nı kullanarak yönetilen hizmet kimlikleri bilgileri okumak için bir Azure web uygulaması için gerekli adımlar üzerine gidin. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Bu öğreticide, Azure web uygulamasının yönetilen hizmet kimliklerini kullanarak Anahtar Kasasından bilgi okumasını sağlamak için gerekli adımların üzerinden geçeceksiniz. Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
-> * Bir anahtar kasası oluşturun.
-> * Bir gizli anahtar kasasına depolar.
-> * Bir Azure Web uygulaması oluşturun.
-> * Yönetilen hizmet kimlikleri etkinleştir
-> * Uygulamanın anahtar Kasası'nı verileri okumak gerekli izinleri verin.
+> * Anahtar Kasası oluşturun.
+> * Anahtar Kasasında bir gizli dizi depolayın.
+> * Azure Web Uygulaması oluşturun.
+> * Yönetilen hizmet kimliklerini etkinleştirme
+> * Uygulamanın Anahtar Kasasından verileri okuması için gereken izinleri verin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -35,7 +36,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 CLI'yi yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici için Azure CLI 2.0.4 veya sonraki bir sürümünü kullanmanız gerekir. Sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
 
-CLI kullanarak Azure'da oturum açma için yazabilirsiniz:
+CLI kullanarak Azure'da oturum açmak için şunu yazabilirsiniz:
 
 ```azurecli
 az login
@@ -48,71 +49,69 @@ az login
 Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur.
 
 ```azurecli
-az group create --name ContosoResourceGroup --location eastus
+# To list locations: az account list-locations --output table
+az group create --name "ContosoResourceGroup" --location "East US"
 ```
 
-Yeni oluşturduğunuz kaynak grubu Bu öğretici kullanılır.
+Az önce oluşturduğunuz kaynak grubu bu öğretici boyunca kullanılır.
 
 ## <a name="create-an-azure-key-vault"></a>Azure Key Vault oluşturma
 
-Ardından önceki adımda oluşturduğunuz kaynak grubunda bir anahtar kasası oluşturun. Bazı bilgileri sağlamanız gerekir:
+Daha sonra, önceki adımda oluşturulan kaynak grubunda bir Anahtar Kasası oluşturursunuz. Bu öğretici boyunca Anahtar Kasası için “ContosoKeyVault” adı kullanılıyor olsa da, sizin benzersiz bir ad kullanmanız gerekir. Şu bilgileri belirtin:
 
->[!NOTE]
-> Bu öğretici boyunca bizim anahtar kasası adı olarak "ContosoKeyVault" kullanılsa da, benzersiz bir ad kullanmanız gerekir.
-
-* Kasa adı **ContosoKeyVault**.
+* **ContosoKeyVault** kasa adı.
 * **ContosoResourceGroup** kaynak grubu adı.
 * **Doğu ABD** konumu.
 
 ```azurecli
-az keyvault create --name '<YourKeyVaultName>' --resource-group ContosoResourceGroup --location eastus
+az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"
 ```
 
-Bu komutun çıktısı, yeni oluşturduğunuz anahtar kasasının özelliklerini gösterir. Aşağıda listelenen iki özelliği not edin:
+Bu komutun çıkışı, yeni oluşturulan Anahtar Kasasının özelliklerini gösterir. Aşağıda listelenen iki özelliği not edin:
 
-* **Kasa Adı**: Örnekte **ContosoKeyVault**'tur. Tüm anahtar kasası komutları için anahtar kasasının adını kullanır.
-* **Kasa URI'si**: https:// budur örnekte<YourKeyVaultName>.vault.azure.net/. REST API'si aracılığıyla kasanızı kullanan uygulamaların bu URI'yi kullanması gerekir.
+* **Kasa Adı**: Örnekte **ContosoKeyVault**'tur. Anahtar Kasanızın adını tüm Anahtar Kasası komutları için kullanacaksınız.
+* **Kasa URI'si**: Örnekte https://<YourKeyVaultName>.vault.azure.net/ şeklindedir. REST API'si aracılığıyla kasanızı kullanan uygulamaların bu URI'yi kullanması gerekir.
 
 >[!IMPORTANT]
-> Parametre 'vault_name' da aşağıdaki deseni uygun olmalıdır hata alırsanız: ' ^ [bir-zA-Z0 - 9-]{3,24}$' adı parametre değeri benzersiz değil veya 3 alfa sayısal karakterler-24 uzun oluşan bir dizeye uymuyor.
+> 'vault_name' parametresinin şu desene uyması gerekir: '^[a-zA-Z0-9-]{3,24}$' hatasını alırsanız, -name parametre değeri benzersiz değildir veya 3 ile 24 karakter uzunluğunda alfasayısal karakterlerden oluşmuş bir dizeye uymuyordur.
 
 Bu noktada Azure hesabınız, bu yeni anahtar kasasında herhangi bir işlemi gerçekleştirmeye yetkili olan tek hesaptır.
 
-## <a name="add-a-secret-to-key-vault"></a>Bir gizli anahtar Kasası'na ekleyin
+## <a name="add-a-secret-to-key-vault"></a>Anahtar kasasına gizli dizi ekleme
 
-Bunun nasıl çalıştığı göstermeye yardımcı olmak için bir gizlilik ekliyoruz. Bir SQL bağlantı dizesi veya güvenli bir şekilde tutmak ancak uygulamanız için kullanılabilir hale gereken diğer bilgileri depolamak. Bu öğreticide parola çağrılacağı **AppSecret** ve değerini depolar **ettiyseniz** da.
+Bunun nasıl çalıştığını göstermemize yardımcı olması için bir gizli dizi ekliyoruz. Güvenle korumanız ama uygulamanıza da sağlamanız gereken bir SQL bağlantı dizesini veya başka bir bilgiyi depoluyor olabilirsiniz. Bu öğreticide, parola **AppSecret** olarak adlandırılır ve içinde **MySecret** değeri depolanır.
 
-Gizli anahtarı kasaya adlı oluşturmak için aşağıdaki komutları yazın **AppSecret** değeri depolar **ettiyseniz**:
+Anahtar Kasasında **MySecret** değerini depolayacak **AppSecret** adlı gizli dizi oluşturmak için aşağıdaki komutları yazın:
 
 ```azurecli
-az keyvault secret set --vault-name '<YourKeyVaultName>' --name 'AppSecret' --value 'MySecret'
+az keyvault secret set --vault-name "ContosoKeyVault" --name "AppSecret" --value "MySecret"
 ```
 
 Gizli dizi içindeki değeri düz metin olarak görüntülemek için:
 
 ```azurecli
-az keyvault secret show --name 'AppSecret' --vault-name '<YourKeyVaultName>'
+az keyvault secret show --name "AppSecret" --vault-name "ContosoKeyVault"
 ```
 
-Bu komut, URI gizli bilgilerini gösterir. Bu adımları tamamladıktan sonra bir Azure anahtar kasasına gizli bir URI olmalıdır. Bu bilgileri not edin. Bir sonraki adımda ihtiyaç.
+Bu komut, URI de dahil olmak üzere gizli bilgiyi gösterir. Bu adımları tamamladıktan sonra, Azure Key Vault'ta bu gizli dizinin URI'sine sahip olmalısınız. Bu bilgileri not alın. Sonraki adımlardan birinde gerekecektir.
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-Bu bölümde bir ASP.NET MVC uygulaması oluşturma ve Azure Web uygulaması olarak dağıtın. Azure Web Apps hakkında daha fazla bilgi için bkz: [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
+Bu bölümde bir ASP.NET MVC uygulaması oluşturacak ve bunu Azure'da bir Web Uygulaması olarak dağıtacaksınız. Azure Web Apps hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
 
 1. Visual Studio'da **Dosya > Yeni > Proje**’yi seçerek bir proje oluşturun. 
 
 2. **Yeni Proje** iletişim kutusunda **Visual C# > Web > ASP.NET Core Web Uygulaması** öğesini seçin.
 
-3. Uygulama adı **WebKeyVault**ve ardından **Tamam**.
+3. Uygulamayı **WebKeyVault** olarak adlandırın ve ardından **Tamam**'ı seçin.
    >[!IMPORTANT]
-   > Kopyalama ve yapıştırma kod ad eşleşecek şekilde WebKeyVault uygulama adı olmalıdır. Site başka bir şey adlandırırsanız site adı ile eşleşmesi için kodu değiştirmeniz gerekir.
+   > Kopyalayıp yapıştırdığınız kodun ad alanını (namespace) eşleştirebilmesi için uygulamaya WebKeyVault adı vermelisiniz. Siteye başka bir ad verirseniz, site adıyla eşleşecek şekilde kodu değiştirmeniz gerekir.
 
     ![Yeni ASP.NET Projesi iletişim kutusu](media/tutorial-web-application-keyvault/aspnet-dialog.png)
 
-4. Azure’a herhangi bir türde ASP.NET Core web uygulaması dağıtabilirsiniz. Bu öğretici için seçin **Web uygulaması** şablonu ve kimlik doğrulaması ayarlandığından emin olun **doğrulaması yok**.
+4. Azure’a herhangi bir türde ASP.NET Core web uygulaması dağıtabilirsiniz. Bu öğreticide **Web Uygulaması** şablonunu seçin ve kimlik doğrulamasının **Kimlik Doğrulaması Yok** olarak ayarlandığından emin olun.
 
-    ![ASP.NET kimlik doğrulaması iletişim kutusu](media/tutorial-web-application-keyvault/aspnet-noauth.png)
+    ![ASPNET kimlik doğrulaması yok iletişim kutusu](media/tutorial-web-application-keyvault/aspnet-noauth.png)
 
 5. **Tamam**’ı seçin.
 
@@ -122,17 +121,17 @@ Bu bölümde bir ASP.NET MVC uygulaması oluşturma ve Azure Web uygulaması ola
 
 ## <a name="modify-the-web-app"></a>Web uygulamasını değiştirme
 
-Yüklü web uygulamanız gereken iki NuGet paketi vardır. Yüklemek için aşağıdaki adımları izleyin:
+Web uygulamanız için yüklemiş olmanız gereken iki NuGet paketi vardır. Bunları yüklemek için aşağıdaki adımları izleyin:
 
-1. Çözüm Gezgini, Web sitesi adına sağ tıklayın.
-2. Seçin **çözüm için Manage NuGet paketlerini...**
-3. Arama kutusuna yanındaki onay kutusunu seçin. **Yayın öncesi içerir**
-4. İki NuGet paketlerini Ara aşağıda listelenen ve bunları çözümünüze eklenmesi için kabul edin:
+1. Çözüm gezgininde web sitenizin adına sağ tıklayın.
+2. **Çözüm için NuGet paketlerini yönet...** öğesini seçin.
+3. Arama kutusunun yanındaki onay kutusunu seçin. **Ön sürümü dahil et**
+4. Aşağıda listelenen iki NuGet paketi için arama yapın ve bunların çözümünüze eklenmesini kabul edin:
 
-    * [Microsoft.Azure.Services.AppAuthentication (Önizleme)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) -hizmeti için Azure hizmeti kimlik doğrulama senaryoları için erişim belirteci getirme kolay hale getirir. 
-    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) -anahtar kasası ile etkileşim için yöntemler içerir.
+    * [Microsoft.Azure.Services.AppAuthentication (önizleme)](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - Hizmetten Azure Hizmetine kimlik doğrulama senaryoları için erişim belirteçlerinin getirilmesini kolaylaştırır. 
+    * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/2.4.0-preview) - Anahtar Kasası ile etkileşim kurma yöntemleri içerir.
 
-5. Çözüm Gezgini açmak için kullanmak `Program.cs` ve Program.cs dosyasının içeriğini aşağıdaki kodla değiştirin. Yedek ```<YourKeyVaultName>``` anahtar kasanızı adı:
+5. Çözüm Gezgini'ni kullanarak `Program.cs` dosyasını açın ve Program.cs dosyasının içeriğini aşağıdaki kodla değiştirin. ```<YourKeyVaultName>``` yerine anahtar kasanızın adını yazın:
 
     ```csharp
     
@@ -176,7 +175,7 @@ Yüklü web uygulamanız gereken iki NuGet paketi vardır. Yüklemek için aşa�
         }
     ```
 
-6. Çözüm Gezgini gitmek için kullanın **sayfaları** bölümünde ve açık `About.cshtml`. Değiştir **About.cshtml.cs** aşağıdaki kod ile:
+6. Çözüm Gezgini'ni kullanarak **Sayfalar** bölümüne gidin ve `About.cshtml` dosyasını açın. **About.cshtml.cs** dosyasını içeriğini aşağıdaki kodla değiştirin:
 
     ```csharp
     
@@ -204,56 +203,56 @@ Yüklü web uygulamanız gereken iki NuGet paketi vardır. Yüklemek için aşa�
     
     ```
 
-7. Ana menüden **hata ayıklama** > **Başlat hata ayıklama olmadan**. Tarayıcı belirdiğinde gidin **hakkında** sayfası. AppSecret değeri görüntülenir.
+7. Ana menüden **Hata Ayıkla** > **Hata Ayıklama Olmadan Başlat**'ı seçin. Tarayıcı görüntülendiğinde **Hakkında** sayfasına gidin. AppSecret'in değeri görüntülenir.
 
 >[!IMPORTANT]
-> İşlem hatası iletisi bir HTTP hata 502.5 - alırsanız belirtilen anahtar kasasının adını doğrulayın `Program.cs`
+> HTTP Hatası 502.5 - İşlem Hatası iletisini alırsanız, `Program.cs` dosyasında belirtilen Anahtar Kasası adını doğrulayın
 
-## <a name="publish-the-web-application-to-azure"></a>Azure web uygulaması yayımlama
+## <a name="publish-the-web-application-to-azure"></a>Web uygulamasını Azure’a yayımlama
 
-1. Düzenleyicisi'ni seçin **WebKeyVault**.
-2. Seçin **yayımlama**.
-3. seçin **Yayımla** yeniden.
-4. Seçin **oluşturma**.
+1. Düzenleyicinin üst kısmında **WebKeyVault**'u seçin.
+2. **Yayımla**'yı ve ardından **Başlat**'ı seçin.
+3. Yeni bir **App Service** oluşturun ve **Yayımla**'yı seçin.
+4. **Oluştur**’u seçin.
 
 >[!IMPORTANT]
-> Bir tarayıcı penceresi açar ve bir 502.5 - işlem hatası iletisi görürsünüz. Bu beklenen bir durumdur. Gizli anahtar Kasası'nı okumak için uygulama kimliği hakları gerekir.
+> Tarayıcı penceresi açılır ve 502.5 - İşlem Hatası iletisini görürsünüz. Bu beklenen bir durumdur. Anahtar Kasasından gizli dizileri okumak için uygulama kimliği hakları vermeniz gerekir.
 
-## <a name="enable-managed-service-identity"></a>Yönetilen hizmet kimliği etkinleştir
+## <a name="enable-managed-service-identity"></a>Yönetilen Hizmet Kimliğini etkinleştirme
 
-Azure anahtar kasası kimlik bilgileri ve diğer anahtarları ve gizli anahtarları güvenli bir şekilde depolamak için bir yol sağlar, ancak bunları almak için anahtar Kasası'na kimlik doğrulaması kodunuzu gerekiyor. Yönetilen hizmet kimliği (MSI), Azure hizmetleri otomatik olarak yönetilen bir kimliği Azure Active Directory (Azure AD) vererek daha basit bu sorunun çözümüne yapar. Bu kimlik, anahtar kasası, kodunuzda herhangi bir kimlik bilgisi olmadan dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen herhangi bir hizmeti için kimlik doğrulaması kullanabilirsiniz.
+Azure Key Vault kimlik bilgilerini ve diğer anahtarlarla gizli dizileri güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. Yönetilen Hizmet Kimliği (MSI), Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik vererek bu soruna daha basit bir çözüm getirir. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.
 
-1. Azure CLI Döndür
-2. Bu uygulama için kimlik oluşturmak için Ata-identity komutu çalıştırın:
+1. Azure CLI'ye dönme
+2. Bu uygulamanın kimliğini oluşturmak için assign-identity komutunu çalıştırın:
 
 ```azurecli
-az webapp assign-identity --name WebKeyVault --resource-group ContosoResourcegroup
+az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResourcegroup"
 ```
 
 >[!NOTE]
->Bu portala giderek ve geçiş eşdeğerdir **yönetilen hizmet kimliği** için **üzerinde** web uygulama özellikleri.
+>Bu komut, portala gidip web uygulaması özelliklerinde **Yönetilen hizmet kimliği** ayarını **Açık** duruma getirmekle eşdeğerdir.
 
-## <a name="grant-rights-to-the-application-identity"></a>Uygulama Kimliği hakkı verin
+## <a name="grant-rights-to-the-application-identity"></a>Uygulama kimliğine haklar verme
 
-Azure Portalı'nı kullanarak, anahtar Kasası'nın erişim ilkelerini gidin ve kendinize anahtar kasasına gizli yönetim erişimi verin. Bu, yerel geliştirme makinenizde uygulamayı çalıştırmak olanak tanır.
+Azure portalı kullanarak Anahtar Kasasının erişim ilkelerine gidin ve kendinize Anahtar Kasasında Gizli Dizi Yönetimi erişimi verin. Bu sayede uygulamayı yerel geliştirme makinenizde çalıştırabilirsiniz.
 
-1. Arama anahtar kasanız için **arama kaynakları** Azure portalında iletişim kutusu.
-2. Seçin **erişim ilkeleri**.
-3. Seçin **yeni Ekle**, **gizli izinleri** bölümünde seçin **almak** ve **listesi**.
-4. Seçin **seçin asıl**ve uygulama kimliği ekleyin. Uygulama aynı ada sahip.
-5. Seçin **Tamam**
+1. Azure portaldaki **Kaynakları Ara** iletişim kutusunda Anahtar Kasanızı arayın.
+2. **Erişim ilkeleri**'ni seçin.
+3. **Yeni Ekle**'yi seçin, **Gizli dizi izinleri** bölümünde **Alma** ve **Liste**'yi seçin.
+4. **Sorumlu Seç** öğesini seçin ve uygulama kimliğini ekleyin. Bunun adı uygulamanın adıyla aynı olur.
+5. **Tamam**’ı seçin.
 
-Artık hesabınızı Azure ve uygulama kimliği, anahtar Kasası'nı bilgileri okumak için haklarına sahip. Sayfa yenileme sitenin giriş sayfası görmeniz gerekir. Seçerseniz **hakkında**. Anahtar kasasında depolanan değere bakın.
+Artık Azure'daki hesabınız ve uygulama kimliği Anahtar Kasasından bilgi okuma haklarına sahiptir. Sayfayı yenilediğinizde, sitenin giriş sayfasını görüyor olmalısınız. **Hakkında**'yı seçerseniz, Anahtar Kasasında depoladığınız değeri görürsünüz.
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bir kaynak grubu ve tüm kaynaklarını silmek için kullanın **az grubu Sil** komutu.
+Kaynak grubuyla birlikte bu kaynak grubunun tüm kaynaklarını silmek için **az group delete** komutunu kullanın.
 
   ```azurecli
-  az group delete -n ContosoResourceGroup
+  az group delete -n "ContosoResourceGroup"
   ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Azure anahtar kasası Geliştirici Kılavuzu](key-vault-developers-guide.md)
+> [Azure Key Vault Geliştirici Kılavuzu](key-vault-developers-guide.md)
