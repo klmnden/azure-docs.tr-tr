@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771982"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Özel bir etki alanındaki bir web uygulaması için DNS kayıtlarını oluşturun
 
@@ -41,7 +42,7 @@ Bölge oluşturma ve Azure DNS'ye temsilci sonra özel etki alanınız için dah
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Özel etki alanınız için bir A kaydı oluşturun
 
-Bir A kaydı bir adı IP adresine eşlemek için kullanılır. Aşağıdaki örnekte biz @ bir IPv4 adresi için bir A kaydı olarak atanmaktadır:
+Bir A kaydı bir adı IP adresine eşlemek için kullanılır. Aşağıdaki örnekte biz \@\ bir IPv4 adresi için bir A kaydı olarak atanmaktadır:
 
 ### <a name="step-1"></a>1. Adım
 
@@ -53,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>2. Adım
 
-Önceden oluşturulmuş kayıt kümesine IPv4 değer ekleme "@" atanan $rs değişkenini kullanarak. Atanan IPv4 değerini web uygulamanız için IP adresi olacaktır.
+Önceden oluşturulmuş kayıt kümesine IPv4 değer ekleme "\@\" atanan $rs değişkenini kullanarak. Atanan IPv4 değerini web uygulamanız için IP adresi olacaktır.
 
 Bir web uygulaması için IP adresini bulmak için adımları [Azure App Service'te özel etki alanı adı yapılandırma](../app-service/app-service-web-tutorial-custom-domain.md).
 
