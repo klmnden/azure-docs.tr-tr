@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 276c6bf1a476e5c74c5e75e4906f451154becf31
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 001488a8c7e22db595cd9f929bc0f3d631da0715
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207215"
 ---
 # <a name="quickstart-create-a-net-service-fabric-application-in-azure"></a>Hızlı Başlangıç: Azure'da .NET Service Fabric uygulaması oluşturma
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
@@ -109,6 +110,7 @@ Kodda neler olduğuna bakmak için aşağıdaki adımları tamamlayın:
     - Son olarak, yanıtı arka uç hizmetinden istemciye döndürün **(3)**.
 
 4. Devam etmek için **F5** tuşuna basın
+    - Tarayıcı tarafından sorulursa, ServiceFabricAllowedUsers grubuna Hata Ayıklama Modu için okuma ve yürütme izinleri verin.
     - Şimdi arka uç hizmetindeki kesme noktasındasınız.
     
     ![Oy Arka Uç Hizmeti Ekleme](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
@@ -175,13 +177,15 @@ Uygulama hazır olduğuna göre, doğrudan Visual Studio'dan bir kümeye dağıt
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
 Hizmet yükündeki bir değişikliği karşılamak için kümedeki Service Fabric hizmetleri kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; PowerShell veya Service Fabric CLI'den (sfctl) betikler veya komutlar kullanabilirsiniz. Bu örnekte, Service Fabric Explorer'ı kullanın.
 
-Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve tarayıcıdan kümelerin HTTP yönetim bağlantı noktasına (19080) göz atarak (örneğin, `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`) erişilebilir. 
+Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve tarayıcıdan kümelerin HTTP yönetim bağlantı noktasına (19080) göz atarak (örneğin, `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`) erişilebilir. 
 
-Konumun güvenilir olmadığına dair bir tarayıcı uyarısı alabilirsiniz. Bunun sebebi, sertifikanın otomatik olarak imzalanmasıdır. Uyarıyı yoksayıp devam etmeyi seçebilirsiniz. Tarayıcı tarafından istendiğinde, bağlanmak için yüklü sertifikayı seçin. 
+Konumun güvenilir olmadığına dair bir tarayıcı uyarısı alabilirsiniz. Bunun sebebi, sertifikanın otomatik olarak imzalanmasıdır. Uyarıyı yoksayıp devam etmeyi seçebilirsiniz.
+1. Tarayıcı tarafından istendiğinde, bağlanmak için yüklü sertifikayı seçin. Listeden seçtiğiniz taraf küme sertifikası, erişmeye çalıştığınız taraf kümesi ile eşleşmelidir. Örneğin, win243uja6w62r.westus.cloudapp.azure.com.
+2. Tarayıcı tarafından sorulursa, bu oturum için CryptoAPI Özel Anahtarınıza erişim verin.
 
 Web ön uç hizmetini ölçeklendirmek için aşağıdaki adımları gerçekleştirin:
 
-1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `http://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
+1. Kümenizde Service Fabric Explorer'ı açın. Örneğin: `https://zwin7fh14scd.westus.cloudapp.azure.com:19080`. 
 2. Ağaç görünümünde **Uygulamalar**->**VotingType**->**fabric:/Voting** seçeneğini genişletin. Ağaç görünümünde **fabric:/Voting/VotingWeb** düğümünün yanındaki üç noktaya tıklayın ve **Hizmeti Ölçeklendir**'i seçin.
 
     ![Service Fabric Explorer](./media/service-fabric-quickstart-dotnet/service-fabric-explorer-scale.png)

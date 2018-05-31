@@ -1,27 +1,30 @@
 ---
-title: Bir Azure VM’yi başka bir Azure bölgesine çoğaltma (Önizleme)
+title: Bir Azure VM’yi başka bir Azure bölgesine çoğaltma
 description: Bu hızlı başlangıç, bir Azure bölgesindeki Azure VM’yi başka bir bölgeye çoğaltmak için gerekli olan adımları sağlar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 04/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: a317d54b56f72373d99af35b806cb231c2ef962e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208847"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region-preview"></a>Bir Azure VM’yi başka bir Azure bölgesine çoğaltma (Önizleme)
+# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Bir Azure VM’yi başka bir Azure bölgesine çoğaltma
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti, planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
 
-Bu hızlı başlangıç, bir Azure VM’nin farklı bir Azure bölgesine nasıl çoğaltılacağını açıklar.
+Bu hızlı başlangıç, bir Azure VM’nin farklı bir Azure bölgesine nasıl çoğaltılacağını açıklar. Azure’dan Azure’a çoğaltma şu anda önizleme aşamasındadır
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
+
+
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
@@ -31,8 +34,8 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 1. Azure portalında, **Sanal makineler** seçeneğine tıklayın ve çoğaltmak istediğiniz VM’yi seçin.
 
-2. **Ayarlar** kısmında, **Olağanüstü durum kurtarma (önizleme)** seçeneğine tıklayın.
-3. **Olağanüstü durum kurtarmayı yapılandır** > **Hedef bölge** bölümünde, çoğaltmak istediğiniz hedef bölgeyi seçin.
+2. **Ayarlar** menüsünde **Olağanüstü durum kurtarma** seçeneğine tıklayın.
+3. **Olağanüstü durumdan kurtarma yapılandırma** > **Hedef bölge** bölümünde, çoğaltma yapacağınız hedef bölgeyi seçin.
 4. Bu Hızlı Başlangıç için, diğer varsayılan ayarları kabul edin.
 5. **Çoğaltmayı etkinleştir**’e tıklayın. Bu, sanal makineye yönelik çoğaltmayı etkinleştirmek için bir iş başlatır.
 
@@ -59,7 +62,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 Şu adımlara göre çoğaltmayı durdurun:
 
 1. VM’yi seçin.
-2. **Olağanüstü durum kurtarma (önizleme)** bölümünde, **Diğer** seçeneğine tıklayın.
+2. **Olağanüstü durum kurtarma** bölümünde, **Diğer** seçeneğine tıklayın.
 3. **Çoğaltmayı Devre Dışı Bırak** seçeneğine tıklayın.
 
    ![Çoğaltmayı devre dışı bırakma](media/azure-to-azure-quickstart/disable2-replication.png)
