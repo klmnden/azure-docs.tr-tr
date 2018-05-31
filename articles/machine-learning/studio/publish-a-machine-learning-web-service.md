@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30185212"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning web hizmeti dağıtma
 Azure Machine Learning, derleme, test ve Tahmine dayalı analitik çözümleri dağıtmanızı sağlar.
@@ -27,7 +28,7 @@ Bir üst düzey noktası-in-görünümden, bu üç adımda gerçekleştirilir:
 
 * **[Eğitim denemenizi oluşturma]**  -Azure Machine Learning Studio olduğu eğitmek ve sağladığınız eğitim verileri kullanarak bir Tahmine dayalı bir analiz modeli test etmek için kullandığınız bir işbirliğine dayalı görsel geliştirme ortamı.
 * **[Tahmine dayalı bir deneme Dönüştür]**  -modelinizi var olan verilerle eğitilmiş ve yeni verilerinizi puanlamada için kullanıma hazır sonra hazırlamak ve denemenizi Öngörüler için kolaylaştırır.
-* **[Web hizmeti olarak dağıtabilir]**  -Tahmine dayalı denemenizi olarak dağıttığınız bir [yeni] veya [Klasik] Azure web hizmeti. Kullanıcıların modelinize veri gönderebilir ve modelinizin tahminleri alabilirsiniz.
+* **[Bir web hizmeti olarak dağıtma]**  -Tahmine dayalı denemenizi olarak dağıttığınız bir [yeni] veya [Klasik] Azure web hizmeti. Kullanıcıların modelinize veri gönderebilir ve modelinizin tahminleri alabilirsiniz.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -184,8 +185,8 @@ Web hizmeti güncelleştirmek için bir model program aracılığıyla yeniden e
 <!-- internal links -->
 [Eğitim denemenizi oluşturma]: #create-a-training-experiment
 [Tahmine dayalı bir deneme Dönüştür]: #convert-the-training-experiment-to-a-predictive-experiment
-[Web hizmeti olarak dağıtabilir]: #deploy-it-as-a-web-service
-[yeni]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[Bir web hizmeti olarak dağıtma]: #deploy-it-as-a-web-service
+[Yeni]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Klasik]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
