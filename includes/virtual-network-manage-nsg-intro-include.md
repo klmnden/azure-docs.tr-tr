@@ -1,2 +1,0 @@
-Sonra bir veya daha fazla ağ güvenlik grupları (Nsg'ler) oluşturmak,, Nsg'ler hakkında bilgi almak için ekleyin ve kuralları kaldırın, mevcut kuralları düzenlemek, ilişkilendirmek veya Nsg'ler ilişkilendirmesini kaldırmanız ve Nsg'ler silin. Bu makalede, bu görevlerin her birini çalıştırmak öğreneceksiniz. Nsg'ler yönetmeden önce bilmeniz önemlidir [Nsg'ler nasıl çalıştığını](../articles/virtual-network/virtual-networks-nsg.md). 
-

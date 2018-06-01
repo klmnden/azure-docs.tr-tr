@@ -1,2 +1,0 @@
-Azure'da sanal makineleri (VM'ler) oluşturun ve her Vm'leriniz için birden çok ağ arabirimlerine (NIC'ler) ekleyin. Birden çok NIC uygulama sunma ve WAN iyileştirmesi çözümleri gibi birçok ağ sanal Gereçleri gereksinimi var. Birden çok NIC de bir ön uç NIC ve arka uç NIC veya veri düzlemi trafiği ayrımı yönetim düzlemi trafiğinden arasındaki trafik yalıtımı dahil olmak üzere daha fazla ağ trafiği Yönetimi işlevselliği sağlar.
-
