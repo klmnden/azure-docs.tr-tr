@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 610aa8d5652b89f36aeb2a6ae517d378c5bfa666
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304887"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Hızlı Başlangıç: Azure portalını kullanarak genel bir Temel yük dengeleyici oluşturma
 
@@ -194,4 +195,7 @@ Artık gerekli olmadığında kaynak grubunu, yük dengeleyiciyi ve tüm ilgili 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu hızlı başlangıçta bir kaynak grubu, ağ kaynakları ve arka uç sunucuları oluşturdunuz. Daha sonra bir yük dengeleyici oluşturmak için bu kaynakları kullandınız. Yük dengeleyiciler ve bunların ilişkili kaynakları hakkında daha fazla bilgi edinmek için öğretici makaleleriyle devam edin.
+Bu hızlı başlangıçta bir kaynak grubu, ağ kaynakları ve arka uç sunucuları oluşturdunuz. Daha sonra bir Temel bir Load Balancer oluşturmak için bu kaynakları kullandınız. Azure Load Balancer hakkında daha fazla bilgi almak için Azure Load Balancer öğreticisine devam edin.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer öğreticileri](tutorial-load-balancer-basic-internal-portal.md)
