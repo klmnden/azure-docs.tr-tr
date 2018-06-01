@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9067ea350997ed0c4fc5c65dccb72f403adfa774
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 52d0aeabab173caf4460827ca0d5984070688f0e
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304734"
 ---
 # <a name="tutorialload-balance-vms-within-an-availability-zone-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Standart Yük Dengeleyici ile bir kullanılabilirlik alanındaki sanal makinelerde yük dengeleme
 
@@ -139,7 +140,7 @@ Bu bölümde, Azure portalı ile HTTP ve RDP kullanarak gelen bağlantılara izi
 2. Sanal makineye yönelik RDP için **Genel Bakış** sayfasında **Bağlan**’a tıklayın.
 3. Sanal makineyi oluştururken belirttiğiniz kullanıcı adı ve parola ile VM’de oturum açın (sanal makineyi oluştururken girdiğiniz kimlik bilgilerini belirtmek için **Diğer seçenekler**’i ve sonra **Farklı bir hesap kullan**’ı seçmeniz gerekebilir), ardından **Tamam**’ı seçin. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Bağlantıya devam etmek için **Evet**’i seçin.
 4. Sunucu masaüstünde **Windows Yönetimsel Araçları**>**Windows PowerShell** bölümüne gidin.
-6. PowerShell Penceresinde aşağıdaki komutları çalıştırarak IIS sunucusunu yükleyin, default.htm dosyasını kaldırın, VM’nin adını gösteren default.htm dosyası ile birlikte yeni bir tane ekleyin:
+6. PowerShell Penceresinde aşağıdaki komutları çalıştırarak IIS sunucusunu yükleyin, varsayılan iisstart.htm dosyasını kaldırın ve ardından VM’nin adını gösteren yeni bir iisstart.htm dosyasını ekleyin:
 
    ```azurepowershell-interactive
     # install IIS server role
@@ -147,10 +148,10 @@ Bu bölümde, Azure portalı ile HTTP ve RDP kullanarak gelen bağlantılara izi
     # remove default htm file
      remove-item  C:\inetpub\wwwroot\iisstart.htm
     # Add a new htm file that displays server name
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello from" + $env:computername)
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
    ```
-8. *myVM1* ile RDP oturumunu kapatın
-9. *myVM2*’ye IIS yüklemek için 1 ile 8 arasındaki adımları tekrarlayın.
+7. *myVM1* ile RDP oturumunu kapatın
+8. *myVM2*’ye IIS yüklemek için 1 ile 7 arasındaki adımları tekrarlayın.
 
 ## <a name="create-load-balancer-resources"></a>Yük dengeleyici kaynakları oluşturma
 

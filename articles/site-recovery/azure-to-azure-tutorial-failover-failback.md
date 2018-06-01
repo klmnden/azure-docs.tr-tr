@@ -1,23 +1,24 @@
 ---
-title: "Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere yük devretme veya VM’leri geri döndürme (Önizleme)"
-description: "Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere nasıl yük devredeceğinizi veya bu VM’leri nasıl geri döndüreceğinizi öğrenin"
+title: Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere yük devretme veya VM’leri geri döndürme
+description: Azure Site Recovery ile ikincil bir Azure bölgesine çoğaltılmış Azure VM’lere nasıl yük devredeceğinizi veya bu VM’leri nasıl geri döndüreceğinizi öğrenin
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/08/2018
+ms.date: 05/15/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc7ead9e7d55d1b22118774e98c741991e8af2d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209282"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions-preview"></a>Azure bölgeleri arasında VM’lere yük devretme ve VM’leri geri döndürme (Önizleme)
+# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure VM yük devretme ve ilk duruma döndürme
 
-[Azure Site Recovery](site-recovery-overview.md) hizmeti, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve geri döndürme işlemlerini yönetip düzenleyerek, olağanüstü durum kurtarma stratejinize katkıda bulunur.
+[Azure Site Recovery](site-recovery-overview.md) hizmeti, şirket içi makinelerin ve Azure sanal makinelerinin (VM) çoğaltma, yük devretme ve yeniden çalışma işlemlerini yöneterek ve düzenleyerek olağanüstü durum kurtarma stratejinize katkı sağlar.
 
 Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük devredeceğinizi açıklar. Yük devrettikten sonra, uygun olduğunda birincil bölgeye geri dönersiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
@@ -26,6 +27,8 @@ Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük d
 > * İkincil Azure VM’yi yeniden koruyarak birincil bölgeye çoğaltmasını sağlayın
 > * İkincil VM’yi geri döndürme
 > * Birincil VM’yi ikincil bölgeye yeniden koruyun
+
+Azure’dan Azure’a çoğaltma şu anda önizlemededir.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
