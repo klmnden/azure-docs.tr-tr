@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 95f73dd702b3fffcefbdea28d58ad36bf8eb7eb5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
+ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/17/2018
+ms.locfileid: "34258448"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Öğretici: Azure CDN özel etki alanı üzerinde HTTPS yapılandırma
 
@@ -52,9 +53,15 @@ Bu öğreticideki adımları tamamlayabilmeniz için öncelikle bir CDN profili 
 
 Ayrıca CDN uç noktanızda bir Azure CDN özel etki alanını ilişkilendirebilirsiniz. Daha fazla bilgi için bkz. [Öğretici: Azure CDN uç noktanıza özel etki alanı ekleme](cdn-map-content-to-custom-domain.md)
 
-## <a name="option-1-default-enable-the-https-feature-with-a-cdn-managed-certificate"></a>1. Seçenek (varsayılan): Yönetilen CDN sertifikasıyla HTTPS özelliğini etkinleştirme  
+---
 
-Bu seçenekle, yalnızca birkaç tıkla özel HTTPS özelliği açılabilir. Azure CDN, tedarik ve yenileme gibi sertifika yönetimi görevlerini tamamen gerçekleştirir. Özelliği etkinleştirmenizin ardından işlem hemen başlar. Özel etki alanı önceden CDN uç noktasına eşlendiyse başka bir eylem gerekmez. Azure CDN, adımları işler ve isteğinizi otomatik olarak tamamlar. Ancak özel etki alanınız başka bir yerde eşlendiyse, etki alanı sahipliğinizi doğrulamak için e-posta kullanmanız gerekir.
+## <a name="ssl-certificates"></a>SSL sertifikaları
+Bir Azure CDN özel etki alanında içeriği güvenli bir şekilde teslim etmek üzere HTTPS protokolünü etkinleştirmek için SSL sertifikası kullanmanız gerekir. Azure CDN tarafından yönetilen bir sertifika kullanmayı seçebilir ya da kendi sertifikanızı kullanabilirsiniz.
+
+
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[1. Seçenek (varsayılan): Yönetilen CDN sertifikasıyla HTTPS’yi etkinleştirme](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+
+CDN tarafından yönetilen bir sertifika kullandığınızda HTTPS özelliği sadece birkaç tıklama ile etkinleştirilebilir. Azure CDN, tedarik ve yenileme gibi sertifika yönetimi görevlerini tamamen gerçekleştirir. Özelliği etkinleştirmenizin ardından işlem hemen başlar. Özel etki alanı önceden CDN uç noktasına eşlendiyse başka bir eylem gerekmez. Azure CDN, adımları işler ve isteğinizi otomatik olarak tamamlar. Ancak özel etki alanınız başka bir yerde eşlendiyse, etki alanı sahipliğinizi doğrulamak için e-posta kullanmanız gerekir.
 
 Özel bir etki alanı üzerinde HTTPS'yi etkinleştirmek için aşağıdaki adımları uygulayın:
 
@@ -81,22 +88,21 @@ Bu seçenekle, yalnızca birkaç tıkla özel HTTPS özelliği açılabilir. Azu
 6. [Etki alanını doğrulama](#validate-the-domain) adımına ilerleyin.
 
 
-## <a name="option-2-enable-the-https-feature-with-your-own-certificate"></a>2. Seçenek: Kendi sertifikanızla HTTPS özelliğini etkinleştirme 
+# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[2. Seçenek: Kendi sertifikanızla HTTPS’yi etkinleştirme](#tab/option-2-enable-https-with-your-own-certificate)
 
 > [!IMPORTANT]
-> Bu özellik yalnızca **Microsoft tarafından sunulan Azure CDN Standard** profilleriyle kullanılabilir. 
+> Bu seçenek yalnızca **Microsoft tarafından sunulan Azure CDN Standard** profilleriyle kullanılabilir. 
 >
  
+HTTPS özelliğini etkinleştirmek için kendi sertifikanızı kullanabilirsiniz. Bu işlem, sertifikalarınızı güvenli bir şekilde depolamanıza olanak tanıyan Azure Key Vault ile tümleştirme yoluyla gerçekleştirilir. Azure CDN, sertifikanızı almak için bu güvenli mekanizmayı kullanır ve birkaç ek adım gerektirir.
 
-HTTPS üzerinden içerik teslim etmek için Azure CDN’de kendi sertifikanızı kullanabilirsiniz. Bu işlem, Azure Key Vault ile tümleştirme yoluyla gerçekleştirilir. Azure Key Vault, müşterilerin sertifikalarını güvenli şekilde depolamasına olanak sağlar. Azure CDN hizmeti, sertifikayı almak için bu güvenli mekanizmadan yararlanır. Kendi sertifikanızı kullanmanız için birkaç ek adım gerekir.
-
-### <a name="step-1-prepare-your-azure-key-vault-account-and-certificate"></a>1. Adım: Azure Key Vault hesabınızı ve sertifikanızı hazırlama
+### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure Key Vault hesabınızı ve sertifikanızı hazırlama
  
 1. Azure Key Vault: Özel HTTPS’yi etkinleştirmek istediğiniz Azure CDN profili ve CDN uç noktalarıyla aynı abonelik altında çalışan bir Azure Key Vault hesabınız olması gerekir. Azure Key Vault hesabınız yoksa, oluşturun.
  
 2. Azure Key Vault sertifikaları: Zaten bir sertifikanız varsa, bu sertifikayı doğrudan Azure Key Vault hesabınıza yükleyebilir veya doğrudan Azure Key Vault’un tümleştirildiği iş ortağı Sertifika Yetkililerinden birinin Azure Key Vault’u üzerinden yeni bir sertifika oluşturabilirsiniz. 
 
-### <a name="step-2-register-azure-cdn"></a>2. Adım: Azure CDN’yi kaydetme
+### <a name="register-azure-cdn"></a>Azure CDN’yi kaydetme
 
 PowerShell aracılığıyla Azure CDN’yi Azure Active Directory’nizdeki bir uygulama olarak kaydedin.
 
@@ -109,7 +115,7 @@ PowerShell aracılığıyla Azure CDN’yi Azure Active Directory’nizdeki bir 
     ![PowerShell’de Azure CDN’ye kaydolun](./media/cdn-custom-ssl/cdn-register-powershell.png)
               
 
-### <a name="step-3-grant-azure-cdn-access-to-your-key-vault"></a>3. Adım: Azure CDN’ye anahtar kasanıza erişim yetkisi verme
+### <a name="grant-azure-cdn-access-to-your-key-vault"></a>Azure CDN’ye anahtar kasanıza erişim yetkisi verme
  
 Azure CDN’ye, Azure Key Vault hesabınızdaki sertifikalara (gizli dizi) erişme yetkisi verin.
 
@@ -127,7 +133,7 @@ Azure CDN’ye, Azure Key Vault hesabınızdaki sertifikalara (gizli dizi) eriş
 
     Azure CDN artık bu anahtar kasasına ve bu anahtar kasasında depolanan sertifikalara (gizli diziler) erişebilir.
  
-### <a name="step-4-select-the-certificate-for-azure-cdn-to-deploy"></a>4. Adım: Azure CDN’nin dağıtacağı sertifikayı seçme
+### <a name="select-the-certificate-for-azure-cdn-to-deploy"></a>Azure CDN’nin dağıtacağı sertifikayı seçme
  
 1. Azure CDN portalına geri dönün ve özel HTTPS’yi etkinleştirmek istediğiniz profili ve CDN uç noktasını seçin. 
 
@@ -150,6 +156,7 @@ Azure CDN’ye, Azure Key Vault hesabınızdaki sertifikalara (gizli dizi) eriş
   
 6. Kendi sertifikanızı kullanıyorsanız etki alanı doğrulaması gerekmez. [Yayılma için bekleme](#wait-for-propagation) adımına geçin.
 
+---
 
 ## <a name="validate-the-domain"></a>Etki alanını doğrulama
 
