@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 9ff0b53f6c6f10a2e97bd3158f874fa5cfe33bb6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ec1cc42a0c932e47c08493fa632495426abc4c7
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34304469"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Standart Yük Dengeleyici ile kullanılabilirlik alanları arasındaki sanal makinelerde yük dengeleme
 
@@ -37,6 +38,8 @@ Yük dengeleme, gelen istekleri birden çok sanal makineye dağıtarak yüksek d
 > * Çalışan yük dengeleyiciyi görüntüleme
 
 Standart Yük Dengeleyici ile Kullanılabilirlik alanlarını kullanma hakkında daha fazla bilgi için [Standart Yük Dengeleyici ve Kullanılabilirlik Alanları](load-balancer-standard-availability-zones.md).
+
+Tercih ederseniz, [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun. 
 
@@ -141,18 +144,21 @@ Yük dengeleyicinin arka uç sunucuları olarak hareket edebilen bölge için fa
 1. Sol menüden **Tüm kaynaklar**’a tıklayın ve kaynak listesinden, *myResourceGroupLBAZ* kaynak grubunda bulunan **myVM1** öğesine tıklayın.
 2. Sanal makineye yönelik RDP için **Genel Bakış** sayfasında **Bağlan**’a tıklayın.
 3. *azureuser* kullanıcı adıyla sanal makinede oturum açın.
-4. Sunucu masaüstünde **Windows Yönetimsel Araçları**>**Sunucu Yöneticisi** bölümüne gidin.
-5. Sunucu Yöneticisi hızlı başlangıç sayfasında **Rol ve özellik ekle**’ye tıklayın.
-
-   ![Arka uç adres havuzuna ekleme - ](./media/load-balancer-standard-public-availability-zones-portal/servermanager.png)    
-
-1. **Rol ve Özellik Ekleme Sihirbazı** bölümünde aşağıdaki değerleri kullanın:
-    - **Yükleme türünü seçin** sayfasında **Rol tabanlı veya özellik tabanlı yükleme** seçeneğine tıklayın.
-    - **Hedef sunucuyu seç** sayfasında **myVM1** seçeneğine tıklayın.
-    - **Sunucu rolü seçin** sayfasında **Web Sunucusu (IIS)** seçeneğine tıklayın.
-    - Sihirbazın geri kalanını tamamlamak için yönergeleri izleyin.
-2. Sanal makine ile RDP oturumunu kapatın - *myVM1*.
-3. *myVM2* ve *myVM3* sanal makinelerine IIS yüklemek için adım 1 ila 7’yi yineleyin.
+4. Sunucu masaüstünde **Windows Yönetimsel Araçları**>**Windows PowerShell** bölümüne gidin.
+5. PowerShell Penceresinde aşağıdaki komutları çalıştırarak IIS sunucusunu yükleyin, varsayılan iisstart.htm dosyasını kaldırın ve ardından VM’nin adını gösteren yeni bir iisstart.htm dosyası ekleyin:
+   ```azurepowershell-interactive
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from" + $env:computername)
+   ```
+6. *myVM1* ile RDP oturumunu kapatın.
+7. IIS’yi ve *myVM2* ve *myVM3*’teki güncelleştirilmiş iisstart.htm dosyasını yüklemek için 1 ile 6 arasındaki adımları tekrarlayın.
 
 ## <a name="create-load-balancer-resources"></a>Yük dengeleyici kaynakları oluşturma
 
@@ -215,7 +221,7 @@ Trafiğin VM’lere dağıtımını tanımlamak için bir yük dengeleyici kural
 
 2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. IIS Web sunucusunun varsayılan sayfası, tarayıcıda görüntülenir.
 
-      ![IIS Web sunucusu](./media/load-balancer-standard-public-availability-zones-portal/9-load-balancer-test.png)
+      ![IIS Web sunucusu](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
 Yük dengeleyicinin trafiği bölgeye dağıtılmış VM’ler arasında dağıttığını görmek için web tarayıcınızı yenilemeye zorlayabilirsiniz.
 
