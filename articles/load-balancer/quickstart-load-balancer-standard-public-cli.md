@@ -1,12 +1,13 @@
 ---
-title: Genel Standart Yük Dengeleyici oluşturma - Azure CLI | Microsoft Docs
-description: Azure CLI kullanarak herkese açık bir yük dengeleyici nasıl oluşturabileceğinizi öğrenin
+title: 'Hızlı Başlangıç: Genel Standart Yük Dengeleyici oluşturma - Azure CLI | Microsoft Docs'
+description: Bu hızlı başlangıçta, Azure CLI kullanarak genel bir yük dengeleyicinin nasıl oluşturulacağı gösterilmektedir
 services: load-balancer
 documentationcenter: na
 author: KumudD
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
+Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -15,13 +16,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: ee2e70e710be9badda7318aec307325da66e4c58
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.custom: mvc
+ms.openlocfilehash: 48ed4270838a32c8060bf96a63fcfdd8c65f9689
+ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/18/2018
+ms.locfileid: "34305081"
 ---
-# <a name="create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak VMS yük dengelemesi için Standart Yük Dengeleyici oluşturma
+# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Hızlı Başlangıç: Azure CLI 2.0 kullanarak VMS yük dengelemesi için Standart Yük Dengeleyici oluşturma
 
 Bu hızlı başlangıçta nasıl Standart Yük Dengeleyici oluşturulacağı gösterilmektedir. Yük dengeleyiciyi test etmek için, Ubuntu server çalıştıran iki sanal makine (VM) dağıtın ve iki sanal makine arasında bir web uygulamasının yük dengelemesini yapın.
 
@@ -260,5 +263,8 @@ Artık gerekli değilse, [az group delete](/cli/azure/group#az_group_delete) kom
   az group delete --name myResourceGroupSLB
 ```
 ## <a name="next-step"></a>Sonraki adım
-[Standart Yük Dengeleyici](load-balancer-standard-overview.md) hakkında daha fazla bilgi edinin
+Bu hızlı başlangıçta, bir Standart Load Balancer oluşturdunuz, buna VM’ler eklediniz, yük dengeleyici trafik kuralını ve durum araştırmasını yapılandırdınız ve yük dengeleyiciyi test ettiniz. Azure Load Balancer hakkında daha fazla bilgi almak için Azure Load Balancer öğreticisine devam edin.
+
+> [!div class="nextstepaction"]
+> [Azure Load Balancer öğreticileri](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
 
