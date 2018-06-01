@@ -1,21 +1,22 @@
 ---
-title: Azure Site Recovery (Önizleme) ile Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
+title: Azure Site Recovery ile Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 description: Azure Site Recovery (Önizleme) ile Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarmanın nasıl ayarlanacağını öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/02/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca1f8fcd3a69e3f2e287c3d627f41c0f493bea1f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d707122f79b37dd6b979be09693011dead988156
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211676"
 ---
-# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama (Önizleme)
+# <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Azure VM’leri için ikincil Azure bölgesine olağanüstü durum kurtarma ayarlama
 
 [Azure Site Recovery](site-recovery-overview.md) hizmeti, şirket içi makinelerin ve Azure sanal makinelerinin (VM) çoğaltma, yük devretme ve yeniden çalışma işlemlerini yöneterek ve düzenleyerek olağanüstü durum kurtarma stratejinize katkı sağlar.
 
@@ -27,6 +28,7 @@ Bu öğreticide Azure VM’leri için ikincil Azure bölgesine olağanüstü dur
 > * VM’ler için giden erişim ayarlama
 > * VM için çoğaltmayı etkinleştirme
 
+Azure’dan Azure’a çoğaltma şu anda önizlemededir.
 ## <a name="prerequisites"></a>Ön koşullar
 
 Bu öğreticiyi tamamlamak için:
@@ -109,7 +111,7 @@ Azure Site Recovery, Site Recovery yönetim işlemlerini denetlemek için üç y
 ### <a name="select-the-source"></a>Kaynağı seçme
 
 1. Kurtarma Hizmetleri kasalarında, Kasa adı > **+Çoğalt** seçeneğine tıklayın.
-2. **Kaynak** bölümünde **Azure - PREVIEW** seçeneğini belirleyin.
+2. **Kaynak** bölümünde **Azure** seçeneğini belirleyin.
 3. **Kaynak konumu**’nda, VM’lerinizin çalışmakta olduğu kaynak Azure bölgesini seçin.
 4. VM’ler için **Azure sanal makine dağıtım modeli**’ni seçin: **Kaynak Yöneticisi** veya **Klasik**.
 5. Kaynak Yöneticisi VM’ler için **Kaynak grubu**’nu veya klasik VM’ler için **bulut hizmeti**’ni seçin.

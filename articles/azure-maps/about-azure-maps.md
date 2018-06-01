@@ -12,14 +12,15 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: e84580c4023be87ebfc1988c631af0b76e213987
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193960"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Azure Haritalar tanıtımı
-Azure Haritalar; Haritalar, Arama, Yönlendirme, Trafik ve Saat dilimlerine yönelik hizmet API’lerini içeren bir jeo-uzamsal hizmetler portföyüdür. Azure OneAPI uyumlu hizmet portföyü bilindik araçları kullanarak hızlıca konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirmenizi ve bu çözümleri ölçeklendirmenizi sağlar. Azure Haritalar, tüm sektörlerdeki geliştiricilere, web ve mobil uygulamalara yönelik coğrafi bağlam sağlamak amacıyla yeni eşleme verileriyle donatılmış güçlü jeo-uzamsal özellikler sunar. Azure Haritalar, gelişimi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulan REST API kümesidir. 
+Azure Haritalar; Haritalar, Arama, Yönlendirme, Trafik ve Saat dilimlerine yönelik hizmet API’lerini içeren bir jeo-uzamsal hizmetler portföyüdür. Hizmet portföyü bilindik araçları kullanarak hızlıca konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirmenizi ve bu çözümleri ölçeklendirmenizi sağlar. Azure Haritalar, tüm sektörlerdeki geliştiricilere, web ve mobil uygulamalara yönelik coğrafi bağlam sağlamak amacıyla yeni eşleme verileriyle donatılmış güçlü jeo-uzamsal özellikler sunar. Azure Haritalar, gelişimi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulan REST API kümesidir. 
 
 Aşağıdaki videoda Azure Haritalar tanıtılmaktadır:
 
@@ -87,7 +88,7 @@ Microsoft'un amacı, geliştirici topluluğuna konum hizmeti teklifleri bakımı
 | Senaryo | Azure Haritalar’ın kullanılacağı durumlar… | Bing Haritalar’ın kullanılacağı durumlar… |
 | ------------- | ------------- | ------------- |
 | Geliştirme ortamı | Diğer Azure hizmetleri üzerinde derleme veya diğer Azure hizmetleriyle koordinasyon sağlama | Üçüncü taraf bulut veya diğer geliştirici ortamını kullanma |
-| Geliştirme aşaması  | Azure Haritalar şu anda Genel Önizleme aşamasında olduğundan, erken aşama testleri ve Kavram Kanıtı geliştirmesi için iyileştirilmiştir | Üretim ortamı için kurumsal düzeyde bir SLA gerekir |
+| Geliştirme aşaması  | Azure Haritalar, erken aşama testleri ve Kavram Kanıtı geliştirmesi için iyileştirilmiştir | Üretim ortamı için kurumsal düzeyde bir SLA gerekir |
 | Fiyatlandırma seçenekleri | Ön geliştirici fiyatlandırma seçenekleri yeterlidir | Özelleştirilmiş kurumsal düzeyde fiyatlandırma gereklidir |
 | Kullanım örneği ortamı | Araç içi kullanım gereklidir | Araç içi kullanım gerekli değildir |
 | Coğrafi kapsam | Hindistan, Çin, Japonya ve Güney Kore gerekli değildir | Hindistan, Çin, Japonya ve Güney Kore harita kapsamı gereklidir |

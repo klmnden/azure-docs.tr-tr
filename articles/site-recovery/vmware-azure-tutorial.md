@@ -6,14 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 05/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c86a98dd819b91608be04f1466dc1e6764ee4b9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a96655c26e2df2534f420239b56ef0c3959319a
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212883"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Şirket içi VMware VM’leri için Azure’da olağanüstü durum kurtarmayı ayarlama
 
@@ -35,7 +36,7 @@ Başlamadan önce olağanüstü durum kurtarma senaryoları için [mimariyi göz
 
 ## <a name="select-a-replication-goal"></a>Çoğaltma hedefi seçme
 
-1. **Kurtarma Hizmetleri kasalarında** **ContosoVMVault** kasa adını seçin.
+1. **Kurtarma Hizmetleri kasaları** bölümünde kasa adını seçin. Bu senaryo için**ContosoVMVault**’u kullanıyoruz.
 2. **Başlarken** bölümünde Site Recovery’yi seçin. Daha sonra **Altyapıyı Hazırlama**’yı seçin.
 3. **Koruma hedefi** > **Makineleriniz nerede** bölümünde **Şirket içi** seçeneğini belirleyin.
 4. **Makinelerinizi nereye çoğaltmak istiyorsunuz** bölümünde **Azure’a** seçeneğini belirleyin.
@@ -107,7 +108,7 @@ Yapılandırma sunucusuna bir NIC daha eklemek için, ekleme işlemini sunucuyu 
 
 ### <a name="configure-settings-and-add-the-vmware-server"></a>Ayarları yapılandırma ve VMware sunucusunu ekleme
 
-1. Yapılandırma sunucusu yönetim sihirbazında **Bağlantı kurma** seçeneğini belirleyip, çoğaltma trafiğini almak için NIC’yi seçin. Daha sonra **Kaydet**’e tıklayın. Bu ayar yapılandırıldıktan sonra değiştirilemez.
+1. Yapılandırma sunucusu yönetim sihirbazında **Bağlantı kurma** seçeneğini belirleyip, VM’lerden çoğaltma trafiğini almak için işlem sunucusunun kullandığı NIC’yi seçin. Daha sonra **Kaydet**’e tıklayın. Bu ayar yapılandırıldıktan sonra değiştirilemez.
 2. **Recovery Services kasasını seçin** bölümünde Azure aboneliğinizi, ilgili kaynak grubunu ve kasayı seçin.
 3. **Üçüncü taraf yazılımı yükleyin** bölümünde lisans sözleşmesini kabul edin. MySQL Server’ı yüklemek için **İndir ve Yükle** seçeneğini belirleyin.
 4. **VMware PowerCLI’yi Yükle** seçeneğini belirleyin. Bunu yapmadan önce tüm tarayıcı pencerelerinin kapalı olduğundan emin olun. Daha sonra **Devam** seçeneğini belirleyin.
@@ -139,7 +140,7 @@ Hedef kaynaklarını seçin ve doğrulayın.
 1. [Azure portalını](https://portal.azure.com) açın ve **Tüm kaynaklar**’ı seçin.
 2. **ContosoVMVault** adlı Kurtarma Hizmeti kasasını seçin.
 3. Bir çoğaltma ilkesi oluşturmak için **Site Recovery altyapısı** > **Çoğaltma İlkeleri** > **+Çoğaltma İlkesi** seçeneğini belirleyin.
-4. **Çoğaltma ilkesi oluştur** seçeneğinde, **VMwareRepPolicy** ilke adını girin.
+4. **Çoğaltma ilkesi oluştur** seçeneğinde, ilke adını girin. Bu senaryo için **VMwareRepPolicy** ilkesini kullanıyoruz.
 5. **RPO eşiği** bölümünde varsayılan 60 dakika seçeneğini kullanın. Bu değer kurtarma noktalarının hangi sıklıkta oluşturulacağını tanımlar. Devamlı çoğaltma bu sınırı aşarsa bir uyarı oluşturulur.
 6. **Kurtarma noktası bekletme** bölümünde her bir kurtarma noktasının bekletme aralığı için varsayılan 24 saat seçeneğini kullanın. Bu öğretici için 72 saat seçeneğini kullanın. Çoğaltılan VM’ler bir aralıktaki herhangi bir noktaya kurtarılabilir.
 7. **Uygulamayla tutarlı anlık görüntü sıklığı** bölümünde uygulamayla tutarlı anlık görüntülerin oluşturulma sıklığı için varsayılan 60 dakika seçeneğini kullanın. İlkeyi oluşturmak için **Tamam**’ı seçin.

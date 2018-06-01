@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 05/15/2018
 ms.author: billmath
-ms.openlocfilehash: ea68bad3a2c5e905ccf705404dff0049b451268e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 428d70474ba928a9e0c774aeb16395ef6a4cea2e
+ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 05/16/2018
+ms.locfileid: "34192964"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory Kullanım Koşulları özelliği
 Azure AD Kullanım Koşulları, kuruluşların son kullanıcılara bilgi sağlamak için kullanabileceği basit bir yöntem sunar.  Bu sunum, kullanıcıların yasal gereksinimler veya uyumluluk gereksinimleriyle ilgili bildirimleri görmesi sağlar.
@@ -56,7 +57,7 @@ Kullanım Koşullarınıza son şeklini verdikten sonra, bunları eklemek için 
 4. **Görünen Ad** girin.  Kullanıcılar oturum açtıklarında üst bilgiyi görür.
 5. Kullanım Koşullarınızın son halinin bulunduğu PDF’ye **gözatın** ve bunu seçin.  Önerilen yazı tipi boyutu 24’tür.
 6. Kullanım koşulları için bir dil **seçin**.  Dil seçeneğini kullanarak her biri farklı dilde olan birden fazla kullanım koşulunu karşıya yükleyebilirsiniz.  Bir son kullanıcının göreceği kullanım koşulları sürümü, kullanıcının tarayıcı tercihlerine bağlıdır.
-7. **Kullanıcıların kullanım koşullarını genişletmesini gerekli kıl** için açık veya kapalı seçeneğini belirleyin.  Bu seçenek açık olarak ayarlanırsa, son kullanıcıların kullanım şartlarını kabul etmeden önce görüntülemesi gerekir.
+7. **Kullanıcıların kullanım koşullarını genişletmesini gerekli kıl** için açık veya kapalı seçeneğini belirleyin.  Bu ayar açık olarak belirlenirse, son kullanıcıların kullanım şartlarını kabul etmeden önce görüntülemesi gerekir.
 8. **Koşullu Erişim** bölümünde, bir özel koşullu erişim ilkesi veya açılır listeden bir şablon seçerek karşıya yüklenen kullanım koşullarını **Zorunlu Kılabilirsiniz**.  Özel koşullu erişim ilkeleri, belirli bulut uygulamaları veya kullanıcı gruplarına kadar ayrıntılı kullanım koşulları uygulamanıza olanak sağlar.  Daha fazla bilgi için bkz. [Koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-best-practices.md)
 9. **Oluştur**’a tıklayın.
 10. Özel bir koşullu erişim şablonu seçtiyseniz, CA ilkesini özelleştirmenize olanak sağlayan yeni bir ekran görüntülenir.
@@ -119,6 +120,13 @@ Kullanıcılar, kabul ettikleri kullanım koşullarını gözden geçirip incele
 ![Denetim Olayı](media/active-directory-tou/tou13a.png)
 
 4.  Buradan, kabul ettiğiniz kullanım koşullarını gözden geçirebilirsiniz. 
+
+## <a name="removing-users-from-an-active-terms-of-use"></a>Etkin kullanım koşullarından kullanıcı kaldırma
+
+[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+
+Varsayılan olarak, silinmiş bir kullanıcı Azure AD’de 30 gün boyunca silinmiş olarak kalır ve bu süre boyunca gerekirse bir yönetici tarafından geri alınabilir.  30 gün sonra bu kullanıcı kalıcı olarak silinir.  Ayrıca, bir Genel Yönetici bu süreye ulaşılmadan önce Azure Active Directory portalını kullanarak [kısa süre önce silinmiş bir kullanıcıyı kalıcı olarak silebilir](active-directory-users-restore.md).  Bir kullanıcı kalıcı olarak silindikten sonra, bu kullanıcıya ilişkin sonraki veriler etkin kullanım koşullarından kaldırılır.  Silinmiş kullanıcılara ilişkin denetim bilgileri, denetim günlüğünde kalır.
+
 
 
 ## <a name="additional-information"></a>Ek bilgiler
