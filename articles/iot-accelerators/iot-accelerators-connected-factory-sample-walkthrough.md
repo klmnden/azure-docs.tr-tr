@@ -1,26 +1,19 @@
 ---
 title: Bağlı Fabrika çözümü adım adım kılavuzu - Azure | Microsoft Docs
 description: Azure IoT çözüm hızlandırıcısı Bağlı Fabrikası ve mimarisinin açıklaması.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 2144747fdaa0c596397cc93d8509ca006b67c592
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 214573374498955c4abf018e8c7854c6d9c2c164
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366214"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627151"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Bağlı Fabrika çözüm hızlandırıcısı adım adım kılavuzu
 
@@ -239,9 +232,9 @@ Aşağıdaki makaleleri okuyarak IoT çözümünü kullanmaya başlayabilirsiniz
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png
 
 [lnk-preconfigured-solutions]:iot-accelerators-what-are-solution-accelerators.md
-[lnk-customize]: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
+[lnk-customize]: iot-accelerators-connected-factory-customize.md
 [lnk-IoT Hub]: https://azure.microsoft.com/documentation/services/iot-hub/
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
-[lnk-permissions]: ../iot-suite/iot-suite-v1-permissions.md
+[lnk-permissions]: iot-accelerators-faq.md

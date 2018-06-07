@@ -1,28 +1,19 @@
 ---
-title: "Azure IOT Hub cihaz hizmet sağlama genel bakış | Microsoft Docs"
-description: "Azure IOT Hub ve cihaz sağlama hizmeti ile cihaz sağlamayı açıklar"
-services: iot-dps
-keywords: 
+title: Azure IOT Hub cihaz hizmet sağlama genel bakış | Microsoft Docs
+description: Azure IOT Hub ve cihaz sağlama hizmeti ile cihaz sağlamayı açıklar
 author: nberdy
 ms.author: nberdy
 ms.date: 12/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: 
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-<<<<<<< HEAD
-ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
-ms.translationtype: HT
-=======
-ms.openlocfilehash: 108ae4a66d2c13906cd0892b6c8ee5b20c3ca605
-ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
+services: iot-dps
+manager: briz
+ms.openlocfilehash: 45f47a553f94da2759c4db2b79c8ef5a1b42b8e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630253"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti ile hazırlama cihazları
 Microsoft Azure tümleşik genel bulut Hizmetleri tüm IOT çözüm ihtiyaçlarınız için zengin bir dizi sağlar. IOT Hub cihaz hizmeti sağlama IOT zero touch, yalnızca zaman sağ IOT hub'ına insan etkileşimi gerektirmeden sağlama etkinleştiren müşteriler sağlamak için milyonlarca aygıtların güvenli ve ölçeklenebilir etkinleştirme Hub için bir yardımcı hizmetidir şekilde.

@@ -1,22 +1,19 @@
 ---
 title: Azure yerel olarak - uzaktan izleme çözümü dağıtma | Microsoft Docs
 description: Bu öğretici, test ve geliştirme için yerel Makinenizi Uzaktan izleme Çözüm Hızlandırıcısı dağıtma gösterir.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627240"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Uzaktan izleme Çözüm Hızlandırıcısı yerel olarak dağıtma
 
@@ -52,7 +49,7 @@ CLI hakkında daha fazla bilgi için bkz: [CLI kullanma](https://github.com/Azur
 
 ### <a name="download-the-source-code"></a>Kaynak kodu indirme
 
- Uzak izleme kaynak kod deponuza karşıdan yüklemek, yapılandırmak ve mikro içeren Docker görüntüler çalıştırmak için gereken Docker yapılandırma dosyaları içerir. Kopyalama ve depoyu yerel bir sürümünü oluşturmak için sık kullanılan komut satırı veya terminal aracılığıyla yerel makinenizde uygun bir klasöre gidin ve aşağıdaki komutlardan birini çalıştırın:
+ Kaynak kodu Uzaktan izleme deposu karşıdan yüklemek, yapılandırmak ve mikro içeren Docker görüntüler çalıştırmak için gereken Docker yapılandırma dosyaları içerir. Kopyalama ve depoyu yerel bir sürümünü oluşturmak için sık kullanılan komut satırı veya terminal aracılığıyla yerel makinenizde uygun bir klasöre gidin ve aşağıdaki komutlardan birini çalıştırın:
 
 Mikro, Java uygulamalarını yüklemek için çalıştırın:
 
@@ -119,7 +116,7 @@ docker-compose up
 
 Ayrı bir kabuk kapsayıcısından günlükleri görüntülemek için kullanabilirsiniz. Kapsayıcı Kimliğini kullanarak ilk Bul `docker ps -a` komutu. Ardından `docker logs {container-id} --tail 1000` belirtilen kapsayıcı için son 1000 günlük girişlerini görüntülemek için.
 
-Uzaktan izleme çözüm panosunu erişmek için gidin [ http://localhost:8080 ](http://localhost:8080) tarayıcınızda.
+Uzaktan izleme çözümü panoya erişmek için gidin [ http://localhost:8080 ](http://localhost:8080) tarayıcınızda.
 
 ## <a name="clean-up"></a>Temizleme
 

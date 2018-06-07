@@ -1,22 +1,21 @@
 ---
 title: Python kullanarak TPM cihazını Azure Cihazı Sağlama Hizmeti'ne kaydetme | Microsoft Docs
 description: Azure Hızlı Başlangıç - Python sağlama hizmeti SDK'sını kullanarak TPM cihazını Azure IoT Hub Cihazı Sağlama Hizmeti'ne kaydetme
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-masebo
+ms.author: bryanla
 ms.date: 01/26/2018
-ms.topic: hero-article
+ms.topic: quickstarts
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: d191a4b0034c50973d66ae6f0dd1bc55f0eaa31f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: bd2a50b4f69fda88ac4b3f90941cb9da33298c74
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629958"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Python sağlama hizmeti SDK'sını kullanarak TPM cihazını IoT Hub Cihazı Sağlama Hizmeti'ne kaydetme
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]

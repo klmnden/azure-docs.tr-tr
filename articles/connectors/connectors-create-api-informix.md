@@ -1,25 +1,22 @@
 ---
-title: "Logic Apps içinde Informix bağlayıcısını ekleyin | Microsoft Docs"
-description: "REST API parametrelerle Informix bağlayıcı genel bakış"
-services: 
-documentationcenter: 
+title: IBM Informix veritabanına - Azure Logic Apps | Microsoft Docs
+description: IBM Informix REST API'leri ve Azure Logic Apps ile kaynakları yönetme
 author: gplarsen
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: c78c6bb669e0945ba1cbacc3ca808a364f3099a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609397"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix Bağlayıcısı ile çalışmaya başlama
 Informix için Microsoft Bağlayıcısı Logic Apps bir IBM Informix veritabanında depolanan kaynakları bağlanır. Informix bağlayıcı uzak Informix sunucu bilgisayarlarına bir TCP/IP ağı üzerinden iletişim kurmak için Microsoft client içerir. Bu Windows Azure sanallaştırma çalıştıran için IBM Informix gibi bulut veritabanlarını içerir ve şirket içi veri ağ geçidi kullanarak veritabanlarını. Bkz: [liste desteklenen](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix platformları ve sürümleri (Bu konudaki).
@@ -47,13 +44,13 @@ Bu bağlayıcı aşağıdaki mantıksal uygulama eylemleri destekler:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Listede tablolar
+## <a name="list-tables"></a>Tabloları listele
 Microsoft Azure portalı üzerinden gerçekleştirilen birçok adımlar herhangi bir işlem için bir mantıksal uygulama oluşturma oluşur.
 
 Mantıksal uygulama içinde eylem Informix veritabanına listesi tablolarda ekleyebilirsiniz. Bu eylem bir Informix schema deyiminin gibi işlemek için bağlayıcı bildirir `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `InformixgetTables`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -90,7 +87,7 @@ Bu bağlayıcı için veritabanı şirket içi ve aşağıdaki bağlantı özell
 | kimlik doğrulaması |İsteğe bağlı. Bir liste öğesi değeri, temel veya Windows (kerberos) kabul eder. |
 | kullanıcı adı |Gereklidir. Bir dize değeri kabul eder. |
 | password |Gereklidir. Bir dize değeri kabul eder. |
-| Ağ geçidi |Gereklidir. Logic Apps için depolama grubu içinde tanımlanan şirket içi veri ağ geçidi temsil eden bir liste öğesi değeri kabul eder. |
+| ağ geçidi |Gereklidir. Logic Apps için depolama grubu içinde tanımlanan şirket içi veri ağ geçidi temsil eden bir liste öğesi değeri kabul eder. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Şirket içi ağ geçidi bağlantısı oluşturma
 Bu bağlayıcı, şirket içi veri ağ geçidi kullanarak şirket içi Informix veritabanına erişebilir. Daha fazla bilgi için ağ geçidi konularına bakın. 
@@ -123,7 +120,7 @@ Bu bağlayıcı bir bulut Informix veritabanına erişebilir.
 Informix tablodaki tüm satırları getirmek için bir mantıksal uygulama eylem oluşturabilirsiniz. Bu eylem bir Informix SELECT deyimi gibi işlemek için bağlayıcı bildirir `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı** (örn. "**InformixgetRows**"), **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -160,7 +157,7 @@ Informix tablodaki tüm satırları getirmek için bir mantıksal uygulama eylem
 Bir Informix tablodaki bir satır eklemek için bir mantıksal uygulama eylem oluşturabilirsiniz. Bu eylem bir Informix INSERT deyimi gibi işlemek için bağlayıcı bildirir `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `InformixinsertRow`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -187,7 +184,7 @@ Bir Informix tablodaki bir satır eklemek için bir mantıksal uygulama eylem ol
 Informix tablosunda bir satırı getirmek için bir mantıksal uygulama eylem oluşturabilirsiniz. Bu eylem, bir Informix yeri seçin deyimi gibi işlemek için bağlayıcı bildirir `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `InformixgetRow`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -215,7 +212,7 @@ Informix tablosunda bir satırı getirmek için bir mantıksal uygulama eylem ol
 Informix tablosunda bir satırı değiştirmek için bir mantıksal uygulama eylem oluşturabilirsiniz. Bu eylem, bir Informix güncelleştirme deyimi gibi işlemek için bağlayıcı bildirir `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `InformixupdateRow`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -242,7 +239,7 @@ Informix tablosunda bir satırı değiştirmek için bir mantıksal uygulama eyl
 Bir Informix tablosunda bir satırı kaldırmak için bir mantıksal uygulama eylem oluşturabilirsiniz. Bu eylem bir Informix DELETE deyimi gibi işlemek için bağlayıcı bildirir `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `InformixdeleteRow`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle

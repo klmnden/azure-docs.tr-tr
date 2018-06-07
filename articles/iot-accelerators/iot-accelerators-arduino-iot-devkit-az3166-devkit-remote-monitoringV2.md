@@ -1,31 +1,27 @@
 ---
-title: 'Bulut için IOT DevKit: Azure IOT paketi Uzaktan izleme v2 IOT DevKit AZ3166 bağlanma | Microsoft Docs'
-description: Bu öğreticide, algılayıcılar durumunu IOT DevKit AZ3166 üzerinde Uzaktan izleme v2 ile Azure IOT paketi izleme ve görselleştirme için nasıl göndereceğinizi öğrenin.
-services: iot-hub
-documentationcenter: ''
+title: 'Bulut için IOT DevKit: Uzaktan izleme IOT Çözüm Hızlandırıcısı IOT DevKit AZ3166 bağlanma | Microsoft Docs'
+description: Bu öğreticide, algılayıcılar durumunu izleme ve görselleştirme için Uzaktan izleme IOT Çözüm Hızlandırıcısı IOT DevKit AZ3166 üzerinde göndermek nasıl öğrenin.
 author: isabelcabezasm
 manager: ''
-tags: ''
-keywords: ''
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.devlang: c
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 667e51acd5ac1367e185fb9bf9a7949a13e061af
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8aa4d660fbf785a4caf99bcdeddc86aa9929c50d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627748"
 ---
-# <a name="connect-mxchip-iot-devkit-az3166-to-azure-iot-suite-for-remote-monitoring-v2"></a>MXChip IOT DevKit AZ3166 Azure IOT paketi Uzaktan izleme v2 için Bağlan
+# <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>MXChip IOT DevKit AZ3166 için IOT Uzaktan izleme Çözüm Hızlandırıcısı Bağlan
 
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-Bu öğreticide, Azure IOT paketi algılayıcı verileri göndermek için DevKit üzerinde bir örnek uygulamayı çalıştırma öğrenin.
+Bu öğreticide, Çözüm Hızlandırıcısı algılayıcı verileri göndermek için DevKit üzerinde bir örnek uygulamayı çalıştırma öğrenin.
 
 [MXChip IOT DevKit](https://aka.ms/iot-devkit) bir hepsi bir arada Arduino uyumlu zengin çevre birimleri ve algılayıcılar panosudur. Bunun için kullanarak geliştirebilirsiniz [Arduino için Visual Studio Code uzantısı](https://aka.ms/arduino). Ve büyüyen ile gelir [projeleri katalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) Microsoft Azure hizmetlerini yararlanmak prototip nesnelerin interneti (IOT) çözümleri size yol gösterecek.
 
@@ -114,13 +110,13 @@ Artık, yeni fiziksel Cihazınızı "Azure IOT Hub cihazları" VS kod bölümün
 
 ## <a name="test-the-project"></a>Projeyi test
 
-Örnek uygulama çalıştırıldığında DevKit algılayıcı verilerini Wi-Fi Azure IOT paketi gönderir. Sonuç görmek için aşağıdaki adımları izleyin:
+Örnek uygulama çalıştırıldığında DevKit, IOT Çözüm Hızlandırıcıları Wi-Fi algılayıcı verileri gönderir. Sonuç görmek için aşağıdaki adımları izleyin:
 
-1. Azure IOT paketi gidin ve tıklayın **PANO**.
+1. IOT Çözüm Hızlandırıcısı gidin ve tıklayın **PANO**.
 
-2. Azure IOT paketi çözümünün konsolda DevKit algılayıcı durumunuzu görürsünüz. 
+2. IOT Çözüm Hızlandırıcısı konsolda DevKit algılayıcı durumunuzu görürsünüz. 
 
-![Azure IOT paketi algılayıcı verileri](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
+![IOT Çözüm Hızlandırıcıları algılayıcı verileri](./media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2/azure-iot-suite-dashboard.png)
 
 Algılayıcı adını (AZ3166) tıklatırsanız MX yonga algılayıcılar grafik gerçek zamanlı görebileceğiniz panonun sağ tarafında bir sekmesini açar.
 
@@ -158,7 +154,7 @@ Sorunlarla karşılaşırsanız, başvurmak [SSS](https://microsoft.github.io/az
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure IOT paketi DevKit aygıt bağlanmak ve algılayıcı verileri görselleştirmek öğrendiniz, önerilen sonraki adımlar şunlardır:
+DevKit aygıt, IOT Çözüm Hızlandırıcıları bağlanıp algılayıcı verileri görselleştirmek öğrendiniz, önerilen sonraki adımlar şunlardır:
 
-* [Azure IOT Paketi'ne Genel Bakış](https://docs.microsoft.com/azure/iot-suite/)
+* [IOT Çözüm Hızlandırıcıları genel bakış](https://docs.microsoft.com/azure/iot-suite/)
 * [Microsoft IoT Central uygulamanıza bir MXChip IOT DevKit cihazı bağlayın](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)

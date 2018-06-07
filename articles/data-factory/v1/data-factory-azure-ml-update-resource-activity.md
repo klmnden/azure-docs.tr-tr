@@ -9,22 +9,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3702f4b7a58e9ca65a8ee309699a7e31b207159b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: d1d4c847916b76785cbee40a12b59387498fb5c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621226"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Azure Machine Learning modellerini kaynak güncelleştirme etkinliği kullanarak güncelleştirme
 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive etkinliği](data-factory-hive-activity.md) 
 > * [Pig etkinliği](data-factory-pig-activity.md)
-> * [MapReduce Activity](data-factory-map-reduce.md)
+> * [MapReduce etkinliği](data-factory-map-reduce.md)
 > * [Hadoop akış etkinliği](data-factory-hadoop-streaming-activity.md)
 > * [Spark etkinliği](data-factory-spark.md)
 > * [Machine Learning Batch Yürütme Etkinliği](data-factory-azure-ml-batch-execution-activity.md)

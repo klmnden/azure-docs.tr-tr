@@ -1,18 +1,19 @@
 ---
 title: Cihaz Bağlantısı'nda Azure IOT Merkezi | Microsoft Docs
 description: Bu makale Azure IOT Merkezi içindeki cihaz bağlantısı ile ilgili temel kavramları tanıtır
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: conceptual
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 00b621a4635ef1ceda26772ac5876fa2599b56f8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dc9fe144c2258f33ce59c61ce63c15835cc3fa53
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628343"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IOT Merkezi içindeki cihaz bağlantısı
 
@@ -49,7 +50,7 @@ Aşağıdaki tabloda, nasıl Azure IOT merkezi cihaz özelliklerini açın IOT H
 
 Cihaz SDK'ları kullanma hakkında daha fazla bilgi edinmek için örnek kod bir aşağıdaki makalelere bakın:
 
-- [Azure IOT merkezi uygulamanıza genel bir Node.js istemcisini Bağlan](howto-connect-nodejs.md)
+- [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)
 - [Azure IOT merkezi uygulamanıza Raspberry Pi'yi aygıtı bağlayın](howto-connect-raspberry-pi-python.md)
 - [Azure IOT merkezi DevDiv Seti aygıt bağlamak](howto-connect-devkit.md).
 
@@ -81,5 +82,5 @@ Aygıtları ve, Azure IOT merkezi arasında alınıp tüm veriler şifrelenir. I
 Azure IOT Merkezi içindeki cihaz bağlantısı hakkında öğrendiniz, önerilen sonraki adımlar şunlardır:
 
 - [Hazırlama ve DevKit aygıtı bağlayın](howto-connect-devkit.md)
-- [Hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md)
-- [Azure IOT merkezi uygulamanıza genel bir Node.js istemcisini Bağlan](howto-connect-nodejs.md)
+- [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
+- [Genel bir Node.js istemcisini Azure IoT Central uygulamanıza bağlama](howto-connect-nodejs.md)

@@ -2,30 +2,27 @@
 title: Yaşam süresi Azure Cosmos veritabanı verileriyle sona | Microsoft Docs
 description: TTL ile Microsoft Azure Cosmos DB sistemden bir süre sonra otomatik olarak temizlenir dosyalarınız olanağı sağlar.
 services: cosmos-db
-documentationcenter: ''
 keywords: yaşam süresi
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615130"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Otomatik olarak süresi ile Azure Cosmos DB koleksiyonlarda verileri süresi dolacak
-Uygulamalar oluşturmak ve çok büyük miktarda veri depolayın. Bu veriler, bazı bilgiler yalnızca sınırlı bir süre için yararlıdır oluşturulan makine olay verileri, günlükler ve kullanıcı oturumu ister. Veri olduktan sonra uygulamanızın gereksinimlerine fazlalık, bu verileri temizlemek ve bir uygulamanın depolama gereksinimlerini azaltmak güvenlidir.
+Uygulamalar oluşturmak ve çok büyük miktarda veri depolayın. Bu veriler, bazı bilgiler yalnızca sınırlı bir süre için yararlıdır oluşturulan makine olay verileri, günlükler ve kullanıcı oturumu ister. Veri olduktan sonra Fazlalık uygulamanızın gereksinimlerine için bu verileri temizlemek ve bir uygulamanın depolama gereksinimlerini azaltmak güvenli.
 
 "Yaşam süresi" veya TTL ile Microsoft Azure Cosmos DB veritabanından bir süre sonra otomatik olarak temizlenir dosyalarınız olanağı sağlar. Varsayılan yaşam süresi koleksiyon düzeyinde ayarlamak ve bir belge başına temelinde geçersiz kılındı. Bir koleksiyonu varsayılan olarak veya bir belge düzeyinde TTL ayarlandıktan sonra Cosmos DB son değiştirildiği olduğundan, bu süre, saniye sonra mevcut belgeleri otomatik olarak kaldırır.
 
-Cosmos DB'de yaşam süresi belgenin en son değiştirildiği bir uzaklık karşı kullanır. Bunu kullandığı yapmak için `_ts` her belge üzerinde var olan alan. Tarih ve saatini temsil eden bir UNIX stili dönem zaman damgası _ts alanıdır. `_ts` Alanı her zaman bir belge değiştirildiğinde güncelleştirilir. 
+Azure Cosmos DB'de yaşam süresi belgenin en son değiştirildiği bir uzaklık karşı kullanır. Bunu kullandığı yapmak için `_ts` her belge üzerinde var. alan. Tarih ve saatini temsil eden bir UNIX stili dönem zaman damgası _ts alanıdır. `_ts` Alanı her zaman bir belge değiştirildiğinde güncelleştirilir. 
 
 ## <a name="ttl-behavior"></a>TTL davranışı
 TTL özelliği, iki düzeyde - koleksiyon düzeyinde ve belge düzeyi TTL özellikleri tarafından denetlenir. Saniye cinsinden ayarlanır ve bir delta olarak kabul edilir. değerler `_ts` belgeyi son değiştirilme saati.
@@ -33,22 +30,22 @@ TTL özelliği, iki düzeyde - koleksiyon düzeyinde ve belge düzeyi TTL özell
 1. Koleksiyon için DefaultTTL
    
    * Eksikse (veya null olarak ayarlanır) belgeleri otomatik olarak silinmez.
-   * Mevcut değer ise "-1" sonsuz – = belgeleri varsayılan olarak süresi yok
-   * Mevcut ve değeri bir numara ("n") – belgelerin süresi dolsun varsa "n" son değişikliğinden sonra saniye
+   * Mevcut ve değeri ayarlanmış ise "-"1 sonsuz – = belgeleri varsayılan olarak süresi yok
+   * Mevcut ve değer olarak ayarlanmış bir numara ("n") – belgelerin süresi dolsun varsa "n" son değişikliğinden sonra saniye
 2. TTL belgeler için: 
    
    * Özelliği, yalnızca DefaultTTL üst koleksiyonu için mevcut olduğunda geçerlidir.
    * Üst koleksiyonun DefaultTTL değerini geçersiz kılar.
 
-Belgenin süresi doldu hemen (`ttl`  +  `_ts` < geçerli sunucu zamanı =), belgenin "süresi"olarak işaretlenmiş. Bu tarihten sonra bu belgeler üzerinde hiçbir işlem izin verilecek ve gerçekleştirilen herhangi bir sorgu sonuçlarından bırakılır. Belgeleri sistemde fiziksel olarak silinir ve arka planda mümkün daha sonra silinir. Bu kullanılmasına neden değil [istek birimlerine (RUs)](request-units.md) koleksiyonu bütçeden.
+Belgenin süresi doldu hemen (`ttl`  +  `_ts` < geçerli sunucu zamanı =), belgenin süresi"."olarak işaretlenmiş Bu tarihten sonra bu belgeler üzerinde hiçbir işlem izin verilecek ve gerçekleştirilen herhangi bir sorgu sonuçlarından bırakılır. Belgeleri sistemde fiziksel olarak silinir ve arka planda mümkün daha sonra silinir. Bu kullanılmasına neden değil [istek birimlerine (RUs)](request-units.md) koleksiyonu bütçeden.
 
 Yukarıdaki mantığı aşağıdaki matrisinde gösterilebilir:
 
 |  | DefaultTTL eksik değil koleksiyonda ayarlayın. | DefaultTTL = -1 koleksiyonu | DefaultTTL koleksiyonunda "n" = |
 | --- |:--- |:--- |:--- |
 | TTL eksik belgesi |Belge ve koleksiyon TTL kavramına sahip olduğundan belge düzeyinde geçersiz kılmak için bir şey yok. |Bu koleksiyonun hiç belgelerde sona erecek. |Bu koleksiyon belgelerde aralığı n sona erdiğinde sona erecek. |
-| TTL belgesinde -1 = |Belge düzeyinde toplamadan beri geçersiz kılmak için hiçbir şey bir belge kılabilirsiniz DefaultTTL özelliği tanımlamıyor. TTL belgesinde sistem tarafından yorumlanan kaydetmeyin. |Bu koleksiyonun hiç belgelerde sona erecek. |TTL =-1'de bu koleksiyonun belgeyle asla sona erecek. Diğer tüm belgeler "n" aralığından sonra sona erecek. |
-| TTL belgesinde n = |Belge düzeyinde geçersiz kılmak için bir şey yok. TTL belgesinde sistem tarafından yorumlanan kaydetmeyin. |TTL belgeyle = n saniye cinsinden aralık n sonra dolacak. Diğer belgeleri -1 aralığı devralır ve süresi dolmayacak. |TTL belgeyle = n saniye cinsinden aralık n sonra dolacak. Diğer belgeler "n" aralığı koleksiyondan devralır. |
+| TTL belgesinde -1 = |Belge düzeyinde toplamadan beri geçersiz kılmak için hiçbir şey bir belge kılabilirsiniz DefaultTTL özelliği tanımlamıyor. TTL belgesinde sistem tarafından yorumlanmayan. |Bu koleksiyonun hiç belgelerde sona erecek. |TTL =-1'de bu koleksiyonun belgeyle asla sona erecek. Diğer tüm belgeler "n" aralığından sonra sona erecek. |
+| TTL belgesinde n = |Belge düzeyinde geçersiz kılmak için bir şey yok. TTL belgesinde sistem tarafından yorumlanmayan. |TTL belgeyle = n saniye cinsinden aralık n sonra dolacak. Diğer belgeleri -1 aralığı devralır ve süresi dolmayacak. |TTL belgeyle = n saniye cinsinden aralık n sonra dolacak. Diğer belgeler "n" aralığı koleksiyondan devralır. |
 
 ## <a name="configuring-ttl"></a>TTL yapılandırma
 Varsayılan olarak, yaşam süresi tüm Cosmos DB koleksiyonlarında ve tüm belgeler üzerinde varsayılan olarak devre dışıdır. TTL ayarlanabilir program aracılığıyla veya Azure Portalı'nda, **ayarları** bölüm koleksiyonu. 
@@ -81,9 +78,9 @@ Bir varsayılan koleksiyon düzeyinde yaşam süresi yapılandırmadı. Bir kole
 
 
 ## <a name="setting-ttl-on-a-document"></a>Bir belge TTL ayarı
-Bir koleksiyonda varsayılan TTL ayarlanmasına ek olarak, bir belge düzeyinde belirli TTL ayarlayabilirsiniz. Bunun yapılması varsayılan koleksiyon değerini geçersiz kılar.
+Bir koleksiyonda varsayılan TTL ayarlamaya ek olarak, bir belge düzeyinde belirli TTL ayarlayabilirsiniz. Bunun yapılması varsayılan koleksiyon değerini geçersiz kılar.
 
-* Bir belgeyi TTL ayarlamak için zaman damgası belgenin son değiştiren sonra belgenin süresi dolacak şekilde saniye cinsinden süre gösteren sıfır olmayan pozitif bir sayı sağlamanız gerekir (`_ts`).
+* Bir belgeyi TTL ayarlamak için zaman damgası belgenin son değiştiren sonra belgenin süresi dolacak şekilde saniye cinsinden süre gösteren sıfır olmayan pozitif bir sayı, sağlamanız gerekir (`_ts`).
 * Bir belge TTL alanı varsa, varsayılan koleksiyon uygulanır.
 * TTL koleksiyon düzeyinde devre dışıysa, TTL koleksiyonda yeniden etkinleştirilene kadar belgeyi TTL alanı yoksayılacak.
 
@@ -150,7 +147,7 @@ TTL bir koleksiyonda tamamen devre dışı bırakın ve koleksiyon DefaultTTL ö
 
 <a id="ttl-and-index-interaction"></a> 
 ## <a name="ttl-and-index-interaction"></a>TTL ve dizin etkileşimi
-Ekleyerek veya değiştirerek bir koleksiyon TTL ayarda temel dizin değiştirir. TTL değeri gelen kapatmak için açık değiştirildiğinde, koleksiyon reindexed. Dizin oluşturma modu tutarlı olduğunda dizin oluşturma ilkesini değişiklikler yaparken, kullanıcıların dizin için bir değişiklik olduğunu fark etmez. Dizin oluşturma modu olduğunda çok yavaş ayarlanır dizini her zaman yakalama ve TTL değeri değiştirdiyseniz, dizini sıfırdan yeniden oluşturulur. TTL değeri değiştirildiğinde ve dizini modu yavaş ayarlanır, dizini yeniden oluşturma sırasında yapılan sorguları tamamlandı ya doğru sonuçlar döndürmeyin.
+Ekleyerek veya değiştirerek bir koleksiyon TTL ayarda temel dizin değiştirir. TTL değeri gelen kapatmak için açık değiştirildiğinde, koleksiyon reindexed. Dizin oluşturma modu tutarlı olduğunda dizin oluşturma ilkesini değişiklikler yaparken, kullanıcıların dizin için bir değişiklik olduğunu fark etmez. Dizin oluşturma modu yavaş ayarlandığında, dizin her zaman yakalama ve TTL değeri değiştirdiyseniz, dizini sıfırdan yeniden oluşturulur. TTL değeri değiştirildiğinde ve dizini modu yavaş ayarlanır, dizini yeniden oluşturma sırasında yapılan sorguları tamamlandı ya doğru sonuçlar döndürmeyin.
 
 Döndürülen verilerin tam gerekiyorsa, dizin oluşturma modu yavaş ayarlandığında TTL değeri değiştirmeyin. İdeal olarak tutarlı dizini tutarlı sorgu sonuçları emin olmak için seçilmelidir. 
 
@@ -169,7 +166,7 @@ Hayır, hiçbir etkisi olacaktır RU masrafları Cosmos DB'de TTL aracılığıy
 
 **TTL özelliği yalnızca tüm belgeler için geçerli veya belgenin özellik değerlerini süresinin dolmasını sağlayabilir mi?**
 
-TTL belgenin tamamına uygulanır. Ardından bir belgeyi yalnızca bir kısmı süresi dolacak şekilde isterseniz, bölümü ana belge için ayrı bir "bağlı" Belge ayıklayın ve ardından TTL ayıklanan bu belgeyi kullanmak önerilir.
+TTL belgenin tamamına uygulanır. Ardından bir belgeyi yalnızca bir kısmı süresi dolacak şekilde isterseniz, bölümü ayrı bir "bağlı" belgeye asıl belgeden ayıklayın ve sonra ayıklanan belge TTL kullanın önerilir.
 
 **TTL özelliği, belirli bir dizin oluşturma gereksinimleri var mı?**
 

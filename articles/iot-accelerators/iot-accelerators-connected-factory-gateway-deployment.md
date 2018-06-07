@@ -1,24 +1,19 @@
 ---
 title: Fabrika bağlı ağ geçidiniz - Azure dağıtma | Microsoft Docs
 description: Nasıl bir ağ geçidi bağlı Fabrika Çözüm Hızlandırıcısı bağlantıyı etkinleştirmek için Windows veya Linux üzerinde dağıtılır.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 829b2031458b78a1046e900dbf37028ac9eb4dc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c2805ddf7627ad520f6cc6585baedc7f5194aad6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626913"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>Windows veya Linux bağlı Fabrika Çözüm Hızlandırıcısı için bir sınır ağ geçidi dağıtma
 
@@ -170,6 +165,6 @@ Bağlı Fabrika Çözüm Hızlandırıcısı için kendi OPC UA sunucuları ekle
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bağlı Fabrika Çözüm Hızlandırıcısı mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika Çözüm Hızlandırıcısı izlenecek](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-sample-walkthrough).
+Bağlı Fabrika Çözüm Hızlandırıcısı mimarisi hakkında daha fazla bilgi için bkz: [bağlı Fabrika Çözüm Hızlandırıcısı izlenecek](iot-accelerators-connected-factory-sample-walkthrough.md).
 
 Hakkında bilgi edinin [OPC yayımcı başvuru uygulaması](https://docs.microsoft.com/azure/iot-suite/iot-suite-connected-factory-publisher).

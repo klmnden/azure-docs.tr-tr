@@ -1,25 +1,19 @@
 ---
 title: Azure IOT SDK'ları anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - ve cihaz uygulamaları ve arka uç uygulamaları oluşturmak için kullanabileceğiniz çeşitli Azure IOT cihaz ve hizmet SDK'lar bağlantılar hakkında bilgi.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: c5c9a497-bb03-4301-be2d-00edfb7d308f
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71d02e3f8bf0757d7ea0622e76b95acda1fefc95
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 31fed4ad1c9a790f771f8943775804976070fc0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633392"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Anlamak ve Azure IOT Hub SDK'ları kullanın
 

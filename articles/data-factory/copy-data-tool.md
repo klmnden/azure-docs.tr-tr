@@ -8,14 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
-ms.openlocfilehash: b82ee060ff3f25e7a92c85114d457ecb349159b3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5180a490a543b6cfc2a8129423f0e663de2e06e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619431"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory kopyalama veri aracı
 Azure veri fabrikası kopya veri aracı kolaylaştırır ve genellikle bir uçtan uca veri tümleştirme senaryosunun bir ilk adım olan bir veri gölü içine veri alma sürecini en iyi duruma getirir.  Zaman kaydeder özellikle Azure Data Factory ilk kez bir veri kaynağından veri alma için kullandığınızda. Bu aracı kullanarak avantajlarından bazıları şunlardır:
@@ -90,7 +91,7 @@ Klasörleri aşağıdaki biçimde giriş varsayın:
 
 Tıklatın **Gözat** için düğmesini **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 02 ->), tıklatıp **Seç**. 2016/03/01/02 metin kutusuna görmeniz gerekir. 
 
-Ardından, Değiştir **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}** , ve **02** ile **{saat}**ve basın **sekmesini** anahtarı. Bu dört değişkenleri biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
+Ardından, Değiştir **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}** , ve **02** ile **{saat}** ve basın **sekmesini** anahtarı. Bu dört değişkenleri biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
 
 ![Filtre dosya veya klasör](./media/copy-data-tool/filter-file-or-folder.png)
 
