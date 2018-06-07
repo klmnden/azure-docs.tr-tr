@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/14/2018
+ms.date: 06/06/2018
 ms.author: alkohli
-ms.openlocfilehash: eb50846bd838597a6f1e9a0b6550595866e05edc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661017"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825076"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure içeri/dışarı aktarma sistem gereksinimleri
 
@@ -79,7 +79,7 @@ Büyük sayıda sürücüsü birden çok iş arasında yayılabilir ve oluşturu
 
 ### <a name="supported-external-usb-adaptors"></a>Desteklenen dış USB bağdaştırıcıları
 
-İç HDD veri kopyalamak için kullanılan dış USB bağdaştırıcıları listesi aşağıda verilmiştir. 
+Ne zaman sabit sürücüler hazırlama ve WAImportExport aracını kullanarak veri kopyalama, (Kapalı--shelp) dış USB bağdaştırıcıları aşağıdaki kullanabilirsiniz: 
 - Anker 68UPSATAA - 02BU
 - Anker 68UPSHHDS-BU
 - Startech SATADOCK22UE

@@ -10,12 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
-ms.openlocfilehash: c110011f3b4c3c677354bc8423c8cd86cca6ac90
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/06/2018
+ms.openlocfilehash: 823f785bf33fd4d227fbdbb0f3c6b5eec914e08c
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808018"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-using-dms"></a>DMS kullanarak Azure SQL veritabanı için SQL Server geçirme
 Azure veritabanı geçiş hizmeti veritabanlarını şirket içi SQL Server örneğine geçirmek için kullanabileceğiniz [Azure SQL veritabanı](https://docs.microsoft.com/en-us/azure/sql-database/). Bu öğreticide, geçiş **Adventureworks2012** SQL Server 2016 (veya üstü) şirket içi örneğine geri yüklenen veritabanı Azure veritabanı geçiş hizmetini kullanarak bir Azure SQL veritabanı.
@@ -53,14 +54,14 @@ Azure SQL veritabanı için bir şirket içi SQL Server örneğinden verileri ge
 2.  Bir proje adı belirtin **kaynak sunucu türünü** metin kutusunda **SQL Server**, **hedef sunucu türü** metin kutusunda **Azure SQL veritabanı**ve ardından **oluşturma** projesi oluşturmak için.
 
     Azure SQL veritabanına geçirme kaynak SQL Server veritabanı değerlendirirken birini veya her ikisini değerlendirme rapor türlerinden birini seçebilirsiniz:
-    - Veritabanı uyumluluğu denetle
-    - Özellik eşliği denetleyin
+    - Veritabanı uyumluluğunu denetleyin
+    - Özellik eşliğini denetle
 
     Her iki rapor türünü varsayılan olarak seçilidir.
 
-4.  Veri geçiş Yardımcısı, üzerinde **seçenekleri** ekran, select **sonraki**.
-5.  Üzerinde **seçin kaynakları** ekranında **bir sunucuya Bağlan** iletişim kutusu, SQL Server'ınızı bağlantı ayrıntılarını girin ve ardından **Bağlan**.
-6.  İçinde **ekleme kaynakları** iletişim kutusunda **AdventureWorks2012**seçin **Ekle**ve ardından **Başlat değerlendirme**.
+3.  Veri geçiş Yardımcısı, üzerinde **seçenekleri** ekran, select **sonraki**.
+4.  Üzerinde **seçin kaynakları** ekranında **bir sunucuya Bağlan** iletişim kutusu, SQL Server'ınızı bağlantı ayrıntılarını girin ve ardından **Bağlan**.
+5.  İçinde **ekleme kaynakları** iletişim kutusunda **AdventureWorks2012**seçin **Ekle**ve ardından **Başlat değerlendirme**.
 
     Değerlendirme tamamlandığında, sonuçları aşağıdaki grafikte gösterildiği gibi görüntüleyin:
 
@@ -71,7 +72,7 @@ Azure SQL veritabanı için bir şirket içi SQL Server örneğinden verileri ge
     - **SQL Server özellik eşliği** Azaltıcı adımlar çaba geçiş projelerinizi planlamanıza yardımcı olması için ve kategorisi öneriler, Azure içinde kullanılabilir alternatif yaklaşımlar kapsamlı bir kümesini sağlar.
     - **Uyumluluk sorunları** kategori tanımlayan kısmen desteklenen veya uyumluluk sorunlarını yansıtır desteklenmeyen özellikler, Azure SQL veritabanına geçirme şirket içi SQL Server veritabanları engelleyebilir. Öneriler de bu sorunları gidermek amacıyla sağlanmıştır.
 
-7.  Belirli seçenekleri belirleyerek geçiş engelleme ve özellik eşliği sorunlarını değerlendirme sonuçlarını gözden geçirin.
+6.  Belirli seçenekleri belirleyerek geçiş engelleme ve özellik eşliği sorunlarını değerlendirme sonuçlarını gözden geçirin.
 
 ## <a name="migrate-the-sample-schema"></a>Örnek şeması geçirme
 Değerlendirmesi ile deneyimliyseniz ve seçili veritabanını Azure SQL veritabanı geçiş için uygun bir aday olduğunu memnun sonra Azure SQL veritabanı için şema geçirmek için veri geçiş Yardımcısı'nı kullanın.
@@ -82,33 +83,33 @@ Değerlendirmesi ile deneyimliyseniz ve seçili veritabanını Azure SQL veritab
 Geçirilecek **AdventureWorks2012** Azure SQL Database, şemaya aşağıdaki adımları gerçekleştirin:
 
 1.  Veri geçiş Yardımcısı'nda, New (+) simgesini seçin ve ardından **proje türü**seçin **geçiş**.
-3.  Bir proje adı belirtin **kaynak sunucu türünü** metin kutusunda **SQL Server**ve ardından **hedef sunucu türü** metin kutusunda **Azure SQL Veritabanı**.
-4.  Altında **geçiş kapsam**seçin **yalnızca şema**.
+2.  Bir proje adı belirtin **kaynak sunucu türünü** metin kutusunda **SQL Server**ve ardından **hedef sunucu türü** metin kutusunda **Azure SQL Veritabanı**.
+3.  Altında **geçiş kapsam**seçin **yalnızca şema**.
 
     Önceki adımları gerçekleştirdikten sonra veri geçiş Yardımcısı arabirimi aşağıdaki grafikte gösterildiği gibi görünmelidir:
     
     ![Veri geçiş Yardımcısı projesi oluşturma](media\tutorial-sql-server-to-azure-sql\dma-create-project.png)
 
-5.  Seçin **oluşturma** projesi oluşturmak için.
-6.  Veri geçiş Yardımcısı'nda, kaynak bağlantı ayrıntılarını seçin, SQL Server için belirtmek **Bağlan**ve ardından **AdventureWorks2012** veritabanı.
+4.  Seçin **oluşturma** projesi oluşturmak için.
+5.  Veri geçiş Yardımcısı'nda, kaynak bağlantı ayrıntılarını seçin, SQL Server için belirtmek **Bağlan**ve ardından **AdventureWorks2012** veritabanı.
 
     ![Veri geçiş Yardımcısı kaynağı bağlantı ayrıntıları](media\tutorial-sql-server-to-azure-sql\dma-source-connect.png)
 
-7.  Seçin **sonraki**altında **hedef sunucuya Bağlan**, Azure SQL veritabanı için hedef bağlantı ayrıntılarını belirt, seçin **Bağlan**ve ardından **AdventureWorksAzure** önceden sağladığınız Azure SQL veritabanında veritabanı.
+6.  Seçin **sonraki**altında **hedef sunucuya Bağlan**, Azure SQL veritabanı için hedef bağlantı ayrıntılarını belirt, seçin **Bağlan**ve ardından **AdventureWorksAzure** önceden sağladığınız Azure SQL veritabanında veritabanı.
 
     ![Veri geçiş Yardımcısı hedef bağlantı ayrıntıları](media\tutorial-sql-server-to-azure-sql\dma-target-connect.png)
 
-8.  Seçin **sonraki** ilerletmek için **nesneleri seçin** üzerinde belirtebilirsiniz şema nesnelerindeki ekran **AdventureWorks2012** Azure'a dağıtılması gerekiyor veritabanı SQL veritabanı.
+7.  Seçin **sonraki** ilerletmek için **nesneleri seçin** üzerinde belirtebilirsiniz şema nesnelerindeki ekran **AdventureWorks2012** Azure'a dağıtılması gerekiyor veritabanı SQL veritabanı.
 
     Varsayılan olarak, tüm nesneler seçilir.
 
     ![SQL komut dosyaları oluşturmak](media\tutorial-sql-server-to-azure-sql\dma-assessment-source.png)
 
-9.  Seçin **oluştur SQL komut dosyası** SQL komut dosyaları oluşturmak ve tüm hatalar için komut dosyalarını gözden geçirin.
+8.  Seçin **oluştur SQL komut dosyası** SQL komut dosyaları oluşturmak ve tüm hatalar için komut dosyalarını gözden geçirin.
 
     ![Şema komut dosyası](media\tutorial-sql-server-to-azure-sql\dma-schema-script.png)
 
-10. Seçin **dağıtma şema** Azure SQL veritabanı için şema dağıtıp şema dağıtıldıktan sonra hedef sunucu herhangi anormallikleri için kontrol edin.
+9.  Seçin **dağıtma şema** Azure SQL veritabanı için şema dağıtıp şema dağıtıldıktan sonra hedef sunucu herhangi anormallikleri için kontrol edin.
 
     ![Şema dağıtma](media\tutorial-sql-server-to-azure-sql\dma-schema-deploy.png)
 
@@ -171,7 +172,7 @@ Hizmet oluşturulduktan sonra Azure portalını bulun, açın ve ardından yeni 
 5.  Seçin **oluşturma** projesi oluşturmak için.
 
 ## <a name="specify-source-details"></a>Kaynak ayrıntıları belirtin
-1. Üzerinde **kaynak ayrıntıları** ekranında, kaynak SQL Server örnek adı için bağlantı ayrıntıları belirtin.
+1. Üzerinde **kaynak ayrıntıları** ekranında, kaynak SQL Server örneği için bağlantı ayrıntıları belirtin.
  
     Bir tam etki alanı adı (FQDN) için kaynak SQL Server örnek adı kullandığınızdan emin olun. DNS ad çözümlemesi mümkün olmadığı durumlar için IP adresini de kullanabilirsiniz.
 
@@ -212,7 +213,7 @@ Hizmet oluşturulduktan sonra Azure portalını bulun, açın ve ardından yeni 
 
     Hedef veritabanı kaynak veritabanının veritabanı adıyla aynı içeriyorsa, Azure DMS hedef veritabanı varsayılan olarak seçer.
 
-    ![Hedef veritabanlarına eşleme](media\tutorial-sql-server-to-azure-sql\dms-map-targets-activity1.png)
+    ![Hedef veritabanlarıyla eşleyin](media\tutorial-sql-server-to-azure-sql\dms-map-targets-activity1.png)
 
 4. Seçin **kaydetmek**, **tabloları seçme** ekranında, listeleyen bir tablo genişletin ve sonra etkilenen alanlarının listesini gözden geçirin.
 
@@ -222,9 +223,9 @@ Hizmet oluşturulduktan sonra Azure portalını bulun, açın ve ardından yeni 
 
 5.  Seçin **kaydetmek**, **geçiş Özet** ekranında **etkinlik adı** metin kutusunda, geçiş etkinliği için bir ad belirtin.
 
-6. Genişletme **doğrulama seçeneği** görüntülemek için bölüm **doğrulama seçeneğini** ekran, belirli şema karşılaştırma, veri tutarlılığı ve sorgu için geçirilen veritabanlarını doğrulanıp doğrulanmayacağını doğruluk.
+6. Genişletme **doğrulama seçeneği** görüntülemek için bölüm **doğrulama seçeneğini** ekranında, geçirilen veritabanları için doğrulanıp doğrulanmayacağını belirtin **Şema karşılaştırma**, **Veri tutarlılığını**, ve **sorgu doğruluk**.
     
-    ![Doğrulama seçeneği](media\tutorial-sql-server-to-azure-sql\dms-configuration1.png)
+    ![Doğrulama seçeneğini belirleyin](media\tutorial-sql-server-to-azure-sql\dms-configuration1.png)
 
 6.  Seçin **kaydetmek**, kaynak ve hedef ayrıntıları ne daha önce belirttiğiniz eşleştiğinden emin olmak için özeti gözden geçirin.
 
@@ -237,13 +238,13 @@ Hizmet oluşturulduktan sonra Azure portalını bulun, açın ve ardından yeni 
     ![Etkinlik Durumu](media\tutorial-sql-server-to-azure-sql\dms-activity-status1.png)
 
 ## <a name="monitor-the-migration"></a>Geçiş izleme
-1. Geçiş etkinliği ekranında seçin **yenileme** , görene kadar görüntü güncelleştirmek için **durum** geçirilmesi gösterildiğinden **tamamlandı**.
+1. Geçiş etkinliği ekranında seçin **yenileme** kadar görüntü güncelleştirmek için **durum** geçişini gösterildiğinden **tamamlandı**.
 
     ![Etkinlik durumunu tamamlandı](media\tutorial-sql-server-to-azure-sql\dms-completed-activity1.png)
 
 2. Geçiş tamamlandıktan sonra Seç **karşıdan rapor** geçiş işlemle ilişkili ayrıntıları listeleyen bir rapor almak için.
 
-3. Hedef Azure SQL veritabanında hedef veritabanlarının doğrulayın.
+3. Hedef Azure SQL veritabanı sunucusunda hedef veritabanlarının doğrulayın.
 
 ### <a name="additional-resources"></a>Ek kaynaklar
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: fdb3ebe3820191a642c4503851b04dd5fc5e6048
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: bb532f5e249947534ba44a41edfadac22ef9e217
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824923"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme  
 
@@ -39,7 +40,7 @@ Uyarı kullanan terimi **günlük uyarıları** sinyal dayalı özel sorgu oldu�
 
 Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
 
-## <a name="create-an-alert-rule-with-the-azure-portal"></a>Azure portalıyla bir uyarı kuralı oluşturma
+## <a name="create-an-alert-rule-with-the-azure-portal"></a>Azure Portal ile bir uyarı kuralı oluşturma
 1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları**.  
     ![İzleme](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
 
@@ -50,7 +51,7 @@ Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
 
     ![Kural oluşturma](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
 
-4.  Uyarı koşulu kullanarak tanımlayın **Select Resource** bağlantı ve bir kaynak seçerek hedef belirleme. Belirleyerek Filtre *abonelik* , *kaynak türü* , ve son olarak seçilmesi gereken *kaynak*.
+4.  Uyarı koşulu kullanarak tanımlayın **Select Resource** bağlantı ve bir kaynak seçerek hedef belirleme. Filtre seçerek * abonelik, * kaynak türü ve son olarak seçerek gerekli *kaynak*.
 
     >[!NOTE]
 
@@ -67,9 +68,9 @@ Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
 
     > Etkinlik günlüğü uyarıları da desteklenir, ancak önizlemede. [Daha fazla bilgi edinin](monitoring-activity-log-alerts-new-experience.md).
 
-5. *Ölçüm uyarıları* : olun **kaynak türü** sinyal türü ile seçilen **ölçüm**, sonra bir kez uygun **kaynak** tıklatın seçilen  *Bitti* oluşturma uyarısı dönmek için düğmesini. Sonraki kullanmak **ölçüt eklemek** daha önce seçilen kaynak için kullanılabilir olan belirli sinyal sinyal seçenekleri, izleme hizmeti ve listelenen - türü listesinden seçmek için düğmesi.
+5. * Ölçüm uyarıları: Olun **kaynak türü** sinyal türü ile seçilen **ölçüm**, sonra bir kez uygun **kaynak** tıklatın seçilen *Bitti*oluşturma uyarısı dönmek için düğmesini. Sonraki kullanmak **ölçüt eklemek** daha önce seçilen kaynak için kullanılabilir olan belirli sinyal sinyal seçenekleri, izleme hizmeti ve listelenen - türü listesinden seçmek için düğmesi.
 
-    ![Kaynak seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
+    ![Bir kaynak seçin](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 
     > [!NOTE]
 
@@ -83,9 +84,9 @@ Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
 
     a. Bir süresini seçin **geçmişini göster** farklı bir zaman aralığında görselleştirmek için açılır. Bir zaman serisinin filtrelemek desteklenen ölçümler için Boyutlar seçebilirsiniz; Boyutları seçme isteğe bağlıdır ve yukarı-için beş boyutlar kullanılabilir. 
 
-    b. **Uyarı mantığı** gösterilen seçenekler arasından seçili *koşulu*, *toplama* ve *eşik*. Önizleme sağlanan mantığı geçmişte uyarının belirten koşul görselleştirme sinyal geçmişi birlikte gösterilir. 
+    b. **Uyarı mantığı** gösterilen seçenekler arasından seçili *koşulu*, * toplama ve *eşik*. Önizleme sağlanan mantığı geçmişte uyarının belirten koşul görselleştirme sinyal geçmişi birlikte gösterilir. 
 
-    c. Süre değeri belirtmek için seçtiğiniz **süresi** seçerek uyarı birlikte ne sıklıkla çalışmalı **sıklığı**.
+    c. Süreyi belirtmek için **süresi** seçerek uyarı birlikte ne sıklıkla çalışmalı **sıklığı**.
 
     ![Çok boyutlu ölçüm için sinyal mantığını yapılandırın](./media/monitor-alerts-unified/AlertsPreviewCriteriaMultiDim.png)
 
@@ -125,14 +126,20 @@ Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
 
         ![Günlük uyarılar için uyarıları bastırma](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
 
+        > [!TIP]
+        > Bildirimleri çakışma durdurulduğundan emin olmak için uyarı sıklığını büyük bastır bir uyarı değeri belirtin
+
 12. Üçüncü ve son adımı belirttiğiniz varsa **eylem grubu** Uyarı koşulu karşılandığında için uyarı kuralı tetiklenmesi gerekiyor. Varolan bir eylem grubu uyarı ile seçin veya yeni bir eylem grubu oluşturun. Uyarı tetikleyici Azure olur olduğunda göre eylem, seçili grubu: email(s) göndermek, SMS(s) göndermek, Webhook(s) çağrısı, Azure runbook'ları, anında iletme ITSM aracı, vb. kullanarak düzeltin. Daha fazla bilgi edinmek [Eylem grupları](monitoring-action-groups.md).
 
     İçin **günlük uyarıları** varsayılan eylemleri geçersiz kılmak bazı ek işlevler kullanılabilir:
 
-    - **E-posta bildirimi**: geçersiz kılmaları *e-posta konusu* konusu eylemi grubunda bir veya daha fazla e-posta eylem varsa eylemi grubu; gönderilen e-posta. Posta gövdesini değiştirilemez ve bu alan **değil** e-posta adresi.
-    - **Özel Json yükünü dahil et**: bir veya daha fazla Web kancası eylem konusu eylemi grubunda mevcut; eylem grubu tarafından kullanılan JSON Web kancası geçersiz kılar. Kullanıcı ilişkili eylem grubunda yapılandırılmış tüm Web kancası için kullanılacak JSON specificy biçimlerinin olabilir; Web kancası biçimleri hakkında daha fazla bilgi için bkz: [günlük uyarılar için Web kancası eylem](monitor-alerts-unified-log-webhook.md). Test Web kancası seçeneği biçimi ve örnek JSON kullanarak hedef işlemesi denetlemek için sağlanır ve etiketli bu seçenek yalnızca amacı **sınama** amaçlar.
+    - **E-posta bildirimi**: geçersiz kılmaları *e-posta konusu* eylem grubu; bir veya daha fazla e-posta Eylemler konusu eylemi grubunda varsa gönderilen e-posta. Posta gövdesini değiştirilemez ve bu alan **değil** e-posta adresi.
+    - **Özel Json yükünü dahil et**: bir veya daha fazla Web kancası eylemleri konusu eylemi grubunda mevcut; eylem grubu tarafından kullanılan JSON Web kancası geçersiz kılar. Kullanıcı ilişkili eylem grubunda yapılandırılmış tüm Web kancası için kullanılacak JSON biçimi belirtebilirsiniz; Web kancası biçimleri hakkında daha fazla bilgi için bkz: [günlük uyarılar için Web kancası eylem](monitor-alerts-unified-log-webhook.md). Test Web kancası seçeneği biçimi ve örnek JSON kullanarak hedef işlemesi denetlemek için sağlanır ve etiketli bu seçenek yalnızca amacı **sınama** amaçlar.
 
         ![Günlük uyarılar için eylem geçersiz kılmaları](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+
+        > [!NOTE]
+        > İçin **Test Web kancası** çalışmaya seçeneği, endpoint desteklemelidir [arası kaynak kaynak paylaşımı (CORS)](https://www.w3.org/TR/cors/) ve kullanıcının "Access-Control-Allow-Origin üst bilgisi" sorunlar almak için CORS proxy kullanabilir
 
 13. Tüm alanlar geçerliyse ve yeşil onay **uyarı kuralı oluştur** düğmesini ve bir uyarı Azure İzleyicisi - uyarılar oluşturulur. Tüm uyarıları uyarılar Panosu görüntülenebilir.
 
@@ -151,7 +158,7 @@ Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
 4. Tüm Mazotlu uyarıların bir listesi, kullanıcının ayrıntılarını görüntülemek için tıklatabileceği gösterilir
 5. Bulma özel uyarıları kuruluşlara yardımcı olmaktayız; bir kullanabileceğiniz üstteki açılan seçenekleri belirli filtreleme için *abonelik, kaynak grubu ve/veya kaynak*. Herhangi bir çözümlenmemiş uyarı için bir kullanım başka *filtre uyarı* seçeneği bulmak için sağlanan anahtar - belirli eşleşen uyarılarla *adı, Uyarı ölçütleri, kaynak grubu ve hedef kaynak*
 
-## <a name="managing-your-alerts-in-azure-portal"></a>Azure portalında, Uyarıları yönetme
+## <a name="managing-your-alerts-in-azure-portal"></a>Azure Portalı'nda, Uyarıları yönetme
 1. İçinde [portal](https://portal.azure.com/)seçin **İzleyici** ve izleme bölümü altında - **uyarıları**.  
 2. Seçin **yönetmek kuralları** düğmesini oluşturulan tüm uyarı kuralları burada listelenen kural Yönetimi bölümüne - gitmek için üst çubukta; devre dışı bırakılmış uyarıları dahil olmak üzere.
 3. Belirli uyarı kuralları için bulmak için bir ya da aşağı açılan filtreleri shortlist uyarı kuralları için özel izin üstteki kullanabilirsiniz *abonelik, kaynak grupları ve/veya kaynak*. Uyarı kuralı listesinin bölmesi arama'yı kullanarak alternatif olarak işaretlenmiş *filtre uyarıları*, bir karşı eşleşen anahtar sözcüğü sağlayabilir *uyarı adı, koşul ve hedef kaynak*; yalnızca görüntülemek için eşleştirme kuralları.

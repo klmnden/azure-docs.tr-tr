@@ -9,15 +9,16 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 6d107b9264a80c7b280ffed9a50b7bb0ffe354be
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809269"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümü için uygun kimlik doğrulama yöntemini seçin 
 
-Bu makalede, bir dizi tam Azure Active Directory (Azure AD) karma kimlik çözümü uygulamak kuruluşların Yardım makaleleri başlar. Bu çözüm, karma kimlik sayısal dönüşüm Framework özetlenen. İşletme sonuçlarını kapsayan ve hedefleri kuruluşlar güçlü ve Güvenli Karma kimlik çözümü uygulamak için üzerinde odaklanabilirsiniz. 
+Bu makalede, bir dizi tam Azure Active Directory (Azure AD) karma kimlik çözümü uygulamak kuruluşların Yardım makaleleri başlar. Bu çözüm olarak ana hatlarıyla [karma kimlik sayısal dönüşüm Framework](https://aka.ms/aadframework). İşletme sonuçlarını kapsayan ve hedefleri kuruluşlar güçlü ve Güvenli Karma kimlik çözümü uygulamak için üzerinde odaklanabilirsiniz. 
 
 Framework'ün ilk iş sonucu harfe dönüştüren kullanıcılar bulut uygulamalarını eriştiklerinde kimlik doğrulama işlemi güvenliğini sağlamak kuruluşlar için gereksinimleri çıkışı. İlk iş kimlik doğrulaması güvenli iş sonucu, kullanıcıların uygulamaları kendi şirket içi kullanıcı adlarını ve parolaları kullanarak bulut oturum açmak yeteneğini hedeftir. Bu oturum açma işlemi için ve nasıl kullanıcıların kimlik doğrulaması her şeyi bulutta mümkün kılar.
 
@@ -166,7 +167,7 @@ Aşağıdaki diyagramlarda, Azure AD karma kimlik çözümü ile kullandığın�
 |Çok faktörlü kimlik doğrulama seçenekleri nelerdir?|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Azure MFA sunucusu](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Üçüncü taraf MFA](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |Hangi kullanıcı hesabı durumları destekleniyor mu?|Devre dışı bırakılan hesapları<br>(en fazla 30 dakikalık gecikme)|Devre dışı bırakılan hesapları<br><br>Hesap Kilitlendi<br><br>Parolanın süresi dolsun<br><br>Oturum açma saatleri|Devre dışı bırakılan hesapları<br><br>Hesap Kilitlendi<br><br>Parolanın süresi dolsun<br><br>Oturum açma saatleri|
 |Koşullu erişim seçenekleri nelerdir?|[Azure AD koşullu erişim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD koşullu erişim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)|[Azure AD koşullu erişim](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS talep kuralları](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
-|Desteklenen eski protokolleri engelliyor?|Hayır|Hayır|[Evet](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
+|Desteklenen eski protokolleri engelliyor?|[Evet](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Evet](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Evet](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Logosu, resmi ve oturum açma sayfalarındaki açıklama özelleştirebilir miyim?|[Evet, Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Evet, Azure AD Premium](https://docs.microsoft.com/en-us/azure/active-directory/customize-branding)|[Evet](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |Hangi Gelişmiş senaryolar desteklenir?|[Akıllı parola kilitleme](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-secure-passwords)<br><br>[Kimlik bilgileri raporları sızmasını](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-risk-events)|[Akıllı parola kilitleme](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Çok siteli düşük gecikme süreli kimlik doğrulama sistemi<br><br>[AD FS extranet kilitleme](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Üçüncü taraf kimlik sistemleriyle tümleştirme](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 

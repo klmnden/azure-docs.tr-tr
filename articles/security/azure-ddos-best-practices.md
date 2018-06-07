@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824719"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS koruması: en iyi yöntemler ve mimarileri başvuru
 
@@ -291,18 +292,9 @@ Bu mimaride, internet'ten Hdınsight kümesine hedefleyen trafiğe Hdınsight a�
 
 Bu başvuru mimarisi hakkında daha fazla bilgi için bkz: [genişletmek Azure bir Azure sanal ağı kullanarak Hdınsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) belgeleri.
 
-### <a name="azure-api-management"></a>Azure API Management
-
-Bu başvuru mimarisinin ortak uç noktası korur [Azure API Management](../api-management/api-management-key-concepts.md) kaynak kuruluş dışında müşterilere API'leri yayımlama. API Management DDoS koruması etkinleştirmek için bir dış sanal ağ içinde dağıtın.
-
-![API Management başvuru mimarisi diyagramı](media/azure-ddos-best-practices/image15.png)
-
-Dış sanal ağı yapılandırırken, API Management ağ geçidi ve Geliştirici Portalı bir genel yük dengeleyiciye aracılığıyla ortak Internet üzerinden erişilebilir. Bu mimaride DDoS koruması standart dış sanal ağ için API yönetimi etkin. Trafik, internet'ten Katman 3 ve 4 ağ saldırılarına karşı korumalı API Management genel IP adresine yönlendirilir. Katman 7 HTTP/HTTPS saldırılarına karşı korumak için uygulama ağ geçidi WAF modda yapılandırabilirsiniz.
-
-Bir sanal ağ içinde dağıtılmıştır ve DDoS koruması standart için yapılandırılabilir ek hizmetler listesi için bkz: [bu makalede](../virtual-network/virtual-network-for-azure-services.md). DDoS koruması standart yalnızca Azure Resource Manager kaynakları destekler. 
 
 > [!NOTE]
-> Eklenen dağıtımda uygulama hizmeti ortamı PowerApps için genel IP ile bir sanal ağ yerel olarak desteklenmez. Uygulama hizmeti ortamı koruma hakkında daha fazla bilgi için bu bölümüne bakın.
+> Azure uygulama hizmeti ortamı için bir sanal ağ PowerApps veya API Management'te genel IP ile yerel olarak desteklenir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

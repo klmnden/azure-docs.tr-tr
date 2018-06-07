@@ -13,10 +13,11 @@ ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
 ms.openlocfilehash: 45a0cf104df6d29515ed1a94c78c8cc1e42a2223
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808327"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Ayrıcalıklı erişim karma ve bulut dağıtımları için Azure AD'de güvenliğini sağlama
 
@@ -368,7 +369,7 @@ Planınıza artırmak için Microsoft, düzenli olarak planınız beklendiği gi
 
 ## <a name="break-glass-what-to-do-in-an-emergency"></a>"Acil Durum": acil durumlarda yapmanız gerekenler
 
-![Acil Durum](./media/admin-roles-best-practices/emergency.jpeg)
+![Acil durum](./media/admin-roles-best-practices/emergency.jpeg)
 
 1. Anahtar yöneticileri ve güvenlik görevlileri olayı ile ilgili bilgileri ile bildirin.
 

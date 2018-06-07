@@ -2,22 +2,20 @@
 title: Azure depolama tablo Tasarım Kılavuzu | Microsoft Docs
 description: Tasarım ölçeklenebilir ve kullanıcı tablolarında Azure tablo depolaması
 services: cosmos-db
-documentationcenter: na
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: cosmos-db
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 667fef855238b2524c05bbc2f137d466c0e56de8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4f3cafd80c713697a8b8fdde56c021be1c5319fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824596"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure depolama tablo Tasarım Kılavuzu: Ölçeklenebilir tasarlama ve kullanıcı tabloları
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -525,7 +523,7 @@ Sonuçta tutarlı davranışı, Azure sıraları kullanarak bölüm sınırları
 #### <a name="context-and-problem"></a>Bağlam ve sorun
 EGTs atomik işlemleri aynı bölüm anahtarına paylaşan birden çok varlık arasında etkinleştirin. Performans ve ölçeklenebilirlik için ayrı bölümlere veya ayrı bir depolama sistemi tutarlılık gereksinimlerin varlıkları depolamak karar verebilirsiniz: Böyle bir senaryoda EGTs tutarlılığını korumak için kullanamazsınız. Örneğin, arasında nihai tutarlılık sağlamak için bir zorunluluk olabilir:  
 
-* Varlık aynı tablodaki farklı tablolar, iki farklı bölümlere farklı depolama hesaplarında depolanır.  
+* İki farklı bölüm aynı tabloda, farklı tablolara veya farklı depolama hesapları depolanan varlıklar.  
 * Tablo hizmetinde depolanan bir varlık ve Blob hizmetinde depolanan bir blob.  
 * Tablo hizmeti ve bir dosya bir dosya sisteminde depolanan bir varlık.  
 * Tablo hizmeti varlık deposunda henüz Azure Search hizmeti kullanarak dizin.  
@@ -720,7 +718,7 @@ Bu düzeni uygularken aşağıdaki düzenler ve yönergeler de yararlı olabilir
 Alma *n* kullanılarak bir bölüm için en son eklenen varlıklar bir **RowKey** ters tarihi ve saati sipariş sıralar değeri.  
 
 #### <a name="context-and-problem"></a>Bağlam ve sorun
-Ortak bir gereksinim en son oluşturulan varlıkları alabilir, örneğin on en son çalışan tarafından gönderilen talepleri gider. Tablo sorguları destek bir **$top** sorgu işleminin ilk döndürmesi için *n* bir kümesindeki varlıkların: kümesindeki son n varlıkları döndürme eşdeğer sorgu işlem yok.  
+Ortak bir gereksinim en son oluşturulan varlıkları almak için örneğin on en son çalışan tarafından gönderilen talepleri gider. Tablo sorguları destek bir **$top** sorgu işleminin ilk döndürmesi için *n* bir kümesindeki varlıkların: kümesindeki son n varlıkları döndürme eşdeğer sorgu işlem yok.  
 
 #### <a name="solution"></a>Çözüm
 Kullanarak varlıkları depolayan bir **RowKey** doğal sıralar böylece en son giriş kullanarak geri tarih olduğunu her zaman Birinci tablodaki.  
@@ -1061,7 +1059,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 #### <a name="server-side-projection"></a>Sunucu tarafı projeksiyonu
-Tek bir varlık, en fazla 255 özelliklere sahip ve en çok 1 MB boyutunda olmalıdır. Tabloyu sorgulamak ve varlıkları almak, tüm özellikler gerekli değildir ve gereksiz yere (gecikme süresi ve maliyetini azaltmaya yardımcı olmak üzere) veri aktarımı önleyebilirsiniz. Sunucu tarafı projeksiyon gereksinim özellikleri aktarmak için kullanabilirsiniz. Aşağıdaki örnek alır olduğundan yalnızca **e-posta** özelliği (ile birlikte **PartitionKey**, **RowKey**, **zaman damgası**, ve **ETag**) sorgu tarafından seçilen gelen.  
+Tek bir varlık, en fazla 255 özelliklere sahip ve en çok 1 MB boyutunda olmalıdır. Tabloyu sorgulamak ve varlıkları almak, tüm özellikler gerekli değildir ve gereksiz yere (gecikme süresi ve maliyetini azaltmaya yardımcı olmak üzere) veri aktarımı önleyebilirsiniz. Sunucu tarafı projeksiyon gereksinim özellikleri aktarmak için kullanabilirsiniz. Aşağıdaki örnekte yalnızca alır **e-posta** özelliği (ile birlikte **PartitionKey**, **RowKey**, **zaman damgası**ve **ETag**) gelen sorgu tarafından seçilen varlıklar.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition(

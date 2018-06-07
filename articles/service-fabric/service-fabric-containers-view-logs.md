@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824620"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Service Fabric kapsayıcı Hizmeti günlüklerini görüntüle
 Azure Service Fabric bir kapsayıcı orchestrator ve her ikisi de destekler [Linux ve Windows kapsayıcıları](service-fabric-containers-overview.md).  Bu makalede, tanılama ve sorun giderme için çalışan bir kapsayıcı hizmeti veya çalışmayan bir kapsayıcı kapsayıcı günlüklerini görünümü açıklar.
@@ -34,6 +35,14 @@ Kod paketi bulunamadı ağaç görünümünde *_lnxvm_0* genişleterek düğüm�
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>Ölü veya çöken bir kapsayıcı günlüklerine erişim
 İçinde v6.2 başlayarak, ölü veya çöken bir kapsayıcı kullanılarak için günlükleri de getirebilirsiniz [REST API'leri](/rest/api/servicefabric/sfclient-index) veya [Service Fabric CLI (SFCTL)](service-fabric-cli.md) komutları.
+
+### <a name="set-container-retention-policy"></a>Kapsayıcı bekletme ilkesi ayarlama
+Service Fabric (6.1 veya üzeri sürümler), kapsayıcı başlatma hatalarının tanılanmasına yardımcı olmak için sonlandırılan veya başlatılamayan kapsayıcıların bekletilmesini destekler. Bu ilke, aşağıdaki kod parçacığında gösterildiği gibi **ApplicationManifest.xml** dosyasında ayarlanabilir:
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+**ContainersRetentionCount** ayarı, başarısız olduğunda bekletilecek kapsayıcı sayısını belirtir. Negatif bir değer belirtilirse başarısız olan tüm kapsayıcılar bekletilir. Zaman **ContainersRetentionCount** özniteliği belirtilmezse, kapsayıcı yok korunur. **ContainersRetentionCount** özniteliği, kullanıcıların test ve üretim kümeleri için farklı değerler belirtebilmesi amacıyla Uygulama Parametrelerini destekler. Kapsayıcı hizmetinin diğer düğümlere taşınmasını önlemek için bu özellikler kullanılırken kapsayıcı hizmetinin belirli bir düğümü hedeflemesini sağlamak için yerleştirme kısıtlamaları kullanın. Bu özellik kullanılarak bekletilen tüm kapsayıcılar el ile kaldırılmalıdır.
 
 ### <a name="rest"></a>REST
 Kullanım [düğümü kapsayıcı günlükleri dağıtılan almak](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) çöken kapsayıcısı günlüklerini alma işlemi. Kapsayıcı çalıştığı düğümün adını, uygulama adı, hizmet bildirim adını ve kod paket adı belirtin.  Belirtin `&Previous=true`. Yanıt kodu paket örneğinin ölü kapsayıcısı için kapsayıcı günlükleri içerir.

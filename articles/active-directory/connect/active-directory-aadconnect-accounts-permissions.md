@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bde8e68eeb63e76a0dde40a09eededde8a545a83
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595096"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824277"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Hesapları ve izinleri
 Azure AD Connect Yükleme Sihirbazı'nı iki farklı yollarını sunar:
@@ -187,9 +187,9 @@ Hesabın ayrıca dosyaları, kayıt defteri anahtarları ve eşitleme altyapıs�
 ### <a name="azure-ad-service-account"></a>Azure AD hizmet hesabı
 Bir hesap Azure AD'de eşitleme hizmetinin kullanım için oluşturulur. Bu hesap, görünen ada göre tanımlanabilir.
 
-![AD hesabı](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD hesabı](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-Hesap kullanılır sunucunun adını, kullanıcı adı ikinci bölümünde tanımlanabilir. Aşağıdaki resimde, FABRIKAMCON sunucu adıdır. Sunucuları hazırlama varsa, her sunucu, kendi hesabı vardır.
+Hesap kullanılır sunucunun adını, kullanıcı adı ikinci bölümünde tanımlanabilir. Aşağıdaki resimde, sunucu adı DC1 ' dir. Sunucuları hazırlama varsa, her sunucu, kendi hesabı vardır.
 
 Hizmet hesabı dolmayan uzun karmaşık bir parola ile oluşturulur. Özel bir rol verilen **Directory eşitleme hesapları** dizin eşitleme görevleri gerçekleştirmek için yalnızca izinlere sahiptir. Bu özel yerleşik rol dışında Azure AD Connect Sihirbazı verilemez. Azure portalında rol bu hesapla gösterir **kullanıcı**.
 

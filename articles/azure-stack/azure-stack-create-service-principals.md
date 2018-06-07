@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2018
 ms.author: mabrigg
-ms.openlocfilehash: c2e18f30e55007a0625a19258ec3745f64dc25da
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824579"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Azure yığın uygulama erişim sağlamak
+# <a name="provide-applications-access-to-azure-stack"></a>Uygulamalara Azure Stack erişimi sağlama
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
@@ -29,7 +30,7 @@ Bir uygulama dağıtmak veya Azure yığınında kaynakları aracılığıyla Az
 
 Hizmet sorumluları çünkü uygulama kendi kimlik bilgileri altında çalışırken için tercih edilir:
 
-* Hizmet sorumlusu kendi hesap izinlerini farklı olan izinleri atayabilirsiniz. Genellikle, bu izinleri tam olarak hangi uygulama yapması gereken için kısıtlanır.
+* Hizmet sorumlusu kendi hesap izinlerini farklı olan izinleri atayabilirsiniz. Normalde, bu izinler tam olarak uygulamaya gereken izinlerle sınırlı olur.
 * Sizin Sorumluluklarınız uygulamanın kimlik bilgilerini değiştirirseniz gerekmez.
 * Katılımsız betik yürütülürken kimlik doğrulaması otomatikleştirmek için bir sertifika kullanabilirsiniz.  
 
@@ -50,7 +51,7 @@ Bu bölümde, uygulamanızın temsil eden Azure AD'de uygulama (hizmet sorumlusu
 
 Uygulamanız için bir hizmet sorumlusu oluşturdunuz.
 
-### <a name="get-credentials"></a>Kimlik bilgilerini alma
+### <a name="get-credentials"></a>Kimlik bilgilerini al
 Program aracılığıyla oturum açarken kimliği uygulamanız için ve bir Web uygulaması için kullandığınız / API, bir kimlik doğrulama anahtarı. Bu değerleri almak için aşağıdaki adımları kullanın:
 
 1. Gelen **uygulama kayıtlar** Active Directory'de uygulamanızı seçin.
@@ -75,8 +76,8 @@ AD FS ile Azure yığın dağıttıysanız, bir hizmet sorumlusu oluşturma, eri
 Komut dosyası ayrıcalıklı uç noktasından bir ERCS sanal makinede çalıştırılır.
 
 
-Gereksinimleri:
-- Sertifikalı bir gereklidir.
+Gereksinimler:
+- Bir sertifika gereklidir.
 
 **Parametreler**
 

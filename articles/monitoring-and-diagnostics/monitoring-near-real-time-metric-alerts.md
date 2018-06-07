@@ -1,5 +1,5 @@
 ---
-title: Azure İzleyicisi'nde yeni ölçüm uyarıları desteklenen kaynakları | Microsoft Docs
+title: Kaynaklar için daha yeni Azure izleme ölçüm uyarıları desteklenen | Microsoft Docs
 description: Başvuru destek ölçümleri ve daha yeni Azure yakın gerçek zamanlı ölçüm uyarılar için günlükleri.
 author: snehithm
 manager: kmadnani1
@@ -15,24 +15,15 @@ ms.topic: article
 ms.date: 04/27/2018
 ms.author: snmuvva, vinagara
 ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809837"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure portalında Azure Hizmetleri için yeni ölçüm uyarıları
-Azure İzleyici artık yeni bir ölçüm uyarı türü destekler. Yeni uyarılar farklı [Klasik ölçüm uyarıları](insights-alerts-portal.md) birkaç şekilde:
-
-- **Geliştirilmiş gecikme**: yeni ölçüm uyarıları dakikada bir kadar sık çalıştırılabilir. Eski ölçüm uyarıları olan 5 dakikada bir sıklığında her zaman çalışır. Günlük uyarı çözümlenmedi bir uzun 1'den gecikme süresi nedeniyle günlüklerini alma kadar süreceğine dakikadır. 
-- **Çok boyutlu ölçümleri desteği**: yalnızca bir izlemenizi sağlayan boyutlu ölçülerine uyarabilir ölçümün ilginç bir kesimi. 
-- **Ölçüm koşullar hakkında daha fazla denetime**: daha zengin uyarı kurallarını tanımlayabilirsiniz. Yeni uyarılar ölçümleri maksimum, minimum, ortalama ve toplam değerler izlemeyi destekler. 
-- **Birden çok ölçümlerini izleme birleştirilmiş**: tek bir kural ile birden çok ölçümleri (şu anda en fazla iki ölçümleri) izleyebilirsiniz. Her iki ölçümleri, belirtilen zaman aralığı için kendi ilgili eşiklerini ihlal varsa bir uyarı tetiklenir. 
-- **Daha iyi bildirim sistemi**: tüm yeni Uyarıları kullanmak [Eylem grupları](monitoring-action-groups.md), bildirimler ve birden çok uyarıları yeniden kullanılabilir eylemler grupları denir. Klasik ölçüm uyarıları ve eski günlük analizi uyarıları Eylem grupları kullanmayın. 
-- **Ölçümleri günlüklerinden** (sınırlı genel Önizleme): günlük analizi giderek veri için şimdi günlük ayıklanan ve Azure İzleyici ölçümleri dönüştürülür ve ardından yalnızca diğer ölçümleri gibi uyarı. 
-
-Azure portalında yeni bir ölçüm uyarı oluşturmayı öğrenmek için bkz: [Azure portalında bir uyarı kuralı oluşturma](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal). Oluşturulduktan sonra uyarı açıklanan adımları kullanarak yönetebileceğiniz [uyarılarınızı Azure portalında yönetmek](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal).
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Yeni ölçüm uyarılar için desteklenen ölçümleri ve oluşturma yöntemleri
+Azure İzleyici destekler bir [yeni ölçüm uyarı türü](monitoring-overview-unified-alerts.md) olan önemli avantajlar eski [Klasik ölçüm uyarıları](insights-alerts-portal.md). Eski uyarıların destekleyen bir [ölçümleri büyük listesini](monitoring-supported-metrics.md). Yeni uyarılar, daha büyük listesinin (büyüyen) bir alt kümesini destekler. Bu makalede, bu alt listelenmektedir. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portal, destek PowerShell'i, CLI, REST
 Şu anda yalnızca Azure portalında yeni ölçüm uyarılar oluşturabilirsiniz [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) veya [Resource Manager şablonları](monitoring-create-metric-alerts-with-templates.md). PowerShell kullanarak yeni uyarıları yapılandırmak için destek ve Azure komut satırı arabirimi (Azure CLI 2.0) yakında çıkıyor.

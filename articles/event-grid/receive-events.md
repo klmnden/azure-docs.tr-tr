@@ -8,11 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 89d0f11ccfb9a359ca3e43bc1a370e0fb7514574
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 3f55abf9be382a040d7b5d4111ec689929b36918
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823478"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP uç noktasına olayları alma
 
@@ -36,7 +37,7 @@ Azure işlevinizi (sağ çoğu Azure işlevleri portalındaki bölmesinde) yer a
   "frameworks": {
     "net46":{
       "dependencies": {
-        "Microsoft.Azure.EventGrid": "1.1.0-preview"
+        "Microsoft.Azure.EventGrid": "1.3.0"
       }
     }
    }
@@ -49,9 +50,9 @@ Azure işlevinizi (sağ çoğu Azure işlevleri portalındaki bölmesinde) yer a
 
 İşlemek istediğiniz yapmak için ilk şey. `Microsoft.EventGrid.SubscriptionValidationEvent` olaylar. Her biri bir olaya abone olduğunda, olay kılavuz doğrulama olayı ile uç noktasına gönderir. bir `validationCode` veri yükte. Bu geri yanıt gövdesi içinde Yankı için uç nokta gereklidir [uç nokta geçerli olduğundan ve sizin tarafınızdan ait kanıtlamak](security-authentication.md#webhook-event-delivery). Kullanıyorsanız bir [olay kılavuz tetikleyicisi](../azure-functions/functions-bindings-event-grid.md) işlevi bir Web kancası tetiklenen yerine bitiş noktası doğrulama sizin için işlenir. Bir üçüncü taraf API hizmeti kullanıyorsanız (gibi [Zapier](https://zapier.com) veya [IFTTT](https://ifttt.com/)), program aracılığıyla doğrulama kodu echo mümkün olmayabilir. Bu hizmetler için aboneliği abonelik doğrulama olayı gönderilen doğrulama URL'yi kullanarak el ile doğrulayabilir. Bu URL'yi kopyalayın `validationUrl` özelliği ve gönderme bir GET isteği REST istemcisi ya da web tarayıcınızı yoluyla.
 
-El ile doğrulama önizlemede değil. Kullanmak için bunu yüklemeniz [olay kılavuz uzantısı](/cli/azure/azure-cli-extensions-list) için [AZ CLI 2.0](/cli/azure/install-azure-cli). İle yükleyebilirsiniz `az extension add --name eventgrid`. REST API kullanıyorsanız, kullandığınızdan emin olun `api-version=2018-05-01-preview`.
+El ile doğrulama önizlemede değil. Bunu kullanmak istiyorsanız [AZ CLI 2.0](/cli/azure/install-azure-cli) için [Event Grid uzantısını](/cli/azure/azure-cli-extensions-list) yüklemeniz gerekir. `az extension add --name eventgrid` ile yükleyebilirsiniz. REST API’yi kullanıyorsanız `api-version=2018-05-01-preview` kullandığınızdan emin olun.
 
-Program aracılığıyla doğrulama kodu echo için aşağıdaki kodu kullanın:
+Program aracılığıyla doğrulama kodu echo için (aynı zamanda, ilgili örnekleri bulabilirsiniz aşağıdaki kodu kullanın https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer):
 
 ```csharp
 using System.Net;
@@ -59,16 +60,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
-
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -90,7 +81,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
@@ -157,16 +148,6 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
 
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
-
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
     log.Info($"C# HTTP trigger function begun");
@@ -188,7 +169,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
 
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
@@ -283,16 +264,6 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
 
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
-
 class ContosoItemReceivedEventData
 {
     public string id { get; set; }
@@ -321,7 +292,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }

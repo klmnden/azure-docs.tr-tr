@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams
 ms.openlocfilehash: 3817d58cd61fb349d7815984420d0deb1ae0edd9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808137"
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource yayımlama Kılavuzu
 
@@ -48,8 +49,8 @@ Uygulama gereksinimlerini karşılamak için ölçüt listesi aşağıdadır
     - HDInsight
     - Machine Learning
     - Data Lake Analytics
-    - Akış Analizi
-    - Bilişsel hizmetler
+    - Stream Analytics
+    - Bilişsel Hizmetler
     - Robot Altyapısı
     - Analysis Services
     - Microsoft R Server tek başına bekleme

@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir.
+---
+title: include dosyası
+description: include dosyası
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: f4071f2555607b6035352a2aec38c986941c41a9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826540"
+---
+<a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, geçerli kaynak kullanımına karşı abonelik sınırlarınızı görüntülemek](../articles/networking/check-usage-against-limits.md).
 
 | Kaynak | Varsayılan limit | Üst sınır |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | Uç Nokta Erişim Denetim Listeleri (ACL’ler) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>Ağ Limitleri - Azure Resource Manager
-Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir.
+Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, geçerli kaynak kullanımına karşı abonelik sınırlarınızı görüntülemek](../articles/networking/check-usage-against-limits.md).
 
 | Kaynak | Varsayılan limit | Üst Sınır |
 | --- | --- | --- |

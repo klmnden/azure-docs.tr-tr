@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/08/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: f5da2a74b3a399c60c518f386ccf2e60a617aeda
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 494526ae2084053f23bb3a096ac7d089c47a731a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823444"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Azure kaynakları için bulunamadı hatalarını çözümleme
 
-Bu makalede, bir kaynak dağıtım sırasında bulunamadığında karşılaşabileceğiniz hatalar açıklanır.
+Bu makalede, dağıtım sırasında bir kaynağın ne zaman bulunamıyor görebileceğiniz hatalar açıklanır.
 
 ## <a name="symptom"></a>Belirti
 
@@ -32,7 +33,7 @@ Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Kullanmayı denerseniz, [başvuru](resource-group-template-functions-resource.md#reference) veya [listKeys](resource-group-template-functions-resource.md#listkeys) işlevleri bir kaynakla aşağıdaki hata iletisini çözümlenemiyor:
+Kullanırsanız [başvuru](resource-group-template-functions-resource.md#reference) veya [listKeys](resource-group-template-functions-resource.md#listkeys) işlevleri bir kaynakla aşağıdaki hata iletisini çözümlenemiyor:
 
 ```
 Code=ResourceNotFound;
@@ -59,9 +60,9 @@ Resource Manager kaynak özelliklerini almak gerekiyor, ancak aboneliğinizde ka
 }
 ```
 
-Ancak, gerekli olmayan bağımlılıklarını ayarlama önlemek istiyorsanız. Gereksiz bağımlılıkları varsa, paralel olarak dağıtılan birbirlerine bağımlı olmayan kaynakları engelleyerek dağıtım süresini uzatmak. Ayrıca, dağıtım engelleme döngüsel bağımlılıklar oluşturabilir. [Başvuru](resource-group-template-functions-resource.md#reference) işlevi bu kaynakla aynı şablonunda dağıtıldığında bu dolaylı bir bağımlılığı başvurulan kaynakta oluşturur. Bu nedenle, bağımlılıkları, belirtilenden daha fazla bağımlılıkları olabilir **dependsOn** özelliği. [ResourceId](resource-group-template-functions-resource.md#resourceid) işlevi oluşturmaz dolaylı bir bağımlılığı veya kaynak var olduğunu doğrulayın.
+Ancak, artık gerekmeyen bağımlılıklarını ayarlama önlemek istiyor. Gereksiz bağımlılıkları varsa, paralel olarak dağıtılan birbirlerine bağımlı olmayan kaynakları engelleyerek dağıtım süresini uzatmak. Ayrıca, dağıtım engelleme döngüsel bağımlılıklar oluşturabilir. [Başvuru](resource-group-template-functions-resource.md#reference) işlevi ve [listesi *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) işlevleri bu kaynağa aynı şablonunda dağıtılır ve adıyla (değil kaynak kimliği başvurulan bu dolaylı bir bağımlılığı başvurulan kaynakta oluşturur ). Bu nedenle, bağımlılıkları, belirtilenden daha fazla bağımlılıkları olabilir **dependsOn** özelliği. [ResourceId](resource-group-template-functions-resource.md#resourceid) işlevi değil ya da dolaylı bir bağımlılığı oluşturmak kaynak var olduğunu doğrulayın. [Başvuru](resource-group-template-functions-resource.md#reference) işlevi ve [listesi *](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) işlevleri kaynak kaynak kimliğini tarafından başvurulan dolaylı bir bağımlılığı oluştur Örtük bir bağımlılık oluşturmak için aynı şablonu dağıtılan kaynağın adını geçirin.
 
-Bağımlılık sorunlarını karşılaştığınızda, kaynak dağıtım sırasını kavramanıza gerekir. Dağıtım işlemlerini sırasını görüntülemek için:
+Bağımlılık sorunlarını gördüğünüzde, kaynak dağıtım sırasını kavramanıza gerekir. Dağıtım işlemlerini sırasını görüntülemek için:
 
 1. Dağıtım geçmişi kaynak grubunuz için seçin.
 
@@ -75,7 +76,7 @@ Bağımlılık sorunlarını karşılaştığınızda, kaynak dağıtım sıras�
 
    ![Paralel dağıtım](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
 
-   Sonraki resmi paralel olarak değil dağıtılan üç depolama hesaplarını gösterir. İlk Depolama hesabında ikinci depolama hesabı bağlıdır ve ikinci depolama hesabında üçüncü depolama hesabına bağlıdır. İlk Depolama hesabı başlatıldı, kabul ve sonraki başlatılmadan önce tamamlandı.
+   Sonraki resmi paralel olarak dağıtılan olmayan üç depolama hesaplarını gösterir. İlk Depolama hesabında ikinci depolama hesabı bağlıdır ve ikinci depolama hesabında üçüncü depolama hesabına bağlıdır. İlk Depolama hesabı başlatıldı, kabul ve sonraki başlatılmadan önce tamamlandı.
 
    ![sıralı dağıtım](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
 
@@ -92,7 +93,7 @@ Bağımlılık sorunlarını karşılaştığınızda, kaynak dağıtım sıras�
 
 ## <a name="solution-3---check-reference-function"></a>Çözüm 3 - onay başvuru işlevi
 
-İçeren bir ifade Ara [başvuru](resource-group-template-functions-resource.md#reference) işlevi. Sağladığınız değerleri kaynak aynı şablonu, kaynak grubu ve abonelik olup göre farklılık gösterir. Senaryonuz için gerekli parametre değerlerini sağlayarak kontrol edin. Kaynak farklı bir kaynak grubu içinde ise, tam kaynak kimliğini sağlayın Örneğin, bir depolama hesabı başka bir kaynak grubuna başvurmak için kullanın:
+İçeren bir ifade Ara [başvuru](resource-group-template-functions-resource.md#reference) işlevi. Sağladığınız değerleri kaynak aynı şablonu, kaynak grubu ve abonelik olup göre farklılık gösterir. Senaryonuz için gerekli parametre değerleri sağlayarak kontrol edin. Kaynak farklı bir kaynak grubu içinde ise, tam kaynak kimliğini sağlayın Örneğin, bir depolama hesabı başka bir kaynak grubuna başvurmak için kullanın:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

@@ -1,23 +1,19 @@
 ---
 title: Azure IOT Hub cihaz bulut Mesajlaşma anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - IOT Hub ile cihaz bulut Mesajlaşma kullanma. Telemetri ve telemtry olmayan veri gönderme ve iletileri sunmak için yönlendirmeyi kullanma hakkında bilgiler içerir.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6096d726d7a00a4ddf8047edeebb74ab3f151e51
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808266"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>IOT hub'a cihaz-bulut iletileri gönder
 
@@ -65,8 +61,8 @@ Damgalar tüm cihaz IOT Hub, cihaz bulut iletilerini kimlik sahtekarlığı önl
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```
@@ -90,4 +86,4 @@ Cihaz bulut iletilerini göndermek için kullanabileceğiniz SDK'ları hakkında
 [lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md

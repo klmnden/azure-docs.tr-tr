@@ -15,21 +15,22 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 4f9354426ba584b26213f8a104c14122a831a453
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 026c686b1d5654aa50dd63b9addd619dd5322da0
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808154"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Azure Stack Role-Based erişim denetimi ile kaynaklara erişimi yönetme
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure yığını destekler rol tabanlı erişim denetimi (RBAC), aynı [erişim yönetimi için güvenlik modeli](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) , Microsoft Azure kullanır. Kullanıcı, Grup veya uygulama erişimi abonelikler, kaynakları ve hizmetleri yönetmek için RBAC kullanabilirsiniz.
+Azure yığını destekler rol tabanlı erişim denetimi (RBAC), aynı [erişim yönetimi için güvenlik modeli](https://docs.microsoft.com/azure/role-based-access-control/overview) , Microsoft Azure kullanır. Kullanıcı, Grup veya uygulama erişimi abonelikler, kaynakları ve hizmetleri yönetmek için RBAC kullanabilirsiniz.
 
 ## <a name="basics-of-access-management"></a>Erişim Yönetimi temelleri
 
-Rol tabanlı erişim denetimi ortamınızın güvenliğini sağlamak için kullanabileceğiniz ayrıntılı erişim denetimi sağlar. Kullanıcılara ihtiyaç duydukları belirli bir kapsamda RBAC rolü atanarak tam izinleri verin. Rol atama kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir. Okuma [Azure portalında rol tabanlı erişim denetimi](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) erişim yönetimi hakkında daha ayrıntılı bilgi almak için makale.
+Rol tabanlı erişim denetimi ortamınızın güvenliğini sağlamak için kullanabileceğiniz ayrıntılı erişim denetimi sağlar. Kullanıcılara ihtiyaç duydukları belirli bir kapsamda RBAC rolü atanarak tam izinleri verin. Rol atama kapsamı, bir abonelik, bir kaynak grubu veya tek bir kaynak olabilir. Okuma [Azure portalında rol tabanlı erişim denetimi](https://docs.microsoft.com/azure/role-based-access-control/overview) erişim yönetimi hakkında daha ayrıntılı bilgi almak için makale.
 
 ### <a name="built-in-roles"></a>Yerleşik roller
 
@@ -59,7 +60,7 @@ Bir kullanıcıya birden çok rol atayabilirsiniz ve her rol farklı bir kapsam 
 * Abonelik-1'den TestUser-A okuyucu rolüne atayın.
 * TestVM-1'den TestUser-A sahip rolü atayın.
 
-Azure [rol atamalarını](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) makale görüntüleme, atama ve rollerini silme hakkında ayrıntılı bilgi sağlar.
+Azure [rol atamalarını](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) makale görüntüleme, atama ve rollerini silme hakkında ayrıntılı bilgi sağlar.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Kaynak hiyerarşisi ve devralma
 
@@ -81,14 +82,14 @@ Bir kullanıcıya birden çok rol atayabilirsiniz ve her rol farklı bir kapsam 
 * Abonelik-1'den TestUser-A okuyucu rolüne atayın.
 * TestVM-1'den TestUser-A sahip rolü atayın.
 
-Azure [rol atamalarını](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-portal) makale görüntüleme, atama ve rollerini silme hakkında ayrıntılı bilgi sağlar.
+Azure [rol atamalarını](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) makale görüntüleme, atama ve rollerini silme hakkında ayrıntılı bilgi sağlar.
 
 ## <a name="set-access-permissions-for-a-user"></a>Bir kullanıcı için erişim izinlerini ayarlayın
 
 Aşağıdaki adımlar, bir kullanıcı için izinlerin nasıl yapılandırılacağını açıklar.
 
 1. Yönetmek istediğiniz kaynak sahibi izinlerine sahip bir hesapla oturum açın.
-2. Sol gezinti bölmesinde seçin **kaynak grupları**.
+2. Sol gezinti bölmesinden **Kaynak Grupları**'nı seçin.
 3. İçin izinleri ayarlamak istediğiniz kaynak grubunun adını seçin.
 4. Kaynak grubu Gezinti bölmesinde seçin **erişim denetimi (IAM)**. **Erişim denetimi** görünüm kaynak grubu erişimi öğeleri listeler. Bu sonuçları filtrelemek ve izinleri eklemek veya kaldırmak için bir menü çubuğu kullanın.
 5. Üzerinde **erişim denetimi** menü çubuğunda, seçin **+ Ekle**.

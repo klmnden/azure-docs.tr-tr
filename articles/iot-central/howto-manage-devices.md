@@ -1,18 +1,19 @@
 ---
 title: Azure IOT merkezi uygulamanızda aygıtları yönetme | Microsoft Docs
 description: Bir operatör olarak, Azure IOT merkezi uygulamanızda cihazların nasıl yönetileceğini öğrenin.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: b56e352a1f39dbd536347f6c7e83a6aabfe32ecc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807484"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IOT merkezi uygulamanızı aygıtları yönetme
 
@@ -33,7 +34,7 @@ Tek bir cihaza görüntülemek için:
 
 1. Sağ taraftaki bölmede, bu cihaz şablondan oluşturulmuş cihazların bir listesini görürsünüz. Görmek için tek bir cihaza seçin **cihaz ayrıntıları** sayfa bu cihaz için:
 
-    ![Cihaz Ayrıntıları sayfası](./media/howto-manage-devices/image1.png)
+    [![Cihaz Ayrıntıları sayfası](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
 ## <a name="add-a-device"></a>Cihaz ekleme
 
@@ -46,6 +47,64 @@ Azure IOT merkezi uygulamanıza bir cihaz eklemek için:
 1. Seçin + **yeni**.
 
 1. Seçin **gerçek** veya **benzetimli**. Azure IOT merkezi uygulamanıza bağlanan bir fiziksel aygıt gerçek bir cihazı içindir. Bir sanal cihaz sizin için Azure IOT Merkezi tarafından oluşturulan örnek veriler var. Bu örnek, gerçek cihaz kullanır. Seçin **gerçek** gitmek için **cihaz ayrıntıları** yeni cihazınız için sayfa.
+
+
+## <a name="bulk-import-devices"></a>Cihazları toplu içeri aktarma
+
+Uygulamanıza, Azure IOT merkezi sayıda cihazlar bağlanmak için bir CSV dosyası içe aktarma aygıtına teklifleri toplu. 
+
+CSV dosyası gereksinimleri:
+1. CSV dosyası cihaz kimliklerini içeren tek bir sütunu olmalıdır.
+
+1. Dosya bir üstbilgi yok.
+
+
+Toplu kayıt, uygulamanızda aygıtları için:
+
+1. Seçin **Explorer** sol gezinti menüsünde.
+
+1. Sol panelde, toplu istediğiniz cihaz şablonu oluşturma aygıtları seçin.
+
+1. Seçin **yeni** seçip **toplu içeri**.
+
+    [![Toplu içe aktarma işlemi](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+
+1. İçeri aktarılacak cihaz kimlikleri listesine sahip CSV dosyasını seçin.
+
+1. Dosya karşıya sonra cihaz alma başlatır. Cihaz kılavuz üstündeki alma durumunu izleyebilirsiniz.
+
+1. İçeri aktarma işlemi tamamlandıktan sonra cihaz kılavuzda bir başarı iletisi gösterilir.
+
+    [![Toplu içeri aktarma başarılı](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+
+İşlemi başarısız aygıt içe aktarırsanız, cihaz ızgarasında hata iletisi görürsünüz. Tüm hataları yakalama bir günlük dosyası oluşturulur ve hata iletisi tıklayarak indirilebilir.
+
+## <a name="export-devices"></a>Dışarı aktarma cihazları
+
+Aygıtların IOT Orta bağlanmasını sağlamak için IOT Orta tarafından oluşturulan cihaz bağlantı dizesi gerekir. Bağlantı dizeleri ve diğer özellikleri aygıtların uygulamanızdan toplu olarak almak için dışarı aktarma özelliğini kullanabilirsiniz. Dışa aktarma bir CSV dosyası seçilen tüm aygıtlar için aygıt kimlik, cihaz adı ve birincil bağlantı dizesi oluşturur.
+
+Uygulamanızdan verme cihazları toplu olarak:
+1. Seçin **Explorer** sol gezinti menüsünde.
+
+1. Bir sol panelde aygıtları vermek istediğiniz cihaz şablonu seçin.
+
+1. Dışarı aktarmak ve ardından istediğiniz aygıtları seçin **verme** eylem.
+
+    [![Dışarı aktarma](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. Dışa aktarma işlemi başlatılır ve kılavuz üstündeki durumunu izleyebilirsiniz. 
+
+1. Dışa aktarma işlemi tamamlandıktan sonra bir başarı iletisi oluşturulan dosyasını karşıdan yüklemek için bir bağlantı ile birlikte gösterilir.
+
+1. Tıklayın **başarı iletisi** disk üzerindeki yerel bir klasöre dosya indirilemedi.
+
+    [![Dışarı aktarma başarılı](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. Dışarı aktarılan CSV dosyası aşağıdaki bilgilere sahip:
+    1. Ad
+    1. Cihaz Kimliği
+    1. Birincil bağlantı dizesi
+
 
 ## <a name="delete-a-device"></a>Bir aygıtı silme
 

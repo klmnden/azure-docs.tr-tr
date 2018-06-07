@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 7cf865f0ce75d8308d6d42306e8e05852f763cae
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 43c0b7c87f9ee1cd33da3d617747c11dc120e51a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823631"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure yığınına Kubernetes kümesi dağıtma
 
@@ -31,7 +32,7 @@ Aşağıdaki makalede dağıtmak ve kaynakları için Kubernetes içinde tek ve 
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes ve kapsayıcıları
 
-Azure kapsayıcı Hizmetleri (ACS) Kubernetes Azure yığında yükleyebilirsiniz. [Kubernetes](https://kubernetes.io) dağıtımı, otomatikleştirmek için bir açık kaynak sistemi ölçekleme ve uygulamaların kapsayıcılarında yönetme. A [kapsayıcı](https://www.docker.com/what-container) bir VM için benzer bir görüntü bulunur. Kapsayıcı yalnızca görüntüdür VM kodu, belirli kitaplıkları ve ayarları yürütmek için çalışma zamanı kodu gibi bir uygulamayı çalıştırmak için gereken kaynakları içerir.
+Azure yığında Azure kapsayıcı Hizmetleri (ACS) altyapısı tarafından oluşturulan Azure Resource Manager şablonları kullanarak Kubernetes yükleyebilirsiniz. [Kubernetes](https://kubernetes.io) dağıtımı, otomatikleştirmek için bir açık kaynak sistemi ölçekleme ve uygulamaların kapsayıcılarında yönetme. A [kapsayıcı](https://www.docker.com/what-container) bir VM için benzer bir görüntü bulunur. Bir VM farklı olarak, kapsayıcı görüntü yalnızca kodu, belirli kitaplıkları ve ayarları yürütmek için çalışma zamanı kodu gibi bir uygulamayı çalıştırmak için gereken kaynakları içerir.
 
 Kubernetes için kullanabilirsiniz:
 
@@ -53,21 +54,23 @@ Başlamak için doğru izinlere sahip ve Azure yığın hazır olduğundan emin 
 
 3. Azure yığın Kiracı Portalı'nda geçerli bir aboneliğe sahip ve yeterli genel IP sahip yeni bir uygulama eklemek kullanılabilir adresleri denetleyin.
 
+    Küme için bir Azure yığın dağıtılamıyor **yönetici** abonelik. Bir kullanıcı ** aboneliği kullanmanız gerekir. 
+
 ## <a name="create-a-service-principal-in-azure-ad"></a>Azure AD hizmet sorumlusu oluşturma
 
-1. Oturum açmak için genel [Azure portal](http://www.poartal.azure.com).
-2. Azure yığın ile ilişkili Azure AD kiracısı kullanarak imzalanmış denetleyin.
+1. Oturum açmak için genel [Azure portal](http://portal.azure.com).
+2. Azure yığın örneği ile ilişkili Azure AD kiracısı kullanarak imzalanmış denetleyin.
 3. Azure AD uygulaması oluşturun.
 
     a. Seçin **Azure Active Directory** > **+ uygulama kayıtlar** > **yeni uygulama kaydı**.
 
     b. Girin bir **adı** uygulamanın.
 
-    c. Seçin **Web uygulaması / API**
+    c. Seçin **Web uygulaması / API**.
 
     d. Girin `http://localhost` için **oturum açma URL'si**.
 
-    c. **Oluştur**'a tıklayın
+    c. **Oluştur**’a tıklayın.
 
 4. Not **uygulama kimliği**. Küme oluştururken kimliği gerekir. Kimliği olarak başvurulur **hizmet sorumlusu istemci kimliği**.
 
@@ -77,7 +80,7 @@ Başlamak için doğru izinlere sahip ve Azure yığın hazır olduğundan emin 
 
     b. Seçin **her zaman geçerli olsun** için **Expires**.
 
-    c. **Kaydet**’i seçin. Anahtar dizesini not edin. Küme oluştururken anahtar dizesi gerekir. Başvuru olarak anahtarıdır **hizmet asıl gizli**.
+    c. **Kaydet**’i seçin. Anahtar dizesini not edin. Küme oluştururken anahtar dizesi gerekir. Anahtar olarak başvurulur **hizmet asıl gizli**.
 
 
 
@@ -103,52 +106,52 @@ Asıl kaynakları oluşturabilmesi için aboneliğiniz için hizmet asıl erişi
 
 1. Açık [Azure yığın portal](https://portal.local.azurestack.external).
 
-2. Seçin **+ yeni** > **işlem** > **Kubernetes küme**.
+2. Seçin **+ yeni** > **işlem** > **Kubernetes küme**. **Oluştur**’a tıklayın.
 
-    ![Çözüm Şablonu Dağıt](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template.png)
+    ![Çözüm Şablonu Dağıt](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-3. Seçin **parametreleri** içinde çözüm şablonu dağıtın.
+3. Seçin **Temelleri** içinde Kubernetes kümesi oluşturun.
 
-    ![Çözüm Şablonu Dağıt](../media/azure-stack-solution-template-kubernetes-cluster-add/azure-stack-kubernetes-cluster-solution-template-parameters.png)
+    ![Çözüm Şablonu Dağıt](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
-2. Girin **Linux yönetici kullanıcı adı**. Kubernetes kümesinin parçası olan Linux sanal makineleri ve DVM için kullanıcı adı.
+2. Girin **Linux VM yönetici kullanıcı adı**. Kubernetes kümesinin parçası olan Linux sanal makineleri ve DVM için kullanıcı adı.
 
-3. Girin **SSH ortak anahtarını** DVM ve Kubernetes kümenin bir parçası olarak oluşturulan tüm Linux makinelere yetkilendirme için kullanılır.
+3. Girin **SSH ortak anahtarı** DVM ve Kubernetes kümenin bir parçası olarak oluşturulan tüm Linux makinelere yetkilendirme için kullanılır.
 
-4. Girin **Kiracı uç noktası**. Bu Kubernetes küme kaynak grubu oluşturmak için bağlanmak için Azure Resource Manager uç noktadır. Uç nokta için tümleşik bir sistemi Azure yığın operatörünüze almak gerekir. Azure yığın Geliştirme Seti (ASDK için), kullandığınız `https://management.local.azurestack.external`.
-
-5. Girin **kimliği Kiracı** Kiracı. Bu değer bulma yardıma gereksinim duyarsanız, bkz: [alma Kiracı kimliği](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
-
-6. Girin **ana profili DNS öneki** bölgesine benzersiz. Bu bölge benzersiz bir ad gibi olmalıdır `k8s-12345`. Try için seçtiğiniz aynı kaynak grubu adı en iyi yöntem.
+4. Girin **ana profili DNS ön eki** bölgesine benzersiz. Bu bölge benzersiz bir ad gibi olmalıdır `k8s-12345`. Try için seçtiğiniz aynı kaynak grubu adı en iyi yöntem.
 
     > [!Note]  
     > Her küme için yeni ve benzersiz ana profili DNS ön ekini kullanın.
 
-7. Aracıları kümedeki girin. Bu değer olarak adlandırılır **aracı havuzu profil sayısı**. 32 için 1'den olabilir
+5. Girin **aracı havuzu profil sayısı**. Sayı aracıları kümedeki sayısını içerir. 4'e 1'den olabilir.
 
-8. Girin **asıl uygulama kimliği hizmeti** bu Kubernetes Azure bulut sağlayıcısı tarafından kullanılır.
+6. Girin **hizmet sorumlusu ClientID** bu Kubernetes Azure bulut sağlayıcısı tarafından kullanılır.
 
-9. Girin **hizmet asıl gizli** hizmet asıl uygulaması oluştururken oluşturuldu.
+7. Girin **hizmet asıl gizli** hizmet asıl uygulaması oluştururken oluşturuldu.
 
-10. Girin **Kubernetes Azure bulut sağlayıcı sürümü**. Bu Kubernetes Azure sağlayıcısı sürümüdür. Azure yığın her Azure yığın sürümü için özel bir Kubernetes yapı serbest bırakır.
+8. Girin **Kubernetes Azure bulut sağlayıcı sürümü**. Bu Kubernetes Azure sağlayıcısı sürümüdür. Azure yığın her Azure yığın sürümü için özel bir Kubernetes yapı serbest bırakır.
 
-12. **Tamam**’ı seçin.
+9. Seçin, **abonelik** kimliği
 
-### <a name="specify-the-solution-values"></a>Çözüm değerlerini belirtin
+10. Yeni bir kaynak grubu adını girin veya varolan bir kaynak grubu seçin. Kaynak adı alfasayısal ve küçük olması gerekir.
 
-1. Seçin **abonelik**.
+11. Seçin **konumu** kaynak grubunun. Bu, Azure yığın yüklemeniz için seçtiğiniz bölgedir.
 
-2. Yeni bir kaynak grubu adını girin veya varolan bir kaynak grubu seçin. Kaynak adı alfasayısal ve küçük olması gerekir.
+### <a name="specify-the-azure-stack-settings"></a>Azure yığın ayarlarını belirtin
 
-3. Kaynak grubu konumu girin **yerel**.
+1. Seçin **Azure yığın damga ayarları**.
 
-4. Seçin **oluşturun.**
+    ![Çözüm Şablonu Dağıt](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
+
+2. Girin **Kiracı Arm Endpoint**. Bu Kubernetes küme kaynak grubu oluşturmak için bağlanmak için Azure Resource Manager uç noktadır. Uç nokta için tümleşik bir sistemi Azure yığın operatörünüze almak gerekir. Azure yığın Geliştirme Seti (ASDK için), kullandığınız `https://management.local.azurestack.external`.
+
+3. Girin **Kiracı kimliği** Kiracı. Bu değer bulma yardıma gereksinim duyarsanız, bkz: [alma Kiracı kimliği](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). 
 
 ## <a name="connect-to-your-cluster"></a>Kümenize bağlanmak
 
-Artık kümenize bağlanmak hazırsınız. İhtiyacınız olacak **kubectl**, Kubernetes komut satırı istemcisi. Bağlanma ve Azure kapsayıcı hizmetlerini belgelerinde küme yönetme yönergelerini bulabilirsiniz.   
+Artık kümenize bağlanmak hazırsınız. Ana küme kaynak grubunda bulunan ve adlı `k8s-master-<sequence-of-numbers>`. Asıl bağlanmak için bir SSH İstemcisi'ni kullanın. Asıl kullandığınız **kubectl**, Kubernetes komut satırı istemcinin kümenizi yönetebilirsiniz. Yönergeler için bkz: [Kubernetes.io](https://kubernetes.io/docs/reference/kubectl/overview).
 
-Yönergeler için bkz: [kümeye Bağlan](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough#connect-to-the-cluster).
+Ayrıca bulabilirsiniz **Helm** Paket Yöneticisi yüklemek ve kümenize uygulamalarını dağıtmak için yararlıdır. Yükleme ve Helm kümenizle kullanma ile ilgili yönergeler için bkz: [helm.sh](https://helm.sh/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

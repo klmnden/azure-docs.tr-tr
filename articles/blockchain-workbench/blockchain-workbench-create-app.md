@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4b704f433f02afcff7b94f98c19a478caaa02b2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808069"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>İçinde Azure Blockchain çalışma ekranı blockchain uygulaması oluşturma
 
@@ -237,7 +238,7 @@ Aşağıdaki sürüm pragma en üstünde eklemek `HelloBlockchain.sol` akıllı 
 
 ### <a name="base-class"></a>Taban sınıfı
 
-**WorkbenchBase** Blockchain bir güncelleştirme sözleşme oluşturmak çalışma ekranı temel sınıf sağlar. Taban sınıfı için Blockchain çalışma ekranı belirli akıllı sözleşme kodu gereklidir. Sizin devralınmalıdır gerekiyor **WorkbenchBase** temel sınıfı.
+**WorkbenchBase** Blockchain oluşturmak ve sözleşme güncelleştirmek çalışma ekranı temel sınıf sağlar. Taban sınıfı için Blockchain çalışma ekranı belirli akıllı sözleşme kodu gereklidir. Sizin devralınmalıdır gerekiyor **WorkbenchBase** temel sınıfı.
 
 İçinde `HelloBlockchain.sol` akıllı sözleşme kod dosyası, ekleme **WorkbenchBase** dosyasının başında sınıfı. 
 
@@ -374,7 +375,7 @@ Oluşturucu işlevi, sözleşmede ekleyin, `HelloBlockchain.sol` akıllı sözle
 Blockchain çalışma ekranı blockchain uygulamaya eklemek için yapılandırma ve uygulamayı tanımlamak için akıllı sözleşme dosyaları karşıya yükleyin.
 
 1. Bir web tarayıcısında Blockchain çalışma ekranı web adresine gidin. Örneğin, `https://{workbench URL}.azurewebsites.net/` Blockchain çalışma ekranı dağıttığınızda web uygulaması oluşturulur. Blockchain çalışma ekranı web adresini bulmak hakkında daha fazla bilgi için bkz: [Blockchain çalışma ekranı Web URL'si](blockchain-workbench-deploy.md#blockchain-workbench-web-url)
-2. Blockchain çalışma ekranı yönetici olarak oturum açın. Kullanıcıları yönetme hakkında daha fazla bilgi için bkz: [Azure Blockchain çalışma ekranındaki kullanıcıları yönetme](blockchain-workbench-manage-users.md).
+2. Olarak oturum açın bir [Blockchain çalışma ekranı yönetici](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators).
 3. Seçin **uygulamaları** > **yeni**. **Yeni uygulama** bölmesinde görüntülenir.
 4. Seçin **sözleşme yapılandırma karşıya** > **Gözat** bulmak için **HelloBlockchain.json** oluşturduğunuz yapılandırma dosyası. Yapılandırma dosyası otomatik olarak onaylanır. Seçin **Göster** doğrulama hataları görüntülemesi için bağlantı. Uygulamayı dağıtmadan önce doğrulama hatalarını düzeltin.
 5. Seçin **sözleşme kodu karşıya** > **Gözat** bulmak için **HelloBlockchain.sol** akıllı sözleşme kod dosyası. Kod dosyası otomatik olarak onaylanır. Seçin **Göster** doğrulama hataları görüntülemesi için bağlantı. Uygulamayı dağıtmadan önce doğrulama hatalarını düzeltin.

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2018
+ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ba4c9d9cd5f8a43be0f97053c02798e3b84a5f7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f1271a6afba91cf75820f2e4b973b7cd42782449
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824345"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager şablonları için kaynak işlevleri
 
@@ -95,7 +96,7 @@ Hangi kaynak türlerinin bir listesini işlemi bulunduğunu belirlemek için aş
   az provider operation show --namespace Microsoft.Storage --query "resourceTypes[?name=='storageAccounts'].operations[].name | [?contains(@, 'list')]"
   ```
 
-Kaynak ya da kullanarak belirtin [ResourceId işlevi](#resourceid), veya biçimini `{providerNamespace}/{resourceType}/{resourceName}`.
+Kaynak adı kullanarak kaynak belirtin veya [ResourceId işlevi](#resourceid). Bu işlev başvurulan kaynak dağıtır şablonda kullanırken, kaynak adı kullanın.
 
 ### <a name="example"></a>Örnek
 
@@ -257,7 +258,7 @@ Her kaynak türü başvurusu işlevi için farklı özellikleri döndürür. İ�
 
 Başvuru işlevi bir çalışma zamanı durumu değerinden türeten ve bu nedenle değişkenler bölümünde kullanılamaz. Şablon çıktıları bölümünde kullanılabilir veya [bağlantılı şablon](resource-group-linked-templates.md#link-or-nest-a-template). Çıkış bölümünde kullanılamaz bir [iç içe geçmiş şablon](resource-group-linked-templates.md#link-or-nest-a-template). Bir iç içe geçmiş şablonunda dağıtılmış bir kaynak için değer döndürmek için iç içe geçmiş şablonunuzu bağlantılı şablona dönüştürebilirsiniz. 
 
-Başvuru işlevi kullanarak, dolaylı olarak başvurulan kaynak aynı şablonu içinde sağlandığında, bir kaynak üzerinde başka bir kaynak bağlıdır bildirin. Ayrıca dependsOn özelliğinin kullanılması gerekmez. Başvurulan kaynak dağıtımı tamamlanana kadar işlevi değerlendirilmez.
+Başvuru işlevi kullanarak, dolaylı olarak başvurulan kaynak içinde aynı şablonu sağlanır ve adıyla (kaynak kimliği değil) kaynağa başvuran bir kaynak üzerinde başka bir kaynak bağlıdır bildirin. Ayrıca dependsOn özelliğinin kullanılması gerekmez. Başvurulan kaynak dağıtımı tamamlanana kadar işlevi değerlendirilmez.
 
 Özellik adları ve değerleri bir kaynak türü için görmek için çıkış bölümünde nesnesi döndüren bir şablon oluşturun. Bu tür mevcut bir kaynağı varsa, şablonunuzun herhangi yeni kaynaklar dağıtmadan nesnesini döndürür. 
 

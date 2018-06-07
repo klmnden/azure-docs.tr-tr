@@ -1,8 +1,8 @@
 ---
-title: "Web uygulaması performans izleme - Azure Application Insights | Microsoft Docs"
-description: "Application Insights devOps döngüsü nasıl uyduğunu"
+title: Web uygulaması performans izleme - Azure Application Insights | Microsoft Docs
+description: Application Insights devOps döngüsü nasıl uyduğunu
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
 ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808487"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights ile ayrıntılı web uygulaması ve hizmet tanılama
 ## <a name="why-do-i-need-application-insights"></a>Application Insights neden gerekiyor mu?
@@ -104,7 +105,7 @@ Her iki durumda da uyarı yalnızca, bulunduğundan, ancak ilgili özel durum ra
 
 Müşteri Samtec belirtilmektedir: "son özelliğini sırasında cutover altında ölçeklendirilmiş kaynak sınırlarına basarsa ve zaman aşımlarına neden olan bir veritabanı bulduk. Öngörülü algılama Uyarıları gelen tam anlamıyla biz tanıtılan gibi çok yakın gerçek zamanlı sorun önceliklendirmek gibi. Azure platformu uyarılarla birlikte bu uyarı bize neredeyse anında sorunu düzeltin olunmasına yardımcı oldu. Toplam kapalı kalma süresi < 10 dakika."
 
-## <a name="live-metrics-stream"></a>Canlı ölçümleri akış
+## <a name="live-metrics-stream"></a>Canlı Ölçüm Akışı
 En son sürüme dağıtma harcad bir deneyim olabilir. Herhangi bir sorun varsa, böylece, gerekirse yedekleyebilirsiniz, bunlarla ilgili hemen bilmek ister. Ölçümler bir canlı akışı hakkında bir saniye gecikmeyle anahtar ölçümleri sağlar.
 
 ![Canlı ölçümleri](./media/app-insights-devops/040.png)

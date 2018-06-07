@@ -1,26 +1,19 @@
 ---
 title: Azure IoT çözüm hızlandırıcılarına genel bakış | Microsoft Docs
 description: Azure IoT çözüm hızlandırıcılarının ve ek kaynaklara bağlantısı olan mimarisinin açıklaması.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 17/01/2018
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 80192b115f4c6c8f6961fdd4d9fb7f3876fda898
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: b961217317cea65b05cd58d66e64f0e4f012131e
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362133"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808562"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>IoT çözüm hızlandırıcıları nedir?
 
@@ -32,7 +25,7 @@ Azure IoT _çözüm hızlandırıcıları_, aşağıdakileri gerçekleştiren bi
 
 Çözüm hızlandırıcılarının tümü aynı ilke ve hedeflere göre tasarlanmıştır.
 
-Aşağıdaki videoda, uzaktan izleme çözümüne genel bakışa yer verilmiştir:
+Aşağıdaki videoda Uzaktan izleme Çözüm Hızlandırıcısı genel bir bakış sunar:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
@@ -54,16 +47,16 @@ Her çözüm hızlandırıcısı, telemetri oluşturmak için tam, uçtan uca sa
 Şu anda üç çözüm hızlandırıcısı mevcuttur:
 
 * [Uzaktan İzleme](iot-accelerators-remote-monitoring-explore.md)
-* [Tahmine Dayalı Bakım](../iot-suite/iot-suite-predictive-overview.md)
+* [Tahmine Dayalı Bakım](iot-accelerators-predictive-overview.md)
 * [Bağlı Fabrika](iot-accelerators-connected-factory-overview.md)
 
 Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşıladığı gösterilmektedir:
 
 | Çözüm | Veri alımı | Cihaz kimliği | Cihaz yönetimi | Uç işleme | Komut ve denetim | Kurallar ve eylemler | Tahmine dayalı analiz |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [Uzaktan İzleme](iot-accelerators-remote-monitoring-explore.md)  |Yes |Yes |Yes |-   |Yes |Yes |-   |
-| [Tahmine Dayalı Bakım](../iot-suite/iot-suite-predictive-overview.md)   |Yes |Yes |-   |-   |Yes |Yes |Yes |
-| [Bağlı Fabrika](iot-accelerators-connected-factory-overview.md) |Yes |- |- |Yes |Yes |Yes |-   |
+| [Uzaktan İzleme](iot-accelerators-remote-monitoring-explore.md)  |Evet |Evet |Evet |-   |Evet |Evet |-   |
+| [Tahmine Dayalı Bakım](iot-accelerators-predictive-overview.md)   |Evet |Evet |-   |-   |Evet |Evet |Evet |
+| [Bağlı Fabrika](iot-accelerators-connected-factory-overview.md) |Evet |- |- |Evet |Evet |Evet |-   |
 
 * *Veri alımı*: Bulut ölçeğinde veri girişi.
 * *Cihaz kimliği*: Benzersiz cihaz kimliklerini yönetin ve çözüme cihaz erişimini denetleyin.
@@ -73,7 +66,7 @@ Aşağıdaki tabloda, çözümlerin belirli IoT özelliklerini nasıl karşılad
 * *Tahmine dayalı analiz*: Çözüm arka ucu, belirli işlemlerin ne zaman gerçekleştirileceğini tahmin etmek için cihazdan buluta verileri analiz eder. Örneğin, motor bakımının ne zaman olacağını saptamak için uçak motoru telemetrisinin analiz edilmesi.
 
 > [!NOTE]
-> Bir çözüm hızlandırıcısını dağıtmak ve nasıl özelleştirildiği hakkında daha fazla bilgi edinmek için [Microsoft Azure IoT çözüm hızlandırıcıları](https://www.azureiotsuite.com/) sayfasını ziyaret edin.
+> Bir çözüm hızlandırıcısını dağıtmak ve nasıl özelleştirildiği hakkında daha fazla bilgi edinmek için [Microsoft Azure IoT çözüm hızlandırıcıları](https://www.azureiotsolutions.com/) sayfasını ziyaret edin.
 
 ## <a name="azure-services"></a>Azure hizmetleri
 
@@ -81,24 +74,24 @@ Bir çözüm hızlandırıcısını dağıttığınızda, sağlama işlemi birka
 
 |                      | Uzaktan İzleme  | Tahmine Dayalı Bakım | Bağlı Fabrika |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| IoT Hub              | Yes                | Yes                    | Yes               |
-| Event Hubs           |                    | Yes                    |                   |
-| Time Series Insights |                    |                        | Yes               |
-| Kapsayıcı Hizmetleri   | Yes                |                        |                   |
-| Stream Analytics     |                    | Yes                    |                   |
-| Web Apps             | Yes                | Yes                    | Yes               |
-| Cosmos DB            | Yes                | Yes                    |                    |
-| Azure Storage         |                    | Yes                    | Yes               |
+| IoT Hub              | Evet                | Evet                    | Evet               |
+| Event Hubs           |                    | Evet                    |                   |
+| Time Series Insights |                    |                        | Evet               |
+| Kapsayıcı Hizmetleri   | Evet                |                        |                   |
+| Stream Analytics     | Evet                | Evet                    |                   |
+| Web Apps             | Evet                | Evet                    | Evet               |
+| Cosmos DB            | Evet                | Evet                    |                    |
+| Azure Storage         |                    | Evet                    | Evet               |
 
 > [!NOTE]
-> Uzaktan izleme çözüm hızlandırıcısında dağıtılan kaynaklar hakkında daha fazla bilgi için GitHub’daki bu [makaleye](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) bakın.
+> Uzaktan izleme Çözüm Hızlandırıcısı dağıtılan kaynaklar hakkında daha fazla bilgi için bkz: [Uzaktan izleme mimari seçimleri](iot-accelerators-remote-monitoring-architectural-choices.md).
 
 * [Azure IoT Hub](../iot-hub/index.yml). Bu hizmet, cihaz-bulut arası ve bulut-cihaz arası ileti gönderme özellikleri sağlar ve buluta ve diğer temel çözüm hızlandırıcısı hizmetlerine ağ geçidi görevi görür. Hizmet cihazınızdan ölçekte mesajlar almanızı ve cihazlarınıza komutlar göndermenizi sağlar. Hizmet ayrıca [cihazlarınızı yönetmenizi](../iot-hub/iot-hub-device-management-overview.md) sağlar. Örneğin hub'a bağlı bir veya daha fazla cihazı yapılandırabilir, yeniden başlatabilir veya fabrika ayarlarına döndürebilirsiniz.
-* [Azure Event Hubs](../active-directory-domain-services/index.md). Bu hizmet, bulutta yüksek hacimli olay alımı sağlar. Şu konuyu inceleyin: [Azure IoT Hub ile Azure Event Hubs Karşılaştırması](../iot-hub/iot-hub-compare-event-hubs.md).
+* [Azure Event Hubs](../active-directory-domain-services/index.yml). Bu hizmet, bulutta yüksek hacimli olay alımı sağlar. Şu konuyu inceleyin: [Azure IoT Hub ile Azure Event Hubs Karşılaştırması](../iot-hub/iot-hub-compare-event-hubs.md).
 * [Azure Time Series Insights](../time-series-insights/index.yml). Çözüm hızlandırıcıları, cihazlarınızın telemetri verilerini analiz etmek ve görüntülemek için bu hizmeti kullanır.
 * [Azure Container Service](../container-service/index.yml). Bu hizmet, çözüm hızlandırıcılarında mikro hizmetleri barındırır ve yönetir.
 * Veri depolama için [Azure Cosmos DB](../cosmos-db/index.yml) ve [Azure Depolama](../storage/index.yml).
-* [Azure Stream Analytics](../stream-analytics/index.yml). Tahmin dayalı bakım önceden yapılandırılmış çözümü, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış bu çözüm, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır.
+* [Azure Stream Analytics](../stream-analytics/index.yml). Tahmine dayalı bakım Çözüm Hızlandırıcısı, gelen telemetri işlemek, toplama gerçekleştirmek ve olayları algılamak için bu hizmeti kullanır. Önceden yapılandırılmış bu çözüm, meta veriler ya da cihazlardan alınan komut yanıtları gibi verileri içeren bilgi iletilerini işlemek için de akış analizini kullanır.
 * [Azure Web Apps](../app-service/index.yml) önceden yapılandırılmış çözümlerde özel uygulama kodunu barındırır.
 
 Tipik bir IoT çözüm mimarisine genel bakış için [Microsoft Azure ve Nesnelerin İnterneti (IoT)](iot-accelerators-what-is-azure-iot.md) konusunu inceleyin.
@@ -117,7 +110,7 @@ Aşağıdaki bölümlerde, mikro hizmet tabanlı çözüm hızlandırıcıların
 
 ### <a name="microservices"></a>Mikro hizmetler
 
-Uzaktan izleme çözüm hızlandırıcısının yeni sürümü bir mikro hizmet mimarisi kullanır. Bu çözüm hızlandırıcısı, *IoT Hub yöneticisi* ve *Depolama yöneticisi* gibi birden fazla mikro hizmetten oluşur. İlgili geliştirici belgeleriyle birlikte her bir mikro hizmetin Java ve .NET sürümleri indirilebilir. Mikro hizmetler hakkında daha fazla bilgi için [Uzaktan İzleme mimarisi](iot-accelerators-remote-monitoring-sample-walkthrough.md) bölümüne bakın.
+Uzaktan izleme Çözüm Hızlandırıcısı yeni sürümünü mikro mimarisi kullanır. Bu çözüm hızlandırıcısı, *IoT Hub yöneticisi* ve *Depolama yöneticisi* gibi birden fazla mikro hizmetten oluşur. İlgili geliştirici belgeleriyle birlikte her bir mikro hizmetin Java ve .NET sürümleri indirilebilir. Mikro hizmetler hakkında daha fazla bilgi için [Uzaktan İzleme mimarisi](iot-accelerators-remote-monitoring-sample-walkthrough.md) bölümüne bakın.
 
 Bu mikro hizmet mimarisi, bulut çözümleri için aşağıdaki özelliklere sahip olduğu kanıtlanmış bir düzendir:
 
@@ -129,7 +122,7 @@ Bu mikro hizmet mimarisi, bulut çözümleri için aşağıdaki özelliklere sah
 > [!TIP]
 > Mikro hizmet mimarisi hakkında daha fazla bilgi için [.NET Uygulama Mimarisi](https://www.microsoft.com/net/learn/architecture) ve [Mikro hizmetler: Bulut tarafından desteklenen bir uygulama devrimi](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) konusunu inceleyin.
 
-Uzaktan izlemenin yeni sürümünü dağıttığınızda, aşağıdaki dağıtım seçeneklerinden birini belirlemeniz gerekir:
+Uzaktan izleme yeni sürümünü dağıttığınızda, aşağıdaki dağıtım seçeneklerinden birini seçmeniz gerekir:
 
 * **Temel:** Tanıtım için veya bir dağıtımı test etmek için daha düşük maliyetli sürüm. Tüm mikro hizmetler tek bir Azure sanal makinesine dağıtılır.
 * **Standart:** Bir üretim dağıtımı geliştirmek için genişletilmiş altyapı dağıtımı. Azure Container Service, mikro hizmetleri birden fazla Azure sanal makinesine dağıtır. Kubernetes mikro hizmetleri tek tek barındıran Docker kapsayıcılarını düzenler.
@@ -152,7 +145,7 @@ Kullanıcı arabirimi, [React](https://facebook.github.io/react/) javascript kit
 IoT çözüm hızlandırıcılarının genel bakışını gördüğünüze göre, her bir çözüm hızlandırıcısı için önerilen sonraki adımlara bakabilirsiniz:
 
 * [Uzaktan İzleme çözümünü keşfetme](iot-accelerators-remote-monitoring-explore.md).
-* [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](../iot-suite/iot-suite-predictive-overview.md).
+* [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](iot-accelerators-predictive-overview.md).
 * [Bağlı Fabrika çözüm hızlandırıcısını kullanmaya başlama](iot-accelerators-connected-factory-overview.md).
 
-IoT çözüm mimarileri hakkında daha fazla bilgi için [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf) konusunu inceleyin.
+IoT çözüm mimarileri hakkında daha fazla bilgi için [Microsoft Azure IoT hizmetleri: Başvuru Mimarisi](https://aka.ms/iotrefarchitecture) konusunu inceleyin.

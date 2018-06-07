@@ -1,6 +1,6 @@
 ---
-title: "Yayın Application Insights için ek açıklamalar | Microsoft Docs"
-description: "Dağıtım ekleme veya Application Insights, ölçümleri explorer grafiklerde işaretleyicileri oluşturabilirsiniz."
+title: Yayın Application Insights için ek açıklamalar | Microsoft Docs
+description: Dağıtım ekleme veya Application Insights, ölçümleri explorer grafiklerde işaretleyicileri oluşturabilirsiniz.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -14,10 +14,11 @@ ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
 ms.openlocfilehash: a479fa553d64f3820ae8513353484e72b57d30e4
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807807"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights'ta ölçüm grafiklerde ek açıklamaları
 Ek açıklamalar [ölçüm Gezgini](app-insights-metrics-explorer.md) grafikleri Göster yeni bir yapı veya diğer önemli olay dağıtıldığı. Bunlar değişikliklerinizi uygulamanızın performansı üzerinde hiçbir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Visual Studio Team Services yapı sistem](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Tarafından gibi herhangi bir olay bayrak için ek açıklama oluşturabilirsiniz [Powershell'den oluşturma](#create-annotations-from-powershell).

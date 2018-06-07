@@ -1,11 +1,11 @@
 ---
-title: "Azure'da bir Linux VM disklerde şifrelemek | Microsoft Docs"
-description: "Bir Linux VM için Gelişmiş Güvenlik Azure CLI 2.0 kullanan sanal disklerde şifreleme"
+title: Azure'da bir Linux VM disklerde şifrelemek | Microsoft Docs
+description: Bir Linux VM için Gelişmiş Güvenlik Azure CLI 2.0 kullanan sanal disklerde şifreleme
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 2a23b6fa-6941-4998-9804-8efe93b647b3
 ms.service: virtual-machines-linux
@@ -15,14 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: iainfou
-ms.openlocfilehash: b87d187eadff98ba84aa6478c2d233f2ec1c203c
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: c35cd220eab26300404a039467e1a0b35592f23d
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824787"
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>Bir Linux VM sanal disklerde şifreleme
 Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskler ve VM şifrelenebilir. Sanal makineleri bir Azure anahtar kasası güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarları denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede Azure CLI 2.0 kullanarak bir Linux VM sanal disklerde şifrelemek nasıl ayrıntılarını verir. Bu adımları [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
+
+> [!NOTE]
+> Vfat sürücüsü, Linux VM etkin olduğundan emin olun. Vfat sürücüyü devre dışı CIS kıyaslamaları isteyin gibi bazı güvenlik yöntemler. Bu sürücü şifrelemenin işlemi tamamlandıktan sonra çalışması için gereklidir.
 
 ## <a name="quick-commands"></a>Hızlı komutlar
 VM sanal disklerde şifrelemek için hızlı bir şekilde, aşağıdaki bölümde ayrıntıları temel görevi gerekiyorsa komutları. Her adım, belgenin geri kalanında bulunabilir bilgi ve içerik daha ayrıntılı [burada başlangıç](#overview-of-disk-encryption).
@@ -146,6 +150,7 @@ Desteklenen senaryolar ve disk şifrelemesi için gereksinimleri:
 * Tüm kaynaklar (örneğin, anahtar kasası, depolama hesabı ve VM) aynı Azure bölgesinde ve abonelik olmalıdır.
 * Standart A, D, DS, G, GS, vb., seri VM'ler.
 * Zaten şifrelenmiş bir Linux VM üzerinde şifreleme anahtarlarını güncelleştiriliyor.
+* VFAT sürücü Linux VM ile etkinleştirilir.
 
 Disk şifrelemesi aşağıdaki senaryolarda şu anda desteklenmiyor:
 

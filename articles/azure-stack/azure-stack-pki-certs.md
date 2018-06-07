@@ -3,7 +3,7 @@ title: Azure yığın Azure yığın ortak anahtar altyapısı sertifika gereksi
 description: Azure tümleşik yığını sistemler için Azure yığın PKI sertifikası dağıtım gereksinimleri açıklanır.
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2018
-ms.author: jeffgilb
+ms.date: 06/06/2018
+ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b1dcbfc51e63a5bca9186b62c871b2623653bbab
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: faf85c34c527dd72889f0fcb5021925b79481163
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823858"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -59,7 +60,7 @@ Her iki Azure AD için gerekli olan Azure yığın ortak uç nokta PKI sertifika
 
 Her Azure yığın ortak altyapısı uç noktası için uygun DNS adları olan sertifikaları gereklidir. Her uç noktanın DNS adı biçiminde ifade edilir:  *&lt;öneki >.&lt; bölge >. &lt;fqdn >*. 
 
-Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın sisteminiz için seçtiğiniz dış etki alanı adları eşleşmelidir. Bölge adı ise bir örnek olarak *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi olurdu *&lt;öneki >. redmond.contoso.com*.  *&lt;Öneki >* değerleri sertifika tarafından güvenliği sağlanan uç nokta açıklamak için Microsoft tarafından predesignated. Ayrıca,  *&lt;öneki >* dış altyapı uç noktaları değerler belirli uç noktası kullanan Azure yığın hizmet bağlıdır. 
+Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın sisteminiz için seçtiğiniz dış etki alanı adları eşleşmelidir. Bölge adı ise bir örnek olarak *Redmond* ve dış etki alanı adı *contoso.com*, DNS adlarını biçimi olurdu *&lt;öneki >. redmond.contoso.com*. *&lt;Öneki >* değerleri sertifika tarafından güvenliği sağlanan uç nokta açıklamak için Microsoft tarafından predesignated. Ayrıca,  *&lt;öneki >* dış altyapı uç noktaları değerler belirli uç noktası kullanan Azure yığın hizmet bağlıdır. 
 
 > [!note]  
 > Tüm ad alanlarını tüm dizinlere kopyalanan konusu ve konu alternatif adı (SAN) alanları kapsayan bir tek joker sertifikası olarak veya tek sertifikaların her uç nokta karşılık gelen dizine kopyaladı sağlanan sertifika olabilir. Unutmayın, her iki seçenek için uç noktaları gibi joker karakterli sertifikalar kullanmanızı gerektirir **acs** ve bulundukları yerde gerekli anahtar kasası. 

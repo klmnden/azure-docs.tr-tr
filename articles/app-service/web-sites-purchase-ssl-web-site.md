@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 63592a1a1c20dd25e5eea66d501f26efeaf0cf21
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807467"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service için SSL Sertifikası Satın Alma ve Yapılandırma
 
@@ -26,7 +27,7 @@ Bu öğreticide, web uygulamanız için bir SSL sertifikası satın alarak güve
 
 ## <a name="step-1---log-in-to-azure"></a>1. adım - Azure oturum açma
 
-Azure portalında oturum açın http://portal.azure.com
+http://portal.azure.com adresinden Azure portalında oturum açın
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>2. adım - bir SSL sertifikası sipariş verin
 
@@ -196,13 +197,24 @@ Tıklatın **anahtar yenileme** işlemini başlatmak için düğmesi. Bu işlemi
 
 Sertifikanızı yeniden anahtarlama sertifikanın sertifika yetkilisi tarafından verilen yeni bir sertifika ile yapar.
 
+## <a name="renew-the-certificate"></a>Sertifikayı Yenile
+
+Sertifikanın otomatik yenilenmesini istediğiniz zaman açmak için tıklatın **otomatik yenileme ayarlarını** sertifika Yönetimi sayfasında. Seçin **üzerinde** tıklatıp **kaydetmek**.
+
+![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
+
+Sertifikayı bunun yerine el ile yenilemek için tıklatın **el ile yenileme** yerine.
+
+> [!NOTE]
+> Yenilenen sertifikanın otomatik olarak, uygulamanızın, el ile yenileme ya da otomatik olarak yenilenmesi bağlı değil. Uygulamanıza bağlamak için bkz: [sertifikalarını yeniler](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+
 <a name="notrenewed"></a>
-## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>Neden my SSL sertifikası otomatik-yenilendi değil mi?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>Neden my sertifikası otomatik-yenilenir değil mi?
 
 SSL sertifikanızı otomatik yenileme için yapılandırılmış, ancak otomatik olarak yenilenmediği, bekleyen etki alanı doğrulama olabilir. Şunlara dikkat edin: 
 
-- Uygulama Hizmeti sertifikaları oluşturur, GoDaddy etki alanı doğrulama her üç yıla gerektirir. Etki alanı yöneticisi etki alanını doğrulamak için her üç yıla bir e-posta alır. E-postayı denetlemek veya etki alanınızda doğrulamak için hata uygulama hizmet sertifikası otomatik olarak yenilenmesi engeller. 
-- (Otomatik yenileme için sertifika etkin olsa bile) etki alanı reverification sonraki yenileme zaman 31 Mart 2017'den önce yayımlanan tüm uygulama hizmeti sertifikaları gerektirir. GoDaddy ilkede değişiklik sonucudur. E-postanızı kontrol edin ve uygulama hizmeti sertifikanın otomatik yenilenmesini devam etmek için bu tek seferlik etki alanı doğrulamayı tamamlayın. 
+- Uygulama Hizmeti sertifikaları oluşturur, GoDaddy etki alanı doğrulama iki yılda bir kez gerektirir. Etki alanı yöneticisi etki alanını doğrulamak için her üç yıla bir e-posta alır. E-postayı denetlemek veya etki alanınızda doğrulamak için hata uygulama hizmet sertifikası otomatik olarak yenilenmesi engeller. 
+- (Otomatik yenileme için sertifika etkin olsa bile) GoDaddy İlkesi'nde bir değişiklik nedeniyle etki alanı reverification sonraki yenileme zaman 1 Mart 2018 önce verilen tüm uygulama hizmeti sertifikaları gerektirir. E-postanızı kontrol edin ve uygulama hizmeti sertifikanın otomatik yenilenmesini devam etmek için bu tek seferlik etki alanı doğrulamayı tamamlayın. 
 
 ## <a name="more-resources"></a>Diğer kaynaklar
 

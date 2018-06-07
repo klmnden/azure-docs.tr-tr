@@ -1,117 +1,251 @@
 ---
-title: Azure Market, liste türünü belirleme
+title: Azure Market, liste türünü belirleme | Azure
 description: Bu makalede uygunluk ölçütleri ve uygulamalarını Azure Marketi'nde yayımlama anlayın çalışılırken yayımlama gereksinimleri ortakları açıklanmaktadır.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: ellacroi
-manager: msmbaldwin
+author: jm-aditi-ms
+manager: pabutler
 editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
+ms.assetid: ''
 ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: cd4959eb516f82f2d6e0afd2accfd8ac3d5b3e96
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8e9781f97c7d605a5249fcc1684dc2f72cb1e3ac
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824440"
 ---
-# <a name="determine-the-listing-type-right-for-your-offer"></a>Sağ teklifiniz için liste türünü belirleme
+# <a name="determine-the-listing-type-for-your-solution"></a>Çözümünüz için liste türü belirlenemiyor  
+Veriş birçok yayımlama seçeneklerini destekler: türlerini listeleme ve türleri sunar. En iyi çözüm ve hizmet ayrıntılarınızı temsil eden bir teklif türü seçin. Tüm yayımlama seçeneklerini, paylaşım sağlama için size erişim sağlar.   
 
-Her mağaza birden fazla yayımlama seçeneklerini ve teklif türlerini destekler. En iyi uygulama ve hizmet ayrıntıları temsil eden bir teklif türü seçin. Tüm yayımlama seçeneklerini iş ortakları, paylaşım sağlama için erişim sahibi olursunuz. 
+| Vitrin | Liste türü | Uygulama türü | Teknik yönergeleri |  
+|:--- |:--- |:--- |:--- |  
+| AppSource | [Liste](#list) | [Hizmet danışmanlık](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| Azure Market | [Liste](#list) | [Hizmet danışmanlık](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
+| Azure Market | [Liste](#list) | [Benimle iletişim](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
+| Azure Market | [Deneme](#trial) | [Ücretsiz deneme sürümü / SaaS deneme](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
+| AppSource |  | Cortana Intelligence | [docs.microsoft.com/Azure/Machine-Learning/Team-Data-Science-Process/cortana-intelligence-appsource-Publishing-Guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
+| AppSource |  |Dynamics 365 müşteri katılım için | [docs.microsoft.com/dynamics365/Customer-engagement/Developer/Publish-App-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
+| AppSource |  | Dynamics 365 Finans ve işlemleri | [docs.microsoft.com/dynamics365/Unified-Operations/dev-itpro/LCS-Solutions/LCS-Solutions-App-Source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
+| Azure Market | [Deneme](#trial) | [Etkileşimli Tanıtımı](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
+| Azure Market | [Deneme](#trial) | [Test sürücü](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
+| AppSource |  | Office 365 | [docs.microsoft.com/Office/dev/Store/Submit-to-the-Office-Store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
+| AppSource |  | Power BI | [docs.microsoft.com/Power-bi/Developer/Office-Store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Market | [Transact](#transact) | [Azure uygulamaları: yönetilen bir uygulama](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| Azure Market | [Transact](#transact) | [Azure uygulamaları: Çözüm şablonu](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
+| Azure Market | [Transact](#transact) | [kapsayıcı](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
+| Azure Market | [Transact](#transact) | [SaaS uygulama](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
+| Azure Market | [Transact](#transact) | [Sanal makine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |   
 
+## <a name="azure-certified-program"></a>Azure Onaylandı programı  
+Tüm Azure Marketi'nde yayımlanan makineleri (VM'ler) için Azure Certified program sınanır.  
+*   Daha fazla bilgi için Microsoft Azure sertifikalı sayfasında bulunan ziyaret [azure.microsoft.com/marketplace/programs/certified](https://azure.microsoft.com/marketplace/programs/certified). 
 
-## <a name="list"></a>Liste
+Sertifika programı aşağıdaki sağlar.  
+*   Sanal makinenizi Azure platformu ve model satış Market ile uyumludur.  
+*   Sanal makineniz virüs ve kötü amaçlı yazılım dahil olmak üzere çevrimiçi görüntü güvenliği uyumluluk için test edilmiştir.  
+*   Sanal makineniz teklif düzeyinde badging içerir. Doğrulanmış bir çözüm olarak badging Microsoft Kurumsal müşteriler için yükseltme geliştirir.   
 
-Deneme düzeyi veya işlem düzeyindeki katılım uygun olmadığı durumlarda kişi benim kullanın. Bu yaklaşımın avantajı, hemen iş flywheel başlatmak için temel anlaşmalar becerilerin geliştirilmesi müşteri adayları almaya başlamak bir pazar çözümü olan yayımcı etkinleştirir ' dir. Ancak, dezavantajı müşteri katılım, diğer teklif türleri ile karşılaştırıldığında sınırlıdır.
+---   
+
+## <a name="appsource-publishing-by-product"></a>Ürün AppSource yayımlayarak  
+Aşağıdaki tabloda, Office, Dynamics ve Power BI genişletmek AppSource uygulamalar için belirli gereksinimleri hakkında daha fazla bilgi sağlar.  
+
+| Liste türü | Uygulama türü | Teknik yönergeleri |  
+|:--- |:--- |:--- |  
+| [Liste](#list) | [Hizmet danışmanlık](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+|  | Cortana Intelligence | [docs.microsoft.com/Azure/Machine-Learning/Team-Data-Science-Process/cortana-intelligence-appsource-Publishing-Guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
+|  |Dynamics 365 müşteri katılım için | [docs.microsoft.com/dynamics365/Customer-engagement/Developer/Publish-App-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
+|  | Dynamics 365 Finans ve işlemleri | [docs.microsoft.com/dynamics365/Unified-Operations/dev-itpro/LCS-Solutions/LCS-Solutions-App-Source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
+|  | Office 365 | [docs.microsoft.com/Office/dev/Store/Submit-to-the-Office-Store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
+|  | Power BI | [docs.microsoft.com/Power-bi/Developer/Office-Store](https://docs.microsoft.com/power-bi/developer/office-store) |  
+
+---   
+
+## <a name="azure-marketplace-publishing-by-product"></a>Ürüne göre Azure Marketi'nde yayımlama  
+Aşağıdaki tabloda, Azure Marketi belirli gereksinimleri hakkında daha fazla bilgi sunar sağlar.  
+
+| Liste türü | Teklif türü |  Teknik yönergeleri |  
+|:--- |:--- |:--- |  
+| [Liste](#list) | [Hizmet danışmanlık](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
+| [Liste](#list) | [Benimle iletişim](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
+| [Deneme](#trial) | [Ücretsiz deneme sürümü / SaaS deneme](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
+| [Deneme](#trial) | [Etkileşimli Tanıtımı](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
+| [Deneme](#trial) | [Test sürücü](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
+| [Transact](#transact) | [Azure uygulamaları: yönetilen bir uygulama](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| [Transact](#transact) | [Azure uygulamaları: Çözüm şablonu](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
+| [Transact](#transact) | [kapsayıcı](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
+| [Transact](#transact) | [SaaS uygulama](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
+| [Transact](#transact) | [Sanal makine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |  
+
+---   
+
+## <a name="non-transact-listings"></a>Transact listeleri  
+Bu bölümde, liste türü Transact kullanmayın tüm teklifleri açıklanmaktadır. 
+
+### <a name="list"></a>Liste  
+Liste türü listeleme markette aşağıdaki veriş teklif türleri içerir.  
+
+| Teklif türü | Vitrin | Ayrıntılar |  
+|:---        |:---        |:---     |  
+| Danışmanlık Hizmetleri | AppSource | [Gereksinimleri: AppSource: listesi: Danışmanlık Hizmetleri](#requirements:-appsource:-list:-consulting-service) |  
+| Danışmanlık Hizmetleri | Azure Market | [Gereksinimleri: Azure Market: listesi: Danışmanlık Hizmetleri](#requirements:-azure-marketplace:-list:-consulting-service) |  
+| Benimle iletişime geçin | AppSource | [](#) |  
+| Benimle iletişime geçin | Azure Market | [Gereksinimleri: AppSource: listesi: benimle iletişim](#requirements:-azure-marketplace:-list:-contact-me) |  
+
+#### <a name="requirements-appsource-list-consulting-service"></a>Gereksinimleri: AppSource: listesi: hizmet danışmanlık  
+Teklif öncelikle profesyonel hizmetinden, örneğin, değerlendirmeleri, uygulamaları, Atölyeleri, oluşan danışmanlık hizmetleri Teklif türü kullanın.  
+
+| Gereksinimler | Ayrıntılar |  
+|:--- |:--- |  
+| Hizmet teklif özelliklerini | Danışmanlık hizmetiniz aşağıdaki ölçütleri karşılaması gerekir.<ul> <li>Sabit kapsam, sabit süre, sabit fiyat (veya boş) katılım sunar.</li> <li>Satış öncesi için öncelikle yönlendir.</li> <li>Tek bir müşteri sınırlayın.</li> <li>Sitesinde yürütün.</li> </ul> |  
+| Danışmanlık Hizmetleri için iş ortağı gereksinimleri | Hizmetiniz için ilgili alanında ölçütlere uyan.<table><tr><th>Çözüm alanı</th><th>Ölçütler</th></tr><tr><td>Dynamics 365 müşteri katılım için</td><td>Gümüş veya Bulut müşteri ilişkileri yönetimi Gold uzmanlığına sahip.</td></tr><tr><td>Dynamics 365 Finans ve işlemleri, Enterprise edition</td><td>Gümüş veya Altın Kurumsal Kaynak planlama uzmanlığı ve bulut işlemlerinizin geliri 25000 veya daha fazla sonunda 12 ay içinde vardır.</td></tr><tr><td>Dynamics 365 Finans ve işlemleri, Business edition</td><td>Bulut Hizmetleri Sağlayıcısı (CSP) veya dijital iş ortağı, kaydı (DPOR) olarak bir veya daha fazla müşterileri için hizmet.</td></tr><tr><td>Power BI</td><td>Çözüm Partner ölçütleri karşılayan.</td></tr><tr><td>PowerApps</td><td>Bir iş ortağı gösterimi çözümü vardır.</td></tr></table><ul> <li>Müşteri İlişkileri Yönetimi hakkında daha fazla bilgi için bulut Müşteri İlişkileri Yönetimi sayfasında bulunan ziyaret [partner.microsoft.com/membership/cloud-customer-relationship-management-competency](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency).</li> <li>Kurumsal Kaynak Planlaması sayfasında bulunan kaynak planlama hakkında daha fazla bilgi için ziyaret [partner.microsoft.com/membership/enterprise-resource-planning-competency](https://partner.microsoft.com/membership/enterprise-resource-planning-competency).</li> <li>Bulut Hizmetleri sayfasında bulunan sağlayıcısı CSP hakkında daha fazla bilgi için ziyaret [partner.microsoft.com/cloud-solution-provider](https://partner.microsoft.com/cloud-solution-provider).</li> <li>DPOR hakkında daha fazla bilgi için dijital iş ortağını ziyaret edin ve iş ortağı ilişkilendirme sayfasında bulunan [partner.microsoft.com/membership/digital-partner-of-record](https://partner.microsoft.com/membership/digital-partner-of-record).</li> <li>Çözüm partner ölçütleri hakkında daha fazla bilgi için çözüm iş ortağı genel bakış ziyaret ederek özendirme belge bulunan [www.microsoftpartnerserverandcloud.com/_layouts/download.aspx? SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=Hosted%20Documents/Power%20BI%20Program%20Overview%20%26%20Incentives.pdf).</li> <li>İş ortağı gösterimi hakkında daha fazla bilgi için sayfa bulunan iş ortağı gösterimi ziyaret [powerapps.microsoft.com/partner-showcase](https://powerapps.microsoft.com/partner-showcase).</li> </ul> |  
+
+#### <a name="requirements-azure-marketplace-list-consulting-service"></a>Gereksinimleri: Azure Market: listesi: hizmet danışmanlık  
+
+| Gereksinimler | Ayrıntılar |  
+|:--- |:--- |  
+| Hizmet teklif özelliklerini | Danışmanlık hizmetiniz aşağıdaki ölçütleri karşılaması gerekir.<ul> <li>Sabit kapsam, sabit süre, sabit fiyat (veya boş) katılım sunar.</li> <li>Satış öncesi için öncelikle yönlendir.</li> <li>Tek bir müşteri sınırlayın.</li> <li>Sitesinde yürütün.</li> </ul> |  
+| Danışmanlık Hizmetleri için iş ortağı gereksinimleri | Gümüş veya altın ilgili alanında aşağıdaki yetkinlikleri birinde hizmetiniz için olmalıdır. <table><tr><th>Çözüm alanı</th><th>Uzmanlığı</th></tr><td>Bulut platformu ve altyapısı</td><td>Bulut platformu<br />Veri Merkezi</td><tr><td>Uygulama geliştirme ve ISV</td><td>Uygulama Geliştirme<br />Uygulama Tümleştirme<br />DevOps</td></tr><tr><td>Veri Yönetimi ve analizi</td><td>Veri Analizi<br />Veri Platformu</td></tr></table><ul> <li>Yetkinlikleri aracılığıyla Microsoft iş ortağı sayfasında bulunan ağ yetkinlikleri hakkında daha fazla bilgi için ziyaret [partner.microsoft.com/membership/competencies](https://partner.microsoft.com/membership/competencies).</li> <li>Azure Market danışmanlık sayfasında bulunan hizmetleri listeleme hakkında daha fazla bilgi için ziyaret [docs.microsoft.com/azure/marketplace/consulting-services](https://docs.microsoft.com/azure/marketplace/consulting-services).</li></ul> |  
+
+#### <a name="requirements-azure-marketplace-list-contact-me"></a>Gereksinimleri: Azure Market: listesi: benimle iletişim  
+Me deneme kullanırken türü sunmak veya liste türü transact kullanım kişi uygun değildir. Kişi benim sunmak için hemen almak için bir pazar çözümüyle müşteri adayları türüdür avantajı. Müşteri adaylarını, iş flywheel başlatmak için temel anlaşmalar becerilerin geliştirilmesi. Dezavantajı müşteri katılım diğer teklif türleri ile karşılaştırıldığında, sınırlıdır.  
 
 >[!IMPORTANT]
->Müşteri katılım deneme sürümü ile en iyi ve Transact sunar. Kişi benim aldığınız sağlama değeri, bu nedenle bu liste türü seçerseniz, sağlama Hedefinizi yapılandırıldığından ve sağlama en üst düzeye çıkarmak hazırsınız emin olun. 
+>Müşteri katılım deneme ve Transact teklif türleriyle en iyisidir. Değerini kişi benim liste türü olan aldığınız sağlama. Ardından kişi benim liste türü seçerseniz, sağlama Hedefinizi yapılandırılmış ve, sağlama en üst düzeye çıkarmak için hazır doğrulamanız gerekir.  
 
-Teklif kullanım öncelikle Profesyonel Hizmetler (örneğin, değerlendirmeleri, uygulamaları, Atölyeleri) oluşuyorsa danışmanlık hizmetleri türü sunar. Teklif kapsam, süre ve fiyat düzeltilmesi gereken, tek bir müşteri için olmalıdır ve sitesinde gerçekleştirilmesi gerekir.
+---   
 
-## <a name="trial"></a>Deneme
+### <a name="trial"></a>Deneme  
+Bir deneme sürümü deneyimi sağlayan müşterileriniz için sağlanan katılım düzeyini artırır. Bir artan katılım düzeyi çözümünüzü daha zengin maruz neden olur. Bir deneme teklifi türü satın almadan önce çözümünüzü incelemek müşterilerin sağlar. Liste türü deneme sürümü, yükseltme işleminin daha yüksek bir fırsat veriş sahip. Ayrıca, müşteri katılımlar daha zengin ve daha fazla müşteri adaylarını beklemelisiniz.  
 
-Bir deneme sürümü deneyimi sağlayarak müşteriler ve bu nedenle daha zengin bir Etkilenme çözümünüzün sunulan katılım düzeyini artırır. Bir deneme sürümünü satın almadan önce çözümünüzü incelemek müşterilerin sağlar. Bir deneme sürümü deneyimi ile veriş yükseltme yüksek olasılığını sahip olur ve müşteri katılımlar daha zengin ve daha fazla müşteri adaylarını beklemelisiniz.
+Uygulamanızı veya Teklif türü listeleme deneme sürümü'nü kullanarak deneme ortamınızda, Azure aboneliği veya her ikisi de dağıtılır. Diğer liste türleri veya müşterinizin Azure aboneliğinizde dağıtılması. Uygulama veya teklif satın almak için ek gereksinimler öncülük müşteri olmalıdır. Uygulama veya teklif varsa, minimum olmalıdır kullanım örneği tamamlamak için ek yapılandırma. Uygulama veya teklif ücretsiz destek en az ve deneme süresi boyunca eklemeniz gerekir. Müşterilerinizin becerilerin geliştirilmesi ve en iyi sonuçlar için kasıtlı değerlendirme yol boyunca izlenen. Market'te ve kendi uygulama Intelligence sağlanan müşteri adayları kullanmaları önerilir. Müşteri adaylarını, müşterilerinizin yönetmek ve izlemek için kullanılmalıdır.  
+
+Liste türü deneme markette aşağıdaki veriş teklif türleri içerir.  
+
+| Teklif türü | Vitrin | Ayrıntılar |  
+|:---        |:---        |:---     |  
+| Ücretsiz / SaaS deneme | AppSource | [Türü gereksinimlerini listeleyen: deneme](#Listing-Type-Requirements:-trial) |  
+| Ücretsiz / SaaS deneme | Azure Market | [Gereksinimleri: Azure Market: deneme: ücretsiz deneme sürümü / SaaS deneme](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
+| Etkileşimli tanıtım | AppSource | [Türü gereksinimlerini listeleyen: deneme](#Listing-Type-Requirements:-trial) |  
+| Etkileşimli tanıtım | Azure Market | [Gereksinimleri: Azure Market: deneme: etkileşimli Tanıtımı](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
+| Test sürüşü | AppSource | [Türü gereksinimlerini listeleyen: deneme](#Listing-Type-Requirements:-trial) |  
+| Test sürüşü | Azure Market | [Gereksinimleri: Azure Market: deneme: Test sürücü](#requirements:-azure-marketplace:-trial:-test-drive) |  
+
+#### <a name="requirements-azure-marketplace-trial"></a>Gereksinimleri: Azure Market: deneme  
+
+| Gereksinim | Ayrıntılar |  
+|:--- |:--- |  
+| Ücretsiz deneme süresi ve deneme sürümü deneyimi | Müşterinizin, uygulamanızı sınırlı bir süre için ücretsiz deneyebilir.<br /><br />Müşteri Lisans veya abonelik ücretler teklifiniz için ödeme yapmak için gerekli değildir. Müşterilerinize temel alınan Microsoft birinci taraf ürün veya hizmet için ödeme yapmak için gerekli değildir. Tüm deneme seçenekleri Azure aboneliğinize dağıtılır. Yönetim ve maliyet iyileştirmesi tek denetime sahiptir.<br /><br />Ücretsiz deneme sürümü, etkileşimli demo seçin veya sürücü test. Seçtiğiniz öğeye olsun, ücretsiz deneme sürümünüzü müşteri teklifinizi hiçbir ek ücret ödemeden denemek için önceden ayarlanmış bir süre sağlamanız gerekir.<ul> <li>Sınamayı oluşturma işlemine başlamak için bir e-posta Gönder [ amp-testdrive@microsoft.com ](mailto:amp-testdrive@microsoft.com).</li> </ul>Not: Tüm SaaS deneme teklifleri Azure Market'te oturum açmak için iş kimlik bilgilerini kullanmak müşteri izin vermeniz gerekir.<ul> <li>Daha fazla bilgi için deneme deneyimleri bölümünde bulunan AppSource ziyaret [docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences).</li> </ul> |  
+| Kolayca yapılandırılabilir ve kullanıma hazır çözümü | Uygulamanızı yapılandırmak ve ayarlamak hızlı ve kolay olmalıdır. |  
+| Kullanılabilirlik / açık kalma süresi | SaaS uygulaması veya platform en az % 99,9 çalışma süresi olması gerekir. |  
+| Azure Active Directory | Teklifiniz etkin izin ile çoklu oturum açma (SSO) (Azure AD SSO federe) Azure Active Directory (Azure AD) federe izin vermeniz gerekir. |  
+
+#### <a name="requirements-azure-marketplace-trial-free-trial--saas-trial"></a>Gereksinimleri: Azure Market: deneme: ücretsiz deneme sürümü / SaaS deneme  
+Bir çözüm ya da bir ücretsiz--çalışırsanız, hizmet olarak yazılım (SaaS) kullanarak uygulama sağlayın-deneme tabanlı. SaaS deneme türü sürücüler iş flywheel başlamanıza yardımcı olması amacıyla ilgilenen müşterilerden, yüksek kaliteli müşteri adayları sunar. Ücretsiz deneme teklifi türü sınırlı kullanım veya sınırlı süre bir deneme hesabı olarak sunulan. Ücretsiz deneme çözümünüzü Ücretli kullanılacak dönüştürülmesi hızlandırmaya için eylem yapılan bir çağrı içermelidir.  
+
+| Avantaj | Gereksinim |  
+|:--- |:--- |  
+| Dönüştürme için otomatik olarak yöntemi ile satın alma kullanılması ödeme önce ürününüzü denemek müşteri sağlar. Ayrıca müşteri ve Microsoft satış ekipleri ile birleşik katılım için prototip sağlamaları sağlar. | Sanal makine ya da Azure uygulamaları, çözümüdür: Çözüm şablonu Teklif türü.<br /><br />Çözümünüzü SaaS türü sunar ve çok kiracılı bir SaaS ürünü sağlayan ' dir.<br /><br />Hızlı şekilde kullanmaya müşteri almak için ilk çalıştırma deneyimi var.<br /><br />Tek bir kiracı sahip, ancak müşteriler konuk olarak ekleme. |  
+
+#### <a name="requirements-azure-marketplace-trial-interactive-demo"></a>Gereksinimleri: Azure Market: deneme: etkileşimli Tanıtımı  
+Etkileşimli bir tanıtım kullanarak müşterilerinize çözümünüzün Kılavuzlu bir deneyim sağlar. Etkileşimli demo Teklif türü avantajı, bir deneme sürümü deneyimi karmaşık çözümünüzün karmaşık sağlama olmadan sağlamaktır. Etkileşimli demo Teklif türü müşteri çözümünüzü geçici bir görünüm sağlar. Etkileşimli demo Teklif türü, iş flywheel başlatmak için temel anlaşmalar nurture, müşteri adayları sağlar.  
+
+| Avantaj | Gereksinim |  
+|:--- |:--- |  
+| Çözümünüzü kurma eylem KARMAŞASIZ görmek, müşterilerin sağlar. | Çözümünüzü deneme süresi içinde elde etmek için zor olabilir karmaşık ayarları gerektirir. |  
+
+#### <a name="requirements-azure-marketplace-trial-test-drive"></a>Gereksinimleri: Azure Market: deneme: Test sürücü  
+Bir veya daha fazla sanal makine infrastructure-as-a-service(IaaS) veya SaaS uygulamaları aracılığıyla dağıtın. Test sürücü Teklif türü bir avantajı, sanal makine ya da bir ortak tarafından barındırılan Kılavuzlu Tur tarafından öncülük çözümün tamamında otomatik sağlama ' dir. Sınamayı hiçbir ek ücret ödemeden değerlendirme müşterinize sağlar. Müşteri daha yüksek kaliteli oluşturmak amacıyla, mevcut bir Azure müşteri adaylarını olması gerekmez.  
+
+| Avantaj | Gereksinim |  
+|:--- |:--- |  
+| Ürünü satın almadan önce denemek müşteri sağlar.<br /><br />Önceden yapılandırılmış ayarları kullanarak çözümünüzün Kılavuzlu bir deneyim sağlar.<br /><br />Aşağıdaki ek avantajları sınamayı kullanılırken geçerlidir.<ul> <li>Kullanıcı aramalarını Market'te % 27, yalnızca Göster teklifleri test sürücülerle müşterilere göre iyileştirilmiştir.</li> <li>Test sürücülerle teklifleri %38 daha fazla müşteri adayları teklifleri daha oluşturun.</li> <li>Yeni müşteri edinme Market'te % 36 sınamayı sürdü müşterilerden gelen.</li> <li>Test sürücüleri ürününüz ortak satış çalışmaları için daha iyi anlamak Microsoft alan satıcılar sağlar.</li> </ul> | Azure uygulamaları bir sanal makine, çözümüdür: Çözüm şablonu, tek bir kiracı SaaS uygulamayla veya sağlamak için karmaşıktır. <br /><br />Ücretli bir teklife deneme sürümünüzü dönüştürmek için bir yöntem yok. |  
+
+---
+
+## <a name="transact-specific-listings"></a>Transact-özel listeleri
+Bu bölümde, liste türü Transact kullanan tüm teklifleri açıklanmaktadır.
+
+### <a name="transact"></a>İşlem  
+Transact liste türü, markette aşağıdaki veriş teklif türleri içerir.  
+
+| Teklif türü | Vitrin | Ayrıntılar |   
+|:---        |:---        | :--- |  
+| Azure uygulamaları: yönetilen bir uygulama | Azure Market | [Gereksinimleri: Azure Market: Transact: Azure uygulamaları: yönetilen bir uygulama](#requirements:-azure-marketplace:-transact:-Azure-apps:-Managed-app) |  
+| Azure uygulamaları: Çözüm şablonu | Azure Market | [Gereksinimleri: Azure Market: Transact: Azure uygulamaları: Çözüm şablonu](#requirements:-azure-marketplace:-transact:-Azure-apps:-Solution-template) |  
+| Kapsayıcılar | Azure Market | [Gereksinimleri: Azure Market: Transact: kapsayıcı](#requirements:-azure-marketplace:-transact:-Container) |  
+| SaaS uygulama  | Azure Market | [Gereksinimleri: Azure Market: Transact: SaaS uygulama](#requirements:-azure-marketplace:-transact:-SaaS-app) |  
+| Sanal makine | Azure Market | [Gereksinimleri: Azure Market: Transact: sanal makine](#requirements:-azure-marketplace:-transact:-Virtual-Machine) |  
+
+#### <a name="requirements-azure-marketplace-transact-azure-apps-managed-app"></a>Gereksinimleri: Azure Market: Transact: Azure uygulamaları: yönetilen bir uygulama  
+Azure app kullanın: aşağıdaki koşullar gerekli olduğunda yönetilen uygulama Teklif türü.  
+*   Bir VM veya Iaas tabanlı çözümün tamamında kullanarak müşteri için ya da bir abonelik tabanlı çözümü dağıtın.  
+*   Siz veya müşteriniz gerektiren çözümü bir iş ortağı tarafından yönetiliyor.  
+
+    >[!NOTE]
+    >Örneğin, bir iş ortağı SI veya yönetilen hizmet sağlayıcısı (MSP) olabilir.  
+  
+*   Sık sorulan soruların bir listesi için sayfa bulunan Market SSS ziyaret [azure.microsoft.com/marketplace/faq](https://azure.microsoft.com/marketplace/faq).  
+
+>[!NOTE]
+> Yönetilen uygulamalar Market üzerinden dağıtılabilir olmalıdır. Müşteri iletişimi önemliyse sağlama paylaşımını etkinleştirdikten sonra sonra ilgilenen müşteriler için ulaşın.  
+
+#### <a name="requirements-azure-marketplace-transact-azure-apps-solution-template"></a>Gereksinimleri: Azure Market: Transact: Azure uygulamaları: Çözüm şablonu  
+Azure uygulaması kullanın: çözümünüzü basit bir VM ötesinde ek dağıtım ve yapılandırma Otomasyon gerektirdiğinde çözüm şablonu Teklif türü. Azure uygulamalarını kullanarak bir veya daha fazla VM sağlama otomatikleştirebilir: Çözüm şablonları. Ayrıca, ağ ve depolama kaynaklarını hazırlama. Azure uygulamaları: Çözüm şablonları Teklif türü tek sanal makineleri ve tüm Iaas tabanlı çözümler için Otomasyon yararları sağlar.  
+
+#### <a name="requirements-azure-marketplace-transact-container"></a>Gereksinimleri: Azure Market: Transact: kapsayıcı  
+Çözümünüzü Kubernetes tabanlı Azure kapsayıcı hizmeti sağlanan bir Docker kapsayıcısı görüntüsü olduğunda kapsayıcı Teklif türü kullanın.
+
+>[!NOTE]
+>Örneğin, Kubernetes tabanlı Azure kapsayıcı hizmeti Azure Kubernetes hizmet veya Azure kapsayıcı örnekleri, Azure müşteriler için bir kapsayıcı Kubernetes tabanlı çalışma zamanı seçimi ister.  
+
+Microsoft, şu anda ücretsiz ve Getir bilgisayarınızı-kendi-lisans lisans modelleri (KLG) destekler. Daha fazla ticaret seçenekleri abonelik ve tüketim tabanlı faturalama seçenekleri de dahil olmak üzere sonraki birkaç ay içinde zamanlanır.  
+
+| Gereksinim | Ayrıntılar |  
+|:--- |:--- |  
+| Faturalama ve ölçümü | Ya da ücretsiz destek veya KLG faturalama modeli. |  
+|Dockerfile yerleşik görüntüsü    |   Kapsayıcı görüntüleri Docker görüntü belirtimine dayalı gerekir ve bir Dockerfile oluşturulmalıdır. [Burada] docker görüntülerinizi oluşturmak hakkında daha fazla bilgi edinin. (https://docs.docker.com/engine/reference/builder/#usage) |
+|ACR barındırma    |   Kapsayıcı görüntüleri bir Azure kapsayıcı kayıt defteri (ACR) deposunda barındırılması gerekir. [Burada] ACR ile çalışma hakkında daha fazla bilgi edinin. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)   |
+|Görüntü etiketleme    |   Kapsayıcı görüntüleri, en az 1 etiketi içermelidir (en fazla etiketler: 16). Bir görüntü [buraya] etiketleme hakkında daha fazla bilgi edinin. (https://docs.docker.com/engine/reference/commandline/tag/)    |
+
+
+#### <a name="requirements-azure-marketplace-transact-saas-app"></a>Gereksinimleri: Azure Market: Transact: SaaS uygulama  
+SaaS tabanlı, teknik çözümünüzü olarak bir abonelik satın almak müşteri etkinleştirmek için SaaS uygulama Teklif türü kullanın. SaaS uygulamanız için aşağıdaki gereksinimlerin karşılanması gerekir.  
+*   Fiyat ve fatura düz, aylık bir oranda hizmet.  
+*   Yükseltme veya hizmet herhangi bir zamanda iptal etmek için bir yöntem sağlar.  
+
+Microsoft commerce işlem barındırır. Microsoft, müşteriniz, sizin adınıza ödemenizi işler. Bir SaaS uygulaması bir abonelik kullanmak için kendi abonelik yönetimi hizmeti API etkinleştirmeniz gerekir. Abonelik Yönetimi Hizmeti API'si doğrudan Azure Resource Manager API'leri ile iletişim kurması gerekir. Abonelik Yönetimi Hizmeti API'si hizmeti sağlama, yükseltme ve iptal etme desteklemesi gerekir.  
+
+| Gereksinim | Ayrıntılar |  
+|:--- |:--- |  
+| Faturalama ve ölçümü | Teklifiniz aylık bir düz hızında fiyatlandırılır. Kullanım tabanlı fiyatlandırma ve kullanım tabanlı *true yukarı* seçenekleri şu anda desteklenmiyor. |  
+| İptali | Herhangi bir zamanda müşteri tarafından iptal edilebilen teklifidir. |  
+|İşlem giriş sayfası     |   Azure ortak markalı işlem giriş sayfası, kullanıcıların oluşturmak ve SaaS hizmet hesaplarını yönetmek bir ana bilgisayar.      |    İşlem     |
+|Abonelik API    |   SaaS oluşturmak, güncelleştirmek ve bir kullanıcı hesabı ve hizmet planını silmek için abonelik ile etkileşim kurabilen bir hizmeti kullanıma sunar. 24 saat içinde desteklenen kritik API değişiklikleri gerekir. Kritik olmayan API değişiklikleri düzenli olarak kullanıma sunulacaktır.      |     İşlem    |
+
+
+#### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Gereksinimleri: Azure Market: Transact: sanal makine  
+Bir sanal gereç, müşteriyle ilişkili abonelik dağıttığınızda sanal makine teklif türünü kullanın. Kullandıkça Öde veya Getir bilgisayarınızı-kendi-lisanslama modelleri lisans (KLG) kullanarak etkin ticaret VM'ler tam olarak var. Microsoft commerce işlem barındırır ve müşteriniz, sizin adınıza bills. Müşteri ve Microsoft Kurumsal anlaşmalarındaki dahil olmak üzere, tercih edilen ödeme ilişkisi kullanmanın faydası alın.  
+
+>[!NOTE]
+>Şu anda bir Kuruluş Sözleşmesi ile ilişkili parasal taahhüt VM Azure kullanımını karşı ancak değil ücretleri lisans yazılımınızı karşı kullanılmalıdır.  
+
+>[!NOTE]
+>Bulma ve dağıtım vm'nizin müşterilerin belirli bir dizi özel bir teklif fiyatlandırması ve görüntünün listeleyerek kısıtlayabilirsiniz. Özel teklifler, en yakın müşterileriniz için özel teklifler oluşturmanızı ve özelleştirilmiş yazılım ve koşulları sunar kilidi açma. Özelleştirilmiş koşulları senaryoları, alan öncülük anlaşmalar özelleştirilmiş fiyatlandırması ve koşulları yanı sıra sınırlı yayın yazılım erken erişim ile de dahil olmak üzere çeşitli vurgulamak etkinleştirin. Özel teklifler ile ayrıntılarını yeni bir SKU oluşturarak belirli fiyatlandırma vermenizi veya ürün sınırlı sayıda müşteriler için etkinleştirin.  
+*   Özel teklifleri hakkında daha fazla bilgi için özel teklifler sayfasında bulunan Azure Marketi ziyaret [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+
+| Gereksinim | Ayrıntılar |  
+|:--- |:--- | 
+| Faturalama ve ölçümü | VM KLG veya Kullandıkça Öde aylık faturalama desteklemesi gerekir. |  
+| Azure ile uyumlu sanal sabit disk (VHD) | Sanal makineleri, Windows veya Linux'ta oluşturulmalıdır.<ul> <li>Linux VHD oluşturma hakkında daha fazla bilgi için bir Azure uyumlu VHD (Linux tabanlı) bölümünde bulunan Oluştur ziyaret [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2- Create-an-Azure-Compatible-VHD-Linux-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#2-create-an-azure-compatible-vhd-linux-based).</li> <li>Windows VHD oluşturma hakkında daha fazla bilgi için bir Azure uyumlu VHD (Windows tabanlı) bölümünde bulunan Oluştur ziyaret [docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3- Create-an-Azure-Compatible-VHD-Windows-based](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-vm-image-creation#3-create-an-azure-compatible-vhd-windows-based).</li> </ul> |  
+
+## <a name="next-steps"></a>Sonraki adımlar
+*   Ziyaret [Azure Marketi ve AppSource yayımcı Kılavuzu](./marketplace-publishers-guide.md) sayfası.  
  
-Tüm deneme seçenekleri deneme ortamı ve/veya Azure aboneliği arasında Müşteri'nin veya Azure aboneliğinizde dağıtılır. Denemeler müşteri neden olmadan herhangi bir ek satın alma işlemleri ve en az olmalıdır varsa, basit bir tamamlamak için ek yapılandırma kullanım örneği. Denemeler ücretsiz destek en az ve deneme süresi boyunca eklemeniz gerekir. Deneme kullanıcılar becerilerin geliştirilmesi ve en iyi sonuçlar için kasıtlı değerlendirme yol boyunca izlenen. Yayımcılar Market müşteri adayları ve yayımcının kendi uygulama Intelligence izlemek ve deneme kullanıcıları yönetmek için kullanmanız önerilir.
-
-Üç tipik deneme senaryo vardır:
-
-**Ücretsiz deneme sürümü**
-
-Çözüm ya da uygulama serbest çalışırsanız, SaaS tabanlı deneme önerdiğinde ücretsiz deneme sürümü kullanın. Bu seçenek, iş flywheel başlamanıza yardımcı olması amacıyla ilgilenen müşterilerden, yüksek kaliteli müşteri adayları sürücüleri. Ücretsiz deneme sınırlı kullanım veya sınırlı süre deneme hesapları olarak sunulabilir. Bunlar yazılımınızı Ücretli kullanılacak dönüştürülmesi hızlandırmaya için eylem yapılan bir çağrı içermelidir.
-
-|**Deneme seçeneği**  |**Başlıca yararları**  |**Gerekirse bu seçeneği belirleyin...**  |
-|---------|---------|---------|
-|**Ücretsiz deneme sürümü**    |     Ücretli kullanımına dönüştürmek için bir otomatik yöntem ile satın almadan önce ürününüzü denemek bir müşteri sağlar. Ayrıca müşteri ve Microsoft satış ekipleri ile birleşik katılım için prototip sağlamaları sağlar. |     Bir sanal makine ya da çözüm şablonu çözümüdür.<br><br> Çok kiracılı bir SaaS ürün sunar ve sunan bir SaaS, çözümüdür. <br><br>Bir müşteri hale getirmek için ilk çalıştırma deneyimi ve hızlı bir şekilde çalışan var. <br><br>Tek bir kiracı sahip ancak müşteriler Konuk kullanıcı olarak eklemekte olduğunuz.|
-
-**Test sürücü**
-
-Çözüm aracılığıyla Iaas veya SaaS uygulamaları aracılığıyla bir veya daha fazla sanal makine dağıtıldığında sınamayı kullanın. Bu yaklaşımın avantajı, bir sanal gereç ya da bir iş ortağı barındırılan "hiçbir ek ücret ödemeden müşteri değerlendirmesi için çözümün müşteriye Kılavuzlu Tur içinde" couched çözümün tamamında ortamı otomatik sağlama ' dir. Müşteri var olan bir Azure müşteri, daha yüksek kaliteli müşteri adayları oluşturmak amacıyla olması gerekmez.
-
-Bir test sürücüye başka avantajları vardır:
-
-- Kullanıcı aramalarını Market'te % 27, kullanıcılar tarafından yalnızca Göster teklifleri test sürücülerle için iyileştirilmiştir. 
-- Test sürücülerle teklifleri %38 daha fazla müşteri adayları teklifleri daha oluşturun. 
-- Yeni müşteri edinme Market'te % 36 sınamayı sürdü müşterilerden gelen. 
-- Test sürücüleri ürününüz ortak satış çalışmaları için daha iyi anlamak Microsoft alan satıcılar sağlar.
-
-|**Deneme seçeneği**  |**Başlıca yararları**  |**Gerekirse bu seçeneği belirleyin...**  |
-|---------|---------|---------|
-|**Test sürücü**     |     Bunlar satın almadan önce ürününüzü denemek bir müşteri sağlar. Ayrıca, önceden yapılandırılmış bir ayar yapmasına çözümünüzün Kılavuzlu bir deneyim sağlar. |   Çözümünüzü bir sanal makine, çözüm şablonu ya da tek bir kiracı SaaS uygulamayla veya sağlamak için karmaşıktır. <br><br>Ücretli bir teklife deneme sürümünüzü dönüştürmek için bir yöntem yoktur. |
-
-**Etkileşimli Tanıtımı**
-
-Etkileşimli bir demo kullanarak ürününüzün Kılavuzlu bir deneyim aracılığıyla müşterilerinize alın. Bu seçeneğin avantaj olmadan sağlamayı karmaşık karmaşık çözümleri için bir deneme sürümü deneyimi sağlayabilir olmalıdır. Bu seçenek müşteriler geçici çözüm bir görünüm sağlar. Ve iş flywheel başlatmak için temel anlaşmalar becerilerin geliştirilmesi müşteri adayları almaya başlamak yayımcılar sağlar. 
-
-|**Deneme seçeneği**  |**Başlıca yararları**  |**Gerekirse bu seçeneği belirleyin...**  |
-|---------|---------|---------|
-|**Etkileşimli Tanıtımı**    |  Kurulum KARMAŞASIZ eylem ürününüzü görmek müşterilerin olanak tanır.       |    Çözümünüzü ve deneme süresi elde etmek için zor olabilir karmaşık kurulum gerektirir.     |
-
-## <a name="transaction"></a>İşlem
-
-Azure Marketi'nde kullanan bir *sanal makine* müşterinin aboneliğine sanal gereç olarak çözüm dağıtıldığında. Sanal makinelerin tam olarak ticaret Kullandıkça Öde veya KLG etkin lisans modelleri ile etkin olduğunu. Microsoft commerce işlem barındırır ve yayımcı adına müşteri bills. Yayımcı ile Kurumsal Anlaşma dahil olmak üzere Microsoft, Müşteri'nin tercih edilen ödeme ilişkisi yararlanarak yararı alır. 
-
->[!NOTE]
->Şu anda bir kurumsal anlaşması parasal taahhüt sanal gereç ait Azure kullanım karşı ancak publisher'ın yazılım lisans ücretleri karşı değil kullanılabilir.
-
->[!NOTE]
->Özel bir teklif fiyatlandırması ve görüntünün listeleyerek müşterilerin belirli bir dizi bulma ve dağıtım, sanal makinenin kısıtlayabilirsiniz. Özel teklifler için en yakın müşterilerine özel teklifler oluşturmak ve özelleştirilmiş yazılım ve bunları koşullarını sunmak yayımcılar kilidi açma. Bu özelleştirilmiş koşulları çeşitli senaryolarda alan öncülük anlaşmalar özelleştirilmiş fiyatlandırması ve koşulları yanı sıra sınırlı yayın yazılım erken erişim ile de dahil olmak üzere, açık yayımcılar etkinleştirin. Bu belirli fiyatlandırma vermek için yayımcılar veya ürün sınırlı sayıda müşteriler için yeni bir SKU bu ayrıntılarla oluşturarak sağlar. Daha fazla bilgi edinmek [özel teklifler](https://azure.microsoft.com/en-us/blog/private-offers-on-azure-marketplace/).
-
-Kullanım bir *Azure uygulama çözüm şablonu* ne zaman bir çözüm sanal gereç ötesinde ek dağıtım ve yapılandırma Otomasyon gerektirir. Çözüm şablonları bir veya daha fazla sanal makine kaynakları sağlama otomatik hale getirebilir ve ağ ve depolama kaynaklarını sağlayabilirsiniz. Çözüm şablonları tek sanal makineleri ve tüm Iaas tabanlı çözümü ortamları Otomasyon fayda sağlayabilir. Çözüm şablonları oluşturma hakkında daha fazla bilgi [GitHub](https://github.com/MicrosoftDocs/azure-docs).
-
-Kullanım bir *Azure yönetilen uygulama* ne zaman bir müşterinin aboneliğine--bir sanal makine veya Iaas tabanlı çözümün tamamında dağıtıyorsanız ve yayımcı veya müşteri üçüncü taraf (örneğin, bir SI tarafından yönetilecek çözüm ister ya da MSP). Yönetilen uygulamalar oluşturma hakkında daha fazla bilgi [Azure yönetilen uygulamaları genel bakış](https://docs.microsoft.com/azure/managed-applications/overview). Sık sorulan soruların bir listesi için bkz: [Market SSS](https://azure.microsoft.com/marketplace/faq/).
-
->[!NOTE]
-> Yönetilen uygulamalar Market üzerinden dağıtılabilir olmalıdır. Müşteri iletişimi önemliyse sağlama paylaşımı varsa, ilgilenen müşteriler için ulaşmak olduğunu unutmayın.
-
-SaaS tabanlı, teknik çözümleri için kullanma *SaaS uygulama* aboneliğinize çözümünüzü Azure Market üzerinden satın almak Azure müşterilerin olanak tanımak için türü sunar. Bu özelliği kullanmak için yayımcılar gerekir fiyat kendi hizmet düz, aylık hızında fatura ve yükseltmek veya hizmeti herhangi bir zamanda iptal etme olanağı sunar. Sanal makineler gibi Microsoft commerce işlem barındırır ve yayımcı adına müşteri bills. Bir SaaS uygulaması bir abonelik kullanmak için Azure Marketi sağlama hizmeti sağlamayı desteklemek için API'leri, yükseltmeleri ve iptali Azure portalından ile doğrudan iletişim kurmak kendi abonelik yönetimi hizmeti API'si yayımcılar etkinleştirin.
-
-Kullanım *kapsayıcıları* çözümünüzü olacak şekilde bir Docker kapsayıcısı görüntüsü olarak yayımlamak için Azure Kubernetes hizmeti veya Azure kapsayıcı örnekleri gibi bir Kubernetes tabanlı Azure kapsayıcı hizmeti için kullanıcının seçimine sağlandı Kapsayıcı Kubernetes tabanlı çalışma zamanı. Microsoft, ücretsiz ve KLG etkin lisans modelleri şu anda daha fazla ticaret özellikleriyle abonelik ve tüketim tabanlı faturalama seçenekleri de dahil olmak üzere sonraki birkaç ay, gelen destekler.
-
-## <a name="azure-certified-program"></a>Azure Onaylandı programı
-
-Azure Marketi'nde yayımlanan tüm sanal makineler için Azure Certified program sınanır. Program:
-
-- Müşteriler sanal makineniz Azure platformu ve model satış Market ile uyumlu olmasını sağlar.
-- Virüs ve kötü amaçlı yazılım dahil olmak üzere çevrimiçi görüntü güvenliği uyumluluk testleri.
-- Doğrulanmış bir çözüm olarak Microsoft Kurumsal müşteriler için yükseltme geliştirmek için teklif düzeyinde badging etkinleştirir.
-- Daha fazla bilgi için lütfen gözden [Azure Microsoft Sertifikalı](https://azure.microsoft.com/en-us/marketplace/programs/certified/).
-
-## <a name="publishing-processes-by-product-for-office-dynamics-and-power-bi"></a>Office, Dynamics ve Power BI için ürün yayımlama işlemler
-Office, Dynamics ve Power BI genişletmek AppSource uygulamalar için bu bölümdeki ürüne özgü belgelere belirli gereksinimleri hakkında daha fazla bilgi edinebilirsiniz. 
-
-
-|Ürün |Yayımlama bilgileri  |
-|---------|---------|
-|Office 365     |    Gözden geçirme [işlemi ve yönergeleri yayımlama]( https://docs.microsoft.com/office/dev/store/submit-to-the-office-store).     |
-|Dynamics 365 Finans ve işlemleri  |   İçin Enterprise Edition oluştururken gözden [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source).      |
-|Dynamics 365 müşteri katılım için |Gözden geçirme [işlemi ve yönergeleri yayımlama](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource). |
-|Power BI   |     Gözden geçirme [işlemi ve yönergeleri yayımlama]( https://docs.microsoft.com/power-bi/developer/office-store).    |
-|Cortana Intelligence     |    Hakkında bilgi edinin [AppSource Cortana](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide).     |
-|AppSource danışmanlık teklifleri     |  Gözden geçirme [yönergeleri ve teklifiniz gönderme öğrenin](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf).    |
+---  

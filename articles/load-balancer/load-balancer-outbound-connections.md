@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825008"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure'da giden bağlantılar
 
@@ -140,7 +141,7 @@ SNAT bağlantı noktalarını aynı sayıda UDP ve TCP için sırasıyla öncede
 >[!IMPORTANT]
 >Standart SKU programlama SNAT IP Aktarım Protokolü ve Yük Dengeleme kuralının türetilmiş.  SNAT yalnızca TCP Yük Dengeleme kuralı varsa, yalnızca TCP için kullanılabilir. Yalnızca bir Yük Dengeleme kuralı TCP sahip ve için UDP Giden SNAT ihtiyacınız varsa bir UDP Yük Dengeleme aynı arka uç havuzuna aynı ön uç gelen kuralı oluşturun.  Bu işlem için UDP programlama SNAT tetikler.  Bir çalışan kural veya sistem durumu araştırması gerekli değildir.  Temel SKU SNAT SNAT Yük Dengeleme kuralını belirtilen Aktarım Protokolü'ne olursa olsun, her iki IP aktarım protokolü için her zaman programlar.
 
-Azure bağlantı noktalarına her VM NIC IP yapılandırmasını SNAT preallocates. Bir IP yapılandırması havuza eklendiğinde, SNAT bağlantı noktaları arka uç havuzu boyutuna göre bu IP yapılandırması için önceden ayrılmış. Giden trafik akışları oluşturduğunuzda, [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve akış kapandığında Bu bağlantı noktaları serbest veya [boş durma zaman aşımlarını](#ideltimeout) gerçekleşir.
+Azure bağlantı noktalarına her VM NIC IP yapılandırmasını SNAT preallocates. Bir IP yapılandırması havuza eklendiğinde, SNAT bağlantı noktaları arka uç havuzu boyutuna göre bu IP yapılandırması için önceden ayrılmış. Giden trafik akışları oluşturduğunuzda, [PAT](#pat) dinamik olarak (önceden ayrılmış sınıra kadar) kullanır ve akış kapandığında Bu bağlantı noktaları serbest veya [boş durma zaman aşımlarını](#idletimeout) gerçekleşir.
 
 Aşağıdaki tabloda SNAT bağlantı noktası preallocations arka uç havuzu boyutlarda katmanları gösterilmektedir:
 

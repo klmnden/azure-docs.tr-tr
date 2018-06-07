@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824770"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics'i kullanmaya başlama: Gerçek zamanlı sahtekarlık algılama
 
@@ -35,7 +36,7 @@ Telekomünikasyon şirket, fazla miktarda verinin gelen çağrıları için sahi
 
 Bu öğreticide, örnek telefon araması meta verilerini oluşturur bir istemci uygulaması kullanarak, telefon araması veri benzetimi. Bazı uygulama üreten kayıtlar gibi sahte çağrıları arayın. 
 
-Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
+Başlamadan önce şunlara sahip olduğunuzdan emin olun:
 
 * Bir Azure hesabı.
 * Çağrı olay Oluşturucu uygulama. Bu indirerek elde [TelcoGenerator.zip dosya](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) Microsoft Download Center gelen. Bu paket, bilgisayarınızdaki bir klasöre ayıklayın. Kaynak kodu ve hata ayıklayıcısı'ndaki uygulama çalıştırma görmek istiyorsanız, uygulama kaynak kodundan alabilirsiniz [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
@@ -75,9 +76,9 @@ Bu yordamda, önce bir olay hub'ad alanı oluşturun ve ardından bir event hub 
     
  
 7. **Oluştur**’a tıklayın.
-### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Olay hub'ına erişim vermek ve bir bağlantı dizesi alma
+### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Olay hub’ına erişim verme ve bir bağlantı dizesi alma
 
-Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim veren bir ilke olması gerekir. Erişim İlkesi yetkilendirme bilgilerini içeren bir bağlantı dizesi oluşturur.
+Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim veren bir ilke olması gerekir. Erişim ilkesi, yetkilendirme bilgilerini içeren bir bağlantı dizesi oluşturur.
 
 1.  Olay ad alanı bölmesinde **olay hub'ları** ve ardından yeni olay hub'ınızın adını tıklatın.
 
@@ -98,7 +99,7 @@ Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim vere
     
     ![Erişim ilkesinden birincil bağlantı dizesi anahtarını kopyalama](./media/stream-analytics-real-time-fraud-detection/stream-analytics-shared-access-policy-copy-connection-string-new-portal.png)
  
-7.  Bağlantı dizesi, bir metin düzenleyicisine yapıştırın. Bazı küçük Düzenlemeleri yaptıktan sonra bir sonraki bölüm için bu bağlantı dizesi gerekir.
+7.  Bağlantı dizesini bir metin düzenleyicisine yapıştırın. Bazı küçük Düzenlemeleri yaptıktan sonra bir sonraki bölüm için bu bağlantı dizesi gerekir.
 
     Bağlantı dizesi şu şekildedir:
 
@@ -131,26 +132,26 @@ TelcoGenerator uygulama başlamadan önce böylece çağrısı kayıtları oluş
 1.  Bir komut penceresi açın ve TelcoGenerator uygulama sıkıştırması açılmış bulunduğu klasöre geçin.
 2.  Aşağıdaki komutu girin:
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     Parametreler şunlardır: 
 
     * Saat başına CDR sayısı. 
-    * SIM kart sahtekarlık olasılık: Ne sıklıkta uygulama sahte bir çağrı benzetimini tüm çağrıları yüzdesi. Değer 2'dir, yaklaşık %20 çağrısı kayıtların sahte görüneceğini anlamına gelir.
+    * SIM kart sahtekarlık olasılık: Ne sıklıkta uygulama sahte bir çağrı benzetimini tüm çağrıları yüzdesi. 0.2 değeri, yaklaşık %20 çağrısı kayıtların sahte görüneceğini anlamına gelir.
     * Saat cinsinden süre. Uygulama çalışması gerektiğini saat sayısı. Ayrıca uygulamayı, komut satırında Ctrl + C tuşlarına basarak istediğiniz zaman durdurabilirsiniz.
 
-    Birkaç saniye sonra bunları olay hub'ına gönderir olarak telefon araması kayıtları ekranda görüntüleme uygulamayı başlatır.
+    Birkaç saniye sonra uygulama, telefon araması kayıtlarını olay hub'ına gönderirken ekranda bu kayıtları görüntülemeye başlar.
 
 Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlardan bazıları şunlardır:
 
-|**Kayıt**|**Tanımı**|
+|**Kayıt**|**Tanım**|
 |----------|--------------|
-|`CallrecTime`|Arama için zaman damgası başlangıç saati. |
-|`SwitchNum`|Çağrı bağlanmak için kullanılan telefon anahtarı. Bu örnekte, anahtarlar ülkeyi (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizeleri şunlardır. |
+|`CallrecTime`|Arama başlangıç zamanı için zaman damgası. |
+|`SwitchNum`|Aramayı bağlamak için kullanılan telefon anahtarı. Bu örnekte, anahtarlar kaynak ülkeyi (ABD, Çin, İngiltere, Almanya veya Avustralya) temsil eden dizelerdir. |
 |`CallingNum`|Arayanın telefon numarası. |
-|`CallingIMSI`|Uluslararası mobil abone kimliği (IMSI). Arayanın benzersiz tanımlayıcısıdır. |
-|`CalledNum`|Çağrı alıcının telefon numarası. |
-|`CalledIMSI`|Uluslararası mobil abone kimliği (IMSI). Bu çağrı alıcının benzersiz tanımlayıcısıdır. |
+|`CallingIMSI`|Uluslararası Mobil Abone Kimliği (IMSI). Arayanın benzersiz tanımlayıcısıdır. |
+|`CalledNum`|Arama alıcısının telefon numarası. |
+|`CalledIMSI`|Uluslararası Mobil Abone Kimliği (IMSI). Bu çağrı alıcının benzersiz tanımlayıcısıdır. |
 
 
 ## <a name="create-a-stream-analytics-job-to-manage-streaming-data"></a>Akış verilerini yönetmek için Stream Analytics işi oluşturma
@@ -171,7 +172,7 @@ Bu gerçek zamanlı sahtekarlık algılama uygulamada kullanarak anahtar alanlar
 
     İş oluşturulur ve portal iş ayrıntılarını görüntüler. Henüz hiçbir şey ancak çalıştığı — bunu başlamadan önce iş yapılandırmanız gerekir.
 
-### <a name="configure-job-input"></a>İş Girişi yapılandırın
+### <a name="configure-job-input"></a>İş girişi yapılandırma
 
 1. Panoda veya **tüm kaynakları** bölmesinde bulun ve seçin, `sa_frauddetection_job_demo` Stream Analytics işi. 
 2. İçinde **iş topoloji** bölüm Stream Analytics işi bölmesinde, tıklatın **giriş** kutusu.
@@ -221,7 +222,7 @@ TelcoGenerator uygulama olay hub'ına çağrısı kayıtları gönderiyor ve Str
 
     Azure Giriş akışı verilerden 3 dakika eşitleyeceğini örnekleri ve örnek verileri hazır olduğunda size bildirir. (Bu kısa biraz uzun sürebilir.) 
 
-Örnek verileri geçici olarak depolanır ve açık sorgu penceresi açıkken kullanılabilir. Sorgu penceresini kapattığınızda, örnek veriler atılır ve yeni bir örnek veri kümesi oluşturmak zorunda kalırsınız. 
+Örnek veriler geçici olarak depolanır ve sorgu penceresi açıkken kullanılabilir. Sorgu penceresini kapatırsanız örnek veriler atılır ve yeni bir örnek veri kümesi oluşturmanız gerekir. 
 
 Alternatif olarak, örnek veriler olan bir .json dosyası alabilirsiniz [github'dan](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json)ve örnek veriler olarak kullanmak için bu .json dosyası karşıya yükleme `CallStream` giriş. 
 
@@ -289,7 +290,7 @@ Bu dönüştürme için bir dizi çakışmadığından zamana bağlı windows is
  
 ### <a name="detect-sim-fraud-using-a-self-join"></a>Kendi kendine birleşim kullanarak SIM sahtekarlık algılama
 
-Bu örnekte, biz aynı kullanıcı ancak farklı konumlarda birbirleriyle 5 saniye içinde kaynaklanan çağrıları olmasını sahte kullanım düşünebilirsiniz. Örneğin, aynı kullanıcı yasal bir çağrı ABD ve Avustralya aynı anda yapamazsınız. 
+Bu örnekte, biz aynı kullanıcı ancak farklı konumlarda birbirleriyle 5 saniye içinde kaynaklanan çağrıları olmasını sahte kullanım düşünebilirsiniz. Örneğin, bir kullanıcı mantıksal olarak aynı anda hem ABD’den hem de Avustralya’dan arama yapamaz. 
 
 İçin bu durumların denetlemek için veri akışı kendi kendine birleşim göre kendisine akış katılmak için kullanabileceğiniz `CallRecTime` değeri. Arama için sonra bakabilirsiniz kayıtları `CallingIMSI` değeri (kaynak numarası) aynıdır, ancak `SwitchNum` değeri (kaynağı ülke) aynı değil.
 

@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: pabutler
-ms.openlocfilehash: 48b0b4177dad6262105bf30be2b8714f6ea1228f
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809480"
 ---
 # <a name="saas-applications-technical-publishing-guide"></a>SaaS uygulamaları teknik yayımlama Kılavuzu
 
@@ -50,7 +51,7 @@ SaaS uygulamaları hem Azure veriş kullanılabilir geçerli kullanılabilir se�
 | **Powerbı / Dynamics** | Evet | Evet (Azure AD tümleştirmesi) |  
 | **SaaS uygulamaları**| Evet | Evet (Azure AD tümleştirmesi) |     
 
-Market veriş ve descripiton her yayımlama seçeneği hakkında daha fazla bilgi için bkz: [Market yayımcı Kılavuzu](https://aka.ms/sellerguide) ve [yayımlama seçeneklerini](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
+Market veriş ve descripiton her yayımlama seçeneği hakkında daha fazla bilgi için bkz: [Market yayımcı Kılavuzu](https://aka.ms/sellerguide) ve [yayımlama seçeneklerini](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option).
 
 ## <a name="business-requirements"></a>İş gereksinimleri
 SaaS teknik gereksinimleri ile paralel iş gereksinimlerini tamamlanabilir sunar. Bulut iş ortağı portalında SaaS teklif oluştururken birçok iş gereksinimlerini ve bilgileri toplanır. İş gereksinimleri şunlardır: 
@@ -61,7 +62,7 @@ SaaS teknik gereksinimleri ile paralel iş gereksinimlerini tamamlanabilir sunar
 * Gizlilik İlkesi ve kullanım koşulları ayarlama
 * Destek kişileri tanımlama  
 
-Daha fazla bilgi için konu başlığı altında bulunabilir [Market yayımlama için Önkoşullar](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
+Daha fazla bilgi için konu başlığı altında bulunabilir [Market yayımlama için Önkoşullar](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing)
 
 ## <a name="technical-requirements"></a>Teknik gereksinimler
 
@@ -71,11 +72,11 @@ Başlatmak için diğer girişimleri işten yalıtmak sağlayarak, Azure Marketi
 
 En iyi Azure Active Directory belgelerindeki, örnekler ve yönergeler aşağıdaki sitelerde bulunan: 
 
-* [Azure Active Directory Geliştirici Kılavuzu](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide)
+* [Azure Active Directory Geliştirici Kılavuzu](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)
 
-* [Azure Active Directory ile tümleştirme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-how-to-integrate)
+* [Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-to-integrate)
 
-* [Uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications)
+* [Uygulamaları Azure Active Directory ile tümleştirme](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 * [Azure yol haritası - güvenlik ve kimlik](https://azure.microsoft.com/roadmap/?category=security-identity)
 
@@ -124,7 +125,7 @@ Aşağıdaki tabloda ana yayımlama adımların her biri açıklanmaktadır:
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Denemeler etkinleştirmek için Azure Active Directory kullanma  
 
-Microsoft kimliği doğrulanmış bir kullanıcı, deneme listesindeki Market üzerinden tıkladığında ve deneme ortamınıza yönlendirildiği Azure AD, bu nedenle ile tüm Market kullanıcıların kimliğini doğrular, gerek kalmadan doğrudan bir deneme sürümü'nü kullanıcı sağlayabilirsiniz bir ek oturum açma adımı. Uygulamanızı Azure AD kimlik doğrulama sırasında alan belirteci sağlama deneyimi otomatikleştirmek ve dönüştürme olasılığını artırmak etkinleştirme uygulamanızda, bir kullanıcı hesabı oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içerir. Belirteç hakkında daha fazla bilgi için bkz: [örnek belirteçleri](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft kimliği doğrulanmış bir kullanıcı, deneme listesindeki Market üzerinden tıkladığında ve deneme ortamınıza yönlendirildiği Azure AD, bu nedenle ile tüm Market kullanıcıların kimliğini doğrular, gerek kalmadan doğrudan bir deneme sürümü'nü kullanıcı sağlayabilirsiniz bir ek oturum açma adımı. Uygulamanızı Azure AD kimlik doğrulama sırasında alan belirteci sağlama deneyimi otomatikleştirmek ve dönüştürme olasılığını artırmak etkinleştirme uygulamanızda, bir kullanıcı hesabı oluşturmak için kullanabileceğiniz değerli kullanıcı bilgilerini içerir. Belirteç hakkında daha fazla bilgi için bkz: [örnek belirteçleri](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Uygulamanızı veya deneme için 1-tıklatma kimlik doğrulamasını etkinleştirmek için Azure AD kullanarak şunları yapar:  
 * Market müşteri deneyimine deneme kolaylaştırır.  
@@ -140,15 +141,15 @@ Uygulamanızın tek Kiracı ya da çok kiracılı olup olmamasına bağlı olara
 
 Azure AD destekliyorsa, aşağıdakileri yapın:
 1.  Azure portalında uygulamanızı kaydetme
-2.  'Tek tıklatmayla' deneme sürümü deneyimi almak için Azure AD çoklu kiracı destek özelliğini etkinleştirin. Daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications).  
+2.  'Tek tıklatmayla' deneme sürümü deneyimi almak için Azure AD çoklu kiracı destek özelliğini etkinleştirin. Daha fazla bilgi bulunabilir [burada](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).  
 
 Azure AD Federasyon SSO için yeniyseniz, aşağıdakileri yapın: 
 1.  Azure portalında uygulamanızı kaydetme
-2.  Azure AD kullanarak SSO geliştirmek [Openıd Connect](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-openid-connect-code) veya [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code).
-3.  Çoklu kiracı desteğini etkinleştir 'tek tıklatmayla' deneme sürümü deneyimi daha ayrıntılı bilgi almak için AAD özelliğinde bulunabilir [burada](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
+2.  Azure AD kullanarak SSO geliştirmek [Openıd Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code) veya [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
+3.  Çoklu kiracı desteğini etkinleştir 'tek tıklatmayla' deneme sürümü deneyimi daha ayrıntılı bilgi almak için AAD özelliğinde bulunabilir [burada](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).  
 
 **Tek kiracılı uygulama için aşağıdaki seçeneklerden birini kullanın:**  
-* Kullanıcılar, Konuk kullanıcılar olarak kullanarak dizininize eklemek [Azure B2B](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
+* Kullanıcılar, Konuk kullanıcılar olarak kullanarak dizininize eklemek [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
 * El ile sağlama denemeler 'Kişi benim' kullanarak müşteriler için
 * Başına-Müşteri 'Test sürücü' geliştirin
 * Çok kiracılı örnek Tanıtım uygulamasını SSO ile derleme

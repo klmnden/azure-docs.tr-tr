@@ -1,12 +1,29 @@
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: jboeshart
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: jaboes
+ms.custom: include file
+ms.openlocfilehash: f363c52093e0ae8314e07e750eb4362f71e9a4b1
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34826523"
+---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Azure Resource Manager şablonları diskleri kullanılarak yönetilir
 
-Bu belge sanal makineler sağlamak için Azure Resource Manager şablonları kullanarak yönetilen ve yönetilmeyen diskler arasındaki farklar açıklanmaktadır. Bu, yönetilmeyen diskleri yönetilen disklere kullanarak var olan şablonları güncelleştirme yardımcı olur. Başvuru için kullanıyoruz [101 vm basit windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) şablon bir kılavuz olarak. Her ikisini de kullanarak şablonu görebilirsiniz [yönetilen disklerde](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) ve kullanarak bir önceki sürüm [yönetilmeyen diskleri](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) doğrudan karşılaştırmak istiyorsanız.
+Bu belge sanal makineler sağlamak için Azure Resource Manager şablonları kullanarak yönetilen ve yönetilmeyen diskler arasındaki farklar açıklanmaktadır. Örnekler yönetilmeyen diskleri yönetilen disklere kullanarak var olan şablonları güncelleştirme yardımcı olur. Başvuru için kullanıyoruz [101 vm basit windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) şablon bir kılavuz olarak. Her ikisini de kullanarak şablonu görebilirsiniz [yönetilen disklerde](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) ve kullanarak bir önceki sürüm [yönetilmeyen diskleri](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) doğrudan karşılaştırmak istiyorsanız.
 
 ## <a name="unmanaged-disks-template-formatting"></a>Yönetilmeyen diskleri şablonu biçimlendirmesi
 
-Başlamak için biz göz nasıl yönetilmeyen disklere dağıtılır. Yönetilmeyen diskleri oluştururken, VHD dosyalarını tutmak için bir depolama hesabı gerekir. Yeni bir depolama hesabı oluşturun veya zaten varolan bir kullanın. Bu makale yeni bir depolama hesabının nasıl oluşturulacağını gösterir. Bunu başarmak için aşağıda gösterildiği gibi kaynakları blok depolama hesabı kaynak gerekir.
+Başlamak için Şimdi Al ne yönetilmeyen diskleri göz dağıtılır. Yönetilmeyen diskleri oluştururken, VHD dosyalarını tutmak için bir depolama hesabı gerekir. Yeni bir depolama hesabı oluşturun veya zaten varolan bir kullanın. Bu makalede yeni bir depolama hesabının nasıl oluşturulacağı gösterilmektedir. Aşağıda gösterildiği gibi kaynakları bloğundaki bir depolama hesabı kaynağı oluşturun.
 
-```
+```json
 {
     "type": "Microsoft.Storage/storageAccounts",
     "name": "[variables('storageAccountName')]",
@@ -20,9 +37,9 @@ Başlamak için biz göz nasıl yönetilmeyen disklere dağıtılır. Yönetilme
 }
 ```
 
-Sanal makine nesnesi içinde bir bağımlılığı önce sanal makine oluşturulduğundan emin olmak için depolama hesabı gerekir. İçinde `storageProfile` bölümünde, ardından belirttiğimiz depolama hesabına başvuruyor ve işletim sistemi diski ve veri diskleri için gerekli VHD konumunun tam URI. 
+Sanal makine nesnesi içinde bir bağımlılık önce sanal makine oluşturulduğundan emin olmak için depolama hesabı ekleyin. İçinde `storageProfile` bölümünde, depolama hesabına başvuruyor ve işletim sistemi diski ve veri diskleri için gerekli VHD konumunun tam URI'sini belirtin.
 
-```
+```json
 {
     "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines",
@@ -81,7 +98,7 @@ Azure yönetilen disklerle diski bir üst düzey kaynak haline gelir ve artık k
 
 Yönetilen disklerle bir VM oluşturmak için artık depolama oluşturmanıza gerek hesap kaynak ve sanal makine kaynağınızın şu şekilde güncelleştirebilirsiniz. Özellikle dikkat edin `apiVersion` yansıtır `2017-03-30` ve `osDisk` ve `dataDisks` artık VHD için belirli bir URI bakın. Ek özellikleri belirtmeden dağıtırken diski kullanacak [standart LRS depolama](../articles/storage/common/storage-redundancy.md). Ad belirtilmezse, biçimini alır `<VMName>_OsDisk_1_<randomstring>` işletim sistemi diski için ve `<VMName>_disk<#>_<randomstring>` her veri diski için. Varsayılan olarak, Azure disk şifrelemesi; devre dışı önbelleğe alma okuma/yazma işletim sistemi diski ve veri diskleri için hiçbiri içindir. Aşağıdaki örnekte hala bir depolama hesabı bağımlılık, bu yalnızca tanılama için depolama ve disk depolaması için gerekli değildir ancak fark.
 
-```
+```json
 {
     "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
@@ -120,9 +137,9 @@ Yönetilen disklerle bir VM oluşturmak için artık depolama oluşturmanıza ge
 
 ### <a name="using-a-top-level-managed-disk-resource"></a>Bir üst düzey yönetilen disk kaynağı kullanarak
 
-Disk yapılandırması sanal makine nesnesinde belirterek alternatif olarak, bir üst düzey disk kaynağı oluşturun ve sanal makine oluşturmanın bir parçası olarak ekleyin. Örneğin, aşağıdaki gibi bir veri diski kullanmak için bir disk kaynağı oluşturabiliriz.
+Disk yapılandırması sanal makine nesnesinde belirterek alternatif olarak, bir üst düzey disk kaynağı oluşturun ve sanal makine oluşturmanın bir parçası olarak ekleyin. Örneğin, aşağıdaki gibi bir veri diski kullanmak için bir disk kaynağı oluşturabilirsiniz.
 
-```
+```json
 {
     "type": "Microsoft.Compute/disks",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
@@ -140,9 +157,9 @@ Disk yapılandırması sanal makine nesnesinde belirterek alternatif olarak, bir
 }
 ```
 
-VM nesnesi içinde Biz bu disk nesne eklenmiş sonra başvurabilirsiniz. Oluşturduğumuz, yönetilen disk kaynak Kimliğini belirtme `managedDisk` özelliği VM oluşturulduğunda ek diskin izin verir. Unutmayın `apiVersion` VM için kaynak ayarlamak `2017-03-30`. Ayrıca, bir bağımlılık başarıyla VM oluşturması işleminden önce oluşturulan emin olmak için disk kaynağına oluşturduk olduğunu unutmayın. 
+VM nesnesi içinde ekli disk nesne başvurusu. Oluşturulan yönetilen disk kaynak Kimliğini belirtme `managedDisk` özelliği VM oluşturulduğunda ek diskin izin verir. `apiVersion` VM için kaynak ayarlamak `2017-03-30`. Disk kaynağında bir bağımlılık VM oluşturması işleminden önce başarılı bir şekilde oluşturulduğundan emin olun eklenir. 
 
-```
+```json
 {
     "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
@@ -185,9 +202,9 @@ VM nesnesi içinde Biz bu disk nesne eklenmiş sonra başvurabilirsiniz. Oluştu
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Yönetilen diskleri kullanarak VM'ler ile yönetilen kullanılabilirlik kümeleri oluşturma
 
-Yönetilen oluşturmak için kullanılabilirlik VM'ler ile yönetilen diskleri kullanarak ayarlar, ekleme `sku` kaynak ve ayarlanmış kullanılabilirlik nesnesine `name` özelliğine `Aligned`. Bu, diskler her VM için yeterince yalıtılmış tek hata noktaları bulundurmaktan önlemek için birbirinden olmasını sağlar. Ayrıca `apiVersion` kaynak kullanılabilirlik kümesi için ayarlamak `2017-03-30`.
+Yönetilen oluşturmak için kullanılabilirlik VM'ler ile yönetilen diskleri kullanarak ayarlar, ekleme `sku` kaynak ve ayarlanmış kullanılabilirlik nesnesine `name` özelliğine `Aligned`. Bu özellik, diskler her VM için yeterince yalıtılmış tek hata noktaları bulundurmaktan önlemek için birbirinden olmasını sağlar. Ayrıca `apiVersion` kaynak kullanılabilirlik kümesi için ayarlamak `2017-03-30`.
 
-```
+```json
 {
     "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
@@ -203,6 +220,29 @@ Yönetilen oluşturmak için kullanılabilirlik VM'ler ile yönetilen diskleri k
 }
 ```
 
+### <a name="standard-ssd-disks"></a>Standart SSD diskleri
+
+Aşağıda Resource Manager şablonunda standart SSD diskler oluşturmak için gereken Parametreler şunlardır:
+
+* *apiVersion* Microsoft.Compute olarak ayarlanması için `2018-04-01` (veya üstü)
+* Belirtin *managedDisk.storageAccountType* olarak `StandardSSD_LRS`
+
+Aşağıdaki örnekte gösterildiği *properties.storageProfile.osDisk* bölüm standart SSD diskleri kullanan bir VM için:
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+Bir standart SSD disk sahip bir şablon oluşturmak nasıl tam şablonu örneği için bkz: [standart SSD veri diskleri içeren bir Windows görüntüsünden bir VM oluşturma](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+
 ### <a name="additional-scenarios-and-customizations"></a>İlave Senaryolar ve özelleştirmeleri
 
 REST API belirtimlerini hakkında tam bilgi bulmak için lütfen inceleyin [yönetilen bir disk REST API belgeleri oluşturmak](/rest/api/manageddisks/disks/disks-create-or-update). Varsayılan ve API şablon dağıtımlarına aracılığıyla gönderilebilir kabul edilebilir değerler yanı sıra ek senaryolar bulacaksınız. 
@@ -216,4 +256,4 @@ REST API belirtimlerini hakkında tam bilgi bulmak için lütfen inceleyin [yön
 * Ziyaret [Azure yönetilen diskleri genel bakış](../articles/virtual-machines/windows/managed-disks-overview.md) belge yönetilen diskler hakkında daha fazla bilgi edinin.
 * Sanal Makine kaynakları için şablon başvuru belgeleri ziyaret ederek gözden [Microsoft.Compute/virtualMachines şablon başvurusu](/azure/templates/microsoft.compute/virtualmachines) belge.
 * Disk kaynakları için şablon başvuru belgeleri ziyaret ederek gözden [Microsoft.Compute/disks şablon başvurusu](/azure/templates/microsoft.compute/disks) belge.
-* Azure VM ölçek ayarlar yönetilen diskleri kullanma hakkında daha fazla bilgi için [ölçek kümeleri veri diskleri kullanmak](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) belge.
+* Yönetilen diskleri Azure sanal makine ölçek kümeleri içinde kullanma hakkında daha fazla bilgi için [ölçek kümeleri veri diskleri kullanmak](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md) belge.

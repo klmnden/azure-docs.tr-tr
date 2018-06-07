@@ -12,28 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ceabefa47b7627b8a9f952d487f78a96e338838d
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824753"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure ölçümlerini genel bakış
 Microsoft Azure'da ölçümleri nelerdir bu makalede faydaları ve bunları kullanmaya başlamak nasıl.  
 
 ## <a name="what-are-metrics"></a>Ölçümleri nelerdir?
 Azure İzleyicisi, performans ve sistem durumu, iş yüklerinin Azure üzerinde görünürlük elde etmek için telemetri kullanmasına olanak sağlar. En önemli Azure telemetri verileri çoğu Azure kaynaklar tarafından gösterilen (performans sayaçlarını olarak da bilinir) ölçümleri türüdür. Azure İzleyicisi'ni yapılandırma ve izleme ve sorun giderme için bu ölçümleri kullanmak için çeşitli yöntemler sağlar.
-
-## <a name="what-can-you-do-with-metrics"></a>Ölçümleri ile neler yapabileceğiniz?
-Ölçümleri telemetri değerli bir kaynaktır ve aşağıdaki görevleri yapmanıza olanak sağlar:
-
-* **Performans İzleme** kendi ölçümleri portal grafik Çizdirmek ve bu grafik bir Pano için sabitleme kaynağın (örneğin, bir VM, Web sitesi ya da mantıksal uygulama).
-* **Bir sorun bildirim alma** , etkiler, kaynak performans ölçüm belirli bir eşiği kestiği olduğunda.
-* **Otomatik eylemler yapılandırma**otomatik ölçeklendirmeyi bir kaynak veya runbook belirli bir eşiği ölçüm kestiği zaman tetiklemeden gibi.
-* **Gelişmiş analizler gerçekleştirmek** veya kaynağınız performans ya da kullanım eğilimlerini üzerinde raporlama.
-* **Arşiv** kaynağınız performans veya sistem durumu geçmişini **uyumluluk veya Denetim** amaçlar.
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>Ölçümleri özelliklerini nelerdir?
 Ölçümleri aşağıdaki özelliklere sahiptir:
@@ -43,19 +35,17 @@ Azure İzleyicisi, performans ve sistem durumu, iş yüklerinin Azure üzerinde 
 * Erişebileceğiniz **geçmişi 93 gün** her ölçümü için. Son ve aylık eğilimler performansı veya kaynağınız durumunu hızlı bir şekilde bakabilirsiniz.
 * Bazı ölçümleri adlı ad-değer çifti öznitelikleri olabilir **boyutları**. Bu, daha fazla segment ve bir ölçüm daha anlamlı bir şekilde keşfetmek etkinleştirin.
 
-Ayrıca şunları yapabilirsiniz:
+## <a name="what-can-you-do-with-metrics"></a>Ölçümleri ile neler yapabileceğiniz?
+Ölçümleri, aşağıdaki görevleri gerçekleştirmeniz olanak sağlar:
 
-* Bir ölçüm yapılandırma **bir bildirim gönderir ya da alan kural eylemi otomatik uyarı** zaman ölçümü kestiği ayarladığınız eşiği. Otomatik ölçeklendirme, gelen istekleri karşılamak için kaynağı kullanıma ölçeklendirmenizi sağlar veya Web sitesi ya da bilgi işlem kaynakları yükler özel bir otomatik eylemdir. Bir eşik geçmeden bir ölçüm bağlı içeri veya dışarı ölçeklendirmek için otomatik ölçeklendirme ayarı kural yapılandırabilirsiniz.
 
-* **Rota** anlık analytics, arama ve kaynaklarınızı ölçümleri verileri üzerinde özel uyarı etkinleştirmek için Application Insights ya da günlük analizi tüm ölçümleri. Ayrıca bunları Azure Stream Analytics veya neredeyse gerçek zamanlı analiz için özel uygulamalar yönlendirmenize olanak sağlayarak bir olay Hub'ına ölçümleri akışını sağlayabilirsiniz. Tanılama ayarları kullanarak akış olay hub'ı ayarlayın.
-
-* **Arşiv depolama ölçümleri** daha uzun bekletme veya çevrimdışı raporlama için kullanın. Kaynağınız için tanılama ayarlarını yapılandırdığınızda, Azure Blob depolama alanına ölçümlerinizi yönlendirebilirsiniz.
-
-* Kolayca bulmak, erişim ve **tüm ölçümleri görüntülemek** bir kaynak seçin ve bir grafik ölçümleri çizim Azure Portalı aracılığıyla.
-
-* **Tüketen** yeni Azure İzleyici REST API'leri aracılığıyla ölçümleri.
-
-* **Sorgu** PowerShell cmdlet'lerini veya platformlar arası REST API kullanarak ölçümleri.
+- Bir ölçüm yapılandırma **bir bildirim gönderir ya da alan kural eylemi otomatik uyarı** zaman ölçümü kestiği ayarladığınız eşiği. Eylemler aracılığıyla denetlenir [Eylem grupları](monitoring-action-groups.md). Örnek Eylemler e-posta, telefon ve SMS bildirimler, başlangıç ve bir runbook bir Web kancası çağırma içerir. **Otomatik ölçeklendirme** ölçeklendirmek sağlayan özel bir otomatik işlem olduğunuz yukarı ve aşağı yükü işlemek henüz maliyetleri olduğunda yük altında daha düşük tutmak için bir kaynak değil. Bir eşik geçmeden bir ölçüm bağlı içeri veya dışarı ölçeklendirmek için otomatik ölçeklendirme ayarı kural yapılandırabilirsiniz.
+- **Rota** tüm ölçümleri *Application Insights* veya *günlük analizi* anlık analytics, arama ve kaynaklarınızı ölçümleri verileri üzerinde özel uyarı sağlamak için. Ölçümleri'akışı bir *olay hub'ı*, sağlayacak şekilde sonra Azure Stream Analytics veya özel uygulamalar neredeyse gerçek zamanlı analiz için rota. Tanılama ayarları kullanarak akış olay hub'ı ayarlayın.
+- **Arşiv** , kaynak denetim ya da çevrimdışı raporlama amacıyla uyumluluk için performans veya sistem durumu geçmişini.  Kaynağınız için tanılama ayarlarını yapılandırdığınızda, Azure Blob depolama alanına ölçümlerinizi yönlendirebilirsiniz.
+- Kullanım **Azure portal** bulmak için erişim ve bir kaynak seçin ve bir grafik ölçümleri çizim tüm ölçümleri görüntüleyin. Bu grafiği panonuza sabitlemenin kaynağınız (örneğin, bir VM, Web sitesi ya da mantıksal uygulama) performansını izleyebilir.  
+- **Gelişmiş analizler gerçekleştirmek** veya kaynağınız performans ya da kullanım eğilimlerini üzerinde raporlama.
+- **Sorgu** PowerShell cmdlet'lerini veya platformlar arası REST API kullanarak ölçümleri.
+- **Tüketen** yeni Azure İzleyici REST API'leri aracılığıyla ölçümleri.
 
   ![Azure İzleyicisi'nde ölçümleri yönlendirme](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 
@@ -107,9 +97,9 @@ Gidebilirsiniz **tanılama ayarları** altında dikey **İzleyici** sekmesinde v
 Bu Resource Manager şablonları yapılandırabilirsiniz [PowerShell](insights-powershell-samples.md), [Azure CLI](insights-cli-samples.md), veya [REST API'leri](https://msdn.microsoft.com/library/dn931943.aspx).
 
 > [!NOTE]
-> Çok boyutlu ölçümleri tanılama ayarları aracılığıyla gönderme şu anda desteklenmiyor. Ölçümleri boyutlarla boyut değerleri toplanan düzleştirilmiş tek boyutlu ölçümleri olarak dışarı aktarılır.
+> Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: bir olay hub'ındaki 'Gelen iletileri' Ölçüm incelediniz ve üzerinde grafiğinin bir sıra gerçekleştiriliyordu. Ancak, ölçüm gelen tüm iletilerin tüm temsil edilir tanılama ayarları aracılığıyla dışarı aktardığınızda olay hub'ı sıralar.
+> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, tanılama ayarları aracılığıyla dışarı aktarılan ölçüm, Olay Hub’ındaki tüm kuyruklarda tüm gelen iletiler halinde ifade edilir.
 >
 >
 

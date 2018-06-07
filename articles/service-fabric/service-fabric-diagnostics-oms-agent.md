@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809582"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Performans günlük analizi ile izleme
 
@@ -73,19 +74,27 @@ Karşıdan yükle ve en iyi sonucu gereksinimlerinize uyan bir küme dağıtmak 
 
 OMS Aracısı, head eklediğiniz göre hangi performans sayaçlarını seçmek için günlük analizi portal üzerinden toplamak istediğiniz. 
 
-1. Azure portalında Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin. En üstte OMS Portalı'na gitmek için bağlantıyı tıklatın.
+1. Azure portalında Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-2. Portalda olduğunuzda, her biri için Service Fabric dahil olmak üzere etkin çözümleri için bir grafik biçiminde bir kutucuk görürsünüz. Service Fabric analiz çözümü devam etmek için burayı tıklatın. 
+2. Tıklatın **OMS çalışma**.
 
-3. Şimdi işletimsel kanal ve güvenilir hizmetler olayları grafikleri birkaç kutucuk göreceksiniz. Sağ taraftaki ayarları sayfasına gitmek için dişli simgesine tıklayın.
+3. Tıklatın **Gelişmiş ayarları**.
 
-    ![OMS ayarları](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. Tıklatın **veri**, ardından **Windows veya Linux performans sayaçları**. Etkinleştirmeyi seçebilirsiniz varsayılan sayaçlarının listesi yoktur ve koleksiyon için bir aralığı çok ayarlayabilirsiniz. Ayrıca ekleyebileceğiniz [ek performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) toplanacak. Bu doğru biçimde başvurulan [makale](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
 
-4. Ayarlar sayfasında veri tıklatın ve Windows veya Linux performans sayaçlarını seçin. Varsayılan değerleri etkinleştirmeyi seçebilirsiniz listesi vardır ve koleksiyon için bir aralığı çok ayarlayabilirsiniz. Ayrıca ekleyebileceğiniz [ek performans sayaçları](service-fabric-diagnostics-event-generation-perf.md) toplanacak. Bu doğru biçimde başvurulan [makale](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx).
+5. Tıklatın **kaydetmek**, ardından **Tamam**.
 
-Sayaçlarınızın yapılandırılmış sonra head yedekleme çözümleri sayfasına ve veri giriş ve altında grafiklerde görüntülenen akan yakında görürsünüz **düğümü ölçümleri**. Performans sayacı verileri kümesi olayları ve düğümler, performans sayaç adı ve Kusto sorgu dili kullanarak değerlere filtre benzer şekilde sorgulayabilirsiniz. 
+6. Gelişmiş ayarlar dikey penceresini kapatın.
 
-![OMS performans sayacı sorgu](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. Genel başlığı altında tıklatın **genel bakış**.
+
+8. Her biri için Service Fabric dahil olmak üzere etkin çözümleri için bir grafik biçiminde kutucuklar görürsünüz. Tıklatın **Service Fabric** Service Fabric analiz çözümü devam etmek için grafik.
+
+9. İşletimsel kanal ve güvenilir hizmetler olayları grafikleri birkaç kutucuk görürsünüz. İçinde seçtiğiniz sayaçları akan verilere grafik gösterimi düğümü ölçümleri altında görünür. 
+
+10. Ek ayrıntıları görmek için bir kapsayıcı ölçüm grafiğe sağ tıklayın. Performans sayacı verileri kümesi olayları ve düğümler, performans sayaç adı ve Kusto sorgu dili kullanarak değerlere filtre benzer şekilde sorgulayabilirsiniz.
+
+![OMS performans sayacı sorgu](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

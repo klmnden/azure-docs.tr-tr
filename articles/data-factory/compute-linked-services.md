@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: d81b6fc89c90b769650505e845d6d6c6cd70049f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616935"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824940"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen ortamlar işlem
 Bu makalede, işlem veya dönüştürme veri için kullanabileceğiniz farklı bilgi işlem ortamları açıklanmaktadır. (İsteğe bağlı karşılaştırması Getir kendi) farklı yapılandırmaları hakkındaki ayrıntıları bu bağlama bağlı hizmetler yapılandırırken Data Factory ile desteklenen ortamlar için bir Azure data factory işlem sağlar.
@@ -38,8 +38,6 @@ Bu tür yapılandırmada bilgi işlem ortamı tam olarak Azure Data Factory hizm
 
 > [!NOTE]
 > İsteğe bağlı yapılandırma şu anda yalnızca Azure Hdınsight kümeleri için desteklenir.
->
-> 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure Hdınsight isteğe bağlı hizmeti
 Azure Data Factory hizmetinin otomatik olarak verileri işlemek için isteğe bağlı Hdınsight kümesi oluşturabilirsiniz. Küme kümeyle ilişkili depolama hesabı (JSON özelliğinde linkedServiceName) ile aynı bölgede oluşturulur. Depolama hesabı, genel amaçlı standart Azure depolama hesabınızın olması gerekir. 
@@ -49,11 +47,14 @@ Aşağıdakilere dikkat edin **önemli** noktaları hakkında isteğe bağlı Hd
 * İsteğe bağlı Hdınsight kümesi, Azure aboneliğinizin altında oluşturulur. Görmeyebilir küme yukarı olduğunda, Azure portalında küme ve çalışır durumda. 
 * Bir isteğe bağlı Hdınsight kümesinde çalışan işleri için günlükleri Hdınsight kümesi ile ilişkilendirilmiş depolama hesabına kopyalanır. ClusterUserName, clusterPassword clusterSshUserName, bağlantılı hizmet tanımı'nda tanımlanan clusterSshPassword küme yaşam döngüsü sırasında geniş kapsamlı sorun giderme için küme oturum açmak için kullanılır. 
 * Yalnızca Hdınsight kümesi yukarı olduğunda zaman ve çalışan işleri için sizden ücret kesilir.
+* Azure Hdınsight isteğe bağlı hizmeti ile bir betik eylemi kullanamazsınız. Örneğin, başka bir bağımlılık yüklemeniz gerekiyorsa aşağıdakileri yapar bir PowerShell betiğini çalıştırmak için Azure otomasyonu kullanarak dikkate alın:  
+  a. Hdınsight kümesi oluşturun.  
+  b. Başka bir bağımlılık örneğin yüklemek için bir betik eylemini çalıştırın.  
+  c. Data Factory işlem hattı çalıştırın.  
+  d. Küme silin.  
 
 > [!IMPORTANT]
 > Genellikle sürer **20 dakika** veya isteğe bağlı Azure Hdınsight kümesi sağlamak için daha fazla bilgi.
->
-> 
 
 ### <a name="example"></a>Örnek
 Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tanımlar. Data Factory hizmetinin otomatik olarak oluşturur bir **Linux tabanlı** gerekli etkinliği işlemek için Hdınsight kümesi. 

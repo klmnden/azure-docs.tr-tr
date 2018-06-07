@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d93f79874ff65a1b6bb7ddd75932111c5caa6072
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 43cfb16e9471736c0f112ef879faaf01badebc4f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824957"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -55,11 +56,11 @@ Aşağıdaki tabloda, desteklenen işletim sistemlerinin bir listesini gösterir
 |İşletim Sistemi  |Notlar  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | Yalnızca destekler değerlendirmeleri güncelleştir         |
-|Windows Server 2008 R2 SP1 ve üzeri     |Windows PowerShell 4.0 veya üstü gereklidir ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([karşıdan WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için önerilir.         |
+|Windows Server 2008 R2 SP1 ve üzeri     |.NET framework 4.5 veya üstü gereklidir ([karşıdan .NET Framework](/dotnet/framework/install/guide-for-developers)).</br> Windows PowerShell 4.0 veya üstü gereklidir ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([karşıdan WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için önerilir.         |
 |CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
-|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
+|Ubuntu 14.04 LTS, 16.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
 
 ### <a name="unsupported-client-types"></a>Desteklenmeyen istemci türleri
 
@@ -246,12 +247,12 @@ Aşağıdaki tabloda bu çözüm tarafından toplanan güncelleştirme kayıtlar
 
 | Sorgu | Açıklama |
 | --- | --- |
-|Güncelle</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Bilgisayar, başlık, KBID, Sınıflandırma, PublishedDate proje |Eksik güncelleştirmeleri olan tüm bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
-| Güncelle</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==</br>&#124;Bilgisayar, başlık, KBID, ürün, PublishedDate proje |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
-| Olay</br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false </br>&#124;farklı bilgisayar)) |Gerekli kritik güncelleştirmeleri veya güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
-| Güncelle</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;ayrı başlığı |Tüm bilgisayarlardaki eksik güncelleştirmeler (ayrı ayrı) |
+|Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Bilgisayar, başlık, KBID, Sınıflandırma, PublishedDate proje |Eksik güncelleştirmeleri olan tüm bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
+| Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;Burada bilgisayar "ContosoVM1.contoso.com" ==</br>&#124;Bilgisayar, başlık, KBID, ürün, PublishedDate proje |Belirli bir bilgisayarda eksik güncelleştirmeler (değeri kendi bilgisayarınızın adıyla değiştirin)|
+| Olay</br>&#124;Burada EventLevelName "error" ve bilgisayar == ((güncelleştirme &#124; where (sınıflandırma "Güvenlik güncelleştirmeleri" veya sınıflandırma == "Kritik güncelleştirmeler" ==)</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false </br>&#124;farklı bilgisayar)) |Kritik güncelleştirmeleri veya gerekli güvenlik güncelleştirmeleri eksik olan makineler için hata olayları |
+| Güncelleştirme</br>&#124;Burada UpdateState "Gerekli" ve isteğe bağlı == == false</br>&#124;ayrı başlığı |Tüm bilgisayarlardaki ayrı eksik güncelleştirmeler |
 | UpdateRunProgress</br>&#124;Burada InstallationStatus "başarısız" == </br>&#124;AggregatedValue özetlemek bilgisayar, başlık, UpdateRunName tarafından count() = |Bir güncelleştirme çalışması başarısız güncelleştirmelere sahip bilgisayarlar</br>İşletim sistemi sınırlamak için aşağıdakilerden birini ekleyin:</br>OSType = "Windows"</br>OSType "Linux" == |
-| Güncelle</br>&#124;Burada OSType "Linux" ==</br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() = |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi |
+| Güncelleştirme</br>&#124;Burada OSType "Linux" ==</br>&#124;Burada UpdateState! "Gerekli" = ve (sınıflandırma "Kritik güncelleştirmeler" veya sınıflandırma == "Güvenlik güncelleştirmeleri" ==)</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() = |Paket güncelleştirme kullanılabilir olan tüm Linux makineler, kritik güncelleştirmeler veya güvenlik açığına listesi |
 | UpdateRunProgress</br>&#124;Burada UpdateRunName "DeploymentName" ==</br>&#124;AggregatedValue özetlemek bilgisayar tarafından count() =|Bu güncelleştirme çalıştırmasında güncelleştirilmiş olan bilgisayarlar (değeri kendi Güncelleştirme Dağıtımı adınızla değiştirin) |
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>System Center Configuration Manager ile tümleştirme
@@ -284,9 +285,9 @@ Güncelleştirme sınıflandırması güncelleştirmelerini dağıtma openSUSE L
 
 Bu bölümde, Güncelleştirme Yönetimi çözümüyle ilgili sorunları gidermeye yardımcı olacak bilgiler sağlanır.
 
-Çözümü veya bir sanal makineyi eklemeye çalışırken sorun yaşarsanız, olay kimliği 4502 olan olaylar ve **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** içeren olay iletisi için **Uygulama ve Hizmet Günlükleri\Operations Manager** olay günlüğünü denetleyin. Aşağıdaki tabloda belirli hata iletileri ve her birinin olası çözümü vurgulanmıştır.
+Yerleşik çözümü veya bir sanal makine çalışırken sorunlarla karşılaşırsanız, denetleme **uygulama ve Hizmetleri Logs\Operations Yöneticisi** olay günlüğüne olay kimliği 4502 ve olay iletisi olan olaylar için yerel makinede içeren **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. Aşağıdaki tabloda belirli hata iletileri ve her birinin olası çözümü vurgulanmıştır.
 
-| Mesaj | Neden | Çözüm |
+| İleti | Neden | Çözüm |
 |----------|----------|----------|
 | Yama Yönetimi için Makine Kaydedilemiyor,</br>Kayıt Özel Durumla Başarısız Oldu</br>System.InvalidOperationException: {"Message":"Makine zaten</br>farklı bir hesaba kaydedildi. "} | Makine, Güncelleştirme Yönetimi için zaten başka bir çalışma alanına eklendi | Karma runbook grubunu silerek [eski yapıtları temizleyin](automation-hybrid-runbook-worker.md#remove-hybrid-worker-groups)|
 | Düzeltme Eki Yönetimi için makine kaydedilemedi, kayıt özel durumu ile başarısız</br>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---></br>System.Net.WebException: Temel alınan bağlantı</br>kapatıldı: Alma işlemi sırasında</br>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:</br>İstemci ve sunucu iletişim kuramıyor,</br>çünkü ortak bir algoritmaya sahip değiller | Proxy/Ağ Geçidi/Güvenlik Duvarı iletişimi engelliyor | [Ağ gereksinimlerini gözden geçirin](automation-hybrid-runbook-worker.md#network-planning)|

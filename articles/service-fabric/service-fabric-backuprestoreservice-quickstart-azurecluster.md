@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ad2faabbab74ba343328b6fe30e09c87520e7019
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809803"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Düzenli yedekleme ve geri yükleme Azure Service Fabric (Önizleme)
 > [!div class="op_single_selector"]
@@ -48,7 +49,7 @@ Düzenli aralıklarla uygulama verilerinin yedeği, dağıtılmış bir uygulama
 Service Fabric aşağıdaki işlevselliği ilgili düzenli yedekleme elde etmek ve geri yükleme özelliğini için API kümesi sağlar:
 
 - (Dış) yedekleme depolama konumları karşıya yüklemek için düzenli yedeklemesi güvenilir durum bilgisi olan hizmetler ve Reliable Actors desteğiyle zamanlayın. Desteklenen depolama konumları
-    - Azure Depolama
+    - Azure Storage
     - Dosya Paylaşımı (şirket içi)
 - Yedeklemeleri listeleme
 - Bir bölümün bir geçici yedeklemeyi tetikleyin
@@ -119,11 +120,11 @@ Yedekleme zamanlaması, yedekleme verilerini, ilke adını ve tam yedekleme teti
 
 Yedekleme depolama için Azure Storage hesabı yukarıda oluşturduğunuz kullanın. Azure depolama hesabı adı ile bu örnek varsayar `sfbackupstore`. Kapsayıcı `backup-container` yapılandırılmış yedeklemelerini depolamak için kapsayıcı bu ada sahip, zaten yoksa, yedekleme karşıya yükleme sırasında oluşturulur. Doldurmak `ConnectionString` Azure depolama hesabı için geçerli bir bağlantı dizesine sahip.
 
-Yeni bir ilke oluşturmak için gerekli REST API çağırma için PowerShell Betiği aşağıdaki yürütün.
+Yeni bir ilke oluşturmak için gerekli REST API çağırma için PowerShell Betiği aşağıdaki yürütün. Değiştir `account-name` , depolama hesabı adı ile ve `account-key` değerini depolama hesabınızın anahtarıyla.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809735"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Sanal makine uzantıları ve özellikleri Windows için
 
@@ -67,7 +68,7 @@ Uzantı paketleri Azure Storage uzantısı deposundan yüklenir ve uzantı durum
 > [!IMPORTANT]
 > Erişimi engellemişse *168.63.129.1* Konuk Güvenlik Duvarı'nı kullanarak, ardından uzantıları yukarıdaki yedeklemiş başarısız.
 
-Aracıları yalnızca uzantısı paketleri ve raporlama durumu indirmek için kullanılabilir. Örneğin, bir uzantı yükleme komut dosyası (özel komut dosyası) Github'dan karşıdan yüklemek gereken veya Azure Storage (Azure yedekleme) sonra erişim ek gerekiyorsa Güvenlik Duvarı/güvenlik ağ grubu bağlantı noktalarının açılması gerekir. Uygulamaları kendi sağ olduğundan farklı uzantıları farklı gereksinimleri vardır. Azure depolamaya erişim gerektiren uzantılar, Azure NSG hizmet etiketleri kullanarak erişim izni verebilirsiniz [depolama](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Aracıları yalnızca uzantısı paketleri ve raporlama durumu indirmek için kullanılabilir. Örneğin, bir uzantı yükleme komut dosyası (özel komut dosyası) Github'dan karşıdan yüklemek gereken veya Azure Storage (Azure yedekleme) sonra erişim ek gerekiyorsa Güvenlik Duvarı/güvenlik ağ grubu bağlantı noktalarının açılması gerekir. Uygulamaları kendi sağ olduğundan farklı uzantıları farklı gereksinimleri vardır. Azure depolamaya erişim gerektiren uzantılar, Azure NSG hizmet etiketleri kullanarak erişim izni verebilirsiniz [depolama](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Windows Konuk Aracısı proxy sunucusu, aracı trafiği isteklerini yeniden yönlendirmek destek yok.
 
@@ -134,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` Komutu, tüm VM uzantısı başlatmak için kullanılabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMExtension başvuru](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+`Set-AzureRmVMExtension` Komutu, tüm VM uzantısı başlatmak için kullanılabilir. Daha fazla bilgi için bkz: [kümesi AzureRmVMExtension başvuru](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Azure portalına
@@ -419,7 +420,7 @@ Ayrıca bir uzantı Azure portalında şu şekilde kaldırabilirsiniz:
 | Windows için özel betik uzantısı |Bir Azure sanal makinesi karşı komut dosyalarını çalıştır |[Windows için özel betik uzantısı](custom-script-windows.md) |
 | Windows için DSC uzantısı |PowerShell DSC (İstenen durum Yapılandırması ') uzantısı |[Windows için DSC uzantısı](dsc-overview.md) |
 | Azure Tanılama Uzantısı |Azure tanılama yönetme |[Azure Tanılama Uzantısı](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM erişim uzantısı |Kullanıcılar ve kimlik bilgilerini yönetme |[Linux VM erişim uzantısı](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM erişim uzantısı |Kullanıcılar ve kimlik bilgilerini yönetme |[Linux VM erişim uzantısı](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,16 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 01b830f8a5e6e5f957b36bc2d6ef035754c06157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f6245a97f5d94c90e022ac509b61da477f4d9494
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823841"
 ---
 ### <a name="run-the-service"></a>Hizmetin çalıştırılması
 
 1. F5 isabet (veya türü `azds up` Terminal penceresinde) hizmetini çalıştırmak için. Hizmet otomatik olarak yeni seçilen alanınızda çalışacak `scott`. 
-1. Hizmetinizi çalıştırarak kendi alanı çalıştığını onaylayın `azds resource list` yeniden. İlk olarak, bir örneğini göreceksiniz `mywebapi` şu anda çalışıyor `scott` alanı (çalışan sürüm `default` hala çalışıyor, ancak listede olmayan). İkincisi, erişim noktası için URL `webfrontend` metinle önekli *scott.s.*. Bu URL için benzersiz olan `scott` boşluk ve "Tan URL'ye" gönderilen istekleri Hizmetleri'nde ilk yol dener güveninin `scott` boşluk ve Hizmetleri için döner `default` alanı.
+1. Hizmetinizi çalıştırarak kendi alanı çalıştığını onaylayın `azds resource list` yeniden. İlk olarak, bir örneğini göreceksiniz `mywebapi` şu anda çalışıyor `scott` alanı (çalışan sürüm `default` alanı hala çalışıyor, ancak listede olmayan). İkinci olarak, erişim noktası için URL `webfrontend` şimdi ön ekine sahip `scott.s.`. Bu URL için benzersiz olan `scott` alanı ve "Tan URL'ye" gönderilen istekleri varsayılan Hizmetleri'nde yönlendirmek için deneyecek anlamına gelir `scott` alanı ve hiçbir özel ise `scott` örneği hizmet için istekleri döner geri Hizmetleri `default` alanı.
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
@@ -30,9 +31,9 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webf
 
 ![](../media/common/space-routing.png)
 
-Test Azure Dev alanları etkinleştirir, bu yerleşik yetenek yerlerini Hizmetleri'nde tam yığını yeniden oluşturmak her geliştirici gerek kalmadan baştan sona paylaşılan bir ortamda kod. Bu yönlendirme iletme yayma üst bilgiler, uygulama kodunuzda bu kılavuzun önceki adımda gösterildiği gibi gerektirir.
+Test Azure Dev alanları etkinleştirir, bu yerleşik yetenek yerlerini Hizmetleri'nde tam yığını yeniden oluşturmak her geliştirici gerek kalmadan baştan sona bir paylaşılan geliştirme alanında kod. Bu yönlendirme iletme yayma üst bilgiler, uygulama kodunuzda bu kılavuzun önceki adımda gösterildiği gibi gerektirir.
 
-## <a name="test-code-in-a-space"></a>Boşluk Testi kodu
-Yeni sürümünü test etmek için `mywebapi` birlikte `webfrontend`, webfrontend genel erişim noktası URL'si tarayıcınızı açın ve hakkında sayfasına gidin. Yeni, ileti görürsünüz.
+### <a name="test-code-in-a-space"></a>Boşluk Testi kodu
+Yeni sürümünü test etmek için `mywebapi` ile `webfrontend`, webfrontend genel erişim noktası URL'si tarayıcınızı açın ve hakkında sayfasına gidin. Yeni, ileti görürsünüz.
 
-Şimdi, "scott.s." Kaldır bölümü, URL ve tarayıcıyı yenileyin. Eski davranışı görmeniz gerekir (tarafından sergilenen `mywebapi` çalışır durumda sürüm `default`)
+Şimdi, kaldırma `scott.s.` parçası URL ve tarayıcıyı yenileyin. Eski davranışı görmeniz gerekir (tarafından sergilenen `mywebapi` çalışır durumda sürüm `default`)

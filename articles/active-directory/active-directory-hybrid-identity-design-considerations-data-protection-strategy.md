@@ -1,11 +1,11 @@
 ---
-title: "Karma kimlik tasarımı - veri koruma stratejisini Azure | Microsoft Docs"
-description: "Tanımladığınız iş gereksinimlerini karşılamak karma kimlik çözümünü veri koruma stratejisini tanımlayın."
-documentationcenter: 
+title: Karma kimlik tasarımı - veri koruma stratejisini Azure | Microsoft Docs
+description: Tanımladığınız iş gereksinimlerini karşılamak karma kimlik çözümünü veri koruma stratejisini tanımlayın.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d43be976f9b3fae7f3cbec1a0033f1a401ede896
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824177"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için veri koruma stratejisini tanımlayın
 Bu görevde tanımlanan iş gereksinimlerini karşılamak karma kimlik çözümünü veri koruma stratejisini tanımlayın:
@@ -115,22 +117,21 @@ Kullanıcı Azure AD kullanarak kimlik doğrulaması gerçekleştikten sonra kul
 
 Şekil X gösterdi diyagramdaki her etkileşim Azure AD tarafından kapsanan bir erişim denetimi senaryosunun temsil eder. Aşağıda, her senaryonun açıklaması vardır:
 
-1. Şirket içinde barındırılan uygulamalara koşullu erişim: Windows Server 2012 R2 ile AD FS kullanmak üzere yapılandırılan uygulamalar için erişim ilkeleri ile kayıtlı cihazları kullanabilirsiniz. Şirket içi uygulamalara koşullu erişimi ayarlama hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory Cihaz Kaydı hizmetini kullanarak Şirket İçi Uygulamalara Koşullu Erişim](active-directory-conditional-access-azure-portal.md).
+  1. Şirket içinde barındırılan uygulamalara koşullu erişim: Windows Server 2012 R2 ile AD FS kullanmak üzere yapılandırılan uygulamalar için erişim ilkeleri ile kayıtlı cihazları kullanabilirsiniz. Şirket içi uygulamalara koşullu erişimi ayarlama hakkında daha fazla bilgi edinmek için bkz. [Azure Active Directory Cihaz Kaydı hizmetini kullanarak Şirket İçi Uygulamalara Koşullu Erişim](active-directory-conditional-access-azure-portal.md).
 
-2. Azure portalına erişim denetimi: Azure de olanak tanır, rol tabanlı erişim denetimi (RBAC) kullanarak portalına erişim denetim). Bu yöntem tek bir Azure portalında yapabileceğiniz işlemleri sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticilerinin aşağıdaki erişim yönetimi yaklaşımlar kullanılarak erişim atayabilirsiniz:
+  2. Azure portalına erişim denetimi: Azure de olanak tanır, rol tabanlı erişim denetimi (RBAC) kullanarak portalına erişim denetim). Bu yöntem tek bir Azure portalında yapabileceğiniz işlemleri sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticilerinin aşağıdaki erişim yönetimi yaklaşımlar kullanılarak erişim atayabilirsiniz:
 
-    * Grup tabanlı rol ataması: erişim eşitlenebilen Azure AD grupları yerel Active Directory'den atayabilirsiniz. Bu, kuruluşunuzun araçları ve grupları yönetmek için işlemlerdeki yaptı Yatırımlar yararlanan sağlar. Azure AD Premium temsilci Grup Yönetimi özelliği de kullanabilirsiniz.
-    * Azure içinde yerleşik rolleri kullanır: üç rol kullanabilirsiniz — sahibi, katkıda bulunan ve okuyucu, kullanıcılar ve gruplar yalnızca işlerini gerçekleştirmek için ihtiyaç duydukları görevleri gerçekleştirme izniniz olduğundan emin olun.
-    * Kaynaklar için ayrıntılı erişim: Kullanıcıları ve grupları belirli bir abonelik için kaynak grubu veya bir Web sitesi veya veritabanı gibi ayrı bir Azure kaynağı roller atayabilirsiniz. Bu şekilde, kullanıcıların ihtiyaç duydukları tüm kaynaklara ve yönetmek zorunda kalmazsınız kaynaklara erişemez sahip olduğunuzdan emin olabilirsiniz.
+   - Grup tabanlı rol ataması: erişim eşitlenebilen Azure AD grupları yerel Active Directory'den atayabilirsiniz. Bu, kuruluşunuzun araçları ve grupları yönetmek için işlemlerdeki yaptı Yatırımlar yararlanan sağlar. Azure AD Premium temsilci Grup Yönetimi özelliği de kullanabilirsiniz.
+   - Azure içinde yerleşik rolleri kullanır: üç rol kullanabilirsiniz — sahibi, katkıda bulunan ve okuyucu, kullanıcılar ve gruplar yalnızca işlerini gerçekleştirmek için ihtiyaç duydukları görevleri gerçekleştirme izniniz olduğundan emin olun.
+   -  Kaynaklar için ayrıntılı erişim: Kullanıcıları ve grupları belirli bir abonelik için kaynak grubu veya bir Web sitesi veya veritabanı gibi ayrı bir Azure kaynağı roller atayabilirsiniz. Bu şekilde, kullanıcıların ihtiyaç duydukları tüm kaynaklara ve yönetmek zorunda kalmazsınız kaynaklara erişemez sahip olduğunuzdan emin olabilirsiniz.
 
-> [!NOTE]
-> Uygulamaları oluşturmak ve bunları için erişim denetimi özelleştirmek istediğiniz, ayrıca yetkilendirme için Azure AD uygulama rolleri kullanmak da mümkündür. Bu gözden [WebApp RoleClaims DotNet örnek](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) nasıl bu özellikten yararlanabilmek için uygulamanızı oluşturun.
->
->
+   > [!NOTE]
+   > Uygulamaları oluşturmak ve bunları için erişim denetimi özelleştirmek istediğiniz, ayrıca yetkilendirme için Azure AD uygulama rolleri kullanmak da mümkündür. Bu gözden [WebApp RoleClaims DotNet örnek](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) nasıl bu özellikten yararlanabilmek için uygulamanızı oluşturun.
 
-3. Microsoft Intune ile Office 365 uygulamaları için koşullu erişim: BT yöneticileri bilgi çalışanlarının hizmetlere erişmek için uyumlu cihazlara izin verme aynı anda sırada şirket kaynaklarına güvenli hale getirmek için koşullu erişim cihaz ilkeleri sağlayabilirler. Daha fazla bilgi edinmek için bkz. [Office 365 hizmetleri için Koşullu Erişim Cihaz İlkeleri](active-directory-conditional-access-device-policies.md).
 
-4. Saas uygulamaları için koşullu erişim: [bu özellik](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) , uygulama başına çok faktörlü kimlik doğrulama erişim kuralları ve güvenilir bir ağda değil, kullanıcılar için erişimi engelleme özelliği yapılandırmanıza olanak sağlar. Uygulama ya da yalnızca belirtilen güvenlik gruplarının içinde kullanıcılar için atanmış tüm kullanıcılar için çok faktörlü kimlik doğrulama kurallarını uygulayabilirsiniz. Kullanıcılar, kuruluşun içindeki ağ bir IP adresinden uygulama erişiyorsa çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
+  3. Microsoft Intune ile Office 365 uygulamaları için koşullu erişim: BT yöneticileri bilgi çalışanlarının hizmetlere erişmek için uyumlu cihazlara izin verme aynı anda sırada şirket kaynaklarına güvenli hale getirmek için koşullu erişim cihaz ilkeleri sağlayabilirler. Daha fazla bilgi edinmek için bkz. [Office 365 hizmetleri için Koşullu Erişim Cihaz İlkeleri](active-directory-conditional-access-device-policies.md).
+
+  4. Saas uygulamaları için koşullu erişim: [bu özellik](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) , uygulama başına çok faktörlü kimlik doğrulama erişim kuralları ve güvenilir bir ağda değil, kullanıcılar için erişimi engelleme özelliği yapılandırmanıza olanak sağlar. Uygulama ya da yalnızca belirtilen güvenlik gruplarının içinde kullanıcılar için atanmış tüm kullanıcılar için çok faktörlü kimlik doğrulama kurallarını uygulayabilirsiniz. Kullanıcılar, kuruluşun içindeki ağ bir IP adresinden uygulama erişiyorsa çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
 
 Erişim denetimi için seçenekleri çok katmanlı bir yaklaşım kullandığından, bu seçenekler arasında karşılaştırma olmayan bu görev için uygulanabilir. Kaynaklarınıza erişimi denetlemek gerektiren her senaryo için kullanılabilir tüm seçenekleri yararlanarak emin olun.
 

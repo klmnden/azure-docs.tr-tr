@@ -1,8 +1,8 @@
 ---
-title: "Azure uygulama hizmeti trafiğini Azure Traffic Manager ile denetleme"
-description: "Azure App Service'e ilgili olarak bu makalede Azure trafik Yöneticisi için Özet bilgiler sağlanır."
+title: Azure uygulama hizmeti trafiğini Azure Traffic Manager ile denetleme
+description: Azure App Service'e ilgili olarak bu makalede Azure trafik Yöneticisi için Özet bilgiler sağlanır.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 writer: cephalin
 manager: erikre
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: efb732e9be62313eb199cb2cfbb1fa4d2cde0282
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824049"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure uygulama hizmeti trafiğini Azure Traffic Manager ile denetleme
 > [!NOTE]
@@ -30,13 +31,13 @@ ms.lasthandoff: 11/29/2017
 ## <a name="introduction"></a>Giriş
 Azure uygulama hizmetinde uygulamalar için web istemcilerinden gelen istekleri nasıl dağıtıldığını denetlemek için Azure Traffic Manager kullanabilirsiniz. Uygulama Hizmeti uç noktaları için bir Azure Traffic Manager profili eklendiğinde, Azure trafik Yöneticisi (durdurulmuş veya silinen çalışan), uygulama hizmeti uygulamalarınız durumunu böylece bu uç hangisinin trafik alması gereken karar verebilirsiniz izler.
 
-## <a name="routing-methods"></a>yönlendirme yöntemleri
+## <a name="routing-methods"></a>Yönlendirme yöntemleri
 Azure Traffic Manager dört farklı yönlendirme yöntemleri kullanır. Azure App Service'e ilgilidir gibi bu yöntemler aşağıdaki listede açıklanmaktadır.
 
-* **[Öncelik](#priority):** tüm trafiği için birincil bir uygulama kullanma ve birincil veya yedek uygulamaları kullanılamaz durumda yedeklemeler sağlar.
-* **[Ağırlıklı](#weighted):** eşit ya da tanımladığınız ağırlıklara göre trafiği uygulamalar, bir dizi arasında dağıtmak.
-* **[Performans](#performance):** uygulamaları farklı coğrafi konumlarda olduğunda en düşük ağ gecikmesini bakımından "en yakın" uygulama kullanın.
-* **[Coğrafi](#geographic):** göre belirli uygulamalar için doğrudan kullanıcılara kendi DNS sorgusu hangi coğrafi konum kaynaklanan. 
+* **[Öncelik](../traffic-manager/traffic-manager-routing-methods.md#priority):** tüm trafiği için birincil bir uygulama kullanma ve birincil veya yedek uygulamaları kullanılamaz durumda yedeklemeler sağlar.
+* **[Ağırlıklı](../traffic-manager/traffic-manager-routing-methods.md#weighted):** eşit ya da tanımladığınız ağırlıklara göre trafiği uygulamalar, bir dizi arasında dağıtmak.
+* **[Performans](../traffic-manager/traffic-manager-routing-methods.md#performance):** uygulamaları farklı coğrafi konumlarda olduğunda en düşük ağ gecikmesini bakımından "en yakın" uygulama kullanın.
+* **[Coğrafi](../traffic-manager/traffic-manager-routing-methods.md#geographic):** göre belirli uygulamalar için doğrudan kullanıcılara kendi DNS sorgusu hangi coğrafi konum kaynaklanan. 
 
 Daha fazla bilgi için bkz: [Traffic Manager yönlendirme yöntemleri](../traffic-manager/traffic-manager-routing-methods.md).
 
