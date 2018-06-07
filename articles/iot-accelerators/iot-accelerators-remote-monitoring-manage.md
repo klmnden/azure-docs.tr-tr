@@ -1,26 +1,23 @@
 ---
 title: Uzaktan izleme çözümünde - Azure cihaz Yönetimi | Microsoft Docs
 description: Bu öğretici, Uzaktan izleme çözümüne bağlı cihazların nasıl yönetileceğini gösterir.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627288"
 ---
 # <a name="manage-and-configure-your-devices"></a>Yönetmek ve cihazlarınızı yapılandırmak
 
-Bu öğretici cihaza Uzaktan izleme çözümü yönetim özelliklerini gösterir. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
+Bu öğretici, cihazı Uzaktan izleme çözümü yönetim özelliklerini gösterir. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
 
 Contoso bir çıktı artırmak için kendi olanaklarının genişletmek için yeni makineler sıralı. Teslim edilecek yeni makineler için beklerken çözümünüzün davranışını doğrulamak için bir benzetimi çalıştırmak istediğiniz. Bir operatör olarak, yönetmek ve cihazlar Uzaktan izleme çözümünde yapılandırmak istiyorsunuz.
 
@@ -38,7 +35,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılmış henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="add-a-simulated-device"></a>Bir sanal cihaz ekleme
 
@@ -50,7 +47,7 @@ Kümesine sağlamak için aygıt sayısını bırakın **1**. Seçin **hatalı a
 
 ![Benzetimli altyapısı cihazı hazırlama](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine.png)
 
-Sağlama konusunda bilgi almak için bir *fiziksel* aygıtı bkz [Cihazınızı Uzaktan izleme Çözüm Hızlandırıcısı bağlama](iot-accelerators-connecting-devices-node.md).
+Sağlama konusunda bilgi almak için bir *fiziksel* aygıtı bkz [Cihazınızı için Uzaktan izleme Çözüm Hızlandırıcısı bağlama](iot-accelerators-connecting-devices-node.md).
 
 ## <a name="test-the-simulated-device"></a>Sanal cihaz test
 
@@ -113,6 +110,6 @@ Cihazlarınızı yönetmek öğrendiniz, bilgi edinmek için önerilen sonraki a
 
 * [Aygıt sorunlarını gidermek ve](iot-accelerators-remote-monitoring-maintain.md).
 * [Sanal cihazlar ile çözümünüzü test](iot-accelerators-remote-monitoring-test.md).
-* [Uzaktan izleme Çözüm Hızlandırıcısı Cihazınızı bağlama](iot-accelerators-connecting-devices-node.md).
+* [Cihazınızı için Uzaktan izleme Çözüm Hızlandırıcısı bağlama](iot-accelerators-connecting-devices-node.md).
 
 <!-- Next tutorials in the sequence -->

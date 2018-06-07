@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638356"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Kapsayıcı izleme çözümüne günlük analizi
 
@@ -52,7 +53,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanter, performans
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Hizmet<br>Yapı | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Hizmet<br>Fabric | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Red Hat Aç<br>Shift | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(tek başına) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Linux Sunucu<br>(tek başına) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
@@ -90,7 +91,7 @@ Aşağıdaki tabloda, işletim sistemi desteği kapsayıcı envanter, performans
 - Docker 17.03.0 ve sonraki sürümler
 
 ## <a name="installing-and-configuring-the-solution"></a>Yükleme ve çözüm yapılandırılıyor
-Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
+Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
 1. Günlük analizi çalışma alanından kapsayıcı izlemesi çözümü eklemek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
 
@@ -528,7 +529,7 @@ Kapsayıcı izleme çözümü Windows için doğru ayarlandığını doğrulayab
 
 ## <a name="solution-components"></a>Çözüm bileşenleri
 
-Windows aracılarının kullanıyorsanız, bu çözüm eklediğinizde, ardından aşağıdaki Yönetim Paketi her bilgisayara bir aracı ile yüklenir. Hiçbir yapılandırma ve bakım için Yönetim Paketi gereklidir.
+OMS Portalı'ndan gidin *Çözümleri Galerisi* ve ekleme **kapsayıcı izlemesi çözümü**. Windows aracılarının kullanıyorsanız, bu çözüm eklediğinizde, ardından aşağıdaki Yönetim Paketi her bilgisayara bir aracı ile yüklenir. Hiçbir yapılandırma ve bakım için Yönetim Paketi gereklidir.
 
 - *ContainerManagement.xxx* C:\Program Files\Microsoft Monitoring Agent\Agent\Health hizmet State\Management paketlerinde yüklü
 
@@ -563,6 +564,7 @@ Etiketleri eklenmiş için *PodLabel* veri türleridir kendi özel etiketler. Ta
 
 ## <a name="monitor-containers"></a>Kapsayıcıları izleme
 Günlük analizi portalında etkin çözüm sonra **kapsayıcıları** döşeme kapsayıcı konaklarınızın ve ana bilgisayarlarda çalışan kapsayıcıları hakkında özet bilgileri gösterir.
+
 
 ![Kapsayıcıları döşeme](./media/log-analytics-containers/containers-title.png)
 

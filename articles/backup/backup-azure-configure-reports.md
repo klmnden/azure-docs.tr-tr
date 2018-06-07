@@ -1,25 +1,20 @@
 ---
-title: "Raporlar için Azure yedeklemeyi yapılandırma"
-description: "Bu makalede, Azure kurtarma Hizmetleri kasası kullanarak yedekleme için Power BI raporları yapılandırma hakkında alınmaktadır."
+title: Raporlar için Azure yedeklemeyi yapılandırma
+description: Bu makalede, Azure kurtarma Hizmetleri kasası kullanarak yedekleme için Power BI raporları yapılandırma hakkında alınmaktadır.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b645d12255ab2bd6c3747eb966b2a6ecc3e284b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605238"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup raporlarını yapılandırma
 Bu makalede Azure kurtarma Hizmetleri kasası kullanarak yedekleme için raporlar yapılandırmak ve Power BI'ı kullanarak bu raporlara erişmek için ilgili adımlar açıklanmaktadır. Bu adımları gerçekleştirdikten sonra Power BI için ın tüm raporları görüntülemek için özelleştirme ve raporları oluşturma doğrudan gidebilirsiniz. 
@@ -147,7 +142,7 @@ Depolama hesabı için yapılandırma kurtarma Hizmetleri kasası kullanarak rap
 
    Evet, çapraz kasası raporları görüntülemek için çeşitli kasaları aynı depolama hesabı yapılandırabilirsiniz. Ayrıca, abonelikler arasında kasaları için aynı depolama hesabı yapılandırabilirsiniz. Ardından bu depolama hesabı için Azure Backup Power BI içerik paketi bağlanırken raporları görüntülemek için kullanabilirsiniz. Ancak, seçilen depolama hesabı, Kurtarma Hizmetleri kasasıyla aynı bölgede olması gerekir.
    
-## <a name="troubleshooting-errors"></a>Sorun giderme
+## <a name="troubleshooting-errors"></a>Hatalarda sorun giderme
 | Hata ayrıntıları | Çözüm |
 | --- | --- |
 | Depolama hesabı için yedekleme raporları, ayarlandıktan sonra **depolama hesabı** göstermeye devam **yapılandırılmamış**. | Depolama hesabı başarıyla yapılandırdıysanız, raporlama verilerinizi içinde rağmen bu sorunu akar. Bu sorunu çözmek için Azure portal gidin > tüm hizmetleri > tanılama ayarlarını > RS kasası > ayarını düzenle. Daha önce yapılandırılan bir ayarı silin ve yeni bir ayar aynı dikey penceresinden oluşturun. Bu zaman alan kümesi **adı** için **hizmet**. Bu, yapılandırılan depolama hesabı göstermesi gerekir. |

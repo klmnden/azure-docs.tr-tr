@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622032"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği kullanarak DB2 taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -81,10 +82,10 @@ Aşağıdaki tabloda bir DB2 bağlantılı hizmete özel JSON özellikleri liste
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **Türü** |Bu özelliği ayarlamak **OnPremisesDb2**. |Evet |
-| **server** |DB2 sunucunun adıdır. |Evet |
+| **type** |Bu özelliği ayarlamak **OnPremisesDb2**. |Evet |
+| **Sunucu** |DB2 sunucunun adıdır. |Evet |
 | **Veritabanı** |DB2 veritabanının adı. |Evet |
-| **schema** |DB2 veritabanında şema adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır |
+| **Şema** |DB2 veritabanında şema adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır |
 | **authenticationType** |DB2 veritabanına bağlanmak için kullanılan kimlik doğrulama türü. Olası değerler şunlardır: Anonim, temel ve Windows. |Evet |
 | **Kullanıcı adı** |Basic veya Windows kimlik doğrulaması kullanıyorsanız, kullanıcı hesabının adı. |Hayır |
 | **Parola** |Kullanıcı hesabının parolası. |Hayır |
@@ -97,7 +98,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilir özelliklerin 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **tableName** |DB2 veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
+| **TableName** |DB2 veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
 Bölümleri ve kopyalama etkinlikleri tanımlamak için kullanılabilir olan özelliklerin listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Etkinlik özellikleri gibi kopyalamak **adı**, **açıklama**, **girişleri** tablo **çıkarır** tablo ve **İlkesi**, tüm etkinlikler türleri için kullanılabilir. Kullanılabilir özellikler **typeProperties** etkinlik bölümünü farklılık her etkinlik türü için. Kopya etkinliği için özellikleri, veri kaynaklarının ve havuzlarını türlerine bağlı olarak farklılık gösterir.
@@ -311,12 +312,12 @@ Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde 
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Bekar |
+| Real |Tek |
 | Çift |Çift |
-| Kayan nokta |Çift |
+| Kayan |Çift |
 | Ondalık |Ondalık |
 | DecimalFloat |Ondalık |
-| sayısal |Ondalık |
+| Sayısal |Ondalık |
 | Tarih |DateTime |
 | Zaman |TimeSpan |
 | Zaman damgası |DateTime |
@@ -331,18 +332,18 @@ Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde 
 | Grafiği |Dize |
 | VarGraphic |Dize |
 | LongVarGraphic |Dize |
-| Clob |Dize |
+| CLOB |Dize |
 | Blob |Byte] |
 | DbClob |Dize |
 | Tamsayı |Int16 |
 | Tamsayı |Int32 |
 | BigInt |Int64 |
-| Real |Bekar |
+| Real |Tek |
 | Çift |Çift |
-| Kayan nokta |Çift |
+| Kayan |Çift |
 | Ondalık |Ondalık |
 | DecimalFloat |Ondalık |
-| sayısal |Ondalık |
+| Sayısal |Ondalık |
 | Tarih |DateTime |
 | Zaman |TimeSpan |
 | Zaman damgası |DateTime |

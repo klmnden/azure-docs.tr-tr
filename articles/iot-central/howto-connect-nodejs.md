@@ -1,18 +1,19 @@
 ---
-title: Bağlantı bir genel Node.js istemci uygulaması için Azure IOT Merkezi | Microsoft Docs
+title: Bir genel Node.js istemci uygulamaya Azure IOT merkezi bağlama | Microsoft Docs
 description: Bir aygıt geliştiricisi olarak Azure IOT merkezi uygulamanıza genel Node.js aygıt bağlanma.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628547"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IOT merkezi uygulamanız (Node.js) genel istemci uygulamaya bağlama
 
@@ -23,7 +24,7 @@ Bu makalede Microsoft Azure IOT merkezi uygulamanıza fiziksel bir aygıtı tems
 Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 1. Azure IOT merkezi bir uygulama. Daha fazla bilgi için bkz: [Azure IOT merkezi uygulamanızı oluşturma](howto-create-application.md).
-1. Bir geliştirme makineyle [Node.js](https://nodejs.org/) sürüm 4.0.0 veya sonraki bir sürümü yüklü. Çalıştırabilirsiniz `node --version` sürümünüzü denetlemek için komut satırında. Node.js çok çeşitli işletim sistemleri için kullanılabilir.
+1. Bir geliştirme makineyle [Node.js](https://nodejs.org/) sürüm 4.0.0 veya sonraki bir sürümü yüklü. Çalıştırabilirsiniz `node --version` sürümünüzü denetlemek için komut satırında. Node.js çeşitli işletim sistemleri için kullanılabilir.
 
 Azure IOT merkezi uygulamanızda tanımlanan cihaz özellikleri ve aşağıdaki ölçümleri aygıt şablonla gerekir:
 
@@ -31,10 +32,10 @@ Azure IOT merkezi uygulamanızda tanımlanan cihaz özellikleri ve aşağıdaki 
 
 Aşağıdaki telemetrisi Ekle **ölçümleri** sayfa:
 
-| Görünen ad | Alan Adı  | Birimler | Min | Maks | Ondalık basamaklar |
+| Görünen Ad | Alan Adı  | Birimler | Min | Maks | Ondalık basamaklar |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Sıcaklık  | Sıcaklık | C     | 60  | 110 | 0              |
-| Nem     | nem oranı    | %     | 0   | 100 | 0              |
+| Sıcaklık  | sıcaklık | F     | 60  | 110 | 0              |
+| Nem oranı     | nem oranı    | %     | 0   | 100 | 0              |
 | Basınç     | basınç    | kPa   | 80  | 110 | 0              |
 
 > [!NOTE]
@@ -46,9 +47,9 @@ Alan adları tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan
 
 Şu durumda eklemek **ölçümleri** sayfa:
 
-| Görünen ad | Alan Adı  | Değer 1 | Görünen ad | Değer 2 | Görünen ad |
+| Görünen Ad | Alan Adı  | Değer 1 | Görünen Ad | Değer 2 | Görünen Ad |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| Fan modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
+| Fan Modu     | fanmode     | 1       | Çalışıyor      | 0       | Durduruldu      |
 
 > [!NOTE]
   Veri türü durumu ölçüm, bir dizedir.
@@ -59,7 +60,7 @@ Alan adları tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan
 
 Aşağıdaki olay eklemek **ölçümleri** sayfa:
 
-| Görünen ad | Alan Adı  | Önem derecesi |
+| Görünen Ad | Alan Adı  | Severity |
 | ------------ | ----------- | -------- |
 | Aşırı  | overheat    | Hata    |
 
@@ -70,9 +71,9 @@ Aşağıdaki olay eklemek **ölçümleri** sayfa:
 
 Aşağıdaki cihaz özellikleri ekleyin **Özellikler sayfası**:
 
-| Görünen ad        | Alan Adı        | Veri türü |
+| Görünen Ad        | Alan Adı        | Veri türü |
 | ------------------- | ----------------- | --------- |
-| Seri Numarası       | seri numarası      | metin      |
+| Seri Numarası       | serialNumber      | metin      |
 | Aygıt üreticisi | üretici      | metin      |
 
 Alan adları tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan adları eşleşmiyorsa, uygulama özellik değeri gösterilemiyor.
@@ -81,14 +82,14 @@ Alan adları tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan
 
 Aşağıdakileri ekleyin **numarası** ayarlarında **Ayarları sayfası**:
 
-| Görünen ad    | Alan Adı     | Birimler | Ondalık basamaklar | Min | Maks  | İlk |
+| Görünen Ad    | Alan Adı     | Birimler | Ondalık basamaklar | Min | Maks  | İlk |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fan hızı       | fanSpeed       | RPM   | 0        | 0   | 3000 | 0       |
-| Sıcaklık ayarlayın | setTemperature | C     | 0        | 20  | 200  | 80      |
+| Sıcaklığı Ayarla | setTemperature | F     | 0        | 20  | 200  | 80      |
 
 Alan adı tam olarak cihaz şablonuna tabloda gösterildiği gibi girin. Alan adları eşleşmiyorsa, aygıt ayar değeri alamaz.
 
-### <a name="add-a-real-device"></a>Gerçek bir cihaz ekleme
+### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
 Azure IOT merkezi uygulamanızda gerçek bir aygıtı Aygıt şablonu oluşturun ve cihaz bağlantı dizesini not ekleyin. Daha fazla bilgi için bkz: [gerçek bir cihazı Azure IOT merkezi uygulamanıza ekleyin](tutorial-add-device.md)
 
@@ -96,7 +97,7 @@ Azure IOT merkezi uygulamanızda gerçek bir aygıtı Aygıt şablonu oluşturun
 
 Aşağıdaki adımlar uygulamaya eklenen gerçek aygıtı uygulayan bir istemci uygulamasının nasıl oluşturulacağını gösterir.
 
-1. Adlı bir klasör oluşturun `connected-air-conditioner-adv` makinenizde. Komut satırı ortamınızda bu klasöre gidin.
+1. Makinenizde `connected-air-conditioner-adv` adlı bir klasör oluşturun. Komut satırı ortamınızda bu klasöre gidin.
 
 1. Node.js projenizi başlatmak için aşağıdaki komutları çalıştırın:
 
@@ -273,5 +274,5 @@ Azure IOT merkezi uygulamanızdaki bir operatör olarak, gerçek cihazınız iç
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure IOT merkezi uygulamanıza genel bir Node.js istemcisini bağlanma öğrendiniz, önerilen sonraki adımlar şunlardır:
-* [Hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)
 <!-- Next how-tos in the sequence -->

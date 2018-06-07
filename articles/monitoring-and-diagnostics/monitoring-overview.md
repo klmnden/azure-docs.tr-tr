@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 354aadd4377e054bc9c10561bbda8fc8009a98a7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640107"
 ---
-# <a name="monitoring-azure-applications-and-resources"></a>Azure uygulamaları ve kaynakları izleme
+# <a name="monitoring-azure-applications-and-resources"></a>Azure uygulamalarını ve kaynaklarını izleme
 
 İzleme, toplama ve performans, sistem durumu ve iş uygulamanız ve bağımlı kaynakları kullanılabilirliğini belirlemek için verileri analiz etme işlemidir. Etkili izleme stratejisi, uygulamanızın bileşenlerinin ayrıntılı işlem anlamanıza yardımcı olur. Ayrıca sorun haline gelmeden önce bunları çözümleyebilirsiniz böylece önceden, kritik sorunlar bildirerek, çalışma süresini artırmanıza yardımcı olur.
 
@@ -117,9 +118,9 @@ Azure veya şirket içi ağınızda, çeşitli yönlerini izlemek için birlikte
 
 [Ağ İzleyicisi](../network-watcher/network-watcher-monitoring-overview.md) Azure senaryolarda farklı bir ağ için senaryo tabanlı izleme ve tanılama sağlar. Azure ölçümleri ve daha fazla çözümleme için tanılama veri depolar. Ağınız çeşitli yönlerini izlemek için aşağıdaki çözümleri ile çalışır.
 
-[Ağ Performans İzleyicisi'ni (NPM)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/) izleme genel Bulutlar, veri merkezleri ve şirket içi ortamları bağlantısını izler çözümü bulut tabanlı bir ağda.
+[Ağ Performans İzleyicisi'ni (NPM)](../log-analytics/log-analytics-network-performance-monitor.md) izleme genel Bulutlar, veri merkezleri ve şirket içi ortamları bağlantısını izler çözümü bulut tabanlı bir ağda.
 
-[ExpressRoute İzleyici](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) Azure ExpressRoute bağlantı hatları uçtan uca bağlantısını ve performans izleyen bir NPM bir özelliktir.
+[ExpressRoute İzleyici](../expressroute/how-to-npm.md) Azure ExpressRoute bağlantı hatları uçtan uca bağlantısını ve performans izleyen bir NPM bir özelliktir.
 
 [DNS Analytics](../log-analytics/log-analytics-dns.md) güvenlik, performans ve DNS sunucularını temel alarak, işlemleri ile ilgili Öngörüler sağlayan bir çözümdür.
 

@@ -1,25 +1,21 @@
 ---
 title: IOT hub'ı verilerle Azure Machine Learning kullanarak tahmin hava durumu | Microsoft Docs
 description: Yağmur olasılığını tahmin etmek için kullanımı Azure Machine Learning algılayıcı IOT hub'ınızı toplar sıcaklık ve nem verileri temel alan.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: machine learning hava durumu tahmini
-ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 453b4de8a93e897b4455403855438d7705945514
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a331f8a8a69ffe41a368c1b36f1680890aaac8bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637676"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>IOT hub'ınızı algılayıcı verilerini Azure Machine Learning kullanarak tahmin hava durumu
 
@@ -80,10 +76,10 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
 ### <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 
-1. İçinde [Azure portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**.
+1. [Azure portalında](https://portal.azure.com/), **Kaynak oluştur** > **Nesnelerin İnterneti** > **Stream Analytics işi**'ne tıklayın.
 1. İş için aşağıdaki bilgileri girin.
 
-   **İş adı**: İş adı. Adın genel olarak benzersiz olması gerekir.
+   **İş adı**: İşin adı. Adın genel olarak benzersiz olması gerekir.
 
    **Kaynak grubu**: IOT hub'ınızı kullandığı aynı kaynak grubunu kullanın.
 
@@ -95,10 +91,10 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
 1. **Oluştur**’a tıklayın.
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Bir akış analizi işine giriş Ekle
+### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics işine giriş ekleme
 
 1. Akış analizi işi'ni açın.
-1. Altında **iş topoloji**, tıklatın **girişleri**.
+1. **İş Topolojisi**'nin altında **Girişler**'e tıklayın.
 1. İçinde **girişleri** bölmesinde tıklatın **Ekle**ve ardından aşağıdaki bilgileri girin:
 
    **Giriş diğer adı**: giriş için benzersiz diğer ad.
@@ -111,12 +107,12 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
 1. **Oluştur**’a tıklayın.
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Akış analizi işine çıkış ekleme
+### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics işine çıkış ekleme
 
-1. Altında **iş topoloji**, tıklatın **çıkışları**.
+1. **İş Topolojisi**'nin altında **Çıkışlar**'a tıklayın.
 1. İçinde **çıkışları** bölmesinde tıklatın **Ekle**ve ardından aşağıdaki bilgileri girin:
 
-   **Çıkış diğer adları**: çıkış için benzersiz diğer ad.
+   **Çıkış diğer adı**: Çıkışın benzersiz diğer adı.
 
    **Havuz**: seçin **Blob Storage**.
 
@@ -149,9 +145,9 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
 
 1. **Oluştur**’a tıklayın.
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics işi sorgu yapılandırın
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics işinin sorgusunu yapılandırma
 
-1. Altında **iş topoloji**, tıklatın **sorgu**.
+1. **İş Topolojisi**'nin altında **Sorgu**'ya tıklayın.
 1. Var olan kodu aşağıdaki kodla değiştirin:
 
    ```sql
@@ -163,17 +159,17 @@ Azure Machine Learning tahmin (Yağmur olasılığını) hava durumu için nası
    From machinelearning
    ```
 
-   Değiştir `[YourInputAlias]` iş giriş diğer adı ile.
+   `[YourInputAlias]` değerini işin giriş diğer adıyla değiştirin.
 
-   Değiştir `[YourOutputAlias]` işinin çıkış diğer adına sahip.
+   `[YourOutputAlias]` değerini işin çıkış diğer adıyla değiştirin.
 
 1. **Kaydet**’e tıklayın.
 
-### <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştır
+### <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştırma
 
-Stream Analytics işinde tıklatın **Başlat** > **şimdi** > **Başlat**. İş başarıyla başladıktan sonra iş durumu değişiklikleri **durduruldu** için **çalıştıran**.
+Stream Analytics işinde **Başlat** > **Şimdi** > **Başlat**'a tıklayın. İş düzgün bir şekilde başlatıldıktan sonra, **Durduruldu** olan iş durumu **Çalışıyor** olarak değiştirilir.
 
-![Stream Analytics işini çalıştır](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
+![Stream Analytics işini çalıştırma](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 
 ## <a name="use-microsoft-azure-storage-explorer-to-view-the-weather-forecast"></a>Microsoft Azure Storage Gezgini hava tahmini görüntülemek için kullanın
 

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7c82b3aa88e874328452aae46dc14972d63192f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616952"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Azure Data Factory kullanarak HTTP uç noktasından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +59,7 @@ Aşağıdaki özellikleri, bağlantılı HTTP hizmeti için desteklenir:
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **HttpServer**. | Evet |
 | url | Web sunucusu için temel URL | Evet |
-| enableServerCertificateValidation | HTTP uç noktasına bağlanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin. | Hayır, varsayılan değer true şeklindedir |
+| enableServerCertificateValidation | HTTP uç noktasına bağlanırken sunucu SSL sertifika doğrulamasını etkinleştirmek bu seçeneği belirtin. Otomatik olarak imzalanan sertifika, HTTPS sunucusu kullanırken, bu false olarak ayarlayın. | Hayır, varsayılan değer true şeklindedir |
 | authenticationType | Kimlik doğrulama türünü belirtir. İzin verilen değerler: **anonim**, **temel**, **Özet**, **Windows**, **ClientCertificate**. <br><br> Daha fazla özellikleri ve bu kimlik doğrulama türleri için JSON örnekleri bu tabloda aşağıdaki bölümlerde sırasıyla bakın. | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
@@ -102,7 +103,7 @@ ClientCertificate kimlik doğrulamasını kullanmak için "authenticationType" �
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 ile kodlanmış sertifika verileri. | Belirtin `embeddedCertData` veya `certThumbprint`. |
-| certThumbprint | Sertifikanın parmak izi Self-hosted tümleştirmesi çalışma zamanı makinenizin sertifika deposunda yüklü. Yalnızca kendi kendini barındıran türü Integration zamanının içinde connectVia belirtildiğinde geçerlidir. | Belirtin `embeddedCertData` veya `certThumbprint`. |
+| Certthumbprınt | Sertifikanın parmak izi Self-hosted tümleştirmesi çalışma zamanı makinenizin sertifika deposunda yüklü. Yalnızca kendi kendini barındıran türü Integration zamanının içinde connectVia belirtildiğinde geçerlidir. | Belirtin `embeddedCertData` veya `certThumbprint`. |
 | password | Sertifikayla ilişkili parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 
 "Certthumbprınt" için kimlik doğrulaması kullanıyorsanız ve sertifika yerel bilgisayarın kişisel depoda yüklü Self-hosted tümleştirmesi çalışma zamanı için okuma izni vermeniz gerekir:
@@ -168,7 +169,7 @@ HTTP veri kopyalamak için veri kümesi için tür özelliği ayarlamak **HttpFi
 | relativeUrl | Verileri içeren kaynak için göreli bir URL. Bu özellik belirtilmemişse, bağlantılı hizmet tanımında belirtilen URL kullanılır. | Hayır |
 | requestMethod | HTTP yöntemi.<br/>İzin verilen değerler **almak** (varsayılan) veya **Post**. | Hayır |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
-| requestBody | HTTP istek gövdesi. | Hayır |
+| RequestBody | HTTP istek gövdesi. | Hayır |
 | Biçimi | İsterseniz **HTTP uç noktası olarak veri almak-olan** ve bir dosya tabanlı depolama alanına kopyalama ayrıştırma olmadan, her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
 

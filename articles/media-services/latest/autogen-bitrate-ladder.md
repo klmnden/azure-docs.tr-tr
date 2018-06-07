@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 5d13c711d7d71df7469e6408ce78cf0df611632b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638305"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Bir otomatik olarak oluşturulan bit hızı Merdiveni ile kodlayın
 
@@ -27,18 +28,18 @@ Bu makalede standart Kodlayıcı Media Services giriş çözünürlük ve bit h�
 
 ### <a name="encoding-for-streaming"></a>Akış için kodlama
 
-Kullanırsanız adı anlaşılacağı gibi **AdaptiveStreaming** bir kodlama dönüştürme oluştururken, önceden, akış HLS, DASH, CMAF vb. gibi protokolleri aracılığıyla teslim için uygun bir çıktı alırsınız. Bu kullanırken **AdaptiveStreaming** hazır Kodlayıcı akıllıca oluşturmak için kaç tane video katmanları belirler ve hangi bit hızı ve çözümleme. Çıkış varlık burada AAC kodlanmış ses ve video H.264 kodlu değil, araya eklemeli MP4 dosyalarını içerir.
+Kullandığınızda **AdaptiveStreaming** içinde hazır **dönüştürme**, akış HLS ve tire gibi protokolleri aracılığıyla teslim için uygun bir çıktı alın. Bu hazır kullanırken, hizmetin akıllıca oluşturmak için kaç tane video katmanları belirler ve hangi bit hızı ve çözümleme. Çıkış içerik nerede AAC kodlanmış ses ve video H.264 kodlu değil, araya eklemeli MP4 dosyalarını içerir.
 
 Bu hazır nasıl kullanıldığı bir örnek görmek için bkz: [bir dosya akışı](stream-files-dotnet-quickstart.md).
 
 ## <a name="output"></a>Çıktı
 
-Bu bölüm ile kodlama sonucunda Media Services Kodlayıcı tarafından üretilen çıkış video katmanları üç örnekleri gösterir **AdaptiveStreaming** hazır. Tüm durumlarda çıktı 128 Kb/sn ile kodlanmış stereo ses ile yalnızca ses MP4 dosyası içerir.
+Bu bölüm ile kodlama sonucunda Media Services Kodlayıcı tarafından üretilen çıkış video katmanları üç örnekleri gösterir **AdaptiveStreaming** hazır. Tüm durumlarda çıktı stereo sesli 128 Kb/sn ile kodlanmış bir salt ses MP4 dosyası içerir.
 
 ### <a name="example-1"></a>Örnek 1
 Yükseklik "1080" ve "29.970" kare hızı kaynağıyla 6 video katmanları üretir:
 
-|Katman|Yükseklik|Genişlik|Bitrate(Kbps)|
+|Katman|Yükseklik|Genişlik|Bit hızı (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -50,7 +51,7 @@ Yükseklik "1080" ve "29.970" kare hızı kaynağıyla 6 video katmanları üret
 ### <a name="example-2"></a>Örnek 2
 Yükseklik "720" ve "23.970" kare hızı kaynağıyla 5 video katmanları üretir:
 
-|Katman|Yükseklik|Genişlik|Bitrate(Kbps)|
+|Katman|Yükseklik|Genişlik|Bit hızı (kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -61,7 +62,7 @@ Yükseklik "720" ve "23.970" kare hızı kaynağıyla 5 video katmanları üreti
 ### <a name="example-3"></a>Örnek 3
 Yükseklik "360" ve "29.970" kare hızı kaynağıyla 3 video katmanları üretir:
 
-|Katman|Yükseklik|Genişlik|Bitrate(Kbps)|
+|Katman|Yükseklik|Genişlik|Bit hızı (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|
@@ -70,4 +71,4 @@ Yükseklik "360" ve "29.970" kare hızı kaynağıyla 3 video katmanları üreti
 ## <a name="next-steps"></a>Sonraki adımlar
 
 > [!div class="nextstepaction"]
-> [Bir dosya akışı](stream-files-dotnet-quickstart.md)
+> [Bir dosyayı akışa alma](stream-files-dotnet-quickstart.md)

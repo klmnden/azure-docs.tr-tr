@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bb6491a470e7041568bb6b9183e996d2a9119d9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619652"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı sanal bir ağa katılmasını sağlayın
 Azure sanal ağını aşağıdaki senaryolarda, Azure SSIS tümleştirmesi çalışma zamanı (IR) Katıl: 
@@ -86,7 +87,7 @@ Gelen/giden trafik bir ağ güvenlik grubu (NSG) uygulamak, Azure SSIS tümleşt
 
 | Yön | Aktarım Protokolü | Kaynak | Kaynak bağlantı noktası aralığı | Hedef | Hedef bağlantı noktası aralığı | Yorumlar |
 |---|---|---|---|---|---|---|
-| Gelen | TCP | Internet | * | VirtualNetwork | 29876, (bir Azure Resource Manager sanal ağı'de IR katılırsanız) 29877 <br/><br/>10100, 20100, (bir Klasik sanal ağı'de IR katılırsanız) 30100| Data Factory hizmetinin bu bağlantı noktaları sanal ağda Azure SSIS Integration zamanının düğümleriyle iletişim kurmak için kullanır. |
+| Gelen | TCP | Internet | * | VirtualNetwork | 29876, (bir Azure Resource Manager sanal ağı'de IR katılırsanız) 29877 <br/><br/>10100, 20100, (bir Klasik sanal ağı'de IR katılırsanız) 30100| Data Factory hizmetinin bu bağlantı noktaları sanal ağda Azure SSIS Integration zamanının düğümleriyle iletişim kurmak için kullanır. <br/><br/> Bir NSG'yi veya belirttiğiniz olsun, veri fabrikası her zaman bir NSG Azure SSIS IR barındıran sanal makinelere bağlı ağ arabirimi kartlarıyla (NIC) düzeyinde yapılandırır Yalnızca veri fabrikası IP adreslerinden gelen trafiğe izin verilir. Internet trafiği için bu bağlantı noktalarını açmak olsa bile, veri fabrikası IP adresleri değil IP adreslerinden gelen trafiğin NIC düzeyinde engellendi. |
 | Giden | TCP | VirtualNetwork | * | Internet | 443 | Sanal ağda Azure SSIS Integration zamanının düğümleri, Azure Storage ve Azure Event Hubs gibi Azure hizmetlerine erişmek için bu bağlantı noktasını kullanır. |
 | Giden | TCP | VirtualNetwork | * | Internet veya Sql | 11000 11999, 14000 14999 1433 | Sanal ağda Azure SSIS Integration zamanının düğümleri, Azure SQL veritabanı sunucusu tarafından barındırılan SSISDB erişmek için bu bağlantı noktalarını kullanır. (Bu amaçla SQL veritabanı yönetilen örneği tarafından (Önizleme) barındırılan SSISDB için geçerli değildir.) |
 ||||||||

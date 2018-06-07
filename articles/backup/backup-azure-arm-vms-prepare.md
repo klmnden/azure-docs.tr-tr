@@ -1,25 +1,20 @@
 ---
-title: 'Azure yedekleme: sanal makineleri yedeklemek hazırlama | Microsoft Docs'
+title: 'Azure yedekleme: sanal makineleri yedeklemek hazırlama'
 description: Azure sanal makineleri yedeklemek için ortamınızı hazır olduğundan emin olun.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: yedeklemeleri; Yedekleme;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606645"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -59,6 +54,7 @@ Ortamınızı hazırlama önce sınırlamalara anladığınızdan emin olun:
 * Seçili ağlar için depolama hesabınız için güvenlik duvarı ve sanal ağ ayarlarını yapılandırdıktan sonra Seç **izin güvenilen bu depolama hesabına erişmek için Microsoft Hizmetleri** Azure Backup hizmeti etkinleştirmek için bir özel durum kısıtlı ağ depolama hesabına erişim. Öğe düzeyinde kurtarma kısıtlı ağ depolama hesapları için desteklenmiyor.
 * Tüm ortak bölgelerde Azure sanal makineleri yedekleyebilirsiniz. (Bkz [denetim listesi](https://azure.microsoft.com/regions/#services) desteklenen bölgeler.) Aradığınız bölge bugün desteklenmiyorsa, kasa oluşturma sırasında aşağı açılan listede görünmez.
 * Bir etki alanı denetleyicisini geri multi-DC yapılandırmasının bir parçası olan (DC) VM yalnızca PowerShell aracılığıyla desteklenir. Daha fazla bilgi için bkz: [multi-DC etki alanı denetleyicisini geri](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
+* Anlık görüntü yazma etkinleştirilmiş Hızlandırıcı disk üzerinde desteklenmiyor. Bu kısıtlama sanal makinenin tüm disklerinin bir uygulamayla tutarlı anlık görüntü gerçekleştirmek için Azure Backup hizmetinin özelliğini engeller.
 * Aşağıdaki özel ağ yapılandırmalarının sanal makineleri geri yüklenmesi yalnızca PowerShell aracılığıyla desteklenir. Geri yükleme işlemi tamamlandıktan sonra geri yükleme iş akışı içinde UI aracılığıyla oluşturulan sanal makineleri bu ağ yapılandırmaları sahip olmaz. Daha fazla bilgi için bkz: [geri VM'ler özel ağ yapılandırmaları ile](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
   * Sanal makineler yük dengeleyici yapılandırması (dahili ve harici)
   * Birden çok ayrılmış IP adreslerine sahip sanal makineler
@@ -174,7 +170,9 @@ Sanal makine kaydetme sorunları varsa, aşağıdaki bilgileri VM Aracısı'nı 
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>VM Aracısı sanal makineye yükleme
 Çalışmak Azure Backup uzantısı [VM Aracısı](../virtual-machines/extensions/agent-windows.md) Azure sanal makineye yüklenmesi gerekir. VM Azure Marketi'nden oluşturulmuşsa VM Aracısı sanal makineye zaten. 
 
-Aşağıdaki bilgiler olduğunuz durumlarda sağlanan *değil* VM kullanılarak oluşturulan Azure Marketi'nde. Örneğin, bir VM bir şirket içi veri merkezinden geçişi. Böyle bir durumda, VM aracısının sanal makineyi korumak için yüklü olması gerekir.
+Aşağıdaki bilgiler olduğunuz durumlarda sağlanan *değil* VM kullanılarak oluşturulan Azure Marketi'nde. **Örneğin, bir VM bir şirket içi veri merkezinden geçişi. Böyle bir durumda, VM aracısının sanal makineyi korumak için yüklü olması gerekir.**
+
+**Not**: VM Aracısı'nı yükledikten sonra ayrıca Azure PowerShell'i Azure VM aracısı yüklü olan bilmesi için ProvisionGuestAgent özelliğini güncelleştirmek için kullanmanız gerekir. 
 
 Azure VM'yi yedekleme konusunda sorun yaşarsanız Azure VM Aracısı sanal makineye doğru şekilde yüklendiğini denetlemek için aşağıdaki tabloyu kullanın. Tablo, Windows ve Linux VM'ler için VM Aracısı hakkında ek bilgi sağlar.
 

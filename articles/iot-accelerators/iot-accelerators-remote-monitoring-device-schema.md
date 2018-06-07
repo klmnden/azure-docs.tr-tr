@@ -1,32 +1,29 @@
 ---
 title: Uzaktan izleme çözümü - Azure aygıt şemada | Microsoft Docs
 description: Bu makalede Uzaktan izleme çözümünde benzetilmiş bir aygıtı tanımlayan JSON şeması açıklanır.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627442"
 ---
 # <a name="understand-the-device-model-schema"></a>Cihaz modeli şeması anlama
 
-Uzaktan izleme çözümünde sanal cihazlar davranışını test etmek için kullanabilirsiniz. Uzaktan izleme çözümü dağıttığınızda, bir sanal cihaz koleksiyonu otomatik olarak sağlanır. Varolan sanal cihazlar özelleştirebilir veya kendinizinkini oluşturun.
+Uzaktan izleme çözümünde sanal cihazlar davranışını test etmek için kullanabilirsiniz. Uzaktan izleme çözümünü dağıttığınızda, bir sanal cihaz koleksiyonu otomatik olarak sağlanır. Varolan sanal cihazlar özelleştirebilir veya kendinizinkini oluşturun.
 
 Bu makalede özellikleri ve bir sanal cihaz davranışını belirtir aygıt model şeması açıklanır. Cihaz modeli JSON dosyasında depolanır.
 
 Aşağıdaki makaleler geçerli makaleyi ilişkili:
 
-* [Cihaz modeli davranışı uygulamak](../iot-suite/iot-suite-remote-monitoring-device-behavior.md) kullanan bir sanal cihaz davranışını uygulamak için JavaScript dosyaları açıklar.
+* [Cihaz modeli davranışı uygulamak](iot-accelerators-remote-monitoring-device-behavior.md) kullanan bir sanal cihaz davranışını uygulamak için JavaScript dosyaları açıklar.
 * [Yeni bir sanal cihaz oluşturma](iot-accelerators-remote-monitoring-test.md) hepsini bir araya getirir ve çözümünüz için yeni bir sanal cihaz türü dağıtılacağı gösterilmektedir.
 
 Bu makalede şunları öğreneceksiniz:
@@ -39,7 +36,7 @@ Bu makalede şunları öğreneceksiniz:
 
 ## <a name="the-parts-of-the-device-model-schema"></a>Cihaz modeli şema bölümleri
 
-Soğutucu veya kamyon, gibi her cihaz modeli Uzaktan izleme çözümüne bağlama için sanal cihaz türünü tanımlar. Her cihaz modeli bir JSON dosyası aşağıdaki üst düzey şema depolanır:
+Soğutucu veya kamyon, gibi her cihaz modeli Uzaktan izleme çözümü bağlanmak için sanal cihaz türünü tanımlar. Her cihaz modeli bir JSON dosyası aşağıdaki üst düzey şema depolanır:
 
 ```json
 {
@@ -208,7 +205,7 @@ Bir sanal cihaz Uzaktan izleme çözümü adlı bulut cihaz yöntemler yanıt ve
 * Sanal cihazın karşılık verebildiği yöntemleri tanımlar.
 * Yürütmek için mantığı içeren JavaScript dosyası tanımlar.
 
-Sanal cihazı Uzaktan izleme çözümüne destekliyorsa yöntemlerin listesi gönderir.
+Sanal cihazı Uzaktan izleme çözümü destekliyorsa yöntemlerin listesi gönderir.
 
 Cihaz davranışını uygulayan JavaScript dosyası hakkında daha fazla bilgi için bkz: [aygıt modeli davranışlarını anlamak](iot-accelerators-remote-monitoring-device-behavior.md).
 

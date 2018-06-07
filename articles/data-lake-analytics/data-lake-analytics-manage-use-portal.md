@@ -1,29 +1,27 @@
 ---
-title: Azure portalı kullanarak Azure Data Lake Analytics'i yönetme | Microsoft Docs
-description: Data Lake Analytics sayılarının, veri kaynakları, kullanıcılar ve işleri yönetmeyi öğrenin.
+title: Azure portalı kullanarak Azure Data Lake Analytics'i yönetme
+description: Bu makalede, Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri yönetmek için Azure Portalı'nı kullanmayı açıklar.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 99b638279b38ce3b583208ec0b80617f9046a6d7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+manager: kfile
+editor: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 1ccd4dd6b8d4ee15b7d9f14e7436ccd87392121e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623715"
 ---
-# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Azure portalı kullanarak Azure Data Lake Analytics'i yönetme
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Data Lake Analytics'i Azure Portalı'nı kullanarak yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure portalı kullanarak Azure Data Lake Analytics hesapları, hesap veri kaynakları, kullanıcılar ve işleri yönetmeyi öğrenin. Yönetimi konuları hakkında diğer araçları kullanarak görmek için sayfanın üst kısmındaki sekme Ek Yardım düğmesini tıklatın.
+Bu makalede, Azure portalını kullanarak Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Yönet açıklar.
+
 
 <!-- ################################ -->
 <!-- ################################ -->

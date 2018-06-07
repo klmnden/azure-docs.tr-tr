@@ -1,22 +1,19 @@
 ---
 title: Geliştirme basitleştirmek için Azure IOT Hub cihaz sağlama hizmeti SDK'ları içinde sağlanan araçlarını kullanma
 description: Bu belge geliştirme için Azure IOT Hub cihaz sağlama hizmeti SDK'ları içinde sağlanan araçları incelemeleri
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/09/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: a7e1a55bcfc8c7a8f76416fb12edf712340fadd2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: afc7059f3b066ac5f3c9b49d543bc2b3e52ad6af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631131"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Geliştirme sağlama işlemini basitleştirmek için SDK'ları sağlanan araçları kullanma
 IOT Hub cihaz hizmeti sağlama sıfır-dokunuşla sağlama işlemini basitleştirir yalnızca zaman [otomatik sağlama](concepts-auto-provisioning.md) güvenli ve ölçeklenebilir bir şekilde.  X.509 sertifikası veya Güvenilir Platform Modülü (TPM) biçiminde güvenlik kanıtlama gereklidir.  Microsoft ile ortaklık de [diğer güvenlik donanım iş ortaklarından](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) IOT dağıtımının güvenliğini sağlama güvenini artırmak için. Donanım güvenlik gereksinimi anlama geliştiriciler için oldukça zor olabilir. Azure IOT sağlama hizmeti SDK'ları bir dizi geliştiriciler kolaylık katman sağlama hizmete konuşun yazma istemcilerin kullanabilmesi için sağlanır. SDK'ları örnekleri yaygın senaryolar ve bunun yanı sıra güvenlik kanıtlama geliştirme basitleştirmek için araçlar da sağlar.

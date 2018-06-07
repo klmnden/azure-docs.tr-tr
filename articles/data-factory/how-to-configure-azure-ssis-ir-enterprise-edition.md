@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: 42c0c000ef661a1a256ebf49cd099a4cae2185c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5ce6b46a49e3fba8f60311ad82d3e1b77ad6d993
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619312"
 ---
 # <a name="enterprise-edition-of-the-azure-ssis-integration-runtime"></a>Azure SSIS Integration zamanının Enterprise Edition
 
@@ -34,8 +35,8 @@ Bu özelliklerden bazıları duyduğunuz Azure SSIS IR özelleştirmek için ek 
 | **Kurumsal özellikler** | **Açıklamaları** |
 |---|---|
 | CDC bileşenleri | CDC kaynak, Denetim görev ve Bölümlendirici dönüştürme Azure SSIS IR Enterprise Edition'da önceden yüklenmiş. Oracle için bağlanmak için de CDC Tasarımcısı ve hizmet başka bir bilgisayara yüklemeniz gerekir. |
-| Oracle bağlayıcılar | Oracle Bağlantı Yöneticisi, kaynak ve hedef Azure SSIS IR Enterprise Edition'da önceden yüklenmiş. Ayrıca Oracle Çağrı Arabirimi (OCI) sürücüsünü yüklemek ve gerekirse, Oracle aktarım ağ Tabaka (TNS) üzerinde Azure SSIS IR yapılandırmak gerekir Daha fazla bilgi için bkz: [Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum](how-to-configure-azure-ssis-ir-custom-setup.md). |
-| Teradata bağlayıcılar | Teradata Bağlantı Yöneticisi, kaynak ve hedef yanı sıra Teradata paralel Transporter (birleştirilmiş TPT) API ve Teradata ODBC sürücüsü Azure SSIS IR Enterprise Edition'da yüklemeniz gerekir. Daha fazla bilgi için bkz: [Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Oracle bağlayıcılar | Oracle Bağlantı Yöneticisi, kaynak ve hedef Azure SSIS IR Enterprise Edition'da önceden yüklenmiş. Ayrıca Oracle Çağrı Arabirimi (OCI) sürücüsünü yüklemek ve gerekirse, Oracle aktarım ağ Tabaka (TNS) üzerinde Azure SSIS IR yapılandırmak gerekir Daha fazla bilgi için bkz. [Azure-SSIS tümleştirmesi çalışma zamanı için özel kurulum](how-to-configure-azure-ssis-ir-custom-setup.md). |
+| Teradata bağlayıcılar | Teradata Bağlantı Yöneticisi, kaynak ve hedef yanı sıra Teradata paralel Transporter (birleştirilmiş TPT) API ve Teradata ODBC sürücüsü Azure SSIS IR Enterprise Edition'da yüklemeniz gerekir. Daha fazla bilgi için bkz. [Azure-SSIS tümleştirmesi çalışma zamanı için özel kurulum](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | SAP BW bağlayıcılar | SAP BW Bağlantı Yöneticisi, kaynak ve hedef Azure SSIS IR Enterprise Edition'da önceden yüklenmiş. Ayrıca Azure SSIS IR SAP BW sürücü yüklemeniz gerekir Bu bağlayıcıların SAP BW 7.0 veya önceki sürümleri destekler. SAP BW veya diğer SAP ürünleri sonraki sürümleri için bağlanmak için satın alma ve Azure SSIS IR üçüncü taraf ISV SAP bağlayıcıları yükleyin Ek bileşenlerin nasıl yükleneceği hakkında daha fazla bilgi için bkz: [Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum](how-to-configure-azure-ssis-ir-custom-setup.md). |
 | Analiz Hizmetleri bileşenleri               | Veri araştırma modelinin eğitimi hedef, boyut işleme hedef ve bölüm işleme hedef yanı sıra veri madenciliği sorgu dönüşümü Azure SSIS IR Enterprise Edition'da önceden yüklenmiş. Tüm bu bileşenlerin SQL Server Analysis Services (SSAS) destekler, ancak yalnızca bölüm işleme hedef Azure Analysis Services (AAS) destekler. SSAS için bağlanmak için etmeniz [SSISDB içinde Windows kimlik doğrulaması kimlik bilgilerini yapılandırın](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth). Bu bileşenler ek olarak, Analysis Services yürütme DDL görev, Analysis Services görev işleme ve veri madenciliği sorgusu görevi de Azure SSIS IR standart/Enterprise Edition'da önceden yüklenmiş. |
 | Belirsiz gruplandırma ve benzer arama dönüşümleri  | Belirsiz gruplandırma ve benzer arama dönüştürmeler Azure SSIS IR Enterprise Edition'da önceden yüklenmiş. Bu bileşen, başvuru verileri depolamak için SQL Server ve Azure SQL veritabanı destekler. |

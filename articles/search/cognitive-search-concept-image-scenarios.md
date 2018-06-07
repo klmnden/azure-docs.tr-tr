@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 77fbd69aad6c78ecd5c933d8017c980afaa661a3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 566b1e731f137863e9d4bc284d8868d408c7a575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640209"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>İşlem ve bilişsel arama senaryolarda görüntülerden bilgi ayıklamak nasıl
 
@@ -44,7 +45,7 @@ Ayarlama **parsingMode** parametresi `json` (tek bir belge olarak her bir blob d
 Varsayılan değer 2000 piksel normalleştirilmiş görüntüleri maksimum genişlik ve yükseklik tarafından desteklenen en büyük boyutlar dayanır [OCR yetenek](cognitive-search-skill-ocr.md) ve [görüntü analiz yetenek](cognitive-search-skill-image-analysis.md). Maksimum sınırı artırmak istiyorsanız, işleme büyük görüntülerinde başarısız olabilir.
 
 
-İmageAction belirtin, [dizin oluşturucu tanımı](ref-create-indexer.md) gibi:
+İmageAction belirtin, [dizin oluşturucu tanımı](https://docs.microsoft.com/rest/api/searchservice/create-indexer) gibi:
 
 ```json
 {
@@ -217,7 +218,7 @@ Normalleştirilmiş görüntülerinde OCR adım gerçekleştirilir olduğundan, 
 ```
 
 ## <a name="see-also"></a>Ayrıca bkz.
-+ [Dizin Oluşturucu (REST) oluşturma](ref-create-indexer.md)
++ [Dizin Oluşturucu (REST) oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [Görüntü yetenek Çözümle](cognitive-search-skill-image-analysis.md)
 + [OCR nitelik](cognitive-search-skill-ocr.md)
 + [Metin birleştirme nitelik](cognitive-search-skill-textmerger.md)

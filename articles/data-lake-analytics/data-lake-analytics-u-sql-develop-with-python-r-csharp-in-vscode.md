@@ -1,23 +1,20 @@
 ---
-title: "U-SQL Python, R ve C# ile Azure Data Lake Analytics Visual Studio'da kod için geliştirme | Microsoft Docs"
-description: "Arka plan kod Python, R ve C# ile Azure Data Lake işi göndermek için nasıl kullanılacağını öğrenin."
+title: U-SQL Python, R ve C# için Azure Data Lake Analytics Visual Studio Code ile geliştirme
+description: Arka plan kod Python, R ve C# ile Azure Data Lake işi göndermek için nasıl kullanılacağını öğrenin.
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
-manager: 
-editor: 
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/22/2017
+author: jejiang
 ms.author: jejiang
-ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 11/22/2017
+ms.openlocfilehash: 171aef186fd681adf9b3d92deb8691c852ea1038
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624916"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>U-SQL Python, R ve C# için Azure Data Lake Analytics Visual Studio Code ile geliştirme
 Python yazmak için Visual Studio Code (VSCode) kullanmayı öğrenin, R ve C# arkasında U-SQL ile kod ve Azure Data Lake hizmeti göndermek. VSCode için Azure Data Lake araçları hakkında daha fazla bilgi için bkz: [Azure Data Lake araçları kullanmak için Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -28,7 +25,7 @@ Arka plan kodu özel kod yazmadan önce bir klasörü veya bir çalışma alanı
 ## <a name="prerequisites-for-python-and-r"></a>Python ve R için Önkoşullar
 Python ve, R uzantıları derlemeler ADL hesabınız için kaydolun. 
 1. Portal'da hesabınızı açın.
-   - Seçin **genel bakış**. 
+   - **Genel Bakış**’ı seçin. 
    - Tıklatın **örnek komut dosyası**.
 2. Tıklatın **daha fazla**.
 3. Seçin **yükleme U-SQL uzantıları**. 
@@ -185,7 +182,6 @@ Tek bir U-SQL betiği ile ilişkili bir C# dosyasına bir arka plan kodu dosyas�
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Visual Studio Code için Azure Data Lake Araçları’nı kullanma](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama](data-lake-tools-for-vscode-local-run-and-debug.md)
-* [Azure Data Lake Analytics işleri için U-SQL derlemeleri geliştirin](data-lake-analytics-u-sql-develop-assemblies.md)
 * [PowerShell kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-powershell.md)
 * [Azure Portalı'nı kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md)
 * [U-SQL uygulamalarını geliştirmek için Visual Studio için Data Lake araçları kullanın](data-lake-analytics-data-lake-tools-get-started.md)

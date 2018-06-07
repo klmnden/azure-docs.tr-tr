@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/22/2018
+ms.topic: conceptual
+ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 29fb74e49ad3fdca0bc54a431da40b02ef24882b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9fcf751d1b7655cf38bbcaca0aa8c918e38e4fda
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619074"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Servicenow'ı kullanarak Azure Data Factory kopyalama verileri
 
@@ -47,8 +48,8 @@ Aşağıdaki özellikler ServiceNow bağlantılı hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **ServiceNow** | Evet |
 | endpoint | ServiceNow sunucusu uç noktası (`http://<instance>.service-now.com`).  | Evet |
 | authenticationType | Kullanılacak kimlik doğrulama türü. <br/>İzin verilen değerler: **temel**, **OAuth2** | Evet |
-| kullanıcı adı | ServiceNow temel ve OAuth2 kimlik doğrulama için sunucusuna bağlanmak için kullanılan kullanıcı adı.  | Hayır |
-| password | Temel ve OAuth2 kimlik doğrulama için kullanıcı adı için karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
+| kullanıcı adı | ServiceNow temel ve OAuth2 kimlik doğrulama için sunucusuna bağlanmak için kullanılan kullanıcı adı.  | Evet |
+| password | Temel ve OAuth2 kimlik doğrulama için kullanıcı adı için karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | istemci kimliği | OAuth2 kimlik doğrulaması için istemci kimliği.  | Hayır |
 | clientSecret | OAuth2 kimlik doğrulaması için istemci gizli anahtarı. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Hayır |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |

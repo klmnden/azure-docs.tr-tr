@@ -1,24 +1,19 @@
 ---
-title: "SharePoint grubunun kurulumu Azure'a yedeklemek için Azure yedekleme sunucusu kullan | Microsoft Docs"
-description: "Azure yedekleme sunucusu ve SharePoint verilerini geri yükleme için kullanın. Bu makalede, böylece istenen verileri Azure'da depolanabilir, SharePoint grubunu yapılandırmak için bilgi sağlar. Korumalı SharePoint verileri diskten veya Azure geri yükleyebilirsiniz."
+title: SharePoint grubunun kurulumu Azure'a yedeklemek için Azure yedekleme sunucusu kullan
+description: Azure yedekleme sunucusu ve SharePoint verilerini geri yükleme için kullanın. Bu makalede, böylece istenen verileri Azure'da depolanabilir, SharePoint grubunu yapılandırmak için bilgi sağlar. Korumalı SharePoint verileri diskten veya Azure geri yükleyebilirsiniz.
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: 34ba87a4-91f1-4054-a4a1-272af1e15496
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 3ed000affd326eb1bd7c99773ec021ad6e03cc3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7b69e2558234159075161be7d58cc3695dfbbaf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606061"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 SharePoint grubunun kurulumu çok diğer veri kaynaklarını geri aynı şekilde Microsoft Azure yedekleme sunucusu (MABS) kullanarak Microsoft Azure'a yedekleyin. Azure yedekleme günlük oluşturmak için yedekleme zamanlamasını esneklik sağlar, haftalık, aylık veya yıllık yedekleme noktaları ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekler sunar. Ayrıca, Hızlı Kurtarma süresi hedefi (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun vadeli bekletme için Azure kopyaları depolamak için yeteneği sağlar.
@@ -33,7 +28,7 @@ Azure yedekleme DPM için aşağıdaki senaryoları destekler:
 ## <a name="before-you-start"></a>Başlamadan önce
 Bir SharePoint grubuna Azure yedekleme önce onaylamak için gereken birkaç nokta vardır.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Devam etmeden önce bilgisayarınızda yüklü olduğundan emin olun [yüklü ve Azure yedekleme sunucusu hazırlanan](backup-azure-microsoft-azure-backup.md) iş yüklerini korumak için.
 
 ### <a name="protection-agent"></a>Koruma Aracısı

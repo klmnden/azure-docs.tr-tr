@@ -1,25 +1,21 @@
 ---
 title: IOT Uzaktan izleme ve Azure Logic Apps ile bildirimleri | Microsoft Docs
 description: Azure mantıksal uygulamaları, IOT hub'ına sıcaklık IOT izlemek için kullanın ve otomatik olarak algılanan tüm daha fazla bilgi için posta kutunuza e-posta bildirimleri gönder.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: IOT, IOT bildirimleri izleme IOT Sıcaklık İzleme
-ms.assetid: 43043067-2e1f-42c9-953d-e2dce8fd86df
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e54c36d0cfbaedb93db86ad6ce5f99b288b63c9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e59577e99114f1b2061a2f9075976da3f0b1811f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634463"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>IOT Uzaktan izleme ve IOT hub ve posta kutusu bağlanma Azure Logic Apps ile bildirimleri
 
@@ -51,7 +47,7 @@ IOT hub'ınızı ve Sıcaklık İzleme ve bildirimler için posta bağlayan bir 
 ### <a name="create-a-service-bus-namespace"></a>Hizmet veri yolu ad alanı oluşturma
 
 1. Üzerinde [Azure portal](https://portal.azure.com/), tıklatın **kaynak oluşturma** > **Kurumsal tümleştirme** > **Service Bus**.
-1. Aşağıdaki bilgileri sağlayın:
+1. Şu bilgileri belirtin:
 
    **Ad**: hizmet veri yolu adı.
 

@@ -4,7 +4,7 @@ description: Azure günlük analizi için bulut Foundry loggregator kafa dağıt
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609010"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Bulut Foundry sistem izleme için Azure günlük analizi kafa dağıtma
 
@@ -55,9 +56,9 @@ UAA komut satırı istemci ayarlamadan önce Rubygems yüklü olduğundan emin o
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Günlük analizi çalışma alanı oluşturma
 
-Günlük analizi çalışma alanı el ile veya bir şablon kullanarak oluşturabilirsiniz. Başlık dağıtım işlemini tamamladıktan sonra önceden yapılandırılmış OMS görünümleri ve Uyarıları yükleyin.
+Günlük analizi çalışma alanı el ile veya bir şablon kullanarak oluşturabilirsiniz. Kurulum, önceden yapılandırılmış OMS KPI görünümleri ve Uyarıları OMS Konsolu için şablon dağıtır. 
 
-Çalışma alanı el ile oluşturmak için:
+#### <a name="to-create-the-workspace-manually"></a>Çalışma alanı el ile oluşturmak için:
 
 1. Azure portalında Azure Marketi'nde hizmetlerin listesini arama ve günlük analizi seçin.
 2. Seçin **oluşturma**ve ardından aşağıdaki öğeler için seçenekleri seçin:
@@ -70,7 +71,22 @@ Günlük analizi çalışma alanı el ile veya bir şablon kullanarak oluşturab
 
 Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
-Alternatif olarak, günlük analizi çalışma alanını OMS şablonunu kullanarak oluşturabilirsiniz. Bu yöntemde, şablon önceden yapılandırılmış OMS görünümleri ve uyarılar otomatik olarak yükler. Daha fazla bilgi için bkz: [bulut Foundry için Azure günlük analizi çözümü](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution).
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Azure market yerden OMS izleme şablonu aracılığıyla OMS çalışma alanı oluşturmak için:
+
+1. Azure Portalı'nı açın.
+2. "+" İşaretine tıklayın ya da "kaynak üzerinde sol üst köşede oluşturma".
+3. Arama penceresinde "Bulut Foundry" yazın, "OMS bulut Foundry izleme çözümü" seçin.
+4. İzleme çözüm şablonu ön sayfa yüklendiğinde, OMS bulut Foundry şablonu dikey penceresini başlatmak üzere "Oluştur"'i tıklatın.
+5. Gerekli Parametreler girin:
+    * **Abonelik**: OMS çalışma alanı için genellikle aynı bulut Foundry dağıtımı ile Azure aboneliğini seçin.
+    * **Kaynak grubu**: varolan bir kaynak grubu seçin veya OMS çalışma alanı için yeni bir tane oluşturun.
+    * **Kaynak grubu konumu**: kaynak grubu konumunu seçin.
+    * **OMS_Workspace_Name**: bir çalışma alanı adı girin çalışma alanı mevcut değilse yeni bir şablonu oluşturur.
+    * **OMS_Workspace_Region**: çalışma alanı için bir konum seçin.
+    * **OMS_Workspace_Pricing_Tier**: SKU OMS çalışma alanını seçin. Bkz: [Kılavuzu fiyatlandırma](https://azure.microsoft.com/pricing/details/log-analytics/) başvuru.
+    * **Yasal koşullar**: tıklatın yasal koşulları yasal koşulu kabul etmesi "Oluştur" ı.
+- Tüm parametreleri belirttikten sonra şablonu dağıtmak için "Oluştur" seçeneğini tıklatın. Dağıtım tamamlandığında, durum bildirim sekme görünecektir.
+
 
 ## <a name="deploy-the-nozzle"></a>Başlık dağıtma
 
@@ -78,9 +94,9 @@ Birkaç kafa dağıtmanın farklı yolu vardır: PCF döşeme veya CF uygulama o
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>Başlık PCF Ops Manager kutucuğu dağıtma
 
-Ops Manager kullanarak PCF dağıttıktan sonra adımlarını izleyin. [kafa PCF için yükleyip](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Başlık Ops Manager ile bir kutucuk olarak yüklenir.
+Adımlarını izleyin [Azure günlük analizi kafa PCF için yükleyip](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). Bu basitleştirilmiş bir yaklaşım, PCF Ops manager kutucuğu otomatik olarak yapılandırmak ve başlık gönderme. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>Başlık CF uygulama dağıtma
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>Başlık CF bir uygulama olarak el ile dağıtma
 
 Başlık PCF Ops Manager kullanmıyorsanız, bir uygulama olarak dağıtın. Aşağıdaki bölümlerde bu işlemi açıklanmaktadır.
 
@@ -163,6 +179,10 @@ OMS kafa uygulama çalıştığından emin olun.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>OMS Portalı'nda verileri görüntüleme
 
+İzleme çözümü ile OMS dağıttıysanız, pazar yeri şablon Azure portalına gidin ve OMS çözüm bulunur. Çözüm, şablonda belirtilen kaynak grubunda bulabilirsiniz. Çözümü tıklatın, göz atın "OMS konsola", önceden yapılandırılmış görünümler, üst bulut Foundry sistem KPI'ları, uygulama verileri, uyarılar ve VM sistem durumu ölçümleri listelenir. 
+
+OMS çalışma alanını el ile oluşturduysanız, görünümler ve Uyarıları oluşturmak için aşağıdaki adımları izleyin:
+
 ### <a name="1-import-the-oms-view"></a>1. OMS görünümünü Al
 
 OMS Portalı'ndan Gözat **Görünüm Tasarımcısı** > **alma** > **Gözat**ve omsview dosyalarından birini seçin. Örneğin, seçin *bulut Foundry.omsview*ve görünümü kaydedin. Bir kutucuk gösterilir artık **genel bakış** sayfası. Görselleştirilmiş ölçümlerini görmek için seçin.
@@ -177,13 +197,13 @@ Yapabilecekleriniz [uyarı oluşturma](https://docs.microsoft.com/azure/log-anal
 
 | Arama sorgusu                                                                  | Şuna bağlı olarak uyarı oluştur: | Açıklama                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
-| Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulamaları etki alanı güncel olup olmadığını gösterir. Bu, bulut denetleyicisi CF uygulama isteklerinden bbs için eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Alınan veri cf uygulamaları etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
-| Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen zaman penceresi için birden fazla sağlıksız Diego hücre algılanmazsa uyarı ayarlayın. |
+| Tür CF_ValueMetric_CL Origin_s = bbs Name_s = "Domain.cf-uygulamalar" =                   | Sonuçları < 1 sayısı   | **BBS. Domain.cf uygulamaları** cf uygulamaları etki alanı güncel olup olmadığını gösterir. Bu, bulut denetleyicisi CF uygulama isteklerinden bbs için eşitlenir anlamına gelir. Yürütme için LRPsDesired (AIS Diego istenen). Alınan veri cf uygulamaları etki alanı belirtilen zaman penceresinde güncel değil anlamına gelir. |
+| Tür CF_ValueMetric_CL Origin_s = rep Name_s = UnhealthyCell Value_d = > 1            | Sonuçları > 0 sayısı   | Diego hücreler için 0 sağlıklı anlamına gelir ve 1 sağlıksız anlamına gelir. Belirtilen zaman penceresi için birden fazla sağlıksız Diego hücre algılanmazsa uyarı ayarlayın. |
 | Type=CF_ValueMetric_CL Origin_s="bosh-hm-forwarder" Name_s="system.healthy" Value_d=0 | Sonuçları > 0 sayısı | 1 sağlıklı bir sistemidir ve sistem sağlıklı değil 0 anlamına anlamına gelir. |
-| Type=CF_ValueMetric_CL Origin_s=route_emitter Name_s=ConsulDownMode Value_d>0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0 anlamına gelir sağlıklı bir sistemidir ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir. |
-| Type=CF_CounterEvent_CL Origin_s=DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" or Name_s="doppler.shedEnvelopes") Delta_d>0 | Sonuçları > 0 sayısı | Delta bilerek Doppler tarafından geri baskısı nedeniyle bırakılan ileti sayısı. |
-| Type=CF_LogMessage_CL SourceType_s=LGR MessageType_s=ERR                      | Sonuçları > 0 sayısı   | Loggregator yayar **LGR** günlüğe kaydetme işlemi sorunları belirtmek için. Günlük iletisi çıkış çok yüksek olduğunda bir sorun bir örnektir. |
-| Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | Sonuçları > 0 sayısı   | Başlık loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** ValueMetric günlük analizi için. |
+| Tür CF_ValueMetric_CL Origin_s = route_emitter Name_s = ConsulDownMode Value_d = > 0 | Sonuçları > 0 sayısı   | Consul düzenli aralıklarla sistem durumunu gösterir. 0 anlamına gelir sağlıklı bir sistemidir ve rota verici Consul kapalı olduğunu algılar 1 anlamına gelir. |
+| Tür CF_CounterEvent_CL Origin_s = DopplerServer (Name_s="TruncatingBuffer.DroppedMessages" veya Name_s="doppler.shedEnvelopes") Delta_d = > 0 | Sonuçları > 0 sayısı | Delta bilerek Doppler tarafından geri baskısı nedeniyle bırakılan ileti sayısı. |
+| Tür CF_LogMessage_CL SourceType_s = LGR MessageType_s = hata =                      | Sonuçları > 0 sayısı   | Loggregator yayar **LGR** günlüğe kaydetme işlemi sorunları belirtmek için. Günlük iletisi çıkış çok yüksek olduğunda bir sorun bir örnektir. |
+| Tür CF_ValueMetric_CL Name_s = slowConsumerAlert =                               | Sonuçları > 0 sayısı   | Başlık loggregator yavaş tüketici uyarı aldığında, gönderdiği **slowConsumerAlert** ValueMetric günlük analizi için. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | Sonuçları > 0 sayısı   | Kayıp Olay delta sayısı eşiği ulaşırsa, başlık çalıştıran bir sorun olabilecek anlamına gelir. |
 
 ## <a name="scale"></a>Ölçek
@@ -226,6 +246,6 @@ Azure günlük analizi başlık olarak açık kaynaklı. Sorular ve için geri b
 
 ## <a name="next-step"></a>Sonraki adım
 
-Başlık kapsamdaki bulut Foundry ölçümleri yanı sıra, (örneğin, Syslog, performans, uyarılar, Envanter) VM düzeyinde işlemsel veri almak için OMS Aracısı'nı kullanabilirsiniz. OMS Aracısı CF Vm'leriniz için Bosh eklenti olarak yüklenir.
+PCF2.0 VM performans ölçümleri Azure günlük analizi kafa sistem ölçümleri ileticisi tarafından aktarılan ve OMS çalışma alanına tümleşiktir. OMS aracısının artık gerekli VM performans ölçümleri. Ancak Syslog bilgi toplamak için OMS Aracısı'nı kullanabilirsiniz. OMS Aracısı CF Vm'leriniz için Bosh eklenti olarak yüklenir. 
 
 Ayrıntılar için bkz [dağıtmak OMS Aracısı bulut Foundry dağıtımınıza](https://github.com/Azure/oms-agent-for-linux-boshrelease).

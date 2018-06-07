@@ -1,19 +1,19 @@
 ---
 title: Azure IoT çözüm hızlandırıcısı belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
 description: Azure IoT çözüm hızlandırıcısı belgeleri Başlangıç kılavuzlarını, Nasıl Yapılır makalelerini, Öğreticileri ve API Başvurusu’nu içerir.
-services: iot-suite
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.service: iot-suite
+author: dominicbetts
+manager: timlt
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.topic: landing-page
 ms.date: 11/27/2017
-ms.author: carolz
-ms.openlocfilehash: cacc09cf926c5af9a770e42967a5e6cbbb46bfd7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: dobett
+ms.openlocfilehash: 3e9fe2b67980e83f57732c10da99738a15a5219e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626981"
 ---
 # <a name="iot-solution-accelerators-documentation"></a>IoT çözüm hızlandırıcısı belgeleri
 
@@ -30,10 +30,10 @@ IoT çözümlerinizi derlemek için IoT çözüm hızlandırıcıları ile hızl
                         <ul>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-what-are-solution-accelerators">Çözüm hızlandırıcılarına genel bakış</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-deploy">Çözüm hızlandırıcısı dağıtma</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-explore">Kullanıma hazır çözüm özellikleri</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-monitor">İzleme özellikleri</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-explore">Kullanıma hazır çözüm özellikleri</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-monitor">İzleme özellikleri</a></li>
                             <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate">Kural yönetimi özellikleri</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-manage">Cihaz yönetimi özellikleri</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-manage">Cihaz yönetimi özellikleri</a></li>
                         </ul>
                     </div>
                 </div>
@@ -53,9 +53,9 @@ IoT çözümlerinizi derlemek için IoT çözüm hızlandırıcıları ile hızl
                     <div class="cardText">
                         <p>Cihazlarınızı bir çözüm hızlandırıcısına bağlamayı öğrenin</p>
                         <ul>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-schema">Cihaz modeline genel bakış</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-remote-monitoring-device-behavior">Sanal cihazlarınızı özelleştirme</a></li>
-                            <li><a href="/azure/iot-suite/iot-suite-connecting-devices-node">Fiziksel cihazları bağlama</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-schema">Cihaz modeline genel bakış</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-remote-monitoring-device-behavior">Sanal cihazlarınızı özelleştirme</a></li>
+                            <li><a href="/azure/iot-accelerators/iot-accelerators-connecting-devices-node">Fiziksel cihazları bağlama</a></li>
                         </ul>
                     </div>
                 </div>
@@ -95,10 +95,10 @@ IoT çözümlerinizi derlemek için IoT çözüm hızlandırıcıları ile hızl
                 <div class="card">
                     <div class="cardText">
                         <h3>Kaynaklar</h3>
-                        <p><a href="/azure/iot-suite/iot-security-architecture">Güvenlik mimarisi</a></p>
-                        <p><a href="/azure/iot-suite/iot-security-best-practices">En iyi güvenlik uygulamaları</a></p>
-                        <p><a href="/azure/iot-suite/iot-suite-security-deployment">IoT dağıtımınızın güvenliğini sağlama</a></p>
-                        <p><a href="/azure/iot-suite/securing-iot-ground-up">Baştan sona güvenlik</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-architecture">Güvenlik mimarisi</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-security-best-practices">En iyi güvenlik uygulamaları</a></p>
+                        <p><a href="/azure/iot-accelerators/iot-accelerators-security-deployment">IoT dağıtımınızın güvenliğini sağlama</a></p>
+                        <p><a href="/azure/iot-accelerators/securing-iot-ground-up">Baştan sona güvenlik</a></p>
                    </div>
                 </div>
             </div>

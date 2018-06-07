@@ -1,26 +1,22 @@
 ---
-title: "Logic apps içinde Google sürücü bağlayıcısını ekleyin | Microsoft Docs"
-description: "REST API parametreleri Google sürücü bağlayıcısıyla genel bakış"
-services: 
-suite: 
-documentationcenter: 
+title: Google sürücüsüne - Azure mantıksal uygulamaları bağlanacak | Microsoft Docs
+description: Google sürücü REST API'leri ve Azure Logic Apps ile dosyaları oluşturmak ve yönetmek
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: b2bcebc5-02d2-435b-b0da-ef53bc51c4b6
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: cfowler
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 9cea2ea13b93e798912e4feea012f6bd64b90cac
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 5048eee1be183ec200514050f14c07d4c9c071ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610149"
 ---
 # <a name="get-started-with-the-google-drive-connector"></a>Google sürücü Bağlayıcısı ile çalışmaya başlama
 Dosyaları, get satırları ve daha fazlasını oluşturmak için Google sürücüye bağlanın. Google sürücüyle şunları yapabilirsiniz: 

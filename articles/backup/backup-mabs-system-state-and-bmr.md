@@ -1,24 +1,20 @@
 ---
-title: "Azure yedekleme sunucusu sistem durumu korur ve çıplak metal yükler | Microsoft Docs"
-description: "Sistem durumunu yedeklemek ve tam kurtarma (BMR) koruma sağlamak için Azure yedekleme sunucusu kullanın."
+title: Azure yedekleme sunucusu sistem durumu korur ve çıplak metal geri yükler
+description: Sistem durumunu yedeklemek ve tam kurtarma (BMR) koruma sağlamak için Azure yedekleme sunucusu kullanın.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-keywords: 
-ms.assetid: 
+keywords: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.targetplatform: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: markgal,masaran
-ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607217"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sistem durumu yedeklemesi ve tam Azure yedekleme sunucusu ile geri yükleme
 
@@ -55,11 +51,11 @@ Aşağıdaki tabloda, yedekleme ve kurtarma özetler. BMR ve sistem durumu ile k
 
 Bir sistem durumu yedeklemesi çalıştığında, yedekleme sunucusu Windows Server sunucunun sistem durumunun bir yedeğini istemek için yedekleme ile iletişim kurar. Varsayılan olarak, en fazla kullanılabilir boş alana sahip sürücü yedekleme sunucusu ve Windows Server Yedekleme'yi kullanın. Bu sürücü hakkında bilgi için PSDataSourceConfig.xml dosyasını kaydedilir. Bu yedeklemeler için Windows Server Yedekleme kullanan sürücüdür.
 
-Yedek sunucu sistem durumu yedeklemesi için kullandığı sürücüyü özelleştirebilirsiniz. Korumalı sunucuda C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources gidin. Düzenlemek için PSDataSourceConfig.xml dosyasını açın. Değişiklik \<Korunacakdosyalar\> değerini sürücü harfi için. Dosyasını kaydedin ve kapatın. Bilgisayarın sistem durumunu korumak için bir koruma grubu kümesine ise, bir tutarlılık denetimi çalıştırın. Bir uyarı üretilir, seçin **koruma grubunu değiştir** uyarısında ve ardından Sihirbazı tamamlayın. Ardından, başka bir tutarlılık denetimi çalıştırın.
+Yedek sunucu sistem durumu yedeklemesi için kullandığı sürücüyü özelleştirebilirsiniz. Korumalı sunucuda C:\Program Files\Microsoft Data Protection Manager\MABS\Datasources gidin. Düzenlemek için PSDataSourceConfig.xml dosyasını açın. Değişiklik \<Korunacakdosyalar\> değerini sürücü harfi için. Dosyayı kaydedin ve kapatın. Bilgisayarın sistem durumunu korumak için bir koruma grubu kümesine ise, bir tutarlılık denetimi çalıştırın. Bir uyarı üretilir, seçin **koruma grubunu değiştir** uyarısında ve ardından Sihirbazı tamamlayın. Ardından, başka bir tutarlılık denetimi çalıştırın.
 
 Koruma sunucusu bir kümede ise, en çok boş alana sahip olan sürücü olarak bir küme sürücüsünün seçilmiş olması mümkündür olduğunu unutmayın. Sürücü sahipliğinin başka bir düğüme ve sistem durumu yedekleme çalıştırılana geçti, sürücü kullanılamıyor ve yedekleme başarısız olur. Bu senaryoda, bir yerel sürücüye işaret edecek şekilde PSDataSourceConfig.xml değiştirin.
 
-Ardından, Windows Server Yedekleme, geri yükleme klasörü kök dizininde WindowsImageBackup adında bir klasör oluşturur. Windows Server Yedekleme yedekleme oluşturduğu gibi tüm veriler bu klasöre yerleştirilir. Yedekleme tamamlandığında dosya yedekleme sunucusu bilgisayara aktarılır. Aşağıdaki bilgileri unutmayın:
+Ardından, Windows Server Yedekleme, geri yükleme klasörü kök dizininde WindowsImageBackup adında bir klasör oluşturur. Windows Server Yedekleme yedekleme oluşturduğu gibi tüm veriler bu klasöre yerleştirilir. Yedekleme tamamlandığında dosya yedekleme sunucusu bilgisayara aktarılır. Aşağıdaki bilgileri not edin:
 
 * Yedekleme veya aktarımı tamamlandığında, bu klasörü ve içeriği temizlenmesini değil. Bunu düşünmenin en iyi bir yedekleme tamamlandıktan sonraki açışlarında alan ayrılmış olduğunu yoludur.
 * Bir yedekleme yapılan her zaman klasör oluşturulur. Saat ve tarih damgası, son sistem durumu yedeklemesi zaman yansıtır.
@@ -220,9 +216,9 @@ Windows Server Yedekleme çalıştırın:
 
 5.  Üzerinde **onay** sayfasında, **kurtarmak**. Geri yüklemeden sonra sunucuyu yeniden başlatın.
 
-6.  Bu gibi durumlarda, sistem durumu geri ayrıca bir komut isteminde çalıştırabilirsiniz. Bunu yapmak için kurtarmak istediğiniz bilgisayarda Windows Server Yedekleme başlatın. Bir komut isteminde sürüm tanımlayıcı almak için şunu girin:```wbadmin get versions -backuptarget \<servername\sharename\>```
+6.  Bu gibi durumlarda, sistem durumu geri ayrıca bir komut isteminde çalıştırabilirsiniz. Bunu yapmak için kurtarmak istediğiniz bilgisayarda Windows Server Yedekleme başlatın. Bir komut isteminde sürüm tanımlayıcı almak için şunu girin: ```wbadmin get versions -backuptarget \<servername\sharename\>```
 
-    Sistem durumu geri yüklemesi başlatmak için sürüm tanıtıcısını kullanın. Komut isteminde girin:```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
+    Sistem durumu geri yüklemesi başlatmak için sürüm tanıtıcısını kullanın. Komut isteminde girin: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
     Kurtarma başlatmak istediğinizi onaylayın. Komut İstemi penceresinde işlemi görebilirsiniz. Geri yükleme günlüğü oluşturulur. Geri yüklemeden sonra sunucuyu yeniden başlatın.
 

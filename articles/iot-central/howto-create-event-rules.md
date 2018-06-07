@@ -1,18 +1,19 @@
 ---
 title: Oluşturma ve Azure IOT merkezi uygulamanızda olay kuralları yönetme | Microsoft Docs
 description: Azure IOT Orta olay kuralları aygıtlarınızı yakın gerçek zamanlı izleme ve otomatik olarak kural harekete geçirdiğinde, bir e-posta gönderme gibi eylemleri çağırmak için etkinleştirin.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932b1906b767ee7676f46ffd7242ad3d478d41c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628377"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Bir olay kuralı oluşturma ve Azure IOT merkezi uygulamanızda bildirimlerini ayarlama
 
@@ -20,7 +21,7 @@ Microsoft Azure IOT merkezi uzaktan bağlı aygıtları izlemek için kullanabil
 
 Azure IOT Orta kullanan [olay ölçüm](howto-set-up-template.md) aygıt verilerini yakalamak için. Her ölçü ölçüm tanımlayan anahtar öznitelikleri türü. Her cihaz ölçüm türü izlemek ve kural harekete geçirdiğinde uyarıları oluşturmak için kurallar oluşturabilirsiniz. Seçilen aygıt olay aygıt tarafından bildirildiğinde bir olay kuralı tetikler.
 
-## <a name="create-an-event-rule"></a>Bir olay kuralı oluşturma
+## <a name="create-an-event-rule"></a>Olay kuralı oluşturma
 
 Bu bölümde bir olay kuralının nasıl oluşturulacağını gösterir. Bu örnek, bu raporları fan motor hata olayı refrigerated satış makine aygıt kullanır. Kural aygıt tarafından rapor edilen olay izler ve olay bildirilen her bir e-posta gönderir.
 

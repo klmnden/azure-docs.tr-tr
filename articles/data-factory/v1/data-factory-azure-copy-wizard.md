@@ -1,25 +1,26 @@
 ---
-title: "Veri Fabrikası Azure Kopyalama Sihirbazı'nı | Microsoft Docs"
-description: "İç havuzlar için desteklenen veri kaynaklarından alınan verileri kopyalamak için veri fabrikası Azure Kopyalama Sihirbazı'nı kullanma hakkında bilgi edinin."
+title: Veri Fabrikası Azure Kopyalama Sihirbazı'nı | Microsoft Docs
+description: İç havuzlar için desteklenen veri kaynaklarından alınan verileri kopyalamak için veri fabrikası Azure Kopyalama Sihirbazı'nı kullanma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: 0974eb40-db98-4149-a50d-48db46817076
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aeed2b2413f14b60d018ebd4f09293d6c41554d2
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ebd8abf8c34be1fa6fcd282c9bfbc63d81a56239
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621141"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory Kopyalama Sihirbazı
 > [!NOTE]
@@ -75,11 +76,11 @@ Klasörleri aşağıdaki biçimde giriş varsayın:
     2016/03/01/03
     ...
 
-Tıklatın **Gözat** için düğmesini **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 02 ->), tıklatıp **Seç**. Görmeniz gerekir `2016/03/01/02` metin kutusuna. Şimdi değiştir **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}** , ve **02** ile **{saat}**ve basın **sekmesini** anahtarı. Bu dört değişkenleri biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
+Tıklatın **Gözat** için düğmesini **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 02 ->), tıklatıp **Seç**. Görmeniz gerekir `2016/03/01/02` metin kutusuna. Şimdi değiştir **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}** , ve **02** ile **{saat}** ve basın **sekmesini** anahtarı. Bu dört değişkenleri biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
 
 ![Sistem değişkenleri kullanma](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-Aşağıdaki ekran görüntüsünde gösterildiği gibi ayrıca kullanabileceğiniz bir **özel** değişkeni ve [biçim dizeleri desteklenen](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Bu yapıya sahip bir klasör seçmek için kullanın **Gözat** ilk düğme. Bir değerle değiştirin **{özel}**ve basın **sekmesini** biçim dizesi yazabileceğiniz metin kutusu görmek için anahtar.     
+Aşağıdaki ekran görüntüsünde gösterildiği gibi ayrıca kullanabileceğiniz bir **özel** değişkeni ve [biçim dizeleri desteklenen](https://msdn.microsoft.com/library/8kb3ddd4.aspx). Bu yapıya sahip bir klasör seçmek için kullanın **Gözat** ilk düğme. Bir değerle değiştirin **{özel}** ve basın **sekmesini** biçim dizesi yazabileceğiniz metin kutusu görmek için anahtar.     
 
 ![Özel değişken kullanma](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

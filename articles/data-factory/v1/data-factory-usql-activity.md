@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 7861a3380ee330241f0c735ee6c5ed84f121e512
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a0f4a823d9a484dcae35a2741bf7904eb17a1502
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622862"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Üzerinde Azure Data Lake Analytics U-SQL betiklerini çalıştırarak veri dönüştürme 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,10 +49,10 @@ Aşağıdaki tabloda JSON tanımında kullanılan genel özellikleri için açı
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **Türü** |Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
+| **type** |Type özelliği ayarlanmalıdır: **AzureDataLakeAnalytics**. |Evet |
 | **accountName** |Azure Data Lake Analytics hesap adı. |Evet |
 | **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI. |Hayır |
-| **subscriptionId** |Azure abonelik kimliği |Hayır (belirtilmezse, data Factory abonelik kullanılır). |
+| **Subscriptionıd** |Azure abonelik kimliği |Hayır (belirtilmezse, data Factory abonelik kullanılır). |
 | **resourceGroupName** |Azure kaynak grubu adı |Hayır (belirtilmezse, kaynak grubu data Factory kullanılır). |
 
 ### <a name="service-principal-authentication-recommended"></a>(Önerilen) hizmet asıl kimlik doğrulaması
@@ -114,7 +115,7 @@ Alternatif olarak, aşağıdaki özellikleri belirterek Data Lake Analytics içi
 ```
 
 #### <a name="token-expiration"></a>Belirteç süre sonu
-Oluşturulan kullanarak Yetkilendirme kodu **Authorize** düğmesi süre sonra süresi dolar. Farklı türlerdeki kullanıcı hesapları için zaman aşımı süresinin için aşağıdaki tabloya bakın. Aşağıdaki hatayı görebilirsiniz ne zaman ileti kimlik doğrulama **belirtecinin süresi dolmadan**: kimlik bilgisi işlemi hatası: invalid_grant - AADSTS70002: Kimlik doğrulanırken hata oluştu. AADSTS70008: Sağlanan erişim izninin süresi doldu veya iptal edildi. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+Oluşturulan kullanarak Yetkilendirme kodu **Authorize** düğmesi süre sonra süresi dolar. Farklı türlerdeki kullanıcı hesapları için zaman aşımı süresinin için aşağıdaki tabloya bakın. Aşağıdaki hatayı görebilirsiniz ne zaman ileti kimlik doğrulama **belirtecinin süresi dolmadan**: kimlik bilgisi işlemi hatası: invalid_grant - AADSTS70002: Kimlik doğrulanırken hata oluştu. AADSTS70008: Sağlanan erişim izninin süresi doldu veya iptal edildi. İzleme kimliği: d18629e8-af88-43c5-88e3-d8419eb1fca1 bağıntı kimliği: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 zaman damgası: 2015-12-15 21:09:31Z
 
 | Kullanıcı türü | Kullanım süresi sonu |
 |:--- |:--- |
@@ -212,7 +213,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü özellikle
 | linkedServiceName   | Veri fabrikasında bağlı hizmet olarak Azure Data Lake Analytics referansı kayıtlı | Evet                                      |
 | scriptPath          | U-SQL komut dosyasını içeren klasörün yolu. Dosyanın adı büyük/küçük harf duyarlıdır. | Hayır (komut dosyası kullanırsanız)                   |
 | scriptLinkedService | Veri Fabrikası için komut dosyasını içeren depolamayı bağlı hizmet | Hayır (komut dosyası kullanırsanız)                   |
-| betik              | ScriptPath ve scriptLinkedService belirtme yerine satır içi betiği belirtin. Örneğin: `"script": "CREATE DATABASE test"`. | Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
+| Komut dosyası              | ScriptPath ve scriptLinkedService belirtme yerine satır içi betiği belirtin. Örneğin: `"script": "CREATE DATABASE test"`. | Hayır (scriptPath ve scriptLinkedService kullanıyorsanız) |
 | degreeOfParallelism | Aynı anda işi çalıştırmak için kullanılan düğümlerin sayısı. | Hayır                                       |
 | öncelik            | İlk çalıştırmak için sıraya alınan tüm işlerden seçili belirler. Alt sayısı, öncelik o kadar yüksektir. | Hayır                                       |
 | parametreler          | U-SQL betiği için parametreler          | Hayır                                       |

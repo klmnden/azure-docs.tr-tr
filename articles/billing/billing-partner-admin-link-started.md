@@ -10,11 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a5b6bb683538bd5359ebcbbe2640216e574b3e00
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: a48298668e2297cb95f2a2f16eac6387ff509781
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608721"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>Azure hesaplarınıza bağlantı iş ortağı kimliği
 
@@ -32,7 +33,7 @@ Bu özellik, genel önizleme olarak kullanılabilir.
 
 - **Hizmet sorumlusu:** müşteri kuruluşunuzdaki directory'lerinde bir uygulama ya da komut dosyasını ekleyin ve herhangi bir RBAC rolü atayın. Uygulama veya betik kimliğini hizmet sorumlusu bilinir.
 
-## <a name="link-partner-id"></a>Bağlantı iş ortağı kimliği
+## <a name="link-partner-id"></a>İş ortağı kimliğini bağlama
 
 Müşteri'nin kaynaklarına erişimi varsa, Azure portal, PowerShell veya CLI, Microsoft iş ortağı ağ kimliği (MPN kimliği) bağlamak için kullanıcı kimliği veya hizmet sorumlusu kullanın. Her bir müşterinin Kiracı İş ortağı kimliği bağlamak zorunda.
 
@@ -52,7 +53,7 @@ Müşteri'nin kaynaklarına erişimi varsa, Azure portal, PowerShell veya CLI, M
 
 ### <a name="use-powershell-to-link-new-partner-id"></a>Yeni iş ortağı kimliği bağlamak için PowerShell kullanın
 
-1. Yükleme [AzurePartnerRP](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner/0.1.0-preview) PowerShell modülü.
+1. Yükleme [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell modülü.
 
 2. Oturum açtığınızda müşterinin Kiracı, kullanıcı hesabı veya hizmet sorumlusu, daha fazla bilgi için bkz: [Powershell ile oturum açma](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0).
  

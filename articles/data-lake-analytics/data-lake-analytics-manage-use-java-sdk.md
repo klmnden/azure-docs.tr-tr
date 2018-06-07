@@ -1,30 +1,28 @@
 ---
-title: "Azure Java SDK'sını kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs"
-description: "Uygulama geliştirmek için Azure Data Lake Analytics Java SDK'yı kullanma"
+title: Azure Java SDK'sını kullanarak Azure Data Lake Analytics yönetme
+description: Bu makalede, Data Lake Analytics işleri, veri kaynakları ve kullanıcıları yönettiğiniz uygulamalar yazmak için Azure Java SDK'sını kullanmayı açıklar.
 services: data-lake-analytics
-documentationcenter: 
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 8a0c1c7aab89f3bb62d0eb9f42e8ac65309d617e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
+ms.topic: conceptual
+ms.date: 06/18/2017
+ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624242"
 ---
-# <a name="manage--azure-data-lake-analytics-using-java-sdk"></a>Java SDK'yı kullanarak Azure Data Lake Analytics'i yönetme
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Bir Java uygulaması kullanarak Azure Data Lake Analytics yönetme
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Bu öğreticide, Azure Data Lake için ortak işlemleri gerçekleştiren bir Java konsol uygulaması geliştirin.
+Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Azure Java SDK'sı kullanılarak yazılmış bir uygulama kullanarak nasıl yönetileceği açıklanmaktadır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Java Geliştirme Seti (JDK) 8** (Java Sürüm 1,8 kullanarak).
 * **Intellij** veya başka bir uygun Java geliştirme ortamı. Bu belgedeki yönergeleri Intellij kullanılmıştır.
 * Bir Azure Active Directory (AAD) uygulaması oluşturun ve **İstemci Kimliği**, **Kiracı Kimliği** ve **Anahtar** bilgilerini alın. AAD uygulamaları hakkında daha fazla bilgi ve istemci kimliği almaya ilişkin yönergeler için bkz. [Portal kullanarak Active Directory uygulaması ve hizmet sorumlusu oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md). Yanıt URI ve anahtarınızı kullanılabilir Portalı'ndan uygulama oluşturulur ve oluşturulan anahtarı sahip olduğunda.

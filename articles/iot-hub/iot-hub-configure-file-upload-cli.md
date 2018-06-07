@@ -1,24 +1,19 @@
 ---
-title: "IOT hub'ına Azure CLI (az.py) kullanarak karşıya dosya yükleme yapılandırma | Microsoft Docs"
-description: "Platformlar arası Azure CLI 2.0 (az.py) kullanarak Azure IOT Hub'ına fileuploads yapılandırılır."
-services: iot-hub
-documentationcenter: 
+title: IOT hub'ına Azure CLI (az.py) kullanarak karşıya dosya yükleme yapılandırma | Microsoft Docs
+description: Platformlar arası Azure CLI 2.0 (az.py) kullanarak Azure IOT Hub'ına fileuploads yapılandırılır.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 6b100e65aba604fd8becb02c3a205b3348872bc4
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 378fb06f7ac9cbb6dc645994682786f474077d03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633861"
 ---
 # <a name="configure-iot-hub-file-uploads-using-azure-cli"></a>IOT Hub'ın Azure CLI kullanarak dosya yüklemeleri yapılandırın
 
@@ -31,27 +26,27 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 * Etkin bir Azure hesabı. Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.
 * [Azure CLI 2.0][lnk-CLI-install].
 * Azure IOT hub'ı. IOT hub'ı yoksa, kullanabileceğiniz `az iot hub create` [komutu] [ lnk-cli-create-iothub] oluşturun veya portal [IOT hub'ı Oluştur] kullanmayı [lnk-portal-hub].
-* Bir Azure depolama hesabı. Bir Azure depolama hesabınız yoksa, kullanabileceğiniz [Azure CLI 2.0 - depolama hesaplarını yönetme] [ lnk-manage-storage] oluşturun veya portalını kullanarak [depolama hesabı oluşturma] [ lnk-portal-storage].
+* Azure Depolama hesabı. Bir Azure depolama hesabınız yoksa, kullanabileceğiniz [Azure CLI 2.0 - depolama hesaplarını yönetme] [ lnk-manage-storage] oluşturun veya portalını kullanarak [depolama hesabı oluşturma] [ lnk-portal-storage].
 
 ## <a name="sign-in-and-set-your-azure-account"></a>Oturum açma ve Azure hesabınızı ayarlama
 
 Azure hesabınızda oturum açın ve aboneliğinizi seçin.
 
-1. Komut istemine [oturum açma komut][lnk-login-command]:
+1. Komut isteminde [oturum açma komutunu][lnk-login-command] çalıştırın:
 
     ```azurecli
     az login
     ```
 
-    Kod kullanarak kimlik doğrulaması yapmak için yönergeleri izleyin ve bir web tarayıcısı aracılığıyla Azure hesabınızda oturum açın.
+    Kodu kullanarak kimlik doğrulaması gerçekleştirmek için yönergeleri uygulayın ve bir web tarayıcısı üzerinden Azure hesabınızda oturum açın.
 
-1. Birden çok Azure aboneliğiniz varsa, Azure'da oturum açma kimlik bilgilerinizle ilişkilendirilen tüm Azure hesaplar için size erişim verir. Aşağıdaki [Azure hesapları listelemek için komut] [ lnk-az-account-command] kullanmanız için kullanılabilir:
+1. Birden fazla Azure aboneliğiniz varsa Azure’da oturum açtığınızda, kimlik bilgilerinizle ilişkili tüm Azure hesaplarınıza erişim izni elde edersiniz. Kullanabileceğiniz [Azure hesaplarını listelemek için aşağıdaki komutu][lnk-az-account-command] kullanın:
 
     ```azurecli
     az account list
     ```
 
-    IOT hub'ınızı oluşturması için komutları çalıştırmak için kullanmak istediğiniz aboneliği seçmek için aşağıdaki komutu kullanın. Önceki komut çıktısı abonelik adı veya kimliği kullanabilirsiniz:
+    IoT hub’ınızı oluşturmak için komutları çalıştırmak amacıyla kullanmak istediğiniz aboneliği seçmek üzere aşağıdaki komutu kullanın. Önceki komutun çıkışında yer alan abonelik adını veya kimliği kullanabilirsiniz:
 
     ```azurecli
     az account set --subscription {your subscription name or id}
@@ -144,7 +139,7 @@ Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları iz
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 * [IOT çözümünüzden zemin oluşturan güvenli][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d82592bfda3eaf44d28f67b8bb6599aa4ae4bae7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 66e6725dd4e23eeaf0c8d0dcff6e5d26e3743218
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624293"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Veri Yönetimi Ağ Geçidi kullanımıyla ilgili sorunları giderme
 Bu makalede, veri yönetimi ağ geçidi kullanarak sorunlarını giderme hakkında bilgi sağlar.
@@ -120,7 +121,7 @@ Bir ağ geçidi kaydedilirken yolu ve parola için bir sertifika girmeniz gereke
 #### <a name="cause"></a>Nedeni
 Ağ geçidi, önce diğer makinelere kaydedildi. Bir ağ geçidi ilk kaydı sırasında bir şifreleme sertifikası ağ geçidi ile ilişkilendirilmiş. Sertifika ağ geçidi tarafından otomatik olarak oluşturulan veya kullanıcı tarafından sağlanan.  Bu sertifika, veri deposu (bağlantılı hizmeti) kimlik bilgilerini şifrelemek için kullanılır.  
 
-![Sertifika verme](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
+![Sertifikayı dışarı aktarma](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
 
 Farklı bir konak makinesi üzerinde ağ geçidi geri yüklerken, daha önce bu sertifikayla şifrelenmiş kimlik bilgileri şifresini çözmek Bu sertifika için Kayıt Sihirbazı'nı sorar.  Bu sertifika olmadan kimlik bilgilerini yeni ağ geçidi tarafından şifresi çözülemiyor ve bu yeni ağ geçidi ile ilişkili sonraki kopyalama etkinliği yürütmeleri başarısız olur.  
 

@@ -1,24 +1,19 @@
 ---
-title: SharePoint grubunun Azure DPM/Azure yedekleme sunucusu koruma | Microsoft Docs
-description: "Bu makale, Azure için SharePoint grubunun DPM/Azure yedekleme sunucusu koruma genel bir bakış sağlar"
+title: SharePoint grubunun Azure DPM/Azure yedekleme sunucusu koruma
+description: Bu makale, Azure için SharePoint grubunun DPM/Azure yedekleme sunucusu koruma genel bir bakış sağlar
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: 
-ms.assetid: e0c0c252-dc1d-4072-b777-7222c13950b0
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2016
-ms.author: adigan;giridham;jimpark;trinadhk;markgal
-ms.openlocfilehash: 1bbf3233169fa9966e3dd0fac18ee448f26caa6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606662"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Bir SharePoint grubunu Azure’a yedekleme
 SharePoint grubunun kurulumu diğer veri kaynaklarını yedekleyen benzer şekilde, System Center Data Protection Manager (DPM) kullanarak Microsoft Azure'a yedekleyin. Azure yedekleme günlük oluşturmak için yedekleme zamanlamasını esneklik sağlar, haftalık, aylık veya yıllık yedekleme noktaları ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekler sunar. DPM, Hızlı Kurtarma süresi hedefi (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun vadeli bekletme için Azure kopyaları depolamak için yeteneği sağlar.
@@ -33,7 +28,7 @@ Azure yedekleme DPM için aşağıdaki senaryoları destekler:
 ## <a name="before-you-start"></a>Başlamadan önce
 Bir SharePoint grubuna Azure yedekleme önce onaylamak için gereken birkaç nokta vardır.
 
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 Devam etmeden önce tüm karşıladığınızdan emin olun [Microsoft Azure Yedekleme kullanılarak önkoşulları](backup-azure-dpm-introduction.md#prerequisites) iş yüklerini korumak için. Önkoşullar için bazı görevler aşağıdakileri içerir: bir yedekleme kasası oluşturun, kasa kimlik bilgilerini indirme, Azure Yedekleme aracısı yükleyin ve DPM/Azure yedekleme sunucusu kasayla kaydedin.
 
 ### <a name="dpm-agent"></a>DPM Aracısı

@@ -1,18 +1,19 @@
 ---
 title: Azure IOT merkezi bir uygulama bir cihaz şablonunda ayarlama | Microsoft Docs
 description: Bir aygıt şablonu ölçümleri, ayarlar, özellikler, kuralları ve Pano ayarlamanız öğrenin.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: c88b27edab71527b4b3eca71c00af2930c22f8cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629244"
 ---
 # <a name="set-up-a-device-template"></a>Cihaz şablon ayarlama
 
@@ -39,7 +40,7 @@ Bu cihaz şablonundan bir işleç oluşturabilir ve gerçek fan aygıtları adla
 > [!NOTE]
 Yalnızca oluşturucular ve yöneticiler oluşturabilir, düzenleme ve aygıt şablonları silin. Herhangi bir kullanıcı cihazları oluşturabilirsiniz **aygıt Explorer** var olan aygıt şablonları sayfasından.
 
-## <a name="create-a-new-device-template"></a>Yeni bir cihaz şablonu oluşturun
+## <a name="create-a-new-device-template"></a>Yeni cihaz şablonu oluşturma
 
 1. Gidin **uygulama Oluşturucu** sayfası.
 
@@ -53,7 +54,7 @@ Yalnızca oluşturucular ve yöneticiler oluşturabilir, düzenleme ve aygıt ş
 
 Şimdi sekmelerin her birinde Ara **cihaz ayrıntıları** sayfası.
 
-## <a name="measurements"></a>Ölçümleri
+## <a name="measurements"></a>Ölçümler
 
 Cihazınızı gelen veriler ölçümlerdir. Cihazınızı özelliklerini eşleştirmek için cihaz şablonunuzu birden çok ölçümleri ekleyebilirsiniz. Şu anda, telemetri ve olay desteklenen ölçümleri türleridir.
 
@@ -106,7 +107,7 @@ Seçtiğiniz sonra **kaydetmek**, **Fan modu** durumu ölçüm ölçümleri list
 
 ![Durum ölçümleri grafiği](./media/howto-set-up-template/statemeasurementschart.png)
 
-Durumunda, aygıt tarafından gönderilen kısa bir süre içinde çok fazla veri noktası, durum ölçüm aşağıda gösterildiği gibi farklı bir görsel ile gösterilir. Grafikte tıklatırsanız, bu süre içinde tüm veri noktaları kronolojik olarak görüntülenir. Grafikte çizilen ölçüm görmek için zaman aralığı aşağı daraltabilirsiniz.
+Kısa bir süre içinde cihazdan çok fazla veri noktası gönderildiği olursa, durum ölçümü aşağıda gösterildiği gibi farklı bir görselle görüntülenir. Grafiğe tıklarsanız, söz konusu süre içindeki tüm veri noktaları kronolojik sırada görüntülenir. Grafikte çizilen ölçüm görmek için zaman aralığı aşağı daraltabilirsiniz.
 
 ![Durum ölçümleri ayrıntısı](./media/howto-set-up-template/statemeasurementsdetail.png)
 

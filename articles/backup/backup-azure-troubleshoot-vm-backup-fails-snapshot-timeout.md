@@ -1,25 +1,20 @@
 ---
-title: 'Azure yedekleme hatası sorunlarını giderme: Konuk Aracısı durumu kullanılamıyor | Microsoft Docs'
+title: 'Azure yedekleme hatası sorunlarını giderme: Konuk Aracısı durumu kullanılamıyor'
 description: Belirtiler, nedenler ve çözümler Aracısı, uzantı ve diskleri ilgili Azure Backup hatalar.
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Azure yedekleme; VM Aracısı; Ağ bağlantısı;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: genli
+ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606367"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -63,7 +58,7 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM aracısı yanıt vermiyor yedekleme başarısız olur
 
-Hata iletisi: "VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor" <br>
+Hata iletisi: "anlık görüntü durum için VM Aracısı ile iletişim kuramadı" <br>
 Hata kodu: "GuestAgentSnapshotTaskStatusError"
 
 Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zaman içinde nokta anlık görüntüyü almaya VM yedekleme uzantısı ile iletişim kurarak başlatır. Aşağıdaki koşullardan herhangi biri, anlık görüntü tetiklenen gelen engelleyebilir. Anlık görüntü tetiklenen değil, bir yedekleme hatası ortaya çıkabilir. Aşağıdaki sorun giderme adımları listelendikleri sırada tamamlayın ve işlemi yeniden deneyin:  
@@ -91,6 +86,16 @@ Dağıtımı gereksinimi VM Internet erişimi yok. Veya, Azure altyapı erişimi
 
 Doğru çalışması için Backup uzantısının Azure genel IP adreslerine bağlantısı gerektirir. Uzantısını komutları VM anlık görüntülerini yönetmek için bir Azure depolama uç nokta için (HTTP URL) gönderir. Uzantı genel internet erişimi yoksa, yedekleme sonunda başarısız olur.
 
+Bu VM trafiği yönlendirmek için bir proxy sunucusu dağıtmayı mümkün.
+##### <a name="create-a-path-for-http-traffic"></a>HTTP trafiği için bir yol oluşturma
+
+1. (Örneğin, bir ağ güvenlik grubu) yerinde ağ kısıtlamalarını varsa, trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın.
+2. Erişim HTTP proxy sunucusundan internet'e izin vermek için varsa kuralları ağ güvenlik grubuna ekleyin.
+
+Bir HTTP proxy VM yedeklemeler için ayarlama hakkında bilgi edinmek için bkz: [Azure sanal makineleri yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+
+Yedeklenen VM veya proxy sunucu üzerinden trafik yönlendirilir Azure genel IP adreslerine erişim izni gerektirir
+
 ####  <a name="solution"></a>Çözüm
 Sorunu çözmek için aşağıdaki yöntemlerden birini deneyin:
 
@@ -104,13 +109,6 @@ Servis etiketlerini yapılandırmak için adım adım yordam anlamak için izlem
 
 > [!WARNING]
 > Depolama hizmet etiketleri önizlemede. Bunlar yalnızca belirli bölgelerde kullanılabilir. Bölgelerin bir listesi için bkz: [hizmet depolama için etiketler](../virtual-network/security-overview.md#service-tags).
-
-##### <a name="create-a-path-for-http-traffic"></a>HTTP trafiği için bir yol oluşturma
-
-1. (Örneğin, bir ağ güvenlik grubu) yerinde ağ kısıtlamalarını varsa, trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın.
-2. Erişim HTTP proxy sunucusundan internet'e izin vermek için varsa kuralları ağ güvenlik grubuna ekleyin.
-
-Bir HTTP proxy VM yedeklemeler için ayarlama hakkında bilgi edinmek için bkz: [Azure sanal makineleri yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Azure yönetilen diskleri kullanıyorsanız, güvenlik duvarları hakkında ek bağlantı noktası açma (bağlantı noktası 8443) gerekebilir.
 
@@ -194,6 +192,19 @@ Bu sorun, kullanıcının kaynak grubu kilitler yönetilen sanal makineleri içi
 
 #### <a name="solution"></a>Çözüm
 
-Sorunu çözmek için kilidi kaynak grubundan kaldırın ve kurtarma noktası koleksiyonu ve sonraki yedekleme, temel alınan anlık görüntüleri temizleyin Azure Backup hizmeti sağlar.
-Bunu yaptıktan sonra yeniden geri kilidi VM kaynak grubunda koyabilirsiniz. 
+Sorunu çözmek için kaynak grubundan kilidi kaldırmak ve geri yükleme noktası koleksiyonu kaldırmak için aşağıdaki adımları tamamlayın: 
+ 
+1. Kilidi VM bulunduğu kaynak grubunu kaldırın. 
+2. ARMClient Chocolatey kullanarak yükleyin: <br>
+   https://github.com/projectkudu/ARMClient
+3. ARMClient için oturum açın: <br>
+    `.\armclient.exe login`
+4. VM karşılık gelen geri yükleme noktası koleksiyonunun alın: <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    Örnek: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. Geri yükleme noktası koleksiyonunu silin: <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. Sonraki zamanlanmış yedekleme, geri yükleme noktası koleksiyonu ve yeni geri yükleme noktaları otomatik olarak oluşturur.
+
+Bunu yaptıktan sonra yeniden geri kilidi VM kaynak grubunda koyabilirsiniz. 

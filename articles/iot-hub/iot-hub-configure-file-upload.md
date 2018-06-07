@@ -1,24 +1,19 @@
 ---
-title: "Karşıya dosya yükleme yapılandırmak için Azure portalını kullanma | Microsoft Docs"
-description: "Azure portalı bağlı dosya yüklemelerini etkinleştirmek için IOT hub'ınızı yapılandırma için nasıl kullanılacağını. Hedef Azure depolama hesabı yapılandırma hakkında bilgi içerir."
-services: iot-hub
-documentationcenter: 
+title: Karşıya dosya yükleme yapılandırmak için Azure portalını kullanma | Microsoft Docs
+description: Azure portalı bağlı dosya yüklemelerini etkinleştirmek için IOT hub'ınızı yapılandırma için nasıl kullanılacağını. Hedef Azure depolama hesabı yapılandırma hakkında bilgi içerir.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 915f1597-272d-4fd4-8c5b-a0ccb1df0d91
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 2d875947297be5d47362369b96bc6ab0d90b3c93
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0100cbe4bbc66d0c4ef940cc40f4fa3441176a1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633215"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>IOT Hub'ın Azure Portalı'nı kullanarak dosya yüklemeleri yapılandırın
 
@@ -57,7 +52,7 @@ Azure IOT hub'ı yönetme hakkında daha fazla bilgi için bu bağlantıları iz
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 * [IOT Hub Geliştirici Kılavuzu][lnk-devguide]
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 * [IOT çözümünüzden zemin oluşturan güvenli][lnk-securing]
 
 [13]: ./media/iot-hub-configure-file-upload/file-upload-settings.png

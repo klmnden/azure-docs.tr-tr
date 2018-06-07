@@ -1,24 +1,20 @@
 ---
 title: Cihaz üretici yazılımı güncelleştirme ile Azure IOT hub'ı (Java/Java) | Microsoft Docs
 description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması uygulamak ve bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak için Azure IOT cihaz SDK'sı Java için kullanın.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: java
+ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: v-masebo;dobett
-ms.openlocfilehash: ff8fc5cc1623c570f79a8acfa0afbcf95450c1d2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: 5991615bca26749e1f138b561260108f8bcf2646
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634616"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>Bir cihaz üretici yazılımı güncelleştirmesi (Java/Java) başlatmak için cihaz Yönetimi'ni kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

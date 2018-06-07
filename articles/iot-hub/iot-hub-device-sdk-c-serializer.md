@@ -1,24 +1,20 @@
 ---
 title: Azure IOT cihaz SDK'sı c - seri hale getirici | Microsoft Docs
 description: Azure IOT cihaz SDK'sı C için seri hale getirici kitaplıkta bir IOT hub ile iletişim cihaz uygulamaları oluşturmak için nasıl kullanılacağını.
-services: iot-hub
-documentationcenter: ''
 author: yzhong94
-manager: timlt
-editor: ''
-ms.assetid: defbed34-de73-429c-8592-cd863a38e4dd
+manager: arjmands
 ms.service: iot-hub
-ms.devlang: cpp
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: c
+ms.topic: conceptual
 ms.date: 09/06/2016
 ms.author: yizhon
-ms.openlocfilehash: 04b5ebf6d8c568fbfd9b291bef95af973ec5d6d7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a724fa5acc930475bdbe4ffcc74141470a92326c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634153"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>Azure IOT cihaz SDK'sı için C – seri hale getirici hakkında daha fazla bilgi
 [İlk makale](iot-hub-device-sdk-c-intro.md) sunulan bu serideki **C için Azure IOT cihaz SDK'sı**. Daha ayrıntılı bir açıklaması sonraki makalede sağlanan [ **IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Bu makalede daha ayrıntılı bir açıklama kalan bileşeninin sağlayarak SDK'ın kapsamı tamamlar: **seri hale getirici** kitaplığı.
@@ -68,13 +64,13 @@ Aşağıdaki veri türleri ile oluşturulan modellerinde desteklenir **seri hale
 
 | Tür | Açıklama |
 | --- | --- |
-| Çift |çift duyarlıklı kayan nokta sayısı |
+| double |çift duyarlıklı kayan nokta sayısı |
 | Int |32 bit tamsayı |
-| Kayan nokta |tek duyarlıklı kayan nokta sayısı |
-| uzun |uzun tamsayı |
+| float |tek duyarlıklı kayan nokta sayısı |
+| boylam |uzun tamsayı |
 | int8\_t |8 bit tam sayı |
 | int16\_t |16 bit tam sayı |
-| int32\_t |32 bit tamsayı |
+| Int32\_t |32 bit tamsayı |
 | int64\_t |64 bit tamsayı |
 | bool |boole |
 | ASCII\_char\_ptr |ASCII dizesi |
@@ -624,7 +620,7 @@ Bu API'leri örneklerde gösterildiği **simplesample\_amqp**.
 
 Ayrıca vardır benzer bir alt düzey API kümesi.
 
-* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_ÜM\_CreateFromConnectionString
 * IoTHubClient\_ÜM\_SendEventAsync
 * IoTHubClient\_ÜM\_SetMessageCallback
 * IoTHubClient\_ÜM\_yok

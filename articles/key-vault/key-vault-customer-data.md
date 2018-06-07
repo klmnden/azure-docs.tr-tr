@@ -11,19 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 12a176a6eba3b6dd83ef7fb97f89ecfe99083059
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637370"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure anahtar kasası müşteri veri özellikleri
 
 Azure anahtar kasası oluşturma veya güncelleştirme kasaları, anahtarları, gizli, sertifikalar ve yönetilen depolama hesapları sırasında müşteri verilerini alır. Bu müşteri verilerini Azure portalında ve REST API'si aracılığıyla doğrudan görünür olur. Müşteri verileri düzenlenmesine veya güncelleştirme ya da verileri içeren nesneyi silme silindi.
 
 Bir kullanıcı veya uygulama anahtar kasası eriştiğinde sistem erişim günlükleri üretilir. Ayrıntılı erişim günlükleri, Azure Öngörüler kullanan müşteriler için kullanılabilir.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>Müşteri verileri tanımlama
 

@@ -1,25 +1,20 @@
 ---
 title: Azure IoT Edge nedir | Microsoft Docs
 description: Azure IoT Edge hizmetine genel bakış
-services: iot-Edge
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: chipalost
-ms.assetid: ''
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.reviewer: chipalost
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.custom: ''
-ms.openlocfilehash: b14dd7ca2c35f9d660b571436f1d7f1b5185c5c1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 52956e9888d67e0502a9ea82657acb9728216111
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630706"
 ---
 # <a name="what-is-azure-iot-edge---preview"></a>Azure IoT Edge nedir - önizleme
 
@@ -69,7 +64,7 @@ Azure IoT Edge çalışma zamanı çok geniş bir IoT cihazları kümesinde çal
 
 Kurumsal cihazlarda yazılım yaşam döngüsünü yönetmek karmaşık bir işlemdir. Milyonlarca heterojen IoT cihazında yazılım yaşam döngüsünün yönetimi daha da zordur. Belirli bir cihaz türü için iş yüklerinin oluşturulması ve yapılandırılması, çözümünüzdeki milyonlara varan cihaza dağıtılması ve hatalı davranan cihazları yakalamak için izlenmesi gerekir. Bu cihazlar tek tek cihazlar temelinde yapılamaz, belirli bir ölçekte yapılmalıdır.
 
-Azure IoT Edge, Azure IoT Paketi ile rahatça tümleştirildiğinden, çözümünüzün gereksinimlerini karşılayacak tek bir denetim düzlemi sağlar. Bulut hizmetleriyle kullanıcılar:
+Azure IOT kenar çözümünüzün ihtiyaçları için bir denetim düzeyi sağlamak için Azure IOT Çözüm Hızlandırıcıları ile sorunsuz şekilde entegre olur. Bulut hizmetleriyle kullanıcılar:
 
 * Belirli bir tür cihaz üzerinde çalıştırılacak bir iş yükü oluşturabilir ve yapılandırılabilir.
 * İş yükünü bir dizi cihaza gönderebilir.

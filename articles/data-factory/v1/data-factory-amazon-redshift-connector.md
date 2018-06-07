@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ab21eaf935ed03b6f34af00f69e993eaffdad1db
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619533"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Veri öğesinden Amazon, Redshift Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -62,8 +63,8 @@ Aşağıdaki tabloda bir Amazon bağlı Redshift hizmete özgü JSON öğeleri i
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **Türü** |Bu özelliği ayarlamak **AmazonRedshift**. |Evet |
-| **server** |Amazon Redshift sunucusunun IP adresi veya ana bilgisayar adı. |Evet |
+| **type** |Bu özelliği ayarlamak **AmazonRedshift**. |Evet |
+| **Sunucu** |Amazon Redshift sunucusunun IP adresi veya ana bilgisayar adı. |Evet |
 | **Bağlantı noktası** |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır (varsayılan olarak 5439) |
 | **Veritabanı** |Amazon Redshift veritabanının adı. |Evet |
 | **Kullanıcı adı** |Veritabanına erişimi olan kullanıcı adı. |Evet |
@@ -77,7 +78,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilir özelliklerin 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **tableName** |Amazon Redshift veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
+| **TableName** |Amazon Redshift veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
 
@@ -330,17 +331,17 @@ Kopya etkinliği bir Amazon Redshift türünden bir .NET türü veri dönüştü
 
 | Amazon Redshift türü | .NET türü |
 | --- | --- |
-| SMALLINT |Int16 |
+| TAMSAYI |Int16 |
 | TAMSAYI |Int32 |
 | BIGINT |Int64 |
-| DECIMAL |Ondalık |
-| GERÇEK |Bekar |
+| ONDALIK |Ondalık |
+| GERÇEK |Tek |
 | ÇİFT DUYARLIKLI |Çift |
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
 | VARCHAR |Dize |
 | DATE |DateTime |
-| TIMESTAMP |DateTime |
+| ZAMAN DAMGASI |DateTime |
 | METİN |Dize |
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme

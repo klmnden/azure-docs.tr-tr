@@ -54,6 +54,7 @@
 ### [Özel uygulamalarda (SDK) oluşturma](../active-directory/authentication/howto-mfa-sdk.md)
 
 ## [Raporlama](../active-directory/authentication/howto-mfa-reporting.md)
+### [Veri toplama](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
 ## [MFA kullanıcı kılavuzu](./end-user/multi-factor-authentication-end-user.md)
 

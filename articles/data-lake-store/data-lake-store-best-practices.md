@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625347"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store kullanmak için en iyi uygulamalar
 Bu makalede, en iyi yöntemler ve Azure Data Lake Store ile çalışma konuları hakkında bilgi edinin. Bu makale, güvenlik, performans, dayanıklılık ve Data Lake Store için izleme bilgileri sağlar. Data Lake Store önce Azure Hdınsight gibi hizmetler gerçekten büyük verilerle çalışmak karmaşıktı. Böylece Petabayt depolama ve bu ölçekte en iyi performansı elde edilebilir birden çok Blob Depolama hesapları arasında parça veri içeriyor. Data Lake Store ile boyutu ve performans için sabit sınırları çoğunu kaldırılır. Ancak, yine bu makalede yer almaktadır ve böylece Data Lake Store ile en iyi performansı elde edebilirsiniz bazı noktalar vardır. 
@@ -65,9 +66,9 @@ POSIX izinleri ve Data Lake Store'da denetimi ile birlikte gelen çok sayıda k�
 * Daha hızlı kopyalama/çoğaltma
 * Veri Gölü deposu POSIX izinleri güncelleştirilirken işlemek için daha az sayıda dosya 
 
-Hangi Hizmetleri ve iş yüklerini veri kullanıyor bağlı olarak, dosya boyutları için dikkate alınması gereken iyi bir aralığı 1 GB, ideal olarak 100 MB altında veya üstünde 2 GB giderek değil 256 MB'tır. Dosya boyutları, Data Lake Store'da giriş olduğunda toplu olamaz, bu dosyalar daha büyük olanları birleştirir ayrı düzenleme iş olabilir. Daha fazla bilgi ve öneri dosya boyutları ve Data Lake Store'da verileri düzenlemek için bkz: [Veri kümenizi yapısı](data-lake-store-performance-tuning-guidance.md#structure-your-data-set). 
+Hangi Hizmetleri ve iş yüklerini veri kullanıyor bağlı olarak, dosyalar için dikkate alınması gereken bir iyi 256 MB boyutudur veya daha büyük. Dosya boyutları, Data Lake Store'da giriş olduğunda toplu olamaz, bu dosyalar daha büyük olanları birleştirir ayrı düzenleme iş olabilir. Daha fazla bilgi ve öneri dosya boyutları ve Data Lake Store'da verileri düzenlemek için bkz: [Veri kümenizi yapısı](data-lake-store-performance-tuning-guidance.md#structure-your-data-set).
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>Büyük dosya boyutlarına ve olası performans etkisini 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>Büyük dosya boyutlarına ve olası performans etkisini
 
 Data Lake Store, Petabayt büyük dosya boyutu, en iyi performans için ve verileri okuma işlemi bağlı olarak desteklese 2 GB ortalama gitmek ideal olmayabilir. Örneğin, kullanırken **Distcp'yi** konumları ve farklı depolama hesapları arasında veri kopyalamak için harita görevleri belirlemek için kullanılan ayrıntı düzeyi en iyi düzeyde dosyalarıdır. Bu nedenle, her biri 1 TB olan 10 dosyaları kopyalıyorsanız en fazla 10 mappers ayrılır. Atanan mappers ile çok sayıda dosya varsa, ayrıca, başlangıçta mappers büyük dosyaların taşınacağı paralel olarak çalışır. Ancak, iş Rüzgar başlatılırken yalnızca birkaç mappers ayrılmış kalır ve büyük bir dosya atanan tek eşleyiciyle kalmış. Microsoft, Hadoop sürümleri gelecekte bu sorunu gidermek için Distcp'yi geliştirmeleri gönderdi.  
 

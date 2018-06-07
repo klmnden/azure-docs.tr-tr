@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 4b5ab13904fad4319a8a5baf48dd27a716c3c6d0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cbb0f703f61b6c15b3a827dc75821286b7914c21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623970"
 ---
 # <a name="end-user-authentication-with-data-lake-store-using-net-sdk"></a>.NET SDK kullanarak Data Lake Store ile son kullanıcı kimlik doğrulaması
 > [!div class="op_single_selector"]
@@ -44,7 +45,7 @@ Bu makalede, Azure Data Lake Store ile son kullanıcı kimlik doğrulaması yapm
    | --- | --- |
    | Kategori |Şablonlar/Visual C#/Windows |
    | Şablon |Konsol Uygulaması |
-   | name |CreateADLApplication |
+   | Ad |CreateADLApplication |
 
 4. Projeyi oluşturmak için **Tamam**'a tıklayın.
 

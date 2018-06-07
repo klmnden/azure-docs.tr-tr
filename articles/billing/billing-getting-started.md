@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: 47a0f2e1cdb873dc907748ed2f3def29efccaa98
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 797421e40a5550e1897443f35089838a349ad85a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607404"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure faturalama ve maliyet yönetimi ile beklenmeyen ücret oluşmasını önlemek
 
@@ -149,7 +150,7 @@ Başlamak için Hesap Yöneticisi'ni veya Azure iş ortağı konuşun.
 | Bulut Çözümü Sağlayıcısı (CSP) | Sağlayıcınıza konuşun |
 | Azure Sponsorluğu | [Sponsorluk portalı](https://www.microsoftazuresponsorships.com/) |
 
-Siz yönetiyorsanız BT büyük bir kuruluş için okuma öneririz [Azure enterprise iskele](../azure-resource-manager/resource-manager-subscription-governance.md) ve [kurumsal BT incelemeyi](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf indirme, yalnızca İngilizce).
+Siz yönetiyorsanız BT büyük bir kuruluş için okuma öneririz [Azure enterprise iskele](/azure/architecture/cloud-adoption-guide/subscription-governance) ve [kurumsal BT incelemeyi](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf indirme, yalnızca İngilizce).
 
 #### <a name="EA"></a> Azure portalındaki görünümleri Önizleme Kurumsal Anlaşma maliyet 
 

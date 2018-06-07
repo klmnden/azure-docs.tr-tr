@@ -1,29 +1,26 @@
 ---
-title: "Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme | Microsoft Docs"
-description: "Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme öğrenin. "
+title: Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme
+description: Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme öğrenin.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
 manager: saveenr
-editor: cgronlun
+editor: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623375"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics'i kullanarak Web sitesi günlüklerini çözümleme
 Data Lake Analytics, özellikle Web sitesini ziyaret çalışırken hatalarla karşılaşırsanız hangi başvuran bitmiştir bulma üzerinde kullanarak Web sitesi günlüklerini çözümleme öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 * **Visual Studio 2015 veya Visual Studio 2013**.
 * **[Visual Studio için Data Lake Araçları](http://aka.ms/adltoolsvs)**.
 
@@ -62,7 +59,7 @@ Ek kullanıcı tanımlı işleçler uygulamaya ekleyebilirsiniz.  Daha fazla bil
 2. U-SQL proje türü seçin.
 
     ![yeni U-SQL Visual Studio projesi](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
-3. **Tamam** düğmesine tıklayın. Visual studio Script.usql dosyası ile çözüm oluşturur.
+3. **Tamam**’a tıklayın. Visual studio Script.usql dosyası ile çözüm oluşturur.
 4. Aşağıdaki komut dosyası Script.usql dosyasına girin:
 
         // Create a database for easy reuse, so you don't need to read from a file every time.

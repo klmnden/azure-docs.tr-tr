@@ -1,24 +1,19 @@
 ---
 title: Dışarı aktarma Azure IOT Hub cihaz kimlikleri alma | Microsoft Docs
 description: İçeri ve dışarı cihaz kimliklerini kimlik kayıt defteri karşı toplu işlemleri gerçekleştirmek için Azure IOT hizmeti SDK'sını kullanma İçeri aktarma işlemleri oluşturma, güncelleştirme ve cihaz kimliklerini toplu silme olanak sağlar.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 2ade1494-45ea-46a7-ade7-cf6e11ce62da
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: 97b0e4c4dd8c67fdcd422fb04b7c32815b6c3fdb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 63e7fd5807f0cf6d05d81af138d649b75024d9bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634031"
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>IOT Hub cihaz kimliklerinizi toplu yönetme
 
@@ -60,7 +55,7 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{y
 
 Bağlantı dizesi, IOT hub ' ınızı Azure Portalı'nda bulmak için:
 
-- IOT hub'ına gidin.
+- IoT Hub'ınıza gidin.
 - Seçin **paylaşılan erişim ilkeleri**.
 - Gereksinim duyduğunuz izinleri dikkate alarak, bir ilke seçin.
 - Ekranın sağ taraftaki panelinden connectionstring kopyalayın.

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/23/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 7b1a6020fb8730aee7ed41d8c82358db0945e4ef
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605578"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Azure yığın Market genel bakış
 
@@ -28,6 +29,9 @@ ms.lasthandoff: 05/17/2018
 Market, hizmetleri, uygulamaları ve Azure yığını için özelleştirilmiş kaynakları koleksiyonudur. Kaynaklar, ağlar, sanal makineler, depolama vb. içerir. Kullanıcılar yeni uygulamalar yeni kaynaklar oluşturma ve dağıtma için buraya gelin. Bunu, kullanıcıların göz atın ve bunlar kullanmak istediğiniz öğeleri seçin bir alışveriş katalog olarak düşünün. Market öğesi kullanmak için kullanıcılar öğesine erişimi veren bir teklif için abone olmalısınız.
 
 Bir Azure yığın operatör olarak eklemek için öğeleri karar verin (Marketinde yayımlama). Veritabanları, uygulama hizmetleri ve benzeri gibi yayımlayabilirsiniz. Yayımlama bunlar tüm kullanıcılar için görünür olur. Oluşturduğunuz özel öğeler yayımlayabilirsiniz. Bir büyümesini öğeleri de yayımlayabilirsiniz [Azure Market öğelerinin listesini](azure-stack-marketplace-azure-items.md). Kullanıcılar Markete bir öğe yayımladığınızda, beş dakika içinde görebilir.
+
+> [!Caution]  
+> Görüntüleri ve json dosyaları bilinen tüm galeri öğesi yapıları Azure yığın marketi'ndeki kullanılabilir hale getirme sonra kimlik doğrulaması olmadan erişilebilir. Özel Market öğesi yayımlarken daha fazla konuları için bkz: [oluşturma ve yayımlama Market öğesi](azure-stack-create-and-publish-marketplace-item.md).
 
 Market açmak için Yönetici konsolunda seçin **yeni**.
 

@@ -6,19 +6,20 @@ services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611169"
 ---
 # <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için BulkExecutor .NET kitaplığı kullanma
 
-Bu öğretici, alabilir ve belgeleri Azure Cosmos DB koleksiyonlarına güncelleştirmek için Azure Cosmos veritabanı BulkExecutor .NET kitaplığı kullanma hakkında yönergeler sağlar. BulkExecutor kitaplığı nasıl, çok büyük verim ve depolama yararlanan yardımcı hakkında bilgi edinmek için bkz: [BulkExecutor kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğretici, toplu bir Azure Cosmos DB koleksiyona rastgele oluşturulan belgeleri alır, örnek bir .NET uygulama size rehberlik yapar. İçeri aktardıktan sonra onu nasıl Toplu içe aktarılan verilerin üzerinde belirli belge alanları gerçekleştirmek için işlemler olarak düzeltme ekleri belirterek güncelleştirme gösterir.
+Bu öğretici, alabilir ve belgeleri Azure Cosmos DB koleksiyonlarına güncelleştirmek için Azure Cosmos veritabanı BulkExecutor .NET kitaplığı kullanma hakkında yönergeler sağlar. BulkExecutor kitaplığı nasıl, çok büyük verim ve depolama yararlanan yardımcı hakkında bilgi edinmek için bkz: [BulkExecutor kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğretici bir Azure Cosmos DB koleksiyona içeri aktarmalar rastgele oluşturulan belgeleri toplu örnek bir .NET uygulama size yol gösterecek. İçeri aktardıktan sonra onu nasıl Toplu içe aktarılan verilerin üzerinde belirli belge alanları gerçekleştirmek için işlemler olarak düzeltme ekleri belirterek güncelleştirme gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -38,7 +39,7 @@ Bu öğretici, alabilir ve belgeleri Azure Cosmos DB koleksiyonlarına güncelle
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-Kopyalanan depo iki örnek "BulkImportSample" ve "BulkUpdateSample" içerir. Örnek uygulamalar herhangi birini açın, Azure Cosmos DB hesabınızın bağlantı dizeleriyle App.config dosyasında bağlantı dizelerini güncelleştirmek, çözümü oluşturun ve çalıştırın. 
+Kopyalanan depo iki örnek "BulkImportSample" ve "BulkUpdateSample." içerir Örnek uygulamalar herhangi birini açın, Azure Cosmos DB hesabınızın bağlantı dizeleriyle App.config dosyasında bağlantı dizelerini güncelleştirmek, çözümü oluşturun ve çalıştırın. 
 
 "BulkImportSample" uygulama rastgele belgeler oluşturur ve bunları Azure Cosmos DB toplu alır. "BulkUpdateSample" uygulama toplu olarak belirli bir belge alanlarını gerçekleştirmek için işlemleri düzeltme ekleri belirterek alınan belgeleri güncelleştirir. Sonraki bölümlerde, her Bu örnek uygulama kodunda incelenecektir.
 
@@ -167,11 +168,11 @@ BulkUpdateAsync API'sini kullanarak, varolan belgeleri güncelleştirebilirsiniz
 
 BulkExecutor kitaplığı kullanırken daha iyi performans için aşağıdaki noktaları göz önünde bulundurun:
 
-* En iyi performans için uygulamanızı Cosmos DB hesap yazma bölgeniz ile aynı bölgede olan bir Azure sanal makinesinden çalıştırın.  
+* En iyi performans için uygulamanızı Cosmos DB hesap yazma bölgeniz aynı bölgede bulunan bir Azure sanal makinesinden çalıştırın.  
 
 * Belirli bir Cosmos DB koleksiyona karşılık gelen tek bir sanal makine içindeki tüm uygulama için tek bir BulkExecutor nesne örneği önerilir.  
 
-* Bu yana bir tek toplu işlem API yürütme istemci makinenin CPU ve ağ GÇ büyük öbeğini kullanır. Birden çok görev oluşturma tarafından dahili olarak bu durum, yürütülen her toplu işlem API çağrıları, uygulama işlemi içinde birden çok eşzamanlı görev oluşturma kaçının. Tek bir sanal makine üzerinde çalışan tek toplu işlem API çağrısı tüm koleksiyonunuzun işleme tüketen kaydedemediği (varsa koleksiyonunuzun işleme > 1 milyon RU/s), kendi tercih eş zamanlı olarak toplu yürütmek için ayrı sanal makineler oluşturmak için işlemi API çağrıları.  
+* Bu yana bir tek toplu işlem API yürütme istemci makinenin CPU ve ağ GÇ büyük öbeğini kullanır. Birden çok görev oluşturma tarafından dahili olarak bu durum, yürütülen her toplu işlem API çağrıları, uygulama işlemi içinde birden çok eşzamanlı görev oluşturma kaçının. Tek bir sanal makine üzerinde çalışan tek toplu işlem API çağrısı tüm koleksiyonunuzun işleme tüketen kaydedemediği (varsa koleksiyonunuzun işleme > 1 milyon RU/s), eş zamanlı olarak toplu yürütmek için ayrı sanal makineler oluşturmak için tercih edilir işlemi API çağrıları.  
 
 * InitializeAsync() hedef Cosmos DB koleksiyonu bölüm Haritası getirmek için bir BulkExecutor nesnesi örneği sonra çağrılan emin olun.  
 

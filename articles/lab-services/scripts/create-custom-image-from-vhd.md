@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: e63265d7fea18736bf5c85bcc8954a575d70a51f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 19b7c3c6018ec56b056761c336bc56c8b63b47a2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636411"
 ---
 # <a name="use-powershell-to-create-a-custom-image-from-a-vhd-file-in-azure-lab-services"></a>Azure Laboratuvar Hizmetleri VHD dosyasında özel bir görüntü oluşturmak için PowerShell kullanma
 
@@ -25,11 +26,11 @@ Bu örnek PowerShell komut dosyası Azure Laboratuvar Hizmetleri VHD dosyasında
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>Önkoşullar
-* **Özel bir laboratuvar**. Komut dosyası var olan bir özel laboratuvarı olmasını gerektirir. 
+* **Bir laboratuvar**. Komut dosyası var olan bir laboratuvar olmasını gerektirir. 
 
 ## <a name="sample-script"></a>Örnek betik
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a lab")]
 
 ## <a name="script-explanation"></a>Betik açıklaması
 

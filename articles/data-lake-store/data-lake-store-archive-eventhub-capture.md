@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cff2ca87ab2916c9d5aa8bb308325cb7a0227d75
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624670"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Event Hubs verilerini yakalamak için kullanım Azure Data Lake Store
 
@@ -56,12 +57,12 @@ Bu bölümde, Event Hubs verilerini yakalamak istediğiniz bir klasörde hesabı
 
     c. Altında **izinleri atamak**, tıklatın **Select izinleri**. Ayarlama **izinleri** için **yürütme**. Ayarlama **eklemek** için **bu klasör ve tüm alt öğeleri**. Ayarlama **olarak eklemek** için **erişim izni girdisi ve varsayılan izin girdisi**.
 
-> [!IMPORTANT]
-> Azure Event Hubs tarafından alınan veri yakalama işlemi için yeni bir klasör hiyerarşisi oluştururken, hedef klasör erişim sağlamak için kolay bir yolu budur.  Bununla birlikte, birçok alt dosya ve klasör izinlerini en üst düzey klasöre tüm alt öğelerini eklemek, uzun zaman alabilir.  Kök klasörünüzde çok sayıda dosya ve klasörleri varsa, bu daha hızlı eklemek için olabilir **yürütme** izinlerini `Microsoft.EventHubs` son hedef klasörünüzün yolunu her klasör için ayrı ayrı. 
+    > [!IMPORTANT]
+    > Azure Event Hubs tarafından alınan veri yakalama işlemi için yeni bir klasör hiyerarşisi oluştururken, hedef klasör erişim sağlamak için kolay bir yolu budur.  Bununla birlikte, birçok alt dosya ve klasör izinlerini en üst düzey klasöre tüm alt öğelerini eklemek, uzun zaman alabilir.  Kök klasörünüzde çok sayıda dosya ve klasörleri varsa, bu daha hızlı eklemek için olabilir **yürütme** izinlerini `Microsoft.EventHubs` son hedef klasörünüzün yolunu her klasör için ayrı ayrı. 
 
-    ![Assign permissions for Data Lake Store root](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Assign permissions for Data Lake Store root")
+    ![Data Lake Store kök izinlerini atamak](./media/data-lake-store-archive-eventhub-capture/data-lake-store-assign-eventhub-sp1.png "Data Lake Store kök izinlerini atama")
 
-    Click **OK**.
+    **Tamam**’a tıklayın.
 
 4. Data Lake Store hesabı altında veri yakalamak istediğiniz klasör izinlerini atayın.
 

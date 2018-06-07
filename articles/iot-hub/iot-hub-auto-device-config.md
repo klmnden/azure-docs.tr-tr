@@ -1,22 +1,19 @@
 ---
 title: Yapılandırma ve Azure IOT Hub ile ölçekte IOT cihazları izleme | Microsoft Docs
 description: Bir yapılandırma için birden çok aygıt atamak için Azure IOT hub'ı otomatik cihaz yapılandırmalarını kullanın
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 7146fba69857c3a612ce1b3dbb83387c1f3068d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632457"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>Yapılandırma ve IOT cihazları ölçekte izleme - Önizleme
 
@@ -31,6 +28,9 @@ Azure IOT hub'ı otomatik cihaz yönetiminde birçok büyük cihaz fleets kendi 
 * **Hedef içerik** eklenemez veya hedeflenen cihaz çiftlerini güncelleştirilmiş için istenen özelliklerini tanımlar. İçerik değiştirilecek istenen özellikler kısmında yolunu içerir.
 
 * **Ölçümleri** gibi çeşitli yapılandırma durumlarını Özet sayısını tanımlamak **başarı**, **sürüyor**, ve **hata**. Cihaz sorgulamaları olarak belirtilen özel ölçümleri twin özellikleri bildirdi.  Sistem, hedeflenen cihaz çiftlerini sayısı ve başarıyla güncelleştirildi çiftlerini sayısı gibi twin güncelleştirme durumunu ölçmek varsayılan ölçümleri ölçümleridir. 
+
+> [!Note]
+> Önizleme sırasında bu özellik IOT hub'ları Doğu ABD, Batı ABD, Kuzey Avrupa ve Batı Avrupa bölgelerde kullanılamaz.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Cihazları yapılandırmak için cihaz çiftlerini uygulama
 
@@ -52,7 +52,7 @@ Bir yapılandırma oluşturmadan önce hangi cihazların etkilenmesini istediği
 ## <a name="create-a-configuration"></a>Bir yapılandırma oluşturmak
 
 1. İçinde [Azure portal][lnk-portal], IOT hub'ınızı gidin. 
-1. Seçin **aygıt yapılandırması (Önizleme)**.
+1. Seçin **IOT cihaz yapılandırması (Önizleme)**.
 1. Seçin **yapılandırması eklemek**.
 
 Bir yapılandırma oluşturmak için beş adım vardır. Aşağıdaki bölümlerde her birini yol. 
@@ -86,7 +86,7 @@ Bir aygıt yapılandırma içeriği uygulama sonucunda geri bildirebilir çeşit
 
 Örneğin, `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-Yapılandırma, örneğin uygulanmış olduğunu yan tümcesi içerebilir: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`
+Yapılandırma, örneğin uygulanmış olduğunu yan tümcesi içerebilir: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'` çift köşeli ayraçlar dahil olmak üzere.
 
 
 ### <a name="step-4-target-devices"></a>Adım 4: Hedef cihazlar
@@ -108,7 +108,7 @@ Yapılandırma bilgilerini gözden geçirin ve ardından **gönderme**.
 Bir yapılandırma ayrıntılarını görüntülemek ve onu çalıştıran aygıtları izlemek için aşağıdaki adımları kullanın:
 
 1. İçinde [Azure portal][lnk-portal], IOT hub'ınızı gidin. 
-1. Seçin **aygıt yapılandırması (Önizleme)**.
+1. Seçin **IOT cihaz yapılandırması (Önizleme)**.
 1. Yapılandırma listesini inceleyin. Her yapılandırma için aşağıdaki ayrıntıları görüntüleyebilirsiniz:
    * **Kimliği** -yapılandırmasının adı.
    * **Hedef koşulu** -hedeflenen cihazlar tanımlamak için kullanılan sorgu.
@@ -136,7 +136,7 @@ Hedef durumu güncelleştirirseniz, aşağıdaki güncelleştirmeleri oluşur:
 Yapılandırmasını değiştirmek için aşağıdaki adımları kullanın: 
 
 1. İçinde [Azure portal][lnk-portal], IOT hub'ınızı gidin. 
-1. Seçin **aygıt yapılandırması (Önizleme)**. 
+1. Seçin **IOT cihaz yapılandırması (Önizleme)**. 
 1. Değiştirmek istediğiniz yapılandırmayı seçin. 
 1. Güncelleştirmeleri aşağıdaki alanları olun: 
    * Hedef durumu 
@@ -151,7 +151,7 @@ Yapılandırmasını değiştirmek için aşağıdaki adımları kullanın:
 Bir yapılandırma sildiğinizde, tüm cihaz çiftlerini kendi sonraki en yüksek öncelikli bir yapılandırma üzerinde alın. Cihaz çiftlerini hedef durumu ve herhangi bir yapılandırma karşılamıyorsa, diğer bir ayarları uygulanır. 
 
 1. İçinde [Azure portal][lnk-portal], IOT hub'ınızı gidin. 
-1. Seçin **aygıt yapılandırması (Önizleme)**. 
+1. Seçin **IOT cihaz yapılandırması (Önizleme)**. 
 1. Silmek istediğiniz yapılandırma seçmek için onay kutusunu kullanın. 
 1. **Sil**’i seçin.
 1. Bir istem onaylamanızı ister.

@@ -1,26 +1,23 @@
 ---
-title: Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanın | Microsoft Docs
-description: 'Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanmayı öğrenin. '
+title: Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanın
+description: Bu makalede, Azure Data Lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanmayı açıklar.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623239"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Azure Data lake Analytics işleri için iş tarayıcı ve iş görünümünde kullanın
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Kullanım iş tarayıcı ve Azure Data Lake Analytics işi görüntüle
 Azure Data Lake Analytics hizmeti gönderilen işler arşivler bir [sorgu deposu](#query-store). Bu makalede, iş tarayıcı ve iş görünümünde Visual Studio için Azure Data Lake araçları içinde geçmiş işi bilgileri bulmak için nasıl kullanılacağını öğrenin. 
 
 Varsayılan olarak, Data Lake Analytics hizmeti 30 gün boyunca işleri arşivler. Sona erme süresi özelleştirilmiş süre sonu ilkesi yapılandırarak Azure portalından yapılandırılabilir. İş bilgileri dolduktan sonra erişebilir olmaz. 
@@ -54,7 +51,7 @@ Bkz: [Visual Studio Önkoşullar için Data Lake Araçları](data-lake-analytics
     * Sonlandırılıyor: İşi (örneğin dosya sonlandırılıyor) üzeredir.
       
       İş her aşamasında başarısız olabilir. Örneğin, derleme hataları hazırlama aşamasında, zaman aşımı hataları sıraya alınan aşamasında ve çalışan aşaması, vb. yürütme hataları.
-  * Temel bilgiler
+  * Temel Bilgiler
     
       İş özeti panelinin alt bölümünde temel iş bilgilerini gösterir.
     

@@ -5,20 +5,17 @@ keywords: nosql veritabanı güvenlik, bilgi güvenliği, veri güvenliği, veri
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: a02a6a82-3baf-405c-9355-7a00aaa1a816
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2b0cb1ed92694a7859912dfe0339ef719c0d15ef
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: aa04ae8d5bdccb52e3f63fb2dfb3c75df83b7a54
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611628"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB veritabanı güvenliği
 
@@ -73,10 +70,10 @@ Her birini ayrıntılı içine şimdi edinebilirsiniz.
 |Yerel çoğaltma|Bile içinde tek bir veri merkezi, Azure Cosmos DB verilerini seçimi vererek yüksek kullanılabilirlik için otomatik olarak çoğaltır [tutarlılık düzeylerini](consistency-levels.md). Bu % 99,99 garanti [kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) tüm tek bölge ve tüm bölgeli hesapları ile rahat tutarlılık ve %99.999 okuma tüm bölgeli veritabanı hesaplarda kullanılabilirlik.|
 |Çevrimiçi yedeklemeleri otomatik|Azure Cosmos DB veritabanları düzenli olarak yedeklenen ve georedundant deposunda depolanır. <br><br>Daha fazla bilgi edinin [otomatik çevrimiçi yedekleme ve geri yükleme Azure Cosmos DB ile](online-backup-and-restore.md).|
 |Silinmiş verileri geri yüklemek|Otomatik çevrimiçi yedeklemeler yanlışlıkla olayından sonra yaklaşık 30 güne kadar sildiğiniz verileri kurtarmak için kullanılabilir. <br><br>Daha fazla bilgi edinin [otomatik çevrimiçi yedekleme ve geri yükleme ile Azure Cosmos DB](online-backup-and-restore.md)|
-|Koruma ve hassas verileri yalıtma|Listelenen bölgelerde tüm verileri [yenilikler nelerdir?](#whats-new) şimdi bekleme sırasında şifrelenir.<br><br>PII ve diğer gizli veriler belirli koleksiyonlar ve okuma-yazma yalıtılmış olabilir veya salt okunur erişimi belirli kullanıcılarla sınırlı olabilir.|
+|Koruma ve hassas verileri yalıtma|Listelenen bölgelerde tüm verileri [yenilikler nelerdir?](#whats-new) şimdi bekleme sırasında şifrelenir.<br><br>Salt okunur erişimi belirli kullanıcılarla sınırlı olabilir veya kişisel veri ve diğer gizli veriler belirli koleksiyonlar ve okuma-yazma yalıtılmış olabilir.|
 |İzleme saldırıları için|Kullanarak [denetim günlüğü ve etkinlik günlükleri](logging.md), hesabınızı normal ve anormal etkinliğinin izleyebilirsiniz. Hangi işlemlerin işlemi oluştuğunda, işlem ve çok daha gösterildiği gibi bu tablodan sonraki ekran durumunu kimin işlemini başlattı kaynaklarınızı gerçekleştirilen görüntüleyebilirsiniz.|
 |Saldırılara karşı yanıt|Olası bir saldırı bildirmek için Azure desteğine temas sonra 5-adım olay yanıtlama süreci başlayacağı zamana devre dışı. Mümkün olan en kısa sürede normal hizmet güvenliği ve işlemleri bir sorun algıladı ve bir araştırma başlatıldıktan sonra geri yüklemek için 5-adım işlemi belirtilir.<br><br>Daha fazla bilgi edinin [bulutta Microsoft Azure Security Response](https://aka.ms/securityresponsepaper).|
-|Coğrafi yalıtma|Veri Yönetimi ve uyumluluk sovereign bölgeler (örneğin, Almanya, Çin, BİZE kamu) için Azure Cosmos DB sağlar.|
+|Coğrafi yalıtma|Azure Cosmos DB sovereign bölgeler (örneğin, Almanya, Çin, BİZE kamu) için veri yönetimi sağlar.|
 |Korumalı özellikleri|Veriler Azure Cosmos veritabanı Azure'nın korumalı veri merkezlerinde SSD depolanır.<br><br>Daha fazla bilgi edinin [Microsoft küresel veri merkezleri](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
 |HTTPS/SSL/TLS şifrelemesi|Tüm istemci hizmeti Azure Cosmos DB etkileşimler SSL/TLS 1.2 özellikli ' dir. Ayrıca, tüm içi veri merkezi ve çapraz veri merkezine çoğaltma SSL/TLS 1.2 zorlanan vardır.|
 |Bekleme sırasında şifreleme|Bekleyen Azure Cosmos Veritabanına depolanan tüm veriler şifrelenir. Daha fazla bilgi edinin [bekleyen Azure Cosmos DB şifreleme](.\database-encryption-at-rest.md)|

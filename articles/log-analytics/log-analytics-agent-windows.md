@@ -1,12 +1,12 @@
 ---
-title: "Windows bilgisayarları Azure günlük Analizi'ne bağlamak | Microsoft Docs"
-description: "Bu makalede, diğer Bulut veya şirket içi günlük analizi ile Microsoft İzleme Aracısı'nı (MMA) barındırılan Windows bilgisayarları bağlamak açıklar."
+title: Windows bilgisayarları Azure günlük Analizi'ne bağlamak | Microsoft Docs
+description: Bu makalede, diğer Bulut veya şirket içi günlük analizi ile Microsoft İzleme Aracısı'nı (MMA) barındırılan Windows bilgisayarları bağlamak açıklar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637421"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows bilgisayarları Azure günlük analizi hizmetine bağlanın
 
@@ -33,7 +34,7 @@ Aracı, aşağıdaki yöntemlerden biri kullanılarak yüklenebilir. Çoğu yük
 * PowerShell Betiği.
 * Şirket içi için Windows Azure yığınında çalışan sanal makineler için Resource Manager şablonu.  
 
-Windows Aracısı dağıtmak için ağ ve sistem gereksinimlerini anlamak için gözden [Önkoşullar Windows bilgisayarları için](log-analytics-concept-hybrid.md#prerequisites).
+Desteklenen yapılandırma anlamak için gözden [desteklenen Windows işletim sistemleri](log-analytics-concept-hybrid.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ## <a name="obtain-workspace-id-and-key"></a>Çalışma alanı kimliği ve anahtarını alma
 Windows için Microsoft Monitoring Agent'ı yüklemeden önce, Log Analytics çalışma alanınızın kimliği ve anahtarına ihtiyacınız olacak.  Bu bilgiler, düzgün Aracısı'nı yapılandırmak ve başarıyla ticari Azure günlük analizi ve ABD devlet kurumları bulut ile iletişim kurabilmesini sağlamak için her yükleme yönteminden Kurulum sırasında gereklidir.  
@@ -72,7 +73,7 @@ Aşağıdaki tabloda kurulum tarafından desteklenen Automation DSC kullanılara
 
 |MMA özgü seçenekleri                   |Notlar         |
 |---------------------------------------|--------------|
-| NOAPM=1                               | İsteğe bağlı parametre. .NET uygulama performansı izleme olmadan Aracısı'nı yükler.|   
+| NOAPM = 1                               | İsteğe bağlı parametre. .NET uygulama performansı izleme olmadan Aracısı'nı yükler.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = çalışma alanına bildirmeye Aracısı Yapılandırma                |
 |OPINSIGHTS_WORKSPACE_ID                | Eklemek için çalışma alanı kimliği (GUID) çalışma alanı için                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Başlangıçta çalışma alanıyla kimliğini doğrulamak için kullanılan çalışma alanı anahtarı |

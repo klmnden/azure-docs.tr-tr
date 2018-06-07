@@ -1,12 +1,12 @@
 ---
-title: "Azure bulut Kabuk hızlı başlangıcı bash | Microsoft Docs"
-description: "Bulut Kabuk Bash'te için hızlı başlangıç"
-services: 
-documentationcenter: 
+title: Azure bulut Kabuk hızlı başlangıcı bash | Microsoft Docs
+description: Bulut Kabuk Bash'te için hızlı başlangıç
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: juluk
-ms.openlocfilehash: e48c54216c5c4ae8e53d4802aafce8883ee97c11
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4b7e4302bba2efed12e19043da1f592bed12a2fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608891"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te için hızlı başlangıç
 
@@ -94,7 +95,7 @@ exit
 
 2. Kaynak grubu ve içerdiği tüm kaynaklar silin.
 ```azurecli-interactive
-Run `az group delete -n MyRG`
+az group delete -n MyRG
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

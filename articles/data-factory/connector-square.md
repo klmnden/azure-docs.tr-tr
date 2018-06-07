@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3181ee143ac655606b5e9c98d743e30aef28b8cc
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 81da88c019ff46e98e0f8811c846ab7488fa1910
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618156"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak kare verilerini
 
@@ -48,10 +49,10 @@ Aşağıdaki özellikler kare bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **kare** | Evet |
-| konak | Kare örneği URL'si. (i.e. mystore.mysquare.com)  | Evet |
-| clientId | Kare uygulamanızla ilişkili istemci kimliği.  | Evet |
+| konak | Kare örneği URL'si. (yani mystore.mysquare.com)  | Evet |
+| istemci kimliği | Kare uygulamanızla ilişkili istemci kimliği.  | Evet |
 | clientSecret | Kare uygulamanızla ilişkili istemci gizli anahtarı. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
-| redirectUri | Kare uygulama panosunda atanan yeniden yönlendirme URL'si. (i.e. http://localhost:2500)  | Evet |
+| redirectUri | Kare uygulama panosunda atanan yeniden yönlendirme URL'si. (örn.) http://localhost:2500)  | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |
 | usePeerVerification | SSL üzerinden bağlanırken sunucusunun kimliğini doğrulamak belirtir. Varsayılan değer true olur.  | Hayır |

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 248d45a59fa2769c4cfcc4b169bd9e61059f11b0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 01a785eab1b31b2943184267a3c6496fefaf44cf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639087"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Roller, izinleri ve güvenlik Azure İzleyicisi ile kullanmaya başlama
 İzleme verilerini ve ayarları için erişimi kesinlikle yönetmenin birçok ekip gerekir. Örneğin, özel olarak (destek mühendisleri, devops mühendisleri) izleme üzerinde çalışan takım üyeleri sahipseniz veya bir yönetilen hizmet sağlayıcısı kullanıyorsanız, bunları oluşturmak için kendi yeteneği kısıtlama sırasında yalnızca izleme verilerine erişim vermek isteyebilirsiniz, değiştirmek veya kaynakları silin. Bu makalede, hızlı bir şekilde bir kullanıcı Azure içinde yerleşik bir izleme RBAC rolü uygulamak veya kendi özel rol sınırlı izleme izinleri gereken kullanıcılar için yapı gösterilmektedir. Ardından Azure İzleyicisi ile ilgili kaynaklarınızın ve içerdikleri verilere erişimin nasıl sınırlandırmak için güvenlik konuları ele alınmıştır.
@@ -125,7 +126,7 @@ Bu veri türlerini üç bir depolama hesabında depolanan veya olay her ikisi de
 
 * Bir tek, özel bir depolama hesabı verileri izlemek için kullanın. İzleme verilerini birden çok depolama hesabı ayırmak gerekiyorsa, hiçbir zaman bir depolama hesabı izleme arasında kullanımı paylaşabilir ve bu olarak izleme olmayan veri yanlışlıkla yalnızca izleme verilerine (örneğin, bir üçüncü taraf SIEM) erişmesi gereken olanlar verebilir İzleme erişimi veri.
 * Tek ve özel bir hizmet veri yolu veya olay hub'ın ad yukarıdaki gibi aynı nedenden dolayı tüm tanılama ayarlarını kullanın.
-* Farklı bir kaynak grubunda tutarak izleme ile ilgili depolama hesapları veya olay hub'ları erişimi sınırlayabilir ve [kapsamı kullan](../role-based-access-control/overview.md#basics-of-access-management-in-azure) yalnızca o kaynak grubu erişimi sınırlamak için izleme rolleri.
+* Farklı bir kaynak grubunda tutarak izleme ile ilgili depolama hesapları veya olay hub'ları erişimi sınırlayabilir ve [kapsamı kullan](../role-based-access-control/overview.md#scope) yalnızca o kaynak grubu erişimi sınırlamak için izleme rolleri.
 * Hiçbir zaman ListKeys ya da depolama hesapları için izni veya olay hub'ları abonelik kapsamında bir kullanıcı yalnızca izleme verilerine erişimi olması gerekir. (Ayrılmış bir izleme kaynak grubu varsa) bunun yerine, bu izinleri bir kaynak veya kaynak grubu kullanıcıya vermek kapsamı.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>İzleme ile ilgili depolama hesaplarına erişimi sınırlandırma

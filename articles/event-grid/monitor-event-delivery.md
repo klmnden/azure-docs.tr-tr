@@ -6,19 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: f9719bb1f1563c55537c7ef32278411a2034bd75
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 625f3e228bb28c85e68fb592914fb2191baf3e4e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626998"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Olay kılavuz ileti teslimi izleme 
 
 Bu makalede, portal olay teslimler durumunu görmek için kullanmayı açıklar.
 
-Olay kılavuz dayanıklı teslim sağlar. Her ileti en az bir kez her abonelik için sunar. Olayları hemen her abonelik kayıtlı Web kancası için gönderilir. Bir Web kancası ilk teslim girişiminin 60 saniye içinde bir olay alınmasını kabul değil, olay kılavuz olay teslimini yeniden dener.
+Olay kılavuz dayanıklı teslim sağlar. Her ileti en az bir kez her abonelik için sunar. Olayları hemen her abonelik kayıtlı Web kancası için gönderilir. Bir Web kancası ilk teslim girişiminin 60 saniye içinde bir olay alınmasını kabul etmez, olay kılavuz olay teslimini yeniden dener.
 
 Olay teslimi ve yeniden denemeleri hakkında bilgi için [olay kılavuz ileti teslimi ve Yeniden Dene'yi](delivery-and-retry.md).
 
@@ -41,9 +42,15 @@ Abonelikler için ölçümler şunlardır:
 
 ## <a name="event-subscription-status"></a>Olay aboneliği durumu
 
-Bir olay aboneliği ölçümlerini görmek için arama **olay kılavuz abonelikleri** kullanılabilir hizmetleri ve seçin.
+Bir olay aboneliği ölçümlerini görmek için ya da abonelik türü veya belirli bir kaynak için abonelik göre arama yapabilirsiniz.
 
-![Olay abonelikleri arayın](./media/monitor-event-delivery/select-event-subscriptions.png)
+Olay aboneliği türüne göre aramak için seçin **tüm hizmetleri**.
+
+![Tüm hizmetler](./media/monitor-event-delivery/all-services.png)
+
+Arama **olay kılavuz** seçip **olay kılavuz abonelikleri** kullanılabilir seçeneklerden birini.
+
+![Olay abonelikleri arayın](./media/monitor-event-delivery/search-and-select.png)
 
 Olay, abonelik ve konum türüne göre filtreleyin. Seçin **ölçümleri** görüntülemek abonelik için.
 
@@ -53,9 +60,15 @@ Olay konu ve abonelik için ölçümleri görüntüleyin.
 
 ![Olay metrikleri görüntüleyin](./media/monitor-event-delivery/subscription-metrics.png)
 
+Belirli bir kaynak için ölçümleri bulmak için bu kaynak seçin. Ardından, seçin **olayları**.
+
+![Olaylar için bir kaynak seçin](./media/monitor-event-delivery/select-events.png)
+
+Bu kaynak için abonelikler için ölçümler bakın.
+
 ## <a name="custom-event-status"></a>Özel olay durumu
 
-Özel bir konu yayımladıysanız, ölçümler için görüntüleyebilirsiniz. Konu içeren kaynak grubunu seçin ve konu seçin.
+Özel bir konu yayımladıysanız, ölçümler için görüntüleyebilirsiniz. Konu için kaynak grubu seçin ve konu seçin.
 
 ![Özel bir konu seçin](./media/monitor-event-delivery/select-custom-topic.png)
 
@@ -66,5 +79,5 @@ Olay konu ve abonelik için ölçümleri görüntüleyin.
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Olay teslimi ve yeniden denemeleri hakkında bilgi için [olay kılavuz ileti teslimi ve Yeniden Dene'yi](delivery-and-retry.md).
-* Olay kılavuz giriş için bkz: [hakkında olay kılavuz](overview.md).
+* Event Grid’e giriş için bkz. [Event Grid hakkında](overview.md).
 * Hızlı bir şekilde olay Kılavuzu ile çalışmaya başlamak için bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).

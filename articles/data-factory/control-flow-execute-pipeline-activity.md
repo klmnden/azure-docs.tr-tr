@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 9542f11830415a84af6857c9008ad26056a8af3d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 3a858e3e901f300ce5f0dbc44437106905078375
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617724"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı etkinliği yürütmek
 Ardışık Düzen yürütme etkinliği başka bir işlem hattı çağırmak Data Factory işlem hattı sağlar.
@@ -68,7 +69,7 @@ ad | Yürütme ardışık düzen etkinlik adı. | Dize | Evet
 type | Ayarlanmalıdır: **ExecutePipeline**. | Dize | Evet
 ardışık düzen | Bu ardışık düzen çağırır bağımlı ardışık ardışık düzen başvuru. Ardışık Düzen başvuru nesnesi iki özelliklere sahiptir: **başvuruadı** ve **türü**. Başvuruadı özelliği başvuru ardışık düzen adını belirtir. Type özelliği PipelineReference için ayarlamanız gerekir. | PipelineReference | Evet
 parametreler | Çağrılan ardışık düzene geçirilecek Parametreler | Parametre adları bağımsız değişken değerine eşleyen bir JSON nesnesi | Hayır
-waitOnCompletion | Etkinlik yürütme bağımlı ardışık düzen yürütmesi tamamlanmasını bekleyip beklemediğini tanımlar. | Varsayılan false olur. | Boole | Hayır
+waitOnCompletion | Etkinlik yürütme bağımlı ardışık düzen yürütmesi tamamlanmasını bekleyip beklemediğini tanımlar. | Varsayılan değer false’tur. | Boole | Hayır
 
 ## <a name="sample"></a>Örnek
 Bu senaryo iki ardışık düzenler şunlardır:

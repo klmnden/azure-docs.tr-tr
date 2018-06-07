@@ -1,23 +1,19 @@
 ---
 title: Azure IOT Hub bulut cihaz Mesajlaşma anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - bulut cihaz IOT Hub ile Mesajlaşma kullanma. İleti yaşam döngüsü ve yapılandırma seçenekleri hakkında bilgi içerir.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: dobett
-ms.openlocfilehash: 670cf45a48ca4b72576cedddd4678c0d569401cd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: d3d8df0d1e00fdff4d0e1e93715e1a408116d1e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632484"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>IOT Hub'ından bulut cihaza ileti gönderme
 
@@ -97,7 +93,7 @@ Gövde bir JSON serileştirilmiş dizisi kayıtları, her biri aşağıdaki öze
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | Ne zaman ileti sonucu olduğunu belirten bir zaman damgası. Örneğin, hub geri bildirim iletisi aldı veya özgün iletinin süresi doldu. |
 | OriginalMessageId  | **MessageID** bu geri bildirim bilgilerini ilgili olduğu bulut cihaz iletisi. |
-| StatusCode         | Gerekli dize. IOT Hub tarafından oluşturulan geri bildirim iletileri kullanılır. <br/> 'Başarılı' <br/> 'Süresi' <br/> 'DeliveryCountExceeded' <br/> 'Reddedildi' <br/> 'Temizlendi' |
+| statusCode         | Gerekli dize. IOT Hub tarafından oluşturulan geri bildirim iletileri kullanılır. <br/> 'Başarılı' <br/> 'Süresi' <br/> 'DeliveryCountExceeded' <br/> 'Reddedildi' <br/> 'Temizlendi' |
 | Açıklama        | Dize değerlerini **StatusCode**. |
 | DeviceId           | **DeviceID** hedef cihaz bu aldığımız geri Bildirimlerden biri ilgili olduğu bulut cihaz iletisi. |
 | DeviceGenerationId | **DeviceGenerationId** bu aldığımız geri Bildirimlerden biri ilgili olduğu bulut cihaz iletisinin hedef cihaz. |

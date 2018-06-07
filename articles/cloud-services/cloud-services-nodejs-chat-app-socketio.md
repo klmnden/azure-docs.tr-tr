@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: adegeo
-ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b5d706f82dd41f0c271aa5f67676bba08cceb3b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608602"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Bir Azure bulut hizmeti Socket.IO ile bir Node.js sohbet uygulaması oluşturma
 
@@ -151,9 +152,9 @@ Uygulamanız artık Azure üzerinde çalışan ve Sohbet iletilerini Socket.IO k
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide bir Azure bulut hizmetinde barındırılan bir temel sohbet uygulaması oluşturma öğrendiniz. Bu uygulamada bir Azure Web sitesi barındırmak öğrenmek için bkz: [bir Azure Web sitesinde Socket.IO ile bir Node.js sohbet uygulaması derleme][chatwebsite].
 
-Daha fazla bilgi için Ayrıca bkz. [Node.js Geliştirici Merkezi](/develop/nodejs/).
+Daha fazla bilgi için Ayrıca bkz. [Node.js Geliştirici Merkezi](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest).
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

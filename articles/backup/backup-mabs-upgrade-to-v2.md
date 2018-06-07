@@ -1,24 +1,19 @@
 ---
-title: Azure Backup sunucusu v2 yükleme | Microsoft Docs
+title: Azure Backup sunucusu v2 yükleyin
 description: Azure yedekleme sunucusu v2, VM'ler, dosyalar ve klasörler, iş yükleri ve daha fazla korunması için geliştirilmiş yedekleme özellikleri sunar. Yüklemek veya yükseltmek için Azure yedekleme sunucusu v2 öğrenin.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: dd7b76d9e06bc82ffd75f12131c2c247da05cc91
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: adigan
+ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606962"
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup sunucusu v2 yükleyin
 
@@ -115,7 +110,7 @@ Yönetici konsolunda bir birim eklemek için:
 
 Yedekleme Server'da hangi iş yükleri için hangi birimlerin atanan belirtin. Örneğin, sık kullanılan, yüksek hacimli yedeklemeler gerektiren iş yüklerini depolamak için çok sayıda giriş/çıkış işlemi (IOPS) saniyede destekleyen pahalı birimler ayarlayabilirsiniz. SQL Server ile işlem günlükleri örneğidir.
 
-#### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
+#### <a name="update-dpmdiskstorage"></a>Güncelleştirme DPMDiskStorage
 
 Yedekleme sunucusu depolama havuzu biriminde özelliklerini güncelleştirmek için güncelleştirme DPMDiskStorage PowerShell cmdlet'ini kullanın.
 

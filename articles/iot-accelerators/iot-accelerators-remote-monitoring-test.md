@@ -1,22 +1,19 @@
 ---
 title: Uzaktan izleme çözümü - Azure aygıt benzetim | Microsoft Docs
 description: Bu öğretici ile Uzaktan izleme Çözüm Hızlandırıcısı aygıt benzeticisi kullanmayı gösterir.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628268"
 ---
 # <a name="create-a-new-simulated-device"></a>Yeni bir simülasyon cihazı oluşturun
 
@@ -82,7 +79,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Yeni bir cihaz türü için Pano ekleyin
 > * Var olan bir cihaz türünden özel telemetri Gönder
 
-Aşağıdaki videoda benzetimli ve gerçek cihazları Uzaktan izleme çözümüne bağlama bir kılavuz gösterir:
+Aşağıdaki videoda benzetimli ve gerçek cihazları Uzaktan izleme çözümü bağlayan bir kılavuz gösterir:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -90,7 +87,7 @@ Aşağıdaki videoda benzetimli ve gerçek cihazları Uzaktan izleme çözümün
 
 Bu öğreticiyi izleyin, gerekir:
 
-* Azure aboneliğiniz Uzaktan izleme çözümünde dağıtılan bir örneği. Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
+* Azure aboneliğiniz Uzaktan izleme çözümünde dağıtılan bir örneği. Uzaktan izleme çözümü dağıtılmış henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
 
 * Visual Studio 2017. Visual Studio yüklü 2017 yoksa, ücretsiz indirebilirsiniz [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) sürümü.
 
@@ -106,11 +103,11 @@ Uzaktan izleme çözümünüz için yeni bir sanal cihaz eklemek için geliştir
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Azure'da çözüm sanal makine SSH erişimi yapılandırma
 
-Uzaktan izleme çözüm oluşturduğunuzda [www.azureiotsuite.com](https://www.azureiotsuite.com), çözüm adı seçtiniz. Çözüm adı çözüm kullanır çeşitli dağıtılan kaynakları içeren Azure kaynak grubu adı haline gelir. Adlı bir kaynak grubu aşağıdaki komutları kullanın **Contoso-01**, değiştirmeniz gerekir **Contoso-01** , kaynak grubu adı.
+Uzaktan izleme çözümünüz adresindeki oluşturduğunuzda [www.azureiotsolutions.com](https://www.azureiotsolutions.com), çözüm adı seçtiniz. Çözüm adı çözüm kullanır çeşitli dağıtılan kaynakları içeren Azure kaynak grubu adı haline gelir. Adlı bir kaynak grubu aşağıdaki komutları kullanın **Contoso-01**, değiştirmeniz gerekir **Contoso-01** , kaynak grubu adı.
 
 Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest). Geliştirme makinenizde Azure CLI 2.0 yükleyebilmek veya kullanabilmek [bulut Kabuk](https://docs.microsoft.com/azure/cloud-shell/overview) içinde [Azure portal](http://portal.azure.com). Azure CLI 2.0 bulut Kabuğu'nda önceden yüklenir.
 
-1. Uzaktan izleme kaynaklarınızı içeren kaynak grubunun adını doğrulamak için aşağıdaki komutu çalıştırın:
+1. Uzaktan izleme kaynaklarını içeren kaynak grubunun adını doğrulamak için aşağıdaki komutu çalıştırın:
 
     ```sh
     az group list | grep "name"
@@ -161,7 +158,7 @@ Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.mic
     ssh azureuser@public-ip-address
     ```
 
-    Şimdi Kabuğu Docker kapsayıcıları Uzaktan izleme çözümünde çalışan sanal makinede erişebilirsiniz. Çalışan kapsayıcılar görüntülemek için aşağıdaki komutu kullanın:
+    Şimdi Uzaktan izleme çözümünde Docker kapsayıcıları çalıştıran sanal makinede Kabuk erişiminiz olması. Çalışan kapsayıcılar görüntülemek için aşağıdaki komutu kullanın:
 
     ```sh
     docker ps
@@ -220,7 +217,7 @@ Bu öğreticide, çalıştığınız **aygıt benzetimi** ve **depolama bağdaş
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    Yeni cihaz türleri benzetimli ve Uzaktan izleme çözümü cihaz benzetimi hizmetinde yerleşik sanal cihaz türleri için değişiklik yapmanızı sağlar. Özel cihaz türlerini Uzaktan izleme çözümünün davranışını fiziksel aygıtlarınızı bağlanmadan önce test etmek için kullanabilirsiniz.
+    Yeni cihaz türleri benzetimli ve Uzaktan izleme çözümü cihaz benzetimi hizmetinde yerleşik sanal cihaz türleri için değişiklik yapmanızı sağlar. Özel cihaz türlerini Uzaktan izleme çözümü davranışını fiziksel aygıtlarınızı bağlanmadan önce test etmek için kullanabilirsiniz.
 
 1. .NET sürümü kopyalamak için **depolama bağdaştırıcısı** deposu, aşağıdaki komutu çalıştırın:
 
@@ -582,7 +579,7 @@ Aşağıdaki adımları adlı bir depo sahip olduğunuzu varsaymaktadır **ampul
     docker logs {container ID}
     ```
 
-Uzaktan izleme çözümünüz için cihaz benzetimi hizmet güncelleştirilmiş bir sürümünü dağıtma adımları tamamladınız.
+Uzaktan izleme çözümünüz cihaz benzetimi hizmet güncelleştirilmiş bir sürümünü dağıtma adımları tamamladınız.
 
 Tarayıcınızda gidin **Pano** Uzaktan izleme çözümünüz için. Üzerinde telemetri panelinde **Pano**seçin **sıcaklık**. İki sanal cihazlarınızın sıcaklık grafik görüntüler:
 
@@ -701,7 +698,7 @@ Bu öğreticide gösterilen, nasıl için:
 > * Yeni bir cihaz türü için Pano ekleyin
 > * Var olan bir cihaz türünden özel telemetri Gönder
 
-Şimdi cihaz benzetimi Hizmeti özelleştirmeyi öğrendiniz. Önerilen sonraki adıma edinmektir nasıl [bir fiziksel aygıt, Uzaktan izleme çözümüne bağlama](iot-accelerators-connecting-devices-node.md).
+Şimdi cihaz benzetimi Hizmeti özelleştirmeyi öğrendiniz. Önerilen sonraki adıma edinmektir nasıl [Uzaktan izleme çözümünüz için fiziksel bir aygıtı bağlanmak](iot-accelerators-connecting-devices-node.md).
 
 Uzaktan izleme çözümü hakkında daha fazla Geliştirici bilgi için bkz:
 

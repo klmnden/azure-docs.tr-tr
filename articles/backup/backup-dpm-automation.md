@@ -1,24 +1,19 @@
 ---
-title: Azure Backup - DPM iş yüklerini yedeklemeye kullanım PowerShell | Microsoft Docs
+title: Azure Backup - DPM iş yüklerini yedeklemeye için PowerShell kullanın
 description: Dağıtma ve Data Protection Manager (PowerShell kullanarak DPM için) Azure Backup yönetme hakkında bilgi edinin
 services: backup
-documentationcenter: ''
 author: NKolli1
 manager: shreeshd
-editor: ''
-ms.assetid: e9bd223c-2398-4eb1-9bf3-50e08970fea7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/23/2017
-ms.author: adigan;anuragm;trinadhk;markgal
-ms.openlocfilehash: 89dd965208cd473e47de9e0c9bdbfa3ab986c3d5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: adigan
+ms.openlocfilehash: 4a74aa674bd80f3d1297e71873eb9d71e46fd4cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606928"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>PowerShell kullanarak Data Protection Manager (DPM) sunucuları için Azure’a yedekleme dağıtma ve yönetme
 Bu makalede, bir DPM sunucusunda Azure yedekleme kurulumu için PowerShell kullanın ve yedekleme ve kurtarma yönetmek için nasıl gösterir.
@@ -80,7 +75,7 @@ Aşağıdaki adımlar bir kurtarma Hizmetleri kasası oluşturmada size yol aça
 4. Kullanılacak depolama artıklığı türünü belirtin; kullanabileceğiniz [yerel olarak yedekli depolama (LRS)](../storage/common/storage-redundancy-lrs.md) veya [coğrafi olarak yedekli depolama (GRS)](../storage/common/storage-redundancy-grs.md). Aşağıdaki örnek, testVault - BackupStorageRedundancy seçeneği GeoRedundant için ayarlanmış gösterir.
 
    > [!TIP]
-   > Çok sayıda Azure yedekleme cmdlet'lerini girdi olarak kurtarma Hizmetleri kasası nesnesi gerektirir. Bu nedenle, bir değişkende yedekleme kurtarma Hizmetleri kasası nesne depolamak uygundur.
+   > Çoğu Azure Backup cmdlet’i, girdi olarak Kurtarma Hizmetleri kasasını gerektirir. Bu nedenle, Yedekleme Kurtarma Hizmetleri kasasının bir değişkende depolanması uygundur.
    >
    >
 
@@ -134,13 +129,13 @@ Mevcut seçenekler şunlardır:
 | --- | --- | --- |
 | /q |Sessiz yükleme |- |
 | p: "Konum" |Azure Backup Aracısı yükleme klasörünün yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent |
-| /s:"location" |Azure Backup aracısı için önbellek klasör yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
-| /m |Microsoft Update'e kabulü |- |
+| / s: "Konum" |Azure Backup aracısı için önbellek klasör yolu. |C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch |
+| /dk |Microsoft Update'e kabulü |- |
 | /nu |Yükleme tamamlandıktan sonra güncelleştirmeleri denetleme |- |
-| /d |Microsoft Azure kurtarma Hizmetleri Aracısı kaldırır |- |
+| /g |Microsoft Azure kurtarma Hizmetleri Aracısı kaldırır |- |
 | /ph |Proxy konağı adresi |- |
-| /po |Proxy ana bilgisayar bağlantı noktası numarası |- |
-| /pu |Proxy konağı kullanıcı |- |
+| /PO |Proxy ana bilgisayar bağlantı noktası numarası |- |
+| /PU |Proxy konağı kullanıcı |- |
 | /pw |Proxy parolası |- |
 
 ## <a name="registering-dpm-to-a-recovery-services-vault"></a>Kasa kayıt DPM bir kurtarma Hizmetleri

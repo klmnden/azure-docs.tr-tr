@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 4c857af02e104940559cb86daa3ccd208d8e35a1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 763b13849470079e24aac6aff45584bac33403f0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620546"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory bir tümleştirme çalışma zamanı izleme  
 **Tümleştirme çalışma zamanı** olan farklı ağ ortamlar genelinde çeşitli veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan bilgi işlem altyapısı. Veri fabrikası tarafından sunulan tümleştirme çalışma zamanları üç tür vardır:
@@ -75,7 +76,7 @@ Aşağıdaki tabloda izleme özellikleri için açıklamalar sağlanır **her d�
 | Ad | Kendini barındıran tümleştirmesi çalışma zamanı ve ilişkili düğüm adı. Kendini barındıran tümleştirmesi çalışma zamanı yüklü olan bir şirket içi Windows makine düğümdür. |  
 | Durum | Genel kendini barındıran tümleştirmesi çalışma zamanı ve her düğüm durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vs. Bu durumlar hakkında daha fazla bilgi için sonraki bölüme bakın. | 
 | Sürüm | Kendini barındıran tümleştirmesi çalışma zamanı ve her düğüm sürümü. Kendini barındıran tümleştirmesi çalışma zamanı sürümü grubu düğüm çoğunluğu sürümüne göre belirlenir. Kendini barındıran tümleştirmesi çalışma zamanı kurulumunda farklı sürümleri ile düğüm varsa, yalnızca mantıksal olarak aynı sürüm numarasına sahip tümleştirme çalışma zamanı işlevi düzgün kendi kendini barındırır. Başkalarının sınırlı modda ve (yalnızca otomatik güncelleştirmeler başarısız olursa) el ile güncelleştirilmesi gerekir. | 
-| Kullanılabilir bellek | Kendini barındıran tümleştirmesi çalışma zamanı düğüm kullanılabilir bellek. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. | 
+| Uygun bellek | Kendini barındıran tümleştirmesi çalışma zamanı düğüm kullanılabilir bellek. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. | 
 | CPU kullanımı | Bir kendi kendini barındıran tümleştirmesi çalışma zamanı düğümün CPU kullanımı. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. |
 | Ağ (çıkış) | Kendini barındıran tümleştirmesi çalışma zamanı düğümünün ağ kullanımı. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. | 
 | (Çalışan / sınırlamak) eşzamanlı işleri | İşlerini veya her bir düğümde çalışan görevlerin sayısıdır. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değeri makine boyutuna göre tanımlanır. Eşzamanlı iş yürütme burada altında kullanılan CPU/bellek/ağ, ancak etkinlikler zaman aşımına uğrama Gelişmiş senaryolarda ölçeklendirin sınırı artırabilirsiniz. Bu özellik, tek bir düğüm kendini barındıran tümleştirmesi çalışma zamanı ile de kullanılabilir. |
@@ -187,7 +188,7 @@ Azure SSIS tümleştirmesi çalışma zamanı SSIS paketleri çalıştırmak iç
 
 ### <a name="status-overall-azure-ssis-integration-runtime"></a>Durum (genel Azure SSIS tümleştirmesi çalışma zamanı)
 
-| Genel durum | Açıklama | 
+| Tüm durum | Açıklama | 
 | -------------- | ----------- | 
 | İlk | Düğümler, Azure SSIS Integration zamanının ayrılmış ve hazırlanan verilmemiş. | 
 | Başlatılıyor | Ayrılmış ve hazırlanan Azure SSIS Integration zamanının düğümleri ve faturalama başlatıldı. |
@@ -199,7 +200,7 @@ Azure SSIS tümleştirmesi çalışma zamanı hakkında daha fazla bilgi için a
 
 - [Azure SSIS tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-ssis-integration-runtime). Bu makalede Azure SSIS IR genel dahil tümleştirme çalışma zamanları hakkında kavramsal bilgiler sağlar 
 - [Öğretici: SSIS paketlerini Azure’a dağıtma](tutorial-create-azure-ssis-runtime-portal.md). Bu makale bir Azure-SSIS IR oluşturmaya ilişkin adım adım yönergeler sağlar ve SSIS kataloğunu barındırmak için bir Azure SQL veritabanı kullanır. 
-- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makalede öğreticiyi genişletir ve Azure SQL yönetilen örneğini (Önizleme) kullanarak ve bir sanal ağa IR katılması yönergeler sağlar. 
+- [Nasıl yapılır: Azure-SSIS tümleştirme çalışma zamanı oluşturma](create-azure-ssis-integration-runtime.md). Bu makale, öğreticiyi genişletip Azure SQL Yönetilen Örneğini (Önizleme) kullanma ve IR’yi bir sanal ağa ekleme hakkında yönergeler sağlar. 
 - [Azure-SSIS IR’yi yönetme](manage-azure-ssis-integration-runtime.md). Bu makale bir Azure-SSIS IR’yi durdurma, başlatma veya kaldırma işlemini gösterir. Ayrıca, IR’ye daha fazla düğüm ekleyerek Azure-SSIS IR’nizi ölçeklendirmeyi gösterir. 
 - [Azure-SSIS IR’yi bir sanal ağa ekleme](join-azure-ssis-integration-runtime-virtual-network.md). Bu makale Azure-SSIS IR’yi bir Azure sanal ağına (VNet) ekleme hakkında kavramsal bilgiler sağlar. Ayrıca, Azure portalını kullanarak Azure-SSIS IR’nin sanal ağa katılmasını sağlayacak şekilde sanal ağı yapılandırma adımları sunar. 
 

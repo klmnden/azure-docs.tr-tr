@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: damaerte
-ms.openlocfilehash: 3c01a31eae2b90ecb54cbfba7f565fd140db3773
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608959"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Sorun giderme & Azure sınırlamaları bulut Kabuğu
 
@@ -43,11 +44,6 @@ Azure bulut kabuğunda sorunlarını gidermek için bilinen çözümleri şunlar
  - **Çözümleme**: gönderme https isteklerini ve yanıtlarını websocket etki alanlarına sağlamak için ağ ayarlarınızı yapılandırdığınız denetleyin *. console.azure.com.
 
 ## <a name="bash-troubleshooting"></a>Sorun giderme bash
-
-### <a name="cannot-run-az-login"></a>Az oturum açma çalıştırılamıyor
-
-- **Ayrıntılar**: çalışan `az login` bulut kabuğundan ya da Azure portalına imzalamak için kullanılan hesabı altında önceden doğrulanmış gibi çalışmayacaktır.
-- **Çözümleme**: oturum açma veya oturumu kapatın ve hedeflenen Azure hesabınızla sağlamalarını kullanılan hesabınızı kullanma.
 
 ### <a name="cannot-run-the-docker-daemon"></a>Docker arka plan programı çalıştırılamıyor
 

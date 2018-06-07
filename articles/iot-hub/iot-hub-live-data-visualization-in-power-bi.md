@@ -1,25 +1,21 @@
 ---
 title: Azure IOT Hub – Power BI algılayıcı verilerini gerçek zamanlı veri Görselleştirme | Microsoft Docs
 description: Algılayıcı toplanan ve Azure IOT hub'ına gönderilen sıcaklık ve nem verileri görselleştirmek için Power BI kullanın.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: gerçek zamanlı veri görselleştirme, dinamik veri görselleştirme algılayıcı verileri Görselleştirme
-ms.assetid: e67c9c09-6219-4f0f-ad42-58edaaa74f61
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: 12ac0596d70ae068ba17713d1251fbf117824f67
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a3c54fe635fe0f8988c321684a815e9896922587
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634354"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Azure IOT Hub'ın Power BI kullanarak gerçek zamanlı algılayıcı verilerini görselleştirmek
 
@@ -52,10 +48,10 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
 
 ### <a name="create-a-stream-analytics-job"></a>Akış Analizi işi oluşturma
 
-1. İçinde [Azure portal](https://portal.azure.com), tıklatın **kaynak oluşturma** > **nesnelerin interneti** > **Stream Analytics işi**.
+1. [Azure portalında](https://portal.azure.com), **Kaynak oluştur** > **Nesnelerin İnterneti** > **Stream Analytics işi**'ne tıklayın.
 1. İş için aşağıdaki bilgileri girin.
 
-   **İş adı**: İş adı. Adın genel olarak benzersiz olması gerekir.
+   **İş adı**: İşin adı. Adın genel olarak benzersiz olması gerekir.
 
    **Kaynak grubu**: IOT hub'ınızı kullandığı aynı kaynak grubunu kullanın.
 
@@ -67,10 +63,10 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
 
 1. **Oluştur**’a tıklayın.
 
-### <a name="add-an-input-to-the-stream-analytics-job"></a>Bir akış analizi işine giriş Ekle
+### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics işine giriş ekleme
 
 1. Akış analizi işi'ni açın.
-1. Altında **iş topoloji**, tıklatın **girişleri**.
+1. **İş Topolojisi**'nin altında **Girişler**'e tıklayın.
 1. İçinde **girişleri** bölmesinde tıklatın **Ekle**ve ardından aşağıdaki bilgileri girin:
 
    **Giriş diğer adı**: giriş için benzersiz diğer ad.
@@ -82,12 +78,12 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
 
    ![Azure akış analizi işine giriş Ekle](media/iot-hub-live-data-visualization-in-power-bi/3_add-input-to-stream-analytics-job-azure.png)
 
-### <a name="add-an-output-to-the-stream-analytics-job"></a>Akış analizi işine çıkış ekleme
+### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics işine çıkış ekleme
 
-1. Altında **iş topoloji**, tıklatın **çıkışları**.
+1. **İş Topolojisi**'nin altında **Çıkışlar**'a tıklayın.
 1. İçinde **çıkışları** bölmesinde tıklatın **Ekle**ve ardından aşağıdaki bilgileri girin:
 
-   **Çıkış diğer adları**: çıkış için benzersiz diğer ad.
+   **Çıkış diğer adı**: Çıkışın benzersiz diğer adı.
 
    **Havuz**: seçin **Power BI**.
 1. Tıklatın **Authorize**ve Power BI hesabınızda oturum açın.
@@ -102,18 +98,18 @@ Azure IOT hub'ınızın aldığı Power BI tarafından gerçek zamanlı algılay
 
    ![Azure Stream Analytics işinde bir çıktı ekleyin](media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
-### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics işi sorgu yapılandırın
+### <a name="configure-the-query-of-the-stream-analytics-job"></a>Stream Analytics işinin sorgusunu yapılandırma
 
-1. Altında **iş topoloji**, tıklatın **sorgu**.
-1. Değiştir `[YourInputAlias]` iş giriş diğer adı ile.
-1. Değiştir `[YourOutputAlias]` işinin çıkış diğer adına sahip.
+1. **İş Topolojisi**'nin altında **Sorgu**'ya tıklayın.
+1. `[YourInputAlias]` değerini işin giriş diğer adıyla değiştirin.
+1. `[YourOutputAlias]` değerini işin çıkış diğer adıyla değiştirin.
 1. **Kaydet**’e tıklayın.
 
    ![Azure Stream Analytics işinde sorgu ekleme](media/iot-hub-live-data-visualization-in-power-bi/5_add-query-stream-analytics-job-azure.png)
 
-### <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştır
+### <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştırma
 
-Stream Analytics işinde tıklatın **Başlat** > **şimdi** > **Başlat**. İş başarıyla başladıktan sonra iş durumu değişiklikleri **durduruldu** için **çalıştıran**.
+Stream Analytics işinde **Başlat** > **Şimdi** > **Başlat**'a tıklayın. İş düzgün bir şekilde başlatıldıktan sonra, **Durduruldu** olan iş durumu **Çalışıyor** olarak değiştirilir.
 
 ![Azure Stream Analytics işini çalıştır](media/iot-hub-live-data-visualization-in-power-bi/6_run-stream-analytics-job-azure.png)
 
@@ -124,26 +120,26 @@ Stream Analytics işinde tıklatın **Başlat** > **şimdi** > **Başlat**. İş
 1. Stream Analytics işi çıkış oluşturduğunuzda ayarladığınız Grup çalışma alanına gidin.
 1. Tıklatın **veri kümeleri akış**.
 
-   Stream Analytics işi çıkış oluşturduğunuzda, belirttiğiniz listelenen dataset görmeniz gerekir.
-1. Altında **Eylemler**, bir rapor oluşturmak için önce simgeyi tıklatın.
+   Stream Analytics işi için çıkış oluştururken belirttiğiniz veri kümesinin listelendiğini görüyor olmalısınız.
+1. **EYLEMLER**'in altında, ilk simgeye tıklayarak bir rapor oluşturun.
 
    ![Microsoft Power BI raporu oluşturma](media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
-1. Gerçek zamanlı sıcaklık zamanla göstermek için bir çizgi grafiği oluşturun.
+1. Zamanla değişen gerçek zamanlı sıcaklığı göstermek için bir çizgi grafik oluşturun.
    1. Rapor oluşturma sayfasında bir çizgi grafiği ekleyin.
-   1. Üzerinde **alanları** bölmesinde, Stream Analytics işi çıkış oluşturduğunuzda belirtilen tablonun genişletin.
-   1. Sürükleme **EventEnqueuedUtcTime** için **eksen** üzerinde **görselleştirmeleri** bölmesi.
-   1. Sürükleme **sıcaklık** için **değerleri**.
+   1. **Alanlar** bölmesinde, Stream Analytics işi için çıkış oluştururken belirttiğiniz tabloyu genişletin.
+   1. **Görselleştirmeler** bölmesinde **EventEnqueuedUtcTime** öğesini **Eksen** üzerine sürükleyin.
+   1. **temperature** öğesini **Değerler** üzerine sürükleyin.
 
-      Şimdi bir çizgi grafiği oluşturulur. X eksenindeki tarih ve saati UTC saat diliminde görüntüler. Y ekseni sıcaklık algılayıcı görüntüler.
+      Şimdi bir çizgi grafiği oluşturulur. Grafiğin x ekseninde UTC saat dilimine göre tarih ve saat görüntülenir. Grafiğin y ekseninde algılayıcıdan alınan sıcaklık görüntülenir.
 
       ![Bir çizgi grafiği sıcaklık için bir Microsoft Power BI raporu ekleme](media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 
-1. Gerçek zamanlı nem zamanla göstermek için başka bir çizgi grafiği oluşturun. Bunu yapmak için yukarıdaki aynı adımları izleyin ve yerleştirin **EventEnqueuedUtcTime** eksenindeki ve **nem** y ekseni üzerinde.
+1. Zamanla değişen gerçek zamanlı nem oranını göstermek için bir çizgi grafik daha oluşturun. Bunu yapmak için yukarıdaki aynı adımları izleyin ve yerleştirin **EventEnqueuedUtcTime** eksenindeki ve **nem** y ekseni üzerinde.
 
    ![Bir çizgi grafiği nem için bir Microsoft Power BI raporu ekleme](media/iot-hub-live-data-visualization-in-power-bi/9_add-line-chart-for-humidity-to-power-bi-report-microsoft.png)
 
-1. Tıklatın **kaydetmek** raporu kaydetmek için.
+1. Raporu kaydetmek için **Kaydet**’e tıklayın.
 1. Tıklatın **dosya** > **Web'de Yayımla**.
 1. Tıklatın **oluşturma katıştırma kodunu**ve ardından **Yayımla**.
 

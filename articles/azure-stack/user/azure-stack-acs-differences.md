@@ -1,40 +1,41 @@
 ---
-title: 'Azure yığın depolama: Farklar ve ilgili önemli noktalar'
-description: Azure yığın depolama ve Azure Storage arasındaki farklar Azure yığın dağıtımında dikkat edilecek noktalar birlikte anlayın.
+title: Azure yığın depolama farklar ve dikkat edilmesi gerekenler | Microsoft Docs
+description: Azure yığın depolama ve Azure yığın dağıtımında dikkat edilecek noktalar yanı sıra Azure depolama arasındaki farkları anlamak.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
 manager: femila
-ms.reviwer: xiaofmao
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5a4d3312d6574f761da9a28bfb01a34acf11c9cc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviwer: xiaofmao
+ms.openlocfilehash: 2a6cb3f1a1f8009af411ba4d97a23194f6f089ae
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604469"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure yığın depolama: Farklar ve ilgili önemli noktalar
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure yığın depolama: farklar ve dikkat edilmesi gerekenler
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 Azure yığın depolama Microsoft Azure yığın depolama bulut hizmetleri kümesidir. Azure yığın depolama blob, tablo, kuyruk ve Azure tutarlı semantiği ile hesabı yönetimi işlevselliğini sağlar.
 
-Bu makalede Azure Storage hizmetleri gelen bilinen Azure yığın depolama farklar özetlenmektedir. Ayrıca, Azure yığın dağıtırken göz önünde bulundurmanız gerekenler listelenmektedir. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
+Bu makalede Azure Storage hizmetleri gelen bilinen Azure yığın depolama farklar özetlenmektedir. Ayrıca, Azure yığın dağıtırken göz önünde bulundurmanız gerekenler listelenmektedir. Genel Azure ve Azure yığın arasındaki üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
 
 ## <a name="cheat-sheet-storage-differences"></a>Kopya sayfası: depolama farklar
 
 | Özellik | Azure (Genel) | Azure Stack |
 | --- | --- | --- |
 |Dosya depolama|Bulut tabanlı SMB dosya paylaşımları desteklenen|Henüz desteklenmiyor
-|Bekleyen Veri için Azure Storage Hizmeti Şifreleme|256 bit AES şifreleme|BitLocker 128 bit AES şifreleme
-|Depolama hesabı türü|Genel amaçlı ve Azure Blob storage hesapları|Genel amaçlı yalnızca.
+|Rest verileri için Azure storage hizmeti şifreleme|256 bit AES şifreleme|BitLocker 128 bit AES şifreleme
+|Depolama hesabı türü|Genel amaçlı ve Azure blob storage hesapları|Genel amaçlı yalnızca.
 |Çoğaltma seçenekleri|Yerel olarak yedekli depolama, coğrafi olarak yedekli depolama, coğrafi olarak yedekli depolamaya okuma erişimi ve bölge olarak yedekli depolama|Yerel olarak yedekli depolama.
 |Premium depolama|Tam olarak desteklenir|Performans sınır sağlanabilir veya garanti.
 |Yönetilen diskler|Premium ve standart desteklenen|Henüz desteklenmiyor.

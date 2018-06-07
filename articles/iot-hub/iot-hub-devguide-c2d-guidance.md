@@ -1,24 +1,19 @@
 ---
 title: Azure IOT hub'ı bulut aygıt seçenekleri | Microsoft Docs
 description: Geliştirici Kılavuzu - Kılavuzu ne zaman doğrudan yöntemleri, cihaz çifti'nin istediğiniz özellikler veya Bulut-cihaz iletilerini bulut-cihaz iletişimi için kullanılır.
-services: iot-hub
-documentationcenter: ''
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: 144bd8e0a954e54cf17fb88105759d0e000454fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ff81be4bbf6d297c623c5d98b5dc22a540112fcc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634446"
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Bulut-cihaz iletişimi Kılavuzu
 IOT Hub cihaz uygulamaların bir arka uç uygulamasının işlevselliğini göstermek üç seçenek sunar:
@@ -37,7 +32,7 @@ Aşağıda, çeşitli bulut-cihaz iletişimi seçenekleri ayrıntılı karşıla
 | Veri akışı | İki yönlü. Cihaz uygulaması yönteme hemen yanıt verebilir. Çözüm arka ucu bağlam için isteğin sonucu alır. | Tek yönlü. Cihaz uygulaması özellik değişikliği içeren bir bildirim alır. | Tek yönlü. Cihaz uygulaması iletiyi alır
 | Dayanıklılık | Bağlantısı kesilmiş aygıtları temas değil. Çözüm arka ucu cihaz bağlanmamış bildirilir. | Özellik değerlerini cihaz çiftine korunur. Aygıt, sonraki yeniden bağlanma sırasında okuyun. Özellik değerleri ile alınabilir [IOT hub'ı sorgu dili][lnk-query]. | İletilerini 48 saate kadar IOT Hub tarafından korunabilir. |
 | Hedefler | Tek bir cihazla **DeviceID**, veya birden çok cihazı kullanarak [işleri][lnk-jobs]. | Tek bir cihazla **DeviceID**, veya birden çok cihazı kullanarak [işleri][lnk-jobs]. | Tek aygıt tarafından **DeviceID**. |
-| Boyut | En fazla 8 KB istekleri ve 8 KB yanıtlar. | Maksimum özellikleri boyutu 8 KB istenen. | En fazla 64 KB iletileri. |
+| Boyut | En fazla doğrudan yöntemi yükü boyutu 128 KB'tır. | Maksimum özellikleri boyutu 8 KB istenen. | En fazla 64 KB iletileri. |
 | Sıklık | Yüksek. Daha fazla bilgi için bkz: [IOT hub'ı sınırlar][lnk-quotas]. | Orta. Daha fazla bilgi için bkz: [IOT hub'ı sınırlar][lnk-quotas]. | Düşük. Daha fazla bilgi için bkz: [IOT hub'ı sınırlar][lnk-quotas]. |
 | Protokol | MQTT veya AMQP kullanarak kullanılabilir. | MQTT veya AMQP kullanarak kullanılabilir. | Tüm protokoller kullanılabilir. Aygıt, HTTPS kullanırken yoklaması gerekir. |
 

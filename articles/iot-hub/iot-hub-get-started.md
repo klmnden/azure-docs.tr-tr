@@ -1,25 +1,20 @@
 ---
 title: Azure IOT Hub - IOT cihazları buluta bağlamak Başlarken | Microsoft Docs
 description: IOT panoları ve başlangıç paketleri Azure IOT Hub'ına bağlanmak öğrenin. Cihazlarınızı IOT hub'ı ve IOT hub'ı telemetri izlemek ve cihazlarınızı yönetin gönderebilirsiniz.
-services: iot-hub
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
 keywords: Azure IOT hub Öğreticisi
-ms.assetid: 24376318-5344-4a81-a1e6-0003ed587d53
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: dafb8aca34a5a41f45f76d526aa3b8f3b1b792c4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 76f427204f0ad31196ce8b995b9e4ed9676209ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634711"
 ---
 # <a name="azure-iot-hub-get-started-with-real-devices"></a>Azure IOT Hub ile gerçek cihazları Başlarken
 

@@ -1,29 +1,28 @@
 ---
-title: Python kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs
-description: 'Python’u kullanarak Data Lake Store hesabı oluşturma ve işleri göndermeyi öğrenin. '
+title: Python kullanarak Azure Data Lake Analytics yönetme
+description: Bu makalede, Python Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri yönetmek için nasıl kullanılacağını açıklar.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: matt1883
 ms.author: saveenr
-ms.custom: devcenter
-ms.openlocfilehash: 0182a14979550c880904ec829f6b59dee016cad2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
+ms.topic: conceptual
+ms.date: 06/18/2017
+ms.openlocfilehash: 4df5d4294708f2b475adf3fff87b122f261f8fc8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623137"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Python kullanarak Azure Data Lake Analytics yönetme
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-## <a name="python-versions"></a>Python sürümleri
+Bu makalede, Python kullanarak Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Yönet açıklar.
+
+## <a name="supported-python-versions"></a>Desteklenen Python sürümleri
 
 * Python 64-bit sürümünü kullanın.
 * Python dağıtım bulundu, standart kullanabilirsiniz  **[Python.org indirmeleri](https://www.python.org/downloads/)**. 

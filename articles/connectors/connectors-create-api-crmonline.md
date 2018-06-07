@@ -1,25 +1,22 @@
 ---
-title: "Azure mantıksal uygulamaları (çevrimiçi) Dynamics 365 bağlanma | Microsoft Docs"
-description: "Dynamics 365 (çevrimiçi) varlıklar Dynamics 365 Bağlayıcısı tarafından sağlanan API aracılığıyla yönetmek uygulama iş mantığı oluşturun"
-services: logic-apps
-cloud: Azure Stack
+title: Dynamics 365 - Azure mantıksal uygulamaları bağlanma | Microsoft Docs
+description: Dynamics 365 (çevrimiçi) REST API'leri ve Azure Logic Apps ile kayıtlarını oluşturması ve yönetmesi
 author: Mattp123
-manager: anneta
-documentationcenter: 
-tags: connectors
-ms.assetid: 0dc2abef-7d2c-4a2d-87ca-fad21367d135
-ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+manager: cfowler
+ms.author: matp
 ms.date: 02/10/2017
-ms.author: matp; LADocs
-ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 015f587257603330eab9840edf661ba9675f4ba8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609904"
 ---
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Mantıksal uygulama akışlarından Dynamics 365'e bağlanın
 
@@ -40,7 +37,7 @@ Bu konuda yeni bir sağlama Dynamics 365'te oluşturulduğunda Dynamics 365'te b
 
 2.  Azure arama kutusuna `Logic apps`, ve ENTER tuşuna basın.
 
-      ![Find Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
+      ![Logic Apps Bul](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
 3.  Altında **Logic apps**, tıklatın **Ekle**.
 

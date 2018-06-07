@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627032"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
 
@@ -61,7 +62,7 @@ Bir Hdınsight kümesi oluştururken, bir Azure aboneliği belirtmeniz gerekir. 
     1. [Azure Portal](https://portal.azure.com) oturum açın.
     2. Tıklatın **abonelik** sol menüden. Sarı bir anahtar simgesi vardır. Aboneliklerin listesini göreceksiniz.
     3. Kümeleri oluşturmak için kullandığınız aboneliğe tıklayın. 
-    4. Tıklatın **izinlerimi**.  Bunu gösterir, [rol](../role-based-access-control/overview.md#built-in-roles) abonelikte. En az gereksinim duyduğunuz Hdınsight kümesi oluşturmak için katkıda bulunan erişim.
+    4. Tıklatın **izinlerimi**.  Bunu gösterir, [rol](../role-based-access-control/built-in-roles.md) abonelikte. En az gereksinim duyduğunuz Hdınsight kümesi oluşturmak için katkıda bulunan erişim.
 
 - Var olan bir kaynak grubunu kullanmak için:
 

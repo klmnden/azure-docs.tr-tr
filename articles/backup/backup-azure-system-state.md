@@ -1,25 +1,20 @@
 ---
-title: Azure için Windows sistem durumu yedekleme | Microsoft Docs
+title: Azure için Windows sistem durumunu yedekleme
 description: Sistem durumunu Windows Server ve/veya Windows bilgisayarları için Azure yedekleme öğrenin.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: yedekleme nasıl yapılır; yedekleme; dosya ve klasör yedekleme
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: saurse
+ms.openlocfilehash: 61ee1ce7d5cc6dc2aa4b7a8b02c2e5ba77539725
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606078"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager dağıtım Windows sistem durumu yedekleme
 Bu makalede, Azure için Windows Server sistem durumunu yedekleme açıklanmaktadır. Bu, size temel işlemler boyunca yol göstermeye yönelik bir öğreticidir.
@@ -175,6 +170,11 @@ Aracı artık yüklenmiş ve makineniz kasaya kaydedilmiştir. Yedeklemenizi yap
 * İlk kez sistem durumunu yedekleme
 
 İlk yedeklemeyi tamamlamak için Microsoft Azure Kurtarma Hizmetleri aracısını kullanın.
+
+> [!NOTE]
+> Windows Server 2008 R2, Windows Server 2016 aracılığıyla sistem durumunu yedekleyebilirsiniz. Sistem durumu geri en fazla istemci SKU'desteklenmiyor. Sistem durumu, Windows istemcileri ya da Windows Server 2008 SP2 makineler için bir seçenek olarak gösterilmez.
+>
+>
 
 ### <a name="to-schedule-the-backup-job"></a>Yedekleme işini zamanlamak için
 

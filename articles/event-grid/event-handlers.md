@@ -8,15 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 996bd4b3497861a3bfcbfecebe18a6936f487028
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627724"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure olay kılavuzunda olay işleyicileri
 
-Olay işleyici olay burada gönderilen yerdir. İşleyicisi olayını işlemek için bazı başka bir eylem alır. Çeşitli Azure hizmetlerine olayları işlemek için otomatik olarak yapılandırılır. Tüm Web kancası olayları işlemek için de kullanabilirsiniz. Web kancası olayları işlemek için Azure üzerinde barındırılan gerekmez.
+Olay işleyici olay burada gönderilen yerdir. İşleyicisi olayını işlemek için bazı başka bir eylem alır. Çeşitli Azure hizmetlerine olayları işlemek için otomatik olarak yapılandırılır. Tüm Web kancası olayları işlemek için de kullanabilirsiniz. Web kancası olayları işlemek için Azure üzerinde barındırılan gerekmez. Olay kılavuz yalnızca HTTPS Web kancası uç noktalarını destekler.
 
 Bu makalede her olay işleyicisi içeriğe bağlantılar sağlar.
 
@@ -31,6 +32,8 @@ Otomatik runbook olayları işlemek için Azure Otomasyonu kullanın.
 ## <a name="azure-functions"></a>Azure İşlevleri
 
 Azure işlevleri sunucusuz olaylarına yanıt olarak kullanın.
+
+İşleyici olarak Azure İşlevleri’ni kullanırken, genel HTTP tetikleyicileri yerine Event Grid tetikleyicisini kullanın. Event Grid, Event Grid İşlevi tetikleyicilerini otomatik olarak doğrular. Genel HTTP tetikleyicileri ile [doğrulama yanıtını](security-authentication.md#webhook-event-delivery) uygulamanız gerekir.
 
 |Unvan  |Açıklama  |
 |---------|---------|
@@ -75,5 +78,5 @@ Olaylara yanıt özelleştirilebilir uç noktaları için Web kancası kullanın
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Olay kılavuz giriş için bkz: [hakkında olay kılavuz](overview.md).
+* Event Grid’e giriş için bkz. [Event Grid hakkında](overview.md).
 * Hızlı bir şekilde olay Kılavuzu ile çalışmaya başlamak için bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).

@@ -1,25 +1,20 @@
 ---
-title: "Bant altyapınızın yerini alması için Azure Yedekleme'yi | Microsoft Docs"
-description: "Yedekleme ve geri yükleme verilerini azure'da olanak veren bant benzeri semantiği Azure Backup'nasıl sağladığını öğrenin"
+title: Azure Backup kullanarak bant altyapınızı değiştirme
+description: Yedekleme ve geri yükleme verilerini azure'da olanak veren bant benzeri semantiği Azure Backup'nasıl sağladığını öğrenin
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: vijayts
-editor: 
-ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/10/2017
-ms.author: saurse;trinadhk;markgal
+ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606503"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Uzun vadeli depolama için Azure bulut banttan taşıma
 Azure yedekleme ve System Center Data Protection Manager müşteriler yapabilirsiniz:
@@ -42,7 +37,7 @@ Müşterileri de haftalık bir yedekleme zamanlayabilirsiniz. Örneğin, aşağ�
 ## <a name="what-is-the-retention-policy"></a>Bekletme İlkesi nedir?
 Bekletme İlkesi yedeğin depolanması gereken süreyi belirtir. Müşteriler, yalnızca tüm yedekleme noktaları için "sabit ilke" belirtmek yerine, yedeklemenin ne zamana göre farklı bekletme ilkeleri belirtebilirsiniz. Örneğin, bir işletimsel kurtarma noktası olarak hizmet veren, günlük, geçen yedekleme noktası 90 gün boyunca korunur. Denetim amacıyla her üç aylık dönemin sonunda alınan yedekleme noktası uzun bir süre için korunur.
 
-![Bekletme İlkesi](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
+![Saklama İlkesi](./media/backup-azure-backup-cloud-as-tape/retentionpolicy.png)
 
 "Bu ilkede belirtilen bekletme noktalarını" toplam sayısı olan 90 (günlük noktaları) + 40 (her biri 10 Yıl Çeyrek) 130 =.
 

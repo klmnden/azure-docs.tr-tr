@@ -1,18 +1,19 @@
 ---
 title: Aygıt kullanma Azure IOT merkezi uygulamanızda ayarlar | Microsoft Docs
 description: Bir operatör olarak cihazı kullanmak nasıl Azure IOT merkezi uygulamanızda ayarlar.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932c8315b5af22c3adf18de50cf03deaf6b2a53e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpfr
+ms.openlocfilehash: d27e687acf62e4a1e96f1bb49607618dff45512b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628513"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT merkezi uygulamanızda cihaz kümeleri kullanma
 
@@ -76,7 +77,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
     1. Kılavuzunuzun vermek bir **başlık**.
     1. Ayarlar düğmesini seçerek gösterilecek sütunları seçin. Açılır panelinde gösterilmesini istediğinizi ve seçmek için sağ oka seçin sütun seçin.
-    1. Seçin **Tamam**.
+    1. **Tamam**’ı seçin.
     1. **Kaydet**'i seçin.
 
         ![Kılavuz Kaydet](media/howto-use-device-sets/image9.png)
@@ -106,7 +107,7 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz **listesi**. **Li
 
     ![Sütun seçin](media/howto-use-device-sets/image12.png)
 
-1. Seçin **Tamam**.
+1. **Tamam**’ı seçin.
 
 ## <a name="analytics"></a>Analiz
 

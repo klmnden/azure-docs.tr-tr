@@ -1,26 +1,23 @@
 ---
 title: Uzaktan izleme çözümünde - Azure cihaz sorunlarını algılamak | Microsoft Docs
 description: Bu öğretici nasıl Uzaktan izleme çözümünde eşik tabanlı aygıt sorunları otomatik olarak algılamak için kurallar ve Eylemler kullanılacağını gösterir.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-suite
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627322"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Eşik tabanlı kurallar kullanarak sorunlarını Algıla
 
-Bu öğretici, Uzaktan izleme çözümünde kurallar altyapısı özelliklerini gösterir. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
+Bu öğretici Uzaktan izleme çözümünde kurallar altyapısı özelliklerini gösterir. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
 
 Contoso sahip baskısı tarafından bildirilen kritik uyarı oluşturur olan bir kural bir **Soğutucu** aygıt 250 PSI aşıyor. Bir operatör olarak tanımlamak istediğiniz **Soğutucu** sorunlu algılayıcılar bakarak olabilecek aygıtlar ilk baskısı ani. Bu cihazları tanımlamak için baskısı 150 PSI aştığında bir uyarı oluşturmak için bir kural oluşturun.
 
@@ -39,7 +36,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılmış henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="view-the-rules-in-your-solution"></a>Çözümünüzde kuralları görüntülemek
 
@@ -110,7 +107,7 @@ Yeni koşulu aşağıdaki değerleri kullanın:
 
 | Ayar          | Değer                                 |
 | ---------------- | ------------------------------------- |
-| Koşul 2 alan| Sıcaklık                           |
+| Koşul 2 alan| sıcaklık                           |
 | Koşul 2 işleci | Şu değerden fazla:                      |
 | Koşul 2 değeri    | 75                                |
 

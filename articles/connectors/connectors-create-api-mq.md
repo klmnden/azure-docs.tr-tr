@@ -1,25 +1,22 @@
 ---
-title: "Azure Logic Apps içinde MQ Bağlayıcısı'nı kullanmayı öğrenin | Microsoft Docs"
-description: "Bir şirket içi bağlantı veya göz atın, almak ve WebSphere MQ iletileri göndermek için logic app iş akışınızı Azure MQ sunucudan"
-services: logic-apps
+title: MQ - Azure Logic Apps sunucuya | Microsoft Docs
+description: Gönderme ve bir Azure veya şirket içi MQ server ve Azure Logic Apps ile iletileri alma
 author: valthom
-manager: anneta
-documentationcenter: 
-editor: 
-tags: connectors
-ms.assetid: 
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: valthom
 ms.date: 06/01/2017
-ms.author: valthom; ladocs
-ms.openlocfilehash: 24ea1ef4d3c6229707458ef2f2005f90d8273304
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 0877d0e9394d1a54eae5482001bd53da0e1a83b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609457"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>MQ Bağlayıcısı'nı kullanarak mantığı uygulamalardan bir IBM MQ sunucuya bağlanın 
 
@@ -48,7 +45,7 @@ MQ bağlayıcı aşağıdaki eylemleri içerir. Hiçbir Tetikleyicileri vardır.
 
 ## <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
 
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**. 
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**. 
 2. Girin **adı**, MQTestApp gibi **abonelik**, **kaynak grubu**, ve **konumu** (şirket içi veri ağ geçidi bağlantı yapılandırdığınız yerde konum kullanın). Seçin **panoya Sabitle**seçip **oluşturma**.  
 ![Mantıksal uygulama oluşturma](media/connectors-create-api-mq/Create_Logic_App.png)
 

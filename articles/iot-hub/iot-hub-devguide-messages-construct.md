@@ -1,24 +1,19 @@
 ---
 title: Azure IOT Hub ileti biçimi anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - descibes biçimi ve IOT hub'ı iletilerinin beklenen içerik.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: dobett
-ms.openlocfilehash: 5979c0d79a0abd9897fd3970ccea1d9ba07f9dfd
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1d84fa5ca580a1e56ba9ce17dece9ad9680c74c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633936"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Oluşturun ve IOT hub'ı iletileri okur
 
@@ -43,7 +38,7 @@ Aşağıdaki tabloda, IOT hub'ı iletileri Sistem özelliklerinde kümesini list
 
 | Özellik | Açıklama |
 | --- | --- |
-| MessageId |İstek-yanıt desenler için kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçimi: Büyük küçük harfe duyarlı dizesi (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakter + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| MessageID |İstek-yanıt desenler için kullanılan ileti için kullanıcı ayarlanabilir bir tanımlayıcı. Biçimi: Büyük küçük harfe duyarlı dizesi (en fazla 128 karakter uzunluğunda) ASCII 7 bit alfasayısal karakter + `{'-', ':',’.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
 | Sıra numarası |Her bulut cihaz iletiye IOT Hub tarafından atanan bir sayı (aygıt sırası benzersiz). |
 | Alıcı |Belirtilen bir hedef [bulut cihaz] [ lnk-c2d] iletileri. |
 | ExpiryTimeUtc |Tarih ve saat iletisi süre sonu. |
@@ -54,7 +49,7 @@ Aşağıdaki tabloda, IOT hub'ı iletileri Sistem özelliklerinde kümesini list
 | ConnectionDeviceId |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimliği. İçerdiği **DeviceID** iletiyi gönderen cihaz. |
 | ConnectionDeviceGenerationId |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimliği. İçerdiği **Generationıd** (göre [aygıt kimlik özellikleri][lnk-device-properties]) iletiyi gönderen cihaz. |
 | ConnectionAuthMethod |IOT Hub tarafından cihaz bulut iletilerini üzerinde ayarlanmış bir kimlik doğrulama yöntemi. Bu özellik, iletiyi göndermeyi cihazın kimliğini doğrulamak için kullanılan kimlik doğrulama yöntemi hakkında bilgi içerir. Daha fazla bilgi için bkz: [yanıltma bulut aygıta][lnk-antispoofing]. |
-| CreationTimeUtc | Tarih ve saat ileti bir aygıtta oluşturuldu. Bir aygıt bu değeri açıkça ayarlamanız gerekir. |
+| creationTimeUtc | Tarih ve saat ileti bir aygıtta oluşturuldu. Bir aygıt bu değeri açıkça ayarlamanız gerekir. |
 
 ## <a name="message-size"></a>İleti boyutu
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanı PostgreSQL için sunucu kavramlar"
-description: "Bu makalede, ilgili önemli noktalar ve yapılandırma ve Azure veritabanı PostgreSQL sunucuları yönetmeye yönelik yönergeler sağlar."
+title: Azure veritabanı PostgreSQL için sunucu kavramlar
+description: Bu makalede, ilgili önemli noktalar ve yapılandırma ve Azure veritabanı PostgreSQL sunucuları yönetmeye yönelik yönergeler sağlar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,14 +8,15 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 05/22/2018
+ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640022"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>PostgreSQL sunucuları için Azure Veritabanı
+# <a name="azure-database-for-postgresql-servers"></a>PostgreSQL için Azure Veritabanı sunucuları
 Bu makale, PostgreSQL sunucuları için Azure veritabanı ile çalışmak için önemli noktalar ve yönergeler sağlar.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>Azure veritabanı PostgreSQL sunucu için nedir?
@@ -45,13 +46,22 @@ Aşağıdaki öğeler veritabanınıza güvenli erişim sağlamaya yardımcı ol
 | **TCP/IP** | Protokol UNIX etki alanı Yuva üzerinden ve TCP/IP üzerinden desteklenir. |
 | **Güvenlik duvarı** | İznine sahip olan bilgisayarları belirttiğiniz kadar verilerinizin korunmasına yardımcı olmak için bir güvenlik duvarı kuralı tüm erişim sunucunuz ve veritabanlarını engeller. Bkz: [Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için](concepts-firewall-rules.md). |
 
-## <a name="how-do-i-manage-a-server"></a>Bir sunucu nasıl yönetebilirim?
+## <a name="managing-your-server"></a>Sunucunuzu Yönetme
 Azure veritabanı PostgreSQL sunucuları için kullanarak yönetebileceğiniz [Azure portal](https://portal.azure.com) veya [Azure CLI](/cli/azure/postgres).
+
+Bir sunucu oluşturulurken, yönetici kullanıcı için kimlik bilgilerini ayarlayın. Yönetici kullanıcı, sunucu üzerinde sahip yüksek ayrıcalık kullanıcıdır. Rol azure_pg_admin aittir. Bu rolün tam süper kullanıcı izinleri yok. 
+
+PostgreSQL süper kullanıcı özniteliği yönetilen hizmete ait azure_superuser atanır. Bu rol için erişim hakkınız yok.
+
+Azure veritabanı PostgreSQL sunucu için iki varsayılan veritabanı vardır: 
+- **postgres** -kez sunucunuza bağlanabilir, varsayılan bir veritabanı oluşturulur.
+- **azure_maintenance** -bu veritabanına kullanıcı eylemlerini yönetilen hizmetinden sağlamak işlemleri ayırmak için kullanılır. Bu veritabanına erişime sahip değil.
+
 
 ## <a name="server-parameters"></a>Sunucu parametreleri
 Sunucu yapılandırmasını PostgreSQL sunucu parametreleri belirleyin. Azure için veritabanında PostgreSQL, parametrelerin listesi görüntülenebilir ve Azure portalında veya Azure CLI kullanarak düzenlenebilir. 
 
-Postgres için Yönetilen hizmet olarak yapılandırılabilir Azure veritabanında PostgreSQL için bir alt kümesini yerel Postgres örneğinin parametrelerinde parametreleridir (Postgres parametreleri hakkında daha fazla bilgi için bkz: [PostgreSQL belgelerine](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Oluşturma sırasında her parametre için varsayılan değerlerle Azure veritabanınız PostgreSQL sunucu için etkin. Bir sunucu gerektirir parametreleri yeniden başlatın veya süper kullanıcı erişimi değişikliklerin etkili olması kullanıcı tarafından yapılandırılamaz.
+Postgres için Yönetilen hizmet olarak yapılandırılabilir Azure veritabanında PostgreSQL için bir alt kümesini yerel Postgres örneğinin parametrelerinde parametreleridir (Postgres parametreleri hakkında daha fazla bilgi için bkz: [PostgreSQL belgelerine](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Oluşturma sırasında her parametre için varsayılan değerlerle Azure veritabanınız PostgreSQL sunucu için etkin. Bir sunucu gerektiren bazı parametreler yeniden başlatın veya süper kullanıcı erişimi değişikliklerin etkili olması kullanıcı tarafından yapılandırılamaz.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

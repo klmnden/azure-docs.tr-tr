@@ -1,24 +1,19 @@
 ---
-title: "Azure IOT hub'ı iletişim protokolleri ve bağlantı noktaları | Microsoft Docs"
-description: "Geliştirici Kılavuzu - cihaz Bulut ve bulut-cihaz iletişimi ve açık bağlantı noktası numaraları için desteklenen iletişim protokolleri açıklar."
-services: iot-hub
-documentationcenter: .net
+title: Azure IOT hub'ı iletişim protokolleri ve bağlantı noktaları | Microsoft Docs
+description: Geliştirici Kılavuzu - cihaz Bulut ve bulut-cihaz iletişimi ve açık bağlantı noktası numaraları için desteklenen iletişim protokolleri açıklar.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 3fc5f1a3-3711-4611-9897-d4db079b4250
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: f115d1e7313d2c9d378129c021a37489674fe81f
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 0fe3dd719877dac23410ff1ca00d559636a5ed60
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633011"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Başvuru - iletişim protokolü seçin
 
@@ -27,7 +22,7 @@ IOT Hub cihaz tarafındaki iletişimleri için aşağıdaki protokolleri cihazla
 * [MQTT][lnk-mqtt]
 * WebSockets üzerinden MQTT
 * [AMQP][lnk-amqp]
-* AMQP WebSockets üzerinden
+* WebSockets üzerinden AMQP
 * HTTPS
 
 Bu protokollerin belirli IOT Hub özellikleri nasıl desteği hakkında daha fazla bilgi için bkz: [cihaz bulut iletişimleri Kılavuzu] [ lnk-d2c-guidance] ve [bulut-cihaz iletişimi Kılavuzu] [lnk-c2d-guidance].
@@ -60,7 +55,7 @@ Aygıtları çeşitli protokoller kullanarak Azure IOT Hub ile iletişim kurabil
 | MQTT |8883 |
 | WebSockets üzerinden MQTT |443 |
 | AMQP |5671 |
-| AMQP WebSockets üzerinden |443 |
+| WebSockets üzerinden AMQP |443 |
 | HTTPS |443 |
 
 Bir Azure bölgesinde bir IOT hub'ı oluşturduğunuzda, IOT hub'ı bu IOT hub'ın ömrü boyunca aynı IP adresini tutar. Ancak, Microsoft hizmet kalitesini korumak için farklı ölçek birimi için IOT hub'ı taşınırsa, yeni bir IP adresi atanmış olduğu.

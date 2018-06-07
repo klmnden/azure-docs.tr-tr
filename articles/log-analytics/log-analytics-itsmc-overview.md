@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da81d1455649f1e3f3ab43016df49953ce90e0ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637625"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>BT Hizmet Yönetimi Bağlayıcısı'nı kullanarak ITSM araçları Azure connect
 
@@ -98,7 +99,7 @@ ITSM araçlarınızı prepped sonra bir bağlantı oluşturmak için aşağıdak
 
     > [!NOTE]
 
-    > Varsayılan olarak, ITSMC 24 saatte bir kez bağlantının yapılandırma verileri yeniler. Hemen tüm düzenlemeler veya şablon için bağlantının verileri yenilemek için bağlantınızı yanında görüntülenen "Yenile" düğmesini tıklatın yaptığınız güncelleştirir.
+    > Varsayılan olarak, ITSMC 24 saatte bir kez bağlantının yapılandırma verileri yeniler. Herhangi bir düzenlemeler veya şablonun güncelleştirmelerinin için yaptığınız instantly, bağlantının verileri yenilemek için tıklatın **eşitleme** , bağlantının dikey düğmesi.
 
     ![Bağlantı yenileme](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
@@ -137,58 +138,6 @@ Azure uyarı kuralı oluşturma/düzenleme yaparken ITSM eylemi olan bir eylem g
 >[!NOTE]
 
 > ITSM eylemi fiyatlandırma hakkında daha fazla bilgi için bkz: [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/monitor/) Eylem grupları için.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-alerts"></a>Günlük analizi uyarılardan ITSM iş öğeleri oluşturma
-
-Uyarı kuralları, aşağıdaki yordamı kullanarak iş öğelerini ITSM aracında oluşturmak için Azure günlük analizi portalında yapılandırabilirsiniz.
-
-1. Gelen **günlük arama** penceresinde verileri görüntülemek için bir günlük arama sorgusunu çalıştırın. Sorgu sonuçları, iş öğeleri için kaynaktır.
-2. İçinde **günlük arama**, tıklatın **uyarı** açmak için **uyarı kuralı Ekle** sayfası.
-
-    ![Günlük analizi ekranı](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
-
-3. Üzerinde **uyarı kuralı Ekle** penceresinde sağlamak için gerekli ayrıntıları **adı**, **önem**, **arama sorgusu**, ve **uyarı Ölçüt** (zaman penceresi/ölçü ölçüm).
-4. Seçin **Evet** için **ITSM Eylemler**.
-5. ITSM bağlantınızı seçin **seçin bağlantı** listesi.
-6. Gerekli ayrıntıları belirtin.
-7. Bu uyarının her günlük girişinin için ayrı iş öğesi oluşturmak için seçin **her günlük girişinin için tek tek iş öğeleri oluşturma** onay kutusu.
-
-    Veya
-
-    Bu onay kutusunu günlük girişlerini bu uyarı altında herhangi bir sayıda için yalnızca bir iş öğesi oluşturmak için seçili bırakın.
-
-7. **Kaydet**’e tıklayın.
-
-Altında oluşturulan günlük analizi uyarı görüntüleyebilirsiniz **ayarlar > Uyarılar**. Belirtilen uyarının koşulu karşılandığında karşılık gelen ITSM bağlantı çalışma öğeleri oluşturulur.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-log-records"></a>Günlük analizi günlük kayıtlarından ITSM iş öğeleri oluşturma
-
-İş öğelerini bağlı ITSM kaynaklardan doğrudan bir günlük kaydı oluşturabilirsiniz. Bu bağlantının düzgün çalışıp çalışmadığını sınamak için kullanılabilir.
-
-
-1. Gelen **günlük arama**, gerekli verileri arama, ayrıntı seçin ve tıklatın **oluşturma çalışma öğesini**.
-
-    **ITSM iş öğesi oluşturma** penceresi görüntülenir:
-
-    ![Günlük analizi ekranı](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
-
-2.   Aşağıdaki ayrıntıları ekleyin:
-
-  - **İş öğesi başlık**: iş öğesi için başlık.
-  - **İş öğesi tanımı**: yeni çalışma öğesi için bir açıklama.
-  - **Bilgisayar etkilenen**: Bu günlük verileri nerede bulundu bilgisayarın adı.
-  - **Bağlantıyı seçin**: Bu iş öğesi oluşturmak istediğiniz ITSM bağlantı.
-  - **İş öğesi**: iş öğesi türü.
-
-3. Bir olay için var olan bir iş öğesi şablonunu kullanmak için tıklatın **Evet** altında **oluşturmak iş öğesi şablona dayalı** seçeneğini ve ardından **oluşturma**.
-
-    Veya
-
-    Tıklatın **Hayır** özelleştirilmiş değerlerinizi sağlamak istiyorsanız.
-
-4. Uygun değerleri sağlayın **kişi türündeki**, **etkisi**, **aciliyet**, **kategori**, ve **alt kategori** metin kutuları ve ardından **oluşturma**.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Görselleştirme ve olayı çözümlemek ve istek verileri değiştirme

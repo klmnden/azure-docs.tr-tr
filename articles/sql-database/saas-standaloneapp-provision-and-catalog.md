@@ -1,20 +1,21 @@
 ---
-title: "Çok kiracılı SaaS öğretici - Azure SQL veritabanı | Microsoft Docs"
-description: "Tek başına uygulama desenini kullanarak sağlama ve Katalog yeni kiracılar"
-keywords: "sql veritabanı öğreticisi"
+title: Çok kiracılı SaaS öğretici - Azure SQL veritabanı | Microsoft Docs
+description: Tek başına uygulama desenini kullanarak sağlama ve Katalog yeni kiracılar
+keywords: sql veritabanı öğreticisi
 services: sql-database
 author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: SaaS
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: billgib
-ms.openlocfilehash: 148a50d07d4cea7adda493b283766d22d26b81e2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 0f2495ddc5d5053582d67bd44cdf80d018f79e42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646162"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Sağlama ve Kiracı SaaS deseni başına uygulamayı kullanarak yeni kiracılar katalog
 
@@ -70,7 +71,7 @@ Bu görevde, tüm Kiracı veritabanları kaydetmek için kullanılan katalog haz
 * **Katalog veritabanı sağlama** bir Azure kaynak yönetimi şablonu kullanarak. Veritabanı bir bacpac dosyasını içeri aktararak başlatılır.  
 * **Örnek Kiracı uygulamaları kaydetmek** daha önce Dağıtılmış.  Her bir kiracı karmasını Kiracı adı oluşturulan bir anahtar kullanarak kayıtlı değil.  Kiracı adı da katalog uzantısı tablosunda depolanır.
 
-1. PowerShell ISE'yi açın *...\Learning Modules\UserConfig.psm* ve güncelleştirme  **\<kullanıcı\>**  değerini üç örnek uygulamaları dağıtırken kullandığınız değerle.  **Dosyayı kaydedin**.  
+1. PowerShell ISE'yi açın *...\Learning Modules\UserConfig.psm* ve güncelleştirme **\<kullanıcı\>** değerini üç örnek uygulamaları dağıtırken kullandığınız değerle.  **Dosyayı kaydedin**.  
 1. PowerShell ISE'yi açın *...\Learning Modules\ProvisionTenants\Demo-ProvisionAndCatalog.ps1* ve **$Scenario = 1**. Kiracı katalog dağıtmak ve önceden tanımlanmış kiracılar kaydedin.
 
 1. İmlecinizi herhangi bir yere şunu satırda koyarak kesme noktası ekleme `& $PSScriptRoot\New-Catalog.ps1`ve tuşuna basarak **F9**.
@@ -87,7 +88,7 @@ Komut dosyası tamamlandıktan sonra katalog mevcut olur ve tüm örnek kiracıl
 Şimdi, oluşturduğunuz kaynaklara bakın.
 
 1. Açık [Azure portal](https://portal.azure.com/) ve kaynak gruplarını göz atın.  Açık **wingtip-sa-katalog -\<kullanıcı\>**  kaynak grubu ve katalog sunucusu ve veritabanı not edin.
-1. Veritabanını seçin ve portal içinde açmak *Veri Gezgini* sol taraftaki menüden.  Oturum açma komutuna tıklayın ve sonra parolayı girin =  **P@ssword1** .
+1. Veritabanını seçin ve portal içinde açmak *Veri Gezgini* sol taraftaki menüden.  Oturum açma komutuna tıklayın ve sonra parolayı girin = **P@ssword1**.
 
 
 1. Şeması keşfedin *tenantcatalog* veritabanı.  

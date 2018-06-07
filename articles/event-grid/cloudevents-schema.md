@@ -6,13 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/22/2018
 ms.author: babanisa
-ms.openlocfilehash: 23187fbc230e384984085d330bfbfbc90cc9f945
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625602"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Olay kılavuzla CloudEvents şeması kullanma
 
@@ -123,7 +124,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. CloudEvent şeması için yapılandırılmış bir olay aboneliği ayrı ayrı her olay alır.
+Olayların toplu işleme CloudEvents geçerli sürümünü desteklemiyor. CloudEvent şeması için yapılandırılmış bir olay aboneliği ayrı ayrı her olay alır. Şu anda, olay CloudEvents şemada teslim edildiğinde bir Azure işlevleri uygulama için bir olay kılavuz tetikleyicisi kullanamazsınız. Bir HTTP tetikleyicisi kullanmanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

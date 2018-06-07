@@ -11,15 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 110297fd60b4a25f959b451f2952f32d66cb8c3e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5f47379072f4e5d15ffd96c5e45a23d10fff187
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620257"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API değişiklik günlüğü
 > [!NOTE]
@@ -42,9 +43,9 @@ Bu makale, belirli bir sürümü için Azure Data Factory SDK değişiklikler ha
 
 ## <a name="version-4100"></a>Sürüm 4.10.0
 * Aşağıdaki isteğe bağlı özellikler için TextFormat eklenmiştir:
-  * [SkipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
+  * [skipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
   * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
-  * [TreatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
+  * [treatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
 * Aşağıdaki bağlantılı hizmet türleri eklenmiştir:
   * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
   * [SalesforceLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.salesforcelinkedservice.aspx)
@@ -80,7 +81,7 @@ Bu makale, belirli bir sürümü için Azure Data Factory SDK değişiklikler ha
   * SQL Data Warehouse'a veri kopyalamak için PolyBase kullanımını etkinleştirir.
 
 ## <a name="version-461"></a>Sürüm 4.6.1
-### <a name="bug-fixes"></a>Hata Düzeltmeleri
+### <a name="bug-fixes"></a>Hata düzeltmeleri
 * Etkinlik pencerelerine listeleme için HTTP isteği giderir.
   * Kaynak grubu adı ve veri fabrikası adı istek yükü kaldırır.
 
@@ -137,7 +138,7 @@ Bu makale, belirli bir sürümü için Azure Data Factory SDK değişiklikler ha
   * [AzureDataLakeStoreSink](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestoresink.aspx)
 
 ## <a name="version-401"></a>4.0.1 sürümünü
-### <a name="breaking-changes"></a>Yeni değişiklikler
+### <a name="breaking-changes"></a>Hataya neden olan değişiklikler
 Aşağıdaki sınıflar yeniden adlandırılmıştır. 4.0.0 bırakmadan önce yeni adlarını sınıflarının özgün adlarını yoktu.
 
 | İçinde 4.0.0 adı | İçinde 4.0.1 adı |
@@ -150,10 +151,10 @@ Aşağıdaki sınıflar yeniden adlandırılmıştır. 4.0.0 bırakmadan önce y
 | SqlServerDataset |[SqlServerTableDataset](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.sqlservertabledataset.aspx) |
 
 ## <a name="version-400"></a>Sürüm 4.0.0
-### <a name="breaking-changes"></a>Yeni değişiklikler
+### <a name="breaking-changes"></a>Hataya neden olan değişiklikler
 * Aşağıdaki sınıflar/arabirimleri yeniden adlandırılmıştır.
 
-| Eski adı | Yeni bir ad |
+| Eski adı | Yeni ad |
 |:--- |:--- |
 | ITableOperations |[IDatasetOperations](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.idatasetoperations.aspx) |
 | Tablo |[Veri kümesi](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.dataset.aspx) |

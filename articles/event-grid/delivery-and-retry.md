@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625806"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Olay kılavuz ileti teslimi ve yeniden deneyin 
 
@@ -62,10 +63,10 @@ Olay kılavuz üstel geri alma yeniden deneme ilkesi olay teslimi için kullanı
 
 Olay kılavuz, küçük rasgele tüm yeniden deneme aralıkları ekler. Bir saat sonra saatte bir olay teslimi denenir.
 
-Varsayılan olarak, 24 saat içinde teslim edilmedi tüm olayları olay kılavuz süresi dolar.
+Olay kılavuz 24 saat içinde teslim edilmedi tüm olayları teslim çalışılıyor durdurur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Olay teslimler durumunu görüntülemek için bkz: [İzleyicisi olay kılavuz ileti teslimi](monitor-event-delivery.md).
-* Olay kılavuz giriş için bkz: [hakkında olay kılavuz](overview.md).
+* Event Grid’e giriş için bkz. [Event Grid hakkında](overview.md).
 * Hızlı bir şekilde olay Kılavuzu ile çalışmaya başlamak için bkz: [Azure olay kılavuz oluşturma ve rota özel olaylarla](custom-event-quickstart.md).

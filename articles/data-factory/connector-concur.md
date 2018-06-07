@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ad93d40f7d1a08b248ed4b8ceb744929aeb13c79
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e72736e13733b8b4e7dbdbb1cea5594f6631ca70
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617054"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Concur verilerini
 
@@ -51,7 +52,7 @@ Aşağıdaki özellikler Concur bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Concur** | Evet |
-| clientId | Concur Uygulama Yönetimi tarafından sağlanan uygulama client_id.  | Evet |
+| istemci kimliği | Concur Uygulama Yönetimi tarafından sağlanan uygulama client_id.  | Evet |
 | kullanıcı adı | Concur hizmete erişmek için kullandığınız kullanıcı adı.  | Evet |
 | password | Kullanıcı adı alanında sağlanan kullanıcı adı için karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1671659bee714b457693c668e259da948141d25e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0f15ab5a84a51f0a22b00b647046e5a15da469a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616371"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Amazon Market Web hizmetinden veri Kopyala
 
@@ -49,7 +50,7 @@ Aşağıdaki özellikler, Amazon Market Web bağlantılı hizmeti için destekle
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AmazonMWS** | Evet |
 | endpoint | Amazon MWS sunucunun (diğer bir deyişle, mws.amazonservices.com) uç noktası  | Evet |
-| marketplaceID | Verileri almak istediğiniz Amazon Market kimliği. Birden çok Market kimlikleri verileri almak için virgül ile ayırın (`,`). (that is, A2EUQ1WTGCTBG2)  | Evet |
+| marketplaceID | Verileri almak istediğiniz Amazon Market kimliği. Birden çok Market kimlikleri verileri almak için virgül ile ayırın (`,`). (diğer bir deyişle, A2EUQ1WTGCTBG2)  | Evet |
 | sellerID | Amazon satıcı kimliği  | Evet |
 | mwsAuthToken | Amazon MWS kimlik doğrulama belirteci. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | accessKeyId | Access anahtar verilere erişmek için kullanılan kimliği.  | Evet |

@@ -2,13 +2,12 @@
 title: Fatura ve günlük kullanım verileri faturalama Azure karşıdan | Microsoft Docs
 description: İndirme veya, Azure fatura faturayı ve günlük kullanım verilerini görüntülemek açıklar.
 keywords: Fatura Fatura, fatura indirme, azure fatura, azure kullanımı
-services: ''
+services: billing
 documentationcenter: ''
 author: genlin
 manager: tonguyen
 editor: ''
 tags: billing
-ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607421"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>İndirme veya Azure fatura faturayı ve günlük kullanım verilerini görüntüleme
 Faturanız dan indirebilirsiniz [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) veya e-posta ile gönderilen sahip. Günlük kullanımı indirmek için Git [Azure hesap Merkezi](https://account.azure.com/Subscriptions). Yalnızca belirli rolleri fatura fatura ve kullanım bilgilerini, Hesap Yöneticisi gibi alma iznine sahip. Fatura bilgilere erişim sağlama hakkında daha fazla bilgi için bkz: [rollerini kullanarak faturalama Azure erişimi yönetme](billing-manage-access.md).
 
 Bu makalede, Kurumsal Anlaşma (Kurumsal Sözleşme) müşteriler için geçerli değildir. EA müşteri değilseniz, faturalarınızı doğrudan kayıt Yöneticiler gönderilir.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>E-postayla (.pdf) faturanızı Al
 Kabul ve Azure almak için ek alıcılar yapılandırma fatura bir e-posta. Bu özellik için destek sunar, Kurumsal Anlaşma ya da Open ile Azure gibi belirli abonelikleri kullanılamayabilir.
@@ -39,13 +38,18 @@ Kabul ve Azure almak için ek alıcılar yapılandırma fatura bir e-posta. Bu �
     
 2. Tıklatın **kabul** ve koşulları kabul edin.
 
-    ![Katılımı akışını gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![Katılımı akış adım 2 gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. Anlaşmayı kabul ettiğiniz sonra ek alıcılar yapılandırabilirsiniz.
+3. Anlaşmayı kabul ettiğiniz sonra ek alıcılar yapılandırabilirsiniz. Bir alıcı kaldırıldığında, e-posta adresi artık depolanır. Fikrinizi değiştirirseniz, yeniden eklemeniz gerekir.
 
-    ![Katılımı akışını gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![Katılımı akış adım 3 gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 Bir e-posta adımları izledikten sonra alamazsanız e-posta adresinizi doğru olduğundan emin olun [iletişim tercihleri profilinizde](https://account.windowsazure.com/profile).
+
+### <a name="opt-out-from-getting-your-invoice-in-email"></a>E-postayla faturanızı alma çıkma
+Faturanız e-posta ile almak istemiyorsanız, e-postayla gönderilmiş faturalar çıkışı Opt'ı tıklatın. Bu e-postayla faturaları alacak şekilde ayarlanmış herhangi bir e-posta adresi kaldırır. İptal etmeyi seçerseniz, arkada alıcılar yeniden yapılandırmanız gerekir.
+
+ ![Vazgeçme akışını gösteren ekran görüntüsü](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Azure Portalı'ndan (.pdf) fatura indirin
 

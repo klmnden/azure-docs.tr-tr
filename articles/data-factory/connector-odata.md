@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d1de8baf725233bee30a14eca770e4f04e7a70b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f648bec7530260a6445f74b6d141140f728674ee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617170"
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Azure Data Factory kullanarak OData kaynağından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -133,7 +134,7 @@ OData veri kopyalamak için veri kümesi için tür özelliği ayarlamak **OData
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Veri kümesi türü özelliği ayarlamak: **ODataResource** | Evet |
-| yol | OData kaynak yolu. | Hayır |
+| yol | OData kaynak yolu. | Evet |
 
 **Örnek**
 
@@ -207,12 +208,12 @@ OData veri kopyalama işlemi sırasında aşağıdaki eşlemelerini OData veri t
 | OData veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
 | Edm.Binary | Byte] |
-| Edm.Boolean | Bool |
+| Edm.Boolean | bool |
 | Edm.Byte | Byte] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Ondalık |
 | Edm.Double | Çift |
-| Edm.Single | Bekar |
+| Edm.Single | Tek |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |

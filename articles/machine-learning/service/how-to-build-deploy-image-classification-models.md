@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637744"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Derleme ve Azure Machine Learning ile görüntü sınıflandırma modelleri dağıtma
 
@@ -227,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>DNN modelleri tanımlayın
 
 Aşağıdaki pretrained derin sinir ağı modeller bu paketle desteklenir: 
-+ AlexNet
 + Resnet 18
 + Resnet 34
 + Resnet 50
@@ -444,13 +444,9 @@ Kullanarak bir [Azure](https://azure.microsoft.com/) hesap geçerli bir abonelik
 + Geçerli model yönetim hesabı görmek için komutu kullanın:
   <br>`az ml account modelmanagement show`
 
-**Oluşturun ve dağıtım ortamınızı ayarlayın**
+**Oluşturun ve küme dağıtım ortamınızı ayarlayın**
 
 Yalnızca dağıtım ortamınızı bir kez ayarlamanız gerekir. Henüz yoksa, şimdi kullanarak dağıtım ortamınızı ayarlayın [bu yönergeleri](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
-
-Yerel veya doğru şekilde, gereksinimleri temelinde küme dağıtım kurulum adımlarını izleyin.
-+ Yerel dağıtımları, Linux ve Windows 10 için ancak Windows veri bilimi VM veya derin öğrenme VM için desteklenir. 
-+ Küme ortamı dağıtımları, Linux ve Windows için desteklenir. 
 
 Etkin dağıtım ortamınızı görmek için aşağıdaki CLI komutu kullanın:
 <br>`az ml env show`

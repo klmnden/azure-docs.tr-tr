@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 900f6a2a8e75cc43a3cfaa0c9e7b8d91f57ea20d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f5af46017dede0deac92ff5a7f35f17e083590d6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618615"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP Business Warehouse verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,7 +65,7 @@ Aşağıdaki özellikler SAP Business Warehouse (BW) bağlantılı hizmeti için
 | type | Type özelliği ayarlanmalıdır: **SapBw** | Evet |
 | sunucu | SAP BW örneği bulunduğu sunucunun adıdır. | Evet |
 | systemNumber | SAP BW sisteminin sistem numarası.<br/>İzin verilen değer: dize olarak temsil iki basamaklı bir ondalık sayı. | Evet |
-| clientId | SAP W sistem istemcisinde istemci kimliği.<br/>İzin verilen değer: dize olarak temsil üç basamaklı bir ondalık sayı. | Evet |
+| istemci kimliği | SAP W sistem istemcisinde istemci kimliği.<br/>İzin verilen değer: dize olarak temsil üç basamaklı bir ondalık sayı. | Evet |
 | Kullanıcı adı | SAP sunucusuna erişimi olan kullanıcı adı. | Evet |
 | password | Kullanıcının parolası. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
@@ -170,9 +171,9 @@ SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemelerini SAP BW veri
 | ACCP | Int |
 | CHAR | Dize |
 | CLNT | Dize |
-| CURR | Ondalık |
+| PB | Ondalık |
 | CUKY | Dize |
-| DEC | Ondalık |
+| ARA | Ondalık |
 | FLTP | Çift |
 | INT1 | Bayt |
 | INT2 | Int16 |
@@ -182,7 +183,7 @@ SAP BW veri kopyalama işlemi sırasında aşağıdaki eşlemelerini SAP BW veri
 | LRAW | Byte] |
 | PREC | Int16 |
 | QUAN | Ondalık |
-| RAW | Byte] |
+| HAM | Byte] |
 | RAWSTRING | Byte] |
 | DİZE | Dize |
 | BİRİM | Dize |

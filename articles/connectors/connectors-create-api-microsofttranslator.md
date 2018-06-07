@@ -1,26 +1,22 @@
 ---
-title: "Logic apps içinde Microsoft Translator ekleme | Microsoft Docs"
-description: "REST API parametrelerle Microsoft Translator bağlayıcı genel bakış"
-services: 
-suite: 
-documentationcenter: 
+title: Microsoft çevirmene - Azure mantıksal uygulamaları bağlanma | Microsoft Docs
+description: Metin çevirin ve diğer Microsoft Çeviricisi REST API'leri ve Azure Logic Apps ile dil görevleri
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: da782baf-8bf8-4973-8238-e469865f5328
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: cfowler
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 83d6324dce93fd9943cbd596c808abce23e5d432
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 9c1e20bff43ff459bf5bf9e265a38086829c1b7e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609622"
 ---
 # <a name="get-started-with-the-microsoft-translator-connector"></a>Microsoft Translator Bağlayıcısı ile çalışmaya başlama
 Metin çevirme, algılar ve bir dil için Microsoft Translator bağlayın. Microsoft Translator ile şunları yapabilirsiniz: 

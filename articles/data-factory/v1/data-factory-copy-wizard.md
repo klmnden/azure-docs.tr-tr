@@ -1,25 +1,26 @@
 ---
-title: "Veri Kopyalama Sihirbazı - Azure ile kolayca kopyalama | Microsoft Docs"
-description: "İç havuzlar için desteklenen veri kaynaklarından alınan verileri kopyalamak için Data Factory Kopyalama Sihirbazı'nı kullanma hakkında bilgi edinin."
+title: Veri Kopyalama Sihirbazı - Azure ile kolayca kopyalama | Microsoft Docs
+description: İç havuzlar için desteklenen veri kaynaklarından alınan verileri kopyalamak için Data Factory Kopyalama Sihirbazı'nı kullanma hakkında bilgi edinin.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8f618c6efd96fd74e88f56a378b9d73cfa47b8da
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621301"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopyalama veya Azure Data Factory Kopyalama Sihirbazı ile kolayca veri taşıma
 > [!NOTE]

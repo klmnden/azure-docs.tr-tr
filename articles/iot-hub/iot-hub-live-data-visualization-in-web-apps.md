@@ -1,25 +1,21 @@
 ---
 title: Azure IOT hub'ınızı – Web Apps algılayıcı verilerini gerçek zamanlı veri Görselleştirme | Microsoft Docs
 description: Algılayıcı toplanan ve IOT hub'ına gönderilen sıcaklık ve nem verileri görselleştirmek için Microsoft Azure App Service Web Apps özelliğini kullanın.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: gerçek zamanlı veri görselleştirme, dinamik veri görselleştirme algılayıcı verileri Görselleştirme
-ms.assetid: e42b07a8-ddd4-476e-9bfb-903d6b033e91
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 0edf72595f67dd9f6b33f9bfeaf4cd98405dc3ca
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3d127afa94b761d96db17bcb59700a275a44a265
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633749"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Azure App Service Web Apps özelliğini kullanarak Azure IOT hub'ınızı gerçek zamanlı algılayıcı verilerini görselleştirmek
 

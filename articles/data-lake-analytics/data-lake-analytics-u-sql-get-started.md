@@ -1,26 +1,23 @@
 ---
-title: U-SQL dili ile çalışmaya başlama | Microsoft Docs
-description: U-SQL dili temellerini öğrenin.
+title: Azure Data Lake Analytics U-SQL dili ile çalışmaya başlama
+description: Azure Data Lake Analytics U-SQL dilinde temellerini öğrenin.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/23/2017
-ms.author: saveenr
-ms.openlocfilehash: e7efdac8b032055b5344f34f5f9ad2679bddb107
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2903046154808da5113f7b32a04bbfba254a07ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623460"
 ---
-# <a name="get-started-with-u-sql"></a>U-SQL ile çalışmaya başlama
+# <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>U-SQL'de, Azure Data Lake Analytics ile çalışmaya başlama
 Bildirim temelli SQL kesinlik temelli izin için C# ile birleştiren bir dil olan U-SQL işlem herhangi ölçeğinde veri. U-SQL'nin ölçeklenebilir, dağıtılmış sorgu özelliği, Azure SQL veritabanı gibi ilişkisel depoları arasında veri verimli bir şekilde çözümleyebilirsiniz. U-SQL ile yapılandırılmamış veriler üzerinde okuma şema uygulama ve Özel mantık ve UDF'ler ekleme işleyebilir. Ayrıca, U-SQL ölçekte yürütmek nasıl üzerinde ayrıntılı denetim sağlar genişletilebilirlik içerir. 
 
 ## <a name="learning-resources"></a>Öğrenme kaynakları

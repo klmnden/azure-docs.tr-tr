@@ -1,24 +1,20 @@
 ---
-title: "Bulut için IOT DevKit: IOT MXChip DevKit Azure IOT Hub'ına bağlanmak | Microsoft Docs"
+title: Bulut için--IOT DevKit IOT MXChip DevKit Azure IOT Hub'ına bağlanmak | Microsoft Docs
 description: Bu öğreticide, algılayıcılar durumunu IOT DevKit AZ3166 üzerinde için Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı Gönder öğrenin.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631505"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı MXChip IOT DevKit Bağlan
 
@@ -40,7 +36,7 @@ Etkin bir Azure aboneliği. Bir yoksa, bu iki yöntemden biri kaydedebilirsiniz:
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Bir Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı oluşturma
 
-1. Git [Azure IOT çözüm acclerators site](https://www.azureiotsuite.com/) tıklatıp **yeni bir çözüm oluşturmak**.
+1. Git [Azure IOT Çözüm Hızlandırıcıları site](https://www.azureiotsolutions.com/) tıklatıp **yeni bir çözüm oluşturmak**.
   ![Azure IOT Çözüm Hızlandırıcısı türü seçin](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > Bir IOT Uzaktan izleme Çözüm Hızlandırıcısı oluşturduktan sonra varsayılan olarak, bu örnek S2 IOT hub'ı oluşturur. Bu IOT hub cihaz yoğun sayısı kullanılmazsa, S1 için S2 düşürmek ve artık ihtiyacınız olduğunda ilgili IOT hub'ı aynı zamanda, silinebilir şekilde IOT Uzaktan izleme Çözüm Hızlandırıcısı silme öneririz. 

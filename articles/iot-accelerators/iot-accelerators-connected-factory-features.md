@@ -1,29 +1,23 @@
 ---
 title: Fabrika çözüm özellikleri - Azure bağlı | Microsoft Docs
 description: Önceden yapılandırılmış Fabrika bağlı çözüm özelliklerine genel bakış.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 7ee86a59e7c47406ea1a890f1a9d1eb2ed4ad772
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626505"
 ---
-# <a name="what-is-azure-iot-suite-connected-factory"></a>Azure IOT paketi bağlı Fabrika nedir?
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>Bağlı Fabrika IOT Çözüm Hızlandırıcısı nedir?
 
-Bağlı Fabrika Microsoft'un Azure endüstriyel IOT başvuru mimarisi, açık kaynak çözümü olarak paketlenmiş bir uygulamasıdır. Ticari bir ürün için bir başlangıç noktası olarak kullanabilirsiniz. Azure aboneliğinizden içine bağlı Fabrika çözümü önceden oluşturulmuş bir sürümü dağıtabilirsiniz [Azure IOT paketi](https://www.azureiotsuite.com/#solutions/types/CF).
+Bağlı Fabrika Microsoft'un Azure endüstriyel IOT başvuru mimarisi, açık kaynak çözümü olarak paketlenmiş bir uygulamasıdır. Ticari bir ürün için bir başlangıç noktası olarak kullanabilirsiniz. Azure aboneliğinizden içine bağlı Fabrika çözümü önceden oluşturulmuş bir sürümü dağıtabilirsiniz [Azure IOT Çözüm Hızlandırıcıları](https://www.azureiotsolutions.com/#solutions/types/CF).
 
 ![Bağlı Fabrika çözüm Panosu](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
@@ -64,7 +58,7 @@ Bağlı Fabrika aşağıdaki özellikleri içerir:
 
 ## <a name="customizability"></a>Özelleştirilebilirliğini
 
-- [Özelleştirme](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md) belirli iş gereksinimlerini karşılamak için çözüm.
+- Belirli iş gereksinimlerini karşılamak için çözüm özelleştirin.
 - Tam çözüm kaynak kodu Github'da kullanılabilir. Bkz: [bağlı Fabrika önceden yapılandırılmış çözüm](https://github.com/Azure/azure-iot-connected-factory) deposu.
 
 ## <a name="next-steps"></a>Sonraki adımlar

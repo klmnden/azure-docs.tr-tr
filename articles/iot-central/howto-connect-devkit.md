@@ -1,18 +1,19 @@
 ---
 title: Azure IOT merkezi DevKit aygıt bağlamak | Microsoft Docs
 description: Cihaz geliştiricisi olarak, Azure IOT merkezi uygulamanıza MXChip IOT DevKit aygıt bağlayacağınızı öğrenin.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: af5cfc2f598893328bc8d4acc979f6d777114f99
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628802"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT merkezi uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -29,7 +30,7 @@ Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamaklar |
+| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
@@ -48,7 +49,7 @@ Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **
 
 Sayısal ayarları
 
-| Görüntüleme adı | Alan adı | Birimler | Ondalık basamaklar | Minimum | Maksimum | İlk |
+| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -56,30 +57,30 @@ Sayısal ayarları
 
 Geçiş ayarları
 
-| Görüntüleme adı | Alan adı | Metni | Metin kapalı | İlk |
+| Görünen ad | Alan adı | Metni | Metin kapalı | İlk |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AÇIK      | KAPALI      | Kapalı     |
 
 ### <a name="properties"></a>Özellikler
 
-| Tür            | Görüntüleme adı | Alan adı | Veri türü |
+| Tür            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | numarası    |
-| Mesaj gönder            | Konum     | konum   | Yok       |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
+| Metin            | Konum     | location   | Yok       |
 
 ### <a name="states"></a>durumları 
 
-| name          | Görüntüleme adı   | NORMAL | UYARI | TEHLİKE | 
+| Ad          | Görünen ad   | NORMAL | UYARI | TEHLİKE | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Cihaz durumu   | Yeşil  | Turuncu  | Kırmızı    | 
+| DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
 
 ### <a name="events"></a>Olaylar 
 
-| name             | Görüntüleme adı      | 
+| Ad             | Görünen ad      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | Basılan düğme B  | 
 
-### <a name="add-a-real-device"></a>Gerçek bir cihaz ekleme
+### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
 Azure IOT merkezi uygulamanızda gerçek bir aygıttan ekleyin **MXChip** cihaz şablonu ve cihaz bağlantı dizesini Not. Daha fazla bilgi için bkz: [gerçek bir cihazı Azure IOT merkezi uygulamanıza eklemek](tutorial-add-device.md).
 
@@ -200,4 +201,4 @@ Değiştirme, yapı ve örnek kod aygıtınıza karşıya yükleme hakkında dah
 
 Azure IOT merkezi uygulamanıza DevKit aygıta bağlanmayı öğrendiniz, önerilen sonraki adımlar şunlardır:
 
-* [Hazırlama ve Raspberry Pi'yi bağlanın](howto-connect-raspberry-pi-python.md)
+* [Raspberry Pi'yi hazırlama ve bağlama](howto-connect-raspberry-pi-python.md)

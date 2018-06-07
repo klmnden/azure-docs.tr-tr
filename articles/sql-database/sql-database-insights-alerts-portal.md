@@ -6,14 +6,15 @@ manager: craigg
 services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: aamalvea
-ms.openlocfilehash: 0c543ccf1d2104a83f7610bc870334b460ec40fb
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648032"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure SQL veritabanı ve veri ambarı için uyarıları oluşturmak için Azure portalını kullanma
 
@@ -80,9 +81,9 @@ Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 | SQL veritabanı | dtu_consumption_percent | DTU yüzdesi | Ortalama | 5 dakika |
 | SQL veritabanı | depolama | Toplam veritabanı boyutu | Maksimum | 30 dakika |
 | SQL veritabanı | connection_successful | Başarılı bağlantıları | Toplam | 10 dakika |
-| SQL veritabanı | connection_failed | Başarısız bağlantı sayısı | Toplam | 10 dakika |
+| SQL veritabanı | connection_failed | Başarısız Bağlantılar | Toplam | 10 dakika |
 | SQL veritabanı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
-| SQL veritabanı | Kilitlenme | Kilitlenmeleri | Toplam | 10 dakika |
+| SQL veritabanı | Kilitlenme | Kilitlenmeler | Toplam | 10 dakika |
 | SQL veritabanı | storage_percent | Veri boyutu yüzdesi | Maksimum | 30 dakika |
 | SQL veritabanı | xtp_storage_percent | Bellek içi OLTP depolama percent(Preview) | Ortalama | 5 dakika |
 | SQL veritabanı | workers_percent | Çalışanlar yüzdesi | Ortalama | 5 dakika |
@@ -105,10 +106,10 @@ Bir uyarı oluşturduktan sonra bunu seçebilirsiniz ve:
 | SQL Veri Ambarı | physical_data_read_percent | Veri G/Ç yüzdesi | Ortalama | 10 dakika |
 | SQL Veri Ambarı | depolama | Toplam veritabanı boyutu | Maksimum | 10 dakika |
 | SQL Veri Ambarı | connection_successful | Başarılı bağlantıları | Toplam | 10 dakika |
-| SQL Veri Ambarı | connection_failed | Başarısız bağlantı sayısı | Toplam | 10 dakika |
+| SQL Veri Ambarı | connection_failed | Başarısız Bağlantılar | Toplam | 10 dakika |
 | SQL Veri Ambarı | blocked_by_firewall | Güvenlik Duvarı tarafından engellendi | Toplam | 10 dakika |
 | SQL Veri Ambarı | service_level_objective | Veritabanının hizmet düzeyi hedefi | Toplam | 10 dakika |
-| SQL Veri Ambarı | dwu_limit | dwu limit | Maksimum | 10 dakika |
+| SQL Veri Ambarı | dwu_limit | dwu sınırı | Maksimum | 10 dakika |
 | SQL Veri Ambarı | dwu_consumption_percent | DWU yüzdesi | Ortalama | 10 dakika |
 | SQL Veri Ambarı | dwu_used | Kullanılan DWU | Ortalama | 10 dakika |
 ||||||

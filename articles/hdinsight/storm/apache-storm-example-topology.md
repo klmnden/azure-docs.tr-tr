@@ -4,7 +4,7 @@ description: Örnek Storm topolojileri listesi oluşturulur ve olay hub'larıyla
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 tags: azure-portal
 ms.assetid: f9b1bdff-5928-4705-a76d-52fd200917cb
@@ -12,13 +12,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/30/2018
 ms.author: larryfr
-ms.openlocfilehash: f633797147b2090680ebb5ea11f60271addc7f52
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 429373a27ad9be23b986116182a4eda80bace7f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626896"
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Örnek Storm topolojileri ve Hdınsight üzerinde Apache Storm bileşenleri
 
@@ -38,6 +39,11 @@ Oluşturulan ve Hdınsight üzerinde Apache Storm ile kullanılmak üzere Micros
 | [Hdınsight üzerinde Storm kullanarak Azure Event hubs'tan okumak için ölçeklenebilirlik değerlendirmeleri][d6c540e3] |İleti işleme, olay hub'ları, SQL veritabanı |C#, Java |
 | [Hdınsight üzerinde Storm ile Python kullanma](apache-storm-develop-python-topology.md) |Bir Flux topolojisi ile Python bileşenleri |Python |
 | [Hdınsight üzerinde Storm ile Kafka kullanın](../hdinsight-apache-storm-with-kafka.md) | Apache Storm okuma ve Apache Kafka yazma | Java |
+
+> [!WARNING]
+> C# örnekleri bu listedeki ilk olarak oluşturulan ve Windows tabanlı Hdınsight ve Mayıs doğru Linux tabanlı Hdınsight kümeleri ile çalışma test değil. Linux tabanlı kümelerde Mono .NET kodu çalıştırmak için kullanın ve örnekte kullanılan paketleri ve çerçeveleri uyumluluk sorunlarına sahip olabilir.
+>
+> Linux üzerinde Hdınsight sürüm 3.4 veya üstü kullanılan yalnızca işletim sistemidir.
 
 ### <a name="next-steps"></a>Sonraki Adımlar
 

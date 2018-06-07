@@ -1,19 +1,19 @@
 ---
 title: Azure IOT EdgeAgent ve EdgeHub başvurusu | Microsoft Docs
 description: Belirli özellikler ve değerlerinin edgeAgent ve edgeHub modülü çiftlerini için gözden geçirin
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 03/14/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 0971d5bba59ce3c7b1a6409ef3248f33a41e37c9
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+services: iot-edge
+ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632916"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge aracısı ve kenar hub modülü çiftlerini özellikleri
 
@@ -41,12 +41,12 @@ Edge Aracısı modülü twin adlı `$edgeAgent` ve bir cihaz ve IOT hub'ı çal�
 | systemModules.edgeHub.settings.image | Edge hub görüntüsü URI'si. | Evet |
 | systemModules.edgeHub.settings.createOptions | Edge hub kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
 | systemModules.edgeHub.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
-| modules.{moduleId}.version | Bu modül sürümü temsil eden kullanıcı tanımlı bir dize. | Evet |
+| modüller. {Moduleıd} .version | Bu modül sürümü temsil eden kullanıcı tanımlı bir dize. | Evet |
 | modules.{moduleId}.type | "Docker" olması gerekir | Evet |
 | modules.{moduleId}.restartPolicy | {"hiçbir zaman" \| "üzerinde başarısız oldu-" \| "üzerinde-sağlıksız" \| "her zaman"} | Evet |
-| modules.{moduleId}.settings.image | Modül görüntü URI'si. | Evet |
+| modüller. {Moduleıd}.settings.image | Modül görüntü URI'si. | Evet |
 | modules.{moduleId}.settings.createOptions | Modül kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
-| modules.{moduleId}.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
+| modüller. {Moduleıd}.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 
 ## <a name="edgeagent-reported-properties"></a>Özellikler EdgeAgent bildirdi
 
@@ -68,10 +68,10 @@ Aşağıdaki tabloda, istenen özelliklerinden kopyalandığında bilgileri içe
 | lastDesiredVersion | Bu tamsayı son kenar aracı tarafından işlenen istenen özellik sürümünü gösterir. |
 | lastDesiredStatus.code | Bu sınır aracı tarafından görülen son istenen özelliklerine başvuran durum kodudur. İzin verilen değerler: `200` başarılı, `400` geçersiz yapılandırma `412` geçersiz şema sürümüne `417` İstenen özelliklerde boş `500` başarısız oldu |
 | lastDesiredStatus.description | Durum metin açıklaması |
-| deviceHealth | `healthy` tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
+| DeviceHealth | `healthy` tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
 | configurationHealth.{deploymentId}.health | `healthy` {Deploymentıd} dağıtımı tarafından ayarlanmış olan tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
 | runtime.platform.OS | Aygıtta çalışan işletim sistemi raporlama |
-| runtime.platform.architecture | Cihazda raporlama CPU mimarisi |
+| Runtime.Platform.Architecture | Cihazda raporlama CPU mimarisi |
 | systemModules.edgeAgent.runtimeStatus | Edge Aracısı'nın bildirilen durum: {"çalışır" \| "sağlıksız"} |
 | systemModules.edgeAgent.statusDescription | Edge aracının bildirilen durumunu metin açıklaması. |
 | systemModules.edgeHub.runtimeStatus | Edge hub'ın geçerli durum: {"çalışır" \| "durduruldu" \| "başarısız" \| "geri Çekilme" \| "sağlıksız"} |
@@ -81,10 +81,10 @@ Aşağıdaki tabloda, istenen özelliklerinden kopyalandığında bilgileri içe
 | systemModules.edgeHub.lastExitTimeUtc | Zaman zaman kenar hub'ı son çıkıldı |
 | systemModules.edgeHub.lastRestartTimeUtc | Zaman kenar hub en son ne zaman yeniden başlatıldı |
 | systemModules.edgeHub.restartCount | Bu modül yeniden başlatma ilkesi bir parçası olarak yeniden sayısı. |
-| modules.{moduleId}.runtimeStatus | Modülün geçerli durum: {"çalışır" \| "durduruldu" \| "başarısız" \| "geri Çekilme" \| "sağlıksız"} |
+| modüller. {Moduleıd} .runtimeStatus | Modülün geçerli durum: {"çalışır" \| "durduruldu" \| "başarısız" \| "geri Çekilme" \| "sağlıksız"} |
 | modules.{moduleId}.statusDescription | Sağlıksız durumunda modülünü geçerli durumunu metin açıklaması. |
 | modules.{moduleId}.exitCode | Çıktı, çıkış kodu modülü kapsayıcı tarafından bildirilen varsa |
-| modules.{moduleId}.startTimeUtc | Modül son başlatıldığı zaman |
+| modüller. {Moduleıd} .startTimeUtc | Modül son başlatıldığı zaman |
 | modules.{moduleId}.lastExitTimeUtc | Zaman zaman modülü son çıkıldı |
 | modules.{moduleId}.lastRestartTimeUtc | Zaman modülü en son ne zaman yeniden başlatıldı |
 | modules.{moduleId}.restartCount | Bu modül yeniden başlatma ilkesi bir parçası olarak yeniden sayısı. |
@@ -96,7 +96,7 @@ Edge hub'ına yönelik modülü twin adlı `$edgeHub` ve bir cihaz ve IOT hub'ı
 | Özellik | Açıklama | Dağıtım bildiriminde gerekli |
 | -------- | ----------- | -------- |
 | schemaVersion | "1.0" olması gerekir | Evet |
-| routes.{routeName} | Bir sınır hub yolunu temsil eden dize. | `routes` Öğesi var ancak boş olabilir. |
+| yollar. {Routetablename} | Bir sınır hub yolunu temsil eden dize. | `routes` Öğesi var ancak boş olabilir. |
 | storeAndForwardConfiguration.timeToLiveSecs | Edge hub IOT hub'ı veya yerel modül bağlantısı kesilmiş iletileri bağlantısı kesilmiş yönlendirme uç noktaları, örneğin, durumunda tutar saniye cinsinden zaman | Evet |
 
 ## <a name="edgehub-reported-properties"></a>Özellikler EdgeHub bildirdi

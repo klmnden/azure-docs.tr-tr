@@ -10,23 +10,24 @@ ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ea5d658b8f465b3a527033ef5e9d2126732c7029
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3f1bc925b772265a9f72c34f5ac661088123bb1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626146"
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Azure veri Kataloğu'nda Data Lake Store verileri kaydetme
-Bu makalede Azure Data Lake Store veri Kataloğu ile tümleştirerek verilerinizin kuruluş içindeki bulunabilmesini sağlamak için Azure veri Kataloğu ile tümleştirmek öğreneceksiniz. Veri katalog daha fazla bilgi için bkz: [Azure veri Kataloğu](../data-catalog/data-catalog-what-is-data-catalog.md). Veri Kataloğu, kullanabileceğiniz senaryoları anlamak için bkz: [Azure veri Kataloğu genel senaryoları](../data-catalog/data-catalog-common-scenarios.md).
+Bu makalede, Azure Data Lake Store veri Kataloğu ile tümleştirerek verilerinizin kuruluş içindeki bulunabilmesini sağlamak için Azure veri Kataloğu ile tümleştirmek öğreneceksiniz. Veri katalog daha fazla bilgi için bkz: [Azure veri Kataloğu](../data-catalog/data-catalog-what-is-data-catalog.md). Veri Kataloğu, kullanabileceğiniz senaryoları anlamak için bkz: [Azure veri Kataloğu genel senaryoları](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
 * **Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure aboneliğinizi etkinleştirme** Data Lake Store genel önizlemesi için. Bkz. [yönergeler](data-lake-store-get-started-portal.md).
-* **Azure Data Lake Store hesabı**. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın. Bu öğretici için bize adlı bir Data Lake Store hesabı oluşturmak **datacatalogstore**.
+* **Azure Data Lake Store hesabı**. [Azure Portal'ı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md) bölümündeki yönergeleri uygulayın. Bu öğretici için adlı bir Data Lake Store hesabı oluşturmak **datacatalogstore**.
 
     Hesabı oluşturduktan sonra bir örnek veri kümesi için karşıya yükleme. Bu öğretici için bize altındaki tüm .csv dosyaları karşıya **AmbulanceData** klasöründe [Azure Data Lake Git deposu](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Çeşitli istemciler gibi kullanabilir [Azure Storage Gezgini](http://storageexplorer.com/), verileri bir blob kapsayıcıya yüklemek için.
 * **Azure veri Kataloğu**. Kuruluşunuz zaten bir Azure veri Kataloğu, kuruluşunuz için oluşturulmuş olması gerekir. Yalnızca bir katalog her kuruluş için izin verilir.
@@ -55,12 +56,12 @@ Bu öğreticiye başlamadan önce aşağıdakilere sahip olmanız gerekir:
 
     b. **Kullanılabilir nesneler** kutusu listeler altındaki dosya ve klasörler **AmbulanceData** klasör.
 
-    c. **Kayıtlı kutusunu olacak nesneleri** Azure veri Kataloğu'nda kaydetmek istediğiniz klasörleri ve dosyaları listeler.
+    c. **Kaydedilecek nesneler** kutusu Azure veri Kataloğu'nda kaydetmek istediğiniz klasörleri ve dosyaları listeler.
 
     ![Veri yapısı görüntülemek](./media/data-lake-store-with-data-catalog/view-data-structure.png "görüntülemek veri yapısı")
 8. Bu öğreticide, dizindeki tüm dosyaları kaydetmelisiniz. Bunun için tıklatın (![nesneleri taşıma](./media/data-lake-store-with-data-catalog/move-objects.png "nesneleri taşıma")) tüm dosyaların taşınacağı düğmesi **kaydedilecek nesneler** kutusu.
 
-    Verileri bir kuruluş genelinde veri Kataloğu'nda kayıtlı olması için bunu daha sonra verileri hızla bulmak için kullanabileceğiniz bazı meta verileri eklemek için bir maskelenmesi önerilen yaklaşımdır. Örneğin, veri sahibi (örneğin, kimse karşıya veri yükleme) bir e-posta adresi ekleyebilir veya verileri tanımlamak için bir etiket ekleyebilirsiniz. Aşağıdaki ekran görüntüsünde verileri eklediğimiz bir etiket gösterir.
+    Verileri bir kuruluş genelinde veri Kataloğu'nda kayıtlı olması nedeniyle, daha sonra verileri hızla bulmak için kullanabileceğiniz bazı meta verileri eklemek için önerilen yaklaşımdır. Örneğin, veri sahibi (örneğin, kimse karşıya veri yükleme) bir e-posta adresi ekleyebilir veya verileri tanımlamak için bir etiket ekleyebilirsiniz. Aşağıdaki ekran görüntüsünde, verileri eklediğinizde bir etiket gösterir.
 
     ![Veri yapısı görüntülemek](./media/data-lake-store-with-data-catalog/view-selected-data-structure.png "görüntülemek veri yapısı")
 

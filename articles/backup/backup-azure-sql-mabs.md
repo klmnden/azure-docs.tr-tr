@@ -1,24 +1,19 @@
 ---
-title: "Azure yedekleme sunucusu kullanarak SQL Server iş yükleri için Azure yedeklemeyi | Microsoft Docs"
-description: "Azure yedekleme sunucusu kullanarak SQL Server veritabanlarını yedekleme için bir giriş"
+title: Azure yedekleme sunucusu kullanarak SQL Server iş yükleri için Azure yedekleme
+description: Azure yedekleme sunucusu kullanarak SQL Server veritabanlarını yedekleme için bir giriş
 services: backup
-documentationcenter: 
 author: pvrk
 manager: Shivamg
-editor: 
-ms.assetid: c8b1f7ec-26b1-4ef0-a3f2-91aec959daea
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 2af9ebaa8f52690ed63406cbd85b77544d2d900d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d0fc66ff81672116d3d98ee9970456515ab3c9e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606401"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Azure ile Azure yedekleme sunucusu için SQL Server'ı Yedekle
 Bu makalede Microsoft Azure yedekleme sunucusu (MABS) kullanarak SQL Server veritabanlarını yedekleme için yapılandırma adımlarını size yol gösterir.
@@ -97,7 +92,7 @@ Başlamadan önce şunları yapın [yüklü ve Azure yedekleme sunucusu hazırla
 
 13. Bekletme İlkesi zamanlamayı seçin. Bekletme İlkesi nasıl çalıştığı hakkında bilgi sırasında sağlanan [bant altyapısı Makalenizi değiştirmek için Azure Yedekleme'yi](backup-azure-backup-cloud-as-tape.md).
 
-    ![Bekletme İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Saklama İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Bu örnekte:
 

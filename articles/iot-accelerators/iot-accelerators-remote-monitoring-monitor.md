@@ -1,24 +1,21 @@
 ---
 title: Uzaktan izleme çözümünde - Azure izleme Gelişmiş | Microsoft Docs
 description: Bu öğretici, cihazları Uzaktan izleme çözüm panosunu ile izleme gösterir.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627408"
 ---
-# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Gelişmiş Uzaktan izleme çözümü kullanarak izleme gerçekleştirme
+# <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>Gelişmiş Uzaktan izleme çözümünü kullanarak izleme gerçekleştirme
 
 Bu öğretici Uzaktan izleme Panosu özelliklerini gösterir. Bu özellikler tanıtmak için öğretici senaryo Contoso IOT uygulamada kullanır.
 
@@ -37,7 +34,7 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu öğreticiyi izlemek için Azure aboneliğinizde Uzaktan izleme çözümü dağıtılan bir örneğini gerekir.
 
-Uzaktan izleme çözümü dağıtılan henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
+Uzaktan izleme çözümü dağıtılmış henüz henüz tamamlanmış olmalıdır, [Uzaktan izleme Çözüm Hızlandırıcısı dağıtmak](iot-accelerators-remote-monitoring-deploy.md) Öğreticisi.
 
 ## <a name="choose-the-devices-to-display"></a>Cihazları görüntülemek için seçin
 
@@ -103,7 +100,7 @@ Kullanabileceğiniz **Pano** KPI toplama zaman aralığı ayarlamak için filtre
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğretici nasıl kullanılacağı gösterilmiştir **Pano** filtre ve Uzaktan izleme çözümünde sağlanan benzetimli kamyonlar izlemek için sayfa:
+Bu öğretici nasıl kullanılacağı gösterilmiştir **Pano** filtre ve Uzaktan izleme çözümünüz içinde sağlanan benzetimli kamyonlar izlemek için sayfa:
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

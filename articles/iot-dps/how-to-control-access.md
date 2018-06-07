@@ -1,23 +1,19 @@
 ---
-title: "IOT cihaz sağlama hizmetindeki güvenlik uç noktaları | Microsoft Docs"
-description: "Kavramlar - arka uç uygulamalar için IOT cihaz sağlama hizmete erişimi denetleme. Güvenlik belirteçleri hakkında bilgi içerir."
-services: iot-dps
-documentationcenter: .net
+title: IOT cihaz sağlama hizmetindeki güvenlik uç noktaları | Microsoft Docs
+description: Kavramlar - arka uç uygulamalar için IOT cihaz sağlama hizmete erişimi denetleme. Güvenlik belirteçleri hakkında bilgi içerir.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-dps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-dps
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.author: dkshir
+ms.openlocfilehash: e33f6b61f757c9d7f6a773141ad0deea363be2b7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629397"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IOT Hub cihaz sağlama hizmeti erişimi denetleme
 

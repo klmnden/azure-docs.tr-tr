@@ -1,24 +1,20 @@
 ---
 title: Azure IOT Hub cihaz Yönetimi (Python) ile çalışmaya başlama | Microsoft Docs
 description: IOT Hub cihaz yönetimine uzak aygıt yeniden başlatma işlemi başlatmak için nasıl kullanılacağını. Python için Azure IOT SDK'sı, doğrudan bir yöntem içeren bir sanal cihaz uygulamasının ve doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak için kullanın.
-services: iot-hub
-documentationcenter: .net
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.date: 01/02/2018
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: 001a5d180e2b97894174ba7c63ec3947c9968364
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: kgremban
+ms.openlocfilehash: fa966ee2ea26cccc7d841a0e969d8329ac5bc0de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635296"
 ---
 # <a name="get-started-with-device-management-python"></a>Aygıt Yönetimi (Python) ile çalışmaya başlama
 

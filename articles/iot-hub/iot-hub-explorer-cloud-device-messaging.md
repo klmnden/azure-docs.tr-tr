@@ -1,25 +1,21 @@
 ---
 title: Azure IOT Hub bulut cihaz iothub-Gezgini ile Mesajlaşma yönetme | Microsoft Docs
 description: Bulut (D2C) iletileri ve bulut Azure IOT Hub cihaz (C2D) iletileri göndermek için İzleyici aygıta iothub-explorer CLI aracı kullanmayı öğrenin.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
+manager: ''
 keywords: ileti, cihaz, cihaz ileti bulut IOT hub'ı buluta bulut cihaz ıothub Gezgini
-ms.assetid: 04521658-35d3-4503-ae48-51d6ad3c62cc
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: ed15f7749676d8a7f0c2ef8b23e238f7bc90e341
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: cd8456efb4d8e0b84695f97d379a1ea83e19aba2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634242"
 ---
 # <a name="use-iothub-explorer-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Aygıt ve IOT hub'ı arasında ileti gönderme ve alma için iothub-Gezgini'ni kullanın
 

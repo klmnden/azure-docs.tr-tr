@@ -1,25 +1,22 @@
 ---
-title: "Excel bağlayıcısını ekleyin | Microsoft Docs"
-description: "REST API parametreleri Excel bağlayıcısıyla genel bakış"
-services: 
-documentationcenter: 
+title: Microsoft Excel - Azure mantıksal uygulamaları bağlanma | Microsoft Docs
+description: Microsoft Excel REST API'leri ve Azure Logic Apps ile verileri yönetme
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: 03af8652-9223-4348-9490-602872a680f0
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: cfowler
+ms.author: estfan
 ms.date: 08/23/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 774cf3134e36c50e181a562019cbab3e6de1249d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 6de26803d37efad80df5a001d33afc8d2d767bc1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34610421"
 ---
 # <a name="get-started-with-the-excel-connector"></a>Excel Bağlayıcısı ile çalışmaya başlama
 Logic Apps içinde hiçbir Excel bağlayıcı yoktur. 

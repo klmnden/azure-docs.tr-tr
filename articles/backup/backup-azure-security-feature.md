@@ -1,24 +1,19 @@
 ---
-title: Azure Yedekleme'yi karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri | Microsoft Docs
+title: Azure Yedekleme'yi karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri
 description: Güvenlik özellikleri yedeklemeleri daha güvenli hale getirmek için Azure Backup ile kullanmayı öğrenin
 services: backup
-documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: ''
-ms.assetid: 47bc8423-0a08-4191-826d-3f52de0b4cb8
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.openlocfilehash: 2529d19dbf0ca0fb59f5abe48be3e8b14e862e29
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 11483cd87600ef8b10c2c7492e2434b9ab97149e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606214"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Yedekleme'yi karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri
 Kötü amaçlı yazılım, yazılımı ve yetkisiz erişim, gibi güvenlik sorunları hakkında endişeleriniz artmaktadır. Bu güvenlik sorunları para ve veri açısından pahalı olabilir. Bu tür saldırılara karşı koruma sağlamak için Azure yedekleme karma yedeklemeleri korunmasına yardımcı olmak için güvenlik özellikleri sağlar. Bu makalede, etkinleştirme ve Azure kurtarma Hizmetleri aracısını ve Azure yedekleme Sunucusu'nu kullanarak bu özellikleri kullanan alınmaktadır. Bu özellikler şunlardır:

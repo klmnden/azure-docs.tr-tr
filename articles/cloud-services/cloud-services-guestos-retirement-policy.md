@@ -1,11 +1,11 @@
 ---
-title: "Desteklenebilirlik ve kullanımdan kaldırma ilkesi için Azure konuk işletim kılavuzu | Microsoft Docs"
-description: "Hangi Microsoft olarak yönlendirilmesinin Azure konuk işletim sistemine bulut Hizmetleri tarafından kullanılan destekleyecek hakkında bilgi sağlar."
+title: Desteklenebilirlik ve kullanımdan kaldırma ilkesi için Azure konuk işletim kılavuzu | Microsoft Docs
+description: Hangi Microsoft olarak yönlendirilmesinin Azure konuk işletim sistemine bulut Hizmetleri tarafından kullanılan destekleyecek hakkında bilgi sağlar.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608571"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure konuk işletim sistemi desteklenebilirlik ve kullanımdan kaldırma İlkesi
 Bu sayfadaki bilgiler Azure konuk işletim sistemi için ilgili ([konuk işletim sistemi](cloud-services-guestos-update-matrix.md)) bulut Hizmetleri worker ve web rolleri (PaaS). Sanal makineler (Iaas) için geçerli değildir.
@@ -33,9 +34,7 @@ Microsoft olan bir yayımlanan [konuk işletim sistemi için destek ilkesi](http
 
 Bazen, birden çok iki ailesi ya da sürümlerden desteklenmiyor olabilir. Resmi konuk işletim sistemi destek bilgileri görüntülenecek [Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi](cloud-services-guestos-update-matrix.md).
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>Bir konuk işletim sistemi ailesi veya sürüm ne zaman devre dışı bırakıldı
-Yeni bir konuk işletim sistemi **ailesi** süre Windows Server işletim sisteminin yeni bir resmi sürüm yayımlandıktan sonra sunulmuştur. Yeni bir konuk işletim sistemi ailesi sunulan olduğunda, Microsoft en eski konuk işletim sistemi ailesi devre dışı bırakma.
-
+## <a name="when-a-guest-os-version-is-retired"></a>Bir konuk işletim sistemi sürümü ne zaman devre dışı bırakıldı
 Yeni konuk işletim sistemi **sürümleri** en son MSRC güncelleştirmeleri içerecek şekilde ayda hakkında sunulur. Normal aylık güncelleştirmeleri nedeniyle bir konuk işletim sistemi sürümü normalde yaklaşık 60 gün sonra yayınlandığı devre dışı. Bu etkinlik kullanılabilir her ailesi için en az iki konuk işletim sistemi sürümleri tutar.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>İşlem sırasında bir konuk işletim sistemi ailesi devre dışı bırakma

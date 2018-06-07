@@ -1,24 +1,19 @@
 ---
-title: Azure sanal makine yedekleme hatalarıyla ilgili sorunları giderme | Microsoft Docs
+title: Azure sanal makine yedekleme hatalarıyla ilgili sorunları giderme
 description: Yedekleme ve geri yükleme Azure sanal makinelerin sorun giderme
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 73214212-57a4-4b57-a2e2-eaf9d7fde67f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/21/2018
-ms.author: trinadhk;markgal;jpallavi;sogup
-ms.openlocfilehash: 25008736dbff87aafe2f2ef2d13bbaf746e95e4d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: trinadhk
+ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607268"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure sanal makine yedekleme sorunlarını giderme
 Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında oluşan hatalar giderebilirsiniz.
@@ -30,7 +25,7 @@ Azure Backup bilgileri kullanarak, aşağıdaki tabloda listelenen sırasında o
 | VM Aracısı Azure Backup hizmetiyle iletişim kuramıyor. -VM ağ bağlantısı olduğunu ve VM Aracısı en son ve çalıştığından emin olun. Daha fazla bilgi için lütfen  http://go.microsoft.com/fwlink/?LinkId=800034 |Bu hata, VM Aracısı ile ilgili bir sorun veya başka bir yolla Azure altyapısı için ağ erişim engellendi atılır. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup) sorunları VM'yi hata ayıklama hakkında anlık görüntüsünü alın.<br> VM Aracısı sorunları neden, VM'yi yeniden başlatın. Bazen yanlış bir VM durum sorunlara neden olabilir ve VM'yi yeniden başlatırken bu "bozuk" sıfırlar. |
 | Başarısız sağlama durumda VM - Lütfen VM'yi yeniden başlatın ve VM yedekleme için çalışıyor veya kapatma durumda olduğundan emin olun | Bu durum, bir uzantı hataları VM sağlama başarısız durumunda olması durumuna müşteri adayları oluşur. Uzantılar listesine gidin ve başarısız bir uzantısı olup olmadığını, kaldırmak ve sanal makineyi yeniden başlatmayı deneyin. Tüm uzantıları çalışır durumda olduğundan, VM aracısı hizmetinin çalışıp çalışmadığını denetleyin. Aksi durumda, VM Aracısı hizmetini yeniden başlatın. | 
 | VMSnapshot uzantısı işlemi için yönetilen diskleri - başarısız oldu Lütfen yedekleme işlemini yeniden deneyin. Sorun devam ederse bölümündeki yönergeleri izleyin 'http://go.microsoft.com/fwlink/?LinkId=800034'. Daha fazla başarısız olursa, lütfen Microsoft Destek'e başvurun | Bir anlık görüntü tetiklemek Azure Backup hizmeti başarısız olduğunda bu hata oluştu. [Daha fazla bilgi edinin](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vmsnapshot-extension-operation-failed) sorunları VM hata ayıklama hakkında anlık görüntüsünü alın. |
-| Kopyalama anlık görüntü depolama hesabındaki - yeterli boş alan nedeniyle sanal makinenin depolama hesabı mevcut sanal makineye bağlı premium depolama disklerdeki verileri eşdeğer boş alan olduğundan emin | Premium VM'ler durumunda biz anlık görüntü depolama hesabına kopyalayın. Bu anlık görüntü üzerinde çalışır, yedekleme yönetim trafiği premium diskleri kullanarak uygulama kullanılabilir IOPS sayısı sınırı değil emin olmaktır. Microsoft Azure Backup hizmeti, kasaya depolama hesabındaki kopyalanan bu konumdan, depolama hesabı ve aktarım veri anlık görüntü kopyalayabilmeniz için toplam depolama hesabı alanı % 50'yalnızca tahsis önerir. | 
+| Kopyalama anlık görüntü depolama hesabındaki - yeterli boş alan nedeniyle sanal makinenin depolama hesabı mevcut sanal makineye bağlı premium depolama disklerdeki verileri eşdeğer boş alan olduğundan emin | Yığında VM yedekleme V1 Premium VM'ler durumunda biz anlık görüntü depolama hesabına kopyalayın. Bu anlık görüntü üzerinde çalışır, yedekleme yönetim trafiği premium diskleri kullanarak uygulama kullanılabilir IOPS sayısı sınırı değil emin olmaktır. Azure Backup hizmeti, kasaya depolama hesabındaki kopyalanan bu konumdan, depolama hesabı ve aktarım veri anlık görüntü kopyalayabilmeniz için Microsoft yalnızca % 50 (17,5 TB) ayırın toplam depolama hesabı alan önerir. | 
 | VM aracısı yanıt verebilir durumda olmadığından işlem gerçekleştirilemiyor |Bu hata, VM Aracısı ile ilgili bir sorun veya başka bir yolla Azure altyapısı için ağ erişim engellendi atılır. Windows VM'ler için hizmetleri ve Aracısı'nı Denetim Masası'ndaki Programlar görüntülenip VM aracısı hizmet durumunu denetleyin. Program denetiminden kaldırmayı deneyin paneli ve belirtildiği gibi aracıyı yeniden yükleme [aşağıda](#vm-agent). Aracıyı yeniden yükledikten sonra doğrulamak için geçici bir yedeklemeyi tetikleyin. |
 | Kurtarma Hizmetleri Uzantısı işlemi başarısız oldu. -Lütfen en son sanal makine Aracısı sanal makinede bulunduğundan ve aracı hizmetinin çalıştığından emin olun. Lütfen yedekleme işlemini yeniden deneyin ve başarısız olursa, Microsoft Destek'e başvurun. |VM Aracısı güncel olduğunda bu hata oluşturulur. VM Aracısı'nı güncelleştirmek için aşağıdaki "VM aracısını güncelleştirme" bölümüne bakın. |
 | Sanal makine yok. -Lütfen sanal makinenin var olduğundan emin olun veya farklı bir sanal makine seçin. |Bu, birincil VM silindiği, ancak yedekleme gerçekleştirmek bir VM için aramak yedekleme ilkenizi devam durumlarda gerçekleşir. Bu hatayı düzeltmek için: <ol><li> Aynı kaynak grubu adı [bulut hizmet adı] ve aynı ada sahip sanal makine oluşturun<br>(VEYA)<br></li><li>Yedekleme verilerini silmeden sanal makine korumasını durdurun. [Daha fazla ayrıntı](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |

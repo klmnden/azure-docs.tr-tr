@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a34a4be75488aca46fe232331e4bac3e0ac414b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637778"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux için Nagios ve günlük analizi OMS aracısından Zabbix uyarılarını Topla 
 [Nagios](https://www.nagios.org/) ve [Zabbix](http://www.zabbix.com/) olan açık kaynak izleme araçları. Uyarıları bu Araçları'ndan günlük analizi ile birlikte çözümlemek için toplayabilirsiniz [diğer kaynaklardan uyarıları](log-analytics-alerts.md).  Bu makalede, bu sistemlerden uyarılarını toplamak Linux için OMS aracısının yapılandırma açıklar.
@@ -56,7 +57,7 @@ Uyarılarını toplamak için Nagios sunucusunda aşağıdaki adımları gerçek
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Zabbix uyarı koleksiyonunu yapılandırma
-Zabbix sunucudan uyarılarını toplamak için bir kullanıcı ve parola belirtmeniz gerekir *açık metin*.  Değil ideal olsa da, kullanıcı oluşturmak ve onlu izlemek için izinleri öneririz.
+Zabbix sunucudan uyarılarını toplamak için bir kullanıcı ve parola belirtmeniz gerekir *açık metin*.  Değil ideal olsa da, ilgili uyarıları yakalamak için salt okunur izinlerle Zabbix kullanıcı oluşturmanızı öneririz.
 
 Nagios sunucuda uyarılarını toplamak için aşağıdaki adımları gerçekleştirin.
 
@@ -73,7 +74,7 @@ Nagios sunucuda uyarılarını toplamak için aşağıdaki adımları gerçekle�
 
 2. Omsagent arka plan programı yeniden başlatın
 
-    sudo Paylaş /opt/microsoft/omsagent/bin/service_control yeniden başlatın
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>Uyarı kaydeder

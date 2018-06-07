@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 312072a5de21ff1c6b602fed93b77c564b15a9f1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 61d53e0d5f32f40b67f5b2d4ce888b047f8c4cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619720"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir işlem hattı atlayan pencere üzerinde çalışan bir Tetikleyici oluşturma
 Bu makalede oluşturma, başlatma ve dönen pencere tetikleyici izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türlerden hakkında genel bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
@@ -74,7 +75,7 @@ Aşağıdaki tabloda, yineleme ile ilgili ve zamanlama dönen pencere tetikleyic
 
 | JSON öğesi | Açıklama | Tür | İzin verilen değerler | Gerekli |
 |:--- |:--- |:--- |:--- |:--- |
-| **Türü** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
+| **type** | Tetikleyici türü. Sabit değer "TumblingWindowTrigger." türüdür | Dize | "TumblingWindowTrigger" | Evet |
 | **runtimeState** | Çalışma zamanı tetikleyici geçerli durumu.<br/>**Not**: Bu öğe \<readOnly >. | Dize | "Başlatıldı" "Stopped" "Disabled" | Evet |
 | **frequency** | Tetikleyici yineleneceği sıklığı (dakika veya birimi saatleri) temsil eden bir dize. Varsa **startTime** tarih değerlerini daha ayrıntılı **sıklığı** değeri **startTime** tarih, zaman penceresi sınırları hesaplanan değerlendirilir. Örneğin, varsa **sıklığı** değerdir saatlik ve **startTime** değerdir 2016-04-01T10:10:10Z, ilk penceredir (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | Dize | "dakika", "saat"  | Evet |
 | **interval** | Tetikleyicinin çalışma sıklığını belirten **frequency** değerinin aralığını gösteren bir pozitif tamsayı. Örneğin, varsa **aralığı** 3 ve **sıklığı** "," saattir 3 saatte bir tetikleyici yinelenen. | Tamsayı | Pozitif bir tamsayı. | Evet |

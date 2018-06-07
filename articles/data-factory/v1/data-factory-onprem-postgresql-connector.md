@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ee466c85b68ebc72dbd55849db84a473d584ffb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622773"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -317,7 +318,7 @@ Veri PostgreSQL için taşırken, aşağıdaki eşlemelerini PostgreSQL türünd
 | karakter [(n)] |char [(n)] |Dize |
 | [(n)] değişen karakter |varchar [(n)] |Dize |
 | CID | |Dize |&nbsp;
-| cidr | |Dize |&nbsp;
+| CIDR | |Dize |&nbsp;
 | Daire | |Byte [], dize |&nbsp;
 | tarih | |Tarih saat |&nbsp;
 | daterange | |Dize |&nbsp;
@@ -326,7 +327,7 @@ Veri PostgreSQL için taşırken, aşağıdaki eşlemelerini PostgreSQL türünd
 | intarry | |Dize |&nbsp;
 | int4range | |Dize |&nbsp;
 | int8range | |Dize |&nbsp;
-| tamsayı |int, int4 |Int32 |
+| integer |int, int4 |Int32 |
 | aralığı [alanlar] [(p)] | |Timespan |&nbsp;
 | json | |Dize |&nbsp;
 | jsonb | |Byte] |&nbsp;
@@ -334,18 +335,18 @@ Veri PostgreSQL için taşırken, aşağıdaki eşlemelerini PostgreSQL türünd
 | lseg | |Byte [], dize |&nbsp;
 | macaddr | |Byte [], dize |&nbsp;
 | para | |Ondalık |&nbsp;
-| numeric [(p, s)] |decimal [(p, s)] |Ondalık |
+| sayısal [(p, s)] |ondalık [(p, s)] |Ondalık |
 | numrange | |Dize |&nbsp;
 | OID | |Int32 |&nbsp;
 | yol | |Byte [], dize |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
 | noktası | |Byte [], dize |&nbsp;
 | Çokgen | |Byte [], dize |&nbsp;
-| Gerçek |float4 |Bekar |
+| Gerçek |float4 |Tek |
 | tamsayı |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | seri |serial4 |Int32 |
-| Metin | |Dize |&nbsp;
+| metin | |Dize |&nbsp;
 
 ## <a name="map-source-to-sink-columns"></a>Kaynak havuzu sütunları eşleme
 Havuz dataset sütunlara kaynak kümesindeki eşleme sütunları hakkında bilgi edinmek için [Azure Data Factory veri kümesi sütunlarında eşleme](data-factory-map-columns.md).

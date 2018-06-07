@@ -1,24 +1,21 @@
 ---
-title: "Visual Studio için Azure Data Lake Araçları'nı kullanarak U-SQL veritabanı dışarı | Microsoft Docs"
-description: "U-SQL veritabanını dışarı aktarma ve otomatik olarak yerel bir hesap içeri aktarmak için Visual Studio için Azure Data Lake araçları kullanmayı öğrenin."
+title: Visual Studio için Azure Data Lake Araçları'nı kullanarak U-SQL veritabanını dışarı aktarma
+description: U-SQL veritabanını dışarı aktarma ve otomatik olarak yerel bir hesap içeri aktarmak için Visual Studio için Azure Data Lake araçları kullanmayı öğrenin.
 services: data-lake-analytics
-documentationcenter: 
 author: yanancai
-manager: 
-editor: 
+ms.author: yanacai
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: yanacai
-ms.openlocfilehash: 441606258f9541c9552925e7c0cbc9b3a9effb4d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1dbcf9b88af7777a1103876a429ccc26450e2f58
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623419"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL veritabanını dışarı aktarma
 

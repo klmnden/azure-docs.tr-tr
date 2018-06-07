@@ -1,24 +1,19 @@
 ---
-title: "Azure IOT protokolü ağ geçidini | Microsoft Docs"
-description: "IOT Hub tarafından yerel olarak desteklenmeyen protokolleri kullanarak hub'ınıza bağlanmak için özellikleri ve protokol desteği cihazlarının sağlamak için IOT hub'ı genişletmek için bir Azure IOT protokolü ağ geçidini kullanmak nasıl."
-services: iot-hub
-documentationcenter: 
+title: Azure IOT protokolü ağ geçidini | Microsoft Docs
+description: IOT Hub tarafından yerel olarak desteklenmeyen protokolleri kullanarak hub'ınıza bağlanmak için özellikleri ve protokol desteği cihazlarının sağlamak için IOT hub'ı genişletmek için bir Azure IOT protokolü ağ geçidini kullanmak nasıl.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: 555e59ae-3136-4533-8ba8-f3a3b6acf648
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: elioda
-ms.openlocfilehash: 1ed8ec28b95bbc91b731fd7bb7b3f1f6654e7fcf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 2c90ee899d0002d41ca21ed4a4927470ee53b2e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635313"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>IOT hub'ına yönelik destek ek protokoller
 Azure IOT hub'ı yerel olarak MQTT, AMQP ve HTTPS protokolleri iletişimi destekler. Bazı durumlarda, aygıtları veya alan ağ geçidi Protokolü uyarlama gerektirir ve bu standart protokollerden birini kullanmak mümkün olmayabilir. Böyle durumlarda, özel bir ağ geçidi kullanabilirsiniz. Özel bir ağ geçidi Protokolü uyarlama IOT Hub uç noktaları için IOT hub'ı gelen ve giden trafiği köprü oluşturma sağlar. Kullanabileceğiniz [Azure IOT protokolü ağ geçidini](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) Protokolü uyarlama IOT hub'ı etkinleştirmek için özel bir ağ geçidi olarak.

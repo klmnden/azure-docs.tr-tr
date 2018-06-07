@@ -1,26 +1,23 @@
 ---
-title: "U-SQL betikleri Azure Data Lake Analytics R ile genişletme | Microsoft Docs"
-description: "U-SQL betikleri R kodu çalıştırma öğrenin"
+title: U-SQL betikleri Azure Data Lake Analytics R ile genişletme
+description: R kodu kullanarak Azure Data Lake Analytics U-SQL komut dosyaları çalıştırmak öğrenin
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: sukvg
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624933"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>Öğretici: U-SQL R ile genişletme ile çalışmaya başlama
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>U-SQL betikleri Azure Data Lake Analytics R kodu ile genişletme
 
 Aşağıdaki örnek R kodu dağıtmak için temel adımlar gösterilmektedir:
 * Kullanım `REFERENCE ASSEMBLY` R uzantıları için U-SQL betiği etkinleştirme bildirimi.
@@ -97,7 +94,7 @@ U-SQL betiği bu R betiği dağıtmak kaynağı deyim ile dağıtmak için kulla
 ### <a name="datatypes"></a>Veri türleri
 * U-SQL dizesi ve sayısal sütunlarından olarak dönüştürülür-R DataFrame ve U-SQL arasında [desteklenen türleri: `double`, `string`, `bool`, `integer`, `byte`].
 * `Factor` U-SQL veri türü desteklenmiyor.
-* `byte[]`bir base64 ile kodlanmış serileştirilmesi gereken `string`.
+* `byte[]` bir base64 ile kodlanmış serileştirilmesi gereken `string`.
 * U-SQL dizeleri faktörleri R kodda U-SQL oluşturduktan sonra R giriş dataframe veya reducer parametresini ayarlayarak dönüştürülebilir `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Şemalar
@@ -166,7 +163,7 @@ Yalnızca R 3.2.2 desteklenir.
 ### <a name="input-and-output-size-limitations"></a>Giriş ve çıkış boyutu sınırlamaları
 Her köşe atanmış bellek sınırlı miktarda sahiptir. Giriş ve çıkış DataFrames R kodu bellekte varolması gerektiğinden, giriş ve çıkış toplam boyutu 500 MB aşamaz.
 
-### <a name="sample-code"></a>Örnek kod
+### <a name="sample-code"></a>Örnek Kod
 U-SQL Advanced Analytics extensions yüklendikten sonra daha fazla örnek kod, Data Lake Store hesabınızdaki kullanılabilir. Daha fazla örnek kod yoludur: `<your_account_address>/usqlext/samples/R`. 
 
 ## <a name="deploying-custom-r-modules-with-u-sql"></a>U-SQL ile özel R modülleri dağıtma

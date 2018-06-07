@@ -1,22 +1,19 @@
 ---
-title: Uzaktan izleme çözümü - Azure Java dağıtma | Microsoft Docs
+title: Java Uzaktan izleme çözümü - Azure dağıtmak | Microsoft Docs
 description: Bu öğretici, CLI kullanarak Uzaktan izleme Çözüm Hızlandırıcısı sağlama gösterir.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3178d51cd2c04f3be8d4a6284a4f1635845def8c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628132"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI kullanarak Uzaktan izleme Çözüm Hızlandırıcısı dağıtma
 
@@ -57,7 +54,7 @@ pcs login
 | SKU    | `basic`, `standard`, `local` | A _temel_ dağıtım, test ve gösterim için tasarlanmıştır, tek bir sanal makine için tüm mikro dağıtır. A _standart_ dağıtımı için birden çok sanal makine mikro dağıttığı üretim için tasarlanmıştır. A _yerel_ dağıtım mikro yerel makinenizde çalıştırmak için Docker kapsayıcısı yapılandırır ve bulutta Azure Hizmetleri, depolama ve Cosmos DB gibi kullanır. |
 | Çalışma Zamanı | `dotnet`, `java` | Mikro dil uyarlamasını seçer. |
 
-Yerel dağıtım kullanma hakkında bilgi edinmek için [Uzaktan izleme çözümü yerel olarak çalışan](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+Yerel dağıtım kullanma hakkında bilgi edinmek için [Uzaktan izleme çözümünü yerel olarak çalıştırma](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
 
 ## <a name="basic-vs-standard-deployments"></a>Temel vs. Standart dağıtımları
 
@@ -96,7 +93,7 @@ Standart bir çözüm oluşturulurken, Azure aboneliğinizin maliyetle içine sa
 
 ### <a name="example-deploy-net-version"></a>Örnek: .NET sürüm dağıtın
 
-Aşağıdaki örnek, Uzaktan izleme Çözüm Hızlandırıcısı .NET sürümü, basic dağıtmak gösterilmektedir:
+Aşağıdaki örnek, Uzaktan izleme Çözüm Hızlandırıcısı temel, .NET sürümünü dağıtmanız gösterilmektedir:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -104,7 +101,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Örnek: Java Sürüm dağıtın
 
-Aşağıdaki örnek, standart, Uzaktan izleme Çözüm Hızlandırıcısı Java sürümünü dağıtmak gösterilmektedir:
+Aşağıdaki örnek, Uzaktan izleme Çözüm Hızlandırıcısı standart, Java sürümünü dağıtmanız gösterilmektedir:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java

@@ -1,29 +1,24 @@
 ---
-title: "Azure IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma | Microsoft Docs"
-description: "Yüksek oranda kullanılabilir Azure çözümlere olağanüstü durum kurtarma özellikleri oluşturmak için yardımcı Azure ve IOT hub'ı özellikleri açıklar."
-services: iot-hub
-documentationcenter: 
+title: Azure IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma | Microsoft Docs
+description: Yüksek oranda kullanılabilir Azure çözümlere olağanüstü durum kurtarma özellikleri oluşturmak için yardımcı Azure ve IOT hub'ı özellikleri açıklar.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: ae320e58-aa20-45b9-abdc-fa4faae8e6dd
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: elioda
-ms.openlocfilehash: ecc5da8daf0f5c93dffc93798f40507f8eac48be
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 428209defa554599c01789e6f2a8b62f155b0f2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633715"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IOT hub'ı yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 Bir Azure hizmeti IOT hub'ı çözümü tarafından gerekli herhangi bir ek iş olmadan Azure bölgesi düzeyinde açarken kullanarak yüksek kullanılabilirlik (HA) sağlar. Microsoft Azure platformu da olağanüstü durum kurtarma (DR) özelliklerini veya çapraz bölge kullanılabilirlik çözümleri oluşturmanıza yardımcı olmak için özellikler içerir. Genel sağlamak istiyorsanız, çapraz bölge yüksek kullanılabilirlik aygıtların veya kullanıcıların, bu Azure DR özelliklerden alın. Makaleyi [Azure iş sürekliliği teknik kılavuz](../resiliency/resiliency-technical-guidance.md) iş sürekliliği ve DR için Azure içinde yerleşik özellikler açıklanmaktadır. [Azure uygulamaları için yüksek kullanılabilirlik ve olağanüstü durum kurtarma] [ Disaster recovery and high availability for Azure applications] kağıt HA ve DR elde etmek Azure uygulamalarını stratejileri hakkında mimari yönergeleri sağlar.
 
-## <a name="azure-iot-hub-dr"></a>Azure IoT Hub DR
+## <a name="azure-iot-hub-dr"></a>Azure IOT hub'ı DR
 İçi bölge HA ek olarak, IOT hub'ı olağanüstü durum kurtarma için hiçbir kullanıcı müdahalesi gerekli yük devretme mekanizmaları uygular. IOT Hub DR otomatik olarak başlatılır ve bir kurtarma süresi hedefi (RTO) 2-26 saat ve aşağıdaki kurtarma noktası hedefi (RPO'lar) vardır:
 
 | İşlev | RPO |

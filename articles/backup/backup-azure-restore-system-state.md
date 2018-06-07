@@ -1,24 +1,19 @@
 ---
-title: 'Azure yedekleme: Bir Windows Server sistem durumunu geri yükle | Microsoft Docs'
+title: 'Azure yedekleme: Bir Windows Server sistem durumunu geri yükle'
 description: Windows Server sistem durumu azure'da bir yedekten geri yüklemek için adım açıklama tarafından adım.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: saurse
+ms.openlocfilehash: f8011fb3e7e1c5267f259a43f06d605690ffd281
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606165"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server sistem durumunu geri yükle
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: a572824225c0d83af698c4ff18d6b297b1ebb729
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620488"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -321,7 +322,7 @@ Bir veri kümesi Data Factory tarafından üretilen sürece bunu olarak işaretl
 | Ad | Açıklama | Gerekli | Varsayılan değer |
 | --- | --- | --- | --- |
 | dataDelay |Verilen dilim için dış veri kullanılabilirliğini onay gecikme süresi. Örneğin, bu ayarı kullanarak bir saatlik onay geciktirebilir.<br/><br/>Ayar, yalnızca mevcut süre için geçerlidir.  Örneğin, 1:00 PM şimdi ise ve bu değer 10 dakikadır doğrulama 13: 10'te başlatır.<br/><br/>Bu ayar geçmişte dilimler etkilemez unutmayın. İle dilimler **dilim bitiş saati** + **dataDelay** < **şimdi** herhangi bir gecikme işlenir.<br/><br/>23:59 büyük saatleri saat kullanarak belirtilmelidir `day.hours:minutes:seconds` biçimi. Örneğin, 24 saat belirtmek için 24:00:00 kullanmayın. Bunun yerine, 1.00:00:00 kullanın. 24:00:00 kullanırsanız, 24 gün (24.00:00:00) kabul edilir. 1 gün ve 4 saat için 1:04:00:00 belirtin. |Hayır |0 |
-| retryInterval |Bir hata ve sonraki denemesi arasındaki bekleme süresi. Bu ayar için mevcut zaman geçerlidir. Önceki başarısız çalışırsanız, sonraki deneyin sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 minute) |
+| Retryınterval |Bir hata ve sonraki denemesi arasındaki bekleme süresi. Bu ayar için mevcut zaman geçerlidir. Önceki başarısız çalışırsanız, sonraki deneyin sonradır **Retryınterval** süresi. <br/><br/>1:00 PM şimdi ise, ilk denemede başlamadan. İlk doğrulama denetimi tamamlamak için süre 1 dakika ve işlem başarısız oldu, sonraki yeniden deneme ise 1:00 1 dak (süresi) + 1 dak (yeniden deneme aralığı) = 1:02 PM. <br/><br/>Geçmişte dilimler için gecikme yoktur. Yeniden deneme hemen gerçekleşir. |Hayır |00:01:00 (1 dakika) |
 | retryTimeout |Yeniden deneme girişimleri için zaman aşımı.<br/><br/>Bu özellik 10 dakika olarak ayarlanırsa, doğrulama 10 dakika içinde tamamlanmalıdır. Yeniden deneme doğrulamayı gerçekleştirmek için 10 dakikadan uzun sürüyorsa, zaman aşımına uğradı.<br/><br/>Tüm denemeleri doğrulama zaman aşımı için dilim olarak işaretlenmişse, **süresi sona erdi**. |Hayır |00:10:00 (10 dakika) |
 | maximumRetry |Kaç kez dış veri kullanılabilirliğini denetleyin. Değer izin verilen en fazla 10'dur. |Hayır |3 |
 

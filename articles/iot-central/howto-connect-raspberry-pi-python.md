@@ -1,18 +1,19 @@
 ---
 title: Bağlantı Raspberry Pi'yi Azure IOT merkezi uygulamanıza (Python) | Microsoft Docs
 description: Bir aygıt geliştiricisi olarak Python kullanarak Azure IOT merkezi uygulamanızı Raspberry Pi'yi bağlanma.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/23/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 23ab31d6d2357bfcb184e5b3022155bef5ace658
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629074"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Azure IOT merkezi uygulamanıza (Python) Raspberry Pi'yi Bağlan
 
@@ -32,7 +33,7 @@ Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamaklar |
+| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
@@ -51,7 +52,7 @@ Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **
 
 Sayısal ayarları
 
-| Görüntüleme adı | Alan adı | Birimler | Ondalık basamaklar | Minimum | Maksimum | İlk |
+| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Voltaj      | setVoltage | Volt | 0              | 0       | 240     | 0       |
 | Geçerli      | setCurrent | Amp  | 0              | 0       | 100     | 0       |
@@ -59,18 +60,18 @@ Sayısal ayarları
 
 Geçiş ayarları
 
-| Görüntüleme adı | Alan adı | Metni | Metin kapalı | İlk |
+| Görünen ad | Alan adı | Metni | Metin kapalı | İlk |
 | ------------ | ---------- | ------- | -------- | ------- |
 | IR           | activateIR | AÇIK      | KAPALI      | Kapalı     |
 
 ### <a name="properties"></a>Özellikler
 
-| Tür            | Görüntüleme adı | Alan adı | Veri türü |
+| Tür            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | numarası    |
-| Mesaj gönder            | Konum     | konum   | Yok       |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
+| Metin            | Konum     | location   | Yok       |
 
-### <a name="add-a-real-device"></a>Gerçek bir cihaz ekleme
+### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
 Azure IOT merkezi uygulamanızda gerçek bir aygıttan ekleyin **Raspberry Pi'yi** cihaz şablonu ve cihaz bağlantı dizesini Not. Daha fazla bilgi için bkz: [gerçek bir cihazı Azure IOT merkezi uygulamanıza eklemek](tutorial-add-device.md).
 

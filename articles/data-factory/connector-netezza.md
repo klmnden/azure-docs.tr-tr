@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 469e72a70d23b3d23eeeb68b3aa2a9e3527d038e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617901"
 ---
 # <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Netezza verilerini
 
@@ -56,7 +57,7 @@ Tipik bağlantı dizesi `Server=<server>;Port=<port>;Database=<database>;UID=<us
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |:--- |
 | SecurityLevel | Veri depolama alanı bağlantısı sürücü kullanır (SSL/TLS) güvenlik düzeyi. Örneğin `SecurityLevel=preferredSecured`. Desteklenen değerler şunlardır:<br/>-Yalnızca güvenli olmayan (**onlyUnSecured**): sürücü SSL kullanmaz.<br/>- **Güvenli değil (preferredUnSecured) (varsayılan) tercih edilen**: sunucu bir seçim sağlıyorsa, sürücü SSL kullanmaz. <br/>- **Güvenli (preferredSecured) tercih edilen**: sunucu bir seçim sağlıyorsa, sürücü SSL kullanır. <br/>- **Yalnızca güvenli (onlySecured)**: bir SSL bağlantısı kullanılabilir olmadığı sürece sürücü bağlanmaz | Hayır |
-| CASertifikaDosyası | Sunucu tarafından kullanılan SSL sertifikasının tam yolu. Örneğin `UseSystemTrustStore=<cert path>;`| SSL etkinleştirilmişse, Evet |
+| CASertifikaDosyası | Sunucu tarafından kullanılan SSL sertifikasının tam yolu. Örneğin `CaCertFile=<cert path>;`| SSL etkinleştirilmişse, Evet |
 
 **Örnek:**
 

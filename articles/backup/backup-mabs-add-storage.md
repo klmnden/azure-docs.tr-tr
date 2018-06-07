@@ -1,24 +1,19 @@
 ---
-title: "Modern yedekleme depolama ile Azure yedekleme sunucusu v2 kullanın | Microsoft Docs"
-description: "Azure yedekleme sunucusu v2'deki yeni özellikler hakkında bilgi edinin. Bu makalede, yedekleme sunucusu yüklemenizi yükseltmek açıklar."
+title: Azure Backup sunucusu v2 ile modern yedekleme depolama alanı kullanın
+description: Azure yedekleme sunucusu v2'deki yeni özellikler hakkında bilgi edinin. Bu makalede, yedekleme sunucusu yüklemenizi yükseltmek açıklar.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606763"
 ---
 # <a name="add-storage-to-azure-backup-server-v2"></a>Azure yedekleme sunucusu v2 depolama ekleme
 

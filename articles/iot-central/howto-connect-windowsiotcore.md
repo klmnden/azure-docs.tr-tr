@@ -1,18 +1,19 @@
 ---
 title: Bir Windows IOT Core aygıt Azure IOT merkezi bağlamak | Microsoft Docs
 description: Cihaz geliştiricisi olarak, Azure IOT merkezi uygulamanıza MXChip IOT DevKit aygıt bağlayacağınızı öğrenin.
-services: iot-central
 author: miriamb
 ms.author: mriamb
 ms.date: 04/09/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: peterpr
-ms.openlocfilehash: c38231f97eeb1c4511702bf3e788f72918cab045
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 55c0d9c26cd4e7f8ae9f6ff2359e0f2d2a9970c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629152"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IOT merkezi uygulamanıza Windows IOT Core aygıtı bağlayın
 
@@ -29,7 +30,7 @@ Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **
 
 ### <a name="telemetry-measurements"></a>Telemetri ölçümleri
 
-| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamaklar |
+| Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
 | nem oranı       | %      | 0       | 100     | 0              |
 | Temp           | ° C     | -40     | 120     | 0              |
@@ -39,19 +40,19 @@ Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **
 
 Sayısal ayarları
 
-| Görüntüleme adı | Alan adı | Birimler | Ondalık basamaklar | Minimum | Maksimum | İlk |
+| Görünen ad | Alan adı | Birimler | Ondalık basamak sayısı | Minimum | Maksimum | İlk |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan hızı    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
 
 ### <a name="properties"></a>Özellikler
 
-| Tür            | Görüntüleme adı | Alan adı | Veri türü |
+| Tür            | Görünen ad | Alan adı | Veri türü |
 | --------------- | ------------ | ---------- | --------- |
-| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | numarası    |
-| Mesaj gönder            | Konum     | konum   | Yok       |
+| Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
+| Metin            | Konum     | location   | Yok       |
 
-## <a name="add-a-real-device"></a>Gerçek bir cihaz ekleme
+## <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
 Azure IOT merkezi uygulamanızda gerçek bir aygıttan ekleyin **Windows IOT Core** cihaz şablonu ve cihaz bağlantı dizesini Not. Daha fazla bilgi için bkz: [gerçek bir cihazı Azure IOT merkezi uygulamanıza eklemek](tutorial-add-device.md).
 
@@ -59,7 +60,7 @@ Azure IOT merkezi uygulamanızda gerçek bir aygıttan ekleyin **Windows IOT Cor
 
 Ayarlamak için bir Windows IOT Core aygıt lütfen izleyin [Windows IOT Core cihaz ayarlama] adresindeki adım adım Kılavuzu'na (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
-### <a name="add-a-real-device"></a>Gerçek bir cihaz ekleme
+### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 
 Azure IOT merkezi uygulamanızda gerçek bir aygıttan ekleyin **Windows IOT Core** cihaz şablonu ve cihaz bağlantı dizesini Not. Daha fazla bilgi için bkz: [gerçek bir cihazı Azure IOT merkezi uygulamanıza eklemek](tutorial-add-device.md).
 

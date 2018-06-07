@@ -1,22 +1,20 @@
 ---
-title: Azure yedekleme sunucusu ne yedekleme yapabilirsiniz | Microsoft Docs
-description: "Bu makalede, tüm iş yükleri, veri türleri ve yüklemeleri Azure yedekleme sunucusu v2 koruyan listeleyen bir destek matrisi sağlar."
+title: Hangi Azure yedekleme sunucusu yedekleme yapabilirsiniz
+description: Bu makalede, tüm iş yükleri, veri türleri ve yüklemeleri Azure yedekleme sunucusu v2 koruyan listeleyen bir destek matrisi sağlar.
 services: backup
-documentation center: 
 author: markgalioto
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-keywords: 
+keywords: ''
 ms.date: 11/28/2017
-ms.topic: article
-ms.author: markgal,masaran
+ms.topic: conceptual
+ms.author: markgal
 manager: carmonm
-ms.openlocfilehash: eae17160d0e412b347d89d83d635602d840db0f8
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 2edf6b4076dfafd775e723d44ed4d93b7493828b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607251"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Sunucusu koruma matrisi
 

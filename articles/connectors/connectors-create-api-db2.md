@@ -1,25 +1,22 @@
 ---
-title: "Logic Apps içinde DB2 Bağlayıcısı'nı ekleme | Microsoft Docs"
-description: "DB2 Bağlayıcısı REST API parametrelerle genel bakış"
-services: 
-documentationcenter: 
+title: DB2 - Azure mantıksal uygulamaları bağlanma | Microsoft Docs
+description: DB2 REST API'leri ve Azure Logic Apps ile kaynakları yönetme
 author: gplarsen
-manager: erikre
-editor: 
-tags: connectors
-ms.assetid: 1c6b010c-beee-496d-943a-a99e168c99aa
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: 7ad246ede7e891de42235443c1bc6a90b88ad5ac
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, estfan
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 9e86273a8b614098aa77608386ab050c20926d23
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609758"
 ---
 # <a name="get-started-with-the-db2-connector"></a>DB2 Bağlayıcısı ile çalışmaya başlama
 DB2 için Microsoft Bağlayıcısı Logic Apps bir IBM DB2 veritabanında depolanan kaynakları bağlanır. Bu bağlayıcı bir TCP/IP ağı üzerinden uzak DB2 sunucu bilgisayarlarla iletişim kurmak için Microsoft client içerir. Bu bulut veritabanları, IBM Bluemix dashDB veya Azure sanallaştırma çalışan Windows için IBM DB2 gibi içerir ve şirket içi veri ağ geçidi kullanarak veritabanlarını. Bkz: [liste desteklenen](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2 platformları ve sürümleri (Bu konudaki).
@@ -47,13 +44,13 @@ DB2 Bağlayıcısı'nı aşağıdaki mantıksal uygulama eylemleri destekler:
 * UpdateRow
 * DeleteRow
 
-## <a name="list-tables"></a>Listede tablolar
+## <a name="list-tables"></a>Tabloları listele
 Microsoft Azure portalı üzerinden gerçekleştirilen birçok adımlar herhangi bir işlem için bir mantıksal uygulama oluşturma oluşur.
 
 Mantıksal uygulama içinde bir DB2 veritabanında listede tablolar için bir eylem ekleyebilirsiniz. Bir DB2 schema deyiminin gibi işlemek için bağlayıcı eylemi bildirir `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `Db2getTables`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -90,7 +87,7 @@ Bu bağlayıcı barındırılan veritabanları şirket içi ve aşağıdaki bağ
 | kimlik doğrulaması |İsteğe bağlı. Bir liste öğesi değeri, temel veya Windows (kerberos) kabul eder. |
 | kullanıcı adı |Gereklidir. Bir dize değeri kabul eder. DB2 z/OS için 8-bayt dizisi kabul eder. DB2 için i 10 bayt dizesini kabul eder. DB2 Linux veya UNIX için 8-bayt dizisi kabul eder. DB2 için Windows 30-bayt dizesini kabul eder. |
 | password |Gereklidir. Bir dize değeri kabul eder. |
-| Ağ geçidi |Gereklidir. Logic Apps için depolama grubu içinde tanımlanan şirket içi veri ağ geçidi temsil eden bir liste öğesi değeri kabul eder. |
+| ağ geçidi |Gereklidir. Logic Apps için depolama grubu içinde tanımlanan şirket içi veri ağ geçidi temsil eden bir liste öğesi değeri kabul eder. |
 
 ## <a name="create-the-on-premises-gateway-connection"></a>Şirket içi ağ geçidi bağlantısı oluşturma
 Bu bağlayıcıyı şirket içi ağ geçidi'ni kullanarak bir şirket içi DB2 veritabanına erişebilir. Daha fazla bilgi için ağ geçidi konularına bakın. 
@@ -123,7 +120,7 @@ Bu bağlayıcı bir bulut DB2 veritabanına erişebilir.
 DB2 tablodaki tüm satırları getirmek için bir mantıksal uygulama eylemi tanımlayabilirsiniz. Bu bağlayıcıyı bir DB2 SELECT deyimi gibi işlem bildirir `SELECT * FROM AREA`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `Db2getRows`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -160,7 +157,7 @@ DB2 tablodaki tüm satırları getirmek için bir mantıksal uygulama eylemi tan
 Bir DB2 tablosunda bir satır eklemek için bir mantıksal uygulama eylemi tanımlayabilirsiniz. Bu eylem bir DB2 INSERT deyimi gibi işlemek için bağlayıcı bildirir `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `Db2insertRow`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -187,7 +184,7 @@ Bir DB2 tablosunda bir satır eklemek için bir mantıksal uygulama eylemi tanı
 DB2 tablosunda bir satırı getirmek için bir mantıksal uygulama eylemi tanımlayabilirsiniz. Bu eylem, bir DB2 yeri seçin deyimi gibi işlemek için bağlayıcı bildirir `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı** (örn. "**Db2getRow**"), **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -215,7 +212,7 @@ DB2 tablosunda bir satırı getirmek için bir mantıksal uygulama eylemi tanım
 DB2 tablosunda bir satırı değiştirmek için bir mantıksal uygulama eylemi tanımlayabilirsiniz. Bu eylem, bir DB2 güncelleştirme deyimi gibi işlemek için bağlayıcı bildirir `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `Db2updateRow`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
@@ -242,7 +239,7 @@ DB2 tablosunda bir satırı değiştirmek için bir mantıksal uygulama eylemi t
 Bir DB2 tablosunda bir satırı kaldırmak için bir mantıksal uygulama eylemi tanımlayabilirsiniz. Bu eylem bir DB2 DELETE deyimi gibi işlemek için bağlayıcı bildirir `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Mantıksal uygulama oluşturma
-1. İçinde **Azure başlangıç Panosu**seçin  **+**  (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
+1. İçinde **Azure başlangıç Panosu**seçin **+** (artı işareti) **Web + mobil**ve ardından **mantıksal uygulama**.
 2. Girin **adı**, gibi `Db2deleteRow`, **abonelik**, **kaynak grubu**, **konumu**, ve **App Service planı**. Seçin **panoya Sabitle**ve ardından **oluşturma**.
 
 ### <a name="add-a-trigger-and-action"></a>Bir tetikleyici ve Eylem Ekle
