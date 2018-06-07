@@ -49,6 +49,8 @@
       href: functions-openapi-definition.md
     - name: Event Grid ile görüntüyü yeniden boyutlandırma
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+    - name: API olarak İşlevleri kullanarak sunucusuz bir web uygulaması oluşturma
+      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
     - name: Linux üzerinde İşlevler
       items:
         - name: Özel görüntü
@@ -139,6 +141,8 @@
           href: functions-run-local.md
         - name: Visual Studio geliştirme
           href: functions-develop-vs.md
+        - name: Bağlantıları yönetme
+          href: manage-connections.md
         - name: Hata işleme
           href: functions-bindings-error-pages.md
     - name: Dağıtma
@@ -198,7 +202,11 @@
         - name: Blob depolama
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
-          href: functions-bindings-cosmosdb.md
+          items:
+            - name: İşlevler 1.x
+              href: functions-bindings-cosmosdb.md
+            - name: İşlevler 2.x
+              href: functions-bindings-cosmosdb-v2.md
         - name: Event Grid
           href: functions-bindings-event-grid.md
         - name: Event Hubs

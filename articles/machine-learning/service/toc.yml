@@ -155,6 +155,8 @@
               href: 'https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision'
             - name: Görüntü sınıflandırma modellerini derleme ve dağıtma
               href: how-to-build-deploy-image-classification-models.md
+            - name: Nesne algılama modellerini oluşturma ve dağıtma
+              href: how-to-build-deploy-object-detection-models.md
             - name: Model doğruluğu
               href: how-to-improve-accuracy-for-computer-vision-models.md
         - name: Tahmin etme
@@ -219,6 +221,8 @@
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Sorunlar ve sorun giderme
       href: known-issues-and-troubleshooting-guide.md
+    - name: Hesap verilerini dışarı aktarma veya silme
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Destek ve eğitim
       href: support-for-aml-services.md
     - name: Azure yol haritası

@@ -95,11 +95,11 @@
           href: security-internet-of-things-overview.md
           items:
             - name: IoT güvenliği için en iyi uygulamalar
-              href: ../iot-suite/iot-security-best-practices.md
+              href: ../iot-accelerators/iot-security-best-practices.md
             - name: IoT güvenliği
-              href: '../iot-suite/iot-security-architecture.md#security-in-iot'
+              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
             - name: IoT dağıtımınızın güvenliğini sağlama
-              href: ../iot-suite/iot-suite-security-deployment.md
+              href: ../iot-accelerators/iot-accelerators-security-deployment.md
     - name: Azure Service Fabric güvenliği
       href: azure-service-fabric-security-overview.md
       items:
@@ -159,6 +159,8 @@
           href: ./blueprints/fedramp-datawarehouse-overview.md
         - name: IaaS web uygulaması
           href: ./blueprints/fedramp-iaaswa-overview.md
+        - name: PaaS web uygulaması
+          href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
       href: ./blueprints/payment-processing-blueprint.md
       items:
@@ -197,6 +199,8 @@
       href: ./blueprints/azure-health.md
 - name: Teknik incelemeler
   href: security-white-papers.md
+- name: Azure güvenlik hizmetleri
+  href: azure-security-services-technologies.md
 - name: Teknik genel bakışlar
   href: security-overviews.md
 - name: En iyi uygulamalar

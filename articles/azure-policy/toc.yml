@@ -17,26 +17,50 @@
   items:
     - name: Azure İlkesi oluşturma ve yönetme
       href: create-manage-policy.md
+    - name: Azure İlkesi'ni inceleme (Uygulamalı Laboratuvarlar)
+      href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Örnekler
   items:
-    - name: İlke şablonları
+    - name: Azure İlkesi örnekleri
       href: json-samples.md
 - name: Kavramlar
   items:
     - name: Azure İlkesi tanım yapısı
       href: policy-definition.md
+    - name: İlkenin etkilerini anlama
+      href: policy-effects.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Programlı olarak ilkeler oluşturma
       href: policy-insights.md
+    - name: Uyumluluk verilerini toplama
+      href: policy-compliance.md
 - name: Başvuru
   items:
     - name: Azure CLI
       href: /cli/azure/policy
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.resources/#policies'
+    - name: REST API
+      items:
+        - name: Olaylar
+          href: /rest/api/policy-insights/policyevents
+        - name: Durumlar
+          href: /rest/api/policy-insights/policystates
+        - name: Atamalar
+          href: /rest/api/resources/policyassignments
+        - name: İlke Tanımları
+          href: /rest/api/resources/policydefinitions
+        - name: Girişim Tanımları
+          href: /rest/api/resources/policysetdefinitions
 - name: Kaynaklar
   items:
+    - name: GitHub - Azure İlkesi örnekleri
+      href: 'https://github.com/Azure/azure-policy'
+    - name: Video - Derleme 2018
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Video - Ignite 2017
+      href: 'https://myignite.microsoft.com/videos/54781'
     - name: Azure yol haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma hesaplayıcı

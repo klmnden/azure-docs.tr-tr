@@ -9,6 +9,7 @@
 ## [Telemetri gönderme (.NET)](quickstart-send-telemetry-dotnet.md)
 ## [Telemetri gönderme (Java)](quickstart-send-telemetry-java.md)
 ## [Telemetri gönderme (Python)](quickstart-send-telemetry-python.md)
+## [Telemetri gönderme (iOS)](quickstart-send-telemetry-ios.md)
 ## [Cihazı denetleme (Node.js)](quickstart-control-device-node.md)
 ## [Cihazı denetleme (.NET)](quickstart-control-device-dotnet.md)
 ## [Cihazı denetleme (Java)](quickstart-control-device-java.md)
@@ -18,29 +19,19 @@
 
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Yönlendirme iletileri](tutorial-routing.md)
+## [Cihazlarınızı yapılandırma](tutorial-device-twins.md)
+## [Cihaz bağlantısını test etme](tutorial-connectivity.md)
 ## Buluttan cihaza iletileri gönderme
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
 ### [Java](iot-hub-java-java-c2d.md)
 ### [Node.js](iot-hub-node-node-c2d.md)
 ### [Python](iot-hub-python-python-c2d.md)
-## Cihaz ikizlerini kullanmaya başlama
-### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-getstarted.md)
-### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-getstarted.md)
-### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-getstarted.md)
-### [Java arka ucu/Java cihazı](iot-hub-java-java-twin-getstarted.md)
-### [Python arka ucu/Python cihazı](iot-hub-python-twin-getstarted.md)
 ## Cihaz yönetimini kullanmaya başlama
 ### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-device-management-get-started.md)
 ### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-device-management-get-started.md)
 ### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-device-management-get-started.md)
 ### [Java arka ucu/Java cihazı](iot-hub-java-java-device-management-getstarted.md)
 ### [Python arka ucu/Python cihazı](iot-hub-python-python-device-management-get-started.md)
-## İkiz özelliklerini kullanma
-### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-how-to-configure.md)
-### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-how-to-configure.md)
-### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-how-to-configure.md)
-### [Java arka ucu/Java cihazı](iot-hub-java-java-twin-how-to-configure.md)
-### [Python arka ucu/Python cihazı](iot-hub-python-python-twin-how-to-configure.md)
 ## Cihaz üretici yazılımını güncelleştirmek için cihaz işlerini kullanma
 ### [Node arka ucu/Node cihazı](iot-hub-node-node-firmware-update.md)
 ### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-firmware-update.md)
@@ -80,6 +71,8 @@
 ### [Kotalar ve azaltma](iot-hub-devguide-quotas-throttling.md)
 ### [Fiyatlandırma örnekleri](iot-hub-devguide-pricing.md)
 ### [Cihaz ve hizmet SDK’ları](iot-hub-devguide-sdks.md)
+### [Kısıtlanmış cihazlar için geliştirme](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Mobil cihazlar için geliştirme](iot-hub-how-to-develop-for-mobile-devices.md)
 ### [MQTT desteği](iot-hub-mqtt-support.md)
 ### [Sözlük](iot-hub-devguide-glossary.md)
 
@@ -89,7 +82,6 @@
 #### [Java](iot-hub-java-java-getstarted.md)
 #### [Node.js](iot-hub-node-node-getstarted.md)
 #### [Python](iot-hub-python-getstarted.md)
-#### [iOS (Swift)](quickstart-send-telemetry-ios.md)
 ## [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
 ### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
 ### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
@@ -157,17 +149,26 @@
 ### [C için IoT cihaz SDK'sını kullanma](iot-hub-device-sdk-c-intro.md)
 #### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
 #### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
+### [Kısıtlanmış cihazlar için geliştirme](iot-hub-devguide-develop-for-constrained-devices.md)
+### [Mobil cihazlar için geliştirme](iot-hub-how-to-develop-for-mobile-devices.md)
 ### Yönlendirme iletileri
 #### [.NET](iot-hub-csharp-csharp-process-d2c.md)
 #### [Java](iot-hub-java-java-process-d2c.md)
 #### [Node.js](iot-hub-node-node-process-d2c.md)
 #### [Python](iot-hub-python-python-process-d2c.md)
+### [Hub yolundan Avro verilerini sorgulama](iot-hub-query-avro-data.md)
 ### Buluttan cihaza iletileri gönderme
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
 #### [Java](iot-hub-java-java-c2d.md)
 #### [Node.js](iot-hub-node-node-c2d.md)
 #### [Python](iot-hub-python-python-c2d.md)
 #### [iOS](iot-hub-ios-swift-c2d.md)
+### Cihaz ikizlerini kullanmaya başlama
+#### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-twin-getstarted.md)
+#### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-twin-getstarted.md)
+#### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java arka ucu/Java cihazı](iot-hub-java-java-twin-getstarted.md)
+#### [Python arka ucu/Python cihazı](iot-hub-python-twin-getstarted.md)
 ### Cihazlardan karşıya dosya yükleme
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
@@ -217,13 +218,6 @@
 ### [Java](iot-hub-java-java-file-upload.md)
 ### [Node.js](iot-hub-node-node-file-upload.md)
 ### [Python](iot-hub-python-python-file-upload.md)
-
-## İşleri zamanlama ve yayınlama
-### [Node.js arka ucu/Node.js cihazı](iot-hub-node-node-schedule-jobs.md)
-### [.NET arka ucu/Node.js cihazı](iot-hub-csharp-node-schedule-jobs.md)
-### [.NET arka ucu/.NET cihazı](iot-hub-csharp-csharp-schedule-jobs.md)
-### [Java arka ucu/Java cihazı](iot-hub-java-java-schedule-jobs.md)
-### [Python arka ucu/Python cihazı](iot-hub-python-python-schedule-jobs.md)
 
 ## IoT hub oluşturma 
 ### [Azure portalını kullanma](iot-hub-create-through-portal.md)

@@ -10,7 +10,7 @@
       href: tutorial-assessment-vmware.md
 - name: Kavramlar
   items:
-    - name: Toplayıcı Kavramları
+    - name: Toplayıcı hakkında
       href: concepts-collector.md
     - name: Değerlendirme hesaplamaları
       href: concepts-assessment-calculation.md
@@ -18,13 +18,15 @@
       href: concepts-dependency-visualization.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Şirket içi kaynaklarınızı Azure'a geçirme
+    - name: Contoso geçiş serisi
       items:
-        - name: Senaryoya genel bakış - Şirket içi kaynaklarınızı Azure'a geçirme
-          href: migrate-scenarios-overview.md
-        - name: Senaryo 1 - Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
+        - name: 1. Contoso-Geçişe genel bakış
+          href: contoso-migration-overview.md
+        - name: 2. Contoso-Azure altyapısını ayarlama
+          href: contoso-migration-infrastructure.md
+        - name: 3. Contoso-Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
           href: migrate-scenarios-assessment.md
-        - name: '2. Senaryo: Lift-and-shift ile Azure’a geçiş'
+        - name: 4. Contoso-Azure VM'lerde ve Azure SQL Yönetilen Örneğinde yeniden barındırma
           href: migrate-scenarios-lift-and-shift.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme
       href: how-to-scale-assessment.md
