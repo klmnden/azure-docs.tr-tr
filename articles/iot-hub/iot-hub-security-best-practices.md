@@ -1,24 +1,19 @@
 ---
-title: "Azure IOT en iyi güvenlik uygulamaları | Microsoft Docs"
-description: "IOT altyapınızın güvenliğini sağlamak için IOT en iyi güvenlik uygulamaları. Çözüm geliştiriciler, çözüm dağıtımcılar ve çözüm işleçleri için öneriler içerir."
-services: iot-hub
-documentationcenter: 
+title: Azure IOT en iyi güvenlik uygulamaları | Microsoft Docs
+description: IOT altyapınızın güvenliğini sağlamak için IOT en iyi güvenlik uygulamaları. Çözüm geliştiriciler, çözüm dağıtımcılar ve çözüm işleçleri için öneriler içerir.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 84f9ce2b-e8b5-4239-b262-13d0637efc2b
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c7b131d35a520a9520790a331d40a4af07d4808e
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a5fbc0f3583f9c5dc833a9868c02a18857462cbc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635262"
 ---
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 

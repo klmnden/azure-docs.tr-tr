@@ -1,29 +1,25 @@
 ---
-title: "Azure IOT Hub içinde X.509 güvenlik Öğreticisi | Microsoft Docs"
-description: "Sanal bir ortamda Azure IOT hub'ınızdaki X.509 tabanlı güvenlik kullanmaya başlayın."
-services: iot-hub
-documentationcenter: 
+title: Azure IOT Hub içinde X.509 güvenlik Öğreticisi | Microsoft Docs
+description: Sanal bir ortamda Azure IOT hub'ınızdaki X.509 tabanlı güvenlik kullanmaya başlayın.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 93f9099d7aef1161f7789e7b21a88a8691cb2a8e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635585"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IOT hub'ınızdaki X.509 güvenliği ayarlama
 
 Bu öğretici, Azure IOT hub'ı kullanarak güvenli hale getirmek için gereken adımları benzetim *X.509 sertifikası kimlik doğrulaması*. Çizim amacıyla, açık kaynak aracı OpenSSL sertifikaları Windows makinenizde yerel olarak oluşturmak için nasıl kullanılacağını göstereceğiz. Bu öğretici yalnızca test amacıyla kullanmanızı öneririz. Üretim ortamı için sertifikalarını satın alın bir *kök sertifika yetkilisi (CA)*. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu öğretici, aşağıdaki kaynaklara hazır olmasını gerektirir:
 
 - Azure aboneliğiniz ile bir IOT hub oluşturdunuz. Bkz: [portal üzerinden IOT hub oluşturma](iot-hub-create-through-portal.md) ayrıntılı adımlar için. 
@@ -67,7 +63,7 @@ Bu adımlar, portal üzerinden IOT hub'ınıza yeni bir sertifika yetkilisi ekle
  
 9. Yukarıdaki adım 8 portalında IOT hub'ınızı elde edilen imza karşıya yükleyin. İçinde **sertifika ayrıntıları** Azure portal dikey penceresinde gidin **doğrulama sertifikası .pem veya .cer dosyasını**, imza, örneğin seçin *VerifyCert4.cer*örnek PowerShell komutu kullanılarak oluşturulmuş _dosya Gezgini_ yanı sıra, simge.
 
-10. Sertifika başarıyla yüklendikten sonra tıklatın **doğrula**. **Durum** sertifika değişikliklerinizi  **_doğrulandı_**  içinde **sertifikaları** dikey. Tıklatın **yenileme** varsa otomatik olarak güncelleştirmez.
+10. Sertifika başarıyla yüklendikten sonra tıklatın **doğrula**. **Durum** sertifika değişikliklerinizi **_doğrulandı_** içinde **sertifikaları** dikey. Tıklatın **yenileme** varsa otomatik olarak güncelleştirmez.
 
    ![Sertifika doğrulama karşıya yükle](./media/iot-hub-security-x509-get-started/upload-cert-verification.png)  
 
@@ -80,7 +76,7 @@ Bu adımlar, portal üzerinden IOT hub'ınıza yeni bir sertifika yetkilisi ekle
 
 2. Tıklatın **Ekle** yeni aygıt eklemek için. 
 
-3. Kolay bir görünen ad için vermek **cihaz kimliği**seçip  **_X.509 CA imzalı_**  olarak **kimlik doğrulama türü**. **Kaydet** düğmesine tıklayın.
+3. Kolay bir görünen ad için vermek **cihaz kimliği**seçip **_X.509 CA imzalı_** olarak **kimlik doğrulama türü**. **Kaydet**’e tıklayın.
 
    ![X.509 cihaz Portalı'nda oluşturma](./media/iot-hub-security-x509-get-started/create-x509-device.png)
 
@@ -179,7 +175,7 @@ IOT çözümünüzün güvenliğini sağlama hakkında daha fazla bilgi için bk
 
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 [lnk-security-best-practices]: iot-hub-security-best-practices.md
 [lnk-security-architecture]: iot-hub-security-architecture.md
