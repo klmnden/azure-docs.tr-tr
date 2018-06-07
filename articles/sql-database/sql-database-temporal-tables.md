@@ -7,13 +7,14 @@ ms.date: 03/21/2018
 manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
-ms.topic: article
+ms.topic: conceptual
 ms.author: bonova
-ms.openlocfilehash: 0299d52396549baf8ea7e5eb7145585c7b5900a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 140d2c9f6c334cec7d2761d05d7b20eb7106b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649049"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Zamana bağlı tablolarda Azure SQL veritabanı ile çalışmaya başlama
 Zamana bağlı tablolarda, izlemek ve özel kodlama için gerek kalmadan, verilerde yapılan değişiklikler tam geçmişini çözümlemek izin veren Azure SQL veritabanı'nın yeni bir programlama özelliğidir. Zamana bağlı tablolarda yalnızca belirli bir dönem içinde depolanan bulguları yorumlanabilen böylece zaman bağlamına yakından ilgili veriler geçerli olarak tutun. Zamana bağlı tablolarda, bu özellik etkili zamana dayalı çözümleme ve veri evrimi alma ilişkin bilgiler sağlar.

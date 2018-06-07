@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 981b6b65675550fd1403064ad3113c2dca0c3f6e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638679"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Günlük uyarı kuralları için Web kancası eylemleri
 Zaman bir [uyarı Azure içinde oluşturulan ](monitor-alerts-unified-usage.md), seçeneğiniz vardır [Eylem grupları kullanarak yapılandırma](monitoring-action-groups.md) bir veya daha fazla eylemleri gerçekleştirmek için.  Bu makalede, özel JSON tabanlı Web kancası yapılandırma hakkında ayrıntılar ve kullanılabilir farklı Web kancası eylemleri açıklanmaktadır.
@@ -44,14 +45,14 @@ Web kancası bir URL ve dış hizmete gönderilen veriler JSON biçimli bir yük
 | Parametre | Değişken | Açıklama |
 |:--- |:--- |:--- |
 | AlertRuleName |#alertrulename |Uyarı kuralı adı. |
-| Önem Derecesi |#severity |Önem derecesi için Mazotlu günlük uyarı ayarlanmıştır. |
+| Severity |#severity |Önem derecesi için Mazotlu günlük uyarı ayarlanmıştır. |
 | AlertThresholdOperator |#thresholdoperator |Uyarı kuralı için eşik işleci.  *Büyük* veya *değerinden*. |
 | AlertThresholdValue |#thresholdvalue |Uyarı kuralı için eşik değer. |
-| LinkToSearchResults |#linktosearchresults |Günlük analizi günlük kayıtları uyarı oluşturulan sorgudan döndüren bir arama bağlayın. |
+| LinkToSearchResults |#linktosearchresults |Uyarı oluşturulan sorgudan kayıtları döndürür Analytics portalı bağlayın. |
 | ResultCount |#searchresultcount |Arama sonuçlarında kayıt sayısı. |
-| Arama aralığı bitiş saati |#searchintervalendtimeutc |Bitiş saati UTC biçiminde bir sorgu için. |
-| Arama aralığı |#searchinterval |Zaman penceresi için uyarı kuralı. |
-| Arama aralığı başlangıç saati |#searchintervalstarttimeutc |Sorgu saati UTC biçiminde başlatın. 
+| Arama aralığı bitiş saati |#searchintervalendtimeutc |Bitiş zamanı, UTC sorguda biçimi - aa/gg/yyyy ss: dd: ss AM/PM. |
+| Arama aralığı |#searchinterval |Zaman penceresi için uyarı kuralı, biçimi - SS: dd:. |
+| Arama aralığı başlangıç saati |#searchintervalstarttimeutc |UTC olarak başlangıç zamanı sorgu için biçimi - aa/gg/yyyy ss: dd: ss AM/PM.. 
 | SearchQuery |#searchquery |Uyarı kuralı tarafından kullanılan günlük arama sorgusu. |
 | SearchResults |"IncludeSearchResults": true|Bir JSON tablosu olarak ilk 1.000 kayıtları sınırlı sorgu tarafından döndürülen kayıt; varsa "IncludeSearchResults": true, özel JSON Web kancası tanımında en üst düzey bir özellik olarak eklenir. |
 | Workspaceıd |#workspaceid |Günlük analizi çalışma alanı kimliği. |
@@ -74,6 +75,7 @@ Bu örnek yükü için Web kancası gönderildiğinde aşağıdaki gibi bir şey
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+"#Searchinterval" gibi JSON muhafaza içinde belirtilen için özel bir Web kancası tüm değişkenler olması gibi sonuç Web kancası gibi muhafaza içinde değişken veri da sahip olur "00: 05:00".
 
 Özel bir yükte arama sonuçlarında için emin **IncudeSearchResults** json yükü en üst düzey özelliği olarak ayarlayın. 
 

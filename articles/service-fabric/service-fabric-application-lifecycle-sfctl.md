@@ -1,20 +1,21 @@
 ---
-title: Azure Service Fabric CLI kullanarak Azure Service Fabric uygulamaları yönetme
+title: Azure Service Fabric CLI (sfctl) kullanarak Azure Service Fabric uygulamaları yönetme
 description: Dağıtma ve uygulamaları, Azure Service Fabric CLI kullanarak bir Azure Service Fabric kümesinden kaldırma hakkında bilgi edinin
 services: service-fabric
 author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 08/22/2017
+ms.date: 04/13/2018
 ms.author: bikang
-ms.openlocfilehash: 18edd28943566daa382a1d742f25aaf9cc99792b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2cbc5778385a5a4af3f6dc0306e2b943482bf40c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642895"
 ---
-# <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Azure Service Fabric uygulaması Azure Service Fabric CLI kullanarak yönetme
+# <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>Azure Service Fabric uygulaması Azure Service Fabric CLI (sfctl) kullanarak yönetme
 
 Oluşturma ve bir Azure Service Fabric kümede çalışan uygulamaları silme öğrenin.
 
@@ -24,7 +25,7 @@ Oluşturma ve bir Azure Service Fabric kümede çalışan uygulamaları silme ö
 
 * Dağıtılmaya hazır bir Service Fabric uygulama paketine sahip. Yazar ve bir uygulama paketi hakkında daha fazla bilgi için bilgiyi [Service Fabric uygulama modeli](service-fabric-application-model.md).
 
-## <a name="overview"></a>Genel bakış
+## <a name="overview"></a>Genel Bakış
 
 Yeni bir uygulama dağıtmak için aşağıdaki adımları tamamlayın:
 

@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bf94e99d84b7f5b727b185209ba0288096b30607
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645506"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database istemci uygulamaları için SQL hata kodları: veritabanı bağlantı hataları ve diğer sorunlar
 
@@ -46,7 +47,7 @@ Bir tartışma *engelleme süresi* ADO.NET kullanan istemciler için kullanılab
 ### <a name="transient-fault-error-codes"></a>Geçici hata hata kodları
 Aşağıdaki hatalar geçicidir ve uygulama mantığını yeniden denenmesi gerekiyor: 
 
-| Hata kodu | Önem Derecesi | Açıklama |
+| Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
 | 4060 |16 |Veritabanı açılamıyor. "%.&#x2a;ls" oturum açma tarafından istenen. Oturum açma başarısız. |
 | 40197 |17 |Hizmet isteğinizi işlerken bir hatayla karşılaştı. Lütfen yeniden deneyin. Hata kodu %d.<br/><br/>Hizmet aşağı yazılım veya donanım yükseltmeleri, donanım hataları ya da başka bir yük devretme sorunlar nedeniyle olduğunda bu hatayı alırsınız. Katıştırılmış 40197 hata iletisi içinde hata kodu (%d) tür hata veya oluştu yük devretme hakkında ek bilgi sağlar. Bazı kodlar hata 40197 ileti içinde katıştırılmış hata 40020, 40143, 40166 ve 40540 gösterilebilir.<br/><br/>SQL veritabanı sunucusuna otomatik olarak yeniden bağlanmayı veritabanınızın sağlıklı bir kopyasını bağlanır. Uygulamanız hata 40197, günlük sorun giderme için iletisindeki katıştırılmış hata kodu (%d) yakalamak ve SQL veritabanına kaynaklar kullanılabilir ve, bağlantı yeniden kurulana kadar yeniden bağlanmayı deneyin. |
@@ -60,7 +61,7 @@ Aşağıdaki hatalar geçicidir ve uygulama mantığını yeniden denenmesi gere
 ## <a name="database-copy-errors"></a>Veritabanı kopyalama hataları
 Azure SQL veritabanında bir veritabanı kopyalanırken şu hatalarla karşılaşıldı. Daha fazla bilgi için bkz. [Azure SQL Veritabanını kopyalama](sql-database-copy.md).
 
-| Hata kodu | Önem Derecesi | Açıklama |
+| Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
 | 40635 |16 |İstemci IP adresi '%.&#x2a;ls' geçici olarak devre dışıdır. |
 | 40637 |16 |Oluşturma veritabanı kopyalama şu anda devre dışı. |
@@ -88,7 +89,7 @@ Aşağıdaki hatalar, Azure SQL Database ile çalışırken aşırı kaynakları
 
 * Daha ayrıntılı bilgi sağlanmıştır burada: [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers-dtu.md).
 
-| Hata kodu | Önem Derecesi | Açıklama |
+| Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
 | 10928 |20 |Kaynak Kimliği: %d. Veritabanı için %s sınırı %d ve üst sınırına ulaşıldı. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637).<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers-dtu.md). |
 | 10929 |20 |Kaynak Kimliği: %d. %S en az garantisi %d, üst sınır: %d, ve veritabanı için geçerli kullanım %d. Ancak, sunucu şu anda bu veritabanı için %d büyük istekler desteklemek için çok meşgul. Daha fazla bilgi için bkz. [http://go.microsoft.com/fwlink/?LinkId=267637](http://go.microsoft.com/fwlink/?LinkId=267637). Aksi halde, lütfen daha sonra yeniden deneyin.<br/><br/>Kaynak Kimliği sınırına kaynak gösterir. Çalışan iş parçacıkları, kaynak kimliği için = 1. Oturumları, kaynak kimliği = 2.<br/><br/>Bu hata ve nasıl çözümleyeceğiniz hakkında daha fazla bilgi için bkz:<br/>• [Azure SQL veritabanı kaynak sınırları](sql-database-service-tiers-dtu.md). |
@@ -135,7 +136,7 @@ Aşağıdaki hatalar oluşturma ve esnek havuzlarını kullanarak ilgili:
 ## <a name="general-errors"></a>Genel hataları
 Aşağıdaki hatalar herhangi önceki kategorilere ayrılır değil.
 
-| Hata kodu | Önem Derecesi | Açıklama |
+| Hata kodu | Severity | Açıklama |
 | ---:| ---:|:--- |
 | 15006 |16 |(Admınıstratorlogın), geçersiz karakterler içerdiğinden geçerli bir ad değil. |
 | 18452 |14 |Oturum açma başarısız. Oturum açma güvenilmeyen bir etki alanından ve Windows authentication.%.&#x2a;ls ile kullanılamaz ls (Windows oturumu açma desteklenmez SQL Server'ın bu sürümünde.) |

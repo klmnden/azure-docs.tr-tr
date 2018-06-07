@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 99b2b1b475fddc32f36636cbd792883d6a02aee7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6619f2dfe5f58cd23dbd0ffe6e2b545b803f3acc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647937"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Esnek veritabanı istemci kitaplığı Dapper ile kullanma
 Uygulamaları derleme Dapper kullanır, ancak aynı zamanda kag'yi geliştiriciler için bu belgedir [esnek veritabanı araçları](sql-database-elastic-scale-introduction.md) kendi veri katmanı genişletmek için bu uygulama parçalama uygulamaları oluşturmak için.  Bu belge Dapper tabanlı uygulamalar, esnek veritabanı araçları ile tümleştirmek için gerekli olan değişiklikleri gösterilmektedir. Esnek veritabanı parça yönetimi ve veri bağımlı Dapper ile yönlendirme oluşturma üzerinde bizim odak noktasıdır. 

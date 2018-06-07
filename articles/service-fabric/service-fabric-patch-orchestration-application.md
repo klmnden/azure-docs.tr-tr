@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642820"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümesi Windows işletim sistemi düzeltme eki
 
@@ -66,7 +67,7 @@ Düzeltme eki orchestration uygulama kümede etkinleştirilmesi için onarım Y�
 
 Gümüş dayanıklılık katmanı Azure kümelerinde varsayılan olarak etkin onarım Yöneticisi hizmeti sahip. Altın dayanıklılık katmanı Azure kümelerde olabilir ya da bu kümeleri oluşturulduğu bağlı olarak, etkin onarım Yöneticisi hizmeti sahip olmayabilir. Varsayılan olarak, Bronz dayanıklılık katmanı Azure kümelerde etkin onarım Yöneticisi hizmeti yok. Hizmet zaten etkin değilse, Service Fabric Explorer Sistem Hizmetleri bölümünde çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portalı
+##### <a name="azure-portal"></a>Azure portalına
 Kümenin kurma sırasında onarım Yöneticisi Azure portalından etkinleştirebilirsiniz. Seçin **dahil onarım Yöneticisi** altında seçeneği **eklenti özellikleri** küme yapılandırması zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -316,6 +317,10 @@ A. Düzeltme eki orchestration uygulama tarafından gereken süre genellikle aş
 Q. **Bazı güncelleştirmeler Windows Update sonuçlarında REST API aracılığıyla ancak makinedeki Windows Update geçmişi altında elde neden görüyor musunuz?**
 
 A. Bazı ürün güncelleştirmeleri yalnızca ilgili güncelleştirme/düzeltme eki geçmişlerini görüntülenir. Örneğin, Windows Defender'ın güncelleştirmeleri Windows Update geçmişinde Windows Server 2016 görünmüyor.
+
+Q. **Düzeltme eki Orchestration uygulama my geliştirme küme (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
+
+A. Hayır, düzeltme eki orchestration uygulama düzeltme eki tek düğümlü kümeye kullanılamaz. Bu tasarım gereği, olarak kısıtlamadır [service fabric Sistem Hizmetleri](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) veya müşteri uygulamalardan kapalı kalma süresi yüz ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onay almanız.
 
 ## <a name="disclaimers"></a>Bildirimler
 

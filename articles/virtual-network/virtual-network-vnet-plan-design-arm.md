@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656916"
 ---
 # <a name="plan-virtual-networks"></a>Sanal ağlar planlama
 
@@ -26,7 +27,7 @@ Denemeniz için sanal ağ oluşturma yeterince kolay, ancak büyük olasılıkla
 
 ## <a name="naming"></a>Adlandırma
 
-Tüm Azure kaynaklarına aynı ada sahip. Adı, her kaynak türü için değişebilir bir kapsam içinde benzersiz olmalıdır. Örneğin, bir sanal ağ adı içinde benzersiz olmalıdır bir [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), ancak içinde yinelenen bir [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) veya Azure [bölge](https://azure.microsoft.com/regions/#services). Kaynakları adlandırırken sürekli olarak kullanabileceğiniz bir adlandırma kuralı tanımlayan çeşitli ağ kaynaklarına zamanla yönetirken yararlıdır. Öneriler için bkz [adlandırma kuralları](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Tüm Azure kaynaklarına aynı ada sahip. Adı, her kaynak türü için değişebilir bir kapsam içinde benzersiz olmalıdır. Örneğin, bir sanal ağ adı içinde benzersiz olmalıdır bir [kaynak grubu](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), ancak içinde yinelenen bir [abonelik](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) veya Azure [bölge](https://azure.microsoft.com/regions/#services). Kaynakları adlandırırken sürekli olarak kullanabileceğiniz bir adlandırma kuralı tanımlayan çeşitli ağ kaynaklarına zamanla yönetirken yararlıdır. Öneriler için bkz [adlandırma kuralları](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking).
 
 ## <a name="regions"></a>Bölgeler
 
@@ -38,7 +39,7 @@ Tüm Azure kaynakları bir Azure bölgesi ve abonelik oluşturulur. Bir kaynak y
 
 ## <a name="subscriptions"></a>Abonelikler
 
-En fazla sayıda sanal ağlar her abonelik içindeki gerektiği gibi dağıtabilirsiniz [sınırı](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Bazı kuruluşlar, örneğin farklı Departmanlar için farklı Aboneliklerde sahiptir. Daha fazla bilgi ve abonelikleri geçici bir çözüm değerlendirmeleri için bkz: [abonelik idare](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy).
+En fazla sayıda sanal ağlar her abonelik içindeki gerektiği gibi dağıtabilirsiniz [sınırı](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Bazı kuruluşlar, örneğin farklı Departmanlar için farklı Aboneliklerde sahiptir. Daha fazla bilgi ve abonelikleri geçici bir çözüm değerlendirmeleri için bkz: [abonelik idare](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentasyon
 
@@ -81,7 +82,7 @@ Azure ile kullanarak internet arasında DMZ uygulamak için örnek tasarımları
 ### <a name="traffic-routing"></a>trafik yönlendirme
 
 Azure birkaç varsayılan yollar giden trafik için bir alt ağdan oluşturur. Bir yol tablosu oluşturarak ve bir alt ağa ilişkilendirme yönlendirme Azure'un varsayılan ayarlarını geçersiz kılabilir. Yaygın nedenler Azure'nın varsayılan geçersiz kılma için yönlendirme şunlardır:
-- Bir NVA akış için alt ağlar arasında trafiği istediklerinden. Hakkında daha fazla bilgi edinmek için [bir NVA trafiğinin zorlamak için yol tablolarını yapılandırmak](tutorial-create-route-table-portal.md)
+- Bir NVA akış için alt ağlar arasında trafiği istediklerinden. Hakkında daha fazla bilgi edinmek için [bir NVA trafiğinin zorlamak için yol tablolarını yapılandırmak](tutorial-create-route-table-portal.md).
 - Bir NVA veya şirket içi, bir Azure VPN ağ geçidi üzerinden aracılığıyla tüm Internet'e bağlı trafik zorlayabilirsiniz çünkü. Internet trafiği şirket içi İnceleme için zorlama ve günlüğe kaydetme genellikle zorlanan tünel olarak adlandırılır. Nasıl yapılandırılacağı hakkında daha fazla bilgi [zorlanan tünel](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json).
 
 Özel yönlendirme uygulamanız gerekiyorsa, kendinizle tanıyın önerilir [Azure'da yönlendirme](virtual-networks-udr-overview.md).
@@ -92,24 +93,28 @@ Bir sanal ağ, bir Azure VPN ağ geçidi kullanarak sanal ağ eşlemesi kullanma
 
 ### <a name="peering"></a>Eşleme
 
-Kullanırken [sanal ağ eşlemesi](virtual-network-peering-overview.md), sanal ağları olabilir aynı veya farklı, Azure bölgeleri desteklenir. Her iki aboneliğin aynı Azure Active Directory Kiracı atanan sürece sanal ağlar aynı ya da farklı Azure Aboneliklerde olabilir. Bir eşleme oluşturmadan önce tüm eşliği ile öğrenmeniz olduğunu önerilir [gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints). Kaynaklar aynı sanal ağda değilmiş gibi eşlenen sanal ağlarda bulunan kaynaklar arasındaki bant genişliği aynıdır.
+Kullanırken [sanal ağ eşlemesi](virtual-network-peering-overview.md), sanal ağları olabilir aynı veya farklı, Azure bölgeleri desteklenir. Her iki aboneliğin aynı Azure Active Directory Kiracı atanan sürece sanal ağlar aynı ya da farklı Azure Aboneliklerde olabilir. Bir eşleme oluşturmadan önce tüm eşliği ile öğrenmeniz olduğunu önerilir [gereksinimleri ve kısıtlamaları](virtual-network-manage-peering.md#requirements-and-constraints). Sanal ağlarda bulunan kaynaklar arasındaki bant genişliği kaynakları aynı sanal ağda değilmiş gibi aynı olduğundan aynı bölgede eşlenen.
 
 ### <a name="vpn-gateway"></a>VPN ağ geçidi
 
 Bir Azure kullanabilirsiniz [VPN ağ geçidi](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) kullanarak, şirket içi ağ bir sanal ağa bağlanmak için bir [siteden siteye VPN](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json), veya Azure ile ayrılmış bir bağlantıyı kullanarak [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Birleştirebilirsiniz eşliği ve oluşturmak için bir VPN ağ geçidi [hub ve bağlı bileşen ağları](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)burada spoke sanal ağlar bir hub sanal ağa bağlanmak ve hub örneğin bir şirket içi ağına bağlanır.
+Birleştirebilirsiniz eşliği ve oluşturmak için bir VPN ağ geçidi [hub ve bağlı bileşen ağları](/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json), burada spoke sanal ağlar bir hub sanal ağa bağlanmak ve hub örneğin bir şirket içi ağına bağlanır.
 
 ### <a name="name-resolution"></a>Ad çözümlemesi
 
-Bir sanal ağ kaynaklarında Azure'un kullanarak eşlenen sanal ağ içindeki kaynakların adları çözmek olamaz [yerleşik DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). Eşlenmiş bir sanal ağ adları çözümlemek için [kendi DNS sunucusu dağıtma](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), ya da Azure DNS kullanabilir [özel etki alanları](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bir sanal ağ kaynaklarında ve şirket içi ağlar arasında ad çözümleme Ayrıca kendi DNS sunucusu dağıtmayı gerektirir.
+Bir sanal ağ kaynaklarında Azure'un kullanarak eşlenen bir sanal ağ içindeki kaynakların adları çözmek olamaz [yerleşik DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md). Eşlenmiş bir sanal ağ adları çözümlemek için [kendi DNS sunucusu dağıtma](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server), ya da Azure DNS kullanabilir [özel etki alanları](../dns/private-dns-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Bir sanal ağ kaynaklarında ve şirket içi ağlar arasında ad çözümleme Ayrıca kendi DNS sunucusu dağıtmayı gerektirir.
 
 ## <a name="permissions"></a>İzinler
 
-Azure yararlanan [rol tabanlı erişim denetimi](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) kaynaklara. İzinleri atanır bir [kapsam](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance) aşağıdaki hiyerarşideki: Abonelik, yönetim grubu, kaynak grubu ve tek tek kaynak. Hiyerarşi hakkında daha fazla bilgi için bkz: [kaynaklarınızı düzenleme](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure sanal ağlar ve tüm ilgili yeteneklerini eşliği, ağ güvenlik grupları, hizmet uç noktaları ve yol tablolarını gibi çalışmak için kuruluş üyelerinin yerleşik olarak atayabilirsiniz [sahibi](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Katkıda bulunan](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), veya [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve sonra Ata uygun kapsamı role. Sanal ağ özelliklerinin alt kümeleri için belirli izinler atamak istiyorsanız, oluşturma bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve için gereken belirli izinleri atama [sanal ağlar](manage-virtual-network.md#permissions), [ alt ağları ve hizmet uç noktaları](virtual-network-manage-subnet.md#permissions), [ağ arabirimleri](virtual-network-network-interface.md), [eşliği](virtual-network-manage-peering.md#permissions), [ağ ve uygulama güvenlik grupları](manage-network-security-group.md#permissions), veya [yol tablosu](manage-route-table.md#permissions) rolü.
+Azure yararlanan [rol tabanlı erişim denetimi](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (RBAC) kaynaklara. İzinleri atanır bir [kapsam](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) aşağıdaki hiyerarşideki: Abonelik, yönetim grubu, kaynak grubu ve tek tek kaynak. Hiyerarşi hakkında daha fazla bilgi için bkz: [kaynaklarınızı düzenleme](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure sanal ağlar ve tüm ilgili yeteneklerini eşliği, ağ güvenlik grupları, hizmet uç noktaları ve yol tablolarını gibi çalışmak için kuruluş üyelerinin yerleşik olarak atayabilirsiniz [sahibi](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [Katkıda bulunan](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor), veya [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolleri ve sonra Ata uygun kapsamı role. Sanal ağ özelliklerinin alt kümeleri için belirli izinler atamak istiyorsanız, oluşturma bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ve için gereken belirli izinleri atama [sanal ağlar](manage-virtual-network.md#permissions), [ alt ağları ve hizmet uç noktaları](virtual-network-manage-subnet.md#permissions), [ağ arabirimleri](virtual-network-network-interface.md#permissions), [eşliği](virtual-network-manage-peering.md#permissions), [ağ ve uygulama güvenlik grupları](manage-network-security-group.md#permissions), veya [yol tablosu](manage-route-table.md#permissions) rolü.
 
 ## <a name="policy"></a>İlke
 
-Azure ilke oluşturmak, atamak ve ilke tanımları yönetmenizi sağlar. Kaynakları kuruluş standartları ve hizmet düzeyi sözleşmeleri ile uyumlu olmak için İlke tanımları farklı kurallar ve etkileri kaynaklarınızı zorlar. Azure ilke elinizde ilke tanımları ile uyumlu olmayan kaynaklar için tarama kaynaklarınızı değerlendirme çalışır. Örneğin, yalnızca belirli bir kaynak grubunda sanal ağlar oluşturulmasına izin veren bir ilke olabilir. Başka bir ilke, her alt ağ için ilişkili bir ağ güvenlik grubu olduğunu gerektirebilir. İlkeleri oluşturma ve kaynakları güncelleştirme, ardından değerlendirilir.
+Azure ilke oluşturmak, atamak ve ilke tanımları yönetmenizi sağlar. Kaynakları kuruluş standartları ve hizmet düzeyi sözleşmeleri ile uyumlu olmak için İlke tanımları kaynaklarınızı farklı kuralları zorlayın. Azure ilke elinizde ilke tanımları ile uyumlu olmayan kaynaklar için tarama kaynaklarınızı değerlendirme çalışır. Örneğin, tanımlayın ve yalnızca belirli bir kaynak grubunda veya bölge sanal ağlar oluşturulmasına izin veren bir ilke uygulayabilirsiniz. Başka bir ilke, her alt ağ için ilişkili bir ağ güvenlik grubu olduğunu gerektirebilir. İlkeleri oluşturma ve kaynakları güncelleştirme, ardından değerlendirilir.
 
 İlkeleri aşağıdaki hiyerarşi uygulanır: Abonelik, yönetim grubu ve kaynak grubu. Daha fazla bilgi edinmek [Azure ilke](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ya da bazı sanal ağı dağıtmak [ilke şablonu](policy-samples.md) örnekleri.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+Tüm görevler, ayarları ve seçenekleri hakkında bilgi edinin bir [sanal ağ](manage-virtual-network.md), [alt ağı ve hizmet uç noktası](virtual-network-manage-subnet.md), [ağ arabirimi](virtual-network-network-interface.md), [eşleme](virtual-network-manage-peering.md), [ağ ve uygulama güvenlik grubu](manage-network-security-group.md), veya [yol tablosu](manage-route-table.md).

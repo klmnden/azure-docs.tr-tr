@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644731"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan bir tek başına tek Kiracı uygulama keşfedin
 
@@ -41,9 +42,9 @@ Ek öğreticileri yayınlanacaktır. Bunlar, bu uygulama deseni temel alınarak 
 Uygulamayı üç sağlanan kiracılar için dağıtma:
 
 1. Her mavi tıklatın **Azure'a Dağıt** dağıtım şablonu açmak için düğmeye [Azure portal](https://portal.azure.com). Her bir şablon iki parametre değerlerini gerektirir; Yeni bir kaynak grubu için bir ad ve bu dağıtım uygulamanın diğer dağıtımlardan ayıran bir kullanıcı adı. Sonraki adım, bu değerleri ayarlamak için Ayrıntılar sağlar.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
+    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso birlikte Hall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
+    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Kızılcık Dojo**
 <br><br>
     <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz kulübü**
 
@@ -73,16 +74,16 @@ Uygulama olayları konak görebildikleri gösterir.  Görebildikleri uygulama ki
 
 1. Her üç ayrı tarayıcı sekmeleri kiracılar Etkinlikler sayfasını açın:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+    - http://events.contosoconcerthall.&lt; Kullanıcı&gt;. trafficmanager.net
+    - http://events.dogwooddojo.&lt; Kullanıcı&gt;. trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt; Kullanıcı&gt;. trafficmanager.net
 
     (Her URL ile değiştirin &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)
 
    ![Olaylar](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
 Gelen istekleri, uygulamanın kullandığı dağıtımını denetlemek için [ *Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md). Her bir kiracı özel uygulama örneği URL'de Kiracı adı etki alanı adının bir parçası olarak içerir. Tüm Kiracı URL'leri özel **kullanıcı** değeri. URL aşağıdaki biçimde izleyin:
-- http://events.&lt;venuename&gt;.&lt;user&gt;.trafficmanager.net
+- http://events.&lt; venuename&gt;.&lt; Kullanıcı&gt;. trafficmanager.net
 
 Her bir kiracının veritabanı **konumu** karşılık gelen dağıtılan uygulama uygulaması ayarları içinde bulunur.
 

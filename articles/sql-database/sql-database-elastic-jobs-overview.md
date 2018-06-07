@@ -7,14 +7,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3fdc24a811544de87d97da498d7946507653cec5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646094"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Ölçeklendirilen bulut veritabanlarını yönetme
 Ölçeklendirilen parçalı veritabanlarını yönetmek için **esnek veritabanı işleri** özelliği (Önizleme) güvenilir bir şekilde veritabanları dahil olmak üzere, bir grup arasında bir Transact-SQL (T-SQL) komut dosyası yürütme olanak sağlar:

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 33ca8af49ed9c3a8e7133eedfd284a1b71a9a9f9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 951b69877718c5da3c165c24c297906a1ad9a976
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652510"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage ile Azure PowerShell’i kullanma
 
@@ -214,7 +215,7 @@ PowerShell ile depolama hesabınızı yönetme anladığınıza göre veri nesne
 * [BLOB'lar PowerShell ile yönetme](../blobs/storage-how-to-use-blobs-powershell.md)
 * [Dosyaları PowerShell ile yönetme](../files/storage-how-to-use-files-powershell.md)
 * [Kuyruklar PowerShell ile yönetme](../queues/storage-powershell-how-to-use-queues.md)
-* [PowerShell ile Azure Table depolama işlemleri](../../cosmos-db/table-storage-how-to-use-powershell.md)
+* [PowerShell ile Azure Table depolama işlemleri](../../storage/tables/table-storage-how-to-use-powershell.md)
 
 Azure Cosmos DB tablo API anahtar teslimi genel dağıtım, düşük gecikme süresi okuma ve yazma, otomatik ikincil dizin oluşturma ve ayrılmış işleme gibi tablo depolama premium özellikleri sunar. 
 

@@ -5,15 +5,16 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 9abe7743906064d182453fea403ff94a097c3558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648362"
 ---
 # <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>satın alma modeli vCore tabanlı Azure SQL veritabanı (Önizleme)
 
@@ -64,13 +65,13 @@ Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı
 
 ||**Genel amaçlı**|**Kritik iş**|
 |---|---|---|
-|En uygun olduğu durum|Çoğu kurumsal iş yükleri. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir bilgi işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|
+|En iyi kullanım alanı:|Çoğu kurumsal iş yükleri. Teklifler yönlendirilmiş Dengeli ve ölçeklenebilir bilgi işlem ve depolama seçenekleri bütçe.|Yüksek GÇ gereksinimleri olan iş uygulamaları. Çeşitli yalıtılmış çoğaltmaları kullanarak hatalara karşı en yüksek düzeyde dayanıklılık sağlar.|
 |İşlem|1 ila 80 vCore, nesil 4 ve 5 oluşturma |1 ila 80 vCore, nesil 4 ve 5 oluşturma|
 |Bellek|Çekirdek başına 7 GB |Çekirdek başına 7 GB |
 |Depolama|Premium uzaktaki depolama birimi, 5 GB – 4 TB|Yerel SSD depolama, 5 GB – 4 TB|
 |G/ç işleme (yaklaşık)|7000 en fazla IOPS ile vCore başına 500 IOPS|Çekirdek başına 5000 IOPS'yi 200000 en fazla IOPS ile|
 |Kullanılabilirlik|1 çoğaltma, herhangi bir okuma ölçek|3 çoğaltmalar, 1 [okuma ölçekli](sql-database-read-scale-out.md), yedekli HA bölge|
-|Yedekler|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)|RA-GRS, 7-35 gün (varsayılan olarak 7 gün) *|
+|Yedeklemeler|RA-GRS, 7-35 gün (varsayılan olarak 7 gün)|RA-GRS, 7-35 gün (varsayılan olarak 7 gün) *|
 |Bellek içi|Yok|Desteklenen|
 |||
 

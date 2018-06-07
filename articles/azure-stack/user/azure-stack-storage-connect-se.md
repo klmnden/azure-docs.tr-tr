@@ -10,31 +10,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
-ms.author: mattbriggs
+ms.date: 05/21/2018
+ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a3a69f3cf91c0d202d54d0da5dc5fe0531ef9db1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9704f05cc6da97e33c0043b93acedc9e66bdcc36
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714910"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Depolama Gezgini Azure yığın abonelik veya depolama hesabı bağlayın
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Bu makalede, Azure yığın abonelikleri ve Depolama Gezgini'ni kullanarak depolama hesapları için nasıl bağlayacağınızı öğreneceksiniz. Azure Storage Gezgini Windows, macOS ve Linux Azure yığın depolama verilerle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
+Bu makalede, Azure yığın abonelikleri ve Depolama Gezgini'ni kullanarak depolama hesapları için nasıl bağlayacağınızı öğreneceksiniz. Azure storage Gezgini Windows, macOS ve Linux Azure yığın depolama verilerle kolayca çalışmanızı sağlayan bir tek başına uygulamadır.
 
->[!NOTE]
->Azure yığın depolama gelen ve giden veri taşımak kullanılabilen çeşitli araçlar vardır. Daha fazla bilgi için bkz: [veri aktarımı için Azure yığın depolama Araçları](azure-stack-storage-transfer.md).
+> [!NOTE]  
+> Azure yığın depolama gelen ve giden veri taşımak kullanılabilen çeşitli araçlar vardır. Daha fazla bilgi için bkz: [veri aktarımı için Azure yığın depolama Araçları](azure-stack-storage-transfer.md).
 
 Depolama Gezgini henüz yüklemediyseniz [Depolama Gezgini karşıdan](http://www.storageexplorer.com/) ve yükleyin.
 
-Bir Azure yığın abonelik veya bir depolama hesabı bağlandıktan sonra kullanabileceğiniz [Azure Storage Gezgini makaleleri](../../vs-azure-tools-storage-manage-with-storage-explorer.md) Azure yığın verilerle çalışmak için. 
+Bir Azure yığın abonelik veya bir depolama hesabı bağlandıktan sonra kullanabileceğiniz [Azure Depolama Gezgini makaleleri](../../vs-azure-tools-storage-manage-with-storage-explorer.md) Azure yığın verilerle çalışmak için. 
 
 ## <a name="prepare-for-connecting-to-azure-stack"></a>Azure yığınına bağlanmak için hazırlama
 
-Azure yığın veya bir VPN bağlantısı için Depolama Gezgini Azure yığın abonelik erişmek için doğrudan erişim gerekir. Azure Stack ile VPN bağlantısı kurma hakkında bilgi edinmek için bkz. [VPN ile Azure Stack’e Bağlanma](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Azure yığınını veya bir VPN bağlantısı için Depolama Gezgini Azure yığın abonelik erişmek doğrudan erişim gerekir. Azure Stack ile VPN bağlantısı kurma hakkında bilgi edinmek için bkz. [VPN ile Azure Stack’e Bağlanma](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 Azure yığın Geliştirme Seti için Azure yığın yetkilisi kök sertifikasını dışarı aktarmanız gerekmez.
 
@@ -60,7 +61,7 @@ Azure yığın Geliştirme Seti için Azure yığın yetkilisi kök sertifikası
 
     ![Sertifika depolama Explorer'a alma](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. Depolama Gezgini yeniden başlatıldıktan sonra Seç **Düzenle** menü ve olmadığını görmek için onay **hedef Azure yığın** seçilir. Değilse, seçin **hedef Azure yığın**ve değişikliğin etkili olması için Depolama Gezgini yeniden başlatın. Bu yapılandırma, Azure Stack ortamınıza uyum için gereklidir.
+7. Depolama Gezgini yeniden başlatıldıktan sonra Seç **Düzenle** menü ve olmadığını görmek için onay **hedef Azure yığın** seçilir. Değilse, seçin **hedef Azure yığın**ve etkili olması için Depolama Gezgini değiştirmek için yeniden başlatın. Bu yapılandırma, Azure Stack ortamınıza uyum için gereklidir.
 
     ![Hedef Azure Stack’in seçili olduğundan emin olun](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -75,9 +76,9 @@ Depolama Gezgini bir Azure yığın aboneliğine bağlamak için aşağıdaki ad
 
     ![Azure Stack hesabı ekleme](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. Azure Storage iletişim kutusu, Bağlan altında **Azure ortamı**seçin **Azure** veya **Azure Çin**kullanmakta olduğunuz Azure yığın hesabı bağlı olarak. Seçin **oturum** en az bir etkin Azure yığın aboneliği ile ilişkili Azure yığın hesabına oturum açmak için.
+3. Azure Storage iletişim kutusu, Bağlan altında **Azure ortamı**seçin **Azure** veya **Azure Çin**, kullanılmakta olan Azure yığın hesabında bağlıdır, seçin **Oturum** için en az bir etkin Azure yığın abonelikle ilişkili Azure yığın hesabınızla oturum açın.
 
-    ![Azure depolama birimini bağlayın](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
+    ![Azure depolamaya bağlanma](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 
 4. Bir Azure Stack hesabı ile başarıyla oturum açtıktan sonra sol bölme ilgili hesapla ilişkili Azure Stack abonelikleriyle doldurulur. Birlikte çalışmak istediğiniz Azure Stack aboneliklerini belirleyin ve ardından **Uygula**’yı seçin. (**Tüm abonelikler** onay kutusunun işaretlenmesi veya temizlenmesi, listelenen Azure Stack aboneliklerinin tamamının seçilmesini veya hiçbirinin seçilmemesini sağlar.)
 
@@ -115,5 +116,5 @@ Ayrıca, depolama hesabı adı ve anahtar çifti kullanarak Azure yığın depol
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Depolama Gezgini ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure yığın depolama: farklar ve ilgili önemli noktalar](azure-stack-acs-differences.md)
-* Azure Storage hakkında daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)
+* [Azure yığın depolama: farklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
+* Azure storage hakkında daha fazla bilgi edinmek için [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)

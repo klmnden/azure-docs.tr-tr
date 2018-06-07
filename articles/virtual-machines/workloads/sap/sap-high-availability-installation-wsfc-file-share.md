@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver yüksek kullanılabilirlik yüklemesi Azure üzerinde SAP ASCS/SCS örnekleri için Windows Yük devretme kümesi ve dosya paylaşımında | Microsoft Docs"
-description: "SAP NetWeaver Windows Yük devretme kümesi ve dosya paylaşımında SAP ASCS/SCS örnekleri için yüksek kullanılabilirlik yüklemesi"
+title: SAP NetWeaver yüksek kullanılabilirlik yüklemesi Azure üzerinde SAP ASCS/SCS örnekleri için Windows Yük devretme kümesi ve dosya paylaşımında | Microsoft Docs
+description: SAP NetWeaver Windows Yük devretme kümesi ve dosya paylaşımında SAP ASCS/SCS örnekleri için yüksek kullanılabilirlik yüklemesi
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc957ece0250d233db9cec4f1fdd8b063c13a136
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 2fa9cebe092f726b2df3dec99cee1bb97ccc92dc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658664"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Azure üzerinde SAP ASCS/SCS örnekleri için bir Windows Yük devretme kümesi ve dosya paylaşımı SAP NetWeaver yüksek kullanılabilirlik yükleyin.
 
@@ -88,7 +89,7 @@ ms.lasthandoff: 11/17/2017
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
 
-[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
+[sap-ha-multi-sid-guide]:sap-high-availability-multi-sid.md (SAP çoklu SID yüksek kullanılabilirliği yapılandırma)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -198,7 +199,7 @@ ms.lasthandoff: 11/17/2017
 
 Bu makalede, yükleme ve Windows Server Yük devretme kümesi (WSFC) ve genişleme dosya sunucusu SAP ASCS/SCS örnekleri kümeleme için bir seçenek olarak ile azure'da yüksek kullanılabilirlik SAP sistem yapılandırma açıklar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Yüklemeye başlamadan önce aşağıdaki makaleleri gözden geçirin:
 
@@ -236,12 +237,12 @@ SAP ASCS/SCS örneğini yükleyin *her ikisi de* ASCS/SCS küme düğümlerinin.
 
 SAP SWPM yükleme aracı örneği yüklemek için şuraya gidin:
 
-**\<Ürün >** > **\<DBMS >** > **yükleme** > **uygulama sunucusu ABAP**(veya **Java**) > **dağıtılmış sistemi** > **ASCS/SCS örneği**
+**\<Ürün >** > **\<DBMS >** > **yükleme** > **uygulama sunucusu ABAP** () veya **Java**) > **dağıtılmış sistemi** > **ASCS/SCS örneği**
 
 > [!IMPORTANT]
 > Şu anda, dosya paylaşımı senaryo SAP SWPM yükleme aracı tarafından desteklenmiyor. *Kullanamazsınız* aşağıdaki yükleme yolu:
 >
-> **\<Ürün >** > **\<DBMS >** > **yükleme** > **uygulama sunucusu ABAP**(veya **Java**) > **yüksek kullanılabilirlik sistem** >...
+> **\<Ürün >** > **\<DBMS >** > **yükleme** > **uygulama sunucusu ABAP** () veya **Java**) > **yüksek kullanılabilirlik sistem** >...
 >
 
 ### <a name="remove-sapmnt-and-create-an-saploc-file-share"></a>SAPMNT kaldırın ve SAPLOC dosya paylaşımı oluşturma

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
 ms.author: iainfou
-ms.openlocfilehash: e6fad548eda35d1832cb4ecc2fd9bdabf825f361
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653000"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Yükleme ve Azure sanal makineleri yönetmek için Ansible yapılandırma
 
@@ -149,7 +150,7 @@ sudo pip uninstall -y cryptography
 
 Ansible bir kullanıcı adı ve parola veya bir hizmet sorumlusu kullanarak Azure ile iletişim kurar. Bir Azure hizmet sorumlusu uygulamaları, hizmetleri ve Ansible gibi Otomasyon araçları ile birlikte kullanabileceğiniz bir güvenlik kimliğidir. Denetim ve hizmet sorumlusu Azure'da gerçekleştirebilirsiniz ne gibi işlemler için izinler tanımlar. Yalnızca bir kullanıcı adı ve parola sağlayarak üzerinden güvenliğini artırmak için bu örnek temel bir hizmet sorumlusu oluşturur.
 
-Ana bilgisayarınızda veya Azure bulut Kabuğu'nu kullanarak bir hizmet asıl oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#create-for-rbac). Ansible gereken kimlik bilgilerini ekranda çıkış şunlardır:
+Ana bilgisayarınızda veya Azure bulut Kabuğu'nu kullanarak bir hizmet asıl oluşturma [az ad sp oluşturma-için-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). Ansible gereken kimlik bilgilerini ekranda çıkış şunlardır:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
@@ -165,7 +166,7 @@ az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tena
 }
 ```
 
-Azure için kimlik doğrulaması için Azure abonelik kimliği kullanarak elde etmeniz [az hesabı Göster](/cli/azure/account#az_account_show):
+Azure için kimlik doğrulaması için Azure abonelik kimliği kullanarak elde etmeniz [az hesabı Göster](/cli/azure/account#az-account-show):
 
 ```azurecli-interactive
 az account show --query "{ subscription_id: id }"

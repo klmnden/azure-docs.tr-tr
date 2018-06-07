@@ -15,15 +15,18 @@ ms.date: 05/12/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: e75f2cceed83d577730cd29490f80011bdb0a508
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640991"
 ---
 # <a name="create-custom-roles-in-azure"></a>Özel roller oluşturma
 
-Varsa [yerleşik roller](built-in-roles.md) belirli erişim gereksinimlerinizi karşılamadığını, kendi özel roller oluşturabilirsiniz. Yalnızca yerleşik roller gibi kullanıcıları, grupları ve hizmet asıl adı abonelik, kaynak grubu ve kaynak kapsamları özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) Kiracı depolanır ve abonelikler arasında paylaşılabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API kullanarak oluşturulabilir. Bu makalede PowerShell ve Azure CLI kullanarak özel roller oluşturmaya başlamak nasıl bir örneği.
+Varsa [yerleşik roller](built-in-roles.md) belirli erişim gereksinimlerinizi karşılamadığını, kendi özel roller oluşturabilirsiniz. Yalnızca yerleşik roller gibi kullanıcıları, grupları ve hizmet asıl adı abonelik, kaynak grubu ve kaynak kapsamları özel roller atayabilirsiniz. Özel roller, bir Azure Active Directory (Azure AD) Kiracı depolanır ve abonelikler arasında paylaşılabilir. Her bir kiracı en fazla 2000 özel rollere sahip olabilir. Özel roller, Azure PowerShell, Azure CLI veya REST API kullanarak oluşturulabilir.
+
+Bu makalede PowerShell ve Azure CLI kullanarak özel roller oluşturmaya başlamak nasıl bir örneği.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>PowerShell kullanarak destek istekleri açmak için özel bir rol oluşturun
 

@@ -5,25 +5,25 @@ services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 01/30/2018
+ms.date: 05/24/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 9ea51f6ea55c62fdd01efb155d26fade3941ce41
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650511"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>PowerShell ile bir özel web uç noktası için rota Blob Depolama olayları
 
 Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Blob Depolama olayları, tetikleyici bir olay abone olmak için Azure PowerShell kullanın ve sonucu görüntüleyin. 
 
-Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Bu makalede gösterilen örneği basitleştirmek için olayları yalnızca iletileri toplayan bir URL'ye gönderilir. [Hookbin](https://hookbin.com/)’den bir üçüncü taraf araç kullanarak bu URL’yi oluşturursunuz.
+Genellikle, olayları olay verilerini işler ve eylemleri gerçekleştirir bir uç nokta için gönderin. Ancak, bu makalede basitleştirmek için olayları toplayan ve iletileri görüntüleyen bir web uygulaması gönderin.
 
-> [!NOTE]
-> **Hookbin** yüksek verimlilik kullanım için tasarlanmamıştır. Bu aracın kullanımı tamamen gösterim amaçlıdır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz. Ayrıca, aklınızda **Hookbin** alır [özel işleme](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid#create-a-requestbin-endpoint) Azure olay kılavuz tarafından. Sınama kolaylaştırmak için olay kılavuz olaylar var. abonelik doğrulama isteklerini doğru yanıt gerek kalmadan gönderir (durum [aksi](https://docs.microsoft.com/en-us/azure/event-grid/security-authentication#validation-details)).
+İşlemi tamamladığınızda, olay verilerini web uygulamasına gönderildi bakın.
 
-Bu makalede açıklanan adımları tamamladıktan sonra olay verilerinin bir uç noktaya gönderildiğini görürsünüz.
+![Sonuçları görüntüle](./media/storage-blob-event-quickstart-powershell/view-results.png)
 
 ## <a name="setup"></a>Kurulum
 
@@ -82,23 +82,41 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 
-Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Konuya yanıt vermek için kod yazmak yerine, görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturalım. Hookbin, bir uç nokta oluşturmanıza ve buna gönderilen istekleri görüntülemenize imkan tanıyan üçüncü taraf bir araçtır. [Hookbin](https://hookbin.com/)’e gidin ve **Yeni Uç Nokta Oluştur**’a tıklayın. Depo URL'yi kopyalayın ve değiştirme `<bin URL>` aşağıdaki komut dosyasında.
+Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Genellikle, uç nokta olay verileri temel alan eylemleri gerçekleştirir. Bu hızlı başlangıç basitleştirmek için dağıttığınız bir [önceden oluşturulmuş web uygulaması](https://github.com/dbarkol/azure-event-grid-viewer) olay iletileri görüntüler. Dağıtılan çözümü, bir uygulama hizmeti planı, bir App Service web uygulaması ve github'dan kaynak kodunu içerir.
+
+Değiştir `<your-site-name>` web uygulamanız için benzersiz bir ada sahip. DNS girişini parçası olduğu için web uygulaması adı benzersiz olmalıdır.
 
 ```powershell
-$binEndPoint = "<bin URL>"
+$sitename="<your-site-name>"
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -siteName $sitename `
+  -hostingPlanName viewerhost
 ```
+
+Dağıtımın tamamlanması birkaç dakika sürebilir. Dağıtım başarılı olduktan sonra emin olmak için web uygulamanızı görüntülemek çalışıyor. Bir web tarayıcısında gidin: `https://<your-site-name>.azurewebsites.net`
+
+Site şu anda görüntülenen hiçbir iletiler görmeniz gerekir.
 
 ## <a name="subscribe-to-your-storage-account"></a>Depolama hesabınıza abone olma
 
-Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, depolama hesabı oluşturulur ve olay bildirimi için uç noktaya olarak Hookbin URL geçirir abone olur. 
+Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, depolama hesabı oluşturulur ve olay bildirimi için uç noktaya olarak web uygulamanızdan URL geçirir abone olur. Web uygulamanız için uç noktaya soneki içermelidir `/api/updates/`.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
+$endpoint="https://$sitename.azurewebsites.net/api/updates"
+
 New-AzureRmEventGridSubscription `
   -EventSubscriptionName gridBlobQuickStart `
-  -Endpoint $binEndPoint `
+  -Endpoint $endpoint `
   -ResourceId $storageId
 ```
+
+Web uygulamanızı yeniden görüntülemek ve bir abonelik doğrulama olayı için gönderildiğini dikkat edin. Olay verileri genişletmek için göz simgesini seçin. Uç nokta, olay verileri almak istediği doğrulayabilmeniz için olay kılavuz doğrulama olay gönderir. Web uygulamasının abonelik doğrulamak için kodu içerir.
+
+![Abonelik olayı görüntüle](./media/storage-blob-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Blob depolama biriminden bir olay tetikler
 
@@ -113,7 +131,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Daha önce oluşturduğunuz uç nokta URL’sine gidin. Veya açık olan tarayıcınızda Yenile’ye tıklayın. Az önce gönderdiğiniz olayı görürsünüz. 
+Olayı tetiklediniz ve Event Grid iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Yalnızca gönderilen olay görmek için web uygulamanızın görüntüleyin.
 
 ```json
 [{

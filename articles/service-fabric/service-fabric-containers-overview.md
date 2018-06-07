@@ -12,24 +12,18 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/20/2017
+ms.date: 5/21/2018
 ms.author: msfussell
-ms.openlocfilehash: c70db92d6071a295dfc329768ab8a0fd561f8ce5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fe6db569c0f70362676251a9413fa859f27f5046
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641924"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric ve kapsayıcıları
-> [!NOTE]
-> Windows 10 veya Docker CE ile bir Service Fabric kümesine kapsayıcıları dağıtılması desteklenmez. 
->   
 
-> [!NOTE]
-> Service Fabric 6.1 sürümünde Windows Server 1709 sürümü için önizleme desteği sağlanır. Açık ağ ve Service Fabric DNS Hizmeti, Windows Server 1709 sürümüyle çalışmaz. 
-> 
-
-## <a name="introduction"></a>Tanıtım
+## <a name="introduction"></a>Giriş
 Azure Service fabric bir [orchestrator](service-fabric-cluster-resource-manager-introduction.md) makine bir küme içinde kullanım ve yüksek ölçüde ölçeklendirmeyi iyileştirme yıllık ile Microsoft Hizmetleri. Hizmetleri kullanmanın birçok yönden geliştirilebilir [Service Fabric modellerini programlama](service-fabric-choose-framework.md) dağıtma [Konuk yürütülebilir dosyalar](service-fabric-guest-executables-introduction.md). Varsayılan olarak, Service Fabric dağıtır ve bu hizmetleri işlemler olarak etkinleştirir. İşlemler hızlı etkinleştirme ve küme kaynaklarının yüksek yoğunluk kullanım sağlar. Service Fabric kapsayıcı görüntüleri Hizmetleri'nde de dağıtabilirsiniz. Önemlisi işlemlerde Hizmetleri ve Hizmetleri aynı uygulamada kapsayıcılardaki karıştırabilirsiniz.   
 
 ## <a name="what-are-containers"></a>Kapsayıcıları nelerdir?
@@ -44,10 +38,6 @@ Uygulamaları temel işletim sisteminden sanallaştıran sanallaştırma teknolo
 
 ## <a name="container-types-and-supported-environments"></a>Kapsayıcı türleri ve desteklenen ortamlar
 Service Fabric kapsayıcıları hem Linux hem de Windows ve aynı zamanda Hyper-V yalıtım modunu ikinci üzerinde destekler. 
-
-> [!NOTE]
-> Windows 10 Service Fabric kümesi kapsayıcıları dağıtma şu anda desteklenmiyor. 
-> 
 
 ### <a name="docker-containers-on-linux"></a>Linux üzerinde docker kapsayıcıları
 Docker oluşturmak ve Linux çekirdek kapsayıcıları üstünde kapsayıcıları yönetmek için üst düzey API'ler sağlar. Docker hub'a depolamak ve kapsayıcı görüntüleri almak için merkezi bir depodur.

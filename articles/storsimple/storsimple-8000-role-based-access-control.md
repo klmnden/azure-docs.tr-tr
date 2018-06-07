@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652078"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple için rol tabanlı erişim denetimi
 
@@ -30,7 +31,7 @@ Bu makalede, StorSimple 8000 serisi cihazlar Update 3.0 çalıştıran veya daha
 
 RBAC rollere göre atanabilir. Rolleri ortamında kullanılabilir kaynaklara dayalı belirli izin düzeyleri emin olun. StorSimple kullanıcıların seçebileceği rolleri iki tür vardır: yerleşik veya özel.
 
-* **Yerleşik roller** -yerleşik roller sahip, katkıda bulunan, okuyucu veya kullanıcı erişimi Yöneticisi olabilir. Daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](../role-based-access-control/overview.md#built-in-roles).
+* **Yerleşik roller** -yerleşik roller sahip, katkıda bulunan, okuyucu veya kullanıcı erişimi Yöneticisi olabilir. Daha fazla bilgi için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](../role-based-access-control/built-in-roles.md).
 
 * **Özel roller** -yerleşik roller gereksinimlerinize göre değil, StorSimple için özel RBAC rolleri oluşturabilirsiniz. Bir özel RBAC rolü oluşturmak için sahip yerleşik bir rol Başlat, düzenlemek ve ortamı geri alma. İndirme ve yükleme rolünün Azure PowerShell veya Azure CLI kullanarak yönetilir. Daha fazla bilgi için bkz: [rol tabanlı erişim denetimi için özel roller oluşturmanızı](../role-based-access-control/custom-roles.md).
 
@@ -153,7 +154,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>Özel rolüne kullanıcılar ekleyin
 
-Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz. Erişim sağlarken üst düğümü erişim izni aklınızda ayı alt tarafından devralınır. Daha fazla bilgi için Git [kaynak hiyerarşisi ve erişim devralma](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance).
+Rol atamasının kapsamı olan kaynak, kaynak grubu veya abonelik içinden erişim verebilirsiniz. Erişim sağlarken üst düğümü erişim izni aklınızda ayı alt tarafından devralınır. Daha fazla bilgi için Git [rol tabanlı erişim denetimi](../role-based-access-control/overview.md).
 
 1. Git **erişim denetimi (IAM)**. Tıklatın **+ Ekle** erişim denetimi dikey.
 

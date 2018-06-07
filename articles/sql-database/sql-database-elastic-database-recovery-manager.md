@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 350ea0d4b744467849916f2d958cc49fd72d3e4b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6257edbb567be3ebb3151724e7e50ca81905ad40
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646244"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager sınıfı ile parça eşleme sorunlarını düzeltme
 [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) sınıfı ADO.Net uygulamaları kolayca algılamak ve genel parça eşleme (GSM) parçalı veritabanı ortamında yerel parça eşleme (LSM) arasındaki tutarsızlıkları düzeltmek olanağı sağlar. 
@@ -94,7 +95,7 @@ Veritabanı silme kasıtlı varsayıldığından son yönetim temizleme eylemi p
 
 * *RecoveryToken* parametre eşlemeleri GSM ve belirli parça LSM arasındaki farkları numaralandırır. 
 * [MappingDifferenceResolution numaralandırma](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) parça eşlemeleri arasındaki farkı çözmek için yöntem belirtmek için kullanılır. 
-* **MappingDifferenceResolution.KeepShardMapping** is recommended that when the LSM contains the accurate mapping and therefore the mapping in the shard should be used. Bir yük devretme ise genellikle böyledir: parça şimdi yeni bir sunucuda bulunuyor. Parça (RecoveryManager.DetachShard yöntemi kullanılarak) GSM kaldırılmalıdır olduğundan, bir eşleme üzerinde GSM artık yok. Bu nedenle, LSM parça eşleme yeniden oluşturmak için kullanılması gerekir.
+* **MappingDifferenceResolution.KeepShardMapping** LSM doğru eşleme içerdiğinde ve bu nedenle parça eşlemesindeki kullanılmalıdır önerilir. Bir yük devretme ise genellikle böyledir: parça şimdi yeni bir sunucuda bulunuyor. Parça (RecoveryManager.DetachShard yöntemi kullanılarak) GSM kaldırılmalıdır olduğundan, bir eşleme üzerinde GSM artık yok. Bu nedenle, LSM parça eşleme yeniden oluşturmak için kullanılması gerekir.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Bir parça geri yüklendikten sonra bir parça ShardMap ekleme
 [AttachShard yöntemi](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) verilen parça parça eşlemesi ekler. Parça eşleme tutarsızlıkları algılar ve eşlemeleri parça parça geri yükleme noktasında eşleşecek şekilde güncelleştirir. Zaman içinde nokta geri yükleme damgasıyla eklenen yeni bir veritabanı için varsayılan olarak bu yana veritabanı (parça geri önce) özgün veritabanı adı, yansıtmak üzere de adlandırılır varsayılır. 

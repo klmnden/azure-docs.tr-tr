@@ -1,9 +1,9 @@
 ---
-title: "Tasarım konuları Azure sanal makine ölçek kümeleri için | Microsoft Docs"
-description: "Azure sanal makine ölçek kümeleri için tasarım konuları hakkında bilgi edinin"
-keywords: "Linux sanal makine, sanal makine ölçek ayarlar"
+title: Tasarım konuları Azure sanal makine ölçek kümeleri için | Microsoft Docs
+description: Azure sanal makine ölçek kümeleri için tasarım konuları hakkında bilgi edinin
+keywords: Linux sanal makine, sanal makine ölçek ayarlar
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652408"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Ölçek kümeleri için tasarım konuları
 Bu makalede, sanal makine ölçek kümeleri için tasarım konuları açıklanmaktadır. Sanal makine ölçek kümeleri nelerdir hakkında daha fazla bilgi için bkz [sanal makine ölçek kümesi'ne genel bakış](virtual-machine-scale-sets-overview.md).
@@ -30,22 +31,19 @@ Genellikle, Ölçek kümeleri makineler kümesi benzer yapılandırmaya sahip ol
 
 ### <a name="scale-set-specific-features"></a>Ölçek kümesi özgü özellikleri
 
-- Ölçek yapılandırma kümesi belirttiğinizde, paralel daha fazla sanal makineleri dağıtmak için "kapasitesi" özelliğini güncelleyebilirsiniz. Bu paralel birçok ayrı VM dağıtma düzenlemek için bir komut dosyası yazma daha çok daha kolaydır.
+- Ölçek kümesi yapılandırma belirttiğinizde, güncelleştirebilirsiniz *kapasite* paralel daha fazla sanal makineleri dağıtmak için özellik. Bu işlem, birçok ayrı VM paralel dağıtma düzenlemek için bir komut dosyası yazma daha iyidir.
 - Yapabilecekleriniz [otomatik olarak ölçek kümesini ölçeklendirmek için Azure otomatik ölçeklendirme kullanmak](./virtual-machine-scale-sets-autoscale-overview.md) ancak bireysel VM'ler.
 - Yapabilecekleriniz [yeniden görüntü oluşturma ölçek kümesi VM](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm) ancak [bireysel VM'ler](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- Yapabilecekleriniz [overprovision](./virtual-machine-scale-sets-design-overview.md) ölçek kümesi VM'ler daha fazla güvenilirlik ve daha hızlı dağıtım zamanları için. Bunu yapmak için özel kod yazmanıza sürece bu tek tek sanal makineleri ile yapamazsınız.
+- Yapabilecekleriniz [overprovision](./virtual-machine-scale-sets-design-overview.md) ölçek kümesi VM'ler daha fazla güvenilirlik ve daha hızlı dağıtım zamanları için. Bu eylemi gerçekleştirmek için özel kod yazmanıza sürece tek tek sanal makineleri overprovision olamaz.
 - Belirleyebileceğiniz bir [yükseltme İlkesi](./virtual-machine-scale-sets-upgrade-scale-set.md) yükseltmeler VM'ler üzerindeki ölçek kümesinde alma kolaylaştırmak için. Tek tek sanal makineleri ile güncelleştirmelerinin kendiniz yönetirler gerekir.
 
 ### <a name="vm-specific-features"></a>VM özgü özellikleri
 
 Bazı özellikleri şu anda yalnızca Vm'lerde bulunmaktadır:
 
-- Belirli tek tek sanal makineleri için veri diski ekleyebilirsiniz, ancak eklenen veri disklerini ölçek kümesindeki tüm VM'ler için yapılandırılır.
-- Tek tek sanal makineleri ancak ölçek kümesindeki sanal makineleri için boş olmayan veri diskleri ekleyebilirsiniz.
-- Sizin anlık görüntü tekil bir VM ancak VM ölçek kümesindeki değil.
-- Tek bir VM'den ancak VM ölçek kümesindeki bir görüntüsünü yakalayabilirsiniz.
-- Yönetilen disklere yerel disklerden tekil bir VM geçirebilirsiniz ancak bu VM'ler için bir ölçek kümesinde işlemi yapamazsınız.
-- IPv6 ortak IP adresleri tekil VM NIC'lerle atayabilirsiniz ancak VM'ler için bir ölçek kümesinde bunu yapamazsınız. IPv6 ya da tek tek sanal makineleri önünde yük olarak genel IP adresleri atayabilir veya VM ölçek kümesi.
+- Tek bir VM'den değiştirebilir, ancak bir VM ölçek kümesindeki bir görüntüsünü yakalayabilirsiniz.
+- Yönetilen disklere yerel disklerden tekil bir VM geçirebilirsiniz ancak bir ölçek kümesindeki VM örnekleri geçiremezsiniz.
+- IPv6 genel IP adresleri tek tek VM sanal ağ arabirim kartları için (NIC) atayabilir, ancak bir ölçek kümesindeki VM örnekleri için bunu yapamazsınız. IPv6 ya da tek tek sanal makineleri önünde yük olarak genel IP adresleri atayabilir veya VM ölçek kümesi.
 
 ## <a name="storage"></a>Depolama
 

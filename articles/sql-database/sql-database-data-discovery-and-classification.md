@@ -7,19 +7,20 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: giladm
-ms.openlocfilehash: b43b010a88f313930217289549448de30a82a070
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646788"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL veritabanı verileri bulma ve sınıflandırma
 Veri bulma & sınıflandırma (şu anda önizlemede) Azure SQL veritabanı için yerleşik Gelişmiş özellikleri sağlar **keşfetme**, **sınıflandırma**, **etiketleme**  &  **koruma** veritabanlarınızı hassas verileri.
 Keşfetmek ve en hassas verilerinizi sınıflandırmak (iş, finansal, sağlık hizmeti, PII, vb.), Kurumsal bilgilerin koruma stature bir bileşendirler rol oynayabilir. Altyapı olarak hizmet verebilir:
-* Veri gizliliği standartlarını ve GDPR gibi yasal uyumluluk gereksinimlerini karşılayacak yardımcı olur.
+* Veri gizliliği standartlarını ve düzenleyici uyumluluk gereksinimleri karşılayan yardımcı olur.
 * (Denetim) izleme gibi çeşitli güvenlik senaryoları ve anormal hassas verilere erişimin uyarma.
 * Erişimi denetlemek ve yüksek oranda gizli verileri içeren veritabanları güvenlik sağlamlaştırma.
 

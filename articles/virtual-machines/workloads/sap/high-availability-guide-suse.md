@@ -4,7 +4,7 @@ description: Yüksek kullanılabilirlik için Kılavuzu SAP NetWeaver SUSE Linux
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: f1d2725237d2cf059450ce7e2c1600b24d17f35c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 12efeba68f30aa8723acc32449ae05ffac4c1ac4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658766"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SUSE Linux Enterprise Server üzerinde Azure vm'lerinde SAP NetWeaver SAP uygulamalar için yüksek kullanılabilirlik
 
@@ -96,13 +97,13 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS ve SAP HA
 * Sonda bağlantı noktası
   * Bağlantı noktası 620**&lt;n&gt;**
 * Loadbalancing kuralları
-  * 32**&lt;nr&gt;** TCP
-  * 36**&lt;nr&gt;** TCP
-  * 39**&lt;nr&gt;** TCP
-  * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 32**&lt;n&gt;**  TCP
+  * 36**&lt;n&gt;**  TCP
+  * 39**&lt;n&gt;**  TCP
+  * 81**&lt;n&gt;**  TCP
+  * 5**&lt;n&gt;** 13 TCP
+  * 5**&lt;n&gt;** 14 TCP
+  * 5**&lt;n&gt;** 16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -113,10 +114,10 @@ NFS sunucusu, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS ve SAP HA
 * Sonda bağlantı noktası
   * Bağlantı noktası 621**&lt;n&gt;**
 * Loadbalancing kuralları
-  * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;**13 TCP
-  * 5**&lt;nr&gt;**14 TCP
-  * 5**&lt;nr&gt;**16 TCP
+  * 33**&lt;n&gt;**  TCP
+  * 5**&lt;n&gt;** 13 TCP
+  * 5**&lt;n&gt;** 14 TCP
+  * 5**&lt;n&gt;** 16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Yüksek oranda kullanılabilir bir NFS sunucusu kurma
 
@@ -142,7 +143,7 @@ Tüm gerekli kaynakları dağıtmak için github'da hızlı başlangıç şablon
       SAP NetWeaver yığın türünü seçin
    5. İşletim sistemi türü  
       Linux dağıtımları birini seçin. Bu örnekte, SLES 12 BYOS seçin
-   6. Db Türü  
+   6. DB türü  
       HANA seçin
    7. SAP sistemi boyutu  
       Yeni sistem sağlar SAP miktarı. Sistem gerektirir kaç SAP değil eminseniz, SAP teknolojisi iş ortağı veya sistem Tümleştirici isteyin
@@ -264,9 +265,9 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    </code></pre>
@@ -349,7 +350,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
@@ -379,7 +380,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[1]**  SAP NetWeaver ASCS yükleyin  
 
-   Örneğin ASCS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ilk düğümde kök olarak SAP NetWeaver ASCS yükleme <b>nw1 ascs</b>, <b>10.0.0.11</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>00</b>.
+   Örneğin ASCS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ilk düğümde kök olarak SAP NetWeaver ASCS yükleme <b>nw1 ascs</b>, <b>10.0.0.7</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>00</b>.
 
    Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
 
@@ -401,7 +402,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
    sudo crm node standby <b>nw1-cl-0</b>
    
    sudo crm configure primitive vip_<b>NW1</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     params ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
@@ -436,7 +437,7 @@ Aşağıdaki öğeler ile ya da önek **[A]** - tüm düğümleri için geçerli
 
 1. **[2]**  SAP NetWeaver ERS yükleyin  
 
-   Örneğin ERS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ikinci düğümde kök olarak SAP NetWeaver ERS yükleme <b>nw1 aers</b>, <b>10.0.0.12</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>02</b>.
+   Örneğin ERS yük dengeleyici ön uç yapılandırmasında IP adresine eşleyen bir sanal ana bilgisayar adı kullanarak ikinci düğümde kök olarak SAP NetWeaver ERS yükleme <b>nw1 aers</b>, <b>10.0.0.8</b> ve örnek, örneğin yük dengeleyici araştırması için kullandığınız sayı <b>02</b>.
 
    Kök olmayan kullanıcının sapinst için bağlanmasına izin vermek için sapinst parametresini SAPINST_REMOTE_ACCESS_USER kullanabilirsiniz.
 
@@ -581,14 +582,14 @@ Adımları aşağıdaki varsayalım ASCS/SCS ve HANA sunuculardan farklı bir su
    # IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS/SCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
    # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
+   <b>10.0.0.20 nw1-di-0</b>
+   <b>10.0.0.21 nw1-di-1</b>
    </code></pre>
 
 1. Sapmnt dizin oluşturun

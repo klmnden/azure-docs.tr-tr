@@ -7,14 +7,15 @@ manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
-ms.openlocfilehash: f3ace9d178fdfa90130e4436722e1e36cedc7e50
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: a911ed9777e1a63e1fc1776fb6a8c1ab98bc6820
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647512"
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
@@ -53,8 +54,8 @@ SQL veritabanı performans degradations aşağıdaki özellikleri oluşur akıll
 | Etkilenen ölçümleri | Oluşturulacak bir öngörü neden ölçümleri: <ul><li>Sorgu süresi [saniye] artırın.</li><li>Aşırı bekleme [saniye].</li><li>Zaman aşımına uğradı istekleri [yüzdesi].</li><li>Kapanan istekleri [yüzdesi].</li></ul>|
 | Etkisi değeri | Ölçüm değeri ölçülür. |
 | Etkilenen sorgular ve hata kodları | Karma ya da hata kodu sorgu. Bunlar kolayca etkilenen sorguları ilişkilendirmek için kullanılabilir. Ya da sorgu süresi artış, bekleme süresi, zaman aşımı sayıları veya hata kodları bileşiminden ölçümleri sağlanır. |
-| Algılama | Bir olay süre boyunca veritabanını tanımlanan algılama. 15 algılama desenleri vardır. Daha fazla bilgi için bkz: [akıllı Insights ile veritabanı performans sorunlarını giderme](sql-database-intelligent-insights-troubleshoot-performance.md). |
-| Kök neden çözümlemesi | Kök okunabilir bir biçimde tanımlanan sorunun çözümlenmesi neden. Bazı incelemeler, mümkün olduğunda performans geliştirme öneri içerebilir. |
+| Algılamalar | Bir olay süre boyunca veritabanını tanımlanan algılama. 15 algılama desenleri vardır. Daha fazla bilgi için bkz: [akıllı Insights ile veritabanı performans sorunlarını giderme](sql-database-intelligent-insights-troubleshoot-performance.md). |
+| Kök neden analizi | Kök okunabilir bir biçimde tanımlanan sorunun çözümlenmesi neden. Bazı incelemeler, mümkün olduğunda performans geliştirme öneri içerebilir. |
 |||
 
 Tanılama günlüğüne performans sorunlarını sorunu yaşam döngüsünün üç durumdan birine ile işaretlenen: "Active", "Doğrulanıyor" ve "Tamamlandı". Sonra bir performans sorunu algılanır ve uzun onu mevcut SQL veritabanı yerleşik zekaya tarafından kabul olarak sorunu "Etkin" olarak işaretlenir. Sorunu azaltıldığından olarak kabul edildiğinde doğrulanır ve sorunu durumu "Doğrulanıyor" değiştirilir. SQL veritabanı yerleşik zekaya çözümlenen sorunu göz önünde bulundurur sonra sorun durumu "Tamamlandı" işaretlenir.

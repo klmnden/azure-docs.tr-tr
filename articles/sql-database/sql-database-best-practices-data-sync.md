@@ -3,16 +3,17 @@ title: En iyi uygulamalar için Azure SQL veri eşitleme (Önizleme) | Microsoft
 description: Yapılandırma ve Azure SQL veri eşitleme (Önizleme) çalıştırmak için en iyi uygulamalar hakkında bilgi edinin.
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.openlocfilehash: 7ce7830d853a77b54706201fa614e9f4bee637a4
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646016"
 ---
 # <a name="best-practices-for-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) için en iyi yöntemler 
 
@@ -215,7 +216,7 @@ SQL veri eşitleme (Önizleme) hakkında daha fazla bilgi için bkz:
 -   [Günlük analizi ile İzleyici Azure SQL veri eşitleme (Önizleme)](sql-database-sync-monitor-oms.md)
 -   [Azure SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)  
 -   SQL veri eşitleme (Önizleme) yapılandırma Göster PowerShell örnekleri tamamlayın:  
-    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)  
+    -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [SQL veri eşitleme (Önizleme) REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 

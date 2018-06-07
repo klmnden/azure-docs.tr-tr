@@ -1,13 +1,13 @@
 ---
-title: "Azure üzerinde SAP ERP 6.0 için SAP IDE EHP7 SP3 dağıtma | Microsoft Docs"
-description: "Azure üzerinde SAP ERP 6.0 için SAP IDE EHP7 SP3 dağıtma"
+title: Azure üzerinde SAP ERP 6.0 için SAP IDE EHP7 SP3 dağıtma | Microsoft Docs
+description: Azure üzerinde SAP ERP 6.0 için SAP IDE EHP7 SP3 dağıtma
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 91eed294077ff72d0760018b10c98f32db88f3be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1895fb1910c5f30cbcff1c16ca66057d31a580b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656491"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure üzerinde SAP ERP 6.0 için SAP IDE EHP7 SP3 dağıtma
 Bu makalede, SQL Server ve Windows işletim sistemi ile SAP bulut Gereci kitaplığı (SAP CAL) 3.0 Azure üzerinde çalışan bir SAP IDE sistemi dağıtmayı açıklar. Ekran görüntüleri işlemi adım adım göstermektedir. Farklı bir çözümü dağıtmak için aynı adımları izleyin.
@@ -105,7 +106,7 @@ Windows ve SQL Server göre SAP IDE çözüm dağıtabilmeniz için önce bir SA
 
     ![SAP CAL Basic modu: Örnek oluşturma](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-3. **Oluştur**'a tıklayın. Bir süre sonra boyutu ve karmaşıklığı (SAP CAL tahmini sağlar) çözümün bağlı olarak durumu etkin ve kullanım için hazır olarak gösterilir: 
+3. **Oluştur**’a tıklayın. Bir süre sonra boyutu ve karmaşıklığı (SAP CAL tahmini sağlar) çözümün bağlı olarak durumu etkin ve kullanım için hazır olarak gösterilir: 
 
     ![SAP CAL örnekleri](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

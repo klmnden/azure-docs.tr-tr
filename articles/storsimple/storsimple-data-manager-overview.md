@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652017"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple veri Yöneticisi çözümüne genel bakış
 
@@ -81,10 +82,9 @@ Veri Yöneticisi bölgenizi iş tanımı bölgesinden farklı ise, hangi veri/me
 
 ![Farklı bölgelerdeki hizmet ve iş tanımı](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="gdpr-compliance"></a>GDPR uyumluluk
+## <a name="managing-personal-information"></a>Kişisel bilgilerini yönetme
 
-[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR nasıl toplamak, depolamak ve kişisel bilgilerinizi kullanma hakkında birçok gereksinimlerini içerir. GDPR kuralları, şirketler, devlet dairesi ve AB işletmek ve toplamak, AB Satışlar bağlı verileri çözümlemek diğer kuruluşlar uygulanmaz. StorSimple veri GDPR uyumlu yöneticisidir. Veri Yöneticisi hizmeti kişisel veri toplamaz.
-Daha fazla bilgi için Microsoft Privacy İlkesi gözden [Güven Merkezi](https://www.microsoft.com/trustcenter).
+StorSimple veri Yöneticisi'ni toplamaz veya herhangi bir kişisel bilgi görüntüler. Daha fazla bilgi için Microsoft Privacy İlkesi gözden [Güven Merkezi](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

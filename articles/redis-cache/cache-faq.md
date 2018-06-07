@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640481"
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache SSS
 Azure Redis önbelleği için sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını öğrenin.
@@ -82,7 +83,7 @@ Bu bölümdeki SSS ortak izleme ve sorun giderme soruları kapsar. İzleme ve Az
 * [Hangi Azure önbelleği teklifini benim için en uygun mi?](#which-azure-cache-offering-is-right-for-me)
 
 ### <a name="what-is-azure-redis-cache"></a>Azure Redis Önbelleği nedir?
-Azure Redis önbelleği popüler açık kaynak üzerinde temel [Redis önbelleği](http://redis.io). Erişim, Azure içinde herhangi bir uygulamadan bir güvenli, ayrılmış bir Redis önbelleğine için Microsoft tarafından yönetilen ve erişilebilir sağlar. Daha ayrıntılı bir bakış için bkz: [Azure Redis önbelleği](https://azure.microsoft.com/services/cache/) Azure.com üzerindeki ürün sayfası.
+Azure Redis Cache, popüler açık kaynak [Redis önbelleğini](http://redis.io) temel alır. Erişim, Azure içinde herhangi bir uygulamadan bir güvenli, ayrılmış bir Redis önbelleğine için Microsoft tarafından yönetilen ve erişilebilir sağlar. Daha ayrıntılı bir bakış için bkz: [Azure Redis önbelleği](https://azure.microsoft.com/services/cache/) Azure.com üzerindeki ürün sayfası.
 
 ### <a name="how-can-i-get-started-with-azure-redis-cache"></a>Azure Redis önbelleği ile çalışmaya nasıl?
 Azure Redis önbelleği kullanmaya başlamak birkaç yolu vardır.
@@ -137,10 +138,10 @@ Bu tablodan biz aşağıdaki sonuçları çizebilirsiniz:
 | **Standart önbellek boyutu** | | |**Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RPS) SSL olmayan başına istek sayısı** |**İkinci (RPS) SSL başına istek sayısı** |
 | C0 |250 MB |Paylaşılan |100 / 12.5 |15,000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
-| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
+| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37.000 |
 | C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
+| C5 |26 GB |4 |1,000 / 125 |102.000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
 | **Premium önbellek boyutu** | |**Parça başına CPU çekirdekleri** | **Megabit / sn (Mb/sn) / megabayt sayısı / sn (MB/sn)** |**İkinci (RPS) SSL olmayan, parça başına başına istek sayısı** |**Parça başına ikinci (RPS) SSL başına istek sayısı** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
@@ -385,7 +386,7 @@ Bu bilgiler verildiğinde, müşteriler varsayılan değerinden daha büyük bir
 
 Bu ayarı yapılandırmak nasıl:
 
-* ASP.NET, kullanın ["minIoThreads" yapılandırma ayarı] [ "minIoThreads" configuration setting] altında `<processModel>` web.config dosyasındaki yapılandırma öğesi. Azure Web siteleri içinde çalıştırıyorsanız, bu ayar yapılandırma seçenekleri gösterilmez. Ancak, siz hala Bu program aracılığıyla ayarını yapılandırmak gerekir (aşağıda Application_Start yönteminizi global.asax.cs gelen bakın).
+* ASP.NET, kullanın ["minIoThreads" veya "minWorkerThreads" yapılandırma ayarı] [ "minIoThreads" configuration setting] altında `<processModel>` web.config dosyasındaki yapılandırma öğesi. Azure Web siteleri içinde çalıştırıyorsanız, bu ayar yapılandırma seçenekleri gösterilmez. Ancak, siz hala Bu program aracılığıyla ayarını yapılandırmak gerekir (aşağıda Application_Start yönteminizi global.asax.cs gelen bakın).
 
   > [!NOTE] 
   > Bu yapılandırma öğesi için belirtilen değer bir *çekirdek başına* ayarı. Örneğin, 4 çekirdekli makine olması ve çalışma zamanında 200 olması minIOThreads ayarınız istiyorsanız kullanacağınız `<processModel minIoThreads="50"/>`.

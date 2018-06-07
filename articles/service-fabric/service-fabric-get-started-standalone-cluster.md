@@ -1,24 +1,25 @@
 ---
-title: "Tek başına Azure Service Fabric kümesi ayarlama | Microsoft Docs"
-description: "Aynı bilgisayarda çalışan üç düğüme sahip tek başına bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra çok makineli bir küme oluşturmaya hazır hale gelirsiniz."
+title: Tek başına Azure Service Fabric kümesi ayarlama | Microsoft Docs
+description: Aynı bilgisayarda çalışan üç düğüme sahip tek başına bir geliştirme kümesi oluşturun. Bu kurulumu tamamladıktan sonra çok makineli bir küme oluşturmaya hazır hale gelirsiniz.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
-ms.translationtype: HT
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643473"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>İlk tek başına Service Fabric kümenizi oluşturma
 Şirket içinde veya bulutta Windows Server 2012 R2 ya da Windows Server 2016 çalıştıran herhangi bir sanal makinede tek başına Service Fabric kümesi oluşturabilirsiniz. Bu hızlı başlangıç kılavuzu, yalnızca birkaç dakika içerisinde tek başına bir geliştirme kümesi oluşturmanıza yardımcı olur.  Kılavuzu tamamladığınızda, uygulama dağıtabileceğiniz tek bir bilgisayarda çalışan üç düğümlü bir kümeniz olur.
@@ -66,7 +67,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ## <a name="visualize-the-cluster-using-service-fabric-explorer"></a>Service Fabric Explorer’ı kullanarak kümeyi görselleştirme
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer, kümede çalışan ve bir tarayıcıda [http://localhost:19080/Explorer](http://localhost:19080/Explorer) adresine giderek erişebileceğiniz bir hizmettir. 
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md), kümenizi görselleştirmek ve uygulamaları yönetmek için iyi bir araçtır.  Service Fabric Explorer hizmettir giderek bir tarayıcı kullanarak erişim kümede çalışan bir [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer). 
 
 Küme panosu, kümenize uygulama ve düğüm durumunun özetini de içeren bir genel bakış sağlar. Düğüm görünümü, kümenin fiziksel düzenini gösterir. Belirli bir düğümde, hangi uygulamalara kod dağıtıldığını denetleyebilirsiniz.
 

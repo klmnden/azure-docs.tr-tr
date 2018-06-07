@@ -6,14 +6,15 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: 6367418fb07b2ab5b425609540c653678a207ebc
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 43a25d30fbec9327e24230165abd73260397ff14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646482"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database esnek sorgu genel bakış (Önizleme)
 Esnek sorgu özelliği (Önizleme), Azure SQL veritabanında birden çok veritabanı yayılan bir Transact-SQL sorgusu çalıştırmanızı sağlar. Veritabanları arası sorgular uzak tablolara erişilen ve Microsoft ve üçüncü taraf araçları (Excel, Powerbı, Tableau, vb.) birden çok veritabanı veri katmanlarıyla sorgulama bağlanmak için gerçekleştirmenizi sağlar. Bu özelliği kullanarak, SQL veritabanında büyük veri katmanlarını sorguları ölçeğini ve iş zekası (BI) raporlarında sonuçları görselleştirebilirsiniz.

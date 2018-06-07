@@ -8,11 +8,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: cce10ceb190ac90b57e77bfa5903b30b2c249a2c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641120"
 ---
 # <a name="what-is-cognitive-search"></a>Bilişsel arama nedir?
 
@@ -61,7 +62,7 @@ Dahili olarak, ardışık düzen zenginleştirilmiş belge koleksiyonu oluşturu
 
 Diğer Azure arama için oluşturacağınız gibi dizindir: ek ile özel çözümleyiciler, benzer arama sorguları çağırma, filtrelenmiş arama ekleme veya arama sonuçlarını yeniden şekillendirmek için profilleri Puanlama ile deneyin.
 
-Dizin öznitelikleri, alanları tanımlayan bir dizin şemasını oluşturulur ve diğer yapıların profilleri Puanlama gibi belirli bir dizine bağlı ve eş eşler. Bir dizin tanımlı ve doldurulmuş sonra yeni ve güncelleştirilmiş kaynak belgeleri seçmek için artımlı olarak dizin oluşturabilirsiniz. Bazı değişiklikler tam yeniden gerektirir. Şema tasarımına tutarlı olana kadar küçük bir veri kümesi kullanmanız gerekir. Daha fazla bilgi için bkz: [bir dizini yeniden oluşturma nasıl](search-howto-reindex.md).
+Dizin öznitelikleri, alanları tanımlayan bir dizin şemasını oluşturulur ve diğer yapıların profilleri Puanlama gibi belirli bir dizine bağlı ve eş eşler. Bir dizin tanımlı ve doldurulmuş sonra yeni ve güncelleştirilmiş kaynak belgeleri seçmek için artımlı olarak dizin oluşturabilirsiniz. Bazı değişiklikler tam yeniden gerektirir. Şema tasarımına tutarlı olana kadar küçük bir veri kümesi kullanmanız gerekir. Daha fazla bilgi için bkz. [Yeniden dizin derleme](search-howto-reindex.md).
 
 <a name="feature-concepts"></a>
 
@@ -102,9 +103,9 @@ Dizin öznitelikleri, alanları tanımlayan bir dizin şemasını oluşturulur v
 | REST API | Açıklama |
 |-----|-------------|
 | [Veri kaynağı oluşturun](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Zenginleştirilmiş belgeleri oluşturmak için kullanılan kaynak verileri sağlayan bir dış veri kaynağı tanımlayan bir kaynaktır.  |
-| [Skillset oluşturun (API sürümü 2017-11-11-Önizleme =)](ref-create-skillset.md)  | Bir kaynak kullanımını Eşgüdümleme [becerileri önceden tanımlanmış](cognitive-search-predefined-skills.md) ve [özel bilişsel becerileri](cognitive-search-custom-skill-interface.md) iyileştirmesini ardışık düzeninde dizin oluşturma sırasında kullanılan. |
+| [Skillset oluşturun (API sürümü 2017-11-11-Önizleme =)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Bir kaynak kullanımını Eşgüdümleme [becerileri önceden tanımlanmış](cognitive-search-predefined-skills.md) ve [özel bilişsel becerileri](cognitive-search-custom-skill-interface.md) iyileştirmesini ardışık düzeninde dizin oluşturma sırasında kullanılan. |
 | [Dizin oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Azure Search dizini ifade şema. Dizin alanları kaynak veri alanlarında veya alanları (örneğin, bir alan varlık tanıma tarafından oluşturulan kuruluş adları için) iyileştirmesini aşamasında üretilen eşleyin. |
-| [Dizin Oluşturucu yapın (API sürümü 2017-11-11-Önizleme =)](ref-create-skillset.md)  | Bir kaynak dizin oluşturma sırasında kullanılan bileşenler tanımlama: bir veri kaynağı, bir skillset, hedef dizin kaynak ve ara veri yapılarını alanı ilişkilerini ve dizin dahil olmak üzere. Dizin Oluşturucu veri alımı ve iyileştirmesini için tetikleyici çalışıyor. Çıktı skillsets zenginleştirilmiş kaynak verilerle doldurulur dizin şemasını dayalı bir arama gövde şeklindedir.  |
+| [Dizin Oluşturucu yapın (API sürümü 2017-11-11-Önizleme =)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Bir kaynak dizin oluşturma sırasında kullanılan bileşenler tanımlama: bir veri kaynağı, bir skillset, hedef dizin kaynak ve ara veri yapılarını alanı ilişkilerini ve dizin dahil olmak üzere. Dizin Oluşturucu veri alımı ve iyileştirmesini için tetikleyici çalışıyor. Çıktı skillsets zenginleştirilmiş kaynak verilerle doldurulur dizin şemasını dayalı bir arama gövde şeklindedir.  |
 
 **Denetim listesi: Normal bir iş akışı**
 
@@ -112,11 +113,11 @@ Dizin öznitelikleri, alanları tanımlayan bir dizin şemasını oluşturulur v
 
 1. Oluşturma bir [veri kaynağı nesnesi](https://docs.microsoft.com/rest/api/searchservice/create-data-source) Azure Search'te'nın veri alma için bir bağlantı dizesi girin.
 
-1. Oluşturma bir [skillset](ref-create-skillset.md) iyileştirmesini adımlara.
+1. Oluşturma bir [skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) iyileştirmesini adımlara.
 
 1. Tanımlamak [dizin şemasını](https://docs.microsoft.com/rest/api/searchservice/create-index). *Alanları* koleksiyon kaynak veri alanlarını içerir. İyileştirmesini sırasında oluşturulan içeriği için oluşturulan değerleri tutmak için ek alanlar çıkışı saplama.
 
-1. Tanımlamak [dizin oluşturucu](ref-create-skillset.md) veri kaynağı, skillset ve dizin başvuruyor.
+1. Tanımlamak [dizin oluşturucu](https://docs.microsoft.com/rest/api/searchservice/create-skillset) veri kaynağı, skillset ve dizin başvuruyor.
 
 1. Dizin oluşturucu içinde eklemek *outputFieldMappings*. Bu bölümde dizin şemasında (4. adım) giriş alanları (3. adımında) skillset çıktısını eşler.
 

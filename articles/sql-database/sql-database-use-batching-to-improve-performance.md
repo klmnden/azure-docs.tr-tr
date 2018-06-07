@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: d534e138af7a22b32fbf64e2200016091beac62f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c0e1ff3cf018e185ae2dfb329e2aa56766cc247c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649790"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Toplu işleme SQL veritabanı uygulama performansını artırmak için nasıl kullanılacağını
 Azure SQL veritabanı işlemleri önemli ölçüde toplu işleme, uygulamalarınızın ölçeklenebilirliğini ve performansı artırır. Avantajları anlamak için bir SQL veritabanına sıralı ve toplu istekleri karşılaştırmak bazı örnek test sonuçlarını ilk bölümü, bu makalenin ele alınmaktadır. Makalenin kalanında teknikleri, senaryoları ve başarıyla Azure uygulamalarınızda toplu işleme kullanmanıza yardımcı olması için dikkat edilecek noktalar gösterir.

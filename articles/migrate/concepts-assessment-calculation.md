@@ -4,20 +4,21 @@ description: Değerlendirme hesaplamalar Azure geçirmek hizmetindeki genel bir 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639155"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
 [Azure geçirme](migrate-overview.md) geçiş Azure için şirket içi iş yüklerini değerlendirir. Bu makalede değerlendirmelerinin nasıl hesaplandığını hakkında bilgi sağlar.
 
 
-## <a name="overview"></a>Genel bakış
+## <a name="overview"></a>Genel Bakış
 
 Bir Azure geçirmek değerlendirme üç aşamadan oluşur. Boyutlandırma tarafından izlenen uygunluğu çözümleme, değerlendirme başlar ve son olarak, aylık tahmini maliyet. Öncekinin geçerse bir makine yalnızca bir sonraki aşamaya taşır. Bir makine Azure uygunluğu denetimi başarısız olursa, Azure ve boyutlandırma ve maliyetlendirme yapılmaz için örneğin, uygun değil olarak işaretlendiğinden.
 
@@ -68,12 +69,12 @@ Diğer işletim sistemleri<br/><br/> Örneğin, Oracle Solaris Apple Mac OS vb.,
 
 ## <a name="sizing"></a>Boyutlandırma
 
-Bir makine Azure için hazır olarak işaretlendikten sonra Azure geçirmek VM ve onun diskler için Azure boyutları. Değerlendirme özelliklerinde belirtilen boyutlandırma ölçüt performans tabanlı boyutlandırma yapmak için ise, makine Azure bir VM'nin boyutunu belirlemek için performans geçmişini Azure geçirmek göz önünde bulundurur. Bu yöntem, burada şirket içi VM aşırı ayırmış olmanız ancak kullanımı düşük ve maliyet kaydetmek için Azure sanal makineleri sağ boyutuna istediğiniz senaryolarda faydalıdır.
+Bir makine Azure için hazır olarak işaretlendikten sonra Azure geçirmek VM ve onun diskler için Azure boyutları. Değerlendirme özelliklerinde belirtilen boyutlandırma ölçüt performans tabanlı boyutlandırma yapmak için ise, makine Azure VM boyutu ve disk türünü tanımlamak için performans geçmişini Azure geçirmek göz önünde bulundurur. Bu yöntem, burada şirket içi VM aşırı ayırmış olmanız ancak kullanımı düşük ve maliyet kaydetmek için Azure sanal makineleri sağ boyutuna istediğiniz senaryolarda faydalıdır.
 
 > [!NOTE]
 > Azure geçirme performans geçmişi şirket içi VM'lerin vCenter Server'dan toplar. Doğru şekilde boyutlandırmaya emin olmak için vCenter sunucusu istatistikleri ayarında düzeyi 3 ayarlandığından emin olun ve şirket içi sanal makineleri bulmayı oluşturan önce en az bir gün bekleyin. VCenter sunucusu istatistikleri ayarında 3 düzeyin ise, disk ve ağ için performans verilerini toplanmaz.
 
-VM-sizing için performans geçmişi göz önünde bulundurun ve VM olarak almak istediğiniz istemiyorsanız-olan Azure için boyutlandırma ölçüt olarak belirtebilirsiniz *şirket içi olarak* ve Azure geçirmek sonra boyutu şirket içi tabanlı VM'ler kullanım verileri dikkate olmadan yapılandırma. Disk boyutlandırma, bu durumda, hala performans verilerini temel alır.
+VM-sizing için performans geçmişi göz önünde bulundurun ve VM olarak almak istediğiniz istemiyorsanız-olan Azure için boyutlandırma ölçüt olarak belirtebilirsiniz *şirket içi olarak* ve Azure geçirmek sonra boyutu şirket içi tabanlı VM'ler kullanım verileri dikkate olmadan yapılandırma. Disk boyutlandırma, bu durumda, değerlendirme özelliklerinde (standart disk veya Premium disk) belirttiğiniz depolama türü temelinde gerçekleştirilir
 
 ### <a name="performance-based-sizing"></a>Performans tabanlı boyutlandırma
 
@@ -102,25 +103,13 @@ Performans tabanlı boyutlandırma için Azure geçirmek, VM'ye bağlı diskler 
     - Birden fazla uygun Azure sanal makinesi boyutu varsa, en düşük maliyetli olan önerilir.
 
 ### <a name="as-on-premises-sizing"></a>Boyutlandırma şirket içi
-Boyutlandırma ölçüt ise *gibi şirket içi boyutlandırma*, Azure geçirmek VM'lerin performans geçmişi dikkate almaz ve şirket içi ayrılan boyutuna göre VM'ler ayırır. Ancak, disk boyutlandırma için standart veya Premium diskleri önermek için disk performans geçmişi göz önünde bulundurun.  
-- **Depolama**: Azure geçiş diski azure'da makineye bağlı her disk eşler.
+Boyutlandırma ölçüt ise *gibi şirket içi boyutlandırma*, Azure geçiş diskleri ve sanal makineleri performans geçmişi dikkate almaz ve şirket içi ayrılan boyutuna göre Azure VM SKU'da ayırır. Disk boyutlandırma için benzer şekilde, (standart/Premium) değerlendirmesi özelliklerinde belirtilen depolama türü bakar ve disk türünü uygun şekilde önerir. Varsayılan depolama Premium diskleri türüdür.
 
-    > [!NOTE]
-    > Yalnızca yönetilen disklerde değerlendirmesi için Azure geçirme destekler.
-
-    - Etkin disk g/ç / saniye (IOPS) ve üretilen işi (MBps) almak için Azure geçirmek disk IOPS ve üretilen iş rahatlık faktörle çarpar. Disk bir standart veya premium disk Azure eşlenmelidir olmadığını etkili IOPS ve üretilen iş değerlerine bağlı olarak, Azure geçirmek tanımlar.
-    - Bir disk gerekli IOPS ve üretilen iş ile Azure geçirmek bulamazsanız, Azure için makine uygun değil olarak işaretler. [Daha fazla bilgi edinin](../azure-subscription-service-limits.md#storage-limits) Azure hakkında disk ve VM sınırlar.
-    - Uygun bir disk kümesi bulursa, Azure geçirmek Depolama artıklık yöntemi ve değerlendirme ayarlarında belirtilen konuma desteği olanları seçer.
-    - Birden çok uygun diskler varsa, en düşük maliyeti ile bir seçer.
-    - İçin performans verilerini de diskler, tüm diskleri Azure standart disklere kullanılamaz eşlenir.
-- **Ağ**: her ağ bağdaştırıcısı için bir ağ bağdaştırıcısı Azure önerilir.
-- **İşlem**: Azure geçirmek çekirdek sayısı ve şirket içi VM bellek boyutunu arar ve aynı yapılandırmaya sahip bir Azure VM önerir. Birden fazla uygun Azure sanal makinesi boyutu varsa, en düşük maliyetli olan önerilir. CPU ve bellek kullanımı verileri için şirket içi boyutlandırma olarak dikkate alınmaz.
-
-### <a name="confidence-rating"></a>Güvenilirlik derecesi
+### <a name="confidence-rating"></a>Güvenilirlik derecelendirmesi
 
 Azure Geçişi’ndeki her değerlendirme 1 yıldız ile 5 yıldız (1 yıldız en düşük, 5 yıldız en yüksektir) arasında değişen bir güvenilirlik derecesiyle ilişkilendirilir. Güvenilirlik derecelendirmesi, değerlendirmeyi hesaplamak için gereken veri noktalarının kullanılabilirliği temelinde bir değerlendirmeye atanır. Bir değerlendirmenin güvenilirlik derecesi, Azure Geçişi tarafından sağlanan boyut önerilerinin güvenilirliğini tahmin etmenize yardımcı olur.
 
-VM’nin performans tabanlı boyutlandırması için Azure Geçişi, CPU ve bellek için kullanım verileri gerektirir. Ayrıca, VM'ye bağlı her disk boyutlandırma için okuma/yazma IOPS gerektiği ve üretilen iş. Sanal makineye eklenmiş her bir ağ bağdaştırıcısı için benzer şekilde Azure Geçişi’nin performansa dayalı boyutlandırma gerçekleştirmek amacıyla ağ giriş/çıkışına ihtiyacı vardır. Yukarıdaki kullanım rakamlarından herhangi biri vCenter Server’da mevcut değilse Azure Geçişi’nin yaptığı boyut önerisi güvenilir olmayabilir. Değerlendirme için güvenirlik derecelendirme kullanılabilir veri noktası yüzdesini bağlı olarak, aşağıdaki gibi sağlanır:
+Bir değerlendirme güvenirlik derecesi boyutlandırma ölçüt olarak ile değerlendirmeleri için daha kullanışlı ' performans tabanlı boyutlandırma. Performans tabanlı boyutlandırma için Azure geçirmek kullanım verileri CPU, bellek VM gerekir. Ayrıca, VM'ye bağlı her disk için disk IOPS ve üretilen iş veri gerekir. Benzer şekilde bir VM'ye bağlı her ağ bağdaştırıcısı için Azure geçirmek giriş/çıkış ağ performansı tabanlı boyutlandırma yapmak için gerekir. Yukarıdaki kullanım rakamlarından herhangi biri vCenter Server’da mevcut değilse Azure Geçişi’nin yaptığı boyut önerisi güvenilir olmayabilir. Kullanılabilir veri noktalarının yüzdesine bağlı olarak değerlendirme için aşağıdaki gibi güvenilirlik derecelendirmesi sağlanır:
 
    **Veri noktalarının kullanılabilirliği** | **Güvenilirlik derecelendirmesi**
    --- | ---
@@ -131,7 +120,7 @@ VM’nin performans tabanlı boyutlandırması için Azure Geçişi, CPU ve bell
    %81-%100 | 5 Yıldız
 
 Aşağıdaki nedenlerle bir değerlendirme için tüm veri noktaları kullanılabilir olmayabilir:
-- VCenter istatistikleri ayarında sunucu düzeyi 3 ayarlı değil. vCenter Server’daki istatistik ayarı 3 düzeyinden küçükse vCenter Server’dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Diskin IOPS/üretilen iş düşünüldüğünde, olmadan Azure premium disk disk gerekecekse, Azure geçirmek tanımlayamıyor, bu nedenle, bu durumda, Azure geçirmek tüm diskler için standart diskler önerir.
+- vCenter Server'daki istatistik ayarı 3 düzeyine ayarlanmamıştır. vCenter Server’daki istatistik ayarı 3 düzeyinden küçükse vCenter Server’dan disk ve ağ için performans verileri toplanmaz. Bu durumda, Azure Geçişi tarafından disk ve ağ için sağlanan öneri, kullanım tabanlı olmaz. Azure Geçişi, diskin IOPS/iş hacmi göz önünde bulundurulmadan diskin Azure’da premium bir disk gerektirip gerektirmediğini belirleyemeyeceğinden, bu örnekte Azure Geçişi tüm diskler için standart diskleri önerir.
 - vCenter Server’daki istatistik ayarı, keşif başlatılmadan önce daha kısa süre bir için 3. düzey olarak ayarlanmıştır. Örneğin, bugün istatistik ayarı düzeyini 3 olarak değiştirdiğiniz, yarın ise (24 saat sonra) toplayıcı gerecini kullanarak keşfi başlattığınız bir senaryoyu ele alalım. Bir gün için değerlendirme oluşturuyorsanız tüm veri noktalarına sahip olursunuz ve değerlendirmenin güvenilirlik derecesi 5 yıldız olur. Ancak değerlendirme özelliklerinde performans süresini bir ay olarak değiştiriyorsanız, son bir ay için disk ve ağ performansı verileri kullanılabilir halde olmayacağından güvenilirlik derecesi düşer. Son bir ayın performans verilerini dikkate almak istiyorsanız, keşif başlatmadan önce bir ay boyunca vCenter Server istatistik ayarını 3 düzeyinde tutmanız önerilir.
 - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine kapatılmıştır. Herhangi bir sanal makine belirli bir süre boyunca kapatıldıysa vCenter Server o süreye ait performans verilerine sahip olmaz.
 - Değerlendirmenin hesaplandığı dönem boyunca birkaç sanal makine oluşturulmuştur. Örneğin, son bir ayın performans geçmişi için değerlendirme oluşturuyorsanız, ancak yalnızca bir hafta önce ortamda birkaç sanal makine oluşturulduysa. Bu tür durumlarda yeni sanal makinelerin performans geçmişi, sürenin tamamı boyunca mevcut olmaz.

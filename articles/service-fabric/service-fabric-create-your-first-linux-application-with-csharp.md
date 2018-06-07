@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
 ms.service: service-fabric
 ms.devlang: csharp
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 9530b07b68ca1fafe605fa69a4d692cb382acac2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: ce894f775614c5be7413a004d2237f6a5cf00926
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365568"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642419"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>İlk Azure Service Fabric uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "34365568"
 
 Service Fabric, Linux üzerinde hem .NET Core hem de Java dillerinde hizmet oluşturmaya yönelik SDK’lar sağlar. Bu öğreticide, .NET Core 2.0 üzerinde C# kullanarak Linux için bir uygulama ve hizmet oluşturmayı öğreneceğiz.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce [Linux geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started-linux.md) emin olun. Mac OS X kullanıyorsanız, [Vagrant kullanarak bir sanal makinede Linux one-box ortamı ayarlayabilirsiniz](service-fabric-get-started-mac.md).
 
 [Service Fabric CLI](service-fabric-cli.md)’yı de yüklemeniz gerekir.

@@ -6,17 +6,18 @@ author: joesackmsft
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 96bc75e15c99897414fad8c138c8a34ef790af21
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650120"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı, veritabanınızı yönetme
 
@@ -207,7 +208,7 @@ Bu grafik, kaynak tarafından uyarıları da yapılandırabilirsiniz. Bu uyarıl
 - **Dinamik Yönetim görünümlerini**: Sorgulayabileceğiniz [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) kaynak tüketimi istatistikleri geçmişini son bir saat geri dönmek için dinamik yönetim görünümünü ve [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) sistem katalog görünümünü son 14 gün boyunca geçmişi dönün.
 - **Sorgu performansı öngörüleri**: [sorgu performansı öngörüleri](sql-database-query-performance.md) üst kaynak tüketen sorguları ve uzun süre çalışan sorgular için belirli bir veritabanı geçmişin görmenizi sağlar. Kaynak kullanımı, süre ve yürütme sıklığını tarafından en sık kullanılan sorguların hızla tanımlayabilirsiniz. Sorguları izlemek ve regresyon algılayabilir. Bu özellik gerektirir [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) etkin ve veritabanı için etkin olmalıdır.
 
-   ![Sorgu Performansı Öngörüleri](./media/sql-database-manage-after-migration/query-performance-insight.png)
+   ![Sorgu Performansı İçgörüleri](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
 - **Günlük analizi Azure SQL analizleri (Önizleme)**: [Azure günlük analizi](../log-analytics/log-analytics-azure-sql.md) 150.000 SQL veritabanları ve 5.000 SQL esnek havuzu başına en fazla toplamak ve anahtar Azure SQL Azure performans ölçümleri, görselleştirme sayesinde destekleme Çalışma alanı. İzleme ve bildirimleri almak için kullanabilirsiniz. SQL veritabanı ve esnek havuz ölçümleri birden çok Azure abonelikleri ve esnek havuzlar arasında izleyebilir ve bir uygulama yığınının her katmanda sorunları belirlemek için kullanılabilir.
 

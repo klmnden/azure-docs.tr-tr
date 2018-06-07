@@ -1,11 +1,11 @@
 ---
-title: "Sorun giderme ve Azure (büyük örnekler) üzerinde SAP HANA izleme | Microsoft Docs"
-description: "Sorun giderme ve Azure (büyük örnekler) üzerinde SAP HANA izleyin."
+title: Sorun giderme ve Azure (büyük örnekler) üzerinde SAP HANA izleme | Microsoft Docs
+description: Sorun giderme ve Azure (büyük örnekler) üzerinde SAP HANA izleyin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 41fbeb848d7d97e5ee41a2221b69cc88380dc1e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657205"
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Sorun giderme ve Azure üzerinde SAP HANA (büyük örnekler) izlemek nasıl
 
@@ -38,7 +39,7 @@ Azure sanal makinelerle, yukarıda adı kaynak sınıfları yeterli olup, veya o
 
 **Bellek tüketimi:** gelen biriminde HANA içinde yanı sıra HANA dışında izlemek önemlidir. HANA içinde verileri SAP gerekli boyutlandırma yönergeleri içinde kalmak için bellek tahsis HANA nasıl tüketme izleyin. Ayrıca, ek yüklü olmayan-HANA yazılım değil çok fazla bellek kullanmasına ve bu nedenle için bellek HANA ile rekabet emin olmak için büyük örnek düzeyinde bellek tüketimi izlemek istersiniz.
 
-**Ağ bant genişliği:** Azure sanal ağ geçidi Azure ne kadar yakın Azure ağ geçidi SKU'su seçtiğiniz sınırları için olduğunuzu bulmak için bir sanal ağ içindeki tüm Azure VM'ler tarafından alınan veri izlemek yardımcı olacak şekilde Vnet'in taşınmasını verilerin bant genişliği sınırlandırılmıştır. HANA büyük örneği biriminde algılama da gelen ve giden ağ trafiğini izlemek ve zaman içinde işlenir birimleri izlemek için yapar.
+**Ağ bant genişliği:** Azure sanal ağ geçidi sınırlı bant genişliği Azure VNet taşıma verilerin, sel izlemek yardımcı olması için ne kadar yakın Azure ağ geçidi SKU'su sınırları için siz olduğunuzu bulmak için bir sanal ağ içindeki tüm Azure VM'ler tarafından veri alma ili. HANA büyük örneği biriminde algılama da gelen ve giden ağ trafiğini izlemek ve zaman içinde işlenir birimleri izlemek için yapar.
 
 **Disk alanı:** Disk alanı tüketimini genellikle zamanla artar. Bunun pek çok nedeni vardır, ancak tüm çoğu: veri birimi artırır, işlem günlüğü yedeklemeleri, izleme dosyaları depolamak ve depolama anlık görüntüleri gerçekleştirme yürütülmesini. Bu nedenle, disk alanı kullanımı izlemek ve HANA büyük örneği birimiyle ilişkili disk alanını yönetmek önemlidir.
 

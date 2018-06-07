@@ -6,14 +6,15 @@ author: jodebrui
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 0802a3b51847236efb64e628ed259dc7776bac4e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647349"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>İzleyici bellek içi OLTP depolama
 Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolar ve Tablo değişkenlerinin verileri bellek içi OLTP depolamada yer alıyor. Her Premium ve iş kritik hizmet katmanı belgelenen en fazla bir bellek içi OLTP depolama boyutuna sahip [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md) ve [vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md). Bu sınır aşılırsa sonra ekleme ve güncelleştirme işlemleri hata 41823 bağımsız veritabanları ve esnek havuzlar için 41840 hata ile başarısız başlayabilir. Bu noktada, ya da belleği geri almasını verileri silmek veya veritabanınızın performans katmanı yükseltin.

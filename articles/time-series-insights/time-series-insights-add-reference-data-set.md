@@ -1,21 +1,21 @@
 ---
-title: "Azure zaman serisi Öngörüler ortamınız için bir başvuru veri kümesi ekleme"
-description: "Bu makalede, Azure zaman serisi Öngörüler ortamınızda veri büyütmek için bir başvuru veri kümesi eklemeyi açıklar."
-services: time-series-insights
+title: Azure zaman serisi Öngörüler ortamınız için bir başvuru veri kümesi ekleme
+description: Bu makalede, Azure zaman serisi Öngörüler ortamınızda veri büyütmek için bir başvuru veri kümesi eklemeyi açıklar.
 ms.service: time-series-insights
+services: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7da2393bb5114de20747581e366a8f416c9ff9a4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653646"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portalı'nı kullanarak, zaman serisinin Öngörüler ortamınız için bir başvuru veri kümesi oluşturma
 
@@ -63,7 +63,7 @@ Başvuru verileri firmalarda geriye dönük birleştirilmedi. Bu, yalnızca geç
 
    ![Başvuru veri ekleme](media/add-reference-data-set/parse_data.png)
 
-9. Veri türü kabul görmek için her bir sütunun gözden geçirin ve gerekirse veri türünü değiştirin.  Veri türü simgesi sütun başlığını seçin:  **#**  çift (sayısal veriler), için **T | F** boolean için veya **Abc** dize.
+9. Veri türü kabul görmek için her bir sütunun gözden geçirin ve gerekirse veri türünü değiştirin.  Veri türü simgesi sütun başlığını seçin: **#** çift (sayısal veriler), için **T | F** boolean için veya **Abc** dize.
 
    ![Veri türlerinde sütun başlıkları seçin.](media/add-reference-data-set/choose_datatypes.png)
 
@@ -81,7 +81,7 @@ Başvuru verileri firmalarda geriye dönük birleştirilmedi. Bu, yalnızca geç
 
    ![Anahtar sütunları seçin.](media/add-reference-data-set/set_primary_key.png)
 
-   İsteğe bağlı olarak, seçin  **+**  birleşik birincil anahtar olarak ikincil bir anahtar sütun eklemek için düğmesi. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
+   İsteğe bağlı olarak, seçin **+** birleşik birincil anahtar olarak ikincil bir anahtar sütun eklemek için düğmesi. Seçimi geri almanız gerekiyorsa, boş değer ikincil anahtarı'nı kaldırmak için açılan listeden seçin.
 
 15.  Verileri yüklemek için seçin **karşıya satırları** düğmesi.
 

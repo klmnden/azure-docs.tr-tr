@@ -11,23 +11,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/12/2018
+ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: ''
-ms.openlocfilehash: 7a9e257d445ff7dadfe27d1c75cde6f58a393397
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: cb6bb5ed80f08941b872e6fabeb8bb150a21dede
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640396"
 ---
-# <a name="understand-role-definitions"></a>Rol tanımları anlayın
+# <a name="understand-role-definitions"></a>Rol tanımlarını anlama
 
 Bir rolü nasıl çalıştığını anlamak çalışıyorsanız veya kendi oluşturuyorsanız, [özel rol](custom-roles.md), rolleri nasıl tanımlanan anlamaya yardımcı olur. Bu makalede rol tanımları ayrıntılarını açıklar ve bazı örnekler sağlar.
 
 ## <a name="role-definition-structure"></a>Rol tanımı yapısı
 
-A *rol tanımı* izinleri koleksiyonudur. Bazı durumlarda yalnızca adlandırılan bir *rol*. Rol tanımı gibi okuma gerçekleştirilebilir işlemleri listeler, yazma ve silme. Ayrıca, gerçekleştirilemiyor işlemleri de listeleyebilirsiniz. Rol tanımı aşağıdaki yapıya sahiptir:
+A *rol tanımı* izinleri koleksiyonudur. Bazı durumlarda yalnızca adlandırılan bir *rol*. Rol tanımı gibi okuma gerçekleştirilebilir işlemleri listeler, yazma ve silme. Ayrıca, temel alınan veri ile ilgili işlemler ve gerçekleştirilemiyor operations listeleyebilirsiniz. Rol tanımı aşağıdaki yapıya sahiptir:
 
 ```
 assignableScopes []
@@ -36,7 +37,9 @@ id
 name
 permissions []
   actions []
+  dataActions []
   notActions []
+  notDataActions []
 roleName
 roleType
 type
@@ -73,11 +76,13 @@ Burada [katkıda bulunan](built-in-roles.md#contributor) JSON biçiminde rol tan
           "*"
         ],
         "additionalProperties": {},
+        "dataActions": [],
         "notActions": [
           "Microsoft.Authorization/*/Delete",
           "Microsoft.Authorization/*/Write",
           "Microsoft.Authorization/elevateAccess/Action"
         ],
+        "notDataActions": []
       }
     ],
     "roleName": "Contributor",
@@ -87,7 +92,7 @@ Burada [katkıda bulunan](built-in-roles.md#contributor) JSON biçiminde rol tan
 ]
 ```
 
-## <a name="management-operations"></a>Yönetim işlemleri
+## <a name="management-and-data-operations-preview"></a>Yönetim ve veri işlemleri (Önizleme)
 
 Rol tabanlı erişim denetimi yönetimi işlemleri için belirtilen `actions` ve `notActions` bölümler bir rol tanımı. Azure yönetim işlemlerini bazı örnekleri şunlardır:
 
@@ -95,7 +100,93 @@ Rol tabanlı erişim denetimi yönetimi işlemleri için belirtilen `actions` ve
 - Oluşturmak, güncelleştirmek ya da bir blob kapsayıcısından silin
 - Bir kaynak grubu ve tüm kaynaklarını silmek
 
-Yönetim erişimi verilerinize alınmadı. Bu ayrım joker karakterlerle rolleri engeller (`*`) verilerinizi sınırsız erişimi gelen. Örneğin, bir kullanıcının bir [okuyucu](built-in-roles.md#reader) rol bir abonelikte sonra bunlar depolama hesabı görüntüleyebilirsiniz, ancak temel alınan veri görüntüleyemez.
+Yönetim erişimi verilerinize alınmadı. Bu ayrım joker karakterlerle rolleri engeller (`*`) verilerinizi sınırsız erişimi gelen. Örneğin, bir kullanıcının bir [okuyucu](built-in-roles.md#reader) rol bir abonelikte sonra bunlar depolama hesabı görüntüleyebilirsiniz, ancak varsayılan olarak, temel alınan veri görüntüleyemezsiniz.
+
+Daha önce rol tabanlı erişim denetimi için veri işlemleri kullanılmadı. Veri işlemleri için yetkilendirme kaynak sağlayıcılar arasında farklılık. Yönetim işlemleri için kullanılan aynı rol tabanlı erişim denetimi yetkilendirme modeli veri işlemleri (şu anda önizlemede) şekilde genişletilmiştir.
+
+Veri işlemleri desteklemek için yeni veri bölümleri rol tanımı yapısına eklenmiştir. Veri işlemleri belirtilir `dataActions` ve `notDataActions` bölümler. Bu veri bölümleri ekleyerek, yönetim ve veriler arasında ayrım korunur. Bu joker karakterlerle geçerli rol atamalarını önler (`*`) gelen aniden için verilere sahip. İçinde belirtilen bazı veri işlemleri işte `dataActions` ve `notDataActions`:
+
+- BLOB'ları bir kapsayıcıda listesini okur
+- Bir depolama blob bir kapsayıcıda yazma
+- Bir kuyruktaki ileti silme
+
+Burada [depolama Blob veri Okuyucu (Önizleme)](built-in-roles.md#storage-blob-data-reader-preview) işlemleri hem de içeren rol tanımı `actions` ve `dataActions` bölümler. Bu rol, blob kapsayıcısında ve ayrıca temel blob verileri okumak sağlar.
+
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Allows for read access to Azure Storage blob containers and data.",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+        ],
+        "additionalProperties": {},
+        "dataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+        ],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Storage Blob Data Reader (Preview)",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+Yalnızca veri işlemleri eklenebilir `dataActions` ve `notDataActions` bölümler. Kaynak sağlayıcıları tanımlamak hangi veri işlemleri ayarlayarak işlemleridir `isDataAction` özelliğine `true`. İşlemlerin bir listesini görmek için burada `isDataAction` olan `true`, bkz: [kaynak sağlayıcısı işlemleri](resource-provider-operations.md). Veri işlemleri olmayan rollerini sağlamak için gerekli değildir `dataActions` ve `notDataActions` bölümler rol tanımı içinde.
+
+Yetkilendirme tüm yönetim işlemi API çağrıları için Azure Resource Manager tarafından işlenir. Yetkilendirme verileri işlemi API çağrıları için bir kaynak sağlayıcısı veya Azure Resource Manager tarafından işlenir.
+
+### <a name="data-operations-example"></a>Veri işlemleri örneği
+
+Yönetim ve veri işlemlerini nasıl çalıştığını daha iyi anlamak için belirli bir örneği şimdi göz önünde bulundurun. Alice atanan [sahibi](built-in-roles.md#owner) abonelik kapsamdaki rol. Bob atanan [depolama Blob veri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) bir depolama hesabı kapsamda rol. Aşağıdaki diyagramda bu örnek gösterilmektedir.
+
+![Rol tabanlı erişim denetimi yönetim ve veri işlemlerini desteklemek için genişletilmiş](./media/role-definitions/rbac-management-data.png)
+
+[Sahibi](built-in-roles.md#owner) Alice için rol ve [depolama Blob veri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) rolde Bob için aşağıdaki eylemleri:
+
+Sahip
+
+&nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`*`
+
+Depolama Blob Verileri Katkıda Bulunan (Önizleme)
+
+&nbsp;&nbsp;&nbsp;&nbsp;Eylemler<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataActions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
+
+Alice bir joker karakter olduğundan (`*`) eylem bir abonelik kapsamda kendi devralmak aşağı her tüm yönetim eylemlerini gerçekleştirmek etkinleştirmek için. Ancak, Alice veri işlemlerini gerçekleştiremezsiniz. Örneğin, varsayılan olarak, Alice bir kapsayıcısı içinde BLOB'ları okunamıyor, ancak kendisinin okuma, yazma ve kapsayıcıları silin.
+
+Bob'un izinler için yalnızca sınırlı `actions` ve `dataActions` belirtilen [depolama Blob veri katkıda bulunan (Önizleme)](built-in-roles.md#storage-blob-data-contributor-preview) rol. Bob rolüne dayalı, yönetim ve veri işlemleri gerçekleştirebilir. Örneğin, Bob okuma, yazma ve belirtilen depolama hesabında kapsayıcıları silin ve daha da okuma, yazma ve BLOB'ları silme.
+
+### <a name="what-tools-support-using-rbac-for-data-operations"></a>Hangi Araçlar veri işlemleri için RBAC kullanarak destekliyor?
+
+Görüntülemek ve veri işlemleri ile çalışmak için Araçlar ya da SDK'ları doğru sürümlerine sahip olmalıdır:
+
+| Aracı  | Sürüm  |
+|---------|---------|
+| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 veya üzeri |
+| [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 veya daha yenisi |
+| [.NET için Azure](/dotnet/azure/) | 2.8.0-Preview veya daha yenisi |
+| [Git için Azure SDK'sı](/go/azure/azure-sdk-go-install) | 15.0.0 veya üzeri |
+| [Java için Azure](/java/azure/) | 1.9.0 veya üzeri |
+| [Python için Azure](/python/azure) | 0.40.0 veya üzeri |
+| [Ruby için Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 veya üzeri |
 
 ## <a name="actions"></a>Eylemler
 
@@ -115,6 +206,25 @@ Yönetim erişimi verilerinize alınmadı. Bu ayrım joker karakterlerle rolleri
 
 > [!NOTE]
 > Bir kullanıcı bir işlemde dışlar bir rolü atanıp atanmadığını `notActions`ve aynı işlem erişim bu işlemi gerçekleştirmek için kullanıcının izin veren ikinci bir rol atanır. `notActions` bir reddetme değil kural – bu belirli işlemleri dışarıda gerektiğinde izin verilen işlem kümesi oluşturmak için yalnızca uygun bir yoldur.
+>
+
+## <a name="dataactions-preview"></a>dataActions (Önizleme)
+
+`dataActions` İznini rol için bu nesne içinde verilerinize erişim verir veri işlemleri belirtir. Örneğin, bir kullanıcı okuma blob veri erişimi bir depolama hesabı, bunlar bu depolama hesabındaki BLOB bilgi edinebilirsiniz. İşte bazı örnekler, kullanılabilir veri işlemlerinin `dataActions`.
+
+| İşlem dize    | Açıklama         |
+| ------------------- | ------------------- |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Bir blob veya BLOB listesini döndürür. |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Bir blob yazma sonucunu döndürür. |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | Bir ileti döndürür. |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | Bir ileti veya yazma veya silme bir ileti sonucunu döndürür. |
+
+## <a name="notdataactions-preview"></a>notDataActions (Önizleme)
+
+`notDataActions` İznini hariç tutulan veri işlemleri belirtir izin verilen gelen `dataActions`. Bir rol (yürürlükte olan izinlerini) tarafından verilen erişim çıkarılmasıyla hesaplanır `notDataActions` işlemlerinden `dataActions` işlemleri. Her kaynak sağlayıcısı, ilgili veri işlemleri gerçekleştirmek için API'ler sağlar.
+
+> [!NOTE]
+> Bir kullanıcı bir veri işleminde dışlar bir rolü atanıp atanmadığını `notDataActions`ve aynı veri işlem erişim, veri işlemi gerçekleştirmek için kullanıcının izin veren ikinci bir rol atanır. `notDataActions` bir reddetme değil kural –, çıkarılacak belirli veri işlemleriyle gerektiğinde izin verilen veri işlemleri kümesi oluşturmak için yalnızca uygun bir yoldur.
 >
 
 ## <a name="assignablescopes"></a>AssignableScopes
@@ -162,7 +272,9 @@ Aşağıdaki örnekte gösterildiği [okuyucu](built-in-roles.md#reader) Azure C
           "*/read"
         ],
         "additionalProperties": {},
+        "dataActions": [],
         "notActions": [],
+        "notDataActions": []
       }
     ],
     "roleName": "Reader",
@@ -195,6 +307,12 @@ Aşağıdaki örnek, izleme ve Azure PowerShell kullanarak görüntülendiği gi
   "NotActions":  [
 
                  ],
+  "DataActions":  [
+
+                  ],
+  "NotDataActions":  [
+
+                     ],
   "AssignableScopes":  [
                            "/subscriptions/{subscriptionId1}",
                            "/subscriptions/{subscriptionId2}",

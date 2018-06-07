@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery azure'a yük devretme testi | Microsoft Docs"
-description: "Azure Site Recovery hizmetini kullanarak Azure'a, şirket içi bir yük devretme testi çalıştırma hakkında bilgi edinin."
+title: Azure Site Recovery azure'a yük devretme testi | Microsoft Docs
+description: Azure Site Recovery hizmetini kullanarak Azure'a, şirket içi bir yük devretme testi çalıştırma hakkında bilgi edinin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643660"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Azure Site kurtarma için yük devretme sınaması
 
@@ -25,7 +26,7 @@ Bu makalede, Azure Site kurtarma sınama yük devretme kullanarak, bir olağanü
 ## <a name="run-a-test-failover"></a>Yük devretme testi çalıştırma
 Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır açıklar. 
 
-![Yük Devretme Sınaması](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Test Yük Devretmesi](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. Azure portalında Site Recovery içinde tıklatın **kurtarma planları** > *recoveryplan_name* > **yük devretme testi**.
@@ -40,7 +41,7 @@ Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır a
 
     - Site kurtarma girişimleri oluşturmak için sağlanan aynı IP adresine ve aynı ada sahip bir alt ağa VM'ler test **işlem ve ağ** VM ayarlar.
     - Aynı ada sahip bir alt ağ yük devretme sınaması için kullanılan Azure sanal ağındaki kullanılabilir değilse, ardından test VM ağdaki ilk alt alfabetik olarak oluşturulur.
-    - Aynı IP adresi alt ağında kullanılabilir değilse, VM alt ağ içindeki başka bir kullanılabilir IP adresi alır. [Daha fazla bilgi edinin](#creating-a-network-for-test-failover).
+    - Aynı IP adresi alt ağında kullanılabilir değilse, VM alt ağ içindeki başka bir kullanılabilir IP adresi alır. [Daha fazla bilgi edinin](#create-a-network-for-test-failover).
 4. Azure'a devretmek ve veri şifrelemesi etkin olduğunda, buna **şifreleme anahtarı**, şifreleme sağlayıcısı yükleme sırasında etkin olduğunda verilmiş sertifikayı seçin. Bu adımı yoksayabilirsiniz şifreleme etkin değil.
 5. Yük devretme işleminin ilerleyişini izlemek **işleri** sekmesi. Azure portalında test yineleme makine görebilmeniz gerekir.
 6. Azure VM için RDP bağlantısı başlatmak için yapmanız [bir ortak IP adresi eklemek](https://aka.ms/addpublicip) devredilen VM'ye ağ arabiriminde. 
@@ -48,7 +49,7 @@ Bu yordam, bir yük devretme sınaması için bir kurtarma planı Çalıştır a
 8. Yük devretme testiyle ilişkili gözlemlerinizi **Notlar**’da kaydedin veya saklayın. 
 
 
-![Yük Devretme Sınaması](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Test Yük Devretmesi](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Yük devretme testi tetiklendiğinde aşağıdakiler gerçekleşir:
 
@@ -63,13 +64,13 @@ Aşağıdaki senaryolarda, yük devretme genellikle tamamlamak için yaklaşık 
 
 * VMware Mobility hizmetinin 9.8 eski bir sürümünü çalıştıran VM'ler
 * Fiziksel sunucuları
-* VMware Linux VMs
+* VMware Linux VM'ler
 * Hyper-V korumalı fiziksel sunucuları VM
 * VMware VM burada aşağıdaki sürücüleri önyükleme sürücüleri değil:
     * storvsc
-    * vmbus
+    * VMBus
     * storflt
-    * intelide
+    * Intelide
     * ATAPI
 * VMware DHCP etkin, sahip olmayan VM DHCP veya statik IP adresleri kullanarak rrespective.
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/16/2018
 ms.author: iainfou
-ms.openlocfilehash: ec330570604494503de2fa3f5484a1e41ddf4603
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652881"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory kimlik doğrulaması (Önizleme) kullanarak Azure Linux sanal makinede oturum açın
 
@@ -74,7 +75,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-VM ve destekleyici kaynakları oluşturmak için birkaç dakika sürer.
+VM’yi ve destekleyici kaynakları oluşturmak birkaç dakika sürer.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Azure AD oturum açma VM uzantısı yükleyin
 
@@ -111,6 +112,9 @@ az role assignment create \
     --assignee $username \
     --scope $vm
 ```
+
+> [!NOTE]
+> AAD etki alanı ve oturum açma kullanıcı adı etki alanı eşleşmiyorsa, kullanıcı hesabınızla nesne kimliği belirtmelisiniz *--atanan nesne kimliği*, yalnızca kullanıcı adı için *--atanan*. Kullanıcı hesabınız için nesne kimliği elde edebilirsiniz [az ad kullanıcı listesi](/cli/azure/ad/user#az-ad-user-list).
 
 RBAC Azure aboneliği kaynaklarınıza erişimi yönetmek için nasıl kullanılacağı hakkında daha fazla bilgi için bkz [Azure CLI 2.0](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), veya [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 

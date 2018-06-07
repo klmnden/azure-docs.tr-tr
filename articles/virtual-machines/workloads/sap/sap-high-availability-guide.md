@@ -4,7 +4,7 @@ description: SAP NetWeaver için Azure sanal makineler üzerinde yüksek kullan�
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e65f38b6fb4f5434c840af1866ccf09671111f3e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1fcec2046ae8e655a1e38bb62e338b8f2380e543
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657977"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver için Azure sanal makineleri yüksek kullanılabilirlik
 
@@ -188,7 +189,7 @@ Bu makaleler Azure SAP dağıtımlarda kapsar:
 
 Bu SAP Notlar Azure SAP konu ilişkili:
 
-| Not numarası | Başlık |
+| Not numarası | Unvan |
 | --- | --- |
 | [1928533] |Azure üzerinde SAP uygulamaları: desteklenen ürünler ve boyutlandırma |
 | [2015553] |Microsoft Azure üzerinde SAP: Destek önkoşulları |

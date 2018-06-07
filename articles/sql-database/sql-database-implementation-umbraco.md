@@ -6,17 +6,18 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 1079adb6ef8a206506823fdee6721aabbf857b4d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: cd3952e92d09eef7c8b6fd8ec9352bd54dde0389
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649984"
 ---
 # <a name="umbraco-uses-azure-sql-database-to-quickly-provision-and-scale-services-for-thousands-of-tenants-in-the-cloud"></a>Umbraco, kiracılar bulutta binlerce için hızlı sağlama ve ölçek Hizmetleri için Azure SQL veritabanı kullanır.
-![Umbraco Logo](./media/sql-database-implementation-umbraco/umbracologo.png)
+![Umbraco logosu](./media/sql-database-implementation-umbraco/umbracologo.png)
 
 Umbraco herhangi bir şey küçük kampanya ya da broşür sitelerinden karmaşık uygulamaları için Fortune 500 şirketleri ve genel medya Web siteleri için çalıştırılabilir bir popüler açık kaynaklı içerik yönetim sistemidir (CMS) ' dir. 
 

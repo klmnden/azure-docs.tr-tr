@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 0e4c4c9e950610526a29e02d70827a1279d9686a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 43f7f1160fa36745bcfd697d91d1b46615b99edc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637523"
 ---
 # <a name="manage-cost-by-controlling-data-volume-and-retention-in-log-analytics"></a>Veri birimi ve günlük analizi bekletmeyi denetleyerek maliyet yönetme
 Günlük analizi ölçek ve Destek toplama, dizin oluşturma ve herhangi bir kaynaktan veri günde oldukça büyük miktardaki kuruluşunuzda depolamak üzere tasarlanmış veya Azure'da dağıtılabilir.  Bu, kuruluşunuz için birincil bir sürücü olabilir, ancak maliyet verimliliği sonuçta temel sürücüsüdür. Kendi önemli bir günlük Analytisc çalışma maliyetini toplanan, veri biriminde yalnızca dayanmayan anlamak bu amaçla da seçilen plan bağlı olduğu ve ne kadar süreyle bağlı kaynaklarınızdan oluşturulan veri depolamak seçtiğiniz.  
@@ -36,7 +37,7 @@ Veri maliyetini aşağıdaki faktörlere bağlı olarak önemli olabilir:
 > [!NOTE]
 > Ne kadar veri topladığı tahmini sağladığından her çözümünü içeren belgelere bakın.   
 
-Kullanıyorsanız *serbest* planı, verilerin 7 gün bekletme için sınırlı. İçin *tek başına* veya *Ödendi* katmanı, toplanan verileri kullanılabilir son 31 gün için. *Serbest* planına sahip 500 MB günlük alım sınır ve birim izin tutarlar tutarlı bir şekilde aşması fark ederseniz, bu sınırı aşan veri toplamak için ücretli bir plana çalışma alanınızı değiştirebilirsiniz. 
+Müşterilerin bir kurumsal anlaşma ile imzalanmış 1 Temmuz 2018 önce veya zaten bir günlük analizi çalışma alanı bir abonelikte oluşturan kişiyi, hala erişiminiz *serbest* planı. Aboneliğinizi bir varolan EA kaydı bağlı değildir, *serbest* katmanı kullanılabilir değil, bir çalışma alanı 2 Nisan 2018 sonra yeni bir abonelik oluşturduğunuzda.  Veri 7 gün bekletme için sınırlı *serbest* katmanı.  İçin *tek başına* veya *Ödendi* katmanı, toplanan verileri kullanılabilir son 31 gün için. *Serbest* katmanına sahip 500 MB günlük alım sınır ve birim izin tutarlar tutarlı bir şekilde aşması fark ederseniz, bu sınırı aşan veri toplamak için ücretli bir plana çalışma alanınızı değiştirebilirsiniz. 
 
 > [!NOTE]
 > Ücretli katmanı için uzun bir bekletme dönemi seçmek seçerseniz ücretleri uygulanır. Herhangi bir zamanda ve fiyatlandırma hakkında daha fazla bilgi için plan türünü değiştirmek, bkz: [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/log-analytics/). 

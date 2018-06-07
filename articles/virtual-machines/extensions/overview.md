@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653272"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure sanal makine uzantıları ve özellikleri
 Azure Vm'lerinde dağıtım sonrası yapılandırma ve Otomasyon görevlerini sağlayan küçük uygulamalar Azure sanal makine (VM) uzantıları, var olan görüntüleri kullanın ve ardından özel iş dışı alma, dağıtımlarınızın bir parçası olarak özelleştirin görüntü oluşturma.
@@ -52,7 +53,7 @@ Uzantıları uygulamaları yüklemek, var olan tüm uygulamalar gibi bazı gerek
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Linux aracısı ve uzantılar nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure VM uzantıları ve Linux için özellikleri](features-linux.md).
-* Windows Konuk aracısı ve uzantılar nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure VM uzantıları ve Linux için özellikleri](features-windows.md).  
+* Windows Konuk aracısı ve uzantılar nasıl çalıştığı hakkında daha fazla bilgi için bkz: [Azure VM uzantıları ve özellikleri Windows için](features-windows.md).  
 * Windows Konuk Aracısı'nı yüklemek için bkz: [Azure Windows sanal makine Aracısı genel bakış ](agent-windows.md).  
 * Linux Aracısı'nı yüklemek için bkz: [Azure Linux sanal makine Aracısı genel bakış ](agent-linux.md).  
 

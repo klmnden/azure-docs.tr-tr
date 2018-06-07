@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 2e838e9c94d5b19565bea3d02890fe6164bb37d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0e074e93ecbe80c3acf3481c0d33917fbe5090c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640915"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Bilişsel arama skillset ek açıklamalar başvuru yapma
 
@@ -124,5 +125,5 @@ Unutmayın önem düzeyini `"/document/people/*/lastname"` , belgeyi büyük. Bu
 ## <a name="see-also"></a>Ayrıca bkz.
 + [Özel bir yetenek iyileştirmesini ardışık düzenine tümleştirme](cognitive-search-custom-skill-interface.md)
 + [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
-+ [Skillset (REST) oluşturma](ref-create-skillset.md)
++ [Skillset (REST) oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Bir dizine zenginleştirilmiş alanlarını eşleme](cognitive-search-output-field-mapping.md)

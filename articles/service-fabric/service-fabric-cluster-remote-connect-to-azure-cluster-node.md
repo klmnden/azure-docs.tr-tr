@@ -14,49 +14,51 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
-ms.openlocfilehash: 3c7b3626db0e38d28513d4665a83dd7155663034
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 28424f9a7a0f77882ee3360c5599549303075c18
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642582"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Bir sanal makine ölçek kümesi örneği veya bir küme düğümü için uzaktan bağlanma
-Azure, tanımladığınız her bir küme düğüm türünde çalışan bir Service Fabric küme [bir sanal makine ayrı ölçek büyütme ayarlar](service-fabric-cluster-nodetypes.md).  Uzaktan belirli ölçek kümesi örneği (veya küme düğümleri için) bağlayabilirsiniz.  Tek Örnekli VM, Ölçek kümesi örnekleri kendi sanal IP adreslerine sahip değilsiniz. Bir IP adresi ve Uzaktan belirli bir örneğine bağlanmak için kullanabileceğiniz bağlantı noktası için bakarken bu zor olabilir.
+Azure, tanımladığınız her bir küme düğüm türünde çalışan bir Service Fabric küme [bir sanal makine ayrı ölçek büyütme ayarlar](service-fabric-cluster-nodetypes.md).  Uzaktan belirli ölçek kümesi örnekleri (küme düğümleri) bağlanabilir.  Tek Örnekli VM, Ölçek kümesi örnekleri kendi sanal IP adreslerine sahip değilsiniz. Bir IP adresi ve Uzaktan belirli bir örneğine bağlanmak için kullanabileceğiniz bağlantı noktası için bakarken bu zor olabilir.
 
 Bir IP adresi ve Uzaktan belirli bir örneğine bağlanmak için kullanabileceğiniz bağlantı noktası bulmak için aşağıdaki adımları tamamlayın.
 
-1. Sanal IP adresi, Uzak Masaüstü Protokolü (RDP) gelen NAT kuralları alarak düğüm türü bulun.
+1. Gelen NAT kuralları, Uzak Masaüstü Protokolü (RDP) alın.
 
-    İlk olarak, için kaynak tanımı'nın bir parçası olarak tanımlanan gelen NAT kuralları değerlerini alma `Microsoft.Network/loadBalancers`.
+    Genellikle, kendi sanal IP adresi ve ayrılmış yük dengeleyici kümenizdeki tanımlanan her düğüm türü vardır. Varsayılan olarak, yük dengeleyici düğüm türü için aşağıdaki biçimde adlandırılır: *LB-{küme-adı}-{düğüm türü}*; Örneğin, *LB mycluster FrontEnd*. 
     
-    Yük Dengeleyici sayfasında Azure Portalı'nda seçin **ayarları** > **gelen NAT kuralları**. Bu IP adresini verir ve ilk ölçek uzaktan bağlanmak için kullanabileceğiniz bağlantı noktası ayarlayın. 
-    
-    ![Yük dengeleyici][LBBlade]
-    
-    Aşağıdaki şekilde, IP adresi ve bağlantı noktası olan **104.42.106.156** ve **3389**.
-    
-    ![NAT kuralları][NATRules]
+    Azure Portalı'nda, yük dengeleyici için sayfasında seçin **ayarları** > **gelen NAT kuralları**: 
 
-2. Özel Ölçek kümesi örnek veya düğüm uzaktan bağlanmak için kullanabileceğiniz bir bağlantı noktası bulunamadı.
+    ![Yük Dengeleyici gelen NAT kuralları](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
-    Ölçek kümesi düğümlerine örnekleri eşlemesi. Ölçek kümesi bilgilerini kullanmak için tam bağlantı noktasını belirlemek için kullanın.
-    
-    Bağlantı noktaları ölçek kümesi örnek eşleşen artan düzende ayrılır. Ön uç düğüm türü önceki örnek için aşağıdaki tabloda bağlantı noktalarını her beş düğümlü örnekleri için listeler. Aynı eşleme ölçek kümesi Örneğiniz için geçerlidir.
-    
-    | **Sanal makine ölçek kümesi örneği** | **Bağlantı Noktası** |
-    | --- | --- |
-    | FrontEnd_0 |3389 |
-    | FrontEnd_1 |3390 |
-    | FrontEnd_2 |3391 |
-    | FrontEnd_3 |3392 |
-    | FrontEnd_4 |3393 |
-    | FrontEnd_5 |3394 |
+    Aşağıdaki ekran görüntüsü, ön uç adlı düğüm türü için gelen NAT kuralları gösterir: 
 
-3. Uzaktan belirli ölçek kümesi örneğine bağlanın.
+    ![Yük Dengeleyici gelen NAT kuralları](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
-    Aşağıdaki şekilde FrontEnd_1 ölçek kümesi örneğine bağlanmak için Uzak Masaüstü bağlantısı kullanarak gösterilmektedir:
+    IP adresi her düğüm için görünür **hedef** sütun, **hedef** sütun ölçek kümesi örnek verir ve **hizmet** sütun bağlantı noktası numarasını sağlar. Uzak bağlantı için bağlantı noktası 3389 numaralı bağlantı noktası sipariş başlayarak artan her düğüm için ayrılır.
+
+    Gelen NAT kurallarında bulabileceğiniz `Microsoft.Network/loadBalancers` kümeniz için Resource Manager şablonu bölümü.
     
-    ![Uzak Masaüstü Bağlantısı][RDP]
+2. Hedef bağlantı noktası eşlemesi bir düğüm için gelen bağlantı noktasına onaylamak için kendi kural'ı tıklatın ve bakmak **hedef bağlantı noktası** değeri. Gelen NAT kuralı için aşağıdaki ekran gösterilir **ön uç (örnek 1)** önceki adımda düğümü. Hedef bağlantı noktası (gelen) bağlantı noktası numarasını 3390 olsa da, bağlantı noktası 3389, hedefte RDP hizmeti için bağlantı noktası için eşlendi, dikkat edin.  
+
+    ![Hedef bağlantı noktası eşleme](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/port-mapping.png)
+
+    Varsayılan olarak, Windows kümeleri için hedef düğüm üzerinde RDP hizmetini eşleştiren bağlantı noktası 3389, hedef bağlantı noktasıdır. Linux kümeleri için güvenli Kabuk (SSH) hizmet eşlemeleri bağlantı noktası 22 ', hedef bağlantı noktası özelliğidir.
+
+3. Uzaktan belirli düğüme bağlanmak (Ölçek kümesi örneği). Kullanıcı adı ve küme veya yapılandırdığınız herhangi diğer bir kimlik bilgisi oluştururken ayarladığınız parolayı kullanabilirsiniz. 
+
+    Bağlanmak için Uzak Masaüstü bağlantısı kullanarak aşağıdaki ekran görüntüsü gösterildiği **ön uç (örnek 1)** Windows Küme düğümünde:
+    
+    ![Uzak Masaüstü Bağlantısı](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/rdp-connect.png)
+
+    Linux düğümleri üzerinde SSH (aşağıdaki örnekte aynı IP adresini ve bağlantı noktası kısaltma yeniden kullanır) ile bağlayabilirsiniz:
+
+    ``` bash
+    ssh SomeUser@40.117.156.199 -p 3390
+    ```
 
 
 Sonraki adımlar için aşağıdaki makaleler okuyun:
@@ -65,7 +67,3 @@ Sonraki adımlar için aşağıdaki makaleler okuyun:
 * [RDP bağlantı noktası aralığı değerleri güncelleştirmek](./scripts/service-fabric-powershell-change-rdp-port-range.md) , VM'ler dağıtımdan sonra küme
 * [Yönetici kullanıcı adı ve parola değiştirme](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) küme VM'ler için
 
-<!--Image references-->
-[LBBlade]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/LBBlade.png
-[NATRules]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/NATRules.png
-[RDP]: ./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/RDP.png

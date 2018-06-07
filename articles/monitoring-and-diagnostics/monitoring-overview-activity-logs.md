@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638995"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -50,7 +51,7 @@ Etkinlik günlüğü verileri çeşitli kategorileri içerir. Bu kategoriler şe
 * **Hizmet durumu** -bu kategoriyi Azure'da oluşan herhangi bir hizmet durumu olay kaydını içerir. Bu kategorideki görür olay türü "SQL Azure Doğu ABD kesinti yaşanıyor." örneğidir Hizmet sistem durumu olayları beş çeşit olarak gelir: eylem gerekli, Destekli kurtarma, olay, bakım, bilgi veya güvenlik ve olay için etkilenen Abonelikteki bir kaynağınız varsa yalnızca görünür.
 * **Uyarı** -bu kategorideki tüm etkinleştirmeleri Azure uyarıların kaydını içerir. Bu kategorideki görür olay türü "myVM CPU % 80'den son 5 dakika için bırakıldı." örneğidir Azure sistemleri çeşitli sahip bir uyarı verme kavramı--bir kural çeşit tanımlayabilir ve bu kural için koşullara uyan bir bildirim alıyorsunuz. Her bir desteklenen Azure uyarı türü 'etkinleştirir,' veya bir bildirim oluşturmak için koşullar, bir kayıt etkinleştirme etkinlik günlüğü bu kategoriyi de gönderilir.
 * **Otomatik ölçeklendirme** -bu kategori, aboneliğinizde tanımladığınız herhangi bir otomatik ölçeklendirme ayarı göre otomatik ölçeklendirme altyapısı işlemi ile ilgili olayları kaydını içerir. Bu kategorideki görür olayın türünü, "Otomatik ölçeklendirme ölçek büyütme eylemi başarısız oldu." örneğidir Otomatik ölçeklendirme'ni kullanarak, otomatik olarak ölçeğini veya ölçeklendirin desteklenen kaynak türü örneği sayısı bir otomatik ölçeklendirme ayarı kullanarak gün ve/veya yük (ölçüm) verileri zamanında temel. Zaman ölçek yukarı veya aşağı, başlangıç ve başarılı veya başarısız olaylar için koşullar kaydedilir bu kategorideki.
-* **Öneri** -öneri olaylarından web siteleri ve SQL sunucuları gibi bazı kaynak türleri bu kategorisi içerir. Bu olaylar daha iyi kaynaklarınızı kullanmalarını ilişkin öneriler sunar. Öneriler yayma kaynaklarınız varsa, yalnızca bu tür olayları alırsınız.
+* **Öneri** -Azure Danışmanı öneri olaylarından bu kategorisi içerir.
 * **Güvenlik** -Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları kaydını bu kategorisi içerir. Bu kategorideki görür olayın türünü, "yürütülen şüpheli çift uzantısının." örneğidir
 * **İlke ve kaynak durumu** -Bu kategorilerden tüm olaylar içermez; gelecekte kullanılmak üzere ayrılmıştır.
 
@@ -60,7 +61,7 @@ Etkinlik günlüğü verileri çeşitli kategorileri içerir. Bu kategoriler şe
 ## <a name="what-you-can-do-with-the-activity-log"></a>Etkinlik günlüğü ile yapabilecekleriniz
 Etkinlik günlüğü ile yapabileceği şeylerden bazıları şunlardır:
 
-![Azure etkinlik günlüğü](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
+![Azure Etkinlik günlüğü](./media/monitoring-overview-activity-logs/Activity_Log_Overview_v3.png)
 
 
 * Sorgulamak ve içinde görüntüleyebilir **Azure portal**.
@@ -103,7 +104,7 @@ A **günlük profili** nasıl etkinlik günlüğü dışarı denetler. Bir günl
 * Ne kadar süreyle etkinlik günlüğü bir depolama hesabında tutulmalıdır.
     - Sıfır gün bekletme günlükleri sonsuza kadar tutulur anlamına gelir. Aksi takdirde, değer 1 ile 2147483647 arasındaki gün herhangi bir sayıda olabilir.
     - Bekletme ilkeleri ayarlanır, ancak yalnızca (örneğin, olay hub'ları veya günlük analizi seçenekler seçilidir) günlükleri bir depolama hesabında depolama devre dışı bırakıldı, bekletme ilkeleri bir etkisi yoktur.
-    - Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek.
+    - Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar.
 
 Günlükleri yayma olarak aynı abonelikte değil bir depolama hesabı veya olay hub'ı ad alanını kullanabilirsiniz. Ayar yapılandıran kullanıcının uygun RBAC her iki aboneliğin erişiminiz olmalıdır.
 

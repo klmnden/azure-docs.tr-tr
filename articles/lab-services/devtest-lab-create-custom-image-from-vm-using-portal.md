@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c98918dcd08c2e8ec72cc995c633b8320da8057
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635925"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Bir sanal makineden özel bir görüntü oluşturun
 
@@ -42,7 +43,7 @@ Sağlanan bir sanal makineden özel bir görüntü oluşturun ve daha sonra ayn�
 
     ![Özel görüntü menü öğesi oluşturma](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. Üzerinde **özel görüntü** bölmesinde, bir ad ve özel görüntünüzü açıklamasını girin. Bir VM oluşturduğunuzda, bu bilgileri tabanları listesinde görüntülenir.
+1. Üzerinde **özel görüntü** bölmesinde, bir ad ve özel görüntünüzü açıklamasını girin. Bir VM oluşturduğunuzda, bu bilgileri tabanları listesinde görüntülenir. Özel görüntü işletim sistemi diski ve sanal makineye bağlı tüm veri diskleri içerir.
 
     ![Özel görüntü bölmesi oluşturun](./media/devtest-lab-create-template/create-custom-image-blade.png)
 

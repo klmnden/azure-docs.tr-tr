@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637183"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ Microsoft Azure Log Analytics hakkında sık sorulan soruların listesidir. Günlük analizi hakkında ek herhangi bir sorunuz varsa, Git [tartışma Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -47,7 +48,7 @@ Metin dizesini güncelleştirmeye *OMS* el ile içeri aktarılacak gereken bir y
 
 ### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>S: günlük analizi şirket içi sürümü var mı?
 
-A: No. Günlük analizi, işler ve büyük miktarlarda veri depolayan bir ölçeklenebilir bulut hizmetidir. 
+Y: No Günlük analizi, işler ve büyük miktarlarda veri depolayan bir ölçeklenebilir bulut hizmetidir. 
 
 ### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>Q. Günlük analizi artık veri toplama, nasıl giderebilirim?
 
@@ -96,7 +97,7 @@ A. Hayır, şu anda rasgele tablolar veya Azure depolama kapsayıcıları okuma 
 
 A. Günlük analizi hizmeti, Azure üzerinde oluşturulmuştur. Günlük analizi IP adresleri olan [Microsoft Azure veri merkezi IP aralıkları](http://www.microsoft.com/download/details.aspx?id=41653).
 
-Hizmet dağıtımları yaptığınız gibi günlük analizi hizmeti gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin belgelenmiştir [sistem gereksinimleri](log-analytics-concept-hybrid.md#prerequisites).
+Hizmet dağıtımları yaptığınız gibi günlük analizi hizmeti gerçek IP adreslerini değiştirin. DNS adları, güvenlik duvarından geçmesine izin belgelenmiştir [ağ gereksinimleri](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. I ExpressRoute Azure'a bağlanmak için kullanın. My günlük analizi trafik ExpressRoute bağlantım kullanıyor mu?
 

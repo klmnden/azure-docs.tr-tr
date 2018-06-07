@@ -1,13 +1,13 @@
 ---
-title: "SAP ASCS/SCS örnek çoklu SID yüksek kullanılabilirlik ile Windows Server Yük Devretme Kümelemesi ve Azure üzerinde paylaşılan disk | Microsoft Docs"
-description: "Windows Server Yük Devretme Kümelemesi ve Azure üzerinde paylaşılan disk SAP ASCS/SCS örnek için multi-SID yüksek kullanılabilirlik"
+title: SAP ASCS/SCS örnek çoklu SID yüksek kullanılabilirlik ile Windows Server Yük Devretme Kümelemesi ve Azure üzerinde paylaşılan disk | Microsoft Docs
+description: Windows Server Yük Devretme Kümelemesi ve Azure üzerinde paylaşılan disk SAP ASCS/SCS örnek için multi-SID yüksek kullanılabilirlik
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82cc943f983b3dedfc0f64f2eec5b4425a4bf81
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656739"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -224,7 +225,7 @@ Bu makalede, paylaşılan disk ile bir Windows Server Yük Devretme Kümelemesi 
 
 Yük Dengeleyici sınırları hakkında daha fazla bilgi için "Özel ön uç IP yük dengeleyici başına" bölümüne bakın [ağ sınırları: Azure Resource Manager][networking-limits-azure-resource-manager].
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Kullanarak bir SAP ASCS/SCS örneği için kullanılacak bir WSFC kümesi zaten yapılandırmış olduğunuz **dosya paylaşımı**Bu diyagramda gösterildiği gibi.
 
@@ -248,7 +249,7 @@ Yük Dengeleyici sınırları hakkında daha fazla bilgi için "Özel ön uç IP
 
 ![SAP yüksek kullanılabilirlik multi-SID Kurulum iki SAP sistemiyle SID][sap-ha-guide-figure-6003]
 
-## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a>Bir SAP çoklu SID senaryo için altyapıyı hazırlama
+## <a name="25e358f8-92e5-4e8d-a1e5-df7580a39cb0"></a> Bir SAP çoklu SID senaryo için altyapıyı hazırlama
 
 Altyapınızı hazırlamak için aşağıdaki parametrelerle ek SAP ASCS/SCS örneğini yükleyebilirsiniz:
 

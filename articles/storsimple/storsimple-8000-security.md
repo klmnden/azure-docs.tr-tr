@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650946"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple güvenlik ve veri koruması
 
@@ -204,6 +205,18 @@ StorSimple depolanan verileri korumak için aşağıdaki şifreleme algoritmalar
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>Kişisel bilgilerini yönetme
+
+Fiziksel ve sanal seri için StorSimple Aygıt Yöneticisi'ni aşağıdaki anahtar durumlarda kişisel bilgilerinizi toplar:
+
+- Uyarı kullanıcı ayarları kullanıcıların e-posta adresini nerede yapılandırılır. Bu bilgileri görüntülenebilir ve yönetici tarafından temizlendi. Bu StorSimple 8000 serisi cihazlar ve StorSimple sanal diziler için geçerlidir.
+ * Görüntülemek ve StorSimple 8000 serisi ayarlarını temizlemek için adımları [Görünüm ve StorSimple Uyarıları yönetme](storsimple-8000-manage-alerts.md#configure-alert-settings)
+ * Görüntülemek ve StorSimple sanal dizinin ayarlarını temizlemek için adımları [Görünüm ve StorSimple Uyarıları yönetme](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
+- Paylaşımlarında bulunan verilerin erişebilecek. Paylaşım verilere kimin erişebileceğini kullanıcılar listesi görüntülenir ve görüntülenebilir. Bu liste de silinir paylaşımları zaman silinir. Bu, yalnızca StorSimple sanal diziler için geçerlidir.
+ * Kimlerin erişebileceğini veya bir paylaşım silmek için adımları kullanıcı listesini görüntülemek için [StorSimple sanal dizinin paylaşımlarında yönetme](storsimple-virtual-array-manage-shares.md)
+
+Daha fazla bilgi için Microsoft Privacy İlkesi gözden [Güven Merkezi](https://www.microsoft.com/trustcenter).
+
 ## <a name="frequently-asked-questions-faq"></a>Sık sorulan sorular (SSS)
 
 Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple verilmiştir.
@@ -254,7 +267,7 @@ Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple ver
 
 **Y:** StorSimple Aygıt Yöneticisi'ni hizmetinden yeni sertifikayı yükleyin ve ardından bunu, uzaktan erişim istemcilerinin sertifika deposunda yüklü olmasını sağlayın. Yönergeler için aşağıdaki adrese gidin:
 
-* [Import-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+* [Sertifika İçeri Aktar cmdlet'i](https://technet.microsoft.com/library/hh848630.aspx)
 
 **S:** StorSimple cihaz Yöneticisi hizmeti aşılıp aşılmadığını korumalı my veri?
 
@@ -268,19 +281,7 @@ Bazı hakkında sorular ve yanıtlar güvenlik ve Microsoft Azure StorSimple ver
 
 **Y:** çünkü tüm verileri hizmette şifrelenir ve özel anahtarı aygıtla tutulur kamu varlık müşteri verilerini kaldırmasını isteyebilirsiniz.
 
-## <a name="gdpr-compliance"></a>GDPR uyumluluk
 
-[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR nasıl toplamak, depolamak ve kişisel bilgilerinizi kullanma hakkında birçok gereksinimlerini içerir. GDPR kuralları, şirketler, devlet dairesi ve AB işletmek ve toplamak, AB Satışlar bağlı verileri çözümlemek diğer kuruluşlar uygulanmaz. 
-
-Fiziksel ve sanal seri için StorSimple Aygıt Yöneticisi'ni GDPR uyumlu değil. Burada kişisel bilgiler toplanır ve hizmetinde görüntülenen iki anahtar örnekleri şunlardır:
-
-- Uyarı kullanıcı ayarları kullanıcıların e-posta adresini nerede yapılandırılır. Bu bilgileri görüntülenebilir ve yönetici tarafından temizlendi. Bu StorSimple 8000 serisi cihazlar ve StorSimple sanal diziler için geçerlidir.
- * Görüntülemek ve StorSimple 8000 serisi ayarlarını temizlemek için adımları [Görünüm ve StorSimple Uyarıları yönetme](storsimple-8000-manage-alerts.md#configure-alert-settings)
- * Görüntülemek ve StorSimple sanal dizinin ayarlarını temizlemek için adımları [Görünüm ve StorSimple Uyarıları yönetme](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)
-- Paylaşımlarında bulunan verilerin erişebilecek. Paylaşım verilere kimin erişebileceğini kullanıcılar listesi görüntülenir ve görüntülenebilir. Bu liste de silinir paylaşımları zaman silinir. Bu, yalnızca StorSimple sanal diziler için geçerlidir.
- * Kimlerin erişebileceğini veya bir paylaşım silmek için adımları kullanıcı listesini görüntülemek için [StorSimple sanal dizinin paylaşımlarında yönetme](storsimple-virtual-array-manage-shares.md)
-
-Daha fazla bilgi için Microsoft Privacy İlkesi gözden [Güven Merkezi](https://www.microsoft.com/trustcenter).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

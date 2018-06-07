@@ -6,19 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 60f5ac85-be19-49ac-a7c1-f290d682b5de
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: df9c22877eeac381d936f2fb86f5720c9cc9c930
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: 9123160f42adea57c28dff265bd5b5dbbcbb7918
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724267"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>IDN'ler için Azure yığınına Tanıtımı
 
@@ -30,9 +31,9 @@ IDN'ler özelliğidir dış DNS adlarını çözemez olanak tanıyan bir Azure y
 
 Azure yığınında IDN'ler ile özel DNS sunucusu girdileri belirtmek zorunda kalmadan aşağıdaki özellikleri alın:
 
-* Kiracı İş yükleri için DNS ad çözümleme hizmetleri paylaşılan.
-* Ad çözümlemesi ve Kiracı sanal ağ içinde DNS kaydı için yetkili DNS hizmeti.
-* Kiracı VM'ler Internet adlarından çözümlenmesi için yinelemeli DNS hizmeti. Kiracılar artık Internet adları (örneğin, www.bing.com.) çözümlemek için özel DNS girişlerini belirtmeniz gerekir
+- Kiracı İş yükleri için DNS ad çözümleme hizmetleri paylaşılan.
+- Ad çözümlemesi ve Kiracı sanal ağ içinde DNS kaydı için yetkili DNS hizmeti.
+- Kiracı VM'ler Internet adlarından çözümlenmesi için yinelemeli DNS hizmeti. Kiracılar artık Internet adları (örneğin, www.bing.com.) çözümlemek için özel DNS girişlerini belirtmeniz gerekir
 
 Hala kendi DNS getirin ve özel DNS sunucuları kullanın. Ancak, IDN'ler kullanarak Internet DNS adlarını çözemez ve diğer Vm'lerle aynı sanal ağda bağlanmak, özel DNS girişlerini oluşturmanız gerekmez.
 
@@ -48,10 +49,10 @@ Azure'da, bir ortak IP adresi ile ilişkili bir DNS ad etiketi belirtme seçene�
 
 Aşağıdakileri yapamazsınız şekilde azure yığın IDN'ler dahili ad kaydı için yalnızca destekler:
 
-* Varolan barındırılan bir DNS bölgesi (örneğin, local.azurestack.external.) altında bir DNS kaydı oluşturun
-* (Örneğin, Contoso.com.) bir DNS bölgesi oluşturma
-* Kendi özel DNS bölgesi altında bir kayıt oluşturun.
-* Etki alanı adları satın destekler.
+- Varolan barındırılan bir DNS bölgesi (örneğin, local.azurestack.external.) altında bir DNS kaydı oluşturun
+- (Örneğin, Contoso.com.) bir DNS bölgesi oluşturma
+- Kendi özel DNS bölgesi altında bir kayıt oluşturun.
+- Etki alanı adları satın destekler.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

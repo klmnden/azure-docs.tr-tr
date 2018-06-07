@@ -1,13 +1,13 @@
 ---
-title: "SAP NetWeaver HA Windows Yük devretme kümesi Azure SAP ASCS/SCS örneğinde için paylaşılan disk yüklerseniz ve | Microsoft Docs"
-description: "SAP NetWeaver HA Windows Yük devretme kümesi ve SAP ASCS/SCS örneği için paylaşılan disk üzerinde nasıl yükleyeceğinizi öğrenin."
+title: SAP NetWeaver HA Windows Yük devretme kümesi Azure SAP ASCS/SCS örneğinde için paylaşılan disk yüklerseniz ve | Microsoft Docs
+description: SAP NetWeaver HA Windows Yük devretme kümesi ve SAP ASCS/SCS örneği için paylaşılan disk üzerinde nasıl yükleyeceğinizi öğrenin.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 6209bcb3-5b20-4845-aa10-1475c576659f
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 419bbdd57a391dbbf01c2110a1609cb3d0ded003
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d5d52653d68c6ebfca7e35a134da263eee99fd3e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657086"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>SAP NetWeaver HA Windows Yük devretme kümesi ve Azure SAP ASCS/SCS örneğinde için paylaşılan disk yükleyin.
 
@@ -201,7 +202,7 @@ Bir yüksek kullanılabilirlik ASCS/SCS örneğiyle SAP yüklemek, bu görevleri
 
   _**Şekil 2:** yeni sanal adı ve TCP/IP adresi SAP ASCS/SCS küme yapılandırması_
 
-### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a>SAP ilk küme düğümüne yükleyin
+### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> SAP ilk küme düğümüne yükleyin
 
 1.  İlk küme düğümü seçeneği küme düğümünde A. yürütme Örneğin, pr1 ascs 0 üzerinde * ana bilgisayar.
 2.  Azure iç yük dengeleyicisi için bağlantı noktalarını varsayılan tutmak için seçin:
@@ -219,7 +220,7 @@ Sonraki birkaç görevleri standart SAP yükleme belgelerinde açıklanan değil
 >
 >
 
-### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a>SAP profili ASCS/SCS örneğinin değiştirme
+### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> SAP profili ASCS/SCS örneğinin değiştirme
 
 İlk olarak, yeni bir profil parametre ekleyin. Profil parametre çok uzun süre boşta olduğunda kapanmasını SAP iş süreçlerini ve kuyruğa sunucu arasındaki bağlantıları engeller. Biz sorun senaryoda Bahsediyor [SAP ASCS/SCS örneği her iki küme düğümleri üzerinde kayıt defteri girdisini eklemeniz][sap-ha-guide-8.11]. Bu bölümde, biz de bazı temel TCP/IP bağlantı parametrelerini iki değişiklikleri tanıtmaktadır. İkinci adımda, sıraya alma sunucusunu gönderecek şekilde ayarlamanız gerekir. bir `keep_alive` bağlantılar Azure iç yük dengeleyicinin boşta kalma eşiği isabet yok böylece sinyal.
 
@@ -240,7 +241,7 @@ ASCS/SCS örneğinin SAP profilini değiştirmek için:
 
 2.  Değişiklikleri uygulamak için SAP ASCS/SCS örneğini yeniden başlatın.
 
-### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a>Bir araştırma bağlantı noktası ekleme
+### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> Bir araştırma bağlantı noktası ekleme
 
 Azure yük dengeleyici ile çalışma tüm küme yapılandırmasını yapmak için iç yük dengeleyicinin araştırma işlevini kullanın. Azure iç yük dengeleyicisi genellikle gelen iş yükü katılımcı sanal makineler arasında eşit olarak dağıtır.
 
@@ -340,7 +341,7 @@ Sonda bağlantı noktası eklemek için:
 
   _**Şekil 4:** yeni değer ayarlandıktan sonra küme bağlantı noktası araştırma_
 
-### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a>Windows Güvenlik Duvarı araştırma bağlantı noktasını açın
+### <a name="4498c707-86c0-4cde-9c69-058a7ab8c3ac"></a> Windows Güvenlik Duvarı araştırma bağlantı noktasını açın
 
 Bir Windows Güvenlik Duvarı araştırma bağlantı noktası her iki küme düğümünü açın. Bir Windows Güvenlik Duvarı araştırma bağlantı noktasını açmak için aşağıdaki komut dosyasını kullanın. Ortamınız için PowerShell değişkenleri güncelleştirin.
 
@@ -352,15 +353,15 @@ Bir Windows Güvenlik Duvarı araştırma bağlantı noktası her iki küme dü�
 
 **ProbePort** ayarlanır **62000**. Artık, dosya paylaşımına erişebilir \\diğer konakları, gibi ascsha dbas uğradıysa \ascsha-clsap\sapmnt.
 
-## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Veritabanı örneğini yükleyin
+## <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Veritabanı örneğini yükleyin
 
 Veritabanı örneği yüklemek için SAP yükleme belgelerinde açıklanan işlemi izleyin.
 
-## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a>İkinci küme düğümü yükleme
+## <a name="8a276e16-f507-4071-b829-cdc0a4d36748"></a> İkinci küme düğümü yükleme
 
 İkinci küme yüklemek için SAP Yükleme Kılavuzu'nda açıklanan adımları izleyin.
 
-## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a>SAP ERS Windows hizmet örneği başlangıç türünü değiştirme
+## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> SAP ERS Windows hizmet örneği başlangıç türünü değiştirme
 
 SAP ERS Windows hizmeti başlangıç türünü değiştirme **otomatik (Gecikmeli Başlatma)** her iki küme düğümlerinde.
 
@@ -368,11 +369,11 @@ SAP ERS Windows hizmeti başlangıç türünü değiştirme **otomatik (Gecikmel
 
 _**Şekil 5:** SAP ERS örneğe otomatik Gecikmeli hizmet türünü değiştir_
 
-## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a>SAP birincil uygulama sunucusu yükleme
+## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> SAP birincil uygulama sunucusu yükleme
 
 Birincil uygulama sunucusu (PAS) örneğini yükleyin \<SID\>-dı-0 PAS barındırmak için belirlediğiniz sanal makinede. Azure üzerinde bir bağımlılık yoktur. DataKeeper özgü ayar yok.
 
-## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>SAP ek uygulama sunucusu yükleme
+## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> SAP ek uygulama sunucusu yükleme
 
 Bir SAP ek uygulama sunucusu (AAS) tüm sanal SAP uygulama sunucusu örneği barındırmak için belirlediğiniz makinelere yükleyin. Örneğin, \<SID\>-dı-1'e \<SID\>- di -&lt;n&gt;.
 
@@ -381,10 +382,10 @@ Bir SAP ek uygulama sunucusu (AAS) tüm sanal SAP uygulama sunucusu örneği bar
 >
 
 
-## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a>SIOS çoğaltma ve SAP ASCS/SCS örneği yük devretme testi
+## <a name="18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9"></a> SIOS çoğaltma ve SAP ASCS/SCS örneği yük devretme testi
 Yük Devretme Kümesi Yöneticisi'ni ve SIOS DataKeeper yönetimi ve yapılandırması aracını kullanarak bir SAP ASCS/SCS örneği yük devretme ve SIOS disk çoğaltması izlemek ve test kolaydır.
 
-### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a>SAP ASCS/SCS örneği bir küme düğümünde çalışıyor
+### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS örneği bir küme düğümünde çalışıyor
 
 SAP PR1 küme grubu A'daki küme düğümünde çalışıyor Örneğin, pr1-ascs-0. Paylaşılan disk SAP PR1 küme grubunun parçası olan sürücü S, küme düğümüne A. atama Disk sürücüsü S. ASCS/SCS örneği de kullanır 
 
@@ -398,7 +399,7 @@ SIOS DataKeeper yönetim ve Yapılandırma Aracı'nda paylaşılan disk verileri
 
 _**Şekil 7:** SIOS DataKeeper içinde yerel birim küme düğümünden bir küme düğümüne B çoğaltma_
 
-### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a>Bir düğümden yük devretme düğümüne B
+### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Bir düğümden yük devretme düğümüne B
 
 1.  Bir yük devretme SAP başlatmak için bu seçeneklerden birini \<SID\> küme grubuna bir küme düğümünden küme düğümü B:
   - Yük Devretme Kümesi Yöneticisi  

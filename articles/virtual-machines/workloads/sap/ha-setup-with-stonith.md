@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA azure'da (büyük örnekler) ile STONITH ayarlanmış yüksek kullanılabilirlik | Microsoft Docs"
-description: "Yüksek kullanılabilirlik SAP HANA azure'da (büyük örnekler) için STONITH kullanarak SUSE içinde oluşturun."
+title: SAP HANA azure'da (büyük örnekler) ile STONITH ayarlanmış yüksek kullanılabilirlik | Microsoft Docs
+description: Yüksek kullanılabilirlik SAP HANA azure'da (büyük örnekler) için STONITH kullanarak SUSE içinde oluşturun.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,16 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656372"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Yüksek kullanılabilirlik STONITH kullanarak SUSE içinde ayarlama
 Bu belge, yüksek kullanılabilirlik SUSE işletim sisteminde STONITH cihazı kullanarak ayarlamak için ayrıntılı adım adım yönergeler sağlar.
 
-**VAZGEÇME:** *bu kılavuzu kümesi yukarı başarıyla çalıştığını Microsoft HANA büyük örnekleri ortamında test ederek türetilir. Microsoft Hizmet Yönetimi ekibi HANA büyük örnekleri için işletim sistemini desteklemediğinden, daha fazla sorun giderme veya işletim sistemi katmandaki açıklama SUSE başvurmanız gerekebilir. Microsoft Hizmet Yönetimi ekibi STONITH aygıtı ayarlama ve tam olarak destekler ve STONITH aygıt sorunları için sorun giderme için söz konusu olabilir.*
+**VAZGEÇME:** *bu kılavuzu Kurulumu başarılı bir şekilde çalışır Microsoft HANA büyük örnekleri ortamında test ederek türetilir. Microsoft Hizmet Yönetimi ekibi HANA büyük örnekleri için işletim sistemini desteklemediğinden, daha fazla sorun giderme veya işletim sistemi katmandaki açıklama SUSE başvurmanız gerekebilir. Microsoft Hizmet Yönetimi ekibi STONITH aygıtı ayarlama ve tam olarak destekler ve STONITH aygıt sorunları için sorun giderme için söz konusu olabilir.*
 ## <a name="overview"></a>Genel Bakış
 SUSE Kümelemesi kullanarak yüksek kullanılabilirliği ayarlamadan için aşağıdaki önkoşulları karşılamalıdır.
 ### <a name="pre-requisites"></a>Ön koşullar
@@ -32,10 +33,10 @@ SUSE Kümelemesi kullanarak yüksek kullanılabilirliği ayarlamadan için aşa�
 - HANA büyük örnekleri sunucuları düzeltme ekleri/paketlerini almak için SMT sunucuya bağlı
 - İşletim sistemi yüklü en son düzeltme eklerinin olması
 - NTP (saat sunucusu) ayarlama
-- Okuma ve ayarlama HA SUSE belgelerine en son sürümünü anlama
+- Okuma ve SUSE belgelerine HA Kurulum en son sürümünü anlama
 
-### <a name="set-up-details"></a>Ayrıntılarını ayarlama
-- Bu kılavuzda, aşağıdaki ayarlanan kullandık:
+### <a name="setup-details"></a>Kurulum Ayrıntıları
+Bu kılavuz aşağıdaki Kurulum kullanır:
 - İşletim sistemi: SLES 12 SAP için SP1
 - HANA büyük örnekleri: 2xS192 (dört yuva, 2 TB)
 - HANA sürümü: HANA 2.0 SP1
@@ -50,7 +51,7 @@ HANA büyük HSR örnekleriyle ayarladığınızda, STONITH ayarlamak için Micr
 - Müşteri adı (örneğin, Microsoft)
 - SID - HANA sistem tanımlayıcısı (örneğin, H11)
 
-STONITH aygıt yapılandırıldıktan sonra Microsoft Hizmet Yönetimi ekibi SBD aygıt adı girin ve IP adresi STONITH yapılandırmak için kullanabileceğiniz iSCSI depolama ayarlayın. 
+Microsoft Hizmet Yönetimi ekibi SBD aygıt adı ve IP adresi STONITH Kurulum yapılandırmak için kullanabileceğiniz iSCSI depolama STONITH aygıt yapılandırıldıktan sonra sağlar. 
 
 Aşağıdaki adımları STONITH kullanarak uçtan uca HA ayarlamak için izlenmesi gerekir:
 
@@ -64,7 +65,7 @@ Aşağıdaki adımları STONITH kullanarak uçtan uca HA ayarlamak için izlenme
 8.  Sınama yük devretme işlemi
 
 ## <a name="1---identify-the-sbd-device"></a>1.   SBD cihazı tanımlayın
-Bu bölümde, Microsoft Hizmet Yönetimi ekibi STONITH yapılandırdıktan sonra kümeniz için SBD aygıt yukarı belirleme açıklanmaktadır. **Bu bölüm yalnızca var olan müşteri için geçerli**. Yeni bir müşteri varsa, Microsoft Hizmet Yönetimi ekibi SBD sağlamak, ve aygıt adı, bu bölümü atlayabilirsiniz.
+Bu bölümde, Microsoft Hizmet Yönetimi ekibi STONITH yapılandırdıktan sonra kurulumunuzu SBD aygıt belirleme açıklanmaktadır. **Bu bölüm yalnızca var olan müşteri için geçerli**. Yeni bir müşteri varsa, Microsoft Hizmet Yönetimi ekibi SBD sağlamak, ve aygıt adı, bu bölümü atlayabilirsiniz.
 
 1.1 değiştirme */etc/iscsi/initiatorname.isci* için 
 ``` 
@@ -139,7 +140,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 Yast2 izleyin > yüksek kullanılabilirlik > Küme ![yast denetim center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast hawk install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
 
-Tıklatın **iptal** zaten sahip olduğumuz yüklü halk2 paketi olarak.
+Tıklatın **iptal** halk2 paket zaten yüklü olduğundan.
 
 ![yast hawk continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -163,7 +164,7 @@ Kimlik doğrulaması, IP adresleri ve öncesi shared anahtarları içinde Csync2
 Tıklatın **sonraki**
 ![yast küme service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-Varsayılan seçenek olarak önyükleme kapalı olduğu, pacemaker önyüklemede başlatıldığında şekilde "açık" değiştirin. Gereksinimleri, ayarlama göre seçim yapabilirsiniz.
+Varsayılan seçenek olarak önyükleme kapalı olduğu, pacemaker önyüklemede başlatıldığında şekilde "açık" değiştirin. Kurulum gereksinimlerinize göre seçim yapabilirsiniz.
 Tıklatın **sonraki** ve küme yapılandırması tamamlanır.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Softdog izleme ayarlama
@@ -261,7 +262,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. Küme özelliklerini ve kaynaklarını yapılandırma 
 Bu bölümde Küme kaynaklarını yapılandırmak için gereken adımları açıklar.
-Bu örnekte, aşağıdaki kaynak ayarlarız, rest (gerekirse) SUSE HA Kılavuzu başvurarak yapılandırılabilir. Yapılandırma dosyasında gerçekleştirmek **düğümlerin birinde** yalnızca. Birincil düğüm üzerinde yapın.
+Bu örnekte, aşağıdaki kaynağı ayarladıysanız rest (gerekirse) SUSE HA Kılavuzu başvurarak yapılandırılabilir. Yapılandırma dosyasında gerçekleştirmek **düğümlerin birinde** yalnızca. Birincil düğüm üzerinde yapın.
 
 - Küme önyükleme
 - STONITH aygıt
@@ -369,7 +370,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Senaryo 2: grafik görünümü yast2 göstermez
-Bu belgeyi yüksek kullanılabilirlik kümesinde ayarlamak için yast2 grafik ekran kullandık. Yast2 değil gösterildiği gibi grafik penceresi açın ve Qt hata throw, aşağıdaki adımları gerçekleştirin. Grafik penceresiyle açarsa, adımları atlayabilirsiniz.
+Yast2 grafik ekran bu belgeyi yüksek kullanılabilirlik kümesinde ayarlamak için kullanılır. Yast2 değil gösterildiği gibi grafik penceresi açın ve Qt hata throw, aşağıdaki adımları gerçekleştirin. Grafik penceresiyle açarsa, adımları atlayabilirsiniz.
 
 **Hata**
 
@@ -381,7 +382,7 @@ Bu belgeyi yüksek kullanılabilirlik kümesinde ayarlamak için yast2 grafik ek
 
 Yast2 grafik görünümü ile açılmazsa, aşağıdaki adımları izleyin.
 
-Gerekli paketleri yükleyeceksiniz. "Root" kullanıcı olarak oturum açmanız ve paketleri karşıdan yükleme/kurma şekilde ayarlamanız SMT sahip.
+Gereken paketleri yükleyin. "Root" kullanıcı olarak oturum açmanız ve paketleri karşıdan yükleme/kurma şekilde ayarlamanız SMT sahip.
 
 Paketleri yüklemek için yast kullanın > yazılım > yazılım Yönetim > bağımlılıkları > "yükleme paketleri... önerilen" seçeneği. Aşağıdaki ekran görüntüsü, beklenen ekranlar gösterilmektedir.
 >[!NOTE]
@@ -397,7 +398,7 @@ Değişiklikleri gözden geçirin ve Tamam'ı tıklatın
 
 Paket yükleme devam eder ![yast gerçekleştirme installation.png](media/HowToHLI/HASetupWithStonith/yast-performing-installation.png)
 
-İleri'yi tıklatın
+İleri’ye tıklayın
 
 ![yast yükleme report.png](media/HowToHLI/HASetupWithStonith/yast-installation-report.png)
 
@@ -533,8 +534,8 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 
 ![Ha-küme-birleştirme-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
-## <a name="10-general-documentation"></a>10. Genel belgeler
-Daha fazla bilgi SUSE aşağıdaki makalelerde ayarlanan HA bulabilirsiniz: 
+## <a name="10-general-documentation"></a>10. Genel Belgeler
+Aşağıdaki makalelerde SUSE HA kurulumu hakkında daha fazla bilgi bulabilirsiniz: 
 
 - [Senaryo SAP HANA SR performansı en iyi duruma getirilmiş](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
 - [Depolama tabanlı yalıtma](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)

@@ -7,14 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: e56a40e1afef9c622d14804cb7f845b7b6edae6a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 44d68d69a7034e80846fb44f3ae26c0d73c61f28
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648318"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Azure SQL Database'de veritabanı performansını izleme
 Azure SQL veritabanı performansını izlemeye, seçtiğiniz veritabanı performans düzeyiyle ilgili kaynak kullanımını izleyerek başlarsınız. İzleme yardımcı olur, veritabanınızın gerekenden fazla kapasiteye sahip veya çıkışı kaynak kullanımının çünkü zorlanıyor belirlemek ve ardından veritabanınızda katmanlarını hizmet ve performans düzeyini ayarlamak için zaman olup olmadığına karar vermek [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) veya [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md). Veritabanınızı [Azure portalında](https://portal.azure.com) bulunan grafik araçlarını veya SQL [dinamik yönetim görünümlerini](https://msdn.microsoft.com/library/ms188754.aspx) kullanarak izleyebilirsiniz.

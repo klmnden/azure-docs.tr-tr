@@ -1,22 +1,22 @@
 ---
-title: "Azure zaman serisi Öngörüler Gezgini'ni kullanarak verileri araştırmak | Microsoft Docs"
-description: "Bu makalede Azure zaman serisi Öngörüler explorer web tarayıcınızda hızlı bir şekilde büyük verilerinize genel bir görünümünü görebilir ve IOT ortamınızı doğrulamak için nasıl kullanılacağını açıklar."
-services: time-series-insights
+title: Azure zaman serisi Öngörüler Gezgini'ni kullanarak verileri araştırmak | Microsoft Docs
+description: Bu makalede Azure zaman serisi Öngörüler explorer web tarayıcınızda hızlı bir şekilde büyük verilerinize genel bir görünümünü görebilir ve IOT ortamınızı doğrulamak için nasıl kullanılacağını açıklar.
 ms.service: time-series-insights
+services: time-series-insights
 author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d09292cce1414a1b89e4b75df27d0a689738b4d6
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: de676efdd7dd2a4035bbeca4bddd8b1d7ee7e989
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651786"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure zaman serisi Öngörüler Gezgini
 Bu makalede, çeşitli özellikleri ve seçenekleri zaman serisi Öngörüler explorer web app içinde kullanılabilir araştırır. Verilerinizi görsel oluşturmak için web tarayıcınızda zaman serisi Öngörüler Gezgini'ni kullanın.
@@ -41,7 +41,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
 
 4. Bildirim, Azure bulut simgesi ortamınıza Azure portalında alır.
 
-   ![Time Series Insights ortamı](media/time-series-insights-explorer/explorer1.png)
+   ![Zaman Serisi Görüşleri ortamı](media/time-series-insights-explorer/explorer1.png)
 
 5. Ardından, seçili timespan sırasında tüm olayların sayısını gösteren bir grafik bakın.  Burada, çeşitli denetimler vardır:
 
@@ -60,7 +60,7 @@ Zaman serisi Öngörüler ortamınız için olay kaynağı bağlayan dakika içi
          |<, >, <=, >=     |  Double, DateTime, TimeSpan       |         |
          |=, !=, <>     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
          |IN     | String, Bool, Double, DateTime, TimeSpan, NULL        |  Tüm işlenenleri aynı tür veya NULL sabiti olması.        |
-         |HAS     | Dize        |  Yalnızca sabit dize değişmez değerleri sağ tarafında izin verilir. Boş dize ve NULL izin verilmiyor.       |
+         |SAHİP     | Dize        |  Yalnızca sabit dize değişmez değerleri sağ tarafında izin verilir. Boş dize ve NULL izin verilmiyor.       |
 
       - **Sorgu örnekleri**
       

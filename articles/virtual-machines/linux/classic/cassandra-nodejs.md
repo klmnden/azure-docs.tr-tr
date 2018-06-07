@@ -1,11 +1,11 @@
 ---
-title: "Bir Cassandra küme Linux Azure üzerinde adresinden node.js'yi çalıştırın."
-description: "Cassandra küme Linux Azure Virtual Machines'de bir Node.js uygulamasını çalıştırma"
+title: Bir Cassandra küme Linux Azure üzerinde adresinden node.js'yi çalıştırın.
+description: Cassandra küme Linux Azure Virtual Machines'de bir Node.js uygulamasını çalıştırma
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652847"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js ile Azure Linux üzerinde bir Cassandra küme çalıştırın
 
@@ -127,7 +128,7 @@ JRE yüklediğinizde Oracle lisans el ile kabul etmeniz gerekir. Bu nedenle, da�
 
 Yukarıdaki yazılımın bir dizine iyi bilinen yükleme (örneğin Windows %TEMP%/downloads veya ~/Downloads çoğu Linux dağıtımları veya Mac üzerinde) yerel bilgisayarda indirin.
 
-### <a name="create-ubuntu-vm"></a>CREATE UBUNTU VM
+### <a name="create-ubuntu-vm"></a>UBUNTU VM OLUŞTURMA
 Böylece görüntü birçok Cassandra düğümlerini sağlamak için yeniden kullanılabilir işleminin bu adımında, Ubuntu görüntü önkoşul yazılımı ile oluşturun.  
 
 #### <a name="step-1-generate-ssh-key-pair"></a>1. adım: SSH anahtar çifti oluşturma
@@ -159,7 +160,7 @@ VM şablonu oluşturmak için Azure portalında oturum açın ve aşağıdaki s�
 <tr><td> BULUT HİZMETİ DNS ADI    </td><td>ubuntu-template.cloudapp.net    </td><td>Bir makine belirsiz yük dengeleyici ad verin</td></tr>
 <tr><td> BÖLGE/BENZEŞİM GRUBU/SANAL AĞ </td><td>    Batı ABD    </td><td> Web uygulamalarınızın Cassandra küme erişimlerin bir bölge seçin</td></tr>
 <tr><td>DEPOLAMA HESABI </td><td>    Varsayılanı kullan    </td><td>Belirli bir bölgedeki varsayılan depolama hesabı ya da önceden oluşturulmuş depolama hesabı kullanın</td></tr>
-<tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    Hiçbiri </td><td>    Boş bırakın</td></tr>
+<tr><td>KULLANILABİLİRLİK KÜMESİ </td><td>    None </td><td>    Boş bırakın</td></tr>
 <tr><td>UÇ NOKTALARI    </td><td>Varsayılanı kullan </td><td>    Varsayılan SSH yapılandırmasını kullanın </td></tr>
 </table>
 
@@ -278,8 +279,8 @@ Sembolik bağlantılar $CASS_HOME/lib dizininde oluşturun, böylece Cassandra b
 [, Gerçek sağlama sırasında bu yapılandırmayı ince ayar] tüm sanal makineler için gerekli yapılandırmayı yansıtacak şekilde her bir VM üzerinde cassandra.yaml düzenleyin:
 
 <table>
-<tr><th>Alan adı   </th><th> Değer  </th><th>    Açıklamalar </th></tr>
-<tr><td>cluster_name </td><td>    "CustomerService"    </td><td> Dağıtımınızı yansıtır adı kullan</td></tr>
+<tr><th>Alan Adı   </th><th> Değer  </th><th>    Açıklamalar </th></tr>
+<tr><td>küme_adı </td><td>    "CustomerService"    </td><td> Dağıtımınızı yansıtır adı kullan</td></tr>
 <tr><td>listen_address    </td><td>[boş bırakın]    </td><td> "Localhost" Sil </td></tr>
 <tr><td>rpc_addres   </td><td>[boş bırakın]    </td><td> "Localhost" Sil </td></tr>
 <tr><td>oluştururken Çekirdeği    </td><td>"10.1.2.4, 10.1.2.6, 10.1.2.8"    </td><td>Şu oluştururken çekirdeği atanan tüm IP adresleri listesi.</td></tr>
@@ -307,9 +308,9 @@ Bu işlem birkaç saniye sürer ve görüntünün görüntü Galerisi GÖRÜNTÜ
 
 <table>
 <tr><th>VM öznitelik adı</th><th>Değer</th><th>Açıklamalar</th></tr>
-<tr><td>Ad</td><td>vnet-cass-west-us</td><td></td></tr>
+<tr><td>Ad</td><td>vnet-cass-Batı-ABD</td><td></td></tr>
 <tr><td>Bölge</td><td>Batı ABD</td><td></td></tr>
-<tr><td>DNS Sunucuları</td><td>Hiçbiri</td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
+<tr><td>DNS Sunucuları</td><td>None</td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
 <tr><td>Adres Alanı</td><td>10.1.0.0/16</td><td></td></tr>    
 <tr><td>Başlangıç IP</td><td>10.1.0.0</td><td></td></tr>    
 <tr><td>CIDR </td><td>/16 (65531)</td><td></td></tr>
@@ -329,16 +330,16 @@ Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsam�
 
 <table>
 <tr><th>Makine Adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
-<tr><td>hk-c1-west-us    </td><td>veriler    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
-<tr><td>hk-c2-west-us    </td><td>veriler    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
-<tr><td>hk-c3-west-us    </td><td>veriler    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
-<tr><td>hk-c4-west-us    </td><td>veriler    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Hayır </td></tr>
-<tr><td>hk-c5-west-us    </td><td>veriler    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Evet</td></tr>
-<tr><td>hk-c6-west-us    </td><td>veriler    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Hayır </td></tr>
-<tr><td>hk-c7-west-us    </td><td>veriler    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Evet</td></tr>
-<tr><td>hk-c8-west-us    </td><td>veriler    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Hayır </td></tr>
-<tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
-<tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
+<tr><td>HK-c1-Batı-ABD    </td><td>veriler    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
+<tr><td>HK-c2-Batı-ABD    </td><td>veriler    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c3-Batı-ABD    </td><td>veriler    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
+<tr><td>HK-c4-Batı-ABD    </td><td>veriler    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c5-Batı-ABD    </td><td>veriler    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Evet</td></tr>
+<tr><td>HK-c6-Batı-ABD    </td><td>veriler    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c7-Batı-ABD    </td><td>veriler    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Evet</td></tr>
+<tr><td>HK-c8-Batı-ABD    </td><td>veriler    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Hayır </td></tr>
+<tr><td>HK-w1-Batı-ABD    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
+<tr><td>HK-w2-Batı-ABD    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 </table>
 
 Yukarıdaki listeye VM'lerin oluşturulması aşağıdaki işlem gerektirir:
@@ -355,7 +356,7 @@ Azure portalını kullanarak yukarıdaki işlem çalıştırılabilir; Windows m
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -409,7 +410,7 @@ Azure portalını kullanarak yukarıdaki işlem çalıştırılabilir; Windows m
 
 VM oturum açın ve aşağıdakileri gerçekleştirin:
 
-* Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the data center and rack properties:
+* Veri merkezi ve raf özelliklerini belirtmek için $CASS_HOME/conf/cassandra-rackdc.properties düzenleyin:
   
        dc =EASTUS, rack =rack1
 * Çekirdek düğümlerini aşağıdaki gibi yapılandırmak için cassandra.yaml düzenleyin:
@@ -441,7 +442,7 @@ Küme test etmek için aşağıdaki adımları kullanın:
 
 1. Powershell komutu Get-AzureInternalLoadbalancer komutunu kullanarak, iç yük dengeleyicisi (örneğin 10.1.2.101) IP adresini alın. Komutun sözdizimi aşağıda gösterilmiştir: Get-AzureLoadbalancer – [IP adresini yanı sıra iç yük dengeleyicisi ayrıntılarını görüntüler] ServiceName "hk-c-svc-Batı-us"
 2. Web grubu VM (örneğin hk-w1-Batı-us) günlüğüne Putty kullanarak veya ssh
-3. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+3. $CASS_HOME/bin/cqlsh 10.1.2.101 yürütme 9160
 4. Kümenin çalışıp çalışmadığını doğrulamak için aşağıdaki CQL komutları kullanın:
    
      İLE çoğaltma oluşturma KEYSPACE customers_ks = {'sınıfı': 'SimpleStrategy', 'replication_factor': 3};   Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');
@@ -458,7 +459,7 @@ Aşağıdaki sonuçları gibi bir şey görmeniz gerekir:
 
 4. adımda oluşturduğunuz keyspace SimpleStrategy 3'ün bir replication_factor kullanır. SimpleStrategy NetworkTopologyStrategy çok veri merkezi ancak dağıtımlar için tek bir veri merkezi dağıtımları önerilir. Replication_factor 3 düğümü hataları için dayanıklılık sağlar.
 
-## <a id="tworegion"></a>Bölgeli dağıtım işlemi
+## <a id="tworegion"> </a>Bölgeli dağıtım işlemi
 İkinci bölge yüklemek için aynı işlemi yineleyin ve tek bölge dağıtımı tamamlandı yararlanın. Bir veya birden çok bölge dağıtımı arasındaki temel farklılık arası bölge iletişimi için VPN tüneli kurulduğundan; sanal makineleri sağlamak ağ yüklemesiyle başlayın ve Cassandra yapılandırın.
 
 ### <a name="step-1-create-the-virtual-network-at-the-2nd-region"></a>1. adım: 2 bölge sanal ağ oluşturma
@@ -466,7 +467,7 @@ Azure portalında oturum açın ve tablodaki öznitelikleri göster ile bir sana
 
 <table>
 <tr><th>Öznitelik Adı    </th><th>Değer    </th><th>Açıklamalar</th></tr>
-<tr><td>Ad    </td><td>vnet-cass-east-us</td><td></td></tr>
+<tr><td>Ad    </td><td>vnet-cass-Doğu-us</td><td></td></tr>
 <tr><td>Bölge    </td><td>Doğu ABD</td><td></td></tr>
 <tr><td>DNS Sunucuları        </td><td></td><td>Bir DNS sunucusu kullanmıyorsanız gibi bu iletiyi yoksayın</td></tr>
 <tr><td>Noktadan siteye VPN bağlantısını yapılandırma</td><td></td><td>        Bu iletiyi yoksayın</td></tr>
@@ -492,16 +493,16 @@ Aşağıdaki ayrıntıları başına iki yerel ağlar oluşturun:
 
 | Ağ Adı | VPN Ağ Geçidi Adresi | Adres Alanı | Açıklamalar |
 | --- | --- | --- | --- |
-| hk-lnet-map-to-east-us |23.1.1.1 |10.2.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Doğu ABD bölgesinde sanal ağ oluşturuldu. |
-| hk-lnet-map-to-west-us |23.2.2.2 |10.1.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Batı ABD bölgesinde sanal ağ oluşturuldu. |
+| HK-lnet-Map-to-East-us |23.1.1.1 |10.2.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Doğu ABD bölgesinde sanal ağ oluşturuldu. |
+| HK-lnet-Map-to-West-us |23.2.2.2 |10.1.0.0/16 |Yerel ağ oluşturulurken bir yer tutucu ağ geçidi adresi verin. Ağ geçidi oluşturulduktan sonra gerçek ağ geçidi adresi girilir. İlgili uzak VNET adres alanı tam olarak eşleştiğinden emin olun; Bu durumda Batı ABD bölgesinde sanal ağ oluşturuldu. |
 
 ### <a name="step-3-map-local-network-to-the-respective-vnets"></a>"3. adım: Eşleme yerel" ağa ilgili sanal ağları
 Azure portalından, her sanal ağ seçin, "Yapılandır"'ı tıklatın, "Yerel ağa bağlan" denetleyin ve aşağıdaki ayrıntıları başına yerel ağları seçin:
 
 | Sanal Ağ | Yerel ağ |
 | --- | --- |
-| hk-vnet-west-us |hk-lnet-map-to-east-us |
-| hk-vnet-east-us |hk-lnet-map-to-west-us |
+| hk-vnet-west-us |HK-lnet-Map-to-East-us |
+| hk-vnet-east-us |HK-lnet-Map-to-West-us |
 
 ### <a name="step-4-create-gateways-on-vnet1-and-vnet2"></a>4. adım: Ağ geçitleri VNET1 ve vnet2'yi oluşturma
 Her iki sanal ağlar panodan sağlama işlemi VPN ağ geçidi tetiklemek için ağ geçidi Oluştur'ı tıklatın. Birkaç dakika sonra her sanal ağ Panosu gerçek ağ geçidi adresi görüntülemelidir.
@@ -511,8 +512,8 @@ Yalnızca sağlanan ağ geçitleri gerçek IP adresiyle yer tutucu ağ geçidi I
 
 <table>
 <tr><th>Yerel ağ    </th><th>Sanal Ağ Geçidi</th></tr>
-<tr><td>hk-lnet-map-to-east-us </td><td>Ağ geçidi hk-vnet-Batı-ABD</td></tr>
-<tr><td>hk-lnet-map-to-west-us </td><td>Ağ geçidi hk-vnet-Doğu-ABD</td></tr>
+<tr><td>HK-lnet-Map-to-East-us </td><td>Ağ geçidi hk-vnet-Batı-ABD</td></tr>
+<tr><td>HK-lnet-Map-to-West-us </td><td>Ağ geçidi hk-vnet-Doğu-ABD</td></tr>
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>6. adım: paylaşılan anahtar güncelleştir
@@ -526,22 +527,22 @@ Aynı Azure depolama hesabı görüntüsünü VHD dosyasına #2 bölgede bulunan
 
 | Makine Adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
 | --- | --- | --- | --- | --- | --- |
-| hk-c1-east-us |veriler |10.2.2.4 |hk-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
-| hk-c2-east-us |veriler |10.2.2.5 |hk-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |
-| hk-c3-east-us |veriler |10.2.2.6 |hk-c-aset-1 |DC EASTUS raf = rack2 = |Evet |
-| hk-c5-east-us |veriler |10.2.2.8 |hk-c-aset-2 |DC EASTUS raf = rack3 = |Evet |
-| hk-c6-east-us |veriler |10.2.2.9 |hk-c-aset-2 |DC EASTUS raf = rack3 = |Hayır |
-| hk-c7-east-us |veriler |10.2.2.10 |hk-c-aset-2 |DC EASTUS raf = rack4 = |Evet |
-| hk-c8-east-us |veriler |10.2.2.11 |hk-c-aset-2 |DC EASTUS raf = rack4 = |Hayır |
-| hk-w1-east-us |web |10.2.1.4 |hk-w-aset-1 |Yok |Yok |
-| hk-w2-east-us |web |10.2.1.5 |hk-w-aset-1 |Yok |Yok |
+| HK-c1-Doğu-us |veriler |10.2.2.4 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
+| HK-c2-Doğu-us |veriler |10.2.2.5 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |
+| HK-c3-Doğu-us |veriler |10.2.2.6 |HK-c-aset-1 |DC EASTUS raf = rack2 = |Evet |
+| HK-c5-Doğu-us |veriler |10.2.2.8 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Evet |
+| HK-c6-Doğu-us |veriler |10.2.2.9 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Hayır |
+| HK-c7-Doğu-us |veriler |10.2.2.10 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Evet |
+| HK-c8-Doğu-us |veriler |10.2.2.11 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Hayır |
+| HK-w1-Doğu-us |web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
+| HK-w2-Doğu-us |web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
 
 Bölge #1 olarak aynı yönergeleri izleyin, ancak 10.2.xxx.xxx adres alanı kullanın.
 
 ### <a name="step-9-configure-cassandra-on-each-vm"></a>9. adım: Her VM Cassandra yapılandırma
 VM oturum açın ve aşağıdakileri gerçekleştirin:
 
-1. Edit $CASS_HOME/conf/cassandra-rackdc.properties to specify the data center and rack properties in the format:  dc =EASTUS  rack =rack1
+1. Veri merkezi ve raf özellikleri biçiminde belirtmek için $CASS_HOME/conf/cassandra-rackdc.properties Düzenle: dc EASTUS raf = raf1 =
 2. Çekirdek düğümlerini yapılandırmak için cassandra.yaml Düzenle: oluştururken çekirdeği: "10.1.2.4,10.1.2.6,10.1.2.8,10.1.2.10,10.2.2.4,10.2.2.6,10.2.2.8,10.2.2.10"
 
 ### <a name="step-10-start-cassandra"></a>10. adım: Cassandra Başlat
@@ -551,13 +552,13 @@ Her bir VM oturum ve aşağıdaki komutu çalıştırarak arka planda Cassandra 
 Artık her Azure bölgesindeki 8 düğümlerle 16 düğüme Cassandra dağıtıldı. Aynı kümedeki ortak küme adı ve çekirdek düğüm yapılandırması, bu düğümler şunlardır. Küme sınamak için aşağıdaki yordamı kullanın:
 
 ### <a name="step-1-get-the-internal-load-balancer-ip-for-both-the-regions-using-powershell"></a>1. adım: PowerShell kullanarak her iki bölgeler için iç yük dengeleyici IP Al
-* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-west-us"
-* Get-AzureInternalLoadbalancer -ServiceName "hk-c-svc-east-us"  
+* Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc-Batı-us"
+* Get-AzureInternalLoadbalancer - ServiceName "hk-c-svc-Doğu-us"  
   
     IP adreslerini not alın (örnek Batı - 10.1.2.101, Doğu - için 10.2.2.101) görüntülenir.
 
 ### <a name="step-2-execute-the-following-in-the-west-region-after-logging-into-hk-w1-west-us"></a>2. adım: aşağıdakileri oturum hk-w1-Batı-us açtıktan sonra Batı bölgesinde yürütün
-1. Execute $CASS_HOME/bin/cqlsh 10.1.2.101 9160
+1. $CASS_HOME/bin/cqlsh 10.1.2.101 yürütme 9160
 2. Aşağıdaki CQL komutları yürütün:
    
      İLE çoğaltma oluşturma KEYSPACE customers_ks = {'sınıfı': 'NetworkToplogyStrategy', 'WESTUS': 3 'EASTUS': 3};   Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');   SEÇİN * MÜŞTERİLERDEN;
@@ -570,7 +571,7 @@ Bir görünüm aşağıdaki gibi görmeniz gerekir:
 | 2 |Jane |Doe |
 
 ### <a name="step-3-execute-the-following-in-the-east-region-after-logging-into-hk-w1-east-us"></a>3. adım: oturum hk-w1-Doğu-us açtıktan sonra Doğu bölgesinde aşağıdakileri yürütün:
-1. Execute $CASS_HOME/bin/cqlsh 10.2.2.101 9160
+1. $CASS_HOME/bin/cqlsh 10.2.2.101 yürütme 9160
 2. Aşağıdaki CQL komutları yürütün:
    
      Customers_ks; kullanın.   Tablo Customers(customer_id int PRIMARY KEY, firstname text, lastname text); oluşturma   INSERT INTO Customers(customer_id, firstname, lastname) VALUES(1, 'John', 'Doe');   INSERT INTO Customers(customer_id, firstname, lastname) değerleri (2, 'Jane', 'Etikan');   SEÇİN * MÜŞTERİLERDEN;
@@ -585,7 +586,7 @@ Batı bölgesini görüldüğü gibi aynı görüntü görmeniz gerekir:
 Birkaç daha fazla eklemeleri yürütün ve olanlar için Batı çoğaltıldığından emin bakın-bize kümesinin parçası.
 
 ## <a name="test-cassandra-cluster-from-nodejs"></a>Test Cassandra Node.js kümeden
-"Web" katmanında önceden crated Linux VM'ler birini kullanarak, daha önce eklenen verileri okumak için basit bir Node.js betiğini yürütün
+"Web" katmanında daha önce oluşturduğunuz Linux VM'ler birini kullanarak, daha önce eklenen verileri okumak için basit bir Node.js betiğini yürütün
 
 **1. adım: Node.js ve Cassandra istemcisi yükleme**
 

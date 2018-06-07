@@ -9,12 +9,13 @@ ms.service: sql-database
 ms.custom: DBs & servers
 ms.date: 04/10/2018
 ms.author: ninarn
-ms.topic: article
-ms.openlocfilehash: ecf9450271e82132b0f31fd0c65ce95d95c2cb3d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.openlocfilehash: 2680ee2354a8cf76491a8a3b63e14d91b4c6cbd6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645836"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Esnek havuz yönetmek ve birden çok Azure SQL veritabanı ölçekleme Yardım
 

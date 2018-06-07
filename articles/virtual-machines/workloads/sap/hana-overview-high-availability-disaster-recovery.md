@@ -4,21 +4,22 @@ description: Yüksek kullanılabilirlik ve Azure (büyük örnekler) üzerinde S
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/01/2018
+ms.date: 05/30/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6c939e0fb59c7fce2c1c34aca1b77bd0b8cec0c5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658324"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA büyük örnekleri azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma 
 
@@ -36,7 +37,7 @@ Microsoft, HANA büyük örnekleri ile bazı SAP HANA yüksek kullanılabilirlik
 - **HANA sistem çoğaltma**: [SAP HANA tüm veri çoğaltma](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html) için ayrı bir SAP HANA sistemi. Kurtarma süresi hedefi düzenli aralıklarla veri çoğaltma ile en aza indirilir. SAP HANA zaman uyumsuz ve zaman uyumlu bellek içi ve zaman uyumlu modda destekler. Zaman uyumlu modda aynı veri merkezinde veya küçüktür 100 km birbirinden içinde olan SAP HANA sistemler için kullanılır. Geçerli tasarım HANA büyük örneği Damgalar ile HANA sistem çoğaltma tek bir bölge içinde yüksek kullanılabilirlik için kullanılabilir. HANA sistem çoğaltma, başka bir Azure bölgesi olağanüstü durum kurtarma yapılandırmaları için üçüncü taraf ters proxy ya da yönlendirme bileşeni gerektirir. 
 - **Konak otomatik yük devretme**: HANA sistem çoğaltma için bir alternatif SAP HANA için bir yerel arıza kurtarma çözümü. Ana düğüm kullanılamaz duruma gelirse, bir veya daha fazla bekleme SAP HANA düğümleri genişleme modunda yapılandırın ve SAP HANA otomatik olarak bir bekleme düğüme yöneltilir.
 
-SAP HANA Azure (büyük örnekler) ile ilgili üç jeopolitik alanlarda (ABD, Avustralya ve Avrupa) iki Azure bölgelerindeki sunulur. HANA büyük örneği Damgalar barındıran iki bölgede coğrafi alanda ayrı Adanmış ağ bağlantı hatları için bağlanır. Bunlar depolama anlık görüntüleri çoğaltmak için olağanüstü durum kurtarma yöntemleri sağlamak için kullanılır. Çoğaltma varsayılan olarak kurulmaz ancak olağanüstü durum kurtarma işlevini sipariş müşteriler için ayarlanmadı. Depolama çoğaltma HANA büyük örnekleri için depolama anlık görüntüleri kullanımını bağımlıdır. Farklı bir jeopolitik alanında olan bir DR bölge olarak Azure bölgesini seçmek mümkün değildir. 
+SAP HANA (büyük örnekler) azure'da dört jeopolitik alanlarda (ABD, Avustralya, Avrupa ve Japonya) iki Azure bölgelerindeki sunulur. HANA büyük örneği Damgalar barındıran iki bölgede coğrafi alanda ayrı Adanmış ağ bağlantı hatları için bağlanır. Bunlar depolama anlık görüntüleri çoğaltmak için olağanüstü durum kurtarma yöntemleri sağlamak için kullanılır. Çoğaltma varsayılan olarak kurulmaz ancak olağanüstü durum kurtarma işlevini sipariş müşteriler için ayarlanmadı. Depolama çoğaltma HANA büyük örnekleri için depolama anlık görüntüleri kullanımını bağımlıdır. Farklı bir jeopolitik alanında olan bir DR bölge olarak Azure bölgesini seçmek mümkün değildir. 
 
 Aşağıdaki tabloda şu anda desteklenen yüksek kullanılabilirlik ve olağanüstü durum kurtarma yöntemleri ve birleşimleri gösterilmektedir:
 
@@ -81,6 +82,7 @@ Bir olağanüstü durum kurtarma Kurulumu HANA büyük örneğiyle için yukarı
 
 - SAP HANA SKU'ları üretim aynı boyutta, Azure (büyük örnekler) SKU'ları üzerinde sipariş ve olağanüstü durum kurtarma bölgede dağıtın. Geçerli müşteri dağıtımlarında, bu örnekler üretim dışı HANA örnekleri çalıştırmak için kullanılır. Bu yapılandırmalar denir *çok amaçlı DR kurulumları*.   
 - DR sitesinde ek depolama alanı, SAP HANA olağanüstü durum kurtarma sitesini kurtarmak istediğiniz Azure (büyük örnekler) SKU üzerinde her sipariş edin. Ek depolama alanı satın alma, depolama birimlerini ayırmak olanak tanır. Olağanüstü durum kurtarma Azure bölgesi, üretime Azure bölgesi depolama çoğaltmayı hedefi olan birimler ayırabilirsiniz.
+- Burada birincil HSR ayarladıktan ve DR siteye göre depolama çoğaltma kurulumu, durumda, bu nedenle hem birincil hem de DR sitesinde ek depolama alanı satın almanız gerekir ve ikincil düğümü veri DR sitesi için çoğaltılmış.
 
  
 
@@ -113,7 +115,7 @@ SAP HANA Azure (büyük örnekler) üzerinde iki yedekleme ve geri yükleme seç
 SAP HANA Azure (büyük örnekler) üzerinde temel alınan depolama altyapısını birimlerin depolama anlık görüntüleri destekler. Yedekleme ve geri yükleme birimlerin desteklenir, aşağıdaki noktaları ile:
 
 - Tam veritabanı yedeklemeleri yerine depolama birim anlık görüntülerini üzerinde düzenli aralıklarla alınır.
-- Bir anlık görüntü /hana/data ve /hana/shared (/usr/sap içerir) üzerinden tetiklendiğinde birimler, anlık görüntü teknoloji depolama anlık görüntü yürütülmeden önce anlık görüntü bir SAP HANA başlatır. Bu SAP HANA anlık görüntü Kurulum son günlük geri yüklemeler için depolama anlık görüntü kurtarma işleminden sonra noktasıdır.
+- Bir anlık görüntü /hana/data ve /hana/shared (/usr/sap içerir) üzerinden tetiklendiğinde birimler, anlık görüntü teknoloji depolama anlık görüntü yürütülmeden önce anlık görüntü bir SAP HANA başlatır. Bu SAP HANA anlık görüntü Kurulum son günlük geri yüklemeler için depolama anlık görüntü kurtarma işleminden sonra noktasıdır. HANA anlık görüntü başarılı olması etkin bir HANA örneği gerekir.  HSR senaryosunda, depolama anlık HANA anlık görüntü nerede gerçekleştirilemiyor geçerli ikincil düğümde desteklenmiyor.
 - SAP HANA anlık görüntü depolama anlık görüntü başarıyla yürütüldükten sonra silinir.
 - İşlem günlüğü yedeklemeleri sık gerçekleştirilen ve /hana/logbackups birim veya Azure'da depolanır. Anlık ayrı olarak almak için işlem günlüğü yedeklemeleri içeren /hana/logbackups birimi tetikleyebilir. Bu durumda, bir HANA anlık görüntüsü yürütülecek gerekmez.
 - Bir veritabanı belirli bir noktaya zamanında geri yüklemeniz gerekiyorsa, bu Microsoft Azure desteği (bir üretim kesinti) veya SAP HANA belirli depolama anlık görüntüye geri Azure Hizmet Yönetimi isteyin. Bir planlı bir korumalı alan sistem geri yükleme özgün durumuna örneğidir.
@@ -126,6 +128,7 @@ Depolama anlık görüntüleri birimlerin üç sınıfları hedefleme gerçekle�
 - Ayrı bir anlık görüntü/hana/logbackups üzerinden.
 - Bir işletim sistemi bölümü.
 
+En son anlık görüntü komut dosyaları ve belgelerini almak [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
 
 ### <a name="storage-snapshot-considerations"></a>Depolama anlık görüntü konuları
 
@@ -144,7 +147,7 @@ SAP HANA azure'da (büyük örnekler) SAP HANA veri ve günlük birimlerin sabit
 
 Aşağıdaki bölümlerde genel öneriler dahil olmak üzere, bu anlık görüntüleri gerçekleştirmeye yönelik bilgileri sağlayın:
 
-- Donanım 255 anlık görüntüler birim başına karşılayabilir rağmen bu sayının altına de Kal istiyor.
+- Donanım 255 anlık görüntüler birim başına karşılayabilir rağmen bu sayının altına de Kal istiyor. 250 veya daha az önerilir.
 - Depolama anlık görüntüleri gerçekleştirmeden önce izlemek ve boş alan izler.
 - Boş disk alanına dayalı depolama anlık görüntü sayısını azaltın. Güvenliğinizi anlık görüntü sayısını azaltın veya birimleri genişletebilirsiniz. Ek depolama alanı 1 terabayttan küçük birimler cinsinden sıralayabilirsiniz.
 - SAP HANA SAP platform Geçiş Araçları (R3load) ile veri taşıma veya SAP HANA veritabanlarını yedeklerden geri yükleme gibi etkinlikleri sırasında /hana/data birimdeki depolama anlık görüntüleri devre dışı bırakın. 
@@ -171,6 +174,8 @@ Depolama anlık görüntüleri HANA büyük örneğiyle ayarlamak için aşağı
 6. Yapılandırma dosyasından ve komut dosyalarını kopyalama [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts) konumunu **hdbsql** SAP HANA yükleme.
 7. Değiştirme *HANABackupDetails.txt* uygun müşteri belirtimleri gerektiğinde dosya.
 
+En son anlık görüntü komut dosyaları ve belgelerini almak [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). 
+
 ### <a name="consideration-for-mcod-scenarios"></a>Göz önünde bulundurarak MCOD senaryoları için
 Çalıştırıyorsanız, bir [MCOD senaryo](https://launchpad.support.sap.com/#/notes/1681092) bir HANA büyük örneği biriminde birden çok SAP HANA örnekleriyle her SAP HANA örnekleri için sağlanmış ayrı bir depolama birimleri vardır. Self Servis anlık görüntü Otomasyon geçerli sürümünde her HANA örneği sistem kimliği (SID) ayrı anlık görüntü başlatamaz. İşlevselliği sunucunun (Bu makalenin sonraki bölümlerinde bakın) yapılandırma dosyasında kayıtlı SAP HANA örnekleri için denetimleri sunar ve eşzamanlı bir anlık görüntü birimi kayıtlı tüm örneklerini birimlerin yürütür.
  
@@ -180,7 +185,7 @@ Depolama anlık görüntüleri HANA büyük örneğiyle ayarlamak için aşağı
 SAP HANA Azure (büyük örnekler) üzerinde yüklü Linux işletim sistemi, SAP HANA depolama anlık görüntüleri yedekleme ve olağanüstü durum kurtarma amacıyla yürütmek için gereken komut dosyaları ve klasörleri içerir. Daha yeni sürümlerde denetle [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). Komut dosyalarını en son sürümünü 3.x ' dir. Farklı komut dosyaları farklı ikincil sürümleri içinde aynı ana sürümüne sahip olabilir.
 
 >[!IMPORTANT]
->Sürüm 2.1 komut dosyalarının 3.0 sürümüne taşırken yapılandırma dosyasının ve bazı söz dizimi yapısını değiştiğini unutmayın. Belirli bölümlerde belirtme konusuna bakın. 
+>Sürüm 2.1 sürümüne taşırken 3.x komut dosyalarının yapılandırma dosyasının ve bazı söz dizimi yapısını değiştirildiğine dikkat edin. Belirli bölümlerde belirtme konusuna bakın. 
 
 SAP HANA yüklerken HANA büyük örneği birimlerde SAP HANA HDB istemciyi yüklemek üzere sizin sorumluluğunuzdadır değil.
 
@@ -234,7 +239,7 @@ Bu noktada, Azure Hizmet Yönetimi SAP HANA başvurun ve ortak anahtar ile verin
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>4. adım: bir SAP HANA kullanıcı hesabı oluşturma
 
-SAP HANA anlık görüntü oluşturmaya başlatmak için SAP HANA içinde depolama anlık görüntü betiklerini bir kullanıcı hesabı oluşturmanız gerekir. SAP HANA Studio'dan SAP HANA kullanıcı hesabı bu amaçla oluşturun. Kullanıcı SID veritabanı altında değil ve SYSTEMDB oluşturulması gerekir. Bu hesabı aşağıdaki ayrıcalıklara sahip olmalıdır: **yedekleme yönetici** ve **katalog okuma**. Bu örnekte, kullanıcı adı olan **SCADMIN**. HANA Studio'da oluşturulan kullanıcı hesabı adı büyük/küçük harf duyarlıdır. Seçtiğinizden emin olun **Hayır** kendi sonraki oturum açma parolasını değiştirmek kullanıcı gerektirme.
+SAP HANA anlık görüntü oluşturmaya başlatmak için SAP HANA içinde depolama anlık görüntü betiklerini bir kullanıcı hesabı oluşturmanız gerekir. SAP HANA Studio'dan SAP HANA kullanıcı hesabı bu amaçla oluşturun. Kullanıcı için MDC SYSTEMDB SID veritabanı altında değildir ve oluşturulmalıdır. Tek kapsayıcı ortamında kullanıcı Kiracı veritabanı altında kurulur. Bu hesabı aşağıdaki ayrıcalıklara sahip olmalıdır: **yedekleme yönetici** ve **katalog okuma**. Bu örnekte, kullanıcı adı olan **SCADMIN**. HANA Studio'da oluşturulan kullanıcı hesabı adı büyük/küçük harf duyarlıdır. Seçtiğinizden emin olun **Hayır** kendi sonraki oturum açma parolasını değiştirmek kullanıcı gerektirme.
 
 ![Bir kullanıcı HANA Studio'da oluşturma](./media/hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
@@ -245,7 +250,7 @@ Bir birim üzerinde birden çok SAP HANA örneğiyle MCOD dağıtımları kullan
 Bu adımda, komut dosyaları parolaları çalışma zamanında göndermek gerekmemesi oluşturduğunuz, SAP HANA kullanıcı hesabı yetkilendirin. SAP HANA komutu `hdbuserstore` bir veya daha fazla SAP HANA düğümde depolanan bir SAP HANA kullanıcı anahtarı oluşturulmasını sağlar. Kullanıcı anahtarı parolalardan komut dosyası işlemi içinde yönetmek zorunda kalmadan SAP HANA kullanıcı erişimi sağlar. Komut dosyası işlemi, bu makalenin sonraki bölümlerinde ele alınmıştır.
 
 >[!IMPORTANT]
->Aşağıdaki farklı çalıştır komutunu `root`. Aksi takdirde, komut dosyası düzgün çalışamaz.
+>Yürütülecek komut dosyalarını planlanan kullanıcı altında aşağıdaki komutu çalıştırın. Aksi takdirde, komut dosyası düzgün çalışamaz.
 
 Girin `hdbuserstore` gibi komut:
 
@@ -285,7 +290,7 @@ testHANAConnection.pl
 testStorageSnapshotConnection.pl 
 removeTestStorageSnapshot.pl
 azure_hana_dr_failover.pl
-azure_hana_dr_failover.pl 
+azure_hana_test_dr_failover.pl 
 HANABackupCustomerDetails.txt 
 ``` 
 
@@ -303,7 +308,7 @@ Dosya ve farklı komut dosyaları amacı aşağıdaki gibidir:
 
 - **Azure\_hana\_backup.pl**: Bu komut dosyası Linux Cron zamanlama yardımcı programı ile depolama anlık görüntüleri HANA veri ve paylaşılan birimler, / hana/logbackups birim ya da işletim sistemi üzerinde yürütülecek şekilde zamanlanır.
 - **Azure\_hana\_çoğaltma\_status.pl**: Bu komut dosyası üretim site çoğaltma durumu olağanüstü durum kurtarma sitesine geçici temel ayrıntıları sağlar. Çoğaltma yer aldığı ve öğelerin boyutu, gösterir emin olmak için komut dosyası izleyicileri çoğaltılmış olduğunu. Ayrıca Kılavuzu bir çoğaltma çok uzun sürüyorsa veya bağlantı kapalı olduğunda sağlar.
-- **azure\_hana\_snapshot\_details.pl**: This script provides a list of basic details about all the snapshots, per volume, that exist in your environment. Bu komut, birincil sunucuda veya sunucu birim olağanüstü durum kurtarma konumu olarak çalıştırılabilir. Komut dosyası anlık görüntüleri içeren her bir birim ayrıntılarıyla aşağıdaki bilgileri sağlar:
+- **Azure\_hana\_anlık görüntü\_details.pl**: Bu komut, ortamınızda bulunan tüm anlık görüntüleri, birim başına hakkında temel ayrıntılar listesini sağlar. Bu komut, birincil sunucuda veya sunucu birim olağanüstü durum kurtarma konumu olarak çalıştırılabilir. Komut dosyası anlık görüntüleri içeren her bir birim ayrıntılarıyla aşağıdaki bilgileri sağlar:
    * Bir birimdeki toplam anlık görüntü boyutu
    * Her anlık görüntü o birimdeki aşağıdaki Ayrıntılar: 
       - Anlık görüntü adı 
@@ -311,20 +316,20 @@ Dosya ve farklı komut dosyaları amacı aşağıdaki gibidir:
       - Anlık görüntü boyutu
       - Anlık görüntü sıklığı
       - HANA yedekleme ilgiliyse bu anlık görüntü ile ilişkili kimliği
-- **azure\_hana\_snapshot\_delete.pl**: This script deletes a storage snapshot or a set of snapshots. SAP HANA yedekleme kimliği HANA Studio'da bulunan olarak ya da depolama anlık görüntü adı kullanabilirsiniz. Şu anda, yedekleme kimliği yalnızca HANA veri/günlük/paylaşılan birimler için oluşturulan anlık görüntülerin bağlıdır. Aksi takdirde, girilen anlık görüntü kimliği eşleşen tüm anlık görüntüleri aradığı anlık görüntü kimliği girilirse,  
+- **Azure\_hana\_anlık görüntü\_delete.pl**: Bu komut dosyasını bir depolama anlık görüntü veya anlık görüntü kümesi siler. SAP HANA yedekleme kimliği HANA Studio'da bulunan olarak ya da depolama anlık görüntü adı kullanabilirsiniz. Şu anda, yedekleme kimliği yalnızca HANA veri/günlük/paylaşılan birimler için oluşturulan anlık görüntülerin bağlıdır. Aksi takdirde, girilen anlık görüntü kimliği eşleşen tüm anlık görüntüleri aradığı anlık görüntü kimliği girilirse,  
 - **testHANAConnection.pl**: Bu komut dosyası SAP HANA örneği bağlantısını test eder ve depolama anlık görüntüler ayarlamak için gereklidir.
 - **testStorageSnapshotConnection.pl**: Bu komut dosyası iki amaca sahiptir. İlk olarak, betikleri çalıştırır HANA büyük örneği birim atanan depolama sanal makine ve depolama anlık görüntü arabirimi, HANA büyük örneklerinin erişim sahip olmasını sağlar. İkinci amacı test ettiğiniz HANA örneği için geçici bir anlık görüntü oluşturmaktır. Bu komut dosyası her HANA örneği için yedekleme betikleri beklendiği gibi çalışmasını sağlamak için bir sunucu üzerinde çalıştırmanız gerekir.
 - **removeTestStorageSnapshot.pl**: Bu komut dosyası komut dosyası ile oluşturulan test anlık görüntüsü siler **testStorageSnapshotConnection.pl**.
 - **Azure\_hana\_dr\_failover.pl**: Bu komut dosyası başka bir bölgeye DR yük devretme başlatır. Yük istediğiniz birime veya komut dosyası DR bölgede HANA büyük örneği biriminde yürütülmesi gerekiyor. Bu komut dosyasını ikincil tarafa birincil tarafındaki depolama çoğaltma durdurur, DR birimlerde en son anlık görüntü geri yükler ve bağlama için DR birimlerini sağlar.
-- **azure\_hana\_test\_dr\_failover.pl**: This script performs a test failover into the DR site. Azure_hana_dr_failover.pl betik bu yürütme depolama çoğaltmayı birincil ikincil kesmez. Bunun yerine, çoğaltılan depolama birimlerinin klonlar DR tarafında oluşturulur ve kopyalanan birimleri bağlama sağlanır. 
+- **Azure\_hana\_test\_dr\_failover.pl**: Bu komut dosyası, DR siteye bir yük devretme testi gerçekleştirir. Azure_hana_dr_failover.pl betik bu yürütme depolama çoğaltmayı birincil ikincil kesmez. Bunun yerine, çoğaltılan depolama birimlerinin klonlar DR tarafında oluşturulur ve kopyalanan birimleri bağlama sağlanır. 
 - **HANABackupCustomerDetails.txt**: Bu dosya, SAP HANA yapılandırmanızı uyum değişiklik yapmanız değiştirilebilir yapılandırma dosyadır. *HANABackupCustomerDetails.txt* depolama anlık görüntüleri çalışan komut için Denetim ve yapılandırma dosyası bir dosyadır. Dosya amaçlıdır ve kurulum için ayarlayın. Aldığınız **depolama yedekleme adı** ve **depolama IP adresi** SAP HANA örneklerinizi dağıtırken Azure Hizmet Yönetimi'nden. Sıralama ya da bu dosyasındaki değişkenleri hiçbirini aralığı dizisi değiştiremezsiniz. Bunu yaparsanız, komut dosyaları düzgün çalışmaz. Ayrıca, büyütme düğüm veya ana düğümünün IP adresi (genişleme varsa) SAP HANA Azure Hizmet Yönetimi alırsınız. SAP HANA yükleme sırasında edinmeye HANA örnek numarasını da bildiğiniz. Şimdi, yapılandırma dosyasını bir yedek adı eklemeniz gerekir.
 
-HANA büyük örneği birim ve sunucu IP adresi sunucu adını doldurduktan sonra büyütme veya genişleme dağıtımı için yapılandırma dosyasını aşağıdaki gibi görünür. SAP HANA sistem çoğaltma kullanıyorsanız, HANA sistem çoğaltma yapılandırması sanal IP adresi kullanın. Her SAP HANA yedeklemek veya kurtarmak istediğiniz SID için tüm gerekli alanları doldurun.
+HANA büyük örneği birim ve sunucu IP adresi sunucu adını doldurduktan sonra büyütme veya genişleme dağıtımı için yapılandırma dosyasını aşağıdaki gibi görünür. Her SAP HANA yedeklemek veya kurtarmak istediğiniz SID için tüm gerekli alanları doldurun.
 
 Bir süre için gerekli bir alan önünde "#" ekleyerek yedeklenecek istemediğiniz örneklerinin satırları çıkışı açıklama getirebilirsiniz. SAP HANA yedeklemek veya belirli bu örneğe kurtarmak için gerekli ise, bir sunucuda bulunan hepsinin girmeniz gerekmez. Tüm alanlar için biçimi tutulması gerekir veya tüm betikler bir hata iletisi throw ve komut dosyası sona erer. Son SAP HANA örneğinin sonra kullanmadığınızı herhangi SID bilgileri ayrıntıları gerekli ek satırları silebilirsiniz. Tüm satırları gerekir doldurulmuş, derleme dışı bırakıldı veya silinmiş.
 
 >[!IMPORTANT]
->Sürüm 2.1 taşımak için sürüm 3.0 ile değiştirilen dosya yapısı. 3.0 sürümü komut dosyalarını kullanmak istiyorsanız, yapılandırma dosyası yapısı uyarlamanız gerekir. 
+>Dosyanın yapısı değiştirilmiş sürüm 2.1 sürümünden geçiş ile 3.x. 3.x sürüm kodları kullanmak istiyorsanız, yapılandırma dosyası yapısı uyarlamanız gerekir. 
 
 
 ```
@@ -379,7 +384,7 @@ Bu nedenle, HANA örneği bağımsız değişken olarak dahil edilir. Yürütme 
 
 2. Test betiğini çalıştırın:
    ```
-    ./testStorageSnapshotConnection.pl <HANA SID>
+    ./testStorageSnapshotConnection.pl
    ```
 
 Depolama birimine yapılandırılmış veri ile önceki kurulum adımlarını sağlanan ortak anahtar kullanarak oturum açmak komut dosyası çalıştığında *HANABackupCustomerDetails.txt* dosya. Oturum açma başarılı olursa, aşağıdaki içeriği gösterilir:
@@ -447,7 +452,7 @@ Anlık görüntü yedeklerini üç tür oluşturabilirsiniz:
 
 
 >[!NOTE]
-> Bu üç çeşit anlık çağrı sözdizimi hareket MCOD dağıtımlarını desteklemek 3.0 betikleri sürüme değiştirildi. Bir örneği HANA SID'si artık belirtmek için gerek yoktur. Bir birim SAP HANA örneklerini yapılandırma dosyasında yapılandırılmış olduğundan emin olmanız gerekir *HANABackupCustomerDetails.txt*.
+> Bu üç tür hareket MCOD dağıtımlarını desteklemek sürüm 3.x kodları değiştirilen anlık görüntüler için çağrı sözdizimi. Bir örneği HANA SID'si artık belirtmek için gerek yoktur. Bir birim SAP HANA örneklerini yapılandırma dosyasında yapılandırılmış olduğundan emin olmanız gerekir *HANABackupCustomerDetails.txt*.
 
 >[!NOTE]
 > Komut dosyası ilk kez çalıştırdığınızda, çoklu SID ortamda bazı beklenmeyen hatalar gösterebilir. Komut dosyası yeniden çalıştırma sorunu giderir.
@@ -472,7 +477,7 @@ Parametrelerin ayrıntılarını aşağıdaki gibidir:
 
 - İlk parametre anlık görüntü yedekleme türünü belirtir. İzin verilen değerler: **hana**, **günlükleri**, ve **önyükleme**. 
 - Parametre **<HANA Large Instance Type>** yalnızca önyükleme birimi yedeklemeler için gereklidir. "TypeI" veya "TypeII" iki geçerli değerlerle HANA büyük örneği biriminde bağımlı. Biriminiz ne tür çıkışı bulmak için bkz. [SAP HANA (büyük örnekler) genel bakış ve Azure ile ilgili mimari](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- Parametre **< snapshot_prefix >** bir anlık görüntü veya anlık görüntü türü için yedekleme etiketi. İki amacı vardır: biridir sizin için bir ad vermek bu anlık görüntüler hakkında nelerdir bilmesi. Komut dosyası için ikinci amaçtır *azure\_hana\_backup.pl* bu özel etiketin altında korunur depolama anlık görüntü sayısını belirlemek için. Aynı türde iki depolama anlık görüntü yedekleme zamanlarsanız (gibi **hana**), iki farklı etiketleri ve 30 anlık görüntüleri saklanması her biri için 60 depolama birimlerin anlık görüntüleri etkilenen ile sona tanımlayın. 
+- Parametre **< snapshot_prefix >** bir anlık görüntü veya anlık görüntü türü için yedekleme etiketi. İki amacı vardır: biridir sizin için bir ad vermek bu anlık görüntüler hakkında nelerdir bilmesi. Komut dosyası için ikinci amaçtır *azure\_hana\_backup.pl* bu özel etiketin altında korunur depolama anlık görüntü sayısını belirlemek için. Aynı türde iki depolama anlık görüntü yedekleme zamanlarsanız (gibi **hana**), iki farklı etiketleri ve 30 anlık görüntüleri saklanması her biri için 60 depolama birimlerin anlık görüntüleri etkilenen ile sona tanımlayın. Yalnızca alfa sayısal ("A-Z, a-z, 0-9"), alt çizgi ("_") ve tire ("-") karakterlere izin verilir. 
 - Parametre **< snapshot_frequency >** için gelecek gelişmeler ayrılmıştır ve herhangi bir etkisi yoktur. "3 dakika" türü yedeklerini yürütülürken ayarlamak **günlük**ve "bir yedekleme türleri yürütülürken 15 dakika".
 - Parametre **<number of snapshots retained>** aynı anlık görüntü önek (etiketi) ile anlık görüntü sayısını tanımlayarak anlık görüntü saklama dolaylı olarak tanımlar. Bu parametre, cron aracılığıyla zamanlanmış yürütmeleri için önemlidir. Aynı snapshot_prefix ile anlık görüntü sayısı bu parametresi tarafından verilen sayıyı aşarsa, yeni bir depolama anlık görüntü yürütmeden önce eski anlık görüntü silinir.
 
@@ -500,7 +505,7 @@ Farklı türleri için anlık görüntü sıklığı, HANA büyük örneği ola�
 - Kullanılan alan.
 - Kurtarma noktası ve kurtarma zamanı hedeflerine olası bir olağanüstü durum kurtarma için.
 - Diskleri karşı HANA tam veritabanı yedeklemeleri Son Yürütme. Tam veritabanı yedeklemesi her diskleri karşı veya **backint** arabirimi gerçekleştirilir, depolama anlık görüntüleri yürütülmesi başarısız olur. Tam veritabanı yedeklemeleri depolama anlık görüntüleri üstünde yürütme planlıyorsanız, depolama anlık görüntüleri yürütülmesi bu süre boyunca devre dışı bırakıldığından emin olun.
-- Anlık görüntüler (255 sınırlı) birim başına sayısı.
+- Anlık görüntüler (250 için sınırlı) birim başına sayısı.
 
 
 Olağanüstü Durum Kurtarma işlevi HANA büyük örneklerinin kullanmayan müşteriler için anlık görüntü dönemi daha az sıklıkta belirtir. Böyle durumlarda, müşteriler birleşik anlık görüntüleri /hana/data ve (/usr/sap içerir) /hana/shared 12 veya 24 saat dönemlerini gerçekleştirmek ve bunlar bir ay için anlık görüntüleri tutmak. Aynı günlük yedekleme birimi anlık görüntüleri ile geçerlidir. Ancak, SAP HANA işlem günlüğü yedeklemeleri günlük yedekleme birimi karşı yürütülmesi 15 dakikalık dönem için 5 dakika içinde gerçekleşir.
@@ -532,9 +537,7 @@ Aşağıdaki grafikte LUN önyükleme hariç önceki örnekte, dizileri gösteri
 
 SAP HANA veritabanına yapılan değişiklikleri belgelemek için /hana/log birim karşı normal yazma işlemleri gerçekleştirir. Düzenli aralıklarla, SAP HANA /hana/data birime bir kayıt noktası yazar. Belirtilen olarak crontab, SAP HANA işlem günlüğü yedeklemesi her 5 dakikada bir çalıştırılır. SAP HANA anlık görüntü /hana/data ve /hana/shared birimlerinin birleşik depolama anlık görüntü tetikleme sonucunda her saat yürütülür de görebilirsiniz. Birleştirilmiş depolama anlık görüntü HANA anlık görüntü başarılı olduktan sonra yürütülür. Crontab belirtildiği gibi depolama anlık görüntü /hana/logbackup birimde her 5 dakikada bir, yaklaşık 2 dakika HANA işlem günlüğü yedeklemesi sonra yürütülür.
 
-> [!NOTE]
->Depolama anlık görüntüsü yedekleri HANA sistem çoğaltma Kurulum iki düğümlere zamanlarsanız, iki düğüm arasında anlık görüntü yedeklerinin yürütmeleri çakışmadığından emin olmanız gerekir. SAP HANA aynı anda yalnızca bir HANA anlık görüntü ile mücadele etmek için bir kısıtlama var. HANA anlık görüntü başarılı depolama anlık görüntü yedekleme temel bir bileşeni olduğundan, birincil ve ikincil düğüm ve nihai üçüncü düğüm üzerinde depolama anlık görüntü zamanlanır, diğer dışında emin olmanız gerekir.
-
+> 
 
 >[!IMPORTANT]
 > SAP HANA yedeklemeler için depolama anlık görüntüleri kullanımını, yalnızca anlık görüntüleri SAP HANA işlem günlüğü yedeklemeleri ile birlikte gerçekleştirildiğinde faydalıdır. Bu işlem günlüğü yedeklemeleri dönemleri depolama anlık görüntüleri arasında kapak gerekir. 
@@ -557,7 +560,7 @@ Veritabanı hiçbir zaman yedeklendiğinden, son yedekleme kataloğu içinde bul
 
 İlk başarılı depolama anlık görüntüleri yürütülen sonra 6. adımda yürütüldüğü test anlık görüntü silebilirsiniz. Bunu yapmak için komut dosyasını çalıştırmak `removeTestStorageSnapshot.pl`:
 ```
-./removeTestStorageSnapshot.pl <hana instance>
+./removeTestStorageSnapshot.pl
 ```
 
 Komut dosyası çıktısı örneği verilmiştir:
@@ -636,7 +639,7 @@ HANA Backup ID:
 
 
 ### <a name="file-level-restore-from-a-storage-snapshot"></a>Dosya düzeyinde depolama anlık görüntü geri yükleme
-Anlık Görüntü türleri için **hana** ve **günlükleri**, anlık görüntü doğrudan birimlerin erişebilirsiniz **.snapshot** dizini. Her anlık görüntü için bir alt yoktur. Anlık görüntüden o alt gerçek dizin yapıda noktasında olduğu durumda, her dosya kopyalayabilirsiniz.
+Anlık Görüntü türleri için **hana** ve **günlükleri**, anlık görüntü doğrudan birimlerin erişebilirsiniz **.snapshot** dizini. Her anlık görüntü için bir alt yoktur. Anlık görüntüden o alt gerçek dizin yapıda noktasında olduğu durumda, her dosya kopyalayabilirsiniz. Komut dosyası geçerli sürümünde yoktur **Hayır** (Self Servis DR parçası DR sitede yük devretme sırasında komut dosyaları gibi anlık görüntü geri yükleme gerçekleştirilebilir rağmen) anlık görüntü geri yükleme için bir Self Servis sağlanan komut dosyasını geri yükleyin. Var olan kullanılabilir anlık görüntülerden istenen anlık görüntü geri yüklemek için bir hizmet isteği açarak Microsoft işletim ekibi başvurmanız gerekir.
 
 >[!NOTE]
 >Tek dosya geri yükleme LUN HANA büyük örneği birimlerinin türünü bağımsız önyükleme anlık görüntüler için çalışmaz. **.Snapshot** directory önyükleme LUN gösterilmez. 
@@ -830,11 +833,8 @@ Veri miktarını anlık görüntüleri arasındaki farkları daha küçük olur 
 
 Bir HANA büyük örneği biriminde birden çok bağımsız SAP HANA örneğiyle MCOD dağıtımlar söz konusu olduğunda, tüm SAP HANA örnekleri için DR yan çoğaltılan depolama aldığınızdan emin beklenir.
 
-HANA sistem çoğaltma yüksek kullanılabilirlik işlevselliği üretim sitenizdeki kullandığınız durumlarda, yalnızca birimler Katman 2 (veya çoğaltma) örneğinin çoğaltılır. Korumak ya da ikincil çoğaltma (Katman 2) sunucu birimi veya bu birimindeki SAP HANA örnek aşağı ele bu yapılandırma, DR sitesi için depolama çoğaltma gecikmesi neden olabilir. 
+Burada HANA sistemi çoğaltması yüksek kullanılabilirlik işlevselliği üretim sitenizdeki kullanmak ve DR sitesi için depolama tabanlı çoğaltma kullanmak durumlarda, her iki düğümün birincil siteden DR örneğine birimleri çoğaltılır. Hem birincil hem de DR için ikincil Çoğaltmada uyum sağlamak için DR sitesinde ek depolama alanı (aynı boyutta birincil düğüm itibariyle) satın almanız gerekir. 
 
-
->[!IMPORTANT]
->Çok katmanlı HANA sistem olarak, çoğaltma ile HANA büyük örneği olağanüstü durum kurtarma işlevini kullanırken olağanüstü durum kurtarma siteye çoğaltma için Katman 2 HANA örneği veya sunucu biriminin bir kapanma engeller.
 
 
 >[!NOTE]

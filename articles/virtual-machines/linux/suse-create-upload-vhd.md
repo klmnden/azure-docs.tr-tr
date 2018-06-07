@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: 2372550548f40ad07b4f76c19bc3bc1cb8380830
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99838a7038672998d4940bfb437bd31311d3600f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653442"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Azure için SLES veya openSUSE sanal makinesi hazırlama
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -39,7 +40,7 @@ Bu makalede, zaten bir SUSE veya openSUSE Linux işletim sistemi sanal sabit dis
 
 Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı kendi abonelik) görüntüleri SLES için yayımlar [VMDepot](https://vmdepot.msopentech.com/User/Show?user=1007).
 
-## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>Prepare SUSE Linux Enterprise Server 11 SP4
+## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>SUSE Linux Enterprise Server 11 SP4 hazırlama
 1. Hyper-V Yöneticisi'nin Orta bölmede sanal makineyi seçin.
 2. Tıklatın **Bağlan** sanal makine için penceresini açın.
 3. Güncelleştirmeleri Yükle ve paketleri izin vermek, SUSE Linux Enterprise sisteminizi kaydedin.
@@ -62,7 +63,7 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
     Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği.
 9. /Boot/Grub/Menu.lst ve /etc/fstab (kimliğine göre) disk kimliği yerine kendi UUID'si (UUID tarafından) kullanılarak disk başvuru onaylayın. 
    
-    Get disk UUID
+    Disk UUID'si Al
    
         # ls /dev/disk/by-uuid/
    
@@ -93,9 +94,9 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Not: Bu ayar ne olursa olsun, olması gerekir.
 15. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision
-    # <a name="export-histsize0"></a>HISTSIZE ver = 0
-    # <a name="logout"></a>oturumu kapat
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 16. Tıklatın **eylem -> kapatma aşağı** Hyper-V Yöneticisi'nde. Linux VHD Azure'a karşıya yüklenecek artık hazırdır.
 
 - - -
@@ -128,10 +129,10 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
         # sudo zypper update
 5. Azure Linux Aracısı'nı yükleyin.
    
-   # <a name="sudo-zypper-install-walinuxagent"></a>sudo zypper yükleme WALinuxAgent
+        # sudo zypper install WALinuxAgent
 6. Azure için ek çekirdek parametreleri içerecek şekilde kaz yapılandırma çekirdek önyükleme satırı değiştirin. Bunu yapmak için Aç "/ boot/grub/menu.lst" bir metin düzenleyicisinde ve varsayılan çekirdek aşağıdaki parametreleri içerdiğinden emin olun:
    
-     console=ttyS0 earlyprintk=ttyS0 rootdelay=300
+     Konsol ttyS0 earlyprintk = ttyS0 rootdelay = 300 =
    
    Bu tüm konsol iletileri hangi Azure yardımcı olabilecek ilk seri bağlantı noktasına gönderilen sağlayacak sorunları ayıklama desteği. Ayrıca, varsa aşağıdaki parametreleri çekirdek önyükleme satırından kaldırın:
    
@@ -150,9 +151,9 @@ Kendi VHD oluşturma alternatif olarak, SUSE de BYOS (Getir bilgisayarınızı k
      ResourceDisk.Format=y ResourceDisk.Filesystem=ext4 ResourceDisk.MountPoint=/mnt/resource ResourceDisk.EnableSwap=y ResourceDisk.SwapSizeMB=2048 ## Not: Bu ayar ne olursa olsun, olması gerekir.
 11. Sanal makine yetkisini kaldırma ve Azure üzerinde sağlamak için hazırlamak için aşağıdaki komutları çalıştırın:
     
-    # <a name="sudo-waagent--force--deprovision"></a>sudo waagent-force - deprovision
-    # <a name="export-histsize0"></a>HISTSIZE ver = 0
-    # <a name="logout"></a>oturumu kapat
+        # sudo waagent -force -deprovision
+        # export HISTSIZE=0
+        # logout
 12. Başlangıçta Azure Linux Aracısı'nı çalıştıran emin olun:
     
         # sudo systemctl enable waagent.service

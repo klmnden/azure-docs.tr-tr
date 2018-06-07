@@ -7,15 +7,16 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: eb7e87934269a5e1ba453e20f6f409a10dfbda5b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 319195ceb98b5b760d4d92055faa6e09c8fb0e3d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644357"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>Bir kiracı başına veritabanı SaaS uygulaması ile tek bir kiracı geri yükleme
 
@@ -64,7 +65,7 @@ Bu kurtarma senaryolarını göstermek için önce "yanlışlıkla" Kiracı veri
 
 ### <a name="open-the-events-app-to-review-the-current-events"></a>Geçerli olayları gözden geçirmek için olayları uygulamasını açın
 
-1. Olay hub'ı açın (http://events.wtp.&lt; Kullanıcı&gt;. trafficmanager.net) ve seçin **Contoso birlikte Hall**.
+1. Olay hub'ı açın (http://events.wtp.&lt; kullanıcı&gt;. trafficmanager.net) ve seçin **Contoso birlikte Hall**.
 
    ![Olay hub'ı](media/saas-dbpertenant-restore-single-tenant/events-hub.png)
 

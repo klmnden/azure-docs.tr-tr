@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 6f2f5eae8a4512595457d92d17832cf462b4bec4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ebe1f67c7c662af6d9e1888580149834a007200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657480"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Genelleştirilmiş bir VHD yüklemek ve yeni sanal makineleri oluşturmak için kullanın
 
@@ -36,7 +37,7 @@ Bir örnek komut dosyası kullanmak istiyorsanız, bkz: [örnek bir VHD Azure'a 
 
 ## <a name="generalize-the-source-vm-using-sysprep"></a>Kaynak VM generalize Sysprep kullanma
 
-Sysprep tüm kişisel hesap bilgilerinize, başka şeylerin kaldırır ve bir görüntü olarak kullanılacak makine hazırlar. Sysprep hakkında daha fazla ayrıntı için bkz: [kullanım Sysprep nasıl: Giriş](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep diğer öğelerin yanı sıra tüm kişisel hesap bilgilerinizi kaldırır ve makineyi bir görüntü olarak kullanılacak şekilde hazırlar. Sysprep hakkında daha fazla ayrıntı için bkz: [Sysprep genel bakış](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview).
 
 Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin olun. Daha fazla bilgi için bkz: [sunucu rolleri için Sysprep desteği](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -46,8 +47,8 @@ Makinede çalışan sunucu rollerini Sysprep tarafından desteklendiğinden emin
 > 
 
 1. Windows sanal makinede oturum açın.
-2. Bir yönetici olarak komut istemi penceresi açın. Dizinine değiştirin **%windir%\system32\sysprep**ve ardından çalıştırın `sysprep.exe`.
-3. İçinde **Sistem Hazırlama aracı** iletişim kutusunda **girin sistem Out-of-Box deneyimi (OOBE)**, emin olun **Generalize** onay kutusu seçilidir.
+2. Yönetici olarak Komut İstemi penceresini açın. Dizinine değiştirin **%windir%\system32\sysprep**ve ardından çalıştırın `sysprep.exe`.
+3. **Sistem Hazırlama Aracı** iletişim kutusunda  **Sistem İlk Çalıştırma Deneyimi (OOBE) Moduna Gir**'i seçin ve **Genelleştir** onay kutusunun seçili olduğundan emin olun.
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.
 5. **Tamam**’a tıklayın.
    
@@ -145,7 +146,7 @@ New-AzureRmImage `
 
 ## <a name="create-the-vm"></a>Sanal makine oluşturma
 
-Bir görüntü sahip olduğunuza göre bir veya daha fazla yeni VM'ler görüntüden oluşturabilirsiniz. Bu örnek, adlandırılmış bir VM'nin oluşturur *myVM* gelen *myImage*, *myResourceGroup*.
+Artık bir görüntünüz olduğuna göre, görüntüden bir veya daha fazla yeni VM oluşturabilirsiniz. Bu örnek, adlandırılmış bir VM'nin oluşturur *myVM* gelen *myImage*, *myResourceGroup*.
 
 
 ```powershell

@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666917"
 ---
 ## <a name="create-a-module-identity"></a>Modül kimliği oluşturma
 
@@ -43,7 +44,16 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği ve mod�
     const string moduleID = "myFirstModule";
     ```
 
-5. **Program** sınıfına aşağıdaki yöntemleri ekleyin:
+5. Aşağıdaki kodu ekleyin **ana** sınıfı.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. **Program** sınıfına aşağıdaki yöntemleri ekleyin:
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ Bu bölümde, IoT hub'ınızdaki kimlik kayıt defterinde cihaz kimliği ve mod�
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. Bu uygulamayı çalıştırın ve cihaz anahtarını ve modül anahtarını not edin.
+7. Bu uygulamayı çalıştırın ve cihaz anahtarını ve modül anahtarını not edin.
 
 > [!NOTE]
 > IoT Hub kimlik kayıt defteri yalnızca IoT hub'ına güvenli erişim sağlamak amacıyla cihaz ve modül kimliklerini depolar. Kimlik kayıt defteri, cihaz kimliklerini ve anahtarlarını güvenlik kimlik bilgileri olarak kullanmak için depolar. Kimlik kayıt defterinin her cihaz için depoladığı etkin/devre dışı bayrağını kullanarak, ilgili cihaza erişimi devre dışı bırakabilirsiniz. Uygulamanızın cihaza özgü diğer meta verileri depolaması gerekiyorsa uygulamaya özgü bir depo kullanması gerekir. Modül kimlikleri için etkin/devre dışı bayrağı yoktur. Daha fazla bilgi için bkz. [IoT Hub geliştirici kılavuzu][lnk-devguide-identity].

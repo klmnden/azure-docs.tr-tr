@@ -5,15 +5,16 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/09/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6e282291a6e6e219bb275dd4da91f3815590adc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 075e04db27006719ec7d6e08eb2696436d1010f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648658"
 ---
 # <a name="dtu-based-purchasing-model-for-azure-sql-database"></a>DTU tabanlı Azure SQL veritabanı için satın alma modeli 
 
@@ -80,9 +81,9 @@ Belirli performans düzeylerini ve depolama boyutu tek veritabanları için kull
 ||||||
 
 > [!IMPORTANT]
-> -  Önizlemede bulunan depolama alanı miktarını büyük depolama boyutları ve ek maliyetlerden uygulayın. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
-> -  Premium katmanındaki birden fazla 1 TB depolama alanı aşağıdaki bölgelerde şu anda kullanılabilir değil: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Orta Kanada, Doğu Kanada, Orta ABD, Fransa Merkezi, Almanya Merkezi, Japonya Doğu, Japonya Batı, Kore Merkezi Kuzey Orta ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, Birleşik Krallık Güney, Birleşik Krallık Batı, ABD East2, Batı ABD, ABD kamu Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
+> - Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
+> - Birden fazla 1 TB depolama alanı Premium katmanında kullanılabilir aşağıdakiler dışında tüm bölgelerde: Birleşik Krallık Kuzey Batı Orta ABD, İngiltere South2, Çin, Doğu, USDoDCentral, Almanya Orta, USDoDEast, ABD kamu Güneybatı, BİZE kamu Güney Merkezi, Almanya Kuzeydoğu, Çin Kuzey, BİZE kamu Doğu. Kullanılabilirliğin genişletilmesi planlanmaktadır. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> 
 Belirli performans düzeylerini ve esnek havuzlar için kullanılabilir depolama boyutu seçenekleri hakkında daha fazla bilgi için bkz: [SQL veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
 
 

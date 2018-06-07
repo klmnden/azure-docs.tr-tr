@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643184"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>İzleme ve tanılama Azure Service Fabric için
 
@@ -46,9 +47,6 @@ Service Fabric kutusu dışı olaylar kapsamlı bir kümesini sağlar. Bunlar [S
 Biz EventStore hızlı analiz ve kümenizi nasıl çalıştığını bir anlık görüntü fikir almak için kullanılması önerilir ve olarak gerçekleşmesi durumunda bekleniyordu. Küme tarafından oluşturulan olayları ve günlükleri toplamak için genellikle kullanmanızı öneririz [Azure tanılama uzantısını](service-fabric-diagnostics-event-aggregation-wad.md). Service Fabric analizi, Service Fabric kümeleri izleme için özel bir Pano sağlar ve kümenizin olayları sorgulamak ve uyarıları ayarlamak verir OMS günlük analizi Service Fabric belirli çözümü ile iyi entegre olur. Şu anda hakkında daha fazla bilgiyi [olay analizi OMS ile](service-fabric-diagnostics-event-analysis-oms.md). 
 
  Daha fazla bilgiyi konumunda kümenize izleme hakkında [Platform düzeyi olay ve günlük oluşturma](service-fabric-diagnostics-event-generation-infra.md).
-
-
- ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>Performans izleme
 Temel altyapınızı izleme durumunu kümenizi ve kaynak kullanımını anlamak, önemli bir parçasıdır. Sistem performansını ölçmek, her biri, genellikle bir ana performans göstergelerini (KPI'lar) ölçülür, birkaç etkene bağlıdır. Service Fabric ilgili KPI'ları, kümedeki düğümlerden performans sayaçları olarak toplanan ölçümleri eşlenebilir.

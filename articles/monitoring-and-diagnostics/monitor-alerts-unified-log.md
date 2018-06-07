@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 175e512d0bdaa84d5251f4bbdb09aed3aed436f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638730"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Azure İzleyicisi - uyarıları günlük uyarıları 
 Bu makalede, günlük uyarı ayrıntılarını yeni içinde desteklenen uyarı türleri biri olan sağlanmaktadır [Azure uyarıları](monitoring-overview-unified-alerts.md) ve kullanıcıların Azure'nın analiz platformu uyarmak için temel olarak kullanmasına izin... Ölçüm günlüklerini kullanarak uyarı ayrıntılarını başvurmak [yakın gerçek zamanlı ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md)
@@ -35,7 +36,7 @@ Günlük arama kuralları tarafından aşağıdaki ayrıntıları tanımlanır:
 - **Oturum sorgu**.  Uyarı kural her çalıştığında sorgusu gönderir.  Bu sorgu tarafından döndürülen kayıtları, bir uyarı oluşturulup oluşturulmayacağını belirlemek için kullanılır. *Azure Application Insights* sorgu de bulunabilir [uygulamalar arası çağrılar](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), kullanıcının dış uygulamalara erişim haklarına sahip sağlanan. 
 
     > [!IMPORTANT]
-    > Suppport, [uygulama sorgu Application Insights için çapraz](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) Önizleme - işlevselliği ve kullanıcı deneyimi değiştirilebilir. Kullanımını [çalışma sorgu çapraz](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) ve [arası kaynak sorgu günlük analizi için](../log-analytics/log-analytics-cross-workspace-search.md) şu anda **desteklenmiyor** Azure uyarılar.
+    > Suppport, [uygulama sorgu Application Insights için çapraz](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) olduğundan işlevselliği önizlemede - sınırlı 2 veya daha fazla uygulamaları ile kullanma ve kullanıcı deneyimi değiştirilebilir. Kullanımını [çalışma sorgu çapraz](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) ve [arası kaynak sorgu günlük analizi için](../log-analytics/log-analytics-cross-workspace-search.md) şu anda **desteklenmiyor** Azure uyarılar.
 
 - **Zaman dilimi**.  Sorgu için zaman aralığını belirtir. Sorgu yalnızca bu geçerli zaman aralığı içinde oluşturulmuş olan kayıtları döndürür. Süre günlük sorgu kötüye önlemek alınan veri kısıtlar ve herhangi bir zaman komutu bozar (önce ister) günlük sorguda kullanılan. <br>*Örneğin, süre 60 dakika olarak ayarlanmıştır ve sorgu 13: 15'te çalıştırırsanız, yalnızca saat 12: 15'e ve 13: 15'te arasında oluşturulan kayıtları döndürülür günlük sorgusu yürütülemedi. Günlük sorgu komutu gibi önce zaman kullanıyorsa şimdi (7d), günlük sorgu çalıştırılması yalnızca saat 12: 15'e ve 1:15 PM - arasında veri için veri için yalnızca son 60 dakika olarak varsa. Verilerin günlük sorgu belirtildiği gibi yedi gün için değil.*
 - **Sıklık**.  Sorgunun ne sıklıkta çalıştırılması gerektiğini belirtir. 5 dakika ile 24 saat arasında herhangi bir değer olabilir. Eşit veya saati süresinden daha az olmalıdır.  Değer süre büyükse, eksik kayıtları riski oluşur.<br>*Örneğin, 30 dakikalık bir zaman dilimi ve 60 dakika sıklığını göz önünde bulundurun.  Sorgu 1: 00'dan çalıştırırsanız, 12:30 ve 1:00 arasında kayıt döndürür.  Sorguyu çalıştırabilir sonraki 2:00 kayıtlar 1:30 ve 2:00 arasında ne zaman döndürecektir süresidir.  1:00-1:30 arasında oluşturulan kayıtları hiçbir zaman değerlendirilmesi.*
@@ -125,7 +126,7 @@ Uyarıları RESTful olduğunuz ve Azure Resource Manager REST API'si erişilebil
 
 REST API, lütfen kullanma örnekleri yanı sıra ayrıntıları başvurmak için:
 - [Analytics uyarı REST API oturum](../log-analytics/log-analytics-api-alerts.md) - oluşturma ve Azure günlük analizi için günlük arama uyarı kurallarını yönet
-- [Azure İzleyici zamanlanmış sorgu kuralları REST API](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) - oluşturma ve Azure Application Insights için günlük arama uyarı kurallarını yönet
+- [Azure İzleyici zamanlanmış sorgu kuralları REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - oluşturma ve Azure Application Insights için günlük arama uyarı kurallarını yönet
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager Şablonu
 Kullanıcılar tarafından sağlanan esneklik de kullanabilir [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) oluşturmak ve oluşturmak veya günlük uyarıları güncelleştirmek için kaynaklar - güncelleştirmek için.

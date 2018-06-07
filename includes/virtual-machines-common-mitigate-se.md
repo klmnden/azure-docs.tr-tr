@@ -5,16 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: dac04ed9a43e19d022720979c8f83aa2b4132f78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34677368"
 ---
-**Son Güncelleştirme'ı belge**: 3 Nisan, 15:00 PST.
+**Son Güncelleştirme'ı belge**: 21 Mayıs 2018 15:00 PST.
 
 Son açıklanması bir [CPU güvenlik açıklarının yeni sınıf](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) kurgusal yürütme yan kanal saldırıları olarak bilinen daha fazla netlik aramayı müşterilerden soruları sonuçlandı.  
 
@@ -23,6 +24,8 @@ Microsoft, tüm bulut hizmetlerimizle arasında Azaltıcı Etkenler dağıtıld�
 Azure kullanımını Ayrıca, genişletme [bakım koruma bellek](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) VM konak güncelleştirilirken en çok 30 saniye veya VM duraklatma mümkün olduğunda, zaten güncelleştirilmiş bir ana bilgisayara taşınır.  Daha fazla bakım koruma bellek müşteri etkisini en aza indirir ve yeniden başlatma gereksinimini ortadan kaldırır.  Azure, sistem genelinde güncelleştirmeleri konağa yaparken bu yöntemleri yararlanacak olan.
 
 > [!NOTE] 
+21 May 2018, Google proje sıfır ve Microsoft kurgusal yürütme yan kanal açığının kurgusal deposu atlama bilinen yeni bir alt sınıf duyurdu. Derinlik Azaltıcı ek savunma dağıtılan hangi doğrudan kurgusal yürütme açıklarına Microsoft bulut altyapısı arasında. Daha fazla bilgi aşağıda mevcuttur: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
+>
 > Geç Şubat 2018 içinde Intel Corporation güncelleştirilmiş yayımlanan [mikro kodları gözden geçirme Kılavuzu](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) kararlılığını geliştirmek ve tarafındanbildirilensongüvenlikaçıklarınakarşıazaltmakkendimikrokodlarısürümlerindurumuileilgili[Google proje sıfır](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). Azure tarafından yerinde Azaltıcı yerleştirin [3 Ocak 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) Intel mikro kod güncelleştirmesini tarafından etkilenmez. Microsoft, güçlü Azaltıcı Etkenler zaten Azure diğer sanal makinelerden Azure müşterilerin korunmasına yerinde yerleştirin.  
 >
 > Intel mikro kodları değişken 2 giderir Spectre ([CVE 2017 5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) veya şube hedef ekleme), yalnızca paylaşılan veya güvenilmeyen iş yükleri içinde sanal makineleri Azure üzerinde çalıştırdığınız geçerli olacak saldırılarına karşı korumak için. Bizim mühendisleri Azure müşterilerine yapmadan önce mikro kodları, performans etkileri en aza indirmek için kararlılık test ediyorsunuz.  Çok az müşteriler Vm'leri güvenilmeyen iş yükleri çalıştırırken, müşterilerin çoğu kez yayımlanan bu özelliği etkinleştirmek gerekmez. 
@@ -48,7 +51,7 @@ Aşağıdaki teklifleri işletim sisteminizi güncelleştirmeniz için bizim ön
 <td>Azure Cloud Services </td>  <td>Otomatik güncelleştirmeyi etkinleştirme veya yeni konuk işletim sistemi çalıştırdığınızdan emin olun.</td>
 </tr>
 <tr>
-<td>Azure Linux sanal makineleri</td> <td>Güncelleştirmeler kullanılabilir olduğunda işletim sistemi sağlayıcınızdan yükleyin. </td>
+<td>Azure Linux Sanal Makineleri</td> <td>Güncelleştirmeler kullanılabilir olduğunda işletim sistemi sağlayıcınızdan yükleyin. </td>
 </tr>
 <tr>
 <td>Azure Windows sanal makineler </td> <td>İşletim sistemi güncelleştirmelerini yüklemeden önce desteklenen bir virüsten koruma uygulaması çalıştığını doğrulayın. Uyumluluk bilgileri için virüsten koruma yazılımı satıcınıza başvurun.<p> Yükleme [Ocak güvenlik dökümü](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>

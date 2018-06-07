@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643133"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric kümesi Linux işletim sistemi düzeltme eki
 
@@ -61,9 +62,9 @@ Düzeltme eki orchestration uygulama aşağıdaki bileşenleri oluşur:
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Azure Vm'leriniz Ubuntu 16.04 çalıştığından emin olun
 Bu belge, Ubuntu 16.04 yazma zamanında (`Xenial Xerus`) desteklenen tek sürümdür.
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>Service fabric linux kümesi sürüm olduğundan emin olun 6.1.x ve üstü
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>Service fabric linux kümesi sürüm olduğundan emin olun 6.2.x ve üstü
 
-Düzeltme eki orchestration uygulama linux kullanır, yalnızca service fabric çalışma zamanı sürümünde kullanılabilen bazı özellikleri çalışma zamanının 6.1.x ve üstü.
+Düzeltme eki orchestration uygulama linux kullanır, yalnızca service fabric çalışma zamanı sürümünde kullanılabilen bazı özellikleri çalışma zamanının 6.2.x ve üstü.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>(Bu zaten çalışmıyorsa) onarım Yöneticisi hizmetini etkinleştirme
 
@@ -73,7 +74,7 @@ Düzeltme eki orchestration uygulama kümede etkinleştirilmesi için onarım Y�
 
 Gümüş Azure linux kümeleri ve altın dayanıklılık katmanı sahip onarım Yöneticisi hizmeti varsayılan olarak etkindir. Varsayılan olarak, Bronz dayanıklılık katmanı Azure kümelerde etkin onarım Yöneticisi hizmeti yok. Hizmet zaten etkin değilse, Service Fabric Explorer Sistem Hizmetleri bölümünde çalışmasını görebilirsiniz.
 
-##### <a name="azure-portal"></a>Azure portalı
+##### <a name="azure-portal"></a>Azure portalına
 Kümenin kurma sırasında onarım Yöneticisi Azure portalından etkinleştirebilirsiniz. Seçin **dahil onarım Yöneticisi** altında seçeneği **eklenti özellikleri** küme yapılandırması zaman.
 ![Azure portalından etkinleştirme onarım Yöneticisi'nin resmi](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
@@ -118,7 +119,9 @@ Ubuntu için [katılımsız yükseltmeler](https://help.ubuntu.com/community/Aut
 
 ## <a name="download-the-app-package"></a>Uygulama paketi yükle
 
-Uygulamayı karşıdan [bağlantı karşıdan](https://go.microsoft.com/fwlink/?linkid=867984).
+Uygulamayı yükleme komut dosyaları ile birlikte gelen indirilebilir [arşiv bağlantı](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Uygulaması sfpkg biçiminde adresinden yüklenebilir [sfpkg bağlantı](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Bu kullanışlı gelir [Azure Resource Manager tabanlı uygulama dağıtımı](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Uygulamayı yapılandırma
 
@@ -319,6 +322,10 @@ Q. **Yükseltme orchestration uygulama kullanılmayan paketleri temizleme sonras
 
 A. Evet, yükleme sonrası adımlar bir parçası olarak temizleme gerçekleşir. 
 
+Q. **Düzeltme eki Orchestration uygulama my geliştirme küme (tek düğümlü kümenize) düzeltme eki için kullanılabilir mi?**
+
+A. Hayır, düzeltme eki orchestration uygulama düzeltme eki tek düğümlü kümeye kullanılamaz. Bu tasarım gereği, olarak kısıtlamadır [service fabric Sistem Hizmetleri](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) veya müşteri uygulamalardan kapalı kalma süresi yüz ve bu nedenle düzeltme eki uygulama için herhangi bir onarım işi hiçbir zaman onarım Yöneticisi tarafından onay almanız.
+
 ## <a name="troubleshooting"></a>Sorun giderme
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>Bir düğüm geri durumu yukarı geliyor değil
@@ -351,7 +358,7 @@ Hatalı bir güncelleştirme, bir uygulama veya belirli düğüme veya yükseltm
 
 Bir yönetici, müdahale ve uygulama ya da küme neden önceden yüklenmiş bir güncelleştirmeyi nedeniyle sağlıksız olduğunu belirler.
 
-## <a name="disclaimer"></a>Sorumluluk Reddi
+## <a name="disclaimer"></a>Bildirim
 
 Düzeltme eki orchestration uygulama kullanımını ve performansını izlemek için telemetri toplar. Uygulamanın telemetri (varsayılan olarak etkindir) Service Fabric çalışma zamanı telemetri ayarını ayarı izler.
 
@@ -360,5 +367,8 @@ Düzeltme eki orchestration uygulama kullanımını ve performansını izlemek i
 ### <a name="version-010"></a>Sürüm 0.1.0
 - Özel önizleme sürümü
 
-### <a name="version-200-latest"></a>Sürüm 2.0.0 (en yeni)
+### <a name="version-200"></a>Sürüm 2.0.0
 - Ortak sürüm
+
+### <a name="version-201-latest"></a>Sürüm 2.0.1 (en yeni)
+- En son Service Fabric SDK kullanarak uygulamayı yeniden derlenebileceğini gösterir

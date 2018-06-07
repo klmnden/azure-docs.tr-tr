@@ -3,17 +3,18 @@ title: İzleme günlük analizi ile Azure SQL veri eşitleme (Önizleme) | Micro
 description: Azure SQL veri eşitleme (Önizleme) izlemek günlük analizi kullanarak öğrenin
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 1b22b4ddf9fa4880b814efc3f8c3f1fc6ec7d141
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650256"
 ---
 # <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Günlük analizi ile İzleyici SQL veri eşitleme (Önizleme) 
 
@@ -198,7 +199,7 @@ SQL Data Sync hakkında daha fazla bilgi için bkz.:
 -   [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)
 
 -   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:
-    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

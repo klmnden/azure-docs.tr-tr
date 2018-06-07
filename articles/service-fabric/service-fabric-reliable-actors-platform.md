@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: b2369f9468c54f10d01203841b6d7ba44b7ba2de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f8e6ad4b23eeaf46cccac9c8ff9d41f71511129d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642861"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors hizmeti tarafından Service Fabric platformunun kullanımı
 Bu makalede, Azure Service Fabric platformda Reliable Actors nasıl çalıştığı açıklanmaktadır. Durum bilgisi olan güvenilir bir hizmet uygulaması içinde barındırılan bir çerçeve çalıştırmanız reliable Actors adlı *aktör hizmeti*. Aktör hizmeti yaşam döngüsü ve ileti gönderme, aktörleri yönetmek gerekli tüm bileşenleri içerir:
@@ -41,9 +42,6 @@ Güvenilir Hizmetleri'nde hizmetinizi devralır `StatefulService` sınıfı. Bu 
 * Hizmet yedekleme ve geri yükleme.
 * İşlevselliği tüm aktörler, örneğin, bir devre kesici paylaşılan.
 * Aktör hizmeti ve tek tek her aktör uzak yordam çağrıları.
-
-> [!NOTE]
-> Durum bilgisi olan hizmetler Java/Linux şu anda desteklenmemektedir.
 
 Daha fazla bilgi için bkz: [aktör hizmetinizi hizmet düzeyi özelliklerini uygulama](service-fabric-reliable-actors-using.md).
 

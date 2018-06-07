@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366537"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643218"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -28,15 +28,22 @@ ms.locfileid: "34366537"
 
 Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygulamayı çalıştırmak için uygulamanızda herhangi bir değişiklik yapılması gerekmez. Bu makalede, Python [Flask](http://flask.pocoo.org/) web uygulaması içeren bir Docker görüntüsü oluşturma ve bunu Service Fabric kümesine dağıtma işlemlerinde size yol gösterilir. Ayrıca, kapsayıcıya alınmış uygulamanızı [Azure Container Registry](/azure/container-registry/) aracılığıyla paylaşırsınız. Bu makale Docker hakkında temel bir anlayışınızın olduğunu varsayar. [Docker’a Genel Bakış](https://docs.docker.com/engine/understanding-docker/) makalesini okuyarak Docker hakkında bilgi edinebilirsiniz.
 
-## <a name="prerequisites"></a>Ön koşullar
-Şunları çalıştıran bir geliştirme bilgisayarı:
-* Visual Studio 2015 veya Visual Studio 2017.
-* [Service Fabric SDK’sı ve araçları](service-fabric-get-started.md).
-*  Windows için Docker. [Windows için Docker CE edinme (dengeli)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker’ı yükleyip başlattıktan sonra tepsi simgesine sağ tıklayıp **Windows kapsayıcılarına geç** öğesini seçin. Bu adım, Windows temelinde Docker görüntülerini çalıştırmak için gereklidir.
+## <a name="prerequisites"></a>Önkoşullar
+* Şunları çalıştıran bir geliştirme bilgisayarı:
+  * Visual Studio 2015 veya Visual Studio 2017.
+  * [Service Fabric SDK’sı ve araçları](service-fabric-get-started.md).
+  *  Windows için Docker. [Windows için Docker CE edinme (dengeli)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description). Docker’ı yükleyip başlattıktan sonra tepsi simgesine sağ tıklayıp **Windows kapsayıcılarına geç** öğesini seçin. Bu adım, Windows temelinde Docker görüntülerini çalıştırmak için gereklidir.
 
-Kapsayıcı içeren Windows Server 2016 üzerinde üç veya daha fazla düğüme sahip bir Windows kümesi - [Küme oluşturun](service-fabric-cluster-creation-via-portal.md) veya [Service Fabric’i ücretsiz deneyin](https://aka.ms/tryservicefabric).
+* Windows cluster kapsayıcılarla Windows Server'da çalışan üç veya daha fazla düğüm ile. 
 
-Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md).
+  Bu makalede, küme düğümleri üzerinde çalışan kapsayıcılar ile Windows Server sürümünü (yapı) geliştirme makinenizde eşleşmelidir. Geliştirme makinenizde docker yansıması oluştur ve kapsayıcı işletim sistemi sürümleri ve konak işletim sistemi uyumluluk kısıtlamaları olduğu için hangi BT üzerinde dağıtılan budur. Daha fazla bilgi için bkz: [Windows Server kapsayıcı işletim sistemi ve ana bilgisayar işletim sistemi uyumluluğu](#windows-server-container-os-and-host-os-compatibility). 
+  
+  Kapsayıcılar, kümeniz için ihtiyacınız olan Windows Server sürümünü belirlemek için çalıştırın `ver` geliştirme makinenizde bir Windows komut isteminde komutu:
+
+  * Sürüm içeriyorsa *x.x.14323.x*, ardından [bir küme oluşturmak](service-fabric-cluster-creation-via-portal.md) seçtiğinizden emin olmak *kapsayıcıları ile Windows Server 2016 Datacenter* işletim sistemi için veya [Service Fabric ücretsiz deneyin](https://aka.ms/tryservicefabric) bir taraf kümeyle.
+  * Sürüm içeriyorsa *x.x.16299.x*, ardından [bir küme oluşturmak](service-fabric-cluster-creation-via-portal.md) seçmek emin olma *WindowsServerSemiAnnual Datacenter-Core-1709-ile-kapsayıcıları* için İşletim Sistemi. Bir taraf kümesi kullanamaz.
+
+* Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md).
 
 > [!NOTE]
 > Windows 10’daki bir Service Fabric kümesine veya Docker CE’li bir kümede kapsayıcı dağıtma desteklenmez. Bu kılavuzda, Windows 10’da Docker altyapısı kullanılarak yerel test uygulanır ve son olarak kapsayıcı hizmetleri Azure’da Docker EE çalıştıran bir Windows Server kümesine dağıtılır. 
@@ -316,7 +323,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>Yalıtım modunu yapılandırma
-Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. İşlem yalıtım moduyla, aynı konak makinesinde çalışan tüm kapsayıcılar çekirdeği konakla paylaşır. Hyper-V yalıtım moduyla, çekirdekler her Hyper-V kapsayıcısı ile kapsayıcı konağı arasında yalıtılır. Yalıtım modu, uygulama bildirimi dosyasında bulunan `ContainerHostPolicies` öğesinde belirtilir. Belirtilebilen yalıtım modları `process`, `hyperv` ve `default` modlarıdır. Varsayılan yalıtım modu, Windows Server konaklarında `process` ve Windows 10 konaklarında `hyperv` modudur. Aşağıdaki kod parçacığı uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğini gösterir.
+Windows, kapsayıcılar için iki yalıtım modunu destekler: İşlem ve Hyper-V. İşlem yalıtım moduyla, aynı konak makinesinde çalışan tüm kapsayıcılar çekirdeği konakla paylaşır. Hyper-V yalıtım moduyla, çekirdekler her Hyper-V kapsayıcısı ile kapsayıcı konağı arasında yalıtılır. Yalıtım modu, uygulama bildirimi dosyasında bulunan `ContainerHostPolicies` öğesinde belirtilir. Belirtilebilen yalıtım modları `process`, `hyperv` ve `default` modlarıdır. Windows Server konakları üzerinde işlem yalıtım modunu varsayılandır. Kapsayıcı, yalıtım modunu ayarından bağımsız olarak Hyper-V yalıtım modunda nedenle Windows 10 konaklarda, yalnızca Hyper-V yalıtım modunu, desteklenir. Aşağıdaki kod parçacığı uygulama bildirimi dosyasında yalıtım modunun nasıl belirtildiğini gösterir.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -387,19 +394,44 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server kapsayıcı işletim sistemi ve ana bilgisayar işletim sistemi uyumluluğu
+
+Windows Server kapsayıcıları tüm ana bilgisayar işletim sistemi sürümleri arasında uyumlu değildir. Örneğin:
+ 
+- Windows Server sürüm 1709 kullanılarak Windows Server kapsayıcıları, Windows Server 2016 sürümünü çalıştıran bir konakta çalışmıyor. 
+- Windows Server 2016 kullanılarak Windows Server kapsayıcıları, yalnızca Windows Server sürüm 1709 çalıştıran bir konağa hyperv yalıtım modunda çalışır. 
+- Windows Server 2016 kullanılarak oluşturulan ile Windows Server kapsayıcıları kapsayıcı işletim sistemi ve ana bilgisayar işletim sistemi sürümünü aynı Windows Server 2016 çalıştıran bir konakta işlem yalıtım modunda çalışırken sağlamak gerekli olabilir.
+ 
+Daha fazla bilgi için bkz: [Windows kapsayıcı sürüm uyumluluğu](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility).
+
+Konak işletim sistemi ve, kapsayıcı oluşturma ve kapsayıcıları, Service Fabric kümesi dağıtırken işletim sistemi uyumluluğunu göz önünde bulundurun. Örneğin:
+
+- Küme düğümleri üzerinde işletim sistemiyle uyumlu bir işletim sistemi ile kapsayıcıları dağıttığınızdan emin olun.
+- Kapsayıcı uygulamanız için belirtilen yalıtım modunu burada dağıtıldığı düğümde işletim sistemi kapsayıcı desteği ile tutarlı olduğundan emin olun.
+- Küme düğümleri veya kapsayıcıları için işletim sistemi yükseltmeleri kendi uyumluluk nasıl etkileyebileceğini göz önünde bulundurun. 
+
+Kapsayıcılar, Service Fabric kümesi üzerinde doğru şekilde dağıtıldığını emin olmak için aşağıdaki yöntemleri öneririz:
+
+- Docker görüntülerinizi açık görüntü etiketleme bir kapsayıcı oluşturulur Windows Server işletim sürüm belirtmek için kullanın. 
+- Kullanım [OS etiketleme](#specify-os-build-specific-container-images) uygulama bildirimi dosyanızda uygulamanız farklı Windows Server sürümleri ve yükseltme arasında uyumlu olduğundan emin olun.
+
+> [!NOTE]
+> Service Fabric 6.2 ve sonraki sürümleri ile Windows Server 2016 bir Windows 10 ana bilgisayarda yerel olarak bağlı kapsayıcıları dağıtabilirsiniz. Windows 10'kapsayıcıları uygulama bildiriminde ayarlamak yalıtım modunu bağımsız olarak Hyper-V yalıtım modunda çalıştırın. Daha fazla bilgi için bkz: [yapılandırma yalıtım modunu](#configure-isolation-mode).   
+>
+ 
 ## <a name="specify-os-build-specific-container-images"></a>İşletim sistemi derlemesine özgü kapsayıcı görüntüleri belirtme 
 
-Windows Server kapsayıcıları (işlem yalıtım modu) işletim sisteminin daha yeni sürümleriyle uyumlu olmayabilir. Örneğin, Windows Server 2016 kullanılarak oluşturulan Windows Server kapsayıcıları Windows Server 1709 sürümünde çalışmaz. Bu nedenle, küme düğümleri en son sürüme güncelleştirilirse işletim sisteminin daha önceki sürümleri kullanılarak oluşturulan kapsayıcı hizmetleri başarısız olabilir. Çalışma zamanının 6.1 veya daha yeni sürümlerinde bu sorunun aşılması için, Service Fabric kapsayıcı başına birden çok işletim sistemi görüntüsü belirtilmesini ve bunların işletim sisteminin derleme sürümleriyle (bir Windows komut isteminde `winver` çalıştırılarak elde edilir) etiketlenmesini destekler. Düğümlerde işletim sistemini güncelleştirmeden önce uygulama bildirimlerini güncelleştirin ve işletim sistemi başına görüntü geçersiz kılmalarını belirtin. Aşağıdaki kod parçacığında, **ApplicationManifest.xml** adlı uygulama bildiriminde nasıl birden çok kapsayıcı görüntüsü belirtileceği gösterilmektedir:
+Windows Server kapsayıcıları işletim Sisteminin farklı sürümleri arasında uyumlu olmayabilir. Örneğin, Windows Server 2016 kullanılarak Windows Server kapsayıcıları Windows Server sürümü 1709 işlem yalıtım modunda çalışmıyor. Bu nedenle, küme düğümleri en son sürümüne güncelleştirilmişse, işletim Sisteminin önceki sürümlerinde kullanılarak oluşturulan kapsayıcı hizmetlerini başarısız olabilir. Bu sürüm çalışma zamanının ve 6.1 ile aşmak için Service Fabric kapsayıcı başına birden çok işletim sistemi görüntüsü belirtme ve bunları uygulama bildiriminde OS yapı sürümleriyle etiketleme destekler. İşletim sistemi yapı sürümünü çalıştırarak edinebilirsiniz `winver` bir Windows komut isteminde. Düğümlerde işletim sistemini güncelleştirmeden önce uygulama bildirimlerini güncelleştirin ve işletim sistemi başına görüntü geçersiz kılmalarını belirtin. Aşağıdaki kod parçacığında, **ApplicationManifest.xml** adlı uygulama bildiriminde nasıl birden çok kapsayıcı görüntüsü belirtileceği gösterilmektedir:
 
 
 ```xml
-<ContainerHostPolicies> 
+      <ContainerHostPolicies> 
          <ImageOverrides> 
            <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
-     </ContainerHostPolicies> 
+      </ContainerHostPolicies> 
 ```
 WIndows Server 2016 için derleme sürümü 14393, Windows Server 1709 sürümü için derleme sürümü 16299’dur. Aşağıda gösterildiği gibi, hizmet bildiriminde kapsayıcı hizmeti başına tek bir görüntü belirtilmeye devam edilir:
 

@@ -1,24 +1,19 @@
 ---
-title: "Azure IOT Hub cihaz Yönetimi (.NET/düğümü) ile çalışmaya başlama | Microsoft Docs"
-description: "Uzak aygıt yeniden başlatma işlemi başlatmak için Azure IOT Hub cihaz yönetimini kullanma Doğrudan bir yöntem ve Azure IOT hizmeti SDK'sını doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak .NET için içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı Node.js için kullanın."
-services: iot-hub
-documentationcenter: .net
+title: Azure IOT Hub cihaz Yönetimi (.NET/düğümü) ile çalışmaya başlama | Microsoft Docs
+description: Uzak aygıt yeniden başlatma işlemi başlatmak için Azure IOT Hub cihaz yönetimini kullanma Doğrudan bir yöntem ve Azure IOT hizmeti SDK'sını doğrudan yöntemini çağıran bir hizmet uygulaması uygulamak .NET için içeren bir sanal cihaz uygulamasının uygulamak için Azure IOT cihaz SDK'sı Node.js için kullanın.
 author: juanjperez
-manager: timlt
-editor: 
-ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/05/2017
 ms.author: juanpere
-ms.openlocfilehash: 5d0b7b1ab5893e55a6e2aa16451b6a9fc1481966
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: df41d8b88cf630183afc314dafdc1e898f4e02d9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632246"
 ---
 # <a name="get-started-with-device-management-netnode"></a>Aygıt Yönetimi (.NET/düğümü) ile çalışmaya başlama
 
@@ -70,7 +65,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
         static JobClient jobClient;
         static string targetDevice = "myDeviceId";
         
-6. Aşağıdaki yöntemi ekleyin **Program** sınıfı.  Bu kod yeniden başlatılan cihaz için cihaz çifti alır ve bildirilen özellikleri çıkarır.
+6. **Program** sınıfına aşağıdaki yöntemi ekleyin.  Bu kod yeniden başlatılan cihaz için cihaz çifti alır ve bildirilen özellikleri çıkarır.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -78,7 +73,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Aşağıdaki yöntemi ekleyin **Program** sınıfı.  Bu kod, doğrudan bir yöntem kullanarak cihazı önyüklemede başlatır.
+7. **Program** sınıfına aşağıdaki yöntemi ekleyin.  Bu kod, doğrudan bir yöntem kullanarak cihazı önyüklemede başlatır.
 
         public static async Task StartReboot()
         {
@@ -99,7 +94,7 @@ Bu bölümde, doğrudan bir yöntem kullanarak bir cihazda Uzaktan yeniden başl
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
         
-8. Çözümü oluşturun.
+8. Çözümü derleyin.
 
 ## <a name="create-a-simulated-device-app"></a>Sanal cihaz uygulaması oluşturma
 Bu bölümde şunları yapacaksınız:

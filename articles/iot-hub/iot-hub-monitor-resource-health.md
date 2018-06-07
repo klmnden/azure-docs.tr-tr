@@ -1,30 +1,28 @@
 ---
 title: Azure IOT Hub'ınızı sağlığını izlemek | Microsoft Docs
 description: IOT Hub'ınızı izlemek ve sorunları hızla tanılamak için Azure İzleyici ve Azure kaynak durumu kullanın
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: caf740e45c6de2b6ae52db48a588db67033e103d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634694"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izlemenize ve sorunları hızla tanılamak
 
 Azure IOT Hub uygulamak işletmeler kendi kaynaklardan güvenilir performans bekler. İşlemlerinizi Kapat watch'unuzda sürdürmenize yardımcı olmak için IOT hub'ı tam olarak tümleşiktir [Azure İzleyici] [ lnk-AM] ve [Azure kaynak durumu] [ lnk-ARH]. Bu iki hizmet IOT çözümlerinizi ve iyi durumda çalışan tutmak için gereken verileri sağlamak için kademeli çalışın. 
 
-Azure İzleyicisi ve izleme için tüm Azure hizmetlerinde oturum tek bir kaynaktır. Özel işleme için günlük analizi, olay hub'ları veya Azure Storage Azure İzleyici oluşturur günlüklerini gönderebilirsiniz. Azure monitörün ölçümleri ve tanılama ayarları kaynaklarınızı performansını gerçek zamanlı görünürlük sağlar. Bilgi edinmek için bu makaleyi okuduktan devam nasıl [kullanım Azure İzleyici](#use-azure-monitor) IOT hub'ınızı ile. 
+Azure İzleyicisi ve izleme için tüm Azure hizmetlerinde oturum tek bir kaynaktır. Özel işleme için günlük analizi, olay hub'ları veya Azure Storage Azure İzleyici oluşturur tanılama günlüklerini gönderebilirsiniz. Azure monitörün ölçümleri ve tanılama ayarları kaynaklarınızı performansını görünürlük sağlar. Bilgi edinmek için bu makaleyi okuduktan devam nasıl [kullanım Azure İzleyici](#use-azure-monitor) IOT hub'ınızı ile. 
+
+> [!IMPORTANT]
+> Tanılama günlüklerini Azure İzleyicisi'ni kullanarak IOT Hub hizmeti tarafından oluşturulan olayları güvenilir veya sıralı olması garanti edilmez. Bazı olaylar kaybolabilir veya bozuk teslim. Tanılama günlüklerini de gerçek zamanlı olma amacını değil ve hedef tercih ettiğiniz için kaydedilen olaylar için birkaç dakika sürebilir.
 
 Azure kaynak durumu tanılamanıza ve Azure sorunları etkiler, kaynaklarınızın destek alma yardımcı olur. Kişiselleştirilmiş bir pano, IOT hub'larınız için geçerli ve geçmiş sistem durumunu sağlar. Bilgi edinmek için bu makaleyi okuduktan devam nasıl [kullanım Azure kaynak durumu](#use-azure-resource-health) IOT hub'ınızı ile. 
 

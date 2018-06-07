@@ -1,11 +1,11 @@
 ---
-title: "SAP HANA Azure yedekleme depolama anlık görüntü tabanlı | Microsoft Docs"
-description: "İki ana yedekleme olasılıklarını SAP HANA Azure sanal makinelerde vardır, bu makalede, SAP HANA yedekleme depolama anlık görüntü tabanlı yer almaktadır"
+title: SAP HANA Azure yedekleme depolama anlık görüntü tabanlı | Microsoft Docs
+description: İki ana yedekleme olasılıklarını SAP HANA Azure sanal makinelerde vardır, bu makalede, SAP HANA yedekleme depolama anlık görüntü tabanlı yer almaktadır
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -13,11 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819888800b9663f9b920fbaf11b30ad28287a0b5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658732"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Depolama anlık görüntülerine dayalı SAP HANA yedeklemesi
 

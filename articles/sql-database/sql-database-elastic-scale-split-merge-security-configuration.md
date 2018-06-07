@@ -7,14 +7,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 694c1755b5263d48fdfa5cad3c0b13e42bfb8522
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bb2090aba61f32e79fe3a9fd950e6e3688193d7d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647094"
 ---
 # <a name="split-merge-security-configuration"></a>Bölünmüş birleştirme güvenlik yapılandırması
 Bölünmüş/Merge hizmetini kullanmak için güvenlik doğru şekilde yapılandırmanız gerekir. Hizmet Microsoft Azure SQL veritabanı'nın esnek ölçeklendirme özelliği bir parçasıdır. Daha fazla bilgi için bkz: [esnek ölçek bölme ve birleştirme hizmet öğretici](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
@@ -147,7 +148,7 @@ Bu davranışı yapılandırmak ayarlar şunlardır:
     <Setting name="DynamicIpRestrictionDenyByConcurrentRequests" value="false" />
     <Setting name="DynamicIpRestrictionMaxConcurrentRequests" value="20" />
 
-Change DynamicIpRestrictionDenyByConcurrentRequests to true to enable this protection.
+DynamicIpRestrictionDenyByConcurrentRequests bu korumayı etkinleştirmek için true olarak değiştirin.
 
 ## <a name="restricting-rate-of-access"></a>Erişim kısıtlama oranı
 Bu davranışı yapılandırmak ayarlar şunlardır:
@@ -322,7 +323,7 @@ Kendisi için bir istemci sertifikası verilmiş olan her anahtar çifti klasör
 ## <a name="copy-client-certificate-thumbprints"></a>İstemci sertifikası parmak kopyalayın
 Kendisi için bir istemci sertifikası yayımlandığı her parmak izini his/hers almak için şu adımları izlemelisiniz service yapılandırma dosyasına eklenecek sertifikası:
 
-* Run certmgr.exe
+* Certmgr.exe çalıştırın
 * Kişisel sekmesini seçin
 * Kimlik doğrulaması için kullanılacak istemci sertifikası çift tıklatın
 * Açılır sertifikası iletişim kutusunda, Ayrıntılar sekmesini seçin
@@ -380,7 +381,7 @@ Bulut hizmetine karşıya sertifikanın parmak izine sahip parmak izi değeri hi
 ## <a name="find-certificate"></a>Sertifika Bul
 Şu adımları uygulayın:
 
-1. Run mmc.exe.
+1. MMC.exe çalıştırın.
 2. Dosya -> Ekle/Kaldır ek bileşenini...
 3. Seçin **Sertifikalar**.
 4. **Ekle**'ye tıklayın.
@@ -392,7 +393,7 @@ Bulut hizmetine karşıya sertifikanın parmak izine sahip parmak izi değeri hi
 10. Sertifika alt düğümünü genişletin.
 11. Listeden bir sertifika seçin.
 
-## <a name="export-certificate"></a>Sertifika verme
+## <a name="export-certificate"></a>Sertifikayı dışarı aktarma
 İçinde **Sertifika Verme Sihirbazı**:
 
 1. **İleri**’ye tıklayın.

@@ -11,23 +11,24 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 365959a588dc48e7991efea239ba823c3ca65e7a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640549"
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
-[Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcıları, grupları ve hizmet asıl adı atayabilirsiniz birkaç yerleşik rol tanımı yok. Rol atamalarını azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller değiştiremez, ancak kendi oluşturabilirsiniz [özel roller](custom-roles.md) , kuruluşunuzun belirli gereksinimlerine uyacak şekilde.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcıları, grupları ve hizmet asıl adı atayabilirsiniz birkaç yerleşik rol tanımı yok. Rol atamalarını azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller, kuruluşunuzun özel ihtiyaçlarını karşılamıyorsa, kendi oluşturabileceğiniz [özel roller](custom-roles.md).
 
 Yerleşik roller her zaman artmaktadır. Son rol tanımları almak için [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) veya [az rol tanımı listesi](/cli/azure/role/definition#az-role-definition-list).
 
 ## <a name="built-in-role-descriptions"></a>Yerleşik rol açıklamaları
-Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı listesini görmek için tıklatın `actions` ve `notActions` her rol için.
+Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı listesini görmek için tıklatın `actions`, `notActions`, `dataActions`, ve `notDataActions` her rol için.
 
 
 | Yerleşik rolü | Açıklama |
@@ -83,6 +84,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Yeni Relic APM hesap katkıda bulunan](#new-relic-apm-account-contributor) | New Relic Application Performance Management hesaplarını ve uygulamalarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Okuyucu ve veri erişimi](#reader-and-data-access) | Sağlayan her şeyi görüntüleyebilir ancak silin veya bir depolama hesabı veya içerilen kaynağın oluşturma izin vermez. Ayrıca bir depolama hesabı depolama hesabı anahtarlarını erişimi aracılığıyla bulunan tüm verileri için okuma/yazma erişimine izin verir. |
 | [Redis önbelleği katkıda bulunan](#redis-cache-contributor) | Redis Cache'leri yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
+| [Kaynak İlkesi katkıda bulunan (Önizleme)](#resource-policy-contributor-preview) | (Önizleme) Kaynak ilkesi oluşturma/değiştirme, destek bileti oluşturma ve kaynakları/hiyerarşiyi okuma haklarıyla EA’dan kullanıcılar geri dolduruldu. |
 | [Zamanlayıcı İş koleksiyonları katkıda bulunan](#scheduler-job-collections-contributor) | Zamanlayıcı iş koleksiyonlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Arama hizmeti katkıda bulunan](#search-service-contributor) | Search hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Güvenlik Yöneticisi](#security-admin) | Yalnızca Güvenlik Merkezi'nde: görüntülemek güvenlik ilkeleri, güvenlik durumları görüntülemek, güvenlik ilkeleri, Uyarıları görüntüle ve öneriler düzenleme, uyarısı ve öneri yok sayın |
@@ -94,19 +96,23 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [SQL DB Katılımcısı](#sql-db-contributor) | SQL veritabanları, ancak onlara erişimi yönetmenize olanak tanır. Ayrıca, güvenlikle ilgili ilkelerini veya kendi üst SQL Server'lar yönetemezsiniz. |
 | [SQL Güvenlik Yöneticisi](#sql-security-manager) | SQL sunucularının ve veritabanlarının güvenlikle ilgili ilkelerini yönetmenizi sağlar ancak onlara erişimi yönetme izni vermez. |
 | [SQL Server katkıda bulunan](#sql-server-contributor) | SQL sunucularını ve veritabanlarını yönetmenizi sağlar ancak güvenlikle ilgili ilkelerini yönetmenize izin vermez. |
-| [Depolama hesabı katkıda bulunan](#storage-account-contributor) | Depolama hesaplarını yönetmenize izin verir ancak bunlara yönelik erişimi yönetmenize izin vermez. |
+| [Depolama Hesabı Katılımcısı](#storage-account-contributor) | Depolama hesaplarını yönetmenize izin verir ancak bunlara yönelik erişimi yönetmenize izin vermez. |
 | [Depolama hesabı anahtar işleci hizmeti rolü](#storage-account-key-operator-service-role) | Depolama Hesabı Anahtarı İşleçlerine, Depolama Hesaplarında anahtarları listeleme ve yeniden oluşturma izni verilir |
+| [Depolama Blob veri katkıda bulunan (Önizleme)](#storage-blob-data-contributor-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma, yazma ve silme erişimi verir |
+| [Depolama Blob veri Okuyucu (Önizleme)](#storage-blob-data-reader-preview) | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
+| [Depolama sırası veri katkıda bulunan (Önizleme)](#storage-queue-data-contributor-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
+| [Depolama sırası veri Okuyucu (Önizleme)](#storage-queue-data-reader-preview) | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
 | [Destek isteği katkıda bulunan](#support-request-contributor) | Destek istekleri oluşturmanıza ve bunları yönetmenize olanak sağlar |
 | [Trafik Yöneticisi katkıda bulunan](#traffic-manager-contributor) | Traffic Manager profillerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [Kullanıcı erişimi Yöneticisi](#user-access-administrator) | Azure kaynaklarına yönelik kullanıcı erişimini yönetmenizi sağlar. |
 | [Sanal makine yönetici oturum açma](#virtual-machine-administrator-login) | -  Bu role sahip kullanıcılar, bir sanal makinede Windows yöneticisi veya Linux kök kullanıcı ayrıcalıkları ile oturum açabilir. |
-| [Sanal makine Katılımcısı](#virtual-machine-contributor) | Sanal makineler, ancak onlara, erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenize olanak tanır. |
+| [Sanal Makine Katılımcısı](#virtual-machine-contributor) | Sanal makineler, ancak onlara, erişimi ve sanal ağ veya depolama hesabı bağlı oldukları yönetmenize olanak tanır. |
 | [Sanal makine kullanıcı oturum açma](#virtual-machine-user-login) | Bu role sahip kullanıcılar, bir sanal makinede normal kullanıcı olarak oturum açabilir. |
 | [Web planı katkıda bulunan](#web-plan-contributor) | Web siteleri için web planlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Web sitesi katkıda bulunan](#website-contributor) | Web sitelerini (web planlarını değil) yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 
 
-## <a name="owner"></a>Sahibi
+## <a name="owner"></a>Sahip
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -821,7 +827,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="log-analytics-contributor"></a>Log Analytics Katkıda Bulunanı
+## <a name="log-analytics-contributor"></a>Log Analytics Katkıda Bulunan
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1035,6 +1041,20 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Kaynak gruplarını alır veya listeler. |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
+## <a name="resource-policy-contributor-preview"></a>Kaynak İlkesine Katkıda Bulunan (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | (Önizleme) Kaynak ilkesi oluşturma/değiştirme, destek bileti oluşturma ve kaynakları/hiyerarşiyi okuma haklarıyla EA’dan kullanıcılar geri dolduruldu. |
+> | **Kimlik** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **Eylemler** |  |
+> | * / Okuma | Gizli dışındaki tüm türlerinin kaynakları okuyun. |
+> | Microsoft.Authorization/policyassignments/* | Oluşturma ve ilke atamalarını yönetme |
+> | Microsoft.Authorization/policydefinitions/* | Oluşturma ve ilke tanımları yönetme |
+> | Microsoft.Authorization/policysetdefinitions/* | Oluşturun ve ilke kümelerini yönetme |
+> | Microsoft.PolicyInsights/* |  |
+> | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
+
 ## <a name="scheduler-job-collections-contributor"></a>Zamanlayıcı İş Koleksiyonları Katılımcısı
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1192,7 +1212,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Korumalı öğe koruyun |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Test Yük Devretmesi |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Yük devretme sınaması temizliğini |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Yük devret |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Yük devretme |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Mobility hizmeti güncelleştirmesi |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Koruma kapsayıcısı eşlemeleri okuma |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Tüm kurtarma Hizmetleri sağlayıcılarını okuma |
@@ -1388,6 +1408,58 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Storage/storageAccounts/listkeys/action | Belirtilen depolama hesabının erişim anahtarlarını döndürür. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | Belirtilen depolama hesabının erişim anahtarlarını yeniden oluşturur. |
 
+## <a name="storage-blob-data-contributor-preview"></a>Depolama Blob Verileri Katkıda Bulunan (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma, yazma ve silme erişimi verir |
+> | **Kimlik** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **Eylemler** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Bir kapsayıcının silinmesinin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Bir kapsayıcı veya bir kapsayıcı listesi döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob kapsayıcısı koyma veya kiralama sonucunu döndürür |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Bir blobun silinmesinin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Bir blobu yazmanın sonucunu döndürür |
+
+## <a name="storage-blob-data-reader-preview"></a>Depolama Blob Verileri Okuyucu (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Depolama blob kapsayıcılarına ve verilerine yönelik okuma erişimi verir |
+> | **Kimlik** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **Eylemler** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Bir kapsayıcı veya bir kapsayıcı listesi döndürür |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Bir blobu veya blob listesini döndürür |
+
+## <a name="storage-queue-data-contributor-preview"></a>Depolama Kuyruk Verileri Katkıda Bulunan (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma, yazma ve silme erişimi verir |
+> | **Kimlik** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **Eylemler** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Bir kuyruğu silmenin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Bir kuyruğu veya kuyruk listesini döndürür. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | Bir kuyruğu yazmanın sonucunu döndürür |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Bir iletiyi silmenin sonucunu döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir ileti döndürür |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Bir iletiyi yazmanın sonucunu döndürür |
+
+## <a name="storage-queue-data-reader-preview"></a>Depolama Kuyruk Verileri Okuyucu (Önizleme)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Açıklama** | Azure Depolama kuyruklarına ve kuyruk iletilerine yönelik okuma erişimi verir |
+> | **Kimlik** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **Eylemler** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | Bir kuyruğu veya kuyruk listesini döndürür. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Bir ileti döndürür |
+
 ## <a name="support-request-contributor"></a>Destek İsteğine Katkıda Bulunan
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1437,6 +1509,9 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Network/loadBalancers/read | Yük Dengeleyici tanımını alır |
 > | Microsoft.Network/networkInterfaces/read | Ağ arabirimi tanımını alır.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Bir sanal makinede normal bir kullanıcı olarak oturum açın |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Windows yöneticisi veya Linux kök kullanıcı ayrıcalıklarıyla bir sanal makinede oturum açın |
 
 ## <a name="virtual-machine-contributor"></a>Sanal Makine Katılımcısı
 > [!div class="mx-tableFixed"]
@@ -1495,6 +1570,8 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Network/loadBalancers/read | Yük Dengeleyici tanımını alır |
 > | Microsoft.Network/networkInterfaces/read | Ağ arabirimi tanımını alır.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | Bir sanal makinede normal bir kullanıcı olarak oturum açın |
 
 ## <a name="web-plan-contributor"></a>Web Planı Katılımcısı
 > [!div class="mx-tableFixed"]

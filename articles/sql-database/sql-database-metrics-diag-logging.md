@@ -7,14 +7,15 @@ author: veljko-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: vvasic
-ms.openlocfilehash: c18d4d175bace79fefedc09fb887e707b8c066d9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c9126080db4d8091b672a9250c68a5c5590e10c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650188"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database ölçümleri ve tanılama günlükleri 
 Azure SQL veritabanı yayma ölçümleri ve tanılama daha kolay izleme günlükleri. SQL Veritabanını kaynak kullanımını, çalışanları, oturumları ve bu Azure kaynaklarından birine yapılan bağlantıları kaydedecek şekilde yapılandırabilirsiniz:

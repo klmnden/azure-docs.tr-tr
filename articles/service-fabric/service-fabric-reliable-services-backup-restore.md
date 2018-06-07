@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643041"
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Ve Reliable Services ve Reliable Actors geri yükleme
 Azure Service Fabric durumu bu yüksek kullanılabilirliği sürdürmek için birden çok düğümlere çoğaltır yüksek kullanılabilirlik platformudur.  Kümedeki bir düğümün başarısız olsa bile, bu nedenle, hizmetlerin kullanılabilir olmaya devam edin. Platform tarafından sağlanan bu-yerleşik artıklık bazı için yeterli olabilir, ancak belirli durumlarda, (bir dış depoya) verileri yedeklemek hizmeti için önerilir.
@@ -153,7 +154,7 @@ Ayrıca atabilirsiniz `ArgumentException` varsa `BackupFolderPath` artımlı yed
 > 
 
 ## <a name="deleted-or-lost-service"></a>Silinen veya kayıp hizmeti
-Bir hizmet kaldırılırsa, verileri geri yüklenebilmesi için önce ilk hizmet yeniden oluşturmanız gerekir.  Böylece veriler sorunsuz bir şekilde geri yüklenebilir, bölümleme hizmet aynı yapılandırması için oluşturmak önemlidir.  Verileri geri yüklemek için API, hizmet başladıktan sonra (`OnDataLossAsync` yukarıda) bu hizmetin her bölüme çağrılacak sahiptir. Tek yönlü elde kullanarak bu olup `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)` her bölüm üzerinde.  
+Bir hizmet kaldırılırsa, verileri geri yüklenebilmesi için önce ilk hizmet yeniden oluşturmanız gerekir.  Böylece veriler sorunsuz bir şekilde geri yüklenebilir, bölümleme hizmet aynı yapılandırması için oluşturmak önemlidir.  Verileri geri yüklemek için API, hizmet başladıktan sonra (`OnDataLossAsync` yukarıda) bu hizmetin her bölüme çağrılacak sahiptir. Tek yönlü elde kullanarak bu olup [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx) her bölüm üzerinde.  
 
 Bu noktadan uygulama yukarıdaki senaryo ile aynıdır. Dış depodan ilgili en son yedeklemeyi geri yüklemek her bölüm gerekir. Bir uyarı çalışma zamanı bölüm kimlikleri dinamik olarak oluşturur sonra bölüm kimliği artık, değişmiş olabilir emin olur. Bu nedenle, her bölüm için geri doğru son yedekleme tanımlamak için uygun bölüm bilgileri ve hizmet adı depolamak hizmet gerekir.
 
@@ -241,12 +242,12 @@ Kritik verilerin yedeklenmekte ve geri yüklenebileceği emin olmak önemlidir. 
 ## <a name="under-the-hood-more-details-on-backup-and-restore"></a>Başlık altında: yedekleme ve geri yükleme hakkında daha fazla bilgi
 Burada, bazı yedekleme ve geri yükleme hakkında daha fazla ayrıntı verilmiştir.
 
-### <a name="backup"></a>Yedekle
+### <a name="backup"></a>Backup
 Güvenilir durum Yöneticisi her okuma engellenmeden tutarlı yedeklemeler oluşturmak ya da yazma işlemleri olanağı sağlar. Bunu yapmak için bir denetim noktası ve günlük Kalıcılık mekanizması kullanır.  Güvenilir durum Yöneticisi işlem günlüğündeki baskısı hafifletmek ve kurtarma zamanları geliştirmek için bazı noktalarda belirsiz (Basit) kontrol noktalarını alır.  Zaman `BackupAsync` , güvenilir durum Yöneticisi tüm güvenilir nesneleri bildirir bunların en son denetim noktası dosyaları yerel bir yedekleme klasörüne kopyalamak için çağrılır.  Ardından, güvenilir durum Yöneticisi "Başlangıç işaretçi" yedekleme klasörüne en son günlük kaydı başlangıç tüm günlük kayıtları kopyalar.  En son günlük kaydının kadar tüm günlük kayıtları yedeklemeye dahil edilir ve güvenilir durum Yöneticisi yazma tamamlanan günlük korur olduğundan, tüm işlemler, kaydedilmiş olduğunu güvenilir durum Yöneticisi garanti eder (`CommitAsync` başarıyla verdi ) yedeklemeye dahil edilir.
 
 Sonra uygulayan herhangi bir işlem `BackupAsync` Mayıs adlı veya yedekleme olmayabilir.  Yerel yedekleme klasörü platform tarafından doldurulmuş sonra (diğer bir deyişle, yerel yedekleme çalışma zamanı tarafından tamamlandığını), hizmetin yedekleme geri çağırma çağrılır.  Yedekleme klasörü Azure depolama gibi harici bir konuma taşımak için bu geri çağırma sorumludur.
 
-### <a name="restore"></a>Geri yükle
+### <a name="restore"></a>Geri Yükleme
 Güvenilir durum Yöneticisi'ni kullanarak bir yedekten geri yükleme yeteneği sağlar `RestoreAsync` API.  
 `RestoreAsync` Yöntemi `RestoreContext` içinde yalnızca adlı `OnDataLossAsync` yöntemi.
 Tarafından döndürülen bool `OnDataLossAsync` hizmet bir dış kaynaktan durumuna geri olup olmadığını gösterir.

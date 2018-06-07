@@ -1,29 +1,29 @@
 ---
-title: "Azure zaman serisi Öngörüler'e bir olay hub'ı olay kaynağı ekleme | Microsoft Docs"
-description: "Bu makalede, bir olay hub'ına zaman serisi Öngörüler ortamınıza bağlı bir olay kaynağı eklemeyi açıklar."
-services: time-series-insights
+title: Azure zaman serisi Öngörüler'e bir olay hub'ı olay kaynağı ekleme | Microsoft Docs
+description: Bu makalede, bir olay hub'ına zaman serisi Öngörüler ortamınıza bağlı bir olay kaynağı eklemeyi açıklar.
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ed151160bd8bd0f0241e1a728fab53570e33a201
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656026"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Zaman serisi Öngörüler ortam için bir olay hub'ı olay kaynağı ekleme
 
 Bu makalede, bir Event Hub'ından zaman serisi Öngörüler ortamınıza verilerini okuyan bir olay kaynağı eklemek için Azure Portalı'nı kullanmayı açıklar.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 - Bir zaman serisi Öngörüler ortamı oluşturun. Daha fazla bilgi için bkz: [Azure zaman serisi Öngörüler ortam oluşturma](time-series-insights-get-started.md) 
-- Bir olay hub'ı oluşturun. Event Hubs hakkında daha fazla bilgi için bkz: [bir olay hub'ları ad alanı ve Azure portalını kullanarak bir event hub oluşturma](../event-hubs/event-hubs-create.md)
+- Olay Hub'ı oluşturma. Event Hubs hakkında daha fazla bilgi için bkz: [bir olay hub'ları ad alanı ve Azure portalını kullanarak bir event hub oluşturma](../event-hubs/event-hubs-create.md)
 - Olay hub'ı etkin ileti olayları gönderilen olmalıdır. Daha fazla bilgi için bkz: [.NET Framework kullanılarak Azure Event Hubs için olayları göndermek](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Gelen kullanmak için olay hub'zaman serisi Insight ortamı için ayrılmış bir tüketici grubu oluşturun. Herhangi bir tüketiciye paylaşılmayan kendi ayrılmış bir tüketici grubundaki her zaman serisi Öngörüler olay kaynağı olmalıdır. Birden çok okuyucular aynı tüketici grubu olaylarından kullanırsa, tüm okuyucular hatalar görmeniz olasıdır. Ayrıca olay hub'ı başına 20 tüketici grupları sınırı yoktur. Ayrıntılar için bkz [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md).
 
@@ -36,7 +36,7 @@ Bu makalede, bir Event Hub'ından zaman serisi Öngörüler ortamınıza veriler
 
    ![Olay kaynakları + Ekle](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
 
-4. Tıklatın **+ Ekle**.
+4. **+ Ekle**'ye tıklayın.
 
 5. Sağlayan bir **olay kaynağı adı** bu zaman serisi Öngörüler ortamına benzersiz gibi **olay akışı**.
 
@@ -54,13 +54,13 @@ Bu makalede, bir Event Hub'ından zaman serisi Öngörüler ortamınıza veriler
 
    | Özellik | Açıklama |
    | --- | --- |
-   | Abonelik kimliği | Bu olay hub'ının oluşturulduğu abonelik seçin.
-   | Hizmet veri yolu ad alanı | Olay hub'ı içeren Service Bus ad alanı seçin.
+   | Abonelik Kimliği | Bu olay hub'ının oluşturulduğu abonelik seçin.
+   | Service bus ad alanı | Olay hub'ı içeren Service Bus ad alanı seçin.
    | Olay hub'ı adı | Olay hub'ı adını seçin.
    | Olay hub'ı ilke adı | Olay hub'ı yapılandırma sekmesinde oluşturulabilmesi için paylaşılan erişim ilkesi seçin. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağı için paylaşılan erişim ilkesi *gerekir* sahip **okuma** izinleri.
    | Olay hub'ı İlkesi anahtarı | Anahtar değeri önceden girilmiş.
    | Olay hub tüketici grubu | Olay Hub'ından olayları okumak için tüketici grubu. Olay kaynağı için ayrılmış bir tüketici grubu kullanmak için önerilir. |
-   | Olayı seri hale getirme biçimi | JSON günümüzde yalnızca serileştirme şeklindedir. Olay iletileri bu biçiminde olması gerekir veya hiç veri okuyabilir. |
+   | Olay serileştirme biçimi | JSON günümüzde yalnızca serileştirme şeklindedir. Olay iletileri bu biçiminde olması gerekir veya hiç veri okuyabilir. |
    | Zaman damgası özelliği adı | Bu değeri belirlemek için olay Hub'ına gönderilen ileti verilerin ileti biçimi anlamanız gerekir. Bu değer **adı** olay zaman damgası kullanmak istediğiniz ileti veri belirli olay özelliğinin. Değeri büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** içinde olay kaynağı olay zaman damgası kullanılır. |
 
 
@@ -70,12 +70,12 @@ Bu makalede, bir Event Hub'ından zaman serisi Öngörüler ortamınıza veriler
    | --- | --- |
    | Abonelik Kimliği | Bu olay hub'ının oluşturulduğu abonelik.
    | Kaynak grubu | Bu olay hub'ının oluşturulduğu kaynak grubu.
-   | Hizmet veri yolu ad alanı | Bir hizmet veri yolu ad alanı, Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır. Yeni bir olay hub'ı oluşturduğunuzda, hizmet veri yolu ad alanı da oluşturmuş olursunuz.
+   | Service bus ad alanı | Bir hizmet veri yolu ad alanı, Mesajlaşma varlıkları kümesine ilişkin bir kapsayıcıdır. Yeni bir olay hub'ı oluşturduğunuzda, hizmet veri yolu ad alanı da oluşturmuş olursunuz.
    | Olay hub'ı adı | Olay Hub'ınızı adı. Olay hub'ınızı oluşturduğunuzda, ona bir özel ad da vermiş.
    | Olay hub'ı ilke adı | Paylaşılan Erişim İlkesi olay hub'ı yapılandırma sekmesinde oluşturulabilir. Her paylaşılan erişim ilkesinin bir adı, ayarlayın ve erişim anahtarları izinleri vardır. Olay kaynağı için paylaşılan erişim ilkesi *gerekir* sahip **okuma** izinleri.
    | Olay hub'ı İlkesi anahtarı | Hizmet veri yolu ad alanına erişimi kimlik doğrulaması için kullanılan paylaşılan erişim anahtarı. Birincil veya ikincil anahtarı buraya girin.
    | Olay hub tüketici grubu | Olay Hub'ından olayları okumak için tüketici grubu. Olay kaynağı için ayrılmış bir tüketici grubu kullanmak için önerilir.
-   | Olayı seri hale getirme biçimi | JSON günümüzde yalnızca serileştirme şeklindedir. Olay iletileri bu biçiminde olması gerekir veya hiç veri okuyabilir. |
+   | Olay serileştirme biçimi | JSON günümüzde yalnızca serileştirme şeklindedir. Olay iletileri bu biçiminde olması gerekir veya hiç veri okuyabilir. |
    | Zaman damgası özelliği adı | Bu değeri belirlemek için olay Hub'ına gönderilen ileti verilerin ileti biçimi anlamanız gerekir. Bu değer **adı** olay zaman damgası kullanmak istediğiniz ileti veri belirli olay özelliğinin. Değeri büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** içinde olay kaynağı olay zaman damgası kullanılır. |
 
 

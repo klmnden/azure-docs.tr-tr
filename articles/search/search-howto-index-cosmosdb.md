@@ -7,14 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640345"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Azure Search'te dizin oluşturucular kullanma Cosmos DB bağlanma
 
@@ -96,7 +97,7 @@ Bir veri kaynağı oluşturmak için bir POST yapın:
 * **tür**: olmalıdır `documentdb`.
 * **kimlik bilgileri**:
   
-  * **connectionString**: gerekli. Azure Cosmos DB veritabanınıza bağlantı bilgileri şu biçimde belirtin: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` için MongoDB koleksiyonlar eklemek **ApiKind MongoDB =** bağlantı dizesi: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  * **connectionString**: gerekli. Azure Cosmos DB veritabanınıza bağlantı bilgileri şu biçimde belirtin: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` için MongoDB koleksiyonlar eklemek **ApiKind MongoDb =** bağlantı dizesi: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **kapsayıcı**:
   
   * **ad**: gerekli. Sıralanacak veritabanı koleksiyon kimliğini belirtin.
@@ -177,7 +178,7 @@ Hedef dizin şeması kaynak JSON belgelerinin şemasını veya özel sorgu proje
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>JSON veri türleri ve Azure Search'te veri türleri arasında eşleme
 | JSON veri türü | Uyumlu hedef dizin alan türleri |
 | --- | --- |
-| Bool |Edm.Boolean, Edm.String |
+| bool |Edm.Boolean, Edm.String |
 | Tamsayıları gibi ara numaraları |EDM.Int32, EDM.Int64, Edm.String |
 | Bu görünümlü kayan nokta sayıları |Edm.Double, Edm.String |
 | Dize |Edm.String |

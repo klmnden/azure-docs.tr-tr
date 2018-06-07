@@ -4,7 +4,7 @@ description: SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656202"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -539,9 +540,10 @@ Biz müşteri olarak dağıtılan VM Azure standart depolama alanından Azure Pr
 Yönetilen diskleri kullanırsanız, Premium Depolama tarafından geçirebilirsiniz:
 
 1. Sanal makine serbest bırakma
-2. Gerekirse, Premium Storage (örneğin DS veya GS) destekleyen bir boyut sanal makine yeniden boyutlandırma
-3. Premium (SSD) Disk yönetilen hesap türünü değiştirme
-4. Sanal makineyi Başlat
+1. Gerekirse, Premium Storage (örneğin DS veya GS) destekleyen bir boyut sanal makine yeniden boyutlandırma
+1. Premium (SSD) Disk yönetilen hesap türünü değiştirme
+1. Veri disklerinin bölümde önerildiği önbelleğe alma değiştirmek [VM'ler ve veri diskleri için önbelleğe alma][dbms-guide-2.1]
+1. Sanal makineyi Başlat
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>VM dağıtımı Azure SAP için
 Microsoft Azure sanal makineleri ve ilişkili diskleri dağıtmak için birden çok yol sunar. Böylece VM'lerin hazırlıklar dağıtım yol bağımlı değişebilir beri farkları anlamak önemlidir. Genel olarak, biz aşağıdaki bölümlerde açıklanan senaryoları içine bakın.

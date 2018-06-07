@@ -1,13 +1,13 @@
 ---
-title: "SAP çoklu SID yapılandırma oluşturma | Microsoft Docs"
-description: "Yüksek kullanılabilirlik SAP NetWeaver çoklu SID yapılandırma için Windows sanal makineleri Kılavuzu"
+title: SAP çoklu SID yapılandırma oluşturma | Microsoft Docs
+description: Yüksek kullanılabilirlik SAP NetWeaver çoklu SID yapılandırma için Windows sanal makineleri Kılavuzu
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 0b89b4f8-6d6c-45d7-8d20-fe93430217ca
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b48df78df9f53ac7bf0804f55a8d36a2fe2f86b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 570c427166c07e93d3c8a7d3be079d9007238243
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656831"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver çoklu SID yapılandırması oluştur
 
@@ -54,7 +55,7 @@ Bir SAP dağıtımınız varsa, bir iç yük dengeleyici SAP ASCS/SCS için bir 
 Bu makalede, varolan bir Windows Server Yük Devretme Kümelemesi (WSFC) kümesine ek SAP ASCS/SCS kümelenmiş örneklerini yükleyerek tek bir ASCS/SCS yüklemesinden bir SAP çoklu SID yapılandırmasına taşıma odaklanır. Bu işlem tamamlandığında, bir SAP çoklu SID küme yapılandırılmış.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Zaten bir SAP ASCS/SCS örnek için kullanılan bir WSFC kümesinin anlatıldığı gibi yapılandırdığınız [yüksek kullanılabilirlik SAP NetWeaver Kılavuzu Windows vm'lerde] [ sap-ha-guide] ve bu diyagramda gösterildiği gibi.
 
 ![Yüksek kullanılabilirlik SAP ASCS/SCS örneği][sap-ha-guide-figure-6001]

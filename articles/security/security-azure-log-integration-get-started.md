@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/20/2018
-ms.author: TomSh
+ms.date: 05/25/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8ceffb666eb18ee7b087ad1e1dbc27b57388ee49
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641205"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure tanılama günlüğünü ve Windows Olay iletme özelliğini Azure günlük tümleştirme
 
-Azure günlük tümleştirmesi sağlayan bir alternatif if müşterilerle bir [Azure İzleyici](../monitoring-and-diagnostics/monitoring-get-started.md) bağlayıcı kendi güvenlik olay ve Olay yönetimi (SIEM) satıcıdan kullanılamaz. Tüm varlıklar için bir birleşik güvenlik Pano oluşturabilmesi için azure günlük tümleştirme Azure günlükleri, SIEM sisteminize kullanılabilmesini sağlar.
+Yalnızca Azure günlük tümleştirme kullanmalısınız bir [Azure İzleyici](../monitoring-and-diagnostics/monitoring-get-started.md) bağlayıcı güvenlik olay ve Olay yönetimi (SIEM) satıcınızdan kullanılamaz.
 
-> [!NOTE]
-> Azure İzleyicisi hakkında daha fazla bilgi için bkz: [Azure İzleyicisi ile çalışmaya başlama](../monitoring-and-diagnostics/monitoring-get-started.md). Bir Azure İzleyici Bağlayıcısı durumu hakkında daha fazla bilgi için SIEM satıcınıza başvurun.
+Tüm varlıklar için bir birleşik güvenlik Pano oluşturabilmesi için azure günlük tümleştirme Azure günlükleri, SIEM sisteminize kullanılabilmesini sağlar.
+Bir Azure İzleyici Bağlayıcısı durumu hakkında daha fazla bilgi için SIEM satıcınıza başvurun.
 
 > [!IMPORTANT]
 > Birincil ilgi sanal makine günlüklerinin toplanması, çoğu SIEM satıcısını kendi çözümde bu seçenek içerir. SIEM satıcının bağlayıcı her zaman tercih edilen alternatif kullanmaktır.
@@ -111,14 +112,14 @@ Temel kurulum tamamlandıktan sonra yükleme sonrası ve doğrulama adımları g
   ![LoadAzlogModule.ps1 komutunun çıkışını ekran görüntüsü](./media/security-azure-log-integration-get-started/loaded-modules.png)
 3. Ardından, belirli bir Azure ortamı kullanmak üzere Azure günlük tümleştirme yapılandırın. Bir *Azure ortamı* birlikte çalışmak istediğiniz Azure bulut veri merkezine türüdür. Olmakla birlikte birkaç Azure ortamı, şu anda, uygun seçenekleri olan **AzureCloud** veya **AzureUSGovernment**. PowerShell'i yönetici olarak çalıştırma C:\Program Files\Microsoft Azure günlük Integration\ içinde olduğundan emin olun. Ardından, bu komutu çalıştırın:
 
-  `Set-AzlogAzureEnvironment -Name AzureCloud` (for **AzureCloud**)
+  `Set-AzlogAzureEnvironment -Name AzureCloud` (için **AzureCloud**)
   
   US Government Azure bulut kullanmak istiyorsanız, kullanmak **AzureUSGovernment** için **-Name** değişkeni. Şu anda, diğer Azure bulut desteklenmez.  
 
   > [!NOTE]
   > Komut başarılı olduğunda, geri bildirim alırsınız yok. 
 
-4. Bir sistem izleyebilmeniz için Azure tanılama kullanılan depolama hesabı adı gerekir. Azure portalında Git **sanal makineleri**. Sanal makine için izlediğiniz arayın. İçinde **özellikleri** bölümünde, select **tanılama ayarlarını**.  Ardından, seçin **Aracısı**. Belirtilen depolama hesabı adını not edin. Bu hesap adı, sonraki adım için gerekir.
+4. Bir sistem izleyebilmeniz için Azure tanılama kullanılan depolama hesabı adı gerekir. Azure portalında Git **sanal makineleri**. İzleyeceğiniz bir Windows sanal makine için bakın. İçinde **özellikleri** bölümünde, select **tanılama ayarlarını**.  Ardından, seçin **Aracısı**. Belirtilen depolama hesabı adını not edin. Bu hesap adı, sonraki adım için gerekir.
 
   ![Azure tanılama ayarları bölmesinin ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
@@ -134,14 +135,14 @@ Temel kurulum tamamlandıktan sonra yükleme sonrası ve doğrulama adımları g
   4. Azure'da oturum açın.
   5. Azure tanılama için yapılandırılan depolama hesabı görebildiğini doğrulayın: 
 
-    ![Depolama hesaplarının Depolama Gezgini ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![Depolama hesaplarının Depolama Gezgini ekran görüntüsü](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
   6. Bazı seçenekler depolama hesapları altında görünür. Altında **tabloları**, adlı bir tablo görmelisiniz **WADWindowsEventLogsTable**.
 
   Sanal makine oluşturulduğunda izleme değildi etkinleştirilirse, bu, daha önce açıklandığı şekilde etkinleştirebilirsiniz.
 
 
-## <a name="integrate-azure-diagnostics-logging"></a>Azure tanılama günlük tümleştirme
+## <a name="integrate-windows-vm-logs"></a>Windows VM günlükleri tümleştirme
 
 Bu adımda, günlük dosyalarını içeren depolama hesabına bağlanmak üzere Azure günlük tümleştirme hizmeti çalıştıran makine yapılandırın.
 
@@ -178,7 +179,7 @@ Depolama anahtarı edinmek için aşağıdaki adımları tamamlayın:
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  Örnek: 
+  Örnek:
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -207,8 +208,37 @@ Yükleme ve yapılandırma sırasında herhangi bir sorunla çalıştırırsanı
 
 Başka bir destek seçenek [Azure günlük tümleştirme MSDN Forumu](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration). MSDN Forumu'nda topluluk sorulara yanıt verilmesi ve ipuçları ve püf noktaları en iyi Azure günlük tümleştirme alma hakkında paylaşarak destek sağlar. Azure günlük tümleştirme takım de Bu forumda izler. Bunlar için her yardımcı olurlar.
 
+## <a name="integrate-azure-activity-logs"></a>Azure etkinlik günlükleri tümleştirme
+
+Azure etkinlik günlüğü, Azure'da oluşan abonelik düzeyinde olaylar hakkında bilgi sağlayan bir abonelik günlüktür. Bu verileri, Azure Resource Manager işlemsel veri hizmeti sistem durumu olayları güncelleştirmeleri için bir aralığı içerir. Azure Güvenlik Merkezi uyarılarını de bu günlüğüne dahil edilir.
+> [!NOTE]
+> Bu makaledeki adımları denemeden önce gözden geçirmeniz gerekir [başlama](security-azure-log-integration-get-started.md) makalesini inceleyip var. adımlarını tamamlayın.
+
+### <a name="steps-to-integrate-azure-activity-logs"></a>Azure etkinlik günlükleri tümleştirmek için adımları
+
+1. Komut istemi açın ve şu komutu çalıştırın:  ```cd c:\Program Files\Microsoft Azure Log Integration```
+2. Bu komutu çalıştırın:  ```azlog createazureid```
+
+    Bu komut için Azure oturum açma bilgilerinizi ister. Komutu daha sonra bir Azure Active Directory oturum açma kullanıcı bir yönetici, bir ortak yönetici veya sahibi olduğu Azure abonelikleri barındıran Azure AD kiracılar hizmet sorumlusu oluşturur. Oturum açma kullanıcı yalnızca Konuk kullanıcı olarak Azure AD kiracısı ise komut başarısız olur. Azure kimlik doğrulaması Azure AD üzerinden yapılır. Azure günlük tümleştirmesi için bir hizmet sorumlusu oluşturma Azure aboneliklerinden okuma erişimi verilir Azure AD kimlik oluşturur.
+3.  Abonelik için okuma etkinlik günlüğü önceki adımı erişimin oluşturulan Azure günlük tümleştirme hizmet sorumlusu yetkilendirmek için aşağıdaki komutu çalıştırın. Komutu çalıştırmak için aboneliğe sahip olmanız gerekir.
+
+    ```Azlog.exe authorize subscriptionId``` Örnek:
+
+```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+4.  Azure Active Directory denetim günlüğü JSON dosyalarını bunları oluşturulduğunu doğrulamak için aşağıdaki klasörler denetleyin:
+    - C:\Users\azlog\AzureResourceManagerJson
+    - C:\Users\azlog\AzureResourceManagerJsonLD
+
+> [!NOTE]
+> Güvenlik bilgileri ve Olay yönetimi (SIEM) sistem bilgileri JSON dosyalarında getiren ayrıntılı yönergeler için SIEM satıcınıza başvurun.
+
+Topluluk Yardım ile de kullanılabilir [Azure günlük tümleştirme MSDN Forumu](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration). Bu forumda birbirine soruları yanıtlar, ipuçları ve püf noktaları ile desteklemek için Azure günlük tümleştirme topluluk kişilere sağlar. Ayrıca, Azure günlük tümleştirme takım Bu forumda izler ve mümkün olduğunca yardımcı olur.
+
+Ayrıca açabilirsiniz bir [destek isteği](../azure-supportability/how-to-create-azure-support-request.md). Günlük tümleştirme destek isteğinde hizmet olarak seçin.
+
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure günlük tümleştirmesi hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
+
+Azure günlük tümleştirmesi hakkında daha fazla bilgi için aşağıdaki makalelere bakın: Bu makaledeki adımları denemeden önce Get başlatılan makalesini gözden geçirin ve var. adımları gerekir.
 
 * [Azure günlükleri için Azure günlük tümleştirme](https://www.microsoft.com/download/details.aspx?id=53324). İndirme Merkezi'nden ayrıntıları, sistem gereksinimleri ve yükleme yönergeleri için Azure günlük tümleştirmeyi içerir.
 * [Azure günlük tümleştirme giriş](security-azure-log-integration-overview.md). Bu makalede Azure günlük tümleştirme, önemli işlevleri ve nasıl çalıştığı tanıtılır.

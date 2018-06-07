@@ -8,12 +8,13 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.topic: article
-ms.openlocfilehash: bd9554a18775cf98f4415ebd5d4b0d52edc53718
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.openlocfilehash: d22c9a05d1fe56d71eb901c0a4bf22c179dfe937
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646924"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Yeni bir Azure SQL veritabanı için bir BACPAC dosyasını içeri aktarın
 
@@ -101,6 +102,9 @@ $importStatus
 
 > [!TIP]
 Başka bir komut dosyası örneği için bkz: [bir BACPAC dosyadan bir veritabanı](scripts/sql-database-import-from-bacpac-powershell.md).
+
+## <a name="limitations"></a>Sınırlamalar
+- Esnek havuz veritabanı alma işlemi desteklenmiyor. Verileri bir singleton veritabanına ve ardından veritabanını bir havuza taşımak.
 
 ## <a name="import-using-other-methods"></a>Başka yöntemler kullanarak içeri aktarma
 

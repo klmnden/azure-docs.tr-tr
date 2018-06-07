@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2018
+ms.date: 05/30/2018
 ms.author: johnkem; magoedte
-ms.openlocfilehash: 00b990181e5bb96f122ff1ae530dd027a772b210
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7d1ab75146c9899bf2699309cd5dd4ed523096ef
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638815"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Toplamak ve Azure kaynaklarınızdan günlük verilerini kullanma
 
@@ -54,7 +55,7 @@ Kaynağın tanılama günlüklerini olmayan-kaynakları kaynak tanılama ayarlar
 * Her günlük kategori bir depolama hesabında ne kadar süre tutulacağını
     - Sıfır gün bekletme günlükleri sonsuza kadar tutulur anlamına gelir. Aksi takdirde, değer 1 ile 2147483647 arasındaki gün herhangi bir sayıda olabilir.
     - Bekletme ilkeleri ayarlanır, ancak yalnızca (örneğin, olay hub'ları veya günlük analizi seçenekler seçilidir) günlükleri bir depolama hesabında depolama devre dışı bırakıldı, bekletme ilkeleri bir etkisi yoktur.
-    - Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek.
+    - Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar.
 
 Bu ayarlar Azure portalında bir kaynak için tanılama ayarları aracılığıyla, CLI komutları ve Azure PowerShell aracılığıyla veya aracılığıyla kolayca yapılandırılır [Azure İzleyici REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 

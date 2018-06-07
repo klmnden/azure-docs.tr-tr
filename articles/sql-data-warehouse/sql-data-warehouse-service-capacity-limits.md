@@ -10,11 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a2a6c78444cb385a2e74b108000555ff056fe9f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 233cba790aff60121bd1fdf43667ac48a5ef668d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644945"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapasite sınırları
 Azure SQL Data Warehouse çeşitli bileşenler için izin verilen maksimum değer.
@@ -32,7 +33,7 @@ Azure SQL Data Warehouse çeşitli bileşenler için izin verilen maksimum değe
 ## <a name="database-objects"></a>Veritabanı nesneleri
 | Kategori | Açıklama | Maksimum |
 |:--- |:--- |:--- |
-| Database |Maksimum boyut |Disk üzerinde sıkıştırılmış 240 TB<br/><br/>Bu alan, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış olabilir.  Kümelenmiş columnstore sıkıştırma 5 X tahmin.  Bu sıkıştırma yaklaşık 1 büyümeye veritabanı sağlayan tüm tabloları kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. |
+| Database |Maksimum boyut | Gen1: 240 disk üzerinde sıkıştırılmış TB. Bu alan, tempdb veya günlük alanının bağımsızdır ve bu nedenle bu alanı kalıcı tablolara ayrılmış olabilir.  Kümelenmiş columnstore sıkıştırma 5 X tahmin.  Bu sıkıştırma yaklaşık 1 büyümeye veritabanı sağlayan tüm tabloları kümelenmiş columnstore (varsayılan tablo türü) olduğunda PB. <br/><br/> Gen2: rowstore ve columnstore tabloları için sınırsız depolama 240TB |
 | Tablo |Maksimum boyut |60 disk üzerinde sıkıştırılmış TB |
 | Tablo |Her bir veritabanı tabloları |10,000 |
 | Tablo |Tablo başına sütun |1024 sütunları |
@@ -40,10 +41,10 @@ Azure SQL Data Warehouse çeşitli bileşenler için izin verilen maksimum değe
 | Tablo |Satır, tanımlanmış boyut başına bayt sayısı |Açıklama 8060 baytlık<br/><br/>Satır başına bayt sayısı, sayfa sıkıştırması ile SQL Server için olduğu gibi aynı şekilde hesaplanır. SQL Server gibi SQL veri ambarı etkinleştirir satır taşma depolama destekleyen **değişken uzunluğu sütununa** satır dışı edilmesini. Değişken uzunlukta satır satır dışı basıldığında yalnızca 24-bayt kök ana kayıtta depolanır. Daha fazla bilgi için bkz: [veri satırı taşma aşan 8 KB'lik](https://msdn.microsoft.com/library/ms186981.aspx). |
 | Tablo |Tablo başına bölüm |15,000<br/><br/>Yüksek performans, sayısını en aza indirmenizi öneririz bölümlerini hala iş gereksinimlerinizi destekleyen while. Bölüm sayısı arttıkça, ek yükü veri tanımlama dili (DDL) ve veri işleme dili (DML) işlemleri için büyür ve performans neden olur. |
 | Tablo |Karakter başına bölüm sınır değeri. |4000 |
-| Dizin |Tablo başına olmayan Kümelenmiş dizinler. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
-| Dizin |Tablo başına Kümelenmiş dizinler. |1<br><br/>Rowstore ve columnstore tabloları için geçerlidir. |
-| Dizin |Dizin anahtarı boyutu. |900 bayt sayısı.<br/><br/>Yalnızca rowstore dizinler için geçerlidir.<br/><br/>Dizin oluşturulduğunda sütunlardaki var olan verileri 900 bayt aşmayan, dizinleri birden fazla 900 bayt maksimum boyuta sahip varchar sütunlarda oluşturulabilir. Ancak, daha sonra ekleme veya güncelleştirme eylemleri toplam boyutu 900 baytı aşmasına neden sütunlar üzerinde başarısız olur. |
-| Dizin |Dizin başına anahtar sütun. |16<br/><br/>Yalnızca rowstore dizinler için geçerlidir. Kümelenmiş columnstore dizinleri tüm sütunları içerir. |
+| Dizin oluşturma |Tablo başına olmayan Kümelenmiş dizinler. |50<br/><br/>Yalnızca rowstore tablolar için geçerlidir. |
+| Dizin oluşturma |Tablo başına Kümelenmiş dizinler. |1<br><br/>Rowstore ve columnstore tabloları için geçerlidir. |
+| Dizin oluşturma |Dizin anahtarı boyutu. |900 bayt sayısı.<br/><br/>Yalnızca rowstore dizinler için geçerlidir.<br/><br/>Dizin oluşturulduğunda sütunlardaki var olan verileri 900 bayt aşmayan, dizinleri birden fazla 900 bayt maksimum boyuta sahip varchar sütunlarda oluşturulabilir. Ancak, daha sonra ekleme veya güncelleştirme eylemleri toplam boyutu 900 baytı aşmasına neden sütunlar üzerinde başarısız olur. |
+| Dizin oluşturma |Dizin başına anahtar sütun. |16<br/><br/>Yalnızca rowstore dizinler için geçerlidir. Kümelenmiş columnstore dizinleri tüm sütunları içerir. |
 | İstatistikler |Birleşik sütun değerlerini boyutu. |900 bayt sayısı. |
 | İstatistikler |Sütun istatistikleri nesne başına. |32 |
 | İstatistikler |Tablo başına sütunlar üzerinde oluşturulan istatistikleri. |30,000 |

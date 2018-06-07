@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 20bcb822ff39b9587a479fd6cc43b7daa9b83627
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654292"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux çalıştıran N-serisi Vm'lerinde NVIDIA GPU sürücüleri yükleyin
 
@@ -30,7 +31,7 @@ N-serisi VM özellikleri, depolama kapasitesi ve disk Ayrıntılar için bkz: [G
 
 [!INCLUDE [virtual-machines-n-series-linux-support](../../../includes/virtual-machines-n-series-linux-support.md)]
 
-## <a name="install-cuda-drivers-for-nc-ncv2-ncv3-and-nd-series-vms"></a>NC, NCv2, NCv3 ve ND-serisi VM'ler CUDA sürücüleri yükleyin
+## <a name="install-cuda-drivers-on-n-series-vms"></a>N-serisi Vm'lerinde CUDA sürücüleri yükleyin
 
 N-serisi vm'lerde NVIDIA CUDA araç setinden CUDA sürücülerini yüklemek için adımlar şunlardır. 
 
@@ -155,7 +156,7 @@ Sürücü yüklüyse, aşağıdakine benzer bir çıktı görürsünüz. Unutmay
 
 ## <a name="rdma-network-connectivity"></a>RDMA ağ bağlantısı
 
-Aynı kullanılabilirlik kümesinde veya VM ölçek kümesi NC24r dağıtılmış gibi RDMA ağ bağlantısı RDMA özellikli N-serisi Vm'lerinde etkinleştirilebilir. RDMA ağ Intel MPI ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğini destekler 5.x veya sonraki bir sürümü. Ek gereksinimler izleyin:
+NC24r aynı kullanılabilirlik kümesi içinde veya VM ölçek kümesi tek yerleştirme grubunda dağıtılan gibi RDMA ağ bağlantısı RDMA özellikli N-serisi Vm'lerinde etkinleştirilebilir. RDMA ağ Intel MPI ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğini destekler 5.x veya sonraki bir sürümü. Ek gereksinimler izleyin:
 
 ### <a name="distributions"></a>Dağıtımlar
 
@@ -167,7 +168,7 @@ RDMA bağlantısı N-serisi Vm'lerinde destekleyen Azure Market görüntülerini
 
 * **CentOS tabanlı 7.4 HPC** -RDMA sürücüleri ve Intel MPI 5.1 VM yüklenir.
 
-## <a name="install-grid-drivers-for-nv-series-vms"></a>NV-serisi VM'ler için kılavuz sürücüleri yükleyin
+## <a name="install-grid-drivers-on-nv-series-vms"></a>NV-serisi Vm'lerinde kılavuz sürücüleri yükleyin
 
 NV-serisi Vm'lerinde NVIDIA kılavuz sürücüleri yüklemek için her bir VM için bir SSH bağlantısı ve Linux dağıtımınız için adımları izleyin. 
 
@@ -330,7 +331,7 @@ BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 |
 if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
 ```
 
-Ardından, güncelleştirmeyi betiğinizde için bir giriş oluşturun `/etc/rc.d/rc3.d` şekilde komut dosyasının kök önyüklemede olarak çağrılır.
+Ardından, güncelleştirme komut dosyanıza için bir giriş oluşturun `/etc/rc.d/rc3.d` şekilde komut dosyasının kök önyüklemede olarak çağrılır.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

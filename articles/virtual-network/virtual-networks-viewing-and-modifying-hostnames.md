@@ -12,24 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2016
+ms.date: 05/24/2018
 ms.author: genli
-ms.openlocfilehash: 9bf57eac2176444ed408d90723009118bd411480
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f4c602368368e8ef36581d3f035ff3943a8f0d8f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657290"
 ---
 # <a name="viewing-and-modifying-hostnames"></a>Görüntüleme ve ana bilgisayar adları değiştirme
 Ana bilgisayar adına göre başvurulacak rolü örneklerinizi izin vermek için her bir rol hizmeti yapılandırma dosyasında ana bilgisayar adı değeri ayarlamanız gerekir. İstenen konak adına ekleyerek bunu **vmName** özniteliği **rol** öğesi. Değeri **vmName** özniteliği her rol örneği ana bilgisayar adı için temel olarak kullanılır. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, ana bilgisayar adlarını örneklerinin olacaktır *webrole0*, *webrole1*, ve *webrole2*. Sanal makine adına dayalı bir sanal makine için konak adı doldurulmuş için sanal makineler için bir konak adı yapılandırma dosyasında belirtmek gerekmez. Bir Microsoft Azure hizmet yapılandırma hakkında daha fazla bilgi için bkz: [Azure hizmet yapılandırma şeması (.cscfg dosyası)](https://msdn.microsoft.com/library/azure/ee758710.aspx)
 
 ## <a name="viewing-hostnames"></a>Ana bilgisayar adları görüntüleme
 Sanal makineler ve rol örnekleri ana bilgisayar adlarını aşağıdaki araçlardan birini kullanarak bir bulut hizmetinde görüntüleyebilirsiniz.
-
-### <a name="azure-portal"></a>Azure Portal
-Kullanabileceğiniz [Azure portal](http://portal.azure.com) genel bakış dikey penceresinde bir sanal makine için sanal makineleri ana bilgisayar adlarını görüntülemek için. Dikey için bir değer gösterir göz önünde bulundurmanız **adı** ve **ana bilgisayar adı**. Bunlar başlangıçta aynı olsa da, ana bilgisayar adının değiştirilmesi sanal makine veya rol örneği adı değişmez.
-
-Rol örneklerine de Azure portalında görüntülenebilir, ancak bir bulut hizmeti örnekleri listelediğinizde, ana bilgisayar adı görüntülenmez. Her örneği için bir ad görürsünüz, ancak bu ad ana bilgisayar adını temsil etmiyor.
 
 ### <a name="service-configuration-file"></a>Hizmet yapılandırma dosyası
 Dağıtılan bir hizmet için hizmet yapılandırma dosyası indirebilirsiniz **yapılandırma** Azure portalında hizmetin dikey. Ardından arayabileceğiniz **vmName** için öznitelik **rol adı** ana bilgisayar adı görmek için öğesi. Bu ana bilgisayar adı, her rol örneği ana bilgisayar adı için temel olarak kullanıldığını aklınızda bulundurun. Örneğin, varsa **vmName** olan *webrole* ve bu rol üç örneği vardır, ana bilgisayar adlarını örneklerinin olacaktır *webrole0*, *webrole1*, ve *webrole2*.
@@ -46,7 +42,7 @@ Bir REST istemciden aşağıdaki yönergeleri izleyin:
 
 1. Azure Portalı'na bağlanmak için bir istemci sertifikası olduğundan emin olun. Bir istemci sertifikası edinmek için sunulan adımları izleyin [nasıl yapılır: indirme ve yayımlama ayarları içeri aktarma ve abonelik bilgileri](https://msdn.microsoft.com/library/dn385850.aspx). 
 2. X-ms-version değeri 2013-11-01 adlı bir üstbilgi girişi ayarlayın.
-3. Aşağıdaki biçimde bir istek gönderin: https://management.core.windows.net/ \<subscrition kimliği\>/services/hostedservices/\<hizmet adı\>? katıştırmak ayrıntı = true
+3. Aşağıdaki biçimde bir istek gönder: https://management.core.windows.net/\<subscrition-id\>/services/hostedservices/\<service-name\>?embed-detail=true
 4. Ara **ana bilgisayar adı** öğesini her **RoleInstance** öğesi.
 
 > [!WARNING]

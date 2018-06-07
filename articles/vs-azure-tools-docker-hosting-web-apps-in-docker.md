@@ -1,88 +1,60 @@
 ---
-title: "Bir ASP.NET Core Linux Docker kapsayıcısı uzak bir Docker konağına dağıtın | Microsoft Docs"
-description: "Bir Azure Docker ana Linux VM'de çalışan bir Docker kapsayıcısı ASP.NET Core web uygulama dağıtmak için Docker için Visual Studio Araçları kullanmayı öğrenin"
+title: Azure kapsayıcı kayıt defteri (ACR) için bir ASP.NET Docker kapsayıcısı dağıtma | Microsoft Docs
+description: Bir kapsayıcı kayıt defterine ASP.NET Core web uygulama dağıtmak için Docker için Visual Studio Araçları kullanmayı öğrenin
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: e5e81c5e-dd18-4d5a-a24d-a932036e78b9
 ms.service: azure-container-service
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2016
+ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658480"
 ---
-# <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>Bir ASP.NET kapsayıcısı uzak bir Docker konağına dağıtın
+# <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Visual Studio kullanarak bir kapsayıcı kayıt defterine bir ASP.NET kapsayıcı dağıtma
 ## <a name="overview"></a>Genel Bakış
 Docker ana uygulamalar ve hizmetler için kullanabileceğiniz bir sanal makineye, bazı şekillerde benzer bir basit kapsayıcı alt yapısıdır.
-Bu öğretici, kullanarak kılavuzluk [Docker için Visual Studio Araçları](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) Docker konağına PowerShell kullanarak Azure üzerinde ASP.NET Core uygulama dağıtmak için uzantı.
+Bu öğretici, Kapsayıcılı uygulamanızı yayımlamak için Visual Studio kullanarak kılavuzluk bir [Azure kapsayıcı kayıt defteri](https://azure.microsoft.com/en-us/services/container-registry).
 
-## <a name="prerequisites"></a>Ön koşullar
-Aşağıdakiler bu öğreticiyi tamamlamak için gereklidir:
+Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs) oluşturun.
 
-* Bir Azure Docker ana VM açıklandığı gibi oluşturmak [docker makine Azure ile kullanma](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* En son sürümünü yüklemek [Visual Studio](https://www.visualstudio.com/downloads/)
-* Karşıdan [Microsoft ASP.NET Core 1.0 SDK'sı](https://go.microsoft.com/fwlink/?LinkID=809122)
+## <a name="prerequisites"></a>Önkoşullar
+Bu öğreticiyi tamamlamak için:
+
+* En son sürümünü yüklemek [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/) "ASP.NET ve web geliştirme" iş yükü ile
 * Yükleme [Windows için Docker](https://docs.docker.com/docker-for-windows/install/)
 
-## <a name="1-create-an-aspnet-core-web-app"></a>1. Bir ASP.NET Core web uygulaması oluşturma
+## <a name="1-create-an-aspnet-core-web-app"></a>1. ASP.NET Core web uygulaması oluşturma
 Aşağıdaki adımlar Bu öğreticide kullanılan temel bir ASP.NET Core uygulama oluşturmada size yol.
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2. Docker desteği ekleme
-[!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
+## <a name="2-publish-your-container-to-azure-container-registry"></a>2. Azure kapsayıcı kayıt defterine, kapsayıcı yayımlama
+1. Projenize sağ **Çözüm Gezgini** ve **Yayımla**.
+2. Yayımlama hedefi iletişim kutusunda seçin **kapsayıcı kayıt defteri** sekmesi.
+3. Seçin **yeni Azure kapsayıcı kayıt defteri** tıklatıp **Yayımla**.
+4. İstenen değerlerinizi doldurun **yeni bir Azure kapsayıcı kayıt**.
 
-## <a name="3-use-the-dockertaskps1-powershell-script"></a>3. DockerTask.ps1 PowerShell komut dosyası kullan
-1. Projenizi kök dizininin bir PowerShell komut istemini açın. 
-   
-   ```
-   PS C:\Src\WebApplication1>
-   ```
-2. Uzak doğrulama konak çalışıyor. Durumunu görmelisiniz çalışan = 
-   
-   ```
-   docker-machine ls
-   NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
-   MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
-   ```
-   
-3. Uygulamasını kullanarak yapı yapı parametresi
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
-   ```  
+    | Ayar      | Önerilen değer  | Açıklama                                |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **DNS öneki** | Genel olarak benzersiz bir ad | Kapsayıcı kaydınız benzersiz olarak tanıtan adı. |
+    | **Abonelik** | Aboneliğinizi seçin | Kullanılacak Azure aboneliği. |
+    | **[Kaynak Grubu](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Kapsayıcı kaydınız oluşturulacağı kaynak grubunun adı. Seçin **yeni** yeni bir kaynak grubu oluşturmak için.|
+    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standart | Hizmet katmanı kapsayıcı kayıt defteri  |
+    | **Kayıt defteri konumu** | Yakın bir konum | Bir konumdan seçin bir [bölge](https://azure.microsoft.com/regions/) yakın veya kapsayıcı kaydınız kullanacağı diğer hizmetler yakın. |
+    ![Visual Studio'nun Oluştur Azure kapsayıcı kayıt defteri iletişim kutusu][0]
+5. **Oluştur**'a tıklayın
 
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
-   > ```  
-   > 
-   > 
-4. Uygulama Çalıştırma kullanarak Çalıştır parametresi
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
-   ```
-   
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
-   > ```
-   > 
-   > 
-   
-   Docker işlemi tamamlandıktan sonra aşağıdakine benzer sonuçlar görmeniz gerekir:
-   
-   ![Uygulamanızı görüntülemek][3]
+Artık kapsayıcı kayıt defterinden herhangi bir ana bilgisayara çalıştırabilen Docker görüntüler, örneğin çekebilir [Azure kapsayıcı örnekleri](./container-instances/container-instances-tutorial-deploy-app.md).
 
-[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
-[1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
-[2]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
-[3]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
+[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png

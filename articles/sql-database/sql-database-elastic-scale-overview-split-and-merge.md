@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c70279bd52f7b0b0e0cbc27742eca93d9af5e630
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 3c68b18a96ae79cd32cd3059eab837e6051847dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647427"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Ölçeği genişletilen bulut veritabanları arasında veri taşıma
 Bir hizmet geliştiricisi olarak yazılımlardır ve aniden uygulamanızı inanılmaz isteğe bağlı olduğunda, büyüme uyum sağlaması gerekmektedir. Bu nedenle daha fazla veritabanı (bölümler) ekleyin. Nasıl veri bütünlüğü kesintiye uğratmadan yeni veritabanları için veri dağıtabilir? Kullanım **bölünmüş Birleştirme aracı** verileri kısıtlanmış veritabanlarından yeni veritabanlarını taşımak için.  

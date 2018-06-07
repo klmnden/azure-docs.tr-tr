@@ -6,14 +6,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: ee6181baf7a16bc827d35aaf5d18b281bcf9c3f7
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ce5fe97a54b96d410d9f904231ff8ff39914d644
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649491"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>Halka arabelleği hedef kod SQL veritabanında genişletilmiş olaylar
 
@@ -43,7 +44,7 @@ Bu konuda, bir Transact-SQL kodunu örnek sunulmaktadır:
 * Herhangi bir veritabanı, bir tablodaki oluşturabilirsiniz.
   
   * İsteğe bağlı olarak yapabileceğiniz [oluşturma bir **AdventureWorksLT** demo veritabanı](sql-database-get-started.md) dakika.
-* SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
+* SQL Server Management Studio (ssms.exe), ideal olarak en son aylık güncelleştirme sürümü. 
   En son ssms.exe öğesinden yükleyebilirsiniz:
   
   * Başlıklı konuda [SQL Server Management Studio'yu indirme](http://msdn.microsoft.com/library/mt238290.aspx).
@@ -53,7 +54,7 @@ Bu konuda, bir Transact-SQL kodunu örnek sunulmaktadır:
 
 Çok küçük değişiklik yapmadan aşağıdaki halka arabelleği kod örneği, Azure SQL veritabanı ya da Microsoft SQL Server çalıştırılabilir. Bazı dinamik yönetim görünümlerini (Dmv'leri) adına ' _veritabanı adım 5'te FROM yan tümcesinde kullanılan' düğümü varlığını farktır. Örneğin:
 
-* sys.dm_xe**_database**_session_targets
+* sys.dm_xe **_veritabanı**_session_targets
 * sys.dm_xe_session_targets
 
 &nbsp;

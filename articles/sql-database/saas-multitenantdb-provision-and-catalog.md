@@ -8,14 +8,15 @@ manager: craigg
 ms.reviewer: billgib;andrela;genemi
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: billgib
-ms.openlocfilehash: cb0229731d8fd1495173915b3bc95b48538f1e85
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 42f4aff50a5e3b89ee58f59c0db87f6a174e9be2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645972"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Parçalı çok Kiracı Azure SQL veritabanı kullanarak bir SaaS uygulaması sağlama ve Katalog yeni kiracılar
 
@@ -159,7 +160,7 @@ Yeni Kiracı paylaşılan bir veritabanında sağlama Wingtip uygulama nasıl uy
    - **$VenueType** = **mavi**, önceden tanımlanmış salonundan türlerinden birini: Mavi, classicalmusic, dance, jazz, judo, motorracing, çok amaçlı, opera, rockmusic, futbol (küçük, boşluk yok).
    - **$DemoScenario** = **1**, paylaşılan veritabanında bir kiracı diğer kiracılar ile sağlamak için.
 
-2. İmlecinizi herhangi bir yere satırı 38, yazan satırı koyarak kesme noktası ekleme: *yeni Kiracı '*ve tuşuna basarak **F9**.
+2. İmlecinizi herhangi bir yere satırı 38, yazan satırı koyarak kesme noktası ekleme: *yeni Kiracı '* ve tuşuna basarak **F9**.
 
    ![kesme noktası](media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -199,7 +200,7 @@ PowerShell komut dosyalarını hata ayıklama hakkında daha fazla bilgi için b
    - **$VenueType** = **futbol**, önceden tanımlanmış salonundan türlerinden birini: Mavi, classicalmusic, dance, jazz, judo, motorracing, çok amaçlı, opera, rockmusic, futbol (küçük harf, boşluk yok).
    - **$DemoScenario** = **2**, bir kiracı kendi veritabanına sağlamak için.
 
-2. Yeni bir kesme noktası imlecinizi herhangi bir yere satırı 57, yazan satırı koyarak ekleyin:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '*ve basın **F9**.
+2. Yeni bir kesme noktası imlecinizi herhangi bir yere satırı 57, yazan satırı koyarak ekleyin:  *& &nbsp;$PSScriptRoot\New-TenantAndDatabase '* ve basın **F9**.
 
    ![kesme noktası](media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 

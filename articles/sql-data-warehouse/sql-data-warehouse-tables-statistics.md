@@ -10,17 +10,18 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643439"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tablolarda istatistikleri güncelleştirmeyi oluşturma
 Öneriler ve örnekleri oluşturma ve Azure SQL Data Warehouse tablolarda sorgu iyileştirme istatistikleri güncelleştirme.
 
 ## <a name="why-use-statistics"></a>İstatistikleri neden kullanılır?
-Azure SQL Data Warehouse verilerinizi hakkında daha fazla bilir, o kadar hızlı sorgular çalıştırabilirsiniz. Verilerinizi istatistikleri toplama ve SQL Data Warehouse'a veri yükleme sorgularınızı iyileştirmek için yapabileceğiniz en önemli şeyler biridir. SQL veri ambarı sorgu iyileştiricisi maliyet tabanlı iyileştirici olmasıdır. Çeşitli sorgu planlarını maliyetini karşılaştırır ve çoğu durumda hızlı yürütür planı olan en düşük maliyeti planla seçer. Sorgunuzda filtreleme tarih bir satır döndürülecek iyileştirici tahminleri varsa, seçilen tarihten tahminleri 1 milyon satır döndürür daha Örneğin, onu farklı bir plan seçebilirsiniz.
+Azure SQL Data Warehouse verilerinizi hakkında daha fazla bilir, o kadar hızlı sorgular çalıştırabilirsiniz. Verilerinizi istatistikleri toplama ve SQL Data Warehouse'a veri yükleme sorgularınızı iyileştirmek için yapabileceğiniz en önemli şeyler biridir. SQL veri ambarı sorgu iyileştiricisi maliyet tabanlı iyileştirici olmasıdır. Çeşitli sorgu planlarının maliyetlerini karşılaştırarak en düşük maliyetli planı seçer. Çoğu durumda bu, en hızlı yürütülen plan olur. Sorgunuzda filtreleme tarih bir satır döndürülecek iyileştirici tahminleri varsa, seçilen tarihten tahminleri 1 milyon satır döndürür daha Örneğin, onu farklı bir plan seçebilirsiniz.
 
 ## <a name="automatic-creation-of-statistics"></a>İstatistikleri otomatik olarak oluşturulması
 Otomatik oluşturduğunuzda istatistikleri seçeneği, AUTO_CREATE_STATISTICS, SQL Data Warehouse için istatistikleri eksik olan sütunları tek sütun istatistikleri oluşturulduğu gelen kullanıcı sorgularının analiz eder. Sorgu iyileştiricisi sorgu planı için önem düzeyi tahminleri artırmak için sorgu koşulu veya birleşim koşulu tek tek sütunlarda İstatistikler oluşturur. İstatistikleri otomatik olarak oluşturulması şu anda varsayılan olarak açıktır.
@@ -49,11 +50,14 @@ Sütunlar için oluşturuldukları istatistikleri zaten yoksa hafif düşürülm
 > İstatistikleri oluşturulmasını de kaydedilir [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) farklı bir kullanıcı bağlamında.
 > 
 
-Otomatik istatistik oluşturduğunuzda, formun sürer: _WA_Sys_< onaltılık 8 basamaklı sütun kimliği > _ < onaltılık 8 basamaklı tablo kimliği >. Aşağıdaki komutu çalıştırarak önceden oluşturulmuş istatistiklerini görüntüleyebilirsiniz:
+Otomatik istatistik oluşturduğunuzda, formun sürer: _WA_Sys_< onaltılık 8 basamaklı sütun kimliği > _ < onaltılık 8 basamaklı tablo kimliği >. Çalıştırarak önceden oluşturulmuş istatistiklerini görüntüleyebilirsiniz [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) komutu:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+İlk bağımsız değişken görüntülemek için istatistikleri içeren bir tablodur. Bu, bir dış tablo olamaz. İkinci bağımsız değişken hedef dizin, istatistik veya sütunu için istatistik bilgileri görüntülenecek addır.
+
+
 
 ## <a name="updating-statistics"></a>İstatistikleri güncelleştirme
 

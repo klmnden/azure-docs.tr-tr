@@ -7,14 +7,15 @@ author: GithubMirek
 manager: craigg
 ms.service: sql-database
 ms.custom: security
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mireks
-ms.openlocfilehash: 8c6472dcde55a7b642ced7bbf0d93893df9208e0
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f3c94f41a4f5d7947b862054263ee07ff8ccd98c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650018"
 ---
 # <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database ve SQL Data Warehouse (MFA desteği SSMS) ile Evrensel kimlik doğrulaması
 Azure SQL Database ve Azure SQL Data Warehouse desteği SQL Server Management Studio (SSMS) kullanarak bağlantıları *Active Directory Evrensel kimlik doğrulaması*. 
@@ -54,7 +55,7 @@ Konuk kullanıcı olarak Azure AD B2B senaryolarını desteklenen azure AD kulla
 - [Yapılandırma ve SQL Database veya SQL Data Warehouse ile Azure Active Directory kimlik doğrulaması yönetme](sql-database-aad-authentication-configure.md)  
 - [Microsoft SQL Server veri katmanı uygulaması çerçevesi (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://msdn.microsoft.com/library/hh550080.aspx)  
-- [Yeni bir Azure SQL veritabanı için bir BACPAC dosyasını içeri aktarın](../sql-database/sql-database-import.md)  
-- [Bir Azure SQL veritabanı bir BACPAC dosyasına dışarı aktarma](../sql-database/sql-database-export.md)  
+- [BACPAC dosyasını yeni bir Azure SQL Veritabanı’na içeri aktarma](../sql-database/sql-database-import.md)  
+- [Azure SQL Veritabanı’nı bir BACPAC dosyasına dışarı aktarma](../sql-database/sql-database-export.md)  
 - C# arabirimi [IUniversalAuthProvider arabirimi](https://msdn.microsoft.com/library/microsoft.sqlserver.dac.iuniversalauthprovider.aspx)  
 - Kullanırken **Active Directory - Evrensel MFA ile** kimlik doğrulaması, ADAL izleme kullanılabilir başlayarak olduğunu [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Varsayılan olarak, ADAL izlemeyi kullanarak devre dışı bırakabilirsiniz **Araçları**, **seçenekleri** menüsü altında **Azure Hizmetleri**, **Azure bulut**,  **ADAL çıkış penceresi izleme düzeyini**, izlenen etkinleştirerek **çıkış** içinde **Görünüm** menüsü. İzlemeler çıktı penceresinde seçerken kullanılabilir **Azure Active Directory seçeneği**.  

@@ -9,23 +9,23 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212679"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642232"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>İlk C# Service Fabric durum bilgisi olan Reliable Services uygulamanızı oluşturma
 
 Yalnızca birkaç dakika içinde Windows üzerinde .NET için ilk Azure Service Fabric uygulamanızı nasıl dağıtacağınızı öğrenin. Tamamladığınızda, Reliable Services uygulamasıyla çalışan bir yerel kümeniz olacaktır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce [geliştirme ortamınızı ayarladığınızdan](service-fabric-get-started.md) emin olun. Bu işlem, Service Fabric SDK'sını ve Visual Studio 2017 veya 2015'i yüklemeyi de içerir.
 
@@ -68,12 +68,15 @@ Hizmet projesinin içeriklerine genel bakış için bkz. [Reliable Services ile 
 
 Artık bir uygulamanız olduğuna göre, aşağıdaki adımları izleyerek bu uygulamayı çalıştırın, dağıtın ve hatalarını ayıklayın.
 
-1. Hata ayıklama amacıyla uygulamayı dağıtmak için Visual Studio'da F5'i seçin.
+1. Visual Studio'da seçin **F5** hata ayıklama için uygulamayı dağıtmak için.  Tıklatın **Evet** 'ServiceFabricAllowedUsers' grup okuma ve yürütme Visual Studio Proje dizininiz için izinleri vermek soran bir ileti kutusu ile sunulan durumunda.
 
     >[!NOTE]
     >Uygulamayı yerel olarak ilk kez çalıştırdığınızda ve dağıttığınızda, Visual Studio hata ayıklama için yerel bir küme oluşturur. Bu işlem biraz zaman alabilir. Küme oluşturma durumu, Visual Studio çıkış penceresinde görüntülenir.
-
-    Küme hazır olduğunda, SDK'da bulunan yerel küme sistem tepsisi yöneticisi uygulamasından bir bildirim alırsınız.
+    
+     Küme hazır olduğunda, SDK'da bulunan yerel küme sistem tepsisi yöneticisi uygulamasından bir bildirim alırsınız.
+     
+    >[!NOTE]
+    >Bu alıştırma reqires 5 düğümü (vs. 1 düğümün) küme. Bunu aşağıdaki gibi doğrulayabilirsiniz: sağ tıklayarak Service Fabric Explorer aracını başlatmak **Service Fabric yerel Küme Yöneticisi** sistem tepsisi uygulaması ve ardından **küme moda geç**. Tıklatın **5 düğümü** 1 düğümü şu anda seçili değilse.
     
     ![Yerel küme sistemi tepsisi bildirimi][4]
 
@@ -107,7 +110,7 @@ Artık bir uygulamanız olduğuna göre, aşağıdaki adımları izleyerek bu uy
 
     ![Durum bilgisi olan hizmetin RunAsync yönteminde kesme noktası ayarlama][7]
 
-7. **Yerel Küme Yöneticisi** sistem tepsisi uygulamasına sağ tıklayıp **Yerel Kümeyi Yönet**'i seçerek Service Fabric Explorer aracını başlatın.
+7. Sağ tıklayarak Service Fabric Explorer aracını başlatmak **Service Fabric yerel Küme Yöneticisi** sistem tepsisi uygulaması ve ardından seçerek **yerel kümeyi Yönet**.
 
     ![Yerel küme yöneticisinden Service Fabric Explorer'ı başlatma][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Artık bir uygulamanız olduğuna göre, aşağıdaki adımları izleyerek bu uy
 
     ![Service Fabric Explorer'da bir düğümü durdurma][sfx-stop-node]
 
-    Bir düğümde yaptığınız işlem sorunsuz şekilde başka bir düğüme devredildiğinden kısa süre içinde Visual Studio'da kesme noktası isabetini göreceksiniz.
+    Bir düğümde yaptığınız işlem sorunsuz şekilde başka bir düğüme devredildiğinden kısa süre içinde Visual Studio'da kesme noktası isabetini göreceksiniz. Tuşuna **F5** devam etmek için.
 
 9. Ardından, Tanılama Olayları Görüntüleyicisi'ne geri dönün ve iletileri gözlemleyin. Olaylar farklı bir düğümden geliyor olsa bile sayaç artmaya devam etti.
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: danis
-ms.openlocfilehash: 3977aa16878ea1e2d808376165f551ce5fb8d00f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 89b3f1184254964a32073c63de3fe69d8a51e292
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652966"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux sanal makineleri ile kullanmak üzere Azure özel betik uzantısı sürüm 2
 Özel betik uzantısı sürüm 2 indirir ve Azure sanal makinelerde betikleri çalıştırır. Bu uzantı, dağıtım sonrası yapılandırma, yazılım yükleme veya başka bir yapılandırma/yönetim görevi için yararlıdır. Azure Storage veya başka bir erişilebilir Internet konum komut dosyaları indirebilir veya uzantısı çalışma zamanına sağlayabilir. 
@@ -75,7 +76,7 @@ Bu öğeler hassas verisi olarak kabul edilir ve uzantıları korumalı ayarı y
 ```json
 {
   "name": "config-app",
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [

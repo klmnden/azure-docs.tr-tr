@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652255"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Örnekler ortak Stream Analytics kullanım desenlerini için sorgu
 
@@ -117,7 +118,7 @@ Bu makalede gerçek senaryolarını temel alarak, birçok ortak sorgu kalıplar�
         Make,
         TumblingWindow(second, 10)
 
-**Açıklama**: **durumda** yan tümcesi (Bu örnekte, toplama penceresinde araba sayısı) bazı ölçütlere göre farklı bir hesaplama sağlamamız sağlar.
+**Açıklama**: **durumda** ifadesi sonucu belirlemek için basit bir ifade kümesi için bir ifade karşılaştırır. Bu örnekte, araç sayısı 1 dışında olan vehicle yapar olandan farklı bir dize açıklamasını döndürülen 1 sayısı olan yapar. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>Sorgu örnek: birden çok çıkış veri gönderme
 **Açıklama**: veri gönderme için birden çok çıktı hedefi tek bir işten.
@@ -173,7 +174,7 @@ Bu makalede gerçek senaryolarını temel alarak, birçok ortak sorgu kalıplar�
         [Count] >= 3
 
 **Açıklama**: **INTO** yan tümcesi söyler akış analizi, bu deyim için verileri yazmak için çıktı.
-İlk sorguyu biz adlı bir çıktı aldık verilerin bir doğrudan sorgudur **ArchiveOutput**.
+İlk sorguyu adlı bir çıktı alınan verilerin bir doğrudan sorgudur **ArchiveOutput**.
 Bazı basit toplama ve filtreleme ve ikinci sorguyu mu sonuçları bir aşağı akış uyarı sisteme gönderir.
 
 Not ortak tablo ifadelerinde (Cte'lerin) sonuçlarını da kullanabilirsiniz (gibi **ile** deyimleri) birden çok çıktı deyimlerinde. Bu seçenek daha az giriş kaynağı okuyucularına açma avantaj vardır.
@@ -396,7 +397,7 @@ GROUP BY
 | Kullanıcı | Özellik | Olay | Zaman |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Başlatma |2015-01-01T00:00:01.0000000Z |
-| user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000Z |
+| user@location.com |RightMenu |Son |2015-01-01T00:00:08.0000000Z |
 
 **Çıktı**:  
 
@@ -418,7 +419,7 @@ GROUP BY
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>Sorgu örnek: bir koşul süresini Algıla
 **Açıklama**: Bul ne kadar giden bir koşul oluştu.
-Örneğin, bir hata (yukarıda 20.000 sterlin) yanlış bir ağırlık sahip tüm araba kaynaklandığını varsayalım. İşlem süresi hatanın istiyoruz.
+Örneğin, hatalı bir ağırlık (yukarıda 20.000 sterlin) sahip tüm araba bir hata ile sonuçlandı ve bu hatayı süresini hesaplanan varsayalım.
 
 **Giriş**:
 
@@ -506,8 +507,8 @@ GROUP BY
 
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Sorgu örnek: iki olay türleri aynı akışındaki ilişkilendirmek
-**Açıklama**: bazen belirli bir zaman aralığı içinde oluştu birden çok olay türlerine dayanan uyarıları oluşturmak ihtiyacımız.
-Örneğin, ev fırınlar IOT senaryosunda, fan sıcaklık değerinden 40 olduğunda ve son 3 dakika sırasında maksimum güç 10'dan az olduğu bir uyarı oluşturmadan istiyoruz.
+**Açıklama**: bazen uyarılar oluşturulacak belirli bir zaman aralığı içinde oluştu birden çok olay türlerine dayanan gerekir.
+Örneğin, ev fırınlar bir IOT senaryoda, bir uyarı değerinden 40 fan sıcaklık olduğunda ve son 3 dakika sırasında maksimum güç 10'dan oluşturulmuş olması gerekir.
 
 **Giriş**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **Açıklama**: ilk sorgu `max_power_during_last_3_mins`, kullanan [hareketli penceresi](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) son 3 dakika içinde güç algılayıcı her cihaz için en büyük değeri bulmak için. İkinci sorguyu güç değeri en son penceresinde ilgili geçerli olayı için bulmak için ilk sorgu için birleştirilir. Ve daha sonra koşullar sağlanan aygıt için bir uyarı üretilir.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Sorgu örnek: Aygıt saat eğriltme (alt akışları) bağımsız olayları işleme
+**Açıklama**: olaylar gelmesini geç veya olay üreticileri arasında saat eğriltir nedeniyle sıralama dışında saat Eğer bölümleri ya da ağ gecikme süresi arasında. Aşağıdaki örnekte, TollID 2 cihaz saati TollID 1 arkasında on saniyedir ve TollID 3 aygıt saati TollID 1 arkasında beş saniyedir. 
+
+
+**Giriş**:
+| LicensePlate | Yapma | Zaman | TollID |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**Çıktı**:
+| TollID | Sayı |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**Çözüm**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**Açıklama**: [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) yan tümcesi alt akışları ayrı olarak kullanarak her aygıt Zaman Çizelgesi'arar. Bunlar, olayları tüm cihazlar aynı saatini değilmiş gibi kaldırılmasında yerine her TollID göre sırayla olduğu anlamına gelir hesaplanır gibi her TollID çıkış olayları üretilir.
 
 
 ## <a name="get-help"></a>Yardım alın

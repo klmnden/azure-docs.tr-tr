@@ -13,25 +13,26 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 49ef3821ba5dd10d745649c6b4546ec04282714f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652313"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Otomatik ölçeklendirme Azure sanal makine ölçek ile genel bakış ayarlar
-Bir Azure sanal makine ölçek kümesini otomatik olarak artırın veya uygulamanızı çalıştıran VM örneği sayısını azaltın. Bu otomatik ve esnek davranışı izlemek ve uygulamanızın performansını en iyi duruma getirmek için yönetim yükünü azaltır. Bir pozitif müşteri deneyimi için en düşük düzeyde kabul edilebilir performans tanımlayan kurallar oluşturun. Bu tanımlanmış eşikleri karşılandığında, otomatik ölçeklendirme kurallarını ölçek kümesi kapasitesi ayarlamak için adımları uygulayın. Ayrıca, Ölçek kümesinde kapasitesini kez sabit azaltın veya otomatik olarak artırmak için olayları zamanlayabilirsiniz. Bu makale, hangi performansını ölçümleri kullanılabilen genel bir bakış ve hangi eylemleri otomatik ölçeklendirme gerçekleştirebilirsiniz sağlar.
+Bir Azure sanal makine ölçek kümesini otomatik olarak artırın veya uygulamanızı çalıştıran VM örneği sayısını azaltın. Bu otomatik ve esnek davranışı izlemek ve uygulamanızın performansını en iyi duruma getirmek için yönetim yükünü azaltır. Bir pozitif müşteri deneyimi için kabul edilebilir performans tanımlayan kurallar oluşturun. Bu tanımlanmış eşikleri karşılandığında, otomatik ölçeklendirme kurallarını ölçek kümesi kapasitesi ayarlamak için adımları uygulayın. Ayrıca, Ölçek kümesinde kapasitesini kez sabit azaltın veya otomatik olarak artırmak için olayları zamanlayabilirsiniz. Bu makale, hangi performansını ölçümleri kullanılabilen genel bir bakış ve hangi eylemleri otomatik ölçeklendirme gerçekleştirebilirsiniz sağlar.
 
 
 ## <a name="benefits-of-autoscale"></a>Otomatik ölçeklendirme yararları
-Uygulama talep artarsa, Ölçek VM örnekleri üzerindeki yük artar ayarlayın. Bu artan yükün tutarlı, ise yalnızca kısa isteğe bağlı yerine, Ölçek kümesi VM örnekleri sayısını artırmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz.
+Uygulamanızın talebi artarsa, ölçek kümenizdeki sanal makine örneklerinde üzerindeki yük de artar. Bu kısa süreli bir talep olmayıp tutarlı şekilde yük artıyorsa, ölçek kümesindeki sanal makine örneği sayısını artırmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz.
 
-Bu VM örnekleri oluşturulur ve uygulamalarınızı dağıtılan bunlara trafiğini yük dengeleyici üzerinden dağıtmak ölçek kümesini başlar. CPU veya bellek, uygulama yük belirli bir eşiğin ne kadar süreyle karşılamalıdır ve ölçek eklemek için kaç VM örnekleri kümesi gibi izlemek için hangi ölçümleri denetler.
+Bu sanal makine örnekleri oluşturulduğunda ve uygulamalarınız dağıtıldığında ölçek kümesi, yük dengeleyici aracılığıyla bunlara trafiği dağıtmaya başlar. CPU veya bellek, uygulama yük belirli bir eşiğin ne kadar süreyle karşılamalıdır ve ölçek eklemek için kaç VM örnekleri kümesi gibi izlemek için hangi ölçümleri denetler.
 
-Bir akşam veya hafta sonu, uygulamayı isteğe bağlı azaltabilir. Bu azalmasına yükü bir süre boyunca tutarlı ise, Ölçek kümesi VM örnekleri sayısını azaltmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz. Bu ölçek eylemi geçerli talebi karşılamak için gerekli örnek sayısı yalnızca çalışacak şekilde ayarlayın, Ölçek çalıştırmak için maliyeti azaltır.
+Bir akşam veya hafta sonu uygulama talebiniz azalabilir. Yük belirli bir süreye yayılarak tutarlı şekilde azalıyorsa, ölçek kümesindeki sanal makine örneği sayısını azaltmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz. Mevcut talebi karşılamak için gerekli örnek sayısını yalnızca siz çalıştırdığınızdan, bu ölçeği daraltma eylemi ölçek kümenizi çalıştırma maliyetini azaltır.
 
 
 ## <a name="use-host-based-metrics"></a>Ana bilgisayar tabanlı ölçümleri kullanın
@@ -64,7 +65,7 @@ Otomatik ölçeklendirme kuralları oluşturduğunuzda aşağıdaki ana bilgisay
 
 | Ölçüm adı               |
 |---------------------------|
-| CPU Yüzdesi            |
+| CPU yüzdesi            |
 | Ağ Girişi                |
 | Ağ Çıkışı               |
 | Diskten Okunan Bayt           |
@@ -92,7 +93,7 @@ Otomatik ölçeklendirme kurallarını ölçümleri tanımlı eşiğiniz karşı
 | Şu değerden fazla:             |
 | Büyük veya eşit |
 | Şu değerden az:                |
-| Küçük veya eşittir    |
+| Küçük veya eşit    |
 | Eşittir                 |
 | Eşit değildir             |
 
@@ -115,7 +116,7 @@ Azure tanılama uzantısını VM örneği içinde çalıştıran bir aracıdır.
 
 Azure tanılama uzantısını kullanmak için VM örnekleri için Azure storage hesapları oluşturmanız, Azure Tanılama aracı yükleme ardından VM'ler akış belirli performans sayaçlarını depolama hesabı için yapılandırın.
 
-Daha fazla bilgi için Azure tanılama uzantısını [Linux VM](../virtual-machines/linux/diagnostic-extension.md) veya [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md) için etkinleştirme makalelerini inceleyebilirsiniz.
+Daha fazla bilgi için Azure tanılama uzantısını [Linux VM](../virtual-machines/extensions/diagnostics-linux.md) veya [Windows VM](../virtual-machines/extensions/diagnostics-windows.md) için etkinleştirme makalelerini inceleyebilirsiniz.
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>Uygulama düzeyi ölçümlerini App Insights ile

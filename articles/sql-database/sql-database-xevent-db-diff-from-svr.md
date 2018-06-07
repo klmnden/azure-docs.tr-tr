@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4a1a8a332628e79972e7c03dbc2ac839f244a002
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 446c1f3af3f00fb70a230dfec5f5c533b45a285f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650052"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL veritabanında genişletilmiş olaylar
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -103,7 +104,7 @@ Azure SQL veritabanı sahip [dinamik yönetim görünümlerini (Dmv'leri)](http:
 
 Microsoft SQL Server'da benzer Katalog görünümleri olmadan adlı  *\_veritabanı* adı kısmını gibi:
 
-- **sys.dm_xe_sessions**, instead of name<br/>**sys.dm_xe_database_sessions**.
+- **sys.dm_xe_sessions**, adı yerine<br/>**sys.dm_xe_database_sessions**.
 
 ### <a name="dmvs-common-to-both"></a>Dmv'leri ortak
 Genişletilmiş olaylar için Azure SQL Database ve Microsoft SQL Server için ortak olan ek Dmv'leri vardır:
@@ -193,7 +194,7 @@ En fazla bellek zorlanmış bildiren bir hata iletisi alırsanız, bazı düzelt
 - [Azure Storage ile Azure PowerShell'i kullanarak](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
 - [BLOB depolama alanından .NET kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [Olay OTURUMU (Transact-SQL) oluşturma](http://msdn.microsoft.com/library/bb677289.aspx)
 - [Microsoft SQL Server'da genişletilmiş olaylar hakkında Jonathan Kehayias blog yazılarını](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 

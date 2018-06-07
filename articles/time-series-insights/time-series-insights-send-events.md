@@ -1,22 +1,22 @@
 ---
 title: Bir Azure zaman serisi Öngörüler ortama olayları göndermek nasıl | Microsoft Docs
 description: Bu öğretici, oluşturmak, olay hub'ı yapılandırmak ve Azure zaman serisi Insights'ta gösterilmesini itme olaylara bir örnek uygulamayı çalıştırın açıklanmaktadır.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
-editor: MarkMcGeeAtAquent
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 2621b7fd7a72c4ac3c8cbe7b166a6504f316e3d5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: db528f5a02d90e7e1e2e2cd3da30f04755575777
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657797"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Olay hub’ı kullanarak olayları Zaman Serisi Görüşleri ortamına gönderme
 Bu makalede oluşturmak ve olay hub'ı yapılandırmak nasıl açıklar ve anında iletme olaylara bir örnek uygulamayı çalıştırın. Varolan bir event hub'olaylarla JSON biçiminde varsa, Bu öğretici atlayın ve ortamınızdaki görüntülemek [zaman serisi Öngörüler](https://insights.timeseries.azure.com).

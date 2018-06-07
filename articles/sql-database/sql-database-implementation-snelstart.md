@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 55734dc0889ae6d1b03fab073586fa2fab32ec3c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6a82c57f3540aaf160a61fd5fe3b01919dd9109e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649134"
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Azure ile SnelStart hızlı bir şekilde iş hizmetlerinin 1.000 yeni Azure SQL veritabanlarının ayda bir hızda genişletilmiştir
 ![SnelStartLogo](./media/sql-database-implementation-snelstart/snelstartlogo.png)
@@ -27,7 +28,7 @@ SnelStart popüler finansal ve iş-yönetimi yazılımı küçük ve orta ölçe
 ## <a name="why-snelstart-extended-services-from-the-desktop-to-the-cloud"></a>Buluta neden SnelStart Hizmetleri masaüstünden genişletilmiş
 > "Azure ile çalışma biz yazılım daha hızlı teslim etmek, hızlı bir şekilde müşteri taleplerini tepki taleplerini artırdığınızda çözümlerini ölçeklendirme anlamına gelir."
 > 
-> — Henry Been, Software Architect
+> — Henry bırakıldı, Yazılım Mimarı
 > 
 > 
 
@@ -61,7 +62,7 @@ Azure platformu modeli altyapı yükünü kaldırıldı ve C# yönetim kitaplık
 
 > "Yalnızca ilk birkaç ay içinde 2016, biz hakkında 5,500 bizim Azure SQL veritabanı dağıtımları birden fazla 12.000 genişletilmiş ve biz aylık yaklaşık 1.000 veritabanları şu anda ekliyoruz."
 > 
-> — Henry Been, Software Architect
+> — Henry bırakıldı, Yazılım Mimarı
 > 
 > 
 
@@ -74,7 +75,7 @@ Azure kullanarak SnelStart müşterilerine ve daha sorunsuz bir şekilde bulutta
 
 > Amacımız yüzde 100 Otomasyon müşterilerimiz için iş Yönetimi Hizmetleri sağlamaktır." 
 > 
-> — Carlo Kuip, IT Architect
+> — Carlo Kuip, BT Mimarı
 > 
 > 
 
@@ -89,7 +90,7 @@ Bir Azure bulut tabanlı çözüm ile taşıma itibaren SnelStart yenilikçi öz
 
 > "Ne zaman gerçekte üzerinden Redmond bulamadığımız... Belirli bir sorun hakkında bana telefon bir geliştiriciden Hollanda edilene bir çağrı aldım. Bir değişiklik bizim sorunu çözmek için 48 saat içinde üretim ortamlarında sunmak için Microsoft almak bulduk."
 > 
-> — Henry Been, Software Architect
+> — Henry bırakıldı, Yazılım Mimarı
 > 
 > 
 

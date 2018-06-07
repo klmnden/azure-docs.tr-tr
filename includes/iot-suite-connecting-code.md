@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e15016da271d512fd9b87d5c14091305a92770b5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a2405eb9698b326693b873edf1cc1396eecadafa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666020"
 ---
 ## <a name="specify-the-behavior-of-the-iot-device"></a>IoT cihazının davranışını belirtme
 
 IoT Hub serileştirici istemci kitaplığı, cihazla IoT Hub arasındaki iletilerin biçimini belirtmek için bir model kullanır.
 
-1. `#include` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerlerini değiştirmek `[Device Id]` ve `[Device connection string]` fiziksel cihaz için not ettiğiniz değerlerle Uzaktan izleme çözümüne eklendi:
+1. `#include` deyimlerinden sonra aşağıdaki değişken bildirimlerini ekleyin. Yer tutucu değerlerini değiştirmek `[Device Id]` ve `[Device connection string]` fiziksel cihaz için not ettiğiniz değerlerle Uzaktan izleme çözümü eklendi:
 
     ```c
     static const char* deviceId = "[Device Id]";

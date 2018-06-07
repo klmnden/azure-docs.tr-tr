@@ -1,13 +1,13 @@
 ---
 title: Bir Azure Linux sanal makinede Oracle Data Guard uygulamak | Microsoft Docs
-description: "Hızlı bir şekilde Oracle Data Guard ve Azure ortamınızda çalışan alın."
+description: Hızlı bir şekilde Oracle Data Guard ve Azure ortamınızda çalışan alın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.openlocfilehash: 822e18db4d01210d741addad4c820f51adc8f26a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: f77a34fe4157e6c7ec763701e59db3330a1003c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657946"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinede Oracle veri koruma uygulama 
 
-Azure CLI oluşturmak ve komut satırından veya komut dosyalarında Azure kaynaklarınızı yönetmek için kullanılır. Bu makalede, Azure Market görüntüsünden bir Oracle veritabanına 12 c veritabanını dağıtmak için Azure CLI kullanmayı açıklar. Bu makalede daha sonra adım adım gösterilmektedir nasıl yüklenir ve veri koruma Azure sanal makine (VM) yapılandırın.
+Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını yönetmek veya bu kaynakları oluşturmak için kullanılır. Bu makalede, Azure Market görüntüsünden bir Oracle veritabanına 12 c veritabanını dağıtmak için Azure CLI kullanmayı açıklar. Bu makalede daha sonra adım adım gösterilmektedir nasıl yüklenir ve veri koruma Azure sanal makine (VM) yapılandırın.
 
 Başlamadan önce Azure CLI'ın yüklü olduğundan emin olun. Daha fazla bilgi için bkz: [Azure CLI Yükleme Kılavuzu'na](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

@@ -8,11 +8,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: a295bf741862bb58a86234b5c85f48d7a1b52be7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 056cff192b25068fa2e895fd46d143a834b7af0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641093"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Örnek: metin Çevir API kullanarak özel bir yetenek oluşturma
 
@@ -321,5 +322,5 @@ Tebrikler! İlk, özel enricher oluşturdunuz. Şimdi kendi özel işlevsellik e
 
 + [Özel bir yetenek bilişsel arama ardışık düzene ekleyin](cognitive-search-custom-skill-interface.md)
 + [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
-+ [Skillset (REST) oluşturma](ref-create-skillset.md)
++ [Skillset (REST) oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Zenginleştirilmiş alanlarını eşleme](cognitive-search-output-field-mapping.md)

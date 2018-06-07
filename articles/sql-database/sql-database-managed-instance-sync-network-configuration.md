@@ -1,19 +1,20 @@
 ---
-title: "Azure uygulama hizmeti - eşitleme ağ yapılandırması | Microsoft Docs"
-description: "Bu makalede, Azure App Service barındırma planı için ağ yapılandırmanızı eşitlemenin nasıl anlatılmaktadır."
+title: Azure uygulama hizmeti - eşitleme ağ yapılandırması | Microsoft Docs
+description: Bu makalede, Azure App Service barındırma planı için ağ yapılandırmanızı eşitlemenin nasıl anlatılmaktadır.
 ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 5b139b1279776acfca63def25a9fdae0f627a727
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: ea8f4aae0324e201def6b9b6cd33b0e79042ebbe
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647978"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Ağ yapılandırması Azure App Service barındırma planı için eşitleme
 

@@ -5,17 +5,18 @@ ms.service: sql-database
 author: srdjan-bozovic
 manager: craigg
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1eecd28d5e7043acae5cfd52edf93e8d301bd31e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bea1dc88d66717717cdeacbc8504f5df7e37ba04
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647842"
 ---
-# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı yönetilen Azure SQL veritabanı örneğine bağlanma
+# <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Uygulamanızı Azure SQL Veritabanı Yönetilen Örneği'ne bağlayın
 
 Bugün nasıl ve nerede uygulamanızı barındırmak karar verirken birden çok seçeneğiniz vardır. 
  
@@ -39,10 +40,10 @@ Sanal ağlara bağlanmak için iki seçenek vardır:
 - [Azure sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md) 
 - VNet-VNet VPN ağ geçidi ([Azure portal](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)) 
  
-Eşleme Microsoft omurga ağı, bağlantı açısından kullandığından tercih edilen bir eşleme seçeneğidir, eşlenmiş VNet ve aynı Vnet'i sanal makineleri arasındaki gecikme süresi içinde dikkat çekici fark yoktur. Çapraz bölge eşliği bazı bölgelerde önizleme olarak etkinleştirilse de VNet eşlemesi aynı bölgede ağları sınırlıdır.  
+Eşleme Microsoft omurga ağı, bağlantı açısından kullandığından tercih edilen bir eşleme seçeneğidir, eşlenmiş VNet ve aynı Vnet'i sanal makineleri arasındaki gecikme süresi içinde dikkat çekici fark yoktur. VNet eşlemesi aynı bölgede ağları ile sınırlıdır.  
  
 > [!IMPORTANT]
-> Çapraz bölge oluşturulan VNet eşlemeler kullanılabilirliği ve güvenilirliği genel kullanılabilirlik sürümdeki eşlemeleri olarak aynı düzeyde olmayabilir. VNet eşlemeler yetenekleri kısıtlı ve tüm Azure bölgelerde kullanılabilir durumda olmayabilir. Kullanılabilirlik ve bu özellik durumunu en güncel bildirimleri için denetleme [Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network) güncelleştirmeleri sayfasında. 
+> VNet eşleme yönetilen örneği için bir senaryodur nedeniyle aynı bölgede ağlara sınırlı [genel sanal ağ eşlemesi, kısıtlamalar](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). 
 
 ## <a name="connect-an-on-premises-application"></a>Bir şirket içi uygulama Bağlan 
 

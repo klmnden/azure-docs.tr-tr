@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 90f758bf5bc979dc4bc173b08dadaceeaa077317
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 51a5f70cc56b2a4196ee7b151be0af3a9e16fc4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646941"
 ---
 # <a name="deploy-a-split-merge-service"></a>Ayırma-birleştirme hizmetini dağıtma
 Bölünmüş Birleştirme aracı parçalı veritabanları arasında veri taşımanıza olanak tanır. Bkz: [ölçeklendirilmiş bulut veritabanları arasında veri taşıma](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -154,7 +155,7 @@ Dağıtım ve ortamınıza dahil edilmiş örnek PowerShell komut dosyaları ça
 
 Bulunan komut dosyaları şunlardır:
 
-1. **SetupSampleSplitMergeEnvironment.ps1** - sets up a test data tier for Split/Merge (see table below for detailed description)
+1. **SetupSampleSplitMergeEnvironment.ps1** -bölünmüş/birleştirme için bir test veri katmanını ayarlar (ayrıntılı bir açıklaması için aşağıdaki tabloya bakın)
 2. **ExecuteSampleSplitMerge.ps1** -test test işlemlerini yürüten veri katmanı (ayrıntılı bir açıklaması için aşağıdaki tabloya bakın)
 3. **GetMappings.ps1** - üst düzey örnek parça eşlemeleri geçerli durumunu yazdırır komut dosyası.
 4. **ShardManagement.psm1** -ShardManagement API sarmalar yardımcı komut dosyası
@@ -207,7 +208,7 @@ Bulunan komut dosyaları şunlardır:
 2. Bir Azure SQL database sunucusu oluşturun (veya var olan bir sunucu seçin) burada parça eşleme Yöneticisi ve parça oluşturulur.
    
    > [!NOTE]
-   > The SetupSampleSplitMergeEnvironment.ps1 script creates all these databases on the same server by default to keep the script simple. Bu bir kısıtlama bölünmüş birleştirme hizmetinin kendisini değil.
+   > SetupSampleSplitMergeEnvironment.ps1 komut dosyası bu veritabanları aynı sunucuda betik basit tutmak için varsayılan olarak oluşturur. Bu bir kısıtlama bölünmüş birleştirme hizmetinin kendisini değil.
    >
    
    DBs okuma/yazma erişimi olan bir SQL kimlik doğrulaması oturum açma verilerini taşımak ve parça eşleme güncelleştirmek bölünmüş birleştirme hizmeti için gerekir. Bölünmüş birleştirme hizmetine bulutta çalışan olduğundan, tümleşik kimlik doğrulaması şu anda desteklemiyor.

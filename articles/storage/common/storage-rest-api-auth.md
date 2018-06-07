@@ -1,23 +1,19 @@
 ---
-title: "Kimlik doğrulama dahil olmak üzere Azure Storage Services REST API işlemleri çağırma | Microsoft Docs"
-description: "Kimlik doğrulama dahil olmak üzere Azure Storage Services REST API işlemleri çağırma"
+title: Kimlik doğrulama dahil olmak üzere Azure Storage Services REST API işlemleri çağırma | Microsoft Docs
+description: Kimlik doğrulama dahil olmak üzere Azure Storage Services REST API işlemleri çağırma
 services: storage
-documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
+author: tamram
+manager: twooley
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/27/2017
-ms.author: robinsh
-ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 05/22/2018
+ms.author: tamram
+ms.openlocfilehash: 6009ebd18eb089b21c98d6f7d9f49044a8d96098
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650460"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Depolama REST API’sini kullanma
 
@@ -48,19 +44,17 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 Bu komut, depoyu yerel Git klasörünüze kopyalar. Visual Studio çözümü açmak için storage-dotnet-rest-api-with-auth klasörü arayın, açın ve üzerinde StorageRestApiAuth.sln çift tıklayın. 
 
-## <a name="why-do-i-need-to-know-rest"></a>Neden REST bilmeniz gerekiyor mu?
-
-REST kullanma bilerek yararlı bir yetenektir. Azure ürün ekibi, yeni özellikler sık serbest bırakır. Çoğu zaman, yeni özellikler REST arabirimi aracılığıyla erişilebilir, ancak henüz aracılığıyla ortaya olmayan **tüm** için depolama istemcisi kitaplıklarını veya kullanıcı arabirimini (örneğin, Azure portalı). Her zaman en son ve en kullanmak istiyorsanız, REST öğrenme gerekli değildir. Ayrıca, Azure Storage ile etkileşim kurmak için kendi kitaplığı yazmak istediğiniz ya da bir SDK veya depolama istemci kitaplığı sahip olmayan bir programlama dili ile Azure depolama erişmek istediğiniz REST API'sini kullanabilirsiniz.
-
 ## <a name="what-is-rest"></a>REST nedir?
 
 REST anlamına gelir *temsili durum aktarımı*. Belirli bir tanımı için kullanıma [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
 
 Temel olarak, REST kullanabileceğiniz ne zaman bir mimaridir API'larını çağırma veya API'ler çağrılacak kullanılabilir hale getirme. Her iki tarafında olanlar bağımsızdır ve hangi diğer yazılımların REST alırken veya gönderirken kullanılan çağırır. Mac, Windows, Linux, bir Android telefon veya tablet, iPhone, iPod veya web sitesi üzerinde çalışan bir uygulama yazmak ve tüm bu platformlar için aynı REST API'yi kullanın. REST API çağrıldığında veri ve/veya çıkışı geçirilebilir. REST API çağrılır – hangi önemli istekte geçirilen bilgileri ve yanıtta sağlanan verileri platformudur önemli değildir.
 
-## <a name="heres-the-plan"></a>Plan İşte
+REST kullanma bilerek yararlı bir yetenektir. Azure ürün ekibi, yeni özellikler sık serbest bırakır. Çoğu zaman, yeni özellikler REST arabirimi aracılığıyla erişilebilir, ancak henüz aracılığıyla ortaya olmayan **tüm** için depolama istemcisi kitaplıklarını veya kullanıcı arabirimini (örneğin, Azure portalı). Her zaman en son ve en kullanmak istiyorsanız, REST öğrenme gerekli değildir. Ayrıca, Azure Storage ile etkileşim kurmak için kendi kitaplığı yazmak istediğiniz ya da bir SDK veya depolama istemci kitaplığı sahip olmayan bir programlama dili ile Azure depolama erişmek istediğiniz REST API'sini kullanabilirsiniz.
 
-Örnek Proje bir depolama hesabında kapsayıcıları listeler. REST API belgeleri bilgileri gerçek kodunuzu nasıl karşılık gelen anladığınızda, diğer REST çağrılarını anlayıp kolaydır. 
+## <a name="about-the-sample-application"></a>Örnek uygulama hakkında
+
+Örnek uygulama bir depolama hesabında kapsayıcıları listeler. REST API belgeleri bilgileri gerçek kodunuzu nasıl karşılık gelen anladığınızda, diğer REST çağrılarını anlayıp kolaydır. 
 
 Bakarsanız [Blob hizmeti REST API'si](/rest/api/storageservices/fileservices/Blob-Service-REST-API), blob depolama alanında gerçekleştirebileceğiniz işlemlerin bakın. Sarmalayıcılar REST API'leri geçici depolama istemcisi kitaplıklarını değildir; bunlar sizin için erişim depolama birimine doğrudan REST API'ları kullanmadan kolaylaştırır. Ancak, yukarıda belirtildiği gibi bazen REST API depolama istemci kitaplığı yerine kullanmak istediğiniz.
 
@@ -70,7 +64,7 @@ Sayfa için REST API Başvurusu bakalım [ListContainers](/rest/api/storageservi
 
 **İstek yöntemi**: alın. Bu fiil request nesnesi bir özellik olarak belirttiğiniz HTTP yöntemidir. Bu eylem için diğer değerler, HEAD, PUT ve silme, aradığınız API bağlı olarak içerir.
 
-**İstek URI'si**: Bu blob depolama hesabı uç noktasından oluşturulur https://myaccount.blob.core.windows.net/?comp=list `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
+**İstek URI'si**: https://myaccount.blob.core.windows.net/?comp=list bu blob depolama hesabı uç noktasından oluşturulan `http://myaccount.blob.core.windows.net` ve kaynak dizesi `/?comp=list`.
 
 [URI parametreleri](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): ListContainers çağrılırken kullanabileceğiniz ek sorgu parametrelerini vardır. Bu parametreler birkaç olan *zaman aşımı* (saniye cinsinden) çağrısı ve *önek*, filtreleme için kullanılan.
 
@@ -141,7 +135,7 @@ X-ms-date ve x-ms-version için istek üstbilgileri ekleyin. Bu kod ayrıca ça�
     // Add the request headers for x-ms-date and x-ms-version.
     DateTime now = DateTime.UtcNow;
     httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-04-17");
+    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
     // If you need any additional headers, add them here before creating
     //   the authorization header. 
 ```
@@ -205,7 +199,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 3e889876-001e-0039-6a3a-5f4396000000
-x-ms-version: 04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
@@ -271,6 +265,9 @@ Content-Length: 1511
 
 ## <a name="creating-the-authorization-header"></a>Authorization üstbilgisi oluşturma
 
+> [!TIP]
+> Azure Storage şimdi Blob ve kuyruk Hizmetleri (Önizleme) için Azure Active Directory (Azure AD) Tümleştirmesi destekler. Azure AD Azure Storage isteğine yetki vermek için çok daha basit deneyimi sağlar. REST işlemlerini yetkilendirmek için Azure AD kullanma hakkında daha fazla bilgi için bkz: [Azure Active Directory (Önizleme) ile kimlik doğrulama](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Azure Storage ile Azure AD tümleştirme genel bakış için bkz: [Azure Active Directory'yi (Önizleme) kullanarak Azure Storage erişimi kimlik doğrulaması](storage-auth-aad.md).
+
 Kavramsal olarak açıklayan bir makale yoktur (kod) nasıl gerçekleştirileceği [Azure Storage Hizmetleri için kimlik doğrulaması](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services).
 Şimdi bu makale aşağı tam olarak biçimlendirebilir gereklidir ve kodu gösterir.
 
@@ -312,7 +309,7 @@ Yetkilendirme üst bilgisi oluşturmak için gerekli olduğundan bu iki Kuralla�
 Bu değer oluşturmak için "- ms-" ile başlamalıdır ve bunları sıralama üstbilgileri almak, ardından bir dizeye biçimlendirme `[key:value\n]` bir dizeye birleştirilmiş örnekleri. Bu örnekte, Kurallaştırılan üstbilgileri şöyle görünür: 
 
 ```
-x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 Bu çıktı oluşturmak için kullanılan kod aşağıdaki gibidir:
@@ -417,7 +414,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 Bu kodu çalıştırdığınızda, sonuçta elde edilen MessageSignature şöyle görünür:
 
 ```
-GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-04-17\n/contosorest/\ncomp:list
+GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
 AuthorizationHeader son değeri şöyledir:
@@ -463,7 +460,7 @@ Bu örneği çalıştırdığınızda, sonuçları aşağıdaki gibi alın:
 **Kurallaştırılan üstbilgileri:**
 
 ```
-x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 **Kurallaştırılan kaynak:**
@@ -476,7 +473,7 @@ x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
-  \nx-ms-version:2017-04-17\n/contosorest/container-1\ncomp:list\nrestype:container
+  \nx-ms-version:2017-07-29\n/contosorest/container-1\ncomp:list\nrestype:container
 ```
 
 **AuthorizationHeader:**
@@ -497,7 +494,7 @@ GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Authorization: SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
@@ -510,7 +507,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 7e9316da-001e-0037-4063-5faf9d000000
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```

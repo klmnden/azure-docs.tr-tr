@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666019"
 ---
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -43,13 +44,13 @@ Cihazınız için herhangi bir kod yazmadan önce Uzaktan izleme Çözüm Hızla
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Uzaktan izleme Çözüm Hızlandırıcısı dağıtma
 
-**Soğutucu** Bu öğreticide oluşturduğunuz cihaz örneğine verileri gönderir [Uzaktan izleme](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) Çözüm Hızlandırıcısı. Azure hesabınızda Uzaktan izleme Çözüm Hızlandırıcısı sağlanan yüklemediyseniz, bkz: [Uzaktan izleme Çözüm Hızlandırıcısı dağıtma](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
+**Soğutucu** Bu öğreticide oluşturduğunuz cihaz örneğine verileri gönderir [Uzaktan izleme](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md) Çözüm Hızlandırıcısı. Azure hesabınızda Uzaktan izleme Çözüm Hızlandırıcısı sağlanan yüklemediyseniz, bkz: [Uzaktan izleme Çözüm Hızlandırıcısı dağıtma](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)
 
-Dağıtım işlemi Uzaktan izleme çözümü sona için tıklattığınızda **başlatma** tarayıcınızda çözüm panosunu açın.
+Uzaktan izleme çözümü için dağıtım işlemi bittiğinde, bilgisayarınızı **başlatma** tarayıcınızda çözüm panosunu açın.
 
 ![Çözüm Panosu](media/iot-suite-selector-connecting/dashboard.png)
 
-### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Cihazınızı Uzaktan izleme çözümüne ekleme
+### <a name="add-your-device-to-the-remote-monitoring-solution"></a>Cihazınızı Uzaktan izleme çözümü ekleme
 
 > [!NOTE]
 > Çözümünüze bir aygıt zaten eklediyseniz, bu adımı atlayabilirsiniz. Ancak, sonraki adım, aygıt bağlantı dizesi gerektirir. Bir aygıtın bağlantı dizesinden alabilir [Azure portal](https://portal.azure.com) veya kullanarak [az IOT](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI aracı.
@@ -70,7 +71,7 @@ Uzaktan izleme çözümünüz için bir aygıt eklemek için aşağıdaki adıml
 
     ![Kimlik bilgilerini alma](media/iot-suite-selector-connecting/credentials.png)
 
-Artık fiziksel bir aygıtı Uzaktan izleme Çözüm Hızlandırıcısı eklenir ve kendi cihaz bağlantı dizesini Not. Aşağıdaki bölümlerde, çözümünüz için bağlanmak için cihaz bağlantı dizesini kullanır istemci uygulaması yürütürsünüz.
+Şimdi fiziksel bir aygıtı için Uzaktan izleme Çözüm Hızlandırıcısı eklenir ve kendi cihaz bağlantı dizesini Not. Aşağıdaki bölümlerde, çözümünüz için bağlanmak için cihaz bağlantı dizesini kullanır istemci uygulaması yürütürsünüz.
 
 İstemci uygulaması yerleşik uygulayan **Soğutucu** cihaz modeli. Bir Çözüm Hızlandırıcısı cihaz modeli bir cihaz hakkında aşağıdakileri belirtir:
 

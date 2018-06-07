@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efa8c2603d6ff4493656cda41306a5dad46bc5f3
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: bc4b9cb9940f073034df01143f4d9e77a47cb19b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34654394"
 ---
 # <a name="set-up-gpu-drivers-for-n-series-vms-running-windows"></a>GPU sürücüleri Windows çalıştıran N-serisi VM'ler için ayarlama 
 Windows Server veya Windows desteklenen bir sürümünü çalıştıran Azure N-serisi VM'ler GPU yeteneklerinden yararlanabilmek için NVIDIA grafik sürücüleri yüklenmesi gerekir. N-serisi VM dağıttıktan sonra bu makalede sürücü kurulum adımlarını sağlar. Sürücü Kurulum bilgileri de için kullanılabilir [Linux VM'ler](../linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -53,7 +54,7 @@ GPU aygıt durumunu sorgulamak için aşağıdaki komutu çalıştırın [NVIDIA
 
 ## <a name="rdma-network-connectivity"></a>RDMA ağ bağlantısı
 
-Aynı kullanılabilirlik kümesinde veya VM ölçek kümesi NC24r dağıtılmış gibi RDMA ağ bağlantısı RDMA özellikli N-serisi Vm'lerinde etkinleştirilebilir. RDMA bağlantısını etkinleştirmek Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısı eklenmesi gerekir. RDMA özellikli N-serisi VM için VM uzantısı eklemek için kullanın [Azure PowerShell](/powershell/azure/overview) cmdlet'leri Azure Resource Manager.
+NC24r aynı kullanılabilirlik kümesi içinde veya VM ölçek kümesi tek yerleştirme grubunda dağıtılan gibi RDMA ağ bağlantısı RDMA özellikli N-serisi Vm'lerinde etkinleştirilebilir. RDMA bağlantısını etkinleştirmek Windows ağ aygıt sürücülerini yüklemek için HpcVmDrivers uzantısı eklenmesi gerekir. RDMA özellikli N-serisi VM için VM uzantısı eklemek için kullanın [Azure PowerShell](/powershell/azure/overview) cmdlet'leri Azure Resource Manager.
 
 En son sürüm 1.1 yüklemek için mevcut bir RDMA özellikli VM'yi HpcVMDrivers uzantısı Batı ABD bölgesi, myVM adlı:
   ```PowerShell
@@ -66,6 +67,6 @@ RDMA ağ ile çalışan uygulamalar için ileti geçirme arabirimi (MPI) trafiğ
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* NVIDIA Tesla GPU GPU hızlandırılmış uygulamaları oluşturan geliştiriciler de indirip yükleyebileceğiniz [CUDA Araç Seti 9.1](https://developer.nvidia.com/cuda-downloads). Daha fazla bilgi için bkz: [CUDA Yükleme Kılavuzu'na](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
+* NVIDIA Tesla GPU GPU hızlandırılmış uygulamaları oluşturan geliştiriciler, ayrıca karşıdan yükle ve en son yükleme [CUDA Araç Seti](https://developer.nvidia.com/cuda-downloads). Daha fazla bilgi için bkz: [CUDA Yükleme Kılavuzu'na](http://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html#axzz4ZcwJvqYi).
 
 

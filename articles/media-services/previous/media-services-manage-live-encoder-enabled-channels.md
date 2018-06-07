@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639444"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services aracılığıyla canlı akış gerçekleştirerek çoklu bit hızına sahip akışlar oluşturma
 
@@ -223,8 +224,8 @@ Bu kanal içindeki gerçek zamanlı Kodlayıcı tarafından kullanılmak üzere 
 | 1350 |704 |396 |30 |Ana |Video_704x396_1350kbps |
 | 850 |512 |288 |30 |Ana |Video_512x288_850kbps |
 | 550 |384 |216 |30 |Ana |Video_384x216_550kbps |
-| 350 |340 |192 |30 |Taban çizgisi |Video_340x192_350kbps |
-| 200 |340 |192 |30 |Taban çizgisi |Video_340x192_200kbps |
+| 350 |340 |192 |30 |Taban Çizgisi |Video_340x192_350kbps |
+| 200 |340 |192 |30 |Taban Çizgisi |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Çıkış ses akışı
 64 KB/sn, 44,1 kHz örnekleme oranını adresindeki stereo AAC-LC ses kodlanır.
@@ -332,7 +333,7 @@ Aşağıdaki tabloda, Kanal durumlarının faturalandırma modu ile nasıl eşle
 * Kanalınızı olduğunda, yalnızca faturalandırılır **çalıştıran** durumu. Daha fazla bilgi için bkz [bu](media-services-manage-live-encoder-enabled-channels.md#states) bölümü.
 * Canlı bir etkinlik için önerilen en uzun süre şu anda 8 saattir. Daha uzun bir süre için bir Kanal çalıştırmanız gerekiyorsa lütfen amslived@microsoft.com adresine başvurun.
 * İçinde içerik akışı sağlamak istediğiniz akış uç bulunduğundan emin olun **çalıştıran** durumu.
-* Kodlama hazır 30 fps "max kare hızı" kavramı kullanır. Giriş 60 fps ise bunu / 59.97i, giriş çerçeveleri bırakılan/Kaldır-30/29.97 fps interlaced. Giriş 50 fps/50i ise, giriş çerçeveleri bırakılan/Kaldır-25 fps interlaced. Giriş 25 fps ise, çıktı 25 fps ile kalır.
+* Kodlama hazır 30 fps "max kare hızı" kavramı kullanır. Giriş 60 fps ise bunu / 59.94i, giriş çerçeveleri bırakılan/Kaldır-30/29.97 fps interlaced. Giriş 50 fps/50i ise, giriş çerçeveleri bırakılan/Kaldır-25 fps interlaced. Giriş 25 fps ise, çıktı 25 fps ile kalır.
 * STOP YOUR yapıldığında kanala unutmayın. Yapmadığınız takdirde, faturalandırma devam eder.
 
 ## <a name="known-issues"></a>Bilinen sorunlar

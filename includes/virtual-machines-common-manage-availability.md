@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8173a5abbbeea38bc831b7cc76898714cd4dd4d4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670216"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM Yeniden Başlatma İşlemlerini Anlama - bakım ve kapalı kalma süresi
 Etkilenip azure'da sanal makine açabilir üç senaryo vardır: planlanmamış donanım bakım, beklenmeyen kapalı kalma süresi ve planlı Bakım.
@@ -20,7 +21,7 @@ Etkilenip azure'da sanal makine açabilir üç senaryo vardır: planlanmamış d
 * **Plansız Donanım Bakımı Olayı**, Azure platformu donanımın veya fiziksel makineyle ilişkili herhangi bir platform bileşeninin arıza yapmak üzere olduğunu tahmin ettiğinde gerçekleşir. Platform bir arıza öngördüğünde, donanımda barındırılan sanal makineler üzerindeki etkiyi azaltmak amacıyla plansız donanım bakımı olayı düzenler. Azure, arızalı donanımdaki Sanal Makineleri sağlıklı bir fiziksel makineye geçirmek için Dinamik Geçiş teknolojisini kullanır. Dinamik Geçiş, Sanal Makineyi yalnızca kısa bir süre için duraklatan bir VM koruma işlemidir. Bellek, açık dosyalar ve ağ bağlantıları korunur, ancak olaydan önce ve/veya sonra performans azalabilir. Dinamik Geçişin kullanılamadığı durumlarda VM, aşağıda açıklanan Beklenmeyen Kapalı Kalma Süresi yaşar.
 
 
-* **Beklenmeyen Kapalı Kalma Süresi**, sanal makinenizin altında yatan donanım ya da fiziksel altyapı bir şekilde arıza yaptığında nadiren gerçekleştirilir. Buna yerel ağ hataları, yerel disk hataları veya raf düzeyinde diğer hatalar dahildir. Bu tür bir arıza tespit edildiğinde Azure platformu otomatik olarak geçirir (heals) sanal makinenize aynı veri merkezinde sağlıklı bir fiziksel makine. İyileştirme yordamı sırasında sanal makineler kapalı kalır (yeniden başlatma) ve bazı durumlarda geçici sürücü kaybı yaşar. Bağlı işletim sistemi ve veri diskleri her zaman korunur. 
+* **Beklenmeyen bir kapalı kalma süresi** donanım ya da sanal makine için fiziksel altyapı beklenmedik şekilde başarısız olduğunda. Bu yerel ağ hataları, yerel disk hatası veya başka raf düzeyi hataları içerebilir. Azure platformu algılandığında, otomatik olarak geçirir (heals) sanal makinenize aynı veri merkezinde sağlıklı bir fiziksel makine. İyileştirme yordamı sırasında sanal makineler kapalı kalır (yeniden başlatma) ve bazı durumlarda geçici sürücü kaybı yaşar. Bağlı işletim sistemi ve veri diskleri her zaman korunur. 
 
   Sanal makineler de kapalı kalma süresi ile kurtarılamaz bir kesinti veya veri merkezinin tamamı ya da tüm bir bölgeyi etkileyen olağanüstü durum yaşayabilirsiniz. Bu senaryolar için koruma seçeneklerini de dahil olmak üzere Azure sağlar [kullanılabilirlik bölgeleri](../articles/availability-zones/az-overview.md) ve [eşleştirilmiş bölgeleri](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 
@@ -83,7 +84,7 @@ Yük dengeleyici birden fazla sanal makine arasında trafiği dengeleyecek şeki
 
 [Kullanılabilirlik bölgeleri](../articles/availability-zones/az-overview.md)Alternatif Kullanılabilirlik ayarlar, uygulamaları ve verileri, vm'lerde kullanılabilirliğini sürdürmek zorunda denetim düzeyini genişletin. Kullanılabilirlik Alanı, bir Azure bölgesinin içinde fiziksel olarak ayrılmış bir alandır. Desteklenen bir Azure bölgesine başına üç kullanılabilirlik bölge vardır. Her kullanılabilirlik bölge farklı olan güç kaynağı, ağ ve soğutma ve diğer bölgelerden kullanılabilirlik Azure bölge içindeki mantıksal olarak farklıdır. Çoğaltılmış VM'ler bölgeleri kullanmak için çözüm mimarisi oluşturma, uygulamaları ve verileri bir veri merkezinde kaybına karşı koruyabilirsiniz. Bir bölge aşılırsa, ardından çoğaltılan uygulamaları ve verileri başka bir bölgede hemen kullanılabilir. 
 
-![Kullanılabilirlik bölgeleri](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+![Kullanılabilirlik alanları](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
 
 Dağıtma hakkında daha fazla bilgi bir [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) veya [Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) kullanılabilirlik bölgesinde VM.
 

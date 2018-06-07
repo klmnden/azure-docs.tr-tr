@@ -8,14 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
 ms.workload: data-management
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4cbf758b82bccae8efe77e197d23a090d71fd7e5
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: ac53443140b792d01147cdf22b81d0e6658fa429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646465"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Dağıtma ve Azure SQL veritabanı kullanan parçalı bir çok kiracılı uygulama keşfedin
 
@@ -123,7 +124,7 @@ Bunların olaylarını listelemek ve bilet satabilir için kişiselleştirilmiş
 Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kiracıların bağlantıların listesini sağlar. Denemek için aşağıdaki adımları kullanın **olay hub'ı** Web sayfası ve tek tek web uygulaması:
 
 1. Açık **olay hub'ı** web tarayıcınızda:
-    - http://events.wingtip-mt. &lt;kullanıcı&gt;. trafficmanager.net &nbsp; *(Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)*
+    - http://events.wingtip-mt.&lt; Kullanıcı&gt;. trafficmanager.net &nbsp; *(Değiştir &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.)*
 
     ![olay hub’ı](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -135,7 +136,7 @@ Merkezi bir **olay hub'ı** Web sayfası kendi dağıtımınıza içindeki kirac
 
 Gelen istekleri dağıtımını denetlemek için Wingtip uygulamanın kullandığı [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). Her bir kiracı için olayları sayfası, URL'de Kiracı adını içerir. Her URL Ayrıca belirli, kullanıcı değeri içerir. Her URL, aşağıdaki adımları kullanarak gösterilen biçimde obeys:
 
-- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt; Kullanıcı&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. Olayları uygulama URL'den Kiracı adı ayrıştırır. Kiracı adı *fabrikamjazzclub* önceki örnek URL.
 2. Uygulama Kataloğu'nu kullanarak erişmek için bir anahtar oluşturmak için Kiracı adı sonra karmaları [parça eşleme Yönetim](sql-database-elastic-scale-shard-map-management.md).

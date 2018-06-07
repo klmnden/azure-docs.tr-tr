@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 35cdd157469556c071b03a0f25184df141057554
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639070"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Bir dış aracı tarafından izleme verileri tüketim için bir olay hub'ına akış Azure
 
@@ -97,7 +98,7 @@ Hiç şekilde yönlendirme uygulama verileri azure'da bir olay hub'ına izleme g
 
 1. [Sürekli verme ayarlamak](../application-insights/app-insights-export-telemetry.md) bir depolama hesabı için Application Insights veri.
 
-2. Zamanlayıcı tarafından tetiklenen mantığı uygulamasını ayarladığınızda, [blob depolama veri çeker](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) ve [ileti olarak event hub'ına iter](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app).
+2. Zamanlayıcı tarafından tetiklenen mantığı uygulamasını ayarladığınızda, [blob depolama veri çeker](../connectors/connectors-create-api-azureblobstorage.md#add-action) ve [ileti olarak event hub'ına iter](../connectors/connectors-create-api-azure-event-hubs.md#add-action).
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>My event hub'ına gönderilen izleme verilerle ne yapabilirim?
 

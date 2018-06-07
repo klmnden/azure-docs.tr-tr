@@ -5,15 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650069"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).

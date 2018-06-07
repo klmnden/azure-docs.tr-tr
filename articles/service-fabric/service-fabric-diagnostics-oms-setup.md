@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642674"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Bir küme için günlük analizi Ayarla
 
@@ -50,7 +51,7 @@ Windows kullanıyorsanız, OMS küme olayları depolandığı depolama hesabına
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Günlük analizi çalışma alanı, kümeye bağlanın 
 
-1. Çalışma alanı kümenizden gelen tanılama verilerini bağlı gerekir. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfWorkspace\>**  ve kendi genel bakış sayfasına gidin. Buradan, çözüm ayarları, çalışma alanı ayarları değiştirin ve OMS portalı erişebilirsiniz.
+1. Çalışma alanı kümenizden gelen tanılama verilerini bağlı gerekir. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Seçin **ServiceFabric\<nameOfWorkspace\>**  ve kendi genel bakış sayfasına gidin. Buradan, çözüm ayarları, çalışma alanı ayarları ve erişim OMS çalışma değiştirebilirsiniz.
 
 2. Sol gezinti menüsünde altında **çalışma veri kaynakları**seçin **depolama hesapları günlükleri**.
 

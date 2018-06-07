@@ -13,11 +13,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 48253b68a329d17f213369e8e4ee2e06bdf17992
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640379"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel nitelik
 
@@ -60,7 +61,7 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 {
     "skills": [
       {
-        "description": "Extracts text (plain and structured) from image."
+        "description": "Extracts text (plain and structured) from image.",
         "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
         "context": "/document/normalized_images/*",
         "defaultLanguageCode": null,
@@ -131,7 +132,7 @@ Metin birleşme için ortak bir kullanım örneği görüntülerinin (OCR yetene
 
 Aşağıdaki örnek skillset oluşturur bir *merged_text* OCRed metnin her görüntülerinin yanı sıra belgenizi metinsel içeriğini içerecek şekilde alan bu belgede katıştırılmış. 
 
-#### <a name="request-body-syntax"></a>İstek gövdesi sözdizimi
+#### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
 ```json
 {
   "description": "Extract text from images and merge with content text to produce merged_text",
@@ -200,4 +201,4 @@ Yukarıdaki skillset örnek normalleştirilmiş görüntüleri alan var olduğun
 + [Önceden tanımlanmış yetenekleri](cognitive-search-predefined-skills.md)
 + [TextMerger nitelik](cognitive-search-skill-textmerger.md)
 + [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
-+ [Dizin Oluşturucu (REST) oluşturma](ref-create-indexer.md)
++ [Dizin Oluşturucu (REST) oluşturma](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

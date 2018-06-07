@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: ayolubek
-ms.openlocfilehash: 8fd25e13f6796b8be99ad3efd425bcde7bca3905
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: fc28622ad6d2569d455f82a30a84c47647baa1e2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645343"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Çok kiracılı bir SaaS uygulaması veritabanı yedeklemeleri kurtarmak için coğrafi geri yükleme kullanın
 
@@ -77,7 +78,7 @@ Bu öğreticide kullanılan DR komut kullanılabilir [Wingtip biletleri SaaS ver
 ## <a name="review-the-healthy-state-of-the-application"></a>Uygulama sağlıklı durumunu gözden geçirin
 Kurtarma işlemine başlamadan önce uygulamaya normal sağlıklı durumunu gözden geçirin.
 
-1. Web tarayıcınızda Wingtip biletleri olay hub'ı açın (http://events.wingtip-dpt.&lt; Kullanıcı&gt;. trafficmanager.net, yerine &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
+1. Web tarayıcınızda Wingtip biletleri olay hub'ı açın (http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net, yerine &lt;kullanıcı&gt; dağıtımınızın kullanıcı değeri ile).
     
    Sayfanın alt kısmına kaydırın ve Katalog sunucu adını ve konumunu altbilgisindeki dikkat edin. Konum, uygulamayı dağıttığınız bölgedir.    
 
@@ -197,7 +198,7 @@ Uygulama uç noktasını Traffic Manager'da devre dışı olsa da, uygulama kull
  
     ![Kurtarma işlemi](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Bir kiracının olayları sayfası doğrudan Kiracı çevrimdışı durumdayken açarsanız, sayfa bir kiracı çevrimdışı bildirim görüntüler. Contoso birlikte Hall çevrimdışıysa, örneğin, açmaya http://events.wingtip-dpt.&lt; Kullanıcı&gt;.trafficmanager.net/contosoconcerthall.
+    * Bir kiracının olayları sayfası doğrudan Kiracı çevrimdışı durumdayken açarsanız, sayfa bir kiracı çevrimdışı bildirim görüntüler. Contoso birlikte Hall çevrimdışıysa, örneğin, açmaya http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Kurtarma işlemi](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -263,7 +264,7 @@ Bu görevde, geri yüklenen Kiracı veritabanlarından birini güncelleştirin. 
 
 3. Komut dosyasını çalıştırmak için F5'i seçin.
 
-4. Contoso birlikte Hall olayları sayfayı yenileyin (http://events.wingtip-dpt.&lt; Kullanıcı&gt;.trafficmanager.net/contosoconcerthall) ve olay ciddi Strauss eksik olduğuna dikkat edin.
+4. Contoso birlikte Hall olayları sayfayı yenileyin (http://events.wingtip-dpt.&lt; kullanıcı&gt;.trafficmanager.net/contosoconcerthall) ve olay ciddi Strauss eksik olduğuna dikkat edin.
 
 Bu noktada öğreticide kurtarma bölgede şu anda çalışıyor uygulama kurtardı. Kurtarma bölgede yeni bir kiracı hazırladıktan ve veri geri yüklenen kiracılar birinin değiştirdi.  
 
@@ -327,7 +328,7 @@ Bir veritabanı repatriated sonra ikincil veritabanı kurtarma bölgede silinebi
 
     Yeni bir PowerShell penceresi kurtarma komut dosyasını çalıştırmak için F5'i seçin. Repatriation birkaç dakika sürer ve PowerShell penceresinde izlenebilir.
 
-3. Komut dosyası çalışırken, olayları hub sayfayı yenileyin (http://events.wingtip-dpt.&lt; Kullanıcı&gt;. trafficmanager.net).
+3. Komut dosyası çalışırken, olayları hub sayfayı yenileyin (http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net).
 
     Tüm kiracılar çevrimiçi ve erişilebilir bu işlemi boyunca olduğuna dikkat edin.
 

@@ -1,20 +1,21 @@
 ---
-title: "SQL Server veritabanını Azure SQL Veritabanına geçirme | Microsoft Docs"
-description: "SQL Server veritabanını buluttaki Azure SQL Veritabanına nasıl geçireceğinizi öğrenin."
-keywords: "veritabanı geçişi,sql server veritabanı geçişi,veritabanı taşıma araçları,veritabanı taşıma,sql veritabanı geçişi"
+title: SQL Server veritabanını Azure SQL Veritabanına geçirme | Microsoft Docs
+description: SQL Server veritabanını buluttaki Azure SQL Veritabanına nasıl geçireceğinizi öğrenin.
+keywords: veritabanı geçişi,sql server veritabanı geçişi,veritabanı taşıma araçları,veritabanı taşıma,sql veritabanı geçişi
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: migrate
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 59ee56e225623295dd63bf5ae303bfe1aa8e95cf
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 73f7c9ae9a3badd9d9dc3628145132238c8670d0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645931"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL veritabanı için SQL Server veritabanı geçirme
 

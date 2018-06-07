@@ -13,18 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: 984b16dae26fb6d9d33ef68ac3e8c8b658e82e08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c9386f7dd0ba390a5f089be058c7f3edd6e33cf9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652381"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Bir sanal makineyi ölçeği Azure portalında Ayarla otomatik olarak ölçeklendirin
-Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz VM örneği sayısını tanımlayın. Uygulama talep değiştikçe otomatik olarak artırın veya VM örneği sayısını azaltın. Otomatik ölçeklendirme özelliği ile isteğe bağlı müşteri takip edin veya uygulamanızın yaşam döngüsü boyunca uygulama performans değişikliklerine yanıt verme olanak sağlar.
+Ölçek kümesi oluşturduğunuzda, çalıştırmak istediğiniz sanal makine örneği sayısını tanımlarsınız. Uygulamanızın talebi değiştikçe, sanal makine örneklerinin sayısını otomatik olarak artırabilir veya azaltabilirsiniz. Otomatik ölçeklendirme özelliği, uygulamanızın yaşam döngüsü boyunca uygulama performansındaki değişikliklere veya müşteri taleplerine ayak uydurmanıza olanak tanır.
 
-Bu makalede, Ölçek kümesi VM örnekleri performansını izlemek Azure Portalı'nda otomatik ölçeklendirme kurallarını oluşturulacağını gösterir. Otomatik ölçeklendirme kurallar artırın veya bu performans ölçümleri yanıta VM örnekleri sayısını azaltın. Bu adımları tamamlayabilmeniz için [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) veya [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md).
+Bu makalede, Ölçek kümesi VM örnekleri performansını izlemek Azure Portalı'nda otomatik ölçeklendirme kurallarını oluşturulacağını gösterir. Otomatik ölçeklendirme kurallar artırın veya bu performans ölçümleri yanıta VM örnekleri sayısını azaltın. Bu adımları tamamlayabilmeniz için [Azure PowerShell](tutorial-autoscale-powershell.md) veya [Azure CLI 2.0](tutorial-autoscale-cli.md).
 
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -32,7 +33,7 @@ Otomatik ölçeklendirme kuralları oluşturmak için mevcut bir sanal makine ge
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Otomatik olarak genişletmek için kural oluşturma
-Uygulama talep artarsa, Ölçek VM örnekleri üzerindeki yük artar ayarlayın. Bu artan yükün tutarlı, ise yalnızca kısa isteğe bağlı yerine, Ölçek kümesi VM örnekleri sayısını artırmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz. Bu VM örnekleri oluşturulur ve uygulamalarınızı dağıtılan bunlara trafiğini yük dengeleyici üzerinden dağıtmak ölçek kümesini başlar. CPU veya disk, ne kadar süreyle uygulama yük belirli bir eşiği karşılamalı ve ölçek eklemek için kaç VM örnekleri kümesi gibi izlemek için hangi ölçümleri denetler.
+Uygulamanızın talebi artarsa, ölçek kümenizdeki sanal makine örneklerinde üzerindeki yük de artar. Bu kısa süreli bir talep olmayıp tutarlı şekilde yük artıyorsa, ölçek kümesindeki sanal makine örneği sayısını artırmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz. Bu sanal makine örnekleri oluşturulduğunda ve uygulamalarınız dağıtıldığında ölçek kümesi, yük dengeleyici aracılığıyla bunlara trafiği dağıtmaya başlar. CPU veya disk gibi hangi ölçümlerin izleneceğini, uygulama yükünün belirli bir eşiği ne kadar süre karşılaması gerektiği ve ölçek kümesine kaç sanal makine örneği ekleneceğini denetlersiniz.
 
 1. Azure portal ve select açmak **kaynak grupları** panonun sol taraftaki menüden.
 2. Ölçek kümesini içerir ve ardından, Ölçeği Ayarla kaynaklar listesinden kaynak grubunu seçin.
@@ -48,17 +49,17 @@ Uygulama talep artarsa, Ölçek VM örnekleri üzerindeki yük artar ayarlayın.
     
     | Parametre              | Açıklama                                                                                                         | Değer          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Zaman toplama*     | Toplanan ölçümleri analiz için nasıl toplanması gerektiğini tanımlar.                                                | Ortalama        |
-    | *Ölçüm adı*          | İzleme ve ölçek uygulamak için performans ölçüm Eylemler ayarlayın.                                                   | CPU Yüzdesi |
+    | *Zaman toplama*     | Toplanan ölçümlerin analiz için nasıl bir araya getirileceğini tanımlar.                                                | Ortalama        |
+    | *Ölçüm adı*          | İzlenecek ve ölçek kümesi eylemlerinin uygulanmasında temel alınacak performans ölçümü.                                                   | CPU yüzdesi |
     | *Zaman çizgisi İstatistiği* | Her zaman çizgisi, toplanan ölçümleri analiz için nasıl toplanması gerektiğini tanımlar.                             | Ortalama        |
-    | *Operator*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                     | Şu değerden fazla:   |
+    | *işleci*             | Ölçüm verilerini eşikle karşılaştırmak için kullanılan işleç.                                                     | Şu değerden fazla:   |
     | *Eşik*            | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden olan yüzdesi.                                                 | 70             |
-    | *Süre*             | Ölçüm ve eşik değerlerini karşılaştırılır önce izlenen süre miktarı.                                   | 10 dakika     |
+    | *Süre*             | Ölçüm ve eşik değerleri karşılaştırılmadan önce izleme yapılacak süre.                                   | 10 dakika     |
     | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                        | Yüzdeyi şu kadar artır: |
-    | *Örnek sayısı*       | Kural harekete geçirdiğinde VM örnekleri yüzdesi değiştirilmelidir.                                            | 20             |
-    | *Seyrek erişimli (dakika)*  | Otomatik ölçeklendirme eylemleri etkili olması için zamanı sağlayacak şekilde kural önce beklenecek süreyi yeniden uygulanır. | 5 dakika      |
+    | *Örnek sayısı*       | Kural tetiklendiğinde değiştirilmesi gereken sanal makine örneklerinin yüzdesi.                                            | 20             |
+    | *Seyrek erişimli (dakika)*  | Otomatik ölçeklendirme eylemlerinin geçerli olması için kural tekrar uygulanmadan önceki bekleme süresi. | 5 dakika      |
 
-    Aşağıdaki örnekler, bu ayarları eşleşen Azure portalında oluşturulan bir kural gösterir:    
+    Aşağıdaki örnekler, bu ayarları eşleşen Azure portalında oluşturulan bir kural gösterir:
 
     ![VM örneği sayısını artırmak için bir otomatik ölçeklendirme kuralı oluşturma](media/virtual-machine-scale-sets-autoscale-portal/rule-increase.png)
 
@@ -66,7 +67,7 @@ Uygulama talep artarsa, Ölçek VM örnekleri üzerindeki yük artar ayarlayın.
 
 
 ## <a name="create-a-rule-to-automatically-scale-in"></a>İçinde otomatik olarak ölçeklendirmek için kural oluşturma
-Bir akşam veya hafta sonu, uygulamayı isteğe bağlı azaltabilir. Bu azalmasına yükü bir süre boyunca tutarlı ise, Ölçek kümesi VM örnekleri sayısını azaltmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz. Bu ölçek eylemi geçerli talebi karşılamak için gerekli örnek sayısı yalnızca çalışacak şekilde ayarlayın, Ölçek çalıştırmak için maliyeti azaltır.
+Bir akşam veya hafta sonu uygulama talebiniz azalabilir. Yük belirli bir süreye yayılarak tutarlı şekilde azalıyorsa, ölçek kümesindeki sanal makine örneği sayısını azaltmak için otomatik ölçeklendirme kuralları yapılandırabilirsiniz. Mevcut talebi karşılamak için gerekli örnek sayısını yalnızca siz çalıştırdığınızdan, bu ölçeği daraltma eylemi ölçek kümenizi çalıştırma maliyetini azaltır.
 
 1. Tercih **bir kural eklemek** yeniden.
 2. Ortalama CPU yükünü 10 dakikalık bir süre içinde % 30 daha sonra düştüğünde ayarlamak ölçek VM örneği sayısı azalır bir kural oluşturun. Kural harekete geçirdiğinde VM örneklerinin sayısını 20 oranında azalır.
@@ -75,10 +76,10 @@ Bir akşam veya hafta sonu, uygulamayı isteğe bağlı azaltabilir. Bu azalmas�
     
     | Parametre              | Açıklama                                                                                                          | Değer          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operator*             | Ölçüm verilerinin eşikle karşılaştırmak için kullanılan işleci.                                                      | Şu değerden az:   |
+    | *işleci*             | Ölçüm verilerini eşikle karşılaştırmak için kullanılan işleç.                                                      | Şu değerden az:   |
     | *Eşik*            | Otomatik ölçeklendirme kuralın bir eylemi tetikleyen neden olan yüzdesi.                                                 | 30             |
     | *İşlem*            | Ölçek kümesini ve yukarı veya aşağı kuralın geçerli olduğunda ve hangi artış ölçeklendirmeniz gerekir tanımlar                         | Yüzdeyi şu kadar azalt: |
-    | *Örnek sayısı*       | Kural harekete geçirdiğinde VM örnekleri yüzdesi değiştirilmelidir.                                             | 20             |
+    | *Örnek sayısı*       | Kural tetiklendiğinde değiştirilmesi gereken sanal makine örneklerinin yüzdesi.                                             | 20             |
 
 3. Bir kural oluşturmak için seçin **Ekle**
 

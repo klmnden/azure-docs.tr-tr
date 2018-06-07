@@ -1,24 +1,20 @@
 ---
-title: "Bir şablon (.NET) kullanarak Azure IOT Hub oluşturma | Microsoft Docs"
-description: "Bir IOT Hub ile C# programı oluşturmak için bir Azure Resource Manager şablonu kullanma"
-services: iot-hub
-documentationcenter: .net
+title: Bir şablon (.NET) kullanarak Azure IOT Hub oluşturma | Microsoft Docs
+description: Bir IOT Hub ile C# programı oluşturmak için bir Azure Resource Manager şablonu kullanma
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a447b40c-c728-487e-875d-db554db5adc3
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 3f84ab26c43f33827479faed46db1de246920ae5
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 1a64749b7218fccfdad6b6eeebfac39a44aa0522
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635551"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-net"></a>Azure Resource Manager şablonu (.NET) kullanılarak IOT hub oluşturma
 
@@ -215,7 +211,7 @@ IOT Hub için geliştirme hakkında daha fazla bilgi için aşağıdaki makalele
 
 Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
-* [AI ile Azure IOT kenar sınır cihazları için dağıtma][lnk-iotedge]
+* [Azure IOT Edge ile sınır cihazlarına Al dağıtma][lnk-iotedge]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/

@@ -1,13 +1,13 @@
 ---
-title: "SAP ASCS/SCS örnek çoklu SID yüksek kullanılabilirlik ile Azure Windows Server Yük Devretme Kümelemesi ve dosya paylaşımında | Microsoft Docs"
-description: "Windows Server Yük Devretme Kümelemesi ve dosya ile SAP ASCS/SCS örnekleri için yüksek kullanılabilirlik çoklu SID Azure üzerinde paylaşma"
+title: SAP ASCS/SCS örnek çoklu SID yüksek kullanılabilirlik ile Azure Windows Server Yük Devretme Kümelemesi ve dosya paylaşımında | Microsoft Docs
+description: Windows Server Yük Devretme Kümelemesi ve dosya ile SAP ASCS/SCS örnekleri için yüksek kullanılabilirlik çoklu SID Azure üzerinde paylaşma
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657222"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351

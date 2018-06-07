@@ -1,11 +1,11 @@
 ---
-title: "Azure hizmet veri yolu WCF geçiş Öğreticisi | Microsoft Docs"
-description: "WCF geçiş kullanarak bir istemci ve hizmet uygulaması oluşturma."
+title: Azure hizmet veri yolu WCF geçiş Öğreticisi | Microsoft Docs
+description: WCF geçiş kullanarak bir istemci ve hizmet uygulaması oluşturma.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: sethm
-ms.openlocfilehash: a0b06c32cf5f154cf5eb01842d9b917dcb35f7b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 82e26571c88460436e6ca5ee70323cd680c82bdc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642317"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF geçiş Öğreticisi
 
-Bu öğretici basit bir WCF geçiş istemci uygulaması ve hizmeti Azure geçişi kullanarak nasıl oluşturulacağını açıklar. Kullanıldığı benzer bir öğretici [Service Bus Mesajlaşma](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Bu öğretici basit bir WCF geçiş istemci uygulaması ve hizmeti Azure geçişi kullanarak nasıl oluşturulacağını açıklar. Kullanıldığı benzer bir öğretici [Service Bus Mesajlaşma](../service-bus-messaging/service-bus-messaging-overview.md), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Bu öğreticide, bir anlayış WCF geçiş istemci ve hizmet uygulaması oluşturmak için gereken adımları sağlar. Özgün WCF hizmetindeki benzerlerinde gibi bir hizmet her biri bir veya daha fazla hizmet işlemini kullanıma sunar, bir veya daha fazla uç noktaları, kullanıma sunan bir yapıdır. Bir hizmetin uç noktası hizmetin bulunabileceği bir adres, istemcinin hizmetle iletişiminde paylaşması gereken bilgileri içeren bir bağlama ve hizmet tarafından istemcilerine sağlanan işlevselliği tanımlayan bir sözleşme belirtir. WCF ve WCF geçiş arasındaki temel fark, uç noktanın yerel olarak bilgisayarınızda yerine bulutta sunulur ' dir.
 
@@ -30,7 +31,7 @@ Bu öğreticideki konu başlıklarını sırasıyla anlayıp uyguladıktan sonra
 
 Son üç adımda istemci uygulaması oluşturma, istemci uygulamasını yapılandırma ve ana bilgisayarın işlevselliğine erişebilen bir istemci oluşturma ile bu istemciyi kullanma açıklanır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için şunlar gerekir:
 
@@ -413,7 +414,7 @@ Sonraki adım, bir istemci uygulaması oluşturun ve daha sonraki adımlarda ger
 
    1. Çözüm Gezgini'nde, hizmetin barındıran çözümde bulunan geçerli çözüme (projeye değil) sağ tıklayın ve **Ekle**'ye tıklayın. Ardından **Yeni Proje**'ye tıklayın.
    2. İçinde **Yeni Proje Ekle** iletişim kutusu, tıklatın **Visual C#** (varsa **Visual C#** görüntülenmiyorsa, altında Ara **diğer diller**) seçin **Konsol uygulaması (.NET Framework)** şablonu ve adlandırın **EchoClient**.
-   3. **Tamam** düğmesine tıklayın.
+   3. **Tamam**’a tıklayın.
       <br />
 2. Çözüm Gezgini'nde, **EchoClient** projesindeki Program.cs dosyasına çift tıklayarak düzenleyicide açın (zaten açılmış durumda değilse).
 3. `EchoClient` olan varsayılan ad alanı adını `Microsoft.ServiceBus.Samples` olarak değiştirin.
@@ -714,7 +715,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğretici bir Azure geçiş istemci uygulaması ve hizmet veri yolu WCF aktarma özelliklerini kullanarak hizmeti oluşturmak nasıl oluşturulacağını gösterir. Kullanıldığı benzer bir öğretici [Service Bus Mesajlaşma hizmeti](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+Bu öğretici bir Azure geçiş istemci uygulaması ve hizmet veri yolu WCF aktarma özelliklerini kullanarak hizmeti oluşturmak nasıl oluşturulacağını gösterir. Kullanıldığı benzer bir öğretici [Service Bus Mesajlaşma hizmeti](../service-bus-messaging/service-bus-messaging-overview.md), bkz: [Service Bus kuyrukları ile çalışmaya başlama](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Azure geçişi hakkında daha fazla bilgi edinmek için aşağıdaki konulara bakın.
 

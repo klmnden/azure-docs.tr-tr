@@ -13,16 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: c463dd26c106b3178becc977a8afd742220d7973
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 39cd7fa2232329716ba16abf92ba4a5f2cc15487
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652789"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Azure PowerShell ile ayarlanmış bir sanal makine ölçek yönetme
-Bir sanal makine ölçek kümesi yaşam döngüsü boyunca, bir veya daha fazla yönetim görevleri çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak sağlayan ortak Azure PowerShell cmdlet'lerini bazıları ayrıntılarını verir.
+Sanal makine ölçek kümesinin yaşam döngüsü boyunca bir veya daha fazla yönetim görevi çalıştırmanız gerekebilir. Ayrıca, çeşitli yaşam döngüsü görevlerini otomatikleştiren betikler oluşturmak isteyebilirsiniz. Bu makalede bu görevleri gerçekleştirmenize olanak sağlayan ortak Azure PowerShell cmdlet'lerini bazıları ayrıntılarını verir.
 
 Bu yönetim görevleri tamamlamak için en son Azure PowerShell modülü gerekir. Bilgi için bkz: [Azure PowerShell ile çalışmaya başlama](/powershell/azure/get-started-azureps). Bir sanal makine ölçek kümesi oluşturmanız gerekiyorsa, yapabilecekleriniz [ölçeği Azure PowerShell ile Ayarla oluşturma](quick-create-powershell.md).
 
@@ -36,7 +37,7 @@ Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Ölçek kümesindeki VM’leri görüntüleme
-Ölçek kümesindeki VM örneği listesini görüntülemek için kullanın [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Aşağıdaki örnek ölçeği adlandırılmış Ayarla tüm VM örnekleri listesi *myScaleSet* ve *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi girin:
+Ölçek kümesindeki VM örneği listesini görüntülemek için kullanın [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm). Aşağıdaki örnekte ölçeği adlandırılmış Ayarla tüm VM örnekleri listelenmiştir *myScaleSet* ve *myResourceGroup* kaynak grubu. Bu adları için kendi değerlerinizi girin:
 
 ```powershell
 Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -49,10 +50,10 @@ Get-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 ```
 
 
-## <a name="change-the-capacity-of-a-scale-set"></a>Ölçek kümesi kapasitesi değiştirme
+## <a name="change-the-capacity-of-a-scale-set"></a>Ölçek kümesinin kapasitesini değiştirme
 Yukarıdaki komutlar, Ölçek kümesi ve VM örnekleri hakkında bilgi gösterdi. Artırmak veya ölçek kümesindeki örneklerinin sayısını azaltmak için kapasite değiştirebilirsiniz. Ölçeği otomatik olarak ayarla oluşturur veya VM'ler gereken sayıda kaldırır ve sonra uygulama trafiği almaya VM'ler yapılandırır.
 
-İlk olarak, bir ölçek kümesi nesnesi oluşturun [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss), için yeni bir değer belirtin `sku.capacity`. Kapasite değişikliği uygulamak için kullanmak [güncelleştirme AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss). Aşağıdaki örnek güncelleştirmeleri *myScaleSet* içinde *myResourceGroup* kapasitesine kaynak grubuna *5* örnekleri. Kendi değerlerinizi aşağıdaki gibi belirtin:
+İlk olarak, [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) ile bir ölçek kümesi nesnesi oluşturun, ardından `sku.capacity` için yeni bir değer belirtin. Kapasite değişikliğini uygulamak için [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) kullanın. Aşağıdaki örnek güncelleştirmeleri *myScaleSet* içinde *myResourceGroup* kapasitesine kaynak grubuna *5* örnekleri. Kendi değerlerinizi aşağıdaki gibi belirtin:
 
 ```powershell
 # Get current scale set
@@ -60,28 +61,28 @@ $vmss = Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "my
 
 # Set and update the capacity of your scale set
 $vmss.sku.capacity = 5
-Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss 
+Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
-Kapasite, Ölçek güncelleştirilmesi birkaç dakika bir ayarlarsanız. Bir ölçek kapasitesini azaltırsanız kimlikleri ilk kaldırılır en yüksek örnek VM'lerin ayarlayın.
+Ölçek kümenizin kapasitesinin güncelleştirilmesi birkaç dakika sürer. Bir ölçek kapasitesini azaltırsanız kimlikleri ilk kaldırılır en yüksek örnek VM'lerin ayarlayın.
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Durdurun ve ölçek kümesindeki sanal makineleri Başlat
-Ölçek kümesindeki bir veya daha fazla sanal makineleri durdurmak için kullanma [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss). `-InstanceId` Parametresi durdurmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek kümesindeki tüm VM'ler durdurulur. Birden çok VM durdurmak için her örnek kimliği virgül ile ayırın.
+Ölçek kümesindeki bir veya birden çok sanal makineyi durdurmak için [Stop-AzureRmVmss](/powershell/module/azurerm.compute/stop-azurermvmss) kullanın. `-InstanceId` parametresi, durdurulacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler durdurulur. Birden çok VM durdurmak için her örnek kimliği virgül ile ayırın.
 
-Aşağıdaki örnek örneği durdurur *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
+Aşağıdaki örnek örneği durdurur *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi belirtin:
 
 ```powershell
 Stop-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
-Varsayılan olarak, durdurulmuş VM'ler serbest ve bilgi işlem ücretleri değil. VM durdurulduğunda sağlanan bir durumda kalır, eklemek isterseniz, `-StayProvisioned` yukarıdaki komut parametresi. Sağlanan kalır durdurulmuş VM'ler normal bilgi işlem ücretleri.
+Varsayılan olarak, durdurulan sanal makineler serbest bırakılır ve bunlar için işlem ücreti alınmaz. Durdurulan sanal makinenin sağlama durumunda kalmasını istiyorsanız, önceki komuta `-StayProvisioned` parametresini ekleyin. Sağlama durumunda tutulan durdurulmuş sanal makineler için normal işlem ücreti alınır.
 
 
 ### <a name="start-vms-in-a-scale-set"></a>Ölçek kümesindeki sanal makineleri Başlat
-Ölçek kümesindeki bir veya daha fazla VM başlatmak için kullanmak [başlangıç AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss). `-InstanceId` Parametresi başlatmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek kümesindeki tüm VM'ler başlatılır. Birden çok VM başlatmak için her örnek kimliği virgül ile ayırın.
+Ölçek kümesindeki bir veya birden çok sanal makineyi başlatmak için [Start-AzureRmVmss](/powershell/module/azurerm.compute/start-azurermvmss) kullanın. `-InstanceId` parametresi, başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler başlatılır. Birden çok VM başlatmak için her örnek kimliği virgül ile ayırın.
 
-Aşağıdaki örnekte bir örneğini başlatır *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
+Aşağıdaki örnekte bir örneğini başlatır *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi belirtin:
 
 ```powershell
 Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -89,9 +90,9 @@ Start-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleS
 
 
 ## <a name="restart-vms-in-a-scale-set"></a>Ölçek kümesindeki sanal makineleri yeniden başlatın
-Bir veya daha fazla VM ölçek kümesindeki yeniden başlatmak için kullanın [Retart AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss). `-InstanceId` Parametresi yeniden başlatmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek grubundaki tüm sanal makineleri yeniden başlatılır. Birden çok VM yeniden başlatmak için her örnek kimliği virgül ile ayırın.
+Ölçek kümesindeki bir veya birden çok sanal makineyi yeniden başlatmak için [Restart-AzureRmVmss](/powershell/module/azurerm.compute/restart-azurermvmss) kullanın. `-InstanceId` parametresi, yeniden başlatılacak bir veya daha fazla sanal makine belirtmenize olanak sağlar. Örnek kimliği belirtmezseniz, ölçek kümesindeki tüm sanal makineler yeniden başlatılır. Birden çok VM yeniden başlatmak için her örnek kimliği virgül ile ayırın.
 
-Aşağıdaki örnek örneği yeniden *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
+Aşağıdaki örnek örneği yeniden *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi belirtin:
 
 ```powershell
 Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -101,7 +102,7 @@ Restart-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScal
 ## <a name="remove-vms-from-a-scale-set"></a>Ölçek kümesindeki sanal makineleri Kaldır
 Bir veya daha fazla VM ölçek kümesindeki kaldırmak için kullanın [Kaldır AzureRmVmss](/powershell/module/azurerm.compute/remove-azurermvmss). `-InstanceId` Parametresi kaldırmak için bir veya daha fazla VM belirtmenize olanak verir. Bir örnek kimliği belirtmezseniz, Ölçek kümesindeki tüm VM'ler kaldırılır. Birden çok VM kaldırmak için her örnek kimliği virgül ile ayırın.
 
-Aşağıdaki örnek, örnek kaldırır *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Değerlerinizi aşağıdaki gibi belirtin:
+Aşağıdaki örnek, örnek kaldırır *0* adlandırılmış kümesi ölçeğinde *myScaleSet* ve *myResourceGroup* kaynak grubu. Kendi değerlerinizi aşağıdaki gibi belirtin:
 
 ```powershell
 Remove-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"

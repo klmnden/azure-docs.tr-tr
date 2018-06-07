@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 84e6f2303bcfd6a2c91f29e9e9afdc2b84f990ca
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95d4fc1886e16785b6de8f3a395b218b66d193ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645370"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Dağıtma ve Kiracı başına veritabanı desen ile SQL veritabanı kullanan çok kiracılı bir SaaS uygulama keşfedin
 
@@ -108,7 +109,7 @@ Dahili olarak uygulamada, her bir kiracı SQL esnek havuza dağıtılan bir SQL 
 
 Merkezi bir **olay hub'ı** sayfası, dağıtımınızdaki kiracılar bağlantıların listesini sağlar.
 
-1. Web tarayıcınızda olay hub'ı açmak için URL'yi kullanın: http://events.wingtip-dpt.&lt; Kullanıcı&gt;. trafficmanager.net. Yedek &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.
+1. Web tarayıcınızda olay hub'ı açmak için URL'yi kullanın: http://events.wingtip-dpt.&lt; kullanıcı&gt;. trafficmanager.net. Yedek &lt;kullanıcı&gt; dağıtımınızın kullanıcı değerine sahip.
 
     ![Olay hub'ı](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
@@ -120,7 +121,7 @@ Merkezi bir **olay hub'ı** sayfası, dağıtımınızdaki kiracılar bağlantı
 
 Wingtip uygulamanın kullandığı [ *Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) gelen istekleri dağıtımını denetlemek için. Belirli bir kiracı için olayları sayfasına erişmek için URL şu biçimi kullanır:
 
-- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt; Kullanıcı&gt;.trafficmanager.net/fabrikamjazzclub
 
     Önceki biçimi bölümlerini aşağıdaki tabloda açıklanmıştır.
 
@@ -234,7 +235,7 @@ Bir yük kiracılar koleksiyonu karşı çalışan başladıktan, dağıtılan k
 
 Sonra *LoadGenerator.ps1* çalıştırmaları birkaç dakika için yeterli veri olmalıdır izleme bazı özellikler aramaya başlamak kullanılabilir. Bu özellikler, havuzları ve veritabanları oluşturulmuştur.
 
-Sunucuya Gözat **tenants1-dpt -&lt;kullanıcı&gt;**seçip **Pool1** havuz için kaynak kullanımı görüntülemek için. Aşağıdaki grafikte, bir saat için yük Oluşturucu verdi.
+Sunucuya Gözat **tenants1-dpt -&lt;kullanıcı&gt;** seçip **Pool1** havuz için kaynak kullanımı görüntülemek için. Aşağıdaki grafikte, bir saat için yük Oluşturucu verdi.
 
    ![İzleyici havuzu](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

@@ -1,22 +1,22 @@
 ---
 title: Azure Resource Manager şablonları kullanarak Azure zaman serisi Öngörüler ortamınızı yönetmek nasıl | Microsoft Docs
 description: Bu makalede, Azure zaman serisi Öngörüler ortamınızı program aracılığıyla Azure Kaynak Yöneticisi'ni kullanarak yönetmek açıklar.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: anshan
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 8355248f28a019ef4712f542c8eac731362330ce
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 99aabc01132da60a1b09fcf65f439b8e084bbffa
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651973"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager şablonları kullanarak zaman serisi Öngörüler kaynakları oluşturun
 
@@ -26,7 +26,7 @@ Zaman serisi Öngörüler aşağıdaki kaynaklara destekler:
    | Kaynak | Açıklama |
    | --- | --- |
    | Ortam | Olay aracıların okuyun, depolanır ve sorgu için kullanılabilir hale olaylar mantıksal bir gruplandırması bir zaman serisi Öngörüler ortamıdır. Daha fazla bilgi için bkz: [Azure zaman serisi Öngörüler ortamınızı planlama](time-series-insights-environment-planning.md) |
-   | Olay kaynağı | Bir olay kaynağı içinden zaman serisi Öngörüler okur ve ortama olayları alır olay aracısı için bir bağlantıdır. Şu anda desteklenen olay kaynakları IOT Hub ve Event Hub'dır. |
+   | Olay Kaynağı | Bir olay kaynağı içinden zaman serisi Öngörüler okur ve ortama olayları alır olay aracısı için bir bağlantıdır. Şu anda desteklenen olay kaynakları IOT Hub ve Event Hub'dır. |
    | Başvuru veri kümesi | Başvuru veri kümelerini ortamında olaylar hakkında meta veri sağlar. Başvuru veri kümelerini meta verilerde olaylarla giriş sırasında katılması. Başvuru veri kümelerini kaynaklar olarak olay anahtar özellikleri tarafından tanımlanır. Başvuru veri ayarlama yapar gerçek meta veriler karşıya veya veri düzlemi API'leri değiştirilemiyor. |
    | Erişim İlkesi | Erişim ilkeleri, veri sorguları göndermek, ortamında başvuru verileri işlemek ve ortamla ilgili Perspektif ve kaydedilmiş sorguları paylaşmak için izinleri verin. Daha fazla bilgi için bkz: [Azure portalını kullanarak bir zaman serisi Öngörüler ortamı için veri erişim](time-series-insights-data-access.md) |
 

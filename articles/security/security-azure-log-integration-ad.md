@@ -1,35 +1,35 @@
 ---
-title: "Azure Active Directory denetim günlükleri ile Azure günlük tümleştirme | Microsoft Docs"
-description: "Azure günlük tümleştirme hizmeti yüklemek ve Azure denetim günlükleri günlüklerinden tümleştirme hakkında bilgi edinin"
+title: Azure Active Directory denetim günlükleri ile Azure günlük tümleştirme | Microsoft Docs
+description: Azure günlük tümleştirme hizmeti yüklemek ve Azure denetim günlükleri günlüklerinden tümleştirme hakkında bilgi edinin
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/16/2018
+ms.date: 05/25/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 201e34cf9e9c917f1f79964facce136e7c0c2fd3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642470"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory denetim günlüklerini tümleştirme
 
 Azure Active Directory (Azure AD) denetim olayları Azure Active Directory'de oluştu ayrıcalıklı Eylemler belirlemenize yardımcı olur. Gözden geçirerek izleyebilirsiniz olay türlerini görebilirsiniz [Azure Active Directory Denetim Raporu olayları](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
 
+## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Azure Active Directory Tümleştirme adımları denetim günlükleri
 
 > [!NOTE]
-> Bu makaledeki adımları denemeden önce gözden geçirmeniz gerekir [başlama](security-azure-log-integration-get-started.md) makalesini inceleyip var. adımlarını tamamlayın.
-
-## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Azure Active Directory Tümleştirme adımları denetim günlükleri
+> Bu makaledeki adımları denemeden önce gözden geçirmeniz gerekir [başlama](security-azure-log-integration-get-started.md) makalesi ve ilgili adımları tamamlayın.
 
 1. Komut istemi açın ve şu komutu çalıştırın:
 

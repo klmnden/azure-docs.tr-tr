@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651214"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple sanal dizi giriş
 
@@ -206,10 +207,9 @@ StorSimple daha fazla bulut depolama gereksinimlerini azaltmak için yinelenenle
 
 StorSimple veri koruma özelliklerine isteğe bağlı yedeklemeler oluşturmanızı sağlar. Ayrıca, bir varsayılan yedekleme zamanlaması günlük yedek yedeklenen verileri sağlar. Yedeklemeler, bulutta depolanan artımlı anlık görüntüleri biçiminde alınır. Son yedeklemeden sonra yalnızca değişiklikleri kaydedin, anlık görüntü oluşturulur ve hızlı bir şekilde geri. Bu anlık görüntüler, çünkü bunlar ikincil depolama sistemleri (örneğin, bant yedekleme) değiştirin ve, gerekirse, veri merkeziniz veya diğer siteler için geri yüklemenize izin olağanüstü durum kurtarma senaryolarında kritik düzeyde önemli olabilir.
 
-## <a name="gdpr-compliance"></a>GDPR uyumluluk
-[Genel veri koruma düzenleme (GDPR)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm) Avrupa Birliği (AB) veri koruma ve gizlilik yasaları değil. GDPR nasıl toplamak, depolamak ve kişisel bilgilerinizi kullanma hakkında birçok gereksinimlerini içerir. GDPR kuralları, şirketler, devlet dairesi ve AB işletmek ve toplamak, AB Satışlar bağlı verileri çözümlemek diğer kuruluşlar uygulanmaz.
+## <a name="managing-personal-information"></a>Kişisel bilgilerini yönetme
 
-Sanal seri için StorSimple Aygıt Yöneticisi'ni GDPR uyumlu değil. Burada kişisel bilgiler toplanır ve hizmetinde görüntülenen iki anahtar örnekleri şunlardır:
+StorSimple cihaz Yöneticisi sanal seri için iki anahtar durumlarda kişisel bilgilerinizi toplar:
  - Kullanıcıların e-posta adresini yapılandırıldığı kullanıcı ayarlarını uyarı. Bu bilgiler yönetici tarafından temizlenebilir. 
  - Paylaşımlarında bulunan verilerin erişebilecek. Paylaşım verilere kimin erişebileceğini kullanıcılar listesi görüntülenir ve dışa aktarılabilir. Bu liste de silinir paylaşımları zaman silinir.
 

@@ -56,7 +56,7 @@ Get-AzureStorageTableRowAll -table $storageTable | ft
 
 Bu komut, aşağıdaki tabloda benzer sonuçlar verir:
 
-| Kullanıcı Kimliği | kullanıcı adı | Bölüm | rowkey |
+| Kullanıcı Kimliği | kullanıcı adı | bölüm | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Bölüm1 | CA |
 | 3 | Christine | Bölüm1 | WA |
@@ -72,7 +72,7 @@ Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $parti
 ```
 Sonuçlar aşağıdaki tabloya benzer görünür:
 
-| Kullanıcı Kimliği | kullanıcı adı | Bölüm | rowkey |
+| Kullanıcı Kimliği | kullanıcı adı | bölüm | rowkey |
 |----|---------|---------------|----|
 | 1 | Chris | Bölüm1 | CA |
 | 3 | Christine | Bölüm1 | WA |
@@ -168,7 +168,7 @@ Tek bir varlık silmek için bu varlığa bir başvuru almak ve içine kanal **K
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
 $userToDelete = Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter 
+    -customFilter $filter
 $userToDelete | Remove-AzureStorageTableRow -table $storageTable 
 
 # Retrieve entities from table and see that Jessie2 has been deleted.

@@ -15,17 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 586a5590c88ef4124543c47389f62eaa864d2d18
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 19dd6a693daf0b54c7df448f21bdb098d9bbdcac
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653510"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a geçişi planlama
 Azure Resource Manager birçok şaşırtıcı özellik sunarken, sorunsuz şeyler emin olmak için geçiş Yolculuğunuzun planlama önemlidir. Planlama zaman harcama geçiş etkinliklerini yürütülürken sorunlarla değil olduğunu güvence altına alır. 
 
 > [!NOTE] 
-> Aşağıdaki kılavuz yoğun müşterilerle geçirme büyük enviornments üzerinde çalışan bulut çözümü mimarları ve Azure Müşteri danışma ekibi tarafından katkısı. Bu nedenle bu tür bu belge başarı yeni desenler ortaya çıkan olarak güncelleştirilmesi devam ederken, geri zamandan yeni herhangi bir önerimiz olup olmadığını görmek için süre denetleyin.
+> Aşağıdaki kılavuz yoğun müşterilerle geçirme büyük ortamlarda üzerinde çalışan bulut çözümü mimarları ve Azure Müşteri danışma ekibi tarafından katkısı. Bu nedenle bu tür bu belge başarı yeni desenler ortaya çıkan olarak güncelleştirilmesi devam ederken, geri zamandan yeni herhangi bir önerimiz olup olmadığını görmek için süre denetleyin.
 
 Geçiş gezisine dört genel aşamaları şunlardır:
 
@@ -51,10 +52,10 @@ Teknik gereksinimleri boyutu, coğrafyalara ve işletimsel yöntemler bağlı ol
 
 ### <a name="patterns-of-success"></a>Başarı desenleri
 
-Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen kapsamındadır ve plan ayrıntılı.  Geçiş planlarını sponsorlar ve Paydaşlar için kapsamlı açıkça emin olun.  Geçiş seçenekleri hakkında bilgi Donatı; Bu geçiş belge aşağıda kümesi aracılığıyla okuma kullanmamanız önerilir.
+Başarılı müşteriler burada önceki soruları ele alınan, belgelenen kapsamındadır ve plan ayrıntılı.  Geçiş planlarını sponsorlar ve Paydaşlar için kapsamlı açıkça emin olun.  Geçiş seçenekleri hakkında bilgi Donatı; Bu geçiş belge aşağıda kümesi aracılığıyla okuma kullanmamanız önerilir.
 
 * [Platform desteklenen geçişi Iaas Klasik kaynaklardan Azure Resource Manager'a genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik'ten Azure Kaynak Yöneticisi](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Klasik modelden Azure Resource Manager’a platform destekli geçişe ayrıntılı teknik bakış](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [IaaS kaynaklarının Klasik’ten Azure Resource Manager’a geçişini planlama](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için PowerShell kullanma](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için CLI kullanın](migration-classic-resource-manager-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -71,7 +72,7 @@ Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen ka
 
 ## <a name="lab-test"></a>Laboratuvar Test 
 
-**Enviornment çoğaltabilir ve bir test geçişi yapın**
+**Ortamınızı çoğaltabilir ve bir test geçişi yapın**
   > [!NOTE]
   > Resmi Microsoft Support tarafından desteklenmeyen bir topluluk katkıda bulunan aracı kullanarak mevcut ortamınızın tam çoğaltma yürütülür. Bu nedenle, bir **isteğe bağlı** adım ancak üretim ortamınızı dokunmadan sorunları bulmak için en iyi yolu değil. Topluluğa katkıda bulunan bir araç kullanarak bir seçenek değilse, aşağıdaki hazırlama/doğrula/durdurma kuru Çalıştır öneri hakkında okuyun.
   >
@@ -79,7 +80,7 @@ Başarılı müşteriler burada yukarıdaki soruları ele alınan, belgelenen ka
   Laboratuvar test (işlem, ağ ve depolama), tam senaryo, yönetme, sorunsuz bir geçiş sağlamak için en iyi yoludur. Bu, olmanıza yardımcı olur:
 
   - Tamamen ayrı bir laboratuvar veya test etmek için var olan bir üretim dışı ortamı. Sürekli olarak geçirilebilir ve kalıcı olmayacak şekilde değiştirilebilir tamamen ayrı bir laboratuvar öneririz.  Gerçek abonelikleri meta verilerini toplama/hydrate için komut dosyaları, aşağıda listelenmiştir.
-  - Laboratuvar ayrı bir abonelik oluşturmak için iyi bir fikirdir. Laboratuvar art arda bozulur ve ayrı bir sahip, yalıtılmış abonelik olasılığını azaltır nedeni gerçek bir şey yanlışlıkla alırsınız emin silindi.
+  - Laboratuvar ayrı bir abonelik oluşturmak için iyi bir fikirdir. Laboratuvar art arda bozulur ve ayrı bir sahip, yalıtılmış abonelik bir şey gerçek yanlışlıkla silinecek olduğunu olasılığını azaltır nedenidir.
 
   Bu AsmMetadataParser aracı kullanılarak gerçekleştirilebilir. [Burada bu araç hakkında daha fazla bilgi](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
@@ -110,7 +111,7 @@ Birçok büyük geçişler bulunan sorunları oluştu. Bu kapsamlı bir liste de
 - **Azure Kaynak Yöneticisi kotaları** -Azure bölgeleri hem Klasik hem de Azure Resource Manager için ayrı kota sınırları vardır. Bir geçiş senaryosunda yeni donanım tüketilen değil olsa bile *(biz VM'ler Klasikten Azure Resource Manager takas)*, Azure Kaynak Yöneticisi kotaları hala gereksinim yeterli kapasiteye sahip yerinde geçiş başlamadan önce olmalıdır. Aşağıda, gördük ana sınırları sorunlara neden yer alır.  Sınırları artırmak için kota destek bileti açın. 
 
     > [!NOTE]
-    > Bu sınırların geçirilmesi için geçerli enviornment ile aynı bölgede oluşturulması gerekir.
+    > Bu sınırların geçirilmesi için geçerli ortamınız ile aynı bölgede oluşturulması gerekir.
     >
 
     - Ağ Arabirimleri
@@ -205,7 +206,7 @@ Neden bu Klasik Azure Resource Manager geçiş gezisine olarak başlatılan unut
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Platform desteklenen geçişi Iaas Klasik kaynaklardan Azure Resource Manager'a genel bakış](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Teknik ya ilişkin ayrıntılar platform desteklenen geçiş Klasik'ten Azure Kaynak Yöneticisi](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Klasik modelden Azure Resource Manager’a platform destekli geçişe ayrıntılı teknik bakış](migration-classic-resource-manager-deep-dive.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [IaaS kaynaklarının Klasik’ten Azure Resource Manager’a geçişini planlama](migration-classic-resource-manager-plan.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Iaas kaynaklarına Klasikten Azure Resource Manager geçirmek için PowerShell kullanma](../windows/migration-classic-resource-manager-ps.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Iaas Klasik kaynaklardan Azure Resource Manager için geçiş ile Yardım için topluluk araçları](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

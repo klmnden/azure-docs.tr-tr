@@ -4,14 +4,15 @@ description: Toplayıcı Gereci ve nasıl yapılandırılacağı genel bakış s
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32554b2f297c2079374a5edd7739af7320bc1234
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640236"
 ---
 # <a name="collector-appliance"></a>Toplayıcı Gereci
 
@@ -19,7 +20,7 @@ ms.lasthandoff: 05/16/2018
 
 
 
-## <a name="overview"></a>Genel bakış
+## <a name="overview"></a>Genel Bakış
 
 Bir Azure geçirmek toplayıcısı şirket içi vCenter ortamınızı keşfetmek için kullanılan hafif bir gereç ' dir. Bu Gereci şirket içi VMware makineleri bulur ve bunlarla ilgili meta verileri Azure geçiş hizmetine gönderir.
 
@@ -156,8 +157,8 @@ Aşağıdaki tabloda, toplanan ve ayrıca belirli bir sayaç alınamadı, etkile
 
 |Sayaç                                  |Düzey    |Aygıt başına düzeyi  |Değerlendirme etkisi                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.average                        | 1       |Yok                |Önerilen VM boyutu ve maliyet                    |
-|mem.Usage.average                        | 1       |Yok                |Önerilen VM boyutu ve maliyet                    |
+|CPU.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
+|mem.Usage.average                        | 1       |NA                |Önerilen VM boyutu ve maliyet                    |
 |virtualDisk.read.average                 | 2       |2                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
 |virtualDisk.write.average                | 2       |2                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Disk boyutu, depolama maliyeti ve VM boyutu         |
@@ -187,37 +188,37 @@ Ayrıca aygıtınızın güvenli hale getirmek için aşağıdaki adımları ön
 
 Toplayıcı OVA yeniden yüklemeden en son sürüme yükseltebilirsiniz.
 
-1. En son karşıdan [yükseltme paketi](https://aka.ms/migrate/col/latestupgrade).
+1. En son karşıdan [yükseltme paketi](https://aka.ms/migrate/col/upgrade_9_11) (sürüm 1.0.9.11).
 2. İndirilen düzeltme güvenli olduğundan emin olmak için yönetici komut penceresi açın ve ZIP dosyası için karma oluşturmak için aşağıdaki komutu çalıştırın. Üretilen karma karşı belirli sürümü belirtilen karma ile eşleşmesi gerekir:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (örnek kullanım C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+    (örnek kullanım C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. ZIP dosyasının Azure geçirmek Toplayıcı sanal makineye (Toplayıcı Gereci) kopyalayın.
 4. Zip dosyasını sağ tıklatın ve tümünü Ayıkla seçin.
 5. Setup.ps1 üzerinde sağ tıklayın ve PowerShell ile Çalıştır'ı seçin ve güncelleştirmeyi yüklemek için ekrandaki yönergeleri izleyin.
 
 ### <a name="list-of-updates"></a>Güncelleştirmeleri listesi
 
+#### <a name="upgrade-to-version-10911"></a>1.0.9.11 sürüme yükseltin
+
+Karma değerleri yükseltme için [paketini 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)
+
+**Algoritma** | **Karma değeri**
+--- | ---
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+
 #### <a name="upgrade-to-version-1097"></a>1.0.9.7 sürüme yükseltin
 
-Yükseltme sürümü 1.0.9.7 indirme için [paketi](https://aka.ms/migrate/col/upgrade_9_7)
+Karma değerleri yükseltme için [paketini 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)
 
 **Algoritma** | **Karma değeri**
 --- | ---
 MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-#### <a name="upgrade-to-version-1095"></a>1.0.9.5 sürüme yükseltin
-
-Yükseltme sürümü 1.0.9.5 indirme için [paketi](https://aka.ms/migrate/col/upgrade_9_5)
-
-**Algoritma** | **Karma değeri**
---- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

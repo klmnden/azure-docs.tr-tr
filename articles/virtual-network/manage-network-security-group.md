@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658681"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubu silme
 
@@ -65,7 +66,7 @@ Portal üstündeki arama kutusuna girin *ağ güvenlik grubu*. Zaman **ağ güve
 ### <a name="view-details-of-a-network-security-group"></a>Bir ağ güvenlik grubu ayrıntılarını görüntüleme
 
 1. Portal üstündeki arama kutusuna girin *ağ güvenlik grubu*. Zaman **ağ güvenlik grubu** arama sonuçlarında görünecek, onu seçin.
-2. Ağ güvenlik grubu ayrıntılarını görüntülemek istediğiniz listeyi seçin. Altında **ayarları** görüntüleyebileceğiniz **gelen güvenlik kuralları** ve **giden güvenlik kurallarında**, **ağ arabirimleri** ve  **Alt ağlar** için ağ güvenlik grubu ilişkilidir. Ayrıca etkinleştirir veya devre dışı bırakmak **tanılama günlükleri** ve Görünüm **etkin güvenlik kuralları**. Daha fazla bilgi için bkz: [tanılama günlükleri](virtual-network-nsg-manage-log.md) ve [etkin güvenlik kuralları](virtual-network-nsg-troubleshoot-portal.md).
+2. Ağ güvenlik grubu ayrıntılarını görüntülemek istediğiniz listeyi seçin. Altında **ayarları** görüntüleyebileceğiniz **gelen güvenlik kuralları** ve **giden güvenlik kurallarında**, **ağ arabirimleri** ve  **Alt ağlar** için ağ güvenlik grubu ilişkilidir. Ayrıca etkinleştirir veya devre dışı bırakmak **tanılama günlükleri** ve Görünüm **etkin güvenlik kuralları**. Daha fazla bilgi için bkz: [tanılama günlükleri](virtual-network-nsg-manage-log.md) ve [etkin güvenlik kuralları](diagnose-network-traffic-filter-problem.md).
 3. Listelenen ortak Azure ayarları hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
     *   [Etkinlik Günlüğü](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [Erişim denetimi (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
@@ -152,7 +153,7 @@ Oluşturduğunuz kurallar ve ağ güvenlik grubu listesi içeren [güvenlik kura
 - Azure CLI: [az ağ nsg kuralı listesi](/cli/azure/network/nsg/rule#az-network-nsg-rule-list)
 - PowerShell: [Get-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/get-azurermnetworksecurityruleconfig)
 
-### <a name="view-details-of-a-security-rule"></a>Güvenlik kuralı ayrıntılarını görüntüleme
+### <a name="view-details-of-a-security-rule"></a>Bir güvenlik kuralının ayrıntılarını görüntüleme
 
 1. Portal üstündeki arama kutusuna girin *ağ güvenlik grubu*. Zaman **ağ güvenlik grubu** arama sonuçlarında görünecek, onu seçin.
 2. İçin bir güvenlik kuralı ayrıntılarını görüntülemek istediğiniz ağ güvenlik grubu seçin.

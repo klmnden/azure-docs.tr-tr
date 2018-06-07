@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 16757af0bab7cfd43488118f62300fb167c193a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cd3f947bfc44055bfec4198a1e7c6a9bb2fab5d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642633"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Neden bir mikro yaklaşımını uygulamaları oluşturmak için?
 Yazılım geliştiricileri yoktur nasıl bir uygulama bileşeni parçalara Finansman hakkında düşünüyoruz içinde yeni bir şey. Nesne yönü, yazılım soyutlamalar ve temsilinde merkezi örnektir. Günümüzde, bu factorization sınıflar ve arabirimler paylaşılan kitaplıklar ve teknoloji katmanlar arasında şeklinde eğilimindedir. Genellikle, katmanlı bir yaklaşım bir arka uç depolama, Orta katmanda iş mantığı ve bir ön uç kullanıcı arabirimi (UI) ile alınır. Ne *sahip* son birkaç yıl içinde değiştirilen biz geliştiriciler oluşturmakta olduğunuz olduğu dağıtılmış bulut için olan uygulamaları ve iş tarafından yönlendirilen.
@@ -162,7 +163,7 @@ Bir anahtar için Service Fabric sonra ile yeni mikro modernized varolan kodunu 
 - Maliyet azaltma ya da birleştirme ve daha yüksek yoğunluk mevcut donanım ya da çalışan uygulamaları kaldırılmasını nedeniyle. 
 - Geliştirme ve işlemler arasında tutarlı bir dağıtım sözleşme.
 
-Maliyet azaltması anlaşılabilir ve Microsoft bünyesinde, mevcut uygulamaları çok sayıda milyonlarca dolar kaydetmeyi kapsayıcılı. Tutarlı bir dağıtım değerlendirmek daha zor ama aynı derecede önemli değildir. Geliştiriciler hala teknolojisi bu paketleri seçmek boş olabileceğini yazacaktır bunları işlemlerini yalnızca bu uygulamaları dağıtmak ve yönetmek için tek bir yolu kabul eder ancak. Birçok farklı teknolojiler karmaşıklığını uğraşmak zorunda ya da yalnızca belirli olanları seçmek için geliştiricilere zorlama işlemlerini azaltır. Temelde her uygulamanın kendi içinde bulunan dağıtım görüntülere kapsayıcılı.
+Maliyet azaltması anlaşılabilir ve Microsoft bünyesinde, mevcut uygulamaları çok sayıda milyonlarca dolar kaydetmeyi kapsayıcılı. Tutarlı bir dağıtım değerlendirmek daha zor ama aynı derecede önemli değildir. Geliştiriciler hala işlemleri yalnızca bu uygulamaları dağıtmak ve yönetmek için tek bir yolu kabul eder ancak bunları uygun teknoloji seçmek boş olabileceğini yazacaktır. Birçok farklı teknolojiler karmaşıklığını uğraşmak zorunda ya da yalnızca belirli olanları seçmek için geliştiricilere zorlama işlemlerini azaltır. Temelde her uygulamanın kendi içinde bulunan dağıtım görüntülere kapsayıcılı.
 
 Birçok kuruluş burada durdurun. Zaten sahip oldukları kapsayıcıları avantajları ve Service Fabric dağıtım, yükseltmeler, sürüm oluşturma, alma, sistem durumu izleme vb. tam yönetim deneyimi sağlar.
 

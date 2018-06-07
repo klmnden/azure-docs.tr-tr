@@ -9,11 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: a96b66f61b19d218c5708a0ce967e0033ba26627
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cee479b81cb5d8b6cd3306e3735d72c9e64e6045
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640362"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Bilişsel arama iş yükleri için belge kaynakları
 
@@ -25,7 +26,7 @@ Aşağıdaki makaleler bilişsel arama için kapsamlı belgeler aittir.
 + [Bilişsel arama nedir?](cognitive-search-concept-intro.md)
 + [Hızlı Başlangıç: portalında bilişsel aramayı deneyin](cognitive-search-quickstart-blob.md)
 + [Öğretici: API bilişsel arama öğrenin](cognitive-search-tutorial-blob.md)
-+ [Örnek: özel bir yetenek oluşturma](cognitive-search-create-custom-skill-example.md)
++ [Örnek: özel bir beceri oluşturma](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Nasıl yapılır yönergeleri
 + [Bir skillset tanımlama](cognitive-search-defining-skillset.md)
@@ -50,8 +51,8 @@ Aşağıdaki makaleler bilişsel arama için kapsamlı belgeler aittir.
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + [Önizleme REST API'si](search-api-2017-11-11-preview.md)
-  + [Skillset oluşturun (API sürümü 2017-11-11-Önizleme =)](ref-create-skillset.md)
-  + [Dizin Oluşturucu yapın (API sürümü 2017-11-11-Önizleme =)](ref-create-indexer.md)
+  + [Skillset oluşturun (API sürümü 2017-11-11-Önizleme =)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [Dizin Oluşturucu yapın (API sürümü 2017-11-11-Önizleme =)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Ayrıca bkz.
 

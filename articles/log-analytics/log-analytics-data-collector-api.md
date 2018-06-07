@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/25/2018
 ms.author: bwren
-ms.openlocfilehash: d42069e8ed72a834973b56df55488955d62e71f2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 33b98c56cde8d4a876f217d0bbdd716d3a336260
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636741"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>HTTP veri toplayıcı API (genel Önizleme) ile günlük analizi veri Gönder
 Bu makalede HTTP veri toplayıcı API'sini bir REST API istemciden için günlük analizi veri göndermek için nasıl kullanılacağı gösterilmektedir.  Bu komut dosyası veya uygulama tarafından toplanan veri biçimi, bir istekte içerir ve günlük analizi tarafından yetkili bu istekte açıklar.  PowerShell, C# ve Python için örnekler verilmiştir.
@@ -42,7 +43,7 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 ### <a name="request-uri"></a>İstek URI'si
 | Öznitelik | Özellik |
 |:--- |:--- |
-| Yöntem |YAYINLA |
+| Yöntem |POST |
 | URI |https://\<CustomerID\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | İçerik türü |uygulama/json |
 
@@ -51,7 +52,7 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 |:--- |:--- |
 | CustomerID |Günlük analizi çalışma alanı için benzersiz tanımlayıcı. |
 | Kaynak |API kaynak adı: / api/günlükleri. |
-| API sürümü |Bu istekle kullanmak için API sürümü. Şu anda, 2016-04-01 değil. |
+| API Sürümü |Bu istekle kullanmak için API sürümü. Şu anda, 2016-04-01 değil. |
 
 ### <a name="request-headers"></a>İstek üst bilgileri
 | Üst bilgi | Açıklama |
@@ -59,7 +60,7 @@ HTTP veri toplayıcı API kullanmak için JavaScript nesne gösterimi (JSON) gö
 | Yetkilendirme |Yetkilendirme imzası. Makalenin sonraki bölümlerinde HMAC SHA256 üstbilgi oluşturma hakkında bilgi edinebilirsiniz. |
 | Günlük türü |Gönderiliyor veri kaydı türünü belirtin. Şu anda, yalnızca alfasayısal karakterler günlük türünü destekler. Sayısal türler veya özel karakterler desteklemez. Bu parametre için boyut sınırını 100 karakter olabilir. |
 | x-ms-date |İstek işlendi, RFC 1123 biçiminde tarih. |
-| saat oluşturulan alanı |Veri öğesinin zaman damgası içeren veri bir alanın adı. Bir alan belirtin sonra içeriği için kullanılan **TimeGenerated**. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan saattir. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelisiniz-aa-: ssZ. |
+| saat oluşturulan alanı |Veri öğesinin zaman damgası içeren veri bir alanın adı. Bir alan belirtin sonra içeriği için kullanılan **TimeGenerated**. Null olmayabilir ve geçerli tarih saat içermesi gerekir. Bu alan belirtilmezse, varsayılan **TimeGenerated** ileti alınan saattir. Mesaj alanına içeriğini ISO 8601 biçimi YYYY izlemelisiniz-aa-: ssZ. |
 
 ## <a name="authorization"></a>Yetkilendirme
 Günlük analizi HTTP veri toplayıcı API için herhangi bir istek bir authorization üstbilgisi eklemeniz gerekir. Bir istek kimliğini doğrulamak için birincil veya ikincil anahtarı isteği yapan çalışma alanı için istekle imzalamanız gerekir. Daha sonra bu imza isteğin bir parçası geçirin.   
@@ -187,8 +188,8 @@ Bu tabloda tamamını hizmet döndürebilir durum kodları listelenmektedir:
 | 400 |Hatalı istek |UnsupportedContentType |İçerik türü ayarlanmadı **uygulama/json**. |
 | 403 |Yasak |InvalidAuthorization |Hizmet, isteğin kimliğini doğrulayamadı. Çalışma alanı kimliği ve bağlantı anahtarı geçerli olduğunu doğrulayın. |
 | 404 |Bulunamadı | | Sağlanan URL yanlış ya da istek çok büyük. |
-| 429 |Çok fazla istek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen isteği daha sonra yeniden deneyin. |
-| 500 |İç sunucu hatası |UnspecifiedError |Hizmet dahili bir hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
+| 429 |Çok Fazla İstek | | Hizmet hesabınızdan veri hacmi yüksek yaşıyor. Lütfen isteği daha sonra yeniden deneyin. |
+| 500 |İç Sunucu Hatası |UnspecifiedError |Hizmet bir iç hatayla karşılaştı. Lütfen isteği yeniden deneyin. |
 | 503 |Hizmet Kullanılamıyor |ServiceUnavailable |Hizmet isteklerini almak şu anda kullanılamıyor. Lütfen isteğinizi yeniden deneyin. |
 
 ## <a name="query-data"></a>Verileri sorgulama
@@ -211,7 +212,7 @@ Her bir örnek için yetkilendirme üst bilgisi için değişkenleri ayarlamak i
 
 Alternatif olarak, günlük türü ve JSON verilerini değişkenleri değiştirebilirsiniz.
 
-### <a name="powershell-sample"></a>PowerShell örnek
+### <a name="powershell-sample"></a>PowerShell örneği
 ```
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  

@@ -6,14 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: jovanpop
-ms.openlocfilehash: 7707a40a39e429333ff1c20fb7884a1fb7ee2162
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bef8d01bd4c220fac595177089088ff64ee3bc3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646652"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL veritabanı'nda otomatik ayarlama
 
@@ -61,13 +62,15 @@ Gömülü video otomatik ayarlama works genel bir bakış ve tipik kullanım sen
 ## <a name="automatic-tuning-options"></a>Otomatik ayarlama seçenekleri
 
 Azure SQL veritabanı'nda kullanılabilir otomatik ayarlama seçenekleri şunlardır:
- 1. **CREATE INDEX** -İş yükünüzün performansını artırabilir, dizinler oluşturur ve otomatik olarak sorguların performansını geliştirilmiştir doğrular dizinleri tanımlar. Bu seçenek etkinleştirildiğinde için varsayılan Azure ayarı.
- 2. **DROP INDEX** -yedekli ve yinelenen dizinler ve çok uzun bir süre kullanılmayan dizinleri tanımlar. Şu anda seçeneği bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamalarla uyumsuz olduğunu unutmayın. Bu seçenek devre dışıdır için varsayılan Azure ayarı.
- 3. **ZORLA son iyi PLAN** -önceki iyi planı yavaştır ve bilinen son iyi plan yerine gerileyen planı kullanan sorgular yürütme planı kullanarak SQL sorguları tanımlar. Bu seçenek etkinleştirildiğinde için varsayılan Azure ayarı.
+ 1. **CREATE INDEX** -İş yükünüzün performansını artırabilir, dizinler oluşturur ve otomatik olarak sorguların performansını geliştirilmiştir doğrular dizinleri tanımlar.
+ 2. **DROP INDEX** -yedekli ve yinelenen dizinler ve çok uzun bir süre kullanılmayan dizinleri tanımlar. Bu seçenek bölüm değiştirme ve dizin ipuçlarını kullanarak uygulamaları ile uyumlu olmadığını lütfen unutmayın.
+ 3. **ZORLA son iyi PLAN** -önceki iyi planı yavaştır ve bilinen son iyi plan yerine gerileyen planı kullanan sorgular yürütme planı kullanarak SQL sorguları tanımlar.
 
-Azure SQL veritabanı tanımlayan **CREATE INDEX**, **DROP INDEX**, ve **ZORLA son iyi planlama** veritabanınızı en iyi duruma getirebilirsiniz ve bunları Azure Portalı'nda görünecek öneriler. Konumundaki değiştirilmelidir dizinleri tanımlaması hakkında daha fazla bilgi bulmak [dizin önerileri Azure Portalı'nda bulmak](sql-database-advisor-portal.md). Ya da önerileri Portalı'nı kullanarak el ile uygulayabilirsiniz veya otomatik olarak önerileri uygulamak, değişiklikten sonra iş yükünü izlemek için Azure SQL veritabanı sağlar ve önerisi, İş yükünüzün performansını geliştirilmiş doğrulayın.
+Azure SQL veritabanı tanımlayan **CREATE INDEX**, **DROP INDEX**, ve **ZORLA son iyi planlama** veritabanınızı en iyi duruma getirebilirsiniz ve bunları Azure Portalı'nda görünecek öneriler. Konumundaki değiştirilmelidir dizinleri tanımlaması hakkında daha fazla bilgi bulmak [dizin önerileri Azure Portalı'nda bulmak](sql-database-advisor-portal.md). Ya da önerileri Portalı'nı kullanarak el ile uygulayabilirsiniz veya otomatik olarak önerileri uygulamak, değişiklikten sonra iş yükünü izlemek için Azure SQL veritabanı sağlar ve önerisi, İş yükünüzün performansını geliştirilmiş doğrulayın. 
 
-Seçenekleri ayarlama otomatik bağımsız olarak açmak veya kapatmak veritabanı başına açılabilir veya bunlar kullanılabilir mantıksal sunucusunda yapılandırılan ve sunucudan ayarlarını devralır her veritabanı üzerinde uygulanabilir. Mantıksal sunucu otomatik ayarlama ayarları için Azure Varsayılanları devralabilirsiniz. Otomatik sunucusunda seçeneklerini ayarlama ve sunucu veritabanlarında ayarlarını devralmak yapılandırma çok sayıda veritabanı üzerinde otomatik ayarlama seçenekleri yönetimini basitleştirir olduğundan otomatik ayarlama yapılandırma yöntemi önerilir.
+Otomatik ayarlama seçenekleri bağımsız olarak etkinleştirilebilir veya veritabanı başına devre dışı ya da bunlar mantıksal sunucularda yapılandırılabilir ve sunucudan ayarlarını devralır her veritabanı üzerinde uygulanır. Mantıksal sunucu otomatik ayarlama ayarları için Azure Varsayılanları devralabilirsiniz. Şu anda Azure Varsayılanları ayarlandığında FORCE_LAST_GOOD_PLAN etkinleştirilmişse, CREATE_INDEX etkindir ve DROP_INDEX devre dışıdır.
+
+Otomatik bir sunucusunda seçeneklerini ayarlama ve üst sunucuya ait veritabanları için ayarları devralmak yapılandırma, çok sayıda veritabanları için otomatik ayarlama seçenekleri yönetimini basitleştirir gibi otomatik ayarı yapılandırmak için önerilen bir yöntemdir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

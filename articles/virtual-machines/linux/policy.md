@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: singhkay
-ms.openlocfilehash: 12066fe622ec3ed2eded74ecf7b791689ed873d5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fa6c95c3986a398bdb4593235116b305a80616fb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653802"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>Azure Resource Manager ile Linux VM'ler için geçerlidir
 İlkeleri kullanarak, bir kuruluşun çeşitli kuralları ve kuruluş genelinde kuralları zorunlu kılabilir. İstenen davranışı zorlama kuruluşun başarısı için katkıda bulunan sırasında risk azaltılmasına yardımcı olur. Bu makalede, kuruluşunuzun sanal makineler için istenen davranışı tanımlamak için Azure Resource Manager ilkelerini nasıl kullanabileceğinizi açıklar.
@@ -211,4 +212,4 @@ Belirli türde bir uzantıları kullanımını yasaklamaz isteyebilirsiniz. Örn
 ## <a name="next-steps"></a>Sonraki adımlar
 * (Yukarıdaki örneklerde gösterildiği gibi) bir ilke kuralı tanımladıktan sonra ilke tanımı oluşturun ve bir kapsama atamanız gerekir. Kapsamı bir abonelik, kaynak grubu veya kaynak olabilir. İlkeler atamak için bkz: [atamak ve kaynak ilkelerini yönetmek için kullanım Azure portal](../../azure-policy/assign-policy-definition.md), [kullanım ilkeleri atamak için PowerShell](../../azure-policy/assign-policy-definition-ps.md), veya [ilkeler atamak için kullan Azure CLI](../../azure-policy/assign-policy-definition-cli.md).
 * Kaynak ilkelerini giriş için bkz: [Azure ilke nedir?](../../azure-policy/azure-policy-introduction.md).
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](../../azure-resource-manager/resource-manager-subscription-governance.md).
+* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

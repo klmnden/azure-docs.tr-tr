@@ -1,13 +1,13 @@
 ---
 title: Bir Azure Linux sanal makinede Oracle ASM ayarlama | Microsoft Docs
-description: "Hızlı bir şekilde Oracle ASM yukarı ve Azure ortamınızda çalışan alın."
+description: Hızlı bir şekilde Oracle ASM yukarı ve Azure ortamınızda çalışan alın.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,15 +15,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cc75235680eeace5107ef6ac0380e8b7a42974fc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656118"
 ---
-# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinede Oracle ASM ayarlayın  
+# <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Bir Azure Linux sanal makinesinde Oracle ASM ayarlayın  
 
-Azure sanal makineler tam olarak yapılandırılabilir ve esnek bir bilgi işlem ortamı sağlar. Bu öğretici yükleme ve yapılandırma, Oracle otomatik Depolama Yönetimi (ASM) ile birlikte temel Azure sanal makine dağıtımı kapsar.  Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
+Azure sanal makineleri tam olarak yapılandırılabilir ve esnek bir bilgi işlem ortamı sağlar. Bu öğretici yükleme ve yapılandırma, Oracle otomatik Depolama Yönetimi (ASM) ile birlikte temel Azure sanal makine dağıtımı kapsar.  Aşağıdakileri nasıl yapacağınızı öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Oluşturma ve bir Oracle veritabanına VM'ye bağlanın
@@ -200,7 +201,7 @@ Bu öğretici için varsayılan kullanıcıdır *kılavuz* ve varsayılan grup *
    ```
 
 3. Biçim disk */dev/sdc* aşağıdaki komutu çalıştırarak ve istemleri ile yanıtlama:
-   - *n*Yeni bölüm için
+   - *n* yeni bölüm için
    - *p* birincil bölüm
    - *1* ilk bölüm seçmek için
    - basın `enter` varsayılan ilk silindir için
@@ -572,7 +573,7 @@ Oracle veritabanı yazılımını Azure Market görüntüsü üzerinde zaten yü
 
 5. Veritabanı oluşturuldu. Üzerinde **son** sayfasında, bu veritabanı kullanın ve parolaları değiştirmek için ek hesapların kilidini açmak için seçeneği vardır. Bunu yapmak istiyorsanız seçin **parola yönetimi** -Aksi takdirde tıklayın `close`.
 
-## <a name="delete-the-vm"></a>VM silme
+## <a name="delete-the-vm"></a>VM’yi silin
 
 Azure Marketi'nden Oracle DB yansımasında Oracle otomatik Depolama Yönetimi başarıyla yapılandırdınız.  Bu VM artık ihtiyacınız olduğunda, kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu kullanabilirsiniz:
 

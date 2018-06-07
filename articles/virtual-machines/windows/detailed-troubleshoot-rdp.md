@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9a590050acff814834dac85085d1a4dc5fc8190f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab101d78320819b9fb48f2c431fb0f6afdb895ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657834"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Windows Azure vm'lerinin ayrıntılı sorun giderme adımları için Uzak Masaüstü bağlantısı sorunları
 Bu makalede tanılamak ve Windows tabanlı Azure sanal makineleri için karmaşık Uzak Masaüstü hataları düzeltmek için ayrıntılı sorun giderme adımları sağlar.
@@ -112,7 +113,7 @@ Uç nokta sorunun kaynağı olup olmadığını denetlemek için geçerli uç no
 ## <a name="source-4-network-security-groups"></a>4. kaynak: Ağ güvenlik grupları
 Ağ güvenlik grupları, izin verilen gelen ve giden trafik daha ayrıntılı denetim sağlar. Alt ağlar kapsayıcı kurallar oluşturabilir ve bir Azure sanal ağı Hizmetleri'nde bulut.
 
-[IP akışı doğrulamayı](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) kullanarak Ağ Güvenlik Grubu’ndaki bir kuralın bir sanal makineye giden veya gelen trafiği engelleyip engellemediğini doğrulayın. Gelen "izin ver" NSG emin olmak için etkili güvenlik grubu kuralları gözden geçirebilirsiniz kuralı var ve RDP bağlantı noktası (varsayılan 3389) öncelik. Daha fazla bilgi için bkz: [kullanarak etkili güvenlik VM gidermek için kuralları trafiğinin akmasını](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+[IP akışı doğrulamayı](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) kullanarak Ağ Güvenlik Grubu’ndaki bir kuralın bir sanal makineye giden veya gelen trafiği engelleyip engellemediğini doğrulayın. Gelen "izin ver" NSG emin olmak için etkili güvenlik grubu kuralları gözden geçirebilirsiniz kuralı var ve RDP bağlantı noktası (varsayılan 3389) öncelik. Daha fazla bilgi için bkz: [kullanarak etkili güvenlik VM gidermek için kuralları trafiğinin akmasını](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ## <a name="source-5-windows-based-azure-vm"></a>Kaynak 5: Windows tabanlı Azure VM
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_5.png)

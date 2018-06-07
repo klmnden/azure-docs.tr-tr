@@ -7,13 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: b964f5c127d627ede6d3ff671ac695e1b33e4558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641178"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure Search hizmet sınırları
 Maksimum depolama, iş yükleri ve dizinler, belgeler, miktarda sınırlar ve bağımlı nesneler olup olmadığına göre [Azure Search sağlamak](search-create-service-portal.md) adresindeki **serbest**, **temel**, veya **Standart** fiyatlandırma katmanları.
@@ -92,13 +93,16 @@ Belge boyutu tutun, sorgulanabilir olmayan verileri istekten dışlamak unutmay�
 
 Geç 2017 sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları, skillsets ve dizin oluşturucular daha yüksek bir sınıra sahiptir.
 
+Azure blob dizini oluşturma veya doğal dil işleme bilişsel Aramadaki görüntü analizi gibi yoğun bir kaynak işlemlerinin kısa en fazla çalışan süreleri olması, böylece dizin oluşturma diğer işleri paylaşabiliyor olmasını. Bir dizin oluşturma işlemi izin verilen en fazla süre içinde tamamlanamazsa, bir zamanlamaya göre çalıştırmayı deneyin. Zamanlayıcı, dizin oluşturma durumunu izler. Zamanlanmış bir dizin oluşturma iş herhangi bir nedenle kesintiye uğrarsa, dizin oluşturucu ayrılacağı yeri, son zamanlanan sonraki çalışmasını seçebilirsiniz.
+
 | Kaynak | Ücretsiz&nbsp;<sup>1</sup> | Temel&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | En fazla dizin oluşturucu |3 |5 veya 15|50 |200 |200 |Yok |
 | En fazla veri kaynağı |3 |5 veya 15 |50 |200 |200 |Yok |
 | En fazla skillsets <sup>4</sup> |3 |5 veya 15 |50 |200 |200 |Yok |
 | Çağrı başına en fazla dizin yükleme |10.000 belgeleri |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Maksimum belge yalnızca sınırlıdır |Yok |
-| En fazla çalışma süresini | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |
+| Maksimum Çalıştırma süresini <sup>5</sup> | 1-3 dakika |24 saat |24 saat |24 saat |24 saat |Yok  |
+| Maksimum Çalıştırma süresini bilişsel arama skillsets veya blob ile görüntü analiz dizin oluşturma için <sup>5</sup> | 3-10 dakika |2 saat |2 saat |2 saat |2 saat |Yok  |
 | BLOB dizin oluşturucu: en fazla blob boyutu, MB |16 |16 |128 |256 |256 |Yok  |
 | BLOB dizin oluşturucu: blob üzerinden ayıkladığınız içeriği en fazla karakter |32,000 |64,000 |4 milyon |4 milyon |4 milyon |Yok |
 
@@ -109,6 +113,8 @@ Geç 2017 sonra oluşturulan temel Hizmetleri 15 dizinleri, veri kaynakları, sk
 <sup>3</sup> S3 HD Hizmetleri dizin oluşturucu desteği dahil değildir.
 
 <sup>4</sup> 30 becerileri skillset başına en yüksek.
+
+<sup>5</sup> bilişsel arama iş yükleri ve Azure blob dizini oluşturma, görüntüyü analiz normal metin dizin oluşturma işlemi daha kısa çalışan süreleri sahip. Görüntü çözümleme ve doğal dil işleme pkı'ya yoğun ve orantısız miktarda kullanılabilir işleme gücünü kullanır. Süresi sona ermek çalıştırmak için Fırsat kuyruğundaki diğer işleri verecek şekilde azaltılmıştır.  
 
 ## <a name="queries-per-second-qps"></a>Sorgular / saniye (QPS)
 
@@ -123,7 +129,7 @@ Tahminler özel kaynakları (temel ve standart katmanları) üzerinde çalışan
 * $Orderby tümcesinde en çok 32 alanları
 * En fazla arama terimi 32.766 bayt sayısı (2 bayt eksi 32 KB) UTF-8 ile kodlanmış metnin boyutudur
 
-<sup>1</sup> olarak Azure arama, bir istek gövdesi içeriği tek tek alanların veya teorik sınırları sınırlı olduğu değil koleksiyonları pratik bir sınırı etkileyici 16 MB'lık üst sınır tabidir (bkz: [desteklenen veri türleri](https://msdn.microsoft.com/library/azure/dn798938.aspx) alan birleşim ve kısıtlamaları hakkında daha fazla bilgi için).
+<sup>1</sup> olarak Azure arama, bir istek gövdesi içeriği tek tek alanların veya teorik sınırları sınırlı olduğu değil koleksiyonları pratik bir sınırı etkileyici 16 MB'lık üst sınır tabidir (bkz: [desteklenen veri türleri](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) alan birleşim ve kısıtlamaları hakkında daha fazla bilgi için).
 
 ## <a name="api-response-limits"></a>API yanıtını sınırları
 * Döndürülen arama sonuçlarını sayfa başına en fazla 1000 belge

@@ -7,15 +7,16 @@ author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d19087743740799ec9972bed7a602073afea9f26
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ebe6d2b4d3210ad7c02ec2d26a311645660aeab8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647077"
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL veritabanı kullanarak yüksek oranda kullanılabilir hizmetler tasarlama
 
@@ -44,7 +45,7 @@ Aşağıdaki diyagramda bu yapılandırma bir kesinti önce gösterilmektedir:
 Birincil bölgede kesinti sonrasında, SQL veritabanı hizmetinin algılar birincil veritabanı erişilebilir değil ve (1) otomatik yük devretme İlkesi parametrelere bağlı olarak ikincil bölgeye yük devretmeyi tetikler. Uygulama SLA bağlı olarak, zamanı kesinti algılanmasını ve yük devretme kendisi arasında denetimleri bir yetkisiz kullanım süresi yapılandırabilirsiniz. Yük devretme grubu veritabanının yük devretmeyi tetikler önce bu trafik Yöneticisi uç nokta yük devretme başlatır mümkündür. Bu durumda web uygulaması veritabanına hemen yeniden bağlanamaz. Ancak veritabanı yük devretme tamamlandıktan hemen sonra tutarsızlıklara otomatik olarak başarılı olur. Başarısız bölge geri yüklenen ve tekrar çevrimiçi olduğunda, eski birincil otomatik olarak yeni ikincil olarak yeniden bağlanır. Aşağıdaki diyagramda, yük devretme sonrasında yapılandırması gösterilmiştir.
  
 > [!NOTE]
-> Yük devretme sonrasında kaydedilen tüm işlem yeniden bağlanma sırasında kaybolur. Yük devretme işlemi tamamlandıktan sonra B bölgede kullanıcı istekleri işlemeyi yeniden başlatın ve yeniden uygulamasıdır. Web uygulaması ve birincil veritabanı B bölgede sunulmuştur ve aynı konumda kalır. n>
+> Yük devretme sonrasında kaydedilen tüm işlem yeniden bağlanma sırasında kaybolur. Yük devretme işlemi tamamlandıktan sonra B bölgede kullanıcı istekleri işlemeyi yeniden başlatın ve yeniden uygulamasıdır. Web uygulaması ve birincil veritabanı B bölgede sunulmuştur ve aynı konumda kalır. n >
 
 ![Senaryo 1. Yük devretme sonrasında yapılandırma](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario1-b.png)
 

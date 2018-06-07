@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643347"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Kaynak tüketimini ve Service Fabric yük ölçümlerle yönetme
 *Ölçümleri* , hizmetleri çok değer verdiğiniz ve hangi kümedeki düğümlerin tarafından sağlanan kaynaklardır. Bir ölçü artırmak veya hizmetlerinizi performansını izlemek için yönetmek istediğiniz herhangi bir şey sayısıdır. Örneğin, hizmetiniz aşırı yüklü olmadığını bilmek bellek tüketimi izlemek. Başka bir olup hizmet bellek az daha iyi performans elde için kısıtlı olduğu başka bir yerde dışarı Taşı bulmak için kullanılır.
@@ -32,11 +33,12 @@ Yazma ve hizmet dağıtma başlamak istiyorsanız varsayalım. Bu noktada içere
   - ReplicaCount - düğümü üzerindeki toplam durum bilgisi olan çoğaltmaların sayısı
   - Sayısı - tüm hizmet nesnelerde (durum bilgisiz ve durum bilgisi olan) düğüm sayısı
 
-| Ölçüm | Durum bilgisiz örneği yükleme | Durum bilgisi olan ikincil yükleme | Durum bilgisi olan birincil yükleme |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| Sayım |1 |1 |1 |
+| Ölçüm | Durum bilgisiz örneği yükleme | Durum bilgisi olan ikincil yükleme | Durum bilgisi olan birincil yükleme | Ağırlık |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |0 |
+| ReplicaCount |0 |1 |1 |0 |
+| Sayı |1 |1 |1 |0 |
+
 
 Temel iş yükleri için çalışma kümesindeki makul bir dağıtımını varsayılan ölçümleri sağlar. Aşağıdaki örnekte, iki hizmet oluşturmak ve Dengeleme için varsayılan ölçümleri Bel ne olur görelim. Üç bölümleri olan bir durum bilgisi olan hizmet ilk hizmetidir ve bir hedef çoğaltma üç boyutunu ayarlayın. İkinci hizmeti, bir bölüm ve bir örnek sayısını üç ile durumsuz bir hizmettir.
 
@@ -140,7 +142,7 @@ Bir anımsatıcı olarak: yalnızca varsayılan ölçümleri kullanmak istiyorsa
 
 Artık daha ayrıntılı bu ayarların her biri aracılığıyla edelim ve onu etkilediğini davranışı hakkında konuşun.
 
-## <a name="load"></a>Yükle
+## <a name="load"></a>Yükleme
 Ölçümleri tanımlamanın tüm noktası bazı yük göstermektir. *Yük* belirli bir metrik ne kadarının bazı hizmet örneği veya belirtilen bir düğüm üzerindeki çoğaltma tarafından kullanılan olduğu. Yük neredeyse herhangi bir noktada yapılandırılabilir. Örneğin:
 
   - Bir hizmet oluşturduğunuzda yük tanımlanabilir. Bu adlı _varsayılan yük_.

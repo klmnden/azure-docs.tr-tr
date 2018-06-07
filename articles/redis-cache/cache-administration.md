@@ -1,6 +1,6 @@
 ---
-title: "Azure Redis önbelleği yönetme | Microsoft Docs"
-description: "Azure Redis önbelleği için yeniden başlatma ve zamanlama güncelleştirmeleri gibi yönetim görevlerini gerçekleştirmek öğrenin"
+title: Azure Redis önbelleği yönetme | Microsoft Docs
+description: Azure Redis önbelleği için yeniden başlatma ve zamanlama güncelleştirmeleri gibi yönetim görevlerini gerçekleştirmek öğrenin
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3b62b41fb7b9d7ff6f40191c48d00c1f0a941e48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639461"
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Azure Redis önbelleği yönetme
 Bu konu, aşağıdaki gibi yönetim görevlerini gerçekleştirmek açıklar [yeniden](#reboot) ve [güncelleştirmeleri zamanlama](#schedule-updates) Azure Redis önbelleği örnekleri için.
@@ -91,10 +92,8 @@ Yeniden başlatma tüm fiyatlandırma katmanları için kullanılabilir.
 
 Bir bakım penceresi belirtmek için istenen gün kontrol edin ve her gün için bakım penceresi başlangıç saati belirtin ve tıklatın **Tamam**. Bakım penceresi saati UTC biçiminde olduğunu unutmayın. 
 
-> [!NOTE]
-> Güncelleştirmeleri için varsayılan bakım penceresi beş saattir. Bu değer Azure portalından yapılandırılabilir değildir, ancak PowerShell kullanarak yapılandırabilirsiniz `MaintenanceWindow` parametresinin [yeni AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet'i. Daha fazla bilgi için bkz: [PowerShell'i, CLI veya diğer yönetim araçlarını kullanarak zamanlanmış güncelleştirmeler yönetebilirim?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
-> 
-> 
+Güncelleştirmeleri için varsayılan ve en düşük gereksinim, bakım penceresi beş saattir. Bu değer Azure portalından yapılandırılabilir değildir, ancak PowerShell kullanarak yapılandırabilirsiniz `MaintenanceWindow` parametresinin [yeni AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet'i. Daha fazla bilgi için bkz: [PowerShell'i, CLI veya diğer yönetim araçlarını kullanarak zamanlanmış güncelleştirmeler yönetebilirim?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
+
 
 ## <a name="schedule-updates-faq"></a>Güncelleştirmeleri zamanla SSS
 * [Zamanlama güncelleştirmeleri özelliğini kullanmıyorsanız güncelleştirmeler olduğunda?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
@@ -113,7 +112,7 @@ Evet, aşağıdaki PowerShell cmdlet'lerini kullanarak, Zamanlanmış güncelle�
 
 * [Get-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/get-azurermrediscachepatchschedule)
 * [New-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/new-azurermrediscachepatchschedule)
-* [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
+* [AzureRmRedisCacheScheduleEntry yeni](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry)
 * [Remove-AzureRmRedisCachePatchSchedule](/powershell/module/azurerm.rediscache/remove-azurermrediscachepatchschedule)
 
 ### <a name="what-pricing-tiers-can-use-the-schedule-updates-functionality"></a>Hangi fiyatlandırma katmanlarını zamanlama Güncelleştirmeler işlevini kullanabilir miyim?

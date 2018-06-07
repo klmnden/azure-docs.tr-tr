@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640566"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Tam zamanında kullanarak sanal makine erişimini yönetme
 
@@ -41,7 +42,7 @@ Saldırılarına maruz azaltmak için tek bir bağlantı noktasının açık old
 
 Tam zamanında etkinleştirildiğinde, Güvenlik Merkezi bir NSG kuralı oluşturarak Azure VM’lere gelen trafiği kilitler. Aşağı gelen trafik için kilitlenir VM bağlantı noktalarını seçin. Bu bağlantı noktaları yalnızca tarafından denetlenen zaman çözümde.
 
-Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının sahip olduğunu denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinler. Belirtilen yazma izinlerine sahip oldukları isteğini onayladı ve Güvenlik Merkezi ağ güvenlik zaman miktarı için seçilen bağlantı noktalarına gelen trafiğe izin verecek şekilde grupları (Nsg'ler) otomatik olarak yapılandırır. Güvenlik Merkezi Nsg'ler süresi dolduktan sonra önceki durumlarına geri yükler.
+Bir kullanıcı bir VM erişim istediğinde, Güvenlik Merkezi kullanıcının sahip olduğunu denetler [rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/role-assignments-portal.md) VM için yazma erişimi sağlayan izinler. Belirtilen yazma izinlerine sahip oldukları isteğini onayladı ve Güvenlik Merkezi ağ güvenlik zaman miktarı için seçilen bağlantı noktalarına gelen trafiğe izin verecek şekilde grupları (Nsg'ler) otomatik olarak yapılandırır. Güvenlik Merkezi Nsg'ler süresi dolduktan sonra önceki durumlarına geri yükler. Önceden oluşturulmuş bu bağlantılar, ancak kesilmez.
 
 > [!NOTE]
 > Güvenlik Merkezi'nde yalnızca zaman VM erişim şu anda yalnızca Azure Resource Manager aracılığıyla dağıtılan VM'ler destekler. Klasik ve Resource Manager dağıtım modelleri hakkında daha fazla bilgi için [Azure Resource Manager ve klasik dağıtım](../azure-resource-manager/resource-manager-deployment-model.md).

@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 05/27/2018
 ms.author: bwren
-ms.openlocfilehash: e4e2edeb6703e8c55a16b488175fbcdb0dfe56a9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28523ce3671a8104d91f04575b3e88647dde16f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637081"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Günlük analizi özel günlükleri
 Günlük analizi özel günlükleri veri kaynağında Windows ve Linux bilgisayarlarda metin dosyalarından olayları toplamanızı sağlar. Birçok uygulama bilgileri Windows olay günlüğü veya Syslog gibi standart günlük hizmetlerini yerine metin dosyaları oturum açın.  Toplandığında, her tek tek alanların kullanarak oturum açma kaydında ayrıştıramıyor [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
@@ -41,7 +42,13 @@ Toplanacak günlük dosyaları aşağıdaki ölçütlere uyan gerekir.
 ## <a name="defining-a-custom-log"></a>Özel günlük tanımlama
 Özel bir günlük dosyası tanımlamak için aşağıdaki yordamı kullanın.  Özel günlük ekleme bir örnek bir kılavuz için bu makalenin sonuna kaydırın.
 
-### <a name="step-1-open-the-custom-log-wizard"></a>1. Adım Özel günlük Sihirbazı'nı açın
+### <a name="step-1-enable-custom-logs-preview"></a>1. Adım Özel günlükler Önizlemeyi Etkinleştir
+1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
+2. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **OMS portalı** döşeme.<br><br> ![Günlük Araması düğmesi](media/log-analytics-data-sources-custom-logs/azure-portal-01.png)<br><br> 
+3. OMS Portalı'na yeniden yönlendirildi sonra sayfanın sol üst taraftaki ayarları kutucuğa tıklayın.<br><br> ![OMS Portalı Ayarları seçeneği](media/log-analytics-data-sources-custom-logs/oms-portal-settings-option.png)<br><br> 
+4. Gelen **ayarları** sayfasında, **Önizleme özellikleri** sayfasında seçip **etkinleştirmek** özel günlükleri için.    
+
+### <a name="step-2-open-the-custom-log-wizard"></a>2. Adım Özel günlük Sihirbazı'nı açın
 Özel günlük Sihirbazı'nı Azure portalında çalışır ve toplamak için yeni bir özel günlük tanımlamanızı sağlar.
 
 1. Azure portalında seçin **günlük analizi** > çalışma alanınızı > **Gelişmiş ayarları**.
@@ -49,7 +56,7 @@ Toplanacak günlük dosyaları aşağıdaki ölçütlere uyan gerekir.
 3. Varsayılan olarak, tüm yapılandırma değişiklikleri otomatik olarak tüm aracıları için gönderilir.  Linux aracıları için bir yapılandırma dosyası için Fluentd veri toplayıcı gönderilir.  Bu dosyayı her Linux aracısında el ile değiştirmek isterseniz, kutunun işaretini *aşağıdaki yapılandırmayı Linux makinelerime Uygula*.
 4. Tıklatın **Ekle +** özel günlük Sihirbazı'nı açın.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>2. Adım Karşıya yükleme ve bir örnek günlük ayrıştırma
+### <a name="step-3-upload-and-parse-a-sample-log"></a>3. Adım Karşıya yükleme ve bir örnek günlük ayrıştırma
 Özel günlük örneği yükleyerek başlatın.  Sihirbaz ayrıştırma ve doğrulamak bu dosyada girişleri görüntüleyin.  Günlük analizi her kaydı tanımlamak için belirttiğiniz sınırlayıcı kullanır.
 
 **Yeni satır** varsayılan sınırlayıcı ve her satırda tek bir giriş sahip günlük dosyaları için kullanılır.  Satır bir tarih ve saat kullanılabilir biçimlerden birinde ile başlayan ardından belirtebilirsiniz bir **zaman damgası** birden fazla satır span girişler destekleyen sınırlayıcısı.
@@ -63,7 +70,7 @@ Bir zaman damgası ayırıcısı kullanılırsa, günlük analizi saklanan her k
 4. Yeni bir kayıt tanımlamak ve en iyi kayıtları, günlük dosyasında tanımlar sınırlayıcıyı seçmek için kullanılan sınırlayıcıyı değiştirin.
 5. **İleri**’ye tıklayın.
 
-### <a name="step-3-add-log-collection-paths"></a>3. Adım Günlük koleksiyonu yolları ekle
+### <a name="step-4-add-log-collection-paths"></a>4. Adım. Günlük koleksiyonu yolları ekle
 Özel günlük burada bulabilirsiniz Aracısı'nı bir veya daha fazla yol tanımlamanız gerekir.  Belirli yolu ve günlük dosyasının adını ya da sağlayabilir veya adı için bir joker karakter içeren bir yol belirtin.  Bu, her gün veya bir dosya belirli bir boyuta ulaştığında yeni bir dosya oluşturun uygulamaları destekler.  Ayrıca, tek bir günlük dosyası için birden fazla yol sağlayabilir.
 
 Örneğin, log20100316.txt olduğu gibi ad dahil tarihi ile bir uygulama bir günlük dosyası her gün oluşturabilirsiniz. Bu tür bir oturum için bir desen olabilir *günlük\*.txt* düzeni adlandırma uygulama aşağıdaki herhangi bir günlük dosyası için geçerli olur.
@@ -81,14 +88,14 @@ Aşağıdaki tabloda farklı günlük dosyaları belirtmek için geçerli düzen
 2. ' I tıklatın ve yolunu yazın **+** düğmesi.
 3. Tüm ek yollar için bu işlemi yineleyin.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>4. Adım. Bir ad ve açıklama günlüğü sağlayın
+### <a name="step-5-provide-a-name-and-description-for-the-log"></a>5. Adım. Bir ad ve açıklama günlüğü sağlayın
 Belirttiğiniz ad, yukarıda açıklandığı gibi günlük türü için kullanılır.  Özel bir günlük ayırt etmek için _CL ile her zaman sona erer.
 
 1. Günlük için bir ad yazın.  **\_CL** soneki otomatik olarak sağlanır.
 2. İsteğe bağlı bir ekleme **açıklama**.
 3. Tıklatın **sonraki** özel günlük tanımını kaydetmek için.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>5. Adım. Özel günlükler toplanmakta olan doğrula
+### <a name="step-6-validate-that-the-custom-logs-are-being-collected"></a>6. Adım. Özel günlükler toplanmakta olan doğrula
 Bu ilk veriler için bir saat için yeni bir özel günlüğünden günlük analizi görünmesi kadar sürebilir.  Girişleri toplamaya başlayacaktır özel günlük tanımlanan noktasından belirttiğiniz yolda bulunan günlüklerinden.  Özel günlük oluşturma sırasında karşıya girişleri bulamayacaktır ancak bulmadığı günlük dosyası zaten mevcut olan girişleri toplar.
 
 Özel günlük toplama günlük analizi başladıktan sonra bir günlük arama kayıtlarını kullanılabilir.  Özel günlük olarak verdiğiniz ad **türü** Sorgunuzdaki.
@@ -98,7 +105,7 @@ Bu ilk veriler için bir saat için yeni bir özel günlüğünden günlük anal
 >
 >
 
-### <a name="step-6-parse-the-custom-log-entries"></a>6. Adım. Özel günlük girişlerini ayrıştırılamıyor
+### <a name="step-7-parse-the-custom-log-entries"></a>7. Adım. Özel günlük girişlerini ayrıştırılamıyor
 Tüm günlük girişi olarak adlandırılan tek bir özellikte depolanacak **RawData**.  Büyük olasılıkla kayıtta depolanan ayrı ayrı Özellikler içinde her giriş bilgilerini farklı parçalarının ayrı isteyeceksiniz.  Kullanarak bunu [özel alanlar](log-analytics-custom-fields.md) günlük analizi özelliğidir.
 
 Özel günlük girişinin ayrıştırma için ayrıntılı adımlar burada sağlanmaz.  Lütfen [özel alanlar](log-analytics-custom-fields.md) bu bilgi için.

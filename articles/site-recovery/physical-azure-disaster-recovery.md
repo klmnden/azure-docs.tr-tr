@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643320"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Şirket içi fiziksel sunucuların azure'a olağanüstü durum kurtarma ayarlama
 
@@ -27,18 +28,25 @@ Bu öğretici, şirket içi fiziksel Windows ve Linux sunucularının Azure ola�
 > * Çoğaltma ilkesi oluşturma
 > * Bir sunucu için çoğaltmayı etkinleştirme
 
+[Mimari gözden](concepts-hyper-v-to-azure-architecture.md) bu olağanüstü durum kurtarma senaryosuna.
+
 ## <a name="prerequisites"></a>Önkoşullar
 
 Bu öğreticiyi tamamlamak için:
 
-- [Senaryo mimarisini ve bileşenlerini ](physical-azure-architecture.md) anladığınızdan emin olun.
+- Anladığınızdan emin olun [mimarisi ve bileşenleri](physical-azure-architecture.md) bu senaryo için.
 - Tüm bileşenler için [destek gereksinimlerini](vmware-physical-secondary-support-matrix.md) gözden geçirin.
 - Çoğaltmak istediğiniz sunucuları ile uyumlu olduğundan emin olun [Azure VM gereksinimleri](vmware-physical-secondary-support-matrix.md#replicated-vm-support).
 - Azure hazırlayın. Bir Azure aboneliği, Azure sanal ağı ve bir depolama hesabı gerekir.
 - Mobility hizmetinin çoğaltmak istediğiniz her bir sunucuda otomatik yüklemesi için bir hesap hazırlayın.
 
-> [!NOTE]
-> Başlamadan önce Azure yük devretme işleminden sonra fiziksel sunucuları şirket içi fiziksel makinelerine başarısız edilemez olduğunu unutmayın. Yalnızca VMware sanal makinelerini başarısız olabilir. 
+Başlamadan önce dikkat edin:
+
+- Azure yük devretme işleminden sonra fiziksel sunucuları şirket içi fiziksel makinelerine başarısız olamaz. Yalnızca VMware sanal makinelerini başarısız olabilir. 
+- Bu öğretici Azure fiziksel sunucu olağanüstü durum kurtarma basit ayarlarla ayarlar. Diğer seçenekler hakkında bilgi edinmek istiyorsanız, nasıl yapılır kılavuzlarımız okuyun:
+    - Ayarlanan [çoğaltma kaynağı](physical-azure-set-up-source.md), Site Recovery yapılandırma sunucusu da dahil olmak üzere.
+    - Ayarlanan [çoğaltma hedefi](physical-azure-set-up-target.md).
+    - Yapılandırma bir [Çoğaltma İlkesi](vmware-azure-set-up-replication.md), ve [çoğaltmayı etkinleştirme](vmware-azure-enable-replication.md).
 
 
 ### <a name="set-up-an-azure-account"></a>Bir Azure hesabı ayarlama

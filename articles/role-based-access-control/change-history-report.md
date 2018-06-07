@@ -11,36 +11,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: rqureshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 737f8d49d8254806891d3177cde59187cd8e1f2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640192"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>Rol tabanlı erişim denetimi değişiklikleri etkinlik günlüklerini görüntüle
 
-Birisi yapar değişiklikleri rol tanımları veya rol atamalarını aboneliklerinizi içinde dilediğiniz zaman değişiklikleri günlüğe [Azure etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) yönetim kategorisi içinde. Son 90 gün için tüm rol tabanlı erişim denetimi (RBAC) değişiklikleri görmek için etkinlik günlükleri görüntüleyebilirsiniz.
+Bazen, rol tabanlı erişim denetimi (RBAC) değişiklikler hakkındaki bilgileri gibi denetim ya da sorun giderme amacıyla için gerekir. Birisi yapar değişiklikleri rol atamalarını veya rol tanımları aboneliklerinizi içinde dilediğiniz zaman değişiklikleri günlüğe [Azure etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md). Son 90 gün için tüm RBAC değişiklikleri görmek için etkinlik günlükleri görüntüleyebilirsiniz.
 
 ## <a name="operations-that-are-logged"></a>Günlüğe kaydedilen işlemleri
 
 Etkinlik günlüğüne RBAC güvenlikle ilgili işlemler şunlardır:
 
-- Özel rol tanımı oluştur veya güncelleştir
-- Özel rol tanımını sil
 - Rol ataması oluştur
 - Rol atamasını sil
+- Özel rol tanımı oluştur veya güncelleştir
+- Özel rol tanımını sil
 
-## <a name="azure-portal"></a>Azure portalı
+## <a name="azure-portal"></a>Azure portalına
 
-Başlamak için en kolay yolu, Azure portal ile etkinlik günlükleri görüntülemektir. Görüntüleyecek şekilde filtrelenmiş bir etkinlik günlüğü örneği aşağıdaki ekran görüntüsü gösterilmektedir **Yönetim** rol tanımı ve rol ataması işlemlerinin yanı sıra kategorisi. Ayrıca, bir CSV dosyası olarak günlükleri indirmek için bir bağlantı içerir.
+Başlamak için en kolay yolu, Azure portal ile etkinlik günlükleri görüntülemektir. Aşağıdaki ekran görüntüsünde rol ataması ve rol tanımı işlemleri görüntülemek için filtre uygulanmış bir etkinlik günlüğü örneği gösterilmektedir. Ayrıca, bir CSV dosyası olarak günlükleri indirmek için bir bağlantı içerir.
 
 ![Etkinlik günlükleri using the portal - ekran görüntüsü](./media/change-history-report/activity-log-portal.png)
 
-Daha fazla bilgi için bkz: [etkinlik günlüğünde olayları görüntülemek](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
+Etkinlik günlüğü portalında birkaç filtreleri sahiptir. RBAC ilgili filtreleri şunlardır:
+
+|Filtre  |Değer  |
+|---------|---------|
+|Olay kategorisi     | <ul><li>Yönetim</li></ul>         |
+|İşlem     | <ul><li>Rol ataması oluştur</li> <li>Rol atamasını sil</li> <li>Özel rol tanımı oluştur veya güncelleştir</li> <li>Özel rol tanımını sil</li></ul>      |
+
+
+Etkinlik günlükleri hakkında daha fazla bilgi için bkz: [etkinlik günlüğünde olayları görüntülemek](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -81,7 +90,7 @@ Properties              :
 
 ```
 
-## <a name="azure-cli"></a>Azure CLI'si
+## <a name="azure-cli"></a>Azure CLI
 
 Azure CLI ile etkinlik günlükleri görüntülemek için kullanın [az İzleyici etkinlik günlüğü listesi](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) komutu.
 
@@ -97,9 +106,9 @@ Bu komut, etkinlik günlükleri için yetkilendirme kaynak sağlayıcısı başl
 az monitor activity-log list --resource-provider "Microsoft.Authorization" --start-time 2018-04-20T00:00:00Z
 ```
 
-## <a name="azure-log-analytics"></a>Azure Günlük Analizi
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure günlük analizi](../log-analytics/log-analytics-overview.md) toplamak ve tüm Azure kaynakları için rol tabanlı erişim denetimi değişiklikleri analiz etmek için kullanabileceğiniz başka bir araçtır. Günlük analizi aşağıdaki faydaları vardır:
+[Azure günlük analizi](../log-analytics/log-analytics-overview.md) toplamak ve tüm Azure kaynakları için RBAC değişiklikleri analiz etmek için kullanabileceğiniz başka bir araçtır. Günlük analizi aşağıdaki faydaları vardır:
 
 - Karmaşık sorgular ve mantığı yazma
 - Uyarılar, Power BI ve diğer araçlarla tümleştirme

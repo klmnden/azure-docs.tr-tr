@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 2d8760476fd7b8a5a11d01a434a383ec1ba27ef1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4f12c3353ca4949b3c1c031420ec5a0b8fdb2dbf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649161"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Esnek veritabanı işlerine Başlarken
 Esnek veritabanı iş (Önizleme) Azure SQL veritabanı için güvenilir bir şekilde birden fazla veritabanı otomatik olarak yeniden deneniyor ve nihai tamamlama garanti sağlama sırasında span T-SQL betikleri çalıştırmak sağlar. Esnek veritabanı iş özelliği hakkında daha fazla bilgi için bkz: [esnek iş](sql-database-elastic-jobs-overview.md).
@@ -311,7 +312,7 @@ Esnek veritabanı iş iptal gerçekleştirebilirsiniz iki farklı yolu vardır:
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>İş adı ve iş geçmişini sil
 Esnek veritabanı iş işleri zaman uyumsuz silinmesini destekler. Bir işi silinmek üzere işaretlenmiş ve tüm iş yürütmeleri için işini tamamladıktan sonra sistem iş ve tüm iş geçmişini siler. Sistem etkin iş yürütmeleri otomatik olarak iptal edilmez.  
 
-Instead, Stop-AzureSqlJobExecution must be invoked to cancel active job executions.
+Bunun yerine, Dur AzureSqlJobExecution etkin iş yürütmeleri iptal etmek için çağrılması gerekir.
 
 İş silme tetiklemek için kullanabileceğiniz **Kaldır AzureSqlJob** cmdlet'i ve ayarlayın **JobName** parametresi.
 
