@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: 2b7620611c4587d00612f98c86b5792984ff548b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10ce9058fca0ec56640e9bedabcc82683046fe9f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598462"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -196,7 +197,7 @@ List<TodoItem> items = await todoTable
 * Erişim, nesne özelliklerini ve
 * Bu işlemleri birleştirme ifadeler.
 
-Ne Server SDK'yı destekleyen değerlendirirken düşünebilirsiniz [OData v3 belgelerine].
+Ne Server SDK'yı destekleyen değerlendirirken düşünebilirsiniz [OData v3 belgeleri].
 
 ### <a name="sorting"></a>Nasıl yapılır: sıralama döndürülen verileri
 Aşağıdaki kod ekleyerek verileri sıralamak nasıl gösterir bir [OrderBy] veya [OrderByDescending] sorgusunda işlevi. Öğelerden döndürür `todoTable` göre artan `Text` alan.
@@ -214,7 +215,7 @@ List<TodoItem> items = await query.ToListAsync();
 ```
 
 ### <a name="paging"></a>Nasıl yapılır: veri sayfalarında Döndür
-Varsayılan olarak, arka uç yalnızca ilk 50 satırları döndürür. Çağıran döndürülen satır sayısını artırabilirsiniz [ele] yöntemi. Kullanım `Take` ile birlikte [atla] belirli bir toplam veri kümesi "sayfası sorgu tarafından döndürülen" istek yöntemi. Aşağıdaki sorgu çalıştırıldığında, tablodaki ilk üç öğeleri döndürür.
+Varsayılan olarak, arka uç yalnızca ilk 50 satırları döndürür. Çağıran döndürülen satır sayısını artırabilirsiniz [Al] yöntemi. Kullanım `Take` ile birlikte [atla] belirli bir toplam veri kümesi "sayfası sorgu tarafından döndürülen" istek yöntemi. Aşağıdaki sorgu çalıştırıldığında, tablodaki ilk üç öğeleri döndürür.
 
 ```
 // Define a filtered query that returns the top 3 items.
@@ -245,7 +246,7 @@ Gerçek dünya uygulamada, sorguları önceki örneğe benzer bir çağrı cihaz
 
 
 ### <a name="selecting"></a>Nasıl yapılır: Belirli sütunları seçin
-Kullanılacak özelliklerini ekleyerek sonuçlarında kümesini belirtebilirsiniz bir [seçin] sorgunuzu yan tümcesini. Örneğin, yalnızca bir alan seçin ve ayrıca seçmek ve birden çok alan biçimlendirmek aşağıdaki kodu gösterir:
+Kullanılacak özelliklerini ekleyerek sonuçlarında kümesini belirtebilirsiniz bir [Seç] sorgunuzu yan tümcesini. Örneğin, yalnızca bir alan seçin ve ayrıca seçmek ve birden çok alan biçimlendirmek aşağıdaki kodu gösterir:
 
 ```
 // Select one field -- just the Text
@@ -458,7 +459,7 @@ private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
 }
 ```
 
-Daha fazla bilgi için bkz: [çevrimdışı veri eşitlemeye Azure Mobile Apps içinde] konu.
+Daha fazla bilgi için bkz: [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme] konu.
 
 ### <a name="binding"></a>Nasıl yapılır: bir Windows kullanıcı arabirimini bağlaması Mobile Apps verileri
 Bu bölümde, bir Windows uygulamasında kullanıcı Arabirimi öğeleri kullanarak döndürülen veri nesneleri görüntülemek nasıl gösterir.  Aşağıdaki kod örneği, tamamlanmamış öğeleri için bir sorgu ile listesi kaynağı bağlar. [MobileServiceCollection] mobil uygulamaları algılayan bir bağlama koleksiyonu oluşturur.
@@ -620,14 +621,14 @@ InvokeApiAsync() yöntemi API ile başlayan sürece çağırmak istediğiniz API
 Tanımlı değil Bu WebAPIs Azure Mobile Apps ile de dahil olmak üzere tüm Webapı çağırmak için InvokeApiAsync kullanabilirsiniz.  InvokeApiAsync() kullandığınızda, kimlik doğrulama üstbilgileri dahil olmak üzere uygun üst bilgiler, istekle birlikte gönderilir.
 
 ## <a name="authentication"></a>Kullanıcıların kimlik doğrulaması
-Mobile Apps, kimlik doğrulaması ve çeşitli dış kimlik sağlayıcılarını kullanarak uygulama kullanıcıları yetkilendirmek destekler: Facebook, Google, Microsoft Account, Twitter ve Azure Active Directory. Yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi kısıtlamak için tablolarda izinlerini ayarlayabilirsiniz. Kimliği doğrulanmış kullanıcıların kimliğini, sunucu komut dosyalarında yetkilendirme kuralları uygulamak için de kullanabilirsiniz. Daha fazla bilgi için [uygulamanıza kimlik doğrulaması ekleme] öğreticisine bakın.
+Mobile Apps, kimlik doğrulaması ve çeşitli dış kimlik sağlayıcılarını kullanarak uygulama kullanıcıları yetkilendirmek destekler: Facebook, Google, Microsoft Account, Twitter ve Azure Active Directory. Yalnızca kimliği doğrulanmış kullanıcılar için belirli işlemler için erişimi kısıtlamak için tablolarda izinlerini ayarlayabilirsiniz. Kimliği doğrulanmış kullanıcıların kimliğini, sunucu komut dosyalarında yetkilendirme kuralları uygulamak için de kullanabilirsiniz. Daha fazla bilgi için [Uygulamanıza kimlik doğrulaması ekleme] öğreticisine bakın.
 
 İki kimlik doğrulama akışı desteklenir: *istemcisi yönetilen* ve *sunucusu yönetilen* akış. Sağlayıcının web kimlik doğrulaması arabirimde alacağından sunucusu yönetilen akış Basit kimlik doğrulama deneyimi sağlar. Sağlayıcıya özgü aygıta özgü SDK'ları üzerinde alacağından istemcisi yönetilen akış aygıta özgü özellikleri ile daha derin tümleştirme sağlar.
 
 > [!NOTE]
 > İstemci tarafından yönetilen bir akış üretim uygulamalarınızı kullanmanızı öneririz.
 
-Kimlik doğrulamasını kurmak için bir veya daha fazla kimlik sağlayıcıları ile uygulamanızı kaydetmeniz gerekir.  Bir istemci kimliği ve istemci parolası, uygulamanız için kimlik sağlayıcısı oluşturur.  Bu değerler, Azure App Service kimlik doğrulama/yetkilendirme etkinleştirmek için arka ucunuzu sonra ayarlanır.  Daha fazla bilgi için aşağıdaki ayrıntılı yönergeleri öğreticide izleyin [uygulamanıza kimlik doğrulaması ekleme].
+Kimlik doğrulamasını kurmak için bir veya daha fazla kimlik sağlayıcıları ile uygulamanızı kaydetmeniz gerekir.  Bir istemci kimliği ve istemci parolası, uygulamanız için kimlik sağlayıcısı oluşturur.  Bu değerler, Azure App Service kimlik doğrulama/yetkilendirme etkinleştirmek için arka ucunuzu sonra ayarlanır.  Daha fazla bilgi için aşağıdaki ayrıntılı yönergeleri öğreticide izleyin [Uygulamanıza kimlik doğrulaması ekleme].
 
 Aşağıdaki konular bu bölümde ele alınmıştır:
 
@@ -794,7 +795,7 @@ private async Task AuthenticateAsync()
 ```
 
 #### <a name="client-livesdk"></a>Tekli Oturum Live SDK ile birlikte Microsoft Account kullanarak açma
-Kullanıcıların kimliğini doğrulamak için Microsoft hesabı Geliştirici Merkezi uygulamanızı kaydetmeniz gerekir. Kayıt ayrıntıları, mobil uygulama arka uçta yapılandırın. Bir Microsoft hesabı kaydı oluşturun ve mobil uygulama arka ucunuza bağlanmak için bölümündeki adımları tamamlamanız [bir Microsoft hesabı oturum açma kullanmak için uygulamanızı kaydetme]. Uygulamanızı Windows mağazası ve Windows Phone 8/Silverlight sürümüne sahipseniz, Windows mağazası sürümü ilk kaydedin.
+Kullanıcıların kimliğini doğrulamak için Microsoft hesabı Geliştirici Merkezi uygulamanızı kaydetmeniz gerekir. Kayıt ayrıntıları, mobil uygulama arka uçta yapılandırın. Bir Microsoft hesabı kaydı oluşturun ve mobil uygulama arka ucunuza bağlanmak için bölümündeki adımları tamamlamanız [bir Microsoft hesabı oturum açma kullanmak için uygulamanızı kaydetme]. Uygulamanızı Microsoft Store ve Windows Phone 8/Silverlight sürümüne sahipseniz, Microsoft Store sürümü ilk kaydedin.
 
 Aşağıdaki kod Live SDK'sını kullanarak kimliğini doğrular ve mobil uygulama arka ucunuza oturum açmak için döndürülen belirteç kullanır.
 
@@ -807,7 +808,7 @@ private async System.Threading.Tasks.Task AuthenticateAsync()
     // Get the URL the Mobile App backend.
     var serviceUrl = App.MobileService.ApplicationUri.AbsoluteUri;
 
-    // Create the authentication client for Windows Store using the service URL.
+    // Create the authentication client for Microsoft Store using the service URL.
     LiveAuthClient liveIdClient = new LiveAuthClient(serviceUrl);
     //// Create the authentication client for Windows Phone using the client ID of the registration.
     //LiveAuthClient liveIdClient = new LiveAuthClient(clientId);
@@ -880,10 +881,10 @@ private async System.Threading.Tasks.Task Authenticate()
 
 Facebook dışında bir kimlik sağlayıcısı kullanıyorsanız, değerini değiştirme [MobileServiceAuthenticationProvider] sağlayıcınız için değer.
 
-Bir sunucu akışında Azure uygulama hizmeti oturum açma sayfası için seçilen sağlayıcıya görüntüleyerek OAuth kimlik doğrulaması akışı yönetir.  Azure App Service kimlik sağlayıcısı döndürür oluşturur sonra bir uygulama hizmeti kimlik doğrulama belirteci. [LoginAsync] yöntemi döndürür bir [MobileServiceUser], her ikisi de sağlayan [UserID] kimliği doğrulanmış kullanıcının ve [MobileServiceAuthenticationToken], JSON web Token (JWT). Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir. Daha fazla bilgi için bkz: [kimlik doğrulama belirteci önbelleğe alma](#caching).
+Bir sunucu akışında Azure uygulama hizmeti oturum açma sayfası için seçilen sağlayıcıya görüntüleyerek OAuth kimlik doğrulaması akışı yönetir.  Azure App Service kimlik sağlayıcısı döndürür oluşturur sonra bir uygulama hizmeti kimlik doğrulama belirteci. [LoginAsync] yöntemi döndürür bir [MobileServiceUser], her ikisi de sağlayan [Kullanıcı Kimliği] kimliği doğrulanmış kullanıcının ve [MobileServiceAuthenticationToken], JSON web Token (JWT). Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir. Daha fazla bilgi için bkz: [kimlik doğrulama belirteci önbelleğe alma](#caching).
 
 ### <a name="caching"></a>Kimlik doğrulama belirteci önbelleğe alma
-Bazı durumlarda, oturum açma yöntemi çağrısı sağlayıcıdan kimlik doğrulama belirteci depolayarak ilk başarılı kimlik doğrulamasından sonra önlenebilir.  Windows mağazası ve UWP uygulamalar kullanabilir [PasswordVault] gibi geçerli kimlik doğrulama belirteci bir başarılı oturum açma işleminden sonra önbelleğe almak için:
+Bazı durumlarda, oturum açma yöntemi çağrısı sağlayıcıdan kimlik doğrulama belirteci depolayarak ilk başarılı kimlik doğrulamasından sonra önlenebilir.  Microsoft Store ve UWP uygulamalar kullanabilir [PasswordVault] gibi geçerli kimlik doğrulama belirteci bir başarılı oturum açma işleminden sonra önbelleğe almak için:
 
 ```
 await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook);
@@ -935,7 +936,7 @@ await client.LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
 Aşağıdaki konular, anında iletme bildirimleri kapsar:
 
 * [Anında iletme bildirimleri için kaydolun](#register-for-push)
-* [Windows mağazası paket SID'si alın](#package-sid)
+* [Microsoft Store paket SID'si alın](#package-sid)
 * [Platformlar arası şablonları ile kaydetme](#register-xplat)
 
 ### <a name="register-for-push"></a>Nasıl yapılır: anında iletme bildirimleri için kaydolun
@@ -952,20 +953,20 @@ private async void InitNotificationsAsync()
 }
 ```
 
-WNS için itme sonra yapmanız gerekenler [Windows mağazası paket SID'si elde](#package-sid).  Şablon kayıtlar için nasıl dahil olmak üzere Windows uygulamaları hakkında daha fazla bilgi için bkz: [uygulamanıza anında iletme bildirimleri ekleme].
+WNS için itme sonra yapmanız gerekenler [Microsoft Store paket SID'si elde](#package-sid).  Şablon kayıtlar için nasıl dahil olmak üzere Windows uygulamaları hakkında daha fazla bilgi için bkz: [Uygulamanıza anında iletme bildirimleri ekleme].
 
 İstemciden etiketleri isteyen desteklenmiyor.  Etiket istekleri sessizce kaydından bırakılır.
 Etiketleriyle Cihazınızı kaydetmek istiyorsanız, kayıt sizin adınıza gerçekleştirmesi için bildirim hub'ları API'sini kullanan bir özel API oluşturun.  [Özel API çağrısı](#customapi) yerine `RegisterNativeAsync()` yöntemi.
 
-### <a name="package-sid"></a>Nasıl yapılır: Windows mağazası paket SID'si alın
-Bir paket SID'si Windows mağazası uygulamalarında anında iletme bildirimleri etkinleştirmek için gereklidir.  Bir paket SID'si almak için Windows mağazası uygulamanızı kaydedin.
+### <a name="package-sid"></a>Nasıl yapılır: Microsoft Store paket SID'si alın
+Bir paket SID'si Microsoft Store uygulamaları anında iletme bildirimlerini etkinleştirmek için gereklidir.  Bir paket SID'si almak için Microsoft Store ile uygulamanızı kaydetme.
 
 Bu değeri elde etmek için:
 
-1. Visual Studio Çözüm Gezgini'nde, Windows mağazası uygulama projesine sağ tıklayın, **deposu** > **uygulamayı mağaza ile ilişkilendir...** .
+1. Visual Studio Çözüm Gezgini'nde Microsoft Store uygulama projesine sağ tıklayın, **deposu** > **uygulamayı mağaza ile ilişkilendir...** .
 2. Sihirbazı'nda tıklatın **sonraki**, Microsoft hesabınızla oturum açın, uygulamanız için bir ad yazın **yeni bir uygulama adı yedek**, ardından **ayırma**.
 3. Uygulama kaydı başarıyla oluşturulduktan sonra uygulama adı seçin, **sonraki**ve ardından **ilişkilendirmek**.
-4. Oturum [Windows Geliştirme Merkezi] Microsoft Account kullanarak. Altında **uygulamalarım**, oluşturduğunuz uygulama kayıt'a tıklayın.
+4. Oturum [Windows Geliştirici Merkezi] Microsoft Account kullanarak. Altında **uygulamalarım**, oluşturduğunuz uygulama kayıt'a tıklayın.
 5. Tıklatın **Uygulama Yönetimi** > **uygulama kimliği**ve ardından Bul aşağı kaydırın, **paket SID'si**.
 
 Paket SID'si birçok kullanımı, bir URI olarak kullanmanıza gerek; bu durumda kabul *ms-app: / /* düzeni olarak. Paketinizin bir önek olarak bu değer birleştirerek biçimlendirilmiş SID sürümünü not edin.
@@ -1039,7 +1040,7 @@ private async void InsertTodoItem(TodoItem todoItem)
 }
 ```
 
-Hata koşulları postalarla başka bir örneği bulunabilir [Mobile Apps dosyaları örnek]. [LoggingHandler] örnek arka uç için yapılan istekleri günlüğe kaydetmek için bir günlük temsilci işleyicisi sağlar.
+Hata koşulları postalarla başka bir örneği bulunabilir [Mobil uygulamaları dosyaları örnek]. [LoggingHandler] örnek arka uç için yapılan istekleri günlüğe kaydetmek için bir günlük temsilci işleyicisi sağlar.
 
 ### <a name="headers"></a>Nasıl yapılır: özelleştirme istek üstbilgileri
 Belirli uygulama senaryonuz desteklemek için mobil uygulama arka ucu ile iletişim özelleştirme gerekebilir. Örneğin, giden her istek için bir özel üst bilgi eklemek veya bile yanıtları durum kodlarını değiştirmek isteyebilirsiniz. Özel bir kullanabilirsiniz [DelegatingHandler], aşağıdaki örnekte olduğu gibi:
@@ -1092,11 +1093,11 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[uygulamanıza kimlik doğrulaması ekleme]: app-service-mobile-windows-store-dotnet-get-started-users.md
-[çevrimdışı veri eşitlemeye Azure Mobile Apps içinde]: app-service-mobile-offline-data-sync.md
-[uygulamanıza anında iletme bildirimleri ekleme]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[bir Microsoft hesabı oturum açma kullanmak için uygulamanızı kaydetme]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[uygulama hizmeti Active Directory oturum açma için yapılandırma]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[Uygulamanıza kimlik doğrulaması ekleme]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Azure Mobile Apps’te Çevrimdışı Veri Eşitleme]: app-service-mobile-offline-data-sync.md
+[Uygulamanıza anında iletme bildirimleri ekleme]: app-service-mobile-windows-store-dotnet-get-started-push.md
+[Bir Microsoft hesabı oturum açma kullanmak için uygulamanızı kaydetme]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[Uygulama hizmeti Active Directory oturum açma için yapılandırma]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
@@ -1115,27 +1116,27 @@ public class MyHandler : DelegatingHandler
 [OrderBy]: https://msdn.microsoft.com/library/azure/dn250572(v=azure.10).aspx
 [OrderByDescending]: https://msdn.microsoft.com/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/library/azure/mt691741(v=azure.10).aspx
-[ele]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
-[seçin]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
-[atla]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
+[Al]: https://msdn.microsoft.com/library/azure/dn250574(v=azure.10).aspx
+[Seç]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
+[Atla]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [Kullanıcı Kimliği]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Burada]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Windows Geliştirme Merkezi]: https://dev.windows.com/en-us/overview
+[Windows Geliştirici Merkezi]: https://dev.windows.com/en-us/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: http://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[bildirim hub'ları API'leri]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[Mobile Apps dosyaları örnek]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[Bildirim hub'ları API'leri]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[Mobil uygulamaları dosyaları örnek]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 
 <!-- External URLs -->
-[OData v3 belgelerine]: http://www.odata.org/documentation/odata-version-3-0/
+[OData v3 belgeleri]: http://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: http://www.telerik.com/fiddler
 [Json.NET]: http://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/

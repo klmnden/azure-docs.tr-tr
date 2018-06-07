@@ -3,16 +3,19 @@ title: Öğretici - Azure Active Directory B2C kullanarak tek sayfalı bir uygul
 description: Bir .NET Core web API’sini korumak ve tek sayfalı bir uygulamadan çağırmak için Active Directory B2C kullanmaya yönelik öğretici.
 services: active-directory-b2c
 author: davidmu1
+manager: mtillman
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 0e9e3074e2cdd9ec3adc814779811d150cd11010
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 5b99f60c1bd81b77a5fc2be5575f65fc63eb0c11
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34711102"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Öğretici - Azure Active Directory B2C kullanarak tek sayfalı bir uygulamadan ASP.NET Core web API'sine erişim izni verme
 
@@ -155,13 +158,15 @@ Tek sayfalı uygulamanızın ASP.NET Core web API'sini çağırmasına izin verm
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
+3. **Özellikler**'in altında **launchSettings.json** dosyasını açın, *applicationURL* ayarını bulun ve sonraki bölümde kullanmak üzere değeri kaydedin.
+
 ### <a name="configure-the-single-page-app"></a>Tek sayfalı uygulamayı yapılandırma
 
 Tek sayfalı uygulama, kullanıcının kaydolma ve oturum açma işlemleri için Azure Ad B2C kullanır ve korumalı ASP.NET Core web API’sini çağırır. .NET Core web api’sini çağırmak için tek sayfalı uygulama çağrısını güncelleştirmeniz gerekir.
 Uygulama ayarlarını değiştirmek için:
 
 1. Node.js tek sayfalı uygulama örneğinde `index.html` dosyasını açın.
-2. Örneği Azure AD B2C kiracı kayıt bilgileriyle yapılandırın. Aşağıdaki kod satırlarında **b2cScopes** ve **webApi** değerlerini değiştirin:
+2. Örneği Azure AD B2C kiracı kayıt bilgileriyle yapılandırın. Aşağıdaki kodda, kiracı adınızı **b2cScopes** bölümüne ekleyin ve **webApi** değerini daha önce kaydetmiş olduğunuz *applicationURL* değeriyle değiştirin:
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -169,7 +174,7 @@ Uygulama ayarlarını değiştirmek için:
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:58553/api/values',
+        webApi: 'http://localhost:64791/api/values',
     };
     ```
 

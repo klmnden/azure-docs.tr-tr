@@ -1,20 +1,37 @@
-Visual Studio'daki Azure İşlevleri proje şablonu, Azure'daki bir işlev uygulamasında yayımlanabilen bir proje oluşturur. Yönetim, dağıtım ve kaynak paylaşımı, mantıksal birim olarak işlevleri Grup işlevi uygulama sağlar.   
+---
+title: include dosyası
+description: include dosyası
+services: functions
+author: ggailey777
+ms.service: functions
+ms.topic: include
+ms.date: 05/22/2018
+ms.author: glenga
+ms.custom: include file
+ms.openlocfilehash: 16bda26a80611b29fdb100736cfc48978e63f75a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34702439"
+---
+Visual Studio'daki Azure İşlevleri proje şablonu, Azure'daki bir işlev uygulamasında yayımlanabilen bir proje oluşturur. İşlev uygulaması, kaynakların yönetilmesi, dağıtılması ve paylaşılması için işlevleri bir mantıksal birim olarak gruplandırmanıza olanak tanır.
 
-1. Visual Studio'da seçin **yeni** > **proje** gelen **dosya** menüsü. 
+1. Visual Studio'da **Dosya** menüsünden **Yeni** > **Proje**’yi seçin.
 
-2. İçinde **yeni proje** iletişim kutusunda **yüklü**, genişletin **Visual C#** > **bulut**seçin **Azure İşlevler**, bir **adı** proje ve tıklatın **Tamam**. İşlev uygulamasının adı, bir C# ad alanı olarak geçerli olmalıdır; bu nedenle alt çizgi, kısa çizgi veya alfasayısal olmayan herhangi bir karakter kullanmayın. 
+2. **Yeni Proje** iletişim kutusunda **Yüklü**'yü seçin, **Visual C#** > **Bulut**'u genişletin, **Azure İşlevleri**'ni seçin, projeniz için bir **Ad** yazın ve **Tamam**'a tıklayın. İşlev uygulamasının adı, bir C# ad alanı olarak geçerli olmalıdır; bu nedenle alt çizgi, kısa çizgi veya alfasayısal olmayan herhangi bir karakter kullanmayın.
 
-    ![Visual Studio'da işlev oluşturmaya yönelik yeni proje iletişim kutusu](./media/functions-vstools-create/functions-vstools-add-new-project.png) 
+    ![Visual Studio'da işlev oluşturmaya yönelik yeni proje iletişim kutusu](./media/functions-vstools-create/functions-vstools-add-new-project.png)
 
-2. Görüntünün aşağıdaki tabloda belirtilen ayarları kullanın.
- 
-    ![Visual Studio'da yeni işlevi iletişim kutusu](./media/functions-vstools-create/functions-vstools-add-new-function.png) 
+3. Resmin altındaki tabloda belirtilen ayarları kullanın.
+
+    ![Visual Studio'da Yeni işlev iletişim kutusu](./media/functions-vstools-create/functions-vstools-add-new-function.png) 
 
     | Ayar      | Önerilen değer  | Açıklama                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Sürüm** | Azure işlevleri v1 <br />(.NET framework) | Bu sürüm 1 çalışma zamanı Azure işlevlerini kullanan bir işlev projesi oluşturur. .NET Core destekler, sürüm 2 çalışma zamanı şu anda önizlemede değil. Daha fazla bilgi için bkz: [hedef Azure işlevleri çalışma zamanı sürümü nasıl](../articles/azure-functions/functions-versions.md).   | 
-    | **Şablon** | HTTP tetikleyicisi | Bu, bir HTTP isteğiyle tetiklenen bir işlev oluşturur. |
-    | **Depolama hesabı**  | Depolama öykünücüsü | Bir HTTP tetikleyicisi depolama hesabı bağlantısı kullanmaz. Tüm diğer tetikleyici türleri geçerli bir depolama hesabı bağlantı dizesi gerektirir. |
-    | **Erişim hakları** | Anonim | Bir anahtar sağlamadan istemciler tarafından oluşturulan işlevi tetiklenebilir. Bu yetkilendirme ayarı yeni işlevinizi test kolay hale getirir. Anahtarlar ve yetkilendirme hakkında daha fazla bilgi için bkz: [yetkilendirme anahtarları](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) içinde [HTTP ve Web kancası bağlamaları](../articles/azure-functions/functions-bindings-http-webhook.md). |         
-3. Tıklatın **Tamam** işlevi oluşturmak için proje ve HTTP işlevi tetiklenir. 
+    | **Sürüm** | Azure İşlevleri v1 <br />(.NET Framework) | Bu, Azure İşlevleri'nin sürüm 1 çalışma zamanını kullanan bir işlev projesi oluşturur. .NET Core'u destekleyen sürüm 2 çalışma zamanı şu anda önizleme aşamasındadır. Daha fazla bilgi için bkz. [Azure İşlevleri çalışma zamanı sürümünün hedefini belirleme](../articles/azure-functions/functions-versions.md).   |
+    | **Şablon** | HTTP tetikleyicisi | Bu, HTTP isteği tarafından tetiklenen bir işlev oluşturur. |
+    | **Depolama hesabı**  | Depolama Öykünücüsü | HTTP tetikleyicisi Depolama hesabı bağlantısını kullanmaz. Diğer tüm tetikleyici türleri için geçerli bir Depolama hesabı bağlantı dizesi gerekir. |
+    | **Erişim hakları** | Anonim | Oluşturulan işlev, anahtar gerektirmeden herhangi bir istemci tarafından tetiklenebilir. Bu yetkilendirme ayarı yeni işlevinizi test etmenizi kolaylaştırır. Anahtarlar ve yetkilendirme hakkında daha fazla bilgi için, [HTTP ve web kancası bağlamaları](../articles/azure-functions/functions-bindings-http-webhook.md) altında [Yetkilendirme anahtarları](../articles/azure-functions/functions-bindings-http-webhook.md#authorization-keys) bölümüne bakın. |
+4. İşlev projesini ve HTTP ile tetiklenen işlevi oluşturmak için **Tamam**'a tıklayın.
 

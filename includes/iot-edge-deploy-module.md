@@ -1,21 +1,21 @@
-Azure IOT kenar anahtar özelliklerini birini modülleri, IOT sınır cihazları buluttan dağıtamaz yapılıyor. Bir IOT kenar modülü, bir kapsayıcı olarak uygulanan bir yürütülebilir paketidir. Bu bölümde, sanal cihaz için telemetri oluşturması bir modül dağıtın. 
+Azure IoT Edge'in önemli özelliklerinden biri buluttan IoT Edge cihazlarınıza modüller dağıtabilmektir. IoT Edge modülü, kapsayıcı olarak uygulanan yürütülebilir bir pakettir. Bu bölümde, simülasyon cihazınız için telemetri oluşturacak bir modülün dağıtımı yapacaksınız. 
 
-1. Azure portalında IOT hub'ına gidin.
-1. Git **IOT kenar (Önizleme)** ve IOT sınır cihazı seçin.
-1. Seçin **ayarlamak modülleri**.
-1. Seçin **IOT kenar Modül Ekle**.
-1. İçinde **adı** alanına, `tempSensor`. 
-1. İçinde **görüntü URI** alanına, `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`. 
-1. Diğer ayarları değiştirmeden bırakın ve seçin **kaydetmek**.
+1. Azure portalında IoT Hub'ınıza gidin.
+1. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
+1. **Modülleri Ayarlama**'yı seçin.
+1. **IoT Edge Modülü Ekle**'yi seçin.
+1. **Ad** alanına `tempSensor` girin. 
+1. **Görüntü URI'si** alanına `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview` girin. 
+1. Diğer ayarları değiştirmeden bırakın ve **Kaydet**'i seçin.
 
-   ![IOT kenar modül adı ve görüntü URI girdikten sonra Kaydet](./media/iot-edge-deploy-module/name-image.png)
+   ![Adı ve görüntü URI'sini girdikten sonra IoT Edge modülünü kaydedin](./media/iot-edge-deploy-module/name-image.png)
 
-1. Geri **modülleri ekleme** adım, select **sonraki**.
-1. İçinde **belirtin yolları** adım, select **sonraki**.
-1. İçinde **gözden geçirme şablonu** adım, select **gönderme**.
-1. Cihaz ayrıntıları sayfasına dönün ve seçin **yenileme**. IOT kenar çalışma zamanı çalıştıran yeni tempSensor modülü görmeniz gerekir. 
+1. **Modül ekleme** adımına dönüp **İleri**’yi seçin.
+1. **Rota belirtme** adımında **İleri**'yi seçin.
+1. **Şablonu gözden geçirme** adımında **Gönder**’i seçin.
+1. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin. Yeni tempSensor modülünün IoT Edge çalışma zamanıyla birlikte çalıştığını görmelisiniz. 
 
-   ![Görünüm tempSensor dağıtılan modüller listesi][1]
+   ![Dağıtılan modüller listesinde tempSensor modülünü görüntüleme][1]
 
 <!-- Images -->
 [1]: ../articles/iot-edge/media/tutorial-simulate-device-windows/view-module.png

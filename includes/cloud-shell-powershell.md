@@ -1,12 +1,12 @@
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell'i başlatma
 
-Azure bulut Kabuk, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuk ' dir. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Tıklatmanız **kopyalama** kodu kopyalamak için bulut kabuğundan yapıştırın ve sonra çalıştırmak için enter tuşuna basın. Bulut Kabuğu'nu başlatmak için birkaç yolu vardır:
+Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. **Kopyala**’ya tıklayarak kodu kopyalayın, Cloud Shell’e yapıştırın ve Enter tuşuna basarak çalıştırın. Cloud Shell’i başlatmanın birkaç yolu vardır:
 
 |  |   |
 |-----------------------------------------------|---|
-| Tıklatın **deneyin** kod bloğu sağ üst köşesindeki. | ![Bu makalede bulut Kabuğu](./media/cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
-| Bulut Kabuğu'nu tarayıcınızda açın. | [![https://shell.azure.com/powershell](./media/cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
-| Tıklatın **bulut Kabuk** Azure portalının sağ üst menüsünde düğmesini. | [![Portalı'nda bulut Kabuğu](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com) |
+| Kod bloğunun sağ üst köşesindeki **Deneyin**’e tıklayın. | ![Bu makaledeki Cloud Shell](./media/cloud-shell-powershell/cloud-shell-powershell-try-it.png) |
+| Cloud Shell’i tarayıcınızda açın. | [![https://shell.azure.com/powershell](./media/cloud-shell-powershell/launchcloudshell.png)](https://shell.azure.com/powershell) |
+| Azure portalının sağ üst kısmındaki menüde yer alan **Cloud Shell** düğmesine tıklayın. | [![Portalda Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com) |
 |  |  |
 
