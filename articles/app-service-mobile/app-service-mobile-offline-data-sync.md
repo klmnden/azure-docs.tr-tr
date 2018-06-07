@@ -1,10 +1,10 @@
 ---
-title: "Çevrimdışı veri eşitlemeye Azure mobil uygulamalarda | Microsoft Docs"
-description: "Kavramsal başvurusu ve Azure Mobile Apps için çevrimdışı veri eşitlemeyi özelliğine genel bakış"
+title: Çevrimdışı veri eşitlemeye Azure mobil uygulamalarda | Microsoft Docs
+description: Kavramsal başvurusu ve Azure Mobile Apps için çevrimdışı veri eşitlemeyi özelliğine genel bakış
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 982fb683-8884-40da-96e6-77eeca2500e3
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 5ea1d655f50da49be88f7b6ae91231c4d2258fa7
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 403b3289a6135a59e888c4a7bf1cd9cbe40c8ac0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597986"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Azure Mobile Apps’te Çevrimdışı Veri Eşitleme
 ## <a name="what-is-offline-data-sync"></a>Çevrimdışı veri eşitlemeye nedir?
@@ -42,7 +43,7 @@ Aşağıdaki öğreticiler nasıl Azure Mobile Apps kullanarak mobil istemcileri
 * [Xamarin iOS: Çevrimdışı eşitleme etkinleştir]
 * [Xamarin Android: Çevrimdışı eşitleme etkinleştir]
 * [Xamarin.Forms: Etkinleştir çevrimdışı eşitleme](app-service-mobile-xamarin-forms-get-started-offline-data.md)
-* [Evrensel Windows Platformu: etkinleştirmek çevrimdışı eşitleme]
+* [Evrensel Windows Platformu: Çevrimdışı eşitleme etkinleştir]
 
 ## <a name="what-is-a-sync-table"></a>Bir eşitleme tablo nedir?
 "/ Tabloları" uç noktasına erişmek için Azure Mobile istemci SDK'ları sağlaması arabirimleri gibi `IMobileServiceTable` (.NET İstemci SDK) veya `MSTable` (iOS istemci). Bu API'ları doğrudan Azure mobil uygulama arka ucuna bağlama ve istemci aygıt bir ağ bağlantısı yoksa başarısız.
@@ -52,14 +53,14 @@ Aşağıdaki öğreticiler nasıl Azure Mobile Apps kullanarak mobil istemcileri
 ## <a name="what-is-a-local-store"></a>Yerel bir depo nedir?
 Veri saklama katmanını istemci cihazda bir yerel deposudur. Azure Mobile Apps istemci SDK'ları varsayılan yerel mağaza uygulamasını belirtin. Windows, Xamarin ve Android, SQLite üzerinde temel alır. İos'ta, temel verilere dayanır.
 
-Windows Phone veya Windows mağazası 8.1 SQLite tabanlı bir uygulama kullanmak için bir SQLite uzantısını yüklemeniz gerekir. Daha fazla bilgi için bkz: [Evrensel Windows Platformu: etkinleştirmek çevrimdışı eşitleme]. SQLite kendi sürümü başvurmak gerekli değildir SQLite sürümü aygıt işletim sisteminde kendisi, android ve iOS birlikte.
+Windows Phone veya Microsoft Store SQLite tabanlı bir uygulama kullanmak için bir SQLite uzantısını yüklemeniz gerekir. Daha fazla bilgi için bkz: [Evrensel Windows Platformu: Çevrimdışı eşitleme etkinleştir]. SQLite kendi sürümü başvurmak gerekli değildir SQLite sürümü aygıt işletim sisteminde kendisi, android ve iOS birlikte.
 
 Geliştiriciler Ayrıca kendi yerel deposu uygulayabilirsiniz. Örneğin, şifrelenmiş biçimde mobil istemci üzerindeki veri depolamak istiyorsanız, şifreleme için SQLCipher kullanan yerel bir depo tanımlayabilirsiniz.
 
 ## <a name="what-is-a-sync-context"></a>Eşitleme bağlamı nedir?
 A *eşitleme bağlamı* bir mobil istemci nesneyle ilişkilendirilen (gibi `IMobileServiceClient` veya `MSClient`) ve eşitleme tablolarla yapılan değişiklikleri izler. Eşitleme bağlamı tutar bir *işlem sırası*, hangi sonraki CUD işlemleri (oluşturma, güncelleştirme, silme) sıralı listesini tutar sunucusuna gönderilemez.
 
-Yerel bir depo Initialize yöntemini kullanarak eşitleme bağlamla ilişkilendirilen `IMobileServicesSyncContext.InitializeAsync(localstore)` içinde [.NET İstemci SDK].
+Yerel bir depo Initialize yöntemini kullanarak eşitleme bağlamla ilişkilendirilen `IMobileServicesSyncContext.InitializeAsync(localstore)` içinde [.NET İstemci SDK'sı].
 
 ## <a name="how-sync-works"></a>Eşitleme çevrimdışı nasıl çalışır
 Eşitleme tabloları kullanırken, istemci kodunuzun bir Azure mobil uygulama arka ucu ile yerel değişiklikler olduğunda eşitlenir denetler. Çağrı kadar hiçbir şey arka ucuna gönderilen *itme* yerel değişiklikler. Benzer şekilde, yalnızca bir çağrı olduğunda yerel deposu yeni verilerle doldurulur *çekme* veri.
@@ -92,12 +93,12 @@ Eşitleme tabloları kullanırken, istemci kodunuzun bir Azure mobil uygulama ar
 * [iOS: Çevrimdışı eşitleme etkinleştir]
 * [Xamarin iOS: Çevrimdışı eşitleme etkinleştir]
 * [Xamarin Android: Çevrimdışı eşitleme etkinleştir]
-* [Evrensel Windows Platformu: etkinleştirmek çevrimdışı eşitleme]
+* [Evrensel Windows Platformu: Çevrimdışı eşitleme etkinleştir]
 
 <!-- Links -->
-[.NET İstemci SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
+[.NET İstemci SDK'sı]: app-service-mobile-dotnet-how-to-use-client-library.md
 [Android: Çevrimdışı eşitleme etkinleştir]: app-service-mobile-android-get-started-offline-data.md
 [iOS: Çevrimdışı eşitleme etkinleştir]: app-service-mobile-ios-get-started-offline-data.md
 [Xamarin iOS: Çevrimdışı eşitleme etkinleştir]: app-service-mobile-xamarin-ios-get-started-offline-data.md
 [Xamarin Android: Çevrimdışı eşitleme etkinleştir]: app-service-mobile-xamarin-android-get-started-offline-data.md
-[Evrensel Windows Platformu: etkinleştirmek çevrimdışı eşitleme]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md
+[Evrensel Windows Platformu: Çevrimdışı eşitleme etkinleştir]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

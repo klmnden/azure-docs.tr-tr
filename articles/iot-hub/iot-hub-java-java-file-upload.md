@@ -1,24 +1,20 @@
 ---
 title: Java ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs
 description: Java için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 794ebd3b2d25f6b7d5dcb86b0834380fce9b9a27
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 09580f3bb5d6f6f5ccb15adddf0cf1f9e19c2210
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807586"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IOT Hub ile bulut cihazınızdan dosyaları karşıya yükleme
 
@@ -29,7 +25,7 @@ Bu öğretici kodda inşa edilmiştir [IOT Hub ile bulut cihaza ileti gönderme]
 - Güvenli bir şekilde bir aygıt ile Azure sağlayan bir dosya yüklemek için URI blob.
 - IOT hub'ı dosya karşıya yükleme bildirimleri, uygulama arka uç dosya işleme tetiklemek için kullanın.
 
-[IOT Hub ile çalışmaya başlama](iot-hub-java-java-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-java-java-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem cihaz-bulut iletileri](iot-hub-java-java-process-d2c.md) öğretici Azure blob depolama alanına cihaz bulut iletilerini güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
+[IOT Hub ile çalışmaya başlama](iot-hub-java-java-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-java-java-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem cihaz-bulut iletileri](tutorial-routing.md) öğretici Azure blob depolama alanına cihaz bulut iletilerini güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar
@@ -44,7 +40,7 @@ Bu öğreticinin sonunda iki Java konsol uygulamaları çalıştırın:
 * **dosya karşıya yükleme bildirimi okuma**, IOT hub'ından dosya karşıya yükleme bildirimlerini alır.
 
 > [!NOTE]
-> IOT hub'ı Azure IOT cihaz SDK'ları çok sayıda cihaz platformları ve (C, .NET ve Javascript dahil) dilleri destekler. Başvurmak [Azure IOT Geliştirme Merkezi] Cihazınızı Azure IOT Hub'ına bağlamak adım adım yönergeler için.
+> IOT hub'ı Azure IOT cihaz SDK'ları çok sayıda cihaz platformları ve (C, .NET ve Javascript dahil) dilleri destekler. Başvurmak [Azure IoT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlamak adım adım yönergeler için.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -283,7 +279,7 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 
 
-[Azure IOT Geliştirme Merkezi]: http://azure.microsoft.com/develop/iot
+[Azure IoT Geliştirici Merkezi]: http://azure.microsoft.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account

@@ -1,27 +1,29 @@
 ---
-title: 'Azure yığın ağ: Farklar ve dikkat edilecek noktalar'
+title: Ağ farklar ve konuları azure yığın | Microsoft Docs
 description: Farklar ve konuları Azure yığınında ağ ile çalışırken öğrenin.
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 2a4c5bce072970f158a89763ebdf4132eafe9cbe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.reviewer: scottnap
+ms.openlocfilehash: faff52ba5b5e2f0d573a67633d3a8411b2d7de74
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606435"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure yığın ağ için ilgili önemli noktalar
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure ağ yığını, Azure ağ tarafından sağlanan özelliklerinin çoğu vardır. Ancak, bir Azure yığın ağ dağıtmadan önce anlamanız gereken bazı temel farklar vardır.
+Azure yığın ağ birçok Azure ağ tarafından sağlanan özelliği vardır. Ancak, bir Azure yığın ağ dağıtmadan önce anlamanız gereken bazı temel farklar vardır.
 
-Bu makalede Azure ağ yığını ve özellikleri için benzersiz konuları genel bir bakış sağlar. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
+Bu makalede Azure yığın ağ ve özelliklerini benzersiz konular genel bir bakış sağlar. Azure yığını ve Azure arasında üst düzey farklılıklar hakkında bilgi edinmek için [anahtar konuları](azure-stack-considerations.md) konu.
 
 ## <a name="cheat-sheet-networking-differences"></a>Kopya sayfası: ağ farklar
 

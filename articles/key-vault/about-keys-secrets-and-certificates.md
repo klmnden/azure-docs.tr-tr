@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636615"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Anahtarları, gizli ve sertifikaları hakkında
 Azure anahtar kasası, depolamak ve Microsoft Azure ortamı içindeki şifreleme anahtarları kullanmak kullanıcıların sağlar. Anahtar kasası birden çok anahtar türleri ve algoritmaları destekler ve yüksek değerli anahtarlar için donanım güvenlik modülleri (HSM) kullanılmasına olanak verir. Ayrıca, anahtar kasası gizli güvenli bir şekilde kullanıcıları sağlar. Gizli sınırlı boyutu sekizli hiçbir belirli semantiği ile nesneleridir. Anahtar kasası, anahtarları ve gizli anahtarları üzerine inşa ve otomatik yenileme özelliği eklemek sertifikalarını da destekler.
@@ -327,7 +328,7 @@ Sertifika öznitelikleri adreslenebilir anahtarı ve gizli KV sertifika oluştur
 
 Bir anahtar kasası sertifika aşağıdaki özniteliklere sahiptir:  
 
--   *Etkin*: boolean, isteğe bağlı, varsayılan **doğru**. Bu öznitelik, sertifika verileri gizli ya da bir anahtar olarak çalıştırılabilir olarak alınabilir olmadığını belirtmek için belirtilebilir. Bu ile birlikte kullanılır *nbf* ve*exp*bir işlem oluştuğunda arasında *nbf* ve exp, yalnızca etkinleştirilirse ayarlanmış true. İşlemleri dışında *nbf* ve*exp*penceresi otomatik olarak izin verilmez.  
+-   *Etkin*: boolean, isteğe bağlı, varsayılan **doğru**. Bu öznitelik, sertifika verileri gizli ya da bir anahtar olarak çalıştırılabilir olarak alınabilir olmadığını belirtmek için belirtilebilir. Bu ile birlikte kullanılır *nbf* ve *exp* bir işlem oluştuğunda arasında *nbf* ve *exp*, etkinleştirildiğinde yalnızca verilecek ayarlanmış true. İşlemleri dışında *nbf* ve *exp* penceresi otomatik olarak izin verilmez.  
 
 Yanıta dahil ek salt okunur öznitelikleri şunlardır:
 

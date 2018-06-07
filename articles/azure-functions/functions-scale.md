@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807542"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure işlevleri ölçek ve barındırma
 
@@ -43,12 +44,12 @@ Bir uygulama hizmeti planı farklı miktarda kaynak ayırmak için Katmanlar ara
 
 ## <a name="consumption-plan"></a>Tüketim planı
 
-Tüketim planı kullanırken, Azure işlevleri konak örnekleri dinamik olarak eklenir ve gelen olayların sayısına göre kaldırıldı. Bu plan otomatik olarak ölçeklendirir ve yalnızca işlevlerinizi çalıştırırken işlem kaynakları için ücretlendirilirsiniz. Tüketim plan üzerinde bir işlev en fazla 10 dakika için çalıştırabilirsiniz. 
+Tüketim planı kullanırken, Azure işlevleri konak örnekleri dinamik olarak eklenir ve gelen olayların sayısına göre kaldırıldı. Bu plan otomatik olarak ölçeklendirir ve yalnızca işlevlerinizi çalıştırırken işlem kaynakları için ücretlendirilirsiniz. Tüketim plan üzerinde bir işlev yürütme yapılandırılabilir bir süre sonunda zaman aşımına uğradı. 
 
 > [!NOTE]
-> Tüketim planı işlevleri için varsayılan zaman aşımı 5 dakikadır. Değer 10 dakika için işlev uygulaması özelliğini değiştirerek artırılabilir `functionTimeout` içinde [host.json](functions-host-json.md#functiontimeout) proje dosyası.
+> Tüketim planı işlevleri için varsayılan zaman aşımı 5 dakikadır. Değer en fazla 10 dakika kadar işlev uygulaması için özelliğini değiştirerek artırılabilir `functionTimeout` içinde [host.json](functions-host-json.md#functiontimeout) proje dosyası.
 
-Faturalama yürütmeleri, yürütme zamanı ve kullanılan bellek sayısına bağlıdır. Faturalama işlevi uygulamasında tüm işlevleri üzerinden toplanır. Daha fazla bilgi için bkz: [Azure fiyatlandırma sayfası işlevleri].
+Faturalama yürütmeleri, yürütme zamanı ve kullanılan bellek sayısına bağlıdır. Faturalama işlevi uygulamasında tüm işlevleri üzerinden toplanır. Daha fazla bilgi için bkz: [Azure işlevleri fiyatlandırma sayfası].
 
 Tüketim plan barındırma planı varsayılandır ve aşağıdaki avantajları sunar:
 - Yalnızca işlevlerinizi çalışmadığı zaman ücret ödersiniz.
@@ -90,7 +91,7 @@ Depolama hesabı türleri hakkında daha fazla bilgi için bkz: [Azure Storage h
 
 ## <a name="how-the-consumption-plan-works"></a>Tüketim planı nasıl çalışır?
 
-Tüketim planında ölçek denetleyicisi otomatik olarak CPU ve bellek kaynakları işlevleri üzerinde tetiklenen olayların sayısına dayalı işlevler konak ek örneklerini ekleyerek ölçeklendirir. İşlevler konak her örneği için 1,5 GB bellek sınırlıdır.  Bir işlevin içindeki tüm işlevleri Uygulama Paylaşımı kaynakları bir örneği ve ölçek içinde aynı anda anlamı işlev uygulaması ana örneğidir.
+Tüketim planında ölçek denetleyicisi otomatik olarak CPU ve bellek kaynakları işlevleri üzerinde tetiklenen olayların sayısına dayalı işlevler konak ek örneklerini ekleyerek ölçeklendirir. İşlevler konak her örneği için 1,5 GB bellek sınırlıdır.  Bir işlevin içindeki tüm işlevleri Uygulama Paylaşımı kaynakları bir örneği ve ölçek içinde aynı anda anlamı işlev uygulaması ana örneğidir. Aynı tüketim planın paylaştığınız işlev uygulamalarının bağımsız olarak ölçeklendirilir.  
 
 Barındırma planı tüketimini kullandığınızda işlevi kod dosyaları Azure dosya paylaşımlarının işlevin ana depolama hesabında depolanır. İşlev uygulaması ana depolama hesabına sildiğinizde, işlevi kod dosyaları silinir ve kurtarılamaz.
 
@@ -121,8 +122,8 @@ Ne kadar iyi onu, ana bilgisayar yapılandırması, çalışma zamanı ayak izin
 
 ### <a name="billing-model"></a>Faturalandırma modeli
 
-Tüketim plan üzerinde ayrıntılı olarak açıklanmıştır faturalama [Azure fiyatlandırma sayfası işlevleri]. Kullanım işlevi uygulama düzeyinde toplanır ve işlev kodu yürütülen zaman sayar. Faturalama birimleri şunlardır: 
+Tüketim plan üzerinde ayrıntılı olarak açıklanmıştır faturalama [Azure işlevleri fiyatlandırma sayfası]. Kullanım işlevi uygulama düzeyinde toplanır ve işlev kodu yürütülen zaman sayar. Faturalama birimleri şunlardır: 
 * **Kaynak tüketimini gigabayt (GB-s) saniye**. Bellek boyutu ve bir işlev uygulaması içinde tüm işlevleri için yürütme süresi bileşimini olarak hesaplanır. 
 * **Yürütmeleri**. Bir olay tetikleyicisine yanıt olarak bir işlev yürütülen her zaman sayılır.
 
-[Azure fiyatlandırma sayfası işlevleri]: https://azure.microsoft.com/pricing/details/functions
+[Azure işlevleri fiyatlandırma sayfası]: https://azure.microsoft.com/pricing/details/functions

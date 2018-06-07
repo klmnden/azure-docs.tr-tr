@@ -2,23 +2,19 @@
 title: Java kullanarak Azure Event Hubs için olayları göndermek | Microsoft Docs
 description: Java kullanarak Event Hubs'a gönderme kullanmaya başlama
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/30/2018
 ms.author: sethm
-ms.openlocfilehash: 5dd0c88dab9ff4b7073a9acf6872b4c3ff085586
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d3bf0b8ac5c5bdc7bf3deda21e800fe3cc6be2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626420"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Java kullanarak Azure Event Hubs için olayları Gönder
 
@@ -28,12 +24,14 @@ Daha fazla bilgi için bkz: [Event Hubs'a genel bakış][Event Hubs overview].
 
 Bu öğretici bir Java konsol uygulaması kullanarak bir event hub'ına olayları göndermek nasıl gösterir. Java olay işleyicisi konağı kitaplığını kullanarak olayları almak için bkz: [bu makalede](event-hubs-java-get-started-receive-eph.md), veya sol İçindekiler uygun alıcı dilde'ı tıklatın.
 
-Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
+## <a name="prerequisites"></a>Önkoşullar
 
-* Java geliştirme ortamı. Bu öğretici için varsayıyoruz [Eclipse](https://www.eclipse.org/).
-* Etkin bir Azure hesabı. Bir Azure aboneliğiniz yoksa oluşturma bir [ücretsiz bir hesap][] başlamadan önce.
+Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:
 
-Bu öğreticideki kod dayanır [Gönder GitHub örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send), hangi tam görmek için inceleyebilirsiniz çalışan bir uygulama.
+* Java geliştirme ortamı. Bu öğretici kullanır [Eclipse](https://www.eclipse.org/).
+* Etkin bir Azure hesabı. Bir Azure aboneliğiniz yoksa oluşturma bir [Ücretsiz hesap][] başlamadan önce.
+
+Bu öğreticideki kod dayanır [SimpleSend GitHub örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), hangi tam görmek için inceleyebilirsiniz çalışan bir uygulama.
 
 ## <a name="send-events-to-event-hubs"></a>Olayları Event Hubs'a gönderme
 
@@ -94,7 +92,7 @@ ConnectionStringBuilder sınıfı Event Hubs istemcisi örneğine geçirmek içi
 
 ### <a name="send-events"></a>Olayları gönderme
 
-Ardından, bir dize, UTF-8 bayt kodlamaya dönüştürerek tekil bir olay oluşturun. Ardından, yeni bir olay hub'ları istemci örnek bağlantı dizesinden oluşturun ve ileti gönderin.   
+Bir dize, UTF-8 bayt kodlamaya dönüştürerek tekil bir olay oluşturun. Ardından, yeni bir olay hub'ları istemci örnek bağlantı dizesinden oluşturun ve ileti gönderin:   
 
 ```java 
 byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");
@@ -119,5 +117,5 @@ Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi e
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md
-[ücretsiz bir hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[Ücretsiz hesap]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 

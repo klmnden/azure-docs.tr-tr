@@ -2,23 +2,20 @@
 title: Azure Cosmos DB tanılama günlük | Microsoft Docs
 description: Azure Cosmos DB ile başlamanıza yardımcı olması için bu öğreticiyi kullanın günlüğü.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612223"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB Tanılama Günlüğü
 
@@ -47,7 +44,7 @@ Azure etkinlik günlüğü, Azure'da oluşan abonelik düzeyinde olaylar hakkın
 
 Etkinlik günlüğü tanılama günlükleri farklıdır. Bir dış kaynaktan işlemlerde ilgili verileri etkinlik günlüğü sağlar ( _denetim düzlemi_). Azure Cosmos DB bağlamı denetim düzlemi işlemleri içeren koleksiyonu, liste anahtarları, delete anahtarları, liste veritabanı ve benzeri oluşturun. Tanılama günlüklerini bir kaynak tarafından gösterilen ve bu kaynağın işlemiyle ilgili bilgi sağlayın ( _veri düzlemi_). Bazı tanılama günlük verilerini düzlemi işlemlerinde silebilir, Ekle ve ReadFeed gösterilebilir.
 
-Etkinlik günlükleri (Denetim düzlemi işlemleri) doğası gereği daha zengin ve arayanın, çağıran IP adresi, kaynak adı, işlem adı, Tenantıd ve daha fazla tam e-posta adresini içerebilir. Etkinlik günlüğü birkaç içeren [kategorileri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) veri. Bu kategoriler şemalara hakkında tam bilgi için bkz: [Azure etkinlik günlüğü olay şema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Ancak, PII veri genellikle bu günlükleri yapılandırıldıktan gibi tanılama günlüklerini doğası gereği kısıtlayıcı olabilir. Arayanın IP adresine sahip, ancak son octant kaldırılır.
+Etkinlik günlükleri (Denetim düzlemi işlemleri) doğası gereği daha zengin ve arayanın, çağıran IP adresi, kaynak adı, işlem adı, Tenantıd ve daha fazla tam e-posta adresini içerebilir. Etkinlik günlüğü birkaç içeren [kategorileri](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema) veri. Bu kategoriler şemalara hakkında tam bilgi için bkz: [Azure etkinlik günlüğü olay şema](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema). Ancak, kişisel verileri genellikle bu günlükleri yapılandırıldıktan gibi tanılama günlüklerini doğası gereği kısıtlayıcı olabilir. Arayanın IP adresine sahip, ancak son octant kaldırılır.
 
 ### <a name="azure-metrics"></a>Azure ölçümleri
 

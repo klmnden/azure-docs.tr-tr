@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: e86353703d4eb8ee9acc251d62cf77d139d18ddb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a6e3bb31886f1b682ef20404b536bfc4a0c07151
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656892"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Oluşturma, değiştirme veya bir ağ arabirimi silme
 
@@ -52,7 +53,7 @@ Azure portalını kullanarak bir sanal makine oluştururken, portal sizin için 
     |Sanal ağ|Evet|Ağ arabirimi için sanal ağ seçin. Yalnızca aynı abonelik ve konum ağ arabirimi olarak mevcut bir sanal ağ bir ağ arabirimi atayabilirsiniz. Bir ağ arabirimi oluşturulduktan sonra sanal ağ atandığı değiştiremezsiniz. Ağ arabirimine eklediğiniz sanal makinenin de aynı konumu ve ağ arabirimi olarak abonelik bulunmalıdır.|
     |Alt ağ|Evet|Seçtiğiniz sanal ağ içindeki bir alt ağ seçin. Oluşturulduktan sonra ağ arabirimi atandığı alt değiştirebilirsiniz.|
     |Özel IP adresi ataması|Evet| Bu ayar, IPv4 adresi için atama yöntemi seçme. Aşağıdaki atama yöntemler arasından seçim yapın: **dinamik:** bu seçeneğin belirlenmesi, Azure sonraki kullanılabilir adrese seçtiğiniz alt ağ adresi alanından otomatik olarak atar. **Statik:** bu seçeneğin belirlenmesi, bir kullanılabilir IP adresi seçtiyseniz alt ağın adres alanı içinde el ile atamanız gerekir. Statik ve dinamik adresler, bunları değiştirebilir veya ağ arabirimi silinene kadar değiştirmeyin. Ağ arabirimi oluşturulduktan sonra atama yöntemi değiştirebilirsiniz. Azure DHCP sunucusu, ağ arabirimi sanal makinenin işletim sisteminde bu adresi atar.|
-    |Ağ güvenlik grubu|Hayır| Ayarlanmış olarak bırakın **hiçbiri**, var olan seçin [ağ güvenlik grubu](security-overview.md), veya [bir ağ güvenlik grubu oluşturun](tutorial-filter-network-traffic.md). Ağ güvenlik grupları ağ trafiği bir ağ arabirimi filtrelemek için etkinleştirin. Sıfır veya bir ağ güvenlik grubu için bir ağ arabirimi uygulayabilirsiniz. Sıfır veya bir ağ güvenlik grubu, ağ arabiriminin atandığı alt ağa da uygulanabilir. Bir ağ arabirimi ve ağ arabirimi atandığı alt ağ için ağ güvenlik grubu uygulandığında, bazen beklenmeyen sonuçlar oluşur. Ağ arabirimleri ve alt ağları ile uygulanan ağ güvenlik grupları gidermek için bkz: [ağ güvenlik grupları sorun giderme](virtual-network-nsg-troubleshoot-portal.md#nsg).|
+    |Ağ güvenlik grubu|Hayır| Ayarlanmış olarak bırakın **hiçbiri**, var olan seçin [ağ güvenlik grubu](security-overview.md), veya [bir ağ güvenlik grubu oluşturun](tutorial-filter-network-traffic.md). Ağ güvenlik grupları ağ trafiği bir ağ arabirimi filtrelemek için etkinleştirin. Sıfır veya bir ağ güvenlik grubu için bir ağ arabirimi uygulayabilirsiniz. Sıfır veya bir ağ güvenlik grubu, ağ arabiriminin atandığı alt ağa da uygulanabilir. Bir ağ arabirimi ve ağ arabirimi atandığı alt ağ için ağ güvenlik grubu uygulandığında, bazen beklenmeyen sonuçlar oluşur. Ağ arabirimleri ve alt ağları ile uygulanan ağ güvenlik grupları gidermek için bkz: [ağ güvenlik grupları sorun giderme](diagnose-network-traffic-filter-problem.md).|
     |Abonelik|Evet|Azure birini [abonelikleri](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription). Bir ağ arabirimi ve kendisine bağlanan sanal ağ ekleme sanal makine aynı abonelikte olması gerekir.|
     |Özel IP adresi (IPv6)|Hayır| Bu onay kutusunu seçerseniz, bir IPv6 adresi bir ağ arabirimine atanmış IPv4 adresi ek olarak ağ arabiriminin atanır. Bkz: [IPv6](#IPv6) hakkında önemli bilgiler için kullanım IPv6 ağ arabirimi ile bu makalenin. Bir IPv6 adresi için bir atama yöntemi seçemezsiniz. Bir IPv6 adresi atamak seçerseniz, dinamik yöntemiyle atanır.
     |IPv6 adı (yalnızca zaman görünür **özel IP adresi (IPv6)** onay kutusu işaretli) |Evet, varsa **özel IP adresi (IPv6)** onay kutusu işaretli.| Bu ad, bir ikincil ağ arabirimi IP yapılandırmasına atanır. IP yapılandırmaları hakkında daha fazla bilgi için bkz: [görünüm ağ arabirimi ayarları](#view-network-interface-settings).|

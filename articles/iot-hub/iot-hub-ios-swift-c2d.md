@@ -1,30 +1,25 @@
 ---
 title: Azure IOT hub'ı (iOS) sahip bulut-cihaz iletilerini | Microsoft Docs
 description: İOS için Azure IOT SDK'ları kullanılarak Azure IOT hub'dan bir aygıta bulut-cihaz iletilerini göndermek nasıl.
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 23dbd1f359f947b8e87ab4115887120dfd55907a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634290"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IOT hub'ı (iOS) sahip bulut-cihaz iletilerini gönder
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
-Azure IOT Hub, milyonlarca cihaza arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen hizmet etkinleştirin ve bir çözüm arka ucu ' dir. [Gönder telemetri bir CİHAZDAN bir IOT hub'ına] makale nasıl IOT hub oluşturma, bir cihaz kimliği, sağlama ve cihaz-bulut iletileri gönderen bir sanal cihaz uygulamasının kodu gösterir.
+Azure IOT Hub, milyonlarca cihaza arasında güvenilir ve güvenli çift yönlü iletişimler sağlayan tam olarak yönetilen hizmet etkinleştirin ve bir çözüm arka ucu ' dir. [Telemetri bir CİHAZDAN bir IOT hub'ına Gönder] makale nasıl IOT hub oluşturma, bir cihaz kimliği, sağlama ve cihaz-bulut iletileri gönderen bir sanal cihaz uygulamasının kodu gösterir.
 
 Bu makale size nasıl gösterir için:
 
@@ -36,11 +31,11 @@ Bulut cihaz iletileri hakkında daha fazla bilgi bulabilirsiniz [IOT Hub Gelişt
 
 Bu makalenin sonunda iOS projeleri iki Swift çalıştırın:
 
-* **Örnek aygıt**, oluşturulan aynı uygulama [Gönder telemetri bir CİHAZDAN bir IOT hub'ına], IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
+* **Örnek aygıt**, oluşturulan aynı uygulama [Telemetri bir CİHAZDAN bir IOT hub'ına Gönder], IOT hub'ınıza bağlanır ve bulut-cihaz iletilerini alır.
 * **Örnek hizmet**, IOT hub'ı aracılığıyla sanal cihaz uygulamasının bir bulut cihaz ileti gönderir ve teslimat alındısı alır.
 
 > [!NOTE]
-> IOT Hub SDK desteği birçok cihaz platformları ve Azure IOT cihaz SDK'ları aracılığıyla dilleri (C, Java ve Javascript dahil) sahiptir. Bu öğreticinin kod ve genellikle Azure IOT Hub Cihazınızı bağlamak hakkında adım adım yönergeler için bkz: [Azure IOT Geliştirme Merkezi].
+> IOT Hub SDK desteği birçok cihaz platformları ve Azure IOT cihaz SDK'ları aracılığıyla dilleri (C, Java ve Javascript dahil) sahiptir. Bu öğreticinin kod ve genellikle Azure IOT Hub Cihazınızı bağlamak hakkında adım adım yönergeler için bkz: [Azure IoT Geliştirici Merkezi].
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -54,7 +49,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 ## <a name="simulate-an-iot-device"></a>IOT cihaz benzetimi
 Bu bölümde IOT hub'ından bulut cihaz iletileri almak için hızlı bir uygulama çalıştıran bir iOS cihazının benzetimini. 
 
-Bu makalede, oluşturduğunuz örnek örnek cihazdır [Gönder telemetri bir CİHAZDAN bir IOT hub'ına]. Çalıştıran zaten varsa, bu bölümü atlayabilirsiniz.
+Bu makalede, oluşturduğunuz örnek örnek cihazdır [Telemetri bir CİHAZDAN bir IOT hub'ına Gönder]. Çalıştıran zaten varsa, bu bölümü atlayabilirsiniz.
 
 ### <a name="install-cocoapods"></a>CocoaPods yükleme
 
@@ -176,11 +171,11 @@ IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz: [IOT 
 [img-message-recieved]: media/iot-hub-python-python-c2d/message-recieved.png
 
 <!-- Links -->
-[Gönder telemetri bir CİHAZDAN bir IOT hub'ına]: quickstart-send-telemetry-ios.md
+[Telemetri bir CİHAZDAN bir IOT hub'ına Gönder]: quickstart-send-telemetry-ios.md
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IOT Hub Geliştirici Kılavuzu]: iot-hub-devguide.md
-[Azure IOT Geliştirme Merkezi]: http://www.azure.com/develop/iot
+[Azure IoT Geliştirici Merkezi]: http://www.azure.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx

@@ -4,7 +4,7 @@ description: Docker ve Azure sanal makine uzantıları ve docker ana Klasik dağ
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
 ms.assetid: 19cf64e8-f92c-43ad-a120-8976cd9102ac
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-ms.openlocfilehash: 674bc870bbbf4e076fbd1d88fcc3bf299eccde84
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 76497f58678e5ecfbab7d263b3adb4c475763cd8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653595"
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-portal"></a>Azure portalıyla Docker VM uzantısı kullanma
 > [!IMPORTANT] 
@@ -29,7 +30,7 @@ ms.lasthandoff: 05/10/2018
 [Docker](https://www.docker.com/) kullanır en popüler sanallaştırma yaklaşımlardan biri [Linux kapsayıcıları](http://en.wikipedia.org/wiki/LXC) verileri yalıtarak ve bilgi işlem paylaşılan kaynakları üzerinde bir yolu olarak sanal makineleri yerine. Tarafından yönetilen Docker VM uzantısı kullanabilirsiniz [Azure Linux Aracısı] kapsayıcıları uygulamalarınızın Azure ile ilgili herhangi bir sayıda barındıran bir Docker VM oluşturmak için.
 
 > [!NOTE]
-> Bu konuda, Azure portalından Docker VM oluşturmayı açıklar. Komut satırında bir Docker VM oluşturma hakkında bilgi için bkz: [Docker VM uzantısı Azure komut satırı arabirimi (Azure CLI) gelen kullanmayı]. Kapsayıcıları ve bunların avantajları üst düzey bir tartışma için bkz [Docker yüksek düzey Beyaz Tahta](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
+> Bu konuda, Azure portalından Docker VM oluşturmayı açıklar. Komut satırında bir Docker VM oluşturma hakkında bilgi için bkz: [Docker VM uzantısı gelen Azure komut satırı arabirimi (Azure CLI) kullanma]. Kapsayıcıları ve bunların avantajları üst düzey bir tartışma için bkz [Docker yüksek düzey Beyaz Tahta](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
 > 
 > 
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 05/10/2018
 ## <a name="create-docker-certificates"></a>Docker sertifikaları oluşturma
 VM oluşturulduktan sonra Docker'ın istemci bilgisayarınızda yüklü olduğundan emin olun. (Ayrıntılar için bkz [Docker yükleme yönergeleri](https://docs.docker.com/installation/#installation).)
 
-Docker iletişim göre için sertifika ve anahtar dosyaları oluşturma [çalıştıran Docker https ile] ve bunların içine yerleştirin **`~/.docker`** istemci bilgisayarınızda dizin.
+Docker iletişim göre için sertifika ve anahtar dosyaları oluşturma [Https ile çalışan Docker] ve bunların içine yerleştirin **`~/.docker`** istemci bilgisayarınızda dizin.
 
 > [!NOTE]
 > Docker VM uzantısı'nda portal şu anda base64 ile kodlanmış kimlik bilgileri gerektirir.
@@ -130,7 +131,7 @@ Yukarıdaki adımları tamamladıktan sonra artık uzaktan diğer istemcilerinde
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Sonraki adımlar
-Gitmek hazırsınız [Docker Kullanıcı Kılavuzu] ve Docker VM kullanın. Komut satırı arabirimi aracılığıyla Azure vm'lerinde oluşturma Docker konağına otomatikleştirmek istiyorsanız, bkz: [Docker VM uzantısı Azure komut satırı arabirimi (Azure CLI) gelen kullanmayı]
+Gitmek hazırsınız [Docker Kullanıcı Kılavuzu] ve Docker VM kullanın. Komut satırı arabirimi aracılığıyla Azure vm'lerinde oluşturma Docker konağına otomatikleştirmek istiyorsanız, bkz: [Docker VM uzantısı gelen Azure komut satırı arabirimi (Azure CLI) kullanma]
 
 <!--Anchors-->
 [Create a new VM from the Image Gallery]:#createvm
@@ -153,9 +154,9 @@ Gitmek hazırsınız [Docker Kullanıcı Kılavuzu] ve Docker VM kullanın. Komu
 
 
 <!--Link references-->
-[Docker VM uzantısı Azure komut satırı arabirimi (Azure CLI) gelen kullanmayı]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
+[Docker VM uzantısı gelen Azure komut satırı arabirimi (Azure CLI) kullanma]:http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-xplat-cli/
 [Azure Linux Aracısı]:../../extensions/agent-linux.md
 [Link 3 to another azure.microsoft.com documentation topic]:../storage-whatis-account.md
 
-[çalıştıran Docker https ile]:http://docs.docker.com/articles/https/
+[Https ile çalışan Docker]:http://docs.docker.com/articles/https/
 [Docker Kullanıcı Kılavuzu]:https://docs.docker.com/userguide/
