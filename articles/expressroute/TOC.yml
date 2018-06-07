@@ -1,5 +1,5 @@
 - name: ExpressRoute Belgeleri
-  href: index.md
+  href: index.yml
 - name: Genel Bakış
   items:
     - name: ExpressRoute nedir?

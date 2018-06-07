@@ -81,6 +81,8 @@
               href: n-series-driver-setup.md
         - name: Yüksek performanslı işlem
           href: sizes-hpc.md
+        - name: Önceki nesiller
+          href: sizes-previous-gen.md
         - name: Azure işlem birimleri (ACU)
           href: acu.md
         - name: Kıyaslama puanları
@@ -190,7 +192,12 @@
         - name: Bir VM’yi etiketleme
           href: tag.md
         - name: Bir VM üzerinde betikleri çalıştırma
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Özel Betik Uzantısı
+              href: ../extensions/custom-script-windows.md
+            - name: Çalıştır Komutu
+              href: run-command.md
         - name: Geçici sürücü harfini değiştirme
           href: change-drive-letter.md
         - name: Kullanılabilirlik kümesini değiştirme
@@ -329,41 +336,7 @@
         - name: DNS çözümleme
           href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM uzantılarını kullanma
-      items:
-        - name: VM uzantılarına genel bakış
-          href: extensions-features.md
-        - name: Özel Betik uzantısı
-          href: extensions-customscript.md
-        - name: OMS aracı uzantısı
-          href: extensions-oms.md
-        - name: PowerShell DSC uzantısı
-          href: extensions-dsc-overview.md
-          items:
-            - name: PowerShell DSC uzantısı Kimlik Bilgisi İşleme
-              href: extensions-dsc-credentials.md
-            - name: Şablonlar ile DSC ve VMSS
-              href: extensions-dsc-template.md
-        - name: Azure Günlük Toplayıcı uzantısı
-          href: log-collector-extension.md
-        - name: Azure tanılama uzantısı
-          href: extensions-diagnostics.md
-          items:
-            - name: Uzantı şeması
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md
-            - name: PowerShell’i kullanarak etkinleştirme
-              href: ps-extensions-diagnostics.md
-            - name: Şablonlar ile etkinleştirme
-              href: extensions-diagnostics-template.md
-            - name: Sorun giderme
-              href: ../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md
-        - name: VM uzantılarını dışarı aktarma
-          href: extensions-export-templates.md
-        - name: Uzantı sorunlarını giderme
-          href: extensions-troubleshoot.md
-        - name: Ağ İzleyicisi Aracısı
-          href: extensions-nwa.md
-        - name: Uzantı yüklemesini kısıtlama
-          href: ../extensions/extensions-rmpolicy-howto-ps.md
+      href: ../extensions/overview.md
     - name: VM’leri geçirme
       items:
         - name: AWS’Den ve şirket içi VM’lerden geçiş

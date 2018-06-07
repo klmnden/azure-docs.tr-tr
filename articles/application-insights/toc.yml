@@ -268,6 +268,8 @@
           href: app-insights-export-power-bi.md
     - name: Güvenlik
       items:
+        - name: Kişisel verileri işleme
+          href: app-insights-customer-data.md
         - name: 'Veri toplama, bekletme ve depolama'
           href: app-insights-data-retention-privacy.md
         - name: 'Kaynaklar, roller ve erişim denetimi'

@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
 ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "33894322"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure güvenlik ve uyumluluk şeması - HIPAA/HITRUST sistem durumu verileri ve AI
 
@@ -368,7 +369,7 @@ Veri depolama elde etmek için ortak bir API şema hızlı sağlık birlikte ça
 ### <a name="application-insights"></a>Application Insights
 - [Application Insights](/azure/application-insights/app-insights-overview) birden çok platformdaki web geliştiricileri için genişletilebilir bir uygulama performansı Yönetimi (APM) hizmetidir. Canlı web uygulamanızı izlemek için kullanabilirsiniz. Performans anormalliklerini algılar. Sorunları tanılamanıza ve kullanıcıların uygulamanızla aslında neler yaptığını anlamanıza yardımcı olan güçlü analiz araçları içerir. Performansı ve kullanılabilirliği sürekli geliştirmenize yardımcı olmak amacıyla tasarlanmıştır.
 
-### <a name="azure-alerts"></a>Azure uyarıları
+### <a name="azure-alerts"></a>Azure Uyarıları
 - [Uyarılar Azure hizmetlerini izleme, bir yöntem sunar ve verileri üzerinde koşullar yapılandırmanıza izin verir. Bir uyarı durumu izleme verilerini eşleştiğinde uyarı bildirimleri de sağlar.
 
 ### <a name="operations-management-suite-oms"></a>Operations Management Suite (OMS)

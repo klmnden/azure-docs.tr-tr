@@ -7,9 +7,9 @@
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
-    - name: Docker Swarm Linux
-      href: container-service-swarm-walkthrough.md
-    - name: DC/OS Linux
+    - name: Docker Swarm
+      href: container-service-swarm-mode-walkthrough.md
+    - name: DC/OS
       href: container-service-dcos-quickstart.md
 - name: Öğreticiler
   items:
@@ -27,10 +27,6 @@
       href: container-service-security.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Bir ACS kümesi oluşturma
-      href: container-service-create-acs-cluster-cli.md
-    - name: ACS kümesine bağlanma
-      href: container-service-connect.md
     - name: ACS kümesini ölçeklendirme
       href: container-service-scale.md
     - name: DC/OS

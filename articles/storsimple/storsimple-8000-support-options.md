@@ -15,10 +15,11 @@ ms.workload: TBD
 ms.date: 02/15/2018
 ms.author: alkohli
 ms.openlocfilehash: 5cb2d1cea80488970ef82071275b6c38e7f97cee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "32191555"
 ---
 # <a name="storsimple-solution-support"></a>StorSimple çözümü desteği
 
@@ -44,7 +45,7 @@ Microsoft, depolama müşteriler StorSimple kuruluş için esnek destek seçenek
 | Yardım Masası ilk yanıt süresi 7 x 24 destek bileti gönderme <br> İlk yanıt süresi önem derecesine göre <sup>2 | Önem derecesi A: 2 saat içinde <br> Önem derecesi B: 4 saat içinde <br> Önem derecesi C'yi 8 saat içinde | Önem derecesi A: 60 dakika içinde <br> Önem derecesi B: 2 saat içinde <br> Önem derecesi C'yi 4 saat içinde |
 | Telefon desteği (geri çağrısı)                                                                               | ✓                                                                               | ✓                                                                              |
 | Parça değişikliği (yalnızca StorSimple 8000 serisi) Gelişmiş <sup>3</sup>                                              | Sonraki iş günü <sup>4                                                              | 4 saat içinde                                                                 |
-| Yerinde alan Hizmetleri mühendisi (yalnızca StorSimple 8000 serisi) <sup>3</sup>                                         | Kullanılamıyor                                                                   | 4 saat içinde                                                                 |
+| Yerinde alan Hizmetleri mühendisi (yalnızca StorSimple 8000 serisi) <sup>3</sup>                                         | Kullanılamaz                                                                   | 4 saat içinde                                                                 |
 | StorSimple sanal dizinin <sup>5</sup>                                                                              | ✓                                                                               | ✓                                                                              |
 | StorSimple sanal dizinin örnekleri <sup>5</sup>                                                                 | Sınırsız                                                                        | Sınırsız                                                                       |
 

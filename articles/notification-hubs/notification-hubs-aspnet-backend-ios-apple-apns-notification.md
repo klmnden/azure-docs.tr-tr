@@ -1,6 +1,6 @@
 ---
 title: Azure bildirim hub'ları kullanarak belirli kullanıcılara anında iletme bildirimleri | Microsoft Docs
-description: Azure bildirim hub'ları kullanarak belirli kullanıcılara anında iletme bildirimleri göndermek öğrenin.
+description: Azure Notification Hubs kullanarak belirli kullanıcılara anında iletme bildirimleri göndermeyi öğrenin.
 documentationcenter: ios
 author: dimazaid
 manager: kpiteira
@@ -15,24 +15,25 @@ ms.topic: article
 ms.date: 04/13/2018
 ms.author: dimazaid
 ms.openlocfilehash: 36d70c40e3de7bd38cdfc566da37060cdcea9060
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "33777544"
 ---
 # <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Öğretici: Azure bildirim hub'ları kullanarak belirli kullanıcılara anında iletme bildirimleri
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Bu öğreticide, belirli bir cihazdaki belirli bir uygulama kullanıcısına anında iletme bildirimleri göndermek için Azure Bildirim Hub'larını nasıl kullanacağınız gösterilir. Bir ASP.NET Webapı arka istemcilerin kimliğini doğrulamak ve bildirimleri oluşturmak için Kılavuzu konusundaki gösterildiği gibi kullanılır [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Bu öğreticide, belirli bir cihazdaki belirli bir uygulama kullanıcısına anında iletme bildirimleri göndermek için Azure Notification Hubs’ı nasıl kullanacağınız gösterilmektedir. Bir ASP.NET Webapı arka istemcilerin kimliğini doğrulamak ve bildirimleri oluşturmak için Kılavuzu konusundaki gösterildiği gibi kullanılır [uygulama arka ucunuzdan kaydetme](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
-Bu öğreticide, aşağıdaki adımları uygulayın:
+Bu öğreticide, aşağıdaki adımları gerçekleştireceksiniz:
 
 > [!div class="checklist"]
-> * Webapı projesi oluşturma
-> * İstemciler için Webapı arka uç kimlik doğrulaması
-> * Webapı arka uç kullanarak bildirim kaydolun
-> * Webapı arka ucunuzdan bildirim gönderme
-> * Yeni Webapı arka uç yayımlama
+> * WebAPI projesi oluşturma
+> * WebAPI arka ucunda istemcilerin kimliğini doğrulama
+> * WebAPI arka ucunu kullanarak bildirimlere kaydolma
+> * WebAPI arka ucundan bildirim gönderme
+> * Yeni WebAPI arka ucunu yayımlama
 > * İOS uygulamanızı değiştirme
 > * Uygulamayı test etme
 
@@ -478,10 +479,10 @@ Mobile Apps arka uç hizmetinizin kullanmak istiyorsanız, bkz: [Mobile Apps ile
     ![][4]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, etiketleri kayıtlarını ile ilişkili olan belirli kullanıcılara anında iletme bildirimleri öğrendiniz. Anında iletme bildirimleri konum temelli öğrenmek için aşağıdaki öğreticide ilerlemek: 
+Bu öğreticide, kayıtlarıyla ilişkili etiketleri olan belirli kullanıcılara anında iletme bildirimleri göndermeyi öğrendiniz. Konum tabanlı anında iletme bildirimleri göndermeyi öğrenmek için aşağıdaki öğreticiye ilerleyin: 
 
 > [!div class="nextstepaction"]
->[Anında iletme bildirimleri konum temelli](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
+>[Konum temelli anında iletme bildirimleri gönderme](notification-hubs-push-bing-spartial-data-geofencing-notification.md)
 
 
 [1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users-interface.png

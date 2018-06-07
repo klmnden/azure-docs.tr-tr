@@ -125,7 +125,7 @@
   items:
     - name: Çözümler
       items:
-        - name: IoT Paketi Önceden Yapılandırılmış Çözümler
+        - name: IoT çözüm hızlandırıcıları
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

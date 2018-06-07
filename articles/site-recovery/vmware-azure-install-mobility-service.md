@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
 ms.openlocfilehash: 3279dbc2eeecd3a3f0f36a47d8dd51ef4f3f503f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
 ms.locfileid: "33942144"
 ---
 # <a name="install-the-mobility-service"></a>Mobility hizmetini yükleme 
@@ -47,7 +47,7 @@ Sunucunuzda el ile Mobility hizmetini yüklemeden önce önkoşul adımları tam
 | Yükleyici dosyası şablonu adı| İşletim sistemi |
 |---|--|
 |Microsoft ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64 bit) </br> Windows Server 2012 (64 bit) </br> Windows Server 2012 R2 (64 bit) </br> Windows Server 2016 (64 bit) |
-|Microsoft ASR\_UA\*RHEL6 64\*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) </br> CentOS 6.4 6.5, 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) |
+|Microsoft ASR\_UA\*RHEL6 64*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) </br> CentOS 6.4 6.5, 6.6, 6.7, 6,8, 6.9 (yalnızca 64 bit) |
 |Microsoft ASR\_UA\*RHEL7 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (yalnızca 64 bit) </br> CentOS 7.0, 7.1, 7.2, 7.3 (yalnızca 64 bit) |
 |Microsoft ASR\_UA\*SLES11 SP3 64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (yalnızca 64 bit)|
 |Microsoft ASR\_UA\*SLES11 SP4 64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (yalnızca 64 bit)|
