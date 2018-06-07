@@ -12,10 +12,10 @@ ms.date: 04/10/2018
 ms.author: bonova
 manager: craigg
 ms.openlocfilehash: ff605b7512a27f81b111560f5d151010dbb62273
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/07/2018
 ms.locfileid: "31426277"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Veritabanı yedeklemesini Azure SQL Veritabanı Yönetilen Örneğine geri yükleme
