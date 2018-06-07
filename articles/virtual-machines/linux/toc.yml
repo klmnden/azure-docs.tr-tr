@@ -89,6 +89,8 @@
               href: n-series-driver-setup.md
         - name: Yüksek performanslı işlem
           href: sizes-hpc.md
+        - name: Önceki nesiller
+          href: sizes-previous-gen.md
         - name: Azure işlem birimleri (ACU)
           href: acu.md
         - name: Kıyaslama puanları
@@ -140,6 +142,8 @@
           href: create-cli-complete.md
         - name: Şablon kullanma
           href: create-ssh-secured-vm-from-template.md
+        - name: REST API’yi kullanma
+          href: create-vm-rest-api.md
         - name: Bir VM’yi kopyalama
           href: copy-vm.md
     - name: VM’leri koruma
@@ -188,7 +192,12 @@
         - name: Bir VM’yi etiketleme
           href: tag.md
         - name: Bir VM üzerinde betikleri çalıştırma
-          href: extensions-customscript.md
+          href: run-scripts-in-vm.md
+          items:
+            - name: Özel Betik Uzantısı
+              href: ../extensions/custom-script-linux.md
+            - name: Çalıştır Komutu
+              href: run-command.md
         - name: Uzak Masaüstü kullanma
           href: use-remote-desktop.md
         - name: VM’yi Azure Active Directory’e ekleme
@@ -416,21 +425,7 @@
             - name: Dahili DNS kullanma
               href: static-dns-name-resolution-for-linux-on-azure.md
     - name: VM uzantılarını kullanma
-      items:
-        - name: VM Uzantısına genel bakış
-          href: extensions-features.md
-        - name: Özel Betik Uzantısı
-          href: extensions-customscript.md
-        - name: OMS Aracı Uzantısı
-          href: extensions-oms.md
-        - name: Linux Tanılama Uzantısı
-          href: diagnostic-extension.md
-        - name: Ağ İzleyicisi Aracısı
-          href: extensions-nwa.md
-        - name: VMAccess Uzantısı
-          href: using-vmaccess-extension.md
-        - name: Uzantı yüklemesini kısıtlama
-          href: ../extensions/extensions-rmpolicy-howto-cli.md
+      href: ../extensions/overview.md
     - name: VM’leri geçirme
       items:
         - name: AWS’Den ve şirket içi VM’lerden geçiş

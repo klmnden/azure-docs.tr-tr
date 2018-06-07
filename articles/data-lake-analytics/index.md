@@ -1,26 +1,24 @@
 ---
-title: "Azure Data Lake Analytics Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Data Lake Analytics ile büyük veri analizi yapmayı öğrenin. Öğreticilerde toplu, gerçek zamanlı ve etkileşimli analiz çalıştırma ve U-SQL sorguları yazma hakkında bilgi sağlanmıştır."
+title: Azure Data Lake Analytics Belgeleri - Öğreticiler, API Başvurusu
+description: Azure Data Lake Analytics ile büyük veri analizi yapmayı öğrenin. Öğreticilerde toplu, gerçek zamanlı ve etkileşimli analiz çalıştırma ve U-SQL sorguları yazma hakkında bilgi sağlanmıştır.
 services: data-lake-analytics
-author: czeumault
-manager: carolz
-layout: LandingPage
-ms.assetid: 
 ms.service: data-lake-analytics
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: 0cad8acb88494755522e0772c77afcc4793d8e74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6dc7b85e5a5f6173572e390c1073971d927aa7df
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624225"
 ---
-# <a name="data-lake-analytics-documentation"></a>Data Lake Analytics Belgeleri
+# <a name="azure-data-lake-analytics-documentation"></a>Azure Data Lake Analytics Belgeleri
 
-Data Lake Analytics’i kullanarak büyük hacimli veri kümeleri için ölçeklendirilen büyük veri analizi işlerini nasıl çalıştırabileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, toplu, gerçek zamanlı ve etkileşimli analiz işleri oluşturma ve yönetme işlemlerinin yanı sıra U-SQL sorguları yazma ile ilgili bilgiler sunulmuştur.
+Azure Data Lake Analytics’i kullanarak büyük hacimli veri kümeleri için ölçeklendirilen büyük veri analizi işlerini nasıl çalıştırabileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, toplu, gerçek zamanlı ve etkileşimli analiz işleri oluşturma ve yönetme işlemlerinin yanı sıra U-SQL sorguları yazma ile ilgili bilgiler sunulmuştur.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -98,7 +96,6 @@ Data Lake Analytics’i kullanarak büyük hacimli veri kümeleri için ölçekl
         <td><a href="data-lake-analytics-manage-use-cli.md">Azure CLI</a></td>
         <td><a href="data-lake-analytics-manage-use-dotnet-sdk.md">.NET SDK</a></td>
         <td><a href="data-lake-analytics-get-started-python.md">Python SDK'sı</a></td>
-        <td><a href="data-lake-analytics-get-started-java-sdk.md">Java SDK</a></td>
     </tr>
 </table>
 

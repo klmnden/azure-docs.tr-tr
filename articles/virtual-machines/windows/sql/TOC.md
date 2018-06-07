@@ -19,7 +19,8 @@
 #### [Azure Anahtar Kasası Tümleştirme Yapılandırması](virtual-machines-windows-ps-sql-keyvault.md)
 ## Yedekleme ve geri yükleme
 ### [Yedekleme ve geri yükleme](virtual-machines-windows-sql-backup-recovery.md)
-### [Otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2014 için otomatik yedekleme](virtual-machines-windows-sql-automated-backup.md)
+### [SQL Server 2016+ için otomatik yedekleme](virtual-machines-windows-sql-automated-backup-v2.md)
 ### [Yedekleme ve geri yükleme için Azure Depolama’yı Kullanma](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Nasıl yapılır kılavuzları

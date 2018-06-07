@@ -3,13 +3,13 @@
 
 # Genel Bakış
 ## [IoT mimarisi kavramları](iot-accelerators-what-is-azure-iot.md)
-## [Azure IoT seçeneklerini karşılaştırma](../iot-suite/iot-suite-options.md)
+## [Azure IoT seçeneklerini karşılaştırma](iot-accelerators-options.md)
 ## [Çözüm hızlandırıcılarına genel bakış](iot-accelerators-what-are-solution-accelerators.md)
 
 # başlarken
 ## Uzaktan İzleme
 ### [Çözüm hızlandırıcısını dağıtma](iot-accelerators-remote-monitoring-deploy.md)
-### [Çözüm hızlandırıcısını çalıştırma](../iot-suite/iot-suite-remote-monitoring-explore.md)
+### [Çözüm hızlandırıcısını çalıştırma](iot-accelerators-remote-monitoring-explore.md)
 
 ## Uzaktan İzleme (önceki sürüm)
 ### [Çözüm hızlandırıcısı nedir?](../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md)
@@ -35,16 +35,16 @@
 ##### [Windows üzerinde C](../iot-suite/iot-suite-v1-connecting-devices.md)
 ##### [Linux üzerinde C](../iot-suite/iot-suite-v1-connecting-devices-linux.md)
 ##### [Node.js](../iot-suite/iot-suite-v1-connecting-devices-node.md)
-#### [Mantıksal Uygulama’yı uzaktan izleme çözümüne bağlama](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
+#### [Mantıksal Uygulama’yı Uzaktan İzleme çözümüne bağlama](../iot-suite/iot-suite-v1-logic-apps-tutorial.md)
 #### [Çözüm hızlandırıcısını özelleştirme](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)
-#### [Uzaktan izleme çözümüyle dinamik telemetri kullanma](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
-#### [Uzaktan izleme çözümünde özel kural oluşturma](../iot-suite/iot-suite-v1-custom-rule.md)
-#### [Uzaktan izleme çözümündeki cihaz bilgileri](../iot-suite/iot-suite-v1-remote-monitoring-device-info.md)
+#### [Uzaktan İzleme çözümüyle dinamik telemetri kullanma](../iot-suite/iot-suite-v1-dynamic-telemetry.md)
+#### [Uzaktan İzleme çözümünde özel kural oluşturma](../iot-suite/iot-suite-v1-custom-rule.md)
+#### [Uzaktan İzleme çözümündeki cihaz bilgileri](../iot-suite/iot-suite-v1-remote-monitoring-device-info.md)
 
 
 ## Tahmine Dayalı Bakım
-### [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](../iot-suite/iot-suite-predictive-overview.md)
-### [Tahmine Dayalı Bakım çözüm hızlandırıcısı kılavuzu](../iot-suite/iot-suite-predictive-walkthrough.md)
+### [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](iot-accelerators-predictive-overview.md)
+### [Tahmine Dayalı Bakım çözüm hızlandırıcısı kılavuzu](iot-accelerators-predictive-walkthrough.md)
 
 ## Bağlı Fabrika
 ### [Bağlı Fabrika nedir?](iot-accelerators-connected-factory-features.md)
@@ -70,7 +70,7 @@
 ### [Bir mikro hizmeti özelleştirme ve yeniden dağıtma](iot-accelerators-microservices-example.md)
 ### [CLI kullanarak dağıtma](iot-accelerators-remote-monitoring-deploy-cli.md)
 ### [Yerel olarak dağıtma](iot-accelerators-remote-monitoring-deploy-local.md)
-### [Time Series Insights ile verileri görselleştirme](../iot-suite/iot-suite-time-series-insights.md)
+### [Time Series Insights ile verileri görselleştirme](iot-accelerators-time-series-insights.md)
 ### [Data Lake Store ile tümleştirme](iot-accelerators-integrate-data-lake.md)
 ### Fiziksel cihaza bağlanma
 #### [Windows üzerinde C](iot-accelerators-connecting-devices.md)
@@ -78,7 +78,7 @@
 #### [Node.js (genel)](iot-accelerators-connecting-devices-node.md)
 #### [Raspberry Pi üzerinde Node.js](iot-accelerators-connecting-pi-node.md)
 #### [Raspberry Pi üzerinde C](iot-accelerators-connecting-pi-c.md)
-#### [MX Chip AZ3166 DevKit](../iot-suite/iot-suite-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
+#### [MX Chip AZ3166 DevKit](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md)
 
 ### Kavramlar
 #### [Uzaktan İzleme uygulama ayrıntıları](iot-accelerators-remote-monitoring-sample-walkthrough.md)
@@ -89,19 +89,19 @@
 ### [Bağlı Fabrikayı özelleştirme](iot-accelerators-connected-factory-customize.md)
 ### [Bağlı Fabrika için OPC yayımcısını kullanma](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)
 ### [Bağlı Fabrikayı yapılandırma](iot-accelerators-connected-factory-configure.md)
-## [azureiotsuite.com sitesindeki izinler](../iot-suite/iot-suite-permissions.md)
+## [azureiotsuite.com sitesindeki izinler](iot-accelerators-permissions.md)
 
 # Başvuru
 ## [Geliştirici Başvuru Kılavuzu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Geliştirici Sorun Giderme Kılavuzu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Güvenlik mimarisi](../iot-suite/iot-security-architecture.md)
-## [En iyi güvenlik uygulamaları](../iot-suite/iot-security-best-practices.md)
-## [IoT dağıtımınızın güvenliğini sağlama](../iot-suite/iot-suite-security-deployment.md)
-## [Baştan sona güvenlik](../iot-suite/securing-iot-ground-up.md)
+## [Güvenlik mimarisi](iot-security-architecture.md)
+## [En iyi güvenlik uygulamaları](iot-security-best-practices.md)
+## [IoT dağıtımınızın güvenliğini sağlama](iot-accelerators-security-deployment.md)
+## [Baştan sona güvenlik](securing-iot-ground-up.md)
 
 # İlgili
 ## Çözümler 
-### [IoT Paketi Önceden Yapılandırılmış Çözümler](/azure/iot-suite) 
+### [IoT çözüm hızlandırıcıları](/azure/iot-suite) 
 ### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## Platform Hizmetleri 
 ### [IoT Hub’ı](/azure/iot-hub) 

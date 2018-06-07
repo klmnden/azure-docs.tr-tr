@@ -15,6 +15,7 @@
 ### [Program aracılığıyla Azure Panoları oluşturma](azure-portal-dashboards-create-programmatically.md)
 ## Yönetme
 ### [Yüksek karşıtlığı açma veya tema değiştirme](azure-portal-change-theme-high-contrast.md)
+### [Kullanıcı ayarlarını dışarı aktarma veya silme](azure-portal-export-delete-settings.md)
 ### [Kaynakları yönetmek için portalı kullanma](../azure-resource-manager/resource-group-portal.md)
 ### [Rol Tabanlı Erişim Denetimi ile erişimi yönetme](../role-based-access-control/role-assignments-portal.md)
 ### [Rol Tabanlı Erişim Denetimi ile panoları paylaşma](azure-portal-dashboard-share-access.md)

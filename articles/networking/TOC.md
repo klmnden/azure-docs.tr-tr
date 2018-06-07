@@ -43,11 +43,9 @@
 ### [Adanmış özel bağlantı oluşturma (ExpressRoute)](../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Yönetim
+### [Ağ izlemeye genel bakış](network-monitoring-overview.md)
+### [Azure sınırlarına göre kaynak kullanımını denetleme](check-usage-against-limits.md)
 ### [Ağ topolojisini görüntüleme](../network-watcher/network-watcher-topology-powershell.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Paket yakalamayı yönetme](../network-watcher/network-watcher-packet-capture-manage-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Yönlendirmede sonraki atlamayı belirleme](../network-watcher/network-watcher-check-next-hop-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Bir VM için IP akışlarını doğrulama](../network-watcher/network-watcher-check-ip-flow-verify-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [Ağ İzlemeye Genel Bakış](network-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json)
 
 ## Örnek komut dosyaları
 ### [Azure CLI](cli-samples.md)

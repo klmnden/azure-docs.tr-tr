@@ -1,107 +1,119 @@
-- name: Azure Faturalama Belgeleri
+- name: Azure faturalama ve maliyet yönetimi belgeleri
   href: index.md
-- name: başlarken
+- name: Azure faturalamayı anlama
+  expanded: true
+  items:
+    - name: Faturanızı anlama
+      href: billing-understand-your-bill.md
+    - name: Fatura ve kullanım verilerini alma
+      href: billing-download-azure-invoice-daily-usage-date.md
+    - name: Üçüncü taraf hizmet değişiklikleri
+      href: billing-understand-your-azure-marketplace-charges.md
+    - name: Kullanım koşulları açıklandı
+      href: billing-understand-your-usage.md
+    - name: Fatura koşulları açıklandı
+      href: billing-understand-your-invoice.md
+- name: Maliyetleri yönetme
   items:
     - name: Beklenmeyen maliyetleri engelleme
       href: billing-getting-started.md
-    - name: Ücretsiz hesaba dahil hizmetler oluşturma
-      href: billing-create-free-services-included-free-account.md
-    - name: Ücretsiz hesap için ücret ödemekten kaçınma
-      href: billing-avoid-charges-free-account.md
+    - name: Fatura uyarılarını ayarlama
+      href: billing-set-up-alerts.md
+    - name: Fiyatlandırmayı hesaplama
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Kaynak etiketlerini kullanma
+      href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+    - name: Harcama limitini anlama
+      href: billing-spending-limit.md
+    - name: Ayrılmış VM Örnekleri ile tasarruf etme
+      items:
+        - name: Ayrılmış örnekler nelerdir?
+          href: billing-save-compute-costs-reservations.md
+        - name: Ayrılmış örnek satın alma
+          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: İndirim nasıl uygulanır?
+          href: billing-understand-vm-reservation-charges.md
+        - name: Yazılım maliyetleri dahil değil
+          href: billing-reserved-instance-windows-software-costs.md
+        - name: Kullandıkça Öde için kullanım
+          href: billing-understand-reserved-instance-usage.md
+        - name: Kurumsal için kullanım
+          href: billing-understand-reserved-instance-usage-ea.md
+        - name: Ayrılmış örnekleri yönetme
+          href: billing-manage-reserved-vm-instance.md
+- name: Hesabı yönetme
+  items:
+    - name: Ücretsiz hesap
+      items:
+        - name: Ücretsiz hizmetler oluşturma
+          href: billing-create-free-services-included-free-account.md
+        - name: Ücretlerden kaçınma
+          href: billing-avoid-charges-free-account.md
+        - name: Kullanımı denetleme
+          href: billing-check-free-service-usage.md
+        - name: Aboneliği yükseltme
+          href: billing-upgrade-azure-subscription.md
+        - name: Ölçüm eşleştirmeyi anlama
+          href: billing-understand-free-service-meter-mapping.md
+    - name: Profili düzenleme
+      href: billing-how-to-change-azure-account-profile.md
     - name: Faturalandırmaya erişim izni verme
       href: billing-manage-access.md
+    - name: İş ortağı kimliğini bağlama
+      href: billing-partner-admin-link-started.md
+    - name: Fatura hesaplarını görüntüleme
+      href: billing-view-all-accounts.md
+    - name: Vadesi geçmiş bakiye sorunlarını çözme
+      href: billing-azure-subscription-past-due-balance.md
     - name: Office 365 hesabıyla kaydolma
       href: billing-use-existing-office-365-account-azure-subscription.md
     - name: Azure hesabı ile Office 365 için kaydolma
       href: billing-use-existing-azure-account-for-office-365-subscription.md
-    - name: Yönetim gruplarıyla kaynakları düzenleme
-      href: billing-enterprise-mgmt-group-overview.md
-    - name: Azure Ayrılmış Örnekler ile kaydetme
-      href: billing-save-compute-costs-reservations.md
-      items:
-        - name: Ayrılmış Örnekler ile Sanal Makinelere ön ödeme yapma
-          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-        - name: Ayrılmış Örnekleri yönetme
-          href: billing-manage-reserved-vm-instance.md
-        - name: Ayrılmış Örneklerde uygulanan indirimi anlama
-          href: billing-understand-vm-reservation-charges.md
-        - name: Kullandıkça Öde seçeneği için Ayrılmış Örnek kullanımını anlama
-          href: billing-understand-reserved-instance-usage.md
-        - name: Kurumsal seçeneği için Ayrılmış Örnek kullanımını anlama
-          href: billing-understand-reserved-instance-usage-ea.md
-        - name: Örnekleri Ayırma Windows masrafları
-          href: billing-reserved-instance-windows-software-costs.md
+- name: Aboneliği yönetme
+  items:
+    - name: Aboneliği yeniden etkinleştirme
+      href: billing-subscription-become-disable.md
+    - name: Sahipliği devretme
+      href: billing-subscription-transfer.md
+    - name: Aboneliği iptal etme
+      href: billing-how-to-cancel-azure-subscription.md
+    - name: Kredi kartını değiştirme
+      href: billing-how-to-change-credit-card.md
+    - name: Yöneticiyi değiştirme
+      href: billing-add-change-azure-subscription-administrator.md
+    - name: Abonelik teklifi değiştirme
+      href: billing-how-to-switch-azure-offer.md
+    - name: Fatura ile ödeme
+      href: billing-how-to-pay-by-invoice.md
+    - name: Yönetim grupları oluşturma
+      href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
+    - name: Azure kaynaklarını taşıma
+      href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
+    - name: Kurumsal abonelikler oluşturma
+      href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
+    - name: Abonelik bilgilerini dışarı aktarma
+      href: billing-export-subscriptions.md
+    - name: Azure AD kiracısını bağlama
+      href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
     - name: Limitler ve kotalar
       href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
-- name: Nasıl yapılır
+- name: Sorun giderme
   items:
-    - name: Kullanımı ve maliyetleri izleme
-      items:
-        - name: Fatura ve kullanım bilgilerini alma
-          href: billing-download-azure-invoice-daily-usage-date.md
-        - name: Ücretsiz hizmetlerin kullanımını denetleme
-          href: billing-check-free-service-usage.md
-        - name: Faturanızı anlama
-          href: billing-understand-your-bill.md
-        - name: Faturanızla ilgili koşulları anlama
-          href: billing-understand-your-invoice.md
-        - name: Kullanımınızla ilgili koşulları anlama
-          href: billing-understand-your-usage.md
-        - name: Dış hizmet ücretlerini anlama
-          href: billing-understand-your-azure-marketplace-charges.md
-        - name: Ücretsiz hizmet ölçer eşlemesini anlama
-          href: billing-understand-free-service-meter-mapping.md
-        - name: Harcama limitini anlama
-          href: billing-spending-limit.md
-        - name: Fatura uyarılarını ayarlama
-          href: billing-set-up-alerts.md
-        - name: Vadesi geçmiş bakiye sorunlarını çözme
-          href: billing-azure-subscription-past-due-balance.md
-    - name: Abonelikleri yönetme
-      items:
-        - name: Abonelik veya yönetim grubu bulma
-          href: billing-enterprise-mgmt-grp-find.md
-        - name: Yönetici rollerini yönetme
-          href: billing-add-change-azure-subscription-administrator.md
-        - name: Aboneliğin sahipliğini devretme
-          href: billing-subscription-transfer.md
-        - name: Devre dışı bırakılmış aboneliği yeniden etkinleştirme
-          href: billing-subscription-become-disable.md
-        - name: Ücretsiz aboneliği yükseltme
-          href: billing-upgrade-azure-subscription.md
-        - name: Abonelik teklifi değiştirme
-          href: billing-how-to-switch-azure-offer.md
-        - name: Azure AD kiracısını bağlama
-          href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
-        - name: Aboneliği iptal etme
-          href: billing-how-to-cancel-azure-subscription.md
-    - name: Hesabı yönetme
-      items:
-        - name: Profili düzenleme
-          href: billing-how-to-change-azure-account-profile.md
-        - name: Ödeme bilgilerini güncelleştirme
-          href: billing-how-to-change-credit-card.md
-        - name: Abonelikler için fatura ile ödeme
-          href: billing-how-to-pay-by-invoice.md
-        - name: İş ortağı kimliğini bağlama
-          href: billing-partner-admin-link-started.md
-        - name: Fatura hesaplarını görüntüleme
-          href: billing-view-all-accounts.md
-    - name: Sorun giderme
-      items:
-        - name: Kaydolma sorunları
-          href: 'https://support.microsoft.com/en-us/help/4042959'
-        - name: Reddedilen kart
-          href: 'https://support.microsoft.com/en-us/help/4042960'
-        - name: Oturum açma sorunları
-          href: 'https://support.microsoft.com/en-us/help/4042961'
-        - name: Abonelik bulunamadı
-          href: billing-no-subscriptions-found.md
-        - name: Kurumsal maliyet görünümü devre dışı
-          href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Abonelik bulunamadı
+      href: billing-no-subscriptions-found.md
+    - name: Reddedilen kart
+      href: 'https://support.microsoft.com/en-us/help/4042960'
+    - name: Kaydolma sorunları
+      href: 'https://support.microsoft.com/en-us/help/4042959'
+    - name: Oturum açma sorunları
+      href: 'https://support.microsoft.com/en-us/help/4042961'
+    - name: Kurumsal maliyet görünümü devre dışı
+      href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+    - name: Desteğe başvurun
+      href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Başvuru
   items:
-    - name: Azure Faturalandırma API’sine Genel Bakış
+    - name: Azure Faturalandırma API’sine genel bakış
       href: billing-usage-rate-card-overview.md
       items:
         - name: Azure Faturalandırma REST API’si
@@ -116,10 +128,10 @@
           href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
         - name: Kullanım REST API’si
           href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
-    - name: Kurumsal Raporlamaya Genel Bakış
+    - name: Kurumsal raporlamaya genel bakış
       href: billing-enterprise-api.md
       items:
-        - name: Kurumsal Raporlama REST API’si
+        - name: Kurumsal raporlama REST API’si
           href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
     - name: Faturalandırma kodu örnekleri
       items:
@@ -129,11 +141,3 @@
           href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
         - name: RateCard API’si kod örneği
           href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
-- name: Kaynaklar
-  items:
-    - name: Azure Yol Haritası
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Desteğe başvurun
-      href: ../azure-supportability/how-to-create-azure-support-request.md
-    - name: Fiyatlandırma hesaplayıcı
-      href: 'https://azure.microsoft.com/pricing/calculator/'

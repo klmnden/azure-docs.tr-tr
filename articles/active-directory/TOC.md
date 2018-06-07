@@ -204,11 +204,17 @@
 ##### [Sessiz yükleme](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Özel giriş sayfası](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Satır içi bağlantıları çevirme](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
+##### [Joker karakterler](active-directory-application-proxy-wildcard.md)
+##### [Kişisel verileri kaldırma](manage-apps/application-proxy-remove-personal-data.md)
+
+
 #### Adım adım kılavuzlar yayımlama
 ##### [Uzak Masaüstü](manage-apps/application-proxy-integrate-with-remote-desktop-services.md)
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
+##### [Qlik](active-directory-application-proxy-qlik.md)
+
 
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
 
@@ -303,7 +309,7 @@
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
 ##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)
-##### [VPN bağlantısı ayarlama](active-directory-conditional-access-vpn-connectivity-windows10.md)
+##### [VPN bağlantısı ayarlama](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint ve Exchange Online ayarlama](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Düzeltme](active-directory-conditional-access-device-remediation.md)
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)

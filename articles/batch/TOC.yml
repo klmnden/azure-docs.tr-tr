@@ -73,6 +73,8 @@
           href: batch-custom-images.md
         - name: Sanal ağ içinde havuz oluşturma
           href: batch-virtual-network.md
+        - name: Azure dosya paylaşımını bağlama
+          href: pool-file-shares.md
         - name: Yoğun işlem gücü kullanımlı VM’ler kullanma
           href: batch-pool-compute-intensive-sizes.md
         - name: Linux işlem düğümleri kullanma
