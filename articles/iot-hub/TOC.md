@@ -151,11 +151,6 @@
 #### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
 ### [Kısıtlanmış cihazlar için geliştirme](iot-hub-devguide-develop-for-constrained-devices.md)
 ### [Mobil cihazlar için geliştirme](iot-hub-how-to-develop-for-mobile-devices.md)
-### Yönlendirme iletileri
-#### [.NET](iot-hub-csharp-csharp-process-d2c.md)
-#### [Java](iot-hub-java-java-process-d2c.md)
-#### [Node.js](iot-hub-node-node-process-d2c.md)
-#### [Python](iot-hub-python-python-process-d2c.md)
 ### [Hub yolundan Avro verilerini sorgulama](iot-hub-query-avro-data.md)
 ### Buluttan cihaza iletileri gönderme
 #### [.NET](iot-hub-csharp-csharp-c2d.md)
