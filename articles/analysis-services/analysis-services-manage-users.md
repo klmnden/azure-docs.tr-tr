@@ -3,16 +3,17 @@ title: Azure Analysis Services kimlik doğrulaması ve kullanıcı izinleri | Mi
 description: Azure Analysis Services kimlik doğrulama ve kullanıcı izinleri hakkında bilgi edinin.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ede05667d794267443babacaa8b016206d86ab2c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 47846af015bf02940da7a7b8a4154113aab57b08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597639"
 ---
 # <a name="authentication-and-user-permissions"></a>Kimlik doğrulaması ve kullanıcı izinleri
 Azure Analysis Services Kimlik Yönetimi ve kullanıcı kimlik doğrulaması için Azure Active Directory (Azure AD) kullanır. Herhangi bir kullanıcı oluşturma, yönetme veya bir Azure Analysis Services'a bağlanma sunucu geçerli kullanıcı kimlik olmalıdır bir [Azure AD kiracısı](../active-directory/active-directory-administer.md) aynı abonelik.

@@ -3,16 +3,17 @@ title: Power BI ile Azure Analysis Services'a bağlanmak | Microsoft Docs
 description: Power BI kullanarak bir Azure Analysis Services sunucusuna bağlanmak öğrenin.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 03e654b3d03564d11db9156e6fd5793bbd78c85d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2ab13c0d36102c5cd75a5b297f77b23cae40b530
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596687"
 ---
 # <a name="connect-with-power-bi"></a>Power BI ile bağlanma
 

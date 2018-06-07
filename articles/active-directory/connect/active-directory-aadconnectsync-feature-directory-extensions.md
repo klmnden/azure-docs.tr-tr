@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme: dizin uzantıları | Microsoft Docs"
-description: "Bu konuda Azure AD Connect dizin uzantıları özelliğinde açıklanmaktadır."
+title: 'Azure AD Connect eşitleme: dizin uzantıları | Microsoft Docs'
+description: Bu konuda Azure AD Connect dizin uzantıları özelliğinde açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4430f445a836f4baa90511c71bb734eda8674249
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593641"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect eşitleme: dizin uzantıları
 Şirket içi Active Directory'den kendi özniteliklerle Azure Active Directory'de (Azure AD) şemayı genişletmek için dizin uzantıları kullanabilirsiniz. Bu özellik, şirket içi yönetmeye devam öznitelikleri kullanma tarafından LOB uygulamaları oluşturmanızı sağlar. Bu öznitelikler aracılığıyla tüketilebilir [Azure AD Graph API dizin uzantıları](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) veya [Microsoft Graph](https://graph.microsoft.io/). Mevcut öznitelikleri kullanarak gördüğünüz [Azure AD Graph Explorer'a](https://graphexplorer.azurewebsites.net/) ve [Microsoft Graph Explorer'a](https://developer.microsoft.com/en-us/graph/graph-explorer)sırasıyla.
@@ -51,12 +53,12 @@ Azure AD Connect yüklemesi sırasında bir uygulama bu öznitelikler kullanıla
 
 Bu öznitelikler Azure AD Graph API aracılığıyla kullanıma sunulmuştur. Bunları kullanarak sorgulama [Azure AD Graph Explorer'a](https://graphexplorer.azurewebsites.net/).
 
-![Azure AD Graph Explorer](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
+![Azure AD Graph Explorer'a](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
 Ya da Microsoft Graph API'si aracılığıyla öznitelikleri kullanarak sorgulayabilirsiniz [Microsoft Graph Explorer'a](https://developer.microsoft.com/en-us/graph/graph-explorer#).
 
 >[!NOTE]
-> Döndürülecek özniteliklerini istemeniz gerekir. Açıkça böyle öznitelikleri seçin: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com? $select extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division =. 
+> Döndürülecek özniteliklerini istemeniz gerekir. Açıkça böyle öznitelikleri seçin: https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select extension_9d98ed114c4840d298fad781915f27e4_employeeID, extension_9d98ed114c4840d298fad781915f27e4_division =. 
 >
 > Daha fazla bilgi için bkz: [Microsoft Graph: sorgu parametrelerini kullanmak](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter).
 

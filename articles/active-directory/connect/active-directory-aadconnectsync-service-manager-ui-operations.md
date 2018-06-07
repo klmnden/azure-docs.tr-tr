@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect Eşitleme Hizmeti Yöneticisi'ni işlemleri | Microsoft Docs"
-description: "İçin Azure AD Connect Eşitleme Hizmeti Yöneticisi'nde işlemleri sekmesinde anlayın."
+title: Azure AD Connect Eşitleme Hizmeti Yöneticisi'ni işlemleri | Microsoft Docs
+description: İçin Azure AD Connect Eşitleme Hizmeti Yöneticisi'nde işlemleri sekmesinde anlayın.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 309a4ca2d5ef929bb50ed899f24709c062d7db29
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8d6a8e10c5b78317ffda0963a13907c4552892e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593478"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>Eşitleme Hizmeti Yöneticisi'ni işlemleri sekmesini kullanarak
 
@@ -32,7 +34,7 @@ ms.lasthandoff: 02/01/2018
 
 **Durum** sütunu en önemli bilgiler ve bir çalışma için en önemli bir sorun gösterir. En sık kullanılan durumlarını araştırmak için öncelik sırasına göre hızlı bir özeti aşağıda verilmiştir (burada * birkaç olası hata dizeleri gösterir).
 
-| Durum | Yorum |
+| Durum | Açıklama |
 | --- | --- |
 | durdurulmuş-\* |Çalıştır tamamlanamadı. Örneğin, uzak sistem kapalı ve bağlantı kurulamıyor. |
 | durduruldu-hata-sınırı |5. 000'den fazla hataları vardır. Çalıştır otomatik olarak çok sayıda hata nedeniyle durduruldu. |

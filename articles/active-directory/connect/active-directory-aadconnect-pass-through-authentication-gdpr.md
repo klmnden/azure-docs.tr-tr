@@ -12,14 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3343cebb85124f19fe773822e296312abad53d96
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591183"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Kullanıcı gizliliği ve Azure Active Directory doğrudan kimlik doğrulaması
 
@@ -28,13 +30,13 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="overview"></a>Genel Bakış
 
-Azure AD doğrudan kimlik doğrulama EUII içerebilir aşağıdaki günlük türlerini oluşturur:
+Azure AD doğrudan kimlik doğrulama kişisel verileri içerebilir aşağıdaki günlük türünü oluşturur:
 
 - Azure AD Connect izleme günlüğü dosyalarının.
 - Kimlik Doğrulama Aracısı izleme günlüğü dosyalarının.
 - Windows olay günlüğü dosyaları.
 
-Doğrudan kimlik doğrulama için kullanıcı gizliliğini iki yolla erişilebilir:
+Kullanıcı gizliliği için doğrudan kimlik doğrulaması iki şekilde geliştirme:
 
 1.  İstek, bir kişi için verileri ayıklamak ve yüklemeleri bu kişiden veri kaldırın.
 2.  Hiçbir veri 48 saat dışında tutulur emin olun.

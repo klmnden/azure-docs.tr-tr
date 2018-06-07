@@ -1,24 +1,19 @@
 ---
-title: "DPM kullanarak SQL Server iş yükleri için Azure yedeklemeyi | Microsoft Docs"
-description: "Azure Yedekleme hizmetini kullanarak SQL Server veritabanlarını yedekleme için bir giriş"
+title: DPM kullanan SQL Server iş yükleri için Azure Backup
+description: Azure Yedekleme hizmetini kullanarak SQL Server veritabanlarını yedekleme için bir giriş
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli
-editor: 
-ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
-ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: c9edc066ea2edc9cd4b8453047d5584a588174dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: cebbe532b5d1b13588604c61ac10bf3c56a85e07
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604973"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server'ı Azure'a DPM iş yükü yedekle
 Bu makalede Azure Yedekleme'yi kullanarak SQL Server veritabanlarının yedekleme için yapılandırma adımlarını size yol gösterir.
@@ -99,7 +94,7 @@ Başlamadan önce emin tüm [Önkoşullar](backup-azure-dpm-introduction.md#prer
 
 13. Bekletme İlkesi zamanlamayı seçin. Bekletme İlkesi nasıl çalıştığı hakkında bilgi sırasında sağlanan [bant altyapısı Makalenizi değiştirmek için Azure Yedekleme'yi](backup-azure-backup-cloud-as-tape.md).
 
-    ![Bekletme İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![Saklama İlkesi](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     Bu örnekte:
 

@@ -1,25 +1,20 @@
 ---
-title: Dosyaları ve klasörleri yedeklemek için kullanım Azure Yedekleme aracısı | Microsoft Docs
+title: Dosya ve klasörleri yedeklemek için Azure Backup aracısını kullanın
 description: Microsoft Azure Yedekleme aracısı Windows dosya ve klasörlerinizi Azure'a yedeklemek için kullanın. Bir kurtarma Hizmetleri kasası oluşturmanız, yedekleme aracısını yüklemek, yedekleme ilkesi tanımlama ve dosya ve klasörleri ilk yedeklemeyi çalıştırın.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: Yedekleme kasası; bir Windows server'ı Yedekle; Yedekleme pencereleri;
-ms.assetid: 7f5b1943-b3c1-4ddb-8fb7-3560533c68d5
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/5/2018
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 38f98a29edc2a0bfb0141a0a6fabad2727175f29
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606271"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager dağıtım modelini kullanarak Windows Server veya istemcisini Azure’a yedekleme
 Bu makalede, Windows Server (veya Windows istemcisi) yedekleme açıklanmaktadır dosya ve klasörleri Azure Resource Manager dağıtım modelini kullanarak yedekleme ile azure'a.

@@ -3,7 +3,7 @@ title: Azure Active Directory risk olaylarını | Microsoft Docs
 description: Bu artice risk olaylarını nelerdir ayrıntılı genel bakış sağlar.
 services: active-directory
 keywords: Azure active directory kimlik koruması, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi
-author: MarkusVi
+author: rolyon
 manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -11,14 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/14/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e883caa63bde26e13234dde949ce4517b328e3a5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2a616cf644ee4f71e1340993f01b37031d567a09
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588786"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory risk olayları
 
@@ -73,7 +75,7 @@ Bu riski olay türü burada konumları en az biri de kullanıcı için alışıl
 
 Algoritma "VPN'ler ve kuruluşunuzdaki diğer kullanıcılar tarafından düzenli olarak kullanılan konumlar gibi mümkün olmayan seyahat koşullar katkıda bulunan belirgin yalancı pozitifler" yoksayar. Sistem bir ilk öğrenme süre 14 gün boyunca yeni kullanıcının oturum açma davranışı öğrenir sahip. 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Tanınmayan konumlardan oturum aç
+### <a name="sign-in-from-unfamiliar-locations"></a>Alışılmadık konumlardan oturum açma işlemi
 
 Bu riski olay türü oturum açma konumları göz önünde bulundurur (IP, enlem / boylam ve ASN) yeni / tanınmayan konumlarını belirlemek için. Sistem, bir kullanıcı tarafından kullanılan önceki konumları hakkında bilgi depolar ve bu "bilinen" konumları göz önünde bulundurur. Tanıdık konumları listesinde olmayan bir konumdan oturum açma ortaya çıktığında risk olay tetiklenir. Sistem bir ilk öğrenme süre boyunca, tüm yeni konumlar tanınmayan konumları olarak işaretlemez 30 gün sahip. Sistem, ayrıca oturum açma işlemleri hakkında bilgi sahibi aygıtları ve coğrafi olarak yakın tanıdık bir konum olan konumları yoksayar. 
 
@@ -83,7 +85,7 @@ Kimlik koruması, temel kimlik doğrulaması için de tanınmayan konumlardan ge
 
 Bu riski olay türü etkin bir şekilde bir bot sunucusu ile iletişim kurmak için bilinen kötü amaçlı yazılım, virüs bulaşmış cihazlardan gerçekleştirilen oturum açma işlemleri tanımlar. Bu, kullanıcının aygıtına bir bot sunucusu ile iletişim kurmuş olan IP adresleri karşı IP adresleri ile ilişkilendirilmesi yoluyla belirlenir. 
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Şüpheli etkinliğin olduğu IP adreslerinden oturum açma işlemleri
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri
 Bu riski olay türü, IP adresleri, çok sayıda başarısız oturum açma denemeleri, birden çok kullanıcı hesapları arasında kısa bir süre boyunca karşılaşılan tanımlar. Bu trafik düzenlerini saldırganlar tarafından kullanılan IP adreslerinin eşleşir ve hesapları ya da zaten olan veya hakkında tehlikeye olan güçlü bir gösterge olur. Belirgin yoksayar makine öğrenme algoritmasını budur "*yanlış pozitifler*", IP adresleri gibi düzenli olarak kuruluştaki diğer kullanıcılar tarafından kullanılır.  Sistem, burada yeni bir kullanıcı ve yeni Kiracı oturum davranışını öğrenir bir ilk öğrenme süre 14 gün sahip.
 
 
@@ -143,7 +145,7 @@ Mümkün olmayan seyahat genellikle, bir bilgisayar korsanının başarıyla otu
 > [!TIP]
 > Yapılandırarak bu risk olay türü için bildirilen yanlış pozitif sonuç miktarını azaltabilirsiniz [konumları adlı](active-directory-named-locations.md). 
 
-### <a name="sign-in-from-unfamiliar-locations"></a>Tanınmayan konumlardan oturum aç
+### <a name="sign-in-from-unfamiliar-locations"></a>Alışılmadık konumlardan oturum açma işlemi
 
 Tanınmayan konumlardan saldırgan çalınan kimlik kullanabilmek için güçlü bir gösterge sağlar. Bir kullanıcı seyahat ederken, yeni bir cihaz çalışıyor ya da yeni bir VPN kullanarak yanlış pozitif sonuç ortaya çıkabilir. Bu hatalı pozitif sonuç sonucu olarak, bu olay türü için risk düzeyi olan **orta**.
 
@@ -156,7 +158,7 @@ Kullanıcıyla iletişime geçin ve kullanıcının tüm cihazlarına tarama ön
 Adres kötü amaçlı yazılımların yayılmasını kullanma hakkında daha fazla bilgi için bkz: [kötü amaçlı yazılımdan koruma Merkezi](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 
-### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Şüpheli etkinliğin olduğu IP adreslerinden oturum açma işlemleri
+### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Şüpheli etkinlik gösteren IP adreslerinden gerçekleştirilen oturum açma işlemleri
 
 Bunlar aslında şüpheli olarak işaretlendi bir IP adresinden oturum olmadığını doğrulamak için kullanıcı başvurmanızı öneririz. Bu olay türü için risk düzeyi "**orta**" birkaç cihaz aynı IP adresi olabilir çünkü bazı şüpheli etkinlik için sorumlu olabilir yalnızca while. 
 

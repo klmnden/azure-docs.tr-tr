@@ -1,23 +1,19 @@
 ---
-title: "Azure yedekleme sunucusu VMware sunucularıyla yedekleme | Microsoft Docs"
-description: "Azure veya disk için bir VMware vCenter/ESXi sunucularını yedekleme için Azure yedekleme sunucusu kullanın. Bu makalede adımı sağlar yedekleme (veya koruma) için adım adım yönerge = VMware iş yükleri."
+title: Azure yedekleme sunucusu ile VMware sunucularını yedekleme
+description: Azure veya disk için bir VMware vCenter/ESXi sunucularını yedekleme için Azure yedekleme sunucusu kullanın. Bu makalede adımı sağlar yedekleme (veya koruma) için adım adım yönerge = VMware iş yükleri.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605432"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Azure'da VMware sunucuyu yedekleme
 
@@ -139,7 +135,7 @@ Bir vCenter sunucusu rolü ve kendi ayrıcalıklarını bir yedekleme Yöneticis
 
 2. İçinde **Yönetim** seçin **rolleri**ve ardından **rolleri** panel Ekle rol simgesini tıklatın (+ simgesi).
 
-    ![Rol Ekle](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
+    ![Rol ekle](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
     **Rol Oluştur** iletişim kutusu görüntülenir.
 

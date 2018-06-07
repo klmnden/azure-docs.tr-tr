@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/29/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: b1ec7a9e74e9b460152c7d47c4b5b3b394a3367b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d97a5f8aff57f4bbfd7d5222a87d258fa5c92da8
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604395"
 ---
 # <a name="introduction-to-azure-stack-storage"></a>Azure yığın depolama giriş
 
@@ -31,13 +32,15 @@ Azure yığın depolama BLOB'lar, tablolar ve Azure Storage Hizmetleri ile tutar
 
 Azure yığın depolama aşağıdaki üç hizmetleri sağlar:
 
-* **Blob Depolama**
+- **Blob Depolama**
 
     BLOB storage yapılandırılmamış nesne verilerini depolar. Blob; bir belge, ortam dosyası veya uygulama yükleyici gibi herhangi bir türde metin veya ikili veri olabilir.
-* **Tablo depolama**
+
+- **Tablo depolama**
 
     Table storage yapılandırılmış veri kümelerini depolar. Table Storage, yüksek miktarda verinin hızla dağıtılmasını ve verilere hızla erişilebilmesini sağlayan NoSQL anahtar özniteliği veri deposudur.
-* **Kuyruk depolama**
+
+- **Kuyruk depolama**
 
     Kuyruk depolama, iş akışı işleme ve bulut Hizmetleri bileşenleri arasındaki iletişim için güvenilir Mesajlaşma sağlar.
 
@@ -47,36 +50,38 @@ Bir Azure yığın depolama Azure yığın depolama Hizmetleri'nde erişmenizi s
 
 ### <a name="blob-storage"></a>Blob depolama
 
-Bulutta depolamak kullanıcılar için büyük miktarda yapılandırılmamış nesne veri, Blob storage etkili ve ölçeklenebilir bir çözüm sunar. Blob Storage’ı kullanarak şu içerikleri depolayabilirsiniz:
+Bulutta depolamak kullanıcılar için büyük miktarda yapılandırılmamış nesne veri, blob storage etkili ve ölçeklenebilir bir çözüm sunar. İçeriği depolamak için blob depolama kullanabilirsiniz:
 
-* Belgeler
-* Fotoğraf, video, müzik ve blog gibi sosyal veriler
-* Dosyaların, bilgisayarların, veritabanlarının ve cihazların yedekleri
-* Web uygulamaları için görüntüler ve metinler
-* Bulut uygulamaları için yapılandırma verileri
-* Günlükler ve diğer büyük veri kümeleri gibi büyük veriler
+- Belgeler
+- Fotoğraf, video, müzik ve blog gibi sosyal veriler
+- Dosyaların, bilgisayarların, veritabanlarının ve cihazların yedekleri
+- Web uygulamaları için görüntüler ve metinler
+- Bulut uygulamaları için yapılandırma verileri
+- Günlükler ve diğer büyük veri kümeleri gibi büyük veriler
 
 Her blob bir kapsayıcı halinde düzenlenmiştir. Kapsayıcılar ayrıca nesne gruplarına güvenlik ilkeleri atamaya ilişkin kullanışlı bir yöntem sunar. Bir kapsayıcı herhangi bir sayıda depolama hesabının sınırını dolduracak kadar BLOB içerebilir ve bir depolama hesabı kapsayıcıların herhangi bir sayı içerebilir.
 
 BLOB storage üç tür BLOB sunar:
 
-* **Blok blobları**
+- **Blok blobları**
 
     Blok blobları, akış ve bulut nesnelerini depolamak için en iyi duruma getirilir ve belgeler, ortam dosyaları, yedeklemeler ve vb. depolamak için iyi bir seçimdir.
-* **Ekleme blobları**
+
+- **Ekleme blobları**
 
     Ekleme blobları blok bloblarına benzer ancak ekleme işlemleri için en iyi duruma getirilmiştir. Bir ekleme blobu yalnızca sonuna yeni bir blok eklenerek güncelleştirilebilir. Ekleme blobları, yeni verilerin yalnızca blobun sonuna yazılması gereken günlüğe kaydetme gibi senaryolar için iyi bir seçenektir.
-* **Sayfa BLOB'ları**
+
+- **Sayfa BLOB'ları**
 
     Sayfa blobları Iaas disklerini temsil etmek için en iyi duruma getirilir ve rastgele destekleme boyutu 1 TB'ye kadar olan yazar. Bir Azure yığın sanal makineye disk bir sayfa blob'u olarak kaydedilen bir vhd'dir Iaas eklendi.
 
 ### <a name="table-storage"></a>Table Storage
 
-Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Tablo depolama, Microsoft’un NoSQL anahtar/öznitelik deposudur ve geleneksel ilişkisel veritabanlarından farklı olarak şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir.
+Modern uygulamalar genellikle eski nesil yazılımların gerektirdiğinden daha fazla ölçeklenebilirlik ve esneklik özelliklerine sahip veri depoları gerektirir. Table Storage yüksek seviyede kullanılabilir ve ölçeklenebilir depolama sunar, böylece uygulamanız kullanıcı taleplerini karşılayacak şekilde otomatik olarak ölçeklendirilir. Table storage Microsoft'un NoSQL anahtar/öznitelik deposudur--geleneksel ilişkisel veritabanlarından farklı yapma şemasız bir tasarıma sahiptir. Şemasız veri deposu sayesinde, uygulamanızın ihtiyaçları geliştikçe verilerinizi uyarlamak da kolaylaşır. Table Storage’ın kullanımı son derece kolaydır, böylece geliştiriciler uygulamalarını hızla geliştirebilir.
 
-Table storage bir tablodaki her değer bir belirlenmiş bir özellik adıyla depolandığı anlamına gelir anahtar öznitelik deposudur. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Table Storage şemasız olduğu için aynı tablodaki iki varlık farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir.
+Table storage bir tablodaki her değer bir belirlenmiş bir özellik adıyla depolandığı anlamına gelir anahtar öznitelik deposudur. Özellik adı filtreleme ve seçim kriterlerinin belirlenmesi için kullanılabilir. Özellik ve değerlerinin toplamı bir varlığı oluşturur. Table storage şemasız olduğu iki varlık aynı tablodaki farklı özellik koleksiyonları içerebilir ve bu özellikler farklı türde olabilir.
 
-Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri ve hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini depolamak üzere Table Storage’ı kullanabilirsiniz. Bugünün İnternet tabanlı uygulamaları için Table Storage gibi NoSQL veri tabanları geleneksel veri tabanlarına göre popüler bir alternatif oluşturur.
+Tablo depolama web uygulamaları, adres defterleri, cihaz bilgilerini ve başka türde bir hizmetiniz için gerekli meta veriler için kullanıcı verileri gibi esnek veri kümelerini depolamak için kullanabilirsiniz. Bugünün Internet tabanlı uygulamaları için table storage gibi NoSQL veritabanları geleneksel ilişkisel veritabanları için popüler bir alternatif sunar.
 
 Herhangi bir sayıda varlıklar, depolama hesabının kapasite sınırına kadar tablo içerebilir ve bir depolama hesabı tabloları herhangi bir sayıda içerebilir.
 
@@ -88,6 +93,6 @@ Bir sıranın depolama hesabının kapasite sınırını kadar ileti herhangi bi
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure tutarlı Depolama: farklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
+- [Azure tutarlı Depolama: farklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
 
-* Azure Storage hakkında daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)
+- Azure Storage hakkında daha fazla bilgi için bkz: [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)

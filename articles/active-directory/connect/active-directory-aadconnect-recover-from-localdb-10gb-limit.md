@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: 10 GB sınırını sorunu LocalDB kurtarmak nasıl | Microsoft Docs"
-description: "Bu konu, Azure AD Connect eşitleme hizmeti LocalDB 10 GB karşılaştığında kurtarmak açıklar sınırlamak sorun."
+title: 'Azure AD Connect: 10 GB sınırını sorunu LocalDB kurtarmak nasıl | Microsoft Docs'
+description: Bu konu, Azure AD Connect eşitleme hizmeti LocalDB 10 GB karşılaştığında kurtarmak açıklar sınırlamak sorun.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 41d081af-ed89-4e17-be34-14f7e80ae358
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b72f6730d32a71146781420923226fc521b5982b
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3ba491902444c9c05f997f854353206d78f2957d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591281"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: LocalDB 10 GB sınırının kurtarmak nasıl
 Azure AD Connect’e kimlik verilerini depolamak için bir SQL Server veritabanı gerekiyor. Azure AD Connect ile yüklenen varsayılan SQL Server 2012 Express LocalDB’yi kullanabileceğiniz gibi, kendi tam SQL’nizi de kullanabilirsiniz. SQL Server Express 10 GB boyut sınırını uygular. LocalDB’yi kullanırken bu sınıra ulaşıldığında, Azure AD Connect Eşitleme Hizmeti artık düzgün başlatılamaz veya eşitleme yapamaz. Bu makalede kurtarma adımları sağlar.

@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 05/22/2018
 ms.author: anwestg
-ms.openlocfilehash: 5b4281de4a6c2efee8e96f98a3cd46fec191fe22
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604293"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>AD FS tarafından güvenliği bağlantısı kesilmiş bir Azure yığın ortam için bir uygulama hizmeti kaynak Sağlayıcısı Ekle
 
@@ -81,6 +82,12 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
     1. Tıklatın **Bağlan** düğmesine **Azure yığın abonelikleri** kutusu.
         - Yönetici hesabınız sağlar. Örneğin, cloudadmin@azurestack.local. Parolanızı girin ve tıklayın **oturum**.
     2. İçinde **Azure yığın abonelikleri** kutusunda **varsayılan sağlayıcı abonelik**.
+    
+    > [!NOTE]
+    > Uygulama hizmeti yalnızca dağıtılabilir içine **varsayılan sağlayıcı abonelik** şu anda.  Gelecek bir güncelleştirmede yeni ölçüm Azure yığın 1804 sunulan aboneliğe uygulama hizmeti dağıtacağınız ve tüm mevcut dağıtımları için yeni Bu abonelik ayrıca geçirilecektir.
+    >
+    >
+    
     3. İçinde **Azure yığın konumu** kutusunda, dağıtımına bölgeyi karşılık gelen konumu seçin. Örneğin, seçin **yerel** varsa Azure yığın Geliştirme Seti dağıtma.
     4. **İleri**’ye tıklayın.
 
@@ -96,12 +103,12 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
 
     ![Uygulama Hizmeti Yükleyici][5]
 
-9. Dosya Paylaşımı için bilgileri girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı veya dosya sunucunuzun IP adresini kullanması gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites.
+9. Dosya Paylaşımı için bilgileri girin ve ardından **sonraki**. Dosya Paylaşımı adresi, tam etki alanı adı veya dosya sunucunuzun IP adresini kullanması gerekir. Örneğin, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, veya \\\10.0.0.1\websites
 
-> [!NOTE]
-> Yükleyici paylaşımına devam etmeden önce bağlantısını test etme girişiminde bulunur.  Ancak, varolan bir sanal ağı dağıtmak seçerseniz, yükleyici için dosya paylaşımı bağlanabiliyor olmayabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntüler.  Dosya Paylaşımı bilgilerini doğrulayın ve doğru olup olmadıklarını devam edin.
->
->
+    > [!NOTE]
+    > Yükleyici paylaşımına devam etmeden önce bağlantısını test etme girişiminde bulunur.  Ancak, varolan bir sanal ağı dağıtmak seçerseniz, yükleyici için dosya paylaşımı bağlanabiliyor olmayabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntüler.  Dosya Paylaşımı bilgilerini doğrulayın ve doğru olup olmadıklarını devam edin.
+    >
+    >
 
    ![Uygulama Hizmeti Yükleyici][8]
 
@@ -128,10 +135,10 @@ Uygulama hizmeti bağlantısı kesilmiş bir ortamda dağıtmak için ilk Intern
 
 12. Uygulama hizmeti kaynak sağlayıcısı veritabanlarını barındırmak ve ardından için kullanılan sunucu örneği için SQL Server ayrıntılarını girin **sonraki**. Yükleyici SQL bağlantı özelliklerini doğrulama. **Gerekir** iç IP ya da SQL Server adı tam etki alanı adını girin.
 
-> [!NOTE]
-> Yükleyici devam etmeden önce SQl Server bağlantısını test etme girişiminde bulunur.  Ancak, varolan bir sanal ağı dağıtmak seçerseniz, yükleyici SQL Server'a bağlanmak kuramamış olabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntüler.  SQL Server bilgilerini doğrulayın ve doğru olup olmadıklarını devam edin.
->
->
+    > [!NOTE]
+    > Yükleyici devam etmeden önce SQl Server bağlantısını test etme girişiminde bulunur.  Ancak, varolan bir sanal ağı dağıtmak seçerseniz, yükleyici SQL Server'a bağlanmak kuramamış olabilir ve devam etmek isteyip istemediğinizi soran bir uyarı görüntüler.  SQL Server bilgilerini doğrulayın ve doğru olup olmadıklarını devam edin.
+    >
+    >
    
    ![Uygulama Hizmeti Yükleyici][12]
 

@@ -3,23 +3,24 @@ title: Azure Analysis Services bir Power BI Desktop dosyası alma | Microsoft Do
 description: Azure portalını kullanarak Power BI Desktop dosyasının (pbıx) nasıl içe aktarılacağını açıklar.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/22/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35bf2ba85017de43788f802b6244d61ed2bb62df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aea6f3efcf3740527c43b75a30caadf6b2a8b623
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601080"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop dosyasını içeri aktarma
 
-Power BI Desktop dosyası (pbıx) dosyasını içeri aktararak, yeni bir model Azure AS oluşturabilirsiniz. Model meta verileri, önbelleğe alınan veriler ve veri kaynağı bağlantıları alınır. Raporlar ve görselleştirmeleri içeri aktarılmadı.
+Power BI Desktop dosyası (pbıx) veri modelinde Azure Analysis Services aktarabilirsiniz. Model meta verileri, önbelleğe alınan veriler ve veri kaynağı bağlantıları alınır. Raporlar ve görselleştirmeleri içeri aktarılmadı. Power BI Desktop modellerinden 1400 uyumluluk düzeyindedir verileri içeri aktardı.
 
 **Kısıtlamaları**   
-- Pbıx modeli Azure SQL Database ve Azure SQL Data Warehouse veri kaynakları için yalnızca bağlanabilir. 
+- Pbıx modelin bağlanıp **Azure SQL veritabanı** ve **Azure SQL Data Warehouse** veri kaynakları yalnızca. 
 - Pbıx model Canlı sahip olamaz veya DirectQuery bağlantıları. 
 - Pbıx veri modelinizi Analysis Services içinde desteklenmeyen meta veri içeriyorsa alma işlemi başarısız.
 

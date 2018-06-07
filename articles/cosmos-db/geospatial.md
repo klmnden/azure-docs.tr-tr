@@ -2,23 +2,20 @@
 title: Azure Cosmos veritabanı Jeo-uzamsal verilerle çalışma | Microsoft Docs
 description: Oluşturma, dizin ve Azure Cosmos DB ve SQL API'yi uzamsal nesneleriyle sorgu anlayın.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 858d6c2154a74a6e5fe16c9392827cc8a6354f9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611376"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Jeo-uzamsal ve Azure Cosmos veritabanı GeoJSON konum verileri ile çalışma
 Bu makalede Jeo-uzamsal işlevine bir giriş olduğunu [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Bu okuduktan sonra aşağıdaki soruları yanıtlayın mümkün olacaktır:
@@ -98,7 +95,7 @@ Noktalarına ek olarak, GeoJSON MultiPoint ve çokgenler destekler. **MultiPoint
 GeoJSON Point, LineString ve Çokgen ek olarak, ayrıca isteğe bağlı özellikler coğrafi konum ilişkilendirmek nasıl yanı sıra birden çok Jeo-uzamsal konumları grubuna nasıl için gösterimi belirtir. bir **özelliği**. Bu nesneler geçerli JSON olduğundan, bunlar tüm depolanabilir ve Azure Cosmos DB'de işlenebilir. Ancak Azure Cosmos DB yalnızca noktalarının otomatik dizin oluşturma işlemi destekler.
 
 ### <a name="coordinate-reference-systems"></a>Koordinat başvuru sistemleri
-Dünya şeklini düzensiz olduğundan Jeo-uzamsal veri koordinatlarını sistemlerindeki birçok koordinat başvurusu (CR), her biri kendi çerçeveler başvuru ve ölçü temsil edilir. Örneğin, "ulusal kılavuz, Britanya" başvuru sistemi çok doğru ise İngiltere, ancak değil dışında. 
+Dünya şeklini düzensiz olduğundan Jeo-uzamsal veri koordinatlarını sistemlerindeki birçok koordinat başvurusu (CR), her biri kendi çerçeveler başvuru ve ölçü temsil edilir. Örneğin, "ulusal kılavuz, Britanya" başvuru sistemi doğru ise İngiltere, ancak değil dışında. 
 
 En popüler CRS kullanımda bugün dünya Geodetic sistemidir [WGS 84](http://earth-info.nga.mil/GandG/wgs84/). GPS aygıtları ve Google Haritalar ve Bing haritaları API'si dahil olmak üzere birçok eşleme Hizmetleri WGS 84 kullanın. Azure Cosmos DB dizin oluşturma ve Jeo-uzamsal verileri yalnızca WGS 84 CRS kullanarak sorgulama destekler. 
 
@@ -223,7 +220,7 @@ Yalnızca tek bir halka ST_WITHIN Çokgen değişkenlerinde içerebilir, diğer 
 > 
 > 
 
-Ters sorgular gerçekleştirme Azure Cosmos DB de destekler, diğer bir deyişle, çokgenler veya Azure Cosmos DB satırlarında dizin sonra için belirtilen bir nokta içeren alanlar sorgu. Bu deseni bir kamyonu girdiğinde veya belirlenen alan bırakır, örneğin, tanımlamak için Lojistik içinde yaygın olarak kullanılır. 
+Ters sorgular gerçekleştirme Azure Cosmos DB de destekler, diğer bir deyişle, çokgenler veya Azure Cosmos DB satırlarında dizin sonra için belirtilen bir nokta içeren alanlar sorgu. Bu desen sık Lojistik içinde bir kamyonu girdiğinde veya belirlenen alan bırakır, örneğin, tanımlamak için kullanılır. 
 
 **Sorgu**
 
@@ -272,7 +269,7 @@ Bu işlevler çokgenler doğrulamak için de kullanılabilir. Örneğin, burada 
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>.NET SDK'ın sorgulama LINQ
-SQL .NET SDK'yı da sağlayıcıları yöntemleri saplama `Distance()` ve `Within()` LINQ ifadeleri içinde kullanmak için. Bu yöntem çağrıları eşdeğer SQL yerleşik işlev çağrıları için SQL LINQ sağlayıcısı çevirir (st_dıstance ve ST_WITHIN sırasıyla). 
+SQL .NET SDK'yı da sağlayıcıları yöntemleri saplama `Distance()` ve `Within()` LINQ ifadeleri içinde kullanmak için. Bu yöntem SQL LINQ sağlayıcısı çevirir eşdeğer SQL yerleşik işlev çağrıları çağrı (st_dıstance ve ST_WITHIN sırasıyla). 
 
 "Konum" değeri 30 km belirtilen bir RADIUS içinde noktasındaki LINQ kullanarak Azure Cosmos DB koleksiyonunda tüm belgeleri bulur bir LINQ Sorgu bir örneği burada verilmiştir.
 
@@ -391,7 +388,7 @@ Burada da var olan bir koleksiyon içindeki belgelerde depolanır noktaları üz
 > 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Cosmos DB Jeo-uzamsal desteği ile çalışmaya nasıl başlayacağınız hakkında learnt Nolearned, şunları yapabilirsiniz:
+Sonraki Jeo-uzamsal desteği Azure Cosmos veritabanı ile çalışmaya başlamak öğrendiniz, şunları yapabilirsiniz:
 
 * İle kod yazmaya başlayın [Jeo-uzamsal .NET github'daki kod örnekleri](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)
 * Konumundaki Jeo-uzamsal sorgulama ile ele almak [Azure Cosmos DB Query Playground](http://www.documentdb.com/sql/demo#geospatial)

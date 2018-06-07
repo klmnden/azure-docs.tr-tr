@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: a7bdbee064e6acdd3d1ef95879b98daa43fdb230
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 9bfaf7f4fa4b7778650638b3b4670e29906838a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594790"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Öğretici: Azure depolama erişim tuşu erişmek için bir Windows VM yönetilen hizmet kimliği kullanın.
 
@@ -195,15 +196,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
+## <a name="next-steps"></a>Sonraki adımlar
 
-## <a name="related-content"></a>İlgili içerik
+Bu öğreticide, Azure depolama erişim tuşu kullanarak erişmek için bir yönetilen hizmet kimliği oluşturma öğrendiniz.  Bilgi edinmek için Azure depolama erişim tuşlarını hakkında daha fazla bakın:
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
-- Depolama SAS kimlik bilgilerini kullanarak bu öğreticiyi yapmak öğrenmek için bkz: [bir SAS kimlik bilgisi Azure depolama erişmek için bir Windows VM yönetilen hizmet kimliği kullanın](tutorial-windows-vm-access-storage-sas.md)
-- Azure depolama hesabı SAS özelliği hakkında daha fazla bilgi için bkz:
-  - [Paylaşılan erişim imzaları (SAS) kullanma](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Hizmet SAS oluşturma](/rest/api/storageservices/Constructing-a-Service-SAS.md)
-
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümünü kullanın
-
+> [!div class="nextstepaction"]
+>[Depolama erişim tuşlarınızı yönetme](/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys)
 

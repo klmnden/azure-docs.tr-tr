@@ -3,32 +3,29 @@ title: Azure Depolama Gezgini’nde Azure Cosmos DB’yi Yönetme
 description: Azure Depolama Gezgini’nde Azure Cosmos DB’yi yönetmeyi öğrenin.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang
 manager: omafnan
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 3b870ed638656ee3b1b0e46fe9bac44e4436f154
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612852"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Depolama Gezgini’nde Azure Cosmos DB’yi Yönetme
 
 Azure Depolama Gezgini’nde Azure Cosmos DB kullanılması, kullanıcıların Azure Cosmos DB varlıklarını yönetmesine, verileri düzenlemesine, saklı yordamların ve tetikleyicilerin yanı sıra Depolama blob’ları ve kuyrukları gibi diğer Azure varlıklarını güncelleştirmesine imkan tanır. Artık farklı Azure varlıklarını aynı aracı kullanarak tek bir yerde yönetebilirsiniz. Azure Depolama Gezgini şu anda SQL, MongoDB, Graf ve Tablo hesaplarını desteklemektedir.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 SQL API<!--or MongoDB API--> için bir Azure Cosmos DB hesabı. Hesabınız yoksa, [Azure Cosmos DB: .NET ve Azure portalı ile bir SQL API'si web uygulaması derleme](create-sql-api-dotnet.md) bölümünde açıklandığı gibi Azure portalından bir hesap oluşturabilirsiniz.
 
@@ -125,7 +122,7 @@ Gezgin bölmesindeki bir aboneliğe sağ tıklayarak birçok hızlı eylem göre
     ![Veritabanı silme2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Koleksiyon oluşturma
-1. Veritabanınıza sağ tıklayın, **Koleksiyon Oluştur**’a tıklayın ve aşağıdaki **Koleksiyon Kimliği**, **Depolama kapasitesi**, vb. bilgileri sağlayın. Ayarlamayı bitirmek için **Tamam**'a tıklayın. 
+1. Veritabanınıza sağ tıklayın, seçin **Koleksiyonu Oluştur**ve ardından aşağıdaki gibi bilgiler **koleksiyon kimliği**, **depolama kapasitesi**, vb. Ayarlamayı bitirmek için **Tamam**'a tıklayın. 
 
     ![Koleksiyon oluşturma1](./media/storage-explorer/create-collection.png)
 
@@ -222,7 +219,7 @@ Devam etmeden önce uygulamanızı yeniden başlatmayı deneyin ve sorunların d
 
 Bu hatayı görmenizin birkaç nedeni vardır. En yaygın iki neden şudur:
 
-+ Bir “saydam ara sunucunun” ardındasınızdır; başka bir deyişle birisi (örn. BT departmanınız) HTTPS trafiğini kesintiye uğratıyor, trafiğin şifresini çözüyor ve sonra otomatik olarak imzalanan bir sertifika kullanarak trafiği şifreliyordur.
++ Arkasında olduğunuz bir *saydam proxy*, birisi (örneğin, BT departmanınızın) başka bir deyişle, HTTPS trafiği kesintiye uğratan, şifre çözme ve kendinden imzalı bir sertifika kullanarak şifreleme.
 
 + Aldığınız HTTPS iletilerine otomatik olarak imzalanan SSL sertifikaları ekleyen antivirüs yazılımı gibi bir yazılım çalıştırıyorsunuzdur.
 

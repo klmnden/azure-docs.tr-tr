@@ -1,11 +1,11 @@
 ---
 title: Azure AD Connect ve Federasyon | Microsoft Docs
-description: "Bu sayfa, Azure AD Connect kullanan AD FS işlemleri ile ilgili tüm belgeleri için merkezi konumdur."
+description: Bu sayfa, Azure AD Connect kullanan AD FS işlemleri ile ilgili tüm belgeleri için merkezi konumdur.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: f9107cf5-0131-499a-9edf-616bf3afef4d
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
+ms.component: hybrid
 ms.author: anandy
-ms.openlocfilehash: 04516e38e72405ca797a0d748d9ed825ae452966
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6c14b673bd9664aad54ea8002175999470661e34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593862"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect ve federasyon
 Federasyon ile yapılandırmanıza azure Active Directory (Azure AD) Bağlan olanak şirket içi Active Directory Federasyon Hizmetleri (AD FS) ve Azure AD. Federasyon ile oturum açma, kullanıcıların parolalarını yeniden girmek zorunda kalmadan şirket ağ üzerindeyken, Azure AD tabanlı hizmetlere ile şirket içi parolalarını--ve oturum açmak etkinleştirebilirsiniz. AD FS ile Federasyon seçeneğini kullanarak, yeni bir AD FS yüklemesini dağıtabilir veya bir Windows Server 2012 R2 grubunda varolan bir yüklemesini belirtebilirsiniz.
@@ -33,7 +35,7 @@ Bu konu, Azure AD Connect Federasyon ile ilgili işlevler hakkında bilgi için 
 | **Azure AD Connect kullanarak AD FS yükleme** | |
 | [Önkoşullar](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Azure AD Connect yoluyla başarılı bir AD FS yükleme önkoşulları bakın. |
 | [Bir AD FS grubunu yapılandırma](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |Yeni bir AD FS grubunu, Azure AD Connect kullanarak yükleyin. |
-| [Alternatif oturum açma Kimliğini kullanarak Azure AD ile birleştirmek](active-directory-aadconnect-federation-management.md#alternateid) | Alternatif oturum açma Kimliğini kullanarak Federasyon yapılandırma  |
+| [Alternatif oturum açma Kimliğini kullanarak Azure AD ile birleştirmek ](active-directory-aadconnect-federation-management.md#alternateid) | Alternatif oturum açma Kimliğini kullanarak Federasyon yapılandırma  |
 | **AD FS yapılandırmasını Değiştir** | |
 | [Güven onarın](active-directory-aadconnect-federation-management.md#repairthetrust) |Onarım geçerli güven arasında AD FS ve Office 365/Azure şirket içi. |
 | [Yeni bir AD FS Sunucusu Ekle](active-directory-aadconnect-federation-management.md#addadfsserver) |İlk yüklemeden sonra ek bir AD FS sunucu içeren bir AD FS grubunu genişletin. |

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 05/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 2889e509d4ba0e055d86a67adaf4bd734f4f9e0c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4f5e0cf0b45e4972cc1c318861025ae4b926a966
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Öğretici: Azure Active Directory Tümleştirme Weekdone ile
 
@@ -44,7 +45,7 @@ Azure AD tümleştirme Weekdone ile yapılandırmak için aşağıdaki öğeleri
 Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 
 - Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
-- Bir Azure AD deneme ortam yoksa, burada bir aylık deneme elde edebilirsiniz: [deneme teklifi](https://azure.microsoft.com/pricing/free-trial/).
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
@@ -82,8 +83,6 @@ Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adl�
 
 Tekli çalışmaya oturum için Azure AD Weekdone karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Weekdone ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Weekdone içinde değerini atayın **kullanıcı adı** değeri olarak Azure AD'de **kullanıcıadı** bağlantı ilişkisi oluşturmak için.
-
 Yapılandırma ve Azure AD çoklu oturum açma Weekdone ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
 1. **[Azure AD çoklu oturum açma yapılandırma](#configuring-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
@@ -110,7 +109,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_url1.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://weekdone.com/a/<tenantname>`
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://weekdone.com/a/<tenant>/metadata`
+
+    > [!NOTE]
+    > Aynı URL'yi kullanarak ile weekdone meta veri dosyasından alınabilir.
 
     b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://weekdone.com/a/<tenantname>`
 
@@ -136,10 +138,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-weekdone-tutorial/tutorial_weekdone_configure.png) 
 
 8. Çoklu oturum açma yapılandırmak için **Weekdone** yan, indirilen göndermek için ihtiyacınız **meta veri XML'i, Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** için [Weekdone destek ekibi ](mailto:hello@weekdone.com).
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -235,4 +233,3 @@ Erişim paneli Weekdone parçasında tıklattığınızda, otomatik olarak Weekd
 [201]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_203.png
-

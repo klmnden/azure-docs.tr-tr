@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: maheshu
-ms.openlocfilehash: d968548f9ac369f02f10a10d8f1ecc99c48bca60
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 51d32a1009e5fe2625bda80e4ab5ee7f5bf2a38d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587666"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Ubuntu sanal makine Azure'da yönetilen bir etki alanına katılın.
 Bu makalede bir Ubuntu Linux sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
@@ -127,7 +129,7 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
    >
 
-2. Initialize Kerberos. SSH terminalinizde aşağıdaki komutu yazın: 
+2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın: 
 
     > [!TIP] 
     > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun. 

@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: c384046d280e03de5a808d245dd273fdf7b44549
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 172477af5d5ae19cd0362cb1de0a8c66332cb0bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587843"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD etki alanı Hizmetleri karar verme, kullanım durumu için doğru
 Azure AD etki alanı Hizmetleri ile iş yüklerinizi Azure altyapı Hizmetleri'nde, azure'da kimlik altyapısını sürdürme hakkında endişelenmeye gerek kalmadan dağıtabilirsiniz. Bu yönetilen hizmet dağıtmak ve yönetmek, kendi tipik bir Windows Server Active Directory Dağıtım farklıdır. Hizmetin dağıtılması kolaydır ve otomatik sistem durumu izleme ve düzeltme sunar. Biz ortak dağıtım senaryoları için destek eklenecek hizmetin sürekli olarak artmaktadır.
@@ -36,7 +38,7 @@ Aşağıdaki tabloda, Azure AD Etki Alanı Hizmetleri'ni kullanarak kendi Azure 
 | --- |:---:|:---:|
 | [**Yönetilen hizmet**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**Güvenli dağıtımlar**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |Yönetici, dağıtımınızın güvenliğini gerekiyor. |
-| [**DNS sunucusu**](active-directory-ds-comparison.md#dns-server) |**&#x2713;** (managed service) |**&#x2713;** |
+| [**DNS sunucusu**](active-directory-ds-comparison.md#dns-server) |**&#x2713;**(yönetilen hizmeti) |**&#x2713;** |
 | [**Etki alanı veya kuruluş yönetici ayrıcalıkları**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**Etki alanına katılma**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**NTLM ve Kerberos kullanarak etki alanı kimlik doğrulaması**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
@@ -45,7 +47,7 @@ Aşağıdaki tabloda, Azure AD Etki Alanı Hizmetleri'ni kullanarak kendi Azure 
 | [**Şema uzantıları**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**AD etki alanı/orman güvenleri**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
 | [**LDAP okuma**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
-| [**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**Güvenli LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
 | [**LDAP yazma**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
 | [**Grup İlkesi**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
 | [**Coğrafi olarak dağıtılan dağıtımları**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |

@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: c1dbcf83927da23ceab652f8bc4dbe8d6343c1a8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598411"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure uygulama hizmeti Linux SSS
 
@@ -47,8 +48,8 @@ Bu eylem, Docker yeniden başlatma ile aynıdır.
 
 Evet, bunu kaynak denetimi (SCM) yönetim sitesi üzerinden yapabilirsiniz.
 
-> [!NOTE] 
-> Doğrudan SSH, SFTP veya Visual Studio Code (dinamik hata ayıklama Node.js uygulamaları için) kullanarak, yerel geliştirme makinesinden uygulama kapsayıcısı da bağlanabilirsiniz. Daha fazla bilgi için bkz: [uzaktan hata ayıklama ve uygulama hizmetinde Linux üzerinde SSH](https://aka.ms/linux-debug).
+> [!NOTE]
+> SSH, SFTP veya Visual Studio Code (Node.js apps canlı hata ayıklaması için) kullanarak doğrudan yerel geliştirme makinenizden de uygulama kapsayıcısına bağlanabilirsiniz. Daha fazla bilgi için bkz. [Linux üzerinde App Service’te uzaktan hata ayıklama ve SSH](https://aka.ms/linux-debug).
 >
 
 **Bir Linux uygulama hizmeti planı bir SDK veya Azure Resource Manager şablonu aracılığıyla nasıl oluşturabilir miyim?**
@@ -113,7 +114,7 @@ Bunu ayarlayarak yapabilirsiniz `WEBSITES_ENABLE_APP_SERVICE_STORAGE` uygulama a
 
 **My özel kapsayıcı Başlat uzun süren ve başlatma tamamlanmadan önce platform kapsayıcıyı yeniden başlatır.**
 
-Platform, kapsayıcı yeniden başlatılmadan önce bekleyeceği süreyi yapılandırabilirsiniz. Bunu yapmak için ayarlanmış `WEBSITES_CONTAINER_START_TIME_LIMIT` uygulama ayarının bulmak istediğiniz değer. Varsayılan değer 230 saniyedir ve en büyük değer 600 saniyedir.
+Platform, kapsayıcı yeniden başlatılmadan önce bekleyeceği süreyi yapılandırabilirsiniz. Bunu yapmak için ayarlanmış `WEBSITES_CONTAINER_START_TIME_LIMIT` uygulama ayarının bulmak istediğiniz değer. Varsayılan değer 230 saniyedir ve en büyük değer 1800 saniyedir.
 
 **Özel kayıt defteri sunucu URL'SİNİN biçimi nedir?**
 

@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8af15e4751b696a6f30d3dc70556ab856020bedb
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f0739c821f1521eb761912e5092661c7b5c0fd78
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591264"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>Öğretici: Azure Active Directory Tümleştirme Sansan ile
 
@@ -110,7 +111,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_url.png)
 
-    a. İçinde **oturum açma URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın: 
+    İçinde **oturum açma URL'si** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın: 
     
     | Ortam | URL'si |
     |:--- |:--- |
@@ -118,16 +119,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | Yerel mobil uygulama |`https://internal.api.sansan.com/saml2/<company name>/acs` |
     | Mobil tarayıcı ayarları |`https://ap.sansan.com/s/saml2/<company name>/acs` |  
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, aşağıdaki desenleri kullanarak URL'sini yazın:
-    | Ortam             | URL'si |
-    | :-- | :-- |
-    | Koruyun web                  | `https://ap.sansan.com/v/saml2/<company name>`|
-    | Yerel mobil uygulama       | `https://internal.api.sansan.com/saml2/<company name>` |
-    | Mobil tarayıcı ayarları | `https://ap.sansan.com/s/saml2/<company name>` |
-
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Sansan istemci destek ekibi](https://www.sansan.com/form/contact) bu değerleri almak için. 
-
+    > Bu değerler gerçek değildir. Bu değerleri gerçek oturum açma URL'si ile güncelleştirin. Kişi [Sansan istemci destek ekibi](https://www.sansan.com/form/contact) bu değerleri almak için. 
+     
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_certificate.png) 
@@ -136,19 +130,77 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sansan-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Sansan yapılandırma** 'yi tıklatın **yapılandırma Sansan** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Sansan uygulama bekler birden çok **tanımlayıcıları** ve **yanıt URL'leri** PowerShell kullanarak yapılandırılmış birden çok ortamlarını (PC web, yerel mobil uygulama, mobil tarayıcı ayarlarını) desteklemek için komut dosyası. Ayrıntılı adımlar aşağıda açıklanmıştır.
+
+7. Birden çok yapılandırmak için **tanımlayıcıları** ve **yanıt URL'leri** PowerShell Betiği kullanılarak Sansan uygulaması için şu adımları gerçekleştirin:
+
+    ![Çoklu oturum açma obj yapılandırın](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_objid.png)    
+
+    a. Git **özellikleri** sayfasında **Sansan** uygulama ve kopyalama **nesne kimliği** kullanarak **kopyalama** düğmesine tıklayın ve Not Defteri'ne yapıştırın.
+
+    b. **Nesne kimliği**, Azure portalından kopyalanan olarak kullanılacak **ServicePrincipalObjectId** daha sonra öğreticide kullanılan PowerShell komut dosyası. 
+
+    c. Şimdi yükseltilmiş bir Windows PowerShell komut istemi açın.
+    
+    >[!NOTE] 
+    > Azuread'i modülü yüklemeniz gerekir (komutunu `Install-Module -Name AzureAD`). NuGet modülü veya yeni Azure Active Directory V2 PowerShell modülü yüklemek isteyip istemediğiniz sorulduğunda Y yazın ve ENTER tuşuna basın.
+
+    d. Çalıştırma `Connect-AzureAD` ve bir genel yönetici kullanıcı hesabıyla oturum açın.
+
+    e. Birden fazla URL bir uygulamayı güncelleştirmek için aşağıdaki komut dosyasını kullanın:
+
+    ```poweshell
+     Param(
+    [Parameter(Mandatory=$true)][guid]$ServicePrincipalObjectId,
+    [Parameter(Mandatory=$false)][string[]]$ReplyUrls,
+    [Parameter(Mandatory=$false)][string[]]$IdentifierUrls
+    )
+
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+
+    if($ReplyUrls.Length)
+    {
+    echo "Updating Reply urls"
+    Set-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId -ReplyUrls $ReplyUrls
+    echo "updated"
+    }
+    if($IdentifierUrls.Length)
+    {
+    echo "Updating Identifier urls"
+    $applications = Get-AzureADApplication -SearchString $servicePrincipal.AppDisplayName 
+    echo "Found Applications =" $applications.Length
+    $i = 0;
+    do
+    {  
+    $application = $applications[$i];
+    if($application.AppId -eq $servicePrincipal.AppId){
+    Set-AzureADApplication -ObjectId $application.ObjectId -IdentifierUris $IdentifierUrls
+    $servicePrincipal = Get-AzureADServicePrincipal -ObjectId $ServicePrincipalObjectId
+    echo "Updated"
+    return;
+    }
+    $i++;
+    }while($i -lt $applications.Length);
+    echo "Not able to find the matched application with this service principal"
+    }
+    ```
+
+8. PowerShell Betiği başarılı tamamlanmasıyla sonra aşağıda gösterildiği gibi komut dosyası sonucu şu şekilde olacaktır ve URL değerleri güncelleştirilmesi ancak bunlar Azure portalında yansıtılan olmaz. 
+
+    ![Çoklu oturum açma komut dosyası yapılandırın](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_powershell.png)
+
+
+9. Üzerinde **Sansan yapılandırma** 'yi tıklatın **yapılandırma Sansan** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL, SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-sansan-tutorial/tutorial_sansan_configure.png) 
 
-7. Çoklu oturum açma yapılandırmak için **Sansan** yan, indirilen göndermek için ihtiyacınız **sertifika**, **Sign-Out URL**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmet URL'si** için [Sansan destek ekibi](https://www.sansan.com/form/contact). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+10. Çoklu oturum açma yapılandırmak için **Sansan** yan, indirilen göndermek için ihtiyacınız **sertifika**, **Sign-Out URL**, **SAML varlık kimliği**, ve **SAML çoklu oturum açma hizmet URL'si** için [Sansan destek ekibi](https://www.sansan.com/form/contact). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 >[!NOTE]
->Bilgisayar Tarayıcı ayarını da iş mobil uygulama ve PC web birlikte mobil tarayıcı için.  
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+>Bilgisayar Tarayıcı ayarını da iş mobil uygulama ve PC web birlikte mobil tarayıcı için. 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
+
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
 
 ![Azure AD Kullanıcı oluşturma][100]
@@ -181,7 +233,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
  
 ### <a name="creating-a-sansan-test-user"></a>Sansan test kullanıcısı oluşturma
 
-Bu bölümde, SanSan içinde Britta Simon adlı bir kullanıcı oluşturun. SanSan uygulama kullanıcının SSO yapmadan önce uygulamayı sağlanması gerekir. 
+Bu bölümde, Sansan içinde Britta Simon adlı bir kullanıcı oluşturun. Sansan uygulama kullanıcının SSO yapmadan önce uygulamayı sağlanması gerekir. 
 
 >[!NOTE]
 >Bir kullanıcı el ile oluşturabilir veya toplu gerekiyorsa kullanıcıları, başvurmanız gerekir. [Sansan destek ekibi](https://www.sansan.com/form/contact). 

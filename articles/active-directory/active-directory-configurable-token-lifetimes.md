@@ -16,11 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: a62d7a36eeb84b06baa4f2968d48f4a7afcaa05d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588871"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteci yaşam süresi
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrü belirtebilirsiniz. Kuruluşunuzdaki tüm uygulamalar, kuruluşunuzda, çok kiracılı (çok kuruluş) uygulama veya belirli hizmet sorumlusu belirteci yaşam süresi ayarlayabilirsiniz.
@@ -278,7 +279,7 @@ Bu örnekte, kullanıcılar web uygulamanızı daha sık kimlik doğrulaması ge
 
 2.  İlke, hizmet sorumlusu atayın. Almanız gereken **objectID** hizmet asıl. 
 
-    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için ya da sorgulayabilirsiniz [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) veya [Azure AD grafik](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bu test ayrıca [Azure AD Graph Explorer'a](https://graphexplorer.cloudapp.net/)ve [Microsoft Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) Azure AD hesabınızı kullanarak.
+    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için ya da sorgulayabilirsiniz [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) veya [Azure AD grafik](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bu test ayrıca [Azure AD Graph Explorer'a](https://graphexplorer.azurewebsites.net/)ve [Microsoft Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) Azure AD hesabınızı kullanarak.
 
     2.  Olduğunda **objectID** aşağıdaki komutu çalıştırın, hizmet asıl:
 

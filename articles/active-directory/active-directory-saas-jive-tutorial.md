@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: d766af40ab5d99f33605f5aef7f9c2e7140896e4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2a3b4efb766b58faa63caa31caeaf8699d8c5c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589500"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Öğretici: Azure Active Directory Tümleştirme Jive ile
 
@@ -47,7 +48,8 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
 1. Galeriden Jive ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
@@ -64,7 +66,7 @@ Azure AD'ye Jive tümleştirmesini yapılandırmak için yönetilen SaaS uygulam
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Uygulamalar][3]
@@ -103,7 +105,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-jive-tutorial/tutorial_jive_samlbase.png)
 
 3. Üzerinde **Jive etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -114,12 +116,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<instance name>.jiveon.com`
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Kişi [Jive istemci destek ekibi](https://www.jivesoftware.com/services-support/) bu değerleri almak için. 
- 
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerleri tanımlayıcısı ve gerçek oturum açma URL'si ile güncelleştirin. Kişi [Jive istemci destek ekibi](https://www.jivesoftware.com/services-support/) bu değerleri almak için.
+
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-jive-tutorial/tutorial_jive_certificate.png)
 
 5. Tıklatın **kaydetmek** düğmesi.
 
@@ -131,29 +133,25 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-jive-tutorial/tutorial_jive_002.png)
 
-    a. Seçin **etkin** altında **genel** sekmesi.   
-    b. Tıklayın "**tüm saml Ayarları Kaydet**" düğmesi.
+    a. Seçin **etkin** altında **genel** sekmesini b. Tıklayın "**tüm saml Ayarları Kaydet**" düğmesi.
 
 8. Gidin "**IDP meta veri**" sekmesi.
-   
+
     ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-jive-tutorial/tutorial_jive_003.png)
-   
+
     a. İndirilen meta veri XML dosyasının içeriğini kopyalayın ve ardından yapıştırın **kimlik sağlayıcısı (IDP) meta veri** metin kutusu.
-    
-    b. Tıklayın "**tüm saml Ayarları Kaydet**" düğmesi. 
+
+    b. Tıklayın "**tüm saml Ayarları Kaydet**" düğmesi.
 
 9. Git "**kullanıcı özniteliği eşleme**" sekmesi.
-   
-    ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
-   
-    a. İçinde **e-posta** metin kutusuna, öznitelik adı kopyalayıp **posta** değeri.
-   
-    b. İçinde **ad** metin kutusuna, öznitelik adı kopyalayıp **givenname** değeri.
-   
-    c. İçinde **Soyadı** metin kutusuna, öznitelik adı kopyalayıp **Soyadı** değeri.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+    ![Çoklu oturum açma uygulama tarafında yapılandırma](./media/active-directory-saas-jive-tutorial/tutorial_jive_004.png)
+
+    a. İçinde **e-posta** metin kutusuna, öznitelik adı kopyalayıp **posta** değeri.
+
+    b. İçinde **ad** metin kutusuna, öznitelik adı kopyalayıp **givenname** değeri.
+
+    c. İçinde **Soyadı** metin kutusuna, öznitelik adı kopyalayıp **Soyadı** değeri.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -167,16 +165,16 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-jive-tutorial/create_aaduser_01.png) 
 
 2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png) 
+
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-jive-tutorial/create_aaduser_02.png)
 
 3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
- 
+
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-jive-tutorial/create_aaduser_03.png) 
 
 4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png) 
+
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-jive-tutorial/create_aaduser_04.png)
 
     a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
@@ -185,10 +183,12 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="creating-a-jive-test-user"></a>Jive test kullanıcısı oluşturma
 
-Çalışmak [Jive istemci destek ekibi](https://www.jivesoftware.com/services-support/) Jive platform kullanıcıları eklemek için.
+Bu bölümün amacı Britta Simon içinde Jive adlı bir kullanıcı oluşturmaktır. Jive otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-jive-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
+
+Kullanıcı el ile oluşturmanız gerekiyorsa, çalışmak [Jive istemci destek ekibi](https://www.jivesoftware.com/services-support/) Jive platform kullanıcıları eklemek için.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
@@ -245,4 +245,3 @@ Erişim paneli Jive parçasında tıklattığınızda, otomatik olarak Jive uygu
 [201]: ./media/active-directory-saas-jive-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jive-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jive-tutorial/tutorial_general_203.png
-

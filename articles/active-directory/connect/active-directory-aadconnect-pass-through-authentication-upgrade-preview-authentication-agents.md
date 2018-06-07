@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect - doğrudan kimlik doğrulama - yükseltme auth aracıları | Microsoft Docs"
-description: "Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulama yapılandırması yükseltme açıklar."
+title: Azure AD Connect - doğrudan kimlik doğrulama - yükseltme auth aracıları | Microsoft Docs
+description: Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulama yapılandırması yükseltme açıklar.
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/14/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: f0a254b7216ca6fda40e26bafb7de57e796a5218
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: c699df83c7032dc6e3d176753d8203fec6977c1b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591999"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory doğrudan kimlik doğrulaması: Yükseltme Önizleme kimlik doğrulama Aracısı
 
@@ -68,7 +70,7 @@ Azure AD Connect aynı sunucuda kimlik doğrulama Aracısı yükseltmeden önce 
 2. **Kimlik Doğrulama Aracısı önizleme sürümünü kaldırın**: indirme [bu PowerShell Betiği](https://aka.ms/rmpreviewagent) ve sunucuda yönetici olarak çalıştırın.
 3. **Kimlik Doğrulama Aracısı'nın en son sürümü karşıdan yüklemek (sürümleri 1.5.193.0 veya üstü)**: oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) , kiracının genel yönetici kimlik bilgilerine sahip. Seçin **Azure Active Directory -> Azure AD Connect doğrudan kimlik doğrulama -> -> Yükleme Aracısı**. Kabul [hizmet koşulları](https://aka.ms/authagenteula) ve kimlik doğrulama Aracısı en son sürümünü yükleyin. Kimlik Doğrulama Aracısı'ndan de indirebilirsiniz [burada](https://aka.ms/getauthagent).
 4. **Kimlik Doğrulama Aracısı en son sürümünü yüklemek**: adım 3'te indirdiğiniz yürütülebilir dosyayı çalıştırmak. İstendiğinde, kiracının genel Yöneticisi kimlik bilgilerini sağlayın.
-5. **En son sürümü yüklü olduğunu doğrulayın**: önce gösterildiği gibi Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** ve için bir giriş olduğundan emin olun "**Microsoft Azure AD Connect kimlik doğrulama Aracısı**".
+5. **En son sürümü yüklü olduğunu doğrulayın**: önce gösterildiği gibi Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** ve için bir giriş olduğundan emin olun "**Microsoft Azure AD Connect Kimlik Doğrulama Aracısı**".
 
 >[!NOTE]
 >Doğrudan kimlik doğrulama dikey işaretlerseniz [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) önceki tamamlama adımları sonra sunucu - kimlik doğrulama aracısı olarak gösteren bir giriş başına iki kimlik doğrulama Aracısı giriş görürsünüz **etkin** ve diğer olarak **devre dışı**. Bu _beklenen_. **Devre dışı** girişi birkaç gün sonra otomatik olarak bırakıldı.
@@ -80,7 +82,7 @@ Azure AD Connect aynı sunucuda kimlik doğrulama Aracısı yükseltmeden önce 
 1. **Kimlik Doğrulama Aracısı önizleme sürümünü kaldırın**: indirme [bu PowerShell Betiği](https://aka.ms/rmpreviewagent) ve sunucuda yönetici olarak çalıştırın.
 2. **Kimlik Doğrulama Aracısı'nın en son sürümü karşıdan yüklemek (sürümleri 1.5.193.0 veya üstü)**: oturum [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) , kiracının genel yönetici kimlik bilgilerine sahip. Seçin **Azure Active Directory -> Azure AD Connect doğrudan kimlik doğrulama -> -> Yükleme Aracısı**. Hizmet koşullarını kabul edin ve en son sürümü yükleyin.
 3. **Kimlik Doğrulama Aracısı en son sürümünü yüklemek**: 2. adımda indirdiğiniz yürütülebilir dosyayı çalıştırmak. İstendiğinde, kiracının genel Yöneticisi kimlik bilgilerini sağlayın.
-4. **En son sürümü yüklü olduğunu doğrulayın**: önce gösterildiği gibi Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** ve adlı bir giriş olduğundan emin olun **Microsoft Azure AD Connect kimlik doğrulama Aracısı**.
+4. **En son sürümü yüklü olduğunu doğrulayın**: önce gösterildiği gibi Git **Denetim Masası -> Programlar -> Programlar ve Özellikler** ve adlı bir giriş olduğundan emin olun **Microsoft Azure AD Connect Kimlik Doğrulama Aracısı**.
 
 >[!NOTE]
 >Doğrudan kimlik doğrulama dikey işaretlerseniz [Azure Active Directory Yönetim Merkezi](https://aad.portal.azure.com) önceki tamamlama adımları sonra sunucu - kimlik doğrulama aracısı olarak gösteren bir giriş başına iki kimlik doğrulama Aracısı giriş görürsünüz **etkin** ve diğer olarak **devre dışı**. Bu _beklenen_. **Devre dışı** girişi birkaç gün sonra otomatik olarak bırakıldı.

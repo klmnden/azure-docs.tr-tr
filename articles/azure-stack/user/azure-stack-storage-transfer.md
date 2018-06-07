@@ -1,30 +1,30 @@
 ---
-title: Azure yığın depolama için Araçlar
+title: Azure yığın depolama için Araçlar | Microsoft Docs
 description: Aktarım araçları Azure yığın depolama birimi verileri hakkında bilgi edinin
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 3fb18a001c7cfb30b642c8bfaaeef656f96a4900
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 3d9bd187a70e8b8292e9c47497c2c6b13764045d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604735"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Veri aktarımı araçları Azure yığın depolama için kullanın
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Microsoft Azure yığın diskler, BLOB'lar, tablolar, kuyruklar ve hesap yönetim işlevleri için depolama hizmetleri kümesi sağlar. Yönetmek veya için veya Azure yığın depolama biriminden verileri taşımak istiyorsanız, bir dizi Azure Storage araçları kullanabilirsiniz. Bu makalede kullanılabilen araçlar genel bir bakış sağlar.
+Microsoft Azure yığın diskler, BLOB'lar, tablolar, kuyruklar ve hesap yönetim işlevleri için depolama hizmetleri kümesi sağlar. Yönetmek veya için veya Azure yığın depolama biriminden verileri taşımak istiyorsanız, bir dizi Azure depolama araçları kullanabilirsiniz. Bu makalede kullanılabilen araçlar genel bir bakış sağlar.
 
 Aşağıdaki araçlar hangisinin sizin için en iyi gereksinimlerinizi belirleyin:
 
@@ -40,7 +40,7 @@ Aşağıdaki araçlar hangisinin sizin için en iyi gereksinimlerinizi belirleyi
 
     Azure ve Azure yığın platformları ile çalışmak için bir komut kümesi sağlayan bir açık kaynak, platformlar arası aracı.
 
-* [Microsoft Storage Gezgini](#microsoft-azure-storage-explorer)
+* [Microsoft storage Gezgini](#microsoft-azure-storage-explorer)
 
     Tek başına bir kullanımı kolay uygulama kullanıcı arabirimi ile.
 
@@ -102,9 +102,9 @@ azcopy \
     --dest-key <key>
 ````
 
-### <a name="move-data-between-azure-and-azure-stack-storage"></a>Verileri Azure yığın depolama ve Azure arasında taşıma
+### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure ve Azure yığın depolama arasında taşıma verileri
 
-Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtmek zorunda **/SyncCopy** veya **--eşitleme kopyalama** seçeneği.
+Azure storage ile Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtmek zorunda **/SyncCopy** veya **--eşitleme kopyalama** seçeneği.
 
 **Windows**
 
@@ -127,7 +127,7 @@ azcopy \
 ### <a name="azcopy-known-issues"></a>Azcopy bilinen sorunlar
 
  - Dosya depolama henüz Azure yığın içinde kullanılabilir olmadığından bir dosya deposu üzerinde herhangi bir AzCopy işlemi kullanılabilir değil.
- - Azure Storage ve Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtebilirsiniz **/SyncCopy** verileri kopyalamak için seçeneği.
+ - Azure storage ile Azure yığın arasında zaman uyumsuz veri aktarımı desteklenmiyor. Aktarıma belirtebilirsiniz **/SyncCopy** verileri kopyalamak için seçeneği.
  - Azcopy Linux sürümü yalnızca 1802 güncelleştirmesi veya sonraki sürümleri destekler. Ve tablo hizmeti desteklemiyor.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -150,7 +150,7 @@ Bu örnek, başarılı bir şekilde sahip olduğunuzu varsayar [Azure yığını
    > [!NOTE]
    > Bu komut dosyası için kök dizininde çalıştırılması gereken **AzureStack_Tools**.
 
-```PowerShell
+```PowerShell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
@@ -213,21 +213,21 @@ New-Item -Path $DestinationFolder -ItemType Directory -Force
 $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 # end
-```
+````
 
 ### <a name="powershell-known-issues"></a>PowerShell bilinen sorunlar
 
-Geçerli uyumlu Azure PowerShell modülü Azure yığınının 1.2.12 sürümüdür. En son Azure PowerShell sürümünden farklıdır. Bu fark depolama hizmetleri işlemi etkiler:
+Geçerli uyumlu Azure PowerShell modülü Azure yığınının 1.3.0 sürümüdür. En son Azure PowerShell sürümünden farklıdır. Bu fark depolama hizmetleri işlemi etkiler:
 
-* Dönüş değeri biçimi `Get-AzureRmStorageAccountKey` sürümünde 1.2.12 iki özelliği vardır: `Key1` ve `Key2`, geçerli Azure sürümü tüm hesap anahtarları içeren bir dizi döndürür.
+* Dönüş değeri biçimi `Get-AzureRmStorageAccountKey` sürümünde 1.3.0 iki özelliği vardır: `Key1` ve `Key2`, geçerli Azure sürümü tüm hesap anahtarları içeren bir dizi döndürür.
 
    ```
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.4, and later versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
+   # This command gets a specific key for a storage account, 
    # and works for Azure PowerShell version 1.3.2, and previous versions.
    (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
    -AccountName "MyStorageAccount").Key1
@@ -242,7 +242,7 @@ Azure CLI Azure kaynaklarını yönetmek için Azure komut satırı deneyimidir.
 
 Azure CLI, yönetmek ve komut satırından Azure kaynaklarını yönetme ve Azure Resource Manager karşı iş otomasyon komut dosyaları oluşturmak için optimize edilmiştir. Birçok zengin veri erişimi de dahil olmak üzere Azure yığın portalda bulunan aynı işlevleri sağlar.
 
-Azure yığını, Azure CLI Sürüm 2.0 gerektirir. Yükleme ve Azure CLI Azure yığın ile yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure yığın CLI yapılandırma](azure-stack-version-profiles-azurecli2.md). Azure CLI 2.0 ile Azure yığın depolama hesabınızdaki kaynaklara çalışma çeşitli görevleri gerçekleştirmek için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure CLI2.0 Azure Storage ile kullanma](../../storage/storage-azure-cli.md)
+Azure yığını, Azure CLI Sürüm 2.0 gerektirir. Yükleme ve Azure CLI Azure yığın ile yapılandırma hakkında daha fazla bilgi için bkz: [yükleyin ve Azure yığın CLI yapılandırma](azure-stack-version-profiles-azurecli2.md). Azure CLI 2.0 ile Azure yığın depolama hesabınızdaki kaynaklara çalışma çeşitli görevleri gerçekleştirmek için nasıl kullanılacağı hakkında daha fazla bilgi için bkz: [Azure CLI2.0 Azure storage ile kullanma](../../storage/storage-azure-cli.md)
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure CLI örnek komut dosyasında Azure yığını
 
@@ -263,7 +263,7 @@ Bu komut dosyasını çalıştırmadan önce başarıyla için bağlanabilir ve 
 
 ```bash
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -292,17 +292,18 @@ echo "Downloading the file..."
 az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --account-name $AZURESTACK_STORAGE_ACCOUNT_NAME --name $AZURESTACK_STORAGE_BLOB_NAME --file $DESTINATION_FILE --output table
 
 echo "Done"
-```
+````
 
-## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Depolama Gezgini
+## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure storage Gezgini
 
-Microsoft Azure Storage Gezgini, Microsoft'tan bir tek başına uygulamadır. Windows, macOS ve Linux bilgisayarlara kolayca Azure Storage ve Azure yığın depolama veri ile çalışmanıza olanak sağlar. Azure yığın depolama verilerinizi yönetmek için kolay bir yol istiyorsanız, ardından Microsoft Azure Storage Gezgini kullanmayı düşünün.
+Microsoft Azure storage Gezgini, Microsoft'tan bir tek başına uygulamadır. Bunu kolayca Azure depolama ve Azure yığın depolama ile veri Windows, macOS ve Linux bilgisayarlara çalışmanıza olanak sağlar. Azure yığın depolama verilerinizi yönetmek için kolay bir yol istiyorsanız, ardından Microsoft Azure storage Gezgini kullanmayı düşünün.
 
-* Azure Storage Gezgini Azure yığın ile çalışmak için yapılandırma hakkında daha fazla bilgi edinmek için [Depolama Gezgini Azure yığın abonelik](azure-stack-storage-connect-se.md).
-* Microsoft Azure Storage Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* Azure storage Gezgini Azure yığın ile çalışmak için yapılandırma hakkında daha fazla bilgi edinmek için [Azure yığın aboneliğine Bağlan Depolama Gezgini](azure-stack-storage-connect-se.md).
+* Microsoft Azure storage Gezgini hakkında daha fazla bilgi için bkz: [Depolama Gezgini ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [Depolama Gezgini bir Azure yığın aboneliğine bağlanma](azure-stack-storage-connect-se.md)
 * [Depolama Gezgini ile çalışmaya başlama](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure tutarlı Depolama: farklar ve dikkat edilmesi gerekenler](azure-stack-acs-differences.md)
-* [Microsoft Azure Depolama'ya Giriş](../../storage/common/storage-introduction.md)
+* [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)

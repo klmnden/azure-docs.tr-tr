@@ -1,10 +1,10 @@
 ---
-title: "Azure App Service Mobile Apps özelliğini bir Apache Cordova uygulaması için anında iletme bildirimleri ekleme | Microsoft Docs"
-description: "Mobile Apps Apache Cordova uygulamanıza anında iletme bildirimleri göndermek için nasıl kullanılacağını öğrenin."
+title: Azure App Service Mobile Apps özelliğini bir Apache Cordova uygulaması için anında iletme bildirimleri ekleme | Microsoft Docs
+description: Mobile Apps Apache Cordova uygulamanıza anında iletme bildirimleri göndermek için nasıl kullanılacağını öğrenin.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598003"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova uygulamanıza anında iletme bildirimleri ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ Bu öğreticide, Visual Studio 2015 ile geliştirilmiş bir Apache Cordova uygul
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Bir bilgisayarla [Visual Studio Community 2015] [ 2] veya daha yenisi 
+* Bir bilgisayarla [Visual Studio Community 2015] [ 2] veya daha yenisi
 * [Apache Cordova için Visual Studio Araçları][4]
 * Bir [etkin Azure hesabı][3]
 * Bir tamamlanmış [Apache Cordova quickstart] [ 5] proje
 * (Android) A [Google hesabı] [ 6] doğrulanmış e-posta adresi
 * (iOS) Bir [Apple Developer Program üyeliği] [ 7] ve bir iOS cihazı (Simulator desteklemiyor iOS anında iletme bildirimleri)
-* (Windows) A [Windows mağazası Geliştirici hesabınızla] [ 8] ve Windows 10 cihaz
+* (Windows) A [Microsoft mağazası Geliştirici hesabınızla] [ 8] ve Windows 10 cihaz
 
 ## <a name="configure-hub"></a>Bildirim hub'ı yapılandırma
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -338,7 +339,7 @@ Visual Studio'da Windows platformu aşağıdaki gibi dağıtım hedefteki seçil
 
 Aşağıdaki SDK'ları kullanmayı öğrenin:
 
-* [Apache Cordova SDK][15]
+* [Apache Cordova SDK'sı][15]
 * [ASP.NET sunucusu SDK][1]
 * [Node.js sunucusu SDK][16]
 

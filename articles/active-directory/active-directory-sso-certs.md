@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 9924d06f149b0d234cd8f5546cab8abbab740aac
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7041bd19c464c0ce6fb0f3d695a87581fed290e5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592033"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon tek oturum açma için Azure Active Directory'de sertifikaları yönetme
 Bu makale ortak sorular ve Federasyon çoklu oturum açma (SSO) SaaS uygulamalarınıza oluşturmak için Azure Active Directory (Azure AD) oluşturur sertifikalar ilgili bilgiler yer almaktadır. Uygulamaları Azure AD uygulama galerisinde veya bir galeri olmayan uygulama şablonu kullanarak ekleyin. Uygulama, Federasyon SSO seçeneğini kullanarak yapılandırın.
@@ -57,6 +58,15 @@ Ekran görüntüleri Salesforce amacıyla örnek kullanın, ancak tüm Federasyo
 6. Şimdi yeni sertifikayı yüklemek kullanılabilir. Tıklatın **sertifika** indirmeleri için bağlantı. Bu noktada, sertifikanızı etkin değil. Bu sertifika için değil, UTC'ye istediğinizde seçin **yeni sertifika etkin hale getirin** onay kutusunu ve tıklatın **kaydetmek**. Bu noktadan itibaren Azure AD yanıt imzalama için yeni sertifikayı kullanarak başlatır.
 
 7.  Sertifika belirli SaaS uygulamanızı karşıya yükleme konusunda bilgi almak için Yardım düğmesini tıklatın **görünüm uygulaması yapılandırma Öğreticisi** bağlantı.
+
+## <a name="certificate-expiration-notification-email"></a>Sertifika süre sonu bildirim e-postası
+
+Azure AD SAML sertifikanın süresi dolmadan önce bir e-posta bildirim 7, 30 ve 60 gün gönderir. Where bildirim göndermek için e-posta adresini belirtmek için:
+
+- Azure Active Directory Uygulama tek oturum açma sayfasında, bildirim e-posta alanına gidin.
+- Sertifika süre sonu bildirim e-posta alması gereken e-posta adresi girin. Varsayılan olarak, bu alan eklenen uygulama yönetici e-posta adresini kullanır.
+
+Bildirim e-posta alacak aadnotification@microsoft.com. İstenmeyen posta konumunuza giden e-posta önlemek için bu e-posta kişilerinize eklediğinizden emin olun. 
 
 ## <a name="renew-a-certificate-that-will-soon-expire"></a>Süresi yakında dolacak bir sertifikayı yenileme
 Aşağıdaki yenileme adımları sonucunda kullanıcılarınız için önemli kapalı kalma süresi. Bu bölümde özelliği Salesforce örneği, ancak bu adımların olarak görüntülerde tüm Federasyon SaaS uygulamaları için geçerli olabilir.

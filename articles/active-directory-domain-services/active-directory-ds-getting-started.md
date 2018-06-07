@@ -1,32 +1,44 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Docs"
-description: "Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir"
+title: 'Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Docs'
+description: Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ab2897eefd1c394ba0b10ba6fce3e11af4a0b2a5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587969"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
 Bu makalede, Azure Active Directory etki alanı Azure portalını kullanarak hizmetlerin (Azure AD DS) nasıl etkinleştirileceği gösterilmektedir.
 
+## <a name="before-you-begin"></a>Başlamadan önce
+Bu makalede listelenen görevleri tamamlamak için gerekir:
+
+* Geçerli bir **Azure aboneliği**.
+* Bir **Azure AD dizini** -ya da bir şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
+* **Azure aboneliğine Azure AD dizini ile ilişkili olmalıdır**.
+* Gereksinim duyduğunuz **genel yönetici** Azure AD Etki Alanı Hizmetleri'ni etkinleştirmek için Azure AD dizininizi ayrıcalıklar.
+
+
+## <a name="enable-azure-ad-domain-services"></a>Azure AD Etki Alanı Hizmetleri'ni etkinleştirme
 Başlatmak için **etkinleştirmek Azure AD etki alanı Hizmetleri** Sihirbazı, aşağıdaki adımları tamamlayın:
 
 1. [Azure Portal](https://portal.azure.com) gidin.
-2. Sol bölmede **kaynak oluşturma**.
+2. Sol bölmede **Kaynak oluştur**’a tıklayın.
 3. İçinde **yeni** sayfasında, **etki alanı Hizmetleri** arama çubuğunu içine.
 
     ![Etki Alanı Hizmetleri için arama](./media/getting-started/search-domain-services.png)
@@ -39,7 +51,7 @@ Başlatmak için **etkinleştirmek Azure AD etki alanı Hizmetleri** Sihirbazı,
 
 
 ## <a name="task-1-configure-basic-settings"></a>Görev 1: temel ayarlarını yapılandırma
-İçinde **Temelleri** Sayfa Sihirbazı'nın, yönetilen etki alanı için DNS etki alanı adı belirtebilirsiniz. Ayrıca, yönetilen etki alanı dağıtılmalıdır Azure konumu ve kaynak grubu seçebilirsiniz.
+İçinde **Temelleri** Sayfa Sihirbazı'nın yönetilen etki alanı için DNS etki alanı adı belirtin. Ayrıca, yönetilen etki alanı dağıtılmalıdır Azure konumu ve kaynak grubu seçebilirsiniz.
 
 ![Temel yapılandırma](./media/getting-started/domain-services-blade-basics.png)
 
@@ -59,11 +71,11 @@ Başlatmak için **etkinleştirmek Azure AD etki alanı Hizmetleri** Sihirbazı,
 
 2. Azure seçin **abonelik** , yönetilen etki alanı oluşturmak istediğinizi içinde.
 
-3. Seçin **kaynak grubu** için yönetilen etki alanına ait olması gerekir. Ya da seçebilirsiniz **Yeni Oluştur** veya **var olanı kullan** seçenekleri kaynak grubunu seçin.
+3. Seçin **kaynak grubu** için yönetilen etki alanına ait olması gerekir. Ya da seçin **Yeni Oluştur** veya **var olanı kullan** seçenekleri kaynak grubunu seçin.
 
 4. Azure seçin **konumu** , yönetilen etki alanında oluşturulmalıdır. Üzerinde **ağ** sayfasında sihirbazın, seçtiğiniz konuma ait yalnızca sanal ağlar görürsünüz.
 
-5. İşiniz bittiğinde tıklatın **Tamam** üzerinde taşımayı **ağ** Sihirbazı sayfası.
+5. Tıklatın **Tamam** üzerinde taşımayı **ağ** Sihirbazı sayfası.
 
 
 ## <a name="next-step"></a>Sonraki adım

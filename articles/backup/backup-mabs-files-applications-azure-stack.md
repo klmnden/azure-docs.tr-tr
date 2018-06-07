@@ -1,25 +1,19 @@
 ---
-title: Azure yığın dosyaları ve uygulamaları yedekleme | Microsoft Docs
+title: Azure yığın dosyaları ve uygulamaları yedekleme
 description: Azure Backup, yedekleme ve Azure yığın dosyaları ve uygulamaları Azure yığın ortamınıza kurtarmak için kullanın.
 services: backup
-documentationcenter: ''
 author: adiganmsft
 manager: shivamg
-editor: ''
-keyword: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 5/11/2018
-ms.author: adigan,markgal
-ms.openlocfilehash: 19067b40e8e87c160515d13bb490e7c1604788b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.date: 5/18/2018
+ms.author: adigan
+ms.openlocfilehash: 6c7fcc0182add05b68a7b41ab6fe50e18427f6ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607312"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Dosyalar ve uygulamalar Azure yığında yedekleme
 Koruma (veya yedeklemek için) Azure Yedekleme'yi kullanabilirsiniz dosyalar ve uygulamalar Azure yığında. Dosya ve uygulamaların yedeklemek için Azure yığın üzerinde çalışan bir sanal makine olarak Microsoft Azure yedekleme sunucusu yükleyin. Aynı sanal ağda herhangi bir Azure yığın sunucuda çalışan uygulamaların, koruyabilirsiniz. Azure yedekleme sunucusu kez yüklediğiniz, kısa vadeli yedekleme verileri için kullanılabilir yerel depolama artırmak için Azure disk ekleyin. Azure yedekleme sunucusu uzun vadeli bekletme için Azure storage kullanır.
@@ -39,15 +33,15 @@ Azure yedekleme sunucusu aşağıdaki Azure yığın sanal makine iş yüklerini
 | Windows Server 2012 R2 - kuruluş/veri merkezi/standart | Birimler, dosyalar, klasörler |
 | Windows Server 2012 - Entprise/veri merkezi/standart | Birimler, dosyalar, klasörler |
 | Windows Server 2008 R2 - kuruluş/veri merkezi/standart | Birimler, dosyalar, klasörler |
-| SQL Server 2016 | Veritabanı |
-| SQL Server 2014 | Veritabanı |
-| SQL Server 2012 SP1 | Veritabanı |
+| SQL Server 2016 | Database |
+| SQL Server 2014 | Database |
+| SQL Server 2012 SP1 | Database |
 | SharePoint 2013 | Grup, veritabanı, ön uç, web sunucusu |
 | SharePoint 2010 | Grup, veritabanı, ön uç, web sunucusu |
 
 
 ## <a name="install-azure-backup-server"></a>Azure yedekleme Sunucusu'nu Yükle
-Bir Azure yığın sanal makineye Azure yedekleme sunucusu yüklemek için bkz [Azure yedekleme sunucusu kullanarak iş yüklerini Yedeklemeye hazırlanma](backup-azure-microsoft-azure-backup.md). Yükleyip Azure yedekleme sunucusu yapılandırmadan önce aşağıdakilere dikkat edin:
+Bir Azure yığın sanal makineye Azure yedekleme sunucusu yüklemek için bkz [Azure yedekleme sunucusu kullanarak iş yüklerini Yedeklemeye hazırlanma](backup-mabs-install-azure-stack.md). Yükleyip Azure yedekleme sunucusu yapılandırmadan önce aşağıdakilere dikkat edin:
 
 ### <a name="determining-size-of-virtual-machine"></a>Sanal makine boyutunu belirleme
 Azure yedekleme sunucusu bir Azure yığın sanal makine üzerinde çalıştırılacak boyutunu A2 kullanın veya daha büyük. Bir sanal makine boyutu seçerken Yardım almak için indirin [Azure yığın VM boyutu hesaplayıcı](https://www.microsoft.com/download/details.aspx?id=56832).

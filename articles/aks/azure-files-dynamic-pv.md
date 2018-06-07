@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597510"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure dosyaları ile kalıcı birimleri
 
@@ -23,29 +24,20 @@ Kubernetes hakkında daha fazla bilgi için bkz: statik oluşturma dahil olmak �
 
 ## <a name="create-storage-account"></a>Depolama hesabı oluştur
 
-AKS kümesi ile aynı kaynak grubunda olduğu sürece herhangi bir depolama hesabı dinamik olarak Kubernetes birimi olarak bir Azure dosya paylaşımı oluşturulurken kullanılabilir. Gerekirse, AKS kümesi ile aynı kaynak grubunda bir depolama hesabı oluşturun.
-
-Doğru kaynak grubunu tanımlamak için kullanmak [az grup listesi] [ az-group-list] komutu.
+Dinamik olarak Kubernetes birimi olarak bir Azure dosya paylaşımı oluşturulurken AKS olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğümü** kaynak grubu. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-Benzer şekilde bir ada sahip bir kaynak grubu arayın `MC_clustername_clustername_locaton`.
-
-```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Kullanım [az depolama hesabı oluşturma] [ az-storage-account-create] depolama hesabını oluşturmak için komutu.
 
-Bu örneği kullanarak, güncelleştirme `--resource-group` kaynak grubu adını ve `--name` için tercih ettiğiniz bir ad.
+Güncelleştirme `--resource-group` kaynak grubu adı ile toplanan son adımda ve `--name` için tercih ettiğiniz bir ad.
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## <a name="create-storage-class"></a>Depolama sınıfı oluşturma
@@ -76,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 Kalıcı birim talep (PVC) depolama sınıf nesnesi Azure dosya paylaşımının dinamik olarak sağlamak için kullanır.
 
-Aşağıdaki YAML kalıcı birim talep oluşturmak için kullanılan `5GB` boyutta `ReadWriteOnce` erişim. Erişim modları hakkında daha fazla bilgi için bkz: [Kubernetes kalıcı birim] [ access-modes] belgeleri.
+Aşağıdaki YAML kalıcı birim talep oluşturmak için kullanılan `5GB` boyutta `ReadWriteMany` erişim. Erişim modları hakkında daha fazla bilgi için bkz: [Kubernetes kalıcı birim] [ access-modes] belgeleri.
 
 Adlı bir dosya oluşturun `azure-file-pvc.yaml` ve aşağıdaki YAML kopyalayın. Olduğundan emin olun `storageClassName` son adımda oluşturduğunuz depolama sınıfı eşleşir.
 
@@ -87,7 +79,7 @@ metadata:
   name: azurefile
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: azurefile
   resources:
     requests:
@@ -209,6 +201,7 @@ Azure dosyaları kullanarak Kubernetes kalıcı birimleri hakkında daha fazla b
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list

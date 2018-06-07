@@ -15,11 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/16/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 69148a0ac9a5761eeee0ab47d83862724583619a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5d403f7c1d0fff466f6c0fb9942ec777ab820eab
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604541"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Market öğesi Azure'dan Azure yığınına indirin.
 
@@ -85,7 +86,7 @@ Bu senaryo iki bölümü vardır:
 
 - İndirilen Market öğesi alınmasıyla etkinleştirmek için [Azure yığın işleci için PowerShell ortamı](azure-stack-powershell-configure-admin.md) yapılandırılması gerekir.  
 
-- Bir depolama hesabı Azure yığınında (Bu bir depolama blob) genel olarak erişilebilir bir kapsayıcı sahip olması gerekir. Kapsayıcı Market öğelerini galeri dosyaları için geçici depolama alanı olarak kullanın. Depolama hesapları ve kapsayıcıları bilmiyorsanız, bkz: [BLOB'lar - Azure portal ile çalışmak](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) Azure belgelerinde.
+- Bilmeniz gereken bir [depolama hesabı](azure-stack-manage-storage-accounts.md) Azure yığınındaki (Bu bir depolama blob) genel olarak erişilebilir bir kapsayıcı vardır. Kapsayıcı Market öğelerini galeri dosyaları için geçici depolama alanı olarak kullanın. Depolama hesapları ve kapsayıcıları bilmiyorsanız, bkz: [BLOB'lar - Azure portal ile çalışmak](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) Azure belgelerinde.
 
 - Market Dağıtım Aracı'nı ilk yordam sırasında yüklenir. 
 

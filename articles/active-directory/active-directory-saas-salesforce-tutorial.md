@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2caf788f1c38c701699e0c275cabe3d12eb75270
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e5b9fb0e1696e83ca4dfc8936613631f4c84ca47
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Öğretici: Salesforce Azure Active Directory Tümleştirme
 
@@ -205,10 +206,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE]
     > Birden fazla kimlik doğrulama hizmeti seçili ise, kullanıcıların bunlar çoklu oturum açma Salesforce ortamınıza başlatma sırasında oturum açmak istiyor hangi kimlik doğrulama hizmeti seçmeniz istenir. Bunu olmasını istemiyorsanız sonra yapmanız gerekenler **diğer tüm kimlik doğrulama hizmetleri işaretlemeden bırakın**.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -240,27 +237,26 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-salesforce-test-user"></a>Salesforce test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon adlı bir kullanıcı Salesforce'ta oluşturulur. Salesforce yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler.
-Bu bölümde, eylem öğe yok. Bir kullanıcı zaten Salesforce'ta yoksa, Salesforce erişmeyi denediğinde yeni bir tane oluşturulur.
+Bu bölümde, Britta Simon adlı bir kullanıcı Salesforce'ta oluşturulur. Salesforce yalnızca zaman sağlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, eylem öğe yok. Bir kullanıcı zaten Salesforce'ta yoksa, Salesforce erişmeyi denediğinde yeni bir tane oluşturulur. Salesforce de destekler otomatik kullanıcı hazırlama, daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-salesforce-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Britta Salesforce erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Salesforce Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı atama][201]
 
 2. Uygulamalar listesinde **Salesforce**.
 
-    ![Uygulamalar listesinde Salesforce bağlantı](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png)  
+    ![Uygulamalar listesinde Salesforce bağlantı](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_app.png)
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
@@ -275,7 +271,7 @@ Bu bölümde, Britta Salesforce erişim vererek, Azure çoklu oturum açma kulla
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
@@ -287,8 +283,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-salesforce-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -303,4 +298,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforce-tutorial/tutorial_general_203.png
-

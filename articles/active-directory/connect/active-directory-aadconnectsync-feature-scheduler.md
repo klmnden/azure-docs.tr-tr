@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme: Zamanlayıcı | Microsoft Docs"
-description: "Bu konuda, Azure AD Connect eşitleme yerleşik Zamanlayıcı özelliğinde açıklanmaktadır."
+title: 'Azure AD Connect eşitleme: Zamanlayıcı | Microsoft Docs'
+description: Bu konuda, Azure AD Connect eşitleme yerleşik Zamanlayıcı özelliğinde açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df7b16157ccb47a5463570c3ed58b9c44f0b67d0
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: fa99de4aac11e7310085cc37e6ebaee441415c61
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594168"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect eşitleme: Zamanlayıcı
 Bu konu, Azure AD Connect eşitleme yerleşik zamanlayıcıda (paketini açıklar Eşitleme altyapısı).
@@ -68,13 +70,13 @@ Azure AD Connect, önceki derlemelerde **isStagingModeEnabled** Set-ADSyncSchedu
 Zamanlayıcı yapılandırması Azure AD içinde depolanır. Hazırlama sunucunuz varsa, birincil sunucu üzerindeki herhangi bir değişiklik hazırlama sunucunun (dışında IsStagingModeEnabled) de etkiler.
 
 ### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
-Sözdizimi:`Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
+Sözdizimi: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - gün ss - saat, dd dakika, ss - saniye
 
-Örnek:`Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
+Örnek: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 03:00:00`  
 3 saatte bir çalıştırılacak Zamanlayıcı değiştirir.
 
-Örnek:`Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
+Örnek: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 Her gün çalışacak şekilde Zamanlayıcı değişiklik.
 
 ### <a name="disable-the-scheduler"></a>Zamanlayıcı'yı devre dışı bırak  
@@ -131,7 +133,7 @@ Bu bölümde belgelenen cmdlet'leri yalnızca yapı içinde kullanılabilir [1.1
 
 Ardından yerleşik Zamanlayıcı gereksinimlerinizi karşılamadığı, PowerShell kullanarak bağlayıcılar zamanlayabilirsiniz.
 
-### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Çağırma ADSyncRunProfile
 Bu şekilde bir bağlayıcı için bir profil başlatabilirsiniz:
 
 ```

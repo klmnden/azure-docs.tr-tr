@@ -1,22 +1,19 @@
 ---
 title: Desteklenen diller Azure eşlemelerinin | Microsoft Docs
 description: Azure Maps hizmetler için desteklenen diller hakkında bilgi edinin
-services: azure-maps
-keywords: ''
 author: juliekohler
 ms.author: julieko
-ms.date: 3/30/2018
-ms.topic: article
+ms.date: 03/30/2018
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 8a603ebf05ec714c57955d32182943a4191627cf
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600247"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure eşlemeleri desteklenen diller
 Azure eşlemeleri çeşitli dillerde Hizmetleri yerelleştirilmiş.  Aşağıdaki tabloda her hizmet için desteklenen dil kodlarını sağlar.  
@@ -34,15 +31,15 @@ Azure eşlemeleri çeşitli dillerde Hizmetleri yerelleştirilmiş.  Aşağıdak
 | hr-HR      | Hırvatça               |       |    ✓   |         |                   |                |     ✓     |
 | cs-CZ      | Çekçe                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da DK      | Danca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| NL-NL      | Hollanda dili                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-NL      | Felemenkçe                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | NL-olabilir      | Çince (Singapur)        |       |    ✓   |         |                   |                |     ✓     |
 | tr         | Türkçe                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonca               |       |    ✓   |         |         ✓         |                |     ✓     |
 | Fi-FI      | Fince                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| fr-FR      | Fransızca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| fr-FR      | Fransızca                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Fransızca (Kanada)      |       |    ✓   |         |                   |                |     ✓     |
 | GL ES      | Galiçya dili               |       |        |         |                   |                |     ✓     |
-| de-DE      | Almanca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| de-DE      | Almanca                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Yunanca                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | He-IL      | İbranice                 |       |        |         |         ✓         |                |     ✓     |
 | yüksek giriş      | Hintçe                  |       |        |         |                   |                |     ✓     |
@@ -55,8 +52,8 @@ Azure eşlemeleri çeşitli dillerde Hizmetleri yerelleştirilmiş.  Aşağıdak
 | es-419     | Latin Amerika İspanyolca |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Letonca                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt LT      | Litvanca             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ms-MY      | Malay dili (Latin)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| nb-NO      | Norveççe (Bokmål)       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| ms-MY      | Malay (Latin)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| nb-NO      | Norveççe Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pl-PL      | Lehçe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portekizce (Brezilya)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portekizce (Portekiz)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
@@ -66,7 +63,7 @@ Azure eşlemeleri çeşitli dillerde Hizmetleri yerelleştirilmiş.  Aşağıdak
 | SR-Latn-RS | Sırpça (Latin)        |       |        |         |                   |                |     ✓     |
 | SK SK      | Slovakça              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | SL SL      | Slovence              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| es-ES      | İspanyolca                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| es-ES      | İspanyolca                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | İspanyolca (Meksika)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv -SE     | İsveç dili                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | TH-TH      | Tay Dili                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |

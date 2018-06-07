@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c395851fbcc3e46357b390d9dfa20bd9ac944716
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594440"
 ---
 # <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Öğretici: Azure Cosmos DB erişmek için bir Linux VM MSI kullanın. 
 
@@ -254,5 +255,8 @@ Bu CLI komut toplama ile ilgili ayrıntıları verir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet kimliği (MSI) Azure kaynakları için](overview.md).
+Bu öğreticide, bir yönetilen hizmet kimliği Linux sanal bir makinede Cosmos DB erişmek için nasıl kullanılacağı hakkında bilgi edindiniz.  Cosmos DB bakın hakkında daha fazla bilgi için:
+
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB genel bakış](/azure/cosmos-db/introduction)
 

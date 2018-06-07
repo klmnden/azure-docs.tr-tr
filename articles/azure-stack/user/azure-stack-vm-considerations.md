@@ -12,13 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 05/23/2018
 ms.author: brenduns
-ms.openlocfilehash: 83a0b8ff040425ac30cff96936f2f639fd1b5643
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 324fa19aa97cead44f38d07a2fd0765048cd6238
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605397"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Sanal makineleri Azure yığınında kullanma konuları
 
@@ -102,7 +103,7 @@ Bulut operatörü, Azure yığın ortamınızı daha yeni bir sürüme güncelle
 Windows ürünlerinin ürün kullanım hakları ve Microsoft Lisans Koşulları'nı uygun olarak kullanılmalıdır. Azure yığınını kullanan [otomatik VM etkinleştirme](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) Windows Server sanal makineleri (VM'ler) etkinleştirme (AVMA).
 
 - Azure yığın ana bilgisayar Windows AVMA anahtarları ile Windows Server 2016 için etkinleştirir. Windows Server 2012 çalıştıran ya da daha sonra otomatik olarak etkinleştirilen tüm sanal makineleri.
-- Çalışma Windows Server 2008 R2'in otomatik olarak etkinleştirilmez ve kullanarak etkinleştirilmelidir VM'ler [MAK etkinleştirmesi](https://technet.microsoft.com/library/ff793438.aspx).
+- Çalışma Windows Server 2008 R2'in otomatik olarak etkinleştirilmez ve kullanarak etkinleştirilmelidir VM'ler [MAK etkinleştirmesi](https://technet.microsoft.com/library/ff793438.aspx). MAK etkinleştirmesini kullanmak için kendi ürün anahtarınızı sağlamanız gerekir.
 
 Microsoft Azure Windows sanal makineleri etkinleştirme için KMS etkinleştirme kullanır. Bir VM Azure yığından Azure ve karşılaştığınız sorunları etkinleştirme taşırsanız, bkz: [sorun giderme Azure Windows sanal makine etkinleştirme sorunlarını](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Ek bilgiler bulunabilir [sorun giderme Windows etkinleştirme hataları Azure vm'lerinde](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azure destek ekibi Blog Gönderisi.
 

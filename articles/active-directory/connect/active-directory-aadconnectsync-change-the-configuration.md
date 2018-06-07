@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme: bir yapılandırma değişikliği Azure AD Connect eşitleme yaptığınızda | Microsoft Docs"
-description: "Azure AD Connect eşitleme yapılandırmasında değişiklik konusunda size yol göstermektedir."
+title: 'Azure AD Connect eşitleme: bir yapılandırma değişikliği Azure AD Connect eşitleme yaptığınızda | Microsoft Docs'
+description: Azure AD Connect eşitleme yapılandırmasında değişiklik konusunda size yol göstermektedir.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 06c715cf5dbf039334adfde8b3111d9bfcb86568
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: bad1cbe0b142e146ada28f2af5d152973100e919
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595113"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect eşitleme: varsayılan yapılandırmayı değişiklik
 Bu makalenin amacı, Azure Active Directory (Azure AD) Connect eşitleme varsayılan yapılandırmasında değişiklik konusunda size yol sağlamaktır. Bu, bazı ortak senaryolar için adımları sağlar. Bu bilgiyle, kendi iş kurallarına göre kendi yapılandırma basit değişiklik yapabiliyor olmanız gerekir.
@@ -204,7 +206,7 @@ Temel alınan UserType özniteliği eşitlenmesi etkinleştirmeden önce ilk öz
 
     Bu yaklaşım seçerseniz, belirtilen öznitelik UserType özniteliği eşitlenmesi etkinleştirmeden önce Azure AD'ye eşitlenen tüm var olan kullanıcı şirket içi Active Directory içindeki nesneleri için geçerli bir değer ile doldurulur sağlamanız gerekir. .
 
-- Alternatif olarak, diğer özelliklerinden UserType özniteliği için değer türetilemeyeceğini. Örneğin, tüm kullanıcılar olarak eşitlemek için istediğiniz **Konuk** , şirket içi AD userPrincipalName özniteliğinin etki alanı bölümü ile biten  *@partners.fabrikam123.org* . 
+- Alternatif olarak, diğer özelliklerinden UserType özniteliği için değer türetilemeyeceğini. Örneğin, tüm kullanıcılar olarak eşitlemek için istediğiniz **Konuk** , şirket içi AD userPrincipalName özniteliğinin etki alanı bölümü ile biten *@partners.fabrikam123.org*. 
 
     Daha önce belirtildiği gibi Azure AD Connect UserType özniteliği var olan Azure AD kullanıcıları Azure AD Connect tarafından değiştirilmesine izin vermez. Bu nedenle, nasıl UserType özniteliği zaten kiracınızda tüm mevcut Azure AD kullanıcıları için yapılandırılmış ile tutarlıdır karar verdiniz mantığı emin olmalısınız.
 
@@ -264,7 +266,7 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
     | Açıklama | *Bir açıklama belirtin* |  |
     | Bağlı sistem | *Şirket içi çekme AD Bağlayıcısı* |  |
     | Bağlı sistem nesne türü | **Kullanıcı** |  |
-    | Meta veri deposu nesne türü | **Person** |  |
+    | Meta veri deposu nesne türü | **Kişi** |  |
     | Bağlantı türü | **Birleştir** |  |
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 
@@ -282,7 +284,7 @@ Gelen eşitleme kuralı öznitelik değerini meta veri deposu için şirket içi
     | --- | --- | --- | --- | --- |
     | Doğrudan | UserType | extensionAttribute1 | İşaretli | Güncelleştirme |
 
-    Başka bir örnekte, temel alınan UserType özniteliği değeri diğer özelliklerinden türetilen istiyorsunuz. Örneğin, tüm kullanıcılar, konuk olarak eşitlemek için istediğiniz şirket içi AD userPrincipalName özniteliğinin etki alanı bölümü ile biten  *@partners.fabrikam123.org* . Böyle bir ifade uygulayabilirsiniz:
+    Başka bir örnekte, temel alınan UserType özniteliği değeri diğer özelliklerinden türetilen istiyorsunuz. Örneğin, tüm kullanıcılar, konuk olarak eşitlemek için istediğiniz şirket içi AD userPrincipalName özniteliğinin etki alanı bölümü ile biten *@partners.fabrikam123.org*. Böyle bir ifade uygulayabilirsiniz:
 
     | Akış türü | Hedef öznitelik | Kaynak | Bir kez Uygula | Birleştirme türü |
     | --- | --- | --- | --- | --- |
@@ -306,7 +308,7 @@ Giden eşitleme kuralı öznitelik değerini meta veri deposu için temel alına
     | Açıklama | *Bir açıklama belirtin* ||
     | Bağlı sistem | *AAD bağlayıcı seçin* ||
     | Bağlı sistem nesne türü | **Kullanıcı** ||
-    | Meta veri deposu nesne türü | **Person** ||
+    | Meta veri deposu nesne türü | **Kişi** ||
     | Bağlantı türü | **Birleştir** ||
     | Öncellik | *1-99 arasında bir sayı seçin* | 1-99 özel eşitleme kuralları için ayrılmıştır. Başka bir eşitleme kuralı tarafından kullanılan bir değer seçmesi değil. |
 

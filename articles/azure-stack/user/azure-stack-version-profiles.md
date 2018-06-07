@@ -10,14 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: e568ffd2c3adb97ed0b727b85e7888fb797db1f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: adbe88a44ac38868a68a6845c328ef4cf7fba60c
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604446"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure yığınında API sürümü profillerini yönet
 
@@ -36,7 +37,7 @@ Bu konuda size yardımcı olur:
 ## <a name="summary-of-api-profiles"></a>API profilleri özeti
 
 - API profilleri, Azure kaynak sağlayıcıları kümesi ve API sürümlerine göstermek için kullanılır.
-- Birden çok Azure Bulutlar arasında şablonları oluşturabilmesi için API profilleri geliştiriciler için oluşturulmuştur. Profilleri uyumlu ve kararlı arabirimi gereksinimini karşılayacak şekilde tasarlanmıştır.
+- API profilleri arasında birden çok Azure bulut şablonları oluşturmak için oluşturulmuştur. Profilleri uyumlu ve kararlı bir arabirim için gereksinimini karşılamak üzere tasarlanmıştır.
 - Profilleri yılda dört kez yayınlanır.
 - Üç profil adlandırma kuralları kullanılır:
     - **en son**  
@@ -66,17 +67,11 @@ Bunun yerine her kaynak sağlayıcısı ve Azure yığını tarafından destekle
 
 API profilleri PowerShell, Azure CLI, SDK'sı ve Microsoft Visual Studio içinde sağlanan kod gibi Azure Kaynak Yöneticisi Araçları ile çalışır. Araç ve SDK'ları profilleri modülleri ve bir uygulama oluştururken içerecek şekilde kitaplıkları hangi sürümünün okumak için kullanabilirsiniz.
 
-**Profili kullanma geliştirme senaryosu**  
-PowerShell oluşturmak için kullandığınız varsayılmaktadır:
+Örneğin, bir depolama alanı oluşturmak için PowerShell kullanın kullanarak hesap **Microsoft.Storage** API sürümü 2016-03-30 ve api-version ile 2015-12-01 Microsoft.Compute kaynak sağlayıcısı kullanarak bir VM'i destekler kaynak sağlayıcısı , PowerShell modülü destekleyen için depolama 2016-03-30 aramak gerekir ve işlem için 2015-02-01 modülü destekler ve yükleyin. Bunun yerine, bir profil kullanabilirsiniz. Cmdlet'ini kullanın ** yükleme profili * profilename *** ve PowerShell modülleri doğru sürümü yükler.
 
-* Kullanan bir depolama hesabı **Microsoft.Storage** API sürümü 2016-03-30 destekleyen kaynak sağlayıcısı.
-* Kullanan bir VM'yi **Microsoft.Compute** API sürümü 2015-12-01 destekleyen kaynak sağlayıcısı.
+Benzer şekilde, Python tabanlı bir uygulama oluşturmak için Python SDK'yı kullanarak, profil belirtebilirsiniz. SDK'yı sağ modülleri betiğinizde belirtilen kaynak sağlayıcıları için yükler.
 
-Bulma ve depolama ve işlem için gereken API sürümleri desteği PowerShell modülleri yükleme yerine bir profili kullanabilirsiniz. Cmdlet'ini kullanın ** yükleme profili * profilename *** ve PowerShell modülleri doğru sürümünü yükler.
-
-Benzer şekilde, Python tabanlı bir uygulama oluşturmak için Python SDK'sı kullanıyorsanız, bir profil kullanabilirsiniz. SDK betiğinizde belirtilen kaynak sağlayıcıları için doğru modüllerini yükler.
-
-Bir geliştirici olarak çözümünüzü yazma odaklanabilirsiniz. Bir profili kodunuzu profili destekleyen tüm Bulutlar arasında çalışacağını bilerek kullanabilirsiniz.
+Bir geliştirici olarak çözümünüzü yazma odaklanabilirsiniz. Araştırma hangi API sürümleri, kaynak sağlayıcısı yerine ve hangi bulut çalışır birlikte, bir profili kullanın ve kodunuzu bu profili destekleyen tüm Bulutlar arasında çalıştığını bilmeniz.
 
 ## <a name="api-profile-code-samples"></a>API profili kod örnekleri
 
@@ -90,6 +85,8 @@ Azure yığın belirli API sürümü profili kullanmak için ortam yapılandırm
 Git SDK profil farklı Hizmetleri farklı sürümlerini farklı kaynak türleriyle birleşimidir. profilleri profiller altında kullanılabilir / yoluyla kendi sürümünde **YYYY-AA-GG** biçimi. Bilgi için bkz: [Git için kullanım API sürümü profilleri](azure-stack-version-profiles-go.md).
 - **Ruby**  
 Ruby SDK'sı için Azure yığın Resource Manager yapı ve altyapınızı yönetmenize yardımcı olan araçlar sağlar. Kaynak sağlayıcıları SDK işlem, sanal ağlar ve depolama ile Söyleniş dil içerir. Bilgi için bkz: [Ruby sürüm profilleriyle API kullanın](azure-stack-version-profiles-ruby.md)
+- **Python**  
+- Python SDK'sı Azure yığını ve genel Azure gibi farklı bulut platformları hedeflemesi için API sürümü profillerini destekler. Karma bulut çözümleri oluşturma API profillerini kullanabilirsiniz. Bilgi için bkz: [Python sürümü profilleriyle API kullanın](azure-stack-version-profiles-python.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

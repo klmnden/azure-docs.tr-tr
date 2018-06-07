@@ -3,16 +3,17 @@ title: 'Azure Analysis Services öğreticisi - 9. Ders: Hiyerarşi oluşturma | 
 description: Sekmeli modelde hiyerarşileri oluşturmayı açıklar.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bb32736e5837c939b696e131746f9af2b9340acb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c29036c9cdcf39b579782070191c586a8442938d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599652"
 ---
 # <a name="create-hierarchies"></a>Hiyerarşi oluşturma
 

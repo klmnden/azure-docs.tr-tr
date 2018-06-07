@@ -3,26 +3,27 @@ title: Veri modeli uyumluluk düzeyi Azure Analysis Services | Microsoft Docs
 description: Tablo veri modeline uyumluluk düzeyi anlama.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 231a7ea42560aac3fba0ccf27e27123320f219a3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: d68d544a66448fbbf193ff53fa43e179b1edb706
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602076"
 ---
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services tablolu modeller için uyumluluk düzeyi
 
-*Uyumluluk düzeyi* Analysis Services altyapısı sürüm özgü davranışlarının başvuruyor. Uyumluluk düzeyini değişiklikler genellikle ana SQL Server sürümleri ile çakıştığı. Bu değişiklikler, Azure Analysis Services'ı, her iki platform arasında eşliği sağlamak da uygulanır. Uyumluluk düzeyi değişiklikleri tablo Modellerinizi kullanılabilir özellikler de etkiler. Örneğin, DirectQuery ve tablo nesne meta verilerini uyumluluk düzeyine bağlı olarak farklı uygulamaları vardır. 
+*Uyumluluk düzeyi* Analysis Services altyapısı sürüm özgü davranışlarının başvuruyor. Uyumluluk düzeyini değişiklikler genellikle ana SQL Server sürümleri ile çakıştığı. Bu değişiklikler, Azure Analysis Services'ı, her iki platform arasında eşliği sağlamak da uygulanır. Uyumluluk düzeyi, ayrıca, tablolu modeller etkisi özellikler değiştirir. Örneğin, DirectQuery ve tablo nesne meta verilerini uyumluluk düzeyine bağlı olarak farklı uygulamaları vardır. Uyumluluk düzeyi tablolu modeli projesi, Visual Studio (SSDT) belirtildi. İçinde oluşturulan ve Power BI masaüstünden alınan tablolu modeller 1400 uyumluluk yalnızca düzeyindedir.
 
-Azure Analysis Services tablolu modelleri 1200 ve 1400 uyumluluk düzeylerinde destekler.
+Azure Analysis Services tablolu modelleri 1200 ve 1400 uyumluluk düzeylerinde destekler. 
 
 Son uyumluluk düzeyini 1400 ' dir. Bu düzey, SQL Server 2017 Analysis Services ile örtüşür. 1400 uyumluluk düzeyi önemli özellikleri şunlardır:
 
-*  Veri bağlantısı ve tablolu modeller içe için yeni altyapı ZEL API'ları ve TMSL scripting desteği. Bu yeni özellik, Azure Blob Depolama alanı gibi ek veri kaynaklarını desteğini etkinleştirir.
+*  Veri bağlantısını ve içeri aktarma için yeni özellikler ZEL API'ları ve TMSL komut dosyası çalıştırma desteği. 
 *  Veri dönüştürme ve Veri Al ve M ifadeler kullanarak veri karma özellikleri.
 *  Ölçüler bir DAX ifadesi ayrıntı satırları özelliğiyle destekler. Bu özellik toplanan raporundan ayrıntılı veri aşağıya doğru incelemek için Microsoft Excel gibi istemci araçlar sağlar. Örneğin, kullanıcıların bir bölge ve ay için toplam satış görüntülediğinizde ilişkili sipariş ayrıntılarını görüntüleyebilirsiniz. 
 *  Nesne düzeyinde güvenlik içerdikleri verileri yanı sıra tablo ve sütun adları için.

@@ -17,11 +17,12 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: db466a3ae416c47f86bb66b3bb8ba4bcd7741f5f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 892cf2cfc93c86b9196000d94f976407156ec248
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594287"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 ve OAuth 2.0 istemci kimlik bilgileri akışının
 Kullanabileceğiniz [OAuth 2.0 istemci kimlik bilgileri vermenizi](http://tools.ietf.org/html/rfc6749#section-4.4) olarak da adlandırılan RFC 6749 içinde belirtilen *iki bacaklı OAuth*, uygulamanın kimliğini kullanarak web bulunan kaynaklara erişmek için. Yaygın olarak grant bu tür bir kullanıcıyla hemen etkileşimi olmadan arka planda çalıştırılmalıdır server sunucusu etkileşimleri için kullanılır. Bu tür uygulamalar genellikle denir *deamon'lar* veya *hizmet hesapları*.
@@ -62,7 +63,7 @@ Uygulama izinlerini uygulamanızda kullanmak için sonraki bölümlerde aşağı
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Uygulama kayıt Portalı'nda izinleri iste
 1. Uygulamanızda gidin [uygulama kayıt portalı](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList), veya [bir uygulama oluşturmak](active-directory-v2-app-registration.md), henüz yapmadıysanız. Uygulamanızı oluşturduğunuzda en az bir uygulama gizli anahtarı kullanmanız gerekir.
-2. Bulun **Mcrosoft grafik izinleri** bölümünde ve ardından ekleyin **uygulama izinleri** , uygulamanızı gerektirir.
+2. Bulun **Microsoft Graph izinleri** bölümünde ve ardından ekleyin **uygulama izinleri** , uygulamanızı gerektirir.
 3. **Kaydet** uygulama kaydı.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Önerilir: kullanıcı uygulamanızda oturum

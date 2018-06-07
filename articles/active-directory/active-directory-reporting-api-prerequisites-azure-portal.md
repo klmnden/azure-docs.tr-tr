@@ -3,7 +3,7 @@ title: Azure Active Directory'ı Raporlama API'si erişmek için Önkoşullar | 
 description: Azure AD raporlama API'si erişmek için önkoşullar hakkında bilgi edinin
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252
@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 05/07/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ab05907f1f23c3856b41a941c1b95992ed5a79a4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a38447150dd283ff21a852690cfd48477472f7b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588769"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory'ı Raporlama API'si erişmek için Önkoşullar
 
-[Azure Active API'leri raporlama Directory (Azure AD)](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview) verilere bir dizi REST tabanlı API'ler aracılığıyla programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
+[Azure Active Directory (Azure AD) raporlama API'leri](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview), bir dizi REST tabanlı API aracılığıyla verilere programlı erişim sağlar. Çeşitli programlama dilleri ve araçlarından bu API'leri çağırabilirsiniz.
 
 Raporlama API kullandığı [OAuth](https://msdn.microsoft.com/library/azure/dn645545.aspx) web API'leri erişim yetkisi vermek için.
 
@@ -31,7 +33,7 @@ Raporlama API erişiminizi hazırlamak için aktarmanız gerekir:
 
 1. Rolleri Ata
 2. Bir uygulamayı kaydetme
-3. İzin ver
+3. İzinleri verme
 4. Yapılandırma ayarlarını toplayın
 
 
@@ -87,7 +89,7 @@ Azure AD raporlama API'si erişmek için dizininize yapılandırmak için Azure 
     d. **Oluştur**’a tıklayın. 
 
 
-## <a name="grant-permissions"></a>İzin ver 
+## <a name="grant-permissions"></a>İzinleri verme 
 
 Erişmek istediğiniz API bağlı olarak, uygulamanızı aşağıdaki izinler gerekir:  
 
@@ -230,7 +232,7 @@ Uygulamanızın istemci parolası mı almak için yeni bir anahtar oluşturun ve
 
 - [Azure Active Directory'ı Raporlama API'si ile sertifikaları kullanarak veri almak](active-directory-reporting-api-with-certificates.md).
 
-- [Bir ilk izlenim raporlama API'ları alma](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+- [Raporlama API'leriyle ilgili ilk izlenim elde edin](active-directory-reporting-api-getting-started-azure-portal.md#explore)
 
-- [Kendi çözüm oluşturma](active-directory-reporting-api-getting-started-azure-portal.md#customize)
+- [Kendi çözümünüzü oluşturun](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

@@ -9,17 +9,18 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bf5a3a1dc67752e3f911d07f23c7b408e6d38c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c1ac698a1774a7a6242506ec65193434bb81cc25
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598778"
 ---
 # <a name="test-azure-automation-run-as-account-authentication"></a>Azure Otomasyonu Farklı Çalıştır hesabı kimlik doğrulamasını test etme
 Bir Otomasyon hesabı başarıyla oluşturulduktan sonra, yeni oluşturduğunuz veya güncelleştirdiğiniz Azure Farklı Çalıştır hesabını kullanarak Azure Resource Manager veya Azure klasik dağıtımında kimlik doğrulamasını başarıyla yapabildiğinizi onaylamak üzere basit bir test gerçekleştirebilirsiniz.    
 
 ## <a name="automation-run-as-authentication"></a>Otomasyon Farklı Çalıştır kimlik doğrulaması
-Aşağıdaki örnek kodları Farklı Çalıştır hesabını kullanarak kimlik doğrulamayı denetlemek için bir [PowerShell runbook’u oluşturmak](automation-creating-importing-runbook.md) ve özel runbook’larınızda Otomasyon hesabınızda kimlik doğrulamak ve Resource Manager kaynaklarınızı yönetmek için kullanabilirsiniz.   
+Aşağıdaki örnek kodları Farklı Çalıştır hesabını kullanarak kimlik doğrulamayı denetlemek için bir [PowerShell runbook’u oluşturmak](automation-creating-importing-runbook.md) ve özel runbook’larınızda Otomasyon hesabınızda kimlik doğrulamak ve Resource Manager kaynaklarınızı yönetmek için kullanabilirsiniz.
 
     $connectionName = "AzureRunAsConnection"
     try
@@ -60,6 +61,9 @@ Aşağıdaki örnek kodları Farklı Çalıştır hesabını kullanarak kimlik d
     } 
 
 Kimlik doğrulaması için kullanılan cmdlet dikkat edin runbook'taki - **Connect-AzureRmAccount**, kullanan *ServicePrincipalCertificate* parametre kümesi.  Kimlik bilgilerini değil, hizmet asıl sertifikasını kullanarak kimlik doğrulamasını yapar.  
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount** için diğer ad sunulmuştur **Connect-AzureRMAccount**. görmüyorsanız, **Connect-AzureRMAccount**, kullanabileceğiniz **Add-AzureRmAccount**, ya da Otomasyon hesabınızda modüllerinizi güncelleştirebilirsiniz.
 
 Olduğunda, [runbook'a](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) , farklı çalıştır hesabınızı doğrulamak için bir [runbook işi](automation-runbook-execution.md) oluşturulur, iş sayfası görüntülenir ve iş durumu görüntülenir **iş özeti** döşeme. İş durumu, bulutta bir runbook çalışanının kullanılabilir hale gelmesinin beklendiğini gösteren şekilde *Sırada* olarak başlar. Ardından, bir çalışan işi talep ettiğinde *Başlatılıyor* olarak ve runbook gerçekten çalışmaya başladığında *Çalışıyor* olarak değiştirilir.  Runbook işi tamamlandığında **Tamamlandı** durumunu görmeniz gerekir.
 

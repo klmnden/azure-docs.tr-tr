@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 66843a5dda9f7b31b2b4c79df895eaff904513e6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595589"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Kubernetes Pano Azure Kubernetes hizmet (AKS)
 
@@ -37,7 +38,7 @@ Bu komut, geliştirme sisteminizde Kubernetes API arasındaki bir proxy oluştur
 
 ## <a name="run-an-application"></a>Bir uygulamayı çalıştırma
 
-Kubernetes panosunda tıklatın **oluşturma** üst sağ penceresinde düğmesini. Dağıtım adını verin `nginx` ve girin `nginx:latest` görüntüleri adı. Altında **hizmet**seçin **dış** ve girin `80` bağlantı noktası ve hedef bağlantı noktası.
+Kubernetes panosunda tıklatın **oluşturma** üst sağ penceresinde düğmesini. Dağıtım adını verin `nginx` ve girin `nginx:latest` kapsayıcı görüntü adı için. Altında **hizmet**seçin **dış** ve girin `80` bağlantı noktası ve hedef bağlantı noktası.
 
 Hazır olduğunuzda tıklatın **dağıtma** dağıtımı oluşturun.
 

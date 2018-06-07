@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5c37a693e1594f9afe40effba45d7b05a68fd49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 152cf0c8504205e09b075714a58811d240ab431c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598309"
 ---
 # <a name="restore-an-app-in-azure"></a>Uygulamanızı Azure’a geri yükleme
-Bu makalede, bir uygulamada geri yükleme gösterilmektedir [Azure App Service](../app-service/app-service-web-overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure yedekleme](web-sites-backup.md)). Uygulamanızı kendi bağlantılı veritabanı isteğe bağlı bir önceki durumuna geri yüklemek veya özgün uygulamanızın yedekleri birini temel alan yeni bir uygulama oluşturun. Azure uygulama hizmeti, yedekleme ve geri yükleme için aşağıdaki veritabanlarını destekler:
+Bu makalede, bir uygulamada geri yükleme gösterilmektedir [Azure App Service](../app-service/app-service-web-overview.md) önceden yedeklediğiniz (bkz [uygulamanızı Azure yedekleme](web-sites-backup.md)). Uygulamanızı isteğe bağlı olarak bağlı veritabanlarıyla birlikte önceki bir duruma geri yükleyebilir veya özgün uygulamanızın bir yedeğini temel alan yeni bir uygulama oluşturabilirsiniz. Azure uygulama hizmeti, yedekleme ve geri yükleme için aşağıdaki veritabanlarını destekler:
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Azure veritabanı MySQL için)](https://azure.microsoft.com/services/mysql)
+- [MySQL için Azure Veritabanı](https://azure.microsoft.com/services/mysql)
 - [PostgreSQL için Azure Veritabanı](https://azure.microsoft.com/services/postgres)
 - [Uygulama MySQL](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
 
@@ -51,7 +52,7 @@ Yedeklerden geri yükleme, çalışan uygulamalar için kullanılabilir **standa
    > 
    > 
    
-    Seçebileceğiniz **var olan bir uygulamayı** aynı kaynak kaydının gruptaki başka bir uygulama için uygulama yedeklemeyi geri yükleme. Bu seçeneği kullanmadan önce zaten başka bir uygulama bir uygulama yedekleme tanımlanan veritabanı yapılandırması yansıtma ile kaynak grubu oluşturmuş olmalıdır. Ayrıca bir **yeni** içeriğinize geri yüklemek için uygulama.
+    Seçebileceğiniz **var olan bir uygulamayı** aynı kaynak grubunu başka bir uygulama için uygulama yedeklemeyi geri yükleme. Bu seçeneği kullanmadan önce zaten başka bir uygulama bir uygulama yedekleme tanımlanan veritabanı yapılandırması yansıtma ile kaynak grubu oluşturmuş olmalıdır. Ayrıca bir **yeni** içeriğinize geri yüklemek için uygulama.
 
 4. **Tamam**’a tıklayın.
 

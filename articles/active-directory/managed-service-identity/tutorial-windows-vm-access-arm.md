@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 1b23101de9a84da487e73558366cc574a22e849d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8abd4f0f597cf255be3c1bc2fdd78a121cfb6517
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594994"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Kaynak Yöneticisi'ne erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -117,9 +118,10 @@ Kullanmanız gerekecektir **PowerShell** bu bölümünde.  Yüklenmemiş varsa y
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}}
     ```
 
-## <a name="related-content"></a>İlgili içerik
+## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
+Bu öğreticide, bir kullanıcı kimliği atanır oluşturun ve Azure Resource Manager API erişmek için Azure sanal makinesinde kullanıma öğrendiniz.  Azure Resource Manager bakın hakkında daha fazla bilgi için:
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
 

@@ -1,25 +1,22 @@
 ---
-title: "Office 365 Outlook Bağlayıcısı Logic Apps içinde ekleme | Microsoft Docs"
-description: "Office 365 ile etkileşimi etkinleştirmek için Office 365 Bağlayıcısı ile mantıksal uygulamalar oluşturun. Örneğin: oluşturma, düzenleme ve kişiler ve takvim öğeleri güncelleştirme."
-services: 
-documentationcenter: 
+title: Office 365 Outlook - Azure mantıksal uygulamaları bağlanma | Microsoft Docs
+description: E-posta, kişiler ve Takvim Office 365 REST API'leri ve Azure Logic Apps ile yönetme
 author: ecfan
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: cfowler
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: d455f4d9081c1fd448a0d0524c209be305e203be
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609979"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook Bağlayıcısı ile çalışmaya başlama
 Office 365 Outlook Bağlayıcısı, Office 365'te Outlook ile etkileşim sağlar. Bu Bağlayıcıyı oluşturmak, düzenlemek ve kişiler ve takvim öğeleri, güncelleştirme ve ayrıca almak, Gönder ve e-posta için için kullanın.

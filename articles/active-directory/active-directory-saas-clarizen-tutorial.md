@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2017
+ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 8af9e7023142077fdeed0262e5f39921b158a14f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a77ac397dfca1be948b6d0c05a50c23c0cd7879c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Öğretici: Azure Active Directory Tümleştirme Clarizen ile
 
@@ -185,6 +186,11 @@ Azure portalında Britta Simon adlı bir test kullanıcısı oluşturun.
     d. **Oluştur**’a tıklayın.
 
 ### <a name="create-a-clarizen-test-user"></a>Clarizen test kullanıcısı oluşturma
+
+Bu bölümün amacı Britta Simon içinde Clarizen adlı bir kullanıcı oluşturmaktır. Clarizen otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-clarizen-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
+
+**Kullanıcı el ile oluşturmanız gerekiyorsa, lütfen şu adımları gerçekleştirin:**
+
 Azure AD için Clarizen oturum açmalarını etkinleştirmek için kullanıcı hesapları hazırlamanız gerekir. Clarizen söz konusu olduğunda, sağlama bir el ile bir görevdir.
 
 1. Clarizen şirket sitenize yönetici olarak oturum açın.
@@ -244,6 +250,7 @@ Erişim paneli Clarizen parçasında tıklattığınızda, otomatik olarak Clari
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 

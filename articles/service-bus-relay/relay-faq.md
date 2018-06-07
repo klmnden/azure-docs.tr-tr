@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: sethm
-ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1795c1ec0b4129e3c99fff3fc893148e191ce83e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641501"
 ---
 # <a name="azure-relay-faqs"></a>Azure geçiş SSS
 
-Bu makalede hakkında bazı sık sorulan sorular (SSS) yanıtları [Azure geçiş](https://azure.microsoft.com/services/service-bus/). Genel Azure fiyatlandırma ve destek bilgileri için bkz: [Azure destek SSS](https://azure.microsoft.com/en-in/support/faq/).
+Bu makalede hakkında bazı sık sorulan sorular (SSS) yanıtları [Azure geçiş](https://azure.microsoft.com/services/service-bus/). Genel Azure fiyatlandırma ve destek bilgileri için bkz: [Azure destek SSS](https://azure.microsoft.com/support/faq/).
 
 ## <a name="general-questions"></a>Genel sorular
 ### <a name="what-is-azure-relay"></a>Azure Geçiş nedir?
@@ -35,7 +36,7 @@ A [ad alanı](relay-create-namespace-portal.md) uygulamanızdaki adresi geçiş 
 Daha önce adlandırılmış Service Bus geçişi hizmetini şimdi adlı [WCF geçiş](relay-wcf-dotnet-get-started.md). Bu hizmet normal şekilde kullanmaya devam edebilirsiniz. Karma bağlantılar, Azure BizTalk Services transplanted bir hizmeti güncelleştirilmiş bir sürümünü özelliğidir. WCF geçiş ve karma bağlantılar desteklenmeye devam edilir.
 
 ## <a name="pricing"></a>Fiyatlandırma
-Bu bölümde fiyatlandırma yapısına geçiş hakkında sık sorulan bazı sorular yanıtlanmaktadır. Ayrıca bkz [Azure desteği ile ilgili SSS](http://go.microsoft.com/fwlink/?LinkID=185083) genel Azure fiyatlandırma bilgileri için. Geçiş fiyatlandırma hakkında tam bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları][Pricing overview].
+Bu bölümde fiyatlandırma yapısına geçiş hakkında sık sorulan bazı sorular yanıtlanmaktadır. Ayrıca bkz [Azure desteği ile ilgili SSS](https://azure.microsoft.com/support/faq/) genel Azure fiyatlandırma bilgileri için. Geçiş fiyatlandırma hakkında tam bilgi için bkz: [Service Bus fiyatlandırma ayrıntıları][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Karma bağlantılar ve WCF geçiş için nasıl ücret?
 Geçiş fiyatlandırma hakkında tam bilgi için bkz: [karma bağlantılar ve WCF geçişler] [ Pricing overview] fiyatlandırma ayrıntıları sayfası Service Bus üzerinde tablo. Bu sayfada not ettiğiniz fiyatlar yanı sıra, ilişkili veri aktarımları, uygulamanızın sağlanan veri merkezi dışında çıkışı için ücretlendirilirsiniz.
@@ -81,8 +82,8 @@ Kullanarak açık geçişler **netTCPRelay** WCF bağlama tek bir ileti olarak d
 | Bir geçiş üzerinde eşzamanlı dinleyicileri |Varlık |Sonraki istekleri için ek bağlantıları reddedilir ve arama kodun bir özel durum aldı. |25 |
 | Bir hizmet ad alanındaki tüm geçiş uç noktaları başına eşzamanlı geçiş bağlantıları |Ad Alanı |- |5.000 |
 | Hizmet ad alanı başına geçiş uç noktaları |Ad Alanı |- |10,000 |
-| İleti boyutu için [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) ve [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) geçişleri |Ad Alanı |Bu kotalar aşan gelen iletileri reddedilir ve arama kodun bir özel durum aldı. |64 KB |
-| İleti boyutu için [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) ve [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) geçişleri |Ad Alanı |İleti boyutu sınırlama yoktur. |Sınırsız |
+| İleti boyutu için [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) ve [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) geçişleri |Ad Alanı |Bu kotalar aşan gelen iletileri reddedilir ve arama kodun bir özel durum aldı. |64 KB |
+| İleti boyutu için [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) ve [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) geçişleri |Ad Alanı |İleti boyutu sınırlama yoktur. |Sınırsız |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>Geçiş tüm kullanım kotalarını var mı?
 Varsayılan olarak, tüm bulut hizmeti için tüm müşteri'nin abonelikler arasında hesaplanan bir toplama aylık kullanım kotası Microsoft ayarlar. Bazen gereksinimlerinizi bu sınırları aşabilir olduğunu anlayın. Biz gereksinimlerinizi anlamak ve bu sınırları uygun şekilde ayarlamak için Müşteri Hizmetleri herhangi bir zamanda başvurabilirsiniz. Hizmet veri yolu için toplam kullanım kotalarını aşağıdaki gibidir:
@@ -108,7 +109,7 @@ Azure geçiş ad alanları bir abonelikten başka bir aboneliği taşımak için
 
 Bir ad alanı başka bir abonelik için bir Azure aboneliğinden diğerine taşımak için PowerShell kullanmak için aşağıdaki komut dizisi kullanın. Bu işlemi yürütmek için ad alanı zaten etkin olması gerekir ve PowerShell komutları çalıştıran kullanıcı bir yönetici kullanıcı kaynak ve hedef abonelikler üzerinde olmalıdır.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -136,4 +137,4 @@ Evet. Geçiş istemcisi, tam etki alanı adlarını kullanarak Azure geçiş hiz
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

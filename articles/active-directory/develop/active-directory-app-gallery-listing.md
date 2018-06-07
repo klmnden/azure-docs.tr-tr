@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: fe2133e321b90f8ada91f95ecc2c556631a8b41b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 22833851b85427dd8e9583f9c783fd55b9d31414
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594100"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory uygulama galerisinde uygulamanızı listeleme
 
@@ -33,20 +35,19 @@ Azure Active Directory (Azure AD), bir bulut tabanlı kimlik hizmetidir. [Azure 
 
 *  Müşteri olası en iyi tek oturum açma deneyimi bulun.
 
-*  Uygulamasının basit ve en az bir yapılandırmadır. 
+*  Uygulamasının basit ve en az bir yapılandırmadır.
 
 *  Hızlı arama galerisinde uygulamanızı bulur.
 
-*  , Basic, ücretsiz ve Azure AD Premium müşteriler tüm bu tümleştirme özelliğini kullanabilirsiniz. 
+*  , Basic, ücretsiz ve Azure AD Premium müşteriler tüm bu tümleştirme özelliğini kullanabilirsiniz.
 
-*  Karşılıklı müşteriler yapılandırma hakkında adım adım öğretici alın. 
+*  Karşılıklı müşteriler yapılandırma hakkında adım adım öğretici alın.
 
 *  SCIM'yi kullanan müşteriler, aynı uygulama için sağlama kullanabilirsiniz.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>Önkoşullar: Uygulama Federasyon Protokolü
 
-Bir uygulamayı Azure AD uygulama galerisinde listelemek için ilk Azure AD tarafından desteklenen aşağıdaki Federasyon protokollerden birini yapması gerekir. Hüküm ve koşulları Azure AD uygulama galerisinde, buradan okuyun. 
+Uygulamanın Azure AD uygulama galerisinde listelemek için ilk Azure AD tarafından desteklenen aşağıdaki Federasyon protokollerden birini uygulamak ve Azure AD uygulama Galerisi'ni hüküm ve koşulları kabul etmesi gerekir. Hüküm ve Azure AD uygulama Galeriden koşullarını okuyun [burada](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
 *   **Openıd Connect**: çok kiracılı uygulama Azure AD oluşturma ve uygulama [Azure AD onay framework](active-directory-integrating-applications.md#overview-of-the-consent-framework) uygulamanız için. Herhangi bir müşteriye uygulama onay ve böylece ortak bir uç oturum açma isteği gönderin. Kiracı kimliği ve belirteçte alınan kullanıcı UPN göre kullanıcı erişimi denetleyebilirsiniz. Uygulamanızı Azure AD ile tümleştirmek için izleyin [geliştiricilerinin yönergeleri](active-directory-authentication-scenarios.md).
 
@@ -64,7 +65,7 @@ Bir uygulamayı Azure AD uygulama galerisinde listelemek için ilk Azure AD tara
 
     * Erişim ile ilgili herhangi bir sorun varsa, başvurun [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../active-directory-appssoaccess-whatis.md). SSO, parola tabanlı ya da gibi kullanıcı erişimi ve Kimlik Federasyonu Desteği web uygulamalarına parolaları yönetmek vaulting, parola sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak gereken senaryoları için de yararlıdır.
+*   **Parola SSO**: yapılandırmak için bir HTML oturum açma sayfasına sahip bir web uygulaması oluşturma [parola tabanlı çoklu oturum açma](../manage-apps/what-is-single-sign-on.md). SSO, parola tabanlı ya da gibi kullanıcı erişimi ve Kimlik Federasyonu Desteği web uygulamalarına parolaları yönetmek vaulting, parola sağlar. Birkaç kullanıcı, kuruluşunuzun sosyal medya uygulaması hesaplarına gibi tek bir hesap paylaşmak gereken senaryoları için de yararlıdır.
 
     ![Galeri parola SSO uygulamasına listeleme, zaman çizelgesi](./media/active-directory-app-gallery-listing/passwordsso.png)
 

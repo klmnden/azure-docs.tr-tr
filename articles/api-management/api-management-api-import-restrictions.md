@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598479"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API içeri aktarma kısıtlamaları ve bilinen sorunlar
 ## <a name="about-this-list"></a>Bu liste hakkında
 Bir API içeri aktarırken, bazı kısıtlamalar gelen veya başarıyla içeri aktarmadan önce düzeltilinceye gereken sorunları tanımlamak. Bu makale belgeleri bunlar, organize API tarafından alma biçimi.
 
-## <a name="open-api"> </a>Açık API/Swagger
-Açık API belgenizi alma hata alıyorsanız, doğrulandı, - ya da Tasarımcısı'nı kullanarak Azure portalında (Tasarım - ön uç - API Belirtimi Düzenleyiciyi Aç), emin olun veya bir üçüncü taraf aracı gibi <a href="http://www.swagger.io">Swagger Editor</a>.
+## <a name="open-api"> </a>OpenAPI/Swagger
+OpenAPI belgenizi alma hata alıyorsanız, doğrulandı, - ya da Tasarımcısı'nı kullanarak Azure portalında (Tasarım - ön uç - OpenAPI belirtimi Düzenleyicisi), emin olun veya bir üçüncü taraf aracı gibi <a href="http://www.swagger.io">Swagger Editor</a>.
 
 * Yalnızca JSON biçimine OpenAPI için desteklenir.
+* Gerekli Parametreler yol ve sorgu arasında benzersiz adlara sahip olmalıdır. (OpenAPI bir parametre adı yalnızca bir konum içinde örneğin yolu, sorgu, üstbilgi benzersiz olması gerekir.  Ancak, API Management'te biz işlemlerinin (hangi OpenAPI desteklemez) yol ve sorgu parametreleri tarafından ayrılmış izin verin. Bu nedenle biz parametre adları tüm URL şablonu içinde benzersiz olması gerekir.)
 * Kullanarak başvurulan şemaları **$ref** özellikleri diğer içeremez **$ref** özellikleri.
 * **$ref** işaretçileri dış dosyalar başvuruda bulunamaz.
 * **x-ms-yolları** ve **x sunucuları** yalnızca desteklenen uzantıları.

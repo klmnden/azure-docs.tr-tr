@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/22/2018
+ms.component: hybrid
 ms.author: davidste
-ms.openlocfilehash: e46a816b9a0d66991b8f619135b657a0d51ba395
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 11794739974a0efdd93a9c45cd18c6d959b1f7b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592682"
 ---
 # <a name="connector-version-release-history"></a>Bağlayıcı Sürümü Yayınlama Geçmişi
 Forefront Identity Manager (FIM) ve Microsoft Identity Manager (MIM) bağlayıcıları sık sık güncelleştirilir.
@@ -32,11 +34,11 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 İlgili bağlantılar:
 
 * [En son bağlayıcılar indirin](http://go.microsoft.com/fwlink/?LinkId=717495)
-* [Genel LDAP Bağlayıcısı](active-directory-aadconnectsync-connector-genericldap.md) başvuru belgelerini
-* [Genel SQL bağlayıcı](active-directory-aadconnectsync-connector-genericsql.md) başvuru belgelerini
+* [Genel LDAP Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) başvuru belgelerini
+* [Genel SQL bağlayıcı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) başvuru belgelerini
 * [Web Hizmetleri Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) başvuru belgelerini
-* [PowerShell Bağlayıcısı](active-directory-aadconnectsync-connector-powershell.md) başvuru belgelerini
-* [Lotus Domino Bağlayıcısı](active-directory-aadconnectsync-connector-domino.md) başvuru belgelerini
+* [PowerShell Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell) başvuru belgelerini
+* [Lotus Domino Bağlayıcısı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-domino) başvuru belgelerini
 
 
 ## <a name="118300"></a>1.1.830.0
@@ -117,7 +119,7 @@ Bu konuda çıkarılan bağlayıcılarının tüm sürümlerini listeler.
 
 * Genel SQL:
   * **Senaryo: Gerçekleştirilmedi yeniden tasarlanmıştır:** "*" özelliği
-  * **Çözüm açıklaması:** değiştirilmiş bir yaklaşım [birden çok değerli başvuru öznitelikleri işleme](active-directory-aadconnectsync-connector-genericsql.md).
+  * **Çözüm açıklaması:** değiştirilmiş bir yaklaşım [birden çok değerli başvuru öznitelikleri işleme](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar:
@@ -194,7 +196,7 @@ LDAP MA. Bunlar yalnızca nesneleri RootDSE bölümünden gösterdi.
 Yayımlanma tarihi: 2016 Mart
 
 **Yeni bir bağlayıcı**  
-İlk sürümü [Genel SQL bağlayıcı](active-directory-aadconnectsync-connector-genericsql.md).
+İlk sürümü [Genel SQL bağlayıcı](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql).
 
 **Yeni Özellikler:**
 

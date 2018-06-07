@@ -1,26 +1,22 @@
 ---
-title: 'İlk Bakış: Azure sanal makinelerini kurtarma hizmetleri kasasıyla koruma | Microsoft Docs'
+title: 'İlk bakış: Azure sanal makinelerini bir kurtarma hizmetleri kasasıyla koruma'
 description: Sanal makineleri bir kurtarma hizmetleri kasasıyla koruyun. Verilerinizi korumak için, Resource Manager tarafından dağıtılan, Klasik modunda dağıtılan VM'lerin, Premium Depolama VM'lerinin, Şifrelenmiş VM’lerin ve Yönetilen Diskler üzerindeki VM’lerin yedeklemelerini kullanın. Bir kurtarma hizmetleri kasası oluşturun ve kaydedin. Azure'da VM'leri kaydedin, ilke oluşturun ve VM'leri koruyun.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keyword: backups; vm backup
-ms.assetid: 45e773d6-c91f-4501-8876-ae57db517cd1
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/18/2018
-ms.author: markgal;jimpark;sogup
+ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 701accb107931bd1f4472d8999102fecb4fd6373
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+keywords: yedeklemeleri; VM yedekleme
+ms.openlocfilehash: feae4ac83b637588fe0979a82ce05a56c2d339ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606044"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Azure sanal makineleri kurtarma Hizmetleri kasasına yedekleme
 

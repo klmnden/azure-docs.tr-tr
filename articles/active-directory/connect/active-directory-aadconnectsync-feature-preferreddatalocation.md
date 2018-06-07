@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0020ed42baaa32fbc5ae2d62b37558e491842d67
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5eae173e02c92bd43faaa9533ce29489d40f1389
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592934"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect eşitleme: Office 365 kaynaklar için tercih edilen veri konumu yapılandırın
 Bu konunun amacı, Azure Active Directory (Azure AD) Connect eşitleme öznitelik tercih edilen veri konumu için yapılandırma konusunda size yol sağlamaktır. Birisi çok coğrafi özellikleri Office 365'te kullandığında, kullanıcının Office 365 verilerin coğrafi konumunu belirtmek için bu öznitelik kullanın. (Koşulları *bölge* ve *coğrafi* birbirlerinin yerine kullanılır.)

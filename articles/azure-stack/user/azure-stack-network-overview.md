@@ -1,34 +1,45 @@
 ---
-title: Azure yığın ağ giriş
+title: Azure yığın ağ giriş | Microsoft Docs
 description: Azure yığın ağ oluşturma hakkında bilgi edinin
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 04/09/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: 6d08d11a3768b2db909920058dcb0b5a1fcb1534
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.reviewer: scottnap
+ms.openlocfilehash: ee94fd8a9dac17e4db180b05208df66f3d33b901
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604575"
 ---
-# <a name="introduction-to-azure-stack-networking"></a>Azure yığın ağ giriş
+# <a name="introduction-to-azure-stack-networking"></a>Azure Stack ağ iletişimine giriş
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
 Azure yığın birlikte veya ayrı olarak kullanılan ağ yeteneklerini çeşitli sağlar:
-- Azure yığın kaynakları arasında bağlantı: Azure kaynaklarında birlikte güvenli, özel bir sanal ağ içinde ve bulutta bağlanın.
-- Internet bağlantısı: Azure yığın kaynakları gelen ve giden Internet üzerinden iletişim kurar.
-- Şirket içi bağlantı: şirket içi ağ Internet üzerinden sanal özel ağ (VPN) üzerinden veya Azure yığınına ayrılmış bir bağlantı üzerinden Azure yığın kaynaklara bağlanmak.
-- Yük Dengeleme ve trafik yönü: aynı konumda sunucularına trafiği dengelemek ve farklı konumlarda sunucularına doğrudan trafik yük.
-- Güvenlik: ağ alt ağları veya tek tek sanal makineler (VM) arasındaki ağ trafiğini filtreleyin.
-- Tam Azure yığını ile şirket içi kaynakları arasında yönlendirilmesini denetlemesini veya Yönlendirme: varsayılan yönlendirme kullanın.
-- Yönetilebilirlik: izleme ve ağ kaynakları Azure yığın yönetme.
-- Dağıtım ve yapılandırma araçları: bir web tabanlı portal kullanmak ya da platformlar arası komut satırı araçları dağıtmak ve yapılandırmak için ağ kaynakları.
+
+- **Azure yığın kaynakları arasında bağlantı**  
+    Güvenli, özel bir sanal ağ içinde ve bulutta Azure kaynakları birbirine bağlayın.
+- **İnternet bağlantısı**  
+    Azure yığın kaynakları gelen ve giden Internet üzerinden iletişim kurar.
+- **Şirket içi bağlantı**  
+    Bir şirket içi ağ Internet üzerinden sanal özel ağ (VPN) üzerinden veya Azure yığınına ayrılmış bir bağlantı üzerinden Azure yığın kaynakları bağlayın.
+- **Yük Dengeleme ve trafik yönü**  
+    Aynı konumda sunucularına trafiği dengelemek ve doğrudan trafiği farklı konumlarda sunucularına yükleyin.
+- **Güvenlik**  
+    Ağ alt ağları veya tek tek sanal makineler (VM) arasındaki ağ trafiğini filtreleyin.
+- **Yönlendirme**  
+    Varsayılan yönlendirme kullanın veya Azure yığını ile şirket içi kaynakları arasında yönlendirme tam denetim.
+- **Yönetilebilirlik**  
+    İzleme ve ağ kaynakları Azure yığın yönetme.
+- **Dağıtım ve yapılandırma araçları**  
+    Ağ kaynaklarını yapılandırmak ve dağıtmak için web tabanlı portal veya platformlar arası komut satırı araçlarını kullanın.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* [Azure yığın ağ için ilgili önemli noktalar](azure-stack-network-differences.md)
 
+* [Azure yığın ağ için ilgili önemli noktalar](azure-stack-network-differences.md)

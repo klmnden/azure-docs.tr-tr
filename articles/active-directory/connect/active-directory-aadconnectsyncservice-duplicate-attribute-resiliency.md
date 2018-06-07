@@ -1,11 +1,11 @@
 ---
-title: "Kimlik eşitleme ve yinelenen öznitelik dayanıklılık | Microsoft Docs"
-description: "Azure AD Connect'i kullanarak dizin eşitleme sırasında UPN veya ProxyAddress çakışan nesneleri işlemek nasıl yeni davranışı."
+title: Kimlik eşitleme ve yinelenen öznitelik dayanıklılık | Microsoft Docs
+description: Azure AD Connect'i kullanarak dizin eşitleme sırasında UPN veya ProxyAddress çakışan nesneleri işlemek nasıl yeni davranışı.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
+ms.component: hybrid
 ms.author: markvi
-ms.openlocfilehash: 975abed469a78573553c0879b33181d2a58ec48c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: cfed9d32e919cc3c1b7b9c2a6ea5ddb31f2a8fb9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593217"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Kimlik eşitleme ve yinelenen öznitelik dayanıklılığı
 Yinelenen öznitelik dayanıklılık nedeni uyuşmazlık giderilecektir Azure Active Directory'de bir özelliktir **UserPrincipalName** ve **ProxyAddress** Microsoft'un eşitleme araçlardan birini çalıştırırken çakışıyor.
@@ -141,9 +143,9 @@ Bu bilinen sorunlar hiçbiri veri kaybı veya hizmet düşüşüne neden olur. B
 1. Özel öznitelik yapılandırmaları nesneleriyle karantinaya alınmış yinelenen öznitelikler aksine verme hataları almaya devam eder.  
    Örneğin:
    
-    a. Yeni kullanıcı AD UPN ile oluşturulur  **Joe@contoso.com**  ve ProxyAddress**smtp:Joe@contoso.com**
+    a. Yeni kullanıcı AD UPN ile oluşturulur **Joe@contoso.com** ve ProxyAddress **smtp:Joe@contoso.com**
    
-    b. Bu nesnenin özelliklerini ProxyAddress olduğu varolan bir grupla çakışma  **SMTP:Joe@contoso.com** .
+    b. Bu nesnenin özelliklerini ProxyAddress olduğu varolan bir grupla çakışma **SMTP:Joe@contoso.com**.
    
     c. Dışa aktarma, üzerine bir **ProxyAddress çakışma** hata karantinaya çakışma özniteliklere sahip yerine oluşur. Dayanıklılık özellik etkinleştirilmeden önce olabilirdi gibi işlemi her sonraki eşitleme döngüsü sırasında denenir.
 2. İki grup aynı SMTP adresi ile şirket içi oluşturulursa sağlama standart yinelenen ile ilk denemede başarısız **ProxyAddress** hata. Ancak, yinelenen değer düzgün sonraki eşitleme döngüsü sırasında karantinaya alınır.
@@ -157,16 +159,16 @@ Bu bilinen sorunlar hiçbiri veri kaybı veya hizmet düşüşüne neden olur. B
    
     b. **Kullanıcı B** sonraki ile yukarı senkronize girişiminde bulunuldu **UPN = User@contoso.com** .
    
-    c. **B kullanıcısının** UPN değiştirildi  **User1234@contoso.onmicrosoft.com**  ve  **User@contoso.com**  eklenen **DirSyncProvisioningErrors**.
+    c. **B kullanıcısının** UPN değiştirildi **User1234@contoso.onmicrosoft.com** ve **User@contoso.com** eklenen **DirSyncProvisioningErrors**.
    
-    d. İçin hata iletisini **kullanıcı B** bildiren **kullanıcısı** zaten  **User@contoso.com**  UPN, ancak gösterildiği gibi **kullanıcı B'nin** kendi görünen adı.
+    d. İçin hata iletisini **kullanıcı B** bildiren **kullanıcısı** zaten **User@contoso.com** UPN, ancak gösterildiği gibi **kullanıcı B'nin** kendi görünen adı.
 
 **Kimlik eşitleme hata raporu**:
 
 Bağlantı için *adımlar bu sorunu gidermek nasıl* yanlış:  
     ![Etkin kullanıcılar](./media/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency/6.png "etkin kullanıcılar")  
 
-İşaret etmelidir [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency).
+İşaret etmelidir [ https://aka.ms/duplicateattributeresiliency ](https://aka.ms/duplicateattributeresiliency).
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure AD Connect eşitleme](active-directory-aadconnectsync-whatis.md)

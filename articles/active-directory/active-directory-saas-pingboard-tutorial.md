@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 46d00fdcc535b85754eb2f805d2844e1526f1f86
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25777001907f705700d1c90e238d19a20242b50d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Öğretici: Azure Active Directory Tümleştirme Pingboard ile
 
@@ -65,7 +66,7 @@ Azure AD Pingboard tümleştirilmesi yapılandırmak için yönetilen SaaS uygul
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kuruluş uygulamaları][2]
-    
+
 3. Tıklatın **Ekle** iletişim kutusunun üst kısmında düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -101,7 +102,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2.  Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_samlbase.png)
 
 3. Üzerinde **Pingboard etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
@@ -118,12 +119,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
      İçinde **oturum açma URL'si** metin kutusuna, şu biçimi kullanarak URL'yi yazın: `https://<sub-domain>.pingboard.com/sign_in`
 
-    > [!NOTE] 
+    > [!NOTE]
     > Lütfen bu değerleri gerçek olmadığına dikkat edin. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Pingboard istemci destek ekibi](https://support.pingboard.com/) bu değerleri almak için.
 
 5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
 
-    ![Pingboard meta veri XML'i](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png) 
+    ![Pingboard meta veri XML'i](./media/active-directory-saas-pingboard-tutorial/tutorial_pingboard_certificate.png)
 
 6. Tıklatın **kaydetmek** düğmesi.
 
@@ -135,7 +136,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-pingboard-tutorial/Pingboard_integration.png)
 
-9.  Üzerinde **tümleştirmeler** sayfasında, Bul **"Azure Active Directory"** döşeme ve tıklatın.
+9. Üzerinde **tümleştirmeler** sayfasında, Bul **"Azure Active Directory"** döşeme ve tıklatın.
 
     ![Oturum açma Pingboard tek tümleştirme](./media/active-directory-saas-pingboard-tutorial/Pingboard_aad.png)
 
@@ -162,16 +163,16 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     ![Azure Active Directory düğmesi](./media/active-directory-saas-pingboard-tutorial/create_aaduser_01.png) 
 
 2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png) 
+
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-pingboard-tutorial/create_aaduser_02.png)
 
 3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
- 
+
     ![Ekle düğmesi](./media/active-directory-saas-pingboard-tutorial/create_aaduser_03.png) 
 
 4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png) 
+
+    ![Kullanıcı iletişim kutusu](./media/active-directory-saas-pingboard-tutorial/create_aaduser_04.png)
 
     a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
@@ -180,12 +181,12 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-pingboard-test-user"></a>Pingboard test kullanıcısı oluşturma
 
-Azure AD kullanıcıların Pingboard oturum etkinleştirmek için bunların Pingboard sağlanmalıdır. Pingboard için sağlama bir el ile bir görevdir.
+Bu bölümün amacı Britta Simon içinde Pingboard adlı bir kullanıcı oluşturmaktır. Pingboard otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-pingboard-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
-**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+**Kullanıcı el ile oluşturmanız gerekiyorsa, şu adımları gerçekleştirin:**
 
 1. Pingboard şirket sitenize yönetici olarak oturum açın.
 
@@ -204,13 +205,13 @@ Azure AD kullanıcıların Pingboard oturum etkinleştirmek için bunların Ping
     c. İçinde **iş unvanı** metin kutusuna, Britta Simon iş unvanı yazın.
 
     d. İçinde **konumu** açılan listesinde, Britta Simon konumunu seçin.
-    
-    e. **Ekle**'ye tıklayın.   
+
+    e. **Ekle**'ye tıklayın.
 
 4. Kullanıcı eklenmesi onaylamak için bir onay ekranı göründüğünde.
-    
+
     ![Onayla](./media/active-directory-saas-pingboard-tutorial/create_testuser_confirm.png)
-        
+
     > [!NOTE]
     > Azure Active Directory hesap sahibi bir e-posta alır ve bunu etkinleştirilmeden önce kendi hesabı onaylamak için bir bağlantı izler.
 
@@ -255,8 +256,7 @@ Erişim paneli Pingboard parçasında tıklattığınızda, otomatik olarak Ping
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-pingboard-provisioning-tutorial.md)
 
 <!--Image references-->
 

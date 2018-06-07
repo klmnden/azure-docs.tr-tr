@@ -17,11 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594131"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js web uygulamasına Başlarken
 Burada Passport kullanın:
@@ -61,6 +62,10 @@ De Bu öğretici sonunda tamamlanmış uygulama sağlanır.
 
 6. Azure AD kaydettikten sonra uygulamanızı bir benzersiz uygulama kimliği atar. Bu değer gereken aşağıdaki bölümlerde, bu nedenle uygulama sayfasından kopyalayın.
 7. Gelen **ayarları** -> **özellikleri** sayfasında uygulamanız için uygulama kimliği URI'si güncelleştirin. **Uygulama kimliği URI'si** uygulamanız için benzersiz bir tanımlayıcıdır. Kuralı biçim kullanmaktır `https://<tenant-domain>/<app-name>`, örneğin: `https://contoso.onmicrosoft.com/my-first-aad-app`.
+8. Gizli bir anahtar oluşturmak için 4 adımda izleyin [uygulama kimlik bilgilerini ya da web API'leri erişim izinleri eklemek için](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis).
+
+   > [!IMPORTANT]
+   > Uygulama anahtar değerini kopyalayın. Bu değer için `clientSecret`, için gereken **adım 3** aşağıda. 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>2. adım: dizininize Önkoşullar ekleme
 1. Komut satırından, zaten orada değilseniz kök klasörünüze yönelik dizinleri değiştirin ve ardından aşağıdaki komutları çalıştırın:

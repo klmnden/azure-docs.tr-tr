@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 0660bdb3592e36cb25f68243f16e32d7e51fb85c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4ccb3fd457f9541354281e3dc11dce273f75d9a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Öğretici: Azure Active Directory Tümleştirme ile Salesforce korumalı alan
 
@@ -153,51 +154,48 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. İçinde **veren** alan, değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan
 
-    c. İçinde **varlık kimliği** metin kutusuna, türü `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` dizininize eklediğiniz ilk Salesforce korumalı alan örnek ise. Salesforce korumalı alan örneği sonra için eklediyseniz **varlık kimliği** yazın **oturum üzerinde URL'si**, şu biçimde olmalıdır: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
- 
-    d. Karşıya yüklemek için **kimlik sağlayıcısı sertifikası**, tıklatın **Dosya Seç** göz atın ve Azure portalından indirdiğiniz sertifika dosyasını seçin.  
+    c. İçinde **varlık kimliği** metin kutusuna, türü `https://<instancename>--Sandbox.<entityid>.my.salesforce.com` dizininize eklediğiniz ilk Salesforce korumalı alan örnek ise. Salesforce korumalı alan örneği sonra için eklediyseniz **varlık kimliği** yazın **oturum üzerinde URL'si**, şu biçimde olmalıdır: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+
+    d. Karşıya yüklemek için **kimlik sağlayıcısı sertifikası**, tıklatın **Dosya Seç** göz atın ve Azure portalından indirdiğiniz sertifika dosyasını seçin.
 
     e. Olarak **SAML kimlik türü**, aşağıdaki seçeneklerden birini seçin:
-    
+
       * Seçin **onaylamayı kullanıcının Salesforce kullanıcı adını içeren**, kullanıcının Salesforce kullanıcıadı SAML onayı geçirilirse
 
       * Seçin **onaylamayı içeren kullanıcı nesnesinden Federasyon kimliği**, Federasyon kimliği kullanıcı nesnesinden SAML onayı geçirilirse
 
       * Seçin **onaylamayı içeren kullanıcı nesnesi kullanım Kimliğinden**, kullanıcı kimliği kullanıcı nesnesinden SAML onayı geçirilirse
- 
+
     f. Olarak **SAML kimlik konumu**seçin **kimliktir konu deyimi NameIdentifier öğesinde**.
 
-    g. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP POST**. 
+    g. Olarak **hizmet sağlayıcısı tarafından başlatılan bağlama isteği**seçin **HTTP POST**.
 
-    h. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan. 
+    h. İçinde **kimlik sağlayıcısı oturum açma URL'si** metin değerini yapıştırın **çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
 
     i. SAML oturum kapatma SFDC desteklemez.  Geçici bir çözüm olarak Yapıştır `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` içine **kimlik sağlayıcısı oturum kapatma URL'si** metin kutusu.
 
     j. **Kaydet**’e tıklayın.
 
 ### <a name="enable-your-domain"></a>Etki alanınızı etkinleştir
+
 Bu bölümde, bir etki alanı zaten oluşturduğunuzu varsayar.  Daha fazla bilgi için bkz: [etki alanı adınız tanımlama](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 **Etki alanınızı etkinleştirmek için aşağıdaki adımları gerçekleştirin:**
 
 1. Salesforce sol gezinti bölmesinde üzerinde tıklatın **şirket ayarları** ilgili bölümü genişletin ve ardından **My etki alanı**.
-   
-     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
-   
+
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
+
    >[!NOTE]
-   >Lütfen etki alanınızı doğru yapılandırılmış olduğundan emin olun. 
+   >Lütfen etki alanınızı doğru yapılandırılmış olduğundan emin olun.
 
 2. İçinde **kimlik doğrulama Yapılandırması** 'yi tıklatın **Düzenle**, daha sonra olarak **kimlik doğrulama hizmeti**, oturum açma SAML tek ayarı adı önceki seçin bölümünde ve son olarak tıklatın **kaydetmek**.
-   
+
    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
-Yapılandırılmış bir etki alanınız hemen kullanıcılarınızın Salesforce korumalı alan oturum açma etki alanı URL'si kullanmanız gerekir.  
+Yapılandırılmış bir etki alanınız hemen kullanıcılarınızın Salesforce korumalı alan oturum açma etki alanı URL'si kullanmanız gerekir.
 
 URL değerini almak için önceki bölümde oluşturduğunuz SSO profili tıklatın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -230,17 +228,16 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-salesforce-sandbox-test-user"></a>Salesforce korumalı alan test kullanıcısı oluşturma
 
-Bu bölümde, Britta Simon adlı bir kullanıcı Salesforce korumalı alanda oluşturulur. Salesforce korumalı alan yeni saat sağlama, varsayılan olarak etkin olduğu destekler.
-Bu bölümde, eylem öğe yok. Salesforce korumalı alan erişmeyi denediğinde Salesforce korumalı alanda bir kullanıcı zaten mevcut değilse yeni bir tane oluşturulur.
+Bu bölümde, Britta Simon adlı bir kullanıcı Salesforce korumalı alanda oluşturulur. Salesforce korumalı alan yeni saat sağlama, varsayılan olarak etkin olduğu destekler. Bu bölümde, eylem öğe yok. Salesforce korumalı alan erişmeyi denediğinde Salesforce korumalı alanda bir kullanıcı zaten mevcut değilse yeni bir tane oluşturulur. Salesforce korumalı alan da destekler otomatik kullanıcı hazırlama, daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
 Bu bölümde, Britta Salesforce korumalı alan için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Salesforce korumalı alan Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -277,6 +274,8 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-salesforce-sandbox-provisioning-tutorial.md)
+
 
 <!--Image references-->
 
@@ -291,4 +290,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_203.png
-

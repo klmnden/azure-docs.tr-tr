@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect - userCertificate özniteliği tarafından LargeObject hatalardır | Microsoft Docs"
-description: "Bu konu, kullanıcı sertifikasını özniteliği tarafından kaynaklanan LargeObject hataları için düzeltme adımları sağlar."
+title: Azure AD Connect - userCertificate özniteliği tarafından LargeObject hatalardır | Microsoft Docs
+description: Bu konu, kullanıcı sertifikasını özniteliği tarafından kaynaklanan LargeObject hataları için düzeltme adımları sağlar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 73c79e26b2962368f33bbb0d52d6c243b93a3026
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 9866454735b33239a812dca238006299c74e5ae2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592815"
 ---
 # <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect eşitleme: userCertificate özniteliği tarafından kaynaklanan işleme LargeObject hataları
 
@@ -71,7 +73,7 @@ Adımları olarak özetlenebilir:
 Azure AD dışarı aktarılan istenmeyen değişiklikleri önlemek için yeni bir eşitleme kuralı uygulama ortasında durumdayken eşitleme gerçekleşir emin olun. Yerleşik Eşitleme Zamanlayıcısı'nı devre dışı bırakmak için:
 1. Azure AD Connect sunucusunda PowerShell oturumu başlatın.
 
-2. Zamanlanan eşitleme cmdlet'ini çalıştırarak devre dışı bırakın:`Set-ADSyncScheduler -SyncCycleEnabled $false`
+2. Zamanlanan eşitleme cmdlet'ini çalıştırarak devre dışı bırakın: `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 > [!Note]
 > Yukarıdaki adımları yalnızca Azure AD Connect yerleşik Zamanlayıcı ile daha yeni sürümleri (1.1.xxx.x) için geçerlidir. Windows Görev Zamanlayıcısı'nı kullanan Azure AD Connect eski sürümleri (1.0.xxx.x) kullanarak veya düzenli aralıklarla eşitleme tetiklemek için kendi özel Zamanlayıcı (ortak değil) kullanıyorsanız, bunları uygun şekilde devre dışı bırakmanız gerekir.
@@ -90,10 +92,10 @@ Etkin ve kullanıcı nesneleri için kullanıcı sertifikasını özniteliği i�
     | Öznitelik | Değer |
     | --- | --- |
     | Yön |**Giden** |
-    | MV nesne türü |**Person** |
+    | MV nesne türü |**Kişi** |
     | Bağlayıcı |*Azure AD Bağlayıcısı adı* |
     | Bağlayıcı nesne türü |**Kullanıcı** |
-    | MV özniteliği |**userCertificate** |
+    | MV özniteliği |**kullanıcı sertifikasını** |
 
 3. Kullanıcı nesnelerinin userCertficiate özniteliği dışarı aktarmak için Azure AD Bağlayıcısı OOB (out-of-box) eşitleme kuralları kullanıyorsanız, bunu geri almanız gerekir *"Çıkışı için AAD – kullanıcı ExchangeOnline"* kuralı.
 4. Aşağı Not **öncelik** bu eşitleme kuralı değeri.
@@ -118,7 +120,7 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam filtresi** ve **daha yüksek �
     | Açıklama | *Bir açıklama belirtin* | Örneğin, *"UserCertificate özniteliği 15'ten fazla değerlere sahipse, NULL verin."* |
     | Bağlı sistem | *Azure AD Bağlayıcısı seçin* |
     | Bağlı sistem nesne türü | **Kullanıcı** | |
-    | Meta veri deposu nesne türü | **person** | |
+    | Meta veri deposu nesne türü | **Kişi** | |
     | Bağlantı türü | **Birleştir** | |
     | Öncellik | *1-99 arasında bir sayı seçtiniz* | Seçilen sayı varolan herhangi bir eşitleme kural kullanılmamalıdır ve daha düşük bir değere sahip (ve bu nedenle, daha yüksek öncelik) mevcut eşitleme kuralı daha. |
 
@@ -128,9 +130,9 @@ Yeni eşitleme kuralı aynı olmalıdır **kapsam filtresi** ve **daha yüksek �
 
     | Öznitelik | Değer |
     | --- | --- |
-    | Akış türü |**Expression** |
-    | Hedef Öznitelik |**userCertificate** |
-    | Kaynak özniteliği |*Aşağıdaki ifade kullanmak*:`IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Akış türü |**ifade** |
+    | Hedef Öznitelik |**kullanıcı sertifikasını** |
+    | Kaynak özniteliği |*Aşağıdaki ifade kullanmak*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Tıklatın **Ekle** eşitleme kuralı oluşturmak için düğmesi.
 
@@ -170,10 +172,10 @@ Değişiklikleri için Azure AD dışarı aktarmak için:
 4. Çalıştırma bağlayıcı açılır pencerede seçin **dışarı** adım ve tıklatın **Tamam**.
 5. Dışarı aktarma tamamlamak ve daha fazla LargeObject hatalar yoktur onaylamak için Azure ad bekleyin.
 
-### <a name="step-8-re-enable-sync-scheduler"></a>8. adım. Eşitleme Zamanlayıcı'yı yeniden etkinleştirin
+### <a name="step-8-re-enable-sync-scheduler"></a>8. Adım Eşitleme Zamanlayıcı'yı yeniden etkinleştirin
 Sorun çözüldüğünde, yerleşik Eşitleme Zamanlayıcısı'nı yeniden etkinleştirin:
 1. PowerShell oturumu başlatın.
-2. Zamanlanan eşitleme cmdlet'ini çalıştırarak yeniden etkinleştirin:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+2. Zamanlanan eşitleme cmdlet'ini çalıştırarak yeniden etkinleştirin: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
 > [!Note]
 > Yukarıdaki adımları yalnızca Azure AD Connect yerleşik Zamanlayıcı ile daha yeni sürümleri (1.1.xxx.x) için geçerlidir. Windows Görev Zamanlayıcısı'nı kullanan Azure AD Connect eski sürümleri (1.0.xxx.x) kullanarak veya düzenli aralıklarla eşitleme tetiklemek için kendi özel Zamanlayıcı (ortak değil) kullanıyorsanız, bunları uygun şekilde devre dışı bırakmanız gerekir.

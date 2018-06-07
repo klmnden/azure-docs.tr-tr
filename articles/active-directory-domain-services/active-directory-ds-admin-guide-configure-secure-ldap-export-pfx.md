@@ -1,24 +1,26 @@
 ---
-title: "Güvenli LDAP (LDAPS) Azure AD Etki Alanı Hizmetleri'nde yapılandırma | Microsoft Docs"
-description: "Güvenli LDAP (LDAPS) bir Azure AD etki alanı Hizmetleri yönetilen etki alanını yapılandırın"
+title: Güvenli LDAP (LDAPS) Azure AD Etki Alanı Hizmetleri'nde yapılandırma | Microsoft Docs
+description: Güvenli LDAP (LDAPS) bir Azure AD etki alanı Hizmetleri yönetilen etki alanını yapılandırın
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 4d495fcef89a68ca544100dcea8e6c55d4709ae0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 178302bd28e83da73590faf2be98fe5d2853ce56
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586894"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) Azure AD etki alanı Hizmetleri yönetilen etki alanı için yapılandırma
 
@@ -56,7 +58,7 @@ LDAPS sertifikasını dışarı aktarmak için aşağıdaki adımları gerçekle
 9. Oluşturduğumuz otomatik olarak imzalanan sertifika görmeniz gerekir. Sertifikanın oluşturulması sırasında PowerShell Windows'ta bildirilen parmak iziyle eşleştiğinden emin olmak için sertifikanın özelliklerini inceleyebilirsiniz.
 10. Kendinden imzalı bir sertifika seçin ve **sağ tıklatın**. Sağ tıklatma menüsünden seçin **tüm görevler** seçip **dışarı aktar...** .
 
-    ![Sertifika verme](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
+    ![Sertifikayı dışarı aktarma](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert.png)
 11. İçinde **Sertifika Verme Sihirbazı**, tıklatın **sonraki**.
 
     ![Dışarı aktarma Sertifika Sihirbazı](./media/active-directory-domain-services-admin-guide/secure-ldap-export-cert-wizard.png)

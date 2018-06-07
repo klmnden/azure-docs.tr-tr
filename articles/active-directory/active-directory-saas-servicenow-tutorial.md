@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: cf955c15b1dfe3ef0c46ab5023035986da5c5c99
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c75ec11fc11febbd896c715ead9f347062facb44
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Öğretici: ServiceNow Azure Active Directory Tümleştirme
 
@@ -271,10 +272,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > [!NOTE]
     > Azure AD kullanıcı kimliği (kullanıcı asıl adı) ya da e-posta adresini SAML belirtecinde benzersiz tanımlayıcısı olarak giderek yaymak üzere Azure AD yapılandırabilirsiniz **ServiceNow > öznitelikler > çoklu oturum açma** Azure portalının bölümü ve istenen alan eşleme **NameIdentifier** özniteliği. Seçili öznitelik için Azure AD (örneğin, kullanıcı asıl adı) depolanan değer alanına girilen için (örneğin, user_name) ServiceNow içinde depolanan değerle eşleşmelidir
 
-     e. Altında **x509 sertifika**, önceki adımda oluşturduğunuz sertifika listeler.
+    e. Altında **x509 sertifika**, önceki adımda oluşturduğunuz sertifika listeler.
 
-     > [!NOTE]
-     > ServiceNow izin vermiyor IDP etkinleştirme test bağlantısı düğmesini tıklatarak olmadan, aynı geçersiz kılmak için lütfen izleyin aşağıdaki adımları.
+    > [!NOTE]
+    > ServiceNow izin vermiyor IDP etkinleştirme test bağlantısı düğmesini tıklatarak olmadan, aynı geçersiz kılmak için lütfen izleyin aşağıdaki adımları.
 
 22. Listesinde öğesini seçin ve yapılandırmasının bir parçası oluşturulan yeni kimlik sağlayıcınızı önbellekten menüsü simgesini tıklatın **sys_id kopyalama**
 
@@ -443,7 +444,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     > Azure AD kullanıcı kimliği (kullanıcı asıl adı) ya da e-posta adresini SAML belirtecinde benzersiz tanımlayıcısı olarak giderek yaymak üzere Azure AD yapılandırabilirsiniz **ServiceNow > öznitelikler > çoklu oturum açma** Azure portalının bölümü ve istenen alan eşleme **NameIdentifier** özniteliği. Seçili öznitelik için Azure AD (örneğin, kullanıcı asıl adı) depolanan değer alanına girilen için (örneğin, user_name) ServiceNow içinde depolanan değerle eşleşmelidir
 
     f. **Kaydet**’e tıklayın.
- 
+
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -475,10 +476,13 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-servicenow-test-user"></a>ServiceNow test kullanıcısı oluşturma
 
-Bu bölümde, ServiceNow içinde Britta Simon adlı bir kullanıcı oluşturun. ServiceNow veya ServiceNow Express hesabınızda bir kullanıcı eklemek nasıl bilmiyorsanız başvurun [ServiceNow istemci destek ekibi](https://www.servicenow.com/support/contact-support.html)
+Bu bölümün amacı Britta Simon içinde ServiceNow adlı bir kullanıcı oluşturmaktır. ServiceNow otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-servicenow-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
+
+> [!NOTE]
+> Bir kullanıcı el ile oluşturmanız gerekiyorsa, başvurmanız gerekir [ServiceNow istemci destek ekibi](https://www.servicenow.com/support/contact-support.html)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
@@ -521,6 +525,8 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-servicenow-provisioning-tutorial.md)
+
 
 <!--Image references-->
 
@@ -535,4 +541,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-servicenow-tutorial/tutorial_general_203.png
-

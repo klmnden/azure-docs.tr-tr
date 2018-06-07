@@ -1,24 +1,19 @@
 ---
-title: "Resource Manager tarafından dağıtılan sanal makine yedeklerini yönetme | Microsoft Docs"
-description: "Resource Manager tarafından dağıtılan sanal makine yedeklerini izlemek ve yönetmek hakkında bilgi edinin"
+title: Resource Manager tarafından dağıtılan sanal makine yedeklerini yönetme
+description: Resource Manager tarafından dağıtılan sanal makine yedeklerini izlemek ve yönetmek hakkında bilgi edinin
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: shreeshd
-editor: 
-ms.assetid: f3050283-d60f-472d-b464-cb844e70d67e
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2016
-ms.author: trinadhk;markgal
-ms.openlocfilehash: f4613746a427e6987366eeb46605524cd3aacbe2
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: trinadhk
+ms.openlocfilehash: 4d45db6ba6354f85c3ed67561751720b6f6f4b77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606350"
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Azure sanal makine yedeklemelerini yönetme
 
@@ -137,7 +132,7 @@ Bir sanal makinenin bir talep üzerine yedekleme tetiklemek için:
 
     ![Yedekleme şimdi düğmesi](./media/backup-azure-manage-vms/backup-now-check.png)
 
-    Yedekleme işi, bir kurtarma noktası oluşturur. Kurtarma noktası bekletme aralığını sanal makineyle ilişkili İlkesi'nde belirtilen bekletme aralığı ile aynıdır. Kasa panosunda işinin ilerleme durumunu izlemek için tıklatın **yedekleme işlerini** döşeme.  
+    Yedekleme işi bir kurtarma noktası oluşturur. Kurtarma noktası bekletme aralığını sanal makineyle ilişkili İlkesi'nde belirtilen bekletme aralığı ile aynıdır. Kasa panosunda işinin ilerleme durumunu izlemek için tıklatın **yedekleme işlerini** döşeme.  
 
 ## <a name="stop-protecting-virtual-machines"></a>Sanal makineleri koruma Durdur
 Bir sanal makine korumayı durdurmak seçerseniz, Kurtarma noktalarını korumak istiyorsanız istenir. Sanal makineler korumayı durdurmak için iki yolu vardır:
@@ -192,8 +187,8 @@ Sanal makine için korumayı sürdürmek için
 
     ![Başarıyla korumalı VM](./media/backup-azure-manage-vms/success-message.png)
 
-## <a name="delete-backup-data"></a>Yedekleme verilerini sil
-Sırasında bir sanal makineyle ilişkili yedekleme verileri silebilirsiniz **Dur yedekleme** işi, veya yedekleme sonrasında dilediğiniz zaman işi tamamlandı. Hatta gün veya hafta kurtarma noktaları silmeden önce beklenecek yararlı olabilir. Kurtarma noktaları, yedek verileri silerken geri farklı olarak, belirli bir kurtarma noktalarını silmeye seçemezsiniz. Yedekleme verilerinizi silmek isterseniz öğeyle ilişkili tüm kurtarma noktalarını silin.
+## <a name="delete-backup-data"></a>Yedekleme verilerini silme
+Sırasında bir sanal makineyle ilişkili yedekleme verileri silebilirsiniz **Dur yedekleme** işi, veya yedekleme sonrasında dilediğiniz zaman işi tamamlandı. Hatta kurtarma noktalarını silmeden önce birkaç gün veya birkaç hafta beklemek yararlı olabilir. Kurtarma noktalarını geri yüklemekten farklı olarak, yedekleme verilerini silerken belirli kurtarma noktalarının silinmesini seçemezsiniz. Yedekleme verilerinizi silmeyi seçtiyseniz, öğeye ilişkilendirilmiş tüm kurtarma noktalarını silersiniz.
 
 Aşağıdaki yordam, sanal makine için yedekleme işi durdurulur veya devre dışı varsayar. Yedekleme işini devre dışı bırakıldığında **yedeklemeyi Sürdür** ve **Delete yedekleme** kasası öğesi Panoda seçenekleri mevcuttur.
 

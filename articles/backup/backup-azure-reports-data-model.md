@@ -1,25 +1,20 @@
 ---
-title: "Azure yedekleme için veri modeli"
-description: "Bu makalede, Azure Backup raporları için Power BI veri modeli ayrıntılarına hakkında alınmaktadır."
+title: Azure yedekleme için veri modeli
+description: Bu makalede, Azure Backup raporları için Power BI veri modeli ayrıntılarına hakkında alınmaktadır.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17e011452f9b87c1201cea12f394a9cdd18e54b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606231"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure Backup raporları için veri modeli
 Bu makalede, Azure Backup raporlar oluşturmak için kullanılan Power BI veri modeli açıklanır. Bu veri modelini kullanarak, varolan raporlarla ilgili alanlara göre filtre uygulayabilirsiniz ve daha fazla tabloları ve alanları modeli kullanarak da önemlisi, kendi raporlarınızı oluşturun. 
@@ -33,42 +28,42 @@ Raporları oluşturma ve mevcut raporları özelleştirme ve veri modelinin bir 
 ### <a name="alert"></a>Uyarı
 Bu tablo üzerinde çeşitli uyarı ilgili alanları temel alan ve toplamalar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Tam sayı |Seçilen bir zaman diliminde oluşturulan uyarıların sayısı |
-| % ActiveAlertsCreatedInPeriod |Yüzdesi |Seçilen zaman aralığı içindeki etkin uyarılar yüzdesi |
-| % CriticalAlertsCreatedInPeriod |Yüzdesi |Seçilen zaman aralığı içinde kritik uyarılar yüzdesi |
+| % ActiveAlertsCreatedInPeriod |Yüzde Oranı |Seçilen zaman aralığı içindeki etkin uyarılar yüzdesi |
+| % CriticalAlertsCreatedInPeriod |Yüzde Oranı |Seçilen zaman aralığı içinde kritik uyarılar yüzdesi |
 | AlertOccurenceDate |Tarih |Uyarının oluşturulduğu tarih |
 | AlertSeverity |Metin |Örneğin, kritik uyarı önem derecesi |
 | AlertStatus |Metin |Örneğin, etkin uyarı durumu |
 | AlertType |Metin |Örneğin, yedekleme oluşturulan uyarı türü |
 | AlertUniqueId |Metin |Oluşturulan uyarının benzersiz kimliği |
-| AsOnDateTime |Tarih/saat |Seçili olan satır için son yenileme süresi |
+| AsOnDateTime |Tarih/Saat |Seçili olan satır için son yenileme süresi |
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |Ondalık sayı |Seçilen zaman aralığı için uyarıyı çözümlemek için ortalama süre (dakika cinsinden) |
 | EntityState |Metin |Örneğin, etkin, silinen uyarı nesnenin geçerli durumu |
 
 ### <a name="backup-item"></a>Yedekleme öğesi
 Bu tablo üzerinde çeşitli yedekleme öğesi ilişkili alanlar temel alanlar ve toplamalar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #BackupItems |Tam sayı |Yedekleme öğelerin sayısı |
 | #UnprotectedBackupItems |Tam sayı |Koruma için durduruldu veya yedeklemeleri ancak başlatılmamış yedeklemeler için yapılandırılan yedekleme öğelerinin sayısı|
-| AsOnDateTime |Tarih/saat |Seçili olan satır için son yenileme süresi |
+| AsOnDateTime |Tarih/Saat |Seçili olan satır için son yenileme süresi |
 | BackupItemFriendlyName |Metin |Yedekleme öğesinin kolay adı |
 | BackupItemId |Metin |Yedekleme öğesinin kimliği |
 | BackupItemName |Metin |Yedekleme öğesinin adı |
 | BackupItemType |Metin |Yedekleme öğesi Örneğin, VM, FileFolder türü |
 | EntityState |Metin |Örneğin, etkin, silinen yedekleme öğesi nesnenin geçerli durumu |
-| LastBackupDateTime |Tarih/saat |Yedekleme seçili öğe için son yedekleme zamanı |
+| LastBackupDateTime |Tarih/Saat |Yedekleme seçili öğe için son yedekleme zamanı |
 | LastBackupState |Metin |Örneğin, başarılı, başarısız yedekleme seçili öğe için son yedekleme durumu |
-| LastSuccessfulBackupDateTime |Tarih/saat |Seçili yedekleme öğesi için son başarılı yedekleme saati |
+| LastSuccessfulBackupDateTime |Tarih/Saat |Seçili yedekleme öğesi için son başarılı yedekleme saati |
 | ProtectionState |Metin |Örneğin, korumalı, ProtectionStopped yedekleme öğesinin geçerli koruma durumu |
 
 ### <a name="calendar"></a>Takvim
 Bu tablo takvim ilişkili alanlar hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | Tarih |Tarih |Verileri filtreleme için seçilen tarihi |
 | DateKey |Metin |Her bir tarih öğesi için benzersiz anahtar |
@@ -85,12 +80,12 @@ Bu tablo takvim ilişkili alanlar hakkında ayrıntılar sağlar.
 ### <a name="job"></a>İş
 Bu tablo üzerinde çeşitli iş ile ilgili alanları temel alan ve toplamalar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Tam sayı |Seçilen zaman diliminde oluşturulmuş işlerin sayısı |
-| % FailuresForJobsCreatedInPeriod |Yüzdesi |Yüzdesi seçilen zaman aralığı içinde iş hataları genel |
+| % FailuresForJobsCreatedInPeriod |Yüzde Oranı |Yüzdesi seçilen zaman aralığı içinde iş hataları genel |
 | 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Ondalık sayı |Veri 80. yüzde birlik değerini aktarılan MB için **yedekleme** seçilen zaman diliminde oluşturulan işler |
-| AsOnDateTime |Tarih/saat |Seçili olan satır için son yenileme süresi |
+| AsOnDateTime |Tarih/Saat |Seçili olan satır için son yenileme süresi |
 | AvgBackupDurationInMinsForJobsCreatedInPeriod |Ondalık sayı |Ortalama zaman dakika cinsinden **tamamlanmış yedeği** seçilen bir zaman diliminde oluşturulan işler |
 | AvgRestoreDurationInMinsForJobsCreatedInPeriod |Ondalık sayı |Ortalama zaman dakika cinsinden **geri yükleme tamamlandı** seçilen bir zaman diliminde oluşturulan işler |
 | BackupStorageDestination |Metin |Yedekleme depolama Örneğin, bulut, Disk hedefi  |
@@ -105,11 +100,11 @@ Bu tablo üzerinde çeşitli iş ile ilgili alanları temel alan ve toplamalar s
 ### <a name="policy"></a>İlke
 Bu tablo üzerinde çeşitli ilkesiyle ilgili alanları temel alan ve toplamalar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #Policies |Tam sayı |Sistemde mevcut yedekleme ilkeleri sayısı |
 | #PoliciesInUse |Tam sayı |Şu anda yedeklemeleri yapılandırma için kullanılan ilkeleri sayısı |
-| AsOnDateTime |Tarih/saat |Seçili olan satır için son yenileme süresi |
+| AsOnDateTime |Tarih/Saat |Seçili olan satır için son yenileme süresi |
 | BackupDaysOfTheWeek |Metin |Yedeklemelerin ne zaman zamanlandı haftanın günleri |
 | BackupFrequency |Metin |Yedeklemeler, çalıştığı Örneğin, günlük, haftalık sıklığı |
 | BackupTimes |Metin |Yedeklemelerin ne zaman zamanlanmış tarih ve saat |
@@ -139,10 +134,10 @@ Bu tablo üzerinde çeşitli ilkesiyle ilgili alanları temel alan ve toplamalar
 ### <a name="protected-server"></a>Korumalı sunucu
 Bu tablo üzerinde çeşitli korumalı sunucu ilgili alanlar temel alanlar ve toplamalar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #ProtectedServers |Tam sayı |Korumalı sunucu sayısı |
-| AsOnDateTime |Tarih/saat |Seçili olan satır için son yenileme süresi |
+| AsOnDateTime |Tarih/Saat |Seçili olan satır için son yenileme süresi |
 | AzureBackupAgentOSType |Metin |Azure yedekleme Aracısı'nın işletim sistemi türü |
 | AzureBackupAgentOSVersion |Metin |Azure yedekleme Aracısı'nın işletim sistemi sürümü |
 | AzureBackupAgentUpdateDate |Metin |Aracı Backup Aracısı güncelleştirildiği tarihi |
@@ -158,10 +153,10 @@ Bu tablo üzerinde çeşitli korumalı sunucu ilgili alanlar temel alanlar ve to
 ### <a name="storage"></a>Depolama
 Bu tablo üzerinde çeşitli depolama ilişkili alanlar temel alanlar ve toplamalar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #ProtectedInstances |Ondalık sayı |Seçilen zaman içinde ön uç depolama faturalama, hesaplanan dayalı olarak en son değeri hesaplamak için kullanılan korumalı örneği sayısı |
-| AsOnDateTime |Tarih/saat |Seçili olan satır için son yenileme süresi |
+| AsOnDateTime |Tarih/Saat |Seçili olan satır için son yenileme süresi |
 | CloudStorageInMB |Ondalık sayı |Hesaplanan yedekleri tarafından kullanılan bulut yedekleme depolama alanı en son değeri seçili zaman dayanır. |
 | EntityState |Metin |Örneğin, etkin, silinen nesnenin geçerli durumu |
 | LastUpdatedDate |Tarih |Seçilen satırın en son güncelleştirildiği tarihi |
@@ -169,7 +164,7 @@ Bu tablo üzerinde çeşitli depolama ilişkili alanlar temel alanlar ve toplama
 ### <a name="time"></a>Zaman
 Bu tablo saati ile ilgili alanları hakkında ayrıntılar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | Saat |Zaman |Örneğin, 1:00:00 PM günün saati |
 | HourNumber |Ondalık sayı |Örneğin, 13,00 gün saat sayısı |
@@ -181,10 +176,10 @@ Bu tablo saati ile ilgili alanları hakkında ayrıntılar sağlar.
 ### <a name="vault"></a>Kasa
 Bu tablo üzerinde çeşitli kasası ilişkili alanlar temel alanlar ve toplamalar sağlar.
 
-| Alan | Veri türü | Açıklama |
+| Alan | Veri Türü | Açıklama |
 | --- | --- | --- |
 | #Vaults |Tam sayı |Kasa sayısı |
-| AsOnDateTime |Tarih/saat |Seçili olan satır için son yenileme süresi |
+| AsOnDateTime |Tarih/Saat |Seçili olan satır için son yenileme süresi |
 | AzureDataCenter |Metin |Kasa bulunduğu veri merkezi |
 | EntityState |Metin |Örneğin, etkin, silinen kasası nesnenin geçerli durumu |
 | StorageReplicationType |Metin |Örneğin, GeoRedundant kasa için depolama çoğaltma türü |

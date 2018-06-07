@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2fdb77c133d5d8955ad6ae15864cbe0c78bc4e2f
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 1186776742562566be893c411a642d2feb819a86
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603953"
 ---
 # <a name="azure-stack-1803-update"></a>Azure yığın 1803 güncelleştirme
 
@@ -110,6 +111,9 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Geçici çözüm: Bu güncelleştirmeyi yükledikten sonra bu sorunu çözmek için 3 adımından kullanmak [yapılandırmak için tetikleyici Otomasyon Talep sağlayıcı güveni Azure yığınında](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) varsayılan sağlayıcı aboneliğin sahibi sıfırlamak için yordamı.   
+
 - Özelliği [aşağı açılır listeden yeni bir destek isteği açma](azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
     - Azure yığını için tümleşik sistemleri kullanan https://aka.ms/newsupportrequest.
 
@@ -131,7 +135,23 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
   Bu uyarı güvenle yoksayılabilir. 
 
 
-<!-- #### Health and monitoring --> 
+#### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Uyarı #1:
+   - Ad: Altyapı rolü sağlıksız
+   - Önem DERECESİ: uyarı
+   - Bileşen: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyicisi sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.  
+
+  Uyarı #2:
+   - Ad: Altyapı rolü sağlıksız
+   - Önem DERECESİ: uyarı
+   - Bileşen: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyicisi hataya tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.
+
+  Her iki uyarı güvenle yoksayılabilir. Bunlar zaman içinde otomatik olarak kapatılacak.  
+
 
 #### <a name="marketplace"></a>Market
 - Kullanıcılar bir abonelik olmadan tam Market göz atabilir ve planları ve teklifleri gibi yönetim öğelerini görebilirsiniz. Bu öğeler kullanıcılara işlevsiz.
@@ -143,7 +163,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 - Kullanılabilirlik giderek portalda kümesi oluşturduğunuzda **yeni** > **işlem** > **kullanılabilirlik kümesi**, oluşturabilmeniz için bir kullanılabilirlik, bir hata etki alanı ve güncelleştirme etki alanı 1 ile ayarlayın. Yeni bir sanal makine oluştururken, bir geçici çözüm olarak, kullanılabilirlik PowerShell'i, CLI, kullanarak veya içinden kümesini oluşturmak portal.
 
-- Sanal makineler Azure yığın kullanıcı portalında oluşturduğunuzda, portal DS serisi VM iliştirebilirsiniz veri diskleri yanlış sayıda görüntüler. DS serisi VM'ler sayıda veri diski Azure yapılandırması sağlayabilir.
+- Sanal makineler Azure yığın kullanıcı portalında oluşturduğunuzda, portal D serisinin VM iliştirebilirsiniz veri diskleri yanlış sayıda görüntüler. Tüm desteklenen D serisinin VM'ler sayıda veri diski Azure yapılandırması sağlayabilir.
 
 - Oluşturulacak bir VM görüntüsü başarısız olduğunda, VM görüntüleri işlem dikey penceresine eklenen silemezsiniz başarısız bir öğe.
 
@@ -264,6 +284,8 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 <!--
 #### Identity
 -->
+
+
 
 #### <a name="downloading-azure-stack-tools-from-github"></a>Azure yığın araçları Github'dan indirme
 - Kullanırken *çağırma webrequest* Azure yığın indirmek için PowerShell cmdlet araçları Github'dan, hata iletisi:     

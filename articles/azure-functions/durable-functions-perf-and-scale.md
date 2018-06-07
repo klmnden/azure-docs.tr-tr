@@ -14,11 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 18a3f3080c58e01117e0fc73adad76d28c298536
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 110f393e723c7e784a4bd7e79559dd9d55147140
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599441"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Performansı ve ölçeği dayanıklı işlevlerinde (Azure işlevleri)
 
@@ -161,7 +162,7 @@ Bir üretim uygulaması için sürekli işlevleri kullanmak planlama yaparken Pl
 > [!TIP]
 > Yayma fan-in işlemleri için tek bir VM'ye sınırlıdır. Uygulamanızı yayma, fan-in deseni kullanır ve fan-in performansı hakkında endişeleriniz varsa, etkinlik işlevi yayma birden çok alt bölme düşünün [alt düzenlemelerin](durable-functions-sub-orchestrations.md).
 
-Aşağıdaki tabloda beklenen gösterilmektedir *maksimum* daha önce açıklanan senaryoları için işleme numaraları. Tek bir küçük üzerinde çalışan bir orchestrator işlevi tek bir örneği için "Örnek" başvuruyor ([A1](../virtual-machines/windows/sizes-general.md#a-series)) Azure App Service'te VM. Tüm durumlarda varsayılır [oturumları Genişletilmiş](#orchestrator-function-replay) etkinleştirilir. Gerçek sonuçları işlev kodu tarafından gerçekleştirilen CPU veya g/ç iş bağlı olarak değişebilir.
+Aşağıdaki tabloda beklenen gösterilmektedir *maksimum* daha önce açıklanan senaryoları için işleme numaraları. Tek bir küçük üzerinde çalışan bir orchestrator işlevi tek bir örneği için "Örnek" başvuruyor ([A1](../virtual-machines/windows/sizes-previous-gen.md#a-series)) Azure App Service'te VM. Tüm durumlarda varsayılır [oturumları Genişletilmiş](#orchestrator-function-replay) etkinleştirilir. Gerçek sonuçları işlev kodu tarafından gerçekleştirilen CPU veya g/ç iş bağlı olarak değişebilir.
 
 | Senaryo | En yüksek verimlilik |
 |-|-|

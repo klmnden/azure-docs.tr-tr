@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: c1c0b9311699ff107cc35208c91cf409f5b0d9cb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 25713504721bd6b767804be62334db1633680961
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618071"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak HubSpot verilerini
 
@@ -48,7 +49,7 @@ Aşağıdaki özellikler HubSpot bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Hubspot** | Evet |
-| clientId | Hubspot uygulamanızla ilişkili istemci kimliği.  | Evet |
+| istemci kimliği | Hubspot uygulamanızla ilişkili istemci kimliği.  | Evet |
 | clientSecret | Hubspot uygulamanızla ilişkili istemci gizli anahtarı. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | accessToken | Başlangıçta, OAuth tümleştirme doğrulanırken alınan erişim belirteci. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | refreshToken | Başlangıçta, OAuth tümleştirme doğrulanırken elde yenileme belirteci. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |

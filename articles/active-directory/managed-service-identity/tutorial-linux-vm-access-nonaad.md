@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 74bc28619996b7cd52d2280d4d8b6288aa7c904f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 280b1340c094a89ad5980178947045b707128807
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595028"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Öğretici: Azure anahtar kasası erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanın. 
 
@@ -134,12 +135,12 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir.  Windows kullanıyorsa
     
 Anahtar Kasası'nı gizli alınan sonra bir adı ve parola gerektiren bir hizmeti için kimlik doğrulaması yapmak için kullanabilirsiniz.
 
+## <a name="next-steps"></a>Sonraki adımlar
 
-## <a name="related-content"></a>İlgili içerik
+Bu öğreticide, bir yönetilen hizmet kimliği bir Linux sanal makinede Azure anahtar kasası erişmek için nasıl kullanılacağı hakkında bilgi edindiniz.  Azure anahtar kasası bakın hakkında daha fazla bilgi için:
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
-
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+> [!div class="nextstepaction"]
+>[Azure Anahtar Kasası.](/azure/key-vault/key-vault-whatis)
 
 
 

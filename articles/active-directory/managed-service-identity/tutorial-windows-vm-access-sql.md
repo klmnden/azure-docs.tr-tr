@@ -13,12 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594960"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>Öğretici: Azure SQL erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın.
 
@@ -269,11 +270,9 @@ Alternatif olarak, yazma ve VM üzerinde bir uygulama dağıtmak zorunda kalmada
 
 Değerini inceleyin `$DataSet.Tables[0]` sorgu sonuçlarını görüntülemek için.  Tebrikler, bir VM MSI kullanarak veritabanını sorgulama ve kimlik bilgilerini sağlamak için gerek kalmadan!
 
-## <a name="related-content"></a>İlgili içerik
+## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
-- Daha fazla bilgi edinmek [Azure AD kimlik doğrulaması için Azure SQL desteği](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication).
-- Daha fazla bilgi edinmek [Azure AD kimlik doğrulaması için Azure SQL desteği yapılandırma](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure).
-- Daha fazla bilgi edinmek [kimlik doğrulama ve erişim SQL Server'daki](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions).
+Bu öğreticide, Azure SQL sunucusuna erişmek için bir yönetilen hizmet kimliği oluşturma öğrendiniz.  Azure SQL Server bakın hakkında daha fazla bilgi için:
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+> [!div class="nextstepaction"]
+>[Azure SQL veritabanı hizmeti](/azure/sql-database/sql-database-technical-overview)

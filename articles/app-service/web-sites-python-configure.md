@@ -1,12 +1,12 @@
 ---
-title: "Azure App Service Web Apps ile Python yapılandırma"
-description: "Bu öğretici geliştirme ve Azure App Service Web Apps üzerinde temel bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulama yapılandırmak için seçenekleri açıklar."
+title: Azure App Service Web Apps ile Python yapılandırma
+description: Bu öğretici geliştirme ve Azure App Service Web Apps üzerinde temel bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulama yapılandırmak için seçenekleri açıklar.
 services: app-service
 documentationcenter: python
 tags: python
 author: huguesv
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fd00dc91-9935-4331-b955-4bd71e66d518
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: fa5f9afbc595f06bd41e8670fab7730b610f570e
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 32d9cd6c42387b67881877a1165dfcbcaef405ba
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598649"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Azure App Service Web Apps ile Python yapılandırma
 Bu öğretici geliştirme ve temel bir Web sunucusu Ağ Geçidi Arabirimi (WSGI) uyumlu Python uygulaması yapılandırma seçenekleri açıklanmaktadır [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -29,9 +30,9 @@ Sanal ortam ve requirements.txt kullanarak paket yükleme gibi Git dağıtımı 
 ## <a name="bottle-django-or-flask"></a>Bottle, Django veya Flask?
 Azure Market Bottle, Django ve Flask çerçeveleri için şablonlar içerir. İlk web uygulamanızı Azure App Service'te geliştiriyorsanız, hızlı bir şekilde Azure portalından oluşturabilirsiniz:
 
-* [Bottle ile Web uygulamaları oluşturma](https://portal.azure.com/#create/PTVS.Bottle)
-* [Django ile Web uygulamaları oluşturma](https://portal.azure.com/#create/PTVS.Django)
-* [Flask ile Web uygulamaları oluşturma](https://portal.azure.com/#create/PTVS.Flask)
+* [Web uygulaması Bottle ile](https://portal.azure.com/#create/PTVS.Bottle)
+* [Django ile Web uygulaması](https://portal.azure.com/#create/PTVS.Django)
+* [Linux üzerinde Flask ile Web uygulaması](https://portal.azure.com/#create/PTVS.FlaskLinux)
 
 ## <a name="web-app-creation-on-azure-portal"></a>Azure portal Web uygulaması oluşturma
 Bu öğretici, bir var olan Azure aboneliği ve Azure portalına erişim varsayar.
@@ -53,7 +54,7 @@ Sonraki bölümlerde, aşağıdaki dosyaları oluşturulur. Git deposu kök dizi
     ptvs_virtualenv_proxy.py
 
 
-## <a name="wsgi-handler"></a>WSGI Handler
+## <a name="wsgi-handler"></a>WSGI işleyicisi
 WSGI olan tarafından açıklanan bir Python standart [CESARETLENDİRİCİ 3333](http://www.python.org/dev/peps/pep-3333/) Python ve web sunucusu arasında bir arabirim tanımlama. Bunu çeşitli web uygulamaları ve Python kullanarak çerçeveleri yazmak için standartlaştırılmış bir arabirim sağlar. Popüler Python web çerçeveleri bugün WSGI kullanın. Azure App Service Web Apps verir; bu tür bir çerçeveler için destek özel işleyici WSGI belirtimi yönergeleri izleyen sürece ek olarak, İleri düzey kullanıcılar bile kendi yazabilirsiniz.
 
 Bir örneği burada verilmiştir bir `app.py` özel işleyici tanımlar:
@@ -90,7 +91,7 @@ Requirements.txt içinde listelenen paketler pip kullanarak sanal ortamda otomat
     azure==0.8.4
 
 
-## <a name="python-version"></a>Python sürümü
+## <a name="python-version"></a>Python Sürümü
 [!INCLUDE [web-sites-python-customizing-runtime](../../includes/web-sites-python-customizing-runtime.md)]
 
 Örnek `runtime.txt`:

@@ -2,24 +2,19 @@
 title: Azure Backup için Log Analytics veri modeli
 description: Bu makalede, Azure yedekleme verileri için günlük analizi veri modeli ayrıntılarına hakkında alınmaktadır.
 services: backup
-documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: ''
-ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5a2ba1d523e7a6364420302eee095f24fd08eadb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605782"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure yedekleme verileri için günlük analizi veri modeli
 Bu makale için günlük analizi raporlama verilerini gönderilmesi için kullanılan veri modelini açıklar. Bu veri modelini kullanarak özel sorgular, panolar, oluşturma ve günlük analizi kullanma. 

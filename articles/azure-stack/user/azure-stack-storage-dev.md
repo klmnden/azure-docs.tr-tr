@@ -1,19 +1,20 @@
 ---
-title: Azure yığın depolama geliştirme araçları ile çalışmaya başlama
+title: Azure yığın depolama geliştirme araçları ile çalışmaya başlama | Microsoft Docs
 description: Azure yığın depolama geliştirme araçlarını kullanmaya başlamak için kılavuz
 services: azure-stack
 author: mabriggs
 ms.author: mabrigg
-ms.date: 05/14/2018
+ms.date: 05/21/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: ce5c72262e7c046de2f06c474c585082804dcdf4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0ceda393412f8217a893a347ec5f3a9ac03efa3d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604486"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure yığın depolama geliştirme araçları ile çalışmaya başlama
 
@@ -21,14 +22,14 @@ ms.lasthandoff: 05/16/2018
 
 Microsoft Azure yığın blob, tablo ve kuyruk depolama içeren bir dizi depolama hizmetleri sağlar.
 
-Bu makalede, Azure yığın depolama geliştirme araçlarını kullanmaya başlamak için bir kılavuz olarak kullanın. Daha ayrıntılı bilgi ve örnek kod karşılık gelen Azure Storage eğitimlerine bulabilirsiniz.
+Bu makalede, Azure yığın depolama geliştirme araçlarını kullanmaya başlamak için bir kılavuz olarak kullanın. Daha ayrıntılı bilgi ve örnek kod karşılık gelen Azure depolama eğitimlerine bulabilirsiniz.
 
->[!NOTE]
->Azure yığın depolama ve Azure Storage, her platform için belirli gereksinimler de dahil olmak üzere arasındaki farklar bilinen vardır. Örneğin, belirli istemci kitaplıkları ve Azure yığını için belirli bir uç soneki gereksinimleri vardır. Daha fazla bilgi için bkz: [Azure yığın depolama: farklar ve konuları](azure-stack-acs-differences.md).
+> [!NOTE]  
+> Azure yığın depolama ve her platform için belirli gereksinimleri dahil olmak üzere Azure storage arasındaki farklar bilinen vardır. Örneğin, belirli istemci kitaplıkları ve Azure yığını için belirli bir uç soneki gereksinimleri vardır. Daha fazla bilgi için bkz: [Azure yığın depolama: farklar ve konuları](azure-stack-acs-differences.md).
 
 ## <a name="azure-client-libraries"></a>Azure istemci kitaplıkları
 
-Desteklenen REST API Azure yığın depolama 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 1802 güncelleştirmesi veya daha yeni sürümleri için ve önceki sürümler için 2015-04-05 sürümleridir. Azure yığın uç noktaları Azure Storage REST API'sini en son sürümü ile tam eşlik yok. Depolama istemcisi kitaplıklarını için REST API ile uyumlu olan sürümle farkında olmanız gerekir.
+Desteklenen REST API Azure yığın depolama 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 1802 güncelleştirmesi veya daha yeni sürümleri için ve önceki sürümler için 2015-04-05 sürümleridir. Azure yığın uç noktaları Azure storage REST API'si en son sürümü ile tam eşlik yok. Depolama istemcisi kitaplıklarını için REST API ile uyumlu olan sürümle farkında olmanız gerekir.
 
 ### <a name="1802-update-or-newer-versions"></a>1802 güncelleştirmesi veya daha yeni sürümleri
 
@@ -209,4 +210,4 @@ Aşağıdaki Azure Table depolama öğreticileri Azure yığını için geçerli
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Microsoft Azure Depolama'ya Giriş](../../storage/common/storage-introduction.md)
+* [Microsoft Azure Storage'a giriş](../../storage/common/storage-introduction.md)

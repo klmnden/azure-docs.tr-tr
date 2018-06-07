@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/29/2018
 ms.author: mbullwin
-ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 7023ce1c9d8a115ae791d40c5d40a5b5d1fabed9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598394"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights'ı ayarlayın: bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşendir. Bu genellikle HTTP veya bir veritabanı veya bir dosya sistemi kullanılarak adlı bir hizmettir. [Application Insights](app-insights-overview.md) uygulamanız için bağımlılıkları ne kadar bekleyeceğini ve ne sıklıkta bir bağımlılık araması başarısız ölçer. Belirli çağrıları araştırmak ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -48,7 +49,7 @@ Kısmi bağımlılık bilgi tarafından otomatik olarak toplanan [Application In
 | Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>Bağımlılık verileri nerede bulacağını
-* [Uygulama eşlemesi](#application-map) uygulama ve neighbouring bileşenleri arasındaki bağımlılıkları visualizes.
+* [Uygulama eşlemesi](#application-map) uygulama ve komşu bileşenleri arasındaki bağımlılıkları visualizes.
 * [Performans, tarayıcı ve hata dikey pencereleri](#performance-and-blades) sunucu bağımlılık verileri göster.
 * [Tarayıcılar dikey penceresinde](#ajax-calls) kullanıcılarınızın tarayıcılarından AJAX çağrıları gösterilir.
 * [Yavaş ya da başarısız isteklerinden tıklatın aracılığıyla](#diagnose-slow-requests) kendi bağımlılık denetlemek için çağırır.
@@ -200,12 +201,13 @@ Standart bağımlılık izleme modülünü devre dışı geçiş yapmak istiyors
 
 *SQL sorgu tam olarak gösterilmez.*
 
-* Application Insights SDK'sı en son kararlı sürümü yükseltin.
+Aşağıdaki tabloda başvurun ve uygulamanız için bağımlılık izlemeyi etkinleştirmek için doğru yapılandırma seçtiğiniz güvence altına.
 
- .NET sürüm 4.6'den az ise:
-
-* IIS ana: yükleme [Application Insights Aracısı](app-insights-monitor-performance-live-website-now.md) ana bilgisayar sunucuları üzerinde.
-* Azure web uygulaması: açık Application Insights sekmesinde web uygulama Denetim Masası'nda ve Application Insights yükleyin.
+| Platform | Yükleme |
+| --- | --- |
+| IIS sunucusu |Her iki [sunucunuza Durum İzleyicisi yükleme](app-insights-monitor-performance-live-website-now.md). Veya [uygulamanız .NET Framework 4.6 veya sonrası yükseltme](http://go.microsoft.com/fwlink/?LinkId=528259) yükleyip [Application Insights SDK'sı](app-insights-asp-net.md) uygulamanızda. |
+| Azure Web Uygulaması |Web uygulama Denetim Masası'ndaki [, web uygulama Denetim Masası'nda Application Insights dikey penceresini açmak](app-insights-azure-web-apps.md) ve yükleme istenirse seçin. |
+| Azure bulut hizmeti |[Kullanım başlangıç görevi](app-insights-cloudservices.md) veya [yükleme .NET framework 4.6 +](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>Video
 

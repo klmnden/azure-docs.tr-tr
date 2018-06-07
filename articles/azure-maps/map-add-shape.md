@@ -1,22 +1,20 @@
 ---
 title: Bir şekli Azure eşlemeleri ekleme | Microsoft Docs
 description: Javascript haritaya bir şekli ekleme
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fb9ec0713d3db465cf835346465e70c4455b38ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dec9b7289927365faa9c58522df2571db99f0494
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599380"
 ---
 # <a name="add-a-shape-to-a-map"></a>Bir şekli bir harita Ekle
 
@@ -59,3 +57,10 @@ Yukarıdaki kod ilk blok kod eşleme nesnesi oluşturur. Gördüğünüz [bir ha
 Kod ikinci bloğunda Çokgen oluşturulur. Bir Çokgen bir [özelliği](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest) , [Çokgen](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest) ile [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest) özelliği özelliği olarak. Kullanım `new atlas.data.Feature(new atlas.data.Polygon())` Çokgen oluşturmak ve özelliklerini tanımlamak için. Çokgen Oluşturucusu Çokgen yolunda sıralı koordinatlarını sağlar.
 
 Çokgen katman çokgenler dizisidir. Kodu son bloğunu kullanan [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) Çokgen katman eşlemeye ekleyin ve özelliklerini tanımlamak için harita sınıfının işlevi. Çokgen katmanında özelliklerini görmek [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest). 
+
+## <a name="next-steps"></a>Sonraki adımlar
+Eşlemeleri eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın:
+* [Özel HTML Ekle](./map-add-custom-html.md)
+* [Arama sonuçlarını göster](./map-search-location.md)
+
+

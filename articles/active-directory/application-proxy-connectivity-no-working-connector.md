@@ -3,21 +3,24 @@ title: Hiç çalışma bağlayıcı grubu için uygulama proxy'si uygulama bulun
 description: Hiç çalışma bağlayıcı Azure AD uygulama proxy'si ile uygulamanız için bir bağlayıcı grubunda olduğunda, karşılaşabileceğiniz sorunları
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 679b8654ad926ddb80747ad4c93064946c9bc82b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: f6baea8c2702fc2a86c75d32c7b4ca958fd913b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591754"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Hiç çalışma bağlayıcı grubu için uygulama proxy'si uygulama bulunamadı
 

@@ -3,21 +3,24 @@ title: Azure Analysis Services Excel ile bağlanma | Microsoft Docs
 description: Excel kullanarak bir Azure Analysis Services sunucusuna bağlanmak öğrenin.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ab749b4610f57e19ad1af0fc74d41340d7555b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6585648cbb461f52a22bc6ea239c0899caa2c2e7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597272"
 ---
 # <a name="connect-with-excel"></a>Excel ile bağlanma
 
-Bir sunucu oluşturulur ve bir tablo modeline dağıtılmış sonra istemcileri bağlanabilir ve verileri araştırmaya başlamak.
+Bir sunucu oluşturulur ve bir tablo modeline dağıtılmış sonra istemcileri bağlanabilir ve verileri araştırmaya başlamak. 
 
+## <a name="before-you-begin"></a>Başlamadan önce
+İle oturum bir model veritabanı rolüyle en azından okuma izinlerinin ait olması gerekir. Daha fazla bilgi edinmek için bkz. [Kimlik doğrulaması ve kullanıcı izinleri](analysis-services-manage-users.md). 
 
 ## <a name="connect-in-excel"></a>Excel'de Bağlan
 
@@ -30,7 +33,7 @@ Excel'de sunucusuna bağlanan Excel 2016'da Veri Al kullanılarak desteklenir. P
 2. Veri Bağlantı Sihirbazı ' nda içinde **sunucu adı**, protokol ve URI'sini de dahil olmak üzere sunucu adı girin. Örneğin, asazure://westcentralus.asazure.windows.net/advworks. Ardından **oturum açma kimlik bilgileri**seçin **aşağıdaki kullanıcı adını ve parolayı kullan**ve kuruluş kullanıcı adı, örneğin yazın nancy@adventureworks.comve parola.
 
     > [!IMPORTANT]
-    > Bir Microsoft Account, Live ID, Yahoo, Gmail, vb. ile oturum ya da çok faktörlü kimlik doğrulaması ile oturum imzalamak için gereklidir, parola alanı boş bırakın. İleri'yi tıklatmadan sonra için bir parola istenir.
+    > Bir Microsoft Account, Live ID, Yahoo, Gmail, vb. ile oturum ya da çok faktörlü kimlik doğrulaması ile oturum imzalamak için gereklidir, parola alanı boş bırakın. İleri'yi tıklatmadan sonra için bir parola istenir. 
 
     ![Excel oturumu açma bağlanma](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

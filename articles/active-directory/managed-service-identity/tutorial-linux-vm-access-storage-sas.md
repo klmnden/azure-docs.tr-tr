@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 57d4a3767d0ad02f136686d95703817055566c33
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e5e08985f88c7cf3018ecadce2cabac743e4bd37
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594861"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Öğretici: Azure Storage bir SAS kimlik bilgisi erişmek için bir Linux VM yönetilen hizmet kimliği kullanın.
 
@@ -253,10 +254,7 @@ Yanıtı:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
-- Bu öğreticiyi yapılacağı hakkında bilgi edinmek için bir depolama hesabı anahtarı kullanarak, bkz: [Azure Storage erişmek için bir Linux VM yönetilen hizmet kimliği kullanın](tutorial-linux-vm-access-storage.md)
-- Azure depolama hesabı SAS özelliği hakkında daha fazla bilgi için bkz:
-  - [Paylaşılan erişim imzaları (SAS) kullanma](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [Hizmet SAS oluşturma](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+Bu öğreticide, bir yönetilen hizmet kimliği bir Linux sanal makinede SAS kimlik bilgilerini kullanarak Azure Storage erişmek için nasıl kullanılacağı hakkında bilgi edindiniz.  Azure depolama SAS bakın hakkında daha fazla bilgi için:
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+> [!div class="nextstepaction"]
+>[Paylaşılan erişim imzaları (SAS) kullanma](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

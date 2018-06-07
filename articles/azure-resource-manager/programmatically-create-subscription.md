@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2018
 ms.author: jlian
-ms.openlocfilehash: f55f878d53b3813ea2ff2510998d47820de76a6a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 308202addbca447ee0dab7a55a1ad2b3b6600a10
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603330"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma
 
@@ -175,7 +176,7 @@ Yanıtta ulaşırsınız bir `subscriptionOperation` izleme nesnesi. Abonelik ol
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Bu önizleme modülü kullanmak için çalıştırarak yüklemek `Install-Module AzureRM.Subscription -AllowPrerelease` ilk. Emin olmak için `-AllowPrerelease` çalıştığı PowerShellGet en son sürümünü yükleyin [alma PowerShellGet Modülü](/powershell/gallery/psget/get_psget_module).
+Bu önizleme modülü kullanmak için çalıştırarak yüklemek `Install-Module AzureRM.Subscription -AllowPrerelease` ilk. Emin olmak için `-AllowPrerelease` çalıştığı PowerShellGet en son sürümünü yükleyin [alma PowerShellGet Modülü](/powershell/gallery/installing-psget).
 
 Kullanım [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview) ile birlikte `enrollmentAccount` nesne kimliği olarak `EnrollmentAccountObjectId` parametresini kullanarak yeni bir abonelik oluşturun. 
 
@@ -299,4 +300,4 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 * .NET kullanarak abonelikleri oluşturma konusunda bir örnek için bkz: [örnek kodu github'da](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Azure Resource Manager ve API'lerini hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](resource-group-overview.md).
 * Çok sayıda yönetim gruplarını kullanarak abonelikleri yönetme hakkında daha fazla bilgi edinmek için [kaynaklarınızı Azure Yönetim grupları ile düzenleme](management-groups-overview.md)
-* Abonelik idare üzerine büyük kurumlar için kapsamlı bir en iyi uygulama kılavuzunu görmek için [Azure enterprise iskele - Düzenleyici abonelik yönetimi](resource-manager-subscription-governance.md)
+* Abonelik idare üzerine büyük kurumlar için kapsamlı bir en iyi uygulama kılavuzunu görmek için [Azure enterprise iskele - Düzenleyici abonelik yönetimi](/azure/architecture/cloud-adoption-guide/subscription-governance)

@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594559"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Office 365 grupları Azure Active Directory'de (Önizleme) için adlandırma ilkesini zorunlu kılma
 
@@ -189,7 +190,7 @@ Okul veri eşitleme (SDS) | İlke adlandırma ile SDS oluşturulan grupları uyu
 Outlook müşteri Yöneticisi'ni (OCM) | Outlook müşteri Outlook müşteri Yöneticisi'nde oluşturduğunuz Grup otomatik olarak uygulanan adlandırma ilkesiyle uyumlu yöneticisidir. Özel bir engellenen word algılanırsa, grup oluşturma OCM'deki engellenir ve OCM uygulamayı kullanarak kullanıcı engellendi.
 Sınıf uygulama | Sınıf uygulamasında oluşturulan grupları adlandırma ilkesiyle uyumlu ancak adlandırma ilkesi otomatik olarak uygulanmaz ve bir sınıf adı yazarken, adlandırma ilkesi Önizleme kullanıcılara gösterilen değil. Kullanıcılar, önek ve sonek ile zorlanan sınıf grup adı girmeniz gerekir. Değilse, sınıf grubu oluşturun veya işlemi başarısız hatalarla düzenleyin.
 Power BI | Power BI çalışma alanları adlandırma ilkesiyle uyumlu.    
-Yammer | Bağlı gruplar yapılandırılmış adlandırma ilkesi zorlamaz yammer. Etkin ilke adlandırma ile kuruluşlar için Yammer adlandırma ilkesine uygun olmaz grupları için Office 365'e bağlı olmayan eski Yammer grupları oluşturur.
+Yammer | Yammer için Azure Active Directory hesaplarıyla oturum bir kullanıcı bir grup oluşturduğunda veya bir grup adı düzenler, grup adı İlkesi adlandırma ile uyumlu. Bu, hem Office 365 bağlı gruplar ve diğer tüm Yammer grupları için geçerlidir.<br>Bir Office 365 bağlı grubu adlandırma ilkesi yerinde önce oluşturulduysa, grup adı adlandırma ilkeleri otomatik olarak izlenmez. Bir kullanıcı grubu adı düzenlediğinde, önek ve sonek eklemeniz istenir.
 StaffHub  | StaffHub takımlar adlandırma ilkesi izlemeyin ancak temel alınan Office 365 grubunu desteklemez. StaffHub takım adı sonekleri ve önekleri uygulanmaz ve özel engellenen sözcükleri denetlemez. Ancak StaffHub önek ve sonek uygulamak ve engellenen sözcükleri temel Office 365 gruptan kaldırır.
 Exchange PowerShell | Exchange PowerShell cmdlet'leri adlandırma ilkesiyle uyumlu. Kullanıcılar Grup adı ve grup diğer adı (mailNickname) adlandırma ilkesi izlemeyin ilgili hata iletilerini önerilen önek ve sonek ve özel engellenen sözcükleri alır.
 Azure Active Directory PowerShell cmdlet'leri | Azure Active Directory PowerShell cmdlet'lerini, ilke adlandırma ile uyumludur. Kullanıcılar Grup adları ve grup diğer adlandırma kuralı izlemeyin ilgili hata iletilerini önerilen önek ve sonek ve özel engellenen sözcükleri alır.

@@ -1,25 +1,20 @@
 ---
-title: Azure'da VM yedekleme altyapınızı planlama | Microsoft Docs
+title: Azure'da VM yedekleme altyapınızı planlama
 description: Azure sanal makineleri yedeklemek planlama yaparken önemli noktalar
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: sanal makineleri yedekleme, sanal makineleri yedekleme
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606095"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure’da sanal makine yedekleme altyapınızı planlama
 Bu makalede, performansı ve VM yedekleme altyapınızı planlamanıza yardımcı olması için kaynak önerileri sağlar. Ayrıca, Backup hizmeti önemli yönlerini tanımlar; Bu yönlerinin, mimarisi belirlemede önemli kapasite planlaması ve zamanlama. Seçtiğiniz varsa [ortamınızı hazırlanmış](backup-azure-arm-vms-prepare.md), planlama sonraki adım başlamadan önce [Vm'leri yedekleme için](backup-azure-arm-vms.md). Azure sanal makineler hakkında daha fazla bilgiye ihtiyacınız varsa bkz [Virtual Machines belgeleri](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -27,7 +22,7 @@ Bu makalede, performansı ve VM yedekleme altyapınızı planlamanıza yardımc�
 ## <a name="how-does-azure-back-up-virtual-machines"></a>Azure nasıl mu sanal makineleri yedekleyin?
 Ne zaman bir yedekleme işi Azure Backup hizmeti zaman içinde nokta anlık almak için yedekleme uzantısını hizmet Tetikleyicileri zamanlanan saatte başlatır. Azure Backup hizmeti kullandığı _VMSnapshot_ pencerelerinde, uzantı ve _VMSnapshotLinux_ Linux uzantı. Uzantısı ilk VM yedekleme sırasında yüklenir. Uzantıyı yüklemek için VM çalıştırması gerekir. VM çalışmıyorsa Backup hizmeti, temel alınan depolamanın anlık görüntüsünü alır (VM durduğunda herhangi bir uygulama yazma işlemi gerçekleşmediği için).
 
-Windows VM görüntüsünü alırken, Backup hizmeti Birim Gölge Kopyası Hizmeti (sanal makine disklerin tutarlı bir anlık görüntü almak için VSS ile) düzenler. Linux VM'ler yedekliyorsanız, bir VM anlık görüntü duruma getirirken tutarlılığını sağlamak için kendi özel komut dosyaları yazabilirsiniz. Bu komut dosyalarını Çağırma ile ilgili ayrıntılar bu makalenin sonraki bölümlerinde sağlanır.
+Windows VM'lerinin anlık görüntüsü alınırken, Backup hizmeti Birim Gölge Kopyası Hizmeti (VSS) ile eşgüdümlü çalışarak sanal makine disklerinin tutarlı bir anlık görüntüsünü elde eder. Linux VM'ler yedekliyorsanız, bir VM anlık görüntü duruma getirirken tutarlılığını sağlamak için kendi özel komut dosyaları yazabilirsiniz. Bu komut dosyalarını Çağırma ile ilgili ayrıntılar bu makalenin sonraki bölümlerinde sağlanır.
 
 Azure Backup hizmeti anlık görüntüyü aldıktan sonra veriler kasaya aktarılır. Verimliliği maksimuma çıkarmak için hizmet yalnızca bir önceki yedeklemeden itibaren değişmiş olan veri bloklarının aktarımını yapar.
 
@@ -119,7 +114,7 @@ Sanal makineleri için yedeklemeleri yapılandırılırken bu yöntemler aşağ�
 * VM, yoğun olmayan saatlerde yedeklemelerin. Bu şekilde yedekleme hizmeti IOPS verileri müşteri depolama hesabından kasaya aktarmak için kullanır.
 * Bir ilke farklı depolama hesaplarında yayılan VM'ler uygulanan emin olun. En fazla 20 önerdiğimiz tek bir depolama hesabına toplam disklerden aynı yedekleme zamanlaması tarafından korunmalıdır. 20 diskler daha büyük bir depolama hesabı varsa, bu sanal makineleri yedekleme işlemi aktarımı aşamasında gerekli IOPS almak için birden çok ilke arasında yayılır.
 * Aynı depolama hesabı için Premium depolama üzerinde çalışan bir VM geri yüklemeyin. Geri yükleme işlemi işlemi yedekleme işlemi ile örtüşür, yedekleme için kullanılabilir IOPS azaltır.
-* Premium VM yedekleme için bu depolama hesabı konak premium disklerin başarılı bir yedekleme anlık görüntüsü hazırlama en az %50 boş alan olduğundan emin olun. 
+* Yığında VM yedekleme V1 Premium VM yedekleme için Azure Backup hizmeti, kasaya depolama hesabındaki kopyalanan bu konumdan, depolama hesabı ve aktarım veri anlık görüntü kopyalayabilirsiniz böylece toplam depolama hesabı alanı % 50'yalnızca tahsis önerilir.
 * Yedekleme 2.7 için emin olun, python sürümü Linux sanal makineleri üzerinde etkin
 
 ## <a name="data-encryption"></a>Veri şifrelemesi

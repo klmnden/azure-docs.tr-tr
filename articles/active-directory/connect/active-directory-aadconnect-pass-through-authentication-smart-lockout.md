@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Doğrudan kimlik doğrulaması - akıllı kilitleme | Microsoft Docs"
-description: "Şirket içi hesaplarınızı Azure Active Directory (Azure AD) doğrudan kimlik doğrulama bulutta yanılma parola saldırılarından nasıl koruduğunu bu makalede"
+title: 'Azure AD Connect: Doğrudan kimlik doğrulaması - akıllı kilitleme | Microsoft Docs'
+description: Şirket içi hesaplarınızı Azure Active Directory (Azure AD) doğrudan kimlik doğrulama bulutta yanılma parola saldırılarından nasıl koruduğunu bu makalede
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9477d47824213d7ea15bcf6c6b615a220bae2e48
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 73a34809b354eb38f44656f8d7dd598a8e640857
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591322"
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory doğrudan kimlik doğrulaması: Akıllı kilitleme
 

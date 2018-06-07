@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect - AD FS yönetimi ve özelleştirme | Microsoft Docs"
-description: "Azure AD Connect ve AD FS oturum açma ile kullanıcı deneyimi Azure AD Connect ve PowerShell özelleştirmesini ile AD FS yönetimi."
-keywords: "AD FS, ADFS, AD FS yönetimi, AAD bağlanma, bağlan, oturum açma, AD FS özelleştirmesi, onarım güven, O365, Federasyon, bağlı olan taraf"
+title: Azure AD Connect - AD FS yönetimi ve özelleştirme | Microsoft Docs
+description: Azure AD Connect ve AD FS oturum açma ile kullanıcı deneyimi Azure AD Connect ve PowerShell özelleştirmesini ile AD FS yönetimi.
+keywords: AD FS, ADFS, AD FS yönetimi, AAD bağlanma, bağlan, oturum açma, AD FS özelleştirmesi, onarım güven, O365, Federasyon, bağlı olan taraf
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590863"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Yönetmek ve Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak nasıl yöneteceğinizi ve Active Directory Federasyon Hizmetleri (AD FS) özelleştirme açıklanır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak AD FS görevler içerir.
@@ -29,7 +31,7 @@ Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak nasıl yönete
 |:--- |:--- |
 | **AD FS yönetme** | |
 | [Güven onarın](#repairthetrust) |Office 365 ile federasyon güveni onarmak nasıl. |
-| [Alternatif oturum açma Kimliğini kullanarak Azure AD ile birleştirmek](#alternateid) | Alternatif oturum açma Kimliğini kullanarak Federasyon yapılandırma  |
+| [Alternatif oturum açma Kimliğini kullanarak Azure AD ile birleştirmek ](#alternateid) | Alternatif oturum açma Kimliğini kullanarak Federasyon yapılandırma  |
 | [Bir AD FS sunucu ekleme](#addadfsserver) |Ek bir AD FS sunucu içeren bir AD FS grubunu genişletin yapma. |
 | [Bir AD FS Web uygulaması Ara Sunucusu Ekle](#addwapserver) |Ek bir Web uygulaması Ara sunucusu (WAP) sunucu içeren bir AD FS grubunu genişletin yapma. |
 | [Bir Federasyon etki alanına ekleme](#addfeddomain) |Bir Federasyon etki alanına ekleme. |
@@ -169,7 +171,7 @@ Azure AD Connect kullanarak Azure AD ile birleştirilecek bir etki alanına ekle
 
 4. Sonraki sayfada, sihirbaz, şirket içi dizininizle Azure AD etki alanlarının bir listesini sağlar. Etki alanı listesinden seçin.
 
-   ![Azure AD domain](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
+   ![Azure AD etki alanı](media/active-directory-aadconnect-federation-management/AdditionalDomain4.PNG)
 
     Etki alanını seçtikten sonra sihirbazın daha sihirbazın gerçekleştireceği eylemleri ve yapılandırma etkisini ilgili bilgileri sağlar. Henüz Azure AD'de doğrulanmış olmayan bir etki alanı seçerseniz bazı durumlarda, sihirbaz, etki alanı doğrulamanıza yardımcı olacak bilgiler sağlar. Bkz: [özel etki alanı adınızı Azure Active Directory'ye ekleme](../active-directory-domains-add-azure-portal.md) daha fazla ayrıntı için.
 
@@ -223,7 +225,7 @@ Kullanarak Ayrıca, **ekleme** ve **sorunu**, varlık için giden sorun eklemekt
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-Bu kural adlı geçici bir bayrak tanımlar **idflag** ayarlanmış **useguid** yoksa hiçbir **ms ds consistencyguid** kullanıcı için doldurulur. Bu arkasındaki mantığı AD FS boş talep izin vermeyen gerçeğidir. Kural 1'de talep http://contoso.com/ws/2016/02/identity/claims/objectguid ve http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid eklediğinizde, şunun için bir **msdsconsistencyguid** talep eksikse değer, kullanıcı için doldurulur. Doldurulmuş değil, AD FS boş değere sahip olur ve hemen bırakır görür. Tüm nesneler sahip **objectGUID**, kural 1 yürütüldükten sonra bu talep böylece her zaman vardır olur.
+Bu kural adlı geçici bir bayrak tanımlar **idflag** ayarlanmış **useguid** yoksa hiçbir **ms ds consistencyguid** kullanıcı için doldurulur. Bu arkasındaki mantığı AD FS boş talep izin vermeyen gerçeğidir. Talep eklediğinizde, bunu http://contoso.com/ws/2016/02/identity/claims/objectguid ve http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid kural 1'de, şunun bir **msdsconsistencyguid** değeri bir kullanıcı için doldurulur yalnızca talep. Doldurulmuş değil, AD FS boş değere sahip olur ve hemen bırakır görür. Tüm nesneler sahip **objectGUID**, kural 1 yürütüldükten sonra bu talep böylece her zaman vardır olur.
 
 **3. kural: varsa, ms ds consistencyguid değişmez kimliği olarak verme**
 
@@ -262,7 +264,7 @@ Varsayılan kural yalnızca UPN soneki alır ve veren kimliği talep kullanır. 
 
     => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
 
-**Claim value:**  http://sub.contoso.com/adfs/services/trust/
+**Talep değeri:**  http://sub.contoso.com/adfs/services/trust/
 
 Yalnızca kök etki alanı verenin talep değeri sağlamak için talep kuralı aşağıdaki eşleşecek şekilde değiştirin:
 

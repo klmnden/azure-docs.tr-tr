@@ -1,18 +1,19 @@
 ---
 title: Azure eşlemeleri harita denetiminin nasıl kullanılacağını | Microsoft Docs
 description: Azure eşlemeleri harita denetiminin istemci tarafı Javascript kitaplığı kullanmayı öğrenin.
-services: azure-maps
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
+services: azure-maps
 manager: timlt
-ms.openlocfilehash: bbd06aad9052d2a775c35dd08f80462f8ea505a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4ba4b9a9f2357d283ddc03a4723cb08b48d40a9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599220"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Azure eşlemeleri harita denetiminin nasıl kullanılacağını
 Harita denetiminin istemci tarafı Javascript kitaplığı eşlemeleri ve katıştırılmış Azure eşlemeleri işlevselliği, web veya mobil uygulamanızı işlemek sağlar. 

@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Docs"
-description: "Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir"
+title: 'Azure Active Directory etki alanı Hizmetleri: Başlarken | Microsoft Docs'
+description: Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 2a171490faf9804196c93d33c5ee74d22533c044
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f7c0372ec53157d42a229feddb5b3fce92ff4cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587911"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory etki alanı Azure portalını kullanarak Hizmetleri etkinleştir
 
@@ -40,16 +42,19 @@ Sihirbaz, yönetim grubu, Azure AD dizininde otomatik olarak oluşturur. Bu grub
 
 3. İşiniz bittiğinde tıklatın **Tamam** üzerinde taşımayı **Özet** sihirbazın.
 
-4. Üzerinde **Özet** sayfası, yönetilen etki alanı için yapılandırma ayarlarını gözden geçirin. Değişiklik yapmak için sihirbazın herhangi bir adıma gerekirse geri dönebilirsiniz. İşiniz bittiğinde tıklatın **Tamam** yeni yönetilen etki alanı oluşturmak için.
+
+## <a name="deploy-your-managed-domain"></a>Yönetilen etki alanınızı dağıtma
+
+1. Üzerinde **Özet** sayfası, yönetilen etki alanı için yapılandırma ayarlarını gözden geçirin. Değişiklik yapmak için sihirbazın herhangi bir adıma gerekirse geri dönebilirsiniz. İşiniz bittiğinde tıklatın **Tamam** yeni yönetilen etki alanı oluşturmak için.
 
     ![Özet](./media/getting-started/domain-services-blade-summary.png)
 
-5. Azure AD etki alanı Hizmetleri dağıtımınızın ilerlemesini gösteren bir bildirim görürsünüz. Dağıtım için ayrıntılı ilerleme durumunu görmek için bildirime tıklayın.
+2. Azure AD etki alanı Hizmetleri dağıtımınızın ilerlemesini gösteren bir bildirim görürsünüz. Dağıtım için ayrıntılı ilerleme durumunu görmek için bildirime tıklayın.
 
     ![Bildirim - dağıtımı devam ediyor](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
-## <a name="provision-your-managed-domain"></a>Yönetilen etki alanınızı sağlama
+## <a name="check-the-deployment-status-of-your-managed-domain"></a>Yönetilen etki alanınızı dağıtım durumunu denetleyin
 Yönetilen etki alanınızı sağlama işleminin bir saate kadar sürebilir.
 
 1. Dağıtımınızı sürerken içinde 'etki alanı Hizmetleri'nde' arayabilirsiniz **arama kaynakları** arama kutusu. Seçin **Azure AD etki alanı Hizmetleri** arama sonuç. **Azure AD etki alanı Hizmetleri** sağlanmakta yönetilen etki alanı dikey penceresinde listelenir.

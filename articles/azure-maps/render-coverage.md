@@ -1,22 +1,19 @@
 ---
 title: Azure Maps kapsamı oluşturma | Microsoft Docs
 description: Azure Maps işleme kapsamı hakkında bilgi edinin
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 03/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: ab05277c4541ae859f79b1108c4cf8a7beb29271
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600587"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure eşlemeleri kapsamı oluşturma
 
@@ -57,10 +54,10 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Eritre                          |   | Ø |
 | Etiyopya                         |   | Ø |
 | Gabon                            | ✓ | ✓ |
-| Gambiya                           |   | Ø |
+| Zambia                           |   | Ø |
 | Gana                            | ✓ | ✓ |
 | Gine                           |   | Ø |
-| Gine-Bissau                    |   | Ø |
+| Gine Bissau                    |   | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
 | Liberya                          |   | Ø |
@@ -76,7 +73,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Namibya                          | ✓ | ✓ |
 | Nijer                            | ✓ | ✓ |
 | Nijerya                          | ✓ | ✓ |
-| Reunion                          | ✓ | ✓ |
+| Réunion                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
 | Saint Helena, Ascension ve Tristan da Cunha |   | Ø |
 | Sao Tome ve Principe            |   | Ø |
@@ -87,7 +84,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Güney Sudan                      |   | Ø |
 | Sudan                            |   | Ø |
 | Svaziland                        | ✓ | ✓ |
-| Birleşik Tanzanya Cumhuriyeti      | ✓ | ✓ |
+| Tanzanya Birleşik Cumhuriyeti      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
 | Tunus                          | ✓ | ✓ |
 | Uganda                           | ✓ | ✓ |
@@ -154,8 +151,8 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Amerika Birleşik Devletleri             | ✓ | ✓ |
 | Uruguay                   | ✓ | ✓ |
 | Venezuela                 | ✓ | ✓ |
-| İngiliz Virgin Adaları   | ✓ | ✓ |
-| ABD Virgin Adaları      | ✓ | ✓ |
+| Virgin Adaları, İngiliz   | ✓ | ✓ |
+| Virgin Adaları, ABD      | ✓ | ✓ |
 
 ## <a name="asia"></a>Asya 
 
@@ -266,7 +263,7 @@ Ancak, Maps yok aynı düzeyde bilgi ve doğruluk tüm bölgeler için. Aşağı
 | Almanya                   | ✓ |✓ |
 | Cebelitarık                 | ✓ |   |
 | Yunanistan                    | ✓ | ✓ |
-| Guernsey                  |   | ✓ |
+| Guernsay                  |   | ✓ |
 | Macaristan                   | ✓ | ✓ |
 | İzlanda                   | ✓ | ✓ |
 | İrlanda (Cumhuriyeti)     | ✓ | ✓ |

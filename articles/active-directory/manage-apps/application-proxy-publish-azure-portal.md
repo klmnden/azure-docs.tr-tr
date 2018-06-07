@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eb629396629a92503907439a64cca9d70747010
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594134"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD Uygulama Ara Sunucusu ile uygulama yayımlama
 
@@ -29,6 +30,9 @@ Bu makalede, uygulama ara sunucusu ile bir şirket içi uygulamayı yayımlamak 
 
 Uygulama proxy'si yeniyseniz, bu özellik ile makalesi hakkında daha fazla bilgi [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](application-proxy.md).
 
+## <a name="before-you-begin"></a>Başlamadan önce
+
+Bu makale, zaten yüklü ve kayıtlı bir bağlayıcı varsayar. Bu adımları yapmanız gerekiyorsa, bkz: [uygulama ara sunucusu ile başlayın ve Bağlayıcısı'nı yüklemek](application-proxy-enable.md).
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>Uzaktan erişim için şirket içi uygulama yayımlama
 

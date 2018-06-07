@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: nepeters
-ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ca8d883add04d623c17390a0b5031aaf08be0429
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596507"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes hizmet (AKS) hakkında sık sorulan sorular
 
@@ -72,7 +73,7 @@ Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı d�
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Neden iki kaynak grubu ile AKS oluşturulur?
 
-Her AKS dağıtım iki kaynak grubu yayar. İlk oluşturulur ve yalnızca AKS kaynak içerir. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtım sırasında otomatik olarak oluşturur. *MC_myResourceGRoup_myAKSCluster_eastus*. İkinci kaynak grubu VM gibi kümesi ile ilişkili tüm altyapı kaynakları içeren ağ ve depolama. Kaynak temizleme basitleştirmek için oluşturulur.
+Her AKS dağıtım iki kaynak grubu yayar. İlk oluşturulur ve yalnızca AKS kaynak içerir. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtım sırasında otomatik olarak oluşturur. *MC_myResourceGroup_myAKSCluster_eastus*. İkinci kaynak grubu VM gibi kümesi ile ilişkili tüm altyapı kaynakları içeren ağ ve depolama. Kaynak temizleme basitleştirmek için oluşturulur.
 
 Depolama hesapları veya ayrılmış genel IP adresi gibi AKS kümenizi kullanılacak kaynakları oluşturuyorsanız, otomatik olarak oluşturulan kaynak grubunda yerleştirmelisiniz.
 

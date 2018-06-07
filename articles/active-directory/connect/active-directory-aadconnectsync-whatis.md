@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2017
+ms.component: hybrid
 ms.author: markvi
-ms.openlocfilehash: a808f929dcd27b53821f59ed8fd3ab67af81a273
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b2724f4c9511d606ab8eeac2dedea8759283883
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595266"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect eşitleme: anlamak ve eşitleme özelleştirme
 Azure Active Directory Connect Eşitleme Hizmetleri (Azure AD Connect eşitleme) Azure AD Connect ana bileşenidir. Bu şirket içi ortamınız ile Azure AD arasındaki kimlik verilerini eşitlemek için ilgili tüm işlemleri ilgilenir. Azure AD Connect eşitleme DirSync, Azure AD eşitleme ve Azure Active Directory yapılandırılmış Bağlayıcısı ile Forefront Identity Manager ardılı ' dir.

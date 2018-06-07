@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c223091e423d0f342f14424c58d6b7447cda50e8
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593461"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitlemesi ile parola karma eşitlemesi uygulama
 Bu makale, şirket içi Active Directory örneğinden bir bulut tabanlı Azure Active Directory (Azure AD) örneği, kullanıcı parolalarını eşitlemek için gereken bilgileri sağlar.
@@ -81,9 +83,9 @@ Aşağıdaki ayrıntılı parola karması eşitlemesi Active Directory ve Azure 
 2. Göndermeden önce etki alanı denetleyicisi MD4 parola karması bir anahtarı kullanarak şifreler bir [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) karma RPC oturum anahtarı ve bir veri dizesi. Bunu daha sonra sonuç parola karma eşitlemesi aracıya RPC üzerinden gönderir. DC ayrıca salt eşitleme Aracısı aracı Zarf şifresini mümkün olması için DC çoğaltma protokolü kullanarak geçirir.
 3.  Parola karma eşitlemesi aracı şifrelenmiş Zarf sahip olduktan sonra onu kullanır [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) ve özgün MD4 biçiminde dön alınan verilerin şifresini çözmek için bir anahtar oluşturmak için veri dizesi. Herhangi bir noktada parola karma eşitlemesi Aracısı düz metin parolası erişimi yok. Parola karma eşitlemesi aracısının MD5 kesinlikle DC ile çoğaltma Protokolü uyumluluk için kullanılır ve yalnızca şirket içi etki alanı denetleyicisi ve parola karma eşitlemesi aracısı arasında kullanılır.
 4.  Parola karma eşitlemesi aracı ilk Bu dize dönüştürme bir bayt 32 onaltılık dize karma geri UTF-16 kodlamalı ikili dönüştürerek 16 bayt ikili parola karması 64 bayt genişletir.
-5.  Parola karma eşitlemesi aracısı için özgün karma daha iyi korumak için 64-bayt ikili 10 bayt uzunlukta bir veri dizesi oluşan bir veri dizesi ekler.
-6.  Parola karma eşitlemesi Aracısı sonra MD4 karma artı salt birleştirir ve içine girdi [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) işlevi. 1000 yinelemelerini [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) anahtarlı karma algoritma kullanılır. 
-7.  Parola karma eşitlemesi Aracısı'nı elde edilen 32 baytlık karma alır, salt ve (tarafından kullanılmak üzere Azure AD) kendisine SHA256 yineleme sayısını art arda ekler ve sonra Azure ad, Azure AD Connect dizeden SSL üzerinden iletir.</br> 
+5.  Parola karma eşitlemesi Aracısı ekler bir kullanıcı salt, özgün karma daha iyi korumak için 64-bayt ikili için 10 bayt uzunlukta bir veri dizesi oluşan başına.
+6.  Parola karma eşitlemesi Aracısı sonra MD4 karma birleştirir artı kullanıcı salt başına ve içine girdi [PBKDF2](https://www.ietf.org/rfc/rfc2898.txt) işlevi. 1000 yinelemelerini [HMAC SHA256](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) anahtarlı karma algoritma kullanılır. 
+7.  Parola karma eşitlemesi Aracısı elde edilen 32 baytlık karma alır, her ikisi de art arda ekler kullanıcı salt ve SHA256 sayısı ona yineleme (tarafından kullanım için Azure AD), ardından iletir Azure ad, Azure AD Connect dizeden SSL üzerinden.</br> 
 8.  Bir kullanıcı Azure AD ile oturum açmasını sağlamaya çalışır ve parolasını girer, parola aynı MD4 + salt + PBKDF2 + HMAC SHA256 işlemi çalıştırılır. Sonuçta elde edilen karma Azure AD'de depolanan karma eşleşirse, kullanıcı doğru parolayı geçtiğini ve doğrulanır. 
 
 >[!Note] 
@@ -159,7 +161,7 @@ Sunucunuz Federal Bilgi İşleme Standardı (FIPS göre) kilitli, MD5 devre dı�
 **Parola karma eşitlemesi için MD5 etkinleştirmek için aşağıdaki adımları gerçekleştirin:**
 
 1. %ProgramFiles%\Azure AD Sync\Bin gidin.
-2. Open miiserver.exe.config.
+2. Miiserver.exe.config açın.
 3. Dosyanın sonunda yapılandırma/çalışma zamanı düğümüne gidin.
 4. Aşağıdaki düğüm ekleyin: `<enforceFIPSPolicy enabled="false"/>`
 5. Yaptığınız değişiklikleri kaydedin.

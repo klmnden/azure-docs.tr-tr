@@ -1,25 +1,27 @@
 ---
 title: Gecikme raporlama Azure Active Directory | Microsoft Docs
-description: "Azure portalında göstermeyi raporlama olayları için geçen süreyi hakkında bilgi edinin"
+description: Azure portalında göstermeyi raporlama olayları için geçen süreyi hakkında bilgi edinin
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: rolyon;dhanyahk
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: f27efab05dc8580735c58eed20e9b48d8003dd17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589789"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Gecikme raporlama Azure Active Directory
 
@@ -37,10 +39,10 @@ Etkinlik Raporlama iki alan vardır:
 
 Aşağıdaki tabloda, etkinlik raporları gecikme bilgileri listeler.
 
-| Rapor | Minimum | Ortalama | Açıklamalar |
-| :-- | --- | --- | :-- |
-| Denetim günlükleri | 30 dakika  | 1 saat  |Bazı durumlarda, gösterilmeye denetim etkinlik verilerini 2 saate kadar sürebilir.|
-| Oturum açma işlemleri | 15 dakika  | 2 saat |Bazı durumlarda, oturum açma etkinliği veri görünmesini 24 saate kadar sürebilir. Bu, eski office uygulamalarından gelen oturum açma işlemleri etkinlik verilerini içerir. |
+| Rapor | Gecikme süresi (P95) |Gecikme süresi (P99)|
+| :-- | --- | --- | 
+| Denetim günlükleri | 2 dakika  | 5 dakika  |
+| Oturum açma işlemleri | 2 dakika  | 5 dakika |
 
 
 

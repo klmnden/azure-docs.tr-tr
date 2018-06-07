@@ -11,15 +11,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 05/24/2018
 ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: 3b17344af099ea8b5d2554d5f6045a10641ff861
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 352fff53d9e35ddd8d8e0c107e969357d9c766b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599244"
 ---
-# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri akış: 1 saniye gecikme süresi ile Tanıla & zle 
+# <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Canlı ölçümleri akış: 1 saniye gecikme süresi ile Tanıla & zle
 
 Canlı ölçümleri akıştan kullanarak canlı, üretim web uygulamanızın göndermeyi Kalp araştırma [Application Insights](app-insights-overview.md). Seçin ve tüm rahatsızlık hizmetinize olmadan gerçek zamanlı olarak izlemek için ölçümleri ve performans sayaçlarını filtreleyin. Yığın izlemeleri örnek başarısız istekler ve özel durumları inceleyin. İle birlikte [profil oluşturucu](app-insights-profiler.md), [anlık görüntü hata ayıklayıcı](app-insights-snapshot-debugger.md), ve [performans testi](app-insights-monitor-web-app-availability.md#performance-tests), Canlı ölçümleri akış için canlı web güçlü ve bozucu bir tanılama aracı sağlar Site.
 
@@ -35,9 +36,7 @@ Canlı ölçümleri akış ile şunları yapabilirsiniz:
 
 [![Canlı ölçümleri akış video](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
-Ölçümler bir canlı akışı ASP.NET uygulamalarını çalıştıran şirket içi veya bulutta şu anda kullanılabilir değil. 
-
-## <a name="get-started"></a>Başlayın
+## <a name="get-started"></a>başlarken
 
 1. Henüz yapmadıysanız [Application Insights yüklü](app-insights-asp-net.md) , ASP.NET web uygulamanızda veya [Windows server uygulaması](app-insights-windows-services.md), bunu şimdi yapın. 
 2. **En son sürüme güncelleştirin** Application Insights paketi. Visual Studio'da, projenize sağ tıklayın ve seçin **Manage Nuget paketleri**. Açık **güncelleştirmeleri** sekmesi, onay **dahil et**ve tüm Microsoft.ApplicationInsights.* paketleri seçin.
@@ -60,7 +59,7 @@ Denetleme [bağlantı noktaları için Canlı ölçümleri akış giden](app-ins
 
 | |Canlı Akış | Ölçüm Gezgini ve analizi |
 |---|---|---|
-|Gecikme|Bir saniye içinde görüntülenen verileri|Dakika boyunca bir araya getirilir|
+|Gecikme süresi|Bir saniye içinde görüntülenen verileri|Dakika boyunca bir araya getirilir|
 |Hiçbir bekletme|Grafikte olduğu ve sonra atılır verileri devam eder.|[90 gün boyunca tutulur veri](app-insights-data-retention-privacy.md#how-long-is-the-data-kept)|
 |İsteğe bağlı|Canlı ölçümleri açarken veri akışı|SDK'ın yüklü ve etkin olduğunda veriler gönderilir|
 |Ücretsiz|Canlı akış verileri için herhangi bir ücret alınmaz|Konusu [fiyatlandırma](app-insights-pricing.md)

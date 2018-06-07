@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect eşitleme: AD DS hesap parolasını değiştirme | Microsoft Docs"
-description: "Bu konuda belge, AD DS hesabı için parola değiştirildikten sonra Azure AD Connect güncelleştirme açıklar."
+title: 'Azure AD Connect eşitleme: AD DS hesap parolasını değiştirme | Microsoft Docs'
+description: Bu konuda belge, AD DS hesabı için parola değiştirildikten sonra Azure AD Connect güncelleştirme açıklar.
 services: active-directory
-keywords: "AD DS hesabı, Active Directory hesap parolası"
-documentationcenter: 
+keywords: AD DS hesabı, Active Directory hesap parolası
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5bc296b594917f68f35d7d15653b7b0c60cde514
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: a4d0d062b28b03de7f1e606202dddae28bf6a2f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592468"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>AD DS hesap parolasını değiştirme
 AD DS hesabı şirket içi Active Directory ile iletişim kurmak için Azure AD Connect tarafından kullanılan kullanıcı hesabına başvuruyor. AD DS hesabı için parola değiştirirseniz, Azure AD Connect eşitleme hizmeti yeni parolayla güncelleştirmeniz gerekir. Aksi takdirde eşitleme artık doğru şekilde şirket içi Active Directory ile eşitleyebilir ve şu hatalarla karşılaşır:

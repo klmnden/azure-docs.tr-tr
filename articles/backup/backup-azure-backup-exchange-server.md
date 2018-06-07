@@ -1,24 +1,19 @@
 ---
-title: Bir Exchange Server'a Azure yedekleme ile System Center 2012 R2 DPM yedekleme | Microsoft Docs
-description: "System Center 2012 R2 DPM kullanarak Azure yedekleme için bir Exchange server'ı Yedekle öğrenin"
+title: System Center 2012 R2 DPM ile Azure Backup’a Exchange sunucusu yedekleme
+description: System Center 2012 R2 DPM kullanarak Azure yedekleme için bir Exchange server'ı Yedekle öğrenin
 services: backup
-documentationcenter: 
 author: MaanasSaran
 manager: NKolli1
-editor: 
-ms.assetid: 13f32256-888e-416e-a78b-40c2a26a5939
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
-ms.author: masaran;jimpark;delhan;trinadhk;markgal
-ms.openlocfilehash: 9dc0105034e0d354a6cbbd7ba70634bdff83c1bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605109"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM ile Azure Backup’a Exchange sunucusu yedekleme
 Bu makalede Azure yedekleme için bir Microsoft Exchange sunucusunu yedeklemek için System Center 2012 R2 Data Protection Manager (DPM) sunucusunun nasıl yapılandırılacağı açıklanmaktadır.  
@@ -31,7 +26,7 @@ Azure yedekleme ile DPM sunucusu başarıyla kaydetmek için System Center 2012 
 >
 >
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Devam etmeden önce emin olun tüm [Önkoşullar](backup-azure-dpm-introduction.md#prerequisites) iş yüklerini korumak için Microsoft Azure Yedekleme kullanılarak karşılandığından. Bu Önkoşullar şunlardır:
 
 * Bir yedekleme kasası Azure sitede oluşturuldu.

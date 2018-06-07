@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 5262914e469bdc07921c3b82e990d544349b5fd4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 24172ebac8c7f124d0873b9d93d260fa2e1a8a44
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594620"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-the-azure-cli"></a>Oluşturma, liste veya Azure CLI kullanarak kimlik atanmış bir kullanıcı silme
 
@@ -45,8 +46,7 @@ Bu makalede, oluşturma, liste ve Azure CLI kullanarak bir kullanıcı tarafınd
 
 Bir kullanıcı tarafından atanan kimlik oluşturmak üzere kullanmak [az kimliği oluşturma](/cli/azure/identity#az-identity-create) komutu. `-g` Parametresi, kaynak grubuna atanan kullanıcı kimliğini oluşturulacağı yeri belirtir ve `-n` parametresi adını belirtir. Değiştir `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizi ile:
 
-> [!IMPORTANT]
-> Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
  ```azurecli-interactive
 az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>

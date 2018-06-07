@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ec932451d82e891b2c9b11d91f44d4dc5fce6828
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8f81e667ffd1e425527b383445f382d18233fef2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594525"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-resource-manager"></a>Azure Kaynak Yöneticisi'ne erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -124,11 +125,11 @@ Bu adımları tamamlamak için bir SSH istemcisi gerekir. Windows kullanıyorsan
      
     ```bash
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}} 
-    ```
-     
-## <a name="related-content"></a>İlgili içerik
+    ```     
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md). 
+## <a name="next-steps"></a>Sonraki adımlar
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+Bu öğreticide, bir kullanıcı kimliği atanır oluşturun ve Azure Resource Manager API erişmek için Azure sanal makinesinde kullanıma öğrendiniz.  Azure Resource Manager bakın hakkında daha fazla bilgi için:
 
+> [!div class="nextstepaction"]
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)

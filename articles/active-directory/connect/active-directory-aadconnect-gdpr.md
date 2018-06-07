@@ -11,13 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e3f81a6480e9de55c8f803e2266c4ac6e33c316
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590547"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>Kullanıcı gizliliği ve Azure AD Connect 
 
@@ -26,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 >[!NOTE] 
 >Bu makalede, Azure AD Connect ve kullanıcı gizlilik ile ilgilidir.  Azure AD Connect Health ve kullanıcı gizlilik hakkında bilgi için bkz: [burada](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md).
 
-Azure AD Connect yüklemeleri için kullanıcı gizlilik uyumluluk iki yolla erişilebilir:
+Azure AD Connect iki yolu yüklemelerde için kullanıcı gizliliğini geliştirme:
 
 1.  İstek, bir kişi için verileri ayıklamak ve yüklemeleri bu kişiden veri kaldırın
 2.  Hiçbir veri 48 saat dışında tutulur emin olun.

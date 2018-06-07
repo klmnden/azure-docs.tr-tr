@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602729"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Kaynakları yeni kaynak grubuna veya aboneliğe taşıyın.
 
@@ -91,6 +92,8 @@ Bir kaynağı taşımadan önce gerçekleştirmeniz gereken bazı önemli adıml
 
    * **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action** kaynak kaynak grubu üzerinde.
    * **Microsoft.Resources/subscriptions/resourceGroups/write** hedef kaynak grubu üzerinde.
+
+5. Mümkün olduğunda, sonu büyük ayrı taşıma işlemlere taşır. Kaynak Yöneticisi'ni hemen tek bir işlemde birden fazla 800 kaynakları taşımak için denemeleri başarısız olur. Ancak, değerinden 800 kaynakları taşıma ayrıca zaman aşımına uğramadan tarafından başarısız olabilir.
 
 ## <a name="when-to-call-support"></a>Destek çağrısı yapıldığında
 

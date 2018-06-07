@@ -1,29 +1,23 @@
 ---
 title: Azure IOT Çözüm Hızlandırıcıları SSS | Microsoft Docs
 description: IOT Çözüm Hızlandırıcıları için sık sorulan sorular
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627168"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IOT Çözüm Hızlandırıcıları için sık sorulan sorular
 
-Ayrıca bkz [bağlı Fabrika özgü SSS](iot-accelerators-faq-cf.md) ve [Uzaktan izleme özgü SSS](iot-accelerators-faq-rm-v2.md) .
+Ayrıca bkz [Fabrika özgü SSS bağlı](iot-accelerators-faq-cf.md) ve [Uzaktan izleme özgü SSS](iot-accelerators-faq-rm-v2.md) .
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>Çözüm Hızlandırıcıları için kaynak kodunu nereden bulabilirim?
 
@@ -54,7 +48,7 @@ Evet, yeni Uzaktan izleme aynı coğrafi bölgelerde kullanılabilir.
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Azure portalında bir kaynak grubunu silme ve Çözüm Hızlandırıcısı azureiotsuite.com içinde silin tıklayarak arasındaki fark nedir?
 
-* Çözüm Hızlandırıcısı silerseniz [azureiotsuite.com](https://www.azureiotsuite.com/), Çözüm Hızlandırıcısı oluşturduğunuzda sağlanan tüm kaynakları silin. Kaynak grubuna ek kaynaklar eklediyseniz, bu kaynakları da silinir.
+* Çözüm Hızlandırıcısı silerseniz [azureiotsuite.com](https://www.azureiotsolutions.com/), Çözüm Hızlandırıcısı oluşturduğunuzda sağlanan tüm kaynakları silin. Kaynak grubuna ek kaynaklar eklediyseniz, bu kaynakları da silinir.
 * Kaynak grubunu silerseniz [Azure portal](https://portal.azure.com), yalnızca bu kaynak grubundaki kaynakları silersiniz. Ayrıca, Çözüm Hızlandırıcısı ile ilişkili Azure Active Directory Uygulama silmeniz gerekir.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IOT Çözüm Hızlandırıcıları varolan my yatırım yüklemenizden yararlanmaya devam edebilirsiniz?
@@ -71,7 +65,7 @@ Elli. Oluşturabileceğiniz bir [Azure destek bileti](https://portal.azure.com/#
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>Bir abonelikte kaç tane Ücretsiz Bing Haritaları API'si sağlayabilirim?
 
-İki. Bir Azure aboneliğinde Enterprise planları için yalnızca iki adet İç İşlemler Düzey 1 Bing Haritası oluşturabilirsiniz. Uzaktan izleme çözümü, varsayılan olarak bir İç İşlemler Düzey 1 planı ile hazırlanır. Sonuç olarak, herhangi bir değişiklik yapılmadıysa bir abonelikte yalnızca en fazla iki tane uzaktan izleme çözümü sağlayabilirsiniz.
+İki. Bir Azure aboneliğinde Enterprise planları için yalnızca iki adet İç İşlemler Düzey 1 Bing Haritası oluşturabilirsiniz. Uzaktan izleme çözümü, varsayılan iç işlemleri düzey 1 planıyla tarafından sağlanır. Sonuç olarak, yalnızca en fazla iki uzaktan izleme çözümü bir abonelikte herhangi bir değişiklik yapılmadıysa sağlayabilirsiniz.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>Çözüm Hızlandırıcısı, Microsoft Azure için DreamSpark varsa oluşturabilir miyim?
 
@@ -93,6 +87,6 @@ Bkz. Eric Golpe'un blog gönderisi [bir Azure AD Kiracısını silme Kılavuzu](
 IoT çözüm hızlandırıcılarının diğer özellik ve yeteneklerinden bazılarını da keşfedebilirsiniz:
 
 * [Uzaktan izleme Çözüm Hızlandırıcısı özelliklerini keşfedin](iot-accelerators-remote-monitoring-explore.md)
-* [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](../iot-suite/iot-suite-predictive-overview.md)
+* [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](iot-accelerators-predictive-overview.md)
 * [Bağlı Fabrika Çözüm Hızlandırıcısı genel bakış](iot-accelerators-connected-factory-overview.md)
-* [IOT güvenlik sıfırdan](../iot-suite/securing-iot-ground-up.md)
+* [IOT güvenlik sıfırdan](securing-iot-ground-up.md)

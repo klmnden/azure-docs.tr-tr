@@ -1,25 +1,19 @@
 ---
 title: Fabrika çözüm SSS - Azure bağlı | Microsoft Docs
 description: Bağlı Fabrika Çözüm Hızlandırıcısı için sık sorulan sorular
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627510"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Bağlı Fabrika Çözüm Hızlandırıcısı için sık sorulan sorular
 
@@ -67,7 +61,7 @@ IP adresini kaldırmak için iki seçeneğiniz vardır:
 
 VM benzetimi için oturum açma yalnızca desteklenen PowerShell Betiği kullanılarak çözümünüzü dağıttıysanız, `build.ps1` içinde [depo](https://github.com/Azure/azure-iot-connected-factory).
 
-Www.azureiotsuite.com çözümden dağıttıysanız VM oturum açamaz. ' De, çünkü parolayı rastgele oluşturulan ve onu sıfırlayamazsınız oturum.
+Www.azureiotsolutions.com çözümden dağıttıysanız VM oturum açamaz. ' De, çünkü parolayı rastgele oluşturulan ve onu sıfırlayamazsınız oturum.
 
 1. Bir ortak IP adresi VM'ye ekleyin. Bkz: [VM benzetimi için bir ortak IP adresi nasıl ekleyebilirim?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)
 1. VM IP adresini kullanarak, VM için bir SSH oturumu oluşturun.
@@ -148,11 +142,11 @@ IOT Hub'ına gönderilen veri görürseniz, benzetimi ile ilgili bir sorun yoktu
 
 Etkileşimli bir harita bağlı Fabrika çözümünüzdeki etkinleştirmek için Kurumsal planı için varolan bir Bing haritaları API'si olması gerekir.
 
-Gelen dağıtırken [www.azureiotsuite.com](http://www.azureiotsuite.com), dağıtım işlemi aboneliğiniz Kurumsal planı için etkinleştirilmiş bir Bing haritaları API'si sahiptir ve etkileşimli bir harita bağlı Fabrika otomatik olarak dağıtan doğrular. Bu durumda değilse, hala etkileşimli bir harita dağıtımınızda şu şekilde etkinleştirebilirsiniz:
+Gelen dağıtırken [www.azureiotsolutions.com](http://www.azureiotsolutions.com), dağıtım işlemi aboneliğiniz Kurumsal planı için etkinleştirilmiş bir Bing haritaları API'si sahiptir ve etkileşimli bir harita bağlı Fabrika otomatik olarak dağıtan doğrular. Bu durumda değilse, hala etkileşimli bir harita dağıtımınızda şu şekilde etkinleştirebilirsiniz:
 
 Dağıttığınızda kullanarak `build.ps1` betik bağlı Fabrika github depo ve kurumsal planı için Bing haritaları API'si sahip, ortam değişkeni `$env:MapApiQueryKey` sorgu anahtarı planınız için derleme penceresinde. Etkileşimli harita otomatik olarak etkinleştirilir.
 
-Kurumsal planı için Bing haritaları API'si yoksa, bağlı Fabrika çözümden dağıtmak [www.azureiotsuite.com](http://www.azureiotsuite.com) veya kullanarak `build.ps1` komut dosyası. Daha sonra kurumsal planı için Bing haritaları API'si açıklandığı gibi aboneliğinize eklediğiniz [kuruluş hesabı için Bing haritaları API'si nasıl oluşturabilirim?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Açıklandığı gibi bu hesabın sorgu anahtarını arayın [Kurumsal QueryKey için Bing haritaları API'nizi edinme](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) ve bu anahtar kaydedin. Azure Portalı'na gidin ve bağlı Fabrika dağıtımınızdaki uygulama hizmeti kaynağa erişim. Gidin **uygulama ayarları**, bir bölümü nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** aldığınız sorgu anahtarı. Ayarları kaydetmek ve ardından gidin **genel bakış** ve uygulama hizmetini yeniden başlatın.
+Kurumsal planı için Bing haritaları API'si yoksa, bağlı Fabrika çözümden dağıtmak [www.azureiotsolutions.com](http://www.azureiotsolutions.com) veya kullanarak `build.ps1` komut dosyası. Daha sonra kurumsal planı için Bing haritaları API'si açıklandığı gibi aboneliğinize eklediğiniz [kuruluş hesabı için Bing haritaları API'si nasıl oluşturabilirim?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Açıklandığı gibi bu hesabın sorgu anahtarını arayın [Kurumsal QueryKey için Bing haritaları API'nizi edinme](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) ve bu anahtar kaydedin. Azure Portalı'na gidin ve bağlı Fabrika dağıtımınızdaki uygulama hizmeti kaynağa erişim. Gidin **uygulama ayarları**, bir bölümü nerede **uygulama ayarları**. Ayarlama **MapApiQueryKey** aldığınız sorgu anahtarı. Ayarları kaydetmek ve ardından gidin **genel bakış** ve uygulama hizmetini yeniden başlatın.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Bing Haritalar API'si kuruluş hesabı için nasıl oluşturulur
 
@@ -212,6 +206,6 @@ Telemetri verileri olmayan OPC UA aygıtları bağlı Fabrika göndermek için:
 
 IoT çözüm hızlandırıcılarının diğer özellik ve yeteneklerinden bazılarını da keşfedebilirsiniz:
 
-* [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](../iot-suite/iot-suite-predictive-overview.md)
+* [Tahmine Dayalı Bakım çözüm hızlandırıcısına genel bakış](iot-accelerators-predictive-overview.md)
 * [Bağlı Fabrika Çözüm Hızlandırıcısı genel bakış](iot-accelerators-connected-factory-overview.md)
-* [IOT güvenlik sıfırdan](../iot-suite/securing-iot-ground-up.md)
+* [IOT güvenlik sıfırdan](securing-iot-ground-up.md)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: f2904f3d070a818985fa291fb9083b5ec57529dd
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 31afe8579580ab392411aa8428f023fd52c4c4c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595300"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Öğretici: Azure Data Lake Store'a erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın.
 
@@ -208,12 +209,9 @@ Diğer Data Lake Store dosya sistemi dosyalarına ekleme API'lerini kullanarak, 
 
 Tebrikler!  Bir VM MSI kullanarak Data Lake Store dosya sistemi doğruladınız.
 
-## <a name="related-content"></a>İlgili içerik
+## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
-- Yönetimi için Azure Resource Manager operations Data Lake Store kullanır.  Resource Manager kimliğini doğrulamak için bir VM MSI kullanma hakkında daha fazla bilgi için okuma [Resource Manager erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanan](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm).
-- Daha fazla bilgi edinmek [Data Lake Store ile Azure Active Directory'yi kullanarak kimlik doğrulaması](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
-- Daha fazla bilgi edinmek [REST API kullanarak Azure Data Lake Store dosya sistemi işlemleri](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) veya [WebHDFS dosya sistemi API'lerini](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
-- Daha fazla bilgi edinmek [Data Lake Store'da erişim denetimi](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Bu öğreticide, bir yönetilen hizmet kimliği Windows sanal makine için bir Azure Data Lake Store'a erişmek için nasıl kullanılacağı hakkında bilgi edindiniz. Bilgi edinmek için Azure Data Lake Store hakkında daha fazla bakın:
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)

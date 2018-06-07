@@ -1,8 +1,8 @@
 ---
-title: "Excel, Python veya R Azure Databricks bağlanma | Microsoft Docs"
-description: "Excel, Python veya r Azure Databricks bağlanmak için Simba sürücü kullanmayı öğrenin"
+title: Excel, Python veya R Azure Databricks bağlanma | Microsoft Docs
+description: Excel, Python veya r Azure Databricks bağlanmak için Simba sürücü kullanmayı öğrenin
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,13 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9daa7d30036d0a0f98d079e03a69c29d11e49664
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598887"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python veya R Azure Databricks Bağlan
 
@@ -102,7 +103,7 @@ Excel çalışma kitabınızı verileri bulduktan sonra analitik işlemlerini ge
 Bu bölümde, başvuru verileri Azure Databricks kullanılabilir bir R dilini IDE kullanın. Başlamadan önce bilgisayarda yüklü olması gerekir.
 
 * Bir IDE R dil için. Bu makalede Rstudio'dan Masaüstü için kullanır. Şuradan yükleyebilirsiniz [R Studio indirme](https://www.rstudio.com/products/rstudio/download/).
-* IDE'yi Masaüstü için Rstudio'dan kullanıyorsanız, Microsoft R istemciden de yüklemeniz [http://aka.ms/rclient/](http://aka.ms/rclient/). 
+* IDE'yi Masaüstü için Rstudio'dan kullanıyorsanız, Microsoft R istemciden de yüklemeniz [ http://aka.ms/rclient/ ](http://aka.ms/rclient/). 
 
 Rstudio'dan açın ve aşağıdaki adımları uygulayın:
 

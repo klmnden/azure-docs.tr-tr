@@ -1,19 +1,20 @@
 ---
-title: "Bir Azure SQL veritabanı ölçeklendirme | Microsoft Docs"
-description: "Esnek veritabanı istemci kitaplığı ShardMapManager kullanma"
+title: Bir Azure SQL veritabanı ölçeklendirme | Microsoft Docs
+description: Esnek veritabanı istemci kitaplığı ShardMapManager kullanma
 services: sql-database
 manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: sstein
-ms.openlocfilehash: cf8d4427cddbe6368ac265fe9ecc0f408f7fb1fb
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 7e156142a68b30471646ea3a9181ce7d0097e626
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647002"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Parça eşleme Yöneticisi veritabanlarıyla ölçeğini genişletme
 SQL Azure veritabanlarını kolayca ölçeğini bir parça eşleme Yöneticisi'ni kullanın. Parça eşleme Yöneticisi'ni bir parça kümesindeki tüm parça (veritabanları) hakkında genel eşleme bilgilerini tutan özel bir veritabanıdır. Meta veri değeri alınarak doğru veritabanına bağlanmak bir uygulama sağlar **parçalama anahtar**. Ayrıca, yerel verileri izlemek haritalar kümesindeki her parça içerir (olarak bilinen **shardlets**). 
@@ -47,12 +48,12 @@ Esnek ölçeklendirme parçalama anahtarları olarak aşağıdaki türlerini des
 
 | .NET | Java |
 | --- | --- |
-| tamsayı |tamsayı |
-| uzun |uzun |
+| integer |integer |
+| boylam |boylam |
 | GUID |UUID |
 | Byte]  |Byte] |
 | datetime | timestamp |
-| TimeSpan | Süre|
+| TimeSpan | süre|
 | Datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Liste ve aralığı parça eşlemeleri

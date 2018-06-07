@@ -1,31 +1,28 @@
 ---
-title: "Azure .NET SDK kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs"
-description: "Data Lake Analytics işleri, veri kaynakları, kullanıcıların nasıl yöneteceğinizi öğrenin. "
+title: Azure .NET SDK kullanarak Azure Data Lake Analytics yönetme
+description: Bu makalede, Data Lake Analytics işleri, veri kaynakları ve kullanıcıları yönettiğiniz uygulamalar yazmak için Azure .net SDK'sını kullanmayı açıklar.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.author: saveenr
-ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc49bb9b5461a4e8eb3573877276f5876e12f340
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625129"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Azure .NET SDK kullanarak Azure Data Lake Analytics yönetme
+# <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics'i .NET uygulaması yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure Data Lake Analytics hesapları, veri kaynakları, kullanıcılar ve işleri Azure .NET SDK'yı kullanarak yönetmeyi öğrenin. 
+Bu makalede Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Azure .NET SDK'sı kullanılarak yazılmış bir uygulama kullanarak nasıl yönetileceği açıklanmaktadır. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * **Visual Studio 2015, Visual Studio 2013 Güncelleştirme 4 veya Visual C++ Yüklü Visual Studio 2012**.
 * **.NET sürüm 2.5 veya üzeri için Microsoft Azure SDK**.  [Web platformu yükleyicisini](http://www.microsoft.com/web/downloads/platform.aspx) kullanarak yükleyin.
@@ -288,6 +285,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }

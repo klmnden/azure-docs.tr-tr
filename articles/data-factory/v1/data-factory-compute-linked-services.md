@@ -9,15 +9,16 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621760"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen ortamlar işlem
 > [!NOTE]
@@ -29,7 +30,7 @@ Aşağıdaki tabloda, veri fabrikası ve bunlar üzerinde çalışan etkinlikler
 
 | İşlem ortamı                      | Etkinlikler                               |
 | ---------------------------------------- | ---------------------------------------- |
-| [İsteğe bağlı Azure Hdınsight kümesi](#azure-hdinsight-on-demand-linked-service) veya [kendi Hdınsight kümenizi](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
+| [İsteğe bağlı Azure Hdınsight kümesi](#azure-hdinsight-on-demand-linked-service) veya [kendi Hdınsight kümenizi](#azure-hdinsight-linked-service) | [DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop akış](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](#azure-batch-linked-service) | [DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning etkinlikleri: Toplu Yürütme ve Kaynak Güncelleştirme](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
@@ -229,7 +230,7 @@ Var olan bir bilgi işlem ortamı veri fabrikasında bağlı hizmet olarak kayde
 
 Bu tür bir yapılandırma için aşağıdaki bilgi işlem ortamları desteklenir:
 
-* Azure HDInsight
+* Azure Hdınsight
 * Azure Batch
 * Azure Machine Learning
 * Azure Data Lake Analytics
@@ -335,7 +336,7 @@ Bir veri fabrikası Puanlama uç noktası bir Machine Learning toplu kaydetmek i
 | ---------- | ---------------------------------------- | -------- |
 | Tür       | Type özelliği ayarlamak **AzureML**. | Evet      |
 | mlEndpoint | Toplu Puanlama URL.                   | Evet      |
-| apiKey     | Yayımlanan çalışma alanı modelinin API.     | Evet      |
+| apikey ile yapılan     | Yayımlanan çalışma alanı modelinin API.     | Evet      |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics bağlı hizmeti
 Data Lake Analytics işlem hizmeti bir Azure data factory'ye bağlamak için Data Lake Analytics bağlantılı hizmeti oluşturabilirsiniz. Data Lake Analytics U-SQL etkinliği ardışık düzeninde bu bağlı hizmetin başvuruyor. 
@@ -417,7 +418,7 @@ Seçerek oluşturulan yetkilendirme kodu **Authorize** düğmesi kümesi aralı�
 
 Kimlik doğrulama belirteci sona erdiğinde, aşağıdaki hata iletisini görebilirsiniz: 
 
-  Kimlik bilgisi işlemi hatası: invalid_grant - AADSTS70002: Kimlik doğrulanırken hata oluştu. AADSTS70008: Sağlanan erişim izninin süresi doldu veya iptal edildi. Trace ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 Correlation ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 Timestamp: 2015-12-15 21:09:31Z
+  Kimlik bilgisi işlemi hatası: invalid_grant - AADSTS70002: Kimlik doğrulanırken hata oluştu. AADSTS70008: Sağlanan erişim izninin süresi doldu veya iptal edildi. İzleme kimliği: d18629e8-af88-43c5-88e3-d8419eb1fca1 bağıntı kimliği: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 zaman damgası: 2015-12-15 21:09:31Z
 
 Aşağıdaki tabloda kullanıcı hesap türüne göre süre sonu gösterilmektedir: 
 
@@ -454,8 +455,8 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 ```
 
 Bu kod örneğinde kullanılan veri fabrikası sınıfları hakkında daha fazla bilgi için bkz:
-* [AzureDataLakeStoreLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
-* [AzureDataLakeAnalyticsLinkedService class](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
+* [AzureDataLakeStoreLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)
+* [AzureDataLakeAnalyticsLinkedService sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)
 * [AuthorizationSessionGetResponse sınıfı](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)
 
 Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll için bir başvuru ekleyin **WindowsFormsWebAuthenticationDialog** sınıfı. 
@@ -466,6 +467,6 @@ SQL bağlı hizmeti oluşturma ve onunla kullanmak [saklı yordam etkinliği](da
 ## <a name="azure-sql-data-warehouse-linked-service"></a>Azure SQL Data Warehouse bağlı hizmeti
 Bir SQL Data Warehouse bağlı hizmet oluşturma ve onunla kullanın [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. Daha fazla bilgi için bkz: [Azure SQL Data Warehouse Bağlayıcısı](data-factory-azure-sql-data-warehouse-connector.md#linked-service-properties).
 
-## <a name="sql-server-linked-service"></a>SQL Server linked service
+## <a name="sql-server-linked-service"></a>SQL Server bağlantılı hizmeti
 Bir SQL Server bağlantılı hizmet oluşturun ve onunla kullanmak [saklı yordam etkinliği](data-factory-stored-proc-activity.md) Data Factory işlem hattı bir saklı yordam çağırmak için. Daha fazla bilgi için bkz: [SQL Server Bağlayıcısı](data-factory-sqlserver-connector.md#linked-service-properties).
 

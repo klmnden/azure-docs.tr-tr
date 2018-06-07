@@ -12,11 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2018
 ms.author: rithorn
-ms.openlocfilehash: 53de4afb42e9ea5b7845a9c862dc1e06c6de36df
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e4ce2a17f475fa3e11a4101c448f1c1c60dc66ec
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604752"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Kaynaklarınızı Azure Yönetim grupları ile düzenleme 
 
@@ -69,7 +70,7 @@ Her dizin "Root" Yönetim grubu olarak adlandırılan tek bir üst düzey yönet
 
 Azure Yönetim gruplarını destekleyen [Azure rol tabanlı erişim denetimi (RBAC)](../role-based-access-control/overview.md) tüm kaynak erişir ve rol tanımları için. Bu izinler, hiyerarşi içinde mevcut alt kaynaklara devralınır.   
 
-While herhangi [yerleşik RBAC rolü](../role-based-access-control/overview.md#built-in-roles) atanabilir bir yönetim grubu için sık kullanılan dört rolleri vardır: 
+While herhangi [yerleşik RBAC rolü](../role-based-access-control/built-in-roles.md) atanabilir bir yönetim grubu için sık kullanılan dört rolleri vardır: 
 - **Sahibi** temsilci başkalarına erişimi hakkı dahil olmak üzere tüm kaynaklara tam erişimi vardır. 
 - **Katkıda bulunan** olabilir oluşturun ve tüm türlerini Azure kaynaklarını yönetmek ancak başkalarına erişim izni veremiyor.
 - **Kaynak İlkesi katkıda bulunan** oluşturabilir ve kaynakları dizininde ilkelerini yönetebilirsiniz.     

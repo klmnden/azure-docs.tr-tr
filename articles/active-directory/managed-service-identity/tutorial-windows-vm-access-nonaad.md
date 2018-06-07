@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c4570e43c23ff7a23b5d6a97ebd6da0244ed6fb2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 35391c8148246146eeb0c07bf57aea8a2a95d277
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594943"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Öğretici: Azure anahtar kasası erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın. 
 
@@ -138,8 +139,9 @@ PowerShell 4.3.1 yoksa veya üstü yüklü değilse gerekecektir [en son sürüm
     
 Anahtar Kasası'nı gizli alınan sonra bir adı ve parola gerektiren bir hizmeti için kimlik doğrulaması yapmak için kullanabilirsiniz. 
 
-## <a name="related-content"></a>İlgili içerik
+## <a name="next-steps"></a>Sonraki adımlar
 
-- MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](overview.md).
+Bu öğreticide, Azure anahtar kasası erişmek için bir yönetilen hizmet kimliği oluşturma öğrendiniz.  Azure anahtar kasası bakın hakkında daha fazla bilgi için:
 
-Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.
+> [!div class="nextstepaction"]
+>[Azure Anahtar Kasası.](/azure/key-vault/key-vault-whatis)

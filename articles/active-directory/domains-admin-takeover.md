@@ -14,14 +14,15 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b1185fef53797a88ae929e35be56d2bc79067b49
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fa299603a14ef94ab4cf3eac2b1123def1a0b6de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594892"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Azure Active Directory'de yönetici olarak bir yönetilmeyen dizin üzerinde gerçekleştirin
-Bu makalede, Azure Active Directory (Azure AD) yönetilmeyen bir dizinde bir DNS etki alanı adı öncelikli iki yolu açıklanmaktadır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis ya da "viral" için bir hizmet hakkında daha fazla bilgi için bkz: [Azure Active Directory için Self Servis kaydolma nedir?]()
+Bu makalede, Azure Active Directory (Azure AD) yönetilmeyen bir dizinde bir DNS etki alanı adı öncelikli iki yolu açıklanmaktadır. Bir self servis kullanıcısı, Azure AD kullanan bir bulut hizmetine kaydolduğunda bu kullanıcı, e-posta etki alanına göre yönetilmeyen bir Azure AD dizinine eklenir. Self Servis ya da "viral" için bir hizmet hakkında daha fazla bilgi için bkz: [Azure Active Directory için Self Servis kaydolma nedir?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Yönetilmeyen bir dizin üzerinde almak istediğiniz nasıl karar verin
 Yönetici devralma işlemi sırasında, [Azure AD’ye özel etki alanı adı ekleme](add-custom-domain.md) bölümünde açıklandığı gibi sahipliği kanıtlayabilirsiniz. Sonraki bölümlerde, yönetici deneyimi daha ayrıntılı şekilde açıklanmaktadır, ancak bir özeti aşağıda verilmiştir:

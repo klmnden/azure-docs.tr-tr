@@ -1,22 +1,20 @@
 ---
 title: Azure eşlemeleri trafiğiyle Göster | Microsoft Docs
 description: Javascript haritada trafik verileri görüntüleme
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a90304de1fbdb4550d0789aa71b66eebece8a02e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6ff7a0270509c244fc97bd04d8ba648fd262dc58
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600128"
 ---
 # <a name="show-traffic-on-the-map"></a>Trafik haritasında Göster
 
@@ -36,3 +34,9 @@ Yukarıdaki kod ilk blok kod eşleme nesnesi oluşturur. Gördüğünüz [bir ha
 Sınıfları ve bu makalede kullanılan yöntemleri hakkında daha fazla bilgi edinin: 
 * [eşleme](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+
+Eşlemeleri eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
+* [Harita – fare olayları etkileşim](./map-events.md)
+* [Erişilebilir bir harita oluşturma](./map-accessibility.md)
+
+Kullanıma bizim [kod örnek sayfası](http://aka.ms/AzureMapsSamples) daha fazla eşleme senaryoları için.

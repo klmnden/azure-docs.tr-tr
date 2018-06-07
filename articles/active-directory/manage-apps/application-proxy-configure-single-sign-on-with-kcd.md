@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ae79d081cc171fe904bf50b2341d7abd8f58e4f5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594508"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos Kısıtlanmış temsilci seçimi için çoklu oturum açma uygulamalarınızı uygulama proxy'si ile uygulama
 
@@ -84,7 +85,23 @@ Sharepointserviceaccount SP'ler makine hesabı veya SP uygulama havuzunun altın
 
 
 ## <a name="sso-for-non-windows-apps"></a>Windows olmayan uygulamalar için SSO
-Azure AD bulut kullanıcı kimliği doğruladığında Azure AD uygulama proxy'si Kerberos temsilci akışında başlatır. Şirket içi istek geldikten sonra Azure AD uygulama ara sunucusu Bağlayıcısı'nı yerel Active Directory ile etkileşim kurarak kullanıcı adına bir Kerberos anahtarı verir. Bu işlem, Kerberos Kısıtlı temsilci (KCD) olarak adlandırılır. Sonraki aşamasında, bir isteği arka uç uygulama bu Kerberos anahtarı ile gönderilir. Bu tür istekleri göndermek nasıl tanımlayan çeşitli protokoller vardır. Çoğu Windows olmayan sunucuları üzerinde Azure AD uygulama proxy'si artık desteklenmektedir Negotiate/SPNego bekler.
+
+Azure AD bulut kullanıcı kimliği doğruladığında Azure AD uygulama proxy'si Kerberos temsilci akışında başlatır. Şirket içi istek geldikten sonra Azure AD uygulama ara sunucusu Bağlayıcısı'nı yerel Active Directory ile etkileşim kurarak kullanıcı adına bir Kerberos anahtarı verir. Bu işlem, Kerberos Kısıtlı temsilci (KCD) olarak adlandırılır. Sonraki aşamasında, bir isteği arka uç uygulama bu Kerberos anahtarı ile gönderilir. 
+
+Bu tür istekleri göndermek nasıl tanımlayan çeşitli protokoller vardır. Çoğu Windows olmayan sunucuları ile SPNEGO anlaşma bekleyebilirsiniz. Bu protokol, Azure AD uygulama proxy'si desteklenir, ancak varsayılan olarak devre dışıdır. Bir sunucu SPNEGO veya standart KCD için yapılandırılmış, ancak her ikisi de olabilir.
+
+SPNEGO için bir bağlayıcı makine yapılandırırsanız, bağlayıcı gruptaki diğer tüm bağlayıcılar SPNEGO ile yapılandırılmış olduğundan emin olun. Standart KCD bekleniyor uygulamalar için SPNEGO yapılandırılmamış diğer bağlayıcıları üzerinden yönlendirileceğini.
+ 
+
+SPNEGO etkinleştirmek için:
+
+1. Yönetici olarak çalıştırılan bir komut istemi açın.
+2. Komut isteminden SPNEGO gereken bağlayıcı sunucuları üzerinde aşağıdaki komutları çalıştırın.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Kerberos hakkında daha fazla bilgi için bkz: [tüm Kerberos Kısıtlı temsilci (KCD) hakkında bilmek istediğiniz](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 

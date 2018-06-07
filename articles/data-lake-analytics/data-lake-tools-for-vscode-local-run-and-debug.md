@@ -1,30 +1,24 @@
 ---
-title: "Azure Data Lake araçları: U-SQL yerel çalıştırma ve Visual Studio Code ile yerel hata ayıklama | Microsoft Docs"
-description: "Azure Data Lake araçları için Visual Studio Code yerel çalıştırma ve yerel hata ayıklama için nasıl kullanılacağını öğrenin."
-Keywords: VScode,Azure Data Lake Tools,Local run,Local debug,Local Debug,preview storage file,upload to storage path
+title: U-SQL çalıştırın ve Azure Data Lake araçları Visual Studio Code için yerel olarak hata ayıklama
+description: Visual Studio Code için Azure Data Lake araçları çalıştırmak ve U-SQL işleri yerel olarak hata ayıklama için nasıl kullanılacağını öğrenin.
 services: data-lake-analytics
-documentationcenter: 
-author: jejiang
-manager: DJ
-editor: jejiang
-tags: azure-portal
-ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: 
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-data
-ms.date: 07/14/2017
+author: jejiang
 ms.author: jejiang
-ms.openlocfilehash: d109e4d57f4ad5ab2be73805ba41bf9ed362cccb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+manager: kfile
+editor: jasonwhowell
+ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
+ms.topic: conceptual
+ms.date: 07/14/2017
+ms.openlocfilehash: de41120a3a9d399dafecde4225d56767efcd9f38
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624838"
 ---
-# <a name="u-sql-local-run-and-local-debug-for-windows-with-visual-studio-code"></a>U-SQL yerel çalıştırma ve Visual Studio Code ile Windows için yerel hata ayıklama
-Bu belgede, erken kodlama aşama hızlandırmak için ya da Visual Studio Code yerel kodda hata ayıklamak için bir yerel geliştirme makinede U-SQL işleri çalıştırma öğrenin. Visual Studio Code ile Azure Data Lake aracı hakkında yönergeler için bkz [kullanım Azure Data Lake araçları Visual Studio Code için](data-lake-analytics-data-lake-tools-for-vscode.md). 
-
+# <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>U-SQL çalıştırın ve yerel olarak Visual Studio kodda hata ayıklama
+Bu makalede, bir yerel geliştirme makinede erken kodlama aşama hızlandırmak için ya da Visual Studio Code yerel kodda hata ayıklamak için U-SQL işleri çalıştırma açıklar. Visual Studio Code ile Azure Data Lake aracı hakkında yönergeler için bkz [kullanım Azure Data Lake araçları Visual Studio Code için](data-lake-analytics-data-lake-tools-for-vscode.md). 
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>U-SQL yerel çalıştırma ortamını ayarlama
 
@@ -91,7 +85,6 @@ Yerel hata ayıklama gerçekleştirmek için aşağıdaki adımları izleyin:
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Visual Studio Code için Azure Data Lake Araçları’nı kullanma](data-lake-analytics-data-lake-tools-for-vscode.md)
 * [U-SQL Python, R ve Azure Data Lake Analytics VSCode içinde CSharp ile geliştirme](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
-* [Azure Data Lake Analytics işleri için U-SQL derlemeleri geliştirin](data-lake-analytics-u-sql-develop-assemblies.md)
 * [PowerShell kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-powershell.md)
 * [Azure Portalı'nı kullanarak Data Lake Analytics ile çalışmaya başlama](data-lake-analytics-get-started-portal.md)
 * [U-SQL uygulamalarını geliştirmek için Visual Studio için Data Lake araçları kullanın](data-lake-analytics-data-lake-tools-get-started.md)

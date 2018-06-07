@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: fabb79a1449529cde97db7054eb954564b4dfa68
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b0db212b215d2d53b32437d703394148bcc4ac92
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Öğretici: Azure Active Directory Tümleştirme ile LinkedIn öğrenme
 
@@ -165,7 +166,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 11. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_certificate.png)
 
 12. **Kaydet**’e tıklayın.
 
@@ -208,12 +209,12 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**’a tıklayın. 
+    d. **Oluştur**’a tıklayın.
 
 ### <a name="creating-a-linkedin-learning-test-user"></a>Bir LinkedIn öğrenme test kullanıcısı oluşturma
 
-Bağlantılı öğrenme uygulama destekler. Kullanıcılar yalnızca zaman kullanıcı sağlama ve kimlik doğrulamasından sonra uygulamayı otomatik olarak oluşturulur. Yönetici ayarları LinkedIn öğrenme portal Çevir ' anahtar sayfa **lisansları otomatik olarak ata** sadece etkinleştirmek için etkin sağlama ve bu da bir kullanıcıya lisans atamak.
-   
+LinkedIn öğrenme uygulama zaman kullanıcı sağlama ve kimlik doğrulama kullanıcılar uygulamada otomatik olarak oluşturulduktan sonra hemen destekler. Yönetici ayarları LinkedIn öğrenme portal Çevir ' anahtar sayfa **otomatik olarak ata lisansları** zaman içinde etkin sadece sağlama ve bu da bir lisansı kullanıcıya atar. Daha fazla ayrıntı bulabilirsiniz, LinkedIn öğrenme de destekler otomatik kullanıcı sağlamayı [burada](active-directory-saas-linkedinlearning-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
+
    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinLearning-tutorial/LinkedinUserprovswitch.png)
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
@@ -226,15 +227,15 @@ Bu bölümde, Britta LinkedIn öğrenme erişim vererek, Azure çoklu oturum aç
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı atama][201]
 
 2. Uygulamalar listesinde **LinkedIn öğrenme**.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinlearning-tutorial/tutorial-linkedinlearning_0001.png)
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı atama][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
@@ -245,7 +246,7 @@ Bu bölümde, Britta LinkedIn öğrenme erişim vererek, Azure çoklu oturum aç
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
@@ -256,6 +257,7 @@ Erişim paneli LinkedIn öğrenme parçasında tıkladığınızda, Azure oturum
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-linkedinlearning-provisioning-tutorial.md)
 
 <!--Image references-->
 

@@ -3,16 +3,17 @@ title: Azure Analysis Services sunucu Yönetici rolü için bir hizmet sorumlusu
 description: Sunucu Yönetici rolü için bir Otomasyon hizmet sorumlusu eklemeyi öğrenin
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f1cc563cc13a9102dbdac7bd505b4dd844ff8247
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8840dd9a8a8e8ba1f78d461824ac0cdce32b2ac9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596779"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Sunucu Yöneticisi rolünün bir hizmet sorumlusu ekleme 
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 04/28/2018
 Bu görevi tamamlamadan önce Azure Active Directory'de kayıtlı bir hizmet sorumlusu olması gerekir.
 
 [Hizmet sorumlusu - Azure portal oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Hizmet sorumlusu - PowerShell oluşturma](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Hizmet sorumlusu oluşturma - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="required-permissions"></a>Gerekli izinler
 Bu görevi tamamlamak için ihtiyacınız [Sunucu Yöneticisi](analysis-services-server-admins.md) Azure AS sunucu üzerindeki izinleri. 

@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 39708248160b029185b64ed927a453562e1003f2
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604378"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Bir sanal makine görüntüsü Azure yığın kullanılabilmesini
 
@@ -108,7 +109,7 @@ Görüntüleri bir blob depolama URI'si tarafından başvurulan kurabilmesi gere
     Örneğin, `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
     Blob depolama URI'si belirtmek için bir `osDisk`.  
 
-    Add-AzsPlatformimage cmdlet'i hakkında daha fazla bilgi için bkz: Microsoft PowerShell [Azure yığın işleci modülünün belgelerine](https://docs.microsoft.com/powershell/module/).
+    Daha fazla bilgi için bkz. PowerShell başvurusu için [Ekle AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet ve [yeni DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell kullanarak özel bir VM görüntüsü Market'te ekleme
 

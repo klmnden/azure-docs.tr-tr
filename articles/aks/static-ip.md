@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/12/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c250ef3520079f58eea2362212d861fdb134e1af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9f6c34bd09d022b2453869c048f5f3cda7580b91
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596670"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Statik bir IP adresi olan Azure Kubernetes hizmet (AKS) yük dengeleyici kullanın
 
@@ -21,12 +22,18 @@ Bazı durumlarda gibi Azure Kubernetes hizmet (AKS) yük dengeleyici yeniden vey
 
 ## <a name="create-static-ip-address"></a>Statik IP adresi oluşturun
 
-Kubernetes hizmeti için bir statik genel IP adresi oluşturun. IP adresi Küme dağıtımı sırasında otomatik olarak oluşturulan kaynak grubunda oluşturulması gerekir. Farklı AKS kaynak grupları ve otomatik olarak oluşturulan kaynak grubu belirleme hakkında daha fazla bilgi için bkz: [AKS SSS][aks-faq-resource-group].
+Kubernetes hizmeti için bir statik genel IP adresi oluşturun. IP adresi AKS oluşturulmalıdır **düğümü** kaynak grubu. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
+
+```azurecli-interactive
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myResourceGroup_myAKSCluster_eastus
+```
 
 Kullanım [az ağ genel IP oluşturun] [ az-network-public-ip-create] IP adresi oluşturmak için komutu.
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
 IP adresini not alın.
@@ -60,7 +67,7 @@ IP adresini not alın.
  Gerekirse, adresi kullanılarak alınabilir [az ağ ortak IP listesi] [ az-network-public-ip-list] komutu.
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 ```
 
 ```console
@@ -122,3 +129,4 @@ Events:
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

@@ -12,19 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 4fa610f144277b73bb6d555d46e63a01c413e07e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603085"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Yapı ve Azure Resource Manager şablonları sözdizimi anlama
 Bu makalede Azure Resource Manager şablonu yapısını tanımlar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
 
 ## <a name="template-format"></a>Şablon biçimi
-En basit yapısını şablon aşağıdaki öğeleri içerir:
+En basit yapısını şablon aşağıdaki öğelere sahiptir:
 
 ```json
 {
@@ -41,14 +42,14 @@ En basit yapısını şablon aşağıdaki öğeleri içerir:
 | Öğe adı | Gerekli | Açıklama |
 |:--- |:--- |:--- |
 | $schema |Evet |Şablon dili sürümü açıklanmaktadır JSON Şeması dosyasının konumu. Önceki örnekte gösterilen URL'yi kullanın. |
-| contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilir. Şablonu kullanarak kaynak dağıtırken, bu değer doğru şablonu kullanılmakta olduğunu emin olmak için kullanılabilir. |
+| contentVersion |Evet |Şablon (örneğin, 1.0.0.0) sürümü. Bu öğe için herhangi bir değer sağlayabilir. Şablonunuzda önemli değişiklikleri belgelemek için bu değeri kullanın. Şablonu kullanarak kaynak dağıtırken, bu değer doğru şablonu kullanılmakta olduğunu emin olmak için kullanılabilir. |
 | parametreler |Hayır |Dağıtım kaynağı dağıtım özelleştirmek için yürütüldüğünde, sağlanan değerler. |
 | değişkenleri |Hayır |Şablondaki JSON parçaları olarak şablon dili ifadeleri basitleştirmek için kullanılan değerler. |
 | işlevler |Hayır |Şablonda mevcut kullanıcı tanımlı işlevler. |
 | kaynaklar |Evet |Dağıtılan veya bir kaynak grubunda güncelleştirilmiş kaynak türleri. |
 | çıkışlar |Hayır |Dağıtımdan sonra döndürülen değer. |
 
-Her öğe ayarlayabileceğiniz özellikler içerir. Aşağıdaki örnek, bir şablon için tam söz dizimi içerir:
+Her öğenin ayarlayabileceğiniz özellikleri vardır. Aşağıdaki örnekte, bir şablon için tam sözdizimi gösterilmektedir:
 
 ```json
 {
@@ -176,7 +177,7 @@ Aşağıdaki örnek bir değer oluşturulurken, çeşitli işlevleri kullanmayı
 Şablon işlevleri tam listesi için bkz: [Azure Resource Manager şablonu işlevleri](resource-group-template-functions.md). 
 
 ## <a name="parameters"></a>Parametreler
-Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değildir, ancak parametre olmadan şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
+Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değilsiniz ancak parametresiz şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
 
 Aşağıdaki örnekte basit parametrenin tanımını gösterir:
 
@@ -194,7 +195,7 @@ Aşağıdaki örnekte basit parametrenin tanımını gösterir:
 Parametreleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource Manager şablonları parametreleri bölümünü](resource-manager-templates-parameters.md).
 
 ## <a name="variables"></a>Değişkenler
-Değişkenler bölümünde şablonunuzu kullanılabilir değerleri oluşturun. Değişkenleri tanımlayın gerekmez, ancak bunlar karmaşık ifadeler azaltarak genellikle şablonunuzu basitleştirin.
+Değişkenler bölümünde şablonunuzu kullanılabilir değerleri oluşturun. Değişkenleri tanımlamak gerekli değildir, ancak bunlar karmaşık ifadeler azaltarak genellikle şablonunuzu basitleştirin.
 
 Aşağıdaki örnekte basit bir değişken tanımını gösterir:
 
@@ -208,7 +209,7 @@ Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource 
 
 ## <a name="functions"></a>İşlevler
 
-Şablonunuzu içinde kendi işlevlerinizi oluşturabilirsiniz. Şablonunuzu bu işlevler kullanılabilir. Genellikle, yineleme şablonunuzu istemediğiniz karmaşık ifade tanımlayın. Kullanıcı tanımlı işlevler gelen ifadeleri oluşturmak ve [işlevleri](resource-group-template-functions.md) şablonlarında desteklenir.
+Şablonunuzu içinde kendi işlevlerinizi oluşturabilirsiniz. Şablonunuzu bu işlevler kullanılabilir. Genellikle, şablonunuzu tekrar etmek istemediğiniz karmaşık ifade tanımlayın. Kullanıcı tanımlı işlevler gelen ifadeleri oluşturmak ve [işlevleri](resource-group-template-functions.md) şablonlarında desteklenir.
 
 Bir kullanıcı işlevi tanımlanırken, bazı sınırlamalar vardır:
 
@@ -260,7 +261,7 @@ Bir kullanıcı işlevi tanımlanırken, bazı sınırlamalar vardır:
 ```
 
 ## <a name="resources"></a>Kaynaklar
-Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsanız türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz.
+Kaynaklar bölümünde dağıtılan veya güncelleştirilen kaynakları tanımlayın. Sağ değerlerini sağlamak için dağıtıyorsunuz türlerini anlamanız gerekir çünkü bu bölümde karmaşık elde edebilirsiniz.
 
 ```json
 "resources": [
@@ -296,7 +297,7 @@ Daha fazla bilgi için bkz: [çıkarır Azure Resource Manager şablonları böl
 
 Şablonunuzu 1 MB ve her parametre dosyası 64 KB boyutu sınırı. Yinelemeli Kaynak tanımları ve değişkenleri ve parametreleri için değerler ile genişletilmiştir sonra 1 MB sınırını şablonunun son durumuna uygulanır. 
 
-Ayrıca için sınırlıdır:
+İçin sınırlı:
 
 * 256 parametreleri
 * 256 değişkenleri

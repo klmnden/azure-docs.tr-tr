@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0b4b306d1224b5521774b05a110c862b58450eb3
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594236"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış ormandaki tüm etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için Exchange Online ve Skype Kurumsal, gibi Office 365 iş yükleri kullanarak kullanıcıların tam genel adres listesinden yararlanır. Varsayılan yapılandırma ile kullanıcılar bir şirket içi Exchange veya Lync uygulamasıyla olurdu aynı deneyimi gerekir.
@@ -33,7 +35,7 @@ Bazı durumlarda ancak, gerekli varsayılan yapılandırması bazı değişiklik
 Bu makalede, farklı filtreleme yöntemlerinin nasıl yapılandırılacağı ele alınmaktadır.
 
 > [!IMPORTANT]
-> Microsoft, değiştirme veya Azure AD Connect eşitleme resmi olarak belgelenen eylemleri dışındaki işletim desteklemiyor. Bu eylemlerden herhangi birini bir Azure AD Connect eşitleme tutarsız veya desteklenmeyen durumda neden olabilir. Sonuç olarak, Microsoft teknik destek böyle dağıtımlarda sağlayamaz.
+> Microsoft, resmi olarak belgelenen eylemler dışında Azure AD Connect eşitlemesinin değiştirilmesini veya çalıştırılmasını desteklemez. Bu eylemler, tutarsız veya desteklenmeyen Azure AD Connect eşitlemesi durumuyla sonuçlanabilir. Sonuç olarak Microsoft, bu tür dağıtımlar için teknik destek sağlayamaz.
 
 ## <a name="basics-and-important-notes"></a>Temel kavramları ve önemli notlar
 Azure AD Connect eşitleme herhangi bir zamanda filtreleme etkinleştirebilirsiniz. Dizin eşitleme, varsayılan yapılandırmayla başlatma ve filtrelemeyi yapılandırma, filtrelenmiş nesneler artık Azure AD ile eşitlenir. Bu değişikliği nedeniyle, Azure AD'de daha önce eşitlendi, ancak ardından filtre tüm nesnelerin Azure AD'de silinir.

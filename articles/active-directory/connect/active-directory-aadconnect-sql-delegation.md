@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9cb32d137334141183831e703fb11cd3e6bd5a73
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d0cfce1dfe6482397e421d85d59494e6d75cc441
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591166"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Temsilci SQL yönetici izinleri kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect yapı önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi desteklenmiyordu.  Azure AD Connect'i yüklemek isteyen kullanıcılara SQL server üzerinde Sistem Yöneticisi (SA) izinlerine sahip gerekirdi.

@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Bildirim temelli hazırlama anlama | Microsoft Docs"
-description: "Azure AD CONNECT'te bildirim temelli hazırlama yapılandırma modeli açıklanmaktadır."
+title: 'Azure AD Connect: Bildirim temelli hazırlama anlama | Microsoft Docs'
+description: Azure AD CONNECT'te bildirim temelli hazırlama yapılandırma modeli açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50fce526d667fa829551425edff4bd3863429ef2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bb6a0c16322884afba3d306c491c3cd592fc8595
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593200"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect eşitleme: bildirim temelli hazırlama anlama
 Bu konuda, Azure AD Connect yapılandırma modelinde açıklanmaktadır. Bildirim temelli hazırlama modeli adı verilir ve bir yapılandırma değişikliği kolayca yapmanızı sağlar. Bu konuda açıklanan pek çok gelişmiş ve çoğu müşteri senaryoları için gerekli değildir.
@@ -52,7 +54,7 @@ Kapsam Modülü aşağıdaki işlemleri destekler.
 
 | İşlem | Açıklama |
 | --- | --- |
-| EQUAL, NOTEQUAL |Değeri öznitelikte değerine eşitse veren bir dize karşılaştırın. Birden çok değerli öznitelikler için ISIN ve ISNOTIN bakın. |
+| EŞİTTİR, EŞİT DEĞİLDİR |Değeri öznitelikte değerine eşitse veren bir dize karşılaştırın. Birden çok değerli öznitelikler için ISIN ve ISNOTIN bakın. |
 | LESSTHAN, LESSTHAN_OR_EQUAL |Değer veren bir dize karşılaştırma satıcısı öznitelik değerinin. |
 | İÇEREN NOTCONTAINS |Değer bir yerde içindeki değeri öznitelikte bulunabiliyorsa veren bir dize karşılaştırma. |
 | STARTSWITH, NOTSTARTSWITH |Değer başına öznitelik değeri, ise veren bir dize karşılaştırma. |

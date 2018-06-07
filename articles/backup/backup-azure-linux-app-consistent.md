@@ -1,24 +1,20 @@
 ---
-title: "Azure yedekleme: uygulama tutarlı Linux VM'ler yedeklerini | Microsoft Docs"
-description: "Linux sanal makinelerinizin Azure uygulamayla tutarlı yedeklemeler oluşturun. Bu makalede, Azure dağıtılan Linux Vm'leri yedekleme için komut dosyası framework yapılandırma açıklanmaktadır. Bu makalede, sorun giderme bilgileri de içerir."
+title: "Azure yedekleme: uygulamayla tutarlı yedeklemeler Linux VM'ler"
+description: Linux sanal makinelerinizin Azure uygulamayla tutarlı yedeklemeler oluşturun. Bu makalede, Azure dağıtılan Linux Vm'leri yedekleme için komut dosyası framework yapılandırma açıklanmaktadır. Bu makalede, sorun giderme bilgileri de içerir.
 services: backup
-documentationcenter: dev-center-name
 author: anuragmehrotra
 manager: shivamg
-keywords: "uygulamayla tutarlı yedekleme; Uygulama tutarlı Azure VM backup; Linux VM yedekleme; Azure yedekleme"
-ms.assetid: bbb99cf2-d8c7-4b3d-8b29-eadc0fed3bef
+keywords: uygulamayla tutarlı yedekleme; Uygulama tutarlı Azure VM backup; Linux VM yedekleme; Azure yedekleme
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm;markgal
-ms.openlocfilehash: c2437b4cd90deda3e7239d87837a47a072f52835
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.author: anuragm
+ms.openlocfilehash: 027fc4098e7760de276a8548453bb83599ed0521
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605221"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Uygulama tutarlı yedekleme Azure Linux VM'ler
 

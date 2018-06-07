@@ -1,9 +1,9 @@
 ---
-title: "Azure AD doğrudan kimlik doğrulama - hızlı başlangıç | Microsoft Docs"
-description: "Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulamayı kullanmaya başlama açıklar."
+title: Azure AD doğrudan kimlik doğrulama - hızlı başlangıç | Microsoft Docs
+description: Bu makalede, Azure Active Directory (Azure AD) doğrudan kimlik doğrulamayı kullanmaya başlama açıklar.
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b592eb8ca43e5bf3eebe2b0c47d8f17dbec7b238
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591339"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory doğrudan kimlik doğrulaması: Hızlı Başlangıç
 
@@ -139,7 +141,7 @@ Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yol vardır:
 İkinci olarak, oluşturma ve katılımsız dağıtım betiğini çalıştırın. Aynı anda birden çok kimlik doğrulama aracı dağıtmak veya etkin kullanıcı arabirimi yoksa veya Uzak Masaüstü'nü erişemeyen Windows sunucularında kimlik doğrulaması aracıları yüklemek istediğinizde kullanışlıdır. Bu yaklaşımı kullanmak yönergeler şunlardır:
 
 1. Bir kimlik doğrulama aracısı yüklemek için aşağıdaki komutu çalıştırın: `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
-2. Kimlik Doğrulama Aracısı hizmetimizi ile Windows PowerShell kullanarak kaydedebilirsiniz. Bir PowerShell kimlik bilgilerini nesnesi oluşturmak `$cred` kiracınız için genel yönetici kullanıcı adı ve parola içeren. Aşağıdaki komutu çalıştırın değiştirme  *\<kullanıcıadı\>*  ve  *\<parola\>*:
+2. Kimlik Doğrulama Aracısı hizmetimizi ile Windows PowerShell kullanarak kaydedebilirsiniz. Bir PowerShell kimlik bilgilerini nesnesi oluşturmak `$cred` kiracınız için genel yönetici kullanıcı adı ve parola içeren. Aşağıdaki komutu çalıştırın değiştirme *\<kullanıcıadı\>* ve  *\<parola\>*:
    
         $User = "<username>"
         $PlainPassword = '<password>'

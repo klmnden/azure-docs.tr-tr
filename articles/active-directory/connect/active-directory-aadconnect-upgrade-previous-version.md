@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect: Önceki bir sürümden yükseltme | Microsoft Docs"
-description: "Azure Active Directory yerinde yükseltme ve esnek geçiş dahil olmak üzere Connect, en son sürümüne yükseltmek için farklı yöntemler açıklanmaktadır."
+title: 'Azure AD Connect: Önceki bir sürümden yükseltme | Microsoft Docs'
+description: Azure Active Directory yerinde yükseltme ve esnek geçiş dahil olmak üzere Connect, en son sürümüne yükseltmek için farklı yöntemler açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4d431a9e0fab8d46b244fd40178ede594c095893
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 1a6fe4fc7fd5f47bfd4bc4d9168f76c31c78b47b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592485"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: En son önceki bir sürümünden yükseltme
 Bu konuda, Azure Active Directory (Azure AD) Bağlan yüklemenizi en son sürümüne yükseltme için kullanabileceğiniz farklı yöntemler açıklanmaktadır. Kendiniz Azure AD Connect sürümleriyle geçerli tutmanızı öneririz. Ayrıca içindeki adımları kullanın [çarpma geçiş](#swing-migration) önemli bir yapılandırma değişikliği yaptığınızda bölüm.
@@ -102,7 +104,7 @@ Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları 
 
    ![DisableFullSyncAfterUpgrade](./media/active-directory-aadconnect-upgrade-previous-version/disablefullsync01.png)
 
-2. Yükseltme tamamlandıktan sonra hangi geçersiz kılmaları eklenmiş olan bulmak için aşağıdaki cmdlet'i çalıştırın:`Get-ADSyncSchedulerConnectorOverride | fl`
+2. Yükseltme tamamlandıktan sonra hangi geçersiz kılmaları eklenmiş olan bulmak için aşağıdaki cmdlet'i çalıştırın: `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > Geçersiz kılmalar bağlayıcı özgüdür. Aşağıdaki örnekte, tam alma adımı ve tam eşitleme adımı her iki şirket içi AD Bağlayıcısı ve Azure AD Bağlayıcısı eklenmiştir.
@@ -111,7 +113,7 @@ Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları 
 
 3. Eklenen varolan geçersiz kılmaları unutmayın.
    
-4. Tam içeri aktarma ve rasgele bir bağlayıcı üzerinde tam eşitleme için geçersiz kılmaları kaldırmak için aşağıdaki cmdlet'i çalıştırın:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Tam içeri aktarma ve rasgele bir bağlayıcı üzerinde tam eşitleme için geçersiz kılmaları kaldırmak için aşağıdaki cmdlet'i çalıştırın: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Tüm bağlayıcılar üzerinde geçersiz kılmaları kaldırmak için aşağıdaki PowerShell betiğini yürütün:
 
@@ -122,12 +124,12 @@ Burada hemen yükseltmeden sonra gerçekleşmesi için bu geçersiz kılmaları 
    }
    ```
 
-5. Zamanlayıcı sürdürmek için aşağıdaki cmdlet'i çalıştırın:`Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Zamanlayıcı sürdürmek için aşağıdaki cmdlet'i çalıştırın: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > Erken kolaylık olması gereken eşitleme adımları yürütmek unutmayın. El ile Eşitleme Hizmeti Yöneticisi'ni kullanarak aşağıdaki adımları yürütün veya Set-ADSyncSchedulerConnectorOverride cmdlet'ini kullanarak geçersiz kılmaları geri ekleyin.
 
-Rastgele bir bağlayıcı üzerinde tam içeri aktarma ve tam eşitleme için geçersiz kılmalar eklemek için aşağıdaki cmdlet'i çalıştırın:`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Rastgele bir bağlayıcı üzerinde tam içeri aktarma ve tam eşitleme için geçersiz kılmalar eklemek için aşağıdaki cmdlet'i çalıştırın:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinmek [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).

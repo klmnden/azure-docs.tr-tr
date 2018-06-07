@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: bdb52039879c23c418af002fa8525e669a715022
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8e42bd6e9d8994079de84cd018b45607f7238c5e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Öğretici: Zendesk Azure Active Directory Tümleştirme
 
@@ -113,8 +114,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **tanımlayıcısı** metin kutusuna, şu biçimi kullanarak değeri yazın: `<subdomain>.zendesk.com`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Zendesk istemci destek ekibi](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) bu değerleri almak için. 
- 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [Zendesk istemci destek ekibi](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise) bu değerleri almak için.
+
 4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalama **parmak İZİ** sertifika değeri.
 
     ![Sertifika indirme bağlantısı](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_certificate.png)
@@ -134,9 +135,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
     
     d. **Tamam**’a tıklayın.
- 
-    > [!NOTE] 
-    > Uzantı öznitelikleri, varsayılan olarak Azure AD'de olmayan öznitelikler eklemek için kullanın. Tıklatın [SAML ayarlanabilir kullanıcı öznitelikleri](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) tam listesini almak için SAML öznitelikleri **Zendesk** kabul eder.  
+
+    > [!NOTE]
+    > Uzantı öznitelikleri, varsayılan olarak Azure AD'de olmayan öznitelikler eklemek için kullanın. Tıklatın [SAML ayarlanabilir kullanıcı öznitelikleri](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) tam listesini almak için SAML öznitelikleri **Zendesk** kabul eder.
 
 6. Tıklatın **kaydetmek** düğmesi.
 
@@ -153,7 +154,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 10. Sol gezinti bölmesinde **ayarları**ve ardından **güvenlik**.
 
 11. Üzerinde **güvenlik** sayfasında, aşağıdaki adımları gerçekleştirin: 
-   
+
      ![Güvenlik](./media/active-directory-saas-zendesk-tutorial/ic773089.png "güvenlik")
 
     ![Çoklu oturum açma](./media/active-directory-saas-zendesk-tutorial/ic773090.png "çoklu oturum açma")
@@ -165,14 +166,10 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
      c. İçinde **SAML SSO URL** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan. 
 
      d. İçinde **uzak oturum kapatma URL'si** metin değerini yapıştırın **Sign-Out URL** Azure portalından kopyalanan.
-        
-     e. İçinde **sertifika parmak izi** metin kutusuna, Yapıştır **parmak izi** Azure portalından kopyaladığınız sertifika değeri.
-     
-     f. **Kaydet**’e tıklayın.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+     e. İçinde **sertifika parmak izi** metin kutusuna, Yapıştır **parmak izi** Azure portalından kopyaladığınız sertifika değeri.
+
+     f. **Kaydet**’e tıklayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -205,26 +202,25 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-a-zendesk-test-user"></a>Zendesk test kullanıcısı oluşturma
 
-Azure AD kullanıcıların oturum açmanız **Zendesk**, içine sağlanmalıdır **Zendesk**.  
-Uygulamalar atanan role bağlı olarak, bu beklenen bir davranıştır:
+Bu bölümün amacı Zendesk Britta Simon adlı bir kullanıcı oluşturmaktır. Zendesk otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-zendesk-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
- 1. **Son kullanıcı** hesapları otomatik olarak oturum açarken sağlandı.
- 2. **Aracı** ve **yönetici** hesapları el ile olarak sağlanması gerekir **Zendesk** oturum açmadan önce.
- 
-**Bir kullanıcı hesabı sağlamak için aşağıdaki adımları gerçekleştirin:**
+**Kullanıcı el ile oluşturmanız gerekiyorsa, lütfen şu adımları gerçekleştirin:**
+
+> [!NOTE]
+> **Son kullanıcı** hesapları otomatik olarak oturum açarken sağlandı. **Aracı** ve **yönetici** hesapları el ile olarak sağlanması gerekir **Zendesk** oturum açmadan önce.
 
 1. Oturum, **Zendesk** Kiracı.
 
 2. Seçin **müşteri listesi** sekmesi.
 
 3. Seçin **kullanıcı** sekmesine ve tıklayın **Ekle**.
-   
+
     ![Kullanıcı Ekle](./media/active-directory-saas-zendesk-tutorial/ic773632.png "Kullanıcı Ekle")
 4. Tür **adı** ve **e-posta** sağlamak istediğiniz ve ardından bir var olan bir Azure AD hesabının **kaydetmek**.
-   
+
     ![Yeni kullanıcı](./media/active-directory-saas-zendesk-tutorial/ic773633.png "yeni kullanıcı")
 
 > [!NOTE]
@@ -234,17 +230,17 @@ Uygulamalar atanan role bağlı olarak, bu beklenen bir davranıştır:
 
 Bu bölümde, Britta Zendesk için erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Zendesk için Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı atama][201]
 
 2. Uygulamalar listesinde **Zendesk**.
 
-    ![Uygulamalar listesinde Zendesk bağlantı](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)  
+    ![Uygulamalar listesinde Zendesk bağlantı](./media/active-directory-saas-zendesk-tutorial/tutorial_zendesk_app.png)
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
@@ -259,20 +255,19 @@ Bu bölümde, Britta Zendesk için erişim vererek, Azure çoklu oturum açma ku
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Zendesk parçasında tıklattığınızda, otomatik olarak Zendesk uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
-
-
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-zendesk-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -287,4 +282,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zendesk-tutorial/tutorial_general_203.png
-

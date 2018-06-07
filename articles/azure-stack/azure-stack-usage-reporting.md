@@ -3,7 +3,7 @@ title: Raporu Azure yığın kullanım verilerini Azure'a | Microsoft Docs
 description: Azure yığınında raporlama Kullanım verilerinin ayarlanacağını öğrenin.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: brenduns
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,14 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: mabrigg
+ms.date: 05/30/2018
+ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 602cd6c3b2be8881bebbcebe30ec2520358b731f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603711"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure yığın kullanım verileri Azure'a raporu 
 
@@ -42,7 +43,7 @@ Kullanım verileri raporlama yukarı ayarlamak için şunları yapmalısınız [
 - **Miktar** – kaynak kullanım miktarı.
 - **Konum** – geçerli Azure yığın kaynak dağıtıldığı konumu.
 - **Kaynak URI'si** – tam olarak hangi için kullanım bildirilir kaynak URI'si.
-- **Abonelik kimliği** – Azure yığın kullanıcının abonelik kimliği. Yerel (Azure yığını) abonelik budur.
+- **Abonelik kimliği** – yerel (Azure yığını) abonelik Azure yığın kullanıcının abonelik kimliği.
 - **Zaman** – Kullanım verilerinin başlangıç ve bitiş zamanı. Bir gecikme olması arasındaki zaman bu kaynakları Azure yığınında tüketilen ve kullanım verileri için ticaret bildirildiğinde. 24 saatte için Azure yığın toplamalar kullanım verilerini ve ticaret ardışık düzeninde Azure raporlama kullanım verileri başka bir birkaç saat sürer. Bu nedenle, kısa süre önce gece yarısından kullanım Azure'da sonraki gün görünebilirler.
 
 ## <a name="generate-usage-data-reporting"></a>Kullanım verileri raporlama oluştur
@@ -68,7 +69,7 @@ Başka abonelik türü, Kullandıkça Öde aboneliğine, kullanarak Azure yığ�
 
    ![Fatura akışı](media/azure-stack-usage-reporting/pricing-details.png)
 
-Fiyat 0,00 gösterilen şekilde Azure yığın Geliştirme Seti için Azure yığın kaynakları ücretlendirilen değil. Azure yığını çok düğümlü genel olarak kullanılabilir hale geldiğinde, bu kaynakların her biri için gerçek maliyet görebilirsiniz.
+Fiyat 0,00 gösterilen şekilde Azure yığın Geliştirme Seti için Azure yığın kaynakları ücretlendirilen değil.
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>Hangi Azure yığın dağıtımlara ücretlendirilen?
 
@@ -82,7 +83,7 @@ Kullanıcılar yalnızca Kiracı aboneliklerine altında Çalıştır VM'ler iç
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Azure yığında kullanacağınız bir Windows Server Lisans sahip, bunu nasıl yaparım?
 
-Varolan lisanslarla kullanım ölçümler oluşturma önler. Var olan Windows Server lisansları "mevcut yazılım Azure yığın ile kullanarak" bölümünde açıklandığı gibi Azure yığınında kullanılabilir [Azure yığın lisans Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Müşteriler ihtiyaç açıklandığı gibi Windows Server sanal makineleri dağıtmak [Windows Server Lisans için karma avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) varolan lisanslarını kullanmak için konu.
+Varolan lisanslarla kullanım ölçümler oluşturma önler. Var olan Windows Server lisansları "mevcut yazılım Azure yığın ile kullanarak" bölümünde açıklandığı gibi Azure yığınında kullanılabilir [Azure yığın lisans Kılavuzu](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Müşteriler ihtiyaç açıklandığı gibi Windows Server sanal makineleri dağıtmak [Windows Server Lisans için karma avantajı](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) varolan lisanslarını kullanmak için makale.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Kullanılan kaynaklar için hangi abonelik doludur?
 Ne zaman sağlanan abonelik [Azure ile Azure yığın kaydetme](azure-stack-register.md) doludur.
@@ -101,7 +102,7 @@ Kullanıcılar, Azure yığın kullanım verileri kullanım ayrıntılarını do
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Neden Azure yığınında bildirilen kullanım Azure hesap Merkezi'nden oluşturulan rapor eşleşmiyor?
 
-Kullanım verileri Azure yığın kullanımı API'leri ve Azure hesap Merkezi tarafından bildirilen kullanım verileri tarafından bildirilen delaybetween olduğu her zaman... Bu gecikme Azure yığın kullanım verileri Azure ticaret yüklemek için gereken zamandır. Bu gecikme nedeniyle kısa süre önce gece yarısından kullanım Azure'da sonraki gün görünebilirler. Kullanırsanız [Azure yığın kullanımı API'leri](azure-stack-provider-resource-api.md)ve Azure fatura Portalı'nda bildirilen kullanım sonuçları karşılaştırmak, bir farkı görebilirsiniz.
+Her zaman Azure yığın kullanımı API tarafından bildirilen kullanım verilerini ve Azure hesap Merkezi tarafından bildirilen kullanım verileri arasında bir gecikme olur. Bu gecikme Azure yığın kullanım verileri Azure ticaret yüklemek için gereken zamandır. Bu gecikme nedeniyle kısa süre önce gece yarısından kullanım Azure'da sonraki gün görünebilirler. Kullanırsanız [Azure yığın kullanımı API'leri](azure-stack-provider-resource-api.md)ve Azure fatura Portalı'nda bildirilen kullanım sonuçları karşılaştırmak, bir farkı görebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

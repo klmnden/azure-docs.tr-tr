@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme: işlevleri başvurusu | Microsoft Docs"
-description: "Azure AD Connect eşitleme bildirim temelli hazırlama ifadelerini başvuru."
+title: 'Azure AD Connect eşitleme: işlevleri başvurusu | Microsoft Docs'
+description: Azure AD Connect eşitleme bildirim temelli hazırlama ifadelerini başvuru.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595164"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect eşitleme: işlevleri başvurusu
 Azure AD Connect işlevleri eşitleme sırasında bir öznitelik değeri işlemek için kullanılır.  
@@ -56,7 +58,7 @@ Türleri, aşağıdaki sözdizimi ile ifade edilir:
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[Certthumbprınt](#certthumbprint) | |
-[CertVersion](#certversion) |[IsCert](#iscert) | | | |
+[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Dönüştürme** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
@@ -73,10 +75,10 @@ Türleri, aşağıdaki sözdizimi ile ifade edilir:
 | **Matematik** | | | | |
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **Birden çok değerli** | | | | |
-| [İçerir](#contains) |[Sayısı](#count) |[Öğesi](#item) |[ItemOrNull](#itemornull) | |
+| [içerir](#contains) |[Sayısı](#count) |[Öğesi](#item) |[ItemOrNull](#itemornull) | |
 | [Birleştir](#join) |[RemoveDuplicates](#removeduplicates) |[Böl](#split) | | |
 | **Program akışı** | | | | |
-| [Hata](#error) |[IIF](#iif) |[Seç](#select) |[Anahtar](#switch) | |
+| [Hata](#error) |[IIF](#iif) |[Seç](#select) |[geçiş](#switch) | |
 | [Burada](#where) |[İle](#with) | | | |
 | **Metin** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
@@ -364,9 +366,9 @@ CGuid işlevi bir GUID dize gösterimini ikili gösterimine dönüştürür.
 Birden çok değerli bir öznitelik içinde bir dize içerir işlev bulur
 
 **Sözdizimi:**  
-`num Contains (mvstring attribute, str search)`-büyük küçük harfe duyarlı  
+`num Contains (mvstring attribute, str search)` -büyük küçük harfe duyarlı  
 `num Contains (mvstring attribute, str search, enum Casetype)`  
-`num Contains (mvref attribute, str search)`-büyük küçük harfe duyarlı
+`num Contains (mvref attribute, str search)` -büyük küçük harfe duyarlı
 
 * Öznitelik: aramak için birden çok değerli özniteliği.
 * Arama: öznitelikte bulmak için dizesi.
@@ -388,7 +390,7 @@ Bir birincil e-posta adresi proxyAddresses özniteliğine sahipse, (büyük harf
 ConvertFromBase64 işlevi belirtilen base64 kodlu değer normal bir dizeye dönüştürür.
 
 **Sözdizimi:**  
-`str ConvertFromBase64(str source)`-Unicode kodlama için varsayar.  
+`str ConvertFromBase64(str source)` -Unicode kodlama için varsayar.  
 `str ConvertFromBase64(str source, enum Encoding)`
 
 * Kaynak: Base64 ile kodlanmış dize  

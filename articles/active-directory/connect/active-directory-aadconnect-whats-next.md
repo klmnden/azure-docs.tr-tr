@@ -1,8 +1,8 @@
 ---
 title: "Azure AD Connect: Sonraki adımlar ve Azure AD Connect'i yönetme | Microsoft Docs"
-description: "Varsayılan yapılandırma ve işletimsel görevler için Azure AD Connect genişletmeyi öğrenin."
+description: Varsayılan yapılandırma ve işletimsel görevler için Azure AD Connect genişletmeyi öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
 editor: curtand
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e898ee203276b072605fe0f21af633ecfdaae1fe
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: f8b73e70606adc2b1fa593745b3ac426c679f417
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592094"
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>Sonraki adımlar ve Azure AD Connect'i yönetme
 İşlem yordamlarını bu makalede, kuruluşunuzun ihtiyaçları ve gereksinimleri karşılamak için Azure Active Directory (Azure AD) Bağlan özelleştirmek için kullanın.  

@@ -1,8 +1,8 @@
 ---
-title: "Azure Active Directory'de adlandırılmış konumlarını yapılandırma | Microsoft Docs"
-description: "Adlandırılmış konumlara yapılandırmayı öğrenin."
+title: Azure Active Directory'de adlandırılmış konumlarını yapılandırma | Microsoft Docs
+description: Adlandırılmış konumlara yapılandırmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: f56e042a-78d5-4ea3-be33-94004f2a0fc3
@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 05/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4c8aba8faf4ce91445209eb46abea17423f57a77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589340"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Azure Active Directory'de adlandırılmış konumlarını yapılandır
 
@@ -79,7 +80,7 @@ Belirtilen konum yapılandırma sayfasında erişebilirsiniz **güvenlik** tıkl
 
 6. Üzerinde **yeni** sayfasında, aşağıdakileri yapın:
 
-    ![Yeni bir dikey pencere](./media/active-directory-named-locations/56.png)
+    ![Yeni bir dikey pencere](./media/active-directory-named-locations/61.png)
 
     a. İçinde **adı** adlandırılmış konumunuz için bir ad yazın.
 

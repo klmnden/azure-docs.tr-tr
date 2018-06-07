@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e7239ae88c6b4e56fa7c49f64c30fe602d8ec5fe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f5e85a551181a3dd4618db2611a99675329cfabd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592029"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Azure AD federasyonu uyumluluk listesi
 Azure Active Directory çoklu oturum sağlar ve herhangi bir üçüncü taraf çözümü gerek kalmadan Office 365 ve diğer Microsoft Online Hizmetleri için karma ve yalnızca bulut uygulamaları için uygulama erişimi güvenliğini Gelişmiş. Office 365, Microsoft Online services, çoğu gibi dizin hizmetleri, kimlik doğrulama ve yetkilendirme için Azure Active Directory ile tümleşiktir. Şirket içi web uygulamaları ve Azure Active Directory de binlerce SaaS uygulamasına çoklu oturum açma sağlar. Azure Active Directory bkz [uygulama Galerisi](https://azuremarketplace.microsoft.com/marketplace/apps) desteklenen SaaS uygulamaları için. 

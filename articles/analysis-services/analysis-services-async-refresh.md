@@ -3,16 +3,17 @@ title: Azure Analysis Services modelleri için zaman uyumsuz yenileme | Microsof
 description: Zaman uyumsuz yenileme REST API'sini kullanarak kod öğrenin.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ff48d70a19e99531dcc90a81f8c7c723133ba8a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a20e8460e0243e2f6f2f258e26374a2cd716206c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601624"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API ile zaman uyumsuz Yenile
 REST çağrıları destekleyen herhangi bir programlama dili kullanarak, Azure Analysis Services tablolu modeller zaman uyumsuz veri yenileme işlemleri gerçekleştirebilir. Bu sorgu genişleme için salt okunur çoğaltmalarını eşitlenmesi içerir. 
@@ -55,7 +56,7 @@ Temel URL'yi kullanarak, kaynakları ve işlemleri aşağıdaki parametrelere g�
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Kimlik Doğrulama
+## <a name="authentication"></a>Kimlik Doğrulaması
 
 Tüm çağrılar yetkilendirme üst geçerli bir Azure Active Directory (OAuth 2) belirteçle kimliğinin doğrulanması gerekir ve aşağıdaki gereksinimleri karşılaması gerekir:
 
@@ -95,7 +96,7 @@ Gövde aşağıdakine benzeyebilir:
 ### <a name="parameters"></a>Parametreler
 Parametreleri belirterek gerekli değildir. Varsayılan uygulanır.
 
-|name  |Tür  |Açıklama  |Varsayılan  |
+|Ad  |Tür  |Açıklama  |Varsayılan  |
 |---------|---------|---------|---------|
 |Tür     |  Enum       |  İşlem türü. Türleri ile TMSL hizalanır [Yenile komut](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/refresh-command-tmsl) türleri: tam, clearValues, dataOnly, otomatik, hesaplama ve birleştirin. Türü desteklenmiyor ekleyin.      |   Otomatik      |
 |CommitMode     |  Enum       |  Nesneleri yığınlardaki veya yalnızca tamamlandığında tamamlanan olup olmayacağını belirler. Modları içerir: varsayılan, işlem, partialBatch.  |  işlem       |
@@ -223,7 +224,7 @@ Bu form kimlik doğrulaması, bir Azure uygulama API gerekli izinleri atanmış 
 
 5.  İçinde **bir API seçin**, türü **Azure Analysis Services** Ara kutusuna ve ardından seçin.
 
-    ![API Seçin](./media/analysis-services-async-refresh/aas-async-select-api.png)
+    ![API seçin](./media/analysis-services-async-refresh/aas-async-select-api.png)
 
 6.  Seçin **okuma ve yazma tüm modelleri**ve ardından **seçin**. Her ikisi de seçildiğinde tıklatın **Bitti** izinleri eklemek için. Yaymak için birkaç dakika sürebilir.
 

@@ -1,30 +1,28 @@
 ---
 title: Koordinat Azure Haritalar ile ilgili bilgileri göster | Microsoft Docs
 description: Bir kullanıcı bir koordinat seçtiğinde haritada bir adresi hakkındaki bilgileri görüntülemek nasıl
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: bb8644724cc872a0a8bc331e76251218492fd93d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3caae47f7f8f5f9c917e3a59513e6cd33cdcaeae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600502"
 ---
-# <a name="get-information-from-a-coordinate"></a>Bir koordinat bilgi alın
+# <a name="get-information-from-a-coordinate"></a>Bir koordinattan bilgi alma
 
 Bu makalede bir ters adresi arama yapmak ve fare tıklatma tıklatılan konumunun adresi açılan penceresinde Göster gösterilmektedir. 
 
 ## <a name="understand-the-code"></a>Kodu anlama
 
-<iframe height='500' scrolling='no' title='Bir koordinat bilgi alın' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>koordinat bilgi alma</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Bir koordinattan bilgi alma' src='//codepen.io/azuremaps/embed/ddXzoB/?height=516&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Kalem bkz <a href='https://codepen.io/azuremaps/pen/ddXzoB/'>koordinat bilgi alma</a> Azure haritalar tarafından (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) üzerinde <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Yukarıdaki kod ilk blok kod eşleme nesnesi oluşturur. Gördüğünüz [bir harita oluşturmak](./map-create.md) yönergeler için.
@@ -45,3 +43,7 @@ Sınıfları ve bu makalede kullanılan yöntemleri hakkında daha fazla bilgi e
     * [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#setpopupoptions)
     * [Açık](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#open)
     * [Kapat](https://docs.microsoft.com/javascript/api/azure-maps-javascript/popup?view=azure-iot-typescript-latest#close)
+
+Eşlemeleri eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
+* [Yönergeleri A'dan B'ye Göster](./map-route.md)
+* [Trafik Göster](./map-show-traffic.md)

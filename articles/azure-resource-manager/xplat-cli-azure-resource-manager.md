@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: tomfitz
-ms.openlocfilehash: 90dd1b6b7e65178f6b339e4ac0bb781fb74a25a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4111d1d990f3e9efb78fae0476b027d5bae013af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603255"
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>Azure kaynakları ve kaynak gruplarını yönetmek için Azure CLI kullanma
 
@@ -215,7 +216,7 @@ Bir kaynak veya kaynak grubu kaldırabilirsiniz. Bir kaynak grubu kaldırdığı
   az storage account delete -n myuniquestorage -g TestRG1
   ```
 
-* Bir kaynak grubu ve tüm kaynaklarını silmek için kullanın **az grubu Sil** komutu.
+* Kaynak grubuyla birlikte bu kaynak grubunun tüm kaynaklarını silmek için **az group delete** komutunu kullanın.
 
   ```azurecli-interactive
   az group delete -n TestRG1
@@ -227,4 +228,4 @@ Her iki komutlarında kaynağı veya kaynak grubunu kaldırmak istediğinizden o
 * Resource Manager şablonları oluşturma hakkında bilgi edinmek için [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).
 * Şablonları dağıtma hakkında bilgi edinmek için bkz: [Azure Resource Manager şablonu ile bir uygulamayı dağıtmak](resource-group-template-deploy-cli.md).
 * Yeni bir kaynak grubu mevcut kaynakları taşıyabilirsiniz. Örnekler için bkz: [yeni kaynak grubuna veya aboneliğe taşıma kaynaklara](resource-group-move-resources.md).
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
+* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

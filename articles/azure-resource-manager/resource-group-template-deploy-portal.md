@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603739"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Kaynakları Resource Manager şablonları ve Azure portalı ile dağıtma
 
@@ -85,7 +86,7 @@ Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmama
 
 1. **Oluştur**’u seçin.
 
-   ![Bu seçeneği belirleyin](./media/resource-group-template-deploy-portal/show-template-option.png)
+   ![Oluştur’u seçin](./media/resource-group-template-deploy-portal/show-template-option.png)
 
 1. Bir şablon oluşturmak için birkaç seçenek bakın. Seçin **kendi şablonunuzu Düzenleyicisi'nde yapı**.
 
@@ -113,7 +114,7 @@ Bir dağıtım yürütme ancak şablonlardan herhangi birini markette kullanmama
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>Hesabınız için kaydedilen bir şablon kaynaklardan dağıtma
 
-Portal, Azure hesabınızda bir şablonu kaydetmek ve daha sonra yeniden dağıtmak sağlar. Bu şablonlar, kaydedilen çalışma hakkında daha fazla bilgi için [Azure Portal'da özel şablonları kullanmaya başlama](../marketplace-consumer/mytemplates-getstarted.md).
+Portal, Azure hesabınızda bir şablonu kaydetmek ve daha sonra yeniden dağıtmak sağlar. Şablonlar hakkında daha fazla bilgi için bkz: [oluşturma ve İlk Azure Resource Manager şablonu dağıtma](resource-manager-create-first-template.md).
 
 1. Kaydedilen şablonlarınızı bulmak için seçin **daha fazla hizmet**.
 
@@ -135,4 +136,4 @@ Portal, Azure hesabınızda bir şablonu kaydetmek ve daha sonra yeniden dağıt
 * Denetim günlüklerini görüntülemek için bkz: [denetim işlemleri Resource Manager ile](resource-group-audit.md).
 * Dağıtım hataları gidermek için bkz: [görüntülemek dağıtım işlemlerini](resource-manager-deployment-operations.md).
 * Bir dağıtım veya kaynak grubunu şablon almak için bkz: [Azure Resource Manager şablonunu dışarı mevcut kaynaklardan](resource-manager-export-template.md).
-* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](resource-manager-subscription-governance.md).
+* Kuruluşların abonelikleri etkili bir şekilde yönetmek için Resource Manager'ı nasıl kullanabileceği hakkında yönergeler için bkz. [Azure kurumsal iskelesi: öngörücü abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance).

@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0435f1c5aae9381c76441b1233a47799af94768
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e8f6b30bb7cbe82159e86fa48721afce3f9477d8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591506"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 ve Azure Active Directory Federasyon sertifikalarını yenileme
 ## <a name="overview"></a>Genel Bakış
@@ -107,7 +109,7 @@ Sertifika otomatik olarak güncelleştirilebilir onaylamak için şunları denet
 
 **2. AD FS federasyon meta verileri genel olarak erişilebilir.** (Dışına şirket ağına) genel internet üzerindeki bir bilgisayardan aşağıdaki URL'sine giderek Federasyon meta verileri genel olarak erişilebilir olduğundan emin olun:
 
-https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
+https:// (your_FS_name) /federationmetadata/2007-06/federationmetadata.xml
 
 Burada `(your_FS_name) `kuruluşunuzun kullandığı, fs.contoso.com gibi Federasyon Hizmeti ana bilgisayar adı ile değiştirilir.  Her ikisi de doğrulayamazsınız varsa bu ayarları başarıyla, başka bir şey yapmanız gerekmez.  
 
@@ -149,7 +151,7 @@ Varsayılan olmayan yapılandırma AD FS kullanıyorsanız, (burada **AutoCertif
 Office 365 imzalama sertifikalarının gibi güven için kullanılacak olan yeni belirteci ile güncelleştirin.
 
 1. Microsoft Azure Active Directory modülü için Windows PowerShell'i açın.
-2. Run $cred=Get-Credential. Bu cmdlet, kimlik bilgilerini ister, bulut hizmet yönetici hesabı kimlik bilgilerini yazın.
+2. $Cred Çalıştır Get-Credential =. Bu cmdlet, kimlik bilgilerini ister, bulut hizmet yönetici hesabı kimlik bilgilerini yazın.
 3. Connect MsolService Çalıştır – kimlik bilgisi $cred. Bu cmdlet bulut hizmetine bağlanır. Bulut hizmetine bağlanan bir içeriği oluşturma aracı tarafından yüklü ek cmdlet'lerinden herhangi birini çalıştırmadan önce gereklidir.
 4. Bu komutlar, AD FS birincil Federasyon sunucusu olmayan bir bilgisayar üzerinde çalıştırıyorsanız, Set-MSOLAdfscontext Çalıştır-bilgisayar &lt;AD FS birincil sunucu&gt;, burada &lt;AD FS birincil sunucu&gt; iç FQDN'si Birincil AD FS sunucusunun adı. Bu cmdlet için AD FS bağlanan bir içeriği oluşturur.
 5. Güncelleştirme MSOLFederatedDomain – DomainName çalıştırmak &lt;etki alanı&gt;. Bu cmdlet, AD FS ayarları bulut hizmete güncelleştirir ve ikisi arasında güven ilişkisi yapılandırır.

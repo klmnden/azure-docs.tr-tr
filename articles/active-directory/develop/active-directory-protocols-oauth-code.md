@@ -16,11 +16,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 93de62a21ca1d3b8c88715fc9207a583920ac33e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a01c5bc2ca6310ee87f2ead1ea590987c854e733
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595334"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>OAuth 2.0 kod grant akışını kullanarak Azure Active Directory web uygulamalarına erişim yetkisi
 Web uygulamaları ve web Apı'lerinize Azure AD kiracınıza erişim yetkisi vermek etkinleştirmek için azure Active Directory (Azure AD) kullanan OAuth 2.0. Bu kılavuz dilden bağımsızdır ve herhangi birini kullanmadan HTTP iletileri almasına ve göndermesine açıklar bizim [açık kaynak kitaplıkları](active-directory-authentication-libraries.md).
@@ -59,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | durum |Önerilen |Ayrıca belirteci yanıtta döndürülen istek dahil bir değer. Rastgele oluşturulan benzersiz bir değer tipik olarak kullanılan [siteler arası istek sahteciliğini saldırılarını önleme](http://tools.ietf.org/html/rfc6749#section-10.12). Durumu, sayfa veya görünüm üzerinde oldukları gibi kimlik doğrulama isteği oluşmadan önce uygulama kullanıcının durumu hakkındaki bilgileri kodlamak için de kullanılır. |
 | kaynak | Önerilen |Hedef web API (güvenli kaynak) uygulama kimliği URI'si. Uygulama Kimliği URI'sini Azure Portalı'nda bulmak için tıklatın **Azure Active Directory**, tıklatın **uygulama kayıtlar**, uygulamanın açmak **ayarları** sayfasında ve 'itıklatın **Özellikler**. Gibi harici bir kaynak olabilir `https://graph.microsoft.com`. Bu, yetkilendirme veya belirteç isteklerini birinde gereklidir. Daha az kimlik doğrulaması sağlamak için istemleri, kullanıcıdan izin alınan emin olmak için yetkilendirme isteği yerleştirin. |
 | scope | **göz ardı** | V1 Azure AD uygulamalarınız için kapsamları uygulamaları altında Azure portalındaki statik olarak yapılandırılmalıdır **ayarları**, **gerekli izinler**. |
-| istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulaması yapmak istenir. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcının onaylaması istenir. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına onaylaması istenir |
+| istemi |isteğe bağlı |Gerekli bir kullanıcı etkileşimi türünü gösterir.<p> Geçerli değerler şunlardır: <p> *oturum açma*: kullanıcının yeniden kimlik doğrulaması yapmak istenir. <p> *select_account*: kullanıcı bir hesap seçmek için çoklu oturum açma üzerinde kesintiye istenir. Kullanıcı, var olan bir oturum açma hesabı seçin, hatırlanan bir hesabın kimlik bilgilerini girin veya tamamen farklı bir hesap kullanmak için seçin. <p> *onay*: kullanıcı izni verildi, ancak güncelleştirilmesi gerekiyor. Kullanıcının onaylaması istenir. <p> *admin_consent*: bir yönetici kendi kuruluşunuzdaki tüm kullanıcılar adına onaylaması istenir |
 | login_hint |isteğe bağlı |Kullanıcı adlarını önceden biliyorsanız, kullanıcı için oturum açma sayfası kullanıcı adı/e-posta adresi alanının önceden doldurmak için kullanılabilir. Genellikle uygulamaları yeniden kimlik doğrulaması, kullanıcı adı önceki oturum açma kullanarak bir zaten ayıklanan sırasında bu parametreyi kullanın `preferred_username` talep. |
 | domain_hint |isteğe bağlı |Kiracı veya kullanıcı oturum açmak için kullanması gereken etki alanını hakkında bir ipucu sağlar. Kiracı için kaydedilmiş bir etki alanı domain_hint değeri. Bir şirket içi dizin için Kiracı birleştirildiyse AAD belirtilen Kiracı federasyon sunucusuna yeniden yönlendirir. |
 | code_challenge_method | isteğe bağlı    | Kodlanması için kullanılan yöntem `code_verifier` için `code_challenge` parametresi. Aşağıdakilerden biri olabilir `plain` veya `S256`. Dışlanan, `code_challenge` düz metin olarak kabul edilir `code_challenge` bulunur. Azure AAD v1.0 destekler `plain` ve `S256`. Daha fazla bilgi için bkz: [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
@@ -217,7 +218,7 @@ JSON web belirteçlerini hakkında daha fazla bilgi için bkz: [JWT IETF taslak 
 | IAT |Aynı anda verdi. JWT zaman verilmiş saat. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
 | ISS |Belirteç Verenin tanımlar |
 | NBF |Değil süreden önce. Belirteç etkin olduğunda süre. Belirtecin geçerli olması, geçerli tarih/saat Nbf değerine eşit veya daha büyük olmalıdır. Saat 1 Ocak 1970'ten saniye sayısı olarak temsil edilir (1970'ten-01-01T0:0:0Z) UTC belirteç yayımlandığında zamana kadar. |
-| OID |Azure AD'de kullanıcı nesnesinin nesne tanımlayıcısı (ID). |
+| OID |Azure AD'de kullanıcı nesnesinin nesne tanımlayıcısı (kimliği). |
 | Sub |Belirteç konu tanımlayıcısı. Bu bir kalıcı ve sabit belirteç açıklar kullanıcı tanımlayıcısıdır. Mantığı önbelleğe alma işleminde, bu değeri kullanın. |
 | komutu |Belirtecin Azure AD Kiracı Kiracı tanımlayıcısını (ID). |
 | unique_name |Kullanıcıya, için benzersiz bir tanımlayıcı görüntülenebilir. Genellikle bir kullanıcı asıl adı (UPN) budur. |

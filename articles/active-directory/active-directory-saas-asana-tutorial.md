@@ -12,13 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 2042c1525849696efaf5fda5f35c1abc72839737
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1c4245dbb34fc7e4b3b2722e4a94bffaf4d7f66d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Öğretici: Azure Active Directory Tümleştirme Asana ile
 
@@ -48,7 +49,8 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 - Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
 1. Galeriden Asana ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
@@ -65,7 +67,7 @@ Azure AD Asana tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamal
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -101,7 +103,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/active-directory-saas-asana-tutorial/tutorial_asana_samlbase.png)
 
 3. Üzerinde **Asana etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -111,25 +113,25 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     a. İçinde **oturum açma URL'si** metin kutusuna, türü URL'si: `https://app.asana.com/`
 
     b. İçinde **tanımlayıcısı** metin kutusuna, tür değeri: `https://app.asana.com/`
- 
+
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/active-directory-saas-asana-tutorial/tutorial_asana_certificate.png)
-    
+
 5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/active-directory-saas-asana-tutorial/tutorial_general_400.png)
 
 6. Üzerinde **Asana yapılandırma** 'yi tıklatın **yapılandırma Asana** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Asana yapılandırma](./media/active-directory-saas-asana-tutorial/tutorial_asana_configure.png) 
+    ![Asana yapılandırma](./media/active-directory-saas-asana-tutorial/tutorial_asana_configure.png)
 
-7. Farklı bir tarayıcı penceresinde Asana uygulamanıza oturum. SSO Asana yapılandırmak için ekranın sağ üst köşedeki çalışma adına tıklayarak çalışma alanı ayarları erişin. Ardından, tıklatın  **\<çalışma alanı adınız\> ayarları**. 
-   
+7. Farklı bir tarayıcı penceresinde Asana uygulamanıza oturum. SSO Asana yapılandırmak için ekranın sağ üst köşedeki çalışma adına tıklayarak çalışma alanı ayarları erişin. Ardından, tıklatın  **\<çalışma alanı adınız\> ayarları**.
+
     ![Asana sso ayarları](./media/active-directory-saas-asana-tutorial/tutorial_asana_09.png)
 
 8. Üzerinde **kuruluş ayarları** penceresinde tıklatın **Yönetim**. Ardından **üyeleri gerekir oturum SAML** SSO yapılandırmasını etkinleştirmek için. Aşağıdaki gerçekleştirme adımları:
-   
+
     ![Çoklu oturum açma kuruluş ayarlarını yapılandırma](./media/active-directory-saas-asana-tutorial/tutorial_asana_10.png)  
 
      a. İçinde **oturum açma sayfası URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si**.
@@ -137,9 +139,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
      b. Azure portalından indirdiğiniz sertifikayı sağ tıklatın, sonra sertifika dosyasını Not Defteri'nde veya tercih edilen metin düzenleyiciyi kullanarak açın. Başlangıç ve bitiş sertifika başlık arasında içerik kopyalamak ve yapıştırmak **X.509 sertifikası** metin kutusu.
 
 9. **Kaydet**’e tıklayın. Git [SSO'yu ayarlamak için Asana Kılavuzu](https://asana.com/guide/help/premium/authentication#gl-saml) daha fazla yardıma ihtiyacınız varsa.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -154,16 +153,16 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     ![Azure Active Directory düğmesi](./media/active-directory-saas-asana-tutorial/create_aaduser_01.png) 
 
 2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
-    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png) 
+
+    !["Kullanıcılar ve Gruplar" ve "Tüm kullanıcılar" bağlantılar](./media/active-directory-saas-asana-tutorial/create_aaduser_02.png)
 
 3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-asana-tutorial/create_aaduser_03.png) 
+
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-asana-tutorial/create_aaduser_03.png)
 
 4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Ekle düğmesi](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png) 
+
+    ![Ekle düğmesi](./media/active-directory-saas-asana-tutorial/create_aaduser_04.png)
 
     a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
@@ -172,14 +171,18 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="create-an-asana-test-user"></a>Bir Asana test kullanıcısı oluşturma
+
+Bu bölümün amacı Britta Simon içinde Asana adlı bir kullanıcı oluşturmaktır. Asana otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-asana-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
+
+**Kullanıcı el ile oluşturmanız gerekiyorsa, lütfen şu adımları gerçekleştirin:**
 
 Bu bölümde, Asana içinde Britta Simon adlı bir kullanıcı oluşturun.
 
-1. Üzerinde **Asana**gidin **takımlar** Sol paneldeki bölümü. Artı düğmesini tıklatın. 
-   
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png) 
+1. Üzerinde **Asana**gidin **takımlar** Sol paneldeki bölümü. Artı düğmesini tıklatın.
+
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-asana-tutorial/tutorial_asana_12.png)
 
 2. E-posta türü britta.simon@contoso.com metin kutusuna ve ardından **davet**.
 
@@ -195,11 +198,11 @@ Bu bölümde, Britta Asana için erişim vererek, Azure çoklu oturum açma kull
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı atama][201]
 
 2. Uygulamalar listesinde **Asana**.
 
-    ![Uygulamalar listesinde Asana bağlantı](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png) 
+    ![Uygulamalar listesinde Asana bağlantı](./media/active-directory-saas-asana-tutorial/tutorial_asana_app.png)
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
@@ -214,7 +217,7 @@ Bu bölümde, Britta Asana için erişim vererek, Azure çoklu oturum açma kull
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümün amacı, Azure AD çoklu oturum açmayı test etmektir.
@@ -225,7 +228,7 @@ Asana oturum açma sayfasına gidin. E-posta adresi metin kutusuna e-posta adres
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
-
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-asana-provisioning-tutorial.md)
 
 <!--Image references-->
 

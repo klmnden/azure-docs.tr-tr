@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 05/23/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3d8a02cc540251d77b61cf0e5b7e2aa8292f1f5f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d980c800f930c00b2b0140314f78ff3f043aa58
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604225"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure yığın güvenlik duvarı tümleştirmesi
 Güvenli Azure yığın yardımcı olmak için bir güvenlik duvarı cihazı kullanmanız önerilir. Güvenlik duvarları ile dağıtılmış hizmet engelleme (DDOS) saldırıları, izinsiz giriş algılama ve içerik denetimi gibi yardımcı olmakla birlikte, aynı zamanda BLOB'lar, tablolar ve Kuyruklar gibi Azure storage Hizmetleri için bir işleme ayak haline gelebilir.
@@ -48,7 +49,7 @@ Bir sınır dağıtımında Azure yığın doğrudan sınır yönlendiricisi vey
 
 Genellikle, genel olarak yönlendirilebilir IP adreslerinin dış ağdan ortak VIP havuzu için dağıtım sırasında belirtilir. Bir sınır senaryosunda, bu ortak yönlendirilebilir IP'leri herhangi bir ağ üzerindeki güvenlik amacıyla kullanmak için önerilmez. Bu senaryo bir kullanıcı Azure gibi genel bulut gibi tam Self denetimli bulut deneyimi deneyimi sağlar.  
 
-![Azure yığın sınır güvenlik duvarı örneği](.\media\azure-stack-firewall\edge-firewall-scenario.png)
+![Azure yığın sınır güvenlik duvarı örneği](.\media\azure-stack-firewall\firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Kurumsal intranet veya çevre ağ güvenlik duvarı senaryoları
 Bir Kurumsal intranet veya çevre dağıtımında, Azure yığın çoklu bölgesinin bir güvenlik duvarı veya sınır güvenlik duvarı ve şirket, iç ağ güvenlik duvarı arasında dağıtılır. Trafik, ardından güvenli, çevre ağındaki (DMZ arasındaki veya) dağıtılır ve güvensiz bölgeler olarak aşağıda açıklanan:

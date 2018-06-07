@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 05/24/2018
 ms.author: brenduns
-ms.openlocfilehash: e9c39c374d7dfa6759da9f9b9a12816d77c647b1
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: b4c5b53a46792e31316f752f8902d7a05554b57d
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604157"
 ---
 # <a name="azure-stack-1712-update"></a>Azure yığın 1712 güncelleştirme
 
@@ -116,7 +117,25 @@ Bu bölümde yükleme sonrası ile ilgili bilinen sorunlar yapı içeren **18010
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
 
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+   Uyarı #1:
+   - Ad: Altyapı rolü sağlıksız
+   - Önem DERECESİ: uyarı
+   - Bileşen: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyicisi sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.  
+
+  Uyarı #2:
+   - Ad: Altyapı rolü sağlıksız
+   - Önem DERECESİ: uyarı
+   - Bileşen: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyicisi hataya tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.
+
+  Her iki uyarı güvenle yoksayılabilir. Bunlar zaman içinde otomatik olarak kapatılacak.  
+
 - Bir altyapı rol örneğini yeniden başlatırsanız, yeniden başlatma başarısız olduğunu belirten bir ileti alabilirsiniz. Bununla birlikte, yeniden başlatma gerçekten başarılı oldu.
+
+
 
 #### <a name="marketplace"></a>Market
 - Bazı Market öğesi uyumluluk sorunları nedeniyle bu sürümde kaldırılıyor. Bunlar daha sonra doğrulama yeniden etkin olacaktır.

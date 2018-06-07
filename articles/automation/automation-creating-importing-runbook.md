@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac7b050bf96401d33254dedad5035e43850ecc52
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea03f34a2e709fe6f6d8d2f7e13798cf6dcd1e34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598251"
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>Oluşturma veya bir Azure Otomasyonu runbook'u içeri aktarma
 Bir runbook'un Azure Otomasyon ya da ekleyebilirsiniz [yenisini oluşturmadan](#creating-a-new-runbook) veya bir dosya ya da mevcut bir runbook'u alarak [Runbook Galerisi](automation-runbook-gallery.md). Bu makalede, oluşturma ve runbook'ları bir dosyadan içeri aktarma hakkında bilgiler sağlar.  Tüm topluluk runbook'ları ve modülleri erişme hakkında bilgi almak [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md).
@@ -33,8 +34,10 @@ Kullanabileceğiniz [yeni AzureRmAutomationRunbook](https://msdn.microsoft.com/l
 
 Aşağıdaki örnek komutlarda yeni bir boş runbook'unun nasıl oluşturulacağını gösterir.
 
-    New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
-    -Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
+```azurepowershell-interactive
+New-AzureRmAutomationRunbook -AutomationAccountName MyAccount `
+-Name NewRunbook -ResourceGroupName MyResourceGroup -Type PowerShell
+```
 
 ## <a name="importing-a-runbook-from-a-file-into-azure-automation"></a>Bir runbook, Azure Automation'a bir dosyadan içeri aktarma
 Azure Otomasyonu'nda bir PowerShell komut dosyası veya PowerShell iş akışı (.ps1 uzantılı), dışarı aktarılan bir grafik runbook (.graphrunbook) veya bir Python 2 komut dosyası (.py uzantılı) içeri aktararak, yeni bir runbook oluşturabilirsiniz.  Belirtmeniz gerekir [runbook türü](automation-runbook-types.md) aşağıdaki noktaları dikkate alarak, içeri aktarma sırasında oluşturulur.
@@ -70,15 +73,16 @@ Kullanabileceğiniz [alma AzureRMAutomationRunbook](https://msdn.microsoft.com/l
 
 Aşağıdaki örnek komutlar bir komut dosyası bir runbook'a içeri aktarma göstermektedir.
 
-    $automationAccountName =  "AutomationAccount"
-    $runbookName = "Sample_TestRunbook"
-    $scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
-    $RGName = "ResourceGroup"
+```azurepowershell-interactive
+$automationAccountName =  "AutomationAccount"
+$runbookName = "Sample_TestRunbook"
+$scriptPath = "C:\Runbooks\Sample_TestRunbook.ps1"
+$RGName = "ResourceGroup"
 
-    Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
-    -ResourceGroupName $RGName -AutomationAccountName $automationAccountName `
-    -Type PowerShellWorkflow 
-
+Import-AzureRMAutomationRunbook -Name $runbookName -Path $scriptPath `
+-ResourceGroupName $RGName -AutomationAccountName $automationAccountName `
+-Type PowerShellWorkflow
+```
 
 ## <a name="publishing-a-runbook"></a>Runbook yayımlama
 Oluşturduğunuzda ya da yeni bir runbook'u içeri çalıştırabilmeniz için önce onu yayımlamanız gerekir.  Otomasyon içindeki her runbook'un bir taslak ve bir yayımlanmış sürümü vardır. Yalnızca yayımlanan sürüm çalıştırılabilir ve yalnızca taslak sürüm düzenlenebilir. Yayımlanan sürüm taslak sürümdeki herhangi bir değişiklikten etkilenmez. Taslak sürümü kullanılabilir hale getirmek istediğinizde, size, yayımlanan sürümü taslak sürümle değiştirebilirsiniz yayımlayın.
@@ -91,13 +95,14 @@ Oluşturduğunuzda ya da yeni bir runbook'u içeri çalıştırabilmeniz için �
 ## <a name="to-publish-a-runbook-using-windows-powershell"></a>Windows PowerShell kullanarak bir runbook'u yayımlamak için
 Kullanabileceğiniz [Yayımla AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603705.aspx) Windows PowerShell ile bir runbook'u yayımlamak için cmdlet. Aşağıdaki örnek komutlar bir örnek runbook'un nasıl yayımlanacağı göstermektedir.
 
-    $automationAccountName =  AutomationAccount"
-    $runbookName = "Sample_TestRunbook"
-    $RGName = "ResourceGroup"
+```azurepowershell-interactive
+$automationAccountName =  "AutomationAccount"
+$runbookName = "Sample_TestRunbook"
+$RGName = "ResourceGroup"
 
-    Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
-    -Name $runbookName -ResourceGroupName $RGName
-
+Publish-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName `
+-Name $runbookName -ResourceGroupName $RGName
+```
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Nasıl size Runbook ve PowerShell modülü Galerisi sağlayacağı hakkında bilgi edinmek için [Azure Otomasyonu Runbook ve modül galerileri](automation-runbook-gallery.md)

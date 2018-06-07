@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: Grup İlkesi, yönetilen etki alanlarını yönetme | Microsoft Docs"
-description: "Yönetici Grup İlkesi Azure Active Directory etki alanı Hizmetleri, yönetilen etki alanları"
+title: 'Azure Active Directory etki alanı Hizmetleri: Grup İlkesi, yönetilen etki alanlarını yönetme | Microsoft Docs'
+description: Yönetici Grup İlkesi Azure Active Directory etki alanı Hizmetleri, yönetilen etki alanları
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 316ddc2cbd67cfafaf44318c5baebcd8da366f93
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d9c4e33ffdb95d81660a92e0f43bac36702882a3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587013"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Grup İlkesi, bir Azure AD etki alanı Hizmetleri yönetilen etki alanını yönetme
 Azure Active Directory etki alanı Hizmetleri için 'AADDC kullanıcılar' ve 'AADDC Bilgisayarları' kapsayıcı yerleşik Grup İlkesi nesneleri (GPO'lar) içerir. Yönetilen etki alanında Grup İlkesi yapılandırmak için bu yerleşik GPO'ları özelleştirebilirsiniz. Ayrıca, 'AAD DC Yöneticiler' grubunun üyeleri yönetilen etki alanında özel kendi OU'ları oluşturabilirsiniz. Bunlar ayrıca özel GPO'ları oluşturmak ve bunları bu özel OU'lara bağlayın. 'AAD DC Yöneticiler' gruba ait kullanıcılar yönetilen etki alanı Grup İlkesi yönetim ayrıcalıkları verilir.

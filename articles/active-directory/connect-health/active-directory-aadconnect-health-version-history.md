@@ -14,14 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590387"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Connect Health düzenli olarak güncelleştirir. Bu makalede, çıkarılan özellikleri ve sürümleri listelenmektedir.
+
+## <a name="may-2018"></a>Mayıs 2018
+**Aracı güncelleştirmesi:**
+*   AD DS (sürüm 3.0.244.0) için Azure AD Connect Health Aracısı
+ 1. Aracı gizlilik geliştirme  
+ 2. Hata düzeltmeleri ve genel iyileştirmeler
+
+*   AD FS (sürüm 3.0.244.0) için Azure AD Connect Health Aracısı
+ 1. Aracı Tanılama Hizmeti ve ilgili PowerShell modülü geliştirmeleri
+ 2. Aracı gizlilik geliştirme  
+ 3. Hata düzeltmeleri ve genel iyileştirmeler
+
+* Azure AD Connect Health aracısını eşitleme (sürüm 3.0.244.0)
+ 1. Aracı gizlilik geliştirme  
+ 2. Hata düzeltmeleri ve genel iyileştirmeler
+
 
 ## <a name="march-2018"></a>Mart 2018
 **Yeni Önizleme özellikleri:**

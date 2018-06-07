@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604344"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager şablonları parametreleri bölümü
 Şablon parametreleri bölümünde kaynakları dağıtırken giriş hangi değerlerini belirtin. Bu parametre değerleri (örneğin, geliştirme, test ve üretim) belirli bir ortam için uyarlanabilir değerleri sağlayarak dağıtım özelleştirmenize olanak sağlar. Şablonunuzdaki parametreleri sağlamak zorunda değildir, ancak parametre olmadan şablonunuzu her zaman aynı kaynakları adları, konumları ve özellikleri ile dağıtmak için kullanacağınız.
 
-Şablonda 255 parametreleri sınırlı olmalıdır. Bu makalede Göster olarak birden çok özellik içeren nesneleri kullanarak parametre sayısını azaltabilir.
+Şablonda 255 parametreleri sınırlı olmalıdır. Bu makalede gösterildiği gibi birden çok özellik içeren nesneleri kullanarak parametre sayısını azaltabilir.
 
 ## <a name="define-and-use-a-parameter"></a>Tanımlama ve parametre kullanma
 

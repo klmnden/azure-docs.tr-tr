@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: Dağıtım senaryoları | Microsoft Docs"
-description: "Azure AD etki alanı Hizmetleri için dağıtım senaryoları"
+title: 'Azure Active Directory etki alanı Hizmetleri: Dağıtım senaryoları | Microsoft Docs'
+description: Azure AD etki alanı Hizmetleri için dağıtım senaryoları
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: 11844fb8fabada9d863fe4adf0839ae6fa2ed101
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ae8485f94a8a86862f09c1776222cb6603967614
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587567"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Dağıtım senaryoları ve kullanım örnekleri
 Bu bölümde, birkaç senaryo ve Azure Active Directory (AD) etki alanı Hizmetleri'nden yararlanan kullanım örnekleri ele.

@@ -3,16 +3,17 @@ title: Azure Analysis Services sunucu yöneticileri yönetme | Microsoft Docs
 description: Azure Analysis Services sunucusu için sunucu yöneticileri yönetmeyi öğrenin.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def09f2853f761f3fefca80f341e6cc0557bac86
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 59aaf07edf387d40f47d7d82dcb116802a003dc1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596177"
 ---
 # <a name="manage-server-administrators"></a>Sunucu yöneticileri yönetin
 Sunucu yöneticileri, sunucunun bulunduğu Kiracı için geçerli bir kullanıcı veya grup Azure Active Directory'de (Azure AD) olması gerekir. Kullanabileceğiniz **Analysis Services Admins** sunucunuzun Azure portalında veya sunucu yöneticileri yönetmek için SSMS sunucu özelliklerinde. 

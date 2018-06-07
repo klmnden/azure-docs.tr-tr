@@ -13,23 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: d9c615e3d0f144080a02f6f8d95603ecac4341f0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0a6386f9d0207ab71c490801ea995e504825e0c8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589323"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Öğretici: Kutusunu otomatik kullanıcı sağlamayı yapılandırın
 
 Bu öğreticinin amacı kutusunu ve Azure AD kutusuna Azure AD'den otomatik sağlama ve devre dışı bırakma sağlama kullanıcı hesaplarına gerçekleştirmeniz gereken adımlar göstermektir.
 
+> [!NOTE]
+> Bu öğretici Azure AD kullanıcı sağlama hizmeti üstünde oluşturulmuş bir bağlayıcı açıklar. Bu hizmet ne yaptığını, nasıl çalıştığı ve sık sorulan sorular önemli ayrıntılar için bkz: [otomatikleştirmek kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına etkinleştirmektir](./active-directory-saas-app-provisioning.md).
+
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğunuzu varsayar:
+Azure AD tümleştirme kutusuyla yapılandırmak için aşağıdaki öğeleri gerekir:
 
-*   Bir Azure Active directory kiracısı.
-*   Bir kutusunu çoklu oturum açma etkin abonelik.
-*   Takım yönetici izinlerine sahip bir kullanıcı hesabı kutusunda.
+- Azure AD kiracısı
+- Kutusunu iş planı ya da daha iyi
+
+> [!NOTE]
+> Bu öğreticide adımları test ettiğinizde, bunu yapmanızı öneririz *değil* bir üretim ortamında kullanın.
+
+Bu öğreticide adımları test etmek için aşağıdaki önerileri uygulayın:
+
+- Gerekli olmadığı sürece, üretim ortamınızın kullanmayın.
+- Bir Azure AD deneme ortam yoksa, şunları yapabilirsiniz [bir aylık deneme sürümünü edinin](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Kullanıcıları kutusuna atama 
 

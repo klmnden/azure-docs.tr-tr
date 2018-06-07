@@ -1,11 +1,11 @@
 ---
-title: "DirSync ve Azure AD eşitleme'den yükseltme | Microsoft Docs"
-description: "DirSync ve Azure AD eşitleme için Azure AD Connect yükseltilecek açıklar."
+title: DirSync ve Azure AD eşitleme'den yükseltme | Microsoft Docs
+description: DirSync ve Azure AD eşitleme için Azure AD Connect yükseltilecek açıklar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
 ms.workload: identity
@@ -13,13 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e8faf365c0f47582b4abc3554e0bb6e1c3e7902
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 23d2be6e3fb7d14cd7ea42ffc2bf6d4174a894cc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591829"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Windows Azure Active Directory eşitleme ve Azure Active Directory Eşitleme'yi Yükselt
 Azure AD Connect, size Azure AD ve Office 365 ile şirket içi dizininize bağlanmak için en iyi yolu sunmaktadır. Bu araçlar artık kullanım dışı bırakılmış ve 13 Nisan 2017'den itibaren artık desteklenmeyen gibi Windows Azure Active Directory eşitleme (DirSync) veya Azure AD eşitleme için Azure AD Connect yükseltmek için harika bir zamandır.
@@ -32,7 +34,7 @@ DirSync son sürümü Temmuz 2014'te yayımlanmıştır ve Azure AD eşitleme'n�
 Azure AD Connect DirSync ve Azure AD eşitleme devamıdır. Bu, desteklenen bu iki tüm senaryoları birleştirir. Daha fazla bilgiyi içinde hakkında [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
 
 ## <a name="deprecation-schedule"></a>Kullanımdan kaldırma zamanlaması
-| Tarih | Yorum |
+| Tarih | Açıklama |
 | --- | --- |
 | 13 Nisan 2016 |Windows Azure Active Directory eşitleme ("DirSync") ve Microsoft Azure Active Directory eşitleme ("Azure AD eşitleme") kullanım dışı bırakıldı olarak bildirilir. |
 | 13 Nisan 2017 |Desteği sona eriyor. Müşterilerin, artık Azure AD Connect'e yükseltme yapmadan önce bir destek servis talebi açma mümkün olacaktır. |

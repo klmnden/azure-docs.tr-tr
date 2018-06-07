@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/31/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e82cf4ccdc09cd6505994f9db952ac718342bf2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5b940ac896f95ec796179f44e0dd11dcf6184464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589398"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Öğretici: Azure Active Directory Tümleştirme LinkedIn yükseltmesine ile
 
@@ -47,7 +48,8 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 - Bir Azure AD deneme ortam yoksa, bir aylık deneme alabilirsiniz [burada](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Senaryo açıklaması
-Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
+Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin.
+Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
 1. Galeriden LinkedIn yükseltmesine ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
@@ -57,14 +59,14 @@ LinkedIn yükseltmesine tümleştirilmesi Azure AD'ye yapılandırmak için Link
 
 **LinkedIn yükseltmesine Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure Yönetim Portalı](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.
 
     ![Active Directory][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Uygulamalar][2]
-    
+
 3. Tıklatın **Ekle** iletişim kutusunun üst kısmında düğmesi.
 
     ![Uygulamalar][3]
@@ -99,7 +101,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda, olarak **modu** seçin **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinElevate-tutorial/tutorial-linkedin_01.png)
 
 3. Farklı web tarayıcısı penceresinde LinkedIn yükseltmesine kiracınız yönetici olarak oturum.
@@ -123,17 +125,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
 7. SSO içinde yapılandırmak istiyorsanız, **SP tarafından başlatılan**, ardından yapılandırma bölümündeki Gelişmiş URL Göster ayarı seçeneğini tıklayın ve oturum açma URL'SİNDE aşağıdaki desenle yapılandırın:
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=elevate&applicationInstanceId=<InstanceId>` 
-    
+
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinElevate-tutorial/tutorial_linkedin_signon_02.png) 
-    
-8. LinkedIn yükseltmesine uygulamanızı SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. Varsayılan değer olan **kullanıcı tanımlayıcısı** olan **user.userprincipalname** ancak LinkedIn yükseltmesine, bekliyor bu kullanıcının e-posta adresi ile eşlendi. Bunun için kullanabileceğiniz **user.mail** özniteliği listeden veya kuruluş yapılandırmanızı temel alarak uygun öznitelik değeri kullanın. 
+
+8. LinkedIn yükseltmesine uygulamanızı SAML onaylar SAML belirteci öznitelikleri yapılandırmanıza özel öznitelik eşlemelerini ekleyin gerektiren belirli bir biçimde bekliyor. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. Varsayılan değer olan **kullanıcı tanımlayıcısı** olan **user.userprincipalname** ancak LinkedIn yükseltmesine, bekliyor bu kullanıcının e-posta adresi ile eşlendi. Bunun için kullanabileceğiniz **user.mail** özniteliği listeden veya kuruluş yapılandırmanızı temel alarak uygun öznitelik değeri kullanın.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-linkedinElevate-tutorial/updateusermail.png)
 
 9. İçinde **kullanıcı öznitelikleri** 'yi tıklatın **Görünüm ve diğer tüm kullanıcı özniteliklerini düzenleme** ve özniteliklerini ayarlayın. Adlı başka bir talep eklemeniz **departmanı** ve değeri eşlenmesi gerekiyor **user.department**.
 
     | Öznitelik Adı | Öznitelik Değeri |
-    | --- | --- |    
+    | --- | --- |
     | bölüm| User.Department |
 
       ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
@@ -145,7 +147,6 @@ Bu bölümde, Azure AD çoklu oturum açma Azure Yönetim Portalı'nda etkinleş
       b. Tıklayın **Tamam** öznitelik kaydetmek için.
 
       c. Özniteliğin adını değiştirmek **emailaddress** için **e-posta**.
-
 
 10. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve XML dosyayı bilgisayarınıza kaydedin.
 
@@ -175,15 +176,15 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_01.png) 
 
 2. Git **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar** kullanıcıların listesini görüntülemek için.
-    
+
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_02.png) 
 
 3. İletişim kutusunun üstündeki **Ekle** açmak için **kullanıcı** iletişim.
- 
+
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_03.png) 
 
 4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
+
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinElevate-tutorial/create_aaduser_04.png) 
 
     a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
@@ -192,11 +193,11 @@ Bu bölümün amacı, Britta Simon adlı Azure Yönetim Portalı'nda bir test ku
 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
-    d. **Oluştur**’a tıklayın. 
+    d. **Oluştur**’a tıklayın.
 
 ### <a name="creating-a-linkedin-elevate-test-user"></a>Bir LinkedIn yükseltmesine test kullanıcısı oluşturma
 
-Bağlantılı yükseltmesine uygulama zaman kullanıcı sağlama ve kimlik doğrulama kullanıcılar uygulamada otomatik olarak oluşturulacak sonra hemen destekler. Yönetici ayarları LinkedIn yükseltmesine portal Çevir ' anahtar sayfa **lisansları otomatik olarak ata** sadece etkinleştirmek için etkin sağlama ve bu da bir kullanıcıya lisans atamak.
+LinkedIn yükseltmesine uygulama zaman kullanıcı sağlama ve kimlik doğrulama kullanıcılar uygulamada otomatik olarak oluşturulacak sonra hemen destekler. Yönetici ayarları LinkedIn yükseltmesine portal Çevir ' anahtar sayfa **otomatik olarak ata lisansları** zaman içinde etkin sadece sağlama ve bu da bir lisansı kullanıcıya atar. Daha fazla ayrıntı bulabilirsiniz, LinkedIn yükseltmesine de destekler otomatik kullanıcı sağlamayı [burada](active-directory-saas-linkedinelevate-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-linkedinElevate-tutorial/LinkedinUserprovswitch.png)
 
@@ -210,7 +211,7 @@ Bu bölümde, kendi erişim izni verme LinkedIn yükseltmek için Azure çoklu o
 
 1. Azure Yönetim Portalı'nda uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı atama][201]
 
 2. Uygulamalar listesinde **LinkedIn yükseltmesine**.
 
@@ -229,7 +230,7 @@ Bu bölümde, kendi erişim izni verme LinkedIn yükseltmek için Azure çoklu o
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
@@ -241,7 +242,7 @@ Erişim paneli LinkedIn yükseltmesine döşemeyi tıkladığınızda, Azure otu
 * [Öğretici: LinkedIn yükseltmesine otomatik kullanıcı hazırlama Azure Active Directory ile yapılandırma](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
-
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-linkedinelevate-provisioning-tutorial.md)
 
 <!--Image references-->
 

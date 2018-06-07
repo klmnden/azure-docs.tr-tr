@@ -1,24 +1,20 @@
 ---
 title: Bulut-cihaz iletilerini ile Azure IOT hub'ı (.NET) | Microsoft Docs
 description: .NET için Azure IOT SDK'ları kullanarak bir Azure IOT hub'dan bir aygıta bulut-cihaz iletilerini göndermek nasıl. Bulut-cihaz iletilerini ve bulut-cihaz iletilerini göndermek için bir arka uç uygulaması değiştirmek için bir cihaz uygulaması değiştirin.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631896"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Cihazınızı IOT hub'ı (.NET) ile buluttan iletileri gönder
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -188,7 +184,7 @@ IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz: [IOT 
 <!-- Links -->
 
 [Azure IOT hizmeti SDK'sı NuGet paketi]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
-[geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 

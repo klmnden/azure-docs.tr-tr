@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect eşitleme: varsayılan yapılandırmayı anlama | Microsoft Docs"
-description: "Bu makalede, Azure AD Connect eşitleme Varsayılan yapılandırmada açıklanmaktadır."
+title: 'Azure AD Connect eşitleme: varsayılan yapılandırmayı anlama | Microsoft Docs'
+description: Bu makalede, Azure AD Connect eşitleme Varsayılan yapılandırmada açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dba7a6fcf936e9610a5f1f04e367d32e9aae6643
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595317"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect Eşitleme: Varsayılan yapılandırmayı anlama
 Bu makalede out-of-box yapılandırma kuralları açıklanır. Kurallar ve bu kuralları yapılandırmasını nasıl etkiler belgeler. Bu ayrıca, Azure AD Connect eşitleme varsayılan yapılandırma açıklanmaktadır. Okuyucu bildirim temelli hazırlama, adlı yapılandırma modeli gerçek örnekte nasıl çalıştığını algıladığını hedeftir. Bu makale, zaten yüklediyseniz ve Yükleme Sihirbazı'nı kullanarak Azure AD Connect eşitleme yapılandırma varsayar.
@@ -55,7 +57,7 @@ Aşağıdaki kullanıcı nesneler **değil** Azure AD'ye eşitlenen:
   * Posta kutusu veritabanı posta kutusu (sistem posta)
   * Evrensel güvenlik grubu (bir kullanıcı için geçerli olmayacaktır, ancak eski nedenlerle varsa)
   * Olmayan Evrensel Grup (bir kullanıcı için geçerli olmayacaktır, ancak eski nedenlerle varsa)
-  * Mailbox Plan
+  * Posta kutusu planı
   * Bulma posta kutusu
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Herhangi bir çoğaltma kurban nesne eşitlemez.
 

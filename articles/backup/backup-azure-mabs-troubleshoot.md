@@ -1,24 +1,19 @@
 ---
-title: Azure Backup sunucusu sorunlarını giderme | Microsoft Docs
+title: Azure Backup Sunucusu sorunlarını giderme
 description: Yükleme, kayıt Azure yedekleme sunucusu ve yedekleme ve geri yükleme uygulama iş yüklerinin sorunlarını giderin.
 services: backup
-documentationcenter: ''
 author: pvrk
 manager: shreeshd
-editor: ''
-ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/24/2017
-ms.author: pullabhk;markgal;
-ms.openlocfilehash: db0d3d9ff2b27ac0be86b73926563d226d0e5d59
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: pullabhk
+ms.openlocfilehash: 2b4c2f8b4c8311580692619cfb6a72fe8bcad6de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605075"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Sunucusu sorunlarını giderme
 

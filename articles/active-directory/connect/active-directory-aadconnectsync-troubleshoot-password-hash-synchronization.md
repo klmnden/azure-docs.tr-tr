@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bcf266813476c682d47bfd483db77f5d8b73837a
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 7cc86f56f7f68c70d66407bd44e6368f31f202d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593794"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Parola karma eşitlemesi ile Azure AD Connect eşitleme sorunlarını giderme
 Bu konu, parola karma eşitlemesi ile ilgili sorunları gidermek adımlar sağlar. Parolalar beklendiği gibi eşitlemiyor, bir kullanıcı alt kümesini veya tüm kullanıcılar için olabilir.
@@ -333,7 +335,7 @@ Durum sütununda aşağıdaki değerlere sahip olabilir:
 | TargetNotExportedToDirectory |Azure AD bağlayıcı alanı nesne henüz verilemez. |
 | MigratedCheckDetailsForMoreInfo |Günlük girişi 1.0.9125.0 Yapı önce oluşturuldu ve eski durumuna gösterilir. |
 | Hata |Hizmet bilinmeyen bir hata döndürdü. |
-| Bilinmiyor |Parola karmaları toplu işlemeye çalışırken bir hata oluştu.  |
+| Bilinmeyen |Parola karmaları toplu işlemeye çalışırken bir hata oluştu.  |
 | MissingAttribute |Azure AD etki alanı Hizmetleri tarafından gereken belirli öznitelikleri (örneğin, Kerberos karması) kullanılabilir değil. |
 | RetryRequestedByTarget |Azure AD etki alanı Hizmetleri tarafından gereken belirli öznitelikleri (örneğin, Kerberos karması) daha önce kullanılamıyordu. Kullanıcının parola karmasını eşitlemek için bir girişimde. |
 

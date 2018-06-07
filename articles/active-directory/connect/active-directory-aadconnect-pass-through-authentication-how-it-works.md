@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: Doğrudan kimlik doğrulama - nasıl çalışır? | Microsoft Docs"
-description: "Bu makalede Azure Active Directory doğrudan kimlik doğrulaması nasıl çalıştığı açıklanır"
+title: 'Azure AD Connect: Doğrudan kimlik doğrulama - nasıl çalışır? | Microsoft Docs'
+description: Bu makalede Azure Active Directory doğrudan kimlik doğrulaması nasıl çalıştığı açıklanır
 services: active-directory
-keywords: "Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma"
-documentationcenter: 
+keywords: Azure AD Connect doğrudan kimlik doğrulama, Active Directory yükleyin gerekli bileşenleri Azure AD, SSO, çoklu oturum açma
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: eaa9995430833c0c087ed0d4044f6c41d254e3ff
-ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
+ms.openlocfilehash: ca501bb3ad37353f00ffe5d46f72822c7c5487bf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591404"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory doğrudan kimlik doğrulaması: Teknik derinlemesine bakış
 Bu makalede hakkında genel bakış olan Azure Active directory (Azure AD) doğrudan kimlik doğrulama çalışıyor. Ayrıntılı teknik ve güvenlik bilgileri için bkz: [güvenlik derinlemesine](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) makalesi.

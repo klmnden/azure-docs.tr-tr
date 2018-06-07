@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19ca9d70f769a19556d131d1d131f1bc9d107ef0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8b11d4ab7188141b36b998e16429329c33f09cee
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599577"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure işlevleri güvenilirliğini ve performansını en iyi duruma getirme
 
@@ -116,7 +117,8 @@ C# işlevleri için kesin türü belirtilmiş bir dizi türünü değiştirebili
 Diğer ana bilgisayar yapılandırma seçeneklerini bulunabilir [ana bilgisayar yapılandırma belgesindeki](functions-host-json.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-Azure işlevleri Azure App Service kullandığından, ayrıca uygulama hizmeti yönergelerini farkında olmalıdır.
-* [Patterns and Practices HTTP performans iyileştirmeleri](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [Azure işlevleri bağlantıları yönetme](manage-connections.md)
+* [Azure uygulama hizmeti en iyi uygulamalar](../app-service/app-service-best-practices.md)

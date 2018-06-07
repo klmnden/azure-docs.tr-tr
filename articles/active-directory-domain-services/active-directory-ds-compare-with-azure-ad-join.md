@@ -1,24 +1,26 @@
 ---
-title: "Azure AD birleştirme ve Azure Active Directory etki alanı Hizmetleri karşılaştırma | Microsoft Docs"
-description: "Azure AD birleştirme ve Azure AD etki alanı hizmetleri arasında seçim yapma"
+title: Azure AD birleştirme ve Azure Active Directory etki alanı Hizmetleri karşılaştırma | Microsoft Docs
+description: Azure AD birleştirme ve Azure AD etki alanı hizmetleri arasında seçim yapma
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: fb28c7a66d26119444dd720c2e134f2818d46cfc
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5f2d09e896a41647ef3211a754a4c7aa403d8cea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587876"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Azure Active Directory birleştirme ve Azure Active Directory etki alanı hizmetleri arasında seçim yapma
 Bu makalede, Azure Active Directory (AD) birleştirme ve Azure AD etki alanı Hizmetleri ve kullanım örnekleri üzerinde temel seçmenize yardım eden arasındaki farklar açıklanmaktadır.

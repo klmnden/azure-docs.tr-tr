@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 2696be33c97b411a9f4809f0ff6ca56cd2fe6080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3d2e64a88492db396b1c4771e605245c0cd744f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Öğretici: Azure Active Directory Tümleştirme xMatters OnDemand ile
 
@@ -103,14 +104,14 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_samlbase.png)
 
 3. Üzerinde **xMatters OnDemand etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_url.png)
     
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:   
+    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | |
     |--|
     | `https://<companyname>.au1.xmatters.com.au/`|
@@ -133,7 +134,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyasını yerel olarak kaydedin **c:\\XMatters OnDemand.cer**.
 
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_certificate.png)
-    
+
     > [!IMPORTANT]
     > Sertifikayı iletmek gereken [xMatters OnDemand destek ekibi](https://www.xmatters.com/company/contact-us/). Tek oturum açma yapılandırmasını son haline getirmek önce xMatters destek ekibi tarafından karşıya yüklenecek sertifika gerekir. 
 
@@ -148,28 +149,24 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 7. Farklı web tarayıcısı penceresinde XMatters OnDemand şirket sitenize yönetici olarak oturum açın.
 
 8. Üstteki araç çubuğunda tıklatın **yönetici**ve ardından **şirket ayrıntıları** sol taraftaki gezinti çubuğunda.
-   
+
     ![Yönetici](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776795.png "yönetici")
 
 9. Üzerinde **SAML Yapılandırması** sayfasında, aşağıdaki adımları gerçekleştirin:
-   
-    ![SAML Yapılandırması](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML yapılandırması")
-   
-    a. Seçin **etkinleştirmek SAML**.
-   
-    b. Yapıştır **SAML varlık kimliği**, Azure portalından kopyalanan **kimlik sağlayıcı kimliği** metin kutusu.
-   
-    c. Yapıştır **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan **üzerinde tek oturum URL'si** metin kutusu.
-   
-    d. Yapıştır **Sign-Out URL**, Azure portalından kopyalanan **çoklu oturum kapatma URL'si** metin kutusu.
-   
-    e. Şirket Ayrıntıları sayfası, en üstte tıklayın **Değişiklikleri Kaydet**.
-    
-    ![Şirket ayrıntıları](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "şirket ayrıntıları")
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    ![SAML Yapılandırması](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776796.png "SAML yapılandırması")
+
+    a. Seçin **etkinleştirmek SAML**.
+
+    b. İçinde **kimlik sağlayıcı kimliği** metin kutusuna, Yapıştır **SAML varlık kimliği** Azure portalından kopyaladığınız değeri.
+
+    c. İçinde **üzerinde tek oturum URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri.
+
+    d. İçinde **çoklu oturum kapatma URL'si** metin kutusuna, Yapıştır **Sign-Out URL**, Azure portalından kopyalanan.
+
+    e. Şirket Ayrıntıları sayfası, en üstte tıklayın **Değişiklikleri Kaydet**.
+
+    ![Şirket ayrıntıları](./media/active-directory-saas-xmatters-ondemand-tutorial/IC776797.png "şirket ayrıntıları")
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -183,15 +180,15 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_01.png) 
 
 2. Kullanıcıların listesini görüntülemek için şu adrese gidin **kullanıcılar ve gruplar** tıklatıp **tüm kullanıcılar**.
-    
+
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_02.png) 
 
 3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
- 
+
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_03.png) 
 
 4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
+
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-xmatters-ondemand-tutorial/create_aaduser_04.png) 
 
     a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
@@ -201,32 +198,33 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>XMatters OnDemand test kullanıcısı oluşturma
 
-Azure AD kullanıcılarının XMatters OnDemand oturum açmayı etkinleştirmek için bunların XMatters OnDemand sağlanmalıdır. XMatters OnDemand söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Bu bölümün amacı Britta Simon xMatters OnDemand adlı bir kullanıcı oluşturmaktır. xMatters OnDemand otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
-### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>Kullanıcı hesaplarını sağlamak için aşağıdaki adımları gerçekleştirin:
+**Kullanıcı el ile oluşturmanız gerekiyorsa, şu adımları gerçekleştirin:**
+
 1. Oturum, **XMatters OnDemand** Kiracı.
 
 2.  Tıklatın **kullanıcılar** sekmesini ve ardından **Kullanıcı Ekle**.
-  
+
     ![Kullanıcıların](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "kullanıcılar")
 
 3. İçinde **kullanıcı ekleme** bölümünde, aşağıdaki adımları gerçekleştirin:
-   
+
     ![Kullanıcı ekleme](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781049.png "kullanıcı ekleme")
 
     a. Seçin **etkin**.
 
     b. İçinde **kullanıcı kimliği** metin kutusuna, kullanıcının kullanıcı kimliği türü ister Brittasimon@contoso.com.
-   
+
     c. İçinde **ad** metin kutusuna, adı Britta gibi kullanıcı türü.
 
     d. İçinde **Soyadı** metin kutusuna, türü kullanıcının soyadını Simon gibi.
-    
+
     e. İçinde **Site** metin kutusuna, Enter geçerli Azure geçerli site için sağlamak istediğiniz AD hesabı.
-    
+
     f. **Kaydet**’e tıklayın.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
@@ -270,6 +268,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 
@@ -284,4 +283,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_general_203.png
-

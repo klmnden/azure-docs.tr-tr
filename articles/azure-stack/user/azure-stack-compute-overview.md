@@ -1,35 +1,39 @@
 ---
-title: Azure yığın sanal makineleri giriş
+title: Azure Stack sanal makinelerine giriş
 description: Azure yığın sanal makineler hakkında bilgi edinin
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 05/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: 41e75a6806cc5ff13fad64fd415344376e0d6e88
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.reviewer: kivenkat
+ms.openlocfilehash: 967fcb86c1bf0c85517bc13c2066ed32e8fa28d9
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604140"
 ---
-# <a name="introduction-to-azure-stack-virtual-machines"></a>Azure yığın sanal makineleri giriş
+# <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack sanal makinelerine giriş
 
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-## <a name="overview"></a>Genel Bakış
-Azure yığın sanal makine (VM) Azure yığın sunan bir isteğe bağlı, ölçeklenebilir bilgi işlem kaynak türüdür. Genellikle, sunulan diğer seçimlere göre bilgi işlem ortamınız üzerinde daha fazla denetime ihtiyacınız varsa, bir VM seçersiniz. Bu makalede VM oluşturmadan önce dikkat etmeniz gereken bilgilere, oluşturma yöntemine ve yönetim seçeneklerine yer verilmiştir.
+Azure yığın isteğe bağlı, ölçeklenebilir bir bilgisayar kaynağına bir tür sanal makineleri (VM'ler) sunar. Bilgi işlem ortamınız üzerinde daha fazla denetim ve diğer seçenekleri daha ihtiyacınız olduğunda, bir VM seçebilirsiniz. Bu makalede, VM oluşturmadan önce ayrıntılar sağlar.
 
 Bir Azure yığın VM kümeleri ya da makineleri tek tek yönetmek zorunda kalmadan sanallaştırma esnekliği sağlar. Ancak, yine yapılandırma, düzeltme eki uygulama ve bunun üzerinde çalıştırılır yazılım yükleme gibi görevleri gerçekleştirerek VM korumak gerekir.
 
 Azure yığın sanal makineleri çeşitli şekillerde kullanabilirsiniz. Örneğin:
 
-* **Geliştirme ve test** – Azure yığın VM'ler sunan bir hızlı ve kolay şekilde bir bilgisayar ile belirli bir yapılandırma oluşturmak kod ve bir uygulamayı test etmek için gerekli.
+- **Geliştirme ve test**  
+    Azure yığın VM'ler kodu için gereken belirli bir yapılandırmaya sahip bir bilgisayar oluşturmak ve bir uygulamayı test etmek için hızlı ve kolay bir yol sunar.
 
-* **Bulut uygulamalarında** – uygulamanız için isteğe bağlı dalgalanma çünkü bunu çalıştırmak için bir VM'de Azure yığınında ekonomik mantıklı olabilir. İhtiyaç duyduğunuzda oluşturulan ek VM’ler için ödeme yapar, ihtiyaç kalmadığında bunları kapatırsınız.
+- **Bulut uygulamaları**  
+    Uygulamanız için isteğe bağlı dalgalanma çünkü bunu çalıştırmak için bir VM'de Azure yığınında ekonomik mantıklı olabilir. İhtiyaç duyduğunuzda oluşturulan ek VM’ler için ödeme yapar, ihtiyaç kalmadığında bunları kapatırsınız.
 
-* **Veri Merkezi Genişletilmiş** – Azure yığın sanal ağdaki sanal makinelerden kolayca kuruluşunuzun ağına veya Azure bağlanması.
+- **Genişletilmiş veri merkezi**  
+    Bir Azure yığın sanal ağdaki sanal makinelerden kuruluşunuzun ağına veya Azure kolayca bağlanabilir.
 
 Uygulamanız tarafından kullanılan ölçeği veya ne olursa olsun gereksinimlerinizi karşılamak için gerekli olan için ölçeğini VM'ler.
 
@@ -37,12 +41,12 @@ Uygulamanız tarafından kullanılan ölçeği veya ne olursa olsun gereksinimle
 
 Aynı zamanda Azure yığın uygulama altyapısında çıkışı derlerken her zaman çok sayıda tasarım konuları vardır. VM şu yönlerini altyapınızı oluşturmaya başlamadan önce dikkat etmeniz gereken önemli şunlardır:
 
-* Uygulama kaynakları adları.
-* VM boyutu.
-* Oluşturulabilir VM'ler maksimum sayısı.
-* VM çalıştıran işletim sistemi.
-* Başladıktan sonra VM yapılandırması.
-* VM gereken ilgili kaynaklar.
+- Uygulama kaynakları adları.
+- VM boyutu.
+- Oluşturulabilir VM'ler maksimum sayısı.
+- VM çalıştıran işletim sistemi.
+- Başladıktan sonra VM yapılandırması.
+- VM gereken ilgili kaynaklar.
 
 ### <a name="naming"></a>Adlandırma
 
@@ -78,9 +82,14 @@ Karşıya yükleme ve kendi görüntünüzü kullanma seçebilirsiniz. Bunu yapa
 VM uzantıları VM ek yetenekler post dağıtım yapılandırması ve otomatik görevler üzerinden verin.
 Uzantıları kullanarak şu genel görevleri gerçekleştirebilirsiniz:
 
-* Özel komut dosyaları – çalıştırmak özel betik uzantısı iş yükleri VM'de VM sağlandığında, komut dosyasını çalıştırarak yapılandırmanıza yardımcı olur.
-* Dağıtma ve yapılandırmalarını yönetme – PowerShell istenen durum yapılandırması (DSC) uzantısı, yapılandırmalarını ve ortamları yönetmek için bir VM üzerinde DSC kurmanıza yardımcı olur.
-* Toplama tanılama verilerini – Azure tanılama uzantısını uygulamanızın durumunu izlemek için kullanılan tanılama verilerini toplamak için VM yapılandırmanıza yardımcı olur.
+- **Özel komut dosyalarını çalıştır**  
+    Özel betik uzantısının VM sağlandığında, komut dosyasını çalıştırarak VM iş yüklerini yapılandırmanıza yardımcı olur.
+
+- **Dağıtma ve yapılandırmalarını yönetme**  
+    PowerShell istenen durum yapılandırması (DSC) uzantısı bir VM'de DSC yapılandırmalarını ve ortamları yönetmek için ayarlamanıza yardımcı olur.
+
+- **Tanılama verileri toplama**  
+    Azure tanılama uzantısını uygulamanızın durumunu izlemek için kullanılan tanılama verilerini toplamak için VM yapılandırmanıza yardımcı olur.
 
 ### <a name="related-resources"></a>İlgili kaynaklar
 
@@ -96,7 +105,7 @@ Aşağıdaki tabloda kaynakları VM tarafından kullanılır ve mevcut ya da VM 
 |Ağ arabirimi|Evet|VM’in ağda iletişim kurabilmek için ağ arabirimine ihtiyacı vardır.|
 |Veri diskleri|Hayır|VM, depolama olanaklarını genişletmek için veri disklerine sahip olabilir.|
 
-## <a name="how-do-i-create-my-first-vm"></a>İlk VM’mi nasıl oluşturabilirim?
+## <a name="create-your-first-vm"></a>İlk VM oluşturma
 
 Bir VM oluşturmak için birkaç seçeneğiniz vardır. Seçiminiz ortamınıza bağlıdır.
 Aşağıdaki tabloda, bilgi sağlamak için VM oluşturmaya başlamanızı sağlar.
@@ -109,16 +118,16 @@ Aşağıdaki tabloda, bilgi sağlamak için VM oluşturmaya başlamanızı sağl
 |PowerShell|[Azure yığınında PowerShell kullanarak bir Windows sanal makine oluşturma](azure-stack-quick-create-vm-windows-powershell.md)<br>[Azure yığınında PowerShell kullanarak bir Linux sanal makine oluşturma](azure-stack-quick-create-vm-linux-powershell.md)|
 |CLI|[Azure yığınında CLI kullanarak bir Windows sanal makine oluşturma](azure-stack-quick-create-vm-windows-cli.md)<br>[Azure yığınında CLI kullanarak bir Linux sanal makine oluşturma](azure-stack-quick-create-vm-linux-cli.md)|
 
-## <a name="how-do-i-manage-the-vm-that-i-created"></a>Oluşturduğum VM’yi nasıl yönetebilirim?
+## <a name="manage-your-vm"></a>Sanal Makinenizi Yönetme
 
 VM'ler tarayıcı tabanlı bir portal desteğiyle API'leri aracılığıyla doğrudan veya komut dosyası için komut satırı araçlarını kullanarak yönetebilirsiniz. Gerçekleştirebileceğiniz bazı tipik yönetim görevleri şunlardır:
 
-* VM hakkında bilgi alma
-* Bir VM'ye bağlanma
-* Kullanılabilirlik yönetme
-* Yedekleme yapmak
+- VM hakkında bilgi alma
+- Bir VM'ye bağlanma
+- Kullanılabilirlik yönetme
+- Yedekleme yapmak
 
-### <a name="get-information-about-a-vm"></a>VM hakkında bilgi alma
+### <a name="get-information-about-your-vm"></a>VM hakkında bilgi edinin
 
 Aşağıdaki tabloda, bir VM hakkında bilgi edinebilirsiniz yollardan bazılarını gösterir.
 
@@ -129,10 +138,10 @@ Aşağıdaki tabloda, bir VM hakkında bilgi edinebilirsiniz yollardan bazılar�
 |Azure PowerShell|Sanal makineleri yönetme, Azure ve Azure yığın benzer. PowerShell'i kullanma hakkında daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve Azure PowerShell modülü ile Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |İstemci SDK'ları|Sanal makineleri yönetmek için C# kullanarak Azure ve Azure yığın benzer. Daha fazla bilgi için aşağıdaki Azure konuya bakın:<br>[Oluşturma ve C# kullanarak azure'da Windows sanal makineleri yönetme](https://docs.microsoft.com/azure/virtual-machines/windows/csharp)|
 
-### <a name="connect-to-the-vm"></a>VM’ye bağlanma
+### <a name="connect-to-your-vm"></a>VM'nize bağlanmak
 
 Kullanabileceğiniz **Bağlan** VM'nize bağlanmak için Azure yığın portalda düğmesine.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Sanal makineler Azure yığınında dikkate alınacak noktalar](azure-stack-vm-considerations.md)
+- [Sanal makineler Azure yığınında dikkate alınacak noktalar](azure-stack-vm-considerations.md)

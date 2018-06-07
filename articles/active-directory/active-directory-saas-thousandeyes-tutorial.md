@@ -11,13 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d40ab6d2587f5d842ac98479a6db7609d8a9ce4d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 80d13b0a42239466a1e13d065ed5f52bd84b8008
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Öğretici: Azure Active Directory Tümleştirme ThousandEyes ile
 
@@ -103,7 +104,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_samlbase.png)
 
 3. Üzerinde **ThousandEyes etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -114,7 +115,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/active-directory-saas-thousandeyes-tutorial/tutorial_thousandeyes_certificate.png)
 
 5. Tıklatın **kaydetmek** düğmesi.
 
@@ -127,35 +128,32 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 7. Farklı web tarayıcısı penceresinde oturum açın, **ThousandEyes** yönetici olarak şirket site.
 
 8. Üstteki menüde tıklatın **ayarları**.
-   
+
     ![Ayarları](./media/active-directory-saas-thousandeyes-tutorial/ic790066.png "ayarları")
 
 9. Tıklatın **hesabı**
-   
+
     ![Hesap](./media/active-directory-saas-thousandeyes-tutorial/ic790067.png "hesabı")
 
 10. Tıklatın **güvenlik ve kimlik doğrulama** sekmesi.
-   
+
     ![Güvenlik ve kimlik doğrulama](./media/active-directory-saas-thousandeyes-tutorial/ic790068.png "güvenlik ve kimlik doğrulama")
 
 11. İçinde **Kurulum çoklu oturum açma** bölümünde, aşağıdaki adımları gerçekleştirin:
-   
+
     ![Çoklu oturum açma Kurulum](./media/active-directory-saas-thousandeyes-tutorial/ic790069.png "Kurulum çoklu oturum açma")
-  
+
     a. Seçin **çoklu oturum açmayı etkinleştir**.
-  
-    b. İçinde **oturum açma sayfası URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
-  
-    c. İçinde **oturum kapatma sayfası URL'si** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyalanan.
-  
-    d. **Kimlik sağlayıcısı veren** metin kutusuna, Yapıştır **SAML varlık kimliği** Azure portalından kopyalanan.
-  
+
+    b. İçinde **oturum açma sayfası URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+
+    c. İçinde **oturum kapatma sayfası URL'si** metin kutusuna, Yapıştır **Sign-Out URL**, Azure portalından kopyalanan.
+
+    d. **Kimlik sağlayıcısı veren** metin kutusuna, Yapıştır **SAML varlık kimliği**, hangi Azure portalından kopyalanır.
+
     e. İçinde **doğrulama sertifikası**, tıklatın **dosya**ve Azure portalından indirdiğiniz sertifikasını karşıya yükleyin.
-  
+
     f. **Kaydet**’e tıklayın.
- 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -173,12 +171,12 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_02.png) 
 
 3. Açmak için **kullanıcı** iletişim kutusunda, tıklatın **Ekle** iletişim kutusunun üst kısmında.
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png) 
+
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_03.png)
 
 4. Üzerinde **kullanıcı** iletişim sayfasında, aşağıdaki adımları gerçekleştirin:
- 
-    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png) 
+
+    ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-thousandeyes-tutorial/create_aaduser_04.png)
 
     a. İçinde **adı** metin kutusuna, türü **BrittaSimon**.
 
@@ -187,43 +185,42 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** ve değerini yazma **parola**.
 
     d. **Oluştur**’a tıklayın.
- 
+
 ### <a name="creating-a-thousandeyes-test-user"></a>ThousandEyes test kullanıcısı oluşturma
 
-Azure AD kullanıcıların ThousandEyes oturum etkinleştirmek için bunların ThousandEyes sağlanmalıdır.  
-ThousandEyes söz konusu olduğunda, sağlama bir el ile bir görevdir.
+Bu bölümün amacı Britta Simon içinde ThousandEyes adlı bir kullanıcı oluşturmaktır. ThousandEyes otomatik kullanıcı hazırlama, varsayılan olarak etkin olduğu destekler. Daha fazla ayrıntı bulabilirsiniz [burada](active-directory-saas-thousandeyes-provisioning-tutorial.md) otomatik kullanıcı sağlamayı yapılandırma.
 
->[!NOTE]
->API tarafından ThousandEyes sağlamak için Azure Active Directory kullanıcı hesapları sağlanan veya herhangi diğer ThousandEyes kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
-
-**Bir kullanıcı hesabına ThousandEyes sağlamak için aşağıdaki adımları gerçekleştirin:**
+**Kullanıcı el ile oluşturmanız gerekiyorsa, şu adımları gerçekleştirin:**
 
 1. ThousandEyes şirket sitenize yönetici olarak oturum açın.
 
 2. Tıklatın **ayarları**.
-   
+
     ![Ayarları](./media/active-directory-saas-thousandeyes-tutorial/IC790066.png "ayarları")
 
 3. Tıklatın **hesap**.
-   
+
     ![Hesap](./media/active-directory-saas-thousandeyes-tutorial/IC790067.png "hesabı")
 
 4. Tıklatın **hesapları k & ullanıcıların** sekmesi.
-   
+
     ![K & ullanıcıların hesapları](./media/active-directory-saas-thousandeyes-tutorial/IC790073.png "hesapları ve kullanıcılar")
 
 5. İçinde **Kullanıcı Ekle & hesapları** bölümünde, aşağıdaki adımları gerçekleştirin:
-   
-    ![Kullanıcı hesapları ekleme](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "kullanıcı hesapları ekleme")   
-  
+
+    ![Kullanıcı hesapları ekleme](./media/active-directory-saas-thousandeyes-tutorial/IC790074.png "kullanıcı hesapları ekleme")
+
     a. İçinde **adı** metin kutusu, kullanıcı adını yazın ister **Britta Simon**.
 
     b. İçinde **e-posta** metin kutusu, kullanıcı e-posta türünü ister **brittasimon@contoso.com**.
-   
+
     b. Tıklatın **yeni kullanıcı hesabına eklemek**.
-      
-     >[!NOTE]
-     >Azure Active Directory hesap sahibi onaylayın ve hesabını etkinleştirmek için bir bağlantı içeren bir e-posta alırsınız.
+
+    > [!NOTE]
+    > Azure Active Directory hesap sahibi onaylayın ve hesabını etkinleştirmek için bir bağlantı içeren bir e-posta alırsınız.
+
+> [!NOTE]
+> API tarafından ThousandEyes sağlamak için Azure Active Directory kullanıcı hesapları sağlanan veya herhangi diğer ThousandEyes kullanıcı hesabı oluşturma araçlarını kullanabilirsiniz.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atama
 
@@ -267,7 +264,7 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
-
+* [Kullanıcı sağlamayı Yapılandır](active-directory-saas-thousandeyes-provisioning-tutorial.md)
 
 
 <!--Image references-->
@@ -283,4 +280,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-thousandeyes-tutorial/tutorial_general_203.png
-

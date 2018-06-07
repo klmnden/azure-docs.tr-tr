@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Connect eşitleme hizmeti gölge öznitelikleri | Microsoft Docs"
-description: "Gölge öznitelikler Azure AD Connect eşitleme hizmetinin nasıl çalıştığı açıklanmaktadır."
+title: Azure AD Connect eşitleme hizmeti gölge öznitelikleri | Microsoft Docs
+description: Gölge öznitelikler Azure AD Connect eşitleme hizmetinin nasıl çalıştığı açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 19d5ae46955ecc094c340d141485d3eb54c8e9b2
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: bd1ede2bf8ff642b7be0869e54a6f037b01dd262
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593427"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect eşitleme hizmeti gölge öznitelikleri
 Şirket içi Active Directory oldukları gibi özelliklerin çoğu Azure AD'de aynı şekilde gösterilir. Ancak bazı özel işleme bazı özniteliklere sahip ve Azure AD öznitelik değerinde Azure AD Connect eşitler daha farklı olabilir.
@@ -55,7 +57,7 @@ Her iki şirket içi posta kutusu bir kullanıcı için ya da Exchange Online'da
 | Şirket içi proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-Bu durumda  **smtp:abbie.spencer@fabrikam.com**  bu etki alanı doğrulanmadı beri kaldırıldı. Ancak aynı zamanda eklenen Exchange  **SIP:abbie.spencer@fabrikamonline.com** . Fabrikam Lync/Skype şirket içi ancak Azure AD kullanmamış ve Exchange Online hazırlamak için.
+Bu durumda **smtp:abbie.spencer@fabrikam.com** bu etki alanı doğrulanmadı beri kaldırıldı. Ancak aynı zamanda eklenen Exchange **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam Lync/Skype şirket içi ancak Azure AD kullanmamış ve Exchange Online hazırlamak için.
 
 Bu mantığı proxyAddresses olarak adlandırılır **ProxyCalc**. ProxyCalc her değişikliğe bir kullanıcı olarak çağrılan zaman:
 

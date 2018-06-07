@@ -12,18 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9945ad30cc7d8882d8b99f6b4278f2063ab4b7f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f65e84bff63bbdb781991ff6648b0fb98ca5208f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592322"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect eşitleme ile nesne eşitleme sorunlarını giderme
-Bu belge, sorun giderme görevini kullanarak nesne eşitleme ile ilgili sorunları gidermek adımlar sağlar.
+Bu makalede, nesne eşitleme sorun giderme görevini kullanarak sorunlarını gidermek için adımları sağlar. Sorun giderme Azure Active Directory (Azure AD) Bağlan nasıl çalıştığını görmek için izleme [bu kısa video](https://aka.ms/AADCTSVideo).
 
 ## <a name="troubleshooting-task"></a>Görev sorunlarını giderme
-İçin Azure Active Directory (AAD) dağıtım 1.1.749.0 sürümüyle bağlanın veya üzeri, sorun giderme görevi nesne eşitleme sorunlarını gidermek için Sihirbazı'nı kullanın. Önceki sürümler için lütfen açıklandığı şekilde el ile ilgili sorunları giderme [burada](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
+Azure AD için dağıtım 1.1.749.0 sürümüyle bağlanın veya üzeri, sorun giderme görevi nesne eşitleme sorunlarını gidermek için Sihirbazı'nı kullanın. Önceki sürümler için lütfen açıklandığı şekilde el ile ilgili sorunları giderme [burada](active-directory-aadconnectsync-troubleshoot-object-not-syncing.md).
 
 ### <a name="run-the-troubleshooting-task-in-the-wizard"></a>Sorun giderme Görev Sihirbazı'nı çalıştırın
 Sorun giderme görevi Sihirbazı'nı çalıştırmak için aşağıdaki adımları gerçekleştirin:

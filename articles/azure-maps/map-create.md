@@ -1,24 +1,22 @@
 ---
 title: Azure Eşlemleriyle bir harita oluşturmak | Microsoft Docs
 description: Bir Javascript eşlemesi oluşturma
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9a7c611860a6d32f82d6714d945c62e6c562f91f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ec85854e5d9b7ee0d5e2c54881a417ba6cbb366e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599822"
 ---
-# <a name="create-a-map"></a>Bir eşleme oluşturma
+# <a name="create-a-map"></a>Harita oluşturma
 
 Bu makalede bir harita oluşturmak nasıl gösterir.  
 
@@ -56,4 +54,9 @@ Sınıfları ve bu makalede kullanılan yöntemleri hakkında daha fazla bilgi e
 * [eşleme](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamera)
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
+    
+Eşlemeleri eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
+* [Bir PIN ekleme](./map-add-pin.md)
+* [Açılan pencere ekleme](map-add-popup.md)
+    
 

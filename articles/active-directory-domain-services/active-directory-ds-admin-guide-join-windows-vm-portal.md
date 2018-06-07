@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory etki alanı Hizmetleri: bir Windows Server VM yönetilen bir etki alanına katılın. | Microsoft Docs"
+title: 'Azure Active Directory etki alanı Hizmetleri: bir Windows Server VM yönetilen bir etki alanına katılın. | Microsoft Docs'
 description: Windows Server sanal makinesini Azure AD DS'ye ekleme
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 7b5c23f1f4b6180d8b664f1371ccfd8a075572e6
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: dadc20cdee68730fa1d81dd86b3ffa0b0022a5b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586962"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede Azure portalını kullanarak bir Windows Server sanal makine dağıtma gösterilmektedir. Ardından, sanal makine bir Azure Active Directory etki alanı Hizmetleri (Azure AD DS) yönetilen etki alanına katılmak nasıl gösterir.
@@ -103,7 +105,7 @@ Windows Server sanal makine Azure AD DS tarafından yönetilen etki alanına ekl
 
 7. Kimlik bilgileri aşağıdaki yollardan birini belirtebilirsiniz:
 
-   * **UPN biçimini**: Azure AD içinde yapılandırıldığı gibi kullanıcı hesabı için kullanıcı asıl adı (UPN) soneki (önerilen) belirtin. Bu örnekte, Kullanıcı UPN sonekinin *bob* olan  *bob@domainservicespreview.onmicrosoft.com* .
+   * **UPN biçimini**: Azure AD içinde yapılandırıldığı gibi kullanıcı hesabı için kullanıcı asıl adı (UPN) soneki (önerilen) belirtin. Bu örnekte, Kullanıcı UPN sonekinin *bob* olan *bob@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName biçimi**: SAMAccountName biçiminde hesap adını belirtebilirsiniz. Bu örnekte, kullanıcı *bob* girmesi *CONTOSO100\bob*.
 
@@ -142,7 +144,7 @@ Kimlik bilgileriyle konusunda sorun yaşıyoruz ve etki alanına katılamıyor, 
 
 * Sahip olduğundan emin olun [parola eşitleme etkin](active-directory-ds-getting-started-password-sync.md) alma Başlarken Kılavuzu'nda açıklanan adımları uygun olarak.
 
-* Azure AD içinde yapılandırıldığı gibi kullanıcı UPN kullandığınızdan emin olun (örneğin,  *bob@domainservicespreview.onmicrosoft.com* ) oturum açmak için.
+* Azure AD içinde yapılandırıldığı gibi kullanıcı UPN kullandığınızdan emin olun (örneğin, *bob@domainservicespreview.onmicrosoft.com*) oturum açmak için.
 
 * Tamamlanması yeterince uzun parola eşitlemesi için beklenen olun başlangıç kılavuzuna belirtilmiş.
 

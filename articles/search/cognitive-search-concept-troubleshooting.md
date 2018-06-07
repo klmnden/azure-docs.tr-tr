@@ -10,11 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 15fc879958bfd886210a90239e0247c60fe231f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3c3f9a0d0dc40de6c62c21dab0f11a501829ef11
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640974"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Bilişsel arama için sorun giderme ipuçları
 
@@ -53,15 +54,15 @@ Bu durumda, hatalarını yok saymak için dizin oluşturucu bildirmek isteyebili
 ## <a name="tip-4-looking-at-enriched-documents-under-the-hood"></a>İpucu 4: başlık altında zenginleştirilmiş belgeleri bakarak. 
 İyileştirmesini sırasında oluşturulan ve işlem tamamlandığında silinir geçici yapıları zenginleştirilmiş belgelerdir.
 
-Dizin oluşturma sırasında oluşturulan zenginleştirilmiş belge görüntüsünü yakalamak için adlı bir alan eklemek ```enriched``` dizininiz için. Dizin Oluşturucu, bu belge için tüm enrichments dize gösterimini alanına otomatik olarak dökümünü yapar.
+Dizin oluşturma sırasında oluşturulan zenginleştirilmiş belgenin anlık görüntüsünü yakalamak için dizininize ```enriched``` adlı bir alan ekleyin. Dizin oluşturucu, otomatik olarak alana, o belgenin tüm zenginleştirmelerinin dize gösteriminin dökümünü alır.
 
-```enriched``` Alanı JSON bellek içi zenginleştirilmiş belgede mantıksal bir gösterimidir bir dize içerir.  Alan değeri geçerli bir JSON belgesi ancak kullanılır. Tırnak işaretleri kaçışlı değiştirmeniz gerekir böylece `\"` ile `"` biçimlendirilmiş JSON belgesi olarak görüntülemek için. 
+```enriched``` alanı, JSON’da bellek içi zenginleştirilmiş belgenin mantıksal gösterimi olan bir dize içerir.  Ancak alan değeri geçerli bir JSON belgesidir. Tırnak işaretlerine kaçış karakteri eklenir, böylece belgeyi biçimlendirilmiş JSON olarak görüntülemek için `\"` öğesini `"` ile değiştirmeniz gerekir. 
 
 Zenginleştirilmiş alan yalnızca, mantıksal şekli ifadeleri karşı değerlendirilen içeriğin anlamanıza yardımcı olması için hata ayıklama amacıyla tasarlanmıştır. Amacıyla dizin oluşturma için bu alanı bağlı olmaması gerekir.
 
 Ekleme bir ```enriched``` alan hata ayıklama amacıyla, dizin tanımının bir parçası olarak:
 
-#### <a name="request-body-syntax"></a>İstek gövdesi sözdizimi
+#### <a name="request-body-syntax"></a>İstek Gövdesi Sözdizimi
 ```json
 {
   "fields": [
@@ -98,7 +99,7 @@ Portal tabanlı (açıklandığı gibi Hızlı Başlangıç) dizin oluşturma i�
 
 ## <a name="tip-7-increase-indexing-throughput"></a>İpucu 7: dizin oluşturma performansı artırma
 
-İçin [paralel dizin](search-howto-reindex.md#parallel-indexing), birden çok kapsayıcı ya da aynı kapsayıcı içinde birden çok sanal klasörler verilerinizi yerleştirin. Daha sonra birden çok veri kaynağı ve dizin oluşturucu çiftleri oluşturun. Tüm Dizin oluşturucuların aynı skillset ve arama uygulamanız bu bölümlendirme farkında olması gerekmez şekilde aynı hedef arama dizine yazma kullanabilirsiniz.
+İçin [paralel dizin](search-howto-large-index.md), birden çok kapsayıcı ya da aynı kapsayıcı içinde birden çok sanal klasörler verilerinizi yerleştirin. Daha sonra birden çok veri kaynağı ve dizin oluşturucu çiftleri oluşturun. Tüm Dizin oluşturucuların aynı skillset ve arama uygulamanız bu bölümlendirme farkında olması gerekmez şekilde aynı hedef arama dizine yazma kullanabilirsiniz.
 Daha fazla bilgi için bkz: [dizin büyük veri kümeleri](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets).
 
 ## <a name="see-also"></a>Ayrıca bkz.

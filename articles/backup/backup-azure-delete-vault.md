@@ -1,24 +1,19 @@
 ---
-title: " Azure kurtarma Hizmetleri kasasını Sil | Microsoft Docs "
-description: "Bu makalede, bir kurtarma Hizmetleri kasasını Sil açıklanmaktadır. Makale bir kasa silmeyi deneyin, ancak olamaz sorun giderme adımlarını içerir."
+title: Azure kurtarma Hizmetleri kasasını Sil '
+description: Bu makalede, bir kurtarma Hizmetleri kasasını Sil açıklanmaktadır. Makale bir kasa silmeyi deneyin, ancak olamaz sorun giderme adımlarını içerir.
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605349"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasasını silme
 Bu makalede, Azure portalında bir kurtarma Hizmetleri kasasını Sil açıklanmaktadır. Yedekleme kasaları olsaydı, Kurtarma Hizmetleri kasalarının dönüştürüldü.   
@@ -34,7 +29,7 @@ Açık kurtarma Hizmetleri kasası zaten varsa, ikinci adıma atlayın.
 
 1. Azure Portalı'nı açın ve Panodan silmek istediğiniz kasaya açın.
 
-   Hub menüsünde panoya sabitlenmiş kurtarma Hizmetleri kasası yoksa tıklatın **daha Hizmetleri** ve kaynak listesinde yazın **kurtarma Hizmetleri**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Tıklatın **kurtarma Hizmetleri kasaları**.
+   Hub menüsünde panoya sabitlenmiş kurtarma Hizmetleri kasası yoksa tıklatın **daha Hizmetleri** ve kaynak listesinde yazın **kurtarma Hizmetleri**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Kurtarma Hizmetleri kasaları**’na tıklayın.
 
    ![Kurtarma Hizmetleri Kasası oluşturma 1. adım](./media/backup-azure-delete-vault/open-recovery-services-vault.png) <br/>
 
@@ -165,4 +160,4 @@ Bir kasaya kayıtlı birden çok sunucu varsa, bunları unutmayın zor olabilir.
     ![Yedekleme yönetim sunucuları listesi](./media/backup-azure-delete-vault/list-of-backup-management-servers.png)
 5. Listeden bir sunucu silmek için sunucu adına sağ tıklayın ve ardından **silmek**.
     **Silmek** menüsü açılır.
-6. Üzerinde **silmek** menüsünde sunucunun adını belirtin. Uzun bir adı olması durumunda kopyalayın ve yedekleme yönetim sunucuların listesinden yapıştırın. Ardından **silmek**.  
+6. Üzerinde **silmek** menüsünde sunucunun adını belirtin. Uzun bir adı olması durumunda kopyalayın ve yedekleme yönetim sunucuların listesinden yapıştırın. Sonra **Sil**’e tıklayın.  

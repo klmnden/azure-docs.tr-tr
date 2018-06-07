@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 05/24/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 20b289c16a73bd20ed020987116975c8abe893f0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8643e75a24ff7840b71dfaceae9934cdda566d30
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604429"
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Microsoft Azure yığın üzerinde SQL veritabanları kullanın
 SQL veritabanları Azure yığınının hizmet olarak kullanıma sunmak için Azure yığın SQL Server Kaynak sağlayıcısı kullanın. SQL kaynak sağlayıcısı hizmeti SQL kaynak sağlayıcısı bir Windows Server çekirdek sanal makine VM üzerinde çalışır.
@@ -29,10 +30,14 @@ Azure yığın SQL kaynak sağlayıcısı dağıtmadan önce karşılanması ger
 - Zaten bunu yapmadıysanız [Azure yığın kaydetmek](.\azure-stack-registration.md) Azure ile Azure Market öğesi indirebilmesi.
 - Gerekli Windows Server çekirdek VM yükleyerek Azure yığın Market eklemek **Windows Server 2016 Sunucu Çekirdeği** görüntü. Bir güncelleştirme yüklemeniz gerekiyorsa, tek bir yerleştirebilirsiniz. Yerel bağımlılık yolundaki MSU paketi. Birden fazla ise. MSU dosyası bulundu, SQL kaynak sağlayıcısı yükleme başarısız olur.
 - SQL kaynak sağlayıcısı ikili indirin ve içeriğini geçici bir dizine ayıklayın ayıklayıcısı çalıştırın. Kaynak sağlayıcısı bir minimum karşılık gelen Azure yapı yığınına sahiptir. Kullanmakta olduğunuz Azure yığın sürümü için doğru ikili yüklediğinizden emin olun:
-    - Azure yığın sürüm 1802 (1.0.180302.1): [SQL RP sürüm 1.1.18.0](https://aka.ms/azurestacksqlrp1802).
-    - Azure yığın sürüm 1712 (1.0.180102.3, 1.0.180103.2 veya 1.0.180106.1 (tümleşik sistemler için)): [SQL RP sürüm 1.1.14.0](https://aka.ms/azurestacksqlrp1712).
+
+    |Azure yığın sürümü|SQL RP sürümü|
+    |-----|-----|
+    |Sürüm 1804 (1.0.180513.1)|[SQL RP sürüm 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
+    |Sürüm 1802 (1.0.180302.1)|[SQL RP sürüm 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Sürüm 1712 (1.0.180102.3, 1.0.180103.2 veya 1.0.180106.1 (tümleşik sistemler için))|[SQL RP sürüm 1.1.14.0](https://aka.ms/azurestacksqlrp1712)|
+    |     |     |
 - Yalnızca tümleşik sistemleri yüklemeler için SQL PaaS PKI sertifikası isteğe bağlı PaaS sertifikaları bölümünde açıklandığı gibi sağlamalısınız [Azure yığın dağıtım PKI gereksinimleri](.\azure-stack-pki-certs.md#optional-paas-certificates), .pfx dosyasını konuma yerleştirerek tarafından belirtilen **DependencyFilesLocalPath** parametresi.
-- Sahip olduğundan emin olun [Azure yığın PowerShell'in en son sürümünü](.\azure-stack-powershell-install.md) (v1.2.11) yüklü. 
 
 ## <a name="deploy-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı dağıtma
 Tüm Önkoşullar toplantı göre SQL kaynak Sağlayıcısı'nı yüklemek başarıyla hazırladıktan sonra artık çalıştırabileceğiniz **DeploySqlProvider.ps1** SQL kaynak sağlayıcısı dağıtmak için komut dosyası. DeploySqlProvider.ps1 komut dosyası Azure yığın sürüme karşılık gelen yüklediğiniz SQL kaynak sağlayıcısı ikili bir parçası olarak ayıklanır. 
@@ -81,10 +86,9 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hi�
 DeploySqlProvider.ps1 komut dosyası çalıştığında gerekli bilgileri el ile girmeyi önlemek için aşağıdaki kod örneği varsayılan hesap bilgileri ve gerektiğinde parolaları değiştirerek özelleştirebilirsiniz:
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
+# Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
@@ -113,12 +117,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+$tempDir\DeploySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
+    -VMLocalCredential $vmLocalAdminCreds `
+    -CloudAdminCredential $cloudAdminCreds `
+    -PrivilegedEndpoint $privilegedEndpoint `
+    -DefaultSSLCertificatePassword $PfxPass `
+    -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Azure yığın Portalı'nı kullanarak dağıtımı doğrulama

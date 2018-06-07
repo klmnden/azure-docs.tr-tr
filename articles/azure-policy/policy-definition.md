@@ -4,15 +4,16 @@ description: Kaynak ilke tanımı zaman İlkesi uygulandığında ve hangi etkil
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601267"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -63,7 +64,7 @@ Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğele
 }
 ```
 
-Tüm Azure ilke şablonu örnekleri altındadır [Azure ilke şablonları](json-samples.md).
+Tüm Azure ilkesi örnekleri altındadır [ilkesi örnekleri](json-samples.md).
 
 ## <a name="mode"></a>Mod
 
@@ -203,7 +204,7 @@ Aşağıdaki alanları desteklenir:
 
 - `name`
 - `fullName`
-  - Tüm üst (örneğin "myServer/Veritabanım") dahil olmak üzere kaynak tam adını döndürür
+  - Kaynak tam adını döndürür. Bir kaynağın tam adı, tüm üst kaynak adları (örneğin "myServer/Veritabanım") tarafından $a kaynak adıdır.
 - `kind`
 - `type`
 - `location`
@@ -251,6 +252,8 @@ Değer bir dize veya bir JSON biçimi nesnesi olabilir.
 İle **AuditIfNotExists** ve **DeployIfNotExists** ilişkili bir kaynak varlığını değerlendirin ve bu kaynak mevcut değil, bir kural ve karşılık gelen bir efekt uygulayın. Örneğin, bir Ağ İzleyicisi için tüm sanal ağları dağıtılır gerektirebilir.
 Bir sanal makine uzantısı değil dağıtıldığında denetim bir örnek için bkz: [uzantısı yoksa, Denetim](scripts/audit-ext-not-exist.md).
 
+Değerlendirme, özellikleri ve örnekler, sırasını her efekti ilgili tam Ayrıntılar için bkz: [anlama İlkesi etkileri](policy-effects.md).
+
 ## <a name="aliases"></a>Diğer adlar
 
 Bir kaynak türü için belirli özelliklere erişmek için özellik diğer adlar kullanın. Diğer adlar hangi değerleri veya koşullara bir özelliği bir kaynak için izin verilen kısıtlamak etkinleştirin. Her bir diğer ad belirli kaynak türlerine yönelik farklı API sürümleri yollarında eşler. İlke değerlendirmesi sırasında ilke altyapısı bu API sürümü için özellik yolu alır.
@@ -296,7 +299,7 @@ Diğer adlar listesini her zaman artıyor. Hangi diğer adların şu anda Azure 
   $aliases | Sort-Object -Property Namespace, resourceType, alias | Format-Table
   ```
 
-- Azure CLI'si
+- Azure CLI
 
   ```azurecli-interactive
   # Login first with az login if not using Cloud Shell
@@ -391,4 +394,4 @@ Aşağıdaki örnekte nasıl iki etiket işlemek için bir girişimi oluşturula
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Azure ilke şablonu örnekleri, inceleyin [Azure ilke şablonları](json-samples.md).
+- Daha fazla örnekleri, inceleyin [Azure ilkesi örnekleri](json-samples.md).
