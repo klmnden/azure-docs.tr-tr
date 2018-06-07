@@ -1,24 +1,20 @@
 ---
 title: Azure IOT hub'ı (Java) sahip bulut-cihaz iletilerini | Microsoft Docs
 description: Java için Azure IOT SDK'ları kullanarak bir Azure IOT hub'dan bir aygıta bulut-cihaz iletilerini göndermek nasıl. Bulut-cihaz iletilerini ve bulut-cihaz iletilerini göndermek için bir arka uç uygulaması değiştirmek için bir sanal cihaz uygulamasının değiştirin.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 7f785ea8-e7c2-40c5-87ef-96525e9b9e1e
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 4c748f01a83c7f569953f7c7f2fc5631ca0efd17
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 410a156d60aa9b17da9c36e043082c291eea4849
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808120"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>IOT hub'ı (Java) sahip bulut-cihaz iletilerini gönder
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -41,11 +37,11 @@ Bu öğreticinin sonunda iki Java konsol uygulamaları çalıştırın:
 * **Send-c2d-messages**, IOT hub'ı aracılığıyla sanal cihaz uygulamasının bir bulut cihaz ileti gönderir ve teslimat alındısı alır.
 
 > [!NOTE]
-> IOT Hub SDK desteği birçok cihaz platformları ve Azure IOT cihaz SDK'ları aracılığıyla dilleri (C, Java ve Javascript dahil) sahiptir. Bu öğreticinin kod ve genellikle Azure IOT Hub Cihazınızı bağlamak hakkında adım adım yönergeler için bkz: [Azure IOT Geliştirme Merkezi].
+> IOT Hub SDK desteği birçok cihaz platformları ve Azure IOT cihaz SDK'ları aracılığıyla dilleri (C, Java ve Javascript dahil) sahiptir. Bu öğreticinin kod ve genellikle Azure IOT Hub Cihazınızı bağlamak hakkında adım adım yönergeler için bkz: [Azure IoT Geliştirici Merkezi].
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
-* Eksiksiz bir çalışma sürümü [IOT Hub ile çalışmaya başlama](iot-hub-java-java-getstarted.md) veya [işlem IOT Hub cihaz bulut iletilerini](iot-hub-java-java-process-d2c.md) Öğreticisi.
+* Eksiksiz bir çalışma sürümü [IOT Hub ile çalışmaya başlama](iot-hub-java-java-getstarted.md) veya [işlem IOT Hub cihaz bulut iletilerini](tutorial-routing.md) Öğreticisi.
 * En güncel [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org/install.html)
 * Etkin bir Azure hesabı. (Hesabınız yoksa, yalnızca birkaç dakika içinde [ücretsiz bir hesap][lnk-free-trial] oluşturabilirsiniz.)
@@ -210,10 +206,10 @@ IOT Hub ile çözümleri geliştirme hakkında daha fazla bilgi için bkz: [IOT 
 [IOT Hub ile çalışmaya başlama]: iot-hub-java-java-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IOT Hub Geliştirici Kılavuzu]: iot-hub-devguide.md
-[Azure IOT Geliştirme Merkezi]: http://azure.microsoft.com/develop/iot
+[Azure IoT Geliştirici Merkezi]: http://azure.microsoft.com/develop/iot
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-java
-[geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure portal]: https://portal.azure.com
+[Geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Azure Portal]: https://portal.azure.com
 [Azure IOT Uzaktan izleme Çözüm Hızlandırıcısı]: https://azure.microsoft.com/documentation/suites/iot-suite/
 [lnk-maven-service-search]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22

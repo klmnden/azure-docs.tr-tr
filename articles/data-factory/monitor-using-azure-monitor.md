@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 798af75625e0d2fed1220932c172683fe71f9aad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 234dacca152dca6e8e212a86f3921c9355f640e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620349"
 ---
 # <a name="monitor-data-factories-using-azure-monitor"></a>Veri fabrikaları Azure İzleyicisi'ni kullanarak izleme  
 Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
@@ -106,7 +107,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
 | storageAccountId |Dize | Tanılama günlükleri göndermesini istediğiniz depolama hesabının kaynak kimliği |
-| serviceBusRuleId |Dize | Olay hub'ın tanılama günlüklerini akış için oluşturulmuş olmasını istediğiniz hizmet veri yolu ad alanı service bus kuralı kimliği. Kimliktir biçimi kuralı: "{hizmet veri yolu kaynak kimliği} /authorizationrules/ {anahtar name}".|
+| serviceBusRuleId |Dize | Olay hub'ın tanılama günlüklerini akış için oluşturulmuş olmasını istediğiniz hizmet veri yolu ad alanı service bus kuralı kimliği. Kimliktir biçimi kuralı: {hizmet veri yolu kaynak kimliği} /authorizationrules/ {anahtar adı}.|
 | Workspaceıd | Karmaşık Tür | Ölçüm zaman grains ve bekletme ilkelerini dizisi. Bu özellik şu anda boştur. |
 |metrics| Çağrılan ardışık düzene iletilecek parametre değerlerini ardışık çalıştırın| Parametre adları bağımsız değişken değeri için eşleştirme bir JSON nesnesi | 
 | günlükler| Karmaşık Tür| Bir kaynak türü için bir tanılama günlük kategori adı. Bir kaynak için tanılama günlük kategorileri listesini almak için önce bir GET tanılama ayarlarını işlemi gerçekleştirin. |
@@ -412,7 +413,7 @@ Ayrıca Azure portalında oturum açın ve'ı tıklatın **İzleyicisi -&gt; uya
 
 ![Portal menüsünde uyarıları](media/monitor-using-azure-monitor/alerts_image3.png)
 
-### <a name="create-alerts"></a>Uyarı oluşturma
+### <a name="create-alerts"></a>Uyarı Oluştur
 
 1.  Tıklatın **+ yeni uyarı kuralı** yeni bir uyarı oluşturmak için.
 

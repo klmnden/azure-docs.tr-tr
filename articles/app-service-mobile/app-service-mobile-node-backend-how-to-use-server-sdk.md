@@ -14,11 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 335186deccaa82b9a8d262d62dd8ce5d620446b6
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598088"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK'sını kullanma
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -82,7 +83,7 @@ Bu uygulama bir mobil iyileştirilmiş Web API ile tek bir uç noktası oluştur
 * [Android istemci hızlı başlangıç]
 * [Apache Cordova istemci hızlı başlangıç]
 * [iOS istemci hızlı başlangıç]
-* [Windows mağazası istemci hızlı başlangıç]
+* [Windows Store istemcisi hızlı başlangıç]
 * [Xamarin.iOS istemcisi hızlı başlangıç]
 * [Xamarin.Android istemcisi hızlı başlangıç]
 * [Xamarin.Forms istemci hızlı başlangıç]
@@ -130,7 +131,7 @@ Geri **başlama** bölmesi altında **tablo API Oluştur**, seçin **Node.js** a
 Kutusunu seçin **bu tüm site içeriğinin üzerine yazacağını kabul ediyorum**ve ardından **Todoıtem tablosu oluştur**.
 
 ### <a name="download-quickstart"></a>Git kullanarak Node.js arka uç hızlı başlangıç kod projesi indirme
-Portal kullanarak bir Node.js Mobile Apps arka uç oluşturduğunuzda **Hızlı Başlangıç** bölmesinde, bir Node.js projesi için oluşturduğunuz ve sitenize dağıtılabilir. Portalda, tablolar ve API'ları ekleyin ve Node.js arka ucu için kod dosyaları düzenleyin. Böylece ekleyin veya tablolar ve API'ları değiştirmek ve projeyi yeniden yayımlamanız arka uç projesi indirmek için çeşitli dağıtım araçları da kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure uygulama hizmeti Dağıtım Kılavuzu'nu]. 
+Portal kullanarak bir Node.js Mobile Apps arka uç oluşturduğunuzda **Hızlı Başlangıç** bölmesinde, bir Node.js projesi için oluşturduğunuz ve sitenize dağıtılabilir. Portalda, tablolar ve API'ları ekleyin ve Node.js arka ucu için kod dosyaları düzenleyin. Böylece ekleyin veya tablolar ve API'ları değiştirmek ve projeyi yeniden yayımlamanız arka uç projesi indirmek için çeşitli dağıtım araçları da kullanabilirsiniz. Daha fazla bilgi için bkz: [Azure uygulama hizmeti Dağıtım Kılavuzu]. 
 
 Aşağıdaki yordam, hızlı başlangıç projesi kodu indirmek için bir Git deposu kullanır:
 
@@ -151,12 +152,12 @@ Aşağıdaki yordam, hızlı başlangıç projesi kodu indirmek için bir Git de
 İşlemeleri yeni bir dizi siteye gönderilen her zaman site yeniden yayımlanacak.
 
 ### <a name="howto-publish-to-azure"></a>Node.js arka ucunuz için Azure yayımlama
-Microsoft Azure Mobile Apps Node.js yayımlamak için birçok mekanizma arka uç Azure hizmeti sağlar. Bu düzenekler Visual Studio'ya tümleşik dağıtım araçları, komut satırı araçları ve kaynak denetimine bağlı sürekli dağıtım seçenekleri içerir. Daha fazla bilgi için bkz: [Azure uygulama hizmeti Dağıtım Kılavuzu'nu].
+Microsoft Azure Mobile Apps Node.js yayımlamak için birçok mekanizma arka uç Azure hizmeti sağlar. Bu düzenekler Visual Studio'ya tümleşik dağıtım araçları, komut satırı araçları ve kaynak denetimine bağlı sürekli dağıtım seçenekleri içerir. Daha fazla bilgi için bkz: [Azure uygulama hizmeti Dağıtım Kılavuzu].
 
 Azure uygulama hizmeti olan belirli önerileri gözden geçirmeniz gereken Node.js uygulamaları için arka uç yayımlamadan önce:
 
-* Nasıl yapılır [düğümü sürüm belirtin]
-* Nasıl yapılır [düğümü modüllerini kullanma]
+* Nasıl yapılır [Düğüm sürüm belirtin]
+* Nasıl yapılır [Düğüm modüllerini kullanma]
 
 ### <a name="howto-enable-homepage"></a>Uygulamanız için bir giriş sayfası etkinleştir
 Birçok uygulama, web ve mobil uygulamaları birleşimidir. İki modelleri birleştirmek için ExpressJS çerçevesini kullanabilirsiniz. Bazı durumlarda, ancak yalnızca bir mobil arabirimi uygulamak isteyebilirsiniz. Uygulama hizmeti çalışır durumda olduğundan emin olmak için bir giriş sayfası sağlamak kullanışlı ve çalışır durumdadır. Giriş sayfası sağlayın veya geçici bir giriş sayfası etkinleştirin. Geçici bir giriş sayfası etkinleştirmek için mobil uygulamaları oluşturmak için aşağıdaki kodu kullanın:
@@ -243,7 +244,7 @@ Mobile Apps Node.js SDK'sı veri kutudan çıktığında hizmet veren için üç
 * Kullanım **mssql** geliştirme için bir SQL Server Express veri deposu sağlamak için sürücü.
 * Kullanım **mssql** üretim için bir Azure SQL veritabanı veri deposu sağlamak için sürücü.
 
-Mobile Apps Node.js SDK'sı [mssql Node.js paket] kurmak ve SQL Server Express ve SQL veritabanına bir bağlantı kullanın. Bu paket, SQL Server Express örneğinizi TCP bağlantılarını etkinleştirmenizi istemektedir.
+Mobile Apps Node.js SDK'sı [MSSQL Node.js paketi] kurmak ve SQL Server Express ve SQL veritabanına bir bağlantı kullanın. Bu paket, SQL Server Express örneğinizi TCP bağlantılarını etkinleştirmenizi istemektedir.
 
 > [!TIP]
 > Bellek sürücüsü eksiksiz test olanaklarının sağlamaz. Arka uç yerel olarak test etmek isterseniz, bir SQL Server Express veri deposu ve mssql sürücü kullanılmasını öneririz.
@@ -336,7 +337,7 @@ Bir eşdeğer uygulama ayarı azureMobile.js dosyasındaki çoğu ayarları sahi
 
 | Uygulama ayarı | azureMobile.js ayarı | Açıklama | Geçerli değerler |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |ad |Uygulama adı |string |
+| **MS_MobileAppName** |ad |Uygulama adı |dize |
 | **MS_MobileLoggingLevel** |Logging.level |En küçük günlük düzeyi günlüğe kaydedilecek ileti sayısı |hata, uyarı, bilgi, ayrıntılı, hata ayıklama, saçma |
 | **MS_DebugMode** |hata Ayıkla |Etkinleştirir ya da hata ayıklama modunu devre dışı bırakır |TRUE, false |
 | **MS_TableSchema** |Data.Schema |SQL tablolarının varsayılan şema adı |dize (varsayılan: dbo) |
@@ -346,7 +347,7 @@ Bir eşdeğer uygulama ayarı azureMobile.js dosyasındaki çoğu ayarları sahi
 
 Bir uygulama ayarı ayarlamak için:
 
-1. [Azure portal]’da oturum açın.
+1. [Azure Portal]’da oturum açın.
 2. Seçin **tüm kaynakları** veya **uygulama hizmetleri**ve ardından mobil uygulamanızı adını seçin.
 3. **Ayarları** bölmesi varsayılan olarak açılır. Bu işaretlemezse **ayarları**.
 4. Üzerinde **genel** menüsünde, select **uygulama ayarları**.
@@ -362,7 +363,7 @@ Bir uygulama ayarı ayarlamak için:
 
 Bir veri deposu olarak Azure SQL veritabanı kullanan tüm Azure App Service uygulama türlerine aynıdır. Siz bunu zaten yapmadıysanız, mobil uygulama arka ucu oluşturmak için aşağıdaki adımları izleyin:
 
-1. [Azure portal]’da oturum açın.
+1. [Azure Portal]’da oturum açın.
 2. Pencerenin üst sol seçin **+ yeni** düğmesi > **Web + mobil** > **mobil uygulama**ve mobil uygulamalarınızı arka uç için bir ad sağlayın.
 3. İçinde **kaynak grubu** kutusuna, uygulamanızı aynı adı girin.
 4. Uygulama hizmeti planı varsayılan seçilidir. Uygulama hizmeti planınızı değiştirmek istiyorsanız:
@@ -875,24 +876,24 @@ Azure Portalı'nı kullanarak, yerel bilgisayarınıza projeye yüklemeye gerek 
 [Xamarin.Android istemcisi hızlı başlangıç]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms istemci hızlı başlangıç]: app-service-mobile-xamarin-forms-get-started.md
 [Windows Store istemcisi hızlı başlangıç]: app-service-mobile-windows-store-dotnet-get-started.md
-[çevrimdışı veri eşitlemeye]: app-service-mobile-offline-data-sync.md
+[Çevrimdışı veri eşitlemeye]: app-service-mobile-offline-data-sync.md
 [Azure Active Directory kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Facebook kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [Google kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
 [Microsoft kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
 [Twitter kimlik doğrulamasını yapılandırma]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure uygulama hizmeti Dağıtım Kılavuzu'nu]: ../app-service/app-service-deploy-local-git.md
+[Azure uygulama hizmeti Dağıtım Kılavuzu]: ../app-service/app-service-deploy-local-git.md
 [Azure uygulama hizmeti izleme]: ../app-service/web-sites-monitor.md
 [Azure App Service'te tanılama günlük kaydını etkinleştir]: ../app-service/web-sites-enable-diagnostic-log.md
 [Visual Studio'da Azure uygulama hizmeti sorunlarını giderme]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
-[düğümü sürüm belirtin]: ../nodejs-specify-node-version-azure-apps.md
-[düğümü modüllerini kullanma]: ../nodejs-use-node-modules-azure-apps.md
+[Düğüm sürüm belirtin]: ../nodejs-specify-node-version-azure-apps.md
+[Düğüm modüllerini kullanma]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
 
-[Azure portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [OData]: http://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp örnek github'da]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
@@ -900,8 +901,8 @@ Azure Portalı'nı kullanarak, yerel bilgisayarınıza projeye yüklemeye gerek 
 [örnekler dizini github'da]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples
 [static-schema sample on GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/static-schema
 [QueryJS]: https://github.com/Azure/queryjs
-[Visual Studio için Node.js araçları 1.1]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
-[mssql Node.js paket]: https://www.npmjs.com/package/mssql
+[Visual Studio için node.js araçları 1.1]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
+[MSSQL Node.js paketi]: https://www.npmjs.com/package/mssql
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Ara]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

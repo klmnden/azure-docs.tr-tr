@@ -1,24 +1,20 @@
 ---
 title: .NET ile Azure IOT Hub'ına aygıtlardan dosyaları karşıya yükleme | Microsoft Docs
 description: .NET için Azure IOT cihaz SDK'sını kullanarak buluta bir aygıttan dosyaları karşıya yükleme yapma. Karşıya yüklenen dosyaların bir Azure depolama blob kapsayıcısında depolanır.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 4759d229-f856-4526-abda-414f8b00a56d
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: elioda
-ms.openlocfilehash: 901b4b6c631d47a6c37eb232f66d8350faa9be76
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8c57f93a755d01dc17b369e712285c2ac8f0ef37
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807501"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Cihazınızı dosyalarından buluta IOT Hub .NET kullanarak karşıya yükle
 
@@ -29,7 +25,7 @@ Bu öğretici kodda inşa edilmiştir [IOT Hub ile bulut cihaza ileti gönderme]
 - Güvenli bir şekilde bir aygıt ile Azure sağlayan bir dosya yüklemek için URI blob.
 - IOT hub'ı dosya karşıya yükleme bildirimleri, uygulama arka uç dosya işleme tetiklemek için kullanın.
 
-[IOT Hub ile çalışmaya başlama](iot-hub-csharp-csharp-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem cihaz-bulut iletileri](iot-hub-csharp-csharp-process-d2c.md) öğretici Azure blob depolama alanına cihaz bulut iletilerini güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
+[IOT Hub ile çalışmaya başlama](iot-hub-csharp-csharp-getstarted.md) ve [IOT Hub ile bulut cihaza ileti gönderme](iot-hub-csharp-csharp-c2d.md) öğreticiler IOT Hub'ın temel cihaz Bulut ve bulut-cihaz Mesajlaşma işlevlerini gösterir. [İşlem cihaz-bulut iletileri](tutorial-routing.md) öğretici Azure blob depolama alanına cihaz bulut iletilerini güvenilir bir şekilde depolamak için bir yol açıklar. Ancak, bazı senaryolarda aygıtlarınızı IOT hub'ı kabul görece küçük bir cihaz bulut iletilerini göndermek verileri kolayca eşlenemiyor. Örneğin:
 
 * Görüntüleri içeren büyük dosyaları
 * Videolar
@@ -44,7 +40,7 @@ Bu öğreticinin sonunda iki .NET konsol uygulamaları çalıştırın:
 * **ReadFileUploadNotification**, IOT hub'ından dosya karşıya yükleme bildirimlerini alır.
 
 > [!NOTE]
-> IOT hub'ı Azure IOT cihaz SDK'ları çok sayıda cihaz platformları ve (C, Java ve Javascript gibi) dilleri destekler. Başvurmak [Azure IOT Geliştirme Merkezi] Cihazınızı Azure IOT Hub'ına bağlamak adım adım yönergeler için.
+> IOT hub'ı Azure IOT cihaz SDK'ları çok sayıda cihaz platformları ve (C, Java ve Javascript gibi) dilleri destekler. Başvurmak [Azure IoT Geliştirici Merkezi] Cihazınızı Azure IOT Hub'ına bağlamak adım adım yönergeler için.
 
 Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
@@ -190,11 +186,11 @@ Daha fazla IOT hub'ı özelliklerini keşfetmek için bkz:
 
 <!-- Links -->
 
-[Azure portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
-[Azure IOT Geliştirme Merkezi]: http://azure.microsoft.com/develop/iot
+[Azure IoT Geliştirici Merkezi]: http://azure.microsoft.com/develop/iot
 
-[geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[Geçici hata işleme]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure IOT hizmeti SDK'sı NuGet paketi]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 

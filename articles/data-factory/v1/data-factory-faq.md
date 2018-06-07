@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 387b5e944b0fd198e37a35d7bf1c54f7795c9f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621355"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - sık sorulan sorular
 > [!NOTE]
@@ -40,7 +41,7 @@ Bkz: [veri fabrikası fiyatlandırma ayrıntıları sayfası] [ adf-pricing-deta
 * Bir öğretici için nasıl **copy/move veri** kopyalama etkinliği'ni kullanarak bkz [kopyalama verileri Azure Blob depolama alanından Azure SQL veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Bir öğretici için nasıl **verileri** Hdınsight Hive etkinliği kullanma. Bkz: [Hadoop kümesindeki Hive betiği çalıştırılarak verileri işlemek](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Veri fabrikasının bölge kullanılabilirliği nedir?
+### <a name="what-is-the-data-factorys-region-availability"></a>Veri Fabrikası s bölge kullanılabilirliği nedir?
 Veri Fabrikası sağlanmıştır **BİZE Batı** ve **Kuzey Avrupa**. Veri fabrikaları tarafından kullanılan işlem ve depolama hizmetleri başka bölgelerde olabilir. Bkz: [desteklenen bölgeler](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Veri fabrikaları/işlem hatları/etkinlikleri/veri kümeleri sayısının sınırları nelerdir?
@@ -69,7 +70,7 @@ Aşağıdaki tabloda, bilgi işlem ortamları Data Factory ve bunlar üzerinde �
 
 | İşlem ortamı | etkinlikler |
 | --- | --- |
-| [İsteğe bağlı Hdınsight kümesi](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) veya [kendi Hdınsight kümenizi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
+| [İsteğe bağlı Hdınsight kümesi](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) veya [kendi Hdınsight kümenizi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop akış](data-factory-hadoop-streaming-activity.md) |
 | [Azure Batch](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
 | [Azure Machine Learning](data-factory-compute-linked-services.md#azure-machine-learning-linked-service) |[Machine Learning etkinlikleri: Toplu Yürütme ve Kaynak Güncelleştirme](data-factory-azure-ml-batch-execution-activity.md) |
 | [Azure Data Lake Analytics](data-factory-compute-linked-services.md#azure-data-lake-analytics-linked-service) |[Data Lake Analytics U-SQL](data-factory-usql-activity.md) |
@@ -96,7 +97,7 @@ Data Factory’deki Kopyalama Etkinliği bir kaynak veri deposundan havuz veri d
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 
 > [!NOTE]
-> * taşıyan veri depoları şirket içi veya Azure IaaS üzerinde olabilir ve bir şirket içi/Azure IaaS makinesine [Veri Yönetimi Ağ Geçidi](data-factory-data-management-gateway.md) yüklemenizi gerektirir.
+> \* taşıyan veri depoları şirket içi veya Azure IaaS üzerinde olabilir ve bir şirket içi/Azure IaaS makinesine [Veri Yönetimi Ağ Geçidi](data-factory-data-management-gateway.md) yüklemenizi gerektirir.
 
 ### <a name="what-are-the-supported-file-formats"></a>Desteklenen dosya biçimleri nelerdir?
 [!INCLUDE [data-factory-file-format](../../../includes/data-factory-file-format.md)]
