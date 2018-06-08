@@ -5,6 +5,7 @@
     - name: Sanal makine ölçek kümeleri nedir?
       href: overview.md
 - name: Hızlı Başlangıçlar
+  expanded: true
   items:
     - name: Azure portalda oluşturma
       href: quick-create-portal.md
@@ -64,6 +65,102 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+- name: Kavramlar
+  items:
+    - name: Azure Resource Manager
+      href: ../azure-resource-manager/resource-group-overview.md
+      maintainContext: true
+    - name: Bölgeler ve kullanılabilirlik
+      href: ../virtual-machines/windows/regions-and-availability.md
+      maintainContext: true
+    - name: VM türleri ve boyutları
+      href: ../virtual-machines/windows/sizes.md
+      maintainContext: true
+      items:
+        - name: Genel amaçlı
+          href: ../virtual-machines/windows/sizes-general.md
+          maintainContext: true
+          items:
+            - name: B-series burstable
+              href: ../virtual-machines/windows/b-series-burstable.md
+              maintainContext: true
+        - name: İşlem için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-compute.md
+          maintainContext: true
+        - name: Bellek için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-memory.md
+          maintainContext: true
+          items:
+            - name: Kısıtlanmış vCPU'lar
+              href: ../virtual-machines/windows/constrained-vcpu.md
+              maintainContext: true
+        - name: Depolama için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-storage.md
+          maintainContext: true
+        - name: GPU için iyileştirilmiş
+          href: ../virtual-machines/windows/sizes-gpu.md
+          maintainContext: true
+          items:
+            - name: GPU sürücülerini kurma
+              href: ../virtual-machines/windows/n-series-driver-setup.md
+              maintainContext: true
+        - name: Yüksek performanslı işlem
+          href: ../virtual-machines/windows/sizes-hpc.md
+          maintainContext: true
+        - name: Azure işlem birimleri (ACU)
+          href: ../virtual-machines/windows/acu.md
+          maintainContext: true
+        - name: Kıyaslama puanları
+          href: ../virtual-machines/windows/compute-benchmark-scores.md
+          maintainContext: true
+    - name: Doğrulanan Linux distro’ları
+      href: ../virtual-machines/linux/endorsed-distros.md
+      maintainContext: true
+    - name: Bakım ve güncelleştirmeler
+      href: ../virtual-machines/windows/maintenance-and-updates.md
+      maintainContext: true
+    - name: Disk depolama
+      href: ../virtual-machines/windows/about-disks-and-vhds.md
+      maintainContext: true
+      items:
+        - name: Yönetilen Diskler
+          href: ../virtual-machines/windows/managed-disks-overview.md
+          maintainContext: true
+        - name: Premium depolama
+          href: ../virtual-machines/windows/premium-storage.md
+          maintainContext: true
+        - name: Premium depolama performansı
+          href: ../virtual-machines/windows/premium-storage-performance.md
+          maintainContext: true
+        - name: Standart depolama
+          href: ../virtual-machines/windows/standard-storage.md
+          maintainContext: true
+        - name: Diskler için ölçeklenebilirlik hedefleri
+          href: ../virtual-machines/windows/disk-scalability-targets.md
+          maintainContext: true
+        - name: Diskler için yedekleme ve olağanüstü durum kurtarma
+          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          maintainContext: true
+    - name: Ağ
+      href: ../virtual-machines/windows/network-overview.md
+      maintainContext: true
+    - name: Altyapı otomasyonu
+      href: ../virtual-machines/windows/infrastructure-automation.md
+      maintainContext: true
+    - name: Güvenlik ve ilke
+      href: ../virtual-machines/windows/security-policy.md
+      maintainContext: true
+    - name: İzleme
+      href: ../virtual-machines/windows/monitor.md
+      maintainContext: true
+    - name: Yüksek performanslı bilgi işlem
+      href: ../virtual-machines/windows/high-performance-computing.md
+      maintainContext: true
+    - name: Dağıtma konuları
+      items:
+        - name: vCPU kotaları
+          href: ../virtual-machines/windows/quotas.md
+          maintainContext: true
 - name: Nasıl yapılır
   items:
     - name: Planlama ve tasarım

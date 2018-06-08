@@ -30,12 +30,14 @@
       href: render-coverage.md
     - name: Yönlendirme kapsamı
       href: routing-coverage.md
-    - name: Arama kategorileri
-      href: search-categories.md
+    - name: Desteklenen arama kategorileri
+      href: supported-search-categories.md
     - name: Desteklenen diller
       href: supported-languages.md
     - name: Tüketim modeli
       href: consumption-model.md
+    - name: GeoJSON’u genişletme
+      href: extend-geojson.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Haritalar hesaplarını yönetme
@@ -70,17 +72,33 @@
           href: map-show-traffic.md
         - name: Fare olayları ile etkileşim kurma
           href: map-events.md
+        - name: Erişilebilir harita uygulamaları
+          href: map-accessibility.md
 - name: Başvuru
   items:
-    - name: Hizmetler API’si - REST
-      href: 'https://docs.microsoft.com/rest/api/maps/'
-    - name: Harita Denetimi API’si - Javascript
-      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+    - name: REST
+      items:
+        - name: İşleme hizmeti
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/renderservice'
+        - name: Yönlendirme hizmeti
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/routeservice'
+        - name: Arama hizmeti
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/searchservice'
+        - name: Saat dilimi hizmeti
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice'
+        - name: Trafik hizmeti
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/trafficservice'
+        - name: Haritalar hesabı yönetimi
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: Harita denetimi
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
 - name: İlgili
   items:
     - name: Çözümler
       items:
-        - name: IoT Paketi Önceden Yapılandırılmış Çözümler
+        - name: IoT çözüm hızlandırıcıları
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

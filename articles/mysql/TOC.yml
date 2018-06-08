@@ -75,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: SSL’i Yapılandırma
           href: concepts-ssl-connection-security.md
+        - name: Sanal ağ
+          href: concepts-data-access-and-security-vnet.md
     - name: İş sürekliliği
       items:
         - name: Genel Bakış
@@ -89,6 +91,10 @@
           href: concepts-compatibility.md
         - name: Uygulama geliştirme
           href: concepts-database-application-development.md
+    - name: Çoğaltma
+      items:
+        - name: Veri içinde çoğaltma
+          href: concepts-data-in-replication.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Sunucu Yönetme
@@ -141,18 +147,30 @@
       items:
         - name: Ölçümler üzerinde uyarı oluşturma
           href: howto-alert-on-metric.md
+    - name: Çoğaltma
+      items:
+        - name: Veri içinde çoğaltmayı yapılandırma
+          href: howto-data-in-replication.md
     - name: Sorun giderme
       items:
         - name: Sorgu performansı sorunlarını giderme
           href: howto-troubleshoot-query-performance.md
         - name: Sys şemasında görünümleri kullanma
           href: howto-troubleshoot-sys-schema.md
+    - name: Sanal Ağ
+      items:
+        - name: Azure portalına
+          href: howto-manage-vnet-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-using-cli.md
 - name: Başvuru
   items:
     - name: Azure CLI
       href: /cli/azure/mysql
     - name: REST API
       href: /rest/api/mysql
+    - name: Veri içi çoğaltma saklı yordamları
+      href: reference-data-in-stored-procedures.md
 - name: Kaynaklar
   items:
     - name: Dağıtım şablonları

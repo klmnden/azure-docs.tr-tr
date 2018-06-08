@@ -1,5 +1,7 @@
 - name: Data Factory V1 Belgeleri
   href: null
+- name: Geçerli sürüm belgelerine geçiş
+  href: ../index.yml
 - name: Genel Bakış
   items:
     - name: Azure Data Factory'ye giriş
@@ -12,7 +14,7 @@
           href: data-factory-create-datasets.md
         - name: Zamanlama ve yürütme
           href: data-factory-scheduling-and-execution.md
-- name: Kullanmaya Başlama
+- name: Başlarken
   expanded: true
   items:
     - name: Verileri kopyalamak için bir işlem hattı oluşturma
@@ -47,7 +49,7 @@
       href: data-factory-move-data-between-onprem-and-cloud.md
     - name: SSS
       href: data-factory-faq.md
-- name: Nasıl yapılır?
+- name: Nasıl yapılır
   items:
     - name: Veri taşıma
       items:

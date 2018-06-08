@@ -129,6 +129,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Azure PowerShell örnekleri
           href: insights-powershell-samples.md
+        - name: Azure CLI örnekleri
+          href: insights-cli-samples.md
     - name: Azure Tanılama uzantısı kullanma
       items:
         - name: Azure Depolama’ya gönderme

@@ -47,6 +47,8 @@
               href: logic-apps-control-flow-loops.md
             - name: Kapsamlar
               href: logic-apps-control-flow-run-steps-group-scopes.md
+        - name: Değerleri kaydetmek için değişkenler oluşturma
+          href: logic-apps-create-variables-store-values.md
         - name: Azure İşlevleri ile özel kod ekleme
           href: logic-apps-azure-functions.md
         - name: Azure İşlevleri ile mantıksal uygulamaları çağırma

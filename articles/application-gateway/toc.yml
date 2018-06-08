@@ -48,24 +48,39 @@
     - name: Yeniden yönlendirme desteği
       href: redirect-overview.md
     - name: Birden çok kiracı desteği
+      href: application-gateway-web-app-overview.md
     - name: Sistem durumunu izleme
       href: application-gateway-probe-overview.md
     - name: WebSocket desteği
       href: application-gateway-websocket.md
 - name: Nasıl yapılır kılavuzları
   items:
-    - name: Uygulama ağ geçidi oluşturma
+    - name: Web trafiğini yönetme
       items:
+        - name: Azure PowerShell
+          href: tutorial-manage-web-traffic-powershell.md
         - name: Şablon
           href: create-vmss-template.md
-        - name: Web uygulamaları - PowerShell
-          href: create-web-app.md
-        - name: İç yük dengeleyiciyi yapılandırma
-          href: application-gateway-ilb.md
-    - name: SSL sonlandırmayı yapılandırma - Portal
-      href: create-ssl-portal.md
-    - name: Birden çok site barındırma - Portal
-      href: create-multiple-sites-portal.md
+    - name: İç yük dengeleyicisi yapılandırma
+      items:
+        - name: Azure PowerShell
+          href: application-gateway-ilb-arm.md
+    - name: SSL sonlandırmayı yapılandırma
+      items:
+        - name: Azure portal kullanarak SSL sonlandırma
+          href: create-ssl-portal.md
+        - name: Azure PowerShell kullanarak SSL sonlandırma
+          href: tutorial-ssl-powershell.md
+        - name: Sertifikaları yenileme
+          href: renew-certificates.md
+        - name: SSL ilkesi yapılandırma
+          href: application-gateway-configure-ssl-policy-powershell.md
+    - name: Web Uygulaması Güvenlik Duvarı’nı Yapılandırma
+      items:
+        - name: Azure portalına
+          href: application-gateway-web-application-firewall-portal.md
+        - name: Azure PowerShell
+          href: tutorial-restrict-web-traffic-powershell.md
     - name: WAF kurallarını özelleştirme
       items:
         - name: Azure portalına
@@ -74,40 +89,36 @@
           href: application-gateway-customize-waf-rules-powershell.md
         - name: Azure CLI
           href: application-gateway-customize-waf-rules-cli.md
-    - name: Dış trafiği yeniden yönlendirme
+    - name: URL’ye göre yönlendirme
       items:
+        - name: Azure portalına
+          href: create-url-route-portal.md
         - name: Azure PowerShell
-          href: redirect-external-site-powershell.md
-        - name: Azure CLI
-          href: redirect-external-site-cli.md
-    - name: HTTP’yi HTTPS’ye yönlendirme
+          href: tutorial-url-route-powershell.md
+    - name: Birden çok site barındırma
       items:
+        - name: Azure portalına
+          href: create-multiple-sites-portal.md
         - name: Azure PowerShell
-          href: redirect-http-to-https-powershell.md
-        - name: Azure CLI
-          href: redirect-http-to-https-cli.md
-    - name: İç trafiği yeniden yönlendirme
+          href: tutorial-multiple-sites-powershell.md
+    - name: Trafiği yeniden yönlendirme
       items:
-        - name: Azure PowerShell
-          href: redirect-internal-site-powershell.md
-        - name: Azure CLI
-          href: redirect-internal-site-cli.md
-    - name: Web trafiğini kısıtlama - Portal
-      href: create-waf-portal.md
-    - name: URL’ye göre yönlendirme - Portal
-      href: create-url-route-portal.md
-    - name: Azure PowerShell kullanarak web trafiğini yönetme
-      href: tutorial-manage-web-traffic-powershell.md
-    - name: Azure PowerShell kullanarak web trafiğini kısıtlama
-      href: tutorial-restrict-web-traffic-powershell.md
-    - name: Azure PowerShell kullanarak SSL sonlandırma
-      href: tutorial-ssl-powershell.md
-    - name: Sertifikaları yenileme
-      href: renew-certificates.md
-    - name: Azure PowerShell kullanarak birden çok site barındırma
-      href: tutorial-multiple-sites-powershell.md
-    - name: Azure PowerShell kullanarak web trafiğini yönlendirme
-      href: tutorial-url-route-powershell.md
+        - name: HTTP’den HTTPS’ye
+          items:
+            - name: Azure PowerShell
+              href: redirect-http-to-https-powershell.md
+            - name: Azure CLI
+              href: redirect-http-to-https-cli.md
+        - name: İç trafiği yeniden yönlendirme
+          items:
+            - name: Azure PowerShell
+              href: redirect-internal-site-powershell.md
+            - name: Azure CLI
+              href: redirect-internal-site-cli.md
+    - name: Birden çok kiracı desteği
+      items:
+        - name: Birden çok kiracı desteğini yapılandırma
+          href: create-web-app.md
     - name: Azure PowerShell kullanarak web trafiğini yeniden yönlendirme
       href: tutorial-url-redirect-powershell.md
     - name: Bölgesel olarak yedekli uygulama ağ geçidi oluşturma

@@ -25,9 +25,11 @@
         - name: 2. Contoso-Azure altyapısını ayarlama
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso-Şirket içi kaynaklarınızı Azure’a geçiş için değerlendirme
-          href: migrate-scenarios-assessment.md
-        - name: 4. Contoso-Azure VM'lerde ve Azure SQL Yönetilen Örneğinde yeniden barındırma
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso-Azure VM'lerde ve Azure SQL Yönetilen Örneğinde bir uygulamayı yeniden barındırma
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso-Bir uygulamayı Azure VM’lerde yeniden barındırma
+          href: contoso-migration-rehost-vm.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme
       href: how-to-scale-assessment.md
     - name: Grup makineleri
@@ -48,3 +50,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: SSS
+      href: resources-faq.md

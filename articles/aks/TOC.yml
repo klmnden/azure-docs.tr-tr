@@ -63,6 +63,8 @@
           href: internal-lb.md
         - name: Giriş ve TLS
           href: ingress.md
+        - name: Çıkış trafiği
+          href: egress.md
         - name: HTTP uygulaması yönlendirme
           href: http-application-routing.md
     - name: Güvenlik ve kimlik doğrulaması

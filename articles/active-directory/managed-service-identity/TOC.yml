@@ -4,20 +4,22 @@
   items:
     - name: Yönetilen Hizmet Kimliği hakkında
       href: overview.md
-    - name: Hızlı Başlangıçlar
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Azure Resource Manager’a erişmek için VM MSI kullanma
       items:
-        - name: Azure Resource Manager’a erişmek için VM MSI kullanma
-          items:
-            - name: Windows VM
-              href: tutorial-windows-vm-access-arm.md
-            - name: Linux VM
-              href: tutorial-linux-vm-access-arm.md
+        - name: Windows VM
+          href: tutorial-windows-vm-access-arm.md
+        - name: Linux VM
+          href: tutorial-linux-vm-access-arm.md
 - name: Öğreticiler
   items:
     - name: Windows VM/VMSS
       items:
         - name: Azure Data Lake Store’a erişme
           href: tutorial-windows-vm-access-datalake.md
+        - name: Azure Depolama’ya erişme
+          href: tutorial-vm-windows-access-storage.md
         - name: Erişim anahtarı kullanarak Azure Depolama’ya erişme
           href: tutorial-windows-vm-access-storage.md
         - name: SAS kullanarak Azure Depolama’ya erişme
@@ -34,6 +36,8 @@
       items:
         - name: Azure Data Lake Store’a erişme
           href: tutorial-linux-vm-access-datalake.md
+        - name: Azure Depolama’ya erişme
+          href: tutorial-linux-vm-access-storage.md
         - name: Erişim anahtarı kullanarak Azure Depolama’ya erişme
           href: tutorial-linux-vm-access-storage-access-key.md
         - name: SAS kullanarak Azure Depolama’ya erişme
@@ -116,3 +120,7 @@
       href: known-issues.md
     - name: Yönetilen Kimliği destekleyen Azure hizmetleri
       href: services-support-msi.md
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-msi'
+    - name: AAD Geliştiricileri forumu
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences'

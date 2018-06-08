@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: ganesr;cherylmc
 ms.openlocfilehash: 9cebb196bd91da704798fb001763a76e6d090472
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
+ms.lasthandoff: 06/08/2018
 ms.locfileid: "31594146"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Oluşturma ve bir expressroute bağlantı hattı (Klasik) için eşleme değiştirme

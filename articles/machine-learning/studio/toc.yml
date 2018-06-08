@@ -63,6 +63,8 @@
               href: deploy-with-resource-manager-template.md
             - name: Başka bir bölgede oluşturma
               href: multi-geo.md
+            - name: Studio hesabı verilerini görüntüleme ve silme
+              href: export-delete-personal-data-dsr.md
     - name: Veri edinme ve bu verileri anlama
       items:
         - name: Eğitim verilerini içeri aktarma
@@ -215,6 +217,8 @@
           href: gallery-collections.md
         - name: Özel Modüller
           href: gallery-custom-modules.md
+        - name: Hesap verilerini görüntüleme ve silme
+          href: ai-gallery-control-personal-data-dsr.md
 - name: Kaynaklar
   items:
     - name: Azure Yol Haritası

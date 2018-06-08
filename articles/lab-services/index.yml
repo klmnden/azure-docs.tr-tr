@@ -13,11 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/06/2018
   ms.author: spelluru
-  ms.openlocfilehash: f06102399cac6ef1b6b31155dff32999a923e173
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 1b37824b113fd9b1aaf225c5cb24b2dd27f1b47f
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34636707"
 abstract:
   description: Azure Lab Services’i kullanarak bulutta takımınız veya öğrencileriniz için bir geliştirme, test, hackathon ya da sınıf laboratuvarını hızlıca ayarlama hakkında bilgi edinin. Azure Öğreticileri, örnekler ve diğer kaynaklarda laboratuvarları oluşturma, yönetme ve güvenli hale getirme hakkında bilgi verilmektedir.
 sections:
@@ -28,16 +29,16 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-setup-lab-account">Bir laboratuvar hesabı ayarlama</a>
-    - html: <a href="/azure/lab-services/tutorial-setup-classroom-lab">Bir sınıf laboratuvarı ayarlama</a>
-    - html: <a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">Bir sınıf laboratuvarına erişim</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-lab-account">Bir laboratuvar hesabı ayarlama</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab">Bir sınıf laboratuvarı ayarlama</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab">Bir sınıf laboratuvarına erişim</a>
   - type: paragraph
-    text: Azure Lab Services kullanarak bir <b>özel laboratuvar</b> oluşturma ve kullanma hakkında bilgi edinin.
+    text: Azure DevTest Labs kullanarak bir <b>laboratuvar</b> oluşturup kullanmayı öğrenin.
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">Özel bir laboratuvarı ayarlama</a>
-    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">Özel bir laboratuvara erişim</a>
+    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">Laboratuvar ayarlama</a>
+    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">Laboratuvara erişme</a>
 - title: Örnekler
   items:
   - type: paragraph

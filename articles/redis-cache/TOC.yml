@@ -10,6 +10,8 @@
       href: cache-web-app-howto.md
     - name: .NET uygulaması oluşturma
       href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: .NET Core uygulaması oluşturma
+      href: cache-dotnet-core-quickstart.md
     - name: Node.js uygulaması oluşturma
       href: cache-nodejs-get-started.md
     - name: Java uygulaması oluşturma
@@ -48,6 +50,8 @@
           href: cache-how-to-premium-vnet.md
         - name: Kümelemeyle önbelleğinizi dağıtın
           href: cache-how-to-premium-clustering.md
+        - name: Yönetilen Önbellek Hizmeti’nden Geçiş
+          href: cache-migrate-to-redis.md
     - name: Otomatikleştirme
       items:
         - name: Azure Powershell kullanarak dağıtma ve yönetme
