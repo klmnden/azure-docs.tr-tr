@@ -12,10 +12,11 @@ ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
 ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34356350"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
@@ -36,71 +37,71 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Azure portalında oturum açın [http://portal.azure.com](http://portal.azure.com)
+[http://portal.azure.com](http://portal.azure.com) adresinden Azure portalında oturum açın
 
 ## <a name="create-an-application-gateway"></a>Uygulama ağ geçidi oluşturma
 
-Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklidir. Bu örnekte, iki alt ağ oluşturulur: bir uygulama ağ geçidi ve arka uç sunucular için diğer için. Uygulama ağ geçidi oluşturma aynı anda bir sanal ağ oluşturabilirsiniz.
+Bir sanal ağ, oluşturduğunuz kaynakları arasındaki iletişim için gereklidir. Bu örnekte iki alt ağ oluşturulmuştur: biri uygulama ağ geçidi ve diğeri de arka uç sunucuları içindir. Uygulama ağ geçidini oluştururken aynı zamanda bir sanal makine oluşturabilirsiniz.
 
 1. Tıklatın **yeni** Azure portalında sol üst köşesinde bulundu.
-2. Seçin **ağ** ve ardından **uygulama ağ geçidi** öne çıkan listesinde.
-3. Uygulama ağ geçidi için bu değerleri girin:
+2. **Ağ** ve ardından Öne Çıkanlar listesinde **Application Gateway**’i seçin.
+3. Uygulama ağ geçidi için şu değerleri girin:
 
-    - *myAppGateway* - uygulama ağ geçidi adı.
-    - *myResourceGroupAG* - yeni kaynak grubu için.
+    - *myAppGateway* - Uygulama ağ geçidinin adı.
+    - *myResourceGroupAG* - Yeni kaynak grubu.
 
     ![Yeni uygulama ağ geçidi oluşturma](./media/create-url-route-portal/application-gateway-create.png)
 
-4. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+4. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 5. Tıklatın **sanal ağ seçin**, tıklatın **Yeni Oluştur**ve ardından sanal ağ için bu değerleri girin:
 
-    - *myVNet* - sanal ağın adı.
-    - *10.0.0.0/16* - sanal ağ adres alanı.
-    - *myAGSubnet* - alt ağ adı.
-    - *10.0.0.0/24* - alt ağ adres alanı.
+    - *myVNet* - Sanal ağın adı.
+    - *10.0.0.0/16* - Sanal ağın adres alanı.
+    - *myAGSubnet* - Alt ağın adı.
+    - *10.0.0.0/24* - Alt ağın adres alanı.
 
     ![Sanal ağ oluşturma](./media/create-url-route-portal/application-gateway-vnet.png)
 
-6. Tıklatın **Tamam** sanal ağ ve alt ağ oluşturmak için.
-7. Tıklatın **genel bir IP adresi seçin**, tıklatın **Yeni Oluştur**ve ortak IP adresini girin. Bu örnekte adlı ortak IP adresi *myAGPublicIPAddress*. Diğer ayarlar için varsayılan değerleri kabul edin ve ardından **Tamam**.
+6. Sanal ağı ve alt ağı oluşturmak için **Tamam**’a tıklayın.
+7. Tıklatın **genel bir IP adresi seçin**, tıklatın **Yeni Oluştur**ve ortak IP adresini girin. Bu örnekte genel IP adresinin adı *myAGPublicIPAddress* şeklindedir. Diğer ayarların varsayılan değerlerini kabul edin ve sonra **Tamam**’a tıklayın.
 8. Dinleyici yapılandırması için varsayılan değerleri kabul edin, Web uygulaması güvenlik duvarı devre dışı bırakın ve ardından **Tamam**.
 9. Özet sayfasında ayarları gözden geçirin ve ardından **Tamam** ağ kaynaklarını ve uygulama ağ geçidi oluşturmak için. Oluşturulması, dağıtımı, sonraki bölüme geçmeden önce başarıyla tamamlanana kadar bekleyin uygulama ağ geçidi için birkaç dakika sürebilir.
 
-### <a name="add-a-subnet"></a>Bir alt ağ Ekle
+### <a name="add-a-subnet"></a>Alt ağ ekleme
 
-1. Tıklatın **tüm kaynakları** sol taraftaki menüyü ve ardından **myVNet** kaynakları listesinden.
+1. Sol taraftaki menüde **Tüm kaynaklar**’a ve sonra kaynaklar listesinden **myVNet** öğesine tıklayın.
 2. Tıklatın **alt ağlar**ve ardından **alt**.
 
     ![Alt ağ oluşturma](./media/create-url-route-portal/application-gateway-subnet.png)
 
-3. Girin *myBackendSubnet* 'ye tıklayın ve alt ağ adı için **Tamam**.
+3. Alt ağ adı için *myBackendSubnet* girin ve sonra **Tamam**’a tıklayın.
 
 ## <a name="create-virtual-machines"></a>Sanal makineler oluşturma
 
-Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak üç sanal makine oluşturun. Ayrıca uygulama ağ geçidi başarıyla oluşturulduğunu doğrulamak için sanal makinelerde IIS yükleyin.
+Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak üç sanal makine oluşturun. Uygulama ağ geçidinin başarıyla oluşturulduğunu doğrulamak için sanal makinelere IIS de yükleyin.
 
 1. **Yeni**’ye tıklayın.
 2. Tıklatın **işlem** ve ardından **Windows Server 2016 Datacenter** öne çıkan listesinde.
-3. Sanal makine için bu değerleri girin:
+3. Sanal makine için şu değerleri girin:
 
     - Sanal makinenin adı için *myVM1*.
     - Yönetici kullanıcı adı için *azureuser*.
-    - *Azure123456!* parolası.
-    - Seçin **var olanı kullan**ve ardından *myResourceGroupAG*.
+    - *Azure123456!* Parola.
+    - **Mevcut olanı kullan**’ı seçin ve *myResourceGroupAG* seçeneğini belirleyin.
 
 4. **Tamam**’a tıklayın.
 5. Sanal makinenin boyutu için **DS1_V2** seçeneğini belirleyin ve **Seç**’e tıklayın.
-6. Olduğundan emin olun **myVNet** sanal ağ ve alt ağ için seçili olan **myBackendSubnet**. 
+6. Sanal ağ için **myVNet** öğesinin seçili olduğundan ve alt ağın **myBackendSubnet** olduğundan emin olun. 
 7. Önyükleme tanılamalarını devre dışı bırakmak için **Devre Dışı** seçeneğine tıklayın.
 8. **Tamam**’a tıklayın, özet sayfasındaki ayarları gözden geçirin ve sonra **Oluştur**’a tıklayın.
 
 ### <a name="install-iis"></a>IIS yükleme
 
-1. Etkileşimli Kabuğu'nu açın ve onu ayarlandığından emin olun **PowerShell**.
+1. Etkileşimli kabuğu açın ve **PowerShell**’e ayarlandığından emin olun.
 
-    ![Özel uzantısını yükleyin](./media/create-url-route-portal/application-gateway-extension.png)
+    ![Özel uzantıyı yükleme](./media/create-url-route-portal/application-gateway-extension.png)
 
-2. IIS sanal makineye yüklemek için aşağıdaki komutu çalıştırın: 
+2. Sanal makineye IIS yüklemek için aşağıdaki komutu çalıştırın: 
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/davidmu1/samplescripts/master/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
@@ -120,7 +121,7 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Sanal makineler ile arka uç havuzları oluşturma
 
 1. Tıklatın **tüm kaynakları** ve ardından **myAppGateway**.
-2. Tıklatın **arka uç havuzları**. Varsayılan bir havuzu uygulama ağ geçidi ile otomatik olarak oluşturuldu. Tıklatın **appGateayBackendPool**.
+2. **Arka uç havuzları** öğesine tıklayın. Uygulama ağ geçidi ile varsayılan bir havuz otomatik olarak oluşturulur. Tıklatın **appGateayBackendPool**.
 3. Tıklatın **Ekle hedef** eklemek için *myVM1* appGatewayBackendPool için.
 
     ![Arka uç sunucuları ekleme](./media/create-url-route-portal/application-gateway-backend.png)
@@ -148,23 +149,23 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 
 5. **Tamam**’a tıklayın.
 
-## <a name="test-the-application-gateway"></a>Uygulama ağ geçidi sınama
+## <a name="test-the-application-gateway"></a>Uygulama ağ geçidini test etme
 
 1. Tıklatın **tüm kaynakları**ve ardından **myAGPublicIPAddress**.
 
-    ![Uygulama ağ geçidi genel IP adresi kaydı](./media/create-url-route-portal/application-gateway-record-ag-address.png)
+    ![Uygulama ağ geçidi genel IP adresini kaydetme](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Gibi http://http://40.121.222.19.
+2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin http://http://40.121.222.19.
 
-    ![Temel uygulama ağ geçidi URL'de test](./media/create-url-route-portal/application-gateway-iistest.png)
+    ![Temel URL’yi uygulama ağ geçidinde test etme](./media/create-url-route-portal/application-gateway-iistest.png)
 
 3. URL'nin http:// değiştirme&lt;IP adresi&gt;: 8080/video/test.htm, değiştirerek &lt;IP adresi&gt; ile IP adresi ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
-    ![Uygulama ağ geçidi görüntüleri URL Sına](./media/create-url-route-portal/application-gateway-iistest-images.png)
+    ![Görüntü URL’sini uygulama ağ geçidinde test etme](./media/create-url-route-portal/application-gateway-iistest-images.png)
 
 4. URL'nin http:// değiştirme&lt;IP adresi&gt;: 8080/video/test.htm, değiştirerek &lt;IP adresi&gt; ile IP adresi ve aşağıdaki örneğe benzer bir şey görmeniz gerekir:
 
-    ![Uygulama ağ geçidi olarak test video URL'si](./media/create-url-route-portal/application-gateway-iistest-video.png)
+    ![Video URL’sini uygulama ağ geçidinde test etme](./media/create-url-route-portal/application-gateway-iistest-video.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

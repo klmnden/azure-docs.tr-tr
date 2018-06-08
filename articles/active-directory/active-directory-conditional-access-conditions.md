@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735150"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları 
 
@@ -148,7 +150,7 @@ Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim konumu koş
 - Web siteleri ve Hizmetleri
 - Mobil uygulamalar ve Masaüstü uygulamaları. 
 
-![Koşullar](./media/active-directory-conditional-access-conditions/04.png)
+
 
 Bir uygulama olarak sınıflandırılır:
 
@@ -156,7 +158,7 @@ Bir uygulama olarak sınıflandırılır:
 
 - Bir mobil uygulaması ya da yerel bir istemci için mobil uygulama Openıd Connect kullanıyorsa, masaüstü uygulaması.
 
-Koşullu erişim ilkenizi kullanabileceğiniz istemci uygulamaları tam bir listesi için bkz: [Azure Active Directory koşullu erişim teknik başvuru](active-directory-conditional-access-technical-reference.md#client-apps-condition).
+Koşullu erişim ilkenizi kullanabileceğiniz istemci uygulamaları tam bir listesi için bkz: [istemci uygulamaları koşulu](active-directory-conditional-access-technical-reference.md#client-apps-condition) Azure Active Directory koşullu erişim Teknik Başvurusu.
 
 Bu koşul için ortak kullanım durumları olan ilkeler:
 
@@ -166,6 +168,20 @@ Bu koşul için ortak kullanım durumları olan ilkeler:
 
 Web SSO ve modern kimlik doğrulama protokollerini kullanarak ek olarak, yerel posta uygulamaları çoğu akıllı telefonlar gibi kullanan Exchange ActiveSync posta uygulamaları için bu koşul uygulayabilirsiniz. Şu anda, eski protokolleri kullanarak istemci uygulamaları AD FS kullanarak korunması gerekir.
 
+Bu durum, yalnızca seçebilirsiniz **Office 365 Exchange Online** seçtiğiniz yalnızca bulut uygulaması.
+
+![Bulut uygulamaları](./media/active-directory-conditional-access-conditions/32.png)
+
+Seçme **Exchange ActiveSync** başka koşullar yapılandırılan bir ilke yoksa, istemci uygulamaları olarak koşulu yalnızca desteklenir. Ancak, yalnızca desteklenen platformlar uygulamak için bu koşul kapsamını daraltabilirsiniz.
+
+ 
+![Desteklenen platformlar](./media/active-directory-conditional-access-conditions/33.png)
+
+Bu koşul yalnızca desteklenen platformlar için uygulama olduğundan tüm cihaz platformları için eşdeğer bir [cihaz platformu koşul](active-directory-conditional-access-conditions.md#device-platforms).
+
+![Desteklenen platformlar](./media/active-directory-conditional-access-conditions/34.png)
+
+
  Daha fazla bilgi için bkz.
 
 - [SharePoint Online ve Exchange Online için koşullu erişim Azure Active Directory ayarlama](active-directory-conditional-access-no-modern-authentication.md)
@@ -173,9 +189,53 @@ Web SSO ve modern kimlik doğrulama protokollerini kullanarak ek olarak, yerel p
 - [Azure Active Directory Uygulama temelli koşullu erişim](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>Eski kimlik doğrulaması  
+
+Koşullu erişim artık modern kimlik doğrulamayı desteklemeyen eski Office istemcileri ve bunun yanı sıra, POP, IMAP, SMTP, vb. gibi posta protokolleri kullanan istemciler için geçerlidir. Bu gibi ilkeleri yapılandırmanıza izin verir **diğer istemcilerden erişimi engelleme**.
+
+
+![Eski kimlik doğrulaması](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>Bilinen sorunlar
+
+- İlke yapılandırma **diğer istemciler** SPConnect gibi belirli istemcilerden gelen tüm kuruluş engeller. Beklenmedik bir şekilde kimlik doğrulaması bu eski istemciler nedeni budur. Bu sorunun temel eski Office istemcileri gibi Office uygulamaları geçerli değildir. 
+
+- İlkenin etkili olması için 24 saate kadar sürebilir. 
+
+
+#### <a name="frequently-asked-questions"></a>Sık sorulan sorular
+
+**Bu, Exchange Web Hizmetleri (EWS) engelleyecek mi?**
+
+EWS kullanarak kimlik doğrulama protokolü bağlıdır. EWS uygulama modern kimlik doğrulamasını kullanıyorsanız, "mobil uygulamalar ve Masaüstü istemcileri" istemci uygulaması tarafından ele alınacaktır. EWS uygulama temel kimlik doğrulamasını kullanıyorsanız, "Diğer istemciler" istemci uygulaması tarafından ele alınacaktır.
+
+
+**Hangi denetimlerin diğer istemciler için kullanabilir miyim**
+
+Herhangi bir denetimi "Diğer istemciler için" yapılandırılabilir. Ancak, son kullanıcı deneyimi için tüm durumlarda erişimi olacaktır. "Diğer istemciler" uyumlu aygıt, etki alanına katılma, vb. denetimleri MFA gibi desteklemez. 
+ 
+**Hangi şartlar diğer istemciler için kullanabilir miyim?**
+
+Tüm koşullar "Diğer istemciler için" yapılandırılabilir.
+
+**Exchange ActiveSync tüm koşullar ve denetimleri destekliyor mu?**
+
+Hayır. Exchange ActiveSync (EAS) destek özeti aşağıda verilmiştir:
+
+- EAS yalnızca kullanıcı ve Grup hedeflemenin destekler. Konuk, rolleri desteklemiyor. Konuk/rol koşul yapılandırdıysanız, biz İlkesi kullanıcıya veya uygulanacaksa belirleyemediğinden tüm kullanıcılar engellenen.
+
+- EAS Exchange ile yalnızca bulut uygulama olarak çalışır. 
+
+- EAS istemci uygulamanın kendi dışında herhangi bir koşul desteklemez.
+
+- EAS (cihaz uyumluluğu dışında tüm bloğuna götürür) herhangi bir denetim ile yapılandırılabilir.
+
+**İlkeler tüm istemci uygulamaları için ileriye dönük varsayılan olarak uygulamak?**
+
+Hayır. Varsayılan ilke davranışında değişiklik yoktur. İlkeler, tarayıcı ve mobil uygulamalar/Masaüstü istemcileri için varsayılan olarak uygulanmaya devam eder.
 
 
 

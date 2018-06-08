@@ -18,4 +18,4 @@
    Veritabanı devam etmeden önce başarılı bir şekilde dağıtılması için birkaç dakika bekleyin.
 
 <!-- URLs. -->
-[Azure portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/

@@ -15,10 +15,11 @@ ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ms.openlocfilehash: aa5c46a4d0ca55339e8f26a3e577d03bf4b504b2
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32309989"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) HTTP API'leri
 
@@ -129,12 +130,12 @@ Birkaç olası durum kodu değerleri döndürülebilir.
 
 | Alan           | Veri türü | Açıklama |
 |-----------------|-----------|-------------|
-| runtimeStatus   | string    | Çalışma zamanı durumu örneği. Değerler *çalıştıran*, *bekleyen*, *başarısız*, *iptal edildi*, *kesildi*, *Tamamlandı*. |
-| Giriş           | JSON      | Örneği başlatmak için kullanılan JSON verileri. |
+| runtimeStatus   | dize    | Çalışma zamanı durumu örneği. Değerler *çalıştıran*, *bekleyen*, *başarısız*, *iptal edildi*, *kesildi*, *Tamamlandı*. |
+| input           | JSON      | Örneği başlatmak için kullanılan JSON verileri. |
 | customStatus    | JSON      | Özel orchestration durumunun kullanılan JSON verileri. Bu alan `null` değilse ayarlayın. |
 | çıkış          | JSON      | JSON çıktı örneği. Bu alan `null` örneği tamamlanmış durumda değilse. |
-| createdTime     | string    | Örneğin oluşturulduğu saat. ISO 8601 gösterimi genişletilmiş kullanır. |
-| lastUpdatedTime | string    | En son örnek kalıcı süre. ISO 8601 gösterimi genişletilmiş kullanır. |
+| createdTime     | dize    | Örneğin oluşturulduğu saat. ISO 8601 gösterimi genişletilmiş kullanır. |
+| lastUpdatedTime | dize    | En son örnek kalıcı süre. ISO 8601 gösterimi genişletilmiş kullanır. |
 | historyEvents   | JSON      | Orchestration yürütme geçmişini içeren bir JSON dizisi. Bu alan `null` sürece `showHistory` sorgu dizesi parametresi olarak ayarlanmış `true`.  | 
 
 Orchestration yürütme geçmişi ve etkinlik çıkışları (okunabilirlik için biçimlendirilmiş) dahil olmak üzere bir örnek yanıt yükü şöyledir:
@@ -216,7 +217,7 @@ Bu API için parametreleri aşağıdaki benzersiz parametreleri yanı sıra daha
 
 | Alan       | Parametre türü  | Veri tType | Açıklama |
 |-------------|-----------------|-----------|-------------|
-| EventName   | URL'si             | string    | Hedef orchestration örneği bekleniyor olayın adı. |
+| EventName   | URL'si             | dize    | Hedef orchestration örneği bekleniyor olayın adı. |
 | {İçerik}   | İstek içeriği | JSON      | JSON biçimli olay yükü. |
 
 #### <a name="response"></a>Yanıt
@@ -262,7 +263,7 @@ Bu API için parametreleri aşağıdaki benzersiz parametresini yanı sıra daha
 
 | Alan       | Parametre türü  | Veri Türü | Açıklama |
 |-------------|-----------------|-----------|-------------|
-| reason      | Sorgu dizesi    | string    | İsteğe bağlı. Orchestration örneği sonlandırılıyor nedeni. |
+| reason      | Sorgu dizesi    | dize    | İsteğe bağlı. Orchestration örneği sonlandırılıyor nedeni. |
 
 #### <a name="response"></a>Yanıt
 

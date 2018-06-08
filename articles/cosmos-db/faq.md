@@ -5,20 +5,17 @@ keywords: Sık sorulan sorular, documentdb, azure, Microsoft azure veritabanı s
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "34735173"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -61,6 +58,9 @@ Bir kapsayıcı Azure Cosmos DB'de depolayabilir veri toplam miktarı için bir 
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Azure Cosmos DB işleme sınırları nelerdir?
 Azure Cosmos DB içinde bir kapsayıcı destekleyen verimlilik toplam miktarı için bir sınır yoktur. İş yükünüzün kabaca eşit yeterince büyük sayıda bölüm anahtarı arasında dağıtmak için anahtar fikirdir bakın.
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>Doğrudan ve ağ geçidi bağlantısı modları şifrelenir? 
+Evet her iki mod tam olarak her zaman şifrelenir. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Nasıl Azure Cosmos DB maliyeti nedir?
 Ayrıntılar için başvurmak [Azure Cosmos fiyatlandırma ayrıntıları DB](https://azure.microsoft.com/pricing/details/cosmos-db/) sayfası. Azure Cosmos DB kullanım ücretleri, sağlanan kapsayıcıları, kapsayıcıları çevrimiçi olduğu saat sayısı sayısı tarafından belirlenir ve her kapsayıcı için sağlanan işleme. Terim *kapsayıcıları* burada SQL API koleksiyonu, grafik API'si grafik, MongoDB API koleksiyonu ve tablo API tabloları başvuruyor. 
@@ -164,6 +164,10 @@ Toplu belgeleri Azure Cosmos Veritabanına iki yoldan biriyle ekleme:
 * Bölümünde açıklandığı gibi veri geçiş aracı [Azure Cosmos DB veritabanı geçiş aracını](import-data.md).
 * Saklı yordamlar, açıklandığı gibi [Azure Cosmos DB için sunucu tarafı JavaScript programlama](programming.md).
 
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>Kurulum yavaş dizin kullanılacak my koleksiyon sahibim, Sorgularım beklenen sonuçları döndürmeyen görüyorum. 
+Yavaş dizin, dizin oluşturma bölümünde açıklandığı gibi bu davranışlara neden olabilir. Her zaman tutarlı tüm uygulamalar için dizin oluşturma kullanmanız gerekir. 
+
+
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API desteği kaynak bağlantıyı önbelleğe almayı mu?
 Evet, Azure Cosmos DB bir RESTful hizmeti olduğu için kaynak bağlantıları sabittir ve önbelleğe alınabilir. SQL API istemciler herhangi bir kaynak benzeri belge veya koleksiyon yapılan okumalar için bir "If-None-Match" üst bilgisi belirtin ve sunucu sürümü değiştikten sonra kendi yerel kopyalarını güncelleştirin.
 
@@ -171,7 +175,12 @@ Evet, Azure Cosmos DB bir RESTful hizmeti olduğu için kaynak bağlantıları s
 Evet. [Azure Cosmos DB öykünücüsü](local-emulator.md) Cosmos DB hizmetinin yüksek doğruluk öykünmesi sağlar. Azure Cosmos JSON belgelerini sorgulamak için destek dahil olmak üzere sağlama DB'ye, aynı işlevselliği destekler ve koleksiyonları ölçekleme ve yürütme yordamları ve Tetikleyicileri depolanır. Geliştirmek ve Azure Cosmos DB öykünücüsü kullanarak uygulamaları test ve bunları Azure'da tek bir yapılandırma için Azure Cosmos DB bağlantı uç noktasına değişikliği yaparak genel bir ölçekte dağıtabilirsiniz.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Neden uzun kayan nokta Veri Gezgini portalında görüntülendiğinde yuvarlak bir belgedeki değerlerdir. 
-Bu, JavaScript kısıtlamasıdır. JavaScript IEEE 754 belirtildiği gibi sayıları çift duyarlıklı kayan noktalı biçimlendirme kullanır ve güvenli bir şekilde sayılar arasında - gösterebilir (253 - 1) ve 253 – 1 (yani, 9007199254740991) yalnızca.
+Bu, JavaScript kısıtlamasıdır. JavaScript IEEE 754 belirtildiği gibi sayıları çift duyarlıklı kayan noktalı biçimlendirme kullanır ve güvenli bir şekilde sayılar arasında - gösterebilir (253 - 1) ve 253-1 (yani, 9007199254740991) yalnızca.
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Burada nesne hiyerarşide iznine sahiptir?
+
+ResourceTokens kullanarak izinler oluşturma koleksiyon düzeyinde ve alt öğeleri (örneğin, belgeler, ekleri) izin verilir. Bu izin veritabanını oluşturmak çalışan anlamına gelir veya bir hesap düzeyi şu anda verilmez.
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>Karşı API MongoDB için geliştirme
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API MongoDB için nedir?
@@ -213,7 +222,7 @@ Azure Cosmos DB tablo API ile tabloları oluşturmak istediğiniz Azure Table de
 * CORS şu anda desteklenmiyor
 * Azure Table depolama tablo adları büyük küçük harfe duyarlı değildir, ancak Azure Cosmos DB tablo API oldukları
 * İkili alanları gibi kodlama bilgilerini Azure Cosmos DB'ın iç biçimlerinden bazıları şu anda bir beğenebileceğiniz olarak etkin değildir. Bu nedenle bu beklenmeyen sınırlamaları veri boyutuna neden olabilir. Örneğin, şu anda bir tablo varlığının tam 1 MB verinin boyutunu artırır kodlama için ikili verileri depolamak için kullanın uygulanamadı.
-* Varlık özellik adı "Id" şu anda desteklenmiyor
+* Varlık özellik adı 'ID' şu anda desteklenmiyor
 * TableQuery TakeCount 1000 sınırlı değildir
 
 REST API bakımından Azure Cosmos DB tablo API'si tarafından desteklenmeyen uç noktalar/sorgu seçeneklerini sayısı vardır:
@@ -414,7 +423,7 @@ Azure Cosmos DB, performansı ve gecikme süresi, üst sınır işlemi ile garan
 
 Azure Cosmos DB garanti kullanılabilirlik, gecikme ve verimlilik için Genel dağıtılmış, SLA tabanlı sistemiyle olacak şekilde tasarlanmıştır. Azure Cosmos veritabanı işleme ayırdığınızda, bu, diğer sistemler üretimini farklı olarak sağlanır. Azure Cosmos DB müşteriler, ikincil dizinler ve genel dağıtım gibi istediniz ek özellikler sağlar.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Hiçbir zaman (bir bölüm dolu belirten) bir "Kota tam" bildirim alıyorum zaman ı alma verileri Azure Table depolama alanına. Bu ileti tablo API ile alıyorum. Bana sınırlandırma ve bana varolan Uygulamam değiştirmek için zorlama tanıyor mu?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>(Bir bölüm dolu belirten) hiçbir zaman tam bir kota alıyorum"bildirim zaman ı alma verileri Azure Table depolama alanına. Bu ileti tablo API ile alıyorum. Bana sınırlandırma ve bana varolan Uygulamam değiştirmek için zorlama tanıyor mu?
 
 Azure Cosmos DB sınırsız ölçek gecikme süresi, performans, kullanılabilirlik ve tutarlılığı garanti sağlayan bir SLA tabanlı bir sistemdir. Garantili premium performans sağlamak için veri boyutu ve dizin yönetilebilir ve ölçeklenebilir olduğundan emin olun. Varlıklar veya bölüm anahtarı başına öğe sayısı 10 GB sınırını harika arama ve sorgu performansı sağladığımız sağlamaktır. Uygulamanızı Azure Storage için bile de ölçeklendirir emin olmak için öneririz, *değil* bölümde tüm bilgileri depolamak ve onu sorgulama hot bir bölüm oluşturun. 
 
@@ -475,7 +484,7 @@ Tanılama günlüklerini içinde açıklanan [Azure Cosmos DB tanılama günlük
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>Bölüm anahtarı kavramı Azure Cosmos DB, birincil anahtar eşlemeye mu?
 Evet, bölüm anahtarı varlık doğru konuma yerleştirmek için kullanılır. Azure Cosmos DB'de fiziksel bir bölüme depolanan sağ mantıksal bölüm bulmak için kullanılır. Bölümleme kavramı iyi içinde açıklanan [bölüm ve Azure Cosmos veritabanı ölçek](partition-data.md) makalesi. Temel Al hemen İşte bir mantıksal bölüm 10 GB sınırını bugün aşmaması gerektiğini. 
 
-### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>Bir bölüm gösteren bir "Kota tam" bildirimi alıyorum ne olur tam mi?
+### <a name="what-happens-when-i-get-a-quota-full-notification-indicating-that-a-partition-is-full"></a>Bir bölüm tam olduğunu belirten bir kota tam Al ne olur"bildirim?
 Azure Cosmos DB sınırsız ölçek gecikme süresi, performans, kullanılabilirlik ve tutarlılığı garanti sağlayan bir SLA tabanlı bir sistemdir. Buna ait Cassandra API çok sınırsız depolama alanı sağlar. Bu sınırsız depolama anahtar kavram bölümleme kullanarak verilerin yatay genişletme temel alır. Bölümleme kavramı iyi içinde açıklanan [bölüm ve Azure Cosmos veritabanı ölçek](partition-data.md) makalesi.
 
 Varlıklar veya mantıksal bölüm başına öğe sayısı 10 GB sınırını için uyması. Uygulamanızı iyi ölçeklenir emin olmak için öneririz, *değil* bölümde tüm bilgileri depolamak ve onu sorgulama hot bir bölüm oluşturun. Verileri eğri -, olan, gelen yalnızca miktarda veri için bir bölüm anahtarı - yani, bu hata için birden fazla 10 GB. Veri depolama Portalı'nı kullanarak dağıtım bulabilirsiniz. Bu hatayı düzeltmek için yol için recrete tablosu ve veri daha iyi dağıtılması sağlayan ayrıntılı birincil (bölüm anahtarı) seçin.

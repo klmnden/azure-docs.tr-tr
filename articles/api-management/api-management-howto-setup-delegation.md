@@ -15,10 +15,11 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 02c3a3d996fa253cf56e551a37e098639bf73533
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "32151952"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Kullanıcı kaydı ve ürün aboneliği nasıl
 Temsilci seçme, geliştirici oturum-açma/kaydolma ve abonelik Geliştirici Portalı'nda yerleşik işlevini kullanarak aksine ürünlere işlemek için varolan Web sitenizi kullanmanıza olanak sağlar. Bu kullanıcı verileri kendi ve özel bir biçimde adımları doğrulama gerçekleştirmek Web sitenizi sağlar.
@@ -64,10 +65,10 @@ Oluşturmanıza gerek artık **temsilci endpoint**. Çeşitli eylemleri gerçekl
    * Yukarıdaki hesaplanan karma değerini karşılaştırmak **SIG** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçin, aksi takdirde isteği reddeder.
 3. Sign-ın/oturum-yukarı için bir istek aldığını onaylayın: **işlemi** sorgu parametresi ayarlanacak "**Signın**".
 4. Kullanıcının kullanıcı Arabirimi olmadan oturum içinde veya kaydolma sunması
-5. Kullanıcı kaydolduğunuz ise karşılık gelen bir hesap için API Management'te oluşturmanız gerekir. [Bir kullanıcı oluşturmak] API Management REST API ile. Bunu yaparken, kullanıcı kimliği, kullanıcı deposunda olan aynı veya, izlemek bir kimlik olarak ayarlayın emin olun.
+5. Kullanıcı kaydolduğunuz ise karşılık gelen bir hesap için API Management'te oluşturmanız gerekir. [Bir kullanıcı oluşturun] API Management REST API ile. Bunu yaparken, kullanıcı kimliği, kullanıcı deposunda olan aynı veya, izlemek bir kimlik olarak ayarlayın emin olun.
 6. Ne zaman kullanıcı başarıyla kimlik doğrulaması:
    
-   * [bir çoklu oturum açma (SSO) belirteci isteği] API Management REST API aracılığıyla
+   * [bir çoklu oturum açma (SSO) belirteci iste] API Management REST API aracılığıyla
    * API çağrısından alınan SSO URL'ye returnUrl sorgu parametresi ekleyin:
      
      > Örneğin, https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
@@ -124,7 +125,7 @@ Ardından temsilci uç noktası aşağıdaki eylemleri gerçekleştirir emin olu
      > 
    * Yukarıdaki hesaplanan karma değerini karşılaştırmak **SIG** sorgu parametresi. İki karmalar eşleşiyorsa, sonraki adıma geçin, aksi takdirde isteği reddeder.
 3. İçinde istenen işlem türüne göre herhangi bir ürün Abonelik işlem gerçekleştirme **işlemi** - Örneğin, fatura, başka sorularınız varsa, vs.
-4. Başarıyla abone olma, tarafındaki ürün kullanıcıya üzerinde kullanıcı tarafından API Management ürüne abone [ürün abonelik için REST API çağırmayı].
+4. Başarıyla abone olma, tarafındaki ürün kullanıcıya üzerinde kullanıcı tarafından API Management ürüne abone [Ürün abonelik için REST API çağırma].
 
 ## <a name="delegate-example-code"> </a> Örnek kod
 Bu kod örnekleri nasıl alınacağını Göster *temsilci doğrulama anahtarı*, ayarlanmış yayımcı portalına temsilci ekranda geçirilen geçerliliğini kanıtlayan sonra imzayı doğrulamak için kullanılan bir HMAC, oluşturmak için returnUrl. Küçük değişiklik kullanıcı kimliği ve ProductID için aynı kodu çalışır.
@@ -172,9 +173,9 @@ Temsilci seçme hakkında daha fazla bilgi için aşağıdaki videoya bakın:
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[bir çoklu oturum açma (SSO) belirteci isteği]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
+[bir çoklu oturum açma (SSO) belirteci iste]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Bir kullanıcı oluşturun]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[ürün abonelik için REST API çağırmayı]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
+[Ürün abonelik için REST API çağırma]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO
 [Next steps]: #next-steps
 [aşağıda sağlanan örnek kod]: #delegate-example-code
 
