@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: f97fbb76ddf48fb3c7ec79b6b2ed8cee3e0ceabb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838359"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Azure Machine Learning Python istemci kitaplığını kullanarak Python ile veri kümelerine erişim
 Microsoft Azure Machine Learning Python istemci kitaplığı önizlemesini güvenli erişim Azure Machine Learning veri kümeleriniz için bir yerel Python ortamından etkinleştirebilir ve oluşturulması ve bir çalışma alanı kümelerinde yönetimi sağlar.
@@ -40,7 +42,7 @@ Python istemci kitaplığı altında aşağıdaki ortamları test edilmiştir:
 
 Bunu, aşağıdaki paketleri bir bağımlılığa sahiptir:
 
-* istek
+* istekler
 * Python dateutil
 * pandas
 
@@ -132,7 +134,7 @@ Aşağıdaki adımlar, bir deneme oluşturur, çalıştırır ve Ara dataset eri
 6. Çıktı düğümü tıklatın [CSV'ye Dönüştür] [ convert-to-csv] modülü.
 7. Bağlam menüsü görüntülendiğinde seçin **veri erişim kodu oluştur**.
    
-    ![Bağlam menüsü][experiment]
+    ![Bağlam Menüsü][experiment]
 8. Kod parçacığı seçin ve görüntülenen penceresinden panonuza kopyalayın.
    
     ![Erişim kodu][intermediate-dataset-access-code]

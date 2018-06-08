@@ -1,39 +1,30 @@
 ---
-title: "PowerShell Azure yığın - dağıtma | Microsoft Docs"
-description: "Bu öğreticide, komut satırından ASDK yükleyin."
+title: PowerShell Azure yığın - dağıtma | Microsoft Docs
+description: Bu makalede, PowerShell kullanarak komut satırından ASDK yükleyin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 48ccccaba6b7f5780f1d42dfbe5d9747c5e30292
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849966"
 ---
-# <a name="tutorial-deploy-the-asdk-from-the-command-line"></a>Öğretici: komut satırından ASDK dağıtma
-Bu öğreticide, Azure yığın Geliştirme Seti (ASDK) üretim dışı bir ortamda komut satırından dağıtın. 
-
+# <a name="deploy-the-asdk-from-the-command-line"></a>Komut satırından ASDK dağıtma
 ASDK değerlendirmek ve Azure yığın özelliklerin ve hizmetler için dağıtabileceğiniz bir test ve geliştirme ortamıdır. Bunu almak için hazır ve çalışır, ortam donanımını hazırlayın ve (Bu işlem birkaç saat sürebilir) bazı kodlar çalıştırmak ihtiyacınız. Bundan sonra yönetici ve kullanıcı portalı için Azure yığın kullanmaya başlamak için oturum açabilir.
-
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
-
-> [!div class="checklist"]
-> * Karşıdan yükleme ve dağıtım paketi ayıklayın
-> * Geliştirme Seti ana bilgisayarı hazırla 
-> * Dağıtım sonrası yapılandırmalar gerçekleştir
-> * Azure ile kaydedin
 
 ## <a name="prerequisites"></a>Önkoşullar 
 Geliştirme Seti ana bilgisayar hazırlayın. Donanım, yazılım ve ağ planlayın. Geliştirme Seti (Geliştirme Seti ana bilgisayarı) barındıran bilgisayarın donanım, yazılım ve ağ gereksinimleri karşılaması gerekir. Ayrıca, Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanma arasında seçmeniz gerekir. Yükleme işlemi sorunsuz çalışır dağıtımınıza başlamadan önce bu önkoşulları yerine uyumlu emin olun. 
@@ -60,12 +51,12 @@ CloudBuilder.vhdx önyükleme ASDK ana bilgisayarı yapılandırmak için PowerS
 CloudBuilder.vhdx önyükleme ASDK ana bilgisayarı yapılandırmak için:
 
   1. Komut istemini yönetici olarak başlatın.
-  2. `bcdedit /copy {current} /d "Azure Stack"`'i çalıştırın.
-  3. Gerekli {} dahil olmak üzere döndürülen kopyala (CTRL + C) CLSID değeri ' s. Bu değer, {CLSID} olarak adlandırılır ve kalan adımları (CTRL + V veya sağ tıklama) yapıştırılmasına gerekir.
-  4. `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx`'i çalıştırın. 
+  2. `bcdedit /copy {current} /d "Azure Stack"` öğesini çalıştırın
+  3. Gerekli dahil olmak üzere döndürülen kopyala (CTRL + C) CLSID değeri {}' s. Bu değer, {CLSID} olarak adlandırılır ve kalan adımları (CTRL + V veya sağ tıklama) yapıştırılmasına gerekir.
+  4. `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` öğesini çalıştırın 
   5. `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx`'i çalıştırın. 
   6. `bcdedit /set {CLSID} detecthal on`'i çalıştırın. 
-  7. `bcdedit /default {CLSID}`'i çalıştırın.
+  7. `bcdedit /default {CLSID}` öğesini çalıştırın
   8. Önyükleme ayarlarını doğrulamak için çalıştırın `bcdedit`. 
   9. Dosya C:\ sürücüsü (C:\CloudBuilder.vhdx) kök dizinine taşınır ve Geliştirme Seti ana bilgisayarı yeniden CloudBuilder.vhdx emin olun. ASDK ana bilgisayar yeniden başlatıldığında ASDK dağıtımına başlamak için CloudBuilder.vhdx sanal makine sabit sürücüden önyükleme yapmanız gerekir. 
 
@@ -176,16 +167,5 @@ Yapabilmeniz Azure yığın Azure ile kaydetmeniz gerekir [Azure Market öğesi 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tebrikler! Bu adımları tamamladıktan sonra hem bir geliştirme seti ortamını gerekir [yönetici](https://adminportal.local.azurestack.external) ve [kullanıcı](https://portal.local.azurestack.external) portalları. 
 
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Karşıdan yükleme ve dağıtım paketi ayıklayın
-> * Geliştirme Seti ana bilgisayarı hazırla 
-> * Dağıtım sonrası yapılandırmalar gerçekleştir
-> * Azure ile kaydedin
-
-Azure yığın Market öğe ekleme konusunda bilgi almak için sonraki öğretici ilerleyin.
-
-> [!div class="nextstepaction"]
-> [Bir Azure yığın Market öğesi ekleme](asdk-marketplace-item.md)
+[ASDK yükleme sonrası yapılandırma görevleri](asdk-post-deploy.md)
 

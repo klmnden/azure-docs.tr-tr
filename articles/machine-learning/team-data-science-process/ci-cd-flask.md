@@ -8,18 +8,19 @@ manager: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: d79453e72bf26ce5d14fac71e35a146381b951fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 233da393bb9e030d885ce588f4841dc1c707c1cb
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655779"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836275"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps yapay Intelligence (AI) uygulamaları için: Docker ve Kubernetes kullanarak Azure'da sürekli tümleştirme ardışık düzeni oluşturma
 AI uygulamaya ait iş, makine öğrenimi modellerini ve uygulama oluşturma ve kullanmak için son kullanıcılara gösterme uygulama geliştiriciler derleme veri Bilimcilerine sık iki akışları vardır. Bu makalede, sizi nasıl sürekli tümleştirme (CI) uygulandığını gösteren / sürekli teslim (CD) kanal AI uygulamaya ait. AI uygulama, uygulama kodu pretrained makine öğrenme (ML) bir modelle katıştırılmış birleşimidir. Bu makale için biz pretrained modeli özel Azure blob depolama hesabından getirme, AWS S3 hesabı da olabilir. Makale için bir basit python flask web uygulaması kullanacağız.

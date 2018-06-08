@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 7b1b8f00e109776a3a5d3cc8c2224e8160b85704
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a194061bf443f50bed673a518ab62746f67b4a78
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838168"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Azure Machine Learning’de gelişmiş analiz senaryoları
 Bu makalede birçok örnek veri kaynakları ve tarafından işlenen hedef senaryoları özetlenmektedir [takım veri bilimi işlem (TDSP)](overview.md). TDSP akıllı uygulamaları derleme işbirliği yapmak ekipler için sistematik bir yaklaşım sağlar. Burada sunulan senaryoları veri özellikleri, kaynak konumları ve Azure hedef depoları bağlıdır veri işleme iş akışı içinde kullanılabilir seçenekler gösterilmektedir.

@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 55c213e26d39f1f9c27fdeae89e651a5f99a98b5
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2de926746a5e6b94a458dbc1a126ab5bc86b12fe
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838543"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>SQL Bölüm Tabloları Kullanarak Paralel Toplu Veri Alma
 Bu belge, yapı verilerinin bir SQL Server veritabanına hızlı paralel Toplu içe aktarma için bölümlenmiş tabloları açıklar. Büyük veri yükleme/aktarım için bir SQL veritabanı için sonraki sorgular ve SQL DB için veri alma kullanılarak geliştirilebilir *bölümlenmiş tabloları ve görünümleri*. 

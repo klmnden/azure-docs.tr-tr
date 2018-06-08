@@ -1,12 +1,12 @@
 ---
-title: "Azure bulut Kabuk özelliklerinde bash | Microsoft Docs"
-description: "Azure bulut Kabuk Bash'te özelliklerine genel bakış"
+title: Azure bulut Kabuk özelliklerinde bash | Microsoft Docs
+description: Azure bulut Kabuk Bash'te özelliklerine genel bakış
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: juluk
-ms.openlocfilehash: 24f656555b9390bb57b9ca511b86c926e27ebdb6
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: b61dda5b56ca3cc8ef827a06aaedac701ca79f8f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850211"
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Özellikler ve Azure bulut Kabuk Bash'te için araçları
 
@@ -48,22 +49,22 @@ Dışında dosyaları `$Home` ve makine durumunu oturumlar arasında sürdürül
 
 [Bulut Kabuk Bash'te kalıcı dosyaları hakkında daha fazla bilgi edinin.](persisting-shell-storage.md)
 
-### <a name="deep-integration-with-open-source-tooling"></a>Açık kaynaklı araçları ile derin tümleştirme
+### <a name="integration-with-open-source-tooling"></a>Açık kaynaklı araçları ile tümleştirme
 
-Bulut Kabuk bash'te Terraform ve Ansible gibi açık kaynaklı araçları için önceden yapılandırılmış kimlik doğrulaması içerir. Örnek izlenecek deneyin.
+Bulut Kabuk bash'te Terraform, Ansible ve Chef InSpec gibi açık kaynaklı araçları için önceden yapılandırılmış kimlik doğrulaması içerir. Örnek izlenecek deneyin.
 
 ## <a name="tools"></a>Araçlar
 
 |Kategori   |Ad   |
 |---|---|
 |Linux araçları            |Bash<br> Paylaş<br> tmux<br> dıg<br>               |
-|Azure Araçları            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) ve [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br> [blobxfer](https://github.com/Azure/blobxfer#blobxfer) |
-|Metin düzenleyiciler           |vim<br> nano<br> emacs       |
-|Kaynak denetimi         |git                    |
+|Azure Araçları            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) ve [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
+|Metin düzenleyiciler           |VIM<br> nano<br> emacs       |
+|Kaynak denetimi         |Git                    |
 |Derleme araçları            |Yapma<br> maven<br> npm<br> PIP         |
-|Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Veritabanları              |MySQL istemci<br> PostgreSql istemci<br> [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Diğer                  |iPython istemci<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)| 
+|Kapsayıcılar             |[Docker CLI](https://github.com/docker/cli)/[Docker makine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Veritabanları              |MySQL istemci<br> PostgreSql istemci<br> [SQLCMD yardımcı programı](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|Diğer                  |iPython istemci<br> [Foundry CLI bulut](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)| 
 
 ## <a name="language-support"></a>Dil desteği
 
@@ -73,7 +74,7 @@ Bulut Kabuk bash'te Terraform ve Ansible gibi açık kaynaklı araçları için 
 |Başlayın         |1.9        |
 |Java       |1.8        |
 |Node.js    |8.9.4      |
-|PowerShell |[6.0.1](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0.2](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 ve 3.5 (varsayılan)|
 
 ## <a name="next-steps"></a>Sonraki adımlar

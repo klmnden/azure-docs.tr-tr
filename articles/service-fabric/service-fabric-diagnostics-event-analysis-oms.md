@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: b51f7dc43f390152b2b0be223541e381bbddd3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839597"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Olay çözümleme ve görselleştirme günlük analizi
 
@@ -36,17 +37,15 @@ Günlük analizi tarafından alınan veri sonra Azure birkaç sahip *yönetim ç
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric analiz çözümü erişim
 
-1. Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin. Kaynak Seç **ServiceFabric\<nameOfOMSWorkspace\>**  ve kendi genel bakış sayfasına gidin.
+1. Azure Portalı'nda, Service Fabric analiz çözümü oluşturduğunuz kaynak grubuna gidin.
 
-2. Genel bakış sayfasında ilk OMS Portalı'na gitmek için bağlantıya tıklayın
+2. Kaynak Seç **ServiceFabric\<nameOfOMSWorkspace\>**.
 
-    ![OMS portalı bağlantı](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
+2. Özet olarak, her biri için Service Fabric dahil olmak üzere etkin çözümleri için bir grafik biçiminde kutucuklar görürsünüz. Tıklatın **Service Fabric** Service Fabric analiz çözümü devam etmek için (aşağıdaki ilk görüntü) grafik (aşağıdaki ikinci görüntü).
 
-3. Şimdi OMS portalında olduğunuz ve etkinleştirdiğiniz çözümleri görebilirsiniz. Service Fabric başlıklı grafiğe sağ tıklayın (aşağıdaki ilk görüntü) Service Fabric çözüme gerçekleştirilecek için (aşağıdaki ikinci görüntü)
+    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
-
-    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
+    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 Yukarıdaki resimde Service Fabric analiz çözümü giriş sayfasıdır. Neler olduğuna dair kümenizdeki bir anlık görüntü görünüm budur. Küme oluşturma tanılama etkinleştirilirse, olayları görebilirsiniz. 
 
@@ -55,19 +54,19 @@ Yukarıdaki resimde Service Fabric analiz çözümü giriş sayfasıdır. Neler 
 * [Programlama modeli olaylarının güvenilir hizmetler](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->İşletimsel kanal ek olarak, daha ayrıntılı sistem olayları tarafından toplanabilecek [tanılama uzantısını config güncelleştiriliyor](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)
+>İşletimsel kanal ek olarak, daha ayrıntılı sistem olayları tarafından toplanabilecek [tanılama uzantısını config güncelleştirme](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-### <a name="view-operational-events-including-actions-on-nodes"></a>Düğümlerde Eylemler dahil olmak üzere işletimsel olaylarını görüntüle
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>Service Fabric düğümlerinde Eylemler dahil olmak üzere olaylarını görüntüle
 
-1. OMS portalı Service Fabric Analytics sayfasında grafik işlemsel kanal için tıklayın
+1. Grafik için Service Fabric Analytics sayfasında tıklayın **Service Fabric olayları**.
 
-    ![OMS BT çözüm işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
+    ![OMS BT çözüm işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-2. Tabloyu bir listede olayları görüntülemek için tıklatın. Bir kez Burada, toplanan tüm sistem olayları görebilirsiniz. Başvuru için bu Azure depolama hesabında WADServiceFabricSystemEventsTable arasındadır ve benzer şekilde güvenilir hizmetler ve sonraki gördüğünüz aktörler olayları ilgili bu tablolardaki.
+2. Tıklatın **listesi** olayları bir listesini görüntülemek için. Bir kez Burada, toplanan tüm sistem olayları görebilirsiniz. Başvuru için bu Azure depolama hesabında WADServiceFabricSystemEventsTable arasındadır ve benzer şekilde güvenilir hizmetler ve sonraki gördüğünüz aktörler olayları ilgili bu tablolardaki.
     
-    ![OMS sorgu işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
+    ![OMS sorgu işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
-Alternatif olarak soldaki Büyüteç'i tıklatın ve Kusto sorgu dili aradığınızı bulmak için kullanın. Örneğin, kümedeki düğümler üzerinde gerçekleştirilen tüm eylemler bulmak için aşağıdaki sorguyu kullanabilirsiniz. Aşağıda kullanılan olay kimlikleri bulunan [işletimsel kanal Olay Başvurusu](service-fabric-diagnostics-event-generation-operational.md)
+Alternatif olarak soldaki Büyüteç'i tıklatın ve Kusto sorgu dili aradığınızı bulmak için kullanın. Örneğin, kümedeki düğümler üzerinde gerçekleştirilen tüm eylemler bulmak için aşağıdaki sorguyu kullanabilirsiniz. Aşağıda kullanılan olay kimlikleri bulunan [işletimsel kanal olay başvurusu](service-fabric-diagnostics-event-generation-operational.md).
 
 ```kusto
 ServiceFabricOperationalEvent
@@ -78,15 +77,15 @@ Belirli düğümler (bilgisayar) sistem hizmeti (görevadı) gibi pek çok fazla
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Görünüm doku güvenilir hizmeti ve aktör olayları
 
-1. OMS portalı Service Fabric Analytics sayfasında güvenilir hizmetler için grafiği tıklatın
+1. Grafik için Service Fabric Analytics sayfasında, tıklatın **Reliable Services**.
 
-    ![OMS BT çözüm güvenilir hizmetler](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
+    ![OMS BT çözüm güvenilir hizmetler](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-2. Tabloyu bir listede olayları görüntülemek için tıklatın. Burada güvenilir hizmetler olayları görebilirsiniz. Hizmet runasync başlatıldığında ve hangi dağıtım ve yükseltme işlemleri genellikle olur tamamlandı için farklı olayları görebilirsiniz. 
+2. Tıklatın **listesi** olayları bir listesini görüntülemek için. Burada güvenilir hizmetler olayları görebilirsiniz. Hizmet runasync başlatıldığında ve hangi dağıtım ve yükseltme işlemleri genellikle olur tamamlandı için farklı olayları görebilirsiniz. 
 
-    ![Güvenilir hizmetler OMS sorgulama](media/service-fabric-diagnostics-event-analysis-oms/oms-query-reliable-services.png)
+    ![Güvenilir hizmetler OMS sorgulama](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
-Güvenilir aktör olayları, benzer bir biçimde görüntülenebilir. Güvenilir aktörler için Ayrıntılı olayları yapılandırmak için değiştirmeniz gerekir `scheduledTransferKeywordFilter` (aşağıda gösterilen) tanılama uzantısı yapılandırmada. Bunlar için değerlerine ayrıntıları [güvenilir aktörler Olay Başvurusu](service-fabric-reliable-actors-diagnostics.md#keywords)
+Güvenilir aktör olayları, benzer bir biçimde görüntülenebilir. Güvenilir aktörler için Ayrıntılı olayları yapılandırmak için değiştirmeniz gerekir `scheduledTransferKeywordFilter` (aşağıda gösterilen) tanılama uzantısı yapılandırmada. Bunlar için değerlerine ayrıntıları [güvenilir aktörler olay başvurusu](service-fabric-reliable-actors-diagnostics.md#keywords).
 
 ```json
 "EtwEventSourceProviderConfiguration": [
@@ -100,9 +99,9 @@ Güvenilir aktör olayları, benzer bir biçimde görüntülenebilir. Güvenilir
                 },
 ```
 
-Kusto sorgu dili güçlüdür. Başka bir değerli sorgu çalıştırabilirsiniz, çoğu olayları hangi düğümlerin oluşturduğunu bulmaktır. Aşağıdaki ekran görüntüsünde sorgu düğümü ve belirli bir hizmeti ile bir araya getirilir güvenilir hizmetler olay gösterir
+Kusto sorgu dili güçlüdür. Başka bir değerli sorgu çalıştırabilirsiniz, çoğu olayları hangi düğümlerin oluşturduğunu bulmaktır. Aşağıdaki ekran görüntüsünde sorgu düğümü ve belirli bir hizmeti ile bir araya getirilir Service Fabric çalışma olaylarını gösterir.
 
-![Düğüm başına OMS sorgu olayları](media/service-fabric-diagnostics-event-analysis-oms/oms-query-events-per-node.png)
+![Düğüm başına OMS sorgu olayları](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

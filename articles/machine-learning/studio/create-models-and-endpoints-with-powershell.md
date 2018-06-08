@@ -9,16 +9,18 @@ manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: d8ab7151680546c9b4bf5aef8998e522a79d809c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 17354891b50138911f36314620f0c826db4b5dac
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833674"
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>PowerShell kullanarak bir denemeden çok sayıda Machine Learning modeli ve web hizmeti uç noktası oluşturma
 Bir ortak makine öğrenimi sorun şudur: aynı eğitim iş akışını ve aynı algoritmasını kullanan çok sayıda modelleri oluşturmak istediğiniz. Ancak giriş olarak farklı eğitim veri kümesi olmasını istersiniz. Bu makalede yalnızca tek bir deneme kullanarak Azure Machine Learning Studio'da ölçekte bunu kullanmayı gösterir.

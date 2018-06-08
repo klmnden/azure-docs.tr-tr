@@ -9,11 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833728"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -34,31 +35,16 @@ Güncelleştirme yönetimini kullanmak için şunlar gerekir:
 
 ## <a name="supported-operating-systems"></a>Desteklenen işletim sistemleri
 
-Güncelleştirme yönetimi aşağıdaki işletim sistemlerinde desteklenir.
+Güncelleştirme yönetimi aşağıdaki işletim sistemlerinde desteklenir:
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 ve üzeri ile Windows Server 2008 R2 SP1 ve üzerine göre güncelleştirme dağıtımları. Nano Sunucu desteklenmiyor.
-
-  Windows Server 2008 R2 SP1'e yönelik güncelleştirme dağıtımı desteği için .NET Framework 4.5 ve Windows Management Framework 5.0 veya sonraki bir sürümü gerekir.
-
-- Windows istemci işletim sistemleri desteklenmez.
-
-Windows aracıları Windows Server Update Services (WSUS) sunucusuyla iletişim kuracak veya Microsoft Update’e erişecek şekilde yapılandırılmış olmalıdır.
-
-> [!NOTE]
-> System Center Configuration Manager, Windows aracısını eşzamanlı olarak yönetemez.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6 (x86/x64) ve 7 (x64)
-
-- Red Hat Enterprise 6 (x86/x64) ve 7 (x64)
-
-- SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)
-
-- Ubuntu 12.04 LTS ve daha yeni (x86/x64)
+|İşletim Sistemi  |Notlar  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | Yalnızca destekler değerlendirmeleri güncelleştir         |
+|Windows Server 2008 R2 SP1 ve üzeri     |Windows PowerShell 4.0 veya üstü gereklidir ([WMF 4.0 indirme](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1 ([karşıdan WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) daha fazla güvenilirlik için önerilir.         |
+|CentOS 6 (x86/x64) ve 7 (x64)      | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
+|Red Hat Enterprise 6 (x86/x64) ve 7 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
+|SUSE Linux Enterprise Server 11 (x86/x64) ve 12 (x64)     | Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)      |Linux aracılarının bir güncelleştirme havuzuna erişimi olmalıdır.         |
 
 > [!NOTE]
 > Güncelleştirmelerin Ubuntu'daki bakım penceresinin dışında uygulanmasının önüne geçmek için Katılımsız Yükseltme paketini otomatik güncelleştirmeler devre dışı bırakılacak şekilden yeniden yapılandırın. Daha fazla bilgi için bkz. [Ubuntu Server Kılavuzu'ndaki Otomatik Güncelleştirmeler konu başlığı](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
@@ -142,7 +128,7 @@ Dağıtıma hangi güncelleştirme türlerinin dahil edileceğini seçebilirsini
 
   !["Yeni güncelleştirme dağıtımı" bölmesi](./media/manage-update-multi/update-select-computers.png)
 
-- **Güncelleştirme sınıflandırması** - Güncelleştirme dağıtımının içereceği yazılım türlerini seçin. Sınıflandırma türleri açıklaması için bkz: [güncelleştirme sınıflandırmaları](automation-update-management.md#update-classifications). Sınıflandırma türleri şunlardır:
+- **Güncelleştirme sınıflandırması** - Güncelleştirme dağıtımının içereceği yazılım türlerini seçin. Sınıflandırma türlerinin açıklaması için bkz. [sınıflandırmaları güncelleştirme](automation-update-management.md#update-classifications). Sınıflandırma türleri şunlardır:
   - Kritik güncelleştirmeler
   - Güvenlik güncelleştirmeleri
   - Güncelleştirme paketleri
@@ -151,6 +137,9 @@ Dağıtıma hangi güncelleştirme türlerinin dahil edileceğini seçebilirsini
   - Tanım güncelleştirmeleri
   - Araçlar
   - Güncelleştirmeler
+
+- **Dışlanacak güncelleştirmeleri** -açılır **hariç** sayfası. Dışlanacak KB veya paket adı girin.
+
 - **Zamanlama ayarları** - Geçerli saatten 30 dakika sonrası olan varsayılan tarih ve saati kabul edebilirsiniz. Veya farklı bir saat belirtebilirsiniz.
    Ayrıca, dağıtımın bir kez veya yinelenen bir zamanlamaya göre gerçekleşeceğini belirtebilirsiniz. Yinelenen bir zamanlama ayarlamak için **Yineleme** altında **Yinelenen** seçeneğine tıklayın.
 

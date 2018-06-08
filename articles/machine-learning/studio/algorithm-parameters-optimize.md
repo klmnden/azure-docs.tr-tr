@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 3e4423f0a92b08ff7fa7dd8edf430f27ff2d464e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 64d725712dc8cf87deb150944a390c9cef87b56f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833905"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning"></a>Azure Machine Learning algoritmaları en iyi duruma getirmek için parametreleri seçin
 Bu konuda, Azure Machine learning'de algoritma için ayarlanmış sağ hyperparameter seçmek açıklar. Çoğu machine learning algoritmaları ayarlamak için parametrelere sahip. Bir modeli eğitmek zaman o parametreler için değerler sağlamanız gerekir. Seçtiğiniz model parametreleri eğitilen model sürecinin bağlıdır. En iyi parametrelerinin bulma işleminin olarak bilinen *model seçimi*.

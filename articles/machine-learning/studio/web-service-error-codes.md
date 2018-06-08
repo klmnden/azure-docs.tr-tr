@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836098"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API hata kodları
  
@@ -39,7 +41,7 @@ Bu sınıf hataların bir yerde sağlanan bağımsız değişken geçersiz anlam
 | BatchJobInputsNotSpecified | Aşağıdaki input(s) istekle belirtilmedi gerekli: {0}. Lütfen olun tüm giriş verilerini belirtilir ve yeniden deneyin. |
 | BatchJobInputsTooManySpecified | İstek hizmette tanımlanan olandan daha fazla girişler belirtildi. Kabul edilen input(s) listesi: {0}. Lütfen tüm giriş verilerini doğru belirtildiğinden emin yeniden deneyin. |
 | BlobNameTooLong | Tanılama çıktıları uzun için belirtilen azure blob depolama alanı yolu: {0}. Yolun kısaltın ve yeniden deneyin. |
-| BlobNotFound | Sağlanan Azure blob - {0} erişilemiyor.  Azure hata iletisi: {1}. |
+| BlobNotFound | Sağlanan Azure blob - erişilemiyor {0}.  Azure hata iletisi: {1}. |
 | ContainerIsEmpty | Hiçbir Azure depolama kapsayıcısı adı sağlandı. Geçerli kapsayıcısı adı sağlayın ve yeniden deneyin. |
 | ContainerSegmentInvalid | Geçersiz kapsayıcı adı. Geçerli kapsayıcısı adı sağlayın ve yeniden deneyin. |
 | ContainerValidationFailed | BLOB kapsayıcı doğrulama Bu hata ile başarısız oldu: {0}. |
@@ -58,10 +60,10 @@ Bu sınıf hataların bir yerde sağlanan bağımsız değişken geçersiz anlam
 | MissingJobId | Hiçbir iş sağlanan kimliği. Bir işi ilk kez gönderildiğinde bir iş kimliği döndürülür. İş kimliği doğru olduğunu doğrulayıp yeniden deneyin. |
 | MissingKeys | Sağlanan anahtar yok veya bir birincil veya ikincil anahtarı sağlanmaz. |
 | MissingModelPackage | Model paket kimliği veya sağlanan modeli paketi yok. Geçerli model paket kimliği sağlayın veya paket modeli ve tekrar deneyin. |
-| MissingOutputOverrideSpecification | İstek çıkış geçersiz kılma {0} blob belirtimi eksik. Lütfen istekle geçerli blob konumunu belirtin veya konumu geçersiz kılma isterseniz çıkış belirtimini kaldırın. |
+| MissingOutputOverrideSpecification | İstek çıkış geçersiz kılma için blob belirtimi eksik {0}. Lütfen istekle geçerli blob konumunu belirtin veya konumu geçersiz kılma isterseniz çıkış belirtimini kaldırın. |
 | MissingRequestInput | Web hizmeti, bir girdi bekliyor, ancak herhangi bir giriş sağlanmadı. Geçerli girişleri sağlanan modelinde yayımlanan giriş noktalarına dayalı emin olun ve yeniden deneyin. |
 | MissingRequiredGlobalParameters | Tüm web hizmeti parametreleri sağlanan gereklidir. Modüller için beklenen parametreler doğru olduğundan emin olun ve yeniden deneyin. |
-| MissingRequiredOutputOverrides | Çıktı geçirin zorunludur şifrelenmiş Hizmeti uç noktası çağrılırken hizmetin tüm çıkışlar için geçersiz kılar. Şu anda bu çıktıları için geçersiz kılmaları eksik: {0} |
+| MissingRequiredOutputOverrides | Çıktı geçirin zorunludur şifrelenmiş Hizmeti uç noktası çağrılırken hizmetin tüm çıkışlar için geçersiz kılar. Şu anda bu çıktıları için eksik geçersiz kılmalar: {0} |
 | MissingWebServiceGroupId | Hiçbir web hizmeti grubu kimliği sağlanır. Geçerli web hizmeti grubu kimliği sağlayın ve yeniden deneyin. |
 | MissingWebServiceId | Hiçbir web hizmeti sağlanan kimliği. Geçerli web sitesi kimliği sağlayın ve yeniden deneyin. |
 | MissingWebServicePackage | Web hizmeti paketi sağlanan. Geçerli web hizmeti paketi girin ve yeniden deneyin. |
@@ -73,9 +75,9 @@ Bu sınıf hataların bir yerde sağlanan bağımsız değişken geçersiz anlam
 | UnexpectedParameter | Sağlanan beklenmeyen parametre. Doğrulama tüm parametre adları doğru yazıldığından yalnızca beklenen parametreleri geçirilir ve yeniden deneyin. |
 | Başvuruları | Bilinmeyen hata. |
 | UserParameterInvalid | {0} |
-| WebServiceConcurrentRequestRequirementInvalid | {0} web hizmeti için eş zamanlı istekler gereksinimleri değiştiremezsiniz. |
+| WebServiceConcurrentRequestRequirementInvalid | Eşzamanlı istek gereksinimleri değiştiremezsiniz {0} web hizmeti. |
 | WebServiceIdInvalid | Sağlanan geçersiz web hizmeti kimliği. Web hizmeti kimliği geçerli bir GUID olmalıdır. |
-| WebServiceTooManyConcurrentRequestRequirement | Eş zamanlı istek gereksinim birden fazla {0} ayarlanamıyor. |
+| WebServiceTooManyConcurrentRequestRequirement | Eş zamanlı istek gereksinim ayarlanamıyor birden fazla {0}. |
 | WebServiceTypeInvalid | Sağlanan geçersiz web hizmeti türü. Geçerli web hizmeti türü doğru olduğunu doğrulayıp yeniden deneyin. Geçerli web hizmeti türleri: {0}. |
  
 ## <a name="baduserargument-http-status-code-400"></a>BadUserArgument (HTTP durum kodu 400)
@@ -85,7 +87,7 @@ Geçersiz kullanıcı bağımsız değişkeni sağlanmadı.
 | Hata kodu | Kullanıcı iletisi |
 | ---------- |--------------|
 | InputMismatchError | Giriş verisi giriş bağlantı noktası şeması eşleşmiyor. |
-| InputParseError | Giriş vektörü başarısız ayrıştırma.  Sütunları ve türleri doğru sayıda giriş vektör olduğunu doğrulayın.  Ek ayrıntıları: {0}. |
+| InputParseError | Giriş vektörü başarısız ayrıştırma.  Sütunları ve türleri doğru sayıda giriş vektör olduğunu doğrulayın.  Ek Ayrıntılar: {0}. |
 | MissingRequiredGlobalParameters | Web hizmeti tarafından beklenen parametre eksik. Web hizmeti tarafından beklenen tüm gerekli parametreleri doğru olduğundan emin olun ve yeniden deneyin. |
 | UnexpectedParameter | Doğrulayın yalnızca web hizmeti tarafından beklenen gerekli parametreleri geçirilir ve yeniden deneyin. |
 | UserParameterInvalid | {0} |
@@ -96,7 +98,7 @@ Geçersiz kullanıcı bağımsız değişkeni sağlanmadı.
  
 | Hata kodu | Kullanıcı iletisi |
 | ---------- |--------------|
-| CannotStartJob | {0} durumda olduğundan, işi başlatılamıyor. |
+| CannotStartJob | Olduğundan işi başlatılamıyor {0} durumu. |
 | IncompatibleModel | Model isteği sürümüyle uyumlu değil. İstek sürümü yalnızca tek datatable çıkış modellerini destekler. |
 | MultipleInputsNotAllowed | Model birden çok girişi izin vermiyor. |
  
@@ -158,13 +160,13 @@ Kaynak zaten var.
 | ---------- |--------------|
 | ModelOutputMetadataMismatch | Geçersiz çıkış parametre adı. Sütunları yeniden adlandırın ve yeniden denemek için meta veriler Düzenleyicisi modülü kullanmayı deneyin. |
  
-## <a name="memoryquotaviolation-http-status-code-413"></a>MemoryQuotaViolation (HTTP status code 413)
+## <a name="memoryquotaviolation-http-status-code-413"></a>MemoryQuotaViolation (HTTP durum kodu 413)
  
 Model, kendisine atanmış bellek kotasını aştı.
  
 | Hata kodu | Kullanıcı iletisi |
 | ---------- |--------------|
-| OutOfMemoryLimit | Model için tahsis olandan daha fazla bellek tüketilen. Modeli için izin verilen maksimum bellekten {0} MB ' dir. Modelinizi sorunları gözden geçirin. |
+| OutOfMemoryLimit | Model için tahsis olandan daha fazla bellek tüketilen. Model için izin verilen en fazla {0} MB. Modelinizi sorunları gözden geçirin. |
  
 ## <a name="internalerror-http-status-code-500"></a>InternalError (HTTP durum kodu 500)
  
@@ -193,7 +195,7 @@ Yürütme bir iç hatayla karşılaştı.
 | ModuleLoadFailed |  |
 | ModuleObjectCloneFailed |  |
 | OutputConversionFailed |  |
-| PortDataTypeNotSupported | Bağlantı noktası kimliği = {0} desteklenmeyen bir veri türüne sahip: {1}. |
+| PortDataTypeNotSupported | Bağlantı noktası kimliği ={0} desteklenmeyen bir veri türüne sahip: {1}. |
 | ResourceDownload |  |
 | ResourceLoadFailed |  |
 | ServiceUrisNotFound |  |
@@ -201,7 +203,7 @@ Yürütme bir iç hatayla karşılaştı.
 | UnexpectedScoreStatus |  |
 | UnknownBackendErrorResponse |  |
 | Başvuruları |  |
-| UnknownJobStatusCode | Bilinmeyen İş durum kodu: {0}. |
+| UnknownJobStatusCode | Bilinmeyen İş durum kodu {0}. |
 | UnknownModuleError |  |
 | UpdateWebServiceResourceFailed |  |
 | WebServiceGroupNotFound |  |
@@ -214,7 +216,7 @@ Yürütme bir iç hatayla karşılaştı.
 Yürütme bir iç hatayla karşılaştı. Sistem bellek yetersiz. Lütfen yeniden deneyin.
  
  
-## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (HTTP status code 500)
+## <a name="modelpackageformaterror-http-status-code-500"></a>ModelPackageFormatError (HTTP durum kodu 500)
  
 Geçersiz model paketi. Sağlanan modeli paketi doğru olduğunu doğrulayıp yeniden deneyin.
  
@@ -239,7 +241,7 @@ Hizmet geçici olarak kullanılamıyor.
 | Hata kodu | Kullanıcı iletisi |
 | ---------- |--------------|
 | NoMoreResources | İstek için kullanılabilir kaynaklar yoktur. |
-| RequestThrottled | İstek {0} uç noktası için kısıtlanan. Uç nokta için en fazla eşzamanlı {1} ' dir. |
+| RequestThrottled | İstek için kısıtlanan {0} uç noktası. Uç nokta için en fazla concurrency, {1}. |
 | TooManyConcurrentRequests | Çok sayıda eşzamanlı istek gönderildi. |
 | TooManyHostsBeingInitialized | Çok fazla konak aynı anda başlatılmış. Azaltma / yeniden deneniyor göz önünde bulundurun. |
 | TooManyHostsBeingInitializedPerModel | Çok fazla konak aynı anda başlatılmış. Azaltma / yeniden deneniyor göz önünde bulundurun. |

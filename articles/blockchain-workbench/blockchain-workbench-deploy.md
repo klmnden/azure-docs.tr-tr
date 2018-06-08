@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831644"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranı dağıtma
 
@@ -72,7 +73,7 @@ Azure AD uygulaması kaydını Blockchain çalışma ekranının dağıtım gere
 Ardından, uygulama bildirimini uygulama rolleri Blockchain çalışma ekranı yöneticileri belirlemek için Azure AD içinde kullanmak için değiştirmeniz gerekir.  Uygulama bildirimleri hakkında daha fazla bilgi için bkz: [Azure Active Directory Uygulama bildirimini](../active-directory/develop/active-directory-application-manifest.md).
 
 1. Uygulamanın, kayıtlı seçin **bildirim** kayıtlı uygulama Ayrıntılar bölmesinde.
-2. Bir GUID oluşturur. PowerShell komutunu kullanabilirsiniz `[guid]::NewGuid()` veya bir GUID oluşturmak için çevrimiçi araçları. 
+2. Bir GUID oluşturur. [GUID] PowerShell komutunu kullanarak bir GUID oluşturabileceğiniz:: NewGuid () veya GUID yeni cmdlet. GUID Oluşturucu Web sitesi başka bir seçenektir.
 3. Güncelleştirilecek **appRoles** bildirim bölümü. Düzen bildirim bölmesinde seçin **Düzenle** ve değiştirme `"appRoles": []` sağlanan JSON ile. Değeri değiştirdiğinizden emin olun **kimliği** , oluşturulan GUID ile alan. 
 
     ``` json
@@ -116,7 +117,7 @@ Dizine erişmek için kullanıcıdan izin istemek API uygulaması gerekir. API u
 
 3. İçinde **gerekli izinleri**seçin **izinler** seçip **Evet** doğrulama istemi için.
 
-   ![İzin ver](media/blockchain-workbench-deploy/client-app-grant-permissions.png)
+   ![İzinleri verme](media/blockchain-workbench-deploy/client-app-grant-permissions.png)
 
    İzin verme Blockchain dizindeki kullanıcıları erişmek çalışma ekranı sağlar. Arama ve Blockchain çalışma ekranına üye eklemek için okuma izni gereklidir.
 

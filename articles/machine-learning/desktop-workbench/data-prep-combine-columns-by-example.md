@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 469fefa48ea795a56b0e7525f99634c5149a780f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ecd2232dcf77715fdccd4e5518674500231f67ca
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830287"
 ---
 # <a name="combine-columns-by-example-transformation"></a>Örnek dönüştürme tarafından sütunu birleştirme
 Bu dönüşümü yeni bir sütun birden çok sütun değerlerinden birleştirerek eklemesine izin verir. Kullanıcı bir ayırıcı belirtin veya bu dönüştürme gerçekleştirmek için birleştirilmiş değer örnekleri sağlayın. Kullanıcı örnekleri birleşimi sağladığında, dönüşüm aynı tarafından işlenir **örnek tarafından** kullanılan altyapısı **türetilen sütun örneğe göre** Dönüştür.
@@ -50,7 +52,7 @@ Var olan bir kullanıcı düzenleyebilir **sütun örnekle birleştirmek** dön�
 
 Birleştirmek için bu örnek ayırıcı olarak virgül bir boşluk bırakarak kullanılan *Sokak*, *Şehir*, *durumu*, ve *ZIP* sütun.
 
-|Sokak|Şehir|Durum|ZIP|Sütun|
+|Cadde|Şehir|Durum|ZIP|Sütun|
 |:----|:----|:----|:----|:----|
 |16011 N.E. 36th yolu|REDMOND|WA|98052|16011 N.E. 36th yolu, REDMOND, Washington, 98052|
 |16021 N.E. 36th yolu|REDMOND|WA|98052|16021 N.E. 36th yolu, REDMOND, Washington, 98052|

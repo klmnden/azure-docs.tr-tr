@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db8718b60cdd934e3301479489f21fe45f5578cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ff80130ebb9c4095d4a20202cdfabd9aaf1b1992
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832015"
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning modeli veri toplama API'si başvurusu
 
@@ -62,13 +64,13 @@ Sınıf ve parametre ayrıntıları bakın:
 
 | Ad | Tür | Açıklama |
 |-------------|------------|-------------------------|
-| model_adı | string | hangi verilerin toplanan modelinin adı |
-| tanımlayıcı | string | Bu veriler, yani tanımlayan kod konumu 'RawInput' veya 'Tahmin' |
+| model_adı | dize | hangi verilerin toplanan modelinin adı |
+| Tanımlayıcı | dize | Bu veriler, yani tanımlayan kod konumu 'RawInput' veya 'Tahmin' |
 | feature_names | dize listesi | sağlandığında csv başlığı hale özellik adlarının listesi |
-| model_management_account_id | string | Bu model depolandığı model yönetim hesabı tanımlayıcısı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| webservice_name | string | Bu model şu anda dağıtıldığı webservice adı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| model_id | string | Bir model yönetim hesabı bağlamında bu model için benzersiz tanımlayıcı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
-| model_version | string | Bu modelin model yönetim hesabı bağlamında sürüm numarası. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| model_management_account_id | dize | Bu model depolandığı model yönetim hesabı tanımlayıcısı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| webservice_name | dize | Bu model şu anda dağıtıldığı webservice adı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| model_id | dize | Bir model yönetim hesabı bağlamında bu model için benzersiz tanımlayıcı. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
+| model_version | dize | Bu modelin model yönetim hesabı bağlamında sürüm numarası. modelleri AML kullanıma hazır hale getirilmiş, bu otomatik olarak doldurulur |
 
 
 
@@ -93,5 +95,5 @@ Yöntem ve parametre ayrıntıları bakın:
 | Ad | Tür | Açıklama |
 |-------------|------------|-------------------------|
 | input_data | birden çok tür | Toplanacak veri (şu anda kabul türleri listesi, numpy.array pandas. DataFrame, pyspark.sql.DataFrame). Üstbilgi özellik adları ile varsa dataframe türleri için bu bilgiler veri hedef (açıkça özellik adları ModelDataCollector oluşturucuda geçmesi gerek kalmadan) dahil edilir |
-| user_correlation_id | string | Bu tahmin ilişkilendirmek için kullanıcı tarafından sağlanan bir isteğe bağlı bağıntı kimliği |
+| user_correlation_id | dize | Bu tahmin ilişkilendirmek için kullanıcı tarafından sağlanan bir isteğe bağlı bağıntı kimliği |
 

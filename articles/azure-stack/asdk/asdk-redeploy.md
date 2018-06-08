@@ -1,6 +1,6 @@
 ---
 title: Azure yığın Geliştirme Seti (ASDK) dağıtmanız | Microsoft Docs
-description: Bu öğreticide, ASDK yeniden öğrenin.
+description: Bu makalede, ASDK yeniden öğrenin.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -11,28 +11,23 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: ''
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: fcf1abfe574dd3067f00df7c5ff2632b9cc2ec4f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 91b8a936215e906e6e5b7e6a4fcd0dc88bef6009
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850329"
 ---
-# <a name="tutorial-redeploy-the-asdk"></a>Öğretici: ASDK yeniden dağıtın
-Bu öğreticide, Azure yığın Geliştirme Seti (ASDK) bir üretim dışı ortamda dağıtmanız öğrenin. ASDK yükseltme desteklenmediğinden, tamamen yeni bir sürüme taşımak için yeniden dağıtmanız gerekir. Ayrıca, üzerinden baştan başlamak istediğiniz herhangi bir zamanda ASDK yeniden dağıtabilirsiniz.
+# <a name="redeploy-the-asdk"></a>ASDK yeniden dağıtın
+Bu makalede, Azure yığın Geliştirme Seti (ASDK) bir üretim dışı ortamda dağıtmanız öğrenin. ASDK yükseltme desteklenmediğinden, tamamen yeni bir sürüme taşımak için yeniden dağıtmanız gerekir. Ayrıca, üzerinden baştan başlamak istediğiniz herhangi bir zamanda ASDK yeniden dağıtabilirsiniz.
 
 > [!IMPORTANT]
 > ASDK yeni bir sürüme yükseltme desteklenmiyor. Azure yığın daha yeni bir sürümü değerlendirmek istediğiniz her zaman Geliştirme Seti ana bilgisayarda ASDK dağıtmanız gerekir.
-
-Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
-
-> [!div class="checklist"]
-> * Azure kaydı Kaldır 
-> * ASDK yeniden dağıtın
 
 ## <a name="remove-azure-registration"></a>Azure kaydı Kaldır 
 Azure ile ASDK yüklemenizi daha önce kaydolduysanız, ASDK dağıtarak önce kayıt kaynağı kaldırmanız gerekir. Market dağıtım ASDK yeniden dağıtırken etkinleştirmek için ASDK yeniden kaydedin. Azure aboneliğiniz ile daha önce ASDK kaydolmadıysanız, bu bölümü atlayabilirsiniz.
@@ -55,7 +50,7 @@ Kayıt kaynak kaldırmak için kullanın **Kaldır AzsRegistration** Azure yığ
 
   # Unregister Azure Stack
   Remove-AzsRegistration `
-      -CloudAdminCredential $YourCloudAdminCredential `
+      -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01
 
   # Remove the Azure Stack resource group
@@ -71,7 +66,7 @@ Kayıt kaynak kaldırmak için kullanın **Kaldır AzsRegistration** Azure yığ
 
 Azure yığın artık başarıyla Azure aboneliğinizden kaydı olması gerekir. Ayrıca, Azure ile ASDK kaydolurken oluşturulmuş azurestack kaynak grubu, aynı zamanda silinmesi gerekir.
 
-## <a name="redeploy-the-asdk"></a>ASDK yeniden dağıtın
+## <a name="deploy-the-asdk"></a>ASDK dağıtma
 Azure yığını yeniden dağıtmak için üzerinden sıfırdan aşağıda açıklandığı gibi başlatmanız gerekir. Adımları olsun veya olmasın, Azure yığın Yükleyici (asdk-installer.ps1) komut ASDK yüklemek için kullanılan bağlı olarak farklılık gösterir.
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>Yükleyici komut dosyasını kullanarak ASDK yeniden dağıtın
@@ -85,7 +80,7 @@ Azure yığını yeniden dağıtmak için üzerinden sıfırdan aşağıda açı
 
 3. Geliştirme Seti konak temel işletim sistemiyle yeniden başlatıldıktan sonra yerel bir yönetici olarak oturum açın. Bulup silin **C:\CloudBuilder.vhdx** önceki dağıtımının bir parçası kullanılan dosya. 
 
-4. İçin ilk sürdü aynı adımları yineleyin [ASDK dağıtmak](asdk-deploy.md).
+4. İçin ilk sürdü aynı adımları yineleyin [ASDK dağıtmak](asdk-install.md).
 
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>Yükleyici kullanmadan ASDK yeniden dağıtın
 ASDK yüklemek için asdk installer.ps1 betik kullanmadıysanız ASDK dağıtarak önce Geliştirme Seti ana bilgisayarı el ile yapılandırmalısınız.
@@ -100,16 +95,7 @@ ASDK yüklemek için asdk installer.ps1 betik kullanmadıysanız ASDK dağıtara
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
-
-> [!div class="checklist"]
-> * Azure kaydı Kaldır 
-> * ASDK yeniden dağıtın
-
-Azure yığın Market öğe ekleme konusunda bilgi almak için sonraki öğretici ilerleyin.
-
-> [!div class="nextstepaction"]
-> [Bir Azure yığın Market öğesi ekleme](asdk-marketplace-item.md)
+[ASDK yükleme sonrası yapılandırma görevleri](asdk-post-deploy.md)
 
 
 

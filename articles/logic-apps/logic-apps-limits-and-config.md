@@ -2,23 +2,20 @@
 title: Sınırları ve yapılandırması - Azure Logic Apps | Microsoft Docs
 description: Hizmet sınırları ve Azure mantıksal uygulamaları için yapılandırma değerleri
 services: logic-apps
-documentationcenter: ''
 author: ecfan
 manager: cfowler
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
-ms.topic: article
-ms.date: 05/14/2018
 ms.author: estfan
-ms.openlocfilehash: 8c2ac4b8f55d25d5d3fcfdd6a9bcb6f6c8cfc201
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.topic: article
+ms.date: 05/30/2018
+ms.service: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 713312725c92c6c78241e1cdcaa06280282c7777
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831855"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Sınırları ve Azure mantıksal uygulamaları için yapılandırma bilgilerini
 
@@ -65,7 +62,7 @@ Bir tek mantıksal uygulama tanımını sınırlarını şunlardır:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Çalışma süresini ve depolama bekletme değiştirme
 
-Bu sınır yedi gün ile 90 gün arasında bir değer değiştirebilirsiniz. Ancak, üst sınırı aşan [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
+Bu sınır 7 gün ve 90 gün arasında bir değer değiştirebilirsiniz. Üst sınır gitmek için [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
 
 1. Azure portalında mantığı uygulamanızın menüsünde seçin **iş akışı ayarları**. 
 
@@ -83,7 +80,7 @@ Bu sınır yedi gün ile 90 gün arasında bir değer değiştirebilirsiniz. Anc
 | ---- | ----- | ----- | 
 | Kadar yineleme | 5.000 | | 
 | ForEach öğeleri | 100,000 | Kullanabileceğiniz [sorgu eylem](../connectors/connectors-native-query.md) gerektiği gibi daha büyük diziler filtre uygulamak için. | 
-| ForEach paralellik | 50 | Varsayılan değer 20'dir. <p>ForEach döngüde paralellik belirli bir düzeyde ayarlamak için ayarlayın `runtimeConfiguration` özelliğinde `foreach` eylem. <p>ForEach döngüsü sıralı olarak çalışacak şekilde ayarlanmış `operationOptions` "Sıralı" özelliğine `foreach` eylem. | 
+| ForEach paralellik | 50 | Varsayılan değer 20'dir. <p>ForEach döngüsü içinde bu varsayılan düzeyini değiştirmek için ayarlanmış `runtimeConfiguration` özelliğinde `foreach` eylem. <p>ForEach döngüsü sıralı olarak çalışacak şekilde ayarlanmış `operationOptions` "Sıralı" özelliğine `foreach` eylem. | 
 | SplitOn öğeleri | 100,000 | | 
 |||| 
 
@@ -95,14 +92,14 @@ Bu sınır yedi gün ile 90 gün arasında bir değer değiştirebilirsiniz. Anc
 
 | Ad | Sınır | Notlar | 
 | ----- | ----- | ----- | 
-| Eylemler yürütmeleri 5 dakika başına | 100,000 | 300000 için sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Throughput` modu. Yüksek verimlilik modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynak ayarlanmış `operationOptions` özelliğine `OptimizedForHighThroughput`. <p>**Not**: yüksek verimlilik modudur önizlemede. Ayrıca, birden çok uygulamalarında gerektiği gibi bir iş yükü dağıtabilirsiniz. | 
+| Eylemler yürütmeleri 5 dakika başına | 100,000 | 300000 için sınırı artırmak için bir mantıksal uygulama çalıştırabilirsiniz `High Throughput` modu. Yüksek verimlilik modu altında yapılandırmak için `runtimeConfiguration` iş akışı kaynak ayarlanmış `operationOptions` özelliğine `OptimizedForHighThroughput`. <p>**Not**: yüksek verimlilik modudur önizlemede. Ayrıca, gerektiğinde arasında birden fazla uygulama bir iş yükü dağıtabilirsiniz. | 
 | Eylemler eşzamanlı giden çağrıları | ~2,500 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
 | Çalışma zamanı uç noktası: eşzamanlı gelen çağrıları | ~1,000 | Eşzamanlı istek sayısını azaltın veya gerektiğinde süresini azaltın. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma  | 60,000 | İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma| 45,000 |İş yükü, gerektiğinde birden çok uygulama arasında dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma  | 60,000 | İş yükü, gerektiğinde arasında birden fazla uygulama dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma| 45,000 | İş yükü, gerektiğinde arasında birden fazla uygulama dağıtabilirsiniz. | 
 |||| 
 
-Bu sınırlar aşabilir bu sınırları normal işleme veya çalıştırılan bir yük testi aşmayı [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
+Normal işlem bu sınırları yukarıda gidin veya bu sınırları gitmiş olabilecek yük testi çalıştırmak için [Logic Apps ekibine başvurun](mailto://logicappsemail@microsoft.com) gereksinimlerinizi ile ilgili Yardım.
 
 <a name="request-limits"></a>
 
@@ -125,7 +122,7 @@ Bazı bağlayıcı işlemleri zaman uyumsuz çağrılar yapın veya bu işlemler
 | Ad | Sınır | Notlar | 
 | ---- | ----- | ----- | 
 | İleti boyutu | 100 MB | Bu sınır olarak çözmek için bkz: [Öbekleme ile büyük iletileri işlemek](../logic-apps/logic-apps-handle-large-messages.md). Ancak, bazı bağlayıcılar ve API Öbekleme desteklemez veya varsayılan sınır bile. | 
-| Öbekleme ile ileti boyutu | 1 GB | Bu sınır, yerel olarak Öbekleme desteklemek ya da çalışma zamanı yapılandırmalarında etkin destek Öbekleme olabilir eylemleri uygular. Daha fazla bilgi için bkz: [Öbekleme ile büyük iletileri işlemek](../logic-apps/logic-apps-handle-large-messages.md). | 
+| Öbekleme ile ileti boyutu | 1 GB | Bu sınır, yerel olarak Öbekleme desteklemek ya da, çalışma zamanı yapılandırmalarında Öbekleme etkinleştirmenize olanak eylemleri uygular. Daha fazla bilgi için bkz: [Öbekleme ile büyük iletileri işlemek](../logic-apps/logic-apps-handle-large-messages.md). | 
 | İfade değerlendirme sınırı | 131.072 karakterleri | `@concat()`, `@base64()`, `@string()` İfadeleri bu sınırdan daha uzun olamaz. | 
 |||| 
 
@@ -158,9 +155,11 @@ Burada, web API'leri oluşturabileceğiniz özel bağlayıcıların sınırları
 
 ### <a name="artifact-limits-per-integration-account"></a>Dışlayıcı sınırlar tümleştirme hesap başına
 
-Burada, yapıları her tümleştirme hesabı sayısı sınırlamaları bulunmaktadır. Daha fazla bilgi için bkz: [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/).
+Burada, yapıları her tümleştirme hesabı sayısı sınırlamaları bulunmaktadır. Daha fazla bilgi için bkz: [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/). 
 
 *Ücretsiz katmanı*
+
+Ücretsiz katmanı yalnızca keşif senaryoları için üretim senaryoları kullanın. Bu katman üretilen iş ve kullanımını kısıtlar ve hiçbir hizmet düzeyi sözleşmesi (SLA) sahiptir.
 
 | Yapı | Sınır | Notlar | 
 |----------|-------|-------| 
@@ -207,9 +206,9 @@ Burada, yapıları her tümleştirme hesabı sayısı sınırlamaları bulunmakt
 | ---- | ----- | ----- | 
 | Şema | 8 MB | 2 MB'den daha büyük bir dosya yüklemek için kullandığınız [URI blob](../logic-apps/logic-apps-enterprise-integration-schemas.md). | 
 | Harita (XSLT dosyası) | 2 MB | | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma | 60,000 | İş yükü gerektiği gibi birden çok hesapları arasında dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma | 45,000 | İş yükü gerektiği gibi birden çok hesapları arasında dağıtabilirsiniz. | 
-| Çalışma zamanı uç noktası: 5 dakika başına çağrı izleme | 45,000 | İş yükü gerektiği gibi birden çok hesapları arasında dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrı okuma | 60,000 | Gerektiği gibi birden fazla hesap arasında iş yükünü dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrı çağırma | 45,000 | Gerektiği gibi birden fazla hesap arasında iş yükünü dağıtabilirsiniz. | 
+| Çalışma zamanı uç noktası: 5 dakika başına çağrı izleme | 45,000 | Gerektiği gibi birden fazla hesap arasında iş yükünü dağıtabilirsiniz. | 
 | Çalışma zamanı uç noktası: eşzamanlı çağrıları engelleme | ~1,000 | Eşzamanlı istek sayısını azaltın veya gerektiği gibi süresini azaltın. | 
 ||||  
 
@@ -232,8 +231,7 @@ B2B protokollerini Uygula sınırları şunlardır:
 
 ### <a name="azure-logic-apps-service"></a>Azure mantıksal uygulamaları hizmeti
 
-Bir bölgedeki tüm logic apps aynı IP adresi aralığı kullanın.
-Logic apps ile doğrudan olun çağrıları [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md) veya diğer HTTP isteklerini gelebilir bu listedeki IP adreslerinden. 
+Bir bölgedeki tüm logic apps IP adreslerinin aynı aralıkları kullanın. Logic apps ile doğrudan olun çağrılarını desteklemek üzere [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)ve bu giden ve gelen IP adreslerini göre eklemek için güvenlik duvarı yapılandırmalarını ayarlamak diğer HTTP istekleri mantıksal uygulamalarınızı var üzerinde olduğu:
 
 | Logic Apps bölge | Giden IP |
 |-------------------|-------------|
@@ -264,7 +262,7 @@ Logic apps ile doğrudan olun çağrıları [HTTP](../connectors/connectors-nati
 | | |
 
 | Logic Apps bölge | Gelen IP |
-|-------------------|-------------|
+|-------------------|------------|
 | Avustralya Doğu | 3.75.153.66, 104.210.89.222, 104.210.89.244 |
 | Avustralya Güneydoğu | 13.73.115.153, 40.115.78.70, 40.115.78.237 |
 | Güney Brezilya | 191.235.86.199, 191.235.95.229, 191.235.94.220 |
@@ -293,37 +291,41 @@ Logic apps ile doğrudan olun çağrıları [HTTP](../connectors/connectors-nati
 
 ### <a name="connectors"></a>Bağlayıcılar
 
-Çağrılar, [Bağlayıcılar](../connectors/apis-list.md) bu listedeki IP adreslerinden gelen olun.
+Çağrıları desteklemek için [Bağlayıcılar](../connectors/apis-list.md) olun, bu giden IP adresleri eklemek için güvenlik duvarı yapılandırmalarını ayarlamak dayalı üzerindeki mantıksal uygulamalarınızı var olduğu bölgeleri.
 
-| Logic Apps bölge | Giden IP |
-|-------------------|-------------|
-| Avustralya Doğu | 40.126.251.213 |
-| Avustralya Güneydoğu | 40.127.80.34 |
-| Güney Brezilya | 191.232.38.129 |
-| Orta Kanada | 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 |
-| Doğu Kanada | 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 |
-| Orta Hindistan | 104.211.98.164 |
-| Orta ABD | 40.122.49.51 |
-| Doğu Asya | 23.99.116.181 |
-| Doğu ABD | 191.237.41.52 |
-| Doğu ABD 2 | 104.208.233.100 |
-| Japonya Doğu | 40.115.186.96 |
-| Japonya Batı | 40.74.130.77 |
-| Orta Kuzey ABD | 65.52.218.230 |
-| Kuzey Avrupa | 104.45.93.9 |
-| Orta Güney ABD | 104.214.70.191 |
-| Güney Hindistan | 104.211.227.225 |
-| Güneydoğu Asya | 13.76.231.68 |
-| Batı Avrupa | 40.115.50.13 |
-| Batı Hindistan | 104.211.161.203 |
-| Batı ABD | 104.40.51.248 |
-| Birleşik Krallık Güney | 51.140.80.51 |
-| Birleşik Krallık Batı | 51.141.47.105 |
+> [!IMPORTANT]
+>
+> Var olan yapılandırmaları varsa, lütfen güncelleştirmenizi **1 Eylül 2018 hemen önce** içerir ve logic apps var olduğu bölgeler için bu listeyi IP adresleriyle eşleşen. 
+
+| Logic Apps bölge | Giden IP | 
+|-------------------|-------------|  
+| Avustralya Doğu | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 | 
+| Avustralya Güneydoğu | 13.77.50.240 - 13.77.50.255, 13.70.136.174, 40.127.80.34 | 
+| Güney Brezilya | 191.233.203.192 - 191.233.203.207, 104.41.59.51, 191.232.38.129 | 
+| Orta Kanada | 13.71.170.208 - 13.71.170.223, 13.71.170.224 - 13.71.170.239, 52.237.24.126, 52.233.31.197, 52.228.42.205, 52.228.33.76, 52.228.34.13 | 
+| Doğu Kanada | 40.69.106.240 - 40.69.106.255, 52.242.35.152, 52.229.123.98, 52.229.120.178, 52.229.126.202, 52.229.120.52 | 
+| Orta Hindistan | 104.211.81.192 - 104.211.81.207, 52.172.211.12, 104.211.98.164 | 
+| Orta ABD | 13.89.171.80 - 13.89.171.95, 52.173.245.164, 40.122.49.51 | 
+| Doğu Asya | 13.75.36.64 - 13.75.36.79, 52.175.23.169, 23.99.116.181 | 
+| Doğu ABD | 40.71.11.80 - 40.71.11.95, 40.71.249.205, 191.237.41.52 | 
+| Doğu ABD 2 | 40.70.146.208 - 40.70.146.223, 52.232.188.154, 104.208.233.100 | 
+| Japonya Doğu | 13.78.108.0 - 13.78.108.15, 13.71.153.19, 40.115.186.96 | 
+| Japonya Batı | 40.74.100.224 - 40.74.100.239, 104.215.61.248, 40.74.130.77 | 
+| Orta Kuzey ABD | 52.162.107.160 - 52.162.107.175, 52.162.242.161, 65.52.218.230 | 
+| Kuzey Avrupa | 13.69.227.208 - 13.69.227.223, 52.178.150.68, 104.45.93.9 | 
+| Orta Güney ABD | 104.214.19.48 - 104.214.19.63, 13.65.86.57, 104.214.70.191 | 
+| Güney Hindistan | 40.78.194.240 - 40.78.194.255, 13.71.125.22, 104.211.227.225 | 
+| Güneydoğu Asya | 13.67.8.240 - 13.67.8.255, 52.187.68.19, 13.76.231.68 | 
+| Batı Orta ABD | 13.71.195.32 - 13.71.195.47, 52.161.102.22, 52.161.27.108, 52.161.30.5, 52.161.29.35, 52.161.26.212 | 
+| Batı Avrupa | 13.69.64.208 - 13.69.64.223, 52.174.88.118, 40.115.50.13 | 
+| Batı Hindistan | 104.211.146.224 - 104.211.146.239, 104.211.189.218, 104.211.161.203 | 
+| Batı ABD | 40.112.243.160 - 40.112.243.175, 104.42.122.49, 104.40.51.248 | 
+| Batı ABD 2 | 13.66.140.128 - 13.66.140.143, 52.183.78.157, 13.66.225.219, 13.66.218.78, 13.66.220.135, 13.66.219.14 | 
+| Birleşik Krallık Güney | 51.140.148.0 - 51.140.148.15, 51.140.80.51, 51.140.80.51 | 
+| Birleşik Krallık Batı | 51.140.211.0 - 51.140.211.15, 51.141.47.105, 51.141.47.105 | 
 | | | 
 
 ## <a name="next-steps"></a>Sonraki adımlar  
 
-* [İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
-* [Yayın örnekleri ve senaryoları](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [Video: Logic Apps ile iş süreçlerini otomatikleştirmek](http://channel9.msdn.com/Events/Build/2016/T694) 
-* [Video: sistemlerinizi Logic Apps ile tümleştirme](http://channel9.msdn.com/Events/Build/2016/P462)
+* Bilgi edinmek için nasıl [ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)  
+* Hakkında bilgi edinin [yayın örnekleri ve senaryoları](../logic-apps/logic-apps-examples-and-scenarios.md)

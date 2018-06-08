@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 05dd42b049c75b9ea592ffe341f44e3b02b9757f
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: fa2ee4df9a0a28c08237f30fcf6a4bac50c21100
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849517"
 ---
 # <a name="asdk-administration-basics"></a>ASDK Yönetimi temelleri 
 Azure yığın Geliştirme Seti (ASDK) yönetim için yeni bilmeniz gereken birkaç nokta vardır. Bu kılavuz rolünüze değerlendirme ortamı Azure yığın işlecinde olarak genel bir bakış sağlar ve test kullanıcılarınızın emin olmak nasıl hızla üretken olabilirsiniz.
@@ -33,7 +34,7 @@ Azure yığın yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak
 
 |Hesap|Azure AD|AD FS|
 |-----|-----|-----|
-|Local Administrator (.\Administrator)|ASDK ana bilgisayar yöneticisi|ASDK ana bilgisayar yöneticisi|
+|Yerel yönetici (. \Administrator)|ASDK ana bilgisayar yöneticisi|ASDK ana bilgisayar yöneticisi|
 |AzureStack\AzureStackAdmin|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın Yönetim Portalı'nda oturum için kullanılabilir<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın yönetim portalı için erişim yok<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim<br><br>Artık sahibi varsayılan sağlayıcı abonelik (DPS)|
 |AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın<br><br>ASDK ana bilgisayara oturum değil<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|
 |Azure AD genel Yöneticisi|Yükleme sırasında kullanılan<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|Uygulanamaz|
@@ -64,5 +65,5 @@ Geliştirme Seti için yalnızca destek içinde desteği ile ilgili sorular sorm
 > ASDK bir değerlendirme ortamı olduğundan, Microsoft Müşteri Destek Hizmetleri'ne (CSS) aracılığıyla sunulan resmi desteği yoktur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[ASDK dağıtma](asdk-deploy.md)
+[ASDK dağıtma](asdk-install.md)
 

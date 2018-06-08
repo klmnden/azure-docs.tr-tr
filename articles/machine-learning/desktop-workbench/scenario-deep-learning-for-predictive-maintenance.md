@@ -7,16 +7,18 @@ ms.author: jehrling
 manager: ireiter
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc
 ms.devlang: ''
 ms.topic: article
 ms.date: 11/22/2017
-ms.openlocfilehash: 005470298a115a822350f345cdab6e9cafb15eda
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 26b061c6bd6ff3ec9d1edbb7d99053d17db9b773
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832610"
 ---
 # <a name="deep-learning-for-predictive-maintenance-real-world-scenarios"></a>Tahmine dayalı bakım gerçek dünya senaryoları için derin öğrenme
 
@@ -27,7 +29,7 @@ Derin öğrenme machine learning en popüler eğilimler biridir ve uygulamalar d
 
 Derin sinir ağları (DNN) olarak da bilinen bu yöntemleri (Biyolojik sinir ağları) beyin içinde olan tek tek neurons tarafından neden olacak.
 
-Zamanlanmamış ekipman kapalı kalma süresi etkisi herhangi bir işletme için detrimental olabilir. Alan donanım kullanımını ve performansını en üst düzeye çıkarmak ve pahalı, zamanlanmamış kapalı kalma süresini en aza indirmek için çalışan tutmak önemlidir. Sorunları erken tanımlaması uygun maliyetli bir şekilde sınırlı bakım kaynakları tahsis ve kalitesini geliştirmek ve tedarik zinciri süreçlerinin yardımcı olabilir. 
+Çoğu işletme için zamanlanmamış donanım kapalı kalma süresinin olumsuz etkileri olabilir. Alan donanım kullanımını ve performansını en üst düzeye çıkarmak ve pahalı, zamanlanmamış kapalı kalma süresini en aza indirmek için çalışan tutmak önemlidir. Sorunları erken tanımlaması uygun maliyetli bir şekilde sınırlı bakım kaynakları tahsis ve kalitesini geliştirmek ve tedarik zinciri süreçlerinin yardımcı olabilir. 
 
 Tahmine dayalı Bakım (PM) stratejisi makine öğrenme yöntemlerini erken önlem olumsuz makine performansı önlemek için bakım gerçekleştirmek için donanım durumunu belirlemek için kullanır. PM içinde veri makinenin durumunu izlemek için zaman içerisinde toplanır ve hataları tahmin etmek için desenleri bulmak için analiz edilir. [Uzun kısa vadeli bellek (LSTM)](http://colah.github.io/posts/2015-08-Understanding-LSTMs/) ağlardır veri serilerinden öğrenmek için tasarlanmışlardır beri bu ayarı için çekici.
 

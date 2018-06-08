@@ -1,27 +1,28 @@
 ---
-title: "Azure dosyaları'ı Linux ile kullanma | Microsoft Docs"
-description: "Bir Azure dosya paylaşımı üzerinden SMB Linux'ta bağlama öğrenin."
+title: Azure dosyaları'ı Linux ile kullanma | Microsoft Docs
+description: Bir Azure dosya paylaşımı üzerinden SMB Linux'ta bağlama öğrenin.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2017
+ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: cca0d315a815faca5db07099b8e8e451ef55fad5
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: ec900182e2fe201ee598518076c6a75a7ac057c2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839578"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure dosyaları'ı Linux ile kullanma
-[Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure dosya paylaşımları kullanarak Linux dağıtımları içinde takılı [CIFS çekirdek istemci](https://wiki.samba.org/index.php/LinuxCIFS). Bu makale bir Azure dosya paylaşımı bağlamak için iki yol gösterir: isteğe bağlı ile `mount` komut ve üzerinde önyükleme bir girişe oluşturarak `/etc/fstab`.
+[Azure Dosyaları](storage-files-introduction.md), Windows'un kolay kullanılan bulut dosya sistemidir. Azure dosya paylaşımları kullanarak Linux dağıtımları içinde takılı [SMB çekirdek istemci](https://wiki.samba.org/index.php/LinuxCIFS). Bu makale bir Azure dosya paylaşımı bağlamak için iki yol gösterir: isteğe bağlı ile `mount` komut ve üzerinde önyükleme bir girişe oluşturarak `/etc/fstab`.
 
 > [!NOTE]  
 > İçinde şirket içi gibi veya farklı bir Azure bölgesindeki barındırıldığı Azure bölgesi dışında bir Azure dosya paylaşımını bağlama için işletim sistemi SMB 3.0 şifreleme işlevlerini desteklemesi gerekir.
@@ -30,11 +31,11 @@ ms.lasthandoff: 01/19/2018
 * **Yüklü CIFS yardımcı programları paketi olabilir Linux dağıtımı seçin.**  
     Aşağıdaki Linux dağıtımları Azure galerisinde kullanılabilir:
 
-    * Ubuntu Server 14.04+
+    * Ubuntu Server 14.04 +
     * RHEL 7+
-    * CentOS 7+
+    * CentOS 7 +
     * Debian 8 +
-    * openSUSE 13.2+
+    * openSUSE 13.2 +
     * SUSE Linux Enterprise Server 12
 
 * <a id="install-cifs-utils"></a>**CIFS yardımcı programları paketi yüklenir.**  
@@ -42,21 +43,21 @@ ms.lasthandoff: 01/19/2018
 
     Üzerinde **Ubuntu** ve **Debian tabanlı** dağıtımları kullanın `apt-get` Paket Yöneticisi:
 
-    ```
+    ```bash
     sudo apt-get update
     sudo apt-get install cifs-utils
     ```
 
     Üzerinde **RHEL** ve **CentOS**, kullanın `yum` Paket Yöneticisi:
 
-    ```
-    sudo yum install samba-client samba-common cifs-utils
+    ```bash
+    sudo yum install cifs-utils
     ```
 
     Üzerinde **openSUSE**, kullanın `zypper` Paket Yöneticisi:
 
-    ```
-    sudo zypper install samba*
+    ```bash
+    sudo zypper install cifs-utils
     ```
 
     Diğer dağıtımlar üzerinde uygun Paket Yöneticisi'ni kullanın veya [derleme kaynağından](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download).
@@ -66,13 +67,13 @@ ms.lasthandoff: 01/19/2018
     
     SMB 3.0 şifreleme desteği Linux çekirdek sürüm 4.11 sunulmuştur ve popüler Linux dağıtımları için eski çekirdek sürümlere backported olmuştur. Bu belgenin yayın aynı anda bu özellik Azure galerisinden aşağıdaki dağıtımları destekler:
 
-    - Ubuntu Server 16.04+
+    - Ubuntu Server 16.04 +
     - openSUSE 42.3 +
     - SUSE Linux Enterprise Server 12 SP3+
     
     Linux dağıtımınız burada listede yoksa aşağıdaki komutu kullanarak Linux çekirdek sürümü görmek için kontrol edebilirsiniz:
 
-    ```
+    ```bash
     uname -r
     ```
 
@@ -84,37 +85,56 @@ ms.lasthandoff: 01/19/2018
 
 * **445 bağlantı noktası açık olduğundan emin olun**: SMB 445 - TCP bağlantı noktası üzerinden iletişim kurar, güvenlik duvarının TCP engellemediğinden varsa görmek için istemci makineden 445 bağlantı noktalarını kontrol edin.
 
-## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Azure dosya paylaşımı isteğe bağlı ile bağlama`mount`
+## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Azure dosya paylaşımı isteğe bağlı ile bağlama `mount`
 1. **[Linux dağıtımınızı CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.
 
 2. **Bağlama noktası için bir klasör oluşturun**: bir bağlama noktası için bir klasör dosya sisteminde herhangi bir yerden oluşturulabilir, ancak bu altında oluşturmak için ortak bir kuraldır `/mnt` klasör. Örneğin:
 
-    ```
+    ```bash
     mkdir /mnt/MyAzureFileShare
     ```
 
 3. **Azure dosya paylaşımını bağlama için bağlama komutunu kullanın**: değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, ve `<mount-point>` ortamınız için uygun bilgilerle. Linux dağıtımınız şifrelemesi ile SMB 3.0 destekliyorsa (bkz [anlamak SMB istemci gereksinimleri](#smb-client-reqs) daha fazla bilgi için), kullanın `3.0` için `<smb-version>`. SMB 3.0 şifrelemesi ile desteklemeyen Linux dağıtımları için kullanmak `2.1` için `<smb-version>`. Azure dosya paylaşımının yalnızca bir Azure bölgesi dışında bağlanabilir unutmayın (şirket içi dahil olmak üzere veya farklı bir Azure bölgesindeki) SMB 3.0 ile. 
 
-    ```
+    ```bash
     sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
 > İşiniz bittiğinde Azure dosya paylaşımı kullanarak `sudo umount <mount-point>` paylaşım çıkaramadı.
 
-## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Azure dosya paylaşımının için kalıcı bağlama noktası oluştur`/etc/fstab`
+## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Azure dosya paylaşımının için kalıcı bağlama noktası oluştur `/etc/fstab`
 1. **[Linux dağıtımınızı CIFS yardımcı programları paketini Yükle](#install-cifs-utils)**.
 
 2. **Bağlama noktası için bir klasör oluşturun**: bir bağlama noktası için bir klasör dosya sisteminde herhangi bir yerden oluşturulabilir, ancak bu altında oluşturmak için ortak bir kuraldır `/mnt` klasör. Bu oluşturduğunuz her yerde, mutlak yolu klasör unutmayın. Örneğin, aşağıdaki komut altında yeni bir klasör oluşturur `/mnt` (yolu mutlak bir yol değil).
 
-    ```
+    ```bash
     sudo mkdir /mnt/MyAzureFileShare
     ```
 
-3. **Aşağıdaki satırı eklemek için aşağıdaki komutu kullanın `/etc/fstab`** : değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, `<smb-version>`, `<storage-account-key>`, ve `<mount-point>` için uygun bilgilerle, ortam. Linux dağıtımınız şifrelemesi ile SMB 3.0 destekliyorsa (bkz [anlamak SMB istemci gereksinimleri](#smb-client-reqs) daha fazla bilgi için), kullanın `3.0` için `<smb-version>`. SMB 3.0 şifrelemesi ile desteklemeyen Linux dağıtımları için kullanmak `2.1` için `<smb-version>`. Azure dosya paylaşımının yalnızca bir Azure bölgesi dışında bağlanabilir unutmayın (şirket içi dahil olmak üzere veya farklı bir Azure bölgesindeki) SMB 3.0 ile. 
+3. **Kullanıcı adı (depolama hesabı adı) ve dosya paylaşımı için parola (depolama hesabı anahtarı) depolamak için bir kimlik bilgileri dosyası oluşturun.** Değiştirilecek unutmayın `<storage-account-name>` ve `<storage-account-key>` ortamınız için uygun bilgilerle. 
 
+    ```bash
+    if [ -d "/etc/smbcredentials" ]; then
+        sudo mkdir /etc/smbcredentials
+    fi
+
+    if [ ! -f "/etc/smbcredentials/<storage-account-name>.cred" ]; then
+        sudo bash -c 'echo "username=<storage-account-name>" >> /etc/smbcredentials/<storage-account-name>.cred'
+        sudo bash -c 'echo "password=<storage-account-key>" >> /etc/smbcredentials/<storage-account-name>.cred'
+    fi
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+
+4. **Yalnızca kök okuma veya parola dosyasını değiştirmek için kimlik bilgisi dosya üzerindeki izinleri değiştirin.** Depolama hesabı anahtarı temelde Süper yönetici parolasını depolama hesabı olduğundan, yalnızca kök gibi erişebilirsiniz dosyanın izinlerini ayarlama, böylece daha düşük ayrıcalıklı kullanıcıyı kuralından depolama hesabı anahtarı olamaz önemlidir.   
+
+    ```bash
+    sudo chmod 600 /etc/smbcredentials/<storage-account-name>.cred
+    ```
+
+5. **Aşağıdaki satırı eklemek için aşağıdaki komutu kullanın `/etc/fstab`** : değiştirmek unutmayın `<storage-account-name>`, `<share-name>`, `<smb-version>`, ve `<mount-point>` ortamınız için uygun bilgilerle. Linux dağıtımınız şifrelemesi ile SMB 3.0 destekliyorsa (bkz [anlamak SMB istemci gereksinimleri](#smb-client-reqs) daha fazla bilgi için), kullanın `3.0` için `<smb-version>`. SMB 3.0 şifrelemesi ile desteklemeyen Linux dağıtımları için kullanmak `2.1` için `<smb-version>`. Azure dosya paylaşımının yalnızca bir Azure bölgesi dışında bağlanabilir unutmayın (şirket içi dahil olmak üzere veya farklı bir Azure bölgesindeki) SMB 3.0 ile. 
+
+    ```bash
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> <mount-point> cifs nofail,vers=<smb-version>,credentials=/etc/smbcredentials/<storage-account-name>.cred,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  
@@ -128,6 +148,6 @@ Azure dosyaları Linux Kullanıcıları grubu için bir forum değerlendirin ve 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Dosyaları hakkında daha fazla bilgi edinmek için şu bağlantılara göz atın.
 * [Azure dosyaları giriş](storage-files-introduction.md)
-* [Bir Azure dosyaları dağıtımını planlama](storage-files-planning.md)
+* [Azure Dosyaları dağıtımını planlama](storage-files-planning.md)
 * [SSS](../storage-files-faq.md)
 * [Sorun giderme](storage-troubleshoot-linux-file-connection-problems.md)

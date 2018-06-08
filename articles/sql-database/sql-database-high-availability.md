@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c7c2b72b3a164e35c464a92f82cddb3329250283
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650069"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839818"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 Azure SQL veritabanı PaaS teklifi en başından itibaren Microsoft, yüksek kullanılabilirlik (HA) hizmetine inşa edilmiş ve müşterilerin çalışır, özel mantığı ekleyin veya HA geçici kararları için gerekli değildir, müşterilerinin promise yapmıştır. Microsoft, müşterilerin bir SLA sunumu HA sistem yapılandırması ve işlem üzerinde tam denetim tutar. HA SLA durumlarda Microsoft'un makul şekilde denetimi dışında etkenler nedeniyle olan toplam bölge hata koruma sağlamaz ve bir bölgede bir SQL veritabanı için geçerlidir (örneğin, doğal afet, war, terörist saldırılarını, riots, devlet eylemi olaylardan veya ağ veya cihaz arızası müşteri sitelerden veya müşteri siteleri ve Microsoft'un veri merkezi arasında dahil, Microsoft'un veri merkezlerinin dışındaki).
@@ -79,7 +79,7 @@ Varsayılan olarak, yerel depolama yapılandırmaları için çekirdek kümesi �
 Bölge olarak yedekli çekirdek kümesi aralarında bazı uzaklıklı farklı veri merkezlerinde çoğaltmaları olduğundan, artan ağ gecikmesi yürütme süresini artırabilir ve bu nedenle bazı OLTP iş yüklerinin performansını etkileyebilir. Her zaman dilimi artıklık ayarını devre dışı bırakarak tek bölge yapılandırmaya geri dönebilirsiniz. Bu işlem veri işlemi bir boyuta sahiptir ve normal hizmet düzeyi hedefi (SLO) güncelleştirme benzer. İşlemin sonunda, veritabanı veya havuzu bir bölge olarak yedekli halka dışında tek bir bölge halka (veya tersi) geçirilir.
 
 > [!IMPORTANT]
-> Bölge olarak yedekli veritabanları ve esnek havuzlar yalnızca desteklenen Premium ve iş kritik (Önizleme) hizmet katmanları. Genel Önizleme, yedeklemeler ve Denetim sırasında kayıtları RA-GRS depolama alanında depolanır ve bu nedenle bir bölge genelinde kesinti durumunda otomatik olarak kullanılamayabilir. 
+> Bölge olarak yedekli veritabanları ve esnek havuzlar olan şu anda yalnızca Premium hizmet katmanında desteklenir. Genel Önizleme, yedeklemeler ve Denetim sırasında kayıtları RA-GRS depolama alanında depolanır ve bu nedenle bir bölge genelinde kesinti durumunda otomatik olarak kullanılamayabilir. 
 
 Yüksek kullanılabilirlik mimarisi bölge olarak yedekli sürümü tarafından Aşağıdaki diyagramda gösterilmiştir:
  

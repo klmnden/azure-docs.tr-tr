@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/23/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43cfb16e9471736c0f112ef879faaf01badebc4f
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d336b0a4c1de069fccce21a370ca64dc9e9359c9
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824957"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831702"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -166,6 +166,8 @@ Bu görünüm güncelleştirmeleri, güncelleştirme dağıtımları ve zamanlan
 
 Öğe listeden seçerek makine, güncelleştirme veya dağıtım bilgileri döndürür günlük arama çalıştırabilirsiniz. Bu açılır **günlük arama** sayfası seçilen öğe için bir sorgu ile.
 
+![Güncelleştirme yönetimi varsayılan görüntüle](media/automation-update-management/update-management-view.png)
+
 ## <a name="installing-updates"></a>Güncelleştirmeleri yükleme
 
 Güncelleştirmeler çalışma alanınızdaki tüm Linux ve Windows bilgisayarlar için değerlendirildikten sonra bir *Güncelleştirme Dağıtımı* oluşturarak gerekli güncelleştirmeleri yükleyebilirsiniz. Bir veya daha fazla bilgisayar için gerekli güncelleştirmelerin zamanlanmış bir yükleme bir güncelleştirme dağıtımıdır. Dağıtımın tarih ve saatine ek olarak, dağıtım kapsamına alınacak bilgisayarı veya bilgisayar grubunu belirtmeniz gerekir. Bilgisayar grupları hakkında daha fazla bilgi edinmek için bkz. [Log Analytics’te bilgisayar grupları](../log-analytics/log-analytics-computer-groups.md). Bilgisayar grupları güncelleştirme dağıtımınızda eklediğinizde, grup üyeliği zamanlama oluşturma aynı anda yalnızca bir kez değerlendirilir. Grupta daha sonra yapılan değişiklikler yansıtılmaz. Bu soruna geçici bir çözüm olarak, zamanlanmış güncelleştirme dağıtımını silin ve yeniden oluşturun.
@@ -197,9 +199,8 @@ Tıklayarak yeni bir güncelleştirme dağıtımı oluşturmak **zamanlama günc
 |İşletim Sistemi| Linux veya Windows|
 | Makineleri güncelleştirmek için |Kayıtlı aramayı seçin veya makine açılan listeden seçin ve tek tek makineleri seçin |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin.|
-|Hariç tutulacak güncelleştirmeler|'KB' öneki de hariç KB girin|
-|Zamanlama ayarları|Başlangıç ve her iki kez seçmek için saati seçin veya yineleme için yinelenen|
-| Bakım penceresi |Güncelleştirmeler için belirlediğiniz dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
+|Hariç tutulacak güncelleştirmeler|Dışlanacak güncelleştirmeleri girin. Windows için KB 'KB' öneki olmadan girin. Linux için paket adını girin veya bir joker karakter kullanın.  |
+|Zamanlama ayarları|Başlangıç ve her iki kez seçmek için saati seçin veya yineleme için yinelenen|| Bakım penceresi |Güncelleştirmeler için belirlediğiniz dakika sayısı. Değeri olması olamaz az 30 dakika ve en fazla 6 saat |
 
 ## <a name="update-classifications"></a>Güncelleştirme sınıflandırmaları
 

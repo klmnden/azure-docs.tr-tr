@@ -11,14 +11,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: rodejo
-ms.openlocfilehash: 312efd6233546ae32e498907e04fbf8aea73f7b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b53c2b717d41cc202b20805e6513cac0ce0c2758
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850051"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Grup Yönetimi için Azure Active Directory sürüm 2 cmdlet'leri
 > [!div class="op_single_selector"]
@@ -33,8 +34,9 @@ Bu makale, Azure Active Directory'de (Azure AD), grupları yönetmek için Power
 Azure AD PowerShell modülünü yüklemek için aşağıdaki komutları kullanın:
 
     PS C:\Windows\system32> install-module azuread
+    PS C:\Windows\system32> import-module azuread
 
-Modül yüklendiğini doğrulamak için aşağıdaki komutu kullanın:
+Modül kullanıma hazır olduğunu doğrulamak için aşağıdaki komutu kullanın:
 
     PS C:\Windows\system32> get-module azuread
 
@@ -250,7 +252,7 @@ Bir sahip bir gruptan kaldırmak istiyorsanız, Remove-AzureADGroupOwner cmdlet'
 Bir grup, uç noktaları mailNickname veya e-posta adresi grubunun bir parçası olarak kullanılacak diğer belirtmek son kullanıcı izin belirli oluşturulduğunda. Aşağıdaki üst düzey ayrıcalıklı e-posta diğer adlar gruplarıyla yalnızca Azure AD genel yönetici tarafından oluşturulabilir. 
   
 * Uygunsuz kullanım 
-* yönetici 
+* Yönetici 
 * Yönetici 
 * hostmaster 
 * majordomo 

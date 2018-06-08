@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: 4f57924bf2197c472d408edc67baf35b18ae45c2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bbbe677b0a0d47147ace41ff5a229282f80bbf1b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652935"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839524"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri, uygulamanızda dağıtma
 Bir ölçek kümesindeki sanal makine (VM) örneklerinde uygulamaları çalıştırmak için önce uygulama bileşenlerini ve gerekli dosyaları yüklemeniz gerekir. Bu makalede bir ölçek durumlarda ayarlayın ya da var olan VM örneklerini otomatik olarak yükleme betikleri çalıştırmak için özel bir VM görüntüsü oluşturmak için yollar sağlar. Ayrıca uygulama veya işletim sistemi güncelleştirmelerini ölçek kümesi boyunca yönetmeyi öğrenin.
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Uygulamaları ile işletim sistemi güncelleştirmelerini yükleyin
 Yeni işletim sistemi sürümleri kullanılabilir olduğunda kullanabilir veya yeni bir özel görüntü oluşturabilirsiniz ve [işletim sistemi yükseltme dağıtmak](virtual-machine-scale-sets-upgrade-scale-set.md) bir ölçek kümesi. Her VM örneği, belirttiğiniz en son görüntüyü yükseltilir. Yükseltme gerçekleştirirken uygulamanızı otomatik olarak kullanılabilir olması için önceden yüklenmiş uygulamayla özel betik uzantısı veya PowerShell DSC özel bir görüntü kullanabilirsiniz. Uyumluluk sorunları hiçbir sürüm olduğundan emin olmak için bu işlemi gerçekleştirmek için uygulama bakım planı gerekebilir.
 
-Uygulamanın önceden yüklü olduğu özel bir VM görüntüsü kullanıyorsanız, yeni görüntüleri oluşturmak ve işletim sistemi yükseltmeleri ölçek kümesi boyunca dağıtmak için bir dağıtım ardışık düzen uygulama güncelleştirmeleri tümleştirileceğini. Bu yaklaşım, en son uygulama derlemeleri çekme, oluşturma ve bir VM görüntüsü doğrulayarak yeniden ölçek kümesi VM örnekleri yükseltme ardışık düzen sağlar. Derlemeler özel VM görüntüleri uygulama güncelleştirmeleri dağıtan bir dağıtım ardışık düzeni ve çalıştırmak için verebilir [Packer görüntü oluşturma ve Visual Studio Team Services ile dağıtma) [/ vsts/işlem hatları/apps/cd/azure/dağıtma-azure-scaleset] veya başka bir platform kullanın gibi [Spinnaker](https://www.spinnaker.io/) veya [Jenkins](https://jenkins.io/).
+Uygulamanın önceden yüklü olduğu özel bir VM görüntüsü kullanıyorsanız, yeni görüntüleri oluşturmak ve işletim sistemi yükseltmeleri ölçek kümesi boyunca dağıtmak için bir dağıtım ardışık düzen uygulama güncelleştirmeleri tümleştirileceğini. Bu yaklaşım, en son uygulama derlemeleri çekme, oluşturma ve bir VM görüntüsü doğrulayarak yeniden ölçek kümesi VM örnekleri yükseltme ardışık düzen sağlar. Derlemeler özel VM görüntüleri uygulama güncelleştirmeleri dağıtan bir dağıtım ardışık düzeni ve çalıştırmak için verebilir [Packer görüntü oluşturma ve Visual Studio Team Services ile dağıtma](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), veya başka bir platform gibi kullandığınız [Spinnaker ](https://www.spinnaker.io/) veya [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

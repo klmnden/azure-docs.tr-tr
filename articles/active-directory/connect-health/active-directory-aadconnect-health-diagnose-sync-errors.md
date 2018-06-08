@@ -1,6 +1,6 @@
 ---
 title: Azure AD Connect Health - tanılama özniteliği eşitleme hatalarını yinelenen | Microsoft Docs
-description: Bu belgede, yinelenen öznitelik eşitleme hatalarını tanılayın işlemi ve olası düzeltme doğrudan Azure portalından yalnız bırakılmış nesneye senaryolar açıklanmaktadır.
+description: Bu belgede, yinelenen öznitelik eşitleme hatalarını tanılama işlemi ve olası bir düzeltme doğrudan Azure portalından yalnız bırakılmış nesneye senaryolar açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
 author: zhiweiw
@@ -13,36 +13,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 0a345fd3443fb33d6f5912c8a04677091e20ecc8
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4a6e0924492c26c9bad4ed0af207ad9764c3cc5c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831906"
 ---
-# <a name="duplicate-attribute-sync-errors-diagnosis-and-remediation"></a>Yinelenen öznitelik eşitleme hatalarını tanılama ve düzeltme 
+# <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Tanılama ve yinelenen öznitelik eşitleme hatalarını Düzelt
 
 ## <a name="overview"></a>Genel Bakış
-Eşitleme hataları vurgulamanın bir adım alma, Azure Active Directory Connect Health yinelenen öznitelik eşitleme hatalarında sorun giderme ve yalnız bırakılmış nesneleri Azure AD'den düzeltmek için bir Self Servis düzeltmeyi deneyimi sunmaktadır. Tanılama özelliğini temel avantaj:
-- Yinelenen öznitelik eşitleme hatası senaryoları daraltmak ve özel çözümler belirtmek için tanılama yordam sağlayın
-- Tek tıklatma hatayı gidermek için Azure AD'den ayrılmış senaryoları için düzeltmeyi Uygula
+Eşitleme hataları vurgulamak için bir adım uzağa alma, Azure Active Directory (Azure AD) Connect Health Self Servis düzeltmeyi sunar. Yinelenen öznitelik Eşitleme hataları giderir ve yalnız bırakılır nesneleri Azure AD'den giderir.
+Tanı özelliği aşağıdaki faydaları vardır:
+- Yinelenen öznitelik Eşitleme hataları daraltır tanılama bir yordam sağlar. Ve düzeltmeler sağlar.
+- Tek bir adımda hatayı gidermek için Azure AD'den bir düzeltme ayrılmış senaryolar için geçerlidir.
 - Yükseltme veya yapılandırma yok, bu özelliği etkinleştirmek için gereklidir.
-Azure AD hakkında daha fazla ayrıntı okuma [esnekliği yinelenen](https://aka.ms/dupattributeresdocs).
+Azure AD hakkında daha fazla bilgi için bkz: [kimlik eşitleme ve yinelenen öznitelik dayanıklılık](https://aka.ms/dupattributeresdocs).
 
 ## <a name="problems"></a>Sorunları
-### <a name="common-scenario"></a>Yaygın bir senaryo
-Zaman **QuarantinedAttributeValueMustBeUnique** ve **AttributeValueMustBeUnique** Eşitleme hataları gerçekleşir, Azure AD'de kullanıcı asıl adı veya Proxy adreslerini çakışması yaygın olduğu. Şirket içi tarafında çakışan kaynak nesnesi güncelleyerek Eşitleme hataları çözebilir. Eşitleme hatası aşağıdaki eşitlemeden sonra çözümlenir. Örneğin, aşağıdaki resimde iki kullanıcı kendi UserPrincipalName ihtilaf yaşıyor belirtir *Joe.J@contoso.com*. Çakışan nesneler Azure AD'de karantinaya alındı durumundadır. 
+### <a name="a-common-scenario"></a>Yaygın bir senaryo
+Zaman **QuarantinedAttributeValueMustBeUnique** ve **AttributeValueMustBeUnique** Eşitleme hataları durum, bu yaygın bir **UserPrincipalName** veya **Proxy adreslerini** Azure AD çakışıyor. Şirket içi yan çakışan kaynak nesneden güncelleyerek Eşitleme hataları düzeltebilir. Eşitleme hatası sonraki eşitlemeden sonra çözümlenir. Örneğin, bu görüntüyü iki kullanıcı çakışma sahip olduğunu gösterir. kendi **UserPrincipalName**. Her ikisi de **Joe.J@contoso.com**. Çakışan nesneler Azure AD'de karantinaya alındı durumundadır.
 
 ![Eşitleme hatası yaygın bir senaryo tanılama](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
 
 ### <a name="orphaned-object-scenario"></a>Yalnız bırakılmış nesneye senaryosu
-Bazen, mevcut bir kullanıcının kaynak bağlantısı kaybederse bulabilirsiniz. Şirket içinde AD içinde kaynak nesnesi silinmesini oldu, ancak silme sinyal değişiklik hiçbir zaman Azure AD'ye eşitlenen. Eşitleme altyapısı sorunu veya etki alanı geçişi gibi nedenlerle oluşabilir. Aynı nesne geri veya yeniden, mantıksal olarak mevcut kullanıcının kaynak yer işaretine eşitlemek için kullanıcı olması gerekir. Mevcut kullanıcının bulut yalnızca nesne olarak Azure AD'ye eşitlenen çakışan kullanıcı de görebilirsiniz ve var olan nesneye eşit eşleştirilemiyor. Kaynak bağlantısı yeniden eşlemek için doğrudan bir yolu yoktur. Daha fazla bilgi edinin [varolan KB](https://support.microsoft.com/help/2647098). Örneğin, Azure AD mevcut nesne Joe lisans korur. Farklı kaynak bağlantısı ile eşitlenen nesne Azure AD içinde yinelenen öznitelik durumu oluştu. Değişiklikleri şirket Can'ın AD Can'ın özgün kullanıcı (varolan nesne) Azure AD içinde uygulanması mümkün olmaz.  
+Bazen, mevcut bir kullanıcının kaybederse bulabileceğiniz **kaynak bağlantısı**. Kaynak nesne silinmesini şirket içi Active Directory'de oldu. Ancak silme sinyal değişiklik hiçbir zaman Azure AD'ye eşitlenen. Eşitleme altyapısı sorunları veya etki alanı geçişi gibi nedenlerle bu kaybı olur. Aynı nesne veya geri yeniden, mantıksal olarak, mevcut bir kullanıcının eşitleme kullanıcıya olmalıdır **kaynak bağlantısı**. 
+
+Mevcut bir kullanıcının bir yalnızca bulut nesne olduğunda, Azure AD'ye eşitlenen çakışan kullanıcı de görebilirsiniz. Kullanıcı, var olan nesneye eşit eşleştirilemiyor. Yeniden eşlemek için doğrudan bir yolu yoktur **kaynak bağlantısı**. Daha fazla gördükleri hakkında [varolan Bilgi Bankası](https://support.microsoft.com/help/2647098). 
+
+Örnek olarak, Azure AD mevcut nesne Joe lisans korur. Farklı bir sahip yeni eşitlenmiş bir nesnenin **kaynak bağlantısı** Azure AD'de bir yinelenen öznitelik durumunda oluşur. Şirket içi Active Directory'de Joe değişiklikleri Can'ın özgün kullanıcı (varolan nesne) Azure AD içinde uygulanmaz.  
 
 ![Eşitleme hatası yalnız bırakılmış nesneye senaryosu tanılama](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
 ## <a name="diagnostic-and-troubleshooting-steps-in-connect-health"></a>Tanılama ve sorun giderme adımları Connect Health içinde 
-Özellik destekler aşağıdaki yinelenen özelliklere sahip kullanıcı nesneler tanılamak:
+Tanıla özelliği, şu yinelenen öznitelikleri olan kullanıcı nesneleri destekler:
 
-| Öznitelik Adı | Eşitleme hata türleri|
+| Öznitelik adı | Eşitleme hata türleri|
 | ------------------ | -----------------|
 | userPrincipalName | QuarantinedAttributeValueMustBeUnique veya AttributeValueMustBeUnique | 
 | ProxyAddresses | QuarantinedAttributeValueMustBeUnique veya AttributeValueMustBeUnique | 
@@ -50,90 +56,94 @@ Bazen, mevcut bir kullanıcının kaynak bağlantısı kaybederse bulabilirsiniz
 | onPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Gerektirdiği **genel yönetici** izni veya **katkıda bulunan** RBAC ayarlardan bu özelliği erişebilmelidir. 
+> Bu özelliğe erişmek için **genel yönetici** izni veya **katkıda bulunan** RBAC ayarlarından izni gereklidir.
 >
 
-Adımlar Azure portalından, eşitleme hata ayrıntılarını daraltmak ve daha belirli çözümleri sağlamak mümkün olacaktır:
+Eşitleme hata ayrıntılarını daraltmak ve daha belirli çözümleri sağlamak için Azure portalından adımları izleyin:
 
-![Eşitleme tanılamak hatasını tanılayın adımları](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixSteps.png)
+![Eşitleme hatası tanılama adımları](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixSteps.png)
 
-Azure portalından belirli düzeltilebilir senaryoları tanımlamak için birkaç adım ile çalışmaya devam edebilirsiniz olacaktır:  
-1.  Tanıla Durum sütununda durumu hata durumunu daraltmak ve potansiyel olarak Azure Active Directory'den doğrudan düzeltmek için olası bir sorun giderme akış olup olmadığını gösterir.
+Azure portalından belirli düzeltilebilir senaryoları tanımlamak için bazı adımları uygulayın:  
+1.  Denetleme **durumunu tanılamak** sütun. Durumu eşitleme hatası doğrudan Azure Active Directory'den düzeltmek için olası bir yolu olup olmadığını gösterir. Diğer bir deyişle, sorun giderme akış var hata durumunu daraltmak ve potansiyel olarak düzeltin.
 | Durum | Ne anlama geliyor? |
 | ------------------ | -----------------|
-| Başlatılmadı | Bu tanılama işlemi gittiğiniz değil. Bağımlı tanılama sonucuna potansiyel olarak doğrudan portal eşitleme hatayı düzeltmek için bir yolu yoktur. |
-| El ile Düzeltme Gerekli | Hata ölçütleri portalından kullanılabilir düzeltme içine uymuyor. Durum türleri (2) zaten tanılama adımları ve no gittiğiniz kullanıcılar çözüm Portalı'ndan kullanılabilen düzeltme değil (1) çakışan nesne olabilir. Bu durumda, şirket içi yan düzeltme çözümlerden birini olmaya devam eder. [Şirket içi hakkında daha fazla gidermek okuma](https://support.microsoft.com/help/2647098) | 
-| Beklenen Eşitleme | Düzeltme uygulandı. Hata temizlemek bir sonraki eşitleme döngüsü için bekleniyor. |
->[!IMPORTANT]
-> Tanı durumu sütun her eşitleme döngüsünden sonra sıfırlanır. 
->
+| Başlatılmadı | Bu tanılama işlemi ziyaret etmediğiniz. Tanılama sonucu bağlı olarak doğrudan portal üzerinden eşitleme hatayı düzeltmek için olası bir yolu yoktur. |
+| El ile Düzeltme Gerekli | Hata portalından kullanılabilir düzeltmeler ölçütlerine uymayan. Kullanıcıları, çakışan ya da nesne türleri değil veya zaten tanılama adımlarını gittiğiniz ve düzeltme çözümleme portaldan kullanılabilir. İkinci durumda, bir düzeltme şirket içi taraftaki hala çözümleri biridir. [Okuma hakkında daha fazla bilgi içi düzeltmeleri](https://support.microsoft.com/help/2647098). | 
+| Beklenen Eşitleme | Bir düzeltme uygulandı. Portal hatayı temizlemek bir sonraki eşitleme döngüsü için bekliyor. |
+  >[!IMPORTANT]
+  > Tanı durumu sütun her eşitleme döngüsünden sonra sıfırlanır. 
+  >
 
-2.  Tıklayarak **Tanıla** düğmesi hata ayrıntıları dikey penceresinde, birkaç soruları yanıtlayın ve eşitleme hata ayrıntıları tanımlamak gerekir. Sorulara yanıt verilmesi, yalnız bırakılmış nesneye senaryo durumunun tanımlanmasına yardımcı olacak. 
+2.  Seçin **Tanıla** düğmesi hata ayrıntılarını altında. Birkaç soruyu yanıtlamanız ve eşitleme hata ayrıntılarını tanımlayın. Soruların yanıtlarını yalnız bırakılmış nesneye çalışması tanımlamaya yardımcı olur.
 
-3.  Varsa bir **Kapat** düğmesi tanılama sonunda bu hızlı düzeltme verilen yanıtlara bağlı portalından kullanılabilir anlamına gelir. Son adımda gösterilen çözümde bakın. Şirket içi düzeltme çözümleri olmaya devam eder. Kapat düğmesine tıkladıktan sonra geçerli eşitleme hatası durumunu olacak şekilde değiştirmek bulacaksınız **gerekli el ile düzeltme**. Durumu geçerli eşitleme döngüsü sırasında korur.
+3.  Varsa bir **Kapat** tanılama sonunda düğmesi görünür olduğundan hızlı düzeltme verdiğiniz yanıtları temel alarak portalından. Son adımda gösterilen çözümde bakın. Şirket içi düzeltmeleri hala çözümdür. Seçin **Kapat** düğmesi. Geçerli eşitleme hatası durumunu geçer **gerekli el ile düzeltme**. Durumu geçerli eşitleme döngüsü sırasında kalır.
 
-4.  Yalnız bırakılmış nesneye çalışması tanımlandıktan sonra yinelenen öznitelikler doğrudan portal üzerinden eşitleme hatalarını düzeltmeyi kuramaz. Tıklayın **düzeltme** işlemi tetiklemek için düğmesi. Geçerli eşitleme hatası durumunu olacak şekilde güncelleştirecektir **eşitleme bekleyen**.
+4.  Yalnız bırakılmış nesneye çalışması belirlendikten sonra yinelenen öznitelikler doğrudan portal üzerinden eşitleme hataları düzeltebilir. İşlemi tetiklemek için seçin **düzeltme** düğmesi. Geçerli eşitleme hatası güncelleştirmeler durumunu **eşitleme bekleyen**.
 
-5.  Aşağıdaki eşitleme döngüsünden sonra hata listesinden kaldırılması gerekir.
+5.  Bir sonraki eşitleme döngüsünden sonra hata listesinden kaldırılması gerekir.
 
 ## <a name="how-to-answer-the-diagnosis-questions"></a>Tanılama soruları yanıtlamak nasıl 
-### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Kullanıcı, şirket içi Active Directory var mı?
+### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Kullanıcı, şirket içi Active Directory'nizde var mı?
 
-Soru kaynak nesnesi mevcut kullanıcının şirket içi Active Directory'den tanımlamak çalışıyor.  
-1.  Active Directory sağlanan UserPrincipalName sahip bir nesne olup olmadığını denetleyin. Öyle değilse, yanıt No
-2.  Varsa, nesnenin hala Eşitleme kapsamında olup olmadığını denetleyin.  
-  - Azure AD Bağlayıcı Alanında DN ile arayın.
-  - Nesne ile bulunursa **bekleyen eklemek** durum, yanıt No Azure AD Connect nesneyi sağ AD nesnesine bağlanabiliyor değil.
-  - Nesne bulunmazsa Evet yanıtı.
+Şirket içi Active Directory'den mevcut kullanıcının kaynak nesnesi tanımlamak bu soruyu çalışır.  
+1.  Azure Active Directory sağlanan sahip bir nesne olup olmadığını kontrol **UserPrincipalName**. Aksi durumda, yanıt **Hayır**.
+2.  Aşması durumunda nesne eşitleme için hala kapsamında olup olmadığını denetleyin.  
+  - DN kullanarak Azure AD bağlayıcı alanı arama.
+  - Nesne bulunursa **bekleyen eklemek** durum, yanıt **Hayır**. Azure AD Connect nesneyi sağ Azure AD nesnesine bağlanamıyor.
+  - Nesne bulunamazsa, yanıt **Evet**.
 
-> Aşağıdaki diyagramda alma, örneğin, soru belirlemek çalışıyor *Joe Jackson* hala şirket içi Active Directory'de yer alır.
-İçin **yaygın bir senaryo**, her iki kullanıcı *Joe Johnson* ve *Joe Jackson* , şirket içi Active Directory'de mevcut olacaktır. Karantinaya alınan nesneleri iki farklı kullanıcılardır.
+Bu örneklerde, soru tanımlamayı dener olup olmadığını **Joe Jackson** hala şirket içi Active Directory'de mevcut.
+İçin **yaygın bir senaryo**, her iki kullanıcı **Joe Johnson** ve **Joe Jackson** şirket içi Active Directory'de mevcut. Karantinaya alınan nesneleri iki farklı kullanıcılardır.
 
 ![Eşitleme hatası yaygın bir senaryo tanılama](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixCommonCase.png)
 
-> İçin **yalnız bırakılmış nesneye senaryo**, yalnızca tek kullanıcı – *Joe Johnson* şirket içi Active Directory'den mevcut olacaktır:
+İçin **yalnız bırakılmış nesneye senaryo**, yalnızca tek kullanıcı **Joe Johnson** şirket içi Active Directory'de mevcuttur:
 
-![Eşitleme hatası yalnız bırakılmış nesneye senaryosu tanılama](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
+![Eşitleme hatası yalnız bırakılmış nesneye tanılamak * kullanıcı mevcut * senaryosu](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
-### <a name="do-both-these-accounts-belong-to-the-same-user"></a>Bu iki hesap aynı kullanıcıya mı ait?
-Soru, aynı kullanıcıya ait olmadığını görmek için Azure AD, gelen çakışan kullanıcı ve var olan kullanıcı nesnesi denetliyor.  
-1.  Çakışan nesne yeni Azure Active Directory ile eşitlenmiş. Nesneden karşılaştırmak kendi:  
-  - Görünen ad
+### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Bu hesapların her ikisi de aynı kullanıcıya ait?
+Bu soruyu, aynı kullanıcıya ait görmek için Azure AD'de bir gelen çakışan kullanıcı ve var olan kullanıcı nesnesi denetler.  
+1.  Çakışan nesne yeni Azure Active Directory ile eşitlenmiş. Nesnelerin öznitelikleri karşılaştırın:  
+  - Görünen Ad
   - Kullanıcı Asıl Adı
   - Nesne kimliği
-2.  Bunları karşılaştırmak için başarısız olursa, Active Directory ile sağlanan UserPrincipalNames nesnelere sahip denetleyin. Her ikisi de bulunursa Hayır yanıtı.  
+2.  Bunları karşılaştırmak Azure AD başarısız olursa, Active Directory nesneleri ile sağlanan sahip olup olmadığını kontrol **UserPrincipalNames**. Yanıt **Hayır** her ikisi de fark ederseniz.
 
-> Durumda iki nesnenin aynı kullanıcıya ait *Joe Johnson*.
+Aşağıdaki örnekte, iki nesnenin aynı kullanıcıya ait **Joe Johnson**.
 
-![Eşitleme hatası yalnız bırakılmış nesneye senaryosu tanılama](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
+![Eşitleme hatası yalnız bırakılmış nesneye tanılamak * aynı kullanıcı * senaryosu](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixOrphanedCase.png)
 
 
-## <a name="what-happened-after-fix-is-applied-for-orphaned-object-scenario"></a>Yalnız bırakılmış nesneye senaryo için düzeltme uygulandıktan sonra ne oldu
-Yükseltilmiş soruların yanıtları temel alarak, görmeye siz olacaksınız **düzeltme** düğmesini Azure AD'den kullanılabilir bir düzeltme olduğunda. Beklenmeyen Azure ile şirket içi nesne bu durumda, eşitliyor AD nesnesi. İki nesne, "Kaynak bağlantısı" kullanarak eşlenir. Uygula değiştirme adımları aşağıdaki gibi gerçekleştirin:
-- Kaynak bağlantısı doğru nesnesine Azure AD'de güncelleştirin.
-- Bunu sunarsa Azure AD'de çakışan nesnesini silin.
+## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>Yalnız bırakılmış nesneye senaryoda düzeltme uygulandıktan sonra ne olur?
+Göreceğiniz önceki soruların yanıtlarını bağlı olarak, **düzeltme** düğmesini Azure AD'den kullanılabilir bir düzeltme olduğunda. Beklenmeyen Azure ile şirket içi nesne bu durumda, eşitliyor AD nesnesi. İki nesne kullanarak eşlenmiş **kaynak bağlantısı**. **Düzeltme** değişiklik alır bunlar veya benzer adımlar:
+1. Güncelleştirmeleri **kaynak bağlantısı** Azure AD'de doğru nesnesine.
+2. Varsa, Azure AD'de çakışan nesneyi siler.
 
 ![Eşitleme hatası düzeltme tanılama](./media/active-directory-aadconnect-health-sync-iidfix/IIdFixAfterFix.png)
 
 >[!IMPORTANT]
-> Geçerli düzeltme değişiklik yalnızca yalnız bırakılmış nesneye çalışmaları için geçerlidir.
+> **Düzeltme** değişikliği yalnızca yalnız bırakılmış nesneye çalışmaları için geçerlidir.
 >
 
-Yukarıdaki adımları sonra kullanıcı varolan nesne bağlantıdır özgün kaynak erişebiliyor olacaktır. **Durumunu tanılamak** liste görünümünde değer olacak şekilde güncelleştirilir **bekleyen eşitleme**. Eşitleme hatası aşağıdaki eşitlemeden sonra çözümlenir. Bağlantı durumu çözümlenmiş eşitleme hatası liste görünümündeki artık gösterilmez. 
+Önceki adımlar, varolan bir nesne için bir bağlantı özgün kaynak kullanıcı erişebilir. **Durumunu tanılamak** değeri liste görünümünde güncelleştirmeleri **bekleyen eşitleme**. Eşitleme hatası sonraki eşitlemeden sonra çözümlenir. Sistem durumu uzun gösterilmiyor liste görünümünde çözümlenmiş eşitleme hatası bağlayın.
 
 
 ## <a name="faq"></a>SSS
- -  Uygula yürütülmesi başarısız olursa ne oldu?  
-Yürütme başarısız olursa, olası Azure AD olduğu Bağlan verme hatası aynı anda çalışıyor. Portal sayfayı yenileyin ve aşağıdaki eşitlemeden sonra yeniden deneyin. Varsayılan eşitleme döngüsü 30 dakikadır. 
+**S.** Ne olur yürütülmesi **düzeltme** başarısız oluyor?  
+**C.** Yürütme başarısız olursa, Azure AD Connect verme hatayla çalışıyor mümkündür. Portal sayfayı yenileyin ve sonraki eşitlemeden sonra yeniden deneyin. Varsayılan eşitleme döngüsü 30 dakikadır. 
 
- -  Ne **varolan nesne** silinecek nesne olmalıdır?  
-Varolan nesne bu durumda silinmesi gerekir, işlem kaynak bağlantısı, değişiklik gerektirmez. Şirket içinden Düzelt açabilmelisiniz AD.  
 
- -  Düzeltme uygulayabilmesi kullanıcı izinlerini nedir?  
-Genel yönetici veya katkıda bulunan RBAC ayarlarından tanılama ve sorun giderme işlemi erişmek için izne sahip olur.
+**S.** Ne **varolan nesne** silinecek nesne olmalıdır?  
+**C.** Varsa **varolan nesne** olmalıdır silinmiş, işlem değişikliği içermeyen **kaynak bağlantısı**. Genellikle, şirket içi Active Directory'den olarak düzeltebilir. 
 
- -  I yapılandırması için AAD Connect veya bu özellik için Azure AD Connect Health aracısını güncelleştirme?  
-Hayır, tam bir bulut tabanlı özelliği tanılama işlemidir.
 
- -  Varolan nesne silinmiş de yumuşak ise, Tanıla işlem tekrar etkin olması için nesne geri?  
-Hayır, düzeltme nesne özniteliği kaynak bağlantısı dışında güncelleştirmez. 
+**S.** Hangi izni düzeltmeyi uygulamak bir kullanıcı mu?  
+**C.** **Genel yönetici**, veya **katkıda bulunan** RBAC ayarlarından tanılama ve sorun giderme işlemi erişmek için izne sahip.
+
+
+**S.** Bu özellik için Azure AD Connect Health aracısını güncelleştirme veya Azure AD Connect yapılandırma gerekiyor mu?  
+**C.** Hayır, tanılama tam bir bulut tabanlı özelliği işlemidir.
+
+
+**S.** Varolan nesne silinmiş de yumuşak ise, tanılama işlemi nesne yeniden etkin hale getirir?  
+**C.** Hayır, düzeltme nesne öznitelikleri dışında güncelleştirme olmaz **kaynak bağlantısı**.

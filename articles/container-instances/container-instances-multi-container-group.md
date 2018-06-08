@@ -6,31 +6,39 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
+ms.date: 06/08/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: db3f616d85c21f01c751fd82532289593a6e7e45
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850578"
 ---
 # <a name="deploy-a-container-group"></a>Kapsayıcı grubu dağıtma
 
 Azure kapsayıcı örnekleri birden çok kapsayıcı kullanarak tek bir ana bilgisayar üzerine dağıtımını destekleyen bir [kapsayıcı grubu](container-instances-container-groups.md). Bu günlüğe kaydetme, izleme veya başka bir yapılandırma için bir uygulama sepet oluştururken bir hizmetin ikinci bir bağlı işlem nerede ihtiyaç yararlıdır.
 
-Bu belge, Azure Resource Manager şablonu dağıtarak basit çok kapsayıcı sepet yapılandırmasını çalıştırma açıklanmaktadır.
+Azure CLI kullanarak birden çok kapsayıcı grupları dağıtmak için iki yöntem vardır:
+
+* Resource Manager şablonu dağıtımı (Bu makalede)
+* [YAML dosya dağıtımı](container-instances-multi-container-yaml.md)
+
+Ek Azure hizmet kaynakları (örneğin, bir Azure dosya paylaşımı) dağıtmak gerektiğinde bir Resource Manager şablonu ile dağıtım kapsayıcı örnek dağıtım zamanında önerilir. Dağıtımınızı içerdiğinde YAML formatı nedeniyle daha kısa yapısı, dağıtımı YAML dosya ile önerilir *yalnızca* kapsayıcı örnekleri.
 
 > [!NOTE]
 > Birden çok kapsayıcı grupları Linux kapsayıcılara şu anda kısıtlı. Tüm özellikleri Windows kapsayıcılarına getirmek için çalışmamız esnasında, geçerli platform farklılıklarını [Azure Kapsayıcı Örnekleri için kotalar ve bölge kullanılabilirliği](container-instances-quotas.md) bölümünde bulabilirsiniz.
 
 ## <a name="configure-the-template"></a>Şablon yapılandırma
 
-Adlı bir dosya oluşturun `azuredeploy.json` ve aşağıdaki JSON dosyasını buraya kopyalayın.
+Bu makaledeki bölümler basit çok kapsayıcı sepet yapılandırma çalıştıran bir Azure Resource Manager şablonu dağıtarak yol.
 
-Bu örnekte, iki kapsayıcı, bir kapsayıcı grubuyla bir ortak IP adresi ve iki kullanıma sunulan bağlantı noktası tanımlanır. Gruptaki ilk kapsayıcı bir internet'e yönelik uygulama çalışır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
+Başlangıç adlı bir dosya oluşturarak `azuredeploy.json`, ardından aşağıdaki JSON dosyasını buraya kopyalayın.
 
-```json
+Bu Resource Manager şablonunu iki kapsayıcı kapsayıcı grubuyla, bir ortak IP adresi ve iki gösterilen bağlantı noktalarını tanımlar. Gruptaki ilk kapsayıcı bir internet'e yönelik uygulama çalışır. İkinci kapsayıcı, sepet grubun yerel ağ aracılığıyla ana web uygulaması için bir HTTP isteği yapar.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ Bu örnekte, iki kapsayıcı, bir kapsayıcı grubuyla bir ortak IP adresi ve ik
 
 Bir özel kapsayıcı görüntü kayıt defterini kullanmak için JSON belgesi aşağıdaki biçime sahip bir nesne ekleyin. Bu yapılandırma örnek uygulaması için bkz: [ACI Resource Manager şablonu başvurusu] [ template-reference] belgeleri.
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ Birkaç saniye içinde Azure’dan bir ilk yanıt almanız gerekir.
 
 ## <a name="view-deployment-state"></a>Dağıtım durumunu görüntüle
 
-Dağıtım durumunu görüntülemek için kullanın [az kapsayıcı Göster] [ az-container-show] komutu. Bu uygulama tarafından erişilebilen sağlanan genel IP adresini döndürür.
+Dağıtım durumunu görüntülemek için aşağıdakini kullanın [az kapsayıcı Göster] [ az-container-show] komutu:
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-Çıktı:
+Çalışan uygulama görüntülemek istiyorsanız, tarayıcınızın IP adresine gidin. Örneğin, IP. `52.168.26.124` Bu örnek çıkışı:
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

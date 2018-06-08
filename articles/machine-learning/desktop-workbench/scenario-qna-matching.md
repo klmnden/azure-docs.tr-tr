@@ -8,6 +8,7 @@ editor: mezmicrosoft
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 manager: tihazen
-ms.openlocfilehash: 081ca444aee5cd3d426ee569a98bf54c7923af79
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3695657d819f52ef04468a0f1a44828403c65373
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835109"
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Soru- cevap Azure Machine Learning çalışma ekranı kullanarak bir eşleştirme
 Açık sona erdi sorulara yanıt verilmesi zordur ve genellikle konu uzmanları (SME) gelen el ile çaba gerektirir. İç SME taleplerini azaltmaya yardımcı olmak için şirketler genellikle kullanıcılar yardımcı olan bir araç olarak sık sorulan sorular (SSS) listesi oluşturun. Bu örnek SSS soru/yanıt çiftleri önceden varolan açık sona erdi sorguları eşleştirmek için çeşitli etkili makine öğrenme yöntemlerini gösterir. Bu örnek, Azure Machine Learning çalışma ekranı kullanarak çözüm oluşturmak için bir kolay geliştirme sürecini gösterir. 

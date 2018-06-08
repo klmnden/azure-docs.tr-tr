@@ -7,14 +7,16 @@ ms.author: tedway
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
-ms.openlocfilehash: ceab96b1ef28527c8aa2692b83d3609f133f339c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1dffdee032c5b079aa5b81284cebe8f6471efebd
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833647"
 ---
 # <a name="deploy-an-azure-machine-learning-model-to-an-azure-iot-edge-device"></a>Bir Azure IOT sınır cihazı bir Azure Machine Learning modeli dağıtma
 
@@ -43,7 +45,7 @@ sudo iotedgectl login --address <docker-registry-address> --username <docker-use
 ### <a name="find-the-machine-learning-container-image-location"></a>Machine Learning kapsayıcı görüntü konumunu bulma
 Machine Learning kapsayıcı görüntüsünün konumu gerekir. Kapsayıcı görüntü konumu bulmak için:
 
-1. İçine oturum [Azure portal](http://portal.azure.com/).
+1. [Azure portalında](http://portal.azure.com/) oturum açın.
 2. İçinde **Azure kapsayıcı kayıt defteri**, incelemek istediğiniz kayıt defteri seçin.
 3. Kayıt defterinde tıklatın **depoları** tüm depoları ve resimlerinin listesini görmek için.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4cef685d71a64f8a6681a3449e4fe0b67899c67c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2e5a7cab5c9db0c13ca0c0986c18c86adf675562
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808613"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850295"
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Azure Active Directory Connect için sık sorulan sorular
 
@@ -121,7 +121,11 @@ Otomatik yükseltme işlemi, her zaman ilk yüklemenin otomatik yükseltme için
 Ortam büyüklüğüne işlemi birkaç saat sürebilir ve yükseltme gerçekleşirken, Windows Server AD ve Azure AD arasında hiçbir eşitleme gerçekleşir.
 
 **S: me, my otomatik yükseltme artık çalışır ve yeni sürümünü yüklemeniz gerekir bildiren bir e-posta aldım. Bunu yapmak neden gerekiyor mu?**</br>
-Geçen yıl, belirli koşullar altında sunucunuzda otomatik yükseltme özelliği devre dışı bırakmış olabilir, Azure AD Connect sürümü yayımlanmıştır. Azure AD Connect sürüm 1.1.750.0 Bu sorun düzeltilmiştir. Bu sorundan etkilenen müşteriler el ile sorunu azaltmak için Azure AD Connect'in en son sürümüne yükseltme yapmanız gerekir. El ile yükseltmek için indirin ve AADConnect.msi dosyasının en son sürümünü çalıştırın.
+Geçen yıl, belirli koşullar altında sunucunuzda otomatik yükseltme özelliği devre dışı bırakmış olabilir, Azure AD Connect sürümü yayımlanmıştır. Azure AD Connect sürüm 1.1.750.0 Bu sorun düzeltilmiştir. Bu sorundan etkilenen müşteriler bu onarmak veya el ile sorunu azaltmak için Azure AD Connect'in en son sürüme yükseltmek için bir PowerShell betiğini çalıştırmanız gerekir. 
+
+PowerShell betiğini çalıştırmak için komut dosyasını karşıdan [burada](https://aka.ms/repairaadconnect) ve AADConnect sunucunuzda yönetici bir PowerShell penceresi komut dosyasını çalıştırın. [Kısa bir video budur](https://aka.ms/repairaadcau) bunun nasıl yapılacağı ayrıntılı olarak açıklanmaktadır.
+
+El ile yükseltmek için indirin ve AADConnect.msi dosyasının en son sürümünü çalıştırın.
  
 -  Geçerli sürümünüzü 1.1.750.0 eski ise, en son sürüme yükseltmelisiniz [hangi indirilebilir burada](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
 - Azure AD Connect sürümünüzü 1.1.750.0 ise ya da daha yeni bir düzeltme bu sürümü zaten girdiğinizi gibi otomatik yükseltme sorunu azaltmak için herhangi bir eylemde bulunmanız gerekmez. 
@@ -165,7 +169,7 @@ Otomatik yükseltme ilk adımdır daha yeni bir sürüm yayın sürecinde, böyl
 **S: Otomatik yükseltme AAD Connect Health yükseltme mu?**</br>   Evet, Otomatik yükseltme AAD Connect Health da yükseltir
 
 **S: de Otomatik yükseltme AAD Connect sunucuları hazırlama modunda musunuz?**</br>   
-Hayır, otomatik hazırlama modu olan bir Azure AD Connect sunucusu yükseltme yapamazsınız.
+Evet, siz otomatik hazırlama modu olan bir Azure AD Connect sunucusu yükseltme.
 
 **S: durumunda otomatik yükseltme başarısız olur ve AAD Connect sunucum başlatılmazsa, ne yapmalıyım?**</br>   
 Nadir durumlarda, yükseltme işleminden sonra Azure AD Connect hizmet başlamaz. Bu durumlarda, genellikle sorunu giderir sunucusunu yeniden başlatın. Azure AD Connect hizmetinin hala başlamazsa, destek bileti açın. Burada bir [bağlantı](https://blogs.technet.microsoft.com/praveenkumar/2013/07/17/how-to-create-service-requests-to-contact-office-365-support/) bunun nasıl yapılacağını açıklar. 

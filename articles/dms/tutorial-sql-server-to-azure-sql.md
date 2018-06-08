@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/06/2018
-ms.openlocfilehash: 823f785bf33fd4d227fbdbb0f3c6b5eec914e08c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 06/08/2018
+ms.openlocfilehash: f64b2922818eddcab02f7d1c7b8f97671d92589e
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808018"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850262"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-using-dms"></a>DMS kullanarak Azure SQL veritabanı için SQL Server geçirme
 Azure veritabanı geçiş hizmeti veritabanlarını şirket içi SQL Server örneğine geçirmek için kullanabileceğiniz [Azure SQL veritabanı](https://docs.microsoft.com/en-us/azure/sql-database/). Bu öğreticide, geçiş **Adventureworks2012** SQL Server 2016 (veya üstü) şirket içi örneğine geri yüklenen veritabanı Azure veritabanı geçiş hizmetini kullanarak bir Azure SQL veritabanı.
@@ -217,7 +217,7 @@ Hizmet oluşturulduktan sonra Azure portalını bulun, açın ve ardından yeni 
 
 4. Seçin **kaydetmek**, **tabloları seçme** ekranında, listeleyen bir tablo genişletin ve sonra etkilenen alanlarının listesini gözden geçirin.
 
-    Azure veritabanı geçiş hizmeti otomatik hedef Azure SQL veritabanı örneğinde mevcut tüm boş kaynak tablolarını seçer unutmayın. Zaten verileri içeren tablolar yeniden geçirmek istiyorsanız, bu dikey tablolarda açıkça seçmeniz gerekir.
+    Azure veritabanı geçiş hizmeti otomatik hedef Azure SQL veritabanı örneğinde mevcut tüm boş kaynak tablolarını seçer unutmayın. Zaten verileri içeren tablolar yeniden geçirilmesi istiyorsanız, bu dikey tablolarda açıkça seçmeniz gerekir.
 
     ![Tabloları seçme](media\tutorial-sql-server-to-azure-sql\dms-configure-setting-activity1.png)
 

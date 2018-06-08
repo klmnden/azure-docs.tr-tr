@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2ea5a2720542217d3bb6a0a2b1309312fb74a953
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 162fc96c44db3c92103e12922de14b543daec9bf
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836234"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning"></a>Azure Machine Learning’de doğrusal regresyonu kullanma
 > *Kate Baroni* ve *Ben Boatman* Microsoft'un veri Öngörüler mükemmel merkezi çözüm mimarları Kurumsal şunlardır. Bu makalede, bunlar Azure Machine Learning kullanarak bulut tabanlı bir çözüme varolan bir Regresyon çözümleme paketini geçirme deneyimlerini açıklanmaktadır. 
@@ -77,14 +79,14 @@ Bizim işlemi ve sonuçları veri bilimcilerine ve geliştiricilere Machine Lear
 ### <a name="mystery-solved"></a>Çözülen sırrı!
 Biz önerileri uygulandığında, Machine Learning Studio'daki Excel ile aynı temel performans elde: 
 
-|  | Excel | Studio (Başlangıç) | Studio w/ Least Squares |
+|  | Excel | Studio (Başlangıç) | Studio kareler içeren |
 | --- |:---:|:---:|:---:|
 | Etiketli değer |Fiili (sayı) |Aynı |Aynı |
 | Öğrenen |Excel -> veri analizi regresyon -> |Doğrusal regresyon. |Doğrusal regresyon |
-| Öğrenen seçenekleri |Yok |Varsayılan olarak |sıradan kareler<br />L2 0.005 = |
+| Öğrenen seçenekleri |Yok |Varsayılanlar |sıradan kareler<br />L2 0.005 = |
 | Veri kümesi |26 satır, 3 özellikleri, 1 etiketi. Tüm sayısal. |Aynı |Aynı |
 | Böl: eğitimi |İlk 18 satırda son 8 satırlarda test Excel eğitildi. |Aynı |Aynı |
-| Split: Test |Son 8 satırlara uygulanan Excel regresyon formülü |Aynı |Aynı |
+| Böl: Test |Son 8 satırlara uygulanan Excel regresyon formülü |Aynı |Aynı |
 | **Performans** | | | |
 | R kare ayarlandı |0.96 |Yok | |
 | Katsayısı |Yok |0.78 |0.952049 |

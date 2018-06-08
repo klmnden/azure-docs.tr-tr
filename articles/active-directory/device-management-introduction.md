@@ -8,18 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6b1edb9c4574afa77df43e4f017848acd3ae6d28
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850017"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory'de cihaz yönetimine giriş
 
@@ -30,9 +32,9 @@ Bir mobil ilk olarak, bulut ilk dünyasında, Azure Active Directory (Azure AD) 
 
 Aygıtlar, kullanıcılarınızın şirket varlıklarınızı erişim sağlama. BT yöneticisi olarak şirket varlıklarınızı korumak için bu cihazlar üzerinde denetime sahip olmasını istiyor. Bu, güvenlik ve uyumluluk standartlarına uyması aygıtlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olmanızı sağlar. 
 
-Cihaz yönetimi, ayrıca için temel [cihaz temelli koşullu erişim](active-directory-conditional-access-policy-connected-applications.md). Cihaz temelli koşullu erişim ile ortamınızdaki kaynaklarına erişimi yalnızca güvenilir cihazlarla olası olduğundan emin olun.   
+Cihaz yönetimi, ayrıca için temel [cihaz temelli koşullu erişim](active-directory-conditional-access-policy-connected-applications.md). Cihaz temelli koşullu erişim ile ortamınızdaki kaynaklarına erişimi yalnızca yönetilen cihazlarla olası olduğundan emin olun.   
 
-Bu konuda, Azure Active Directory içindeki aygıt yönetimi nasıl çalıştığı açıklanmaktadır.
+Bu makalede, Azure Active Directory içindeki aygıt yönetimi nasıl çalıştığı açıklanmaktadır.
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>Azure ad denetimindeki aygıtları alma
 
@@ -68,12 +70,16 @@ Azure AD alanına katılmış aygıtlar basitleştirmek için belirtilir:
 
 - Windows dağıtımları iş ait cihazlar 
 - Kuruluş uygulamaları ve kaynaklara erişim herhangi bir Windows CİHAZDAN
+- Bulut tabanlı yönetim iş ait cihazlar
 
 ![Azure AD kayıtlı cihazları](./media/device-management-introduction/02.png)
 
+Azure AD birleştirme, aşağıdaki yöntemlerden birini kullanarak dağıtılabilir: 
+ - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Toplu dağıtım](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Self Servis deneyimi](device-management-azuread-joined-devices-frx.md) 
 
-Azure ad denetiminde çalışma şirkete ait cihazları almak için kullanıcılarınızın bir Self Servis deneyimi sağlayarak bu hedefleri gerçekleştirilebilir.  
-**Azure AD birleştirme** bulut ilk veya yalnızca bulut işlemleriniz kuruluşlar için tasarlanmıştır. Boyutu veya Azure AD katılım dağıtabilirsiniz kuruluşlar tür sınırlaması yoktur. Azure AD birleştirme works bile bir karma bir ortamda yanı sıra ve uygulamalarına ve kaynaklarına şirket içi erişimi etkinleştirebilirsiniz.
+**Azure AD birleştirme** olmasını istediğiniz kuruluşlar bulut-ilk için tasarlanmıştır (diğer bir deyişle, öncelikle bulut Hizmetleri, bir şirket içi altyapı kullanımını azaltmak için bir hedefi kullanın) veya yalnızca bulut (şirket içi altyapı). Boyutu veya Azure AD katılım dağıtabilirsiniz kuruluşların türünde bir kısıtlama yoktur. Bulut ve şirket uygulamalarına ve kaynaklarına erişimi etkinleştirme bile iyi karma bir ortamda, Azure AD birleştirme çalışır.
 
 Azure AD alanına katılmış aygıtlar uygulama ile aşağıdaki avantajları sağlar:
 
@@ -87,10 +93,12 @@ Azure AD alanına katılmış aygıtlar uygulama ile aşağıdaki avantajları s
 
 - **Erişim kısıtlama** uyumluluk ilkesine uygun aygıtlardan uygulamalar için.
 
-- **Şirket içi kaynaklara sorunsuz erişim** cihaz görüş şirket içi etki alanı denetleyicisine sahip olduğunda.
+- **Şirket içi kaynaklara sorunsuz erişim** cihaz görüş şirket içi etki alanı denetleyicisine sahip olduğunda. 
 
 
-Azure AD birleştirme öncelikle bir şirket içi Windows Server Active Directory altyapısına sahip olmayan kuruluşlar için tasarlanmıştır ancak kesinlikle yapabilecekleriniz senaryolarda de burada:
+Azure AD birleştirme öncelikle bir şirket içi Windows Server Active Directory altyapısına sahip olmayan kuruluşlar için tasarlanmıştır ancak kesinlikle senaryolarda kullanabilmeniz için burada:
+
+- Azure AD kullanarak bulut tabanlı altyapı geçiş yapmak istediğiniz ve Intune gibi MDM.
 
 - Tabletler ve telefonlardan denetimindeki gibi mobil cihazları almanız gerekirse, örneğin, bir şirket içi etki alanına katılma kullanamazsınız.
 
@@ -120,9 +128,9 @@ Genellikle, bir şirket içi ayak izini kuruluşlarla kullanan cihazları sağla
 
 Varsa Azure AD karma alanına katılmış aygıtlar kullanmanız gerekir:
 
-- Win32 uygulamaları NTLM kullanan bu cihazlara dağıttığınız sahip / Kerberos.
+- Active Directory makine kimlik doğrulamasını kullanan bu cihazlara dağıtılan Win32 uygulamalar vardır.
 
-- GP veya SCCM gerektiren / DCM aygıtları yönetme.
+- Cihazları yönetmek GP gerektirir.
 
 - Çalışanlarınız için cihazları yapılandırmak için görüntüleme çözümlerini kullanmaya devam etmek istiyor.
 

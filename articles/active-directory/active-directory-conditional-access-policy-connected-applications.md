@@ -8,18 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/07/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1c21c915bc0a83cdafb221a2cd592890577437ee
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849534"
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory cihaz temelli koşullu erişim ilkelerini yapılandırma
 
@@ -50,7 +52,7 @@ Azure AD ile kayıtlı bir cihaz almak için üç seçeneğiniz vardır:
 
 - **[Azure AD kayıtlı cihazlar](device-management-introduction.md#azure-ad-registered-devices)**  - Azure AD ile kaydedilen kişisel bir cihazı almak için
 
-- **[Azure AD alanına katılmış aygıtlar](device-management-introduction.md#azure-ad-joined-devices)**  - bir şirket içi katılmamış bir kuruluş Windows 10 cihaz almak için Azure AD ile kayıtlı AD kayıtlı. 
+- **[Azure AD alanına katılmış aygıtlar](device-management-introduction.md#azure-ad-joined-devices)**  - bir şirket içi katılmamış bir kuruluş Windows 10 cihaz almak için AD, Azure AD ile kayıtlı. 
 
 - **[Karma Azure AD alanına katılmış aygıtlar](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - bir şirket içi birleşik bir Windows 10 cihaz almak için AD, Azure AD ile kayıtlı.
 
@@ -66,7 +68,7 @@ Koşullu erişim ilkenizi seçtiğiniz **karma Azure AD birleştirilmiş cihaz g
 
 ![Cihaz tabanlı koşulları](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Bu ayar, yalnızca şirket içi için Azure AD alanına katılmış Windows 10 cihazları için geçerlidir. Bu cihazlar yalnızca olan bir karma Azure AD birleştirme kullanarak Azure AD ile kaydedebilirsiniz bir [işlem otomatik](device-management-hybrid-azuread-joined-devices-setup.md) kayıtlı Windows 10 cihazına almak için. 
+Bu ayar yalnızca bir şirket içi katılmış Windows 10 cihazları için geçerlidir AD. Bu cihazlar yalnızca olan bir karma Azure AD birleştirme kullanarak Azure AD ile kaydedebilirsiniz bir [işlem otomatik](device-management-hybrid-azuread-joined-devices-setup.md) kayıtlı Windows 10 cihazına almak için. 
 
 ![Cihaz tabanlı koşulları](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

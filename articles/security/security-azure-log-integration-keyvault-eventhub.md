@@ -8,21 +8,25 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 02/16/2018
+ms.date: 06/06/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 42c30a825e44c289c42d0fb0a40a442c4ac950d7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9065d237057bf47d469b6f6fbf5b588c7e348232
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839366"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: olay hub'ları kullanarak işlem Azure anahtar kasası olayları
 
-Günlüğe kaydedilen olayları almak ve güvenlik bilgileri ve Olay yönetimi (SIEM) sisteminiz için kullanılabilir duruma getirmek için Azure günlük tümleştirme özelliğini kullanabilirsiniz. Bu öğreticide Azure günlük tümleştirme aracılığıyla Azure Event Hubs alınan günlükleri işlemek için nasıl kullanılabileceği bir örnek gösterilmiştir.
 
 >[!IMPORTANT]
->SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki Azure günlükleri tümleştirmek için tercih edilen yöntem olduğu [yönergeleri](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). SIEM satıcınıza Azure İzleyici için bir bağlayıcı sağlamıyorsa (SIEM'iniz Azure günlük tümleştirme tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirme geçici bir çözüm olarak kullanmak mümkün olabilir.
+> Azure günlük tümleştirme özelliği 01/06/2019 tarafından kullanım dışı kalacaktır.  AzLog yüklemeleri 27 Haz 2018 tarafından devre dışı bırakılacak. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında yönergeler için [SIEM araçları ile tümleştirmek için kullanım Azure İzleyicisi](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+
+Günlüğe kaydedilen olayları almak ve güvenlik bilgileri ve Olay yönetimi (SIEM) sisteminiz için kullanılabilir duruma getirmek için Azure günlük tümleştirme özelliğini kullanabilirsiniz. Bu öğreticide Azure günlük tümleştirme aracılığıyla Azure Event Hubs alınan günlükleri işlemek için nasıl kullanılabileceği bir örnek gösterilmiştir.
+
+SIEM satıcınızın Azure İzleyici Bağlayıcısı'nı kullanarak ve bunlar aşağıdaki Azure günlükleri tümleştirmek için tercih edilen yöntem olduğu [yönergeleri](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md). SIEM satıcınıza Azure İzleyici için bir bağlayıcı sağlamıyorsa (SIEM'iniz Azure günlük tümleştirme tarafından destekleniyorsa) bu tür bir bağlayıcı kullanılabilir hale gelene kadar Azure günlük tümleştirme geçici bir çözüm olarak kullanmak mümkün olabilir.
 
  
 Azure günlük tümleştirme ve Event Hubs birlikte nasıl örnek adımları izleyerek ve her adım çözümü nasıl destekler? anlama çalışır ile tanıyalım için bu öğreticiyi kullanın. Daha sonra buraya oluşturmak, şirketinizin benzersiz gereksinimlerini desteklemek için kendi adımları öğrendiklerinizi alabilir.

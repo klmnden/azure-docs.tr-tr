@@ -6,13 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 06/07/2018
 ms.author: marsma
-ms.openlocfilehash: 1a025ce647cb3c071a6549a433e6505b85409fdc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: bc30352f50344031f8356d2be1b800dd035f12ad
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830471"
 ---
 # <a name="set-environment-variables"></a>Ortam değişkenlerini belirleme
 
@@ -23,6 +24,8 @@ Kapsayıcı örneklerinizi ortam değişkenlerini ayarlama, uygulamanın veya ko
 *NumWords*: STDOUT gönderilen sözcük sayısı.
 
 *MinLength*: en az bir sözcük, sayılması için karakter sayısı. Sık kullanılan sözcük gibi "," ve "." daha yüksek bir sayı yoksayar
+
+Gizli ortam değişkenleri olarak geçirmek gerekiyorsa, Azure kapsayıcı örnekleri destekleyen [güvenli değerleri](#secure-values) güvenli Windows ve Linux kapsayıcıları için değerler.
 
 ## <a name="azure-cli-example"></a>Azure CLI örneği
 
@@ -151,6 +154,81 @@ Bir örnek görmek için başlangıç [aci/microsoft-wordcount] [ aci-wordcount]
 Kapsayıcının günlükleri altında görüntülemek için **ayarları** seçin **kapsayıcıları**, ardından **günlükleri**. Çıktıya benzer önceki CLI ve PowerShell bölümleri, betiğin davranışı ortam değişkenleri tarafından nasıl değiştirildiği görebilirsiniz gösterilir. Yalnızca beş sözcükler görüntülenir, her biri en az sekiz karakter uzunluğu.
 
 ![Portal gösteren kapsayıcı günlük çıktısı][portal-env-vars-02]
+
+## <a name="secure-values"></a>Güvenli değerleri
+Güvenli değerlerle nesneleri parolaları veya uygulamanız için anahtarlar gibi hassas bilgileri tutmak üzere tasarlanmıştır. Güvenli değerleri için ortam değişkenleri kullanılarak güvenli ve, kapsayıcının görüntüsüne dahil daha esnektir. Başka bir seçenek açıklanan gizli birimleri kullanmaktır [Azure kapsayıcı durumlarda gizli bir birim](container-instances-volume-secret.md).
+
+Değer yalnızca kapsayıcı içinde erişilebilir şekilde güvenli değerleriyle güvenli bir ortam değişkenleri güvenli bir değerle, kapsayıcının özelliklerinde ortaya olmaz. Örneğin, Azure portalında kapsayıcı özellikleri görüntülenemez veya Azure CLI bir ortam değişkeni güvenli bir değerle görüntülenmez.
+
+Güvenli bir ortam değişkeni ayarlamak `secureValue` özelliği normal yerine `value` değişkenin türü. Aşağıdaki YAML içinde tanımlanan iki değişken iki değişken türleri gösterilmektedir.
+
+### <a name="yaml-deployment"></a>YAML dağıtımı
+
+Oluşturma bir `secure-env.yaml` aşağıdaki kod parçacığıyla dosya.
+
+```yaml
+apiVersion: 2018-06-01
+location: westus
+name: securetest
+properties:
+  containers:
+  - name: mycontainer
+    properties:
+      environmentVariables:
+        - "name": "SECRET"
+          "secureValue": "my-secret-value"
+        - "name": "NOTSECRET"
+          "value": "my-exposed-value"
+      image: nginx
+      ports: []
+      resources:
+        requests:
+          cpu: 1.0
+          memoryInGB: 1.5
+  osType: Linux
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
+```
+
+Kapsayıcı grubu YAML ile dağıtmak için aşağıdaki komutu çalıştırın.
+
+```azurecli-interactive
+az container create --resource-group myRG --name securetest -f secure-env.yaml
+```
+
+### <a name="verify-environment-variables"></a>Ortam değişkenlerini doğrulayın
+
+Sorgu, kapsayıcının ortam değişkenleri için için aşağıdaki komutu çalıştırın.
+
+```azurecli-interactive
+az container show --resource-group myRG --name securetest --query 'containers[].environmentVariables`
+```
+
+Bu kapsayıcı için ayrıntılarla JSON yanıt yalnızca güvenli olmayan ortam değişkeni Göster ve ortam değişkeninin anahtar güvenliğini sağlayın.
+
+```json
+  "environmentVariables": [
+    {
+      "name": "NOTSECRET",
+      "value": "my-exposed-value"
+    },
+    {
+      "name": "SECRET"
+    }
+```
+
+Güvenli gözden geçirebilirsiniz ortam değişkeni ayarlandığında `exec` çalışan bir kapsayıcı içindeki bir komut yürütülürken sağlayan komutu. 
+
+Kapsayıcıyla bir etkileşimli bash oturumu başlatmak için aşağıdaki komutu çalıştırın.
+```azurecli-interactive
+az container exec --resource-group myRG --name securetest --exec-command "/bin/bash"
+```
+
+Kapsayıcı içinde ortam değişkeni aşağıdaki bash komutuyla yazdırma.
+```bash
+echo $SECRET
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

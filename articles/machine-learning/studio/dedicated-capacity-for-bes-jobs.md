@@ -8,16 +8,18 @@ ms.author: yahajiza
 manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
+ms.component: studio
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 5a3d2c976ca4deef093f2640e56634acf911f4c0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1e4cf34582e28e00108e280d928eea8a8134699a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834534"
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Machine Learning işleri için Azure Batch hizmeti
 
@@ -46,7 +48,7 @@ Web hizmetleri oluşturma hakkında daha fazla bilgi için bkz: [bir Azure Machi
 
 Bir havuzu oluşturduktan sonra toplu iş isteklerini URL için web hizmetini kullanarak BES işi gönderin. Bir havuz veya Klasik toplu işleme göndermek seçebilirsiniz. Toplu işlem havuzu için bir işi göndermek için iş gönderme istek gövdesi aşağıdaki parametresini ekleyin:
 
-"AzureBatchPoolId":"&lt;pool ID&gt;"
+"AzureBatchPoolId": "&lt;kimliği havuzu&gt;"
 
 Parametresini eklemezseniz iş Klasik toplu işlem ortamında çalıştırılır. Kullanılabilir kaynak havuzu varsa, iş çalıştırdıktan hemen başlar. Havuz kaynakları serbest bırakmak yoksa, bir kaynak kullanılabilir hale gelene kadar işinizi sıraya alındı.
 

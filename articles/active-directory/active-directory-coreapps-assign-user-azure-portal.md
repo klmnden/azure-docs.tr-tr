@@ -12,19 +12,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2018
+ms.date: 06/06/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: 1609942269a0c737239cf4198289fdc44ade2b32
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d7e237e1e9daae3830f9a9943d54bc6bfa90a34c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830835"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın
 Bir kullanıcı veya grup için bir kuruluş uygulama atamak için Kurumsal uygulamasını yönetmek için uygun izinlere sahip ve dizin için genel yönetici olmanız gerekir.
+
+> [!NOTE]
+> Bu makalede açıklanan özellikleri, bir Azure Active Directory Premium P1 veya Premium P2 lisansı gerektirir. Daha fazla bilgi için bkz: [fiyatlandırma sayfası Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
+
 > [!NOTE]
 > İçin Microsoft Applications (örneğin, Office 365 uygulamaları), kullanıcıların bir kurumsal uygulama atamak için PowerShell kullanın.
+
 
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Nasıl ı kullanıcı erişimi Azure portalında bir kuruluş uygulaması atayabilirim?
 1. Oturum [Azure portal](https://portal.azure.com) dizini için genel yönetici olan bir hesapla.
@@ -76,7 +82,7 @@ Bir kurumsal uygulama için bir gruba atamak için değiştirmeniz gerekiyor `Ge
 
 ### <a name="example"></a>Örnek
 
-Bu örnek Britta Simon kullanıcı atar için [Microsoft çalışma alanına Analytics](https://products.office.com/en-us/business/workplace-analytics) PowerShell kullanarak uygulama.
+Bu örnek Britta Simon kullanıcı atar için [Microsoft çalışma alanına Analytics](https://products.office.com/business/workplace-analytics) PowerShell kullanarak uygulama.
 
 1. PowerShell'de değişkenleri $username, $app_name ve $app_role_name karşılık gelen değerler atayın. 
 

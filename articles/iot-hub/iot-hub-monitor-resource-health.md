@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: caf740e45c6de2b6ae52db48a588db67033e103d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634694"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850398"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IOT Hub durumunu izlemenize ve sorunları hızla tanılamak
 
@@ -44,7 +44,7 @@ Azure İzleyici IOT hub'da ortaya farklı işlemlerini izler. Her kategori bu ka
 
 #### <a name="connections"></a>Bağlantılar
 
-Bağlantıları kategorisi cihazlar bağlanmak veya IOT hub'ından bağlantısını oluşan hataları izler. Bu kategori izleme, yetkisiz bağlantı denemeleri tanımlamak için ve zamanlar zayıf bağlantıya alanlarında cihazlar için bir bağlantı kesildiğinde izlemek için yararlıdır.
+Bağlantıları kategori parçaları aygıt bağlanın ve hataları yanı sıra bir IOT hub bağlantı kesme olaylarını. Bu kategori izleme, yetkisiz bağlantı denemeleri tanımlamak için ve zamanlar zayıf bağlantıya alanlarında cihazlar için bir bağlantı kesildiğinde izlemek için yararlıdır.
 
 ```json
 {

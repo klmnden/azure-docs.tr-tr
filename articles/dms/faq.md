@@ -10,12 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/25/2018
-ms.openlocfilehash: 85052e1363ebbfe21cd7d6d5b3720f79cec7c417
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/08/2018
+ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850081"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti ile ilgili SSS
 Bu makalede Azure veritabanı geçiş hizmeti ile ilgili yanıtlar birlikte kullanma hakkında sık sorulan soruların listelenmektedir.
@@ -34,6 +35,9 @@ Azure veritabanı geçiş hizmeti ölçekte veritabanı geçiş Microsoft Azure 
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-the-azure-migrate-offering"></a>Q. Azure veritabanı geçiş hizmeti Azure geçirmek teklifine nasıl karşılaştırmak?
 Geçiş Azure hizmeti Azure Iaas için şirket içi sanal makinelerin geçişini ile yardımcı olur. Hizmet geçiş uygunluğu ve performans tabanlı boyutlandırma değerlendirir ve şirket içi sanal makinelerinizi Azure'da çalışan için maliyet tahminleri sağlar. Azure geçirme, şirket içi VM tabanlı iş yüklerini Azure Iaas vm'lerine yükseltme shift geçirilmesi için kullanışlıdır. Ancak, Azure veritabanı geçiş hizmeti Azure geçirmek için Azure SQL Database veya SQL Azure veya Azure SQL veritabanı yönetilen örneği gibi Azure PaaS ilişkisel veritabanı platformlarda sunumu özel veritabanı geçiş hizmeti değildir.
+
+### <a name="q-what-versions-of-sql-server-does-the-azure-database-migration-service-support-as-a-source"></a>Q. SQL Server'ın hangi sürümlerine Azure veritabanı geçiş hizmeti, bir kaynak olarak destekliyor mu?
+SQL Server'dan geçirirken, Azure veritabanı geçiş hizmeti SQL Server 2005'te SQL Server 2017 aracılığıyla destekler.
 
 ### <a name="q-what-is-a-summary-of-the-steps-required-to-use-the-azure-database-migration-service-to-perform-a-database-migration"></a>Q. Veritabanı geçiş işlemini gerçekleştirmek için Azure veritabanı geçiş hizmeti kullanmak için gerekli olan adımları özetini nedir?
 Tipik, basit bir veritabanı geçiş sırasında:

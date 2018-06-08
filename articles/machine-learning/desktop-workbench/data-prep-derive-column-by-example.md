@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 201492f033ad3e2508bc75c0865036e7c83a652a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833772"
 ---
 # <a name="derive-column-by-example-transformation"></a>Örnek dönüştürme tarafından sütun türetilen
 
@@ -152,7 +154,7 @@ Bu durumda gerekli örnek sayısı: 1
 |Anne Başak|W|CAN|Anne Marie· W· CAN|
 |Riko||Ropp|Rico·· Ropp|
 |Lauren olabilir||Fullmer|Lauren May·· Fullmer|
-|Marc|S|Maine|Marc· T· Maine|
+|Marc|T|Maine|Marc· T· Maine|
 |Angie||Adelman|Angie·· Adelman|
 |John Paul||Smith|John Paul·· Smith|
 |Şarkı|W|Staller|Song· W· Staller|
@@ -190,11 +192,11 @@ Bu durumda gerekli örnek sayısı: 3
 |:-----|:-----:|
 |Erkek|**0**|
 |Kadın|**1**|
-|Bilinmiyor|**2**|
+|Bilinmeyen|**2**|
 |Kadın|1|
 |Kadın|1|
 |Erkek|0|
-|Bilinmiyor|2|
+|Bilinmeyen|2|
 |Erkek|0|
 |Kadın|1|
 
@@ -307,7 +309,7 @@ Bu tarih kısımlarını aynı veri kümesi üzerinde farklı örnek tarafından
 |28 Kasım 2006 14:19:15|Sal|28|Kas|2006|14|19|15|
 |29 Apr 2031 04:59:45|Sal|29|Nis|2031|4|59|45|
 |29 Oca 2032 02:38:36|Per|29|Oca|2032|2|38|36|
-|11 May 2028 15:31:52|Per|11|May|2028|15|31|52|
+|11 May 2028 15:31:52|Per|11|Mayıs|2028|15|31|52|
 |15 Tem 1977 12:45:39|Cum|15|Tem|1977|12|45|39|
 |27 Oca 2029 05:55:41|Cmt|27|Oca|2029|5|55|41|
 |03 Mar 2024 10:17:49|Paz|3|Mar|2024|10|17|49|

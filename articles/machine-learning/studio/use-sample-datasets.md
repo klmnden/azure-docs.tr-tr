@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 63f079f6c8e584ff3a89503104060daf056763ed
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836309"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -122,7 +124,7 @@ Veri kümesi her 117 özellikleri tarafından açıklanan röntgen görüntüler
 </tr>
 
 <tr>
-  <td>Breast Cancer Info</td>
+  <td>Breast Kanseri bilgisi</td>
   <td>
 Veri kümesi röntgen görüntüsünün şüpheli her bölge için ek bilgiler içerir. Her örneğin bilgileri sağlar (örneğin, etiket, hasta kimliği, düzeltme eki görüntünün tamamını göre koordinatları) Breast Kanseri özellikleri kümesindeki karşılık gelen satır numarasını hakkında. Her hasta örnek sayısına sahip. Bir kanseri sahip hastalar için bazı örnekler pozitif ve negatif bazılarıdır. Bir kanseri yok hastalar tüm örnekler negatiftir. Veri kümesi 102 K örnekler vardır. Veri kümesi %0,6 noktalarının pozitif ağırlıklı, rest negatif. Veri kümesi Siemens sağlık tarafından kullanılabilir hale getirildi.
   </td>
@@ -203,7 +205,7 @@ Sıcaklık ve nem dizinlerini ve Rüzgar hızı gibi hava durumu verilerini içe
 <p></p>
 <b>İlgili araştırma:</b> Cortez, P. & Morais, A. (2008). Depo öğrenme UCI makine <a href="http://archive.ics.uci.edu/ml"> http://archive.ics.uci.edu/ml </a>. Irvine, CA: California Üniversitesi, okul daha fazla bilgi ve bilgisayar bilimi
 <p></p>
-[Cortez and Morais, 2007] P. Cortez and A. Morais. Bir veri madenciliği yaklaşım tahmin orman Meteorological verileri kullanarak etkinleşir. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
+[Cortez ve Morais, 2007] P. Cortez ve A. Morais. Bir veri madenciliği yaklaşım tahmin orman Meteorological verileri kullanarak etkinleşir. J. Neves, M. f Santos ve J. Machado Eds., yapay zeka, 13 EPIA 2007 - yapay zeka, aralık, Guimarães, Portekiz pp. 512-523, 2007 Portekizce konferans bildirileri yeni eğilimler. APPIA, ISBN-13 978-989-95618-0-9'İ TIKLATIN. Bulunabilir: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf"> http://www.dsi.uminho.pt/~pcortez/fires.pdf </a>.
   </td>
 </tr>
 

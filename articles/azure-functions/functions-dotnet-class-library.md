@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: c1b04968f83271006240fc0e099175e9017574ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cea2fb3069ff69130720049c002e19fa14266b9f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831981"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -61,7 +62,7 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` Özniteliği yöntemi bir işlev giriş noktası olarak işaretler. Adı bir proje içinde benzersiz olmalıdır. Proje şablonları genellikle adlı bir yöntem oluşturma `Run`, ancak yöntem adı herhangi bir geçerli C# yöntemi adı olabilir.
+`FunctionName` Özniteliği yöntemi bir işlev giriş noktası olarak işaretler. Adı bir projesi içinde benzersiz olması, bir harf ile başlamalı ve yalnızca harf, sayı içeren `_` ve `-`, en çok 127 karakter uzunluğunda. Proje şablonları genellikle adlı bir yöntem oluşturma `Run`, ancak yöntem adı herhangi bir geçerli C# yöntemi adı olabilir.
 
 Tetikleyici özniteliği tetikleme türünü belirtir ve bir yöntem parametresi için giriş verileri bağlar. Örnek işlevi bir kuyruk iletisi tarafından tetiklenir ve kuyruk iletisini yöntemine geçirilen `myQueueItem` parametresi.
 
@@ -384,23 +385,7 @@ public static class IBinderExampleMultipleAttributes
 
 ## <a name="triggers-and-bindings"></a>Tetikleyiciler ve bağlamalar 
 
-Aşağıdaki tabloda tetikleyici ve bir Azure işlevleri sınıf kitaplığında kullanılabilir bağlama öznitelikleri listeler. Ad alanındaki tüm öznitelikleridir `Microsoft.Azure.WebJobs`.
-
-| Tetikleyici | Girdi | Çıktı|
-|------   | ------    | ------  |
-| [BlobTrigger](functions-bindings-storage-blob.md#trigger---attributes)| [BLOB](functions-bindings-storage-blob.md#input---attributes)| [BLOB](functions-bindings-storage-blob.md#output---attributes)|
-| [CosmosDBTrigger](functions-bindings-cosmosdb.md#trigger---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#input---attributes)| [DocumentDB](functions-bindings-cosmosdb.md#output---attributes) |
-| [EventHubTrigger](functions-bindings-event-hubs.md#trigger---attributes)|| [EventHub](functions-bindings-event-hubs.md#output---attributes) |
-| [HTTPTrigger](functions-bindings-http-webhook.md#trigger---attributes)|||
-| [QueueTrigger](functions-bindings-storage-queue.md#trigger---attributes)|| [Sırası](functions-bindings-storage-queue.md#output---attributes) |
-| [ServiceBusTrigger](functions-bindings-service-bus.md#trigger---attributes)|| [ServiceBus](functions-bindings-service-bus.md#output---attributes) |
-| [TimerTrigger](functions-bindings-timer.md#attributes) | ||
-| |[ApiHubFile](functions-bindings-external-file.md)| [ApiHubFile](functions-bindings-external-file.md)|
-| |[MobileTable](functions-bindings-mobile-apps.md#input---attributes)| [MobileTable](functions-bindings-mobile-apps.md#output---attributes) | 
-| |[Tablo](functions-bindings-storage-table.md#input---attributes)| [Tablo](functions-bindings-storage-table.md#output---attributes)  | 
-| ||[NotificationHub](functions-bindings-notification-hubs.md#attributes) |
-| ||[SendGrid](functions-bindings-sendgrid.md#attributes) |
-| ||[Twilio](functions-bindings-twilio.md#attributes)| 
+[!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

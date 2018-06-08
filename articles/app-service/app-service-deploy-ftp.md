@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7e05e06a5abd02dd67f58a8e01bb246e318f51de
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850245"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S kullanarak Azure App Service için uygulamanızı dağıtma
 
@@ -26,29 +27,23 @@ Bu makalede, FTP veya FTPS web uygulaması, mobil uygulama arka ucu veya API uyg
 
 Uygulamanız için FTP/S uç nokta zaten etkindir. Hiçbir FTP/S dağıtımını etkinleştirmek gerekli yapılandırmadır.
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>1. adım: dağıtım kimlik bilgilerini ayarlama
+## <a name="open-ftp-dashboard"></a>Açık FTP Panosu
 
-Uygulamanız için FTP sunucusuna erişmek için önce dağıtım kimlik bilgileri gerekir. 
+İçinde [Azure portal](https://portal.azure.com), uygulamanızın açmak [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources).
 
-Dağıtım kimlik bilgilerinizi sıfırlayın veya ayarlamak için bkz: [Azure uygulama hizmeti dağıtım kimlik bilgileri](app-service-deployment-credentials.md). Bu öğretici, kullanıcı düzeyinde kimlik bilgilerinin kullanımını gösterir.
+FTP panoyu açmak için **kesintisiz teslim (Önizleme)** > **FTP** > **Pano**.
 
-## <a name="step-2-get-ftp-connection-information"></a>2. adım: FTP bağlantı bilgileri alma
+![Açık FTP Panosu](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. İçinde [Azure portal](https://portal.azure.com), uygulamanızın açmak [kaynak sayfası](../azure-resource-manager/resource-group-portal.md#manage-resources).
-2. Seçin **genel bakış** sol gezinti bölmesinde, ardından değerlerini Not **FTP/dağıtım kullanıcı**, **FTP konak adı**, ve **FTPS konak adı**. 
+## <a name="get-ftp-connection-information"></a>FTP bağlantı bilgileri alma
 
-    ![FTP bağlantı bilgileri](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+FTP panosunda tıklatın **kopyalama** FTPS uç noktası ve uygulama kimlik bilgilerini kopyalamak için.
 
-    > [!NOTE]
-    > FTP sunucusu için uygun bağlamı sağlamak için **FTP/dağıtım kullanıcısı** Azure portal tarafından görüntülenen değeri uygulama adını içerir.
-    > Seçtiğinizde, aynı bilgileri bulabilirsiniz **özellikleri** sol gezinti bölmesinde. 
-    >
-    > Ayrıca, dağıtım parola hiçbir zaman gösterilir. Dağıtım parolanızı unutursanız, geri dönüp [1. adım](#step1) ve dağıtım parolanızı sıfırlayın.
-    >
-    >
+![FTP bilgilerini Kopyala](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-## <a name="step-3-deploy-files-to-azure"></a>3. adım: dosyaları Azure'a dağıtma
+Kullanmanız önerilir **uygulama kimlik bilgilerini** her uygulama için benzersiz olduğundan uygulamanıza dağıtmak için. Ancak, tıklatırsanız **kullanıcı kimlik bilgilerini**, aboneliğinizde tüm App Service uygulamalarının FTP/S oturum açma için kullanabilmeniz için kullanıcı düzeyinde kimlik bilgilerini ayarlayın.
+
+## <a name="deploy-files-to-azure"></a>Dosyaları Azure'a dağıtma
 
 1. FTP istemcisinden (örneğin, [Visual Studio](https://www.visualstudio.com/vs/community/) veya [FileZilla](https://filezilla-project.org/download.php?type=client)), topladığınız uygulamanıza bağlanmak için bağlantı bilgisini kullanın.
 3. Dosyalarınızı ve bunların ilgili dizin yapısını kopyalamak [ **/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) Azure (veya **/site/wwwroot/App_Data/işleri/** Web işleri için dizin).
@@ -75,6 +70,12 @@ Uygulamanızın kaynak sayfasında [Azure portal](https://portal.azure.com)seçi
 
 ![FTP/S devre dışı bırak](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
+
+FTP kullanarak dağıtımı için [Azure CLI](/cli/azure), bkz: [bir web uygulaması oluşturma ve dosyaları FTP (Azure CLI) ile dağıtma](./scripts/app-service-cli-deploy-ftp.md).
+
+FTP kullanarak dağıtımı için [Azure PowerShell](/cli/azure), bkz: [FTP (PowerShell) kullanarak bir web uygulaması dosyaları karşıya](./scripts/app-service-powershell-deploy-ftp.md).
+
 ## <a name="troubleshoot-ftp-deployment"></a>FTP dağıtım sorunlarını gider
 
 - [FTP dağıtım nasıl giderebilirim?](#how-can-i-troubleshoot-ftp-deployment)
@@ -85,13 +86,12 @@ Uygulamanızın kaynak sayfasında [Azure portal](https://portal.azure.com)seçi
 
 FTP dağıtım sorunlarını giderme için ilk adım, bir çalışma zamanı uygulama sorunu dağıtım sorundan yalıtma.
 
-Bir dağıtım sorunu genellikle yok veya yanlış dosyaları uygulamanıza dağıtılan sonuçlanır. FTP dağıtımınızı araştırma veya diğer dağıtım yolu (örneğin, kaynak denetimi) seçerek çözülebilir.
+Bir dağıtım sorunu genellikle yok veya yanlış dosyaları uygulamanıza dağıtılan sonuçlanır. FTP dağıtımınızı araştırma veya diğer dağıtım yolu (örneğin, kaynak denetimi) seçerek giderebilirsiniz.
 
-Bir çalışma zamanı uygulama sorunu genellikle uygulama ancak yanlış uygulamanızın davranışını için Dağıtılmış dosya sağ kümesini sonuçlanır. Çalışma zamanında kod davranışına odaklanma ve belirli hata yolları inceleme çözülebilir.
+Bir çalışma zamanı uygulama sorunu genellikle uygulama ancak yanlış uygulamanızın davranışını için Dağıtılmış dosya sağ kümesini sonuçlanır. Çalışma zamanında kod davranışına odaklanma ve belirli hata yolları inceleme giderebilirsiniz.
 
 Bir dağıtımı veya çalışma zamanı sorunu belirlemek için bkz: [dağıtım çalışma zamanı sorunlarına karşılaştırması](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues).
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>I FTP mümkün değildir ve kodumu yayımlayın. Sorunu nasıl çözümlemek için?
 Doğru ana bilgisayar adı girdiğiniz denetleyin ve [kimlik bilgileri](#step-1--set-deployment-credentials). Ayrıca, makinenizde aşağıdaki FTP bağlantı noktalarını güvenlik duvarı tarafından engellenmez denetleyin:
 

@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850455"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure akış analizi için sorun giderme kılavuzu
 
@@ -41,6 +42,7 @@ Sorun giderme, Stream Analytics işi, en iyi sonuçlar için aşağıdaki yöner
 
 5.  Ortak Tuzaklar gibi kaldırın:
     - A [ **nerede** ](https://msdn.microsoft.com/library/azure/dn835048.aspx) yan tümcesinin sorgudaki tüm olayları, herhangi bir çıktı oluşturulmasını önler önleme filtrelenmelidir.
+    - A [ **CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) işlev başarısız, iş başarısız olmasına neden olur. Tür atama hataları önlemek için [ **TRY_CAST** ](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics) yerine.
     - Pencere işlevleri kullandığınızda, sorgudan bir çıktı görmeniz tüm pencereyi süre bekleyin.
     - Zaman damgası olayları için iş başlangıç zamanı önündeki ve olayları bu nedenle, bıraktı.
 

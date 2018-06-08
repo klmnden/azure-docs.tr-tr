@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 06/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24cecdc65c45d5d1ee5443740d9874ccfd74e387
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c012bdf025a352788aec2d2d70bab33d7914577
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627724"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849551"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure olay kılavuzunda olay işleyicileri
 
@@ -42,6 +42,14 @@ Azure işlevleri sunucusuz olaylarına yanıt olarak kullanın.
 | [Veri ambarına büyük veri akışı yapma](event-grid-event-hubs-integration.md) | Olay hub'ları yakalama dosyası oluşturduğunda, olay kılavuz işlev uygulaması için bir olay gönderir. Uygulama yakalama dosyasını alır ve bir veri ambarına veri taşır. |
 | [Azure olay kılavuz tümleştirme örnekler için Azure hizmet veri yolu](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Olay kılavuz, uygulama ve mantıksal uygulama çalışması için Service Bus konusundan iletileri gönderir. |
 
+## <a name="event-hubs"></a>Event Hubs
+
+Çözümünüzü olayları olayları işleyebileceğinden daha hızlı aldığında olay hub'ları kullanın. Uygulamanız kendi zamanlama olayları Event Hubs'dan onu adresindeki işler. Olay gelen olayları işlemek için işleme ölçeklendirebilirsiniz.
+
+|Unvan  |Açıklama  |
+|---------|---------|
+| [Azure Event Hubs ile Azure CLI ve olay kılavuz için rota özel olaylar](custom-event-to-eventhub.md) | Bir uygulama tarafından işlenmesi için bir olay hub'ına özel bir olay gönderir. |
+
 ## <a name="hybrid-connections"></a>Karma Bağlantılar
 
 Bir kurumsal ağ içinde ve genel olarak erişilebilen bir uç nokta yok uygulamalara olayları göndermek için Azure geçişi karma bağlantıları kullanın.
@@ -62,7 +70,7 @@ Logic Apps olaylara yanıt verme için iş süreçlerini otomatikleştirmek içi
 
 ## <a name="queue-storage"></a>Kuyruk Depolama
 
-Kuyruk depolama çekebilir gerek olaylarını almak için kullanın.
+Kuyruk depolama çekebilir gerek olaylarını almak için kullanın. Yanıt çok uzun sürdüğü uzun süre çalışan bir işlem olduğunda kuyruk depolama kullanabilir. Kuyruk depolama olayları göndererek uygulama çekebilir ve işlem kendi zamanlamaya göre olaylar.
 
 |Unvan  |Açıklama  |
 |---------|---------|

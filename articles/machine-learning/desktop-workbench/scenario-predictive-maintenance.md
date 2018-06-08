@@ -7,19 +7,21 @@ ms.author: jehrling
 manager: jhubbard
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: 791c34785fa817fd68d0bec8111bf23e606c9b64
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f3f24a9b269205dd77ec3301b2650ee7a03f435b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832705"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>Gerçek dünya senaryoları için Tahmine dayalı bakım
 
-Zamanlanmamış ekipman kapalı kalma süresi etkisi herhangi bir işletme için detrimental olabilir. Alan donanım kullanımını ve performansını en üst düzeye çıkarmak ve pahalı, zamanlanmamış kapalı kalma süresini en aza indirmek için çalıştıran tutmak önemlidir. Sorunları erken tanımlaması uygun maliyetli bir şekilde sınırlı bakım kaynakları tahsis ve kalitesini geliştirmek ve tedarik zinciri süreçlerinin yardımcı olabilir. 
+Çoğu işletme için zamanlanmamış donanım kapalı kalma süresinin olumsuz etkileri olabilir. Alan donanım kullanımını ve performansını en üst düzeye çıkarmak ve pahalı, zamanlanmamış kapalı kalma süresini en aza indirmek için çalıştıran tutmak önemlidir. Sorunları erken tanımlaması uygun maliyetli bir şekilde sınırlı bakım kaynakları tahsis ve kalitesini geliştirmek ve tedarik zinciri süreçlerinin yardımcı olabilir. 
 
 Bu senaryoyu ele bir görece [büyük ölçekli benzetimli veri kümesi](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data) üzerinden Tahmine dayalı bakım veri bilimi proje veri alım yol için mühendislik, model yapı ve model operationalization özellik ve dağıtımı. Tüm işlem kodunu Jupyter not defteri Azure Machine Learning çalışma ekranı PySpark kullanarak yazılır. Son model, gerçek zamanlı donanım hatası tahminlerde için Azure Machine Learning modeli Yönetimi kullanılarak dağıtılır.   
 

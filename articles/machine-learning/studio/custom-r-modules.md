@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 945c238411dac8f2e64666935308ef3c1cb2f0ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834364"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Azure Machine Learning'de özel R modülleri yazma
 Bu konu, yazar ve Azure Machine learning'de özel R modülü dağıtabilirsiniz açıklar. Özel R modülleri nelerdir ve hangi dosyaların bunları tanımlamak için kullanılan açıklanmaktadır. Bir modülün tanımlanması dosyaları oluşturma ve Machine Learning çalışma alanında dağıtım modülü nasıl gösterilmektedir. Özel modülü tanımında kullanılan öznitelikler ve öğeler daha ayrıntılı olarak açıklanmıştır. Yardımcı işlevleri, dosya ve birden çok çıktıları kullanmayı da ele alınmıştır. 
@@ -285,7 +287,7 @@ Bir modül parametresi kullanılarak tanımlanan **Arg** alt öğesi olan **bağ
   
   * **allowedTypes** -sütun türleri hangi, seçebilirsiniz gelen filtreleri. Geçerli değerler şunlardır: 
     
-    * sayısal
+    * Sayısal
     * Boole
     * Kategorik
     * Dize
@@ -295,7 +297,7 @@ Bir modül parametresi kullanılarak tanımlanan **Arg** alt öğesi olan **bağ
     * Tümü
   * **Varsayılan** -Sütun Seçici için geçerli varsayılan seçimleri içerir: 
     
-    * Hiçbiri
+    * None
     * NumericFeature
     * NumericLabel
     * NumericScore

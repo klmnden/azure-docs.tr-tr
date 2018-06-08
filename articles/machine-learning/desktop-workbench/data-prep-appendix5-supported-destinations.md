@@ -7,16 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 5451a5f525da845f97141a97241efb53ec42ff58
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4aee24150524c270084ae8ec22f09df94b6e9f36
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831719"
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Bu önizleme için verileri dışarı aktarma desteklenen 
 Birkaç farklı biçimlerde dışa aktarmak mümkündür. Machine Learning iş akışının geri kalanı sonuçları tümleştirmeden önce veri hazırlığı Ara sonuçlarını korumak için bu biçimlerini kullanabilirsiniz.

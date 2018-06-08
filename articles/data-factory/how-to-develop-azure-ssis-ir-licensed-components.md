@@ -1,6 +1,6 @@
 ---
-title: Azure SSIS tümleştirmesi çalışma zamanı için ücretli veya lisanslı bileşenler geliştirme | Microsoft Docs
-description: Bu makalede nasıl ISV geliştirebilir ve yükleme ücretli veya Azure SSIS tümleştirmesi çalışma zamanı için özel bileşenler lisanslı
+title: Yükleme ücretli veya lisanslı Azure SSIS tümleştirmesi çalışma zamanı bileşenleri | Microsoft Docs
+description: ISV nasıl geliştirebileceğinizi öğrenin ve yükleme ücretli veya Azure SSIS tümleştirmesi çalışma zamanı için özel bileşenler lisanslı
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -9,35 +9,38 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: e22ca4bd5b749e8752f800590938199e06abbd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e2e000df2933b8fa08bf98ef55b12f90de6a5e51
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830852"
 ---
 # <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure SSIS tümleştirmesi çalışma zamanı için ücretli veya lisanslı özel bileşenler geliştirin
 
-## <a name="problem---the-azure-ssis-ir-requires-a-different-approach"></a>Sorun - Azure-SSIS IR farklı bir yaklaşım gerektirir.
+Bu makalede, nasıl bir ISV geliştirmek ve Azure SSIS tümleştirmesi çalışma zamanı'nda Azure'da çalıştırılan SQL Server Integration Services (SSIS) paketleri için ücretli veya lisanslı özel bileşenlerini yüklemek açıklanmaktadır.
 
-Azure SSIS Integration zamanının yapısı özel bileşenlerin yetersiz şirket içi yüklenmesi için kullanılan normal lisans yöntemleri olun çeşitli zorluklar gösterir.
+## <a name="the-problem"></a>Sorun
+
+Azure SSIS Integration zamanının yapısı özel bileşenlerin yetersiz şirket içi yüklenmesi için kullanılan normal lisans yöntemleri olun çeşitli zorluklar gösterir. Sonuç olarak, Azure SSIS IR farklı bir yaklaşım gerektirir.
 
 -   Azure SSIS IR düğümleri geçici olan ve ayrılmış veya herhangi bir zamanda yayımladı. Örneğin, başlatabilir veya maliyet yönetmek veya yukarı ve aşağı çeşitli düğümü boyutları ölçeklendirmek için düğümleri durdurabilirsiniz. Sonuç olarak, MAC adresi ya da CPU kimliği gibi makine özgü bilgileri kullanarak belirli bir düğüme bir üçüncü taraf bileşen lisans bağlama artık geçerli değil.
 
 -   Böylece düğüm sayısını daraltmak veya herhangi bir zamanda genişletmek de Azure SSIS IR giriş veya çıkış ölçeklendirebilirsiniz.
 
-## <a name="solution---windows-environment-variables-and-ssis-system-variables-for-license-binding-and-validation"></a>Çözüm - Windows ortam değişkenlerini ve lisans bağlama ve doğrulama SSIS sistem değişkenleri
+## <a name="the-solution"></a>Çözüm
 
-Önceki bölümde açıklanan geleneksel lisans yöntemleri sınırlamaları sonucu olarak, Windows ortam değişkenlerini ve lisans bağlama ve üçüncü taraf bileşenlerinin doğrulanması için SSIS sistem değişkenleri Azure SSIS IR sağlar. ISV'ler, küme kimliği ve Küme düğüm sayısı gibi bir Azure SSIS IR için benzersiz ve kalıcı bilgilerini edinmek için bu değişkenleri kullanabilirsiniz. Bu bilgiyle ISV'ler bir Azure SSIS IR kendi bileşen lisansını bağlayabilirsiniz *kümesi olarak*, müşterilerin başlattığınızda veya durdurduğunuzda değişmeyen bir Kimliğe sahip ölçeği aşağı, giriş veya çıkış ölçeklendirme veya Azure SSIS IR herhangi bir şekilde yeniden yapılandırın.
+Önceki bölümde açıklanan geleneksel lisans yöntemleri sınırlamaları sonucu olarak, Azure SSIS IR yeni bir çözüm sağlar. Bu çözüm Windows ortam değişkenlerini ve SSIS sistem değişkenleri lisans bağlama ve üçüncü taraf bileşenlerinin doğrulanması için kullanır. ISV'ler, küme kimliği ve Küme düğüm sayısı gibi bir Azure SSIS IR için benzersiz ve kalıcı bilgilerini edinmek için bu değişkenleri kullanabilirsiniz. Bu bilgiyle ISV'ler sonra lisans kendi bileşeni için bir Azure SSIS IR bağlayabilirsiniz *kümesi olarak*. Bu bağlama müşteriler başlatmak veya durdurmak, yukarı veya aşağı, Ölçek içeri veya dışarı ölçeklendirme veya Azure SSIS IR herhangi bir şekilde yeniden yapılandırın değişmeyen bir Kimliğini kullanır.
 
 Aşağıdaki diyagram tipik yükleme, etkinleştirme ve lisans bağlama gösterir ve bu yeni değişkenleri kullanmak üçüncü taraf bileşenler için doğrulama akar:
 
 ![Lisanslı bileşenlerini yükleme](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>Yönergeler
-1. ISV'ler lisanslı bileşenleri çeşitli SKU'ları veya katmanları (örneğin, tek düğümü, 10 düğümleri ve benzeri kadar 5 düğümleri kadar) sunabilir. Müşterilerin bir ürün satın aldığınızda ISV karşılık gelen ürün anahtarı sağlar. ISV ISV Kurulum komut dosyası ve ilişkili dosyaları içeren bir Azure depolama blob kapsayıcısı da sağlayabilir. Müşteriler kendi depolama kapsayıcıya bu dosyaları kopyalayın ve bunları kendi ürün anahtarı ile değiştirin (örneğin, çalışan tarafından `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Müşteriler sonra sağlamak veya Azure SSIS IR parametre olarak, kapsayıcı SAS URI'sini ile yeniden yapılandırın. Daha fazla bilgi için bkz: [Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum](how-to-configure-azure-ssis-ir-custom-setup.md).
+1. ISV'ler lisanslı bileşenleri çeşitli SKU'ları veya katmanları (örneğin, tek düğümü, 10 düğümleri ve benzeri kadar 5 düğümleri kadar) sunabilir. Müşterilerin bir ürün satın aldığınızda ISV karşılık gelen ürün anahtarı sağlar. ISV ISV Kurulum komut dosyası ve ilişkili dosyaları içeren bir Azure depolama blob kapsayıcısı da sağlayabilir. Müşteriler kendi depolama kapsayıcıya bu dosyaları kopyalayın ve bunları kendi ürün anahtarı ile değiştirin (örneğin, çalışan tarafından `IsvSetup.exe -pid xxxx-xxxx-xxxx`). Müşteriler sonra sağlamak veya Azure SSIS IR parametre olarak, kapsayıcı SAS URI'sini ile yeniden yapılandırın. Daha fazla bilgi için bkz. [Azure-SSIS tümleştirmesi çalışma zamanı için özel kurulum](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 2. Azure SSIS IR sağlanan ya da yeniden ISV kurulum Windows ortam değişkenlerini sorgulamak için her bir düğümde çalışan `SSIS_CLUSTERID` ve `SSIS_CLUSTERNODECOUNT`. Ardından, küme kimliği ve ISV etkinleştirme sunucusuna lisanslı ürünün ürün anahtarını etkinleştirme anahtarı oluşturmak için Azure SSIS IR gönderir.
 
@@ -70,6 +73,10 @@ Aşağıdaki diyagram tipik yükleme, etkinleştirme ve lisans bağlama gösteri
                                                                                                                                
     }
     ```
+
+## <a name="isv-partners"></a>ISV iş ortakları
+
+Bu blog gönderisine - sonunda Azure SSIS IR için kendi bileşenleri ve uzantıları uyarlanan ISV iş ortaklarına listesini bulabilirsiniz [Enterprise Edition, özel kurulum ve ADF SSIS 3 taraf Genişletilebilirliğe](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850312"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure yığın Yönetimi temelleri
 Azure yığın yönetim yeni bilmeniz gereken birkaç nokta vardır. Bu kılavuz, rol Azure yığın işleç olarak genel bir bakış ve hızlı bir şekilde üretken olmak için bunları kullanıcılarınıza söylemeniz gerekenler sağlar.
@@ -31,7 +32,7 @@ Bir Azure tümleşik yığını sistemi kullanıyorsanız, Azure yığın günce
  
 ### <a name="development-kit"></a>Geliştirme Seti
 
-Azure yığın Geliştirme Seti kullanıyorsanız, gözden [Azure yığın nedir?](.\asdk\asdk-what-is.md) makale amacını Geliştirme Seti ve onun kısıtlamaları anladığınızdan emin olun. "Burada Azure yığın değerlendirmek ve geliştirmek ve uygulamalarınızı bir üretim dışı ortamda test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz: [Azure yığın Geliştirme Seti dağıtım](.\asdk\asdk-deploy.md) öğretici.)
+Azure yığın Geliştirme Seti kullanıyorsanız, gözden [Azure yığın nedir?](.\asdk\asdk-what-is.md) makale amacını Geliştirme Seti ve onun kısıtlamaları anladığınızdan emin olun. "Burada Azure yığın değerlendirmek ve geliştirmek ve uygulamalarınızı bir üretim dışı ortamda test etmek bir korumalı alan," olarak Geliştirme Seti kullanmanız gerekir. (Dağıtım bilgileri için bkz: [Azure yığın Geliştirme Seti dağıtım](.\asdk\asdk-install.md) makale.)
 
 Azure gibi biz hızlı bir şekilde yenilik. Biz düzenli olarak yeni yayın derlemeleri. Geliştirme Seti çalıştırıyorsanız ve taşımak en son sürüme için yapmanız gerekenler istediğiniz [Azure yığın dağıtmanız](.\asdk\asdk-redeploy.md). Güncelleştirme paketleri uygulanamıyor. Bu işlem zaman alır, ancak en son özellikleri deneyebilirsiniz avantajdır. Bizim Web sitesi Geliştirme Seti belgelerine en son sürüm yapı yansıtır.
 
@@ -46,7 +47,7 @@ Varsayılan olarak, aşağıdaki "temel Hizmetleri" Azure yığın içerir dağ�
 - İşlem
 - Depolama
 - Ağ
-- Anahtar Kasası
+- Key Vault
 
 Bu temel hizmetlerle minimal yapılandırma ile kullanıcılarınıza-olarak-hizmet altyapı (Iaas) sunabilir.
 
@@ -70,7 +71,7 @@ Azure yığın yönetirken bilmeniz gereken birkaç hesabında dikkate alınacak
 
 |Hesap|Azure AD|AD FS|
 |-----|-----|-----|
-|Local Administrator (.\Administrator)|ASDK ana bilgisayar yöneticisi|ASDK ana bilgisayar yöneticisi|
+|Yerel yönetici (. \Administrator)|ASDK ana bilgisayar yöneticisi|ASDK ana bilgisayar yöneticisi|
 |AzureStack\AzureStackAdmin|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın Yönetim Portalı'nda oturum için kullanılabilir<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim|ASDK ana bilgisayar yöneticisi<br><br>Azure yığın yönetim portalı için erişim yok<br><br>Görüntülemek ve Service Fabric çalma yönetmek için erişim<br><br>Artık sahibi varsayılan sağlayıcı abonelik (DPS)|
 |AzureStack\CloudAdmin|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın|Erişebilir ve ayrıcalıklı Endpoint içinde izin verilen komutlarını çalıştırın<br><br>ASDK ana bilgisayara oturum değil<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|
 |Azure AD genel Yöneticisi|Yükleme sırasında kullanılan<br><br>Varsayılan sağlayıcı aboneliğin (DPS) sahibi|Uygulanamaz|

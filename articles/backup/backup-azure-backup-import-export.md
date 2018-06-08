@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: cb37c94d3ec819823083041708cfc28ead0ed5cf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606146"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831472"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup’ta çevrimdışı yedekleme iş akışı
 Azure yedekleme verileri azure'a ilk tam yedeklemesi sırasında ağ ve depolama maliyet tasarrufu birkaç yerleşik verimliliği sahiptir. İlk tam yedekleme tipik olarak büyük miktarlarda veri aktarır ve yalnızca farkları/incrementals aktarım sonraki yedeklemeleri karşılaştırıldığında daha fazla ağ bant genişliği gerektirir. Çevrimdışı dengeli sürecinde, Azure yedekleme diskleri Çevrimdışı Yedekleme verileri Azure'a yüklemek için kullanabilirsiniz.
@@ -51,7 +51,7 @@ Aşağıdaki Azure yedekleme özellikleri veya iş yükleri Çevrimdışı Yedek
 Çevrimdışı Yedekleme iş akışı başlatmadan önce aşağıdaki önkoşulların tamamlayın: 
 * Oluşturma bir [kurtarma Hizmetleri kasası](backup-azure-recovery-services-vault-overview.md). Bir kasa oluşturmak için adımlarda bakın [bu makalede](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)
 * Emin olun, yalnızca [Azure Yedekleme aracısı en son sürümünü](https://aka.ms/azurebackup_agent) Windows Server/Windows istemcisinde, geçerli olarak yüklü ve bilgisayarı kurtarma Hizmetleri kasasına kayıtlı.
-* Azure PowerShell 3.7.0 veya Azure Backup aracısını çalıştıran bilgisayar üzerindeki büyük gereklidir. Bu önerilir [Azure PowerShell'in en son sürümünü yüklemek](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+* Azure PowerShell 3.7.0 Azure Backup aracısını çalıştıran bilgisayar üzerindeki gereklidir. Karşıdan yüklediğiniz önerilir ve [Azure PowerShell sürümünü yüklemeye 3.7.0](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * Azure Backup aracısını çalıştıran bilgisayarda Microsoft Edge veya Internet Explorer 11 yüklü ve JavaScript etkinleştirildiğinden emin olun. 
 * Kurtarma Hizmetleri kasası ile aynı abonelikte bir Azure depolama hesabı oluşturun. 
 * Olduğundan emin olun [gerekli izinleri](../azure-resource-manager/resource-group-create-service-principal-portal.md) Azure Active Directory uygulaması oluşturmak için. Çevrimdışı Yedekleme iş akışı, Azure depolama hesabıyla ilişkili Abonelikteki bir Azure Active Directory uygulaması oluşturur. Uygulama Azure Backup Çevrimdışı Yedekleme iş akışı için gereken Azure içeri aktarma hizmeti ile güvenli ve kapsamlı erişim sağlamak için hedefidir. 
@@ -108,7 +108,7 @@ Bu bölümde, verilerinizi Azure veri merkezi için teslim ve Azure depolama ala
 
     * Kopya bilgisayar çevrimdışı dengeli dağıtımı iş akışı için hazırlama konumu olarak sağlanan aynı ağ yolunu kullanarak erişebilirsiniz **başlatmak Çevrimdışı Yedekleme** iş akışı.
     * BitLocker kopyalama bilgisayarda etkin.
-    * Azure PowerShell 3.7.0, ya da daha yüklenir.
+    * Azure PowerShell 3.7.0 yüklenir.
     * En son uyumlu tarayıcılar (kenar veya Internet Explorer 11) yüklü ve JavaScript etkindir. 
     * Kopya bilgisayar Azure portalına erişebilir. Gerekirse, kopya bilgisayar kaynak bilgisayarla aynı olabilir.
     

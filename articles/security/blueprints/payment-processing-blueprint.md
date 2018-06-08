@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 06151b211a03a971e549e88817770ef096f3f603
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839435"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 
@@ -43,7 +44,7 @@ Temel mimari aşağıdaki bileşenlerden oluşur:
 - **Dağıtım şablonları**. Bu dağıtımda [Azure Resource Manager şablonları](/azure/azure-resource-manager/resource-group-overview#template-deployment) Kurulum sırasında yapılandırma parametrelerini belirterek mimarisinin bileşenlerine Microsoft Azure otomatik olarak dağıtmak için kullanılan.
 - **Dağıtım betikleri otomatik**. Bu komut dosyaları, uçtan uca çözüm dağıtımına yardımcı olur. Komut dosyaları oluşur:
     - Bir modül yükleme ve [genel yönetici](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Kurulum komut dosyası yükleyin ve gerekli PowerShell modülleri ve genel yönetici rolleri doğru şekilde yapılandırıldığını doğrulamak için kullanılır.
-    - PowerShell komut dosyası yüklemesi bir .zip dosyası ve önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılan [SQL veritabanı örnek](https://github.com/Microsoft/azure-sql-security-sample). İçerik. Bu çözüm için kaynak kodunu [şeması kod deposu] Gözden Geçirilmeye hazır olduğunu [kodu-repo]. 
+    - PowerShell komut dosyası yüklemesi bir .zip dosyası ve önceden derlenmiş demo web uygulamasıyla içeren bir .bacpac dosyasına aracılığıyla sağlanan uçtan uca çözümü dağıtmak için kullanılan [SQL veritabanı örnek](https://github.com/Microsoft/azure-sql-security-sample) içeriği. Bu çözüm için kaynak kodu gözden geçirme için kullanılabilir [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). 
 
 ## <a name="architectural-diagram"></a>Mimari diyagramı
 
@@ -74,7 +75,7 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 
 |Öğe      |Örnek|
 |----------|------|
-|Kullanıcı adı: |`adminXX@contosowebstore.com`|
+|Kullanıcı Adı: |`adminXX@contosowebstore.com`|
 | Ad: |`Global Admin Azure PCI Samples`|
 |Kullanıcı türü:| `Subscription Administrator and Azure Active Directory Global Administrator`|
 
@@ -86,7 +87,7 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 
 |Öğe      |Örnek|
 |----------|------|
-|Kullanıcı adı: |`sqlAdmin@contosowebstore.com`|
+|Kullanıcı Adı: |`sqlAdmin@contosowebstore.com`|
 | Ad: |`SQLADAdministrator PCI Samples`|
 | Ad: |`SQL AD Administrator`|
 |Soyadı: |`PCI Samples`|
@@ -99,7 +100,7 @@ Kullanım örneği göstermek ve kullanıcı arabirimi bir anlayış sağlamak i
 
 |Öğe      |Örnek|
 |----------|------|
-|Kullanıcı adı:| `receptionist_EdnaB@contosowebstore.com`|
+|Kullanıcı Adı:| `receptionist_EdnaB@contosowebstore.com`|
 | Ad: |`Edna Benson`|
 | Ad:| `Edna`|
 |Soyadı:| `Benson`|

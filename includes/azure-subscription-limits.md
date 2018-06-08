@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 8f104ab046fad8dfd9086525b8f942f3d2941821
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 57747e21cf4b5b32fc5b0ddeaf151a538337afba
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34852084"
 ---
 | Kaynak | Varsayılan Sınır | Üst Sınır |
 | --- | --- | --- |
@@ -30,5 +31,5 @@ ms.lasthandoff: 05/20/2018
 
 <sup>1</sup>ek küçük örneklerin sayısı bir çekirdek kısmi bir çekirdek kullanan rağmen çekirdek sınırına doğru olarak.
 
-<sup>2</sup>depolama hesabı sınır, standart ve Premium depolama hesapları içerir. Tek bir bölge 200'den fazla depolama hesaplarında gerekiyorsa, bir istekte aracılığıyla [Azure Destek](https://azure.microsoft.com/support/faq/). Azure Depolama ekibi, işinizin durumunu inceler ve 250’ye kadar depolama hesabı için onay verebilir. 
+<sup>2</sup>depolama hesabı sınır, standart ve Premium depolama hesapları içerir. Belirli bir bölgedeki 200'den fazla depolama hesaplarında gerekiyorsa, bir istekte aracılığıyla [Azure Destek](https://azure.microsoft.com/support/faq/). Azure depolama ekibi iş durumunuz incelenecek ve belirli bir bölgedeki 250 depolama hesapları kadar onaylama. 
 

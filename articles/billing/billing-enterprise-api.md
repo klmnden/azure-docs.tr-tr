@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: 4c9e7ec65db80e0af91645d70cea39bb1a396791
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831794"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Kurumsal müşteriler için raporlama API'leri genel bakış
 Raporlama API tercih edilen veri çözümleme araçları kullanım ve fatura verileri programlı olarak çekmesini müşteriler kuruluş Azure etkinleştirin. 
@@ -30,7 +31,7 @@ Raporlama API tercih edilen veri çözümleme araçları kullanım ve fatura ver
 
 |Üstbilgi anahtarı iste | Değer|
 |-|-|
-|Yetkilendirme| Değer şu biçimde belirtin: **taşıyıcı {apı_key}** <br/> Örnek: taşıyıcı eyr....09|
+|Yetkilendirme| Değer şu biçimde belirtin: **taşıyıcı {apı_key}** <br/> Örnek: taşıyıcı eyr....09| 
 
 ## <a name="consumption-apis"></a>Tüketim API'leri
 Swagger uç nokta kullanılabilir [burada](https://consumption.azure.com/swagger/ui/index) API'leri altında API kolay introspection ve istemci SDK'ları oluşturma yeteneği etkinleştirmelisiniz açıklanan için [AutoRest](https://github.com/Azure/AutoRest) veya [Swagger CodeGen](http://swagger.io/swagger-codegen/). 1 Mayıs 2014 başlayan veriler bu API aracılığıyla kullanılabilir. 
@@ -50,7 +51,7 @@ Etag'ler yukarıdaki tüm API yanıt olarak döndürülür. Etag bir değişikli
  **Liste faturalama nokta** - [faturalama nokta API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) ters kronolojik sırada belirtilen kayıt için verilere sahip nokta faturalama bir liste döndürür. Her dönem veri - BalanceSummary, UsageDetails, Market ücretleri ve fiyat listesi dört kümelerinin API rota işaret eden bir özellik içerir.
 
 
-## <a name="api-response-codes"></a>API yanıt kodları  
+## <a name="api-response-codes"></a>API yanıt kodları   
 |Yanıt durum kodu|İleti|Açıklama|
 |-|-|-|
 |200| Tamam|Hata yok|

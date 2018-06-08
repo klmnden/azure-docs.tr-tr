@@ -9,17 +9,19 @@ editor: daden
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: 424af2ffd1b7931701036aeb819cbb8879cb7a41
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 450c033fbce3544cdc17ddc6d47ff726b01a4d3e
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34832671"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Birkaç terabayt veri üzerinde sunucu iş yükü tahmini
 
@@ -164,7 +166,7 @@ Deneme bir aylık veri kümesi ve başka bir deneme tam veri kümesi üzerinde b
 | stringIndexModel | Parquet | Sayısal olmayan özellikler için dizin oluşturucu modeli dize.|
 | oneHotEncoderModel|Parquet | Kategorik özellikleri için bir hot Kodlayıcı modeli. |
 | mlModel | Parquet | Eğitilmiş makine öğrenimi modeline. |
-| bilgileri| Python pickle dosyası | Eğitim başlangıç, eğitimi bitiş olayı, süre, için zaman damgası dahil olmak üzere dönüştürülmüş verileri hakkında bilgiler train-test bölme ve sütunlar dizin oluşturma ve bir hot kodlama için.
+| bilgi| Python pickle dosyası | Eğitim başlangıç, eğitimi bitiş olayı, süre, için zaman damgası dahil olmak üzere dönüştürülmüş verileri hakkında bilgiler train-test bölme ve sütunlar dizin oluşturma ve bir hot kodlama için.
 
 Tüm dosyaları ve önceki tabloda BLOB'lar operationalization için kullanılır.
 
@@ -190,7 +192,7 @@ Aşağıdaki bölümlerde, modeli geliştirme Machine Learning çalışma ekran�
 | storageContainer | Dize | Ara Sonuçların depolanacağı Azure depolama hesabı kapsayıcısında |
 | Depolama anahtarı | Dize |Azure depolama hesabı erişim anahtarı |
 | Veri dosyası|Dize | Veri kaynağı dosyaları  |
-| Süre| Dize | Veri kaynağı dosyaları verilerde süresi|
+| süre| Dize | Veri kaynağı dosyaları verilerde süresi|
 
 Her ikisi de değiştirme `Config/storageconfig.json` ve `Config/fulldata_storageconfig.json` depolama hesabı, depolama anahtarı ve Ara sonuçların depolamak için blob kapsayıcısı yapılandırmak için. Varsayılan olarak, blob kapsayıcısı çalıştırmak bir aylık verileri için olan `onemonthmodel`, ve tam veri kümesini çalıştırmak için blob kapsayıcı `fullmodel`. Depolama hesabınızı bu iki kapsayıcı oluşturduğunuzdan emin olun. `dataFile` Alanındaki [ `Config/fulldata_storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json) hangi verilerin yüklendiği yapılandırır [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Code/etl.py). `duration` Alan verileri içeren aralığı yapılandırır. Süre için ONE_MONTH ayarlarsanız, yüklenen veriler için Haziran 2016 verilerin yedi dosyalar arasında yalnızca bir .csv dosyası olmalıdır. Süresi tam ise tam veri kümesi (1 TB) yüklenir. Değiştirmeniz gerekmez `dataFile` ve `duration` bu iki yapılandırma dosyalarında.
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850146"
 ---
 # <a name="network-monitoring-solutions"></a>Ağ çözümleri izleme 
 
@@ -40,11 +41,11 @@ Performans İzleyicisi, ExpressRoute İzleyici ve hizmet uç noktası İzleyicis
 
 Performans İzleyicisi'ni NPM bir parçasıdır ve ağ bulut, karma ve şirket içi ortamları için izleme. Uzak şube ve alan ofisleri, depolama konumları, veri merkezleri ve bulut arasında ağ bağlantısı izleyebilirsiniz. Kullanıcılarınızın şikayetçi önce ağ sorunları algılayabilir. Anahtar avantajları şunlardır:
 
-* Çeşitli alt ağları ve Uyarıları Ayarla kaybı ve gecikme izleme
+* Çeşitli alt ağlar genelinde kaybı ve gecikmeyi izleyin ve uyarılar koyun
 * Ağdaki tüm yolları (yedekli yollar dahil) izleme
 * Çoğaltma zor olan geçici ve zaman içinde nokta ağ sorunlarını giderme
 * İçin performans sorumlu olduğu ağ, belirli kesiminde belirleme
-* SNMP gerek kalmadan ağ durumunu izleyin
+* Ağın sistem durumunu SNMP'ye gerek kalmadan izleyin
 
 ![NPM topoloji Haritası](./media/network-monitoring-overview/npm-topology-map.png) 
 
@@ -54,14 +55,15 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 * [Kullanım örnekleri](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Ürün güncelleştirmeleri: [Şubat 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [Ağustos 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>ExpressRoute Monitor
+## <a name="expressroute-monitor"></a>ExpressRoute İzleyicisi
 
-ExpressRoute için NPM ExpressRoute özel eşleme bağlantıları için kapsamlı izleme sunar. ExpressRoute üzerinde E2E bağlantısı ve şube ofislerinde ve Azure arasında performansını izleyebilir. Temel işlevler şunlardır:
+NPM ExpressRoute için Azure özel eşleme ve Microsoft eşleme bağlantıları için izleme kapsamlı ExpressRoute sunar. ExpressRoute üzerinde E2E bağlantısı ve şube ofislerinde ve Azure arasında performansını izleyebilir. Temel işlevler şunlardır:
 
 * Aboneliğinizle ilişkili ER devreler otomatik algılama
 * Şirket içi ağ topolojisinin bulut uygulamalarınıza algılama
-* Kapasite, kullanım analizi, sanal ağ başına bant genişliği kullanımını planlama
+* Kapasite planlama, bant genişliği kullanımını çözümleme
 * İzleme ve birincil ve ikincil yollarında uyarı
+* Azure bağlantı izleme gibi Office 365, Dynamics 365... ExpressRoute Hizmetleri
 * Sanal ağlara bağlanma düşmesine Algıla
 
 ![Coğrafi harita gösteren trafiği bölgeler arasında](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -71,7 +73,7 @@ Daha fazla bilgi için aşağıdaki makalelere bakın:
 * [ExpressRoute için Ağ Performansı İzleyicisini Yapılandırma](../expressroute/how-to-npm.md)
 * [blog gönderisi](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-endpoint-monitor"></a>Hizmet uç noktası İzleyicisi
+## <a name="service-endpoint-monitor"></a>Hizmet Uç Noktası İzleyicisi
 
 Hizmet uç noktası izleme ile artık ulaşılabilirlik uygulamaların test edin ve şirket içi, taşıyıcı ağlar ve bulut/özel veri merkezleri üzerinden performans sorunları algılar.
 

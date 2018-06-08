@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 10fe87757a6da8a64e4fbd7fb624fef3e666714c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a856c59191a1e35b78d1ab6c2c88ab5288ea1419
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836492"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Araç Telemetri analiz çözümü playbook: ayrıntılı çözüme daha yakından inceleyin
 Bu playbook bölümlerini bu menü bağlantılar: 
@@ -66,13 +68,13 @@ Araç model başvuru veri kümesi VINs modellerine eşler.
 | TOPLAMIDIR | Model |
 | --- | --- |
 | FHL3O1SA4IEHB4WU1 |Sedan |
-| 8J0U8XCPRGW4Z3NQE |Karma |
+| 8J0U8XCPRGW4Z3NQE |Hibrit |
 | WORG68Z2PLTNZDBI7 |Aile saloon |
 | JTHMYHQTEPP4WBMRN |Sedan |
-| W9FTHG27LZN1YWO0Y |Karma |
+| W9FTHG27LZN1YWO0Y |Hibrit |
 | MHTP9N792PHK08WJM |Aile saloon |
 | EI4QXI2AXVQQING4I |Sedan |
-| 5KKR2VB4WHQH97PF8 |Karma |
+| 5KKR2VB4WHQH97PF8 |Hibrit |
 | W9NSZ423XZHAONYXB |Aile saloon |
 | 26WJSGHX4MA5ROHNL |Dönüştürülebilir |
 | GHLUB6ONKMOSI7E77 |İstasyon wagon |
@@ -85,13 +87,13 @@ Araç model başvuru veri kümesi VINs modellerine eşler.
 | 8Y5QKG27QET1RBK7I |Büyük SUV |
 | DF6OX2WSRA6511BVG |Coupe |
 | Z2EOZWZBXAEW3E60T |Sedan |
-| M4TV6IEALD5QDS3IR |Karma |
+| M4TV6IEALD5QDS3IR |Hibrit |
 | VHRA1Y2TGTA84F00H |Aile saloon |
 | R0JAUHT1L1R3BIKI0 |Sedan |
-| 9230C202Z60XX84AU |Karma |
+| 9230C202Z60XX84AU |Hibrit |
 | T8DNDN5UDCWL7M72H |Aile saloon |
 | 4WPYRUZII5YV7YA42 |Sedan |
-| D1ZVY26UV2BFGHZNO |Karma |
+| D1ZVY26UV2BFGHZNO |Hibrit |
 | XUF99EW9OIQOMV7Q7 |Aile saloon |
 | 8OMCL3LGI7XNCC21U |Dönüştürülebilir |
 | ……. | |

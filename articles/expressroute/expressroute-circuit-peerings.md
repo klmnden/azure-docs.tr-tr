@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849939"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute bağlantı hatları ve Yönlendirme etki alanları
  Sipariş gerekir bir *expressroute bağlantı hattı* şirket içi altyapınızı bağlantı sağlayıcı Microsoft'a bağlanmak için. Aşağıdaki şekilde bir mantıksal temsilini WAN ve Microsoft arasında bağlantı gösterilmektedir.
@@ -86,6 +87,11 @@ Aşağıdaki tabloda, üç yönlendirme etki alanları karşılaştırılır:
 Bir veya daha fazla Yönlendirme etki alanları, expressroute bağlantı hattı bir parçası olarak etkinleştirmeyi seçebilirsiniz. Tek bir yönlendirme etki alanına birleştirmek istiyorsanız aynı VPN put tüm Yönlendirme etki alanları sahip olmayı seçebilirsiniz. Ayrıca bunları farklı yönlendirme etki alanları, diyagrama benzer koyabilirsiniz. Önerilen özel eşleme çekirdek ağı'na doğrudan bağlı ve genel ve Microsoft eşleme bağlantıları çevre ağınız bağlı yapılandırmadır.
 
 Tüm üç eşliği oturumlarını tercih ediyorsanız, BGP oturumları (her eşleme türü için bir çift) üç çiftleri bulunmalıdır. BGP oturumu çiftleri yüksek oranda kullanılabilir bir bağlantı sağlayın. Katman 2 bağlantı sağlayıcıları bağlanıyorsanız, yapılandırma ve yönlendirme yönetmekten sorumlu. İnceleyerek daha fazla bilgi edinebilirsiniz [iş akışları](expressroute-workflows.md) ExpressRoute ayarlama.
+
+## <a name="expressroute-health"></a>ExpressRoute sistem durumu
+ExpressRoute bağlantı hatları izlenen kullanılabilirlik, sanal ağlar ve bant genişliği kullanımı kullanarak bağlantıyı [Ağ Performansı İzleyicisi](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview) (NPM).
+
+NPM Azure özel eşleme ve Microsoft eşleme durumunu izler.  Kullanıma bizim [sonrası](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) daha fazla bilgi için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir hizmet sağlayıcı bulun. Bkz: [ExpressRoute hizmet sağlayıcıları ve konumları](expressroute-locations.md).

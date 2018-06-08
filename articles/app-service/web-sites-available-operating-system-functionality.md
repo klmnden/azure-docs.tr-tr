@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service'te işletim sistemi işlevi"
-description: "Web uygulamaları, mobil uygulaması arka uçlarını ve Azure App Service'te API uygulamaları için kullanılabilir OS işlevselliği hakkında bilgi edinin"
+title: Azure App Service'te işletim sistemi işlevi
+description: Web uygulamaları, mobil uygulaması arka uçlarını ve Azure App Service'te API uygulamaları için kullanılabilir OS işlevselliği hakkında bilgi edinin
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850163"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service'te işletim sistemi işlevi
 Bu makalede çalışan tüm uygulamaları için kullanılabilir ortak temel işletim sistemi işlevselliğini [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Bu işlevsellik, dosya, ağ ve kayıt defteri erişimi ve tanılama günlüklerini ve olayları içerir. 
@@ -37,7 +38,7 @@ Uygulama hizmeti farklı katmanlar arasında sorunsuz ölçeklendirme bir deneyi
 ## <a name="development-frameworks"></a>Geliştirme çerçeveleri
 Uygulama hizmeti fiyatlandırma katmanlarına işlem kaynakları (CPU, disk depolama, bellek ve ağ çıkış) uygulamaları için kullanılabilir miktarını denetler. Ancak, framework işlevselliği uygulamaları için kullanılabilir derecesini ölçeklendirme katmanları bakılmaksızın aynı kalır.
 
-App Service ASP.NET, klasik ASP, node.js dahil olmak üzere geliştirme çerçeveleri, PHP ve Python tümü uzantıları IIS içinde farklı çalıştır - çeşitli destekler. Basitleştirmek ve güvenlik yapılandırması normalleştirmek için uygulama hizmeti uygulamalar genellikle varsayılan ayarlarına çeşitli geliştirme çerçeveleri çalıştırın. Her bireysel geliştirme çerçevesi için işlevselliği ve API yüzey alanını özelleştirmek için uygulamaları yapılandırma bir yaklaşım silinmiş. Uygulama hizmeti bir uygulamanın geliştirme framework bakılmaksızın işletim sistemi işlevselliğini ortak bir taban çizgisi sağlayarak daha genel bir yaklaşım yerine alır.
+Uygulama hizmeti geliştirme çerçeveleri, ASP.NET, klasik ASP, node.js, PHP ve Python tümü uzantıları IIS içinde farklı çalıştır - dahil olmak üzere çeşitli destekler. Basitleştirmek ve güvenlik yapılandırması normalleştirmek için uygulama hizmeti uygulamalar genellikle varsayılan ayarlarına çeşitli geliştirme çerçeveleri çalıştırın. Her bireysel geliştirme çerçevesi için işlevselliği ve API yüzey alanını özelleştirmek için uygulamaları yapılandırma bir yaklaşım silinmiş. Uygulama hizmeti bir uygulamanın geliştirme framework bakılmaksızın işletim sistemi işlevselliğini ortak bir taban çizgisi sağlayarak daha genel bir yaklaşım yerine alır.
 
 Aşağıdaki bölümlerde, işletim sistemi işlevselliğini uygulama hizmeti uygulamaları için kullanılabilir genel türlerini özetler.
 
@@ -49,16 +50,22 @@ Yerel sürücüler ve ağ sürücülerini içeren uygulama hizmeti içinde çeş
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>Yerel sürücüler
-Özünde, App Service Azure PaaS (hizmet olarak platform) altyapısı üzerinde çalışan bir hizmettir. Sonuç olarak, "bir sanal makineye bağlı olan" yerel sürücüleri aynı sürücü Azure'da çalışan herhangi bir çalışan rolü için kullanılabilir türleridir. Bu, bir işletim sistemi sürücüsü (D:\ sürücüsüne), Azure paket cspkg dosyalarını özel olarak App Service tarafından kullanılan (ve müşteriler için erişilemez) içeren bir uygulama sürücü ve büyüklüğü VM boyutuna bağlı olarak değişir "kullanıcı" sürücüsü (C:\ sürücüsü) içerir. Uygulamanız büyüdükçe, disk kullanımını izlemek önemlidir. Disk kotası üst sınırına ulaşıldığında, uygulamanıza olumsuz etkileri olabilir.
+Özünde, App Service Azure PaaS (hizmet olarak platform) altyapısı üzerinde çalışan bir hizmettir. Sonuç olarak, "bir sanal makineye bağlı olan" yerel sürücüleri aynı sürücü Azure'da çalışan herhangi bir çalışan rolü için kullanılabilir türleridir. Buna aşağıdakiler dahildir:
+
+- Bir işletim sistemi sürücüsü (D:\ sürücüsüne)
+- (Ve müşteriler için erişilemez) yalnızca uygulama hizmeti tarafından kullanılan Azure paket cspkg dosyaları içeren bir uygulama sürücüsü
+- Büyüklüğü VM boyutuna bağlı olarak değişir "kullanıcı" sürücüsü (C:\ sürücüsü). 
+
+Uygulamanız büyüdükçe, disk kullanımını izlemek önemlidir. Disk kotası üst sınırına ulaşıldığında, uygulamanıza olumsuz etkileri olabilir.
 
 <a id="NetworkDrives"></a>
 
 ### <a name="network-drives-aka-unc-shares"></a>Ağ sürücüleri (diğer adıyla UNC paylaşımları)
-Uygulama dağıtımını ve bakımını basitleştirir uygulama hizmeti benzersiz yönleri tüm kullanıcı içeriğin UNC paylaşımlarına kümesine göre depolandığı biridir. Bu model çok sorunsuz bir şekilde birden çok Yük Dengeleme sunucuları sahip ortamlarda şirket içi web sitesi barındırma tarafından kullanılan içerik depolama ortak desenini eşler. 
+Uygulama dağıtımını ve bakımını basitleştirir uygulama hizmeti benzersiz yönleri tüm kullanıcı içeriğin UNC paylaşımlarına kümesine göre depolandığı biridir. Bu model, iyi birden çok Yük Dengeleme sunucuları sahip ortamlarda şirket içi web sitesi barındırma tarafından kullanılan içerik depolama ortak desenini eşler. 
 
-App Service içinde vardır her veri merkezinde oluşturulan UNC paylaşımlarına sayısı. Her veri merkezi tüm müşteriler için kullanıcı içeriği yüzdesi ayrılan her UNC paylaşımı. Ayrıca, tüm tek bir müşterinin aboneliğini her zaman aynı UNC yerleştirilir için içerik dosyasının paylaşır. 
+App Service içinde UNC paylaşımlarına her veri merkezinde oluşturulmuş bir dizi yoktur. Her veri merkezi tüm müşteriler için kullanıcı içeriği yüzdesi ayrılan her UNC paylaşımı. Ayrıca, tüm tek bir müşterinin aboneliğini her zaman aynı UNC yerleştirilir için içerik dosyasının paylaşır. 
 
-Bulut iş hizmetleri nasıl nedeniyle unutmayın, belirli bir sanal makine bir UNC paylaşımı barındırmak için sorumlu zaman içinde değişir. Bulut işlemleri normal sürecinde duruma yukarı ve aşağı gibi UNC paylaşımlarına farklı sanal makineler tarafından bağlanacaktır sağlanır. Bu nedenle, uygulamaları hiçbir zaman bir UNC dosya yolu makine bilgileri zamanla kararlı kalacak sabit kodlanmış varsayımlar olmanız gerekir. Bunun yerine, bunlar uygun kullanmalısınız *sahte* mutlak bir yol **D:\home\site** , uygulama hizmeti sağlar. Bu sahte mutlak yolu birinin kendi uygulama başvuran taşınabilir, uygulama ve kullanıcı belirsiz bir yöntem sağlar. Kullanarak **D:\home\site**, bir aktarma paylaşılan dosyaları uygulama uygulaması her aktarımı için yeni bir mutlak yol yapılandırmak zorunda kalmadan.
+Nasıl Azure hizmetlerinin çalışması nedeniyle, belirli bir sanal makine bir UNC paylaşımı barındırmak için sorumlu zaman içinde değişir. Yukarı ve aşağı Azure işlemleri normal sürecinde duruma gibi UNC paylaşımlarına farklı sanal makineler tarafından bağlanacaktır sağlanır. Bu nedenle, uygulamaları hiçbir zaman bir UNC dosya yolu makine bilgileri zamanla kararlı kalacak sabit kodlanmış varsayımlar olmanız gerekir. Bunun yerine, bunlar uygun kullanmalısınız *sahte* mutlak bir yol **D:\home\site** , uygulama hizmeti sağlar. Bu sahte mutlak yolu birinin kendi uygulama başvuran taşınabilir, uygulama ve kullanıcı belirsiz bir yöntem sağlar. Kullanarak **D:\home\site**, bir aktarma paylaşılan dosyaları uygulama uygulaması her aktarımı için yeni bir mutlak yol yapılandırmak zorunda kalmadan.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -69,7 +76,7 @@ Bir uygulamanın çalıştığı sanal makineye bağlı yerel sürücüler, uygu
 
 Dizin geçici ASP.NET dosyaları için nasıl uygulama hizmeti geçici yerel depolama alanı kullanır, iki örnek verilmiştir ve IIS için dizin sıkıştırılmış dosyaları dışarıda bırak. ASP.NET derleme sistem "ASP.NET dosyaları" dizinini geçici derleme önbellek konumu olarak kullanır. IIS "IIS geçici sıkıştırılmış dosyaların" dizin sıkıştırılmış yanıt çıktısı depolamak için kullanır. Uygulama başına geçici yerel depolama için iki dosya kullanım (yanı sıra diğerleri) bu tür App Service'te eşleştirilir. Bu yeniden eşleme işlevselliği beklendiği gibi devam etmesini sağlar.
 
-Uygulama hizmeti her uygulamada "daha fazla burada açıklanan uygulama havuzu kimliği" olarak adlandırılan bir rastgele benzersiz düşük ayrıcalıklı çalışan işlem kimliği çalışan: [http://www.iis.net/learn/manage/configuring-security/application-pool-identities](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Uygulama kodu, işletim sistemi sürücüsü (D:\ sürücüsüne) temel salt okunur erişim için bu kimliği kullanır. Bu uygulama kodu ortak dizin yapıları listesinde ve işletim sistemi sürücüsünde ortak dosyaları okumasına anlamına gelir. Bu, sağladığınızda biraz geniş düzeyde erişim, aynı dizinleri ve dosyaları erişilebilir olmasını görünse de Azure çalışan rolünde barındırılan hizmetin ve sürücü içeriğini okuyun. 
+Uygulama hizmeti her uygulamada "daha fazla burada açıklanan uygulama havuzu kimliği" olarak adlandırılan bir rastgele benzersiz düşük ayrıcalıklı çalışan işlem kimliği çalışan: [ http://www.iis.net/learn/manage/configuring-security/application-pool-identities ](http://www.iis.net/learn/manage/configuring-security/application-pool-identities). Uygulama kodu, işletim sistemi sürücüsü (D:\ sürücüsüne) temel salt okunur erişim için bu kimliği kullanır. Bu uygulama kodu ortak dizin yapıları listesinde ve işletim sistemi sürücüsünde ortak dosyaları okumasına anlamına gelir. Bu, sağladığınızda biraz geniş düzeyde erişim, aynı dizinleri ve dosyaları erişilebilir olmasını görünse de Azure çalışan rolünde barındırılan hizmetin ve sürücü içeriğini okuyun. 
 
 <a name="multipleinstances"></a>
 
@@ -79,9 +86,9 @@ Uygulama kodu yazabildiğinizi ve bir uygulamanın içeriği giriş dizini içer
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>Ağ erişimi
-Ağ bağlantıları dış hizmetler kullanıma Internet erişilebilir uç noktalarına giden yapmak için temel UDP protokollerini ve TCP/IP'yi uygulama kodu kullanabilirsiniz. Uygulamaları Azure içinde hizmetlerine bağlanmak için bu aynı protokoller kullanabilir&#151;SQL veritabanı için HTTPS bağlantıları oluşturarak örneğin.
+Uygulama kodu, TCP/IP ile UDP tabanlı protokolleri, dış hizmetler kullanıma Internet erişilebilir uç noktalarına giden ağ bağlantıları oluşturmak için kullanabilirsiniz. Uygulamaları Azure içinde hizmetlerine bağlanmak için bu aynı protokoller kullanabilir&#151;SQL veritabanı için HTTPS bağlantıları oluşturarak örneğin.
 
-Bir yerel bir geri döngü bağlantısını kurmak ve bu yerel bir geri döngü yuvadaki dinleme bir uygulamaya sahip uygulamalar için sınırlı bir özellik yok. Öncelikle işlevleri bir parçası olarak yerel bir geri döngü yuvalarda dinleme uygulamalarını etkinleştirmek için bu özelliği mevcut. Her uygulama bir "özel" geri döngü bağlantı görür unutmayın; uygulama "A", "B" uygulama tarafından oluşturulan yerel bir geri döngü yuva için dinleyemiyor.
+Bir yerel bir geri döngü bağlantısını kurmak ve bu yerel bir geri döngü yuvadaki dinleme bir uygulamaya sahip uygulamalar için sınırlı bir özellik yok. Öncelikle işlevleri bir parçası olarak yerel bir geri döngü yuvalarda dinleme uygulamalarını etkinleştirmek için bu özelliği mevcut. Her uygulama bir "özel" geri döngü bağlantı görür. Uygulama "A", "B" uygulama tarafından oluşturulan yerel bir geri döngü yuva için dinleyemiyor.
 
 Adlandırılmış Kanallar topluca bir uygulama çalıştırmasına farklı işlemler arasında işlemler arası iletişim (IPC) mekanizması olarak da desteklenir. Örneğin, IIS Fastcgı modülü PHP sayfaları çalıştırmak tek tek işlemleri koordine etmek için adlandırılmış kanallar kullanır.
 
@@ -103,7 +110,7 @@ Günlük bilgilerini bazı uygulamalar erişme girişimi verileri başka bir kü
 
 Benzer bir damarlı içinde .NET uygulamalarını gerçek zamanlı tanılama bilgilerini de izleme bilgileri uygulamanın ağ paylaşımına yazma seçeneklerle .NET izleme ve tanılama altyapısını kullanarak kaydedilebilir veya alternatif bir blob depolama konumuna.
 
-Uygulamaları için kullanılabilir olmayan günlüğe kaydetme ve izleme tanılama Windows ETW olayları ve ortak Windows olay günlüklerini (örneğin sistem, uygulama ve güvenlik olay günlüklerini) alanlarıdır. ETW İzleme bilgilerini potansiyel olarak görüntülenebilir makine genelinde (ile hakkı ACL'leri) olabileceği için okuma ve yazma erişimi ETW olayları engellenir. Geliştiriciler, başarılı olması için görünecekleri API okuyup ETW olayları ve ortak Windows olay günlüklerini çalışmak için görünür, ancak uygulama hizmeti "çağrıları faking çünkü" yazmak için çağırdığı fark edebilirsiniz. Gerçekte, uygulama kodu bu olay verileri için erişim yok.
+Uygulamaları için kullanılabilir olmayan günlüğe kaydetme ve izleme tanılama Windows ETW olayları ve ortak Windows olay günlüklerini (örneğin, sistem, uygulama ve güvenlik olay günlüklerini) alanlarıdır. ETW İzleme bilgilerini potansiyel olarak görüntülenebilir makine genelinde (ile hakkı ACL'leri) olabileceği için okuma ve yazma erişimi ETW olayları engellenir. Geliştiriciler, başarılı olması için görünecekleri API okuyup ETW olayları ve ortak Windows olay günlüklerini çalışmak için görünür, ancak uygulama hizmeti "çağrıları faking çünkü" yazmak için çağırdığı fark edebilirsiniz. Gerçekte, uygulama kodu bu olay verileri için erişim yok.
 
 <a id="RegistryAccess"></a>
 

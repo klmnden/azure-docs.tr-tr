@@ -9,17 +9,19 @@ editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: 421af12da6d207a50d12dcbf64aac51aba06b196
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ae8c8ed9d397df0c82b74f051ff14729c0f41623
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34837292"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>Takım veri bilimi işlem (TDSP) şablonu kullanarak biomedical varlık tanıma
 
@@ -104,7 +106,7 @@ Aşağıdaki kodu içeren gerçek senaryosunun genel GitHub depo bağlantıdır 
     * Alt düğümleri: en az 4 [D12_V2](https://azure.microsoft.com/pricing/details/hdinsight/). Bizim işlerinde D12_V2 boyutunun 11 çalışan düğümleri kullandık.
 * [NC6 veri bilimi sanal makine (DSVM)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro) büyütme hesaplama için.
 
-### <a name="python-packages"></a>Python paketlerini
+### <a name="python-packages"></a>Python paketleri
 
 Tüm gerekli bağımlılıkları senaryo proje klasörü altında aml_config/conda_dependencies.yml dosyasında tanımlanır. Bu dosyada tanımlanan bağımlılıklar çalıştırmaları için otomatik olarak sağlanan docker, VM ve HDI karşı küme hedefler. Conda ortam dosyası biçimi hakkında daha fazla ayrıntı için başvurmak [burada](https://conda.io/docs/using/envs.html#create-environment-file-by-hand).
 
