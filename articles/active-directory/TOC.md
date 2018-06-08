@@ -1,3 +1,5 @@
+# [Azure Active Directory Belgeleri](index.md)
+
 # Genel Bakış
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
 ## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
@@ -46,6 +48,7 @@
 ### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
 ### [Hesapları paylaşma](active-directory-sharing-accounts.md)
 ### [Kullanıcıları yönetici rollerine atama](active-directory-users-assign-role-azure-portal.md)
+### [Silinen bir kullanıcıyı geri yükleme](active-directory-users-restore.md)
 ### [Başka bir dizinden konuk kullanıcılar ekleme (B2B)](b2b/what-is-b2b.md)
 #### [B2B kullanıcıları ekleyen yöneticiler](b2b/add-users-administrator.md)
 #### [B2B kullanıcıları ekleyen bilgi çalışanları](b2b/add-users-information-worker.md)
@@ -80,7 +83,8 @@
 ## [Grupları ve üyeleri yönetme](active-directory-manage-groups.md)
 ### Grupları yönetme
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
-#### [Azure PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Graph için Azure AD PowerShell (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
 ### [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
@@ -88,16 +92,16 @@
 #### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
+#### [Kullanıcıları ürün lisansları arasında geçirme](active-directory-licensing-group-product-migration.md)
 #### [Grup tabanlı lisanslama için ek senaryolar](active-directory-licensing-group-advanced.md)
 #### [Grup tabanlı lisanslama için Azure PowerShell örnekleri](active-directory-licensing-ps-examples.md)
 #### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
+### [Gruplar için bir adlandırma ilkesini zorlama](groups-naming-policy.md)
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
-### Grup ayarlarını yönetme
-#### [Azure Portal](active-directory-groups-settings-azure-portal.md)
-#### [Cmdlet’ler](active-directory-accessmanagement-groups-settings-cmdlets.md)
+### [Grup ayarlarını yönetme](active-directory-groups-settings-azure-portal.md) 
 ### Gelişmiş kurallar oluşturma
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
@@ -114,13 +118,17 @@
 #### [Adlandırılmış konumları yapılandırma](active-directory-named-locations.md)
 #### [Etkinlik raporlarını bulma](active-directory-reporting-migration.md)
 #### [Azure Active Directory Power BI İçerik Paketi’ni kullanma](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Riskli olduğu belirlenen kullanıcıları düzeltme](active-directory-report-security-user-at-risk-remediation.md)
 ### Başvuru
 #### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
 #### [Bildirimler](active-directory-reporting-notifications.md)
 #### [Denetim etkinliği başvurusu](active-directory-reporting-activity-audit-reference.md)
 #### [Oturum açma etkinliği hata kodları](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
+#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md
+
+
+
 ### Sorun giderme
 #### [Eksik denetim verileri](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -178,6 +186,14 @@
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
+### [SaaS uygulamalarına kullanıcı hazırlama ve hazırlamayı kaldırma](active-directory-saas-app-provisioning.md) 
+#### [Uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md) 
+#### [SCIM etkin uygulamalara otomatik sağlama](active-directory-scim-provisioning.md) 
+#### [Öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md) 
+#### [Öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
+#### [Kapsam belirleme filtrelerini kullanma](active-directory-saas-scoping-filters.md) 
+#### [Otomatik kullanıcı hazırlama raporu](active-directory-saas-provisioning-reporting.md) 
+#### [Kullanıcı hazırlama sorunlarını giderme](active-directory-application-provisioning-content-map.md) 
 
 ### [Uygulama Proxy’si ile uygulamalara uzaktan erişme](manage-apps/application-proxy.md)
 #### başlarken
@@ -214,7 +230,7 @@
 ##### [Microsoft Teams](application-proxy-teams.md)
 ##### [Tableau](active-directory-application-proxy-tableau.md)
 ##### [Qlik](active-directory-application-proxy-qlik.md)
-
+#### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Sorun giderme](active-directory-application-proxy-troubleshoot.md)
 
@@ -227,9 +243,9 @@
 #### [Kullanıcı hesabı hazırlamayı yönetme](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Kurumsal uygulamalar için çoklu oturum açmayı yönetme](active-directory-enterprise-apps-manage-sso.md)
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Kullanıcının deneyiminde üçüncü taraf bir uygulamayı gizleme](active-directory-coreapps-hide-third-party-app.md)
+#### [Uygulamayı kullanıcı deneyiminden gizleme](active-directory-coreapps-hide-third-party-app.md)
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](active-directory-auto-acceleration-using-hrd.md)
-
+### [AD FS uygulamalarını Azure AD’ye geçirme](migrate-adfs-apps-to-azure.md) 
 ### [Uygulamalara erişimi yönetme](active-directory-managing-access-to-apps.md)
 #### [SSO erişimi](manage-apps/what-is-single-sign-on.md)
 #### [SSO için sertifikalar](active-directory-sso-certs.md)
@@ -244,6 +260,15 @@
 ##### [Yapılandırma](active-directory-application-config-content-map.md)
 ##### [Oturum açma](active-directory-application-sign-in-content-map.md)
 ##### [Sağlama](active-directory-application-provisioning-content-map.md)
+
+###### [Kullanıcının sağlanmasını doğrulama](application-provisioning-when-will-provisioning-finish-specific-user.md) 
+###### [Sağlama uzun sürüyor](application-provisioning-when-will-provisioning-finish.md) 
+###### [Kullanıcı sağlamayı yapılandırma](application-provisioning-config-how-to.md) 
+###### [Sağlama yapılandırma sorunu](application-provisioning-config-problem.md) 
+###### [Yönetici kimlik bilgilerini kaydetme sorunu](application-provisioning-config-problem-storage-limit.md) 
+###### [Hiçbir kullanıcı sağlanmıyor](application-provisioning-config-problem-no-users-provisioned.md) 
+###### [Yanlış kullanıcılar sağlanıyor](application-provisioning-config-problem-wrong-users-provisioned.md) 
+
 ##### [Erişimi yönetme](active-directory-application-access-content-map.md)
 ##### [Erişim Paneli](active-directory-application-access-panel-content-map.md)
 ##### [Uygulama Proxy’si](active-directory-application-proxy-content-map.md)
@@ -274,11 +299,15 @@
 
 ## Kaynaklara temsilci erişimi
 ### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
-#### [Yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md)
+#### [Kullanıcıya yönetici rolü atama](active-directory-users-assign-role-azure-portal.md) 
+#### [Üye ve konuk kullanıcı izinlerini karşılaştırma](users-default-permissions.md) 
+### [Ayrıcalıklı erişimin güvenliğini sağlama](admin-roles-best-practices.md)  
+### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md) 
+
+
 #### [Varsayılan kullanıcı izinleri](users-default-permissions.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
-### [Acil durum erişimi yönetici hesaplarını yönetin](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Ayrıcalıklı rollerin güvenliğini sağlama](admin-roles-best-practices.md)
 
 ## Erişim gözden geçirmeleri
@@ -315,9 +344,7 @@
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
 #### [SSS](active-directory-conditional-faqs.md)
 
-### Windows Hello
-#### [Parolasız kimlik doğrulama](active-directory-azureadjoin-passport.md)
-#### [İş İçin Windows Hello’yu etkinleştirme](active-directory-azureadjoin-passport-deployment.md)
+
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)
 #### [iOS](active-directory-certificate-based-authentication-ios.md)
@@ -336,8 +363,8 @@
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
 ### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
 
-## [Diğer hizmetleri Azure AD ile tümleştirme]()
-### [LinkedIn ile tümleştirmeyi etkinleştirme](linkedin-integration.md)
+## Diğer hizmetleri Azure AD ile tümleştirme 
+### [LinkedIn’i Azure AD ile tümleştirme](linkedin-integration.md)
 
 ## [Azure’a AD FS dağıtma](active-directory-aadconnect-azure-adfs.md)
 ### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)

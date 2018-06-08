@@ -1,26 +1,27 @@
 ---
-title: "Bir giriş Azure yığın Geliştirme Seti (ASDK) | Microsoft Docs"
-description: "ASDK nedir açıklar ve Microsoft Azure yığın değerlendirmek için ortak kullanım durumları."
+title: Bir giriş Azure yığın Geliştirme Seti (ASDK) | Microsoft Docs
+description: ASDK nedir açıklar ve Microsoft Azure yığın değerlendirmek için ortak kullanım durumları.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/16/2018
+ms.date: 06/07/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 5a268a29c7a767084049bf56270aa8bc9d2ccc3f
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850636"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Azure yığın Geliştirme Seti nedir?
 [Microsoft Azure yığın tümleşik sistemleri](.\.\azure-stack-poc.md) aralık boyutu 4-12 düğümlerinden ve ortaklaşa bir donanım iş ortakları ve Microsoft tarafından desteklenir. Azure tümleşik yığını sistemleri, üretim iş yükleri için yeni senaryoları etkinleştirmek için kullanın. Tümleşik sistemleri altyapısını yöneten ve hizmetleri sunan bir Azure yığın işleç değilseniz, bkz bizim [işleci belgelerine](https://docs.microsoft.com/azure/azure-stack).
@@ -58,16 +59,16 @@ Bir Azure yığın operatör olarak, hangi hizmetlerin, kullanıcılarınız iç
 
 ### <a name="foundational-services"></a>Temel Hizmetleri
 Varsayılan olarak, aşağıdaki "temel Hizmetleri" Azure yığın içerir ASDK dağıttığınızda:
-- Hesaplama
+- İşlem
 - Depolama
-- Ağ İletişimi
+- Ağ
 - Key Vault
 
 Bu temel hizmetlerle minimal yapılandırma ile kullanıcılarınıza-olarak-hizmet altyapı (Iaas) sunabilir.
 
 ### <a name="additional-services"></a>Ek hizmetler
 Şu anda aşağıdaki ek olarak bir-hizmet Platform (PaaS) Hizmetleri desteklenir:
-- Uygulama Hizmeti
+- App Service
 - Azure İşlevleri
 - SQL ve MySQL veritabanları
 
@@ -79,4 +80,4 @@ Azure yığın ek Azure Hizmetleri için destek eklemek devam eder. Azure yığ�
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure yığın değerlendirme başlamak için Geliştirme Seti ana sunucu bilgisayarı hazırlamanız gerekir ve ardından [ASDK yükleme](asdk-deploy.md). Bundan sonra yönetici ve kullanıcı portalı için Azure yığın kullanmaya başlamak için oturum açabilir.
+Azure yığın değerlendirme başlamak için Geliştirme Seti ana sunucu bilgisayarı hazırlamanız gerekir ve ardından [ASDK yükleme](asdk-install.md). Bundan sonra yönetici ve kullanıcı portalı için Azure yığın kullanmaya başlamak için oturum açabilir.

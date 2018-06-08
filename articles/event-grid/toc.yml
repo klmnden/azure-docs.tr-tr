@@ -21,6 +21,8 @@
       href: custom-event-quickstart-portal.md
     - name: Olayları Kuyruk depolamaya gönderme
       href: custom-event-to-queue-storage.md
+    - name: Event Hubs’a olaylar gönderme
+      href: custom-event-to-eventhub.md
 - name: Öğreticiler
   items:
     - name: VM değiştiğinde e-posta gönderme

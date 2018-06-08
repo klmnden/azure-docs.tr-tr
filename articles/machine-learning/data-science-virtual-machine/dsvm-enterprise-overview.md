@@ -8,17 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 6a755ef4d933046377a6a25be76655b44f4bf508
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d2aa3c8582227363e9365f213cdf351b9f4a81af
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830546"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Takım analizi ve AI ortamı veri bilimi sanal makine tabanlı 
 [Veri bilimi sanal makine](overview.md) (DSVM) zengin bir ortam AI ve veri analizi için önceden derlenmiş yazılım olan Azure buluta sağlar. Geleneksel olarak DSVM tek tek analytics Masaüstü olarak kullanılan ve tek tek veri bilimcilerine önceden derlenmiş analytics ortamlarına paylaşılan bu kavramı verimliliğini sağlamak. Kurumsal BT uygun olarak yönetilen bir paylaşılan analytics geliştirme ve deneme altyapısı için yinelenen temalardan birini olan büyük analytics takımlar analytics ortamlarını kendi veri bilimcileri ve AI geliştiricileri için planlama yaparken, ilkeleri Bu da işbirliği ve tutarlılık tüm veri bilimi kolaylaştırır / analytics ekipleri. Ayrıca, paylaşılan bir altyapı sağlar analytics ortamı daha iyi kullanmalarını sağlar. Ekip tabanlı veri bilimi / analytics altyapı bazı kuruluşlar tarafından da bir "Analytics Sandbox" adlandırılır hızlı bir şekilde verileri anlamak, denemeleri çalıştırmak, varsayımınızın doğrulamak, Tahmine dayalı modelleri güvenli bir şekilde oluşturmak veri bilimcilerine sağlar çeşitli veri varlıklarına erişimi yaparken üretim ortamına etkileyen olmadan. 

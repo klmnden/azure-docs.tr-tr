@@ -8,14 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850180"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak görüntü sınıflandırma
 
@@ -242,15 +244,20 @@ Her geçmişini çalıştırmak olan iki veya daha fazla çalıştığında kar�
 
 
 ### <a name="parameter-tuning"></a>Parametre ayarlama
+
 Projeleri öğrenme çoğu makine için doğru olduğu gibi yeni bir veri kümesi için iyi sonuçları elde ayarlama yanı sıra farklı tasarım kararlarına değerlendirme dikkatli parametresi gerektirir. Bu görevleri yardımcı olmak için tüm önemli parametreleri belirtilir ve kısa bir açıklama sağlanan, tek bir yerde: `PARAMETERS.py` dosya.
 
 Bazı iyileştirmeler için en taahhüdü ihlaline şunlardır:
 
 - Veri Kalitesi: eğitim ve test kümelerine sahip yüksek kaliteli emin olun. Diğer bir deyişle, görüntüleri kaldırılan doğru açıklamalı, belirsiz görüntüleri (örneğin giysisinin öğeleriyle çizgiler ve noktalar) bağımsızdır ve öznitelikleri karşılıklı olarak birbirini dışlar (diğer bir deyişle, her görüntü için tek bir özniteliği ait olacağı şekilde seçilir).
+
 - Görüntüde ilgi, nesne küçükse görüntü sınıflandırma yaklaşımlar düzgün çalışmıyor bilinmektedir. Bu konuda açıklandığı gibi bir nesne algılama yaklaşım kullanarak bu gibi durumlarda göz önünde bulundurun [Öğreticisi](https://github.com/Azure/ObjectDetectionUsingCntk).
 - DNN iyileştirme: sağ almak için tartışmaya açık bir şekilde en önemli öğrenme oranı parametredir `rf_lrPerMb`. Eğitim doğruluğu (Kısım 2 ilk şekilde) ayarlarsanız, 0-5 yakın değil %, öğrenme oranı nedeniyle bir sorun olduğu büyük olasılıkla. İle başlayarak diğer parametreler `rf_` daha az önemlidir. Genellikle, eğitim hata katlanarak azaltma ve bu eğitim sonra %0 yakın olması gerekir.
+
 - Giriş çözünürlük: varsayılan görüntü çözünürlüğü 224 x 224 pikseldir. Daha yüksek görüntü çözünürlüğü (parametre: `rf_inputResoluton`), örneğin, 448 x 448 veya 896 x 896 piksel genellikle önemli doğruluğu artırır ancak DNN iyileştirme yavaşlatır. **Daha yüksek görüntü çözünürlüğü neredeyse serbest Yemeği olduğu ve neredeyse her zaman doğruluğu artırır**.
+
 - DNN atlayarak sığdırma: DNN iyileştirme sırasında eğitim ve test doğruluğu arasında büyük bir boşluk kaçının (ilk şekil bölüm 2). Bu aralık çıkarma oranları kullanılarak azaltılabilir `rf_dropoutRate` 0,5 ya da daha fazla bilgi ve regularizer ağırlık artırarak `rf_l2RegWeight`. Bir yüksek çıkarma kuru kullanılarak DNN giriş resim çözünürlüğü yüksekse, özellikle yararlı olabilir.
+
 - Daha derin DNNs değiştirerek kullanmayı deneyin `rf_pretrainedModelFilename` gelen `ResNet_18.model` ya da `ResNet_34.model` veya `ResNet_50.model`. Resnet 50 model yalnızca daha derin değil, ancak çıktısını sondan katmanın boyutu 2048 float (vs. 512 float ResNet 18 ve ResNet 34 modellerin). Bu artan boyut SVM sınıflandırıcı eğitimindeki özellikle yararlı olabilir.
 
 ## <a name="part-3---custom-dataset"></a>Bölüm 3 - özel veri kümesi

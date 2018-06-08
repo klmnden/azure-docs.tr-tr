@@ -3,7 +3,7 @@
 # Genel Bakış
 ## [Resource Manager nedir?](resource-group-overview.md)
 ## [Kaynak sağlayıcıları ve türleri](resource-manager-supported-services.md)
-## [Resource Manager ve Klasik dağıtım](resource-manager-deployment-model.md)
+## [Resource Manager ve klasik dağıtım](resource-manager-deployment-model.md)
 ## [Abonelik idaresi](/azure/architecture/cloud-adoption-guide/subscription-governance)
 ## [Yönetim gruplarıyla kaynakları düzenleme](management-groups-overview.md)
 

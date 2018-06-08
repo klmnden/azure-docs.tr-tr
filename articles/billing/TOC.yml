@@ -113,6 +113,8 @@
       href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Başvuru
   items:
+    - name: Faturalandırma Otomasyon Senaryoları
+      href: billing-cost-management-automation-scenarios.md
     - name: Azure Faturalandırma API’sine genel bakış
       href: billing-usage-rate-card-overview.md
       items:
@@ -120,7 +122,8 @@
           href: 'https://docs.microsoft.com/rest/api/billing'
         - name: 'İş ortağı çözümü: Cloud Cruiser'
           href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-    - name: Azure Tüketim API’si
+    - name: Azure Tüketim API’sine genel bakış
+      href: billing-consumption-api-overview.md
       items:
         - name: Azure Tüketim REST API’si
           href: 'https://docs.microsoft.com/rest/api/consumption'

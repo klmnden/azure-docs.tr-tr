@@ -9,27 +9,11 @@
       href: asdk-release-notes.md
 - name: Öğreticiler
   items:
-    - name: 1. ASDK dağıtma
-      items:
-        - name: Yükleyici - ASDK dağıtma
-          href: asdk-deploy.md
-        - name: PowerShell - ASDK dağıtma
-          href: asdk-deploy-powershell.md
-        - name: ASDK yeniden dağıtın
-          href: asdk-redeploy.md
-    - name: 2. Market öğesi ekleme
-      items:
-        - name: Azure'dan indirin
-          href: asdk-marketplace-item.md
-        - name: Yerel bir kaynaktan ekleme
-          href: asdk-marketplace-item-offline.md
-    - name: 3. Iaas hizmetleri sunar
-      href: asdk-offer-services.md
-    - name: 4. Bir teklife abone olma
+    - name: Bir teklife abone olma
       href: asdk-subscribe-services.md
-    - name: 5. Güncelleştirme sunar ve planları
+    - name: Güncelleştirme sunar ve planları
       href: asdk-update-offers.md
-    - name: 6. Bir VM şablonu oluşturma
+    - name: Bir VM şablonu oluşturma
       href: asdk-create-vm-template.md
 - name: Kavramlar
   items:
@@ -49,10 +33,14 @@
           href: asdk-download.md
         - name: ASDK ana bilgisayarı hazırla
           href: asdk-prepare-host.md
-        - name: ASDK yükleyin
+        - name: Yükleyici - ASDK dağıtma
           href: asdk-install.md
+        - name: PowerShell - ASDK dağıtma
+          href: asdk-deploy-powershell.md
         - name: Dağıtım sonrası yapılandırma
           href: asdk-post-deploy.md
+        - name: ASDK yeniden dağıtın
+          href: asdk-redeploy.md
     - name: ASDK kaydetme
       href: asdk-register.md
     - name: Azure yığın telemetri ayarlarını yapılandırma

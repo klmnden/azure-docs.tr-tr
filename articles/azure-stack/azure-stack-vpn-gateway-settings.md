@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
-ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94cabb73406619b95147595127e97a27aed762f9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849758"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure yığını için VPN ağ geçidi yapılandırma ayarları
 
@@ -157,7 +158,10 @@ Birden çok teklifleri hem Başlatıcı hem de bir Yanıtlayıcı olarak destekl
 |IKE Sürümü |IKEv2 |
 |Şifreleme ve karma algoritmalar (şifreleme)     | GCMAES256|
 |Şifreleme ve karma algoritmalar (kimlik doğrulaması) | GCMAES256|
-|SA Yaşam Süresi (Zaman)  | 27.000 saniye |
-|SA Yaşam Süresi (Bayt) | 819,200       |
+|SA Yaşam Süresi (Zaman)  | 27.000 saniye<sup>bkz. Not 1</sup> |
+|SA Yaşam Süresi (Bayt) | 33,553,408<sup>bkz. Not 2</sup>     |
 |Kusursuz İletme Gizliliği (PFS) |PFS2048 |
 |Kullanılmayan Eş Algılama | Desteklenen|  
+
+*Not 1:* sürüm 1803 önce Azure yığın 14,400 değerini SA yaşam süresi (saat) için kullanır. 
+*Not 2:* sürüm 1803 önce Azure yığın 819,200 değerini SA ömrü (bayt) kullanır.

@@ -27,6 +27,8 @@
       href: powershell-samples.md
 - name: Kavramlar
   items:
+    - name: OMS portalı geçişi
+      href: log-analytics-oms-portal-faq.md
     - name: Çalışma alanı yükseltme
       items:
         - name: Yükseltmeye genel bakış
@@ -137,24 +139,20 @@
           href: log-analytics-powerbi.md
     - name: Uyarı oluşturma
       items:
-        - name: Uyarıları anlama
-          href: log-analytics-alerts.md
-        - name: Uyarı eylemleri
-          href: log-analytics-alerts-actions.md
-        - name: Uyarı kuralları oluşturma
-          items:
-            - name: OMS portalı
-              href: log-analytics-alerts-creating.md
-            - name: REST API
-              href: log-analytics-api-alerts.md
-            - name: Resource Manager şablonu
-              href: ../monitoring/monitoring-solutions-resources-searches-alerts.md
-        - name: Web kancası eylem örneği
-          href: log-analytics-alerts-webhooks.md
-        - name: Uyarı Yönetimi çözümü
-          href: log-analytics-solution-alert-management.md
+        - name: Günlük uyarılarını anlama
+          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
+        - name: Günlük uyarısı oluşturma
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+        - name: Günlük uyarıları için web kancası eylemleri
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+        - name: Resource Manager şablonu ile günlük uyarısı oluşturma
+          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+        - name: Uyarıları Log Analytics’ten Azure Uyarıları’na kopyalama
+          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
     - name: Yönetme
       items:
+        - name: Kişisel verileri işleme
+          href: log-analytics-personal-data-mgmt.md
         - name: Aracı yönetimi
           href: log-analytics-agent-manage.md
         - name: Çalışma alanı maliyetlerini yönetme
@@ -218,8 +216,6 @@
               href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
             - name: Logic Apps B2B özel izleme şeması
               href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Kötü Amaçlı Yazılım Değerlendirmesi
-          href: log-analytics-malware.md
         - name: Ağ Analizi
           href: log-analytics-azure-networking-analytics.md
         - name: Ağ Performansı İzleyicisi
@@ -239,7 +235,7 @@
         - name: SCOM Durumu Denetimi
           href: log-analytics-scom-assessment.md
         - name: Güvenlik Denetimi
-          href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
+          href: ../security-center/security-center-intro.md
         - name: Azure PowerShell ile Service Fabric
           href: log-analytics-service-fabric.md
           items:
