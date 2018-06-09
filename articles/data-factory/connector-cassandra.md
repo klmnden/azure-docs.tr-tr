@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ad7b9d16e00319320f638593c9f24ccb75c2bb9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 94312edaa97a5d9a7502eed4c0551151ce2a06cc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616160"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235286"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory kullanarak Cassandra verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,8 +37,11 @@ Tüm desteklenen havuz veri deposuna Cassandra veritabanından veri kopyalayabil
 
 Özellikle, bu Cassandra bağlayıcı destekler:
 
-- Cassandra **sürümleri 2.X**.
+- Cassandra **sürümleri 2.x ve 3.x**.
 - Verileri kullanarak kopyalama **temel** veya **anonim** kimlik doğrulaması.
+
+>[!NOTE]
+>Self-hosted tümleştirme çalışma zamanı, 3.x IR sürüm 3.7'den itibaren ve üstünde desteklenir Cassandra çalışan etkinliği.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -63,6 +66,9 @@ Aşağıdaki özellikler Cassandra bağlantılı hizmeti için desteklenir:
 | kullanıcı adı |Kullanıcı hesabının kullanıcı adını belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
 | password |Kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet, authenticationType temel olarak ayarlanmışsa. |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+>[!NOTE]
+>Şu anda Cassandra SSL kullanarak bağlantı desteklenmiyor.
 
 **Örnek:**
 

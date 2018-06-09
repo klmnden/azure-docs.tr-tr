@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: faf85c34c527dd72889f0fcb5021925b79481163
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823858"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234850"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -30,7 +30,7 @@ Küçük bir Azure yığın Hizmetleri ve büyük olasılıkla Kiracı VM'ler k�
 - Bu belirtimler eşleşen sertifikalar alma işlemi
 - Hazırlama, doğrulama ve dağıtımı sırasında bu sertifikaları kullanma
 
-> [!NOTE]
+> [!Note]  
 > Dağıtım sırasında sertifikaları (Azure karşı AD veya AD FS) dağıtıyorsanız kimlik sağlayıcısı eşleşen dağıtım klasörünü kopyalamanız gerekir. Tüm uç noktaları için tek bir sertifika kullanıyorsanız, aşağıdaki tabloda özetlendiği gibi her dağıtım klasörüne bu sertifika dosyasını kopyalamanız gerekir. Klasör yapısı dağıtım sanal makinede önceden oluşturulmuş ve şurada bulunabilir: C:\CloudDeployment\Setup\Certificates. 
 
 ## <a name="certificate-requirements"></a>Sertifika gereksinimleri
@@ -47,12 +47,12 @@ Aşağıdaki listede, Azure yığın dağıtmak için gerekli sertifika gereksin
 - Sertifikanın "verilen:" alan aynı olmamalıdır, "tarafından verilen:" alanı.
 - Tüm sertifika pfx dosyalarını parolaların aynı dağıtım zamanında olmalıdır
 - Sertifika pfx parolası karmaşık bir parola olması gerekir.
-- Konu adları ve tüm sertifikaların konu alternatif adlarını dağıtımları başarısız önlemek için bu makalede açıklanan belirtimleri eşleştiğinden emin olun.
+- Konu adları ve konu alternatif adlarını konu alternatif adı uzantısı (x509v3_config) eşleşme emin olun. Konu alternatif adı alanı ek konak adları (Web siteleri, IP adresleri, ortak adları) tek bir SSL sertifikası tarafından korunacak belirtmenize olanak sağlar.
 
-> [!NOTE]
+> [!NOTE]  
 > Kendi kendine imzalandı sertifikalar desteklenmez.
 
-> [!NOTE]
+> [!NOTE]  
 > Bir sertifika güven zinciri Is ara sertifika yetkililerini varlığını desteklenir. 
 
 ## <a name="mandatory-certificates"></a>Zorunlu sertifikaları

@@ -1,11 +1,11 @@
 ---
-title: "Uygulamanızı Azure App Service'e bir ZIP ya da WAR dosyası dağıtma | Microsoft Docs"
-description: "ZIP dosyası (veya bir WAR dosyası Java geliştiricilerinin) ile uygulamanızı Azure App Service'e dağıtma öğrenin."
+title: Uygulamanızı Azure App Service'e bir ZIP ya da WAR dosyası dağıtma | Microsoft Docs
+description: ZIP dosyası (veya bir WAR dosyası Java geliştiricilerinin) ile uygulamanızı Azure App Service'e dağıtma öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
-ms.openlocfilehash: 6ecbf111bad96bce310109ac1a3e8f3bb846be6c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3178d5cb09087a243a51e20567895d03ce1f7fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234143"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Uygulamanızı Azure App Service'e bir ZIP ya da WAR dosyası dağıtma
 
@@ -82,7 +83,7 @@ Bu komut ZIP içindeki dosyaları ve dizinleri App Service uygulama klasörünü
 
 ## <a name="deploy-war-file"></a>WAR dosyasını dağıtın
 
-Bir WAR dosyası App Service'e dağıtma için https://<app_name>.scm.azurewebsites.net/api/wardeploy bir POST isteği gönderin. POST isteğini ileti gövdesi .war dosyasında içermesi gerekir. Uygulamanız için dağıtım kimlik bilgileri İstek HTTP temel kimlik doğrulaması kullanılarak sağlanır. 
+Bir WAR dosyası App Service'e dağıtma için https://<app_name>.scm.azurewebsites.net/api/wardeploy bir POST isteği gönderin. POST isteğinin ileti gövdesinde .war dosyası bulunmalıdır. Uygulamanızın dağıtım kimlik bilgileri, HTTP BASIC kimlik doğrulaması kullanılarak istekte belirtilir. 
 
 HTTP temel kimlik doğrulaması için uygulama hizmeti dağıtım kimlik bilgilerinizi gerekir. Dağıtım kimlik bilgilerinizi ayarlamak hakkında bilgi için bkz: [ayarlamak ve kullanıcı düzeyinde kimlik bilgilerini sıfırlama](app-service-deployment-credentials.md#userscope).
 
@@ -106,6 +107,8 @@ $apiUrl = "https://<app_name>.scm.azurewebsites.net/api/wardeploy"
 $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f $username, $password)))
 Invoke-RestMethod -Uri $apiUrl -Headers @{Authorization=("Basic {0}" -f $base64AuthInfo)} -Method POST -InFile $filePath -ContentType "multipart/form-data"
 ```
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

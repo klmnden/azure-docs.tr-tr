@@ -1,24 +1,25 @@
 ---
 title: Azure - Cortana Intelligence çözüm teknik Kılavuzu ile Havacılık Tahmine dayalı bakım | Microsoft Docs
 description: Tahmine dayalı bakım Havacılık, yardımcı programlar ve taşıma için teknik Kılavuzu Microsoft Cortana Intelligence ile çözüm şablonu için.
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
-ms.service: cortana-analytics
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248393"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Tahmine dayalı bakım Havacılık ve diğer işletmeler için Cortana Intelligence çözüm şablonu teknik Kılavuzu
 
@@ -57,7 +58,7 @@ Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğü
 
 Yalnızca bilgisayarınızda yürütülürken olay oluşturma uygulama Azure olay hub'ı doldurur.
 
-### <a name="azure-event-hub"></a>Azure Event Hub
+### <a name="azure-event-hub"></a>Azure Olay Hub'ı
 [Azure olay hub'ı](https://azure.microsoft.com/services/event-hubs/) alıcı yapay veri kaynağı tarafından sağlanan girdi bir hizmettir.
 
 ## <a name="data-preparation-and-analysis"></a>Veri hazırlama ve çözümleme
@@ -85,7 +86,7 @@ Veri kümesi tarafından kullanılan veri kümesi eşleştiğini düşüktür [T
 
 Aşağıdaki bölümlerde değişiklikler yeni bir veri kümesi eklendiğinde gerektiren şablon bölümlerini açıklanmaktadır.
 
-### <a name="azure-event-hub"></a>Azure Event Hub
+### <a name="azure-event-hub"></a>Azure Olay Hub'ı
 Azure Event Hub genel; Veri, CSV veya JSON biçiminde hub'ına gönderilebilir. Azure Event Hub'ında hiçbir özel işlem gerçekleşir, ancak içine ssas'nin veriler anlamanız önemlidir.
 
 Bu belge, veri alma nasıl açıklamak değildir, ancak kolayca olayları ya da veri Azure olay Hub'ına olay hub'ı API'lerini kullanarak gönderebilirsiniz.
@@ -186,7 +187,7 @@ Aşağıdaki adımları pbıx dosyası çalışmaya görselleştirme için veril
    * İki tablo görürsünüz **RemainingUsefulLife** ve **PMResult**. İlk tabloyu seçin ve ![sorgu ayarlar simgesine](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png) yanına **'Source'** altında **'UYGULANAN adımları'** sağdaki **'Sorgu ayarları'** Panel. Görünen herhangi bir uyarı iletisi yoksay.
    * Penceresini pop içinde Değiştir **'Server'** ve **'Database'** kendi sunucu ve veritabanı adları ve ardından ile **'Tamam'**. Sunucu adını, bağlantı noktası 1433 belirttiğinizden emin olun (**YourSoutionName.database.windows.net, 1433**). Veritabanı alanı olarak bırakın **pmaintenancedb**. Ekranda görüntülenen uyarı iletilerini yoksayın.
    * Penceresini sonraki pop sol bölmede iki seçenek görürsünüz (**Windows** ve **veritabanı**). Tıklatın **'Database'**, doldurun, **'Username'** ve **'Parola'** (kullanıcı adı ve parola ilk çözümü dağıtılmış ve oluşturulan Azure girdiğiniz budur SQL veritabanı). İçinde ***bu ayarları uygulamak için hangi düzeyini seçin***, veritabanı düzeyi seçeneği işaretleyin. Ardından **'Bağlan'**.
-   * İkinci tabloda tıklatın **PMResult** ardından ![Gezinti simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) yanına **'Source'** altında **'UYGULANAN adımları'** Sağdaki**'Sorgu ayarları'** panelde, yukarıdaki adımları olduğu gibi sunucu ve veritabanı adları güncelleştirmek ve Tamam'ı tıklatın.
+   * İkinci tabloda tıklatın **PMResult** ardından ![Gezinti simgesi](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png) yanına **'Source'** altında **'UYGULANAN adımları'** Sağdaki **'Sorgu ayarları'** panelde, yukarıdaki adımları olduğu gibi sunucu ve veritabanı adları güncelleştirmek ve Tamam'ı tıklatın.
    * Önceki sayfaya destekli sonra penceresini kapatın. Bir ileti görüntüler - tıklatın **Uygula**. Son olarak, tıklatın **kaydetmek** değişiklikleri kaydetmek için düğmesi. Power BI dosyanızı şimdi sunucu bağlantı. Görsel öğe boş ise, tüm göstergeleri sağ üst köşesindeki silme simgesini tıklatarak görselleştirmek için görselleştirmeleri seçimlere temizlediğinizden emin olun. Yeni verileri görsel öğeleri göstermek için Yenile düğmesini kullanın. Veri Fabrikası 3 saatte yenilemek için zamanlanmış olarak başlangıçta, yalnızca çekirdek verileri, görsel öğeleri görürsünüz. 3 saat sonra verileri yenilediğinizde, görselleştirmeler yansıtılan yeni tahminleri görürsünüz.
 3. (İsteğe bağlı) Yolunuzda panoya yayımlama [çevrimiçi Power BI](http://www.powerbi.com/). Bu adım bir Power BI hesabı (veya Office 365 hesabı) gerektiğini unutmayın.
    

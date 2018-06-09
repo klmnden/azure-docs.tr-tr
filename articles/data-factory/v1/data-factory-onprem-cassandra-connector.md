@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 06/07/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6e6b9bf194da17ebd03389829ba594bf3fbf1e64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 01ac558ec032d2da8026ce48923d839bd05e85c1
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622110"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235473"
 ---
 # <a name="move-data-from-an-on-premises-cassandra-database-using-azure-data-factory"></a>Azure Data Factory kullanarak bir şirket içi Cassandra veritabanından veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi Cassandra ve
 Bir şirket içi Cassandra veri deposundan verileri herhangi bir desteklenen havuz veri deposuna kopyalayabilirsiniz. Veri depoları havuzlarını kopyalama etkinliği tarafından desteklenen bir listesi için bkz: [desteklenen veri depoları](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Veri Fabrikası şu anda yalnızca veri taşımayı Cassandra veri deposundan diğer veri depolarına, ancak verileri diğer veri depolarına Cassandra veri deposuna taşıma değil destekler. 
 
 ## <a name="supported-versions"></a>Desteklenen sürümler
-Cassandra bağlayıcı Cassandra aşağıdaki sürümlerini destekler: 2.X.
+Cassandra bağlayıcı Cassandra aşağıdaki sürümlerini destekler: 2.x ve 3.x. Self-hosted tümleştirme çalışma zamanı, 3.x IR sürüm 3.7'den itibaren ve üstünde desteklenir Cassandra çalışan etkinliği.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Azure Data Factory hizmetinin şirket içi Cassandra veritabanınıza bağlanmak veritabanını barındıran aynı makine üzerindeki veya veritabanı ile kaynakları için rekabete önlemek için ayrı bir makine veri yönetimi ağ geçidi yüklemeniz gerekir. Veri Yönetimi ağ geçidi, şirket içi veri kaynakları bulut hizmetlerine güvenli ve yönetilen bir şekilde birbirine bağlayan bir bileşenidir. Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) makale veri yönetimi ağ geçidi hakkında ayrıntılı bilgi için. Bkz: [buluta şirket içinden veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale verileri taşımak veri ardışık ağ geçidi kurun ayarı ilişkin adım adım yönergeler.
@@ -75,6 +75,9 @@ Aşağıdaki tabloda, JSON öğeleri Cassandra bağlantılı hizmete özgü aç�
 | password |Kullanıcı hesabı için parola belirtin. |Evet, authenticationType temel olarak ayarlanmışsa. |
 | gatewayName |Şirket içi Cassandra veritabanına bağlanmak için kullanılan ağ geçidi adı. |Evet |
 | encryptedCredential |Ağ Geçidi tarafından şifrelenmiş kimlik bilgileri. |Hayır |
+
+>[!NOTE]
+>Şu anda Cassandra SSL kullanarak bağlantı desteklenmiyor.
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam listesi için bkz: [veri kümeleri oluşturma](data-factory-create-datasets.md) makalesi. Bölümler yapısı, kullanılabilirlik ve bir veri kümesi JSON İlkesi gibi tüm veri türleri (Azure SQL, Azure blob, Azure tablo, vs.) için benzer.

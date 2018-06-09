@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236408"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analytics sık sorulan sorular
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - İzlemek istediğiniz Nsg'ler için etkin NSG akış günlükleri
     - Ham depolamak için bir Azure depolama hesabınızın flog günlükleri
     - Okuma ve yazma erişimi olan bir günlük analizi (OMS) çalışma alanı
-    - Hesabınız, Microsoft.Network sağlayıcısı aşağıdaki eylemleri atanması gerekir:
+    - Kullanıcıya abonelik düzeyinde aşağıdaki rolleri birini ile atanmalıdır:
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    Veya kullanıcıya abonelik düzeyinde tüm rolleri aşağıdaki ile atanmalıdır: 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -41,6 +49,19 @@ ms.lasthandoff: 04/18/2018
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için lütfen aşağıdaki adımları izleyin:
+
+Login-AzureRmAccount kullanarak Azure'da oturum aç 
+
+Select-AzureRmSubscription kullanarak gerekli aboneliği seçin 
+
+Artık belirli bir kullanıcıya atanmış olan tüm rollerini listelemek için Get-AzureRmRoleAssignment - SignInName kullanın <user email> - IncludeClassicAdministrators 
+
+Yürütme commends sonra herhangi bir çıktı görmüyorsanız sonra lütfen ilgili abonelik Yönetici'ye komutları yürütmek için erişim sağlamak için ulaşın.  
+
+Daha fazla ayrıntı Lütfen başvurun [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+
 
 2.  Hangi Azure bölgeleri trafiği analytics kullanılabilir?
 
@@ -106,11 +127,11 @@ ms.lasthandoff: 04/18/2018
 
 14. PowerShell veya Azure Resource Manager şablonu kullanarak trafiği analytics yapılandırabilir miyim?
 
-    Hayır, trafiği analytics yalnızca Azure portalını kullanarak yapılandırılabilir.
+Evet, windows powershell 6.2.1 sürümünden desteklenen kullanarak trafiği Analizi Yapılandırması ve sonraki sürümleri, ancak Azure Resource Manager şablonu destek kullanılamıyor sunar. Daha fazlasını PowerShell analytics başvurun trafiğini yapılandırmak için nasıl kullanılabileceğini öğrenmek için aşağıdaki [belgelerine](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Trafik analytics nasıl fiyatlandırılır?
 
-        Trafik analytics ölçülen azaltılmış günlükleri, geliştirme için ve günlük analizi çalışma alanında Gelişmiş günlüklerini depolamak. Faturalama yayımlanan hızlarında bir çalışma alanında veri bekletme tabidir ancak Önizleme sırasında trafiği analytics azaltılmış günlükleri, geliştirme için faturalandırılır değil. Bu yanıt için trafiği analytics fiyatları kullanılabilir olduğunda güncelleştirilir.
+Hizmet tarafından işlenir ve günlük analizi çalışma alanında sonuçlandı Gelişmiş günlüklerini depolamak akışı günlük verileri için trafiği analytics ölçülen. Plan fiyatlandırması hakkında daha fazla Lütfen bilmeniz [burayı tıklatın](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
 

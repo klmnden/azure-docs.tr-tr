@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235949"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Günlük analizi ile ortamınızdaki bilgisayarlardan veri toplama
 
@@ -40,12 +41,9 @@ Aracı Linux ve Windows için TCP bağlantı noktası 443 giden günlük analizi
 
 System Center 2016 - Operations Manager veya Operations Manager 2012 R2'de, bilgisayarla izliyorsanız veri toplamak ve Hizmeti'ne iletmek ve tarafından izlenmesi için günlük analizi hizmeti ile çok konaklı olabilir [Operations Manager ](log-analytics-om-agents.md). Günlük analizi ile tümleşik bir Operations Manager yönetim grubu tarafından izlenen Linux bilgisayarlar veri kaynakları ve yönetim grubu ile ileri toplanan veriler için yapılandırma almaz. Linux Aracısı'nı yalnızca tek bir çalışma alanına raporlama desteklerken Windows Aracısı en fazla dört çalışma alanları bildirebilirsiniz.  
 
-Yalnızca günlük Analizi'ne bağlamak için aracı Linux ve Windows için değil, ana bilgisayar karma Runbook çalışanı rolü ve değişiklik izleme ve güncelleştirme yönetimi gibi yönetim çözümleri için Azure Otomasyonu de destekler.  Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz: [Azure Otomasyon karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md).
+Yalnızca günlük Analizi'ne bağlamak için aracı Linux ve Windows için değil, ana bilgisayar karma Runbook çalışanı rolü ve değişiklik izleme ve güncelleştirme yönetimi gibi yönetim çözümleri için Azure Otomasyonu de destekler.  Karma Runbook çalışanı rolü hakkında daha fazla bilgi için bkz: [Azure Otomasyon karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md).  
 
-## <a name="prerequisites"></a>Önkoşullar
-Başlamadan önce en düşük sistem gereksinimlerini karşıladığını doğrulamak için aşağıdaki ayrıntıları gözden geçirin.
-
-### <a name="windows-operating-system"></a>Windows işletim sistemi
+## <a name="supported-windows-operating-systems"></a>Desteklenen Windows işletim sistemleri
 Aşağıdaki Windows işletim sistemi sürümleri için Windows Aracısı resmi olarak desteklenir:
 
 * Windows Server 2008 Service Pack 1 (SP1) veya daha yenisi
@@ -54,17 +52,7 @@ Aşağıdaki Windows işletim sistemi sürümleri için Windows Aracısı resmi 
 > [!NOTE]
 > Windows için aracı yalnızca Aktarım Katmanı Güvenliği (TLS) 1.0 ve 1.1 destekler.  
 
-#### <a name="network-configuration"></a>Ağ yapılandırması
-Aşağıdaki liste Windows aracı günlük analizi ile iletişim kurmak için gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini bilgileri. Günlük analizi hizmeti ağınızdan giden trafiğidir. 
-
-| Aracı Kaynağı | Bağlantı Noktaları | HTTPS denetlemesini atlama|
-|----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | Evet |
-|*.oms.opinsights.azure.com | 443 | Evet | 
-|*.blob.core.windows.net | 443 | Evet | 
-|*.azure-automation.net | 443 | Evet | 
-
-### <a name="linux-operating-systems"></a>Linux işletim sistemleri
+## <a name="supported-linux-operating-systems"></a>Desteklenen Linux işletim sistemleri
 Aşağıdaki Linux dağıtımları resmi olarak desteklenir.  Ancak, Linux Aracısı'nı listelenmeyen diğer dağıtımlar da çalıştırabilirsiniz.  Aksi belirtilmedikçe, tüm ikincil sürümleri listelenen her ana sürümü için desteklenir.  
 
 * Amazon Linux için 2015.09 2012.09 (x86/x64)
@@ -75,19 +63,22 @@ Aşağıdaki Linux dağıtımları resmi olarak desteklenir.  Ancak, Linux Arac�
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
 * SUSE Linux Enterprise Server 11 ve 12 (x86/x64)
 
-#### <a name="network-configuration"></a>Ağ yapılandırması
-Aşağıdaki listeden Linux aracısının günlük analizi ile iletişim kurmak için gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini bilgileri.  
+## <a name="network-firewall-requirements"></a>Ağ güvenlik duvarı gereksinimleri
+Aşağıdaki listeden Linux ve Windows aracı günlük analizi ile iletişim kurmak için gerekli proxy ve güvenlik duvarı yapılandırma bilgilerini bilgileri.  
 
-|Aracı Kaynağı| Bağlantı Noktaları | Yön |  
-|------|---------|--------|  
-|*.ods.opinsights.azure.com | Bağlantı noktası 443 | Gelen ve giden|  
-|*.oms.opinsights.azure.com | Bağlantı noktası 443 | Gelen ve giden|  
-|*.blob.core.windows.net | Bağlantı noktası 443 | Gelen ve giden|  
-|*.azure-automation.net | Bağlantı noktası 443 | Gelen ve giden|  
+|Aracı Kaynağı|Bağlantı Noktaları |Yön |HTTPS denetlemesini atlama|
+|------|---------|--------|--------|   
+|*.ods.opinsights.azure.com |Bağlantı noktası 443 |Gelen ve giden|Evet |  
+|*.oms.opinsights.azure.com |Bağlantı noktası 443 |Gelen ve giden|Evet |  
+|*.blob.core.windows.net |Bağlantı noktası 443 |Gelen ve giden|Evet |  
+|*.azure-automation.net |Bağlantı noktası 443 |Gelen ve giden|Evet |  
 
-Linux Aracısı, bir proxy sunucusu veya OMS ağ geçidi HTTPS protokolünü kullanarak günlük analizi hizmeti ile iletişim kurmasını destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  Proxy sunucusu yüklemesi sırasında veya yükleme işleminden sonra proxy.conf yapılandırma dosyasını değiştirerek belirtilebilir.  
 
-Proxy yapılandırma değeri sözdizimi aşağıdaki gibidir:
+Azure Otomasyon karma Runbook çalışanı bağlanmak ve ortamınızda runbook'ları kullanmak için Otomasyon hizmeti ile kaydetmek için kullanmayı planlıyorsanız, bağlantı noktası numarasını ve bölümünde açıklanan URL'lere erişimi olmalıdır [ağınız için yapılandırma Karma Runbook çalışanı](../automation/automation-hybrid-runbook-worker.md#network-planning). 
+
+Windows ve Linux Aracısı, bir proxy sunucusu veya OMS ağ geçidi HTTPS protokolünü kullanarak günlük analizi hizmeti ile iletişim kurmasını destekler.  Anonim ve temel kimlik doğrulaması (kullanıcı adı/parola) desteklenir.  Hizmete doğrudan bağlı Windows aracı için proxy yapılandırmasını yüklemesi sırasında belirtilir veya [dağıtımdan sonra](log-analytics-agent-manage.md#update-proxy-settings) Denetim Masası'ndan veya PowerShell ile.  
+
+Linux aracısı için proxy sunucusu yüklemesi sırasında belirtilir veya [yükleme sonrasında](/log-analytics-agent-manage.md#update-proxy-settings) proxy.conf yapılandırma dosyasını değiştirerek.  Linux Aracısı proxy yapılandırma değeri sözdizimi aşağıdaki gibidir:
 
 `[protocol://][user:password@]proxyhost[:port]`
 

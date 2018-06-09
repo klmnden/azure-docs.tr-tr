@@ -3,21 +3,22 @@ title: Privileged Identity Management - Azure için erişim vermek nasıl | Micr
 description: Azure Active Directory Privileged Identity Management uzantısı ile kullanıcıları için roller PIM yönetilebilir eklemeyi öğrenin.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f7e08e35ce4575715a72b0880d038ce0db766b66
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 150f994aedfc8d2847a0741792c32114e1b520fe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233555"
 ---
 # <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management yönetmek için erişim verme
 Azure AD Privileged Identity Management (PIM) bir kuruluş için otomatik olarak etkinleştirir genel yönetici rol atamalarını ve PIM erişimi alın. Hiç kimsenin yazma erişimi varsayılan olarak, ancak başka genel yöneticiler de dahil olmak üzere alır. Diğer genel Yöneticiler, güvenlik yöneticileri ve güvenlik okuyucuları Azure AD PIM salt okuma erişimi var. PIM için erişim vermek için ilk kullanıcı başkalarına atayabilirsiniz **ayrıcalıklı Rol Yöneticisi** rol. Bu atama gelen PIM içinde yapılmalıdır ve PowerShell veya diğer portallar değiştirilemez.

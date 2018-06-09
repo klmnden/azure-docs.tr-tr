@@ -5,20 +5,16 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235320"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Olay hub'ları sık sorulan sorular
 
@@ -30,7 +26,7 @@ Azure Event hubs standart katmanı temel katmanında nelerin kullanılabildiğin
 * Uzun olay saklama
 * Aşma bir ücret dahil sayıdan daha fazla bilgi için ile ek aracılı bağlantılar
 * Birden çok tek bir tüketici grubu
-* [Yakalama](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [Yakalama](event-hubs-capture-overview.md)
 
 Fiyatlandırma katmanlarına, olay hub'ları ayrılmış, dahil olmak üzere hakkında daha fazla bilgi için bkz: [olay hub'ın fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -58,9 +54,10 @@ Kullanarak [otomatik Şişir](event-hubs-auto-inflate.md) özelliği, kullanım�
 Evet, aynı adlı ad alanındaki tüm event hubs olduğu sürece.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>Olaylar için maksimum bekletme süresi nedir?
-Olay hub'ları standart katmanı, şu anda maksimum Bekletme dönemi 7 gün destekler. Olay hub’larının kalıcı veri depoları olarak kullanılmak üzere tasarlanmadığını unutmayın. Bekletme süreleri 24 saatten fazla olay akışının aynı sistemlere yeniden yürütme için uygun olduğu senaryoları için tasarlanmıştır; Örneğin, eğitmek veya yeni bir makine öğrenimi modeline var olan verileri doğrulayın. 7 gün dışında tutma iletisi varsa, etkinleştirme [olay hub'ları yakalama](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) üzerinde olay hub'ı olay hub'ınızı verileri depolama veya seçtiğiniz Azure Data Lake hizmeti hesabına çeker. Yakalama etkinleştirme, satın alınan işleme birimine dayalı bir ücret doğurur.
+Olay hub'ları standart katmanı, şu anda maksimum Bekletme dönemi 7 gün destekler. Olay hub’larının kalıcı veri depoları olarak kullanılmak üzere tasarlanmadığını unutmayın. Bekletme süreleri 24 saatten fazla olay akışının aynı sistemlere yeniden yürütme için uygun olduğu senaryoları için tasarlanmıştır; Örneğin, eğitmek veya yeni bir makine öğrenimi modeline var olan verileri doğrulayın. 7 gün dışında tutma iletisi varsa, etkinleştirme [olay hub'ları yakalama](event-hubs-capture-overview.md) üzerinde olay hub'ı olay hub'ınızı verileri depolama veya seçtiğiniz Azure Data Lake hizmeti hesabına çeker. Yakalama etkinleştirme, satın alınan işleme birimlerine göre bir ücret doğurur.
 
 ### <a name="where-is-azure-event-hubs-available"></a>Burada Azure Event Hubs var mı?
+
 Azure Event Hubs tüm desteklenen Azure bölgelerde kullanılabilir. Bir liste için ziyaret [Azure bölgeleri](https://azure.microsoft.com/regions/) sayfası.  
 
 ## <a name="best-practices"></a>En iyi uygulamalar
@@ -101,22 +98,27 @@ Yakalama bir olay hub'ına etkinleştirildiğinde sağlayan bir depolama hesabı
 ## <a name="quotas"></a>Kotalar
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Event Hubs ile ilişkili olan kotaları bulunur?
+
 Tüm Event Hubs kotaları listesi için bkz: [kotaları](event-hubs-quotas.md).
 
 ## <a name="troubleshooting"></a>Sorun giderme
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Olay hub'ları ve bunların önerilen eylemleri tarafından oluşturulan özel durumları bazıları nelerdir?
+
 Olası olay hub'ları özel durumlar listesi için bkz: [özel durumlar genel bakış](event-hubs-messaging-exceptions.md).
 
 ### <a name="diagnostic-logs"></a>Tanılama günlükleri
+
 İki tür olay hub'ları destekler [tanılama günlükleri](event-hubs-diagnostic-logs.md) -yakalama Hata günlüklerini ve işlem günlüklerini - her ikisi de json'da temsil edilir ve Azure Portalı aracılığıyla açılabilir.
 
 ### <a name="support-and-sla"></a>Destek ve SLA
+
 Olay hub'ları için teknik destek aracılığıyla kullanılabilir [topluluk forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Faturalandırma ve abonelik yönetim desteği ücretsiz olarak sunulmaktadır.
 
 Bizim SLA hakkında daha fazla bilgi için bkz: [hizmet düzeyi sözleşmeleri](https://azure.microsoft.com/support/legal/sla/) sayfası.
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 Aşağıdaki bağlantıları inceleyerek Event Hubs hakkında daha fazla bilgi edinebilirsiniz:
 
 * [Event Hubs’a genel bakış](event-hubs-what-is-event-hubs.md)

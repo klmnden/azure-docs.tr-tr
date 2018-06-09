@@ -8,20 +8,21 @@ author: ghogen
 ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: article
-description: Kapsayıcılar ve Azure üzerinde mikro ile hızlı Kubernetes geliştirme
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes hizmeti, kapsayıcıları
+description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: 38a433a14ab977fb56a8331a057d27241f1d9783
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3dc0dd4b571f716bcabb67c4cbef1ea6d762eb94
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248667"
 ---
 # <a name="use-kubectl-with-an-azure-dev-space"></a>Bir Azure Dev alanıyla kubectl kullanın
 
 Kubernetes küme Azure Dev alanı içinde erişim ve kullanım varolan Kubernetes Araçlar `kubectl`.
 
-Çalışan `azds resource create` veya `azds resource select` otomatik olarak ekleyecek bir `kubectl` , kubectl Azure Dev alanları Kubernetes kümenize zaten bağlı şekilde yapılandırma bağlamı. Örnekler:
+Çalışan `az aks use-dev-spaces` komutu otomatik olarak ekleyecek bir `kubectl` , kubectl Azure Dev alanları Kubernetes kümenize zaten bağlı şekilde yapılandırma bağlamı. Örnekler:
 - Geçerli bağlam onaylayın: `kubectl config current-context`
 - Tüm kullanılabilir bağlamları listesinde: `kubectl config get-contexts`. 
 - Bağlam değiştirin: `kubectl config use-context <context-name>`

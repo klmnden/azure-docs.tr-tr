@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: ad2faabbab74ba343328b6fe30e09c87520e7019
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809803"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236129"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Düzenli yedekleme ve geri yükleme Azure Service Fabric (Önizleme)
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ Etkinleştirmek gereken ilk _yedekleme ve geri yükleme hizmet_ kümenizdeki. Ş
 
 Yedekleme zamanlaması, yedekleme verilerini, ilke adını ve tam yedekleme tetiklemeden önce izin verilecek en fazla artımlı yedeklemeler için hedef depolama açıklayan yedekleme ilkesi oluşturmak ilk adımdır. 
 
-Yedekleme depolama için Azure Storage hesabı yukarıda oluşturduğunuz kullanın. Azure depolama hesabı adı ile bu örnek varsayar `sfbackupstore`. Kapsayıcı `backup-container` yapılandırılmış yedeklemelerini depolamak için kapsayıcı bu ada sahip, zaten yoksa, yedekleme karşıya yükleme sırasında oluşturulur. Doldurmak `ConnectionString` Azure depolama hesabı için geçerli bir bağlantı dizesine sahip.
+Yedekleme depolama için Azure Storage hesabı yukarıda oluşturduğunuz kullanın. Kapsayıcı `backup-container` yedeklemelerini depolamak için yapılandırılır. Bunu zaten, yedekleme karşıya yükleme sırasında mevcut değilse, bu ada sahip bir kapsayıcı oluşturulur. Doldurmak `ConnectionString` Azure depolama hesabı için geçerli bir bağlantı dizesine ile değiştirerek `account-name` , depolama hesabı adı ile ve `account-key` değerini depolama hesabınızın anahtarıyla.
 
 Yeni bir ilke oluşturmak için gerekli REST API çağırma için PowerShell Betiği aşağıdaki yürütün. Değiştir `account-name` , depolama hesabı adı ile ve `account-key` değerini depolama hesabınızın anahtarıyla.
 

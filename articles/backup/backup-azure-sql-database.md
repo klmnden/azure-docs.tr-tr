@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 6/1/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: f48cbdb41f8ad7a3bad4546fa5cb77cf66780bed
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808511"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235422"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Azure SQL Server veritabanını yedekleyin
 
@@ -103,6 +103,10 @@ SQL Server veritabanınızı yedeklemeniz önce aşağıdaki koşulların denetl
 - Tanımlamak veya [bir kurtarma Hizmetleri kasası oluşturma](backup-azure-sql-database.md#create-a-recovery-services-vault) aynı bölge veya yerel ayar, sanal makineyi barındıran SQL Server.
 - [Sanal makinenin izinlerini denetleyin](backup-azure-sql-database.md#set-permissions-for-non-marketplace-sql-vms) SQL veritabanlarını yedeklemek için gerekli.
 - [SQL sanal makinesi sahip ağ bağlantısı](backup-azure-sql-database.md#establish-network-connectivity).
+
+> [!NOTE]
+> SQL Server veritabanlarını yedekleme için bir seferde yalnızca bir yedekleme çözümüne sahip olabilir. Lütfen herhangi bir SQL yedekleme bu özelliği kullanmadan önce devre dışı bırakın, başka yedeklemeleri müdahale ve başarısız. Azure Backup Iaas VM için herhangi bir çakışma olmadan SQL yedekleme birlikte etkinleştirebilirsiniz 
+>
 
 Bu koşullar, ortamınızda yoksa, bölümüne devam [bir SQL veritabanını korumak için kasanızı yapılandırma](backup-azure-sql-database.md#configure-your-vault-to-protect-a-sql-database). Önkoşullar yoksa bu bölümü okumadan devam edin.
 
@@ -253,7 +257,13 @@ Kullandığınızda **Bul DBs** aracı, Azure Backup aşağıdaki işlemleri ark
 
 ## <a name="configure-backup-for-sql-server-database"></a>SQL Server veritabanı için yedekleme yapılandırın
 
-Azure yedekleme, SQL Server veritabanlarını koruma ve yedekleme işlerini yönetmek için Yönetim Hizmetleri sağlar. Yönetim ve izleme olanakları, Kurtarma Hizmetleri kasası bağlıdır. SQL veritabanı için korumayı yapılandırmak için:
+Azure yedekleme, SQL Server veritabanlarını koruma ve yedekleme işlerini yönetmek için Yönetim Hizmetleri sağlar. Yönetim ve izleme olanakları, Kurtarma Hizmetleri kasası bağlıdır. 
+
+> [!NOTE]
+> SQL Server veritabanlarını yedekleme için bir seferde yalnızca bir yedekleme çözümüne sahip olabilir. Lütfen herhangi bir SQL yedekleme bu özelliği kullanmadan önce devre dışı bırakın, başka yedeklemeleri müdahale ve başarısız. Azure Backup Iaas VM için herhangi bir çakışma olmadan SQL yedekleme birlikte etkinleştirebilirsiniz 
+>
+
+SQL veritabanı için korumayı yapılandırmak için:
 
 1. Açık kurtarma Hizmetleri kasası ile SQL sanal makinesi kayıtlı.
 

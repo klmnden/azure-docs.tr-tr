@@ -12,20 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: a7fc8209028b8d84be31a068f7aa7a83a1ca152a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e401d22dbcf5074f4652fb60ee5eeec1d31ef164
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638798"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235609"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arşiv Azure etkinlik günlüğü
 Bu makalede, biz arşivlemek için Azure portal, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) depolama hesabındaki. Bu seçenek, Denetim, statik çözümleme veya yedekleme (ile bekletme ilkesi üzerinde tam denetim) 90 gün daha uzun süre, etkinlik günlüğü korumak istiyorsanız kullanışlıdır. Yalnızca, olayları 90 gün boyunca Koru gerek isterseniz daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platform 90 gün boyunca tutulur bu yana bir depolama hesabına arşivleme ayarlamanız gerekmez.
 
 ## <a name="prerequisites"></a>Önkoşullar
 Başlamadan önce şunları gerçekleştirmeniz [depolama hesabı oluşturma](../storage/common/storage-create-storage-account.md#create-a-storage-account) etkinlik günlüğü arşiv. Böylece daha iyi İzleme verilerine erişimi denetleyebilirsiniz içine depolanmış, diğer izleme olmayan verilere sahip varolan bir depolama hesabı kullanmamanızı öneririz. Tanılama günlüklerini ve ölçümler bir depolama hesabına arşivlemeye çalışıyorsunuz, ancak, merkezi bir konumda tüm izleme verilerini korumak için etkinlik günlüğü de bu depolama hesabını kullanmak için anlamlı olabilir. Kullandığınız depolama hesabı, genel amaçlı depolama hesabı, blob storage hesabı olması gerekir. Depolama hesabı ayarı yapılandıran kullanıcı her iki aboneliğin uygun RBAC erişime sahip olduğu sürece günlükleri yayma abonelik ile aynı abonelikte olması gerekmez.
+
+> [!NOTE]
+>  Şu anda arşivleyemezsiniz verileri bir depolama hesabı, güvenli bir sanal ağ.
 
 ## <a name="log-profile"></a>Günlük profili
 Aşağıdaki yöntemlerden birini kullanarak Etkinlik günlüğü arşivlemek için ayarladığınız **günlük profili** aboneliği. Günlük profili depolanan ya da akışı olayları ve çıkışları türünü tanımlar — depolama hesabı ve/veya olay hub'ı. Ayrıca bir depolama hesabında depolanan olayları için bekletme ilkesi (tutulacağı gün sayısı) tanımlar. Bekletme İlkesi sıfır olarak ayarlanırsa, olaylar süresiz olarak depolanır. Aksi takdirde, bu 1 ile 2147483647 arasında herhangi bir değere ayarlanabilir. Bekletme ilkeleri uygulanan başına günlük, olduğundan, ilke (UTC) dışında tutma sunulmuştur gün günlüklerinden gün sonunda silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar. [Daha fazla bilgiyi hakkında günlük profilleri burada](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). 

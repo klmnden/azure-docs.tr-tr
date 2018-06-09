@@ -11,46 +11,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/30/2018
+ms.date: 06/05/2018
 ms.author: jlian
-ms.openlocfilehash: 308202addbca447ee0dab7a55a1ad2b3b6600a10
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df66ba1ec2c855a24731387210b0127892f5796f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603330"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234793"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Program aracılığıyla Azure Kurumsal abonelikler (Önizleme) oluşturma
 
-Bir Azure müşteri olarak [Kurumsal Anlaşma (Kurumsal Sözleşme)](https://azure.microsoft.com/pricing/enterprise-agreement/), program aracılığıyla EA (MS-AZR - 0017 P) ve EA geliştirme ve Test (MS-AZR - 0148 P) abonelikleri oluşturabilirsiniz. Başka bir kullanıcı veya hizmet sorumlusu hesabınıza faturalandırılır abonelikleri oluşturma izni vermek için onlara [rol tabanlı erişim denetimi (RBAC)](../active-directory/role-based-access-control-configure.md) kayıt hesabınıza erişimi. 
+Bir Azure müşteri olarak [Kurumsal Anlaşma (Kurumsal Sözleşme)](https://azure.microsoft.com/pricing/enterprise-agreement/), program aracılığıyla EA (MS-AZR - 0017 P) ve EA geliştirme ve Test (MS-AZR - 0148 P) abonelikleri oluşturabilirsiniz. Bu makalede, Azure Resource Manager kullanarak programlı olarak abonelikleri oluşturma öğrenin.
 
-> [!IMPORTANT]
-> Bu API oluşturulan Azure aboneliği altında Microsoft Azure hizmetlerini Microsoft ya da bir yetkili satıcılarından almış anlaşma tarafından yönetilir. Daha fazla bilgi için bkz: [Microsoft Azure yasal bilgiler](https://azure.microsoft.com/support/legal/).
+Bu API'Azure aboneliği oluşturduğunuzda, bu abonelik altında Microsoft Azure hizmetlerini Microsoft ya da bir yetkili satıcılarından aldığınız sözleşmesi tabidir. Daha fazla bilgi için bkz: [Microsoft Azure yasal bilgiler](https://azure.microsoft.com/support/legal/).
 
-Bu makalede şunları yapacaksınız:
+## <a name="prerequisites"></a>Önkoşullar
 
-> [!div class="checklist"]
-> * Program aracılığıyla Azure Kaynak Yöneticisi'ni kullanarak abonelikleri oluşturma hakkında bilgi edinin
-> * RBAC EA hesabınıza faturalandırılır abonelikleri oluşturma olanağı paylaşmak için nasıl kullanılacağını anlayın
+* Hesabınıza bir Azure EA kayıt içindeki bir hesap sahip olması gerekir. Değilse, kayıt için yöneticinizden [EA Portalı'nı kullanarak bir hesap sahibi olarak eklediğiniz](https://ea.azure.com/helpdocs/addNewAccount) (günlük-gerekli '). El ile ilk bir aboneliği oluşturmak için aldığınız davet e-posta'ndaki yönergeleri izleyin. Hesap sahipliğini doğrulamanız ve bir başlangıç EA abonelik sonraki adıma geçmeden önce el ile oluşturun. Eklemeniz yeterlidir kayıt hesabına yeterli değildir.
 
-Ayrıca bkz [.NET örnek kodu github'da](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-
-## <a name="ask-your-ea-enrollment-admin-to-add-you-as-account-owner"></a>Hesap sahibi olarak eklemek için EA kayıt yöneticinizden isteyin
-
-Başlamak için kayıt için yöneticinizden [EA portalı kullanarak hesap sahibi olarak eklediğiniz](https://ea.azure.com/helpdocs/addNewAccount) (günlük-gerekli '). El ile ilk bir aboneliği oluşturmak için aldığınız davet e-posta'ndaki yönergeleri izleyin.
-
-> [!IMPORTANT]
-> Hesap sahipliğini doğrulamanız ve bir başlangıç EA abonelik sonraki adıma geçmeden önce el ile oluşturmanız gerekir. Yalnızca hesap için kayıt eklemek yeterli değildir.
+* Bir hizmet sorumlusu EA abonelik oluşturmak için kullanmak istiyorsanız, şunları yapmalısınız [bu hizmet sorumlusunun abonelikleri oluşturma olanağı vermek](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>Erişiminiz hesapları bulun
 
-Bir hesap sahibi olarak Azure EA kayıt eklemiş sonra Azure hesap kaydını ilişki Abonelik ücretleri faturalandırmak nereye belirlemek için kullanır. Abonelik oluşturmak için ilk önce hangi kayıt hesapları erişiminiz çıkışı bulun. Şu anda bir EA hesabına sahip olduğunuz ve bu API'yi kullanmaya çalıştığınızda, Azure için aşağıdaki koşulları denetler:
+Bir hesap sahibi olarak Azure EA kayıt eklemiş sonra Azure hesap kaydını ilişki Abonelik ücretleri faturalandırmak nereye belirlemek için kullanır. Hesabı altında oluşturulan tüm abonelikleri hesabın içinde olduğu EA kayıt doğrultusunda faturalandırılır. Abonelik oluşturmak için değerleri kayıt hesap ve abonelik sahibi kullanıcı ilkeleri hakkında geçmesi gerekir. 
 
-- Hesabınız için bir EA kayıt eklendi
-- EA veya EA geliştirme ve Test abonelikler, bir veya daha fazla el ile kaydolma en az bir kez çıkmadığınızı anlamları
-- Hesap sahibinin oturum açtınız *giriş dizini*, varsayılan olarak abonelikleri oluşturulan dizini olduğu
-
-Yukarıdaki üç Koşullar karşılanıyorsa, bir `enrollmentAccount` kaynak döndürülür ve bu hesapta abonelik oluşturma başlayabilirsiniz. Hesabı altında oluşturulan tüm abonelikleri hesabın içinde olduğu EA kayıt doğrultusunda faturalandırılır.
+Aşağıdaki komutları çalıştırmak için hesap sahibinin için oturum açmanız gerekir *giriş dizini*, varsayılan olarak abonelikleri oluşturulan dizini olduğu.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -87,8 +73,6 @@ Azure erişiminiz tüm kayıt hesaplarının bir listesiyle yanıt verir:
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 Kullanım [Get-AzureRmEnrollmentAccount komutu](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) tüm kayıt hesapları listelemek için erişebilirsiniz.
 
 ```azurepowershell-interactive
@@ -105,13 +89,12 @@ ObjectId                               | PrincipalName
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
 Kullanım [az fatura kayıt hesabı listesi](https://aka.ms/EASubCreationPublicPreviewCLI) erişiminiz tüm kayıt hesapları listelemek için komutu.
 
 ```azurecli-interactive 
 az billing enrollment-account list
 ```
+
 Azure hesaplarının nesne kimlikleri ve e-posta adresleri listesi ile yanıt verir.
 
 ```json
@@ -143,7 +126,7 @@ Kullanım `principalName` için faturalandırılmaya abonelikleri istediğiniz h
 
 ## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Belirli kayıt hesabı altında abonelikleri oluşturma 
 
-Aşağıdaki örnek adlı abonelik oluşturmak için bir istek oluşturur *geliştirme ekibi abonelik* ve abonelik teklif *MS-AZR - 0017P* (normal EA). Kayıt hesabıdır `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (yer tutucu değerini, bu GUID'dir), kayıt hesabı olduğu SignUpEngineering@contoso.com. Ayrıca isteğe bağlı olarak iki kullanıcı abonelik için RBAC sahipleri olarak ekler.
+Aşağıdaki örnek adlı abonelik oluşturmak için bir istek oluşturur *geliştirme ekibi abonelik* ve abonelik teklif *MS-AZR - 0017P* (normal EA). Kayıt hesabıdır `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (yer tutucu değerini, bu değeri olan bir GUID), kayıt hesabı olduğu için SignUpEngineering@contoso.com. Ayrıca isteğe bağlı olarak iki kullanıcı abonelik için RBAC sahipleri olarak ekler.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
@@ -188,7 +171,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Hayır      | Dize | Abonelik görünen adı. Belirtilmezse, "Microsoft Azure Kurumsal" gibi teklif adına ayarlanır                                 |
 | `OfferType`   | Evet      | Dize | Abonelik teklif. EA için iki seçenek olan [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (üretim kullanın) ve [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (geliştirme ve test olması gerekir [EA Portalı'nı kullanarak açık](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Evet       | Dize | Abonelik altında oluşturulur ve için fatura kayıt hesabı nesne kimliği. Bu aldığınız bir GUID değeridir `Get-AzureRmEnrollmentAccount`. |
+| `EnrollmentAccountObjectId`      | Evet       | Dize | Abonelik altında oluşturulur ve için fatura kayıt hesabı nesne kimliği. Bu değer aldığınız GUID'dir `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı nesnesi kimliği.  |
 | `OwnerSignInName`    | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı e-posta adresi. Bu parametre yerine kullanabileceğiniz `OwnerObjectId`.|
 | `OwnerApplicationId` | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet asıl uygulama kimliği. Bu parametre yerine kullanabileceğiniz `OwnerObjectId`.| 
@@ -209,7 +192,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | Hayır      | Dize | Abonelik görünen adı. Belirtilmezse, "Microsoft Azure Kurumsal" gibi teklif adına ayarlanır                                 |
 | `offer-type`   | Evet      | Dize | Abonelik teklif. EA için iki seçenek olan [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (üretim kullanın) ve [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (geliştirme ve test olması gerekir [EA Portalı'nı kullanarak açık](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `enrollment-account-object-id`      | Evet       | Dize | Abonelik altında oluşturulur ve için fatura kayıt hesabı nesne kimliği. Bu aldığınız bir GUID değeridir `az billing enrollment-account list`. |
+| `enrollment-account-object-id`      | Evet       | Dize | Abonelik altında oluşturulur ve için fatura kayıt hesabı nesne kimliği. Bu değer aldığınız GUID'dir `az billing enrollment-account list`. |
 | `owner-object-id`      | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı nesnesi kimliği.  |
 | `owner-upn`    | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir kullanıcı e-posta adresi. Bu parametre yerine kullanabileceğiniz `owner-object-id`.|
 | `owner-spn` | Hayır       | Dize | Aboneliğe ilişkin RBAC sahibi olarak oluşturulduğunda eklemek istediğiniz herhangi bir hizmet asıl uygulama kimliği. Bu parametre yerine kullanabileceğiniz `owner-object-id`.| 
@@ -217,75 +200,6 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 Tüm parametreler tam listesini görmek için bkz: [az hesabı oluşturma](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
 ----
-
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>RBAC kullanarak bir kayıt hesaba temsilci seçme
-
-Başka bir kullanıcı veya hizmet sorumlusu belirli bir hesaba karşı abonelikleri oluşturma olanağı vermek için [kayıt hesabı kapsamındaki bir RBAC sahip rolünü vermediğiniz](../active-directory/role-based-access-control-manage-access-rest.md). Aşağıdaki örnek, Kiracı ile içinde kullanıcıya verir `principalId` , `<userObjectId>` (için SignUpEngineering@contoso.com) sahip rolü kayıt hesabındaki. 
-
-# <a name="resttabrest"></a>[REST](#tab/rest)
-
-```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
-
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>"
-  }
-}
-```
-Sahip rolü kayıt hesap kapsamda başarıyla atandığında, Azure rol ataması bilgilerle yanıt verir:
-
-```json
-{
-  "properties": {
-    "roleDefinitionId": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-    "principalId": "<userObjectId>",
-    "scope": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "createdOn": "2018-03-05T08:36:26.4014813Z",
-    "updatedOn": "2018-03-05T08:36:26.4014813Z",
-    "createdBy": "<assignerObjectId>",
-    "updatedBy": "<assignerObjectId>"
-  },
-  "id": "/providers/Microsoft.Billing/enrollmentAccounts/providers/Microsoft.Authorization/roleDefinitions/<ownerRoleDefinitionId>",
-  "type": "Microsoft.Authorization/roleAssignments",
-  "name": "<roleAssignmentGuid>"
-}
-```
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-
-Kullanım [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) kayıt hesabınıza başka bir kullanıcıya sahip erişim vermek için.
-
-```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
-
-Kullanım [az rol ataması oluşturma](../active-directory/role-based-access-control-manage-access-azure-cli.md) kayıt hesabınıza başka bir kullanıcıya sahip erişim vermek için.
-
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-----
-
-Bir kullanıcı kaydı hesabınız için RBAC sahibi olduktan sonra program aracılığıyla altındaki abonelikleri oluşturabilirsiniz. Özgün hesap sahibi Hizmet Yöneticisi olarak atanmış bir kullanıcı tarafından oluşturulmuş bir abonelik hala içeriyor, ancak aynı zamanda temsilci atanan kullanıcı sahibi olarak varsayılan olarak bulunur. 
-
-## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Etkinlik günlükleri kullanarak abonelikleri oluşturan denetleme
-
-Bu API oluşturulan abonelikleri izlemek için [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs). Şu anda abonelik oluşturma izlemek için PowerShell'i, CLI veya Azure portalını kullanmak mümkün değil.
-
-1. Azure AD kiracısı bir kiracı Yöneticisi olarak [erişimini yükseltme](../active-directory/role-based-access-control-tenant-admin-access.md) kapsamı'da Denetim kullanıcıya bir okuyucu rolüne atayın `/providers/microsoft.insights/eventtypes/management`.
-1. Denetim kullanıcı olarak çağrı [Kiracı etkinlik günlüğü API](/rest/api/monitor/tenantactivitylogs) abonelik oluşturma etkinlikleri görmek için. Örnek:
-
-```
-GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
-```
-
-> [!NOTE]
-> Rahat komut satırından bu API çağrısı için deneyin [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Azure Enterprise abonelik oluşturma API sınırlamaları
 
@@ -298,6 +212,5 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * .NET kullanarak abonelikleri oluşturma konusunda bir örnek için bkz: [örnek kodu github'da](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
-* Azure Resource Manager ve API'lerini hakkında daha fazla bilgi için bkz: [Azure Resource Manager'a genel bakış](resource-group-overview.md).
+* Bir abonelik oluşturduğunuza göre bu özelliği diğer kullanıcılar ve hizmet asıl adı verebilirsiniz. Daha fazla bilgi için bkz: [Azure Kurumsal abonelikler (Önizleme) oluşturmak için erişim izni verme](grant-access-to-create-subscription.md).
 * Çok sayıda yönetim gruplarını kullanarak abonelikleri yönetme hakkında daha fazla bilgi edinmek için [kaynaklarınızı Azure Yönetim grupları ile düzenleme](management-groups-overview.md)
-* Abonelik idare üzerine büyük kurumlar için kapsamlı bir en iyi uygulama kılavuzunu görmek için [Azure enterprise iskele - Düzenleyici abonelik yönetimi](/azure/architecture/cloud-adoption-guide/subscription-governance)

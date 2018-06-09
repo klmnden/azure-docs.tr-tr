@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/12/2018
+ms.date: 6/08/2018
 ms.author: johnkem
-ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 20f148988191c130d8e10f1776f3bbe1612a8c17
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248185"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Desteklenen hizmetler, şemalar ve Azure tanılama günlükleri için kategorileri
 
@@ -29,30 +30,34 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 
 | Hizmet | Şema & belgeleri |
 | --- | --- |
-| Analysis Services | Şema kullanılamaz. |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API Management tanılama günlükleri](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gatewayler |[Uygulama ağ geçidi için tanılama günlükleri](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Otomasyonu |[Azure otomasyonu için günlük analizi](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch Tanılama Günlüğü](../batch/batch-diagnostics.md) |
-| Customer Insights | Şema kullanılamaz. |
-| Content Delivery Network | Şema kullanılamaz. |
+| Content Delivery Network | [CDN için Azure tanılama günlükleri](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB günlüğe kaydetme](../cosmos-db/logging.md) |
+| Data Factory | [Veri fabrikaları Azure İzleyicisi'ni kullanarak izleme](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Azure Data Lake Analytics’te tanılama günlüklerine erişim](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store için tanılama günlüklerine erişme](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| DB PostgreSQL için |  Şema kullanılamaz. |
 | Event Hubs |[Azure Event Hubs tanılama günlükleri](../event-hubs/event-hubs-diagnostic-logs.md) |
-| IoT Hub’ı | [IOT hub'ı işlemleri](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Anahtar Kasası |[Azure Anahtar Kasası Günlüğü](../key-vault/key-vault-logging.md) |
+| Express Route | Şema kullanılamaz. |
+| IoT Hub | [IOT hub'ı işlemleri](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Key Vault |[Azure Anahtar Kasası Günlüğü](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Azure Load Balancer için Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B özel izleme şeması](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Ağ Güvenlik Grupları |[Ağ güvenlik grupları (NSG’ler) için Log Analytics](../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDOS koruması | Şema kullanılamaz. |
+| DDOS Koruması | [Azure DDoS koruması standart yönetme](../virtual-network/manage-ddos-protection.md) |
+| Powerbı ayrılmış | Şema kullanılamaz. |
 | Kurtarma Hizmetleri | [Azure yedekleme için veri modeli](../backup/backup-azure-reports-data-model.md)|
 | Arama |[Etkinleştirme ve arama trafiği Analytics kullanma](../search/search-traffic-analytics.md) |
-| Sunucu Yönetimi | Şema kullanılamaz. |
 | Service Bus |[Azure Service Bus tanılama günlükleri](../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| SQL Database | [Azure SQL veritabanı Tanılama Günlüğü](../sql-database/sql-database-metrics-diag-logging.md) |
-| Akış Analizi |[İş tanılama günlükleri](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| SQL Veritabanı | [Azure SQL veritabanı Tanılama Günlüğü](../sql-database/sql-database-metrics-diag-logging.md) |
+| Stream Analytics |[İş tanılama günlükleri](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Traffic Manager | Şema kullanılamaz. |
 | Sanal Ağlar | Şema kullanılamaz. |
+| Sanal Ağ Geçitleri | Şema kullanılamaz. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Kaynak türü başına günlük kategoriler desteklenen
 |Kaynak Türü|Kategori|Kategori görünen adı|
@@ -74,6 +79,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.DataLakeStore/accounts|Denetim|Denetim Günlükleri|
 |Microsoft.DataLakeStore/accounts|İstekler|İstek günlükleri|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL sunucu günlükleri|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL yedekleme olayları|
 |Microsoft.Devices/IotHubs|Bağlantılar|Bağlantılar|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Cihaz Telemetrisi|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D komutları|
@@ -90,6 +96,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Devices/provisioningServices|ServiceOperations|Hizmet işlemleri|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Arşiv günlükleri|
 |Microsoft.EventHub/namespaces|OperationalLogs|İşlem günlükleri|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Otomatik ölçek günlükleri|
@@ -112,6 +119,7 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S tanılama günlükleri|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Trafik Yöneticisi araştırma sistem durumu sonuçları olayı|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tablo GWM sayaçları|
+|Microsoft.PowerBIDedicated/capacities|Altyapısı|Altyapısı|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Raporlama verilerini azure yedekleme|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery işleri|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site kurtarma olayları|
@@ -126,9 +134,9 @@ Kaynağın tanılama günlükleri için şema kaynak ve günlük kategoriye gör
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Sorgu deposu bekleme istatistikleri|
 |Microsoft.Sql/servers/databases|Hatalar|Hatalar|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Veritabanı bekleme istatistikleri|
-|Microsoft.Sql/servers/databases|Zaman aşımları|Zaman aşımları|
+|Microsoft.Sql/servers/databases|Zaman Aşımları|Zaman Aşımları|
 |Microsoft.Sql/servers/databases|Blokları|Blokları|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL Öngörüler|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL İçgörüleri|
 |Microsoft.Sql/servers/databases|Denetim|Denetim Günlükleri|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL güvenlik denetim olayı|
 |Microsoft.StreamAnalytics/streamingjobs|Yürütme|Yürütme|

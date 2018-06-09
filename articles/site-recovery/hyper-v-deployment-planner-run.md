@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı | Microsoft Docs"
-description: "Bu makalede Hyper-V'den Azure’a geçiş yapılırken Azure Site Recovery dağıtım planlayıcısının çalışma modu açıklanır."
+title: Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı | Microsoft Docs
+description: Bu makalede Hyper-V'den Azure’a geçiş yapılırken Azure Site Recovery dağıtım planlayıcısının çalışma modu açıklanır.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: nisoneji
-ms.openlocfilehash: ae539f136578c6461ef7f680d553fbd76b10ae98
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236238"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısını çalıştırma
 
@@ -95,7 +96,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Sanallaştırma|Sanallaştırma türü (VMware veya Hyper-V).|
 |-Directory|(İsteğe Bağlı) Profil oluşturma sırasında oluşturulan profil oluşturma verilerini depolamak için UNC veya yerel dizin yolu. Bir ad belirtilmemişse, geçerli yol altındaki ProfiledData adlı dizin varsayılan dizin olarak kullanılır.|
 |-Password|(İsteğe bağlı) Hyper-V konağına bağlanmak için gereken parola. Bunu bir parametre olarak belirtmezseniz komutu çalıştırdığında belirtmeniz istenir.|
-|-StorageAccountName|(İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel Amaçlı v1 veya Genel Amaçlı v2 olmalıdır.|
+|-StorageAccountName|(İsteğe bağlı) Şirket içinden Azure’a veri çoğaltma için ulaşılabilir aktarım hızını bulmak için depolama hesabı adı. Araç, aktarım hızını hesaplamak için test verilerini bu depolama hesabına yükler. Depolama hesabı genel amaçlı v1 olmalıdır (GPv1) yazın.|
 |-StorageAccountKey|(İsteğe bağlı) Depolama hesabına erişmek için kullanılan anahtar. Azure portalı > **Depolama hesapları** > *Depolama hesabı adı* > **Ayarlar** > **Erişim Anahtarları** > **Anahtar1** (veya klasik depolama hesabı için birincil erişim anahtarı) seçeneğine gidin.|
 |-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Şu üç değerden herhangi birini alabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef bölgeniz Azure ABD Kamu veya Azure Çin olduğunda ilgili parametreyi kullanın.|
 
@@ -277,7 +278,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -Operation | GetThroughput |
 |-Sanallaştırma|Sanallaştırma türü (VMware veya Hyper-V).|
 |-Directory|(İsteğe bağlı) Profili oluşturulan verilerin (profil oluşturma sırasında oluşturulan dosyalar) depolandığı UNC veya yerel dizin yolu. Bu veriler, rapor oluşturmak için gereklidir. Bir ad belirtilmemişse, geçerli yol altındaki ProfiledData adlı dizin varsayılan dizin olarak kullanılır.|
-| -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. Depolama hesabı Genel Amaçlı v1 veya Genel Amaçlı v2 olmalıdır.|
+| -StorageAccountName | Şirket içinden Azure’a veri çoğaltma için kullanılan bant genişliğini bulmak için depolama hesabı adı. Araç, kullanılan bant genişliğini bulmak için test verilerini bu depolama hesabına yükler. Depolama hesabı genel amaçlı v1 olmalıdır (GPv1) yazın.|
 | -StorageAccountKey | Depolama hesabına erişmek için kullanılan depolama hesabı anahtarı. Azure portalı > **Depolama hesapları** > *depolama hesabı adı* > **Ayarlar** > **Erişim Anahtarları** > **Anahtar1** seçeneğine gidin.|
 | -VMListFile | Kullanılan bant genişliğini hesaplamak için profili oluşturulacak sanal makinelerin listesini içeren dosya. Dosya yolu mutlak veya göreli olabilir. Hyper-V için, GetVMList işleminin çıkış dosyası bu dosyadır. El ile hazırlıyorsanız, dosyada bir sunucu adı ya da IP adresi ve sonra VM adı (her satırı \ ile ayrılan) bulunmalıdır. Dosyada belirtilen VM adı, Hyper-V konağındaki VM adıyla aynı olmalıdır.<br><br>**Örnek:** VMList.txt dosyası aşağıdaki sanal makineleri içerir:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
 |-Ortam|(İsteğe bağlı) Azure depolama hesabı için hedef ortamınız. Şu üç değerden herhangi birini alabilir: AzureCloud, AzureUSGovernment veya AzureChinaCloud. Varsayılan seçenek AzureCloud değeridir. Hedef Azure bölgeniz Azure ABD Kamu veya Azure Çin’deyse ilgili parametreyi kullanın.|

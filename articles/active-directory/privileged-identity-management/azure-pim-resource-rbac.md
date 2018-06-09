@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: 304a06dee04b405c7e7acb2c73b31af426591d1d
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233297"
 ---
 # <a name="pim-for-azure-resources"></a>PIM Azure kaynakları için
 

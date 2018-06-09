@@ -8,21 +8,20 @@ editor: TomShinder
 ms.assetid: ''
 ms.service: security
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: 9065d237057bf47d469b6f6fbf5b588c7e348232
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de876a8d06a52412bbbfd3ad922c2c4c6d8ec37
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839366"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235966"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure günlük tümleştirme Öğreticisi: olay hub'ları kullanarak işlem Azure anahtar kasası olayları
 
-
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 01/06/2019 tarafından kullanım dışı kalacaktır.  AzLog yüklemeleri 27 Haz 2018 tarafından devre dışı bırakılacak. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında yönergeler için [SIEM araçları ile tümleştirmek için kullanım Azure İzleyicisi](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> Azure günlük tümleştirme özelliği 01/06/2019 tarafından kullanım dışı kalacaktır. AzLog yüklemeleri 27 Haz 2018 tarafından devre dışı bırakılacak. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında yönergeler için [SIEM araçları ile tümleştirmek için kullanım Azure İzleyicisi](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Günlüğe kaydedilen olayları almak ve güvenlik bilgileri ve Olay yönetimi (SIEM) sisteminiz için kullanılabilir duruma getirmek için Azure günlük tümleştirme özelliğini kullanabilirsiniz. Bu öğreticide Azure günlük tümleştirme aracılığıyla Azure Event Hubs alınan günlükleri işlemek için nasıl kullanılabileceği bir örnek gösterilmiştir.
 

@@ -3,21 +3,22 @@ title: Azure AD Privileged Identity Management denetim günlüğünü kullanma |
 description: Azure Privileged Identity Management uzantısı'nda denetim günlüğü kullanmayı öğrenin.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 02/14/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20fd9c5ee90947cc2d3816a0590d4780408baa2f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 05a70874367d578beee1dc605510f9370b6abd42
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233001"
 ---
 # <a name="using-the-audit-log-in-pim"></a>PIM içinde denetim günlüğünü kullanma
 Belirli bir süre içinde tüm kullanıcı atamaları ve etkinleştirmeler görmek için ayrıcalıklı Kimlik Yönetimi (PIM) denetim günlüğünü kullanabilirsiniz. Yönetici, son kullanıcı ve eşitleme etkinliği de dahil olmak üzere, Kiracı etkinliğinde tam denetim geçmişini görmek istiyorsanız kullanabileceğiniz [Azure Active Directory'ye erişim ve kullanım raporları.](active-directory-view-access-usage-reports.md)

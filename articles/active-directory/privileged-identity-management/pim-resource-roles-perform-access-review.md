@@ -3,7 +3,7 @@ title: Bir erişim gözden geçirme için Azure kaynaklarını Privileged Identi
 description: Bu belgede bir erişim incelemesi PIM içinde Azure kaynakları için gerçekleştirme göre Kaynak rolü açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -11,14 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 47d981ce8034d725fe2b119392334a156852698d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 794875cbee91c8aa4c926dbaa6931b250201a1bd
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233963"
 ---
 # <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Bir erişim gözden geçirme PIM içinde göre Kaynak rolü gerçekleştirin.
 Azure kaynakları için ayrıcalıklı Kimlik Yönetimi (PIM), kuruluşların Azure kaynaklarına ayrıcalıklı erişimi nasıl yönettiğini basitleştirir. 

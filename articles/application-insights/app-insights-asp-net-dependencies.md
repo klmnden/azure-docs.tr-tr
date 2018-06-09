@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7023ce1c9d8a115ae791d40c5d40a5b5d1fabed9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee628f137761445be8871cf4df44e48231342f50
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598394"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234607"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights'ı ayarlayın: bağımlılık izleme
 A *bağımlılık* uygulamanız tarafından çağrılan bir dış bileşendir. Bu genellikle HTTP veya bir veritabanı veya bir dosya sistemi kullanılarak adlı bir hizmettir. [Application Insights](app-insights-overview.md) uygulamanız için bağımlılıkları ne kadar bekleyeceğini ve ne sıklıkta bir bağımlılık araması başarısız ölçer. Belirli çağrıları araştırmak ve bunları istekler ve özel durumlar için ilişkilendirebilirsiniz.
@@ -191,6 +191,8 @@ Aynı kullanarak bağımlılık bilgi gönderir kod yazabilirsiniz [TrackDepende
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 

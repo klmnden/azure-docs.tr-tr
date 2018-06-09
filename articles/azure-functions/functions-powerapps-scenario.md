@@ -1,26 +1,28 @@
 ---
-title: "PowerApps bir işlevi çağırmak | Microsoft Docs"
-description: "Özel bir bağlayıcı oluşturun ardından bu Bağlayıcısı'nı kullanarak bir işlevini çağırın."
+title: PowerApps bir işlevi çağırmak | Microsoft Docs
+description: Özel bir bağlayıcı oluşturun ardından bu Bağlayıcısı'nı kullanarak bir işlevini çağırın.
 services: functions
-keywords: "Bulut uygulamaları, bulut Hizmetleri, PowerApps, iş süreçlerini iş uygulaması"
-documentationcenter: 
-author: mgblythe
+keywords: Bulut uygulamaları, bulut Hizmetleri, PowerApps, iş süreçlerini iş uygulaması
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234963"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps’ten bir işlev çağırma
 [PowerApps](https://powerapps.microsoft.com) platform geleneksel uygulama kodu olmadan uygulamaları oluşturmak iş uzmanları için tasarlanmıştır. Profesyonel geliştiricilere PowerApps uygulama oluşturucular teknik ayrıntıları koruma sırasında PowerApps, Windows'un yeteneklerini artırmak için Azure işlevleri kullanabilirsiniz.
@@ -71,7 +73,7 @@ Bu konuda, bilgi nasıl yapılır:
 ## <a name="create-an-app-and-add-data-sources"></a>Bir uygulama oluşturun ve veri kaynakları ekleyin
 Artık PowerApps uygulaması oluşturma ve uygulama için veri kaynağı olarak Excel verilerini ve özel API eklemek hazırsınız.
 
-1. İçinde [web.powerapps.com](https://web.powerapps.com), seçin **boş başından** > ![telefon uygulama simgesini](media/functions-powerapps-scenario/icon-phone-app.png) (telefon) > **bu uygulamayı olun**.
+1. [web.powerapps.com](https://web.powerapps.com)’da, **Sıfırdan başlayın** > ![Telefon uygulaması simgesi](media/functions-powerapps-scenario/icon-phone-app.png) (telefon) > **Bu uygulamayı yap**’ı seçin.
 
     ![Boş iken - phone uygulaması Başlat](media/functions-powerapps-scenario/create-phone-app.png)
 
@@ -97,7 +99,7 @@ Artık PowerApps uygulaması oluşturma ve uygulama için veri kaynağı olarak 
 
     ![Excel verileri içeri aktarmak için](media/functions-powerapps-scenario/excel-table.png)
 
-    1. Uygulama tuvalde seçin **veri bağlanmak**.
+    1. Uygulama tuvali üzerinde **veriye bağlan**’ı seçin.
 
     1. Üzerinde **veri** öğesine tıklayın **uygulamanıza statik veri ekleme**.
 
@@ -137,7 +139,7 @@ Veri kaynakları uygulamada kullanılabilir, Türbin veri görüntüleyebilmeniz
 
 1. İçinde **veri** paneli, select **Turbines** listeden.
 
-    ![Veri kaynağını seçin](media/functions-powerapps-scenario/select-data-source.png)
+    ![Veri kaynağı seç](media/functions-powerapps-scenario/select-data-source.png)
 
     Veri kümesi bir görüntü nedenle sonraki verileri daha iyi uyacak şekilde düzenini değiştirme içermiyor. 
 

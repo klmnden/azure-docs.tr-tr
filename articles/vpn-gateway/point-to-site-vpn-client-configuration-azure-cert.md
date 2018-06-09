@@ -13,17 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b9528aba0be8fd46087d97bc294552db608f1c1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2ae16d76dce01488403e9f13684e719f92eb80c5
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235840"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Oluşturma ve VPN yükleme istemcisi yapılandırma dosyalarını yerel Azure için sertifika kimlik doğrulaması noktadan siteye yapılandırmaları
 
 VPN istemcisi yapılandırma dosyalarını bir zip dosyasında bulunur. Yapılandırma dosyalarını yerel Azure sertifika kimlik doğrulaması kullanmak noktadan siteye bağlantıları üzerinden bir sanal ağa bağlanmak yerel bir Windows, Mac Ikev2 VPN ya da Linux istemcisi için gerekli ayarları sağlar.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 ### <a name="workflow"></a>P2S iş akışı
 
@@ -116,7 +121,7 @@ Tıklatın **Ekle** almak için.
   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. İçinde **yerel kimliği** alanında, sertifika (6. adım) adını belirtin. Bu örnekte, "ikev2Client.com" dir. Ardından **Uygula** değişiklikleri kaydetmek için düğmesi.
 
-  ![Uygula](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+  ![uygula](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Üzerinde **ağ** iletişim kutusunda, tıklatın **Uygula** tüm değişiklikleri kaydetmek için. Ardından **Bağlan** Azure VNet P2S bağlantısı başlatmak için.
 
 ## <a name="installlinux"></a>Install - Linux (strongSwan)

@@ -1,28 +1,27 @@
 ---
-title: "Azure Event Hubs özelliklere genel bakış | Microsoft Docs"
-description: "Genel bakış ve Azure Event Hubs özellikleri hakkında ayrıntılı bilgileri"
+title: Azure Event Hubs özelliklere genel bakış | Microsoft Docs
+description: Genel bakış ve Azure Event Hubs özellikleri hakkında ayrıntılı bilgileri
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/02/2018
+ms.date: 06/08/2018
 ms.author: sethm
-ms.openlocfilehash: aaedb8ed2be85017b17a2015ff2fcaaf76c20058
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248750"
 ---
 # <a name="event-hubs-features-overview"></a>Olay hub'ları özelliklere genel bakış
 
-Azure Event Hubs işleme alır ve düşük gecikme süreli ve yüksek güvenilirlikle olayları ve verileri, büyük miktarlarda işleyen hizmeti ölçeklenebilir bir olaydır. Bkz: [Event Hubs nedir?](event-hubs-what-is-event-hubs.md) hizmet üst düzey bir genel bakış için.
+Azure Event Hubs işleme alır ve düşük gecikme süreli ve yüksek güvenilirlikle olayları ve verileri, büyük miktarlarda işleyen hizmeti ölçeklenebilir bir olaydır. Bkz: [Event Hubs nedir?](event-hubs-what-is-event-hubs.md) üst düzey bir genel bakış.
 
 Bu makalede bilgileri derlemeler [genel bakış makalesi](event-hubs-what-is-event-hubs.md)ve Event Hubs bileşenleri ve özellikleri hakkında teknik ve uygulama ayrıntılar sağlar.
 
@@ -44,7 +43,7 @@ Event Hubs aynı bölüm anahtarı değerini paylaşan tüm olayların sırayla 
 
 Event Hubs, *yayımcı ilkeleri* aracılığıyla olay yayımcıları üzerinde ayrıntılı denetim sağlar. Yayımcı ilkeleri çok sayıda bağımsız olay yayımcısını kolaylaştırmak için tasarlanmış çalışma zamanı özellikleridir. Yayımcı ilkeleriyle her yayımcı, olayları aşağıdaki mekanizmayı kullanarak bir olay hub'ında yayımlarken kendi benzersiz tanımlayıcısını kullanır:
 
-```
+```http
 //[my namespace].servicebus.windows.net/[event hub name]/publishers/[my publisher name]
 ```
 
@@ -123,7 +122,7 @@ Tüm Event Hubs tüketicileri durumu algılayan çift yönlü iletişim kanalın
 
 #### <a name="connect-to-a-partition"></a>Bir bölüme bağlanma
 
-Bölümlere doğrudan bağlanırken okuyucu bağlantılarının belirli bölümlerle koordine edilmesi için bir kiralama mekanizmasının kullanılması yaygın bir uygulamadır. Bu şekilde, bir tüketici grubundaki her bölümün yalnızca bir etkin okuyucuya sahip olması mümkündür. Denetim noktası oluşturma, kiralama ve okuyucuları yönetme işlemleri, .NET istemcileri için [EventProcessorHost](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost) sınıfı kullanılarak basitleştirilir. Event Processor Host, akıllı bir tüketici aracısıdır.
+Bölümlere doğrudan bağlanırken okuyucu bağlantılarının belirli bölümlerle koordine edilmesi için bir kiralama mekanizmasının kullanılması yaygın bir uygulamadır. Bu şekilde, bir tüketici grubundaki her bölümün yalnızca bir etkin okuyucuya sahip olması mümkündür. Denetim noktası oluşturma, kiralama ve okuyucuları yönetme işlemleri, .NET istemcileri için [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) sınıfı kullanılarak basitleştirilir. Event Processor Host, akıllı bir tüketici aracısıdır.
 
 #### <a name="read-events"></a>Olayları okuma
 
@@ -149,11 +148,11 @@ Event Hubs işleme kapasitesi, *işleme birimleri* tarafından denetlenir. İşl
 * Giriş: Saniyede 1 MB veya saniyede 1000 olaya kadar (hangisi önce gerçekleşirse)
 * Çıkış: Saniyede 2 MB’ye kadar
 
-Satın alınan işleme birimlerinin kapasitesi aşıldığında giriş azaltılır ve [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception) döndürülür. Çıkış, azaltma özel durumları oluşturmaz, ancak yine de satın alınan işleme birimlerinin kapasitesiyle sınırlıdır. Yayımlama hızı özel durumları alırsanız veya daha yüksek çıkış görmeyi bekliyorsanız ad alanı için kaç tane işleme birimi satın aldığınızı denetlediğinizden emin olun. Üretilen iş birimleri yönetebileceğiniz **ölçek** ad alanları dikey [Azure portal](https://portal.azure.com). Üretilen iş birimleri programlı olarak kullanarak da yönetebilirsiniz [olay hub'ları API'leri](event-hubs-api-overview.md).
+Satın alınan işleme birimlerinin kapasitesi aşıldığında giriş azaltılır ve [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception) döndürülür. Çıkış, azaltma özel durumları oluşturmaz, ancak yine de satın alınan işleme birimlerinin kapasitesiyle sınırlıdır. Yayımlama hızı özel durumları alırsanız veya daha yüksek çıkış görmeyi bekliyorsanız ad alanı için kaç tane işleme birimi satın aldığınızı denetlediğinizden emin olun. Üretilen iş birimleri yönetebileceğiniz **ölçek** ad alanları dikey [Azure portal](https://portal.azure.com). Üretilen iş birimleri programlı olarak kullanarak da yönetebilirsiniz [olay hub'ları API'leri](event-hubs-api-overview.md).
 
-İşleme birimleri saat başına faturalandırılır ve önceden satın alınır. Satın alındıktan sonra işleme birimleri en az bir saat için faturalandırılır. Bir Event Hubs ad alanı için en fazla 20 işleme birimi satın alınabilir ve ad alanındaki tüm Olay Hub’larında paylaşılır.
+İşleme birimleri önceden satın alınır ve saat başına faturalandırılır. Satın alındıktan sonra işleme birimleri en az bir saat için faturalandırılır. En fazla 20 işleme birimleri için bir olay hub'ları ad alanı satın alınabilir ve bu ad alanındaki tüm event hubs arasında paylaşılır.
 
-Azure desteğine başvurularak 20’li bloklar halinde olacak şekilde 100’e kadar daha fazla işleme birimi satın alınabilir. Bundan sonraki miktarlar için 100 işleme biriminden oluşan bloklar satın alabilirsiniz.
+Azure desteğine başvurularak 20’li bloklar halinde olacak şekilde 100’e kadar daha fazla işleme birimi satın alınabilir. Bunun ötesinde, 100 işleme birimleri bloklarını satın alabilirsiniz.
 
 İşleme birimleri ile bölümleri en iyi ölçeği elde etmek için Bakiye öneririz. Tek bir bölüm en fazla bir işleme biriminden oluşan ölçeğe sahiptir. İşleme birimlerinin sayısı bir olay hub’ındaki bölüm sayısına eşit veya daha az olmalıdır.
 

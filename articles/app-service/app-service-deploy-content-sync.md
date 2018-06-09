@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d456ae2ffbd3745ef976ad94219a3f998838066b
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3781010c74daa51c92813db85ee03eaa4c02a4cf
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850228"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233596"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Azure App Service'e bir bulut klasöründen eşitleme içerik
 Bu makalede içeriğinize eşitlemeye gösterilmiştir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) Dropbox ve OneDrive. 
@@ -64,6 +64,8 @@ Uygulama hizmeti uygulaması sayfanıza gitmek içerik eşitleme devre dışı b
 Soldaki menüde tıklatın **Dağıtım Merkezi** > **OneDrive** veya **Dropbox** > **Bağlantıyı Kes**.
 
 ![](media/app-service-deploy-content-sync/disable.png)
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

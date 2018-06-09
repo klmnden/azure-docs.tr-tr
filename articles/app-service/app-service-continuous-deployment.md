@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: e587edeef1cfa080a81f523f63678a645b514c57
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849500"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233853"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Azure App Service için sürekli dağıtım
 Bu makalede için sürekli dağıtımının nasıl yapılandırılacağı gösterilmektedir [Azure App Service](app-service-web-overview.md). Uygulama hizmeti, BitBucket, GitHub, sürekli dağıtımını sağlar ve [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) varolan havuzunuzdan Bu hizmetlerden biri de en son güncelleştirmeleri çekme tarafından.
@@ -134,6 +134,8 @@ Uygulama hizmeti uygulaması sayfanıza gitmek sürekli dağıtımı devre dış
 Soldaki menüde tıklatın **Dağıtım Merkezi** > **GitHub** veya **VSTS** veya **BitBucket**  >  **Bağlantısını**.
 
 ![](media/app-service-continuous-deployment/disable.png)
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
 

@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 06/07/2018
 ms.author: TomSh
 ms.custom: azlog
-ms.openlocfilehash: 3c7ea4f3c081734a77f5ebe44c9fba167ddc6d67
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3c875060a7abdf4431026e79ce966efdc89e4e77
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839399"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236187"
 ---
 # <a name="introduction-to-azure-log-integration"></a>Azure günlük tümleştirme giriş
 
-
 >[!IMPORTANT]
-> Azure günlük tümleştirme özelliği 01/06/2019 tarafından kullanım dışı kalacaktır. AzLog yüklemeleri 27 Haz 2018 tarafından devre dışı bırakılacak. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında yönergeler için [SIEM araçları ile tümleştirmek için kullanım Azure İzleyicisi](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/preview/?cdn=disable) 
+> Azure günlük tümleştirme özelliği 01/06/2019 tarafından kullanım dışı kalacaktır. AzLog yüklemeleri 27 Haz 2018 tarafından devre dışı bırakılacak. Taşıma iletme gözden geçirme sonrası yapmanız gerekenler hakkında yönergeler için [SIEM araçları ile tümleştirmek için kullanım Azure İzleyicisi](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
 Azure günlük tümleştirme Azure tümleştirme görevini kolaylaştırmak kullanılabilir yapıldı günlükleri sisteminizle şirket içi güvenlik bilgileri ve Olay yönetimi (SIEM).
 

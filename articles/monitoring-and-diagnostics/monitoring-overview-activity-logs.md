@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 128a16f0fbde87136ca01812b0217523fdbeeeeb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 060f91e4bdd1dd2690a3e1f148f7c5e5e13d13ef
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638995"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235673"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure etkinlik günlüğü ile abonelik etkinliğini izleme
 
@@ -107,6 +107,9 @@ A **günlük profili** nasıl etkinlik günlüğü dışarı denetler. Bir günl
     - Bekletme ilkeleri uygulanan başına günlük, olduğundan, bir gün (UTC) dışında tutma sunulmuştur gün günlüklerinden sonunda İlkesi silinir. Örneğin, bir günlük bir Bekletme İlkesi nesneniz varsa, günün bugün başında dünden önceki gün günlüklerinden silinecek. Silme işlemi gece yarısı UTC ancak günlükleri depolama hesabınızdan silinecek 24 saate kadar sürebilir Not başlar.
 
 Günlükleri yayma olarak aynı abonelikte değil bir depolama hesabı veya olay hub'ı ad alanını kullanabilirsiniz. Ayar yapılandıran kullanıcının uygun RBAC her iki aboneliğin erişiminiz olmalıdır.
+
+> [!NOTE]
+>  Şu anda arşivleyemezsiniz verileri bir depolama hesabı, güvenli bir sanal ağ.
 
 Bu ayarlar, etkinlik günlüğü dikey penceresinde Portalı'nda "Verme" seçeneği aracılığıyla yapılandırılabilir. Bunlar ayrıca program aracılığıyla yapılandırılabilir [Azure İzleyici REST API'sini kullanarak](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet'leri veya CLI. Bir abonelik yalnızca bir günlük profil olabilir.
 

@@ -1,26 +1,28 @@
 ---
-title: "Microsoft Flow Azure bir işlevi çağırmak | Microsoft Docs"
-description: "Özel bir bağlayıcı oluşturun ardından bu Bağlayıcısı'nı kullanarak bir işlevini çağırın."
+title: Microsoft Flow Azure bir işlevi çağırmak | Microsoft Docs
+description: Özel bir bağlayıcı oluşturun ardından bu Bağlayıcısı'nı kullanarak bir işlevini çağırın.
 services: functions
-keywords: "Bulut uygulamaları, bulut Hizmetleri, Microsoft Flow iş süreçlerini iş uygulaması"
-documentationcenter: 
-author: mgblythe
+keywords: Bulut uygulamaları, bulut Hizmetleri, Microsoft Flow iş süreçlerini iş uygulaması
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234810"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow’dan işlev çağırma
 
@@ -58,11 +60,11 @@ Akış veri kaynağı olarak kullanmak bir liste oluşturarak başlayın. Listes
 
 1. SharePoint siteniz tıklayın veya dokunun **yeni**, ardından **listesi**.
 
-    ![Yeni SharePoint listesi oluşturma](./media/functions-flow-scenario/new-list.png)
+    ![Yeni SharePoint listesi oluşturun](./media/functions-flow-scenario/new-list.png)
 
 2. Bir ad girin `Turbines`, ardından tıklayın veya dokunun **oluşturma**.
 
-    ![Yeni bir liste için bir ad belirtin](./media/functions-flow-scenario/create-list.png)
+    ![Yeni liste için bir ad belirtin](./media/functions-flow-scenario/create-list.png)
 
     **Turbines** listesi oluşturulur, varsayılan **başlık** alan.
 
@@ -70,7 +72,7 @@ Akış veri kaynağı olarak kullanmak bir liste oluşturarak başlayın. Listes
 
 3. ' A tıklayın veya dokunun ![yeni öğesi simgesi](./media/functions-flow-scenario/icon-new.png) sonra **tarih**.
 
-    ![Tek satırlı metin alanı Ekle](./media/functions-flow-scenario/add-column.png)
+    ![Tek satır metin alanı ekleyin](./media/functions-flow-scenario/add-column.png)
 
 4. Bir ad girin `LastServiceDate`, ardından tıklayın veya dokunun **oluşturma**.
 
@@ -153,7 +155,7 @@ Artık özel bağlayıcı ve oluşturduğunuz SharePoint listesi kullanan bir ak
 
 Listede oluşturulan tüm öğeler için akışını denetler **ServiceRequired** alan ayarlanmış `Yes`, ardından gider **Evet ise** şube veya **yoksa** olarak dal uygun. Yalnızca belirttiğiniz eylemler için bu konudaki zaman kazanmak için **Evet ise** dal.
 
-### <a name="add-the-custom-connector"></a>Özel bağlayıcı ekleme
+### <a name="add-the-custom-connector"></a>Özel bağlayıcıyı ekleyin
 
 Şimdi, Azure'da işlevi çağırır özel bağlayıcı de ekleyin. Standart bir bağlayıcı gibi akış özel bağlayıcı ekleyin. 
 
@@ -163,7 +165,7 @@ Listede oluşturulan tüm öğeler için akışını denetler **ServiceRequired*
 
 2. İçinde **bir eylem seçin** iletişim kutusu, arama `Turbine Repair`, eylemi seçin **Türbin onarma - maliyetleri hesaplar**.
 
-    ![Bir eylem seçin](media/functions-flow-scenario/choose-turbine-repair.png)
+    ![Eylem seçin](media/functions-flow-scenario/choose-turbine-repair.png)
 
     Aşağıdaki resimde akışına eklenir kartı gösterir. Alanları ve açıklamaları bağlayıcı OpenAPI tanımından gelir.
 
@@ -173,7 +175,7 @@ Listede oluşturulan tüm öğeler için akışını denetler **ServiceRequired*
 
     İçin **saatleri**seçin **EstimatedEffort**ve **kapasite**seçin **MaxOutput**.
 
-    ![Bir eylem seçin](media/functions-flow-scenario/calculates-costs-fields.png)
+    ![Eylem seçin](media/functions-flow-scenario/calculates-costs-fields.png)
 
      Şimdi işlevi çıktıya dayalı başka bir koşul ekleyin.
 
@@ -237,7 +239,7 @@ Akış tamamladığınıza göre SharePoint listesi bir satır ekleyin ve akış
 
 3. **Bitti**’ye tıklayın.
 
-    ![Bitti hızlı Düzenle](media/functions-flow-scenario/quick-edit-done.png)
+    ![Hızlı düzenleme bitti](media/functions-flow-scenario/quick-edit-done.png)
 
     Öğe eklediğinizde, sonraki bakalım akışını tetikler.
 
@@ -247,7 +249,7 @@ Akış tamamladığınıza göre SharePoint listesi bir satır ekleyin ve akış
 
 5. Altında **ÇALIŞTIRMA GEÇMİŞİ**, akış Çalıştır'ı tıklatın.
 
-    ![çalıştırma geçmişi](media/functions-flow-scenario/run-history.png)
+    ![Çalıştırma geçmişi](media/functions-flow-scenario/run-history.png)
 
     Çalıştır başarılı olduysa, bir sonraki sayfada akış işlemleri gözden geçirebilirsiniz. Çalıştır herhangi bir nedenle başarısız olursa, sonraki sayfaya sorun giderme bilgileri sağlar.
 

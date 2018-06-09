@@ -1,25 +1,26 @@
 ---
-title: "Azure yığınında hizmetleri sunan | Microsoft Docs"
-description: "Bulut operatörü olarak, kullanıcılarınıza hizmet sunabilir."
+title: Azure yığınında hizmetleri sunan | Microsoft Docs
+description: Bulut operatörü olarak, kullanıcılarınıza hizmet sunabilir.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/07/2018
 ms.author: brenduns
-ms.reviewer: 
-ms.openlocfilehash: 5b117a9b174f5d2419ff596cc90436e4b9d21645
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.reviewer: ''
+ms.openlocfilehash: 042e65cfe350cb61124ed8920ae3616502e6553d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248852"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>Azure yığınında hizmetleri sunan genel bakış
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 03/08/2018
 
 [Microsoft Azure yığın](azure-stack-poc.md) merkeziniz Hizmetleri sunmanıza olanak sağlayan bir karma bulut platformudur. Bir hizmet sağlayıcısı olarak, kiracılarınıza hizmet sunabilir. Bir iş veya devlet dairesi içinde çalışanlarınıza şirket içi hizmet sunabilir. Sağlayabileceğiniz Hizmetleri dahil ancak bunlarla sınırlı değildir:
 
-- Bir hizmet (PaaS) Hizmetleri olarak platform uygulama hizmetleri, API Apps, API işlevleri, SQL, MySQL ister.
+- Bir hizmet (PaaS) Hizmetleri olarak platform uygulama hizmetleri, API Apps, API işlevleri, SQL ve MySQL ister.
 
 Tümleştirme ve farklı kullanıcılar için karmaşık çözümleri oluşturmak için Hizmetleri bile birleştirebilirsiniz.
 
@@ -44,5 +45,5 @@ Teklifleriniz planlıyorsanız, aşağıdaki noktaları göz önünde bulundurun
 **Temsilci sağlayıcıları**: başkalarının ortamınızdaki teklifler oluşturmanıza olanak verebilir. Örneğin, bir hizmet sağlayıcı barındırıyorsanız, yapabilecekleriniz [temsilci](azure-stack-delegated-provider.md) , yetkili satıcılar için bu özelliği. Veya, bir kuruluşun değilseniz, diğer bölümler/kuruluşlarının devredebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Bir teklifi Azure yığınında oluşturma](azure-stack-create-offer.md)
 
+[Bir teklifi Azure yığınında oluşturma](azure-stack-create-offer.md)

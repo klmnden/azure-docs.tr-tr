@@ -3,21 +3,22 @@ title: Güvenlik uyarılarının nasıl yapılandırılacağı | Microsoft Docs
 description: Azure Privileged Identity Management uzantısı güvenlik uyarılarını yapılandırmak öğrenin.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f77567d35d3916ab1660134959d2d26916e08a0a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9b1779ed409a01356615561b1eb6fea0235529f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233929"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management güvenlik uyarılarını yapılandırma
 ## <a name="security-alerts"></a>Güvenlik uyarıları
@@ -25,7 +26,7 @@ Azure Privileged Identity Management (PIM) ortamınızda kuşkulu veya güvenli 
 
 ![PIM Pano güvenlik uyarıları - ekran görüntüsü][1]
 
-| Uyarı | Önem Derecesi | Tetikleyici | Öneri |
+| Uyarı | Severity | Tetikleyici | Öneri |
 | --- | --- | --- | --- |
 | **Roller PIM dışında atanmış durumda** |Yüksek |Bir kullanıcının PIM arabirimi dışında ayrıcalıklı bir rol kalıcı olarak atanmıştır. |Liste ve atamayı onlardan PIM dışında atanan rollerin ayrıcalıklı kullanıcılar gözden geçirin. |
 | **Roller çok sık etkinleştirilmekte** |Orta |Ayarlarında izin verilen süre içinde çok fazla yeniden etkinleştirmeleri aynı rolünün vardı. |Bunlar çok fazla kez rolü neden etkinleştirdikten görmek için kullanıcıyla iletişime geçin. Belki de zaman sınırı için çok fazla bunları görevlerini tamamlamak için veya belki de bunlar komut dosyaları otomatik olarak bir rolü etkinleştirmek için kullanmakta olduğunuz yoktur. Etkinleştirme süresi rolleri için bunları görevlerini gerçekleştirmeye yetecek uzunlukta ayarlandığından emin olun. |
@@ -33,7 +34,7 @@ Azure Privileged Identity Management (PIM) ortamınızda kuşkulu veya güvenli 
 | **Ayrıcalıklı rollerini kullanıcıların kullanmadığınız** |Düşük |Rollerine son etkinleştirmediyseniz uygun Yöneticiler vardır. |Erişim artık gerekmeyen kullanıcılar belirlemek için bir erişim gözden geçirme başlatın. |
 | **Çok sayıda genel Yöneticiler vardır** |Düşük |Önerilen daha fazla genel Yöneticiler vardır. |Çok sayıda genel Yöneticiler varsa, kullanıcıların ihtiyaç duyduklarından fazla izinler aldıklarından olasıdır. Daha az ayrıcalıklı rollere kullanıcıları taşıyın ya da bunlardan bazıları kalıcı olarak atanan yerine rolü için uygun hale getirmek. |
 
-### <a name="severity"></a>Önem Derecesi
+### <a name="severity"></a>Severity
 * **Yüksek**: bir ilke ihlali nedeniyle Acil eylem gerektirir. 
 * **Orta**: Acil eylem gerekli değildir ancak olası ilke ihlalinin işaret eder.
 * **Düşük**: Acil eylem gerekli değildir ancak preferrable ilke değişikliğini önerir.

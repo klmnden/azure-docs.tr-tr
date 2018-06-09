@@ -1,25 +1,26 @@
 ---
-title: "Azure noktadan siteye VPN bağlantıları hakkında | Microsoft Docs"
-description: "Bu makalede, noktadan siteye bağlantıları anlamanıza yardımcı olur ve kullanmak için hangi P2S VPN ağ geçidi kimlik doğrulama türü karar vermenize yardımcı olur."
+title: Azure noktadan siteye VPN bağlantıları hakkında | Microsoft Docs
+description: Bu makalede, noktadan siteye bağlantıları anlamanıza yardımcı olur ve kullanmak için hangi P2S VPN ağ geçidi kimlik doğrulama türü karar vermenize yardımcı olur.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236442"
 ---
 # <a name="about-point-to-site-vpn"></a>Noktadan siteye VPN hakkında
 
@@ -47,19 +48,23 @@ Azure P2S VPN bağlantısı kabul etmeden önce kullanıcının ilk doğrulanmas
 
 Yerel Azure sertifika kimlik doğrulaması kullanırken, aygıtta bir istemci sertifikası bağlanan kullanıcının kimliğini doğrulamak için kullanılır. İstemci sertifikalarını bir güvenilen kök sertifika oluşturulur ve her istemci bilgisayarda yüklü. Kendinden imzalı bir sertifika oluşturabilir veya kurumsal bir çözümü kullanılarak oluşturulan bir kök sertifikası kullanabilirsiniz.
 
-İstemci sertifikası doğrulama P2S VPN bağlantısı kurma sırasında olur ve VPN ağ geçidi tarafından gerçekleştirilir. Kök sertifika doğrulama için gereklidir ve Azure'a yüklenmelidir. 
+İstemci sertifikası doğrulama P2S VPN bağlantısı kurma sırasında olur ve VPN ağ geçidi tarafından gerçekleştirilir. Kök sertifika doğrulama için gereklidir ve Azure'a yüklenmelidir.
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Active Directory (AD) etki alanı sunucusu kullanarak kimlik doğrulaması
 
 AD etki alanı kimlik doğrulama, kuruluş etki alanı kimlik bilgilerini kullanarak Azure'a bağlanmasına olanak sağlar. AD sunucusu ile tümleşen bir RADIUS sunucusu gerektirir. Kuruluşlar, kullanıcıların varolan RADIUS dağıtım da kullanabilirsiniz.   
- RADIUS sunucusu şirket içinde dağıtılabilir olabilir veya Azure sanal. Kimlik doğrulaması sırasında Azure VPN ağ geçidi geçiş ve ileten kimlik doğrulama iletileri ve geriye ve RADIUS sunucusu arasında bir bağlantı aygıtı gibi davranır. Bu nedenle RADIUS sunucusu ağ geçidi ulaşılabilirlik önemlidir. Daha sonra RADIUS sunucusu mevcut şirket içi ise, Azure VPN S2S bağlantısından şirket içi siteye ulaşılabilirlik için gereklidir.  
- RADIUS sunucusu ayrıca AD Sertifika Hizmetleri ile tümleştirebilirsiniz. Bu, RADIUS sunucusu ve kuruluş sertifika dağıtımınızı Azure sertifika kimlik doğrulaması için bir alternatif olarak P2S sertifika kimlik doğrulaması kullanmanızı sağlar. Kök sertifikaları ve iptal edilen sertifikaları Azure'a yüklemeniz gerekmez avantajı sağlamasıdır.
+  RADIUS sunucusu şirket içinde dağıtılabilir olabilir veya Azure sanal. Kimlik doğrulaması sırasında Azure VPN ağ geçidi geçiş ve ileten kimlik doğrulama iletileri ve geriye ve RADIUS sunucusu arasında bir bağlantı aygıtı gibi davranır. Bu nedenle RADIUS sunucusu ağ geçidi ulaşılabilirlik önemlidir. Daha sonra RADIUS sunucusu mevcut şirket içi ise, Azure VPN S2S bağlantısından şirket içi siteye ulaşılabilirlik için gereklidir.  
+  RADIUS sunucusu ayrıca AD Sertifika Hizmetleri ile tümleştirebilirsiniz. Bu, RADIUS sunucusu ve kuruluş sertifika dağıtımınızı Azure sertifika kimlik doğrulaması için bir alternatif olarak P2S sertifika kimlik doğrulaması kullanmanızı sağlar. Kök sertifikaları ve iptal edilen sertifikaları Azure'a yüklemeniz gerekmez avantajı sağlamasıdır.
 
 Bir RADIUS sunucusu, ayrıca diğer dış kimlik sistemleri ile tümleştirebilirsiniz. Bu, çok faktörlü seçenekleri de dahil olmak üzere, P2S VPN için kimlik doğrulama seçenekleri bolca yukarı açar.
 
 ! [noktası siteye]] (./media/point-to-site-about/p2s.png "Noktadan siteye")
 
-### <a name="configuration-requirements-for-client-devices"></a>İstemci cihazları için yapılandırma gereksinimleri
+## <a name="what-are-the-client-configuration-requirements"></a>İstemci yapılandırma gereksinimleri nelerdir?
+
+>[!NOTE]
+>Windows istemcileri için istemci cihazı Azure VPN bağlantısını başlatmak için istemci cihaz üzerinde yönetici hakları olmalıdır.
+>
 
 Kullanıcılar yerel VPN istemcileri, Windows ve Mac cihazlarda P2S için kullanır. Azure VPN istemcisi yapılandırma zip sağlar Azure'a bağlanmak için bu yerel istemciler tarafından gerekli ayarları içeren dosya.
 
@@ -69,10 +74,10 @@ Kullanıcılar yerel VPN istemcileri, Windows ve Mac cihazlarda P2S için kullan
 Zip dosyası bazı önemli ayarları değerleri bu aygıtlar için kendi profili oluşturmak için kullanabileceğiniz Azure tarafında de sağlar. Bazı değerleri, VPN ağ geçidi adresi, yapılandırılmış tünel türünü, yollar ve ağ geçidi doğrulaması için kök sertifikasını içerir.
 
 >[!NOTE]
->Windows istemcileri için istemci cihazı Azure VPN bağlantısını başlatmak için istemci cihaz üzerinde yönetici hakları olmalıdır.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>Hangi ağ geçidi SKU'ları destek P2S VPN?
+## <a name="gwsku"></a>Hangi ağ geçidi SKU'ları destek P2S VPN?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 
@@ -81,7 +86,7 @@ Zip dosyası bazı önemli ayarları değerleri bu aygıtlar için kendi profili
 * SLA (hizmet düzeyi sözleşmesi) bilgileri SLA sayfasında bulunabilir.
 
 >[!NOTE]
->Temel SKU Ikev2 veya RADIUS kimlik doğrulamasını desteklemez.
+>Temel SKU, IKEv2 veya RADIUS kimlik doğrulamasını desteklemez.
 >
 
 ## <a name="configure"></a>P2S bağlantısı nasıl yapılandırırım?

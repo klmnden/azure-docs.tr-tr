@@ -1,5 +1,5 @@
 ---
-title: Olay kaynaklı arka plan işleme - Azure WebJobs SDK kullanma
+title: Azure WebJobs SDK'sını kullanma
 description: Web işleri SDK'si için kod yazma hakkında daha fazla bilgi edinin. Olay kaynaklı arka plan Azure hizmetlerinin ve üçüncü taraf hizmetleri veri erişim işleme işleri oluşturun.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,15 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234659"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>WebJobs SDK olay denetimli arka plan işleme için kullanma
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Azure WebJobs SDK olay denetimli arka plan işleme için kullanma
 
-Bu makalede için kod yazma konusunda rehberlik sağlar [WebJobs SDK](webjobs-sdk-get-started.md). Belge sürümleri için geçerlidir 2.x ve 3.x belirtilenler Aksi takdirde. 3.x tarafından sunulan ana değişiklik .NET Core .NET Framework yerine kullanılır.
+Bu makalede için kod yazma konusunda rehberlik sağlar [Azure WebJobs SDK](webjobs-sdk-get-started.md). Belge sürümleri için geçerlidir 2.x ve 3.x belirtilenler Aksi takdirde. 3.x tarafından sunulan ana değişiklik .NET Core .NET Framework yerine kullanılır.
 
 >[!NOTE]
 > [Azure işlevleri](../azure-functions/functions-overview.md) WebJobs SDK ve Azure işlevleri belgelere bazı konular için bu makalede bağlantıları üzerine inşa edilmiştir. İşlevler ve WebJobs SDK arasındaki aşağıdaki farkları dikkat edin:
@@ -322,7 +323,7 @@ Daha fazla bilgi için bkz: [çalışma zamanında bağlama](../azure-functions/
 
 Her bağlama türü hakkında başvuru bilgileri Azure işlevleri belgelerinde sağlanır. Depolama kuyruğu bir örnek olarak kullanarak, aşağıdaki bilgileri her bağlama başvurusu makalesinde bulabilirsiniz:
 
-* [Paketleri](../azure-functions/functions-bindings-storage-queue.md#packages) -WebJobs SDK projede bağlama için destek eklemek için yükleme paketini.
+* [Paketleri](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) -WebJobs SDK projede bağlama için destek eklemek için yükleme paketini.
 * [Örnekler](../azure-functions/functions-bindings-storage-queue.md#trigger---example) -C# sınıf kitaplığı örnek Web işleri SDK'si için geçerlidir; yalnızca atlayın `FunctionName` özniteliği.
 * [Öznitelikleri](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) -bağlama türü için kullanılacak öznitelikleri.
 * [Yapılandırma](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) -öznitelik özellikleri ve Oluşturucusu parametrelerinin açıklamaları.
@@ -390,6 +391,26 @@ Bazı tetikleyiciler eşzamanlılık yönetimi için yerleşik destek vardır:
 * **FileTrigger** - ayarlanmış `FileProcessor.MaxDegreeOfParallelism` 1.
 
 İşlevinizi tek bir örneğinde bir singleton olarak çalıştığından emin olmak için bu ayarları kullanın. Web uygulaması için birden çok örneği çıkışı ölçeklendirir zaman işlevi yalnızca tek bir örneğini çalıştığından emin olmak için bir dinleyici düzeyi Singleton işlev kilitlemek (`[Singleton(Mode = SingletonMode.Listener)]`). Dinleyici kilitleri JobHost başlatmada alınan. Tüm üç ölçeklendirilmiş örnekleri aynı anda başlatırsanız, yalnızca bir örneği kilit alır ve yalnızca bir dinleyici başlatır.
+
+### <a name="scope-values"></a>Kapsam değerleri
+
+Belirleyebileceğiniz bir **kapsam ifade/değer** işlevi bu kapsamdaki tüm yürütmeleri seri hale sağlayacak Singleton üzerinde. Daha ayrıntılı bu şekilde kilitleme uygulama için belirli bir düzeyde, işlevi için paralellik gereksinimlerinize göre dikte gibi diğer çağrılarını serileştirirken izin verebilirsiniz. Örneğin, aşağıdaki örnekte kapsam ifade bağlar `Region` gelen iletinin değeri. Sıranın bölgeler "Doğu", "Doğu" ve "Batı" sırasıyla sonra "Doğu", "Batı" paralel olanla yürütülen bölge iletisiyle çalışırken seri olarak yürütülecek bölge iletileri 3 iletilerde içeriyorsa.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

@@ -12,17 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247953"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
 Azure Active Directory (Azure AD) oluşturulması, Bakım ve kullanıcı kimlikleri bulutta kaldırılmasını otomatikleştirmenizi sağlar ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) Dropbox, Salesforce, ServiceNow ve daha fazlası gibi uygulamalar.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **Aşağıda bu özellik, yapmak nelere izin ilişkin bazı örnekler şunlardır:**
 
@@ -44,7 +47,7 @@ Bu özelliği kullanmak için bazı ortak sözleri şunları içerir:
 * Maliyetleri, verimsiz ve el ile sağlama işlemlerle ilişkili İnsan hatası önleme.
 * Barındırma ve özel geliştirilmiş sağlama çözümleri ve komut dosyaları korumanın ilişkili maliyetleri önleme
 * Kuruluşunuz kuruluştan ayrılan anında kullanıcıların kimliklerini anahtar SaaS uygulamalardan kaldırarak güvenli hale getirmek için.
-* Çok sayıda kullanıcı, belirli bir SaaS uygulama veya sistem kolayca almak için.
+* Çok sayıda kullanıcı belirli bir SaaS uygulama veya sistem kolayca almak için.
 * İlkeleri kimin hazırlanmıştır ve bir uygulamaya oturum açabilir kimin belirlemek için tek bir dizi sahip keyfini için.
 
 
@@ -77,6 +80,8 @@ Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibi ek uygulamala
     
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Bir uygulamaya otomatik sağlamayı nasıl ayarlarım?
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 Seçilen bir uygulamaya başlar için hizmet sağlama Azure ad yapılandırma  **[Azure portal](https://portal.azure.com)**. İçinde **Azure Active Directory > Kurumsal uygulamalar** bölümünde, select **Ekle**, ardından **tüm**, senaryonuza bağlı olarak aşağıdakilerden birini ekleyin:
 
@@ -170,31 +175,50 @@ Karantinadaki olduğunda, artımlı eşitlemeler sıklığını kademeli olarak 
 Sağlama işi karantinadan tüm sabit sorunlu hataları sonra kaldırılır ve sonraki eşitleme döngüsü başlatır. Sağlama işi dört hafta boyunca birden fazla Karantinadaki kalırsa, sağlama işi devre dışı bırakıldı.
 
 
+## <a name="how-long-will-it-take-to-provision-users"></a>Ne kadar kullanıcılar sağlayacak sürer?
+
+Önceki bölümde açıklandığı gibi performansı sağlama işinizi bir başlangıç eşitlemesi ya da bir artımlı eşitleme gerçekleştirme üzerinde bağlıdır.
+
+İçin **ilk eşitlemeler**, kullanıcılar ve gruplar sağlama kapsamında sayısı ve kullanıcı ve grup kaynak sistemdeki toplam sayısı dahil çeşitli Etkenler, çeşitli iş zaman bağlıdır. İlk eşitleme performansını etkileyen faktörler kapsamlı bir listesini Bu bölümde daha sonra özetlenir.
+
+İçin **artımlı eşitlemeler**, iş süresi değişiklikler bu eşitleme döngüsü algılandı sayısına bağlı olarak değişir. 5. 000'den az kullanıcı veya grup üyeliği değişiklikleri varsa, iş tek Artımlı eşitleme döngüsü içinde bitirebilirsiniz. 
+
+Eşitleme zamanlarını sağlama yaygın senaryolar için aşağıdaki tabloda özetlenmiştir. Bu senaryoda, kaynak sistemi Azure AD ve hedef sistem bir SaaS uygulaması. Eşitleme zamanlarını ServiceNow, çalışma alanı, Salesforce ve Google Apps SaaS uygulamaları için eşitleme işlerinin istatistiksel çözümleme türetilir.
+
+
+| Kapsam yapılandırması | Kullanıcıları, grupları ve üyeleri kapsamında | İlk eşitleme zamanı | Artımlı eşitleme zamanı |
+| -------- | -------- | -------- | -------- |
+| Atanan kullanıcılar ve gruplar yalnızca Eşitle |  < 1.000 |  < 30 dakika | < 30 dakika |
+| Atanan kullanıcılar ve gruplar yalnızca Eşitle |  1.000 - 10.000 | 142 - 708 dakika | < 30 dakika |
+| Atanan kullanıcılar ve gruplar yalnızca Eşitle |   10.000 - 100.000 | 1,170 - 2,340 dakika | < 30 dakika |
+| Tüm kullanıcıların ve grupların Azure AD'de eşitleme |  < 1.000 | < 30 dakika  | < 30 dakika |
+| Tüm kullanıcıların ve grupların Azure AD'de eşitleme |  1.000 - 10.000 | < 30-120 dakika | < 30 dakika |
+| Tüm kullanıcıların ve grupların Azure AD'de eşitleme |  10.000 - 100.000  | 713 - 1,425 dakika | < 30 dakika |
+| Tüm kullanıcılar Azure AD'de eşitleme|  < 1.000  | < 30 dakika | < 30 dakika |
+| Tüm kullanıcılar Azure AD'de eşitleme | 1.000 - 10.000  | 43 - 86 dakika | < 30 dakika |
+
+
+Yapılandırma için **eşitleme atanan kullanıcı ve grupları yalnızca**, yaklaşık minimum ve maksimum beklenen belirlemek için aşağıdaki formülleri kullanabilirsiniz **ilk eşitleme** saatleri:
+
+    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+    
+Tamamlamak süresini etkileyen faktörler özetini bir **ilk eşitleme**:
+
+* Kullanıcılar ve gruplar sağlama kapsamında toplam sayısı
+
+* Kullanıcılar, gruplar ve Grup üyeleri kaynak sistemde bulunan (Azure AD) toplam sayısı
+
+* Olsun veya olmasın sağlama kapsamında kullanıcılar hedef uygulamada var olan kullanıcılara eşleşen veya ilk kez oluşturulması gerekir. Eşitleme işleri, tüm kullanıcılar ilk kez oluşturulur ele yaklaşık *iki kez sürece* olarak eşitleme işleri, tüm kullanıcılar için mevcut kullanıcıları eşleştirilir.
+
+* Hataların sayısı [denetim günlüklerini](active-directory-saas-provisioning-reporting.md). Performans birçok hata vardır ve sağlama hizmeti karantina durumuna geçti yavaş ise   
+
+* Oran sınırları ve hedef sistem tarafından uygulanan kısıtlama isteyin. Bazı hedef sistemleri isteği oran sınırları ve hangi büyük eşitleme işlemler sırasındaki performansınızı etkileyebilir azaltma uygular. Bu koşullar altında çok fazla ister çok hızlı bir uygulama veya kendi yanıt hızını yavaş bağlantı kapatın. Performansı artırmak için bağlayıcı uygulama isteklerini uygulama bunları işleyebileceğinden daha hızlı göndererek değil ayarlamak gerekir. Microsoft tarafından oluşturulan sağlama bağlayıcılar bu ayarlama olun. 
+
+* Sayı ve boyutu, atanan grupları. Grupları atanan eşitleniyor kullanıcılar eşitleniyor daha uzun sürer. Hem sayı hem de atanan grupları boyutlarını performansını etkiler. Bir uygulama varsa [grup nesnesi eşitleme için etkinleştirilmiş eşlemeleri](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), grup özellikleri gibi Grup adları ve üyeliklerinin yanı sıra kullanıcıların eşitlenen. Bu ek eşitlemeler yalnızca kullanıcı nesneleri eşitleniyor daha uzun sürer.
+ 
+
 ## <a name="frequently-asked-questions"></a>Sık sorulan sorular
-
-**Ne kadar bu Kullanıcılarım sağlayacak sürer?**
-
-Performans sağlama işinizi bir başlangıç eşitlemesi ya da bir artımlı eşitleme gerçekleştirme bağlı olarak farklı olacaktır.
-
-İlk eşitlemeler için tamamlamak için geçen süreyi kaç kullanıcıları, grupları ve Grup üyeleri, kaynak sistemde üzerinde doğrudan bağımlı olur. Yüzlerce nesne çok küçük kaynağı sistemleriyle birkaç dakika içinde ilk eşitlemeler tamamlayabilirsiniz. Ancak, binlerce veya birleştirilmiş nesneleri milyonlarca yüzlerce kaynağı sistemleriyle daha uzun sürer.
-
-Artımlı eşitlemeler için sayı değişiklikler bu eşitleme döngüsü algılandı süresini bağlıdır. 5. 000'den az kullanıcı veya grup üyeliği değişikliklerinin algılanan varsa, bunlar genellikle 40 dakika döngüsü içinde eşitlenebilen. 
-
-Genel performans hem kaynak hem de hedef sistemlerde bağlı olduğunu unutmayın. Bazı hedef sistemleri isteği oran sınırları ve büyük eşitleme işlemleri sırasında etkisi performans ve bu sistemlere bağlayıcılarının sağlama önceden oluşturulmuş Azure AD bu hesaba alabilir azaltma uygular.
-
-Performans birçok hata varsa daha yavaş de (kaydedilen [denetim günlüklerini](active-directory-saas-provisioning-reporting.md)) ve sağlama hizmeti "karantina" durumuna geçti.
-
-**Eşitleme performansını artırmak ne?**
-
-Çoğu performans sorunları, çok sayıda gruplar ve grup üyelerinin sahip sistemler ilk eşitlemeler sırasında oluşur.
-
-Gruplar ve grup üyeliklerine eşitleme gerekli değilse, eşitleme performansı önemli ölçüde tarafından iyileştirilebilir:
-
-1. Ayarı **sağlama > Ayarlar > kapsam** menüsüne **tüm eşitleme**, atanan kullanıcılar ve gruplar eşitleniyor yerine.
-2. Kullanım [kapsam belirleme filtreleri](active-directory-saas-scoping-filters.md) sağlanan kullanıcıların listesini filtrelemek için atamaları yerine.
-
-> [!NOTE]
-> Grup adları ve Grup Özellikleri (ServiceNow ve Google uygulamalar gibi) sağlamayı desteklemeyen uygulamalar için bu devre dışı bir başlangıç eşitlemesi tamamlamak gereken süreyi azaltır. Grup adları ve grup üyeliklerini uygulamanıza sağlayacak istemiyorsanız, bu devre dışı bırakabilirsiniz [öznitelik eşlemelerini](active-directory-saas-customizing-attribute-mappings.md) sağlama yapılandırmanızın.
 
 **Geçerli sağlama işinin ilerleme durumunu nasıl izleyebilir miyim?**
 

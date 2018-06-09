@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d0cfce1dfe6482397e421d85d59494e6d75cc441
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 198ecdbf81c2b8efeec23da2c5d5d087128b20e9
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591166"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233572"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Temsilci SQL yönetici izinleri kullanarak Azure AD Connect'i yükleme
 En son Azure AD Connect yapı önce SQL, gerekli yapılandırmaları dağıtırken yönetim temsilcisi desteklenmiyordu.  Azure AD Connect'i yüklemek isteyen kullanıcılara SQL server üzerinde Sistem Yöneticisi (SA) izinlerine sahip gerekirdi.
@@ -48,7 +48,7 @@ Bant dışı veritabanını sağlamak ve veritabanı sahibinin izinleriyle Azure
 2.  Azure AD Connect yönetici ve etki alanı hizmet hesabı aşağıdaki izinleri verin:
     - SQL Oturum Açma 
     - **Owner(dbo) veritabanı** hakları.  </br>
-![İzinler](media/active-directory-aadconnect-sql-delegation/sql3.png)
+![İzinler](media/active-directory-aadconnect-sql-delegation/sql3a.png)
 3.  Azure AD Connect yüklenirken kullanılması SQL server ve örnek adı gösteren Azure AD Connect yöneticisine bir e-posta gönderin.
 
 ## <a name="additional-information"></a>Ek bilgiler

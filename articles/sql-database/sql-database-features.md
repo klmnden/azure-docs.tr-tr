@@ -1,35 +1,35 @@
 ---
 title: Azure SQL veritabanı özellik karşılaştırması | Microsoft Docs
-description: Bu makalede, Azure SQL veritabanı ve özelliklerini yönetilen örnekleri birbirleriyle ve SQL Server ile karşılaştırır.
+description: Bu makalede, SQL Server'ın Azure SQL veritabanı farklı türdeki kullanılabilen özellikleri karşılaştırılmaktadır.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: eaaadd48c92ef79964f712dae9bffb24dac271cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646730"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248818"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server ile Azure SQL veritabanı 
 
-Azure SQL veritabanı, SQL Server ile temel bir ortak kodun paylaşır. Azure SQL veritabanı tarafından desteklenen bir SQL Server özelliklerini oluşturduğunuz Azure SQL veritabanı türüne bağlıdır. Azure SQL veritabanı ile ya da bir parçası olarak bir veritabanı oluşturabilirsiniz bir [yönetilen örneği](sql-database-managed-instance.md) (şu anda önizlemede genel) veya tek bir veritabanı veya bir esnek havuz parçası olan bir veritabanı bir veritabanı oluşturabilirsiniz. 
+Azure SQL veritabanı, SQL Server ile temel bir ortak kodun paylaşır. Azure SQL veritabanı tarafından desteklenen bir SQL Server özelliklerini oluşturduğunuz Azure SQL veritabanı türüne bağlıdır. Azure SQL veritabanı ile ya da bir parçası olarak bir veritabanı oluşturabilirsiniz bir [yönetilen örneği](sql-database-managed-instance.md) (şu anda önizlemede genel) veya bir esnek havuz mantıksal sunucu parçası ve isteğe bağlı olarak yerleştirilen bir veritabanı oluşturabilirsiniz. 
 
 Microsoft Azure SQL veritabanına özellikleri eklemek devam eder. Hizmet güncelleştirmeleri Web sayfası için Azure bu filtreleri kullanarak en son güncelleştirmeler için ziyaret edin:
 
 * [SQL Veritabanı hizmeti](https://azure.microsoft.com/updates/?service=sql-database) için filtrelenmiş.
 * SQL Veritabanı özellikleri için Genel Kullanılabilirlik [(GA) duyuruları](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability).
 
-## <a name="sql-server-and-sql-database-feature-support"></a>SQL Server ve SQL veritabanı özellik desteği
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Azure SQL veritabanında SQL Server özelliği desteği
 
 Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve özellik kısmen veya tamamen desteklenir ve özelliği hakkında daha fazla bilgi için bağlantı hakkında bilgi sağlar. 
 
-| **SQL özelliği** | **Azure SQL veritabanı'nda desteklenen** | **Yönetilen örneği (Önizleme)** |
+| **SQL özelliği** | **Azure SQL veritabanı/mantıksal Server'da desteklenen** | **Azure SQL veritabanı/yönetilen örneği (Önizleme) desteklenir** |
 | --- | --- | --- |
 | [Her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Evet - bkz [sertifika deposu](sql-database-always-encrypted.md) ve [anahtar kasası](sql-database-always-encrypted-azure-key-vault.md) | Evet - bkz [sertifika deposu](sql-database-always-encrypted.md) ve [anahtar kasası](sql-database-always-encrypted-azure-key-vault.md) |
 | [AlwaysOn Kullanılabilirlik grupları:](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) |
@@ -40,7 +40,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve �
 | [Otomatik (plan zorlama) ayarlama](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Evet](sql-database-automatic-tuning.md)| [Evet](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [Otomatik (dizinler) ayarlama](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [Evet](sql-database-automatic-tuning.md)| Hayır |
 | [BACPAC dosyası (verme)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Evet - bkz [SQL veritabanı dışarı aktarma](sql-database-export.md) | Evet |
-| [BACPAC dosyası (içe aktarma)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Evet - bkz [SQL veritabanı alma](sql-database-import.md) | Evet |
+| [BACPAC dosyası (içe aktarma)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Evet - bkz [SQL veritabanı alma](sql-database-import.md) | Hayır |
 | [Yedekleme komutu](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Hayır, yalnızca sistem tarafından başlatılan otomatik yedeklemeler - bkz [yedeklemeleri otomatik](sql-database-automated-backups.md) | Sistem tarafından başlatılan otomatik yedeklemeler ve kullanıcı tarafından başlatılan yalnızca kopya yedekleri - bkz [yedekleme farklar](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Yerleşik işlevler](https://docs.microsoft.com/sql/t-sql/functions/functions) | Çoğu - tekil işlevler bakın | Evet - bkz [saklı yordamlar, İşlevler, farklar tetikler](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
 | [Değişiklik verilerini yakalama](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Hayır | Evet |
@@ -137,7 +137,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve �
 |Tehdit algılama|  [Evet](sql-database-threat-detection.md)|[Evet](sql-database-managed-instance-threat-detection.md)|
 | [İzleme Bayrakları](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Hayır | Hayır |
 | [Değişkenler](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | Evet | Evet |
-| [Saydam veri şifreleme (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Evet | Genel Önizleme'de Hayır |
+| [Saydam veri şifreleme (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Evet | Hizmet tarafından yönetilen şifrelemeli yalnızca kısmi |
 [Sanal ağ](../virtual-network/virtual-networks-overview.md) | Kısmi - bkz [VNET uç noktaları](sql-database-vnet-service-endpoint-rule-overview.md) | Evet, yalnızca Resource Manager modeli |
 | [Windows Server Yük Devretme Kümelemesi](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) |
 | [XML dizinler](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | Evet | Evet |

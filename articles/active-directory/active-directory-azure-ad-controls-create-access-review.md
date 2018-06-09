@@ -10,13 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 05/14/2018
-ms.author: billmath
-ms.openlocfilehash: 784a461421420af403a43f944d6f63aef3ccc152
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234082"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD ile bir erişim gözden geçirme Grup üyeleri veya uygulama erişimi oluşturma
 
@@ -34,9 +36,9 @@ Kullanıcılar artık gerekmeyen erişim sahibi, erişim atamalarını "eski" ol
 
 5. Başlangıç tarihini ayarlayın. Varsayılan olarak, bir erişim gözden geçirme bir kez meydana gelir, aynı oluşturulduğunda başlar ve bir ay içinde sona erer. Başlangıç değiştirebilir ve çok sayıda gün istiyor ancak bir erişim sağlamak için bitiş tarihi başlangıç gelecekte ve son gözden geçirin.
 
-6. Erişim gözden geçirme yinelenen yapmak için haftalık, aylık, üç aylık veya yıllık olarak bir kez sıklığını değiştirmek ve her gözden geçirme yinelenen serisinin olacak runbe kaç gün gözden geçirenler girişten açık tanımlamak için kaydırıcıyı veya metin kutusunu kullanın. Örneğin, Tgizli en uzun süre aylık bir gözden geçirme 27 gün incelemeler çakışan önlemek için ayarlayabilirsiniz. 
+6. Erişim gözden geçirme yinelenen yapmak için haftalık, aylık, üç aylık veya yıllık olarak bir kez sıklığını değiştirmek ve kaç gün her gözden geçirme yinelenen serisinin geçirenlerin girişi için açık olacaktır tanımlamak için kaydırıcıyı veya metin kutusunu kullanın. Örneğin, için ayarlayabileceğiniz için en uzun süre incelemeler çakışan önlemek için 27 gün aylık bir gözden geçirme gerekir. 
 
-7.  Yinelenen erişim gözden geçirme serisinin 3 şekilde bitebilir: incelemeleri süresiz olarak başlatmak için sürekli olarak çalışan veya belirli bir tarih kadar veya tanımlı bir yineleme sayısı sonra tamamlandı. Belirli bir tarihte sona ermesini sağlayacak biçimde seri Ayarları'nda tarih değiştirerek siz veya başka bir genel yönetici oluşturulduktan sonra durdurabilirsiniz.
+7.  Yinelenen erişim gözden geçirme serisinin 3 şekilde bitebilir: sürekli incelemeler süresiz olarak, belirli bir tarih kadar veya tanımlı bir yineleme sayısı tamamlandıktan sonra başlatmak için çalışır. Belirli bir tarihte sona ermesini sağlayacak biçimde seri Ayarları'nda tarih değiştirerek siz veya başka bir genel yönetici oluşturulduktan sonra durdurabilirsiniz.
 
 8. Erişim incelemeleri, uygulamaya atanan kullanıcılar veya bir grubun üyeleri için olabilir. Daha fazla kimin üyeleridir (veya uygulamaya atanan), üyeleri olan tüm kullanıcıların gözden geçirme yerine veya uygulamaya kimlerin erişimi gözden geçirme gözden yalnızca konuk kullanıcıların erişimini kapsamını belirleyebilirsiniz.
 
@@ -46,11 +48,11 @@ Kullanıcılar artık gerekmeyen erişim sahibi, erişim atamalarını "eski" ol
 
 ### <a name="configuring-an-access-review-with-auto-apply"></a>Bir erişim gözden geçirme auto-apply ile yapılandırma
 
-1.  Tamamlama ayarlarına bağlıdır sonuçları andsettings ve etkinleştirme otomatik kaynağa apply menüsünü genişletin. 
+1.  Tamamlandıktan sonra ayarları ve etkinleştirme otomatik sonuçları kaynağa uygulamak için menüsünü genişletin. 
 
-2.  Burada kullanıcılar değil gözden geçirenin gözden geçirme süresi içinde durumlarda engelleme/kullanıcının sürekli erişim onaylama üzerinde sistemin öneri (etkinse) alın veya erişimleri değiştirmeden bırakın ya da kaldırma erişim gözden geçirme sağlayabilirsiniz, erişim. Kullanıcının erişimini kaldırılacak son gözden geçirenin karar verme, ise bu gözden geçirenler tarafından el ile – incelendi kullanıcılar etkilemez.
+2.  Burada kullanıcılar değil gözden geçirenin gözden geçirme süresi içinde durumlarda engelleme/kullanıcının sürekli erişim onaylama üzerinde sistemin öneri (etkinse) alın, erişimleri değiştirmeden bırakın ya da kaldırma erişim gözden geçirme sağlayabilirsiniz, erişim. Kullanıcının erişimini kaldırılacak son gözden geçirenin karar verme, ise bu gözden geçirenler tarafından el ile – incelendi kullanıcılar etkilemez.
 
-3.  Önerileri gözden geçirenler yanıt yapılacak seçeneğini etkinleştirmek için Gelişmiş ayarları göster önerileri etkinleştirilmesi gerekir.
+3.  Önerileri gözden geçirenler yanıt yapılacak seçeneğini etkinleştirmek için Gelişmiş Ayarları'nı genişletin ve Göster önerileri etkinleştirin.
  
 4.  Son olarak, tıklatın **Başlat**.
 
@@ -74,5 +76,3 @@ Bir erişim gözden geçirme başladığında, Azure AD erişim incelemek için 
 Bu tek seferlik bir gözden geçirme ise, sonra erişim değerlendirme süresi sona erer veya yönetici erişim gözden geçirme durdurur sonra adımları [erişim gözden geçirme tamamlamak](active-directory-azure-ad-controls-complete-access-review.md) bakın ve sonuçları uygulamak için.  
 
 Bu gözden geçirme serisi ise, ardından gidin **geçmişini gözden** tamamlanmış erişim gözden geçirme seçmek için erişim gözden geçirme serisi sayfasında.  Yaklaşan incelemeler altında listelenir **zamanlanmış gözden**, burada süre, Düzen ve ekleyebilir veya bireysel incelemeler için gözden geçirenleri Kaldır.
-
-

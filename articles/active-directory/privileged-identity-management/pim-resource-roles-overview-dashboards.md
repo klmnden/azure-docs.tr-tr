@@ -3,7 +3,7 @@ title: 'Genel Bakış: bir erişim gözden geçirme Privileged Identity Manageme
 description: Bu belge, bir erişim gözden geçirme için Azure kaynaklarını PIM içinde gerçekleştirmek açıklar.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 editor: mwahl
 ms.service: active-directory
@@ -11,14 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 61be9873cac462c096599680a6e071e104f3a54c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e7fa85b4c6c84792a77972e2ad75ebaaf63a0e4c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233725"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Bir erişim gözden geçirme gerçekleştirmek için bir kaynak Panosu kullanın
 

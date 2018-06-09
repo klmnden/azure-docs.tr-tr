@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/07/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 4c3b88d9f522e28189bcb746905d35dced9d31cc
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 61ff91709b52f7378bbc320524781dca7faf2204
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248886"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama
 
@@ -49,6 +50,8 @@ RDS dağıtımında, RD Web rolü ve RD Ağ Geçidi rol Internet'e yönelik maki
 - Zaten yüklü olmalıdır [RDS dağıtılan](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure), ve [uygulama Proxy etkin](application-proxy-enable.md).
 
 - Bu senaryo, son kullanıcılarınız RD Web sayfası aracılığıyla bağlanan Windows 7 veya Windows 10 Masaüstü üzerinde Internet Explorer aracılığıyla Git varsayar. Diğer işletim sistemlerinin desteklemeniz gerekiyorsa, bkz: [desteklemek için diğer istemci yapılandırmaları](#support-for-other-client-configurations).
+
+- RD Web ile yayımlarken, aynı iç ve dış FQDN kullanmak en iyisidir. Ardından dahili ve harici FQDN'ler farklıysa çeviri geçersiz bağlantıları almayı önlemek için istek üstbilgisi devre dışı bırakmalısınız. 
 
 - Internet Explorer, RDS ActiveX eklenti etkinleştirin.
 

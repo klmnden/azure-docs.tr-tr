@@ -1,31 +1,36 @@
 ---
-title: "Oluşturun ve P2S RADIUS bağlantıları için VPN istemcisi yapılandırma dosyalarını yükleyin: PowerShell: Azure | Microsoft Docs"
-description: "Windows, Mac OS X ve Linux VPN istemci RADIUS kimlik doğrulaması kullanan bağlantılar için yapılandırma dosyaları oluşturun."
+title: 'Oluşturun ve P2S RADIUS bağlantıları için VPN istemcisi yapılandırma dosyalarını yükleyin: PowerShell: Azure | Microsoft Docs'
+description: Windows, Mac OS X ve Linux VPN istemci RADIUS kimlik doğrulaması kullanan bağlantılar için yapılandırma dosyaları oluşturun.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 19b1090a37ae1f97537fcabe128e7958fc26a96a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235898"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Oluşturun ve VPN istemcisi yapılandırma dosyalarını P2S RADIUS kimlik doğrulaması için yükleyin
 
 Noktası siteye (P2S) bir sanal ağa bağlanmak için gelen bağlanacağım istemci aygıt yapılandırmanız gerekir. Windows, Mac OS X ve Linux istemci cihazlar, P2S VPN bağlantıları oluşturabilirsiniz. 
 
 RADIUS kimlik doğrulamasını kullanırken, birden çok kimlik doğrulama seçeneği vardır: kullanıcı adı/parola kimlik doğrulaması, sertifika kimlik doğrulaması ve diğer kimlik doğrulama türleri. VPN istemci yapılandırmasında her kimlik doğrulama türü için farklıdır. VPN istemcisini yapılandırmak için gereken ayarları içeren istemci yapılandırma dosyalarını kullanın. Bu makalede oluşturmak ve kullanmak istediğiniz RADIUS kimlik doğrulaması türü için VPN istemci yapılandırma yüklemenize yardımcı olur.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 P2S RADIUS kimlik doğrulaması için yapılandırma iş akışı aşağıdaki gibidir:
 
@@ -153,6 +158,10 @@ Aşağıdaki yönergeler, Ubuntu 17.0.4 üzerinde strongSwan 5.5.1 üzerinden ol
  
 Yapılandırma dosyaları EAP-TLS protokolünü kullanan RADIUS sertifika kimlik doğrulaması için VPN istemcisi oluşturabilirsiniz. Genellikle, kuruluş tarafından verilen bir sertifika, VPN için bir kullanıcının kimliğini doğrulamak için kullanılır. Tüm bağlanan kullanıcıların cihazlarına bir sertifikasının yüklü olduğundan ve RADIUS sunucunuzun sertifikayı doğrulayabilirsiniz emin olun.
 
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
+
 Komutlarda `-AuthenticationMethod` olan `EapTls`. Sertifika kimlik doğrulaması sırasında istemci sertifikasını doğrulayarak RADIUS sunucusu doğrular. `-RadiusRootCert` RADIUS sunucusu doğrulamak için kullanılan kök sertifikasını içeren .cer dosyasıdır.
 
 Her VPN istemci aygıt yüklü istemci sertifikasını gerektirir. Bazen bir Windows aygıtı birden çok istemci sertifikalarını vardır. Kimlik doğrulaması sırasında tüm sertifikaları listeleyen bir açılır iletişim kutusunda Bu neden olabilir. Kullanıcı daha sonra kullanmak üzere sertifika seçmeniz gerekir. Doğru sertifikayı istemci sertifika zincir kök sertifikası belirterek filtrelenebilen. 
@@ -210,7 +219,7 @@ Yerel VPN istemcisi Mac sertifika kimlik doğrulaması için yapılandırmak iç
 
    ![RadiusServerRoot sertifika ekleniyor](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. Her bir istemci kimlik doğrulaması için bir istemci sertifikası gerektirir. İstemci sertifikası istemci cihaza yükleyin.
-3. Açık **ağ** iletişim kutusunda altında **ağ tercihlerini**. Seçin  **+**  P2S bağlantısı Azure sanal ağı için yeni bir VPN istemci bağlantı profili oluşturmak için.
+3. Açık **ağ** iletişim kutusunda altında **ağ tercihlerini**. Seçin **+** P2S bağlantısı Azure sanal ağı için yeni bir VPN istemci bağlantı profili oluşturmak için.
 
    **Arabirimi** değer **VPN**ve **VPN türü** değer **Ikev2**. Profil için bir ad belirtin **hizmet adı** kutusuna ve ardından **oluşturma** VPN istemci bağlantı profili oluşturmak için.
 

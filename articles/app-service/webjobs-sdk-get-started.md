@@ -1,5 +1,5 @@
 ---
-title: WebJobs SDK - Azure kullanmaya başlama
+title: Azure WebJobs SDK Kullanmaya Başlarken
 description: Olay kaynaklı arka plan işlemesi için WebJobs SDK'sı giriş. Azure ve üçüncü taraf hizmetleri verilerine erişmek öğrenin.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234536"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>WebJobs SDK ile çalışmaya başlama
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay denetimli arka plan işlemesi için Azure WebJobs SDK'sını kullanmaya başlama
 
-Bu makalede, bir WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve Azure'a dağıtma gösterilmektedir.
+Bu makalede, bir Azure WebJobs SDK projesi oluşturun, yerel olarak çalıştırın ve Azure App Service'e dağıtma gösterilmektedir.
 
 Yönergeler için olan [Visual Studio 2017](https://www.visualstudio.com/vs/), ancak diğer araçları ile aynı görevleri gibi gerçekleştirilebilir [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="what-is-the-webjobs-sdk"></a>WebJobs SDK nedir
+## <a name="what-is-the-azure-webjobs-sdk"></a>Azure WebJobs SDK nedir?
 
 Azure Web işleri SDK'si, Azure Hizmetleri verilere eriştiğinde arka plan işleme kod yazma görevini basitleştirir bir çerçevedir. SDK bir sıraya eklenen yeni bir ileti gibi bir işlev tetiklemesi gereken olayları belirten bir bildirim temelli söz dizimi özellikleri. Benzer Tanımlayıcı Sözdizimi okuma ve bir işlev tetiklenen sonra veri yazma denetler. Bu sistem Tetikleyicileri ve bağlamaları Azure ve üçüncü taraf hizmetlerine erişme ile ilişkili alt düzey kodlama görevlerin çoğunu ilgilenir.
 

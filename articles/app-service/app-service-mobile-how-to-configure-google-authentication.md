@@ -14,11 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 1a174913446c0a1d5e3e3b01123db8b40bfd172c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f89ff3a030f1da75bca538eefaf2496e9be8e97b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233828"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Uygulama hizmeti uygulamanızı Google oturum açma kullanacak şekilde yapılandırma
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -32,11 +33,11 @@ Bu konudaki yordamı tamamlamak için doğrulanmış e-posta adresine sahip bir 
 2. Gidin [Google API'leri](http://go.microsoft.com/fwlink/p/?LinkId=268303) Web sitesi, Google hesabı kimlik bilgilerinizle oturum tıklatın **proje oluştur**, sağlayın bir **proje adı**, ardından **oluşturma**.
 3. Proje oluşturulduktan sonra onu seçin. Proje panodan tıklatın **API'leri genel bakış için Git**.
 4. Seçin **API'leri etkinleştirmek ve Hizmetleri**. Arama **Google + API**ve seçin. Ardından **etkinleştirmek**.
-6. Sol gezinti bölmesinde **kimlik bilgileri** > **OAuth izni ekran**seçeneğini belirleyip, **e-posta adresi**, girin bir **ürün adı**, tıklatıp **kaydetmek**.
-7. İçinde **kimlik bilgileri** sekmesini tıklatın, **kimlik bilgileri oluşturma** > **OAuth istemci kimliği**. Tıklatın **Yapılandır onay ekran**, sağlayan bir **ürün adı**. Ardından **Kaydet**
-8. "İstemci kimliği oluşturma" ekranında seçin **Web uygulaması**.
-9. Uygulama hizmeti Yapıştır **URL** , daha önce kopyalanır **yetkili JavaScript çıkış**, ardından, yeniden yönlendirme yapıştırın URI **yeniden yönlendirme URI'si yetkili**. Yeniden yönlendirme URI'si ile yolunun, uygulamanızın URL'dir */.auth/login/google/callback*. Örneğin, `https://contoso.azurewebsites.net/.auth/login/google/callback`. HTTPS şeması kullandığınızdan emin olun. Sonra **Oluştur**’a tıklayın.
-10. Sonraki ekranda, istemci kimliği ve istemci gizli anahtarı değerlerini not edin.
+5. Sol gezinti bölmesinde **kimlik bilgileri** > **OAuth izni ekran**seçeneğini belirleyip, **e-posta adresi**, girin bir **ürün adı**, tıklatıp **kaydetmek**.
+6. İçinde **kimlik bilgileri** sekmesini tıklatın, **kimlik bilgileri oluşturma** > **OAuth istemci kimliği**.
+7. "İstemci kimliği oluşturma" ekranında seçin **Web uygulaması**.
+8. Uygulama hizmeti Yapıştır **URL** , daha önce kopyalanır **yetkili JavaScript çıkış**, ardından, yeniden yönlendirme yapıştırın URI **yeniden yönlendirme URI'si yetkili**. Yeniden yönlendirme URI'si ile yolunun, uygulamanızın URL'dir */.auth/login/google/callback*. Örneğin, `https://contoso.azurewebsites.net/.auth/login/google/callback`. HTTPS şeması kullandığınızdan emin olun. Sonra **Oluştur**’a tıklayın.
+9. Sonraki ekranda, istemci kimliği ve istemci gizli anahtarı değerlerini not edin.
 
     > [!IMPORTANT]
     > Gizli bir önemli güvenlik kimlik bilgisidir. Bu gizli kimseyle paylaşmayın değil veya bir istemci uygulama kapsamındaki dağıtabilirsiniz.

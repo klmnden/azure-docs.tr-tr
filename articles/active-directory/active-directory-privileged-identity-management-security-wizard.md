@@ -3,21 +3,22 @@ title: Azure AD Privileged Identity Management Güvenlik Sihirbazı
 description: Azure Active Directory Privileged Identity Management uzantısı ilk kullanışınızda bir güvenlik Sihirbazı ile sunulur. Bu makalede Sihirbazı'nı kullanmaya yönelik adımlar açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 02/27/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 4b3856d74b1109b20a1ff9f93b76ee36b66ee312
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cb08e5143814db29a7bec8c46226f07a26e51d25
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233029"
 ---
 # <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management Güvenlik Sihirbazı'nı kullanma 
 Kuruluşunuz için Azure Privileged Identity Management (PIM) çalıştırmak için ilk kişi sizseniz, bir sihirbaz ile sunulur. Sihirbaz, ayrıcalıklı kimliklerinizi ve PIM bu riskleri azaltmak için nasıl kullanılacağını güvenlik risklerini anlamanıza yardımcı olur. Daha sonra yapmayı tercih ediyorsanız Sihirbazı'nda, var olan rol atamalarını herhangi bir değişiklik yapmak gerekmez.

@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248729"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim
 
@@ -30,6 +32,7 @@ Güvenlik, bulut kullanan kurumlar için üst bir konudur. Bulut kaynaklarınız
 ![Denetim](./media/active-directory-conditional-access-azure-portal/81.png)
 
 Bu makalede Azure AD ile koşullu erişim kavramsal genel bakış sağlar.
+
 
 
 ## <a name="common-scenarios"></a>Genel senaryolar
@@ -58,7 +61,7 @@ Bu sorular ve ilgili yanıtları Azure AD koşullu erişim için genel erişim s
 
 ## <a name="conditional-access-policies"></a>Koşullu erişim ilkeleri
 
-Bir koşullu erişim ilkesi şu biçimi kullanarak bir erişim senaryo tanımı şöyledir:
+Bir koşullu erişim ilkesi, şu biçimi kullanarak bir erişim senaryosunu tanımıdır:
 
 ![Denetim](./media/active-directory-conditional-access-azure-portal/10.png)
 
@@ -81,32 +84,8 @@ Azure AD koşullu erişimle nasıl yetkili kullanıcılar denetleyebilir, bulut 
 
 Bulut uygulamalarınıza korumak için bir ilke tabanlı yaklaşımı kullanmanın bir avantajı, teknik uygulama hakkında endişelenmeden bu makalede açıklanan yapısını kullanarak, ortamınız için ilke gereksinimlerini taslağı oluşturma başlatabilirsiniz ' dir. 
 
-## <a name="what-you-need-to-know"></a>Bilmeniz gerekenler
 
-### <a name="general-requirements-for-using-conditional-access"></a>Koşullu erişim kullanmak için genel gereksinimler
-
-Kimlik doğrulama girişimi geldiğinde bulut uygulamaları korumak için Azure AD koşullu erişimi kullanın:
-
-- Bir web tarayıcısı
-
-- Modern kimlik doğrulaması kullanan bir istemci uygulaması
-
-- Exchange ActiveSync
-
-Daha fazla bilgi için bkz: [istemci uygulamaları](active-directory-conditional-access-conditions.md#client-apps).
-
-Bazı [bulut uygulamaları](active-directory-conditional-access-conditions.md#cloud-apps) de eski kimlik doğrulama protokollerini destekler. Bu, örneğin, SharePoint Online ve Exchange Online için geçerlidir. Azure AD, bir istemci uygulaması eski kimlik doğrulama protokolü bir bulut uygulama erişmek için kullanabileceğiniz, bu erişim denemede koşullu erişim ilkesi zorunlu kılamaz. Bir istemci uygulaması ilkeleri zorlama atlamasını önlemek için yalnızca etkilenen bulut uygulamalarını modern kimlik doğrulamasını etkinleştirmek mümkün olup olmadığını denetlemelisiniz.
-
-İstemci uygulamaları koşullu erişim uygulanmaz örnekler şunlardır:
-
-- Office 2010 ve önceki sürümleri
-
-- Office 2013 modern kimlik doğrulaması etkin
-
-Daha fazla bilgi için bkz: [SharePoint Online ve Exchange Online için koşullu erişim Azure Active Directory ayarlama](active-directory-conditional-access-no-modern-authentication.md).
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>Koşullu erişim kullanmak için lisans gereksinimleri
+## <a name="license-requirements-for-using-conditional-access"></a>Koşullu erişim kullanmak için lisans gereksinimleri
 
 Koşullu erişim kullanarak Azure AD Premium lisansı gerektirir. Gereksinimleriniz için doğru lisans bulmak için bkz: [ücretsiz, temel ve Premium sürümlerinde genel olarak kullanılabilir özelliklerini karşılaştırma](https://azure.microsoft.com/pricing/details/active-directory/).
 

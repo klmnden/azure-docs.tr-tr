@@ -4,13 +4,14 @@ description: Azure geçirmek hizmet ve sorun giderme ipuçları için sık karş
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: troubleshooting
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
-ms.openlocfilehash: a878bab2bef31ff853dbad503a706e1a8d5803fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c717cfdac83ec8d85b1fa0a874e5573a40dd4611
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235636"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Geçişi sorunlarını giderme
 
@@ -18,8 +19,29 @@ ms.lasthandoff: 05/16/2018
 
 [Azure geçirme](migrate-overview.md) geçiş Azure için şirket içi iş yüklerini değerlendirir. Dağıtma ve Azure geçişi kullanırken sorunları gidermek için bu makaleyi kullanın.
 
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>Geçiş proje oluşturma başarısız oldu, hata *istekleri, kullanıcı kimliği üst bilgileri içermelidir*
 
-**Toplayıcı internet'e bağlanabiliyor değil**
+Bu sorun, kuruluşunuzun Azure Active Directory (Azure AD) Kiracı erişimi olmayan kullanıcılar için oluşabilir. Bir kullanıcı ilk kez bir Azure AD kiracısı eklendiğinde klasöründe Kiracı katılmak için bir e-posta davet alır. Kullanıcıların e-postasına gidip Kiracı için başarıyla eklendi için daveti kabul etmesi gerekir. Zaten Kiracı erişimi ve davet belirtilen adımları kullanarak yeniden göndermeyi isteyin bir kullanıcıyla e-posta görmek erişemiyorsanız ulaşmak [burada](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users).
+
+Davet e-posta alındıktan sonra e-posta açın ve daveti kabul etmek için e-postadaki bağlantıya gerekir. Bunu yaptıktan sonra Azure portalında oturum açmanız gerekir ve oturum açma yeniden, tarayıcıyı yenilemeyi çalışmaz. Ardından, geçiş proje oluşturmayı deneyebilirsiniz.
+
+### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>Sıfır olarak diskler ve ağ bağdaştırıcıları için performans verilerini gösterir
+
+VCenter sunucusu istatistikleri ayarı düzeyinde değerinden üç ayarlandıysa, bu durum oluşabilir. Düzey üç veya daha yüksek, vCenter işlem, depolama ve ağ için VM performans geçmişini saklar. Küçüktür düzeyi üç için vCenter depolama ve ağ verileri, ancak yalnızca CPU ve bellek verileri depolamaz. Bu senaryoda, performans verileri gösterildiği gibi Azure geçirmek sıfır ve Azure geçiş diskleri ve şirket içi makinelerden toplanan meta verileri temel ağlar için boyutu öneri sağlar.
+
+Disk ve ağ performans verileri koleksiyonunu etkinleştirmek için üç istatistikleri ayarları düzeyini değiştirin. Daha sonra en az bir gün onu değerlendirmek ortamınız bulmak için bekleyin.
+
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Yüklenen aracıları ve bağımlılık görselleştirme grupları oluşturmak için kullanılan bildirimi. Artık yük devretme, "Görünüm bağımlılıkları" yerine "aracı yükleme" eylemi makineler Göster sonrası
+* POST planlanmış veya planlanmamış bir yük devretme şirket içi makineler kapalıdır ve eşdeğer makineler çalışmaya Azure'da başlar. Bu makineleri farklı bir MAC adresi alın. Bunlar Sunucusu'ndan olup kullanıcı veya şirket içi IP adresini korumak seçiminize göre göre farklı bir IP adresi. MAC ve IP adreslerini farklıysa, Azure geçirmek şirket içi makineler tüm hizmet Haritası bağımlılık verilerle ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
+* Test yük devretme sonrası beklendiği gibi şirket içi makineler açık kalır. Eşdeğer makineleri Azure üzerinde çalışmaya başlar, farklı bir MAC adresi edinmeli ve farklı bir IP adresi elde. Kullanıcı bu makinelere giden günlük analizi trafiği engelleyen sürece, Azure geçirmek şirket içi makineler tüm hizmet Haritası bağımlılık verilerle ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
+
+## <a name="collector-errors"></a>Toplayıcı hataları
+
+### <a name="deployment-of-collector-ova-failed"></a>Toplayıcı OVA dağıtımı başarısız oldu
+
+OVA dağıtmak için vSphere web istemcisi kullanıyorsanız bu OVA kısmen indirdiyseniz, veya tarayıcı nedeniyle meydana gelmiş olabilir. Yükleme işleminin tamamlandığından emin olun ve farklı bir tarayıcı ile OVA dağıtmayı deneyin.
+
+### <a name="collector-is-not-able-to-connect-to-the-internet"></a>Toplayıcı internet'e bağlanabiliyor değil
 
 Bu durum, kullanmakta olduğunuz makine bir proxy'nin arkasında olduğunda ortaya çıkar. Proxy gerekiyorsa yetkilendirme kimlik bilgilerini sağladığınızdan emin olun.
 Herhangi bir URL tabanlı bir güvenlik duvarı proxy kullanıyorsanız giden bağlantıyı denetlemek için bu URL'leri gerekli beyaz liste ile emin olun:
@@ -42,7 +64,7 @@ Kopyalanır ve doğru bilgileri yapıştırılan emin olun. Sorunu gidermek içi
 7. Aracı projeye bağlanabildiğinizi doğrulayın. Başaramazsa ayarlarını doğrulayın. Aracı bağlanabilirsiniz ancak Toplayıcı kullanamazsanız, desteğe başvurun.
 
 
-**802. hata: bir tarih ve saat eşitleme hatası alıyorum.**
+### <a name="error-802-date-and-time-synchronization-error"></a>802. hata: Tarih ve saat eşitleme hatası
 
 Sunucu saati eşitleme olabilir geçerli saatle beş dakikadan fazla ile. Geçerli saat gibi eşleşecek şekilde VM toplayıcısında saatin değiştirin:
 
@@ -50,20 +72,32 @@ Sunucu saati eşitleme olabilir geçerli saatle beş dakikadan fazla ile. Geçer
 2. Saat dilimi denetlemek için w32tm /tz çalıştırın.
 3. Zaman eşitleme için w32tm/resync çalıştırın.
 
-**Proje anahtarımı "==" simgeleri sonuna doğru sahiptir. Bu, diğer alfasayısal karakterler toplayıcısı tarafından kodlanır. Bu beklenen bir durumdur?**
+### <a name="vmware-powercli-installation-failed"></a>VMware Powerclı yüklemesi başarısız oldu
 
-Evet, her proje anahtarı sonlandırır "ile ==". Toplayıcı işlemeden önce Proje anahtarı şifreler.
+Azure geçirme Toplayıcı Powerclı indirir ve aygıtındaki yükler. Powerclı yüklemede hata Powerclı depo ulaşılamaz uç noktaları nedeniyle olabilir. Sorun giderme Powerclı Toplayıcı aşağıdaki adımı kullanarak VM el ile yüklemeyi deneyin:
 
-**Sıfır olarak diskler ve ağ bağdaştırıcıları için performans verilerini gösterir**
+1. Windows PowerShell'i Yönetici modunda açın
+2. C:\ProgramFiles\ProfilerService\VMWare\Scripts\ dizinine gidin
+3. InstallPowerCLI.ps1 komut dosyasını çalıştır
 
-VCenter sunucusu istatistikleri ayarı düzeyinde değerinden üç ayarlandıysa, bu durum oluşabilir. Düzey üç veya daha yüksek, vCenter işlem, depolama ve ağ için VM performans geçmişini saklar. Küçüktür düzeyi üç için vCenter depolama ve ağ verileri, ancak yalnızca CPU ve bellek verileri depolamaz. Bu senaryoda, performans verileri gösterildiği gibi Azure geçirmek sıfır ve Azure geçiş diskleri ve şirket içi makinelerden toplanan meta verileri temel ağlar için boyutu öneri sağlar.
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Hata UnhandledException iç hata oluştu: System.IO.FileNotFoundException
 
-Disk ve ağ performans verileri koleksiyonunu etkinleştirmek için üç istatistikleri ayarları düzeyini değiştirin. Daha sonra en az bir gün onu değerlendirmek ortamınız bulmak için bekleyin.
+Bu, 1.0.9.5'ten önceki Toplayıcı sürümlerinde görülen bir sorundur. Toplayıcı sürümü 1.0.9.2 veya 1.0.8.59 gibi GA öncesi bir sürüm kullanıyorsanız bu sorunla karşılaşırsınız. [Ayrıntılı yanıt için burada verilen forum bağlantısını](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate) izleyin.
 
-**Yüklenen aracıları ve bağımlılık görselleştirme grupları oluşturmak için kullanılan bildirimi. Artık yük devretme, "Görünüm bağımlılıkları" yerine "aracı yükleme" eylemi makineler Göster sonrası**
-* POST planlanmış veya planlanmamış bir yük devretme şirket içi makineler kapalıdır ve eşdeğer makineler çalışmaya Azure'da başlar. Bu makineleri farklı bir MAC adresi alın. Bunlar Sunucusu'ndan olup kullanıcı veya şirket içi IP adresini korumak seçiminize göre göre farklı bir IP adresi. MAC ve IP adreslerini farklıysa, Azure geçirmek şirket içi makineler tüm hizmet Haritası bağımlılık verilerle ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
-* Test yük devretme sonrası beklendiği gibi şirket içi makineler açık kalır. Eşdeğer makineleri Azure üzerinde çalışmaya başlar, farklı bir MAC adresi edinmeli ve farklı bir IP adresi elde. Kullanıcı bu makinelere giden günlük analizi trafiği engelleyen sürece, Azure geçirmek şirket içi makineler tüm hizmet Haritası bağımlılık verilerle ilişkilendirmez ve bağımlılıklarını görüntüleme yerine aracıları yüklemek için kullanıcıya sorar.
+[Sorunu düzeltmek için Toplayıcınızı yükseltin](https://aka.ms/migrate/col/checkforupdates).
 
+### <a name="error-unabletoconnecttoserver"></a>Hata UnableToConnectToServer
+
+VCenter Server "Servername.com:9443" hatası nedeniyle bağlantı kurulamadı: adresinde dinlemede hiçbir uç noktası https://Servername.com:9443/sdk ileti kabul.
+
+Toplayıcı Gereci en son sürümünü çalıştırıyorsanız, değilseniz Gereci yükseltme denetleyin [en son sürümünü](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector).
+
+Sorun hala en son sürümde olursa, Toplayıcı makine vCenter sunucusu adı belirtilen veya belirtilen bağlantı noktası yanlış çözümleyemiyor nedeni olabilir. Bağlantı noktası belirtilmezse, varsayılan olarak 443 numaralı bağlantı noktası numarası bağlanmak Toplayıcı dener.
+
+1. Toplayıcı makineden sunucuadı.com ping işlemi yapmayı deneyin.
+2. 1 adım başarısız olursa, IP adresi üzerinden vCenter Server’a bağlanmayı deneyin.
+3. vCenter’a bağlanmak için doğru bağlantı noktasını belirleyin.
+4. Son olarak vCenter Server’ın çalışır durumda olup olmadığını denetleyin.
 
 ## <a name="troubleshoot-readiness-issues"></a>Hazır olma durumu sorunlarını giderme
 
@@ -125,43 +159,23 @@ Windows için olay izleme toplamak için aşağıdakileri yapın:
  - Edge/IE'de sağ tıklatın ve hataları **tüm kopyalayın**.
 7. Geliştirici Araçları'nı kapatın.
 
-
-## <a name="vcenter-errors"></a>vCenter hataları
-
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Hata UnhandledException iç hata oluştu: System.IO.FileNotFoundException
-
-Bu, 1.0.9.5'ten önceki Toplayıcı sürümlerinde görülen bir sorundur. Toplayıcı sürümü 1.0.9.2 veya 1.0.8.59 gibi GA öncesi bir sürüm kullanıyorsanız bu sorunla karşılaşırsınız. [Ayrıntılı yanıt için burada verilen forum bağlantısını](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate) izleyin.
-
-[Sorunu düzeltmek için Toplayıcınızı yükseltin](https://aka.ms/migrate/col/checkforupdates).
-
-### <a name="error-unabletoconnecttoserver"></a>Hata UnableToConnectToServer
-
-VCenter Server "Servername.com:9443" hatası nedeniyle bağlantı kurulamadı: adresinde dinlemede hiçbir uç noktası https://Servername.com:9443/sdk ileti kabul.
-
-Toplayıcı makinesi, belirtilen vCenter Server adını çözümleyemediğinde veya belirtilen bağlantı noktası yanlış olduğunda bu durum oluşur. Varsayılan olarak, bağlantı noktası belirtilmezse Toplayıcı, 443 numaralı bağlantı noktasına bağlanmaya çalışır.
-
-1. Toplayıcı makinesinden Servername.com adresine ping komutu göndermeyi deneyin.
-2. 1 adım başarısız olursa, IP adresi üzerinden vCenter Server’a bağlanmayı deneyin.
-3. vCenter’a bağlanmak için doğru bağlantı noktasını belirleyin.
-4. Son olarak vCenter Server’ın çalışır durumda olup olmadığını denetleyin.
-
 ## <a name="collector-error-codes-and-recommended-actions"></a>Toplayıcı hata kodları ve Önerilen Eylemler
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            | 
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------| 
-| Hata Kodu | Hata adı                      | Mesaj                                                                       | Olası nedenler                                                                                        | Önerilen eylem                                                                                                                          | 
-| 601       | CollectorExpired               | Toplayıcının süresi doldu.                                                        | Toplayıcının Süresi Doldu.                                                                                    | Lütfen toplayıcının yeni bir sürümünü indirip yeniden deneyin.                                                                                      | 
-| 751       | UnableToConnectToServer        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage;     | Daha fazla ayrıntı için hata iletisini inceleyin.                                                             | Hatayı giderip yeniden deneyin.                                                                                                           | 
-| 752       | InvalidvCenterEndpoint         | '%Name;' adlı sunucu bir vCenter Server değil.                                  | vCenter Server ayrıntılarını sağlayın.                                                                       | Doğru vCenter Server ayrıntılarıyla işlemi yeniden deneyin.                                                                                   | 
-| 753       | InvalidLoginCredentials        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage; | Geçersiz oturum açma kimlik bilgileri nedeniyle vCenter Server bağlantısı başarısız oldu.                             | Sağlanan oturum açma kimlik bilgilerinin doğru olduğundan emin olun.                                                                                    | 
-| 754       | NoPerfDataAvaialable           | Performans verileri kullanılamıyor.                                               | VCenter sunucusu istatistikleri düzeyini denetleyin. Performans verileri kullanılabilir olması için 3 ayarlanması gerekir. | İstatistik Düzeyini 3 (5 dakika, 30 dakika ve 2 saatlik süre için) olarak değiştirin ve en az bir gün bekledikten sonra yeniden deneyin.                   | 
-| 756       | NullInstanceUUID               | InstanceUUID değeri null olan bir makine ile karşılaşıldı                                  | vCenter Server uygun olmayan bir nesneye sahip olabilir.                                                      | Hatayı giderip yeniden deneyin.                                                                                                           | 
-| 757       | VMNotFound                     | Sanal makine bulunamadı                                                  | Sanal makine silinmiş olabilir: %VMID;                                                                | vCenter envanterinin kapsamı belirlenirken seçilen sanal makinelerin keşif sırasında mevcut olduğundan emin olun                                      | 
-| 758       | GetPerfDataTimeout             | VCenter istek zaman aşımına uğradı. İleti % Message;                                  | vCenter Server kimlik bilgileri yanlış                                                              | VCenter sunucusu kimlik bilgilerini denetleyin ve bu vCenter sunucusunun erişilebilir olduğundan emin olun. İşlemi yeniden deneyin. Sorun devam ederse, desteğe başvurun. | 
-| 759       | VmwareDllNotFound              | VMWare.Vim DLL bulunamadı.                                                     | PowerCLI düzgün bir şekilde yüklenmedi.                                                                   | Lütfen Powerclı düzgün yüklü olup olmadığını denetleyin. İşlemi yeniden deneyin. Sorun devam ederse, desteğe başvurun.                               | 
-| 800       | ServiceError                   | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                               | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                                                       | Hizmeti services.msc kullanarak başlatın ve işlemi yeniden deneyin.                                                                             | 
-| 801       | PowerCLIError                  | VMware PowerCLI yüklenemedi.                                          | VMware PowerCLI yüklenemedi.                                                                  | İşlemi yeniden deneyin. Sorun devam ederse, el ile yükleyin ve işlemi yeniden deneyin.                                                   | 
-| 802       | TimeSyncError                  | Saat, İnternet saat sunucusuyla eşitlenmemiş.                            | Saat, İnternet saat sunucusuyla eşitlenmemiş.                                                    | Makinedeki saatin saat dilimine göre doğru ayarlandığından emin olun ve işlemi yeniden deneyin.                                 | 
-| 702       | OMSInvalidProjectKey           | Geçersiz proje anahtarı belirtildi.                                                | Geçersiz proje anahtarı belirtildi.                                                                        | İşlemi doğru proje anahtarıyla yeniden deneyin.                                                                                              | 
-| 703       | OMSHttpRequestException        | İsteği gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     | 
-| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Uç noktanın erişilebilir olduğundan emin olmak için proje kimliği ve anahtarını kontrol edin.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     | 
+|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
+|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Hata Kodu | Hata adı                      | İleti                                                                       | Olası nedenler                                                                                        | Önerilen eylem                                                                                                                          |
+| 601       | CollectorExpired               | Toplayıcının süresi doldu.                                                        | Toplayıcının Süresi Doldu.                                                                                    | Lütfen toplayıcının yeni bir sürümünü indirip yeniden deneyin.                                                                                      |
+| 751       | UnableToConnectToServer        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage;     | Daha fazla ayrıntı için hata iletisini inceleyin.                                                             | Hatayı giderip yeniden deneyin.                                                                                                           |
+| 752       | InvalidvCenterEndpoint         | '%Name;' adlı sunucu bir vCenter Server değil.                                  | vCenter Server ayrıntılarını sağlayın.                                                                       | Doğru vCenter Server ayrıntılarıyla işlemi yeniden deneyin.                                                                                   |
+| 753       | InvalidLoginCredentials        | '%Name;' adlı vCenter Server'a şu hata nedeniyle bağlanılamıyor: %ErrorMessage; | Geçersiz oturum açma kimlik bilgileri nedeniyle vCenter Server bağlantısı başarısız oldu.                             | Sağlanan oturum açma kimlik bilgilerinin doğru olduğundan emin olun.                                                                                    |
+| 754       | NoPerfDataAvaialable           | Performans verileri kullanılamıyor.                                               | VCenter sunucusu istatistikleri düzeyini denetleyin. Performans verileri kullanılabilir olması için 3 ayarlanması gerekir. | İstatistik Düzeyini 3 (5 dakika, 30 dakika ve 2 saatlik süre için) olarak değiştirin ve en az bir gün bekledikten sonra yeniden deneyin.                   |
+| 756       | NullInstanceUUID               | InstanceUUID değeri null olan bir makine ile karşılaşıldı                                  | vCenter Server uygun olmayan bir nesneye sahip olabilir.                                                      | Hatayı giderip yeniden deneyin.                                                                                                           |
+| 757       | VMNotFound                     | Sanal makine bulunamadı                                                  | Sanal makine silinmiş olabilir: %VMID;                                                                | vCenter envanterinin kapsamı belirlenirken seçilen sanal makinelerin keşif sırasında mevcut olduğundan emin olun                                      |
+| 758       | GetPerfDataTimeout             | VCenter istek zaman aşımına uğradı. İleti % Message;                                  | vCenter Server kimlik bilgileri yanlış                                                              | VCenter sunucusu kimlik bilgilerini denetleyin ve bu vCenter sunucusunun erişilebilir olduğundan emin olun. İşlemi yeniden deneyin. Sorun devam ederse, desteğe başvurun. |
+| 759       | VmwareDllNotFound              | VMWare.Vim DLL bulunamadı.                                                     | PowerCLI düzgün bir şekilde yüklenmedi.                                                                   | Lütfen Powerclı düzgün yüklü olup olmadığını denetleyin. İşlemi yeniden deneyin. Sorun devam ederse, desteğe başvurun.                               |
+| 800       | ServiceError                   | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                               | Azure Geçişi Toplayıcısı hizmeti çalışmıyor.                                                       | Hizmeti services.msc kullanarak başlatın ve işlemi yeniden deneyin.                                                                             |
+| 801       | PowerCLIError                  | VMware PowerCLI yüklenemedi.                                          | VMware PowerCLI yüklenemedi.                                                                  | İşlemi yeniden deneyin. Sorun devam ederse, el ile yükleyin ve işlemi yeniden deneyin.                                                   |
+| 802       | TimeSyncError                  | Saat, İnternet saat sunucusuyla eşitlenmemiş.                            | Saat, İnternet saat sunucusuyla eşitlenmemiş.                                                    | Makinedeki saatin saat dilimine göre doğru ayarlandığından emin olun ve işlemi yeniden deneyin.                                 |
+| 702       | OMSInvalidProjectKey           | Geçersiz proje anahtarı belirtildi.                                                | Geçersiz proje anahtarı belirtildi.                                                                        | İşlemi doğru proje anahtarıyla yeniden deneyin.                                                                                              |
+| 703       | OMSHttpRequestException        | İsteği gönderilirken hata oluştu. İleti % Message;                                | Proje kimliği ile anahtarını denetleyerek uç noktanın erişilebilir olduğundan emin olun.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP isteği zaman aşımına uğradı. İleti % Message;                                     | Uç noktanın erişilebilir olduğundan emin olmak için proje kimliği ve anahtarını kontrol edin.                                       | İşlemi yeniden deneyin. Sorun devam ederse, Microsoft Destek'e başvurun.                                                                     |

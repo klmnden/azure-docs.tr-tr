@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: 32360a1af25b92fe232e3e504cb6587dcb364f48
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9bd197ff03ec0c1f9a320a721f69f2efc6a73b4
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638774"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235983"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arşiv Azure tanılama günlükleri
 
@@ -28,6 +28,9 @@ Bu makalede, biz arşivlemek için Azure portal, PowerShell cmdlet'leri, CLI vey
 ## <a name="prerequisites"></a>Önkoşullar
 
 Başlamadan önce şunları gerçekleştirmeniz [depolama hesabı oluşturma](../storage/storage-create-storage-account.md) tanılama günlüklerinize arşiv. Böylece daha iyi İzleme verilerine erişimi denetleyebilirsiniz içine depolanmış, diğer izleme olmayan verilere sahip varolan bir depolama hesabı kullanmamanızı öneririz. Ayrıca bir depolama hesabına tanılama ölçümleri ve etkinlik günlüğü arşivleme, ancak onu merkezi bir konumda tüm izleme verilerini korumak için tanılama günlükleri de bu depolama hesabını kullanmak için anlamlı olabilir. Kullandığınız depolama hesabı, genel amaçlı depolama hesabı, blob storage hesabı olması gerekir.
+
+> [!NOTE]
+>  Şu anda arşivleyemezsiniz verileri bir depolama hesabı, güvenli bir sanal ağ.
 
 ## <a name="diagnostic-settings"></a>Tanılama ayarları
 

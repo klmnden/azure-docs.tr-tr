@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 6e663fe275fc195cb611e1032adc147bf4e99b1d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4dddc4c4e4bd34f5e9d7054f1311e13113fce52d
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234622"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -41,15 +42,15 @@ Aşağıdaki yönetici rolleri kullanılabilir:
   > [!NOTE]
   > Exchange ActiveSync koşullu erişim ilkesi azure'da dağıtmak için kullanıcının da genel yönetici olması gerekir.
   
-* **Dynamics 365 Hizmet Yöneticisi**: Bu rol ile kullanıcınız Microsoft CRM hizmet mevcut olduğunda çevrimiçi içinde genel izinleri yanı sıra, destek biletlerini yönetme ve hizmet sistem durumu izleme olanağı. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
-
-* **Cihaz yöneticileri**: Bu rolüne sahip kullanıcılar yerel makine Yöneticiler için Azure Active Directory'ye katılmış tüm Windows 10 cihazlarda haline gelir. Azure Active Directory'de cihaz nesnelerini yönetme yeteneği sahip değil.
+* **Cihaz yöneticileri**: Bu rolün yalnızca içinde ek bir yerel yönetici olarak atamasını kullanılabilir [aygıt ayarları](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Bu role sahip kullanıcılar, Azure Active Directory'ye katılan tüm Windows 10 cihazları üzerinde yerel makine yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme yeteneği sahip değil.
 
 * **Dizin okuyucular**: Bu desteklemeyen uygulamalar için atanmış olan, eski bir rolüdür [onayı Framework](active-directory-integrating-applications.md). Tüm kullanıcılara atanmamalıdır.
 
 * **Dizin eşitleme hesapları**: kullanmayın. Bu rol Azure AD Connect hizmetine otomatik olarak atanır ve değil kullanılmaya veya diğer kullanım için desteklenir.
 
 * **Directory yazıcılarının**: Bu desteklemeyen uygulamalar için atanmış olan, eski bir rolüdür [onayı Framework](active-directory-integrating-applications.md). Tüm kullanıcılara atanmamalıdır.
+
+* **Dynamics 365 Yönetici**: Bu rol ile kullanıcınız içinde Microsoft Dynamics 365 hizmet mevcut olduğunda, genel izinleri yanı sıra, destek biletlerini yönetme ve hizmet sistem durumu izleme olanağı. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 * **Exchange Hizmet Yöneticisi**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Exchange Online içinde genel izinlere sahiptir. Daha fazla bilgi [hakkında Office 365 Yönetici rollerine](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -67,6 +68,8 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 * **Intune hizmet yöneticisinin**: Bu rolü olan kullanıcılar hizmet mevcut olduğunda Microsoft Intune çevrimiçi içinde genel izinlere sahiptir. Ayrıca, bu rol İlkesi ilişkilendirme yanı sıra grupları oluşturmak ve yönetmek için kullanıcıları ve cihazları yönetme becerisini içerir.
 
 * **Posta kutusu yönetici**: Bu rol yalnızca RIM Blackberry cihazlar için Exchange Online e-posta desteği bir parçası olarak kullanılır. Kuruluşunuz RIM Blackberry cihazlarda Exchange Online e-posta kullanmıyorsa, bu rolü kullanmayın.
+
+* **İleti Merkezi okuyucu**: Bu roldeki kullanıcılar bildirimleri ve danışma sistem güncelleştirmelerini izleyebilirsiniz [Office 365 ileti Merkezi](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) kuruluşlarında Exchange, Intune ve Microsoft gibi yapılandırılmış hizmetleri Ekipler. İleti Merkezi okuyucular Haftalık e-posta özetler posta, güncelleştirmeleri almak ve Office 365 ileti merkezi gönderilerde paylaşabilirsiniz. Azure AD'de bu role atanan kullanıcılar yalnızca salt okunur erişim Azure AD hizmetlerinde kullanıcılar ve gruplar gibi üzerinde sahip olur. 
 
 * **İş ortağı Katman 1 destek**: kullanmayın. Bu rol, kullanım dışı bırakıldı ve gelecekte Azure AD'den kaldırılacak. Bu rol, az sayıda Microsoft satışı iş ortakları tarafından kullanılmaya yöneliktir ve genel kullanıma yönelik değildir.
 
@@ -104,7 +107,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 ## <a name="administrator-permissions"></a>Yönetici izinleri
 
-### <a name="billing-administrator"></a>Faturalama yöneticisi
+### <a name="billing-administrator"></a>Faturalama Yöneticisi
 
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
@@ -116,10 +119,10 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 |<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Koşullu erişim ayarlarını yönet</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p>|
 
-### <a name="global-administrator"></a>Genel yönetici
+### <a name="global-administrator"></a>Genel Yönetici
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
-|<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Kullanıcı parolalarını sıfırlama</p><p>Diğer yönetici parolalarını sıfırlama</p> <p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |Yok |
+|<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Kullanıcı parolalarını sıfırlama</p><p>Diğer yöneticiler parolalarını sıfırlama</p> <p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |Yok |
 
 ### <a name="password-administrator--helpdesk-administrator"></a>Parola Yöneticisi / Yardım Masası Yöneticisi
 | Yapabilirsiniz | Yapamaz |
@@ -150,17 +153,17 @@ Azure AD oturum açma raporları ve Denetim günlükleri görüntüle<br>Şirket
 | Privileged Identity Management |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>**Olamaz** Azure AD rol üyeliklerini veya ayarlarını yönetin. |
 | <p>İzleyici Office 365 hizmeti durumu</p><p>Office 365 güvenlik ve Uyumluluk Merkezi |<ul><li>Güvenlik okuyucu rolünün tüm izinleri.<li>Tüm ayarlar için Gelişmiş tehdit Koruması özelliği (kötü amaçlı yazılım ve virüs koruması, kötü amaçlı URL yapılandırma, URL izleme, vb.) yapılandırabilirsiniz. |
 
-### <a name="service-administrator"></a>Hizmet yöneticisi
+### <a name="service-administrator"></a>Hizmet Yöneticisi
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p> |
 
-### <a name="user-account-administrator"></a>Kullanıcı Hesap Yöneticisi
+### <a name="user-account-administrator"></a>Kullanıcı Hesabı Yöneticisi
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
 | <p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Kullanıcılar, Yardım Masası Yöneticiler ve yalnızca diğer kullanıcı hesabı yöneticileri için parolaları değiştirme</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kısıtlamalarla kullanıcı lisanslarını yönetme. İsterse bir genel yöneticiyi silemez veya başka Yöneticiler oluşturamaz.</p> |<p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |
 
-### <a name="to-add-a-colleague-as-a-global-administrator"></a>Genel yönetici olarak bir iş arkadaşı eklemek için
+### <a name="to-add-a-user-as-a-global-administrator"></a>Genel yönetici olarak bir kullanıcı eklemek için
 
 1. Oturum [Azure Active Directory Yönetim Merkezi'ni](https://aad.portal.azure.com) Kiracı dizinini için genel yönetici olan bir hesapla.
 

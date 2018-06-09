@@ -11,20 +11,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: it-pro
-ms.date: 11/09/2017
+ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 5df12f905595c9b3e8caa8f372b9ba7b54672f81
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bc1f0341f4e1c07dc16522f5a2ae36fa2e64d1fb
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248784"
 ---
-# <a name="configure-sign-in-auto-acceleration-for-an-application-by-using-a-home-realm-discovery-policy"></a>Oturum açma otomatik-hızlandırma bir uygulama için bir giriş bölgesi bulma İlkesi kullanarak yapılandırma
+# <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Giriş bölgesi bulma İlkesi kullanarak bir uygulama için davranış Azure Active Directory oturum açma yapılandırın
 
-Aşağıdaki belge giriş bölgesi bulma ve otomatik hızlandırma tanıtılmaktadır.
+Aşağıdaki belge Federasyon kullanıcıları için Azure Active Directory kimlik doğrulama davranışını yapılandırma için bir giriş sağlar.   Federasyon etki alanlarındaki kullanıcılar için otomatik hızlandırma ve kimlik doğrulama kısıtlamaları yapılandırılmasını kapsar.
 
 ## <a name="home-realm-discovery"></a>Giriş bölgesi bulma
-Giriş bölgesi bulma (HRD) Azure Active Directory (belirlemek için Azure AD) izin veren zaman oturum açma, burada bir kullanıcı kimlik doğrulaması yapması gereken işlemidir.  Bir kullanıcı bir kaynağa erişmek için Azure AD kiracısı veya Azure AD genel oturum açma sayfasında oturum açtığında, bunlar bir kullanıcı adı (UPN) yazın. Azure AD, burada oturum açmak kullanıcının gereken bulmak için kullanır. 
+Giriş bölgesi bulma (HRD) oturum açma zaman Azure Active Directory (burada bir kullanıcı kimlik doğrulaması yapması gereken belirlemek için Azure AD) izin veren işlemidir.  Bir kullanıcı bir kaynağa erişmek için Azure AD kiracısı veya Azure AD genel oturum açma sayfasında oturum açtığında, bunlar bir kullanıcı adı (UPN) yazın. Azure AD, burada oturum açmak kullanıcının gereken bulmak için kullanır. 
 
 Kullanıcı, aşağıdaki konumlardan birine doğrulanması için yapılması gerekebilir:
 
@@ -32,16 +33,16 @@ Kullanıcı, aşağıdaki konumlardan birine doğrulanması için yapılması ge
 
 - Microsoft hesabı.  Kullanıcı Konuk kaynak kiracısı içinde değil.
 
-- Azure AD kiracısı ile Federasyon başka bir kimlik sağlayıcısı.
-
 -  Active Directory Federasyon Hizmetleri (AD FS) gibi bir şirket içi kimlik sağlayıcısı.
 
+- Azure AD kiracısı ile Federasyon başka bir kimlik sağlayıcısı.
+
 ## <a name="auto-acceleration"></a>Otomatik hızlandırma 
-Bazı kuruluşlar, kullanıcıların Azure Active Directory Kiracı Kullanıcı kimlik doğrulaması için AD FS gibi başka bir IDP ile birleştirmek için yapılandırın.  
+Bazı kuruluşlar kendi Azure Active Directory Kiracı Kullanıcı kimlik doğrulaması için AD FS gibi başka bir IDP ile birleştirmek için etki alanlarını yapılandırın.  
 
-Bu durumlarda, kullanıcı işaretlerini uygulamaya bağlı olarak, bunlar ilk önce ile Azure AD oturum açma sayfası sunulur. UPN Değerlerinin yazdıktan sonra sonra IDP oturum açma sayfasına yönlendirilirsiniz. Belirli koşullar altında Yöneticiler, bunlar belirli uygulamalar için oturum açtığınız zaman, kullanıcıların oturum açma sayfasına doğrudan isteyebilirsiniz. 
+Bir kullanıcı bir uygulamaya oturum açtığında, ilk ile Azure AD oturum açma sayfası sunulur. Bir Federasyon etki alanında olmaları durumunda kullanıcıların UPN yazdıktan sonra bu etki alanına hizmet bunlar ardından IDP oturum açma sayfasına yönlendirilirsiniz. Belirli koşullar altında Yöneticiler, bunlar belirli uygulamalar için oturum açtığınız zaman, kullanıcıların oturum açma sayfasına doğrudan isteyebilirsiniz. 
 
-Bu, kullanıcılar ilk Azure Active Directory sayfasında atlayabilirsiniz anlamına gelir. Bu işlem "oturum açma otomatik-hızlandırma." olarak adlandırılır
+Sonuç olarak kullanıcılar ilk Azure Active Directory sayfasında atlayabilirsiniz. Bu işlem "oturum açma otomatik-hızlandırma." olarak adlandırılır
 
 Oturum açma için başka bir IDP için Kiracı burada federe durumlarda otomatik hızlandırma kullanıcının daha verimli oturum açma sağlar.  Tek tek uygulamalar için otomatik ivmesini yapılandırabilirsiniz.
 
@@ -53,7 +54,7 @@ Bir Federasyon IDP için otomatik hızlandırma denetlemek için iki yolu vardı
 - Bir etki alanı ipucu kimlik doğrulama istekleri için bir uygulama kullanın. 
 - Otomatik ivmesini etkinleştirmek için bir giriş bölgesi bulma ilkesi yapılandırın.
 
-## <a name="domain-hints"></a>Etki alanı ipuçları 
+### <a name="domain-hints"></a>Etki alanı ipuçları    
 Etki alanı ipuçları uygulamadan kimlik doğrulama isteği içinde yer alan yönergeleri. Kullanıcı kendi Federasyon IDP oturum açma sayfasına hızlandırmak için kullanılabilir. Ya da çok kiracılı uygulama tarafından kullanıcı düz markalı hızlandırmak için kullanılabilmesi için kendi Kiracı için Azure AD oturum açma sayfası.  
 
 Örneğin, "largeapp.com" uygulama "contoso.largeapp.com." özel bir URL, uygulamaya erişmek müşterilerine etkinleştirmek Uygulama kimlik doğrulama isteğine contoso.com etki alanı ipucu içeriyor olabilir. 
@@ -73,24 +74,31 @@ Doğrulanmış bir Federasyon etki alanına etki alanı ipucu başvurmadığınd
 Azure Active Directory tarafından desteklenen etki alanı ipuçlarını kullanarak otomatik hızlandırma hakkında daha fazla bilgi için bkz: [Enterprise Mobility + Security blog](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/11/using-azure-ad-to-land-users-on-their-custom-login-page-from-within-your-app/).
 
 >[!NOTE]
->Bir etki alanı ipucu bir kimlik doğrulama isteğine dahil edilirse, kendi durum uygulama ayarlama herhangi HRD ilkesini geçersiz kılar.
+>Bir etki alanı ipucu bir kimlik doğrulama isteğine dahil edilirse, kendi durum HRD İlkesi uygulama ayarlanan otomatik hızlandırma geçersiz kılar.
 
-## <a name="home-realm-discovery-policy"></a>Giriş bölgesi bulma İlkesi
+### <a name="home-realm-discovery-policy-for-auto-acceleration"></a>Otomatik hızlandırma için giriş bölgesi bulma İlkesi
 Bazı uygulamalar, bunlar yayma kimlik doğrulama isteği yapılandırmak için bir yol sağlamaz. Bu durumlarda, etki alanı ipuçlarını otomatik hızlandırma denetlemek için kullanmak mümkün değil. Otomatik hızlandırma aynı davranışı elde etmek için ilke aracılığıyla yapılandırılabilir.  
 
-### <a name="set-hrd-policy"></a>HRD ilkesini ayarlama
-Oturum açma otomatik-hızlandırma bir uygulama ayarı için üç adım vardır:
+## <a name="enable-direct-authentication-for-legacy-applications"></a>Eski uygulamalar için doğrudan kimlik doğrulamasını etkinleştir
+Uygulamaların kullanıcıların kimlik doğrulaması için AAD kitaplıkları ve etkileşimli oturum açma kullanmak için en iyi uygulamadır. Kitaplıklar Federasyon kullanıcısı akışları dikkatli olun.  Bazen eski uygulamaları Federasyon anlamak için yazılmış değil. Bunlar giriş bölgesi bulmayı gerçekleştirme ve bir kullanıcının kimliğini doğrulamak için doğru Federasyon uç nokta ile etkileşim değil. İsterseniz, doğrudan Azure Active Directory ile kimlik doğrulaması için kullanıcı adı/parola kimlik gönderme belirli eski uygulamaları etkinleştirmek için HRD İlkesi'ni kullanabilirsiniz. Parola karma eşitlemesi etkinleştirilmiş olması gerekir. 
 
+> [!IMPORTANT]
+> Yalnızca doğrudan kimlik doğrulaması parola karması eşitlemesi açık olduğunda varsa ve bu uygulama, şirket içi IDP tarafından uygulanan tüm ilkeler olmadan kimlik doğrulaması uygundur bildiğiniz etkinleştirin. Parola karma eşitlemesi devre dışı bırakma ya da herhangi bir nedenle AD Connect dizin eşitlemesi kapatmak, eski parola karması kullanarak doğrudan kimlik doğrulama olasılığını önlemek için bu ilkeyi kaldırmanız gerekir.
 
-1. Otomatik hızlandırma için bir HRD ilkesi oluşturma.
+## <a name="set-hrd-policy"></a>HRD ilkesini ayarlama
+Federe oturum açma otomatik-hızlandırma için bir uygulama veya doğrudan bulut tabanlı uygulamalar ayarı HRD ilkesi için üç adım vardır:
 
-2. Hizmet sorumlusu İlkesi ekleneceği bulunuyor.
+1. HRD ilkesi oluşturun.
 
-3. Hizmet sorumlusu İlkesi ekleniyor. Bir kiracı ilkeleri oluşturulmuş olabilir, ancak bir varlığa eklenen kadar herhangi bir etkisi yok. 
+2. Hizmet sorumlusu İlkesi ekleneceği bulun.
 
-HRD ilke için bir hizmet sorumlusu eklenebilecek ve herhangi bir anda yalnızca bir HRD ilke belirli bir varlık üzerinde etkin olabilir.  
+3. Hizmet sorumlusu ilkesi ekleyin. 
 
-Otomatik hızlandırma ayarlamak için Microsoft Azure Active Directory grafik API'sini doğrudan ya da Azure Active Directory PowerShell cmdlet'lerini kullanabilirsiniz HRD İlkesi'ni kullanarak.
+Bir hizmet sorumlusu eklendiğinde ilkelerini yalnızca belirli bir uygulama için geçerli olur. 
+
+Yalnızca bir HRD İlkesi herhangi bir anda bir hizmet sorumlusu etkin olabilir.  
+
+Oluşturup HRD ilkesini yönetmek için Microsoft Azure Active Directory grafik API'sini doğrudan ya da Azure Active Directory PowerShell cmdlet'lerini kullanabilirsiniz.
 
 İlke yöneten grafik API'si açıklanan [İlkesi işlemleri](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) MSDN makalesinde.
 
@@ -101,24 +109,27 @@ Bir örnek HRD ilke tanımı aşağıda verilmiştir:
     "HomeRealmDiscoveryPolicy":
     {  
     "AccelerateToFederatedDomain":true,
-    "PreferredDomain":"federated.example.edu"
+    "PreferredDomain":"federated.example.edu",
+    "AllowCloudPasswordValidation":true
     }
    }
 ```
 
 İlke türüdür "HomeRealmDiscoveryPolicy."
 
-Varsa **AccelerateToFederatedDomain** ilkenin hiçbir etkisi false olur.
+**AccelerateToFederatedDomain** isteğe bağlıdır. Varsa **AccelerateToFederatedDomain** ilkenin hiçbir etkisi otomatik hızlandırma false olur. Varsa **AccelerateToFederatedDomain** tek doğrulanır ve Kiracı sonra kullanıcılar Federasyon etki alanına alınır düz oturum açmak için Federasyon IDP için doğru ve var olan. True ise ve Kiracı içinde birden fazla doğrulanan etki alanı ise **PreferredDomain** belirtilmesi gerekir.
 
-**PreferredDomain** hızlandırmak için etki alanına belirtmeniz gerekir. Kiracı yalnızca tek bir Federasyon etki alanı varsa atlanabilir.  Atlanır ve var. birden fazla Federasyon etki alanını doğruladıysanız, ilkenin hiçbir etkisi olmaz.
+**PreferredDomain** isteğe bağlıdır. **PreferredDomain** hızlandırmak için etki alanına belirtmeniz gerekir. Kiracı yalnızca tek bir Federasyon etki alanı varsa atlanabilir.  Atlanır ve var. birden fazla Federasyon etki alanını doğruladıysanız, ilkenin hiçbir etkisi olmaz.
 
-Varsa **PreferredDomain** belirtilirse, Kiracı için doğrulanmış, federe bir etki alanı eşleşen gerekir. Uygulamasının tüm kullanıcıların bu etki alanına oturum açabilir olması gerekir.
+ Varsa **PreferredDomain** belirtilirse, Kiracı için doğrulanmış, federe bir etki alanı eşleşen gerekir. Uygulamasının tüm kullanıcıların bu etki alanına oturum açabilir olması gerekir.
+
+**AllowCloudPasswordValidation** isteğe bağlıdır. Varsa **AllowCloudPasswordValidation** kullanıcı adı/parola kimlik bilgilerini doğrudan Azure Active Directory token son nokta sunarak bir Federasyon kullanıcısı kimlik doğrulaması için verilen uygulama sonra geçerlidir. Bu, yalnızca parola karması eşitlemesi etkinleştirildiğinde çalışır.
 
 ### <a name="priority-and-evaluation-of-hrd-policies"></a>Öncelik ve değerlendirme HRD ilkeleri
 HRD ilkeleri oluşturulur ve belirli kuruluşlar ve hizmet asıl adı atanmış. Bu, belirli bir uygulama için birden çok ilke mümkün olduğunu gösterir. Etkinleşir HRD ilke bu kurallar aşağıdaki gibidir:
 
 
-- Bir etki alanı ipucu kimlik doğrulama isteği varsa, herhangi bir HRD ilke göz ardı edilir. Etki alanı ipucu tarafından belirtilen davranışı kullanılır.
+- Bir etki alanı ipucu kimlik doğrulama isteği varsa, herhangi bir HRD ilkesi için otomatik ivmesini yoksayılır. Etki alanı ipucu tarafından belirtilen davranışı kullanılır.
 
 - Aksi halde, bir ilke açıkça hizmet sorumlusu atanmışsa zorlanır. 
 
@@ -126,15 +137,18 @@ HRD ilkeleri oluşturulur ve belirli kuruluşlar ve hizmet asıl adı atanmış.
 
 - Hiçbir etki alanı ipucu yoktur ve hiçbir ilke hizmet sorumlusu veya kuruluştan bir başkasına atanmış olan varsayılan HRD davranışı kullanılır.
 
-## <a name="tutorial-for-setting-sign-in-auto-acceleration-on-an-application-by-using-an-hrd-policy"></a>Oturum açma otomatik-hızlandırma HRD İlkesi kullanarak bir uygulama ayarı Öğreticisi
+## <a name="tutorial-for-setting-hrd-policy-on-an-application"></a>HRD ilke bir uygulama ayarı için Öğreticisi 
 Dahil olmak üzere birkaç Senaryoları yol için Azure AD PowerShell cmdlet'leri kullanırız:
 
 
-- Tek bir Federasyon etki alanına sahip bir kiracı için bir uygulama için otomatik ivmesini ayarlama.
+- Bir uygulamada tek bir Federasyon etki alanına sahip bir kiracı için otomatik ivmesini yapmak için HRD ilkesini ayarlama.
 
-- Kiracınız için doğrulanır birkaç etki alanlarından biri için bir uygulama için otomatik ivmesini ayarlama.
+- Kiracınız için doğrulanır birkaç etki alanlarından biri için bir uygulama için otomatik ivmesini yapmak için HRD ilkesini ayarlama.
+
+- Kullanıcı adı/parola kimlik doğrulaması Azure Active Directory Federasyon kullanıcısı için yönlendirmek eski bir uygulamayı etkinleştirmek için daha fazla ayar HRD ilkesi.
 
 - Bir ilke yapılandırıldığı uygulamaların listesi.
+
 
 ### <a name="prerequisites"></a>Önkoşullar
 Aşağıdaki örneklerde, oluştur, Güncelleştir, bağlantı ve Azure AD'de uygulama hizmet asıl adı ilkelerini Sil.
@@ -154,15 +168,32 @@ Aşağıdaki örneklerde, oluştur, Güncelleştir, bağlantı ve Azure AD'de uy
 
 Hiçbir şey döndürülmezse, kiracınızda oluşturulan hiçbir ilkelerine sahip anlamına gelir.
 
-### <a name="example-set-auto-acceleration-for-an-application"></a>Örnek: bir uygulama için otomatik ivmesini ayarlama 
-Bu örnekte otomatik-kullanıcıların AD FS oturum açma ekranına bunlar bir uygulamaya oturum açarken hızlandırır bir ilke oluşturun. Kullanıcılar ilk Azure AD oturum açma sayfasında bir kullanıcı adı girmek zorunda kalmadan AD FS oturum açabilir. 
+### <a name="example-set-hrd-policy-for-an-application"></a>Örnek: Set HRD ilke bir uygulama için 
+
+Bir uygulamayı ya da atandığında, bu örnekte, bir ilke, oluşturun: 
+- Otomatik-kullanıcıların AD FS oturum açma ekranına kiracınızda tek bir etki alanında olduğunda, bir uygulama için oturum açtığınız zaman hızlandırır. 
+- Bir AD FS oturum açma ekranına var. otomatik hızlandırır kullanıcı birden fazla Federasyon etki alanını kiracınızda sayısıdır.
+- Federe kullanıcılar için ilke atandığı uygulamaları için Azure Active Directory için doğrudan etkileşimli olmayan kullanıcı adı/parola oturum açma sağlar.
 
 #### <a name="step-1-create-an-hrd-policy"></a>1. adım: bir HRD ilkesi oluşturma
+
+Aşağıdaki ilke otomatik-kullanıcıların AD FS oturum açma ekranına kiracınızda tek bir etki alanında olduğunda, bir uygulama için oturum açtığınız zaman hızlandırır.
+
 ``` powershell
 New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true}}") -DisplayName BasicAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
+Aşağıdaki ilke otomatik-kullanıcıların bir Federasyon etki alanını kiracınızda fazla var olan bir AD FS oturum açma ekranını hızlandırır. Uygulamalar için kullanıcıların kimliğini doğrulayan birden fazla Federasyon etki alanınız varsa, otomatik hızlandırmak için etki alanı belirtmeniz.
 
-Uygulamalar için kullanıcıların kimliğini doğrulayan tek bir Federasyon etki alanınız varsa, yalnızca bir HRD İlkesi oluşturmanız gerekir.  
+``` powershell
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, "PreferredDomain":"federated.example.edu"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+```
+
+Federasyon kullanıcıları için kullanıcı adı/parola kimlik doğrulaması doğrudan belirli uygulamalar için Azure Active Directory ile etkinleştirmek için bir ilke oluşturmak için aşağıdaki komutu çalıştırın:
+
+``` powershell
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AllowCloudPasswordValidation`":true}}") -DisplayName EnableDirectAuthPolicy -Type HomeRealmDiscoveryPolicy
+```
+
 
 Yeni ilke bakın ve almak için kendi **objectID**, aşağıdaki komutu çalıştırın:
 
@@ -171,7 +202,7 @@ Get-AzureADPolicy
 ```
 
 
-HRD ilke aldıktan sonra otomatik ivmesini etkinleştirmek için birden çok uygulama hizmet sorumluları atayabilirsiniz.
+Oluşturduktan sonra HRD ilkeyi uygulamak için birden çok uygulama hizmet sorumluları atayabilirsiniz.
 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2. adım: ilkeyi atamak hizmet asıl bulun  
 Gereksinim duyduğunuz **objectID** ilke atamak istediğiniz hizmet sorumluları. Bulmanın birkaç yolu vardır **objectID** hizmet sorumluları.    
@@ -187,8 +218,10 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectID of the Service Principal> -RefOb
 
 Bu komut ilke eklemek istediğiniz her hizmet sorumlusu için yineleyebilirsiniz.
 
-#### <a name="step-4-check-which-application-service-principals-your-auto-acceleration-policy-is-assigned-to"></a>4. adım: otomatik hızlandırma ilkeniz atandığı hangi uygulama hizmet asıl adı denetleyin
-Hangi uygulamaların denetlemek için yapılandırılan otomatik hızlandırma İlkesi yoksa, kullanın **Get-AzureADPolicyAppliedObject** cmdlet'i. Bunu iletirsiniz **objectID** denetlemek istediğiniz ilke.
+Bir uygulama zaten atanmış bir HomeRealmDiscovery İlkesi sahip olduğu durumda, ikinci bir tane eklemek mümkün olmayacaktır.  Bu durumda, ek parametreler eklemek için uygulamaya atanan giriş bölgesi bulma İlkesi tanımını değiştirin.
+
+#### <a name="step-4-check-which-application-service-principals-your-hrd-policy-is-assigned-to"></a>4. adım: HRD ilkeniz atandığı hangi uygulama hizmet asıl adı denetleyin
+Hangi uygulamaların denetlemek için yapılandırılan HRD İlkesi yoksa, kullanın **Get-AzureADPolicyAppliedObject** cmdlet'i. Bunu iletirsiniz **objectID** denetlemek istediğiniz ilke.
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
@@ -196,7 +229,7 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 #### <a name="step-5-youre-done"></a>5. adım: Tamamladınız!
 Yeni ilke çalıştığını denetlemek için uygulamayı deneyin.
 
-### <a name="example-list-the-applications-for-which-an-auto-acceleration-policy-is-configured"></a>Örnek: bir otomatik hızlandırma İlkesi yapılandırıldığı uygulamaları Listele
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Örnek: ilke hangi HRD için yapılandırılmış uygulamaların listesi
 
 #### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1. adım: kuruluşunuzda oluşturulan tüm ilkeleri listesi 
 
@@ -212,7 +245,7 @@ Not **objectID** listesi atamaları istediğiniz ilke.
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-auto-acceleration-policy-for-an-application"></a>Örnek: bir uygulama için bir otomatik hızlandırma ilkesini Kaldır
+### <a name="example-remove-an-hrd-policy-for-an-application"></a>Örnek: bir uygulama için bir HRD ilkesini Kaldır
 #### <a name="step-1-get-the-objectid"></a>1. adım: objectID alın
 Önceki örnekte almak için kullanın **objectID** ilke ve istediğiniz kaldırmak, uygulama hizmet sorumlusu. 
 

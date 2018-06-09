@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6d0109b9043b48fbbbeeaccea6c798eaa547a056
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0a624d850b8c3260acb24cb17566090e8ad0043e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839885"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233946"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Güncelleştirme yönetimi, değişiklik izleme ve stok çözümleri birden çok VM üzerinde etkinleştirmek
 
@@ -63,7 +63,7 @@ Zaman ekleme birden fazla makine gösterme makineler olabilir **etkinleştiremiy
 
 **Neden**: Bu hata başka bir çalışma alanına yerleşik raporlar çalıştığınız VM gösterir.
 
-**Çözüm**: satır içi bağlantı veya tıklatın tıklayarak hedeflediğiniz çalışma değiştirmek **değiştirmek**. Her makine için amaçlanan bir çalışma alanı değiştirmek için aşağıdaki komut dosyalarını da kullanabilirsiniz.
+**Çözüm**: tıklatın **yapılandırma olarak kullanmak üzere** hedeflenen Otomasyon hesabı ve günlük analizi çalışma alanı değiştirmek için.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Bu abonelikte kullanılabilir olmayan bir çalışma alanına VM raporları
 

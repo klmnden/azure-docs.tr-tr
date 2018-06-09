@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 7e05e06a5abd02dd67f58a8e01bb246e318f51de
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 2ec08b45fab9987e9271c1ff3101eaf321dc84be
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850245"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234232"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S kullanarak Azure App Service için uygulamanızı dağıtma
 
@@ -75,6 +75,8 @@ Uygulamanızın kaynak sayfasında [Azure portal](https://portal.azure.com)seçi
 FTP kullanarak dağıtımı için [Azure CLI](/cli/azure), bkz: [bir web uygulaması oluşturma ve dosyaları FTP (Azure CLI) ile dağıtma](./scripts/app-service-cli-deploy-ftp.md).
 
 FTP kullanarak dağıtımı için [Azure PowerShell](/cli/azure), bkz: [FTP (PowerShell) kullanarak bir web uygulaması dosyaları karşıya](./scripts/app-service-powershell-deploy-ftp.md).
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
 ## <a name="troubleshoot-ftp-deployment"></a>FTP dağıtım sorunlarını gider
 

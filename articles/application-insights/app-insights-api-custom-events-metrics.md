@@ -11,13 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: e93b3348c933f65067114bfce4ac517f1204af34
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 562fc4a08e2d59739b53cb06c37a880616c9143f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234827"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>Özel olayları ve ölçümleri için Application Insights API'si
 
@@ -47,7 +48,7 @@ Application Insights SDK'sı üzerinde bir başvuru henüz yoksa:
   * [Java projesi](app-insights-java-get-started.md)
   * [Node.js projesi](app-insights-nodejs.md)
   * [Her Web sayfasındaki JavaScript](app-insights-javascript.md) 
-* Cihaz veya web sunucusu kodunuzda şunları içerir:
+* Cihazınıza veya web sunucusu kodunuza şunu ekleyin:
 
     *C# ' TA:* `using Microsoft.ApplicationInsights;`
 
@@ -352,7 +353,7 @@ Telemetriyi kullanılabilir `customMetrics` tablosundaki [uygulama Öngörüler 
 * `valueSum` -Bu ölçümler toplamıdır. Ortalama değer almak için bölün `valueCount`.
 * `valueCount` -Bu toplanan ölçümleri sayısını `trackMetric(..)` çağırın.
 
-## <a name="page-views"></a>Sayfa görüntülemeleri
+## <a name="page-views"></a>Sayfa görünümleri
 Her ekranı veya sayfa yüklendiğinde, bir aygıt veya Web sayfası uygulamasında varsayılan olarak sayfa görünümü telemetrisi gönderilir. Ancak, sayfa görünümleri ek veya farklı zamanlarda izlemek için değiştirebilirsiniz. Örneğin, sekmeler veya dikey pencereler görüntüleyen bir uygulama, kullanıcının yeni bir dikey pencere açıldığında bir sayfayı izlemek isteyebilirsiniz.
 
 ![Genel Bakış dikey penceresinde kullanım Mercek](./media/app-insights-api-custom-events-metrics/appinsights-47usage-2.png)
@@ -640,6 +641,8 @@ finally
 {
     timer.Stop();
     telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
 }
 ```
 

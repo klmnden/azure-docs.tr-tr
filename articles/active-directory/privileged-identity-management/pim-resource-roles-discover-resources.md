@@ -3,20 +3,22 @@ title: Bul ve Privileged Identity Management'ı kullanarak Azure kaynaklarınız
 description: PIM kullanarak Azure kaynaklarınızı korumak açıklar.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: 51a10ea164e8bd7650ad2823281d9ed6a4c91915
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: rolyon
+ms.openlocfilehash: 563c7f24ec4045b46d5bdcf0dc267dbdda2d5a5e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234480"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Bul ve Privileged Identity Management'ı kullanarak Azure kaynaklarınızı yönetmek
 
@@ -27,7 +29,7 @@ Azure kaynakları için ilk PIM ayarladığınızda, bulmak ve PIM ile korunacak
 > [!NOTE]
 > Yalnızca aramak ve PIM kullanarak yönetmek için abonelik kaynakları seçin. Bir abonelik PIM yönetirken abonelik alt kaynakları da yönetebilirsiniz.
 
-## <a name="discover-resources"></a>Kaynakları bulmak
+## <a name="discover-resources"></a>Kaynakları bulma
 
 Azure portalında Git **Privileged Identity Management** bölmesi. Soldaki menüde içinde **Yönet** bölümünde, select **Azure kaynaklarını**.
 

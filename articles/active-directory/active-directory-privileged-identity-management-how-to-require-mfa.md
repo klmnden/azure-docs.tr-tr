@@ -3,21 +3,22 @@ title: Çok faktörlü kimlik doğrulama gerektirecek şekilde nasıl | Microsof
 description: Azure Active Directory Privileged Identity Management uzantısı ile ayrıcalıklı kimlikleri için çok faktörlü kimlik doğrulaması (MFA) zorunlu kılma öğrenin.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.component: protection
 ms.date: 06/06/2017
-ms.author: curtand
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45bff3064ba41588595b59e6f8db0520aac73d83
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d0a9abc145a4d108e48bc81cbb6a849c62e5862b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234021"
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management MFA nasıl gerektirilir
 Çok faktörlü kimlik doğrulaması (MFA) tüm yöneticilerinizi için ihtiyaç duyduğunuz öneririz. Bu, güvenliği aşılmış bir parola nedeniyle bir saldırı riskini azaltır.
