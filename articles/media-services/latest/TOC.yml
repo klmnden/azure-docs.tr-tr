@@ -17,6 +17,10 @@
           href: stream-files-tutorial-with-api.md
         - name: REST ile
           href: stream-files-tutorial-with-rest.md
+    - name: Canlı akış
+      items:
+        - name: .NET Core ile
+          href: stream-live-tutorial-with-api.md
     - name: Videonuzu analiz etme
       items:
         - name: .NET ile
@@ -37,6 +41,8 @@
           href: encoding-concept.md
         - name: Autogen uyarlamalı bit hızı merdiveni
           href: autogen-bitrate-ladder.md
+    - name: Canlı akış
+      href: live-streaming-overview.md
     - name: Medya zekası
       href: intelligence-concept.md
     - name: Olaylara tepki verme
