@@ -12,18 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/22/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: e2f15ca3a46af51ab6228e772298c51ad33fd49c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0171dba639e480a04cdd1c7f23d546d01121fb42
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247407"
 ---
-# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Web ve API uygulamaları Azure yığın kullanıcılarınızın kullanımına sunun
-Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluşturabilirsiniz (kiracılar) Azure işlevleri ve web ve API uygulamaları oluşturun. Kullanıcılarınız için bu isteğe bağlı, bulut tabanlı uygulamalara erişim sağlayarak bunları zaman ve kaynak kaydedebilirsiniz. Bunu ayarlamak için şunları yapacaksınız:
+# <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Öğretici: web ve API uygulamaları Azure yığın kullanıcılarınıza kullanılabilmesini
+
+Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluşturabilirsiniz (kiracılar) Azure işlevleri ve web ve API uygulamaları oluşturun. Bu isteğe bağlı, bulut tabanlı uygulamalar için kullanıcılarınızın erişim vererek, bunları zaman ve kaynak tasarrufu yapabilirsiniz.
+
+Bunu ayarlamak için şunları yapacaksınız:
 
 > [!div class="checklist"]
 > * Uygulama hizmeti kaynak sağlayıcısı dağıtma
@@ -35,7 +39,7 @@ Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluştur
 1. [Azure yığın Geliştirme Seti konak hazırlama](azure-stack-app-service-before-you-get-started.md). Bu, bazı uygulamalar oluşturmak için gerekli olan SQL Server Kaynak sağlayıcısı dağıtma içerir.
 2. [Yükleyici ve yardımcı komut dosyalarını indirme](azure-stack-app-service-deploy.md).
 3. [Gerekli sertifikaları oluşturmak için yardımcı betiğini çalıştırın](azure-stack-app-service-deploy.md).
-4. [Uygulama hizmeti kaynak sağlayıcısı yüklemeniz](azure-stack-app-service-deploy.md) (yüklemek için birkaç saat sürecek ve görünmesi tüm çalışan roller için).
+4. [Uygulama hizmeti kaynak sağlayıcısı yüklemeniz](azure-stack-app-service-deploy.md) (yüklemek için birkaç saat sürecek ve görünmesi tüm çalışan rolleri için.)
 5. [Yüklemeyi doğrulama](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation).
 
 ## <a name="create-an-offer"></a>Teklif oluşturma
@@ -43,43 +47,48 @@ Azure yığın bulut yönetici olarak, kullanıcılarınıza teklifleri oluştur
 Örnek olarak, DNN web içerik yönetim sistemleri oluşturmalarını sağlayan bir teklif oluşturabilirsiniz. SQL Server Kaynak sağlayıcısı yükleyerek zaten etkin SQL Server hizmetini gerektirir.
 
 1.  [Kota ayarlamak](azure-stack-setting-quotas.md) ve adlandırın *AppServiceQuota*. Seçin **Microsoft.Web** için **Namespace** alan.
-2.  [Bir plan oluşturmak](azure-stack-create-plan.md). Bu ad *TestAppServicePlan*seçin **Microsoft.SQL** hizmeti ve **AppService kota** kota.
+2.  [Bir plan oluşturmak](azure-stack-create-plan.md). Bu ad *TestAppServicePlan*seçin **Microsoft.SQL** hizmet ve **AppService kota** kota.
 
     > [!NOTE]
-    > Diğer uygulamalar oluşturmalarını sağlamak için diğer hizmetler planında gerekli olabilir. Örneğin, Azure işlevleri plan eklemenizi gerektirir **Microsoft.Storage** Wordpress gerekirken, hizmet **Microsoft.MySQL**.
-    > 
-    >
+    > Diğer uygulamalar oluşturmalarını sağlamak için diğer hizmetler planında gerekli olabilir. Örneğin, Azure işlevleri gerektirir **Microsoft.Storage** plandaki hizmet Wordpress gerektirse **Microsoft.MySQL**.
 
 3.  [Bir teklif oluşturmak](azure-stack-create-offer.md), adlandırın **TestAppServiceOffer** seçip **TestAppServicePlan** planı.
 
 ## <a name="test-the-offer"></a>Teklif test
 
-Uygulama hizmeti kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturulan göre bir kullanıcı olarak oturum açın, teklif abone ve bir uygulama oluşturun. Bu örnekte, DNN Platform içerik yönetim sistemi oluşturacağız. Önce bir SQL veritabanı ve DNN web uygulaması oluşturmanız gerekir.
+Uygulama hizmeti kaynak sağlayıcısı dağıtılmış ve bir teklif oluşturulan göre bir kullanıcı olarak oturum açın, teklif abone ve bir uygulama oluşturun.
+
+Bu örnekte, DNN Platform içerik yönetim sistemi oluşturacağız. İlk olarak, bir SQL veritabanı ve DNN web uygulaması oluşturun.
 
 ### <a name="subscribe-to-the-offer"></a>Teklife abone olma
+
 1. Azure yığın portalında oturum açın (https://portal.local.azurestack.external) Kiracı olarak.
-2. Tıklatın **bir abonelik edinmeniz** > türü **TestAppServiceSubscription** altında **görünen adı** > **bir teklif seçin**  >  **TestAppServiceOffer** > **oluşturma**.
+2. Seçin **bir abonelik edinmeniz** >, girin **TestAppServiceSubscription** altında **görünen adı** > **bir teklif seçin**  >  **TestAppServiceOffer** > **oluşturma**.
 
 ### <a name="create-a-sql-database"></a>SQL veritabanı oluşturma
 
-1. Tıklatın **+**  >  **veri + depolama** > **SQL veritabanı**.
-2. Alanlar için varsayılan ayarları aşağıdaki gibi dışında bırakın:
+1. Seçin **+**  >  **veri + depolama** > **SQL veritabanı**.
+2. Varsayılan değerleri aşağıdaki alanları hariç tutabilir:
+
     - **Veritabanı adı**: DNNdb
     - **MB cinsinden en büyük boyutu**: 100
-    - **Subscription**: TestAppServiceOffer
+    - **Abonelik**: TestAppServiceOffer
     - **Kaynak grubu**: DNN RG
-3. Tıklatın **oturum açma ayarları**, veritabanı için kimlik bilgilerini girin ve ardından **Tamam**. Bu adımlarda daha sonra bu kimlik bilgileri kullanacaksınız.
-4. Tıklatın **SKU** > barındıran SQL Server için oluşturulan SQL SKU seçin > **Tamam**.
-5. **Oluştur**’a tıklayın.
 
-### <a name="create-a-dnn-app"></a>Bir DNN uygulaması oluşturma    
+3. Seçin **oturum açma ayarları**veritabanı için kimlik bilgilerini girin ve ardından **Tamam**. Bu kimlik bilgileri daha sonra Bu öğreticide kullanacaksınız.
+4. Altında **SKU** > barındıran SQL Server için oluşturulan SQL SKU seçin > ve ardından **Tamam**.
+5. **Oluştur**’u seçin.
 
-1. Tıklatın **+**  >  **tümünü görmek** > **DNN Platform Önizleme** > **oluşturma**.
-2. Tür *DNNapp* altında **uygulama adı** seçip **TestAppServiceOffer** altında **abonelik**.
-3. Tıklatın **gerekli ayarları Yapılandır** > **Yeni Oluştur** > türü bir **uygulama hizmeti planı** adı.
-4. Tıklatın **fiyatlandırma katmanı** > **F1 ücretsiz** > **seçin** > **Tamam**.
-5. Tıklatın **veritabanı** ve daha önce oluşturduğunuz SQL veritabanı bilgilerini girin.
-6. **Oluştur**’a tıklayın.
+### <a name="create-a-dnn-app"></a>Bir DNN uygulaması oluşturma
+
+1. Seçin **+**  >  **tümünü görmek** > **DNN Platform Önizleme** > **oluşturma** .
+2. Girin *DNNapp* altında **uygulama adı** seçip **TestAppServiceOffer** altında **abonelik**.
+3. Seçin **gerekli ayarları Yapılandır** > **Yeni Oluştur** > girmek için bir **uygulama hizmeti planı** adı.
+4. Seçin **fiyatlandırma katmanı** > **F1 ücretsiz** > **seçin** > **Tamam**.
+5. Seçin **veritabanı** ve daha önce oluşturduğunuz SQL veritabanı için kimlik bilgilerini girin.
+6. **Oluştur**’u seçin.
+
+## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 

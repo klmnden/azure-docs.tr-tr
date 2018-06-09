@@ -7,14 +7,6 @@
       href: asdk-what-is.md
     - name: ASDK sürüm notları
       href: asdk-release-notes.md
-- name: Öğreticiler
-  items:
-    - name: Bir teklife abone olma
-      href: asdk-subscribe-services.md
-    - name: Güncelleştirme sunar ve planları
-      href: asdk-update-offers.md
-    - name: Bir VM şablonu oluşturma
-      href: asdk-create-vm-template.md
 - name: Kavramlar
   items:
     - name: Dağıtım Planlama konuları

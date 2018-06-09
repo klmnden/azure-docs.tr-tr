@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: Karma bulut bağlantısını yapılandır
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: Bir teklife abone olma
+      href: azure-stack-subscribe-services.md
+    - name: Bir VM şablonu oluşturma
+      href: azure-stack-create-vm-template.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: Azure Stack Portal’ı kullanma

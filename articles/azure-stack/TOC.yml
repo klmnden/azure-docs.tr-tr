@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: Sürüm notları
       items:
+        - name: 1805 güncelleştirme
+          href: azure-stack-update-1805.md
         - name: 1804 güncelleştirme
           href: azure-stack-update-1804.md
         - name: 1803 güncelleştirme
           href: azure-stack-update-1803.md
         - name: 1802 güncelleştirme
           href: azure-stack-update-1802.md
-        - name: 1712 güncelleştirme
-          href: azure-stack-update-1712.md
 - name: Hızlı Başlangıçlar
   expanded: true
   items:
@@ -52,6 +52,12 @@
               items:
                 - name: Uç noktalarını yayımlama
                   href: azure-stack-integrate-endpoints.md
+        - name: Kimlik Tümleştirme
+          items:
+            - name: Bir kimlik sağlayıcısı seçin
+              href: azure-stack-integrate-identity.md
+            - name: Azure kimlik doğrulama
+              href: azure-stack-validate-identity.md
         - name: Azure yığın dağıtım PKI gereksinimleri
           href: azure-stack-pki-certs.md
           items:
@@ -63,20 +69,17 @@
               href: azure-stack-validate-pki-certs.md
             - name: PKI sertifikaları Düzelt
               href: azure-stack-remediate-certs.md
-            - name: Dağıtım kaynakları
-              items:
-                - name: Start-AzsReadiness cmdlet başvurusu
-                  href: azure-stack-azsreadiness-cmdlet.md
-                - name: Hazırlık raporunu görüntüle
-                  href: azure-stack-validation-report.md
-            - name: Kimlik Tümleştirme
-              items:
-                - name: Bir kimlik sağlayıcısı seçin
-                  href: azure-stack-integrate-identity.md
-                - name: Azure kimlik doğrulama
-                  href: azure-stack-validate-identity.md
+        - name: Dağıtım kaynakları
+          items:
+            - name: Dağıtım ağ oluşturma hakkında
+              href: deployment-networking.md
         - name: Azure kaydı doğrula
           href: azure-stack-validate-registration.md
+          items:
+            - name: Start-AzsReadiness cmdlet başvurusu
+              href: azure-stack-azsreadiness-cmdlet.md
+            - name: Hazırlık raporunu görüntüle
+              href: azure-stack-validation-report.md
         - name: Dış izleme
           href: azure-stack-integrate-monitor.md
         - name: Güvenlik tümleştirme
@@ -196,6 +199,8 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: Plan oluşturma
               href: azure-stack-create-plan.md
+            - name: Bir eklenti planı oluşturma
+              href: create-add-on-plan.md
             - name: Teklif oluşturma
               href: azure-stack-create-offer.md
             - name: Bir teklife abone olma
