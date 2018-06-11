@@ -1,11 +1,11 @@
 ---
-title: "Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma"
-description: "Azure App Services web uygulamasını yapılandırma"
+title: Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
+description: Azure App Services web uygulamasını yapılandırma
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234538"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
 
@@ -67,6 +68,8 @@ Bu bölüm, web uygulamanızın başlangıç yükleyecek ad/değer çiftleri iç
 * .NET yapılandırmanızı eklenen .NET uygulamaları için bu ayarları `AppSettings` çalışma zamanında mevcut ayarları geçersiz kılar. 
 * PHP, Python, Java ve düğüm uygulamalar, bu ayarlar çalışma zamanında ortam değişkenleri olarak erişebilir. Her uygulama ayarı için iki ortam değişkenin oluşturulur; bir uygulama ayarı giriş ve APPSETTING_ önekine sahip başka bir tarafından belirtilen ada sahip. Her ikisi de aynı değeri içerir.
 
+Uygulama ayarları depolandığında her zaman şifrelenir (şifrelenmiş çalışmıyorken-).
+
 ### <a name="connection-strings"></a>Bağlantı dizeleri
 Bağlantılı kaynaklar için bağlantı dizelerini. 
 
@@ -80,6 +83,8 @@ PHP, Python, Java ve düğüm uygulamalar için bu ayarlar bağlantı türü ile
 * Özel: `CUSTOMCONNSTR_`
 
 Örneğin, bir MySql bağlantı dizesi olarak adlandırılmışsa `connectionstring1`, ortam değişkeni erişilebilecek `MYSQLCONNSTR_connectionString1`.
+
+Bağlantı dizeleri depolandığında her zaman şifrelenir (şifrelenmiş çalışmıyorken-).
 
 ### <a name="default-documents"></a>Varsayılan belgeler
 Varsayılan belge bir Web sitesinin kök URL'sindeki görüntülenen bir web sayfasıdır.  Listedeki ilk eşleşen dosya kullanılır. 
@@ -140,14 +145,14 @@ Etki alanı adlarını görüntülemek için **tüm ayarları** > **özel etki a
 
 ### <a name="deployments"></a>Dağıtımlar
 * Sürekli dağıtım ayarlayın. Bkz: [kullanarak Azure App Service'te Web uygulamalarını dağıtmak için Git](app-service-deploy-local-git.md).
-* Dağıtım yuvaları. Bkz: [Azure App Service'te Web uygulamalarını için hazırlama ortamlarını dağıtmak].
+* Dağıtım yuvaları. Bkz: [Azure App Service'te Web uygulamalarını için hazırlama ortamlarını dağıtma].
 
 Dağıtım yuvaları görüntülemek için **tüm ayarları** > **dağıtım yuvası**.
 
 ### <a name="monitoring"></a>İzleme
 Temel veya standart modunda en çok üç coğrafi olarak dağıtılmış konumlardan HTTP veya HTTPS uç kullanılabilirliğini test edebilirsiniz. HTTP yanıt kodu bir hata (4xx veya 5xx) ya da 30 saniyeden fazla yanıt alır, izleme testi başarısız olur. Bir uç nokta izleme testlerinin belirtilen tüm konumlarda başarılı olması kullanılabilir olarak kabul edilir. 
 
-Daha fazla bilgi için bkz: [nasıl yapılır: izleme web uç noktası durumu].
+Daha fazla bilgi için bkz: [Nasıl yapılır: web uç noktası durumu izleme].
 
 > [!NOTE]
 > Azure hesabı için kaydolmadan önce Azure App Service’i kullanmaya başlamak isterseniz, App Service’te hemen kısa süreli bir başlangıç web uygulaması oluşturabileceğiniz [App Service’i Deneyin] sayfasına gidin. Kredi kartı ve taahhüt gerekmez.
@@ -165,11 +170,11 @@ Daha fazla bilgi için bkz: [nasıl yapılır: izleme web uç noktası durumu].
 [ASP.NET SignalR]: http://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Azure App Service'te özel etki alanı adını yapılandırma]: ./app-service-web-tutorial-custom-domain.md
-[Azure App Service'te Web uygulamalarını için hazırlama ortamlarını dağıtmak]: ./web-sites-staged-publishing.md
+[Azure App Service'te Web uygulamalarını için hazırlama ortamlarını dağıtma]: ./web-sites-staged-publishing.md
 [Azure uygulama hizmetinde bir uygulama için HTTPS'yi etkinleştir]: ./app-service-web-tutorial-custom-ssl.md
-[nasıl yapılır: izleme web uç noktası durumu]: http://go.microsoft.com/fwLink/?LinkID=279906
+[Nasıl yapılır: web uç noktası durumu izleme]: http://go.microsoft.com/fwLink/?LinkID=279906
 [Azure App Service'deki Web uygulamaları için izleme temelleri]: ./web-sites-monitor.md
-[ardışık düzen modu]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[Ardışık Düzen modu]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Bir web uygulamasını Azure App Service'te ölçeklendirme]: ./web-sites-scale.md
 [App Service’i Deneyin]: https://azure.microsoft.com/try/app-service/
 
