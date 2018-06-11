@@ -8,24 +8,25 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c9457e51858d4a073d8baffdd435c8100d95d566
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.openlocfilehash: bc42697f756ec75d9a8f2c20c99b28b2f7886ca1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670284"
 ---
 |**SKU**   | **S2S/VNet-VNet<br>Tünelleri** | **P2S<br>Bağlantıları** | **Toplam<br>Aktarım Hızı Kıyaslaması** |
 |---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| En çok, 30                         | En çok, 128               | 650 Mbps                    |
-|**VpnGw2**| En çok, 30                         | En çok, 128               | 1 Gbps                      |
-|**VpnGw3**| En çok, 30                         | En çok, 128               | 1,25 Gb/sn                   |
+|**VpnGw1**| En çok, 30                         | En çok, 128*              | 650 Mbps                    |
+|**VpnGw2**| En çok, 30                         | En çok, 128*              | 1 Gbps                      |
+|**VpnGw3**| En çok, 30                         | En çok, 128*              | 1,25 Gb/sn                   |
 |**Temel** | En çok, 10                         | En çok, 128               | 100 Mbps                    | 
-|          |                                 |                        |                             | 
 
+*Ek bağlantılar gerekirse desteğe başvurun
 - Toplam Aktarım Hızı Kıyaslaması, tek bir ağ geçidi üzerinde yer alan birden fazla tünelin ölçümlerine bağlıdır. İnternet trafiğinin koşulları ve uygulamanızın davranışı nedeniyle bu aktarım hızı kesin değildir.
 
 - Fiyatlandırma bilgileri [Fiyatlandırma](https://azure.microsoft.com/pricing/details/vpn-gateway) sayfasında bulunabilir.
 
 - SLA (Hizmet Düzeyi Sözleşmesi) bilgilerine [SLA](https://azure.microsoft.com/support/legal/sla/vpn-gateway/) sayfasından ulaşılabilir.
 
-- VpnGw1, VpnGw2 ve VpnGw3 yalnızca Resource Manager dağıtım modelini kullanarak VPN ağ geçitleri için desteklenir.
+- VPN ağ geçitleri için VpnGw1, VpnGw2 ve VpnGw3 yalnızca Resource Manager dağıtım modeli kullanıldığında desteklenir.

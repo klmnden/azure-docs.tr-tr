@@ -10,20 +10,18 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: e4bde4f521e0e19e7acd36260c98cfe80973e284
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.openlocfilehash: 0d0ec1520c91c0c1dcdac4660130917bb63065cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825569"
 ---
-## <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Hata ayıklama varlıklar VS Code uzantılı başlatma
-İlk kod projenize VS Code geliştirme ortamımızda Azure ile iletişim kuracak şekilde yapılandırmanız gerekir. VS Code uzantısı Azure Dev alanları için hata ayıklama yapılandırmayı ayarlamak için bir yardımcı komutu sağlar. 
+### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>Hata ayıklama varlıklarını VS Code uzantısıyla başlatma
+VS Code'un Azure Dev Space'imizle iletişim kurabilmesi için önce kod projenizi yapılandırmalısınız. Azure Dev Spaces için VS Code uzantısı hata ayıklama yapılandırmasını ayarlamak için yardımcı komutu sağlar. 
 
-Açık **komutu palet** (kullanarak **View | Komut palet** menüsü) ve kullanım yazın ve bu komutu seçmek için otomatik tamamlama: `Azure Dev Spaces: Create configuration files for connected development`. 
+**Komut Paleti**'ni açın (**Görünüm | Komut Paleti** menüsünü kullanarak) ve otomatik tamamlama özelliğini kullanarak komutu yazın ve seçin: `Azure Dev Spaces: Create configuration files for connected development`. 
 
-Bu hata ayıklama yapılandırmasını Azure Dev alanları altında ekler `.vscode` klasör.
+Bu, `.vscode` klasörünün altında Azure Dev Spaces için hata ayıklama yapılandırması ekler.
 
 ![](../media/common/command-palette.png)
-
-> [!Important]
-> Bir hata nedeniyle kapatın ve devam etmeden önce VS Code'u yeniden açın.

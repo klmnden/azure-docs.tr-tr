@@ -1,37 +1,38 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 02/16/2018
+ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 21216d19fb8a37d3e9e02e410d39b2a999d3935e
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.openlocfilehash: 5dc4ce00685c74b2974cf1bfb5e8606eb3063e8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670182"
 ---
-Bir kaynak grubuna iki etiket eklemek için kullanın [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup) komutu:
+Kaynak grubuna iki etiket eklemek için [Set-AzureRmResourceGroup](/powershell/module/azurerm.resources/set-azurermresourcegroup) komutunu kullanın:
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-Şimdi üçüncü bir etiket eklemek istediğinizi varsayalım. Bir kaynağa veya kaynak grubuna etiket uyguladığınız her durumda ilgili kaynağın veya kaynak grubunun üzerinde mevcut olan etiketlerin üzerine yazarsınız. Varolan etiketleri kaybetmeden yeni bir etiket eklemek için varolan etiketleri almak, yeni bir etiket eklemek ve etiketler koleksiyonunu yeniden uygulayın:
+Şimdi üçüncü bir etiket istediğinizi varsayalım. Bir kaynağa veya kaynak grubuna etiket uyguladığınız her durumda ilgili kaynağın veya kaynak grubunun üzerinde mevcut olan etiketlerin üzerine yazarsınız. Mevcut etiketleri kaybetmeden yeni bir etiket eklemek için, mevcut etiketleri almalı, yeni etiketi eklemeli ve etiket koleksiyonunu yeniden uygulamalısınız:
 
 ```azurepowershell-interactive
 # Get existing tags and add a new tag
 $tags = (Get-AzureRmResourceGroup -Name myResourceGroup).Tags
-$tags += @{Project="Documentation"}
+$tags.Add("Project", "Documentation")
 
 # Reapply the updated set of tags 
 Set-AzureRmResourceGroup -Tag $tags -Name myResourceGroup
 ```
 
-Kaynakları kaynak grubundan etiketleri almazlar. Şu anda kaynak grubunuz üç etiketlidir ancak kaynakları herhangi bir etiket yoktur. Tüm etiketleri kaynaklarını için bir kaynak grubundan uygulamak ve tekrarı olmayan kaynaklar varolan etiketleri korumak için aşağıdaki komut dosyasını kullanın:
+Kaynaklar, kaynak grubundan etiketleri devralmaz. Şu anda, kaynak grubunuzun üç etiketi vardır ama kaynakların hiç etiketi yoktur. Bir kaynak grubundaki tüm etiketleri yinelenmeyen kaynaklardaki mevcut etiketleri koruyarak gruptaki kaynaklara uygulamak için aşağıdaki betiği kullanın:
 
 ```azurepowershell-interactive
 # Get the resource group
@@ -39,47 +40,53 @@ $group = Get-AzureRmResourceGroup myResourceGroup
 
 if ($group.Tags -ne $null) {
     # Get the resources in the resource group
-    $resources = $group | Find-AzureRmResource
+    $resources = Get-AzureRmResource -ResourceGroupName $group.ResourceGroupName
 
     # Loop through each resource
     foreach ($r in $resources)
     {
         # Get the tags for this resource
         $resourcetags = (Get-AzureRmResource -ResourceId $r.ResourceId).Tags
-
-        # Loop through each tag from the resource group
-        foreach ($key in $group.Tags.Keys)
+        
+        # If the resource has existing tags, add new ones
+        if ($resourcetags)
         {
-            # Check if the resource already has a tag for the key from the resource group. If so, remove it from the resource
-            if (($resourcetags) -AND ($resourcetags.ContainsKey($key))) { $resourcetags.Remove($key) }
+            foreach ($key in $group.Tags.Keys)
+            {
+                if (-not($resourcetags.ContainsKey($key)))
+                {
+                    $resourcetags.Add($key, $group.Tags[$key])
+                }
+            }
+
+            # Reapply the updated tags to the resource 
+            Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
         }
-
-        # Add the tags from the resource group to the resource tags
-        $resourcetags += $group.Tags
-
-        # Reapply the updated tags to the resource 
-        Set-AzureRmResource -Tag $resourcetags -ResourceId $r.ResourceId -Force
+        else
+        {
+            Set-AzureRmResource -Tag $group.Tags -ResourceId $r.ResourceId -Force
+        }
     }
 }
 ```
 
-Alternatif olarak, etiketleri kaynak grubundan kaynakları varolan etiketleri tutmadan uygulayabilirsiniz:
+Alternatif olarak, mevcut etiketleri korumadan kaynak grubundaki etiketleri kaynaklara uygulayabilirsiniz:
 
 ```azurepowershell-interactive
 # Get the resource group
 $g = Get-AzureRmResourceGroup -Name myResourceGroup
 
 # Find all the resources in the resource group, and for each resource apply the tags from the resource group
-Find-AzureRmResource -ResourceGroupNameEquals $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
+Get-AzureRmResource -ResourceGroupName $g.ResourceGroupName | ForEach-Object {Set-AzureRmResource -ResourceId $_.ResourceId -Tag $g.Tags -Force }
 ```
 
-Tek bir etiket birkaç değerleri birleştirmek için bir JSON dizesi kullanın.
+Birkaç değeri tek etikette birleştirmek için bir JSON dizesi kullanın.
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ CostCenter="{`"Dept`":`"IT`",`"Environment`":`"Test`"}" }
 ```
 
-Tüm etiketleri kaldırmak için bir boş karma tablosu geçirin.
+Tüm etiketleri kaldırmak için bir boş karma tablosu geçirirsiniz.
 
 ```azurepowershell-interactive
 Set-AzureRmResourceGroup -Name myResourceGroup -Tag @{ }

@@ -10,19 +10,20 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: f1e997b9e7f948f29cce940574fe7db34a503dc6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.openlocfilehash: 5aee9a96270b4bcafb4ee696c0cbf6a424515cb1
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825562"
 ---
 ## <a name="well-done"></a>Bravo!
-Başlangıç kılavuzuna tamamladınız! Şunları öğrendiniz:
+Başlangıç kılavuzunu tamamladınız! Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Geliştirme için en iyi duruma getirilmiş Azure Kubernetes tabanlı ortamı oluşturun.
-> * Kod VS Code ve komut satırını kullanarak kapsayıcılarında yinelemeli olarak geliştirin.
-> * Bağımsız olarak iki ayrı hizmetleri ve başka bir hizmet için arama yapmak için kullanılan Kubernetes DNS hizmet bulma geliştirin.
-> * Üretken geliştirin ve kodunuzu bir ekip ortamında test.
+> * Azure’da geliştirme için iyileştirilmiş Kubernetes tabanlı bir ortam (bir _dev space_) oluşturun.
+> * VS Code'u ve komut satırını kullanarak kapsayıcılarda yinelemeli kod geliştirin.
+> * İki ayrı hizmeti bağımsız olarak geliştirin ve Kubernetes’in DNS hizmet bulma yöntemini kullanarak başka bir hizmete çağrı yapın.
+> * Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.
 
-Azure Dev alanları, keşfedilen göre [geliştirme ortamınızı bir ekip üyesiyle paylaşmak](../how-to/share-dev-spaces.md) ve bunları birlikte ne kadar kolay olduğunu görmeye yardımcı olur.
+Artık Azure Dev Spaces'i öğrendiğinize göre, [Dev Space'inizi bir takım üyesiyle paylaşın](../how-to/share-dev-spaces.md) ve onların birlikte işbirliği yapmasının ne kadar kolay olduğunu görmelerine yardımcı olun.
