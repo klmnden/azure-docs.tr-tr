@@ -14,7 +14,7 @@
       href: concepts-collector.md
     - name: Değerlendirme hesaplamaları
       href: concepts-assessment-calculation.md
-    - name: Bağımlılık görselleştirme
+    - name: Bağımlılık görselleştirme hakkında
       href: concepts-dependency-visualization.md
 - name: Nasıl yapılır kılavuzları
   items:
@@ -30,6 +30,8 @@
           href: contoso-migration-rehost-vm-sql-managed-instance.md
         - name: 5. Contoso-Bir uygulamayı Azure VM’lerde yeniden barındırma
           href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso-Azure VM’lerde ve Azure SQL AlwaysOn’da bir uygulamayı yeniden barındırma
+          href: contoso-migration-rehost-vm-sql-ag.md
     - name: Büyük bir ortamı keşfetme ve değerlendirme
       href: how-to-scale-assessment.md
     - name: Grup makineleri

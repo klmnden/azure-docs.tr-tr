@@ -63,8 +63,6 @@
           items:
             - name: Azure portalında Azure Backup Sunucusu iş yükleri hazırlama
               href: backup-azure-microsoft-azure-backup.md
-            - name: Azure Stack üzerinde Azure Backup Sunucusu'nu yükleme
-              href: backup-mabs-install-azure-stack.md
             - name: Azure Backup Sunucusu’na depolama alanı ekleme
               href: backup-mabs-add-storage.md
             - name: Azure Backup Sunucusu’nu v.2 sürümüne yükseltme
@@ -83,10 +81,18 @@
               href: backup-azure-sql-mabs.md
             - name: Sistem durumunu koruma ve tam kurtarma
               href: backup-mabs-system-state-and-bmr.md
-            - name: Azure Stack’teki Dosyalar ve Uygulamalar
-              href: backup-mabs-files-applications-azure-stack.md
         - name: Azure Backup Sunucusu’ndan veri kurtarma
           href: backup-azure-alternate-dpm-server.md
+    - name: Azure Stack üzerinde Azure Backup Sunucusu
+      items:
+        - name: Azure Backup Sunucusu’nu yükleme
+          href: backup-mabs-install-azure-stack.md
+        - name: Dosyaları ve uygulamaları koruma
+          href: backup-mabs-files-applications-azure-stack.md
+        - name: SharePoint grubunu koruma
+          href: backup-mabs-sharepoint-azure-stack.md
+        - name: SQL Server veritabanını koruma
+          href: backup-mabs-sql-azure-stack.md
     - name: Azure Dosya paylaşımları
       items:
         - name: Azure Dosya paylaşımlarını yedekleme

@@ -47,7 +47,8 @@
 ### [Azure Portal](resource-group-portal.md)
 ### [Kaynakları düzenlemek için etiketleri kullanma](resource-group-using-tags.md)
 ### [Kaynakları yeni gruba veya aboneliğe taşıma](resource-group-move-resources.md)
-### [Program aracılığıyla EA abonelikleri oluşturma](programmatically-create-subscription.md)
+### [EA abonelikleri oluşturma](programmatically-create-subscription.md)
+### [EA abonelikleri oluşturmak için erişim izni verme](grant-access-to-create-subscription.md)
 ### [Yönetim grupları oluşturma](management-groups-create.md)
 ### [Yönetim gruplarınızı yönetme](management-groups-manage.md)
 

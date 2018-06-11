@@ -8,6 +8,7 @@
 ### [Ağ güvenliği için en iyi uygulamalar](../security/azure-security-network-security-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Yüksek oranda kullanılabilir ağ sanal gereçleri](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha )
 ### [Yük dengeleme metotlarını birleştirme](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma](disaster-recovery-dns-traffic-manager.md)
 ## Planlama ve tasarım
 ### [Sanal ağlar](../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Şirket içi ve dışı bağlantısı - VPN](../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fnetworking%2ftoc.json)

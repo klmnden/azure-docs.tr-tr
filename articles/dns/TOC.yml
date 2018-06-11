@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: Ters DNS
       href: dns-reverse-dns-overview.md
+    - name: Azure DNS ve Traffic Manager kullanarak olağanüstü durum kurtarma
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Nasıl yapılır
   items:
     - name: Özel DNS bölgesi ve kaydı oluşturma - Azure CLI

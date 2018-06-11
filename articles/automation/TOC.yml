@@ -29,6 +29,8 @@
   items:
     - name: Ekleme
       items:
+        - name: Portaldan birden çok VM ekleme
+          href: automation-onboard-solutions-from-browse.md
         - name: Azure VM’den ekleme
           href: automation-onboard-solutions-from-vm.md
         - name: Otomasyon hesabından ekleme

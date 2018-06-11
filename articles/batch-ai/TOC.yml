@@ -11,6 +11,10 @@
       href: quickstart-cli.md
     - name: Eğitim işi çalıştırma - Python
       href: quickstart-python.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Güncelleştirilmiş API’ye geçirme
+      href: migrate-to-new-api.md
 - name: Başvuru
   items:
     - name: Azure CLI
