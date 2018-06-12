@@ -33,6 +33,8 @@
 ### [Kafka etkin Event Hubs oluşturma](event-hubs-create-kafka-enabled.md) 
 ### [Kafka Ekosistemi için Azure Event Hubs’a akış oluşturma](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 ### [Kafka Ekosistemi için Azure Event Hubs ile Kafka MirrorMaker kullanma](event-hubs-kafka-mirror-maker-tutorial.md)
+### [Kafka Ekosistemi için Event Hubs ile Apache Flink’i kullanma](event-hubs-kafka-flink-tutorial.md)
+### [Kafka Ekosistemi için Event Hubs ile Akka Streams’i kullanma](event-hubs-kafka-akka-streams-tutorial.md)
 ## Geliştirme
 ### [.NET Framework kullanarak olayları gönderme](event-hubs-dotnet-framework-getstarted-send.md)
 ### [.NET Framework kullanarak olayları alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)

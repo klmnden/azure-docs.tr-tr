@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 11b5e2a408d3ba514753f3510b36fce02470c6e9
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 13b36398afdf8eb4db3adeee4ebb821411d813f5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825351"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300795"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso geçiş: Azure VM'ler için bir şirket içi uygulama yeniden barındırma
 
@@ -26,15 +26,16 @@ Bu belge nasıl Contoso adlı kurgusal şirket için Microsoft Azure bulut şirk
 
 **Makale** | **Ayrıntılar** | **Durum**
 --- | --- | ---
-Makale 1: genel bakış | Contoso'nun geçiş stratejisi, makale serisi ve kullanırız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
-Makale 2: bir Azure altyapısı dağıtın | Nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar açıklar. Aynı alt tüm Contoso geçiş senaryoları için kullanılır. | Kullanılabilir
-Makale 3: şirket içi kaynakları değerlendirin  | Contoso VMware üzerinden çalışan kendi şirket içi iki katmanlı SmartHotel uygulamasının bir değerlendirme nasıl çalıştığı gösterilmektedir. Uygulama VM'ler ile değerlendirmek [Azure geçirmek](migrate-overview.md) hizmet ve uygulama SQL Server veritabanı ile [Azure veritabanı geçiş Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
-Makale 4: Azure Vm'leri ve bir SQL yönetilen örneği (Bu makalede) düzenleme (yükseltme ve shift) | Contoso SmartHotel uygulamayı Azure'a nasıl geçirir gösterir. VM ön uç uygulamasını kullanarak geçirmek [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), uygulamayı ve veritabanı kullanma [Azure veritabanı geçiş](https://docs.microsoft.com/azure/dms/dms-overview) yönetilen bir SQL örneğine geçirmek için hizmet. | Kullanılabilir
-Makale 5: Azure vm'lerine (Bu makalede) düzenleme (yükseltme ve shift) | Contoso SmartHotel uygulama yalnızca Site Recovery kullanarak sanal makineleri geçirmek nasıl gösterir.
-Makale 6: (yükseltme ve shift) Azure Vm'leri ve SQL Server kullanılabilirlik gruplarını yeniden Düzenle | Contoso SmartHotel uygulama nasıl geçirir gösterir. Sanal makineleri uygulama ve veritabanı geçiş hizmeti uygulama veritabanı için SQL Server kullanılabilirlik grubu geçirmek için geçirmek için Site Recovery kullanırlar. | Kullanılabilir
-Makale 7: Azure Vm'leri ve Azure MySQL sunucusu düzenleme (yükseltme ve shift) | Contoso geçirmek için Site Recovery ve MySQL çalışma ekranı kullanarak SmartHotel app sanal makineleri (yedekleme ve geri yükleme) Azure MySQL Server örneğine nasıl geçirir gösterir. | Kullanılabilir
+[Makale 1: genel bakış](contoso-migration-overview.md) | Contoso'nun geçiş stratejisi, makale serisi ve kullanırız örnek uygulamaları genel bir bakış sağlar. | Kullanılabilir
+[Makale 2: bir Azure altyapısı dağıtın](contoso-migration-infrastructure.md) | Nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar açıklar. Aynı alt tüm Contoso geçiş senaryoları için kullanılır. | Kullanılabilir
+[Makale 3: şirket içi kaynakları değerlendirin](contoso-migration-assessment.md)  | Contoso VMware üzerinden çalışan kendi şirket içi iki katmanlı SmartHotel uygulamasının bir değerlendirme nasıl çalıştığı gösterilmektedir. Uygulama VM'ler ile değerlendirmek [Azure geçirmek](migrate-overview.md) hizmet ve uygulama SQL Server veritabanı ile [Azure veritabanı geçiş Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
+[Makale 4: Rehost Azure VM'ler ve SQL yönetilen örneği](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso SmartHotel uygulamayı Azure'a nasıl geçirir gösterir. VM ön uç uygulamasını kullanarak geçirmek [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), uygulamayı ve veritabanı kullanma [Azure veritabanı geçiş](https://docs.microsoft.com/azure/dms/dms-overview) yönetilen bir SQL örneğine geçirmek için hizmet. | Kullanılabilir
+Makale 5: Rehost Azure vm'lerine (Bu makalede) | Contoso SmartHotel uygulama yalnızca Site Recovery kullanarak sanal makineleri geçirmek nasıl gösterir.
+[Makale 6: Azure VM'ler ve SQL Server kullanılabilirlik gruplarını yeniden barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulama nasıl geçirir gösterir. Sanal makineleri uygulama ve veritabanı geçiş hizmeti uygulama veritabanı için SQL Server kullanılabilirlik grubu geçirmek için geçirmek için Site Recovery kullanırlar. | Kullanılabilir
+[Makale 7: Azure vm'lerde Linux uygulama yeniden barındırma](contoso-migration-rehost-linux-vm.md) | Contoso Linux osTicket uygulama Azure Site Recovery kullanarak sanal makineleri nasıl geçirir gösterir. | Kullanılabilir
+[Makale 8: Linux uygulama Rehost Azure VM'ler ve Azure MySQL sunucusu](contoso-migration-rehost-linux-vm-mysql.md) | MySQL çalışma ekranı kullanarak Azure MySQL Server örneğine uygulama veritabanı geçirir ve nasıl Contoso Linux osTicket uygulama Azure Site Recovery kullanarak sanal makineleri geçirir gösterilmiştir. | Kullanılabilir
 
-Bu makalede, iki katmanlı Windows Contoso geçirirsiniz. Azure için VMware Vm'lerinde çalışan NET SmartHotel uygulama. Bu uygulamayı kullanmak istiyorsanız, açık kaynak olarak sağlanır ve buradan indirebilirsiniz [github](https://github.com/Microsoft/SmartHotel360).
+Bu makalede, iki katmanlı Windows Contoso geçirirsiniz. Azure için VMware Vm'lerinde çalışan NET SmartHotel uygulama. Bu uygulamayı kullanmak istiyorsanız, açık kaynak sağlanır ve buradan indirebilirsiniz [github](https://github.com/Microsoft/SmartHotel360).
 
 
 
@@ -224,7 +225,7 @@ Devam etmek için bunların bunlar seçerek dağıtım planlamasını tamamladı
 
 ### <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Contoso kaynak ortamlarına yapılandırmak gerekir. Bunu yapmak için bunlar bir OVF şablonunu indirebilir ve Site Recovery yapılandırma sunucusu yüksek oranda kullanılabilir olarak dağıtmak için kullanın, şirket içi VMware VM. Yapılandırma sunucusunun çalışır durumda sonra bunlar, bu kasaya kaydedin.
+Contoso kaynak ortamlarına yapılandırmak gerekir. Bunu yapmak için bunlar bir OVF şablonunu indirebilir ve Site Recovery yapılandırma sunucusu yüksek oranda kullanılabilir olarak dağıtmak için kullanın, şirket içi VMware VM. Yapılandırma sunucunun da çalışır durumda sonra bunlar bu kasaya kaydedin.
 
 Yapılandırma sunucusu bir dizi bileşen çalıştırır:
 

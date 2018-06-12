@@ -11,11 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 05/07/2018
-ms.openlocfilehash: bb7cc17c36809975e26c8da8beda004a0b0cfd9e
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261619"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Azure SQL veritabanı yönetilen DMS kullanma örneği için SQL Server geçirme
 Azure veritabanı geçiş hizmeti veritabanlarını şirket içi SQL Server örneğine geçirmek için kullanabileceğiniz bir [yönetilen Azure SQL veritabanı örneği](../sql-database/sql-database-managed-instance.md). Bazı el ile çaba gerektirebilir ek yöntemleri görmek için makaleyi [yönetilen Azure SQL veritabanı örneğine SQL Server örneği geçiş](../sql-database/sql-database-managed-instance-migrate.md).
@@ -118,7 +119,7 @@ Hizmet oluşturulduktan sonra Azure portalını bulun, açın ve ardından yeni 
     Güvenilen bir sertifika yüklendiğinde değil, SQL Server örneği başlatıldığında otomatik olarak imzalanan bir sertifika oluşturur. Bu sertifika, istemci bağlantıları için kimlik bilgilerini şifrelemek için kullanılır.
 
     > [!CAUTION]
-    > Kendinden imzalı bir sertifika kullanarak encyopted SSL bağlantı güçlü güvenlik sağlamaz. Bunlar man-in--middle saldırılarına açıktır. Bir üretim ortamında otomatik olarak imzalanan sertifikalar kullanarak SSL veya internet'e bağlı sunucularda güvenmemelisiniz.
+    > Kendinden imzalı bir sertifika kullanılarak şifrelenmiş SSL bağlantılarını güçlü güvenlik sağlamaz. Bunlar man-in--middle saldırılarına açıktır. Bir üretim ortamında otomatik olarak imzalanan sertifikalar kullanarak SSL veya internet'e bağlı sunucularda güvenmemelisiniz.
 
    ![Kaynak Ayrıntıları](media\tutorial-sql-server-to-managed-instance\dms-source-details1.png)
 
@@ -150,7 +151,7 @@ Hizmet oluşturulduktan sonra Azure portalını bulun, açın ve ardından yeni 
 
 1.  En son kaydedilen proje seçin, + **yeni etkinlik**ve ardından **geçişi çalıştırma**.
 
-    ![Yeni etkinlik oluşturmak](media\tutorial-sql-server-to-managed-instance\dms-create-new-activity1.png)
+    ![Yeni Etkinlik Oluşturun](media\tutorial-sql-server-to-managed-instance\dms-create-new-activity1.png)
 
 2.  İstendiğinde, kaynak ve hedef sunucular kimlik bilgilerini girin ve ardından **kaydetmek**.
 

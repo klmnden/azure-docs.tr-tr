@@ -4,7 +4,7 @@ description: Dosya aktarımı hızını artırmak ve Azure CDN dosyalarınızda 
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: af1cddff-78d8-476b-a9d0-8c2164e4de5d
 ms.service: cdn
@@ -12,27 +12,28 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
-ms.author: mazha
-ms.openlocfilehash: 41e40c7e740e06654e7660c208db52fc2617d4b5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: bdff57275cf123079004ada732fe782d98399d71
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260405"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Azure CDN dosyaları sıkıştırarak performansı
 Dosya sıkıştırma, dosya aktarım hızını artırmak ve sunucudan gönderilmeden önce bir dosyanın boyutunu azaltarak sayfa yükleme performansı artırmak için basit ve etkili bir yöntemdir. Dosya sıkıştırma, bant genişliği giderlerini azaltmak ve kullanıcılarınız için daha esnek bir deneyim sağlar.
 
 Dosya sıkıştırma etkinleştirmenin iki yolu vardır:
 
-- Kaynak sunucunuzda sıkıştırmayı etkinleştirin. Bu durumda, CDN sıkıştırılmış dosyaların geçer ve bunları isteyen istemcilere sunar.
-- Doğrudan sunucularda CDN POP kolay bir şekilde ("sıkıştırma") sıkıştırmayı etkinleştirin. Bu durumda, CDN dosyaları sıkıştırır ve bunlar kaynak sunucu tarafından sıkıştırılmamış bile, bunları son kullanıcılara sunar.
+- Kaynak sunucunuzda sıkıştırmayı etkinleştirin. Bu durumda, Azure CDN sıkıştırılmış dosyaların geçer ve bunları isteyen istemcilere sunar.
+- Doğrudan CDN POP sunucularda sıkıştırmayı etkinleştir (*sıkıştırma anında*). Bu durumda, CDN dosyaları sıkıştırır ve bunlar kaynak sunucu tarafından sıkıştırılmamış bile, bunları son kullanıcılara sunar.
 
 > [!IMPORTANT]
-> CDN yapılandırma değişiklikleri ağ üzerinden yayılması biraz zaman alabilir: 
-- İçin **Azure CDN standart Microsoft** profilleri yayma genellikle on dakika içinde tamamlanır. 
-- İçin **akamai'den Azure CDN standart** profilleri yayma işlemi genellikle bir dakika içinde tamamlanır. 
-- İçin **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** profilleri yayma işlemi genellikle 90 dakika içinde tamamlanır. 
+> Azure CDN yapılandırma değişiklikleri ağ üzerinden yayılması biraz zaman alabilir: 
+- **Microsoft’tan Azure CDN Standart** profilleri için yayma işlemi genellikle 10 dakikada tamamlanır. 
+- **Akamai’den Azure CDN Standart** profilleri için yayma işlemi genellikle bir dakika içinde tamamlanır. 
+- İçin **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** profilleri, yayma işlemi genellikle 10 dakika içinde tamamlanır. 
 >
 > Sıkıştırma için CDN uç noktanız ilk kez ayarlama, 1-2 sıkıştırma ayarları Pop'lere yayılmadan olmak için sorun giderme önce saat bekleyen düşünün.
 > 
@@ -75,7 +76,7 @@ Standart ve premium CDN katmanları için sıkıştırma işlevsellik sağlasa d
 
 1. CDN profili sayfasından seçin **Yönet**.
    
-    ![CDN seçimi yönetme](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![CDN yönetmenize seçin](./media/cdn-file-compression/cdn-manage-btn.png)
    
     CDN Yönetim Portalı'nı açar.
 2. Üzerine gelerek **HTTP büyük** sekmesini ve ardından üzerine gelerek **önbellek ayarları** çıkma. Seçin **sıkıştırma**.

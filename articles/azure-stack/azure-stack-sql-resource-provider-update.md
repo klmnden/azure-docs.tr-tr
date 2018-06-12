@@ -1,6 +1,6 @@
 ---
-title: SQL veritabanları Azure yığında kullanarak | Microsoft Docs
-description: SQL veritabanları Azure yığını ve hızlı adımlar SQL Server Kaynak sağlayıcısı bağdaştırıcısı dağıtmak için bir hizmet olarak nasıl dağıtabileceğini öğrenin.
+title: Azure yığın SQL kaynak sağlayıcısı güncelleştirme | Microsoft Docs
+description: Azure yığın SQL kaynak sağlayıcısı nasıl güncelleştirebileceğinizi öğrenin.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fd1c2241fe22dc35ceb09e0ba3650fa0000a77b1
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 3a7656e54181c8e8e7b6b1bd39f80ce8ed01c807
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603625"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294869"
 ---
-# <a name="update-the-sql-resource-provider-adapter"></a>SQL kaynak sağlayıcısı bağdaştırıcısını güncelleştir
-Azure yığın derlemeleri güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı bağdaştırıcısı yayımlanan. Varolan bağdaştırıcısı çalışmaya devam ederken, en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir. Güncelleştirmeleri sırayla yüklü olmalıdır: sürümleri atlayamazsınız (sürümleri listesinde bkz [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
+# <a name="update-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını güncelle
+Azure yığın derlemeleri güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı yayımlanan. Varolan bağdaştırıcısı çalışmaya devam ederken, en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir. Güncelleştirmeleri sırayla yüklü olmalıdır: sürümleri atlayamazsınız (sürümleri listesinde bkz [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
 
 Kullandığınız kaynak sağlayıcısı güncelleştirmek için *UpdateSQLProvider.ps1* komut dosyası. İşlem bölümünde açıklandığı gibi bir kaynak Sağlayıcısı'nı yüklemek için kullanılan işlem benzer [kaynak sağlayıcısı dağıtmak](.\azure-stack-sql-resource-provider-deploy.md) makalesi. Betik kaynak sağlayıcısı yükleme ile dahil edilir.
 

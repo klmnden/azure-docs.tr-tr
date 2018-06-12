@@ -14,11 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292900"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?
 Çoklu oturum açma tüm uygulamaları ve iş, yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak yapmak için gereken kaynaklar erişebildiklerinden anlamına gelir. Oturum açıldıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazın) ikinci kez.
@@ -58,7 +59,7 @@ Bu senaryoda, zaten Azure AD ile oturumunuz açıldı ve bir üçüncü taraf Sa
 
 Azure AD Federasyon çoklu oturum açma, WS-Federation, SAML 2.0 destekleyen uygulamalarla destekleyebilir veya Openıd connect protokoller.
 
-Ayrıca bkz: [için sertifikaları yönetme federe çoklu oturum açma](../active-directory-sso-certs.md)
+Ayrıca bkz: [için sertifikaları yönetme federe çoklu oturum açma](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>Parola tabanlı çoklu oturum açma
 Parola tabanlı çoklu oturum açma yapılandırma üçüncü taraf SaaS uygulamasının kullanıcı hesabı bilgilerini kullanarak Azure AD tarafından bir üçüncü taraf SaaS uygulamasına otomatik olarak oturum açmanız ve kuruluşunuzdaki kullanıcıların sağlar. Bu özelliği etkinleştirdiğinizde, Azure AD toplar ve kullanıcı hesabı bilgilerini ve ilişkili parolayı güvenli bir şekilde depolar.
@@ -193,7 +194,7 @@ Office 365 ve erişim paneli aynı erişim denetimi mekanizmaları bu bağlantı
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](../active-directory-saas-tutorial-list.md)
 * [Cloud App Discovery ile bulut uygulamaları tasdik bulma](cloud-app-discovery.md)
-* [Uygulamalara erişimi yönetme giriş](../active-directory-managing-access-to-apps.md)
+* [Uygulamalara erişimi yönetme giriş](what-is-access-management.md)
 * [Dış kimlikler Azure AD'de yönetmek için özellikleri karşılaştırma](../active-directory-b2b-compare-b2c.md)
 
 

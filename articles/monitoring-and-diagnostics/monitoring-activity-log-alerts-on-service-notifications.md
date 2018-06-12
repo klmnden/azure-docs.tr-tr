@@ -1,22 +1,19 @@
 ---
-title: Etkinlik günlüğü uyarıları Azure hizmeti bildirimleri alma | Microsoft Docs
+title: Etkinlik günlüğü uyarıları Azure hizmeti bildirimleri alma
 description: Azure hizmet ortaya çıktığında, SMS, e-posta veya Web kancası aracılığıyla bilgi edinin.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/09/2018
 ms.author: johnkem
-ms.openlocfilehash: b4c4fdeb825bbcab54f074c5224140282a24d196
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: alerts
+ms.openlocfilehash: 01dc3a3c6489b694af26c78ae3b4756f3e8f00b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263125"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Etkinlik günlüğü Uyarıları hizmeti bildirimlerinin oluşturun.
 ## <a name="overview"></a>Genel Bakış
@@ -51,17 +48,22 @@ Azure Resource Manager şablonları kullanarak hizmet sistem durumu bildirimi uy
 
     !["Oluştur hizmet Sistem Durumu Uyarısı" komutu](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. Bir ad girin **etkinlik günlüğü uyarı adı** kutusuna ve sağlayan bir **açıklama**.
+4. Seçin **abonelik**, **Hizmetleri**, ve **bölgeleri** için uyarı almak istediğiniz.
 
-    !["Etkinlik günlüğü uyarı Ekle" iletişim kutusu](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-service-notification-new-action-group-sh.png)
+    !["Etkinlik günlüğü uyarı Ekle" iletişim kutusu](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
-5. **Abonelik** kutusuna geçerli aboneliğiniz ile autofills. Bu abonelik, etkinlik günlüğü uyarısı kaydetmek için kullanılır. Uyarı kaynağı bu aboneliğe dağıtılır ve etkinlik günlüğünde olayları izler.
+> [!NOTE]
+> Bu abonelik, etkinlik günlüğü uyarısı kaydetmek için kullanılır. Uyarı kaynağı bu aboneliğe dağıtılır ve etkinlik günlüğünde olayları izler.
 
-6. Seçin **kaynak grubu** uyarı kaynak oluşturulduğu içinde. Bu uyarı tarafından izlenen kaynak grubu değil. Bunun yerine, uyarı kaynağın bulunduğu kaynak grubu değil.
+5. Seçin **olay türleri** için uyarı almak istediğiniz: *hizmet sorunu*, *planlı Bakım*, ve *sistem durumu danışma* 
 
-7. **Olay kategorisi** kutusu otomatik olarak ayarlandığında **hizmet durumu**. İsteğe bağlı olarak, seçin **hizmet**, **bölge**, ve **türü** almak istediğiniz hizmet durumu bildirimlerine biri.
+6. Uyarı ayrıntıları girerek tanımlamak bir **uyarı kuralı adı** ve **açıklama**.
 
-8. Altında **aracılığıyla uyarı**seçin **yeni** eylem Grup düğmesi. Bir ad girin **eylem grup adı** kutu ve bir ad girin **kısa ad** kutusu. Kısa ad bu uyarı oluşturulduğunda, gönderilen bildirimleri başvuruluyor.
+7. Seçin **kaynak grubu** kaydedilmesi için uyarı almak istediğiniz.
+
+8. Seçerek yeni bir eylem grubu oluşturmak **yeni eylem grubu**. Bir ad girin **eylem grup adı** kutu ve bir ad girin **kısa ad** kutusu. Kısa ad bu uyarı oluşturulduğunda, gönderilen bildirimleri başvuruluyor.
+
+    ![Yeni bir eylem grubu oluşturun](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
 9. Alıcıları listesini alıcının sağlayarak tanımlayın:
 
@@ -71,7 +73,7 @@ Azure Resource Manager şablonları kullanarak hizmet sistem durumu bildirimi uy
 
     c. **Ayrıntılar**: seçilen eylem türüne bağlı olarak, bir telefon numarası, e-posta adresi, Web kancası URI, vb. girin.
 
-10. Seçin **Tamam** uyarı oluşturmak için.
+10. Seçin **Tamam** eylem grubu oluşturmak ve ardından **oluşturma uyarı kuralı** Uyarınız tamamlamak için.
 
 Birkaç dakika içinde uyarı etkindir ve oluşturma sırasında belirttiğiniz koşullara göre tetiklemek başlar.
 
@@ -86,9 +88,9 @@ Bilgi edinmek için nasıl [varolan sorunu yönetim sistemleri için Web kancas�
 
 1. 1 ile 7 hizmeti sistem durumu bildirimi oluşturmak için önceki bölümdeki adımları izleyin. 
 
-2. Altında **aracılığıyla uyarı**seçin **varolan** eylem Grup düğmesi. Uygun eylem grubunu seçin.
+2. Altında **tanımla eylem grubu**, tıklatın **seçme eylemi grup** düğmesi. Uygun eylem grubunu seçin.
 
-3. Seçin **Tamam** uyarı oluşturmak için.
+3. Seçin **Ekle** eylem grubu eklemek için ve ardından **oluşturma uyarı kuralı** Uyarınız tamamlamak için.
 
 Birkaç dakika içinde uyarı etkindir ve oluşturma sırasında belirttiğiniz koşullara göre tetiklemek başlar.
 

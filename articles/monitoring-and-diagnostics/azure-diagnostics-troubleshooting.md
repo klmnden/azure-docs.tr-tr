@@ -1,24 +1,20 @@
 ---
-title: "Azure tanılama sorunlarını giderme | Microsoft Docs"
-description: "Azure Virtual Machines, Service Fabric veya Bulut Hizmetleri Azure tanılama kullanırken sorunlarını giderin."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Azure tanılama uzantısını sorunlarını giderme
+description: Azure Virtual Machines, Service Fabric veya Bulut Hizmetleri Azure tanılama kullanırken sorunlarını giderin.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263855"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure tanılama sorunlarını giderme
 Bu makalede Azure Tanılama'yı kullanarak için ilgili sorun giderme bilgileri açıklar. Azure Tanılama hakkında daha fazla bilgi için bkz: [Azure tanılama genel bakış](azure-diagnostics.md).
@@ -26,7 +22,7 @@ Bu makalede Azure Tanılama'yı kullanarak için ilgili sorun giderme bilgileri 
 ## <a name="logical-components"></a>Mantıksal bileşenleri
 **Tanılama eklentisi Başlatıcısı (DiagnosticsPluginLauncher.exe)**: Azure tanılama uzantısını başlatır. Giriş gören işlem gelin.
 
-**Diagnostics Plugin (DiagnosticsPlugin.exe)**: Configures, launches, and manages the lifetime of the monitoring agent. Bu başlatıcı tarafından başlatılan ana işlemidir.
+**Tanılama Eklentisi (DiagnosticsPlugin.exe)**: yapılandırır, başlatır ve İzleme Aracısı'nın ömrü yönetir. Bu başlatıcı tarafından başlatılan ana işlemidir.
 
 **İzleme aracısını (MonAgent\*.exe işlemler)**: izleyiciler, toplar ve tanılama veri aktarır.  
 
@@ -34,18 +30,18 @@ Bu makalede Azure Tanılama'yı kullanarak için ilgili sorun giderme bilgileri 
 Bazı önemli günlükleri ve yapıları yollara aşağıda verilmiştir. Biz, belgenin geri kalanında bu bilgilere bakın.
 
 ### <a name="azure-cloud-services"></a>Azure Cloud Services
-| Artifact | Yol |
+| Yapı | Yol |
 | --- | --- |
 | **Azure tanılama yapılandırma dosyası** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Günlük dosyaları** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
-| **Tanılama verileri için yerel depolama** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
-| **İzleme Aracısı Yapılandırma dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
+| **Tanılama verileri için yerel depolama** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Tables |
+| **İzleme Aracısı Yapılandırma dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure tanılama uzantısını paketi** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Günlük toplama yardımcı programı yolu** | %SystemDrive%\Packages\GuestAgent\ |
-| **MonAgentHost günlük dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
+| **MonAgentHost günlük dosyası** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< Rol adı >. DiagnosticStore\WAD0107\Configuration\MonAgentHost. < seq_num > .log |
 
 ### <a name="virtual-machines"></a>Sanal makineler
-| Artifact | Yol |
+| Yapı | Yol |
 | --- | --- |
 | **Azure tanılama yapılandırma dosyası** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Günlük dosyaları** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -68,7 +64,7 @@ Belirli ölçüm için hiçbir veri ise denetleyin **tanılama Yapılandırması
 - \Memory\Available Bytes
 - \ASP.NET uygulamaları (__toplam__) \Requests/Sec
 - \ASP.NET uygulamaları (__toplam__) \Errors toplam/sn
-- \ASP.NET\Requests Queued
+- \ASP.NET\Requests sıraya alındı
 - \ASP.NET\Requests reddetti
 - \Processor(W3wp)\% işlemci zamanı
 - \Process (w3wp) \Private bayt
@@ -122,7 +118,7 @@ Tanılama yapılandırması toplanacak bir veri türüne ilişkin yönergeler i�
 #### <a name="is-the-host-generating-data"></a>Ana bilgisayar veri üretiyor?
 - **Performans sayaçları**: perfmon açın ve sayaç denetleyin.
 
-- **İzleme günlükleri**: uzaktan erişim VM'de oturum ve bir olmalıdır uygulamanın yapılandırma dosyasına ekleyin.  Metin dinleyicisi Kur http://msdn.microsoft.com/library/sk36c28t.aspx bakın.  Emin olun `<trace>` öğeye sahip `<trace autoflush="true">`.<br />
+- **İzleme günlükleri**: uzaktan erişim VM'de oturum ve bir olmalıdır uygulamanın yapılandırma dosyasına ekleyin.  Bkz: http://msdn.microsoft.com/library/sk36c28t.aspx metin dinleyiciyi ayarlamak için.  Emin olun `<trace>` öğeye sahip `<trace autoflush="true">`.<br />
 Oluşturulan izleme günlükleri görmüyorsanız bkz [eksik izleme günlükleri hakkında daha fazla](#more-about-trace-logs-missing).
 
 - **ETW izlemeleri**: uzaktan erişim yükleme PerfView ve VM.  PerfView içinde çalıştırmak **dosya** > **kullanıcı komutu** > **dinleme etwprovder1** > **etwprovider2**ve benzeri. **Dinleme** komutu büyük küçük harfe duyarlı ve ETW sağlayıcılar virgülle ayrılmış listesi arasında boşluk olamaz. Çalıştırmak komutu başarısız olursa, seçebileceğiniz **günlük** düğmesi sayfanın sağ Perfview aracının ne çalıştırmayı denedi ve hangi sonuç bakın.  Girişin doğru olduğunu varsayarak, yeni bir pencere açılır. Birkaç saniye içinde ETW izlemeleri görmesini başlayın.

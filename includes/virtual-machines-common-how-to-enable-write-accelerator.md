@@ -5,14 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 5/9/2018
+ms.date: 6/8/2018
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 4db9fe907ab6625fcad74ceae59f17115458a3ea
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 21681a1af64754ef569f2ad4ff92f85a598007ac
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323791"
 ---
 # <a name="write-accelerator"></a>Hızlandırıcı yazma
 Hızlandırıcı bir disk özelliği için M-serisi sanal makinelerde (VM'ler) yönetilen Azure disklerle Premium depolama özel olarak yazma. Adını belirten, işlevselliği amacı Azure Premium Storage'a karşı yazma g/ç gecikmesi artırmak için aynıdır. Hızlandırıcı ideal burada günlük dosyası güncelleştirmelerini diske modern veritabanları için yüksek oranda kullanıcı şekilde kalıcı hale getirmek için gereken uygun yazma.
@@ -20,7 +21,7 @@ Hızlandırıcı bir disk özelliği için M-serisi sanal makinelerde (VM'ler) y
 Hızlandırıcı genel bulut M-serisi VM'ler için genel kullanıma açıktır yazma.
 
 ## <a name="planning-for-using-write-accelerator"></a>Hızlandırıcı yazma kullanmayı planlama
-Hızlandırıcı, işlem günlüğü içermiyor ya da bir DBMS günlüklerini Yinele birimlerini için kullanılması gereken yazma. Özellik günlük disklerde kullanılması için optimize edilmiştir olarak yazma Hızlandırıcı DBMS veri birimleri için kullanılmak üzere önerilmez.
+Hızlandırıcı işlem günlüğü içeren veya DBMS günlüklerini Yinele birimler için kullanılması gereken yazma. Özellik günlük disklerde kullanılması için optimize edilmiştir olarak yazma Hızlandırıcı DBMS veri birimleri için kullanılmak üzere önerilmez.
 
 Hızlandırıcı yalnızca çalışır birlikte yazma [Azure yönetilen diskleri](https://azure.microsoft.com/services/managed-disks/). 
 
@@ -35,24 +36,26 @@ Hızlandırıcı yalnızca çalışır birlikte yazma [Azure yönetilen diskleri
 > [!IMPORTANT]
 > VM işletim sistemi diski için yazma Hızlandırıcı etkinleştirme VM yeniden başlatılır. 
 
-İşletim sistemi diskleri için SAP gerekli olmamalıdır için yazma Hızlandırıcı etkinleştirme VM yapılandırmaları ilgili
+İşletim sistemi disklerin yazma Hızlandırıcı etkinleştirme SAP ilgili VM yapılandırmaları için gerekli olmamalıdır
 
 ### <a name="restrictions-when-using-write-accelerator"></a>Hızlandırıcı yazma kullanırken kısıtlamaları
 Hızlandırıcı yazma Azure bir disk/VHD için kullanırken bu kısıtlamalar geçerlidir:
 
-- Premium disk önbelleği 'None' ayarlanması gerekir ya da 'Salt okunur'. Diğer tüm önbelleğe alma modu desteklenmiyor.
+- Premium disk önbelleği 'None' olarak ayarlanmalıdır ya da 'Salt okunur'. Diğer tüm önbelleğe alma modu desteklenmiyor.
 - Yazma etkinleştirilmiş Hızlandırıcı disk üzerinde anlık görüntü henüz desteklenmiyor. Bu kısıtlama, Azure Backup hizmeti bir uygulamayla tutarlı anlık görüntü sanal makinenin tüm disklerinin gerçekleştirme yeteneğini engeller.
-- Küçük g/ç boyutları (< 32KiB =) hızlandırılmış yolu sürüyor. İş yükü verileri toplu mdan olduğu durumlarda yüklü olan veya depolama birimine kalıcı önce için büyük ölçüde doldurulmuş farklı DBMS işlem günlüğü arabelleklerini burada olasılığını yazılan g/ç disk hızlandırılmış yolu sürüyor değil.
+- Yalnızca küçük g/ç boyutları (< = 32 KiB) hızlandırılmış yolu sürüyor. İş yükü verileri toplu mdan olduğu durumlarda yüklü olan veya depolama birimine kalıcı önce için büyük ölçüde doldurulmuş farklı DBMS işlem günlüğü arabelleklerini burada olasılığını yazılan g/ç disk hızlandırılmış yolu sürüyor değil.
 
 Azure Premium Storage VHD'ler yazma Hızlandırıcı tarafından desteklenen VM başına sınırları vardır. Geçerli sınırlarını şunlardır:
 
 | VM SKU | Hızlandırıcı yazma disk sayısı | Hızlandırıcı Disk VM başına IOPS yazma |
 | --- | --- | --- |
-| M128ms | 16 | 8000 |
-| M128s | 16 | 8000 |
-| M64ms | 8 | 4000 |
-| M64s | 8 | 4000 | 
+| M128ms, 128s | 16 | 8000 |
+| M64ms, M64ls, M64s | 8 | 4000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 2000 | 
+| M16ms, M16s | 2 | 1000 | 
+| M8ms, M8s | 1 | 500 | 
 
+VM başına IOPS sınırları olduğundan ve *değil* disk başına. Tüm yazma Hızlandırıcı diskleri VM başına aynı IOPS sınırı paylaşır.
 ## <a name="enabling-write-accelerator-on-a-specific-disk"></a>Belirli bir disk üzerinde yazma Hızlandırıcı etkinleştirme
 Sonraki birkaç bölümler, yazma Hızlandırıcı Azure Premium Storage Vhd'lere nasıl etkinleştirilebilir anlatmaktadır.
 
@@ -63,29 +66,29 @@ Aşağıdaki Önkoşullar Bu anda yazma Hızlandırıcı kullanımı için geçe
 - Azure yazma Hızlandırıcı karşı uygulamak istediğiniz diskleri olmasına gerek [Azure yönetilen diskleri](https://azure.microsoft.com/services/managed-disks/) Premium depolama.
 - M-serisi VM kullanıyor olmanız gerekir
 
-### <a name="enabling-through-power-shell"></a>Power Shell etkinleştirme
+## <a name="enabling-azure-write-accelerator-using-azure-powershell"></a>Azure PowerShell kullanarak Azure yazma Hızlandırıcı etkinleştirme
 Azure Power Shell modülü 5.5.0 sürümünden etkinleştirme veya devre dışı yazma Hızlandırıcı belirli Azure Premium Storage diskler için ilgili cmdlet'leri değişiklikleri içerir.
 Aşağıdaki PowerShell komutlarını etkinleştirmek ya da yazma Hızlandırıcı tarafından desteklenen diskleri dağıtmak için değiştirildiği ve Hızlandırıcı yazmak için bir parametre kabul etmek için genişletilmiş.
 
 Yeni bir anahtar parametre "WriteAccelerator" aşağıdaki cmdlet'leri eklenen: 
 
-- Set-AzureRmVMOsDisk
-- Add-AzureRmVMDataDisk
-- Set-AzureRmVMDataDisk
-- Add-AzureRmVmssDataDisk
+- [Set-AzureRmVMOsDisk](https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-6.0.0)
+- [Add-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Set-AzureRmVMDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVMDataDisk?view=azurermps-6.0.0)
+- [Add-AzureRmVmssDataDisk](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Add-AzureRmVmssDataDisk?view=azurermps-6.0.0)
 
 Parametre vermiş değil özelliği false olarak ayarlar ve yazma Hızlandırıcı tarafından desteği yok diskleri dağıtacak.
 
 Yeni bir anahtar parametre "OsDiskWriteAccelerator" aşağıdaki cmdlet'leri eklenmiştir: 
 
-- Set-AzureRmVmssStorageProfile
+- [Set-AzureRmVmssStorageProfile](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile?view=azurermps-6.0.0)
 
-Paramenter vermiş değil özelliği false olarak ayarlar ve yazma Hızlandırıcı yararlanıyor mu diskleri teslim eder.
+Parametre vermiş değil özelliği false olarak ayarlar ve yazma Hızlandırıcı yararlanıyor mu diskleri teslim eder.
 
 Yeni bir isteğe bağlı Boolean (null) parametresi, "OsDiskWriteAccelerator" aşağıdaki cmdlet'leri eklenen: 
 
-- Update-AzureRmVM
-- Update-AzureRmVmss
+- [Update-AzureRmVM](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVM?view=azurermps-6.0.0)
+- [Update-AzureRmVmss](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Compute/Update-AzureRmVmss?view=azurermps-6.0.0)
 
 $True veya $false Azure yazma Hızlandırıcı destek disklerle denetlemek için belirtin.
 
@@ -158,26 +161,27 @@ VM, disk ve kaynak grubu adları uyarlamanız gerekir. Yukarıdaki komut dosyas�
 > [!Note]
 > Yukarıdaki komut dosyası yürütme belirtilen disk ayırma, yazma Hızlandırıcı karşı disk etkinleştirir ve diski yeniden ekleyin
 
-### <a name="enabling-through-azure-portal"></a>Azure portalı üzerinden etkinleştirme
+### <a name="enabling-azure-write-accelerator-using-the-azure-portal"></a>Azure Portalı'nı kullanarak Azure yazma Hızlandırıcı etkinleştirme
 
-Yazma Hızlandırıcı önbelleğe alma ayarları diskinizin belirlediğiniz Portalı aracılığıyla etkinleştirebilirsiniz: 
+Önbelleğe alma ayarları diskinizin belirlediğiniz portal yazma Hızlandırıcı etkinleştirebilirsiniz: 
 
 ![Azure Portal'da Hızlandırıcı yazma](./media/virtual-machines-common-how-to-enable-write-accelerator/wa_scrnsht.png)
 
-### <a name="enabling-through-azure-cli"></a>Azure CLI aracılığıyla etkinleştirme
+## <a name="enabling-through-azure-cli"></a>Azure CLI aracılığıyla etkinleştirme
 Kullanabileceğiniz [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/?view=azure-cli-latest) yazma Hızlandırıcı etkinleştirmek için. 
 
-Varolan bir diske yazma Hızlandırıcı etkinleştirmek için lütfen aşağıda diskName, VMName ve kaynak grubu kendi için değiştirerek komutunu kullanın: 
+Varolan bir diske yazma Hızlandırıcı etkinleştirmek için kullanın [az vm güncelleştirmesi](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), diskName, VMName ve kaynak grubu kendi için yerine, varsa, aşağıdaki örneklerde kullanabilirsiniz:
+ 
 ```
-az vm update -g group1 -n vm1 –write-accelerator 1=true
+az vm update -g group1 -n vm1 -write-accelerator 1=true
 ```
-Disk yazma Hızlandırıcı ile eklemek için kullanım etkin değerlerinizi komutuyla altında:
+Disk yazma Hızlandırıcı ile eklemek için kullanım etkin [az vm disk ekleme](https://docs.microsoft.com/en-us/cli/azure/vm/disk?view=azure-cli-latest#az-vm-disk-attach), içinde kendi değerlerinizi yerleştirin, aşağıdaki örnekte kullanabilirsiniz:
 ```
-az vm disk attach -g group1 –vm-name vm1 –disk d1 --enable-write-accelerator
+az vm disk attach -g group1 -vm-name vm1 -disk d1 --enable-write-accelerator
 ```
-Hızlandırıcı yazma devre dışı bırakmak için özelliğini false olarak ayarlayın: 
+Hızlandırıcı yazma devre dışı bırakmak için [az vm güncelleştirmesi](https://docs.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest#az-vm-update), özellikleri false olarak ayarlanırsa: 
 ```
-az vm update -g group1 -n vm1 –write-accelerator 0=false 1=false
+az vm update -g group1 -n vm1 -write-accelerator 0=false 1=false
 ```
 
 ### <a name="enabling-through-rest-apis"></a>REST API'leri aracılığıyla etkinleştirme

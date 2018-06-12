@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d27e687acf62e4a1e96f1bb49607618dff45512b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628513"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261687"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IOT merkezi uygulamanızda cihaz kümeleri kullanma
 
@@ -86,10 +86,40 @@ Cihaz kümenizi oluşturduktan sonra yapılandırabileceğiniz kendi **Pano**. *
 
     > [!NOTE]
     > Birden çok görüntüleri, bağlantılar ve kılavuzları ekleyebilirsiniz.
-
-1. Kapatma **Tasarım modunda**.
+  
+    1. Kapatma **Tasarım modunda**.
 
     ![Tasarım modunda devre dışı](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Konum eşleme Cihazınızı yapılandırma Panosu ayarlar 
+Bir harita aygıtlarınızı konumunu görselleştirmek için bir konum eşleme ayarlar ekleyebilirsiniz. 
+
+Konum eşleme, cihaz için cihaz şablonunuzda yapılandırılan konum özelliği Pano sahip olmanız gerekir ayarlar eklemek için bkz: [Azure haritalar tarafından desteklenen bir konum özelliği oluşturma](howto-set-up-template.md).
+
+
+1. Cihaz kümeleri Panoda kitaplıktan harita seçin. 
+
+    ![Cihaz Pano eşlemeleri ayarlar](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. Bir başlık verin ve cihaz özelliğinin bir parçası olarak daha önce yapılandırdığınız konum özelliği seçin.
+
+    ![Pano eşlemeleri yapılandırma](media/howto-use-device-sets/LocationMaps2.png)
+
+3. Kaydetme ve aygıt kümesinde aygıtlarınızı konumunu görüntüleme döşeme harita görürsünüz.
+
+    ![Pano eşlemeleri Kaydet](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. Bir işleç cihaz kümeleri Pano görüntülediğinde, kârlılığı tüm kutucukları görebilir artık bir bakışta tüm aygıtları konumu görselleştirmek için eşleme konumu da dahil olmak üzere yapılandırdığınız!
+
+    ![Pano eşlemeleri işleci görünümü](media/howto-use-device-sets/LocationMaps4.png)
+
+    İstenen boyuta eşlemeye yeniden boyutlandırma kuramaz.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>Listesi, cihaz kümesi için yapılandırın
 

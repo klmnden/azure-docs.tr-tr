@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
-ms.openlocfilehash: 523ef25fe0d3227d526acbdee2c7cf2660fc4f25
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294512"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Yerel kod ve test Azure işlevleri
 
@@ -63,9 +64,9 @@ Windows çekirdek araçlarını yüklemek için npm aşağıdaki adımları kull
 
 3. Çekirdek araçları paketini yükleyin:
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>MacOS Homebrew ile
 
@@ -73,9 +74,9 @@ Aşağıdaki adımları Homebrew üzerinde macOS çekirdek araçlarını yüklem
 
 1. Yükleme [macOS .NET Core 2.0](https://www.microsoft.com/net/download/macos).
 
-1. Yükleme [Homebrew](https://brew.sh/), henüz yüklü değilse.
+2. Yükleme [Homebrew](https://brew.sh/), henüz yüklü değilse.
 
-2. Çekirdek araçları paketini yükleyin:
+3. Çekirdek araçları paketini yükleyin:
 
     ```bash
     brew tap azure/functions
@@ -88,42 +89,43 @@ Aşağıdaki adımları kullanın [APT](https://wiki.debian.org/Apt) Ubuntu/Debi
 
 1. Yükleme [Linux için .NET Core 2.0](https://www.microsoft.com/net/download/linux).
 
-1. Microsoft ürün anahtarı güvenilir olarak kaydedin:
+2. Microsoft ürün anahtarı güvenilir olarak kaydedin:
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  Akış, paketini ayarlayın değiştirme `<version>` tablosundan uygun sürüm adı ile aşağıdaki komutta:
+3. Ubuntu server uygun sürümlerinden birini tablosundan çalışıp çalışmadığını denetleyin. Apt kaynak eklemek için çalıştırın:
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Linux dağıtım | `<version>` |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux Naneli 18    | `xenial`  |
+    | Linux dağıtım | Sürüm |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu 17.04    | `zesty`     |
+    | Ubuntu 16.04/Linux Naneli 18    | `xenial`  |
 
-3. Çekirdek araçları paketini yükleyin:
+4. Çekirdek araçları paketini yükleyin:
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure işlevleri çekirdek araçlarını çalıştırma
- 
+
 Azure işlevleri çekirdek araçları aşağıdaki komut diğer adları ekler:
-* **FUNC**
-* **azfun**
-* **azurefunctions**
+
++ **FUNC**
++ **azfun**
++ **azurefunctions**
 
 Bu diğer adları hiçbirini kullanılabilir nerede `func` örneklerde gösterilmiştir.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -133,13 +135,13 @@ Yerel olarak çalıştırırken, işlevleri proje dosyaları içeren bir dizindi
 
 Terminal penceresi veya bir komut isteminden, proje ve yerel Git deposu oluşturmak için aşağıdaki komutu çalıştırın:
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 Çıktı aşağıdaki gibi görünür:
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -151,7 +153,7 @@ Yerel bir Git deposu olmadan projesi oluşturmak için kullanın `--no-source-co
 
 ## <a name="register-extensions"></a>Uzantılarını kaydetme
 
-Sürümünde 2.x Azure işlevleri çalışma zamanı açıkça kaydetmeniz gerekir [uzantıları bağlama](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) işlevi uygulamanızda kullanan. 
+Sürümünde 2.x Azure işlevleri çalışma zamanına sahip açıkça işlevi uygulamanızda kullandığınız bağlama uzantılar (bağlama türleri) kaydetmek.
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -165,8 +167,9 @@ Dosya local.settings.json uygulama ayarları, bağlantı dizeleri ve Azure işle
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -177,16 +180,17 @@ Dosya local.settings.json uygulama ayarları, bağlantı dizeleri ve Azure işle
   }
 }
 ```
+
 | Ayar      | Açıklama                            |
 | ------------ | -------------------------------------- |
 | **Isencrypted** | Ayarlandığında **doğru**, tüm değerleri yerel makine anahtarı kullanılarak şifrelenir. İle kullanılan `func settings` komutları. Varsayılan değer **false**. |
-| **Değerler** | Uygulama ayarlarını yerel olarak çalıştırırken kullanılan koleksiyonu. **AzureWebJobsStorage** ve **AzureWebJobsDashboard** örnekler; tam bir listesi için bkz: [uygulama ayarları başvurusu](functions-app-settings.md). Birçok Tetikleyicileri ve bağlamaları gibi bir uygulama ayarı için başvuran özelliğine sahip **bağlantı** Blob Depolama tetikleyici için. Tür özellikleri için tanımlanan bir uygulama ayarı gereksinim **değerleri** dizi. Bu değer yüzde işaretleri, örneğin kaydırma tarafından bir uygulama ayarı adı için ayarladığınız herhangi bir bağlama özelliği için de geçerlidir `%AppSettingName%`. |
-| **Ana Bilgisayar** | Bu bölümdeki ayarlarını işlevleri ana bilgisayar işlemi yerel olarak çalıştırırken özelleştirin. | 
+| **Değerler** | Uygulama ayarları ve yerel olarak çalıştırırken kullanılan bağlantı dizeleri koleksiyonu. Bu uygulama ayarlarında, azure'da işlevi uygulamanız gibi karşılık gelen **AzureWebJobsStorage** ve **AzureWebJobsDashboard**. Birçok Tetikleyicileri ve bağlamaları gibi bağlantı dizesi uygulama ayarı için başvuran özelliğine sahip **bağlantı** için [Blob Depolama tetikleyici](functions-bindings-storage-blob.md#trigger---configuration). Tür özellikleri için tanımlanan bir uygulama ayarı gereksinim **değerleri** dizi. <br/>**AzureWebJobsStorage** HTTP dışında Tetikleyiciler için gerekli uygulama ayarıdır. Olduğunda [Azure storage öykünücüsü](../storage/common/storage-use-emulator.md) ayarlayabileceğiniz yerel olarak yüklenmiş **AzureWebJobsStorage** için `UseDevelopmentStorage=true` ve çekirdek araçları öykünücüsü kullanır. Bu geliştirme sırasında yararlıdır, ancak dağıtmadan önce gerçek depolama bağlantısı ile test etmeniz gerekir. |
+| **Ana Bilgisayar** | Bu bölümdeki ayarlarını işlevleri ana bilgisayar işlemi yerel olarak çalıştırırken özelleştirin. |
 | **LocalHttpPort** | Yerel işlevler ana çalıştırırken kullanılan varsayılan bağlantı noktasını ayarlar (`func host start` ve `func run`). `--port` Komut satırı seçeneği bu değerin üzerine göre önceliklidir. |
 | **CORS** | İzin verilen çıkış noktası tanımlar [çıkış noktaları arası kaynak paylaşımı (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Çıkış boşluk virgülle ayrılmış bir liste olarak sağlanır. Joker karakter değeri (\*) desteklenir, her türlü kaynağa gelen isteklere izin verir. |
-| **ConnectionStrings** | İşlevlerinizi için veritabanı bağlantı dizelerini içerir. Bu nesne bağlantı dizeleri, sağlayıcı türü ortamıyla eklenir **System.Data.SqlClient**.  | 
+| **ConnectionStrings** | Bu koleksiyon, işlev bağlamaları tarafından kullanılan bağlantı dizeleri için kullanmayın. Bu koleksiyon yalnızca bağlantı dizeleri almalısınız çerçeveleri tarafından kullanılan **ConnectionStrings** gibi bir yapılandırma bölümünü dosya [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Bu nesne bağlantı dizeleri, sağlayıcı türü ortamıyla eklenir [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Bu koleksiyondaki öğeler için Azure diğer uygulama ayarlarıyla yayımlanmaz. Bu değerleri açıkça eklemelidir **bağlantı dizeleri** bölümünü **uygulama ayarları** işlevi uygulamanız için. |
 
-Bu ayarlar, ortam değişkenleri olarak kodunuzda de okunabilir. Daha fazla bilgi için bu dile özgü başvuru konuları ortam değişkenleri bölümüne bakın:
+İşlev uygulama ayarlarının değerleri, ortam değişkenleri olarak kodunuzda de okunabilir. Daha fazla bilgi için bu dile özgü başvuru konuları ortam değişkenleri bölümüne bakın:
 
 + [C# önceden derlenmiş](functions-dotnet-class-library.md#environment-variables)
 + [C# betik (.csx)](functions-reference-csharp.md#environment-variables)
@@ -194,26 +198,37 @@ Bu ayarlar, ortam değişkenleri olarak kodunuzda de okunabilir. Daha fazla bilg
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-Local.settings.json dosyasındaki ayarları, yalnızca yerel olarak çalıştırırken işlevleri araçları tarafından kullanılır. Projeyi Azure'a yayımlandığında varsayılan olarak, bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, azure'da işlev uygulaması eklenir emin olmak için.
+Local.settings.json dosyasındaki ayarları, yalnızca yerel olarak çalıştırırken işlevleri araçları tarafından kullanılır. Projeyi Azure'a yayımlandığında varsayılan olarak, bu ayarlar otomatik olarak geçirilmez. Kullanım `--publish-local-settings` geçiş [yayımladığınızda](#publish) bu ayarlar, azure'da işlev uygulaması eklenir emin olmak için. Değerler **ConnectionStrings** hiçbir zaman yayımlanır.
 
-İçin hiç geçerli bir depolama bağlantı dizesi ayarlandığında **AzureWebJobsStorage**, aşağıdaki hata iletisi gösterilir:  
+İçin hiç geçerli bir depolama bağlantı dizesi ayarlandığında **AzureWebJobsStorage** ve öykünücü kullanılmadığından, aşağıdaki hata iletisi gösterilir:  
 
 >Local.settings.json eksik değeri AzureWebJobsStorage için. Bu, HTTP dışındaki tüm tetikleyiciler için gereklidir. Çalıştırabilirsiniz ' func azure functionapp fetch-app-settings <functionAppName>' veya local.settings.json içinde bir bağlantı dizesini belirtin.
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### <a name="configure-app-settings"></a>Uygulama ayarlarını yapılandırma
+### <a name="get-your-storage-connection-strings"></a>Depolama bağlantı dizelerinizi Al
 
-Bağlantı dizeleri için bir değer ayarlamak için aşağıdaki seçeneklerden birini yapabilirsiniz:
-* Bağlantı dizesi girin [Azure Storage Gezgini](http://storageexplorer.com/).
-* Aşağıdaki komutlardan birini kullanın:
+Depolama öykünücüsü geliştirme için kullanıldığında, bile, gerçek depolama bağlantısı ile test etmek isteyebilirsiniz. Zaten sahip olduğu varsayılarak [bir depolama hesabı oluşturuldu](../storage/common/storage-create-storage-account.md), geçerli bir depolama bağlantı dizesi aşağıdaki yollardan biriyle alabilirsiniz:
 
-    ```
++ Gelen [Azure portal]. Depolama hesabınıza, select gidin **erişim anahtarları** içinde **ayarları**, aşağıdakilerden birini kopyalamak **bağlantı dizesi** değerleri.
+
+  ![Azure portalından bağlantı dizesini kopyalayın](./media/functions-run-local/copy-storage-connection-portal.png)
+
++ Kullanım [Azure Storage Gezgini](http://storageexplorer.com/) Azure hesabınıza bağlanmak için. İçinde **Explorer**aboneliğinizi genişletin, depolama hesabınızı seçin ve birincil veya ikincil bağlantı dizesini kopyalayın. 
+
+  ![Depolama Gezgini'nde bağlantı dizesini kopyalayın](./media/functions-run-local/storage-explorer.png)
+
++ Bağlantı dizesi Azure aşağıdaki komutlardan birini ile indirebilir çekirdek araçları kullanın:
+
+    + Tüm ayarlar, var olan bir işlev uygulaması yükleyin:
+
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```
+    + Bağlantı dizesi, belirli bir depolama hesabı için alın:
+
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     Her iki komutları azure'a ilk oturum açma için gerektirir.
 
 <a name="create-func"></a>
@@ -221,7 +236,7 @@ Bağlantı dizeleri için bir değer ayarlamak için aşağıdaki seçeneklerden
 
 Bir işlev oluşturmak için aşağıdaki komutu çalıştırın:
 
-```
+```bash
 func new
 ``` 
 `func new` Aşağıdaki isteğe bağlı bağımsız değişkenler destekler:
@@ -234,21 +249,21 @@ func new
 
 Örneğin, bir JavaScript HTTP tetikleyicisi oluşturmak için çalıştırın:
 
-```
+```bash
 func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 Sıra tetiklenen bir işlev oluşturmak için çalıştırın:
 
-```
+```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```
+```bash
 <a name="start"></a>
-## <a name="run-functions-locally"></a>İşlevler yerel olarak çalıştırma
+## Run functions locally
 
-İşlevler proje çalıştırmak için işlevleri konak çalıştırın. Ana bilgisayar için projedeki tüm işlevleri Tetikleyicileri sağlar:
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
@@ -267,7 +282,7 @@ func host start
 
 İşlevler ana bilgisayar başladığında, URL, HTTP tetiklemeli işlevleri çıkarır:
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -275,7 +290,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="debug-in-vs-code-or-visual-studio"></a>VS Code'u veya Visual Studio'da hata ayıklama
+### <a name="vs-debug"></a>VS Code'u veya Visual Studio'da hata ayıklama
 
 Bir hata ayıklayıcısı eklemeniz için geçmesi `--debug` bağımsız değişkeni. JavaScript işlevleri hata ayıklamak için Visual Studio Code kullanın. C# işlevleri için Visual Studio'yu kullanın.
 
@@ -283,7 +298,7 @@ C# işlevleri hata ayıklamak için kullanmak `--debug vs`. Aynı zamanda [Azure
 
 Ana bilgisayar'ı başlatın ve JavaScript hata ayıklama kurulumu için çalıştırın:
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -313,12 +328,12 @@ Aynı sunucu adını ve işlevleri konak dinlediği bağlantı noktasını kulla
 
 Aşağıdaki cURL komutunu Tetikleyicileri `MyHttpTrigger` olan bir GET isteğine hızlı başlangıç işlevinden _adı_ parametresine geçirilen sorgu dizesi içinde. 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 Aşağıdaki örnek, bir POST isteğini geçirme adlı aynı işlevidir _adı_ istek gövdesindeki:
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -340,7 +355,7 @@ Bir işlev yönetici uç noktasına test veri iletmek için bir POST isteği ile
 ```` 
 `<trigger_input>` İşlevi tarafından beklenen biçimde veri değeri içeriyor. POST aşağıdaki cURL örnektir bir `QueueTriggerJS` işlevi. Bu durumda, giriş sırada bulunması beklenen iletisi eşdeğer bir gruba bir dizedir.      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -363,7 +378,7 @@ Bir işlev doğrudan kullanarak da çağırabilirsiniz `func run <FunctionName>`
 
 Örneğin, bir HTTP tetiklemeli işlevini çağırın ve İçerik gövdesi geçirmek için aşağıdaki komutu çalıştırın:
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -375,7 +390,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Bir işlev uygulaması Azure işlevleri proje yayımlamak için kullanın `publish` komutu:
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -383,7 +398,7 @@ Aşağıdaki seçenekleri kullanabilirsiniz:
 
 | Seçenek     | Açıklama                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  Yayımlama ayarları local.settings.json üzerine isteyen Azure içinde ayarı zaten mevcut.|
+| **`--publish-local-settings -i`** |  Yayımlama ayarları local.settings.json üzerine isteyen Azure içinde ayarı zaten mevcut. Depolama öykünücüsü kullanıyorsanız, uygulama ayarının değiştirme bir [gerçek depolama bağlantısı](#get-your-storage-connection-strings). |
 | **`--overwrite-settings -y`** | İle birlikte kullanılmalıdır `-i`. Azure AppSettings farklı olması durumunda ile yerel değerin üzerine yazar. Komut istemi varsayılandır.|
 
 Bu komut var olan bir işlev uygulamaya azure'da yayımlar. Bir hata oluşursa, `<FunctionAppName>` aboneliğinizde yok. Komut istemi veya terminal penceresinden Azure CLI kullanarak bir işlev uygulaması oluşturmayı öğrenmek için bkz: [sunucusuz yürütme için bir işlev uygulaması oluşturma](./scripts/functions-cli-create-serverless.md).
@@ -406,6 +421,6 @@ Bir hata veya özellik isteği dosyasına [GitHub sorunu açmak](https://github.
 
 <!-- LINKS -->
 
-[Azure işlevleri çekirdek Araçları]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure işlevleri çekirdek araçları]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure portal]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows

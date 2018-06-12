@@ -1,30 +1,25 @@
 ---
-title: Azure portalında eylem gruplarını oluşturma ve yönetme | Microsoft Docs
+title: Azure portalında eylem gruplarını oluşturma ve yönetme
 description: Azure portalında eylem gruplarını oluşturma ve yönetme öğrenin.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263074"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure portalında eylem gruplarını oluşturma ve yönetme
 ## <a name="overview"></a>Genel Bakış ##
-Bu makalede, Azure portalında Eylem grupları oluşturmak ve yönetmek nasıl gösterilmektedir.
+Bir eylem grubu, kullanıcı tarafından tanımlanan bildirimi tercihlerinizi koleksiyonudur. Azure İzleyici ve hizmet durumu uyarıları, uyarı tetiklendiğinde, belirli bir eylemi grubunu kullanmak üzere yapılandırılır. Çeşitli uyarılar aynı eylem grup veya kullanıcının gereksinimlere bağlı olarak farklı eylem grupları kullanabilir.
 
-Eylem gruplarıyla eylemlerin bir listesini yapılandırabilirsiniz. Bu gruplar aynı eylemleri bir uyarı her tetiklenişinde alınır sağlama tanımlamak her uyarı tarafından kullanılabilir.
+Bu makalede, Azure portalında Eylem grupları oluşturmak ve yönetmek nasıl gösterilmektedir.
 
 Her eylem aşağıdaki özellikleri oluşur:
 
@@ -44,7 +39,7 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 3. Seçin **eylem Grup Ekle**ve alanları doldurun.
 
     !["Eylem Grup Ekle" komutu](./media/monitoring-action-groups/add-action-group.png)
-4. Bir ad girin **eylem grup adı** kutu ve bir ad girin **kısa ad** kutusu. Bu grubun kullanarak bildirimler gönderildiğinde kısa adı yerine bir tam eylem grup adı kullanılır.
+4. Bir ad girin **eylem grup adı** kutu ve bir ad girin **kısa ad** kutusu. Bu eylem grubu kullanılarak bildirim gönderildiğinde tam grup adı yerine kısa ad kullanılır.
 
       ![Eylem Grup Ekle"iletişim kutusu](./media/monitoring-action-groups/action-group-define.png)
 
@@ -69,7 +64,14 @@ Eylem grupları yapılandırmak için Azure Resource Manager şablonları kullan
 <dd>Şu anda Azure uygulaması eylem yalnızca ServiceHealth uyarıları destekler. Başka bir uyarı zaman yoksayılacak. Bkz: [hizmeti sistem durumu bildirimi gönderilen her uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).</dd>
 
 <dt>E-posta</dt>
-<dd>Bir eylem grubunda en fazla 50 e-posta eylemler olabilir</dd>
+<dd>E-postalar aşağıdaki e-posta adreslerini gönderilir. E-posta filtreleme uygun şekilde yapılandırıldığından emin olun
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>Bir eylem grubunda en fazla 1000 e-posta eylemler olabilir</dd>
 <dd>Bkz: [bilgileri sınırlama oranı](./monitoring-alerts-rate-limiting.md) makale</dd>
 
 <dt>ITSM</dt>

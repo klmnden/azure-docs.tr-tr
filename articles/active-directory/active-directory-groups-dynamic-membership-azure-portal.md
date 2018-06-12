@@ -14,11 +14,12 @@ ms.date: 05/17/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 4eda67f9c28a52667a34af175086be19b627f2ce
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 38f65804e9166a77278a11d545374461e6f6c38f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261126"
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory'de dinamik grup üyeliği için öznitelik tabanlı kurallar oluşturma
 Azure Active Directory (Azure AD), karmaşık öznitelik tabanlı gruplara yönelik dinamik üyelikler etkinleştirmek için Gelişmiş kurallar oluşturabilirsiniz. Bu makalede, öznitelikleri ve kullanıcılar veya cihazlar için dinamik Üyelik kuralları oluşturmak için sözdizimi ayrıntıları. Güvenlik gruplarında veya Office 365 gruplarında dinamik üyelik için bir kural ayarlayabilirsiniz.
@@ -110,7 +111,7 @@ eşdeğerdir:
 
 Bir dizi farklı değerlere karşı bir kullanıcı özniteliğinin değeri karşılaştırma yapmak isterseniz kullanabileceğiniz içinde ya da - notIn işleçler. Örneği kullanarak işlecinde:
 ```
-    user.department -In [ "50001", "50002", "50003", “50005”, “50006”, “50007”, “50008”, “50016”, “50020”, “50024”, “50038”, “50039”, “51100” ]
+   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
 Kullanımına dikkat edin "[" ve "]" başında ve, değerler listesinin sonuna. Bu durum, user.department eşittir listesindeki değerlerin birini değeri true olarak değerlendirilir.
 
@@ -158,12 +159,12 @@ Gelişmiş kuralınız kullanabileceğiniz tüm kullanıcı özellikleri şunlar
 | Ülke |Herhangi bir dize değeri veya *null* |(Resource.country - eq "value") |
 | Şirket adı | Herhangi bir dize değeri veya *null* | (user.companyName - eq "value") |
 | bölüm |Herhangi bir dize değeri veya *null* |(user.department - eq "value") |
-| Görünen adı |Herhangi bir dize değeri |(user.displayName - eq "value") |
+| displayName |Herhangi bir dize değeri |(user.displayName - eq "value") |
 | EmployeeID |Herhangi bir dize değeri |(user.employeeId - eq "value")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Herhangi bir dize değeri veya *null* |(user.facsimileTelephoneNumber - eq "value") |
 | givenName |Herhangi bir dize değeri veya *null* |(user.givenName - eq "value") |
 | İş Unvanı |Herhangi bir dize değeri veya *null* |(user.jobTitle - eq "value") |
-| Posta |Herhangi bir dize değeri veya *null* (kullanıcının SMTP adresi) |(user.mail - eq "value") |
+| posta |Herhangi bir dize değeri veya *null* (kullanıcının SMTP adresi) |(user.mail - eq "value") |
 | mailNickName |Herhangi bir dize değeri (kullanıcı diğer adı posta) |(user.mailNickName - eq "value") |
 | Mobil |Herhangi bir dize değeri veya *null* |(user.mobile - eq "value") |
 | objectId |Kullanıcı nesnesinin GUID |(user.objectId - eq "11111111-1111-1111-1111-111111111111") |
@@ -270,7 +271,7 @@ Bir gruptaki üyelik için cihaz nesnelerinin seçen bir kural oluşturabilirsin
  Cihaz özniteliği  | Değerler | Örnek
  ----- | ----- | ----------------
  accountEnabled | doğru false | (device.accountEnabled - eq true)
- Görünen adı | Herhangi bir dize değeri |(device.displayName - eq "Ramiz Iphone")
+ displayName | Herhangi bir dize değeri |(device.displayName - eq "Ramiz Iphone")
  deviceOSType | Herhangi bir dize değeri | (device.deviceOSType - eq "iPad")- veya (device.deviceOSType - eq "iPhone")
  DeviceOSVersion | Herhangi bir dize değeri | (cihazı. OSVersion - eq "9.1")
  deviceCategory | Geçerli bir aygıt kategori adı | (device.deviceCategory - eq "KCG")

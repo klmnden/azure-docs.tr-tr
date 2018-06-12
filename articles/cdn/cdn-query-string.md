@@ -4,7 +4,7 @@ description: Azure CDN sorgu dizesini önbelleğe alma denetimleri web isteğine
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 17410e4f-130e-489c-834e-7ca6d6f9778d
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: fcb4676325066dd6960070d996b1779fb3471dd9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: aa553dfc04a755be1169fa117ec66dd10ea75b54
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260440"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---standard-tier"></a>Denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle - standart katmanı
 > [!div class="op_single_selector"]
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 > 
 
 ## <a name="overview"></a>Genel Bakış
-Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web isteği için nasıl önbelleğe kontrol edebilirsiniz. Sorgu dizesi olan bir web isteğinde sorgu dizesi, bir soru işareti (?) sonra oluşan istek bölümüdür. Bir sorgu dizesi alan adını ve değerini bir eşittir işareti (=) tarafından ayrılır bir veya daha fazla anahtar-değer çiftleri içerebilir. Her anahtar-değer çifti ampersan tarafından ayrılmış (&). Örneğin http:\//www.contoso.com/content.mov?field1=value1 & alan2 Value2. Bir isteğin sorgu dizesi içinde birden fazla anahtar-değer çifti varsa, bunların sırası önemli değildir. 
+Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web isteği için nasıl önbelleğe kontrol edebilirsiniz. Sorgu dizesi olan bir web isteğinde sorgu dizesi, bir soru işareti (?) sonra oluşan istek bölümüdür. Bir sorgu dizesi alan adını ve değerini bir eşittir işareti (=) tarafından ayrılır bir veya daha fazla anahtar-değer çiftleri içerebilir. Her anahtar-değer çifti ampersan tarafından ayrılmış (&). Örneğin, http:\//www.contoso.com/content.mov?field1=value1 & alan2 Value2. Bir isteğin sorgu dizesi içinde birden fazla anahtar-değer çifti varsa, bunların sırası önemli değildir. 
 
 > [!IMPORTANT]
 > Azure CDN standart ve premium ürünleri aynı sorgu dizesini önbelleğe alma işlevselliğini sağlar, ancak kullanıcı arabirimi farklıdır. Bu makalede arabirim için **Azure CDN standart Microsoft**, **akamai'den Azure CDN standart** ve **verizon'dan Azure CDN standart**. İle sorgu dizesi önbelleğe alma için **verizon'dan Azure CDN Premium**, bkz: [denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle - premium katmanı](cdn-query-string-premium.md).
@@ -50,17 +51,17 @@ Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web is
    
 2. Sol bölmede ayarları altında tıklatın **kuralları önbelleğe alma**.
    
-    ![Kuralları düğmesini CDN önbelleğe alma](./media/cdn-query-string/cdn-caching-rules-btn.png)
+    ![CDN Önbelleğe alma kuralları düğmesi](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. İçinde **sorgu dizesini önbelleğe alma davranışı** listesinde, bir sorgu dizesi modunu seçin ve ardından **kaydetmek**.
    
    ![CDN sorgu dizesini önbelleğe alma seçenekleri](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
-> Kaydın yayılması zaman alır çünkü önbelleği dize ayarları değişiklikleri hemen görünür olmayabilir:
-> - İçin **Azure CDN standart Microsoft** profilleri yayma genellikle on dakika içinde tamamlanır. 
-> - İçin **akamai'den Azure CDN standart** profilleri yayma işlemi genellikle bir dakika içinde tamamlanır. 
-> - İçin **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** profilleri yayma işlemi genellikle 90 dakika içinde tamamlanır. 
+> Kaydın Azure yayılması zaman alır çünkü önbelleği dize ayarları değişiklikleri hemen görünür olmayabilir:
+> - **Microsoft’tan Azure CDN Standart** profilleri için yayma işlemi genellikle 10 dakikada tamamlanır. 
+> - **Akamai’den Azure CDN Standart** profilleri için yayma işlemi genellikle bir dakika içinde tamamlanır. 
+> - İçin **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** profilleri, yayma işlemi genellikle 10 dakika içinde tamamlanır. 
 
 
 

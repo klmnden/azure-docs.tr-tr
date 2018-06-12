@@ -10,7 +10,7 @@
 | Orta Kuzey ABD    | 3                       |
 | Orta Güney ABD    | 3                       |
 | Batı Orta ABD     | 2                       |
-| Orta Kanada      | 2                       |
+| Orta Kanada      | 3                      |
 | Doğu Kanada         | 2                       |
 |                     |                         |
 | Kuzey Avrupa        | 3                       |

@@ -1,11 +1,11 @@
 ---
-title: "RSS Bağlayıcısı Azure Logic Apps içinde | Microsoft Docs"
-description: "Logic apps ile Azure uygulama hizmeti oluşturun. RSS Bağlayıcısı kullanıcıların yayımlama ve akış öğelerini almak olanak sağlar. Ayrıca, kullanıcıların akışa yeni bir öğe yayımlandığında işlemleri tetiklemesini olanak sağlar."
+title: RSS Bağlayıcısı Azure Logic Apps içinde | Microsoft Docs
+description: Logic apps ile Azure uygulama hizmeti oluşturun. RSS Bağlayıcısı kullanıcıların yayımlama ve akış öğelerini almak olanak sağlar. Ayrıca, kullanıcıların akışa yeni bir öğe yayımlandığında işlemleri tetiklemesini olanak sağlar.
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 493ee8a961e5d5a57c6276868a55b524dec28018
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 268fa6d260f1107659208ea07ce3e43c27eca2d3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295736"
 ---
 # <a name="get-started-with-the-rss-connector"></a>RSS Bağlayıcısı ile çalışmaya başlama
 RSS – blog girdileri ve haber başlıklarına gibi sık güncelleştirilen içerik yayımlamak için kullanılan bir popüler web dağıtım biçimidir.  Birçok içerik yayımcılarının bir RSS akışına abone yapmalarına izin vermek için sağlar.  Yeni öğeler bir RSS akışı yayımlandığında akış bilgileri ve tetikleyici akışlarını almak için RSS Bağlayıcısı'nı kullanın.

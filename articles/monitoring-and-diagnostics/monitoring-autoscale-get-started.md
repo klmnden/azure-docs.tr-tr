@@ -1,24 +1,19 @@
 ---
-title: "Otomatik ölçeklendirme Azure kullanmaya başlama | Microsoft Docs"
-description: "Azure'da kaynağınız ölçeklendirmek öğrenin."
+title: Otomatik ölçeklendirme Azure kullanmaya başlama
+description: Kaynak Web uygulaması ölçeklendirmek öğrenin, Azure'da bulut hizmeti, sanal makine veya sanal makine ölçek kümesi.
 author: rajram
-manager: rboucher
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: rajram
-ms.openlocfilehash: 84ce3af2bef1e3204ad91567d155d7cbf90e9c7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 2781e718e3829c13dcc8cdd998936cfba30d8550
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263655"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Otomatik ölçeklendirme Azure kullanmaya başlama
 Bu makalede, Microsoft Azure Portalı'nda, kaynak için otomatik ölçeklendirme ayarlarınızı ayarlama açıklar.
@@ -63,7 +58,7 @@ Her bir kaynağın geçerli örnek sayısına ve otomatik ölçeklendirme durum 
 
    Ölçek ayarını şimdi olmalıdır ölçek genişletme/ölçekler olduğunu içinde tabanlı CPU kullanımı.
    ![CPU üzerinde göre ölçeklendirin][8]
-5. **Kaydet** düğmesine tıklayın.
+5. **Kaydet**’e tıklayın.
 
 Tebrikler! İlk ölçek ayarınız web uygulamanızı CPU kullanım amaçlarına göre otomatik ölçeklendirme artık başarıyla oluşturdunuz.
 
@@ -93,7 +88,7 @@ CPU üzerinde göre ölçeklendirin yanı sıra, Ölçek farklı belirli tarihle
 ### <a name="view-the-scale-history-of-your-resource"></a>Kaynağınız ölçek geçmişini görüntüleyin
 Kaynağınız yukarı veya aşağı ölçeklendirilir her etkinlik günlüğünde bir olay kaydedilir. Geçerek son 24 saat için kaynağınız ölçek geçmişini görüntüleyebilirsiniz **çalıştırma geçmişi** sekmesi.
 
-![çalıştırma geçmişi][11]
+![Çalıştırma geçmişi][11]
 
 (En fazla 90 gün için) tam ölçek geçmişini görüntülemek isteyip istemediğinizi seçin **daha fazla ayrıntı görmek için burayı tıklatın**. Etkinlik günlüğü kaynak ve kategori için önceden seçilmiş otomatik ölçeklendirme ile açılır.
 

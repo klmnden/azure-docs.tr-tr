@@ -4,7 +4,7 @@ description: Azure CDN sorgu dizesini önbelleğe alma denetimleri web isteğine
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260843"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Denetim Azure CDN önbelleğe alma davranışını sorgu dizeleriyle - premium katmanı
 > [!div class="op_single_selector"]
 > * [Standart katman](cdn-query-string.md)
 > * [Premium katman](cdn-query-string-premium.md)
-> 
 > 
 
 ## <a name="overview"></a>Genel Bakış
@@ -63,6 +63,6 @@ Azure içerik teslim ağı (CDN), dosyaları bir sorgu dizesi içeren bir web is
 3. Bir sorgu dizesi modunu seçin ve ardından **güncelleştirme**.
 
 > [!IMPORTANT]
-> Kaydın yayılması zaman alır çünkü önbelleği dize ayarları değişiklikleri hemen görünür olmayabilir. İçin **verizon'dan Azure CDN Premium** profilleri yayma işlemi genellikle 90 dakika içinde tamamlanır.
+> Kaydın yayılması zaman alır çünkü önbelleği dize ayarları değişiklikleri hemen görünür olmayabilir. Yayma işlemi genellikle 10 dakika içinde tamamlanır.
  
 

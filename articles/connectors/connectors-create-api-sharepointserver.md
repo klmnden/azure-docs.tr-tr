@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps içinde SharePoint sunucusunu bağlayıcıyı kullanmak | Microsoft Docs"
-description: "Kullanmaya başlama Logic apps içinde SharePoint Server Bağlayıcısı"
+title: Logic Apps içinde SharePoint sunucusunu bağlayıcıyı kullanmak | Microsoft Docs
+description: Kullanmaya başlama Logic apps içinde SharePoint Server Bağlayıcısı
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 0238a060-d592-4719-b7a2-26064c437a1a
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: d342b3c4f84c5dab212b9327d6a72759934d0ae5
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: c153b4987e37a5d97b95d4f1249de1ed92e851b3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295953"
 ---
 # <a name="get-started-with-the-sharepoint-connector"></a>SharePoint Bağlayıcısı ile çalışmaya başlama
 SharePoint bağlayıcı listeleri SharePoint üzerinde çalışmak için bir yol sağlar.
@@ -31,7 +32,7 @@ SharePoint Bağlayıcısı'nı kullanmak için önce oluşturduğunuz bir **bağ
 
 | Özellik | Gerekli | Açıklama |
 | --- | --- | --- |
-| Belirteç |Evet |SharePoint kimlik bilgilerini sağlayın |
+| Belirteç |Evet |SharePoint Kimlik Bilgilerini belirtin |
 
 Bağlanmak için **SharePoint**, kimliğinizi (kullanıcı adı ve parola, akıllı kart kimlik bilgileri ve benzeri) girin. Kimlik doğruladınız sonra mantıksal uygulamanızı SharePoint Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
 

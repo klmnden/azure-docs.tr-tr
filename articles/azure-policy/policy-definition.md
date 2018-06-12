@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f864cf45b255ac26ccf0efac9a89683d1ae650b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34601267"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260490"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -192,7 +192,7 @@ Bir koşulu değerlendirir olup bir **alan** belirli kriterlere uyan. Desteklene
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Kullanırken **gibi** ve **notLike** koşullar, bir joker (*) değer sağlayabilir.
+Kullanırken **gibi** ve **notLike** koşullar, bir joker karakter sağlayabilir (*) değeri. Değer 1'den fazla joker karakter içermemesi gerekir (*).
 
 Kullanırken **eşleşen** ve **notMatch** koşullar sağlamak `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [birden çok adı desenleri izin](scripts/allow-multiple-name-patterns.md).
 

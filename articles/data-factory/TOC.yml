@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Öğreticiler
   items:
-    - name: 1 - SSIS paketlerini Azure'a dağıtma
+    - name: 1 - Azure-SSIS tümleştirmesi çalışma zamanı oluşturma
       items:
         - name: Kullanıcı arabirimi (UI)
           href: tutorial-deploy-ssis-packages-azure.md
@@ -362,7 +362,7 @@
           href: monitor-integration-runtime.md
         - name: Azure-SSIS tümleştirme çalışma zamanını izleme
           href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
-        - name: Azure SSIS tümleştirmesi çalışma zamanını yönetme
+        - name: Azure-SSIS tümleştirmesi çalışma zamanını yeniden yapılandırma
           href: manage-azure-ssis-integration-runtime.md
     - name: Tümleştirme çalışma zamanı oluşturma
       items:
@@ -374,7 +374,7 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure’da SSIS paketlerini çalıştırma
       items:
-        - name: Azure-SSIS IR’yi bir VNET'e ekleme
+        - name: Azure-SSIS IR’yi bir sanal ağa ekleme
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Azure SSIS IR için Azure AD kimlik doğrulamasını etkinleştirme
           href: enable-aad-authentication-azure-ssis-ir.md

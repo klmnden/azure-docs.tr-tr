@@ -3,7 +3,7 @@ title: İş akışı tanımlama dili işlevleri - Azure Logic Apps | Microsoft D
 description: Logic apps ile iş akışı tanımlama dili oluşturmak için işlevleri hakkında bilgi edinin
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 04/25/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: 8240ddf8a93c6589f89f3ad680c1c99c594742c9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6f1871e1e135ecb9e7cb37c0bedff3737d3febb7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301397"
 ---
 # <a name="workflow-definition-language-functions-reference-for-azure-logic-apps"></a>Azure mantıksal uygulamaları için iş akışı tanımlama dili işlevleri başvurusu
 
@@ -1450,7 +1451,7 @@ equals('<object1>', '<object2>')
 
 | Parametre | Gerekli | Tür | Açıklama | 
 | --------- | -------- | ---- | ----------- | 
-| <*object1*>, <*object2*> | Evet | Çeşitli | Değerleri, ifadeler veya karşılaştırmak için nesneleri | 
+| <*object1*>, <*object2*> | Evet | çeşitli | Değerleri, ifadeler veya karşılaştırmak için nesneleri | 
 ||||| 
 
 | Dönüş değeri | Tür | Açıklama | 
@@ -1509,7 +1510,7 @@ Ve bu sonuçları döndürür:
 
 <a name="float"></a>
 
-## <a name="float"></a>Kayan nokta
+## <a name="float"></a>float
 
 Kayan nokta sayısı için bir dize sürüm gerçek bir kayan nokta sayısı dönüştürün. Yalnızca özel parametreler bir mantıksal uygulama gibi bir uygulama için geçirirken bu işlevi kullanabilirsiniz.
 
@@ -1524,7 +1525,7 @@ float('<value>')
 
 | Dönüş değeri | Tür | Açıklama | 
 | ------------ | ---- | ----------- | 
-| <*float değeri*> | Kayan nokta | Belirtilen dize için kayan nokta sayısı | 
+| <*float değeri*> | Kayan | Belirtilen dize için kayan nokta sayısı | 
 |||| 
 
 *Örnek*
@@ -1825,7 +1826,7 @@ Ve bu sonucu döndürür: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-## <a name="if"></a>if
+## <a name="if"></a>Eğer
 
 Bir ifadenin true veya false olup olmadığını denetleyin. Sonucuna bağlı olarak, belirtilen bir değeri döndürür.
 
@@ -1967,7 +1968,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>JSON
+## <a name="json"></a>json
 
 JavaScript nesne gösterimi (JSON) türü değeri veya bir dize veya XML nesnesi döndürür.
 
@@ -2927,7 +2928,7 @@ Ve bu sonucu döndürür: `false`
 
 <a name="string"></a>
 
-## <a name="string"></a>string
+## <a name="string"></a>dize
 
 Dize sürümü için bir değer döndürür.
 
@@ -3109,7 +3110,7 @@ Ve bu sonuçları döndürür:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>işaretleri
+## <a name="ticks"></a>tık
 
 Dönüş `ticks` belirtilen bir zaman damgası için özellik değeri. A *onay* 100 nanosaniyelik aralık.
 

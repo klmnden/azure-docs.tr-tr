@@ -15,11 +15,12 @@ ms.workload: identity
 ms.date: 01/15/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ac3438f0c706988323318146965a87461dcce1e8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292846"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory alma uygulamaları ile tümleştirme Kılavuzu
 ## <a name="overview"></a>Genel Bakış
@@ -64,7 +65,7 @@ Bu soruların yanıtlarını Önden belki yok ancak Tamam olmasıdır.  Bu kıla
 Yukarıda belirtildiği gibi şimdiye kadar kuruluşunuz tarafından yönetilen henüz uygulamalar olabilir.  Envanteri işleminin bir parçası olarak, tasdik edilmemiş bulut uygulamalarını bulmak mümkündür. Bkz: [Cloud App Discovery tasdik edilmemiş bulut uygulamalarıyla bulma](cloud-app-discovery.md).
 
 ### <a name="authentication-types"></a>Kimlik doğrulama türleri
-Uygulamalarınızın her birinde farklı kimlik doğrulama gereksinimleri olabilir. Azure AD ile imzalama sertifikalarının SAML 2.0, WS-Federasyon, veya Openıd Connect protokollerinin yanı parola çoklu oturum açma kullanan uygulamalar ile kullanılabilir. Uygulama hakkında daha fazla bilgi için bkz: Azure AD ile kullanmak için kimlik doğrulama türleri [sertifikaların yönetilmesi için Federasyon çoklu oturum açma Azure Active Directory'de](../active-directory-sso-certs.md) ve [parola temel çoklu oturum açma](what-is-single-sign-on.md).
+Uygulamalarınızın her birinde farklı kimlik doğrulama gereksinimleri olabilir. Azure AD ile imzalama sertifikalarının SAML 2.0, WS-Federasyon, veya Openıd Connect protokollerinin yanı parola çoklu oturum açma kullanan uygulamalar ile kullanılabilir. Uygulama hakkında daha fazla bilgi için bkz: Azure AD ile kullanmak için kimlik doğrulama türleri [sertifikaların yönetilmesi için Federasyon çoklu oturum açma Azure Active Directory'de](manage-certificates-for-federated-single-sign-on.md) ve [parola temel çoklu oturum açma](what-is-single-sign-on.md).
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Azure AD uygulama proxy'si ile SSO etkinleştirme
 Microsoft Azure AD uygulama proxy'si ile özel ağınızda güvenli bir şekilde, her yerden ve herhangi bir cihazda bulunan uygulamalara erişim sağlayabilir. Ortamınızda bir uygulama proxy Bağlayıcısı yükledikten sonra Azure AD ile kolayca yapılandırılabilir.
@@ -79,7 +80,7 @@ Aşağıdaki makaleler uygulamaları Azure AD ile tümleştirmek ve bazı kılav
 ## <a name="managing-access-to-applications"></a>Uygulamalara erişimi yönetme
 Aşağıdaki makaleler Azure AD bağlayıcıları kullanarak Azure AD ve Azure AD ile tümleşik olan sonra uygulamalara erişimi yönetebilirsiniz yolları açıklanmaktadır.
 
-* [Azure AD kullanarak uygulamalara erişimi yönetme](../active-directory-managing-access-to-apps.md)
+* [Azure AD kullanarak uygulamalara erişimi yönetme](what-is-access-management.md)
 * [Azure AD Bağlayıcılarla otomatikleştirme](../active-directory-saas-app-provisioning.md)
 * [Uygulamaya kullanıcı atama](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Uygulamaya grup atama](../active-directory-applications-guiding-developers-assigning-groups.md)

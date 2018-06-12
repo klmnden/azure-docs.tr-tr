@@ -1,24 +1,20 @@
 ---
-title: Azure tanılama uzantısını 1.3 ve daha sonra yapılandırma şeması | Microsoft Docs
+title: Azure tanılama uzantısını 1.3 ve daha sonra yapılandırma şeması
 description: Microsoft Azure SDK 2.4 ve daha sonraki bir parçası olarak şema sürümü 1.3 ve daha sonra Azure tanılama geliyordu.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4fba492a57471df737896956e0b37e3da772cce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262384"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure tanılama 1.3 ve daha sonra yapılandırma şeması
 > [!NOTE]
@@ -386,7 +382,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**PrivateConfig**|İsteğe bağlı. Açıklama, bu sayfada başka bir yerde bakın.|  
 |**IsEnabled**|Boole değeri. Açıklama, bu sayfada başka bir yerde bakın.|  
 
-## <a name="publicconfig-element"></a>PublicConfig Element  
+## <a name="publicconfig-element"></a>PublicConfig öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig*
 
  Genel tanılama yapılandırması açıklar.  
@@ -419,11 +415,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |Alt öğeler|Açıklama|  
 |--------------------|-----------------|  
 |**CrashDumps**|Açıklama, bu sayfada başka bir yerde bakın.|  
-|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** - Configures the minimum severity level of the logs collected.<br /><br /> - **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
+|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** -toplanan günlüklerini en düşük önem derecesi yapılandırır.<br /><br /> - **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp) |  
 |**Dizinleri**|Açıklama, bu sayfada başka bir yerde bakın.|  
 |**EtwProviders**|Açıklama, bu sayfada başka bir yerde bakın.|  
 |**Ölçümler**|Açıklama, bu sayfada başka bir yerde bakın.|  
-|**PerformanceCounters**|Açıklama, bu sayfada başka bir yerde bakın.|  
+|**performans sayaçları**|Açıklama, bu sayfada başka bir yerde bakın.|  
 |**WindowsEventLog**|Açıklama, bu sayfada başka bir yerde bakın.| 
 |**DockerSources**|Açıklama, bu sayfada başka bir yerde bakın. | 
 
@@ -436,7 +432,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelikler|Açıklama|  
 |----------------|-----------------|  
-|**containerName**|İsteğe bağlı. Kilitlenme bilgi dökümleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.|  
+|**Kapsayıcı adı**|İsteğe bağlı. Kilitlenme bilgi dökümleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.|  
 |**crashDumpType**|İsteğe bağlı.  Mini ya da tam kilitlenme dökümleri toplamak için Azure tanılama yapılandırır.|  
 |**directoryQuotaPercentage**|İsteğe bağlı.  Yüzdesini yapılandırır **overallQuotaInMB** VM kilitlenme dökümleri için ayrılmış olmalıdır.|  
 
@@ -532,7 +528,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="performancecounters-element"></a>PerformanceCounters Element  
+## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - performans sayaçları*
 
  Performans sayaçları koleksiyonunu sağlar.  
@@ -548,7 +544,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="windowseventlog-element"></a>WindowsEventLog Element
+## <a name="windowseventlog-element"></a>WindowsEventLog öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
  
  Windows olay günlüklerini toplama sağlar.  
@@ -557,7 +553,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Alt öğe|Açıklama|  
 |-------------------|-----------------|  
-|**DataSource**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Tüm olaylarını toplamak için belirtin "*"|  
+|**veri kaynağı**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Tüm olaylarını toplamak için belirtin "*"|  
 
 
 
@@ -594,7 +590,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**Havuz**|Açıklama, bu sayfada başka bir yerde bakın.|  
 
-## <a name="sink-element"></a>Sink Element
+## <a name="sink-element"></a>Öğe havuzu
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz*
 
  Sürüm 1.5 eklendi.  
@@ -603,12 +599,12 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öznitelik|Tür|Açıklama|  
 |---------------|----------|-----------------|  
-|**Adı**|string|Sinkname tanımlayan bir dize.|  
+|**Adı**|dize|Sinkname tanımlayan bir dize.|  
 
 |Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
-|**Application Insights**|string|Yalnızca veri Application Insights'a gönderirken kullanılır. Erişiminiz etkin bir Application Insights hesabı izleme anahtarını içerir.|  
-|**Kanalları**|string|Her ek, akış filtrelemesi için bir tane|  
+|**Application Insights**|dize|Yalnızca veri Application Insights'a gönderirken kullanılır. Erişiminiz etkin bir Application Insights hesabı izleme anahtarını içerir.|  
+|**Kanalları**|dize|Her ek, akış filtrelemesi için bir tane|  
 
 ## <a name="channels-element"></a>Kanallar öğesi  
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanalları*
@@ -619,7 +615,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Öğe|Tür|Açıklama|  
 |-------------|----------|-----------------|  
-|**Channel**|string|Açıklama, bu sayfada başka bir yerde bakın.|  
+|**Kanal**|dize|Açıklama, bu sayfada başka bir yerde bakın.|  
 
 ## <a name="channel-element"></a>Kanal öğesi
  *Ağaç: Kök - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - havuz - kanalları - kanal*
@@ -634,7 +630,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Adı**|**Dize**|Kanal başvurmak için benzersiz bir ad|  
 
 
-## <a name="privateconfig-element"></a>PrivateConfig Element 
+## <a name="privateconfig-element"></a>PrivateConfig öğesi 
  *Ağaç: Kök - DiagnosticsConfiguration - PrivateConfig*
 
  Sürüm 1.3 eklendi.  

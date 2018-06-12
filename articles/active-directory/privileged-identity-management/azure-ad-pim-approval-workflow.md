@@ -1,24 +1,25 @@
 ---
-title: "Azure Privileged Identity Management onay iş akışları | Microsoft Docs"
-description: "Onay iş akışları ayrıcalıklı Kimlik Yönetimi'nın (PIM) hakkında bilgi edinin"
+title: Azure Privileged Identity Management onay iş akışları | Microsoft Docs
+description: Onay iş akışları ayrıcalıklı Kimlik Yönetimi'nın (PIM) hakkında bilgi edinin
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261024"
 ---
 # <a name="approvals"></a>Onaylar
 
@@ -39,29 +40,29 @@ Privileged Identity Management için onayları sayesinde, etkinleştirme için o
 
 **Bir ayrıcalıklı Rol Yöneticisi (PRA) olarak şunları yapabilirsiniz:**
 
--   [belirli roller onayını etkinleştir](#enable-approval-for-specific-roles)
+-   [Belirli roller onayını etkinleştir](#enable-approval-for-specific-roles)
 
 -   [Onaylayan kullanıcılara ve/veya grupları istekleri onaylanacak belirtin](#specify-approver-users-and/or-groups-to-approve-requests)
 
--   [tüm ayrıcalıklı rolleri için istek ve onay geçmişini görüntüleme](#view-request-and-approval-history-for-all-privileged-roles)
+-   [Tüm ayrıcalıklı rolleri için istek ve onay geçmişini görüntüleme](#view-request-and-approval-history-for-all-privileged-roles)
 
 **Belirlenen onaylayıcı olarak, şunları yapabilirsiniz:**
 
 -   [Bekleyen onaylar (istek) görüntüleme](#view-pending-approvals-requests)
 
--   [onaylama veya reddetme rol yükseltme (tek ve/veya toplu) istekleri](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [Onaylama veya reddetme rol yükseltme (tek ve/veya toplu) istekleri](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
--   [my onay/reddetme için gerekçe](#provide-justification-for-my-approval/rejection) 
+-   [My onay/reddetme için gerekçe](#provide-justification-for-my-approval/rejection) 
 
 **Uygun bir Role kullanıcı olarak şunları yapabilirsiniz:**
 
--   [onay gerektiren bir rolü etkinleştirme isteği](#request-activation-of-a-role-that-requires-approval)
+-   [Onay gerektiren bir rolü etkinleştirme isteği](#request-activation-of-a-role-that-requires-approval)
 
 -   [İsteğiniz etkinleştirme durumunu görüntüleyin](#view-the-status-of-your-request-to-activate)
 
--   [etkinleştirme onaylanırsa Azure AD'de Görevinizi tamamlamak](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [Etkinleştirme onaylanırsa Azure AD'de Görevinizi tamamlamak](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
-### <a name="navigation"></a>Gezinti
+### <a name="navigation"></a>Gezinme
 
 Biz onayları desteklemek için Gezinti güncelleştirdik
 

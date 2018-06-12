@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: af5cfc2f598893328bc8d4acc979f6d777114f99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628802"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261585"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IOT merkezi uygulamanıza bir MXChip IOT DevKit cihazı bağlayın
 
@@ -28,7 +28,9 @@ Bu makaledeki adımları tamamlayabilmeniz için şunlar gereklidir:
 
 Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **MXChip** cihaz şablonu aşağıdaki özelliklere sahip:
 
-### <a name="telemetry-measurements"></a>Telemetri ölçümleri
+### <a name="measurements"></a>Ölçümler
+
+#### <a name="telemetry"></a>Telemetri 
 
 | Alan adı     | Birimler  | Minimum | Maksimum | Ondalık basamak sayısı |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -44,6 +46,20 @@ Oluşturulan bir uygulamayı **örnek Devkits** uygulama şablonu içeren bir **
 | gyroscopeX     | MDP'ler   | -2000   | 2000    | 0              |
 | gyroscopeY     | MDP'ler   | -2000   | 2000    | 0              |
 | gyroscopeZ     | MDP'ler   | -2000   | 2000    | 0              |
+
+#### <a name="states"></a>Durumlar 
+
+| Ad          | Görünen ad   | NORMAL | UYARI | TEHLİKE | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
+
+#### <a name="events"></a>Olaylar 
+
+| Ad             | Görünen ad      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | Basılan düğme B  | 
+
+
 
 ### <a name="settings"></a>Ayarlar
 
@@ -68,17 +84,6 @@ Geçiş ayarları
 | Cihaz özelliği | Sayı öldürmüş   | dieNumber  | number    |
 | Metin            | Konum     | location   | Yok       |
 
-### <a name="states"></a>durumları 
-
-| Ad          | Görünen ad   | NORMAL | UYARI | TEHLİKE | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Cihaz durumu   | Yeşil  | Orange  | Kırmızı    | 
-
-### <a name="events"></a>Olaylar 
-
-| Ad             | Görünen ad      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Basılan düğme B  | 
 
 ### <a name="add-a-real-device"></a>Gerçek cihaz ekleme
 

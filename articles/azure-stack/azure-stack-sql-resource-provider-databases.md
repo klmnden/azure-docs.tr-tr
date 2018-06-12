@@ -11,17 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2808847642639069e60102b195ac97957c8593f0
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b9f92b4d85e17bc848d82be413df1d0dad7c8548
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294947"
 ---
 # <a name="create-sql-databases"></a>SQL veritabanı oluşturma
-Veritabanlarının Self Servis Kullanıcı Portalı deneyimi sağlanır. Bir kullanıcı veritabanı hizmeti içeren bir teklif sahip bir abonelik gerekiyor.
+Veritabanlarının Self Servis Kullanıcı Portalı üzerinden sağlanır. Bir Azure yığın kullanıcı SQL veritabanı hizmetinin içeren bir teklif sahip bir abonelik gerekiyor.
 
 1. Oturum [Azure yığın](azure-stack-poc.md) kullanıcı portalı (hizmet yöneticileri aynı zamanda de Yönetim Portalı'nı kullanın).
 

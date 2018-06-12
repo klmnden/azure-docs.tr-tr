@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: c7e33a46940c9bf0cda5e48c07d42db9f0c7cd96
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 84fa3c5bd57e1f9f5b3eddf872307829f6c9c509
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292975"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Öğretici: Asana otomatik kullanıcı sağlamayı yapılandırın
 
@@ -42,7 +43,7 @@ Azure AD "atamaları" adlı bir kavram hangi kullanıcıların seçili uygulamal
 
 Yapılandırıp sağlama hizmeti etkinleştirmeden önce hangi kullanıcıların Azure AD'de Asana uygulamanızı erişmesi karar vermeniz gerekir. Ardından, buradaki yönergeleri izleyerek Asana uygulamanız bu kullanıcılar atayabilirsiniz:
 
-[Kullanıcı bir kurumsal uygulama atama](active-directory-coreapps-assign-user-azure-portal.md)
+[Kullanıcı bir kurumsal uygulama atama](manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-asana"></a>Kullanıcılar için Asana atamak için önemli ipuçları
 
@@ -99,6 +100,6 @@ Günlükleri sağlama Azure AD okuma hakkında daha fazla bilgi için bkz: [rapo
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
-* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](active-directory-enterprise-apps-manage-provisioning.md)
+* [Kullanıcı hesabı Kurumsal uygulamaları için sağlama yönetme](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md)
 * [Çoklu oturum açmayı yapılandırın](active-directory-saas-asana-tutorial.md)

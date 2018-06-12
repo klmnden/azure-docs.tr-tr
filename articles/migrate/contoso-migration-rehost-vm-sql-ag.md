@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 97c8430ab5d4e08e52790b898051d5985c3df03c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03e3aaad810f6ccd5fb376765ddbada072dedb06
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839903"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301312"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso geçiş: Azure Vm'leri ve SQL Server AlwaysOn Kullanılabilirlik grubu için bir şirket içi uygulama yeniden barındırma
 
@@ -29,8 +29,9 @@ Bu belge nasıl Contoso adlı kurgusal şirket için Microsoft Azure bulut şirk
 [Makale 4: Azure sanal makineleri ve SQL yönetilen örnek uygulamayı yeniden barındırma](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso bir yükseltme shift geçiş Azure'a SmartHotel uygulama için nasıl çalıştığı gösterilmektedir. Contoso geçirir VM ön uç uygulamasını kullanarak [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve yönetilen bir SQL örneğine uygulama veritabanı kullanarak [Azure veritabanı geçiş hizmeti](https://docs.microsoft.com/azure/dms/dms-overview). | Kullanılabilir
 [Makale 5: Azure VM'ler için uygulama yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso SmartHotel uygulama yalnızca Site Recovery kullanarak sanal makineleri geçirmek nasıl gösterir.
 Makale 6: bir uygulamaya Azure Vm'leri ve SQL Server her zaman üzerinde kullanılabilirlik grubu (Bu makalede) yeniden barındırma | Contoso SmartHotel uygulama nasıl geçirir gösterir. Contoso Site Recovery VM'ler uygulama ve veritabanı geçiş hizmeti uygulama veritabanında bir AlwaysOn Kullanılabilirlik grubu tarafından korunan bir SQL Server kümesi geçirmek için geçirmek için kullanır. | Kullanılabilir
-Makale 7: Linux uygulama Azure VM'ler ve Azure MySQL sunucusu için yeniden barındırma | Contoso osTicket Linux uygulama nasıl geçirir gösterir. Ön uç Site RECOVERY'yi kullanarak VM geçirme ve (yedekleme ve geri yükleme) geçirme MySQL çalışma ekranı kullanarak bir Azure MySQL Server örneğini veritabanına | Planlandı
-Makale 8: Azure VM'ler için Linux uygulama yeniden barındırma | Nasıl Contoso ther osTicket yükseltme shift geçişini app sanal makineleri, Azure Site Recovery kullanarak yapar gösterir | Planlandı
+[Makale 7: Azure VM'ler için Linux uygulama yeniden barındırma](contoso-migration-rehost-linux-vm.md) | Nasıl Contoso Linux osTicket uygulama yükseltme shift geçişini Azure VM'ler için Site RECOVERY'yi kullanarak mu gösterir | Planlandı
+[Makale 8: Linux uygulama Azure VM'ler ve Azure MySQL sunucusu için yeniden barındırma](contoso-migration-rehost-linux-vm-mysql.md) | MySQL çalışma ekranı kullanarak Azure MySQL Server örneğine uygulama veritabanı geçirir ve nasıl Contoso Linux osTicket uygulama Azure Site Recovery kullanarak sanal makineleri geçirir gösterilmiştir. | Kullanılabilir
+
 
 
 Bu makalede, iki katmanlı Windows Contoso geçirin. Azure için VMware Vm'lerinde çalışan NET SmartHotel uygulama. Bu uygulamayı kullanmak istiyorsanız, açık kaynak olarak sağlanır ve buradan indirebilirsiniz [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -52,7 +53,7 @@ Contoso bulut ekip hedeflerine bu geçiş için aşağı sabitlenmiş. Bu hedefl
 - Bu uygulamada yatırım contoso istememektedir.  İş için önemlidir, ancak mevcut haliyle basitçe buluta güvenle taşımak istedikleri.
 - Uygulama için şirket içi veritabanı kullanılabilirlik sorunları yaşadı. Yük devretme yetenekleri ile yüksek kullanılabilirlik kümesi olarak Azure üzerinde dağıtılan görmek istiyorsunuz.
 - Contoso, SQL Server 2017 geçerli kendi SQL Server 2008 R2 platformundan yükseltmek istiyor.
-- Contoso bu uygulama için bir Azure SQL Database kullanmak istediğiniz değil ve ve alternatifleri için aramaktadır.
+- Contoso bir Azure SQL veritabanı için bu uygulamayı kullanmak istememektedir ve alternatifleri için aramaktadır.
 
 ## <a name="proposed-architecture"></a>Önerilen mimarisi
 
@@ -168,7 +169,7 @@ Contoso Azure kümesinde veritabanında dağıtarak İleriyi istiyor. Bunlar dah
 
 ### <a name="set-up-a-storage-account-as-cloud-witness"></a>Bir depolama hesabı bulut tanığı olarak ayarlama
 
-Bir bulut tanığı ayarlamak için küme yönetimi için kullanılan blob dosya tutacak bir Azure depolama hesabı Contoso gerekir. Aynı depolama hesabı, birden fazla küme için bulut tanığı ayarlamak için kullanılabilir. 
+Bulut tanığı ayarlamak için küme yönetimi için kullanılan blob dosya tutacak bir Azure Storage hesabı Contoso gerekir. Aynı depolama hesabı, birden fazla küme için bulut tanığı ayarlamak için kullanılabilir. 
 
 Contoso aşağıdaki gibi bir depolama hesabı oluşturur:
 
@@ -305,7 +306,7 @@ Bunlar bu aşağıdaki gibi ayarlayın:
     - Bir üretim uygulaması SmartHotel uygulamasıdır ve WEBVM birincil Doğu US2 bölgede Azure üretim ağa (VNET-üretim-EUS2) geçirilecektir.
     - WEBVM üretim kaynakları için kullanılır, ContosoRG kaynak grubunda ve üretim alt ağ (üretim-FE-EUS2) yerleştirilir.
 
-2. Contoso birincil bölgede bir Azure depolama hesap (contosovmsacc20180528) oluşturur.
+2. Contoso birincil bölgede bir Azure depolama hesabı (contosovmsacc20180528) oluşturur.
 
     - Standart depolama ve LRS çoğaltma genel amaçlı bir hesap ile kullanırlar.
     - Hesabın, kasa ile aynı bölgede olması gerekir.
@@ -401,7 +402,7 @@ Devam etmek için bunlar seçerek dağıtım planlamasını tamamladınız onayl
 
 ### <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Contoso kaynak ortamlarına yapılandırmak gerekir. Bunu yapmak için bunlar bir OVF şablonunu indirebilir ve Site Recovery yapılandırma sunucusu yüksek oranda kullanılabilir olarak dağıtmak için kullanın, şirket içi VMware VM. Yapılandırma sunucusunun çalışır durumda sonra bunlar, bu kasaya kaydedin.
+Contoso kaynak ortamlarına yapılandırmak gerekir. Bunu yapmak için bunlar bir OVF şablonunu indirebilir ve Site Recovery yapılandırma sunucusu yüksek oranda kullanılabilir olarak dağıtmak için kullanın, şirket içi VMware VM. Yapılandırma sunucunun da çalışır durumda sonra bunlar bu kasaya kaydedin.
 
 Yapılandırma sunucusu bir dizi bileşen çalıştırır:
 
@@ -532,11 +533,11 @@ DMS şirket içi SQL Server VM Contoso veri merkezi ve Azure arasında bir sited
 
 ## <a name="step-7-protect-the-database"></a>7. adım: veritabanını koruma
 
-Üzerinde çalışan uygulama veritabanıyla **SQLAOG1**, Contoso şimdi Koruyabileceğiniz AlwaysOn Kullanılabilirlik grupları kullanarak. Bunlar Alwayson SQL Management Studio'yu kullanarak yapılandırın ve ardından Windows Kümeleme kullanarak bir dinleyici atayın. 
+Üzerinde çalışan uygulama veritabanıyla **SQLAOG1**, Contoso şimdi Koruyabileceğiniz AlwaysOn Kullanılabilirlik grupları kullanarak. Bunlar AlwaysOn SQL Management Studio'yu kullanarak yapılandırın ve ardından Windows Kümeleme kullanarak bir dinleyici atayın. 
 
 ### <a name="create-an-alwayson-availability-group"></a>AlwaysOn Kullanılabilirlik grubu oluşturma
 
-1. SQL Management Studio'da bunlar sağ tıklayın **yüksek kullanılabilirlik her zaman** başlatmak için **yeni Kullanılabilirlik Grubu Sihirbazı'nı**.
+1. SQL Management Studio'da bunlar üzerinde sağ **yüksek kullanılabilirlik her zaman** başlatmak için **yeni Kullanılabilirlik Grubu Sihirbazı'nı**.
 2. İçinde **seçeneklerini belirtin**, kullanılabilirlik grubu adı **SHAOG**. İçinde **seçin veritabanları**, SmartHotel veritabanını seçin.
 
     ![AlwaysOn Kullanılabilirlik grubu](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
@@ -624,7 +625,7 @@ Geçiş işleminin son adımı olarak uygulama SHAOG Dinleyicide çalışan geç
     ![Yük devretme](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
 2. Dosyayı güncelleştirme ve kaydettikten sonra IIS WEBVM üzerinde yeniden başlatın. Bunlar bir komut isteminden /RESTART IISRESET kullanarak yapın.
-2. IIS yeniden başlatıldıktan sonra uygulama sunulmuştur SQL mı üzerinde çalışan veritabanı kullanıyor olabilir.
+2. IIS yeniden başlatıldıktan sonra uygulama artık SQL mı üzerinde çalışan veritabanını kullanıyor.
 
 
 **Daha fazla yardım gerekiyor mu?**

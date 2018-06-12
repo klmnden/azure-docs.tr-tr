@@ -1,25 +1,19 @@
 ---
-title: Azure etkinlik günlüğü arşiv | Microsoft Docs
-description: Bir depolama hesabı, uzun vadeli bekletme için Azure etkinlik günlüğü arşiv öğrenin.
+title: Arşiv Azure etkinlik günlüğü
+description: Bir depolama hesabı, uzun vadeli bekletme için Azure etkinlik günlüğü arşivleyebilirsiniz.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: d37d3fda-8ef1-477c-a360-a855b418de84
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: e401d22dbcf5074f4652fb60ee5eeec1d31ef164
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: activitylog
+ms.openlocfilehash: 508b2f615819f20a717065d8fff25beff64957d5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235609"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263438"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arşiv Azure etkinlik günlüğü
 Bu makalede, biz arşivlemek için Azure portal, PowerShell cmdlet'leri veya platformlar arası CLI nasıl kullanabileceğinizi gösterir, [ **Azure etkinlik günlüğü** ](monitoring-overview-activity-logs.md) depolama hesabındaki. Bu seçenek, Denetim, statik çözümleme veya yedekleme (ile bekletme ilkesi üzerinde tam denetim) 90 gün daha uzun süre, etkinlik günlüğü korumak istiyorsanız kullanışlıdır. Yalnızca, olayları 90 gün boyunca Koru gerek isterseniz daha az, etkinlik günlüğü olaylarını arşivleme etkinleştirmeden Azure platform 90 gün boyunca tutulur bu yana bir depolama hesabına arşivleme ayarlamanız gerekmez.

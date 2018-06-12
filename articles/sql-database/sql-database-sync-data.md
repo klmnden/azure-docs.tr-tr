@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: aa8f5e3b78a65c42840bbe831f5a4f2984a4a357
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 18177e0671ddf36d0e02e6b943467d703f78ffd0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650409"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301057"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
@@ -82,6 +82,8 @@ Veri Eşitleme tetikleyici tabanlı olduğundan, işlem tutarlılığı garanti 
 
 #### <a name="performance-impact"></a>Performans etkisi
 Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için Tetikleyiciler silin. Kullanıcı veritabanında değişiklik izleme yan tablolar oluşturur. Bu değişiklik izleme etkinlikleri veritabanının yükünüzü etkiler. Hizmet katmanı değerlendirmek ve gerekirse yükseltin.
+
+Sağlama ve eşitleme grubu oluşturma sırasında etkinleştirmektir, güncelleştirme ve silme de veritabanı performansını etkileyebilir. 
 
 ### <a name="general-requirements"></a>Genel gereksinimler
 

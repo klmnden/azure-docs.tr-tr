@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,17 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261194"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Karma Azure Active Directory'ye katılmış cihazları yapılandırma
 
 Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak aygıtlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla ayrıntı için bkz: [Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md).
 
-Şirket içi Active Directory ortamında varsa ve Azure AD etki alanına katılmış cihazlarınızı katılmasını istediğiniz, bu karma Azure AD alanına katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Konu ile ilgili adımları sağlar. 
+Şirket içi Active Directory ortamında varsa ve Azure AD etki alanına katılmış cihazlarınızı katılmasını istediğiniz, bu karma Azure AD alanına katılmış cihazları yapılandırarak gerçekleştirebilirsiniz. Bu makale ile ilgili adımları sağlar. 
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
@@ -36,7 +38,7 @@ Karma Azure AD alanına katılmış aygıtlar ortamınızda yapılandırmaya ba�
 
 Aygıt yeniden başlatma veya kullanıcı Azure AD ile çalışan Windows 10 Anniversary güncelleştirmesi ve Windows Server 2016'ın otomatik olarak kaydedilecek etki alanına katılmış tüm cihazlar oturum aşağıda belirtilen yapılandırma adımları tamamlandıktan sonra açın. **Bu otomatik yazmaç davranış tercih edilen değilse veya denetimli bir sunum isterseniz**, Lütfen ilk seçerek etkinleştirmek veya otomatik dağıtım önce devre dışı bırakmak için aşağıdaki "Adım 4: denetim dağıtımı ve sunumu" bölümündeki yönergeleri izleyin başka yapılandırma adımları izleyerek.  
 
-Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim kullanır: 
+Açıklamaları okunabilirliğini artırmak için bu makalede aşağıdaki terim kullanır: 
 
 - **Windows geçerli aygıtları** -Windows 10 veya Windows Server 2016 çalıştıran etki alanına katılmış cihazlar için bu terim başvuruyor.
 - **Windows alt düzey aygıtları** -bu terim tümüne başvuruyor **desteklenen** çalışan Windows 10 ne Windows Server 2016 etki alanına katılmış Windows cihazları.  
@@ -55,7 +57,8 @@ Açıklamaları okunabilirliğini artırmak için bu konuda aşağıdaki terim k
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- Windows alt düzey aygıtları kaydını **olan** sorunsuz çoklu oturum açma ile federe olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://aka.ms/hybrid/sso).
+- Windows alt düzey aygıtları kaydını **olan** sorunsuz çoklu oturum açma ile federe olmayan ortamlarda desteklenen [Azure Active Directory sorunsuz çoklu oturum açma](https://aka.ms/hybrid/sso). 
+- Windows alt düzey aygıtları kaydını **değil** Azure AD geçişli kimlik doğrulaması kullanılırken desteklenir.
 - Windows alt düzey aygıtları kaydını **değil** dolaşım profilleri kullanarak cihazları için desteklenir. Dolaşım profilleri veya ayarlarını FQDN'yi kullanıyorsanız, Windows 10 kullanın.
 
 
@@ -79,8 +82,7 @@ Aşağıdaki URL'ler için Azure AD kuruluş ağınızdaki bilgisayarların kay�
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com İzin ver
 - https://device.login.microsoftonline.com
 
 - Kuruluşunuzun STS (Federasyon etki alanları)
@@ -93,7 +95,7 @@ Kuruluşunuz sorunsuz SSO kullanmak planlama, aşağıdaki URL'ler kuruluşunuz 
 
 - https://aadg.windows.net.nsatc.net
 
-- Ayrıca, aşağıdaki ayar kullanıcının intranet bölgesinde etkinleştirilmiş olmalıdır: "Durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri izin ver."
+- Ayrıca, aşağıdaki ayar kullanıcının intranet bölgesinde etkinleştirilmiş olmalıdır: "durum çubuğu güncelleştirmeleri komut dosyası aracılığıyla izin ver."
 
 Kuruluşunuz yönetilen (şirket dışında) Kur'a kullanıyorsa, şirket içi AD ve ADFS Azure AD ile birleştirmek için kullanmaz sonra Azure ad sync'ed olması için ad karma Azure AD birleştirme Windows 10 bilgisayar nesnelerinde kullanır. Tüm kurumsal birimler (Azure AD birleşik karma olmasına gerek bilgisayar nesnelerini içeren OU) etkinleştirildiğinden eşitlemesi için Azure AD Connect eşitleme yapılandırması emin olun.
 

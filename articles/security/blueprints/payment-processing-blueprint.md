@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 06151b211a03a971e549e88817770ef096f3f603
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839435"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301380"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 
@@ -169,8 +169,6 @@ Her ağ katmanı ayrılmış bir ağ güvenlik grubu (NSG) vardır:
 - Güvenlik Duvarı ve uygulama ağ geçidi WAF için bir çevre ağ güvenlik grubu
 - Yönetim jumpbox (savunma ana bilgisayarı) için bir NSG
 - Uygulama hizmeti ortamı için bir NSG
-
-Her Nsg'ler sahip belirli bağlantı noktalarını ve protokolleri çözümü güvenli ve doğru çalışması için açıldı. Daha fazla bilgi için bkz: [PCI kılavuzu - ağ güvenlik grupları](#network-security-groups).
 
 Her Nsg'ler sahip belirli bağlantı noktalarını ve protokolleri çözümü için güvenli ve doğru çalışma açılır. Ayrıca, aşağıdaki yapılandırmalar her NSG için etkinleştirilir:
 - Etkin [tanılama günlüklerini ve olayları](/azure/virtual-network/virtual-network-nsg-manage-log) depolama hesabında depolanır 

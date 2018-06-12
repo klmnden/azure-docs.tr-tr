@@ -1,24 +1,19 @@
 ---
-title: "Otomatik ölçeklendirme için en iyi uygulamaları | Microsoft Docs"
-description: "Azure Web uygulamaları, sanal makine ölçek kümeleri ve bulut Hizmetleri için otomatik ölçeklendirme düzenleri"
+title: Otomatik ölçeklendirme için en iyi yöntemler
+description: Azure Web uygulamaları, sanal makine ölçek kümeleri ve bulut Hizmetleri için otomatik ölçeklendirme düzenleri
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: autoscale
+ms.openlocfilehash: e9fc5a4c5d2e23750493cc320dffa380724347fb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262452"
 ---
 # <a name="best-practices-for-autoscale"></a>Otomatik ölçeklendirme için en iyi uygulamalar
 Bu makalede, azure'da otomatik ölçeklendirme için en iyi yöntemler öğretir. Azure İzleyici otomatik ölçeklendirme uygular yalnızca [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [bulut Hizmetleri](https://azure.microsoft.com/services/cloud-services/), ve [uygulama hizmeti - Web Apps](https://azure.microsoft.com/services/app-service/web/). Diğer Azure hizmetleriyle farklı ölçekleme yöntemlerini kullanın.

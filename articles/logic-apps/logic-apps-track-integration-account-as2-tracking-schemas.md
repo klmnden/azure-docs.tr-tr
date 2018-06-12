@@ -2,7 +2,7 @@
 title: AS2 izleme şemaları B2B izleme - Azure Logic Apps | Microsoft Docs
 description: AS2 izleme şemaları B2B iletilerden Azure tümleştirme hesabınızda işlemleri izlemek için kullanın.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8605950f3cc07730ee13b91999076e3a093e8d92
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300890"
 ---
 # <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Başlat veya İzleyici başarı, hata ve ileti özellikleri AS2 iletileri ve MDNs izlemeyi etkinleştirme
 İşletmeden işletmeye (B2B) işlemleri izlemenize yardımcı olması için Azure tümleştirme hesabınızı bu AS2 izleme şemaları kullanabilirsiniz:
@@ -120,7 +121,7 @@ ms.lasthandoff: 04/05/2018
 | agreementName | Dize | İletileri çözümlendiği AS2 sözleşmesi adı. (İsteğe bağlı) |
 | yön |Dize | İleti akış yönünü alma veya gönderme. (Zorunlu) |
 | MessageID | Dize | AS2 ileti kimliği. (İsteğe bağlı) |
-| originalMessageId |Dize | AS2 özgün ileti kimliği. (İsteğe bağlı) |
+| OriginalMessageId |Dize | AS2 özgün ileti kimliği. (İsteğe bağlı) |
 | dispositionType | Dize | MDN değerlendirme türü değeri. (İsteğe bağlı) |
 | isMessageFailed |Boole | Olup AS2 iletisi başarısız oldu. (Zorunlu) |
 | isMessageSigned |Boole | AS2 iletisi olup olmadığını imzalandı. (Zorunlu) |

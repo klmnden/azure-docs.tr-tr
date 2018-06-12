@@ -1,19 +1,20 @@
 ---
-title: "Azure veritabanı için MySQL veritabanı uygulaması geliştirmeye genel bakış"
-description: "Bir geliştirici MySQL için Azure veritabanına bağlanmak için uygulama kodu yazarken izlemeniz gereken tasarım konuları sunar"
+title: Azure veritabanı için MySQL veritabanı uygulaması geliştirmeye genel bakış
+description: Bir geliştirici MySQL için Azure veritabanına bağlanmak için uygulama kodu yazarken izlemeniz gereken tasarım konuları sunar
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1a3f517221c7e22d87dec5d0fc6f11c1bed16505
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: b733468d41afacb616c95f0628e7bad6b0c837f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264172"
 ---
 # <a name="application-development-overview-for-azure-database-for-mysql"></a>Azure veritabanı için MySQL için uygulama geliştirmeye genel bakış 
 Bu makalede bir geliştirici MySQL için Azure veritabanına bağlanmak için uygulama kodu yazarken izlemeniz gereken tasarım konuları açıklanmaktadır. 

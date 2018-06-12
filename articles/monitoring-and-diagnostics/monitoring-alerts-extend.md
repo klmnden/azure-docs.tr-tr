@@ -1,73 +1,64 @@
 ---
-title: Azure'da - genel bakış OMS Portalı'ndan (kopya) uyarıları genişletmek | Microsoft Docs
-description: Azure uyarıları, ortak müşteri sorunları ayrıntılarla OMS portalında kopyalama uyarıları işlemine genel bakış.
+title: Azure uyarıları - genel bakış (kopya) günlük analizi uyarılar genişletme
+description: Uyarıları günlük analizi OMS portalında Azure Uyarıları ' ile kopyalama işlemine genel bakış adresleme ortak müşteri sorunları ayrıntılarını verir.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/14/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: vinagara
-ms.openlocfilehash: 25dcbad8607a651a7dd4b79f4f418cc473a2bf0e
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.component: alerts
+ms.openlocfilehash: c01f986bfe3e6a3162988056a268423e07f429bf
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301159"
 ---
-# <a name="extend-copy-alerts-from-oms-portal-into-azure"></a>Azure'da OMS Portalı'ndan (kopya) uyarıları genişletme
-Operations Management Suite (OMS) portal yalnızca günlük analizi uyarıları gösterir.  Yeni uyarılar deneyimi çeşitli Hizmetleri ve Microsoft Azure bölümleri arasında uyarı deneyimi şimdi tümleşiktir. Kullanılabilir olarak yeni deneyime **uyarıları** altında Azure İzleyicisi Azure portal etkinlik günlüğü uyarıları, ölçüm uyarıları ve günlük uyarıları günlük analizi ve Application Insights için içerir. 
-
-
-Ancak bazı kullanıcılar için günlük analizi ve Uyarıları gibi allied işlevsellik kullanımı aracılığıyla açıldı [Microsoft işlemi Yönetim Paketi (OMS) portal](../operations-management-suite/operations-management-suite-overview.md). Yapın ve bu nedenle izin vermek üzere kimliklerini kolaylıkla günlük analizi - kullanımını yanı sıra diğer Azure kaynaklarını yönetmek sistematik olarak Microsoft OMS portalı yeteneklerini de Azure portalında kullanılabilir olduğundan emin. Şekilde, Azure uyarıları zaten tanır için günlük analizi, daha fazla bilgi için bkz: Sorgu tabanlı uyarıları yönetmek kullanıcılar, [oturum Azure uyarıları uyarılar](monitor-alerts-unified-log.md). İçindeki uyarıları Azure İzleyicisi altında OMS portalında oluşturulan uyarıların zaten uygun günlük analizi çalışma alanı altında listelenir. Ancak herhangi bir düzenleme veya OMS portalında oluşturulan bu tür uyarılar değiştirmek, Azure bırakın ve OMS portalı kullanmak kullanıcının gerektiren; başka bir hizmet yönetmek gerekirse Azure'a geri dönün. Bu güçlük azaltmak için Microsoft şimdi uyarılarını OMS Portalı'ndan Azure'da genişletmek kullanıcıların imkan verir.
+# <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Azure Uyarıları'için günlük analizi uyarılar genişletme
+Yakın zamanda kadar Azure günlük analizi, günlük analizi verilerine dayalı koşulları proaktif olarak bildirebilirsiniz kendi uyarı işlevselliği dahil. Uyarı kurallarında yönetilen [Microsoft Operations Management Suite portalına](../operations-management-suite/operations-management-suite-overview.md). Yeni uyarılar deneyimi artık Microsoft Azure çeşitli hizmetlerde uyarı tümleşiktir. Bu olarak kullanılabilir **uyarıları** Azure portalında Azure İzleyicisi altında etkinlik günlükleri, ölçümleri, uyarı destekler ve hem günlük analizi hem de Azure Application Insights günlüğe kaydeder. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>Uyarılarınızı kullanmanın yararları
-Azure portal dışında gidin zorunluluğunu tahakkuk avantajı dışında diğer belirgin yararları vardır uyarıları OMS Portalı'ndan Azure'da genişletme
+Oluşturma ve Azure Portal'da uyarılarını yönetme gibi çeşitli avantajları vardır:
 
-- Aksine OMS portalında burada yalnızca 250 uyarıları oluşturulabilir ve görüntülenebilir; Azure Uyarıları'nda bu sınırlamaya mevcut değil
-- Azure uyarıları, tüm uyarı türleri, numaralandırılmış, görüntülenebilir ve yönetilebilir; OMS portalı ile olduğu gibi yalnızca günlük analizi uyarıları
-- Kullanarak yalnızca izleme ve uyarı, kullanıcıların erişimi denetlemenize [Azure İzleyici rolü](monitoring-roles-permissions-security.md)
-- Azure uyarıları kullanma [Eylem grupları](monitoring-action-groups.md), SMS, sesli arama, Otomasyon Runbook'u, Web kancası, ITSM bağlayıcı ve benzeri her uyarı için birden fazla eylem sahip sağlar. 
+- Aksine burada yalnızca 250 uyarıları görüntülenebilir ve oluşturulmalıdır, Operations Management Suite portalda Azure uyarıları böyle bir kısıtlama var.
+- Azure Uyarıları ' yönetmek, numaralandırır ve tüm uyarı türlerini görüntülemek. Daha önce yalnızca günlük analizi uyarılar için bunu.
+- Yalnızca izleme ve uyarı, kullanarak kullanıcıların erişimi sınırlandırabilirsiniz [Azure İzleyici rol](monitoring-roles-permissions-security.md).
+- Azure Uyarıları'nda kullanabileceğiniz [Eylem grupları](monitoring-action-groups.md). Her uyarı için birden fazla eylem sahip olmanızı sağlar. SMS edebilir sesli arama göndermek, bir Azure Otomasyonu runbook'u Çağır, bir Web kancasını çağırma ve BT Hizmet Yönetimi (ITSM) bağlayıcısını yapılandırın. 
 
 ## <a name="process-of-extending-your-alerts"></a>Uyarılarınızı genişletme işlemi
-Uyarıları OMS Portalı'ndan Azure genişletme işlemi mu **değil** uyarı tanımı, sorgu veya herhangi bir şekilde yapılandırma değiştirilmektedir. Gerekli yalnızca Azure, e-posta bildirimi gibi tüm eylemler Otomasyon runbook'u çalıştıran veya ITSM Aracı'na bağlanma Web kancası çağrı yapılır, eylem grubu değişikliktir. Uyarınız ile - uygun eylemi Grup ilişkiliyse bu nedenle bunlar Azure'da genişletilmiş hale.
-
-Genişletme işlemi dönüşlü ve değil interruptive olduğundan, Microsoft Azure uyarılar OMS portalında otomatik olarak oluşturulan - başlayarak uyarıları uzatır **14 Mayıs 2018**. Bu tarihten itibaren Microsoft Azure'da uyarıları genişletme zamanlamak ve tüm uyarıları OMS portalında, Azure Portalı'ndan da yönetilebilir mevcut kademeli olarak yapmak başlar. 
+Uyarıları günlük Analytics'ten Azure Uyarıları ' taşıma işlemi uyarı tanımı, sorgu veya herhangi bir şekilde yapılandırmasını değiştirmeyi gerektirmez. Gerekli yalnızca Azure içinde tüm eylemler bir eylem grubu kullanarak gerçekleştirmenizi değişikliktir. Eylem grupları zaten Uyarınız ile ilişkili ise, bunlar Azure genişletilmiş dahil edilir.
 
 > [!NOTE]
-> 14 Mayıs 2018 - başlangıç Microsoft Azure için uyarıları otomatik olarak genişletme işlemi başlayacak. Tüm çalışma alanları ve Uyarıları bu günde uzatılır; Bunun yerine Microsoft tranches otomatik olarak uyarıları gelecek haftalarda genişletmek başlar. Bu nedenle uyarılarınızı OMS portalında otomatik-Azure'da hemen 14 Mayıs 2018 üzerinde uzatır değil ve kullanıcının hala [el ile uyarılarını genişletmek](monitoring-alerts-extend-tool.md) bu süre boyunca.
+> 14 Mayıs 2018 üzerinde tamamlanana kadar yinelenen serisinde başlangıç Microsoft otomatik olarak Azure uyarılar için günlük analizi oluşturulan uyarıların genişletir. Oluşturma sorunları varsa [Eylem grupları](monitoring-action-groups.md), kullanın [düzeltme adımları](monitoring-alerts-extend-tool.md#troubleshooting) otomatik olarak oluşturulan eylem grupları alınamadı. 5 Temmuz 2018 kadar bu adımları kullanabilirsiniz. 
+> 
 
-Azure'da genişletmek için günlük analizi çalışma alanındaki uyarılar zamanlandığında, bunlar çalışma ve devam edecek **değil** izlemenizi herhangi bir şekilde tehlikeye. Zamanlanan uyarılarınızı geçici olarak değiştirilmesi/düzenleme için kullanılamıyor olabilir; Ancak bu kısa süre içinde oluşturulacak yeni Azure uyarılar devam edebilirsiniz. Herhangi bir düzenleme veya uyarının oluşturulmasını OMS Portalı'ndan yapıldığında bu kısa süre içinde kullanıcıların Azure Log Analytics veya Azure uyarıları devam seçeneğiniz vardır.
+Azure için genişletilmesi için günlük analizi çalışma alanındaki uyarılar zamanladığınızda, iş ve buna herhangi bir şekilde yapılandırmanızı tehlikeye olmadığı devam eder. Zamanlanan uyarılarınızı geçici olarak değiştirilmesi için kullanılamıyor olabilir, ancak bu süre boyunca yeni Azure uyarıları oluşturmaya devam edebilirsiniz. Düzenleme veya uyarıları Operations Management Suite Portalı'ndan çalışırsanız, günlük analizi çalışma alanından oluşturmaya devam etmek için seçeneğiniz vardır. Bunları Azure portalında Azure uyarıları oluşturmak seçebilirsiniz.
 
- ![Zamanlanmış süresi boyunca, kullanıcı eylemi Azure'a yeniden yönlendirilen uyarılar hakkında](./media/monitor-alerts-extend/ScheduledDirection.png)
-
-> [!NOTE]
-> Uyarılar için Azure OMS Portalı'ndan genişletme ücret ve kullanım Azure günlük analizi uyarılar değil faturalandırılacaksınız, belirtilen koşullar ve sınırları içinde kullanıldığında için sorgu tabanlı uyarılar [Azure fiyatlandırma ilkesi İzleyicisi](https://azure.microsoft.com/pricing/details/monitor/)  
-
-Kullanıcılar bu tarihten önce uyarıları genişletmenin avantajlarından; Gönüllü uyarılarını Azure yönetilebilir hale getirmek amacıyla kullanmama tarafından.
-
-### <a name="how-to-voluntarily-extending-your-alerts"></a>Uyarılarınızı gönüllü genişletme nasıl
-Azure uyarıları kolay bir geçişinde OMS kullanıcılar etkinleştirmek için Microsoft uyarıları genişletme araç oluşturdu. Microsoft OMS portalı müşteriler uyarılarını Azure OMS portalında (veya) yeni bir API kullanarak programlı bir yaklaşım sihirbazından genişletebilirsiniz. Daha fazla bilgi için bkz: [uyarıları OMS portalı ve API kullanarak Azure genişletme](monitoring-alerts-extend-tool.md).
-
-
-## <a name="usage-after-extending-your-alerts"></a>Uyarılarınızı genişlettikten sonra kullanım
-Belirtildiği gibi Microsoft Operasyon Management Suite içinde oluşturulan uyarıların Azure Uyarıları ' uzatılır; sonra bunları Azure'dan yönetebilirsiniz. Uyarıları OMS portalında - uyarı ayarı bölümünde listelenen devam eder. Aşağıda gösterildiği gibi:
-
- ![OMS portalı Azure'da genişletilmiş sonra uyarıları listeleme](./media/monitor-alerts-extend/PostExtendList.png)
-
-Düzenleme veya OMS portalında bitti oluşturma gibi uyarılar hakkında herhangi bir işlem için kullanıcıların saydam Azure uyarıları yönlendirilir. 
+ ![Günlük analizi veya Azure uyarıları uyarılar oluştur seçeneğinin ekran görüntüsü](./media/monitor-alerts-extend/ScheduledDirection.png)
 
 > [!NOTE]
-> Kullanıcılar, Azure üzerinde herhangi bir ek saydam gerçekleştirilecek veya OMS - bir uyarıda eylem Düzenle olarak kullanıcılar düzgün uygun eşlendi emin [Azure İzleyici ve uyarı kullanmak için izinler](monitoring-roles-permissions-security.md)
+> Uyarılar için Azure günlük analizi genişletme hesabınıza ücretlendirme değil. Günlük analizi uyarılar sorgu tabanlı için Azure uyarıları kullanarak değil faturalandırılır sınırlarda kullanıldığında ve koşullar belirtildiği [Azure fiyatlandırma ilkesi İzleyici](https://azure.microsoft.com/pricing/details/monitor/).  
 
-Oluşturma varolandan devam edecek uyarı [günlük analizi API](../log-analytics/log-analytics-api-alerts.md) ve [günlük analizi kaynak şablonu](../monitoring/monitoring-solutions-resources-searches-alerts.md) uyarıları Azure - Eylem grupları genişletilmiş sonra edilen yalnızca küçük değişiklikle olarak önceki zamanlama ilişkilendirilmesi gerekir.
+
+### <a name="how-to-extend-your-alerts-voluntarily"></a>Uyarılarınızı gönüllü genişletme
+Azure uyarıları uyarılarınızı genişletmek için Operations Management Suite Portalı'nda kullanılabilir Sihirbazı kullanabilirsiniz veya bir API kullanarak bunu programlı yapabilirsiniz. Daha fazla bilgi için bkz: [uyarıları Operations Management Suite portal ve API kullanarak Azure genişletme](monitoring-alerts-extend-tool.md).
+
+## <a name="experience-after-extending-your-alerts"></a>Uyarılarınızı genişlettikten sonra deneyimi
+Uyarılarınızı Azure Uyarıları'için genişletilmiş sonra Hayır daha önce farklı yönetim Operations Management Suite portalında kullanılabilir olmaya devam.
+
+![Operations Management Suite ekran portalıyla listelenen uyarıları](./media/monitor-alerts-extend/PostExtendList.png)
+
+Var olan bir uyarı düzenleyin veya yeni bir uyarı Operations Management Suite Portalı'nda oluşturma girişiminde bulunduğunuzda Azure uyarıları otomatik olarak yeniden yönlendiriliyor.  
+
+> [!NOTE]
+> Uyarıları eklemek veya düzenlemek için gereken kişilere atanan izinlere Azure'da düzgün atanmış olmadığından emin olun. Vermek için gereken izinleri anlamak için bkz: [Azure İzleyicisi ve Uyarıları kullanarak izinlerini](monitoring-roles-permissions-security.md).  
+> 
+
+Uyarılar oluşturmak devam edebilirsiniz [günlük analizi API](../log-analytics/log-analytics-api-alerts.md) ve [günlük analizi kaynak şablonu](../monitoring/monitoring-solutions-resources-searches-alerts.md). Bunu yaptığınızda, eylem gruplarını eklemelisiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Kullanılacak araçların öğrenin [başlatma uyarıları OMS Azure'da genişletme](monitoring-alerts-extend-tool.md)
-* Yeni hakkında daha fazla bilgi [Azure uyarıları deneyimi](monitoring-overview-unified-alerts.md).
-* Hakkında bilgi edinin [uyarıları Azure Uyarıları'nda oturum](monitor-alerts-unified-log.md).
+* Araçlar hakkında bilgi edinin [başlatma uyarıları Azure günlük analizi genişletme](monitoring-alerts-extend-tool.md).
+* Daha fazla bilgi edinmek [Azure uyarıları deneyimi](monitoring-overview-unified-alerts.md).
+* Oluşturmayı öğrenin [uyarıları Azure Uyarıları'nda oturum](monitor-alerts-unified-log.md).

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: f1cf83044eb4f001ba341cabd0771b267c3f996d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293169"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de özellik eşlemeleri için ifade yazma
 Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznitelik eşlemelerini tür bir ifade eşlemesi biridir. Bunlar için kullanıcılarınızın veri SaaS uygulaması için daha kabul edilebilir biçimlere dönüştürme olanak sağlayan bir betik benzeri ifadesi yazmanız gerekir.
@@ -175,7 +176,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
 | **defaultValue** |İsteğe bağlı |Dize |Kaynak herhangi bir anahtarı eşleşmediğinde kullanılacak varsayılan değeri. Boş bir dize olabilir (""). |
-| **Anahtarı** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
+| **anahtar** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
 | **value** |Gerekli |Dize |Değiştirme değeri için **kaynak** eşleşen. |
 
 ## <a name="examples"></a>Örnekler
@@ -251,12 +252,12 @@ Durum kodu önceden tanımlanmış seçeneklerinden herhangi birini eşleşmiyor
 * **Giriş** (durum): "QLD"
 * **Çıktı**: "Avustralya/Brisbane"
 
-## <a name="related-articles"></a>İlgili Makaleler
+## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](active-directory-apps-index.md)
 * [Kullanıcı sağlama/sağlamayı SaaS uygulamaları için otomatik hale getirme](active-directory-saas-app-provisioning.md)
 * [Kullanıcı sağlama öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
 * [Kapsam belirleme filtreleri kullanıcı sağlama](active-directory-saas-scoping-filters.md)
-* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](active-directory-scim-provisioning.md)
+* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Hesap sağlama bildirimleri](active-directory-saas-account-provisioning-notifications.md)
 * [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 

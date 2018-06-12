@@ -1,8 +1,8 @@
 ---
-title: "Kapsam belirleme filtreleri ile uygulamalar sağlama | Microsoft Docs"
-description: "Nesneleri nesneyi iş gereksinimlerinizi karşılamadığı, sağlanan otomatik kullanıcı sağlamayı destekleyen uygulamalarda önlemek için kapsam filtreleri kullanmayı öğrenin."
+title: Kapsam belirleme filtreleri ile uygulamalar sağlama | Microsoft Docs
+description: Nesneleri nesneyi iş gereksinimlerinizi karşılamadığı, sağlanan otomatik kullanıcı sağlamayı destekleyen uygulamalarda önlemek için kapsam filtreleri kullanmayı öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293084"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Kapsam belirleme filtreleri ile öznitelik tabanlı uygulama sağlama
 Bu makalenin amacı, kapsam filtreleri hangi kullanıcıların bir uygulamaya sağlanan belirlemek öznitelik tabanlı kurallar tanımlamak için nasıl kullanılacağını açıklamaktadır sağlamaktır.
@@ -29,7 +30,7 @@ Bir kapsam filtresi Azure hizmet sağlama dahil etmek veya hariç belirli bir de
 
 Kapsam belirleme filtreleri sağlama bağlayıcı türüne bağlı olarak farklı şekillerde kullanılabilir:
 
-* **Giden Azure AD SaaS uygulamaları için sağlama**. Azure AD kaynak sistemi olduğunda [kullanıcı ve Grup atamaları](active-directory-coreapps-assign-user-azure-portal.md) sağlama kapsamında hangi kullanıcıların olan belirlemek için en yaygın bir yöntemdir. Ayrıca bu atamaları çoklu oturum açmayı etkinleştirmek için kullanılır ve erişim ve sağlama yönetmek için tek bir yöntem sağlar. Kapsam belirleme filtreleri isteğe bağlı olarak, atamaları ek olarak veya bunların yerine öznitelik değerlerine göre kullanıcıları filtrelemek için kullanılabilir.
+* **Giden Azure AD SaaS uygulamaları için sağlama**. Azure AD kaynak sistemi olduğunda [kullanıcı ve Grup atamaları](manage-apps/assign-user-or-group-access-portal.md) sağlama kapsamında hangi kullanıcıların olan belirlemek için en yaygın bir yöntemdir. Ayrıca bu atamaları çoklu oturum açmayı etkinleştirmek için kullanılır ve erişim ve sağlama yönetmek için tek bir yöntem sağlar. Kapsam belirleme filtreleri isteğe bağlı olarak, atamaları ek olarak veya bunların yerine öznitelik değerlerine göre kullanıcıları filtrelemek için kullanılabilir.
 
     >[!TIP]
     > Ayarlarını değiştirerek Kurumsal uygulama atamaları göre sağlama devre dışı bırakabilirsiniz [kapsam](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menü sağlama ayarlar altında **tüm kullanıcılar ve gruplar eşitleme**. Bu seçenek ayrıca öznitelik tabanlı kapsam filtreleri kullanarak grup tabanlı atamaları kullanarak daha hızlı performans sağlar.  
@@ -113,8 +114,8 @@ Kapsam filtreleri bağlayıcı sağlama her Azure AD kullanıcı için özniteli
 * [Azure Active Directory'de uygulama yönetimi için makale dizini](active-directory-apps-index.md)
 * [Sağlama ve SaaS uygulamaları etkinleştirmektir kullanıcı otomatikleştirme](active-directory-saas-app-provisioning.md)
 * [Kullanıcı sağlama öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
-* [Özellik eşlemeleri için ifade yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Hesap sağlama bildirimleri](active-directory-saas-account-provisioning-notifications.md)
-* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik sağlamayı etkinleştirmek için SCIM'yi kullanma](active-directory-scim-provisioning.md)
+* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik sağlamayı etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 

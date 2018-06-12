@@ -1,6 +1,6 @@
 ---
-title: SQL veritabanları Azure yığında kullanarak | Microsoft Docs
-description: SQL veritabanları Azure yığını ve hızlı adımlar SQL Server Kaynak sağlayıcısı bağdaştırıcısı dağıtmak için bir hizmet olarak nasıl dağıtabileceğini öğrenin.
+title: SQL kaynak sağlayıcısı Azure yığında kaldırma | Microsoft Docs
+description: Azure yığın dağıtımınızdan SQL kaynak sağlayıcısı nasıl kaldırabileceğiniz öğrenin.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,32 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c2686a2d5241af46e70263d1827028aa7e9b2138
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 9f90201cad0f74923460c2f25eff4de98dc6690a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294789"
 ---
-# <a name="remove-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını kaldırma
+# <a name="removing-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısı kaldırılıyor  
+SQL kaynak sağlayıcısı kaldırmadan önce ilk bağımlılıkları kaldırmak için gereklidir.
 
-SQL kaynak sağlayıcısı kaldırmak için önce tüm bağımlılıkları kaldırmak için gereklidir:
+## <a name="remove-the-mysql-resource-provider"></a>MySQL kaynak sağlayıcısını kaldırma 
 
-1. SQL kaynak sağlayıcısı bağdaştırıcısı bu sürümü için indirdiğiniz özgün dağıtım paketi olduğundan emin olun.
+1. Var olan SQL kaynak sağlayıcısı bağımlılıkları kaldırdınız doğrulayın.
 
-2. Tüm kullanıcı veritabanlarını kaynak Sağlayıcısı'ndan silinmesi gerekir. (Kullanıcı veritabanlarını silerek verileri silmez.) Bu görev, kullanıcılar tarafından gerçekleştirilmelidir.
+  > [!NOTE]
+  > Bağımlı kaynaklar kaynak sağlayıcısı şu anda kullanıyorsanız bile SQL kaynak sağlayıcısını kaldırma devam edecek. 
+  
+2. SQL kaynak sağlayıcısı bağdaştırıcısı bu sürümü için indirdiğiniz özgün dağıtım paketi olduğundan emin olun.
+3. Aşağıdaki parametreleri kullanarak dağıtım betiği yeniden çalıştırın:
+    - Kullanın parametre kaldırma
+    - IP adresi veya ayrıcalıklı uç noktanın DNS adı.
+    - Bulut Yöneticisi, ayrıcalıklı endpoint erişmek için gerekli kimlik bilgileri.
+    - Azure yığın hizmet yönetici hesabı için kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerinin aynısını kullanın.
 
-3. Yönetici barındırma sunucuları SQL kaynak sağlayıcısı bağdaştırıcısından silmeniz gerekir.
-
-4. Yönetici SQL kaynak sağlayıcısı bağdaştırıcısı başvuru herhangi bir plan silmeniz gerekir.
-
-5. Yönetici, tüm SKU'ları ve SQL kaynak sağlayıcısı bağdaştırıcısı ile ilişkili kotaları silmeniz gerekir.
-
-6. Aşağıdaki öğeleri içeren dağıtım betiği yeniden çalıştırın:
-    - Parametre kaldırma
-    - Azure Resource Manager uç noktaları
-    - DirectoryTenantID
-    - Hizmet yöneticisi hesabı için kimlik bilgileri
-
+## <a name="next-steps"></a>Sonraki adımlar
+[Uygulama Hizmetleri PaaS teklifi](azure-stack-app-service-overview.md)

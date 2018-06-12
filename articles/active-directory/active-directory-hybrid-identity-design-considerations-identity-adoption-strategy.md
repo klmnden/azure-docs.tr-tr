@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260371"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Bir karma kimlik benimseme stratejinizi tanımlayın
 Bu görevde, ele alınan iş gereksinimlerini karşılamak karma kimlik çözümünü karma kimlik benimseme stratejinizi tanımlayın:
@@ -32,7 +34,7 @@ Bu görevde, ele alınan iş gereksinimlerini karşılamak karma kimlik çözüm
 Kuruluşlar iş belirleme ilk görev adres olması gerekir.  Bu çok geniş olabilir ve kapsam yayılmasını dikkatli değilse ortaya çıkabilir.  Başlangıçta, basit tutmak ancak her zaman uygun hale getirmek ve değişiklik gelecekte kolaylaştırmak için bir tasarımı planlayın unutmayın.  Basit bir tasarım veya çok karmaşık bir olup bağımsız olarak, Azure Active Directory Office 365, Microsoft Online Services ve bulut destekleyen Microsoft Identity platformudur kullanan uygulamalar.
 
 ## <a name="define-an-integration-strategy"></a>Bir tümleştirme stratejisini tanımlayın
-Microsoft, bulut kimlikleri, eşitlenen kimlikler ve Federasyon kimlikleri olan üç ana tümleştirme senaryolarına sahiptir.  Bu tümleştirme stratejiler birini benimsenmesi planlamanız gerekir.  Farklı olabilir ve bir seçerken kararları içerebilir, ne tür bir kullanıcı deneyimi sağlamak için bazı varolan altyapısının yerinde'zaten var ve en düşük maliyetli nedir istediğiniz seçtiğiniz stratejisi.  
+Microsoft, bulut kimlikleri, eşitlenen kimlikler ve Federasyon kimlikleri olan üç ana tümleştirme senaryolarına sahiptir.  Bu tümleştirme stratejiler birini benimsenmesi planlamanız gerekir.  Seçtiğiniz stratejisi değişebilir bir seçerken kararları içerebilir, ne tür bir kullanıcı deneyimi sağlamak, mevcut bir altyapınız var mı istediğiniz ve en düşük maliyetli nedir.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ Aşağıdaki tabloda, avantajları ve dezavantajları aşağıdaki stratejilerde
 
 | Stratejisi | Avantajları | Olumsuz yönleri |
 | --- | --- | --- |
-| **Bulut kimlikleri** |Küçük bir kuruluş için yönetilmesi daha kolay. <br> Hiçbir şey gerekli üzerinde-şirket içi-No ek donanım yüklemek için<br>Kullanıcının şirketten ayrılması durumunda kolayca devre dışı |Kullanıcıların iş yüklerini bulutta erişirken oturum açmak gerekir <br> Parolalar olabilir veya Bulut ve şirket içi kimlikleri için aynı olamaz |
+| **Bulut kimlikleri** |Küçük bir kuruluş için yönetilmesi daha kolay. <br> Şirket içi yüklemek için bir şey yok. Ek donanım gereklidir<br>Kullanıcının şirketten ayrılması durumunda kolayca devre dışı |Kullanıcıların iş yüklerini bulutta erişirken oturum açmak gerekir <br> Parolalar olabilir veya Bulut ve şirket içi kimlikleri için aynı olamaz |
 | **Eşitlendi** |Şirket içi parola kimlik doğrulaması şirket içi ve bulut dizinleri <br>Küçük, Orta veya büyük kuruluşlar için yönetilmesi daha kolay <br>Kullanıcıların bazı kaynaklar için çoklu oturum açma (SSO) olabilir <br> Eşitleme için tercih edilen Microsoft yöntemi <br> Yönetilmesi daha kolay |Bazı müşterilerin belirli şirketin Polis son bulut dizinlerine eşitlemek etme konusunda isteksiz olabilirsiniz |
 | **Federasyon** |Kullanıcılar, çoklu oturum açma (SSO) olabilir <br>Bir kullanıcı sonlandırılır veya bırakır, hesap hemen devre dışı ve erişimi iptal<br> Gelişmiş ile elde edemiyor senaryoları destekler eşitlendi |Daha fazla adımları ayarlama ve yapılandırma <br> Daha yüksek bakım <br> STS altyapısı için ek donanım gerektirebilir <br> Federasyon sunucusunu yüklemek için ek donanım gerektirebilir. AD FS kullanılırsa, ek yazılım gereklidir <br> SSO için kapsamlı Kurulum gerektirir <br> Federasyon sunucusu kapalı olduğunda hata noktası kritik, kullanıcıların kimliğini doğrulamak doğrulayamazsınız. |
 
@@ -65,7 +67,7 @@ Kullandığınız stratejisi oturum açma kullanıcı deneyimini benimsendiği b
 | Web tarayıcıları |Form tabanlı kimlik doğrulama |Çoklu oturum açma bazen kuruluş kimliği sağlamak için gerekli özelliğini, |
 | Outlook |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
 | Skype Kurumsal (Lync) |Kimlik bilgisi istemi |Çoklu oturum açma Lync için kimlik bilgileri değişimi için istenir. |
-| SkyDrive Pro |Kimlik bilgisi istemi |Çoklu oturum açma |
+| OneDrive İş |Kimlik bilgisi istemi |Çoklu oturum açma |
 | Office aboneliği artı Pro |Kimlik bilgisi istemi |Çoklu oturum açma |
 
 **Dış veya güvenilmeyen kaynaklardan**:
@@ -73,7 +75,7 @@ Kullandığınız stratejisi oturum açma kullanıcı deneyimini benimsendiği b
 |  | Eşitlenen kimliği | Federal Kimlik |
 | --- | --- | --- |
 | Web tarayıcıları |Form tabanlı kimlik doğrulama |Form tabanlı kimlik doğrulama |
-| Outlook, Skype Kurumsal (Lync) Skydrive Pro, Office Aboneliği |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
+| Outlook, Skype Kurumsal (Lync) OneDrive iş, Office Aboneliği |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
 | Exchange ActiveSync |Kimlik bilgisi istemi |Çoklu oturum açma Lync için kimlik bilgileri değişimi için istenir. |
 | Mobil uygulamalar |Kimlik bilgisi istemi |Kimlik bilgisi istemi |
 
@@ -119,7 +121,7 @@ Bir eşitleme stratejinizi tanımlarken kullanılır topoloji belirlenmesi gerek
 
 Çoklu orman senaryosu
 
-Aşağıdaki öğeler doğruysa, bu durum sonra çok-forest-tek Azure AD topoloji değerlendirilmesi gerekiyorsa:
+Bu durum, Çoklu orman tek ise aşağıdaki öğeleri doğruysa, Azure AD topoloji sayılacağı:
 
 * Tüm ormanlarda yalnızca 1 kimlik kullanıcınız – aşağıdaki benzersiz şekilde tanımlayan kullanıcılar bölümünde bu daha ayrıntılı olarak açıklanmaktadır.
 * Kullanıcı kimliklerini bulunduğu ormana kimliğini doğrular.
@@ -149,7 +151,7 @@ Olası ve Active Directory bir şirket içi örneğini aşağıdaki şekilde gö
 
 **Tek orman filtreleme senaryosu**
 
-Bunu aşağıdakileri yapmak için true olması gerekir:
+Bunu yapmak için aşağıdakilerin doğru olması gerekir:
 
 * Azure AD Connect eşitleme sunucusu birbirini dışlayan bir nesneler kümesini sahip oldukları her şekilde filtreleme için yapılandırılmış olması gerekir.  Bu örneğin, belirli bir etki alanı ya da OU'yu her sunucuya kapsamı tarafından yapılır.
 * Bir DNS etki alanı yalnızca tek bir kaydedilebilir Azure AD dizini böylece UPN'ler kullanıcıların şirket içi AD ayrı ad alanları kullanmanız gerekir

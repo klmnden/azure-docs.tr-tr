@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4009a35226473cd3ecc68929e53d70f7fb749156
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 973b11cd7bcb46bfb113998ff4a4e0b9c6317042
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593444"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261772"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect eşitleme: öznitelikleri eşitlenmiş Azure Active Directory'ye
 Bu konuda, Azure AD Connect eşitleme tarafından eşitlenen öznitelikler listelenir.  
@@ -419,6 +419,7 @@ Bu öznitelikler için **kullanıcı** seçtiğiniz diğer uygulamalar yanı sı
 | --- |:---:| --- |
 | domainFQDN |X |DNSEtkiAlanıAdı olarak da bilinir. Örneğin, contoso.com. |
 | domainNetBios |X |NetBiosName olarak da bilinir. Örneğin, CONTOSO. |
+| msDS-KeyCredentialLink |X |Kullanıcı, iş için Windows Hello kaydedildikten sonra. | 
 
 ## <a name="exchange-hybrid-writeback"></a>Exchange karma geri yazma
 Etkinleştirmeyi seçtiğinizde bu öznitelikler geri Azure AD'den şirket içi Active Directory'ye yazılır **Exchange karma**. Exchange sürümünüzün bağlı olarak, daha az sayıda öznitelik eşitlenmiş olabilir.

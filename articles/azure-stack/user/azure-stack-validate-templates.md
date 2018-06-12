@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1800db8cd25aa37bffb76adf00901e11c75d49fe
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604089"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294511"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>Şablonlarınızı Azure yığını için şablon doğrulama aracıyla denetleyin.
 
@@ -32,8 +32,8 @@ ms.locfileid: "34604089"
 
 Bir bulut yeteneklerini oluşturmak zorunda şablon doğrulamak için ilk dosya ve Doğrulama Aracı'nı çalıştırın. Aşağıdaki PowerShell modülleri Azure yığın araçları kullanın:
 
-- İçinde **TemplateValidator** klasörü:<br>         AzureRM.CloudCapabilities.psm1 Azure yığın bulut sürümlerinde ve Hizmetleri temsil eden bir bulut özellikleri JSON dosyası oluşturur.
-- İçinde **CloudCapabilities** klasörü:<br>
+- İçinde **CloudCapabilities** klasörü:<br>         AzureRM.CloudCapabilities.psm1 Azure yığın bulut sürümlerinde ve Hizmetleri temsil eden bir bulut özellikleri JSON dosyası oluşturur.
+- İçinde **TemplateValidator** klasörü:<br>
 AzureRM.TemplateValidator.psm1 şablonlarını dağıtımı için Azure yığınında test etmek için bir bulut özellikleri JSON dosyasını kullanır.
 
 ## <a name="build-the-cloud-capabilities-file"></a>Bulut özellikleri dosyası oluşturma

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293118"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -140,7 +141,7 @@ Yaklaşık tam süresi: 60 dakika
 | --- | --- |
 | Kullanılabilir SaaS uygulamasının test ortamı. Bu kılavuzda, örnek olarak ServiceNow kullanırız.<br/>Mevcut veri kalitesini ve eşlemeleri gezinme çubuğunda uyuşmazlık en aza indirmek için bir test örneği kullanmak için önerilir. | Git https://developer.servicenow.com/app.do#! / ev bir test örneği alma işlemini başlatmak için |
 | ServiceNow yönetim konsoluna yönetici erişimi | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](active-directory-saas-servicenow-tutorial.md) |
-| Hedef uygulamaya atamak için kullanıcıları oluşturun. PoC kullanıcıları içeren bir güvenlik grubu önerilir. <br/>Grup oluşturma uygun değilse, ardından kullanıcılar için doğrudan uygulama PoC için atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
+| Hedef uygulamaya atamak için kullanıcıları oluşturun. PoC kullanıcıları içeren bir güvenlik grubu önerilir. <br/>Grup oluşturma uygun değilse, ardından kullanıcılar için doğrudan uygulama PoC için atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Adımlar
 
@@ -148,13 +149,13 @@ Yaklaşık tam süresi: 60 dakika
 | --- | --- |
 | Tüm aktörler için öğretici Microsoft Documentation gelen paylaşma  | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](active-directory-saas-servicenow-tutorial.md) |
 | Bir çalışma toplantı ayarlayın ve her aktör ile öğretici adımları izleyin. | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](active-directory-saas-servicenow-tutorial.md) |
-| Uygulama önkoşulları belirlenen grubu atayın. POC kapsamda koşullu erişimi varsa, daha sonra yeniden ziyaret ve MFA ekleyin ve benzer. <br/>Bu (yapılandırılmışsa) sağlama işleminde kazandırın unutmayın |  [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](active-directory-groups-create-azure-portal.md) |
+| Uygulama önkoşulları belirlenen grubu atayın. POC kapsamda koşullu erişimi varsa, daha sonra yeniden ziyaret ve MFA ekleyin ve benzer. <br/>Bu (yapılandırılmışsa) sağlama işleminde kazandırın unutmayın |  [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](active-directory-groups-create-azure-portal.md) |
 | Galeriden ServiceNow uygulama eklemek için Azure AD Yönetim Portalı kullanın| [Azure AD Yönetim Portalı: Kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | "ServiceNow uygulamasının dikey"çoklu oturum açmayı"SAML tabanlı oturum açmayı" etkinleştirin |  |
 | ServiceNow URL'niz ile "Oturum üzerinde URL'si" ve "Tanımlayıcı" alanları doldurun<br/>"Yeni sertifika etkin hale getirmek için" onay kutusunu işaretleyin<br/>ve ayarları kaydedin |  |
 | Servicenow'ı yapılandırmak özelleştirilmiş yönergeler görüntülemek için bölmenin altındaki "Yapılandırma ServiceNow" dikey penceresini açın |  |
 | Servicenow'ı yapılandırmak için yönergeleri izleyin |  |
-| ServiceNow uygulama "Hazırlama" dikey penceresinde "Otomatik" sağlamayı etkinleştir | [Yeni Azure portalına kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme](active-directory-enterprise-apps-manage-provisioning.md) |
+| ServiceNow uygulama "Hazırlama" dikey penceresinde "Otomatik" sağlamayı etkinleştir | [Yeni Azure portalına kurumsal uygulamalar için sağlama kullanıcı hesabı yönetme](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | Sağlama işlemini tamamlarken birkaç dakika bekleyin.  Bu arada, sağlama raporları kontrol edebilirsiniz |  |
 | Oturum https://myapps.microsoft.com/ erişimi olan bir sınama kullanıcısı olarak | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
 | Yeni oluşturduğunuz uygulama kutucuğuna tıklayın. Erişimi onaylayın |  |
@@ -175,7 +176,7 @@ Yaklaşık tam süresi: 15 dakika
 | --- | --- |
 | Test ortamı SaaS uygulamaları için. Parola SSO HipChat ve Twitter örneğidir. Başka herhangi bir uygulama için tam html formu oturum açma sayfası URL'sini gerekir. | [Microsoft Azure Marketi twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Microsoft Azure Market'te HipChat](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Uygulamaları için hesapları sınayın. | [Twitter için kaydolun](https://twitter.com/signup?lang=en)<br/>[Ücretsiz kaydolun: HipChat](https://www.hipchat.com/sign_up) |
-| Hedef uygulamaya atamak için kullanıcıları oluşturun. Bir güvenlik grubu kullanıcıları bulunan önerilir. | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
+| Hedef uygulamaya atamak için kullanıcıları oluşturun. Bir güvenlik grubu kullanıcıları bulunan önerilir. | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) |
 | Internet Explorer, Chrome veya Firefox için erişim paneli uzantısı dağıtacak bir bilgisayar için yerel yönetici erişimi | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Chrome için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Firefox için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Adımlar
@@ -184,8 +185,8 @@ Yaklaşık tam süresi: 15 dakika
 | --- | --- |
 | Tarayıcı uzantısı yükleyin | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Chrome için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Firefox için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Galeriden uygulamayı yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: yeni ve geliştirilmiş uygulama Galerisi](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Parola SSO yapılandırın | [Yeni Azure portalında Kurumsal uygulamaları için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Uygulama önkoşulları belirlenen grubu atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
+| Parola SSO yapılandırın | [Yeni Azure portalında Kurumsal uygulamaları için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Uygulama önkoşulları belirlenen grubu atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) |
 | Oturum https://myapps.microsoft.com/ erişimi olan bir sınama kullanıcısı olarak |  |
 | Yeni oluşturduğunuz uygulama kutucuğuna tıklayın. | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Uygulama kimlik bilgileri sağlayın | [Erişim paneli nedir?: parola tabanlı SSO kimlik sağlama olmadan](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -210,7 +211,7 @@ Yaklaşık tam süresi: 30 dakika
 | --- | --- |
 | Hedef uygulama ve tam oturum açma URL'leri vaktinden listesi. Örnek olarak, Twitter kullanabilirsiniz. | [Microsoft Azure Marketi twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Twitter için kaydolun](https://twitter.com/signup?lang=en) |
 | Bu SaaS uygulaması için kimlik bilgisi paylaşılan. | [Azure AD kullanarak hesapları paylaşma](active-directory-sharing-accounts.md)<br/>[Azure AD parola toplama devretme Facebook, Twitter ve LinkedIn önizlemeye otomatik! -Enterprise Mobility and Security Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| Aynı hesap erişecek en az iki takım üyeleri için kimlik bilgileri. Güvenlik grubunun bir parçası olmalıdır. | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
+| Aynı hesap erişecek en az iki takım üyeleri için kimlik bilgileri. Güvenlik grubunun bir parçası olmalıdır. | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) |
 | Internet Explorer, Chrome veya Firefox için erişim paneli uzantısı dağıtacak bir bilgisayar için yerel yönetici erişimi | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Chrome için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Firefox için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>Adımlar
@@ -219,8 +220,8 @@ Yaklaşık tam süresi: 30 dakika
 | --- | --- |
 | Tarayıcı uzantısı yükleyin | [IE için erişim paneli uzantısı](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Chrome için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Firefox için erişim paneli uzantısı](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Galeriden uygulamayı yapılandırma | [Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler: yeni ve geliştirilmiş uygulama Galerisi](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Parola SSO yapılandırın | [Yeni Azure portalında Kurumsal uygulamaları için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| Uygulama kimlik bilgilerini atarken önkoşulları belirlenen grubu atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](active-directory-coreapps-assign-user-azure-portal.md) |
+| Parola SSO yapılandırın | [Yeni Azure portalında Kurumsal uygulamaları için çoklu oturum açmayı yönetme: parola tabanlı oturum açma](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Uygulama kimlik bilgilerini atarken önkoşulları belirlenen grubu atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) |
 | Bu erişim uygulama olarak farklı kullanıcı olarak oturum **aynı hesabı paylaşılan.**  |  |
 | İsteğe bağlı olarak, uygulama kullanım raporlarını kontrol edebilirsiniz. Bu nedenle raporlarında trafiği görmek için bir süre beklemeniz gerekir bazı gecikme olduğuna dikkat edin. | [Azure Active Directory portalında oturum açma etkinliği raporları: yönetilen uygulamaların kullanımı](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory rapor bekletme ilkeleri](active-directory-reporting-retention.md) |
 

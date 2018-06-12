@@ -14,11 +14,12 @@ ms.date: 02/20/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: d61907ddbd6eaecc8aeae8d2f1cea204f287daea
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 5da5bd920becdc86e133cb1b4e67fb3125c2638e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260541"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Grup ayarlarını yapılandırmak için Azure Active Directory cmdlet'leri
 Bu makale Azure Active Directory (Azure AD) PowerShell cmdlet'lerini kullanarak oluşturma ve güncelleştirme gruplarına yönelik yönergeleri içerir. Bu içerik yalnızca (Birleşik grupları denir) Office 365 grupları için geçerlidir. 
@@ -72,7 +73,8 @@ Bu adımları ayarları dizin düzeyinde dizindeki tüm Office 365 grupları iç
 4. Ardından Kullanım Kılavuzu değeri güncelleştirin:
   
   ```
-  $setting["UsageGuidelinesUrl"] = "https://guideline.com"
+  $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
+
   ```  
 5. Son olarak, ayarlarını uygulayın:
   
@@ -141,7 +143,7 @@ Bu adımları dizindeki tüm Office grupları için geçerli olan ayarları dizi
   GuestUsageGuidelinesUrl
   GroupCreationAllowedGroupId
   AllowToAddGuests              True
-  UsageGuidelinesUrl            https://guideline.com
+  UsageGuidelinesUrl            https://guideline.example.com
   ClassificationList
   EnableGroupCreation           True
   ```

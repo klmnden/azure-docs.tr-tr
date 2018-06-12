@@ -1,24 +1,19 @@
 ---
-title: "Bir Web kancası bir Azure etkinlik günlüğü uyarı çağrı | Microsoft Docs"
-description: "Etkinlik günlüğü olaylarını diğer hizmetlere özel eylemler için rota öğrenin. Örneğin, SMS iletileri göndermek, hatalar oturum veya sohbet veya ileti sistemi hizmeti aracılığıyla bir takım bildirin."
+title: Bir Web kancası Azure etkinlik günlüğü uyarıdaki (Klasik) çağırın
+description: Etkinlik günlüğü olaylarını diğer hizmetlere özel eylemler için rota öğrenin. Örneğin, SMS iletileri göndermek, hatalar oturum veya sohbet veya ileti sistemi hizmeti aracılığıyla bir takım bildirin.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: e825d0f2487c20c8c7f3d210d7180b07742d7173
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262469"
 ---
 # <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Bir Web kancası bir Azure etkinlik günlüğü uyarı çağırın
 Web kancası diğer sistemlere özel eylemler veya sonrası işleme için Azure bir uyarı bildirimine yönlendirmek için kullanabilirsiniz. Sohbet veya Mesajlaşma Hizmetleri aracılığıyla veya diğer çeşitli eylemler için bir takım bildirmek için hatalar, oturum, SMS iletileri göndermek Hizmetleri yönlendirmek için bir uyarı durumunda bir Web kancası kullanabilirsiniz. Bir uyarı etkinleştirildiğinde, e-posta göndermek için bir etkinlik günlüğü alarm de ayarlayabilirsiniz.
@@ -111,13 +106,13 @@ GÖNDERME işlemini aşağıdaki JSON yükü ve tüm etkinlik günlüğü tabanl
 | activityLog | Olay günlüğü özellikleri.|
 | Yetkilendirme |Olay rol tabanlı erişim denetimi (RBAC) özellikleri. Bu özellikleri genellikle dahil **eylem**, **rol**, ve **kapsam**. |
 | action | Uyarı tarafından yakalanan eylem. |
-| Kapsam | (Kaynak) uyarı kapsamı.|
+| scope | (Kaynak) uyarı kapsamı.|
 | kanallar | İşlem. |
 | Talepleri | Şekliyle bilgilerin toplanması için talep ilişkilendirir. |
 | çağıran |İşlemi, UPN Talebi veya kullanılabilirliğine göre SPN talep gerçekleştiren kullanıcının kullanıcı adı veya GUID. Bazı sistem çağrıları için boş bir değer olabilir. |
 | correlationId |Genellikle bir GUID dize biçiminde. Olaylarla **correlationıd değeri** aynı büyük eyleme ait. Bunlar genellikle aynı olan **correlationıd değeri** değeri. |
 | açıklama |Uyarı oluşturulduğunda ayarlandı uyarı açıklaması. |
-| eventSource |Azure hizmet veya olayı oluşturan altyapısı adı. |
+| EventSource |Azure hizmet veya olayı oluşturan altyapısı adı. |
 | eventTimestamp |Olayın gerçekleştiği süre. |
 | eventDataId |Olay benzersiz tanımlayıcısı. |
 | düzey |Aşağıdaki değerlerden birini: Kritik hata, uyarı, bilgilendirici veya ayrıntılı. |
@@ -130,7 +125,7 @@ GÖNDERME işlemini aşağıdaki JSON yükü ve tüm etkinlik günlüğü tabanl
 | alt durum |Genellikle, karşılık gelen REST çağrısı HTTP durum kodunu içerir. Ayrıca, bir alt durum açıklayan diğer dizeleri de içerebilir. Ortak substatus değerler Tamam (HTTP durum kodu: 200), oluşturulan (HTTP durum kodu: 201), kabul edilen (HTTP durum kodu: 202), Hayır içeriği (HTTP durum kodu: 204), hatalı istek (HTTP durum kodu: 400), bulunamadı (HTTP durum kodu: 404), çakışma (HTTP durum kodu: 409), iç sunucu hatası (HTTP durum kodu: 500), hizmet kullanılamıyor (HTTP durum kodu: 503) ve ağ geçidi zaman aşımı (HTTP durum kodu : 504). |
 | subscriptionId |Azure abonelik kimliği |
 | submissionTimestamp |Olay istek işlenmeden Azure hizmeti tarafından oluşturulduğu saat. |
-| resourceType | Olayı oluşturan kaynak türü.|
+| Kaynak türü | Olayı oluşturan kaynak türü.|
 | properties |Olay ayrıntılarını olan anahtar/değer çiftleri kümesi. Örneğin, `Dictionary<String, String>`. |
 
 ## <a name="next-steps"></a>Sonraki adımlar

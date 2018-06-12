@@ -6,14 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 6/08/2018
 ms.author: nepeters
-ms.openlocfilehash: ca8d883add04d623c17390a0b5031aaf08be0429
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596507"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260811"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes hizmet (AKS) hakkında sık sorulan sorular
 
@@ -49,7 +49,7 @@ AKS önizlemede kalırken, ACS Kubernetes kullanarak üretim kümeleri oluşturm
 
 ## <a name="when-will-acs-be-deprecated"></a>Ne zaman ACS kullanım dışı kalacaktır?
 
-ACS AKS İST olduğu zaman kullanım dışı kalacaktır Kümeler için AKS geçirmek için bu tarihten sonraki 12 ay sahip olur. 12 aylık dönem boyunca tüm ACS işlemleri çalıştırabilirsiniz.
+ACS İST hale AKS zaman kullanım dışı kalacaktır Kümeler için AKS geçirmek için bu tarihten sonraki 12 ay sahip olur. 12 aylık dönem boyunca tüm ACS işlemleri çalıştırabilirsiniz.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS düğümü otomatik ölçeklendirmeyi destekliyor mu?
 
@@ -76,6 +76,10 @@ Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı d�
 Her AKS dağıtım iki kaynak grubu yayar. İlk oluşturulur ve yalnızca AKS kaynak içerir. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtım sırasında otomatik olarak oluşturur. *MC_myResourceGroup_myAKSCluster_eastus*. İkinci kaynak grubu VM gibi kümesi ile ilişkili tüm altyapı kaynakları içeren ağ ve depolama. Kaynak temizleme basitleştirmek için oluşturulur.
 
 Depolama hesapları veya ayrılmış genel IP adresi gibi AKS kümenizi kullanılacak kaynakları oluşturuyorsanız, otomatik olarak oluşturulan kaynak grubunda yerleştirmelisiniz.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>Bir hizmet düzeyi sözleşmesi AKS sunar?
+
+Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı yayınlanan hizmet düzeyi karşılanmadı hizmet maliyetini müşteri geri ödemenin kabul eder. AKS kendisi boş olduğundan, hiçbir ücret geri ödemenin kullanılabilir ve bu nedenle hiçbir resmi SLA yoktur. Ancak, biz Kubernetes API sunucunuz için en az % 99,5 kullanılabilirliğini bulundurmak arama.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

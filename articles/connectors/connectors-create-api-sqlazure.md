@@ -1,31 +1,28 @@
 ---
 title: SQL Server veya Azure SQL veritabanı - Azure mantıksal uygulamaları bağlamak | Microsoft Docs
-description: Şirket içi SQL Server ve Azure SQL Database'i bulutta Azure Logic Apps bağlantıları oluşturma
-services: logic-apps
-documentationcenter: ''
+description: Erişim ve şirket içi veya bulutta SQL veritabanları Azure Logic Apps ile iş akışları otomatik hale getirerek yönetme
 author: ecfan
-manager: cfowler
-editor: ''
-tags: connectors
-ms.assetid: d8a319d0-e4df-40cf-88f0-29a6158c898c
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
-ms.topic: article
-ms.date: 05/15/2018
+manager: jeconnoc
 ms.author: estfan
-ms.openlocfilehash: 4917f784c07919155e006711026899ce7712fecb
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.date: 05/15/2018
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296297"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>SQL Server veya Azure SQL veritabanı için Azure mantığı uygulamalardan Bağlan
 
-Bu makalede, SQL Server connector ile bir mantıksal uygulama içinde SQL veritabanınızdaki verileri nasıl erişebileceğiniz gösterilmektedir. Böylece, görevler ve verilerinizi yönetmek için iş akışlarını otomatikleştirmek mantıksal uygulamalar oluşturabilirsiniz. Bağlayıcı çalıştığı her ikisi için [şirket içi SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) ve [Azure SQL Database'i bulutta](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
+Bu makalede, SQL Server connector ile bir mantıksal uygulama içinde SQL veritabanınızdaki verileri nasıl erişebileceğiniz gösterilmektedir. Böylece, görevler, işlemler ve logic apps oluşturarak SQL veri ve kaynaklarınız yönetme iş akışlarını otomatikleştirebilirsiniz. Bağlayıcı çalıştığı her ikisi için [şirket içi SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) ve [Azure SQL Database'i bulutta](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview). 
 
-Olayları SQL veritabanınız veya Dynamics CRM Online gibi diğer sistemler tarafından tetiklenen oluşturulduğunda çalışan mantıksal uygulamalar oluşturabilirsiniz. Mantıksal uygulamalarınızı de alırsınız, Ekle, veya verileri silmek ve ayrıca SQL sorguları ya da saklı yordamları çalıştırmak. Örneğin, Dynamics CRM Online yeni kayıtları otomatik olarak denetler, yeni kayıtları için SQL veritabanı öğeleri ekler ve ardından e-posta uyarıları gönderir. bir mantıksal uygulama oluşturabilirsiniz.
+Olayları SQL veritabanınız veya Dynamics CRM Online gibi diğer sistemler tarafından tetiklenen oluşturulduğunda çalışan mantıksal uygulamalar oluşturabilirsiniz. Ayrıca mantıksal uygulamalarınızı almak, Ekle ve SQL sorguları ve saklı yordamlar yürütme yanı sıra veri silin. Örneğin, Dynamics CRM Online yeni kayıtları otomatik olarak denetler, yeni kayıtları için SQL veritabanı öğeleri ekler ve ardından e-posta uyarıları gönderir. bir mantıksal uygulama oluşturabilirsiniz.
 
 Azure aboneliğiniz yoksa <a href="https://azure.microsoft.com/free/" target="_blank">ücretsiz bir Azure hesabı için kaydolun</a>. Logic apps yeniyseniz, gözden [Azure Logic Apps nedir](../logic-apps/logic-apps-overview.md) ve [hızlı başlangıç: ilk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bağlayıcı özgü teknik bilgi için bkz: <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server Bağlayıcısı başvurusu</a>.
 

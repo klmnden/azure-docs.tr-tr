@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: 53eaef775647795acf3e8e6fcd127181414b1c0e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e521ef29a338d0c7d80493f92acff4758a091359
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234504"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261296"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure işlevleri C# Geliştirici Başvurusu
 
@@ -311,6 +311,8 @@ public static class EnvironmentVariablesExample
     }
 }
 ```
+
+Uygulama ayarları, yerel olarak geliştirirken hem Azure içinde çalışırken ortam değişkenlerinin okunabilir. Uygulama ayarlarını yerel olarak geliştirirken, alınması `Values` koleksiyonunda *local.settings.json* dosya. İki ortamda yerel ve Azure, `GetEnvironmentVariable("<app setting name>")` adlandırılmış uygulama ayarının değerini alır. Yerel olarak çalıştırırken, örneğin, "My Site adı" durumunda döndürülür, *local.settings.json* dosyasını içeren `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
 [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) özellik uygulama ayar değerlerini almak için alternatif bir API, ancak kullanmanızı öneririz `GetEnvironmentVariable` aşağıda gösterildiği gibi.
 

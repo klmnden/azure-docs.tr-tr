@@ -11,11 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: e35a33cbe77d9d29b975ede8535abbded2cde4c3
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261217"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) eşleme talepleri
 
@@ -85,12 +86,12 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |cloud_graph_host_name|
 |cloud_instance_name|
 |cnf|
-|kod|
+|Kod|
 |denetimler|
 |credential_keys|
-|csr|
+|CSR|
 |csr_type|
-|deviceid|
+|cihaz kimliği|
 |dns_names|
 |domain_dns_name|
 |domain_netbios_name|
@@ -115,11 +116,11 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
 |IAT|
-|identityprovider|
-|idp|
+|ıdentityprovider|
+|IDP|
 |in_corp|
 |örnek|
-|ipaddr|
+|IpAddr|
 |isbrowserhostedapp|
 |ISS|
 |jwk|
@@ -132,7 +133,7 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |mdm_enrollment_url|
 |mdm_terms_of_use_url|
 |nameid|
-|nbf|
+|NBF|
 |netbios_name|
 |nonce|
 |OID|
@@ -157,8 +158,8 @@ Kısıtlı talep İlkesi kullanılarak değiştirilemez. Veri kaynağı değişt
 |kaynak|
 |rol|
 |roles|
-|Kapsam|
-|scp|
+|scope|
+|SCP|
 |SID|
 |İmza|
 |signin_state|
@@ -286,19 +287,19 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kullanıcı|givenName|Verilen Ad|
 |Kullanıcı|görünen adı|Görünen Ad|
 |Kullanıcı|objectID|ObjectID|
-|Kullanıcı|Posta|E-posta adresi|
+|Kullanıcı|posta|E-posta adresi|
 |Kullanıcı|userPrincipalName|Kullanıcı Asıl Adı|
-|Kullanıcı|Bölüm|Bölüm|
+|Kullanıcı|bölüm|Bölüm|
 |Kullanıcı|onpremisessamaccountname|Şirket içi Sam hesap adı|
 |Kullanıcı|netbiosname|NetBIOS adı|
-|Kullanıcı|dnsdomainname|DNS etki alanı adı|
+|Kullanıcı|DNSEtkiAlanıAdı|DNS etki alanı adı|
 |Kullanıcı|onpremisesecurityidentifier|Şirket içi güvenlik tanımlayıcısı|
 |Kullanıcı|Şirket adı|Kuruluş Adı|
 |Kullanıcı|streetAddress|Posta Adresi|
 |Kullanıcı|posta kodu|Posta Kodu|
-|Kullanıcı|preferredlanguange|Tercih edilen dili|
+|Kullanıcı|preferredlanguange|Tercih Edilen Dil|
 |Kullanıcı|onpremisesuserprincipalname|Şirket içi UPN|
-|Kullanıcı|mailnickname|Posta takma adı|
+|Kullanıcı|mailnickname|Posta Takma Adı|
 |Kullanıcı|extensionattribute1|1 uzantısı özniteliği|
 |Kullanıcı|extensionattribute2|Uzantı özniteliği 2|
 |Kullanıcı|extensionattribute3|3 uzantısı özniteliği|
@@ -318,7 +319,7 @@ ID öğesi, kaynak bilgisayarda hangi özelliğinin değeri için talep sağlar 
 |Kullanıcı|Ülke|Ülke|
 |Kullanıcı|city|Şehir|
 |Kullanıcı|durum|Durum|
-|Kullanıcı|jobtitle|İş Unvanı|
+|Kullanıcı|İş Unvanı|İş Unvanı|
 |Kullanıcı|EmployeeID|Çalışan Kimliği|
 |Kullanıcı|facsimiletelephonenumber|Faks telefon numarası|
 |Uygulama, kaynak, hedef kitle|görünen adı|Görünen Ad|
@@ -356,7 +357,7 @@ Seçilen yönteme bağlı olarak, bir dizi girişleri ve çıkışları beklenir
 |TransformationMethod|Beklenen Giriş|Beklenen çıktı|Açıklama|
 |-----|-----|-----|-----|
 |Birleştir|dize1, dize2, ayırıcı|outputClaim|Birleşimler, ayırıcı arasında kullanarak dizeleri girin. Örneğin: Dize1: "foo@bar.com", dize2: "korumalı alan", ayırıcı: "." sonuçları içinde outputClaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|Posta|outputClaim|Bir e-posta adresi yerel parçası ayıklar. Örneğin: posta: "foo@bar.com" sonuçları içinde outputClaim: "foo". Orignal giriş dizesi olduğu gibi döndürülür Hayır @ işareti varsa, ise.|
+|ExtractMailPrefix|posta|outputClaim|Bir e-posta adresi yerel parçası ayıklar. Örneğin: posta: "foo@bar.com" sonuçları içinde outputClaim: "foo". Orignal giriş dizesi olduğu gibi döndürülür Hayır @ işareti varsa, ise.|
 
 **InputClaims:** veri bir talep şema girdisinden dönüştürme için iletmek için bir InputClaims öğesini kullanın. İki özniteliklere sahiptir: **ClaimTypeReferenceId** ve **TransformationClaimType**.
 
@@ -380,7 +381,7 @@ Seçilen yönteme bağlı olarak, bir dizi girişleri ve çıkışları beklenir
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tablo 5: bir veri kaynağı olarak SAML NameID için izin verilen öznitelikleri
 |Kaynak|Kimlik|Açıklama|
 |-----|-----|-----|
-|Kullanıcı|Posta|E-posta adresi|
+|Kullanıcı|posta|E-posta adresi|
 |Kullanıcı|userPrincipalName|Kullanıcı Asıl Adı|
 |Kullanıcı|onpremisessamaccountname|Şirket içi Sam hesap adı|
 |Kullanıcı|EmployeeID|Çalışan Kimliği|
@@ -467,7 +468,7 @@ Bu örnekte, bağlantılı hizmet asıl adı için yayınlanan belirteçleri Emp
     1. Bir ilke oluşturmak için bu komutu çalıştırın:  
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":" tenantcountry ","SamlClaimType":" http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country ","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
     ```
     
     2. Yeni ilke görmek ve objectID ilkeyi almak üzere aşağıdaki komutu çalıştırın:

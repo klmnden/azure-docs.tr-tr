@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 5db7d57045acea3ded82e880169ebf02f4151ec5
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: d78980b69e6598dff349c75527fc27d8a04dfa18
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824736"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301193"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>VMware ve fiziksel sunucu çoğaltma Azure için destek matrisi
 
@@ -40,7 +40,7 @@ Yapılandırma sunucusu, işlem sunucusu ve ana hedef sunucusu da dahil olmak ü
 **Bileşen** | **Gereksinimleri**
 --- |---
 CPU çekirdekleri | 8
-RAM | 12 GB
+RAM | 16 GB
 Disk sayısı | 3 diskleri<br/><br/> Diskler, işletim sistemi diski, işlem sunucusu önbellek disk ve yeniden çalışma için bekletme sürücüsü içerir.
 Boş disk alanı | İşlem sunucusunun önbellek için gereken alanı 600 GB.
 Boş disk alanı | Bekletme sürücüsü için gerekli alanı 600 GB.
@@ -205,7 +205,7 @@ Yönetilen diskler | Evet
 
 **Bileşen** | **Gereksinimleri** | **Ayrıntılar**
 --- | --- | ---
-Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated-machines). | Onay desteklenmeyen başarısız olur.
+Konuk işletim sistemi | Doğrulama [desteklenen işletim sistemleri](#replicated-machines) çoğaltılan makineler. | Onay desteklenmeyen başarısız olur.
 Konuk işletim sistemi mimarisi | 64-bit. | Onay desteklenmeyen başarısız olur.
 İşletim sistemi disk boyutu | 2.048 GB'a kadar. | Onay desteklenmeyen başarısız olur.
 İşletim sistemi disk sayısı | 1 | Onay desteklenmeyen başarısız olur.  

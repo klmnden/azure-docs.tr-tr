@@ -43,6 +43,8 @@
       href: storage-accounts.md
     - name: Maliyet Yönetimi raporlarını kullanma
       href: use-reports.md
+    - name: Panoları kullanma
+      href: dashboards.md
 - name: Kaynaklar
   items:
     - name: Maliyet Yönetimi videoları

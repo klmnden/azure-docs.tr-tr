@@ -1,8 +1,8 @@
 ---
-title: "Yeni bir Azure Application Insights kaynağı oluşturun | Microsoft Docs"
-description: "El ile yeni dinamik bir uygulama için Application Insights izleme işlevini ayarlama."
+title: Yeni bir Azure Application Insights kaynağı oluşturun | Microsoft Docs
+description: El ile yeni dinamik bir uygulama için Application Insights izleme işlevini ayarlama.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 9023f3d9ae3ddd4d75b5853a08177cba7718cec1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294726"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 Azure Application Insights, Microsoft Azure'da uygulamanızı hakkındaki verileri görüntüler *kaynak*. Yeni kaynak oluşturma parçasıdır bu nedenle [yeni bir uygulama izlemek için Application Insights'ı ayarlama][start]. Çoğu durumda, kaynak oluştururken otomatik olarak IDE tarafından yapılabilir. Ancak bazı durumlarda, bir kaynak el ile - Örneğin, geliştirme için ayrı kaynaklarınız için oluşturduğunuz ve uygulamanızın veya üretim oluşturur.
@@ -29,7 +30,7 @@ Henüz geldiyseniz bir [Microsoft hesabı, hemen edinin](http://live.com). (Outl
 
 Ayrıca bir aboneliğe ihtiyacınız [Microsoft Azure](http://azure.com). Ekibinizin ve kuruluşunuzun bir Azure aboneliğiniz varsa, sahibi, Windows Live ID'nizi kullanarak ekleyebileceğiniz Yalnızca, kullanım için ücret ödersiniz. Belirli bir miktar ücretsiz Deneysel kullanım için varsayılan temel plan sağlar.
 
-Bir abonelik erişimi var olduğunda Application Insights oturum [http://portal.azure.com](https://portal.azure.com)ve Live ID'nizi oturum açmak için kullanın.
+Bir abonelik erişimi var olduğunda Application Insights oturum [ http://portal.azure.com ](https://portal.azure.com)ve Live ID'nizi oturum açmak için kullanın.
 
 ## <a name="create-an-application-insights-resource"></a>Application Insights kaynağı oluşturma
 İçinde [portal.azure.com](https://portal.azure.com), Application Insights kaynağı ekleyin:

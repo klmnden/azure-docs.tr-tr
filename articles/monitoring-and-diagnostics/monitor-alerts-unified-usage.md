@@ -1,25 +1,19 @@
 ---
-title: Oluşturun, görüntüleyin ve yönetin Azure İzleyicisi'ni kullanarak uyarıları | Microsoft Docs
+title: Oluşturun, görüntüleyin ve yönetin Azure İzleyicisi'ni kullanarak uyarıları
 description: Yazar, görüntülemek ve ölçüm yönetmek ve uyarı kuralları tek bir yerden oturum için yeni birleşik Azure uyarıları deneyimi kullanın.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 36729da3-e002-4a64-86b2-2513ca2cbb58
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
-ms.openlocfilehash: bb532f5e249947534ba44a41edfadac22ef9e217
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.component: alerts
+ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824923"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264349"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 6189038a338a9151b23dbdad11d86e43709a96a0
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247953"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293305"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -71,7 +71,7 @@ Azure AD özelliklerini SCIM'yi 2.0 standart belirli kısımlarını uygulamak u
 
 Azure AD olan tüm uygulamaların önceden tümleştirilmiş sağlama bağlayıcı destekleyen bir listesi için bkz: [kullanıcı sağlamayı uygulama öğreticiler listesi](active-directory-saas-tutorial-list.md).
 
-Azure AD kullanıcı uygulamaya sağlama desteği ekleme hakkında daha fazla bilgi için bkz: [kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için SCIM'yi kullanma](active-directory-scim-provisioning.md).
+Azure AD kullanıcı uygulamaya sağlama desteği ekleme hakkında daha fazla bilgi için bkz: [kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md).
 
 Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibi ek uygulamalar için sağlama destek istemek için [Azure Active Directory geri bildirim Forumunda](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
 
@@ -106,7 +106,7 @@ Uygulama Yönetimi ekran sağlama yapılandırılan **sağlama** sekmesi.
 
     * **Öznitelik değerleri üzerinde filtre** -öznitelik eşlemelerini "Kaynak nesnenin Scope" Menüde özel öznitelik değerlerine göre filtrelemeye olanak tanır. Örneğin, yalnızca bir "Departman" özniteliği "Satış" kullanıcılarla sağlama kapsamında olması gerektiğini belirtebilirsiniz. Daha fazla bilgi için bkz: [kapsam filtreleri kullanarak](active-directory-saas-scoping-filters.md).
 
-    * **Atamaları filtresini** -Hazırlama "Scope" menüde > portal ayarları bölümünde olup yalnızca "atanan" Kullanıcılar ve gruplar sağlama kapsamında olması gerekir veya tüm kullanıcılar Azure AD dizininde olup olmayacağını belirtmenize olanak verir sağlandı. "Kullanıcılar ve gruplar atama" hakkında daha fazla bilgi için bkz: [bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atamak](active-directory-coreapps-assign-user-azure-portal.md).
+    * **Atamaları filtresini** -Hazırlama "Scope" menüde > portal ayarları bölümünde olup yalnızca "atanan" Kullanıcılar ve gruplar sağlama kapsamında olması gerekir veya tüm kullanıcılar Azure AD dizininde olup olmayacağını belirtmenize olanak verir sağlandı. "Kullanıcılar ve gruplar atama" hakkında daha fazla bilgi için bkz: [bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atamak](manage-apps/assign-user-or-group-access-portal.md).
     
 * **Ayarları** veya şu anda çalışıyor olup olmadığını da dahil olmak üzere, bir uygulama için sağlama hizmet işlemini denetleyen.
 
@@ -126,7 +126,7 @@ Azure AD kaynak sistemi olduğunda sağlama hizmeti kullanan [fark sorgu Özelli
 Sağlama hizmeti başlatıldığında, herhangi bir zamanda gerçekleştirilen ilk eşitleme yapar:
 
 1. Tüm kullanıcılar ve gruplar içinde tanımlanan tüm öznitelikleri alma kaynak sistemden sorgu [öznitelik eşlemelerini](active-directory-saas-customizing-attribute-mappings.md).
-2. Kullanıcıları ve grupları döndürdü, yapılandırılmış kullanarak filtre [atamaları](active-directory-coreapps-assign-user-azure-portal.md) veya [öznitelik tabanlı kapsam belirleme filtreleri](active-directory-saas-scoping-filters.md).
+2. Kullanıcıları ve grupları döndürdü, yapılandırılmış kullanarak filtre [atamaları](manage-apps/assign-user-or-group-access-portal.md) veya [öznitelik tabanlı kapsam belirleme filtreleri](active-directory-saas-scoping-filters.md).
 3. Ne zaman atanacak bir kullanıcı bulunamadı veya sağlama kapsamda hedef sistem belirlenen kullanarak eşleşen bir kullanıcı için hizmet sorgular [öznitelikleri eşleşen](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties). Örnek: kaynak sistemde userPrincipal adı eşleşen öznitelik ise ve eşlendiği hedef sistem sonra sağlama hizmeti kullanıcı hedef sistem kaynak sistemde userPrincipal ad değerleriyle eşleşen kullanıcı adları için sorgular.
 4. Eşleşen kullanıcı hedef sistemde bulunmazsa, kaynak sistemden öznitelikleri kullanılarak oluşturulur.
 5. Eşleşen kullanıcı bulunursa, kaynak sistem tarafından sağlanan öznitelikleri kullanılarak güncelleştirilir.
@@ -139,7 +139,7 @@ Yalnızca kullanıcıların sağlama, ancak Ayrıca grupları ve üyeleri sağla
 İlk eşitleme sonrasında tüm sonraki eşitlemeler olur:
 
 1. Tüm kullanıcılar ve son Filigran depolandıktan sonra güncelleştirilmiş gruplar için kaynak sistemi sorgu.
-2. Kullanıcıları ve grupları döndürdü, yapılandırılmış kullanarak filtre [atamaları](active-directory-coreapps-assign-user-azure-portal.md) veya [öznitelik tabanlı kapsam belirleme filtreleri](active-directory-saas-scoping-filters.md).
+2. Kullanıcıları ve grupları döndürdü, yapılandırılmış kullanarak filtre [atamaları](manage-apps/assign-user-or-group-access-portal.md) veya [öznitelik tabanlı kapsam belirleme filtreleri](active-directory-saas-scoping-filters.md).
 3. Ne zaman atanacak bir kullanıcı bulunamadı veya sağlama kapsamda hedef sistem belirlenen kullanarak eşleşen bir kullanıcı için hizmet sorgular [öznitelikleri eşleşen](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties).
 4. Eşleşen kullanıcı hedef sistemde bulunmazsa, kaynak sistemden öznitelikleri kullanılarak oluşturulur.
 5. Eşleşen kullanıcı bulunursa, kaynak sistem tarafından sağlanan öznitelikleri kullanılarak güncelleştirilir.
@@ -242,7 +242,7 @@ Aracılığıyla Bize Ulaşın [Azure Active Directory geri bildirim Forumunda](
 * [Kullanıcı sağlama öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
 * [Özellik eşlemeleri için ifade yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Kapsam belirleme filtreleri kullanıcı sağlama](active-directory-saas-scoping-filters.md)
-* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](active-directory-scim-provisioning.md)
+* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD eşitleme API genel bakış](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [Giden kullanıcı bir uygulama sağlama için adım adım dağıtım planı](https://aka.ms/userprovisioningdeploymentplan)
 

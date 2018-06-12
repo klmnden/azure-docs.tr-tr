@@ -1,24 +1,25 @@
 ---
-title: "Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma | Microsoft Docs"
-description: "Kurallar altyapısı, belirli türde bir içerik teslim engelleme gibi HTTP isteklerini Azure CDN tarafından nasıl işleneceğini özelleştirme, önbellek ilkesi tanımlayın ve HTTP üstbilgileri değiştirmenize olanak sağlar."
+title: Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma | Microsoft Docs
+description: Kurallar altyapısı, belirli türde bir içerik teslim engelleme gibi HTTP isteklerini Azure CDN tarafından nasıl işleneceğini özelleştirme, önbellek ilkesi tanımlayın ve HTTP üstbilgileri değiştirmenize olanak sağlar.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: akucer
-editor: 
+manager: cfowler
+editor: ''
 ms.assetid: 625a912b-91f2-485d-8991-128cc194ee71
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2018
-ms.author: mazha
-ms.openlocfilehash: fe3df703f7eb244a52756c4d015e9ea598224ce1
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: df8114aaf5b4672ea51482978abde6f0ce724528
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261058"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı kullanarak HTTP davranışı geçersiz kılma
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -49,6 +50,7 @@ Kurallar altyapısı erişmek için önce seçmelisiniz **Yönet** üstünden **
     ![CDN profili Yönet düğmesi](./media/cdn-rules-engine/cdn-manage-btn.png)
    
     CDN Yönetim Portalı'nı açar.
+
 2. Seçin **HTTP büyük** sekmesini ve ardından **kurallar altyapısı**.
    
     Yeni bir kural için seçenekler görüntülenir.
@@ -58,7 +60,9 @@ Kurallar altyapısı erişmek için önce seçmelisiniz **Yönet** üstünden **
    > [!IMPORTANT]
    > Birden çok kural listelenmiş görevlerin sırası nasıl işlendiğini etkiler. Bir sonraki kural önceki bir kural tarafından belirtilen eylemleri geçersiz kılabilir.
    > 
+
 3. Bir ad girin **adı / açıklaması** metin kutusu.
+
 4. Kuralın uygulanacağı istekleri türünü tanımlayın. Varsayılan eşleşme koşulunu kullanmak **her zaman**. 
    
    ![CDN kural eşleşen koşulu](./media/cdn-rules-engine/cdn-request-type.png)
@@ -71,7 +75,8 @@ Kurallar altyapısı erişmek için önce seçmelisiniz **Yönet** üstünden **
    > Eşleşme koşullar ayrıntılı bir listesi için bkz [kurallar altyapısı eşleşme koşullar](cdn-rules-engine-reference-match-conditions.md).
    > 
    > 
-1. Yeni bir özellik eklemek için seçin  **+**  düğmesine **özellikleri**.  Sol taraftaki açılır menüde seçin **zorla iç Max-Age**.  Görüntülenen metin kutusuna girin **300**. Geri kalan varsayılan değerler değiştirmeyin.
+
+5. Yeni bir özellik eklemek için seçin **+** düğmesine **özellikleri**.  Sol taraftaki açılır menüde seçin **zorla iç Max-Age**.  Görüntülenen metin kutusuna girin **300**. Geri kalan varsayılan değerler değiştirmeyin.
    
    ![CDN kural özelliği](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -83,17 +88,18 @@ Kurallar altyapısı erişmek için önce seçmelisiniz **Yönet** üstünden **
    > Özelliklerin ayrıntılı bir listesi için bkz: [kurallar altyapısı özellikleri](cdn-rules-engine-reference-features.md).
    > 
    > 
-1. Tıklatın **Ekle** yeni kuralını kaydetmek için düğmesi.  Yeni Kural artık onayını bekliyor. Bunu onaylandıktan sonra durum değişiklikleri **bekleyen XML** için **etkin XML**.
+
+6. Seçin **Ekle** yeni kuralını kaydetmek için.  Yeni Kural artık onayını bekliyor. Bunu onaylandıktan sonra durum değişiklikleri **bekleyen XML** için **etkin XML**.
    
    > [!IMPORTANT]
-   > Kuralları değişiklikleri yayılması 90 dakika sürebilir.
+   > Kuralları değişiklikleri Azure yayılması 10 dakika kadar sürebilir.
    > 
    > 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure CDN'ye genel bakış](cdn-overview.md)
-* [Kuralları altyapısı başvurusu](cdn-rules-engine-reference.md)
-* [Kurallar altyapısı eşleşme koşulları](cdn-rules-engine-reference-match-conditions.md)
-* [Kurallar altyapısı koşullu ifadeler](cdn-rules-engine-reference-conditional-expressions.md)
-* [Kurallar altyapısı özellikleri](cdn-rules-engine-reference-features.md)
+* [Kural altyapısı başvurusu](cdn-rules-engine-reference.md)
+* [Kural altyapısı eşleştirme koşulları](cdn-rules-engine-reference-match-conditions.md)
+* [Kural altyapısı koşullu ifadeleri](cdn-rules-engine-reference-conditional-expressions.md)
+* [Kural altyapısı özellikleri](cdn-rules-engine-reference-features.md)
 * [Azure Cuma: Azure CDN'ın güçlü yeni premium özellikleri](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (video)

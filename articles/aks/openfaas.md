@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: e26f1c298b05153736edd2b2efd0f1b27162bc3d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b5484233c7d3d32e51098baad8c22ec51df8f0d8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260626"
 ---
 # <a name="using-openfaas-on-aks"></a>Üzerinde AKS OpenFaaS kullanma
 
@@ -107,7 +108,7 @@ OpenFaaS sistem sınamak için Gözat bağlantı noktası 8080 dış IP adresine
 
 ![OpenFaaS kullanıcı Arabirimi](media/container-service-serverless/openfaas.png)
 
-Son olarak, OpenFaaS CLI yükleyin. Bu exmaple brew kullanılan bkz [OpenFaaS CLI belgelerine] [ open-faas-cli] daha fazla seçenek için.
+Son olarak, OpenFaaS CLI yükleyin. Bu örnek brew kullanılan bkz [OpenFaaS CLI belgelerine] [ open-faas-cli] daha fazla seçenek için.
 
 ```console
 brew install faas-cli

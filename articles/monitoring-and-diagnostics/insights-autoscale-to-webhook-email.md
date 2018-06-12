@@ -1,32 +1,27 @@
 ---
-title: "E-posta ve Web kancası uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemlerini kullanın. | Microsoft Belgeleri"
+title: E-posta ve Web kancası uyarı bildirimleri göndermek için otomatik ölçeklendirme kullanma
 description: "Otomatik ölçeklendirme eylemleri web URL'leri arayın veya Azure İzleyicisi'nde e-posta bildirimleri göndermek için nasıl kullanılacağını bakın. "
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: eb9a4c98-0894-488c-8ee8-5df0065d094f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 65405a6d7f1d49911da1e2a5d26b02098a261c01
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262231"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>E-posta ve Web kancası Azure İzleyicisi'nde uyarı bildirimleri göndermek için otomatik ölçeklendirme eylemleri kullanın
 Bu makalede, böylece belirli web URL'leri çağrısı veya Azure otomatik ölçeklendirme eylemleri göre e-postalar göndermek Tetikleyicileri nasıl ayarlama gösterilir.  
 
-## <a name="webhooks"></a>Web kancaları
+## <a name="webhooks"></a>Web Kancaları
 Web kancası, diğer sistemlere işlem sonrası veya özel bildirimleri için Azure uyarı bildirimleri yönlendirmek izin verir. Örneğin, uyarıyı sohbet kullanarak veya Mesajlaşma bir team services SMS, günlük hataları, bildirim göndermek için gelen bir web isteği işleyebilecek services, vb. için yönlendirme. Web kancası URI geçerli bir HTTP veya HTTPS uç noktası olması gerekir.
 
-## <a name="email"></a>E-posta
+## <a name="email"></a>Email
 Tüm geçerli e-posta adresine e-posta gönderilebilir. Yöneticiler ve kural çalıştığı abonelik ortak yöneticileri aynı zamanda bildirilecek.
 
 ## <a name="cloud-services-and-web-apps"></a>Bulut Hizmetleri ve Web uygulamaları
@@ -66,13 +61,13 @@ REST API veya Resource Manager şablonu kullanırken, aşağıdaki seçeneklere 
 ```
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
-| işlemi |evet |değerin "Ölçek" olması gerekir |
+| işlem |evet |değerin "Ölçek" olması gerekir |
 | sendToSubscriptionAdministrator |evet |değer "true" veya "false" olmalıdır |
 | sendToSubscriptionCoAdministrators |evet |değer "true" veya "false" olmalıdır |
 | customEmails |evet |değer null [] veya e-postaların dize dizisi olabilir |
 | Web kancaları |evet |değer null veya geçerli URI olabilir |
 | serviceUri |evet |Geçerli bir https URI |
-| properties |evet |Değer boş {} olması gerekir veya anahtar-değer çiftleri içerebilir |
+| properties |evet |Değer boş olmalıdır {} veya anahtar-değer çiftleri içerebilir |
 
 ## <a name="authentication-in-webhooks"></a>Web kancası kimlik doğrulaması
 Web kancası Web kancası URI sorgu parametresi olarak bir belirteç kimliği ile kaydettiğiniz belirteç tabanlı kimlik doğrulamasını kullanarak kimlik doğrulaması yapabilir. Örneğin, https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue
@@ -110,12 +105,12 @@ Otomatik ölçeklendirme bildirim oluşturulduğunda, aşağıdaki meta verileri
 | Alan | Zorunlu? | Açıklama |
 | --- | --- | --- |
 | durum |evet |Otomatik ölçeklendirme eylemi oluşturulan gösteren durum |
-| işlemi |evet |Artışı örnekleri için "Ölçeği Genişlet" olur ve bir düşüş için örnekleri, "Ölçek içinde" olacaktır |
+| işlem |evet |Artışı örnekleri için "Ölçeği Genişlet" olur ve bir düşüş için örnekleri, "Ölçek içinde" olacaktır |
 | bağlam |evet |Otomatik ölçeklendirme eylem bağlamı |
 | timestamp |evet |Otomatik ölçeklendirme eylemi tetiklendiğinde zaman damgası |
 | id |Evet |Otomatik ölçeklendirme ayarında Resource Manager kimliği |
 | ad |Evet |Otomatik ölçeklendirme ayarı adı |
-| Ayrıntıları |Evet |Otomatik ölçeklendirme hizmet sürdü eylem ve örnek sayısı değişikliği açıklaması |
+| ayrıntılar |Evet |Otomatik ölçeklendirme hizmet sürdü eylem ve örnek sayısı değişikliği açıklaması |
 | subscriptionId |Evet |Genişletilmiş hedef kaynak abonelik kimliği |
 | resourceGroupName |Evet |Genişletilmiş hedef kaynak kaynak grubu adı |
 | resourceName |Evet |Genişletilmiş hedef kaynağın adı |

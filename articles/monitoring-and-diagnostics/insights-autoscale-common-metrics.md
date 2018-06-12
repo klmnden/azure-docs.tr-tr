@@ -1,24 +1,19 @@
 ---
-title: "Azure İzleyici otomatik ölçeklendirme ortak ölçümleri | Microsoft Docs"
-description: "Hangi ölçümleri otomatik ölçeklendirmeyi için yaygın olarak kullanılan bilgi bulut hizmetlerinizi, sanal makineler ve Web uygulamaları."
+title: Otomatik ölçeklendirme ortak ölçümleri
+description: Hangi ölçümleri otomatik ölçeklendirmeyi için yaygın olarak kullanılan bilgi bulut hizmetlerinizi, sanal makineler ve Web uygulamaları.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 189b2a13-01c8-4aca-afd5-90711903ca59
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.openlocfilehash: 240a230d09680672ccd5316470a87d047fab9fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: autoscale
+ms.openlocfilehash: 7b6f454a8d4c8794b8c56494fd9ed573f8b79852
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262248"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri
 Azure İzleyici otomatik ölçeklendirmeyi telemetri verilerini (ölçüm) esas yukarı veya aşağı çalışan örnek sayısını ölçeklendirmek sağlar. Bu belgeyi kullanmak isteyebilirsiniz ortak ölçümleri açıklar. Bulut Hizmetleri ve sunucu grupları için Azure portalında tarafından ölçeklendirmek için kaynak ölçüm seçebilirsiniz. Ancak, aynı zamanda herhangi bir ölçümü tarafından ölçeklendirmek için farklı bir kaynak seçebilirsiniz.
@@ -53,7 +48,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
 
-| Ölçüm adı | Birim |
+| Ölçüm Adı | Birim |
 | --- | --- |
 | \Processor(_Total)\% Processor Time |Yüzde |
 | \Processor(_Total)\% ayrıcalıklı zaman |Yüzde |
@@ -77,7 +72,7 @@ Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
 | \PhysicalDisk (_Total) \Disk bayt/sn |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk Okuma Bayt/sn |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk Yazma Bayt/sn |BytesPerSecond |
-| \PhysicalDisk (_Total) \Avg. Disk Sırası Uzunluğu |Sayı |
+| \PhysicalDisk (_Total) \Avg. Disk Kuyruğu Uzunluğu |Sayı |
 | \PhysicalDisk (_Total) \Avg. Disk okuma sırası uzunluğu |Sayı |
 | \PhysicalDisk (_Total) \Avg. Disk yazma sırası uzunluğu |Sayı |
 | \LogicalDisk(_Total)\% boş alanı |Yüzde |
@@ -94,7 +89,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
  Aşağıdaki ölçümler için bir uyarı oluşturabilirsiniz:
 
-| Ölçüm adı | Birim |
+| Ölçüm Adı | Birim |
 | --- | --- |
 | \Memory\AvailableMemory |Bayt |
 | \Memory\PercentAvailableMemory |Yüzde |
@@ -147,7 +142,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 
 Uyar veya ölçeklendirmek bu ölçümleri tarafından.
 
-| Ölçüm adı | Birim |
+| Ölçüm Adı | Birim |
 | --- | --- |
 | CpuPercentage |Yüzde |
 | MemoryPercentage |Yüzde |

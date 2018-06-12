@@ -1,24 +1,19 @@
 ---
-title: Resource Manager şablonu ile bir ölçüm uyarı oluşturma | Microsoft Docs
+title: Resource Manager şablonu ile ölçüm uyarısı oluşturma
 description: Ölçüm bir uyarı oluşturmak için Resource Manager şablonu kullanmayı öğrenin.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
-ms.openlocfilehash: 4b8b5c8d1991cc65c1efe11c930ddb8956c895ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 0a4e6c2ebb57aca13a53a8ff12953f0c7a90bc61
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263455"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager şablonu ile ölçüm uyarısı oluşturma
 Bu makalede nasıl kullanabileceğinizi gösteren bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) yapılandırmak için [yeni ölçüm uyarıları](monitoring-near-real-time-metric-alerts.md) Azure İzleyicisi'nde. Resource Manager şablonları programlı olarak uyarıları ortamlar genelinde tutarlı ve tekrarlanabilir bir şekilde ayarlamak etkinleştirin. Yeni ölçüm uyarılar şu anda kullanılabilir [kaynak türleri bu kümesini](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).

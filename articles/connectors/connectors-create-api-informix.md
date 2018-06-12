@@ -2,7 +2,7 @@
 title: IBM Informix veritabanına - Azure Logic Apps | Microsoft Docs
 description: IBM Informix REST API'leri ve Azure Logic Apps ile kaynakları yönetme
 author: gplarsen
-manager: cfowler
+manager: jeconnoc
 ms.author: plarsen
 ms.date: 09/26/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: c78c6bb669e0945ba1cbacc3ca808a364f3099a5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609397"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296045"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix Bağlayıcısı ile çalışmaya başlama
 Informix için Microsoft Bağlayıcısı Logic Apps bir IBM Informix veritabanında depolanan kaynakları bağlanır. Informix bağlayıcı uzak Informix sunucu bilgisayarlarına bir TCP/IP ağı üzerinden iletişim kurmak için Microsoft client içerir. Bu Windows Azure sanallaştırma çalıştıran için IBM Informix gibi bulut veritabanlarını içerir ve şirket içi veri ağ geçidi kullanarak veritabanlarını. Bkz: [liste desteklenen](connectors-create-api-informix.md#supported-informix-platforms-and-versions) IBM Informix platformları ve sürümleri (Bu konudaki).

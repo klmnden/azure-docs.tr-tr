@@ -4,7 +4,7 @@ description: Azure CDN, paylaşılan erişim imzası (özel depolama kapsayıcı
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261177"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
 
@@ -70,7 +71,7 @@ Bu seçenek en kolayıdır ve Azure CDN ' kaynak sunucunun geçirilen tek bir SA
  
 Bu seçenek yalnızca için kullanılabilir **verizon'dan Azure CDN Premium** profilleri. Bu seçenek ile kaynak sunucuda blob depolama güvenliğini sağlayabilirsiniz. Özel erişim kısıtlamaları için dosya gerekmez ancak kullanıcıların doğrudan Azure CDN boşaltma süresini kısaltmak için depolama kaynak erişimini engellemek istiyorsanız bu seçeneği kullanmak isteyebilirsiniz. Kullanıcıya bilinmiyor SAS belirteci herkes kaynak sunucu, belirtilen kapsayıcıda dosyalara erişmek için gereklidir. Ancak, URL yeniden yazma kuralı nedeniyle CDN uç noktası üzerinde SAS belirteci gerekli değildir.
  
-1. Kullanım [kurallar altyapısı](cdn-rules-engine.md) bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yaymak için yaklaşık 90 dakika sürebilir.
+1. Kullanım [kurallar altyapısı](cdn-rules-engine.md) bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yaymak için yaklaşık 10 dakika sürebilir.
 
    ![CDN yönetmek düğmesi](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ Azure CDN güvenlik belirteci kimlik doğrulaması kullanmak için olmalıdır b
        
    Parametre seçenekleri bir güvenlik belirteci kimlik doğrulaması için bir SAS belirteci parametre seçenekleri farklıdır. Bir güvenlik belirteci oluştururken bir sona erme zamanı kullanmayı seçerseniz, SAS belirteci süre sonu zamanı aynı değere ayarlamanız gerekir. Bunun yapılması, sona erme zamanı tahmin edilebilir olmasını sağlar. 
  
-2. Kullanım [kurallar altyapısı](cdn-rules-engine.md) kapsayıcıdaki tüm blob'lara SAS belirteci erişimi etkinleştirmek için bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yaymak için yaklaşık 90 dakika sürebilir.
+2. Kullanım [kurallar altyapısı](cdn-rules-engine.md) kapsayıcıdaki tüm blob'lara SAS belirteci erişimi etkinleştirmek için bir URL yeniden yazma kuralı oluşturun. Yeni kurallar yaymak için yaklaşık 10 dakika sürebilir.
 
    Aşağıdaki örnek URL yeniden yazma kuralı bir yakalama grubunu ve adlı bir uç nokta ile bir normal ifade deseni kullanır *storagedemo*:
    
@@ -135,7 +136,7 @@ SAS parametreleri Azure CDN görünür olduğundan Azure CDN üzerlerinde göre 
 | SAS parametre adı | Açıklama |
 | --- | --- |
 | Başlatma | Azure CDN blobu dosyaya erişmek için başlayabilirsiniz süre. Saat nedeniyle (bir saat sinyal farklı bileşenler için farklı zamanlarda geldiğinde) eğme, varlık hemen kullanılabilir olmasını istiyorsanız, bir bekleme süresi 15 dakikadan daha önce seçin. |
-| End | Saat geçmesi Azure CDN blob dosya artık erişemez. Daha önce Azure CDN önbelleğe alınan dosyaları hala erişilebilir. Dosya süre sonu zamanı denetlemek için uygun sona erme saati Azure CDN güvenlik belirteci ayarlayın veya varlık Temizle. |
+| Son | Saat geçmesi Azure CDN blob dosya artık erişemez. Daha önce Azure CDN önbelleğe alınan dosyaları hala erişilebilir. Dosya süre sonu zamanı denetlemek için uygun sona erme saati Azure CDN güvenlik belirteci ayarlayın veya varlık Temizle. |
 | İzin verilen IP adresi | İsteğe bağlı. Kullanıyorsanız **verizon'dan Azure CDN**, tanımlı aralıklar için bu parametreyi ayarlayın [Azure CDN Verizon kenar sunucu IP aralıklarından](https://msdn.microsoft.com/library/mt757330.aspx). Kullanıyorsanız **akamai'den Azure CDN**, IP adreslerini statik olduğundan IP aralıkları parametresi ayarlanamıyor.|
 | İzin verilen protokoller | Hesap SAS ile yapılan bir istek için izin verilen protokollerini. HTTPS ayarı önerilir.|
 

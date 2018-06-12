@@ -1,19 +1,20 @@
 ---
-title: "MySQL sürücüleri ve Yönetim Araçları uyumluluğu"
-description: "Bu makalede, Azure veritabanı için MySQL ile uyumlu olan Yönetim Araçları ve MySQL sürücüleri açıklanmaktadır."
+title: MySQL sürücüleri ve Yönetim Araçları uyumluluğu
+description: Bu makalede, Azure veritabanı için MySQL ile uyumlu olan Yönetim Araçları ve MySQL sürücüleri açıklanmaktadır.
 services: mysql
 author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 5fc13ef07b61feb9e9fdd73123a09daa61f6aaf3
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: a133ccdd0b40f9a878ba627e6c093787316aea35
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264129"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL sürücüleri ve Yönetim Araçları Azure veritabanı için MySQL ile uyumlu
 Bu makalede, Azure veritabanı için MySQL ile uyumlu olan Yönetim Araçları ve sürücüleri açıklanmaktadır.
@@ -21,7 +22,7 @@ Bu makalede, Azure veritabanı için MySQL ile uyumlu olan Yönetim Araçları v
 ## <a name="mysql-drivers"></a>MySQL sürücüleri
 Azure veritabanı için MySQL dünyanın en popüler community sürümü MySQL veritabanı kullanır. Bu nedenle, programlama dilleri ve sürücüleri çeşitli ile uyumlu değil. Hedef üç en son sürümleri MySQL sürücüleri desteklemek için ve açık kaynak topluluğu yazarların çabayla sürekli işlevselliği ve MySQL sürücüleri kullanılabilirliğini artırmak için devam edin. Aşağıdaki tabloda, test ve Azure veritabanı için MySQL 5.6 ve 5.7 ile uyumlu olacak şekilde bulunan sürücülerin listesini sağlanır:
 
-| **Driver** | **Bağlantılar** | **Uyumlu sürümleri** | **Ekseninin sürümleri** | **Notlar** |
+| **Sürücü** | **Bağlantılar** | **Uyumlu sürümleri** | **Ekseninin sürümleri** | **Notlar** |
 | :-------- | :------------------------ | :----------- | :---------------------- | :--------------------------------------- |
 | PHP | http://php.net/downloads.php | 5.5 5.6 7.x | 5.3 | SSL MySQLi ile PHP 7.0 bağlantı için bağlantı dizesinde MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT ekleyin. <br> ```mysqli_real_connect($conn, $host, $username, $password, $db_name, 3306, NULL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);```<br> PDO kümesi: ```PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT``` seçeneği false.|
 | .NET | [Github'da MySqlConnector](https://github.com/mysql-net/MySqlConnector) <br> [Nuget paket yüklemesi](https://www.nuget.org/packages/MySqlConnector/) | 0.27 ve sonra | 0.26.5 ve önce | |

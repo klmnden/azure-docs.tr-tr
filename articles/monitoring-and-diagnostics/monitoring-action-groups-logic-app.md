@@ -1,24 +1,19 @@
 ---
-title: Azure uyarıları izleme ile karmaşık eylemleri ve eylemlerin gruplarının tetiklemek nasıl | Microsoft Docs
+title: Tetikleyici karmaşık eylemleri Azure izleme uyarıları ile ve Eylemler grupları
 description: Azure uyarıları izleme işlemi için bir mantıksal uygulama eylemi oluşturmayı öğrenin.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
-ms.openlocfilehash: 0020f1475d52d01897320062edbd3a66c8acf751
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: eafb2bcf0175190748c9dd020051cbebfcaee1fd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263893"
 ---
 # <a name="create-a-logic-app-action"></a>Bir mantıksal uygulama eylem oluşturun
 ## <a name="overview"></a>Genel Bakış ##
@@ -58,7 +53,7 @@ Genel süreç şöyledir:
 
     ![HTTP isteği tetikleyici şekli](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP isteği tetikleyici şekli")
 
-7.  Seçin **şema üretmek için kullanım örnek yük**.
+7.  **Şema oluşturmak için örnek yük kullanma** öğesini seçin.
 
     ![Kullanım örneği yükü düğmesi](media/monitoring-action-groups/use-sample-payload-button.png "kullanım örnek yükü düğmesi")
 

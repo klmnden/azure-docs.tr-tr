@@ -1,11 +1,11 @@
 ---
-title: "Azure AD öznitelik eşlemelerini özelleştirme | Microsoft Docs"
-description: "Hangi öznitelik eşlemelerini Azure Active Directory'de SaaS uygulamaları için bunları iş ihtiyaçlarınızı karşılamak için nasıl değiştirebileceğiniz olduğunu öğrenin."
+title: Azure AD öznitelik eşlemelerini özelleştirme | Microsoft Docs
+description: Hangi öznitelik eşlemelerini Azure Active Directory'de SaaS uygulamaları için bunları iş ihtiyaçlarınızı karşılamak için nasıl değiştirebileceğiniz olduğunu öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78d971b47ffceb8d845f21a731176834f004f12c
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295634"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kullanıcı Azure Active Directory'de SaaS uygulamaları için öznitelik eşlemelerini hazırlama özelleştirme
 Microsoft Azure AD Salesforce, Google Apps ve diğerleri gibi üçüncü taraf SaaS uygulamalarına kullanıcı hazırlama için destek sağlar. Etkin bir üçüncü taraf SaaS uygulaması için sağlama kullanıcı varsa, Azure portal, öznitelik değerleri "özellik eşlemesi." adlı bir yapılandırma biçiminde denetler.
@@ -83,7 +84,7 @@ Grup sağlama isteğe bağlı olarak etkinleştirilebilecek ya da altında grup 
 Grup nesneleri bir parçası olarak sağlanan öznitelikler, kullanıcı nesneleri, daha önce açıklanan aynı şekilde özelleştirilebilir. 
 
 >[!TIP]
->Grup nesnelerin (özellikleri ve üyeleri) sağlama olduğu öğesinden farklı bir kavram [gruplarını atama](active-directory-coreapps-assign-user-azure-portal.md) uygulamaya. Bir uygulamaya bir gruba atamak, ancak yalnızca grup içinde bulunan kullanıcı nesneleri sağlamak da mümkündür. Tam Grup nesnelerin sağlama atamalarını gruplarını kullanmak için gerekli değildir.
+>Grup nesnelerin (özellikleri ve üyeleri) sağlama olduğu öğesinden farklı bir kavram [gruplarını atama](manage-apps/assign-user-or-group-access-portal.md) uygulamaya. Bir uygulamaya bir gruba atamak, ancak yalnızca grup içinde bulunan kullanıcı nesneleri sağlamak da mümkündür. Tam Grup nesnelerin sağlama atamalarını gruplarını kullanmak için gerekli değildir.
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>Desteklenen özniteliklerin listesi düzenleme
@@ -149,7 +150,7 @@ Bu seçeneğin belirlenmesi sağlama hizmet çalışırken etkili bir şekilde y
 * [Kullanıcı sağlama/sağlamayı SaaS uygulamaları için otomatik hale getirme](active-directory-saas-app-provisioning.md)
 * [Özellik eşlemeleri için ifade yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Kapsam belirleme filtreleri kullanıcı sağlama](active-directory-saas-scoping-filters.md)
-* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](active-directory-scim-provisioning.md)
+* [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
 
 <!--Image references-->

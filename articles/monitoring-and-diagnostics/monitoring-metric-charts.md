@@ -1,24 +1,19 @@
 ---
-title: "Azure İzleyici ölçüm Gezgini | Microsoft Docs"
-description: "Azure İzleyici ölçüm Gezgini yeni özellikler hakkında bilgi edinin"
+title: Azure İzleyici ölçüm Gezgini
+description: Azure İzleyici ölçüm Gezgini yeni özellikler hakkında bilgi edinin
 author: vgorbenko
-manager: Victor.Mushkatin
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 2397596a-071f-4d49-8893-bec5f735bd7b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: metrics
+ms.openlocfilehash: a2611f89d9eef1ec6bac34389fa4db833aecc087
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264097"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure İzleyici ölçüm Gezgini
 
@@ -43,7 +38,7 @@ Aşağıdaki örnekte, "Ağ verimliliği" adlı bir kuramsal ölçümü için ik
 ### <a name="network-throughput"></a>Ağ verimliliği
 (Bu ölçüm hiç boyut yoktur)
 
- |zaman damgası        | Ölçüm değeri | 
+ |Zaman damgası        | Ölçüm değeri | 
    | ------------- |:-------------| 
    | 8/9/2017 8:14 | 1,331.8 KB/sn | 
    | 8/9/2017 8:15 | 1,141.4 KB/sn |
@@ -53,7 +48,7 @@ Yanıt temel soru ister yalnızca "Benim ağ verimliliği belirli bir zamanda ne
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>Ağ verimliliği + iki boyutu ("IP" ve "Yönünü")
 
-| zaman damgası          | Boyut "IP" | Boyut "Yönünü" | Ölçüm değeri| 
+| Zaman damgası          | Boyut "IP" | Boyut "Yönünü" | Ölçüm değeri| 
    | ------------- |:-----------------|:------------------- |:-----------|  
    | 8/9/2017 8:14 | IP "192.168.5.2" = | Yön "Gönderme" =    | 646.5 KB/sn |
    | 8/9/2017 8:14 | IP "192.168.5.2" = | Yön "Alma" = | 420.1 KB/sn |

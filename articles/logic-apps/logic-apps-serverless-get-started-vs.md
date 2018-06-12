@@ -1,12 +1,12 @@
 ---
-title: "Visual Studio'da sunucusuz bir uygulama oluşturun | Microsoft Docs"
-description: "İlk sunucusuz uygulamanızı oluşturma, dağıtma ve Visual Studio uygulamasında yönetme bu kılavuzu ile başlayın."
-keywords: 
+title: Visual Studio'da sunucusuz bir uygulama oluşturun | Microsoft Docs
+description: İlk sunucusuz uygulamanızı oluşturma, dağıtma ve Visual Studio uygulamasında yönetme bu kılavuzu ile başlayın.
+keywords: ''
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: d3cd509a0073e45bf910e9a74a279d678ff03b63
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 75f2be44aa8cc239257d6d2a7dad448e9dbab4b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300465"
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>Visual Studio'da Logic Apps ve işlevleri ile sunucusuz bir uygulama oluşturun
 

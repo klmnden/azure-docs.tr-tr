@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights'ta arama'yı kullanarak | Microsoft Docs"
-description: "Web uygulamanız tarafından gönderilen arama ve filtreleme ham telemetri."
+title: Azure Application Insights'ta arama'yı kullanarak | Microsoft Docs
+description: Web uygulamanız tarafından gönderilen arama ve filtreleme ham telemetri.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2a437555-8043-45ec-937a-225c9bf0066b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ce2fd9ed1ce796762cc15622cb1c59a316c1909d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: c6a94fd1cebff4aa657ad5293715550161003d21
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294393"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights'ta aramayı kullanma
 Arama özelliğidir [Application Insights](app-insights-overview.md) bulmak ve sayfa görünümleri, özel durumlar gibi tek tek telemetri öğeleri keşfedin veya web istekleri için kullanın. Ve günlük izlemelerini ve kodlanmış olayları görüntüleyebilirsiniz.
@@ -113,9 +114,9 @@ Aralık, daha kısa bir aralığı üzerinden aramaları olarak daha hızlı bir
 
 Tam sözcük, değil alt dizeler arayın. Özel karakterler kapsamak için tırnak işaretleri kullanın.
 
-| Dize | olan *değil* tarafından bulunamadı | Ancak bu Bul |
+| dize | olan *değil* tarafından bulunamadı | Ancak bu Bul |
 | --- | --- | --- |
-| HomeController.About |Giriş<br/>Denetleyici<br/>Çıkışı | homecontroller<br/>hakkında<br/>"homecontroller.about"|
+| HomeController.About |giriş sayfası<br/>Denetleyici<br/>Çıkışı | homecontroller<br/>hakkında<br/>"homecontroller.about"|
 |Amerika Birleşik Devletleri|UNI<br/>düzenlenmiş|Birleşik<br/>durumları<br/>VE Birleşik Devletleri<br/>"ABD"
 
 Kullanabileceğiniz arama ifadeleri şunlardır:
@@ -136,7 +137,7 @@ Uygulamanız çok sayıda telemetri oluşturuyorsa (ve ASP.NET SDK sürüm 2.0.0
 
 
 
-## <a name="create-work-item"></a>İş öğesi oluşturma
+## <a name="create-work-item"></a>İş öğesi oluştur
 Tüm telemetri öğesinden ayrıntılarla GitHub veya Visual Studio Team Services içinde bir hata oluşturabilirsiniz. 
 
 ![Yeni iş öğesini, alanları düzenleyin ve ardından Tamam'ı tıklatın.](./media/app-insights-diagnostic-search/42.png)

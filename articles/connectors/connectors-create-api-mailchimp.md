@@ -2,7 +2,7 @@
 title: MailChimp - Azure mantıksal uygulamaları bağlanma | Microsoft Docs
 description: Oluşturma ve pazarlama e-postaları MailChimp REST API'leri ve Azure Logic Apps ile yönetme
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 08/18/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: a11dbee8a0aab70abad60b8b783b2caa4f03c9c9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c9bcf48254d05ccb18abc55e49ea44b714b727cd
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609337"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295263"
 ---
 # <a name="get-started-with-the-mailchimp-connector"></a>MailChimp Bağlayıcısı ile çalışmaya başlama
 MailChimp işletmeler yönetmek ve pazarlama e-postalar, otomatik iletileri ve hedeflenen Kampanyalar gönderme dahil olmak üzere e-posta pazarlama etkinliklerini otomatik hale getirmek bir SaaS hizmetidir.

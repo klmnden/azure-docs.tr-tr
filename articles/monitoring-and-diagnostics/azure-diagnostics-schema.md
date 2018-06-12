@@ -1,24 +1,20 @@
 ---
-title: "Azure tanılama uzantı yapılandırmasını şema sürümleri ve geçmiş | Microsoft Docs"
-description: "Azure sanal makineler, VM ölçek kümesi, Service Fabric ve Cloud Services performans sayacı toplama ilgili."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Azure tanılama uzantısını yapılandırma şeması sürüm geçmişi
+description: Azure sanal makineler, VM ölçek kümesi, Service Fabric ve Cloud Services performans sayacı toplama ilgili.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.component: diagnostic-extension
+ms.openlocfilehash: 47fb598e9a0e722d51493fda1ff5180d4b022524
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262207"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure tanılama uzantısını yapılandırma şeması sürümleri ve geçmişi
 Bu sayfa dizinlerinin Azure tanılama uzantı şema sürümlerinde Microsoft Azure SDK'sı bir parçası olarak gönderilir.  

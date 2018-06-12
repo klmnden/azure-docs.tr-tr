@@ -1,19 +1,20 @@
 ---
-title: "MySQL için Azure veritabanı için bağlantı kitaplıkları"
-description: "Bu makalede, her istemci programları için Azure veritabanı için MySQL bağlanırken kullanabileceği kitaplığı veya sürücü listelenmektedir."
+title: MySQL için Azure veritabanı için bağlantı kitaplıkları
+description: Bu makalede, her istemci programları için Azure veritabanı için MySQL bağlanırken kullanabileceği kitaplığı veya sürücü listelenmektedir.
 services: mysql
 author: mswutao
 ms.author: wutao
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: c22bb9b31e7623daa635f82256e28ed466070481
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: c826bf1cf17230563b608e764c443b6166f13924
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264012"
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>MySQL için Azure veritabanı için bağlantı kitaplıkları
 Bu makalede, her istemci programları için Azure veritabanı için MySQL bağlanırken kullanabileceği kitaplığı veya sürücü listelenmektedir.
@@ -37,5 +38,5 @@ MySQL uygulama ve ODBC ve JDBC endüstri standartları ile uyumlu olan araçlar 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu quickstarts bağlanmak ve Azure veritabanı için MySQL sorguyu dilinizi tercih kullanarak hakkında okuyun:
 
-[PHP](./connect-php.md) | [Java](./connect-java.md) |  [.NET (C#)](./connect-csharp.md) | [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Ruby](./connect-ruby.md) | [C++](connect-cpp.md) | [Go](./connect-go.md)
+[PHP](./connect-php.md) | [Java](./connect-java.md) |  [.NET (C#)](./connect-csharp.md) | [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md)  |  [Ruby](./connect-ruby.md) | [C++](connect-cpp.md) | [gidin](./connect-go.md)
 

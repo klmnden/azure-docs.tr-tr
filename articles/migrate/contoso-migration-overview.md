@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: e4ba0bd639be96830a75c195c3f998157070121c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 659627eb6241bf31350b5a51c2e6c449c7f731c2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839053"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300812"
 ---
 # <a name="contoso-migration-overview"></a>Contoso geçiş: genel bakış
 
 
 Bu ilk bir nasıl Contoso adlı kurgusal kuruluş olan geçiş kendi şirket içi altyapı gösteren bir dizi makaledir [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) bulut. 
 
-Makale serisi anlamak ve Azure geçirmeyi ve karma bir ortamda çalışmak için farklı seçenekleri denemek için yardımcı örnek örnek dağıtımlar sağlar. Contoso şirketi geçiş misyonu nasıl tamamlandıktan makaleleri gösterir ancak boyunca işaretçileri genel okumak ve özel yönergeler sağlanır.
+Makale serisi anlamak ve Azure geçirmeyi ve karma bir ortamda çalışmak için farklı seçenekleri denemek için yardımcı örnek dağıtımlar sağlar. Contoso şirketi geçiş misyonu nasıl tamamlandıktan makaleleri gösterir ancak boyunca işaretçileri genel okumak ve özel yönergeler sağlanır.
 
 ## <a name="introduction"></a>Giriş
 
@@ -37,9 +37,9 @@ Buluta geçiş stratejileri dört büyük kategoriye ayrılır: rehost, yeniden 
 **Stratejisi** | **Tanım** | **Ne zaman kullanılacağı** 
 --- | --- | --- 
 **Yeniden barındırma** | Genellikle için "yükseltme ve shift" geçiş olarak adlandırılır. Bu seçenek kod değişikliklerini gerektirmez ve şimdi, mevcut uygulamalarınızı Azure için hızlı bir şekilde geçirilir. Her uygulama, kod değişiklikleri ile ilgili maliyet ve riski olmadan bulut avantajlarından yararlanmasını olarak geçirilir. | Ne zaman uygulamaları hızlı bir şekilde buluta taşımanız gerekir.<br/><br/> Bir uygulamayı değiştirmeden taşımak istediğinizde.<br/><br/> Ne zaman uygulamalarınızı tasarlanmış böylece bunlar yararlanabilirsiniz [Azure Iaas](https://azure.microsoft.com/overview/what-is-iaas/) ölçeklenebilirlik geçişten sonra.<br/><br/> Ne zaman uygulamaları işletmeniz için önemli olan, ancak uygulama yeteneklerinin Acil değişiklikler gerekmez.
-**Yeniden düzenleme** | Böylece bağlanabilecekleri genellikle "yeniden paketleme olarak" adlandırılan, yeniden düzenleme uygulamalar, küçük değişiklikler gerektirir [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/)ve bulut teklifleri kullanın.<br/><br/> Örneğin, var olan uygulamaları Azure uygulama hizmeti ya da Azure Kubernetes hizmet (AKS) geçişi yapılamadı. Veya, PostgreSQL ve Azure Cosmos DB yönetilen Azure SQL veritabanı örneği, Azure veritabanı için MySQL, Azure veritabanı gibi seçeneklerini içine ilişkisel ve ilişkisel olmayan veritabanlarını yeniden. | Uygulamanızı Azure'da çalışması için kolayca paketlenebilir durumunda.<br/><br/> Yeniden düzenleme de Azure tarafından sağlanan yenilikçi DevOps yöntemler uygulamak istediğiniz ya da DevOps iş yükleri için bir kapsayıcı stratejisini kullanma hakkında düşündüğünüzü kullanılabilir.<br/><br/> Yeniden düzenleme için var olan kod temeli ve kullanılabilir geliştirme becerileri taşınabilirlik hakkında düşünmeniz gerekir.
-**Rearchitect** | Geçiş için bütçeden değiştirme ve uygulama işlevselliğini ve bulut ölçeklenebilirliği uygulama mimarisi iyileştirmek için temel kod genişletme hakkındadır.<br/><br/> Örneğin, bir grup birlikte çalışır ve easliy ölçeklendirme mikro tek yapılı bir uygulamasına aşağı bozar. Veya, ilişkisel rearchitect ve ilişkisel olmayan veritabanlarına tam olarak yönetilen Azure SQL veritabanı örneği, Azure veritabanı için MySQL, PostgreSQL ve Azure Cosmos DB Azure veritabanı gibi DBaaS çözümleri yönetilir. | Uygulamalarınızı yeni özellikleri içerecek şekilde ya da bir bulut platformunda etkin şekilde çalışması için önemli düzeltmeler gerektiğinde.<br/><br/> Uygulama Yatırımlar kullanın, düşük maliyetli bir şekilde ölçeklendirme gereksinimlerini karşılıyor, Azure tarafından sağlanan yenilikçi DevOps yöntemleri uygulayın ve sanal makinelerin kullanımını en aza yapmak istediğinizde Rearchitecture bir seçenektir.
-**Yeniden oluşturma** | Azure bulut teknolojilerini kullanarak sıfırdan bir uygulama yeniden oluşturma adım bir şey daha fazla sürer yeniden oluşturun. Örneğin, sunucusuz, Azure AI, yönetilen Azure SQL veritabanı örneği ve Azure Cosmos DB gibi bulut yerel teknolojileriyle yeşil alan uygulamalar oluşturabilir. | Ne zaman hızlı geliştirme istediğiniz ve mevcut uygulamalar işlevselliği ve kullanım ömrü sınırlı. (Azure tarafından sağlanan DevOps uygulamalar dahil), iş yenilik hızlandırmak hazır oluşturma sırasında bulut yerel teknolojilerini kullanarak yeni uygulamalar rearchitect ve AI, blockchain ve IOT geliştirmeleri avantajlarından yararlanın.
+**Yeniden düzenleme** | Böylece bağlanabilecekleri genellikle "yeniden paketleme olarak" adlandırılan, yeniden düzenleme uygulamalar, küçük değişiklikler gerektirir [Azure PaaS](https://azure.microsoft.com/overview/what-is-paas/)ve bulut teklifleri kullanın.<br/><br/> Örneğin, var olan uygulamaları Azure uygulama hizmeti ya da Azure Kubernetes hizmet (AKS) geçişi yapılamadı. Veya, PostgreSQL ve Azure Cosmos DB yönetilen Azure SQL veritabanı örneği, Azure veritabanı için MySQL, Azure veritabanı gibi seçeneklerini içine ilişkisel ve ilişkisel olmayan veritabanlarını yeniden. | Uygulamanızı Azure'da çalışması için kolayca paketlenebilir durumunda.<br/><br/> Uygulamak isterseniz yenilikçi DevOps yöntemler Azure tarafından sağlanan veya DevOps iş yükleri için bir kapsayıcı stratejisini kullanma hakkında düşündüğünüzü.<br/><br/> Yeniden düzenleme için var olan kod temeli ve kullanılabilir geliştirme becerileri taşınabilirlik hakkında düşünmeniz gerekir.
+**Rearchitect** | Geçiş için bütçeden değiştirme ve uygulama işlevsellik ve bulut ölçeklenebilirliği uygulama mimarisi iyileştirmek için temel kod genişletildiğinde odaklanır.<br/><br/> Örneğin, bir grup birlikte çalışır ve kolay ölçeklendirmenizi mikro tek yapılı bir uygulamasına aşağı bozar. Veya, ilişkisel rearchitect ve ilişkisel olmayan veritabanlarına tam olarak yönetilen Azure SQL veritabanı örneği, Azure veritabanı için MySQL, PostgreSQL ve Azure Cosmos DB Azure veritabanı gibi DBaaS çözümleri yönetilir. | Uygulamalarınızı yeni özellikleri içerecek şekilde ya da bir bulut platformunda etkin şekilde çalışması için önemli düzeltmeler gerektiğinde.<br/><br/> Uygulama Yatırımlar kullanmak istediğinizde, uygun maliyetli bir şekilde ölçeklendirme gereksinimlerini karşılıyor, yenilikçi Azure DevOps yöntemler uygulamak ve sanal makinelerin kullanımını en aza.
+**Yeniden oluşturma** | Azure bulut teknolojilerini kullanarak sıfırdan bir uygulama yeniden oluşturma adım bir şey daha fazla sürer yeniden oluşturun. Örneğin, sunucusuz, Azure AI, yönetilen Azure SQL veritabanı örneği ve Azure Cosmos DB gibi bulut yerel teknolojileriyle yeşil alan uygulamalar oluşturabilir. | Ne zaman hızlı geliştirme istediğiniz ve mevcut uygulamalar işlevselliği ve kullanım ömrü sınırlı.<br/><br/> (Azure tarafından sağlanan DevOps uygulamalar dahil) iş yenilik hızlandırmak hazır olduğunuzda, bulut yerel teknolojilerini kullanarak yeni uygulamalar oluşturmak ve AI, blockchain ve IOT geliştirmeleri avantajlarından yararlanın.
 
 ## <a name="migration-articles"></a>Geçiş makaleleri
 
@@ -54,11 +54,11 @@ Contoso geçiş serisi oluşturan makaleleri aşağıdaki tabloda özetlenmişti
 Makale 1: Genel Bakış (Bu makalede) | Contoso'nun geçiş stratejisi, makale serisi ve kullanılan örnek uygulamaları genel bakış sağlar. | Kullanılabilir
 [Makale 2: bir Azure altyapısı dağıtın](contoso-migration-overview.md) | Nasıl kendi şirket içi ve Azure altyapı Contoso bu geçiş için hazırlar açıklar. Aynı alt tüm Contoso geçiş senaryoları için kullanılır. | Kullanılabilir
 [Makale 3: şirket içi kaynakları değerlendirin](contoso-migration-assessment.md) | Contoso VMware üzerinden çalışan kendi şirket içi iki katmanlı SmartHotel uygulamasının bir değerlendirme nasıl çalıştığı gösterilmektedir. Uygulama VM'ler ile değerlendirmek [Azure geçirmek](migrate-overview.md) hizmet ve uygulama SQL Server veritabanı ile [Azure veritabanı geçiş Yardımcısı](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Kullanılabilir
-[Makale 4: Azure Vm'leri ve yönetilen bir SQL örneği düzenleme (yükseltme ve shift)](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso SmartHotel uygulamayı Azure'a nasıl geçirir gösterir. VM ön uç uygulamasını kullanarak geçirmek [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), uygulamayı ve veritabanı kullanma [Azure veritabanı geçiş](https://docs.microsoft.com/azure/dms/dms-overview) yönetilen bir SQL örneğine geçirmek için hizmet. | Kullanılabilir
-[Makale 5: Azure VM'ler düzenleme (yükseltme ve shift)](contoso-migration-rehost-vm.md) | Contoso SmartHotel uygulama yalnızca Site Recovery kullanarak sanal makineleri geçirmek nasıl gösterir.
-[Makale 6: (yükseltme ve shift) Azure Vm'leri ve SQL Server kullanılabilirlik gruplarını yeniden Düzenle](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulama nasıl geçirir gösterir. Sanal makineleri uygulama ve veritabanı geçiş hizmeti uygulama veritabanı bir SQL Server AlwaysOn Kullanılabilirlik grubu geçirmek için geçirmek için Site Recovery kullanırlar. | Kullanılabilir
-Makale 7: Azure Vm'leri ve Azure MySQL sunucusu düzenleme (yükseltme ve shift) | Contoso osTicket Linux uygulama Site Recovery kullanarak sanal makineleri nasıl geçirir gösterir. | Planlandı
-Makale 8: Azure Vm'leri ve Azure MySQL sunucusu düzenleme (yükseltme ve shift) | Contoso Linux osTicket nasıl geçirir gösteren geçirmek için Site Recovery ve MySQL çalışma ekranı kullanarak uygulama VM'ler (yedekleme ve geri yükleme) Azure MySQL Server örneğine. | Planlandı
+[Makale 4: Rehost Azure VM'ler ve SQL yönetilen örneği](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso SmartHotel uygulamayı Azure'a nasıl geçirir gösterir. VM web uygulamasını kullanarak geçirmek [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)ve SQL yönetilen örneği kullanarak bir uygulama veritabanına [Azure veritabanı geçiş](https://docs.microsoft.com/azure/dms/dms-overview) hizmet. | Kullanılabilir
+[Makale 5: Azure VM'ler için yeniden barındırma](contoso-migration-rehost-vm.md) | Contoso SmartHotel uygulama Site Recovery hizmetini kullanarak sanal makineleri geçirmek nasıl gösterir.
+[Makale 6: Azure VM'ler ve SQL Server kullanılabilirlik gruplarını yeniden barındırma](contoso-migration-rehost-vm-sql-ag.md) | Contoso SmartHotel uygulama nasıl geçirir gösterir. VM uygulama ve veritabanı geçiş hizmeti uygulama veritabanı bir SQL Server AlwaysOn Kullanılabilirlik grubu geçirmek için geçirmek için Site Recovery kullanırlar. | Kullanılabilir
+Makale 7: Azure VM'ler için Linux uygulama yeniden barındırma | Contoso VM'ler uygulama için Azure Site RECOVERY'yi kullanarak nasıl geçirir gösterir. | Planlandı
+Makale 8: Linux uygulama Azure VM'ler ve Azure MySQL sunucusu için yeniden barındırma | Contoso uygulaması Site RECOVERY'yi kullanarak VM nasıl geçirir gösterir ve MySQL çalışma ekranı Azure MySQL Server örneğine geçirmek için kullanır. | Planlandı
 
 
 

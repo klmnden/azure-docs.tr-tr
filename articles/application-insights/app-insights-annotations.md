@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: a479fa553d64f3820ae8513353484e72b57d30e4
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: fb4bcd57062017c0d7ee802ba1f46660476f6af2
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807807"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293444"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application ınsights'ta ölçüm grafiklerde ek açıklamaları
 Ek açıklamalar [ölçüm Gezgini](app-insights-metrics-explorer.md) grafikleri Göster yeni bir yapı veya diğer önemli olay dağıtıldığı. Bunlar değişikliklerinizi uygulamanızın performansı üzerinde hiçbir etkisi sahip olup olmadığını görmek kolaylaştırır. Tarafından otomatik olarak oluşturulabilir [Visual Studio Team Services yapı sistem](https://www.visualstudio.com/en-us/get-started/build/build-your-app-vs). Tarafından gibi herhangi bir olay bayrak için ek açıklama oluşturabilirsiniz [Powershell'den oluşturma](#create-annotations-from-powershell).

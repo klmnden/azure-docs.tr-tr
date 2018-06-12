@@ -1,12 +1,12 @@
 ---
 title: Azure IOT paketi ve Azure Active Directory | Microsoft Docs
-description: "Azure IoT Paketinin izinleri yönetmek için Azure Active Directory’i nasıl kullandığını açıklar."
-services: 
+description: Azure IoT Paketinin izinleri yönetmek için Azure Active Directory’i nasıl kullandığını açıklar.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: a032fc4332c697748e658ad2615ed5b0915c56c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4d0c7aff54ee20cf9ae4e6cdf2fc0718cd0b2f2a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35304144"
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com sitesindeki izinler
 
@@ -92,7 +93,7 @@ Active Directory’de bir kullanıcıyı önceden yapılandırılmış çözüm�
 Bir kullanıcının rollerini değiştirmek için AAD genel yöneticisi olmanız gerekir:
 
 1. [Azure Portalı][lnk-portal]’na gidin.
-2. Seçin **Azure Active Directory**.
+2. **Azure Active Directory**'yi seçin.
 3. Çözümünüzü sağlarken azureiotsuite.com üzerinde seçtiğiniz dizin kullandığınızdan emin olun. Aboneliğinizle ilişkili birden fazla dizine sahipseniz, bunları hesap adınızı portalın sağ üst tıklatırsanız arasında geçiş yapabilirsiniz.
 4. Tıklatın **kurumsal uygulamalar**, ardından **tüm uygulamaları**.
 4. Göster **tüm uygulamaları** ile **herhangi** durumu. Ardından, önceden yapılandırılmış çözümünüz ada sahip bir uygulama arayın.
@@ -113,10 +114,10 @@ AAD kiracısında genel yönetici yapın ve ardından roller kullanıcılara ken
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Uzaktan izlediğim önceden yapılandırılmış çözümümün ve uygulamamın atandığı AAD kiracısına nasıl geçiş yapabilirim?
 
-<https://github.com/Azure/azure-iot-remote-monitoring> adresinden bir bulut dağıtımını yeniden çalıştırabilir ve yeni oluşturulan bir AAD kiracısı ile yeniden dağıtabilirsiniz. Varsayılan olarak, bir AAD kiracısı oluşturduğunuzda, bir genel yönetici olduğu için kullanıcı ekleyin ve bu kullanıcılara roller atama için izinlere sahip.
+Bir bulut dağıtımını çalıştırın <https://github.com/Azure/azure-iot-remote-monitoring> ve yeni oluşturulan bir AAD kiracısı ile yeniden dağıtın. Varsayılan olarak, bir AAD kiracısı oluşturduğunuzda, bir genel yönetici olduğu için kullanıcı ekleyin ve bu kullanıcılara roller atama için izinlere sahip.
 
 1. Bir AAD dizini oluşturun [Azure portal][lnk-portal].
-2. <https://github.com/Azure/azure-iot-remote-monitoring> sayfasına gidin.
+2. <https://github.com/Azure/azure-iot-remote-monitoring> kısmına gidin.
 3. `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` komutunu çalıştırın (Örneğin, `build.cmd cloud debug myRMSolution`)
 4. Sorulduğunda **tenantid** değerini önceki kiracınız yerine yeni oluşturduğunuz kiracı olarak ayarlayın.
 
@@ -149,7 +150,7 @@ IOT paketi hakkında bilgi almaya devam etmek için işlemine bakın [önceden y
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
-[lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
+[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs

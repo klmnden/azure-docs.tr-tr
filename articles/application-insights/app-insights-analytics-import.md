@@ -1,23 +1,24 @@
 ---
-title: "Azure Application Insights analizleri için verilerinizi alma | Microsoft Docs"
-description: "Uygulama telemetri ile katılmak için statik verileri almak veya Analytics sorgusu için ayrı veri akışı alın."
+title: Azure Application Insights analizleri için verilerinizi alma | Microsoft Docs
+description: Uygulama telemetri ile katılmak için statik verileri almak veya Analytics sorgusu için ayrı veri akışı alın.
 services: application-insights
-keywords: "Şema, veri alma açın"
-documentationcenter: 
+keywords: Şema, veri alma açın
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293630"
 ---
 # <a name="import-data-into-analytics"></a>İçeri aktarma veri analizi
 
@@ -144,7 +145,7 @@ El ile aşağıdaki işlemi gerçekleştirin veya düzenli aralıklarla yapmak i
 2. [Blob için bir paylaşılan erişim imzası anahtar oluşturma](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). Bu anahtar, bir sona erme süresi bir gün sahip ve okuma erişimi sağlar.
 3. Veri bekliyor Application Insights bildirmek için REST çağrısı yapın.
 
- * Uç noktası:`https://dc.services.visualstudio.com/v2/track`
+ * Uç noktası: `https://dc.services.visualstudio.com/v2/track`
  * HTTP yöntemini: POST
  * Yük:
 
@@ -172,7 +173,7 @@ Yer tutucuları şunlardır:
 * `Blob URI with Shared Access Key`: Bu yordamdan bir anahtar oluşturmak için size. Blob özeldir.
 * `Schema ID`:, Tanımlı bir şeması için oluşturulan şema kimliği. Bu blob verileri şemaya uygun olmalıdır.
 * `DateTime`: Hangi istek gönderildikten saati UTC. Biz bu biçimlerini kabul: ISO8601 (gibi "2016-01-01 13:45:01"); Rfc822 ("Çar, 14 Ara 16 14:57:01 + 0000"); RFC850 ("Çarşamba, 14 Ara 16 14:57:00 UTC"); RFC1123 ("Çar, 14 Ara 2016 14:57:00 + 0000").
-* `Instrumentation key`Application Insights kaynağınıza.
+* `Instrumentation key` Application Insights kaynağınıza.
 
 Veri analizleri birkaç dakika sonra kullanılabilir.
 

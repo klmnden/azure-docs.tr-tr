@@ -2,7 +2,7 @@
 title: FTP sunucusu - Azure Logic Apps bağlanma | Microsoft Docs
 description: Oluştur, izlemek ve Azure Logic Apps ile bir FTP sunucusunda dosyalarını yönetme
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 07/22/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 3bb8c750846ee14331c749aeece4315d5c16d411
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 983e8f84e6e44bc9e5de5f4e7fff361b92b316c9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610574"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295702"
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP Bağlayıcısı ile çalışmaya başlama
 İzleme, yönetme ve FTP sunucusunda bulunan dosyaları oluşturmak için FTP Bağlayıcısı'nı kullanın. 

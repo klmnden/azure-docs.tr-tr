@@ -53,5 +53,5 @@ Yeni Azure Redis önbelleği örneği boyutu.
     }
 
 
-Şablon bu parametre (0, 1, 2, 3, 4, 5 veya 6) için izin verilen değerleri tanımlar ve herhangi bir değer belirtilmezse varsayılan değer (1) atar. Bu sayı aşağıdaki önbellek boyutlarına karşılık gelen: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB'a
+Şablon bu parametre (0, 1, 2, 3, 4, 5 veya 6) için izin verilen değerleri tanımlar ve herhangi bir değer belirtilmezse varsayılan değer (0) atar. Bu sayı aşağıdaki önbellek boyutlarına karşılık gelen: 0 = 250 MB, 1 = 1 GB, 2 = 2,5 GB, 3 = 6 GB, 4 = 13 GB, 5 = 26 GB, 6 = 53 GB'a
 

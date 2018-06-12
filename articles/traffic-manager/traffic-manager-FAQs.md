@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301074"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Trafik Yöneticisi sık sorulan sorular (SSS)
 
@@ -85,10 +86,18 @@ Trafik Yöneticisi bir DNS sorgusu adlandırıldığını, yaşam süresi (TTL) 
 
 Ayarlayabileceğiniz, konumundaki bir profil gerçekleştiriliyordu 0 saniye olarak en düşük ve yüksek 2.147.483.647 saniye olarak kullanabilmek için DNS TTL (ile uyumlu en büyük aralığı [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt )). TTL değeri 0 aşağı akış DNS Çözümleyicileri sorgu yanıtlarını önbelleğe alma ve trafik Yöneticisi DNS çözümlemesi için sunucuları ulaşmak için tüm sorguların beklenen anlamına gelir.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Nasıl profilime gelen Sorgu hacmini anlayabilirsiniz? 
+Ölçümleri biri tarafından trafik Yöneticisi profili tarafından sorgu sayısı yanıt sağlanan. Profil düzeyi toplama sırasında bu bilgileri elde edebilirsiniz veya, bunu daha fazla sınırlandıramazsınız bakın belirli uç noktalar burada döndürülmedi Sorgu hacmini bölebilirsiniz. Ayrıca, ayarladığınız koşulları sorgu yanıtı birim kestiği durumunda sizi bilgilendirmesi için uyarılar ayarlayabilirsiniz. Daha fazla ayrıntı için [trafik Yöneticisi ölçümleri ve Uyarıları](traffic-manager-metrics-alerts.md).
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Trafik Yöneticisi Geographic trafik yönlendirme yöntemi
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>Coğrafi yönlendirme yararlı olduğu bazı kullanım örnekleri nelerdir? 
 Coğrafi yönlendirme türü burada coğrafi bölgelerine bağlı kullanıcılarının ayırt etmek bir Azure müşterinin gereken herhangi bir senaryoda kullanılabilir. Örneğin, coğrafi trafik yönlendirme yöntemini kullanarak, kullanıcıların belirli bölgelerdeki diğer bölgelerdeki olandan farklı bir kullanıcı deneyimi verebilirsiniz. Başka bir örnek, belirli bir bölgede kullanıcılardan yalnızca bu bölgede uç noktaları tarafından sunulması gerektiren yerel veri egemenliği gerektirir ile uymak.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>Performans yönlendirme yöntemini veya coğrafi yönlendirme yöntemini kullanmanız gerekir nasıl karar? 
+Performans yönlendirme yöntemini Geographic içinde birincil hedef yönlendirme bir coğrafi zorlamak için buna karşın, en düşük gecikme çağırana sağlayabilir uç trafiği göndermek için birincil amacınız olduğu olduğundan bu iki popüler yönlendirme yöntemleri arasındaki en önemli fark böylece bunları kasıtlı olarak belirli bir bitiş noktasına yönlendirebilir, arayanlar için duvar. Coğrafi eşleşme ve düşük gecikme süresi arasında bir ilişki olduğundan bu her zaman true olmasa da çakışma olur. Arayan için daha iyi bir gecikme deneyimi sağlayan farklı bir coğrafi konum içinde bir uç nokta olabilir ve bu durumda performans yönlendirme kullanıcı bu uç noktasına gönderir, ancak coğrafi yönlendirme her zaman gönderecek bunları için eşlenen uç nokta için kendi coğrafi bölge. Daha fazla temizlemek için aşağıdaki örnekte - Geographic ile göz önünde bulundurun yapmak için yönlendirme uç noktaları ABD ve uç noktaları Asya'da tüm ABD trafiği Asya tüm trafiği göndermek seyrek eşlemeleri gibi yapabilirsiniz. Bu durumda, coğrafi yönlendirme kasıtlı olarak tam olarak ne yapmak için yapılandırmadığınız ne yapacağını ve performansı en iyi duruma getirme önemli bir unsur değildir. 
+>[!NOTE]
+>Burada bu senaryoları iç içe profil için coğrafi Yönlendirme yetenekleri harika seçim olabilir ve her iki performans gerekebilir senaryolar olabilir. Örneğin, burada tüm trafiği Kuzey Amerika için uç nokta ABD iç içe geçmiş bir profil gönderdiğiniz coğrafi yönlendirme üst profili ayarlama ve performansı en iyi uç noktası bu kümesi içinde bu trafiği göndermek için yönlendirme kullanın. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>Trafik Yöneticisi tarafından coğrafi yönlendirme için desteklenen bölgeler nelerdir? 
 Trafik Yöneticisi tarafından kullanılan ülke/bölge hiyerarşisi bulunabilir [burada](traffic-manager-geographic-regions.md). Bu sayfayı tüm değişikliklerle güncel tutulur, ancak, program aracılığıyla da aynı bilgileri kullanarak alabilirsiniz [Azure Traffic Manager REST API'si](https://docs.microsoft.com/rest/api/trafficmanager/). 
@@ -330,6 +339,9 @@ Tıklatın [burada](https://azuretrafficmanagerdata.blob.core.windows.net/probes
 Uç noktanız ulaşmasını aşağıdakilere bağlıdır Traffic Manager sistem durumu sayısını denetler:
 - İzleme aralığı için ayarladığınız değerin (küçük aralık, uç belirli bir dönemde giriş daha fazla isteği anlamına gelir).
 - Burada durumu denetimleri (burada bu denetimler önceki SSS bölümünde listelenen bekleyebilirsiniz gelen IP adresleri) kaynaklanan gelen konumları sayısı.
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>My uç noktaları biri kullanılamaz hale gelirse nasıl bildirim alabilirim? 
+Trafik Yöneticisi tarafından sağlanan ölçümler bir profil uç noktalarını sistem durumunu biridir. Bu toplama bir profili içindeki tüm uç noktalar olarak görebilirsiniz (örneğin, uç noktalarınızı %75 sağlıklı), veya en bir uç nokta gerçekleştiriliyordu. Trafik Yöneticisi ölçümleri Azure İzleyicisi aracılığıyla sunulur ve kullanabileceğiniz kendi [yetenekleri uyarı](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) uç noktanızı sistem durumunu bir değişiklik olduğunda bildirim almak için. Daha fazla ayrıntı için bkz: [trafik Yöneticisi ölçümleri ve Uyarıları](traffic-manager-metrics-alerts.md).  
 
 ## <a name="traffic-manager-nested-profiles"></a>Trafik Yöneticisi profilleri iç içe geçmiş
 

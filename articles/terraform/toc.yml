@@ -15,6 +15,8 @@
       maintainContext: true
 - name: Öğreticiler
   items:
+    - name: AKS ve Terraform ile bir Kubernetes kümesi oluşturma
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
     - name: Terraform ve Azure sağlayıcısı dağıtım yuvaları
       href: terraform-slot-walkthru.md
     - name: MSI etkin bir Terraform VM’si oluşturma

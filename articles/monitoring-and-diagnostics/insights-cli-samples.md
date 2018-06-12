@@ -1,31 +1,26 @@
 ---
-title: Azure CLI 2.0 İzleyici hızlı başlangıç örnekleri. | Microsoft Docs
+title: Azure İzleyici CLI hızlı başlangıç örnekleri
 description: Azure İzleyicisi özelliklerine ilişkin örnek CLI 2.0 komutlar. Azure İzleyicisi uyarı bildirimleri gönderebilir, yapılandırılmış telemetri verilerini ve otomatik ölçeklendirme bulut Hizmetleri, sanal makinelerin ve Web uygulamaları değerlerine göre web URL'leri çağrı olanak sağlayan bir Microsoft Azure hizmetidir.
-author: kamathashwin
-manager: ''
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: ashwink
-ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: robb
+ms.component: ''
+ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262411"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure CLI 2.0 İzleyici hızlı başlangıç örnekleri
 Bu makalede, örnek Azure İzleyicisi özelliklerine erişmenize yardımcı olması için komut satırı arabirimi (CLI) komutları gösterir. Azure İzleyici otomatik ölçeklendirme bulut Hizmetleri, sanal makineleri ve Web uygulamaları ve uyarı bildirimleri gönderebilir veya web URL'leri yapılandırılmış telemetri verilerini değerlerine göre arama için sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Azure CLI henüz yüklemediyseniz, yönergeleri izleyin [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Aynı zamanda [Azure bulut Kabuk](/azure/cloud-shell) CLI tarayıcınızda etkileşimli bir deneyim olarak çalıştırmak için. 
+Azure CLI henüz yüklemediyseniz, yönergeleri izleyin [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Aynı zamanda [Azure bulut Kabuk](/azure/cloud-shell) CLI tarayıcınızda etkileşimli bir deneyim olarak çalıştırmak için. Kullanılabilir tüm kullanılabilir komutların tam bir başvuru bkz [Azure İzleyici CLI başvuru](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 İlk adım, Azure hesabınızda oturum açın.
@@ -90,7 +85,8 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## <a name="work-with-alerts"></a>Uyarılarla çalışma 
-[!NOTE] Yalnızca (Klasik) uyarıları, CLI içinde şu anda desteklenir. 
+> [!NOTE]
+> Yalnızca (Klasik) uyarıları, CLI içinde şu anda desteklenir. 
 
 ### <a name="get-alert-classic-rules-in-a-resource-group"></a>Bir kaynak grubunda uyarı (Klasik) kurallarını Al
 

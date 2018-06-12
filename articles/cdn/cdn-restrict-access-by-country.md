@@ -3,8 +3,8 @@ title: Azure CDN içeriğini ülkeye göre kısıtla | Microsoft Docs
 description: Erişim coğrafi filtreleme özelliğini kullanarak, Azure CDN içeriğine erişimi kısıtlamak öğrenin.
 services: cdn
 documentationcenter: ''
-author: lichard
-manager: akucer
+author: dksimpson
+manager: cfowler
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: bb757ab115d03ab04dac4468d23f446696a971a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 93321c4c8a7f8d79835d702ca07132eed94f6493
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260761"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Azure CDN içeriğini ülkeye göre kısıtla
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 Kullanıcı varsayılan olarak, içerik istediğinde, içerik kullanıcı bu istekten burada yapılan bağımsız olarak sunulur. Bazı durumlarda, içeriğinizi ülkeye göre erişimi sınırlamak isteyebilirsiniz. Bu makalede nasıl kullanılacağı açıklanmaktadır *coğrafi filtreleme* izin vermek veya ülkeye göre erişimi engellemek için bu hizmeti yapılandırmak için özellik.
 
 > [!IMPORTANT]
-> Azure CDN ürünü tüm aynı coğrafi filtreleme işlevselliği sağlar ancak destekledikleri arı ülke kodlarına küçük bir fark vardır. Adım 3 farklar bağlantısına bakın.
+> Azure CDN ürünü tüm aynı coğrafi filtreleme işlevselliği sağlar ancak destekledikleri arı ülke kodlarına küçük bir fark vardır. Daha fazla bilgi için bkz: [Azure CDN ülke kodlarına](https://msdn.microsoft.com/library/mt761717.aspx).
 
 
 Bu tür bir kısıtlama yapılandırma için geçerli konuları hakkında daha fazla bilgi için bkz: [konuları](cdn-restrict-access-by-country.md#considerations).  
@@ -65,14 +66,17 @@ Engellemek veya yolu için izin vermek istediğiniz ülkelerin seçin.
 
 
 ### <a name="country-codes"></a>Ülke kodları
-Coğrafi filtreleme özelliği ülke kodlarına içinden bir istek izin verilen ya da güvenli bir dizin için engellenen ülkelerin tanımlamak için kullanır. Tüm Azure CDN ürünü aynı coğrafi filtreleme işlevsellik sunmalarına karşın, destekledikleri ülke kodlarına küçük bir fark yoktur. Bilgi için bkz: [Azure CDN ülke kodlarına](https://msdn.microsoft.com/library/mt761717.aspx). 
+Coğrafi filtreleme özelliği ülke kodlarına içinden bir istek izin verilen ya da güvenli bir dizin için engellenen ülkelerin tanımlamak için kullanır. Tüm Azure CDN ürünü aynı coğrafi filtreleme işlevsellik sunmalarına karşın, destekledikleri ülke kodlarına küçük bir fark yoktur. Daha fazla bilgi için bkz: [Azure CDN ülke kodlarına](https://msdn.microsoft.com/library/mt761717.aspx). 
 
 ## <a name="considerations"></a>Dikkat edilmesi gerekenler
 * Ülke filtreleme yapılandırmanızı değişiklikler hemen etkili olmaz:
-   * İçin **Azure CDN standart Microsoft** profilleri yayma genellikle on dakika içinde tamamlanır. 
-   * İçin **akamai'den Azure CDN standart** profilleri yayma işlemi genellikle bir dakika içinde tamamlanır. 
-   * İçin **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** profilleri yayma işlemi genellikle 90 dakika içinde tamamlanır.  
+   * **Microsoft’tan Azure CDN Standart** profilleri için yayma işlemi genellikle 10 dakikada tamamlanır. 
+   * **Akamai’den Azure CDN Standart** profilleri için yayma işlemi genellikle bir dakika içinde tamamlanır. 
+   * İçin **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** profilleri, yayma işlemi genellikle 10 dakika içinde tamamlanır. 
+ 
 * Bu özellik joker karakterleri desteklemez (örneğin, ' *').
+
 * Göreli yol ile ilişkili coğrafi filtreleme yapılandırması yol uygulanan yinelemeli olacaktır.
-* Yalnızca bir kural (noktası aynı göreli yolu için birden fazla ülke filtre oluşturulamıyor. aynı göreli yol uygulanabilir Bununla birlikte, bir klasör birden fazla ülke filtre olabilir. Ülke filtreleri özyinelemeli doğası nedeniyle budur. Diğer bir deyişle, önceden yapılandırılmış bir klasörün bir alt farklı ülke filtre atanabilir.
+
+* Yalnızca bir kural aynı göreli yoluna uygulanabilir. Diğer bir deyişle, aynı göreli yolu noktası birden fazla ülke filtre oluşturulamıyor. Ancak, bir klasör ülke filtreleri özyinelemeli doğası nedeniyle birden fazla ülke filtreye sahip olabilir. Diğer bir deyişle, önceden yapılandırılmış bir klasörün bir alt farklı ülke filtre atanabilir.
 

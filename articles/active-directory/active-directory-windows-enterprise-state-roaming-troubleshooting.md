@@ -17,11 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 25660eef50a0a18d4f404944daeb443133424897
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261160"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Sorun giderme Azure Active Directory'de Kurumsal durumda Dolaşım ayarları
 
@@ -79,7 +80,7 @@ Belirli koşullar altında Kurumsal durumda Dolaşım Azure çok faktörlü kiml
 **Olası sorun**: yönetici Active Directory Federasyon Hizmetleri çok faktörlü kimlik doğrulaması koşullu erişim ilkesini yapılandırır ve cihazın erişim belirtecinin süresi eşitleme başarısız olabilir. Oturum açın ve Microsoft Passport for Work PIN kullanarak oturumu emin olun veya Office 365 gibi diğer Azure hizmetleriyle erişirken çok faktörlü kimlik doğrulaması gerçekleştirmez.
 
 ### <a name="event-viewer"></a>Olay Görüntüleyici
-Gelişmiş sorun giderme için Olay Görüntüleyicisi'ni belirli hataları bulmak için kullanılabilir. Bunlar aşağıdaki tabloda belirtilmiştir. Olayları Olay Görüntüleyicisi'ni altında bulunabilir > Uygulama ve hizmet günlükleri > **Microsoft** > **Windows** > **SettingSync** ve eşitleme kimlikle ilgili sorunlar için **Microsoft** > **Windows** > **Azure AD**.
+Gelişmiş sorun giderme için Olay Görüntüleyicisi'ni belirli hataları bulmak için kullanılabilir. Bunlar aşağıdaki tabloda belirtilmiştir. Olayları Olay Görüntüleyicisi'ni altında bulunabilir > Uygulama ve hizmet günlükleri > **Microsoft** > **Windows** > **SettingSync** ve Eşitleme kimlikle ilgili sorunlar **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Bilinen sorunlar
@@ -93,7 +94,7 @@ Windows 10 v1607 istemci 23 Ağustos 2016 sahip olduğundan emin olun toplu gün
 
 ---
 
-### <a name="internet-explorer-favorites-do-not-sync"></a>Internet Explorer Favorites do not sync
+### <a name="internet-explorer-favorites-do-not-sync"></a>Internet Explorer Sık Kullanılanlar eşitleme değil
 
 Windows 10 Kasım güncelleştirme (sürüm 1511) çalıştıran aygıtları etkiler.
 

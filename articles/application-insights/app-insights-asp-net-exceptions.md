@@ -1,6 +1,6 @@
 ---
-title: "Hataları ve özel durumları Azure Application Insights ile web uygulamalarında tanılama | Microsoft Docs"
-description: "ASP.NET uygulamaları isteği telemetri ile birlikte özel durumları yakalar."
+title: Hataları ve özel durumları Azure Application Insights ile web uygulamalarında tanılama | Microsoft Docs
+description: ASP.NET uygulamaları isteği telemetri ile birlikte özel durumları yakalar.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: mbullwin
-ms.openlocfilehash: ee04fc3338dec7893f9f33322bd6b9af932199e7
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a3dcf4211df5d40c4b174fd9a818d3268ffaa3a0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295719"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>Web uygulamalarınızı Application Insights ile özel durumları tanılama
 Özel durumlar, canlı web uygulamanızda tarafından bildirilen [Application Insights](app-insights-overview.md). Böylece hızla nedenlerini tanılamak özel durumlar ve hem istemci hem de sunucu, diğer olayları ile başarısız olan istekler ilişkilendirebilirsiniz.
@@ -296,7 +297,7 @@ Tüm özel durumları *ele* uygulama tarafından hala el ile izlenmesi gerekir. 
 Uygulama Insights Web SDK 2.5 (ve önceki) Webapı 1'i (ve önceki) kullanıyorsanız, özel durumlarını izlemek için aşağıdaki örneklere bakın.
 
 #### <a name="web-api-1x"></a>Web API 1.x
-Override System.Web.Http.Filters.ExceptionFilterAttribute:
+System.Web.Http.Filters.ExceptionFilterAttribute geçersiz kıl:
 
 ```csharp
     using System.Web.Http.Filters;

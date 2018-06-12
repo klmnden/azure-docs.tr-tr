@@ -1,8 +1,8 @@
 ---
-title: "Veri saklama ve depolama Azure Application ınsights'ta | Microsoft Docs"
+title: Veri saklama ve depolama Azure Application ınsights'ta | Microsoft Docs
 description: Bekletme ve gizlilik ilkesi bildirimi
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294075"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -158,14 +159,14 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Farklı senaryolarda gönderilen veri sınıfları
 | Eylem | (Sonraki tabloya bakın) toplanan veri sınıfları |
 | --- | --- |
-| [.NET web projeye Application Insights SDK ekleme][greenbrown] |ServerContext<br/>Çıkarımı yapılan<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
-| [IIS üzerinde Durum İzleyicisi yükleme][redfield] |Bağımlılıklar<br/>ServerContext<br/>Çıkarımı yapılan<br/>Performans sayaçları |
-| [Java web uygulaması için Application Insights SDK ekleme][java] |ServerContext<br/>Çıkarımı yapılan<br/>İstek<br/>Oturum<br/>kullanıcılar |
-| [Web sayfasına JavaScript SDK'sı ekleme][client] |ClientContext <br/>Çıkarımı yapılan<br/>Sayfa<br/>ClientPerf<br/>Ajax |
+| [.NET web projeye Application Insights SDK ekleme][greenbrown] |Sunucu bağlamı<br/>Çıkarımı yapılan<br/>Performans sayaçları<br/>İstekler<br/>**Özel durumlar**<br/>Oturum<br/>kullanıcılar |
+| [IIS üzerinde Durum İzleyicisi yükleme][redfield] |Bağımlılıklar<br/>Sunucu bağlamı<br/>Çıkarımı yapılan<br/>Performans sayaçları |
+| [Java web uygulaması için Application Insights SDK ekleme][java] |Sunucu bağlamı<br/>Çıkarımı yapılan<br/>İstek<br/>Oturum<br/>kullanıcılar |
+| [Web sayfasına JavaScript SDK'sı ekleme][client] |ClientContext <br/>Çıkarımı yapılan<br/>Sayfa<br/>ClientPerf<br/>AJAX |
 | [Varsayılan özellikleri tanımlama][apiproperties] |**Özellikler** tüm standart ve özel olayları hakkında |
-| [Çağrı TrackMetric][api] |Sayısal değerler<br/>**Özellikleri** |
-| [Çağrı izleme *][api] |Olay adı<br/>**Özellikleri** |
-| [Çağrı TrackException][api] |**Özel durumlar**<br/>Yığın Dökümü<br/>**Özellikleri** |
+| [Çağrı TrackMetric][api] |Sayısal değerler<br/>**özellikleri** |
+| [Çağrı izleme *][api] |Olay adı<br/>**özellikleri** |
+| [Çağrı TrackException][api] |**Özel durumlar**<br/>Yığın Dökümü<br/>**özellikleri** |
 | SDK, veri toplayamazsınız. Örneğin: <br/> -Performans sayacı erişemiyor<br/> -telemetri Başlatıcı özel durumu |SDK tanılama |
 
 İçin [diğer platformlar için SDK'lar][platforms], kendi belgelere bakın.
@@ -173,21 +174,21 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 #### <a name="the-classes-of-collected-data"></a>Toplanan veri sınıfları
 | Toplanan veriler sınıfı | (Kapsamlı bir liste değil) içerir |
 | --- | --- |
-| **Özellikleri** |**Kodunuz tarafından belirlenen herhangi bir veriyi-** |
+| **özellikleri** |**Kodunuz tarafından belirlenen herhangi bir veriyi-** |
 | DeviceContext |Kimliği, IP, yerel ayar, cihaz modeli, ağ, ağ türü, OEM adı, ekran çözünürlüğünü, rol örneği, rol adı, cihaz türü |
 | ClientContext |İşletim sistemi, yerel ayar, dil, ağ, pencere çözümleme |
 | Oturum |Oturum kimliği |
-| ServerContext |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturumu, kullanıcı bağlamı, işlemi |
+| Sunucu bağlamı |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturumu, kullanıcı bağlamı, işlemi |
 | Çıkarımı yapılan |IP adresi, zaman damgası, işletim sistemi, tarayıcı coğrafi konumdan |
 | Ölçümler |Ölçüm adı ve değeri |
 | Olaylar |Olay ad ve değer |
 | PageViews |URL ve sayfa adı veya ekran adı |
 | İstemci performans |URL/sayfa adı, tarayıcı yükleme süresi |
-| Ajax |Sunucu için web sayfasından HTTP çağrıları |
+| AJAX |Sunucu için web sayfasından HTTP çağrıları |
 | İstekler |URL, süresi, yanıt kodu |
 | Bağımlılıklar |Tür (SQL, HTTP,...), bağlantı dizesi veya URI, eşitleme/zaman uyumsuz, süresi, başarı, SQL deyimi (ile durumu İzleyicisi) |
 | **Özel durumlar** |Türü, **ileti**, çağrı yığınları, kaynak dosya ve satır numarası, iş parçacığı kimliği |
-| Çökmeler (Crash) |İşlem kimliği, ana işlem kimliği, kilitlenme iş parçacığı kimliği; uygulama düzeltme eki, kimliği, yapı;  özel durum türü, adres, neden; Karıştırılmış simgeleri ve kayıtları, ikili başlangıç ve bitiş adreslerini, ikili dosya adı ve yolu, cpu türü |
+| Kilitlenmeler |İşlem kimliği, ana işlem kimliği, kilitlenme iş parçacığı kimliği; uygulama düzeltme eki, kimliği, yapı;  özel durum türü, adres, neden; Karıştırılmış simgeleri ve kayıtları, ikili başlangıç ve bitiş adreslerini, ikili dosya adı ve yolu, cpu türü |
 | İzleme |**İleti** ve önem düzeyi |
 | Performans sayaçları |İşlemci zamanı, kullanılabilir bellek, isteği hızı, özel durum hızı, işlem özel bayt, g/ç hızı, istek süresi, istek sırası uzunluğu |
 | Kullanılabilirlik |Web testi yanıt kodu, her test adımı, test adını, zaman damgası, başarı, yanıt süresi, test konumunu süresi |
@@ -195,8 +196,8 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 
 Yapabilecekleriniz [verilerin bazıları Applicationınsights.config düzenleyerek geçiş][config]
 
-## <a name="credits"></a>KREDİLERİ
-Bu ürün MaxMind, kullanılabilir tarafından oluşturulan GeoLite2 verileri içeren [http://www.maxmind.com](http://www.maxmind.com).
+## <a name="credits"></a>Jenerik
+Bu ürün MaxMind, kullanılabilir tarafından oluşturulan GeoLite2 verileri içeren [ http://www.maxmind.com ](http://www.maxmind.com).
 
 
 

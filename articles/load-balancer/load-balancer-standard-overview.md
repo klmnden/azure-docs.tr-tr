@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9e1f2f3e8fea771fb38b984dad1d8e73d723cb2c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261942"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure yük dengeleyici standart genel bakış
 
@@ -32,7 +33,7 @@ Standart yük dengeleyici temel yük dengeleyicisi genişletilmiş ve daha ayrı
 
 Genel veya iç yük dengeleyici olarak standart yük dengeleyici kullanabilirsiniz. Ve bir genel ve bir iç yük dengeleyici kaynak bir sanal makineye bağlanabilir.
 
-Yük Dengeleyici kaynağın işlevleri her zaman bir ön uç, bir kural, bir sistem durumu araştırması ve arka uç havuzu tanımını ifade edilir.  Bir kaynak birden çok kural içerebilir. Sanal makineler sanal makinenin NIC kaynak arka uç havuzundan belirterek arka uç havuzuna yerleştirebilirsiniz.  Bir sanal makine ölçek kümesi söz konusu olduğunda, bu parametre ağ profili geçirilen ve genişletilmiş.
+Yük Dengeleyici kaynağın işlevleri her zaman bir ön uç, bir kural, bir sistem durumu araştırması ve arka uç havuzu tanımını ifade edilir.  Bir kaynak birden çok kural içerebilir. Sanal makineler sanal makinenin NIC kaynak arka uç havuzundan belirterek arka uç havuzuna yerleştirebilirsiniz.  Bu parametre ağ profili geçirilen ve sanal makine ölçek kümeleri kullanırken genişletilmiş.
 
 Sanal ağ kaynak için bir anahtar yönü kapsamıdır.  Temel yük dengeleyicisi bir kullanılabilirlik kümesi kapsam içinde var, ancak standart bir yük dengeleyici sanal ağ kapsamını ile tamamen tümleşiktir ve tüm sanal ağ kavramları uygulayın.
 
@@ -43,7 +44,7 @@ Yük Dengeleyici kaynaklar içerisinde, nasıl Azure oluşturmak istediğiniz se
 
 ## <a name="why-use-standard-load-balancer"></a>Standart yük dengeleyici neden kullanılır?
 
-Standart yük dengeleyici uygulamalarınızı ölçekleme ve büyük ve karmaşık çok bölge mimarileri için küçük ölçekli dağıtımlar için yüksek kullanılabilirlik oluşturmanıza olanak sağlar.
+Standart Load Balancer uygulamalarınızı ölçeklendirmenizi ve küçük ölçekli dağıtımlardan büyük ve karmaşık çok bölgeli mimarilere kadar yüksek düzeyde kullanılabilirlik oluşturmanızı sağlar.
 
 Standart yük dengeleyici ve temel yük dengeleyici arasındaki farklar genel bir bakış için aşağıdaki tabloyu gözden geçirin:
 
@@ -71,7 +72,7 @@ Gözden geçirme [hizmet sınırları için yük dengeleyici](https://aka.ms/lbl
 
 Bir sanal ağ içinde herhangi bir sanal makine kaynağı için standart yük dengeleyici arka uç havuzları genişletir.  En fazla 1000 arka uç örnekleri içerebilir.  Bir NIC kaynak özelliği bir IP yapılandırması arka uç örneğidir.
 
-Arka uç havuzu, tek başına sanal makineler, kullanılabilirlik kümeleri veya sanal makine ölçek kümesi içerebilir.  Arka uç havuzundaki kaynakları karıştırabilirsiniz ve bu kaynakları 150 toplam kadar herhangi bir birleşimini içerebilir.
+Arka uç havuzu, tek başına sanal makineler, kullanılabilirlik kümeleri veya sanal makine ölçek kümesi içerebilir.  Ayrıca, arka uç havuzundaki kaynakları karıştırabilirsiniz. Arka uç havuzundaki yük dengeleyici kaynak başına en fazla 150 kaynakları birleştirebilirsiniz.
 
 Arka uç havuzu tasarlamak nasıl değerlendirirken için en az tasarlayabilirsiniz daha fazla yönetim işlemlerini süresini iyileştirmek için tek tek arka uç havuzu kaynaklarına sayısı.  Veri düzlemi performansı veya ölçeği fark yoktur.
 
@@ -89,7 +90,7 @@ Gözden geçirme [kullanılabilirlik bölgeler hakkında ayrıntılı bilgi ilgi
 
 ### <a name="diagnostics"></a> Tanılama
 
-Standart yük dengeleyici Azure İzleyicisi üzerinden çok boyutlu ölçümleri sağlar.  Bu ölçümler olabilir filtre, gruplandırılmış ve performans ve sistem durumu hizmeti geçerli ve geçmiş Öngörüler sağlayın.  Kaynak durumu da desteklenir.  Aşağıda desteklenen tanılama kısa bir genel bakış verilmiştir:
+Standart yük dengeleyici Azure İzleyicisi üzerinden çok boyutlu ölçümleri sağlar.  Bu ölçümleri, gruplandırılmış ve belirli bir boyut için bölünen filtre.  Performans ve sistem durumu hizmeti geçerli ve geçmiş Öngörüler sağlarlar.  Kaynak durumu da desteklenir.  Aşağıda desteklenen tanılama kısa bir genel bakış verilmiştir:
 
 | Ölçüm | Açıklama |
 | --- | --- |
@@ -108,7 +109,7 @@ Standart yük dengeleyici kuralı yeni bir türünü destekler.
 
 Yük Dengeleme kuralları, uygulama ölçek yapmak ve yüksek oranda güvenilir için yapılandırabilirsiniz. Bir HA bağlantı noktalarını Yük Dengeleme kuralı, standart yük dengeleyici kullanırsanız, her bir iç standart yük dengeleyicinin ön uç IP adresi kısa ömürlü bağlantı noktasında akış dengelemesini başına sağlayacaktır.  Özellik pratik ya da tek tek bağlantı noktalarını belirlemek için istenmeyen olduğu diğer senaryolar için kullanışlıdır.
 
-Bir HA bağlantı noktalarını Yük Dengeleme kuralı ağ sanal Gereçleri ve gelen bağlantı noktalarının geniş aralıklarını gerektiren herhangi bir uygulama için Etkin-pasif veya aktif-aktif n + 1 senaryoları oluşturmanızı sağlar.  Bir sistem durumu araştırması hangi arka uçlarını yeni akışları alma belirlemek için kullanılabilir.  Bir bağlantı noktası aralığı senaryo benzetmek için bir ağ güvenlik grubu kullanın.
+Bir HA bağlantı noktalarını Yük Dengeleme kuralı ağ sanal Gereçleri ve gelen bağlantı noktalarının geniş aralıklarını gerektiren tüm uygulama için Etkin-pasif veya aktif-aktif n + 1 senaryoları oluşturmanızı sağlar.  Bir sistem durumu araştırması hangi arka uçlarını yeni akışları alma belirlemek için kullanılabilir.  Bir bağlantı noktası aralığı senaryo benzetmek için bir ağ güvenlik grubu kullanın.
 
 >[!IMPORTANT]
 > Bir ağ sanal gereç kullanmayı planlıyorsanız, kendi ürün HA bağlantı noktalarıyla olup olmadığını test edilmiştir hakkında rehberlik için satıcınıza başvurun ve uygulama için kendi özel yönergeleri izleyin. 
@@ -117,7 +118,7 @@ Gözden geçirme [ayrıntılı bağlantı noktalarının HA tartışma](load-bal
 
 ### <a name="securebydefault"></a>Varsayılan olarak güvenli
 
-Tam olarak standart yük dengeleyici sanal ağa edildi ' dir.  Sanal ağ özel, kapalı bir ağdır.  Standart yük dengeleyicileri ve standart genel IP adresleri sanal ağ dışında erişilebilmesi bu sanal ağ izin verecek şekilde tasarlandığından, bu kaynakları artık açmadan sürece kapalı varsayılan. Bu ağ güvenlik grupları (Nsg'ler) artık açıkça izin vermek için kullanılır ve beyaz liste trafiğe izin anlamına gelir.  Tüm sanal veri merkezinizde oluşturmak ve NSG ne ve ne zaman kullanılabilir olmalıdır karar verebilirsiniz.  Bir NSG'yi bir alt ağdaki veya NIC, sanal makine kaynağının yoksa, biz bu kaynağa erişmeye trafiğine izin yok.
+Tam olarak standart yük dengeleyici sanal ağa edildi ' dir.  Sanal ağ özel, kapalı bir ağdır.  Standart yük dengeleyicileri ve standart genel IP adresleri sanal ağ dışında erişilebilmesi bu sanal ağ izin verecek şekilde tasarlandığından, bu kaynakları artık açmadan sürece kapalı varsayılan. Bu ağ güvenlik grupları (Nsg'ler) artık açıkça izin vermek için kullanılır ve beyaz liste trafiğe izin anlamına gelir.  Tüm sanal veri merkezinizde oluşturmak ve NSG ne ve ne zaman kullanılabilir olmalıdır karar verebilirsiniz.  Bir NSG'yi bir alt ağdaki veya NIC, sanal makine kaynağının yoksa trafiği bu kaynağa erişmesine izin verilmiyor.
 
 Nsg'ler ve senaryonuz için uygulama hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/security-overview.md).
 
@@ -202,7 +203,7 @@ SKU'ları değişebilir değildir. SKU bir kaynak grubundan diğerine taşımak 
 >
 >Temel ve standart SKU farklar sayısı bu makalede açıklanan gibi sahiptir.  Anlama ve bunlar için hazırlama emin olun.
 >
->SKU'ları eşleşen yük dengeleyici ve genel IP kaynakları için kullanılması gerekir. Temel SKU ve standart SKU kaynaklarının karışımına sahip olamaz. Tek başına sanal makineler, sanal makinelerin bir kullanılabilirlik kümesi kaynağı eklenemiyor veya aynı anda hem de SKU'ları için bir sanal makine ölçek kaynakları ayarlayın.
+>SKU'ları eşleşen yük dengeleyici ve genel IP kaynakları için kullanılması gerekir. Temel SKU ve standart SKU kaynaklarının karışımına sahip olamaz. Tek başına sanal makineleri, bir kullanılabilirlik kümesi kaynağındaki sanal makineleri veya sanal makine ölçek kümesi kaynaklarını aynı anda iki SKU’ya iliştiremezsiniz.
 
 ## <a name="region-availability"></a>Bölge kullanılabilirliği
 

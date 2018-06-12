@@ -6,20 +6,17 @@ keywords: benzersiz anahtar kısıtlaması, benzersiz anahtar kısıtlaması ihl
 author: rafats
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: dd23f24fd817bfc443457dee30d2f3091c0d9f6b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261109"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos veritabanı benzersiz anahtar
 
@@ -34,7 +31,7 @@ Benzersiz anahtarlar geliştiricilerin kendi veri bütünlüğü katmanı ekleme
 
 Örnek olarak, nasıl bir kullanıcı veritabanı ile ilişkili en göz atalım bir [sosyal uygulama](use-cases.md#web-and-mobile-applications) e-posta adreslerini benzersiz bir anahtar ilke kalmaktan faydalanabilir. Yaparak kullanıcının e-posta adresi benzersiz bir anahtar, her kayıt benzersiz e-posta adresi olduğundan ve hiçbir yeni kayıtlar yinelenen e-posta adresleriyle oluşturulabilir emin olun. 
 
-Kullanıcıların oluşturmak istiyorsanız birden fazla kayıt aynı aynı ad, Soyadı adresini, e-posta ve e-posta adresi, benzersiz anahtar ilkesi diğer yolları ekleyebilirsiniz. Bu nedenle yalnızca bir e-posta adresine göre benzersiz bir anahtar oluşturmak yerine ilk adını, soyadını ve e-posta birleşimi benzersiz bir anahtar oluşturabilirsiniz. Bu durumda, her üç yolu benzersiz bir birleşimi izin verilir, böylece veritabanı aşağıdaki yolu değerleri olan öğeler içerebilir. Bu kayıtların her birinde, benzersiz anahtar ilkesi geçip geçmeyeceğini.  
+Kullanıcıların oluşturmak istiyorsanız birden fazla kayıt aynı aynı ad, Soyadı adresini, e-posta ve e-posta adresi, benzersiz anahtar ilkesi diğer yolları ekleyebilirsiniz. Bu nedenle bir e-posta adresine göre benzersiz bir anahtar oluşturmak yerine ilk adını, soyadını ve e-posta birleşimi benzersiz bir anahtar oluşturabilirsiniz. Bu durumda, her üç yolu benzersiz bir birleşimi izin verilir, böylece veritabanı aşağıdaki yolu değerleri olan öğeler içerebilir. Bu kayıtların her birinde, benzersiz anahtar ilkesi geçip geçmeyeceğini.  
 
 **İzin verilen değerler firstName, lastName ve e-posta benzersiz anahtar**
 
@@ -46,13 +43,13 @@ Kullanıcıların oluşturmak istiyorsanız birden fazla kayıt aynı aynı ad, 
 |    |Duperre|gaby@fabrikam.com|
 |    |       |gaby@fabraikam.com|
 
-Yukarıdaki tabloda listelenen birleşimlerinden herhangi biri ile başka bir kayıt ekleme girişiminde bulunuldu, benzersiz anahtar kısıtlaması karşılanmadığı belirten bir hata alırsınız. "Belirtilen kimliğe veya ada sahip kaynak zaten var." Azure Cosmos DB döndürür hata. veya "Kaynak belirtilen kimliği, ad veya benzersiz bir dizin zaten var." 
+Yukarıdaki tabloda listelenen birleşimlerinden herhangi biri ile başka bir kayıt ekleme girişiminde bulunuldu, benzersiz anahtar kısıtlaması karşılanmadığı belirten bir hata alırsınız. "Belirtilen kimliğe veya ada sahip kaynak zaten var." Azure Cosmos DB dönen hata: veya "Kaynak belirtilen kimliği, ad veya benzersiz bir dizin zaten var." 
 
 ## <a name="using-unique-keys"></a>Benzersiz anahtar kullanma
 
 Benzersiz anahtar kapsayıcı oluşturulduğunda ve benzersiz bir anahtar bölüm anahtarı kapsamlıdır tanımlanması gerekir. Önceki örnekte olduğu temel alınarak posta kodu bölerseniz oluşturmak için her bölüm yinelenen tablodaki kayıtların olabilir.
 
-Varolan kapsayıcıları benzersiz anahtarları kullanmak için güncelleştirilemiyor.
+Var olan benzersiz anahtarları kullanmak için bir kapsayıcı güncelleştirilemiyor.
 
 Bir kapsayıcı benzersiz bir anahtar ilkesiyle oluşturulduktan sonra ilkeyi kapsayıcı yeniden sürece değiştirilemez. Üzerinde benzersiz anahtarlar uygulamak istediğiniz var olan verileri varsa, yeni kapsayıcı oluşturun ve yeni kapsayıcı verileri taşımak için uygun veri geçiş aracı kullanın. SQL kapsayıcılar için kullanma [veri geçiş aracı](import-data.md). MongoDB kapsayıcılar için kullanma [mongoimport.exe veya mongorestore.exe](mongodb-migrate.md).
 
@@ -90,9 +87,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 new Collection<UniqueKey>
                 {
                     new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
-                }
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
+          }
             };
             await client.CreateDocumentCollectionAsync(
                 UriFactory.CreateDatabaseUri(dataBase),
@@ -115,17 +111,20 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",
-    "address": [
+    "address": 
         {            
             "line1": "100 Some Street",
             "line2": "Unit 1",
             "city": "Seattle",
             "state": "WA",
-            "zipCode": 98012
+            "zipcode": 98012
         }
-    ],
+    
 }
 ```
+> [!NOTE]
+> Lütfen Not benzersiz anahtar adı büyük/küçük harfe duyarlıdır. Yukarıdaki örnekte gösterildiği gibi benzersiz bir ad /address/zipcode için ayarlanır. Verilerinizi ZipCode olacaksa, zipcode ZipCode için eşit değil olarak ardından, benzersiz anahtar "null" ekler. Ve bu büyük küçük harfe duyarlılığın nedeniyle tüm ZipCode kayıtlarıyla yinelenen "null" benzersiz anahtar kısıtlamasını ihlal olarak eklenecek mümkün olmaz.
+
 ## <a name="mongodb-api-sample"></a>MongoDB API örnek
 
 Aşağıdaki komut örnek firstName, lastName ve e-posta alanları MongoDB API için kullanıcıların koleksiyonunun benzersiz bir dizin oluşturulacağını gösterir. Bu, tüm üç alanları birleşimi için benzersizlik koleksiyondaki tüm belgeler arasında sağlar. MongoDB API koleksiyonlar için koleksiyon oluşturulduktan sonra ancak koleksiyon doldurma önce benzersiz dizin oluşturulur.
@@ -133,6 +132,20 @@ Aşağıdaki komut örnek firstName, lastName ve e-posta alanları MongoDB API i
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## <a name="configure-unique-keys-by-using-azure-portal"></a>Azure Portal kullanarak benzersiz anahtarları yapılandırma
+
+Yukarıdaki bölümlerde nasıl MongoDB API ve SQL API'yi kullanarak bir koleksiyon oluşturduğunuzda, benzersiz anahtar kısıtlamalarını tanımlayabilirsiniz gösteren kod örnekleri bulabilirsiniz. Ancak Azure portalında web kullanıcı Arabirimi aracılığıyla bir koleksiyon oluşturduğunuzda benzersiz anahtarlar tanımlamak da mümkündür. 
+
+- Gidin **Veri Gezgini** Cosmos DB hesabınızda
+- Tıklatın **yeni koleksiyon**
+- Bölüm benzersiz anahtarlarında ** tıklayarak istenen benzersiz anahtar kısıtlamalarını ekleyebilirsiniz **Ekle benzersiz anahtar**
+
+![Veri Explorer'ın benzersiz anahtarları tanımlayın](./media/unique-keys/unique-keys-azure-portal.png)
+
+- Eklediğiniz lastName yolu benzersiz bir anahtar kısıtlama oluşturmak istediğiniz varsa, `/lastName`.
+- Eklediğiniz lastName firstName birleşimi için benzersiz bir anahtar kısıtlaması oluşturmak istediğiniz varsa, `/lastName,/firstName`
+
+Tıklatın tamamlanınca **Tamam** koleksiyonu oluşturmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd1b52dd32976ce65458e1dfe1b50d228fbd6d0e
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d083181b379301ae80e6577ccc3ac8f142767db3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850534"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261092"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Bölüm ve ölçek Azure Cosmos veritabanı
 
@@ -47,7 +47,7 @@ Kısaca, işte Azure Cosmos DB'de bölümleme nasıl çalışır:
 
 * İle Azure Cosmos DB kapsayıcıları kümesi sağlamak **T** RU/s (saniye başına istek sayısı) işleme.
 * Arka planda Azure Cosmos DB sunmak için gereken fiziksel bölümleri sağlar **T** saniye başına istek sayısı. Varsa **T** fiziksel bölüm başına en fazla üretilen daha yüksek **t**, ardından Azure Cosmos DB hükümleri **N T/t =** fiziksel bölümler. Partition(t) başına en fazla üretilen değerini Azure Cosmos DB tarafından yapılandırılmışsa, bu değer toplam sağlanan işleme ve kullanılan donanım yapılandırmasına bağlı olarak atanır. 
-* Azure Cosmos DB anahtar alanı bölümünün eşit yatay anahtar karmaları ayırır **N** fiziksel bölümler. Bu nedenle, her fiziksel bölüm konakları **1/N** bölüm anahtarı değerlerini (mantıksal bölümler).
+* Azure Cosmos DB anahtar alanı bölümünün eşit yatay anahtar karmaları ayırır **N** fiziksel bölümler. Bunu, her fiziksel bölüm konakları mantıksal bölüm sayısı **1/N** * bölüm anahtar değerlerinin sayısı.
 * Fiziksel bir bölüm olduğunda **p** Azure Cosmos DB, depolama sınırına ulaştığında sorunsuz bir şekilde böler **p** iki yeni bölümlere fiziksel, **p1** ve **p2**. Her yeni fiziksel bölüm anahtarları kabaca yarısı karşılık gelen değerleri dağıtır. Bu işlemi bölünmüş uygulamanıza tamamen görünmez durumdadır. Fiziksel bir bölüm, depolama sınırına ulaştığında ve aynı mantıksal bölüm anahtarına ait tüm fiziksel bölümündeki verileri bölme işlemi gerçekleşmez. Bu durum, tek bir mantıksal bölüm anahtarı için tüm veriler aynı fiziksel bölümünde bulunması gerekir çünkü. Bu durumda, farklı bölüm anahtar stratejisi işe.
 * Daha yüksek verimlilik sağlamak zaman **t * N**, bir veya daha yüksek verimlilik desteklemek için fiziksel bölümlerinin Azure Cosmos DB böler.
 
@@ -61,6 +61,8 @@ Bölüm anahtarlarını anlamları aşağıdaki tabloda gösterildiği gibi her 
 | Tablo | `PartitionKey` düzeltildi | `RowKey` düzeltildi | 
 
 Azure Cosmos DB karma tabanlı bölümleme kullanır. Bir öğe yazdığınızda, Azure Cosmos DB bölüm anahtarı değerini karma hale getirir ve karma hale getirilen sonuç öğesinde depolamak için hangi bölümünü belirlemek için kullanır. Azure Cosmos DB tüm öğeleri aynı fiziksel bölümünde aynı bölüm anahtarına sahip depolar. 
+
+## <a name="best-practices-when-choosing-a-partition-key"></a>Bölüm anahtarı seçerken en iyi uygulamalar
 
 Bölüm anahtarı seçimi tasarım zamanında yapmak zorunda önemli bir karardır. Çok çeşitli değerleri ve hatta erişim desenlerini sahip bir özellik adı seçin. Bölüm anahtarı çok sayıda farklı değerleri (örneğin, yüzlerce veya binlerce) ile sağlamak için en iyi bir uygulamadır. İş yükünüzün bu değerleri arasında eşit olarak dağıtmanızı sağlar. İdeal bölüm anahtarı sık sorgularınızı içinde filtre olarak görünür ve çözümünüzü ölçeklenebilir olduğundan emin olmak için yeterli kardinalite olan biridir.
 

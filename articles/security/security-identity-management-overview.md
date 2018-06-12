@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 22b233e23c5c4609990bb6ba6148fe24d3d82c4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8763f1dca110a43586619c09f5d25c340c177b09
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641358"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300666"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure Kimlik Yönetimi güvenliğine genel bakış
 Microsoft kimlik ve erişim yönetimi çözümlerini Yardım BT uygulamaları ve kaynaklara erişim kurumsal veri merkezi genelinde ve buluta koruma. Böyle bir koruma doğrulama, çok faktörlü kimlik doğrulama ve koşullu erişim ilkeleri gibi ek düzeyleri sağlar. Raporlama, denetlemek ve olası güvenlik sorunlarını yardımcı azaltmak uyarı Gelişmiş Güvenlik ile izleme şüpheli etkinlik. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) bulut yazılım binlerce hizmet (SaaS) uygulamaları olarak, çoklu oturum açma (SSO) sağlar ve şirket içi web uygulamaları için erişirsiniz.
@@ -58,7 +58,7 @@ Daha fazla bilgi edinin:
 
 * [Çoklu oturum açma genel bakış](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Azure Active Directory çoklu oturum açma SaaS uygulamaları ile tümleştirme](../active-directory/active-directory-enterprise-apps-manage-sso.md)
+* [Azure Active Directory çoklu oturum açma SaaS uygulamaları ile tümleştirme](../active-directory/manage-apps/configure-single-sign-on-portal.md)
 
 ## <a name="reverse-proxy"></a>Ters proxy
 Azure AD uygulama proxy'si sağlar, şirket içi uygulamalar gibi yayımlama [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) siteler, [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx), ve [IIS](http://www.iis.net/)-tabanlı uygulamalar özel ağınızdan ve ağınızın dışından kullanıcılarla güvenli erişim sağlar. SSO için çeşitli şirket içi web uygulamaları Azure AD destekleyen SaaS uygulamaları binlerce ve uygulama proxy'si uzaktan erişim sağlar. Çalışanlar uygulamasında oturum açabilir, uygulamalardan ev kendi cihazlarda ve bu bulut tabanlı proxy üzerinden kimlik doğrulaması.

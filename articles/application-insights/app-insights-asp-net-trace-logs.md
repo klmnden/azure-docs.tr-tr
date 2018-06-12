@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5ffb758fe5fa42be6323de06afbfb38068ae1926
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296178"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>.NET izleme günlükleri Application ınsights'ta keşfedin
 NLog, log4Net veya System.Diagnostics.Trace, ASP.NET uygulamanızda Tanılama izleme için kullanıyorsanız günlüklerinizi gönderilmesini sağlayabilirsiniz [Azure Application Insights][start], burada keşfedin aramak ve bunları. Günlüklerinizi, böylece her kullanıcı isteği hizmeti ile ilişkilendirilmiş izlemeleri belirlemek ve diğer olayları ve özel durum raporları ile ilişkilendirmek, uygulamadan gelen telemetri ile birleştirilir.
@@ -62,8 +63,8 @@ Proje türü (örneğin Windows Masaüstü projesi) Application Insights yükley
 3. "Application Insights" araması yapın
 4. Uygun paket - aşağıdakilerden birini seçin:
 
-   * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
-   * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
+   * Microsoft.ApplicationInsights.TraceListener (System.Diagnostics.Trace çağrıları yakalamak için)
+   * Microsoft.ApplicationInsights.EventSourceListener (EventSource olaylarını yakalamak için)
    * Microsoft.ApplicationInsights.EtwListener (ETW olaylarını yakalamak için)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender

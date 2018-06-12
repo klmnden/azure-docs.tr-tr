@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/31/2018
-ms.openlocfilehash: 18b0ee143443ecf128bdfe57adb61cc22f95db87
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5ed94c3b750c927ec48959c12388bd22de3d3df4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832593"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261959"
 ---
 # <a name="what-is-fpga-and-project-brainwave"></a>FPGA ve proje Brainwave nedir?
 
@@ -62,7 +62,7 @@ Aşağıdaki senaryolarda FPGA proje Brainwave mimarisine kullanın:
 - Otomatik optik denetleme sistemi. Bkz: [gerçek zamanlı AI: Microsoft Project Brainwave önizlemesini bildirdi](https://blogs.microsoft.com/ai/build-2018-project-brainwave/).
 - Kara kapak eşleme. Bkz: [derin öğrenme çıkarım FPGAs kara kapak havadan görüntüleri terabayt üzerinde eşleme gerçekleştirmek için nasıl kullanılacağını](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/).
 
-## <a name="how-to-create-an-fpga-service"></a>Bir FPGA hizmet nasıl oluşturulur?
+## <a name="how-to-deploy-a-web-service-to-an-fpga"></a>Bir web hizmeti için bir FPGA dağıtmayı?
 
 Üst düzey akış featurizer ResNet50 kullanarak azure'da bir görüntü tanıma hizmeti oluşturmak için aşağıdaki gibidir:
 
@@ -70,7 +70,8 @@ Aşağıdaki senaryolarda FPGA proje Brainwave mimarisine kullanın:
 2. Blob depolamada ZIP dosyasının Azure ML Model yönetim API'sini kullanarak modeli kaydedin.
 3. Hizmeti Azure ML Model yönetim API'sini kullanarak kayıtlı modeliyle dağıtın.
 
-Bir öğretici için bkz: [Azure ML donanım hızlandırılmış modelleri Quickstart](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/resnet50/00_QuickStart.ipynb).
+Makalede, bu işlem hakkında daha fazla bilgi [bir FPGA Azure Machine Learning ile bir web hizmeti olarak modeli dağıtmak](how-to-deploy-fpga-web-service.md).
+
 
 ## <a name="start-using-fpga"></a>FPGA kullanmaya başlama
 

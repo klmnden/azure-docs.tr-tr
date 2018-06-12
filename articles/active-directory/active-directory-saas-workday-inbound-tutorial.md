@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/26/2018
 ms.author: asmalser
-ms.openlocfilehash: 8dbe995ac3c6799c2fa17d9faa8be0cb74d6ee23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: daeb41d9094077950223820f8580ae057d039ef0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261245"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -369,10 +370,10 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | **Anahtar (\[etkin\],, "0", "True", "1")** |  AccountDisabled      |     | Oluştur + güncelleştir |
 | **FirstName**   | givenName       |     |    Oluştur + güncelleştir |
 | **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
-| **PreferredNameData**  |  Görünen adı |     |   Oluştur + güncelleştir |
+| **PreferredNameData**  |  displayName |     |   Oluştur + güncelleştir |
 | **Şirket**         | Şirket   |     |  Oluştur + güncelleştir |
 | **SupervisoryOrganization**  | bölüm  |     |  Oluştur + güncelleştir |
-| **ManagerReference**   | Yöneticisi  |     |  Oluştur + güncelleştir |
+| **ManagerReference**   | yönetici  |     |  Oluştur + güncelleştir |
 | **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir | 
 | **AddressLineData**    |  StreetAddress  |     |   Oluştur + güncelleştir |
 | **Belediye**   |   m   |     | Oluştur + güncelleştir |
@@ -397,7 +398,7 @@ Aracıyı yükledikten sonra ortamınız için aracısını yapılandırmak içi
 
 **#1 komutu**
 
-> CD "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent sağlama" Aracısı\\modülleri\\AADSyncAgent
+> CD "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent sağlama"
 
 > Import-Module "C:\Program Files\Microsoft Azure AD Connect Agent\Modules\AADSyncAgent\AADSyncAgent.psd1 sağlama"
 

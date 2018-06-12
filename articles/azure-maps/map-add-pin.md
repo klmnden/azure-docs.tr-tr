@@ -1,7 +1,7 @@
 ---
 title: Bir PIN ile Azure eşlemeleri ekleme | Microsoft Docs
 description: Javascript haritaya bir PIN ekleme
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
 ms.topic: conceptual
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: dc9649e94f5d1757e5ec65098ccc7e4ffa927bf0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 094abe08c0c88c7561185675ceb8529be2c87a0a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599866"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294657"
 ---
 # <a name="add-pins-to-the-map"></a>PIN eşlemeye ekleyin
 
@@ -34,3 +34,8 @@ Kod ikinci bloğunda bir PIN oluşturulur ve eşlemeye eklenir. Bir PIN bir [öz
 Sınıfları ve bu makalede kullanılan yöntemleri hakkında daha fazla bilgi edinin: 
 * [eşleme](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+    
+Eşlemeleri eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
+* [Açılan pencere ekleme](./map-add-popup.md)
+* [Bir şekli Ekle](./map-add-shape.md)
+

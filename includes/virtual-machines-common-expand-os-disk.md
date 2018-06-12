@@ -1,3 +1,20 @@
+---
+title: include dosyası
+description: include dosyası
+services: virtual-machines
+author: sdwheeler
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 04/18/2018
+ms.author: kirpas;iainfou;sewhee
+ms.custom: include file
+ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323808"
+---
 ## <a name="overview"></a>Genel Bakış
 Oluşturduğunuzda, yeni bir sanal makine (VM) bir kaynak grubunda bir görüntüden dağıtarak [Azure Marketi](https://azure.microsoft.com/marketplace/), varsayılan işletim sistemi sürücüsü (bazı görüntüleri sahip küçük işletim sistemi disk boyutları varsayılan olarak) 127 GB görülür. VM’ye veri diskleri eklemek (kaç tane ekleyebileceğiniz seçtiğiniz SKU’ya bağlıdır) mümkün olmasına, hatta uygulamaları ve yoğun CPU kullanımlı iş yüklerini bu ek disklere yüklemeniz önerilmesine rağmen, sıklıkla müşterilerin aşağıdaki gibi belirli senaryoları etkinleştirmesi için işletim sistemi sürücüsünü genişletmesi gerekir:
 
@@ -13,7 +30,7 @@ Oluşturduğunuzda, yeni bir sanal makine (VM) bir kaynak grubunda bir görünt�
 >
 
 ## <a name="resize-the-os-drive"></a>İşletim sistemi sürücüsünü yeniden boyutlandırma
-Bu makalede, [Azure Powershell](/powershell/azureps-cmdlets-docs)’in kaynak yöneticisi modüllerini kullanarak işletim sistemi sürücüsünü yeniden boyutlandırma görevini gerçekleştireceğiz. Her iki disk türleri arasında diskleri yeniden boyutlandırmak için yaklaşımı farklı olduğundan işletim sistemi sürücüsü için Unamanged ve yönetilen diskleri yeniden boyutlandırma göstereceğiz.
+Bu makalede, [Azure Powershell](/powershell/azureps-cmdlets-docs)’in kaynak yöneticisi modüllerini kullanarak işletim sistemi sürücüsünü yeniden boyutlandırma görevini gerçekleştireceğiz. Her iki disk türleri arasında diskleri yeniden boyutlandırmak için yaklaşımı farklı olduğundan işletim sistemi sürücüsü için yönetilmeyen ve yönetilen diskleri yeniden boyutlandırma göstereceğiz.
 
 ### <a name="for-resizing-unmanaged-disks"></a>Yönetilmeyen diskleri yeniden boyutlandırmak için:
 
@@ -106,7 +123,7 @@ Hepsi bu! Şimdi RDP ile sanal makinenize girin, Bilgisayar Yönetimi’ni (veya
 ## <a name="summary"></a>Özet
 Bu makalede, PowerShell’in Azure Resource Manager modüllerini kullanarak bir IaaS sanal makinesinin işletim sistemi sürücüsünü genişlettik. Aşağıda çoğaltılamaz yönetilmeyen ve yönetilen diskleri için daha sonra başvurmak üzere tam komut verilmiştir:
 
-Unamanged diskler:
+Yönetilmeyen diskler:
 
 ```Powershell
 Connect-AzureRmAccount
@@ -134,10 +151,10 @@ Update-AzureRmDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
 Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ```
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Bu makalede, biz öncelikle VM'nin Unamanged/yönetilen işletim sistemi diski genişletme üzerinde odaklanmış olsa, geliştirilmiş betik VM'ye bağlı veri disklerinden genişletmek için de kullanılabilir. Örneğin, VM’ye bağlı ilk veri diskini genişletmek için ```StorageProfile``` öğesinin ```OSDisk``` nesnesini ```DataDisks``` dizisi ile değiştirin ve aşağıda gösterildiği gibi sayısal bir dizin kullanarak ilk bağlanan veri diskinin başvurusunu edinin:
+## <a name="for-resizing-data-disks"></a>Veri diskleri yeniden boyutlandırmak için
+Bu makalede, biz öncelikle VM'nin yönetilmeyen/yönetilen işletim sistemi diski genişletme üzerinde odaklanmış olsa, geliştirilmiş betik VM'ye bağlı veri disklerinden genişletmek için de kullanılabilir. Örneğin, VM’ye bağlı ilk veri diskini genişletmek için ```StorageProfile``` öğesinin ```OSDisk``` nesnesini ```DataDisks``` dizisi ile değiştirin ve aşağıda gösterildiği gibi sayısal bir dizin kullanarak ilk bağlanan veri diskinin başvurusunu edinin:
 
-Unamanged Disk:
+Yönetilmeyen Disk:
 ```Powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
@@ -149,11 +166,11 @@ $disk.DiskSizeGB = 1023
 
 Benzer şekilde, yukarıdaki gibi bir dizini ya da diskin ```Name``` özelliğini aşağıda gösterildiği gibi kullanarak sanal makinenize bağlı diğer veri disklerine de başvurabilirsiniz:
 
-Unamanged Disk:
+Yönetilmeyen Disk:
 ```Powershell
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
 ```
-Manged Disk:
+Yönetilen Disk:
 ```Powershell
 (Get-AzureRmDisk -ResourceGroupName $rgName -DiskName ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).Name).DiskSizeGB = 1023
 ```

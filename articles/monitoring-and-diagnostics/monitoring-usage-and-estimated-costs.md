@@ -1,23 +1,20 @@
 ---
-title: Kullanım ve Azure İzleyicisi'nde tahmini maliyetleri izleme | Microsoft Docs
+title: Kullanım ve Azure İzleyicisi'nde tahmini maliyetleri izleme
 description: Azure monitör kullanımı ve tahmini maliyetleri sayfa kullanmanın işlemine genel bakış
 author: dalekoetke
-manager: carmonmills
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/09/2018
-ms.author: Dale.Koetke;mbullwin
-ms.openlocfilehash: 6cc35697573ae2997f289f67c7867d9c522149be
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/31/2018
+ms.author: mbullwin
+ms.reviewer: Dale.Koetke
+ms.component: ''
+ms.openlocfilehash: edfcc244105403ae33251777c560d4cc21dfe5cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264291"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>Kullanım ve tahmini maliyetleri izleme
 
@@ -106,3 +103,146 @@ Bir abonelik için yeni fiyatlandırma modeli benimsemeye karar verdiyseniz, se�
 ![Fiyatlandırma modeli seçimi ekran görüntüsü](./media/monitoring-usage-and-estimated-costs/007.png)
 
 Yeni fiyatlandırma modeli bir aboneliği taşımak için yalnızca kutusunu seçin ve ardından **kaydetmek**. Bu gibi durumlarda, eski fiyatlandırma modeli geri aynı şekilde taşıyabilirsiniz. Bu abonelik sahibi göz önünde bulundurun veya katkıda bulunan izinleri fiyatlandırma modeli değiştirmek için gereklidir.
+
+## <a name="automate-moving-to-the-new-pricing-model"></a>Yeni fiyatlandırma modeli taşıma otomatikleştirme
+
+Aşağıdaki komut, Azure PowerShell modülü gerektirir. Bkz. en son sürümü olup olmadığını denetlemek için [yükleme Azure PowerShell Modülü](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.1.0).
+
+Azure PowerShell'in en son sürümünü oluşturduktan sonra ilk çalışması gerekebilir ``Connect-AzureRmAccount``.
+
+``` PowerShell
+# To check if your subscription is eligible to adjust pricing models.
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Bu aboneliğin fiyatlandırma modeli fiyatlandırma modelleriyle arasında taşınabilmesi sonucunda isGrandFatherableSubscription True gösterir. Bu abonelik şu anda eski fiyatlandırma modelidir optedInDate altında bir değer olmaması anlamına gelir.
+
+```
+isGrandFatherableSubscription optedInDate
+----------------------------- -----------
+                         True            
+```
+
+Geçirmek için bu aboneliği yeni fiyatlandırma modeli için çalıştırın:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+```
+
+Değiştirme başarılı yeniden çalıştır olduğunu onaylamak için:
+
+```PowerShell
+$ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+```
+
+Geçiş başarılı olursa, Sonuç kümenizi gibi görünmelidir:
+
+```
+isGrandFatherableSubscription optedInDate                      
+----------------------------- -----------                      
+                         True 2018-05-31T13:52:43.3592081+00:00
+```
+
+OptInDate şimdi ne zaman bu abonelik, yeni fiyatlandırma modeli seçti, zaman damgası içeriyor.
+
+Eski fiyatlandırma modeline geri dönmek gerekiyorsa, çalıştırın:
+
+```PowerShell
+ $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action rollbacktolegacypricingmodel `
+ -Force
+```
+
+Ardından sahip önceki komut dosyasını yeniden, ``-Action listmigrationdate``, aboneliğinizi döndürdü fiyatlandırma modeli eski belirten bir boş optedInDate değer görmelisiniz.
+
+Aynı Kiracı altında barındırılan, geçirmek istediğiniz birden fazla aboneliğiniz varsa, aşağıdaki betikler parçalarını kullanarak kendi değişken oluşturabilirsiniz:
+
+```PowerShell
+#Query tenant and create an array comprised of all of your tenants subscription ids
+$TenantId = <Your-tenant-id>
+$Tenant =Get-AzureRMSubscription -TenantId $TenantId
+$Subscriptions = $Tenant.Id
+```
+
+Kiracınızda bulunan tüm abonelikleri yeni fiyatlandırma modeli için uygun olup olmadığını denetlemek için çalıştırabilirsiniz:
+
+```PowerShell
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+}
+```
+
+Komut dosyası Gelişmiş üç dizi oluşturan kod oluşturma tarafından daha fazla. Bir dizi olan tüm abonelik kimliği oluşur ```isGrandFatherableSubscription``` True olarak ayarlayın ve optedInDate şu anda bir değeri yok. Yeni fiyatlandırma modeli üzerinde şu anda herhangi bir aboneliği ikinci bir dizi. Ve yeni fiyatlandırma modeli için uygun olmayan abonelik kimlikleri kiracınızda doldurulmuş üçüncü bir dizi:
+
+```PowerShell
+[System.Collections.ArrayList]$Eligible= @{}
+[System.Collections.ArrayList]$NewPricingEnabled = @{}
+[System.Collections.ArrayList]$NotEligible = @{}
+
+Foreach ($id in $Subscriptions)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+$Result= Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action listmigrationdate `
+ -Force
+
+     if ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $False)
+     {
+     $Eligible.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $True -and [bool]$Result.optedInDate -eq $True)
+     {
+     $NewPricingEnabled.Add($id)
+     }
+
+     elseif ($Result.isGrandFatherableSubscription -eq $False)
+     {
+     $NotEligible.add($id)
+     }
+}
+```
+
+> [!NOTE]
+> Abonelik sayısına bağlı olarak yukarıdaki komut dosyasını çalıştırmak için biraz zaman alabilir. Öğeleri her dizisine eklendikçe .add() yönteminin kullanılması nedeniyle PowerShell penceresinde artacak değerleri echo.
+
+Üç diziye bölünmüş aboneliklerinizi sahip olduğunuza göre sonuçlarınızı dikkatle gözden geçirmelidir. Böylece gelecekte için ihtiyacınız olursa kolayca yaptığınız değişiklikleri geri almak bir yedek diziler içeriğini kopyasını isteyebilirsiniz. Siz karar verdiyseniz, şu anda yeni eski fiyatlandırma modeli Bu görev artık ile gerçekleştirilmesi fiyatlandırma modeli tüm uygun abonelikleri Dönüştür istedi:
+
+```PowerShell
+Foreach ($id in $Eligible)
+{
+$ResourceID ="/subscriptions/$id/providers/microsoft.insights"
+Invoke-AzureRmResourceAction `
+ -ResourceId $ResourceID `
+ -ApiVersion "2017-10-01" `
+ -Action migratetonewpricingmodel `
+ -Force
+}
+
+```

@@ -3,7 +3,7 @@ title: HTTP üzerinden - Azure Logic Apps ile herhangi bir uç nokta iletişim |
 description: İletişim kurabilir logic apps ile herhangi bir uç nokta HTTP üzerinden oluşturun.
 services: logic-apps
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 tags: connectors
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 355d1e02ef8195bcee469b77976f1a5834f192d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 452af4facd03ce2b4f010a29acc0122241df63c1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296433"
 ---
 # <a name="get-started-with-the-http-action"></a>HTTP eylem ile çalışmaya başlama
 
@@ -193,7 +194,7 @@ Aşağıdaki kimlik doğrulama nesnesini Azure AD OAuth kimlik doğrulaması iç
 | --- | --- | --- |
 | Türü * |type |Kimlik doğrulaması türü (olmalıdır `ActiveDirectoryOAuth` Azure AD OAuth için) |
 | Kiracı * |kiracı |Azure AD kiracısı için Kiracı tanımlayıcı |
-| Hedef kitle * |Hedef kitle |Kaynak Yetkilendirme kullanmak istiyor. Örneğin, `https://management.core.windows.net/` |
+| Hedef kitle * |Hedef kitle |Kullanım yetkilendirmesi istediğiniz kaynak. Örneğin, `https://management.core.windows.net/` |
 | İstemci kimliği * |istemci kimliği |Azure AD uygulaması için istemci tanımlayıcısı |
 | Gizli * |gizli dizi |Belirteç isteme istemci gizli anahtarı |
 

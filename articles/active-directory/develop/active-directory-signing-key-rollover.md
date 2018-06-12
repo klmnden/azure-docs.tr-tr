@@ -16,11 +16,12 @@ ms.date: 07/18/2016
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 02d7cb28411e0baec20d334994b385dcd3b06451
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293390"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory'de anahtar geçişi imzalama
 Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarlar hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları rollover düzenli aralıklarla ve acil bir durumda uzatılabilir olduğunu hemen dikkate almak önemlidir. Azure AD kullanan tüm uygulamalar program aracılığıyla anahtarı geçiş işlemi veya düzenli el ile geçiş işlemi oluşturmak mümkün olması gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza rollover etkisini değerlendirin ve uygulamanızı güncelleştirmeniz veya gerekiyorsa, anahtar geçişi işlemek için düzenli el ile geçiş işlemi oluşturmak.
@@ -50,7 +51,7 @@ Anahtar geçişi, uygulamanızın nasıl işlediğini uygulama veya hangi kimlik
 
 Bu kılavuz **değil** için geçerlidir:
 
-* Azure AD uygulama (özel dahil) galerisinden eklenen uygulamalar, anahtarları imzalama göre ayrı Kılavuzu vardır. [Daha fazla bilgi.](../active-directory-sso-certs.md)
+* Azure AD uygulama (özel dahil) galerisinden eklenen uygulamalar, anahtarları imzalama göre ayrı Kılavuzu vardır. [Daha fazla bilgi.](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * Uygulama Ara sunucusu üzerinden yayımlanan uygulamalarla anahtarları imzalama hakkında endişelenmeniz gerekmez şirket içi.
 
 ### <a name="nativeclient"></a>Yerel istemci uygulamaları kaynaklara erişme

@@ -15,12 +15,12 @@ ms.date: 01/20/2018
 ms.author: asmalser
 ms.reviewer: luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96f6e2cc9b137de48a1d186739a8c76e2f1d18c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3c115414fc6ae599342192196e256597c28e5aa6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590129"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293203"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Çoklu oturum açma Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar için yapılandırma
 
@@ -32,7 +32,7 @@ Müşterilerle [Azure Active Directory Premium](active-directory-whatis.md) lisa
 
 * SAML 2.0 kimlik sağlayıcısı (SP tarafından başlatılan veya IDP başlatılan) destekleyen herhangi bir uygulama Self Servis tümleştirilmesi
 * Kullanarak bir HTML tabanlı oturum açma sayfasına sahip herhangi bir web uygulaması Self Servis tümleştirilmesi [parola tabanlı SSO](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on)
-* Self Servis bağlantı kullanıcı sağlamak için SCIM'yi protokolünü kullanan uygulamaların ([burada açıklanan](active-directory-scim-provisioning.md))
+* Self Servis bağlantı kullanıcı sağlamak için SCIM'yi protokolünü kullanan uygulamaların ([burada açıklanan](manage-apps/use-scim-to-provision-users-and-groups.md))
 * Herhangi bir uygulama için bağlantılar ekleme yeteneği [Office 365 uygulama Başlatıcı](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) veya [Azure AD erişim paneli](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)
 
 Bu yalnızca kullanan ancak henüz Azure AD uygulama galerisinde dahil edilmiş olmayan SaaS uygulamaları içerebilir, ancak Bulut veya şirket içi kontrol sunucularına kuruluşunuz tarafından dağıtılan üçüncü taraf web uygulamaları.
@@ -123,7 +123,7 @@ Sertifika olduğunu doğrulayın:
 - Etkin durumu. Durum Etkin değilse, durum etkin olarak değiştirin. Durumu değiştirmek için denetleme **etkin** ve yapılandırmayı kaydedin. 
 - Doğru bildirim e-postası. Etkin sertifikanın sona erme tarihini olduğunda, Azure AD Bu alanda yapılandırılan e-posta adresine bir bildirim gönderir.  
 
-Daha fazla bilgi için bkz: [yönetmek Federasyon tek oturum açma için Azure Active Directory'de sertifikaları](active-directory-sso-certs.md).
+Daha fazla bilgi için bkz: [yönetmek Federasyon tek oturum açma için Azure Active Directory'de sertifikaları](manage-apps/manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="set-up-target-application"></a>Hedef uygulama ayarlama
 

@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory ayarlama alanına katılmış aygıtlar | Microsoft Docs"
-description: "Azure Active Directory'ye katılmış cihazları öğrenin."
+title: Azure Active Directory ayarlama alanına katılmış aygıtlar | Microsoft Docs
+description: Azure Active Directory'ye katılmış cihazları öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260938"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory ayarlama katılmış cihazlarda
 
@@ -45,14 +47,18 @@ Windows 10 cihazına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kayd
 
 - Yönetilen bir kullanıcı varsa, Windows, masaüstüne otomatik oturum açma alır.
 
-- Bir Federasyon kullanıcısı varsa, kimlik bilgilerinizi kullanarak oturum açın gerekir.
+- Bir Federasyon kullanıcısı varsa, kimlik bilgilerinizi kullanarak oturum sahip.
+
+- Federe, kimlik sağlayıcısı WS-Fed ve WS-Trust kullanıcı adı/parola endpoint desteklemesi gerekir. Bu sürüm 1.3 veya 2005 olabilir. Bu protokolü destekleyen Azure AD ile cihaz katılma hem cihazı bir parola ile oturum açmak için gereklidir. 
+
+
 
 
 ## <a name="joining-a-device"></a>Bir aygıtı birleştirme
 
-Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sağlar. Azure AD ile başarıyla Cihazınızı katıldıysanız, **erişim iş veya Okul** iletişim bunu belirten bir **bağlı \<Azure AD\>**  girişi.
+Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sağlar. Olarak başarıyla katıldı cihazın görüntülenir **bağlı \<Azure AD\>**.
 
-![Bağlı](./media/device-management-azuread-joined-devices-setup/13.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/13.png)
 
 
 **Windows 10 Cihazınızı katılmak için:**
@@ -103,16 +109,16 @@ Bu bölümde, Azure AD ile Windows 10 Cihazınızı eklemek için adımları sa�
 
 Bir aygıt için Azure AD alanına katılıp katılmadığını doğrulamak için gözden geçirebilirsiniz **erişim iş veya Okul** aygıtınızda iletişim.
 
-![Bağlı](./media/device-management-azuread-joined-devices-setup/13.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/13.png)
 
-Alternatif olarak, aşağıdaki komutu çalıştırabilirsiniz:`dsregcmd /status`  
+Alternatif olarak, aşağıdaki komutu çalıştırabilirsiniz: `dsregcmd /status`  
 Başarıyla alanına katılmış bir cihazda **AzureAdJoined** olan **Evet**.
 
-![Bağlı](./media/device-management-azuread-joined-devices-setup/14.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/14.png)
 
 Ayrıca, Azure AD portalı aygıt ayarlarını gözden geçirebilirsiniz.
 
-![Bağlı](./media/device-management-azuread-joined-devices-setup/15.png)
+![Bağlanıldı](./media/device-management-azuread-joined-devices-setup/15.png)
 
 Daha fazla bilgi için bkz: [aygıtları bulmak](device-management-azure-portal.md#locate-devices).
 

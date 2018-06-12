@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: mbullwin; Soubhagya.Dash
-ms.openlocfilehash: a02d345c0f624f2d1694b4b9622bf3c82c009429
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: Soubhagya.Dash
+ms.author: mbullwin
+ms.openlocfilehash: 539becf272194a116355c6a0491042d40e1e7494
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293971"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Uygulama eşlemesi: Dağıtılmış uygulamalar Önceliklendirme
 Uygulama eşlemesi nokta performans sorunları veya hata etkin, dağıtılmış uygulamanın tüm bileşenleri arasında yardımcı olur. Harita her bir düğümde bir uygulama bileşeni veya bağımlılıklarını temsil eder; durumu KPI sahip ve durum uyarır. Aracılığıyla herhangi bir bileşeni Application Insights olaylarını gibi daha ayrıntılı tanılama tıklayabilirsiniz. Uygulamanızı Azure hizmetlerini kullanıyorsa, üzerinden SQL Database Advisor önerileri gibi Azure tanılama tıklatabilirsiniz.
@@ -142,4 +144,4 @@ Portal geri bildirimi seçeneği aracılığıyla geri bildirim sağlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Portal](https://portal.azure.com)
+* [Azure portal](https://portal.azure.com)

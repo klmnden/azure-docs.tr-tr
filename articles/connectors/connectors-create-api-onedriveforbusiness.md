@@ -2,7 +2,7 @@
 title: OneDrive iş - Azure mantıksal uygulamaları bağlanma | Microsoft Docs
 description: Karşıya yükleme ve iş REST API'leri ve Azure mantıksal uygulamaları için dosyalarını OneDrive ile yönetme
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 ms.author: estfan
 ms.date: 08/18/2016
 ms.topic: article
@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: cf0541fc4271766ed5fe2e9720c6312f229bc450
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63cb02c52b5def12675ccca4f2cd292a8ad4bb66
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609603"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295651"
 ---
 # <a name="get-started-with-the-onedrive-for-business-connector"></a>İş bağlayıcı OneDrive kullanmaya başlama
 OneDrive dosyalarınızı yönetmek iş bağlayın. Çeşitli eylemler gerçekleştir güncelleştirmenin yüklenmesi gibi almak ve dosyaları silin.
