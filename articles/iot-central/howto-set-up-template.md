@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c88b27edab71527b4b3eca71c00af2930c22f8cd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629244"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261993"
 ---
 # <a name="set-up-a-device-template"></a>Cihaz şablon ayarlama
 
@@ -161,6 +161,59 @@ Seçme sonra **kaydetmek**, aygıt konumu bir kutucuk görüntülenir:
 > [!NOTE]
 > Yeni bir kutucuk oluşturduktan sonra özellik değeri değiştirebilirsiniz. Tasarım modunda üst kapalı ilk olarak, geçiş için ekranın sağ.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Azure haritalar tarafından desteklenen bir konum özelliği oluşturma
+Azure IOT merkezi konum verilerinize coğrafi bağlam verin ve tüm enlem ve boylam koordinatları sokak adresi ya da yalnızca enlem ve boylam koordinatları eşleyin. Bu özellik, Azure IOT merkezi Azure haritalar tarafından desteklenir.
+
+İki tür ekleyebilirsiniz yerleşim özellikleri şunlardır:
+- **Konumu olarak uygulama özelliği** depolanacağı tamamen uygulamada. Cihazın uygulama özellikleri olanağıyla gerekir.
+- **Konumu olarak bir cihaz özelliği** olduğu bildirilir ve cihaz tarafından.
+
+####<a name="adding-location-as-an-application-property"></a>Konum uygulama özelliği ekleme 
+Bir konum oluşturabilirsiniz Özelliği Azure kullanarak bir uygulama özelliği olarak Azure IOT merkezi uygulamanızda eşler. Örneğin, cihaz yükleme adresi ekleyebilirsiniz. 
+
+1. Cihaz özelliği sekmesine gidin; Tasarım modunda açık olduğundan emin olun.
+
+![Konum özelliği](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. Özellik sekmesinde konumu tıklatın.
+3. Görünen ad, alan adı ve konumu ilk değeri isteğe bağlı olarak yapılandırın. 
+
+![Konum özelliği formu](./media/howto-set-up-template/locationcloudproperty2.png)
+
+Bir konum eklemek için iki desteklenen biçimler şunlardır:
+- **Adresi olarak konumu**
+- **Konumu koordinatları olarak** 
+
+4. Kaydet'i tıklatın. 
+
+![Konum özelliği alanı](./media/howto-set-up-template/locationcloudproperty3.png)
+
+Şimdi bir işleç konumu alanın formda konum değeri güncelleştirebilirsiniz. 
+
+####<a name="adding-location-as-a-device-property"></a>Konum bir cihaz özelliği ekleme 
+
+Cihaz tarafından raporlanan cihaz özelliği olarak, bir konum özelliği oluşturabilirsiniz.
+Örneğin, aygıt konumu izlemek istiyorsunuz.
+
+1.  Cihaz özelliği sekmesine gidin; Tasarım modunda açık olduğundan emin olun.
+2.  Cihaz özelliği kitaplığından'ı tıklatın.
+
+![Konum özelliği alanı](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  Görünen adı, alan adı, yapılandırmak ve veri türü olarak "Konum" seçin. 
+
+> [!NOTE]
+Alan adı, raporları cihaz özelliğinin adı için tam olarak eşleşmelidir. 
+
+![Konum özelliği alanı](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![Konum özelliği işleci görünümü](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+Konum özelliği yapılandırdığınıza göre cihaz Pano konumda görselleştirmek için bir harita eklemeniz mümkün olacaktır. Bkz: nasıl yapılır [konumu Ekle Pano Azure eşlemesinde](howto-set-up-template.md).
+
+
+
+
 ## <a name="rules"></a>Kurallar
 
 Kuralları cihazları yakın gerçek zamanlı izleme işleçleri etkinleştirin. Kuralları otomatik olarak çağırma **Eylemler** kural harekete geçirdiğinde gibi bir e-posta gönderme. Kullanılabilir bir kural türü Bugün:
@@ -178,6 +231,31 @@ Pano, bir aygıt hakkındaki bilgileri görmek için bir işleç gidebilecekleri
 Şimdi bir işleç Pano görüntülediğinde, cihaz ayarları ve özellikleri görüntüler bu kutucuğu görebilirsiniz:
 
 ![Pano kutucuğu](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>Konum eklemek Azure eşlemesinde Panosu
+
+Konum özelliği adımları olduğu gibi yapılandırdıysanız [Azure Maps]((howto-set-up-template.md) tarafından desteklenen bir konum özelliği oluşturmak, bir eşleme kullanılarak konumu görselleştirmek kuramaz aygıt Panonuzda sağ.
+
+1.  Cihaz Pano sekmesine gidin; Tasarım modunda açık olduğundan emin olun.
+2.  Cihaz Panoda kitaplıktan harita seçin. 
+
+![Pano konum Azure eşleme Seç](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  Bir başlık verin ve cihaz özelliğinin bir parçası olarak daha önce yapılandırdığınız konum özelliği seçin.
+
+![Pano konumunu Azure haritasını yapılandırma](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  Kaydet ve seçtiğiniz konum görüntüleme döşeme harita görürsünüz. 
+
+![Pano konumunu Azure harita Görselleştirme](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+İstenen boyuta eşlemeye yeniden boyutlandırma kuramaz.
+
+Şimdi bir işleç Pano görüntülediğinde, bir konum eşleme dahil olmak üzere yapılandırmış olduğunuz bu tüm Pano kutucukları görebilirsiniz!
+
+![Pano konumu Azure harita Panosu](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
