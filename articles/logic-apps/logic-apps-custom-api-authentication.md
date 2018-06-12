@@ -1,12 +1,12 @@
 ---
-title: "Kimlik doğrulaması özel API'leri - Azure mantıksal uygulamaları ekleme | Microsoft Docs"
-description: "Kimlik doğrulaması mantığı uygulamalardan özel API çağrıları için ayarlama"
+title: Kimlik doğrulaması özel API'leri - Azure mantıksal uygulamaları ekleme | Microsoft Docs
+description: Kimlik doğrulaması mantığı uygulamalardan özel API çağrıları için ayarlama
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,15 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298558"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Özel Apı'lerinizi mantığı uygulamalardan güvenli çağrılar
 
-Kodunuzu güncelleştirmek zorunda kalmamak için API çağrıları güvenli hale getirmek için Azure Portalı aracılığıyla Azure Active Directory (Azure AD) kimlik doğrulaması ayarlayabilirsiniz. Veya gerektirir ve kimlik doğrulama, API'nin kodlarda zorlayın.
+Kodunuzu güncelleştirmek zorunda kalmamak için API çağrıları güvenli hale getirmek için Azure Portalı aracılığıyla Azure Active Directory (Azure AD) kimlik doğrulaması ayarlayabilirsiniz. İsterseniz, API'nizin kodu aracılığıyla kimlik doğrulamasının gerekli ve zorunlu olmasını da sağlayabilirsiniz.
 
 ## <a name="authentication-options-for-your-api"></a>API'nizi için kimlik doğrulama seçenekleri
 
@@ -33,7 +34,7 @@ Bu şekilde, özel API çağrıları güvenliğini sağlayabilirsiniz:
   > [!NOTE]
   > Varsayılan olarak, Azure portalında kapatma Azure AD kimlik doğrulaması hassas yetkilendirme sağlamaz. Örneğin, bu kimlik doğrulama API'nizi yalnızca belirli bir kiracı için değil, belirli bir kullanıcı veya uygulama kilitler. 
 
-* [API kodunu güncelleştirin](#update-code): zorlayarak API'nizi koruma [sertifika kimlik doğrulaması](#certificate), [temel kimlik doğrulaması](#basic), veya [Azure AD kimlik doğrulaması](#azure-ad-code) kodlarda.
+* [API kodunu güncelleştirin](#update-code): zorlayarak API'nizi koruma [sertifika kimlik doğrulaması](#certificate), [temel kimlik doğrulaması](#basic), veya [Azure AD kimlik doğrulaması](#azure-ad-code) aracılığıyla kod.
 
 <a name="no-code"></a>
 
@@ -126,7 +127,7 @@ Web uygulaması veya API uygulama zaten dağıtılmışsa, kimlik doğrulamasın
 
    ![Web uygulaması veya API uygulaması için uygulama kimliği oluşturma](./media/logic-apps-custom-api-authentication/custom-api-application-identity.png)
 
-4. Üzerinde **kimlik doğrulama / yetkilendirme** sayfasında, **kaydetmek**.
+4. **Kimlik Doğrulama / Yetkilendirme** sayfasında **Kaydet**’i seçin.
 
 Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği için istemci kimliği ve Kiracı kimliği bulmanız gerekir. Bu kimlikleri bölümü 3'te kullanın. Bu nedenle Azure portalı için aşağıdaki adımları devam edin.
 
@@ -134,7 +135,7 @@ Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği
 
 1. Altında **kimlik doğrulama sağlayıcıları**, seçin **Azure Active Directory**. 
 
-   !["Azure Active Directory" seçin](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
+   !["Azure Active Directory" seçeneğini belirleyin](./media/logic-apps-custom-api-authentication/custom-api-app-identity-client-id-tenant-id.png)
 
 2. Üzerinde **Azure Active Directory ayarları** sayfasında **yönetim modu** için **Gelişmiş**.
 
@@ -145,7 +146,7 @@ Artık web uygulaması veya API uygulaması ile ilişkili olan uygulama kimliği
 
 4. Altında **veren URL'si**, kopyalamak ve yalnızca GUID için bölümü 3 kaydedin. Aynı zamanda bu GUID web uygulamanızı veya API uygulamasının dağıtım şablonu, gerekirse kullanabilirsiniz.
 
-   Bu GUID belirli kiracının GUID ("Kiracı kimliği") ve bu URL'de görünmelidir:`https://sts.windows.net/{GUID}`
+   Bu GUID belirli kiracının GUID ("Kiracı kimliği") ve bu URL'de görünmelidir: `https://sts.windows.net/{GUID}`
 
 5. Değişikliklerinizi kaydetmeden kapatın **Azure Active Directory ayarları** sayfası.
 
@@ -190,12 +191,12 @@ Açık mantığı uygulama tanımınızı kod görünümünde Git **HTTP** eylem
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Öğesi | Gerekli | Açıklama | 
+| Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
-| Kiracı | Evet | Azure AD kiracısı için GUID | 
+| kiracı | Evet | Azure AD kiracısı için GUID | 
 | Hedef kitle | Evet | Web uygulaması veya API uygulaması için uygulama kimliği istemci Kimliğinden erişmek istediğiniz hedef kaynağı için GUID | 
 | istemci kimliği | Evet | Mantıksal uygulamanız için uygulama kimliği gelen istemci kimliği erişim isteğinde bulunan istemci için GUID | 
-| Gizli | Evet | Anahtar ya da erişim belirteci isteyen istemci için uygulama kimliği paroladan | 
+| gizli dizi | Evet | Anahtar ya da erişim belirteci isteyen istemci için uygulama kimliği paroladan | 
 | type | Evet | Kimlik doğrulama türü. ActiveDirectoryOAuth kimlik doğrulaması için değerdir `ActiveDirectoryOAuth`. | 
 |||| 
 
@@ -236,7 +237,7 @@ Web uygulaması veya API uygulaması için mantıksal uygulamanızı öğesinden
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Öğesi | Gerekli | Açıklama | 
+| Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
 | type | Evet | Kimlik doğrulama türü. SSL istemci sertifikaları için değer olmalıdır `ClientCertificate`. | 
 | password | Evet | İstemci sertifikası (PFX dosyası) erişmek için parola | 
@@ -245,7 +246,7 @@ Web uygulaması veya API uygulaması için mantıksal uygulamanızı öğesinden
 
 <a name="basic"></a>
 
-#### <a name="basic-authentication"></a>Temel kimlik doğrulaması
+#### <a name="basic-authentication"></a>Temel kimlik doğrulama
 
 Web uygulaması veya API uygulaması mantıksal uygulamanızı öğesinden gelen istekleri doğrulamak için bir kullanıcı adı ve parola gibi temel kimlik doğrulaması kullanabilirsiniz. Temel kimlik doğrulaması genel bir desen olduğundan ve web uygulaması veya API uygulaması oluşturmak için kullanılan herhangi bir dilde bu kimlik doğrulaması kullanabilirsiniz.
 
@@ -253,7 +254,7 @@ Web uygulaması veya API uygulaması mantıksal uygulamanızı öğesinden gelen
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Öğesi | Gerekli | Açıklama | 
+| Öğe | Gerekli | Açıklama | 
 | ------- | -------- | ----------- | 
 | type | Evet | Kullanmak istediğiniz kimlik doğrulama türü. Temel kimlik doğrulaması için değer olmalıdır `Basic`. | 
 | kullanıcı adı | Evet | Kimlik doğrulaması için kullanmak istediğiniz kullanıcı adı | 

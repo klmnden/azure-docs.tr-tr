@@ -1,5 +1,5 @@
 ---
-title: Yükleme ücretli veya lisanslı Azure SSIS tümleştirmesi çalışma zamanı bileşenleri | Microsoft Docs
+title: Azure SSIS tümleştirmesi çalışma zamanı için lisanslı bileşenlerini yükleme | Microsoft Docs
 description: ISV nasıl geliştirebileceğinizi öğrenin ve yükleme ücretli veya Azure SSIS tümleştirmesi çalışma zamanı için özel bileşenler lisanslı
 services: data-factory
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: douglasl
-ms.openlocfilehash: e2e000df2933b8fa08bf98ef55b12f90de6a5e51
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6351381e525d256ef5e9693ea1fb5e3a6f4e5ea3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830852"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298585"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure SSIS tümleştirmesi çalışma zamanı için ücretli veya lisanslı özel bileşenler geliştirin
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure SSIS tümleştirmesi çalışma zamanı için ücretli veya lisanslı özel bileşenlerini yükle
 
 Bu makalede, nasıl bir ISV geliştirmek ve Azure SSIS tümleştirmesi çalışma zamanı'nda Azure'da çalıştırılan SQL Server Integration Services (SSIS) paketleri için ücretli veya lisanslı özel bileşenlerini yüklemek açıklanmaktadır.
 

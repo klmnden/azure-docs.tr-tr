@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 4b52cb9e42e582d42424c2814e2e30f764a8679b
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 065eb708a1d80b0eac618bd9039a859db6ef1340
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265593"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Oluşturma ve Azure veritabanı MySQL sunucusu için Azure portalını kullanarak yönetme
 Bu konu, yeni bir Azure veritabanı MySQL sunucusu için hızlı bir şekilde nasıl oluşturabileceğinizi açıklar. Ayrıca Azure portalını kullanarak sunucuyu yönetme hakkında bilgi içerir. Sunucu ayrıntıları ve parola sıfırlama kaynaklarını ölçeklendirme ve sunucuyu silmek veritabanlarının görüntüleme sunucu yönetimi içerir.
@@ -30,7 +31,7 @@ MySQL server "mydemoserver." adlı bir Azure veritabanı oluşturmak için aşa�
 
     > MySQL sunucusu için bir Azure veritabanı tanımlanan bir dizi ile oluşturulan [işlem ve depolama](./concepts-pricing-tiers.md) kaynakları. Veritabanı, MySQL sunucusu için bir Azure veritabanında, bir Azure kaynak grubu içinde oluşturulur.
 
-   ![create-new-server](./media/howto-create-manage-server-portal/create-new-server.png)
+   ![Yeni-sunucusu oluştur](./media/howto-create-manage-server-portal/create-new-server.png)
 
 3. Aşağıdaki bilgileri kullanarak Azure veritabanı için MySQL formu doldurun:
 
@@ -74,7 +75,7 @@ Yeni Sunucu sağlandıktan sonra kullanıcının yönetici parolasını sıfırl
 
 2. Değişiklik **vCore** istenen değeriniz kaydırıcıyı taşıyarak ayarlama.
 
-    ![scale-compute](./media/howto-create-manage-server-portal/scale-compute.png)
+    ![Ölçek işlem](./media/howto-create-manage-server-portal/scale-compute.png)
 
 3. Değişiklikleri kaydetmek için **Tamam**'a tıklayın.
 
@@ -96,7 +97,7 @@ Yeni Sunucu sağlandıktan sonra kullanıcının yönetici parolasını sıfırl
 
 2. Çift onay giriş kutusuna sunucunun adını yazın.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm.png)
+    ![Onayla Sil](./media/howto-create-manage-server-portal/confirm.png)
 
 3. Tıklatın **silmek** sunucuyu silmek onaylamak için düğmesi. "Başarıyla silindi MySQL server" pop için en fazla bekleme bildirim çubuğunda görüntülenir.
 

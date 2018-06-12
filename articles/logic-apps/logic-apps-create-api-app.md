@@ -1,12 +1,12 @@
 ---
-title: "Azure Logic Apps için Web API'leri & REST API'leri oluşturun | Microsoft Docs"
-description: "Web API'leri & REST API'leri API'leri, hizmetler veya sistemler için sistem tümleştirmeler mantığı uygulama akışlarından çağırmak için oluşturma"
-keywords: "Web API'leri, REST API'leri, iş akışları, sistem tümleştirmeler"
+title: Azure Logic Apps için Web API'leri & REST API'leri oluşturun | Microsoft Docs
+description: Web API'leri & REST API'leri API'leri, hizmetler veya sistemler için sistem tümleştirmeler mantığı uygulama akışlarından çağırmak için oluşturma
+keywords: Web API'leri, REST API'leri, iş akışları, sistem tümleştirmeler
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299537"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Mantıksal uygulama akışlarından çağırabilirsiniz özel API oluşturma
 
@@ -79,7 +80,7 @@ Standart bir eylemi için bir HTTP istek yöntemi API'nizi yazma ve bu yöntem b
 
 ![Standart eylem düzeni](./media/logic-apps-create-api-app/standard-action.png)
 
-<a name="pattern-overview"></a>API'nizi uzun çalışan görevler tamamlarken bekleyin bir mantıksal uygulama yapmak için API izleyebilirsiniz [zaman uyumsuz yoklama düzeni](#async-pattern) veya [zaman uyumsuz Web kancası düzeni](#webhook-actions) bu konuda açıklanan. Benzetme her zaman bu desenleri farklı davranışlar görselleştirmenize yardımcı olan bir firincilik gelen özel pasta sıralama işlemi düşünün. Burada, firincilik her 20 dakikada pastayı hazır olup olmadığını denetlemek için arama davranışı yoklama düzeni yansıtır. Web kancası düzeni pastayı hazır olduğunda bunlar çağırabilirsiniz şekilde nerede firincilik, telefon numaranızı ister davranışı yansıtır.
+<a name="pattern-overview"></a> API'nizi uzun çalışan görevler tamamlarken bekleyin bir mantıksal uygulama yapmak için API izleyebilirsiniz [zaman uyumsuz yoklama düzeni](#async-pattern) veya [zaman uyumsuz Web kancası düzeni](#webhook-actions) bu konuda açıklanan. Benzetme her zaman bu desenleri farklı davranışlar görselleştirmenize yardımcı olan bir firincilik gelen özel pasta sıralama işlemi düşünün. Burada, firincilik her 20 dakikada pastayı hazır olup olmadığını denetlemek için arama davranışı yoklama düzeni yansıtır. Web kancası düzeni pastayı hazır olduğunda bunlar çağırabilirsiniz şekilde nerede firincilik, telefon numaranızı ister davranışı yansıtır.
 
 Örnekler için ziyaret [Logic Apps GitHub deposunu](https://github.com/logicappsio). Ayrıca, daha fazla bilgi edinmek [eylemler için kullanım ölçümü](logic-apps-pricing.md).
 
@@ -95,7 +96,7 @@ Genel düzeni şöyledir:
 2. Altyapı iş durumu için sonraki istek yaptığında, API'nizi görev tamamlandığında bilmeniz altyapısı sağlar.
 3. Mantıksal uygulama iş akışı devam edebilmesi için ilgili verileri altyapısına döndür.
 
-<a name="bakery-polling-action"></a>Şimdi yoklama düzeni önceki firincilik benzerliği uygulamak ve firincilik ve sıra özel pasta teslim edilmek üzere çağırırsınız olduğunu düşünün. Pastayı sağlama işlemi sürüyor ve firincilik pastayı üzerinde çalışırken telefonda beklemek istemiyorsanız. Firincilik siparişinizi onaylar ve 20 dakikada pastayı 's durumu için çağrı sahiptir. 20 dakika geçmesi sonra firincilik çağrısı, ancak, pasta işiniz değil ve, başka bir programda 20 dakika çağırmalıdır bunlar size. Bu arka İleri işlemini çağırın ve siparişinizin hazır ve, pasta teslim firincilik size bildirir kadar devam eder. 
+<a name="bakery-polling-action"></a> Şimdi yoklama düzeni önceki firincilik benzerliği uygulamak ve firincilik ve sıra özel pasta teslim edilmek üzere çağırırsınız olduğunu düşünün. Pastayı sağlama işlemi sürüyor ve firincilik pastayı üzerinde çalışırken telefonda beklemek istemiyorsanız. Firincilik siparişinizi onaylar ve 20 dakikada pastayı 's durumu için çağrı sahiptir. 20 dakika geçmesi sonra firincilik çağrısı, ancak, pasta işiniz değil ve, başka bir programda 20 dakika çağırmalıdır bunlar size. Bu arka İleri işlemini çağırın ve siparişinizin hazır ve, pasta teslim firincilik size bildirir kadar devam eder. 
 
 Bu yoklama deseni geri sağlandığından eşleyin. Logic Apps altyapısı, pasta müşteri temsil ederken firincilik özel API'nizi temsil eder. Altyapısı API'nizi isteğiyle çağırdığında API'nizi isteği onaylar ve altyapı iş durumunu denetleyebilir, zaman aralığı ile yanıt verir. Altyapı iş yapılır API'nize yanıt verene kadar iş durumunu denetleme devam eder ve iş akışı devam eder, mantıksal uygulama için veri döndürür. 
 
@@ -130,16 +131,16 @@ API'nizi bu deseni izlediğinde, iş durumunu denetleme devam etmek için mantı
 
 Alternatif olarak, Web kancası desen uzun süre çalışan görevler ve zaman uyumsuz işleme için kullanabilirsiniz. Bu desen duraklatma ve "için bir geri çağırma" bekleyin mantıksal uygulama iş akışı devam etmeden önce işlemeyi tamamlaması, API'sinden sahiptir. Bir olay gerçekleştiğinde, bir URL için bir ileti gönderen bir HTTP POST aramasıdır. 
 
-<a name="bakery-webhook-action"></a>Şimdi Web kancası düzeni önceki firincilik benzerliği uygulamak ve firincilik ve sıra özel pasta teslim edilmek üzere çağırırsınız olduğunu düşünün. Pastayı sağlama işlemi sürüyor ve firincilik pastayı üzerinde çalışırken telefonda beklemek istemiyorsanız. Siparişinizi firincilik onaylar, ancak pastayı yapıldığında bunlar çağırabilirsiniz şekilde bu süre, telefon numaranızı vermediğiniz. Bu süre, firincilik zaman siparişinizi hazır ve, pasta teslim söyler.
+<a name="bakery-webhook-action"></a> Şimdi Web kancası düzeni önceki firincilik benzerliği uygulamak ve firincilik ve sıra özel pasta teslim edilmek üzere çağırırsınız olduğunu düşünün. Pastayı sağlama işlemi sürüyor ve firincilik pastayı üzerinde çalışırken telefonda beklemek istemiyorsanız. Siparişinizi firincilik onaylar, ancak pastayı yapıldığında bunlar çağırabilirsiniz şekilde bu süre, telefon numaranızı vermediğiniz. Bu süre, firincilik zaman siparişinizi hazır ve, pasta teslim söyler.
 
 Biz bu Web kancası deseni yeniden eşlediğinizde, pasta müşteri Logic Apps altyapısı temsil ederken firincilik özel API'nizi temsil eder. Altyapısı, bir istekle, API çağrılarının ve "geri çağırma" URL'sini içerir.
 İş tamamlandığında, API'nizi altyapısı bilgilendirin ve iş akışı devam eder, mantıksal uygulama için verileri döndürmek için URL'yi kullanır. 
 
-Bu model için iki uç nokta denetleyicinizde ayarlayın: `subscribe` ve`unsubscribe`
+Bu model için iki uç nokta denetleyicinizde ayarlayın: `subscribe` ve `unsubscribe`
 
-*  `subscribe`uç nokta: yürütme API eylem iş akışı ulaştığında, Logic Apps çağrıları altyapısı `subscribe` uç noktası. Bu adım, API depolayan bir geri çağırma URL'si oluşturun ve ardından iş tamamlandığında, API'sinden geri çağırma bekleyin mantıksal uygulama neden olur. API'nizi sonra URL bir HTTP POST ile geri çağırır ve döndürülen içeriği ve üstbilgileri mantıksal uygulama giriş olarak geçirir.
+*  `subscribe` uç nokta: yürütme API eylem iş akışı ulaştığında, Logic Apps çağrıları altyapısı `subscribe` uç noktası. Bu adım, API depolayan bir geri çağırma URL'si oluşturun ve ardından iş tamamlandığında, API'sinden geri çağırma bekleyin mantıksal uygulama neden olur. API'nizi sonra URL bir HTTP POST ile geri çağırır ve döndürülen içeriği ve üstbilgileri mantıksal uygulama giriş olarak geçirir.
 
-* `unsubscribe`uç nokta: çalıştırmak mantıksal uygulama iptal ederseniz, Logic Apps çağrıları altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydı ve gerektiği gibi tüm işlemleri durdur.
+* `unsubscribe` uç nokta: çalıştırmak mantıksal uygulama iptal ederseniz, Logic Apps çağrıları altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydı ve gerektiği gibi tüm işlemleri durdur.
 
 ![Web kancası eylem düzeni](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
@@ -199,9 +200,9 @@ API açısından açıklandığı bir yoklama tetikleyici için belirli adımlar
 Bir Web kancası Tetik bir *itme tetikleyici* bekler ve yeni veri ya da hizmet uç noktada olayları dinler. Yeni veri ya da bir olay belirtilen koşulu karşılıyorsa, tetikleyici başlatılır ve ardından verileri girdi olarak işler bir mantıksal uygulama örneği oluşturur.
 Web kancası Tetikleyicileri benzer hareket [Web kancası eylemleri](#webhook-actions) daha önce bu konuda açıklanan ve ile ayarlamak `subscribe` ve `unsubscribe` uç noktaları. 
 
-* `subscribe`uç nokta: ekleme ve mantıksal uygulamanızı bir Web kancası tetikleyici kaydettiğinizde Logic Apps çağrıları altyapısı `subscribe` uç noktası. Bu adım, API depolayan bir geri çağırma URL'si oluşturmak mantıksal uygulama neden olur. Yeni veri ya da belirtilen koşulu karşılayan bir olay olduğunda API'nizi geri URL bir HTTP POST ile çağırır. Üst bilgiler ve içerik yükü mantıksal uygulama giriş olarak geçirin.
+* `subscribe` uç nokta: ekleme ve mantıksal uygulamanızı bir Web kancası tetikleyici kaydettiğinizde Logic Apps çağrıları altyapısı `subscribe` uç noktası. Bu adım, API depolayan bir geri çağırma URL'si oluşturmak mantıksal uygulama neden olur. Yeni veri ya da belirtilen koşulu karşılayan bir olay olduğunda API'nizi geri URL bir HTTP POST ile çağırır. Üst bilgiler ve içerik yükü mantıksal uygulama giriş olarak geçirin.
 
-* `unsubscribe`uç nokta: Web kancası tetikleyici veya tüm mantıksal uygulama silinirse, Logic Apps çağrıları altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydı ve gerektiği gibi tüm işlemleri durdur.
+* `unsubscribe` uç nokta: Web kancası tetikleyici veya tüm mantıksal uygulama silinirse, Logic Apps çağrıları altyapısı `unsubscribe` uç noktası. API'nizi geri çağırma URL'si kaydı ve gerektiği gibi tüm işlemleri durdur.
 
 ![Web kancası tetikleyici düzeni](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 

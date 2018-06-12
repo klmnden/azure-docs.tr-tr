@@ -1,13 +1,13 @@
 ---
-title: "Bir grubun veya koleksiyonun - Azure mantıksal uygulamaları toplu işlem EDI iletileri | Microsoft Docs"
-description: "Toplu işleme logic apps içinde EDI ileti gönderme"
-keywords: "Batch, toplu işlem, toplu kodlama"
+title: Bir grubun veya koleksiyonun - Azure mantıksal uygulamaları toplu işlem EDI iletileri | Microsoft Docs
+description: Toplu işleme logic apps içinde EDI ileti gönderme
+keywords: Batch, toplu işlem, toplu kodlama
 author: divswa
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299299"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>Ticaret ortakları için toplu iş gönderme X12 iletileri
 
@@ -38,7 +39,7 @@ Bu konu, X12 işleminin nasıl gösterir. Bu görevleri gerçekleştirerek toplu
 * [Bir toplu iş öğeleri gönderen bir mantıksal uygulama oluşturma](#sender). Bu "gönderen" mantıksal uygulama, var olan bir alıcı mantığı uygulamaya olması gereken toplu işleme için öğeleri göndermek konumu belirtir.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Bu örnek takip etmek için bu öğeler gerekir:
 

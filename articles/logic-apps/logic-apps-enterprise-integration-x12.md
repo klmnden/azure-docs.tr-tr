@@ -1,11 +1,11 @@
 ---
-title: "X12 iletileri B2B Kurumsal tümleştirme - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps ile B2B Kurumsal tümleştirme EDI biçimindeki Exchange X12 iletiler"
+title: X12 iletileri B2B Kurumsal tümleştirme - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps ile B2B Kurumsal tümleştirme EDI biçimindeki Exchange X12 iletiler
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 7422d2d5-b1c7-4a11-8c9b-0d8cfa463164
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: c644dd98d468a8c99625c45bad3f06031ff22b4e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: b269a5171dcb8867f7ea40215d6b8a75d5d918bc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299088"
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange X12 iletileri
 
@@ -216,7 +217,7 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 | --- | --- |
 | Sürüm |Sürümünü X12 seçin |
 | İşlem Türü (ST01) |İşlem türü seçin |
-| SCHEMA |Kullanılacak şema seçin. Şemalar tümleştirme hesabınızda bulunur. Şema ilk seçerseniz, otomatik olarak sürüm ve işlem yapılandırır türü  |
+| ŞEMA |Kullanılacak şema seçin. Şemalar tümleştirme hesabınızda bulunur. Şema ilk seçerseniz, otomatik olarak sürüm ve işlem yapılandırır türü  |
 
 > [!NOTE]
 > Gerekli yapılandırma [şema](../logic-apps/logic-apps-enterprise-integration-schemas.md) için karşıya, [tümleştirme hesabını](../logic-apps/logic-apps-enterprise-integration-accounts.md).
@@ -235,7 +236,7 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 
 | Özellik | Açıklama |
 | --- | --- |
-| Denetim sürüm numarası (ISA12) |Standart X12 sürümünü seçin |
+| Denetim Sürüm Numarası (ISA12) |Standart X12 sürümünü seçin |
 | Kullanım göstergesi (ISA15) |Bir değişim bağlamında seçin.  Değerler bilgi, üretim verileri veya test verileri |
 | Şema |Gönderme ardışık düzene gönderir X12 kodlu bir değişim GS ve ST segment oluşturur |
 | GS1 |İsteğe bağlı, aşağı açılan listeden işlevsel kod için bir değer seçin |
@@ -246,7 +247,7 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 | GS7 |İsteğe bağlı, aşağı açılan listeden sorumlu aracısı için bir değer seçin |
 | GS8 |İsteğe bağlı, belgenin sürümü |
 | Değiş tokuş denetim numarası (ISA13) |Gerekli değerleri aralığı Değişim Denetimi numarası girin. En az 1 ve en fazla 999999999 olan sayısal bir değer girin |
-| Group Control Number (GS06) |Gerekli bir dizi numarası grubu denetim numarası girin. En az 1 ve en fazla 999999999 olan sayısal bir değer girin |
+| Grup denetim numarası (GS06) |Gerekli bir dizi numarası grubu denetim numarası girin. En az 1 ve en fazla 999999999 olan sayısal bir değer girin |
 | İşlem kümesi denetim numarasını (ST02) |Gerekli bir dizi numarası işlem kümesi denetim numarası girin. Sayısal değerleri en az 1 ve en fazla 999999999 olan bir aralığı girin |
 | Alan kodu |İsteğe bağlı, bildirim içinde kullanılan işlem kümesi denetim numaraları aralığını için belirlenmiş. (İsteniyorsa) için önek ve sonek alanlara Orta iki alanlar için sayısal bir değer ve alfasayısal bir değer girin. Orta alanları gereklidir ve denetim sayısı için minimum ve maksimum değerleri içeren |
 | Sonek |İsteğe bağlı, bir bildirim kullanılan işlem kümesi denetim numaraları aralığını için belirlenmiş. (İsteniyorsa) için önek ve sonek alanlara Orta iki alanlar için sayısal bir değer ve alfasayısal bir değer girin. Orta alanları gereklidir ve denetim sayısı için minimum ve maksimum değerleri içeren |

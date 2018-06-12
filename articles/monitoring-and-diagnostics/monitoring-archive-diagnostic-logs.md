@@ -1,25 +1,19 @@
 ---
-title: Arşiv Azure tanılama günlüklerini | Microsoft Docs
+title: Arşiv Azure tanılama günlükleri
 description: Azure tanılama günlüklerinize bir depolama hesabı, uzun vadeli bekletme için arşiv öğrenin.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 3a55c73f-2ef3-45f3-8956-bcf9c0cb7e05
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.openlocfilehash: a9bd197ff03ec0c1f9a320a721f69f2efc6a73b4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: logs
+ms.openlocfilehash: d1282fa005d609394dacc818c2cb729f580bc3fc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235983"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263499"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arşiv Azure tanılama günlükleri
 

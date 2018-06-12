@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 74b8c6afc5167225414f467f76f08c0e53bbade5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/01/2018
+ms.openlocfilehash: 6a4d5fd2bb649b2a0b0d23f4f752442f854e5098
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264910"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>İçeri aktarma kullanarak MySQL veritabanınızı geçirin ve dışarı aktarma
 Bu makalede, iki ortak yaklaşımlar açıklanmaktadır içeri aktarma ve verileri MySQL çalışma ekranı kullanarak MySQL sunucusu için bir Azure veritabanı dışarı aktarma. 
@@ -113,4 +114,5 @@ Kullanabileceğiniz **veri alma** içeri aktarın veya geri yüklemek için sekm
 2. Tıklatın **Başlat alma** içeri aktarma işlemini başlatmak için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Başka bir geçiş yaklaşım okuma [dökümü ve geri yükleme, Azure veritabanı'nda MySQL için MySQL veritabanı kullanarak geçiş](concepts-migrate-dump-restore.md). 
+- Başka bir geçiş yaklaşım okuma [dökümü ve geri yükleme, Azure veritabanı'nda MySQL için MySQL veritabanı kullanarak geçiş](concepts-migrate-dump-restore.md).
+- Geçiş hakkında daha fazla bilgi için MySQL için Azure veritabanı veritabanlarını görmek [veritabanı Geçiş Kılavuzu](http://aka.ms/datamigration). 

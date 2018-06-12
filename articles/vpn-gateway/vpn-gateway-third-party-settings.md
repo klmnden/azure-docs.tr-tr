@@ -1,25 +1,26 @@
 ---
-title: "Topluluk önerilen üçüncü taraf VPN veya güvenlik duvarı için cihaz ayarları Azure VPN ağ geçidi | Microsoft Docs"
-description: "Topluluk önerilen üçüncü taraf VPN veya güvenlik duvarı için cihaz ayarları Azure VPN ağ geçidi hakkında bilgi edinin."
+title: Topluluk önerilen üçüncü taraf VPN veya güvenlik duvarı için cihaz ayarları Azure VPN ağ geçidi | Microsoft Docs
+description: Topluluk önerilen üçüncü taraf VPN veya güvenlik duvarı için cihaz ayarları Azure VPN ağ geçidi hakkında bilgi edinin.
 services: vpn-gateway
-documentationcenter: 
+documentationcenter: ''
 author: chadmath
 manager: cshepard
-editor: 
+editor: ''
 tags: azure-vpn-gateway
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
+ms.date: 06/11/2018
 ms.author: delhan
-ms.openlocfilehash: cc45d84ea9a5eb4c2eaefb5a3ac321feb2d896d2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d64830d8664ab65bbd9dbe3bc40eb997007d8910
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267246"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Topluluk önerilen üçüncü taraf VPN veya güvenlik duvarı için cihaz ayarları Azure VPN ağ geçidi
 
@@ -37,7 +38,7 @@ Aşağıdaki tabloda birçok yaygın aygıtları ve ilgili Yardım listeler:
 |Cisco ASA  |[Cisco ASA Azure VPN üzerinde için çözümleri topluluk önerilen](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASA&locale=enUS&tab=Cisco)   |
 |Cisco ISR  |[Topluluk çözümleri Azure VPN üzerinde Cisco ISR için önerilen.](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ISR&locale=enUS&tab=Cisco)   |
 |Cisco ASR  |[Topluluk çözümleri Azure VPN üzerinde Cisco ASR için önerilen.](https://search.cisco.com/search?query=%22Azure%20VPN%22%20ASR&locale=enUS&tab=Cisco)   |
-|SonicWALL |Arama **Azure VPN** üzerinde [Sonicwall site](https://support.sonicwall.com/search) |
+|SonicWALL |Arama **Azure VPN** üzerinde [Sonicwall site](https://www.sonicwall.com/en-us/support) |
 | Kontrol noktası    |Arama **Azure VPN** üzerinde [denetim noktası sitesi](https://supportcenter.checkpoint.com/supportcenter/portal) |
 |Juniper |Arama **Azure VPN** üzerinde [Juniper site]( http://www.juniper.net/search/public/)|
 |Barracuda  |[Topluluk çözümleri Azure VPN üzerinde Barracuda için önerilen.](https://campus.barracuda.com/search/?q=%22Azure+VPN%22&x=0&y=0)   |

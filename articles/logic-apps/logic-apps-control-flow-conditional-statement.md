@@ -1,29 +1,25 @@
 ---
-title: "Koşullu deyimler - çalışma adımları bir koşula göre - Azure Logic Apps | Microsoft Docs"
-description: "Adımlar, yalnızca bir koşul yerine getirdikten sonra mantıksal uygulamanızı çalıştırın. Belirtilen koşullara göre iş akışlarını çalıştırmak karar ağaçları oluşturun."
+title: Koşullu deyimler iş akışları - Azure mantıksal uygulamaları ekleme | Microsoft Docs
+description: Azure mantıksal uygulamaları'nda iş akışları Eylemler denetim koşul oluşturma
 services: logic-apps
-keywords: "Koşullu deyimler, karar ağaçları"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298177"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>Koşullu deyimler: logic apps içinde bir koşula göre adımları çalıştırın
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Azure mantıksal uygulamaları iş akışı eylemlerini denetlemek koşullu deyimler oluşturma
 
-Yalnızca belirtilen bir koşul geçtikten sonra adımları gerçekleştirmek için bir *koşullu ifade*. Bu yapı, veri belirli değerleri veya alanlar karşı iş akışınızda karşılaştırır. Daha sonra verileri koşulu olup olmadığına karşılayan tabanlı çalıştırmak için farklı adımlar tanımlayabilirsiniz. Koşullar birbirine içinde yerleştirebilirsiniz.
+Yalnızca belirtilen bir koşul geçtikten sonra mantıksal uygulamanızı belirli eylemleri çalıştırmak için ekleyin bir *koşullu ifade*. Bu yapı verileri, iş akışındaki belirli değerleri veya alanlar karşı karşılaştırır. Daha sonra verileri koşulu olup olmadığına karşılayan dayalı olarak çalışan farklı eylemler tanımlayabilirsiniz. Koşullar birbirine içinde yerleştirebilirsiniz.
 
 Örneğin, yeni öğeler üzerinde bir Web sitesinin RSS akışı göründüğünde, çok fazla e-posta gönderen bir mantıksal uygulama olduğunu varsayalım. Yalnızca yeni öğe belirli bir dizeyi içeriyorsa e-posta göndermek için bir koşullu ifade ekleyebilirsiniz. 
 
@@ -38,7 +34,7 @@ Yalnızca belirtilen bir koşul geçtikten sonra adımları gerçekleştirmek i�
 
 * Bu makaledeki örnek izlemek için [Bu örnek mantıksal uygulama oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md) bir Outlook.com veya Office 365 Outlook hesapla.
 
-## <a name="add-a-condition"></a>Koşul Ekle
+## <a name="add-a-condition"></a>Koşul ekle
 
 1. İçinde <a href="https://portal.azure.com" target="_blank">Azure portal</a>, mantığı Uygulama Tasarımcısı'nda mantıksal uygulamanızı açın.
 
@@ -65,7 +61,7 @@ Yalnızca belirtilen bir koşul geçtikten sonra adımları gerçekleştirmek i�
 
    Tam koşul şöyledir:
 
-   ![Tam koşul](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Tamamlanan koşul](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
 
    > [!TIP]
    > Daha gelişmiş bir koşul oluşturmak veya ifadeleri kullanmayı seçin **Gelişmiş modda Düzenle**. İfadeleri tarafından tanımlanan kullanabilirsiniz [iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md).

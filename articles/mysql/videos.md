@@ -1,19 +1,20 @@
 ---
-title: "Azure veritabanı için MySQL videolar"
-description: "Bu sayfa Azure veritabanı için MySQL öğrenme için ilgili görüntü içeriğini listeler, Microsoft'un Azure teklifi MySQL yönetilen."
+title: Azure veritabanı için MySQL videolar
+description: Bu sayfa Azure veritabanı için MySQL öğrenme için ilgili görüntü içeriğini listeler, Microsoft'un Azure teklifi MySQL yönetilen.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 0540d14f949f6f6c78a1d8a9ec63f6d85a0c79f9
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f1fdab096c91290f58f5ec7263adc50ebaee5232
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266559"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Azure veritabanı için MySQL videolar
 

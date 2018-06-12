@@ -14,11 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: b97ec4ffacead7630c267284f79f954ef03eff61
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292285"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD ile hesapları paylaşma
 ## <a name="overview"></a>Genel Bakış
@@ -46,7 +47,7 @@ Kullanıcılar kendi Kurumsal hesap ile bir kez oturum açın. Bu hesap bir düz
 
 Paylaşılan hesapları yalnızca gözetim artırmak ve kullanılabilirliği artıran, bunlar Ayrıca, güvenliği artırmak. Kullanıcıların kimlik bilgilerini kullanmak için gerekli izinlere sahip paylaşılan parola görmüyorum, ancak bunun yerine parola kimlik doğrulaması bağımsızlıklar akışının bir parçası kullanmak için izin almak. Ayrıca, bazı parola SSO uygulamaları Azure AD ile düzenli aralıklarla rollover (güncelleştirme) parolaları kullanma seçeneği sunar. Sistem, hangi hesap güvenliği artırır büyük ve karmaşık parolalar kullanır. Yönetici, kolayca vermek veya erişimi iptal hesabına erişim izni olanların ve kimin, geçmişte bir uygulamaya bilir.
 
-Azure AD destekleyen paylaşılan hesapları herhangi Enterprise Mobility Suite (EMS), Premium veya Basic lisanslı kullanıcılar, oturum açma parolası tek uygulamalarının tüm türlerine. Önceden tümleştirilmiş uygulamaların uygulama galerisinde binlerce hesaplarını paylaşabilir ve kendi parola kimlik doğrulaması uygulamayla ekleyebilirsiniz [özel SSO uygulamaları](active-directory-enterprise-apps-manage-sso.md).
+Azure AD destekleyen paylaşılan hesapları herhangi Enterprise Mobility Suite (EMS), Premium veya Basic lisanslı kullanıcılar, oturum açma parolası tek uygulamalarının tüm türlerine. Önceden tümleştirilmiş uygulamaların uygulama galerisinde binlerce hesaplarını paylaşabilir ve kendi parola kimlik doğrulaması uygulamayla ekleyebilirsiniz [özel SSO uygulamaları](manage-apps/configure-single-sign-on-portal.md).
 
 Hesap paylaşımını etkinleştir azure AD özellikleri içerir:
 

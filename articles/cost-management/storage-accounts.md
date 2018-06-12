@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297844"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Depolama hesapları için maliyet yönetimini yapılandırma
 
@@ -39,7 +40,7 @@ Yapılandırma yönetimi maliyeti tarafından kullanılmak üzere Azure depolama
 3. Depolama hesap sayfanıza altında **ayarları**, tıklatın **erişim tuşları**.
 4. Kopyalama, **depolama hesabı adı** ve **bağlantı dizesi** key1 altında.  
 ![Azure depolama erişim tuşları](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Cloudyn portalını Azure portalından açın veya https://azure.cloudyn.com sayfasına gidip oturum açın.
+5. Azure portalından Cloudyn portalını açın veya gitmek https://azure.cloudyn.com ve oturum açın.
 6. Dişlisine simgesine tıklayın ve ardından **raporları Depolama Yönetimi**.
 7. Tıklatın **yeni Ekle +** ve Microsoft Azure'nın seçili olduğundan emin olun. Azure depolama hesap adınızı Yapıştır **adı** alanı. Yapıştırma, **bağlantı dizesi** karşılık gelen alanında. Bir kapsayıcı adı girin ve ardından **kaydetmek**.  
 ![Azure için yapılandırılmış Cloudyn depolama](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -147,7 +148,7 @@ Ayrıca bir demet İlkesi'ni kullanarak, S3 demetini üzerinde raporları oluşt
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>AWS rapor depolama için Cloudyn ekleme
 
-1. Cloudyn portalını Azure portalından açın veya https://azure.cloudyn.com sayfasına gidip oturum açın.
+1. Azure portalından Cloudyn portalını açın veya gitmek https://azure.cloudyn.com ve oturum açın.
 2. Dişlisine simgesine tıklayın ve ardından **raporları Depolama Yönetimi**.
 3. Tıklatın **yeni Ekle +** ve AWS seçili olduğundan emin olun.
 4. Bir hesap ve depolama aralığı seçin. AWS depolama demet otomatik olarak doldurulmuş içinde adıdır.  

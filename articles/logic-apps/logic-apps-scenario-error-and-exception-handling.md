@@ -1,12 +1,12 @@
 ---
-title: "Özel durum işleme & hata günlüğü senaryo - Azure Logic Apps | Microsoft Docs"
-description: "Gelişmiş özel durum işleme ve Azure mantıksal uygulamaları için hata günlüğünü hakkında gerçek kullanım örneğini açıklar"
-keywords: 
+title: Özel durum işleme & hata günlüğü senaryo - Azure Logic Apps | Microsoft Docs
+description: Gelişmiş özel durum işleme ve Azure mantıksal uygulamaları için hata günlüğünü hakkında gerçek kullanım örneğini açıklar
+keywords: ''
 services: logic-apps
 author: hedidin
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299367"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Senaryo: Özel durum işleme ve logic apps için hata günlüğü
 
@@ -412,7 +413,7 @@ Hataları görüntülemek için Cosmos DB'den hata kayıtları görüntülemek i
 Daha önce açıklanan yaklaşımda oluşturulan bizim MVC uygulama ayrıntıları örnekleri aşağıda verilmiştir.
 
 #### <a name="error-management-list"></a>Hata yönetim listesi
-![Hata listesi](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
+![Hata Listesi](media/logic-apps-scenario-error-and-exception-handling/errorlist.png)
 
 #### <a name="error-management-detail-view"></a>Hata yönetim ayrıntılı Görünüm
 ![Hata Ayrıntıları](media/logic-apps-scenario-error-and-exception-handling/errordetails.png)

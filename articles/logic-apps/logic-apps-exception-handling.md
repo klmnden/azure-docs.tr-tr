@@ -4,7 +4,7 @@ description: Desenler hata ve özel durum işleme Logic Apps içinde.
 services: logic-apps
 documentationcenter: ''
 author: dereklee
-manager: anneta
+manager: jeconnoc
 editor: ''
 ms.assetid: e50ab2f2-1fdc-4d2a-be40-995a6cc5a0d4
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 01/31/2018
 ms.author: deli; LADocs
-ms.openlocfilehash: 70dd4e98dbffd9dac27752f0b4c2f5ce4ca70bdc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: ee2c4f1408dcb6527220cd3870ab00d83987f471
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300071"
 ---
 # <a name="handle-errors-and-exceptions-in-logic-apps"></a>Hataları ve Logic Apps içinde özel durumları işleme
 
@@ -79,7 +80,7 @@ Ayarlarsanız **retryPolicy** için **sabit**, bu ilke, belirtilen zaman aralı�
 
 | Öğe adı | Gerekli | Tür | Açıklama |
 | ------------ | -------- | ---- | ----------- |
-| type | Evet | Dize | **fixed** |
+| type | Evet | Dize | **Sabit** |
 | sayı | Evet | Tamsayı | 1 ile 90 arasında olmalıdır yeniden deneme sayısı | 
 | interval | Evet | Dize | Yeniden deneme aralığı [ISO 8601 biçim](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations), PT5S ve PT1D arasında olması gerekir | 
 ||||| 
@@ -105,10 +106,10 @@ Bu tablo nasıl bir uniform rasgele değişken Belirtilen aralıktaki denemeler 
 
 | Yeniden deneme sayısı | Minimum aralık | En fazla aralığı |
 | ------------ | ---------------- | ---------------- |
-| 1 | Max(0, **minimumInterval**) | Min(interval, **maximumInterval**) |
-| 2 | Max(interval, **minimumInterval**) | Min(2 * interval, **maximumInterval**) |
-| 3 | Max(2 * interval, **minimumInterval**) | Min(4 * interval, **maximumInterval**) |
-| 4 | Max (4 * aralığı **minimumInterval**) | Min(8 * interval, **maximumInterval**) |
+| 1 | Max (0, **minimumInterval**) | Min (aralığı **maximumInterval**) |
+| 2 | Max (aralığı **minimumInterval**) | Min (2 * aralığı **maximumInterval**) |
+| 3 | Max (2 * aralığı **minimumInterval**) | Min (4 * aralığı **maximumInterval**) |
+| 4 | Max (4 * aralığı **minimumInterval**) | Min (8 * aralığı **maximumInterval**) |
 | .... | | | 
 |||| 
 
@@ -173,9 +174,9 @@ Kapsamlar üzerinde sınırları için bkz: [sınırları ve yapılandırma](../
 
 ### <a name="get-context-and-results-for-failures"></a>Hataları için içerik ve sonuçları alın
 
-Bir kapsam hatalarını yakalama yararlı olsa da, herhangi bir hata veya döndürüldü durum kodları tam olarak hangi eylemleri başarısız anlamanıza yardımcı olması için bağlam da isteyebilirsiniz.  **@result()** İş akışı işlevinin kapsamdaki tüm eylemlerin sonucu ile ilgili bağlam sağlar.
+Bir kapsam hatalarını yakalama yararlı olsa da, herhangi bir hata veya döndürüldü durum kodları tam olarak hangi eylemleri başarısız anlamanıza yardımcı olması için bağlam da isteyebilirsiniz. **@result()** İş akışı işlevinin kapsamdaki tüm eylemlerin sonucu ile ilgili bağlam sağlar.
 
- **@result()** İşlevi tek bir parametre (kapsamın adı) kabul eder ve tüm eylem sonuçlarını, kapsam içinde bir dizi döndürür. Bu eylem nesneleri aynı özniteliklere dahil  **@actions()** eylemin başlangıç zamanı, bitiş zamanı, durum, girişleri, bağıntı kimlikleri ve çıkışları gibi nesne. Bir kapsamda başarısız herhangi bir eylem için bağlamı göndermek için kolayca eşleştirilebileceği bir  **@result()** ile işlev bir **runAfter** özelliği.
+**@result()** İşlevi tek bir parametre (kapsamın adı) kabul eder ve tüm eylem sonuçlarını, kapsam içinde bir dizi döndürür. Bu eylem nesneleri aynı özniteliklere dahil  **@actions()** eylemin başlangıç zamanı, bitiş zamanı, durum, girişleri, bağıntı kimlikleri ve çıkışları gibi nesne. Bir kapsamda başarısız herhangi bir eylem için bağlamı göndermek için kolayca eşleştirilebileceği bir  **@result()** ile işlev bir **runAfter** özelliği.
 
 Bir eylemi çalıştırmak için *her* eylem sahip kapsamdaki bir **başarısız** sonuç ve başarısız olan eylemler aşağıya doğru sonuçlar dizisi filtrelemek için eşleştirilebileceği  **@result()** ile bir **[filtre dizisi](../connectors/connectors-native-query.md)** eylem ve **[ForEach](../logic-apps/logic-apps-control-flow-loops.md)** döngü. Filtrelenmiş Sonuç dizisi alabilir ve her hata kullanmak için bir eylem gerçekleştirmek **ForEach** döngü. 
 
@@ -231,7 +232,7 @@ Bu örnekte ne olacağını açıklar ayrıntılı bir kılavuz şöyledir:
    Kapsam içinde tek bir eylem başarısız olduysa, Eylemler **foreach** yalnızca bir kez çalıştırın. 
    Birden çok başarısız Eylemler hatası başına tek bir eylem neden olur.
 
-4. Bir HTTP POST gönderme **foreach** öğesi olan yanıt gövdesi  **@item() ['outputs'] ['gövdesi']**.  **@result()** Öğesi şekli aynı olup  **@actions()** şekil ve aynı şekilde ayrıştırılır.
+4. Bir HTTP POST gönderme **foreach** öğesi olan yanıt gövdesi  **@item() ['outputs'] ['gövdesi']**. **@result()** Öğesi şekli aynı olup  **@actions()** şekil ve aynı şekilde ayrıştırılır.
 
 5. Başarısız eylem adı ile iki özel üstbilgileri dahil  **@item() ['name']** çalıştırıp başarısız istemci izleme kimliği  **@item() ['clientTrackingId']**.
 

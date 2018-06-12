@@ -3,22 +3,19 @@ title: Azure Cosmos ilkeleri dizin DB | Microsoft Docs
 description: Dizin oluşturma Azure Cosmos DB'de nasıl çalıştığını anlayın. Yapılandırma ve otomatik dizin oluşturma ve daha yüksek performans için dizin oluşturma ilkesini değiştirme hakkında bilgi edinin.
 keywords: Dizin oluşturma, otomatik işleyişi dizin oluşturma, veritabanının dizin oluşturma
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298306"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB dizin verileri nasıl yapar?
 
@@ -79,9 +76,9 @@ Azure Cosmos DB destekleyen bir Azure Cosmos DB koleksiyonunda dizin oluşturma 
 
 Tutarlı dizin oluşturma olası azaltma, tutarlı sorguları yazma performansı destekler. Bu azaltma işlevi sıralanması gerekir benzersiz yol "tutarlılık düzeyi." ise Tutarlı dizin oluşturma modu "hızlı bir şekilde, hemen sorgu yazma" iş yükleri için tasarlanmıştır.
 
-**Yavaş**: Azure Cosmos DB koleksiyon diğer bir deyişle, kullanıcı isteklere yanıt koleksiyonunun işleme kapasitesi tam olarak kullanılmaz, sessiz, olduğunda dizini zaman uyumsuz olarak güncelleştirilir. Yavaş dizin oluşturma modu belge alım gerektiren "sorgu daha sonra şimdi alma" iş yükleri için uygun olabilir. Unutmayın, çünkü veri alınan ve yavaş dizine tutarsız sonuçlar alabilirsiniz. COUNT sorgu veya özel bir sorgu sonuçları belirli bir zamanda tutarlı veya repeatable olmayabilir anlamına gelir. 
+**Yavaş**: Azure Cosmos DB koleksiyon diğer bir deyişle, kullanıcı isteklere yanıt koleksiyonunun işleme kapasitesi tam olarak kullanılmaz, sessiz, olduğunda dizini zaman uyumsuz olarak güncelleştirilir.  Unutmayın, çünkü veri alınan ve yavaş dizine tutarsız sonuçlar alabilirsiniz. Başka bir deyişle, COUNT sorgular veya belirli sorgu sonuçları tutarlı veya belirli bir zaman adresindeki yinelenebilir olmayabilir. 
 
-Genellikle alınan verilerle yakalama modunda dizinidir. Dizin oluşturma Lazy ile yaşam süresi (TTL) bırakılmalı ve yeniden oluşturulmalıdır dizin sonucunda değişir. Bu sayı ve sorgu sonuçları tutarsız bir süre sağlar. Bu nedenle, çoğu Azure Cosmos DB hesapları tutarlı dizin oluşturma modunu kullanmanız gerekir.
+Genellikle alınan verilerle yakalama modunda dizinidir. Dizin oluşturma Lazy ile yaşam süresi (TTL) bırakılmalı ve yeniden oluşturulmalıdır dizin sonucunda değişir. Bu sayı ve sorgu sonuçları tutarsız bir süre sağlar. Çoğu Azure Cosmos DB hesapları tutarlı dizin oluşturma modunu kullanmalıdır.
 
 **Hiçbiri**: bir dizin moduna sahip kendisiyle ilişkilendirilmiş herhangi bir dizin yok bir koleksiyon. Bu, Azure Cosmos DB anahtar-değer deposu olarak kullanılıyorsa ve belgeleri yalnızca kimliği özelliği tarafından erişilen yaygın olarak kullanılır. 
 
@@ -136,7 +133,7 @@ Dizin yolları belirtmek için ortak desenler şunlardır:
 | /                   | Koleksiyon için varsayılan yolu. Özyinelemeli ve tüm belgeyi ağaca uygular.                                                                                                                                                                                                                                   |
 | / prop /?             | Dizin yolu aşağıdaki gibi sorguları sunmak için gerekli (türleriyle, karma veya aralık sırasıyla):<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop > 5<br><br>SELECT FROM koleksiyonu c ORDER BY c.prop                                                                       |
 | / prop / *             | Belirtilen etiket altındaki tüm yolları için dizin yolu. Aşağıdaki sorgularda ile çalışır<br><br>SELECT FROM koleksiyonu c WHERE c.prop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop > 5<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop.nextprop = "değeri"<br><br>SELECT FROM koleksiyonu c ORDER BY c.prop         |
-| /props/[]/?         | Dizin yolu gerekli yineleme hizmet ve skalerler ["a", "b", "c"] gibi bir dizi sorguları katılmak için:<br><br>SEÇİN etiket etiket IN collection.props WHERE etiketi = "değeri"<br><br>Koleksiyon c birleştirme etiketi IN c.props SELECT etiketinden burada > 5 etiketi                                                                         |
+| / özellik / [] /?         | Dizin yolu gerekli yineleme hizmet ve skalerler ["a", "b", "c"] gibi bir dizi sorguları katılmak için:<br><br>SEÇİN etiket etiket IN collection.props WHERE etiketi = "değeri"<br><br>Koleksiyon c birleştirme etiketi IN c.props SELECT etiketinden burada > 5 etiketi                                                                         |
 | /props/ [] /subprop/? | Nesne dizileri birleşim sorguları gibi ve dizin yolu gerekli yineleme sunmak için [{subprop: "a"}, {subprop: "b"}]:<br><br>SEÇİN etiket etiket IN collection.props WHERE tag.subprop = "değeri"<br><br>SEÇİN etiket koleksiyonu c birleştirme etiketi IN c.props WHERE tag.subprop = "değeri"                                  |
 | / prop/subprop /?     | Dizin yolu sorguları sunmak için gerekli (türleriyle, karma veya aralık sırasıyla):<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop = "değeri"<br><br>SELECT FROM koleksiyonu c WHERE c.prop.subprop > 5                                                                                                                    |
 
@@ -229,11 +226,11 @@ Aşağıdaki örnek, .NET SDK kullanarak bir koleksiyondaki aralığı dizinler 
 
 Benzer şekilde, dizin oluşturma gelen yollar tamamen dışlayabilirsiniz. Sonraki örnek belgeleri bölümünün tamamını dışlama gösterir (bir *alt ağacı*) kullanarak dizin gelen \* joker işleci.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 

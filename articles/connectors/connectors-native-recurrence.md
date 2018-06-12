@@ -1,11 +1,11 @@
 ---
-title: "Zamanlama görevleri ve düzenli olarak çalışan iş akışları - Azure Logic Apps | Microsoft Docs"
-description: "Oluşturma ve düzenli olarak çalışan görevler, Eylemler, iş akışları, işlemleri ve logic apps ile iş yüklerini zamanlama"
+title: Zamanlama görevleri ve düzenli olarak çalışan iş akışları - Azure Logic Apps | Microsoft Docs
+description: Oluşturma ve düzenli olarak çalışan görevler, Eylemler, iş akışları, işlemleri ve logic apps ile iş yüklerini zamanlama
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 tags: connectors
 ms.assetid: 51dd4f22-7dc5-41af-a0a9-e7148378cd50
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 0dead955f9eb723dfa232d3ce751498a09ce1b29
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 3bd396355681cdde486cfbea7004c9c1aece09da
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296796"
 ---
 # <a name="create-and-schedule-regularly-running-tasks-with-azure-logic-apps"></a>Oluşturma ve Azure Logic Apps ile düzenli olarak çalışan görev zamanlama
 
@@ -149,27 +150,27 @@ Bu özellikler yineleme tetikleyici için yapılandırabilirsiniz.
 
 | Yineleme | Aralık | Sıklık | Başlangıç zamanı | Şu günlerde | Şu saatlerde | Şu dakikalarda | Not |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
-| 15 dakikada bir (hiçbir başlangıç tarihi ve saati) çalıştırın | 15 | Dakika | {none} | {unavailable} | {none} | {none} | Bu zamanlamayı başlatıldıktan hemen sonra son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. | 
-| 15 dakikada bir (başlangıç tarihi ve saati ile) çalıştırın | 15 | Dakika | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen başlangıç tarihi ve saati sonra son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. | 
-| Her saat, saat (başlangıç tarihi ve saati) çalıştırın | 1 | Saat | *startDate*Thh:00:00Z | {unavailable} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen dönemden başlangıç tarihi ve saati. Gelecekteki tekrarları saatte "00" dakika işaretinde çalıştırın. <p>Sıklık "Hafta" veya "Ay" ise, bu zamanlamayı yalnızca bir gününü haftalık veya aylık bir gün sırasıyla çalışır. | 
-| Her saat, her gün (hiçbir başlangıç tarihi ve saati) çalıştırın | 1 | Saat | {none} | {unavailable} | {none} | {none} | Bu zamanlamayı hemen başlar ve son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. <p>Sıklık "Hafta" veya "Ay" ise, bu zamanlamayı yalnızca bir gününü haftalık veya aylık bir gün sırasıyla çalışır. | 
-| Her saat, her gün (başlangıç tarihi ve saati ile) Çalıştır | 1 | Saat | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen başlangıç tarihi ve saati sonra son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. <p>Sıklık "Hafta" veya "Ay" ise, bu zamanlamayı yalnızca bir gününü haftalık veya aylık bir gün sırasıyla çalışır. | 
-| 15 dakikada bir saatten, her saat (başlangıç tarihi ve saati ile) çalıştırın | 1 | Saat | *startDate*T00:15:00Z | {unavailable} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen tarih ve saat 00: 15'de, 1: 15'da, 2: 15'da, çalışan, başlatmak ve benzeri. | 
-| 15 dakikada bir saatte (hiçbir başlangıç tarihi ve saati) saati aşan çalıştırın | 1 | Gün | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | 00: 15'de, 1: 15'da, 2: 15'da, bu zamanlamaya çalışır ve benzeri. Ayrıca, bu zamanlamanın sıklığını "Saat" ve "15" dakika ile bir başlangıç saati eşdeğerdir. | 
-| 15 dakikalık işaretinde (hiçbir başlangıç tarihi ve saati) 15 dakikada çalıştırın | 1 | Gün | {none} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Sonraki 15 dakika işareti belirtilen kadar bu zamanlamanın başlamıyor. | 
-| 8: 00'da her gün (hiçbir başlangıç tarihi ve saati) çalıştırın | 1 | Gün | {none} | {unavailable} | 8 | {none} | Bu zamanlamayı 8: 00'da, her gün belirtilen bir zamanlamaya göre çalışır. | 
-| 8: 00'da (ile başlangıç tarihi ve saati) her gün çalıştırın | 1 | Gün | *startDate*T08:00:00Z | {unavailable} | {none} | {none} | Bu zamanlamayı belirtilen başlangıç zamanı temel alınarak 8: 00'da, her gün çalışır. | 
-| 8:30:00 her gün (hiçbir başlangıç tarihi ve saati) çalıştırın | 1 | Gün | {none} | {unavailable} | 8 | 30 | Bu zamanlamayı 8: 30'te, her gün belirtilen bir zamanlamaya göre çalışır. | 
-| 8: 30'da (ile başlangıç tarihi ve saati) her gün çalıştırın | 1 | Gün | *startDate*T08:30:00Z | {unavailable} | {none} | {none} | 8: 30'da belirtilen başlangıç tarihi bu zamanlamanın başlatır. | 
-| 8:30:00 ve 4:30 Şöyle her gün olarak çalışır | 1 | Gün | {none} | {unavailable} | 8, 16 | 30 | | 
-| 8: 30'de, 8: 45'te, çalıştırmak 4:30 Şöyle ve 4:45 PM her gün | 1 | Gün | {none} | {unavailable} | 8, 16 | 30, 45 | | 
+| 15 dakikada bir (hiçbir başlangıç tarihi ve saati) çalıştırın | 15 | Dakika | {none} | {kullanılamaz} | {none} | {none} | Bu zamanlamayı başlatıldıktan hemen sonra son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. | 
+| 15 dakikada bir (başlangıç tarihi ve saati ile) çalıştırın | 15 | Dakika | *startDate*T*startTime*Z | {kullanılamaz} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen başlangıç tarihi ve saati sonra son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. | 
+| Her saat, saat (başlangıç tarihi ve saati) çalıştırın | 1 | Saat | *startDate*Thh:00:00Z | {kullanılamaz} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen dönemden başlangıç tarihi ve saati. Gelecekteki tekrarları saatte "00" dakika işaretinde çalıştırın. <p>Sıklık "Hafta" veya "Ay" ise, bu zamanlamayı yalnızca bir gününü haftalık veya aylık bir gün sırasıyla çalışır. | 
+| Her saat, her gün (hiçbir başlangıç tarihi ve saati) çalıştırın | 1 | Saat | {none} | {kullanılamaz} | {none} | {none} | Bu zamanlamayı hemen başlar ve son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. <p>Sıklık "Hafta" veya "Ay" ise, bu zamanlamayı yalnızca bir gününü haftalık veya aylık bir gün sırasıyla çalışır. | 
+| Her saat, her gün (başlangıç tarihi ve saati ile) Çalıştır | 1 | Saat | *startDate*T*startTime*Z | {kullanılamaz} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen başlangıç tarihi ve saati sonra son çalışma zamanı temel alınarak gelecekteki tekrarları hesaplar. <p>Sıklık "Hafta" veya "Ay" ise, bu zamanlamayı yalnızca bir gününü haftalık veya aylık bir gün sırasıyla çalışır. | 
+| 15 dakikada bir saatten, her saat (başlangıç tarihi ve saati ile) çalıştırın | 1 | Saat | *startDate*T00:15:00Z | {kullanılamaz} | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen tarih ve saat 00: 15'de, 1: 15'da, 2: 15'da, çalışan, başlatmak ve benzeri. | 
+| 15 dakikada bir saatte (hiçbir başlangıç tarihi ve saati) saati aşan çalıştırın | 1 | Gün | {none} | {kullanılamaz} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 15 | 00: 15'de, 1: 15'da, 2: 15'da, bu zamanlamaya çalışır ve benzeri. Ayrıca, bu zamanlamanın sıklığını "Saat" ve "15" dakika ile bir başlangıç saati eşdeğerdir. | 
+| 15 dakikalık işaretinde (hiçbir başlangıç tarihi ve saati) 15 dakikada çalıştırın | 1 | Gün | {none} | {kullanılamaz} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Sonraki 15 dakika işareti belirtilen kadar bu zamanlamanın başlamıyor. | 
+| 8: 00'da her gün (hiçbir başlangıç tarihi ve saati) çalıştırın | 1 | Gün | {none} | {kullanılamaz} | 8 | {none} | Bu zamanlamayı 8: 00'da, her gün belirtilen bir zamanlamaya göre çalışır. | 
+| 8: 00'da (ile başlangıç tarihi ve saati) her gün çalıştırın | 1 | Gün | *startDate*T08:00:00Z | {kullanılamaz} | {none} | {none} | Bu zamanlamayı belirtilen başlangıç zamanı temel alınarak 8: 00'da, her gün çalışır. | 
+| 8:30:00 her gün (hiçbir başlangıç tarihi ve saati) çalıştırın | 1 | Gün | {none} | {kullanılamaz} | 8 | 30 | Bu zamanlamayı 8: 30'te, her gün belirtilen bir zamanlamaya göre çalışır. | 
+| 8: 30'da (ile başlangıç tarihi ve saati) her gün çalıştırın | 1 | Gün | *startDate*T08:30:00Z | {kullanılamaz} | {none} | {none} | 8: 30'da belirtilen başlangıç tarihi bu zamanlamanın başlatır. | 
+| 8:30:00 ve 4:30 Şöyle her gün olarak çalışır | 1 | Gün | {none} | {kullanılamaz} | 8, 16 | 30 | | 
+| 8: 30'de, 8: 45'te, çalıştırmak 4:30 Şöyle ve 4:45 PM her gün | 1 | Gün | {none} | {kullanılamaz} | 8, 16 | 30, 45 | | 
 | Her Cumartesi 5'e (hiçbir başlangıç tarihi ve saati) çalıştırın | 1 | Hafta | {none} | "Cumartesi" | 17 | 0 | Bu zamanlamayı her Cumartesi 5: 00'da çalışır. | 
 | Her Cumartesi 18: 00 (başlangıç tarihi ve saati ile) çalışma | 1 | Hafta | *startDate*T17:00:00Z | "Cumartesi" | {none} | {none} | Bu zamanlamayı başlamıyorsa *herhangi erken* belirtilen dönemden başlangıç tarihi ve saati, bu durumda, 9 Eylül 2017 17: 00'dan en. Gelecekteki tekrarları her Cumartesi 17: 00'dan çalıştırın. | 
 | Her Salı, Perşembe 17: 00 saatleri sırasında çalıştırın | 1 | Hafta | {none} | "Salı", "Perşembe" | 17 | {none} | Bu zamanlamayı her Salı ve Perşembe 5: 00'da çalışır. | 
 | Her saat çalışma saatleri sırasında çalıştırın | 1 | Hafta | {none} | Cumartesi ve Pazar dışındaki tüm günleri seçin. | İstediğiniz gün saat seçin. | Tüm dakika istediğiniz saat seçin. | Çalışma saatleri 8:00:00 ila 5:00 varsa, örneğin, ardından "8, 9, 10, 11, 12, 13, 14, 15, 16, 17" günün saati seçin. <p>Çalışma saatleri 5:30 için 8:30:00 PM varsa, önceki saat gün ve "30" saat dakika seçin. | 
 | Hafta sonu günde bir kez çalıştır | 1 | Hafta | {none} | "Cumartesi", "Pazar" | İstediğiniz gün saat seçin. | Tüm dakikası saati uygun şekilde seçin. | Bu zamanlamayı her Cumartesi ve Pazar belirtilen zamanlamayla çalışır. | 
 | İki haftada Pazartesi üzerinde yalnızca her 15 dakikada çalıştırın | 2 | Hafta | {none} | "Pazartesi" | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | 0, 15, 30, 45 | Bu zamanlamayı her diğer her 15 dakikalık işaretinde Pazartesi çalışır. | 
-| Her saat ayda bir gün için Çalıştır | 1 | Ay | {bkz. Not} | {unavailable} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {bkz. Not} | Başlangıç tarihi ve saati belirtmezseniz, bu zamanlamanın oluşturulma tarihi ve saati kullanır. Yinelenme zamanlaması için dakika denetlemek için bir başlangıç saati saat dakika belirtin veya oluşturulma zamanı kullanın. Başlangıç saati veya oluşturma zamanında 8:25 AM ise, bu zamanlamaya 8: 25'de, 9:25 AM, 10:25 AM, örneğin, çalışan ve benzeri. | 
+| Her saat ayda bir gün için Çalıştır | 1 | Ay | {bkz. Not} | {kullanılamaz} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {bkz. Not} | Başlangıç tarihi ve saati belirtmezseniz, bu zamanlamanın oluşturulma tarihi ve saati kullanır. Yinelenme zamanlaması için dakika denetlemek için bir başlangıç saati saat dakika belirtin veya oluşturulma zamanı kullanın. Başlangıç saati veya oluşturma zamanında 8:25 AM ise, bu zamanlamaya 8: 25'de, 9:25 AM, 10:25 AM, örneğin, çalışan ve benzeri. | 
 ||||||||| 
 
 <a name="start-time"></a>

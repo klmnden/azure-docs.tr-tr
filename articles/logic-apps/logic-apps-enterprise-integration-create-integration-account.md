@@ -4,7 +4,7 @@ description: Oluşturma, bağlantı, taşıma ve kurumsal tümleştirme ve B2B �
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297997"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>B2B çözümlerini logic apps ile tümleştirme hesapları oluşturma ve yönetme
 
@@ -57,11 +58,11 @@ Azure hesabınızın kimlik bilgileriyle <a href="https://portal.azure.com" targ
    | Abonelik | Evet | <*Azure abonelik adı*> | Kullanılacak Azure aboneliği için ad | 
    | Kaynak grubu | Evet | Test-Tümleştirme-hesap-rg | İçin ad [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ilgili kaynaklar düzenlemek için kullanılır. Bu örnek için belirtilen ada sahip yeni bir kaynak grubu oluşturun. | 
    | Fiyatlandırma Katmanı | Evet | Ücretsiz | Kullanmak istediğiniz fiyatlandırma katmanı. Bu örnek için select **serbest**, ancak daha fazla bilgi için bkz: [Logic Apps sınırlarını ve yapılandırmasını](../logic-apps/logic-apps-limits-and-config.md) ve [Logic Apps fiyatlandırma](https://azure.microsoft.com/pricing/details/logic-apps/). | 
-   | Konum | Evet | Batı ABD | Bölge tümleştirme hesap bilgilerinizin depolanacağı konumu. Mantıksal uygulamanızı aynı konumu seçin ya da bir mantıksal uygulama tümleştirmesi hesabınız ile aynı konumda oluşturun. Bu örnek için | 
+   | Konum | Evet | Batı ABD | Bölge tümleştirme hesap bilgilerinizin depolanacağı konumu. Mantıksal uygulamanızı aynı konumu seçin ya da bir mantıksal uygulama tümleştirmesi hesabınız ile aynı konumda oluşturun. | 
    | Log Analytics | Hayır | Kapalı | Tanılama günlüğüne kaydetme ayarını **Kapalı** durumda bırakın. | 
    ||||| 
 
-4. Hazır olduğunuzda, seçin **panoya Sabitle**ve seçin **oluşturma**.
+4. Hazır olduğunuzda **Panoya sabitle**'yi ve ardından **Oluştur**'u seçin.
 
    Azure, genellikle bir dakika içinde tamamlanır, seçili konuma tümleştirme hesabınızı dağıtıldıktan sonra Azure tümleştirme hesabınızı açar.
 

@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/02/2018
+ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265852"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>MySQL veritabanınız için MySQL döküm ve geri yükleme kullanarak Azure veritabanına geçirme
 Bu makalede, yedeklemek ve MySQL için Azure veritabanınızdaki veritabanlarını geri yüklemek için iki genel yolu açıklanmaktadır.
@@ -51,6 +52,7 @@ Performansı iyileştirmek için bu noktalar duyuru büyük veritabanları çık
 -   Uygun olduğunda bölümlenmiş tabloları kullanın.
 -   Paralel veri yükleyin. Kaynak sınırına neden, ve Azure portalında kullanılabilir ölçümleri kullanarak kaynakları izlemek çok fazla paralellik kaçının. 
 -   Kullanım `defer-table-indexes` veritabanları, böylece dizin oluşturma tabloları veriler yüklendikten sonra gerçekleşir çıkarırken mysqlpump seçeneği.
+-   Azure bir blob/deposu yedek dosyalarını kopyalayın ve oradan Internet üzerinden geri yükleme gerçekleştirilmeden daha çok daha hızlı olması gereken, geri yükleme gerçekleştirin.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>Bir yedekleme dosyası komut satırından oluşturma mysqldump kullanma
 Yerel şirket içi sunucuda veya bir sanal makinede mevcut bir MySQL veritabanını yedeklemek için aşağıdaki komutu çalıştırın: 
@@ -74,7 +76,6 @@ Veritabanınızı yedeklemek için belirli tabloları seçmek için boşluklarla
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 Aynı anda birden fazla veritabanını yedeklemek için kullanın veritabanı geçin ve boşluklarla ayırarak veritabanı adları listesi. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -108,21 +109,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## <a name="export-using-phpmyadmin"></a>PHPMyAdmin kullanarak dışa aktarın
 Dışarı aktarma için yerel olarak ortamınızda yüklediyseniz ortak aracı phpMyAdmin kullanabilirsiniz. MySQL veritabanınız PHPMyAdmin kullanarak dışarı aktarmak için:
-- PhpMyAdmin açın.
-- Veritabanınızı seçin. Sol taraftaki listesinde veritabanı adını tıklatın. 
-- Tıklatın **verme** bağlantı. Veritabanı dökümünü görüntülemek için yeni bir sayfa görüntülenir.
-- Dışa aktarma alanı **Tümünü Seç** bağlantı veritabanınızda tabloları seçin. 
-- SQL Seçenekleri alanında, uygun seçenekleri'ni tıklatın. 
-- ' I tıklatın **dosyası olarak kaydetmeniz** seçeneği ve karşılık gelen sıkıştırma seçeneğini ve ardından **Git** düğmesi. Dosyayı yerel olarak kaydetmek isteyip istemediğinizi soran bir iletişim kutusu görünür.
+1. PhpMyAdmin açın.
+2. Veritabanınızı seçin. Sol taraftaki listesinde veritabanı adını tıklatın. 
+3. Tıklatın **verme** bağlantı. Veritabanı dökümünü görüntülemek için yeni bir sayfa görüntülenir.
+4. Dışa aktarma alanı **Tümünü Seç** bağlantı veritabanınızda tabloları seçin. 
+5. SQL Seçenekleri alanında, uygun seçenekleri'ni tıklatın. 
+6. ' I tıklatın **dosyası olarak kaydetmeniz** seçeneği ve karşılık gelen sıkıştırma seçeneğini ve ardından **Git** düğmesi. Dosyayı yerel olarak kaydetmek isteyip istemediğinizi soran bir iletişim kutusu görünür.
 
 ## <a name="import-using-phpmyadmin"></a>PHPMyAdmin kullanarak içe aktarma
 Veritabanınızı içeri aktarma, dışarı aktarma için benzer. Aşağıdaki eylemleri gerçekleştirebilirsiniz:
-- PhpMyAdmin açın. 
-- PhpMyAdmin Kurulum sayfasında **Ekle** MySQL sunucusu için Azure veritabanı eklemek için. Bağlantı ayrıntıları ve oturum açma bilgileri sağlayın.
-- Uygun adlandırılmış bir veritabanı oluşturun ve ekranın sol tarafta seçin. Var olan veritabanını yeniden yazma için veritabanı adını tıklatın, tablo adlarının yanındaki onay kutularını seçin ve seçin **bırakma** varolan tablolardan silmek için. 
-- Tıklatın **SQL** bağlantı buradan SQL komutları yazın, veya SQL dosyanızı karşıya yükleme sayfasını göster. 
-- Kullanım **Gözat** veritabanı dosyasını bulmak için düğmesini. 
-- Tıklatın **Git** düğmesine yedekleme verme, SQL komutları yürütün ve veritabanınızı yeniden oluşturun.
+1. PhpMyAdmin açın. 
+2. PhpMyAdmin Kurulum sayfasında **Ekle** MySQL sunucusu için Azure veritabanı eklemek için. Bağlantı ayrıntıları ve oturum açma bilgileri sağlayın.
+3. Uygun adlandırılmış bir veritabanı oluşturun ve ekranın sol tarafta seçin. Var olan veritabanını yeniden yazma için veritabanı adını tıklatın, tablo adlarının yanındaki onay kutularını seçin ve seçin **bırakma** varolan tablolardan silmek için. 
+4. Tıklatın **SQL** bağlantı buradan SQL komutları yazın, veya SQL dosyanızı karşıya yükleme sayfasını göster. 
+5. Kullanım **Gözat** veritabanı dosyasını bulmak için düğmesini. 
+6. Tıklatın **Git** düğmesine yedekleme verme, SQL komutları yürütün ve veritabanınızı yeniden oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[MySQL için uygulamaları Azure veritabanına bağlan](./howto-connection-string.md)
+- [MySQL için Azure veritabanı uygulamalarını bağlamak](./howto-connection-string.md).
+- Geçiş hakkında daha fazla bilgi için MySQL için Azure veritabanı veritabanlarını görmek [veritabanı Geçiş Kılavuzu](http://aka.ms/datamigration).

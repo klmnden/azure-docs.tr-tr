@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps için Web kancası Bağlayıcısı | Microsoft Docs"
-description: "Web kancası eylemleri ve Tetikleyicileri mantığı uygulamalardan filtre dizisi gibi eylemleri gerçekleştirmek için nasıl kullanılacağını"
+title: Azure Logic Apps için Web kancası Bağlayıcısı | Microsoft Docs
+description: Web kancası eylemleri ve Tetikleyicileri mantığı uygulamalardan filtre dizisi gibi eylemleri gerçekleştirmek için nasıl kullanılacağını
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 647dcebdd8d66ca49e14b51633e6a4a3ce6cb32b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296569"
 ---
 # <a name="get-started-with-the-webhook-connector"></a>Web kancası Bağlayıcısı ile çalışmaya başlama
 
@@ -81,20 +82,20 @@ Daha fazla ayrıntı aşağıdadır tetikleyiciler ve eylemler hakkında Web kan
 
 | Eylem | Açıklama |
 | --- | --- |
-| HTTP Web Kancası |Bir geri çağırma URL'si gerektiği gibi mantıksal uygulama tetiklenecek URL çağırabilirsiniz bir hizmete abone olun. |
+| HTTP Web kancası |Bir geri çağırma URL'si gerektiği gibi mantıksal uygulama tetiklenecek URL çağırabilirsiniz bir hizmete abone olun. |
 
 ### <a name="trigger-details"></a>Tetikleyici ayrıntıları
 
-#### <a name="http-webhook"></a>HTTP Web Kancası
+#### <a name="http-webhook"></a>HTTP Web kancası
 
 Bir geri çağırma URL'si gerektiği gibi mantıksal uygulama tetiklenecek URL çağırabilirsiniz bir hizmete abone olun.
 Bir * gerekli alan anlamına gelir.
 
 | Görünen Ad | Özellik Adı | Açıklama |
 | --- | --- | --- |
-| Abone yöntemi * |yöntem |Abone ol istek için kullanılacak HTTP yöntemi |
+| Abone yöntemi * |method |Abone ol istek için kullanılacak HTTP yöntemi |
 | Abone URI * |uri |Abone ol istek için kullanılacak HTTP URI |
-| Aboneliği yöntemi * |yöntem |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
+| Aboneliği yöntemi * |method |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
 | Aboneliği URI * |uri |HTTP abonelikten istek için kullanılacak URI |
 | Gövde abone olma |body |Abonelik için HTTP istek gövdesi |
 | Üstbilgiler abone olma |headers |Abonelik için HTTP isteği üstbilgileri |
@@ -109,28 +110,28 @@ Web kancası isteği
 
 | Özellik Adı | Veri Türü | Açıklama |
 | --- | --- | --- |
-| Üst bilgiler |nesne |Web kancası istek üstbilgileri |
-| Gövde |nesne |Web kancası istek nesnesi |
+| Üst bilgiler |object |Web kancası istek üstbilgileri |
+| Gövde |object |Web kancası istek nesnesi |
 | Durum Kodu |Int |Web kancası isteği durum kodu |
 
 ## <a name="webhook-actions"></a>Web kancası eylemleri
 
 | Eylem | Açıklama |
 | --- | --- |
-| HTTP Web Kancası |Bir geri çağırma URL'si gerektiği gibi bir iş akışı adımı sürdürmek için URL çağırabilirsiniz bir hizmete abone olun. |
+| HTTP Web kancası |Bir geri çağırma URL'si gerektiği gibi bir iş akışı adımı sürdürmek için URL çağırabilirsiniz bir hizmete abone olun. |
 
 ### <a name="action-details"></a>Eylem ayrıntıları
 
-#### <a name="http-webhook"></a>HTTP Web Kancası
+#### <a name="http-webhook"></a>HTTP Web kancası
 
 Bir geri çağırma URL'si gerektiği gibi bir iş akışı adımı sürdürmek için URL çağırabilirsiniz bir hizmete abone olun.
 Bir * gerekli alan anlamına gelir.
 
 | Görünen Ad | Özellik Adı | Açıklama |
 | --- | --- | --- |
-| Abone yöntemi * |yöntem |Abone ol istek için kullanılacak HTTP yöntemi |
+| Abone yöntemi * |method |Abone ol istek için kullanılacak HTTP yöntemi |
 | Abone URI * |uri |Abone ol istek için kullanılacak HTTP URI |
-| Aboneliği yöntemi * |yöntem |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
+| Aboneliği yöntemi * |method |Aboneliği kaldırma isteği için kullanılacak HTTP yöntemi |
 | Aboneliği URI * |uri |HTTP abonelikten istek için kullanılacak URI |
 | Gövde abone olma |body |Abonelik için HTTP istek gövdesi |
 | Üstbilgiler abone olma |headers |Abonelik için HTTP isteği üstbilgileri |
@@ -145,8 +146,8 @@ Web kancası isteği
 
 | Özellik Adı | Veri Türü | Açıklama |
 | --- | --- | --- |
-| Üst bilgiler |nesne |Web kancası istek üstbilgileri |
-| Gövde |nesne |Web kancası istek nesnesi |
+| Üst bilgiler |object |Web kancası istek üstbilgileri |
+| Gövde |object |Web kancası istek nesnesi |
 | Durum Kodu |Int |Web kancası isteği durum kodu |
 
 ## <a name="next-steps"></a>Sonraki adımlar

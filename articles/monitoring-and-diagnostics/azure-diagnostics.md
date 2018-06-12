@@ -1,24 +1,20 @@
 ---
-title: Azure tanılama uzantısını genel bakış | Microsoft Docs
+title: Azure tanılama uzantısını genel bakış
 description: Hata ayıklama, izleme, bulut Hizmetleri, sanal makineler ve hizmet doku trafiği çözümleme performansını ölçmek için Azure Tanılama'yı kullanın
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267688"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure tanılama uzantısını nedir
 Azure tanılama uzantısını dağıtılan bir uygulama tanılama verilerini toplama sağlar. Azure içinde bir aracıdır. Bir dizi farklı kaynaktan tanılama uzantısını kullanabilirsiniz. Azure bulut hizmeti (Klasik) Web ve çalışan rolleri, sanal makineler, desteklenmekte olan sanal makine ölçek kümeleri ve Service Fabric. Diğer Azure hizmetleriyle farklı tanılama yöntemi vardır. Bkz: [Azure'da izleme genel bakış](monitoring-overview.md). 
@@ -33,9 +29,9 @@ Azure tanılama uzantısını aşağıdaki veri türlerini toplayabilirsiniz:
 | --- | --- |
 | Performans sayaçları |İşletim sistemi ve özel performans sayaçları |
 | Uygulama günlükleri |Uygulamanız tarafından yazılan iletilerin izleme |
-| Windows olay günlükleri |Windows olay günlüğü sisteme gönderilen bilgiler |
+| Windows Olay günlükleri |Windows olay günlüğü sisteme gönderilen bilgiler |
 | .NET olay kaynağı |.NET kullanarak olayları yazma kodu [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) sınıfı |
-| IIS günlükleri |IIS web siteleri hakkında bilgi |
+| IIS Günlükleri |IIS web siteleri hakkında bilgi |
 | Temel ETW bildirimi |Herhangi bir işlem tarafından oluşturulan olay Windows için izleme olayları |
 | Kilitlenme bilgi dökümleri |Bir uygulama çökmesi durumunda işleminin durumu hakkında bilgi |
 | Özel hata günlükleri |Uygulama veya hizmet tarafından oluşturulan günlükleri |

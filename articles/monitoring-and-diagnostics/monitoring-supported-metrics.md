@@ -1,24 +1,19 @@
 ---
-title: Azure İzleyici ölçümleri - kaynak türü başına desteklenen ölçümleri | Microsoft Docs
+title: Azure İzleyici ölçümleri kaynak türü tarafından desteklenen
 description: Azure İzleyicisi ile her bir kaynak türü için kullanılabilir ölçümleri listesi.
 author: anirudhcavale
-manager: ashwink
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 63d4ac65-1688-40d1-85c8-7cd408285b0f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 03/30/2018
 ms.author: ancav
-ms.openlocfilehash: a5c0d529357d8ab92cf63ca4a0293753d55801d6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: metrics
+ms.openlocfilehash: d7d51a7c037e109c730dd79005a2c75eeb0697c0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266902"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure İzleyicisi ile desteklenen ölçümleri
 Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunları sorgulama gibi ölçümleri ile etkileşim kurmak için çeşitli yollar sağlar PowerShell veya CLI kullanarak. Aşağıda tüm ölçümleri tam bir listesi ile Azure monitörün ölçüm ardışık düzen şu anda kullanılabilir. Portalı veya eski API'lerini kullanarak diğer ölçümleri bulunabilir. Aşağıda bu liste, yalnızca ölçümleri birleştirilmiş Azure ölçüm işlem hattını izleme ile kullanılabilen içerir. Sorgulamak ve erişmek için bu ölçümleri lütfen [2018-01-01 api sürümü](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -345,7 +340,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Gecikme süresi|Gecikme süresi|Milisaniye|Ortalama|Milisaniye cinsinden gecikme süresi.|Hiç boyut|
 |CharactersTranslated|Çevrilen Karakterler|Sayı|Toplam|Gelen metin isteğindeki toplam karakter sayısı.|Hiç boyut|
 |SpeechSessionDuration|Konuşma Oturumu Süresi|Saniye|Toplam|Konuşma oturumunun saniye cinsinden toplam süresi.|Hiç boyut|
-|TotalTransactions|Toplam işlemler|Sayı|Toplam|Toplam işlem sayısı|Hiç boyut|
+|TotalTransactions|Toplam İşlemler|Sayı|Toplam|Toplam işlem sayısı|Hiç boyut|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
@@ -360,16 +355,16 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Hiç boyut|
 |Kalan CPU Kredisi|Kalan CPU Kredisi|Sayı|Ortalama|Veri bloğunun kullanabileceği toplam kredi sayısı|Hiç boyut|
 |Tüketilen CPU Kredisi|Tüketilen CPU Kredisi|Sayı|Ortalama|Sanal Makine tarafından tüketilen toplam kredi sayısı|Hiç boyut|
-|Her Disk Okuma Bayt/sn|Veri Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme süresi sırasında tek bir diskten okunan toplam bayt/sn|SlotID|
-|Disk Yazma Bayt/sn|Veri Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme süresi sırasında tek bir diske yazılan toplam bayt/sn|SlotID|
-|Her Disk okuma işlemi/sn|Veri diski okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS tek bir disk okuma süresi izleme sırasında while|SlotID|
-|Disk yazma işlemi/sn|Veri Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem izleme sırasında tek bir diske yazma while|SlotID|
-|Her disk QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri diski sıra derinliği (veya sırası uzunluğu)|SlotID|
-|Disk Okuma Bayt/sn başına işletim sistemi|İşletim sistemi Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski dönemin izleme sırasında tek bir diskten okunan toplam bayt/sn|Hiç boyut|
-|İşletim sistemi Disk başına yazılan bayt/sn|İşletim sistemi Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski dönemin izleme sırasında tek bir diske yazılan toplam bayt/sn|Hiç boyut|
-|Disk okuma işlemi/sn başına işletim sistemi|İşletim sistemi Disk okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem işletim sistemi diski için izleme sırasında tek bir disk okuma while|Hiç boyut|
-|İşletim sistemi Disk başına yazma işlemi/sn|İşletim sistemi Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem işletim sistemi diski için izleme sırasında tek bir diske yazma while|Hiç boyut|
-|İşletim sistemi Disk QD başına|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim sistemi diski sıra derinliği (veya sırası uzunluğu)|Hiç boyut|
+|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan Toplam Bayt/Sn|SlotId|
+|Disk Başına Yazma Bayt/sn|Veri Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan Toplam Bayt/Sn|SlotId|
+|Disk Başına Okuma İşlemi/Sn|Veri diski okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|SlotId|
+|Disk Başına Yazma İşlemi/Sn|Veri Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|SlotId|
+|Disk Başına QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
+|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim sistemi Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okunan Toplam Bayt/Sn|Hiç boyut|
+|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim sistemi Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazılan Toplam Bayt/Sn|Hiç boyut|
+|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim sistemi Disk okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|Hiç boyut|
+|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim sistemi Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|Hiç boyut|
+|İşletim Sistemi Disk Başına QD|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Hiç boyut|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
@@ -384,16 +379,16 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Hiç boyut|
 |Kalan CPU Kredisi|Kalan CPU Kredisi|Sayı|Ortalama|Veri bloğunun kullanabileceği toplam kredi sayısı|Hiç boyut|
 |Tüketilen CPU Kredisi|Tüketilen CPU Kredisi|Sayı|Ortalama|Sanal Makine tarafından tüketilen toplam kredi sayısı|Hiç boyut|
-|Her Disk Okuma Bayt/sn|Veri Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme süresi sırasında tek bir diskten okunan toplam bayt/sn|SlotID|
-|Disk Yazma Bayt/sn|Veri Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme süresi sırasında tek bir diske yazılan toplam bayt/sn|SlotID|
-|Her Disk okuma işlemi/sn|Veri diski okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS tek bir disk okuma süresi izleme sırasında while|SlotID|
-|Disk yazma işlemi/sn|Veri Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem izleme sırasında tek bir diske yazma while|SlotID|
-|Her disk QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri diski sıra derinliği (veya sırası uzunluğu)|SlotID|
-|Disk Okuma Bayt/sn başına işletim sistemi|İşletim sistemi Disk Okuma Bayt/sn|CountPerSecond|Ortalama|İşletim sistemi diski dönemin izleme sırasında tek bir diskten okunan toplam bayt/sn|Hiç boyut|
-|İşletim sistemi Disk başına yazılan bayt/sn|İşletim sistemi Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski dönemin izleme sırasında tek bir diske yazılan toplam bayt/sn|Hiç boyut|
-|Disk okuma işlemi/sn başına işletim sistemi|İşletim sistemi Disk okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem işletim sistemi diski için izleme sırasında tek bir disk okuma while|Hiç boyut|
-|İşletim sistemi Disk başına yazma işlemi/sn|İşletim sistemi Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem işletim sistemi diski için izleme sırasında tek bir diske yazma while|Hiç boyut|
-|İşletim sistemi Disk QD başına|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim sistemi diski sıra derinliği (veya sırası uzunluğu)|Hiç boyut|
+|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan Toplam Bayt/Sn|SlotId|
+|Disk Başına Yazma Bayt/sn|Veri Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan Toplam Bayt/Sn|SlotId|
+|Disk Başına Okuma İşlemi/Sn|Veri diski okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|SlotId|
+|Disk Başına Yazma İşlemi/Sn|Veri Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|SlotId|
+|Disk Başına QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
+|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim Sistemi Diski Okuma Bayt/Sn|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okunan Toplam Bayt/Sn|Hiç boyut|
+|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim sistemi Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazılan Toplam Bayt/Sn|Hiç boyut|
+|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim sistemi Disk okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|Hiç boyut|
+|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim sistemi Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|Hiç boyut|
+|İşletim Sistemi Disk Başına QD|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Hiç boyut|
 
 ## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
 
@@ -408,22 +403,22 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |Disk Yazma İşlemi/Sn|Disk Yazma İşlemi/Sn|CountPerSecond|Ortalama|Disk Yazma IOPS|Hiç boyut|
 |Kalan CPU Kredisi|Kalan CPU Kredisi|Sayı|Ortalama|Veri bloğunun kullanabileceği toplam kredi sayısı|Hiç boyut|
 |Tüketilen CPU Kredisi|Tüketilen CPU Kredisi|Sayı|Ortalama|Sanal Makine tarafından tüketilen toplam kredi sayısı|Hiç boyut|
-|Her Disk Okuma Bayt/sn|Veri Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme süresi sırasında tek bir diskten okunan toplam bayt/sn|SlotID|
-|Disk Yazma Bayt/sn|Veri Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme süresi sırasında tek bir diske yazılan toplam bayt/sn|SlotID|
-|Her Disk okuma işlemi/sn|Veri diski okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS tek bir disk okuma süresi izleme sırasında while|SlotID|
-|Disk yazma işlemi/sn|Veri Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem izleme sırasında tek bir diske yazma while|SlotID|
-|Her disk QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri diski sıra derinliği (veya sırası uzunluğu)|SlotID|
-|Disk Okuma Bayt/sn başına işletim sistemi|İşletim sistemi Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski dönemin izleme sırasında tek bir diskten okunan toplam bayt/sn|Hiç boyut|
-|İşletim sistemi Disk başına yazılan bayt/sn|İşletim sistemi Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski dönemin izleme sırasında tek bir diske yazılan toplam bayt/sn|Hiç boyut|
-|Disk okuma işlemi/sn başına işletim sistemi|İşletim sistemi Disk okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem işletim sistemi diski için izleme sırasında tek bir disk okuma while|Hiç boyut|
-|İşletim sistemi Disk başına yazma işlemi/sn|İşletim sistemi Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|Toplam IOPS dönem işletim sistemi diski için izleme sırasında tek bir diske yazma while|Hiç boyut|
-|İşletim sistemi Disk QD başına|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim sistemi diski sıra derinliği (veya sırası uzunluğu)|Hiç boyut|
+|Disk Başına Okuma Bayt/sn|Veri Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okunan Toplam Bayt/Sn|SlotId|
+|Disk Başına Yazma Bayt/sn|Veri Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazılan Toplam Bayt/Sn|SlotId|
+|Disk Başına Okuma İşlemi/Sn|Veri diski okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|SlotId|
+|Disk Başına Yazma İşlemi/Sn|Veri Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İzleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|SlotId|
+|Disk Başına QD|Veri diski QD (Önizleme)|Sayı|Ortalama|Veri Diski Sıra Derinliği (veya Sıra Uzunluğu)|SlotId|
+|İşletim Sistemi Diski Başına Okuma Bayt/sn|İşletim sistemi Disk Okuma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okunan Toplam Bayt/Sn|Hiç boyut|
+|İşletim Sistemi Diski Başına Yazma Bayt/sn|İşletim sistemi Disk Yazma Bayt/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazılan Toplam Bayt/Sn|Hiç boyut|
+|İşletim Sistemi Diski Başına Okuma İşlemi/Sn|İşletim sistemi Disk okuma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diskten okuma sırasında yapılan Toplam IOPS|Hiç boyut|
+|İşletim Sistemi Diski Başına Yazma İşlemi/Sn|İşletim sistemi Disk yazma işlemi/sn (Önizleme)|CountPerSecond|Ortalama|İşletim sistemi diski için izleme döneminde tek bir diske yazma sırasında yapılan Toplam IOPS|Hiç boyut|
+|İşletim Sistemi Disk Başına QD|İşletim sistemi diski QD (Önizleme)|Sayı|Ortalama|İşletim Sistemi Diski Sıra Derinliği (veya Sıra Uzunluğu)|Hiç boyut|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
 |Ölçüm|Ölçüm görünen adı|Birim|Toplama türü|Açıklama|Boyutlar|
 |---|---|---|---|---|---|
-|CpuUsage|CPU Kullanımı|Sayı|Ortalama|Millicores, tüm çekirdek CPU kullanımı.|Kapsayıcı adı|
+|CpuUsage|CPU Kullanımı|Sayı|Ortalama|Milicore'daki tüm çekirdeklerde CPU kullanımı.|Kapsayıcı adı|
 |MemoryUsage|Bellek Kullanımı|Bayt|Ortalama|Bayt olarak toplam bellek kullanımı.|Kapsayıcı adı|
 
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
@@ -467,7 +462,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |DCIProfilesCount|Profil örnek sayısı|Sayı|Son||Hiç boyut|
 |DCIInteractionsPerMonthCount|Etkileşimleri başına ay sayısı|Sayı|Son||Hiç boyut|
 |DCIKpisCount|KPI sayısı|Sayı|Son||Hiç boyut|
-|DCISegmentsCount|Segment sayısı|Sayı|Son||Hiç boyut|
+|DCISegmentsCount|Segment Sayısı|Sayı|Son||Hiç boyut|
 |DCIPredictiveMatchPoliciesCount|Tahmine dayalı eşleşme sayısı|Sayı|Son||Hiç boyut|
 |DCIPredictionsCount|Tahmin sayısı|Sayı|Son||Hiç boyut|
 
@@ -553,7 +548,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |c2d.commands.egress.complete.success|Tamamlanan komutları|Sayı|Toplam|Aygıt tarafından başarıyla tamamlandı bulut cihaz komutlarının sayısı|Hiç boyut|
 |c2d.commands.egress.abandon.success|Terk komutları|Sayı|Toplam|Aygıt tarafından terk bulut cihaz komutlarının sayısı|Hiç boyut|
 |c2d.commands.egress.reject.success|Reddedilen komutları|Sayı|Toplam|Aygıt tarafından reddedilen bulut cihaz komutlarının sayısı|Hiç boyut|
-|devices.totalDevices|Toplam aygıt|Sayı|Toplam|IOT hub'ınıza kayıtlı cihaz sayısı|Hiç boyut|
+|devices.totalDevices|Toplam cihaz sayısı|Sayı|Toplam|IOT hub'ınıza kayıtlı cihaz sayısı|Hiç boyut|
 |devices.connectedDevices.allProtocol|Bağlı aygıtlar|Sayı|Toplam|IOT hub'ına bağlı aygıt sayısı|Hiç boyut|
 |d2c.telemetry.egress.Success|Telemetri iletilerini teslim|Sayı|Toplam|İletiler (toplam) uç noktalara başarıyla yazılmış sayısı|Hiç boyut|
 |d2c.telemetry.egress.dropped|Bırakılan iletiler|Sayı|Toplam|Teslim endpoint ölü olduğundan bırakılan ileti sayısı|Hiç boyut|
@@ -646,10 +641,10 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |CaptureBacklog|Kapsam yakalayın. (Önizleme)|Sayı|Toplam|Microsoft.EventHub için kapsam yakalayın. (Önizleme)|EntityName|
 |CapturedMessages|Yakalanan İletiler. (Önizleme)|Sayı|Toplam|Microsoft.EventHub için Yakalanan İletiler. (Önizleme)|EntityName|
 |CapturedBytes|Yakalanan Baytlar. (Önizleme)|Bayt|Toplam|Microsoft.EventHub için Yakalanan Baytlar. (Önizleme)|EntityName|
-|Boyut|Boyut (Önizleme)|Bayt|Ortalama|Bir EventHub bayt cinsinden boyutu. (Önizleme)|EntityName|
+|Boyut|Boyut (Önizleme)|Bayt|Ortalama|EventHub'ın Bayt cinsinden boyutu. (Önizleme)|EntityName|
 |INREQS|Gelen İstekler|Sayı|Toplam|Bir ad alanı için gelen toplam gönderme isteği|Hiç boyut|
 |SUCCREQ|Başarılı İstekler|Sayı|Toplam|Bir ad alanı için toplam başarılı istek sayısı|Hiç boyut|
-|FAILREQ|Başarısız Olan İstekler|Sayı|Toplam|Bir ad alanı için toplam başarısız istek sayısı|Hiç boyut|
+|FAILREQ|Başarısız İstekler|Sayı|Toplam|Bir ad alanı için toplam başarısız istek sayısı|Hiç boyut|
 |SVRBSY|Sunucu Meşgul Hataları|Sayı|Toplam|Bir ad alanı için sunucu meşgul hatalarının toplam sayısı|Hiç boyut|
 |INTERR|İç Sunucu Hataları|Sayı|Toplam|Bir ad alanı için toplam iç sunucu hatası sayısı|Hiç boyut|
 |MISCERR|Diğer Hatalar|Sayı|Toplam|Bir ad alanı için toplam başarısız istek sayısı|Hiç boyut|
@@ -788,7 +783,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |UnhealthyHostCount|Sağlıksız ana bilgisayar sayısı|Sayı|Ortalama|Sağlıksız arka uç ana bilgisayar sayısı. Üzerindeki filtre bir sağlıklı ve uygun olmayan ana bilgisayarlar belirli arka uç havuzundaki göstermek için arka uç havuzu temelinde.|BackendSettingsPool|
 |healthyHostCount|Sağlıklı ana bilgisayar sayısı|Sayı|Ortalama|Sağlıklı arka uç ana bilgisayar sayısı. Üzerindeki filtre bir sağlıklı ve uygun olmayan ana bilgisayarlar belirli arka uç havuzundaki göstermek için arka uç havuzu temelinde.|BackendSettingsPool. |
 |TotalRequests|Toplam İstek Sayısı|Sayı|Toplam|Uygulama ağ geçidi hizmet verdi başarılı istek sayısı|BackendSettingsPool|
-|FailedRequests|Başarısız Olan İstekler|Sayı|Toplam|Uygulama ağ geçidi hizmet verdi başarısız isteği sayısı|BackendSettingsPool|
+|FailedRequests|Başarısız İstekler|Sayı|Toplam|Uygulama ağ geçidi hizmet verdi başarısız isteği sayısı|BackendSettingsPool|
 |ResponseStatus|Yanıt durumu|Sayı|Toplam|Uygulama ağ geçidi tarafından döndürülen http yanıt durumu. Yanıt durum kodu dağıtım categoized 2xx, 3xx, 4xx ve 5xx kategorileri yanıtları göstermek için daha fazla olabilir.|HttpStatusGroup|
 |CurrentConnections|Geçerli bağlantı|Sayı|Toplam|Uygulama ağ geçidi ile kurulan geçerli bağlantı sayısı|Hiç boyut|
 
@@ -1016,9 +1011,9 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |IncomingMessages|Gelen iletileri (Önizleme)|Sayı|Toplam|Microsoft.ServiceBus için Gelen İletiler. (Önizleme)|EntityName|
 |OutgoingMessages|Giden iletiler (Önizleme)|Sayı|Toplam|Microsoft.ServiceBus için Giden İletiler. (Önizleme)|EntityName|
 |ActiveConnections|ActiveConnections (Önizleme)|Sayı|Toplam|Microsoft.ServiceBus için Toplam Etkin Bağlantılar. (Önizleme)|Hiç boyut|
-|Boyut|Boyut (Önizleme)|Bayt|Ortalama|Bir kuyruk/konu bayt cinsinden boyutu. (Önizleme)|EntityName|
-|İletiler|Bir kuyruk/konuda ileti sayısı. (Önizleme)|Sayı|Ortalama|Bir kuyruk/konuda ileti sayısı. (Önizleme)|EntityName|
-|ActiveMessages|Bir sıra/konunun active ileti sayısı. (Önizleme)|Sayı|Ortalama|Bir sıra/konunun active ileti sayısı. (Önizleme)|EntityName|
+|Boyut|Boyut (Önizleme)|Bayt|Ortalama|Sıranın/Konunun Bayt cinsinden boyutu. (Önizleme)|EntityName|
+|İletiler|Bir Sıradaki/Konudaki iletilerin sayısı. (Önizleme)|Sayı|Ortalama|Bir Sıradaki/Konudaki iletilerin sayısı. (Önizleme)|EntityName|
+|ActiveMessages|Bir Sıradaki/Konudaki etkin iletilerin sayısı. (Önizleme)|Sayı|Ortalama|Bir Sıradaki/Konudaki etkin iletilerin sayısı. (Önizleme)|EntityName|
 |CPUXNS|Ad alanı başına CPU kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı CPU kullanım ölçümü|Hiç boyut|
 |WSXNS|Ad alanı başına bellek boyutu kullanımı|Yüzde|Maksimum|Service Bus premium ad alanı bellek kullanım ölçümü|Hiç boyut|
 
@@ -1046,9 +1041,9 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |dtu_consumption_percent|DTU yüzdesi|Yüzde|Ortalama|DTU yüzdesi|Hiç boyut|
 |depolama|Toplam veritabanı boyutu|Bayt|Maksimum|Toplam veritabanı boyutu|Hiç boyut|
 |connection_successful|Başarılı bağlantıları|Sayı|Toplam|Başarılı bağlantıları|Hiç boyut|
-|connection_failed|Başarısız bağlantı sayısı|Sayı|Toplam|Başarısız bağlantı sayısı|Hiç boyut|
+|connection_failed|Başarısız Bağlantılar|Sayı|Toplam|Başarısız Bağlantılar|Hiç boyut|
 |blocked_by_firewall|Güvenlik Duvarı tarafından engellendi|Sayı|Toplam|Güvenlik Duvarı tarafından engellendi|Hiç boyut|
-|Kilitlenme|Kilitlenmeleri|Sayı|Toplam|Kilitlenmeleri|Hiç boyut|
+|Kilitlenme|Kilitlenmeler|Sayı|Toplam|Kilitlenmeler|Hiç boyut|
 |storage_percent|Veri boyutu yüzdesi|Yüzde|Maksimum|Veri boyutu yüzdesi|Hiç boyut|
 |xtp_storage_percent|Bellek içi OLTP depolama yüzdesi|Yüzde|Ortalama|Bellek içi OLTP depolama yüzdesi|Hiç boyut|
 |workers_percent|Çalışanlar yüzdesi|Yüzde|Ortalama|Çalışanlar yüzdesi|Hiç boyut|
@@ -1169,7 +1164,7 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |AMLCalloutFailedRequests|Başarısız İşlev İstekleri|Sayı|Toplam|Başarısız İşlev İstekleri|Hiç boyut|
 |AMLCalloutInputEvents|İşlev Olayları|Sayı|Toplam|İşlev Olayları|Hiç boyut|
 |DeserializationError|Giriş Serileştirme Kaldırma Hataları|Sayı|Toplam|Giriş Serileştirme Kaldırma Hataları|Hiç boyut|
-|EarlyInputEvents|Uygulanma zamanı varış zamanından önce olan olaylar.|Sayı|Toplam|Uygulanma zamanı varış zamanından önce olan olaylar.|Hiç boyut|
+|EarlyInputEvents|Olaylar, uygulama süreleri kendi varış tarihinden daha önce.|Sayı|Toplam|Olaylar, uygulama süreleri kendi varış tarihinden daha önce.|Hiç boyut|
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
@@ -1229,19 +1224,19 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |AppConnections|Bağlantılar|Sayı|Ortalama|Bağlantılar|Örnek|
 |Tanıtıcılar|Tanıtıcı Sayısı|Sayı|Ortalama|Tanıtıcı Sayısı|Örnek|
 |İş Parçacıkları|İş Parçacığı Sayısı|Sayı|Ortalama|İş Parçacığı Sayısı|Örnek|
-|IoReadBytesPerSecond|Saniye başına okunan bayt g/ç|BytesPerSecond|Toplam|Saniye başına okunan bayt g/ç|Örnek|
-|IoWriteBytesPerSecond|G/ç yazma bayt / saniye|BytesPerSecond|Toplam|G/ç yazma bayt / saniye|Örnek|
-|IoOtherBytesPerSecond|GÇ diğer bayt / saniye|BytesPerSecond|Toplam|GÇ diğer bayt / saniye|Örnek|
-|IoReadOperationsPerSecond|Saniye başına g/ç okuma işlemleri|BytesPerSecond|Toplam|Saniye başına g/ç okuma işlemleri|Örnek|
-|IoWriteOperationsPerSecond|G/ç yazma işlemlerini / saniye|BytesPerSecond|Toplam|G/ç yazma işlemlerini / saniye|Örnek|
-|IoOtherOperationsPerSecond|Diğer işlemlerin saniye başına g/ç|BytesPerSecond|Toplam|Diğer işlemlerin saniye başına g/ç|Örnek|
-|RequestsInApplicationQueue|Uygulama sırasındaki isteklerin|Sayı|Ortalama|Uygulama sırasındaki isteklerin|Örnek|
+|IoReadBytesPerSecond|GÇ Okunan Bayt / Saniye|BytesPerSecond|Toplam|GÇ Okunan Bayt / Saniye|Örnek|
+|IoWriteBytesPerSecond|GÇ Yazılan Bayt / Saniye|BytesPerSecond|Toplam|GÇ Yazılan Bayt / Saniye|Örnek|
+|IoOtherBytesPerSecond|GÇ Diğer Bayt / Saniye|BytesPerSecond|Toplam|GÇ Diğer Bayt / Saniye|Örnek|
+|IoReadOperationsPerSecond|GÇ Okuma İşlemi / Saniye|BytesPerSecond|Toplam|GÇ Okuma İşlemi / Saniye|Örnek|
+|IoWriteOperationsPerSecond|GÇ Yazma İşlemi / Saniye|BytesPerSecond|Toplam|GÇ Yazma İşlemi / Saniye|Örnek|
+|IoOtherOperationsPerSecond|GÇ Diğer İşlemler / Saniye|BytesPerSecond|Toplam|GÇ Diğer İşlemler / Saniye|Örnek|
+|RequestsInApplicationQueue|Uygulama Kuyruğundaki İstekler|Sayı|Ortalama|Uygulama Kuyruğundaki İstekler|Örnek|
 |CurrentAssemblies|Geçerli Derlemeler|Sayı|Ortalama|Geçerli Derlemeler|Örnek|
-|TotalAppDomains|Toplam uygulama etki alanları|Sayı|Ortalama|Toplam uygulama etki alanları|Örnek|
-|TotalAppDomainsUnloaded|Toplam uygulama etki alanları kaldırıldı|Sayı|Ortalama|Toplam uygulama etki alanları kaldırıldı|Örnek|
-|Gen0Collections|Gen 0 çöp koleksiyonları|Sayı|Toplam|Gen 0 çöp koleksiyonları|Örnek|
-|Gen1Collections|Gen 1 çöp koleksiyonları|Sayı|Toplam|Gen 1 çöp koleksiyonları|Örnek|
-|Gen2Collections|Gen 2 çöp koleksiyonları|Sayı|Toplam|Gen 2 çöp koleksiyonları|Örnek|
+|TotalAppDomains|Toplam Uygulama Etki Alanları|Sayı|Ortalama|Toplam Uygulama Etki Alanları|Örnek|
+|TotalAppDomainsUnloaded|Yüklenmemiş Toplam Uygulama Etki Alanları|Sayı|Ortalama|Yüklenmemiş Toplam Uygulama Etki Alanları|Örnek|
+|Gen0Collections|Gen 0 Atık Toplamaları|Sayı|Toplam|Gen 0 Atık Toplamaları|Örnek|
+|Gen1Collections|Gen 1 Atık Toplamaları|Sayı|Toplam|Gen 1 Atık Toplamaları|Örnek|
+|Gen2Collections|Gen 2 Atık Toplamaları|Sayı|Toplam|Gen 2 Atık Toplamaları|Örnek|
 
 ## <a name="microsoftwebsites-functions"></a>Microsoft.Web/sites (işlev)
 
@@ -1254,19 +1249,19 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |AverageMemoryWorkingSet|Ortalama bellek çalışma kümesi|Bayt|Ortalama|Ortalama bellek çalışma kümesi|Örnek|
 |FunctionExecutionUnits|İşlev Yürütme Birimleri|Sayı|Toplam|İşlev Yürütme Birimleri|Örnek|
 |İşlev yürütme sayısı|İşlev Yürütme Sayısı|Sayı|Toplam|İşlev Yürütme Sayısı|Örnek|
-|IoReadBytesPerSecond|Saniye başına okunan bayt g/ç|BytesPerSecond|Toplam|Saniye başına okunan bayt g/ç|Örnek|
-|IoWriteBytesPerSecond|G/ç yazma bayt / saniye|BytesPerSecond|Toplam|G/ç yazma bayt / saniye|Örnek|
-|IoOtherBytesPerSecond|GÇ diğer bayt / saniye|BytesPerSecond|Toplam|GÇ diğer bayt / saniye|Örnek|
-|IoReadOperationsPerSecond|Saniye başına g/ç okuma işlemleri|BytesPerSecond|Toplam|Saniye başına g/ç okuma işlemleri|Örnek|
-|IoWriteOperationsPerSecond|G/ç yazma işlemlerini / saniye|BytesPerSecond|Toplam|G/ç yazma işlemlerini / saniye|Örnek|
-|IoOtherOperationsPerSecond|Diğer işlemlerin saniye başına g/ç|BytesPerSecond|Toplam|Diğer işlemlerin saniye başına g/ç|Örnek|
-|RequestsInApplicationQueue|Uygulama sırasındaki isteklerin|Sayı|Ortalama|Uygulama sırasındaki isteklerin|Örnek|
+|IoReadBytesPerSecond|GÇ Okunan Bayt / Saniye|BytesPerSecond|Toplam|GÇ Okunan Bayt / Saniye|Örnek|
+|IoWriteBytesPerSecond|GÇ Yazılan Bayt / Saniye|BytesPerSecond|Toplam|GÇ Yazılan Bayt / Saniye|Örnek|
+|IoOtherBytesPerSecond|GÇ Diğer Bayt / Saniye|BytesPerSecond|Toplam|GÇ Diğer Bayt / Saniye|Örnek|
+|IoReadOperationsPerSecond|GÇ Okuma İşlemi / Saniye|BytesPerSecond|Toplam|GÇ Okuma İşlemi / Saniye|Örnek|
+|IoWriteOperationsPerSecond|GÇ Yazma İşlemi / Saniye|BytesPerSecond|Toplam|GÇ Yazma İşlemi / Saniye|Örnek|
+|IoOtherOperationsPerSecond|GÇ Diğer İşlemler / Saniye|BytesPerSecond|Toplam|GÇ Diğer İşlemler / Saniye|Örnek|
+|RequestsInApplicationQueue|Uygulama Kuyruğundaki İstekler|Sayı|Ortalama|Uygulama Kuyruğundaki İstekler|Örnek|
 |CurrentAssemblies|Geçerli Derlemeler|Sayı|Ortalama|Geçerli Derlemeler|Örnek|
-|TotalAppDomains|Toplam uygulama etki alanları|Sayı|Ortalama|Toplam uygulama etki alanları|Örnek|
-|TotalAppDomainsUnloaded|Toplam uygulama etki alanları kaldırıldı|Sayı|Ortalama|Toplam uygulama etki alanları kaldırıldı|Örnek|
-|Gen0Collections|Gen 0 çöp koleksiyonları|Sayı|Toplam|Gen 0 çöp koleksiyonları|Örnek|
-|Gen1Collections|Gen 1 çöp koleksiyonları|Sayı|Toplam|Gen 1 çöp koleksiyonları|Örnek|
-|Gen2Collections|Gen 2 çöp koleksiyonları|Sayı|Toplam|Gen 2 çöp koleksiyonları|Örnek|
+|TotalAppDomains|Toplam Uygulama Etki Alanları|Sayı|Ortalama|Toplam Uygulama Etki Alanları|Örnek|
+|TotalAppDomainsUnloaded|Yüklenmemiş Toplam Uygulama Etki Alanları|Sayı|Ortalama|Yüklenmemiş Toplam Uygulama Etki Alanları|Örnek|
+|Gen0Collections|Gen 0 Atık Toplamaları|Sayı|Toplam|Gen 0 Atık Toplamaları|Örnek|
+|Gen1Collections|Gen 1 Atık Toplamaları|Sayı|Toplam|Gen 1 Atık Toplamaları|Örnek|
+|Gen2Collections|Gen 2 Atık Toplamaları|Sayı|Toplam|Gen 2 Atık Toplamaları|Örnek|
 
 ## <a name="microsoftwebsitesslots"></a>Microsoft.Web/sites/slots
 
@@ -1293,19 +1288,19 @@ Azure İzleyicisi, portalda grafik, REST API aracılığıyla erişme veya bunla
 |AppConnections|Bağlantılar|Sayı|Ortalama|Bağlantılar|Örnek|
 |Tanıtıcılar|Tanıtıcı Sayısı|Sayı|Ortalama|Tanıtıcı Sayısı|Örnek|
 |İş Parçacıkları|İş Parçacığı Sayısı|Sayı|Ortalama|İş Parçacığı Sayısı|Örnek|
-|IoReadBytesPerSecond|Saniye başına okunan bayt g/ç|BytesPerSecond|Toplam|Saniye başına okunan bayt g/ç|Örnek|
-|IoWriteBytesPerSecond|G/ç yazma bayt / saniye|BytesPerSecond|Toplam|G/ç yazma bayt / saniye|Örnek|
-|IoOtherBytesPerSecond|GÇ diğer bayt / saniye|BytesPerSecond|Toplam|GÇ diğer bayt / saniye|Örnek|
-|IoReadOperationsPerSecond|Saniye başına g/ç okuma işlemleri|BytesPerSecond|Toplam|Saniye başına g/ç okuma işlemleri|Örnek|
-|IoWriteOperationsPerSecond|G/ç yazma işlemlerini / saniye|BytesPerSecond|Toplam|G/ç yazma işlemlerini / saniye|Örnek|
-|IoOtherOperationsPerSecond|Diğer işlemlerin saniye başına g/ç|BytesPerSecond|Toplam|Diğer işlemlerin saniye başına g/ç|Örnek|
-|RequestsInApplicationQueue|Uygulama sırasındaki isteklerin|Sayı|Ortalama|Uygulama sırasındaki isteklerin|Örnek|
+|IoReadBytesPerSecond|GÇ Okunan Bayt / Saniye|BytesPerSecond|Toplam|GÇ Okunan Bayt / Saniye|Örnek|
+|IoWriteBytesPerSecond|GÇ Yazılan Bayt / Saniye|BytesPerSecond|Toplam|GÇ Yazılan Bayt / Saniye|Örnek|
+|IoOtherBytesPerSecond|GÇ Diğer Bayt / Saniye|BytesPerSecond|Toplam|GÇ Diğer Bayt / Saniye|Örnek|
+|IoReadOperationsPerSecond|GÇ Okuma İşlemi / Saniye|BytesPerSecond|Toplam|GÇ Okuma İşlemi / Saniye|Örnek|
+|IoWriteOperationsPerSecond|GÇ Yazma İşlemi / Saniye|BytesPerSecond|Toplam|GÇ Yazma İşlemi / Saniye|Örnek|
+|IoOtherOperationsPerSecond|GÇ Diğer İşlemler / Saniye|BytesPerSecond|Toplam|GÇ Diğer İşlemler / Saniye|Örnek|
+|RequestsInApplicationQueue|Uygulama Kuyruğundaki İstekler|Sayı|Ortalama|Uygulama Kuyruğundaki İstekler|Örnek|
 |CurrentAssemblies|Geçerli Derlemeler|Sayı|Ortalama|Geçerli Derlemeler|Örnek|
-|TotalAppDomains|Toplam uygulama etki alanları|Sayı|Ortalama|Toplam uygulama etki alanları|Örnek|
-|TotalAppDomainsUnloaded|Toplam uygulama etki alanları kaldırıldı|Sayı|Ortalama|Toplam uygulama etki alanları kaldırıldı|Örnek|
-|Gen0Collections|Gen 0 çöp koleksiyonları|Sayı|Toplam|Gen 0 çöp koleksiyonları|Örnek|
-|Gen1Collections|Gen 1 çöp koleksiyonları|Sayı|Toplam|Gen 1 çöp koleksiyonları|Örnek|
-|Gen2Collections|Gen 2 çöp koleksiyonları|Sayı|Toplam|Gen 2 çöp koleksiyonları|Örnek|
+|TotalAppDomains|Toplam Uygulama Etki Alanları|Sayı|Ortalama|Toplam Uygulama Etki Alanları|Örnek|
+|TotalAppDomainsUnloaded|Yüklenmemiş Toplam Uygulama Etki Alanları|Sayı|Ortalama|Yüklenmemiş Toplam Uygulama Etki Alanları|Örnek|
+|Gen0Collections|Gen 0 Atık Toplamaları|Sayı|Toplam|Gen 0 Atık Toplamaları|Örnek|
+|Gen1Collections|Gen 1 Atık Toplamaları|Sayı|Toplam|Gen 1 Atık Toplamaları|Örnek|
+|Gen2Collections|Gen 2 Atık Toplamaları|Sayı|Toplam|Gen 2 Atık Toplamaları|Örnek|
 
 ## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
 

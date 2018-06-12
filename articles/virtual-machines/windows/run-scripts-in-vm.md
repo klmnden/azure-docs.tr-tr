@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 05/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 98c2934800c739b463b168786e14f6a2a9cb47e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d8df5e4992cd8d51f1b5259947139d3b180ec82
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661138"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267055"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Windows VM'nizi komut dosyalarını çalıştır
 
@@ -31,14 +31,14 @@ Görevleri otomatikleştirmenize ve sorunlarını gidermek için bir VM'de komut
 
 ## <a name="run-command"></a>Komutu çalıştırın
 
-[Komutu Çalıştır](run-command.md) sanal makine ve uygulama yönetimi ve komut dosyalarını kullanarak sorun giderme özelliği sağlar ve hatta makine olduğunu değil ağ olduğunda kullanılabilir bağlıdır.
+[Komutu Çalıştır](run-command.md) özelliğini sanal makine ve uygulama yönetimi ve komut dosyalarını kullanarak sorun giderme sağlar ve hatta makine Konuk Güvenlik Duvarı'nı RDP veya SSH bağlantı noktası yoksa, örneğin ulaşılabilir olmadığında kullanılabilir açın.
 
 * Komut dosyalarını Azure sanal makinelerinde çalıştırın.
 * Kullanılarak çalıştırılabilir [Azure portal](run-command.md), [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), veya [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)
 * Hızlı bir şekilde bir komut dosyası ve görünüm çıkış çalıştırın ve Azure portalında gerektiği kadar yineleyin.
 * Komut dosyası doğrudan yazılabilir veya yerleşik komut dosyalarından birini çalıştırabilirsiniz.
 * Windows makinelerinizde PowerShell komut dosyasını çalıştırın ve komut dosyası Linux makinelerde Bash.
-* Sanal makine ve uygulama yönetimi ve komut dosyaları, ağa bağlı olmayan sanal makinelerde çalışan için kullanışlıdır.
+* Sanal makine ve uygulama yönetimi ve sanal makinelerin ulaşılamadığı komut dosyaları çalıştırmak için kullanışlıdır.
 
 ## <a name="hybrid-runbook-worker"></a>Karma Runbook Çalışanı
 

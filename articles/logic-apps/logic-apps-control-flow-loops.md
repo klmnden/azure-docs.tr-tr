@@ -1,29 +1,25 @@
 ---
-title: Döngüler - işlem dizileri veya yineleme Eylemler - Azure Logic Apps | Microsoft Docs
-description: İşlem "için her" dizilerle döngüler veya logic apps içinde belirli koşulların kadar yineleme eylemleri
+title: Eylemler yineleyin veya diziler - Azure Logic Apps işlem döngüler ekleme | Microsoft Docs
+description: İş akışı eylemlerinin yineleyin veya Azure Logic Apps dizilerde işlem döngü oluşturma
 services: logic-apps
-keywords: her döngü için
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298194"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>Döngüler: diziler işlem veya Eylemler bir koşul yerine getirilene kadar yineleme
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>İş akışı eylemlerinin yineleyin veya Azure Logic Apps dizilerde işlem döngü oluşturma
 
-Mantıksal uygulama diziler üzerinden yineleme yapmak için kullanabileceğiniz bir ["Foreach" döngüsü](#foreach-loop) veya [sıralı "Foreach" döngüsü](#sequential-foreach-loop). Sıralı bir "Foreach" döngü Döngülerde birer birer çalıştırırken standart "Foreach" döngü Döngülerde paralel olarak çalıştırın. "Foreach" döngüler çalıştırmak tek mantıksal uygulama içinde işleyebilir dizi öğe maksimum sayısı için bkz: [sınırlarını ve yapılandırmasını](../logic-apps/logic-apps-limits-and-config.md). 
+Mantıksal uygulamanızı dizilerde yinelemek için kullanabileceğiniz bir ["Foreach" döngüsü](#foreach-loop) veya [sıralı "Foreach" döngüsü](#sequential-foreach-loop). Sıralı bir "Foreach" döngüsü yinelemeleri birer birer çalıştırırken standart "Foreach" döngüsü yinelemeleri paralel olarak çalıştırın. "Foreach" döngüler çalıştırmak tek mantıksal uygulama içinde işleyebilir dizi öğe maksimum sayısı için bkz: [sınırlarını ve yapılandırmasını](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP] 
 > Bir dizi alan ve her bir dizi öğesi için bir iş akışını çalıştırmak istediğiniz bir tetikleyici varsa *debatch* bu diziyle [ **SplitOn** tetiklemek özelliği](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 

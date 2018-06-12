@@ -1,19 +1,20 @@
 ---
-title: "Yapılandırma ve Azure Portalı'nda MySQL için Azure veritabanı için sunucu günlüklerine erişim"
-description: "Bu makalede, yapılandırmak ve Azure Portal'da MySQL için Azure veritabanı sunucusu günlüklerine erişmek açıklar."
+title: Yapılandırma ve Azure Portalı'nda MySQL için Azure veritabanı için sunucu günlüklerine erişim
+description: Bu makalede, yapılandırmak ve Azure Portal'da MySQL için Azure veritabanı sunucusu günlüklerine erişmek açıklar.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b68d92688b18e69f74c0e0a9b2e572795a288579
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: eb35563bc21fc48d304f216e7b34cc9a77f35e83
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265371"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve erişim sunucusu Azure portalında oturum
 

@@ -1,29 +1,25 @@
 ---
-title: "Switch ifadeleri - belirli değerlerine göre - Azure mantıksal uygulamaları çalıştırma adımları | Microsoft Docs"
-description: "Nesneleri, ifadeleri ya da mantıksal uygulamalar belirteçleri değerlere göre farklı adımları çalıştırın"
+title: İş akışları - Azure Logic Apps switch deyimleri ekleme | Microsoft Docs
+description: Azure mantıksal uygulamaları belirli değerleri temel iş akışı eylemlerinin denetim switch deyimleri oluşturma
 services: logic-apps
-keywords: Switch deyimi
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299625"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Switch ifadeleri: logic apps içinde belirli değerlere göre farklı adımları çalıştırın
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure mantıksal uygulamaları belirli değerleri temel iş akışı eylemleri çalıştırmak switch deyimleri oluşturma
 
-Nesne, ifade veya belirteç değerlerine göre farklı adımları gerçekleştirmek için bir *geçiş* deyimi. Bu yapı nesne, ifade ya da belirtecinde değerlendirir, sonucu eşleşen ve yalnızca bir olay adımları çalışır durumda seçer. Switch deyimi çalıştığında, yalnızca bir örnek sonuç eşleşmelidir.
+Nesne, ifadeler veya belirteçleri değerlerine göre belirli eylemleri çalıştırmak için ekleyin bir *geçiş* deyimi. Bu yapı nesne, ifade ya da belirtecinde değerlendirir, sonuç eşleşen ve yalnızca o çalışması için belirli eylemleri çalıştırır çalışmasını seçer. Switch deyimi çalıştığında, yalnızca bir örnek sonuç eşleşmelidir.
 
 Örneğin, e-posta ile bir seçeneğe bağlı farklı adımlar geçen bir mantıksal uygulama istediğinizi varsayalım. Bu örnekte, mantıksal uygulama bir Web sitesinin RSS için yeni içerik akışı denetler. Yeni bir öğe RSS akışı göründüğünde, mantıksal uygulama bir onaylayacak kişiye e-posta gönderir. Onaylayanın "Onayla" veya "Reddet" seçer bağlı olarak, mantıksal uygulama farklı adımları izler.
 

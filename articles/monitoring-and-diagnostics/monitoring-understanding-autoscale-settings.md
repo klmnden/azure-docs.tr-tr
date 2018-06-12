@@ -1,24 +1,19 @@
 ---
-title: "Otomatik ölçeklendirme ayarlarını Azure anlama | Microsoft Docs"
-description: "Otomatik ölçeklendirme ayarlarını ve nasıl çalıştığını ayrıntılı bir dökümü."
+title: Otomatik ölçeklendirme ayarlarını Azure İzleyicisi'nde anlama
+description: Otomatik ölçeklendirme ayarlarını ve nasıl çalıştığını ayrıntılı bir dökümü. Sanal makineler, bulut Hizmetleri, Web uygulamaları için geçerlidir
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ce2930aa-fc41-4b81-b0cb-e7ea922467e1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.openlocfilehash: 73c79ec4ee1beb5220e088421c78ffffd932eef1
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: autoscale
+ms.openlocfilehash: 982bc43fd86a808da07833d77bde17e17789b2d6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265005"
 ---
 # <a name="understand-autoscale-settings"></a>Otomatik Ölçeklendirme ayarlarını anlama
 Otomatik ölçeklendirme ayarları, uygulamanızın fluctuating yükü işlemek üzere çalışan kaynakları sağ miktarına sahip sağlamaya yardımcı olur. Zamanlanmış tarih ve saatte yük veya performans ölçümleri temelinde veya tetiklenen tetiklenmesi için otomatik ölçeklendirme ayarlarını yapılandırabilirsiniz. Bu makalede bir ayrıntılı bir otomatik ölçeklendirme ayarı anatomisi inceler. Makaleyi ayarı özelliklerini ve şema ile başlar ve farklı bir profil türleri aracılığıyla yapılandırılabilir anlatılmaktadır. Son olarak, belirli bir zamanda çalıştırmak için hangi profilin azure'daki otomatik ölçeklendirme özelliği nasıl değerlendirir anlatılmaktadır.
@@ -101,11 +96,11 @@ Otomatik ölçeklendirme ayarı şema göstermek için aşağıdaki otomatik öl
 | Ayar | location | Otomatik ölçeklendirme ayarının konumu. Bu konum ölçeklendirilmiş kaynak konumundan farklı olabilir. |
 | properties | targetResourceUri | Genişletilmiş kaynak kaynak kimliği. Yalnızca kaynak başına bir otomatik ölçeklendirme ayarına sahip olabilir. |
 | properties | Profilleri | Otomatik ölçeklendirme ayarı bir veya daha fazla profil oluşur. Otomatik ölçeklendirme altyapısı, her çalıştığında bir profil yürütür. |
-| Profili | ad | Profil adı. Profil tanımanıza yardımcı olacak herhangi bir ad seçebilirsiniz. |
-| Profili | Capacity.Maximum | İzin verilen en fazla kapasitesi. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızın bu sayının üstündeki ölçeklenmez sağlar. |
-| Profili | Capacity.minimum | İzin verilen en az kapasitesi. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızın bu sayının altına ölçeklenmez sağlar. |
-| Profili | Capacity.default | (Bu durumda, "vmss1" CPU) kaynak ölçümü okunurken bir sorun oluştu ve Geçerli kapasitenin altında varsayılan ise, otomatik ölçeklendirme çıkışı varsayılan olarak ölçeklendirir. Bu kaynak kullanılabilirliğini sağlamak için yapılır. Geçerli kapasitenin zaten varsayılan kapasitesinden yüksek ise, otomatik ölçeklendirme, ölçeklendirme sağlamaz. |
-| Profili | rules | Otomatik ölçeklendirme profili kuralları kullanılarak maksimum ve minimum kapasiteleri arasında otomatik olarak ölçeklendirir. Bir profili birden çok kural bulunabilir. Genellikle iki kural vardır: zaman ölçeğini belirlemek için diğeri zaman içinde ölçeklendirmek belirlemek için. |
+| profil | ad | Profil adı. Profil tanımanıza yardımcı olacak herhangi bir ad seçebilirsiniz. |
+| profil | Capacity.Maximum | İzin verilen en fazla kapasitesi. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızın bu sayının üstündeki ölçeklenmez sağlar. |
+| profil | Capacity.minimum | İzin verilen en az kapasitesi. Bu profili yürütülürken otomatik ölçeklendirme, kaynağınızın bu sayının altına ölçeklenmez sağlar. |
+| profil | Capacity.default | (Bu durumda, "vmss1" CPU) kaynak ölçümü okunurken bir sorun oluştu ve Geçerli kapasitenin altında varsayılan ise, otomatik ölçeklendirme çıkışı varsayılan olarak ölçeklendirir. Bu kaynak kullanılabilirliğini sağlamak için yapılır. Geçerli kapasitenin zaten varsayılan kapasitesinden yüksek ise, otomatik ölçeklendirme, ölçeklendirme sağlamaz. |
+| profil | rules | Otomatik ölçeklendirme profili kuralları kullanılarak maksimum ve minimum kapasiteleri arasında otomatik olarak ölçeklendirir. Bir profili birden çok kural bulunabilir. Genellikle iki kural vardır: zaman ölçeğini belirlemek için diğeri zaman içinde ölçeklendirmek belirlemek için. |
 | kural | metricTrigger | Kural ölçüm koşulunu tanımlar. |
 | metricTrigger | metricName | Ölçüm adı. |
 | metricTrigger |  metricResourceUri | Ölçüm yayar kaynak kaynak kimliği. Çoğu durumda, genişletilmiş kaynak ile aynı olur. Bazı durumlarda, farklı olabilir. Örneğin, bir depolama sıradaki iletilerin sayısına dayalı olarak bir sanal makine ölçek kümesi ölçeklendirebilirsiniz. |

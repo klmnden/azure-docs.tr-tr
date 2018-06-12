@@ -1,22 +1,19 @@
 ---
-title: Azure etkinlik günlüğü olay şeması | Microsoft Docs
+title: Azure etkinlik günlüğü olay şeması
 description: Etkinlik günlüğü yayılan veriler için olay şeması anlama
 author: johnkemnetz
-manager: robb
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264560"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure etkinlik günlüğü olay şeması
 **Azure etkinlik günlüğü** Azure'da oluşan herhangi bir abonelik düzeyi olayı bir anlayış sağlar günlüktür. Bu makalede veri kategorisi başına olay şema açıklanmaktadır.
@@ -482,6 +479,88 @@ Bu kategori, Azure Güvenlik Merkezi tarafından oluşturulan tüm uyarıları k
 | eventTimestamp |Olay işleme olay karşılık gelen isteği Azure hizmeti tarafından oluşturulan zaman damgası. |
 | submissionTimestamp |Olay sorgulama için kullanılabilir duruma zaman damgası. |
 | subscriptionId |Azure abonelik kimliği |
+
+## <a name="recommendation"></a>Öneri
+Bu kategori hizmetlerinizi için oluşturulan tüm yeni önerileri kaydını içerir. Bir öneri örneği "kullanım kullanılabilirlik geliştirilmiş hataya dayanıklılık için ayarlar." olacaktır Oluşturulabilecek öneri olayları 4 tür vardır: yüksek kullanılabilirlik, performans, güvenlik ve maliyet iyileştirmesi. 
+
+### <a name="sample-event"></a>Örnek olayı
+```json
+{
+    "channels": "Operation",
+    "correlationId": "92481dfd-c5bf-4752-b0d6-0ecddaa64776",
+    "description": "The action was successful.",
+    "eventDataId": "06cb0e44-111b-47c7-a4f2-aa3ee320c9c5",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Recommendation",
+        "localizedValue": "Recommendation"
+    },
+    "eventTimestamp": "2018-06-07T21:30:42.976919Z",
+    "id": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM/events/06cb0e44-111b-47c7-a4f2-aa3ee320c9c5/ticks/636640038429769190",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Advisor/generateRecommendations/action",
+        "localizedValue": "Microsoft.Advisor/generateRecommendations/action"
+    },
+    "resourceGroupName": "MYRESOURCEGROUP",
+    "resourceProviderName": {
+        "value": "MICROSOFT.COMPUTE",
+        "localizedValue": "MICROSOFT.COMPUTE"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.COMPUTE/virtualmachines",
+        "localizedValue": "MICROSOFT.COMPUTE/virtualmachines"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-06-07T21:30:42.976919Z",
+    "subscriptionId": "<Subscription ID>",
+    "properties": {
+        "recommendationSchemaVersion": "1.0",
+        "recommendationCategory": "Security",
+        "recommendationImpact": "High",
+        "recommendationRisk": "None"
+    },
+    "relatedEvents": []
+}
+
+```
+### <a name="property-descriptions"></a>Özellik açıklamaları
+| Öğe adı | Açıklama |
+| --- | --- |
+| kanallar | Her zaman "işlem" |
+| correlationId | Dize biçimindeki bir GUID. |
+| açıklama |Öneri Olay açıklaması statik metin |
+| eventDataId | Öneri olay benzersiz tanımlayıcısı. |
+| category | Her zaman "öneri" |
+| id |Öneri olay benzersiz kaynak tanımlayıcısı. |
+| düzey |Olay düzeyi. Aşağıdaki değerlerden birini: "Kritik", "Error"Uyarı",", "Bilgi" veya "Ayrıntılı" |
+| operationName |İşlemin adı.  Her zaman "Microsoft.Advisor/generateRecommendations/action"|
+| resourceGroupName |Kaynak için kaynak grubunun adı. |
+| resourceProviderName |Bu öneri, "MICROSOFT.COMPUTE" gibi uygulandığı kaynak için kaynak sağlayıcısının adı |
+| Kaynak türü |Bu öneri, "MICROSOFT.COMPUTE/virtualmachines" gibi uygulandığı kaynak için kaynak türü adı |
+| resourceId |Öneri uygulandığı kaynağının kaynak kimliği |
+| durum | Her zaman "Active" |
+| submissionTimestamp |Olay sorgulama için kullanılabilir duruma zaman damgası. |
+| subscriptionId |Azure abonelik kimliği |
+| properties |Kümesi `<Key, Value>` öneri ayrıntılarını açıklayan çiftleri (diğer bir deyişle, bir sözlük).|
+| properties.recommendationSchemaVersion| Etkinlik günlüğü girişinde öneri özellikleri şema sürümü yayımlandı |
+| properties.recommendationCategory | Öneri kategorisi. "Yüksek kullanılabilirlik", "Performans", "Güvenlik" ve "Maliyet" olası değerler şunlardır: |
+| properties.recommendationImpact| Öneri etkisini. Olası değerler şunlardır: "High", "Orta", "Düşük" |
+| properties.recommendationRisk| Öneri riskini. Olası değerler şunlardır: "Error"Uyarı",", "None" |
+
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Etkinlik günlüğü (önceki adıyla denetim günlüklerini) hakkında daha fazla bilgi edinin](monitoring-overview-activity-logs.md)

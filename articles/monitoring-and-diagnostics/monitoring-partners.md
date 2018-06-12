@@ -1,31 +1,26 @@
 ---
-title: "Azure İzleyicisi iş ortağı tümleştirmeler | Microsoft Docs"
-description: "Azure monitörün iş ortakları ve onlarla tümleştirme belgelerine nasıl erişebileceğiniz hakkında bilgi edinin."
+title: Azure İzleyicisi ile intergrate iş ortakları
+description: Azure monitörün iş ortakları ve onlarla tümleştirme belgelerine nasıl erişebileceğiniz hakkında bilgi edinin.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 01ee13ac-66fc-4edc-8b0c-32f69b986a26
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/15/2018
 ms.author: johnkem
-ms.openlocfilehash: 44315b88d55d370c8200952dc2ff9d64d64cf524
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.component: ''
+ms.openlocfilehash: c8f8dbc4aa32b550849ff14f3ad653311b9fab93
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265292"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure İzleyicisi iş ortağı tümleştirmeler
 | İş Ortakları |  |  |
 | --- | --- | --- |
 | [![İş ortağı logosu][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![İş ortağı logosu][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![İş ortağı logosu][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
 | [**Botmetric**][botmetric-anchor] | [![İş ortağı logosu][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![İş ortağı logosu][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] |
-| [![Partner Logo][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![İş ortağı logosu][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![İş ortağı logosu][datadog-logo]<br/>**Datadog**][datadog-anchor] |
+| [![İş ortağı logosu][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![İş ortağı logosu][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![İş ortağı logosu][datadog-logo]<br/>**Datadog**][datadog-anchor] |
 | [![İş ortağı logosu][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![İş ortağı logosu][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![İş ortağı logosu][logicmonitor-logo]<br/>**mantığı İzleyicisi**][logicmonitor-anchor] |
 | [![İş ortağı logosu][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![İş ortağı logosu][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![İş ortağı logosu][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
 | [![İş ortağı logosu][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![İş ortağı logosu][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![İş ortağı logosu][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
@@ -146,7 +141,7 @@ Sumo mantığı bir güvenli, bulut yerel makine veri analizi, gerçek zamanlı,
 [Daha fazla bilgi edinin.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic, performans, maliyet ve gerçek zamanlı uyumluluk aynı anda iyileştirerek iş yükü Otomasyon karma bulut için sunar. Kuruluşların kendi Azure varlıklarının sürekli olarak uygulamaları sürekli onlara SLA'sı ve hiçbir şey arasında daha fazla sunmak için gereken kaynakları alma emin olmak için varlıklarının iyileştirerek esnek Turbonomic yardımcı işlem, depolama ve ağ Iaas ve PaaS katmanı. Kuruluşlar geçişler benzetimini, düzgün şekilde iş yükleri ölçeklendirmek ve sorumlu bir şekilde Azure zamanında, bütçenin, performans ve uyumluluk modemlerin sırasında geçirmek için veri merkezi kaynaklarını devre dışı bırakma. Turbonomic güdümlü API ve aracısız bir VM Azure ve şirket içi olarak çalışır.
+Turbonomic, performans, maliyet ve gerçek zamanlı uyumluluk aynı anda iyileştirerek iş yükü Otomasyon karma bulut için sunar. Kuruluşların kendi Azure varlıklarının sürekli olarak uygulamaları sürekli onlara SLA'sı ve hiçbir şey arasında daha fazla sunmak için gereken kaynakları alma emin olmak için varlıklarının iyileştirerek esnek Turbonomic yardımcı işlem, depolama ve ağ Iaas ve PaaS katmanı. Kuruluşlar geçişler benzetimini, düzgün şekilde iş yükleri ölçeklendirmek ve sorumlu bir şekilde Azure zamanında, bütçenin, performans ve uyumluluk modemlerin sırasında geçirmek için veri merkezi kaynaklarını devre dışı bırakma. Turbonomic API tabanlıdır ve Azure ile şirket içi ortamda aracısız bir sanal makine olarak çalışır.
 
 [Daha fazla bilgi edinin.][turbonomic-doc]
 
@@ -169,7 +164,7 @@ Turbonomic, performans, maliyet ve gerçek zamanlı uyumluluk aynı anda iyileş
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
 [grafana-anchor]: #grafana "Grafana"
-[logicmonitor-anchor]: #logic-monitor "Logic Monitor"
+[logicmonitor-anchor]: #logic-monitor "Mantığı İzleyicisi"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
@@ -179,7 +174,7 @@ Turbonomic, performans, maliyet ve gerçek zamanlı uyumluluk aynı anda iyileş
 [signl4-anchor]: #signl4 "SIGNL4"
 [solarwinds-anchor]: #solarwinds "SolarWinds"
 [splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
-[sumologic-anchor]: #sumo-logic "Sumo Logic"
+[sumologic-anchor]: #sumo-logic "Sumo mantığı"
 [turbonomic-anchor]: #turbonomic "Turbonomic"
 
 <!--Icon references-->
@@ -212,7 +207,7 @@ Turbonomic, performans, maliyet ve gerçek zamanlı uyumluluk aynı anda iyileş
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric giriş."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
-[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix introduction."
+[cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix giriş."
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn giriş."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog belgeleri."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace belgeleri."
@@ -222,7 +217,7 @@ Turbonomic, performans, maliyet ve gerçek zamanlı uyumluluk aynı anda iyileş
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie belgeleri."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty belgeleri."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar belgeleri."
-[sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic documentation."
+[sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic belgeleri."
 [signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "SignalFx belgeleri."
 [signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "SIGNL4 belgeleri."
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds belgeleri."

@@ -1,24 +1,19 @@
 ---
-title: Azure depolama alanında tanılama veri deposu ve Görünüm | Microsoft Docs
+title: Azure Depolama’da Tanılama Verilerini Depolama ve Görüntüleme
 description: Azure Tanılama verileri Azure depolama alanına almak ve görüntüleme
-services: cloud-services
-documentationcenter: .net
+services: azure-monitor
 author: thraka
-manager: timlt
-editor: tysonn
-ms.assetid: 18e0780d-43e7-41e4-b8e9-f1fb9a36eb03
-ms.service: cloud-services
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: adegeo
-ms.openlocfilehash: 248e1c87ec244649a296233bf2aaa323d3475a79
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: 6590e6991f07b7315c09a995152879c991fafcef
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267671"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage deposu ve görünüm Tanılama verileri
 Microsoft Azure storage öykünücüsü veya Azure depolama transfer sürece Tanılama verileri kalıcı olarak depolanmaz. Bir kez depolama biriminde, onu birkaç kullanılabilen araçlar biriyle görüntülenebilir.
@@ -42,7 +37,7 @@ Toplanacak tanılama veri türüne bağlı olarak, Azure tanılama Blob hizmeti 
 | IIS 7.0 günlükleri |Blob |
 | Azure Tanılama altyapısı günlükleri |Tablo |
 | Başarısız istek izleme günlükleri |Blob |
-| Windows olay günlükleri |Tablo |
+| Windows Olay günlükleri |Tablo |
 | Performans sayaçları |Tablo |
 | Kilitlenme bilgi dökümleri |Blob |
 | Özel hata günlükleri |Blob |

@@ -1,24 +1,20 @@
 ---
-title: "Olay hub'ları kullanarak etkin yolunuzda Azure Tanılama verileri akış | Microsoft Docs"
-description: "Olay hub'ları yaygın senaryoları için yönergeler de dahil olmak üzere uca, ile Azure tanılama yapılandırılıyor."
-services: event-hubs
-documentationcenter: na
+title: Olay hub'ları için Azure tanılama veri akışı
+description: Olay hub'ları yaygın senaryoları için yönergeler de dahil olmak üzere uca, ile Azure tanılama yapılandırılıyor.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267722"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Olay hub'ları kullanarak Azure Tanılama verileri etkin yolunuzda akış
 Azure tanılama bulut Hizmetleri sanal makinelerden (VM'ler) ölçümleri ve günlükleri toplamak ve sonuçları Azure depolama birimine aktarmak için esnek yöntemler sağlar. Mart 2016 (SDK 2.9) zaman çerçevesinde başlayarak, özel veri kaynaklarına tanılama gönderebilir ve etkin yolunuzda veri aktarımının saniye cinsinden kullanarak [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -29,7 +25,7 @@ Desteklenen veri türleri şunlardır:
 * Performans sayaçları
 * Windows olay günlükleri
 * Uygulama günlükleri
-* Azure tanılama altyapı günlükleri
+* Azure Tanılama altyapısı günlükleri
 
 Bu makalede Azure tanılama uçtan uca olay hub'larıyla yapılandırma gösterilmektedir. Yönergeler ayrıca aşağıdaki ortak senaryolar için sağlanır:
 
@@ -38,7 +34,7 @@ Bu makalede Azure tanılama uçtan uca olay hub'larıyla yapılandırma gösteri
 * Olay hub'ları akış verileri görüntüleme
 * Bağlantı ile ilgili sorunları giderme  
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Olay hub'ları receieving Azure Tanılama verileri bulut Hizmetleri, sanal makineleri, sanal makine ölçek kümeleri ve Service Fabric Azure SDK 2.9 ve karşılık gelen Azure Araçları Visual Studio için başlangıç desteklenir.
 
 * Azure tanılama uzantısını 1.6 ([veya daha sonra .NET 2.9 için Azure SDK](https://azure.microsoft.com/downloads/) bu varsayılan olarak hedefler)

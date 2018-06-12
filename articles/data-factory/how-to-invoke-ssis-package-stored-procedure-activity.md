@@ -1,6 +1,6 @@
 ---
-title: Saklı yordam etkinliği Azure Data Factory kullanarak SSIS paketi çalıştırmak | Microsoft Docs
-description: Bu makalede, SQL Server Integration Services (SSIS) paketi saklı yordam etkinliği kullanarak bir Azure Data Factory işlem hattı çalıştırmak açıklar.
+title: Saklı yordam etkinliği ile - Azure SSIS paketi çalıştırmak | Microsoft Docs
+description: Bu makalede, saklı yordam etkinliği kullanarak Azure Data Factory ardışık düzeninde bir SQL Server Integration Services (SSIS) paketi çalıştırmaya açıklar.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,15 +13,15 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 44c157334306f81a8c9850cfa53e139139ff1db6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df4e5002d637c4d280686642156309c85bd89773
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618897"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297694"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çalıştırın
-Bu makalede, bir saklı yordam etkinliği kullanarak Azure Data Factory ardışık düzen tarafından SSIS paketi çalıştırmaya açıklar. 
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory içinde saklı yordam etkinliği ile bir SSIS paketi çalıştırın
+Bu makalede, bir saklı yordam etkinliği kullanarak Azure Data Factory ardışık düzeninde bir SSIS paketi çalıştırmaya açıklar. 
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [saklı yordam etkinliği sürüm 1 kullanılarak çağırma SSIS paketleri](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).

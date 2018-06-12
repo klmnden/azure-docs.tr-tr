@@ -1,10 +1,10 @@
 ---
-title: "B2B iletişim - Azure Logic Apps sözleşmelerini | Microsoft Docs"
-description: "Ortaklar B2B senaryolarda Azure Logic Apps ve kurumsal tümleştirme paketi için iletişim kurabilmesi anlaşmaları oluşturma"
+title: B2B iletişim - Azure Logic Apps sözleşmelerini | Microsoft Docs
+description: Ortaklar B2B senaryolarda Azure Logic Apps ve kurumsal tümleştirme paketi için iletişim kurabilmesi anlaşmaları oluşturma
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
-manager: anneta
+manager: jeconnoc
 editor: cgronlun
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
 ms.service: logic-apps
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: LADocs
-ms.openlocfilehash: 1f939c626be11a358b0f8bece8840992a4362e1f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: df41a57b5b6e364ff537a28c939f362b4d399e7a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298734"
 ---
 # <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure mantıksal uygulamaları ve Enterprise Integration Pack B2B iletişim için ortak sözleşmeleri
 

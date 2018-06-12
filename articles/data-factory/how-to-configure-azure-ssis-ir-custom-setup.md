@@ -1,6 +1,6 @@
 ---
-title: Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum | Microsoft Docs
-description: Bu makalede Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum arabirimi kullanma
+title: Kurulum Azure SSIS tümleştirmesi çalışma zamanı için özelleştirme | Microsoft Docs
+description: Bu makalede Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum arabirimi ek bileşenleri yüklemek veya ayarlarını değiştirmek için nasıl kullanılacağını açıklar
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: douglasl
-ms.openlocfilehash: cce41a7529367d2e26b89a40593f9564d7e539b6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7b6cae9eaa4674e60edfae13c571d89153c9b498
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619600"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298401"
 ---
-# <a name="custom-setup-for-the-azure-ssis-integration-runtime"></a>Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum
+# <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Kurulum Azure SSIS tümleştirmesi çalışma zamanı için özelleştirme
 
-Yapılandırma veya (örneğin, ek Windows hizmetlerini başlatmak için) ortamında işletim varsayılan alter Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum arabirimi sağlar veya ek bileşenleri yüklemek (örneğin, derlemeleri, sürücüleri veya Uzantıları), Azure SSIS IR, her bir düğümde Genel olarak, sağlama veya Azure SSIS IR yeniden yapılandırılması sırasında kendi kurulum adımlarını eklemek için bir arabirim sağlar
+Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum arabirimi sağlama veya Azure SSIS IR yeniden yapılandırılması sırasında kendi kurulum adımlarını eklemek için bir arabirim sağlar Özel Kurulum işletim yapılandırma veya ortam (örneğin, ek Windows hizmetlerini başlatmak için) varsayılan alter izin verir veya ek bileşenler (örneğin, derlemeleri, sürücüleri veya Uzantılar), Azure SSIS IR her bir düğümüne yükleyin
 
 Bir komut dosyası ve ilişkili dosyalarını hazırlama ve bunları Azure depolama hesabınızdaki blob kapsayıcısı içinde karşıya özel ayarlarınızı yapılandırın. Sağlamak ya da Azure SSIS IR yeniden yapılandırmak için kapsayıcı bir paylaşılan erişim imzası (SAS) Tekdüzen Kaynak Tanımlayıcısı (URI) sağlayın Her düğüm, Azure SSIS IR sonra kapsayıcıdan komut dosyası ve ilişkili dosyalarını indirir ve özel kurulumunuzu yükseltilmiş ayrıcalıklarla çalıştırır. Özel Kurulum tamamlandığında, her düğüm yürütme ve diğer günlükler standart çıktısı, kapsayıcıya yükler.
 
@@ -32,7 +32,7 @@ Boş veya lisanssız bileşenleri hem ücretli veya lisanslı bileşenlerini yü
 
 -   Kullanmak istiyorsanız, `gacutil.exe` derlemeleri Genel Derleme Önbelleği'ne (GAC) yüklemek için özel kurulumunun bir parçası olarak sağlamak veya genel Önizleme kapsayıcısında sağlanan kopyayı kullanmak gerekir.
 
--   Bir sanal ağa, Azure SSIS IR özel kurulum ile katılmak gerekiyorsa, yalnızca Azure Resource Manager Vnet'i desteklenir. Klasik VNet desteklenmiyor.
+-   Bir sanal ağa, Azure SSIS IR özel kurulum ile katılmak gerekiyorsa, yalnızca Azure Resource Manager sanal ağ desteklenir. Klasik sanal ağı desteklenmiyor.
 
 -   Yönetim paylaşımı üzerinde Azure SSIS IR şu anda desteklenmiyor
 

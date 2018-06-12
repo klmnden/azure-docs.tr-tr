@@ -5,25 +5,25 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/02/2018
+ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0bc23c033e868f3cf72256318f0fb129c853e19d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a2a1c916543da07f25b2b9727e309709632afe00
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661149"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267280"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell komut dosyalarını çalıştır komutu ile Windows VM'nizi çalıştırın
 
-Çalıştırma komutu, içinde bir Azure Windows VM ağ bağlantısı bağımsız olarak PowerShell betikleri çalıştırmak sağlar. Bu komut dosyalarını genel makine ya da uygulama yönetimi için kullanılan ve hızla tanılamak ve VM erişimi ve ağ sorunları çözmek ve VM iyi bir durumda almak için kullanılabilir.
+Bir Azure Windows VM dahilinde Kabuk PowerShell betikleri çalıştırmak için VM Aracısı farklı çalıştır komutunu kullanır. Bu komut dosyalarını genel makine ya da uygulama yönetimi için kullanılan ve hızla tanılamak ve VM erişimi ve ağ sorunları çözmek ve VM iyi bir durumda almak için kullanılabilir.
 
 ## <a name="benefits"></a>Avantajlar
 
-Sanal makinelerinize erişmek için kullanılan birden fazla seçeneği vardır. Çalıştır komutunu ağ bağlantısı bağımsız olarak, sanal makinelerde çalıştırabilir ve (yükleme gerekli) varsayılan olarak kullanılabilir. Azure Portalı aracılığıyla çalıştırma komutu kullanılabilir [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), veya [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Sanal makinelerinize erişmek için kullanılan birden fazla seçeneği vardır. Çalıştır komutunu kullanarak uzaktan VM Aracısı, sanal makinelerde çalıştırabilir. Azure Portalı aracılığıyla çalıştırma komutu kullanılabilir [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), veya [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Bu özellik, bir komut dosyası etkileşimindeki sanal makineleri çalıştırmak istiyorsanız ve sorun giderme ve hatalı ağa veya yönetici kullanıcı nedeniyle ağa bağlı olmayan bir sanal makine düzeltmek için yalnızca yollarından biri, tüm senaryolarda kullanışlıdır yapılandırma.
+Bu yetenek burada betik etkileşimindeki sanal makineleri çalıştırmak istediğiniz ve sorun giderme ve RDP sahip olmayan bir sanal makine düzeltmek için yalnızca yollarından biri, veya SSH bağlantı noktası açın hatalı ağ veya yönetici kullanıcı nedeniyle tüm senaryolarda kullanışlıdır yapılandırma.
 
 ## <a name="restrictions"></a>Kısıtlamalar
 

@@ -1,13 +1,13 @@
 ---
-title: "Bir grubun veya koleksiyonun - Azure mantıksal uygulamaları toplu işlem iletilerinin | Microsoft Docs"
-description: "Toplu işleme logic apps içinde ileti gönderme ve alma"
-keywords: "Batch, toplu işlem"
+title: Bir grubun veya koleksiyonun - Azure mantıksal uygulamaları toplu işlem iletilerinin | Microsoft Docs
+description: Toplu işleme logic apps içinde ileti gönderme ve alma
+keywords: Batch, toplu işlem
 author: jonfancey
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: de519084a4f172ad984c78727123835eeb9deaef
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298024"
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Gönderme, alma ve logic apps işlem iletileri toplu
 
@@ -77,7 +78,7 @@ Gönderen logic apps alıcı logic apps Gönderenler ilgili herhangi bir şey bi
 
    1. Toplu tetikleyici altında seçin **+ yeni adım** > **Eylem Ekle**.
 
-   2. Arama kutusuna "e-posta", filtre olarak girin.
+   2. Arama kutusuna filtreniz olarak "e-posta" yazın.
    E-posta sağlayıcınız üzerinde bağlı olarak, bir e-posta Bağlayıcısı'nı seçin.
    
       Örneğin, bir iş veya Okul hesabınız varsa, Office 365 Outlook Bağlayıcısı'nı seçin. 
@@ -131,7 +132,7 @@ Gönderen logic apps alıcı logic apps Gönderenler ilgili herhangi bir şey bi
 1. Bu ada sahip başka bir mantıksal uygulama oluşturma: "BatchSender"
 
    1. Arama kutusuna "recurrence", filtre olarak girin. 
-   Bu tetikleyici seçin: **çizelgesi - yineleme**
+   Şu tetikleyiciyi seçin: **Zamanlama - Yinelenme**
 
       !["Yinelemeyi Zamanla" tetikleyicisi ekleyin](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
 
@@ -168,9 +169,9 @@ Gönderen logic apps alıcı logic apps Gönderenler ilgili herhangi bir şey bi
    Bu örnekte, geçerli tarih ve saat için toplu Gönder ileti içeriği ekler bu deyim ekleyin:
 
      1. Zaman **dinamik içerik** listesi görüntülenir, seçin **ifade**. 
-     2. İfade girin **utcnow()**ve seçin **Tamam**. 
+     2. İfade girin **utcnow()** ve seçin **Tamam**. 
 
-        !["İletisi içeriği", "İfadesi" seçin. Enter "utcnow()".](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
+        !["İletisi içeriği", "İfadesi" seçin. "Utcnow()" girin.](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
 
 4. Toplu işlem için bir bölüm şimdi ayarlayın. "BatchReceiver" eylemini seçin **Gelişmiş Seçenekleri Göster**.
 

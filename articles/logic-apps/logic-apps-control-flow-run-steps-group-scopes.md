@@ -1,29 +1,25 @@
 ---
-title: "Çalışma adımları göre gruplandırılmış eylem durumu - Azure Logic Apps | Microsoft Docs"
-description: "Grup eylemlere kapsamlar ve Grup durumuna dayalı çalıştırma adımları"
+title: Grubu durumu - Azure Logic Apps temel eylemleri kapsamları ekleyin | Microsoft Docs
+description: Grup eylem durumu Azure Logic Apps içinde temel iş akışı eylemleri Çalıştırma kapsamı oluşturma
 services: logic-apps
-keywords: "dal, paralel işleme"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298823"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>Kapsamlar: logic apps Grup durumu bağlı adımlar Çalıştır
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Azure mantıksal uygulamaları Grup durumu temel iş akışı eylemleri çalıştırmak kapsamları oluşturun
 
-Başka bir grup işlemlerin başarılı veya başarısız sonra adımlarını çalıştırmak için bu grubu içinde put bir *kapsam*. Bu yapı, mantıksal grup olarak Eylemler düzenlemek, o grubun durumunu değerlendirmek ve kapsamın durum üzerinde temel eylemleri gerçekleştirmek istediğiniz yararlıdır. Çalıştırma kapsamı içindeki tüm eylemler tamamladıktan sonra kapsam Ayrıca kendi durumlarını alır. Örneğin, uygulamak istediğiniz zaman kapsamlarını kullanabilirsiniz [özel durumu ve hata işleme](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Başka bir grup işlemlerin başarılı veya başarısız sonra eylemleri çalıştırmak için bu eylemleri içinde grup bir *kapsam*. Bu yapı, mantıksal grup olarak Eylemler düzenlemek, o grubun durumunu değerlendirmek ve kapsamın durum üzerinde temel eylemleri gerçekleştirmek istediğiniz yararlıdır. Çalıştırma kapsamı içindeki tüm eylemler tamamladıktan sonra kapsam Ayrıca kendi durumlarını alır. Örneğin, uygulamak istediğiniz zaman kapsamlarını kullanabilirsiniz [özel durumu ve hata işleme](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
 Bir kapsamın durumu denetlemek için bir mantığı belirlemek için kullandığınız aynı ölçütleri kullanabilirsiniz uygulamaları durumu "Başarılı", "Başarısız", "İptal edildi" vb. gibi çalıştırın. Kapsamın tüm eylemler başarılı olduğunda, varsayılan olarak, kapsamın durumu "Başarılı" olarak işaretlenmiş Ancak kapsamı içinde herhangi bir işlem başarısız olduğunda veya iptal edildi, kapsamın durumu "Başarısız" olarak işaretlenmiş Kapsamlar üzerinde sınırları için bkz: [sınırları ve yapılandırma](../logic-apps/logic-apps-limits-and-config.md). 
 
@@ -85,12 +81,12 @@ Herhangi bir zamanda mantıksal uygulamanızı kaydetme, genellikle çalışmala
       | ------- | ----- | ----------- |
       | **Güzergah noktası 1** | <*Başlat*> | Rotanın kaynak girin. | 
       | **Güzergah noktası 2** | <*Bitiş*> | Rotanın hedef girin. | 
-      | **Kaçının** | Hiçbiri | Otoyollar gibi rotada tolls, önlemek üzere öğeleri girin. Olası değerler için bkz: [bir rota hesaplamak](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Kaçının** | None | Otoyollar gibi rotada tolls, önlemek üzere öğeleri girin. Olası değerler için bkz: [bir rota hesaplamak](https://msdn.microsoft.com/library/ff701717.aspx). | 
       | **İyileştir** | timeWithTraffic | Uzaklık, süresiyle geçerli trafik bilgileri vb. gibi rota en iyi duruma getirmek için bir parametre seçin. Bu örnekte bu değeri kullanır: "timeWithTraffic" | 
       | **Mesafe birimi** | <*your-preference*> | Rota hesaplamak için uzaklık birimi girin. Bu örnekte bu değeri kullanır: "Mil" | 
       | **Seyahat modu** | Sürüş | Seyahat modu için yol girin. Bu örnekte bu değer "Driving" kullanır. | 
-      | **Toplu Ulaşım Tarih-Saati** | Hiçbiri | Yalnızca aktarım modu için geçerlidir. | 
-      | **Geçiş türü tarih türü** | Hiçbiri | Yalnızca aktarım modu için geçerlidir. | 
+      | **Toplu Ulaşım Tarih-Saati** | None | Yalnızca aktarım modu için geçerlidir. | 
+      | **Geçiş türü tarih türü** | None | Yalnızca aktarım modu için geçerlidir. | 
       ||||  
 
 4. Geçerli seyahat trafiği ile belirtilen bir zaman aralığını aşan olup olmadığını denetle için bir koşul ekleyin. Bu örnekte, bu görüntüyü altındaki adımları izleyin:
@@ -153,7 +149,7 @@ Herhangi bir zamanda mantıksal uygulamanızı kaydetme, genellikle çalışmala
 
 Ardından, böylece belirli eylemleri gruplamak ve bunların durumunu değerlendirmek kapsam ekleyin.
 
-## <a name="add-a-scope"></a>Bir kapsam ekleme
+## <a name="add-a-scope"></a>"Kapsam" ekle
 
 1. Henüz yapmadıysanız, mantıksal uygulamanızı mantığı Uygulama Tasarımcısı'nda açın. 
 
@@ -162,7 +158,7 @@ Ardından, böylece belirli eylemleri gruplamak ve bunların durumunu değerlend
    * Mantıksal uygulama iş akışı içinde varolan adımlar arasındaki bir kapsam eklemek için oku kapsamı eklemek istediğiniz işaretçiyi. 
    Seçin **artı** (**+**) > **bir kapsam eklemek**.
 
-     ![Bir kapsam ekleme](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+     !["Kapsam" ekle](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
      Mantıksal uygulamanızı sonundaki akışınıza sonuna bir kapsam eklemek istediğinizde belirleyin **+ yeni adım** > **... Daha fazla** > **bir kapsam eklemek**.
 

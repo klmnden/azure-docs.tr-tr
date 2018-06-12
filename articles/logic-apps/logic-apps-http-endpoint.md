@@ -1,12 +1,12 @@
 ---
-title: "Çağrı, tetikleyici veya HTTP uç noktaları - Azure Logic Apps ile iş akışı iç içe | Microsoft Docs"
-description: "Çağrı, tetikleyici veya iş akışları için Azure Logic Apps iç içe için HTTP uç noktaları ayarlama"
+title: Çağrı, tetikleyici veya HTTP uç noktaları - Azure Logic Apps ile iş akışı iç içe | Microsoft Docs
+description: Çağrı, tetikleyici veya iş akışları için Azure Logic Apps iç içe için HTTP uç noktaları ayarlama
 services: logic-apps
-keywords: "İş akışları, HTTP uç noktaları"
+keywords: İş akışları, HTTP uç noktaları
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.service: logic-apps
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: klam; LADocs
-ms.openlocfilehash: de4f4ee086fbf3799fcac1f1b008d9237b5e7a09
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 9c02a0f540f52007412a850b9d69e337743fc35f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300207"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>HTTP uç noktaları logic apps içinde iş akışlarıyla iç içe veya, tetikleyici çağırın
 
@@ -157,7 +158,7 @@ Parametreler kabul etmek için HTTP uç nokta URL'nizi istediğinizde, tetikleyi
 
     HTTP uç nokta URL'nizi şimdi Örneğin, göreli yol içerir: 
 
-    https&#58;//prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
+    HTTPS&#58;/ / prod-00.southcentralus.logic.azure.com/workflows/f90cb66c52ea4e9cabe0abf4e197deff/triggers/manual/paths/invoke/customers/{customerID}...
 
 7. HTTP uç noktanızı sınamak için kopyalamak ve güncelleştirilmiş URL başka bir tarayıcı penceresine yapıştırın, ancak yerine `{customerID}` ile `123456`, ve Enter tuşuna basın.
 

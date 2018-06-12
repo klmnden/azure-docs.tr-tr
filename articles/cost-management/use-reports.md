@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297524"
 ---
 # <a name="use-cost-management-reports"></a>Maliyet Yönetimi raporlarını kullanma
 
@@ -23,6 +24,8 @@ Bu makalede, çeşitli maliyet yönetim raporları Cloudyn Portalı'nda kullanma
 ## <a name="cost-analysis-reports"></a>Maliyet analiz raporları
 
 Maliyet analiz raporları, bulut sağlayıcılardan faturalama verileri görüntüler. Raporları kullanarak, Grup ve fatura dosyasında listelenen çeşitli veri bölümü ayrıntılarına. Raporları bulut satıcıların ham faturalama verisi arasında ayrıntılı maliyeti Gezinti etkinleştirin.
+
+Bir grafik görüntülendiğinde, analiz raporları bir y ekseni sahip *maliyet* ve bir x ekseni için bir *kategori veya etiket* seçtiğiniz. Grafikte bir aralık rağmen son 30 gün aralığı Örneğin, filtre olarak kullanılır. Analiz raporları kategoriler karşılaştırmak idealdir. Örneğin, son 30 gün boyunca her abonelik maliyeti. Veya, depolama veya belirli bir süre boyunca işlem gibi hizmetleri maliyeti.
 
 Maliyet analiz raporları maliyetleri etiketlere göre grup değil. Etiket tabanlı raporlama yalnızca maliyet ayırma 360 kullanarak bir maliyet modeli oluşturduktan sonra ayarlamak maliyet ayırma raporlarında kullanılabilir.
 
@@ -50,6 +53,8 @@ Bunlara incelemek ve daha ayrıntılı bilgileri görüntülemek için rapor son
 ### <a name="actual-cost-over-time"></a>Gerçek maliyet zamanla
 
 Tanımlanan zaman çözünürlüğü üzerinden maliyet dağıtma standart maliyet analiz raporu gerçek zamanlı maliyet rapordur. Rapor eğilimler gözlemleyip harcama sıradışı algılamak olanak tanımak için zaman içinde harcama görüntüler. Bu rapor, devam eden maliyetler ve seçilen bir zaman çerçevesinde harcanan tek seferlik ayrılmış örnek ücretleri dahil olmak üzere, ana maliyet katkıda bulunanlar gösterir.
+
+Bir grafik görüntülendiğinde, maliyet zaman raporlar üzerinde sahip bir y ekseni *maliyet* ve x ekseni *süre*. Bu rapor bir süre boyunca evrimi maliyetinin gösterir.
 
 Gerçek zamanlı maliyet raporun kullanın:
 
@@ -162,4 +167,4 @@ Rapor bir örneği burada verilmiştir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- İlk öğreticide maliyet yönetimi için zaten tamamlanmış yapmadıysanız, hem okuma [gözden kullanım ve maliyetleri](tutorial-review-usage.md).
+- Maliyet Yönetimi için ilk öğreticiyi önceden tamamlamadıysanız, [Kullanım ve maliyetleri gözden geçirme](tutorial-review-usage.md) bölümünden bilgi edinin.

@@ -6,22 +6,23 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 06/02/2018
 ms.custom: mvc
-ms.openlocfilehash: 3b7ae08446e672c218e7278cff4f77739286fead
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b7af709c4175ecd6100de6d638ac9862488a7190
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266355"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Azure veritabanı için MySQL nedir?
 Azure için MySQL veritabanıdır göre Microsoft bulut ilişkisel veritabanı hizmeti [MySQL Community Edition](https://www.mysql.com/products/community/) veritabanı altyapısı. Azure veritabanı için MySQL sunar:
 
 - Ek ücret ödemeden yerleşik yüksek kullanılabilirlik.
 - Kapsamlı kullandıkça öde fiyatlandırması kullanılarak öngörülebilir performans.
-- Saniyeler içinde hemen ölçeklendirme.
+- Saniye içinde gerektiğinde ölçeklendirin.
 - Bekleyen ve hareket halindeki hassas verileri korumaya yönelik güvenlik.
 - Otomatik yedeklemeler ve 35 güne kadar belirli bir noktaya geri yükleme.
 - Kurumsal düzeyde güvenlik ve uyumluluk.
@@ -44,14 +45,22 @@ MySQL hizmeti için Azure veritabanı birkaç hizmet katmanları sunar: Basic, g
 Ne zaman artırılacağına ve ne zaman azaltılacağını nasıl karar verirsiniz? Yerleşik performans izleme ve uyarı özellikleri, vCores üzerinde temel performans değerlendirmeleri birlikte kullanın. Bu Araçları'nı kullanarak, hızlı bir şekilde ölçeklendirme vCores etkisini yukarı veya aşağı geçerli veya tahmini performans ihtiyaçlarınıza göre değerlendirebilirsiniz. Ayrıntılar için bkz. [Uyarılar](howto-alert-on-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Uygulamanızın ve işinizin hiç kesintiye uğramamasını sağlayın
-Azure'nın endüstri lideri genel bir veri merkezleri, Microsoft tarafından yönetilen ağ tarafından desteklenen % 99,99 kullanılabilirlik hizmet düzeyi sözleşmesi (SLA), uygulamanızın 7/24 çalıştıran tutmaya yardımcı olur. MySQL sunucusu için her Azure veritabanı ile yerleşik güvenlik, hata toleransı ve satın alma veya tasarlama, derleme ve yönetmek için Aksi durumda olması gereken veri koruma yararlanın. MySQL için Azure veritabanı ile bir sunucu a 35 gün kadar daha önceki bir duruma kurtarmak için zaman içinde nokta geri yükleme kullanabilirsiniz.
+Azure'ın Microsoft yönetimindeki veri merkezlerinin küresel bir ağı tarafından desteklenen ve endüstri lideri niteliğinde %99,99'luk bir kullanılabilirlik oranı sunan hizmet düzeyi sözleşmesi (SLA), uygulamanızın 7/24 kesintiye uğramamasına yardımcı olur. MySQL sunucusu için her Azure veritabanı ile yerleşik güvenlik, hata toleransı ve satın alma veya tasarlama, derleme ve yönetmek için Aksi durumda olması gereken veri koruma yararlanın. MySQL için Azure veritabanı ile bir sunucu a 35 gün kadar daha önceki bir duruma kurtarmak için zaman içinde nokta geri yükleme kullanabilirsiniz.
 
 ## <a name="secure-your-data"></a>Verilerinizin güvenliğini sağlama
 Azure veritabanı hizmetleri Azure veritabanı için MySQL anlayışına veri güvenliği yılda vardır, erişimi sınırlamak, çalışmıyorken veri ve hareket halinde korumak ve yardımcı özelliklerle etkinliğini izleyin. Azure'ın platform güvenliği hakkında bilgi edinmek için [Azure Güven Merkezi](https://www.microsoft.com/en-us/trustcenter/security)'ni ziyaret edin.
 
 MySQL hizmeti için Azure veritabanına veri çalışmıyorken için depolama şifrelemesi kullanır. Yedeklemeler dahil verileri (hariç sorgu çalıştırılırken altyapısı tarafından oluşturulan geçici dosyalar) diskte şifrelenir. Hizmet, Azure depolama şifrelemesi kapsamında yer alan AES 256-bit şifrelemesini kullanır ve anahtarlar sistem tarafından yönetilir. Depolama şifrelemesi her zaman açıktır ve devre dışı bırakılamaz.
 
-Varsayılan olarak, Azure veritabanı için MySQL hizmeti gerektirecek şekilde yapılandırılmış [SSL bağlantı güvenliği](./concepts-ssl-connection-security.md) veri hareket halinde ağ üzerinden için. Veritabanı sunucunuz ve istemci uygulamalarınız arasında SSL bağlantılarını zorlamayı uygulamanız ile sunucu arasındaki veri akışını şifreleyerek "ortadaki adam" saldırılarına karşı korumaya yardımcı olur.  İsteğe bağlı olarak, istemci uygulamanızın SSL bağlantısını desteklememesi durumunda veritabanı hizmetinize bağlanmak için SSL zorunluluğunu devre dışı bırakabilirsiniz.
+Varsayılan olarak, Azure veritabanı için MySQL hizmeti gerektirecek şekilde yapılandırılmış [SSL bağlantı güvenliği](./concepts-ssl-connection-security.md) veri hareket halinde ağ üzerinden için. Veritabanı sunucunuz ve istemci uygulamalarınız arasında SSL bağlantılarını zorlamayı uygulamanız ile sunucu arasındaki veri akışını şifreleyerek "ortadaki adam" saldırılarına karşı korumaya yardımcı olur. İsteğe bağlı olarak, istemci uygulamanızın SSL bağlantısını desteklememesi durumunda veritabanı hizmetinize bağlanmak için SSL zorunluluğunu devre dışı bırakabilirsiniz.
+
+## <a name="contacts"></a>Kişiler
+Azure veritabanı için MySQL ekibi bir e-posta herhangi bir sorunuz veya MySQL için Azure veritabanı ile çalışma hakkında olabilir öneriler göndermek için ([ @Ask MySQL için Azure DB](mailto:AskAzureDBforMySQL@service.microsoft.com)). Bu bir teknik destek diğer adı olduğunu unutmayın.
+
+Buna ek olarak, uygun şekilde iletişim aşağıdaki noktaları göz önünde bulundurun:
+- Azure desteği ile iletişim [Azure portalından bir bilet dosya](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+- Hesabınızla ilgili bir sorun gidermek için dosya bir [destek isteği](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Azure portalında.
+- Geribildirim sağlamak veya yeni özellikler istemek için bir giriş aracılığıyla oluşturma [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure veritabanı giriş MySQL için okuma ve "Ne olduğu Azure veritabanı için MySQL?" sorusunu yanıtladığınıza göre şunları yapmaya hazırsınız:

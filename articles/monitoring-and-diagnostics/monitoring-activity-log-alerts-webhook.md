@@ -1,22 +1,19 @@
 ---
-title: Etkinlik günlüğü uyarıları kullanılan Web kancası şema anlama | Microsoft Docs
+title: Etkinlik günlüğü uyarıları kullanılan Web kancası şema anlama
 description: Bir etkinlik günlüğü uyarı etkinleştirdiğinde, bir Web kancası URL'si gönderilen JSON şeması hakkında bilgi edinin.
 author: johnkemnetz
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: f71714774d7ad54d7eb2132e8c20c87f972157ab
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 3935da72cb747a642ee1f360dc5318fc2d34e763
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263251"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure etkinlik günlüğü uyarılar için Web kancaları
 Bir eylem grubu tanımının bir parçası olarak, etkinlik günlüğü uyarı bildirimlerini almak için Web kancası uç noktalarını yapılandırabilirsiniz. Web kancası ile işlem sonrası ya da özel eylemler için diğer sistemlere bu bildirimler yönlendirebilirsiniz. Bu makalede, bir Web kancası için HTTP POST için yükü nasıl göründüğünü gösterir.
@@ -136,7 +133,7 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | durum |Ölçüm uyarılar için kullanılır. Her zaman "etkinlik günlüğü uyarıları için etkinleştirilmiş" olarak ayarlayın. |
 | bağlam |Olayın bağlamı. |
 | resourceProviderName |Etkilenen kaynağının kaynak sağlayıcısı. |
-| conditionType |Her zaman "olayını." |
+| Koşul türü |Her zaman "olayını." |
 | ad |Uyarı kuralı adı. |
 | id |Uyarının kaynak kimliği. |
 | açıklama |Uyarı açıklaması uyarı oluşturulduğunda ayarlayın. |
@@ -152,7 +149,7 @@ Belirli şeması hakkında ayrıntılı bilgi için diğer tüm etkinlik günlü
 | correlationId |Genellikle bir GUID dize biçiminde. Correlationıd değeri olaylarla aynı büyük eyleme ait ve genellikle bir correlationıd değeri paylaşın. |
 | eventDescription |Olay açıklaması statik metin. |
 | eventDataId |Olay için benzersiz tanımlayıcı. |
-| eventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
+| EventSource |Azure hizmet veya olayı oluşturan altyapı adı. |
 | httpRequest |İstek genellikle clientRequestId, clientIpAddress ve HTTP yöntemini içerir (örneğin, PUT). |
 | düzey |Aşağıdaki değerlerden birini: Kritik hata, uyarı ve bilgi. |
 | operationId |Tek bir işlem için karşılık gelen olayları arasında paylaşılan genellikle bir GUID. |

@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 01d880a668140b5a7ffcff8947ccc6083bca7ea0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298418"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure maliyeti yönetimi için sık sorulan sorular
 
@@ -28,23 +29,23 @@ Bu makalede Azure maliyeti Yönetimi (Cloudyn olarak da bilinir) hakkında bazı
 - "– Hayır Kurumsal Anlaşma portalında gösterilen doğrudan kayıt".
 - "Kullanım verisi yok son 30 gün boyunca bulundu. Biçimlendirme Azure hesabınız için etkin emin olmak için dağıtımcı başvurun"Cloudyn Portalı'nda görüntülenir.
 
-Bir Azure Kurumsal anlaşmasına bir satıcı aracılığıyla ya da CSP satın önceki iletileri gösterir. Satıcınıza veya CSP etkinleştirmek gereken _biçimlendirme_ Azure hesabı için verilerinizi Cloudyn içinde görüntüleyebilmesi için.
+Önceki ileti, bir kurumsal bayi veya CSP aracılığıyla Azure Kurumsal Anlaşma satın aldığınızı belirtir. Satıcınıza veya CSP etkinleştirmek gereken _biçimlendirme_ Azure hesabı için verilerinizi Cloudyn içinde görüntüleyebilmesi için.
 
-Sorunları gidermeye yönelik şöyledir:
+Sorunların çözümü:
 
-1. Satıcınızla etkinleştirmek gereken _biçimlendirme_ hesabınız için. Yönergeler için bkz: [dolaylı müşteri ekleme Kılavuzu](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
+1. Kurumsal bayinin hesabınız için _işaretlemeyi_ etkinleştirmesi gerekir. Yönergeler için bkz. [Dolaylı Müşteri Ekleme Kılavuzu](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
 2. Cloudyn ile kullanmak için Azure Kurumsal anlaşmasına anahtar oluşturun. Yönergeler için bkz: [ekleme bilgisayarınızı Azure EA](https://support.cloudyn.com/hc/en-us/articles/210429585-Adding-Your-AZURE-EA) veya [bilgisayarınızı EA kayıt kimliği bulmak ve API anahtarını](https://youtu.be/u_phLs_udig).
 
-Yalnızca bir Azure hizmeti yönetici maliyet yönetimini etkinleştirebilirsiniz. Ortak yönetici izinleri yeterli değil.
+Yalnızca bir Azure hizmet yöneticisi Maliyet Yönetimini etkinleştirebilir. Ortak yönetici izinleri yeterli değil.
 
 Cloudyn ayarlamak için Azure Enterprise sözleşmesi API anahtarı oluşturmadan önce yönergeleri izleyerek Azure faturalama API etkinleştirmeniz gerekir:
 
-- [Kurumsal müşteriler için raporlama API'leri genel bakış](../billing/billing-enterprise-api.md)
-- [Microsoft Azure enterprise portal raporlama API](https://ea.azure.com/helpdocs/reportingAPI) altında **API veri erişimini etkinleştirme**
+- [Kurumsal müşteriler için Raporlama API’lerine genel bakış](../billing/billing-enterprise-api.md)
+- **API’lere veri erişimini etkinleştirme** bölümünde [Microsoft Azure kurumsal portal Raporlama API’si](https://ea.azure.com/helpdocs/reportingAPI)
 
 
-Departman yöneticilerinin, hesap sahipleri ve kuruluş yöneticileri izinleri vermek gerekebilecek _görüntüleyin ücret_ faturalama API ile.
+Departman yöneticilerine, hesap sahiplerine ve kurumsal yöneticilere Faturalama API’si ile _ücretleri görüntüleme_ izni vermeniz de gerekebilir.
 
 ## <a name="why-dont-i-see-optimizer-recommendations"></a>İyileştirici önerileri neden göremiyorum?
 
@@ -71,16 +72,20 @@ Yukarıdaki adımları tamamladıktan sonra bir veya iki gün içinde en iyi hal
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Askıya alındı veya kilitlenmiş kullanıcıların nasıl etkinleştirebilirim?
 
+İlk olarak, kullanıcı hesaplarını almak neden en yaygın bir senaryo bakalım *initiallySuspended*.
+
+> Admin1 Microsoft bulut çözümü sağlayıcısı veya Kurumsal Anlaşma kullanıcı olabilir. Kendi kuruluş yönetimi maliyeti kullanmaya başlamak hazırdır.  Kendisi Azure portalı üzerinden kaydeder ve Cloudyn Portalı'na imzalar. Açar ve maliyet yönetim hizmeti Cloudyn Portalı'na kaydeden kişi olarak, kendisinin hale *birincil yönetici*. Admin1 herhangi bir kullanıcı hesabı oluşturmaz. Ancak, Cloudyn Portalı'nı kullanarak, kendisinin Azure hesapları oluşturun ve varlık hiyerarşisi ayarlar. Admin1 Admin2, kendisinin maliyet yönetimiyle kaydetmek ve Cloudyn portalında oturum açmak için gereken bir kiracı Yöneticisi bildirir.
+
+> Azure portalı üzerinden Admin2 kaydeder. Ancak kullanıcı hesabının olduğunu bildiren bir hata alır kendisinin Cloudyn portalında oturum açın çalıştığında **askıya**. Admin1, birincil yönetici hesabı askıya alınmasını bildirilir. Admin1 Admin2'ın hesabını etkinleştirmek ve vermek için gereksinim duyduğu *yönetici varlık erişimi* uygun varlıkların ve kullanıcı yönetim erişimi ve etkin kullanıcı hesabı sağlar.
+
+
 Bir kullanıcı için erişime izin vermek için bir istek olan bir uyarı alırsanız, kullanıcı hesabı etkinleştirmeniz gerekir.
 
 Kullanıcı hesabını etkinleştirmek için:
 
 1. Cloudyn için Cloudyn ayarlamak için kullanılan Azure yönetici kullanıcı hesabı kullanarak oturum açın. Veya yönetici erişim verildi bir kullanıcı hesabıyla oturum açın.
-
 2. Sağ üst dişli sembolü seçin ve Seç **kullanıcı yönetimi**.
-
 3. Kullanıcı Bul, Kurşun Kalem simgesini seçin ve ardından kullanıcı düzenleyin.
-
 4. Altında **kullanıcı durumu**, durumu değiştirme **askıya** için **etkin**.
 
 Cloudyn kullanıcı hesapları, çoklu oturum açma azure'dan kullanarak bağlanın. Bir kullanıcı parolasını mistypes, yine Azure erişebilirsiniz olsa da bunlar Cloudyn dışında kilitlenmesine neden.

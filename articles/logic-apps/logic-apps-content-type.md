@@ -1,11 +1,11 @@
 ---
-title: "İçerik türleri - Azure mantıksal uygulamaları işlemek | Microsoft Docs"
-description: "Azure mantıksal uygulamaları tasarım ve çalışma zamanı içerik türleri ile nasıl ilgileneceğini"
+title: İçerik türleri - Azure mantıksal uygulamaları işlemek | Microsoft Docs
+description: Azure mantıksal uygulamaları tasarım ve çalışma zamanı içerik türleri ile nasıl ilgileneceğini
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cd1f08fd-8cde-4afc-86ff-2e5738cc8288
 ms.service: logic-apps
 ms.devlang: multiple
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 809cc8524bf0d9922aec1f88aa5bfe3b8f2f4d78
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297130"
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Logic apps içinde içerik türlerini yönetmek
 
@@ -55,7 +56,7 @@ Hiçbir ek atama gereklidir. JSON ancak belirtilen üstbilgi olmadığına veril
 
 `Parse JSON` Eylem mantığı uygulama tüketimi için kolay belirteçler içine JSON içeriği ayrıştırılamıyor olanak sağlar. Benzer şekilde istek tetikleyici, bu eylem girin veya ayrıştırma istediğiniz içerik için JSON şeması oluşturma olanak sağlar. Bu araç Süren veri Service Bus, Azure Cosmos DB ve vb. kolaylaştırır.
 
-![JSON ayrıştırılamıyor](./media/logic-apps-content-type/ParseJSON.png)
+![JSON Ayrıştır](./media/logic-apps-content-type/ParseJSON.png)
 
 ## <a name="textplain"></a>Metin/düz
 
@@ -72,15 +73,15 @@ Bir sonraki eylem, başka bir istek gövdesi olarak istek göndermesi durumunda 
 
 Logic Apps altyapısı her zaman korur `Content-Type` HTTP isteği veya yanıtı alınmadı. Altyapı olan içeriği alırsa, bunu `Content-Type` , `application/octet-stream`, ve bir sonraki eylem atama olmadan içeriği, giden istek olduğunu dahil `Content-Type`: `application/octet-stream`. Bu şekilde, iş akışı taşırken veri kaybı olmadığından altyapısı garanti edebilir. Ancak, iş akışı durumu hareket ederken eylem durumu (girişleri ve çıkışları) bir JSON nesnesinde depolanır. Bazı veri türleri korumak için her ikisi de korur uygun meta verilerle ikili base64 ile kodlanmış dizeye içerik altyapısı dönüştürür şekilde `$content` ve `$content-type`, otomatik olarak olduğu dönüştürülmesi. 
 
-* `@json()`-Veri çevirir`application/json`
-* `@xml()`-Veri çevirir`application/xml`
-* `@binary()`-Veri çevirir`application/octet-stream`
-* `@string()`-Veri çevirir`text/plain`
-* `@base64()`-İçerik base64 dizeye dönüştürür
-* `@base64toString()`-base64 ile kodlanmış dizeye dönüştürür`text/plain`
-* `@base64toBinary()`-base64 ile kodlanmış dizeye dönüştürür`application/octet-stream`
-* `@encodeDataUri()`-dize dataUri bayt dizisi olarak kodlar
-* `@decodeDataUri()`-bir dataUri bir bayt dizisine kodunu çözer.
+* `@json()` -Veri çevirir `application/json`
+* `@xml()` -Veri çevirir `application/xml`
+* `@binary()` -Veri çevirir `application/octet-stream`
+* `@string()` -Veri çevirir `text/plain`
+* `@base64()` -İçerik base64 dizeye dönüştürür
+* `@base64toString()` -base64 ile kodlanmış dizeye dönüştürür `text/plain`
+* `@base64toBinary()` -base64 ile kodlanmış dizeye dönüştürür `application/octet-stream`
+* `@encodeDataUri()` -dize dataUri bayt dizisi olarak kodlar
+* `@decodeDataUri()` -bir dataUri bir bayt dizisine kodunu çözer.
 
 Örneğin, bir HTTP isteğiyle aldıysanız `Content-Type`: `application/xml`:
 

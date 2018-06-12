@@ -1,20 +1,21 @@
 ---
-title: "Oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları Azure CLI kullanarak yönetme"
-description: "Bu makalede, oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları komut satırı Azure CLI kullanarak yönetme açıklar."
+title: Oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları Azure CLI kullanarak yönetme
+description: Bu makalede, oluşturma ve Azure veritabanı için MySQL güvenlik duvarı kuralları komut satırı Azure CLI kullanarak yönetme açıklar.
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1bb60a1d6f14f0dc81047a2ffdd514724954fb14
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266066"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Oluşturma ve Azure CLI kullanarak Azure veritabanı için MySQL güvenlik duvarı kurallarını yönetme
 Sunucu düzeyinde güvenlik duvarı kuralları yöneticilerin belirli bir IP adresi veya bir IP adresi aralığı bir Azure veritabanına erişim için MySQL Server yönetmesine izin verin. Uygun Azure CLI komutları kullanarak, oluşturabilir, güncelleştirme, silin, listeleyin ve sunucunuzu yönetmek için güvenlik duvarı kuralları gösterir. Genel Bakış Azure veritabanı için MySQL güvenlik duvarları için bkz: [Azure veritabanı için MySQL server güvenlik duvarı kuralları](./concepts-firewall-rules.md)
@@ -42,7 +43,7 @@ az login
 ```
 Bu komut sonraki adımda kullanmak için bir kod çıkarır.
 
-2. Sayfasını açmak için bir web tarayıcısı kullanma [https://aka.ms/devicelogin](https://aka.ms/devicelogin)ve ardından kodunu girin.
+2. Sayfasını açmak için bir web tarayıcısı kullanma [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin)ve ardından kodunu girin.
 
 3. İstendiğinde, Azure kimlik bilgilerinizi kullanarak oturum açın.
 

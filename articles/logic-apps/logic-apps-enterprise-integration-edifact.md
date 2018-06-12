@@ -1,11 +1,11 @@
 ---
-title: "B2B Kurumsal tümleştirme - Azure Logic Apps için EDIFACT iletileri | Microsoft Docs"
-description: "Azure Logic Apps ile B2B Kurumsal tümleştirme EDI biçimindeki Exchange EDIFACT iletiler"
+title: B2B Kurumsal tümleştirme - Azure Logic Apps için EDIFACT iletileri | Microsoft Docs
+description: Azure Logic Apps ile B2B Kurumsal tümleştirme EDI biçimindeki Exchange EDIFACT iletiler
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.openlocfilehash: 4b1ea9966add3cf0d5f75988f11cda57fa4e4cf6
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: d85db6f5be487578ceab261d2779589439bfad31
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300105"
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Logic apps ile Kurumsal tümleştirme için Exchange EDIFACT iletileri
 
@@ -112,13 +113,13 @@ Artık sözleşmenizi seçili ayarlarınızı uygun gelen iletileri işlemek haz
 
 | Özellik | Açıklama |
 | --- | --- |
-| UNH2.1 (TYPE) |Bir işlem kümesi türü seçin. |
+| UNH2.1 (TÜR) |Bir işlem kümesi türü seçin. |
 | UNH2.2 (SÜRÜM) |İleti sürüm numarası girin. (En az, bir karakter; maksimum, üç karakter). |
 | UNH2.3 (SÜRÜM) |İleti sürüm numarası girin. (En az, bir karakter; maksimum, üç karakter). |
 | UNH2.5 (İLİŞKİLİ ATANAN KODU) |Atanan kodu girin. (En büyük, altı karakter. Alfasayısal olmalıdır). |
 | UNG2.1 (UYGULAMA GÖNDEREN KİMLİĞİ) |En az bir karakter ve en çok 35 karakter alfasayısal bir değer girin. |
 | UNG2.2 (UYGULAMA GÖNDEREN KODU NİTELEYİCİSİ) |En fazla dört karakter alfasayısal bir değer girin. |
-| SCHEMA |İlişkili tümleştirme hesabınızdan kullanmak istediğiniz daha önce yüklenen şemasını seçin. |
+| ŞEMA |İlişkili tümleştirme hesabınızdan kullanmak istediğiniz daha önce yüklenen şemasını seçin. |
 
 ### <a name="control-numbers"></a>Denetim Numaraları
 | Özellik | Açıklama |
@@ -188,10 +189,10 @@ Artık sözleşmenizi seçili ayarlarınızı uygun giden iletileri işlemek haz
 ### <a name="schemas"></a>Şemalar
 | Özellik | Açıklama |
 | --- | --- |
-| UNH2.1 (TYPE) |Bir işlem kümesi türü seçin. |
+| UNH2.1 (TÜR) |Bir işlem kümesi türü seçin. |
 | UNH2.2 (SÜRÜM) |İleti sürüm numarası girin. |
 | UNH2.3 (SÜRÜM) |İleti sürüm numarası girin. |
-| SCHEMA |Kullanılacak şema seçin. Şemalar tümleştirme hesabınızda bulunur. Şemalar erişmek için önce tümleştirme hesabınızı mantığı uygulamanıza bağlayın. |
+| ŞEMA |Kullanılacak şema seçin. Şemalar tümleştirme hesabınızda bulunur. Şemalar erişmek için önce tümleştirme hesabınızı mantığı uygulamanıza bağlayın. |
 
 ### <a name="envelopes"></a>Zarflar
 | Özellik | Açıklama |

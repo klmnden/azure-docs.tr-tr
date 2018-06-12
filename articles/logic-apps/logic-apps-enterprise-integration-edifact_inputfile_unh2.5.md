@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps EDIFACT kod çözme B2B gidermek UNH2.5 - Azure Logic Apps | Microsoft Docs"
-description: "EDIFACT kod çözme Azure Logic Apps B2B UNH2.5 çözmek"
+title: Logic Apps EDIFACT kod çözme B2B gidermek UNH2.5 - Azure Logic Apps | Microsoft Docs
+description: EDIFACT kod çözme Azure Logic Apps B2B UNH2.5 çözmek
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 62ad8183cc6e9f56255b2729a04ee7710d00a21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e04e7515a8ddfe512ba2efbbd45c3d1b571c1fd
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297956"
 ---
 # <a name="how-to-handle-edifact-documents-having-unh25-segment"></a>UNH2.5 segment olan EDIFACT belgeler nasıl ele alınacağını
 UNH2.5 EDIFACT belgede mevcut olduğunda, şema arama için kullanılıyor. 

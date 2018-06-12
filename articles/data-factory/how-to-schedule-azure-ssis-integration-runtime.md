@@ -10,17 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: douglasl
-ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bffc7aed0c06267a39e2b0a2ee178806c071ab8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297803"
 ---
-# <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Başlatma ve durdurma bir Azure SSIS tümleştirmesi çalışma zamanı zamanlama 
-Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir ücret sahiptir. Bu nedenle, yalnızca Azure'da SSIS paketleri çalıştırmak ve onu gerekmediğinde durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)). Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Bu makalede açıklanan üst düzey adımlar şunlardır:
+# <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Bir zamanlamaya göre Azure SSIS tümleştirmesi çalışma zamanı durdurmak ve başlatmak nasıl
+Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir maliyeti vardır. Bu nedenle, genellikle yalnızca Azure'da SSIS paketleri çalışması ve onu gerekmediğinde IR durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)).
+
+Örneğin, bir Azure Otomasyonu PowerShell runbook için Web kancası ile Web etkinlikleri oluşturun ve aralarındaki SSIS paketi yürütme etkinlik zincir. Web etkinlikleri başlatın ve tam önce zamanında ve paketinizi çalıştıktan sonra Azure SSIS IR durdurun. SSIS paketi yürütme etkinliği hakkında daha fazla bilgi için bkz: [SSIS etkinliği Azure Data Factory kullanarak bir SSIS paketi çalıştırmak](how-to-invoke-ssis-package-ssis-activity.md).
+
+## <a name="overview-of-the-steps"></a>Adımlara genel bakış
+
+Bu makalede açıklanan üst düzey adımlar şunlardır:
 
 1. **Oluşturma ve bir Azure Otomasyonu runbook'u sınayın.** Bu adımda, başlatıldığında veya bir Azure SSIS IR durdurulduğunda betiği ile bir PowerShell runbook oluşturma Ardından, başlatma ve durdurma senaryolarda runbook'u test ve IR başlatıldığında veya durdurulduğunda onaylayın. 
 2. **Runbook için iki zamanlamalar oluşturun.** İlk zamanlama için runbook işlem olarak Başlat ile yapılandırın. İkinci zamanlamasını, runbook ile durdurma işlemi yapılandırın. Her iki zamanlamalarını, runbook çalıştığı tempoyla belirtin. Örneğin, her gün ve 23: 00 günlük çalıştırmak için ikinci bir 8'de çalıştırmak için ilk tek zamanlamak isteyebilirsiniz. İlk runbook çalıştığında Azure SSIS IR başlatır İkinci runbook çalıştığında Azure SSIS IR durdurur 
@@ -73,11 +80,11 @@ Bir Azure Otomasyonu hesabı yoksa, bu adımı'ndaki yönergeleri izleyerek olu�
 
     ![Gerekli modüllerini doğrulayın](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  PowerShell Galerisi gidin [AzureRM.DataFactoryV2 0.5.2 Modülü](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2)seçin **Azure Otomasyonu Dağıt**Otomasyon hesabınızı seçin ve ardından **Tamam**. Görüntülemeye dönmek **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve görene kadar bekleyin **durum** , **AzureRM.DataFactoryV2 0.5.2**  modülü değişiklik **kullanılabilir**.
+2.  PowerShell Galerisi gidin [AzureRM.DataFactoryV2 Modülü](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/)seçin **Azure Otomasyonu Dağıt**Otomasyon hesabınızı seçin ve ardından **Tamam**. Görüntülemeye dönmek **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve görene kadar bekleyin **durum** , **AzureRM.DataFactoryV2** modülü değişiklik **kullanılabilir**.
 
     ![Veri Fabrikası modülü doğrulayın](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  PowerShell Galerisi gidin [AzureRM.Profile 4.5.0 Modülü](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0), tıklayın **Azure Otomasyonu Dağıt**Otomasyon hesabınızı seçin ve ardından **Tamam**. Görüntülemeye dönmek **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve görene kadar bekleyin **durum** , **AzureRM.Profile 4.5.0** modülü değişiklik **kullanılabilir**.
+3.  PowerShell Galerisi gidin [AzureRM.Profile Modülü](https://www.powershellgallery.com/packages/AzureRM.profile/), tıklayın **Azure Otomasyonu Dağıt**Otomasyon hesabınızı seçin ve ardından **Tamam**. Görüntülemeye dönmek **modülleri** içinde **paylaşılan kaynakları** bölümünde soldaki menüden ve görene kadar bekleyin **durum** , **AzureRM.Profile**modülü değişiklik **kullanılabilir**.
 
     ![Profil modülü doğrulayın](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -239,7 +246,7 @@ Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve 
  
    Azure data factory adı **küresel olarak benzersiz** olmalıdır. Aşağıdaki hatayı alırsanız veri fabrikasının adını değiştirin (örneğin adınızMyAzureSsisDataFactory) ve yeniden oluşturmayı deneyin. Data Factory yapıtlarının adlandırma kuralları için [Data Factory - Adlandırma Kuralları](naming-rules.md) makalesine bakın.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+       `Data factory name �MyAzureSsisDataFactory� is not available`
 3. Veri fabrikasını oluşturmak istediğiniz Azure **aboneliğini** seçin. 
 4. **Kaynak Grubu** için aşağıdaki adımlardan birini uygulayın:
      
@@ -381,6 +388,9 @@ Ardışık Düzen beklediğiniz gibi çalışır, bu ardışık düzen sırasın
     ![Tetikleyici çalıştırmaları](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
+Aşağıdaki blog gönderisine bakın:
+-   [Modernize ve ETL/ELT akışlarınızı ADF ardışık düzende SSIS etkinliklerle genişletme](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+
 SSIS belgelerinde aşağıdaki makalelere bakın: 
 
 - [Azure’da bir SSIS paketi dağıtma, çalıştırma ve izleme](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   

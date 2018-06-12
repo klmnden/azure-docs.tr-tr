@@ -7,16 +7,18 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 06/11/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 1c069e8b09f71ac46017974dfd94945c404b16ba
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 80c479aa23da2a8471af3fd83879a2dbfc5d6195
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300580"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Site Recovery kasası Sil
-Bağımlılıklar, bir Azure Site Recovery kasası silmesini engelleyebilirsiniz. Size gereken eylemleri Site kurtarma senaryosunda göre farklılık gösterir: VMware azure'a, Hyper-V (ile arama ve Sistem Merkezi Sanal Makine Yöneticisi olmadan) Azure ve Azure yedekleme için. Azure Backup ile kullanılan bir kasa silmek için bkz: [Azure yedekleme kasasına silme](../backup/backup-azure-delete-vault.md).
+
+Bağımlılıklar, bir Azure Site Recovery kasası silmesini engelleyebilirsiniz. Yapılması gereken eylemleri Site kurtarma senaryosunda göre farklılık gösterir. Azure Backup ile kullanılan bir kasa silmek için bkz: [Azure yedekleme kasasına silme](../backup/backup-azure-delete-vault.md).
 
 
 
@@ -36,12 +38,12 @@ Kasayı silmek için senaryonuz için önerilen adımları izleyin.
 5. Kasayı silin.
 
 
-### <a name="hyper-v-vms-with-virtual-machine-manager-to-azure"></a>Azure Hyper-V sanal makineleri (Sanal Makine Yöneticisi ile)
-1. İçindeki adımları izleyerek VM'ler korumalı Sil tüm[bir Hyper-V sanal makine Azure senaryo için System Center VMM kullanarak azure'a çoğaltmak için korumayı devre dışı bırakın](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
+### <a name="hyper-v-vms-with-vmm-to-azure"></a>Hyper-V VM’lerini (VMM ile) Azure’a
+1. İçindeki adımları izleyerek VM'ler korumalı Sil tüm[(VMM ile) bir Hyper-V sanal makine için korumayı devre dışı bırakın](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario).
 
 2. İlişkisini & Kasası'na göz atarak tüm çoğaltma ilkelerinin silme -> **Site Recovery altyapısı** -> **için System Center VMM** -> **çoğaltma İlkeleri**
 
-3.  Sanal Makine Yöneticisi sunucularına başvuruları içindeki adımları izleyerek silmek [bağlı bir VMM sunucusunun kaydı](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
+3.  İçindeki adımları izleyerek VMM sunucuları başvurular silme [bağlı bir VMM sunucusunun kaydı](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server).
 
 4.  Kasayı silin.
 
@@ -50,7 +52,7 @@ Kasayı silmek için senaryonuz için önerilen adımları izleyin.
 
 2. İlişkisini & Kasası'na göz atarak tüm çoğaltma ilkelerinin silme -> **Site Recovery altyapısı** -> **için Hyper-V sitelerini** -> **çoğaltma ilkeleri**
 
-3. Hyper-V sunucuları başvurular içindeki adımları izleyerek silme [bir Hyper-V ana bilgisayar kaydı](/site-recovery-manage-registration-and-protection.md##unregister-a-hyper-v-host-in-a-hyper-v-site).
+3. Hyper-V sunucuları başvurular içindeki adımları izleyerek silme [bir Hyper-V ana bilgisayar kaydı](/site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site).
 
 4. Hyper-V sitesi silin.
 

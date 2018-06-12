@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: harshja
-ms.openlocfilehash: c2571a7ca9e92c5088aec600f1865f84736c5bfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1c6c6f56f8e4d8d1d7a10bd07679732d64b86e23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592519"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292312"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Uygulama proxy'si uygulama kullanılırken "Kurumsal bu uygulamaya erişemezsiniz" hatası
 
@@ -110,7 +110,7 @@ Uygulamanız, tümleşik Windows kimlik doğrulaması (IWA) kullanmak üzere yap
 
 Hatayı görmeye devam ederseniz, bağlayıcının yüklendiği makineye bir tarayıcı açın ve uygulama için kullanılan iç URL ulaşmaya çalışır gidin. Bağlayıcı aynı makineden başka bir istemci gibi davranır. Uygulama bağlanamazsa, bu makine neden uygulamasına ulaşması ya da uygulamaya erişim olanağına sahip bir sunucuda bağlayıcı kullanmak araştırın.
 
-Sorunları veya hatalar Bağlayıcısı ile aramak için o makine uygulamadan erişebiliyorsa. Bazı yaygın hatalar görebilirsiniz [sorun giderme belge](active-directory-application-proxy-troubleshoot.md#connector-errors). Ayrıca, tüm hataları belirlemek için doğrudan Connector günlüklerine bakabilirsiniz. Bizim hata iletilerinin çoğunu düzeltmeler için daha özel öneriler paylaşamaz. Günlükleri görüntülemek öğrenmek için bkz: [bağlayıcılar Belgelerimizi](manage-apps/application-proxy-connectors.md#under-the-hood).
+Sorunları veya hatalar Bağlayıcısı ile aramak için o makine uygulamadan erişebiliyorsa. Bazı yaygın hatalar görebilirsiniz [sorun giderme belge](manage-apps/application-proxy-troubleshoot.md#connector-errors). Ayrıca, tüm hataları belirlemek için doğrudan Connector günlüklerine bakabilirsiniz. Bizim hata iletilerinin çoğunu düzeltmeler için daha özel öneriler paylaşamaz. Günlükleri görüntülemek öğrenmek için bkz: [bağlayıcılar Belgelerimizi](manage-apps/application-proxy-connectors.md#under-the-hood).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Azure AD uygulama proxy'si bağlayıcılar anlama](manage-apps/application-proxy-connectors.md)

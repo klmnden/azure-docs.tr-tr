@@ -1,19 +1,20 @@
 ---
-title: "MySQL için Azure veritabanında sorgu performansı ile ilgili sorunları giderme"
-description: "Bu makalede, Azure veritabanında sorgu performansı MySQL için sorun giderme için açıklama kullanmayı açıklar."
+title: MySQL için Azure veritabanında sorgu performansı ile ilgili sorunları giderme
+description: Bu makalede, Azure veritabanında sorgu performansı MySQL için sorun giderme için açıklama kullanmayı açıklar.
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 3af6ad347cec171132ddfbec21137775c0f71245
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 72b047c37ac88e4b33c8723f8df14c6794e84399
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266185"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>MySQL için Azure veritabanında profili sorgu performansı için açıklama kullanma
 **AÇIKLAYAN** sorguları optimize etmek için kullanışlı bir araçtır. Deyim SQL deyimlerini nasıl yürütülen hakkında bilgi almak için kullanılabilir AÇIKLANMAKTADIR. Aşağıdaki çıkış bir açıklama deyimi yürütme örneği gösterir.

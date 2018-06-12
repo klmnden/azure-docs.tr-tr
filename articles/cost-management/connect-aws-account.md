@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0c18fc065ae4d9a9401a8d603f051e9d6236c538
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2c7ea043d2da41442829321ac663325f30ff066
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297337"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services hesabınız Bağlan
 
@@ -91,7 +92,7 @@ Aşağıdaki bölümlerde, maliyet yönetim erişim sağlamak için salt okunur 
 
 ### <a name="configure-aws-iam-user-based-access-in-cost-management"></a>AWS IAM kullanıcı tabanlı erişim maliyet yönetimini yapılandırma
 
-1. Cloudyn portalını Azure portalından açın veya https://azure.cloudyn.com/ sayfasına gidip oturum açın.
+1. Azure portalından Cloudyn portalını açın veya gitmek https://azure.cloudyn.com/ ve oturum açın.
 2. Dişlisine simgesine tıklayın ve ardından **bulut hesapları**.
 3. Hesapları Yönetimi'nde seçin **AWS hesapları** sekmesini ve sonra **yeni Ekle +**.
 4. İçin **hesap adı**, bir hesap adı yazın.
@@ -107,7 +108,7 @@ Maliyet yönetimi, veri toplama ve raporlar doldurma başlatır. Ardından, [ayr
 
 AWS rol daha almak için aşağıdaki adımları kullanın. Rolü daha fatura kova Okuma izinleri vermek için kullanın.
 
-1. Oturum açtığınızda AWS konsolda https://console.aws.amazon.com seçip **Hizmetleri**.
+1. AWS konsoluna oturum açın https://console.aws.amazon.com seçip **Hizmetleri**.
 2. Hizmet arama kutusuna yazın *IAM*ve bu seçeneği belirleyin.
 3. Seçin **rolleri** sol taraftaki menüden.
 4. Roller listesinde Cloudyn erişim için oluşturduğunuz rolü seçin.
@@ -117,7 +118,7 @@ AWS rol daha almak için aşağıdaki adımları kullanın. Rolü daha fatura ko
 
 Ayrıntılı fatura bilgilerini depolamak için bir S3 demetini oluşturun.
 
-1. Oturum açtığınızda AWS konsolda https://console.aws.amazon.com seçip **Hizmetleri**.
+1. AWS konsoluna oturum açın https://console.aws.amazon.com seçip **Hizmetleri**.
 2. Hizmet arama kutusuna yazın *S3*seçip **S3**.
 3. Amazon S3 sayfasında, tıklatın **oluşturma demet**.
 4. Create demet Sihirbazı'nda bir demet adı ve bölge seçin ve ardından **sonraki**.  

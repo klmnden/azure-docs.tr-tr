@@ -1,26 +1,19 @@
 ---
-title: Kaynaklar için daha yeni Azure izleme ölçüm uyarıları desteklenen | Microsoft Docs
+title: Yeni Azure İzleyici ölçüm uyarılar için desteklenen kaynakları
 description: Başvuru destek ölçümleri ve daha yeni Azure yakın gerçek zamanlı ölçüm uyarılar için günlükleri.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: e09cc1a91daf2e6a043d73ef1f41aa265334dec2
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809837"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264519"
 ---
 # <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>Yeni ölçüm uyarılar için desteklenen ölçümleri ve oluşturma yöntemleri
 Azure İzleyici destekler bir [yeni ölçüm uyarı türü](monitoring-overview-unified-alerts.md) olan önemli avantajlar eski [Klasik ölçüm uyarıları](insights-alerts-portal.md). Eski uyarıların destekleyen bir [ölçümleri büyük listesini](monitoring-supported-metrics.md). Yeni uyarılar, daha büyük listesinin (büyüyen) bir alt kümesini destekler. Bu makalede, bu alt listelenmektedir. 

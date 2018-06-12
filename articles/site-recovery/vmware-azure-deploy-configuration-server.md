@@ -2,17 +2,18 @@
 title: Azure Site Recovery ile VMware olağanüstü durum kurtarma için yapılandırma sunucusu dağıtma | Microsoft Docs
 description: Bu makalede, Azure Site Recovery ile VMware olağanüstü durum kurtarma için bir yapılandırma sunucusu dağıtmayı açıklar
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267518"
 ---
 # <a name="deploy-a-configuration-server"></a>Yapılandırma sunucusunu dağıtma
 
@@ -20,11 +21,19 @@ Kullanırken bir şirket içi yapılandırma sunucusu dağıtmak [Azure Site Rec
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Yüksek oranda kullanılabilir bir VMware VM olarak yapılandırma sunucusu dağıtmanızı öneririz. En düşük donanım gereksinimleri aşağıdaki tabloda özetlenmiştir.
+Yüksek oranda kullanılabilir bir VMware VM olarak yapılandırma sunucusu dağıtmanızı öneririz. Yapılandırma sunucusu gereksinimleri aşağıdaki tabloda özetlenmiştir.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>MySQL yükleme için hazırlama
+
+MySQL yapılandırma sunucusunda yüklü olmalıdır. Aşağıdaki yöntemlerden birini kullanarak bunu yapabilirsiniz:
+
+- Site karşıdan yükleyip kurtarma izin yapılandırma sunucusu yönetim Sihirbazı'nı çalıştırdığında ne zaman. Belirli bir işlem yapmanıza gerek yoktur.
+- El ile MySQL indirin ve bu klasöre C:\Temp\ASRSetup yerleştirin. Ardından yüklemesini çalıştırın. Site Kurtarma Sihirbazı'nı çalıştırdığında yüklü algılar.
+- El ile MySQL indirin ve bu klasöre C:\Temp\ASRSetup yerleştirin. Sihirbaz çalıştığında kurulum dosyasını bulun ve bu konumdan yüklemesi. 
 
 
 ## <a name="capacity-planning"></a>Kapasite planlaması
@@ -100,7 +109,7 @@ Ek bir NIC yapılandırma sunucusuna eklemek istiyorsanız, sunucuyu kasaya kayd
 
 1. Yapılandırma sunucusu yönetim Sihirbazı'nda seçin **Kurulum Bağlantı**. Çoğaltma trafiğini almak ve daha sonra seçmek için NIC seçin **kaydetmek**. Bu ayarı yapılandırdıktan sonra değiştiremezsiniz.
 2. **Recovery Services kasasını seçin** bölümünde Azure aboneliğinizi, ilgili kaynak grubunu ve kasayı seçin.
-3. **Üçüncü taraf yazılımı yükleyin** bölümünde lisans sözleşmesini kabul edin. MySQL Server’ı yüklemek için **İndir ve Yükle** seçeneğini belirleyin.
+3. **Üçüncü taraf yazılımı yükleyin** bölümünde lisans sözleşmesini kabul edin. MySQL ile uyumlu olarak yükleme [MySQL yüklemek için kullandığınız yöntem](#prepare-for-mysql-installation).
 4. Seçin **VMware PowerLCI yükleme**. Bu adımı uygulamadan önce tüm tarayıcı pencerelerini kapalı olduğundan emin olun. Daha sonra **Devam** seçeneğini belirleyin.
 5. **Gereç yapılandırmasını doğrulama** bölümünde ön koşullar, siz devam etmeden önce doğrulanır.
 6. **vCenter Server/vSphere ESXi sunucusu yapılandırma** bölümünde, çoğaltmak istediğiniz VM’lerin bulunduğu vCenter sunucusunun veya vSphere konağının FQDN’sini ya da IP adresini girin. Bağlantı noktası girin, sunucunun dinlediği ve kasadaki VMware sunucusu için bir kolay ad.

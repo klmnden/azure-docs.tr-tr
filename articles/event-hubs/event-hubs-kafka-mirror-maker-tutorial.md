@@ -10,18 +10,19 @@ ms.topic: mirror-maker
 ms.custom: mvc
 ms.date: 05/07/2018
 ms.author: bahariri
-ms.openlocfilehash: 819071321d5609728e7c62abb5b25bf354107850
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 0693fc2fff5735fb2b3c0a9b8f1d3d256746f40d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298330"
 ---
 # <a name="using-kafka-mirrormaker-with-event-hubs-for-kafka-ecosystems"></a>Kafka MirrorMaker Kafka ekosistemlerini için Event Hubs ile kullanma
 
 > [!NOTE]
-> Bu örnek edinilebilir [GitHub](https://github.com/Azure/azure-event-hubs)
+> Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs)'da sağlanır
 
-Modern bulut ölçeği uygulamaları için önemli bir dikkat etmeniz gereken güncelleştirmek için geliştirmek ve hizmet kesintiye uğratmadan Altyapı değiştirme yeteneği. Bu öğretici, olay hub'ı bir Kafka etkin ve Kafka MirrorMaker mevcut bir Kafka ardışık düzeni Azure'da "olay hub'ı hizmet Kafka Giriş akışı yansıtma tarafından" tümleştirebilirsiniz nasıl gösterir. 
+Bir ana için modern bulut ölçeği uygulamaları güncelleştirmek için geliştirmek ve hizmet kesintiye uğratmadan Altyapı değiştirme olanağı konusudur. Bu öğretici bir Kafka etkinleştirilmiş olay hub'ı nasıl gösterir ve Kafka MirrorMaker mevcut bir Kafka ardışık düzeni Azure'da "Kafka Giriş akışı Event Hubs hizmetinde yansıtma tarafından" tümleştirebilirsiniz. 
 
 Bir Azure olay hub'ları Kafka uç nokta Kafka protokolünü (yani Kafka istemciler) kullanarak Azure Event Hubs için bağlanmanıza olanak sağlar. Kafka uygulamaya küçük değişiklikler yaparak Azure Event Hubs'a bağlanın ve Azure ekosistemi avantajlarından. Kafka etkin olay hub'ları şu anda 1.0 ve sonraki Kafka sürümlerini destekler.
 
@@ -33,7 +34,7 @@ Bu örnek, Kafka Aracısı Kafka MirrorMaker kullanarak Kafka etkin event hub'ı
 
 Bu öğreticiyi tamamlamak için olduğundan emin olun:
 
-* Azure aboneliği. Bir yoksa oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) başlamadan önce.
+* Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
     * Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.
     * JAVA_HOME ortam değişkenini JDK’nin yüklü olduğu klasöre işaret edecek şekilde ayarladığınızdan emin olun.
@@ -61,13 +62,13 @@ Kullanmak [Kafka Hızlı Başlangıç Kılavuzu](https://kafka.apache.org/quicks
 
 ## <a name="kafka-mirrormaker"></a>Kafka MirrorMaker
 
-Kafka MirrorMaker "yansıtma" akışının sağlar. Verilen kaynak ve hedef Kafka kümeleri, kaynak kümeye gönderilen iletiler kaynak ve hedef kümeler tarafından alınan MirrorMaker sağlar. Bu örnek, bir kaynak Kafka yansıtmak üzere gösterilmiştir hedef Kafka kümeyle etkin olay hub'ı. Bu senaryo, olay hub'ları için var olan bir Kafka ardışık düzen tarafından veri akışını kesintiye uğratmadan veri göndermek için kullanılabilir. 
+Kafka MirrorMaker "yansıtma" akışının sağlar. Verilen kaynak ve hedef Kafka kümeleri, kaynak kümeye gönderilen iletiler kaynak ve hedef kümeler tarafından alınan MirrorMaker sağlar. Bu örnek, bir kaynak bir hedef Kafka etkinleştirilmiş olay hub'ı Kafka kümeyle yansıtma gösterilmektedir. Bu senaryo, olay hub'ları için var olan bir Kafka ardışık düzen tarafından veri akışını kesintiye uğratmadan veri göndermek için kullanılabilir. 
 
 Kafka MirrorMaker hakkında daha ayrıntılı bilgi için bkz: [Kafka yansıtma/MirrorMaker Kılavuzu](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330).
 
 ### <a name="configuration"></a>Yapılandırma
 
-Kafka MirrorMaker yapılandırmak için bu Kafka küme tüketici/kaynağı olarak ve bir Kafka etkin olay hub'ı üretici/hedefine olarak verin.
+Kafka MirrorMaker yapılandırmak için bu Kafka küme tüketici/kaynağı olarak ve bir Kafka etkinleştirilmiş olay hub'ı üretici/hedefine olarak verin.
 
 #### <a name="consumer-configuration"></a>Tüketici yapılandırma
 
@@ -112,6 +113,7 @@ Giriş İstatistikleri olayları Kafka etkin olay hub'ı ulaşıyor doğrulamak 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Olay hub'ları hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
+* [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
 * [Kafka ekosistemi için olay hub'ları hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
 * Daha fazla bilgi edinmek [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) Kafka akış olayları için şirket içi Kafka olay hub'ları bulut üzerinde etkin.
+* Kafka akış öğrenin etkin olay hub'ları kullanarak [yerel Kafka uygulamaları](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md), veya [Akka akışları](event-hubs-kafka-akka-streams-tutorial.md).

@@ -12,18 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: douglasl
-ms.openlocfilehash: b998b47cdc65be91f62543369f5c3f18e4f270c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 344bd9beff03f423d3dc3431dec56334e721d811
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619652"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298075"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı sanal bir ağa katılmasını sağlayın
 Azure sanal ağını aşağıdaki senaryolarda, Azure SSIS tümleştirmesi çalışma zamanı (IR) Katıl: 
 
-- SQL Server Integration Services (SSIS) katalog veritabanında Azure SQL veritabanı örneğinde (Önizleme) yönetilen bir sanal ağ barındırır.
 - Şirket içi veri depolarına bir Azure-SSIS tümleştirme çalışma zamanı üzerinde çalışan SSIS paketlerinden bağlanmak istiyorsanız.
+
+- SQL Server Integration Services (SSIS) katalog veritabanında Azure SQL veritabanı örneğinde (Önizleme) yönetilen bir sanal ağ barındırır.
 
  Azure Data Factory sürüm 2 (Önizleme), Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli oluşturulan sanal bir ağa, Azure SSIS tümleştirmesi çalışma zamanı katılma olanak tanır. 
 
@@ -52,7 +53,7 @@ Aşağıdaki bölümlerde daha ayrıntılı bilgi sağlar.
 
 ## <a name="requirements-for-virtual-network-configuration"></a>Sanal ağ yapılandırması için gereksinimleri
 
--   Olduğundan emin olun `Microsoft.Batch` Azure SSIS IR barındıran sanal ağ alt ağınızı abonelik altında kayıtlı bir sağlayıcı Klasik VNet kullanıyorsanız, aynı zamanda katılma `MicrosoftAzureBatch` bu sanal ağ için Klasik sanal makine Katılımcısı rolüne.
+-   Olduğundan emin olun `Microsoft.Batch` Azure SSIS IR barındıran sanal ağ alt ağınızı abonelik altında kayıtlı bir sağlayıcı Klasik sanal ağı kullanıyorsanız, aynı zamanda katılma `MicrosoftAzureBatch` bu sanal ağ için Klasik sanal makine Katılımcısı rolüne.
 
 -   Azure SSIS IR barındırmak için uygun alt ağ seçin Bkz: [alt ağ seçin](#subnet).
 
@@ -78,7 +79,7 @@ Aşağıdaki adımları önerilir:
 
 -   Azure DNS'ye isteklerini iletmek için özel DNS yapılandırın. Azure'nın özyinelemeli Çözümleyicileri (168.63.129.16) IP adresine çözümlenmemiş DNS kayıtlarını kendi DNS sunucusuna iletebilir.
 
--   Özel DNS olarak birincil ve ikincil olarak Azure DNS VNet için ayarlayın. Kendi DNS sunucusu kullanılamaz durumda Azure'un özyinelemeli Çözümleyicileri (168.63.129.16) IP adresini ikincil DNS sunucusu olarak kaydedin.
+-   Özel DNS birincil olarak ve Azure DNS sanal ağ için ikincil olarak ayarlayın. Kendi DNS sunucusu kullanılamaz durumda Azure'un özyinelemeli Çözümleyicileri (168.63.129.16) IP adresini ikincil DNS sunucusu olarak kaydedin.
 
 Daha fazla bilgi için bkz: [ad kendi DNS sunucusunu kullanır çözümlemesi](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
@@ -96,7 +97,7 @@ Gelen/giden trafik bir ağ güvenlik grubu (NSG) uygulamak, Azure SSIS tümleşt
 
 Bağlanabileceğiniz bir [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) şirket içi ağınızı Azure'a genişletmek için sanal ağ altyapınızı devresine. 
 
-Zorlamalı tünel kullanmak için genel bir yapılandırma olduğundan (0.0.0.0/0 sanal ağa bir BGP rota tanıtma) hangi zorlar giden Internet trafiği VNet akışından denetleme ve günlüğe kaydetme için şirket içi ağ Gereci için. Bu trafik akışı bağımlı Azure Data Factory Hizmetleri ile VNet içindeki Azure SSIS IR arasındaki bağlantıyı keser. Çözümü bir (veya daha fazla) tanımlamaktır [kullanıcı tanımlı yollar (Udr'ler)](../virtual-network/virtual-networks-udr-overview.md) Azure SSIS IR içeren alt ağda Bir UDR BGP yolu yerine dikkate alınır alt özel yollar tanımlar.
+Zorlamalı tünel kullanmak için genel bir yapılandırma olduğundan (0.0.0.0/0 sanal ağ için bir BGP rota tanıtma) hangi zorlar giden Internet trafiği sanal ağ akışından denetleme ve günlüğe kaydetme için şirket içi ağ Gereci için. Bu trafik akışı sanal ağda bağımlı Azure Data Factory Hizmetleri ile Azure SSIS IR arasındaki bağlantıyı keser. Çözümü bir (veya daha fazla) tanımlamaktır [kullanıcı tanımlı yollar (Udr'ler)](../virtual-network/virtual-networks-udr-overview.md) Azure SSIS IR içeren alt ağda Bir UDR BGP yolu yerine dikkate alınır alt özel yollar tanımlar.
 
 Veya denetleme ve günlüğe kaydetme için kullanıcı tanımlı yollar giden Internet trafiği bir güvenlik duvarı veya bir DMZ konak sanal bir ağ uygulaması barındıran başka bir alt ağ için Azure SSIS IR barındıran alt ağdan zorlamak için (Udr'ler) tanımlayabilirsiniz.
 
@@ -113,7 +114,7 @@ Azure SSIS IR Azure yük dengeleyici, Azure ortak IP adresi ve ağ iş güvenlik
 
 -   Kaynak grubuna veya aboneliğe ait olduğu sanal ağ üzerindeki tüm kaynak kilit yok emin olun. Salt okunur bir kilidi ya da delete kilit yapılandırırsanız, başlatma ve durdurma IR askıda veya başarısız.
 
--   Aşağıdaki kaynaklar kaynak grubu veya VNet ait olduğu abonelik altında oluşturulan önleyen bir Azure ilke yok emin olun:
+-   Aşağıdaki kaynaklar kaynak grubunu veya sanal ağının ait olduğu abonelik altında oluşturulan önleyen bir Azure ilke yok emin olun:
     -   Microsoft.Network/LoadBalancers
     -   Microsoft.Network/NetworkSecurityGroups
     -   Microsoft.Network/PublicIPAddresses
@@ -228,7 +229,7 @@ Bir sanal ağ için bir Azure SSIS IR katılabilmesi için önce yapılandırman
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
@@ -282,7 +283,7 @@ Stop-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupNam
 
 ```powershell
 # Register to the Azure Batch resource provider
-# Make sure to run this script against the subscription to which the VNet belongs.
+# Make sure to run this script against the subscription to which the virtual network belongs.
 if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName "MicrosoftAzureBatch").Id

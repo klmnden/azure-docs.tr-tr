@@ -1,24 +1,19 @@
 ---
-title: "Microsoft Azure sanal makineler, bulut Hizmetleri ve Web uygulamaları otomatik ölçeklendirme genel bakış | Microsoft Docs"
-description: "Microsoft Azure otomatik ölçeklendirme genel bakış. Sanal makineler, bulut Hizmetleri ve Web uygulamaları için geçerlidir."
+title: Sanal makineler, bulut Hizmetleri ve Web uygulamaları otomatik ölçeklendirme genel bakış
+description: Microsoft azure'da otomatik ölçeklendirme. Sanal makine ölçek ayarlar, Cloud Services ve Web uygulamaları gibi sanal makineler için geçerlidir.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264679"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure sanal makineler, bulut Hizmetleri ve Web uygulamaları otomatik ölçeklendirme genel bakış
 Bu makalede, hangi Microsoft Azure otomatik ölçeklendirme, onun avantajlarını olduğu ve nasıl kullanmaya başlayacağınızı açıklar.  
@@ -33,7 +28,7 @@ Azure İzleyici otomatik ölçeklendirme uygular yalnızca [sanal makine ölçek
 ## <a name="what-is-autoscale"></a>Otomatik ölçeklendirme nedir?
 Otomatik ölçeklendirme, uygulamanızın üzerinde yükü işlemek üzere çalışan kaynakları doğru miktarda sahip olmanızı sağlar. Yük arttıkça işlemek ve ayrıca durduğunu kaynakları kaldırarak paradan tasarruf için kaynakları eklemek boşta sağlar. Örnekleri çalıştırmak ve eklemek veya otomatik olarak bir dizi kurala göre VM'ler kaldırmak için minimum ve maksimum sayısı belirtin. Bir minimum yapar emin olması, uygulamanızın her zaman bile herhangi bir yük altında çalışıyor. Maksimum sahip saatlik maliyet, toplam olası sınırlar. Oluşturduğunuz kurallarını kullanarak bu iki uç nokta arasında otomatik olarak ölçeklendirin.
 
- ![Otomatik ölçeklendirme açıklanmıştır. Sanal makineleri ekleyip](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
+ ![Otomatik ölçeklendirme açıklanmıştır. VM’leri ekleme ve kaldırma](./media/monitoring-overview-autoscale/AutoscaleConcept.png)
 
 Bir veya daha fazla otomatik ölçeklendirme eylemi Kural koşulu karşılandığında tetiklenir. Ekleme ve sanal makineleri kaldırın veya başka eylemler gerçekleştirebilir. Aşağıdaki alanlara yönelik kavramsal diyagram bu işlemi gösterilmektedir.  
 
@@ -45,7 +40,7 @@ Aşağıdaki açıklamaya önceki diyagramda parçaları için geçerlidir.
 Kaynak ölçümleri yayma, bu ölçümleri daha sonra kuralları tarafından işlenir. Ölçümleri farklı yöntemler sunulur.
 Web uygulamaları ve bulut Hizmetleri için telemetri doğrudan Azure altyapısından gelir ancak sanal makine ölçek kümeleri telemetri verilerini Azure Tanılama aracı kullanın. Bazı yaygın olarak kullanılan istatistik CPU kullanımı, bellek kullanımı, iş parçacığı sayıları, kuyruk uzunluğu ve disk kullanımını içerir. Kullanabileceğiniz hangi telemetri verilerini bir listesi için bkz: [otomatik ölçeklendirme ortak ölçümleri](insights-autoscale-common-metrics.md).
 
-## <a name="custom-metrics"></a>Özel ölçümleri
+## <a name="custom-metrics"></a>Özel Ölçümler
 Uygulamaları yayma kendi özel ölçümleri da kullanabilirsiniz. Application Insights'a ölçümleri göndermek için uygulamaları yapılandırdıysanız olup olmadığına göre veya ölçeklendirmek kararlar almak için bu ölçümleri yararlanabilirsiniz. 
 
 ## <a name="time"></a>Zaman

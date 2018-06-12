@@ -1,19 +1,20 @@
 ---
-title: "Yedekleme ve geri yükleme Azure veritabanı için MySQL"
-description: "Otomatik yedekleme ve Azure veritabanınızı MySQL sunucusu için geri yükleme hakkında bilgi edinin."
+title: Yedekleme ve geri yükleme Azure veritabanı için MySQL
+description: Otomatik yedekleme ve Azure veritabanınızı MySQL sunucusu için geri yükleme hakkında bilgi edinin.
 services: mysql
 author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1cc2c6ccb4459c5c942297cab46378502b63c5bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264485"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Yedekleme ve geri yükleme Azure veritabanı için MySQL
 
