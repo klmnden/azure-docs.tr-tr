@@ -17,11 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0f535e8a74822319d472c62fe1b65e5145e58a74
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261653"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD için kimlik doğrulama senaryoları
 
@@ -137,7 +138,7 @@ Bu bölümde bir web uygulaması için bir web tarayıcısında bir kullanıcın
 1. Bir kullanıcı oturum açmak için gereksinimleri ve uygulama ziyaret ettiğinde, bunlar bir oturum açma isteği kimlik doğrulama uç noktası aracılığıyla Azure AD içinde yönlendirilir.
 1. Oturum açma sayfasında oturum açtığında.
 1. Kimlik doğrulaması başarılı olursa, Azure AD kimlik doğrulama belirteci oluşturur ve Azure Portalı'nda yapılandırılan uygulamanın yanıt URL'si bir oturum açma yanıtı döndürür. Bir üretim uygulaması için HTTPS bu yanıt URL'si olmalıdır. Döndürülen belirteci belirteci doğrulamak için uygulama tarafından gerekli olan Azure AD ve kullanıcı hakkında talepleri içerir.
-1. Uygulama, bir ortak imzalama anahtarı ve sertifikayı verenin bilgileri kullanılabilir Federasyon meta veri belgesi için Azure AD kullanarak belirteci doğrular. Uygulama belirteci doğrular sonra Azure AD kullanıcı ile yeni bir oturum başlatır. Bu oturumda, sona erene kadar uygulamaya erişim olanak tanır.
+1. Uygulama, bir ortak imzalama anahtarı ve sertifikayı verenin bilgileri kullanılabilir Federasyon meta veri belgesi için Azure AD kullanarak belirteci doğrular. Uygulama belirteci doğrular sonra kullanıcı ile yeni bir oturum başlatır. Bu oturumda, sona erene kadar uygulamaya erişim olanak tanır.
 
 #### <a name="code-samples"></a>Kod örnekleri
 
