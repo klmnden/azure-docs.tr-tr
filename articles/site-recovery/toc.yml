@@ -235,6 +235,8 @@
               href: vmware-azure-manage-configuration-server.md
             - name: Fiziksel sunucu çoğaltması için yapılandırma sunucusunu yönetme
               href: physical-manage-configuration-server.md
+            - name: İşlem sunucularını yönetme
+              href: vmware-azure-manage-process-server.md
             - name: vCenter sunucularını yönetme
               href: vmware-azure-manage-vcenter.md
             - name: Sunucuları kaldırma ve korumayı devre dışı bırakma
