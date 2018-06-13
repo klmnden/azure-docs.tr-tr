@@ -23,13 +23,12 @@
 ### [Site Recovery’ye genel bakış](../site-recovery/site-recovery-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Güvenlik
-### [Kaynakları izleme](oms-security-monitoring-resources.md)
-### [Güvenlik uyarılarını yanıtlama](oms-security-responding-alerts.md)
-### [Temel değerlendirme](oms-security-baseline.md)
-### [Kötü amaçlı yazılım değerlendirmesi](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Sistem güncelleştirme değerlendirmesi](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [Güvenlik ürünlerini bağlama](oms-security-connect-products.md)
-### [Web temel değerlendirmesi](oms-security-web-baseline-assessment.md)
+### [Kaynakları izleme](../security-center/security-center-monitoring.md)
+### [Güvenlik uyarılarını yanıtlama](../security-center/security-center-managing-and-responding-alerts.md)
+### [Temel değerlendirme](../security-center/security-center-customize-os-security-config.md)
+### [Kötü amaçlı yazılım değerlendirmesi](../security-center/security-center-install-endpoint-protection.md)
+### [Güvenlik ürünlerini bağlama](../security-center/quick-security-solutions.md)
+### [Web temel değerlendirmesi](../security-center/security-center-customize-os-security-config.md)
 
 ## Çözümleri kullanma
 ### [Yönetim çözümleri](../monitoring/monitoring-solutions.md)
@@ -46,7 +45,6 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric Analizi](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Hizmet Eşlemesi
-##### [İzlenecek yol](../monitoring/monitoring-walkthrough-servicemap.md)
 ##### [Kullanma](../monitoring/monitoring-service-map.md)
 ##### [Yapılandırma](../monitoring/monitoring-service-map-configure.md)
 ##### [Operations Manager ile tümleştirme](../monitoring/monitoring-service-map-scom.md)
