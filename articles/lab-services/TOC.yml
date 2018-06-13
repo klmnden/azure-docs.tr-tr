@@ -75,6 +75,10 @@
               href: devtest-lab-use-resource-manager-template.md
             - name: Bir VM’yi yeniden başlatma
               href: devtest-lab-restart-vm.md
+            - name: VM’yi yeniden boyutlandırma
+              href: devtest-lab-resize-vm.md
+            - name: Bir VM’yi yeniden dağıtma
+              href: devtest-lab-redeploy-vm.md
         - name: Ortamları laboratuvarda kullanma
           items:
             - name: Ortam oluşturma
