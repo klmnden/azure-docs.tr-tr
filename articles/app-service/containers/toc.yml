@@ -157,6 +157,8 @@
       href: /rest/api/appservice/
 - name: Kaynaklar
   items:
+    - name: Linux’ta App Service hakkında SSS
+      href: app-service-linux-faq.md
     - name: Azure Yol Haritası
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Fiyatlandırma

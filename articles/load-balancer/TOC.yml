@@ -74,6 +74,8 @@
       href: load-balancer-standard-public-zone-redundant-cli.md
     - name: Bir bölge içerisindeki VM’lerin yükünü dengeleme (CLI)
       href: load-balancer-standard-public-zonal-cli.md
+    - name: REST API kullanarak Azure Load Balancer oluşturma
+      href: create-load-balancer-rest-api.md
     - name: Basic Load Balancer oluşturma (Şablon)
       href: load-balancer-get-started-internet-arm-template.md
     - name: IPv6 ile genel Load Balancer oluşturma
@@ -106,6 +108,8 @@
           href: load-balancer-multiple-ip-powershell.md
     - name: Azure Load Balancer için günlük analizi
       href: load-balancer-monitor-log.md
+    - name: REST ile Load Balancer ölçümleri alma
+      href: load-balancer-query-metrics-rest-api.md
     - name: İç Load Balancer için Yüksek Kullanılabilirliğe Sahip Bağlantı Noktalarını Yapılandırma
       href: load-balancer-configure-ha-ports.md
     - name: Sorun giderme
