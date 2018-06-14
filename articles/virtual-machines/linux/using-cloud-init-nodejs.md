@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918447"
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>Azure CLI 1.0 ile oluşturma sırasında bir Linux VM özelleştirmek için bulut init kullanın
 Bu makalede ayarlamak yüklü güncelleştirme paketleri, ana bilgisayar adı ve kullanıcı hesaplarını yönetmek için bir bulut init betik yapılacağını gösterir.  Bulut başlatma komut dosyaları, Azure clı'dan VM oluşturma sırasında çağrılır.  Bu makale için şunlar gereklidir:

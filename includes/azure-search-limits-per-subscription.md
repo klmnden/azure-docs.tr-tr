@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844101"
 ---
 Yalnızca her katmanını izin verilen hizmetler sayısı sınırlı belirli bir katman, sağlanan her biri bir abonelik içindeki birden fazla hizmet oluşturabilirsiniz. Örneğin, 12 temel katmana adresindeki ve başka bir 12 Hizmetleri aynı abonelik içindeki S1 katmanı adresindeki kadar oluşturabilirsiniz. Katmanları hakkında daha fazla bilgi için bkz: [bir SKU katmanı için Azure Search seçin veya](../articles/search/search-sku-tier.md).
 

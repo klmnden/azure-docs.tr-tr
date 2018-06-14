@@ -1,7 +1,7 @@
 ---
-title: "Sürüm yayımlama geçmişi | Microsoft Docs"
+title: Sürüm yayımlama geçmişi | Microsoft Docs
 titleSuffix: Azure
-description: "Microsoft Genomics düzeltmeleri ve yeni işlevler Microsoft Genomics Python istemci düzenli olarak güncelleştirir."
+description: Microsoft Genomics düzeltmeleri ve yeni işlevler Microsoft Genomics Python istemci düzenli olarak güncelleştirir.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802936"
 ---
 # <a name="version-release-history"></a>Sürüm yayınlama geçmişi
 Microsoft Genomics takım düzeltmeleri ve yeni işlevler Microsoft Genomics Python istemci düzenli olarak güncelleştirir. 

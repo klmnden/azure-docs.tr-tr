@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788728"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Laboratuvara yapı hataları tanılama 
 Bir yapı oluşturduktan sonra başarılı veya başarısız olup olmadığını görmek için kontrol edebilirsiniz. Azure DevTest Labs yapı günlükleri, bir yapı sorunu tanılamak için kullanabileceğiniz bilgileri sağlar. Yapı günlük bilgilerini bir Windows VM için görüntüleme seçeneklerini birkaç vardır:
