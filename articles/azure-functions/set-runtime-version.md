@@ -1,11 +1,11 @@
 ---
-title: "Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl"
-description: "Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Azure üzerinde barındırılan bir işlev uygulaması çalışma zamanı sürümü belirleme konusunda bilgi edinin."
+title: Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl
+description: Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Azure üzerinde barındırılan bir işlev uygulaması çalışma zamanı sürümü belirleme konusunda bilgi edinin.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843400"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Hedef Azure işlevleri çalışma zamanı sürümlerini nasıl
 

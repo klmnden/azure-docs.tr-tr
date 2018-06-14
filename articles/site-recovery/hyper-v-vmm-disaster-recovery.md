@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile şirket içi siteler arasında Hyper-V VM'ler için olağanüstü durum kurtarma ayarlama | Microsoft Docs"
-description: "Olağanüstü durum kurtarma Hyper-V VM'ler için Azure Site Recovery ile şirket içi siteleriniz arasında öğrenin."
+title: Azure Site Recovery ile şirket içi siteler arasında Hyper-V VM'ler için olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Olağanüstü durum kurtarma Hyper-V VM'ler için Azure Site Recovery ile şirket içi siteleriniz arasında öğrenin.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843468"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Olağanüstü durum kurtarma için Hyper-V sanal makineleri bir ikincil şirket içi siteye ayarlayın.
 

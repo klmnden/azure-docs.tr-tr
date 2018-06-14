@@ -1,11 +1,11 @@
 ---
 title: StorSimple Snapshot Manager nedir? | Microsoft Belgeleri
-description: "StorSimple Snapshot Manager, kendi mimarisi ve özelliklerini açıklar."
+description: StorSimple Snapshot Manager, kendi mimarisi ve özelliklerini açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876834"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>StorSimple Snapshot Manager giriş
 

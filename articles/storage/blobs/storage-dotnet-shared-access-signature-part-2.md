@@ -1,8 +1,8 @@
 ---
-title: "Oluşturma ve paylaşılan erişim imzası (SAS) ile Azure Blob storage kullanma | Microsoft Docs"
-description: "Bu öğretici, Blob storage'ı kullanmak için paylaşılan erişim imzaları oluşturma ve istemci uygulamalarında kullanma gösterir."
+title: Oluşturma ve paylaşılan erişim imzası (SAS) ile Azure Blob storage kullanma | Microsoft Docs
+description: Bu öğretici, Blob storage'ı kullanmak için paylaşılan erişim imzaları oluşturma ve istemci uygulamalarında kullanma gösterir.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -16,9 +16,10 @@ ms.date: 05/15/2017
 ms.author: tamram
 ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873215"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Paylaşılan erişim imzası, bölüm 2: Oluşturma ve bir SAS Blob storage'ı kullanma
 
@@ -160,7 +161,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
 }
 ```
 
-Ekranın alt kısmındaki **Main()** yöntemini çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUri()**, çağırmadan önce **Console.ReadLine()**ve paylaşılan erişim imzası yazma URI konsol penceresine:
+Ekranın alt kısmındaki **Main()** yöntemini çağırmak için aşağıdaki satırları ekleyin **GetBlobSasUri()**, çağırmadan önce **Console.ReadLine()** ve paylaşılan erişim imzası yazma URI konsol penceresine:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, without a stored access policy.

@@ -1,6 +1,6 @@
 ---
 title: Azure Virtual Network SSS | Microsoft Docs
-description: "Microsoft Azure sanal ağlar hakkında sık sorulan soruların yanıtları."
+description: Microsoft Azure sanal ağlar hakkında sık sorulan soruların yanıtları.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854198"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure sanal ağı sık sorulan sorular (SSS)
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN kuralları altyapısı koşullu ifadeler | Microsoft Docs"
-description: "Azure CDN başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları."
+title: Azure CDN kuralları altyapısı koşullu ifadeler | Microsoft Docs
+description: Azure CDN başvuru belgelerine altyapısı eşleşme koşulları ve özellikleri kuralları.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842933"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Azure CDN kuralları koşullu ifadeler altyapısı
 Bu konu ayrıntılı açıklamaları koşullu ifadeler Azure içerik teslim ağı (CDN) için listeler [kurallar altyapısı](cdn-rules-engine.md).

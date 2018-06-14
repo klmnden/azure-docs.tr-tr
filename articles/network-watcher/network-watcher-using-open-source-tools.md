@@ -1,11 +1,11 @@
 ---
-title: "Ağ trafiği desenlerini Azure Ağ İzleyicisi'ni ve açık kaynaklı araçları ile Görselleştirme | Microsoft Docs"
-description: "Bu sayfayı Ağ İzleyicisi paket yakalama ile Capanalysis Vm'leriniz gelen ve giden trafik düzenlerini görselleştirmek için nasıl kullanılacağını açıklar."
+title: Ağ trafiği desenlerini Azure Ağ İzleyicisi'ni ve açık kaynaklı araçları ile Görselleştirme | Microsoft Docs
+description: Bu sayfayı Ağ İzleyicisi paket yakalama ile Capanalysis Vm'leriniz gelen ve giden trafik düzenlerini görselleştirmek için nasıl kullanılacağını açıklar.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864017"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Açık kaynaklı araçları kullanarak, Vm'lerde gelen ve giden ağ trafiği desenlerini Görselleştirme
 

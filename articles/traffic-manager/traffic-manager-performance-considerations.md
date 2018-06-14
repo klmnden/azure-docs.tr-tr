@@ -1,11 +1,11 @@
 ---
-title: "Başarım Değerlendirmeleri için Azure Traffic Manager | Microsoft Docs"
-description: "Trafik Yöneticisi ve trafik Yöneticisi'ni kullanırken sitenizin performansını test etme performansına anlama"
+title: Başarım Değerlendirmeleri için Azure Traffic Manager | Microsoft Docs
+description: Trafik Yöneticisi ve trafik Yöneticisi'ni kullanırken sitenizin performansını test etme performansına anlama
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876393"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager için performans konuları
 

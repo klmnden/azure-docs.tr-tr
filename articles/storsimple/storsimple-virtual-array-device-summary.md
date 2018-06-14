@@ -1,11 +1,11 @@
 ---
-title: "StorSimple sanal dizinin aygıt Özet dikey | Microsoft Docs"
-description: "Cihaz Özet dikey StorSimple Aygıt Yöneticisi'ni açıklar ve StorSimple sanal dizinizi sağlığını izlemek için kullanımı açıklanmaktadır."
+title: StorSimple sanal dizinin aygıt Özet dikey | Microsoft Docs
+description: Cihaz Özet dikey StorSimple Aygıt Yöneticisi'ni açıklar ve StorSimple sanal dizinizi sağlığını izlemek için kullanımı açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a13c1ea7-6428-4234-84a6-0ebf51670a85
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875686"
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>StorSimple sanal dizisine kullan cihaz Özet dikey için StorSimple Aygıt Yöneticisi'ni bağlı
 
