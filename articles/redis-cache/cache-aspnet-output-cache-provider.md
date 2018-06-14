@@ -1,6 +1,6 @@
 ---
-title: "Önbelleği ASP.NET çıktı önbelleği sağlayıcısı"
-description: "ASP.NET sayfası Azure Redis önbelleği kullanılarak çıktı önbellek öğrenin"
+title: Önbelleği ASP.NET çıktı önbelleği sağlayıcısı
+description: ASP.NET sayfası Azure Redis önbelleği kullanılarak çıktı önbellek öğrenin
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909831"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>ASP.NET çıktı önbelleği sağlayıcısı Azure Redis önbelleği
 Redis çıkış önbelleği sağlayıcısı, çıktı önbelleği veriler için bir işlem dışı depolama mekanizmasıdır. Bu veriler için özellikle tam HTTP yanıtları edinilebilir (sayfa çıkış önbelleğe alma). Sağlayıcı, ASP.NET 4'te tanıtılan yeni çıkış önbelleği sağlayıcısı genişletilebilirlik noktası içine takılan.

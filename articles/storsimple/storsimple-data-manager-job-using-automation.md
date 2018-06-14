@@ -1,12 +1,12 @@
 ---
-title: "Azure Otomasyonu işi StorSimple veri Yöneticisi'ni başlatmak için kullanın | Microsoft Docs"
-description: "StorSimple veri Yöneticisi işleri tetiklemek için Azure Otomasyonu kullanmayı öğrenin"
+title: Azure Otomasyonu işi StorSimple veri Yöneticisi'ni başlatmak için kullanın | Microsoft Docs
+description: StorSimple veri Yöneticisi işleri tetiklemek için Azure Otomasyonu kullanmayı öğrenin
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862205"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Bir iş tetiklemek için Azure Otomasyonu kullanın
 

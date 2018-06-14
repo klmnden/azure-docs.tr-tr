@@ -1,12 +1,12 @@
 ---
-title: "İşletim sistemi güvenlik yapılandırmalarını (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme | Microsoft Docs"
-description: "Bu makalede, Güvenlik Merkezi değerlendirmeleri özelleştirmek gösterilmiştir"
+title: İşletim sistemi güvenlik yapılandırmalarını (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme | Microsoft Docs
+description: Bu makalede, Güvenlik Merkezi değerlendirmeleri özelleştirmek gösterilmiştir
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200019"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>İşletim sistemi güvenlik yapılandırmalarını (Önizleme) Azure Güvenlik Merkezi'nde özelleştirme
 

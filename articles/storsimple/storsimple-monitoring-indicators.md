@@ -1,11 +1,11 @@
 ---
-title: "StorSimple göstergeleri izleme | Microsoft Docs"
-description: "Sesli uyarılar StorSimple cihazı durumunu izlemek için kullanılan ve açık – emitting diyotlar (LED'leri) açıklar."
+title: StorSimple göstergeleri izleme | Microsoft Docs
+description: Sesli uyarılar StorSimple cihazı durumunu izlemek için kullanılan ve açık – emitting diyotlar (LED'leri) açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 59dee7b9-ca6d-4fd9-96e6-a0071e8d248e
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/07/2017
+ms.locfileid: "24030366"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Göstergeleri izleme StorSimple Cihazınızı yönetmek için kullanın
 

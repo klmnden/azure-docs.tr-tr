@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus ileti aktarımları, kilitler ve kapatma | Microsoft Docs"
-description: "Hizmet veri yolu ileti aktarımları ve kapatma işlemleri genel bakış"
+title: Azure Service Bus ileti aktarımları, kilitler ve kapatma | Microsoft Docs
+description: Hizmet veri yolu ileti aktarımları ve kapatma işlemleri genel bakış
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28199041"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>İleti aktarımı, kilitler ve kapatma
 

@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure anahtar kasası - soft-delete PowerShell ile kullanma"
-description: "Kullanım örneği soft-delete PowerShell kod parçalarını ile örnekleri"
+ms.assetid: ''
+title: Azure anahtar kasası - soft-delete PowerShell ile kullanma
+description: Kullanım örneği soft-delete PowerShell kod parçalarını ile örnekleri
 services: key-vault
 author: lleonard-msft
 manager: mbaldwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27928000"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Anahtar kasası soft-delete PowerShell ile kullanma
 
