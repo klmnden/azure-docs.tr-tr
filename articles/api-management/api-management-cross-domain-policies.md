@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management etki alanları arası ilkeler | Microsoft Docs"
-description: "Azure API Management'te kullanıma etki alanları arası ilkeler hakkında bilgi edinin."
+title: Azure API Management etki alanları arası ilkeler | Microsoft Docs
+description: Azure API Management'te kullanıma etki alanları arası ilkeler hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129043"
 ---
 # <a name="api-management-cross-domain-policies"></a>API Management etki alanları arası ilkeler
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  

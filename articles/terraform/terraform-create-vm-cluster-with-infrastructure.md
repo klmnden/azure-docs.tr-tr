@@ -1,7 +1,7 @@
 ---
-title: "VM kümesinin Terraform ve HCL ile oluşturma"
-description: "Azure yük dengeleyici ile Linux sanal makine kümesi oluşturmak için Terraform ve HashiCorp yapılandırma dili (HCL) kullanın"
-keywords: "terraform, devops, sanal makine, ağ, modüller"
+title: VM kümesinin Terraform ve HCL ile oluşturma
+description: Azure yük dengeleyici ile Linux sanal makine kümesi oluşturmak için Terraform ve HashiCorp yapılandırma dili (HCL) kullanın
+keywords: terraform, devops, sanal makine, ağ, modüller
 author: tomarcher
 manager: routlaw
 ms.service: virtual-machines-linux
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518809"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>VM kümesinin Terraform ve HCL ile oluşturma
 

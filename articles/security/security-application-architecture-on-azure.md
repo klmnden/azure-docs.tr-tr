@@ -1,5 +1,5 @@
 ---
-title: "Güvenlik, Azure mimari tasarımları tümleştirme | Microsoft Docs"
+title: Güvenlik, Azure mimari tasarımları tümleştirme | Microsoft Docs
 description: " Bu makalede, güvenlik tasarımı ve uygulama tümleştirmeyi kolay hale getirmek için azure'da uygulama ve Hizmetleri mimarisi anlamanıza yardımcı olur. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/23/2017
+ms.locfileid: "25549450"
 ---
 # <a name="application-architecture-on-azure"></a>Azure’da uygulama mimarisi
 Güvenli hale getirmek için Microsoft azure'da, bulut tabanlı çözümlerinizi güçlü bir mimari temel önemlidir. Mimarlar tasarımcıları ve uygulayıcılar tüm uygulama ve Hizmetleri mimarisinin güçlü bir bilgilerini yararlanır. Bu temel bilgi, bulut tabanlı çözümler tüm bileşenlerini anlama ve güvenlik tasarımı ve uygulama tüm yönlerini tümleştirmeyi kolay hale yardımcı olur.

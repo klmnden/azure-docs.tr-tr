@@ -1,12 +1,12 @@
 ---
-title: "Azure bulut Kabuk fiyatlandırma | Microsoft Docs"
-description: "Azure bulut kabuğunu fiyatlandırma genel bakış"
-services: 
-documentationcenter: 
+title: Azure bulut Kabuk fiyatlandırma | Microsoft Docs
+description: Azure bulut kabuğunu fiyatlandırma genel bakış
+services: ''
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24809875"
 ---
 # <a name="pricing"></a>Fiyatlandırma
 Bulut Kabuğu'nda bash ve PowerShell bulut Kabuğu (Önizleme) aşağıdaki bilgileri konu.

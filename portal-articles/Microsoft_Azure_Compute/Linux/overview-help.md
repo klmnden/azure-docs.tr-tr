@@ -1,6 +1,6 @@
 ---
-title: "Linux sanal makineler yardım belgeleri | Microsoft Docs"
-description: "Azure portalında Linux sanal makinelerine genel bakış için yardım içeriği"
+title: Linux sanal makineler yardım belgeleri | Microsoft Docs
+description: Azure portalında Linux sanal makinelerine genel bakış için yardım içeriği
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057663"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Linux sanal makineler belgeleri
 

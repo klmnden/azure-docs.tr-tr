@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Gateway’de uçtan uca SSL’yi etkinleştirme | Microsoft Docs"
-description: "Bu sayfada, Application Gateway uçtan uca SSL desteği için genel bir bakış sunulmuştur."
+title: Azure Application Gateway’de uçtan uca SSL’yi etkinleştirme | Microsoft Docs
+description: Bu sayfada, Application Gateway uçtan uca SSL desteği için genel bir bakış sunulmuştur.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22704719"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Application Gateway ile uçtan uca SSL’ye genel bakış
 
