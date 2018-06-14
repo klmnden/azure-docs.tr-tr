@@ -1,11 +1,11 @@
 ---
-title: "Azure Market teklifi oluşturmak için teknik olmayan önkoşulları | Microsoft Docs"
-description: "Oluşturma ve bir teklifi Azure satın almak için Marketinde başkalarının dağıtma gereksinimlerini anlayın."
+title: Azure Market teklifi oluşturmak için teknik olmayan önkoşulları | Microsoft Docs
+description: Oluşturma ve bir teklifi Azure satın almak için Marketinde başkalarının dağıtma gereksinimlerini anlayın.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3dae463b-8f48-4f52-8fa8-4e3975f09f43
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29940050"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Azure Market teklifi oluşturmak için genel Önkoşullar
 Teklif oluşturma işlemine ilerlemek için gereken genel, iş işlemi-merkezli Önkoşullar anlayın.

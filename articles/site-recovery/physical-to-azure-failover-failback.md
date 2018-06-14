@@ -1,6 +1,6 @@
 ---
-title: "Yük devri ve Azure Site Recovery ile çoğaltılan geri fiziksel sunucuları başarısız | Microsoft Docs"
-description: "Fiziksel sunucuları azure'a yük devri ve Azure Site Recovery ile şirket içi siteye geri başarısız hakkında bilgi edinin"
+title: Yük devri ve Azure Site Recovery ile çoğaltılan geri fiziksel sunucuları başarısız | Microsoft Docs
+description: Fiziksel sunucuları azure'a yük devri ve Azure Site Recovery ile şirket içi siteye geri başarısız hakkında bilgi edinin
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876024"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Yük devri ve geri fiziksel sunucuları Azure'a kopyalanan başarısız
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311933"
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure yığın 1710 güncelleştirme (yapı 20171020.1)
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi Görünüm Tasarımcısı döşemeleri Başvuru Kılavuzu | Microsoft Docs"
-description: "Günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri çeşitli günlük analizi çalışma alanınızda görüntülemek Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir döşeme için bir başvuru kılavuzdur."
+title: Azure günlük analizi Görünüm Tasarımcısı döşemeleri Başvuru Kılavuzu | Microsoft Docs
+description: Günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri çeşitli günlük analizi çalışma alanınızda görüntülemek Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir döşeme için bir başvuru kılavuzdur.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
-editor: 
+editor: ''
 ms.assetid: 41787c8f-6c13-4520-b0d3-5d3d84fcf142
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947325"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı döşemeleri Başvuru Kılavuzu
 Azure günlük analizi Görünüm Tasarımcısı kullanarak veri görselleştirmeleri günlük analizi çalışma alanınızdaki çeşitli sunmak Azure Portalı'nda özel görünümler oluşturabilirsiniz. Bu makalede, ayarları özel görünümlerde kullanılabilir döşeme için bir başvuru kılavuzdur.

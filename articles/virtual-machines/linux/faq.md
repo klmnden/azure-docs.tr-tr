@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30242447"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>Linux sanal makineleri hakkında sık sorulan sorular
 Bu makalede Azure Resource Manager dağıtım modeli kullanılarak oluşturulan Linux sanal makineleri hakkında bazı sık sorulan soruları giderir. Bu konu Windows sürümü için bkz: [Windows sanal makineler hakkında sık sorulan bir soru](../windows/faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

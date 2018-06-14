@@ -1,18 +1,18 @@
 ---
-title: "Azure Cosmos DB’ye bağlanan bir Azure İşlevi oluşturma | Microsoft Docs"
-description: "Azure CLI Betiği Örneği - Azure Cosmos DB'ye bağlanan bir Azure İşlevi oluşturma"
+title: Azure Cosmos DB’ye bağlanan bir Azure İşlevi oluşturma | Microsoft Docs
+description: Azure CLI Betiği Örneği - Azure Cosmos DB'ye bağlanan bir Azure İşlevi oluşturma
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 tags: functions
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.workload: 
+ms.workload: ''
 ms.date: 01/22/2018
 ms.author: glenga
 ms.custom: mvc
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843230"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Azure Cosmos DB’ye bağlanan bir Azure İşlevi oluşturma
 

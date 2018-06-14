@@ -1,11 +1,11 @@
 ---
-title: "Teklifiniz için Azure Marketi dağıtma | Microsoft Docs"
-description: "Hakkında bilgi edinin ve Azure Marketi teklifiniz--dağıtmak için yönergeleri sanal makine görüntüsü, geliştirici hizmeti, veri hizmeti, vb.--yol."
+title: Teklifiniz için Azure Marketi dağıtma | Microsoft Docs
+description: Hakkında bilgi edinin ve Azure Marketi teklifiniz--dağıtmak için yönergeleri sanal makine görüntüsü, geliştirici hizmeti, veri hizmeti, vb.--yol.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 8f79b891-84e2-4f41-ba0d-66420e2c6b2e
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943250"
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>Teklifiniz için Azure Marketi dağıtma
 Olduğunuzda teklifiniz ile (diğer bir deyişle, müşteri senaryoları, pazarlama içeriği, vb. test ettiğiniz) ve başlatma, istek için hazır **anında üretime** üzerinde **Yayımla** sekmesi.  

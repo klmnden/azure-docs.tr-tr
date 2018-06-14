@@ -1,11 +1,11 @@
 ---
-title: "Sağlayıcı kaynak kullanımı API | Microsoft Docs"
-description: "API, kaynak kullanımı için Azure yığın kullanım bilgilerini alır başvurusu"
+title: Sağlayıcı kaynak kullanımı API | Microsoft Docs
+description: API, kaynak kullanımı için Azure yığın kullanım bilgilerini alır başvurusu
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877288"
 ---
 # <a name="provider-resource-usage-api"></a>Sağlayıcı kaynak kullanım API’si
 Terim *sağlayıcı* Hizmet Yöneticisi ve tüm yetkilendirilmiş sağlayıcılarını geçerlidir. Azure yığın işleçler ve temsilci sağlayıcıları sağlayıcısı kullanım API'si doğrudan kiracıları kullanımını görüntülemek için kullanabilirsiniz. Örneğin, aşağıdaki çizimde gösterildiği gibi P0 P1'ın ilgili kullanım bilgileri almak için API sağlayıcısı çağırabilir ve P2'ın doğrudan kullanımını ve P1 kullanım bilgileri P3 ve P4 çağırabilir.

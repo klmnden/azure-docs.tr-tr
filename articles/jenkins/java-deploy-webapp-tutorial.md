@@ -1,10 +1,10 @@
 ---
-title: "Web uygulamalarınızı Azure'a dağıtmak için Jenkins kullanın | Microsoft Docs"
-description: "Sürekli Tümleştirme kurup Github'dan Jenkins ve Docker kullanarak, Java web uygulamaları için Azure App Service'e ayarlayın."
+title: Web uygulamalarınızı Azure'a dağıtmak için Jenkins kullanın | Microsoft Docs
+description: Sürekli Tümleştirme kurup Github'dan Jenkins ve Docker kullanarak, Java web uygulamaları için Azure App Service'e ayarlayın.
 author: rloutlaw
 manager: douge
 ms.service: jenkins
-ms.search.scope: 
+ms.search.scope: ''
 ms.devlang: java
 ms.topic: article
 ms.workload: web
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29853008"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Sürekli tümleştirme ve dağıtım Azure App Service'e Jenkins ile ayarlama
 

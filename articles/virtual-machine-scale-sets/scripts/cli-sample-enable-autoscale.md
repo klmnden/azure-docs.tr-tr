@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246500"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Azure CLI 2.0 ile sanal makine ölçek kümesini otomatik olarak ölçeklendirme
 Bu betik, CPU yükü değiştikçe otomatik olarak ölçeklendirmek için Ubuntu çalıştıran ve ana bilgisayar tabanlı ölçümler kullanan bir sanal makine ölçek kümesi oluşturur.

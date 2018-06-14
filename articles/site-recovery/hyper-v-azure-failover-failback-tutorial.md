@@ -1,6 +1,6 @@
 ---
-title: "Yük devri ve başarısız geri Hyper-V sanal makinelerini Azure Site Recovery ile çoğaltılan | Microsoft Docs"
-description: "Hyper-V Vm'lerini azure'a yük devri ve Azure Site Recovery ile şirket içi siteye geri başarısız hakkında bilgi edinin"
+title: Yük devri ve başarısız geri Hyper-V sanal makinelerini Azure Site Recovery ile çoğaltılan | Microsoft Docs
+description: Hyper-V Vm'lerini azure'a yük devri ve Azure Site Recovery ile şirket içi siteye geri başarısız hakkında bilgi edinin
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852906"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Yük devri ve başarısız geri Hyper-V Azure'a kopyalanan VM
 

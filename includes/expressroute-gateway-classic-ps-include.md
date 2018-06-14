@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198086"
 ---
 VNet ve bir ağ geçidi alt ağı önce aşağıdaki görevlere çalışmaya başlamadan önce oluşturmanız gerekir.
 

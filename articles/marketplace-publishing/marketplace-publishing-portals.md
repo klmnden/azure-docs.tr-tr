@@ -1,11 +1,11 @@
 ---
-title: "Market teklifi oluşturmak için gereken çeşitli portalları genel bakış | Microsoft Docs"
-description: "Market teklifi oluşturmak için gereken çeşitli portalları genel bakış"
+title: Market teklifi oluşturmak için gereken çeşitli portalları genel bakış | Microsoft Docs
+description: Market teklifi oluşturmak için gereken çeşitli portalları genel bakış
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 89ce82b3-c28a-4b0d-b37a-db3112160a4e
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29938653"
 ---
 # <a name="portals-you-will-need"></a>İhtiyacınız olacak portalları
 Şimdi bir teklif yayımlama işlemi başlamadan önce size gereken çeşitli portalları için sunulan alırsınız. Portallarında--Geliştirici Merkezi, Azure Yayımlama Portalı ve Azure Portal--bunlarla çok etkileşime gireceğini sipariş hakkında kısa özeti aşağıdadır.                                                                            

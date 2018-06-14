@@ -1,12 +1,12 @@
 ---
-title: "Azure günlük analizi Linux Aracısı sorunlarını giderme | Microsoft Docs"
-description: "Belirtiler, nedenleri ve çözümleme en yaygın sorunları için günlük analizi Linux Aracısı ile açıklanmaktadır."
+title: Azure günlük analizi Linux Aracısı sorunlarını giderme | Microsoft Docs
+description: Belirtiler, nedenleri ve çözümleme en yaygın sorunları için günlük analizi Linux Aracısı ile açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936484"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-linux-agent-for-log-analytics"></a>Günlük analizi için Linux Aracısı ile sorunlarını giderme
 

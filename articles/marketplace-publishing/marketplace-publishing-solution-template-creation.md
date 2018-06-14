@@ -1,11 +1,11 @@
 ---
-title: "Market bir çözüm şablonu oluşturmak için kılavuz | Microsoft Docs"
-description: "Oluşturma, onaylamak ve dağıtmak için bir çoklu VM görüntü çözüm şablonu konusunda ayrıntılı yönergeler Azure Market satın alın."
+title: Market bir çözüm şablonu oluşturmak için kılavuz | Microsoft Docs
+description: Oluşturma, onaylamak ve dağıtmak için bir çoklu VM görüntü çözüm şablonu konusunda ayrıntılı yönergeler Azure Market satın alın.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: e14e05f2-2385-4ce0-b351-0747cb74ba19
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937317"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure Market'ten bir çözüm şablonu oluşturmak için kılavuz
 Adım 1 ' tamamladıktan sonra [hesap oluşturma ve kayıt][link-acct-creation], bir Azure uyumlu çözüm şablon oluşturma işleminde size kılavuzluk [oluşturmak için teknik Önkoşullar bir Çözüm şablonu](marketplace-publishing-solution-template-creation-prerequisites.md). Biz, üzerinde birden çok VM için bir çözüm şablonu oluşturmak için adımlarda size yol gösterecek artık [yayımlama portalında] [ link-pubportal] Azure Marketi için.

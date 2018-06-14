@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31589841"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API Yönetimi SSS
 Sık sorulan sorular, desenleri ve en iyi yöntemler yanıtlarını için Azure API Management alın.
