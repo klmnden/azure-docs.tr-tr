@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus özel durumlar Mesajlaşma | Microsoft Docs"
-description: "Service Bus Mesajlaşma özel durumlar ve önerilen eylemler listesi."
+title: Azure Service Bus özel durumlar Mesajlaşma | Microsoft Docs
+description: Service Bus Mesajlaşma özel durumlar ve önerilen eylemler listesi.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3d8526fe-6e47-4119-9f3e-c56d916a98f9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28930159"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Hizmet Veri Yolu mesajlaşma özel durumları
 Bu makalede, Microsoft Azure hizmet API'leri ileti veri yolu tarafından oluşturulan bazı özel durumlar listelenir. Bu başvuru değiştirilebilir, bu nedenle geri Güncelleştirmeleri denetle.

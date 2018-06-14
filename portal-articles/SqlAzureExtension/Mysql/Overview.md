@@ -1,6 +1,6 @@
 ---
-title: "MySQL için Azure Veritabanı'na genel bakış | Microsoft Docs"
-description: "Azure portalındaki MySQL için Azure Veritabanı'na genel bakış için yardım içeriği"
+title: MySQL için Azure Veritabanı'na genel bakış | Microsoft Docs
+description: Azure portalındaki MySQL için Azure Veritabanı'na genel bakış için yardım içeriği
 services: mysql
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073903"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>MySQL Belgeleri için Azure Veritabanı
 
