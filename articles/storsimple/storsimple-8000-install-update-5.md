@@ -1,12 +1,12 @@
 ---
-title: "Güncelleştirme 5 StorSimple 8000 serisi cihaza yüklemek | Microsoft Docs"
-description: "StorSimple 8000 serisi güncelleştirme 5 StorSimple 8000 serisi cihazınıza yüklediğiniz açıklanmaktadır."
+title: Güncelleştirme 5 StorSimple 8000 serisi cihaza yüklemek | Microsoft Docs
+description: StorSimple 8000 serisi güncelleştirme 5 StorSimple 8000 serisi cihazınıza yüklediğiniz açıklanmaktadır.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28108729"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple Cihazınızda güncelleştirme 5 yükleyin
 

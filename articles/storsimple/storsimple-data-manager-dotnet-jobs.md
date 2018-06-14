@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure StorSimple veri Yöneticisi işleri .NET SDK'yı kullanma | Microsoft Docs"
-description: "StorSimple veri Yöneticisi işleri başlatmak için .NET SDK'sını kullanmayı öğrenin"
+title: Microsoft Azure StorSimple veri Yöneticisi işleri .NET SDK'yı kullanma | Microsoft Docs
+description: StorSimple veri Yöneticisi işleri başlatmak için .NET SDK'sını kullanmayı öğrenin
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27928245"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Veri dönüştürme başlatmak için .net SDK'sını kullanın
 

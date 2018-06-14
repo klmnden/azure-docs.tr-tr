@@ -1,11 +1,11 @@
 ---
-title: "Azure BizTalk Services Belgeleri - Öğreticileri | Microsoft Docs"
-description: "BizTalk Services’ı kullanarak SAP, Oracle EBS, SQL Server ve PeopleSoft için buluttan şirket içine tümleştirme ve iş kolu uygulaması tümleştirme olanakları sağlama hakkında bilgi edinin."
+title: Azure BizTalk Services Belgeleri - Öğreticileri | Microsoft Docs
+description: BizTalk Services’ı kullanarak SAP, Oracle EBS, SQL Server ve PeopleSoft için buluttan şirket içine tümleştirme ve iş kolu uygulaması tümleştirme olanakları sağlama hakkında bilgi edinin.
 services: biztalk-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: biztalk-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26625105"
 ---
 # <a name="biztalk-services-documentation"></a>BizTalk Services Belgeleri
 

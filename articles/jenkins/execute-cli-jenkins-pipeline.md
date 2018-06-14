@@ -1,12 +1,12 @@
 ---
-title: "Jenkins ile Azure CLI yürütme | Microsoft Docs"
-description: "Azure Jenkins ardışık düzeninde bir Java web uygulaması dağıtmak için Azure CLI kullanmayı öğrenin"
+title: Jenkins ile Azure CLI yürütme | Microsoft Docs
+description: Azure Jenkins ardışık düzeninde bir Java web uygulaması dağıtmak için Azure CLI kullanmayı öğrenin
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: jenkins
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926939"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins ve Azure CLI ile Azure App Service'e dağıtma
 Java web uygulaması Azure'a dağıtmak için Azure CLI kullanabileceğiniz [Jenkins ardışık düzen](https://jenkins.io/doc/book/pipeline/). Bu öğreticide, aşağıdakileri öğrenerek bir Azure sanal makinesinde CI/CD işlem hattı oluşturursunuz:

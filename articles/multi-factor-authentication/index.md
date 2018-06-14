@@ -1,11 +1,11 @@
 ---
-title: "Azure Multi-Factor Authentication Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Basit bir oturum açma işlemi sağlayan çeşitli doğrulama yöntemleriyle çok faktörlü kimlik doğrulaması dağıtmayı öğrenin. Öğreticiler, bir SDK ve daha fazlası."
+title: Azure Multi-Factor Authentication Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Basit bir oturum açma işlemi sağlayan çeşitli doğrulama yöntemleriyle çok faktörlü kimlik doğrulaması dağıtmayı öğrenin. Öğreticiler, bir SDK ve daha fazlası.
 services: multi-factor-authentication
 author: czeumault
 manager: mtillman
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26630827"
 ---
 # <a name="multi-factor-authentication-documentation"></a>Multi-Factor Authentication Belgeleri
 

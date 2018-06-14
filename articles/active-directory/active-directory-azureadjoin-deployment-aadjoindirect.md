@@ -1,11 +1,11 @@
 ---
-title: "Kullanım senaryoları ve Azure AD katılım için dağıtım konuları | Microsoft Docs"
-description: "Nasıl yöneticileri Azure AD'ye katılımı kendi son kullanıcıları için (çalışanlar, Öğrenciler, diğer kullanıcıları) ayarlayacakları açıklanmaktadır. Ayrıca, Azure AD katılım kullanmak için farklı gerçek senaryolar anlatılmaktadır."
+title: Kullanım senaryoları ve Azure AD katılım için dağıtım konuları | Microsoft Docs
+description: Nasıl yöneticileri Azure AD'ye katılımı kendi son kullanıcıları için (çalışanlar, Öğrenciler, diğer kullanıcıları) ayarlayacakları açıklanmaktadır. Ayrıca, Azure AD katılım kullanmak için farklı gerçek senaryolar anlatılmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: femila
 manager: mtillman
-editor: 
+editor: ''
 tags: azure-classic-portal
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
 ms.service: active-directory
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26602439"
 ---
 # <a name="usage-scenarios-and-deployment-considerations-for-azure-ad-join"></a>Kullanım senaryoları ve Azure AD katılım için dağıtım konuları
 ## <a name="usage-scenarios-for-azure-ad-join"></a>Azure AD katılım için kullanım senaryoları

@@ -1,12 +1,12 @@
 ---
 title: StorSimple 8000 serisi sistem gereksinimleri | Microsoft Docs
-description: "Yazılım, ağ ve yüksek oranda kullanılabilirlik gereksinimleri ve Microsoft Azure StorSimple çözümünüzle için en iyi uygulamaları açıklar."
+description: Yazılım, ağ ve yüksek oranda kullanılabilirlik gereksinimleri ve Microsoft Azure StorSimple çözümünüzle için en iyi uygulamaları açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28011070"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 serisi yazılım, yüksek kullanılabilirlik ve ağ gereksinimleri
 

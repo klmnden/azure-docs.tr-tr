@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs kaynakları yönetmek için PowerShell kullanma | Microsoft Docs"
-description: "PowerShell modülü oluşturmak ve olay hub'ları yönetmek için kullanın"
+title: Azure Event Hubs kaynakları yönetmek için PowerShell kullanma | Microsoft Docs
+description: PowerShell modülü oluşturmak ve olay hub'ları yönetmek için kullanın
 services: event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782226"
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Olay hub'ları kaynakları yönetmek için PowerShell kullanma
 

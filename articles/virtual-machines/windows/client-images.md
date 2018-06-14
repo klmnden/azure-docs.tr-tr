@@ -1,11 +1,11 @@
 ---
-title: "Azure'da Windows istemci görüntüleri kullanmak | Microsoft Docs"
-description: "Windows 7, Windows 8 veya Windows 10 azure'da geliştirme ve test senaryoları için dağıtmak için Visual Studio abonelik avantajlarını kullanma"
+title: Azure'da Windows istemci görüntüleri kullanmak | Microsoft Docs
+description: Windows 7, Windows 8 veya Windows 10 azure'da geliştirme ve test senaryoları için dağıtmak için Visual Studio abonelik avantajlarını kullanma
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103685"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Windows İstemcisi Azure üzerinde geliştirme ve test senaryoları için kullanın.
 Uygun bir Visual Studio (önceki adıyla MSDN) aboneliğiniz varsa Azure geliştirme ve test senaryoları için Windows 10 Enterprise (x64) sağlanan veya Windows 7, Windows 8 kullanabilirsiniz. Bu makalede, Windows 7, Windows 8.1, Windows 10 Enterprise Azure ve aşağıdaki Azure galeri görüntüleri kullanımını çalıştırmak için uygunluk gereksinimleri özetlenmektedir.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus Mesajlaşma varlıkları askıya alma | Microsoft Docs"
-description: "Askıya alma ve Azure Service Bus ileti varlıkları yeniden etkinleştirin."
+title: Azure Service Bus Mesajlaşma varlıkları askıya alma | Microsoft Docs
+description: Askıya alma ve Azure Service Bus ileti varlıkları yeniden etkinleştirin.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197035"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Askıya alma ve mesajlaşma varlıkları (devre dışı bırak) yeniden etkinleştirin
 

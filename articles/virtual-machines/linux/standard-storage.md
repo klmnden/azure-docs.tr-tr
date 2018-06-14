@@ -1,8 +1,8 @@
 ---
-title: "Azure üzerinde Linux VM diskleri için standart depolama | Microsoft Docs"
-description: "Düşük maliyetli standart depolama ve yönetilen ve yönetilmeyen Linux VM diskleri tartışın."
+title: Azure üzerinde Linux VM diskleri için standart depolama | Microsoft Docs
+description: Düşük maliyetli standart depolama ve yönetilen ve yönetilmeyen Linux VM diskleri tartışın.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: jeconnoc
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23949142"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

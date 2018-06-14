@@ -1,11 +1,11 @@
 ---
-title: "Bulut hizmeti rolleriyle geri dönüştürme yaygın nedenlerini | Microsoft Docs"
-description: "Aniden geri dönüştürüldüğünde bir bulut hizmet rolü önemli kapalı kalma süresi neden olabilir. Kapalı kalma süresini azaltmanıza yardımcı olabilecek dönüştürülmesi, rollerin neden bazı yaygın sorunlar aşağıda verilmiştir."
+title: Bulut hizmeti rolleriyle geri dönüştürme yaygın nedenlerini | Microsoft Docs
+description: Aniden geri dönüştürüldüğünde bir bulut hizmet rolü önemli kapalı kalma süresi neden olabilir. Kapalı kalma süresini azaltmanıza yardımcı olabilecek dönüştürülmesi, rollerin neden bazı yaygın sorunlar aşağıda verilmiştir.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 533930d1-8035-4402-b16a-cf887b2c4f85
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984295"
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>Rollerin geri dönüştürülmesine neden olan yaygın sorunlar
 Bu makalede, bazı ortak nedenlerinden biri dağıtım sorunlarını ele alır ve bu sorunları çözmenize yardımcı olacak sorun giderme ipuçları verilmektedir. Bir sorun uygulamayla var. rol örneğini başlatmaya hata verdiğinde veya başlatılırken, meşgul ve durdurma durumları arasında geçiş yapar göstergesidir.

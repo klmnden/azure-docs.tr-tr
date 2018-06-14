@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure VM için şablonu indirin | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde dağıtımları otomatikleştirme ile yardımcı olmak için bir VM templatefor indirin"
+title: Bir Azure VM için şablonu indirin | Microsoft Docs
+description: Resource Manager dağıtım modelinde dağıtımları otomatikleştirme ile yardımcı olmak için bir VM templatefor indirin
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 51ef4f51-0942-4249-afea-4a3f87ce1ff8
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/02/2017
+ms.locfileid: "26055798"
 ---
 # <a name="download-the-template-for-a-vm"></a>VM için şablon indirme
 Azure portal veya PowerShell kullanarak bir VM oluşturduğunuzda, Resource Manager şablonu sizin için otomatik olarak oluşturulur. Bir dağıtımı hızlı bir şekilde çoğaltmak için bu şablonu kullanın. Bu şablon bir kaynak grubundaki tüm kaynakları hakkında bilgi içerir. Bir sanal makine için bu şablonu VM ağ kaynakları da dahil olmak üzere bu kaynak grubundaki desteklenmesi amacıyla oluşturulan her şeyi içeren anlamına gelir.

@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus Role-Based erişim denetimi (RBAC) Önizleme | Microsoft Docs"
-description: "Azure Service Bus rol tabanlı erişim denetimi"
+title: Azure Service Bus Role-Based erişim denetimi (RBAC) Önizleme | Microsoft Docs
+description: Azure Service Bus rol tabanlı erişim denetimi
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783482"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Etkin Directory Role-Based erişim denetimi (Önizleme)
 
