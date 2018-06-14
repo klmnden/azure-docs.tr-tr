@@ -1,13 +1,13 @@
 ---
-title: "Azure karma HPC Pack kümedeki ayarlamak | Microsoft Docs"
-description: "Küçük bir, karma yüksek performanslı bilgi işlem (HPC) küme ayarlamak için Microsoft HPC Pack ve Azure kullanmayı öğrenin"
+title: Azure karma HPC Pack kümedeki ayarlamak | Microsoft Docs
+description: Küçük bir, karma yüksek performanslı bilgi işlem (HPC) küme ayarlamak için Microsoft HPC Pack ve Azure kullanmayı öğrenin
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: hpc-pack
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23985315"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Bir karma yüksek performanslı bilgi işlem (HPC) küme Microsoft HPC Pack ve isteğe bağlı Azure işlem düğümleri ile ayarlama
 Microsoft HPC Pack 2012 R2 ve Azure (HPC) küme bir küçük, karma yüksek performanslı bilgi işlem ayarlamak için kullanın. Bu makalede gösterilen küme bir şirket içi HPC Pack baş düğümüne oluşur ve bazı düğümler isteğe bağlı bir azure'da dağıtmak bulut hizmeti işlem. Karma küme üzerinde işlem işleri sonra çalıştırabilirsiniz.

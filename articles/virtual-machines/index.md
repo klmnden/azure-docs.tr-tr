@@ -1,11 +1,11 @@
 ---
-title: "Azure Sanal Makineler Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Windows veya Linux sanal makineleri oluşturma, dağıtma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler."
+title: Azure Sanal Makineler Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Windows veya Linux sanal makineleri oluşturma, dağıtma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler.
 services: virtual-machines
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072869"
 ---
 # <a name="virtual-machines-documentation"></a>Sanal Makineler Belgeleri
 

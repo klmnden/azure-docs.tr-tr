@@ -1,12 +1,12 @@
 ---
-title: "Azure IOT paketi ile gerçek algılayıcılar C kullanarak Raspberry Pi'yi bağlanma | Microsoft Docs"
-description: "Microsoft Azure IOT Starter Kit Böğürtlenli pi 3 kullanın ve Azure IOT paketi. Uzaktan izleme çözümüne Raspberry Pi'yi bağlanmak için kullanım C telemetri algılayıcı buluta göndermek ve çözüm panodan çağrılan yöntemler yanıt verir."
-services: 
+title: Azure IOT paketi ile gerçek algılayıcılar C kullanarak Raspberry Pi'yi bağlanma | Microsoft Docs
+description: Microsoft Azure IOT Starter Kit Böğürtlenli pi 3 kullanın ve Azure IOT paketi. Uzaktan izleme çözümüne Raspberry Pi'yi bağlanmak için kullanım C telemetri algılayıcı buluta göndermek ve çözüm panodan çağrılan yöntemler yanıt verir.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: c
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24012011"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-telemetry-from-a-real-sensor-using-c"></a>Raspberry Pi 3 Uzaktan izleme çözümüne bağlama ve C kullanarak gerçek algılayıcı telemetri Gönder
 

@@ -1,11 +1,11 @@
 ---
-title: "Bulut Hizmetleri rolleri için iletişim | Microsoft Docs"
-description: "Bulut Hizmetleri rol örneklerinin dışına veya diğer rol örnekleri arasında iletişim kuran kendileri için tanımlanmış uç noktaları (http, https, tcp, udp) olabilir."
+title: Bulut Hizmetleri rolleri için iletişim | Microsoft Docs
+description: Bulut Hizmetleri rol örneklerinin dışına veya diğer rol örnekleri arasında iletişim kuran kendileri için tanımlanmış uç noktaları (http, https, tcp, udp) olabilir.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27701899"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure rol örneklerinin iletişimi etkinleştir
 Bulut hizmeti rollerinizi iç ve dış bağlantıları iletişim kurar. Dış bağlantılar denir **giriş uç noktaları** iç bağlantılar denir sırada **iç uç noktalar**. Bu konuda nasıl değiştirileceğini açıklar [hizmet tanımı](cloud-services-model-and-package.md#csdef) uç noktaları oluşturmak için.

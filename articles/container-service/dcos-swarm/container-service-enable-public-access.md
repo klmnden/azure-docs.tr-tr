@@ -1,6 +1,6 @@
 ---
-title: "Azure DC/OS kapsayıcı uygulama erişimi etkinleştir"
-description: "Azure kapsayıcı hizmeti DC/OS kapsayıcılarında genel erişimi etkinleştirmek nasıl."
+title: Azure DC/OS kapsayıcı uygulama erişimi etkinleştir
+description: Azure kapsayıcı hizmeti DC/OS kapsayıcılarında genel erişimi etkinleştirmek nasıl.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332288"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Azure kapsayıcı hizmeti uygulamanın genel erişimi etkinleştir
 
