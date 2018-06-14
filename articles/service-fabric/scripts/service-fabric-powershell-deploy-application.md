@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell Betiği örnek - uygulama bir kümeye dağıtma | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - Service Fabric kümesi için bir uygulamayı dağıtın."
+title: Azure PowerShell Betiği örnek - uygulama bir kümeye dağıtma | Microsoft Docs
+description: Azure PowerShell Betiği örnek - Service Fabric kümesi için bir uygulamayı dağıtın.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -17,9 +17,10 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: c81514fb4b1c1da483ebd55deae149caf22d4b63
 ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927609"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Service Fabric kümesi bir uygulamayı dağıtma
 

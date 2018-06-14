@@ -1,11 +1,11 @@
 ---
-title: "Bir arada var olabilen ExpressRoute ve Siteden Siteye VPN bağlantıları yapılandırma: klasik: Azure | Microsoft Docs"
-description: "Bu makalede klasik dağıtım modeli için bir arada varolabilen ExpressRoute ve bir Siteden Siteye VPN bağlantısını nasıl yapılandıracağınız anlatılmaktadır."
+title: 'Bir arada var olabilen ExpressRoute ve Siteden Siteye VPN bağlantıları yapılandırma: klasik: Azure | Microsoft Docs'
+description: Bu makalede klasik dağıtım modeli için bir arada varolabilen ExpressRoute ve bir Siteden Siteye VPN bağlantısını nasıl yapılandıracağınız anlatılmaktadır.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "22710142"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma (klasik)
 > [!div class="op_single_selector"]

@@ -1,12 +1,12 @@
 ---
 title: StorSimple 8000 serisi bir birimde kopyalama | Microsoft Docs
-description: "Farklı kopya türleri ve kullanım tanımlar ve tek tek bir birim bir StorSimple 8000 serisi cihazda kopyalamak için bir yedek nasıl kullanabileceğinizi açıklar."
+description: Farklı kopya türleri ve kullanım tanımlar ve tek tek bir birim bir StorSimple 8000 serisi cihazda kopyalamak için bir yedek nasıl kullanabileceğinizi açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26333211"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>StorSimple cihaz Yöneticisi hizmeti Azure portalında bir birim kopyalamak için kullanın.
 

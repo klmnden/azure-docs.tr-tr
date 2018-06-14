@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri hata Kılavuzu işleme | Microsoft Docs"
-description: "İşlevlerinizi yürütme zaman içinde oluşan hataları ve bağlama özgü hatalar konulara bağlantılar işlemek için genel rehberlik sağlar."
+title: Azure işlevleri hata Kılavuzu işleme | Microsoft Docs
+description: İşlevlerinizi yürütme zaman içinde oluşan hataları ve bağlama özgü hatalar konulara bağlantılar işlemek için genel rehberlik sağlar.
 services: functions
-cloud: 
-documentationcenter: 
+cloud: ''
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-ms.assetid: 
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118492"
 ---
 # <a name="azure-functions-error-handling"></a>Azure işlevleri hata işleme
 

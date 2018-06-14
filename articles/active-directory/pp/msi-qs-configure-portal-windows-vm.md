@@ -1,11 +1,11 @@
 ---
-title: "Azure Portalı'nı kullanarak bir Azure VM'deki MSI yapılandırma"
-description: "Tarafından yönetilen hizmet kimliği (MSI) Azure Azure portalını kullanarak bir VM, yapılandırma için adım yönergeler adım."
+title: Azure Portalı'nı kullanarak bir Azure VM'deki MSI yapılandırma
+description: Tarafından yönetilen hizmet kimliği (MSI) Azure Azure portalını kullanarak bir VM, yapılandırma için adım yönergeler adım.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979182"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma
 

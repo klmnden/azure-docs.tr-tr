@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell Betiği örnek - bir blob kapsayıcısını Fatura toplam boyutunu hesaplayabilir | Microsoft Docs"
-description: "Azure Blob depolamada kapsayıcı toplam boyutu faturalandırma amacıyla hesaplayın."
+title: Azure PowerShell Betiği örnek - bir blob kapsayıcısını Fatura toplam boyutunu hesaplayabilir | Microsoft Docs
+description: Azure Blob depolamada kapsayıcı toplam boyutu faturalandırma amacıyla hesaplayın.
 services: storage
 documentationcenter: na
 author: fhryo-msft
 manager: cbrooks
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26368553"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Bir blob kapsayıcısını toplam fatura boyutu hesaplanamıyor
 

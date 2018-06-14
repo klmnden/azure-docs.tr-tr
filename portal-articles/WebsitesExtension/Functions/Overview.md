@@ -1,6 +1,6 @@
 ---
-title: "Azure İşlevleri'ne genel bakış | Microsoft Docs"
-description: "Azure portalındaki Azure İşlevleri'ne genel bakış için yardım içeriği"
+title: Azure İşlevleri'ne genel bakış | Microsoft Docs
+description: Azure portalındaki Azure İşlevleri'ne genel bakış için yardım içeriği
 services: functions
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073818"
 ---
 # <a name="azure-functions-documentation"></a>Azure İşlevleri Belgeleri
 

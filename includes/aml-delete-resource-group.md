@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: machine-learning
 author: j-martens
 ms.service: machine-learning
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574996"
 ---
 Bu uygulamayı kullanmaya devam etmeyecekseniz, herhangi bir ücret ödememek için aşağıdaki adımları kullanarak bu hızlı başlangıç tarafından oluşturulan tüm kaynakları silin:
 

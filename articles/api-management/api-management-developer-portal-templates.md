@@ -1,11 +1,11 @@
 ---
-title: "Şablonları kullanarak API Management Geliştirici portalını özelleştirme-Azure | Microsoft Docs"
-description: "Şablonları kullanarak Azure API Management Geliştirici Portalı nasıl özelleştireceğinizi öğrenin."
+title: Şablonları kullanarak API Management Geliştirici portalını özelleştirme-Azure | Microsoft Docs
+description: Şablonları kullanarak Azure API Management Geliştirici Portalı nasıl özelleştireceğinizi öğrenin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: a195675b-f7d0-4fc9-90bf-860e6f17ccf7
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118233"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>Şablonları kullanarak Azure API Management Geliştirici Portalı nasıl özelleştireceğinizi
 

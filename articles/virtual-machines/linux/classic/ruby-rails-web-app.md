@@ -1,11 +1,11 @@
 ---
-title: "Bir Linux VM üzerinde rayları Web sitesinde bir Ruby konak | Microsoft Docs"
-description: "Ayarlama ve Ruby kullanarak bir Linux sanal makine azure'da rayları tabanlı Web sitesinde ana bilgisayar."
+title: Bir Linux VM üzerinde rayları Web sitesinde bir Ruby konak | Microsoft Docs
+description: Ayarlama ve Ruby kullanarak bir Linux sanal makine azure'da rayları tabanlı Web sitesinde ana bilgisayar.
 services: virtual-machines-linux
 documentationcenter: ruby
 author: rmcmurray
 manager: erikre
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: aad32685-3550-4bff-9c73-beb8d70b3291
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397606"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM’de Ruby on Rails Web uygulaması
 Bu öğretici, Linux sanal makine kullanarak azure'da rayları Web sitesinde bir Ruby barındırmak nasıl gösterir.  

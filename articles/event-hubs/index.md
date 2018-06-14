@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Event Hubs’ı kullanarak birçok farklı platformdaki bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay alma işlemini nasıl yapabileceğinizi öğrenin."
+title: Azure Event Hubs Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Event Hubs’ı kullanarak birçok farklı platformdaki bağlı IoT cihazlarından ve uygulamalarından saniyede milyonlarca olay alma işlemini nasıl yapabileceğinizi öğrenin.
 services: event-hubs
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25945763"
 ---
 # <a name="event-hubs-documentation"></a>Event Hubs Belgeleri
 

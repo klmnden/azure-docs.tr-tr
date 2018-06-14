@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -13,6 +13,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28986097"
 ---
 Cloud Shell’de, [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az_appservice_plan_create) komutuyla bir App Service planı oluşturun.
 

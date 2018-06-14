@@ -1,11 +1,11 @@
 ---
-title: "Azure AD galeri uygulamaya kullanıcı sağlamayı olduğu alma saat veya daha fazla bilgi | Microsoft Docs"
-description: "Uygulamanıza sağlama neden öğrenmek nasıl beklediğinizden daha uzun sürüyor"
+title: Azure AD galeri uygulamaya kullanıcı sağlamayı olduğu alma saat veya daha fazla bilgi | Microsoft Docs
+description: Uygulamanıza sağlama neden öğrenmek nasıl beklediğinizden daha uzun sürüyor
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614073"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Alma saat veya daha fazla olduğundan, Azure AD galeri uygulamaya kullanıcı hazırlama
 

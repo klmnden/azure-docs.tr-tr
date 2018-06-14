@@ -1,11 +1,11 @@
 ---
-title: "Azure'da bir Linux VM için bir kullanıcı eklemek için bulut init kullanın | Microsoft Docs"
-description: "Azure CLI 2.0 ile oluşturma sırasında bir Linux VM için bir kullanıcı eklemek için bulut init kullanma"
+title: Azure'da bir Linux VM için bir kullanıcı eklemek için bulut init kullanın | Microsoft Docs
+description: Azure CLI 2.0 ile oluşturma sırasında bir Linux VM için bir kullanıcı eklemek için bulut init kullanma
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123472"
 ---
 # <a name="use-cloud-init-to-add-a-user-to-a-linux-vm-in-azure"></a>Azure'da bir Linux VM için bir kullanıcı eklemek için bulut init kullanın
 Bu makalede nasıl kullanılacağı gösterilmektedir [bulut init](https://cloudinit.readthedocs.io) bir sanal makine (VM) veya sanal makinede bir kullanıcı eklemek için ölçek (VMSS) Azure zamanında sağlama sırasında ayarlar. Kaynakları Azure tarafından sağlanan sonra ilk önyükleme bu bulut başlatma komut dosyasını çalıştırır. Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md).

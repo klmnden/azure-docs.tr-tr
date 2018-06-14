@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure şablonu kullanarak bir Azure VM için bir kullanıcı tarafından atanan MSI yapılandırma"
-description: "Azure bir Azure Resource Manager şablonu kullanarak VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma için adım yönergeler tarafından adım."
+title: Bir Azure şablonu kullanarak bir Azure VM için bir kullanıcı tarafından atanan MSI yapılandırma
+description: Azure bir Azure Resource Manager şablonu kullanarak VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma için adım yönergeler tarafından adım.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984048"
 ---
 # <a name="configure-a-user-assigned-managed-service-identity-msi-for-a-vm-using-an-azure-template"></a>Bir Azure şablonu kullanarak bir VM için bir kullanıcı tarafından atanan yönetilen hizmet kimliği (MSI) yapılandırma
 

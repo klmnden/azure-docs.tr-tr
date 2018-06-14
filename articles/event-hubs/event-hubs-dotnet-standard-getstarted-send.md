@@ -1,12 +1,12 @@
 ---
-title: ".NET Standard kullanarak olayları Azure Event Hubs’a gönderme | Microsoft Belgeleri"
-description: ".NET Standard'da Event Hubs'a olay göndermeye başlama"
+title: .NET Standard kullanarak olayları Azure Event Hubs’a gönderme | Microsoft Belgeleri
+description: .NET Standard'da Event Hubs'a olay göndermeye başlama
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28985213"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard'da Azure Event Hubs'a ileti göndermeye başlama
 

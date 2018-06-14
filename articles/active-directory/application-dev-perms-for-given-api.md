@@ -1,11 +1,11 @@
 ---
-title: "Belirli bir API izinlerini seçme | Microsoft Docs"
-description: "Nasıl izni isteklerini geliştirdiğiniz uygulamalar için istemci ve kaynak uygulamaların çalışması hakkında bilgi edinin"
+title: Belirli bir API izinlerini seçme | Microsoft Docs
+description: Nasıl izni isteklerini geliştirdiğiniz uygulamalar için istemci ve kaynak uygulamaların çalışması hakkında bilgi edinin
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614174"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Belirli bir API izinlerini seçme 
 

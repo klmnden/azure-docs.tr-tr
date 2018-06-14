@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi Hızlı Başlangıç - Linux bilgisayarlarınızı Güvenlik Merkezi’ne ekleme | Microsoft Docs"
-description: "Bu hızlı başlangıç, Linux bilgisayarlarınızı Güvenlik Merkezi’ne nasıl ekleyebileceğinizi gösterir."
+title: Azure Güvenlik Merkezi Hızlı Başlangıç - Linux bilgisayarlarınızı Güvenlik Merkezi’ne ekleme | Microsoft Docs
+description: Bu hızlı başlangıç, Linux bilgisayarlarınızı Güvenlik Merkezi’ne nasıl ekleyebileceğinizi gösterir.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29530175"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Hızlı başlangıç: Linux bilgisayarlarını Azure Güvenlik Merkezi’ne ekleme
 Azure aboneliklerinizi ekledikten sonra Linux Aracısı’nı sağlayarak Azure dışında (örneğin, şirket içinde veya diğer bulutlarda) çalışan Linux kaynakları için Güvenlik Merkezi’ni etkinleştirebilirsiniz.

@@ -1,11 +1,11 @@
 ---
 title: "Birden çok VPN ağ geçidi siteden siteye bağlantıları bir Vnet'e eklenecek: Azure Portal: Resource Manager | Microsoft Docs"
-description: "Çok siteli S2S bağlantılarının varolan bir bağlantıyı içeren bir VPN ağ geçidi eklemek"
+description: Çok siteli S2S bağlantılarının varolan bir bağlantıyı içeren bir VPN ağ geçidi eklemek
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f3e8b165-f20a-42ab-afbb-bf60974bb4b1
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398627"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Mevcut bir VPN ağ geçidi bağlantısı olan bir sanal ağa bir siteden siteye bağlantı Ekle
 
