@@ -1,9 +1,9 @@
 ---
-title: "Azure AD: parola sıfırlama | Microsoft Docs"
-description: "Self Servis parola sıfırlama çalışmanızı erişimi yeniden kazanmak veya Okul kullanıcı hesabı için kullanın"
+title: 'Azure AD: parola sıfırlama | Microsoft Docs'
+description: Self Servis parola sıfırlama çalışmanızı erişimi yeniden kazanmak veya Okul kullanıcı hesabı için kullanın
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29463787"
 ---
 # <a name="reset-your-work-or-school-password"></a>İş veya Okul parolanızı sıfırlama
 

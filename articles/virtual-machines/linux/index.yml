@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943704"
 abstract:
   description: Azure Linux Sanal Makineleri, Red Hat, Ubuntu veya Linux dağıtımından istediğinizi kullanarak isteğe bağlı, büyük ölçekli, güvenli, sanallaştırılmış bir altyapı sağlar. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizden yararlanarak Linux VM’leri oluşturma, yapılandırma, yönetme, güncelleştirme ve ölçeklendirme hakkında bilgi edinin.
   aside:

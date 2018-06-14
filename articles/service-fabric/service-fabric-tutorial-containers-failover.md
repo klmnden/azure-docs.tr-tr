@@ -1,14 +1,14 @@
 ---
-title: "Azure Service Fabric kapsayıcı uygulamasında yük devretme ve ölçeklendirme| Microsoft Docs"
-description: "Bu öğreticide, Azure Service Fabric kapsayıcıları uygulamasında yük devretmenin nasıl ele alındığını öğrenirsiniz.  Ayrıca, bir kümede çalışan kapsayıcıları ve hizmetleri ölçeklendirme işleminden de bahsedilir."
+title: Azure Service Fabric kapsayıcı uygulamasında yük devretme ve ölçeklendirme| Microsoft Docs
+description: Bu öğreticide, Azure Service Fabric kapsayıcıları uygulamasında yük devretmenin nasıl ele alındığını öğrenirsiniz.  Ayrıca, bir kümede çalışan kapsayıcıları ve hizmetleri ölçeklendirme işleminden de bahsedilir.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, Kapsayıcılar, Mikro Hizmetler, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, Kapsayıcılar, Mikro Hizmetler, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555493"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Öğretici: Service Fabric ile kapsayıcı hizmetlerinin yük devretme ve ölçeklendirme işlemlerini gösterir
 

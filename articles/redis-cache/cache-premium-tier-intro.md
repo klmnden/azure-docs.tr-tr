@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis önbelleği Premium katmanına giriş | Microsoft Docs"
-description: "Oluşturma ve Redis kalıcılığı yönetmek, kümeleme Redis ve Premium katmanı Azure Redis önbelleği örnekleri için VNET destek öğrenin"
+title: Azure Redis önbelleği Premium katmanına giriş | Microsoft Docs
+description: Oluşturma ve Redis kalıcılığı yönetmek, kümeleme Redis ve Premium katmanı Azure Redis önbelleği örnekleri için VNET destek öğrenin
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911212"
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis Önbelleği Premium katmanına giriş
 Azure Redis önbelleği verilerinizi Süper hızlı erişim sağlayarak yüksek oranda ölçeklenebilir ve esnek uygulamalar oluşturmanıza yardımcı olan dağıtılmış, yönetilen bir önbelleğidir. 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Site Recovery kullanarak çok katmanlı Citrix XenDesktop ve XenApp dağıtım çoğaltmak | Microsoft Docs"
-description: "Bu makalede, koruma ve Azure Site Recovery kullanarak Citrix XenDesktop ve XenApp dağıtımları kurtarma açıklar."
+title: Azure Site Recovery kullanarak çok katmanlı Citrix XenDesktop ve XenApp dağıtım çoğaltmak | Microsoft Docs
+description: Bu makalede, koruma ve Azure Site Recovery kullanarak Citrix XenDesktop ve XenApp dağıtımları kurtarma açıklar.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559715"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Azure Site Recovery kullanarak çok katmanlı Citrix XenApp ve XenDesktop dağıtım Çoğalt
 

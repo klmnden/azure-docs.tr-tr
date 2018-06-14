@@ -1,6 +1,6 @@
 ---
-title: "Kapsayıcılar ve Azure Blob depolamada BLOB'lar için herkese okuma erişimi etkinleştir | Microsoft Docs"
-description: "Kapsayıcılar ve bloblar anonim erişim için nasıl oluşturulacağı ve programlı olarak erişmek nasıl öğrenin."
+title: Kapsayıcılar ve Azure Blob depolamada BLOB'lar için herkese okuma erişimi etkinleştir | Microsoft Docs
+description: Kapsayıcılar ve bloblar anonim erişim için nasıl oluşturulacağı ve programlı olarak erişmek nasıl öğrenin.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29557072"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Kapsayıcılara ve blob’lara anonim okuma erişimini yönetme
 Bir kapsayıcı ve bloblarını Azure Blob depolamada anonim, ortak okuma erişimi etkinleştirebilirsiniz. Bunu yaparak, hesap anahtarınızı paylaşımı ve paylaşılan erişim imzası (SAS) gerek olmadan bu kaynaklara salt okunur erişim verebilirsiniz.

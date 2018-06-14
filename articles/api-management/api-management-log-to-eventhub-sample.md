@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management, olay hub'ları ve Runscope API izleme | Microsoft Docs"
-description: "Bağlanan Azure API Management, Azure olay hub'ları ve günlüğe kaydetme ve izleme HTTP Runscope günlük eventhub ilkeyle gösteren örnek uygulama"
+title: Azure API Management, olay hub'ları ve Runscope API izleme | Microsoft Docs
+description: Bağlanan Azure API Management, Azure olay hub'ları ve günlüğe kaydetme ve izleme HTTP Runscope günlük eventhub ilkeyle gösteren örnek uygulama
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: darrelmiller
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117077"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, olay hub'ları ve Runscope Apı'lerinizi izleme
 [API Management hizmeti](api-management-key-concepts.md) HTTP API'nizi gönderilen HTTP isteklerinin işlenmesini geliştirmek için çok sayıda özellik sağlar. Ancak, isteklerin ve yanıtların varlığını geçicidir. İstek yapıldığında ve arka uç API'niz için API Management hizmeti aracılığıyla akar. API'nizi isteği işler ve bir yanıt API tüketiciye geriye doğru akar. API Management hizmeti bazı önemli istatistik görüntü API'leri hakkında Azure portal panosunda, ancak ötesine ayrıntıları kayboldu, tutar.

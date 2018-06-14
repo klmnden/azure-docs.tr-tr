@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V’den Azure’a Azure Site Recovery Dağıtım Planlayıcısı | Microsoft Docs"
-description: "Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan bir raporun analizi açıklanmaktadır."
+title: Hyper-V’den Azure’a Azure Site Recovery Dağıtım Planlayıcısı | Microsoft Docs
+description: Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan bir raporun analizi açıklanmaktadır.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467215"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Dağıtım Planlayıcısı Raporunu Analiz Etme
 Bu makalede, Hyper-V’den Azure’a dağıtım senaryosu için Azure Site Recovery Dağıtım Planlayıcısı tarafından oluşturulan Excel raporunda bulunan sayfalar ele alınmaktadır.
