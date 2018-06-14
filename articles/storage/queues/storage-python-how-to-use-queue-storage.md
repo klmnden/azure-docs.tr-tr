@@ -1,6 +1,6 @@
 ---
 title: Python'dan kuyruk depolama kullanma | Microsoft Docs
-description: "Oluşturma ve silme sıraları, Python Azure kuyruk hizmetinden kullanmayı öğrenin ve Ekle, Al ve iletilerini silin."
+description: Oluşturma ve silme sıraları, Python Azure kuyruk hizmetinden kullanmayı öğrenin ve Ekle, Al ve iletilerini silin.
 services: storage
 documentationcenter: python
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25986758"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Python’dan Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

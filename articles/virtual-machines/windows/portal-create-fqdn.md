@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26707416"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>Bir tam etki alanı adını Azure portalında için bir Windows VM oluşturma
 

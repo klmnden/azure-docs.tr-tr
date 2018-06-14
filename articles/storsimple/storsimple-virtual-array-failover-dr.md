@@ -1,11 +1,11 @@
 ---
-title: "StorSimple sanal dizinin olağanüstü durum kurtarma ve aygıt yük devretme | Microsoft Docs"
-description: "Yük devretme hakkında daha fazla StorSimple sanal dizinizi öğrenin."
+title: StorSimple sanal dizinin olağanüstü durum kurtarma ve aygıt yük devretme | Microsoft Docs
+description: Yük devretme hakkında daha fazla StorSimple sanal dizinizi öğrenin.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3c1f9c62-af57-4634-a0d8-435522d969aa
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927771"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Olağanüstü durum kurtarma ve cihaz için yük devretme StorSimple sanal dizinizi Azure Portalı aracılığıyla
 

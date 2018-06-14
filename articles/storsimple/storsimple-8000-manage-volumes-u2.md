@@ -1,12 +1,12 @@
 ---
-title: "StorSimple birimlerini (güncelleştirme 3) yönetme | Microsoft Docs"
-description: "Ekleme, değiştirme, izlemek ve StorSimple birimleri silin ve bunları gerekirse çevrimdışına alma konusunda açıklanmaktadır."
+title: StorSimple birimlerini (güncelleştirme 3) yönetme | Microsoft Docs
+description: Ekleme, değiştirme, izlemek ve StorSimple birimleri silin ve bunları gerekirse çevrimdışına alma konusunda açıklanmaktadır.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -14,17 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: alkohli
-<<<<<<< HEAD
-ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
 ms.openlocfilehash: c9c575f42e6c8730b9404c62fb60e710d9d3bc80
 ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26578882"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Birimler (güncelleştirme 3 veya sonraki) yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 

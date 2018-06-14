@@ -1,10 +1,10 @@
 ---
-title: "Evrensel Windows Platformu (UWP) uygulamanızı Mobile Apps için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs"
-description: "Çevrimdışı veri önbelleği ve eşitleme için Azure mobil uygulaması Evrensel Windows Platformu (UWP) uygulamanızı kullanmayı öğrenin."
+title: Evrensel Windows Platformu (UWP) uygulamanızı Mobile Apps için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
+description: Çevrimdışı veri önbelleği ve eşitleme için Azure mobil uygulaması Evrensel Windows Platformu (UWP) uygulamanızı kullanmayı öğrenin.
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594488"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Windows uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

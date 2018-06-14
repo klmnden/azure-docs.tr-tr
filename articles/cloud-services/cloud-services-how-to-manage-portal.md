@@ -1,11 +1,11 @@
 ---
-title: "Genel bulut hizmeti yönetim görevleri | Microsoft Docs"
-description: "Azure portalında bulut Hizmetleri yönetmeyi öğrenin. Bu örnekler Azure Portalı'nı kullanın."
+title: Genel bulut hizmeti yönetim görevleri | Microsoft Docs
+description: Azure portalında bulut Hizmetleri yönetmeyi öğrenin. Bu örnekler Azure Portalı'nı kullanın.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121204"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Bulut Hizmetleri Azure portalında Yönet
 İçinde **bulut Hizmetleri** alanı Azure portalının şunları yapabilirsiniz:

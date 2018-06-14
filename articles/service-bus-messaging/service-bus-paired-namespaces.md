@@ -1,11 +1,11 @@
 ---
-title: "Azure hizmet veri yolu ad alanları eşleştirilmiş | Microsoft Docs"
-description: "Eşleştirilmiş ad uygulama ayrıntılarını ve maliyet"
+title: Azure hizmet veri yolu ad alanları eşleştirilmiş | Microsoft Docs
+description: Eşleştirilmiş ad uygulama ayrıntılarını ve maliyet
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159550"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Ad alanı uygulama ayrıntılarını eşleştirilmiş ve etkileri maliyet
 

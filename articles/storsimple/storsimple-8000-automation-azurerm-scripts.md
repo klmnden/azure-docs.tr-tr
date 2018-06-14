@@ -1,12 +1,12 @@
 ---
-title: "StorSimple cihazları yönetmek için Azure Resource Manager betiklerini kullanın | Microsoft Docs"
-description: "StorSimple işleri otomatikleştirmek için Azure Resource Manager komut dosyaları kullanmayı öğrenin"
+title: StorSimple cihazları yönetmek için Azure Resource Manager betiklerini kullanın | Microsoft Docs
+description: StorSimple işleri otomatikleştirmek için Azure Resource Manager komut dosyaları kullanmayı öğrenin
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26373950"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>StorSimple cihazları yönetmek için Azure Resource Manager SDK tabanlı komut dosyaları kullanma
 

@@ -1,6 +1,6 @@
 ---
-title: "Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
-description: "Tehdit modelleme aracında kullanılabilir tüm özellikler hakkında bilgi edinin"
+title: Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Tehdit modelleme aracında kullanılabilir tüm özellikler hakkında bilgi edinin
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26754754"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Tehdit modelleme aracı özelliğine genel bakış
 

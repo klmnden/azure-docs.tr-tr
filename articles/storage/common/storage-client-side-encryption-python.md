@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Azure depolama için istemci tarafı şifreleme Python ile | Microsoft Docs"
-description: "Python için Azure Storage istemci kitaplığı, Azure Storage uygulamalarınız için en yüksek güvenlik için istemci tarafı Şifreleme destekler."
+title: Microsoft Azure depolama için istemci tarafı şifreleme Python ile | Microsoft Docs
+description: Python için Azure Storage istemci kitaplığı, Azure Storage uygulamalarınız için en yüksek güvenlik için istemci tarafı Şifreleme destekler.
 services: storage
 documentationcenter: python
 author: lakasa
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742651"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Microsoft Azure depolama için istemci tarafı şifreleme Python ile
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
