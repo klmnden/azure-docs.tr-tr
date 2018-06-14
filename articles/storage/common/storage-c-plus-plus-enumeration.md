@@ -1,6 +1,6 @@
 ---
-title: "C++ için depolama istemci kitaplığı ile Azure Storage kaynaklarını listesi | Microsoft Docs"
-description: "Kapsayıcı, BLOB, kuyruklar, tabloları ve varlıkları numaralandırmak için C++ için Microsoft Azure depolama istemci Kitaplığı'ndaki listenin API'leri kullanmayı öğrenin."
+title: C++ için depolama istemci kitaplığı ile Azure Storage kaynaklarını listesi | Microsoft Docs
+description: Kapsayıcı, BLOB, kuyruklar, tabloları ve varlıkları numaralandırmak için C++ için Microsoft Azure depolama istemci Kitaplığı'ndaki listenin API'leri kullanmayı öğrenin.
 documentationcenter: .net
 services: storage
 author: dineshmurthy
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873873"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>C++'ta Azure Storage kaynakları listeler
 Liste, Azure Storage ile birçok geliştirme senaryolarını anahtarına işlemleridir. Bu makalede, Azure listenin C++ için Microsoft Azure depolama istemci Kitaplığı'nda sağlanan API'leri kullanarak depolama en verimli bir şekilde derlemesindeki açıklar.

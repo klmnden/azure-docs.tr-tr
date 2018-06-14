@@ -1,11 +1,11 @@
 ---
-title: "ExpressRoute bağlantı hatlarını klasikten Resource Manager’a taşıma | Microsoft Belgeleri"
-description: "Bu sayfa, klasik ve Resource Manager dağıtım modelleri arasında köprü oluşturma hakkında bilmeniz gerekenlere genel bir bakış sağlar."
+title: ExpressRoute bağlantı hatlarını klasikten Resource Manager’a taşıma | Microsoft Belgeleri
+description: Bu sayfa, klasik ve Resource Manager dağıtım modelleri arasında köprü oluşturma hakkında bilmeniz gerekenlere genel bir bakış sağlar.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710074"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>ExpressRoute bağlantı hatlarını klasikten Resource Manager dağıtım modeline taşıma
 Bu makale, bir Azure ExpressRoute bağlantı hattını klasikten Azure Resource Manager dağıtım modeline taşmanın ne anlama geldiği hakkında genel bir bakış sağlar.

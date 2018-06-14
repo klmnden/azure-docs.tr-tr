@@ -1,8 +1,8 @@
 ---
-title: "Ayarlayın ve nesne özellikleri ve Azure depolama alanında meta veri alma | Microsoft Docs"
-description: "Azure Storage nesnelerde özel meta verileri depolamak ve ayarlayın ve sistem alınamıyor."
+title: Ayarlayın ve nesne özellikleri ve Azure depolama alanında meta veri alma | Microsoft Docs
+description: Azure Storage nesnelerde özel meta verileri depolamak ve ayarlayın ve sistem alınamıyor.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873033"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Özellikler ile meta verileri ayarlama ve alma
 

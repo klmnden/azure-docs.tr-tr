@@ -1,11 +1,11 @@
 ---
-title: "DMZ örnek – yapı ağ güvenlik duvarı, UDR ve NSG ile korunacak DMZ | Microsoft Docs"
-description: "Bir güvenlik duvarı ile DMZ derleme, kullanıcı tanımlı yönlendirme (UDR) ve ağ güvenlik grupları (NSG)"
+title: DMZ örnek – yapı ağ güvenlik duvarı, UDR ve NSG ile korunacak DMZ | Microsoft Docs
+description: Bir güvenlik duvarı ile DMZ derleme, kullanıcı tanımlı yönlendirme (UDR) ve ağ güvenlik grupları (NSG)
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23885248"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Örnek 3 – bir çevre ağ güvenlik duvarı, UDR ve NSG ile korumak için derleme
 [Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]

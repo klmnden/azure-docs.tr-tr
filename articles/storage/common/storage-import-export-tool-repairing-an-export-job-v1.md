@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 onarma | Microsoft Docs"
-description: "Oluşturulmuş ve Azure içeri/dışarı aktarma hizmeti kullanarak çalışan bir dışarı aktarma işinin onarmak öğrenin."
+title: Bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 onarma | Microsoft Docs
+description: Oluşturulmuş ve Azure içeri/dışarı aktarma hizmeti kullanarak çalışan bir dışarı aktarma işinin onarmak öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873880"
 ---
 # <a name="repairing-an-export-job"></a>Bir dışarı aktarma işini onarma
 Bir dışarı aktarma işi tamamlandıktan sonra Microsoft Azure içeri/dışarı aktarma aracı şirket içi çalıştırabilirsiniz:  

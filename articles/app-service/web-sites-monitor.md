@@ -1,11 +1,11 @@
 ---
-title: "Azure uygulama hizmetinde uygulamaları izleme | Microsoft Docs"
-description: "Azure portalı kullanarak Azure uygulama hizmetinde uygulamaları izleme hakkında bilgi edinin."
+title: Azure uygulama hizmetinde uygulamaları izleme | Microsoft Docs
+description: Azure portalı kullanarak Azure uygulama hizmetinde uygulamaları izleme hakkında bilgi edinin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: btardif
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29573812"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Nasıl yapılır: Azure uygulama hizmetinde uygulamaları izleme
 [Uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) yerleşik izleme işlevselliği sağlayan [Azure portal](https://portal.azure.com).
