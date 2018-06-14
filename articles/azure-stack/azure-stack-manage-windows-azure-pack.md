@@ -1,11 +1,11 @@
 ---
-title: "Windows Azure paketi sanal makineleri Azure yığınından yönetme | Microsoft Docs"
-description: "Windows Azure Pack (WAP) VM'ler Azure yığınında Kullanıcı Portalı'ndan yönetmeyi öğrenin."
+title: Windows Azure paketi sanal makineleri Azure yığınından yönetme | Microsoft Docs
+description: Windows Azure Pack (WAP) VM'ler Azure yığınında Kullanıcı Portalı'ndan yönetmeyi öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 213c2792-d404-4b44-8340-235adf3f8f0b
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29735833"
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>Windows Azure paketi sanal makineleri Azure yığınından yönetme
 

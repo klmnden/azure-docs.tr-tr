@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31393880"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management'te rol tabanlı erişim denetimi kullanma
 Azure API Management üzerinde Azure rol tabanlı erişim denetimi (API Management hizmet ve varlıkları (örneğin, API ve ilkeleri) için ayrıntılı erişim yönetimini etkinleştirmek için RBAC) kullanır. Bu makalede, API Management'te yerleşik ve özel roller genel bir bakış sağlar. Azure portalında erişim yönetimi hakkında daha fazla bilgi için bkz: [Azure portalında erişim yönetimini kullanmaya başlama](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).

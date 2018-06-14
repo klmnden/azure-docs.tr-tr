@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911511"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>Sanal makineler Azure Resource Manager ile Azure CLI 1.0 için anahtar kasasını oluşturup
 Gizli/sertifikalar, anahtar kasası kaynak sağlayıcısı tarafından sağlanan kaynaklar olarak Azure Kaynak Yöneticisi yığınında modellenir. Azure anahtar kasası hakkında daha fazla bilgi için bkz: [Azure anahtar kasası nedir?](../../key-vault/key-vault-whatis.md) Azure Resource Manager sanal makinelerle kullanılacak anahtar kasası için sırayla *EnabledForDeployment* anahtar kasası özelliğinin ayarlanması true. Çeşitli istemciler bunu yapabilirsiniz. Bu makalede Azure sanal makineler ile kullanmak için anahtar kasasını oluşturup gösterilmiştir.
