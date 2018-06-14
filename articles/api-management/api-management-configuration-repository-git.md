@@ -1,8 +1,8 @@
 ---
-title: "API Management hizmetiniz Git - Azure kullanarak yapılandırma | Microsoft Docs"
-description: "Kaydet ve Git kullanarak API Management hizmeti yapılandırmanızı yapılandırma hakkında bilgi edinin."
+title: API Management hizmetiniz Git - Azure kullanarak yapılandırma | Microsoft Docs
+description: Kaydet ve Git kullanarak API Management hizmeti yapılandırmanızı yapılandırma hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
 editor: mattfarm
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29117546"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmeti yapılandırmanızı yapılandırma
 

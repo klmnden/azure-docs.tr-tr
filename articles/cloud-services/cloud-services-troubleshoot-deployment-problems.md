@@ -1,11 +1,11 @@
 ---
-title: "Bulut hizmeti dağıtım sorunlarını giderme | Microsoft Docs"
-description: "Bir bulut hizmeti Azure'a dağıtırken çalışabilir bazı yaygın sorunlar vardır. Bu makale, bunlardan bazıları çözümleri sağlar."
+title: Bulut hizmeti dağıtım sorunlarını giderme | Microsoft Docs
+description: Bir bulut hizmeti Azure'a dağıtırken çalışabilir bazı yaygın sorunlar vardır. Bu makale, bunlardan bazıları çözümleri sağlar.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: HT
+ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
+ms.locfileid: "26408188"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Bulut hizmeti dağıtım sorunlarını giderme
 Azure için bir bulut hizmeti uygulama paketini dağıtırken dağıtımından hakkında bilgi edinebilirsiniz **özellikleri** Azure portalında bölmesi. Bu bilgiler Azure desteklemek için yeni bir destek isteği açarken sağlayabilir ve bulut hizmetinin ilgili sorunları gidermenize yardımcı olması için bu bölmede ayrıntıları kullanabilirsiniz.
@@ -82,6 +83,6 @@ Bu sorun için sorun giderme hakkında daha fazla bilgi için blog gönderisine 
 >
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi görüntülemek [sorun giderme makalelerini](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) bulut Hizmetleri için.
+Daha fazla bilgi görüntülemek [sorun giderme makalelerini](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) bulut Hizmetleri için.
 
 Azure PaaS bilgisayar tanılama verilerini kullanarak bulut hizmeti rolü sorunlarını giderme konusunda bilgi almak için bkz: [Kevin Williamson'ın blog dizisini](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
