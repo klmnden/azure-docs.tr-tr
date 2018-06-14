@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Trust Center ve Azure güvenlik bilgileri | Microsoft Docs"
-description: "Microsoft Trust center hizmetlerinizi çalıştırmak Azure platformu güvenli olduğunu emin olmanız için gereken bilgileri sağlar."
+title: Microsoft Trust Center ve Azure güvenlik bilgileri | Microsoft Docs
+description: Microsoft Trust center hizmetlerinizi çalıştırmak Azure platformu güvenli olduğunu emin olmanız için gereken bilgileri sağlar.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541579"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft Güven Merkezi
 Azure güvenlik bilgileri site Azure.com üzerindeki, plana tasarım, dağıtma, yapılandırma ve güvenli bir şekilde bulut çözümleri yönetmek bilgileri verir. Microsoft Trust center ile hizmetlerinizi çalıştırmak Azure platformu güvenli olduğunu emin olmanız için gereken bilgileri de vardır.

@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik videolar Channel 9 | Microsoft Docs"
-description: "Bu makalede Azure güvenlik sunuları seçkin listesi kanal 9'sağlar. Kanal 9 Ürünlerimiz arkasında kişilerle Ürünlerimiz kullanan kişilerin bağlanan bir topluluktur."
+title: Azure güvenlik videolar Channel 9 | Microsoft Docs
+description: Bu makalede Azure güvenlik sunuları seçkin listesi kanal 9'sağlar. Kanal 9 Ürünlerimiz arkasında kişilerle Ürünlerimiz kullanan kişilerin bağlanan bir topluluktur.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540144"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Azure güvenlik videolar Channel 9
 [Kanal 9](https://channel9.msdn.com/) Ürünlerimiz arkasında kişiler öne getirir ve bunları müşterilerle bağlayan bir topluluktur.

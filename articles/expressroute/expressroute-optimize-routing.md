@@ -1,11 +1,11 @@
 ---
-title: "ExpressRoute yönlendirmesini en iyi duruma getirme: Azure | Microsoft Docs"
-description: "Bu sayfa, Microsoft ve şirket ağınız arasında bağlanan birden fazla ExpressRoute devresine sahip olduğunda yönlendirmenin nasıl iyileştirileceği hakkında ayrıntılı bilgi sağlar."
+title: 'ExpressRoute yönlendirmesini en iyi duruma getirme: Azure | Microsoft Docs'
+description: Bu sayfa, Microsoft ve şirket ağınız arasında bağlanan birden fazla ExpressRoute devresine sahip olduğunda yönlendirmenin nasıl iyileştirileceği hakkında ayrıntılı bilgi sağlar.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710006"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute Yönlendirmeyi En iyi Duruma Getirme
 Birden çok ExpressRoute bağlantı hattına sahip olduğunuzda, Microsoft'a bağlanmak için birden fazla yolunuz vardır. Sonuç olarak, yetersiz yönlendirme olabilir, diğer bir deyişle, trafiğinizin Microsoft’a ulaşması ve Microsoft’un ağınıza ulaşması daha uzun bir yol alabilir. Ne kadar uzun ağ yolu, o kadar yüksek gecikme. Gecikmenin uygulama performansı ve kullanıcı deneyimi üzerinde doğrudan etkisi vardır. Bu makale, bu sorunu gösterir ve standart yönlendirme teknolojilerini kullanarak yönlendirmenin nasıl iyileştirileceğini açıklar.

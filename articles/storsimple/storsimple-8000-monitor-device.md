@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi Cihazınızı izleme | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi hizmeti kullanımı, g/ç performans ve kapasite kullanımı izlemek için nasıl kullanılacağını açıklar."
+title: StorSimple 8000 serisi Cihazınızı izleme | Microsoft Docs
+description: StorSimple cihaz Yöneticisi hizmeti kullanımı, g/ç performans ve kapasite kullanımı izlemek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23933147"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>StorSimple Cihazınızı izlemek için StorSimple cihaz Yöneticisi hizmetini kullanma
 

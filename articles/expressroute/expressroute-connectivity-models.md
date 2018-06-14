@@ -1,12 +1,12 @@
 ---
-title: "ExpressRoute bağlantı modelleri: Ağ hizmet sağlayıcıları, değişimler ve Ethernet sağlayıcıları aracılığıyla Microsoft Azure’a bağlanma | Microsoft Docs"
-description: "Bu makalede müşterinin ağı ile Microsoft Azure, Office 365 ve Dynamics 365 hizmetleri arasındaki farklı bağlantı modları açıklanmaktadır. Müşteriler MPLS sağlayıcılarını, bulut değişimlerini ve Ethernet sağlayıcılarını kullanabilir."
+title: 'ExpressRoute bağlantı modelleri: Ağ hizmet sağlayıcıları, değişimler ve Ethernet sağlayıcıları aracılığıyla Microsoft Azure’a bağlanma | Microsoft Docs'
+description: Bu makalede müşterinin ağı ile Microsoft Azure, Office 365 ve Dynamics 365 hizmetleri arasındaki farklı bağlantı modları açıklanmaktadır. Müşteriler MPLS sağlayıcılarını, bulut değişimlerini ve Ethernet sağlayıcılarını kullanabilir.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22709904"
 ---
 # <a name="expressroute-connectivity-models"></a>ExpressRoute bağlantı modelleri
 Şirket içi ağınız ile Microsoft bulut arasında üç yöntemle bağlantı oluşturabilirsiniz: [CloudExchange Ortak Yerleşim](#CloudExchange), [Noktadan Noktaya Ethernet Bağlantısı](#Ethernet) ve [Herhangi bir ağdan herhangi bir ağa (IPVPN) Bağlantı](#IPVPN). Bağlantı sağlayıcıları bir veya daha fazla bağlantı modeli sunabilir. Sizin için en iyi modeli seçmek için bağlantı sağlayıcınız ile çalışabilirsiniz.

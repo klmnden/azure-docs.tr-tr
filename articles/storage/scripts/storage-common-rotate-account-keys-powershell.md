@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell Betiği örnek - döndürme depolama hesabının erişim anahtarı | Microsoft Docs"
-description: "Bir Azure depolama hesabı oluşturun, sonra almak ve hesap erişim anahtarlarından birini döndürün."
+title: Azure PowerShell Betiği örnek - döndürme depolama hesabının erişim anahtarı | Microsoft Docs
+description: Bir Azure depolama hesabı oluşturun, sonra almak ve hesap erişim anahtarlarından birini döndürün.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -17,9 +17,10 @@ ms.date: 06/13/2017
 ms.author: tamram
 ms.openlocfilehash: a7aaacf316799540a6a72b699ba8ea8bb389c8a8
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25984177"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>Depolama hesabı oluşturma ve kendi hesabı erişim anahtarlarını döndürün
 
