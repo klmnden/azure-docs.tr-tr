@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527921"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Azure akış analizi ve Azure Machine Learning kullanarak düşünceleri analiz gerçekleştirme
 Bu makalede, Azure Machine Learning tümleştiren basit bir Azure akış analizi işi hızlı bir şekilde ayarlamak açıklar. Machine Learning düşünceleri analiz modeli Cortana Intelligence Galeriden akış metin verileri çözümlemek ve gerçek zamanlı düşünceleri puan belirlemek için kullanın. Cortana Intelligence Suite kullanarak düşünceleri analiz modeli oluşturmanın ayrıntılı olarak incelenmektedir hakkında endişelenmeden bu görevi gerçekleştirirken olanak sağlar.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30246483"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>PowerShell ile tek bölgeli sanal makine ölçek kümesi oluşturma
 Bu betik, tek bir Kullanılabilirlik Alanı’nda Ubuntu çalıştıran bir sanal makine ölçek kümesi oluşturur. Betiği çalıştırdıktan sonra sanal makineye RDP üzerinden erişebilirsiniz.
