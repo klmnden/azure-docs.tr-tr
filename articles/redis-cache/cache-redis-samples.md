@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis önbelleği örnekleri | Microsoft Docs"
-description: "Azure Redis önbelleği kullanmayı öğrenin"
+title: Azure Redis önbelleği örnekleri | Microsoft Docs
+description: Azure Redis önbelleği kullanmayı öğrenin
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 1f8d210c-ee09-4fe2-b63f-1e69246a27d8
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909705"
 ---
 # <a name="azure-redis-cache-samples"></a>Azure Redis önbelleği örnekleri
 Bu konuda, Azure Redis önbelleği örnekleri, önbellek, okuma ve yazma verileri için ve önbellekten bağlanma ve ASP.NET Redis önbelleği sağlayıcılarını kullanma gibi senaryolar kapsayan bir listesini sağlar. Bazı örnekler indirilebilir proje yoksa ve bazı adım adım yönergeler sağlar ve kod parçaları içeren ancak indirilebilir bir projeye bağlamayın.

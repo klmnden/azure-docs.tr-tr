@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844088"
 ---
 Depolama kısıtlanması disk alanı veya bir sabit sınır tarafından üzerinde *en fazla* dizinleri, belge veya diğer üst düzey kaynakları, hangisi önce gelirse. Aşağıdaki tabloda, depolama sınırları belgeler. Dizinleri, belgeler ve diğer nesneleri maksimum sınırları için bkz: [sınırları kaynak tarafından](../articles/search/search-limits-quotas-capacity.md#index-limits).
 

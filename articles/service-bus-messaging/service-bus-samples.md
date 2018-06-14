@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus Mesajlaşma örnekleri genel bakış | Microsoft Docs"
-description: "Service Bus örnekleri her bağlantılarla Mesajlaşma açıklar"
+title: Azure Service Bus Mesajlaşma örnekleri genel bakış | Microsoft Docs
+description: Service Bus örnekleri her bağlantılarla Mesajlaşma açıklar
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159934"
 ---
 # <a name="service-bus-messaging-samples"></a>Service Bus Mesajlaşma örnekleri
 

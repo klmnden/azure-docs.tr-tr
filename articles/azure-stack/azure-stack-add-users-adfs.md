@@ -1,11 +1,11 @@
 ---
-title: "Azure yığın ADFS için kullanıcı ekleme | Microsoft Docs"
-description: "Kullanıcılar Azure yığınının ADFS dağıtımları için eklemeyi öğrenin"
+title: Azure yığın ADFS için kullanıcı ekleme | Microsoft Docs
+description: Kullanıcılar Azure yığınının ADFS dağıtımları için eklemeyi öğrenin
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29554601"
 ---
 # <a name="add-users-in-the-azure-stack-development-kit"></a>Azure yığın Geliştirme Seti Kullanıcı ekleme
 

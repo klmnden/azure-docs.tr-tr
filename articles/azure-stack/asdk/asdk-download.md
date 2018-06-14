@@ -1,12 +1,12 @@
 ---
-title: "İndirmeyi ve ayıklamayı Azure yığın Geliştirme Seti (ASDK) | Microsoft Docs"
-description: "İndirmeyi ve ayıklamayı Azure yığın Geliştirme Seti (ASDK) açıklar."
+title: İndirmeyi ve ayıklamayı Azure yığın Geliştirme Seti (ASDK) | Microsoft Docs
+description: İndirmeyi ve ayıklamayı Azure yığın Geliştirme Seti (ASDK) açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975884"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>İndirmeyi ve ayıklamayı Azure yığın Geliştirme Seti (ASDK)
 Geliştirme Seti ana bilgisayarınız ASDK yüklemek için temel gereksinimleri karşıladığından emin olduktan sonra yüklemek ve Cloudbuilder.vhdx almak için ASDK dağıtım paketi ayıklamak için sonraki adım olacaktır.

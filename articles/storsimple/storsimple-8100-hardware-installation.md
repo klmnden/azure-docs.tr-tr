@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple 8100 aygıt yükleme | Microsoft Docs"
-description: "Kutusundan çıkarma, rafa monte etme ve dağıtma ve yazılım yapılandırmadan önce StorSimple 8100 cihazınız kablo açıklar."
+title: Microsoft Azure StorSimple 8100 aygıt yükleme | Microsoft Docs
+description: Kutusundan çıkarma, rafa monte etme ve dağıtma ve yazılım yapılandırmadan önce StorSimple 8100 cihazınız kablo açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743475"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Kutusundan çıkarma, rafa monte ve StorSimple 8100 cihazınızın kablolarını bağlama
 ## <a name="overview"></a>Genel Bakış

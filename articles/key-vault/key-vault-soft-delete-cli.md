@@ -1,7 +1,7 @@
 ---
-ms.assetid: 
-title: "Azure anahtar kasası - geçici silme CLI ile kullanma"
-description: "Kullanım örneği soft-delete CLI kod parçalarını ile örnekleri"
+ms.assetid: ''
+title: Azure anahtar kasası - geçici silme CLI ile kullanma
+description: Kullanım örneği soft-delete CLI kod parçalarını ile örnekleri
 author: lleonard-msft
 manager: mbaldwin
 ms.service: key-vault
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27927983"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Anahtar kasası soft-delete CLI ile kullanma
 

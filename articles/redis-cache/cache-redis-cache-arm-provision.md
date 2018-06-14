@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager kullanarak bir Redis önbelleği sağlama | Microsoft Docs"
-description: "Bir Azure Redis önbelleği dağıtmak için Azure Resource Manager şablonunu kullanın."
+title: Azure Resource Manager kullanarak bir Redis önbelleği sağlama | Microsoft Docs
+description: Bir Azure Redis önbelleği dağıtmak için Azure Resource Manager şablonunu kullanın.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910750"
 ---
 # <a name="create-a-redis-cache-using-a-template"></a>Şablon kullanarak Redis Önbelleği oluşturma
 Bu konuda, bir Azure Redis önbelleği dağıtan bir Azure Resource Manager şablonunun nasıl oluşturulacağını öğrenin. Önbellek tanılama verilerini korumak için varolan bir depolama hesabı ile kullanılabilir. Ayrıca nasıl tanımlamak için hangi kaynağın dağıtılan ve ne zaman dağıtım yürütülen parametreler tanımlamak nasıl belirtilen öğrenin. Bu şablonu kendi dağıtımlarınız için kullanabilir veya kendi gereksinimlerinize göre özelleştirebilirsiniz.

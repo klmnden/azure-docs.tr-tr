@@ -1,6 +1,6 @@
 ---
-title: "İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış"
-description: "İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış."
+title: İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış
+description: İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693413"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>İş sürekliliği PostgreSQL için Azure veritabanıyla genel bakış
 

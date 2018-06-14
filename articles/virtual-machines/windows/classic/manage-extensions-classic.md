@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30918073"
 ---
 # <a name="manage-virtual-machine-extensions"></a>Sanal makine uzantıları Yönet
 Bulma, ekleme, değiştirme veya Windows veya Linux sanal makineleri Azure üzerinde VM uzantıları kaldırma açıklar.

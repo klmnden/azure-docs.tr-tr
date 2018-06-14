@@ -1,11 +1,11 @@
 ---
-title: "Azure olay hub'ları yakalama gözden geçirme | Microsoft Docs"
-description: "Olay hub'ları yakalama özelliği kullanılarak göstermek için Azure Python SDK'sını kullanan bir örnektir."
+title: Azure olay hub'ları yakalama gözden geçirme | Microsoft Docs
+description: Olay hub'ları yakalama özelliği kullanılarak göstermek için Azure Python SDK'sını kullanan bir örnektir.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: djrosanova
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28016466"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Olay hub'ları yakalama izlenecek yol: Python
 

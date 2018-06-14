@@ -1,11 +1,11 @@
 ---
-title: "Günlük analizi yeni günlük arama sık sorulan sorular | Microsoft Docs"
-description: "Bu makale sık sorulan soruları yükseltilmesiyle ilgili günlük analizi, yeni sorgu dili sağlar."
+title: Günlük analizi yeni günlük arama sık sorulan sorular | Microsoft Docs
+description: Bu makale sık sorulan soruları yükseltilmesiyle ilgili günlük analizi, yeni sorgu dili sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993878"
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Yeni günlük analizi oturum arama SSS ve bilinen sorunlar
 
