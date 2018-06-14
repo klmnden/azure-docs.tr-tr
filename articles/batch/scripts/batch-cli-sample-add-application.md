@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI Betik Örneği - Batch’te Uygulama Ekleme | Microsoft Docs"
-description: "Azure CLI Betik Örneği - Batch’te Uygulama Ekleme"
+title: Azure CLI Betik Örneği - Batch’te Uygulama Ekleme | Microsoft Docs
+description: Azure CLI Betik Örneği - Batch’te Uygulama Ekleme
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843111"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI örneği: Azure Batch hesabına uygulama ekleme
 

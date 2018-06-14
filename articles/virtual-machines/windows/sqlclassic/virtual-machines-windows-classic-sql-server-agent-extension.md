@@ -1,11 +1,11 @@
 ---
-title: "SQL vm'lerde (Klasik) yönetim görevlerini otomatikleştiren | Microsoft Docs"
-description: "Bu konuda, belirli SQL Server yönetim görevlerini otomatikleştirir SQL Server Aracısı uzantısı yönetmek açıklar. Bunlar otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi içerir. Bu konu, Klasik dağıtım modunu kullanır."
+title: SQL vm'lerde (Klasik) yönetim görevlerini otomatikleştiren | Microsoft Docs
+description: Bu konuda, belirli SQL Server yönetim görevlerini otomatikleştirir SQL Server Aracısı uzantısı yönetmek açıklar. Bunlar otomatik yedekleme, otomatik düzeltme eki uygulama ve Azure anahtar kasası tümleştirmeyi içerir. Bu konu, Klasik dağıtım modunu kullanır.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a9bda2e7-cdba-427c-bc30-77cde4376f3a
 ms.service: virtual-machines-sql
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29851767"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>SQL Server Aracısı uzantısı (Klasik) ile Azure sanal makineler üzerinde yönetim görevlerini otomatik hale getirme
 > [!div class="op_single_selector"]

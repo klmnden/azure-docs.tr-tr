@@ -1,11 +1,11 @@
 ---
-title: "Otomatik düzeltme eki uygulama SQL Server Vm'lerinin (Klasik) | Microsoft Docs"
-description: "Otomatik düzeltme eki uygulama özelliği için SQL Server Klasik dağıtım modunu kullanarak Azure'da çalışan sanal makineler açıklanmıştır."
+title: Otomatik düzeltme eki uygulama SQL Server Vm'lerinin (Klasik) | Microsoft Docs
+description: Otomatik düzeltme eki uygulama özelliği için SQL Server Klasik dağıtım modunu kullanarak Azure'da çalışan sanal makineler açıklanmıştır.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 737b2f65-08b9-4f54-b867-e987730265a8
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852719"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Otomatik Azure sanal makinelerde (Klasik) SQL Server için düzeltme eki uygulama
 > [!div class="op_single_selector"]

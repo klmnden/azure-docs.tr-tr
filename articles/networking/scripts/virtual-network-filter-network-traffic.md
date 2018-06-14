@@ -1,17 +1,17 @@
 ---
-title: "Azure CLI komut dosyası örneği - filtre VM ağ trafiğini | Microsoft Docs"
-description: "Azure CLI betik örnek - gelen ve giden VM ağ trafiğini filtre."
+title: Azure CLI komut dosyası örneği - filtre VM ağ trafiğini | Microsoft Docs
+description: Azure CLI betik örnek - gelen ve giden VM ağ trafiğini filtre.
 services: virtual-network
 documentationcenter: virtual-network
 author: jimdial
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849989"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Gelen ve giden VM ağ trafiği filtreleme
 

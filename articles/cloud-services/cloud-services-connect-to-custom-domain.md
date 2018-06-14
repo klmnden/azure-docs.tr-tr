@@ -1,11 +1,11 @@
 ---
-title: "Bir bulut hizmeti bir özel etki alanı denetleyicisine bağlanma | Microsoft Docs"
-description: "Web/çalışan rolleri bir özel AD PowerShell ve AD etki alanı uzantısını kullanarak etki alanına bağlayın öğrenin"
+title: Bir bulut hizmeti bir özel etki alanı denetleyicisine bağlanma | Microsoft Docs
+description: Web/çalışan rolleri bir özel AD PowerShell ve AD etki alanı uzantısını kullanarak etki alanına bağlayın öğrenin
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e2d7c87-d254-4e7a-a832-67f84411ec95
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29845664"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Azure bulut Hizmetleri rolleri bir özel AD etki alanı denetleyicisi Azure'da barındırılan bağlanma
 Sanal ağ (VNet) İlk Azure içinde ayarlarsınız. Ardından bir Active Directory etki alanı (bir Azure sanal makinede barındırılan) denetleyicisi Vnet'e ekleyeceğiz. Ardından, biz mevcut bulut hizmeti rollerinizi önceden oluşturulmuş Vnet'e ekleyin, sonra etki alanı denetleyicisine bağlanma.

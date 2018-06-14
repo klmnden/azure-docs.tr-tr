@@ -1,6 +1,6 @@
 ---
-title: "VMware Vm'lerini veya fiziksel sunucuları ikincil bir siteye Azure Site Recovery ile olağanüstü durum kurtarma ayarlama | Microsoft Docs"
-description: "VMware Vm'leri veya Windows ve Linux fiziksel sunucuları ikincil bir siteye Azure Site Recovery ile olağanüstü durum kurtarma ayarlanacağını öğrenin."
+title: VMware Vm'lerini veya fiziksel sunucuları ikincil bir siteye Azure Site Recovery ile olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: VMware Vm'leri veya Windows ve Linux fiziksel sunucuları ikincil bir siteye Azure Site Recovery ile olağanüstü durum kurtarma ayarlanacağını öğrenin.
 services: site-recovery
 author: nsoneji
 manager: gauarvd
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852226"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Şirket içi VMware sanal makineleri veya fiziksel sunucuları ikincil bir siteye olağanüstü durum kurtarma ayarlama
 

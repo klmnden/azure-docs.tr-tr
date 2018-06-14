@@ -1,11 +1,11 @@
 ---
-title: "Çözüm şablonu teklifiniz Market için test etme | Microsoft Docs"
-description: "Çözüm şablonu teklifiniz Azure Marketi için test etme anlayın."
+title: Çözüm şablonu teklifiniz Market için test etme | Microsoft Docs
+description: Çözüm şablonu teklifiniz Azure Marketi için test etme anlayın.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: ef8f9b5e-b98c-49f3-913f-cdf772c14c12
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937844"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>Çözüm şablonu teklifiniz hazırlamada test etme
 Hazırlama teklifiniz özel ", test ve üretim göndermeden önce işlevselliğini doğrulayın sandbox" dağıtma anlamına gelir. Teklif hazırlama dağıtmış olan bir müşteriye gibi görünür. Teklifiniz için hazırlama edilmesini sertifikalı gerekir.

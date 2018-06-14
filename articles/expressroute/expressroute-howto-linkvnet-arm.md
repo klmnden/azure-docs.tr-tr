@@ -1,11 +1,11 @@
 ---
-title: "Bir sanal ağ için bir expressroute bağlantı: PowerShell: Azure | Microsoft Docs"
-description: "Bu belge, Resource Manager dağıtım modeli ve PowerShell kullanarak, ExpressRoute bağlantı hatları için sanal ağlar (Vnet'ler) bağlamak nasıl bir genel bakış sağlar."
+title: 'Bir sanal ağ için bir expressroute bağlantı: PowerShell: Azure | Microsoft Docs'
+description: Bu belge, Resource Manager dağıtım modeli ve PowerShell kullanarak, ExpressRoute bağlantı hatları için sanal ağlar (Vnet'ler) bağlamak nasıl bir genel bakış sağlar.
 services: expressroute
 documentationcenter: na
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: daacb6e5-705a-456f-9a03-c4fc3f8c1f7e
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877560"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Bir expressroute bağlantı hattı için bir sanal ağa bağlanma
 > [!div class="op_single_selector"]

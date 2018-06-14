@@ -1,6 +1,6 @@
 ---
-title: "Azure'daki Linux sanal makineleri yeniden Dağıt | Microsoft Docs"
-description: "SSH bağlantı sorunlarını azaltmak için azure'deki Linux sanal makineleri yeniden Dağıt yapma."
+title: Azure'daki Linux sanal makineleri yeniden Dağıt | Microsoft Docs
+description: SSH bağlantı sorunlarını azaltmak için azure'deki Linux sanal makineleri yeniden Dağıt yapma.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849316"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>Yeni Azure düğüme Linux sanal makineyi yeniden dağıtın
 SSH sorunlarını giderme zorluklarla yüz veya VM dağıtarak azure'da bir Linux sanal makine (VM) uygulama erişimi yardımcı olabilir. Bir VM yeniden dağıtırken VM Azure altyapısı içinde yeni bir düğüme taşır ve yeniden çalıştırır. Tüm yapılandırma seçenekleri ve ilişkili kaynakları korunur. Bu makalede Azure CLI veya Azure portalını kullanarak bir VM'i yeniden gösterilmiştir.

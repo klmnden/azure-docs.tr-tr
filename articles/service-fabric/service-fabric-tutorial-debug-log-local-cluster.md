@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949812"
 ---
 #  <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Öğretici: Yerel Service Fabric kümesinde dağıtılan bir Java uygulamasının hatasını ayıklama 
 Bu öğretici, bir dizinin ikinci bölümüdür. Eclipse for the Service Fabric uygulaması kullanılarak uzak bir hata ayıklayıcının nasıl ekleneceğini öğreneceksiniz. Ayrıca çalıştırılan uygulamalardaki günlüklerin geliştirici için uygun bir konuma nasıl yeniden yönlendirileceğini de öğreneceksiniz.

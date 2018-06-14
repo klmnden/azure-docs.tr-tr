@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery Azure çoğaltma mimarisinde fiziksel sunucuya | Microsoft Docs"
-description: "Bu makalede, bileşenleri ve Azure Site Recovery hizmeti ile şirket içi fiziksel sunucuların Azure'a çoğaltırken kullanılan mimariye genel bakış sağlar"
+title: Azure Site Recovery Azure çoğaltma mimarisinde fiziksel sunucuya | Microsoft Docs
+description: Bu makalede, bileşenleri ve Azure Site Recovery hizmeti ile şirket içi fiziksel sunucuların Azure'a çoğaltırken kullanılan mimariye genel bakış sağlar
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
@@ -11,6 +11,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874901"
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Fiziksel sunucuya Azure çoğaltma mimarisi
 

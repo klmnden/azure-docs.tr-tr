@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29949030"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Sanal makine teklifleri için Azure markette sonrası üretim Kılavuzu
 Bu makalede, Azure Marketi dinamik sanal makine teklifte nasıl güncelleştirebileceğinizi açıklanmaktadır. Bu, bir veya daha fazla yeni SKU'ları için mevcut bir teklif ekleme işlemini kılavuzluk eder. Bu da dinamik sanal makine teklif veya SKU marketten kaldırmanın sürecinde size kılavuzluk.

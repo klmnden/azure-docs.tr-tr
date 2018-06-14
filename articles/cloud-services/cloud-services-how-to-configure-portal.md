@@ -1,11 +1,11 @@
 ---
-title: "Bulut hizmetinin (portal) nasıl yapılandırılacağı | Microsoft Docs"
-description: "Bulut Hizmetleri ile Azure yapılandırmayı öğrenin. Bulut hizmeti yapılandırmasını güncelleştirin ve rol örnekleri için uzaktan erişim yapılandırma hakkında bilgi edinme. Bu örnekler Azure Portalı'nı kullanın."
+title: Bulut hizmetinin (portal) nasıl yapılandırılacağı | Microsoft Docs
+description: Bulut Hizmetleri ile Azure yapılandırmayı öğrenin. Bulut hizmeti yapılandırmasını güncelleştirin ve rol örnekleri için uzaktan erişim yapılandırma hakkında bilgi edinme. Bu örnekler Azure Portalı'nı kullanın.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874330"
 ---
 # <a name="how-to-configure-cloud-services"></a>Bulut Hizmetleri Yapılandırma
 

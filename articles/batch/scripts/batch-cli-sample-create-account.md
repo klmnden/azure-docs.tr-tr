@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI Betiği Örneği - Batch hesabı oluşturma - Batch hizmeti | Microsoft Docs"
-description: "Azure CLI Betiği Örneği - Batch hizmeti modunda Batch hesabı oluşturma"
+title: Azure CLI Betiği Örneği - Batch hesabı oluşturma - Batch hizmeti | Microsoft Docs
+description: Azure CLI Betiği Örneği - Batch hizmeti modunda Batch hesabı oluşturma
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843961"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI örneği: Batch hizmeti modunda Batch hesabı oluşturma
 

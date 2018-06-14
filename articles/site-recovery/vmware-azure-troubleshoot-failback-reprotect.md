@@ -1,8 +1,8 @@
 ---
-title: "Azure vm'lerinde Azure Site Recovery ile şirket içi VMware için yeniden çalışma sırasında hatalarını giderme | Microsoft Docs"
-description: "Bu makale ortak yeniden çalışma ve yükü hatalarını yeniden çalışma sırasında VMware Azure'dan Azure Site Recovery kullanarak sorun gidermek için yolları açıklanmaktadır."
+title: Azure vm'lerinde Azure Site Recovery ile şirket içi VMware için yeniden çalışma sırasında hatalarını giderme | Microsoft Docs
+description: Bu makale ortak yeniden çalışma ve yükü hatalarını yeniden çalışma sırasında VMware Azure'dan Azure Site Recovery kullanarak sorun gidermek için yolları açıklanmaktadır.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941049"
 ---
 # <a name="troubleshoot-failback-from-azure-to-vmware"></a>Azure'dan VMware için sorun giderme
 

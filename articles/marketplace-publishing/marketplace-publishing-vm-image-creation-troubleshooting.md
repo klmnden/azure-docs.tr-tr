@@ -1,11 +1,11 @@
 ---
-title: "VHD oluşturma sırasında sık karşılaşılan sorunları giderme | Microsoft Docs"
-description: "Genel sorun giderme sorulara yanıtlar ve VHD oluşturma sırasında verir."
+title: VHD oluşturma sırasında sık karşılaşılan sorunları giderme | Microsoft Docs
+description: Genel sorun giderme sorulara yanıtlar ve VHD oluşturma sırasında verir.
 services: Azure Marketplace
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29941611"
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>VHD oluşturma sırasında karşılaşılan yaygın sorunları giderme
 Bu makalede, Azure Marketi yayımcı ve/veya bir sorunla sahip olabilir veya sık sorulan sorular yayımlama veya kendi sanal makine solution(s) yönetme ortak yönetici yardımcı olmak için sağlanmıştır.

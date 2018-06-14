@@ -1,12 +1,12 @@
 ---
-title: "Yük devretme Azure hataları için sorun giderme | Microsoft Docs"
-description: "Bu makalede Azure yapabilmesini içinde sık karşılaşılan sorunları giderme yolları"
+title: Yük devretme Azure hataları için sorun giderme | Microsoft Docs
+description: Bu makalede Azure yapabilmesini içinde sık karşılaşılan sorunları giderme yolları
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874368"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Bir sanal makineye Azure üzerinden başarısız olduğunda hatalarında sorun giderme
 Aşağıdaki hatalardan biri, Azure için sanal makinenin yük devretme yaparken alabilirsiniz. Sorunu gidermek için her bir hata koşulu için açıklanan adımları kullanın.

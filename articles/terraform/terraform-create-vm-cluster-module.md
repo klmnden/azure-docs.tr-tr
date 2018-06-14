@@ -1,7 +1,7 @@
 ---
-title: "Azure üzerinde bir VM küme oluşturmak için Terraform modülleri kullanın"
-description: "Azure'da Windows sanal makine küme oluşturmak için Terraform modülleri kullanmayı öğrenin"
-keywords: "terraform, devops, sanal makine, ağ, modüller"
+title: Azure üzerinde bir VM küme oluşturmak için Terraform modülleri kullanın
+description: Azure'da Windows sanal makine küme oluşturmak için Terraform modülleri kullanmayı öğrenin
+keywords: terraform, devops, sanal makine, ağ, modüller
 author: rloutlaw
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952226"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Modül Kayıt Defteri'ni kullanarak Terraform ile VM küme oluşturma
 

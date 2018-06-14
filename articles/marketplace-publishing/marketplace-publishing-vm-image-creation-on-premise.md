@@ -1,11 +1,11 @@
 ---
-title: "Bir şirket içi sanal makine görüntüsü için Azure Marketi oluşturma | Microsoft Docs"
-description: "Anlama ve şirket içi VM görüntü oluşturma ve Azure satın almak için Marketinde başkalarının dağıtma adımları yürütün."
+title: Bir şirket içi sanal makine görüntüsü için Azure Marketi oluşturma | Microsoft Docs
+description: Anlama ve şirket içi VM görüntü oluşturma ve Azure satın almak için Marketinde başkalarının dağıtma adımları yürütün.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 26dfbd5a-8685-4b19-987e-c20ca60540ec
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29944440"
 ---
 # <a name="develop-an-on-premises-virtual-machine-image-for-the-azure-marketplace"></a>Bir şirket içi sanal makine görüntüsü için Azure Marketi geliştirin
 Uzak Masaüstü Protokolü kullanarak Azure sanal sabit diskleri (VHD) doğrudan bulutta geliştirmek öneririz. Ancak, gerekirse, bir VHD karşıdan yüklemek ve şirket içi altyapıyı kullanarak geliştirmek mümkündür.  

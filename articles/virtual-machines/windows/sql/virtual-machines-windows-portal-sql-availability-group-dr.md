@@ -1,6 +1,6 @@
 ---
-title: "SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - olağanüstü durum kurtarma | Microsoft Docs"
-description: "Bu makalede, Azure sanal makinelerinde farklı bir bölgede bir çoğaltma ile bir SQL Server kullanılabilirlik grubu yapılandırma açıklanmaktadır."
+title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - olağanüstü durum kurtarma | Microsoft Docs
+description: Bu makalede, Azure sanal makinelerinde farklı bir bölgede bir çoğaltma ile bir SQL Server kullanılabilirlik grubu yapılandırma açıklanmaktadır.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852838"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>Azure sanal makinelerinde farklı bölgelerdeki Always On kullanılabilirlik grubu yapılandırma
 

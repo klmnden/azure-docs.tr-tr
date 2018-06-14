@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29849554"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>CLI ile anlık görüntüden yönetilen disk oluşturma
 

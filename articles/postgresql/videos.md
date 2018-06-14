@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanı PostgreSQL videolar için"
-description: "Bu sayfa, Azure veritabanı PostgreSQL için öğrenme için ilgili görüntü içeriğini listeler."
+title: Azure veritabanı PostgreSQL videolar için
+description: Bu sayfa, Azure veritabanı PostgreSQL için öğrenme için ilgili görüntü içeriğini listeler.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687909"
 ---
 # <a name="azure-database-for-postgresql-videos"></a>Azure veritabanı PostgreSQL videolar için
 

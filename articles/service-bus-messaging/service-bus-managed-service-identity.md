@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus preview ile hizmet kimliği yönetilen | Microsoft Docs"
-description: "Yönetilen hizmet kimlikleri Azure Service Bus ile kullanmak"
+title: Azure Service Bus preview ile hizmet kimliği yönetilen | Microsoft Docs
+description: Yönetilen hizmet kimlikleri Azure Service Bus ile kullanmak
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874661"
 ---
 # <a name="managed-service-identity-preview"></a>Yönetilen hizmet kimliği (Önizleme)
 

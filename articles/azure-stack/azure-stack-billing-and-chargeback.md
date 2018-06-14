@@ -1,11 +1,11 @@
 ---
-title: "Müşteri faturalama ve geri ödeme Azure yığınında | Microsoft Docs"
-description: "Azure yığınından kaynak kullanım bilgilerini almak öğrenin."
+title: Müşteri faturalama ve geri ödeme Azure yığınında | Microsoft Docs
+description: Azure yığınından kaynak kullanım bilgilerini almak öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877492"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Kullanım ve fatura Azure yığınında
 

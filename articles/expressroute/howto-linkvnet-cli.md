@@ -1,13 +1,13 @@
 ---
-title: "Bir sanal ağ için bir expressroute bağlantı: CLI: Azure | Microsoft Docs"
-description: "Bu belge, CLI ve Resource Manager dağıtım modeli kullanarak, ExpressRoute bağlantı hatları için sanal ağlar (Vnet'ler) bağlamak nasıl bir genel bakış sağlar."
+title: 'Bir sanal ağ için bir expressroute bağlantı: CLI: Azure | Microsoft Docs'
+description: Bu belge, CLI ve Resource Manager dağıtım modeli kullanarak, ExpressRoute bağlantı hatları için sanal ağlar (Vnet'ler) bağlamak nasıl bir genel bakış sağlar.
 services: expressroute
 documentationcenter: na
 author: cherylmc
 manager: timlit
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29875411"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI kullanarak bir expressroute bağlantı hattı için bir sanal ağa bağlanma
 
