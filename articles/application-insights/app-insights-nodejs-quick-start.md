@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights ile Hızlı Başlangıç | Microsoft Docs"
-description: "Application Insights ile izleme için Node.js Web Uygulamasını hızlıca ayarlamaya ilişkin yönergeler sağlar"
+title: Azure Application Insights ile Hızlı Başlangıç | Microsoft Docs
+description: Application Insights ile izleme için Node.js Web Uygulamasını hızlıca ayarlamaya ilişkin yönergeler sağlar
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386546"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Node.js Web Uygulamanızı İzlemeye Başlama
 

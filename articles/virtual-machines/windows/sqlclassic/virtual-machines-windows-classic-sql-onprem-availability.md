@@ -1,11 +1,11 @@
 ---
-title: "Şirket içi Always On kullanılabilirlik grupları için Azure genişletmek | Microsoft Docs"
-description: "Bu öğretici Klasik dağıtım modeliyle oluşturulan kaynakları kullanır ve Azure'da bir her zaman üzerindeki kullanılabilirlik grubu çoğaltması eklemek için SQL Server Management Studio (SSMS) çoğaltma Ekleme Sihirbazı'nı kullanmayı açıklar."
+title: Şirket içi Always On kullanılabilirlik grupları için Azure genişletmek | Microsoft Docs
+description: Bu öğretici Klasik dağıtım modeliyle oluşturulan kaynakları kullanır ve Azure'da bir her zaman üzerindeki kullanılabilirlik grubu çoğaltması eklemek için SQL Server Management Studio (SSMS) çoğaltma Ekleme Sihirbazı'nı kullanmayı açıklar.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 7ca7c423-8342-4175-a70b-d5101dfb7f23
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400486"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Azure için şirket içi Always On kullanılabilirlik grupları genişletme
 Always On kullanılabilirlik grupları ikincil çoğaltmaları ekleyerek veritabanının grupları için yüksek kullanılabilirlik sağlar. Bu çoğaltmalar izin arıza durumunda veritabanlarını yük devrediliyor. Buna ek olarak, okuma iş yükleri veya yedekleme görevlerini boşaltmak için kullanılabilir.

@@ -1,12 +1,12 @@
 ---
-title: "Azure Log Analytics VM uzantısı sorunlarını giderme | Microsoft Docs"
-description: "Belirtiler, nedenleri ve Çözümlemesi en yaygın sorunları için günlük analizi VM uzantısı ile Windows ve Linux Azure VM'ler için açıklanmaktadır."
+title: Azure Log Analytics VM uzantısı sorunlarını giderme | Microsoft Docs
+description: Belirtiler, nedenleri ve Çözümlemesi en yaygın sorunları için günlük analizi VM uzantısı ile Windows ve Linux Azure VM'ler için açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394995"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension"></a>Günlük analizi VM uzantısı sorunlarını giderme
 Bu makalede Windows ve Linux Microsoft Azure üzerinde çalışan sanal makineler için günlük analizi VM uzantısı ile karşılaşabilirsiniz ve bunları gidermek için olası çözümleri önerir hatalarında sorun giderme yardım sağlar.
