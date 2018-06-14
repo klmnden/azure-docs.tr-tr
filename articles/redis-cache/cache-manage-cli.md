@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI kullanarak Azure Redis önbelleği yönetme | Microsoft Docs"
-description: "Herhangi bir platformda Azure CLI yükleme, nasıl Azure hesabınıza bağlamak için kullanılır ve oluşturmak ve Redis önbelleği Azure CLI üzerinden yönetmek nasıl öğrenin."
+title: Azure CLI kullanarak Azure Redis önbelleği yönetme | Microsoft Docs
+description: Herhangi bir platformda Azure CLI yükleme, nasıl Azure hesabınıza bağlamak için kullanılır ve oluşturmak ve Redis önbelleği Azure CLI üzerinden yönetmek nasıl öğrenin.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911287"
 ---
 # <a name="how-to-create-and-manage-azure-redis-cache-using-the-azure-command-line-interface-azure-cli"></a>Oluşturma ve Azure komut satırı arabirimi (Azure CLI) kullanarak Azure Redis önbelleği yönetme
 > [!div class="op_single_selector"]

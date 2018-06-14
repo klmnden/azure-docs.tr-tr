@@ -1,6 +1,6 @@
 ---
-title: "2 katmanlı uygulama ile karma bağlantı | Microsoft Docs"
-description: "Sanal gereçler ve Azure'da çok katmanlı uygulama ortamı oluşturmak için UDR dağıtmayı öğrenin"
+title: 2 katmanlı uygulama ile karma bağlantı | Microsoft Docs
+description: Sanal gereçler ve Azure'da çok katmanlı uygulama ortamı oluşturmak için UDR dağıtmayı öğrenin
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23943227"
 ---
 # <a name="virtual-appliance-scenario"></a>Sanal gereç senaryosu
 Yaygın bir senaryo büyük Azure müşteri arasında Internet'e erişim geri katmanı için bir şirket içi veri merkezinden verirken açık iki katmanlı bir uygulama sağlamanız gerekiyor. Bu belge aşağıdaki gereksinimleri karşılayan iki katmanlı bir ortam dağıtmak için kullanıcı tanımlı yolları (UDR), bir VPN ağ geçidi ve ağ sanal Gereçleri kullanma bir senaryo yol gösterecek:

@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs preview ile hizmet kimliği yönetilen | Microsoft Docs"
-description: "Azure Event Hubs ile yönetilen hizmet kimlikleri kullanın"
+title: Azure Event Hubs preview ile hizmet kimliği yönetilen | Microsoft Docs
+description: Azure Event Hubs ile yönetilen hizmet kimlikleri kullanın
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783474"
 ---
 # <a name="managed-service-identity-preview"></a>Yönetilen hizmet kimliği (Önizleme)
 

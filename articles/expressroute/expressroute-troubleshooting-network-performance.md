@@ -1,12 +1,12 @@
 ---
-title: "Azure sanal ağı performans sorunlarını giderme | Microsoft Docs"
-description: "Bu sayfa, Azure ağ bağlantı performansını test etme için standartlaştırılmış bir yöntem sağlar."
+title: Azure sanal ağı performans sorunlarını giderme | Microsoft Docs
+description: Bu sayfa, Azure ağ bağlantı performansını test etme için standartlaştırılmış bir yöntem sağlar.
 services: expressroute
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27319263"
 ---
 # <a name="troubleshooting-network-performance"></a>Ağ performansı sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış

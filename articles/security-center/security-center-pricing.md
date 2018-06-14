@@ -1,11 +1,11 @@
 ---
-title: "Güvenlik Merkezi'nin Gelişmiş güvenlik için standart katmana yükseltin | Microsoft Docs"
-description: "Bu makale, Azure Güvenlik Merkezi için fiyatlandırma bilgileri sağlar."
+title: Güvenlik Merkezi'nin Gelişmiş güvenlik için standart katmana yükseltin | Microsoft Docs
+description: Bu makale, Azure Güvenlik Merkezi için fiyatlandırma bilgileri sağlar.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/20/2017
+ms.locfileid: "23931922"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Güvenlik Merkezi'nin Gelişmiş güvenlik için standart katmana yükseltin
 Azure Güvenlik Merkezi, birleştirilmiş güvenlik yönetimi ve Azure, şirket içi ve diğer Bulutları çalışan iş yükleri için Gelişmiş tehdit koruması sağlar. Karma bulut iş yükleri, tehditlere ve akıllı algılama siber saldırıları hızla gelişen ile ayak sağlamanıza yardımcı olmak için riskleri azaltmak etkin savunma üzerinde görünürlük ve denetim sunar.

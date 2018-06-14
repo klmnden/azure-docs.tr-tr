@@ -1,11 +1,11 @@
 ---
-title: "Örnek Azure altyapı gözden geçirme | Microsoft Docs"
-description: "Bir örnek altyapısını Azure'a dağıtmak için anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin."
-documentationcenter: 
+title: Örnek Azure altyapı gözden geçirme | Microsoft Docs
+description: Bir örnek altyapısını Azure'a dağıtmak için anahtar tasarım ve uygulama yönergeleri hakkında bilgi edinin.
+documentationcenter: ''
 services: virtual-machines-linux
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745784"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Linux VM'ler için örnek Azure altyapı gözden geçirme
 Bu makalede örnek uygulama altyapısı oluşturmaya anlatılmaktadır. Biz yönergeleri ve adlandırma kuralları, kullanılabilirlik kümeleri, sanal ağlar ve yük dengeleyici kararları bir araya getirir basit bir çevrimiçi mağaza için bir altyapı tasarlama ve gerçekte sanal makineleri (VM'ler) dağıtma ayrıntılı olarak açıklanmaktadır.
@@ -53,7 +54,7 @@ Tüm yukarıdaki adlandırma kurallarına izleyin:
 
 * Adventure Works Cycles kullandığı **[BT iş yükü]-[konum]-[Azure kaynak]** öneki olarak
   * Bu örneğin, "**azos**" (Azure çevrimiçi) deposudur BT iş yükü adı ve "**kullanmak**" (Doğu ABD 2) konumudur
-* Sanal ağları kullanın AZOS kullanım VN**[sayı]**
+* Sanal ağları kullanın AZOS kullanım VN **[sayı]**
 * Kullanılabilirlik kümeleri kullanan azos-kullanın-olarak-**[rol]**
 * Sanal makine adları azos kullanın-kullanın-vm -**[vmname]**
 

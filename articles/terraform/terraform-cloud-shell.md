@@ -1,7 +1,7 @@
 ---
-title: "Azure bulut kabuğunda Terraform kullanın"
-description: "Terraform Azure bulut kabuğu ile kimlik doğrulaması ve şablon yapılandırmasını basitleştirmek için kullanın."
-keywords: "terraform, devops, ölçeklendirme ayarlayın, sanal makine, ağ, depolama, modüller"
+title: Azure bulut kabuğunda Terraform kullanın
+description: Terraform Azure bulut kabuğu ile kimlik doğrulaması ve şablon yapılandırmasını basitleştirmek için kullanın.
+keywords: terraform, devops, ölçeklendirme ayarlayın, sanal makine, ağ, depolama, modüller
 ms.service: virtual-machines-linux
 author: dcaro
 ms.author: dcaro
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121534"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform bulut Kabuk geliştirme 
 

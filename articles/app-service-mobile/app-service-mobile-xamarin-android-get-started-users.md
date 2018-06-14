@@ -1,11 +1,11 @@
 ---
-title: "Xamarin Android mobil uygulamalar için kimlik doğrulaması kullanmaya başlama"
-description: "Xamarin Android uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin."
+title: Xamarin Android mobil uygulamalar için kimlik doğrulaması kullanmaya başlama
+description: Xamarin Android uygulamanızın kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli kullanıcıların kimliklerini doğrulamak için Mobile Apps kullanmayı öğrenin.
 services: app-service\mobile
 documentationcenter: xamarin
 author: conceptdev
 manager: panarasi
-editor: 
+editor: ''
 ms.assetid: 570fc12b-46a9-4722-b2e0-0d1c45fb2152
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595304"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Xamarin.Android uygulamanıza kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
