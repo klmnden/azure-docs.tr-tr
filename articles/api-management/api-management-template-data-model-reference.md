@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29378165"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API Management şablonu veri modeli başvurusu
 Bu konuda veri modellerinde Azure API Management'ta Geliştirici Portalı şablonları için kullanılan ortak öğeler için varlık ve türü Beyanları açıklanmaktadır.  

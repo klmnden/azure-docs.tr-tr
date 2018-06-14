@@ -1,8 +1,8 @@
 ---
-title: "ASP.NET Web Uygulamanızı Azure Application Insights ile izleme | Microsoft Docs"
-description: "Application Insights ile izleme için ASP.NET Web Uygulamasını hızlıca ayarlamaya ilişkin yönergeler sağlar"
+title: ASP.NET Web Uygulamanızı Azure Application Insights ile izleme | Microsoft Docs
+description: Application Insights ile izleme için ASP.NET Web Uygulamasını hızlıca ayarlamaya ilişkin yönergeler sağlar
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/14/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23947679"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>ASP.NET Web Uygulamanızı izlemeye başlama
 

@@ -1,6 +1,6 @@
 ---
-title: "Yapılandırma Yönetimi - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
-description: "Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri"
+title: Yapılandırma Yönetimi - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019832"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Güvenlik çerçevesi: Yapılandırma yönetimi | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
