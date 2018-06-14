@@ -41,6 +41,12 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Ayrılmış örnekleri yönetme
           href: billing-manage-reserved-vm-instance.md
+    - name: REST Örnekleri
+      items:
+        - name: Kuruluş maliyetlerini gözden geçirme
+          href: billing-review-enterprise-billing.md
+        - name: Abonelik kullanımını gözden geçirme
+          href: billing-review-subscription-billing.md
 - name: Hesabı yönetme
   items:
     - name: Ücretsiz hesap

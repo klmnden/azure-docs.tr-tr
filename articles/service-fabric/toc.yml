@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: Uygulama ve hizmet bildirimleri
           href: service-fabric-application-and-service-manifests.md
+        - name: Uygulama ve hizmet bildirimi örnekleri
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Güvenilir hizmetler uygulaması ve hizmet bildirimi örnekleri
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: Birden çok kapsayıcılı uygulama ve hizmet bildirimi örnekleri
+              href: service-fabric-manifest-example-container-app.md
         - name: Barındırma modeli
           href: service-fabric-hosting-model.md
         - name: Uygulama güvenliği
@@ -399,6 +406,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: ASP.NET Core hizmeti oluşturma
           href: service-fabric-add-a-web-frontend.md
+        - name: Linux üzerinde Apache Tomcat sunucu kapsayıcısı oluşturma
+          href: service-fabric-get-started-tomcat.md
         - name: Güvenliği yapılandırma
           items:
             - name: Uygulama parolalarını yönetme
