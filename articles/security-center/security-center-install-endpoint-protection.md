@@ -1,11 +1,11 @@
 ---
-title: "Endpoint protection sorunlarını Azure Güvenlik Merkezi ile yönetme | Microsoft Docs"
-description: "Azure Güvenlik Merkezi'nde bitiş noktası sorunları yönetmeyi öğrenin."
+title: Endpoint protection sorunlarını Azure Güvenlik Merkezi ile yönetme | Microsoft Docs
+description: Azure Güvenlik Merkezi'nde bitiş noktası sorunları yönetmeyi öğrenin.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23936297"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Endpoint protection sorunlarını Azure Güvenlik Merkezi ile yönetme
 Azure Güvenlik Merkezi, kötü amaçlı yazılım korumasını durumunu izler ve bu rapor, Endpoint protection sorunlarını dikey penceresinde altında. Güvenlik Merkezi tehdit algılanan ve sanal makineleri (VM'ler) ve bilgisayarları kötü amaçlı yazılım tehditlerine yapabilirsiniz yetersiz koruma gibi sorunlar vurgular. Altında verilen bilgileri kullanarak **bitiş noktası sorunları**, tanımlanan tüm sorunların yönelik bir plan tanımlayabilirsiniz.

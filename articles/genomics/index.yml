@@ -18,17 +18,18 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 12/13/2017
+  ms.locfileid: "26684594"
 abstract:
-  description: "Microsoft Genomiks’in Burrows-Wheeler Aligner (BWA) bulut uygulaması ve ikinci analiz için Genome Analysis Toolkit (GATK) kullanarak genom sıralamasını nasıl desteklediğini öğrenin."
+  description: Microsoft Genomiks’in Burrows-Wheeler Aligner (BWA) bulut uygulaması ve ikinci analiz için Genome Analysis Toolkit (GATK) kullanarak genom sıralamasını nasıl desteklediğini öğrenin.
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Microsoft Genomiks hizmeti üzerinden iş akışı gönderin."
+    text: Microsoft Genomiks hizmeti üzerinden iş akışı gönderin.
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/helix-blue-orange.svg
-      text: "İş akışı gönderme"
+      text: İş akışı gönderme
       href: quickstart-run-genomics-workflow-portal

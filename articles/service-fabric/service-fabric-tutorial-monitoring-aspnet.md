@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797711"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>Öğretici: Service Fabric'te ASP.NET Core uygulamasını izleme ve tanılama
 Bu öğretici, bir serinin beşinci kısmıdır. Service Fabric kümesinde çalışan bir ASP.NET Core uygulaması için Application Insights kullanarak izleme ve tanılamayı ayarlama adımlarında yol gösterilir. Öğreticinin ilk bölümü olan [.NET Service Fabric uygulaması oluşturma](service-fabric-tutorial-create-dotnet-app.md) bölümünde geliştirilen uygulamadan telemetri toplarız. 

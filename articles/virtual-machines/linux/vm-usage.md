@@ -1,15 +1,15 @@
 ---
-title: "Azure sanal makine kullanımını anlama | Microsoft Docs"
-description: "Sanal makine kullanım ayrıntılarını anlama"
+title: Azure sanal makine kullanımını anlama | Microsoft Docs
+description: Sanal makine kullanım ayrıntılarını anlama
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345456"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure sanal makinesi öngörme
 Azure kullanım verilerini analiz etme tarafından güçlü tüketim Öngörüler elde – etkinleştirebilirsiniz Öngörüler daha iyi yönetim ve kuruluşunuz genelinde ayırma maliyeti. Bu belgede Azure işlem tüketim ayrıntılarınızı içine derinlemesine bir bakış sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlamak](/billing/billing-understand-your-bill.md).

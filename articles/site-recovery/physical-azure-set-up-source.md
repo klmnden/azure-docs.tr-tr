@@ -1,8 +1,8 @@
 ---
-title: "Kaynak ortamı (fiziksel sunucuları azure'a) ayarlama | Microsoft Docs"
-description: "Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları çoğaltıyor başlatmak için şirket içi ortamınızı ayarlayın açıklar."
+title: Kaynak ortamı (fiziksel sunucuları azure'a) ayarlama | Microsoft Docs
+description: Bu makalede, Azure'da Windows veya Linux çalıştıran fiziksel sunucuları çoğaltıyor başlatmak için şirket içi ortamınızı ayarlayın açıklar.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: AnoopVasudavan
 manager: gauravd
 ms.service: site-recovery
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812694"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>Kaynak ortamı (Azure fiziksel sunucuya) ayarlama
 

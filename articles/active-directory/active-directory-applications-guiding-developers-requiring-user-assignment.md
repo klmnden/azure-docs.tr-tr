@@ -1,11 +1,11 @@
 ---
-title: "Kullanıcı atama - Azure AD gerektiren | Microsoft Docs"
-description: "Kullanıcı Ataması Azure uygulamaları için zorunlu kılma."
+title: Kullanıcı atama - Azure AD gerektiren | Microsoft Docs
+description: Kullanıcı Ataması Azure uygulamaları için zorunlu kılma.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 30b78cba-1e0f-472f-8314-f2250a9b91c3
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26598837"
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD ve uygulamalar: kullanıcı ataması gerektirir
 ## <a name="requiring-user-assignment"></a>Kullanıcı Ataması gerektirme
