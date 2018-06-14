@@ -1,8 +1,8 @@
 ---
-title: "Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma | Microsoft Docs"
-description: "Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma"
+title: Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma | Microsoft Docs
+description: Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma
 services: Azure
-documentationcenter: 
+documentationcenter: ''
 author: tomarcher
 manager: routlaw
 tags: azure-cloud-shell
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386529"
 ---
 # <a name="deploy-with-terraform-from-bash-in-azure-cloud-shell"></a>Azure bulut Kabuk Bash'te gelen Terraform ile dağıtma
 Bu makalede sahip bir kaynak grubu oluşturma ile anlatılmaktadır [Terraform AzureRM sağlayıcı](https://www.terraform.io/docs/providers/azurerm/index.html). 

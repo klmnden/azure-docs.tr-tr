@@ -1,11 +1,11 @@
 ---
-title: "Bir Microsoft uygulaması için oturum açma sorunları | Microsoft Docs"
-description: "Birinci taraf Microsoft Azure AD (örneğin, Office 365) kullanarak Applications oturum açarken karşılaştığı yaygın sorunlarını giderme"
+title: Bir Microsoft uygulaması için oturum açma sorunları | Microsoft Docs
+description: Birinci taraf Microsoft Azure AD (örneğin, Office 365) kullanarak Applications oturum açarken karşılaştığı yaygın sorunlarını giderme
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384237"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulaması için oturum açma sorunları
 

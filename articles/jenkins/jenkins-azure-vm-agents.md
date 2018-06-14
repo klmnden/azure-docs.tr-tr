@@ -1,8 +1,8 @@
 ---
-title: "Azure VM Aracısı Jenkins dağıtımlarında ölçeklendirin."
-description: "Azure sanal makineleri Jenkins Azure VM Aracısı ile eklentisini kullanarak Jenkins hatlarınızı ek kapasite ekleyin."
+title: Azure VM Aracısı Jenkins dağıtımlarında ölçeklendirin.
+description: Azure sanal makineleri Jenkins Azure VM Aracısı ile eklentisini kullanarak Jenkins hatlarınızı ek kapasite ekleyin.
 services: multiple
-documentationcenter: 
+documentationcenter: ''
 author: rloutlaw
 manager: justhe
 ms.service: multiple
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29392649"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM aracılarla talebi karşılamak üzere Jenkins dağıtımlarınızı ölçeklendirme
 

@@ -1,11 +1,11 @@
 ---
-title: "Oluşturma ve bir bulut hizmeti dağıtma | Microsoft Docs"
-description: "Oluşturma ve Azure portalını kullanarak bir bulut hizmeti dağıtma hakkında bilgi edinin."
+title: Oluşturma ve bir bulut hizmeti dağıtma | Microsoft Docs
+description: Oluşturma ve Azure portalını kullanarak bir bulut hizmeti dağıtma hakkında bilgi edinin.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388093"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Oluşturma ve bir bulut hizmeti dağıtma
 Azure Portalı'nı oluşturmak ve bir bulut hizmeti dağıtmak iki yol sunar: *hızlı Oluştur* ve *özel Oluştur*.

@@ -1,13 +1,13 @@
 ---
-title: "VPN ağ geçidi yapılandırmaları ve bağlantı sorunlarını giderme | Microsoft Docs"
-description: "Bu makalede makalelerine VPN ağ geçidi yapılandırmanızı, bağlantı, sorun giderme ve verimlilik doğrulamak için bağlantı yardımcı olur."
+title: VPN ağ geçidi yapılandırmaları ve bağlantı sorunlarını giderme | Microsoft Docs
+description: Bu makalede makalelerine VPN ağ geçidi yapılandırmanızı, bağlantı, sorun giderme ve verimlilik doğrulamak için bağlantı yardımcı olur.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28934774"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>VPN ağ geçidi sorun giderme
 

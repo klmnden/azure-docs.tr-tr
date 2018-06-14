@@ -1,11 +1,11 @@
 ---
-title: "Bir uygulama hizmeti ortamı v1 bir web uygulaması oluşturma"
-description: "Web uygulamaları ve app service planları bir uygulama hizmeti ortamı v1 oluşturmayı öğrenin"
+title: Bir uygulama hizmeti ortamı v1 bir web uygulaması oluşturma
+description: Web uygulamaları ve app service planları bir uygulama hizmeti ortamı v1 oluşturmayı öğrenin
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
 ms.service: app-service
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386920"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Bir uygulama hizmeti ortamı v1 bir web uygulaması oluşturma
 

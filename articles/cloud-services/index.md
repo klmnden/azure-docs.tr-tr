@@ -1,11 +1,11 @@
 ---
-title: "Azure Cloud Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Öğreticiler, API başvuruları ve diğer belgeler, yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API'ler barındırmak ve çalıştırmak için Cloud Services’ı kullanmaya ilişkin bilgiler içerir."
+title: Azure Cloud Services Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Öğreticiler, API başvuruları ve diğer belgeler, yüksek oranda kullanılabilir ve ölçeklenebilir bulut uygulamaları ve API'ler barındırmak ve çalıştırmak için Cloud Services’ı kullanmaya ilişkin bilgiler içerir.
 services: cloud-services
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24101891"
 ---
 # <a name="cloud-services-documentation"></a>Cloud Services Belgeleri
 

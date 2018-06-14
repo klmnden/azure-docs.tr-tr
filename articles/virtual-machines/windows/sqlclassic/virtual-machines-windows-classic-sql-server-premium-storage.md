@@ -1,8 +1,8 @@
 ---
 title: SQL Server ile Azure Premium Storage kullanma | Microsoft Docs
-description: "Bu makale Klasik dağıtım modeli kullanılarak oluşturulmuş kaynaklarını kullanır ve Azure sanal makinelerde çalışan SQL Server ile Azure Premium Storage kullanma hakkında yönergeler sağlar."
+description: Bu makale Klasik dağıtım modeli kullanılarak oluşturulmuş kaynaklarını kullanır ve Azure sanal makinelerde çalışan SQL Server ile Azure Premium Storage kullanma hakkında yönergeler sağlar.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: danielsollondon
 manager: craigg
 editor: monicar
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400622"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Sanal Makineler’de SQL Server ile Azure Premium Depolama kullanma
 ## <a name="overview"></a>Genel Bakış

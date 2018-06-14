@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Geçişi Belgeleri"
+title: Azure Geçişi Belgeleri
 metadata:
-  title: "Azure Geçişi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-  description: "Azure’a geçiş için şirket içi makineleri değerlendirmeyi öğrenin"
+  title: Azure Geçişi Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+  description: Azure’a geçiş için şirket içi makineleri değerlendirmeyi öğrenin
   services: migration-planner
   author: rayne-wiselman
   manager: carmonm
@@ -18,14 +18,15 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 11/27/2017
+  ms.locfileid: "25927127"
 abstract:
-  description: "Azure Geçişi, Azure’a geçiş için şirket içi makineleri keşfetmenize ve bu makinelerin uygunluğunu değerlendirmeniz yardımcı olur; ayrıca Azure VM’lerinin çalıştırılması için boyutlandırma ve maliyet tahminleri sunar."
+  description: Azure Geçişi, Azure’a geçiş için şirket içi makineleri keşfetmenize ve bu makinelerin uygunluğunu değerlendirmeniz yardımcı olur; ayrıca Azure VM’lerinin çalıştırılması için boyutlandırma ve maliyet tahminleri sunar.
 sections:
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Azure’a geçiş için VMware VM’lerini değerlendirmeyi öğrenin"
+    text: Azure’a geçiş için VMware VM’lerini değerlendirmeyi öğrenin
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"tutorial-assessment-vmware\">Şirket içi VMware VM’lerini keşfedin ve değerlendirin</a>"
+    - html: <a href="tutorial-assessment-vmware">Şirket içi VMware VM’lerini keşfedin ve değerlendirin</a>

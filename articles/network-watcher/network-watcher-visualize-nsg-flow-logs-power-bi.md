@@ -1,11 +1,11 @@
 ---
-title: "Power BI ile visualizing Azure ağ güvenlik grubu akış günlükleri | Microsoft Docs"
-description: "Bu sayfa, NSG akış günlükleri Power BI ile görselleştirme açıklar."
+title: Power BI ile visualizing Azure ağ güvenlik grubu akış günlükleri | Microsoft Docs
+description: Bu sayfa, NSG akış günlükleri Power BI ile görselleştirme açıklar.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24878590"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI ile visualizing ağ güvenlik grubu akış günlükleri
 

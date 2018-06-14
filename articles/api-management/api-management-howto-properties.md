@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management ilkeleri özelliklerini kullanma"
-description: "Azure API Management ilkeleri özelliklerini kullanmayı öğrenin."
+title: Azure API Management ilkeleri özelliklerini kullanma
+description: Azure API Management ilkeleri özelliklerini kullanmayı öğrenin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197121"
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>Azure API Management ilkeleri özelliklerini kullanma
 API yönetimi ilkelerini yapılandırma yoluyla API'nin davranışını değiştirmek Azure portal izin sistemi güçlü bir özellik var. İlkeler, bir API isteği veya yanıtı üzerinde sırayla yürütülen deyimlerin bir koleksiyonudur. İlke deyimleri metin değerleri, ilke ifadelerini ve özellikleri kullanarak oluşturulabilir. 
