@@ -1,12 +1,12 @@
 ---
-title: "Olay kılavuzla Azure Automation tümleştirme | Microsoft Docs"
-description: "Yeni VM oluşturulduğunda otomatik olarak bir etiket eklemeyi öğrenin ve Microsoft Teams bir bildirim gönderebilirsiniz."
-keywords: "Otomasyon runbook, takımları, olay kılavuz, sanal makine, VM"
+title: Olay kılavuzla Azure Automation tümleştirme | Microsoft Docs
+description: Yeni VM oluşturulduğunda otomatik olarak bir etiket eklemeyi öğrenin ve Microsoft Teams bir bildirim gönderebilirsiniz.
+keywords: Otomasyon runbook, takımları, olay kılavuz, sanal makine, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -16,9 +16,10 @@ ms.date: 12/06/2017
 ms.author: eamono
 ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
 ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349079"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Otomasyonu olay kılavuz ve Microsoft ekipleri ile tümleştirme
 

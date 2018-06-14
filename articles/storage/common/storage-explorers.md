@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage ile çalışmak için Araçlar | Microsoft Docs"
-description: "Görünüm/Azure Storage verilerinizle etkileşim olanak sağlayan araçlar listesi."
+title: Azure Storage ile çalışmak için Araçlar | Microsoft Docs
+description: Görünüm/Azure Storage verilerinizle etkileşim olanak sağlayan araçlar listesi.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: dineshmurthy
 manager: jahogg
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/21/2017
+ms.locfileid: "23933392"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage İstemci Araçları
 Azure Storage kullanıcılarının sık bir Azure Storage istemci araç kullanarak kullanıcıların verileriyle görünüm/etkileşim kurmak kullanabilmek ister. Aşağıdaki tablolarda, bunu yapmak izin araçları sayısını listeler. Ya da numaralandırır ve/veya veri soyutlama erişim olanağı sağlar, biz "X" her blok yerleştirin. Tablo ayrıca araçları olup olmadığını boş olmadığını gösterir. "Deneme" ücretsiz deneme yoktur, ancak tam ürün boş değil gösterir. "Y/N" farklı bir sürümünü satın almak için uygun olsa da bir sürümünün ücretsiz olarak kullanılabilir olduğunu gösterir.

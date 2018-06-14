@@ -1,6 +1,6 @@
 ---
-title: "Windows sanal makineler yardım belgeleri | Microsoft Docs"
-description: "Azure portalında Windows sanal makinelerine genel bakış için yardım içeriği"
+title: Windows sanal makineler yardım belgeleri | Microsoft Docs
+description: Azure portalında Windows sanal makinelerine genel bakış için yardım içeriği
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057697"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows sanal makineleri ile ilgili belgeler
 
