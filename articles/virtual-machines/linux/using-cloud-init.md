@@ -1,11 +1,11 @@
 ---
-title: "Linux sanal makineleri azure'daki bulut init desteği'ne genel bakış | Microsoft Docs"
-description: "Microsoft Azure bulut init özelliklerine genel bakış"
+title: Linux sanal makineleri azure'daki bulut init desteği'ne genel bakış | Microsoft Docs
+description: Microsoft Azure bulut init özelliklerine genel bakış
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29763154"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure'da sanal makineler için bulut başlatma desteği
 Bu makale için mevcut destek açıklanır [bulut init](https://cloudinit.readthedocs.io) bir sanal makine (VM) ya da sanal makineyi yapılandırmak için ölçek (VMSS) Azure zamanında sağlama sırasında ayarlar. Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın.  

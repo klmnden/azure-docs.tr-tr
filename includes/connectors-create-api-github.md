@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: logic-apps
 author: MandiOhlinger
 ms.service: logic-apps
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29764203"
 ---
 1. İçinde [Azure portal](https://portal.azure.com), boş mantıksal uygulama oluşturma. 
 

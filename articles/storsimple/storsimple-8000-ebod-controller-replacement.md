@@ -1,12 +1,12 @@
 ---
-title: "Bir StorSimple 8600 EBOD denetleyicisi Değiştir | Microsoft Docs"
-description: "Bir StorSimple 8600 model Cihazınızı biri veya her ikisi EBOD denetleyicilerinde kaldırdığınızda ve açıklanmaktadır."
+title: Bir StorSimple 8600 EBOD denetleyicisi Değiştir | Microsoft Docs
+description: Bir StorSimple 8600 model Cihazınızı biri veya her ikisi EBOD denetleyicilerinde kaldırdığınızda ve açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927582"
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>EBOD denetleyicisi, StorSimple Cihazınızda değiştirin
 

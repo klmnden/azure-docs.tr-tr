@@ -1,6 +1,6 @@
 ---
-title: "Denetim ve - Microsoft tehdit modelleme aracı - Azure günlük | Microsoft Docs"
-description: "Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri"
+title: Denetim ve - Microsoft tehdit modelleme aracı - Azure günlük | Microsoft Docs
+description: Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926749"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Güvenlik çerçevesi: Denetim ve günlük | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |

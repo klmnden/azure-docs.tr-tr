@@ -1,11 +1,11 @@
 ---
-title: "İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme | Microsoft Docs"
-description: "Güvenlik olayları, Azure Vm'leri ve Azure olmayan bilgisayarlardan görmek için Güvenlik Merkezi'nin olayları Pano nasıl kullanabileceğinizi öğrenin."
+title: İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme | Microsoft Docs
+description: Güvenlik olayları, Azure Vm'leri ve Azure olmayan bilgisayarlardan görmek için Güvenlik Merkezi'nin olayları Pano nasıl kullanabileceğinizi öğrenin.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926532"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>İzleme ve Azure Güvenlik Merkezi'nde güvenlik olaylarını işleme
 Olayları Pano zaman ve dikkat etmeniz gereken önemli olaylar listesi toplanan güvenlik olaylarının sayısına genel bir bakış sağlar.  
