@@ -1,8 +1,8 @@
 ---
-title: "Azure işlem seçenekleri - Azure Cloud Services | Microsoft Docs"
-description: "Azure işlem barındırma seçenekleri ve nasıl çalıştıklarını hakkında bilgi edinin: App Service, Azure bulut Hizmetleri ve sanal makineler"
+title: Azure işlem seçenekleri - Azure Cloud Services | Microsoft Docs
+description: 'Azure işlem barındırma seçenekleri ve nasıl çalıştıklarını hakkında bilgi edinin: App Service, Azure bulut Hizmetleri ve sanal makineler'
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120293"
 ---
 # <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Azure bulut Hizmetleri veya başka bir şey seçmem gerekir?
 Azure Cloud Services seçimi için mi? Azure uygulamalarını çalıştırmak için farklı barındırma modelleri sağlar. Her biri farklı bir hizmetler kümesini sağlar. Seçtiğiniz hangisinin tam olarak ne, yapmak çalıştığınız bağlıdır.

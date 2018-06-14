@@ -20,6 +20,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894919"
 ---
 # <a name="low-priority-vms-on-scale-sets-preview"></a>Düşük öncelikli sanal makine ölçek kümeleri (Önizleme)
 

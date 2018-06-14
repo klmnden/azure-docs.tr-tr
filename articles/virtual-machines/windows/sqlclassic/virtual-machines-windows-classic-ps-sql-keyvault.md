@@ -1,11 +1,11 @@
 ---
-title: "Anahtar kasası (Klasik) azure'da Windows VM üzerindeki SQL Server ile tümleştirme | Microsoft Docs"
-description: "Azure anahtar kasası ile kullanmak için SQL Server şifrelemesi yapılandırmasını öğrenin. Bu konu Klasik dağıtım modelinde sanal makineler oluşturma SQL Server ile Azure anahtar kasası tümleştirmeyi kullanmayı açıklar."
+title: Anahtar kasası (Klasik) azure'da Windows VM üzerindeki SQL Server ile tümleştirme | Microsoft Docs
+description: Azure anahtar kasası ile kullanmak için SQL Server şifrelemesi yapılandırmasını öğrenin. Bu konu Klasik dağıtım modelinde sanal makineler oluşturma SQL Server ile Azure anahtar kasası tümleştirmeyi kullanmayı açıklar.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399738"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>SQL Server için Azure anahtar kasası tümleştirme Azure sanal makinelerde (Klasik) yapılandırma
 > [!div class="op_single_selector"]

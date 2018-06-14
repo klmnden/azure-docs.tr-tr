@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31518765"
 ---
 # <a name="aspnet-session-state-provider-for-azure-redis-cache"></a>Azure Redis Önbelleği için ASP.NET Oturum Durumu Sağlayıcısı
 Azure Redis önbelleği, oturum durumu bellek içi Redis önbelleği ile bir SQL Server veritabanı yerine depolamak için kullanabileceğiniz bir oturum durumu sağlayıcısı sağlar. Önbelleğe alma oturum durumu sağlayıcısı kullanmak için önbelleğinizi önce yapılandırın ve ardından Redis önbelleği oturum durumu NuGet paketi kullanarak önbelleği için ASP.NET uygulamanızı yapılandırma.

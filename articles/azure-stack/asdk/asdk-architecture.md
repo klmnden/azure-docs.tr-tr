@@ -1,12 +1,12 @@
 ---
-title: "Azure yığın Geliştirme Seti mimarisi | Microsoft Docs"
-description: "Azure yığın Geliştirme Seti (ASDK) mimarisini açıklar."
+title: Azure yığın Geliştirme Seti mimarisi | Microsoft Docs
+description: Azure yığın Geliştirme Seti (ASDK) mimarisini açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975870"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure yığın Geliştirme Seti mimarisi
 Azure yığın Geliştirme Seti (ASDK), Azure yığınının bir tek düğümlü dağıtımıdır. Tüm bileşenleri tek bir konak makinesi üzerinde çalışan sanal makineler yüklenir. 
