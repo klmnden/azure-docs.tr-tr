@@ -5,6 +5,16 @@
 - name: Rol tabanlı erişim denetimi (RBAC)
   href: overview.md
   items:
+    - name: Hızlı Başlangıçlar
+      items:
+        - name: Kullanıcıya erişim izni verme - Portal
+          href: quickstart-assign-role-user-portal.md
+    - name: Öğreticiler
+      items:
+        - name: Kullanıcıya erişim izni verme - PowerShell
+          href: tutorial-role-assignments-user-powershell.md
+        - name: Gruba erişim izni verme - PowerShell
+          href: tutorial-role-assignments-group-powershell.md
     - name: Rol atamalarını yönetme
       items:
         - name: Kullanıcı
@@ -17,11 +27,13 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
+    - name: Rol tanımlarını anlama
+      href: role-definitions.md
     - name: Yerleşik roller
       href: built-in-roles.md
     - name: Özel roller
       href: custom-roles.md
-    - name: İç ve dış kullanıcılar için özel roller atama
+    - name: Dış kullanıcılar için rol atamalarını yönetme
       href: role-assignments-external-users.md
     - name: Etkinlik günlükleri
       href: change-history-report.md
