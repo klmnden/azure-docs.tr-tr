@@ -1,12 +1,12 @@
 ---
-title: "Varsayılan blob yolu Değiştir | Microsoft Docs"
-description: "Bir blob dosya yolu yeniden adlandırmak için bir Azure işlevini ayarlamak öğrenin"
+title: Varsayılan blob yolu Değiştir | Microsoft Docs
+description: Bir blob dosya yolu yeniden adlandırmak için bir Azure işlevini ayarlamak öğrenin
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862409"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Varsayılan yolu bir blob yolunu değiştirme
 

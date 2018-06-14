@@ -1,6 +1,6 @@
 ---
-title: "ACR’yi bir Azure DC/OS kümesi ile kullanma"
-description: "Azure Container Service’te DC/OS kümesi ile Azure Container Registry kullanma"
+title: ACR’yi bir Azure DC/OS kümesi ile kullanma
+description: Azure Container Service’te DC/OS kümesi ile Azure Container Registry kullanma
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28922901"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Uygulamanızı dağıtmak için ACR’yi DC/OS kümesi ile kullanma
 

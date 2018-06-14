@@ -1,11 +1,11 @@
 ---
-title: "SKU serisi kullanılamaz | Microsoft Docs"
-description: "Bazı SKU serisi bu bölge için seçilen abonelik için kullanılamaz."
+title: SKU serisi kullanılamaz | Microsoft Docs
+description: Bazı SKU serisi bu bölge için seçilen abonelik için kullanılamaz.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870587"
 ---
 # <a name="region-or-sku-unavailable"></a>Bölge veya SKU kullanılamıyor
 Bu makalede sorunun bir bölge veya VM SKU erişimi olmaması bir Azure aboneliğinin nasıl çözümleneceği açıklanır.

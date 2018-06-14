@@ -1,9 +1,9 @@
 ---
-title: "İş veya Okul hesabım için iki aşamalı doğrulamayı ayarlama | Microsoft Docs"
-description: "Şirketiniz Azure multi-Factor Authentication yapılandırdığında, iki aşamalı doğrulama için kaydolmak için istenir. Bunu nasıl ayarlanacağını öğrenin. "
+title: İş veya Okul hesabım için iki aşamalı doğrulamayı ayarlama | Microsoft Docs
+description: 'Şirketiniz Azure multi-Factor Authentication yapılandırdığında, iki aşamalı doğrulama için kaydolmak için istenir. Bunu nasıl ayarlanacağını öğrenin. '
 services: multi-factor-authentication
-keywords: "Azure dizini, active directory bulutta, active directory öğretici kullanma"
-documentationcenter: 
+keywords: Azure dizini, active directory bulutta, active directory öğretici kullanma
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198364"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Hesabımı iki aşamalı doğrulama için ayarlama
 İki aşamalı doğrulamayı geçirmesini diğer kişiler için daha zor hale getirerek hesabınızın korunmasına yardımcı olan bir ek güvenlik adımdır. Bu makaleyi okuduğunuz, büyük olasılıkla bir e-posta yöneticinizden iş veya Okul çok faktörlü kimlik doğrulaması hakkında aldığınız. Veya belki de oturum açmaya ve ek güvenlik doğrulaması ayarlamak için isteyen bir ileti aldı. Bu durumda, olursa **otomatik kayıt işlemini tamamlayıncaya kadar oturum açamazsınız**.

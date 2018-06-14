@@ -1,11 +1,11 @@
 ---
-title: "Logic Apps bağlayıcılar genel bakış | Microsoft Docs"
-description: "Bir mantıksal uygulama kullanılabilir bağlayıcılar genel bakış"
-services: 
-documentationcenter: 
+title: Logic Apps bağlayıcılar genel bakış | Microsoft Docs
+description: Bir mantıksal uygulama kullanılabilir bağlayıcılar genel bakış
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: ca8dab2e-9b69-4b1e-865d-1facd9f0cdac
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27961661"
 ---
 # <a name="using-connectors-in-a-logic-app"></a>Bir mantıksal uygulama bağlayıcıları kullanma
 Bağlayıcılar, hizmetleri, protokolleri ve platformlar olayları, verilere ve eylemlere hızlı erişim sağlar.  Logic Apps destekleyen bağlayıcıların tam listesi için [bulunabilir burada](apis-list.md).  Bağlayıcılar, tetikleyici veya bir mantıksal uygulama içinde eylem olarak kullanılabilir ve yapılandırılan bir gerektirebilir *bağlantı* kullanmak için (örneğin: erişmek veya sizin adınıza göndermek için bir Twitter hesabı yetkilendirme).

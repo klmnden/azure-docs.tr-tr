@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile Azure çoğaltma için VMware kaynak ortamını ayarlama | Microsoft Docs"
-description: "Bu makalede, Azure Site Recovery ile azure'a VMware sanal makineleri çoğaltmak için şirket içi ortamınızı ayarlayın açıklar."
+title: Azure Site Recovery ile Azure çoğaltma için VMware kaynak ortamını ayarlama | Microsoft Docs
+description: Bu makalede, Azure Site Recovery ile azure'a VMware sanal makineleri çoğaltmak için şirket içi ortamınızı ayarlayın açıklar.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812659"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure çoğaltma için VMware kaynak ortamını ayarlama
 

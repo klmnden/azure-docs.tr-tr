@@ -1,6 +1,6 @@
 ---
-title: "İletişim güvenliği - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
-description: "Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri"
+title: İletişim güvenliği - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Azaltıcı Etkenler tehdit modelleme Aracı kullanıma sunulan tehditleri
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019492"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Güvenlik çerçevesi: İletişim güvenliği | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
