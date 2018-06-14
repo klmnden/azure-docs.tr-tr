@@ -1,12 +1,12 @@
 ---
-title: "StorSimple yük devretme, 8000 serisi cihazlar için olağanüstü durum kurtarma | Microsoft Docs"
-description: "StorSimple Cihazınızı aynı cihaza yük devri öğrenin."
+title: StorSimple yük devretme, 8000 serisi cihazlar için olağanüstü durum kurtarma | Microsoft Docs
+description: StorSimple Cihazınızı aynı cihaza yük devri öğrenin.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874825"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>StorSimple fiziksel cihazınız aynı cihaza yük devri
 

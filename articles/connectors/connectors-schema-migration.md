@@ -1,11 +1,11 @@
 ---
-title: "Mantıksal uygulamaları 2015-08-01-önizleme şema sürümüne geçirme | Microsoft Belgeleri"
-description: "Mantıksal uygulamalarınızı en son şema sürümüne kolayca geçirebilirsiniz. Şu adımları izlemeniz yeterlidir."
+title: Mantıksal uygulamaları 2015-08-01-önizleme şema sürümüne geçirme | Microsoft Belgeleri
+description: Mantıksal uygulamalarınızı en son şema sürümüne kolayca geçirebilirsiniz. Şu adımları izlemeniz yeterlidir.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707133"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>Mantıksal uygulamaları şema sürümü 2015-08-01-önizlemeye geçirme
 Mevcut mantıksal uygulamalarınızı yeni şemaya taşımak için aşağıdakileri yapın:  

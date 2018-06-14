@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevlerini test etme | Microsoft Docs"
-description: "Postman, cURL ve Node.js kullanarak Azure işlevlerinizi test edin."
+title: Azure işlevlerini test etme | Microsoft Docs
+description: Postman, cURL ve Node.js kullanarak Azure işlevlerinizi test edin.
 services: functions
 documentationcenter: na
 author: wesmc7777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimari, test etme"
+editor: ''
+tags: ''
+keywords: Azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimari, test etme
 ms.assetid: c00f3082-30d2-46b3-96ea-34faf2f15f77
 ms.service: functions
 ms.devlang: multiple
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23838957"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure işlevleri, kodunuzu test etmek için stratejileri
 

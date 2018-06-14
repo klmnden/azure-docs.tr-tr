@@ -1,12 +1,12 @@
 ---
-title: "Sık sorulan iş ortakları için Microsoft Azure StorSimple ve bulut çözümleri sağlayıcısı programı sorular | Microsoft Docs"
-description: "İş ortakları için StorSimple ve CSP ile ilgili bazı soruların yanıtlarını bulun."
+title: Sık sorulan iş ortakları için Microsoft Azure StorSimple ve bulut çözümleri sağlayıcısı programı sorular | Microsoft Docs
+description: İş ortakları için StorSimple ve CSP ile ilgili bazı soruların yanıtlarını bulun.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875357"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>Bulut çözümleri sağlayıcısı programı için StorSimple: sık sorulan sorular
 

@@ -1,13 +1,13 @@
 ---
-title: "502 hatalı ağ geçidi düzeltin, 503 Hizmet kullanılamıyor hatalarıyla | Microsoft Docs"
-description: "502 hatalı ağ geçidi ve Azure App Service içinde barındırılan web uygulamanızda 503 Hizmet kullanılamıyor hatalarıyla ilgili sorunları giderme."
+title: 502 hatalı ağ geçidi düzeltin, 503 Hizmet kullanılamıyor hatalarıyla | Microsoft Docs
+description: 502 hatalı ağ geçidi ve Azure App Service içinde barındırılan web uygulamanızda 503 Hizmet kullanılamıyor hatalarıyla ilgili sorunları giderme.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "502 hatalı ağ geçidi 503 Hizmet kullanılamıyor hatası 503, hata 502"
+keywords: 502 hatalı ağ geçidi 503 Hizmet kullanılamıyor hatası 503, hata 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836521"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>"502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor", Azure web uygulamalarında HTTP hatalarını giderme
 "502 hatalı ağ geçidi" ve "503 Hizmet kullanılamıyor" olan yaygın hatalar içinde barındırılan web uygulamanızda [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Bu makalede bu hataları gidermenize yardımcı olur.

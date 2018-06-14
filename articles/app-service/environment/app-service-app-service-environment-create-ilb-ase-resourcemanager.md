@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager şablonları kullanarak bir ILB ana oluşturma | Microsoft Docs"
-description: "Azure Resource Manager şablonları kullanarak bir iç yük dengeleyici ana oluşturmayı öğrenin."
+title: Azure Resource Manager şablonları kullanarak bir ILB ana oluşturma | Microsoft Docs
+description: Azure Resource Manager şablonları kullanarak bir iç yük dengeleyici ana oluşturmayı öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: nirma
-editor: 
+editor: ''
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836857"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager Şablonlarını kullanarak ILB ASE oluşturma
 

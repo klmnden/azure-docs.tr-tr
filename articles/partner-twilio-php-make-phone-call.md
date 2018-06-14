@@ -1,8 +1,8 @@
 ---
-title: "Twilio (PHP'nin) bir telefon araması yapma | Microsoft Docs"
-description: "Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. PHP uygulaması için örneklerdir."
+title: Twilio (PHP'nin) bir telefon araması yapma | Microsoft Docs
+description: Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. PHP uygulaması için örneklerdir.
 documentationcenter: php
-services: 
+services: ''
 author: devinrader
 manager: twilio
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865760"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>Azure üzerinde bir PHP uygulamasının Twilio kullanarak bir telefon araması yapma
 Aşağıdaki örnek, bir PHP web sayfasından Azure üzerinde barındırılan bir arama yapmak için Twilio nasıl kullanabileceğinizi gösterir. Sonuçta elde edilen uygulama telefon araması değerleri için aşağıdaki ekran görüntüsünde gösterildiği gibi ister.

@@ -1,12 +1,12 @@
 ---
-title: "Azure içeri/dışarı aktarma aracı alma işi komutlar için hızlı başvuru | Microsoft Docs"
-description: "Sık kullanılan alma işi komutları için Azure içeri/dışarı aktarma aracı komut başvurusu."
+title: Azure içeri/dışarı aktarma aracı alma işi komutlar için hızlı başvuru | Microsoft Docs
+description: Sık kullanılan alma işi komutları için Azure içeri/dışarı aktarma aracı komut başvurusu.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873726"
 ---
 # <a name="quick-reference-for-frequently-used-commands-for-import-jobs"></a>İçeri aktarma işlerinde sık kullanılan komutlar için hızlı başvuru
 

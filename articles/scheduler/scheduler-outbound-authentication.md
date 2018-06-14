@@ -1,11 +1,11 @@
 ---
-title: "Scheduler giden bağlantı kimlik doğrulaması"
-description: "Scheduler giden bağlantı kimlik doğrulaması"
+title: Scheduler giden bağlantı kimlik doğrulaması
+description: Scheduler giden bağlantı kimlik doğrulaması
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926511"
 ---
 # <a name="scheduler-outbound-authentication"></a>Scheduler giden bağlantı kimlik doğrulaması
 Zamanlayıcı işlerinin kimlik doğrulaması gerektiren hizmetleri çağrısı gerekebilir. Bu şekilde, Scheduler işi kaynaklarına erişebilir, çağrılan hizmet belirleyebilirsiniz. Bu hizmetlerden bazılarını diğer Azure Hizmetleri, Salesforce.com, Facebook ve güvenli özel Web siteleri içerir.

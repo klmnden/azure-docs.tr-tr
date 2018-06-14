@@ -1,11 +1,11 @@
 ---
-title: "PowerShell kullanarak ExpressRoute için bir VNet ağ geçidini yapılandırma: Klasik: Azure | Microsoft Docs"
-description: "Klasik dağıtım için bir sanal ağ geçidi yapılandırmak için bir ExpressRoute yapılandırma PowerShell kullanarak VNet model."
+title: 'PowerShell kullanarak ExpressRoute için bir VNet ağ geçidini yapılandırma: Klasik: Azure | Microsoft Docs'
+description: Klasik dağıtım için bir sanal ağ geçidi yapılandırmak için bir ExpressRoute yapılandırma PowerShell kullanarak VNet model.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 85ee0bc1-55be-4760-bfb4-34d9f2c96f30
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850640"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell-classic"></a>Bir sanal ağ geçidi (Klasik) PowerShell kullanarak ExpressRoute için yapılandırma
 > [!div class="op_single_selector"]

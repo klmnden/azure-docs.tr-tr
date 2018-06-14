@@ -1,6 +1,6 @@
 ---
-title: "Azure işlevleri kullanarak sunucusuz bir API oluşturma | Microsoft Docs"
-description: "Azure işlevleri kullanarak sunucusuz bir API oluşturma"
+title: Azure işlevleri kullanarak sunucusuz bir API oluşturma | Microsoft Docs
+description: Azure işlevleri kullanarak sunucusuz bir API oluşturma
 services: functions
 author: mattchenderson
 manager: cfowler
@@ -13,9 +13,10 @@ ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24811609"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure işlevleri kullanarak sunucusuz bir API oluşturma
 

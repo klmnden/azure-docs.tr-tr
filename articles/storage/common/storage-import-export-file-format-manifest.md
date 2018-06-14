@@ -1,11 +1,11 @@
 ---
-title: "Azure içeri/dışarı aktarma bildirim dosyasının biçimi | Microsoft Docs"
-description: "BLOB'ları Azure Blob Depolama ve alma bir sürücüde dosyaları arasındaki eşlemeyi açıklar sürücü bildirim dosyasının biçimi hakkında bilgi edinin veya içeri/dışarı aktarma hizmeti işinde dışa aktarın."
+title: Azure içeri/dışarı aktarma bildirim dosyasının biçimi | Microsoft Docs
+description: BLOB'ları Azure Blob Depolama ve alma bir sürücüde dosyaları arasındaki eşlemeyi açıklar sürücü bildirim dosyasının biçimi hakkında bilgi edinin veya içeri/dışarı aktarma hizmeti işinde dışa aktarın.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873908"
 ---
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure içeri/dışarı aktarma hizmeti bildirim dosyası biçimi
 Sürücü bildirim dosyası Azure Blob storage blobları ve içe veya dışa aktarma işi kapsayan sürücüsündeki dosyaları arasındaki eşlemeyi açıklar. Bir alma işlemi için bildirim dosyası sürücü hazırlama işleminin bir parçası olarak oluşturulur ve sürücü Azure veri merkezine gönderilmeden önce sürücüde depolanır. Bir dışa aktarma işlemi sırasında bildirim oluşturulur ve Azure içeri/dışarı aktarma hizmeti tarafından sürücüde depolanan.  

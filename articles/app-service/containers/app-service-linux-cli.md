@@ -1,13 +1,13 @@
 ---
-title: "Web uygulaması için Azure CLI 2.0 kullanarak kapsayıcıları yönetme | Microsoft Docs"
-description: "Web uygulaması için Azure CLI kullanarak kapsayıcıları yönetin."
-keywords: "Azure uygulama hizmeti, web uygulaması, CLI, linux, oss"
+title: Web uygulaması için Azure CLI 2.0 kullanarak kapsayıcıları yönetme | Microsoft Docs
+description: Web uygulaması için Azure CLI kullanarak kapsayıcıları yönetin.
+keywords: Azure uygulama hizmeti, web uygulaması, CLI, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24105398"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Web uygulaması için Azure CLI kullanarak kapsayıcıları yönetme
 
