@@ -1,15 +1,15 @@
 ---
-title: "Bağlama Azure dosya depolama biriminden bir Azure Windows VM | Microsoft Docs"
-description: "Azure dosya depolama ile bulutta dosya depolamak ve bir Azure sanal makineden (VM) bulut dosya paylaşımına bağlayın."
-documentationcenter: 
+title: Bağlama Azure dosya depolama biriminden bir Azure Windows VM | Microsoft Docs
+description: Azure dosya depolama ile bulutta dosya depolamak ve bir Azure sanal makineden (VM) bulut dosya paylaşımına bağlayın.
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.workload: ''
+ms.tgt_pltfrm: ''
+ms.devlang: ''
 ms.topic: article
 ms.date: 01/02/2018
 ms.author: cynthn
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27577560"
 ---
 # <a name="use-azure-file-shares-with-windows-vms"></a>Azure dosya paylaşımları Windows VM ile birlikte kullanmak 
 
