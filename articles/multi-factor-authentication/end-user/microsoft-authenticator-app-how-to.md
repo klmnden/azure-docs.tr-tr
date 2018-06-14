@@ -1,8 +1,8 @@
 ---
-title: "Cep telefonları için Microsoft Authenticator uygulaması | Microsoft Docs"
-description: "Azure Authenticator en son sürümüne yükseltmeyi öğrenin."
+title: Cep telefonları için Microsoft Authenticator uygulaması | Microsoft Docs
+description: Azure Authenticator en son sürümüne yükseltmeyi öğrenin.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201006"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator uygulaması ile çalışmaya başlama
 Microsoft Authenticator uygulamasını bir ek düzeyi iş veya Okul hesabınızda güvenlik sunar (örneğin, bsimon@contoso.com) veya Microsoft hesabınızı (örneğin, bsimon@outlook.com).

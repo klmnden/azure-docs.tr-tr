@@ -1,8 +1,8 @@
 ---
 title: Azure ile Ansible kullanma
-description: "Ansible otomatikleştiren bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını kullanmayı giriş."
+description: Ansible otomatikleştiren bulut sağlama, yapılandırma yönetimi ve uygulama dağıtımlarını kullanmayı giriş.
 ms.service: ansible
-keywords: "ansible, azure, devops, genel bakış, bulut sağlama, yapılandırma yönetimi, uygulama dağıtımı, ansible modülleri, ansible playbooks"
+keywords: ansible, azure, devops, genel bakış, bulut sağlama, yapılandırma yönetimi, uygulama dağıtımı, ansible modülleri, ansible playbooks
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28212109"
 ---
 # <a name="ansible-with-azure"></a>Azure ile Ansible
 

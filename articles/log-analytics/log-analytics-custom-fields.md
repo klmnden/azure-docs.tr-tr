@@ -1,8 +1,8 @@
 ---
-title: "Özel alanları Azure günlük analizi | Microsoft Docs"
-description: "Günlük analizi özel alanlar özelliğidir toplanan kaydı Özellikler ekleme günlük analizi kayıtlarından kendi aranabilir alanları oluşturmanızı sağlar.  Bu makalede bir özel alan oluşturma işlemini açıklar ve örnek olay ile ayrıntılı bilgi sağlar."
+title: Özel alanları Azure günlük analizi | Microsoft Docs
+description: Günlük analizi özel alanlar özelliğidir toplanan kaydı Özellikler ekleme günlük analizi kayıtlarından kendi aranabilir alanları oluşturmanızı sağlar.  Bu makalede bir özel alan oluşturma işlemini açıklar ve örnek olay ile ayrıntılı bilgi sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030726"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Günlük analizi içinde özel alanlar
 **Özel alanlar** günlük analizi özelliği günlük analizi mevcut kayıtların kendi aranabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, aynı kayıt diğer özellikleri ayıklanan verilerinden otomatik olarak doldurulur.
