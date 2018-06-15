@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366520"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Açık bağlantı noktalarını ve Azure CLI'dan bir Linux VM için uç noktaları
 Bir bağlantı noktasını açmak veya bir alt ağ veya VM ağ arabirimine bir ağ filtre oluşturarak Azure'da sanal makine (VM) için bir uç nokta oluşturun. Trafiği alır kaynağa bağlı bir ağ güvenlik grubu hem gelen hem de giden trafiği denetleyen bu filtreler yerleştir. Bağlantı noktası 80 üzerinde web trafiği yaygın bir örneği kullanalım. Bu makalede Azure CLI 2.0 ile bir VM için bağlantı noktası açma gösterilmiştir. Bu adımları [Azure CLI 1.0](nsg-quickstart-nodejs.md) ile de gerçekleştirebilirsiniz.

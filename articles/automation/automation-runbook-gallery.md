@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355959"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Otomasyonu Runbook ve modül galerileri
 Azure Automation'da kendi runbook'lardan ve modüllerden oluşturmak yerine, zaten Microsoft ve topluluk tarafından oluşturulmuş senaryoları çeşitli erişebilir.  Bu senaryolar değişiklik yapmadan ya da kullanabilir veya bir başlangıç noktası olarak kullanın ve bunları belirli gereksinimleriniz için düzenleyin.

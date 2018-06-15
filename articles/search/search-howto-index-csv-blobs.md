@@ -14,6 +14,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363045"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Dizin oluşturma CSV BLOB'lar ile Azure Search blob dizin oluşturucu
 Varsayılan olarak, [Azure Search blob dizin oluşturucu](search-howto-indexing-azure-blob-storage.md) ayrıştırıyor sınırlandırılmış metin BLOB'ları tek bir metin öbek. Ancak, CSV verileri içeren BLOB'lar ile genellikle her satır ayrı bir belge olarak blob'daki kabul istersiniz. Örneğin, aşağıdaki sınırlandırılmış metin verildiğinde, size iki belgelere ayrıştırma isteyebilirsiniz her "id", "datePublished" ve "etiketler" alanları içeren: 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34261778"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-20"></a>Paket yakalama Azure CLI 2.0 kullanan Azure Ağ İzleyicisi ile yönetme
 

@@ -1,31 +1,25 @@
 ---
-title: "Visual Studio için Data Lake araçları köşe yürütme görünümünde kullanın | Microsoft Docs"
-description: "Köşe yürütme görünümü incelemesi Data Lake Analytics işlerini kullanmayı öğrenin."
+title: Visual Studio için Data Lake araçları köşe yürütme görünümünde kullanın
+description: Bu makalede, köşe yürütme görünümü incelemesi Data Lake Analytics işleri için kullanmayı açıklar.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/13/2016
+author: mumian
 ms.author: jgao
-ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
+ms.topic: conceptual
+ms.date: 10/13/2016
+ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735450"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio için Data Lake araçları köşe yürütme görünümünde kullanın
 Köşe yürütme görünümü incelemesi Data Lake Analytics işlerini kullanmayı öğrenin.
 
-## <a name="prerequisites"></a>Ön koşullar
-
-U-SQL betiği geliştirmek için Visual Studio için Data Lake araçları kullanarak temel bilgi gerekir.  Bkz: [öğretici: Visual Studio için Data Lake Araçları'nı kullanarak U-SQL betikleri geliştirme](data-lake-analytics-data-lake-tools-get-started.md).
 
 ## <a name="open-the-vertex-execution-view"></a>Köşe yürütme görünümü Aç
 U-SQL işi Visual Studio için Data Lake araçları içinde açın. Tıklatın **köşe yürütme görünümü** sol alt köşedeki içinde. Profilleri ilk yük istenebilir ve ağ bağlantınızı bağlı olarak biraz zaman alabilir.

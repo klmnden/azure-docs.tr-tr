@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360351"
 ---
 # <a name="azure-cloud-services-definition-webrole-schema"></a>Tanım WebRole şeması Azure bulut Hizmetleri
 Azure web rolü, web uygulaması programlama için IIS 7, ASP.NET, PHP, Windows Communication Foundation ve Fastcgı gibi tarafından desteklenen gibi özelleştirilmiş bir rolüdür.

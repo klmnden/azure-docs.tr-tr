@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194205"
 ---
 # <a name="runbook-settings"></a>Runbook ayarları
 Azure automation'da her runbook, tanımlanmasına ve günlüğe kaydetme davranışını değiştirmeye yardımcı birden çok ayarlarına sahiptir. Bu ayarların her biri aşağıda yordamlar tarafından ve ardından bunları değiştirme konusunda açıklanmıştır.

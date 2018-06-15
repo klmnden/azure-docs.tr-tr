@@ -11,13 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: ppacent
+ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801424"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ölçek birimi düğümü Eylemler Azure yığınında
 
@@ -41,11 +43,11 @@ Bir ölçek birimi durumunu görüntülemek için:
  
 Burada, aşağıdaki bilgileri görüntüleyebilirsiniz:
 
-- Bölge adı
+- Bölge adı. Bölge adı ile başvurulan **-konum** PowerShell modülündeki.
 - tür sistemi
 - Toplam mantıksal çekirdekler
 - toplam bellek
-- tek düğümler ve durumlarının listesi; Çalışan veya durduruldu.
+- tek düğümler ve durumlarının listesi; Her iki **çalıştıran** veya **durduruldu**.
 
 ![Her düğüm için çalışan durumunu gösteren ölçek birimi döşeme](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
@@ -87,7 +89,7 @@ Bu eylem genellikle bir düğüm askıdaki durumda ve artık isteklerine yanıt 
 Eylem PowerShell aracılığıyla kapatma çalıştırmak için:
 
 ````PowerShell
-  Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
 Eylem kapatma işe yaramazsa olası durumda da, bunun yerine BMC web arabirimi kullanın.
@@ -102,7 +104,7 @@ Eylem kapatma işe yaramazsa olası durumda da, bunun yerine BMC web arabirimi k
 PowerShell aracılığıyla eylemi güç çalıştırmak için:
 
 ````PowerShell
-  Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
 Eylem gücüyle işe yaramazsa olası durumda da, bunun yerine BMC web arabirimi kullanın.
@@ -113,13 +115,13 @@ Eylem gücüyle işe yaramazsa olası durumda da, bunun yerine BMC web arabirimi
 
 Bu eylem, genellikle tüm düğüm değiştirme gibi bölümlerinin alanı değiştirmesi sırasında kullanılır.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Burada kullanıcılara bildirimde yalnızca bir planlı bakım penceresi sırasında bir düğüm boşaltma emin olun. Bazı koşullarda, etkin iş yükleri kesintiye uğraması yaşayabilirsiniz.
 
 PowerShell aracılığıyla boşaltma eylemi çalıştırmak için:
 
   ````PowerShell
-  Disable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="resume"></a>Sürdür
@@ -129,7 +131,7 @@ PowerShell aracılığıyla boşaltma eylemi çalıştırmak için:
 PowerShell aracılığıyla Sürdür eylemi çalıştırmak için:
 
   ````PowerShell
-  Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="repair"></a>Onar
@@ -139,7 +141,7 @@ PowerShell aracılığıyla Sürdür eylemi çalıştırmak için:
 - Tam düğümü değiştirme (olan veya olmayan yeni veri diskleri)
 - Donanım bileşeni hatası sonra (alan değiştirilebilen biriminin (FRU) belgelerinde tavsiye varsa) değiştirme.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Bir düğüm ya da tek tek donanım bileşenleri değiştirmek gerektiğinde tam adımlar için OEM donanım satıcısının FRU belgelerine bakın. FRU belgelerine donanım bileşeni değiştirildikten sonra onarma eylemini çalıştırın gerekip gerekmediğini belirtir.  
 
 Onarım işlemi çalıştırdığınızda, BMC IP adresini belirtmeniz gerekir. 
@@ -147,7 +149,9 @@ Onarım işlemi çalıştırdığınızda, BMC IP adresini belirtmeniz gerekir.
 PowerShell aracılığıyla Onarma eylemi çalıştırmak için:
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Region <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
   ````
 
+## <a name="next-steps"></a>Sonraki adımlar
 
+Azure yığın Fabric yönetici modülü hakkında daha fazla bilgi için bkz: [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).

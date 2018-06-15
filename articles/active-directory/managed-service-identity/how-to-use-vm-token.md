@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796312"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Belirteç alımı için bir Azure VM yönetilen hizmet kimliği (MSI) kullanma 
 
@@ -312,6 +313,8 @@ Bu bölümde, olası hata yanıtları belgeler. A "200 Tamam" durumu başarılı
 | 500 İç sunucu hatası | bilinmiyor | Active Directory'den belirteci alınamadı. Ayrıntılar için günlükleri Bkz  *\<dosya yolu\>* | MSI VM etkin olduğunu doğrulayın. Bkz: [bir VM yönetilen hizmet kimliği (Azure Portalı'nı kullanarak MSI) yapılandırma](qs-configure-portal-windows-vm.md) VM yapılandırması yardıma ihtiyacınız varsa.<br><br>Ayrıca, HTTP GET isteği URI özellikle URI sorgu dizesinde belirtilen kaynak doğru biçimlendirildiğinden emin olun. "Örnek istek" bölümüne bakın [geri KALAN bölümü önceki](#rest) bir örnek veya [Azure Hizmetleri, destek Azure AD kimlik doğrulamasının](services-support-msi.md) Hizmetleri ve bunların ilgili kaynak kimlikleri listesi.
 
 ## <a name="retry-guidance"></a>Kılavuzu yeniden deneyin 
+
+404 yanıtı, 429 veya 5xx hata kodu alırsanız yeniden denemek için önerilen (bkz [hata işleme](#error-handling) yukarıda).
 
 Azaltma sınırları IMDS uç noktasına yapılan çağrı sayısı için geçerlidir. Azaltma eşiği aşıldığında, kısıtlama etkinken IMDS uç noktası başka bir istek sınırlar. Bu süre boyunca IMDS uç noktası HTTP durum kodu 429 döndürür ("çok sayıda istek"), ve istekleri başarısız olur. 
 

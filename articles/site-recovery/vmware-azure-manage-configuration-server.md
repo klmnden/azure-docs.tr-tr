@@ -1,44 +1,51 @@
 ---
 title: Azure Site Recovery ile VMware olağanüstü durum kurtarma için yapılandırma sunucusu yönetme | Microsoft Docs
-description: Bu makalede, Azure Site Recovery ile azure'a VMware olağanüstü durum kurtarma için mevcut bir yapılandırma sunucusunu yönetmek açıklar.
+description: Bu makalede, Azure Site RecoveryS ile azure'a VMware olağanüstü durum kurtarma için mevcut bir yapılandırma sunucusunu yönetmek açıklar.
 services: site-recovery
-author: AnoopVasudavan
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 06/04/2018
+ms.author: raynew
+ms.openlocfilehash: 64f5f2105a9048d649503b0790231676182a4c4f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737512"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware Vm'leri için yapılandırma sunucusu yönetme
 
 Kullanırken bir şirket içi yapılandırma sunucusunu ayarlama [Azure Site Recovery](site-recovery-overview.md) VMware Vm'lerini ve fiziksel sunucuların azure'a olağanüstü durum kurtarma. Yapılandırma sunucusu arasındaki iletişimi düzenler VMware ve Azure şirket içi ve veri çoğaltma yönetir. Bu makalede dağıtıldıktan sonra yapılandırma sunucusunu yönetmek için ortak görevler özetlenmektedir.
 
 
+
 ## <a name="modify-vmware-settings"></a>VMware ayarlarını değiştirme
 
-Yapılandırma sunucusu bağlandığı VMware sunucu ayarlarını değiştirin.
+Yapılandırma sunucusu gibi erişebilirsiniz:
+    - Masaüstü kısayoldan, dağıtılan VM ve Azure Site Recovery Configuration Manager başlatmak için oturum açın.
+    - Alternatif olarak, yapılandırma sunucusundan uzaktan erişebilir **https://*ConfigurationServerName*/:44315 /**. Yönetici kimlik bilgilerinizle oturum açın.
+   
+### <a name="modify-vmware-server-settings"></a>VMware server ayarlarını değiştir
 
-1. Yapılandırma sunucusu çalıştıran makinede oturum açın.
-2. Azure Site Recovery Configuration Manager Masaüstü kısayoldan başlatın. Ya da açmak [bu bağlantıyı](https://configuration-server-name/IP:44315).
-3. Seçin **Yönet vCenter sunucusu/vSPhere ESXi sunucusunda**, ve ardından aşağıdakileri yapın:
+1. Oturum açma sonra farklı bir VMware sunucusu yapılandırma sunucusuyla ilişkilendirmek için seçin **vCenter sunucusu/vSphere ESXi Sunucu Ekle**.
+2. Ayrıntılarını girin ve ardından **Tamam**.
 
-    * Farklı bir VMware sunucusu yapılandırma sunucusuyla ilişkilendirmek için seçin **vCenter sunucusu/vSphere ESXi Sunucu Ekle**. Sunucu ayrıntıları girin.
 
-    * VMware sanal makineleri otomatik olarak bulmayı VMware sunucusuna bağlanmak için kullanılan kimlik bilgilerini güncellemek için seçin **Düzenle**. Yeni kimlik bilgilerini girin ve ardından **Tamam**.
+### <a name="modify-credentials-for-automatic-discovery"></a>Otomatik bulma için kimlik bilgilerini değiştirme
+
+1. Oturum açma işleminden sonra VMware vm'lerinin otomatik bulma için VMware sunucuya bağlanmak için kullanılan kimlik bilgilerini güncellemek için seçin **Düzenle**.
+2. Yeni kimlik bilgilerini girin ve ardından **Tamam**.
 
     ![VMware değiştirme](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Mobility hizmeti yüklemesi için kimlik bilgilerini değiştirme
 
 Mobility hizmeti için çoğaltmayı etkinleştirme VMware Vm'lerini otomatik olarak yüklemek için kullanılan kimlik bilgilerini değiştirin.
 
-1. Yapılandırma sunucusu çalıştıran makinede oturum açın.
-2. Site Recovery Configuration Manager Masaüstü kısayoldan başlatın. Ya da açmak [bu bağlantıyı](https://configuration-server-name/IP:44315).
-3. Seçin **sanal makine kimlik bilgilerini yöneten**ve yeni kimlik bilgilerini girin. Ardından **Tamam** ayarları güncelleştirmek için.
+1. Oturum açma işleminden sonra Seç **sanal makine kimlik bilgileri yönetme**
+2. Yeni kimlik bilgilerini girin ve ardından **Tamam**.
 
     ![Mobility hizmeti kimlik bilgilerini değiştirme](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -46,15 +53,15 @@ Mobility hizmeti için çoğaltmayı etkinleştirme VMware Vm'lerini otomatik ol
 
 Azure Internet erişimi için yapılandırma sunucu makinesi tarafından kullanılan proxy ayarlarını değiştirin. Yapılandırma sunucusu makinesinde çalışan varsayılan işlem sunucusuna ek olarak bir işlem sunucusu makine varsa, her iki makinede ayarlarını değiştirin.
 
-1. Yapılandırma sunucusu çalıştıran makinede oturum açın.
-2. Site Recovery Configuration Manager Masaüstü kısayoldan başlatın. Ya da açmak [bu bağlantıyı](https://configuration-server-name/IP:44315).
-3. Seçin **bağlantı yönetmek**ve proxy değerlerini güncelleştirin. Ardından **kaydetmek** ayarları güncelleştirmek için.
+1. Oturum açma işleminden sonra yapılandırma sunucusuna, seçin **bağlantı yönetmek**.
+2. Proxy değerlerini güncelleştirin. Ardından **kaydetmek** ayarları güncelleştirmek için.
 
 ## <a name="add-a-network-adapter"></a>Bir ağ bağdaştırıcısı ekleyin
 
-Açık sanallaştırma biçimi (OVF) şablonu tek bir ağ bağdaştırıcısı yapılandırma sunucusuyla VM dağıtır. Yapabilecekleriniz [ek bağdaştırıcıyı VM'ye ekleyin)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), ancak yapılandırma sunucusunu kasaya kaydetmek önce eklemeniz gerekir.
+Açık sanallaştırma biçimi (OVF) şablonu tek bir ağ bağdaştırıcısı yapılandırma sunucusuyla VM dağıtır.
 
-Bir yapılandırma sunucusunu kasaya kaydetmek sonra eklemek için VM Özellikleri'nde bağdaştırıcı ekleyin. Ardından sunucu kasadaki yeniden kaydettirin.
+- Yapabilecekleriniz [ek bağdaştırıcıyı VM'ye ekleyin)](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), ancak yapılandırma sunucusunu kasaya kaydetmek önce eklemeniz gerekir.
+- Bir yapılandırma sunucusunu kasaya kaydetmek sonra eklemek için VM Özellikleri'nde bağdaştırıcı ekleyin. Sonra sunucu kasadaki yeniden kaydettirin gerekir.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Bir yapılandırma sunucusunda aynı kasaya yeniden kaydetme
@@ -65,8 +72,8 @@ Gerekirse aynı kasada yapılandırma sunucusunu yeniden kaydettirin. Yapıland�
   1. Kasada açmak **Yönet** > **Site Recovery altyapısı** > **yapılandırma sunucularına**.
   2. İçinde **sunucuları**seçin **indirme kayıt anahtarı** kasa kimlik bilgileri dosyası indirilemedi.
   3. Yapılandırma sunucusu makinede oturum açın.
-  4. İçinde **%ProgramData%\ASR\home\svagent\bin**, açık **cspsconfigtool.exe**.
-  5. Üzerinde **kasa kayıt** sekmesine **Gözat** ve indirdiğiniz kasa kimlik bilgileri dosyasını bulun.
+  4. İçinde **%ProgramData%\ASR\home\svsystems\bin**, açık **cspsconfigtool.exe**.
+  5. Üzerinde **kasa kayıt** sekmesine **Gözat**, indirdiğiniz kasa kimlik bilgileri dosyasını bulun.
   6. Gerekliyse, proxy sunucusu ayrıntılarını belirtin. Ardından **Kaydet**’i seçin.
   7. Bir yönetici PowerShell komut penceresi açın ve aşağıdaki komutu çalıştırın:
 
@@ -88,15 +95,27 @@ Güncelleştirme paketleri tüm yapılandırma sunucusu sürümlerine yükseltme
 
 Sunucu gibi yükseltin:
 
+1. Kasasına gidin **Yönet** > **Site Recovery altyapısı** > **yapılandırma sunucularına**.
+2. Bir güncelleştirme olup olmadığını bağlantısının görüntülenip **aracı sürümü** > sütun.
+
+    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update2.png)
+
 1. Güncelleştirme yükleyicisi dosya yapılandırma sunucusuna yükleyin.
-2. Yükleyiciyi çalıştırmak için çift tıklayın.
-3. Yükleyici, makinede çalışan geçerli sürümü algılar.
-4. Seçin **Tamam** doğrulayın ve yükseltmeyi çalıştırın. 
+
+    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. Yükleyiciyi çalıştırmak için çift tıklayın.
+2. Yükleyici, makinede çalışan geçerli sürümü algılar. Tıklatın **Evet** yükseltme işlemini başlatmak için. 
+3. Yükseltme tamamlandığında sunucu yapılandırmasını doğrular.
+
+    ![Güncelleştirme](./media/vmware-azure-manage-configuration-server/update3.png)
+
+4. Tıklatın **son** yükleyici kapatın.
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>Silme veya yapılandırma sunucusunun kaydı silinemedi
 
-1. Devre dışı [korumayı devre dışı bırakın](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) yapılandırma sunucusu altında yer alan tüm VM'ler için.
+1. [Korumayı devre dışı](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) yapılandırma sunucusu altında yer alan tüm VM'ler için.
 2. [İlişkisini](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) ve [silmek](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) yapılandırma sunucusundan tüm çoğaltma ilkeleri.
 3. [Silme](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) yapılandırma sunucuyla ilişkili olan tüm vCenter sunucularını/vSphere ana.
 4. Kasada açmak **Site Recovery altyapısı** > **yapılandırma sunucularına**.

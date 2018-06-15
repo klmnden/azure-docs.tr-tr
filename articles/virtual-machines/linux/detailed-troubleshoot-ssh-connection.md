@@ -21,6 +21,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365500"
 ---
 # <a name="detailed-ssh-troubleshooting-steps-for-issues-connecting-to-a-linux-vm-in-azure"></a>Ayrıntılı SSH azure'da bir Linux VM için bağlantı sorunları için sorun giderme adımları
 SSH istemcisi VM SSH hizmette ulaşabilmesi olmayabilir birçok olası nedeni vardır. Daha fazla bilgi izlediyseniz [sorun giderme adımları genel SSH](troubleshoot-ssh-connection.md), daha fazla bağlantı sorunu gidermek gerekir. Bu makalede, SSH bağlantısını nerede başarısız olduğunu ve nasıl çözümleyeceğiniz belirlemek için ayrıntılı sorun giderme adımlarını size yol gösterir.

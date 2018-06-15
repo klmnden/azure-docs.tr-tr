@@ -1,11 +1,11 @@
 ---
-title: "Gelişmiş istek azaltma ile Azure API Yönetimi"
-description: "Oluşturma ve esnek kota ve ilkeleri Azure API Management ile hız sınırı uygulama öğrenin."
+title: Gelişmiş istek azaltma ile Azure API Yönetimi
+description: Oluşturma ve esnek kota ve ilkeleri Azure API Management ile hız sınırı uygulama öğrenin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800032"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Gelişmiş istek azaltma ile Azure API Yönetimi
 Gelen istek kısıtlama erişebildiklerinden, Azure API Management anahtar bir roldür. Da istekleri ya da aktarılan toplam istekleri/veri oranını denetleyerek, API Management kendi API kötüye korumak ve farklı API ürün katmanları için değer oluşturmak API sağlayıcıları sağlar.

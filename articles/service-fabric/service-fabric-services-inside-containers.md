@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212662"
 ---
 # <a name="how-to-containerize-your-service-fabric-reliable-services-and-reliable-actors-preview"></a>Service Fabric Reliable Services ve Reliable Actors (Önizleme) containerize nasıl
 

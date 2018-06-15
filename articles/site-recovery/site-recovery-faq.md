@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312687"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: sık sorulan sorular (SSS)
 Bu makale, Azure Site Recovery hakkında sık sorulan sorular içermektedir. Bu makaleyi okuduktan sonra sorularınız varsa, yayınlayın [Azure kurtarma Hizmetleri Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
-ms.date: 05/22/2017
+ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: abb822483253fc5fce0e76afc2628806fe4485d8
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801771"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch havuzlarında Linux işlem düğümlerini sağlama
 
@@ -38,7 +39,7 @@ Toplu işlem düğümleri havuzu oluşturduğunuzda, işletim sistemi ve düğü
 **Sanal Makine Yapılandırması** işlem düğümleri için hem Linux hem de Windows görüntüleri sağlar. Kullanılabilir işlem düğümü boyutları içinde listelenen [azure'da sanal makineler için Boyutlar](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux) ve [azure'da sanal makineler için Boyutlar](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows). Sanal Makine Yapılandırması düğümleri içeren bir havuz oluşturduğunuzda, düğümler, sanal makine görüntü başvurusunu ve toplu işlem düğüm Aracısı düğümlerine yüklenmesi için SKU boyutunu belirtmeniz gerekir.
 
 ### <a name="virtual-machine-image-reference"></a>Sanal makine görüntü başvurusunu
-Batch hizmetini kullanan [sanal makine ölçek kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) Linux işlem düğümlerini sağlamak için. Bir görüntüden belirtebilirsiniz [Azure Marketi][vm_marketplace], veya hazırladığınız özel bir görüntü sağlayın. Özel görüntüler hakkında daha fazla ayrıntı için bkz. [Batch ile büyük ölçekli paralel işlem çözümleri geliştirme](batch-api-basics.md#pool).
+Batch hizmetini kullanan [sanal makine ölçek kümeleri](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) işlem düğümleri sanal makine yapılandırma sağlamak için. Bir görüntüden belirtebilirsiniz [Azure Marketi][vm_marketplace], veya hazırladığınız özel bir görüntü sağlayın. Özel resimler hakkında daha fazla ayrıntı için bkz: [bir havuz ile özel bir görüntü oluşturun](batch-custom-images.md).
 
 Bir sanal makine görüntü başvurusunu yapılandırdığınızda sanal makine görüntüsünün özelliklerini belirtin. Bir sanal makine görüntü başvurusunu oluşturduğunuzda, aşağıdaki özellikler gereklidir:
 
@@ -57,8 +58,8 @@ Bir sanal makine görüntü başvurusunu yapılandırdığınızda sanal makine 
 ### <a name="node-agent-sku"></a>Düğüm Aracısı SKU
 Toplu işlem düğüm Aracısı havuzdaki her düğüm üzerinde çalışır ve düğümü ile Batch hizmeti arasındaki komut ve denetim arabirimi sağlayan bir programdır. Farklı işletim sistemleri için SKU'ları bilinen düğüm Aracısı'nın farklı uygulamaları vardır. Esas olarak, bir sanal makine yapılandırması oluşturduğunuzda, önce sanal makine görüntü başvurusunu belirtin ve ardından görüntüde yüklenecek düğüm Aracısı belirtin. Genellikle, her düğüm Aracısı SKU birden çok sanal makine görüntüsü ile uyumludur. Düğüm Aracısı SKU'ları bazı örnekleri şunlardır:
 
-* batch.node.ubuntu 14.04
-* batch.node.centos 7
+* Batch.node.ubuntu 14.04
+* Batch.node.centos 7
 * Batch.node.Windows amd64
 
 > [!IMPORTANT]
@@ -145,7 +146,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Bir Linux havuzu oluşturun: Batch .NET
-Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnek göstermektedir [Batch .NET] [ nuget_batch_net] işlem düğümlerinin Ubuntu Server havuzu oluşturmak için istemci kitaplığı. Bulabileceğiniz [Batch .NET başvuru belgeleri] [ api_net] konusuna bakın.
+Aşağıdaki kod parçacığını nasıl kullanılacağına ilişkin bir örnek göstermektedir [Batch .NET] [ nuget_batch_net] işlem düğümlerinin Ubuntu Server havuzu oluşturmak için istemci kitaplığı. Bulabileceğiniz [Batch .NET başvuru belgeleri] [ api_net] docs.microsoft.com.
 
 Aşağıdaki kod parçacığını kullanır [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] listesinden şu anda seçmek için yöntemi desteklenen Market görüntü ve düğüm Aracısı SKU birleşimleri. Bu teknik arzu çünkü desteklenen birleşimlerin listesi zaman zaman değişebilir. En yaygın olarak desteklenen birleşimlerin eklenir.
 
@@ -206,7 +207,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>Sanal makine görüntülerini listesi
-Aşağıdaki tabloda, bu makalenin en son güncelleştirildiği kullanılabilir toplu aracılarını ile uyumlu olan Market sanal makine görüntüleri listeler. Görüntüleri ve aracılarını veya herhangi bir anda kaldırılamaz bu listeyi kesin olmadığından olduğunu dikkate almak önemlidir. Toplu işlem uygulamaları ve Hizmetleri zaman kullanmanızı öneririz [list_node_agent_skus] [ py_list_skus] (Python) ve [ListNodeAgentSkus] [ net_list_skus] (Belirlemek ve şu anda kullanılabilir SKU'lar seçmek için batch .NET).
+Aşağıdaki tabloda, bu makalenin en son güncelleştirildiği kullanılabilir toplu aracılarını ile uyumlu olan Market sanal makine görüntüleri listeler. Görüntüleri ve aracılarını veya herhangi bir anda kaldırılamaz bu listeyi kesin olmadığından olduğunu dikkate almak önemlidir. Toplu işlem uygulamaları ve Hizmetleri zaman kullanmanızı öneririz [list_node_agent_skus] [ py_list_skus] (Python) veya [ListNodeAgentSkus] [ net_list_skus] () Belirlemek ve şu anda kullanılabilir SKU'lar seçmek için batch .NET).
 
 > [!WARNING]
 > Aşağıdaki listede, herhangi bir zamanda değişebilir. Her zaman kullanmak **listesi düğüm Aracısı SKU** Batch işleriniz çalıştırdığınızda, uyumlu bir sanal makine ve düğüm Aracısı SKU'ları listelemek için Batch API'lerini kullanılabilir yöntemleri.
@@ -215,26 +216,33 @@ Aşağıdaki tabloda, bu makalenin en son güncelleştirildiği kullanılabilir 
 
 | **Yayımcı** | **Teklif** | **Görüntü SKU** | **Sürüm** | **Düğüm Aracısı SKU kimliği** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| Canonical | UbuntuServer | 14.04.5-LTS | en son | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | en son | batch.node.ubuntu 16.04 |
-| Credativ | Debian | 8 | en son | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | en son | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1 | en son | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | en son | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.2 | en son | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.0 | en son | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.2 | en son | batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | en son | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42.1 | en son | Batch.node.opensuse 42.1 |
-| SUSE | SLES | 12 SP1 | en son | Batch.node.opensuse 42.1 |
-| SUSE | SLES HPC | 12 SP1 | en son | Batch.node.opensuse 42.1 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | en son | batch.node.centos 7 |
-| microsoft-ads | standard-data-science-vm | standard-data-science-vm | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | en son | Batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | en son | Batch.node.Windows amd64 |
+| toplu iş | işleme centos73 | İşleme | en son | Batch.node.centos 7 |
+| toplu iş | işleme windows2016 | İşleme | en son | Batch.node.Windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | en son | Batch.node.ubuntu 16.04 |
+| Canonical | UbuntuServer | 14.04.5-LTS | en son | Batch.node.ubuntu 14.04 |
+| Credativ | Debian | 9 | en son | Batch.node.debian 9 |
+| Credativ | Debian | 8 | en son | Batch.node.debian 8 |
+| Microsoft reklam | linux-data-science-vm | linuxdsvm | en son | Batch.node.centos 7 |
+| Microsoft reklam | Standart veri bilimi vm | Standart veri bilimi vm | en son | Batch.node.Windows amd64 |
+| Microsoft azure batch | centos kapsayıcı | 7-4 | en son | Batch.node.centos 7 |
+| Microsoft azure batch | centos kapsayıcı rdma | 7-4 | en son | Batch.node.centos 7 |
+| Microsoft azure batch | ubuntu server kapsayıcısı | 16-04-lts | en son | Batch.node.ubuntu 16.04 |
+| Microsoft azure batch | ubuntu server kapsayıcı rdma | 16-04-lts | en son | Batch.node.ubuntu 16.04 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016 Datacenter smalldisk | en son | Batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | Kapsayıcılar ile 2016 Datacenter | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012 Datacenter smalldisk | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | en son | Batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008 R2 SP1 smalldisk | en son | Batch.node.Windows amd64 |
+| OpenLogic | CentOS | 7.4 | en son | Batch.node.centos 7 |
+| OpenLogic | CentOS HPC | 7.4 | en son | Batch.node.centos 7 |
+| OpenLogic | CentOS HPC | 7.3 | en son | Batch.node.centos 7 |
+| OpenLogic | CentOS HPC | 7.1 | en son | Batch.node.centos 7 |
+| Oracle | Oracle Linux | 7.4 | en son | Batch.node.centos 7 |
+| SUSE | SLES HPC | 12 SP2 | en son | Batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>SSH kullanarak Linux düğümüne bağlanma
 Geliştirme sırasında veya sorun giderme sırasında havuzunuzdaki düğümlerden oturum açmak gerekli bulabilirsiniz. Windows işlem düğümleri, Linux düğümlerine bağlanmak için Uzak Masaüstü Protokolü (RDP) kullanamazsınız. Bunun yerine, Batch hizmeti uzak bağlantı için her düğümde SSH erişimini etkinleştirir.

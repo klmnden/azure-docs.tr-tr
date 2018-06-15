@@ -9,11 +9,12 @@ ms.topic: reference
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d31c169600c594fc4764262cb8d080e9aee96b21
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d896b11ae94355eb2bdcfa8bc3a647f96fd8caf
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723771"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Yönetilen hizmet kimliği Destek Hizmetleri 
 
@@ -29,7 +30,7 @@ Aşağıdaki Azure hizmetlerini yönetilen hizmet kimliği destekler.
 | Azure App Service | Önizleme | Eylül 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure İşlevleri | Önizleme | Eylül 2017 | [Azure Portal](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager şablonu](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 | Azure Data Factory V2 | Önizleme | Kasım 2017 | [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity)<br>[PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-powershell)<br>[REST](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-rest-api)<br>[SDK](~/articles/data-factory/data-factory-service-identity.md#generate-service-identity-using-sdk) |
-| Azure API Management | Önizleme | Ekim 2017 | [Azure Resource Manager şablonu](/azure/api-management/api-management-howto-use-managed-service-identity) |
+
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Bu destek Azure AD kimlik doğrulaması Azure Hizmetleri
 
@@ -43,3 +44,4 @@ Aşağıdaki hizmetler Azure AD kimlik doğrulamayı desteklemek ve yönetilen h
 | Azure SQL | https://database.windows.net/ | Kullanılabilir | Ekim 2017 | |
 | Azure Event Hubs | https://eventhubs.azure.net | Kullanılabilir | Aralık 2017 | |
 | Azure Service Bus | https://servicebus.azure.net | Kullanılabilir | Aralık 2017 | |
+| Azure Storage | https://storage.azure.com/ | Önizleme | Mayıs 2018 | |

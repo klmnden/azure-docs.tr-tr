@@ -12,16 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: ea7c01075d9f65ed262681c216f5770d19466507
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: aaf91f8394ac4fd4fa6372c6c0f17ff92178589e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737546"
 ---
 # <a name="azure-guest-os"></a>Azure konuk işletim sistemi
 Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güvenlik Yanıt Merkezi (MSRC) güncelleştirmelerinin gösterir. Belirli bir güncelleştirme Konuk kullanmakta olduğunuz işletim sistemi için geçerli olup olmadığını belirlemek için bu makaleyi arayın. Güncelleştirmeleri her zaman taşımak İleri için belirli [ailesi] [ family-explain] de tanıtılan.
+
+## <a name="may-guest-os"></a>İşletim sistemi Konuk
+| Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
+| --- | --- | --- | --- | --- |
+| İlişki 18-05 | [4103721], [4103727], [4103723] |Windows 10 güvenliği |5.19 |8 Mayıs 2018 |
+| İlişki 18-05 | [4103712] |Yalnızca Windows güvenliği |2.74 |8 Mayıs 2018 |
+| İlişki 18-05 | [4103726] |Yalnızca Windows güvenliği |3.61 |8 Mayıs 2018 |
+| İlişki 18-05 | [4103715] |Yalnızca Windows güvenliği |4.54 |8 Mayıs 2018 |
+| İlişki 18-05 | [4095514], [4095519] |.NET 3.5, 4.x güvenlik |2.74 |8 Mayıs 2018 |
+| İlişki 18-05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x 4.5 x güvenlik |3.61 |8 Mayıs 2018 |
+| İlişki 18-05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x 4.5 x güvenlik |4.74|8 Mayıs 2018 |
+| İlişki 18-05 | [4054856] |.NET 4.7 x güvenliği |5.19 |8 Mayıs 2018 |
+| İlişki 18-05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |8 Mayıs 2018 |
+| İlişki 18-05 | [4103729] |Flash |3.61, 4.74, 5.19 |8 Mayıs 2018 |
+| Yok | [4093118] |Nisan güvenlikle ilgili olmayan dökümü |2,73 |10 Nisan 2018 |
+| Yok | [4093123] |Nisan güvenlikle ilgili olmayan dökümü |3.61 |10 Nisan 2018 |
+| Yok | [4093114] |Nisan güvenlikle ilgili olmayan dökümü |4.74 |10 Nisan 2018 |
+| Yok | [4093137] |Nisan SSU |5.19 |10 Nisan 2018 |
+| Yok | [4093753] |Saat dilimi güncelleştirme |2.74, 3.61, 4.74 |10 Nisan 2018 |
+
 
 ## <a name="april-guest-os"></a>Nisan konuk işletim sistemi
 | Ürün Kategorisi | Üst KB makalesi | Güvenlik Açığı açıklaması | Konuk işletim sistemi | İlk tarih |
@@ -162,7 +183,7 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Rel 17-06 | [4019472] |WS 2016 OS kalite geliştirmeleri |5.8 |9 May 2017 |
 | Rel 17-06 | [4022722] |Yalnızca Windows güvenliği |2.63 |13 Haziran 2017 |
 | Rel 17-06 | [4022717] |Yalnızca Windows güvenliği |4.43 |13 Haziran 2017 |
-| Rel 17-06 | [4022718] |Yalnızca Windows güvenliği |3.50 |13 Haziran 2017 |
+| Rel 17-06 | [4022718] |Yalnızca Windows güvenliği |3,50 |13 Haziran 2017 |
 | Rel 17-06 | [4021558] |Internet Explorer|2.63, 3.50, 4.43 |13 Haziran 2017 |
 | Rel 17-06 | [4022719], [4022724], [4022726] |Windows aylık toplamaları |2.63, 3.50, 4.43 |13 Haziran 2017 |
 | Rel 17-06 | [4022730] |Adobe Flash Player güvenlik güncelleştirmesi |3.50, 4.43, 5.8 |13 Haziran 2017 |
@@ -173,11 +194,11 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Yok | [4014508] |.NET güvenlikle ilgili olmayan toplaması olabilir |2.63 |9 May 2017 |
 | Yok | [4014511] |.NET güvenlikle ilgili olmayan toplaması olabilir |2.63 |9 May 2017 |
 | Yok | [4014514] |.NET güvenlikle ilgili olmayan toplaması olabilir |2.63 |9 May 2017 |
-| Yok | [4019216] |Güvenlikle ilgili olmayan toplaması olabilir |3.50 |9 May 2017 |
-| Yok | [4014503] |.NET güvenlikle ilgili olmayan toplaması olabilir |3.50 |9 May 2017 |
-| Yok | [4014506] |.NET güvenlikle ilgili olmayan toplaması olabilir |3.50 |9 May 2017 |
-| Yok | [4014509] |.NET güvenlikle ilgili olmayan toplaması olabilir |3.50 |9 May 2017 |
-| Yok | [4014513] |.NET güvenlikle ilgili olmayan toplaması olabilir |3.50 |9 May 2017 |
+| Yok | [4019216] |Güvenlikle ilgili olmayan toplaması olabilir |3,50 |9 May 2017 |
+| Yok | [4014503] |.NET güvenlikle ilgili olmayan toplaması olabilir |3,50 |9 May 2017 |
+| Yok | [4014506] |.NET güvenlikle ilgili olmayan toplaması olabilir |3,50 |9 May 2017 |
+| Yok | [4014509] |.NET güvenlikle ilgili olmayan toplaması olabilir |3,50 |9 May 2017 |
+| Yok | [4014513] |.NET güvenlikle ilgili olmayan toplaması olabilir |3,50 |9 May 2017 |
 | Yok | [4019215] |Güvenlikle ilgili olmayan toplaması olabilir |4.43 |9 May 2017 |
 | Yok | [4014505] |.NET güvenlikle ilgili olmayan toplaması olabilir |4.43 |9 May 2017 |
 | Yok | [4014507] |.NET güvenlikle ilgili olmayan toplaması olabilir |4.43 |9 May 2017 |
@@ -628,6 +649,28 @@ Aşağıdaki tablolarda Azure konuk işletim sistemine uygulanan Microsoft Güve
 | Yok |[2999802] |Kesiksiz çizgi noktalı çizgiler yerine Windows yazdırılır |4.15, 3.22, 2.34 |13 Ocak 2015 |
 | Yok |[2896881] |Uzun AddPrinterConnection VBScript komut Windows oturum açma işlemi sırasında kullanıcılar için Yazıcılar eşlemek için kullandığınızda, oturum açma zamanı |4.15, 3.22, 2.34 |13 Ocak 2015 |
 
+[4103721]: http://support.microsoft.com/kb/4103721
+[4103727]: http://support.microsoft.com/kb/4103727 
+[4103723]: http://support.microsoft.com/kb/4103723
+[4103712]: http://support.microsoft.com/kb/4103712
+[4103726]: http://support.microsoft.com/kb/4103726
+[4103715]: http://support.microsoft.com/kb/4103715
+[4095514]: http://support.microsoft.com/kb/4095514
+[4095519]: http://support.microsoft.com/kb/4095519
+[4095512]: http://support.microsoft.com/kb/4095512
+[4095518]: http://support.microsoft.com/kb/4095518
+[4096235]: http://support.microsoft.com/kb/4096235
+[4095515]: http://support.microsoft.com/kb/4095515
+[4095517]: http://support.microsoft.com/kb/4095517
+[4096236]: http://support.microsoft.com/kb/4096236
+[4054856]: http://support.microsoft.com/kb/4054856
+[4103768]: http://support.microsoft.com/kb/4103768
+[4103729]: http://support.microsoft.com/kb/4103729
+[4093118]: http://support.microsoft.com/kb/4093118
+[4093123]: http://support.microsoft.com/kb/4093123
+[4093114]: http://support.microsoft.com/kb/4093114
+[4093137]: http://support.microsoft.com/kb/4093137
+[4093753]: http://support.microsoft.com/kb/4093753
 
 [4093119]: http://support.microsoft.com/kb/4093119
 [4093108]: http://support.microsoft.com/kb/4093108 

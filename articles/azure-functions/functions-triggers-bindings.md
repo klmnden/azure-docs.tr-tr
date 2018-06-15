@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725352"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -45,38 +46,39 @@ Bağlamaları önizlemede veya üretim kullanımı için onaylanan olduğu hakk�
 
 ## <a name="register-binding-extensions"></a>Bağlama uzantılarını kaydetme
 
-Sürümünde 2.x Azure işlevleri çalışma zamanı açıkça kaydetmeniz gerekir [uzantıları bağlama](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md) işlevi uygulamanızda kullanan. 
+Sürümünde 2.x Azure işlevleri çalışma zamanına sahip açıkça işlevi uygulamanızda kullandığınız bağlama uzantılar (bağlama türleri) kaydetmek. 
 
-Uzantıları NuGet paketleri, paket adı genellikle başladığı ile olarak teslim edilir [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  İşlevlerinizi nasıl geliştirmek yüklemek ve bağlama uzantıları kaydetmek yönteminiz bağlıdır: 
+Sürüm 2.x işlevleri çalışma zamanı şu anda önizlemede. Bir işlev uygulaması sürümü kullanmak için ayarlama hakkında bilgi için işlevleri çalışma zamanı 2.x bkz [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md).
+
+Sürümünde bağlamaları çekirdek kümesini yoktur açıkça kaydetmek zorunda kalmamak için otomatik olarak kaydedilir 2.x: HTTP, Zamanlayıcı ve Azure Storage (BLOB, kuyruklar ve tablolar). 
+
+Uzantıları NuGet paketleri, paket adı genellikle başladığı ile olarak teslim edilir [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Bağlama uzantıları kaydetme yöntemini işlevlerinizi nasıl geliştirmek bağlıdır: 
 
 + [Yerel olarak Visual Studio veya VS kodu kullanarak C# içinde](#local-c-development-using-visual-studio-or-vs-code)
 + [Yerel olarak Azure işlevleri çekirdek araçlarını kullanma](#local-development-azure-functions-core-tools)
 + [Azure portalında](#azure-portal-development) 
 
-Sürümünde bağlamaları çekirdek kümesini yoktur uzantıları olarak sağlanmayan 2.x. Aşağıdaki Tetikleyicileri ve bağlamaları için Uzantılar kaydetmeniz gerekmez: HTTP, Zamanlayıcı ve Azure depolama. 
+Bu bölümde gösterilen paket sürümlerinin yalnızca örnektir. Denetleme [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) verilen bir uzantı hangi sürümünün işlevi uygulamanızda başka bir bağımlılık gerekli belirlemek için.    
 
-Bir işlev uygulaması sürümü kullanmak için ayarlama hakkında bilgi için işlevleri çalışma zamanı 2.x bkz [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md). Sürüm 2.x işlevleri çalışma zamanı şu anda önizlemede. 
+### <a name="local-csharp"></a>Visual Studio veya VS Code kullanılarak olan yerel C# geliştirme
 
-Bu bölümde gösterilen paket sürümlerinin yalnızca örnektir. Denetleme [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) işlevi uygulamanızda başka bir bağımlılık tarafından gerekli verilen bir uzantı sürümünü belirlemek için.    
-
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Visual Studio veya VS Code kullanılarak olan yerel C# geliştirme 
-
-Yerel olarak C# işlevleri geliştirmek için Visual Studio veya Visual Studio Code kullandığınızda, uzantı için NuGet paketini eklemeniz yeterlidir. 
+Yerel olarak C# işlevleri geliştirmek için Visual Studio veya Visual Studio Code kullandığınızda, uzantı için NuGet paketini yükleyin. 
 
 + **Visual Studio**: NuGet Paket Yöneticisi araçları kullanın. Aşağıdaki [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) komut Paket Yöneticisi Konsolu'ndan Azure Cosmos DB uzantısı yükler:
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
+
 + **Visual Studio Code**: komut istemi kullanımından paketlerini yükleyebilirsiniz [dotnet eklemek paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) .NET CLI gibi komutu:
 
-    ```
+    ```terminal
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### <a name="local-development-azure-functions-core-tools"></a>Yerel geliştirme Azure işlevleri çekirdek araçları
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 ### <a name="azure-portal-development"></a>Azure portal geliştirme
 

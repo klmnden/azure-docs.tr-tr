@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
-ms.translationtype: HT
+ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763604"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager'ı Log Analytics'e bağlama
 System Center Operations Manager'a yaptığınız mevcut yatırımı korumak ve Log Analytics'le sağlanan genişletilmiş özellikleri kullanmak için, Operations Manager'ı Log Analytics çalışma alanınızla tümleştirebilirsiniz.  Bu sayede Operations Manager'ı kullanmaya devam ederken Log Analytics'in avantajlarından yararlanabilir ve:
@@ -50,15 +51,15 @@ Aşağıda Operations Manager aracısına, yönetim sunucularına ve Log Analyti
 |Kaynak | Bağlantı noktası numarası| HTTP İncelemesini atlama|  
 |---------|------|-----------------------|  
 |**Aracı**|||  
-|\*.ods.opinsights.azure.com| 443 |Yes|  
-|\*.oms.opinsights.azure.com| 443|Yes|  
-|\*.blob.core.windows.net| 443|Yes|  
-|\*.azure-automation.net| 443|Yes|  
+|\*.ods.opinsights.azure.com| 443 |Evet|  
+|\*.oms.opinsights.azure.com| 443|Evet|  
+|\*.blob.core.windows.net| 443|Evet|  
+|\*.azure-automation.net| 443|Evet|  
 |**Yönetim sunucusu**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Yes|  
-|\*.ods.opinsights.azure.com| 443| Yes|  
-|*.azure-automation.net | 443| Yes|  
+|\*.blob.core.windows.net| 443| Evet|  
+|\*.ods.opinsights.azure.com| 443| Evet|  
+|*.azure-automation.net | 443| Evet|  
 |**Operations Manager konsolundan OMS'ye**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -77,7 +78,9 @@ Operations Manager yönetim grubunuzu Log Analytics çalışma alanlarınızdan 
 Operations Manager yönetim grubunuz ilk kez bir Log Analytics çalışma alanına kaydediliyorsa ve yönetim sunucularının hizmetle bir ara sunucu veya OMS Ağ Geçidi sunucusu üzerinden iletişim kurması gerekiyorsa, Operations konsolunda yönetim grubu için ara sunucu yapılandırmasını belirtme seçeneği sağlanmaz.  Bu seçeneğin sağlanması için önce yönetim grubunun hizmete başarıyla kaydedilmiş olması gerekir.  Tümleştirmeyi ve yönetim grubundaki tüm yönetim sunucularını yapılandırmak için Operations konsolunu çalıştırdığınız sistemde Netsh kullanarak sistem ara sunucu yapılandırmasını güncelleştirmeniz gerekir.  
 
 1. Yükseltilmiş bir komut istemi açın.
-1. Aşağıdaki komutu girin ve **Enter** tuşuna basın:
+   a. Git **Başlat** ve türü **cmd**.
+   b. Sağ **komut istemi** ve Çalıştır yönetici ** seçin.
+2. Aşağıdaki komutu girin ve **Enter** tuşuna basın:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +200,9 @@ Etkinleştirdiğiniz çözümler için Operations Manager ile tümleştirilen y�
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-1. Azure portalında Log Analytics çalışma alanının **Gelişmiş ayarlar** menüsünü açın.
-1. **Bağlı Kaynaklar**’ı ve ardından **System Center**’ı seçin.
-1. Çalışma alanından kaldırmak istediğiniz yönetim grubunun adını görüyor olmalısınız.  **Son Veriler** sütununun altında **Kaldır**'a tıklayın.  
+7. OMS portalında **Ayarlar** kutucuğuna tıklayın.
+8. Seçin **bağlı kaynakları**.
+9. System Center Operations Manager bölümünün altında tabloda çalışma alanından kaldırmak istediğiniz yönetim grubunun adını görmeniz gerekir.  **Son Veriler** sütununun altında **Kaldır**'a tıklayın.  
    
     > [!NOTE]
     > Bağlı yönetim grubundan hiçbir etkinlik algılanmazsa 14 gün geçene kadar **Kaldır** bağlantısı kullanılamaz.  
@@ -210,7 +213,7 @@ Etkinleştirdiğiniz çözümler için Operations Manager ile tümleştirilen y�
 İki bağlayıcıyı (Microsoft.SystemCenter.Advisor.DataConnector ve Advisor Connector) silmek için, aşağıdaki PowerShell betiğini bilgisayarınıza kaydedin ve aşağıdaki örnekleri kullanarak yürütün:
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 

@@ -1,11 +1,11 @@
 ---
-title: ".NET ile Azure Dosyaları için geliştirme | Microsoft Docs"
-description: "Dosya verilerini depolamak için Azure Dosyaları'nı kullanan .NET uygulamaları ve hizmetlerini geliştirmeyi öğrenin."
+title: .NET ile Azure Dosyaları için geliştirme | Microsoft Docs
+description: Dosya verilerini depolamak için Azure Dosyaları'nı kullanan .NET uygulamaları ve hizmetlerini geliştirmeyi öğrenin.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 11bc2418e439f86a228ff7d5c845caef683d9018
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 95f890ccbe03fc734b54ac8c5edee2ec7b56d9c6
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737638"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET ile Azure Dosyaları için geliştirme
 

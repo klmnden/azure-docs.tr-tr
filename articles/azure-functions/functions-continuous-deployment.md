@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri için sürekli dağıtım | Microsoft Docs"
-description: "Azure işlevleri yayımlamak için sürekli dağıtım özellikleri Azure App Service'in kullanın."
+title: Azure işlevleri için sürekli dağıtım | Microsoft Docs
+description: Azure işlevleri yayımlamak için sürekli dağıtım özellikleri Azure App Service'in kullanın.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735712"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure İşlevleri için sürekli dağıtım
 Azure işlevleri uygulama hizmeti sürekli tümleştirme kullanarak işlevi uygulamanızı dağıtmak kolaylaştırır. İşlevler, BitBucket, Dropbox, GitHub ve Visual Studio Team Services (VSTS) ile tümleşir. Bu, Azure'a bu tümleşik hizmetler tetikleyici dağıtımı birini kullanarak yapılan burada işlev kodu güncelleştirmeleri bir iş akışı sağlar. Azure işlevleri yeniyseniz, başlayın [Azure işlevlerine genel bakış](functions-overview.md).
@@ -41,6 +42,8 @@ Dağıtımları bir işlev başına uygulama temelinde yapılandırılır. Süre
 Yapılandırılan dağıtım kaynağınız ve işlevleri kodunuz, sürekli dağıtım ayarlayın. önce dağıtım kaynağı olmalıdır. Verilen işlevin uygulama dağıtımı her işlevi dizin adı işlevin adı olduğu bir adlandırılmış alt dizininde bulunur.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+VSTS dağıtabilmesi için VSTS hesabınızı Azure aboneliğinizle bağlamanız gerekir. Daha fazla bilgi için bkz: [VSTS hesabınız için fatura ayarlama](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Sürekli dağıtım ayarlama
 Varolan bir işlev uygulaması için sürekli dağıtım yapılandırmak için bu yordamı kullanın. GitHub depo ile tümleştirme adımları gösterir, ancak Visual Studio Team Services veya diğer Dağıtım Hizmetleri için benzer adımları uygulayın.

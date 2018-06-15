@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360266"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Tanım örn şeması Azure bulut Hizmetleri
 Azure çalışan rolü genelleştirilmiş geliştirme için yararlı olan ve bir web rolü için arka plan işlemleri gerçekleştirebilir bir roldür.

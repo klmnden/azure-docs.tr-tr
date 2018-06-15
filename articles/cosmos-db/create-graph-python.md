@@ -2,23 +2,21 @@
 title: 'Hızlı Başlangıç: Python ile Graph API - Azure Cosmos DB | Microsoft Docs'
 description: Bu hızlı başlangıçta Azure portalı ve Python ile konsol uygulaması oluşturmak için Azure Cosmos DB Graph API’sinin nasıl kullanılacağı gösterilmektedir
 services: cosmos-db
-documentationcenter: python
 author: luisbosquez
 manager: kfile
-ms.assetid: 383a51c5-7857-440d-ab54-1efb1c0c7079
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: f668b233cd2bb44012c6132fee55626ddc3597e0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a29a27ec633f5f67bb8cac4b9a4823c5f0966f8e
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795797"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Python ve Azure portalını kullanarak bir grafik veritabanı oluşturma
 
@@ -79,7 +77,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 
     ```python
     ...
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ...
@@ -104,7 +102,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
 2. Connect.py dosyasını açın ve 104. satırdaki URI değerini şuradaki `<YOUR_ENDPOINT>` üzerine yapıştırın:
 
     ```python
-    client = client.Client('wss://<YOUR_ENDPOINT>.graphs.azure.com:443/','g', 
+    client = client.Client('wss://<YOUR_ENDPOINT>.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
@@ -112,14 +110,12 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
     İstemci nesnesinin URI kısmı artık şu koda benzer görünmelidir:
 
     ```python
-    client = client.Client('wss://test.graphs.azure.com:443/','g', 
+    client = client.Client('wss://test.gremlin.cosmosdb.azure.com:443/','g', 
         username="/dbs/<YOUR_DATABASE>/colls/<YOUR_COLLECTION_OR_GRAPH>", 
         password="<YOUR_PASSWORD>")
     ```
 
-3. İstemci adındaki `graphs.azure.com` ifadesini `gremlin.cosmosdb.azure.com` olarak değiştirin. (Grafik veritabanı hesabınız 20 Aralık 2017’den önce oluşturulduysa, herhangi bir değişiklik yapmayıp sonraki adıma geçin.)
-
-4. `client` nesnesinin ikinci parametresini `<YOUR_DATABASE>` ve `<YOUR_COLLECTION_OR_GRAPH>` dizelerinin yerine geçecek şekilde değiştirin. Önerilen değerleri kullandıysanız, parametre şu kod gibi görünmelidir:
+3. `client` nesnesinin ikinci parametresini `<YOUR_DATABASE>` ve `<YOUR_COLLECTION_OR_GRAPH>` dizelerinin yerine geçecek şekilde değiştirin. Önerilen değerleri kullandıysanız, parametre şu kod gibi görünmelidir:
 
     `username="/dbs/sample-database/colls/sample-graph"`
 
@@ -131,7 +127,7 @@ Bu adım isteğe bağlıdır. Veritabanı kaynaklarının kodda nasıl oluşturu
         password="<YOUR_PASSWORD>")
     ```
 
-5. Azure portalında, kopyala düğmesini kullanarak PRIMARY KEY’i kopyalayın ve `password=<YOUR_PASSWORD>` parametresindeki `<YOUR_PASSWORD>` öğesine yapıştırın.
+4. Azure portalında, kopyala düğmesini kullanarak PRIMARY KEY’i kopyalayın ve `password=<YOUR_PASSWORD>` parametresindeki `<YOUR_PASSWORD>` öğesine yapıştırın.
 
     Tüm `client` nesne tanımı artık şu kod gibi görünmelidir:
     ```python

@@ -1,31 +1,25 @@
 ---
 title: Uzaktan izleme çözümü - Azure Mimarisi | Microsoft Docs
 description: Uzaktan izleme Çözüm Hızlandırıcısı mimarisini bir kılavuz.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757442"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>Uzaktan izleme Çözüm Hızlandırıcısı mimarisi
 
 Uzaktan izleme [Çözüm Hızlandırıcısı](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md) uzak konumlarda birden fazla makine için uçtan uca bir izleme çözümü uygular. Bu çözüm, iş senaryosunun genel uygulamasını sağlamak üzere temel Azure hizmetlerini bir araya getirir. Çözümü kendi uygulamanız için bir başlangıç noktası olarak kullanabilirsiniz ve [özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md) kendi belirli iş gereksinimlerinizi karşılamak üzere onu.
 
-Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız için çözümün temel öğelerinden bazıları açıklanmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
+Bu makalede Uzaktan izleme çözümünün nasıl çalıştığını anlamak etkinleştirmeniz anahtar öğeleri bazıları anlatılmaktadır. Bu bilgiler şunları yapmanıza yardımcı olur:
 
 * Çözümdeki sorunları giderme.
 * Çözümü kendinize özel gereksinimleri karşılayacak şekilde nasıl özelleştireceğinizi planlama.
@@ -97,13 +91,13 @@ Mikro hizmet cihazları ve cihaz çiftlerini yönetme yöntemleri çağırma ve 
 
 [Telemetri aracısını](https://github.com/Azure/telemetry-agent-dotnet) mikro hizmet:
 
-* Telemetri Cosmos DB içinde depolar.
+* Telemetri Azure Cosmos DB içinde depolar.
 * Cihazlara ait telemetri akışına analiz eder.
 * Tanımlı kurallara göre uyarılar oluşturur.
 
-Alarmlar Cosmos DB içinde depolanır.
+Alarmlar Azure Cosmos DB içinde depolanır.
 
-`telemetry-agent` Mikro hizmet aygıtlardan gönderilen telemetriyi okumak çözüm portalı sağlar. Çözüm portalı da bu hizmete kullanır:
+[Telemetri aracısını](https://github.com/Azure/telemetry-agent-dotnet) mikro hizmet aygıtlardan gönderilen telemetriyi okumak çözüm portalı sağlar. Çözüm portalı da bu hizmete kullanır:
 
 * Alarmlar tetiklemek eşikleri gibi izleme kurallarını tanımlayın
 * Son uyarıları listesini alır.
@@ -114,9 +108,9 @@ Telemetri, kuralları ve Uyarıları yönetmek için bu mikro hizmet tarafından
 
 [Depolama bağdaştırıcısı](https://github.com/Azure/pcs-storage-adapter-dotnet) mikro hizmet Çözüm Hızlandırıcısı için kullanılan ana depolama hizmeti önünde bir bağdaştırıcı olduğundan. Basit bir koleksiyonun ve anahtar-değer depolama sağlar.
 
-Çözüm Hızlandırıcısı standart dağıtımını Cosmos DB kendi ana depolama hizmeti kullanır.
+Çözüm Hızlandırıcısı standart dağıtımını Azure Cosmos DB kendi ana depolama hizmeti kullanır.
 
-Cosmos DB veritabanı Çözüm Hızlandırıcısı verileri depolar. **Depolama bağdaştırıcısı** mikro hizmet çözümü depolama hizmetlerine erişmek için diğer mikro hizmetler için bir bağdaştırıcı görür.
+Azure Cosmos DB veritabanı Çözüm Hızlandırıcısı verileri depolar. **Depolama bağdaştırıcısı** mikro hizmet çözümü depolama hizmetlerine erişmek için diğer mikro hizmetler için bir bağdaştırıcı görür.
 
 ## <a name="presentation"></a>Sunum
 
@@ -140,7 +134,9 @@ Kullanıcı arabirimi tüm Çözüm Hızlandırıcısı işlevselliği sunar ve 
 Kaynak kodu ve geliştirici belgeleri araştırmak istiyorsanız, biriyle iki ana GitHub depolarının başlatın:
 
 * [Azure IOT (.NET) ile Uzaktan izleme Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
-* [Azure IOT (Java) uzaktan izleme Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
-* [Uzaktan izleme mimarisi için Çözüm Hızlandırıcısı)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
+* [Uzaktan izleme ile Azure IOT (Java) için Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+
+Ayrıntılı çözüm mimarisi diyagramları:
+* [Uzaktan izleme mimarisi için Çözüm Hızlandırıcısı](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Uzaktan izleme Çözüm Hızlandırıcısı hakkında daha fazla kavramsal bilgi için bkz: [Çözüm Hızlandırıcısı özelleştirme](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md).

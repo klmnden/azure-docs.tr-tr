@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359433"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 İçinde sanal makineleri üzerinde SQL örnekleri kullanabilirsiniz, [Azure yığın](azure-stack-poc.md), veya kaynak sağlayıcısı sağlanan Azure yığın ortamınızı dışında bir örneği için bağlanabilirsiniz. Genel gereksinimler vardır:

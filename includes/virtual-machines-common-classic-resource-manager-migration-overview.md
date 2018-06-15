@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371346"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Iaas Klasik kaynaklardan Azure Resource Manager'a Platform desteklenen geçişini
 Bu makalede, biz altyapı geçiş Resource Manager dağıtım modellerinde klasik bir hizmet (Iaas) kaynaklara olarak nasıl etkinleştirme açıklanmaktadır. Daha fazla bilgi edinebilirsiniz [Azure Kaynak Yöneticisi özellikleri ve avantajları](../articles/azure-resource-manager/resource-group-overview.md). Biz, aboneliğinizde sanal ağ siteden siteye ağ geçitleri kullanarak bir arada iki dağıtım modelinden kaynaklarına bağlanma ayrıntılarını gösterir.

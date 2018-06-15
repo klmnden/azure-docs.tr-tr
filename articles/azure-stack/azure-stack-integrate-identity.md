@@ -10,11 +10,12 @@ ms.date: 05/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: cc15c92037e18800a6f919d0ca18acb20ed5e893
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: ee1c48c4a33d699dcb3da24b2e9a3d6e001b16c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801482"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure yığın datacenter tümleştirmesi - kimliği
 Azure Active Directory (Azure AD) veya Active Directory Federasyon Hizmetleri (AD FS) kullanarak Azure yığın kimlik sağlayıcıları olarak dağıtabilirsiniz. Azure yığın dağıtmadan önce seçim yapmanız gerekir. AD FS kullanarak dağıtımı da bağlantısı kesilmiş modunda Azure yığın dağıtma olarak adlandırılır.
@@ -50,7 +51,7 @@ Grafik yapılandırma için okuma izni olan Active Directory içinde olması ko�
 
 Son adım için yeni bir sahibi varsayılan sağlayıcı abonelik için yapılandırılır. Bu hesap Azure yığın Yönetici portalında oturum açıp tüm kaynaklara tam erişimi vardır.
 
-Gereksinimleri:
+Gereksinimler:
 
 
 |Bileşen|Gereksinim|
@@ -86,14 +87,14 @@ Bu yordam için Azure yığınında ayrıcalıklı uç noktası ile iletişim ku
 
 2. (Yönetici olarak çalıştır) yükseltilmiş bir Windows PowerShell oturumu açın ve ayrıcalıklı uç noktası IP adresine bağlanın. Kimlik bilgilerini kullanmak **CloudAdmin** kimliğini doğrulamak için.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 3. Ayrıcalıklı uç noktasına bağlı değilseniz, aşağıdaki komutu çalıştırın: 
 
-   ```powershell
+   ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
@@ -131,20 +132,20 @@ Bu yordam için Azure yığınında ayrıcalıklı uç noktası ile iletişim ku
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve ayrıcalıklı uç noktasına bağlanın.
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ayrıcalıklı uç noktasına bağlı değilseniz, ortamınız için uygun parametreleri kullanarak aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
 3. Ortamınız için uygun parametrelerle varsayılan sağlayıcı aboneliğin sahibi güncelleştirmek için aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -169,7 +170,7 @@ Aşağıdaki yordam için hesap STS olur var olan AD FS dağıtımı ile ağ ba�
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve ortamınız için uygun parametreleri kullanarak aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
 
    $Metadata.outerxml|out-file c:\metadata.xml
@@ -184,20 +185,20 @@ Bu yordam için Azure yığınında ayrıcalıklı uç noktası ile iletişim ku
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve ayrıcalıklı uç noktasına bağlanın.
 
-   ```powershell
+   ```PowerShell  
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ayrıcalıklı uç noktasına bağlı değilseniz, ortamınız için uygun parametreleri kullanarak aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso – CustomADFSFederationMetadataFile \\share\metadataexample.xml
    ```
 
 3. Ortamınız için uygun parametrelerle varsayılan sağlayıcı aboneliğin sahibi güncelleştirmek için aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -244,7 +245,7 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
 
 2. Windows Forms tabanlı kimlik doğrulamasını etkinleştirmek için yükseltilmiş bir kullanıcı olarak bir Windows PowerShell oturumu açın ve aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
    ```
 
@@ -252,13 +253,13 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
 
    **AD FS 2016**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
    ```
 
    **AD FS 2012/2012 R2 için**
 
-   ```powershell
+   ```PowerShell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
    ```
 
@@ -270,13 +271,13 @@ El ile komutları çalıştırmak karar verirseniz, aşağıdaki adımları izle
    > [!note]  
    > Bu adım, Windows Server 2012 veya 2012 R2 AD FS kullanırken geçerli değildir. Bu komut atlayıp ile tümleştirme devam etmek güvenlidir.
 
-   ```powershell
+   ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
-5. Yenileme belirteçleri etkinleştirmek için yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki komutu çalıştırın:
+5. Araç (Visual Studio) ve Azure yığın portalları yenileme belirteçleri gerektirir. Bu bağlı olan taraf güveni üzerinde tarafından yapılandırılması gerekir. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki komutu çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
@@ -304,14 +305,14 @@ Ortamı, artık burada doğrulanabilir bir durumda bırakır bir hata oluşursa,
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki komutları çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ardından aşağıdaki cmdlet'i çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Reset-DatacenterIntegationConfiguration
    ```
 
@@ -320,7 +321,7 @@ Ortamı, artık burada doğrulanabilir bir durumda bırakır bir hata oluşursa,
    > [!IMPORTANT]
    > Varsayılan sağlayıcı abonelik özgün sahibinin yapılandırmanız gerekir
 
-   ```powershell
+   ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
@@ -330,14 +331,14 @@ Cmdlet'lerinden herhangi birini başarısız olursa, kullanarak ek günlüklerin
 
 1. Yükseltilmiş bir Windows PowerShell oturumu açın ve aşağıdaki komutları çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Ardından, aşağıdaki cmdlet'i çalıştırın:
 
-   ```powershell
+   ```PowerShell  
    Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
    ```
 

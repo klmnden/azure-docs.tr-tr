@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34193490"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Otomasyonu senaryo - bir AWS sanal makine sağlama
 Bu makalede, Azure Automation'ı Amazon Web hizmeti (AWS) aboneliğinizde bir sanal makine sağlama ve "VM etiketleme olarak" AWS başvurduğu belirli bir adı – bu VM vermek için nasıl yararlanabileceğiniz öğrenin.

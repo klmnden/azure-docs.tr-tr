@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771506"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cruiser ve Microsoft Azure API tümleştirme faturalama bulut
 Bu makalede nasıl yeni Microsoft Azure fatura API'lerden toplanan bilgiler bulut Cruiser iş akışı maliyet benzetimi ve analiz için kullanılabileceği açıklanır.

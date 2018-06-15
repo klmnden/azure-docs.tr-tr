@@ -1,21 +1,22 @@
 ---
-title: "Ruby kullanarak MySQL için Azure Veritabanı'na bağlanma"
-description: "Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Ruby kod örneği sağlanmıştır."
+title: Ruby kullanarak MySQL için Azure Veritabanı'na bağlanma
+description: Bu hızlı başlangıçta, MySQL için Azure Veritabanı'na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz birkaç Ruby kod örneği sağlanmıştır.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 84898a5bc3afd21aa6b922b4074fd09b4315dd6e
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: cbd60be37dc7021ecbb961027dca40d048ed84cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265087"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>MySQL için Azure Veritabanı: Ruby'yi kullanarak bağlanma ve veri sorgulama
 Bu hızlı başlangıçta, Windows, Ubuntu Linux ve Mac platformlarından bir [Ruby](https://www.ruby-lang.org) uygulaması ve [mysql2](https://rubygems.org/gems/mysql2) gem kullanılarak MySQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu konuda, Ruby kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve MySQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: f74a44ed1b26458ad77e5de43a67a961aee70ec1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85cdce312e141bee9da3b633c45dc770e503abfe
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724807"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure işlevleri için Azure Blob Depolama bağlamaları
 
@@ -34,13 +35,17 @@ Bu makalede Azure Blob Depolama bağlamaları Azure işlevlerinde ile nasıl ça
 > [!NOTE]
 > Olay kılavuz tetikleyici için yalnızca blob depolama hesapları yüksek ölçekli veya soğuk başlangıç gecikmelerden kaçınmak için Blob Depolama INSTEAD OF tetikleyicisi kullanın. Daha fazla bilgi için bkz: [tetikleyici](#trigger) bölümü. 
 
-## <a name="packages"></a>Paketler
+## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Blob Depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src) GitHub depo.
+Blob Depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi, sürüm 2.x. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub depo.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
+
+Blob Depolama bağlamaları sağlanan [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet paketi, sürüm 3.x. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub depo.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 [!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
@@ -262,6 +267,8 @@ C# ve C# betiği aşağıdaki parametre türleri için tetikleyici blob kullanab
 * `CloudAppendBlob`<sup>1</sup>
 
 <sup>1</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` C# sınıf kitaplığı'nda.
+
+Depolama SDK'sı türlerinden birine bağlamak ve bir hata iletisi alıyorum denerseniz, bir başvuru olduğundan emin olun [doğru depolama SDK sürümü](#azure-storage-sdk-version-in-functions-1x).
 
 Bağlama `string`, `Byte[]`, veya POCO yalnızca önerilen blob boyutu küçükse, tüm blob olarak belleğe içeriği yüklenir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin ilerisinde yer.
 
@@ -563,6 +570,8 @@ C# ve C# betiği aşağıdaki parametre türleri için blob giriş bağlama kull
 
 <sup>1</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` C# sınıf kitaplığı'nda.
 
+Depolama SDK'sı türlerinden birine bağlamak ve bir hata iletisi alıyorum denerseniz, bir başvuru olduğundan emin olun [doğru depolama SDK sürümü](#azure-storage-sdk-version-in-functions-1x).
+
 Bağlama `string` veya `Byte[]` yalnızca tüm blob içeriklerini belleğe yüklenen olarak blob boyutu küçük olup olmadığını önerilir. Genellikle, kullanılması tercih edilir bir `Stream` veya `CloudBlockBlob` türü. Daha fazla bilgi için bkz: [eşzamanlılık ve bellek kullanımı](#trigger---concurrency-and-memory-usage) bu makalenin önceki.
 
 JavaScript'te, blob verileri kullanarak erişim `context.bindings.<name from function.json>`.
@@ -776,6 +785,8 @@ C# ve C# betik BLOB'ları yazmak için aşağıdaki türlerine bağlayabilirsini
 <sup>1</sup> "içindeki" bağlamayı gerektirir `direction` içinde *function.json* veya `FileAccess.Read` C# sınıf kitaplığı'nda. Ancak, çalışma zamanı BLOB kapsayıcısına yüklemek gibi işlemleri yazma sağlayan kapsayıcı nesnesini kullanabilirsiniz.
 
 <sup>2</sup> "ınout" bağlama gerektirir `direction` içinde *function.json* veya `FileAccess.ReadWrite` C# sınıf kitaplığı'nda.
+
+Depolama SDK'sı türlerinden birine bağlamak ve bir hata iletisi alıyorum denerseniz, bir başvuru olduğundan emin olun [doğru depolama SDK sürümü](#azure-storage-sdk-version-in-functions-1x).
 
 Zaman uyumsuz işlevlerde dönüş değerini kullanın veya `IAsyncCollector` yerine bir `out` parametresi.
 

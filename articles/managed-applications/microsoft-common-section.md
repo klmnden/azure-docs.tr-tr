@@ -18,6 +18,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260978"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI öğesi
 Bir veya daha fazla öğe bir başlık altında grupları denetim.

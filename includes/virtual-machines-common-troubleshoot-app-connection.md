@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371278"
 ---
 Başlattığınızda veya bir Azure sanal makine (VM) üzerinde çalışan bir uygulamaya Bağlan çeşitli nedenleri vardır. Çalışmıyor uygulama nedenleri veya beklenen bağlantı noktalarında dinleme, engellenen dinleme bağlantı noktası veya ağ doğru uygulamaya geçirme trafiği kuralları. Bu makalede bulmak ve sorunu düzeltmek için sistemli bir yaklaşım açıklanmaktadır.
 

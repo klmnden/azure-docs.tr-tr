@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212553"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Windows Server'da çalışan bir tek başına Service Fabric kümesi düğümlerine Ekle Kaldır
 Sonra [Windows Server makinelerde tek başına Service Fabric kümesi oluşturulan](service-fabric-cluster-creation-for-windows-server.md)(iş) gereksinimlerinizi değiştirebilir ve, küme düğümlerine ekleyip gerekir. Bu makalede, bunu başarmak için ayrıntılı adımlar sağlanmaktadır. Lütfen Ekle/Kaldır düğümü işlevselliği yerel geliştirme kümelerinde desteklenmez unutmayın.

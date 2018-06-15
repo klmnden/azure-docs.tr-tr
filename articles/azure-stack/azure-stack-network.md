@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936526"
 ---
 # <a name="network-connectivity"></a>Ağ bağlantısı
 Bu makale Azure yığın mevcut ağ ortamınıza en iyi tümleştirmek nasıl karar vermenize yardımcı olacak Azure yığın ağ altyapı bilgileri sağlar. 

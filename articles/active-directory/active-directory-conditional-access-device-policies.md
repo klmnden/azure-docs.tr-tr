@@ -1,13 +1,14 @@
 ---
-title: "Office 365 Hizmetleri için Azure Active Directory koşullu erişim cihaz ilkeleri | Microsoft Docs"
-description: "Şirket kaynaklarına daha güvenli, kullanıcının uyumluluk koruyarak ve hizmetlere erişim sağlamak için koşullu erişim cihaz ilkeleri sağlamasını yapma hakkında bilgi edinin."
+title: Office 365 Hizmetleri için Azure Active Directory koşullu erişim cihaz ilkeleri | Microsoft Docs
+description: Şirket kaynaklarına daha güvenli, kullanıcının uyumluluk koruyarak ve hizmetlere erişim sağlamak için koşullu erişim cihaz ilkeleri sağlamasını yapma hakkında bilgi edinin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8664c0bb-bba1-4012-b321-e9c8363080a0
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2b586aee9559b62d4cc8b21ab88ab193e61e7c14
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cc385edb6bf0b850eb97f0f6a233dd5081acbb3e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723967"
 ---
 # <a name="active-directory-conditional-access-device-policies-for-office-365-services"></a>Office 365 Hizmetleri için Active Directory koşullu erişim cihaz ilkeleri
 

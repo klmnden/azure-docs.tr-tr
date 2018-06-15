@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34364378"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure güvenlik yönetimi ve izlemeye genel bakış
 Azure yönetimi ve izlenmesi Azure bulut Hizmetleri ve sanal makineleri (VM'ler) yardımcı olmak amacıyla güvenlik mekanizmaları sağlar. Bu makalede bu temel güvenlik özellikleri ve Hizmetleri genel bakış sağlar. Daha fazla bilgi için her ayrıntılarını veren makaleler için bağlantılar sağlanmaktadır.

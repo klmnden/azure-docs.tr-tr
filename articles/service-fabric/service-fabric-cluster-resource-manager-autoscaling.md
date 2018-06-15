@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213206"
 ---
 # <a name="introduction-to-auto-scaling"></a>Otomatik ölçeklendirme giriş
 Otomatik ölçeklendirme hizmetlerinizi Hizmetleri raporlama olan ya da kendi kaynak kullanımına bağlı yükü göre dinamik olarak ölçeklendirmek için ek bir Service Fabric, yetenektir. Otomatik ölçeklendirme büyük esneklik sağlar ve ek örnekler ya da isteğe bağlı hizmet bölümlerini sağlama sağlar. Tüm otomatik ölçekleme işlemi otomatik ve şeffaf ve bir hizmet ilkelerinizi ayarladıktan sonra hizmet düzeyinde el ile ölçeklendirme işlemleri için gerek yoktur. Otomatik ölçeklendirme üzerinde hizmet oluşturma zamanında veya herhangi bir anda hizmeti güncelleştirerek açılabilir.

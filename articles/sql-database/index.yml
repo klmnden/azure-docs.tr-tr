@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 04/06/2018
+  ms.locfileid: "30922391"
 abstract:
   description: Azure SQL Veritabanı, Microsoft SQL Server Altyapısını kullanan bir hizmet olarak ilişkisel veritabanıdır. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
   aside:

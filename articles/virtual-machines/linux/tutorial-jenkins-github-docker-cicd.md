@@ -21,6 +21,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211200"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Öğretici: Azure’da Jenkins, GitHub ve Docker ile bir Linux sanal makinesi üzerinde geliştirme altyapısı oluşturma
 

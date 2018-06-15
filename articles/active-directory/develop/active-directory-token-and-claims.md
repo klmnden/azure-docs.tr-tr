@@ -17,11 +17,12 @@ ms.date: 05/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801873"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD belirteç başvurusu
 Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır. 
@@ -55,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | JWT talep | Ad | Açıklama |
 | --- | --- | --- |
 | `aud` |Hedef kitle |Belirtecin hedeflenen alıcı. Belirteç alan uygulama İzleyici değerin doğru olduğundan ve farklı bir izleyici için amaçlanan herhangi bir belirtece Reddet doğrulamanız gerekir. <br><br> **Örnek SAML değer**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **Örnek JWT değer**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |Uygulama kimlik doğrulama bağlamı sınıf başvurusu |İstemcinin kimlik doğrulamasının nasıl yapıldığı gösterir. Ortak bir istemci için değeri 0'dır. İstemci Kimliğini ve istemci gizli anahtarı kullandıysanız, değer 1'dir. <br><br> **Örnek JWT değer**: <br> `"appidacr": "0"` |
+| `appidacr` |Uygulama kimlik doğrulama bağlamı sınıf başvurusu |İstemcinin kimlik doğrulamasının nasıl yapıldığı gösterir. Ortak bir istemci için değeri 0'dır. İstemci Kimliğini ve istemci gizli anahtarı kullandıysanız, değer 1'dir. Bir istemci sertifikası kimlik doğrulaması için kullanıldıysa, değer 2'dir. <br><br> **Örnek JWT değer**: <br> `"appidacr": "0"` |
 | `acr` |Kimlik doğrulama bağlamı sınıf başvurusu |Nasıl konu, uygulama kimlik doğrulama bağlamı sınıf başvurusu talep istemcisinde aksine doğrulanmış olduğunu gösterir. Son kullanıcı kimlik doğrulaması ISO/IEC 29115 gereksinimlerini karşılamayan "0" değerini gösterir. <br><br> **Örnek JWT değer**: <br> `"acr": "0"` |
 | Anlık kimlik doğrulaması |Kimlik doğrulama gerçekleştiği saat ve tarihi kaydeder. <br><br> **Örnek SAML değer**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |Kimlik Doğrulama Yöntemi |Belirteç konu nasıl doğrulandı tanımlar. <br><br> **Örnek SAML değer**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **Örnek JWT değer**: `“amr”: ["pwd"]` |
@@ -152,21 +153,31 @@ Talep doğrulama uygulamanız için kimlik belirteçlerini gerçekleştirmesi ge
 ## <a name="token-revocation"></a>Belirteci iptal
 
 Yenileme belirteçleri geçersiz kılınan veya çeşitli nedenlerle için herhangi bir zamanda iptal edildi. Bu iki ana kategoriye ayrılır: zaman aşımları ve iptalleri. 
-* Belirteci zaman aşımları
-  * MaxInactiveTime: yenileme belirtecini MaxInactiveTime tarafından dikte sürede kullanılmamış, yenileme belirteci artık geçerli olacaktır. 
-  * MaxSessionAge: MaxAgeSessionMultiFactor veya MaxAgeSessionSingleFactor (kadar iptal edilen) varsayılan dışında bir şey için ayarlanmışsa, belirlenen MaxAgeSession * içinde süresi sona erdiğinde daha sonra yeniden kimlik doğrulaması gerekir. 
-  * Örnekler:
-    * Kiracı 5 gün MaxInactiveTime sahip kullanıcı için bir hafta tatile oluştu ve bu nedenle AAD kullanıcıdan yeni bir belirteç isteğini 7 gün içinde görmediği. Kullanıcı yeni bir belirteç istediğinde bunlar kendi yenileme belirteci iptal edilmiş ve bunlar kimlik bilgilerini yeniden girmeniz gerekir bulacaksınız. 
-    * Duyarlı bir uygulamaya MaxAgeSessionSingleFactor 1 gün sahiptir. Pazartesi ve Salı (25 saat geçtikten sonra) bir kullanıcı oturum açarsa, yeniden kimlik doğrulama yapılması gerekir. 
-* İptal etme
-  * Gönüllü parola değişikliği: bir kullanıcı parolasını değiştirirse, bunlar bazı belirteç ulaşılan şekilde bağlı olarak, uygulamalar arasında yeniden kimlik doğrulaması gerekebilir. Özel durumlar için aşağıdaki notlara bakın. 
-  * Yapılan parola değişikliği: Yönetici parolasını değiştirmek için bir kullanıcı zorlar veya bunu sıfırlar, bunların parolalarını kullanarak ulaşılan, daha sonra kullanıcının belirteçleri geçersiz kılınır. Özel durumlar için aşağıdaki notlara bakın. 
-  * Güvenlik ihlali: (örn. şirket içi depolama parolaların ihlal) bir güvenlik ihlali durumunda yönetici şu anda verilen yenileme belirteçleri tümünün iptal edebilirsiniz. Bu, tüm kullanıcıların yeniden kimlik doğrulaması için zorlar. 
+
+**Belirteci zaman aşımları**
+
+* MaxInactiveTime: yenileme belirtecini MaxInactiveTime tarafından dikte sürede kullanılmamış, yenileme belirteci artık geçerli olacaktır. 
+* MaxSessionAge: MaxAgeSessionMultiFactor veya MaxAgeSessionSingleFactor (kadar iptal edilen) varsayılan dışında bir şey için ayarlanmışsa, belirlenen MaxAgeSession * içinde süresi sona erdiğinde daha sonra yeniden kimlik doğrulaması gerekir. 
+* Örnekler:
+  * Kiracı 5 gün MaxInactiveTime sahip kullanıcı için bir hafta tatile oluştu ve bu nedenle AAD kullanıcıdan yeni bir belirteç isteğini 7 gün içinde görmediği. Kullanıcı yeni bir belirteç istediğinde bunlar kendi yenileme belirteci iptal edilmiş ve bunlar kimlik bilgilerini yeniden girmeniz gerekir bulacaksınız. 
+  * Duyarlı bir uygulamaya MaxAgeSessionSingleFactor 1 gün sahiptir. Pazartesi ve Salı (25 saat geçtikten sonra) bir kullanıcı oturum açarsa, yeniden kimlik doğrulama yapılması gerekir. 
+
+**İptal etme**
+
+|   | Parola tabanlı tanımlama bilgisi | Parola tabanlı belirteci | Olmayan parola tabanlı tanımlama bilgisi | Olmayan parola tabanlı simgesi | Gizli istemci belirteci| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|Parola süre sonu| Canlı kalır|Canlı kalır|Canlı kalır|Canlı kalır|Canlı kalır|
+|Parola kullanıcı tarafından değiştirildi| İptal edildi | İptal edildi | Canlı kalır|Canlı kalır|Canlı kalır|
+|SSPR kullanıcı mu|İptal edildi | İptal edildi | Canlı kalır|Canlı kalır|Canlı kalır|
+|Yönetici parolasını sıfırlar|İptal edildi | İptal edildi | Canlı kalır|Canlı kalır|Canlı kalır|
+|Kullanıcı iptal, yenileme belirteçleri [PowerShell aracılığıyla](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) | İptal edildi | İptal edildi |İptal edildi | İptal edildi |İptal edildi | İptal edildi |
+|Yönetici, Kiracı için tüm yenileme belirteçleri iptal [PowerShell aracılığıyla](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) | İptal edildi | İptal edildi |İptal edildi | İptal edildi |İptal edildi | İptal edildi |
+|[Çoklu oturum çıkışı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) Web'de | İptal edildi | Canlı kalır |İptal edildi | Canlı kalır |Canlı kalır |Canlı kalır |
 
 > [!NOTE]
->Kimlik doğrulama parolası olmayan yöntemi varsa (Windows Hello, Doğrulayıcı uygulama, bir yazıtipi veya parmak izi gibi biyometrik) belirteç elde etmek için kullanılan, kullanıcının parolasını değiştirme kullanıcının yeniden kimlik doğrulamasını zorla sağlamaz (ancak, Doğrulayıcı uygulama zorlar yeniden kimlik doğrulaması için). Seçilen kendi kimlik doğrulama giriş olmasıdır (yüz, bir örneğin) değişmedi ve bu nedenle yeniden yeniden kimlik doğrulaması için kullanılabilir.
+> "Olmayan parola tabanlı" bir oturum açma kullanıcı almak için bir parola girildiği kaydetmedi biridir.  Örneğin, yüz Windows Hello, bir FIDO anahtar veya bir PIN ile kullanma. 
 >
-> Gizli istemcileri tarafından parola değişikliği iptalleri etkilenmez. Parola değişikliği daha fazla belirteçleri almak için yenileme belirtecini kullanmak için abl olmaya devam edecek önce verilmiş bir yenileme belirteci gizli istemcisiyle. 
+> Windows birincil yenileme belirteci ile bilinen bir sorun var.  PRT parola alınır ve ardından kullanıcı oturumu Merhaba, bu PRT oluşturulma değiştirmez ve kullanıcı parolalarını değiştirirse iptal edilir. 
 
 ## <a name="sample-tokens"></a>Örnek belirteçleri
 

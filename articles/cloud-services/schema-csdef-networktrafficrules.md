@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360045"
 ---
 # <a name="azure-cloud-services-definition-networktrafficrules-schema"></a>Tanım NetworkTrafficRules şeması Azure bulut Hizmetleri
 `NetworkTrafficRules` Rolleri birbirleri ile nasıl iletişim kuracağını belirten hizmet tanımı dosyası isteğe bağlı bir öğedeki düğümdür. Sınırlar hangi rollerin belirli rol iç uç noktalarına erişebilirsiniz. `NetworkTrafficRules` Bir tek başına öğe; değil bir hizmet tanımı dosyasında iki veya daha fazla rol ile birleştirilir.

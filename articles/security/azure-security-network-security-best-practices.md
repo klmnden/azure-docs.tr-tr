@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367333"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure ağı en iyi güvenlik uygulamaları
 Microsoft Azure sanal makineleri ve cihazları diğer ağ bağlantılı cihazlar için Azure sanal ağlarda koyarak bağlamanıza olanak sağlar. Bir Azure sanal ağı etkin ağ aygıtları arasındaki TCP tabanlı iletişime izin vermek için sanal bir ağa sanal ağ arabirim kartları bağlanmanıza olanak sağlayan bir yapıdır. Bir Azure sanal ağına bağlı Azure sanal makineleri aynı Azure sanal ağı, farklı Azure sanal ağlar, Internet'te veya kendi şirket içi ağlarda bile cihazlarda bağlanabilir.

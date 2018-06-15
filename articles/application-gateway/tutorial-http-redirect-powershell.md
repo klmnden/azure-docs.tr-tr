@@ -16,6 +16,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34355160"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Bir uygulama ağ geçidi ile HTTP Azure PowerShell kullanarak HTTPS yeniden yönlendirmesi için oluşturma
 
