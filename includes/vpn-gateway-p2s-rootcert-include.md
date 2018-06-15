@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197139"
 ---
 Kurumsal bir çözüm kullanılarak oluşturulmuş bir kök sertifika kullanabilir (önerilir) veya otomatik olarak imzalanan bir sertifika oluşturabilirsiniz. Kök sertifikayı oluşturduktan sonra, ortak sertifika verilerini (özel anahtarı değil) Base-64 olarak kodlanmış X.509 .cer dosyası olarak dışarı aktarın ve ortak sertifika verilerini Azure’a yükleyin.
 

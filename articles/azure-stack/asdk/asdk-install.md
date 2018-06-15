@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171205"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure yığın Geliştirme Seti (ASDK) yükleyin
 Sonra [ASDK ana bilgisayarı hazırlama](asdk-prepare-host.md), bu makalede aşağıdaki adımları kullanarak CloudBuilder.vhdx görüntüye ASDK dağıtılabilir.

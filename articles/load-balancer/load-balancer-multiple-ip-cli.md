@@ -20,6 +20,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30263053"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>Yük Dengeleme üzerinde birden fazla IP yapılandırması
 

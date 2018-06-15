@@ -1,6 +1,6 @@
 ---
-title: "ARP tabloları alınıyor: Resource Manager: Azure expressroute bağlantı sorunlarını giderme | Microsoft Docs"
-description: "Bu sayfa, ARP tablolar expressroute bağlantı hattı için alma yönergeleri sağlar"
+title: 'ARP tabloları alınıyor: Resource Manager: Azure expressroute bağlantı sorunlarını giderme | Microsoft Docs'
+description: Bu sayfa, ARP tablolar expressroute bağlantı hattı için alma yönergeleri sağlar
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850787"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>ARP tabloları Resource Manager dağıtım modelinde alınıyor
 > [!div class="op_single_selector"]

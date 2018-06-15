@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196809"
 ---
 * **PolicyBased:** PolicyBased Vpn'lere statik yönlendirme ağ geçitleri Klasik dağıtım modelinde adı daha önce. İlke temelli VPN'ler, şifrelemek ve şirket içi ağınızla Azure Vnet'iniz arasında adres öneklerinin birleşimleriyle yapılandırılmış IPSec ilkeleri temelindeki IPSec tüneller üzerinden paketleri doğrudan. İlke (veya trafik seçici) çoğunlukla VPN cihazı yapılandırmasında bir erişim listesi olarak tanımlanır. PolicyBased VPN türüyle ilgili değer *PolicyBased*. PolicyBased VPN kullanırken aşağıdaki sınırlamalar göz önünde bulundurun:
   

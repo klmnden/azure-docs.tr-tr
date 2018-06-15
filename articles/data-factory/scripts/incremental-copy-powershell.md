@@ -17,6 +17,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30169748"
 ---
 # <a name="powershell-script---incrementally-load-data-by-using-azure-data-factory"></a>PowerShell Betiği - Azure Data Factory kullanarak artımlı olarak veri yükleme
 Bu örnek PowerShell komut dosyası yalnızca yeni veya güncelleştirilmiş kayıtları veri kaynağından havuz ilk tam kopyasını sonra bir havuz veri deposu için bir kaynak veri deposundan yükler.  

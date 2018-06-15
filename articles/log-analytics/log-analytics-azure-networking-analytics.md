@@ -19,6 +19,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30263539"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Günlük analizi çözümlerinde izleme azure ağ iletişimi
 

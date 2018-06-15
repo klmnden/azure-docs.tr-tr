@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30245456"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure depolama için istemci tarafı şifreleme ve Azure anahtar kasası
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -65,7 +66,7 @@ Depolama istemcisi kitaplığı kullanır [AES](http://en.wikipedia.org/wiki/Adv
 > 
 > 
 
-Şifrelenmiş bir blobu indirme içerir kullanarak tüm blob içerik alma **DownloadTo *** /**BlobReadStream ** kullanışlı yöntemler. Sarmalanan CEK sarılmamış ve kullanıcılara şifresi çözülmüş veriler döndürmek için (Bu durumda blob meta verileri depolanır) IV ile birlikte kullanılır.
+Şifrelenmiş bir blobu indirme içerir kullanarak tüm blob içerik alma **DownloadTo *** /** BlobReadStream ** kullanışlı yöntemler. Sarmalanan CEK sarılmamış ve kullanıcılara şifresi çözülmüş veriler döndürmek için (Bu durumda blob meta verileri depolanır) IV ile birlikte kullanılır.
 
 Rastgele bir aralığı indirme (**DownloadRange*** yöntemleri) çok küçük miktarda başarıyla İstenen aralık şifresini çözmek için kullanılan ek veri alabilmek için kullanıcılar tarafından sağlanan aralığı ayarlama şifrelenmiş bir blobu içerir.
 

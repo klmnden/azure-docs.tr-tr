@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30198137"
 ---
 Bir istemci sertifikası oluşturduğunuzda, onu oluşturmak için kullanılan bilgisayarda otomatik olarak yüklenir. İstemci sertifikası başka bir istemci bilgisayara yüklemek istiyorsanız, oluşturulan istemci sertifikasını dışarı aktarmanız gerekmez.
 

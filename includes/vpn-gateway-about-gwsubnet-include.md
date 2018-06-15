@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197882"
 ---
 Sanal ağ geçidi, ağ geçidi alt ağı adlı belirli bir alt ağ kullanır. Ağ geçidi alt ağı, sanal ağınızı yapılandırırken belirttiğiniz sanal ağ IP adresi aralığının bir parçasıdır. Sanal ağ geçidi kaynaklarının ve hizmetlerinin kullandığı IP adreslerini içerir. Azure’ın ağ geçidi kaynaklarını dağıtması için alt ağ, 'GatewaySubnet' olarak adlandırılmalıdır. Ağ geçidi kaynaklarının dağıtılacağı farklı bir alt ağ belirtemezsiniz. 'GatewaySubnet' adlı bir alt ağınız yoksa, kendi VPN ağ geçidinizi oluştururken bu başarısız olur.
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292549"
 ---
 # <a name="set-up-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>Azure Cloud Services ve sanal makineler için tanılama ayarlayın
 Bir Azure bulut hizmeti ya da sanal makineyi gidermek gerektiğinde, daha kolay Azure tanılama ayarlamak için Visual Studio'yu kullanabilirsiniz. Tanılama sistem verileri ve sanal makineler ve bulut hizmeti çalıştıran sanal makine örnekleri günlük verilerini yakalar. Tanılama veri seçtiğiniz bir depolama hesabı aktarılır. Azure'da oturum Tanılama hakkında daha fazla bilgi için bkz [Azure App Service'te Web uygulamalarını için tanılama günlüğünü etkinleştirme](app-service/web-sites-enable-diagnostic-log.md).
