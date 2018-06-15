@@ -15,6 +15,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33865944"
 ---
 # <a name="how-azure-multi-factor-authentication-works"></a>Azure multi-Factor Authentication nasıl çalışır
 İki aşamalı doğrulama güvenlik, katmanlı yaklaşımın arasındadır. Birden çok kimlik doğrulama faktörleri tehlikeye saldırganlar için önemli bir sınama gösterir. Bir saldırgan kullanıcı parolasının öğrenmek bile yönetiliyorsa, bu da güvenilen cihaza sahip gerek kalmadan gereksizdir. 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30239183"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Azure’a MySQL yükleme
 Bu makalede, yüklemek ve bir Azure Linux çalıştıran sanal makine üzerinde MySQL yapılandırmak öğreneceksiniz.

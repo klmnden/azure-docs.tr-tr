@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect Health - sistem durumu hizmeti verileri değil tarih uyarı kadar | Microsoft Docs"
-description: "Bu belgede nedenini \"sistem durumu hizmeti verileri güncel değil\" uyarı ve nasıl giderileceği açıklanmaktadır."
+title: Azure AD Connect Health - sistem durumu hizmeti verileri değil tarih uyarı kadar | Microsoft Docs
+description: Bu belgede nedenini "sistem durumu hizmeti verileri güncel değil" uyarı ve nasıl giderileceği açıklanmaktadır.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: zhiweiw
 manager: maheshu
-editor: 
+editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29715020"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Sistem sağlığı hizmeti verileri güncel uyarı değil
 

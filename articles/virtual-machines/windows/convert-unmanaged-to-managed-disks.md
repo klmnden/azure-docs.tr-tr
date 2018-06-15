@@ -1,13 +1,13 @@
 ---
-title: "Windows sanal makine yönetilmeyen disklerden yönetilen disklere - Azure yönetilen diskleri dönüştürün. | Microsoft Docs"
-description: "Resource Manager dağıtım modelinde PowerShell kullanarak yönetilen disklerde nasıl Windows VM yönetilmeyen Diske Dönüştür"
+title: Windows sanal makine yönetilmeyen disklerden yönetilen disklere - Azure yönetilen diskleri dönüştürün. | Microsoft Docs
+description: Resource Manager dağıtım modelinde PowerShell kullanarak yönetilen disklerde nasıl Windows VM yönetilmeyen Diske Dönüştür
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: cynthn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29804224"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Windows sanal makine yönetilmeyen disklerden yönetilen Diske Dönüştür
 

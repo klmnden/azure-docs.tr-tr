@@ -1,26 +1,25 @@
 ---
-title: 'Azure Active Directory B2C: bir Android uygulamasını kullanarak bir belirteç alınırken | Microsoft Docs'
+title: Azure Active Directory B2C'de bir Android uygulamasını kullanarak bir belirteç alınırken | Microsoft Docs
 description: Bu makale AppAuth Azure Active Directory B2C ile kullanıcı kimliklerini yönetmek ve kullanıcıların kimliğini doğrulamak için kullandığı bir Android uygulamasının nasıl oluşturulacağını gösterir.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: mobile-android
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 6c4c9359571882fbbea4e7701305e30e0f49f460
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7c0a72e03eaa8d12c26b1bbbf6a05b4d94e72358
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709915"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Bir Android uygulamasını kullanarak oturum açın
 
-Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kullanır. Bunun yapılması geliştiricilerin hizmetlerimizle tümleştirmek istediği herhangi bir kitaplıktan yararlanmasını sağlar. Geliştiricilerin platformumuzu diğer kitaplıklarla birlikte kullanmasına yardımcı olmak için 3 taraf kitaplıkların Microsoft identity platformuna bağlanmak için yapılandırma göstermek için bunun gibi birkaç izlenecek yazdıktan. [RFC6749 OAuth2 belirtimi](https://tools.ietf.org/html/rfc6749) uygulayan çoğu kitaplık Microsoft Identity platformuna bağlanabilecektir.
+Microsoft kimlik platformu OAuth2 ve OpenID Connect gibi açık standartlar kullanır. Bu standartlar, Azure Active Directory B2C ile tümleştirmek istediği herhangi bir kitaplıktan yararlanmasını sağlar. Diğer kitaplıkları kullanmanıza yardımcı olması için bunun gibi bir kılavuz 3 taraf kitaplıkların Microsoft identity platformuna bağlanmak üzere yapılandırmak nasıl yapılacağını göstermek üzere kullanabilirsiniz. Uygulayan çoğu kitaplık [RFC6749 OAuth2 belirtimi](https://tools.ietf.org/html/rfc6749) Microsoft Identity platformuna bağlanabilir.
 
 > [!WARNING]
 > Microsoft, 3 düzeltmelerin kitaplıkları taraf ve bu kitaplıkları gözden yapılmadı sağlamaz. Bu örnek, Azure AD B2C ile temel senaryolarda uyumluluk için test edilmiştir AppAuth adlı 3 bir taraf kitaplık kullanıyor. Kitaplığın açık kaynaklı proje yönlendirilmiş sorunları ve özellik istekleri. Lütfen bakın [bu makalede](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries) daha fazla bilgi için.  
@@ -136,5 +135,5 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 
 Lütfen [AppAuth Kılavuzu](https://openid.github.io/AppAuth-Android/) işleminin geri kalanında tamamlamak hakkında. Hızlı bir şekilde bir çalışma uygulaması ile çalışmaya başlamak ihtiyacınız varsa kullanıma [bizim örnek](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Adımları [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) kendi Azure AD B2C yapılandırma girmek için.
 
-Biz her zaman görüş ve öneriler için açık! Bu konu ile bir güçlükle sahip veya bu içeriğin geliştirilmesi için öneriler varsa, sayfanın sonundaki görüşlerinize değer veriyoruz. Özellik istekleri için bunları Ekle [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Biz her zaman görüş ve öneriler için açık! Bu makale ile bir güçlükle sahip veya bu içeriğin geliştirilmesi için öneriler varsa, sayfanın sonundaki görüşlerinize değer veriyoruz. Özellik istekleri için bunları Ekle [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

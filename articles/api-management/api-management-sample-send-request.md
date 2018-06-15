@@ -1,11 +1,11 @@
 ---
-title: "HTTP istekleri oluşturmak için API Management hizmeti kullanma"
-description: "Dış hizmetler, API çağrısı için API Management'te istek ve yanıt ilkeleri kullanma hakkında bilgi edinin"
+title: HTTP istekleri oluşturmak için API Management hizmeti kullanma
+description: Dış hizmetler, API çağrısı için API Management'te istek ve yanıt ilkeleri kullanma hakkında bilgi edinin
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4539c0fa-21ef-4b1c-a1d4-d89a38c242fa
 ms.service: api-management
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29714680"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Azure API Management hizmetinden dış hizmetler kullanarak
 Azure API Management hizmetinde kullanılabilir ilkeler çeşitli yararlı iş tamamen gelen istek, giden yanıt ve temel yapılandırma bilgileri göre yapabilirsiniz. Ancak, dış API Management hizmetlerinden etkileşimde yapamamasına ilkeleri açılır pek çok daha fazla fırsatı.

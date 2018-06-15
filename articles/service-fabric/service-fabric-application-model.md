@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204643"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Service Fabric uygulamada modeli
 Bu makalede Azure Service Fabric uygulama modeli ve bir uygulama ve hizmet bildirim dosyaları aracılığıyla nasıl tanımlanacağı genel bakış sağlar.

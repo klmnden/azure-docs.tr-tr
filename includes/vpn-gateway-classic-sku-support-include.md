@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30196840"
 ---
 > [!NOTE]
 > Yeni VPN ağ geçidi SKU'ları (VpnGw1, VpnGw2 ve VpnGw3) yalnızca Resource Manager dağıtım modeli için desteklenir. Klasik sanal ağlar eski (eski) SKU'ları kullanmaya devam etmeniz gerekir.

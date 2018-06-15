@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: mfussell
-ms.openlocfilehash: f9de8d213d11a8ccb3ffff484a67560d9e2abe77
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 33d6d83d4dcd0ec9bebf8d4197684e0e52c48ac5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701327"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>HTTP ve HTTPS uç noktaları için bir güvenlik erişim ilkesi atama
 Bir Çalıştır ilkesi uygulamak ve hizmet bildirimi HTTP uç noktası kaynakları bildirir, belirtmelisiniz bir **SecurityAccessPolicy**.  **SecurityAccessPolicy** Bu uç noktaları için ayrılmış bağlantı noktaları olarak hizmet çalıştıran kullanıcı hesabı için doğru şekilde kısıtlanır sağlar. Aksi takdirde, **http.sys** hizmetine erişiminiz yok ve istemciden çağrıları hatalarıyla alın. Aşağıdaki örnek, adlı bir uç nokta Customer1 hesabı uygular **EndpointName**, sağlayan, tam erişim hakları.
@@ -42,6 +43,10 @@ Bir HTTPS uç noktası için aynı zamanda istemciye döndürmek için sertifika
   <EndpointBindingPolicy EndpointRef="EndpointName" CertificateRef="Cert1" />
 </Policies
 ```
+
+> [!WARNING] 
+> HTTPS kullanırken, aynı bağlantı noktası ve aynı düğümde dağıtılan sertifika farklı hizmet örnekleri (uygulamasının bağımsız olarak) için kullanmayın. Farklı uygulama durumlarda aynı bağlantı noktasını kullanan iki farklı hizmet yükseltme bir yükseltme hatasına neden olur. Daha fazla bilgi için bkz: [HTTPS uç noktaları birden çok uygulama yükseltme ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+> 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 Sonraki adımlar için aşağıdaki makaleler okuyun:

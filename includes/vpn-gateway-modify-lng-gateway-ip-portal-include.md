@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198103"
 ---
 ### <a name="gwipnoconnection"></a> Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için
 

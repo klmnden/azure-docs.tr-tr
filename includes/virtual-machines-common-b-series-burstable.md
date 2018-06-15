@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34307446"
 ---
 B-serisi VM ailesi, hangi VM boyutu en fazla % 100'ünü Intel® Broadwell E5-2673 v4 CPU performans veri bloğu olanağı, iş yükü için gerekli temel düzey performans sağlar seçmenize olanak verir 2.3 GHz veya bir Intel® Haswell 2.4 GHz E5-2673 v3 işlemcisi vCPU.
 

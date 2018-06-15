@@ -7,13 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: d5861df9dbfe554f966d19a8e3ed77b55f1f2cd2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699912"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
 
@@ -82,6 +83,11 @@ Hayır, uygulama ağ geçidi ortak statik IP adresleri desteklemez, ancak statik
 **Q. Uygulama ağ geçidi birden çok ortak IP ağ geçidinde destekliyor mu?**
 
 Yalnızca bir genel IP adresi, bir uygulama ağ geçidi üzerinde desteklenir.
+
+**Q. Uygulama ağ geçidi için ne kadar büyük alt yaptığım?**
+
+Özel ön uç IP yapılandırması yapılandırılmışsa, uygulama ağ geçidi örneği başına bir özel IP adresinin yanı sıra, başka bir özel IP adresini kullanır. Ayrıca, Azure ilk dört ayırır ve son iç kullanım için her bir alt ağda IP adresi.
+Örneğin, uygulama ağ geçidi üç örnekleri ve ardından/29 hiçbir özel ön uç IP ayarlarsanız alt ağı veya büyük boyut gereklidir. Bu durumda, uygulama ağ geçidi üç IP adreslerini kullanır. Üç örnekleri ve ardından/28 özel ön uç IP yapılandırması için bir IP adresi varsa alt ağı veya büyük boyut dört IP adreslerini gerektiği şekilde gereklidir.
 
 **Q. Uygulama ağ geçidi x-iletilen-için üstbilgiler destekliyor mu?**
 
@@ -183,6 +189,21 @@ Kapalı kalma süresi olmadan, örnekler yükseltme etki alanları ve hata etki 
 
 Evet. Bağlantı kesintisi olmadan bir arka uç havuzundaki üyeleri değiştirmek için boşaltma yapılandırabilirsiniz. Bu, bu bağlantı kapalı ya da yapılandırılabilir bir zaman aşımı süresi kadar önceki hedeflerine gönderilecek devam etmek var olan bağlantılara izin verir. Bu bağlantı yalnızca bekler tamamlamak geçerli yürütülen bağlantılarını boşaltma unutmayın. Uygulama ağ geçidi uygulama oturum durumunu uyumlu değil.
 
+**Q. Uygulama ağ geçidi boyutları nelerdir?**
+
+Application Gateway şu anda üç büyüklükte sunulmaktadır: **Kısa**, **Orta** ve **Uzun**. Küçük örnek boyutları, geliştirme ve test senaryolarına yöneliktir.
+
+Bir abonelik için en fazla 50 uygulama ağ geçidi oluşturabilirsiniz ve her uygulama ağ geçidi en fazla 10 örnek içerebilir. Her uygulama ağ geçidi 20 http dinleyicisinden oluşabilir. Application Gateway limitlerinin tam listesi için bkz. [Application Gateway hizmet limitleri](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+Aşağıdaki tabloda, SSL boşaltmasının etkin olduğu her bir Application Gateway örneği için ortalama performans aktarım hızı gösterilmiştir:
+
+| Ortalama arka uç sayfa yanıt boyutu | Küçük | Orta | Büyük |
+| --- | --- | --- | --- |
+| 6KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100KB |35 Mbps |100 Mbps |200 Mbps |
+
+> [!NOTE]
+> Bu değerler bir uygulama ağ geçidi verimliliği için yaklaşık değerlerdir. Gerçek verimlilik; ortalama sayfa boyutu, arka uç örneklerinin konumu ve bir sayfaya hizmet etmek için işleme süresi gibi çeşitli ortam ayrıntılarına bağlıdır. Tam performans rakamlarına ulaşmak için kendi testlerinizi çalıştırmanız gerekir. Bu değerler yalnızca kapasite planlama konusunda yardımcı olmak için verilmiştir.
 
 **Q. Örnek boyutu ortamından kesintiye uğratmadan büyük değiştirebilirim?**
 

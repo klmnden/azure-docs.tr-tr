@@ -1,10 +1,10 @@
 ---
-title: "Azure Site kurtarma işlemi sunucuyu yönetme | Microsoft Docs"
-description: "Bu makalede VMware sanal ve fiziksel sunucu çoğaltma Azure Site kurtarma için ayarlanmış bir işlem sunucusu yönetin."
+title: Azure Site kurtarma işlemi sunucuyu yönetme | Microsoft Docs
+description: Bu makalede VMware sanal ve fiziksel sunucu çoğaltma Azure Site kurtarma için ayarlanmış bir işlem sunucusu yönetin.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
-editor: 
+editor: ''
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812743"
 ---
 # <a name="manage-process-servers"></a>İşlem sunucularını yönetme
 

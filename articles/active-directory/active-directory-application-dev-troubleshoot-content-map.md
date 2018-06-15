@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33932396"
 ---
 # <a name="troubleshoot-azure-active-directory-application-development"></a>Azure Active Directory uygulama geliştirme sorun giderme
 Aşağıdaki bağlantılar için bazı ile uygulama geliştirme en yaygın sorunları çözmenize yardımcı olacak bir içerik haritası getirecek **uygulama kayıt defteri** Azure Active Directory'de.

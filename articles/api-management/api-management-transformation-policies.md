@@ -15,9 +15,10 @@ ms.date: 11/27/2017
 ms.author: apimpm
 ms.openlocfilehash: 3eb9d6851c30f11980d47d4e48b158217e41995d
 ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30233794"
 ---
 # <a name="api-management-transformation-policies"></a>API Management dönüştürme ilkelerini
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).

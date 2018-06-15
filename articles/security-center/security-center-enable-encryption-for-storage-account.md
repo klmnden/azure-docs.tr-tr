@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235028"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde Azure depolama hesabı için şifrelemeyi etkinleştir
 Azure Güvenlik Merkezi, Azure depolama hizmeti şifrelemesi bekleyen veri için etkinleştirmenizi öneririz.

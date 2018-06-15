@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30231285"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Bir Azure SQL veritabanına bağlanmak için Azure işlevleri kullanın
 Bu konu Azure işlevleri, bir Azure SQL veritabanındaki bir tablodaki satırların temizler zamanlanmış bir işi oluşturmak için nasıl kullanılacağını gösterir. Yeni C# betik işlevi önceden tanımlanmış Zamanlayıcı tetikleyicisi şablonu Azure portalında temel alınarak oluşturulur. Bu senaryoyu desteklemek için de bir işlev uygulaması uygulama ayarı olarak bir veritabanı bağlantı dizesi ayarlamanız gerekir. Bu senaryo, bir toplu işlemin veritabanında kullanır. 

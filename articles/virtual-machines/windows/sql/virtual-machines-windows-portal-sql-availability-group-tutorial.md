@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 915f36678b8515c5f4a6bd367843255865f4b34d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716729"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma her zaman üzerindeki kullanılabilirlik grubu Azure VM'de el ile
 
@@ -57,7 +58,7 @@ Aşağıdaki tabloda bu öğreticiye başlamadan önce tamamlamanız gereken ön
 <a name="CreateCluster"></a>
 ## Küme oluşturma
 
-Önkoşullar tamamlandıktan sonra ilk adım iki SQL Server'lar içeren Windows Server Yük devretme kümesi ve bir Tanık oluşturmaktır.  
+Önkoşullar tamamlandıktan sonra ilk adım iki SQL Server'lar içeren Windows Server Yük devretme kümesi ve bir Tanık oluşturmaktır.
 
 1. RDP SQL sunucuları ve Tanık sunucu üzerindeki bir yönetici olan bir etki alanı hesabı kullanarak ilk SQL Server.
 
@@ -85,7 +86,8 @@ Aşağıdaki tabloda bu öğreticiye başlamadan önce tamamlamanız gereken ön
 
    ![Küme Özellikleri](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. Seçin **statik IP adresi** ve kullanılabilir bir SQL Server adresi metin kutusuna olduğu alt ağ adresi belirtin. Ardından **Tamam**.
+3. Seçin **statik IP adresi** ve otomatik özel IP Adresleme (APIPA) aralığından kullanılabilir bir adres belirtin: için 169.254.0.1 169.254.255.254 adresi metin kutusuna. Bu örnek için herhangi bir adresi bu aralıkta kullanabilirsiniz. Örneğin, `169.254.0.1`. Ardından **Tamam**.
+
 4. İçinde **küme çekirdek kaynakları** bölümünde, küme adını sağ tıklatın ve **çevrimiçine**. Daha sonra her iki kaynağın çevrimiçi olana kadar bekleyin. Küme Adı kaynağını çevrimiçi olduğunda, DC sunucusuna yeni bir AD bilgisayar hesabı ile güncelleştirir. Kullanılabilirlik grubu kümelenmiş hizmet daha sonra çalıştırmak için bu AD hesabı kullanın.
 
 ### <a name="addNode"></a>Kümeye bir SQL Server ekleyin
@@ -419,7 +421,7 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir araştırma olu�
    | **Kayan IP (doğrudan sunucu dönüşü)** | |Etkin |
 
    > [!WARNING]
-   > Doğrudan sunucu dönüşü oluşturma sırasında ayarlanır. Değiştirilemez.
+   > Doğrudan sunucu dönüşü oluşturma sırasında ayarlanır. Bu değer değiştirilemez.
 
 1. Tıklatın **Tamam** Yük Dengeleme kuralları ayarlamak için.
 

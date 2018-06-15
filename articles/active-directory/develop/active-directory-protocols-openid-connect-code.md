@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157363"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Openıd Connect ve Azure Active Directory kullanarak web uygulamalarına erişim yetkisi
 [Openıd Connect](http://openid.net/specs/openid-connect-core-1_0.html) olan OAuth 2.0 protokolünü en üstünde oluşturulan Basit kimlik katmanı. OAuth 2.0 tanımlar edinme ve kullanma mekanizmaları **erişim belirteçleri** erişmek için korumalı kaynaklara, ancak bunlar tanımlamaz kimlik bilgilerini sağlamak için standart yöntemleri. Openıd Connect, OAuth 2.0 Yetkilendirme işlemi için bir uzantısı olarak kimlik doğrulaması gerçekleştirir. Biçiminde son kullanıcı hakkında bilgi sağlayan bir `id_token` , kullanıcının kimliğini doğrular ve kullanıcının temel profil bilgilerini sağlar.

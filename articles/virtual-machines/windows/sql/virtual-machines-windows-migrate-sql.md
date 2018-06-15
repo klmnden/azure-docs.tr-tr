@@ -1,11 +1,11 @@
 ---
-title: "SQL Server VM üzerinde bir SQL Server veritabanı geçirilecek | Microsoft Docs"
-description: "Bir şirket içi kullanıcı veritabanını SQL Server'a bir Azure sanal makine geçirme hakkında bilgi edinin."
+title: SQL Server VM üzerinde bir SQL Server veritabanı geçirilecek | Microsoft Docs
+description: Bir şirket içi kullanıcı veritabanını SQL Server'a bir Azure sanal makine geçirme hakkında bilgi edinin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809446"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Bir SQL Server veritabanını Azure VM’deki SQL Server’a geçirme
 

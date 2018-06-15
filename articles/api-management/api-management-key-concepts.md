@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management - Genel bakış ve temel kavramlar | Microsoft Docs"
-description: "API'ler, ürünler, roller, gruplar ve diğer API Management temel kavramları hakkında bilgi edinin."
+title: Azure API Management - Genel bakış ve temel kavramlar | Microsoft Docs
+description: API'ler, ürünler, roller, gruplar ve diğer API Management temel kavramları hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712381"
 ---
 # <a name="what-is-api-management"></a>API Management nedir?
 
