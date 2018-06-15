@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181829"
 ---
 # <a name="azure-status"></a>Azure durumu
 [Azure durum](https://azure.microsoft.com/status/) Azure hizmetlerinin durumunu genel bir görünümünü sağlar. Azure durumuyla hizmet kullanılabilirliği hakkında güncel bilgi elde edebilirsiniz. Azure durum herkes erişebilir ve kendi hizmet durumu rapor görünümü tüm hizmetleri. 

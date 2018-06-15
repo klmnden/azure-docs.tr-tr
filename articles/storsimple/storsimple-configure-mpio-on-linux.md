@@ -1,6 +1,6 @@
 ---
-title: "StorSimple Linux ana bilgisayarına MPIO yapılandırma | Microsoft Docs"
-description: "MPIO CentOS 6.6 çalıştıran bir Linux konağına bağlı StorSimple yapılandırın"
+title: StorSimple Linux ana bilgisayarına MPIO yapılandırma | Microsoft Docs
+description: MPIO CentOS 6.6 çalıştıran bir Linux konağına bağlı StorSimple yapılandırın
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779100"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS çalıştıran bir StorSimple konakta MPIO'yu yapılandırın
 Bu makalede, Centos 6.6 ana bilgisayar sunucusunda çoklu yol oluşturma g/ç (MPIO) yapılandırmak için gereken adımları açıklar. Ana bilgisayar sunucusu Microsoft Azure StorSimple Cihazınızı iSCSI başlatıcıları aracılığıyla yüksek kullanılabilirlik için bağlı. Bu, çok yollu aygıtlar ve yalnızca StorSimple birimler için özel kurulum otomatik olarak bulmayı ayrıntılı olarak açıklanmaktadır.

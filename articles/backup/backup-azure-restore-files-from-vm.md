@@ -1,28 +1,24 @@
 ---
-title: "Azure yedekleme: Dosya ve klasörleri Azure VM yedekten kurtarma | Microsoft Docs"
-description: "Dosyaları bir Azure sanal makinesi kurtarma noktasından kurtarın"
+title: 'Azure yedekleme: dosyaları ve klasörleri Azure VM yedekten kurtarma'
+description: Dosyaları bir Azure sanal makinesi kurtarma noktasından kurtarın
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
-keywords: "öğe düzeyinde kurtarma; Dosya Kurtarma Azure VM yedekten; Azure VM geri yükleme dosyaları"
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
+keywords: öğe düzeyinde kurtarma; Dosya Kurtarma Azure VM yedekten; Azure VM geri yükleme dosyaları
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: e9d1c79d6485764f4b671ad529e0812b49df34b1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737027"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Dosyaları Azure sanal makinesi yedeklemeden Kurtar
 
-Azure yedekleme geri yükleme yeteneği sağlar [Azure sanal makineleri (VM'ler) ve diskleri](./backup-azure-arm-restore-vms.md) olarak da bilinen geri yükleme noktaları Azure VM yedeklemelerden. Bu makalede, dosyaları ve klasörleri Azure VM yedekten kurtarma açıklanmaktadır. Dosya ve klasörleri geri yükleme, yalnızca Azure Resource Manager modelini kullanarak dağıtılmış ve bir kurtarma Hizmetleri kasası korumalı VM'ler için kullanılabilir.
+Azure yedekleme geri yükleme yeteneği sağlar [Azure sanal makineleri (VM'ler) ve diskleri](./backup-azure-arm-restore-vms.md) Azure VM yedeklerden kurtarma noktaları olarak da bilinir. Bu makalede, dosyaları ve klasörleri Azure VM yedekten kurtarma açıklanmaktadır. Dosya ve klasörleri geri yükleme, yalnızca Azure Resource Manager modelini kullanarak dağıtılmış ve bir kurtarma Hizmetleri kasası korumalı VM'ler için kullanılabilir.
 
 > [!Note]
 > Bu özellik, Azure Resource Manager modelini kullanarak dağıtılmış ve bir kurtarma Hizmetleri kasası korumalı VM'ler için kullanılabilir.
@@ -31,7 +27,7 @@ Azure yedekleme geri yükleme yeteneği sağlar [Azure sanal makineleri (VM'ler)
 
 ## <a name="mount-the-volume-and-copy-files"></a>Birim ve kopyalama dosyaları bağlama
 
-Dosya ve klasörleri geri yükleme noktasından geri yüklemek için sanal makineye gidin ve geri yükleme noktası seçin. 
+Dosya ve klasörleri kurtarma noktasından geri yüklemek için sanal makineye gidin ve istenen kurtarma noktası seçin. 
 
 1. Oturum [Azure portal](http://portal.Azure.com) sol menüde tıklatıp **sanal makineleri**. Sanal makineler listesinden, bu sanal makinenin panosunu açmak için sanal makineyi seçin. 
 

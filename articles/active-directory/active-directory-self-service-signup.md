@@ -16,9 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.openlocfilehash: 67fd5ba9be2de1f79511c806ffaa0ae3001bfdcf
 ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33760298"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Azure Active Directory için Self Servis kaydolma nedir?
 Bu makalede, Self Servis kaydolma ve Azure Active Directory (Azure AD) desteklemek nasıl açıklanmaktadır. Bir etki alanı adı almak istiyorsanız yönetilmeyen bir Azure AD Kiracı için bkz: [yönetilmeyen bir dizini yönetici olarak ele](domains-admin-takeover.md).

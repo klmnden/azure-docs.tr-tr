@@ -1,31 +1,29 @@
-Azure Redis Cache örneğine bağlanmak için önbellek istemcileri için ana bilgisayar adı, bağlantı noktaları ve önbellek anahtarları gereklidir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu bilgileri Azure portalından veya Azure CLI gibi komut satırı araçlarını kullanarak alabilirsiniz.
-
+---
+title: include dosyası
+description: include dosyası
+services: redis-cache
+author: wesmc7777
+ms.service: cache
+ms.topic: include
+ms.date: 03/28/2018
+ms.author: wesmc
+ms.custom: include file
+ms.openlocfilehash: d1ae8e5dfbb1455d639e3e2119a4606a8c3a0047
+ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 04/28/2018
+ms.locfileid: "32196585"
+---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Azure Portalı kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
-Azure Portalı kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını almak için [Azure portalındaki](https://portal.azure.com) önbelleğinize [göz atın](../articles/redis-cache/cache-configure.md#configure-redis-cache-settings) ve **Kaynak menüsünde** **Erişim anahtarları** ile **Özellikler**’e tıklayın. 
 
-![Redis Cache ayarları](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
+Azure Redis Cache örneğine bağlanırken, önbellek istemcileri için ana bilgisayar adı, bağlantı noktaları ve önbellek anahtarı gereklidir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu bilgileri Azure portalında bulabilirsiniz.
 
-### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Azure CLI kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
-Azure CLI 2.0’ı kullanarak ana bilgisayar adı ve bağlantı noktalarını almak için [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) yöntemini, anahtarları almak için [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) yöntemini çağırabilirsiniz. Aşağıdaki betik bu iki komutu çağırır ve ana bilgisayar, bağlantı noktaları ve anahtarları konsola yansıtır.
+[Azure portalını](https://portal.azure.com) kullanarak erişim anahtarlarını almak için, önbelleğinize göz atın ve **Erişim anahtarlarına** tıklayın. 
 
-```azurecli
-#/bin/bash
+![Redis Cache anahtarları](media/redis-cache-access-keys/redis-cache-keys.png)
 
-# Retrieve the hostname, ports, and keys for contosoCache located in contosoGroup
+Ana bilgisayar adını ve bağlantı noktalarını almak için **Özellikler**’e tıklayın.
 
-# Retrieve the hostname and ports for an Azure Redis Cache instance
-redis=($(az redis show --name contosoCache --resource-group contosoGroup --query [hostName,enableNonSslPort,port,sslPort] --output tsv))
+![Redis önbelleği özellikleri](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 
-# Retrieve the keys for an Azure Redis Cache instance
-keys=($(az redis list-keys --name contosoCache --resource-group contosoGroup --query [primaryKey,secondaryKey] --output tsv))
-
-# Display the retrieved hostname, keys, and ports
-echo "Hostname:" ${redis[0]}
-echo "Non SSL Port:" ${redis[2]}
-echo "Non SSL Port Enabled:" ${redis[1]}
-echo "SSL Port:" ${redis[3]}
-echo "Primary Key:" ${keys[0]}
-echo "Secondary Key:" ${keys[1]}
-```
-
-Bu betik hakkında daha fazla bilgi için bkz. [Azure Redis Cache için ana bilgisayar adı, bağlantı noktası ve anahtar alma](../articles/redis-cache/scripts/cache-keys-ports.md). Azure CLI 2.0 hakkında daha fazla bilgi için bkz. [Azure CLI 2.0 yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli) ve [Azure CLI 2.0 ile çalışmaya başlama](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).

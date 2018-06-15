@@ -1,12 +1,12 @@
 ---
-title: "StorSimple yük devretme, StorSimple 8000 serisi fiziksel aygıt için olağanüstü durum kurtarma | Microsoft Docs"
-description: "StorSimple 8000 serisi fiziksel aygıtınıza başka bir fiziksel aygıt üzerinden vermesine öğrenin."
+title: StorSimple yük devretme, StorSimple 8000 serisi fiziksel aygıt için olağanüstü durum kurtarma | Microsoft Docs
+description: StorSimple 8000 serisi fiziksel aygıtınıza başka bir fiziksel aygıt üzerinden vermesine öğrenin.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874867"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>StorSimple 8000 serisi fiziksel cihaza yük devri
 

@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 için sürücü kullanımı Önizleme | Microsoft Docs"
-description: "Azure içeri/dışarı aktarma hizmetinde dışa aktarma işi için seçtiğiniz BLOB'ları listesi Önizleme öğrenin."
+title: Bir Azure içeri/dışarı aktarma dışarı aktarma işinin - v1 için sürücü kullanımı Önizleme | Microsoft Docs
+description: Azure içeri/dışarı aktarma hizmetinde dışa aktarma işi için seçtiğiniz BLOB'ları listesi Önizleme öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873649"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Dışarı aktarma işi için sürücü kullanımının önizlemesini yapma
 Bir dışarı aktarma işinin oluşturmadan önce BLOB'ları dışarı kümesini seçmeniz gerekir. Microsoft Azure içeri/dışarı aktarma hizmeti, blob yolların listesini kullanın veya seçtiğiniz BLOB'ları temsil etmek için önekleri blob olanak sağlar.  

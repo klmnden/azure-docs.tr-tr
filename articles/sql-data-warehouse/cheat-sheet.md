@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190419"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Veri Ambarı için kural sayfası
 Bu kural sayfası, Azure SQL Veri Ambarı çözümlerinizi oluşturmak için yardımcı ipuçları ve en iyi uygulamalar sağlar. Başlamadan önce, SQL Veri Ambarının ne olup ne olmadığını açıklayan [Azure SQL Veri Ambarı İş Yükü Düzenleri ve Anti Düzenleri](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns) bölümünü okuyarak her bir adım hakkında daha ayrıntılı bilgi edinin.

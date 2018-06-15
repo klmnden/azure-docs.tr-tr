@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157389"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory kullanıcı içinde imzalama
 Çoğu kuruluş için bir hizmet uygulaması olarak bir yazılım teklifi sunuyorsanız, uygulamanız oturum açmalardan tüm Azure Active Directory (AD) Kiracı kabul edecek şekilde yapılandırabilirsiniz. Bu yapılandırma, uygulama çok kiracılı özelleştirme adı verilir. Tüm Azure AD Kiracı kullanıcılar hesaplarına uygulamanızla birlikte kullanmak için onaylıyorsunuz sonra uygulamanıza oturum açabilir. 

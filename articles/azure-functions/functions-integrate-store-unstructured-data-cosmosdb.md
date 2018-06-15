@@ -1,14 +1,14 @@
 ---
-title: "Azure Cosmos DB ve İşlevler’i kullanarak yapılandırılmamış verileri depolama | Microsoft Docs"
-description: "Azure İşlevleri ve Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama"
+title: Azure Cosmos DB ve İşlevler’i kullanarak yapılandırılmamış verileri depolama | Microsoft Docs
+description: Azure İşlevleri ve Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "azure işlevleri, işlevler, olay işleme, Cosmos DB, dinamik işlem, sunucusuz mimari"
-ms.assetid: 
+editor: ''
+tags: ''
+keywords: azure işlevleri, işlevler, olay işleme, Cosmos DB, dinamik işlem, sunucusuz mimari
+ms.assetid: ''
 ms.service: functions
 ms.devlang: csharp
 ms.topic: quickstart
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27767562"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure İşlevleri ve Azure Cosmos DB’yi kullanarak yapılandırılmamış verileri depolama
 

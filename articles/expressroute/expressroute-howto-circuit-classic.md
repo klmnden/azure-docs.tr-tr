@@ -1,11 +1,11 @@
 ---
-title: "Bir expressroute bağlantı hattı değiştirin: PowerShell: Azure Klasik | Microsoft Docs"
-description: "Bu makalede durumu, güncelleştirme veya silme denetlemek ve ExpressRoute Klasik dağıtım modeli hattınız yetkisini kaldırma için adımlarda size yol gösterir."
+title: 'Bir expressroute bağlantı hattı değiştirin: PowerShell: Azure Klasik | Microsoft Docs'
+description: Bu makalede durumu, güncelleştirme veya silme denetlemek ve ExpressRoute Klasik dağıtım modeli hattınız yetkisini kaldırma için adımlarda size yol gösterir.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24102843"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell (Klasik) kullanarak bir expressroute bağlantı hattı değiştirme
 

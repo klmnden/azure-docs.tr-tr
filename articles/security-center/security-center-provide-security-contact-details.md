@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güvenlik iletişim ayrıntılarını sağlamak | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntıları gösterilmiştir."
+title: Azure Güvenlik Merkezi'nde güvenlik iletişim ayrıntılarını sağlamak | Microsoft Docs
+description: Bu belgede Azure Güvenlik Merkezi'nde güvenlik kişi ayrıntıları gösterilmiştir.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866530"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik iletişim ayrıntılarını sağlayın
 Azure Güvenlik Merkezi, henüz yapmadıysanız, Azure aboneliğiniz için güvenlik iletişim ayrıntılarını sağlayın önerir. Bu bilgiler, Microsoft Güvenlik Yanıt Merkezi (MSRC) müşteri verilerinize yasadışı veya yetkisiz bir tarafın eriştiğini belirlerse Microsoft tarafından sizinle iletişim kurmak için kullanılır. MSRC select güvenlik Azure ağ ve altyapı izleme gerçekleştirir ve Üçüncü taraflardan tehdit Intelligence ve kötüye şikayetlerinden alır.

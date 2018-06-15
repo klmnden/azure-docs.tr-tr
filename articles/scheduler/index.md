@@ -1,11 +1,11 @@
 ---
-title: "Azure Scheduler Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-description: "Scheduler hizmetini kullanarak yinelenen uygulama eylemleri ve düzenli bakım gibi işler zamanlama ve bunları çağırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası."
+title: Azure Scheduler Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+description: Scheduler hizmetini kullanarak yinelenen uygulama eylemleri ve düzenli bakım gibi işler zamanlama ve bunları çağırma hakkında bilgi edinin. Öğreticiler, API başvuruları ve daha fazlası.
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071356"
 ---
 # <a name="scheduler-documentation"></a>Scheduler Belgeleri
 

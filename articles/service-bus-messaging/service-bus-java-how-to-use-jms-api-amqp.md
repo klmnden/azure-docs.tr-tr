@@ -1,11 +1,11 @@
 ---
 title: AMQP 1.0 Java hizmet veri yolu API'si ile kullanma | Microsoft Docs
-description: "Java ileti hizmeti (JMS) Azure Service Bus ve Gelişmiş Message Queuing Protodol (AMQP) 1.0 ile nasıl kullanılır."
+description: Java ileti hizmeti (JMS) Azure Service Bus ve Gelişmiş Message Queuing Protodol (AMQP) 1.0 ile nasıl kullanılır.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23868385"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hizmet veri yolu AMQP 1.0 ile Java ileti hizmeti (JMS) API kullanma
 Gelişmiş Message Queuing Protokolü (AMQP) 1.0, güçlü, platformlar arası ileti uygulamaları oluşturmak için kullanabileceğiniz bir verimli, güvenilir ve hat düzeyinde Mesajlaşma protokolüdür.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077881"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Ağ İzleyicisi özellikleri kullanmak için gerekli rol tabanlı erişim denetimi izinleri
 

@@ -1,28 +1,29 @@
 ---
-title: "Test ve U-SQL işleri yerel çalıştırma ve Azure Data Lake U-SQL SDK'sını kullanarak hata ayıklama | Microsoft Docs"
-description: "Visual Studio ve Azure Data Lake U-SQL SDK'sı için Azure Data Lake araçları sınamak ve U-SQL işleri, yerel iş istasyonunda hatalarını ayıklamak için nasıl kullanılacağını öğrenin."
+title: U-SQL betiklerini yerel olarak Azure Data Lake U-SQL SDK'sını kullanarak çalıştırma
+description: Bu makalede Azure Data Lake araçları Visual Studio için test ve U-SQL işleri, yerel iş istasyonunda hata ayıklamak için nasıl kullanılacağını açıklar.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/15/2016
+author: mumian
 ms.author: yanacai
-ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
+ms.topic: conceptual
+ms.date: 11/15/2016
+ms.openlocfilehash: 322278f00f49f718b1ba560e9d21d0af0be49b18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736012"
 ---
-# <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>Test ve U-SQL işleri yerel kullanılarak çalıştırması ve Azure Data Lake U-SQL SDK'sı tarafından hata ayıklama
+# <a name="runing-u-sql-scripts-locally"></a>U-SQL betiklerini yerel olarak çalıştırma
 
-İş istasyonunuzda U-SQL işleri çalıştırmak için, Azure Data Lake hizmetinde yaptığınız gibi Visual Studio için Azure Data Lake Araçları ve Azure Data Lake U-SQL SDK’sını kullanabilirsiniz. Bu iki yerel çalıştırma özelliği, U-SQL işlerinizi test etme ve hata ayıklama işlemlerinde size zaman kazandırır.
+U-SQL Azure'da çalışan yerine kendi kutusunu U-SQL çalıştırabilirsiniz. Bu, "yerel Çalıştırma" veya "yerel Çalıştırma" adı verilir. 
+
+U-SQL yerel çalıştırması, bu Araçları'nda kullanılabilir olan:
+* Visual Studio için Azure Data Lake araçları
+* Azure Data Lake U-SQL SDK'sı
 
 ## <a name="understand-the-data-root-folder-and-the-file-path"></a>Veri kök klasör ve dosya yolu anlama
 
@@ -35,7 +36,7 @@ Veri kök klasör için kullanılır:
 
 U-SQL betikleri göreli bir yol ve yerel bir mutlak yolu kullanabilirsiniz. Göreli yolu göreli belirtilen veri kök klasör yoludur. Kullanmanızı öneririz "/" komut dosyalarınızı sunucu tarafı ile uyumlu hale getirmek için yol ayırıcısı olarak. Göreli yollar ve eşdeğer mutlak yollarına bazı örnekleri aşağıda verilmiştir. Bu örneklerde, C:\LocalRunDataRoot veri kök klasörüdür.
 
-|Göreli yolu|Mutlak yolu|
+|Göreli yol|Mutlak yolu|
 |-------------|-------------|
 |/ABC/DEF/input.csv |C:\LocalRunDataRoot\abc\def\input.csv|
 |ABC/DEF/input.csv  |C:\LocalRunDataRoot\abc\def\input.csv|

@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32167138"
 ---
 # <a name="run-a-containerized-task-in-azure-container-instances"></a>Azure kapsayıcı durumlarda kapsayıcılı görevi çalıştırma
 

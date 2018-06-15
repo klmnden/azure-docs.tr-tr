@@ -1,6 +1,6 @@
 ---
-title: "Java kullanarak PostgreSQL için Azure Veritabanı’na bağlanma"
-description: "Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Java kod örneği sağlanmıştır."
+title: Java kullanarak PostgreSQL için Azure Veritabanı’na bağlanma
+description: Bu hızlı başlangıçta, PostgreSQL için Azure Veritabanı’na bağlanmak ve buradan veri sorgulamak için kullanabileceğiniz Java kod örneği sağlanmıştır.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686852"
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>PostgreSQL için Azure Veritabanı: Bağlanmak ve veri sorgulamak için Java’yı kullanma
 Bu hızlı başlangıçta, Java uygulaması kullanılarak PostgreSQL için Azure Veritabanı’na nasıl bağlanılacağı gösterilmiştir. Hızlı başlangıçta, veritabanında verileri sorgulamak, eklemek, güncelleştirmek ve silmek için SQL deyimlerinin nasıl kullanılacağı da gösterilmiştir. Bu makaledeki adımlarda, Java kullanarak geliştirmeyle ilgili bilgi sahibi olduğunuz ve PostgreSQL için Azure Veritabanı ile çalışmaya yeni başladığınız varsayılır.

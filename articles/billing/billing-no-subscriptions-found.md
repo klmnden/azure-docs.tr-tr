@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070626"
 ---
 # <a name="no-subscriptions-found-error-in-azure-portal-or-azure-account-center"></a>Abonelik Azure portalında veya Azure hesap merkezi hata bulunamadı
 

@@ -17,6 +17,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762379"
 ---
 # <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Microsoft uygulamaları ve Hizmetleri için LinkedIn hesap bağlantıları
 Bu makalede, Azure Active Directory (Azure AD) Yönetim Merkezi'nden kiracınız için LinkedIn hesap bağlantıları yönetmek nasıl öğrenebilirsiniz. 

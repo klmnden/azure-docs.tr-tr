@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI Redis önbelleği örnekleri | Microsoft Docs"
-description: "Azure Redis önbelleği için Azure CLI örneklerini içerir."
+title: Azure CLI Redis önbelleği örnekleri | Microsoft Docs
+description: Azure Redis önbelleği için Azure CLI örneklerini içerir.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27909848"
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>Azure CLI örnekleri Azure Redis önbelleği
 

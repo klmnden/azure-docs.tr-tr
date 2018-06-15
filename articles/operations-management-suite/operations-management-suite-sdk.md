@@ -1,8 +1,8 @@
 ---
 title: Operations Management Suite (OMS) SDK | Microsoft Docs
-description: "Bu makalede, belgelere ve diğer kaynakları OMS Hizmetleri OMS ve Azure portalı dışında erişmek için kullanılabilir listelenmektedir.  Bu REST API çeşitli programlama arabirimleri ve PowerShell gibi komut dosyası motorları erişimden içerir"
+description: Bu makalede, belgelere ve diğer kaynakları OMS Hizmetleri OMS ve Azure portalı dışında erişmek için kullanılabilir listelenmektedir.  Bu REST API çeşitli programlama arabirimleri ve PowerShell gibi komut dosyası motorları erişimden içerir
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865627"
 ---
 # <a name="operations-management-suite-oms-sdk"></a>Operations Management Suite (OMS) SDK
 [Operations Management Suite (OMS)](operations-management-suite-overview.md) , yönetmek ve şirket içi korumak ve bulut altyapısı yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür.  Bu makalede, belgelere ve diğer kaynakları OMS Hizmetleri OMS ve Azure portalı dışında erişmek için kullanılabilir listelenmektedir.  Bu, çeşitli programlama arabirimleri ve PowerShell gibi komut dosyası motorları erişim için REST API içerir. 

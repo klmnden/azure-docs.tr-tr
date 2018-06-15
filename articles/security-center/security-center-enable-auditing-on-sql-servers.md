@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde SQL sunucularında denetim ve tehdit Algılama'yı etkinleştirmek | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** üzerinde SQL sunucuları ** denetimi etkinleştirme ve tehdit algılama."
+title: Azure Güvenlik Merkezi'nde SQL sunucularında denetim ve tehdit Algılama'yı etkinleştirmek | Microsoft Docs
+description: Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** üzerinde SQL sunucuları ** denetimi etkinleştirme ve tehdit algılama.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 042fca4d-7dab-4172-8614-e8c21ccb4960
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866411"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-servers-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde SQL sunucularında denetim ve tehdit algılama etkinleştir
 Azure Güvenlik Merkezi Denetim açıldıktan ve tehdit algılama denetim varsa, Azure SQL sunucularınızda tüm veritabanları için etkinleştirilmediyse önerir. Denetim ve tehdit algılama, yönetmeliklere uygunluğu korumanıza, veritabanı etkinliklerini anlamanıza ve ifade eden tutarsızlıklar ve anormallikleri, kavramanıza yardımcı olabilir iş endişeleri veya güvenlik ihlalleri şüpheli.

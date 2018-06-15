@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32194055"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesini değiştirme
 Uygulamalarınızı yaşam döngüsü boyunca değiştirmeniz veya sanal makine ölçek kümesi güncelleştirmeniz gerekebilir. Bu güncelleştirmeler ölçek kümesi yapılandırmasını güncelleştirmek veya uygulama yapılandırmasını değiştirmek nasıl içerebilir. Bu makalede, varolan bir ölçeği REST API'leri, Azure PowerShell veya Azure CLI 2.0 ayarla değiştirmek açıklar.

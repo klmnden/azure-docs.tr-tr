@@ -1,11 +1,11 @@
 ---
-title: "Pano, İzleyici, Ölçek, yapılandırmak ve karma bağlantılar BizTalk Services | Microsoft Docs"
-description: "Denetimleri hakkında bilgi edinin ve BizTalk Services için performans izleme"
+title: Pano, İzleyici, Ölçek, yapılandırmak ve karma bağlantılar BizTalk Services | Microsoft Docs
+description: Denetimleri hakkında bilgi edinin ve BizTalk Services için performans izleme
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 7a1815db-0de2-4274-8be0-198c1b077324
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103370"
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Pano, İzleme, Ölçeklendirme, Yapılandırma ve Karma Bağlantı sekmelerini inceleyin
 

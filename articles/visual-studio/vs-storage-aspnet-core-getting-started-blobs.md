@@ -1,11 +1,11 @@
 ---
-title: "Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET Core) | Microsoft Docs"
-description: "Nasıl başlayacağınızı Visual Studio'da ASP.NET Core projesinde Azure Blob storage kullanarak Visual Studio kullanarak bir depolama hesabına bağlandıktan sonra hizmetleri bağlı"
+title: Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET Core) | Microsoft Docs
+description: Nasıl başlayacağınızı Visual Studio'da ASP.NET Core projesinde Azure Blob storage kullanarak Visual Studio kullanarak bir depolama hesabına bağlandıktan sonra hizmetleri bağlı
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: camsoper
 manager: wpickett
-editor: 
+editor: ''
 ms.service: storage
 ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621232"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Azure Blob ile çalışmaya başlama depolama ve Visual Studio bağlı Hizmetleri (ASP.NET çekirdek)
 

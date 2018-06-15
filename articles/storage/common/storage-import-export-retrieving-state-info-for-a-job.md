@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma işi için durum bilgilerini alma | Microsoft Docs"
-description: "Microsoft Azure içeri/dışarı aktarma hizmeti işlerinin durumu bilgilerini elde öğrenin."
+title: Bir Azure içeri/dışarı aktarma işi için durum bilgilerini alma | Microsoft Docs
+description: Microsoft Azure içeri/dışarı aktarma hizmeti işlerinin durumu bilgilerini elde öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874013"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>İçeri/dışarı aktarma işi için durum bilgilerini alma
 Çağırabilirsiniz [alma işi](/rest/api/storageimportexport/jobs#Jobs_Get) her ikisi de hakkında bilgi almak için işlemi almak ve işleri dışarı aktarma. Döndürülen bilgileri içerir:

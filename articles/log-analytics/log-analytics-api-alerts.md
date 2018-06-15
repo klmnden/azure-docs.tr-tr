@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32178540"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Oluşturma ve uyarı kurallarında günlük analizi REST API ile yönetme
 Günlük analizi uyarı REST API, uyarıları Operations Management Suite (OMS) oluşturma ve yönetme olanak sağlar.  Bu makalede, farklı işlemler gerçekleştirmek için API ve çeşitli örnekler ayrıntıları sağlar.

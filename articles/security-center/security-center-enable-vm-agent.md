@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde VM Aracısı etkinleştirme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** etkinleştirmek VM Aracısı **."
+title: Azure Güvenlik Merkezi'nde VM Aracısı etkinleştirme | Microsoft Docs
+description: Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** etkinleştirmek VM Aracısı **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 5b431c25-4241-45b7-9556-cf2a1956f3da
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866313"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde VM aracısını etkinleştir
 Aşağıdakileri yapmak için sanal makineleri (VM'ler) üzerinde VM Aracısı yüklenmelidir [veri toplamayı etkinleştirmek](security-center-enable-data-collection.md).  Azure Güvenlik Merkezi, hangi VM'ler VM Aracısı gerektirir ve bu vm'lerde VM Aracısı etkinleştirmenizi öneririz görmenize olanak sağlar.

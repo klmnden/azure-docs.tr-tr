@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182664"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>Azure CLI kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
 Azure CLI 2.0’ı kullanarak ana bilgisayar adı ve bağlantı noktalarını almak için [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show) yöntemini, anahtarları almak için [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys) yöntemini çağırabilirsiniz. Aşağıdaki betik bu iki komutu çağırır ve ana bilgisayar, bağlantı noktaları ve anahtarları konsola yansıtır.

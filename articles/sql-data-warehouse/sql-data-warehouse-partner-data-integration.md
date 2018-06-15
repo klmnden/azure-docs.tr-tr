@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188523"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL veri ambarı veri tümleştirme ortakları
 Veri ambarı çözüm oluşturmak için çok çeşitli endüstri lideri araçları seçin. Bu makalede, Azure SQL Data Warehouse destekleyen veri tümleştirme çözümleri Microsoft iş ortağı şirketlerden vurgular.

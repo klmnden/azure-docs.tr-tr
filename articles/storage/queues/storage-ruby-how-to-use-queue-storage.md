@@ -1,6 +1,6 @@
 ---
 title: Ruby'den kuyruk depolama kullanma | Microsoft Docs
-description: "Oluşturmak ve Kuyruklar silmek için Azure Queue hizmetini kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Ruby içinde yazılmış örneklerini içerir."
+description: Oluşturmak ve Kuyruklar silmek için Azure Queue hizmetini kullanmayı öğrenin ve Ekle, Al ve iletilerini silin. Ruby içinde yazılmış örneklerini içerir.
 services: storage
 documentationcenter: ruby
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27993645"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Ruby’den Kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

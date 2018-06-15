@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155628"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Uygulama ve hizmet asıl nesneler Azure Active Directory'de (Azure AD)
 Bazen "uygulama" terimi anlamı Azure AD bağlamında kullanıldığında yanlış. Bu makalede Azure AD uygulama tümleştirmesi, kavramsal ve somut yönlerini kayıt bir çizimi ile açıklamak ve için onay hedefidir bir [çok kiracılı uygulama](active-directory-dev-glossary.md#multi-tenant-application).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33765294"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Azure Media Services ilkesinde önbelleğe alma Azure CDN yönetme
 Azure Media Services, Uyarlamalı akış ve aşamalı indirme HTTP tabanlı sağlar. Akışa göre HTTP proxy ve CDN katmanları önbelleğe alma yanı sıra istemci tarafı önbelleğe alma yararları ile yüksek düzeyde ölçeklenebilirdir. Akış uç noktaları genel akış özellikleri ve ayrıca HTTP önbellek üstbilgileri yapılandırmasını sağlar. Akış uç noktaları ayarlar HTTP Cache-Control: Maksimum yaş ve Expires üstbilgileri. Daha fazla bilgi için HTTP önbellek üstbilgileri almak [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).

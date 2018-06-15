@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23927722"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-jobs-for-the-storsimple-virtual-array"></a>StorSimple sanal dizi için işleri görüntülemek için StorSimple cihaz Yöneticisi hizmetini kullanma
 ## <a name="overview"></a>Genel Bakış

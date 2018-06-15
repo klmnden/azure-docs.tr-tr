@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9228b1e80c8c46780a24d33e13fcedbd8da63ac3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724739"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure işlevleri için olay kılavuz tetikleyici
 
@@ -33,17 +34,17 @@ Olay *işleyicileri* almak ve işlemek olaylar. Azure işlevleri biridir birkaç
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paketler
+## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Olay kılavuz tetikleyici içinde sağlanan [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet paketi. Paket için kaynak kodunu konusu [azure işlevleri eventgrid uzantı](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub depo.
-
-<!--
-If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
--->
+Olay kılavuz tetikleyici içinde sağlanan [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet paketi, sürüm 1.x. Paket için kaynak kodunu konusu [azure işlevleri eventgrid uzantı](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub depo.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
+
+Olay kılavuz tetikleyici içinde sağlanan [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet paketi, sürüm 2.x. Paket için kaynak kodunu konusu [azure işlevleri eventgrid uzantı](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub depo.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>Örnek
 
@@ -57,12 +58,12 @@ Bir HTTP tetikleyicisi örnek için bkz: [HTTP tetikleyicisini kullanma](#use-an
 
 ### <a name="c-example"></a>C# örnek
 
-Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) , bağlar `JObject`:
+Aşağıdaki örnek, bir işlev gösterir 1.x [C# işlevi](functions-dotnet-class-library.md) , bağlar `JObject`:
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -79,30 +80,26 @@ namespace Company.Function
 }
 ```
 
-<!--
-The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+Aşağıdaki örnek, bir işlev gösterir 2.x [C# işlevi](functions-dotnet-class-library.md) , bağlar `EventGridEvent`:
 
 ```cs
+using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
         {
-            log.Info("C# Event Grid function processed a request.");
-            log.Info($"Subject: {eventGridEvent.Subject}");
-            log.Info($"Time: {eventGridEvent.EventTime}");
-            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+            log.Info(eventGridEvent.Data.ToString());
         }
     }
 }
 ```
--->
 
 Daha fazla bilgi için bkz: [paketleri](#packages), [öznitelikleri](#attributes), [yapılandırma](#configuration), ve [kullanım](#usage).
 
@@ -125,7 +122,7 @@ Veri bağlama işte *function.json* dosyası:
 }
 ```
 
-İçin bağlayan bir C# kodu işte `JObject`:
+Bağlar işlevleri 1.x C# betik kodu işte `JObject`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -139,26 +136,17 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-<!--
-Here's C# script code that binds to `EventGridEvent`:
+Bağlar işlevleri 2.x C# betik kodu işte `EventGridEvent`:
 
 ```csharp
-#r "Newtonsoft.Json"
-#r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
 #r "Microsoft.Azure.EventGrid"
-
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-Using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    log.Info(eventGridEvent.Data.ToString());
 }
 ```
--->
 
 Daha fazla bilgi için bkz: [paketleri](#packages), [öznitelikleri](#attributes), [yapılandırma](#configuration), ve [kullanım](#usage).
 
@@ -221,11 +209,17 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 ## <a name="usage"></a>Kullanım
 
-C# ve F # işlevleri için aşağıdaki parametre türleri için olay kılavuz tetikleyici kullanabilirsiniz:
+C# ve F # işlevleri Azure için 1.x İşlevler, aşağıdaki parametre türleri için olay kılavuz tetikleyici kullanabilirsiniz:
 
 * `JObject`
 * `string`
-* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`-Ortak alanlar için özelliklerin tüm olay türleri için tanımlar. **Bu tür kullanım**, ancak değişimi için NuGet henüz yayımlanmadı.
+
+Azure işlevleri C# ve F # işlevleri için 2.x, ayrıca aşağıdaki parametre türü için olay kılavuz tetikleyici kullanmanız seçeneğiniz vardır:
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Ortak alanlar için özelliklerin tüm olay türleri için tanımlar.
+
+> [!NOTE]
+> Bağlanmaya çalışırsanız işlevleri v1 içinde `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, derleyici "kullanım dışı" iletisini görüntülemek ve kullanmanızı öneriyoruz `Microsoft.Azure.EventGrid.Models.EventGridEvent` yerine. Daha yeni türünü kullanmak için başvuru [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet paketini ve tam olarak nitelemek `EventGridEvent` ile önek ile tür adı `Microsoft.Azure.EventGrid.Models`. C# betik işlevi NuGet paketlerine başvuru hakkında daha fazla bilgi için bkz: [kullanarak NuGet paketleri](functions-reference-csharp.md#using-nuget-packages)
 
 JavaScript işlevleri için parametre adlı tarafından *function.json* `name` olay nesnesine başvuru özelliğine sahiptir.
 

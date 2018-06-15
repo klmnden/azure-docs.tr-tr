@@ -1,6 +1,6 @@
 ---
-title: "Öğretici: Şifrelemek ve Azure anahtar kasası kullanarak Azure Storage blobları şifresini | Microsoft Docs"
-description: "Şifrelemek ve şifresini çözmek için Azure anahtar kasası ile Microsoft Azure Storage istemci tarafı şifreleme kullanarak bir blob nasıl."
+title: 'Öğretici: Şifrelemek ve Azure anahtar kasası kullanarak Azure Storage blobları şifresini | Microsoft Docs'
+description: Şifrelemek ve şifresini çözmek için Azure anahtar kasası ile Microsoft Azure Storage istemci tarafı şifreleme kullanarak bir blob nasıl.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27815822"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Öğretici: Şifrelemek ve şifresini Azure anahtar kasası kullanılarak Microsoft Azure Storage blobları
 ## <a name="introduction"></a>Giriş
