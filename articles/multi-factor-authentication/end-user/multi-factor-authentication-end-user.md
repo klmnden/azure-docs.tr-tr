@@ -1,8 +1,8 @@
 ---
-title: "İki aşamalı doğrulama ile çalışmaya başlama | Microsoft Docs"
-description: "Bu, son kullanıcılarınızın Azure çok faktörlü kimlik doğrulamasıyla giderek alma ile yardımcı olacak Azure multi-Factor authentication sayfasıdır."
+title: İki aşamalı doğrulama ile çalışmaya başlama | Microsoft Docs
+description: Bu, son kullanıcılarınızın Azure çok faktörlü kimlik doğrulamasıyla giderek alma ile yardımcı olacak Azure multi-Factor authentication sayfasıdır.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28198114"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure çok faktörlü kimlik doğrulaması için beni anlamı nedir?
 Bu nedenle, kişilerden bir e-posta getirildiğini BT ya da bunlar hesabınıza ek güvenlik doğrulaması eklediğiniz belirten yöneticinizden.  Bu nedenle bu ne anlama geliyor?

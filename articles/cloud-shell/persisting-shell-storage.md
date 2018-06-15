@@ -1,12 +1,12 @@
 ---
-title: "Azure bulut Kabuk Bash'te için dosyaları kalıcı | Microsoft Docs"
-description: "Azure bulut Kabuk Bash'te dosyaları nasıl devam ederse gözden geçirme."
+title: Azure bulut Kabuk Bash'te için dosyaları kalıcı | Microsoft Docs
+description: Azure bulut Kabuk Bash'te dosyaları nasıl devam ederse gözden geçirme.
 services: azure
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919551"
 ---
 [!INCLUDE [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 

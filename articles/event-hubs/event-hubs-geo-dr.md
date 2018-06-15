@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs coğrafi olağanüstü durum kurtarma | Microsoft Docs"
-description: "Coğrafi bölgeler için yük devretme kullanın ve Azure Event Hubs olağanüstü durum kurtarma gerçekleştirmek nasıl"
+title: Azure Event Hubs coğrafi olağanüstü durum kurtarma | Microsoft Docs
+description: Coğrafi bölgeler için yük devretme kullanın ve Azure Event Hubs olağanüstü durum kurtarma gerçekleştirmek nasıl
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/16/2017
+ms.locfileid: "26745903"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs coğrafi olağanüstü durum kurtarma
 

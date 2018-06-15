@@ -1,8 +1,8 @@
 ---
-title: "Ansible Azure ile kullanmak için Araçlar"
-description: "Yükleme ve Azure ile Ansible için tek tek araçlarını kullanma"
+title: Ansible Azure ile kullanmak için Araçlar
+description: Yükleme ve Azure ile Ansible için tek tek araçlarını kullanma
 ms.service: ansible
-keywords: "ansible, azure, devops, Araçlar, vs Code'u, visual studio kod, uzantısı"
+keywords: ansible, azure, devops, Araçlar, vs Code'u, visual studio kod, uzantısı
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
@@ -13,6 +13,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28212053"
 ---
 # <a name="tools-for-using-ansible-with-azure"></a>Ansible Azure ile kullanmak için Araçlar
 

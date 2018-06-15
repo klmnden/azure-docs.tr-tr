@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201054"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Ölçer eşleme için ücretsiz hizmeti anlama
 

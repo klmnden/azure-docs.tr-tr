@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Azure Event Grid Belgeleri
 metadata:
-  title: "Azure Event Grid Belgeleri - Öğreticiler, API Başvurusu"
-  description: "Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın."
+  title: Azure Event Grid Belgeleri - Öğreticiler, API Başvurusu
+  description: Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın.
   services: event-grid
   author: czeumault
   manager: carolz
@@ -18,13 +18,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 02/01/2018
+  ms.locfileid: "28921778"
 abstract:
-  description: "Azure Event Grid; yayımla-abone ol modelini kullanan, tek düzen olay tüketimine izin veren, tam yönetimli ve akıllı bir olay yönlendirme hizmetidir. Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Event Grid’i kullanmayı öğrenin."
+  description: Azure Event Grid; yayımla-abone ol modelini kullanan, tek düzen olay tüketimine izin veren, tam yönetimli ve akıllı bir olay yönlendirme hizmetidir. Hem Azure hizmetlerinde hem de Azure dışı hizmetlerde gerçekleşen ilgili olaylara neredeyse gerçek zamanlı yanıt vermek için Azure Event Grid’i kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Event Grid’i kullanmayı öğrenin.
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Özel olay oluşturmayı ve özel olaylara abone olmayı öğrenin."
+    text: Özel olay oluşturmayı ve özel olaylara abone olmayı öğrenin.
   - type: list
     style: icon48
     items:
@@ -41,7 +42,7 @@ sections:
       text: Azure Portal
       href: /azure/event-grid/custom-event-quickstart-portal
   - type: paragraph
-    text: "Blob depolama olaylarını yönlendirmeyi öğrenin."
+    text: Blob depolama olaylarını yönlendirmeyi öğrenin.
   - type: list
     style: icon48
     items:
@@ -53,25 +54,25 @@ sections:
         src: /azure/event-grid/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fevent-grid%2ftoc.json
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Olaylara yanıt veren uygulamaları geliştirmeyi öğrenin."
+    text: Olaylara yanıt veren uygulamaları geliştirmeyi öğrenin.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\">Logic Apps ile sanal makinelerde yapılan değişiklikleri izleme</a>"
-    - html: "<a href=\"/azure/event-grid/resize-images-on-storage-blob-upload-event\">Karşıya yüklenen görüntüleri yeniden boyutlandırma</a>"
-    - html: "<a href=\"/azure/event-grid/ensure-tags-exists-on-new-virtual-machines\">Azure Otomasyonu’nu Event Grid ile tümleştirme</a>"
-- title: "Başvuru"
+    - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Logic Apps ile sanal makinelerde yapılan değişiklikleri izleme</a>
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Karşıya yüklenen görüntüleri yeniden boyutlandırma</a>
+    - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Azure Otomasyonu’nu Event Grid ile tümleştirme</a>
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/cli/azure/eventgrid">Azure CLI</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
     - title: REST API'leri
       html: <p><a href="/rest/api/eventgrid">REST</a></p>
-    - title: "Şemalar"
-      html: "<p><a href=\"/azure/event-grid/subscription-creation-schema \">Abonelik Şeması</a></p><p><a href=\"/azure/event-grid/event-schema\">Olay Şeması</a></p>"
+    - title: Şemalar
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Abonelik Şeması</a></p><p><a href="/azure/event-grid/event-schema">Olay Şeması</a></p>

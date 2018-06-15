@@ -1,11 +1,11 @@
 ---
-title: "Kullanmaya başlama Azure geçiş WCF geçişleri .NET ile | Microsoft Docs"
-description: "Azure geçiş WCF geçişler farklı konumlarda barındırılan iki uygulamalara bağlanmak için nasıl kullanılacağını öğrenin."
+title: Kullanmaya başlama Azure geçiş WCF geçişleri .NET ile | Microsoft Docs
+description: Azure geçiş WCF geçişler farklı konumlarda barındırılan iki uygulamalara bağlanmak için nasıl kullanılacağını öğrenin.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5493281a-c2e5-49f2-87ee-9d3ffb782c75
 ms.service: service-bus-relay
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26856091"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Geçişleri .NET ile Azure geçiş WCF kullanma
 Bu makalede, Azure geçişi hizmetini kullanmayı açıklar. Bu örnekler, C# dilinde yazılmıştır ve Service Bus derlemesinde bulundurulan uzantıları içeren Windows Communication Foundation (WCF) API'sini kullanır. Azure geçişi hakkında daha fazla bilgi için bkz: [Azure geçişine genel bakış](relay-what-is-it.md).

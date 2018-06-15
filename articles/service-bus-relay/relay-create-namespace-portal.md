@@ -1,11 +1,11 @@
 ---
-title: "Azure portalını kullanarak Geçiş ad alanı oluşturma | Microsoft Belgeleri"
-description: "Azure portalı kullanılarak Geçiş ad alanı oluşturma."
+title: Azure portalını kullanarak Geçiş ad alanı oluşturma | Microsoft Belgeleri
+description: Azure portalı kullanılarak Geçiş ad alanı oluşturma.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ab6753-877a-4426-92ec-a81675d62a57
 ms.service: service-bus-relay
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159900"
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Azure portalı kullanılarak Geçiş ad alanı oluşturma
 

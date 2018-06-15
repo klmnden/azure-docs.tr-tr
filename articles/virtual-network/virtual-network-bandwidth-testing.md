@@ -1,12 +1,12 @@
 ---
-title: "Test Azure VM ağ verimliliği | Microsoft Docs"
-description: "Azure sanal makine ağ verimliliği test öğrenin."
+title: Test Azure VM ağ verimliliği | Microsoft Docs
+description: Azure sanal makine ağ verimliliği test öğrenin.
 services: virtual-network
 documentationcenter: na
 author: steveesp
 manager: Gerald DeGrace
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200988"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>Bant genişliği/işleme (NTTTCP) test etme
 

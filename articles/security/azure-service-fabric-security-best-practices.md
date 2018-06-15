@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894138"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Azure Service Fabric en iyi güvenlik uygulamaları
 Hızlı, kolay ve düşük maliyetli, Azure'da bir uygulamayı dağıtma. Bulut uygulamanızı üretime dağıtmadan önce uygulamanızda güvenli küme uygulamak için önemli ve önerilen en iyi yöntemler bizim listesini gözden geçirin.

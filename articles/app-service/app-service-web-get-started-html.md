@@ -1,11 +1,11 @@
 ---
-title: "Azure'da statik HTML web uygulaması oluşturma | Microsoft Docs"
-description: "Statik bir HTML örnek uygulaması dağıtarak Azure App Service'te web uygulaması çalıştırmayı öğrenin."
+title: Azure'da statik HTML web uygulaması oluşturma | Microsoft Docs
+description: Statik bir HTML örnek uygulaması dağıtarak Azure App Service'te web uygulaması çalıştırmayı öğrenin.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
 ms.workload: web
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28918786"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure'da statik bir HTML web uygulaması oluşturma
 

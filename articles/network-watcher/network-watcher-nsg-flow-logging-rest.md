@@ -1,11 +1,11 @@
 ---
-title: "Ağ güvenlik grubunu yönetme akış günlükleri Azure Ağ İzleyicisi - REST API ile | Microsoft Docs"
-description: "Bu sayfa, Azure Ağ İzleyicisi REST API ile ağ güvenlik grubu akış günlüklerine yönetmek açıklanmaktadır"
+title: Ağ güvenlik grubunu yönetme akış günlükleri Azure Ağ İzleyicisi - REST API ile | Microsoft Docs
+description: Bu sayfa, Azure Ağ İzleyicisi REST API ile ağ güvenlik grubu akış günlüklerine yönetmek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774380"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>REST API kullanarak ağ güvenlik grubu yapılandırma akış günlükleri
 

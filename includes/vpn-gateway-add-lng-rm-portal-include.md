@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196939"
 ---
 1. Portalda **Tüm kaynaklar** menüsündeki **+Ekle**’ye tıklayın.
 2. İçinde **her şeyi** sayfa arama kutusuna **yerel ağ geçidi**, sonra kaynakların bir listesini döndürmek için tıklatın. **Yerel ağ geçidi**’ne tıklayarak sayfayı açın, ardından **Oluştur**’a tıklayarak **Yerel ağ geçidi oluştur** sayfasını açın.

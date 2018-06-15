@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Bölge kullanılabilirliği & veri residency | Microsoft Docs'
-description: Bir konu Azure Active Directory B2C kiracılar türleri hakkında
+title: Azure Active Directory B2C bölge kullanılabilirliği & veri residency | Microsoft Docs
+description: Azure Active Directory B2C kiracılar türlerinde konu.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: davidmu
-ms.openlocfilehash: b982a6b6e0068370ef7b5cb30ea689829e90d494
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: add7c49d8efaec0fddf057c454b4f01aec5df1ce
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709606"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Bölge kullanılabilirliği & veri residency
 Bölge kullanılabilirliği ve veri residency Azure geri kalanından farklı Azure AD B2C'ye uygulamak iki çok farklı kavram olmasıdır. Bu makalede, bu iki kavram arasındaki farkları açıklamaktadır ve nasıl Azure Azure AD B2C ile uygulandıkları karşılaştırın.

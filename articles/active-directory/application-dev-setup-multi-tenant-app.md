@@ -1,11 +1,11 @@
 ---
-title: "Yeni bir çok kiracılı uygulamasının nasıl yapılandırılacağını | Microsoft Docs"
-description: "Çok kiracılı ve nasıl çok kiracılı uygulamaların çalıştığı gibi bir uygulama yapılandırmayı öğrenin"
+title: Yeni bir çok kiracılı uygulamasının nasıl yapılandırılacağını | Microsoft Docs
+description: Çok kiracılı ve nasıl çok kiracılı uygulamaların çalıştığı gibi bir uygulama yapılandırmayı öğrenin
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614810"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Yeni bir çok kiracılı uygulama yapılandırma
 

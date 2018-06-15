@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "28979216"
 ---
 # <a name="service-bus-quotas"></a>Hizmet Veri Yolu kotaları
 Bu bölümde temel kotalar ve azaltma eşikleri Azure Service Bus Mesajlaşma içinde listelenir.

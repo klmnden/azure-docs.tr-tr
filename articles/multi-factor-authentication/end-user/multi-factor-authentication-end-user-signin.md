@@ -1,9 +1,9 @@
 ---
-title: "Azure MFA ile oturum açma iki aşamalı doğrulama | Microsoft Docs"
-description: "Bu sayfa, oturum açma Azure MFA ile kullanılabilen yöntemleri görmek için yapılması gerekenler hakkında kılavuzluk sağlar."
-keywords: "Kullanıcı kimlik doğrulaması, oturum açma deneyimi, cep telefonu ile oturum aç ofis telefonu ile oturum açma"
+title: Azure MFA ile oturum açma iki aşamalı doğrulama | Microsoft Docs
+description: Bu sayfa, oturum açma Azure MFA ile kullanılabilen yöntemleri görmek için yapılması gerekenler hakkında kılavuzluk sağlar.
+keywords: Kullanıcı kimlik doğrulaması, oturum açma deneyimi, cep telefonu ile oturum aç ofis telefonu ile oturum açma
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26628421"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure multi-Factor Authentication ile oturum açma deneyimi
 > [!NOTE]

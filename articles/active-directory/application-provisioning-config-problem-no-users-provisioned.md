@@ -1,11 +1,11 @@
 ---
-title: "Azure AD galeri uygulamaya hiçbir kullanıcı sağlanan | Microsoft Docs"
-description: "Sık rastlanan sorunları giderme konusunda karşılaştığı görüntülenmesini kullanıcılar görmüyorsanız, Azure AD bir kullanıcı Azure AD ile sağlamak için yapılandırdığınız uygulama Galerisi"
+title: Azure AD galeri uygulamaya hiçbir kullanıcı sağlanan | Microsoft Docs
+description: Sık rastlanan sorunları giderme konusunda karşılaştığı görüntülenmesini kullanıcılar görmüyorsanız, Azure AD bir kullanıcı Azure AD ile sağlamak için yapılandırdığınız uygulama Galerisi
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26616300"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulamaya hiçbir kullanıcı sağlandı
 

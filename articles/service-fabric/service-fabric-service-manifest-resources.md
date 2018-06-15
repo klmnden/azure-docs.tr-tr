@@ -14,17 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701451"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Bir hizmet bildiriminde kaynakları belirtme
-## <a name="overview"></a>Genel bakış
+## <a name="overview"></a>Genel Bakış
 Hizmet bildirimi derlenmiş kod değiştirmeden bildirilen ve değiştirilen için hizmet tarafından kullanılan kaynakları sağlar. Azure Service Fabric hizmeti için uç nokta kaynakların yapılandırmasını destekler. Hizmet bildiriminde belirtilen kaynaklara erişimi, güvenlik grubuna uygulama bildiriminde aracılığıyla denetlenebilir. Kaynakları bildirimi dağıtım sırasında hizmet yeni bir yapılandırma mekanizması tanıtmak gerekmez anlamı değiştirilmesi bu kaynakları sağlar. Şema tanımı ServiceManifest.xml dosyası için Service Fabric SDK'sı ile yüklenir ve araçların *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
-## <a name="endpoints"></a>Uç nokta
+## <a name="endpoints"></a>Uç Noktalar
 Bir uç nokta kaynağının hizmet bildiriminde tanımlandığında, Service Fabric bir bağlantı noktası açıkça belirtilmediğinde ayrılmış uygulama bağlantı noktası aralığından bağlantı noktaları atar. Örneğin, uç noktada arayın *ServiceEndpoint1* sonra bu paragraf sağlanan bildirim parçacığı belirtildi. Ayrıca, hizmetleri da belirli bir bağlantı noktasını bir kaynak isteğinde bulunabilirsiniz. Çoğaltmaları aynı düğüm üzerinde çalışan bir hizmet bağlantı noktasını paylaşmak sırada hizmet çoğaltmaları farklı küme düğümleri üzerinde çalışan farklı bağlantı noktası numaraları atanabilir. Hizmet çoğaltmaları ardından bu bağlantı noktalarını gerektiği için çoğaltma ve istemci isteklerini dinlemeye kullanabilirsiniz.
 
 ```xml
@@ -105,7 +106,10 @@ HTTPS protokolünü sunucu kimlik doğrulaması sağlar ve ayrıca istemci-sunuc
 > [!NOTE]
 > Bir hizmetin Protokolü uygulama yükseltme sırasında değiştirilemez. Yükseltme sırasında değiştirilir, önemli bir değişiklik olur.
 > 
-> 
+
+> [!WARNING] 
+> HTTPS kullanırken, aynı bağlantı noktası ve aynı düğümde dağıtılan sertifika farklı hizmet örnekleri (uygulamasının bağımsız olarak) için kullanmayın. Farklı uygulama durumlarda aynı bağlantı noktasını kullanan iki farklı hizmet yükseltme bir yükseltme hatasına neden olur. Daha fazla bilgi için bkz: [HTTPS uç noktaları birden çok uygulama yükseltme ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
+>
 
 HTTPS için ayarlamanız gerekir ApplicationManifest örnek aşağıda verilmiştir. Sertifikanızın parmak izini sağlanmalıdır. EndpointRef ServiceManifest, HTTPS protokolünü ayarlamak EndpointResource başvurudur. Birden fazla EndpointCertificate ekleyebilirsiniz.  
 
@@ -154,11 +158,11 @@ Linux kümeleri için **MY** Varsayılanları klasöre depolamak **/var/lib/sfce
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>ServiceManifest.xml uç noktalarını geçersiz kılma
 
-ApplicationManifest içinde eşdüzey ConfigOverrides bölümüne olacağı bir ResourceOverrides bölümü ekleyin. Bu bölümde, hizmet bildiriminde belirtilen kaynaklar bölümünde uç noktalar bölümü için geçersiz kılma belirtebilirsiniz. Uç noktaları geçersiz kılma çalışma zamanında desteklenir 5.7.217/SDK 2.7.217 ve daha yüksek.
+ApplicationManifest içinde eşdüzey ConfigOverrides bölümüne olacak bir ResourceOverrides bölümü ekleyin. Bu bölümde, hizmet bildiriminde belirtilen kaynaklar bölümünde uç noktalar bölümü için geçersiz kılma belirtebilirsiniz. Uç noktaları geçersiz kılma çalışma zamanında desteklenir 5.7.217/SDK 2.7.217 ve daha yüksek.
 
 Aşağıdaki gibi ApplicationParameters değişikliği ApplicationManifest kullanılarak ServiceManifest uç geçersiz kılmak için:
 
-Yeni bir bölüm "ResourceOverrides" ServiceManifestImport bölümüne ekleyin
+ServiceManifestImport bölümünde "ResourceOverrides" yeni bir bölüm ekleyin.
 
 ```xml
 <ServiceManifestImport>
@@ -188,7 +192,7 @@ Aşağıda parametreleri ekleyin:
   </Parameters>
 ```
 
-Uygulamayı şimdi dağıtırken bu değerleri ApplicationParameters örneğin geçirebilirsiniz:
+Uygulama dağıtırken bu değerleri ApplicationParameters geçirebilirsiniz.  Örneğin:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}

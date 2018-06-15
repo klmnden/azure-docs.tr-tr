@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30196824"
 ---
 Geçerli için SKU'ları (VpnGw1, VpnGw2 ve VPNGW3), ağ geçidi daha güçlü bir yükseltmek için SKU yeniden boyutlandırmak istediğiniz kullanabileceğiniz `Resize-AzureRmVirtualNetworkGateway` PowerShell cmdlet'i. Ayrıca ağ geçidi Bu cmdlet'i kullanarak SKU boyutunu düşürmek. Temel ağ geçidi SKU'su, kullanıyorsanız [bu yönergeleri kullanmanız](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md#resize) ağ geçidiniz yeniden boyutlandırmak için.
 

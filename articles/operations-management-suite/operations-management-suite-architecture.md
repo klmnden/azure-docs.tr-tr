@@ -1,8 +1,8 @@
 ---
 title: Operations Management Suite (OMS) mimarisi | Microsoft Belgeleri
-description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür.  Bu makalede, OMS'de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
+description: Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür.  Bu makalede, OMS'de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26683274"
 ---
 # <a name="oms-architecture"></a>OMS mimarisi
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/), şirket içi ve bulut ortamlarınızın yönetilmesine yönelik bulut tabanlı hizmetler koleksiyonudur.  Bu makalede, OMS'nin farklı şirket içi ve bulut bileşenlerinin yanı sıra bunların üst düzey bulut bilgi işlem mimarisi açıklanmaktadır.  Ayrıntılı bilgi için her bir hizmete ilişkin belgelere göz atabilirsiniz.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203978"
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>Azure fatura dış servis ücretleri anlamak
 Dış hizmetler Azure markette üçüncü taraf yazılım satıcıları tarafından yayımlanır. Örneğin, ClearDB ve SendGrid Azure'da satın alabilir, ancak Microsoft tarafından yayımlanmayan dış hizmetleridir.

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33868084"
 abstract:
   description: Azure İşlevleri, açıkça sağlamak veya altyapıyı yönetmek zorunda kalmadan, isteğe bağlı olarak kod çalıştırmanıza olanak sağlayan bir <a href="https://azure.microsoft.com/overview/serverless-computing/">sunucusuz</a> işlem hizmetidir. Çok çeşitli olaylara yanıt olarak bir komut dosyası veya kod parçası çalıştırmak için Azure İşlevleri’ni kullanın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure İşlevleri’ni kullanmayı öğrenin.
   aside:

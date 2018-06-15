@@ -17,9 +17,10 @@ ms.author: magoedte
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 47f912932f9a0e1383ef5f82d1d3e33b5ababa9c
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33886323"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>SQL ortamınızı günlük analizi SQL Server sistem durumu denetimi çözümde ile en iyi duruma getirme
 
