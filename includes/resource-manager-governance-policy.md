@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: c04514218c7ed8dfd72b94345d2deb88e663fda1
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529981"
 ---
 [Azure ilkeleri](/azure/azure-policy/) emin olmanız tüm kaynakları abonelikte Yardım Kurumsal standartları karşılamak. Yalnızca bu kaynak türleri ve onaylanan SKU'ları için dağıtım seçenekleri kısıtlayarak, maliyetleri azaltmak için ilkeleri kullanın. Kaynaklarınız için kurallar ve Eylemler tanımlayabilir ve bu kurallar, dağıtım sırasında otomatik olarak uygulanır. Örneğin, dağıtılan kaynak türleri kontrol edebilirsiniz. Veya, kaynaklar için onaylanan konumları kısıtlayabilirsiniz. Bazı ilkeler bir eylem Reddet ve eylem denetim bazı ilkeler ayarlama.
 

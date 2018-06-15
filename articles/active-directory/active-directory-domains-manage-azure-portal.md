@@ -15,9 +15,10 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.openlocfilehash: 81c2371d5dbb17399071c80ff4e8b81813ed014c
 ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762403"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Azure Active Directory'de özel etki alanı adlarını yönetme
 Bir etki alanı adı tanımlayıcının birçok dizin kaynaklar için önemli bir parçasıdır: kullanıcı, bir grup adresi parçası için bir kullanıcı adı veya e-posta adresi bir parçasıdır ve bir uygulama için uygulama kimliği URI'SİNİN parçası olabilir. Azure Active Directory'de (Azure AD) bir kaynak, kaynak içeren dizine ait olarak zaten doğrulanmış bir etki alanı adı ekleyebilirsiniz. Yalnızca genel yönetici Azure AD etki alanı yönetimi görevlerini gerçekleştirebilir.

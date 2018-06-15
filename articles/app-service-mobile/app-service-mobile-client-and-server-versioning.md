@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "27593383"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobil uygulamaları ve Mobile Services istemci ve sunucu sürüm oluşturma
 Azure Mobile Services en son sürümü **Mobile Apps** Azure uygulama hizmeti özelliğidir.
