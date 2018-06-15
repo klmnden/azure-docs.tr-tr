@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895655"
 ---
 # <a name="physical-access-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için fiziksel erişimi gereksinimleri 
 ## <a name="pci-dss-requirement-9"></a>PCI DSS gereksinim 9

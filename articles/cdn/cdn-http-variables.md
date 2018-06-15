@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011467"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için HTTP değişkenleri
 HTTP değişkenleri HTTP istek ve yanıt meta verileri alabilir olanağı sağlar. Bu meta veriler daha sonra bir istek veya yanıt dinamik olarak değiştirmek için kullanılabilir. HTTP değişkenlerin kullanımını aşağıdaki kurallar altyapısı özellikleri sınırlıdır:

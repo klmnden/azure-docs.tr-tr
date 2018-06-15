@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri desteklenen dilleri"
-description: "Hangi dilleri desteklenir (GA) ve Deneysel veya önizlemede olan öğrenin."
+title: Azure işlevleri desteklenen dilleri
+description: Hangi dilleri desteklenir (GA) ve Deneysel veya önizlemede olan öğrenin.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.service: functions
 ms.devlang: dotnet
 ms.topic: reference
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/17/2017
+ms.locfileid: "24879443"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure işlevleri desteklenen dilleri
 

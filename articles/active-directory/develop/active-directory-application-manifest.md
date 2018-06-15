@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157084"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory Uygulama bildirimini
 Azure AD ile tümleştirmek uygulamaları Azure AD kiracısı ile kayıtlı olması gerekir. Bu uygulama, uygulama bildirimi (altında Azure AD dikey) kullanılarak yapılandırılabilir [Azure portal](https://portal.azure.com).

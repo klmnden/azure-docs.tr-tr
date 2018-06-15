@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik genel bakış | Microsoft Docs"
-description: "Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir."
+title: Azure güvenlik genel bakış | Microsoft Docs
+description: Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25542155"
 ---
 # <a name="azure-security-overview"></a>Azure güvenliğine genel bakış
 Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir. Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156883"
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD grafik API'si için hızlı başlangıç
 Azure Active Directory (AD) grafik API'si Azure AD OData REST API uç noktaları yoluyla programlı erişim sağlar. Uygulamaları gerçekleştirmek için Azure AD grafik API'si kullanabilir oluşturma, okuma, güncelleştirme ve (CRUD) işlemleridir dizin verileri ve nesneleri silme. Örneğin, yeni bir kullanıcı oluşturmak, görüntülemek veya kullanıcının özelliklerini güncelleştirmek, kullanıcı parolasını değiştirmeniz, rol tabanlı erişim, Grup üyeliğini denetlemek için Azure AD Graph API kullanabilirsiniz devre dışı bırakın ya da kullanıcıyı silin. Azure AD Graph API özellikler ve uygulama senaryoları hakkında daha fazla bilgi için bkz: [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) ve [Azure AD Graph API Önkoşullar](https://msdn.microsoft.com/library/hh974476.aspx). 

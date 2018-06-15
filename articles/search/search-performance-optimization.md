@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31797778"
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure arama performans ve en iyi duruma getirme konuları
 Harika arama deneyimi, birçok mobil için başarı ve web uygulamaları için bir anahtardır. Gayrimenkul araba Pazar çevrimiçi katalog için kullanılan için hızlı arama ve ilgili sonuçlar müşteri deneyimini etkiler. Bu belge, ölçeklenebilirlik, karmaşık gereksinimlerine Gelişmiş senaryolar için özellikle Azure Search dışında en çok dilli alma için en iyi uygulamaları destekleyen Bul Yardım veya özel bir derecelendirme yöneliktir.  Ayrıca, bu belgede iç Ayrıntılar özetlemektedir ve gerçek müşteri uygulamalarında etkili yaklaşımlar kapsar.

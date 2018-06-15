@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792656"
 ---
 # <a name="move-a-vm-classic-or-cloud-services-role-instance-to-a-different-subnet-using-powershell"></a>PowerShell kullanarak farklı bir alt ağa bir VM (Klasik) veya Bulut Hizmetleri rol örneğini taşıma
 Vm'leriniz (Klasik) bir alt ağdan başka bir programda aynı sanal ağ (VNet) taşımak için PowerShell kullanın. Rol örnekleri CSCFG dosyası düzenleme yerine PowerShell kullanarak taşınabilir.

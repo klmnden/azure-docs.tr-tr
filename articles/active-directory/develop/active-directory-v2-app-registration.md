@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157852"
 ---
 # <a name="how-to-register-an-app-with-the-v20-endpoint"></a>Bir uygulamanın v2.0 uç noktası ile kaydetme
 Hem kişisel Microsoft hesabı (MSA) & iş kabul eden bir uygulama oluşturmak veya Okul hesabı (Azure AD) oturum açma için önce bir uygulama Microsoft ile kaydetmeniz gerekir. Şu anda, Azure AD ile olabilecek mevcut uygulamalardan kullanmanız mümkün olmayacaktır veya MSA - yepyeni bir tane oluşturmanız gerekir.
