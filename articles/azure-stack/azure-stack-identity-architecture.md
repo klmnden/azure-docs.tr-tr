@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257497"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure yığın kimliği mimarisi
 Azure yığın ile kullanmak için bir kimlik sağlayıcısı seçmeden önce Active Directory Federasyon Hizmetleri (AD FS) ile Azure Active Directory (Azure AD) seçenekleri arasındaki önemli farklılıkları anlayın. 

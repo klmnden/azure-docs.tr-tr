@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212424"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Windows tek başına kümede X.509 sertifikaları kullanarak güvenli hale getirme
 Bu makalede, tek başına Windows kümenizi çeşitli düğümleri arasındaki iletişimin güvenliğini sağlamak açıklar. Ayrıca, bu kümeye X.509 sertifikalarını kullanarak bağlanan istemcilerin kimliğini doğrulamak nasıl açıklanır. Kimlik doğrulaması, yalnızca yetkili kullanıcılar küme ve dağıtılan uygulamalar erişim ve yönetim görevlerini gerçekleştirme sağlar. Küme oluşturulduğunda sertifika güvenliği kümede etkinleştirilmelidir.  

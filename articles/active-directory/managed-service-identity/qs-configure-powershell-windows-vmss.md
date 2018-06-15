@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 42fabb9a2ad05dbd6a449f3f9e6a729917750165
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700017"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Bir VMSS yönetilen hizmet kimliği (PowerShell kullanarak MSI) yapılandırma
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/10/2018
 
 Yönetilen hizmet kimliği Azure Active Directory'de otomatik olarak yönetilen bir kimlikle Azure hizmetleri sağlar. Bu kimlik, Azure AD kimlik doğrulaması, kimlik bilgileri, kodunuzda gerek kalmadan destekleyen herhangi bir hizmeti için kimlik doğrulaması yapmak için kullanabilirsiniz. 
 
-Bu makalede, aşağıdaki yönetilen hizmet kimliği üzerinde bir Azure sanal makine ölçek kümesi (PowerShell kullanarak VMSS), işlemleri öğrenin:
+Bu makalede, yönetilen hizmet kimliği üzerinde bir sanal makine ölçek kümesi (PowerShell kullanarak VMSS), işlemleri öğrenin:
 - Etkinleştirme ve bir Azure VMSS kimliğini atanan sistem devre dışı
 - Ekleme ve bir Azure VMSS kimliğini atanmış bir kullanıcı kaldırma
 
@@ -121,8 +122,7 @@ Bir kullanıcı atamak için var olan bir Azure VMSS kimliği atanır:
 
 2. İlk kullanarak VM özelliklerini almak `Get-AzureRmVM` cmdlet'i. Atanan kullanıcı kimliğini Azure VMSS atamak için kullan `-IdentityType` ve `-IdentityID` anahtarının [güncelleştirme-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet'i. Değiştir `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` kendi değerlere sahip.
 
-   > [!IMPORTANT]
-   > Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208293"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Service Fabric kümesi yönetimi ile Küme Kaynak Yöneticisi tümleştirme
 Service Fabric kümesi Kaynak Yöneticisi Service Fabric yükseltmelerinin sürücü değil, ancak söz konusu. Küme Resource Manager ile yönetimi yardımcı olan ilk istenen durumu kümeyi ve hizmetlerin içindeki izleme tarafından yoludur. Küme Kaynak Yöneticisi'ni, küme istenen yapılandırma yerleştirin sistem durumu raporlarını gönderir. Örneğin, yeterli kapasitesi varsa küme Resource Manager sistem durumu uyarıları ve hataları sorunu belirten gönderir. Başka bir parçasını tümleştirme yükseltme nasıl çalışır ile ilgilidir. Küme Kaynak Yöneticisi'ni davranışını biraz yükseltmeler sırasında değiştirir.  

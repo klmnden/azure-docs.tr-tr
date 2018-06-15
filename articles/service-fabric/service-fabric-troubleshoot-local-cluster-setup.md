@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212026"
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>Yerel geliştirme Küme kurulumu sorunlarını giderme
 Yerel Azure Service Fabric geliştirme kümenizle etkileşim sırasında bir sorun çalıştırırsanız, olası çözümler için aşağıdaki önerileri gözden geçirin.

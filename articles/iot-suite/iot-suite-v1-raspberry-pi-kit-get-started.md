@@ -1,12 +1,12 @@
 ---
-title: "Azure IOT paketi Böğürtlenli Pi bağlanma | Microsoft Docs"
-description: "Öğreticiler Raspberry Pi 3 ve IOT paketi Uzaktan izleme çözümü için Microsoft Azure IOT Starter Kit kullanmayı öğrenmenize yardımcı olmak için node.js veya C kullanma. Telemetri, benzetim veya gerçek algılayıcılar kullanan ya da uzak Bellenim güncelleştirmeleri sağlayan bir öğretici seçebilirsiniz."
-services: 
+title: Azure IOT paketi Böğürtlenli Pi bağlanma | Microsoft Docs
+description: Öğreticiler Raspberry Pi 3 ve IOT paketi Uzaktan izleme çözümü için Microsoft Azure IOT Starter Kit kullanmayı öğrenmenize yardımcı olmak için node.js veya C kullanma. Telemetri, benzetim veya gerçek algılayıcılar kullanan ya da uzak Bellenim güncelleştirmeleri sağlayan bir öğretici seçebilirsiniz.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24011794"
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>Microsoft Azure IOT Raspberry Pi 3 Starter Kit Uzaktan izleme çözümüne bağlama
 

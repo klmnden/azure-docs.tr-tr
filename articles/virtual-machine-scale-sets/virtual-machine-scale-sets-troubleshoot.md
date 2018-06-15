@@ -20,6 +20,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161031"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri ile sorun giderme otomatik ölçeklendirme
 **Sorun** – sanal makine ölçekleme kümeleri kullanarak Azure Resource Manager ile bir otomatik ölçeklendirmeyi altyapı oluşturduğunuz – bunun gibi bir şablon dağıtarak örneğin: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – ölçek kurallarınızı tanımlanmış olması ve büyük, Hayır dışında çalışır sanal makinelerin put ne kadar yük önemli, otomatik ölçeklendirme değil.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207019"
 ---
 # <a name="reliable-services-notifications"></a>Güvenilir hizmetler bildirimleri
 Bildirimleri ilginizi bir nesneye yapılan değişiklikleri izlemek istemcilerinin izin verir. İki nesne türünün destek bildirimleri: *güvenilir durum Yöneticisi* ve *güvenilir sözlük*.

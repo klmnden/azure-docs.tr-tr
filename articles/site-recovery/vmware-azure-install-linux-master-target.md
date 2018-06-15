@@ -9,11 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802519"
 ---
 # <a name="install-a-linux-master-target-server"></a>Bir Linux ana hedef sunucu yükle
 Azure sanal makineleriniz başarısız olduktan sonra sanal makineler şirket içi siteye geri başarısız olabilir. Yeniden çalışmak için Azure sanal makineden şirket içi siteye koruyun gerekir. Bu işlem için trafiği almak için bir şirket içi ana hedef sunucusu gerekir. 
@@ -242,7 +243,7 @@ Saklama diskinin oluşturmak için aşağıdaki adımları kullanın:
 
 2. Kullanım **çok yollu -üm** saklama diskinin çok yollu kimliği öğrenmek için komutu: **çok yollu -üm**
 
-    ![Çok yollu kimliği](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![Çok yollu kimliği](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Sürücüyü biçimlendirmek ve ardından yeni sürücüsünde bir dosya sistemi oluşturun: **mkfs.ext4 /dev/Eşleyici/< bekletme diskin çok yollu kimliği >**.
     

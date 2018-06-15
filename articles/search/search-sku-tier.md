@@ -14,6 +14,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34266889"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Arama'ya ilişkin bir fiyatlandırma katmanı seçin
 

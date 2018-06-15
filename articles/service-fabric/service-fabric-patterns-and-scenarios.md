@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206149"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric modelleri ve senaryoları
 Azure Service Fabric kullanarak büyük ölçekli mikro derlemeye arıyorsanız, kimin tasarlanmış ve bu platform (PaaS) hizmet olarak yerleşik uzmanlarından öğrenin. Uygun mimarisi ile başlayın ve uygulamanız için kaynakları en iyi duruma getirme hakkında bilgi edinin. [Service Fabric desenleri ve uygulamalar](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) indirmelere gerçek müşteriler tarafından Service Fabric senaryoları ve uygulama alanları hakkında sık sorulan sorular yanıtlanmaktadır.

@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427166"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>İş sürekliliği Microsoft Genomics ile genel bakış
 Bu genel bakışta, iş devamlılığı ve olağanüstü durum kurtarma için Microsoft Genomics sağlayan özellikleri açıklanmaktadır. Veri kaybına neden olabilecek bir Azure bölgesi kesinti gibi kesintiye uğratan olaylardan kurtarma seçenekleri hakkında bilgi edinin. 

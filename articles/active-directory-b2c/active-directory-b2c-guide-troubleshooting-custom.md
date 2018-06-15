@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: özel ilke sorunlarını giderme | Microsoft Docs'
-description: Azure Active Directory'de özel ilkelerle çalışırken hataları çözmek yaklaşımlar hakkında bilgi edinin.
+title: Azure Active Directory B2C içinde özel ilke sorunlarını giderme | Microsoft Docs
+description: Azure Active Directory B2C özel ilkelerle çalışırken hataları çözmek yaklaşımlar hakkında bilgi edinin.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 22e7bc7bd275769f78ac2e482cb1af11e9404222
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709623"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C özel ilkeleri ve kimlik deneyimi Framework sorun giderme
 
@@ -57,7 +57,7 @@ Hata parçacığını: `Reason: User is currently logged as a user of 'yourtenan
 
 * Kullanım `Run Now` ve `https://jwt.io` ilkelerinizi bağımsız olarak, web veya mobil uygulamanızı test etmek için. Bu Web sitesine bir bağlı olan taraf uygulaması gibi davranır. İçeriği, JSON Web Token (Azure AD B2C İlkesi tarafından oluşturulan JWT) görüntüler. Kimlik deneyimi Framework bir test uygulaması oluşturmak için aşağıdaki değerleri kullanın:
     * Ad: TestApp
-    * Web App/Web API: No
+    * Web uygulaması/Web API: Hayır
     * Yerel istemci: Hayır
 
 * İstemci tarayıcısına ve Azure AD B2C arasında ileti alışverişi izlemek için kullanımı [Fiddler](http://www.telerik.com/fiddler). Kullanıcı Yolculuğunuzun orchestration adımlarınızı nerede başarısız bir gösterge size yardımcı olabilir.

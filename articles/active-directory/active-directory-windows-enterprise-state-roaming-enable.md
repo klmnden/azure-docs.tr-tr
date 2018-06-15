@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257980"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory'de Kurumsal Durumda Dolaşımı etkinleştirme
 Kurumsal durumda Dolaşım herhangi bir Azure AD Premium veya Enterprise Mobility + güvenlik (EMS) lisansı kuruluşla kullanılabilir. Bir Azure AD aboneliği edinme hakkında daha fazla bilgi için bkz: [Azure AD ürün sayfası](https://azure.microsoft.com/services/active-directory).

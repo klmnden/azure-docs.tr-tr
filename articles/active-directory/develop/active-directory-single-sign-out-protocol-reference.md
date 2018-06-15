@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155506"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Çoklu oturum kapatma SAML Protokolü
 Azure Active Directory (Azure AD) destekleyen SAML 2.0 tarayıcı tek oturum kapatma profil web. Tek doğru çalışması için oturum kapatma **LogoutURL** uygulama açıkça uygulama kaydı sırasında Azure AD ile kaydedilmesi gerekir. Azure AD LogoutURL bunlar oturumu kapattınız sonra kullanıcıları yeniden yönlendirmek için kullanır.

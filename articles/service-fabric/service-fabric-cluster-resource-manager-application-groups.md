@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213002"
 ---
 # <a name="introduction-to-application-groups"></a>Uygulama grupları giriş
 Service Fabric'ın Küme Kaynağı Yöneticisi genellikle yük dengelemesini yaparak küme kaynaklarını yönetir (aracılığıyla temsil [ölçümleri](service-fabric-cluster-resource-manager-metrics.md)) kümesi boyunca eşit. Service Fabric yönetir ve kümesindeki düğümlerin kapasite bir bütün olarak [kapasite](service-fabric-cluster-resource-manager-cluster-description.md). Ölçümleri ve kapasite birçok iş yükü, ancak bazen ek gereksinimleri Getir yoğun olarak kullanılır farklı hizmet doku uygulama örnekleri desenleri harika çalışır. Örneğin, isteyebilirsiniz:

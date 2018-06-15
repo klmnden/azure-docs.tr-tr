@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Container Service ile DC/OS ve Swarm Belgeleri
 metadata:
   document_id: 
-  title: "Azure Container Service ile DC/OS ve Swarm Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
+  title: Azure Container Service ile DC/OS ve Swarm Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
   meta.description: Azure Container Service allows you to quickly deploy a production ready DC/OS or Docker Swarm cluster. Learn how to use Azure Container Service with these quickstarts, tutorials, and samples.
   services: container-service
   author: carolz
@@ -19,49 +19,50 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 10/11/2017
+  ms.locfileid: "23068415"
 abstract:
-  description: "Azure Container Service, üretime hazır DC/OS veya Docker Swarm kümelerini hızlı bir şekilde dağıtmanızı sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service kullanmayı öğrenin."
+  description: Azure Container Service, üretime hazır DC/OS veya Docker Swarm kümelerini hızlı bir şekilde dağıtmanızı sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service kullanmayı öğrenin.
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Azure Container Service kullanarak DC/OS kümelerini dağıtmayı öğrenin:"
+    text: 'Azure Container Service kullanarak DC/OS kümelerini dağıtmayı öğrenin:'
   - type: list
     style: icon48
     items:
     - image:
         src: https://docs.microsoft.com/media/logos/logo_linux.svg
-      text: "DC/OS Kümesi oluşturma"
+      text: DC/OS Kümesi oluşturma
       href: /azure/container-service/container-service-dcos-quickstart
     - image:
         src: https://docs.microsoft.com/media/logos/logo_docker.svg
-      text: "Bir Docker Swarm kümesi oluşturma"
+      text: Bir Docker Swarm kümesi oluşturma
       href: /azure/container-service/dcos-swarm/container-service-swarm-walkthrough
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Bir Azure Container Service DC/OS kümesindeki uygulamaları dağıtmayı, yönetmeyi ve güncelleştirmeyi öğrenin."
+    text: Bir Azure Container Service DC/OS kümesindeki uygulamaları dağıtmayı, yönetmeyi ve güncelleştirmeyi öğrenin.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/container-service/container-service-dcos-manage-tutorial\">Azure Container Service DC/OS kümesini oluşturma ve yönetme</a>"
-    - html: "<a href=\"/azure/container-service/container-service-load-balancing\">Azure Container Service DC/OS kümesindeki yük dengeleme kapsayıcıları</a>"
-    - html: "<a href=\"/azure/container-service/container-service-dcos-fileshare\">Dosya oluşturma ve bu dosyayı DC/OS kümesine bağlama</a>"
-    - html: "<a href=\"/azure/container-service/container-service-dcos-acr\">Uygulamanızı dağıtmak için Azure Container Registry ile DC/OS kümesini kullanma</a>"
-- title: "Örnekler"
+    - html: <a href="/azure/container-service/container-service-dcos-manage-tutorial">Azure Container Service DC/OS kümesini oluşturma ve yönetme</a>
+    - html: <a href="/azure/container-service/container-service-load-balancing">Azure Container Service DC/OS kümesindeki yük dengeleme kapsayıcıları</a>
+    - html: <a href="/azure/container-service/container-service-dcos-fileshare">Dosya oluşturma ve bu dosyayı DC/OS kümesine bağlama</a>
+    - html: <a href="/azure/container-service/container-service-dcos-acr">Uygulamanızı dağıtmak için Azure Container Registry ile DC/OS kümesini kullanma</a>
+- title: Örnekler
   items:
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/azure/container-service/cli-samples">Azure CLI</a>
-- title: "Başvuru"
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/cli/azure/acs">Azure CLI</a></p>
     - title: REST
       html: <p><a href="/rest/api/container-service">REST API</a></p>

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164848"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Öğretici: Azure portal ile DevOps
 Azure platformu esnek DevOps iş akışları ile doludur. Bu öğreticide, geliştirme, test, dağıtma, sorun giderme, izlemek ve çalışan uygulamaları yönetmek için Azure portal'ın özelliklerden yararlanacak öğrenin. Bu öğretici aşağıdakilere odaklanır:

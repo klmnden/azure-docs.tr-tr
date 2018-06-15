@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210282"
 ---
 # <a name="secure-service-remoting-communications-for-a-service"></a>Güvenli bir hizmet için hizmet uzaktan iletişim
 > [!div class="op_single_selector"]

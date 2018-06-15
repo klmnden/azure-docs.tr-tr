@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156900"
 ---
 # <a name="permissions-in-azure-ad"></a>Azure AD'de izinler
 Azure Active Directory (Azure AD), hem OAuth hem de OpenID Connect (OIDC) akışlarında izinleri yaygın olarak kullanır. Uygulamanız Azure AD'den bir erişim belirteci aldığında, bu belirteç uygulamanızın belirli bir kaynakla ilgili olarak sahip olduğu izinleri (kapsamlar olarak da bilinir) açıklayan talepler içerir. Bu durum kaynağın yetkilendirmesini kolaylaştırır çünkü yalnızca belirtecinizin çağırdığınız API için uygun izni içerip içermediğini denetlemesi yeterli olur. 

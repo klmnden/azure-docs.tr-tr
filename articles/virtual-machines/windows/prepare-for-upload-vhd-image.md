@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34072258"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX Azure'a karşıya yüklemek için hazırlama
 Bir Windows sanal makineler (VM) şirket içi Microsoft Azure karşıya yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure, sabit boyutlu disk VHD dosyası biçiminde olan ve 1. nesil VM destekler. VHD için izin verilen maksimum boyutu 1,023 GB'dir. 1 sanal makineden VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten nesil dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturma değiştiremezsiniz. Daha fazla bilgi için bkz: [kuşak 1 veya 2 oluşturmanız gerekir Hyper-V'de VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).

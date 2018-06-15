@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153118"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Azure, dinamik envanterleri yönetmek için Ansible kullanın
 Ansible (bulut kaynakları Azure gibi dahil) çeşitli kaynaklardan Envanter bilgilerine pull için kullanılabilir içine bir *dinamik stok*. Bu makalede, kullandığınız [Azure bulut Kabuk](./ansible-run-playbook-in-cloudshell.md) Ansible Azure dinamik iki sanal makine oluşturma envanterini yapılandırmak için bu sanal makineleri birini etiketi ve Nginx etiketli sanal makineye yükleyin.

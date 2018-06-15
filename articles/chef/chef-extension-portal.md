@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260249"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure portalından Chef İstemcisi'ni yükleme
 Bir Linux veya Windows sanal makine Azure portalından oluşturmak veya Chef uzantı sanal makineye ekleyebilirsiniz. Bu makalede yeni bir Linux sanal makine kullanarak bu işleminde size kılavuzluk eder.

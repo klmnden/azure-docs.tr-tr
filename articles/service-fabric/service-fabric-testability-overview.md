@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209693"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Hata analizi hizmetine giriş
 Hata analizi hizmeti Microsoft Azure Service Fabric üzerinde oluşturulmuş Hizmetleri test etmek için tasarlanmıştır. Hata analizi hizmeti ile anlamlı hataları anlamına ve uygulamalarınızı karşı tam test senaryoları çalıştırın. Bu hataları ve senaryoları çalışma ve çok sayıda durumları ve yaşam süresi, tüm denetimli, güvenli ve tutarlı bir şekilde boyunca bir hizmet yaşar geçişleri doğrulayın.

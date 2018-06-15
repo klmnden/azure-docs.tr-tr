@@ -16,6 +16,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34160014"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Yerel bir dosyadan bir iş girişi oluştur
 

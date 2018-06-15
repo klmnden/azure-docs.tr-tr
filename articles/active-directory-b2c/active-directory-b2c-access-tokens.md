@@ -1,21 +1,21 @@
 ---
-title: Erişim belirteçleri - Azure AD B2C isteyen | Microsoft Docs
+title: Azure Active Directory B2C erişim belirteçleri isteyen | Microsoft Docs
 description: Bu makalede bir istemci uygulaması kurulumu ve bir erişim belirteci edinmek üzere nasıl yapacağınızı gösterir.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: davidmu
-ms.openlocfilehash: bd919543072a8d2bf5fb0ebba17e69ba2f467218
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 92c4544a0dee4c875b1c802a8c4d77d48bfb94ef
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711077"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: İsteyen erişim belirteçleri
 
@@ -79,7 +79,7 @@ Bir API kapsamları yayımlamak için yapılandırıldıktan sonra istemci uygul
 > Şu anda, özel etki alanlarını erişim belirteçleri ile birlikte desteklenmez. İstek URL'si tenantName.onmicrosoft.com etki alanınızda kullanmanız gerekir.
 
 ```
-https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 Aynı istekte birden çok izinleri almak için birden çok girdi tek ekleyebileceğiniz **kapsam** boşluklarla ayırarak parametresi. Örneğin:

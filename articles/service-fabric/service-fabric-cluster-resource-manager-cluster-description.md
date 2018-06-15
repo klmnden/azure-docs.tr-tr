@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208820"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Service fabric kümesi açıklayan
 Service Fabric kümesi Kaynak Yöneticisi, bir küme açıklamak için çeşitli mekanizmalar sağlar. Çalışma zamanı sırasında Küme Kaynak Yöneticisi'ni kümede çalışan hizmetler yüksek düzeyde kullanılabilirliğini sağlamak için bu bilgileri kullanır. Bu önemli kurallar zorlarken bu aynı zamanda kümedeki kaynak tüketimini en iyi duruma dener.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31532507"
 ---
 Azure toplu işlemde çalışan bir görev çalıştırıldığında çıktı veri üretebilir. Görev çıktı verileri genellikle alımını işteki diğer görevler tarafından depolanması gereken, iş ya da her ikisini de yürütülen istemci uygulaması. Görev çıktı verileri bir toplu işlem düğümünde dosya sistemine yazma, ancak ne zaman başlatıldığı ya da düğüm havuza ayrıldığında düğümdeki tüm verileri kaybolur. Görevler bir dosya Bekletme dönemi geçmesi görevi tarafından oluşturulan dosyalar silinir da sahip olabilirsiniz. Bu nedenlerle, bir veri deposuna gibi daha sonra ihtiyacınız olacak görev çıktısını kalıcı hale getirmek önemli olan [Azure Storage](https://docs.microsoft.com/azure/storage/).
 

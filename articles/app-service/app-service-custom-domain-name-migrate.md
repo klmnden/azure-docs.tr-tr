@@ -1,8 +1,8 @@
 ---
-title: "Etkin bir DNS adı Azure App Service'e geçirme | Microsoft Docs"
-description: "Azure App Service'e herhangi kesinti olmadan dinamik bir siteye zaten atanmış özel bir DNS etki alanı adı geçirmek öğrenin."
+title: Etkin bir DNS adı Azure App Service'e geçirme | Microsoft Docs
+description: Azure App Service'e herhangi kesinti olmadan dinamik bir siteye zaten atanmış özel bir DNS etki alanı adı geçirmek öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27566500"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Etkin bir DNS adı Azure App Service'e geçirme
 

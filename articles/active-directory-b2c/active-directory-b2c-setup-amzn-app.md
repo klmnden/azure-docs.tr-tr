@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Amazon yapılandırma | Microsoft Docs'
+title: Azure Active Directory B2C Amazon yapılandırmasında | Microsoft Docs
 description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan Amazon hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: a2989baa61e7b69534fe5703b2501d62a4f8aa94
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 9b3464e246a6b672362583ee4446a6146cc3b3d8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709759"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma Amazon hesaplarıyla tüketicileri sağlayın
 ## <a name="create-an-amazon-application"></a>Amazon uygulama oluşturma

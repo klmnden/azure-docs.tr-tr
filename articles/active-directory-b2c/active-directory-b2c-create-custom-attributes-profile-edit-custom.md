@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: kendi öznitelikleri için özel ilkeler ekleyin ve profil düzenleme kullanın | Microsoft Docs'
-description: Uzantısı özellikleri, özel öznitelikleri kullanarak ve kullanıcı arabiriminde dahil izlenecek yollar
+title: Azure Active Directory B2C özel ilkelerinde kendi öznitelikleri ekleme | Microsoft Docs
+description: Uzantısı özellikleri, özel öznitelikleri kullanarak ve kullanıcı arabiriminde dahil olmak üzere bir kılavuz.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: e0595a67b90e1be7bb992ef7bda4343e692d8957
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: e4dfb92257dca4069905f17e1c3ccd43d87cd45c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710167"
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: İlke oluşturma ve özel bir profilde özel öznitelikleri kullanma Düzenle
 
@@ -54,7 +54,7 @@ Yalnızca Kiracı kayıtlı bir uygulama bağlamında uzantısı özellikleri yo
 1. Aşağıdaki önerilen girdileri sağlar:
   * Web uygulaması için bir ad belirtin: **WebApp GraphAPI DirectoryExtensions**
   * Uygulama türü: Web app/API
-  * Sign-on URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
+  * Oturum açma URL:https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions
 1. Seçin ** oluşturun. Başarılı bir şekilde tamamlandığında görünür **bildirimleri**
 1. Yeni oluşturulan web uygulamasını seçin: **WebApp GraphAPI DirectoryExtensions**
 1. Select ayarları: **gerekli izinler**

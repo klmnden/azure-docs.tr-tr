@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34199903"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure hdınsight'ta Hive sorguları en iyi duruma getirme
 

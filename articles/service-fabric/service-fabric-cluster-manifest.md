@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205374"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Tek başına Windows kümesi için yapılandırma ayarları
 Bu makalede, bir tek başına Azure Service Fabric kümesi ClusterConfig.json dosyasını kullanarak yapılandırmak açıklar. Küme düğümleri, güvenlik yapılandırmalarını yanı sıra, hata ve yükseltme etki alanları bakımından ağ topolojisi hakkında bilgi belirtmek için bu dosyayı kullanır.

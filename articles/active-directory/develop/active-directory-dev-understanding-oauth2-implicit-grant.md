@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155788"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>OAuth2 örtük grant akış içinde Azure Active Directory (AD) Anlama
 OAuth2 örtük verme OAuth2 belirtimi Güvenlik sorunlarının en uzun listesiyle grant olması için notorious olur. Ve henüz, ADAL JS ve SPA uygulamaları yazarken öneririz biri tarafından uygulanan bir yaklaşımdır. Neler sağlar? Tüm sağlasa da, bileşim olduğu: ve ortaya çıkmıştır gibi örtük grant sizin bir işin peşine düşmek tarayıcıdan JavaScript aracılığıyla bir Web API kullanan uygulamalar için en iyi yaklaşımdır.

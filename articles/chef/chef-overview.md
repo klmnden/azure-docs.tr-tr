@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260252"
 ---
 # <a name="using-chef-with-azure"></a>Azure ile Chef kullanma
 [Chef](http://www.chef.io) azure'da sanal makine altyapısı koda dönüştürür güçlü Otomasyon platformudur. Chef nasıl altyapı yapılandırılmış dağıtılan ve boyutuna olsun, ağ üzerinden yönetilen otomatikleştirir.

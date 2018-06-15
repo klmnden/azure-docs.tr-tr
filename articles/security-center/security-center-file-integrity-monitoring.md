@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34162179"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Dosya Bütünlüğü (Önizleme) Azure Güvenlik Merkezi'nde izleme
 Dosya bütünlüğü izleme (FIM) Azure Güvenlik Merkezi'nde bu kılavuzu kullanarak yapılandırmayı öğrenin.

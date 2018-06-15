@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599093"
 ---
 # <a name="using-create-table-as-select-ctas-in-azure-sql-data-warehouse"></a>Azure SQL veri ambarı'nda CREATE TABLE AS SELECT (CTAS) kullanma
 Çözümleri geliştirme için Azure SQL Data Warehouse oluşturma tablo AS seçin (CTAS) T-SQL deyiminde ile kodlamak için ipuçları.

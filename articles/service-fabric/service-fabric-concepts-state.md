@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213104"
 ---
 # <a name="service-state"></a>Hizmet durumu
 **Hizmet durumu** bellekte veya işlevi için bir hizmet gerektiren disk verilerini gösterir. Bu, örneğin, hizmet okur ve çalışmak yazan üye değişkenleri ve veri yapıları içerir. Hizmet nasıl geliştirilmiştir bağlı olarak dosyalara veya diskte depolanan diğer kaynaklara de içerebilir. Örneğin, dosyaları, veri ve işlem günlüklerini depolamak için bir veritabanı kullanırsınız.
