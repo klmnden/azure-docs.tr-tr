@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 313a313764f8ba14c9661429d1f6a8463778c934
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: ff861c21250a042191651ab4a4cffbf3928e4f26
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738573"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Oluşturma ve Azure sanal makineleri yönetmek için ortak PowerShell komutları
 
@@ -33,7 +34,16 @@ Birden fazla komutların bu makalede çalışıyorsa bu değişkenleri için yar
 - $myResourceGroup - sanal makineyi içeren kaynak grubunun adı.
 - $myVM - sanal makinenin adı.
 
-## <a name="create-a-vm"></a>VM oluşturma
+## <a name="create-a-vm---simplified"></a>Basitleştirilmiş bir VM - oluşturma
+
+| Görev | Komut |
+| ---- | ------- |
+| Basit bir VM oluşturma | [Yeni-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) -ad $myVM <BR></BR><BR></BR> Yeni-AzureRMVM sahip bir dizi *Basitleştirilmiş* tek bir ad olduğu gerekli tüm parametreleri. Değer-ad için yeni bir VM oluşturmak için gereken kaynakların tümünü adı olarak kullanılacaktır. Daha fazla belirtebilirsiniz, ancak gerekli olan tek şey budur.|
+| Özel görüntüden VM oluşturma | Yeni-AzureRmVm - ResourceGroupName $myResourceGroup-ad $myVM görüntü adı "myImage"-Konum $location  <BR></BR><BR></BR>Kendi oluşturmuş gerek [yönetilen resim](capture-image-resource.md). Birden çok, bir görüntü kullanabilirsiniz aynı VM'ler. |
+
+
+
+## <a name="create-a-vm-configuration"></a>Bir VM yapılandırması oluştur
 
 | Görev | Komut |
 | ---- | ------- |
@@ -41,10 +51,8 @@ Birden fazla komutların bu makalede çalışıyorsa bu değişkenleri için yar
 | Yapılandırma ayarları ekleme |$vm = [kümesi AzureRmVMOperatingSystem](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmoperatingsystem) - VM $vm-Windows - ComputerName $myVM-$cred - ProvisionVMAgent kimlik bilgisi - EnableAutoUpdate<BR></BR><BR></BR>İşletim sistemi ayarları dahil olmak üzere [kimlik bilgileri](https://technet.microsoft.com/library/hh849815.aspx) daha önce oluşturduğunuz yeni AzureRmVMConfig kullanarak yapılandırma nesnesine eklenmelidir. |
 | Bir ağ arabirimi ekleyin |$vm = [Ekle AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/Add-AzureRmVMNetworkInterface) - VM $vm-kimliği $NIC Kimliği<BR></BR><BR></BR>Bir VM'ye sahip olması gereken bir [ağ arabirimi](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) sanal bir ağa iletişim kurmak için. Aynı zamanda [Get-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) var olan bir ağ arabirimi nesnesi alınamadı. |
 | Bir platform görüntüsü belirtin |$vm = [kümesi AzureRmVMSourceImage](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmsourceimage) - VM $vm - PublisherName "publisher_name"-"publisher_offer" sunar - SKU "product_sku"-"son" sürüm<BR></BR><BR></BR>[Görüntü bilgileri](cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) daha önce oluşturduğunuz yeni AzureRmVMConfig kullanarak yapılandırma nesnesine eklenmelidir. Bir platform görüntüsü kullanmasına izin işletim sistemi diski ayarladığınızda, bu komuttan döndürülen nesne yalnızca kullanılır. |
-| İşletim sistemi diski bir platform görüntüsü kullanacak şekilde ayarlama |$vm = [kümesi AzureRmVMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk) - VM $vm-adı "myOSDisk" - VhdUri "http://mystore1.blob.core.windows.net/vhds/myOSDisk.vhd" - CreateOption FromImage<BR></BR><BR></BR>İşletim sistemi diski ve konumunda adını [depolama](../../storage/common/storage-powershell-guide-full.md) daha önce oluşturduğunuz yapılandırma nesnesine eklendi. |
-| İşletim sistemi diski genelleştirilmiş bir yansıma kullanacak şekilde ayarlama |$vm = kümesi AzureRmVMOSDisk - VM $vm-adı "myOSDisk" - SourceImageUri "https://mystore1.blob.core.windows.net/system/Microsoft.Compute/Images/myimages/myprefix-osDisk.{guid}.vhd"- VhdUri"https://mystore1.blob.core.windows.net/vhds/disk_name.vhd" - CreateOption FromImage-Windows<BR></BR><BR></BR>İşletim sistemi diski, kaynak görüntüsünün konumu ve disk konumda adını [depolama](../../storage/common/storage-powershell-guide-full.md) yapılandırma nesnesine eklenmelidir. |
-| İşletim sistemi diski özel bir yansıma kullanacak şekilde ayarlama |$vm = kümesi AzureRmVMOSDisk - VM $vm-adı "myOSDisk" - VhdUri "http://mystore1.blob.core.windows.net/vhds/" - CreateOption Attach - Windows |
 | VM oluşturma |[Yeni-AzureRmVM]() - ResourceGroupName $myResourceGroup-konum $location - VM $vm<BR></BR><BR></BR>Tüm kaynaklar oluşturulan bir [kaynak grubu](../../azure-resource-manager/powershell-azure-resource-manager.md). Bu komutu çalıştırmadan önce yeni AzureRmVMConfig, Set-AzureRmVMOperatingSystem, Set-AzureRmVMSourceImage, Add-AzureRmVMNetworkInterface ve Set-AzureRmVMOSDisk çalıştırın. |
+| Bir VM güncelleştir |[Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) - ResourceGroupName $myResourceGroup - VM $vm<BR></BR><BR></BR>Get-AzureRmVM kullanarak geçerli VM yapılandırmasını almak, VM nesnesini yapılandırma ayarlarını değiştirin ve ardından bu komutu çalıştırın. |
 
 ## <a name="get-information-about-vms"></a>Sanal makineleri hakkında bilgi edinin
 
@@ -61,13 +69,7 @@ Birden fazla komutların bu makalede çalışıyorsa bu değişkenleri için yar
 | VM durdurma |[Stop-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/stop-azurermvm) - ResourceGroupName $myResourceGroup-ad $myVM |
 | Çalışan bir VM yeniden başlatma |[Yeniden başlatma-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/restart-azurermvm) - ResourceGroupName $myResourceGroup-ad $myVM |
 | VM silme |[Remove-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvm) - ResourceGroupName $myResourceGroup-ad $myVM |
-| Bir VM generalize |[Set-AzureRmVm](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvm) - ResourceGroupName $myResourceGroup-ad $myVM-genelleştirilmiş<BR></BR><BR></BR>Kaydet-AzureRmVMImage çalıştırmadan önce bu komutu çalıştırın. |
-| VM yakalama |[Kaydet-AzureRmVMImage](https://docs.microsoft.com/powershell/module/azurerm.compute/save-azurermvmimage) - ResourceGroupName $myResourceGroup - VMName $myVM - DestinationContainerName "myImageContainer" - VHDNamePrefix "myImagePrefix"-"C:\filepath\filename.json" yolu<BR></BR><BR></BR>Bir sanal makine olmalıdır [hazır, kapatmak ve genelleştirilmiş](prepare-for-upload-vhd-image.md) bir görüntü oluşturmak için kullanılacak. Bu komutu çalıştırmadan önce Set-AzureRmVm çalıştırın. |
-| Bir VM güncelleştir |[Update-AzureRmVM](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvm) - ResourceGroupName $myResourceGroup - VM $vm<BR></BR><BR></BR>Get-AzureRmVM kullanarak geçerli VM yapılandırmasını almak, VM nesnesini yapılandırma ayarlarını değiştirin ve ardından bu komutu çalıştırın. |
-| Bir VM’ye veri diski ekleme |[Ekleme AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvmdatadisk) - VM $vm-adı "myDataDisk" - VhdUri "https://mystore1.blob.core.windows.net/vhds/myDataDisk.vhd" - LUN #-önbelleğe alma ReadWrite - DiskSizeinGB # - CreateOption boş<BR></BR><BR></BR>VM nesnesini almak için get-AzureRmVM kullanın. LUN numarası ve diskin boyutunu belirtin. VM yapılandırma değişiklikleri uygulamak için Update-AzureRmVM çalıştırın. Eklediğiniz disk başlatılmadı. |
-| Bir VM’den veri diski kaldırma |[Remove-AzureRmVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmdatadisk) - VM $vm-adı "myDataDisk"<BR></BR><BR></BR>VM nesnesini almak için get-AzureRmVM kullanın. VM yapılandırma değişiklikleri uygulamak için Update-AzureRmVM çalıştırın. |
-| Bir VM uzantısı Ekle |[Set-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension) - ResourceGroupName $myResourceGroup-konum $location - VMName $myVM-adı "UzantıAdı"-"publisherName" Publisher-türü "extensionType" - TypeHandlerVersion "#. #"-ayarları $Settings - ProtectedSettings $ProtectedSettings<BR></BR><BR></BR>Bu komut uygun çalıştırmak [yapılandırma bilgilerini](template-description.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#extensions) yüklemek istediğiniz uzantısı. |
-| VM uzantısı kaldırma |[Remove-AzureRmVMExtension](https://docs.microsoft.com/powershell/module/azurerm.compute/remove-azurermvmextension) - ResourceGroupName $myResourceGroup-adı "UzantıAdı" - VMName $myVM |
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir sanal makine oluşturmak için temel adımlar bkz [Resource Manager ve PowerShell kullanarak bir Windows VM oluşturma](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

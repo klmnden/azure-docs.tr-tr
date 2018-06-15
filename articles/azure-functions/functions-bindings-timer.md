@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725454"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
@@ -29,13 +30,17 @@ Bu makalede Azure işlevleri Tetikleyicileri Zamanlayıcı ile nasıl çalışı
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paketler
+## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Zamanlayıcı tetikleyicisi sağlanan [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet paketi. Paket için kaynak kodunu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub depo.
+Zamanlayıcı tetikleyicisi sağlanan [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet paketi, sürüm 2.x. Paket için kaynak kodunu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub depo.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
+
+Zamanlayıcı tetikleyicisi sağlanan [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet paketi, sürüm 3.x. Paket için kaynak kodunu konusu [azure webjobs sdk uzantıları](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub depo.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>Örnek
 
@@ -174,7 +179,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**direction** | yok | "İçin" ayarlanması gerekir. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodu Zamanlayıcı nesneyi temsil eden değişken adı. | 
 |**schedule**|**ScheduleExpression**|A [CRON ifade](#cron-expressions) veya [TimeSpan](#timespan) değeri. A `TimeSpan` bir uygulama hizmeti planı üzerinde çalışan bir işlev uygulaması için kullanılabilir. Bir uygulama ayarı zamanlama ifadeyi ve ayar adı sarmalanmış uygulama için bu özelliği ayarlamak **%** Bu örnekte olduğu gibi işaretlerini: "% ScheduleAppSetting %". |
-|**runOnStartup**|**RunOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Eylemsizlik nedeniyle boşta geçtikten sonra işlev uygulaması uyanır Örneğin, çalışma zamanı başlar. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve çıkışı işlev uygulaması ölçeklendirir zaman yeniden başlatır. Bu nedenle **runOnStartup** olursa, nadiren herhangi bir zamanda ayarlanması gerektiğini `true`, yüksek oranda beklenmeyen zamanlarda yürütme kodu yapacak şekilde.|
+|**RunOnStartup**|**RunOnStartup**|Varsa `true`, çalışma zamanı başladığında işlevi çağrılır. Eylemsizlik nedeniyle boşta geçtikten sonra işlev uygulaması uyanır Örneğin, çalışma zamanı başlar. ne zaman işlev uygulaması, işlev değişiklikleri nedeniyle ve çıkışı işlev uygulaması ölçeklendirir zaman yeniden başlatır. Bu nedenle **runOnStartup** olursa, nadiren herhangi bir zamanda ayarlanması gerektiğini `true`, yüksek oranda beklenmeyen zamanlarda yürütme kodu yapacak şekilde.|
 |**UseMonitor**|**UseMonitor**|Kümesine `true` veya `false` zamanlama izlenen olup olmadığını belirtmek için. İzleme zamanlaması bile işlevi app örnekleri yeniden başlattığınızda zamanlama doğru yönetilmesini sağlamak için yardımcı olmak için zamanlama yinelenme devam ettirir. Açıkça ayarlanmazsa varsayılan olup olmadığını `true` yinelenme aralığı 1 dakikadan daha uzun olan tabloları için. Dakika başına birden çok kez tetiklemek zamanlamaları, varsayılan değer `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -213,6 +218,8 @@ Her bir alan değerleri aşağıdaki türlerden biri olabilir:
 |Bir aralığı (`-` işleci)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05, hh:mm:06 ve SS: dd saatte (3 kez dakika) dakikada olduğu hh:mm:07|  
 |Değer kümesini (`,` işleci)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05, hh:mm:08 ve SS: dd saatte (3 kez dakika) dakikada olduğu hh:mm:10|
 |Bir aralık değeri (`/` işleci)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, vb. hh saatte (12 kat bir saat) olduğu hh:55:00 aracılığıyla hh:15:00|
+
+Ay veya gün belirtmek için üç harfli kısaltmalar yerine sayısal değerleri kullanabilirsiniz. Örneğin, Ocak veya pazar Sun Oca kullanın.
 
 ### <a name="cron-examples"></a>CRON örnekleri
 
@@ -272,7 +279,7 @@ Bir depolama hesabı birden çok işlev uygulama arasında paylaşıyorsanız, h
 
 ## <a name="retry-behavior"></a>Yeniden deneme davranışını
 
-Bir işlev başarısız olduktan sonra sıra tetikleyici Zamanlayıcı tetikleyicisi yeniden değil. Bir işlev başarısız olduğunda, onu is't zamanlamaya göre yeniden açana kadar çağrılır.
+Bir işlev başarısız olduktan sonra sıra tetikleyici Zamanlayıcı tetikleyicisi yeniden değil. Bir işlev başarısız olduğunda, zamanlamaya göre yeniden açana kadar adı değil.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

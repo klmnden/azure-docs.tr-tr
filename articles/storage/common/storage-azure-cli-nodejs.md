@@ -1,6 +1,6 @@
 ---
 title: Azure Storage ile Azure CLI 1.0 kullanma | Microsoft Docs
-description: "Azure komut satırı arabirimi (Azure CLI) 1.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure Storage ile Azure BLOB'ları ve dosyalar ile kullanmayı öğrenin. Azure CLI platformlar arası bir araçtır"
+description: Azure komut satırı arabirimi (Azure CLI) 1.0 oluşturmak ve depolama hesaplarını yönetme ve çalışmak için Azure Storage ile Azure BLOB'ları ve dosyalar ile kullanmayı öğrenin. Azure CLI platformlar arası bir araçtır
 services: storage
 documentationcenter: na
 author: seguler
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: 772417012e4c6aa519e83177bd8e93778f6af3b5
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737478"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Azure Storage ile Azure CLI 1.0 kullanma
 
@@ -97,7 +98,7 @@ Betik çalıştıktan sonra indirilen görüntü dosyasını içeren bir yerel h
 ### <a name="connect-to-your-azure-subscription"></a>Azure aboneliğinize bağlanma
 Depolama komutların çoğu Azure aboneliği çalışır ancak Azure CLI üzerinden aboneliğinize bağlanmak için önerilir. Aboneliğiniz ile birlikte çalışmak için Azure CLI yapılandırmak için adımları [Azure clı'dan Azure aboneliğine Bağlan](/cli/azure/authenticate-azure-cli).
 
-### <a name="create-a-new-storage-account"></a>Yeni bir depolama hesabı oluştur
+### <a name="create-a-new-storage-account"></a>Yeni depolama hesabı oluşturma
 Azure depolama kullanan bir depolama hesabı gerekir. Aboneliğinize bağlanmak için bilgisayarınızı yapılandırdıktan sonra yeni bir Azure depolama hesabı oluşturabilirsiniz.
 
 ```azurecli

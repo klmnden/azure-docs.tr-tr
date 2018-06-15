@@ -1,22 +1,19 @@
 ---
 title: IOT Hub cihaz sağlama hizmeti - otomatik sağlama kavramları
 description: Bu makale Aygıt otomatik IOT cihaz hizmeti sağlama, IOT Hub ve istemci SDK'ları kullanarak sağlama, aşamaları kavramsal genel bakış sağlar.
-services: iot-dps
-keywords: ''
 author: BryanLa
 ms.author: bryanla
-ms.date: 03/27/2018
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736415"
 ---
 # <a name="auto-provisioning-concepts"></a>Otomatik sağlama kavramları
 
@@ -33,7 +30,7 @@ Azure IOT otomatik sağlama üç aşamaya ayrılabilir:
 
 2. **Cihaz kaydı** -cihaz sağlama hizmet örneği gelecekte kaydolmayı deneyecek cihazların uyumlu hale getirme işlemidir. [Kayıt](concepts-service.md#enrollment) aygıt kimlik bilgileri sağlama hizmetinde bir "tek tek kayıt" tek bir aygıt için veya bir "grubu"için kayıt birden çok aygıt olarak yapılandırılarak sağlanır. Kimlik temel [kanıtlama mekanizması](concepts-security.md#attestation-mechanism) cihazı kullanmak için kayıt sırasında cihazın Orijinallik şifreli olarak sağlama hizmeti sağlayan tasarlanmıştır:
 
-   - **TPM**: bir "tek tek kaydı" yapılandırılmış, cihaz kimliği TPM kayıt kimliği ve ortak onay anahtarını dayanır. TPM olması koşuluyla, bir [belirtimi]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)), hizmet yalnızca TPM uygulamadan (donanım veya yazılım) bağımsız olarak belirtimi başına şifreli olarak bekler. Bkz: [cihaz sağlama: TPM ile kimlik kanıtlama](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) TPM tabanlı kanıtlama hakkında ayrıntılı bilgi için. 
+   - **TPM**: bir "tek tek kaydı" yapılandırılmış, cihaz kimliği TPM kayıt kimliği ve ortak onay anahtarını dayanır. TPM olması koşuluyla, bir [belirtimi](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/), hizmet yalnızca TPM uygulamadan (donanım veya yazılım) bağımsız olarak belirtimi başına şifreli olarak bekler. Bkz: [cihaz sağlama: TPM ile kimlik kanıtlama](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) TPM tabanlı kanıtlama hakkında ayrıntılı bilgi için. 
 
    - **X509**: bir "tek tek kayıt" veya "grubu kayıt" olarak yapılandırılan, cihaz kimliği kayıt .pem veya .cer dosyası olarak yüklenen bir X.509 dijital sertifika temel alır.
 
@@ -56,13 +53,13 @@ Bir dizi Quickstarts, uygulamalı deneyim otomatik sağlama açıklamaya yardım
 | | Cihaz kimliği girin | Gönderenin aygıt kimlik bilgisi üreticisi işleci (veya belirlenen aracı) iletişimde veya doğrudan aygıt hizmeti sağlama API'leri aracılığıyla kaydetme sorumludur.<br><br>**QuickStarts**: cihaz benzetimli olduğundan, herhangi bir üretici rol yoktur. Ayrıntılar için operatörü rolü aygıtı sağlama hizmeti örneğinizi sanal bir cihaz kaydetmek için kullanılan cihaz kimliği nasıl alır bakın. | 
 | İşleç | Otomatik sağlamayı Yapılandır | Bu işlem ilk aşaması otomatik sağlama ile karşılık gelir.<br><br>**QuickStarts**: cihaz sağlama hizmeti yapılandırma operatörü rolü gerçekleştirmek ve IOT hub'ı, Azure aboneliğinizde örnekleri. | Kurulum otomatik sağlama |
 |  | Cihaz kimliği kaydetme | Bu işlem, ikinci aşaması otomatik sağlama ile karşılık gelir.<br><br>**QuickStarts**: cihaz sağlama hizmeti örneğinizi sanal Cihazınızı kaydetme işleci rolü gerçekleştirilemiyor. Cihaz kimliği (TPM veya X.509) başlangıcın benzetimli kanıtlama yöntemi tarafından belirlenir. Geliştirici rolü kanıtlama ayrıntıları için bkz. | 
-| Cihaz sağlama hizmeti<br>IoT Hub’ı | \<tüm işlemleri\> | Hem bir üretim uygulaması fiziksel aygıtlardan ve sanal cihazlar ile Quickstarts için bu rolleri Azure aboneliğinizde yapılandırma IOT Hizmetleri aracılığıyla karşılandıktan. IOT Hizmetleri fiziksel ve sanal cihazlar sağlama için ilgisiz gibi rolleri/operations tam olarak aynı işlev. | 
+| Cihaz sağlama hizmeti<br>IoT Hub | \<tüm işlemleri\> | Hem bir üretim uygulaması fiziksel aygıtlardan ve sanal cihazlar ile Quickstarts için bu rolleri Azure aboneliğinizde yapılandırma IOT Hizmetleri aracılığıyla karşılandıktan. IOT Hizmetleri fiziksel ve sanal cihazlar sağlama için ilgisiz gibi rolleri/operations tam olarak aynı işlev. | 
 | Geliştirici | Derleme/kayıt yazılım dağıtma | Bu işlem otomatik sağlama üçüncü aşaması ile karşılık gelir. Geliştirici uygun SDK'sını kullanarak oluşturma ve aygıta, kayıt yazılım dağıtma sorumludur.<br><br>**QuickStarts**: oluşturacağınız örnek kayıt uygulama platformu/dili (yerine bir fiziksel cihaza dağıtmaya) istasyonunuzda çalışır tercih için gerçek bir cihaza benzetim. Kayıt uygulama tek bir fiziksel cihaza dağıtılan olarak aynı işlemleri gerçekleştirir. Kayıt URL'si ve aygıtı sağlama hizmeti örneğinizi "kimliği kapsamı" kanıtlama yöntemi (TPM veya X.509 sertifikası) belirtin. Cihaz kimliği, belirttiğiniz yöntemine dayalı zamanında SDK kanıtlama mantığı tarafından belirlenir: <ul><li>**TPM kanıtlama** -geliştirme iş istasyonunuzu çalıştıran bir [TPM simulator uygulama](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator). Çalışan sonra ayrı bir uygulama TPM'nin "Onay anahtarını" ve "Kayıt kimliği" kullanmak için aygıt kimlik kaydetme ayıklamak için kullanılır. SDK kanıtlama mantığı kayıt sırasında simulator imzalı bir SAS belirteci için kimlik doğrulama ve kayıt doğrulama sunmak için de kullanır.</li><li>**X509 kanıtlama** -bir araç kullanmanız [bir sertifika oluşturma](how-to-use-sdk-tools.md#x509-certificate-generator). Oluşturduktan sonra kayıt kullanmak için gerekli olan sertifika dosyası oluşturun. SDK kanıtlama mantığı kayıt sırasında sertifika kimlik doğrulaması ve kayıt doğrulama için sunmak için de kullanır.</li></ul> | 
 | Cihaz | Önyükleme ve kaydetme | Bu işlem otomatik sağlama üçüncü aşaması ile karşılık gelen geliştirici tarafından oluşturulan cihaz kayıt yazılım yerine. Geliştirici rolü Ayrıntılar için bkz. İlk önyükleme sırasında: <ol><li>Uygulama genel URL ve hizmeti "Kimliği geliştirme sırasında belirtilen Scope" başına cihaz sağlama hizmet örneği ile bağlanır.</li><li>Bağlantı kurulduktan sonra cihaz kaydı sırasında belirtilen kimliğinin ve kanıtlama yöntemi karşı doğrulanır.</li><li>Kimliği doğrulanmış sonra cihaz sağlama hizmet örneği tarafından belirtilen IOT Hub örneği ile kaydedilir.</li><li>Başarılı kaydı sırasında bir benzersiz cihaz kimliği ve IOT Hub uç noktası IOT Hub ile iletişim kurmak için kayıt uygulamaya döndürülür.</li><li> Buradan, cihaz ilk çekebilir [cihaz çifti](~/articles/iot-hub/iot-hub-devguide-device-twins.md) durum için yapılandırma ve telemetri verileri raporlama işlemi başlar.</li></ol>**QuickStarts**: cihaz benzetimli olduğundan, kayıt yazılım geliştirme iş istasyonunda çalışır.| 
 
 Aşağıdaki diyagramda rolleri ve işlemleri sıralama aygıt otomatik sağlama sırasında özetlenmektedir:
 <br><br>
-![Bir cihaz için otomatik sağlama dizisi](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![Bir cihaz için otomatik sağlama dizisi](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > İsteğe bağlı olarak, üretici cihaz sağlama hizmet API'leri kullanılarak "cihaz kimliği kaydetme" işlemi de gerçekleştirebilirsiniz (yerine işleci yoluyla). Bu sıralama ve daha ayrıntılı bilgi için bkz: [sıfır dokunma cihaz kaydı ile Azure IOT video](https://myignite.microsoft.com/sessions/55087) (işaret 41:00 başlayarak)

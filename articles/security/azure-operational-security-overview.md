@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34365721"
 ---
 # <a name="azure-operational-security-overview"></a>Azure operational güvenliğine genel bakış
 [Azure işlem güvenliği](https://docs.microsoft.com/azure/security/azure-operational-security) verilerini, uygulamaları ve diğer Microsoft Azure varlıkları korumak için Hizmetleri, denetimleri ve kullanıcılar için kullanılabilir özellikleri gösterir. Microsoft'a özgü özellikleri çeşitli elde edilen bilgilerden içeren bir çerçevedir. Bu yetenekler Microsoft Security Development Lifecycle (SDL), Microsoft Security Response Center program ve siber güvenlik tehdit derin tanıma içerir.

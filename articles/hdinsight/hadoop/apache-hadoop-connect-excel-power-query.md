@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34202137"
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Excel için Hadoop Power Query kullanarak bağlan
 Bir anahtar Microsoft büyük veri çözüm Microsoft iş zekası (BI) bileşenleri Azure hdınsight'ta Hadoop kümeleri ile tümleştirilmesi özelliğidir. Excel için Excel eklenti Microsoft Power Query kullanarak Hadoop kümenizle ilişkili verileri içeren Azure depolama hesabı bağlantı özelliği buna birincil bir örnektir. Bu makalede, ayarlayın ve Hdınsight ile yönetilen bir Hadoop kümesine ilişkilendirilmiş sorgu verileri için Power Query nasıl kullanılacağını açıklanmaktadır.

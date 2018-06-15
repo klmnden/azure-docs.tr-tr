@@ -1,6 +1,6 @@
 ---
-title: "Azure Site kurtarma yeniden çalışma | Microsoft Docs"
-description: "Bu makalede, yeniden çalışma sırasında Azure Site Recovery hizmeti ile şirket içi dön başarısız olarak değerlendirilmesi için uyarılar ve çeşitli türlerine genel bakış sağlar."
+title: Azure Site kurtarma yeniden çalışma | Microsoft Docs
+description: Bu makalede, yeniden çalışma sırasında Azure Site Recovery hizmeti ile şirket içi dön başarısız olarak değerlendirilmesi için uyarılar ve çeşitli türlerine genel bakış sağlar.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29803561"
 ---
 # <a name="overview-of-failback"></a>Yeniden çalışma genel bakış
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206756"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Erişim, kaydetme ve Reliable Actors durumunu kaldırın
 [Güvenilir aktörler](service-fabric-reliable-actors-introduction.md) mantığı ve durumunu saklayan ve durumunu güvenilir bir şekilde korumak tek iş parçacıklı nesneleridir. Her aktör örneği kendi sahip [durum Yöneticisi](service-fabric-reliable-actors-state-management.md): depoladıktan bir sözlük benzeri veri yapısı anahtar/değer çiftleri. Durum Yöneticisi durum sağlayıcısı çevresinde bir sarmalayıcı ' dir. Hangi bağımsız olarak veri depolamak için kullanmak [Kalıcılık ayarı](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) kullanılır.

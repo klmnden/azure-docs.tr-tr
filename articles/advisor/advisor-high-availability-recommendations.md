@@ -1,12 +1,12 @@
 ---
-title: "Azure Danışmanı yüksek kullanılabilirlik önerileri | Microsoft Docs"
-description: "Azure dağıtımlarınızı yüksek kullanılabilirliğini artırmak için Azure Danışmanı'nı kullanın."
+title: Azure Danışmanı yüksek kullanılabilirlik önerileri | Microsoft Docs
+description: Azure dağıtımlarınızı yüksek kullanılabilirliğini artırmak için Azure Danışmanı'nı kullanın.
 services: advisor
 documentationcenter: NA
 author: KumudD
 manager: carmonm
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: e1cd7948e1969cd4ddb926e428c09b559190a805
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 23764b476f01c30b1755c507a0cfa5ead27be91e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736560"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor yüksek kullanılabilirlik önerileri
 
@@ -48,6 +49,9 @@ Disklerinizi yüksek IOPS ihtiyacınız yoksa, standart depolama tutarak maliyet
 
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>Sanal makine verilerinizi yanlışlıkla silinmeye karşı koru
 Sanal makine yedekleme ayarı, iş açısından kritik verilerin kullanılabilirliğini sağlar ve yanlışlıkla silme veya bozulmasına karşı koruma sağlar.  Advisor burada yedekleme etkin değil ve yedekleme etkinleştirme önerir sanal makineleri tanımlar. 
+
+## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>Gerektiğinde Azure bulut uzmanlar erişimi emin olun
+İş açısından kritik bir iş yükünü çalıştırırken, gerektiğinde teknik destek erişiminiz olması önemlidir. Advisor teknik destek kendi destek plana dahil olmayan potansiyel iş açısından kritik abonelikleri tanımlar ve teknik destek içeren bir seçeneği yükseltme önerir.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Yüksek kullanılabilirlik önerileri Danışmanı erişme
 

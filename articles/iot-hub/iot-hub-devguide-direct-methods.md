@@ -1,25 +1,19 @@
 ---
 title: Azure IOT hub'ı doğrudan yöntemlerini anlama | Microsoft Docs
 description: Geliştirici Kılavuzu - kod cihazlarınızda service uygulamasından çağırmak için doğrudan yöntemlerini kullanın.
-services: iot-hub
-documentationcenter: .net
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+manager: briz
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a35c88ac053b43d4a95b5bef92f3ebfb03567e2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736686"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Anlama ve IOT hub'ı doğrudan yöntemleri çağırma
 IOT Hub, bulutta cihazlarda doğrudan yöntemlerini çağırmasına olanak sağlar. Başarılı veya başarısız hemen (bir kullanıcı tarafından belirtilen zaman aşımından sonra), bir HTTP çağrısıyla benzer bir cihaz istek-yanıt etkileşim doğrudan yöntemleri temsil eder. Bu yaklaşım, Acil eylem seyri aygıtı yanıt verebilmesini olmasına bağlı olarak farklı olduğu senaryolar için kullanışlıdır.
@@ -85,6 +79,11 @@ Arka uç uygulama içeren bir yanıt alır:
     ```
 
     Her ikisi de `status` ve `body` cihaz tarafından sağlanan ve cihazın kendi durum kodu ve/veya açıklama ile yanıtlamak için kullanılır.
+
+### <a name="method-invocation-for-iot-edge-modules"></a>Yöntem çağırma IOT kenar modülleri için
+Çağıran doğrudan yöntemlerini kimliği desteklenir C# dilinde bir modül kullanarak önizleme SDK (kullanılabilir [burada](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)).
+
+Bu amaçla kullanabileceğiniz `ServiceClient.InvokeDeviceMethodAsync()` yöntemi ve geçişinde `deviceId` ve `moduleId` parametre olarak.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Bir cihazda doğrudan bir yöntem işleme
 ### <a name="mqtt"></a>MQTT

@@ -1,11 +1,11 @@
 ---
-title: "Karma kimlik tasarımı - olay yanıtlama gereksinimlerini Azure | Microsoft Docs"
-description: "Tarafından yararlanılabilir karma kimlik çözümü için izleme ve raporlama özelliklerini belirlemek tanımlamak ve olası tehditleri azaltmak amacıyla önlemler almak için BT"
-documentationcenter: 
+title: Karma kimlik tasarımı - olay yanıtlama gereksinimlerini Azure | Microsoft Docs
+description: Tarafından yararlanılabilir karma kimlik çözümü için izleme ve raporlama özelliklerini belirlemek tanımlamak ve olası tehditleri azaltmak amacıyla önlemler almak için BT
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 09dfa0bd01a7de95ba6ce3093ddf589595116aa6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801067"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için olay yanıtlama gereksinimlerini belirleyin
 Büyük veya orta ölçekli kuruluşlarda büyük olasılıkla sahip olacak bir [güvenlik olay yanıtlama](https://technet.microsoft.com/library/cc700825.aspx) yardımcı olmak üzere BT buna göre eylemleri olay düzeyine. Hedefe karşı belirli bir eylemi gerçekleştiren kişiye tanımlayan yardımcı olmak için kullanılabileceğinden kimlik yönetimi sistemi olay yanıtlama işlemindeki önemli bir bileşendir. Karma kimlik çözümü tarafından yararlanılabilir izleme ve raporlama özelliklerini sağlayabilir tanımlamak ve bir olası tehdidi azaltmak amacıyla önlemler almak için BT. Bir genel olay yanıtlama planında planının bir parçası aşağıdaki aşamaları olacaktır:
@@ -37,7 +39,7 @@ Büyük veya orta ölçekli kuruluşlarda büyük olasılıkla sahip olacak bir 
 
 BT'nin tanımlanması sırasında güvenliğinin aşılması ve önem derecesi aşaması, aşılmış, sistemleri erişilen ve bu dosyaları duyarlılığını belirlemek dosyaları belirlemek gerekli olacaktır. Karma kimlik sistemi bu değişiklikleri yapılan kullanıcı belirlemenize yardımcı olması için bu gereksinimleri karşılamak üzere görebilmeniz gerekir. 
 
-## <a name="monitoring-and-reporting"></a>İzleme ve Raporlama
+## <a name="monitoring-and-reporting"></a>İzleme ve raporlama
 Sistem Denetim ve raporlama özellikleri, çoğunlukla yerleşik olan birçok kez kimlik sistemi ayrıca ilk değerlendirme aşamasında yardımcı olabilir. İlk değerlendirme sırasında BT yöneticisi kuşkulu bir etkinlik tanımlayabilir veya otomatik olarak önceden yapılandırılmış bir görevde dayalı tetikleyici için sistem görebilmeniz gerekir. Diğer durumlarda, hatalı yapılandırılmış bir sistem sayıda hatalı pozitif sonuç bir yetkisiz erişim algılama sisteminde neden olabilir ancak birçok etkinlik olası bir saldırı olduğunu gösteriyor olabilir. 
 
 Kimlik yönetimi sistemi tanımlamak ve kuşkulu etkinlikler Bu rapor için BT yöneticilerine yardımcı olmalıdır. Genellikle bu teknik gereksinimleri tüm sistemler izleme ve olası tehditler vurgulamak bir raporlama özelliği sahip uyması gereken. Olay yanıtlama gereksinimlerini dikkate alırken çalışırken, karma kimlik çözümü tasarlamanıza yardımcı olması için aşağıdaki soruları kullanın:

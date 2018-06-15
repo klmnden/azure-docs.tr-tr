@@ -13,19 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b7e794cb08647dde6fe59b6d4b06a9cbfab06e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726542"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Bir Windows VM Amazon Web Hizmetleri (AWS) için Azure PowerShell kullanarak Taşı
 
 İş yüklerini barındırmak için Azure sanal makineleri değerlendirirken, mevcut Amazon Web Hizmetleri (AWS) EC2 Windows VM örneği dışarı sonra sanal sabit disk (VHD) Azure'a yükleyin. VHD yüklendikten sonra VHD'den azure'da yeni bir VM oluşturun. 
 
-Bu konu, tek bir VM'ye AWS Azure'a taşıma kapsar. VM'ler AWS ölçekte Azure'a taşımak istiyorsanız, bkz: [sanal makineleri Amazon Web Hizmetleri (AWS) Azure Site Recovery ile Azure'a geçirmek](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
+Bu makalede, tek bir VM'ye AWS Azure'a taşıma yer almaktadır. VM'ler AWS ölçekte Azure'a taşımak istiyorsanız, bkz: [sanal makineleri Amazon Web Hizmetleri (AWS) Azure Site Recovery ile Azure'a geçirmek](../../site-recovery/site-recovery-migrate-aws-to-azure.md).
 
 ## <a name="prepare-the-vm"></a>VM’yi hazırlama 
  
@@ -45,7 +46,7 @@ Azure'a genelleştirilmiş ve özelleştirilmiş VHD'leri karşıya yükleyebili
 
 ## <a name="export-and-download-the-vhd"></a>Dışarı aktarma ve VHD indirin 
 
-EC2 örneği bir Amazon S3 demetini VHD'yi verin. Amazon belgelerine konusunda açıklanan adımları izleyin [örneği bir VM kullanarak VM içeri/dışarı aktarma olarak dışarı aktarma](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) çalıştırıp [-örnek-export-görev oluştur](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) EC2 örneği bir VHD dosyasına aktarmak için komutu. 
+EC2 örneği bir Amazon S3 demetini VHD'yi verin. Amazon belgelerine makalesindeki adımları izleyin [örneği bir VM kullanarak VM içeri/dışarı aktarma olarak dışarı aktarma](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) çalıştırıp [-örnek-export-görev oluştur](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) EC2 örneği bir VHD dosyasına aktarmak için komutu. 
 
 Dışarı aktarılan VHD dosyasının belirttiğiniz Amazon S3 demetini kaydedilir. Temel sözdizimi oranın altında VHD dışarı aktarma için yalnızca değiştirmesini yer tutucu metni <brackets> bilgilerinizi ile.
 

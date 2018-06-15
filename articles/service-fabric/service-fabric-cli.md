@@ -6,13 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763366"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI'sı
 
@@ -24,7 +25,7 @@ Azure Service Fabric komut satırı arabirimi (CLI) Service Fabric varlıklarıy
 
 Yüklemeden önce ortamınızda Python ve pip uygulamalarının yüklü olduğundan emin olun. Daha fazla bilgi için [pip hızlı başlangıç belgelerine](https://pip.pypa.io/en/latest/quickstart/) ve resmi [Python yükleme belgelerine](https://wiki.python.org/moin/BeginnersGuide/Download) bakın.
 
-CLI, Python 2.7, 3.5 ve 3.6 sürümlerini destekler. Python 2.7'ye verilen destek kısa bir süre sonra kesileceğinden Python 3.6 sürümünü kullanmanız önerilir.
+CLI Python 2.7, 3.5 ve 3.6 sürümlerini destekler. Python 2.7'ye verilen destek kısa bir süre sonra kesileceğinden Python 3.6 sürümünü kullanmanız önerilir.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric hedef çalışma zamanı
 
@@ -32,7 +33,8 @@ Service Fabric CLI, Service Fabric SDK'sının en son çalışma zamanı sürüm
 
 | CLI sürümü   | desteklenen çalışma zamanı sürümü |
 |---------------|---------------------------|
-| En son (~=4)  | En son (~=6.1)            |
+| En son (~ = 5)  | En son (~ 6.2 =)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -69,7 +71,7 @@ python --version
 pip --version
 ```
 
-Ardından aşağıdaki komutu çalıştırarak Service Fabric CLI'sını yükleyin:
+Ardından Azure Service Fabric CLI (sfctl) yükleme ve CLI Yardım sayfasını görüntülemek için aşağıdaki komutu çalıştırın:
 
 ```bat
 pip install sfctl
@@ -120,7 +122,7 @@ sudo easy_install-3.4 pip
 sudo pip3 install sfctl
 ```
 
-Yüklemeyi test etmek için **Linux’a yönelik Ubuntu ve Windows alt sistemi** bölümünde bahsedilen adımlara başvurabilirsiniz
+Yükleme testi için belirtilen adımları başvurabilirsiniz **Ubuntu ve Windows alt sistemi Linux için** bölümü
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>macOS
@@ -231,13 +233,13 @@ Daha fazla bilgi için bkz. [OpenSSL belgeleri](https://www.openssl.org/docs/).
 
 Bazı işlemler aşağıdaki iletiyi oluşturabilir:
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 Belirtilen küme uç noktasının kullanılabilir olduğunu ve dinlediğini doğrulayın. Ayrıca söz konusu konakta ve bağlantı noktasında Service Fabric Explorer Kullanıcı Arabiriminin kullanılabilir olduğunu da doğrulayın. Uç noktayı güncelleştirmek için `sfctl cluster select` kullanın.
 
 ### <a name="detailed-logs"></a>Ayrıntılı günlükler
 
-Hata ayıkladığınız veya sorun bildirdiğiniz sırada ayrıntılı günlükler çoğunlukla yararlı olur. Genel bir `--debug` bayrağı, günlük dosyalarının ayrıntı düzeyini artırır.
+Hata ayıkladığınız veya sorun bildirdiğiniz sırada ayrıntılı günlükler çoğunlukla yararlı olur. `--debug` Bayrağı çıkış ayrıntı düzeyini artırır.
 
 ### <a name="command-help-and-syntax"></a>Komut yardımı ve söz dizimi
 

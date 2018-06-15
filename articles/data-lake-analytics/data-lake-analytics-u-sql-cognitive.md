@@ -1,86 +1,36 @@
 ---
-title: Azure Data Lake Analytics U-SQL Bilişsel özelliklerini kullanarak | Microsoft Docs
+title: Azure Data Lake Analytics U-SQL Bilişsel özelliklerini kullanarak
 description: U-SQL Bilişsel yetenekleri Intelligence kullanmayı öğrenin
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: jhubbard
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
-ms.author: saveenr
-ms.openlocfilehash: cd06e1ae56efdfdcfcd4fec5b2c17ee843d9e9dd
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.topic: conceptual
+ms.date: 06/05/2018
+ms.openlocfilehash: ab40d466d7b60dd09b8953012c80d0e84f4ac471
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802077"
 ---
-# <a name="tutorial-get-started-with-the-cognitive-capabilities-of-u-sql"></a>Öğretici: U-SQL Bilişsel yetenekleri ile çalışmaya başlama
+# <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>U-SQL Bilişsel yetenekleri ile çalışmaya başlama
 
 ## <a name="overview"></a>Genel Bakış
 U-SQL için bilişsel özellikleri geliştiricilerin kendi büyük veri programlarda put Intelligence kullanmak etkinleştirin. 
 
 Aşağıdaki bilişsel özellikleri kullanılabilir:
-* Görüntüleme: yüz algılama
-* Görüntüleme: duygu algılama
-* Görüntüleme: (etiketleme) nesneleri Algıla
-* Görüntüleme: OCR (optik karakter tanıma)
-* Metin: Anahtar tümcecik ayıklama
-* Metin: Düşünceleri analizi
+* Görüntüleme: yüz algılama [örnek](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Görüntüleme: duygu algılama [örnek](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Görüntüleme: (etiketleme) nesneleri algılamak [örnek](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Görüntüleme: OCR (optik karakter tanıma) [örnek](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Metin: Anahtar tümcecik ayıklama & düşünceleri analiz [örnek](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
-## <a name="how-to-use-cognitive-in-your-u-sql-script"></a>U-SQL komut dosyanıza Cognitive kullanma
-
-Genel işlem basittir:
-
-* Kullanım `REFERENCE ASSEMBLY` deyimi için U-SQL betiği bilişsel özelliklerini etkinleştirmek için
-* Kullanım `PROCESS` bir çıktı oluşturmak için Bilişsel UDO kullanarak bir giriş satır kümesi üzerinde satır kümesi
-
-### <a name="detecting-objects-in-images"></a>Görüntülerde nesneleri algılama
-
-Aşağıdaki örnek bilişsel yetenekleri nesneleri görüntülerinde algılamak için nasıl kullanılacağını gösterir.
-
-```
-REFERENCE ASSEMBLY ImageCommon;
-REFERENCE ASSEMBLY FaceSdk;
-REFERENCE ASSEMBLY ImageEmotion;
-REFERENCE ASSEMBLY ImageTagging;
-REFERENCE ASSEMBLY ImageOcr;
-
-// Get the image data
-
-@imgs =
-    EXTRACT 
-        FileName string, 
-        ImgData byte[]
-    FROM @"/usqlext/samples/cognition/{FileName}.jpg"
-    USING new Cognition.Vision.ImageExtractor();
-
-//  Extract the number of objects on each image and tag them 
-
-@tags =
-    PROCESS @imgs 
-    PRODUCE FileName,
-            NumObjects int,
-            Tags SQL.MAP<string, float?>
-    READONLY FileName
-    USING new Cognition.Vision.ImageTagger();
-
-@tags_serialized =
-    SELECT FileName,
-           NumObjects,
-           String.Join(";", Tags.Select(x => String.Format("{0}:{1}", x.Key, x.Value))) AS TagsString
-    FROM @tags;
-
-OUTPUT @tags_serialized
-    TO "/tags.csv"
-    USING Outputters.Csv();
-```
-Daha fazla örnek için bakmak **U-SQL/Cognitive örnekleri** içinde **sonraki adımlar** bölümü.
+## <a name="registering-cognitive-extensions-in-u-sql"></a>U-SQL Bilişsel uzantılarını kaydetme
+Başlamadan önce U-SQL Bilişsel uzantıları kaydetmek için bu makaledeki adımları izleyin: [U-SQL Bilişsel uzantılarında kaydetme](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/cognitive-capabilities-in-u-sql#registeringExtensions).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [U-SQL/Bilişsel örnekleri](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725151"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de Visual yazma
 Görsel olarak yazar ve herhangi bir kod yazmak zorunda kalmadan veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi (UX) deneyimi sağlar. Etkinlikleri bir ardışık düzen tuvale sürükleyin, test çalışmalarını gerçekleştirmek, yinelemeli olarak, hata ayıklama ve dağıtabilir ve ardışık düzen çalışmalarınız izleyin. Görsel geliştirme gerçekleştirmek için kullanıcı Deneyimini kullanmak için iki yaklaşım vardır:
@@ -46,8 +47,8 @@ VSTS Git Tümleştirmesi ile Visual yazma veri fabrikası hatlarınızı çalı�
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Azure Data Factory ile VSTS Git deposu yapılandırma
 VSTS GIT deposu iki yöntem data factory ile yapılandırabilirsiniz.
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>Yapılandırma yöntem 1: başlangıç sayfasına şimdi al
+#### <a name="method1"></a> Yapılandırma yöntem 1: başlangıç sayfasına şimdi al
+
 Azure Data Factory'de Git **başlayalım** sayfası. Seçin **kod deposu yapılandırın**:
 
 ![VSTS kod deposu yapılandırın](media/author-visually/configure-repo.png)
@@ -62,7 +63,7 @@ Bölmesinde aşağıdaki VSTS kod deposu ayarlarını gösterir:
 |:--- |:--- |:--- |
 | **Depo türü** | VSTS kod depo türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Azure AD Kiracı adınız. | <your tenant name> |
-| **Visual Studio Team Services Account** | VSTS hesap adınızı. VSTS hesap adınızı bulabilir `https://{account name}.visualstudio.com`. Yapabilecekleriniz [VSTS hesabınızda oturum açın](https://www.visualstudio.com/team-services/git/) Visual Studio profilinizi erişip depoları ve proje bakın. | \<hesap adınız > |
+| **Visual Studio Team Services hesabı** | VSTS hesap adınızı. VSTS hesap adınızı bulabilir `https://{account name}.visualstudio.com`. Yapabilecekleriniz [VSTS hesabınızda oturum açın](https://www.visualstudio.com/team-services/git/) Visual Studio profilinizi erişip depoları ve proje bakın. | \<hesap adınız > |
 | **ProjectName** | VSTS projenizin adına. VSTS proje adınızı bulabilir `https://{account name}.visualstudio.com/{project name}`. | \<VSTS proje adı > |
 | **RepositoryName** | VSTS kod deposu adınız. VSTS projeleri projenizi büyüdükçe, kaynak kodunuzu yönetmek için Git depoları içerir. Yeni bir havuz oluşturabilir veya projenizde zaten varolan bir havuz kullanabilirsiniz. | \<VSTS kod depo adı > |
 | **İşbirliği şube** | Yayımlama için kullanılacak VSTS işbirliği dalı. Varsayılan olarak bu değer `master`. Başka bir şube kaynaklardan yayımlamak istediğiniz durumlarda bu değiştirin. | \<İşbirliği şube adı > |
@@ -75,6 +76,14 @@ Azure veri fabrikası UX içinde **tuvale yazma**, veri fabrikası bulun. Seçin
 Bir yapılandırma bölmesinde görünür. Açıklamasında yapılandırma ayarları hakkında daha fazla bilgi için bkz <a href="#method1">yapılandırma yöntemi 1</a>.
 
 ![UX yazma kodu deposu ayarlarını yapılandırma](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>Farklı bir Git deposuna geçin
+
+Farklı bir Git deposuna geçiş yapmak için aşağıdaki ekran görüntüsünde gösterildiği gibi veri fabrikası genel bakış sayfasında, sağ üst köşesinde simgesini bulun. Simge göremiyorsanız, yerel tarayıcı önbelleğini temizleyebilirsiniz. Geçerli depoyu ilişkilendirmesini kaldırmak için simgeyi seçin.
+
+Geçerli depoyu ilişkilendirmesini kaldırmanız sonra Git ayarlarınızı farklı depoyu kullanacak şekilde yapılandırabilirsiniz. Ardından, var olan Veri Fabrikası Kaynakları yeni deposuna içe aktarabilirsiniz.
+
+![Geçerli Git deposuna ilişkilendirmesini kaldırın.](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>Sürüm denetimini kullanma
 Sürüm denetim sistemleri (olarak da bilinen _kaynak denetimi_) koda temel yapılan kod ve izleme değişiklikleri üzerinde işbirliği geliştiriciler olanak tanır. Kaynak denetimi çok geliştirici projeleri için önemli bir araçtır.

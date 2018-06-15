@@ -15,6 +15,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165409"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Yüksek Karşıtlık'ı açma veya Azure portalında temasını değiştirin
 Daha fazla Karşıtlık gerekir veya Azure portalında renk düzenini değiştirmek isterseniz değişikliği yapmak için portal ayarlarınıza gidin. 

@@ -1,13 +1,14 @@
 ---
-title: "İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihaz katılma | Microsoft Docs"
-description: "Nasıl kullanıcıları Azure AD'ye katılımı ilk çalıştırma deneyimi sırasında ayarlayabilirsiniz açıklayan bir konu."
+title: İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihaz katılma | Microsoft Docs
+description: Nasıl kullanıcıları Azure AD'ye katılımı ilk çalıştırma deneyimi sırasında ayarlayabilirsiniz açıklayan bir konu.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757401"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>İlk çalıştırma sırasında Azure AD ile yeni bir Windows 10 cihaz katılma
 
@@ -37,6 +39,8 @@ Windows *out-of-box deneyimi*, bir şirket içi Active Directory (AD) etki alan�
 ## <a name="before-you-begin"></a>Başlamadan önce
 
 Windows 10 cihazına katılmak için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Azure AD kiracınızda aygıtları katılma iznine sahip ek olarak, daha az aygıtlarının yapılandırılmış en büyük değerden daha kayıtlı olmalıdır. Daha fazla ayrıntı için bkz: [aygıt ayarlarını yapılandır](device-management-azure-portal.md#configure-device-settings).
+
+Ayrıca, kiracınızın federe kimlik sağlayıcınızı WS-Fed ve WS-Trust kullanıcı adı/parola endpoint desteklemesi gerekir. Bu sürüm 1.3 veya 2005 olabilir. Bu protokolü destekleyen Azure AD ile cihaz katılma hem cihazı bir parola ile oturum açmak için gereklidir.
 
 ## <a name="joining-a-device"></a>Bir aygıtı birleştirme
 

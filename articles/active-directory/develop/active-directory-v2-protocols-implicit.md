@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158396"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokolleri - örtük akışını kullanarak SPAs
 V2.0 uç noktası ile kullanıcılar, tek sayfa uygulamaları Microsoft'tan hem kişisel hem de iş/Okul hesaplarıyla içine imzalayabilirsiniz. Tek sayfa ve diğer JavaScript uygulamalar, öncelikle birkaç ilginç sınar kimlik doğrulaması geldiğinde bir tarayıcı yazıtipi olarak çalıştırın:

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209979"
 ---
 # <a name="service-fabric-architecture"></a>Service Fabric mimarisi
 Service Fabric katmanlı alt sistemleri ile yerleşik olarak bulunur. Bu alt sistemleri, uygulamaları yazma olanak sağlar:

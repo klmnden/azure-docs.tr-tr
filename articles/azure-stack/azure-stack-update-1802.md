@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 5cf61ccaadc40a5f250dcf477de5b446052aba9a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: af65ffc088c2beadf415b72ec284ef77f3e4f6d4
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757266"
 ---
 # <a name="azure-stack-1802-update"></a>Azure yığın 1802 güncelleştirme
 
@@ -36,7 +37,7 @@ Azure yığın 1802 güncelleştirme yapı numarası **20180302.1**.
 
 ## <a name="before-you-begin"></a>Başlamadan önce    
 > [!IMPORTANT]    
-> Bu güncelleştirmenin yüklenmesi sırasında sanal makineler oluşturmak çalışmayın. Güncelleştirmeleri yönetme hakkında daha fazla bilgi için bkz: [yönetmek Azure yığın genel bakış güncelleştirmelerinde](/azure-stack-updates#plan-for-updates).
+> Bu güncelleştirmenin yüklenmesi sırasında sanal makineler oluşturmak çalışmayın. Güncelleştirmeleri yönetme hakkında daha fazla bilgi için bkz: [yönetmek Azure yığın genel bakış güncelleştirmelerinde](azure-stack-updates.md#plan-for-updates).
 
 
 ### <a name="prerequisites"></a>Önkoşullar
@@ -107,6 +108,9 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 
 #### <a name="portal"></a>Portal
+- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+  Geçici çözüm: Bu güncelleştirmeyi yükledikten sonra bu sorunu çözmek için 3 adımından kullanmak [yapılandırmak için tetikleyici Otomasyon Talep sağlayıcı güveni Azure yığınında](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) varsayılan sağlayıcı aboneliğin sahibi sıfırlamak için yordamı.   
+
 - Özelliği [aşağı açılır listeden yeni bir destek isteği açma](azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
     - Azure yığını için tümleşik sistemleri kullanan https://aka.ms/newsupportrequest.
 
@@ -137,7 +141,22 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
-İçin 1802 güncelleştirdikten sonra bilinen herhangi bir sorun vardır.
+- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+
+  Uyarı #1:
+   - Ad: Altyapı rolü sağlıksız
+   - Önem DERECESİ: uyarı
+   - Bileşen: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyicisi sinyal tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.  
+
+  Uyarı #2:
+   - Ad: Altyapı rolü sağlıksız
+   - Önem DERECESİ: uyarı
+   - Bileşen: Sistem durumu denetleyicisi
+   - Açıklama: Sistem durumu denetleyicisi hataya tarayıcı kullanılamıyor. Bu sistem durumu raporları ve ölçümleri etkileyebilir.
+
+  Her iki uyarı güvenle yoksayılabilir. Bunlar zaman içinde otomatik olarak kapatılacak.  
+
 
 #### <a name="marketplace"></a>Market
 - Kullanıcılar bir abonelik olmadan tam Market göz atabilir ve planları ve teklifleri gibi yönetim öğelerini görebilirsiniz. Bu öğeler kullanıcılara işlevsiz.
@@ -155,7 +174,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 
 - Kullanılabilirlik giderek portalda kümesi oluşturduğunuzda **yeni** > **işlem** > **kullanılabilirlik kümesi**, oluşturabilmeniz için bir kullanılabilirlik, bir hata etki alanı ve güncelleştirme etki alanı 1 ile ayarlayın. Yeni bir sanal makine oluştururken, bir geçici çözüm olarak, kullanılabilirlik PowerShell'i, CLI, kullanarak veya içinden kümesini oluşturmak portal.
 
-- Sanal makineler Azure yığın kullanıcı portalında oluşturduğunuzda, portal DS serisi VM iliştirebilirsiniz veri diskleri yanlış sayıda görüntüler. DS serisi VM'ler sayıda veri diski Azure yapılandırması sağlayabilir.
+- Sanal makineler Azure yığın kullanıcı portalında oluşturduğunuzda, portal D serisinin VM iliştirebilirsiniz veri diskleri yanlış sayıda görüntüler. Tüm desteklenen D serisinin VM'ler sayıda veri diski Azure yapılandırması sağlayabilir.
 
 - Oluşturulacak bir VM görüntüsü başarısız olduğunda, VM görüntüleri işlem dikey penceresine eklenen silemezsiniz başarısız bir öğe.
 
@@ -278,6 +297,8 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 #### Identity
 -->
 
+
+
 #### <a name="downloading-azure-stack-tools-from-github"></a>Azure yığın araçları Github'dan indirme
 - Kullanırken *çağırma webrequest* Azure yığın indirmek için PowerShell cmdlet araçları Github'dan, hata iletisi:     
     -  *çağırma webrequest: istek iptal edildi: SSL/TLS güvenli kanalı oluşturulamadı.*     
@@ -291,7 +312,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180302.1**
 Azure yığın 1802 güncelleştirme paketinden indirebilirsiniz [burada](https://aka.ms/azurestackupdatedownload).
 
 
-## <a name="more-information"></a>Ek bilgiler
+## <a name="more-information"></a>Daha fazla bilgi
 Microsoft, izlemek ve ayrıcalıklı uç noktası (güncelleştirme 1710 ile yüklü CESARETLENDİRİCİ) kullanarak güncelleştirmeleri sürdürmek için bir yol sağlamıştır.
 
 - Bkz: [izlemek Azure ayrıcalıklı endpoint belgelerini kullanarak yığınında güncelleştirmeleri](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update).

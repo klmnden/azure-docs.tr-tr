@@ -1,6 +1,6 @@
 ---
-title: "Yapılandırma ve Azure Portalı'nda PostgreSQL için sunucu günlüklerine erişim"
-description: "Bu makalede, yapılandırmak ve sunucu günlüklerini Azure veritabanındaki PostgreSQL Azure portalından erişmek açıklar."
+title: Yapılandırma ve Azure Portalı'nda PostgreSQL için sunucu günlüklerine erişim
+description: Bu makalede, yapılandırmak ve sunucu günlüklerini Azure veritabanındaki PostgreSQL Azure portalından erişmek açıklar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692173"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Yapılandırma ve erişim sunucusu Azure portalında oturum
 

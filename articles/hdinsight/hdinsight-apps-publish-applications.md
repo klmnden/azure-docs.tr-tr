@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34201715"
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Bir Hdınsight uygulamasının Azure Marketi'nde yayımlama
 Linux tabanlı Hdınsight kümesinde bir Azure Hdınsight uygulamayı yükleyebilir. Bu makalede bir Hdınsight uygulamasının Azure Marketi'nde yayımlama öğrenin. Azure Marketi'nde yayımlama hakkında genel bilgi için bkz: [bir teklifi Azure Marketi'nde yayımlama](../marketplace-publishing/marketplace-publishing-getting-started.md).

@@ -1,11 +1,11 @@
 ---
-title: "C++ ile Azure dosyaları için geliştirme | Microsoft Docs"
-description: "C++ uygulamaları ve dosya verilerini depolamak için Azure dosyaları kullanan hizmetleri geliştirmeyi öğrenin."
+title: C++ ile Azure dosyaları için geliştirme | Microsoft Docs
+description: C++ uygulamaları ve dosya verilerini depolamak için Azure dosyaları kullanan hizmetleri geliştirmeyi öğrenin.
 services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737580"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++ ile Azure dosyaları için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,9 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>Bu öğretici hakkında
-
 Bu öğreticide, Azure dosyalarda temel işlemleri gerçekleştirmeyi öğreneceksiniz. C++'da yazılmış örnekleri sayesinde, paylaşımları ve dizinler oluşturma, karşıya yükleme, liste ve dosyaları silin öğreneceksiniz. Azure dosyaları yeniyseniz, aşağıdaki bölümlerde açıklanan kavramlar aracılığıyla örnekleri anlaşılmasına yardımcı olur.
-
 
 * Oluşturma ve Azure dosya paylaşımları silme
 * Oluşturma ve dizinleri silme
@@ -38,7 +37,7 @@ Bu öğreticide, Azure dosyalarda temel işlemleri gerçekleştirmeyi öğrenece
 * Paylaşımda tanımlı bir paylaşılan erişim ilkesi kullanan bir dosya için paylaşılan erişim imzası (SAS anahtarı) oluşturma.
 
 > [!Note]  
-> Azure dosyaları SMB üzerinden erişilebileceği için standart C++ g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişmek basit uygulamaları yazmak mümkündür. Bu makalede Azure depolama C++ kullanan SDK'ın, uygulamaların nasıl yazılacağını anlatmaktadır [dosya REST API'si](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) Azure dosyaları anlaşmak için.
+> Azure dosyaları SMB üzerinden erişilebileceği için standart C++ g/ç sınıfları ve işlevleri kullanarak Azure dosya paylaşımına erişim basit uygulamaları yazmak mümkündür. Bu makalede Azure depolama C++ kullanan SDK'ın, uygulamaların nasıl yazılacağını anlatmaktadır [dosya REST API'si](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) Azure dosyaları anlaşmak için.
 
 ## <a name="create-a-c-application"></a>C++ uygulaması oluşturma
 Örnekleri oluşturmak için Azure Storage istemci Kitaplığı'nı 2.4.0 C++ için yüklemeniz gerekir. Ayrıca bir Azure depolama hesabı oluşturduğunuz.
@@ -78,8 +77,8 @@ azure::storage::cloud_storage_account storage_account =
   azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="create-an-azure-file-share"></a>Bir Azure dosya paylaşımı oluşturma
-Tüm dosya ve dizinlerin bir Azure dosya paylaşımı adı verilen bir kapsayıcıda yer bir **paylaşmak**. Depolama hesabınız hesap kapasitenizi verdiğinden sayıda paylaşımları olabilir. Bir paylaşımı ve içeriklerini erişim elde etmek için bir Azure dosyaları istemci kullanmanız gerekir.
+## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
+Tüm dosya ve dizinlerin bir Azure dosya paylaşımında olarak adlandırılan bir kapsayıcıda yer bir **paylaşmak**. Depolama hesabınız hesap kapasitenizi verdiğinden sayıda paylaşımları olabilir. Bir paylaşımı ve içeriklerini erişim elde etmek için bir Azure dosyaları istemci kullanmanız gerekir.
 
 ```cpp
 // Create the Azure Files client.
@@ -105,7 +104,7 @@ if (share.create_if_not_exists()) {
 
 Bu noktada, **paylaşmak** adlı bir paylaşım için bir başvuru tutan **örnek paylaşımı my**.
 
-## <a name="delete-an-azure-file-share"></a>Bir Azure Dosya Paylaşımı Sil
+## <a name="delete-an-azure-file-share"></a>Azure dosya paylaşımının Sil
 Bir paylaşım silme yapılır çağırarak **delete_if_exists** cloud_file_share nesnesi üzerinde yöntemi. Yapan örnek kod aşağıda verilmiştir.
 
 ```cpp

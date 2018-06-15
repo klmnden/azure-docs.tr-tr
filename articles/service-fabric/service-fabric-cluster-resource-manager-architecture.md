@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211438"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Küme kaynak Yönetici Mimarisine Genel Bakış
 Service Fabric kümesi Kaynak Yöneticisi kümede çalışan merkezi bir hizmettir. Özellikle kaynak tüketimini ve herhangi bir yerleştirme kuralı göre kümedeki hizmetlerin istenen durumunu yönetir. 

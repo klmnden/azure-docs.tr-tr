@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209381"
 ---
 # <a name="scaling-in-service-fabric"></a>Service Fabric ölçeklendirme
 Azure Service Fabric, hizmetler, bölümler ve çoğaltmalar bir küme düğümlerinde yöneterek ölçeklenebilir uygulamalar oluşturmanızı kolaylaştırır. Aynı donanımda birçok iş yükü çalıştıran en fazla kaynak kullanımı sağlar, ancak aynı zamanda, iş yüklerinin ölçeğini seçiminizi açısından esneklik sağlar. Bu Channel 9 video ölçeklenebilir mikro uygulamaları nasıl oluşturabileceğiniz açıklanmaktadır:

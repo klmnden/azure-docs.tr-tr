@@ -1,11 +1,11 @@
 ---
-title: "Python ile Azure dosyaları için geliştirme | Microsoft Docs"
-description: "Python uygulama ve dosya verilerini depolamak için Azure dosyaları kullanan hizmetleri geliştirmeyi öğrenin."
+title: Python ile Azure dosyaları için geliştirme | Microsoft Docs
+description: Python uygulama ve dosya verilerini depolamak için Azure dosyaları kullanan hizmetleri geliştirmeyi öğrenin.
 services: storage
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
-ms.translationtype: MT
+ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738270"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python ile Azure dosyaları için geliştirme
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -69,7 +70,7 @@ from azure.storage.file import FileService
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-## <a name="create-an-azure-file-share"></a>Bir Azure dosya paylaşımı oluşturma
+## <a name="create-an-azure-file-share"></a>Azure dosya paylaşımı oluşturma
 Aşağıdaki kod örneğinde kullanabileceğiniz bir `FileService` yoksa paylaşımı oluşturmak için nesne.
 
 ```python
@@ -84,7 +85,7 @@ file_service.create_directory('myshare', 'sampledir')
 ```
 
 ## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Dosya ve dizinlerin bir Azure dosya paylaşımında listeleme
-Dosyaların ve dizinlerin bir paylaşımda listelemek için kullanın **listesi\_dizinleri\_ve\_dosyaları** yöntemi. Bu yöntem bir oluşturucuyu döndürür. Aşağıdaki kod çıktıları **adı** her bir dosya ve dizin konsoluna bir paylaşımda.
+Dosyaların ve dizinlerin bir paylaşımda listelemek için kullanın **listesi\_dizinleri\_ve\_dosyaları** yöntemi. Bu yöntem bir oluşturucu döndürür. Aşağıdaki kod çıktıları **adı** her bir dosya ve dizin konsoluna bir paylaşımda.
 
 ```python
 generator = file_service.list_directories_and_files('myshare')
@@ -93,11 +94,11 @@ for file_or_dir in generator:
 ```
 
 ## <a name="upload-a-file"></a>Dosyayı karşıya yükleme 
-Azure dosya paylaşımı en azından içerir, bir kök dizin dosyalarının bulunduğu. Bu bölümde, bir paylaşım kök dizini üzerine yerel depolama biriminden bir dosya karşıya nasıl yükleneceğini öğreneceksiniz.
+Azure dosya paylaşımı içeren en azından dosyalarının bulunduğu bir kök dizin. Bu bölümde, bir paylaşım kök dizini üzerine yerel depolama biriminden bir dosya karşıya nasıl yükleneceğini öğreneceksiniz.
 
 Bir dosya oluşturun ve verileri yüklemek için kullanmak `create_file_from_path`, `create_file_from_stream`, `create_file_from_bytes` veya `create_file_from_text` yöntemleri. Bunlar veri boyutu 64 MB aştığında gerekli Öbekleme gerçekleştiren üst düzey yöntemleridir.
 
-`create_file_from_path`Belirtilen yol bir dosyanın içeriğini yükler ve `create_file_from_stream` zaten açılmış bir dosya/akışı içeriğini yükler. `create_file_from_bytes`bayt dizisi yükler ve `create_file_from_text` belirtilen (varsayılan UTF-8) kodlaması kullanarak belirli bir metin değeri yükler.
+`create_file_from_path` Belirtilen yol bir dosyanın içeriğini yükler ve `create_file_from_stream` zaten açılmış bir dosya/akışı içeriğini yükler. `create_file_from_bytes` bayt dizisi yükler ve `create_file_from_text` belirtilen (varsayılan UTF-8) kodlaması kullanarak belirli bir metin değeri yükler.
 
 Aşağıdaki örnek içeriğini yükler **sunset.png** içine dosya **myfile** dosya.
 

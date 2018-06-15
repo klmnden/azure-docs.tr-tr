@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360481"
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft bulut Hizmetleri ve ağ güvenliği
 Microsoft bulut hizmetlerine hiper ölçekli hizmetler ve altyapı, Kurumsal düzeydeki özellikleri ve karma bağlantı için birçok seçenek sunar. Müşteriler, Internet üzerinden veya özel ağ bağlantısı sağlayan Azure ExpressRoute ile bu hizmetlere erişmek seçebilirsiniz. Microsoft Azure platformu sorunsuz bir şekilde altyapılarını bulutunu oluşturmak ve genişletmek için çok katmanlı mimarileri olanak tanır. Ayrıca, üçüncü tarafların güvenlik hizmetleri ve sanal gereçler sunarak Gelişmiş özellikleri etkinleştirebilirsiniz. Bu teknik incelemede güvenlik ve müşteriler, ExpressRoute aracılığıyla erişilebilir Microsoft bulut hizmetlerini kullanırken dikkate almanız gereken mimari sorunları genel bakış sağlar. Ayrıca, Azure sanal ağları daha güvenli Hizmetleri oluşturulması ele alınmaktadır.

@@ -1,25 +1,22 @@
 ---
-title: Azure komut satırı arabirimi kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs
-description: Data Lake Analytics hesapları, veri kaynaklarını, işlerini ve kullanıcıları Azure CLI kullanarak yönetmeyi öğrenin
+title: Azure komut satırı arabirimi kullanarak Azure Data Lake Analytics yönetme
+description: Bu makalede, Data Lake Analytics işleri, veri kaynakları ve kullanıcıları yönetmek için Azure CLI kullanmayı açıklar.
 services: data-lake-analytics
-documentationcenter: ''
-author: SnehaGunda
-manager: Kfile
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 01/29/2018
-ms.author: sngun
-ms.openlocfilehash: 9504e1fcbb0128f538cb6e959cf7586f24827836
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 86fa41db2d21beac08015d067b79ce1375cd3ddf
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736098"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>Azure komut satırı arabirimi (CLI) kullanarak Azure Data Lake Analytics yönetme
+# <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure komut satırı arabirimi (CLI) kullanarak Azure Data Lake Analytics yönetme
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
@@ -214,24 +211,6 @@ az dla job recurrence list --account "<Data Lake Analytics Account Name>"
 
 az dla job recurrence show --account "<Data Lake Analytics Account Name>" --recurrence-identity "<Recurrence ID>"
 ```
-
-
-## <a name="use-azure-resource-manager-groups"></a>Azure Resource Manager grupları kullanma
-Uygulamalar genellikle web uygulaması, veritabanı, veritabanı sunucusu, depolama alanı ve üçüncü taraf hizmetleri gibi birçok bileşenden oluşur. Azure Resource Manager, uygulamanızdaki kaynaklarla uygulamanız için bir Azure kaynak grubu adlandırılan bir grup olarak çalışmanıza olanak sağlar. Dağıtma, güncelleştirme, izlemek veya tüm kaynakları tek ve eşgüdümlü bir işlemle uygulamanızda için silin. Dağıtım için bir şablon kullanabilirsiniz. Üstelik bu şablon test, hazırlık ve üretim gibi farklı ortamlarda da çalışabilir. Tüm grup için aktarılmış maliyetleri görüntüleyerek kuruluşunuzun fatura işlemlerine açıklık getirebilirsiniz. Daha fazla bilgi için bkz. [Azure Resource Manager'a Genel Bakış](../azure-resource-manager/resource-group-overview.md). 
-
-Bir Data Lake Analytics hizmeti aşağıdaki bileşenleri şunları içerebilir:
-
-* Azure Data Lake Analytics hesabı
-* Gerekli varsayılan Azure Data Lake Storage hesabı
-* Ek Azure Data Lake Storage hesapları
-* Ek Azure depolama hesapları
-
-Yönetmeyi kolaylaştırmak için bir Resource Manager grubundaki tüm bu bileşenleri oluşturabilirsiniz.
-
-![Azure Data Lake Analytics hesabı ve depolama](./media/data-lake-analytics-manage-use-portal/data-lake-analytics-arm-structure.png)
-
-Bir Data Lake Analytics hesabı ve bağımlı depolama hesapları aynı Azure veri merkezinde yer almalıdır.
-Resource Manager Grup ancak farklı veri merkezinde yer alabilir.  
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)

@@ -4,28 +4,29 @@ description: SAP HANA SAP HANA azure'da (büyük örneği) yüklemek nasıl.
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763465"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma
 
 Aşağıda, bu kılavuzu okumadan önce bilmeniz bazı önemli tanımları verilmiştir. İçinde [SAP HANA (büyük örnekler) genel bakış ve Azure ile ilgili mimari](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) ile HANA büyük örneği birimlerin farklı iki sınıf gösterdiğimizi:
 
-- S72, S72m, S144, S144m, S192 ve adlandırdığımız 'ı sınıf türü olarak' S192m SKU.
-- S384, S384m, S384xm, S576m, S768m ve adlandırdığımız 'Type II sınıfı' SKU'ları S960m.
+- S72, S72m, S144, S144m, S192, S192m ve adlandırdığımız 'ı sınıf türü olarak' S192xm SKU.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm ve adlandırdığımız 'Type II sınıfı' SKU'ları S960m.
 
 Sınıfı tanımlayıcısı HANA büyük örnek belge boyunca sonunda farklı özellikleri ve gereksinimleri HANA büyük örneği SKU'larında dayalı başvurmak için kullanılacak.
 

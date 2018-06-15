@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212373"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric düğüm türleri ve sanal makine ölçekleme kümeleri
 [Sanal makine ölçek kümeleri](/azure/virtual-machine-scale-sets) Azure hesaplama kaynağı olan. Ölçek kümeleri dağıtmak ve sanal makinelerin bir koleksiyon kümesi olarak yönetmek için kullanabilirsiniz. Bir Azure Service Fabric kümesi tanımladığınız her düğüm türü ayrı bir ölçek büyütme ayarlar.  Ölçek her sanal makinede yüklü Service Fabric çalışma zamanını ayarlayın. Bağımsız olarak her düğüm türü yukarı veya aşağı ölçeklendirmek, her küme düğümünde çalışan işletim sistemi SKU'su değişiklik kümesi farklı bağlantı noktalarının açık ve farklı kapasite ölçümlerini kullanın.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210588"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Service Fabric Hizmetleri için küme kaynak yönetici ayarlarını yapılandırma
 Service Fabric kümesi Kaynak Yöneticisi adlı hizmetin her kişi belirleyen kurallar üzerinde ayrıntılı denetim sağlar. Her adlandırılmış hizmet kümesinde nasıl ayrılmalıdır kuralları belirtebilirsiniz. Adlandırılmış her hizmet bu hizmete oldukları ne kadar önemli dahil olmak üzere raporlanacak istediği ölçümleri kümesi de tanımlayabilirsiniz. Hizmetleri yapılandırma üç farklı görevlere parçalara ayırır:
