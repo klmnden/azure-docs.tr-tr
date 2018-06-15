@@ -1,12 +1,12 @@
 ---
-title: "Genel bakış - Azure Logic Apps ile kurumsal tümleştirme | Microsoft Docs"
-description: "Farklı kurum ve kuruluşlardaki verileri, hizmetleri, uygulamaları ve sistemleri tümleştiren otomatik iş akışları ve iş süreçleri oluşturun. Veri tümleştirmesi, sistem tümleştirmesi, kuruluş uygulaması tümleştirme (EAI) ve düzenleme senaryolarına yönelik çözümler oluşturun."
-keywords: "otomatikleştirme, iş akışları, kuruluş uygulaması tümleştirme, EAI, sistem tümleştirmesi, veri tümleştirmesi, düzenleme, tümleştirme hizmetleri, iPaaS"
+title: Genel bakış - Azure Logic Apps ile kurumsal tümleştirme | Microsoft Docs
+description: Farklı kurum ve kuruluşlardaki verileri, hizmetleri, uygulamaları ve sistemleri tümleştiren otomatik iş akışları ve iş süreçleri oluşturun. Veri tümleştirmesi, sistem tümleştirmesi, kuruluş uygulaması tümleştirme (EAI) ve düzenleme senaryolarına yönelik çözümler oluşturun.
+keywords: otomatikleştirme, iş akışları, kuruluş uygulaması tümleştirme, EAI, sistem tümleştirmesi, veri tümleştirmesi, düzenleme, tümleştirme hizmetleri, iPaaS
 services: logic-apps
 author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6c88c51eb4def92164e221efa5c6293f9b2247e4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c575ae1f9c801072fb1f6f32a13f111b9edd18ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299248"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps nedir?
 

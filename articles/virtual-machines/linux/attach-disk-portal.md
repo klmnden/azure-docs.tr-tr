@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30832509"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Bir Linux VM için bir veri diski eklemek üzere portalı kullanın 
 Bu makalede Azure portalı üzerinden Linux sanal makine için yeni ve mevcut diskleri ekleme gösterilmiştir. Ayrıca [bir Windows VM Azure portalında bir veri diski ekleme](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

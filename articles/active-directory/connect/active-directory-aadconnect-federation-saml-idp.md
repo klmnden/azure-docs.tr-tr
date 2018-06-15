@@ -1,6 +1,6 @@
 ---
-title: "Azure AD Connect: SAML 2.0 kimlik sağlayıcısı için çoklu oturum açma kullanın | Microsoft Docs"
-description: "Bu konu, çoklu oturum açma için SAML 2.0 uyumlu IDP kullanarak açıklar."
+title: 'Azure AD Connect: SAML 2.0 kimlik sağlayıcısı için çoklu oturum açma kullanın | Microsoft Docs'
+description: Bu belgede, çoklu oturum açma için SAML 2.0 uyumlu IDP kullanarak açıklanmaktadır.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,37 +11,39 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801788"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Çoklu oturum açma için SAML 2.0 kimlik sağlayıcısı (IDP) kullanın
 
-Bu konudaki bilgileri içeren bir SAML 2.0 kullanımına uyumlu SP Lite profili kimlik sağlayıcısı olarak tercih edilen güvenlik belirteci hizmeti (STS) dayalı / kimlik sağlayıcısı. Zaten bir kullanıcı dizini ve SAML 2.0 kullanarak erişilen şirket içi depolama parola olduğu bu yararlı olur. Bu olan bir kullanıcı dizini, oturum açma Office 365 ve Azure AD güvenli kaynaklar için kullanılabilir. SAML 2.0 SP-Lite profili, bir oturum açma ve öznitelik exchange çerçeve sağlamak üzere yaygın olarak kullanılan güvenlik onaylama işlemi biçimlendirme dili (SAML) federe kimlik standardını temel temel alır.
+Bu belgede bir SAML 2.0 uyumlu SP Lite profiline dayalı kimlik sağlayıcısı tercih edilen güvenlik belirteci hizmeti (STS olarak) kullanma hakkında bilgi içeren / kimlik sağlayıcısı. Bu senaryo, bir kullanıcı dizini ve SAML 2.0 kullanarak erişilen şirket içi depolama parola zaten yararlıdır. Bu olan bir kullanıcı dizini, oturum açma Office 365 ve Azure AD güvenli kaynaklar için kullanılabilir. SAML 2.0 SP-Lite profili, bir oturum açma ve öznitelik exchange çerçeve sağlamak üzere yaygın olarak kullanılan güvenlik onaylama işlemi biçimlendirme dili (SAML) federe kimlik standardını temel temel alır.
 
 >[!NOTE]
 >3. taraf Azure AD ile kullanmak için test Idps listesi için bkz: [Azure AD Federasyonu uyumluluk listesi](active-directory-aadconnect-federation-compatibility.md)
 
-Microsoft Office 365 gibi bir Microsoft bulut Hizmeti Tümleştirme olarak bu oturum açma deneyimini destekler, düzgün şekilde yapılandırılmış, SAML 2.0 ile IDP profiline dayalı. SAML 2.0 kimlik sağlayıcısı üçüncü taraf ürünleri olan ve bu nedenle Microsoft destek dağıtımı için yapılandırma, bunları ilgili en iyi uygulamaları sorunlarını giderme sağlamaz. Bir kez düzgün bir şekilde yapılandırılmış, SAML kimlik sağlayıcısı için uygun yapılandırma aşağıdaki daha ayrıntılı olarak açıklanan Microsoft bağlantı Çözümleyicisi aracını kullanarak test edilebilir 2.0 ile tümleştirme. SAML 2.0 SP-Lite profili tabanlı kimlik sağlayıcınızı hakkında daha fazla bilgi için onu sağlanan kuruluş isteyin.
+Microsoft bu oturum açma deneyimi, düzgün şekilde yapılandırılmış SAML 2.0 profil tabanlı IDP ile Office 365 gibi bir Microsoft bulut Hizmeti Tümleştirme olarak destekler. SAML 2.0 kimlik sağlayıcısı üçüncü taraf ürünleri olan ve bu nedenle Microsoft destek dağıtımı için yapılandırma, bunları ilgili en iyi uygulamaları sorunlarını giderme sağlamaz. Bir kez düzgün bir şekilde yapılandırılmış, SAML kimlik sağlayıcısı için uygun yapılandırma aşağıdaki daha ayrıntılı olarak açıklanmıştır Microsoft bağlantı Çözümleyicisi aracını kullanarak test edilebilir 2.0 ile tümleştirme. SAML 2.0 SP-Lite profili dayalı kimlik sağlayıcısı hakkında daha fazla bilgi için onu sağlanan kuruluş isteyin.
 
 >[!IMPORTANT]
 >Bu, sınırlı sayıda istemciyle yalnızca bu senaryoda oturum açma SAML 2.0 kimlik sağlayıcısı ile kullanılabilir içerir:
 
 >- Outlook Web Access ve SharePoint Online gibi Web tabanlı istemciler
 - E-posta zengin istemciler, temel kimlik doğrulaması ve IMAP, POP, Active Sync, MAPI, (Gelişmiş istemci protokol uç noktası dağıtılması için gerekli değildir) vb. gibi desteklenen bir Exchange erişim yöntemi de dahil olmak üzere kullanır:
-    - Microsoft Outlook 2010/Outlook 2013/Outlook 2016, Apple iPhone (various iOS versions)
+    - Outlook 2013/Microsoft Outlook 2010/Outlook 2016, Apple iPhone (çeşitli iOS sürümleri)
     - Çeşitli Google Android cihazları
     - Windows Phone 7, Windows Phone 7,8 ve Windows Phone 8.0
     - Windows 8 posta istemcisi ve Windows 8.1 posta istemcisi
-    - Windows 10 Mail Client
+    - Windows 10 posta istemcisi
 
-Diğer tüm istemcileri, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, Lync 2010 masaüstü istemcisi için çoklu oturum açmayı yapılandırılmış, SAML 2.0 kimlik sağlayıcısı ile hizmette oturum açabilmeniz değil.
+Diğer tüm istemcileri, bu senaryoda oturum açma, SAML 2.0 kimlik sağlayıcısı ile kullanılamaz. Örneğin, Lync 2010 masaüstü istemcisi için çoklu oturum açmayı yapılandırılmış, SAML 2.0 kimlik sağlayıcısı ile hizmetinde oturum açamaz değil.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 protokolü gereksinimleri
-Bu konu, ayrıntılı gereksinimler protokolü ve oturum açma bir veya daha fazla Microsoft bulut hizmetlerine (örneğin, Office 365) etkinleştirmek için Azure AD ile birleştirmek için SAML 2.0 kimlik sağlayıcısı uygulamalıdır biçimlendirme iletiyi içerir. Bu senaryoda kullanılan bir Microsoft bulut hizmeti için SAML 2.0 bağlı olan taraf (SP-STS) Azure AD ' dir.
+Bu belgede ayrıntılı gereksinimler protokolü ve oturum açma bir veya daha fazla Microsoft bulut hizmetlerine (örneğin, Office 365) etkinleştirmek için Azure AD ile birleştirmek için SAML 2.0 kimlik sağlayıcısı uygulamalıdır biçimlendirme iletiyi içerir. Bu senaryoda kullanılan bir Microsoft bulut hizmeti için SAML 2.0 bağlı olan taraf (SP-STS) Azure AD ' dir.
 
 SAML 2.0 kimlik sağlayıcısı sağlamanız önerilir çıktı iletileri için sağlanan örnek izlemeleri kadar benzer mümkün olduğunca. Ayrıca, sağlanan belirli öznitelik değerlerinden kullanın Azure AD meta verileri, mümkün olduğunda. Çıktı iletilerinizi Mutluluk duyuyoruz sonra ile Microsoft bağlantı Çözümleyicisi'ni aşağıda açıklandığı gibi test edebilirsiniz.
 
@@ -65,7 +67,7 @@ SAML yanıt iletisi içinde imza düğüm iletinin dijital imza hakkında bilgi 
 9.  SignatureMethod'a algoritması aşağıdaki örnekle eşleşmesi gerekir:   `<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>`
 
 ## <a name="supported-bindings"></a>Desteklenen bağlamaları
-Bağlamaları değil taşıma ilgili gerekli iletişimleri parametreleri. Aşağıdaki gereksinimleri bağlamaları için geçerlidir
+Bağlamaları gereken taşımayla ilgili iletişim parametreleridir. Aşağıdaki gereksinimleri bağlamaları için geçerlidir
 
 1. HTTPS gerekli Aktarım ' dir.
 2.  Azure AD oturum açma sırasında belirteci gönderimi için HTTP POST gerektirir
@@ -76,23 +78,23 @@ Bu tablo belirli öznitelikler için gereksinimleri SAML 2.0 iletisinde gösteri
  
 |Öznitelik|Açıklama|
 | ----- | ----- |
-|NameID|Bu onay değeri Azure AD kullanıcının İmmutableıd ile aynı olması gerekir. En fazla 64 alfasayısal karakter olabilir. Güvenli olmayan HTML karakterler kodlanmış olmalıdır, örneğin "+" karakter ".2B" gösterilir.|
-|IDPEmail|Kullanıcı asıl adı (UPN) listelenen Azure AD/Office 365'te kullanıcının UserPrincipalName (UPN) budur IDPEmail ada sahip bir öğe olarak SAML yanıt. UPN, e-posta adresi biçime sahip. Windows Office 365 (Azure Active Directory) UPN değeri.|
-|Veren:|Bu, kimlik sağlayıcısı, bir URI olması gereklidir. Örnek iletileri verenden yeniden kullanmamalısınız. Veren, Azure AD kiracılar birden çok üst düzey etki alanı varsa, etki alanı başına yapılandırılmış belirtilen URI ayarı eşleşmesi gerekir.|
+|NameID|Bu onay değeri Azure AD kullanıcının İmmutableıd ile aynı olması gerekir. En fazla 64 alfasayısal karakter olabilir. Html olmayan güvenli karakterler kodlanmış olmalıdır, örneğin "+" karakter ".2B" gösterilir.|
+|IDPEmail|Kullanıcı asıl adı (UPN) SAML yanıtta IDPEmail ada sahip bir öğe olarak listelenen Azure AD/Office 365'te kullanıcının UserPrincipalName (UPN). UPN, e-posta adresi biçime sahip. Windows Office 365 (Azure Active Directory) UPN değeri.|
+|Sertifikayı Veren|Kimlik sağlayıcısı, bir URI olması gerekir. Örnek iletileri verenden yeniden kullanma. Veren, Azure AD kiracılar birden çok üst düzey etki alanı varsa, etki alanı başına yapılandırılmış belirtilen URI ayarı eşleşmesi gerekir.|
 
 >[!IMPORTANT]
 >Şu anda Azure AD için SAML 2.0:urn:oasis:names:tc:SAML:2.0:nameid aşağıdaki NameID biçimi URI destekler-biçimi: kalıcı.
 
 ## <a name="sample-saml-request-and-response-messages"></a>Örnek SAML istek ve yanıt iletileri
 Bir istek ve yanıt iletisi çift oturum açma ileti değişimi için gösterilir.
-Azure AD'den bir örnek SAML 2.0 kimlik sağlayıcısı için gönderilen bir örnek istek iletisi budur. Örnek SAML 2.0 kimlik sağlayıcısı Active Directory Federasyon Hizmetleri (AD FS) SAML-P protokolünü kullanmak üzere yapılandırılmış ' dir. Birlikte çalışabilirlik sınaması diğer SAML 2.0 kimlik sağlayıcıları ile tamamlandı.
+Azure AD'den bir örnek SAML 2.0 kimlik sağlayıcısı için gönderilen bir örnek istek iletisi verilmiştir. Örnek SAML 2.0 kimlik sağlayıcısı Active Directory Federasyon Hizmetleri (AD FS) SAML-P protokolünü kullanmak üzere yapılandırılmış ' dir. Birlikte çalışabilirlik sınaması diğer SAML 2.0 kimlik sağlayıcıları ile tamamlandı.
 
     `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
     <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
     <samlp:NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
     </samlp:AuthnRequest>`
 
-Bu örnek SAML 2.0 uyumlu kimlik sağlayıcısından Azure AD ile gönderilen örnek yanıt iletisidir / Office 365.
+Aşağıdaki örnek SAML 2.0 uyumlu kimlik sağlayıcısından Azure AD ile gönderilen bir örnek yanıt iletisi olan / Office 365.
 
     `<samlp:Response ID="_592c022f-e85e-4d23-b55b-9141c95cd2a5" Version="2.0" IssueInstant="2014-01-31T15:36:31.357Z" Destination="https://login.microsoftonline.com/login.srf" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" InResponseTo="_049917a6-1183-42fd-a190-1d2cbaf9b144" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
     <Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://WS2012R2-0.contoso.com/adfs/services/trust</Issuer>
@@ -146,12 +148,15 @@ Bu örnek SAML 2.0 uyumlu kimlik sağlayıcısından Azure AD ile gönderilen ö
     </samlp:Response>`
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>SAML 2.0 uyumlu kimlik sağlayıcısı yapılandırma
-Bu konu, tek oturum açma SAML 2.0 protokolünü kullanarak bir veya daha fazla Microsoft bulut hizmetlerine erişim (örneğin, Office 365) etkinleştirmek için Azure AD ile birleştirmek için SAML 2.0 kimlik sağlayıcısı yapılandırma hakkında yönergeler içerir. Azure AD bağlı olan taraf Bu senaryoda kullanılan bir Microsoft bulut hizmeti için SAML 2.0 olur.
+Bu bölüm, tek oturum açma SAML 2.0 protokolünü kullanarak bir veya daha fazla Microsoft bulut hizmetlerine erişim (örneğin, Office 365) etkinleştirmek için Azure AD ile birleştirmek için SAML 2.0 kimlik sağlayıcısı yapılandırma hakkında yönergeler içerir. Azure AD bağlı olan taraf Bu senaryoda kullanılan bir Microsoft bulut hizmeti için SAML 2.0 olur.
 
 ## <a name="add-azure-ad-metadata"></a>Azure AD meta verileri ekleme
 SAML 2.0 kimlik sağlayıcısı, bağlı olan taraf Azure AD ile ilgili bilgilere bağlı olması gerekiyor. Azure AD konumundaki meta verilerini yayımlayan https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml.
 
-Her zaman en son Azure AD meta SAML 2.0 kimlik sağlayıcısı yapılandırırken içe olduğunu önerilir. Azure AD kimlik sağlayıcısı'ndan meta verileri okumaz unutmayın.
+Her zaman en son Azure AD meta SAML 2.0 kimlik sağlayıcısı yapılandırırken içe olduğunu önerilir.
+
+>[!NOTE]
+>Azure AD, kimlik sağlayıcısı'ndan meta verilerini okuma değil.
 
 ## <a name="add-azure-ad-as-a-relying-party"></a>Azure AD bağlı olan taraf Ekle
 SAML 2.0 kimlik sağlayıcısı ve Azure AD arasındaki iletişimi etkinleştirmeniz gerekir. Bu yapılandırma, belirli bir kimlik sağlayıcısı bağımlı olur ve bu belgelere başvurmalıdır. Genellikle bağlı olan taraf kimliği Entityıd aynı Azure AD meta verilerini ayarlamanız.
@@ -170,7 +175,10 @@ Cmdlet'leri bir dizi eklemek veya etki alanları için çoklu oturum açma dön�
 
 SAML 2.0 kimlik sağlayıcısı kullanarak birleştirmek istediğiniz her bir Azure Active Directory etki alanı bir tek oturum açma etki olarak eklenmeli veya bir tek oturum açma etki alanından standart bir etki alanına dönüştürülmelidir. SAML 2.0 kimlik sağlayıcısı ve Azure AD arasında güven ekleme veya bir etki alanı dönüştürme ayarlar.
 
-Aşağıdaki yordamda var olan bir standart etki SAML 2.0 SP-Lite kullanarak bir Federasyon etki alanına dönüştürme konusunda size yol gösterir. Etki alanınızı kullanıcılar için bu adımı sonraki 2 saat etkiler kesinti yaşayabilirsiniz unutmayın.
+Aşağıdaki yordamda var olan bir standart etki SAML 2.0 SP-Lite kullanarak bir Federasyon etki alanına dönüştürme konusunda size yol gösterir. 
+
+>[!NOTE]
+>Etki alanınızı kullanıcılar için bu adımı sonraki 2 saat etkiler kesinti yaşayabilirsiniz.
 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Federasyon için Azure AD dizininizdeki bir etki alanını yapılandırma
 
@@ -194,7 +202,7 @@ Office 365 kullanıcılarınızın kimliğini doğrulamadan önce SAML 2.0 talep
 
 Azure AD Connect, şirket içi Active Directory'den Azure AD dizininizdeki etki alanlarınızı için asıl adlar sağlamak için kullanılabilir. Daha ayrıntılı bilgi için bkz: [şirket içi dizinlerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md).
 
-Windows PowerShell için Azure AD yeni kullanıcı ekleme otomatikleştirmek ve şirket içi dizin değişikliklerden eşitlemek için de kullanılabilir. İndirmeniz gerekir Windows PowerShell cmdlet'lerini kullanmak için [Azure Active Directory modülleri](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
+Windows PowerShell için Azure AD yeni kullanıcı ekleme otomatikleştirmek ve şirket içi dizin değişikliklerden eşitlemek için de kullanılabilir. Windows PowerShell cmdlet'lerini kullanmak için indirmeniz gerekir [Azure Active Directory modülleri](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0).
 
 Bu yordamda, Azure AD ile tek bir kullanıcı eklemek gösterilmiştir.
 
@@ -210,7 +218,7 @@ Bu yordamda, Azure AD ile tek bir kullanıcı eklemek gösterilmiştir.
         -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
         -UsageLocation "US" ` 
 
-"Yeni-MsolUser" kullanıma hakkında daha fazla bilgi için [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
+"Yeni-MsolUser" checkout hakkında daha fazla bilgi için [http://technet.microsoft.com/library/dn194096.aspx](http://technet.microsoft.com/library/dn194096.aspx)
 
 >[!NOTE]
 >"UserPrinciplName" değeri "IDPEmail için" içinde SAML 2.0 talebi gönderecek değerle eşleşmelidir ve "İmmutableıd" değeri "NameID" değerinizi gönderilen değerle eşleşmelidir.
@@ -233,7 +241,7 @@ Yönetici olarak doğrulayın ve çoklu oturum açma (Ayrıca çağrılan Kimlik
 Çoklu oturum açmayı doğrulamak için önce Active Directory eşitleme kurulumunun tamamlanması, dizinlerinizi eşitleyin ve eşitlenmiş kullanıcıları etkinleştirme gerekir.
 
 ### <a name="use-the-tool-to-verify-that-single-sign-on-has-been-set-up-correctly"></a>Bu çoklu oturum açma doğru olarak ayarlanmış olan doğrulamak için Aracı'nı kullanın
-Bu çoklu oturum açma doğru olarak ayarlanmış olan doğrulamak için bulut hizmeti şirket kimlik bilgilerinizle oturum açmak sorunsuz yaptığınızı doğrulamak için aşağıdaki yordamı gerçekleştirebilirsiniz.
+Bu çoklu oturum açma doğru olarak ayarlanmış olan doğrulamak için oturum şirket kimlik bilgilerinizle bulut hizmetine açmak sorunsuz yaptığınızı doğrulamak için aşağıdaki yordamı gerçekleştirebilirsiniz.
 
 Microsoft, SAML 2.0 tabanlı kimlik sağlayıcınızı test etmek için kullanabileceğiniz bir aracı sağlamıştır. Test aracı çalıştırmadan önce kimlik sağlayıcınız ile birleştirmek için Azure AD kiracısı yapılandırmış olmanız gerekir.
 
@@ -247,7 +255,7 @@ Microsoft, SAML 2.0 tabanlı kimlik sağlayıcınızı test etmek için kullanab
 3.  "I Office 365, Azure veya Azure Active Directory kullanan diğer hizmetler ile Federasyon ayarlayamazsınız" seçin.
 4.  Sonra aracı yüklenir ve çalışan, bağlantı tanılama penceresinde görürsünüz. Aracı Federasyon bağlantınızı test aracılığıyla adım.
 5.  Bağlantı Çözümleyicisi'ni, oturum açma, test ettiğiniz kullanıcı asıl adı için kimlik bilgilerini girmek, SAML 2.0 IDP açılır: ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml1.png)
-6.  Federasyon test oturum açma penceresine SAML 2.0 kimlik sağlayıcınız ile birleştirilecek yapılandırılmış Azure AD kiracısı için bir hesap adı ve parola girmelisiniz. Aracı bu kimlik bilgilerini kullanarak oturum açın dener ve oturum açma denemesi sırasında gerçekleştirilen testleri ayrıntılı sonuçlarını çıkış olarak sağlanacaktır.
+6.  Federasyon test oturum açma penceresine, SAML 2.0 kimlik sağlayıcınız ile birleştirilecek yapılandırılmış Azure AD kiracısı için bir hesap adı ve parola girmelisiniz. Aracı bu kimlik bilgilerini kullanarak oturum açın dener ve oturum açma denemesi sırasında gerçekleştirilen testleri ayrıntılı sonuçlarını çıkış olarak sağlanacaktır.
 ![SAML](media/active-directory-aadconnect-federation-saml-idp/saml2.png)
 7. Bu pencere sınama başarısız sonucunu gösterir. Ayrıntılı sonuçları gerçekleştirilen her testi sonuçlarıyla ilgili bilgileri gösterir İnceleme tıklayarak. Onları paylaşmak için diske sonuçları kaydedebilirsiniz.
  
@@ -259,9 +267,9 @@ El ile doğrulama SAML 2.0 kimlik sağlayıcısı birçok senaryoda düzgün ça
 Bu çoklu oturum açma doğru olarak ayarlanmış olan doğrulamak için aşağıdaki adımları tamamlayın:
 
 
-1. Bulut hizmetiniz için şirket kimlik bilgilerinizi kullanın aynı oturum açma adını kullanarak etki alanına katılmış bir bilgisayarda oturum açın.
-2.  Parola kutusunun içine tıklayın. Çoklu oturum açma ayarlandığından, parola kutusu gölgeli olur ve aşağıdaki iletiyi görürsünüz: "sırasında oturum açmak için artık gerekli <your company>."
-3.  Oturum açma tıklatın <your company> bağlantı. Oturum açabilir, ardından çoklu oturum açma ayarlanmış olması.
+1. Etki alanına katılmış bir bilgisayarda oturum için şirket kimlik bilgilerinizi kullanın aynı oturum açma adını kullanarak bulut hizmetine açın.
+2.  Parola kutusunun içine tıklayın. Çoklu oturum açma ayarlandığından, parola kutusu gölgeli olur ve aşağıdaki iletiyi görürsünüz: "oturum sırasında açmak için artık gerekli &lt;şirketiniz&gt;."
+3.  Oturum açma sırasında tıklatın &lt;şirketiniz&gt; bağlantı. İçin, oturum açma, ardından çoklu oturum açmayı ayarlandığına.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 

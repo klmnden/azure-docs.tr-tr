@@ -4,20 +4,18 @@ description: Azure Cosmos DB SQL sorgu dili için başvuru belgeleri.
 services: cosmos-db
 author: LalithaMV
 manager: kfile
-documentationcenter: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 83ee1d37dd6d79ce26ae95cd1486298f0210f661
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 13337e7979a378382df5e62661b04bac8dffa689
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798840"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos veritabanı SQL söz dizimi başvurusu
 
@@ -246,7 +244,7 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
     {1, 2} için `input_alias1 = A,`  
   
-    için {3} `input_alias1 = B,`  
+    {3} için `input_alias1 = B,`  
   
     {4, 5} için `input_alias1 = C,`  
   
@@ -264,7 +262,7 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
     {1, 2} için `input_alias1 = A,`  
   
-    için {3} `input_alias1 = B,`  
+    {3} için `input_alias1 = B,`  
   
     {4, 5} için `input_alias1 = C,`  
   
@@ -293,7 +291,7 @@ Aşağıdaki FROM yan tümcesi bakalım: `<from_source1> JOIN <from_source2> JOI
   
     {1, 2} için `input_alias1 = A,`  
   
-    için {3} `input_alias1 = B,`  
+    {3} için `input_alias1 = B,`  
   
     {4, 5} için `input_alias1 = C,`  
   
@@ -671,7 +669,7 @@ ORDER BY <sort_specification>
     |\<nonterminal >|Terminal dışı, ayrı olarak tanımlı.|  
     |\<nonterminal >:: =|Nonterminal sözdizimi tanımı.|  
     |other_terminal|Sözcük içindeki ayrıntısı açıklanan Terminal (belirteç).|  
-    |tanımlayıcı|Tanımlayıcı. Aşağıdaki karakterleri yalnızca sağlar: a-z A-Z 0-9 _First karakter, bir sayı olamaz.|  
+    |Tanımlayıcı|Tanımlayıcı. Aşağıdaki karakterleri yalnızca sağlar: a-z A-Z 0-9 _First karakter, bir sayı olamaz.|  
     |"dize"|Tırnak işaretli dizesi. Geçerli bir dize verir. Bir string_literal açıklamasına bakın.|  
     |'simgesi'|Sözdizimi parçası olan değişmez değer simge.|  
     |&#124;(dikey çubuk)|Alternatifleri sözdizimi öğeleri için. Belirtilen öğeleri yalnızca birini kullanabilirsiniz.|  

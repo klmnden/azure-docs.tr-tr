@@ -3,18 +3,19 @@ title: Sanal ağ hizmet uç noktaları ve Azure SQL veritabanı için kuralları
 description: Bir alt ağ, sanal ağ hizmeti uç noktası olarak işaretleyin. Ardından uç noktası olarak bir sanal ağ kuralı Azure SQL veritabanınıza ACL. SQL veritabanı sonra tüm sanal makineler ve alt ağdaki diğer düğümlere gelen iletişimi kabul eder.
 services: sql-database
 ms.service: sql-database
-author: MightyPen
+author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.reviewer: genemi
 ms.author: dmalik
-ms.openlocfilehash: 9f72ce802f5a2a07ad310968152ab359b4a6c31b
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d708d55c64306636910a85b5b490e25ecc794bd6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802604"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL veritabanı için sanal ağ hizmet uç noktaları ve kurallarını kullan
 
@@ -186,7 +187,7 @@ BLOB denetimi denetim günlüklerini kendi depolama hesabına iter. Bu depolama 
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Üzerinde VNET hizmet uç noktaları açmadan sunucunuza bir sanal ağ güvenlik duvarı kuralı ekleme
 
-Bu özellik zamanlara kadar geliştirilmiştir önce gerekli Güvenlik Duvarı'nda canlı bir sanal ağ kuralı uygulamadan önce VNet açmanızı uç noktaları üzerinde hizmet. Uç noktaları ile ilgili belirli bir VNet-alt ağ bir Azure SQL veritabanı. Ancak şimdi Ocak 2018 sürümünden itibaren bu gereksinim ayarlayarak atlayabilir **IgnoreMissingServiceEndpoint** bayrağı.
+Kısa süre önce bu özellik Gelişmiş önce Güvenlik Duvarı'nda canlı bir sanal ağ kuralı uygulamadan önce VNet Hizmeti uç noktalarını açmak için gerekli olmuştur. Uç noktaları ile ilgili belirli bir VNet-alt ağ bir Azure SQL veritabanı. Ancak şimdi Ocak 2018 sürümünden itibaren bu gereksinim ayarlayarak atlayabilir **IgnoreMissingServiceEndpoint** bayrağı.
 
 Yalnızca ayar bir güvenlik duvarı kuralı güvenli sunucu korumaz. Ayrıca VNet hizmet uç noktaları güvenlik etkili olması açmanız gerekir. Hizmet uç noktaları açtığınızda, sanal ağ alt ağınız üzerinde gelen kapalı geçişi tamamlanana kadar kapalı kalma süresi karşılaşır. Bu özellikle büyük sanal ağlar bağlamında geçerlidir. Kullanabileceğiniz **IgnoreMissingServiceEndpoint** veya geçişi sırasında kapalı kalma süresini ortadan kaldırmak için bayrak.
 
@@ -318,7 +319,7 @@ Azure SQL veritabanı için sanal ağ kuralı özelliği geç Eylül 2017 içind
 
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
-[expressroute-indexmd-744v]: ../expressroute/index.md
+[expressroute-indexmd-744v]: ../expressroute/index.yml
 
 [rbac-what-is-813s]:../role-based-access-control/overview.md
 

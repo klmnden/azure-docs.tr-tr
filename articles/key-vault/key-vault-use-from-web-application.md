@@ -11,11 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: adhurwit
-ms.openlocfilehash: de8276b22377db37075c6793d0710bb18625446c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3a191c3ee7eea641aab81008a6da801b609fb4c5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802111"
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Bir Web uygulamasından Azure anahtar kasası kullanın
 
@@ -44,7 +45,7 @@ Bu öğreticiyi tamamlamak için aşağıdakilere sahip olmanız gerekir:
 
 Anahtar kasası erişecek web uygulamasını Azure Active Directory'de kayıtlı ve anahtar Kasası'na erişim verildi adrestir. Bu durumda değilse, bir kasaya Başlarken Öğreticisi uygulamada geri dönün ve listelenen adımları yineleyin.
 
-Bu öğretici, Azure üzerinde web uygulamaları oluşturma temelleri anlamak web geliştiricileri için tasarlanmıştır. Azure Web Apps hakkında daha fazla bilgi için bkz: [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
+Bu öğretici, Azure üzerinde web uygulamaları oluşturma temelleri anlamak web geliştiricileri için tasarlanmıştır. Azure Web Apps hakkında daha fazla bilgi için bkz. [Web Apps'e genel bakış](../app-service/app-service-web-overview.md).
 
 ## <a id="packages"></a>NuGet paketleri ekleme
 
@@ -260,7 +261,7 @@ Sertifikanızı Web App Service'e doğrudan yüklemek yerine, anahtar kasası gi
 
 ## <a id="next"></a>Sonraki adımlar
 
-Programlama başvuruları için bkz: [Azure anahtar kasası C# istemci API Başvurusu](https://msdn.microsoft.com/library/azure/dn903628.aspx).
+Programlama başvuruları için bkz: [Azure anahtar kasası C# istemci API Başvurusu](https://msdn.microsoft.com/en-us/library/azure/mt430941.aspx).
 
 <!--Image references-->
 [1]: ./media/key-vault-use-from-web-application/PortalAppSettings.png

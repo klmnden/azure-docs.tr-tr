@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802366"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Depolama kuyrukları ve Service Bus kuyruklarını - karşılaştırılan ve contrasted
 Bu makalede farklar ve iki tür bugün Microsoft Azure tarafından sunulan kuyruk arasındaki benzerlikler Çözümler: depolama kuyrukları ve Service Bus kuyruklarını. Bu bilgileri kullanarak, ilgili teknolojileri karşılaştırabilir ve gereksinimlerinize en uygun çözümü seçerken daha bilinçli kararlar verebilirsiniz.
@@ -47,7 +48,6 @@ Bir çözümü Mimarı/geliştirici, olarak **Service Bus kuyruklarını kullanm
 
 * Çözümünüzü sıranın sorgulamak zorunda kalmadan iletilerini kurabilmesi gerekir. Service Bus ile bu kullanımı ile uzun yoklama elde edilebilir Service Bus destekleyen TCP dayanan protokoller kullanarak işlemini alırsınız.
 * Sıranın bir garantili ilk-giren ilk çıkar sağlamak için çözümünüzün gerektirir (FIFO) sıralı teslim.
-* Simetrik bir deneyim Azure ve Windows Server (özel bulut) üzerinde istediğiniz. Daha fazla bilgi için bkz: [Windows Server için hizmet veri yolu](https://msdn.microsoft.com/library/dn282144.aspx).
 * Çözümünüzü otomatik yinelenen algılama destekleyebilmesi gerekir.
 * İşlem iletilerinin uygulamanıza paralel uzun süre çalışan akış olarak istediğiniz (ileti akışı kullanarak ilişkili [SessionID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) ileti özelliği). Bu modelde, kullanıcı uygulama her düğüme ileti aksine akışlar için rekabet. Bir akış süren bir düğüme verildiğinde düğüm işlemleri kullanarak uygulama akışı durumunu durumunu inceleyebilirsiniz.
 * Çözümünüzü işlem davranışı ve gönderme ya da birden fazla ileti kuyruktan alırken kararlılık gerektirir.
@@ -65,7 +65,7 @@ Aşağıdaki bölümlerdeki tablolar sıra özellikleri mantıksal bir grupland�
 ## <a name="foundational-capabilities"></a>Temel özellikler
 Bu bölümde bazı depolama kuyrukları ve Service Bus kuyrukları ile sağlanan temel queuing özelliklerini karşılaştırır.
 
-| Karşılaştırma ölçütü | Depolama kuyrukları | Service Bus Kuyrukları |
+| Karşılaştırma ölçütü | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
 | --- | --- | --- |
 | Garanti sıralama |**Hayır** <br/><br>Daha fazla bilgi için listedeki ilk nota "Ek bilgiler" bölümüne bakın.</br> |**Evet - ilk-giren ilk çıkar (FIFO)**<br/><br>(oturumları Mesajlaşma kullanımı ile) |
 | Teslim garantisi |**En az bir kere** |**En az bir kere**<br/><br/>**En çok-bir kez** |
@@ -97,7 +97,7 @@ Bu bölümde bazı depolama kuyrukları ve Service Bus kuyrukları ile sağlanan
 ## <a name="advanced-capabilities"></a>Gelişmiş Özellikler
 Bu bölüm, depolama kuyrukları ve Service Bus kuyruklarını tarafından sağlanan gelişmiş özellikleri karşılaştırır.
 
-| Karşılaştırma ölçütü | Depolama kuyrukları | Service Bus Kuyrukları |
+| Karşılaştırma ölçütü | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
 | --- | --- | --- |
 | Zamanlanan teslim |**Evet** |**Evet** |
 | Otomatik ölü harflerinin |**Hayır** |**Evet** |
@@ -128,17 +128,17 @@ Bu bölüm, depolama kuyrukları ve Service Bus kuyruklarını tarafından sağl
 ## <a name="capacity-and-quotas"></a>Kapasite ve kotaları
 Bu bölümde depolama kuyrukları ve Service Bus kuyruklarını açısından karşılaştırır [kapasiteyi ve kotayı](service-bus-quotas.md) geçerli olabilir.
 
-| Karşılaştırma ölçütü | Depolama kuyrukları | Service Bus Kuyrukları |
+| Karşılaştırma ölçütü | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
 | --- | --- | --- |
 | En büyük sıra boyutu |**500 TB**<br/><br/>(sınırlı bir [tek bir depolama hesabı kapasitesi](../storage/common/storage-introduction.md#queue-storage)) |**80 GB için 1 GB**<br/><br/>(kuyruk oluşturma sırasında tanımlanan ve [bölümleme etkinleştirme](service-bus-partitioning.md) – "Ek bilgiler" bölümüne bakın) |
-| İleti boyutu üst sınırı |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlama)<br/><br/>Azure, kuyruklar ve BLOB'lar – bu noktada, şunları yapabilirsiniz enqueue birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200 GB. |**256 KB** veya **1 MB**<br/><br/>(başlık ve gövde, en fazla üstbilgi boyutu dahil: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
+| En büyük ileti boyutu |**64 KB**<br/><br/>(48 kullanırken KB **Base64** kodlama)<br/><br/>Azure, kuyruklar ve BLOB'lar – bu noktada, şunları yapabilirsiniz enqueue birleştirerek büyük iletileri destekleyen tek bir öğe için en fazla 200 GB. |**256 KB** veya **1 MB**<br/><br/>(başlık ve gövde, en fazla üstbilgi boyutu dahil: 64 KB).<br/><br/>Bağımlı [hizmet katmanı](service-bus-premium-messaging.md). |
 | En fazla ileti TTL |**Sonsuz** (itibariyle api-version 2017 07 27) |**TimeSpan.Max** |
 | Kuyruğu en yüksek sayısı |**Sınırsız** |**10,000**<br/><br/>(hizmet ad alanı) |
 | Maksimum eşzamanlı istemci sayısı |**Sınırsız** |**Sınırsız**<br/><br/>(yalnızca 100 eş zamanlı bağlantı sınırı TCP protokolü tabanlı iletişim'geçerlidir) |
 
 ### <a name="additional-information"></a>Ek bilgiler
 * Hizmet veri yolu kuyruğu boyutu sınırları zorlar. En büyük sıra boyutu sıra oluşturma sırasında belirtilir ve 1 ile 80 GB arasında bir değer olabilir. Sıra oluşturma ayarlanan sıra boyutu değeri ulaştıysanız, ek gelen iletileri reddedilir ve bir özel durum çağrıyı yapan kod tarafından alınır. Service Bus kotaları hakkında daha fazla bilgi için bkz: [Service Bus kotaları](service-bus-quotas.md).
-* İçinde [standart katmanı](service-bus-premium-messaging.md), Service Bus kuyruklarını boyutlarında, 1, 2, 3, 4 veya 5 GB (varsayılan olarak 1 GB) oluşturabilirsiniz. Premium katmanındaki kuyrukları oluşturabilirsiniz 80 GB boyutunda. Standart bölümlendirme ile katmanı, etkin (varsayılan olmayan), hizmet veri yolu için belirttiğiniz her GB 16 bölümler oluşturur. 5 GB cinsinden boyutu olan bir kuyruk oluşturun, bu nedenle, 16 bölümlerle en büyük sıra boyutu (5 * 16) haline gelir = 80 GB. Kendi girdisi bakarak bölümlenmiş kuyruk veya konu en büyük boyutunu görebilirsiniz [Azure portal][Azure portal]. Premium katmanındaki yalnızca 2 bölüm sıra oluşturulur.
+* Bölümleme desteklenmez [Premium katmanı](service-bus-premium-messaging.md). Standart katmanında Service Bus kuyruklarını (varsayılan 1 GB'dır) 1, 2, 3, 4 veya 5 GB boyutlarda oluşturabilirsiniz. Standart bölümlendirme ile katmanı, etkin (varsayılan olmayan), hizmet veri yolu için belirttiğiniz her GB 16 bölümler oluşturur. 5 GB cinsinden boyutu olan bir kuyruk oluşturun, bu nedenle, 16 bölümlerle en büyük sıra boyutu (5 * 16) haline gelir = 80 GB. Kendi girdisi bakarak bölümlenmiş kuyruk veya konu en büyük boyutunu görebilirsiniz [Azure portal][Azure portal].
 * Depolama kuyruklarla iletinin içeriğini XML uyumlu değilse, bu olmalıdır **Base64** kodlanmış. Varsa, **Base64**-ileti kodlama, kullanıcı yükü 64 KB yerine kadar 48 KB olabilir.
 * Service Bus kuyrukları ile bir sırada depolanan her ileti iki bölümden oluşur: bir başlık ve gövde. İleti toplam boyutu hizmet katmanı tarafından desteklenen maksimum ileti boyutu aşamaz.
 * İstemciler ile Service Bus kuyrukları TCP protokolü üzerinden iletişim kurduğunda, tek bir Service Bus kuyruğuna eşzamanlı bağlantı sayısının 100 sınırlıdır. Bu numara göndericiler ile alıcılar arasında paylaşılır. Bu kotasına ulaşıldığında, sonraki istekleri için ek bağlantıları reddedilir ve bir özel durum çağrıyı yapan kod tarafından alınır. Bu sınır, REST tabanlı API kullanarak kuyruklarına bağlanan istemcilerde uygulanan değil.
@@ -171,7 +171,7 @@ Bu bölüm, depolama kuyrukları ve Service Bus kuyruklarını tarafından sağl
 ## <a name="authentication-and-authorization"></a>Kimlik doğrulama ve yetkilendirme
 Bu bölümde depolama kuyrukları ve Service Bus kuyruklarını tarafından desteklenen kimlik doğrulama ve yetkilendirme özellikleri açıklanmaktadır.
 
-| Karşılaştırma ölçütü | Depolama kuyrukları | Service Bus Kuyrukları |
+| Karşılaştırma ölçütü | Depolama kuyrukları | Hizmet Veri Yolu kuyrukları |
 | --- | --- | --- |
 | Kimlik Doğrulaması |**Simetrik anahtar** |**Simetrik anahtar** |
 | Güvenlik modeli |SAS belirteci üzerinden yetkilendirilmiş erişim. |SAS |

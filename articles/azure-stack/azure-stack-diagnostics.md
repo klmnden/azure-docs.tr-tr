@@ -7,14 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801662"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure yığın tanılama araçları
 
@@ -140,7 +141,7 @@ if($s)
 
 - Varsa **FromDate** ve **ToDate** parametreleri belirtilmemişse, günlükleri, son dört saat için varsayılan olarak toplanır.
 - Kullanabileceğiniz **TimeOutInMinutes** günlük toplama için zaman aşımını ayarlamanız parametresi. Varsayılan olarak, 150 (2.5 saat) ayarlanır.
-
+- Sürüm 1805 ve daha sonra döküm dosyası günlük toplama varsayılan olarak devre dışıdır. Etkinleştirmek için kullanın **IncludeDumpFile** parametresi geçin. 
 - Şu anda kullanabileceğiniz **FilterByRole** aşağıdaki rolleri tarafından filtre oturum koleksiyonuna parametre:
 
    |   |   |   |
@@ -150,12 +151,12 @@ if($s)
    | ACSFabric              | Etki alanı                           | NonPrivilegedAppGateway    |
    | ACSFrontEnd            | ECE                              | NRP                        |
    | ACSMetrics             | ExternalDNS                      | OEM                        |
-   | ACSMigrationService    | Yapı                           | PXE                        |
+   | ACSMigrationService    | Fabric                           | PXE                        |
    | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
    | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
    | ACSTableMaster         | FRP                              | SLB                        |   
    | ACSTableServer         | Galeri                          | SlbVips                    |
-   | ACSWac                 | Ağ Geçidi                          | SQL                        |   
+   | ACSWac                 | Ağ geçidi                          | SQL                        |   
    | ADFS                   | Ögesi                 | SRP                        |
    | ASAppGateway           | HRP                              | Depolama                    |   
    | NCAzureBridge          | IBC                              | StorageAccounts            |    
@@ -184,7 +185,7 @@ ERCS_AzureStackLogs.ps1 PowerShell komut dosyası hakkında daha fazla bilgi iç
 * Komut günlükleri toplamaya hangi rollere göre çalıştırmak için biraz zaman alır. Faktörlere de günlük toplama ve Azure yığın ortamında düğümleri sayısı için belirtilen süre içerir.
 * Koleksiyon çalışmalarını günlük olarak oluşturulan yeni klasörü denetleyin **OutputSharePath** komutunda belirtilen parametre.
 * Her rol günlüklerinin içindeki tek tek posta dosyaları sahiptir. Toplanan günlükleri boyutuna bağlı olarak, bir rol içindeki birden çok ZIP dosyaları bölme günlüklerinin olabilir. Tek bir klasör içinde sıkıştırması tüm günlük dosyalarını sahip olmak istiyorsanız, bu tür bir rol için (örneğin, 7zip) toplu genişletebilirsiniz bir araç kullanın. Rolü için daraltılmış tüm dosyaları seçin ve Seç **burada ayıklamak**. Bu rol tek bir birleştirilmiş klasördeki tüm günlük dosyalarını unzips.
-* Dosya adında **Get-AzureStackLog_Output.log** de daraltılmış günlük dosyalarını içeren klasörde oluşturulur. Günlük toplama sırasında sorunları gidermek için kullanılabilir komut çıktısı Günlüğü dosyasıdır.
+* Dosya adında **Get-AzureStackLog_Output.log** de daraltılmış günlük dosyalarını içeren klasörde oluşturulur. Günlük toplama sırasında sorunları gidermek için kullanılabilir komut çıktısı Günlüğü dosyasıdır. Bazen günlük dosyası içeren `PS>TerminatingError` beklenen günlük dosyaları sonra eksik olduğu sürece, güvenli bir şekilde, göz ardı edilebilir girişlerini oturum koleksiyonu çalıştırır.
 * Belirli bir arızası araştırmak için birden çok bileşenden günlükleri gerekli olabilir.
     -   Sistem ve tüm altyapı VM'ler için olay günlüklerini de toplanır *VirtualMachines* rol.
     -   Sistem ve tüm ana bilgisayarlar için olay günlüklerini de toplanır *BareMetal* rol.

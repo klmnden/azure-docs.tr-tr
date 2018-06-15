@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3841222d08b23f43f69e77fa43c469793b70ce63
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801390"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Azure diskleri kalıcı birimler
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> Kalıcı birim talep Gib'den içinde belirtildi ancak Azure yönetilen diskleri için özel bir boyut SKU tarafından faturalandırılır. Bu SKU'ları arasında aralık S4 veya P4 disk için 32GiB 4TiB S50 veya P50 diskler için. Ayrıca, yönetilen işleme ve Premium IOPS performansını disk hem de SKU üzerinde bağlıdır ve AKS kümedeki düğümlerin örnek boyutunu. Bkz: [fiyatlandırma ve yönetilen diskleri performansını][managed-disk-pricing-performance].
+
 ## <a name="create-persistent-volume-claim"></a>Kalıcı birim oluşturma
 
 Kalıcı birim talep (PVC) otomatik olarak bir depolama sınıfına dayalı depolama sağlamak için kullanılır. Bu durumda, PVC önceden oluşturulmuş depolama sınıflarından standart veya premium Azure oluşturmak için kullanabilirsiniz yönetilen disk.
 
-Adlı bir dosya oluşturun `azure-premimum.yaml`ve aşağıdaki bildiriminde kopyalayın.
+Adlı bir dosya oluşturun `azure-premium.yaml`ve aşağıdaki bildiriminde kopyalayın.
 
 Not alın `managed-premium` depolama sınıfı açıklama içinde belirtilen ve talep bir disk isteyen `5GB` boyutta `ReadWriteOnce` erişim.
 
@@ -63,7 +67,7 @@ spec:
 Kalıcı birim taleple oluşturma [kubectl uygulamak] [ kubectl-apply] komutu.
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>Kalıcı birim kullanma
@@ -103,16 +107,17 @@ kubectl apply -f azure-pvc-disk.yaml
 Azure diskleri kullanarak Kubernetes kalıcı birimleri hakkında daha fazla bilgi edinin.
 
 > [!div class="nextstepaction"]
-> [Azure diskleri için Kubernetes eklentisi][kubernetes-disk]
+> [Azure diskleri için Kubernetes eklentisi][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md 
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

@@ -2,22 +2,20 @@
 title: 'Azure Cosmos DB: .NET değişiklik akış işlemci API, SDK & kaynakları | Microsoft Docs'
 description: Tüm değişiklik akış işlemci API ve yayın tarih, sona erme tarihlerini ve .NET değişiklik akış işlemci SDK'sı her sürümü arasında yapılan değişiklikler dahil olmak üzere SDK'sı hakkında bilgi edinin.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798898"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET değişiklik akış işlemci SDK: İndirme ve sürüm notları
 > [!div class="op_single_selector"]
@@ -44,6 +42,10 @@ ms.lasthandoff: 05/08/2018
 ## <a name="release-notes"></a>Sürüm notları
 
 ### <a name="stable-builds"></a>Kararlı yapılar
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* Daha fazla günlük eklendi.
+* DocumentClient sızıntısı bekleyen iş tahmin birden çok kez çağrılırken sabit.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * Bekleyen iş tahmininde giderir.
@@ -107,6 +109,7 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |08 May 2018 |--- |
 | [1.3.2](#1.3.2) |18 Nisan 2018 |--- |
 | [1.3.1](#1.3.1) |13 Mart 2018 |--- |
 | [1.2.0](#1.2.0) |31 Ekim 2017 |--- |

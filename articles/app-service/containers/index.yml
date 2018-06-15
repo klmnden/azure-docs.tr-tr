@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Linux’ta App Service Hakkında Belgeler"
+title: Linux’ta App Service Hakkında Belgeler
 metadata:
   document_id: 2239df92-8506-4ee4-b5b0-9ab512c487b2
-  title: "Kapsayıcılar için Azure Web Apps Belgeleri - Öğreticiler, API Başvurusu"
+  title: Kapsayıcılar için Azure Web Apps Belgeleri - Öğreticiler, API Başvurusu
   meta.description: Learn how to use App Service on Linux to build and host websites and web applications leveraging Docker.
   services: app-service
   author: syntaxc4
@@ -19,8 +19,9 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 11/03/2017
+  ms.locfileid: "23956455"
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: list
     style: icon48
@@ -50,7 +51,7 @@ sections:
       text: Docker
       href: https://docs.microsoft.com/azure/app-service/containers/quickstart-custom-docker-image
   - type: paragraph
-    text: "Sürekli dağıtım yapmayı öğrenin:"
+    text: 'Sürekli dağıtım yapmayı öğrenin:'
   - type: list
     style: icon48
     items:
@@ -58,36 +59,36 @@ sections:
         src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
       href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Linux’ta App Service’te güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilgi edinin"
+    text: Linux’ta App Service’te güvenli web uygulamaları dağıtma, yönetme ve izleme hakkında bilgi edinin
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"azure/app-service/containers/tutorial-dotnetcore-sqldb-app\">Azure SQL DB ile .NET Core</a> veya <a href=\"azure/app-service/containers/tutorial-nodejs-mongodb-app\">MongoDB ile Node.js</a> kullanarak uygulama oluşturma"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-custom-domain\">Mevcut bir özel etki alanını uygulamanıza eşleme</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-custom-SSL\">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>"
-    - html: "<a href=\"/azure/app-service-web/app-service-web-tutorial-content-delivery-network\">Uygulamanıza CDN ekleme</a>"
-- title: "Örnekler"
+    - html: <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB ile .NET Core</a> veya <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB ile Node.js</a> kullanarak uygulama oluşturma
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Mevcut bir özel etki alanını uygulamanıza eşleme</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Mevcut bir SSL sertifikasını uygulamanıza bağlama</a>
+    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Uygulamanıza CDN ekleme</a>
+- title: Örnekler
   items:
   - type: paragraph
-    text: "Genel görevleri yönetmeye yönelik betikleri bulun."
+    text: Genel görevleri yönetmeye yönelik betikleri bulun.
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
     - html: <a href="/cli/azure/appservice">Azure CLI</a>
-- title: "Başvuru"
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI 2.0</a></p>
     - title: Diller
       html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/appservice\">REST API başvurusu</a></p>"
+      html: <p><a href="/rest/api/appservice">REST API başvurusu</a></p>
