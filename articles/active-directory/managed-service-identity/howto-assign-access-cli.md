@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33929651"
 ---
 # <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-azure-cli"></a>Azure CLI kullanarak bir kaynak için bir yönetilen hizmet kimliği (MSI) erişimi atayın
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34069386"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-20"></a>Alma ve Azure CLI 2.0 kullanan bir DNS bölge dosyasına verme 
 

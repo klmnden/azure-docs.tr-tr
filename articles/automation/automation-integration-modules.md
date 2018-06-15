@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195871"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation Tümleştirme Modülleri
 PowerShell, Azure Automation’un ardındaki temel teknolojidir. Azure Automation PowerShell üzerine kurulu olduğundan, PowerShell modülleri Azure Automation’un genişletilmesinde önemlidir. Bu makalede, bunlar Azure tümleştirme modülü olarak çalıştığından emin olmak için "Tümleştirme modülleri" ve kendi PowerShell modüllerinizi oluşturmak için en iyi uygulamalar olarak adlandırılır, PowerShell modülleri Azure Otomasyonu'nun kullanımını sağlayacak rehberlik ediyoruz Otomasyon. 

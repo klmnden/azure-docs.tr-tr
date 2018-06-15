@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794081"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Visual Studio Cloud Explorer'da, Azure hesaplarıyla ilişkili kaynakları yönetme
 Cloud Explorer Azure kaynakları ve kaynak gruplarını görüntülemek özelliklerini inceleyin ve Visual Studio içinde anahtar Geliştirici tanılama eylemleri gerçekleştirmek sağlar. 

@@ -17,9 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158430"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Uygulama proxy'si ile başlayın ve Bağlayıcısı'nı yüklemek
 Bu makale, Azure AD'deki bulut dizininiz için Microsoft Azure AD Uygulama Ara Sunucusunu etkinleştirme adımlarında size kılavuzluk eder.

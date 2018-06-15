@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198835"
 ---
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Kod Docker ve Kubernetes geliştirme için hazırlama
 Şu ana kadar yerel olarak çalıştırabileceğiniz bir temel web uygulamasına sahip. Artık bu uygulamanın kapsayıcı ve Kubernetes için nasıl dağıtacağınız tanımlayın varlıklar oluşturarak containerize. Bu Azure Dev alanlarıyla yapmak kolaydır: 

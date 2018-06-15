@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194997"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator'ı Azure Otomasyon (Beta) geçirme
 Runbook'ları [System Center Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) Azure automation'daki runbook'lar Windows PowerShell tabanlı, özellikle Orchestrator için yazılmış tümleştirme paketleri etkinliklerden dayanır.  [Grafik runbook'lar](automation-runbook-types.md#graphical-runbooks) Azure Otomasyonu'nda PowerShell cmdlet'leri, alt runbook'ları ve varlıkları temsil eden kendi etkinliklerle Orchestrator runbook'ları için benzer bir görünüm vardır.

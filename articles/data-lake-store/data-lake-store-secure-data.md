@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197044"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure Data Lake Store içinde depolanan verilerin güvenliğini sağlama
 Azure Data Lake Store'da verilerin güvenliğini sağlama üç adımlık bir yaklaşımdır.  Her ikisi de rol tabanlı erişim denetimi (RBAC) ve tam olarak kullanıcılar ve güvenlik grupları için veri erişimini etkinleştirmek için erişim denetim listelerini (ACL'ler) ayarlamanız gerekir.

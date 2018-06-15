@@ -17,9 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.openlocfilehash: cb4620babd3a1ba5087ae9ebd2870c1ef404bb58
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156492"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si özel etki alanları ile çalışma
 

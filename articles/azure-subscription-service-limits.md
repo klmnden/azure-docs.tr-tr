@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700201"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -73,6 +74,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [IoT Hub Cihazı Sağlama Hizmeti](#iot-hub-device-provisioning-service-limits)
 * [Anahtar Kasası](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [Yönetilen kimliği](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Engagement](#mobile-engagement-limits)
 * [Mobil hizmetler](#mobile-services-limits)
@@ -82,6 +84,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 * [Ağ İzleyicisi](#network-watcher-limits)
 * [Bildirim hub'ı hizmeti](#notification-hub-service-limits)
 * [Kaynak Grubu](#resource-group-limits)
+* [Rol tabanlı erişim denetimi](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Search](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -314,6 +317,12 @@ Belge boyutu, sorguları ikinci, anahtarları, istekleri ve yanıtları, her gib
 
 ### <a name="automation-limits"></a>Otomasyon sınırları
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>Yönetilen kimlik sınırları
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>Rol tabanlı erişim denetimi sınırları
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL veritabanı sınırları
 SQL veritabanı sınırları için bkz: [SQL veritabanı kaynak sınırları](sql-database/sql-database-resource-limits.md).

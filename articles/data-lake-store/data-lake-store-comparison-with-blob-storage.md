@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196789"
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Azure Data Lake Store ve Azure Blob Depolama karşılaştırma
 Bu makalede tabloda büyük veri işleme anahtar bazı yönlerini boyunca Azure Data Lake Store ile Azure Blob Storage arasındaki farklar özetlenmektedir. Azure Blob Depolama genel amaçlı, çok çeşitli depolama senaryoları için tasarlanan ölçeklenebilir nesne deposu değil. Azure Data Lake Store, büyük veri analitik iş yükleri için en iyi duruma getirilmiş hiper ölçekli bir depodur.

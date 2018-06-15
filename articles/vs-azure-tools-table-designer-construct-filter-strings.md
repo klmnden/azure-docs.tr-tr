@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794288"
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>Filtre dizeleri için Tablo Tasarımcısı oluşturma
 ## <a name="overview"></a>Genel Bakış

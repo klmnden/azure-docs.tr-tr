@@ -21,6 +21,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34071519"
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>Bir Linux VM parola veya SSH anahtarı sıfırlama, SSH yapılandırmasını düzeltmek ve VMAccess uzantısını kullanarak disk tutarlılık denetimi hakkında
 Unutulmuş parola nedeniyle, yanlış bir güvenli Kabuk (SSH) anahtarını Azure Linux sanal makineye bağlanılamıyor veya SSH yapılandırması ile ilgili bir sorun VMAccessForLinux uzantısını Azure CLI ile parola veya SSH anahtarını sıfırlamak için kullanıyorsanız, SSH Düzelt Yapılandırma ve onay disk tutarlılık. 

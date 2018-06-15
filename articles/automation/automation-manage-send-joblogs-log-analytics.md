@@ -14,6 +14,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34194409"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumu ve iş akışları için günlük analizi Otomasyon iletme
 Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:

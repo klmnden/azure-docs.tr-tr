@@ -9,11 +9,12 @@ ms.topic: overview
 ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 10055b75000e5affdcdef5841a8d45db8b41ef05
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 883da7d1487922f5cd986a67d7a7bded78ea3759
+ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058089"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure'da özel Docker kapsayıcısı kayıt defterlerine giriş
 
@@ -54,13 +55,10 @@ Uygulama görüntülerini, temel görüntüleri güncelleştirildiğinde otomati
 
 [Azure Container Registry Build](container-registry-build-overview.md) (ACR Build), Azure’da kolaylaştırılmış ve verimli Docker kapsayıcı görüntüsü derlemeleri sağlayan bir Azure Container Registry özellik paketidir. `docker build` işlem yüklerini Azure’a boşaltarak geliştirme iç döngünüzü buluta genişletmek için ACR Build kullanın. Kapsayıcı işletim sisteminizi ve çerçeve düzeltme eki uygulama işlem hattınızı otomatikleştirmek ve ekibiniz kaynak denetiminde kod yürüttüğünde otomatik olarak görüntü oluşturmak için oluşturma görevleri yapılandırın.
 
-> [!NOTE]
-> ACR Derlemesi şu anda önizleme aşamasındadır ve yalnızca **Doğu ABD** (eastus) ve **Batı Avrupa** (westeurope) bölgelerindeki Azure kapsayıcı kayıt defterleri tarafından desteklenir. Önizlemeler, [ek kullanım koşullarını][terms-of-use] kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
+[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure portalını kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-portal.md)
 * [Azure CLI’yı kullanarak kapsayıcı kayıt defteri oluşturma](container-registry-get-started-azure-cli.md)
 * [ACR Build ile işletim sistemi ve çerçeve düzeltme eki uygulamayı otomatikleştirme](container-registry-build-overview.md) (Önizleme)
-
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33943755"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Bulut init ile kullanılmak üzere var olan bir Linux Azure VM görüntüsünü hazırlama
 Bu makale mevcut bir Azure sanal makine alın ve yeniden dağıtılan ve bulut init kullanıma hazır olması için hazırlama gösterilmektedir. Elde edilen görüntü, yeni bir sanal makine veya sanal makine ölçek kümeleri biri ya da sonra daha fazla bulut-Init dağıtım sırasında özelleştirilebilecek - dağıtmak için kullanılabilir.  Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın. Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md)

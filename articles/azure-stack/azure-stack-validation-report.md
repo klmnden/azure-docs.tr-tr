@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937823"
 ---
 # <a name="azure-stack-validation-report"></a>Azure yığın doğrulama raporu
 Dağıtım ve bir Azure yığın ortamını bakım desteği doğrulamaları Azure yığın hazırlık Denetleyicisi aracını çalıştırır. Aracı doğrulama sonuçlarını bir .json rapor dosyasına yazar. Rapor, mevcut Azure yığın dağıtımları için ayrıntılı ve Özet verileri Azure yığınının dağıtımı için Önkoşullar durumunu ve gizli anahtarları döndürme görüntüler.  

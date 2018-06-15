@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796029"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Örnek düzeyinde ortak IP (Klasik) genel bakış
 Bir örnek düzeyinde ortak IP (ILPIP), VM veya Bulut Hizmetleri rol örneği için doğrudan yerine, VM'deki veya rol örneğindeki bulunan bulut hizmetine atayabilirsiniz genel bir IP adresi ' dir. Bir ILPIP, sanal IP (bulut Hizmetinize atanmış VIP) yer almaz. Bunun yerine, doğrudan, VM'deki veya rol örneğine bağlanmak için kullanabileceğiniz ek bir IP adresi değil.

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158202"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>İstemci kimlik bilgilerini (paylaşılan gizliliği veya sertifika) kullanarak hizmeti çağrıları hizmetine
 Bir web hizmeti OAuth 2.0 istemci kimlik bilgileri verin akış verir (*gizli istemci*) başka bir web hizmeti çağrılırken kimliğini doğrulamak için bir kullanıcının kimliğine bürünmek yerine kendi kimlik bilgilerini kullanmak için. Bu senaryoda istemci genellikle bir orta katman web hizmeti, arka plan programı hizmeti veya web sitesi olur. Daha yüksek bir güvence düzeyi için Azure AD kimlik bilgisi olarak (yerine bir paylaşılan gizlilik) bir sertifika kullanmak arama hizmeti de sağlar.

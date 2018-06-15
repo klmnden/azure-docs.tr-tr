@@ -16,9 +16,10 @@ ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 4fa93e4bf64e01b44b0826b2182b125004c49609
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157491"
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD - genel Önizleme idari Birim Yönetimi
 Bu makalede idari birim – yeni bir Azure Active Directory kapsayıcısı kullanıcılar ve kullanıcı alt kümesine ilkelerini uygulama kümelerine üzerinden yönetim izinleri temsilci için kullanılabilir kaynakların açıklanmaktadır. Azure Active Directory'de merkezi yöneticileri temsilci izinleri bölgesel yöneticilere veya ayrıntılı bir düzeyde İlkesi ayarlamak için idari birim etkinleştirin.

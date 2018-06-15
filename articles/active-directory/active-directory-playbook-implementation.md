@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068863"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-implementation"></a>Azure Active Directory Playbook kavram kanıtı: uygulama
 

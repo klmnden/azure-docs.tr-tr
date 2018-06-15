@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eb7576c48d3836eec8051d849cefe4c5ec6658c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699215"
 ---
-# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO'ya eklenti hakkında SSS 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO'ya eklenti hakkında SSS
+
+Bu ilgili herhangi bir sorgu varsa lütfen SSS başvurun eklentisi.
 
 ## <a name="what-does-the-plug-in-do"></a>Eklenti do nedir?
 
@@ -38,13 +41,13 @@ Hayır. Eklenti destekler yalnızca şirket içi Jira ve Confluence sürümleri.
 
 Eklenti bu sürümlerini destekler:
 
-* Jira çekirdek ve yazılım: 6.0 için 7.2.2 
-* Jira hizmet masasına: 3.0 3.2 için 
+* Jira çekirdek ve yazılım: 6.0 için 7,8
+* Jira hizmet masasına: 3.0 3.2 için
 * Confluence: 5.0 5.10
 
 ## <a name="is-the-plug-in-free-or-paid"></a>Eklenti ücretsiz ya da Ücretli mi?
 
-Bu ücretsiz bir eklentidir. Atlassian marketten yükleyebilirsiniz.
+Bu ücretsiz bir eklentidir.
 
 ## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>Jira veya Confluence ı Eklenti dağıttıktan sonra yeniden başlatmanız gerekiyor mu?
 
@@ -52,7 +55,7 @@ Yeniden başlatma gerekli değildir. Eklenti hemen kullanmaya başlayabilirsiniz
 
 ## <a name="how-do-i-get-support-for-the-plug-in"></a>Nasıl destek eklenti için sağlarım?
 
-Ulaşmak [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Takım 24-48 iş saatleri içinde yanıt verir. 
+Sizin için ulaşmak [Azure AD SSO tümleştirme takım](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) herhangi bir destek için gereken bu için eklenti. Takım 24-48 iş saatleri içinde yanıt verir.
 
 Azure portal kanal üzerinden Microsoft ile bir destek bileti de yükseltebilirsiniz.
 

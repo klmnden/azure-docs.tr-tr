@@ -14,9 +14,10 @@ ms.date: 03/26/2018
 ms.author: nitinme
 ms.openlocfilehash: f4014d304d1e0a7d841e797c3e3bdfe31918c151
 ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34198166"
 ---
 # <a name="security-in-azure-data-lake-store"></a>Azure Data Lake Store'da güvenlik
 Çoğu kurum, büyük veri analizi için akıllı kararlar almanıza yardımcı olmak iş öngörüleri avantajlarından sürüyor. Bir kuruluşun farklı kullanıcılar artan sayıda ile karmaşık ve düzenlenen bir ortam olabilir. Kritik iş verileri doğru bireysel kullanıcılara verilen erişim düzeyini ile daha güvenli bir şekilde saklandığından emin olmak bir kuruluş için önemlidir. Azure Data Lake Store, bu güvenlik gereksinimlerini karşılamak amacıyla tasarlanmıştır. Bu makalede, Data Lake Store, güvenlik özellikleri hakkında bilgi de dahil olmak üzere:
