@@ -20,6 +20,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794533"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Bir sanal ağ yapılandırma dosyasında DNS ayarlarını belirtme
 Bir ağ yapılandırma dosyası, etki alanı adı sistemi (DNS) ayarlarını belirlemek için kullanabileceğiniz iki öğe vardır: **DnsServers** ve **DnsServerRef**. IP adreslerini belirterek DNS sunucularının bir listesini ekleyin ve başvuru adlarına **DnsServers** öğesi. Daha sonra kullanabileceğiniz bir **DnsServerRef** öğesi hangi DNS sunucusu girdileri DnsServers öğeden, sanal ağ içindeki farklı ağ siteleri için kullanılan belirtin.

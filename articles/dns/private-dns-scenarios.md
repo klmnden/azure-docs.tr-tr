@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771880"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Azure DNS özel bölgeler senaryoları
 Azure DNS özel bölgeler bir sanal ağ içinde de sanal ağlar arasında ad çözümlemesi sağlar. Bu makalede, bu özellik kullanılarak gerçekleştirilen bazı yaygın senaryolar arayın. 

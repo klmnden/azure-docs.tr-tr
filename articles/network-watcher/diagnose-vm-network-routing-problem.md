@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312204"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak bir sanal ağ yönlendirme sorununu tanılama
 

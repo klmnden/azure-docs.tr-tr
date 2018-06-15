@@ -1,11 +1,11 @@
 ---
-title: "AMQP 1.0 Azure Service Bus içinde genel bakış | Microsoft Docs"
-description: "Gelişmiş Message Queuing Protokolü (AMQP) 1.0 Azure kullanma hakkında bilgi edinin."
+title: AMQP 1.0 Azure Service Bus içinde genel bakış | Microsoft Docs
+description: Gelişmiş Message Queuing Protokolü (AMQP) 1.0 Azure kullanma hakkında bilgi edinin.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926606"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Hizmet veri yolu AMQP 1.0 desteği
 Azure hizmet veri yolu bulut hizmeti ve şirket içi [Windows Server için hizmet veri yolu (hizmet veri yolu 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) Gelişmiş Message Queuing Protokolü (AMQP) 1.0 destekler. AMQP, platformlar arası, açık bir standart protokol kullanan karma uygulamalar oluşturmanıza olanak sağlar. Farklı diller ve çerçeveler kullanılarak oluşturulan ve farklı işletim sistemlerinde çalışan bileşenleri kullanan uygulamalar oluşturabilirsiniz. Tüm bu bileşenleri Service Bus ve sorunsuz bir şekilde bağlayabilirsiniz yapılandırılmış iş iletileri verimli bir şekilde ve tam bir güvenilirlik, exchange.

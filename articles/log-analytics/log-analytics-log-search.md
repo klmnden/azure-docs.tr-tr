@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi aramaları oturum | Microsoft Docs"
-description: "Günlük analizi herhangi bir veri almak için bir günlük arama gerektirir.  Bu makalede aramaları günlük analizi kullanılan nasıl yeni bir günlük açıklar ve bir oluşturmadan önce anlamanız gereken kavramlar sağlar."
+title: Azure günlük analizi aramaları oturum | Microsoft Docs
+description: Günlük analizi herhangi bir veri almak için bir günlük arama gerektirir.  Bu makalede aramaları günlük analizi kullanılan nasıl yeni bir günlük açıklar ve bir oluşturmadan önce anlamanız gereken kavramlar sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29953318"
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>Günlük analizi günlük aramalarda anlama
 

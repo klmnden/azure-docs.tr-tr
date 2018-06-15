@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 03/23/2018
+  ms.locfileid: "30166751"
 abstract:
   description: Bir bulut verileri tümleştirme hizmeti olan Data Factory’yi kullanarak veri depolama, taşıma ve işleme hizmetlerini otomatik veri komut zincirlerinde birleştirme hakkında bilgi edinin. Öğreticilerde ve diğer belgelerde, veri işlem hatlarını ayarlama ve yönetmenin yanı sıra verileri analiz için taşıma ve dönüştürme konularında bilgi sağlanmıştır. <p>Data Factory’nin V2 sürümü şu anda önizleme aşamasındadır. V1 sürümü genel kullanıma açıktır. Data Factory hizmetinin V1 sürümünü kullanıyorsanız <a href=/azure/data-factory/v1/data-factory-introduction>V1 belgelerini</a> inceleyin.</p>
   aside:

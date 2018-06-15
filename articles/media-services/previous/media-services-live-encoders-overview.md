@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788175"
 ---
 # <a name="how-to-configure-on-premises-encoders-when-using-azure-media-services-to-create-multi-bitrate-streams"></a>Şirket içi kodlayıcılardan Çoklu bit hızına sahip akışlar oluşturmak üzere Azure Media Services kullanarak yapılandırma
 Bu konu, Canlı olayları yakalamak ve daha ayrıntılı işleme için tek bit hızlı canlı akış (olan gerçek zamanlı kodlama etkin) AMS kanallarında göndermek için kullanabileceğiniz şirket içi gerçek zamanlı kodlayıcılar listeler. Konusunda listelenen kodlayıcılar yapılandırmayı gösterir öğreticileri için de bağlar.

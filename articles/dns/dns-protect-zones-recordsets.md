@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32775321"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS bölgeleri ve kayıtları korumak nasıl
 

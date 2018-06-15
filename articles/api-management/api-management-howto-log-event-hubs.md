@@ -1,11 +1,11 @@
 ---
-title: "Azure Event hubs'a Azure API Management olaylarını günlüğe kaydedecek şekilde nasıl | Microsoft Docs"
-description: "Azure Event hubs'a Azure API Management'te olayları günlüğe kaydetme hakkında bilgi edinin."
+title: Azure Event hubs'a Azure API Management olaylarını günlüğe kaydedecek şekilde nasıl | Microsoft Docs
+description: Azure Event hubs'a Azure API Management'te olayları günlüğe kaydetme hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29969606"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure Event hubs'a Azure API Management'te olayları günlüğe kaydetme hakkında
 Azure Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay komut zincirinin "ön kapı" olarak görev yapan ve veriler bir event hub'ına toplandıktan sonra dönüştürülebilir ve tüm gerçek zamanlı analiz sağlayıcısı veya toplu işlem/depolama bağdaştırıcısı kullanılarak saklanır. Event Hubs olay akışı üretimlerini bu olayların tüketilmesinden ayırır, böylece olay tüketicileri olaylara kendi zamanlamalarında erişebilir.

@@ -1,11 +1,11 @@
 ---
-title: "Günlük analizi Azure portalını kullanarak Service Fabric uygulamaları değerlendirmek | Microsoft Docs"
-description: "Service Fabric çözüm risk ve Service Fabric uygulamaları, mikro hizmet, düğümleri ve kümelerini durumunu değerlendirmek için Azure portalını kullanarak günlük analizi kullanabilirsiniz."
+title: Günlük analizi Azure portalını kullanarak Service Fabric uygulamaları değerlendirmek | Microsoft Docs
+description: Service Fabric çözüm risk ve Service Fabric uygulamaları, mikro hizmet, düğümleri ve kümelerini durumunu değerlendirmek için Azure portalını kullanarak günlük analizi kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932690"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Service Fabric uygulamaları ve mikro hizmetler Azure portal ile değerlendirin
 

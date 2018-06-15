@@ -1,12 +1,12 @@
 ---
-title: "Teklileri dayanıklı işlev - Azure"
-description: "Teklileri dayanıklı Functons uzantısı'nda Azure işlevlerinin için nasıl kullanılacağı."
+title: Teklileri dayanıklı işlev - Azure
+description: Teklileri dayanıklı Functons uzantısı'nda Azure işlevlerinin için nasıl kullanılacağı.
 services: functions
 author: cgillum
 manager: cfowler
-editor: 
-tags: 
-keywords: 
+editor: ''
+tags: ''
+keywords: ''
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972560"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Singleton orchestrators dayanıklı işlevlerinde (Azure işlevleri)
 

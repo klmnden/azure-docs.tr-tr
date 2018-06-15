@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788742"
 ---
 # <a name="content-protection-overview"></a>İçerik koruma genel bakış
  Azure Media Services, depolama, işleme ve teslim üzerinden bilgisayarınıza çıkışında medyanızdan güvenliğini sağlamak için kullanabilirsiniz. Media Services ile dinamik olarak Gelişmiş Şifreleme Standardı (AES-128) veya üç ana dijital hak yönetimi (DRM) sistemlerinden herhangi birini ile şifrelenmiş, canlı ve isteğe bağlı içerik teslim: Microsoft PlayReady, Google Widevine ve Apple FairPlay. Media Services de AES anahtarları ve DRM teslim etmek için bir hizmet sunar (PlayReady, Widevine ve FairPlay) lisansları yetkili istemcilere. 

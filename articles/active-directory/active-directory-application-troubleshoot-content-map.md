@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927942"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>Azure Active Directory Uygulama Yönetimi ve geliştirme sorun giderme
 Bu makalede, ilgili bazı en yaygın sorunları ele yönetimiyle ilgili sorun giderme için yararlı belgeleri bulmak için yardımcı olur **kurumsal uygulamalar** ve ile yeni uygulamaları geliştirme **uygulama kayıt defteri**.

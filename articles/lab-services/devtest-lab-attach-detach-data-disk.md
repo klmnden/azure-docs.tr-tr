@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787594"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Ekleme veya Azure DevTest Labs içindeki bir sanal makineye bir veri diskini ayırma
 [Azure yönetilen diskleri](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sanal makine veri diski ile ilişkilendirilmiş depolama hesaplarını yönetir. Yeni bir veri diski bir VM için bir kullanıcı ekler, gerekli olan disk boyutunu ve türünü belirtir ve Azure oluşturur ve disk otomatik olarak yönetir. Veri diski sanal makineden sonra ayrılabilir ve ya da aynı VM sonraki ya da aynı kullanıcıya ait farklı bir VM ekli yeniden.

@@ -14,16 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: danis;cynthn
 ms.openlocfilehash: da5b0db997ba1aa0e998f6fe2645e955b490951d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "33942686"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uzantıları Yükleme Windows vm'lerde kısıtlamak için Azure İlkesi kullanın
 
 Kullanın veya belirli uzantıları, Windows sanal makineleri üzerinde yüklenmesini önlemek istiyorsanız, bir kaynak grubu içindeki VM'ler için uzantıları kısıtlamak için PowerShell kullanarak bir Azure ilke oluşturabilirsiniz. 
 
-Bu öğretici, Azure PowerShell sürekli olarak en son sürümüne güncelleştirildiğinden bulut kabuktan kullanır. Yüklemek ve PowerShell yerel olarak kullanmak seçerseniz, bu öğreticide Azure PowerShell modülü sürüm 3,6 veya üstü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). 
+Bu öğretici, Azure PowerShell sürekli olarak en son sürümüne güncelleştirildiğinden bulut kabuktan kullanır. PowerShell'i yerel olarak yükleyip kullanmayı tercih ederseniz bu öğretici, Azure PowerShell modülü 3.6 veya sonraki bir sürümünü gerektirir. Sürümü bulmak için ` Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). 
 
 ## <a name="create-a-rules-file"></a>Kuralları oluşturma
 

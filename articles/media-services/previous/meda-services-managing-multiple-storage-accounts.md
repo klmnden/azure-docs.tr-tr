@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788560"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Varlıklar arasında birden çok depolama hesabı Hizmetleri ortam yönetme
 Microsoft Azure Media Services 2.2 ile başlayarak, tek bir Media Services hesabına birden çok depolama hesapları ekleyebilirsiniz. Bir Media Services hesabına birden çok depolama hesabı ekleme yeteneği aşağıdaki avantajları sağlar:
