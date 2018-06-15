@@ -15,11 +15,13 @@
           href: tutorial-role-assignments-user-powershell.md
         - name: Gruba erişim izni verme - PowerShell
           href: tutorial-role-assignments-group-powershell.md
+        - name: Özel rol oluşturma - PowerShell
+          href: tutorial-custom-role-powershell.md
+        - name: Özel rol oluşturma - CLI
+          href: tutorial-custom-role-cli.md
     - name: Rol atamalarını yönetme
       items:
-        - name: Kullanıcı
-          href: role-assignments-users.md
-        - name: Kaynak
+        - name: Portal
           href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
         - name: Azure CLI
           href: role-assignments-cli.md

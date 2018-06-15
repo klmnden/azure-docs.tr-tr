@@ -6,7 +6,7 @@
       href: dns-overview.md
 - name: Hızlı Başlangıçlar
   items:
-    - name: DNS bölgesi ve kaydı oluşturma - portal
+    - name: Ad çözümlemesi - portal
       href: dns-getstarted-portal.md
     - name: DNS bölgesi ve kaydı oluşturma - PowerShell
       href: dns-getstarted-powershell.md
@@ -14,12 +14,12 @@
       href: dns-getstarted-cli.md
 - name: Öğreticiler
   items:
-    - name: Özel bir DNS bölgesi ve kaydı oluşturma
-      href: private-dns-getstarted-powershell.md
-    - name: Etki alanınızı Azure DNS'e atama
+    - name: Azure DNS’te etki alanınızı barındırma
       href: dns-delegate-domain-azure-dns.md
     - name: Bir web uygulaması için özel DNS kayıtları oluşturma
       href: dns-web-sites-custom-domain.md
+    - name: Özel bir DNS bölgesi ve kaydı oluşturma
+      href: private-dns-getstarted-powershell.md
 - name: Örnekler
   items:
     - name: Azure CLI

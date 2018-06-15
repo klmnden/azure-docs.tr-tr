@@ -222,6 +222,8 @@
           href: scheduled-events.md
         - name: Meta verileri izleme
           href: instance-metadata-service.md
+        - name: REST ile kullanım ölçümleri alma
+          href: metrics-vm-usage-rest.md
     - name: Görüntüleri Kullanma
       items:
         - name: Görüntüleri bulma ve kullanma

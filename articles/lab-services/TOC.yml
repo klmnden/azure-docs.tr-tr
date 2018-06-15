@@ -79,6 +79,8 @@
               href: devtest-lab-resize-vm.md
             - name: Bir VM’yi yeniden dağıtma
               href: devtest-lab-redeploy-vm.md
+            - name: VM’yi içeri aktarma
+              href: devtest-lab-import-vm.md
         - name: Ortamları laboratuvarda kullanma
           items:
             - name: Ortam oluşturma

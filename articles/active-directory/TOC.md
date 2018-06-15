@@ -2,13 +2,13 @@
 
 # Genel Bakış
 ## [Azure Active Directory nedir?](active-directory-whatis.md)
-## [Azure kimlik yönetimi hakkında](identity-fundamentals.md)
-## [Azure kimlik çözümlerini anlama](understand-azure-identity-solutions.md)
+## [Azure kimlik yönetimi hakkında](fundamentals/identity-fundamentals.md)
+## [Azure kimlik çözümlerini anlama](fundamentals/understand-azure-identity-solutions.md)
 ## [Karma kimlik çözümü seçin](choose-hybrid-identity-solution.md)
 ## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
-## [Yerleşim ve verilerle ilgili dikkat edilecek konular](active-directory-data-storage-eu.md)
-## [SSS](active-directory-faq.md)
-## [Yenilikler](whats-new.md)
+## [Yerleşim ve verilerle ilgili dikkat edilecek konular](fundamentals/active-directory-data-storage-eu.md)
+## [SSS](fundamentals/active-directory-faq.md)
+## [Yenilikler](fundamentals/whats-new.md)
 
 
 # başlarken
@@ -17,14 +17,14 @@
 ## [Özel bir etki alanı adı ekleme](add-custom-domain.md)
 ## [Şirket markası yapılandırma](customize-branding.md)
 ## [Kullanıcıları Azure AD’ye ekleme](add-users-azure-active-directory.md)
-## [Kullanıcılara lisans atama](license-users-groups.md)
+## [Kullanıcılara lisans atama](fundamentals/license-users-groups.md)
 ## [Self servis parola sıfırlamasını yapılandırma](authentication/quickstart-sspr.md)
 ## [Azure AD’ye kuruluşunuzun gizlilik bilgilerini ekleme](active-directory-properties-area.md)
 
 
 # Nasıl yapılır
 ## Planlama ve tasarım
-### [Azure AD mimarisini anlama](active-directory-architecture.md)
+### [Azure AD mimarisini anlama](fundamentals/active-directory-architecture.md)
 ### [Azure Active Directory’de talep eşlemesi](active-directory-claims-mapping.md)
 ### [Karma kimlik çözümü dağıtma](active-directory-hybrid-identity-design-considerations-overview.md)
 #### Gereksinimlerini belirleme
@@ -87,7 +87,7 @@
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
-### [Grup üyeliğini yönetme](active-directory-groups-membership-azure-portal.md)
+### [Grup üyeliğini yönetme](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
 #### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -100,7 +100,7 @@
 ### [Gruplar için bir adlandırma ilkesini zorlama](groups-naming-policy.md)
 ### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
-### [Silinen bir Office 365 grubunu geri yükleme](active-directory-groups-restore-azure-portal.md)
+### [Silinen bir Office 365 grubunu geri yükleme](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Grup ayarlarını yönetme](active-directory-groups-settings-azure-portal.md) 
 ### Gelişmiş kurallar oluşturma
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
@@ -134,8 +134,6 @@
 #### [İndirmelerde eksik veriler](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory Etkinlik günlükleri içerik paketi hataları](active-directory-reporting-troubleshoot-content-pack.md)
 ### [Programlı Erişim](active-directory-reporting-api-getting-started-azure-portal.md)
-#### [Denetim başvurusu](active-directory-reporting-api-audit-reference.md)
-#### [Oturum açma başvurusu](active-directory-reporting-api-sign-in-activity-reference.md)
 #### [Önkoşullar](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [Denetim örnekleri](active-directory-reporting-api-audit-samples.md)
 #### [Oturum açma örnekleri](active-directory-reporting-api-sign-in-activity-samples.md)
@@ -281,7 +279,8 @@
 ### Özel etki alanı adları
 #### [Hızlı Başlangıç](add-custom-domain.md)
 #### [Özel etki alanı adı ekleme](active-directory-domains-manage-azure-portal.md)
-### [Dizininizi yönetme](active-directory-administer.md)
+### [Dizininizi yönetme](fundamentals/active-directory-administer.md)
+### [Bir dizini silme](directory-delete-howto.md)
 ### [Birden fazla dizin](active-directory-licensing-directory-independence.md)
 ### [Self servise kaydolma](active-directory-self-service-signup.md)
 ### [Yönetilmeyen bir dizini devralma](domains-admin-takeover.md)
@@ -300,12 +299,12 @@
 ## Kaynaklara temsilci erişimi
 ### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
 #### [Kullanıcıya yönetici rolü atama](active-directory-users-assign-role-azure-portal.md) 
-#### [Üye ve konuk kullanıcı izinlerini karşılaştırma](users-default-permissions.md) 
+#### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md) 
 ### [Ayrıcalıklı erişimin güvenliğini sağlama](admin-roles-best-practices.md)  
 ### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md) 
 
 
-#### [Varsayılan kullanıcı izinleri](users-default-permissions.md)
+#### [Varsayılan kullanıcı izinleri](fundamentals/users-default-permissions.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 ### [Ayrıcalıklı rollerin güvenliğini sağlama](admin-roles-best-practices.md)
@@ -323,27 +322,29 @@
 
 ## Kimliklerinizi güvenli hale getirme
 ### [Koşullu erişim](active-directory-conditional-access-azure-portal.md)
-#### [Koşullar](active-directory-conditional-access-conditions.md)
-#### [Konum koşulları](active-directory-conditional-access-locations.md)
-#### [Denetimler](active-directory-conditional-access-controls.md)
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
-#### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
-#### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
-#### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
-#### [Durum aracı](active-directory-conditional-access-whatif.md)
-#### Hızlı Başlangıç
+#### Hızlı Başlangıçlar
 ##### [Bulut uygulaması MFA başına yapılandırma](active-directory-conditional-access-app-based-mfa.md)
-#### Görevler
+#### Öğreticiler
 ##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
+#### Kavramlar
+##### [Koşullar](active-directory-conditional-access-conditions.md)
+##### [Konum koşulları](active-directory-conditional-access-locations.md)
+##### [Denetimler](active-directory-conditional-access-controls.md)
+##### [Durum aracı](active-directory-conditional-access-whatif.md)
+##### [Office 365 hizmetleri için cihaz ilkelerini anlama](active-directory-conditional-access-device-policies.md)
+#### Nasıl yapılır kılavuzları
+##### [En iyi uygulamalar](active-directory-conditional-access-best-practices.md)
+##### [Güvenilmeyen ağlardan gelen erişim denemeleri için koşullu erişim ilkelerini yapılandırma](active-directory-conditional-access-untrusted-networks.md)
 ##### [Cihaz tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Uygulama tabanlı koşullu erişimi ayarlama](active-directory-conditional-access-mam.md)
 ##### [Kullanıcılar ve uygulamalar için kullanım koşullarını sağlayın](active-directory-tou.md)
+##### [Klasik ilkeleri geçirme](active-directory-conditional-access-migration.md)
 ##### [VPN bağlantısı ayarlama](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint ve Exchange Online ayarlama](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Düzeltme](active-directory-conditional-access-device-remediation.md)
 #### [Teknik başvuru](active-directory-conditional-access-technical-reference.md)
 #### [SSS](active-directory-conditional-faqs.md)
-
 
 ### Sertifika Tabanlı Kimlik Doğrulaması
 #### [Android](active-directory-certificate-based-authentication-android.md)

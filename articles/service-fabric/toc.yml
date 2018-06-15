@@ -632,6 +632,10 @@
           href: service-fabric-troubleshoot-local-cluster-setup.md
         - name: Yaygın senaryoları tanılama
           href: service-fabric-diagnostics-common-scenarios.md
+    - name: En iyi uygulamalar
+      items:
+        - name: Üretim hazırlığı denetim listesi
+          href: service-fabric-production-readiness-checklist.md
 - name: Başvuru
   items:
     - name: Azure PowerShell

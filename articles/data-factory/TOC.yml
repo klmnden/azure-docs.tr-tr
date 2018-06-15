@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: Öğreticiler
   items:
-    - name: 1 - Azure-SSIS tümleştirmesi çalışma zamanı oluşturma
+    - name: 1 - Azure-SSIS tümleştirme çalışma zamanı sağlama
       items:
         - name: Kullanıcı arabirimi (UI)
           href: tutorial-deploy-ssis-packages-azure.md

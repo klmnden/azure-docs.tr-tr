@@ -59,16 +59,16 @@
       href: create-account-cli-how-to.md
     - name: API'lere erişim - CLI
       href: access-api-cli-how-to.md
-    - name: İş durumu olayları - CLI
+    - name: İş durumu olaylarını izleme - CLI
       href: job-state-events-cli-how-to.md
+    - name: Dönüştürme ön ayarlarını özelleştirme - .NET Core
+      href: customize-encoder-presets-how-to.md
     - name: İçerik yükleme
       items:
         - name: HTTP(s)’den - .NET
           href: job-input-from-http-how-to.md
         - name: Yerel bir dosyadan - .NET
           href: job-input-from-local-file-how-to.md
-    - name: Dönüştürme ön ayarlarını özelleştirme - .NET Core
-      href: customize-encoder-presets-how-to.md
 - name: Başvuru
   items:
     - name: OpenAPI Belirtimi (Swagger)

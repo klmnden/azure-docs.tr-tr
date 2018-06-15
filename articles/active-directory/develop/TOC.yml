@@ -259,6 +259,8 @@
               href: active-directory-v2-protocols-oauth-on-behalf-of.md
             - name: Sertifika kimlik bilgileri
               href: active-directory-certificate-credentials.md
+            - name: OAuth 2.0 kod örneği
+              href: active-directory-protocols-oauth-get-jwt-token.md
         - name: Belirteçler
           href: active-directory-v2-tokens.md
         - name: Kapsamlar ve Onay
