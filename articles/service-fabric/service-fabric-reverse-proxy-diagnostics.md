@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207640"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>İzleme ve istek işleme ters proxy tanılama
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358736"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Yapılandırma veya işlem bir Azure Batch havuzunda düğümleri için uzaktan erişim devre dışı bırakma
 

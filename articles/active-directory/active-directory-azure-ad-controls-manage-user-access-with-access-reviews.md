@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 22cb517435777074390321de64daf98c8d12d0fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192498"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35232974"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD erişim gözden geçirmeleriyle kullanıcı erişimini yönetme
 
@@ -33,10 +34,6 @@ Azure Active Directory (Azure AD) sayesinde kullanıcıların uygun erişime sah
 
 
 Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-editions.md). Bir gözden geçirme oluşturmak, gözden geçirme tamamlamak veya erişimlerini doğrulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir. 
-
-Erişim gözden geçirmeleri, Azure AD’nin Microsoft Enterprise Mobility + Security, E5’e dahil olan Premium P2 sürümü ile kullanılabilir. Daha fazla bilgi için bkz. [Azure Active Directory sürümleri](active-directory-whatis.md). Bir gözden geçirme oluşturmak, gözden geçirmeye erişmek veya gözden geçirme uygulamak üzere bu özellikle etkileşimde bulunan her kullanıcının bir lisansı olması gerekir.
-
-
 
 ## <a name="create-and-perform-an-access-review"></a>Erişim gözden geçirmesi oluşturma ve gerçekleştirme
 

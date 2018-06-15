@@ -7,22 +7,36 @@ author: billgib
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
+ms.reviewer: genemi
 ms.author: billgib
-ms.openlocfilehash: ef35bbb28f5b13068f92f4bf07c7807b4a5d407a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737689"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Çok kiracılı SaaS veritabanı kiralama desenleri
 
 Çok kiracılı SaaS uygulama tasarlarken, uygulamanızın gereksinimlerine en uygun kiralama modeli dikkatle seçmeniz gerekir.  Kiracı modelini, her bir kiracının veri depolama alanına nasıl eşleştiğini belirler.  Uygulama tasarımı ve Yönetimi Kiracı modelinin tercih ettiğiniz etkiler.  Daha sonra farklı bir modele geçiş bazen maliyetlidir.
 
-Alternatif kiralama modelleri tartışması izler.
+Bu makalede alternatif kiralama modellerini açıklar.
 
-## <a name="a-how-to-choose-the-appropriate-tenancy-model"></a>A. Uygun kiralama modeli seçme
+## <a name="a-saas-concepts-and-terminology"></a>A. SaaS kavramları ve terminolojisi
+
+Bir hizmet (SaaS) model olarak yazılımda şirketiniz değil satmak *lisansları* yazılımınızla. Bunun yerine, her bir müşteri ödemeler şirketiniz için her bir müşteri yapmadan kiralamak yapar bir *Kiracı* şirketinizin.
+
+Kira ödeme, karşılığında erişim, SaaS uygulama bileşenleri için her bir kiracı alır ve kendi veri SaaS sisteminde saklanan.
+
+Terim *kiralama modeli* kiracılarınızın depolanan verilerin nasıl düzenlendiğini için başvuruyor:
+
+- *Tek-kiralama:* &nbsp; her veritabanı yalnızca bir kiracı verileri depolar.
+- *Çoklu kiracı:* &nbsp; her veritabanı (veri gizliliği korumak için mekanizmaları ile) birden çok ayrı kiracılar verileri depolar.
+- Karma kiralama modelleri de kullanılabilir.
+
+## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Uygun kiralama modeli seçme
 
 Genel olarak, Kiracı modeli uygulamanın işlevini etkilemez, ancak bunu büyük olasılıkla diğer yönleri genel çözümünün etkiler.  Aşağıdaki ölçütleri modellerinin her biri değerlendirmek için kullanılır:
 
@@ -50,7 +64,7 @@ Genel olarak, Kiracı modeli uygulamanın işlevini etkilemez, ancak bunu büyü
 
 Kiracı tartışma odaklanmıştır *veri* katmanı.  Ancak bir süre için göz önünde bulundurun *uygulama* katmanı.  Uygulama katmanı tek yapılı bir varlık olarak kabul edilir.  Çok sayıda küçük bileşenleri uygulamasına bölerseniz, tercih ettiğiniz kiralama modelinin değişebilir.  Hem Kiracı ve depolama teknolojisi veya kullanılan platform ile ilgili bazı bileşenleri diğerlerinden farklı davranabilir.
 
-## <a name="b-standalone-single-tenant-app-with-single-tenant-database"></a>B. Tek Kiracı veritabanı ile tek başına tek Kiracı uygulama
+## <a name="c-standalone-single-tenant-app-with-single-tenant-database"></a>C. Tek Kiracı veritabanı ile tek başına tek Kiracı uygulama
 
 #### <a name="application-level-isolation"></a>Uygulama düzeyi yalıtımı
 
@@ -66,7 +80,7 @@ Her Kiracı veritabanı bir tek başına veritabanı olarak dağıtılır.  Bu m
 
 Uygulama örnekleri farklı Kiracı aboneliklerine yüklü olsa bile satıcı tüm tek başına app örnekleri, tüm veritabanlarına erişim sağlayabilir.  Erişim SQL bağlantıları elde edilir.  Bu örnek arası erişim şema yönetimi ve veritabanları arası sorgu raporlama ya da analiz amacıyla merkezileştirmek satıcı etkinleştirebilirsiniz.  Bu tür bir merkezi yönetim istenirse, Kiracı tanımlayıcıları URI'ler veritabanı için eşleşen bir katalog dağıtılmalıdır.  Azure SQL veritabanı bir SQL veritabanı ile birlikte bir katalog sağlamak için kullanılan bir parçalama kitaplık sağlar.  Parçalama kitaplık resmi olarak adlandırılan [esnek veritabanı istemci Kitaplığı][docu-elastic-db-client-library-536r].
 
-## <a name="c-multi-tenant-app-with-database-per-tenant"></a>C. Kiracı başına veritabanı ile çok kiracılı uygulama
+## <a name="d-multi-tenant-app-with-database-per-tenant"></a>D. Kiracı başına veritabanı ile çok kiracılı uygulama
 
 Çok kiracılı uygulama bu sonraki desen kullanan birçok veritabanı ile tüm tek Kiracı Veritabanları bırakılıyor.  Yeni bir veritabanı, her yeni bir kiracı için sağlanır.  Uygulama katmanı ölçeği *yukarı* düğüm başına daha fazla kaynak ekleyerek dikey olarak.  Veya uygulama ölçeklendirilir *çıkışı* daha fazla düğüm ekleyerek yatay olarak.  Ölçeklendirme iş yüküne göre ve sayı veya veritabanlarını tek tek ölçek bağımsızdır.
 
@@ -105,7 +119,7 @@ Yönetim işlemlerini komut dosyası ve aracılığıyla sunulan bir [devops] [ 
 
 Örneğin, tek bir kiracı kurtarma daha önceki bir noktaya zamanında otomatikleştirmek.  Kurtarma yalnızca Kiracı depolar tek tek Kiracı veritabanının geri yüklenmesi gerekir.  Bu geri yükleme yönetim işlemlerini tek tek her Kiracı ince parçalı düzeyde olduğunu doğrulayan diğer kiracılar üzerinde etkisi yoktur.
 
-## <a name="d-multi-tenant-app-with-multi-tenant-databases"></a>D. Çoklu kiracı veritabanları ile çok kiracılı uygulama
+## <a name="e-multi-tenant-app-with-multi-tenant-databases"></a>E. Çoklu kiracı veritabanları ile çok kiracılı uygulama
 
 Başka bir kullanılabilir deseni, bir çok kiracılı veritabanında çok sayıda Kiracı depolamaktır.  Uygulama örneği çok Kiracı veritabanı herhangi bir sayıda olabilir.  Çok Kiracı veritabanı şeması, bir veya daha fazla Kiracı Kimlik sütunları olması gerekir, böylece verilen tüm Kiracı verileri seçmeli olarak alınabilir değil.  Ayrıca, şemayı birkaç tablolar veya yalnızca bir alt kümesini kiracılar tarafından kullanılan sütunlar gerektirebilir.  Ancak, statik kod ve başvuru verileri yalnızca bir kere depolanır ve tüm kiracılar tarafından paylaşılır.
 
@@ -121,13 +135,13 @@ Genel olarak, birden çok Kiracı veritabanı en düşük başına maliyet Kirac
 
 Bir çok Kiracı veritabanı modelin iki çeşit, çok kiracılı parçalı modeli en esnek ve ölçeklenebilir aşağıda içinde ele alınmıştır.
 
-## <a name="e-multi-tenant-app-with-a-single-multi-tenant-database"></a>E. Tek bir çok Kiracı veritabanı ile çok kiracılı uygulama
+## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F Tek bir çok Kiracı veritabanı ile çok kiracılı uygulama
 
 En basit çok Kiracı veritabanı düzeni verileri barındırmak için bir tek tek başına veritabanı tüm kiracılar için kullanır.  Daha fazla kiracılar eklendikçe veritabanı ile daha fazla depolama ve işlem kaynakları ölçeklenir.  Her zaman bir ultimate ölçek sınır olmasa bu ölçek büyütme gereklidir, tüm olabilir.  Ancak, veritabanı bu sınırı ulaşılmadan uzun yönetmek oldukça karmaşık bir görünüme haline gelir.
 
 Tek tek kiracılar odaklanmış yönetim işlemlerini çok Kiracı veritabanı uygulamak için daha karmaşıktır.  Ve ölçekte bu işlem edilemeyecek yavaş olabilir.  Zaman içinde nokta geri yükleme yalnızca bir kiracı için verilerin bir örnektir.
 
-## <a name="f-multi-tenant-app-with-sharded-multi-tenant-databases"></a>F Çok kiracılı uygulama parçalı çok Kiracı veritabanı ile
+## <a name="g-multi-tenant-app-with-sharded-multi-tenant-databases"></a>G. Çok kiracılı uygulama parçalı çok Kiracı veritabanı ile
 
 Birçok SaaS uygulamaları aynı anda yalnızca bir kiracı verilere.  Veya bir parça parça, burada herhangi biri için tüm veriler Kiracı yer alan birden çok veritabanı arasında dağıtılacak Kiracı verilerini bu erişim düzeni sağlar.  Çok Kiracı veritabanı deseni ile birleştirildiğinde, neredeyse sınırsız ölçek parçalı bir modeli sağlar.
 
@@ -151,7 +165,7 @@ Kullanılan parçalama yaklaşım bağlı olarak ek kısıtlamalar veritabanı �
 
 Esnek havuzlarını parçalı çok Kiracı veritabanı yerleştirilebilir.  Genel olarak, maliyet çok sayıda Kiracı birkaç çok kiracılı veritabanlarında sahip olarak verimli bir havuzda çok sayıda tek Kiracı veritabanları sahip istenir.  Çok sayıda görece etkin olmayan kiracılar olduğunda çok Kiracı veritabanı avantaj sağlar.
 
-## <a name="g-hybrid-sharded-multi-tenant-database-model"></a>G. Karma parçalı çok Kiracı veritabanı modeli
+## <a name="h-hybrid-sharded-multi-tenant-database-model"></a>H. Karma parçalı çok Kiracı veritabanı modeli
 
 Karma modelinde tüm veritabanları kendi şemasında Kiracı tanımlayıcısına sahip.  Veritabanlarını birden fazla Kiracı depolayabilen tüm özellikli ve veritabanlarını parçalı olabilir.  Böylece şema anlamda tüm çok Kiracı veritabanı oldukları.  Henüz uygulamada bu veritabanlarından bazıları yalnızca bir kiracı içerir.  Ne olursa olsun, belirli bir veritabanında depolanan kiracılar miktarını veritabanı şeması üzerinde etkisi yoktur.
 
@@ -165,7 +179,7 @@ Kaynak gereksinimlerini kiracılar tanımlama grupları arasında büyük farkla
 
 Bu karma modelde tek Kiracı veritabanları abone kiracılar için Kiracı başına veritabanınızın maliyetlerini azaltmak için kaynak havuzları yerleştirilebilir.  Bu ayrıca Kiracı başına veritabanı modelinde gerçekleştirilir.
 
-## <a name="h-tenancy-models-compared"></a>H. Karşılaştırılan kiralama modelleri
+## <a name="i-tenancy-models-compared"></a>I. Karşılaştırılan kiralama modelleri
 
 Aşağıdaki tabloda ana kiralama modelleri arasındaki farklar özetlenmektedir.
 

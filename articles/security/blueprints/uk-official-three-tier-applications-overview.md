@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: bb0a667c28e4ed0be3e67a7d89f10903be2c9d2a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: abacea02ee40cf899b58ab1fe4ac454784ff7d18
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757204"
 ---
 # <a name="azure-security-and-compliance-blueprint---uk-offical-three-tier-web-applications-automation"></a>Azure güvenlik ve uyumluluk şeması - İngiltere OFFICAL üç katmanlı Web uygulamaları otomatikleştirme
 
@@ -148,7 +149,7 @@ Depolama
 
 **Internet ağ geçidi ve genel IP adresi**: internet ağ geçidi uygulama hizmetlerini kullanıcılara Internet üzerinden kullanıma sunar. Bu hizmetlere erişme trafiği kullanarak güvenli bir [uygulama ağ geçidi](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) katman 7 Yönlendirme ve Yük Dengeleme yeteneklerini web uygulaması Güvenlik Duvarı (WAF) koruması ile teklifi.
 
-**Yönetim VNet**: Bu [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overviewcontains) yönetim ve izleme kapasiteleri VNet üretimde çalışan iş yükleri için uygulama kaynaklarını içerir.
+**Yönetim VNet**: Bu [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) yönetim ve izleme kapasiteleri VNet üretimde çalışan iş yükleri için uygulama kaynaklarını içerir.
 
 **Jumpbox**: olarak da adlandırılan bir [savunma konak](https://en.wikipedia.org/wiki/Bastion_host), Yöneticiler için sanal makineleri üretim VNet bağlanmak için kullandığınız ağ üzerinde güvenli bir VM olduğu. Sıçrama kutusunun sadece güvenli bir listede yer alan genel IP adreslerinden gelen uzak trafiğe izin veren bir NSG’si vardır. Uzak Masaüstü (RDP) trafiğine izin vermek için kaynak trafiği NSG'de tanımlanması gerekiyor. Üretim kaynaklarının yönetimini güvenli Jumpbox VM kullanarak RDP aracılığıyla ' dir.
 

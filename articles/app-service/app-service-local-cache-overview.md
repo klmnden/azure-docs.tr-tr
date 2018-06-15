@@ -1,13 +1,13 @@
 ---
-title: "Azure uygulama hizmeti yerel önbelleğinden genel bakış | Microsoft Docs"
-description: "Bu makalede, etkinleştirme, yeniden boyutlandırma ve Azure uygulama hizmeti yerel önbelleğinden özelliği durumunu sorgulamak açıklar"
+title: Azure uygulama hizmeti yerel önbelleğinden genel bakış | Microsoft Docs
+description: Bu makalede, etkinleştirme, yeniden boyutlandırma ve Azure uygulama hizmeti yerel önbelleğinden özelliği durumunu sorgulamak açıklar
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836388"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure uygulama hizmeti yerel önbelleğinden genel bakış
 Azure web uygulaması içerik Azure depolama alanında depolanır ve yukarı içerik paylaşımı sağlam bir şekilde ortaya. Bu tasarım çeşitli uygulamaları ile kullanılmak üzere tasarlanmış ve aşağıdaki özniteliklere sahiptir:  

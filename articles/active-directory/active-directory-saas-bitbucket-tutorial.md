@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34338940"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Öğretici: Bitbucket için SAML SSO ile GmbH çözünürlüğün Azure Active Directory Tümleştirme
 

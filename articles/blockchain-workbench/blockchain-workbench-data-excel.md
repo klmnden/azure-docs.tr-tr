@@ -12,9 +12,10 @@ ms.reviewer: mmercuri
 manager: femila
 ms.openlocfilehash: e8c20f4b8e39615e2a8c486130d7c8bec655a936
 ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076958"
 ---
 # <a name="view-azure-blockchain-workbench-data-with-microsoft-excel"></a>Azure Blockchain Workbench verilerini Microsoft Excel ile görüntüleme
 

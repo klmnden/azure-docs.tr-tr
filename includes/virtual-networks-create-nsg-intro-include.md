@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34371261"
 ---
 Bir NSG'yi bir veya daha fazla sanal makine (VM), rol örnekleri, ağ bağdaştırıcılarını (NIC'ler) veya alt denetim trafiği, sanal ağınızda bulunan kullanabilirsiniz. NSG’de trafik yönüne, protokole, kaynak adresle bağlantı noktasına ve hedef adresle bağlantı noktasına göre trafiğe izin veren ya da reddeden erişim denetim kuralları yer alır. Bir NSG kuralları herhangi bir zamanda değiştirilebilir ve değişiklik ilişkili tüm örneklerine uygulanır.
 

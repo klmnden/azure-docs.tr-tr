@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell Betiği örnek - yönetilen bir disk işletim sistemi diski olarak ekleyerek bir VM oluşturma | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - yönetilen bir disk işletim sistemi diski olarak ekleyerek bir VM oluşturma"
+title: Azure PowerShell Betiği örnek - yönetilen bir disk işletim sistemi diski olarak ekleyerek bir VM oluşturma | Microsoft Docs
+description: Azure PowerShell Betiği örnek - yönetilen bir disk işletim sistemi diski olarak ekleyerek bir VM oluşturma
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankum
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -18,9 +18,10 @@ ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: ec532811e94647c8a04b9faf9474f6749969f83e
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23928219"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>PowerShell ile varolan yönetilen bir işletim sistemi diski kullanarak bir sanal makine oluşturun
 

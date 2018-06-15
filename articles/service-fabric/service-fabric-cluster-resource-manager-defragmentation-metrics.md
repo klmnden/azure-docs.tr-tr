@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205085"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Ölçümleri ve Service Fabric yük birleştirme
 Kümedeki yük ölçümleri yönetmek için Service Fabric kümesi kaynak yöneticisinin varsayılan stratejisi yük dağıtmaktır. Düğümleri eşit olarak kullanıldığını sağlama Çekişme hem harcanan kaynaklar için yol sıcak ve soğuk noktalar önler. Küme iş yüklerini dağıtma de hata belirli bir iş yükü büyük bir yüzdesini almaz sağlar beri hataları sürdüren bakımından güvenlisidir. 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34366469"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>Bir Azure VM üzerinde SQL Server bir Azure Search dizin oluşturucu arasında bağlantı yapılandırma
 İçinde belirtildiği gibi [dizin oluşturucuları kullanarak Azure Search'te Azure SQL veritabanına bağlanma](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), dizin oluşturucular karşı oluşturma **Azure Vm'lerde SQL Server** (veya **SQL Azure VM'ler** kısaca) Azure araması tarafından desteklenen ancak ilk halletmeniz için birkaç güvenlikle ilgili önkoşulları vardır. 

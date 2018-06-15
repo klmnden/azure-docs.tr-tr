@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207001"
 ---
 # <a name="run-a-service-as-an-active-directory-user-or-group"></a>Bir Active Directory kullanıcı veya grup bir hizmet farklı çalıştır
 Bir Windows Server tek başına kümesinde bir hizmet, bir Active Directory kullanıcı veya grup RunAs ilke kullanılarak çalıştırabilirsiniz.  Varsayılan olarak, Service Fabric uygulamaları Fabric.exe işlemin altında çalıştığı hesap altında çalışır. Çalışan uygulamalar farklı hesaplar bile paylaşılan bir barındırılan ortamda, bunları birbirinden daha güvenli yapar. Bu Active Directory dahilindeki şirket içi etki alanı ve değil Azure Active Directory (Azure AD) kullandığını unutmayın.  Bir hizmet olarak da çalıştırılabilir bir [Grup yönetilen hizmet hesabı (gMSA)](service-fabric-run-service-as-gmsa.md).

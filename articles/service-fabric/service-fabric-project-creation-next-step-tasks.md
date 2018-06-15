@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206474"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>Service Fabric uygulaması ve sonraki adımlar
 Azure Service Fabric uygulamanızı oluşturuldu. Bu makalede denemek için bazı öğreticileri, oluşma şekli projeniz, ilginizi çekebilir bazı ek bilgiler ve olası sonraki adımlar açıklanmaktadır.

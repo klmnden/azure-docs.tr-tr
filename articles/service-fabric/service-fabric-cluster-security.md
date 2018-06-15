@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210911"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric kümesi güvenlik senaryoları
 Azure Service Fabric kümesi sahip olduğunuz bir kaynaktır. Sizin sorumluluğunuzdadır kümelerinizi yetkisiz kullanıcıların kendilerine bağlanmasını önlemek için güvenli değil. Kümede üretim iş yükleri çalıştırırken güvenli küme özellikle önemlidir. Küme genel internet yönetim uç noktalarını kullanıma sunar, güvenli olmayan bir küme oluşturmak mümkün olmasına karşın, anonim kullanıcılar için bağlanabilir. Güvenli olmayan kümeler üretim iş yükleri için desteklenmez. 

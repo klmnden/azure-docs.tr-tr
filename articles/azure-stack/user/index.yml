@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 05/04/2018
+  ms.locfileid: "33205440"
 abstract:
   description: Azure Stack, şirketinizin veya hizmet sağlayıcınızın veri merkezinden Azure hizmetleri sağlama olanağı sunan bir hibrit bulut platformudur. Bir geliştirici olarak Azure Stack’te uygulama derleyebilirsiniz. Daha sonra bu uygulamaları Azure Stack’te dağıtabilir veya Azure Stack bulut ve Azure arasındaki bağlantıdan yararlanan tamamen karma uygulamalar derleyebilirsiniz. Hızlı başlangıç kılavuzlarımız ve öğreticilerimizden yararlanarak kaynak oluşturma ve uygulamaları dağıtma hakkında bilgi edinin.<br/><br/>Altyapı yöneten ve hizmetleri sunan bir Azure yığın işleç değilseniz, bkz bizim <a href="/azure/azure-stack/">işleci belgelerine</a>.<br/><br/>Azure yığın Geliştirme Seti (ASDK içinde), bir tek düğümlü dağıtım indirin ve ücretsiz olarak kullanan Azure yığınının ilgilenen bir Azure yığın işleç olup olmadığını görmek bizim <a href="/azure/azure-stack/asdk">ASDK belgelerine</a>.
 sections:

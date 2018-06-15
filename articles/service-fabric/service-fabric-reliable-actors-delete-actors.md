@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208344"
 ---
 # <a name="delete-reliable-actors-and-their-state"></a>Reliable Actors ve durumlarına Sil
 Çöp toplama devre dışı bırakılan aktör yalnızca aktör nesnesini temizler, ancak bir aktör ait durum Yöneticisi'nde depolanan verileri kaldırmaz. Bir oyuncu etkinleştirildiğinde, verileri yeniden durum Yöneticisi aracılığıyla için kullanılabilir hale getirilir. Burada aktörler durum Yöneticisi'nde veri depolamak ve devre dışı ancak hiçbir zaman yeniden durumlarda kendi verilerini temizle gerekebilir.

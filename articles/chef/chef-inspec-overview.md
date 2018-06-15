@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34260251"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Azure altyapınıza uyumluluk Otomasyon için InSpec kullanın
 [İnSpec](https://www.chef.io/inspec/) test ve uygulamalarını ve altyapısını denetim için bir ücretsiz ve açık kaynaklı çerçevedir. Kolay okuma ve yazma kolay InSpec kodda express istenen durumu gerçek durumuyla sisteminizin karşılaştırarak InSpec çalışır. InSpec ihlalleri algılar ve bir rapor biçiminde bulgularını görüntüler, ancak düzeltme denetiminde koyar. Azure'da çalışan sanal makinelerinizi durumunu doğrulamak için InSpec kullanabilirsiniz. InSpec, tarama ve kaynaklar ve kaynak grupları bir abonelik içinde durumunu doğrulamak için de kullanabilirsiniz.

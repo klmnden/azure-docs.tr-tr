@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358226"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Config şeması (.cscfg dosyası) Azure bulut Hizmetleri
 Hizmet yapılandırma dosyası, her rol hizmet dağıtmak için rol örneği sayısı, tüm yapılandırma ayarlarını ve bir rolle ilişkili herhangi bir sertifika parmak izleri değerlerini belirtir. Hizmet sanal ağın bir parçası ise, hizmet yapılandırma dosyası ve aynı zamanda sanal ağ yapılandırma dosyasındaki ağ yapılandırma bilgilerini sağlanmalıdır. Varsayılan hizmet yapılandırma dosyası için .cscfg uzantısıdır.

@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma alma işi - v1 onarma | Microsoft Docs"
-description: "Oluşturulmuş ve Azure içeri/dışarı aktarma hizmeti kullanarak çalışan bir alma işi onarmak öğrenin."
+title: Bir Azure içeri/dışarı aktarma alma işi - v1 onarma | Microsoft Docs
+description: Oluşturulmuş ve Azure içeri/dışarı aktarma hizmeti kullanarak çalışan bir alma işi onarmak öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927470"
 ---
 # <a name="repairing-an-import-job"></a>Bir içeri aktarma işini onarma
 Microsoft Azure içeri/dışarı aktarma hizmeti, bazı dosyalar veya, bir dosyanın parçalarını Windows Azure Blob hizmeti kopyalamak başarısız olabilir. Hataları görmek için bazı nedenler şunlardır:  

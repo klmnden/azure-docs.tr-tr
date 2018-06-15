@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058326"
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Azure AD cloud App Discovery ayarlayın
 

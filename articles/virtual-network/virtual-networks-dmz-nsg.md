@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23928989"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Örnek 1 – Nsg'ler ile bir Azure Resource Manager şablonu kullanarak basit bir DMZ derleme
 [Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]

@@ -15,6 +15,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34354752"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-the-azure-portal"></a>Azure portalını kullanarak barındırma birden çok siteyle bir uygulama ağ geçidi oluşturma
 

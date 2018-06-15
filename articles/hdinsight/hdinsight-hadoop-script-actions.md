@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271624"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Hdınsight Windows tabanlı kümeler için betik eylemi betikleri geliştirme
 Hdınsight için betik eylemi betikler yazma hakkında bilgi edinin. Betik eylemi komut dosyalarını kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster.md). Linux tabanlı Hdınsight kümeleri için yazılmış aynı makale için bkz: [Hdınsight betik eylemi geliştirme betikleri](hdinsight-hadoop-script-actions-linux.md).
