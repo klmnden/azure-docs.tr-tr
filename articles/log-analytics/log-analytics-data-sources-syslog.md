@@ -19,6 +19,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011103"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Syslog veri kaynaklarında günlük analizi
 Syslog Linux için ortak bir olay günlüğü protokolüdür.  Uygulamaları yerel makinede depolanan olabilir veya bir Syslog Toplayıcıya teslim iletileri gönderir.  Linux için OMS Aracısı yüklendiğinde, aracıya iletilerini iletmek için yerel Syslog arka plan programı yapılandırır.  Aracı bu durumda günlük karşılık gelen bir kayıt OMS depoya oluşturulduğu analizi iletiyi gönderir.  

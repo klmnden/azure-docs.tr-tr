@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management kimlik doğrulama ilkeleri | Microsoft Docs"
-description: "Azure API Management'te kullanım için uygun kimlik doğrulama ilkeleri hakkında bilgi edinin."
+title: Azure API Management kimlik doğrulama ilkeleri | Microsoft Docs
+description: Azure API Management'te kullanım için uygun kimlik doğrulama ilkeleri hakkında bilgi edinin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 061702a7-3a78-472b-a54a-f3b1e332490d
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26127768"
 ---
 # <a name="api-management-authentication-policies"></a>API Management kimlik doğrulama ilkeleri
 Bu konu aşağıdaki API Management ilkeleri bir başvuru sağlar. Ekleme ve ilkeleri yapılandırma hakkında daha fazla bilgi için bkz: [API Management ilkeleri](http://go.microsoft.com/fwlink/?LinkID=398186).  

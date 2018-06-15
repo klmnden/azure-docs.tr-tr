@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788336"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Media Encoder Standard ile videoları kırpma
 Giriş video kırpma için Medya Kodlayıcısı standart (MES) kullanabilirsiniz. Kırpma video çerçevesinde dikdörtgen penceresinin seçilmesi ve yalnızca o penceresi içinde piksel kodlama işlemidir. Aşağıdaki diyagramda, işlem göstermeye yardımcı olur.

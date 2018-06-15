@@ -3,9 +3,17 @@ Bir Azure sanal makinesi birkaç veri diskini eklemeyi destekler. Bu makalede, b
 > [!IMPORTANT]
 > En iyi performans için mümkün azaltma önlemek için sanal makineye bağlı yüksek oranda kullanılan disk sayısını sınırlayın. Eklenen tüm diskler aynı anda yüksek oranda kullanılmaz, sanal makine disklerin daha büyük bir sayı destekleyebilir.
 
-* **Azure yönetilen disklerin:** disk yönetilen diskler için disk türünü ve bölge başına sınırlıdır. Üst sınırı, aynı zamanda varsayılan sınır ise bir abonelik için disk türünü ve bölge başına 10.000 yönetilen diskleri. Örneğin, yönetilen en fazla 10.000 standart oluşturabilirsiniz diskleri ve ayrıca 10.000 premium yönetilen abonelik başına bir bölgede diskler.
+* **Azure için diskleri yönetilen:** 
 
-    Yönetilen anlık görüntüler ve görüntüleri yönetilen diskleri sınırınızı etkiler.
+> | Kaynak | Varsayılan Sınır | Üst Sınır |
+> | --- | --- | --- |
+> | Standart Yönetilen Diskler | 10,000 | 50,000 |
+> | Standart SSD Yönetilen Diskler | 10,000 | 50,000 |
+> | Premium Yönetilen Diskler | 10,000 | 50,000 |
+> | Standard_LRS anlık görüntüler | 10,000 | 50,000 |
+> | Standard_ZRS anlık görüntüler | 10,000 | 50,000 |
+> | Premium_LRS anlık görüntüler | 10,000 | 50,000 |
+> | Yönetilen resim | 10,000 | 50,000 |
 
 * **Standart depolama hesapları için:** Standart bir depolama hesabı en fazla toplam 20.000 IOPS istek oranına sahiptir. Standart bir depolama hesabındaki tüm sanal makine disklerinizde toplam IOPS bu sınırı aşmamalıdır.
   

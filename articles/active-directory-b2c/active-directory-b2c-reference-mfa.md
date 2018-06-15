@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Çok faktörlü kimlik doğrulaması | Microsoft Docs'
-description: Azure Active Directory B2C tarafından güvence altına tüketiciye yönelik uygulamalarında çok faktörlü kimlik doğrulamasını etkinleştirme
+title: Azure Active Directory B2C çok faktörlü kimlik doğrulaması | Microsoft Docs
+description: Azure Active Directory B2C tarafından güvence altına tüketiciye yönelik uygulamalarında çok faktörlü kimlik doğrulamasını etkinleştirmek nasıl.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: f439c65d9b4fbeb78623312c426767f89dfd9fab
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.component: B2C
+ms.openlocfilehash: 85592275c13719fec0f40eb76a9bce48890a59d2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710202"
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: Tüketiciye yönelik uygulamalarınızda çok faktörlü kimlik doğrulamasını etkinleştir
 Azure Active Directory (Azure AD) B2C ile doğrudan tümleşir [Azure çok faktörlü kimlik doğrulaması](../active-directory/authentication/multi-factor-authentication.md) böylece tüketiciye yönelik uygulamalarınızda kaydolma ve oturum açma deneyimleri için ikinci bir güvenlik katmanı ekleyebilirsiniz. Ve tek satırlık bir kod yazmak zorunda kalmadan bunu yapabilirsiniz. Şu anda telefon çağrısı ve metin iletisi doğrulama destekler. Kaydolma ve oturum açma ilkeleri oluşturduysanız, çok faktörlü kimlik doğrulaması yine etkinleştirebilirsiniz.

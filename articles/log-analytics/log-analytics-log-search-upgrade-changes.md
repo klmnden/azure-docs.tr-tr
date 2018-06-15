@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi Değiştirilenler? | Microsoft Belgeleri"
-description: "Bu makale sık sorulan soruları yükseltilmesiyle ilgili günlük analizi, yeni sorgu dili sağlar."
+title: Azure günlük analizi Değiştirilenler? | Microsoft Belgeleri
+description: Bu makale sık sorulan soruları yükseltilmesiyle ilgili günlük analizi, yeni sorgu dili sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26039868"
 ---
 # <a name="whats-changed-in-azure-log-analytics"></a>Azure günlük analizi Değiştirilenler?
 Sorgu dili yanı sıra kendi vardır çeşitli iyileştirmeler ve günlük analizi çalışma alanınız olduğunda farkında olmanız gereken değişiklikleri [yeni sorgu dili yükseltilmiş](log-analytics-log-search-new.md).  Bu makalede, eski ve yükseltilmiş çalışma her ayrıntılı içerik için bağlantılar ile birlikte arasındaki değişiklikleri kısaca açıklanmaktadır. 

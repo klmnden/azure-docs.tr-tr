@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d3514b57b5dc3541dd0a3c0f584fd689749ada7c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716467"
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Ansible ile azure'da eksiksiz bir Linux sanal makine ortamı oluşturma
 Ansible dağıtma ve yapılandırmanın ortamınızdaki kaynakların otomatikleştirmenizi sağlar. Azure, aynı herhangi bir kaynağa olduğu gibi sanal makineleri (VM'ler) yönetmek için Ansible kullanabilirsiniz. Bu makalede eksiksiz bir Linux ortamı ve Ansible kaynaklarla destekleme nasıl oluşturulacağı gösterilmektedir. Ayrıca öğrenebilirsiniz nasıl [Ansible ile temel bir VM oluşturma](ansible-create-vm.md).
@@ -37,6 +38,8 @@ Ansible ile Azure kaynaklarınızı yönetmek için aşağıdakiler gerekir:
 
 
 ## <a name="create-virtual-network"></a>Sanal ağ oluşturma
+Şimdi her bir Ansible playbook kısmına bakın ve tek tek Azure kaynakları oluşturun. Tam playbook için bkz: [Bu bölümde, makalenin](#complete-ansible-playbook).
+
 Aşağıdaki bölümde Ansible playbook adlı bir sanal ağ oluşturur *myVnet* içinde *10.0.0.0/16* adres alanı:
 
 ```yaml
@@ -115,14 +118,14 @@ Son adım, bir VM oluşturun ve oluşturulan tüm kaynakları kullanmaktır. Adl
     vm_size: Standard_DS1_v2
     admin_username: azureuser
     ssh_password_enabled: false
-    ssh_public_keys: 
+    ssh_public_keys:
       - path: /home/azureuser/.ssh/authorized_keys
         key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
     network_interfaces: myNIC
     image:
       offer: CentOS
       publisher: OpenLogic
-      sku: '7.3'
+      sku: '7.5'
       version: latest
 ```
 
@@ -176,18 +179,18 @@ Bu bölümler araya getirmek için adlı bir Ansible playbook oluşturma *azure_
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
-      ssh_public_keys: 
+      ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
           key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
       network_interfaces: myNIC
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 
-Ansible içine tüm kaynaklarınızı dağıtmak için bir kaynak grubu gerekir. [az group create](/cli/azure/vm#az_vm_create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
+Ansible içine tüm kaynaklarınızı dağıtmak için bir kaynak grubu gerekir. [az group create](/cli/azure/group#az-group-create) ile bir kaynak grubu oluşturun. Aşağıdaki örnek *eastus* konumunda *myResourceGroup* adlı bir kaynak grubu oluşturur:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

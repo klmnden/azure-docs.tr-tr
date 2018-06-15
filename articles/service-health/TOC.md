@@ -11,6 +11,7 @@
 ### [ServiceNow ile yapılandırma](service-health-alert-webhook-servicenow.md)
 ### [PagerDuty ile yapılandırma](service-health-alert-webhook-pagerduty.md)
 ### [OpsGenie ile yapılandırma](service-health-alert-webhook-opsgenie.md)
+### [REST ile sistem durumu olayları alma](service-health-rest.md)
 # Kaynaklar
 ## [Sık Sorulan Sorular](resource-health-faq.md)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

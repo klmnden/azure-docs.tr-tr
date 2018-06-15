@@ -1,27 +1,27 @@
 ---
-title: 'Azure Active Directory B2C: Özel öznitelikleri | Microsoft Docs'
-description: Tüketicileriniz hakkında bilgi toplamak için Azure Active Directory B2C'de özel öznitelikleri kullanma
+title: Azure Active Directory B2C özel öznitelikleri | Microsoft Docs
+description: Özel öznitelikler Azure Active Directory B2C'de tüketicileriniz hakkında bilgi toplamak için nasıl kullanılacağını.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 6f285c10b7d8ff92c8568c42b6a78dc4ea9bcc74
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 61931be8e50cdc3132e36a63a2fdb059d62ba947
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711884"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C: tüketicileriniz hakkında bilgi toplamak için özel öznitelikler kullanın.
 Azure Active Directory (Azure AD) B2C dizininize bilgi (öznitelikler) yerleşik bir dizi birlikte gelir: verilen ad, Soyadı, şehir, posta kodu ve diğer öznitelikleri. Bununla birlikte, her tüketiciye yönelik uygulama tüketici toplamak için benzersiz gereksinimleri ne öznitelikleri üzerinde vardır. Azure AD B2C ile her tüketici hesapta depolanan öznitelikler kümesi genişletebilirsiniz. Özel öznitelikler oluşturabileceğiniz [Azure portal](https://portal.azure.com/) ve aşağıda gösterildiği gibi kaydolma ilkelerinizi kullanın. Aynı zamanda okuma ve yazma bu öznitelikleri kullanarak [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md).
 
 > [!NOTE]
-> Özel öznitelikler kullanın [Azure AD Graph API Directory şema uzantıları](https://msdn.microsoft.com/library/azure/dn720459.aspx).
+> Özel öznitelikler kullanın [Azure AD Graph API Directory şema uzantıları](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 > 
 > 
 

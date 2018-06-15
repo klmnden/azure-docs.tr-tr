@@ -1,13 +1,13 @@
 ---
-title: "DC/OS CLI’yi yükleme | Microsoft Belgeleri"
-description: "DC/OS CLI’yi yükleyin."
+title: DC/OS CLI’yi yükleme | Microsoft Belgeleri
+description: DC/OS CLI’yi yükleyin.
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: rgardler
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
-keywords: "Kapsayıcılar, Mikro hizmetler, DC/OS, Azure"
+keywords: Kapsayıcılar, Mikro hizmetler, DC/OS, Azure
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23761971"
 ---
 > [!NOTE]
 > DC/OS tabanlı ACS kümeleriyle çalışmak içindir. Swarm tabanlı ACS kümeleri için bunu yapmaya gerek yoktur.

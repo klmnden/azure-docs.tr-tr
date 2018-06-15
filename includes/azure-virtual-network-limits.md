@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/05/2018
+ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: bbeceb868466de42cfdffa3991983ac906cb98aa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323740"
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568135"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, geçerli kaynak kullanımına karşı abonelik sınırlarınızı görüntülemek](../articles/networking/check-usage-against-limits.md).
 
@@ -68,7 +68,6 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Kaynak | Varsayılan limit | Üst Sınır |
 | --- | --- | --- |
 | Yük Dengeleyiciler | 100 | 1000 |
-| Arka uç kaynaklarına başına yük dengeleyici * | 50 | 150 |
 | Her bir kaynak, Basic kuralları | 150 | 250 |
 | Her bir kaynak, standart kuralları | 1250 | 1500 |
 | IP yapılandırması başına kuralı | 299 |299 |
@@ -76,9 +75,10 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Ön uç IP yapılandırmaları, standart | 10 | 600 |
 | Arka uç havuzu, Basic | 100, tek bir kullanılabilirlik kümesi | 100, tek bir kullanılabilirlik kümesi |
 | Arka uç havuzu, standart | VNet 1000 tek | VNet 1000 tek |
+| Yük Dengeleyici, standart başına arka uç kaynaklarına &ast; | 50 | 150 |
 | HA bağlantı noktaları, standart | İç ön uç başına 1 | İç ön uç başına 1 |
 
-* En fazla 150 kaynaklar, tek başına sanal makineler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri herhangi bir bileşimini.
+&ast; En fazla 150 kaynaklar, tek başına sanal makineler, kullanılabilirlik kümeleri ve sanal makine ölçek kümeleri herhangi bir bileşimini.
 
 Varsayılan sınırları artırmanız gerekirse [desteğe başvurun](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 
