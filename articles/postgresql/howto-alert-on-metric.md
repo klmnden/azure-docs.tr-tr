@@ -1,6 +1,6 @@
 ---
-title: "Ölçümleri uyarılar için PostgreSQL Azure veritabanı için Azure portalında yapılandırın."
-description: "Bu makalede nasıl yapılandırılacağı ve erişim ölçüm uyarıları Azure veritabanı için PostgreSQL için Azure portalından açıklanmaktadır."
+title: Ölçümleri uyarılar için PostgreSQL Azure veritabanı için Azure portalında yapılandırın.
+description: Bu makalede nasıl yapılandırılacağı ve erişim ölçüm uyarıları Azure veritabanı için PostgreSQL için Azure portalından açıklanmaktadır.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29690268"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Azure portal ölçümleri uyarılar için Azure veritabanı için PostgreSQL ayarlamak için kullanın 
 

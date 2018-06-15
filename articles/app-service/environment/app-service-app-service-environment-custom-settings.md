@@ -1,11 +1,11 @@
 ---
-title: "Uygulama hizmeti ortamları için özel ayarları"
-description: "Uygulama hizmeti ortamları için özel yapılandırma ayarları"
+title: Uygulama hizmeti ortamları için özel ayarları
+description: Uygulama hizmeti ortamları için özel yapılandırma ayarları
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: nirma
-editor: 
+editor: ''
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.service: app-service
 ms.workload: na
@@ -17,9 +17,10 @@ ms.author: stefsch
 ms.custom: mvc
 ms.openlocfilehash: d60cdca78c143996fa5935726db0631321c9e2fe
 ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129524"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>Uygulama hizmeti ortamları için özel yapılandırma ayarları
 ## <a name="overview"></a>Genel Bakış

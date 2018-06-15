@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841512"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Azure Linux VM'ler MySQL performansı en iyi duruma getirme
 Hem sanal donanım seçimi ve yazılım yapılandırmasını Azure üzerinde MySQL performansı etkileyen pek çok etken vardır. Bu makalede, depolama, sistem ve veritabanı yapılandırmalarını en iyi duruma getirme performans odaklanır.

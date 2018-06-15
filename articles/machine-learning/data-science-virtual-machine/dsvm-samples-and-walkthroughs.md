@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31419985"
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>Örnek veri bilimi sanal makinelerde (DSVM)
 

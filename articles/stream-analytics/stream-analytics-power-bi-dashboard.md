@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418463"
 ---
 # <a name="tutorial-stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Öğretici: Akış analizi ve Power BI: veri akışı için gerçek zamanlı analiz Panosu
 Azure Stream Analytics, başında iş zekası araçları birini yararlanmak tanır [Microsoft Power BI](https://powerbi.com/). Bu makalede, bilgi nasıl iş zekası araçları, Azure akış analizi işi için çıkış olarak Power BI kullanarak oluşturun. Ayrıca oluşturmak ve gerçek zamanlı bir Panoda kullanmak hakkında bilgi edinin.

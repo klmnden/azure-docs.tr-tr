@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30833141"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure portalında günlük analizi çalışma alanı oluşturma
 Azure günlük analizi çalışma alanı ayarlayabilirsiniz Portalı'nda, bir benzersiz günlük analizi kendi veri deposu, veri kaynakları ve çözümlerle ortamıdır.  Aşağıdaki kaynaklardan veri toplama üzerinde düşünüyorsanız, bu makalede açıklanan adımları gereklidir:

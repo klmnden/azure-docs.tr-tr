@@ -1,11 +1,11 @@
 ---
-title: "Ağ güvenlik grubu akış günlükleri Azure Ağ İzleyicisi - Azure CLI 1.0 ile yönetme | Microsoft Docs"
-description: "Bu sayfa, Azure Ağ İzleyicisi Azure CLI 1.0 ile ağ güvenlik grubu akış günlüklerine yönetmek açıklanmaktadır"
+title: Ağ güvenlik grubu akış günlükleri Azure Ağ İzleyicisi - Azure CLI 1.0 ile yönetme | Microsoft Docs
+description: Bu sayfa, Azure Ağ İzleyicisi Azure CLI 1.0 ile ağ güvenlik grubu akış günlüklerine yönetmek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2dfc3112-8294-4357-b2f8-f81840da67d3
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26774497"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli-10"></a>Azure CLI 1.0 ile ağ güvenlik grubu akış günlüklerini yapılandırma
 

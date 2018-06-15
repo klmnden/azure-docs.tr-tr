@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513644"
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Azure App Service Web Apps için Java uygulaması Ekle
 Java web uygulamanıza başlatıldıktan sonra [Azure App Service] [ Azure App Service] adresinde belgelenen gibi [Azure App Service'te bir Java web uygulaması oluşturma](app-service-web-get-started-java.md), WAR koyarak uygulamanızı karşıya yükleyebilir **webapps** klasör.

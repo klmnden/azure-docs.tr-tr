@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406516"
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>Windows tabanlı Hdınsight üzerinde Tez işlerinde hata ayıklamak için Tez kullanıcı arabirimini kullanma
 Tez UI Tez yürütme altyapısı olarak kullanan Hive işleri hata ayıklamak için kullanılabilir. Bir grafik bağlı öğelerinin her öğenin ayrıntısına ve istatistikleri ve günlük kaydı bilgilerini almak Tez kullanıcı Arabirimi iş visualizes.

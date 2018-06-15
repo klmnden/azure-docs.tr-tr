@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31414727"
 ---
 # <a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>R Server ve açık kaynaklı R yetenekleri hdınsight'ta giriş
 

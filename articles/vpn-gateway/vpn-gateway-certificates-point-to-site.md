@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31423057"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Oluştur ve noktası Site için sertifikalar verme PowerShell'i kullanma
 

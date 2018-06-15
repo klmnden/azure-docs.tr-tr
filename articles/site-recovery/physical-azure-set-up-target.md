@@ -1,6 +1,6 @@
 ---
-title: "Hedef (fiziksel Azure) hazırlama | Microsoft Docs"
-description: "Bu makalede, Azure için Windows veya Linux çalıştıran fiziksel sunucuları çoğaltıyor başlatmak üzere Azure ortamınızı hazırlamak açıklar."
+title: Hedef (fiziksel Azure) hazırlama | Microsoft Docs
+description: Bu makalede, Azure için Windows veya Linux çalıştıran fiziksel sunucuları çoğaltıyor başlatmak üzere Azure ortamınızı hazırlamak açıklar.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812631"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Hedef (VMware Azure için) hazırlama
 

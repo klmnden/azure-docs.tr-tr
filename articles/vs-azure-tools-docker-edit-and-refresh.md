@@ -1,11 +1,11 @@
 ---
-title: "Yerel bir Docker kapsayıcısı uygulamalarında hata ayıklama | Microsoft Docs"
-description: "Yerel bir Docker kapsayıcısı içinde çalışan bir uygulamayı değiştirmek öğrenin, düzenleme ve yenileme aracılığıyla kapsayıcı yenileyin ve hata ayıklama kesme noktaları ayarlayın"
+title: Yerel bir Docker kapsayıcısı uygulamalarında hata ayıklama | Microsoft Docs
+description: Yerel bir Docker kapsayıcısı içinde çalışan bir uygulamayı değiştirmek öğrenin, düzenleme ve yenileme aracılığıyla kapsayıcı yenileyin ve hata ayıklama kesme noktaları ayarlayın
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781403"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Yerel Docker kapsayıcısındaki uygulamalar için hata ayıklama
 ## <a name="overview"></a>Genel Bakış

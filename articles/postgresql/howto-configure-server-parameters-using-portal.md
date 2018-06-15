@@ -1,6 +1,6 @@
 ---
-title: "Sunucu parametreleri Azure veritabanı'nda PostgreSQL için Azure portalı üzerinden yapılandırma"
-description: "Bu makalede sunucu parametreleri Azure veritabanı'nda PostgreSQL için Azure portalı üzerinden nasıl yapılandırılacağını açıklar."
+title: Sunucu parametreleri Azure veritabanı'nda PostgreSQL için Azure portalı üzerinden yapılandırma
+description: Bu makalede sunucu parametreleri Azure veritabanı'nda PostgreSQL için Azure portalı üzerinden nasıl yapılandırılacağını açıklar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687875"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>Azure portalında sunucu parametreleri yapılandırın
 Listesinde, Göster ve Azure portalı üzerinden PostgreSQL sunucu için bir Azure veritabanı için yapılandırma parametreleri güncelleştirin.

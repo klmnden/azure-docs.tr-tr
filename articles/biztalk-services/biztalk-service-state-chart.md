@@ -1,11 +1,11 @@
 ---
-title: "Farklı durumları ya da BizTalk Services durumları izin görevleri | Microsoft Docs"
-description: "Farklı MABS durumunda izin verilen eylemleri/operations: durdurmak, Başlat, yeniden başlatın, askıya alma, sürdürme, Sil, ölçeklendirme, Yukarı yapılandırma ve yedekleme güncelleştirme"
+title: Farklı durumları ya da BizTalk Services durumları izin görevleri | Microsoft Docs
+description: 'Farklı MABS durumunda izin verilen eylemleri/operations: durdurmak, Başlat, yeniden başlatın, askıya alma, sürdürme, Sil, ölçeklendirme, Yukarı yapılandırma ve yedekleme güncelleştirme'
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102751"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Ne yapıp BizTalk hizmeti durumu kullanarak olamaz
 

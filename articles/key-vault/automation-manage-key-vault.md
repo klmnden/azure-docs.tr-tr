@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406883"
 ---
 # <a name="managing-azure-key-vault-using-azure-automation"></a>Azure anahtar Kasası'nın Azure otomasyonu kullanarak yönetme
 Bu kılavuz Azure Otomasyon hizmetine ve nasıl Bu anahtarları ve gizli anahtarları Azure anahtar Kasası'nda yönetimini kolaylaştırmak için kullanılabilir tanıtılacaktır.

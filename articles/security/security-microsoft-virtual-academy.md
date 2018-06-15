@@ -1,6 +1,6 @@
 ---
-title: "Microsoft Virtual Academy Azure güvenlik kursları | Microsoft Docs"
-description: "Bu makalede Azure güvenlik seçkin koleksiyonu sağlar Microsoft Virtual Academy kurslar ilgili.  Microsoft Virtual Academy sağlar geliştiriciler, yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknoloji öğrenin, kendi becerilerinizi ve bunların gelişme alanları ilerleyin."
+title: Microsoft Virtual Academy Azure güvenlik kursları | Microsoft Docs
+description: Bu makalede Azure güvenlik seçkin koleksiyonu sağlar Microsoft Virtual Academy kurslar ilgili.  Microsoft Virtual Academy sağlar geliştiriciler, yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknoloji öğrenin, kendi becerilerinizi ve bunların gelişme alanları ilerleyin.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540057"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy Azure güvenlik kursları
 Microsoft Virtual Academy sağlar geliştiriciler, yardımcı olmak ücretsiz, çevrimiçi eğitim BT ve veri uzmanları ve öğrenciler en son teknoloji öğrenin, kendi becerilerinizi ve bunların gelişme alanları ilerleyin.

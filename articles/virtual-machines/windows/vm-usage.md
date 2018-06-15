@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425189"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure sanal makinesi öngörme
 Azure kullanım verilerini analiz etme tarafından güçlü tüketim Öngörüler elde – etkinleştirebilirsiniz Öngörüler daha iyi yönetim ve kuruluşunuz genelinde ayırma maliyeti. Bu belgede Azure işlem tüketim ayrıntılarınızı içine derinlemesine bir bakış sağlar. Genel Azure kullanımı hakkında daha fazla ayrıntı için gidin [faturanızı anlamak](../../billing/billing-understand-your-bill.md).

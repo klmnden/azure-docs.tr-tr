@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416049"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>PowerShell ile tek bölgeli sanal makine ölçek kümesi oluşturma
 Bu betik, tek bir Kullanılabilirlik Alanı’nda Windows Server 2016 çalıştıran bir sanal makine ölçek kümesi oluşturur. Betiği çalıştırdıktan sonra sanal makineye RDP üzerinden erişebilirsiniz.

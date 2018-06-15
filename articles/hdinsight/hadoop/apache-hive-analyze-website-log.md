@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31398166"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Web sitesi günlüklerini çözümlemek için Windows tabanlı Hdınsight ile Hive kullanma
 Bir Web sitesi günlüklerini çözümlemek için Hdınsight ile HiveQL kullanmayı öğrenin. Web sitesi günlüğü analizi benzer etkinliklere dayalı kitlenizi segmentlere, site ziyaretçilerini demografisine göre kategorilere ayırmak ve bulmak için içeriği teslim bunlar görünümü, Web siteleri geliyor ve benzeri kullanılabilir.

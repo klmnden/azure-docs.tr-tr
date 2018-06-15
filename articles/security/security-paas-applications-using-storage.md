@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418229"
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>PaaS web ve mobil uygulamaları Azure Storage kullanarak güvenli hale getirme
 Bu makalede, PaaS web ve mobil uygulamaların güvenliğini sağlamak için Azure Storage en iyi güvenlik yöntemleri topluluğu tartışın. Bu en iyi uygulamaları Azure ile deneyimi bizim ve kendiniz gibi müşterilerin deneyimleri türetilir.

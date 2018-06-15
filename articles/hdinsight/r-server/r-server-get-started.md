@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31411490"
 ---
 # <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Azure HDInsight üzerinde R Server kümesini kullanmaya başlama
 
