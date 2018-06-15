@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893376"
 ---
 # <a name="pen-testing"></a>Kalem test etme
 Azure uygulama test ve dağıtım için kullanmanın avantajları oluşturulan ortamları hızlı bir şekilde alabilir biridir.  Requisitioning, alma, "racking ve yığınlama hakkında" endişelenmenize gerek yoktur, kendi şirket içi donanım.

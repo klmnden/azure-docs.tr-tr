@@ -16,9 +16,10 @@ ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bb8bd727618eda2a887cc9e1b739889204eb87fa
 ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764392"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Senaryoları, sınırlamaları ve bilinen sorunlar Azure Active Directory'de lisans işlemlerini yönetmek için grupları kullanma
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787636"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>Azure DevTest Labs'de aylık tahmini Laboratuvar maliyet eğilim görüntüleyin
 DevTest Labs maliyet yönetim özelliği Laboratuvarınızı maliyetini izlemenize yardımcı olur. Bu makalede nasıl kullanılacağını anlatan **aylık tahmini maliyet eğilimi** geçerli Takvim ayı için geçerli Takvim ayın tahmini maliyet-to-date ve tahmini ayın son maliyet görüntülemek üzere grafik. Bu makalede ayrıca daha iyi harcama hedefleri ve eşikleri, erişildiğinde, tetikleyici sonuçları size bildirmek için DevTest Labs ayarlayarak Laboratuvar maliyetlerini yönetmek nasıl gösterir.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937241"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management'te OAuth 2.0 kullanan Geliştirici hesaplarını yetkilendirmede nasıl
 Birçok API'lerini destekleyen [OAuth 2.0](http://oauth.net/2/) API güvenliğini sağlama ve yalnızca geçerli kullanıcıların erişimi vardır ve bunlar yalnızca bunlar yetkili kaynaklara erişebilir emin olun. Azure API Management'ın etkileşimli Geliştirici konsolu gibi API'leri ile kullanmak için hizmet, hizmet örneği, OAuth 2.0 etkin API çalışmak için yapılandırmanıza olanak sağlar.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31599620"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>İş ortağı VPN cihaz yapılandırmalarını genel bakış
 Bu makale Azure VPN ağ geçitleri için bağlamak için şirket içi VPN aygıtları yapılandırma genel bir bakış sağlar. Bir Azure sanal ağı örnek ve VPN ağ geçidi için farklı şirket içi VPN cihaz yapılandırmalarını aynı parametreleri kullanarak bağlanmak nasıl göstermek için kullanılır.

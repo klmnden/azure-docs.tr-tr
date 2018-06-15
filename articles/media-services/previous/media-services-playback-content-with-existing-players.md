@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788483"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Varolan oyuncularla içeriğinizi oynatma
 Azure Media Services, kesintisiz akış, HTTP canlı akış ve MPEG-Dash gibi birçok popüler akış biçimlerine destekler. Bu konu, akışları test etmek için kullanabileceğiniz varolan oynatıcıları işaret eder.

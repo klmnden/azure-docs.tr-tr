@@ -1,11 +1,11 @@
 ---
-title: "MPI uygulamaları çalıştırmak için Windows RDMA küme ayarlama | Microsoft Docs"
-description: "Boyutuyla H16r, H16mr, A8 veya A9 Vm'lerde MPI uygulamaları çalıştırmak için Azure RDMA ağ kullanmak üzere bir Windows HPC Pack küme oluşturmayı öğrenin."
+title: MPI uygulamaları çalıştırmak için Windows RDMA küme ayarlama | Microsoft Docs
+description: Boyutuyla H16r, H16mr, A8 veya A9 Vm'lerde MPI uygulamaları çalıştırmak için Azure RDMA ağ kullanmak üzere bir Windows HPC Pack küme oluşturmayı öğrenin.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-service-management,hpc-pack
 ms.assetid: 7d9f5bc8-012f-48dd-b290-db81c7592215
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852553"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>MPI uygulamaları çalıştırmak için Windows RDMA küme HPC paketi ile ayarlama
 Azure ile Windows RDMA kümedeki ayarlamak [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) ve [RDMA özellikli HPC VM boyutları](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) paralel ileti geçirme arabirimi (MPI) uygulamalarını çalıştırmak için. RDMA özelliğine sahip, Windows Server tabanlı bir HPC Pack kümedeki düğümlerin ayarladığınızda, MPI uygulamaları düşük gecikme, doğrudan uzak bellek erişimi (RDMA) teknolojisine dayalı azure'da yüksek verimlilik ağ üzerinden verimli bir şekilde iletişim kurar.

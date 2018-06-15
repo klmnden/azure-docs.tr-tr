@@ -1,22 +1,20 @@
 ---
 title: Azure CLI kullanarak Cihaz Sağlamayı ayarlama | Microsoft Docs
 description: Azure Hızlı Başlangıç - Azure CLI kullanarak Azure IoT Hub Cihazı Sağlama Hizmeti’ni ayarlama
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 02/26/2018
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 70248ea2bdd595e6206084ef59822ec0a7ca7d2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2cf611e12402b22587faa83fefc4651e7307c41c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631226"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Azure CLI ile IoT Hub Cihazı Sağlama Hizmeti'ni ayarlama
 

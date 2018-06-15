@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31603853"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>Otomatik olarak Büyüt ve Azure HPC paketi küme kaynaklarında göre küme iş yükü küçültme
 HPC Pack kümenizdeki Azure "veri bloğu" düğümlerini dağıtmak ya da Azure Vm'lerde bir HPC paketi küme oluşturmak, bir şekilde otomatik olarak büyütür veya küme kaynaklarını düğümleri veya çekirdek küme iş yüküne göre gibi küçültmek isteyebilirsiniz. Bu şekilde küme kaynaklarını ölçeklendirme, Azure kaynaklarınızı daha verimli şekilde kullanabilir ve bunların maliyetlerini denetlemenize olanak tanır.

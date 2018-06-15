@@ -1,22 +1,21 @@
 ---
 title: Node.js kullanarak TPM cihazını Azure Cihaz Sağlama Hizmeti'ne kaydetme | Microsoft Docs
 description: Azure Hızlı Başlangıcı - Node.js hizmeti SDK'sını kullanarak TPM cihazını Azure IoT Hub Cihaz Sağlama Hizmeti'ne kaydetme
-services: iot-dps
-keywords: ''
 author: bryanla
-ms.author: v-jamebr
+ms.author: bryanla
 ms.date: 12/21/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 143aaca5671b1c9e2ae9c2d187aed64af15528ca
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0d7d36fc207b44163264adf62e6d3e29d43489b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629618"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Node.js hizmeti SDK'sını kullanarak TPM cihazını IoT Hub Cihaz Sağlama Hizmeti'ne kaydetme
 

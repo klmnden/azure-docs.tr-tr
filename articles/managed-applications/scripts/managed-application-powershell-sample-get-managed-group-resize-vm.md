@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell örnek komut dosyası - yönetilen kaynak grubunu Al ve sanal makineleri yeniden boyutlandırmak | Microsoft Docs"
-description: "Azure PowerShell komut dosyası örneği - yönetilen kaynak grubunu Al ve sanal makineleri yeniden boyutlandırma"
+title: Azure PowerShell örnek komut dosyası - yönetilen kaynak grubunu Al ve sanal makineleri yeniden boyutlandırmak | Microsoft Docs
+description: Azure PowerShell komut dosyası örneği - yönetilen kaynak grubunu Al ve sanal makineleri yeniden boyutlandırma
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -14,9 +14,10 @@ ms.date: 10/27/2017
 ms.author: tomfitz
 ms.openlocfilehash: f549f26cb3f9fdb2d805d2efb2c0e1706abe3edb
 ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23940945"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>Yönetilen kaynak grubunda kaynaklar almak ve VM'ler PowerShell ile yeniden boyutlandırın
 

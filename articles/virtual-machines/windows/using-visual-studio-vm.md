@@ -20,6 +20,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894288"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure üzerinde Visual Studio görüntüleri
 Önceden yapılandırılmış Azure sanal makinede (VM) Visual Studio kullanarak herhangi bir şey için bir yukarı ve çalışan geliştirme ortamı gitmek için hızlı ve kolay bir yoludur. Sistem görüntüleri farklı Visual Studio yapılandırmalarla kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).

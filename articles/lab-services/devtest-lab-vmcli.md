@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788616"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Oluşturma ve sanal makineleri DevTest Labs Azure CLI kullanarak yönetme
 Bu hızlı başlangıç oluşturma, başlatma, bağlanma, güncelleştirme ve geliştirme makine laboratuvarınızda temizleniyor size yol gösterecektir. 

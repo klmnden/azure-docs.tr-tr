@@ -1,11 +1,11 @@
 ---
-title: "Bulut hizmeti ayırma hatası sorunlarını giderme | Microsoft Docs"
-description: "Azure’da Cloud Services dağıtımı sırasında oluşan ayırma hatalarını giderme"
+title: Bulut hizmeti ayırma hatası sorunlarını giderme | Microsoft Docs
+description: Azure’da Cloud Services dağıtımı sırasında oluşan ayırma hatalarını giderme
 services: azure-service-management, cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 529157eb-e4a1-4388-aa2b-09e8b923af74
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23984125"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Azure’da Cloud Services dağıtımı sırasında oluşan ayırma hatalarını giderme
 ## <a name="summary"></a>Özet

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894944"
 ---
 # <a name="monitoring-requirements-for-pci-dss-compliant-environments"></a>PCI DSS uyumlu ortamlar için izleme gereksinimleri 
 ## <a name="pci-dss-requirement-10"></a>PCI DSS gereksinim 10

@@ -1,11 +1,11 @@
 ---
-title: "Azure PowerShell Betiği örnek - Delete bir web uygulaması için bir yedek | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - bir web uygulaması için bir yedek Sil"
+title: Azure PowerShell Betiği örnek - Delete bir web uygulaması için bir yedek | Microsoft Docs
+description: Azure PowerShell Betiği örnek - bir web uygulaması için bir yedek Sil
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ebcadb49-755d-4202-a5eb-f211827a9168
 ms.service: app-service-web
@@ -17,9 +17,10 @@ ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: f4204cbb4aefe590b87d0a72675823321f280f33
 ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/31/2017
+ms.locfileid: "23941750"
 ---
 # <a name="delete-a-backup-for-a-web-app"></a>Bir web uygulaması için bir yedek Sil
 

@@ -1,7 +1,7 @@
 ---
-title: "Azure Application Insights uygulamasında müşterilerinizin anlama | Microsoft Docs"
-description: "Müşteriler, uygulamanızın nasıl kullandığını anlamak için Azure Application Insights kullanma Öğreticisi."
-keywords: 
+title: Azure Application Insights uygulamasında müşterilerinizin anlama | Microsoft Docs
+description: Müşteriler, uygulamanızın nasıl kullandığını anlamak için Azure Application Insights kullanma Öğreticisi.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -12,9 +12,10 @@ ms.topic: tutorial
 manager: carmonm
 ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
 ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24099030"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Müşteriler, uygulamanızın nasıl kullandığını anlamak için Azure Application Insights kullanın
 

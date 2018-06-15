@@ -1,13 +1,13 @@
 ---
-title: "Oluşturma ve bir Azure expressroute değiştirme: CLI | Microsoft Docs"
-description: "Bu makalede, oluşturmak, sağlamak, doğrulayın, güncelleştirme, silme ve CLI kullanarak bir expressroute bağlantı hattı yetkisini kaldırma açıklar."
+title: 'Oluşturma ve bir Azure expressroute değiştirme: CLI | Microsoft Docs'
+description: Bu makalede, oluşturmak, sağlamak, doğrulayın, güncelleştirme, silme ve CLI kullanarak bir expressroute bağlantı hattı yetkisini kaldırma açıklar.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23933252"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Oluşturma ve CLI kullanarak bir expressroute bağlantı hattı değiştirme
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913510"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Bir Windows sanal makineden bir veri diskini nasıl
 Sanal makineye bağlı bir veri diskine ihtiyacınız olmadığında bunu kolayca ayırabilirsiniz. Bu diski sanal makineden kaldırır, ancak depolama biriminden kaldırmaz.
@@ -46,7 +47,7 @@ Disk üzerinde var olan verileri yeniden kullanmak isterseniz bu verileri aynı 
 Disk depolama alanında kalır, ancak artık bir sanal makineye bağlı değildir.
 
 ## <a name="detach-a-data-disk-using-powershell"></a>PowerShell kullanarak bir veri diskini
-Bu örnekte, ilk komut adlı sanal makineye alır **MyVM07** içinde **RG11** kaynak grubunu kullanarak [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet'i ve depolar**$VirtualMachine** değişkeni.
+Bu örnekte, ilk komut adlı sanal makineye alır **MyVM07** içinde **RG11** kaynak grubunu kullanarak [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet'i ve depolar **$VirtualMachine** değişkeni.
 
 İkinci satır kullanarak sanal makineyi DataDisk3 adlı veri diski kaldırır [Kaldır AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet'i.
 

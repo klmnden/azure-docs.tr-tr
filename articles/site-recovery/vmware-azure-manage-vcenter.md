@@ -1,6 +1,6 @@
 ---
 title: " Azure Site kurtarma VMware vCenter sunucuları yönetme | Microsoft Docs"
-description: "Bu makalede nasıl ekleyin ve Azure Site Recovery VMware Vcenter'da yönetin."
+description: Bu makalede nasıl ekleyin ve Azure Site Recovery VMware Vcenter'da yönetin.
 services: site-recovery
 author: AnoopVasudavan
 manager: gauravd
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852311"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>VMware vCenter sunucuları yönetme 
 

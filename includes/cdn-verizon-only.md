@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33814484"
 ---
 > [!IMPORTANT]
 > Bu özellik yalnızca kullanılabilir **verizon'dan Azure CDN standart** ve **verizon'dan Azure CDN Premium** ürünler. **Azure CDN from Akamai**'de desteklenmez. CDN özelliklerinin karşılaştırması için bkz. [Azure CDN ürün özellikleri](../articles/cdn/cdn-features.md).
