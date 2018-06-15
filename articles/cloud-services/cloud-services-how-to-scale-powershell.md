@@ -1,11 +1,11 @@
 ---
-title: "Windows PowerShell'de Azure bulut hizmeti ölçeklendirin | Microsoft Docs"
-description: "(Klasik) Bir web rolü veya çalışan rolü veya Azure'da ölçeklendirmek için PowerShell kullanmayı öğrenin."
+title: Windows PowerShell'de Azure bulut hizmeti ölçeklendirin | Microsoft Docs
+description: (Klasik) Bir web rolü veya çalışan rolü veya Azure'da ölçeklendirmek için PowerShell kullanmayı öğrenin.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842954"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Bir bulut hizmeti PowerShell'de ölçeklendirme
 

@@ -1,8 +1,8 @@
 ---
-title: "Azure uygulama hizmeti dağıtım kimlik bilgileri | Microsoft Docs"
-description: "Azure uygulama hizmeti dağıtım kimlik bilgilerini kullanmayı öğrenin."
+title: Azure uygulama hizmeti dağıtım kimlik bilgileri | Microsoft Docs
+description: Azure uygulama hizmeti dağıtım kimlik bilgilerini kullanmayı öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "27778556"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Dağıtım kimlik bilgileri Azure App Service için yapılandırma
 [Azure uygulama hizmeti](http://go.microsoft.com/fwlink/?LinkId=529714) iki tür kimlik bilgilerini destekler [yerel Git dağıtımı](app-service-deploy-local-git.md) ve [FTP/S dağıtım](app-service-deploy-ftp.md). Bu, Azure Active Directory kimlik bilgileri ile aynı değildir.

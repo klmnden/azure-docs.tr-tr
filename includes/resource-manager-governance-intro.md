@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 2c16e82ccf259a4cc5ae8fcf35b2dd6b5d50ee2d
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29528346"
 ---
 Kaynakları Azure'a dağıtırken, hangi tür kaynaklara dağıtmak için nerede olurlarsa olsunlar ve bunları nasıl ayarlanacağını karar verirken inanılmaz esneklik vardır. Ancak, bu esneklik, kuruluşunuzda izin vermek istiyor musunuz olandan daha fazla seçenek açabilirsiniz. Kaynaklar için Azure dağıtmayı göz önünde bulundurun gibi merak ediyor:
 

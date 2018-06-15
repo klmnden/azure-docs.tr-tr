@@ -1,6 +1,6 @@
 ---
-title: "Hyper-v sanal makineleri için bir şirket içi site için bir yeniden çalışma çalıştırın | Microsoft Docs"
-description: "Azure Site Recovery, çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Azure'dan şirket içi veri merkezine hakkında bilgi edinin."
+title: Hyper-v sanal makineleri için bir şirket içi site için bir yeniden çalışma çalıştırın | Microsoft Docs
+description: Azure Site Recovery, çoğaltma, yük devretme ve sanal makinelerin ve fiziksel sunucuları kurtarma düzenler. Azure'dan şirket içi veri merkezine hakkında bilgi edinin.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29467124"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Hyper-V VM'ler için bir yeniden çalışma çalıştırın
 

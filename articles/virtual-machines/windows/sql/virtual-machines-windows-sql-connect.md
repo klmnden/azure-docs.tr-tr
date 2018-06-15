@@ -1,6 +1,6 @@
 ---
-title: "Bir SQL Server sanal makinesine (Resource Manager) bağlanma | Microsoft Docs"
-description: "Azure'da bir sanal makinede çalışan SQL Server bağlayacağınızı öğrenin. Bu konu Klasik dağıtım modelini kullanır. Senaryoları ağ yapılandırmasını ve istemcinin konumu bağlı olarak farklılık gösterir."
+title: Bir SQL Server sanal makinesine (Resource Manager) bağlanma | Microsoft Docs
+description: Azure'da bir sanal makinede çalışan SQL Server bağlayacağınızı öğrenin. Bu konu Klasik dağıtım modelini kullanır. Senaryoları ağ yapılandırmasını ve istemcinin konumu bağlı olarak farklılık gösterir.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400248"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure SQL Server sanal makineye bağlanma
 

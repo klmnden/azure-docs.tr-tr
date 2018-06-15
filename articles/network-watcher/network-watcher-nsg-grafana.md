@@ -1,13 +1,13 @@
 ---
-title: "Ağ güvenlik grubu akış Ağ İzleyicisi'ni ve Grafana günlüklerini kullanarak yönetme | Microsoft Docs"
-description: "Yönetebilir ve Ağ İzleyicisi'ni ve Grafana kullanarak azure'daki ağ güvenlik grubu akış günlüklerini analiz edin."
+title: Ağ güvenlik grubu akış Ağ İzleyicisi'ni ve Grafana günlüklerini kullanarak yönetme | Microsoft Docs
+description: Yönetebilir ve Ağ İzleyicisi'ni ve Grafana kullanarak azure'daki ağ güvenlik grubu akış günlüklerini analiz edin.
 services: network-watcher
 documentationcenter: na
 author: kumudD
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864094"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Yönetmek ve Ağ İzleyicisi'ni ve Grafana kullanarak ağ güvenlik grubu akışı günlüklerini çözümleme
 

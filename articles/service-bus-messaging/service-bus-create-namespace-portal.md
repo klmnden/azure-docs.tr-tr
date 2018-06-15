@@ -1,11 +1,11 @@
 ---
-title: "Azure portalında Service Bus ad alanı oluşturma | Microsoft Docs"
-description: "Azure portalını kullanarak bir Service Bus ad alanı oluşturun."
+title: Azure portalında Service Bus ad alanı oluşturma | Microsoft Docs
+description: Azure portalını kullanarak bir Service Bus ad alanı oluşturun.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
 ms.service: service-bus-messaging
 ms.devlang: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29556440"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Azure portalı ile Service Bus ad alanı oluşturma
 

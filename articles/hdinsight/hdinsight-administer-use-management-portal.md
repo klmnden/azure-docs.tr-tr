@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405373"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portalı'nı kullanarak Windows tabanlı Hadoop kümeleri hdınsight'ta yönetme
 
@@ -82,7 +83,7 @@ Uzak Masaüstü bağlantısı kullanarak küme üzerinde özel yazılım yüklem
 
    * Menüsünü özelleştirmek için herhangi bir yere menüsünde sağ tıklayın ve ardından **Özelleştir**.
    * **Ayarları** ve **tüm ayarları**: görüntüler **ayarları** küme için ayrıntılı yapılandırma bilgilerini erişmenize olanak sağlayan küme dikey penceresinde.
-   * **Pano**, **küme Panosu** ve **URL: Ambari Web Linux tabanlı kümeler için olan küme panoya erişmek için tüm yolları bunlar. -**Güvenli Kabuk **: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir.
+   * **Pano**, **küme Panosu** ve **URL: Ambari Web Linux tabanlı kümeler için olan küme panoya erişmek için tüm yolları bunlar. -** Güvenli Kabuk **: Güvenli Kabuk (SSH) bağlantısı kullanarak kümeye bağlanmak için yönergeleri gösterir.
    * **Küme ölçeklendirme**: Bu küme için alt düğüm sayısını değiştirmenize izin verir.
    * **Silme**: kümeyi siler.
    * **Hızlı Başlangıç**: yardımcı olacak bilgileri görüntüler, Hdınsight kullanarak başlayın.

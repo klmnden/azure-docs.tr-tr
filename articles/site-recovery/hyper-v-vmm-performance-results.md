@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile ikincil siteye VMM bulutlarındaki Hyper-V sanal makineleri çoğaltma için sonuçları test | Microsoft Docs"
-description: "Bu makale, Azure Site RECOVERY'yi kullanarak ikincil bir siteye VMM bulutlarındaki Hyper-V Vm'lerini çoğaltma için performans testleri hakkında bilgi sağlar."
+title: Azure Site Recovery ile ikincil siteye VMM bulutlarındaki Hyper-V sanal makineleri çoğaltma için sonuçları test | Microsoft Docs
+description: Bu makale, Azure Site RECOVERY'yi kullanarak ikincil bir siteye VMM bulutlarındaki Hyper-V Vm'lerini çoğaltma için performans testleri hakkında bilgi sağlar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378900"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>İkincil bir siteye Hyper-V çoğaltma için test sonuçları
 

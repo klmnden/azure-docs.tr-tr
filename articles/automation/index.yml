@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Otomasyonu Kullanıcı Belgeleri"
+title: Azure Otomasyonu Kullanıcı Belgeleri
 metadata:
   document_id: 
-  title: "Azure Otomasyonu Belgeleri - Öğreticiler, API Başvurusu"
-  description: "Azure otomasyonunu kullanmayı öğrenin"
+  title: Azure Otomasyonu Belgeleri - Öğreticiler, API Başvurusu
+  description: Azure otomasyonunu kullanmayı öğrenin
   services: automation
   author: georgewallace
   manager: carmonm
@@ -19,47 +19,48 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 01/11/2018
+  ms.locfileid: "27773834"
 abstract:
-  description: "Hibrit bir ortam genelindeki operasyonel görevleri yapılandırmak ve otomatikleştirmek için Otomasyon’u kullanmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; işlemleri otomatikleştirme, güncelleştirme yönetimi, istenen durum yapılandırmasını sunma, değişiklikleri izleme ve stok toplama konularında yönergeler sunar."
+  description: Hibrit bir ortam genelindeki operasyonel görevleri yapılandırmak ve otomatikleştirmek için Otomasyon’u kullanmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; işlemleri otomatikleştirme, güncelleştirme yönetimi, istenen durum yapılandırmasını sunma, değişiklikleri izleme ve stok toplama konularında yönergeler sunar.
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Azure ve hibrit ortamınızı Otomasyon’u kullanarak nasıl otomatikleştireceğinizi ve yapılandıracağınızı öğrenin:"
+    text: 'Azure ve hibrit ortamınızı Otomasyon’u kullanarak nasıl otomatikleştireceğinizi ve yapılandıracağınızı öğrenin:'
   - type: list
     style: icon48
     items:
     - image:
         src: /azure/automation/media/index/automation.svg
-      text: "Otomasyon hesabı oluşturma"
+      text: Otomasyon hesabı oluşturma
       href: /azure/automation/automation-quickstart-create-account
     - image:
         src: /azure/automation/media/index/runbook.svg
-      text: "Runbook oluşturma"
+      text: Runbook oluşturma
       href: /azure/automation/automation-quickstart-create-runbook
     - image:
         src: /azure/automation/media/index/dscconfig.svg
-      text: "DSC yapılandırması oluşturma"
+      text: DSC yapılandırması oluşturma
       href: /azure/automation/automation-quickstart-dsc-configuration
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Azure ve hibrit ortamlarınızı tümleştirmeyi, dağıtmayı ve yönetmeyi öğrenin."
+    text: Azure ve hibrit ortamlarınızı tümleştirmeyi, dağıtmayı ve yönetmeyi öğrenin.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/automation/automation-watchers-tutorial\">İzleyici görevlerini yapılandırma</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-update-management\">VM’lerinizde güncelleştirmeleri yönetme</a>"
-    - html: "<a href=\"/azure/automation/automation-onboard-solutions\">Ölçeğe göre ekleme</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-installed-software\">VM üzerinde yüklü yazılımı tanımlama</a>"
-    - html: "<a href=\"/azure/automation/automation-tutorial-troubleshoot-changes\">VM üzerindeki değişikliklerle ilgili sorunları giderme</a>"
-- title: "Başvuru"
+    - html: <a href="/azure/automation/automation-watchers-tutorial">İzleyici görevlerini yapılandırma</a>
+    - html: <a href="/azure/automation/automation-tutorial-update-management">VM’lerinizde güncelleştirmeleri yönetme</a>
+    - html: <a href="/azure/automation/automation-onboard-solutions">Ölçeğe göre ekleme</a>
+    - html: <a href="/azure/automation/automation-tutorial-installed-software">VM üzerinde yüklü yazılımı tanımlama</a>
+    - html: <a href="/azure/automation/automation-tutorial-troubleshoot-changes">VM üzerindeki değişikliklerle ilgili sorunları giderme</a>
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/powershell/module/azurerm.automation">PowerShell</a></p>
     - title: Diller
       html: <p><a href="/dotnet/api/microsoft.azure.management.automation">.NET</a></p>

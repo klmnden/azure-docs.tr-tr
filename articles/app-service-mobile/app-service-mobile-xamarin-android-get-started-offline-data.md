@@ -1,10 +1,10 @@
 ---
-title: "Azure mobil uygulaması (Xamarin Android) için çevrimdışı eşitlemeyi etkinleştirme"
-description: "Önbellek ve eşitleme çevrimdışı verilere Xamarin Android uygulamanızda mobil uygulama hizmeti kullanmayı öğrenin"
+title: Azure mobil uygulaması (Xamarin Android) için çevrimdışı eşitlemeyi etkinleştirme
+description: Önbellek ve eşitleme çevrimdışı verilere Xamarin Android uygulamanızda mobil uygulama hizmeti kullanmayı öğrenin
 documentationcenter: xamarin
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593105"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Xamarin.Android mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

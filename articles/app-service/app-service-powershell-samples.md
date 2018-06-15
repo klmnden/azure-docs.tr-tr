@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell örnekleri - App Service | Microsoft Docs"
-description: "Azure PowerShell örnekleri - uygulama hizmeti"
+title: Azure PowerShell örnekleri - App Service | Microsoft Docs
+description: Azure PowerShell örnekleri - uygulama hizmeti
 services: app-service
 documentationcenter: app-service
 author: syntaxc4
@@ -18,9 +18,10 @@ ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: ba2bd2b185c395e54f2f085317a424a2aa1b4421
 ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/09/2018
+ms.locfileid: "27713425"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell örnekleri
 

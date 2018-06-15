@@ -1,8 +1,8 @@
 ---
-title: "İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu Playbook | Microsoft Docs"
-description: "Bir çözüm şablonu ile Microsoft Cortana Intelligence'de, isteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olur."
+title: İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu Playbook | Microsoft Docs
+description: Bir çözüm şablonu ile Microsoft Cortana Intelligence'de, isteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olur.
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: ilanr9
 manager: ilanr9
 editor: yijichen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23846433"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>İsteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu Playbook
 ## <a name="executive-summary"></a>Yönetici Özeti
