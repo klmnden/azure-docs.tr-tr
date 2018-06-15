@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312092"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Market Danışmanlık Hizmetleri
 Azure Market Hizmetleri'nde danışmanlık Microsoft iş ortaklarının müşteriler desteklemek ve bunların kullanılması Azure genişletmek için hizmetleriyle bağlanıyor amacı sağlar. Azure Market sistem Tümleştirici (SI) ortaklarının Microsoft Danışmanlık hizmet teklifleri listesini destekler. 

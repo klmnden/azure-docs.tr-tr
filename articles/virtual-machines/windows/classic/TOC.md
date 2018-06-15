@@ -33,7 +33,6 @@
 ### [Azure PowerShell kullanarak sanal makinelerinizi yönetme](manage-psh-classic.md)
 ### [VM aracısı ve uzantıları hakkında](agents-and-extensions-classic.md)
 ### [VM uzantılarını yönetme](manage-extensions-classic.md)
-### [Sanal makineler için Özel Betik uzantısı](extensions-customscript-classic.md)
 
 ## İş yüklerini yönetme
 ### [Yüksek Performanslı Bilgi İşlem (HPC)](../../virtual-machines-windows-hpcpack-cluster-options.md)

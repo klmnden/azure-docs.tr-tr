@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799082"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Azure Search'te model karmaşık veri türleri hakkında
 Azure Search dizini bazen doldurmak için kullanılan dış veri kümeleri düzgünce tablo satır kümesine bozmadığını hiyerarşik veya iç içe substructures içerir. Bu tür yapıları örnekleri birden çok konumda ve telefon numaraları, tek bir rehberi birden çok yazar gibi tek bir SKU için tek bir müşteri, birden çok renkleri ve boyutları içerir ve benzeri. Koşulları modelleme içinde olarak adlandırılan bu yapıları görebilirsiniz *karmaşık veri türlerini*, *bileşik veri türleri*, *bileşik veri türleri*, veya *veri türleri bir araya*, birkaçıdır.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774191"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Azure Active Directory kimlik koruması Azure Güvenlik Merkezi'ne bağlanma
 Bu belge, Azure Active Directory (AD) kimlik koruması ile Azure Güvenlik Merkezi arasında tümleştirme yapılandırmanıza yardımcı olur.

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786545"
 abstract:
   description: Microsoft Azure Stack, veri merkezinden Azure hizmetleri sağlama olanağı sunan bir karma bulut platformudur. Azure yığın tümleşik sistemleri altyapı yönetme ve hizmetleri bizim quickstarts ve öğreticiler sunan öğrenin.<br/><br/>Hizmetleri kullanan veya uygulamalar için Azure yığınına derlemeler bir Azure yığın kullanıcı değilseniz, bkz bizim <a href="/azure/azure-stack/user">kullanıcı belgeleri</a>.<br/><br/>Azure yığın Geliştirme Seti (ASDK içinde), bir tek düğümlü dağıtım indirin ve ücretsiz olarak kullanan Azure yığınının ilgilenen bir Azure yığın işleç olup olmadığını görmek bizim <a href="/azure/azure-stack/asdk">ASDK belgelerine</a>.
 sections:
