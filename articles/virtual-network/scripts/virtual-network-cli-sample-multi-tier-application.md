@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840237"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>Çok katmanlı uygulamalar için ağ oluşturma betiği örneği
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30907508"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>Bir Linux VM başka bir abonelik veya kaynak grubuna taşıma
 Bu makalede, bir Linux VM kaynak grupları veya abonelikler arasında taşıma hakkında adım adım anlatılmaktadır. Bir VM abonelikler arasında taşıma kişisel bir abonelikte VM oluşturduysanız kullanışlı ve şirketinizin aboneliği taşımak şimdi istiyorsunuz.

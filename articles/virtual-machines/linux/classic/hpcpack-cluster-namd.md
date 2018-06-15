@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842022"
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Azure’daki Linux işlem düğümlerinde Microsoft HPC Pack ile NAMD çalıştırma
 Bu makalede, Linux yüksek performanslı bilgi işlem (HPC) iş yükü Azure sanal makineler üzerinde çalıştırılacak bir yolu gösterir. Burada, ayarladığınız bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) Azure üzerinde Linux işlem düğümü ile küme ve Çalıştır bir [NAMD](http://www.ks.uiuc.edu/Research/namd/) hesaplamak ve büyük biomolecular sistem yapısını görselleştirmek için benzetimi.  

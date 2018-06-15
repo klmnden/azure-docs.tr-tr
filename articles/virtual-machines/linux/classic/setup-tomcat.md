@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841624"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Azure ile Linux sanal makine tomcat7'yi ayarlayın
 Apache Tomcat (veya yalnızca Cakarta Tomcat adıysa ayrıca Tomcat) bir açık kaynak web sunucusu ve Apache yazılım Foundation (ASF) tarafından geliştirilmiş servlet kapsayıcı değil. Tomcat Java Servlet'i ve Sun Microsystems JavaServer sayfaları (JSP) belirtimlerinden uygular. Tomcat Java kodu çalıştırmak için saf Java HTTP web sunucusu ortamı sağlar. En basit yapılandırmada, Tomcat tek işletim sistemi işleminde çalışır. Bu işlem, Java sanal makinesi (JVM) çalışır. Her HTTP isteğine bir tarayıcıdan Tomcat Tomcat işleminde ayrı bir iş parçacığı olarak işlenir.  

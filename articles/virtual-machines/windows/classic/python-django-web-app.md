@@ -1,11 +1,11 @@
 ---
-title: "Bir Windows Server Azure VM'de Django web uygulaması | Microsoft Docs"
-description: "Bir Windows Server 2012 R2 Datacenter VM ile klasik dağıtım modelini kullanarak azure'da Django tabanlı bir Web sitesi barındırma öğrenin."
+title: Bir Windows Server Azure VM'de Django web uygulaması | Microsoft Docs
+description: Bir Windows Server 2012 R2 Datacenter VM ile klasik dağıtım modelini kullanarak azure'da Django tabanlı bir Web sitesi barındırma öğrenin.
 services: virtual-machines-windows
 documentationcenter: python
 author: huguesv
 manager: wpickett
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: e36484d1-afbf-47f5-b755-5e65397dc1c3
 ms.service: virtual-machines-windows
@@ -20,6 +20,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057027"
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM üzerinde Django Hello World web uygulaması
 

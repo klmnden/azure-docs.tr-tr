@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913493"
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>Dikey olarak Azure Automation ile Azure Linux sanal makine ölçekleme
 Dikey ölçekleme artan veya azalan bir makine yanıt iş yükü olarak kaynakları işlemidir. Azure'da bu sanal makine boyutunu değiştirerek gerçekleştirilebilir. Bu aşağıdaki senaryolarda yardımcı olabilir

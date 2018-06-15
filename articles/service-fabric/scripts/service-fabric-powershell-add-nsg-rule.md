@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell Betiği örnek - bir ağ güvenlik grubu kural ekleme | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - belirli bir bağlantı noktasındaki gelen trafiğe izin vermek için ağ güvenlik grubu ekler."
+title: Azure PowerShell Betiği örnek - bir ağ güvenlik grubu kural ekleme | Microsoft Docs
+description: Azure PowerShell Betiği örnek - belirli bir bağlantı noktasındaki gelen trafiğe izin vermek için ağ güvenlik grubu ekler.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: rwike77
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
@@ -17,9 +17,10 @@ ms.author: ryanwi
 ms.custom: mvc
 ms.openlocfilehash: fd3c648ee63c45bef305658832a4d31dfdb213be
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25987387"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>Bir gelen ağ güvenlik grubu kuralı ekleyin
 

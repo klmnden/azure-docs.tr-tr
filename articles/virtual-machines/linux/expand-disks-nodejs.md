@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905342"
 ---
 # <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>Azure CLI 1.0 ile Azure CLI kullanarak bir Linux VM üzerindeki işletim sistemi diski genişletin
 Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makine (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diski Ekle](add-disk.md) ek depolama alanı, ancak için sağlamak üzere ayrıca istediğiniz işletim sistemi diski genişletin. Bu makalede Azure CLI 1.0 ile yönetilmeyen diskleri kullanarak bir Linux VM için işletim sistemi diski genişletmek nasıl ayrıntılarını verir.

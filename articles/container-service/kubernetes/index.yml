@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 04/16/2018
+  ms.locfileid: "31394586"
 abstract:
   description: Azure Container Service, üretime hazır Kubernetes kümelerini hızla dağıtmanızı sağlar. Bu hızlı başlangıç kılavuzlarından, öğreticilerden ve örneklerden yararlanarak Azure Container Service’i Kubernetes ile uyumlu bir şekilde kullanmayı öğrenin.
 sections:

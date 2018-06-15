@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30839153"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Kaynak Yöneticisi modunda Azure CLI komutları
 Bu makalede, sözdizimi ve yaygın olarak oluşturun ve Azure Resource Manager dağıtım modelinde Azure kaynaklarınızı yönetmek için kullanacağınız Azure komut satırı arabirimi (CLI) komutları için seçenekler sağlar. Bu komutlar, Resource Manager (arm) modunda CLI çalıştırarak erişin. Bu tam bir başvuru değildir ve CLI Sürüm biraz farklı komutları ya da parametreleri gösterebilir. Azure kaynakları ve kaynak gruplarını genel bir bakış için bkz: [Azure Resource Manager'a genel bakış](../azure-resource-manager/resource-group-overview.md).  

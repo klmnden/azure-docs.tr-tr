@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30910773"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-cli-10"></a>Azure CLI 1.0 ile eksiksiz bir Linux ortamı oluşturma
 Bu makalede, bir yük dengeleyici ve geliştirme ve basit bilgi işlem için yararlı olan VM'ler çifti ile basit bir ağ oluşturun. İki çalışma, güvenli Linux, gelen herhangi bir yere Internet'te bağlanabileceği VM'ler kadar biz komut komut işleminde size kılavuzluk. Ardından, daha karmaşık ağlar ve ortamlar geçebilirsiniz.

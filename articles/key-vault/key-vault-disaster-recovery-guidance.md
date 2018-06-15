@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409352"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure anahtar kasası kullanılabilirlik ve artıklık
 Azure anahtar kasası hizmetinin bileşenleri tek tek başarısız olsa bile anahtarları ve gizli anahtarları uygulamanıza kullanılabilir olarak kaldıklarından emin olmak için artıklık birden çok katman özellikleri.

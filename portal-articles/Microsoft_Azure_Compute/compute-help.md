@@ -1,6 +1,6 @@
 ---
-title: "Sanal makineler yardım belgeleri | Microsoft Docs"
-description: "Azure portalında sanal makinelere genel bakış için yardım içeriği"
+title: Sanal makineler yardım belgeleri | Microsoft Docs
+description: Azure portalında sanal makinelere genel bakış için yardım içeriği
 services: virtual-machines
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057680"
 ---
 # <a name="virtual-machines-documentation"></a>Sanal makineler belgeleri
 Azure Sanal Makineleri isteğe bağlı, büyük ölçekli, güvenli, sanallaştırılmış bir altyapı sağlar. Seçtiğiniz Red Hat, Ubuntu veya Linux dağıtımını çalıştıran Windows sanal makineleri veya Linux sanal makineleri oluşturabilirsiniz. Nasıl yapıldığı öğrenmek için bkz.:

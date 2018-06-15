@@ -1,11 +1,11 @@
 ---
-title: "Azure hizmet veri yolu kimlik doğrulama ve yetkilendirme | Microsoft Docs"
-description: "Hizmet veri yolu uygulamaları paylaşılan erişim imzası (SAS) kimlik doğrulaması ile kimlik doğrulaması."
+title: Azure hizmet veri yolu kimlik doğrulama ve yetkilendirme | Microsoft Docs
+description: Hizmet veri yolu uygulamaları paylaşılan erişim imzası (SAS) kimlik doğrulaması ile kimlik doğrulaması.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 18bad0ed-1cee-4a5c-a377-facc4785c8c9
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24813938"
 ---
 # <a name="service-bus-authentication-and-authorization"></a>Service Bus kimlik doğrulaması ve yetkilendirme
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915268"
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Azure VM’de Market görüntüsü ile bir HPC Pack kümesinin baş düğümünü oluşturma
 Kullanım bir [Microsoft HPC Pack 2012 R2 sanal makine görüntüsü](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/) Azure Marketi ve Azure portalında bir HPC küme baş düğümüne oluşturmak için. Bu HPC Pack VM görüntüsü, Windows Server 2012 R2 Datacenter HPC Pack 2012 R2 güncelleştirme 3'de önceden yüklenmiş olan dayanır. Azure HPC Pack dağıtımının kavram kanıtı için bu baş düğümü kullanın. İşlem düğümleri kümeye HPC iş yüklerini çalıştırmak için daha sonra ekleyebilirsiniz.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915614"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM için çevrimdışı yerel Windows parola sıfırlama
 Azure kullanarak bir VM yerel Windows parolasını sıfırlama [Azure portalında veya Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure Konuk aracısı yüklü sağlanan. Bu yöntem, bir Azure VM için bir parola sıfırlama için birincil yoludur. Azure Konuk aracısı yanıt vermiyor ile sorunlarla ya da özel bir görüntü dosyalarını karşıya yükledikten sonra yüklemek başarısız, el ile yapabilecekleriniz Windows parola sıfırlama. Bu makalede kaynak işletim sistemi sanal disk için başka bir VM ekleyerek bir yerel hesap parolasını sıfırlama hakkında ayrıntılar. Bu makalede açıklanan adımları Windows etki alanı denetleyicileri için geçerli değildir. 

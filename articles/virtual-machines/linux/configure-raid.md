@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911766"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux’ta Yazılım RAID yapılandırma
 Yazılım RAID Linux sanal makinelerde tek bir RAID aygıt olarak birden çok eklenen veri disklerini sunmak için Azure içinde kullanmak için ortak bir senaryodur. Genellikle bu performansı artırmak ve yalnızca tek bir disk kullanmaya kıyasla geliştirilmiş işleme için izin vermek için kullanılabilir.

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914992"
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>Bir Windows sanal makinesindeki bir diski ayırma
 > [!IMPORTANT]

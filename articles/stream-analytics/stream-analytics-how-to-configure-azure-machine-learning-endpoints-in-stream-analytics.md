@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30911214"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Stream Analytics öğrenme tümleştirmesine makine
 Akış analizi, Azure Machine Learning Uç noktalara duyurmak kullanıcı tanımlı işlevler destekler. Bu özellik için REST API desteği ayrıntılı olarak [Stream Analytics REST API Kitaplığı](https://msdn.microsoft.com/library/azure/dn835031.aspx). Bu makalede bu özelliği Stream Analytics de başarılı uygulama için gerekli ek bilgiler sağlar. Öğreticinin Ayrıca gönderilen ve kullanılabilir [burada](stream-analytics-machine-learning-integration-tutorial.md).

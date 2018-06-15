@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs nedir ve neden kullanılır | Microsoft Docs"
-description: "Azure Event Hubs’a genel bakış ve giriş - Web sitesi, uygulama ve cihazlardan bulut ölçekli telemetri alma"
+title: Azure Event Hubs nedir ve neden kullanılır | Microsoft Docs
+description: Azure Event Hubs’a genel bakış ve giriş - Web sitesi, uygulama ve cihazlardan bulut ölçekli telemetri alma
 services: event-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: get-started-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686914"
 ---
 # <a name="what-is-event-hubs"></a>Event Hubs nedir?
 

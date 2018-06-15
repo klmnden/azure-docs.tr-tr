@@ -1,6 +1,6 @@
 ---
-title: "Azure Swarm kümesi Docker API ile yönetme"
-description: "Azure kapsayıcı Hizmeti'nde bir Docker Swarm kümesine kapsayıcıları dağıtın"
+title: Azure Swarm kümesi Docker API ile yönetme
+description: Azure kapsayıcı Hizmeti'nde bir Docker Swarm kümesine kapsayıcıları dağıtın
 services: container-service
 author: rgardler
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331554"
 ---
 # <a name="container-management-with-docker-swarm"></a>Docker Swarm ile kapsayıcı yönetimi
 

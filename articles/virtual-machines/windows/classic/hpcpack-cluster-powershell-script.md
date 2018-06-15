@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914855"
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>Yüksek performanslı bilgi işlem (HPC) küme Windows HPC Pack Iaas dağıtım komut dosyası ile oluşturma
 HPC Pack Iaas dağıtımı Azure sanal makinelerde Windows iş yükleri için tam bir HPC Pack 2012 R2 küme dağıtmak için PowerShell betiğini çalıştırın. Küme Windows Server ve Microsoft HPC Pack çalıştıran bir Active Directory katılmış baş düğümü içerir ve ek Windows işlem kaynaklarını, belirtin. Azure Linux iş yükleri için bir HPC paketi küme dağıtmak istiyorsanız, bkz: [Linux HPC Kümesi ile HPC Pack Iaas dağıtım komut dosyası oluşturma](../../linux/classic/hpcpack-cluster-powershell-script.md). 
