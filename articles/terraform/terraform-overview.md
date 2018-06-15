@@ -1,8 +1,8 @@
 ---
 title: Azure ile Terraform kullanma
-description: "Terraform için vesion kullanmaya giriş ve Azure altyapısı dağıtın."
+description: Terraform için vesion kullanmaya giriş ve Azure altyapısı dağıtın.
 ms.service: virtual-machines-linux
-keywords: "terraform, devops, genel bakış, planlama, uygulamak, otomatikleştirme"
+keywords: terraform, devops, genel bakış, planlama, uygulamak, otomatikleştirme
 author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
@@ -12,6 +12,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26364479"
 ---
 # <a name="terraform-with-azure"></a>Azure ile Terraform
 

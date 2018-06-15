@@ -1,12 +1,12 @@
 ---
 title: Azure Active Directory PoC Playbook malzemeleri | Microsoft Docs
-description: "Keşfetmek ve hızlı bir şekilde kimlik ve erişim yönetimi senaryoları uygulayan"
+description: Keşfetmek ve hızlı bir şekilde kimlik ve erişim yönetimi senaryoları uygulayan
 services: active-directory
-keywords: "Azure active directory, playbook, kavram kanıtı, PT"
-documentationcenter: 
+keywords: Azure active directory, playbook, kavram kanıtı, PT
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26602547"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-ingredients"></a>Azure Active Directory Playbook malzemeleri kavram kanıtı 
 

@@ -1,9 +1,9 @@
 ---
-title: "İki basamaklı doğrulama ayarlarınızı yönetme | Microsoft Docs"
-description: "İletişim bilgilerinizi değiştirmek veya aygıtlarınızı yapılandırma dahil olmak üzere Azure multi-Factor Authentication kullanımını yönetin."
+title: İki basamaklı doğrulama ayarlarınızı yönetme | Microsoft Docs
+description: İletişim bilgilerinizi değiştirmek veya aygıtlarınızı yapılandırma dahil olmak üzere Azure multi-Factor Authentication kullanımını yönetin.
 services: multi-factor-authentication
-keywords: "çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu bağıntı kimliği"
-documentationcenter: 
+keywords: çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu bağıntı kimliği
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26626665"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>İki aşamalı doğrulama için ayarlarınızı yönetme
 Bu makalede, iki aşamalı doğrulama veya çok faktörlü kimlik doğrulama ayarlarını güncelleştirme hakkında sorular yanıtlanmaktadır. Hesabınızda oturum açma sorunu yaşıyor oluştuysa, [iki aşamalı doğrulamayı sorununuz](multi-factor-authentication-end-user-troubleshoot.md) sorun giderme Yardımı.

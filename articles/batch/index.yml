@@ -2,8 +2,8 @@
 documentType: LandingData
 title: Batch Belgeleri
 metadata:
-  title: "Batch Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs"
-  description: "Büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmak için Batch’i kullanın. Altyapıyı el ile yapılandırmanıza veya yönetmenize gerek kalmadan uygulamalarınızın paralel veya yüksek ölçekli olarak yürütülmesine yönelik Azure işlem kaynaklarını tanımlayın. İşlem yoğunluklu görevleri zamanlayın ve gereksinimlerinize göre işlem kaynaklarını dinamik olarak ekleyin veya kaldırın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Batch’i kullanmayı öğrenin."
+  title: Batch Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+  description: Büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmak için Batch’i kullanın. Altyapıyı el ile yapılandırmanıza veya yönetmenize gerek kalmadan uygulamalarınızın paralel veya yüksek ölçekli olarak yürütülmesine yönelik Azure işlem kaynaklarını tanımlayın. İşlem yoğunluklu görevleri zamanlayın ve gereksinimlerinize göre işlem kaynaklarını dinamik olarak ekleyin veya kaldırın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Batch’i kullanmayı öğrenin.
   services: batch
   author: czeumault
   manager: carolz
@@ -18,13 +18,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 02/28/2018
+  ms.locfileid: "29686580"
 abstract:
-  description: "Büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmak için Batch’i kullanın. Altyapıyı el ile yapılandırmanıza veya yönetmenize gerek kalmadan uygulamalarınızın paralel veya yüksek ölçekli olarak yürütülmesine yönelik Azure işlem kaynaklarını tanımlayın. İşlem yoğunluklu görevleri zamanlayın ve gereksinimlerinize göre işlem kaynaklarını dinamik olarak ekleyin veya kaldırın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Batch’i kullanmayı öğrenin."
+  description: Büyük ölçekli paralel ve yüksek performanslı bilgi işlem (HPC) uygulamalarını bulutta verimli bir şekilde çalıştırmak için Batch’i kullanın. Altyapıyı el ile yapılandırmanıza veya yönetmenize gerek kalmadan uygulamalarınızın paralel veya yüksek ölçekli olarak yürütülmesine yönelik Azure işlem kaynaklarını tanımlayın. İşlem yoğunluklu görevleri zamanlayın ve gereksinimlerinize göre işlem kaynaklarını dinamik olarak ekleyin veya kaldırın. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, Azure Batch’i kullanmayı öğrenin.
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Azure’daki ilk Batch işinizi çalıştırmayı öğrenin."
+    text: Azure’daki ilk Batch işinizi çalıştırmayı öğrenin.
   - type: list
     style: icon48
     items:
@@ -44,33 +45,33 @@ sections:
         src: https://docs.microsoft.com/en-us/media/logos/logo_python.svg
       text: Python
       href: quick-run-python
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Batch’te işlem yoğunluklu iş yüklerini çalıştırmayı öğrenin."
+    text: Batch’te işlem yoğunluklu iş yüklerini çalıştırmayı öğrenin.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"tutorial-parallel-dotnet\">.NET SDK ile paralel dosya işleme</a>"
-    - html: "<a href=\"tutorial-parallel-python\">Python SDK ile paralel dosya işleme</a>"
-    - html: "<a href=\"tutorial-rendering-cli\">Arnold ile sahne işlemesi</a>"
+    - html: <a href="tutorial-parallel-dotnet">.NET SDK ile paralel dosya işleme</a>
+    - html: <a href="tutorial-parallel-python">Python SDK ile paralel dosya işleme</a>
+    - html: <a href="tutorial-rendering-cli">Arnold ile sahne işlemesi</a>
     - html: <a href="tutorial-r-doazureparallel">Paralel R benzetimi</a>
-- title: "Örnekler"
+- title: Örnekler
   items:
   - type: list
     style: unordered
     className: spaced noBullet
     items:
     - html: <a href="cli-samples">Azure CLI</a>
-- title: "Başvuru"
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/cli/azure/batch">Azure CLI</a></p><p><a href="/powershell/module/azurerm.batch">Azure PowerShell</a></p>
     - title: Diller
       html: <p><a href="/dotnet/api/overview/azure/batch">.NET</a></p><p><a href="/java/api/overview/azure/batch">Java</a></p><p><a href="/javascript/api/overview/azure/batch">Node.js</a></p><p><a href="/python/api/overview/azure/batch">Python</a></p>
     - title: REST
-      html: "<p><a href=\"/rest/api/batchservice\">Batch Hizmeti REST API’si</a></p><p><a href=\"/rest/api/batchmanagement/\">Batch Yönetimi REST API’si</a></p>"
+      html: <p><a href="/rest/api/batchservice">Batch Hizmeti REST API’si</a></p><p><a href="/rest/api/batchmanagement/">Batch Yönetimi REST API’si</a></p>

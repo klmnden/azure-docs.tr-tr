@@ -1,11 +1,11 @@
 ---
-title: "Öğretici: Azure BizTalk Services kullanarak EDIFACT faturaları işlem | Microsoft Docs"
-description: "Oluşturma ve kutusunu Bağlayıcısı veya API uygulamasını yapılandırma ve Azure App Service'te bir mantıksal uygulama içinde kullanma"
+title: 'Öğretici: Azure BizTalk Services kullanarak EDIFACT faturaları işlem | Microsoft Docs'
+description: Oluşturma ve kutusunu Bağlayıcısı veya API uygulamasını yapılandırma ve Azure App Service'te bir mantıksal uygulama içinde kullanma
 services: biztalk-services
 documentationcenter: .net,nodejs,java
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 7e0b93fa-3e2b-4a9c-89ef-abf1d3aa8fa9
 ms.service: biztalk-services
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26633873"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Öğretici: Azure BizTalk Services kullanarak işlem EDIFACT faturalar
 

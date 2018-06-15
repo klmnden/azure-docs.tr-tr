@@ -1,13 +1,13 @@
 ---
-title: "Ürün adları ve hizmet planı Azure Active Directory'de lisans için tanımlayıcıları | Microsoft Docs"
-description: "Azure portalı, Office 365 portalı, PowerShell veya Microsoft Graph Azure AD lisans yönetmek için tanımlayıcı eşleme"
+title: Ürün adları ve hizmet planı Azure Active Directory'de lisans için tanımlayıcıları | Microsoft Docs
+description: Azure portalı, Office 365 portalı, PowerShell veya Microsoft Graph Azure AD lisans yönetmek için tanımlayıcı eşleme
 services: active-directory
-keywords: "Hizmet planları lisans Azure Active Directory"
-documentationcenter: 
+keywords: Hizmet planları lisans Azure Active Directory
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26609335"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Ürün adları ve lisans için hizmet planı tanımlayıcıları
 

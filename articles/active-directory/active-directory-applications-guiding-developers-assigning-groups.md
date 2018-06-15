@@ -1,11 +1,11 @@
 ---
-title: "Azure AD uygulamalarınız için grupları atama | Microsoft Docs"
-description: "Grup ataması Azure uygulamaları için gerçekleştirme."
+title: Azure AD uygulamalarınız için grupları atama | Microsoft Docs
+description: Grup ataması Azure uygulamaları için gerçekleştirme.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: kgremban
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 29b5ba89-a1c7-4f1f-a294-248a40106617
 ms.service: active-directory
 ms.workload: identity
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26597151"
 ---
 # <a name="assign-azure-active-directory-groups-to-an-application"></a>Bir uygulamayı Azure Active Directory grupları atama
 Uygulamaya kullanıcılar ve gruplar atamadan önce kullanıcı ataması gerektirir. Kullanıcı Ataması gerektirecek şekilde öğrenmek için bkz: [gerektiren kullanıcı ataması](active-directory-applications-guiding-developers-requiring-user-assignment.md) makalesi.

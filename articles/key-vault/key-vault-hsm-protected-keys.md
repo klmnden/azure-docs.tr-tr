@@ -1,8 +1,8 @@
 ---
-title: "Oluşturma ve Azure anahtar kasası için HSM korumalı anahtarlar Aktarım | Microsoft Docs"
-description: "Planlama, oluşturma ve ardından Azure anahtar kasası ile kullanmak üzere kendi HSM korumalı anahtarları aktarma yardımcı olması için bu makaleyi kullanın. BYOK olarak da bilinen veya kendi anahtarını getir."
+title: Oluşturma ve Azure anahtar kasası için HSM korumalı anahtarlar Aktarım | Microsoft Docs
+description: Planlama, oluşturma ve ardından Azure anahtar kasası ile kullanmak üzere kendi HSM korumalı anahtarları aktarma yardımcı olması için bu makaleyi kullanın. BYOK olarak da bilinen veya kendi anahtarını getir.
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345120"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarları
 ## <a name="introduction"></a>Giriş

@@ -1,9 +1,9 @@
 ---
-title: "Kurumsal durumda Dolaşım genel bakış | Microsoft Docs"
-description: "Windows cihazlarda Kurumsal durumda Dolaşım ayarları hakkında bilgi sağlar. Kurumsal durumda dolaşım, kullanıcılar Windows cihazlarını arasında birleştirilmiş bir deneyim sağlar ve yeni bir cihaz yapılandırmak için gereken süreyi azaltır."
+title: Kurumsal durumda Dolaşım genel bakış | Microsoft Docs
+description: Windows cihazlarda Kurumsal durumda Dolaşım ayarları hakkında bilgi sağlar. Kurumsal durumda dolaşım, kullanıcılar Windows cihazlarını arasında birleştirilmiş bir deneyim sağlar ve yeni bir cihaz yapılandırmak için gereken süreyi azaltır.
 services: active-directory
-keywords: "windows bulut Kurumsal durumda dolaşım, Kurumsal eşitleme nedir"
-documentationcenter: 
+keywords: windows bulut Kurumsal durumda dolaşım, Kurumsal eşitleme nedir
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -17,9 +17,10 @@ ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: 2e1ebf5a9bfc4a1f0f92ff85f9406ecc7d538819
 ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614957"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Kurumsal Durumda Dolaşıma genel bakış
 Windows 10 ile [Azure Active Directory (Azure AD)](active-directory-whatis.md) kullanıcılar, kullanıcı ayarlarını ve uygulama ayarlarını verileri buluta güvenli bir şekilde eşitleme olanağı sağlar. Kurumsal durumda dolaşım, kullanıcılar Windows cihazlarını arasında birleştirilmiş bir deneyim sağlar ve yeni bir cihaz yapılandırmak için gereken süreyi azaltır. Kurumsal durumda Dolaşım çalışır standart benzer [tüketici ayarları eşitleme](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) , ilk kez sunulmuştur Windows 8'de. Ayrıca, Kurumsal durumda Dolaşım sunar:

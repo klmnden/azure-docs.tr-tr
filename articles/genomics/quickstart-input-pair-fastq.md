@@ -1,7 +1,7 @@
 ---
-title: "Hızlı Başlangıç: FASTQ dosya girişlerini kullanarak iş akışı gönderme | Microsoft Docs"
+title: 'Hızlı Başlangıç: FASTQ dosya girişlerini kullanarak iş akışı gönderme | Microsoft Docs'
 titleSuffix: Azure
-description: "Bu hızlı başlangıçta msgen istemcisini yüklediğiniz ve hizmette örnek verileri başarıyla çalıştırdığınız kabul edilmektedir."
+description: Bu hızlı başlangıçta msgen istemcisini yüklediğiniz ve hizmette örnek verileri başarıyla çalıştırdığınız kabul edilmektedir.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684492"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs"></a>FASTQ dosya girişlerini kullanarak iş akışı gönderme
 

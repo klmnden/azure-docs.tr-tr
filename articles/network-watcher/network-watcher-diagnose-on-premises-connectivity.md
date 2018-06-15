@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi ile VPN ağ geçidi aracılığıyla Tanıla şirket içi bağlantı | Microsoft Docs"
-description: "Bu makalede, Azure Ağ İzleyicisi kaynak sorun giderme VPN ağ geçidi aracılığıyla şirket içi bağlantı tanılamak açıklar."
+title: Azure Ağ İzleyicisi ile VPN ağ geçidi aracılığıyla Tanıla şirket içi bağlantı | Microsoft Docs
+description: Bu makalede, Azure Ağ İzleyicisi kaynak sorun giderme VPN ağ geçidi aracılığıyla şirket içi bağlantı tanılamak açıklar.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26374211"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN ağ geçitleri aracılığıyla şirket içi bağlantı tanılama
 

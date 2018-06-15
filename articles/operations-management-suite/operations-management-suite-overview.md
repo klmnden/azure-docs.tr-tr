@@ -1,8 +1,8 @@
 ---
-title: "Operations Management Suite'e (OMS) genel bakış | Microsoft Belgeleri"
-description: "Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür.  Bu makalede OMS’nin değeri açıklanır, OMS'de yer alan farklı hizmetler ile teklifler tanımlanır ve bunların ayrıntılı içeriklerinin bağlantıları sağlanır."
+title: Operations Management Suite'e (OMS) genel bakış | Microsoft Belgeleri
+description: Microsoft Operations Management Suite (OMS), şirket içi ve bulut altyapınızı yönetmenize ve korumanıza yardımcı olan, Microsoft'un bulut tabanlı BT yönetim çözümüdür.  Bu makalede OMS’nin değeri açıklanır, OMS'de yer alan farklı hizmetler ile teklifler tanımlanır ve bunların ayrıntılı içeriklerinin bağlantıları sağlanır.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684023"
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) nedir?
 Operations Management Suite (OMS) için bir giriş niteliğindeki bu makalede hizmetin sağladığı iş değerine, içerdiği hizmet ve yönetim çözümlerine ve farklı hizmet ve çözümleri bir paket altında toplayan tekliflere kısa bir genel bakış sunulmaktadır.  Her bir hizmet ve çözümün dağıtımı ve kullanımına yönelik ayrıntılı belgelerin bağlantıları da sağlanmıştır.

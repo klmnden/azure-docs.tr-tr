@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure ExpressRoute için eşlemesini üzerinden bir siteden siteye VPN yapılandırma | Microsoft Docs"
-description: "Bir siteden siteye VPN ağ geçidi kullanarak bir ExpressRoute Microsoft eşliği hattı üzerinden Azure IPSec/IKE bağlantısını yapılandırın."
+title: Microsoft Azure ExpressRoute için eşlemesini üzerinden bir siteden siteye VPN yapılandırma | Microsoft Docs
+description: Bir siteden siteye VPN ağ geçidi kullanarak bir ExpressRoute Microsoft eşliği hattı üzerinden Azure IPSec/IKE bağlantısını yapılandırın.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26357737"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft eşlemesi üzerinde siteden siteye VPN bağlantısını yapılandırma
 
