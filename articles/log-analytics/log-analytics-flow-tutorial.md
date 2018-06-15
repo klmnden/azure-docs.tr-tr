@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Flow ile Azure günlük analizi işlemlerini otomatik hale getirme"
-description: "Hızlı bir şekilde Azure günlük analizi Bağlayıcısı'nı kullanarak yinelenebilir süreçlerini otomatikleştirmek için Microsoft Flow nasıl kullanabileceğinizi öğrenin."
+title: Microsoft Flow ile Azure günlük analizi işlemlerini otomatik hale getirme
+description: Hızlı bir şekilde Azure günlük analizi Bağlayıcısı'nı kullanarak yinelenebilir süreçlerini otomatikleştirmek için Microsoft Flow nasıl kullanabileceğinizi öğrenin.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: CFreemanwa
 manager: carmonm
 ms.service: log-analytics
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/16/2017
+ms.locfileid: "23889511"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>İçin Microsoft Flow bağlayıcı ile günlük analizi işlemlerini otomatikleştirmeyi
 [Microsoft Flow](https://ms.flow.microsoft.com) Eylemler yüzlerce çok çeşitli hizmetlerini kullanarak otomatik iş akışları oluşturmanıza olanak sağlar. Bir eylem çıktısını başka farklı hizmetleri arasında tümleştirme oluşturmanızı sağlayan giriş olarak kullanılabilir.  Azure günlük analizi bağlayıcı Microsoft Flow için günlük analizi günlük aramalarda tarafından alınan veri içeren iş akışlarını oluşturmak olanak tanır.

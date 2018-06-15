@@ -1,12 +1,12 @@
 ---
-title: "Bir Traffic Manager profilini oluşturma | Microsoft Docs"
-description: "Bu makalede bir Traffic Manager profilini oluşturma"
+title: Bir Traffic Manager profilini oluşturma | Microsoft Docs
+description: Bu makalede bir Traffic Manager profilini oluşturma
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397580"
 ---
 # <a name="create-a-traffic-manager-profile"></a>Traffic Manager profili oluşturma
 

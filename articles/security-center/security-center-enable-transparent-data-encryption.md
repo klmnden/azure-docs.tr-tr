@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde saydam veri şifreleme etkinleştirme | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** etkinleştirmek saydam veri şifreleme **."
+title: Azure Güvenlik Merkezi'nde saydam veri şifreleme etkinleştirme | Microsoft Docs
+description: Bu belgede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** etkinleştirmek saydam veri şifreleme **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866299"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde saydam veri şifreleme etkinleştir
 Azure Güvenlik Merkezi TDE zaten etkin değilse SQL veritabanlarını saydam veri şifreleme (TDE) etkinleştirmek önerir. TDE, verilerinizi korur ve veritabanınızı, ilişkili yedeklemelerinizi ve geri kalan, işlem günlüğü dosyalarını uygulamanızda değişiklik yapılması gerekmeksizin şifreleyerek uyumluluk gereksinimlerinin karşılanmasına yardımcı olur. Daha fazla bilgi edinmek için [saydam veri şifrelemesi ile Azure SQL veritabanı](https://msdn.microsoft.com/library/dn948096).

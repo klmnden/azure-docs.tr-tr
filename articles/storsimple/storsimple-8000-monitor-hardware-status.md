@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi donanım bileşenleri ve durum | Microsoft Docs"
-description: "StorSimple Cihazınızı StorSimple cihaz Yöneticisi hizmeti aracılığıyla donanım bileşenlerini izlemek öğrenin."
+title: StorSimple 8000 serisi donanım bileşenleri ve durum | Microsoft Docs
+description: StorSimple Cihazınızı StorSimple cihaz Yöneticisi hizmeti aracılığıyla donanım bileşenlerini izlemek öğrenin.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875959"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>İzleyici donanım bileşenleri ve durumunu StorSimple cihaz Yöneticisi hizmetini kullanma
 ## <a name="overview"></a>Genel Bakış

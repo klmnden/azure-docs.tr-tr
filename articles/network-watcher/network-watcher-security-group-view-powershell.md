@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - PowerShell ile ağ güvenliği çözümleme | Microsoft Docs"
-description: "Bu makalede PowerShell güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır."
+title: Azure Ağ İzleyicisi güvenlik grubu görünümü - PowerShell ile ağ güvenliği çözümleme | Microsoft Docs
+description: Bu makalede PowerShell güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23864178"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Güvenlik grubu PowerShell kullanarak görünümü ile sanal makine güvenliğinizi Çözümle
 

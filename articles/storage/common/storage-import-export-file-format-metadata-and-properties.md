@@ -1,11 +1,11 @@
 ---
-title: "Azure içeri/dışarı aktarma meta verileri ve özellikleri dosya biçimi | Microsoft Docs"
-description: "Meta veri ve alma işleminin parçası veya iş dışarı bir veya daha fazla BLOB'lar için özellikleri belirtin öğrenin."
+title: Azure içeri/dışarı aktarma meta verileri ve özellikleri dosya biçimi | Microsoft Docs
+description: Meta veri ve alma işleminin parçası veya iş dışarı bir veya daha fazla BLOB'lar için özellikleri belirtin öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873656"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure içeri/dışarı aktarma hizmeti meta verileri ve özellikleri dosya biçimi
 Meta veri ve bir veya daha fazla BLOB özelliklerini alma işi veya bir dışarı aktarma işinin parçası olarak belirtebilirsiniz. Meta veriler veya bir alma işinin bir parçası olarak oluşturulan BLOB'lar özelliklerini ayarlamak için bir meta veri ya da özellikler dosyası içeri aktarılacak veri içeren sabit sürücüde sağlar. Bir dışa aktarma işi için meta verileri ve özellikleri için döndürülen sabit sürücüde bulunan bir meta veri veya özellikler dosyasına yazılır.  

@@ -1,12 +1,12 @@
 ---
-title: "StorSimple cihaz yönetimi için PowerShell | Microsoft Docs"
-description: "StorSimple Cihazınızı yönetmek için StorSimple için Windows PowerShell'i kullanmayı öğrenin."
+title: StorSimple cihaz yönetimi için PowerShell | Microsoft Docs
+description: StorSimple Cihazınızı yönetmek için StorSimple için Windows PowerShell'i kullanmayı öğrenin.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743736"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Cihazınızı yönetmek için StorSimple için Windows PowerShell kullanın
 

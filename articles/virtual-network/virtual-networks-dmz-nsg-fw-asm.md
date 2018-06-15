@@ -1,11 +1,11 @@
 ---
-title: "DMZ örnek – yapı bir güvenlik duvarı ve Nsg'ler ile uygulamaları korumak için DMZ | Microsoft Docs"
-description: "DMZ bir güvenlik duvarı ve ağ güvenlik grupları (NSG) ile derleme"
+title: DMZ örnek – yapı bir güvenlik duvarı ve Nsg'ler ile uygulamaları korumak için DMZ | Microsoft Docs
+description: DMZ bir güvenlik duvarı ve ağ güvenlik grupları (NSG) ile derleme
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23885129"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Örnek 2 – bir güvenlik duvarı ve Nsg'ler ile uygulamaları korumak için DMZ derleme
 [Güvenlik sınırı en iyi yöntemler sayfasına dön][HOME]

@@ -16,9 +16,10 @@ ms.date: 2/22/2017
 ms.author: cbrooks
 ms.openlocfilehash: 8d189d3ec3e6081dd37b912824f287cd75f39b35
 ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "23873978"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Çıkış noktaları arası kaynak paylaşımı (CORS) Azure Storage Hizmetleri desteği
 Sürüm 2013-08-15'den başlayarak, Azure storage Hizmetleri için Blob, tablo, kuyruk ve Dosya Hizmetleri çıkış noktaları arası kaynak paylaşımı (CORS) destekler. CORS başka bir etki alanındaki kaynaklara erişmek bir etki alanında çalışan bir web uygulaması sağlayan bir HTTP özelliğidir. Web tarayıcıları uygulamak olarak bilinen bir güvenlik kısıtlama [kaynak aynı ilke](http://www.w3.org/Security/wiki/Same_Origin_Policy) arama API'leri; farklı bir etki alanındaki bir web sayfasından engelleyen CORS başka bir etki alanındaki API'leri çağırmak bir etki alanı (kaynak etki alanı) izin vermek için güvenli bir yol sağlar. Bkz: [CORS belirtimi](http://www.w3.org/TR/cors/) CORS hakkında ayrıntılı bilgi için.

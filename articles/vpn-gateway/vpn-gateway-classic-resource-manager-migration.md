@@ -1,6 +1,6 @@
 ---
-title: "VPN ağ geçidi Klasik'ten Kaynak Yöneticisi geçirme | Microsoft Docs"
-description: "Bu sayfa, VPN ağ geçidi Klasik Kaynak Yöneticisi'ni geçişine genel bakış sağlar."
+title: VPN ağ geçidi Klasik'ten Kaynak Yöneticisi geçirme | Microsoft Docs
+description: Bu sayfa, VPN ağ geçidi Klasik Kaynak Yöneticisi'ni geçişine genel bakış sağlar.
 documentationcenter: na
 services: vpn-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23885220"
 ---
 # <a name="vpn-gateway-classic-to-resource-manager-migration"></a>VPN ağ geçidi Klasik'ten Kaynak Yöneticisi geçirme
 VPN ağ geçitleri şimdi Klasik Resource Manager dağıtım modeline geçirilebilir. Daha fazla bilgiyi Azure Kaynak Yöneticisi hakkında [özellikler ve sunduğu yararlar](../azure-resource-manager/resource-group-overview.md). Bu makalede, biz Klasik dağıtımlarından daha yeni Resource Manager temelli modeline geçirmek nasıl ayrıntılı olarak açıklanmaktadır. 

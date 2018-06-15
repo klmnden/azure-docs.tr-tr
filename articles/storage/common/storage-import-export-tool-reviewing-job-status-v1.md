@@ -1,11 +1,11 @@
 ---
-title: "Azure içeri/dışarı aktarma iş durumu - v1 gözden geçirme | Microsoft Docs"
-description: "İçeri/dışarı aktarma işinin durumunu görmek için içe veya dışa aktarma işlemi çalıştırıldığında oluşturulan günlük dosyalarını kullanmayı öğrenin."
+title: Azure içeri/dışarı aktarma iş durumu - v1 gözden geçirme | Microsoft Docs
+description: İçeri/dışarı aktarma işinin durumunu görmek için içe veya dışa aktarma işlemi çalıştırıldığında oluşturulan günlük dosyalarını kullanmayı öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: c69d1d69-6403-4eee-9949-0185faeecfa1
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873712"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>Azure içeri/dışarı aktarma iş durumu kopyalama günlük dosyalarıyla gözden geçirme
 Microsoft Azure içeri/dışarı aktarma hizmeti bir içe veya dışa aktarma işi ile ilişkili sürücüleri işlediğinde, depolama hesabı için günlük dosyalarını veya içinden, içeri aktarma veya BLOB'ları dışarı aktarma kopyalama yazar. Günlük dosyası, dışarı veya içeri aktarılan her dosya hakkında ayrıntılı durumunu içerir. Tamamlanmış iş durumunu sorguladığınızda her kopya günlük dosyası için bir URL döndürülür; bkz: [alma işi](/rest/api/storageservices/Get-Job3) daha fazla bilgi için.  

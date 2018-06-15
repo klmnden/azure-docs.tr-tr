@@ -1,7 +1,7 @@
 ---
-title: "Twilio (Java) telefon görüşmesi yapma | Microsoft Docs"
-description: "Azure üzerinde bir Java uygulamasında Twilio kullanarak bir web sayfasından telefon görüşmesi öğrenin."
-services: 
+title: Twilio (Java) telefon görüşmesi yapma | Microsoft Docs
+description: Azure üzerinde bir Java uygulamasında Twilio kullanarak bir web sayfasından telefon görüşmesi öğrenin.
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865942"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Azure üzerinde bir Java uygulamasında Twilio kullanarak bir telefon araması yapma
 Aşağıdaki örnek, Azure üzerinde barındırılan bir web sayfasından arama yapmak için Twilio nasıl kullanabileceğinizi gösterir. Sonuçta elde edilen uygulama telefon araması değerleri için aşağıdaki ekran görüntüsünde gösterildiği gibi ister.

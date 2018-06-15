@@ -1,7 +1,7 @@
 ---
 title: Store-sendgrid-Java-How-To-Send-EMail-example
-description: "Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme"
-services: 
+description: Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme
+services: ''
 documentationcenter: java
 author: thinkingserious
 manager: sendgrid
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873950"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme
 Aşağıdaki örnek, Azure üzerinde barındırılan bir web sayfasından e-postalar gönderme SendGrid nasıl kullanabileceğinizi gösterir. Sonuçta elde edilen uygulama kullanıcı e-posta değerleri için aşağıdaki ekran görüntüsünde gösterildiği gibi isteyecektir.

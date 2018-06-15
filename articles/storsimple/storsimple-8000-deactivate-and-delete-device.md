@@ -1,12 +1,12 @@
 ---
-title: "Devre dışı bırakın ve bir StorSimple 8000 serisi aygıtı silme | Microsoft Docs"
-description: "StorSimple cihazı hizmetinden önce devre dışı bırakma ve silme kaldırmayı açıklar."
+title: Devre dışı bırakın ve bir StorSimple 8000 serisi aygıtı silme | Microsoft Docs
+description: StorSimple cihazı hizmetinden önce devre dışı bırakma ve silme kaldırmayı açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874972"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Devre dışı bırakın ve bir StorSimple cihazı Sil
 

@@ -1,8 +1,8 @@
 ---
 title: SendGrid e-posta hizmetine (PHP) kullanma | Microsoft Docs
-description: "Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. PHP ile yazılan kod örnekleri."
+description: Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. PHP ile yazılan kod örnekleri.
 documentationcenter: php
-services: 
+services: ''
 manager: sendgrid
 editor: mollybos
 author: thinkingserious
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874034"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>Php'den SendGrid e-posta hizmetini kullanma
 Bu kılavuz, Azure üzerinde SendGrid e-posta hizmeti ile genel programlama görevleri gerçekleştirmek gösterilmiştir. Örnekler, PHP ile yazılmıştır.

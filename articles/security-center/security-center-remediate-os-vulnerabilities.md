@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltmek | Microsoft Docs"
-description: "Bu belgede \"Düzelt güvenlik yapılandırmalarını.\", Azure Güvenlik Merkezi öneri uygulamak nasıl gösterir"
+title: Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını düzeltmek | Microsoft Docs
+description: Bu belgede "Düzelt güvenlik yapılandırmalarını.", Azure Güvenlik Merkezi öneri uygulamak nasıl gösterir
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103940"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını Düzelt
 Azure Güvenlik Merkezi günlük sanal makineleri (VM'ler) ve sanal makineleri hale getirebilecek bir yapılandırma için ve bilgisayarları daha savunmasız işletim sistemi (OS) çözümler. Güvenlik Merkezi, işletim sistemi yapılandırması önerilen güvenlik yapılandırma kuralları eşleşmiyor ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir güvenlik açıkları gidermek önerir.

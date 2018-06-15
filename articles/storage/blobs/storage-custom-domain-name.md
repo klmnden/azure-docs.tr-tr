@@ -1,6 +1,6 @@
 ---
-title: "Azure Blob storage uç noktanız için özel etki alanı adı yapılandırma | Microsoft Docs"
-description: "Bir Azure depolama hesabındaki Blob storage uç kendi kurallı ad (CNAME) eşleştirmek için Azure portalını kullanın."
+title: Azure Blob storage uç noktanız için özel etki alanı adı yapılandırma | Microsoft Docs
+description: Bir Azure depolama hesabındaki Blob storage uç kendi kurallı ad (CNAME) eşleştirmek için Azure portalını kullanın.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559936"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob depolama uç noktası için özel etki alanı adınızı yapılandırma
 

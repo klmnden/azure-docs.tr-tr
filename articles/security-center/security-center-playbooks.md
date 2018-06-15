@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779286"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Güvenlik Playbook'u (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'ndeki güvenlik playbook'larını kullanarak güvenlikle ilgili sorunlara yanıt vermenize yardımcı olur.

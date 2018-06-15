@@ -1,11 +1,11 @@
 ---
 title: StorSimple Snapshot Manager yedekleme ilkeleri | Microsoft Docs
-description: "StorSimple Snapshot Manager MMC ek bileşenini oluşturup zamanlanmış yedeklemeler kontrol yedekleme ilkelerini yönetmek için nasıl kullanılacağını açıklar."
+description: StorSimple Snapshot Manager MMC ek bileşenini oluşturup zamanlanmış yedeklemeler kontrol yedekleme ilkelerini yönetmek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875476"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>StorSimple Snapshot Manager oluşturmak ve yedekleme ilkelerini yönetmek için kullanın
 ## <a name="overview"></a>Genel Bakış

@@ -1,11 +1,11 @@
 ---
-title: "Azure Geçiş düğümü API'leri genel bakış | Microsoft Docs"
-description: "Geçiş düğümü API genel bakış"
+title: Azure Geçiş düğümü API'leri genel bakış | Microsoft Docs
+description: Geçiş düğümü API genel bakış
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019474"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Karma bağlantılar düğümü API genel bakış geçiş
 

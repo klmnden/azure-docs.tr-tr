@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde güncelleştirme işletim sistemi sürümü | Microsoft Docs"
-description: "Bu makalede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** güncelleştirme işletim sistemi sürümü **."
+title: Azure Güvenlik Merkezi'nde güncelleştirme işletim sistemi sürümü | Microsoft Docs
+description: Bu makalede Azure Güvenlik Merkezi öneriyi uygulamayı gösterilmiştir ** güncelleştirme işletim sistemi sürümü **.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866516"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güncelleştirme işletim sistemi sürümü
 İçindeki sanal makineler için (VM) bulut Hizmetleri, Azure Güvenlik Merkezi, daha yeni bir sürüm kullanılabilir işletim sistemi (OS) güncelleştirilmesi önerilir.  Yalnızca bulut yuvaları izlenen üretimde çalışan web ve çalışan rolleri Hizmetleri.

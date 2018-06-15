@@ -1,6 +1,6 @@
 ---
-title: "Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırma | Microsoft Docs"
-description: "Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırın"
+title: Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırma | Microsoft Docs
+description: Yük Dengeleyici TCP boşta kalma zaman aşımı yapılandırın
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855232"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure yük dengeleyici için TCP boşta kalma zaman aşımı ayarlarını yapılandırın
 

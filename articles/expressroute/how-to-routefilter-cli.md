@@ -1,13 +1,13 @@
 ---
-title: "Azure ExpressRoute Microsoft eşliği için rota filtrelerini yapılandırın: CLI | Microsoft Docs"
-description: "Bu makalede, Microsoft Azure CLI kullanarak Peering için yol filtrelerini yapılandırmak açıklar"
+title: 'Azure ExpressRoute Microsoft eşliği için rota filtrelerini yapılandırın: CLI | Microsoft Docs'
+description: Bu makalede, Microsoft Azure CLI kullanarak Peering için yol filtrelerini yapılandırmak açıklar
 documentationcenter: na
 services: expressroute
 author: anzaman
 manager: ganesr
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850822"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Microsoft eşliği için rota filtrelerini yapılandırın: Azure CLI
 

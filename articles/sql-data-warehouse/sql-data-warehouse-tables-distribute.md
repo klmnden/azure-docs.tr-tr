@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526262"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse dağıtılmış tablolarda tasarlamak için kılavuz
 Azure SQL Data Warehouse karma dağıtılmış ve hepsini dağıtılmış tablolarında tasarlamak için öneriler sunar.

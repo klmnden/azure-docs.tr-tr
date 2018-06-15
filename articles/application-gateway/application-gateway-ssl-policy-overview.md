@@ -1,11 +1,11 @@
 ---
-title: "Azure uygulama ağ geçidi için SSL ilkesine genel bakış | Microsoft Docs"
-description: "Azure uygulama ağ geçidi, SSL ilkesini yapılandırmak nasıl sağlar hakkında bilgi edinin"
+title: Azure uygulama ağ geçidi için SSL ilkesine genel bakış | Microsoft Docs
+description: Azure uygulama ağ geçidi, SSL ilkesini yapılandırmak nasıl sağlar hakkında bilgi edinin
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836955"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Uygulama ağ geçidi SSL ilkesine genel bakış
 

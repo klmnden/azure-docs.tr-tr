@@ -1,9 +1,9 @@
 ---
-title: "İsteğe bağlı enerji tahmin Cortana Intelligence çözüm şablonu mimarisi | Microsoft Docs"
-description: "İsteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olan Microsoft Cortana Intelligence çözüm şablonu mimarisi."
-keywords: "Çözüm Hızlandırıcısı cortana analytics; enerji tahmin"
+title: İsteğe bağlı enerji tahmin Cortana Intelligence çözüm şablonu mimarisi | Microsoft Docs
+description: İsteğe bağlı bir enerji yardımcı şirket için tahmini yardımcı olan Microsoft Cortana Intelligence çözüm şablonu mimarisi.
+keywords: Çözüm Hızlandırıcısı cortana analytics; enerji tahmin
 services: cortana-analytics
-documentationcenter: 
+documentationcenter: ''
 author: garyericson
 manager: jhubbard
 editor: cgronlun
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23845663"
 ---
 # <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>İsteğe bağlı enerji tahmin Cortana Intelligence çözüm şablonu mimarisi
 Aşağıdaki diyagramda mimari genel bakış sağlar [isteğe bağlı enerji tahmin için Cortana Intelligence çözüm şablonu](cortana-analytics-playbook-demand-forecasting-energy.md).

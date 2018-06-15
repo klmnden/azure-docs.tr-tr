@@ -1,11 +1,11 @@
 ---
-title: "Oturum açtıktan sonra bir uygulamanın sayfada hata | Microsoft Docs"
-description: "Uygulama bir hata olduğunda yayar Azure AD oturum ile ilgili sorunları gidermek nasıl"
+title: Oturum açtıktan sonra bir uygulamanın sayfada hata | Microsoft Docs
+description: Uygulama bir hata olduğunda yayar Azure AD oturum ile ilgili sorunları gidermek nasıl
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384914"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>Oturum açtıktan sonra bir uygulamanın sayfada hata
 

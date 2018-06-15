@@ -1,11 +1,11 @@
 ---
-title: "Bulut hizmeti yaşam döngüsü olayları işlemek | Microsoft Docs"
-description: "Bir bulut hizmeti rolü yaşam döngüsü yöntemlerinin .NET içinde nasıl kullanılacağını öğrenin"
+title: Bulut hizmeti yaşam döngüsü olayları işlemek | Microsoft Docs
+description: Bir bulut hizmeti rolü yaşam döngüsü yöntemlerinin .NET içinde nasıl kullanılacağını öğrenin
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843451"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>.NET’te Web veya Çalışan rolünün yaşam döngüsünü özelleştirme
 Çalışan rolü oluşturduğunuzda, genişlettiğiniz [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) olanak sağlayan yöntemleri geçersiz kılmanıza olanak sağlayan sınıf yaşam döngüsü olaylarına yanıt. Yaşam döngüsü olaylara yanıt vermek kullanmalısınız web rolleri için bu sınıf isteğe bağlıdır.

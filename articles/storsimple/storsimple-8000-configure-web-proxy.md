@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi cihaz için web proxy ayarlama | Microsoft Docs"
-description: "StorSimple cihazınız için web proxy ayarlarını yapılandırmak için StorSimple için Windows PowerShell'i kullanmayı öğrenin."
+title: StorSimple 8000 serisi cihaz için web proxy ayarlama | Microsoft Docs
+description: StorSimple cihazınız için web proxy ayarlarını yapılandırmak için StorSimple için Windows PowerShell'i kullanmayı öğrenin.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875000"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>StorSimple cihazınız için Web Proxy'yi Yapılandır
 

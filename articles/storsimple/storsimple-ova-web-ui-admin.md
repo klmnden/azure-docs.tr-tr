@@ -1,11 +1,11 @@
 ---
-title: "StorSimple sanal dizinin web kullanıcı Arabirimi Yönetim | Microsoft Docs"
-description: "StorSimple sanal dizinin web kullanıcı Arabirimi aracılığıyla temel aygıt yönetim görevlerinin nasıl gerçekleştirileceğini açıklar."
+title: StorSimple sanal dizinin web kullanıcı Arabirimi Yönetim | Microsoft Docs
+description: StorSimple sanal dizinin web kullanıcı Arabirimi aracılığıyla temel aygıt yönetim görevlerinin nasıl gerçekleştirileceğini açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875889"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>StorSimple sanal dizinizi yönetmek için Web kullanıcı arabirimini kullanın
 ![Kurulum işlem akışı](./media/storsimple-ova-web-ui-admin/manage4.png)

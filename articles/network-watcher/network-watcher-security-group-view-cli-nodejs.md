@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 1.0 ile ağ güvenliği çözümleme | Microsoft Docs"
-description: "Bu makalede, Azure CLI 1.0 güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır."
+title: Azure Ağ İzleyicisi güvenlik grubu görünümü - Azure CLI 1.0 ile ağ güvenliği çözümleme | Microsoft Docs
+description: Bu makalede, Azure CLI 1.0 güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23862834"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli-10"></a>Güvenlik grubu Azure CLI 1.0 kullanarak görünümü ile sanal makine güvenliğinizi Çözümle
 

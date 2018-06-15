@@ -1,11 +1,11 @@
 ---
-title: "Azure içeri/dışarı aktarma işleri için tanılama ve hata kurtarma | Microsoft Docs"
-description: "Ayrıntılı Microsoft Azure içeri/dışarı aktarma hizmeti işleri için günlüğü etkinleştirmek öğrenin."
+title: Azure içeri/dışarı aktarma işleri için tanılama ve hata kurtarma | Microsoft Docs
+description: Ayrıntılı Microsoft Azure içeri/dışarı aktarma hizmeti işleri için günlüğü etkinleştirmek öğrenin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 096cc795-9af6-4335-9fe8-fffa9f239a17
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873642"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Azure içeri/dışarı aktarma işleri için tanılama ve hata kurtarma
 İşlenen her sürücü için Azure içeri/dışarı aktarma hizmeti ilişkili depolama hesabında bir hata günlüğü oluşturur. Ayarlayarak ayrıntılı günlük kaydını etkinleştirebilirsiniz `LogLevel` özelliğine `Verbose` çağrılırken [Put işlemini](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) veya [güncelleştirme işi özellikleri](/rest/api/storageimportexport/jobs#Jobs_Update) işlemleri.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde, ağ korumaya | Microsoft Docs"
-description: "Yardımcı olacak öneriler Azure Güvenlik Merkezi'nde Azure ağınızı korumak ve güvenlik ilkeleriyle uyumlu olmak bu belge adresleri."
+title: Azure Güvenlik Merkezi'nde, ağ korumaya | Microsoft Docs
+description: Yardımcı olacak öneriler Azure Güvenlik Merkezi'nde Azure ağınızı korumak ve güvenlik ilkeleriyle uyumlu olmak bu belge adresleri.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866481"
 ---
 # <a name="protecting-your-network-in-azure-security-center"></a>Azure Güvenlik Merkezi, ağınızda koruma
 Azure Güvenlik Merkezi, ayrıca Azure kaynaklarınızın güvenlik durumunu çözümler. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması sürecinde size rehberlik öneriler oluşturur.  Önerileri Azure kaynak türleri için geçerlidir: sanal ağ, SQL ve uygulamaları makineleri (VM'ler).

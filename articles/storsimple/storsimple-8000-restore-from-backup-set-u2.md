@@ -1,12 +1,12 @@
 ---
-title: "Bir birim üzerinde bir StorSimple 8000 serisi yedekten | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi hizmeti yedekleme kataloğu bir yedeklemek kümesinden StorSimple birimini geri için nasıl kullanılacağını açıklar."
+title: Bir birim üzerinde bir StorSimple 8000 serisi yedekten | Microsoft Docs
+description: StorSimple cihaz Yöneticisi hizmeti yedekleme kataloğu bir yedeklemek kümesinden StorSimple birimini geri için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875462"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>Bir yedeklemek kümesinden StorSimple birimini geri
 

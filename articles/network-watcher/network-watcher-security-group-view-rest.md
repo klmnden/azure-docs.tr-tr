@@ -1,11 +1,11 @@
 ---
-title: "Azure Ağ İzleyicisi güvenlik grubu görünümü - REST API'si ile ağ güvenliği çözümleme | Microsoft Docs"
-description: "Bu makalede PowerShell güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır."
+title: Azure Ağ İzleyicisi güvenlik grubu görünümü - REST API'si ile ağ güvenliği çözümleme | Microsoft Docs
+description: Bu makalede PowerShell güvenlik grubu görünümü ile sanal makineleri güvenliği çözümlemek için nasıl kullanılacağını anlatmaktadır.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23864325"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Güvenlik grubu REST API kullanarak görünümü ile sanal makine güvenliğinizi Çözümle
 

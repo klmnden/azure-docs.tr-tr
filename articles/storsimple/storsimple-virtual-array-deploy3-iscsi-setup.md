@@ -1,11 +1,11 @@
 ---
 title: Microsoft Azure StorSimple sanal dizinin iSCSI sunucusu Kurulumu | Microsoft Docs
-description: "Cihaz kurulumunu tamamlayın, StorSimple iSCSI sunucuyu kaydetmek ve ilk kurulumu gerçekleştirmek açıklar."
+description: Cihaz kurulumunu tamamlayın, StorSimple iSCSI sunucuyu kaydetmek ve ilk kurulumu gerçekleştirmek açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 4db116d1-978b-48e8-b572-a719a8425dbc
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877310"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple sanal dizinin – kümesi yukarı Azure Portalı aracılığıyla iSCSI sunucusu olarak dağıtma
 

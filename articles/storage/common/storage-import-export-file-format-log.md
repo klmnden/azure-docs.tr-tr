@@ -1,11 +1,11 @@
 ---
-title: "Azure içeri/dışarı aktarma günlük dosyası biçimi | Microsoft Docs"
-description: "İçeri/dışarı aktarma hizmeti işi için adımları çalıştırıldığında oluşturulan günlük dosyalarını biçimi hakkında bilgi edinin."
+title: Azure içeri/dışarı aktarma günlük dosyası biçimi | Microsoft Docs
+description: İçeri/dışarı aktarma hizmeti işi için adımları çalıştırıldığında oluşturulan günlük dosyalarını biçimi hakkında bilgi edinin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874104"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure içeri/dışarı aktarma hizmeti günlük dosyası biçimi
 Microsoft Azure içeri/dışarı aktarma hizmeti bir alma işi veya bir dışarı aktarma işinin parçası olarak bir sürücüde bir eylem gerçekleştirdiğinde, bu işle ilişkili depolama hesabındaki BLOB engellemek için günlüklerine yazılır.  

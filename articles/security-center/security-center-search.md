@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi arama | Microsoft Docs"
-description: "Günlük analizi arama Azure Güvenlik Merkezi almak ve güvenlik verilerinizi çözümlemek için nasıl kullandığını öğrenin."
+title: Azure Güvenlik Merkezi arama | Microsoft Docs
+description: Günlük analizi arama Azure Güvenlik Merkezi almak ve güvenlik verilerinizi çözümlemek için nasıl kullandığını öğrenin.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866404"
 ---
 # <a name="azure-security-center-search"></a>Azure Güvenlik Merkezi arama
 Azure Güvenlik Merkezi kullanan [günlük analizi arama](../log-analytics/log-analytics-log-searches.md) almak ve güvenlik verilerinizi çözümlemek için. Günlük analizi hızlı bir şekilde almak ve veri birleştirmek için bir sorgu dili içerir. Güvenlik Merkezi'nden sorgularınızı oluşturmaya ve toplanan verileri çözümlemek için günlük analizi arama yararlanabilirsiniz.

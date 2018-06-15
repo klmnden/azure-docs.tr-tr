@@ -1,8 +1,8 @@
 ---
-title: "Azure Uygulama Hizmeti için En İyi Uygulamalar"
-description: "En iyi yöntemler ve Azure App Service için sorun giderme öğrenin."
+title: Azure Uygulama Hizmeti için En İyi Uygulamalar
+description: En iyi yöntemler ve Azure App Service için sorun giderme öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27868327"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure Uygulama Hizmeti için En İyi Uygulamalar
 Bu makalede kullanmak için en iyi uygulamalar özetlenmektedir [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). 

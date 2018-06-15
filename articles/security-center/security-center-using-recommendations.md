@@ -1,12 +1,12 @@
 ---
-title: "Güvenliği artırmak için Azure Güvenlik Merkezi'ni kullanın önerileri | Microsoft Docs"
+title: Güvenliği artırmak için Azure Güvenlik Merkezi'ni kullanın önerileri | Microsoft Docs
 description: " Güvenlik ilkeleri ve öneriler Azure Güvenlik Merkezi'nde güvenlik saldırısı azaltmaya yardımcı olmak için nasıl kullanılacağını öğrenin. "
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866670"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Güvenliği artırmak için Azure Güvenlik Merkezi'ni kullanın önerileri
 Bir güvenlik ilkesi yapılandırma ve Azure Güvenlik Merkezi tarafından sağlanan öneriler uygulayarak bir önemli güvenlik olayı olasılığını azaltır. Bu makalede, güvenlik ilkeleri ve öneriler Güvenlik Merkezi'nde güvenlik saldırısı azaltmaya yardımcı olmak için nasıl kullanılacağını gösterir.

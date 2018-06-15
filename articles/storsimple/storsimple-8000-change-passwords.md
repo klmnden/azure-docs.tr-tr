@@ -1,12 +1,12 @@
 ---
-title: "StorSimple parolalarını değiştirme | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi hizmeti, StorSimple Snapshot Manager ve cihaz Yöneticisi parolalarını değiştirmek için nasıl kullanılacağını açıklar."
+title: StorSimple parolalarını değiştirme | Microsoft Docs
+description: StorSimple cihaz Yöneticisi hizmeti, StorSimple Snapshot Manager ve cihaz Yöneticisi parolalarını değiştirmek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874811"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>StorSimple parolalarını değiştirmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 

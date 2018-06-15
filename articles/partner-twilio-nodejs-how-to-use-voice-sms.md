@@ -1,11 +1,11 @@
 ---
-title: "Ses, VoIP ve Azure'da SMS Mesajlaşma Twilio kullanma"
-description: "Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. Node.js içinde yazılan kod örnekleri."
-services: 
+title: Ses, VoIP ve Azure'da SMS Mesajlaşma Twilio kullanma
+description: Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. Node.js içinde yazılan kod örnekleri.
+services: ''
 documentationcenter: nodejs
 author: devinrader
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: f558cbbd-13d2-416f-b9b1-33a99c426af9
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865886"
 ---
 # <a name="using-twilio-for-voice-voip-and-sms-messaging-in-azure"></a>Ses, VoIP ve Azure'da SMS Mesajlaşma Twilio kullanma
 Bu kılavuz, iletişim Twilio ve azure'da node.js uygulamaları geliştirmek gösterilmiştir.

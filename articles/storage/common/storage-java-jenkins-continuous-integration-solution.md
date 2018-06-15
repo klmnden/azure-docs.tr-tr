@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage Jenkins sürekli tümleştirme çözümü ile kullanma | Microsoft Docs"
-description: "Bu öğretici için depo yapı olarak Jenkins sürekli tümleştirme çözümü tarafından oluşturulan yapıları Azure blob hizmeti kullanmak nasıl gösterir."
+title: Azure Storage Jenkins sürekli tümleştirme çözümü ile kullanma | Microsoft Docs
+description: Bu öğretici için depo yapı olarak Jenkins sürekli tümleştirme çözümü tarafından oluşturulan yapıları Azure blob hizmeti kullanmak nasıl gösterir.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874139"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins Sürekli Tümleştirme çözümüyle Azure Depolama'yı kullanma
 ## <a name="overview"></a>Genel Bakış

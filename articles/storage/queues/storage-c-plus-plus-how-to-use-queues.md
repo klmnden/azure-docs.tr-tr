@@ -1,6 +1,6 @@
 ---
 title: Kuyruk depolama (C++) kullanma | Microsoft Docs
-description: "Azure kuyruk depolama hizmetini kullanmayı öğrenin. C++'ta örnekleri yazılır."
+description: Azure kuyruk depolama hizmetini kullanmayı öğrenin. C++'ta örnekleri yazılır.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874055"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++ içinden kuyruk depolama kullanma
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

@@ -1,11 +1,11 @@
 ---
-title: "Azure'da Yük Dengeleme hizmetlerini kullanarak | Microsoft Docs"
-description: "Bu öğretici Azure yük dengeleyici Portföy kullanarak bir senaryo oluşturulacağını gösterir: trafik Yöneticisi, uygulama ağ geçidi ve yük dengeleyici."
+title: Azure'da Yük Dengeleme hizmetlerini kullanarak | Microsoft Docs
+description: 'Bu öğretici Azure yük dengeleyici Portföy kullanarak bir senaryo oluşturulacağını gösterir: trafik Yöneticisi, uygulama ağ geçidi ve yük dengeleyici.'
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: liumichelle
 manager: vitinnan
-editor: 
+editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401115"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure'da Yük Dengeleme Hizmetleri kullanma
 

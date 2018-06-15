@@ -1,11 +1,11 @@
 ---
-title: "Azure Traffic Manager profillerini yönetme| Microsoft Belgeleri"
-description: "Bu makale, bir Azure Traffic Manager profili oluşturma, devre dışı bırakma, etkinleştirme ve silme konularında size yardımcı olur."
+title: Azure Traffic Manager profillerini yönetme| Microsoft Belgeleri
+description: Bu makale, bir Azure Traffic Manager profili oluşturma, devre dışı bırakma, etkinleştirme ve silme konularında size yardımcı olur.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f06e0365-0a20-4d08-b7e1-e56025e64f66
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398065"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Bir Azure Traffic Manager profilini yönetme
 

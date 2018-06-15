@@ -14,6 +14,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32767970"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>İşlem yapılandırılabilir eşik tabanlı kurallarında Azure akış analizi
 Bu makalede, Azure Stream Analytics içinde yapılandırılabilir eşik tabanlı kuralları kullanan bir uyarı çözüm elde etmek için başvuru verileri kullanmayı açıklar.

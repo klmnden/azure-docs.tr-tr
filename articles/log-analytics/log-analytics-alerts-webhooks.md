@@ -1,8 +1,8 @@
 ---
-title: "Web kancası uyarı eylemi örnek OMS günlük analizi | Microsoft Docs"
-description: "Günlük analizi uyarı yanıt çalıştırabilirsiniz eylemlerden biri olan bir * bir dış işlem üzerinden tek bir HTTP isteği çağırma sayesinde Web kancası *. Bu makalede bir Web kancası eylem kayma kullanarak günlük analizi uyarıda oluşturma örneği anlatılmaktadır."
+title: Web kancası uyarı eylemi örnek OMS günlük analizi | Microsoft Docs
+description: Günlük analizi uyarı yanıt çalıştırabilirsiniz eylemlerden biri olan bir * bir dış işlem üzerinden tek bir HTTP isteği çağırma sayesinde Web kancası *. Bu makalede bir Web kancası eylem kayma kullanarak günlük analizi uyarıda oluşturma örneği anlatılmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855176"
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>Bir uyarı Web kancası eylem Slack'e ileti göndermek için OMS günlük analizi oluşturun
 Eylemlerden birini çalıştırabilirsiniz yanıt olarak bir [günlük analizi uyarı](log-analytics-alerts.md) olan bir *Web kancası*, bir dış işlem üzerinden tek bir HTTP isteği çağırma sağlar.  Uyarılar ve Web kancalarını içinde ayrıntıları hakkında bilgi edinebilirsiniz [günlük analizi uyarıları](log-analytics-alerts.md)

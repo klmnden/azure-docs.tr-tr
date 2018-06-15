@@ -1,6 +1,6 @@
 ---
-title: "Yedekleme ve kurtarma yönetilmeyen Azure Linux VM diskleri için artımlı anlık görüntüleri kullanma | Microsoft Docs"
-description: "Yedekleme ve kurtarma artımlı anlık görüntülerini kullanarak Azure Linux sanal makine disklerinizi için özel bir çözüm oluşturun."
+title: Yedekleme ve kurtarma yönetilmeyen Azure Linux VM diskleri için artımlı anlık görüntüleri kullanma | Microsoft Docs
+description: Yedekleme ve kurtarma artımlı anlık görüntülerini kullanarak Azure Linux sanal makine disklerinizi için özel bir çözüm oluşturun.
 services: virtual-machines-linux
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23878871"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

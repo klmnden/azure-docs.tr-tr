@@ -1,11 +1,11 @@
 ---
-title: "Tarayıcı sekmesinde ve arama sonuçlarında görüntüler sayfa başlığı"
-description: "Giriş sayfalarını ve çoğu arama sonuçlarında gösterilecek makale açıklaması"
+title: Tarayıcı sekmesinde ve arama sonuçlarında görüntüler sayfa başlığı
+description: Giriş sayfalarını ve çoğu arama sonuçlarında gösterilecek makale açıklaması
 services: service-name
 documentationcenter: dev-center-name
 author: GitHub-alias-of-only-one-author
 manager: manager-alias
-editor: 
+editor: ''
 tags: comma-separates-additional-tags-if-required
 ms.service: required
 ms.devlang: may be required
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "23886263"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>Başlık (en fazla 120 karakter, hedef birincil anahtar)
 *2-3 ikincil anahtar sözcükler açıklamada kullanın.*

@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple sanal dizinin uyarıları görüntüleyin ve yönetin | Microsoft Docs"
-description: "StorSimple sanal dizi uyarı koşulları ve önem derecesi ve Uyarıları yönetmek için StorSimple Yöneticisi hizmetini kullanmayı açıklar."
+title: Microsoft Azure StorSimple sanal dizinin uyarıları görüntüleyin ve yönetin | Microsoft Docs
+description: StorSimple sanal dizi uyarı koşulları ve önem derecesi ve Uyarıları yönetmek için StorSimple Yöneticisi hizmetini kullanmayı açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 97ee25a1-0ec3-4883-9a0a-54b722598462
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27786416"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>StorSimple sanal dizi için uyarıları yönetmek için StorSimple cihaz Yöneticisi'ni kullanın
 

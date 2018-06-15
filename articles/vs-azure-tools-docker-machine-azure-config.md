@@ -1,11 +1,11 @@
 ---
-title: "Docker makine ile azure'da Docker konakları oluştur | Microsoft Docs"
-description: "Docker Azure'da docker ana bilgisayarları oluşturmak için makine kullanımını açıklar."
+title: Docker makine ile azure'da Docker konakları oluştur | Microsoft Docs
+description: Docker Azure'da docker ana bilgisayarları oluşturmak için makine kullanımını açıklar.
 services: azure-container-service
 documentationcenter: na
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 7a3ff6e1-fa93-4a62-b524-ab182d2fea08
 ms.service: multiple
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23883883"
 ---
 # <a name="create-docker-hosts-in-azure-with-docker-machine"></a>Docker-Machine ile Azure’da Docker Ana Bilgisayarları Oluşturma
 Çalışan [Docker](https://www.docker.com/) kapsayıcıları VM docker arka plan programı çalıştıran bir konak gerektirir.

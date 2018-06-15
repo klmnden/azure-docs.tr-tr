@@ -1,11 +1,11 @@
 ---
-title: "StorSimple cihaz Yöneticisi Hizmeti'ni dağıtma | Microsoft Docs"
-description: "Oluşturma ve Azure portalında StorSimple cihaz Yöneticisi hizmetini silmek açıklar ve hizmet kayıt anahtarını yönetme açıklar."
+title: StorSimple cihaz Yöneticisi Hizmeti'ni dağıtma | Microsoft Docs
+description: Oluşturma ve Azure portalında StorSimple cihaz Yöneticisi hizmetini silmek açıklar ve hizmet kayıt anahtarını yönetme açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 28499494-8c4d-4a7f-9d44-94b2b8a93c93
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876106"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>StorSimple sanal dizinin StorSimple cihaz Yöneticisi hizmetini dağıtma
 ## <a name="overview"></a>Genel Bakış

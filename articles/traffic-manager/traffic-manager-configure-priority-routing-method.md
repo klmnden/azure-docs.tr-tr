@@ -1,11 +1,11 @@
 ---
-title: "Öncelik trafik yönlendirme yöntemini Azure trafik Yöneticisi'ni kullanarak yapılandırma | Microsoft Docs"
-description: "Bu makalede, trafik Yöneticisi'nde öncelik trafik yönlendirme yöntemini yapılandırma açıklanmaktadır"
+title: Öncelik trafik yönlendirme yöntemini Azure trafik Yöneticisi'ni kullanarak yapılandırma | Microsoft Docs
+description: Bu makalede, trafik Yöneticisi'nde öncelik trafik yönlendirme yöntemini yapılandırma açıklanmaktadır
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876638"
 ---
 # <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Trafik Yöneticisi'nde öncelik trafik yönlendirme yöntemini yapılandırma
 

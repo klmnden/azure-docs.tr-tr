@@ -1,11 +1,11 @@
 ---
-title: "Trafik Yöneticisi uç nokta türleri | Microsoft Docs"
-description: "Bu makalede, Azure Traffic Manager ile kullanılan uç noktalarını farklı türleri açıklanmaktadır."
+title: Trafik Yöneticisi uç nokta türleri | Microsoft Docs
+description: Bu makalede, Azure Traffic Manager ile kullanılan uç noktalarını farklı türleri açıklanmaktadır.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23877520"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager uç noktaları
 Microsoft Azure trafik Yöneticisi, ağ trafiğini farklı veri merkezlerinde çalışan uygulama dağıtımları için nasıl dağıtıldığını denetlemenize olanak sağlar. Trafik Yöneticisi'nde her uygulama dağıtımı 'Bitiş' olarak yapılandırın. Trafik Yöneticisi DNS isteği aldığında, DNS yanıtında döndürmek için kullanılabilir uç nokta seçer. Trafik Yöneticisi seçimi, geçerli uç nokta durumu ve trafik yönlendirme yöntemini temel alır. Daha fazla bilgi için bkz: [nasıl trafik Yöneticisi çalışır](traffic-manager-how-traffic-manager-works.md).

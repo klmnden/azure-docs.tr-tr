@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594061"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure üzerinde Windows veri bilimi sanal makine sağlama
 Microsoft Veri bilimi sanal makine önceden yüklenmiş ve veri analizi ve makine öğrenme için yaygın olarak kullanılan birkaç popüler araçları ile yapılandırılmış bir Windows Azure sanal makine (VM) görüntüsüdür. Bulunan araçlar şunlardır:

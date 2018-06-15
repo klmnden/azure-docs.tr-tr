@@ -1,12 +1,12 @@
 ---
-title: "Azure uygulama hizmeti planı genel bakış | Microsoft Docs"
-description: "Azure uygulama hizmeti iş için nasıl uygulama hizmeti planları ve bunların, yönetim deneyimi nasıl yararlı öğrenin."
-keywords: "uygulama hizmeti, azure app service, Ölçek, ölçeklenebilir, ölçeklenebilirlik, uygulama hizmeti planı, app service maliyeti"
+title: Azure uygulama hizmeti planı genel bakış | Microsoft Docs
+description: Azure uygulama hizmeti iş için nasıl uygulama hizmeti planları ve bunların, yönetim deneyimi nasıl yararlı öğrenin.
+keywords: uygulama hizmeti, azure app service, Ölçek, ölçeklenebilir, ölçeklenebilirlik, uygulama hizmeti planı, app service maliyeti
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862368"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure uygulama hizmeti planı genel bakış
 

@@ -1,8 +1,8 @@
 ---
-title: "Microsoft Ürün Karşılaştırma izleme | Microsoft Docs"
-description: "Microsoft Operations Management Suite (OMS) Microsoft'un bulut yönetmek ve şirket içi korumak ve altyapı bulut yardımcı olan BT yönetim çözümü dayalıdır.  Bu makalede, OMS'de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır."
+title: Microsoft Ürün Karşılaştırma izleme | Microsoft Docs
+description: Microsoft Operations Management Suite (OMS) Microsoft'un bulut yönetmek ve şirket içi korumak ve altyapı bulut yardımcı olan BT yönetim çözümü dayalıdır.  Bu makalede, OMS'de yer alan farklı hizmetler tanımlanmakta ve bunların ayrıntılı içeriklerinin bağlantıları sağlanmaktadır.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866320"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft izleme ürün karşılaştırma
 Bu makalede, System Center Operations Manager (SCOM) ve günlük analizi Operations Management Suite (OMS) arasında bir karşılaştırma mimarilerini, nasıl bunlar kaynakları izlemesini ve bunlar toplamak veri analizi nasıl gerçekleştirdikleri mantığı bakımından sağlanmaktadır. .  Bu, kendi farklar ve göreli gücü temel bir anlayış vermektir.  

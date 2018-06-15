@@ -1,8 +1,8 @@
 ---
-title: "Uyarı Yönetimi'nde Microsoft ürünleri izleme | Microsoft Docs"
-description: "Bir uyarı yöneticinin dikkat gerektiren bazı sorun olduğunu gösterir.  Bu makalede uyarıları nasıl oluşturulduğunu ve System Center Operations Manager (SCOM) ve günlük analizi yönetilen farklar açıklar ve karma uyarı Yönetimi stratejisi iki ürünün yararlanarak, en iyi yöntemler sağlar."
+title: Uyarı Yönetimi'nde Microsoft ürünleri izleme | Microsoft Docs
+description: Bir uyarı yöneticinin dikkat gerektiren bazı sorun olduğunu gösterir.  Bu makalede uyarıları nasıl oluşturulduğunu ve System Center Operations Manager (SCOM) ve günlük analizi yönetilen farklar açıklar ve karma uyarı Yönetimi stratejisi iki ürünün yararlanarak, en iyi yöntemler sağlar.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865774"
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>Microsoft izleme uyarıları yönetme
 Bir uyarı yöneticinin dikkat gerektiren bazı sorun olduğunu gösterir.  Ayrı arasındaki farklar System Center Operations Manager (SCOM) ve günlük analizi Operations Management Suite (OMS) uyarıları nasıl oluşturulduğunu, nasıl yönetilen analiz ve ve kritik bir sorun olduğunu nasıl bildirilir açısından vardır algıladı.

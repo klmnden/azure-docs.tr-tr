@@ -1,6 +1,6 @@
 ---
-title: "-Microsoft tehdit modelleme aracı - Azure tehditler | Microsoft Docs"
-description: "Tehdit kategori sayfası Microsoft tehdit modelleme aracı için kullanıma sunulan tüm kategorileri içeren tehditleri oluşturulur."
+title: -Microsoft tehdit modelleme aracı - Azure tehditler | Microsoft Docs
+description: Tehdit kategori sayfası Microsoft tehdit modelleme aracı için kullanıma sunulan tüm kategorileri içeren tehditleri oluşturulur.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23867902"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft tehdit modelleme aracı tehditleri
 

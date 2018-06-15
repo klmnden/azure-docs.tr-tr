@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203485"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure yığın PKI sertifikaları dağıtımı için hazırlama
 Sertifika dosyalarını [seçim, CA'dan alınan](azure-stack-get-pki-certs.md) Azure yığın sertifika gereksinimleri eşleşen özelliklere sahip dışarı ve içeri aktarılan gerekir.

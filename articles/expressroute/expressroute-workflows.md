@@ -1,11 +1,11 @@
 ---
-title: "Bir expressroute bağlantı hattı yapılandırmak için iş akışları | Microsoft Docs"
-description: "Bu sayfada, expressroute bağlantı hattı ve eşlemeleri yapılandırmak için iş akışları açıklanmaktadır"
+title: Bir expressroute bağlantı hattı yapılandırmak için iş akışları | Microsoft Docs
+description: Bu sayfada, expressroute bağlantı hattı ve eşlemeleri yapılandırmak için iş akışları açıklanmaktadır
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850780"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Devre sağlama ve devre durumları için ExpressRoute iş akışları
 Bu sayfa, sağlama ve yüksek düzeyde configuration iş akışlarını yönlendirme hizmeti açıklanmaktadır.

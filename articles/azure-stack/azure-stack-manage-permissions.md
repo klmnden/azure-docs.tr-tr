@@ -1,11 +1,11 @@
 ---
-title: "Azure yığınında (Hizmet Yöneticisi ve Kiracı) kullanıcı başına kaynaklarına izinleri yönetme | Microsoft Docs"
-description: "Hizmet Yöneticisi veya Kiracı RBAC izinleri yönetmeyi öğrenin."
+title: Azure yığınında (Hizmet Yöneticisi ve Kiracı) kullanıcı başına kaynaklarına izinleri yönetme | Microsoft Docs
+description: Hizmet Yöneticisi veya Kiracı RBAC izinleri yönetmeyi öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: fenila
-editor: 
+editor: ''
 ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29385645"
 ---
 # <a name="manage-role-based-access-control"></a>Rol tabanlı erişim denetimini yönetmek
 

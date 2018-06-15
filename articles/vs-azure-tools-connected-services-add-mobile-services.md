@@ -1,11 +1,11 @@
 ---
-title: "Visual Studio'da bağlı hizmetler kullanarak Mobile Services ekleme | Microsoft Docs"
-description: "Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak mobil hizmetler ekleme"
+title: Visual Studio'da bağlı hizmetler kullanarak Mobile Services ekleme | Microsoft Docs
+description: Visual Studio bağlı Hizmetleri Ekle iletişim kutusunu kullanarak mobil hizmetler ekleme
 services: visual-studio-online
 documentationcenter: na
 author: mlhoop
 manager: douge
-editor: 
+editor: ''
 ms.assetid: 75c3cb93-88e1-476d-a416-f34caa3608e3
 ms.service: visual-studio-online
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23884219"
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Visual Studio bağlı Hizmetleri kullanılarak Mobile Services ekleme
 Visual Studio 2015 ile Azure Mobile Services kullanmaya bağlanabilir **bağlı hizmet Ekle** iletişim. Tüm C# istemci uygulamaları, tüm JavaScript uygulaması veya platformlar arası Cordova uygulaması bağlanabilir. Bağlandıktan sonra oluşturmak ve verilere erişmek, özel API'leri ve zamanlanmış işler oluşturmak veya anında iletme bildirimleri için destek eklemek.  Bağlı hizmetler işlemi, tüm uygun başvuruları ve bağlantı kodu ekler. Ayrıca Azure AD gibi popüler kimlik düzenleri, çeşitli kimlik doğrulaması için yerleşik destek yararlanabilirsiniz Facebook, Twitter ve Microsoft Accounts.

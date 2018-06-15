@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell Betiği örnek - bir anlık görüntüden bir VM oluşturma | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - bir anlık görüntüden bir VM oluşturma"
+title: Azure PowerShell Betiği örnek - bir anlık görüntüden bir VM oluşturma | Microsoft Docs
+description: Azure PowerShell Betiği örnek - bir anlık görüntüden bir VM oluşturma
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankum
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -18,9 +18,10 @@ ms.author: ramankum
 ms.custom: mvc
 ms.openlocfilehash: 63d108bbfd0f58f8a40bf1c7c8649e3a1f7ed288
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23879781"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell"></a>Anlık görüntü PowerShell ile bir sanal makine oluşturun
 

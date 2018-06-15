@@ -1,11 +1,11 @@
 ---
-title: "Azure Güvenlik Merkezi'nde sistem güncelleştirmeleri uygulamak | Microsoft Docs"
-description: "Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir ** sistem güncelleştirmeleri ** uygulamak ve ** sistem güncelleştirmeleri ** sonra yeniden başlatın."
+title: Azure Güvenlik Merkezi'nde sistem güncelleştirmeleri uygulamak | Microsoft Docs
+description: Bu belgede Azure Güvenlik Merkezi önerileri uygulamak gösterilmiştir ** sistem güncelleştirmeleri ** uygulamak ve ** sistem güncelleştirmeleri ** sonra yeniden başlatın.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e5bd7f55-38fd-4ebb-84ab-32bd60e9fa7a
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866432"
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde sistem güncelleştirmeleri uygulama
 Azure Güvenlik Merkezi günlük Windows ve Linux sanal makineleri (VM'ler) ve işletim sistemi güncelleştirmeleri eksik bilgisayarlar izler. Güvenlik Merkezi bir Windows bilgisayarda yapılandırılmış hizmet bağlı olarak Windows Update veya Windows Server Update Services (WSUS) kullanılabilir güvenlik ve kritik güncelleştirmeler listesini alır. Güvenlik Merkezi, ayrıca Linux sistemleri için en son güncelleştirmeleri denetler. VM veya bilgisayar sistem güncelleştirmesi eksikse, Güvenlik Merkezi sistem güncelleştirmeleri uygulamanızı öneririz.

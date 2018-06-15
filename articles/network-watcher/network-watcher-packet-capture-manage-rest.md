@@ -1,11 +1,11 @@
 ---
-title: "Paket yakalama Azure Ağ İzleyicisi - REST API ile yönetme | Microsoft Docs"
-description: "Bu sayfa, Azure REST API'sini kullanarak Ağ İzleyicisi'nin paket yakalama özelliği yönetmek açıklanmaktadır"
+title: Paket yakalama Azure Ağ İzleyicisi - REST API ile yönetme | Microsoft Docs
+description: Bu sayfa, Azure REST API'sini kullanarak Ağ İzleyicisi'nin paket yakalama özelliği yönetmek açıklanmaktadır
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 53fe0324-835f-4005-afc8-145eeb314aeb
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23863387"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Paket yakalama Azure REST API'sini kullanarak Azure Ağ İzleyicisi ile yönetme
 

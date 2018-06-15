@@ -1,12 +1,12 @@
 ---
-title: "StorSimple sanal dizinin güncelleştirme 0,5 sürüm notları | Microsoft Docs"
-description: "StorSimple sanal güncelleştirme 0,5 çalışan dizisi için açık kritik sorunlar ve çözümleri açıklar."
+title: StorSimple sanal dizinin güncelleştirme 0,5 sürüm notları | Microsoft Docs
+description: StorSimple sanal güncelleştirme 0,5 çalışan dizisi için açık kritik sorunlar ve çözümleri açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876064"
 ---
 # <a name="storsimple-virtual-array-update-05-release-notes"></a>StorSimple sanal dizinin güncelleştirme 0,5 sürüm notları
 

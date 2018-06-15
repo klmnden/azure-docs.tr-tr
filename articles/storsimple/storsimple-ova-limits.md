@@ -1,11 +1,11 @@
 ---
-title: "StorSimple sanal dizinin sınırları | Microsoft Docs"
-description: "Sistem sınırlarını ve Microsoft Azure StorSimple sanal dizinin bileşenleri ve bağlantıları için önerilen boyutlar açıklar."
+title: StorSimple sanal dizinin sınırları | Microsoft Docs
+description: Sistem sınırlarını ve Microsoft Azure StorSimple sanal dizinin bileşenleri ve bağlantıları için önerilen boyutlar açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 429e9f83-5699-4f18-b519-500c125946f6
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875056"
 ---
 # <a name="what-are-storsimple-virtual-array-limits"></a>StorSimple sanal dizinin sınırları nelerdir?
 

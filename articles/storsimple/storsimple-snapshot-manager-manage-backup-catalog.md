@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager yedekleme kataloğu | Microsoft Docs"
-description: "StorSimple Snapshot Manager MMC ek bileşenini görüntülemek ve yedekleme kataloğu yönetmek için nasıl kullanılacağını açıklar."
+title: StorSimple Snapshot Manager yedekleme kataloğu | Microsoft Docs
+description: StorSimple Snapshot Manager MMC ek bileşenini görüntülemek ve yedekleme kataloğu yönetmek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876715"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>Yedekleme kataloğu yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın
 
@@ -124,7 +125,7 @@ Başlamadan önce geçerli bir birim grubu yedeği olduğundan emin olun. Ardın
    
    1. İçinde **adı** metin kutusuna, kopyalanan birim için bir ad yazın. Bu ad görünür **birimleri** düğümü. 
    2. (İsteğe bağlı) Seçin **sürücü**ve ardından açılır listeden bir sürücü harfi seçin. 
-   3. (İsteğe bağlı) Seçin **klasörü (NTFS)**ve bir klasör yolunu yazın veya **Gözat** ve klasörü için bir konum seçin. 
+   3. (İsteğe bağlı) Seçin **klasörü (NTFS)** ve bir klasör yolunu yazın veya **Gözat** ve klasörü için bir konum seçin. 
    4. **Oluştur**'a tıklayın. 
 5. Kopyalama işlemi tamamlandığında, kopyalanan birim başlatması gerekir. Sunucu Yöneticisi'ni başlatın ve ardından Disk Yönetimi'ni başlatın. Ayrıntılı yönergeler için bkz: [bağlama birimleri](storsimple-snapshot-manager-manage-volumes.md#mount-volumes). Başlatıldıktan sonra birimi listelenir **birimleri** düğümünde **kapsam** bölmesi. 
    

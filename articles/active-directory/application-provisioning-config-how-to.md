@@ -1,11 +1,11 @@
 ---
-title: "Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma | Microsoft Docs"
-description: "Nasıl hızlı sağlama ve Azure AD uygulama galerisinde zaten listelenen uygulamaları etkinleştirmektir zengin bir kullanıcı hesabı yapılandırabilirsiniz"
+title: Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma | Microsoft Docs
+description: Nasıl hızlı sağlama ve Azure AD uygulama galerisinde zaten listelenen uygulamaları etkinleştirmektir zengin bir kullanıcı hesabı yapılandırabilirsiniz
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464434"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma
 

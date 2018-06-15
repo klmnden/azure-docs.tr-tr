@@ -1,12 +1,12 @@
 ---
-title: "StorSimple cihazınıza uzaktan bağlanma | Microsoft Docs"
-description: "Cihazınızı uzaktan yönetim için yapılandırma ve HTTP veya HTTPS aracılığıyla StorSimple için Windows PowerShell için bağlanma açıklanmaktadır."
+title: StorSimple cihazınıza uzaktan bağlanma | Microsoft Docs
+description: Cihazınızı uzaktan yönetim için yapılandırma ve HTTP veya HTTPS aracılığıyla StorSimple için Windows PowerShell için bağlanma açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103964"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi cihazınıza uzaktan bağlanma
 

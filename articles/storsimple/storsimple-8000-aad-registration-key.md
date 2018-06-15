@@ -1,12 +1,12 @@
 ---
-title: "Azure StorSimple 8000 Aygıt Yöneticisi'ni hizmet için yeni kimlik doğrulamasını kullan | Microsoft Docs"
-description: "Hizmetiniz için AAD tabanlı kimlik doğrulaması kullanmak, yeni kayıt anahtarı oluşturun ve aygıtların el ile kayıt gerçekleştirmek açıklanmaktadır."
+title: Azure StorSimple 8000 Aygıt Yöneticisi'ni hizmet için yeni kimlik doğrulamasını kullan | Microsoft Docs
+description: Hizmetiniz için AAD tabanlı kimlik doğrulaması kullanmak, yeni kayıt anahtarı oluşturun ve aygıtların el ile kayıt gerçekleştirmek açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030950"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple için yeni kimlik doğrulama kullanın
 

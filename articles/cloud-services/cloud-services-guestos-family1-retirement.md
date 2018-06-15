@@ -1,11 +1,11 @@
 ---
-title: "Konuk işletim sistemi ailesi 1 devre dışı bırakma dikkat edin. | Microsoft Docs"
-description: "Ne zaman Azure konuk işletim sistemi ailesi 1 kullanımdan oldu ve etkilenip etkilenmediğini belirleme hakkında bilgi sağlar"
+title: Konuk işletim sistemi ailesi 1 devre dışı bırakma dikkat edin. | Microsoft Docs
+description: Ne zaman Azure konuk işletim sistemi ailesi 1 kullanımdan oldu ve etkilenip etkilenmediğini belirleme hakkında bilgi sağlar
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843136"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Konuk işletim sistemi ailesi 1 kullanımdan kaldırma bildirimi
 İşletim sistemi ailesi 1 kullanımdan ilk 1 Haziran 2013'te tanıtıldı.

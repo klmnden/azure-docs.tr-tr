@@ -1,13 +1,13 @@
 ---
-title: "Bir Azure VPN ağ geçidinde BGP yapılandırın: Resource Manager ve CLI | Microsoft Docs"
-description: "Bu makalede Azure Resource Manager ve CLI kullanarak bir Azure VPN ağ geçidi ile BGP yapılandıracağınız anlatılmaktadır."
+title: 'Bir Azure VPN ağ geçidinde BGP yapılandırın: Resource Manager ve CLI | Microsoft Docs'
+description: Bu makalede Azure Resource Manager ve CLI kullanarak bir Azure VPN ağ geçidi ile BGP yapılandıracağınız anlatılmaktadır.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23884044"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI kullanarak bir Azure VPN ağ geçidinde BGP yapılandırma
 

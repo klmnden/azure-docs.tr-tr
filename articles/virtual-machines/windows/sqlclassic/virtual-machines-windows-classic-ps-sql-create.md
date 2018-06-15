@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell'de (Klasik) bir SQL Server sanal makine oluşturun | Microsoft Docs"
-description: "Bir Azure VM ile SQL Server sanal makineye Galerisi görüntüleri oluşturmak için adımlar ve PowerShell komut dosyaları sağlar. Bu konu, Klasik dağıtım modunu kullanır."
+title: Azure PowerShell'de (Klasik) bir SQL Server sanal makine oluşturun | Microsoft Docs
+description: Bir Azure VM ile SQL Server sanal makineye Galerisi görüntüleri oluşturmak için adımlar ve PowerShell komut dosyaları sağlar. Bu konu, Klasik dağıtım modunu kullanır.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399670"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Azure PowerShell (Klasik) kullanarak bir SQL Server sanal makine sağlama
 

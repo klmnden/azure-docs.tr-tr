@@ -1,6 +1,6 @@
 ---
-title: "ARP tabloları alınıyor: Klasik: Azure expressroute bağlantı sorunlarını giderme | Microsoft Docs"
-description: "Bu sayfayı ARP tablolar için ExpressRoute devresi almak için yönergeler sağlar."
+title: 'ARP tabloları alınıyor: Klasik: Azure expressroute bağlantı sorunlarını giderme | Microsoft Docs'
+description: Bu sayfayı ARP tablolar için ExpressRoute devresi almak için yönergeler sağlar.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850801"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>ARP tabloları Klasik dağıtım modelinde alınıyor
 > [!div class="op_single_selector"]

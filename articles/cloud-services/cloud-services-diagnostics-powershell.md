@@ -1,11 +1,11 @@
 ---
-title: "PowerShell kullanarak Azure Cloud Services tanılamada etkinleştirme | Microsoft Docs"
-description: "PowerShell kullanarak bulut Hizmetleri için tanılamayı etkinleştirin öğrenin"
+title: PowerShell kullanarak Azure Cloud Services tanılamada etkinleştirme | Microsoft Docs
+description: PowerShell kullanarak bulut Hizmetleri için tanılamayı etkinleştirin öğrenin
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 66e08754-8639-4022-ae18-4237749ba17d
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843430"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>PowerShell kullanarak Azure Cloud Services tanılamada etkinleştir
 Uygulama günlükleri gibi tanılama verilerini toplama performans sayaçları vb. Azure tanılama uzantısını kullanarak bir bulut hizmetinden. Bu makalede, PowerShell kullanarak bir bulut hizmeti için Azure tanılama uzantısını etkinleştirme açıklar.  Bkz: [Azure PowerShell'i yükleme ve yapılandırma nasıl](/powershell/azure/overview) Bu makale için gereken önkoşulları için.

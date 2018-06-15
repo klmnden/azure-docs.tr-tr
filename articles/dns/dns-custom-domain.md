@@ -1,6 +1,6 @@
 ---
-title: "Azure DNS'yi Azure kaynaklarınızı ile tümleştirme | Microsoft Docs"
-description: "Azure kaynaklarınız için DNS sağlamak üzere Azure DNS boyunca kullanmayı öğrenin."
+title: Azure DNS'yi Azure kaynaklarınızı ile tümleştirme | Microsoft Docs
+description: Azure kaynaklarınız için DNS sağlamak üzere Azure DNS boyunca kullanmayı öğrenin.
 services: dns
 documentationcenter: na
 author: KumudD
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 1fbaa2ccda2fb826c74755d42a31835d9d30e05f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/22/2018
+ms.locfileid: "27994391"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Bir Azure hizmetini özel etki alanı ayarları sağlamak için Azure DNS kullanabilir
 

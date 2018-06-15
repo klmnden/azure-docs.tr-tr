@@ -1,12 +1,12 @@
 ---
-title: "Azure VPN Gateways ile BGP'ye genel bakış | Microsoft Docs"
-description: "Bu makale Azure VPN Gateways ile BGP’ye genel bakış sağlar."
+title: Azure VPN Gateways ile BGP'ye genel bakış | Microsoft Docs
+description: Bu makale Azure VPN Gateways ile BGP’ye genel bakış sağlar.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23883512"
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN Gateways ile BGP’ye genel bakış
 Bu makale Azure VPN Gateways içindeki BGP (Sınır Ağ Geçidi Protokolü) desteğine genel bakış sağlar.

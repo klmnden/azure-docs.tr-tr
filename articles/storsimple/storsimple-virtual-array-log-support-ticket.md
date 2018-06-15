@@ -1,11 +1,11 @@
 ---
-title: "Destek bileti StorSimple cihaz Yöneticisi aracılığıyla oturum | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi'ni açıklar yetenek tanılamak ve StorSimple sanal dizinizi giderilir kullanımı açıklanmaktadır."
+title: Destek bileti StorSimple cihaz Yöneticisi aracılığıyla oturum | Microsoft Docs
+description: StorSimple cihaz Yöneticisi'ni açıklar yetenek tanılamak ve StorSimple sanal dizinizi giderilir kullanımı açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: a0c394df-957b-49b3-a283-38824f8847fd
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875917"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>StorSimple sanal dizi için bir destek isteği oturum StorSimple cihaz Yöneticisi hizmetini kullanma
 

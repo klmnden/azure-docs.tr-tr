@@ -1,6 +1,6 @@
 ---
-title: "Java ile Azure Service Bus kuyruklarını kullanma | Microsoft Docs"
-description: "Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Java dilinde yazılan kod örnekleri."
+title: Java ile Azure Service Bus kuyruklarını kullanma | Microsoft Docs
+description: Azure'da Service Bus kuyruklarını kullanmayı öğrenin. Java dilinde yazılan kod örnekleri.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23868434"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Java ile Service Bus kuyruklarını kullanma
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

@@ -1,11 +1,11 @@
 ---
-title: "Bir Azure içeri/dışarı aktarma içe aktarma işi için - v1 sabit sürücüler hazırlama | Microsoft Docs"
-description: "Azure içeri/dışarı aktarma hizmeti için bir alma işi oluşturmak için WAImportExport v1 aracını kullanarak sabit sürücüler hazırlama hakkında bilgi edinin."
+title: Bir Azure içeri/dışarı aktarma içe aktarma işi için - v1 sabit sürücüler hazırlama | Microsoft Docs
+description: Azure içeri/dışarı aktarma hizmeti için bir alma işi oluşturmak için WAImportExport v1 aracını kullanarak sabit sürücüler hazırlama hakkında bilgi edinin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 3d818245-8b1b-4435-a41f-8e5ec1f194b2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874097"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Sabit sürücüleri içeri aktarma işine hazırlama
 Bir veya daha fazla sabit disk sürücüler içeri aktarma işi için hazırlamak için aşağıdaki adımları izleyin:

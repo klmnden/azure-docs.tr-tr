@@ -1,17 +1,17 @@
 ---
-title: "Azure CLI örnekleri | Microsoft Docs"
-description: "Azure CLI örnekleri"
+title: Azure CLI örnekleri | Microsoft Docs
+description: Azure CLI örnekleri
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864129"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Ağ iletişimi için Azure CLI örnekleri
 
