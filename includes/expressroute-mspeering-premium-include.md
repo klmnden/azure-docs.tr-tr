@@ -13,6 +13,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32773604"
 ---
 >[!NOTE]
 >Microsoft eşlemesini yapılandırmak üzere, expressroute bağlantı hattı Premium eklenti SKU katmanı kullanmanız gerekir. 

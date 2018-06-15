@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31799286"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - yüksek düzeyde paralel işleme (MPP) mimarisi
 Yüksek düzeyde paralel işleme (MPP) yüksek performans ve ölçeklenebilirlik elde etmek için Azure storage ile Azure SQL Data Warehouse nasıl birleştirir öğrenin. 

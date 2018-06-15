@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787447"
 ---
 # <a name="comparing-custom-images-and-formulas-in-devtest-labs"></a>Özel resimler ve DevTest Labs formüller karşılaştırma
 Her ikisi de [özel resimler](devtest-lab-create-template.md) ve [formüller](devtest-lab-manage-formulas.md) için tabanları olarak kullanılan [yeni VM'ler oluşturulan](devtest-lab-add-vm.md). Ancak, özel resimler ve formülleri arasında anahtar fark özel görüntü yalnızca bir formül VHD dayanan bir görüntü olsa da bir VHD'de dayanan bir görüntü olmasıdır *ek olarak* ayarları - VM boyutunu, sanal ağ, alt ağ ve yapıları gibi önceden yapılandırılmış. Önceden yapılandırılmış bu ayarları VM oluşturma sırasında geçersiz kılınabilir varsayılan değerlerle ayarlanır. Bu makalede (uzmanları için) olumlu ve olumsuz (olumsuz) bazıları formülleri kullanma karşı özel resimler kullanmaya açıklanmaktadır.

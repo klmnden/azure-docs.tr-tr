@@ -1,12 +1,12 @@
 ---
-title: "Kenarlık bağlantısı ağ tümleştirme konuları Azure tümleşik yığını sistemler için | Microsoft Docs"
-description: "Birden çok düğümlü Azure yığını ile veri merkezi kenarlık ağ bağlantısı planlamak için yapabileceğinizi öğrenin."
+title: Kenarlık bağlantısı ağ tümleştirme konuları Azure tümleşik yığını sistemler için | Microsoft Docs
+description: Birden çok düğümlü Azure yığını ile veri merkezi kenarlık ağ bağlantısı planlamak için yapabileceğinizi öğrenin.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919443"
 ---
 # <a name="border-connectivity"></a>Kenarlık bağlantısı 
 Tümleştirme ağ planlaması, başarılı Azure tümleşik yığını systems dağıtımı, işlem ve Yönetim için önemli bir önkoşuldur. Bağlantı kenarlık planlama dinamik sınır ağ geçidi Protokolü (BGP) yönlendirme kullanılıp kullanılmayacağını seçerek başlar. Bu bir 16 bit BGP Otonom sistem numarası (genel veya özel) atama gerektirir veya statik yönlendirme kullanarak, burada statik bir varsayılan yol kenarlığı cihazlara atanır.

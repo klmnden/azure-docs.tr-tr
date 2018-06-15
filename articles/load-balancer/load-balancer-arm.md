@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790398"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Azure Kaynak Yöneticisi desteği Azure yük dengeleyici ile kullanma
 

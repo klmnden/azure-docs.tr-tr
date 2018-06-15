@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790374"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Azure Search .NET Yönetim SDK sürüm 2 için yükseltme
 Sürüm 1.0.2 kullanıyorsanız, eski veya [Azure Search .NET Yönetim SDK](https://aka.ms/search-mgmt-sdk), bu makalede, sürüm 2 kullanmak için uygulamanızı yükseltmenize yardımcı olur.

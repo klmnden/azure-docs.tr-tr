@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777962"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Kullanıcılara Notification Hubs ile platformlar arası bildirimleri gönderin
 Bir önceki öğreticideki [Notification Hubs kullanıcılara bildirme], belirli bir kimliği doğrulanmış kullanıcı için kaydedilen tüm cihazlara anında iletme bildirimleri öğrendiniz. Bu öğreticide, birden çok istek her desteklenen istemci platformu için bir bildirim gönderecek gerekirdi. Azure bildirim hub'ları ile belirli bir aygıt nasıl bildirimlerini almak istediği belirtebileceğiniz şablonları destekler. Bu yöntem, platformlar arası bildirimleri gönderme basitleştirir. 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312551"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure Service Bus ve Event Hubs Protokolü Kılavuzu'nda AMQP 1.0
 
