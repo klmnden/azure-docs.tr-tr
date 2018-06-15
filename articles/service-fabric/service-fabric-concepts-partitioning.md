@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206542"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Bölüm Service Fabric güvenilir hizmetler
 Bu makalede Azure Service Fabric güvenilir hizmetler bölümlendirme, temel kavramlar tanıtılmaktadır. Makalede kullanılan kaynak kodunu da kullanılabilir [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).

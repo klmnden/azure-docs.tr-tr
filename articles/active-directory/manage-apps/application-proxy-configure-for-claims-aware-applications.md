@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34161997"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Talep kullanan uygulamalarda uygulama proxy'si ile çalışma
 [Talep kullanan uygulamalar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) yeniden yönlendirmesi için güvenlik belirteci hizmeti (STS) gerçekleştirin. STS bir belirteç karşılığında kullanıcı kimlik bilgilerini ister ve ardından kullanıcının uygulamaya yönlendirir. Bu yeniden yönlendirmeleri ile çalışmak uygulama proxy'si etkinleştirmek için birkaç yolu vardır. Dağıtımınızı talep kullanan uygulamalar için yapılandırmak için bu makaleyi kullanın. 

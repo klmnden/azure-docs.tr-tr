@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207987"
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric uygulaması yükseltme
 Azure Service Fabric uygulama hizmetleri koleksiyonudur. Yükseltme sırasında Service Fabric yeni karşılaştırır [uygulama bildirimi](service-fabric-application-and-service-manifests.md) önceki sürümüyle ve hangi uygulama iste güncelleştirmeleri Hizmetleri belirler. Service Fabric önceki sürümde sürüm numaralarıyla numaraları hizmet bildirimlerini sürüm karşılaştırır. Bu hizmet, hizmet değişmemişse yükseltilmez.

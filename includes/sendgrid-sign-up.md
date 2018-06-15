@@ -61,9 +61,9 @@ Azure müşterileri her ay 25.000 ücretsiz e-postanın kilidini açabilir. Bu a
 
 E-posta teslim ayarlarınızı yönetmek için **Yönet** düğmesine tıklayın. Bu SendGrid panonuz yönlendirir.
 
-    ![manage][manage]
+![yönet][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+SendGrid aracılığıyla e-posta gönderme hakkında daha fazla bilgi için ziyaret [e-posta API genel bakış][Email API Overview].
 
 <!--images-->
 

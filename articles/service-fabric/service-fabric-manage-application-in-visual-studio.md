@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206508"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>Yazma ve Service Fabric uygulamaları yönetme basitleştirmek için Visual Studio kullanma
 Azure Service Fabric uygulamaları ve Hizmetleri Visual Studio aracılığıyla yönetebilirsiniz. Seçtiğiniz sonra [geliştirme ortamınızı ayarlama](service-fabric-get-started.md), Service Fabric uygulamaları oluşturmak, hizmetleri veya paket, kayıt eklemek ve yerel geliştirme kümenizdeki uygulamaları dağıtmak için Visual Studio'yu kullanabilirsiniz.

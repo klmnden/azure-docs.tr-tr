@@ -16,6 +16,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195174"
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Azure Automation sık karşılaşılan sorunları giderme 
 Bu makalede Azure Otomasyonu'nda karşılaşabilirsiniz ve bunları gidermek için olası çözümleri önerir ortak hatalarında sorun giderme yardım sağlar.

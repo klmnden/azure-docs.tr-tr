@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34163855"
 ---
 # <a name="azure-portal-documentation"></a>Azure portal belgeleri
 Azure portalında kaynakları dağıtmak için kullanabileceğiniz özellikleri öğrenin. Öğreticiler, API başvuruları ve diğer belgeler, Azure kaynaklarını nasıl dağıtabileceğinize, yönetebileceğinize ve izleyebileceğinize ilişkin bilgiler içerir.

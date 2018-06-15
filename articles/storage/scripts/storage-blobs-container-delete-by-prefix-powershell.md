@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell Betiği örnek - Sil kapsayıcıları ön eke göre | Microsoft Docs"
-description: "Kapsayıcı adı ön ekini temel alarak Azure Storage blobu kapsayıcıları silin."
+title: Azure PowerShell Betiği örnek - Sil kapsayıcıları ön eke göre | Microsoft Docs
+description: Kapsayıcı adı ön ekini temel alarak Azure Storage blobu kapsayıcıları silin.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -17,9 +17,10 @@ ms.date: 06/13/2017
 ms.author: tamram
 ms.openlocfilehash: 629189b9dbe2327763d364abc95f49539a312c53
 ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25983907"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Kapsayıcı adı ön ekini temel alarak kapsayıcıları Sil
 

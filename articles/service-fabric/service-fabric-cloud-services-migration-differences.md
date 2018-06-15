@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206491"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Bulut Hizmetleri ve Service Fabric arasındaki farklar hakkında bilgi geçirmeden önce uygulamaları.
 Microsoft Azure Service Fabric yüksek düzeyde ölçeklenebilir, yüksek oranda güvenilir dağıtılmış uygulamalar için yeni nesil bulut uygulama platformudur. Paketleme, dağıtma, yükseltme ve dağıtılmış bulut uygulamalarını yönetmek için birçok yeni özellik sunar. 

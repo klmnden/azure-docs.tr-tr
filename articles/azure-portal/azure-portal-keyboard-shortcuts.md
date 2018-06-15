@@ -20,6 +20,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165426"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure portalında klavye kısayolları
 Bu makalede Azure portal çalışmak klavye kısayolları gösterilmektedir. Tek tek Hizmetleri kendi klavye kısayolları olabilir.

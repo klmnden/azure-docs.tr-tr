@@ -16,11 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: b3fb3ba0757744ba9f84280778be7e274d4ac5a2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 64914a1b3efe81a152f5463f74c70c22f01ec0c1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724053"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure işlevleri için Azure Event Hubs bağlamaları
 
@@ -28,13 +29,20 @@ Bu makale ile nasıl çalışılacağını açıklar [Azure Event Hubs](../event
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>Paketler
+## <a name="packages---functions-1x"></a>Paketler - 1.x işlevleri
 
-Azure işlevleri sürümü için 1.x, olay hub'ları bağlamaları içinde verilmiştir [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi. İşlevler için 2.x, kullanım [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) paket. Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/) GitHub depo.
+Azure işlevleri sürümü için 1.x, olay hub'ları bağlamaları içinde verilmiştir [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet paketi, sürüm 2.x.
+Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub depo.
+
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>Paketler - 2.x işlevleri
+
+İşlevler için 2.x, kullanım [Microsoft.Azure.WebJobs.Extensions.EventHubs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventHubs) paketi, sürüm 3.x.
+Paket için kaynak kodunu konusu [azure webjobs sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs) GitHub depo.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="trigger"></a>Tetikleyici
 
@@ -124,7 +132,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev olay hub'ı tetikleyicisi ileti gövdesini günlüğe kaydeder.
 
-Veri bağlama işte *function.json* dosyası:
+Aşağıdaki örnekler olay hub'ları içinde veri bağlama *function.json* dosya. İlk örnek içindir 1.x işlevler ve işlevleri için ikinci olandır 2.x. 
 
 ```json
 {
@@ -135,6 +143,16 @@ Veri bağlama işte *function.json* dosyası:
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+
 C# betik kod aşağıdaki gibidir:
 
 ```cs
@@ -188,7 +206,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 
 Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlev olay hub'ı tetikleyicisi ileti gövdesini günlüğe kaydeder.
 
-Veri bağlama işte *function.json* dosyası:
+Aşağıdaki örnekler olay hub'ları içinde veri bağlama *function.json* dosya. İlk örnek içindir 1.x işlevler ve işlevleri için ikinci olandır 2.x. 
 
 ```json
 {
@@ -196,6 +214,15 @@ Veri bağlama işte *function.json* dosyası:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -211,7 +238,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 
 Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev okur [olay meta verisini](#trigger---event-metadata) ve iletiyi günlüğe kaydeder.
 
-Veri bağlama işte *function.json* dosyası:
+Aşağıdaki örnekler olay hub'ları içinde veri bağlama *function.json* dosya. İlk örnek içindir 1.x işlevler ve işlevleri için ikinci olandır 2.x. 
 
 ```json
 {
@@ -219,6 +246,15 @@ Veri bağlama işte *function.json* dosyası:
   "name": "myEventHubMessage",
   "direction": "in",
   "path": "MyEventHub",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "myEventHubMessage",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "connection": "myEventHubReadConnectionAppSetting"
 }
 ```
@@ -236,8 +272,7 @@ module.exports = function (context, eventHubMessage) {
 };
 ```
 
-Bir toplu işlemde olayları alacak şekilde ayarlanmış `cardinality` için `many` içinde *function.json* dosyası:
-
+Bir toplu işlemde olayları alacak şekilde ayarlanmış `cardinality` için `many` içinde *function.json* aşağıdaki örneklerde gösterildiği gibi dosya. İlk örnek içindir 1.x işlevler ve işlevleri için ikinci olandır 2.x. 
 
 ```json
 {
@@ -245,6 +280,16 @@ Bir toplu işlemde olayları alacak şekilde ayarlanmış `cardinality` için `m
   "name": "eventHubMessages",
   "direction": "in",
   "path": "MyEventHub",
+  "cardinality": "many",
+  "connection": "myEventHubReadConnectionAppSetting"
+}
+```
+```json
+{
+  "type": "eventHubTrigger",
+  "name": "eventHubMessages",
+  "direction": "in",
+  "eventHubName": "MyEventHub",
   "cardinality": "many",
   "connection": "myEventHubReadConnectionAppSetting"
 }
@@ -289,8 +334,9 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**type** | yok | ayarlanmalıdır `eventHubTrigger`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır.|
 |**direction** | yok | ayarlanmalıdır `in`. Azure portalında tetikleyici oluşturduğunuzda, bu özelliği otomatik olarak ayarlanır. |
 |**Adı** | yok | İşlev kodu olay öğesinde temsil eden değişken adı. | 
-|**Yol** |**EventHubName** | Olay hub'ın adı. | 
-|**consumerGroup** |**ConsumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub olaylara abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. | 
+|**Yol** |**EventHubName** | Yalnızca 1.x çalışır. Olay hub'ın adı.  | 
+|**EventHubName** |**EventHubName** | Yalnızca 2.x çalışır. Olay hub'ın adı.  |
+|**ConsumerGroup** |**ConsumerGroup** | Ayarlar isteğe bağlı bir özellik [tüketici grubu](../event-hubs/event-hubs-features.md#event-consumers) hub olaylara abone olmak için kullanılır. Atlanırsa, `$Default` tüketici grubu kullanılır. | 
 |**Önem düzeyi** | yok | JavaScript için. Kümesine `many` toplu işleme etkinleştirmek için.  Atlanmış veya kümesine `one`, tek bir ileti işlevine geçirilen. | 
 |**Bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini [ad alanı](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), olay hub kendisini değil. Bu bağlantı dizesi en az tetikleyici etkinleştirmek için Okuma izinleriniz olmalıdır.|
 
@@ -349,13 +395,22 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 
 Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlev olay hub'ına bir ileti yazar.
 
-Veri bağlama işte *function.json* dosyası:
+Aşağıdaki örnekler olay hub'ları içinde veri bağlama *function.json* dosya. İlk örnek içindir 1.x işlevler ve işlevleri için ikinci olandır 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -390,13 +445,22 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 
 Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [F # işlevi](functions-reference-fsharp.md) bağlama kullanır. İşlev olay hub'ına bir ileti yazar.
 
-Veri bağlama işte *function.json* dosyası:
+Aşağıdaki örnekler olay hub'ları içinde veri bağlama *function.json* dosya. İlk örnek içindir 1.x işlevler ve işlevleri için ikinci olandır 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -415,13 +479,22 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 
 Aşağıdaki örnek, bağlama olay hub'ı tetikleyicisi gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır. İşlev olay hub'ına bir ileti yazar.
 
-Veri bağlama işte *function.json* dosyası:
+Aşağıdaki örnekler olay hub'ları içinde veri bağlama *function.json* dosya. İlk örnek içindir 1.x işlevler ve işlevleri için ikinci olandır 2.x. 
 
 ```json
 {
     "type": "eventHub",
     "name": "outputEventHubMessage",
     "path": "myeventhub",
+    "connection": "MyEventHubSendAppSetting",
+    "direction": "out"
+}
+```
+```json
+{
+    "type": "eventHub",
+    "name": "outputEventHubMessage",
+    "eventHubName": "myeventhub",
     "connection": "MyEventHubSendAppSetting",
     "direction": "out"
 }
@@ -479,7 +552,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**type** | yok | "EventHub" olarak ayarlanmalıdır. |
 |**direction** | yok | Out"için" olarak ayarlanmalıdır. Bu parametre, Azure portalında bağlama oluşturduğunuzda otomatik olarak ayarlanır. |
 |**Adı** | yok | Olay temsil eden işlevi kod içinde kullanılan değişken adı. | 
-|**Yol** |**EventHubName** | Olay hub'ın adı. | 
+|**Yol** |**EventHubName** | Yalnızca 1.x çalışır. Olay hub'ın adı.  | 
+|**EventHubName** |**EventHubName** | Yalnızca 2.x çalışır. Olay hub'ın adı.  |
 |**Bağlantı** |**Bağlantı** | Olay hub'ın ad bağlantı dizesi içeren bir uygulama ayarı adı. Tıklayarak bu bağlantı dizesini kopyalayın **bağlantı bilgilerini** için düğmesini *ad alanı*, olay hub kendisini değil. Bu bağlantı dizesi olay akışının ileti göndermek için Gönder izinleri olmalıdır.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

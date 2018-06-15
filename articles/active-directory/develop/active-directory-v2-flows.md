@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157703"
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 uç noktası için uygulama türleri
 Azure Active Directory (Azure AD) v2.0 uç tümünün endüstri standardı protokollerine dayalı modern uygulama mimarilerinin çeşitli kimlik doğrulamasını destekliyor [OAuth 2.0 veya Openıd Connect](active-directory-v2-protocols.md). Bu makalede, tercih edilen dilden veya platformdan bağımsız olarak Azure AD v2.0 kullanarak oluşturabileceğiniz uygulama türleri açıklanmaktadır. Bu makaledeki bilgileri, önce üst düzey senaryoları anlamanıza yardımcı olmak için tasarlanmış [kodu ile çalışma başlangıç](active-directory-appmodel-v2-overview.md#getting-started).
