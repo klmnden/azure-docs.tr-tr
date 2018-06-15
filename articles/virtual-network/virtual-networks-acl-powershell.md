@@ -1,6 +1,6 @@
 ---
-title: "Azure uç noktası erişim denetim listeleri yönetme | PowerShell | Klasik | Microsoft Docs"
-description: "PowerShell ile ACL yönetmeyi öğrenin"
+title: Azure uç noktası erişim denetim listeleri yönetme | PowerShell | Klasik | Microsoft Docs
+description: PowerShell ile ACL yönetmeyi öğrenin
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23928856"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>Uç noktası erişim denetim listeleri Klasik dağıtım modelinde PowerShell kullanarak yönetme
 Oluşturun ve ağ erişim denetimi listeleri (ACL'ler) uç noktaları için yönetim portalında veya Azure PowerShell kullanarak yönetin. Bu konuda, PowerShell kullanarak tamamlayabilirsiniz ACL ortak görevler için yordamlar bulabilirsiniz. Cmdlet'leri Azure PowerShell listesi için bkz [Azure Yönetimi cmdlet'leri](http://go.microsoft.com/fwlink/?LinkId=317721). ACL'ler hakkında daha fazla bilgi için bkz: [bir ağ erişim denetimi listesi (ACL) nedir?](virtual-networks-acl.md). Yönetim Portalı'nı kullanarak, ACL'ler yönetmek isterseniz bkz [ayarlamak yukarı uç noktaları için bir sanal makine nasıl](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

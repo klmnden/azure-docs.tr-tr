@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913799"
 ---
 # <a name="how-to-set-up-endpoints-on-a-classic-windows-virtual-machine-in-azure"></a>Azure Klasik Windows sanal makine üzerindeki uç noktaları kurma
 Tüm Windows Azure'da Klasik dağıtım modeli kullanarak oluşturduğunuz sanal makineleri otomatik olarak şunları yapabilecek özel ağ kanal diğer sanal makineler aynı bulut hizmetinde veya sanal ağ ile iletişim kurar. Ancak, Internet veya diğer sanal ağlardaki bilgisayarlara bir sanal makineye gelen ağ trafiğini yönlendirmek için uç noktalar gerektirir. Bu makalede ayrıca kullanılabilir [Linux sanal makineleri](../../linux/classic/setup-endpoints.md).

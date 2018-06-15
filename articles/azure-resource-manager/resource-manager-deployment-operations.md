@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359154"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Görünüm dağıtım işlemlerini Azure Resource Manager ile
 

@@ -1,4 +1,20 @@
-
+---
+title: include dosyası
+description: include dosyası
+services: app-service\mobile
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 05/25/2018
+ms.author: crdun
+ms.custom: include file
+ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34664025"
+---
 1. **Uygulama Hizmetleri** düğmesine tıklayın, Mobile Apps arka ucunuzu seçin, **Hızlı Başlangıç**’ı seçin ve ardından, istemci platformunuzu (iOS, Android, Xamarin, Cordova) seçin.
 
     ![Mobile Apps Hızlı Başlangıcın vurgulandığı Azure Portal][quickstart]
@@ -19,10 +35,10 @@
 
     ![Azure Portal bildirimi, "Bir veri bağlantınız zaten var"][already-connection]
 
-3. **2. Tablo API'si oluştur**'un altında **Arka uç dili** olarak Node.js seçeneğini belirleyin. 
- 
-4. Bildirimi kabul edin ve **TodoItem tablosu oluştur**’u seçin.  
-    Böylece veritabanınızda yeni bir yapılacaklar tablosu oluşturulur. 
+3. **2. Tablo API'si oluştur**'un altında **Arka uç dili** olarak Node.js seçeneğini belirleyin.
+
+4. Bildirimi kabul edin ve **TodoItem tablosu oluştur**’u seçin.
+    Böylece veritabanınızda yeni bir yapılacaklar tablosu oluşturulur.
 
     >[!IMPORTANT]
     > Mevcut bir arka uç Node.js'ye geçirildiğinde tüm içeriğin üzerine yazılır. Bunun yerine bir .NET arka ucu oluşturmak için bkz. [Mobile Apps için .NET arka uç sunucu SDK’siyle çalışma][instructions].

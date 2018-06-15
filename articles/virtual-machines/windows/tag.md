@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917508"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure'da Windows sanal makine etiketlemek nasıl
 Bu makalede Resource Manager dağıtım modeli aracılığıyla Azure'da Windows sanal makine etiketlemek için farklı yollar açıklanmaktadır. Etiketler doğrudan bir kaynağa veya bir kaynak grubu yerleştirilen kullanıcı tanımlı anahtar/değer çiftleridir. Azure şu anda kaynak ve kaynak grubu başına en fazla 15 etiketlerini destekler. Etiketler oluşturma sırasında bir kaynağa yerleştirilmiş veya mevcut bir kaynağı eklendi. Etiketler Resource Manager dağıtım modeli yalnızca oluşturulan kaynaklar için desteklendiğini unutmayın. Linux sanal makine etiketi istiyorsanız, bkz: [Azure'da bir Linux sanal makine etiketlemek nasıl](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

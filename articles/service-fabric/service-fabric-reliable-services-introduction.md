@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213189"
 ---
 # <a name="reliable-services-overview"></a>Reliable Services özelliğine genel bakış
 Azure Service Fabric, yazma ve durum bilgisiz ve durum bilgisi olan güvenilir hizmetler yönetme basitleştirir. Bu konu şunları içerir:

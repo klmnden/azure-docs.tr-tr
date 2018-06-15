@@ -1,11 +1,11 @@
 ---
-title: "Hyper-V sanal dizisinde StorSimple sağlama | Microsoft Docs"
-description: "StorSimple sanal dizinin dağıtım ikinci Bu öğreticide, Hyper-V sanal bir dizide sağlama içerir."
+title: Hyper-V sanal dizisinde StorSimple sağlama | Microsoft Docs
+description: StorSimple sanal dizinin dağıtım ikinci Bu öğreticide, Hyper-V sanal bir dizide sağlama içerir.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 4354963c-e09d-41ac-9c8b-f21abeae9913
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876596"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>StorSimple sanal dizinin - sağlama Hyper-v dağıtma
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)

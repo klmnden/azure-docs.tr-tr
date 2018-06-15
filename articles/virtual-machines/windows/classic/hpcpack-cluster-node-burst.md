@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30915117"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>İsteğe bağlı "aşırı" düğümleri Azure HPC Pack kümede ekleyin
 Ayarladığınız varsa bir [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) küme Azure üzerinde bir şekilde kolayca küme kapasite yukarı veya aşağı, önceden yapılandırılmış işlem düğümü VM'ler kümesi korumadan ölçek isteyebilirsiniz. Bu makalede, isteğe bağlı "aşırı" düğümleri (çalışan rolü örnekleri bir bulut hizmetinde çalışan) eklemek baş düğümüne Azure işlem kaynakları olarak gösterilmiştir. 

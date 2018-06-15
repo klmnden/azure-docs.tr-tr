@@ -1,12 +1,12 @@
 ---
-title: "Azure VPN ağ geçitleri ile yüksek oranda kullanılabilir yapılandırmaları genel bakış | Microsoft Docs"
-description: "Bu makalede Azure VPN Gateways kullanan yüksek oranda kullanılabilir yapılandırma seçeneklerine genel bakış sunulmaktadır."
+title: Azure VPN ağ geçitleri ile yüksek oranda kullanılabilir yapılandırmaları genel bakış | Microsoft Docs
+description: Bu makalede Azure VPN Gateways kullanan yüksek oranda kullanılabilir yapılandırma seçeneklerine genel bakış sunulmaktadır.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23928947"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Yüksek Oranda Kullanılabilir Şirket İçi ve Dışı ile Sanal Ağdan Sanal Ağa Bağlantı
 Bu makalede Azure VPN gateways kullanan şirket içi ve dışı ile Sanal Ağdan Sanal Ağa bağlantınız için Yüksek Oranda Kullanılabilir yapılandırma seçeneklerine genel bakış sunulmaktadır.

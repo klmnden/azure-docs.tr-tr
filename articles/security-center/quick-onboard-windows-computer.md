@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922782"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Hızlı Başlangıç: Windows bilgisayarları Azure Güvenlik Merkezi’ne ekleme
 Azure aboneliklerinizi ekledikten sonra Microsoft Monitoring Agent’ı sağlayarak Azure’ın dışında (örneğin, şirket içi ortamda veya diğer bulutlarda) çalışan kaynaklar için Güvenlik Merkezi’ni etkinleştirebilirsiniz.

@@ -1,11 +1,11 @@
 ---
-title: "Özellikleri ve Azure içeri/dışarı aktarma - v1 kullanarak meta verileri ayarlama | Microsoft Docs"
-description: "Özellikler ve hedef BLOB'ları üzerinde Azure içeri/dışarı aktarma Aracı çalıştırırken sürücülerinizin hazırlamak için ayarlanacak meta veri belirtin öğrenin. İçeri/Dışarı Aktarma Aracı'nın v1 başvuruyor."
+title: Özellikleri ve Azure içeri/dışarı aktarma - v1 kullanarak meta verileri ayarlama | Microsoft Docs
+description: Özellikler ve hedef BLOB'ları üzerinde Azure içeri/dışarı aktarma Aracı çalıştırırken sürücülerinizin hazırlamak için ayarlanacak meta veri belirtin öğrenin. İçeri/Dışarı Aktarma Aracı'nın v1 başvuruyor.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: e8541695-bcfb-4bf0-84d9-72c9de32a0a8
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873740"
 ---
 # <a name="setting-properties-and-metadata-during-the-import-process"></a>İçeri aktarma işlemi sırasında özellikleri ve meta verileri ayarlama
 Sürücülerinizin hazırlamak üzere Microsoft Azure içeri/dışarı aktarma aracı çalıştırdığınızda, özellikleri ve hedef BLOB'ları üzerinde ayarlamak için meta veriler belirtebilirsiniz. Şu adımları uygulayın:  

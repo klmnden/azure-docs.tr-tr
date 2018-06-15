@@ -10,9 +10,10 @@ ms.date: 05/17/2018
 ms.author: tamram
 ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
 ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34305115"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve sınama için Azure storage öykünücüsünü kullanma
 

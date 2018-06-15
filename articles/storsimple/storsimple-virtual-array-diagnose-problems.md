@@ -1,11 +1,11 @@
 ---
-title: "StorSimple sanal dizi sorunlarını giderme | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi'ni açıklar yetenek tanılamak ve StorSimple sanal dizinizi giderilir kullanımı açıklanmaktadır."
+title: StorSimple sanal dizi sorunlarını giderme | Microsoft Docs
+description: StorSimple cihaz Yöneticisi'ni açıklar yetenek tanılamak ve StorSimple sanal dizinizi giderilir kullanımı açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: manuaery
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 53f57d17-07af-457f-a0e8-741e52fbbc2a
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875259"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>StorSimple sanal dizinin sorun giderme için StorSimple cihaz Yöneticisi hizmetini kullanma
 ## <a name="overview"></a>Genel Bakış

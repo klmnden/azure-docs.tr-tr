@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell Betiği örnek - farklı bir bölgeye depolama hesabında VHD olarak verme/kopyalama anlık görüntü | Microsoft Docs"
-description: "Azure PowerShell Betiği örnek - bir depolama hesabı aynı farklı bölgede VHD olarak verme/kopyalama anlık görüntü"
+title: Azure PowerShell Betiği örnek - farklı bir bölgeye depolama hesabında VHD olarak verme/kopyalama anlık görüntü | Microsoft Docs
+description: Azure PowerShell Betiği örnek - bir depolama hesabı aynı farklı bölgede VHD olarak verme/kopyalama anlık görüntü
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -17,9 +17,10 @@ ms.date: 06/05/2017
 ms.author: ramankum
 ms.openlocfilehash: be21a891121df1d645b430d87b572cde6c945d61
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23879648"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>Dışa aktarma/yönetilen anlık görüntüler VHD farklı bir bölgeye PowerShell ile depolama hesabında kopyalama
 

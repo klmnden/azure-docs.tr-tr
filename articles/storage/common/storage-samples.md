@@ -1,6 +1,6 @@
 ---
-title: "Azure depolama kod örnekleri | Microsoft Docs"
-description: "Görüntülemek, indirin ve örnek kod ve uygulamaları için Azure Storage çalıştırın. BLOB, kuyruklar, tablolar ve dosyaları için .NET, Java, Node.js ve C++ için depolama istemcisi kitaplıklarını kullanarak örnek Başlarken bulur."
+title: Azure depolama kod örnekleri | Microsoft Docs
+description: Görüntülemek, indirin ve örnek kod ve uygulamaları için Azure Storage çalıştırın. BLOB, kuyruklar, tablolar ve dosyaları için .NET, Java, Node.js ve C++ için depolama istemcisi kitaplıklarını kullanarak örnek Başlarken bulur.
 services: storage
 documentationcenter: na
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927456"
 ---
 # <a name="azure-storage-samples"></a>Azure Depolama örnekleri
 

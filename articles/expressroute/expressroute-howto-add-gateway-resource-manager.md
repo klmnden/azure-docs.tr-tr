@@ -1,11 +1,11 @@
 ---
-title: "ExpressRoute için bir sanal ağa bir sanal ağ geçidi eklemek: PowerShell: Azure | Microsoft Docs"
-description: "Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i ExpressRoute için sanal ağ geçidine eklerken size yol gösterilir."
+title: 'ExpressRoute için bir sanal ağa bir sanal ağ geçidi eklemek: PowerShell: Azure | Microsoft Docs'
+description: Bu makalede önceden oluşturulmuş bir Resource Manager Vnet'i ExpressRoute için sanal ağ geçidine eklerken size yol gösterilir.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 63e0bd60-abad-4963-8e27-3aa973e0d968
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23850626"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>PowerShell kullanarak ExpressRoute için sanal ağ geçidi yapılandırma
 > [!div class="op_single_selector"]

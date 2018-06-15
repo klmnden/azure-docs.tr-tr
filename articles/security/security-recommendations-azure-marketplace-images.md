@@ -1,11 +1,11 @@
 ---
-title: "Azure Market görüntülerini için güvenlik önerilerini | Microsoft Docs"
-description: "Bu makalede Pazar yerinde dahil görüntüleri için öneriler"
+title: Azure Market görüntülerini için güvenlik önerilerini | Microsoft Docs
+description: Bu makalede Pazar yerinde dahil görüntüleri için öneriler
 services: security
 documentationcenter: na
 author: barclayn
 manager: MBaldwin
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23931138"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Market görüntüleri için güvenlik önerileri
 

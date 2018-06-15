@@ -1,11 +1,11 @@
 ---
-title: "İş ortağı çözümleri Azure Güvenlik Merkezi'nde bağlı yönetme | Microsoft Docs"
-description: "Bu belge, Azure Güvenlik Merkezi'nin Azure aboneliğinizle tümleşik iş ortağı çözümlerinizin sistem durumunu bir bakışta nasıl izleyeceğiniz konusunda size rehberlik sağlar."
+title: İş ortağı çözümleri Azure Güvenlik Merkezi'nde bağlı yönetme | Microsoft Docs
+description: Bu belge, Azure Güvenlik Merkezi'nin Azure aboneliğinizle tümleşik iş ortağı çözümlerinizin sistem durumunu bir bakışta nasıl izleyeceğiniz konusunda size rehberlik sağlar.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23891030"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Azure Güvenlik Merkezi ile bağlı iş ortağı çözümlerini yönetme
 Bu makalede, Azure Güvenlik Merkezi'nde bağlı güvenlik çözümleri izlemek ve yönetmek nasıl açıklanmaktadır.

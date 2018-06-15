@@ -1,11 +1,11 @@
 ---
 title: StorSimple sanal dizisi dosya sunucusu olarak ayarlama | Microsoft Docs
-description: "StorSimple sanal dizinin dağıtım üçüncü Bu öğreticide, bir sanal cihaz dosya sunucusu olarak ayarlamak için bildirir."
+description: StorSimple sanal dizinin dağıtım üçüncü Bu öğreticide, bir sanal cihaz dosya sunucusu olarak ayarlamak için bildirir.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927827"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple sanal dizinin - kümesi yukarı Azure portal aracılığıyla dosya sunucusu olarak dağıtma
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)

@@ -1,26 +1,21 @@
 ---
-title: "Azure’dan Windows Server’a dosya kurtarma | Microsoft Docs"
-description: "Bu öğretici, Azure’dan Windows Server’a öğelerin kurtarılmasını açıklar."
+title: Azure’dan Windows Server’a dosya kurtarma
+description: Bu öğretici, Azure’dan Windows Server’a öğelerin kurtarılmasını açıklar.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-keywords: "windows server yedekleme; windows server’a dosyaları geri yükleme; yedekleme ve olağanüstü durum kurtarma"
-ms.assetid: 
+keywords: windows server yedekleme; windows server’a dosyaları geri yükleme; yedekleme ve olağanüstü durum kurtarma
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607030"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Azure’dan Windows Server’a dosya kurtarma
 

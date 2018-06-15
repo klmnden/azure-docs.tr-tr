@@ -4,28 +4,29 @@ description: SAP HANA (büyük örnekler) Azure üzerinde kullanmak için gerekl
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763774"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>SAP HANA (büyük örnekler) altyapısı ve Azure ile ilgili bağlantı 
 
 Bu kılavuzu okuduktan önce bazı tanımları önceden. İçinde [SAP HANA (büyük örnekler) genel bakış ve Azure ile ilgili mimari](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) ile HANA büyük örneği birimlerin farklı iki sınıf gösterdiğimizi:
 
-- S72, S72m, S144, S144m, S192 ve adlandırdığımız 'ı sınıf türü olarak' S192m SKU.
-- S384, S384m, S384xm, S576m, S768m ve adlandırdığımız 'Type II sınıfı' SKU'ları S960m.
+- S72, S72m, S144, S144m, S192, S192m ve adlandırdığımız 'ı sınıf türü olarak' S192xm SKU.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm ve adlandırdığımız 'Type II sınıfı' SKU'ları S960m.
 
 Sınıfı tanımlayıcıları HANA büyük örnek belge boyunca sonunda farklı özellikleri ve gereksinimleri HANA büyük örneği SKU'larında dayalı kullanılabilir olacak.
 
@@ -213,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Bu örnekte, HighPerformance ağ geçidi SKU'su kullanıldı. Seçenekleriniz, SAP HANA azure'da (büyük örnekler) için desteklenen SKU'ları yalnızca ağ geçidi olarak HighPerformance veya UltraPerformance şunlardır.
 
 > [!IMPORTANT]
-> SKU büyük örneklerini HANA S384, S384m, S384xm, S576m, S768m ve S960m türleri için (tür II sınıfı SKU) UltraPerformance ağ geçidi SKU'su kullanımını zorunludur.
+> HANA büyük örnekleri için SKU türü II classs, UltraPerformance ağ geçidi SKU'su kullanımını zorunludur.
 
 ### <a name="linking-vnets"></a>Sanal ağları bağlama
 

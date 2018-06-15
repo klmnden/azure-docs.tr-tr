@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 0b78ed6cdb1209d70cf0d561f74cfcddc09b2391
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 72fb594265e69eb1dc16cb29ad4df6acb3a87720
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34663636"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>Uygulamanızı AD kiracınıza kaydetme
 İlk olarak, uygulamanızı Azure Active Directory (Azure AD) kiracınıza kaydetmeniz gerekir. Bu, uygulamanıza bir Uygulama Kimliği verir ve uygulamanızın belirteçleri alabilmesini sağlar.
 
 * [Azure Portal](https://portal.azure.com) oturum açın.
 * Sayfanın sağ üst köşesinde hesabınıza tıklayarak Azure AD kiracınızı seçin.
-* Sol Gezinti Bölmesi'nde tıklayın **Azure Active Directory**.
+* Sol taraftaki gezinti bölmesinde, **Azure Active Directory**’ye tıklayın.
 * Tıklayın **uygulama kayıtlar** ve tıklayın **yeni uygulama kaydı**.
 * Komut istemlerini izleyin ve yeni bir uygulama oluşturun. Bu öğretici için oluşturduğunuz uygulamanın web uygulaması veya yerel uygulama olması önemli değildir, ancak web uygulamaları veya yerel uygulamalar için belirli örnekler görmek istiyorsanız [hızlı başlangıç](../articles/active-directory/develop/active-directory-developers-guide.md) bölümümüze bakabilirsiniz.
   * Web uygulamaları için sağlamak **oturum açma URL'si**, kullanıcılar, örneğin,'burada oturum açabilir, uygulamanızın temel URL olduğu `http://localhost:12345`.

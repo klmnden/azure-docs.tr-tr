@@ -128,6 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: Ağ kaynaklarını yönetme
           href: azure-stack-viewing-public-ip-address-consumption.md
+        - name: Yeni kullanıcı abonelik sahibi
+          href: azure-stack-change-subscription-owner.md
         - name: Windows Azure Paketi VM’lerini yönetme
           href: azure-stack-manage-windows-azure-pack.md
         - name: Azure yığın durdurup başlatın
@@ -189,6 +191,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: Gizli anahtarları döndürme
           href: azure-stack-rotate-secrets.md
+        - name: Virüsten koruma güncelleştirme
+          href: azure-stack-security-av.md
     - name: Hizmet sunma
       items:
         - name: Hizmet sunmaya genel bakış
@@ -216,7 +220,7 @@
           items:
             - name: SQL Server Kaynak sağlayıcısı dağıtma
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: Barındırma sunucuları ekleme
+            - name: SQL barındırma sunucuları ekleme
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL veritabanı oluşturma
               href: azure-stack-sql-resource-provider-databases.md
@@ -227,7 +231,20 @@
             - name: SQL Server Kaynak sağlayıcısını kaldırma
               href: azure-stack-sql-resource-provider-remove.md
         - name: MySQL PaaS teklifi
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: MySQL Server Kaynak sağlayıcısı dağıtma
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: MySQL barındırma sunucuları ekleme
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: MySQL veritabanı oluşturma
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: MySQL Server Kaynak sağlayıcısını güncelle
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: MySQL Server Kaynak sağlayıcısı koru
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: MySQL Server Kaynak sağlayıcısını kaldırma
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: PaaS olarak App Service teklifi
           items:
             - name: Azure Stack’te App Service’e genel bakış

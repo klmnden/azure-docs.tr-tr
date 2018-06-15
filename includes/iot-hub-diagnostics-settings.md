@@ -1,7 +1,24 @@
+---
+title: include dosyası
+description: include dosyası
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 1c7f006c066a4f1505a642af04a1ef027fde0a44
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34666951"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Tanılama ayarları ile günlük kaydını etkinleştir
 
 1. Oturum [Azure portal] [ lnk-portal] ve IOT Hub'ına gidin.
-1. Seçin **tanılama ayarlarını**.
+1. Seçin **tanılama ayarları**.
 1. Seçin **tanılamayı açın**.
 
    ![Tanılamayı açma][1]

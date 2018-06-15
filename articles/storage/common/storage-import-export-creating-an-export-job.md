@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363256"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Azure içeri/dışarı aktarma hizmeti için bir dışa aktarma işi oluşturma
 REST API kullanarak Microsoft Azure içeri/dışarı aktarma hizmeti için bir dışarı aktarma işinin oluşturma, aşağıdaki adımları içerir:

@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360062"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Tanım LoadBalancerProbe şeması Azure bulut Hizmetleri
 Yük Dengeleyici araştırmasını bir müşteri tanımlı sistem durumu araştırması UDP uç noktaları ve rol örnekleri uç noktalarını ' dir. `LoadBalancerProbe` Bir tek başına öğe; değil web rolü veya bir hizmet tanımı dosyasında çalışan rolü ile birleştirilir. A `LoadBalancerProbe` birden fazla rol tarafından kullanılabilir.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34267513"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Uygulamanızı Azure'a dağıtmak için Habitat kullanın
 [Habitat](https://www.habitat.sh/) ilk tür, açık kaynaklı projenin, uygulama yönetimi için tamamen yeni bir yaklaşım sunmaktadır. Habitat uygulama ve onun Otomasyon dağıtım birimidir yapar. Uygulamalar bir basit "habitat içinde" sarılır, çalışma zamanı ortamı bir kapsayıcı, çıplak metal veya PaaS, olup artık odak noktasıdır ve uygulama kısıtlamaz. 
