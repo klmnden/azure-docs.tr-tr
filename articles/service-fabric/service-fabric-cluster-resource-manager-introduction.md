@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210605"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric kümesi Kaynak Yöneticisi'ni Tanıtımı
 Geleneksel BT sistemleri veya çevrimiçi hizmetleri yönetmek için kullanılan belirli bir fiziksel veya sanal makineleri bu belirli hizmetleri veya sistemleri ayrılması anlamına gelir. Hizmetleri katmanları tasarlanmış. "Web" bir katman ve "verileri" veya "depolama" katman olacaktır. Uygulamaları burada istekleri giriş ve çıkış önbelleğe alma için ayrılmış makineler kümesi yanı sıra aktarılan bir Mesajlaşma katmanına sahip olması gerekir. Her katman veya iş yükü türünü belirli makineler için ayrılmış vardı: veritabanı, web sunucuları az bir adanmış birkaç makineler aldı. Belirli türde bir iş yükü için olan makineler neden olursa o aynı yapılandırmaya sahip daha fazla makine bu katmana eklenen sonra çok sıcak çalıştırın. Ancak, tüm iş yüklerinin çıkışı kolay ölçeklendirilmesi - özellikle veri katmanı ile genellikle daha büyük makineler makinelerle değiştirirsiniz. Kolay. Bir makine başarısız olursa, genel uygulama kısmı makine geri kadar düşük kapasitede verdi. Hala oldukça kolay (değil mutlaka eğlenceli değilse).

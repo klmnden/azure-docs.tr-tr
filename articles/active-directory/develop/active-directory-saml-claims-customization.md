@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156917"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen talepler özelleştiriliyor
 Bugün Azure Active Directory çoklu oturum açma üzerinde Azure AD uygulama galerisinde yanı sıra özel uygulamalar önceden tümleştirilmiş her iki uygulamayı da dahil olmak üzere çoğu kuruluş uygulamalarıyla destekler. SAML 2.0 protokolü kullanarak Azure AD üzerinden bir uygulama için kullanıcı kimliği doğruladığında, Azure AD bir belirteç (aracılığıyla bir HTTP POST) uygulamaya gönderir. Ve daha sonra uygulama doğrular ve bir kullanıcı adı ve parola istemek yerine kullanıcı oturum belirteci kullanır. Bu SAML belirteçleri "talep" olarak bilinen kullanıcı hakkında bilgi içerir.

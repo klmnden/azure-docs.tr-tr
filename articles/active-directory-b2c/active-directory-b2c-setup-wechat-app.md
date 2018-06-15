@@ -1,26 +1,26 @@
 ---
-title: 'Azure Active Directory B2C: WeChat yapılandırma | Microsoft Docs'
+title: Azure Active Directory B2C WeChat yapılandırmasında | Microsoft Docs
 description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan WeChat hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: ca12c84042f92dafff67dc10ce6b56b77c0456eb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: bbdeccbdd0d6786fdf32fc2f547344b379bd0d7c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712496"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma WeChat hesaplarıyla tüketicileri sağlayın
 
 > [!NOTE]
-> Bu özelliğin önizlemede değil.
+> Bu özellik önizlemede.
 > 
 
 ## <a name="create-a-wechat-application"></a>WeChat uygulaması oluşturma
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) B2C içinde kimlik sağlayıcısı WeChat kull
 
 ### <a name="register-a-wechat-application"></a>WeChat uygulamayı Kaydet
 
-1. Git [ https://open.weixin.qq.com/ ](https://open.weixin.qq.com/) ve oturum açın.
+1. [https://open.weixin.qq.com/](https://open.weixin.qq.com/) adresine gidin ve oturum açın.
 2. Tıklayın**管理中心**(Yönetim Merkezi).
 3. Yeni bir uygulama kaydetmek için gerekli adımları uygulayın.
 4. İçin**授权回调域**(geri çağırma URL'si) girin `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp`. Örneğin, varsa, `tenant_name` olan contoso.onmicrosoft.com, URL olması için ayarlama `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.

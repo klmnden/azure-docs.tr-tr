@@ -1,6 +1,6 @@
 ---
-title: "Hedef ortamı VMware çoğaltma Azure için hazırlama | Microsoft Docs"
-description: "Bu makalede, Azure ortamı VMware VM çoğaltma Azure için hedef hazırlama açıklar."
+title: Hedef ortamı VMware çoğaltma Azure için hazırlama | Microsoft Docs
+description: Bu makalede, Azure ortamı VMware VM çoğaltma Azure için hedef hazırlama açıklar.
 services: site-recovery
 author: bsiva
 manager: abhemraj
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812638"
 ---
 # <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>Azure'da VMware çoğaltma işlemini hedef ortamını hazırlayın
 

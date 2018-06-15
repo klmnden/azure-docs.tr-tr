@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209364"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Windows Server için Service Fabric tek başına paketinin içeriği
 İçinde [indirilen](http://go.microsoft.com/fwlink/?LinkId=730690) Service Fabric tek başına paket, aşağıdaki dosyaları bulacaksınız:

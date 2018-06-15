@@ -1,26 +1,26 @@
 ---
-title: GitHub kimlik sağlayıcı yapılandırması - Azure AD B2C | Microsoft Docs
+title: Azure Active Directory B2C'de GitHub kimlik sağlayıcı yapılandırması | Microsoft Docs
 description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan GitHub hesaplarıyla müşterilere kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: ''
-author: davidmu
+author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: davidmu
-ms.openlocfilehash: 17ec4ebd8406f56c431666340ca8834c5ccf9670
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 16c7f34c00bbd5bd0c2be53df2b781a1852b84ff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712217"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-github-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma GitHub hesaplarıyla tüketicileri sağlayın
 
 > [!NOTE]
-> Bu özelliğin önizlemede değil.
+> Bu özellik önizlemede.
 > 
 
 Bu makalede, oturum açma GitHub hesabı olan kullanıcılar için etkinleştirme gösterilmektedir.

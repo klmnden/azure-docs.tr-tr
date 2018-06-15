@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211659"
 ---
 # <a name="configure-the-upgrade-of-a-service-fabric-application-in-visual-studio"></a>Visual Studio'da bir Service Fabric uygulama yükseltme yapılandırın
 Azure Service Fabric için Visual Studio Araçları, yerel veya uzak kümelerine yayımlama için yükseltme desteği sağlar. Uygulamanızı test ve hata ayıklama sırasında uygulama değiştirme yerine daha yeni bir sürüme yükseltmek istediğiniz üç senaryo vardır:

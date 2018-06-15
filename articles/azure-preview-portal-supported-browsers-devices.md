@@ -21,6 +21,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165120"
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Desteklenen tarayıcılar ve cihazlar için Azure portalı
 Çalıştırabilirsiniz [Azure portal](https://portal.azure.com) tüm modern masaüstünde, aygıtları ve tarayıcılar tablet.

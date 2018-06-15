@@ -1,6 +1,6 @@
 ---
-title: "Azure yığın datacenter tümleştirmesi - güvenlik"
-description: "Azure yığın güvenlik, veri merkezi güvenliği tümleştirmek öğrenin"
+title: Azure yığın datacenter tümleştirmesi - güvenlik
+description: Azure yığın güvenlik, veri merkezi güvenliği tümleştirmek öğrenin
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -9,12 +9,13 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
+keywords: ''
 ms.openlocfilehash: 8ce9045a3e4fd12d61e9b1600ee98880762bc544
 ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29734436"
 ---
 # <a name="azure-stack-datacenter-integration---security"></a>Azure yığın datacenter tümleştirmesi - güvenlik
 Azure yığın tasarlanmış ve güvenlik göz önünde bulundurularak ile yapılandırılır. Azure yığın kilitli sistem olduğundan, yazılım güvenlik aracı yükleme desteklenmiyor.

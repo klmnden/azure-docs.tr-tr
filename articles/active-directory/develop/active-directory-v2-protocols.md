@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156230"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0 protokolleri - OAuth 2.0 & Openıd Connect
 V2.0 uç noktası kimlik olarak-hizmet endüstri standardı protokolleri, Openıd Connect ve OAuth 2.0 ile Azure AD kullanabilirsiniz. Hizmet standartlara uygun olsa da, bu protokollerin herhangi iki uygulamaları arasındaki küçük farklılıklar olabilir. Burada yer alan bilgiler doğrudan göndererek kodunuzu yazmak isterseniz yararlı olacak & HTTP işleme istekleri ya da birini kullanarak yerine 3 taraf açık kaynak kitaplık kullanmak bizim [açık kaynak kitaplıkları](active-directory-v2-libraries.md).

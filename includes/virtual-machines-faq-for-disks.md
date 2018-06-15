@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bf0853b137e65ddd6ad40483c50fc8debb62f920
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826557"
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414578"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure Iaas sanal diskler ve yönetilen ve yönetilmeyen premium diskler hakkında sık sorulan sorular
 
@@ -45,13 +45,9 @@ Yönetilen premium diskleri fiyatlandırma yönetilmeyen premium diskleri aynı 
 
 Evet. Azure portalı, PowerShell veya Azure CLI kullanarak yönetilen disklerinizi depolama hesabı türünü değiştirebilirsiniz.
 
-**I kopyalayın veya böylelikle bir özel depolama hesabına yönetilen bir disk verme bir yolu var mı?**
-
-Evet. Azure portalı, PowerShell veya Azure CLI kullanarak yönetilen disklerinizi dışarı aktarabilirsiniz.
-
 **Farklı bir abonelik ile yönetilen bir disk oluşturmak için Azure storage hesabı VHD dosyasında kullanabilir miyim?**
 
-Hayır.
+Evet.
 
 **Farklı bir bölgede yönetilen bir disk oluşturmak için Azure storage hesabı VHD dosyasında kullanabilir miyim?**
 
@@ -59,7 +55,7 @@ Hayır.
 
 **Yönetilen diskler kullanan müşteriler için ölçek sınırlamalar var mı?**
 
-Yönetilen diskleri depolama hesaplarıyla ilişkili sınırları ortadan kaldırır. Ancak, en üst sınıra ve varsayılan sınır, bir abonelik için disk türünü ve bölge başına 10.000 yönetilen diskleri olur.
+Yönetilen diskleri depolama hesaplarıyla ilişkili sınırları ortadan kaldırır. Ancak, üst sınırı 50. 000'yönetilen diskler bir abonelik için disk türünü ve bölge başına ' dir.
 
 **Yönetilen bir diskin artımlı bir anlık görüntüsünü alın?**
 
@@ -95,7 +91,7 @@ Diskleri desteklediği üç anahtar varsayılan rol yönetilen:
 
 **I kopyalayın veya böylelikle bir özel depolama hesabına yönetilen bir disk verme bir yolu var mı?**
 
-Yönetilen disk için bir salt okunur paylaşılan erişim imzası URI alın ve içeriği özel depolama hesabı veya şirket içi depolama birimine kopyalamak için kullanın.
+Yönetilen disk için salt okunur paylaşılan erişim imzası (SAS) URI oluşturmak ve içeriği özel depolama hesabı veya şirket içi depolama birimine kopyalamak için kullanın. Azure portal, Azure PowerShell, Azure CLI kullanarak SAS URI'sini kullanabilirsiniz veya [AzCopy](../articles/storage/common/storage-use-azcopy.md)
 
 **Yönetilen my disk kopyasını oluşturabilir miyim?**
 

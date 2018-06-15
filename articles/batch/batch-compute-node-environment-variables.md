@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30312710"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure toplu işlem düğüm ortam değişkenleri
 [Azure Batch hizmeti](https://azure.microsoft.com/services/batch/) işlem düğümlerinde aşağıdaki ortam değişkenlerini ayarlar. Bu ortam değişkenleri görev komut satırları ve programları başvurusu yapabilir ve komut dosyaları tarafından komut satırları çalıştırmak.

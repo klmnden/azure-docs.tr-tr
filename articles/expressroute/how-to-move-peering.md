@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30314308"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Bir ortak Microsoft eşlemesi için eşleme taşıma
 

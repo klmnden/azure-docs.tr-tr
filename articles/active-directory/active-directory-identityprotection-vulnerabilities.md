@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713703"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması tarafından algılanan güvenlik açığı
 Güvenlik açıkları zayıf bir saldırgan tarafından yararlanılabilir ortamınızda giderilmiştir. Kuruluşunuzun güvenlik tutumunu artırmak için bu güvenlik açıklarına ve bunları yararlanmasını saldırganların önlemeye öneririz.
@@ -34,20 +36,20 @@ Aşağıdaki bölümler kimlik koruması tarafından bildirilen güvenlik açık
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Çok faktörlü kimlik doğrulaması kaydı yapılandırılmadı
 Bu güvenlik açığından, kuruluşunuzda Azure multi-Factor Authentication dağıtımı denetlemenize yardımcı olur. 
 
-Azure çok faktörlü kimlik doğrulaması ikinci bir kullanıcı kimlik doğrulaması için güvenlik katmanı sağlar. Bu basit bir oturum açma işlemi için kullanıcı talebine buluştururken veri ve uygulamalara erişimi korunmasına yardımcı. Kolay doğrulama seçeneklerini çeşitli aracılığıyla güçlü kimlik doğrulaması sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve 3. taraf OATH belirteçleri.
+Azure çok faktörlü kimlik doğrulaması ikinci bir kullanıcı kimlik doğrulaması için güvenlik katmanı sağlar. Bu basit bir oturum açma işlemi için kullanıcı talebine buluştururken veri ve uygulamalara erişimi korunmasına yardımcı. Kolay doğrulama seçeneklerini çeşitli aracılığıyla güçlü kimlik doğrulaması sunar — telefon araması, SMS mesajı veya mobil uygulama bildirimi veya doğrulama kodu ve üçüncü taraf OATH belirteçleri.
 
 Azure multi-Factor Authentication kullanıcı oturum açma işlemleri için gerekli öneririz. Çok faktörlü kimlik doğrulaması risk bağlı olarak koşullu erişim ilkelerindeki kimlik koruması kullanılabilir önemli bir rol oynar.
 
-Daha fazla ayrıntı için bkz: [Azure multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md)
+Daha fazla bilgi için bkz: [Azure multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Yönetilmeyen bulut uygulamaları
 Bu güvenlik açığından kuruluşunuzdaki yönetilmeyen bulut uygulamaları tanımlamasına yardımcı olur.
 
 Modern kuruluşlarda, BT departmanları genellikle kuruluşlarındaki kullanıcılar işlerini yapmak için kullandığınız tüm bulut uygulamaları farkında değildir. Yöneticileri Kurumsal verileri, olası veri sıkıntılarına ve diğer güvenlik risklerine yetkisiz erişimi endişeniz neden olurdu görmek kolaydır. 
 
-Kuruluşunuzun Cloud App Discovery yönetilmeyen bulut uygulamaları bulmak ve Azure Active Directory'yi kullanarak bu uygulamaları yönetmek için dağıtmanızı öneririz.
+Cloud App Discovery yönetilmeyen bulut uygulamaları bulmak ve Azure Active Directory'yi kullanarak bu uygulamaları yönetmek için dağıtmak için öneririz.
 
-Daha fazla ayrıntı için bkz: [Cloud App Discovery ile yönetilmeyen bulut uygulamaları bulma](manage-apps/cloud-app-discovery.md).
+Daha fazla bilgi için bkz: [Cloud App Discovery ile yönetilmeyen bulut uygulamaları bulma](manage-apps/cloud-app-discovery.md).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management'tan Güvenlik Uyarıları
 Bu güvenlik açığından bulmak ve uyarılar, kuruluşunuzda ayrıcalıklı kimlikleri hakkında çözümlemenize yardımcı olur.  
@@ -56,7 +58,7 @@ Ayrıcalıklı işlemleri gerçekleştirmek kullanıcıları etkinleştirmek iç
 
 Kuruluşunuz, denetimi yönetmek için Azure AD Privileged Identity Management kullanır ve Office 365 veya Microsoft Intune gibi diğer Microsoft online services yanı sıra kimlikleri ve bunların Azure ad'deki kaynaklara erişimi İzleyici ayrıcalıklı öneririz.
 
-Daha fazla ayrıntı için bkz: [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+Daha fazla bilgi için bkz: [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Active Directory kimlik koruması](active-directory-identityprotection.md)

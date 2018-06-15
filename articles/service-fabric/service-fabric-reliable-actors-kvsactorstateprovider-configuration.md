@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208269"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Güvenilir aktörler--KVSActorStateProvider yapılandırma
 Belirtilen aktör için Microsoft Visual Studio Paketi kök yapılandırma klasörü altında oluşturulan settings.xml dosyasını değiştirerek KVSActorStateProvider varsayılan yapılandırmasını değiştirebilirsiniz.

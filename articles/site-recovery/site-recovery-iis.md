@@ -1,6 +1,6 @@
 ---
-title: "Çok katmanlı bir Azure Site RECOVERY'yi kullanarak IIS tabanlı web uygulamasının çoğaltmak | Microsoft Docs"
-description: "Azure Site Recovery kullanarak IIS web grubu sanal makineleri çoğaltmak öğrenin."
+title: Çok katmanlı bir Azure Site RECOVERY'yi kullanarak IIS tabanlı web uygulamasının çoğaltmak | Microsoft Docs
+description: Azure Site Recovery kullanarak IIS web grubu sanal makineleri çoğaltmak öğrenin.
 services: site-recovery
 author: nsoneji
 manager: gauravd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29809429"
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application"></a>Çok katmanlı bir IIS tabanlı web uygulamasının Çoğalt
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 9a8e4e95f2f4de6475243de196519d94e87a9297
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85919ccdc13ab363b32e593159abe54498ca98c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702042"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesi silme
 
@@ -31,7 +32,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
 - Portalı'nı kullanarak, açık https://portal.azure.com, olan bir hesapla oturum [gerekli izinleri](#permissions) eşlemeler ile çalışmak için.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.7.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `Connect-AzureRmAccount` sahip bir hesap ile [gerekli izinleri](#permissions) Azure ile bir bağlantı oluşturmak için eşliği ile çalışmak için.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `Connect-AzureRmAccount` sahip bir hesap ile [gerekli izinleri](#permissions) Azure ile bir bağlantı oluşturmak için eşliği ile çalışmak için.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.31 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` sahip bir hesap ile [gerekli izinleri](#permissions) Azure ile bir bağlantı oluşturmak için eşliği ile çalışmak için.
 
 Hesap oturum açın veya ile azure'a bağlanmak için atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
@@ -115,6 +116,7 @@ Bazen iletişim kurmak için sanal ağlar istiyor, ancak her zaman, bir eşleme 
     - Sanal ağlar, tüm Azure genel bulut bölgelerdeki, ancak Azure Ulusal Bulutlar bulunabilir.
     - Bir sanal ağ kaynaklarında Azure iç yük dengeleyiciye eşlenen sanal ağdaki IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve onunla iletişim kaynakları aynı sanal ağda olması gerekir.
     - Uzak ağ geçitlerini kullanan veya ağ geçidi transit izin verin. Uzak ağ geçitleri kullanın veya ağ geçidi transit izin vermek için her iki sanal ağ eşlemesi içindeki aynı bölgede bulunması gerekir. 
+    - Aşağıdaki VM türler yoluyla genel eşlenen sanal ağlar üzerinden iletişimi desteklenmiyor: [yüksek performanslı bilgi işlem](../virtual-machines/windows/sizes-hpc.md) ve [GPU](../virtual-machines/windows/sizes-gpu.md). Bu, H, NC, NV, NCv2, NCv3 ve ND serisi VM'ler içerir.
 - Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Sanal ağlar farklı Aboneliklerde olduğunda, her iki aboneliğin aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracıları için ilişkili farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
 - Eş sanal ağlar, IP adresi alanları çakışmayan olması gerekir.
 - Adres aralıklarına ekleyemez veya başka bir sanal ağ ile sanal ağ eşlendikten sonra bir sanal ağın adres alanından adres aralıklarını silin. Adres aralıklarını kaldırmak, eşlemesini silmek, eklediğinizde veya adres aralıklarını kaldırmak için ardından eşliği yeniden oluşturun. Adres aralıklarını ekleyin ya da sanal ağlardan adres aralıklarını kaldırmak için bkz: [sanal ağlarını yönetmeleri](manage-virtual-network.md).
@@ -161,6 +163,6 @@ Hesabınızı önceki rollerinden birini atanmamışsa, atanmalıdır bir [özel
     |Biri Resource Manager, diğeri klasik  |[Aynı](create-peering-different-deployment-models.md)|
     |                                   |[Farklı](create-peering-different-deployment-models-subscriptions.md)|
 
-* [Merkez ve uç ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering) oluşturmayı öğrenin
+* [Merkez ve uç ağ topolojisi](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json) oluşturmayı öğrenin
 * Kullanarak bir sanal ağ eşlemesi oluşturma [PowerShell](powershell-samples.md) veya [Azure CLI](cli-samples.md) örnek komut dosyaları veya Azure kullanarak [Resource Manager şablonları](template-samples.md)
 * Oluşturma ve uygulama [Azure ilke](policy-samples.md) sanal ağlar için

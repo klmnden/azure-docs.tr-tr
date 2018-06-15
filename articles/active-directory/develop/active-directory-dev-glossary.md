@@ -18,9 +18,10 @@ ms.author: celested
 ms.custom: aaddev
 ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
 ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158158"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda faydalıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.

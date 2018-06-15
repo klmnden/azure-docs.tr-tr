@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212900"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>Aktör hizmetinizi hizmet düzeyi özelliklerini uygulama
 Bölümünde açıklandığı gibi [hizmet katmanlarını](service-fabric-reliable-actors-platform.md#service-layering), aktör hizmeti güvenilir bir hizmettir.  Türetilen kendi hizmet yazabilirsiniz `ActorService` ve hizmet düzeyi özellikler StatefulService, gibi devralırken yaptığınız şekilde uygular:

@@ -1,4 +1,4 @@
-# [Azure AD Etki Alanı Hizmetleri Belgeleri](index.md)
+# [Azure AD Etki Alanı Hizmetleri Belgeleri](index.yml)
 
 # Genel Bakış
 ## [Azure AD Etki Alanı Hizmetleri nedir?](active-directory-ds-overview.md)

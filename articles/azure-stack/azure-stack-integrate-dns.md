@@ -1,6 +1,6 @@
 ---
-title: "Azure yığın datacenter tümleştirmesi - DNS"
-description: "Azure yığın DNS'yi veri merkeziniz ile DNS tümleştirme öğrenin"
+title: Azure yığın datacenter tümleştirmesi - DNS
+description: Azure yığın DNS'yi veri merkeziniz ile DNS tümleştirme öğrenin
 services: azure-stack
 author: jeffgilb
 manager: femila
@@ -9,12 +9,13 @@ ms.topic: article
 ms.date: 02/28/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-keywords: 
+keywords: ''
 ms.openlocfilehash: 5bdac2f3e6082f9449800fe2d4b303e2d59ade46
 ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733868"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure yığın datacenter tümleştirmesi - DNS
 Azure yığın uç noktaları erişebilmeleri için (`portal`, `adminportal`, `management`, `adminmanagement`vb..)  Dış Azure yığınından Azure yığınında kullanmak istediğiniz DNS bölgeleri barındıran DNS sunucularını Azure yığın DNS hizmetleri tümleştirileceğini gerekir.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33776986"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>Nasıl yapılır: Zamanlanmış bildirimleri gönderme
 ## <a name="overview"></a>Genel Bakış
