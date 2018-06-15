@@ -9,14 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/16/2018
+ms.topic: conceptual
+ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 52b6489d14c016ce2efdd06614102a40651b94c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 525ad1c83a1982ae5b954b900c5a6c7086544c66
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700545"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Spark etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +51,6 @@ Spark etkinlik örnek JSON tanımını şöyledir:
         },
         "rootPath": "adfspark\\pyFiles",
         "entryFilePath": "test.py",
-        "arguments": [ "arg1", "arg2" ],
         "sparkConfig": {
             "ConfigItem1": "Value"
         },
@@ -72,7 +72,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 | linkedServiceName     | Hdınsight Spark bağlı Spark programın çalıştığı hizmetin adı. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi. | Evet      |
 | SparkJobLinkedService | Azure Storage bağlı Spark iş dosyası, bağımlılıklar ve günlükleri tutan hizmeti.  Bu özellik için bir değer belirtmezseniz, Hdınsight kümesi ile ilişkili depolama kullanılır. Bu özelliğin değeri, yalnızca Azure depolama bağlı hizmeti olabilir. | Hayır       |
 | rootPath              | Azure Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harf duyarlıdır. Klasör yapısı bakın (sonraki bölümde) Bu klasör yapısı hakkında ayrıntılar için bölüm. | Evet      |
-| entryFilePath         | Spark kod/paketi kök klasörüne göreli yolu. | Evet      |
+| entryFilePath         | Spark kod/paketi kök klasörüne göreli yolu. Girdi dosyası Python dosyası veya .jar dosyası olmalıdır. | Evet      |
 | className             | Uygulamanın Java/Spark ana sınıfı      | Hayır       |
 | Bağımsız değişkenler             | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır       |
 | proxyUser             | Spark program yürütülmeye kimliğine bürünmek için kullanıcı hesabı | Hayır       |

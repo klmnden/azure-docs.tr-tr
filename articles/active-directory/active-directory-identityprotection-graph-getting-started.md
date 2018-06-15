@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory kimlik koruması için Microsoft Graph | Microsoft Docs"
-description: "Azure Active Directory'den ilgili bilgileri ve risk olaylarını listesi için Microsoft Graph sorgu öğrenin."
+title: Azure Active Directory kimlik koruması için Microsoft Graph | Microsoft Docs
+description: Azure Active Directory'den ilgili bilgileri ve risk olaylarını listesi için Microsoft Graph sorgu öğrenin.
 services: active-directory
-keywords: "Azure active directory kimlik koruması, risk olay, güvenlik açığı, güvenlik ilkesi, Microsoft Graph"
-documentationcenter: 
+keywords: Azure active directory kimlik koruması, risk olay, güvenlik açığı, güvenlik ilkesi, Microsoft Graph
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,11 +17,12 @@ ms.date: 12/08/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: df0d89fc93f1b9c19d669c29306398a8b25ee425
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: c6c59285fbb2c81e5e20d28171abfe806bd51122
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713210"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory kimlik koruması ve Microsoft Graph kullanmaya başlama
 Microsoft Graph olan Microsoft unified API uç noktasını ve giriş, [Azure Active Directory kimlik koruması](active-directory-identityprotection.md) API'leri. İlk API **identityRiskEvents**, bir listesi için Microsoft Graph sorgu sayesinde [risk olayları](active-directory-identityprotection-risk-events-types.md) ve bilgi ilişkili. Bu makalede bu API sorgulama başlamanızı sağlar. Bir ayrıntılı giriş, tam belgelere ve Graph Explorer'da erişim için bakın [Microsoft Graph site](https://graph.microsoft.io/).
@@ -171,7 +173,7 @@ API'yi çağırmak için bir başlığı aşağıdaki parametreyle oluşturun:
 
 Kimlik doğrulamasını yaparken, belirteç türü ve erişim belirteci döndürülen belirteç bulabilirsiniz.
 
-Bu üst aşağıdaki API URL'si bir istek gönderin:`https://graph.microsoft.com/beta/identityRiskEvents`
+Bu üst aşağıdaki API URL'si bir istek gönderin: `https://graph.microsoft.com/beta/identityRiskEvents`
 
 Yanıt başarılı olursa, kimlik risk olaylarına ve ilişkili veriler, ayrıştırılmış ve uygun gördüğünüz şekilde ele OData JSON biçiminde koleksiyonudur.
 

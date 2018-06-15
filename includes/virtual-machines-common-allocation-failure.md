@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33901338"
 ---
 Bir sanal makine (VM) oluşturmak, durduruldu (serbest bırakıldığında) sanal makineleri yeniden başlatın veya bir VM'yi yeniden boyutlandırın, Microsoft Azure aboneliğinize işlem kaynakları ayırır. Biz sürekli olarak ek altyapı ve her zaman müşteri taleplerini desteklemek kullanılabilir tüm VM türler sahibiz emin olmak için özellikler yatırım yapıyor. Ancak, belirli bölgelerdeki Azure Hizmetleri için isteğe bağlı eşi görülmemiş büyüme nedeniyle bazen kaynak ayırma hatalarıyla karşılaşabilirsiniz. Oluşturun veya sanal makineleri şu hata kodu ve iletiyi görüntülemek sırasında sanal makineleri bir bölgede başlatmak çalıştığınızda bu sorun oluşabilir:
 

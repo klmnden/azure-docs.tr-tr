@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33767304"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>Bir Azure uygulamasında bir anlık görüntüden geri yükleme
 Bu makalede, bir uygulamada geri yükleme gösterilmektedir [Azure App Service](../app-service/app-service-web-overview.md) bir anlık. Uygulamanız, uygulamanızın anlık görüntüleri birini temel alan bir önceki durumuna geri yükleyebilirsiniz. Anlık görüntüler yedeklemeyi etkinleştirme gerekmez, platform anlık görüntü veri kurtarma amacıyla tüm uygulamaların otomatik olarak kaydeder.

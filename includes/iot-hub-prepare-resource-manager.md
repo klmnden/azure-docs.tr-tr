@@ -33,7 +33,8 @@ Aşağıdaki adımlar PowerShell kullanarak bir AD uygulaması için parola kiml
    * **{Parola}:** uygulamanız ile kimlik doğrulaması için kullandığınız parola.
      
      ```powershell
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password {Password}
+     $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
+     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. Not **ApplicationId** , oluşturduğunuz uygulamanın. Bu daha sonra ihtiyacınız var.
 5. Aşağıdaki komutu kullanarak, değiştirerek yeni bir hizmet sorumlusu oluşturmak **{MyApplicationId}** ile **ApplicationId** önceki adımdan:

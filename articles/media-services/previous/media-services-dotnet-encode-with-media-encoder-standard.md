@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788686"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Bir varlık Medya Kodlayıcısı .NET kullanarak standart ile kodlamak
 Kodlama işleri, Media Services’da en sık gerçekleştirilen işlemler arasındadır. Kodlama işleri oluşturarak, medya dosyalarını bir kodlamadan diğerine dönüştürebilirsiniz. Kodlarken, Media Services yerleşik medya kodlayıcı kullanabilirsiniz. Bir Media Services iş ortağı tarafından sağlanan bir kodlayıcı de kullanabilirsiniz; üçüncü taraf kodlayıcılar Azure Market üzerinden kullanılabilir. 

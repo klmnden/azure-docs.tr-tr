@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 02/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 3df32c39152c8dda24fd5d0796f8074af8ce8a1a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9ad7a35864f8e8a1aa95f0b54174a792f069ba18
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700715"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Bir Azure sanal ağı kullanarak Azure Hdınsight genişletme
 
@@ -90,7 +91,7 @@ Yeni Hdınsight var olan bir Azure sanal ağı eklemek nasıl keşfetmek için b
         az network nsg list --resource-group $RESOURCEGROUP
         ```
 
-        Daha fazla bilgi için bkz: [ağ güvenlik grupları sorun giderme](../virtual-network/virtual-network-nsg-troubleshoot-portal.md) belge.
+        Daha fazla bilgi için bkz: [ağ güvenlik grupları sorun giderme](../virtual-network/diagnose-network-traffic-filter-problem.md) belge.
 
         > [!IMPORTANT]
         > Ağ güvenlik grubu kural kuralı önceliği temelinde sırayla uygulanır. Trafik desenle eşleşen ilk kural uygulanır ve hiçbir diğerlerinin bu trafiği için uygulanır. Sipariş kurallardan en fazla izne sahip az izin veren için. Daha fazla bilgi için bkz: [filtre ağ güvenlik grupları ile ağ trafiği](../virtual-network/security-overview.md) belge.
@@ -107,7 +108,7 @@ Yeni Hdınsight var olan bir Azure sanal ağı eklemek nasıl keşfetmek için b
         az network route-table list --resource-group $RESOURCEGROUP
         ```
 
-        Daha fazla bilgi için bkz: [sorun giderme yolları](../virtual-network/virtual-network-routes-troubleshoot-portal.md) belge.
+        Daha fazla bilgi için bkz: [sorun giderme yolları](../virtual-network/diagnose-network-routing-problem.md) belge.
 
 4. Hdınsight kümesi oluşturma ve yapılandırma sırasında Azure sanal ağı seçin. Küme oluşturma işlemi anlamak için aşağıdaki belgelerde adımları kullanın:
 

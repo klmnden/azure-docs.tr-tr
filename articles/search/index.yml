@@ -18,6 +18,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 05/10/2018
+  ms.locfileid: "33943187"
 abstract:
   description: Azure Search kullanarak özel ve heterojen içerikler üzerinde kurumsal arama çözümü oluşturmayı öğrenin. Öğreticiler, API başvuruları ve diğer belgeler; aratılabilir içeriği, çeşitli senaryolarda basitten gelişmişe söz dizimleri kullanılarak sorgulanabilen tek bir hızlı dizinde toplamayı gösterir. <p/><b>Yeni bilişsel arama önizlemesi.</b> Dizinleme işlem hattına AI destekli algoritmalar bağlamak için yayın öncesi REST API’sini kullanın. Yapılandırılmamış ham içeriği bir Azure Arama dizininde aranabilir içeriğe dönüştürmek için verileri ayıklayın ve doğal dil ile görüntü işlemlerini çağırın. <p/><a href="/azure/search/cognitive-search-quickstart-blob">Kaynaklar ve örnek veriler</a> ile çalışmaya başlayın veya <a href="/azure/search/cognitive-search-concept-intro">Kavramlar</a> bölümünden daha fazla bilgi edinin.
   aside:

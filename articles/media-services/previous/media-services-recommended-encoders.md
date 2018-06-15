@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790275"
 ---
 # <a name="recommended-on-premises-encoders"></a>Önerilen şirket içi kodlayıcılar
 Canlı, Azure Media Services ile akış nasıl kanalınızı Giriş akışı almak istediğinizi belirtebilirsiniz. Bir şirket içi Kodlayıcı ile canlı bir kodlama kanalı kullanmayı seçerseniz, kodlayıcıyı çıkış olarak yüksek kaliteli tek bit hızında akışa itme. Bir geçiş kanalı ile bir şirket içi Kodlayıcı kullanmayı seçerseniz, tüm istenen çıkış nitelikleri ile çıkış olarak kodlayıcıyı Çoklu bit hızında akışa itme. Daha fazla bilgi için bkz: [şirket içi kodlayıcılarla canlı akış](media-services-live-streaming-with-onprem-encoders.md).

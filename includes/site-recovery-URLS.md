@@ -5,5 +5,7 @@
 ``dc.services.visualstudio.com`` -Telemetri için kullanılır. <br>
 ``time.nist.gov`` ve ``time.windows.com``. Sistem ile genel saat arasındaki saat eşitlemesini denetlemek için kullanılır.
 <br/><br/>
-Azure Bulutu URL'ler:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>- https://login-us.microsoftonline.com<br/>- https://login.microsoftonline.us<br/>- https://login.microsoftonline.com<br/>
+Azure Bulutu URL'ler:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
+https://login.microsoftonline.us<br/>-
+https://login.microsoftonline.com<br/>
 

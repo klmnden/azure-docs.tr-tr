@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779509"
 abstract:
   description: Bir Azure VPN ağ geçidi yapılandırmayı, oluşturmayı ve yönetmeyi öğrenin. Şirket içi konumlardan sanal ağınıza şifrelenmiş şirket içi ve dışı bağlantılar veya VNet’ler arasında şifrelenmiş bağlantılar oluşturun.
 sections:

@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927790"
 ---
 # <a name="troubleshoot-azure-active-directory-application-management"></a>Azure Active Directory Uygulama Yönetimi sorunlarını giderme
 Aşağıdaki bağlantıların sizi ulaştıracağı içerik haritası, Azure Active Directory’de **Kurumsal Uygulamaları** yönetirken karşılaşılan en yaygın sorunlardan bazılarını çözmenize yardımcı olacaktır.

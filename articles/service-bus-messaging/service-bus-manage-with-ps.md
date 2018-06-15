@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus kaynaklarını yönetmek için PowerShell kullanma | Microsoft Docs"
-description: "PowerShell modülü oluşturun ve Service Bus kaynaklarını yönetmek için kullanın"
+title: Azure Service Bus kaynaklarını yönetmek için PowerShell kullanma | Microsoft Docs
+description: PowerShell modülü oluşturun ve Service Bus kaynaklarını yönetmek için kullanın
 services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27159747"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Service Bus kaynaklarını yönetmek için PowerShell kullanma
 

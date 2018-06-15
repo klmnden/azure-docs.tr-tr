@@ -15,13 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702185"
 ---
-# <a name="about-point-to-site-vpn-routing"></a>Noktadan siteye VPN yönlendirme hakkında
+# <a name="about-point-to-site-vpn-routing"></a>Noktadan Siteye VPN yönlendirme hakkında
 
 Bu makalede, Azure noktadan siteye VPN yönlendirme nasıl davranacağını anlamanıza yardımcı olur. P2S VPN yönlendirme davranışını, istemci işletim sistemi, VPN bağlantısı ve nasıl, birbirlerine bağlı sanal ağlar (Vnet'ler) için kullanılan protokol bağımlıdır.
 
@@ -228,7 +229,7 @@ Tüm istemcilerin VNet1 yalnızca erişebilir.
 
 ## <a name="multivnets2sbranchbgp"></a>S2S ve bir şube ofisi (BGP) kullanarak birden çok sanal ağlara bağlı
 
-Bu örnekte, noktadan siteye VPN ağ geçidi bağlantısı için VNet1 ' dir. VNet1 vnet2'yi için bağlı bir siteden siteye VPN bağlantısı kullanarak. VNet2 vnet3 arasında bağlı bir siteden siteye VPN bağlantısı kullanarak. Doğrudan eşliği veya VNet1 ve VNet3 ağları arasında siteden siteye VPN tüneli yoktur. Vnet3 arasında bir siteden siteye VPN bağlantısı kullanarak bir şube ofisine (Site1) bağlı. BGP tüm VPN bağlantıları çalışmıyor. Tüm VPN bağlantıları BGP çalışıyor.
+Bu örnekte, noktadan siteye VPN ağ geçidi bağlantısı için VNet1 ' dir. VNet1 vnet2'yi için bağlı bir siteden siteye VPN bağlantısı kullanarak. VNet2 vnet3 arasında bağlı bir siteden siteye VPN bağlantısı kullanarak. Doğrudan eşliği veya VNet1 ve VNet3 ağları arasında siteden siteye VPN tüneli yoktur. Vnet3 arasında bir siteden siteye VPN bağlantısı kullanarak bir şube ofisine (Site1) bağlı. Tüm VPN bağlantıları BGP çalışıyor.
 
 Windows kullanan istemciler sanal ağlar erişebilir ve bir siteden siteye VPN bağlantısı, ancak vnet2'yi, VNet3 ve Site1 yollarını kullanarak bağlanan siteler istemciye elle eklenmesi gerekir. Windows olmayan istemciler, sanal ağlar ve el ile müdahalesi olmadan bir siteden siteye VPN bağlantısı kullanarak bağlanan siteler erişim sağlayabilir. Erişim geçişli ve istemcilerin tüm bağlı sanal ağlar ve siteleri (şirket içi)'deki kaynaklara erişebilir.
 

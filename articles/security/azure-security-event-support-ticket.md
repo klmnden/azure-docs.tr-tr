@@ -1,6 +1,6 @@
 ---
-title: "Azure güvenlik olay destek bileti - oturum | Microsoft Docs"
-description: "Olası bir güvenlik olayı tanımladıktan Azure Market'te satıcının olarak ı uygun bir bilet günlüğe kaydetme hakkında bilmeniz gerekir."
+title: Azure güvenlik olay destek bileti - oturum | Microsoft Docs
+description: Olası bir güvenlik olayı tanımladıktan Azure Market'te satıcının olarak ı uygun bir bilet günlüğe kaydetme hakkında bilmeniz gerekir.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129949"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>Güvenlik olay destek bileti günlüğe kaydetme hakkında
 

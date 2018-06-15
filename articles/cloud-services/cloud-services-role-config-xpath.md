@@ -1,11 +1,11 @@
 ---
-title: "Bulut Hizmetleri rolünü config XPath kopya sayfası | Microsoft Docs"
-description: "Çeşitli XPath ayarları bulut hizmeti rolünü yapılandırma ayarlarını bir ortam değişkeni göstermek için kullanabilirsiniz."
+title: Bulut Hizmetleri rolünü config XPath kopya sayfası | Microsoft Docs
+description: Çeşitli XPath ayarları bulut hizmeti rolünü yapılandırma ayarlarını bir ortam değişkeni göstermek için kullanabilirsiniz.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c51e4493-0643-4d05-bc44-06c76bcbf7d1
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860380"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>Rol yapılandırma ayarlarını XPath olan bir ortam değişkeni olarak kullanıma sunma
 Bulut hizmeti çalışan ya da web rolü hizmet tanımı dosyası ortam değişkenleri olarak çalışma zamanı yapılandırma değerlerini getirebilir. Aşağıdaki XPath değerleri (hangi API değerlerine karşılık gelen) desteklenir.

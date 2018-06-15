@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788161"
 ---
 # <a name="azure-media-services-community"></a>Azure Media Services Topluluğu
 Bu Azure Media Services (AMS) Topluluk sayfası AMS ilgili güncelleştirmeler alabilirsiniz farklı yolları açıklanmaktadır. Ayrıca yeni videolar ve pod yayınları görüntülemek, da soru sorun ve geri bildirim verin.   

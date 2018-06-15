@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788945"
 ---
 # <a name="input-metadata"></a>Meta veri girişi
 Kodlama işinin bir giriş varlık (veya varlıklar) ile ilişkili kodlama bazı görevleri gerçekleştirmek istediğiniz üzerinde.  Bir görev tamamlandığında, çıkış varlık oluşturulur.  Çıkış varlığına, video, ses, küçük resimleri, bildirim, vb. içerir. Çıkış varlığına da giriş varlık hakkındaki meta verileri ile bir dosya içeriyor. Meta veri XML dosyasının adı şu biçimdedir: &lt;asset_id&gt;_metadata.xml (örneğin, 41114ad3-eb5e - 4c 57-8d 92-5354e2b7d4a4_metadata.xml), burada &lt;asset_id&gt; giriş varlık AssetID değeri.  

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597158"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için bağlantı dizeleri
 Gibi birçok farklı uygulama protokollerle SQL veri ambarına bağlanabilir [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] ve [JDBC][JDBC]. Bağlantı dizeleri her protokol için bazı örnekleri aşağıda verilmiştir.  Azure portalı, bağlantı dizesi oluşturmak için de kullanabilirsiniz.  Azure Portalı'nı kullanarak bağlantı dizenizi oluşturmak için veritabanı dikey penceresine, altında gidin *Essentials* tıklayın *veritabanı bağlantı dizelerini Göster*.

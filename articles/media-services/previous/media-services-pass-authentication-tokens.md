@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788455"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>İstemcileri belirteçleri Azure Media Services anahtar teslim hizmete nasıl geçirmek öğrenin
 Müşteriler genellikle player anahtarı edinebilirsiniz şekilde nasıl bir oynatıcı belirteçleri doğrulama için Azure Media Services anahtar teslim hizmeti geçirebilirsiniz isteyin. JSON Web Token (JWT) biçimleri ve Media Services basit web token (SWT) destekler. Belirteç kimlik doğrulama anahtarı, ortak şifreleme veya Gelişmiş Şifreleme Standardı (AES) Zarf şifreleme sistemde kullansanız bağımsız olarak her türlü uygulanır.

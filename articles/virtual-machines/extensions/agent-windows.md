@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942658"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure sanal makine aracısını genel bakış
 Microsoft Azure sanal makine Aracısı (VM Aracısı) Azure yapı denetleyicisi ile sanal makine (VM) etkileşimi yöneten güvenli ve basit bir işlemdir. VM Aracısı'nı etkinleştirme ve Azure sanal makine uzantıları yürütme birincil bir rolü var. VM uzantıları yükleme ve yazılım yapılandırma gibi VM Dağıtım sonrası yapılandırmasını etkinleştirin. VM uzantıları, VM yönetici parolasını sıfırlama gibi kurtarma özellikleri de sağlar. Azure VM Aracısı VM uzantıları çalıştırılamaz.

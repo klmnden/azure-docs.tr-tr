@@ -14,6 +14,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31529488"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure akış analizi işi denetim noktası ve yeniden yürütme kavramları
 Bu makalede bu işi kurtarma sahip iç denetim noktası ve yeniden yürütme kavramlarını Azure akış analizi ve etkisini açıklar. Her zaman bir akış analizi işi çalışır, durum bilgilerini dahili olarak korunur. Bu durum bilgilerini bir denetim noktasını düzenli olarak kaydedilir. Bir iş hatası veya yükseltme oluşursa, bazı senaryolarda, iş kurtarma için kontrol noktası bilgileri kullanılır. Diğer durumlarda, kurtarma için kontrol noktası kullanılamaz ve bir yeniden yürütme gereklidir.

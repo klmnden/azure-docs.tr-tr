@@ -1,8 +1,8 @@
 ---
-title: "Toplamak ve Azure günlük analizi, Windows olay günlüklerini analiz edin | Microsoft Docs"
-description: "Windows olay günlüklerini günlük analizi tarafından kullanılan en yaygın veri kaynaklarının biridir.  Bu makalede Windows olay günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır."
+title: Toplamak ve Azure günlük analizi, Windows olay günlüklerini analiz edin | Microsoft Docs
+description: Windows olay günlüklerini günlük analizi tarafından kullanılan en yaygın veri kaynaklarının biridir.  Bu makalede Windows olay günlüklerini koleksiyonunu ve Ayrıntılar için günlük analizi çalışma alanında oluşturdukları kayıtlarının nasıl yapılandırılacağı açıklanmaktadır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26782039"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Windows olay günlüğü veri kaynaklarında, günlük analizi
 Windows olay günlüklerini en yaygın biri olan [veri kaynakları](log-analytics-data-sources.md) birçok uygulama Windows olay günlüğüne yazma beri Windows aracıları kullanarak veri toplama için.  İzlemeniz gereken uygulamaları tarafından oluşturulan herhangi bir özel günlük belirtmeye ek sistem ve uygulama gibi standart günlüklerindeki olayları toplayabilir.

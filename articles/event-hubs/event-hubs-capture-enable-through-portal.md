@@ -1,12 +1,12 @@
 ---
-title: "Portal üzerinden Azure Event Hubs Yakalama özelliğini etkinleştirme | Microsoft Docs"
-description: "Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirin."
+title: Portal üzerinden Azure Event Hubs Yakalama özelliğini etkinleştirme | Microsoft Docs
+description: Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirin.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855020"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Azure portalını kullanarak Event Hubs Yakalama özelliğini etkinleştirme
 

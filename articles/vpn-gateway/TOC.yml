@@ -30,7 +30,7 @@
       href: vpn-gateway-highlyavailable.md
     - name: Noktadan Siteye bağlantılar hakkında
       href: point-to-site-about.md
-    - name: Noktadan Siteye yönlendirme hakkında
+    - name: Noktadan Siteye VPN yönlendirme hakkında
       href: vpn-gateway-about-point-to-site-routing.md
 - name: Nasıl yapılır kılavuzları
   items:

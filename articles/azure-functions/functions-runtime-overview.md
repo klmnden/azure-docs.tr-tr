@@ -1,12 +1,12 @@
 ---
-title: "Azure işlevleri çalışma zamanına genel bakış | Microsoft Docs"
-description: "Azure işlevleri çalışma zamanı önizlemesi genel bakış"
+title: Azure işlevleri çalışma zamanına genel bakış | Microsoft Docs
+description: Azure işlevleri çalışma zamanı önizlemesi genel bakış
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290239"
 ---
 # <a name="azure-functions-runtime-overview"></a>Azure işlevleri çalışma zamanına genel bakış
 

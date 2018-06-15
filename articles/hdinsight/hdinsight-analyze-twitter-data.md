@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31593721"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter verilerini hdınsight'ta Hive kullanma çözümleme
 Sosyal Web siteleri büyük veri benimseme için önemli yönlendirmeli zorlar biridir. Twitter gibi siteler tarafından sağlanan ortak API'ler verileri çözümlemek ve popüler eğilimleri anlamak için yararlı bir kaynaktır.

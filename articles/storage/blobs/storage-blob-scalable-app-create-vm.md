@@ -17,6 +17,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31600429"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>Ölçeklenebilir bir uygulama için sanal makine ve depolama hesabı oluşturma
 

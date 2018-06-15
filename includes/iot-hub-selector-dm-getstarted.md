@@ -1,6 +1,5 @@
 > [!div class="op_single_selector"]
 > * [Cihaz: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
-> * [Cihaz: Node.js Service: C#](../articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md)
 > * [Aygıt: C# hizmet: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)
 > * [Aygıt: Java hizmet: Java](../articles/iot-hub/iot-hub-java-java-device-management-getstarted.md)
 > * [Aygıt: Python hizmet: Python](../articles/iot-hub/iot-hub-python-python-device-management-get-started.md)

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788147"
 ---
 # <a name="configure-localization"></a>Yerelleştirme yapılandırın
 Azure Media Kırpıcıyı 18 dillerde mevcuttur. Pencere öğesi dilini ayarlamak amacıyla, tanımlamalısınız `language` başlatma sırasında parametre. Aşağıdaki listeden istenen dil kodu dizesinde geçirin:

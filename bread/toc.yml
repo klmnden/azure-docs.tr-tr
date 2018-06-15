@@ -469,6 +469,9 @@
     - name: Dayanıklılık
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: Rol tabanlı erişim denetimi
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: Hizmet Durumu
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/

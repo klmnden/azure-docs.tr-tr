@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management ilkeleri işleme hatası | Microsoft Docs"
-description: "Azure API Management'te isteklerinin işlenmesi sırasında ortaya çıkabilecek hata koşullarını yanıt öğrenin."
+title: Azure API Management ilkeleri işleme hatası | Microsoft Docs
+description: Azure API Management'te isteklerinin işlenmesi sırasında ortaya çıkabilecek hata koşullarını yanıt öğrenin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 3c777964-02b2-4f55-8731-8c3bd3c0ae27
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26128235"
 ---
 # <a name="error-handling-in-api-management-policies"></a>API Management ilkeleri işleme hatası
 Azure API Management sağlayarak proxy'sine isteklerini işleme sırasında ortaya çıkabilecek hata koşullarını yanıtlamak yayımcılar sağlayan bir `ProxyError` nesnesi. `ProxyError` Nesnesi aracılığıyla erişilir [bağlamı. Son hata](api-management-policy-expressions.md#ContextVariables) özelliği ve ilkeleri tarafından kullanılan `on-error` ilke bölümü. Bu konuda bir başvuru hatası için Azure API Management'te işleme yetenekleri sağlar.  

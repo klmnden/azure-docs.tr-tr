@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787496"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Oluşturma ve Azure DevTest Labs claimable Vm'lerde yönetme
 Benzer şekilde nasıl laboratuvara claimable VM ekleme, [standart VM eklemek](devtest-lab-add-vm.md) – bir *temel* ya da başka bir deyişle bir [özel görüntü](devtest-lab-create-template.md), [formülü](devtest-lab-manage-formulas.md), veya [Market görüntüsü](devtest-lab-configure-marketplace-images.md). Bu öğretici DevTest Labs laboratuvarda claimable VM eklemek için Azure portalını kullanarak size yol gösterir ve bir kullanıcı talebi ve VM unclaim için aşağıdaki işlemleri gösterir.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894758"
 ---
 # <a name="azure-operational-security-checklist"></a>Azure işletimsel güvenlik denetim listesi
 Hızlı, kolay ve düşük maliyetli, Azure'da bir uygulamayı dağıtma. Uygulamanızı karşı bir listesi, önemli ve önerilen işletimsel güvenlik eylemleri dikkate almanız gereken değerlendirmede yardımcı olmak için bulut uygulama bir denetim listesi yararlı üretimde dağıtmadan önce.

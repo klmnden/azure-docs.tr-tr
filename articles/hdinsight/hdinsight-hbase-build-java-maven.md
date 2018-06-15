@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597097"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Windows tabanlı Hdınsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanın
 Oluşturma ve derleme öğrenin bir [Apache HBase](http://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Daha sonra uygulamayı Azure Hdınsight (Hadoop) ile kullanın.

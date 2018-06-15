@@ -1,11 +1,11 @@
 ---
-title: "Azure sanal makine ölçek kümeleri dikey olarak ölçeklendirmek | Microsoft Docs"
-description: "Azure Otomasyonu uyarılarla izleme yanıt dikey olarak bir sanal makine ölçeklendirme"
+title: Azure sanal makine ölçek kümeleri dikey olarak ölçeklendirmek | Microsoft Docs
+description: Azure Otomasyonu uyarılarla izleme yanıt dikey olarak bir sanal makine ölçeklendirme
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781828"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Sanal makine ölçek ile dikey otomatik ölçeklendirme ayarlar
 Bu makalede Azure dikey olarak ölçeklendirmek nasıl [sanal makine ölçek kümeleri](https://azure.microsoft.com/services/virtual-machine-scale-sets/) ile veya sağlama işleminin olmadan. Dikey Ölçek kümelerinde olmayan VM'ler, ölçekleme için bkz [Azure Automation ile Azure sanal makine dikey olarak ölçeklendirmek](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

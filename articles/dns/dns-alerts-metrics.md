@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31591628"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS ölçümleri ve uyarılar
 Azure DNS ad çözümlemesi Microsoft Azure altyapı kullanarak sağlayan bir barındırma DNS etki alanı için hizmetidir. Bu makalede, ölçümleri ve Azure DNS hizmeti için uyarıları açıklanmaktadır.

@@ -1,11 +1,11 @@
 ---
-title: "Bir bulut hizmeti için SSL yapılandırma | Microsoft Docs"
-description: "Web rolü için bir HTTPS uç nokta belirtme ve uygulamanızın güvenliğini sağlamak için bir SSL sertifikasını nasıl yükleyeceğiniz öğrenin. Bu örnekler Azure Portalı'nı kullanın."
+title: Bir bulut hizmeti için SSL yapılandırma | Microsoft Docs
+description: Web rolü için bir HTTPS uç nokta belirtme ve uygulamanızın güvenliğini sağlamak için bir SSL sertifikasını nasıl yükleyeceğiniz öğrenin. Bu örnekler Azure Portalı'nı kullanın.
 services: cloud-services
 documentationcenter: .net
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24859785"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Azure'da bir uygulama için SSL yapılandırma
 

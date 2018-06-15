@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937856"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure yığın PKI sertifikaları için ortak sorunları çözmek
 Bu makaledeki bilgiler anlamanıza ve Azure yığın PKI sertifikaları için sık karşılaşılan sorunları gidermeye yardımcı olabilir. Azure yığın hazırlık Denetleyicisi aracını kullandığınızda sorunları bulabilir [Azure yığın PKI sertifikalarını doğrulamak](azure-stack-validate-pki-certs.md). Sertifikalar bir Azure yığın dağıtımına ve Azure yığın gizli döndürme PKI gereksinimlerini karşılamak ve sonuçları oturum açtığında emin olmak için aracı denetler bir [report.json dosya](azure-stack-validation-report.md).  

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527034"
 ---
 # <a name="security-center-platform-migration-faq"></a>Güvenlik Merkezi platformu geçiş ile ilgili SSS
 Erken Haziran 2017 toplamak ve verilerini depolamak için Microsoft Monitoring Agent'ı kullanarak Azure Güvenlik Merkezi başlamıştır. Daha fazla bilgi için bkz: [Azure Güvenlik Merkezi platformu geçiş](security-center-platform-migration.md). Bu SSS platform geçiş ile ilgili sorular yanıtlanmaktadır.
