@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31404044"
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>C# kullanıcı tanımlı işlevler Hive veya Pig hdınsight'ta Hadoop akış ile kullanma
 
@@ -61,7 +62,7 @@ Hdınsight sürümleri dahil Mono ve .NET framework sürümü hakkında daha faz
 
 ### <a name="hive-udf"></a>UDF yığını
 
-1. Visual Studio'yu açın ve bir çözüm oluşturun. Proje türü olarak seçin **konsol uygulaması (.NET Framework)**ve yeni proje adı **HiveCSharp**.
+1. Visual Studio'yu açın ve bir çözüm oluşturun. Proje türü olarak seçin **konsol uygulaması (.NET Framework)** ve yeni proje adı **HiveCSharp**.
 
     > [!IMPORTANT]
     > Seçin __.NET Framework 4.5__ Linux tabanlı Hdınsight kümesi kullanıyorsanız. .NET Framework sürümleri Mono uyumluluğu hakkında daha fazla bilgi için bkz: [Mono Uyumluluk](http://www.mono-project.com/docs/about-mono/compatibility/).

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206800"
 ---
 # <a name="actor-timers-and-reminders"></a>Aktör zamanlayıcılar ve anımsatıcıları
 Aktör zamanlayıcılar veya anımsatıcıları kaydederek kendilerini düzenli çalışma zamanlayabilirsiniz. Bu makalede zamanlayıcılar ve anımsatıcıları nasıl kullanılacağını gösterir ve bunları arasındaki farklar açıklanmaktadır.

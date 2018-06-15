@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156196"
 ---
 # <a name="app-registration-reference"></a>Uygulama Kayıt başvurusu
 Bu belgede bağlamı ve Microsoft uygulama kayıt Portalı'nda bulunan çeşitli özelliklerin açıklamaları sağlanmaktadır [ https://apps.dev.microsoft.com ](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).

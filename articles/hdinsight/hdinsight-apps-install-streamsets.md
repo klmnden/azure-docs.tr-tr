@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401032"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>Yayımlanan uygulama - StreamSets veri toplayıcı yükleme
 

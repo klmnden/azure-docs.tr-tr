@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736196"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs'de sahipleri ve kullanıcılar ekleme
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,25 +61,27 @@ Aşağıdaki tabloda bu rollerin her biri bulunan kullanıcılar tarafından ger
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>Laboratuvar düzeyinde sahibi veya kullanıcı ekleyin
-Azure Portalı aracılığıyla Laboratuvar düzeyinde sahipleri ve kullanıcıların eklenebilir. Bu geçerli bir dış kullanıcılarla içerir [Microsoft hesabı (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
+Azure Portalı aracılığıyla Laboratuvar düzeyinde sahipleri ve kullanıcıların eklenebilir. Bir kullanıcı bir dış kullanıcı geçerli bir ile olabilir [Microsoft hesabı (MSA)](devtest-lab-faq.md#what-is-a-microsoft-account).
 Aşağıdaki adımlar bir laboratuar ortamında Azure DevTest Labs sahibi veya kullanıcı ekleme işleminde size kılavuzluk eder:
 
 1. [Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) oturum açın.
 2. Seçin **tüm hizmetleri**ve ardından **DevTest Labs** listeden.
 3. İstenen Laboratuvar labs listesinden seçin.
-4. Laboratuvar 's dikey penceresinde, seçin **yapılandırma**. 
-5. Üzerinde **yapılandırma** dikey penceresinde, select **kullanıcılar**.
-6. Üzerinde **kullanıcılar** dikey penceresinde, select **+ Ekle**.
-   
+4. Laboratuvar 's dikey penceresinde, seçin **yapılandırma ve ilkeleri**. 
+5. Üzerinde **yapılandırma ve ilkeleri** sayfasında, **erişim denetimi (IAM)** sol taraftaki menüden. 
+6. Seçin **Ekle** bir role bir kullanıcı eklemek için araç.
+
     ![Kullanıcı ekle](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. Üzerinde **bir rol seçin** dikey penceresinde istediğiniz rolü seçin. Bölüm [her rolünde gerçekleştirilen eylemler](#actions-that-can-be-performed-in-each-role) sahibi, DevTest kullanıcı ve katkıda bulunan rollerdeki kullanıcılar tarafından gerçekleştirilen çeşitli eylemleri listeler.
-8. Üzerinde **kullanıcıları eklemek** dikey penceresinde, e-posta adresi veya belirtilen rolde eklemek istediğiniz kullanıcının adını girin. Kullanıcı bulunamazsa, bir hata iletisi sorunu açıklar. Kullanıcı bulunursa, o kullanıcı listelenen ve seçili. 
-9. Seçin **seçin**.
-10. Seçin **Tamam** kapatmak için **erişim Ekle** dikey.
+1. İçinde **izinleri eklemek** penceresinde, aşağıdaki eylemleri gerçekleştirebilirsiniz: 
+    1. Bir rol seçin (örneğin: DevTest Labs kullanıcı). Bölüm [her rolünde gerçekleştirilen eylemler](#actions-that-can-be-performed-in-each-role) sahibi, DevTest kullanıcı ve katkıda bulunan rollerdeki kullanıcılar tarafından gerçekleştirilen çeşitli eylemleri listeler.
+    2. Role eklenecek kullanıcıyı seçin. 
+    3. **Kaydet**’i seçin. 
+
+        ![Kullanıcı rolüne Ekle](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. Ne zaman döndürmek için **kullanıcılar** dikey penceresinde kullanıcı eklendi.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>PowerShell kullanarak Laboratuvar için bir dış kullanıcı ekleme
-Azure portalında kullanıcı ekleme ek olarak, bir PowerShell Betiği kullanılarak Laboratuvarınızı bir dış kullanıcı ekleyebilirsiniz. Aşağıdaki örnekte, yalnızca altında parametre değerlerini değiştirmek **değiştirmek için değerleri** açıklama.
+Azure portalında kullanıcı ekleme ek olarak, bir PowerShell Betiği kullanılarak Laboratuvarınızı bir dış kullanıcı ekleyebilirsiniz. Aşağıdaki örnekte, altında parametre değerlerini değiştirmek **değiştirmek için değerleri** açıklama.
 Alabilirsiniz `subscriptionId`, `labResourceGroup`, ve `labName` Azure portalında Laboratuvar dikey penceresinden değerleri.
 
 > [!NOTE]

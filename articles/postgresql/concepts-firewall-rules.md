@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29689896"
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>Azure veritabanı PostgreSQL sunucunun güvenlik duvarı kuralları için
 Hangi bilgisayarların izniniz belirtmediğiniz sürece PostgreSQL sunucu Güvenlik Duvarı'nda azure veritabanı, veritabanı sunucunuza tüm erişimi engeller. Güvenlik Duvarı'nı her isteğin kaynak IP adresine göre sunucuya erişimi verir.

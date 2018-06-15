@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanında PostgreSQL için izleme"
-description: "Bu makalede izleme ve Azure veritabanı için CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere PostgreSQL için uyarı için ölçümleri açıklanmaktadır."
+title: Azure veritabanında PostgreSQL için izleme
+description: Bu makalede izleme ve Azure veritabanı için CPU, depolama ve bağlantı istatistikleri de dahil olmak üzere PostgreSQL için uyarı için ölçümleri açıklanmaktadır.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687617"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Azure veritabanında PostgreSQL için izleme
 İzleme verilerini sunucularınız hakkında sorun giderme ve işleminizi iş yükü için en iyi duruma yardımcı olur. Azure veritabanı PostgreSQL için PostgreSQL sunucunun destekleyen kaynaklarda davranışını bir anlayış veren çeşitli ölçümleri sağlar. 

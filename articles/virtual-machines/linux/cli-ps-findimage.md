@@ -1,11 +1,11 @@
 ---
-title: "Azure CLI ile Linux VM görüntüleri seçin | Microsoft Docs"
-description: "Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure CLI kullanmayı öğrenin."
+title: Azure CLI ile Linux VM görüntüleri seçin | Microsoft Docs
+description: Yayımcı, teklif, SKU ve sürümü Market VM görüntüleri belirlemek için Azure CLI kullanmayı öğrenin.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 7a858e38-4f17-4e8e-a28a-c7f801101721
 ms.service: virtual-machines-linux
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29740892"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Linux VM görüntüleri Azure CLI ile Azure Marketi bulmak nasıl
 Bu konuda, Azure Marketi'nde VM görüntüleri bulmak için Azure CLI 2.0 kullanmayı açıklar. Bir VM CLI ile programlı olarak oluşturduğunuzda bir Market görüntüsü belirtmek için bu bilgileri kullanın Resource Manager şablonları veya diğer araçlar.

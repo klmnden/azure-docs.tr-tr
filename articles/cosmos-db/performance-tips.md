@@ -5,20 +5,17 @@ keywords: Veritabanı performansı nasıl
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 94ff155e-f9bc-488f-8c7a-5e7037091bb9
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 767d08c7a148db3e8a6d8b53bd88b154139d981d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fa68711158bea203d4fe1605966363dd2786a038
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715029"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -40,27 +37,28 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Bir istemci için Azure Cosmos DB nasıl bağlandığını gözlemlenen istemci-tarafı gecikme açısından özellikle performansı önemli etkilere sahiptir. İki anahtar yapılandırma ayarlarını istemci bağlantı İlkesi – bağlantı yapılandırmak için kullanılabilir *modu* ve [bağlantı *Protokolü*](#connection-protocol).  İki kullanılabilir modları şunlardır:
 
-   1. Ağ geçidi modunda (varsayılan)
+   * Ağ geçidi modunda (varsayılan)
       
-      Ağ geçidi modu tüm SDK platformlarda desteklenir ve yapılandırılmış varsayılandır. Uygulamanız bir şirket ağı içinde katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi modu en iyi seçimdir. Performans kolaylığını ancak, veri okuma veya Azure Cosmos Veritabanına yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, doğrudan modu daha az ağ atlamalarını nedeniyle daha iyi performans sunar.
+     Ağ geçidi modu tüm SDK platformlarda desteklenir ve yapılandırılmış varsayılandır. Uygulamanız bir şirket ağı içinde katı güvenlik duvarı kısıtlamalarıyla çalışıyorsa standart HTTPS bağlantı noktası ve tek bir uç nokta kullandığından ağ geçidi modu en iyi seçimdir. Performans kolaylığını ancak, veri okuma veya Azure Cosmos Veritabanına yazılan her zaman ağ geçidi modu ek ağ atlama içermesidir. Bu nedenle, doğrudan modu daha az ağ atlamalarını nedeniyle daha iyi performans sunar.
 
-   2. Doğrudan modu
+   * Doğrudan modu
 
-     Doğrudan modu TCP ve HTTPS protokolleri üzerinden bağlantısı destekler. Şu anda doğrudan .NET standart 2.0 yalnızca Windows platformu için desteklenir.
-      
-<a id="use-tcp"></a>
-2. **Bağlantı İlkesi: TCP protokolünü kullanır**
+     Doğrudan modu TCP ve HTTPS protokolleri üzerinden bağlantısı destekler. Şu anda doğrudan .NET standart 2.0 yalnızca Windows platformu için desteklenir. Doğrudan modu kullanırken, kullanılabilir iki protokolü seçenek vardır:
 
-    Doğrudan modu kullanırken, kullanılabilir iki protokolü seçenek vardır:
+    * TCP
+    * HTTPS
 
-   * TCP
-   * HTTPS
+    Ağ geçidi modunu kullanırken, Azure Cosmos DB bağlantı noktası 443 ve MongoDB API 10250, 10255 ve 10256 bağlantı noktalarını kullanır. Coğrafi çoğaltma ve coğrafi çoğaltma işlevsellikle Mongodb örneğine 10255 değerini bulur/10256 bağlantı noktaları Haritası olmadan varsayılan bir Mongodb örnek 10250 bağlantı noktası eşlenir. Bağlantı noktası sağlamak zorunda TCP ağ geçidi bağlantı noktalarına ek olarak doğrudan modunda kullanırken, Azure Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 20000 arasındaki aralığı açın. Bu bağlantı noktalarının açık değildir ve TCP kullanma girişimi 503 Hizmet kullanılamıyor hatası alıyorsunuz. Aşağıdaki tabloda bağlantı modları kullanılabilir her API için farklı API'leri ve hizmet bağlantı noktası kullanıcı için gösterilmektedir:
 
-     Azure Cosmos DB HTTPS üzerinden bir basit ve açık RESTful programlama modeli sunar. Ayrıca, aynı zamanda RESTful kendi iletişim modelini ve .NET İstemci SDK kullanılabilir verimli bir TCP protokolü sunar. Doğrudan TCP ve HTTPS SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda TCP protokolünü kullanır.
+    |Bağlantı modu  |Desteklenen protokol  |Desteklenen SDK'ları  |API/hizmet bağlantı noktası  |
+    |---------|---------|---------|---------|
+    |Ağ geçidi  |   HTTPS    |  Tüm SDK'ları    |   SQL(443), Mongo (10250, 10255 değerini bulur, 10256), Table(443), Cassandra(443), Graph(443)    |
+    |Doğrudan    |    HTTPS     |  .NET ve Java SDK'sı    |    SQL(443)   |
+    |Doğrudan    |     TCP    |  .NET SDK'sı    | 10.000 20.000 aralıkta bağlantı noktaları |
 
-     TCP ağ geçidi modunda kullanılırken, TCP bağlantı noktası 443 Azure Cosmos DB bağlantı noktası ve 10255 değerini bulur MongoDB API bağlantı noktası. Bağlantı noktası sağlamak zorunda TCP ağ geçidi bağlantı noktalarına ek olarak doğrudan modunda kullanırken, Azure Cosmos DB dinamik TCP bağlantı noktaları kullandığından 10000 20000 arasındaki aralığı açın. Bu bağlantı noktalarının açık değildir ve TCP kullanma girişimi 503 Hizmet kullanılamıyor hatası alıyorsunuz.
+    Azure Cosmos DB HTTPS üzerinden bir basit ve açık RESTful programlama modeli sunar. Ayrıca, aynı zamanda RESTful kendi iletişim modelini ve .NET İstemci SDK kullanılabilir verimli bir TCP protokolü sunar. Doğrudan TCP ve HTTPS SSL ilk kimlik doğrulaması ve şifreleme trafiği için kullanın. En iyi performans için mümkün olduğunda TCP protokolünü kullanır.
 
-     Bağlantı modunu ConnectionPolicy parametresi DocumentClient örneğiyle yapımı sırasında yapılandırılır. Doğrudan modunda kullanılırsa, Protokolü içinde ConnectionPolicy parametresi de ayarlayabilirsiniz.
+    Bağlantı modunu ConnectionPolicy parametresi DocumentClient örneğiyle yapımı sırasında yapılandırılır. Doğrudan modunda kullanılırsa, Protokolü içinde ConnectionPolicy parametresi de ayarlayabilirsiniz.
 
     ```csharp
     var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -77,19 +75,19 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     ![Azure Cosmos DB bağlantı İlkesi çizimi](./media/performance-tips/connection-policy.png)
 
-3. **İlk istek başlatma gecikmesine önlemek için OpenAsync çağırın**
+2. **İlk istek başlatma gecikmesine önlemek için OpenAsync çağırın**
 
     Adres yönlendirme tablosu getirilemedi içerdiğinden varsayılan olarak, ilk isteği daha yüksek gecikme vardır. Bu ilk istek başlatma gecikmesine önlemek için OpenAsync() kez başlatma sırasında şu şekilde çağırmalıdır.
 
         await client.OpenAsync();
    <a id="same-region"></a>
-4. **Performans için aynı Azure bölgesinde istemciler birlikte bulundurma**
+3. **Performans için aynı Azure bölgesinde istemciler birlikte bulundurma**
 
     Mümkün olduğunda, Azure Cosmos DB veritabanı ile aynı bölgede Azure Cosmos DB çağırma herhangi bir uygulama yerleştirin. Yaklaşık bir karşılaştırma için 1-2 ms içinde aynı bölge içinde Azure Cosmos DB'de çağrıları tamamlamak ancak Batı ABD, Doğu Yakası arasındaki gecikme süresi > 50 ms. Bu gecikme, Azure veri merkezi sınır istemciden geçerken istek tarafından izlenen yolu bağlı olarak istemek için büyük olasılıkla farklılık gösterebilir. Olası en düşük gecikme, çağıran uygulama sağlanan Azure Cosmos DB uç nokta olduğu Azure bölgesinin içinde bulunduğu sağlanarak elde edilir. Kullanılabilir bölgelerin bir listesi için bkz: [Azure bölgeleri](https://azure.microsoft.com/regions/#services).
 
     ![Azure Cosmos DB bağlantı İlkesi çizimi](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
-5. **İş parçacıkları/görevleri sayısını artırın**
+4. **İş parçacıkları/görevleri sayısını artırın**
 
     Azure Cosmos DB çağrıları ağ üzerinden yapılan olduğundan, böylece istemci uygulaması bekleyen istekler arasında çok az zaman harcayan, istekleri paralellik derecesini farklılık gerekebilir. Örneğin, kullanıyorsanız. NET'in [görev paralel Kitaplığı](https://msdn.microsoft.com//library/dd460717.aspx), 100s okunurken veya yazılırken Azure Cosmos DB görev sırasına göre oluşturun.
 

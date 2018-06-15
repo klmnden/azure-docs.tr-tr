@@ -1,31 +1,73 @@
-1. Bir kaynak veya kaynak grubunun etiketlerini görüntülemek için **Etiketler** simgesini seçin. 
+---
+title: include dosyası
+description: include dosyası
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: tomfitz
+ms.custom: include file
+ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34675345"
+---
+1. Bir kaynak veya bir kaynak grubu için etiketleri görüntülemek için genel bakış içindeki varolan etiketleri arar. Daha önce etiket uygulamadıysanız liste boştur.
    
-     ![Kaynak ve kaynak grubu dikey pencerelerinde etiket seçme](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. Kaynak için var olan etiketleri görürsünüz. Daha önce etiket uygulamadıysanız liste boştur. 
+     ![Kaynak veya kaynak grubu için Görünüm etiketler](./media/resource-manager-tag-resources/view-tags.png)
+1. Bir etiket eklemek için seçin **etiketleri eklemek için burayı tıklatın**.
 
-     ![Kaynak ve kaynak grubu dikey pencerelerinde var olan etiketleri görüntüleme](./media/resource-manager-tag-resources/existing-tags.png)
-3. Etiket eklemek için bir ad ve değer girin veya açılan menüden mevcut bir değer seçin. **Kaydet**’i seçin.
+1. Bir ad ve değer girin. Seçin **+** etiketi eklemek için.
+   
+     ![Etiket ekleme](./media/resource-manager-tag-resources/add-tag.png)
+1. Gerektiğinde etiketler ekleme devam edin. İşiniz bittiğinde **Kaydet**’i seçin.
+   
+     ![Etiketleri Kaydet](./media/resource-manager-tag-resources/save-tags.png)
+1. Etiketler artık genel görünümde görüntülenir.
+   
+     ![Etiketleri Göster](./media/resource-manager-tag-resources/view-new-tags.png)
+1. Eklemek veya bir etiketi silmek için seçin **değiştirmek**.
+   
+1. Bir etiketi silmek için çöp simgesini seçin. Ardından **Kaydet**’i seçin.
 
-     ![Yeni etiket ekleme](./media/resource-manager-tag-resources/tag-resources.png)
-3. Bir etiket değeri olan tüm kaynakları görüntülemek için **>** (**Diğer hizmetler**) seçeneğini belirleyin ve filtreleme metin kutusuna **Etiketler** sözcüğünü girin. Kullanılabilir seçeneklerden **Etiketler** öğesini seçin.
-   
-     ![Gözatma hub’ı üzerinden etiket bulma](./media/resource-manager-tag-resources/browse-tags.png)
-4. Aboneliğinizdeki etiketlerin bir özetini görürsünüz.
-   
-     ![Tüm etiketleri göster](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. Bir etiketi içeren kaynakları ve kaynak gruplarını görüntülemek için ilgili etiketi seçin.
-   
-     ![Etiketli kaynakları görüntüleme](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. Hızlı erişim için **Dikey pencereyi panoya sabitle**’yi seçin.
-   
-     ![Etiketleri panoya sabitleme](./media/resource-manager-tag-resources/pin-tag.png)
-7. Bir kaynağı içeren kaynakları görmek için panodan sabitlenmiş etiketi seçebilirsiniz.
-
-     ![Etiketleri panoya sabitleme](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![Etiketi sil](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 Ata toplu olarak birden çok kaynağa etiketler:
-1. Tüm kaynaklar (örneğin tüm kaynakları, kaynak grubu oveview); listesinden
-2. Etiket atamak istediğiniz kaynaklar için onay kutusunu seçin;
-3. Select Ata etiketleri seçeneği;
-4. Adları ve değerleri ekleyin ve ata seçin.
+
+1. Tüm kaynaklar listesinden etiket atamak istediğiniz kaynaklar için onay kutusunu seçin.
+
+     ![Birden fazla kaynak seçin](./media/resource-manager-tag-resources/select-multiple-resources.png)
+
+1. Seçin **etiketler atama**
+
+     ![Etiketleri ata](./media/resource-manager-tag-resources/assign-tags.png)
+
+1. Her ad ve değer sonra seçin **+**. İşiniz bittiğinde, seçin **atamak**.
+
+     ![Ata seçin](./media/resource-manager-tag-resources/select-assign.png)
+
+Bir etikete sahip tüm kaynakları görüntülemek için:
+
+1. Seçin **tüm hizmetleri** ve **etiketleri**.
+
+     ![Etikete göre bulma](./media/resource-manager-tag-resources/find-tags.png)
+
+1. Kaynakları görüntüleme için etiketi seçin.
+
+     ![Etiket seçin](./media/resource-manager-tag-resources/select-tag.png)
+
+1. Bu etikete sahip tüm kaynakları görüntülenir.
+
+     ![Etikete göre kaynakları görüntüle](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+
+1. Hızlı erişim için Pano görünümüne sabitleyin.
+
+     ![Panoya sabitle](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+
+1. Görünüm panodan kullanılabilir.
+
+     ![Pano](./media/resource-manager-tag-resources/dashboard.png)

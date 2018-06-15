@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407971"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Microsoft Power BI'ın Azure Hdınsight'ta doğrudan sorgu kullanarak etkileşimli sorgu Hive verileri görselleştirin
 
@@ -43,7 +44,7 @@ Hivesampletable Hive tablosu tüm Hdınsight kümeleri ile birlikte gelir.
 
     ![Hdınsight Power BI açık veri](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 3. Gelen **Veri Al** bölmesi, türü **hdınsight** arama kutusuna. Görmüyorsanız, **Hdınsight etkileşimli sorgu (Beta)**, Power BI Desktop en son sürüme güncelleştirmeniz gerekir.
-4. Tıklatın **Hdınsight etkileşimli sorgu (Beta)**ve ardından **Bağlan**.
+4. Tıklatın **Hdınsight etkileşimli sorgu (Beta)** ve ardından **Bağlan**.
 5. Tıklatın **devam** kapatmak için **Önizleme bağlayıcı** uyarı iletişim kutusu.
 6. Gelen **Hdınsight etkileşimli sorgu**aşağıdaki bilgileri girin veya seçin:
 

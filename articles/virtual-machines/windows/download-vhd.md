@@ -13,19 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 83d6715d6d8178e273131a6bc123627126644271
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f62c1b815180e39468a39b8bc2a220a6bfb9ea5a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726304"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>VHD Windows Azure'dan indirin
 
 Bu makalede, nasıl yükleneceği hakkında bilgi edineceksiniz bir [Windows sanal sabit disk (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) Azure portalını kullanarak Azure dosyasından. 
-
-Sanal makineler (VM'ler) Azure kullanımda [diskleri](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) bir işletim sistemini, uygulamaları ve verileri depolamak için bir yer olarak. Tüm Azure VM'ler en az iki disk – bir Windows işletim sistemi diski ve geçici bir diski var. İşletim sistemi diski başlangıçta görüntüden oluşturulur ve hem işletim sistemi diski ve görüntünün VHD'leri bir Azure depolama hesabında depolanır. Sanal makineler ayrıca VHD'ler olarak da depolanan bir veya daha fazla veri diski olabilir.
 
 ## <a name="stop-the-vm"></a>VM’yi durdurma
 

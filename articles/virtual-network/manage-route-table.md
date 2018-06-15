@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726457"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir yol tablosu silme
 
@@ -31,7 +32,7 @@ Bu makalenin herhangi bir bölümdeki adımları gerçekleştirmeden önce aşa�
 
 - Zaten bir Azure hesabınız yoksa, kaydolun bir [ücretsiz deneme sürümü hesabı](https://azure.microsoft.com/free).
 - Portalı kullanarak, açık https://portal.azure.comve Azure hesabınızda oturum.
-- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğreticide Azure PowerShell modülü sürümü 5.7.0 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
+- Bu makalede görevleri tamamlamak için PowerShell komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/powershell), veya bilgisayarınızdan PowerShell çalıştırarak. Azure Cloud Shell, bu makaledeki adımları çalıştırmak için kullanabileceğiniz ücretsiz bir etkileşimli kabuktur. Yaygın Azure araçları, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Bu öğretici, Azure PowerShell modülü 5.7.0 veya sonraki bir sürümü gerektirir. Yüklü sürümü bulmak için `Get-Module -ListAvailable AzureRM` komutunu çalıştırın. Yükseltmeniz gerekirse, bkz. [Azure PowerShell modülünü yükleme](/powershell/azure/install-azurerm-ps). PowerShell'i yerel olarak çalıştırıyorsanız Azure bağlantısı oluşturmak için `Connect-AzureRmAccount` komutunu da çalıştırmanız gerekir.
 - Bu makalede görevleri tamamlamak için Azure komut satırı arabirimi (CLI) komutlarını kullanarak, ya da komutları çalıştırmak [Azure bulut Kabuk](https://shell.azure.com/bash), veya bilgisayarınızdan CLI çalıştırarak. Bu öğretici Azure CLI Sürüm 2.0.31 gerektirir veya sonraki bir sürümü. Yüklü sürümü bulmak için `az --version` komutunu çalıştırın. Yüklemeniz veya yükseltmeniz gerekirse, bkz. [Azure CLI 2.0 yükleme](/cli/azure/install-azure-cli). Azure CLI yerel olarak çalıştırıyorsanız, ayrıca çalıştırmanız gereken `az login` Azure ile bir bağlantı oluşturmak için.
 
 Hesap oturum açın veya ile azure'a bağlanmak için atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) içinde listelenen uygun eylemleri atanan [izinleri ](#permissions).
@@ -93,6 +94,8 @@ Bir alt ağ için ilişkili sıfır veya bir yol tablosu olabilir. Bir yol tablo
 3. Seçin **alt ağlar** altında **ayarları**.
 4. Yol tablosu ilişkilendirmek istediğiniz alt ağ seçin.
 5. Seçin **yol tablosu**, istediğiniz alt ağa ilişkilendirin ve ardından seçmek için yol tablosu seçin **kaydetmek**.
+
+Sanal ağınız için bir Azure VPN ağ geçidi bağlıysa, bir yol tablosu ilişkilendirmeyin [ağ geçidi alt ağı](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) 0.0.0.0/0 hedefi olan bir rota içerir. Bunun yapılması, ağ geçidi düzgün çalışmasını engelleyebilir. Bir rota 0.0.0.0/0 kullanma hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirmesini](virtual-networks-udr-overview.md#default-route).
 
 **Komutları**
 
@@ -159,7 +162,7 @@ Bir rota tablosu sıfır veya birden çok yolları içerir. Yollar görüntüler
 - Azure CLI: [az ağ yol tablosu rota listesi](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
-## <a name="view-details-of-a-route"></a>Bir rota ayrıntılarını görüntüleme
+## <a name="view-details-of-a-route"></a>Bir yolun ayrıntılarını görüntüleme
 
 1. Portal üstündeki arama kutusuna girin *yol tablosu* arama kutusuna. Zaman **yol tablosu** arama sonuçlarında görünecek, onu seçin.
 2. İçin bir rota ayrıntılarını görüntülemek istediğiniz yol tablosu seçin.
@@ -216,7 +219,7 @@ Etkin bir sanal makineye bağlı her ağ arabirimi için oluşturduğunuz yol ta
 
 Bir sanal makine ve başka bir Azure kaynak, bir şirket içi kaynağa ya da Internet üzerindeki bir kaynak IP adresi arasındaki sonraki atlama türü belirleyebilirsiniz. Belirleme Azure'nın yönlendirme yönlendirme sorunlarını gidermede yardımcı olur. Bu görevi tamamlamak için var olan bir Ağ İzleyicisi olması gerekir. Varolan bir Ağ İzleyicisi yoksa, içindeki adımları tamamlayarak oluşturmak [bir Ağ İzleyicisi örneği oluşturmayı](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-1. Portal üstündeki arama kutusuna girin *Ağ İzleyicisi* arama kutusuna. Zaman **Ağ İzleyicisi** arama sonuçlarında görünür.
+1. Portal üstündeki arama kutusuna girin *Ağ İzleyicisi* arama kutusuna. **Ağ İzleyicisi**, arama sonuçlarında görüntülendiğinde seçin.
 2. Seçin **sonraki atlama** altında **Ağ Tanılama Araçları**.
 3. Seçin, **abonelik** ve **kaynak grubu** gelen yönlendirme doğrulamak istediğiniz kaynak sanal makinesini.
 4. Seçin **sanal makine**, **ağ arabirimi** sanal makineye bağlı ve **kaynak IP adresi** doğrulamak istediğiniz ağ arabirimine atanmış gelen yönlendirme.

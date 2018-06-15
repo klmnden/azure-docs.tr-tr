@@ -1,6 +1,6 @@
 ---
-title: "Azure veritabanı PostgreSQL için için bağlantı kitaplıkları"
-description: "Bu makalede birkaç kitaplıkları ve geliştiricilerin ne zaman kullanabileceğini sürücüleri kodlama bağlanmak ve PostgreSQL için Azure veritabanını sorgulamak için uygulamalar."
+title: Azure veritabanı PostgreSQL için için bağlantı kitaplıkları
+description: Bu makalede birkaç kitaplıkları ve geliştiricilerin ne zaman kullanabileceğini sürücüleri kodlama bağlanmak ve PostgreSQL için Azure veritabanını sorgulamak için uygulamalar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687015"
 ---
 # <a name="connection-libraries-for-azure-database-for-postgresql"></a>Azure veritabanı PostgreSQL için için bağlantı kitaplıkları
 Bu makalede, kitaplıklar ve geliştiriciler bağlanmak ve PostgreSQL için Azure veritabanını sorgulamak için uygulamaları geliştirmek için kullanabilir sürücüleri listeler.

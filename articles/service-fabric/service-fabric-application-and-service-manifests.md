@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208480"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric uygulaması ve hizmeti bildirimleri
 Bu makalede, tanımlı ve sürümü tutulan ApplicationManifest.xml ve ServiceManifest.xml dosyalarını kullanarak nasıl Service Fabric uygulamaları ve Hizmetleri açıklanmaktadır.  Bu bildirim dosyalar için XML Şeması belgelenen [ServiceFabricServiceModel.xsd şema belgelerine](service-fabric-service-model-schema.md).

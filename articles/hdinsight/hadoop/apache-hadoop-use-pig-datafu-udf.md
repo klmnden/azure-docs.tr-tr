@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401015"
 ---
 # <a name="use-datafu-with-pig-on-hdinsight"></a>Hdınsight üzerinde pig ile DataFu kullanma
 

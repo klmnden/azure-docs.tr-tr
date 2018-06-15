@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: iot-dps
 author: msebolt
 ms.author: v-masebo
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29764512"
 ---
 > [!div class="op_single_selector"]
 > * [C](../articles/iot-dps/quick-create-simulated-device.md)

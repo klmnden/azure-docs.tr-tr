@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206207"
 ---
 # <a name="reliable-actors-state-management"></a>Güvenilir aktörler durum yönetimi
 Güvenilir aktörler mantığı ve durumu sarmalayabilen tek iş parçacıklı nesneleridir. Aktör Reliable Services üzerinde çalıştığından, bunlar durum güvenilir bir şekilde aynı kalıcılığını ve çoğaltma mekanizmalarını kullanarak koruyabilirsiniz. Bu şekilde çöp toplamadan sonra veya kaynak Dengeleme ya da yükseltme nedeniyle kümedeki düğümler arasında taşındıklarında yeniden etkinleştirme sırasında hatadan sonra durumlarına aktörler kaybetmeyin.

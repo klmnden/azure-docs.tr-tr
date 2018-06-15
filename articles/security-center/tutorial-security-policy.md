@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32779477"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Öğretici: Güvenlik ilkelerini tanımlama ve değerlendirme
 Güvenlik Merkezi, iş yüklerinizin istenen yapılandırmasını tanımlamak için güvenlik ilkeleri kullanarak şirketin veya yasal düzenlemelerin gerektirdiği güvenlik gereksinimlerine uyum sağlanmasına yardımcı olur. Azure abonelikleriniz için ilkeler tanımlayıp bunları iş yükü türüne veya verilerinizin duyarlılığına göre uyarladığınızda, Güvenlik Merkezi işlem, SQL ve depolama, ağ ve uygulama kaynaklarınıza güvenlik önerileri sağlayabilir. Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:

@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796440"
 ---
 # <a name="azure-stack-servicing-policy"></a>İlke bakım azure yığını
 Bu makalede hizmet ilkesi Azure tümleşik yığını sistemleri ve desteklenen bir duruma sisteminizi tutmak için yapmanız gerekir. 
@@ -37,10 +38,9 @@ Tümleşik sistemleri için güncelleştirme paketleri iki tür vardır:
 Microsoft yazılım güncelleştirme paketleri aylık bir tempoyla serbest bırakmak bekliyor. Ancak, bir ay içinde birden çok veya hiçbir güncelleştirme yayımları olması mümkündür. OEM donanım satıcıları güncellemeleri gerektiği düzenli olarak bırakın. 
 
 Belgeleri nasıl planlanacağı ve güncelleştirmeleri yönetmek ve geçerli sürümünüzde belirleme bulmak [Yönet güncelleştirmeleri genel bakış](azure-stack-updates.md). Karşıdan yükleme de dahil olmak üzere belirli bir güncelleştirmeyi hakkında bilgi için güncelleştirme sürüm notları için bkz: 
+- [Azure yığın 1805 güncelleştirme](azure-stack-update-1805.md)
+- [Azure yığın 1804 güncelleştirme](azure-stack-update-1804.md)
 - [Azure yığın 1803 güncelleştirme](azure-stack-update-1803.md)
-- [Azure yığın 1802 güncelleştirme](azure-stack-update-1802.md)
-- [Azure yığın 1712 güncelleştirme](azure-stack-update-1712.md)
-
 
 
 ## <a name="hotfixes"></a>Düzeltmeleri

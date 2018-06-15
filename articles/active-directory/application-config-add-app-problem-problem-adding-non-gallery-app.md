@@ -18,6 +18,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34053564"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>Bir galeri olmayan uygulama eklenirken hata
 

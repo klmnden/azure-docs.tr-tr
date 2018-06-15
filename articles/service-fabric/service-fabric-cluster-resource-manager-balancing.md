@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213155"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Service fabric kümesi Dengeleme
 Service Fabric kümesi kaynak yöneticisi ekleme veya kaldırma işlemleri düğümleri veya hizmetlerin tepki dinamik yük değişiklikleri destekler. Bir kısıtlama ihlali de otomatik olarak düzeltir ve proaktif olarak küme yeniden dengeler. Ancak bu eylemler ne sıklıkta alınır ve bunları tetikleyen?

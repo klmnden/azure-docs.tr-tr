@@ -1,12 +1,12 @@
 ---
-title: "Toplu işlem yoğunluklu Azure VM'ler kullanın | Microsoft Docs"
-description: "Azure Batch havuzlarında RDMA özellikli GPU etkinleştirilmiş veya VM boyutları yararlanmak nasıl"
+title: Toplu işlem yoğunluklu Azure VM'ler kullanın | Microsoft Docs
+description: Azure Batch havuzlarında RDMA özellikli GPU etkinleştirilmiş veya VM boyutları yararlanmak nasıl
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762450"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch havuzları, RDMA özellikli GPU etkinleştirilmiş veya örnekleri kullanın
 

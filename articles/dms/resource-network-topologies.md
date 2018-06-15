@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235409"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti ile Azure SQL DB yönetilen örneği geçişler için ağ topolojisi
 Bu makalede, Azure veritabanı geçiş hizmeti Azure SQL veritabanı yönetilen örneği için şirket içi SQL sunucularından sorunsuz geçiş deneyimi sağlamak için birlikte çalışabilir çeşitli ağ topolojileri hakkında bilgi edineceksiniz.
