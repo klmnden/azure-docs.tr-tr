@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure Storage veri hareketi kitaplığı ile veri aktarımı | Microsoft Docs"
-description: "Veri hareketi kitaplığı taşımak veya için veya blob ve dosya içeriğinden veri kopyalamak için kullanın. Verileri Azure depolama birimine yerel dosyalarından kopyalamak veya içinde veya depolama hesapları arasında veri kopyalama. Kolayca verilerinizi Azure depolama alanına geçiş."
+title: Microsoft Azure Storage veri hareketi kitaplığı ile veri aktarımı | Microsoft Docs
+description: Veri hareketi kitaplığı taşımak veya için veya blob ve dosya içeriğinden veri kopyalamak için kullanın. Verileri Azure depolama birimine yerel dosyalarından kopyalamak veya içinde veya depolama hesapları arasında veri kopyalama. Kolayca verilerinizi Azure depolama alanına geçiş.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/02/2018
+ms.locfileid: "27564748"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage veri hareketi kitaplığı ile veri aktarımı
 

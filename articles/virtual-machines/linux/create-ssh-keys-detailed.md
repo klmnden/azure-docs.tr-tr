@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "31600351"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Ayrıntılı adımlar: oluşturmak ve azure'da bir Linux VM için kimlik doğrulaması için SSH anahtarları Yönet 
 Güvenli Kabuk (SSH) anahtar çifti ile kimlik doğrulaması için SSH anahtarları kullanmayı varsayılan olarak oturum açmak parola gereksinimini azure'da bir Linux sanal makine oluşturabilirsiniz. Azure portalı ile Azure CLI, Resource Manager şablonları VM'ler oluşturulduktan veya diğer araçları SSH anahtar kimlik doğrulaması için SSH bağlantı kurar dağıtımın parçası olarak SSH ortak anahtarınızı içerebilir. 

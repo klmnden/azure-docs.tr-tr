@@ -1,6 +1,6 @@
 ---
-title: "Kullanıcılar Azure veritabanı'nda PostgreSQL sunucusu oluşturun."
-description: "Bu makalede, Azure veritabanı PostgreSQL sunucusu ile etkileşim kurmak için yeni kullanıcı hesapları nasıl oluşturabileceğiniz açıklanmaktadır."
+title: Kullanıcılar Azure veritabanı'nda PostgreSQL sunucusu oluşturun.
+description: Bu makalede, Azure veritabanı PostgreSQL sunucusu ile etkileşim kurmak için yeni kullanıcı hesapları nasıl oluşturabileceğiniz açıklanmaktadır.
 services: postgresql
 author: jasonwhowell
 ms.author: jasonh
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29575642"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Kullanıcılar Azure veritabanı'nda PostgreSQL sunucusu oluşturun. 
 Bu makalede, Azure veritabanı PostgreSQL sunucu için kullanıcıların nasıl oluşturabileceğiniz açıklanmaktadır.

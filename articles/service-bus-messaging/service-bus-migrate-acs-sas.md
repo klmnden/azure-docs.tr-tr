@@ -1,11 +1,11 @@
 ---
-title: "Paylaşılan erişim imzası yetkilendirme için Azure Active Directory erişim denetimi Hizmeti'nden geçirme | Microsoft Docs"
-description: "Uygulamalar için SAS erişim denetimi Hizmeti'nden geçirme"
+title: Paylaşılan erişim imzası yetkilendirme için Azure Active Directory erişim denetimi Hizmeti'nden geçirme | Microsoft Docs
+description: Uygulamalar için SAS erişim denetimi Hizmeti'nden geçirme
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27160274"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Paylaşılan erişim imzası yetkilendirme için Azure Active Directory erişim denetimi Hizmeti'nden geçirme
 

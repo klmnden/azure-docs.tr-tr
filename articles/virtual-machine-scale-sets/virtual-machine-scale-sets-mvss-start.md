@@ -1,11 +1,11 @@
 ---
-title: "Sanal makine ölçek kümesi şablonları hakkında bilgi edinin | Microsoft Docs"
-description: "Sanal makine ölçek kümeleri için minimum uygun ölçek kümesi şablon oluşturmayı öğrenin"
+title: Sanal makine ölçek kümesi şablonları hakkında bilgi edinin | Microsoft Docs
+description: Sanal makine ölçek kümeleri için minimum uygun ölçek kümesi şablon oluşturmayı öğrenin
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
@@ -15,17 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-<<<<<<< HEAD
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
-=======
 ms.openlocfilehash: 5cd495d1332c71d7eae775f933b73d98826f10e4
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781264"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Sanal makine ölçek kümesi şablonları hakkında bilgi edinin
 [Azure Resource Manager şablonları](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment), ilgili kaynak gruplarını dağıtmanın harika bir yoludur. Bu öğretici serisi minimum uygun ölçek kümesi şablonunun nasıl oluşturulacağını ve çeşitli senaryoları uyacak şekilde bu şablonu nasıl değiştireceğiniz gösterilir. Tüm örnekler öğesinden gelen [GitHub deposunu](https://github.com/gatneil/mvss). 

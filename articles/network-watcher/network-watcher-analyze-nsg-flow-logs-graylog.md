@@ -1,13 +1,13 @@
 ---
-title: "Azure ağ güvenlik grubu akış günlükleri - Graylog çözümleme | Microsoft Docs"
-description: "Yönetmek ve ağ güvenlik grubu akış günlükleri Ağ İzleyicisi'ni ve Graylog kullanarak azure'da analiz öğrenin."
+title: Azure ağ güvenlik grubu akış günlükleri - Graylog çözümleme | Microsoft Docs
+description: Yönetmek ve ağ güvenlik grubu akış günlükleri Ağ İzleyicisi'ni ve Graylog kullanarak azure'da analiz öğrenin.
 services: network-watcher
 documentationcenter: na
 author: mareat
 manager: vitinnan
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26639292"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Yönetmek ve Ağ İzleyicisi'ni ve Graylog kullanarak azure'daki ağ güvenlik grubu akışı günlüklerini analiz edin
 

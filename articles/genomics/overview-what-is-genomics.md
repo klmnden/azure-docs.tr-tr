@@ -1,7 +1,7 @@
 ---
 title: Microsoft Genomiks nedir? | Microsoft Belgeleri
 titleSuffix: Azure
-description: "İkincil çözümleme için BWA GATK bulut uyarlamasını teklifi şimdi Microsoft Genomics genome sıralama nasıl kapatabilirsiniz öğrenin."
+description: İkincil çözümleme için BWA GATK bulut uyarlamasını teklifi şimdi Microsoft Genomics genome sıralama nasıl kapatabilirsiniz öğrenin.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26684798"
 ---
 # <a name="what-is-microsoft-genomics"></a>Microsoft Genomiks nedir?
 Microsoft Genomics bulut uygulaması Burrows CAN Aligner (BWA) ve ikincil çözümleme için Genome analiz Araç Seti (GATK) sunar. Hizmet ISO sertifikalıdır ve HIPAA yönetmeliklerini ile uyumlu ve fiyat öngörülebilirlik genome sıralama gereksinimlerinize sunar. Microsoft Genomics hizmeti kullanmak ve bizim quickstarts, öğreticiler ve belgeleri okuyarak bizim API'si ile tümleştirme hakkında bilgi edinin.

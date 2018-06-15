@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Authenticator Azure ve Microsoft hesaplarının oturum açma - telefon | Microsoft Docs"
-description: "Parolanızı yazmak yerine Microsoft hesabınızda oturum açmak için telefonunuz kullanın. Bu makalede, bu özellik hakkında sık sorulan sorular yanıtlanmaktadır."
+title: Microsoft Authenticator Azure ve Microsoft hesaplarının oturum açma - telefon | Microsoft Docs
+description: Parolanızı yazmak yerine Microsoft hesabınızda oturum açmak için telefonunuz kullanın. Bu makalede, bu özellik hakkında sık sorulan sorular yanıtlanmaktadır.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "26630399"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Telefonunuz oturum, parolanızı değil oturum
 

@@ -1,8 +1,8 @@
 ---
-title: "Toplama ve performans sayaçları Azure günlük analizi çözümleme | Microsoft Docs"
-description: "Performans sayaçları, Windows ve Linux aracılarını performansını çözümlemek için günlük analizi tarafından toplanır.  Bu makalede her iki Windows performans sayaçlarını toplamalarında yapılandırılması açıklanmaktadır ve Linux aracılarını, bunlar ayrıntılarını çalışma ve bunları Azure portalında analiz nasıl depolanır."
+title: Toplama ve performans sayaçları Azure günlük analizi çözümleme | Microsoft Docs
+description: Performans sayaçları, Windows ve Linux aracılarını performansını çözümlemek için günlük analizi tarafından toplanır.  Bu makalede her iki Windows performans sayaçlarını toplamalarında yapılandırılması açıklanmaktadır ve Linux aracılarını, bunlar ayrıntılarını çalışma ve bunları Azure portalında analiz nasıl depolanır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783171"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Windows ve Linux performans veri kaynaklarında günlük analizi
 Windows ve Linux performans sayaçları donanım bileşenleri, işletim sistemleri ve uygulamaların performansını bir anlayış sağlar.  Günlük analizi, performans sayaçları, uzun vadeli analiz için performans verilerini toplama ve raporlama ek olarak neredeyse gerçek zamanlı (NRT) çözümleme için sık aralıklarla toplayabilirsiniz.

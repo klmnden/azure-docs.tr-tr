@@ -1,11 +1,11 @@
 ---
-title: "Yükseltme ve Azure API Management örneği ölçeklendirin | Microsoft Docs"
-description: "Bu konu, yükseltme ve Azure API Management örneği ölçeklendirme açıklar."
+title: Yükseltme ve Azure API Management örneği ölçeklendirin | Microsoft Docs
+description: Bu konu, yükseltme ve Azure API Management örneği ölçeklendirme açıklar.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: anneta
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
@@ -16,6 +16,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26658644"
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Yükseltme ve API Management örneği ölçeklendirme 
 
