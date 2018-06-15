@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787398"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Azure DevTest Labs'de Azure Market görüntü ayarlarını yapılandırma
 DevTest Labs laboratuvarınızda kullanılacak oluşturma VM'ler Azure Market görüntülerini nasıl yapılandırdığınıza bağlı olarak Azure Market görüntüsünü temel destekler. Bu makalede, varsa, Azure Market görüntülerini olabilecek belirtmek gösterilmiştir VM'ler bir laboratuar ortamında oluşturulurken kullanılır. Bu, ekibinizin yalnızca ihtiyaç duydukları Market görüntülerini erişimi olmasını sağlar. 

@@ -1,11 +1,11 @@
 ---
-title: "Node.js için Azure CDN SDK'sı ile çalışmaya başlama | Microsoft Docs"
-description: "Azure CDN yönetmek için Node.js uygulamalarını yazmayı öğrenin."
+title: Node.js için Azure CDN SDK'sı ile çalışmaya başlama | Microsoft Docs
+description: Azure CDN yönetmek için Node.js uygulamalarını yazmayı öğrenin.
 services: cdn
 documentationcenter: nodejs
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: c4bb6a61-de3d-4f0c-9dca-202554c43dfa
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23843199"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]

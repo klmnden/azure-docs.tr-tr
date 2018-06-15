@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager yedekleme işleri | Microsoft Docs"
-description: "StorSimple Snapshot Manager MMC ek bileşenini görüntülemek ve zamanlanmış, çalışmakta ve tamamlanan yedekleme işlerini yönetmek için nasıl kullanılacağını açıklar."
+title: StorSimple Snapshot Manager yedekleme işleri | Microsoft Docs
+description: StorSimple Snapshot Manager MMC ek bileşenini görüntülemek ve zamanlanmış, çalışmakta ve tamamlanan yedekleme işlerini yönetmek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: bf4dcff6-c819-4766-b9d9-9922831cb200
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875819"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>StorSimple Snapshot Manager görüntülemek ve yedekleme işlerini yönetmek için kullanın
 

@@ -1,11 +1,11 @@
 ---
-title: "Node.js modülleriyle çalışma"
-description: "Azure uygulama hizmeti veya Bulut hizmetlerini kullanırken node.js modüllerini ile çalışmayı öğrenin."
-services: 
+title: Node.js modülleriyle çalışma
+description: Azure uygulama hizmeti veya Bulut hizmetlerini kullanırken node.js modüllerini ile çalışmayı öğrenin.
+services: ''
 documentationcenter: nodejs
 author: TomArcher
 manager: routlaw
-editor: 
+editor: ''
 ms.assetid: c0e6cd3d-932d-433e-b72d-e513e23b4eb6
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23864059"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Azure uygulamalarıyla Node.js Modüllerini kullanma
 Bu belge, Azure üzerinde barındırılan uygulamalarıyla Node.js modüllerini kullanma yönergeleri sağlar. Ayrıca, uygulamanızda modülün belirli bir sürümünün kullanıldığından nasıl emin olacağınız ve Azure'la yerel modülleri nasıl kullanacağınız da anlatılır.

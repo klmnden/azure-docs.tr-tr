@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895689"
 ---
 # <a name="azure-operational-security"></a>Azure işlem güvenliği
 ## <a name="introduction"></a>Giriş

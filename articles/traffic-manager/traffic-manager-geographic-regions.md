@@ -1,12 +1,12 @@
 ---
-title: "Azure Traffic Manager coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi | Microsoft Docs"
-description: "Bu makalede Azure trafik Yöneticisi coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi listeler"
+title: Azure Traffic Manager coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi | Microsoft Docs
+description: Bu makalede Azure trafik Yöneticisi coğrafi yönlendirme türü tarafından kullanılan ülke/bölge hiyerarşi listeler
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201505"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Coğrafi trafik yönlendirme yöntemini için Azure Traffic Manager tarafından kullanılan ülke/bölge hiyerarşisi
 

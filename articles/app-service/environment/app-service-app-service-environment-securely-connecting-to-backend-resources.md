@@ -1,11 +1,11 @@
 ---
-title: "Bir uygulama hizmeti ortamındaki arka uç kaynaklarına güvenli bir şekilde bağlanma"
-description: "Bir uygulama hizmeti ortamındaki arka uç kaynaklarına güvenli bir şekilde bağlanma hakkında bilgi edinin."
+title: Bir uygulama hizmeti ortamındaki arka uç kaynaklarına güvenli bir şekilde bağlanma
+description: Bir uygulama hizmeti ortamındaki arka uç kaynaklarına güvenli bir şekilde bağlanma hakkında bilgi edinin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836528"
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>Bir uygulama hizmeti ortamındaki arka uç kaynaklarına güvenli bir şekilde bağlanma
 ## <a name="overview"></a>Genel Bakış

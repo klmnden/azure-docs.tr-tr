@@ -1,11 +1,11 @@
 ---
-title: "Saydam veri şifreleme Esnetme veritabanı - Azure için etkinleştirme | Microsoft Docs"
-description: "Saydam veri şifreleme (TDE) Azure üzerinde SQL Server Esnetme veritabanı için etkinleştirin"
+title: Saydam veri şifreleme Esnetme veritabanı - Azure için etkinleştirme | Microsoft Docs
+description: Saydam veri şifreleme (TDE) Azure üzerinde SQL Server Esnetme veritabanı için etkinleştirin
 services: sql-server-stretch-database
-documentationcenter: 
+documentationcenter: ''
 author: douglaslMS
 manager: barbkess
-editor: 
+editor: ''
 ms.assetid: a44ed8f5-b416-4c41-9b1e-b7271f10bdc3
 ms.service: sql-server-stretch-database
 ms.workload: data-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23872928"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Azure üzerinde Esnetme veritabanı için saydam veri şifreleme (TDE) etkinleştir
 > [!div class="op_single_selector"]

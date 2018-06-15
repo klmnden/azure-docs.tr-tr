@@ -1,11 +1,11 @@
 ---
-title: "Devre dışı bırakın ve bir Microsoft Azure StorSimple sanal dizinin Sil | Microsoft Docs"
-description: "StorSimple cihazı hizmetinden önce devre dışı bırakma ve silme kaldırmayı açıklar."
+title: Devre dışı bırakın ve bir Microsoft Azure StorSimple sanal dizinin Sil | Microsoft Docs
+description: StorSimple cihazı hizmetinden önce devre dışı bırakma ve silme kaldırmayı açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: a929f5bc-03e2-4b01-b925-973db236f19f
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875833"
 ---
 # <a name="deactivate-and-delete-a-storsimple-virtual-array"></a>Devre dışı bırakın ve bir StorSimple sanal dizi Sil
 

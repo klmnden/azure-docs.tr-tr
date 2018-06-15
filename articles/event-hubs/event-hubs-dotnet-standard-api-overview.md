@@ -1,11 +1,11 @@
 ---
-title: "Standart .NET API'ları Azure Event Hubs'a genel bakış | Microsoft Docs"
-description: ".NET standart API genel bakış"
+title: Standart .NET API'ları Azure Event Hubs'a genel bakış | Microsoft Docs
+description: .NET standart API genel bakış
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
 ms.devlang: na
@@ -16,9 +16,10 @@ ms.date: 12/19/2017
 ms.author: sethm
 ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
 ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783008"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET standart API genel bakış
 

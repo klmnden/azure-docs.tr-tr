@@ -1,11 +1,11 @@
 ---
-title: "Azure geçiş özel durumlar ve bunların nasıl çözüleceği | Microsoft Docs"
-description: "Azure geçiş özel durumlar ve bunları çözmenize yardımcı olacak önerilen eylemleri listesi."
+title: Azure geçiş özel durumlar ve bunların nasıl çözüleceği | Microsoft Docs
+description: Azure geçiş özel durumlar ve bunları çözmenize yardımcı olacak önerilen eylemleri listesi.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 5f9dd02c-cce0-43b3-8eb8-744f0c27f38c
 ms.service: service-bus-relay
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855870"
 ---
 # <a name="azure-relay-exceptions"></a>Azure geçiş özel durumlar
 

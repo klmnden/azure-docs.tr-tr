@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33938701"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Azure portal ile bir Azure günlük analizi çalışma alanı silme
 Bu makalede Azure portalı artık gerektirebilecek günlük analizi çalışma alanını silmek için nasıl kullanılacağı gösterilmektedir. 

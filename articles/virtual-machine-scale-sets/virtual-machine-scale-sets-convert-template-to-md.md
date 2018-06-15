@@ -1,9 +1,9 @@
 ---
-title: "Yönetilen disk kullanmak üzere bir Azure Resource Manager ölçek kümesi şablonu Dönüştür | Microsoft Docs"
-description: "Ölçek kümesi şablon yönetilen disk ölçek kümesi şablona dönüştürebilirsiniz."
-keywords: "Sanal makine ölçekleme kümeleri"
+title: Yönetilen disk kullanmak üzere bir Azure Resource Manager ölçek kümesi şablonu Dönüştür | Microsoft Docs
+description: Ölçek kümesi şablon yönetilen disk ölçek kümesi şablona dönüştürebilirsiniz.
+keywords: Sanal makine ölçekleme kümeleri
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781080"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Ölçek kümesi şablon yönetilen disk ölçek kümesi şablona dönüştürme
 

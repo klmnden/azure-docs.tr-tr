@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937845"
 ---
 # <a name="validate-azure-registration"></a>Azure kaydı doğrula 
 Azure aboneliğinizde Azure yığın ile kullanıma hazır olduğunu doğrulamak için Azure yığın hazırlık Denetleyicisi aracını (AzsReadinessChecker) kullanın. Bir Azure yığın dağıtımına başlamadan önce kayıt doğrulayın. Hazırlık denetleyicisi doğrular:

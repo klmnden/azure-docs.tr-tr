@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus ileti sıralama ve zaman damgaları | Microsoft Docs"
-description: "Hizmet veri yolu ileti sırası ve zaman damgalı sırası koru"
+title: Azure Service Bus ileti sıralama ve zaman damgaları | Microsoft Docs
+description: Hizmet veri yolu ileti sırası ve zaman damgalı sırası koru
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28200743"
 ---
 # <a name="message-sequencing-and-timestamps"></a>İleti sıralama ve zaman damgaları
 

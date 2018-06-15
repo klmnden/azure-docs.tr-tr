@@ -1,11 +1,11 @@
 ---
-title: "StorSimple cihazınız için güvenliği | Microsoft Docs"
-description: "Güvenlik kuralları, kılavuzları ve konuları açıklar ve güvenli bir şekilde yüklemek ve StorSimple Cihazınızı çalıştırmak açıklanmaktadır."
+title: StorSimple cihazınız için güvenliği | Microsoft Docs
+description: Güvenlik kuralları, kılavuzları ve konuları açıklar ve güvenli bir şekilde yüklemek ve StorSimple Cihazınızı çalıştırmak açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: dae6d535-1ca2-4d2b-b221-6819043aa068
 ms.service: storsimple
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875868"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Güvenli bir şekilde yüklemek ve StorSimple Cihazınızı çalıştırmak
 ![Uyarı simgesi](./media/storsimple-safety/IC740879.png)

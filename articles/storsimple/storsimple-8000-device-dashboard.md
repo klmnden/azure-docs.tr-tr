@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi aygıt kullanma Özet | Microsoft Docs"
-description: "StorSimple cihaz Yöneticisi Hizmeti aygıt Özet ve storage ölçümleri ve bağlı başlatıcıları görüntüleyin ve seri numarasını ve IQN bulmak için kullanın açıklar."
+title: StorSimple 8000 serisi aygıt kullanma Özet | Microsoft Docs
+description: StorSimple cihaz Yöneticisi Hizmeti aygıt Özet ve storage ölçümleri ve bağlı başlatıcıları görüntüleyin ve seri numarasını ve IQN bulmak için kullanın açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874860"
 ---
 # <a name="use-the-device-summary-in-storsimple-device-manager-service"></a>StorSimple Aygıt Yöneticisi'ni hizmetinde Özet aygıtı kullanma
 

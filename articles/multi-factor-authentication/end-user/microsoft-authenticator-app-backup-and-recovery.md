@@ -16,9 +16,10 @@ ms.reviewer: olhaun
 ms.custom: end-user
 ms.openlocfilehash: e25ccdad5285bfaa96f538aca415746942523d85
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33896274"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Yedekleme ve kurtarma hesabı kimlik bilgileriyle Microsoft Authenticator uygulaması
 **Uygulandığı öğe:**

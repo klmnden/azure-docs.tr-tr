@@ -20,6 +20,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790394"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay çevrimdışı akış iOS için 
  Azure Media Services, iyi tasarlanmış bir dizi sağlar [içerik koruma hizmetleri](https://azure.microsoft.com/services/media-services/content-protection/) bu kapsar:

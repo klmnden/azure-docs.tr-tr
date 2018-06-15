@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788581"
 ---
 # <a name="use-azure-media-services-to-deliver-drm-licenses-or-aes-keys"></a>DRM lisansları veya AES anahtarları göndermek için Azure Media Services'i kullanma
 Azure Media Services, alma, kodlama, içerik koruma ekleyin ve içeriğinizin akışını sağlar. Daha fazla bilgi için bkz: [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md). Bazı müşteriler, Media Services yalnızca lisansları ve/veya anahtarları teslim etmek ve kodlama, şifreleme ve kendi şirket içi sunucuları kullanarak akış için kullanmak istediğiniz. Bu makalede, PlayReady ve/veya Widevine lisansları teslim ancak geri kalan şirket içi sunucularınızla yapmak için Media Services nasıl kullanabileceğiniz açıklanır. 

@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33867292"
 abstract:
   description: Azure SignalR Hizmeti, geliştiricilerin gerçek zamanlı özelliklerle web uygulamalarını kolayca derlemesine yardımcı olan, yönetilen bir Azure hizmetidir. Bu hizmet, uygulamalara gerçek zamanlı web işlevselliği ekleme işlemini basitleştiren bir açık kaynak kitaplık olan ASP.NET Core’u temel alır.
 sections:

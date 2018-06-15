@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788770"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services hata kodları
 Microsoft Azure Media Services kullanırken, Media Services desteklenmeyen Eylemler süresinin dolmasını kimlik doğrulama belirteçleri gibi sorunları bağlı olarak hizmetinden HTTP hata kodları alabilirsiniz. Bir listesi aşağıda verilmiştir **HTTP hata kodları** , döndürülüp döndürülmediğini Media Services ve olası nedenleri tarafından bunlar için.  

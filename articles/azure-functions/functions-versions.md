@@ -1,11 +1,11 @@
 ---
-title: "Azure işlevleri çalışma zamanı sürümleri genel bakış"
-description: "Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Bunları ve sizin için uygun olan bir seçme arasındaki farklar hakkında bilgi edinin."
+title: Azure işlevleri çalışma zamanı sürümleri genel bakış
+description: Azure işlevleri çalışma zamanı birden fazla sürümünü destekler. Bunları ve sizin için uygun olan bir seçme arasındaki farklar hakkında bilgi edinin.
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: ggailey777
 manager: cfowler
-editor: 
+editor: ''
 ms.service: functions
 ms.workload: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919364"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure işlevleri çalışma zamanı sürümleri genel bakış
 

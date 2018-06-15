@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788497"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Kırpıcıyı kırpma işlerini gönderme
 Azure Media Kırpıcıyı gerektiren bir **submitSubclipCallback** kırpma iş gönderme işlemek için uygulanacak yöntemi. Bu işlev bir web hizmetine Kırpıcıyı çıktının bir HTTP POST uygulamak için kullanılır. Kodlama işinin gönderebileceği bu web hizmetidir. Kırpıcıyı çıktısını ya da bir medya Kodlayıcı işlenmiş işleri için hazır ya da dinamik bildirim filtresi çağrıları için REST API yükü kodlama standarttır. Media services hesap kimlik bilgilerini istemcinin tarayıcıda güvenli olmadığından bu geçiş modeli gereklidir.
