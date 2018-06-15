@@ -2,18 +2,20 @@
 title: 'Öğretici: Azure Active Directory B2C’yi kullanan hesaplarla tek sayfalı uygulama kimlik doğrulamasını etkinleştirme | Microsoft Docs'
 description: Bir tek sayfalı uygulamada (JavaScript) kullanıcının oturum açmasını sağlamak için Azure Active Directory B2C’nin nasıl kullanılacağını gösteren öğretici.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: paraj
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 9f5f98ae5798cabd90c453221fe36f17052f77aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712530"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Öğretici: Azure Active Directory B2C’yi kullanan hesaplarla tek sayfalı uygulama kimlik doğrulamasını etkinleştirme
 
@@ -83,7 +85,7 @@ Erişim sağlamak üzere kullanıcıları kaydetmek ve web uygulamasında oturum
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Ad** | SiUpIn | İlke için bir **Ad** girin. İlke adında **B2C_1_** ön eki bulunur. Örnek kodda **B2C_1_SiUpIn** olan tam ilke adını kullanırsınız. | 
+    | **Ad** | SiUpIn | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda **B2C_1_SiUpIn** olan tam ilke adını kullanırsınız. | 
     | **Kimlik sağlayıcı** | E-posta ile kaydolma | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
     | **Kaydolma öznitelikleri** | Görünen Ad ve Posta Kodu | Kayıt sırasında kullanıcıdan toplanacak öznitelikleri seçin. |
     | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının yeni olma durumu, Kullanıcının Nesne Kimliği | [Erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
@@ -100,7 +102,7 @@ Kullanıcıların, kullanıcı profili bilgilerini kendi kendine sıfırlamasın
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Ad** | SiPe | İlke için bir **Ad** girin. İlke adında **B2C_1_** ön eki bulunur. Örnek kodda, **B2C_1_SiPe** olan tam ilke adını kullanırsınız. | 
+    | **Ad** | SiPe | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda, **B2C_1_SiPe** olan tam ilke adını kullanırsınız. | 
     | **Kimlik sağlayıcı** | Yerel Hesap Oturum Açma Bilgileri | Kimlik sağlayıcı, kullanıcıyı benzersiz şekilde tanımlamak için kullanılır. |
     | **Profil öznitelikleri** | Görünen Ad ve Posta Kodu | Profil düzenleme işlemi sırasında kullanıcıların değiştirebileceği öznitelikleri seçin. |
     | **Uygulama talepleri** | Görünen Ad, Posta Kodu, Kullanıcının Nesne Kimliği | Başarılı bir profil düzenleme işleminden sonra [erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
@@ -117,7 +119,7 @@ Uygulamanızda parola sıfırlama özelliği sunmak için bir **parola sıfırla
 
     | Ayar      | Önerilen değer  | Açıklama                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Ad** | SSPR | İlke için bir **Ad** girin. İlke adında **B2C_1_** ön eki bulunur. Örnek kodda, **B2C_1_SSPR** olan tam ilke adını kullanırsınız. | 
+    | **Ad** | SSPR | İlke için bir **Ad** girin. İlke adı, **B2C_1_** ön ekine sahip olur. Örnek kodda, **B2C_1_SSPR** olan tam ilke adını kullanırsınız. | 
     | **Kimlik sağlayıcı** | E-posta adresi kullanarak parola sıfırlama | Bu, kullanıcıyı benzersiz şekilde tanımlamak için kullanılan kimlik sağlayıcıdır. |
     | **Uygulama talepleri** | Kullanıcının Nesne Kimliği | Başarılı bir parola sıfırlama işleminden sonra [erişim belirtecine](../active-directory/develop/active-directory-dev-glossary.md#access-token) eklenmesini istediğiniz [talepleri](../active-directory/develop/active-directory-dev-glossary.md#claim) seçin. |
 

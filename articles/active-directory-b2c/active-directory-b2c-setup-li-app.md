@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: LinkedIn yapılandırma | Microsoft Docs'
-description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan LinkedIn hesaplarıyla tüketicileri için kaydolma ve oturum açma sağlayın
+title: Azure Active Directory B2C LinkedIn yapılandırmasında | Microsoft Docs
+description: Uygulamalarınızda Azure Active Directory B2C tarafından güvenliği sağlanan LinkedIn hesaplarıyla tüketiciye kaydolma ve oturum açma sağlar.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 6db3832031a1bb960ee40c0e4fb8c3d0591a976c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711707"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: Kaydolma ve oturum açma LinkedIn hesaplarıyla tüketicileri sağlayın
 ## <a name="create-a-linkedin-application"></a>Bir LinkedIn uygulaması oluşturma
@@ -35,7 +35,7 @@ LinkedIn Azure Active Directory (Azure AD) B2C bir kimlik sağlayıcısı olarak
    > **İstemci parolası** önemli güvenlik kimlik bilgileri.
    > 
    > 
-6. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yönlendirme URL'si yetkili** alan (altında **OAuth 2.0**). Değiştir **{tenant}** , kiracının adlı (örneğin, contoso.onmicrosoft.com). Tıklatın **Ekle**ve ardından **güncelleştirme**. **{Tenant}** duyarlıdır.
+6. Girin `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` içinde **yönlendirme URL'si yetkili** alan (altında **OAuth 2.0**). Değiştir **{tenant}** , kiracının adlı (örneğin, contoso.onmicrosoft.com). Tıklatın **Ekle**ve ardından **güncelleştirme**. **{Tenant}** değeri küçük olmalıdır.
    
     ![LinkedIn - Kurulum uygulama](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

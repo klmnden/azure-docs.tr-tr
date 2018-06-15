@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb9bfd000c377f63e99350d0615a7e92ba8bb8ef
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209282"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716253"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure bölgeleri arasında Azure VM yük devretme ve ilk duruma döndürme
 
@@ -28,7 +28,7 @@ Bu öğretici, tek bir Azure VM’den ikincil bir Azure bölgesine nasıl yük d
 > * İkincil VM’yi geri döndürme
 > * Birincil VM’yi ikincil bölgeye yeniden koruyun
 
-Azure’dan Azure’a çoğaltma şu anda önizlemededir.
+
 
 ## <a name="prerequisites"></a>Ön koşullar
 

@@ -6,21 +6,16 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: rajanaki
-ms.openlocfilehash: ccec4262297314bad261a852bb5db25c428ce0a0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6a57226f81e626e620033750c58d5998d8e7e894
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716593"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Yeniden koruma birincil bölge Azure Vm'leri üzerinde başarısız oldu
-
-
->[!NOTE]
->
-> Azure VM’ler için Site Recovery çoğaltma şu anda önizlemede.
-
 
 
 Olduğunda, [yük devri](site-recovery-failover.md) bir bölge başka bir kullanarak Azure VM'lerin [Azure Site Recovery](site-recovery-overview.md), korumasız bir durumda ikincil bölge içindeki VM'ler önyüklemesi. Başarısız birincil bölge VM'ler yedeklerseniz, aşağıdakileri yapmanız gerekir:
@@ -51,7 +46,7 @@ Olduğunda, [yük devri](site-recovery-failover.md) bir bölge başka bir kullan
 
 Yükü sırasında hedef VMe aşağıdaki özelliklerini özelleştirebilirsiniz.
 
-![Özelleştir](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
+![Özelleştirme](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
 |Özellik |Notlar  |
 |---------|---------|

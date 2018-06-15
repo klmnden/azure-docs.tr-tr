@@ -6,22 +6,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f6ade346305ee6f18fb41b93bc8a1dc8543fcdb7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 67552b05d70e3ae44d75cbe1005743b6d17b2c2c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716236"
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Azure için Azure çoğaltma mimarisi
 
 
 Çoğaltma, yük devri ve Azure sanal makineleri (VM'ler) kullanarak Azure bölgeler arasında Kurtarma sırasında kullanılan mimarisi bu makalede [Azure Site Recovery](site-recovery-overview.md) hizmet.
 
->[!NOTE]
->Site Recovery hizmeti ile Azure VM çoğaltma şu anda önizlemede değil.
 
 
 
@@ -38,7 +37,7 @@ Aşağıdaki grafikte (Bu örnekte, Doğu ABD konumunda) belirli bir bölgede bi
 
 ## <a name="replication-process"></a>Çoğaltma işlemi
 
-### <a name="step-1"></a>Adım 1
+### <a name="step-1"></a>1. Adım
 
 Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olarak hedef bölgede Kaynak bölgesi ayarlara göre oluşturulur. Hedef kaynakları ayarları gerektiği gibi özelleştirebilirsiniz.
 
@@ -53,7 +52,7 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olar
 ** Çoğaltma yönetilen diskleri (VM olduğu açık kaynak diskleri yönetiliyorsa) **  | Diskleri veri çoğaltılan hedef konumda yönetilen.
 **Hedef kullanılabilirlik kümeleri**  | Kullanılabilirlik kümeleri, yük devretme sonrasında çoğaltılmış VM'ler bulunur.
 
-### <a name="step-2"></a>Adım 2
+### <a name="step-2"></a>2. Adım
 
 Çoğaltma etkin olarak Site Recovery uzantısı Mobility hizmeti VM üzerinde otomatik olarak yüklenir:
 
@@ -75,7 +74,7 @@ Azure VM çoğaltma etkinleştirdiğinizde, aşağıdaki kaynaklar otomatik olar
 > [!IMPORTANT]
 Linux VM’lerinin çoğaltma grubunun bir parçası olmasını istiyorsanız, 20004 numaralı bağlantı noktası üzerinden giden trafiğin, belirli Linux sürümünün kılavuzuna göre el ile açıldığından emin olun.
 
-### <a name="step-3"></a>Adım 3
+### <a name="step-3"></a>3. Adım
 
 Sürekli çoğaltma sürüyor sonra disk yazma işlemleri için önbellek depolama hesabı hemen aktarılır. Site Recovery verileri işler ve hedefe gönderir depolama hesabı ya da çoğaltma yönetilen diskler. Verilerin işlendikten sonra kurtarma noktaları birkaç dakikada bir hedef depolama hesabı oluşturulur.
 

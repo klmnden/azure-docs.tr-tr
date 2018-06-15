@@ -22,6 +22,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30837015"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede, verilerinizi - koruyabilmeniz için VM'yi yeniden sağlaması yapılana Bakım veya yeniden boyutlandırma nedeniyle olsa bile kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 

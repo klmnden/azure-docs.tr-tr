@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: MT
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698824"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect kullanıcı oturum açma seçenekleri
 Azure Active Directory (Azure AD) Bağlan aynı parolayı kullanarak Bulut ve şirket içi kaynaklara oturum açmalarını sağlar. Bu makalede, Azure AD ile oturum açmak için kullanmak istediğiniz kimlik seçmenize yardımcı olmak her bir kimlik modeli için temel kavramları açıklar.
@@ -47,6 +49,8 @@ Hiçbir parolaları bulutta depolandığından emin olun.||x*|x|
 Şirket içi çok faktörlü kimlik doğrulaması çözümleri etkinleştirin.|||x|
 
 * İle basit bir aracıyı.
+
+Bir kimlik doğrulama yöntemi seçme hakkında ayrıntılı bilgi için bkz: [, Azure Active Directory karma kimlik çözümü için uygun kimlik doğrulama yöntemini seçin](../../security/azure-ad-choose-authn.md)
 
 ### <a name="password-hash-synchronization"></a>Parola karması eşitleme
 Parola karma eşitlemesi ile kullanıcı parolalarını karmalarını şirket içi Active Directory'den Azure AD ile eşitlenir. Yeni parola karmaları parolalar değiştirilir veya şirket içi sıfırlama, Azure AD ile eşitlenir böylece hemen kullanıcılarınızın her zaman aynı parolayı bulut kaynaklarına ve şirket içi kaynaklar için kullanabilirsiniz. Parolalar hiçbir zaman Azure AD ile gönderilen veya düz metin Azure AD'de depolanabilir. Self Servis parola sıfırlama Azure AD'de etkinleştirmek için parola karma eşitlemesi parola geri yazma ile birlikte kullanabilirsiniz.

@@ -1,21 +1,21 @@
 ---
-title: Self Servis parola sıfırlama | Microsoft Docs
+title: Self Servis parola sıfırlama Azure Active Directory B2C'de | Microsoft Docs
 description: Self Servis parola sıfırlama için Azure Active Directory B2C uygulamasında müşterilerinizin ayarlanacağı gösterilmiştir
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: davidmu
-ms.openlocfilehash: 5b75455ad604b594a5f85fea8299d35a7d02c848
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
-ms.translationtype: MT
+ms.component: B2C
+ms.openlocfilehash: ea8b23618b382f557340643afd62e56932bbfb2d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712105"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Self Servis parola sıfırlama müşterileriniz için ayarlama
 Self Servis parola sıfırlama özelliği ile parolalarını kendi yerel hesaplar için kaydolduktan müşterilerinizin sıfırlayabilirsiniz. Özellikle, uygulamanızın düzenli olarak kullanan müşteriler milyonlarca varsa bu destek ekibiniz üzerindeki yük önemli ölçüde azaltır. Şu anda doğrulanmış e-posta adresini kullanarak yalnızca desteklenen kurtarma yöntemidir.

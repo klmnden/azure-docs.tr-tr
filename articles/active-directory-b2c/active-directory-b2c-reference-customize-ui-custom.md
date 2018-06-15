@@ -1,20 +1,21 @@
 ---
 title: Bir kullanıcı gezisine özel ilkeler ile UI Özelleştirme | Microsoft Docs
-description: Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin
+description: Azure Active Directory B2C özel ilkeleri hakkında bilgi edinin.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 4fe9e90996c56773480eb147e5aef7475453fe43
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 0980c79ccd9ebd170e747514bba712c498e1387c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711918"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Bir kullanıcı gezisine özel ilkeler ile UI Özelleştirme
 
@@ -139,10 +140,10 @@ Aşağıdaki tabloda yukarıdaki HTML5 sayfaları amacını açıklar.
 
 | HTML5 şablonu | Açıklama |
 |----------------|-------------|
-| *phonefactor.html* | Bu sayfa bir çok faktörlü kimlik doğrulaması sayfası için bir şablon olarak kullanılabilir. |
-| *resetpassword.html* | Bu sayfa için bir şablon olarak kullanılan bir parolanızı mı unuttunuz sayfasını. |
+| *phonefactor.HTML* | Bu sayfa bir çok faktörlü kimlik doğrulaması sayfası için bir şablon olarak kullanılabilir. |
+| *ResetPassword.HTML* | Bu sayfa için bir şablon olarak kullanılan bir parolanızı mı unuttunuz sayfasını. |
 | *selfasserted.html* | Bu sayfa, bir sosyal hesabı için bir şablon oturum gibi bir yerel hesap kayıt sayfasını veya bir yerel hesap oturum açma sayfasını kullanılabilir. |
-| *unified.html* | Bu sayfa, bir birleşik kaydolun veya oturum açma sayfası için bir şablon olarak kullanılabilir. |
+| *Unified.HTML* | Bu sayfa, bir birleşik kaydolun veya oturum açma sayfası için bir şablon olarak kullanılabilir. |
 | *updateprofile.html* | Bu sayfa için bir profil güncelleştirme sayfası şablon olarak kullanılabilir. |
 
 ## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>HTML5/CSS şablonlarınızı kullanıcı Yolculuğunuzun için bir bağlantı ekleme

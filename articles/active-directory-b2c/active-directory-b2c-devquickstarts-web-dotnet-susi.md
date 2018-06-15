@@ -1,21 +1,21 @@
 ---
-title: ASP.NET Azure Active Directory B2C kimlik doğrulaması, kaydolma, parola sıfırlama
+title: Kimlik doğrulaması, kaydolma, parola sıfırlama Azure Active Directory B2C'de | Microsoft Docs
 description: Oturumu-up/oturum açma sahip bir web uygulamasının nasıl oluşturulacağını, profil düzenleme ve parola sıfırlama ve Azure Active Directory B2C kullanarak.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 052d81f8170273bb0e40572322349550e7219363
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: ec106b46097f9a35b9e41e08de4c18339f1b28f0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710415"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Azure Active Directory B2C kaydolma, oturum açma profili düzenleme ve parola sıfırlama ile bir ASP.NET web uygulaması oluşturma
 

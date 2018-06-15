@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715831"
 ---
 # <a name="traffic-analytics"></a>Trafik analizi
 
@@ -56,7 +57,7 @@ Trafik analytics Önizleme'de kullanılabilir. Önizleme sürümü özelliklerin
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-### <a name="enable-network-watcher"></a>Ağ İzleyicisi'ni etkinleştir 
+### <a name="enable-network-watcher"></a>Ağ İzleyicisini etkinleştirme 
 
 Trafiğini analiz etmek için var olan bir Ağ İzleyicisi olması gerekir veya [bir Ağ İzleyicisi'ni etkinleştirmek](network-watcher-create.md) için analiz etmek istediğiniz Nsg'ler sahip her bölgede trafiği. Trafik analizi, herhangi bir barındırılan Nsg'ler için etkinleştirilebilir [bölgeler desteklenen](#supported-regions).
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>Bir ağ güvenlik grubu seçin 
 
-NSG akış günlüğü etkinleştirmeden önce akışları için oturum için bir ağ güvenlik grubu olması gerekir. Bir ağ güvenlik grubu yoksa bkz [bir ağ güvenlik grubu oluşturun](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) oluşturmak için.
+NSG akış günlüğü etkinleştirmeden önce akışları için oturum için bir ağ güvenlik grubu olması gerekir. Bir ağ güvenlik grubu yoksa bkz [bir ağ güvenlik grubu oluşturun](../virtual-network/manage-network-security-group.md#create-a-network-security-group) oluşturmak için.
 
 Azure portalının sol tarafta seçin **İzleyici**, ardından **Ağ İzleyicisi**ve ardından **NSG akış günlükleri**. Aşağıdaki resimde gösterildiği gibi bir NSG akış günlüğü, etkinleştirmek istediğiniz ağ güvenlik grubu seçin:
 

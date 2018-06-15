@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Kullanım raporlama API örnekleri ve tanımları | Microsoft Docs'
-description: Kılavuzu ve kullanıcıları, kimlik doğrulamaları ve çok faktörlü kimlik doğrulamaları Azure AD B2C kiracısı üzerinde raporları almayı örnekleri
+title: Kullanım raporlama API örnekleri ve Azure Active Directory B2C tanımlarında | Microsoft Docs
+description: Kılavuzu ve kullanıcıları, kimlik doğrulamaları ve çok faktörlü kimlik doğrulamaları Azure AD B2C kiracısı üzerinde raporları almayı örnekleri.
 services: active-directory-b2c
-documentationcenter: dev-center-name
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 07029181423927f0796cb85e728df416d01466e8
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: B2C
+ms.openlocfilehash: dc7f18e29367a3979a2650a87465366d9727cff6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711639"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Raporlama API'si aracılığıyla Azure AD B2C kullanım raporlarında erişme
 

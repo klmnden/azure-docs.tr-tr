@@ -22,7 +22,9 @@
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
 #### [Node.js](data-lake-analytics-manage-use-nodejs.md)
+### [Kullanıcı ekleme](data-lake-analytics-add-users.md)
 ### [İlkeler](data-lake-analytics-policies.md)
+### [İş klasörlerini koruma](data-lake-analytics-secure.md)
 ### [Tanılama günlüklerine erişim](data-lake-analytics-diagnostic-logs.md)
 ### [Kota sınırlarını ayarlama](data-lake-analytics-quota-limits.md)
 
@@ -38,6 +40,10 @@
 #### [Bilişsel uzantılar](data-lake-analytics-u-sql-cognitive.md)
 #### [Programlama kılavuzu](data-lake-analytics-u-sql-programmability-guide.md)
 
+### U-SQL SDK’sı
+#### [Yerel çalıştırma ve hata ayıklama](data-lake-analytics-data-lake-tools-local-run.md)
+#### [Çalıştırma ve test etme](data-lake-analytics-u-sql-sdk.md) 
+
 ### Visual Studio
 #### [Yükleme](data-lake-analytics-data-lake-tools-install.md)
 #### [İşlere gözatma ve bunları görüntüleme](data-lake-analytics-data-lake-tools-view-jobs.md)
@@ -46,6 +52,7 @@
 #### [Köşe yürütme ayrıntıları](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 #### [U-SQL veritabanını dışarı aktarma](data-lake-analytics-data-lake-tools-export-database.md)
 #### [Web sitesi günlüklerini çözümleme](data-lake-analytics-analyze-weblogs.md)
+#### [Veri eğikliğini çözme](data-lake-analytics-data-lake-tools-data-skew-solutions.md)
 #### [İşleri izleme ve sorun giderme](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ### Visual Studio Code
@@ -64,7 +71,7 @@
 # Kaynaklar
 ## [Azure Data Lake Blogu](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
-## [UserVoice üzerinden geri bildirim gönderin](https://feedback.azure.com/forums/327234-data-lake)
+## [Değişiklikleri isteme](https://feedback.azure.com/forums/327234-data-lake)
 ## [MSDN Forumu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Fiyatlandırma](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Fiyatlandırma hesaplayıcı](https://azure.microsoft.com/pricing/calculator/)

@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714121"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Alt düzey aygıtları birleştirilmiş karma Azure Active Directory sorun giderme 
 
@@ -49,11 +51,11 @@ Bu makalede, sorun giderme ile ilgili olası sorunları gidermek nasıl yönerge
 
 **Bilmeniz gerekenler:** 
 
-- En fazla kullanıcı başına aygıtları Aygıt odaklı sayısıdır. Örneğin, varsa *jdoe* ve *jharnett* oturum açma bir cihaza, ayrı bir kayıt (DeviceID) için oluşturulduğunda bunların her birini **kullanıcı** bilgileri sekmesi.  
+- En fazla kullanıcı başına aygıtları Aygıt odaklı sayısıdır. Örneğin, varsa *jdoe* ve *jharnett* bir cihaza, ayrı bir kayıt (DeviceID) oturum açma bunların her biri için oluşturulduğunda **kullanıcı** bilgileri sekmesi.  
 
 - İlk kaydı / aygıtların birleştirme denemesi oturum açma veya kilidi gerçekleştirmek / kilidini açmak için yapılandırılır. Bir Görev Zamanlayıcı görevi tarafından tetiklenen 5 dakikalık gecikme olabilir. 
 
-- İşletim sistemi veya el ile yeniden kayıtlar yeniden Azure portalında kullanıcı bilgileri sekmesi altında birden çok giriş sonuçlanır Azure AD hakkında yeni bir kayıt oluşturabilir. 
+- İşletim sistemi veya el ile yeniden kayıt yüklenmesinin Azure portalında kullanıcı bilgileri sekmesi altında birden çok giriş sonuçlanır Azure AD içinde yeni bir kayıt oluşturabilir. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>1. adım: kayıt durumunu alma 
 
@@ -88,7 +90,7 @@ Karma Azure AD birleştirme başarılı olmadıysa iletişim kutusu oluştu soru
     
     - Oturum açmış olan kullanıcının etki alanı kullanıcı (örneğin, yerel bir kullanıcı) değil. Alt düzey cihazlarda karma Azure AD birleştirme yalnızca etki alanı kullanıcıları için desteklenir.
     
-    - Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması alamıyor. Bu, bir (Önkoşul denetimi) Azure AD URL'lere dışarı bağlı ağ bağlantı sorunlarından kaynaklanıyor olabilir. Ayrıca, kullanıcı için etkin/yapılandırılan çok faktörlü kimlik doğrulaması (MFA) ve WIAORMUTLIAUTHN (onay yapılandırma adımlarını) federasyon sunucusunda yapılandırılmamış olabilir. Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılık olabilir **autoworkplace.exe** sessizce bir belirteç edinme gelen.
+    - Autoworkplace.exe sessizce Azure AD veya AD FS kimlik doğrulaması alamıyor. Bu, bir Azure AD URL'lere dışarı bağlı ağ bağlantı sorunlarından kaynaklanıyor olabilir. Ayrıca, kullanıcı için etkin/yapılandırılan çok faktörlü kimlik doğrulaması (MFA) ve WIAORMUTLIAUTHN federasyon sunucusunda yapılandırılmamış olabilir. Bu giriş bölgesi bulma (HRD) sayfasını engelleyen kullanıcı etkileşimi için bekleyen başka bir olasılık olabilir **autoworkplace.exe** sessizce bir belirteç edinme gelen.
     
     - Azure AD sorunsuz çoklu oturum açma, kuruluşunuzun kullandığı `https://autologon.microsoftazuread-sso.com` veya `https://aadg.windows.net.nsatc.net` cihazın IE intranet ayarlarını, mevcut olmayan ve **izin durum çubuğunda komut dosyası aracılığıyla güncelleştirmeleri** Intranet bölgesi için etkin değil.
 
@@ -104,7 +106,7 @@ Olay günlüğünde altında durum bilgisi bulabilirsiniz: **uygulamaları ve Hi
   
 **Başarısız karma Azure AD katılım için en yaygın nedenler şunlardır:** 
 
-- Bilgisayarınız, şirket içi bağlantısı olan bir VPN ya da kuruluşunuzun iç ağa bağlı AD etki alanı denetleyicisi.
+- Bilgisayarınız, kuruluşunuzun iç ağa veya bir VPN bağlantısı olan bir şirket içi bağlı olmadığını AD etki alanı denetleyicisi.
 
 - Bilgisayarınıza yerel bilgisayar hesabı ile oturum. 
 

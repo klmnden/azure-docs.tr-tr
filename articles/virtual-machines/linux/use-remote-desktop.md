@@ -12,13 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: c47822bebdc8b3cc8896fe56b8f9a4ce317495c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716627"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Yükleme ve azure'da bir Linux VM bağlanmak için Uzak Masaüstü yapılandırma
 Azure'daki Linux sanal makineleri (VM'ler) genellikle bir güvenli Kabuk (SSH) bağlantısı kullanarak komut satırından yönetilir. Linux veya hızlı sorun giderme senaryoları için yeni, Uzak Masaüstü kullanımını daha kolay olabilir. Bu makalede yüklemek ve bir masaüstü ortamını yapılandırma ayrıntıları ([xfce](https://www.xfce.org)) ve Uzak Masaüstü'nü ([xrdp](http://www.xrdp.org)) Resource Manager dağıtım modeli kullanarak, Linux VM için.
@@ -36,7 +37,7 @@ Bu makalede, azure'da var olan bir Ubuntu 16.04 LTS VM gerektirir. Bir VM oluşt
 
 Aşağıdaki örnekte basit yükler [xfce4](https://www.xfce.org/) bir Ubuntu 16.04 LTS VM Masaüstü ortamı. Diğer dağıtımlar biraz farklılık için komutları (kullanmak `yum` Red Hat Enterprise Linux üzerinde yükleme ve uygun yapılandırma `selinux` kuralları ya da kullanım `zypper` SUSE üzerinde örneğin yüklemek için).
 
-İlk olarak, SSH, VM. Aşağıdaki örnek adlı VM'ye bağlayan *myvm.westus.cloudapp.azure.com* kullanıcı adıyla *azureuser*:
+İlk olarak, SSH, VM. Aşağıdaki örnek adlı VM'ye bağlayan *myvm.westus.cloudapp.azure.com* kullanıcı adıyla *azureuser*. Kendi değerlerinizi kullanın:
 
 ```bash
 ssh azureuser@myvm.westus.cloudapp.azure.com
@@ -85,7 +86,7 @@ sudo passwd azureuser
 ## <a name="create-a-network-security-group-rule-for-remote-desktop-traffic"></a>Uzak Masaüstü trafiği için ağ güvenlik grubu kural oluşturma
 Grup Kuralı gereksinimlerini, oluşturulacak Linux VM, ağ güvenliği ulaşmak Uzak Masaüstü trafiğine izin vermek için VM ulaşmak TCP bağlantı noktası 3389 sağlar. Ağ güvenlik grubu kuralları hakkında daha fazla bilgi için bkz: [bir ağ güvenlik grubu nedir?](../../virtual-network/security-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) Ayrıca [bir ağ güvenlik grubu kural oluşturmak için Azure portal'ı kullanmanızı](../windows/nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Aşağıdaki örnek, bir ağ güvenlik grubu kural ile oluşturur [az vm Aç-port](/cli/azure/vm#az_vm_open_port) bağlantı noktasında *3389*.
+Aşağıdaki örnek, bir ağ güvenlik grubu kural ile oluşturur [az vm Aç-port](/cli/azure/vm#az-vm-open-port) bağlantı noktasında *3389*. Azure CLI 2.0 aşağıdaki ağ güvenlik grubu kural değil, VM SSH oturumu açın:
 
 ```azurecli
 az vm open-port --resource-group myResourceGroup --name myVM --port 3389

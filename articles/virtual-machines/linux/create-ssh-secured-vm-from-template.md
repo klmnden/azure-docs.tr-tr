@@ -1,11 +1,11 @@
 ---
-title: "Bir şablondan bir Linux VM oluşturma | Microsoft Docs"
-description: "Bir Resource Manager şablonu bir Linux VM oluşturmak için Azure CLI 2.0 kullanma"
+title: Bir şablondan bir Linux VM oluşturma | Microsoft Docs
+description: Bir Resource Manager şablonu bir Linux VM oluşturmak için Azure CLI 2.0 kullanma
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 721b8378-9e47-411e-842c-ec3276d3256a
 ms.service: virtual-machines-linux
@@ -13,14 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2750bed40707872bb120a7cb7130d8be01aabf7d
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0e241d56eba8c8cb23b1a78227b4ca7ff725162d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716416"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Linux sanal makine oluşturma
 Bu makalede Azure Resource Manager şablonları ve Azure CLI 2.0 ile Linux sanal makine (VM) hızlı bir şekilde dağıtma gösterilmektedir. Bu adımları [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md) ile de gerçekleştirebilirsiniz.
@@ -31,7 +32,7 @@ Azure Resource Manager şablonları altyapısı ve Azure çözümünüzü yapıl
 
 
 ## <a name="create-a-resource-group"></a>Kaynak grubu oluşturma
-Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir kaynak grubu bir sanal makine önce oluşturulması gerekir. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupVM* içinde *eastus* bölge:
+Azure kaynak grubu, Azure kaynaklarının dağıtıldığı ve yönetildiği bir mantıksal kapsayıcıdır. Bir sanal makineden önce bir kaynak grubu oluşturulmalıdır. Aşağıdaki örnek, bir kaynak grubu oluşturur *myResourceGroupVM* içinde *eastus* bölge:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -41,7 +42,8 @@ az group create --name myResourceGroup --location eastus
 Aşağıdaki örnek, bir VM'den oluşturur [bu Azure Resource Manager şablonu](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json) ile [az grup dağıtımı oluşturmak](/cli/azure/group/deployment#az_group_deployment_create). Yalnızca SSH kimlik doğrulaması izin verilir. İstendiğinde, içeriği gibi kendi SSH ortak anahtarı değerini sağlamalısınız *~/.ssh/id_rsa.pub*. SSH anahtar çifti oluşturmanız gerekiyorsa, bkz: [nasıl oluşturulacağı ve Linux VM'ler için Azure'da SSH anahtar çifti kullanılmaya](mac-create-ssh-keys.md).
 
 ```azurecli
-az group deployment create --resource-group myResourceGroup \
+az group deployment create \
+    --resource-group myResourceGroup \
     --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json
 ```
 
@@ -49,7 +51,7 @@ az group deployment create --resource-group myResourceGroup \
 
 
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
-VM için SSH için ortak IP adresi ile elde [az vm Göster](/cli/azure/vm#az_vm_show):
+VM için SSH için ortak IP adresi ile elde [az vm Göster](/cli/azure/vm#az-vm-show):
 
 ```azurecli
 az vm show \

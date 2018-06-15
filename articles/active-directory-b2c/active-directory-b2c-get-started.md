@@ -1,23 +1,23 @@
 ---
 title: Bir Azure Active Directory B2C kiracısı oluşturma | Microsoft Docs
-description: Azure Active Directory B2C kiracısının nasıl oluşturulacağına ilişkin konu başlığı
+description: Bir Azure Active Directory B2C kiracısının nasıl oluşturulacağına ilişkin konu başlığı.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.openlocfilehash: 56e0ae7454e86911c894da88b5aa8ccc03a08af3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: d1031074885b0ca55d0b1647575354fcd0f49889
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712275"
 ---
-# <a name="create-an-azure-active-directory-b2c-tenant-in-the-azure-portal"></a>Azure portalında bir Azure Active Directory B2C kiracısı oluşturma
+# <a name="create-an-azure-active-directory-b2c-tenant"></a>Bir Azure Active Directory B2C kiracısı oluşturma
 
 Bu Hızlı Başlangıç, yalnızca birkaç dakika içinde bir Microsoft Azure Active Directory (Azure AD) B2C Kiracı oluşturmanıza yardımcı olur. İşlemi tamamladığınızda, B2C uygulamaları kaydetmek için kullanılacak bir B2C kiracısı (dizin olarak da bilinir) sahip.
 
@@ -35,7 +35,7 @@ B2C özellikleri, var olan kiracılar etkinleştirilemez. Azure AD B2C kiracıs�
 
 [!INCLUDE [active-directory-b2c-create-tenant](../../includes/active-directory-b2c-create-tenant.md)]
 
-Tebrikler, Azure Active Directory B2C kiracısı oluşturdunuz. Kiracı genel Yöneticisi olduğunuz. Gerektiğinde başka Genel Yöneticiler ekleyebilirsiniz. Yeni Kiracı için geçiş yapmak için tıklatın *yeni Kiracı bağlantıyı Yönet*.
+Tebrikler, Azure Active Directory B2C kiracısı oluşturdunuz. Kiracı genel Yöneticisi olduğunuz. Gerektiğinde başka Genel Yöneticiler ekleyebilirsiniz. Yeni Kiracı için geçiş yapmak için tıklatın *yeni Kiracı yönetmek*.
 
 ![Yeni Kiracı bağlantıyı Yönet](./media/active-directory-b2c-get-started/manage-new-b2c-tenant-link.png)
 

@@ -1,12 +1,12 @@
 ---
-title: "PremiumV2 katmanı Azure App Service için yapılandırma | Microsoft Docs"
-description: "Performans web, mobil ve Azure App Service'te API uygulaması için yeni PremiumV2 fiyatlandırma katmanı ölçeklendirme tarafından daha iyi öğrenin."
-keywords: "app service, azure app service, ölçek, ölçeklenebilir, app service planı, app service maliyeti"
+title: PremiumV2 katmanı Azure App Service için yapılandırma | Microsoft Docs
+description: Performans web, mobil ve Azure App Service'te API uygulaması için yeni PremiumV2 fiyatlandırma katmanı ölçeklendirme tarafından daha iyi öğrenin.
+keywords: app service, azure app service, ölçek, ölçeklenebilir, app service planı, app service maliyeti
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714570"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>PremiumV2 katmanı Azure App Service için yapılandırma
 
@@ -51,9 +52,9 @@ Fiyatlandırma katmanı, bir uygulama hizmeti uygulamanın tanımlanan [uygulama
 
 Uygulama hizmeti planında yapılandırırken <a href="https://portal.azure.com" target="_blank">Azure portal</a>seçin **fiyatlandırma katmanı**. 
 
-Aşağıdakilerden birini seçin **PremiumV2** seçenekleri ve tıklatın **seçin**.
+Seçin **üretim**seçeneğini belirleyip **P1V2**, **P2V2**, veya **P3V2**, ardından **Uygula**.
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > Görmüyorsanız, **P1V2**, **P2V2**, ve **P3V2** ya da farklı seçenekler **PremiumV2** seçim, bölgenizde kullanılamıyor veya olduğunuz desteklemeyen bir Linux uygulama hizmeti planı yapılandırma **PremiumV2**.
@@ -70,7 +71,7 @@ Uygulama hizmeti uygulaması sayfanızı sol gezinti bölmesinde seçin **(uygul
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-Aşağıdakilerden birini seçin **PremiumV2** boyutları, ardından **seçin**.
+Seçin **üretim**seçeneğini belirleyip **P1V2**, **P2V2**, veya **P3V2**, ardından **Uygula**.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 

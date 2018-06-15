@@ -1,7 +1,7 @@
 ---
-title: "Azure Application Insights’ta özel panolar oluşturma | Microsoft Docs"
-description: "Azure Application Insights’ı kullanarak özel KPI panoları oluşturma öğreticisi."
-keywords: 
+title: Azure Application Insights’ta özel panolar oluşturma | Microsoft Docs
+description: Azure Application Insights’ı kullanarak özel KPI panoları oluşturma öğreticisi.
+keywords: ''
 services: application-insights
 author: mrbullwinkle
 ms.author: mbullwin
@@ -15,6 +15,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29178213"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights’ı kullanarak özel KPI panoları oluşturma
 

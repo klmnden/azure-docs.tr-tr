@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b8ae865e06e085ebe1bb71b35d812024190e2b21
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 9658eaaf35d9b937d76926c73dba23d2a4989b3a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713193"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Kimlik Koruması
 
@@ -206,7 +208,7 @@ Oturum açma risk ilkesine şöyledir:
 
 - Üzerinde **Azure AD Identity Protection** dikey penceresinde, **yapılandırma** 'yi tıklatın **oturum açma risk ilkesine**.
 
-    ![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1014.png "kullanıcı ridk İlkesi")
+    ![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1014.png "kullanıcı risk İlkesi")
 
 
 
@@ -306,25 +308,25 @@ Güvenli parola sıfırlama birçok risk olayı için geçerli bir düzeltme ve 
 ### <a name="user-risk-security-policy"></a>Kullanıcı risk güvenlik ilkesi
 Kullanıcı risk güvenlik ilkesi belirli bir kullanıcıya risk düzeyi değerlendirir ve önceden tanımlanmış koşullara ve kurallarına göre düzeltme ve azaltma Eylemler uyguladığında bir koşullu erişim ilkesi var.
 
-![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1009.png "kullanıcı ridk İlkesi")
+![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1009.png "kullanıcı risk İlkesi")
 
 Azure AD kimlik koruması azaltma ve risk olanak tanıyarak bayrak eklenen kullanıcılar düzeltmesi yönetmenize yardımcı olur:
 
 * Kullanıcılar ve gruplar ilkenin uygulandığı ayarlayın:
 
-    ![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1010.png "kullanıcı ridk İlkesi")
+    ![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1010.png "kullanıcı risk İlkesi")
 * İlke tetikleyen kullanıcı risk düzeyi eşiği (düşük, Orta veya yüksek) ayarlayın:
 
-    ![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1011.png "kullanıcı ridk İlkesi")
+    ![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1011.png "kullanıcı risk İlkesi")
 * İlke harekete geçirdiğinde zorlanacak denetimleri ayarlayın:
 
-    ![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1012.png "kullanıcı ridk İlkesi")
+    ![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1012.png "kullanıcı risk İlkesi")
 * İlkeniz durumunu anahtarı:
 
-    ![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/403.png "MFA kayıt")
+    ![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/403.png "MFA kayıt")
 * Gözden geçirin ve onu etkinleştirmek önce değişikliğin etkisini değerlendirin:
 
-    ![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1013.png "kullanıcı ridk İlkesi")
+    ![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1013.png "kullanıcı risk İlkesi")
 
 Seçerek bir **yüksek** eşik bir ilke tetiklenir ve kullanıcılara etkisini en aza indirger zamanların sayısını azaltır.
 Ancak, dışlar **düşük** ve **orta** kimlikleri veya cihazları, güvenli değil ilkesinden risk için işaretlenmiş kullanıcılar önceden şüpheli veya tehlikeye bilinmektedir.
@@ -347,7 +349,7 @@ Ancak, dışlar **düşük** ve **orta** kimlikleri veya cihazları, güvenli de
 
 - Üzerinde **Azure AD Identity Protection** dikey penceresinde, **yapılandırma** 'yi tıklatın **kullanıcı risk ilkesine**.
 
-    ![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1009.png "kullanıcı ridk İlkesi")
+    ![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1009.png "kullanıcı risk İlkesi")
 
 ### <a name="mitigating-user-risk-events"></a>Kullanıcı risk olaylar azaltılması
 Yöneticiler kullanıcı risk güvenlik ilkesi oturum açma risk düzeyine bağlı olarak bağlı kullanıcıları engelle ayarlayabilir.
@@ -366,7 +368,7 @@ Azure çok faktörlü kimlik doğrulaması daha fazlasını bir kullanıcı adı
 * Kolay doğrulama seçeneklerini aralıklı güçlü kimlik doğrulaması sunar
 * Kuruluşunuz korumak ve hesap ödün kurtarmak için hazırlama önemli bir rol oynar
 
-![Kullanıcı ridk İlkesi](./media/active-directory-identityprotection/1019.png "kullanıcı ridk İlkesi")
+![Kullanıcı risk ilkesine](./media/active-directory-identityprotection/1019.png "kullanıcı risk İlkesi")
 
 Daha fazla ayrıntı için bkz: [Azure multi-Factor Authentication nedir?](authentication/multi-factor-authentication.md)
 

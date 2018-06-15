@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713417"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Oturum açma deneyimlerini Azure AD kimlik koruması
 Azure Active Directory kimlik koruması ile şunları yapabilirsiniz:
@@ -27,9 +29,9 @@ Azure Active Directory kimlik koruması ile şunları yapabilirsiniz:
 * çok faktörlü kimlik doğrulaması için kullanıcıların
 * riskli oturum açma işlemleri ve güvenliği aşılan kullanıcılar işleme
 
-Bu sorunları sistem yanıta sahip bir kullanıcının oturum açma deneyimi üzerinde bir etkisi yalnızca doğrudan imzalama kullanıcı adını sağlayarak bileşenini olduğundan ve bir parola artık mümkün olmayacaktır. Bir kullanıcı güvenli bir şekilde almak için gereken ek adımlar iş uygulamasına geri.
+Bu sorunları sistem yanıta sahip bir kullanıcının oturum açma deneyimi üzerinde bir etkisi doğrudan imzalama kullanıcı adını sağlayarak bileşenini olduğundan ve bir parola artık mümkün olmayacaktır. Bir kullanıcı güvenli bir şekilde almak için gereken ek adımlar iş uygulamasına geri.
 
-Bu konu, oluşabilecek tüm durumlarda bir kullanıcının oturum açma deneyimini genel bir bakış sağlar.
+Bu makalede, oluşabilecek tüm durumlarda bir kullanıcının oturum açma deneyimini genel bir bakış sağlar.
 
 **Multi-Factor Authentication**
 
@@ -56,7 +58,7 @@ Yöneticiler, kullanıcılar hesaplarını ek güvenlik doğrulaması ayarlamak 
 1. İlk adımda, kullanıcı hesabı çok faktörlü kimlik doğrulama kaydınızı ayarlamak için gereksinimi hakkında bir bildirim alır. 
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/140.png "düzeltme")
-2. Çok faktörlü kimlik doğrulamasını ayarlamak için nasıl kurulmasını istediğinizi bilmeniz sistem izin gerekir.
+2. Çok faktörlü kimlik doğrulamasını kurmak için nasıl kurulmasını istediğinizi bilmeniz sistem izin gerekir.
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/141.png "düzeltme")
 3. Sistem için bir sınama gönderir ve yanıt vermesi gerekir.
@@ -64,14 +66,14 @@ Yöneticiler, kullanıcılar hesaplarını ek güvenlik doğrulaması ayarlamak 
     ![Düzeltme](./media/active-directory-identityprotection-flows/142.png "düzeltme")
 
 ## <a name="risky-sign-in-recovery"></a>Oturum açma riskli kurtarma
-Yönetici oturum açma riskler için bir ilke yapılandırıldığında, bu oturum açma çalıştıklarında etkilenen kullanıcılara bildirilir. 
+Yönetici oturum açma riskler için bir ilke yapılandırmış, oturum açmaya çalıştığınızda etkilenen kullanıcılara bildirilir. 
 
 **Riskli oturum açma akışını iki adımı vardır:** 
 
 1. Olağan dışı bir şey hakkında kendi oturum yeni konumu, cihaz veya uygulama oturum açma gibi algılandı kullanıcı bilgilendirilir. 
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/120.png "düzeltme")
-2. Kullanıcı güvenlik sınaması çözme tarafından kimliğini kanıtlamak için gereklidir. Kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı değilse kullanıcıların telefon numarasına bir güvenlik kodu gidiş için gerekir. Bu yalnızca bir olduğundan riskli bir oturum açma ve güvenliği aşılmış bir hesabı değil, kullanıcı bu akış parolayı değiştirmek zorunda kalmazsınız. 
+2. Kullanıcı güvenlik sınaması çözme tarafından kimliğini kanıtlamak için gereklidir. Kullanıcı çok faktörlü kimlik doğrulaması için kaydedilmişse yuvarlayın bunların telefon numarasına bir güvenlik kodu trip ihtiyaç duyar. Bu yalnızca riskli bir oturum açma ve güvenliği aşılmış bir hesabı olduğundan, kullanıcı bu akış parolayı değiştirmek zorunda kalmazsınız. 
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/121.png "düzeltme")
 
@@ -81,14 +83,14 @@ Yöneticiler, blok kullanıcılar oturum açma risk düzeyine bağlı olarak ba�
 ![Düzeltme](./media/active-directory-identityprotection-flows/200.png "düzeltme")
 
 ## <a name="compromised-account-recovery"></a>Gizliliği tehlikeye giren hesap kurtarma
-Bir kullanıcı risk Güvenlik İlkesi yapılandırıldığında kullanıcı karşılayan kullanıcılar risk düzeyi İlkesi'nde belirtilen (ve bu nedenle varsayılır tehlikeye), oturum açma önce kullanıcı güvenliğinin aşılmasına kurtarma aktığı gitmeniz gerekir. 
+Bir kullanıcı risk Güvenlik İlkesi yapılandırıldığında kullanıcı karşılayan kullanıcılar risk düzeyi İlkesi'nde belirtilen (ve bu nedenle varsayılır tehlikeye) bunlar oturum açabilmeniz için önce kullanıcı güvenliğinin aşılmasına kurtarma aktığı gitmeniz gerekir. 
 
 **Kullanıcı güvenlik aşılması kurtarma akışı üç adım vardır:**
 
 1. Kullanıcı, kendi hesabı güvenlik riski nedeniyle şüpheli etkinlik olduğu veya kimlik bilgilerini sızmasını bilgilendirilir.
    
     ![Düzeltme](./media/active-directory-identityprotection-flows/101.png "düzeltme")
-2. Kullanıcı güvenlik sınaması çözme tarafından kimliğini kanıtlamak için gereklidir. Kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı değilse, güvenliğinin bozulması riskini Self kurtarabilirsiniz. Bunlar için gidiş telefon numarasına bir güvenlik kodu gerekir. 
+2. Kullanıcı güvenlik sınaması çözme tarafından kimliğini kanıtlamak için gereklidir. Kullanıcı çok faktörlü kimlik doğrulaması için kayıtlı değilse, güvenliğinin bozulması riskini Self kurtarabilirsiniz. Round telefon numarasına bir güvenlik kodu trip gerekecektir. 
    
    ![Düzeltme](./media/active-directory-identityprotection-flows/110.png "düzeltme")
 3. Son olarak, kullanıcı, başka birinin kendi hesaplarına erişim sağlamış olma ihtimaline parolalarını değiştirmek için zorlanır. 

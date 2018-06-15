@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34337852"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Öğretici: Adobe büyüleyecektir asal Azure Active Directory Tümleştirme
 

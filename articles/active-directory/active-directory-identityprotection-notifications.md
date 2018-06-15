@@ -1,14 +1,15 @@
 ---
-title: "Azure Active Directory kimlik koruması bildirimleri | Microsoft Docs"
-description: "Bildirimleri araştırma etkinliklerinizi'ı nasıl desteklediğini öğrenin."
+title: Azure Active Directory kimlik koruması bildirimleri | Microsoft Docs
+description: Bildirimleri araştırma etkinliklerinizi'ı nasıl desteklediğini öğrenin.
 services: active-directory
-keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme"
-documentationcenter: 
+keywords: Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,19 +17,12 @@ ms.topic: article
 ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: nigu
-<<<<<<< HEAD
-ms.openlocfilehash: fd99af04b0c5a8f38bc5abea6a3e95996efb400c
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: e72cfab8886f28982e5451362704d6a7a9fe59e4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/07/2017
-=======
-ms.openlocfilehash: bea21439afef4fda453732edffc84c62667dfe38
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
-ms.translationtype: MT
-ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
->>>>>>> 8b6419510fe31cdc0641e66eef10ecaf568f09a3
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713822"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory kimlik koruması bildirimleri
 
@@ -42,7 +36,7 @@ Bu makalede her iki bildirim e-postaları bir bakış sağlar.
 
 ## <a name="users-at-risk-detected-email"></a>Risk altındaki kullanıcılar e-posta algılandı
 
-Algılanan hesabına risk yanıt olarak, Azure AD kimlik koruması olan bir e-posta uyarı oluşturur. **algılanan risk altındaki kullanıcılar** konu olarak. E-posta için bir bağlantı içerir  **[bayrak eklenen kullanıcılar için risk](active-directory-reporting-security-user-at-risk.md)**  rapor. En iyi uygulama, risk altındaki kullanıcılar hemen araştırmanız gerekir.
+Algılanan hesabına risk yanıt olarak, Azure AD kimlik koruması olan bir e-posta uyarı oluşturur. **algılanan risk altındaki kullanıcılar** konu olarak. E-posta için bir bağlantı içerir **[bayrak eklenen kullanıcılar için risk](active-directory-reporting-security-user-at-risk.md)** rapor. En iyi uygulama, risk altındaki kullanıcılar hemen araştırmanız gerekir.
 
 ![Risk altındaki kullanıcılar e-posta algılandı](./media/active-directory-identityprotection-notifications/01.png)
 

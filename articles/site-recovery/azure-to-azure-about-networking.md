@@ -6,18 +6,18 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: sujayt
-ms.openlocfilehash: 55eed1afa9d9dbf2c16643cf9186a7e6dafa847e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e717d06aaaef6031a0a3b26c5caf76f0c8c11df
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715947"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Azure için Azure çoğaltma ağ oluşturma hakkında
 
->[!NOTE]
-> Azure sanal makineler için Site Recovery çoğaltma şu anda önizlemede değil.
+
 
 Çoğaltma ve kullanarak Azure Vm'leri bir bölgesinden diğerine kurtarma Ağ Kılavuzu bu makalede sunar [Azure Site Recovery](site-recovery-overview.md).
 
@@ -85,18 +85,18 @@ Site kurtarma IP adres aralıklarını aşağıdaki gibidir:
    Doğu ABD 2 | 52.184.158.163 | 40.79.44.59
    Japonya Doğu | 52.185.150.140 | 138.91.1.105
    Japonya Batı | 52.175.146.69 | 138.91.17.38
-   Brezilya Güney | 191.234.185.172 | 23.97.97.36
+   Güney Brezilya | 191.234.185.172 | 23.97.97.36
    Avustralya Doğu | 104.210.113.114 | 191.239.64.144
    Avustralya Güneydoğu | 13.70.159.158 | 191.239.160.45
-   Kanada Orta | 52.228.36.192 | 40.85.226.62
-   Kanada Doğu | 52.229.125.98 | 40.86.225.142
+   Orta Kanada | 52.228.36.192 | 40.85.226.62
+   Doğu Kanada | 52.229.125.98 | 40.86.225.142
    Batı Orta ABD | 52.161.20.168 | 13.78.149.209
    Batı ABD 2 | 52.183.45.166 | 13.66.228.204
-   BK Batı | 51.141.3.203 | 51.141.14.113
-   BK Güney | 51.140.43.158 | 51.140.189.52
-   BK Güney 2 | 13.87.37.4| 13.87.34.139
-   BK Kuzey | 51.142.209.167 | 13.87.102.68
-   Kore Merkez | 52.231.28.253 | 52.231.32.85
+   Birleşik Krallık Batı | 51.141.3.203 | 51.141.14.113
+   Birleşik Krallık Güney | 51.140.43.158 | 51.140.189.52
+   UK Güney 2 | 13.87.37.4| 13.87.34.139
+   UK Kuzey | 51.142.209.167 | 13.87.102.68
+   Kore Orta | 52.231.28.253 | 52.231.32.85
    Kore Güney | 52.231.298.185 | 52.231.200.144
    Fransa Orta | 52.143.138.106 | 52.143.136.55
    Fransa Güney | 52.136.139.227 |52.136.136.62

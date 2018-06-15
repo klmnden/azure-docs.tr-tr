@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory'ye kayıtlı cihazları | Microsoft Docs"
-description: "Azure Active Directory'ye kayıtlı cihazları öğrenin."
+title: Azure Active Directory'ye kayıtlı cihazları | Microsoft Docs
+description: Azure Active Directory'ye kayıtlı cihazları öğrenin.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,22 +16,23 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2560e51d61506389e84288bf983b0ebcb5776ff2
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 541f37bb11c604567b356716db282d0e4e2f629b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713533"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Azure Active Directory ayarlama kayıtlı Windows 10 cihazları
 
-Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak aygıtlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla ayrıntı için bkz: [Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md).
+Azure Active Directory'de (Azure AD) ile cihaz yönetimi, güvenlik ve uyumluluğa yönelik standartlarınızı karşılamak aygıtlardan kullanıcılarınızın kaynaklarınızı eriştiğiniz emin olabilirsiniz. Daha fazla bilgi için bkz: [Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md).
 
-Etkinleştirmek istiyorsanız, **kendi cihazını getir (KCG)** senaryosunda, gerçekleştirmek bu Azure AD kayıtlı cihazları yapılandırarak. Azure AD'de kayıtlı Azure AD cihazlar Windows 10, iOS, Android ve macOS için yapılandırabilirsiniz. Bu konu, Windows 10 cihazlar için ile ilgili adımları sağlar. 
+Etkinleştirmek istiyorsanız, **kendi cihazını getir (KCG)** senaryosunda, gerçekleştirmek bu Azure AD kayıtlı cihazları yapılandırarak. Azure AD'de kayıtlı Azure AD cihazlar Windows 10, iOS, Android ve macOS için yapılandırabilirsiniz. Bu makalede Windows 10 cihazlar için ile ilgili adımları sağlar. 
 
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 
-Bir Windows 10 cihazı kaydetmek için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Azure AD kiracınızda cihazları kaydetme izni sahip olmaya ek olarak, daha az aygıtları yapılandırılmış en büyük değerden daha kayıtlı olması gerekir. Daha fazla ayrıntı için bkz: [aygıt ayarlarını yapılandır](device-management-azure-portal.md#configure-device-settings).
+Bir Windows 10 cihazı kaydetmek için cihaz Kayıt Hizmeti'ni aygıtlarını kaydetmesini sağlamak için yapılandırılmalıdır. Ayrıca, daha az aygıtları yapılandırılmış en büyük değerden daha kayıtlı olması gerekir. Daha fazla bilgi için bkz: [aygıt ayarlarını yapılandır](device-management-azure-portal.md#configure-device-settings).
 
 ## <a name="what-you-should-know"></a>Bilmeniz gerekenler
 
@@ -49,7 +51,7 @@ Bir cihaz kaydedilirken, aşağıdakileri göz önünde bulundurmalıdır:
 
 ## <a name="registering-a-device"></a>Bir cihaz kaydetme
 
-Bu bölümde, Azure AD için Windows 10 Cihazınızı kaydetmek için adımları sağlar. Azure AD aygıtınıza başarıyla kaydolduysanız, **erişim iş veya Okul** iletişim gösterir bu bir **iş veya Okul hesabı** girişi.
+Bu bölümde, Azure AD için Windows 10 Cihazınızı kaydetmek için adımları sağlar. İle başarıyla kayıtlı bir cihazla görünür bir **iş veya Okul hesabı** girişi.
 
 ![Kaydolma](./media/device-management-azuread-registered-devices-windows10-setup/08.png)
 
@@ -74,7 +76,7 @@ Bu bölümde, Azure AD için Windows 10 Cihazınızı kaydetmek için adımları
     ![Bağlan](./media/device-management-azuread-registered-devices-windows10-setup/04.png)
 
 
-5. Üzerinde **bir iş veya Okul hesabı ayarlamanız** iletişim kutusunda, hesap adınızı girin (örn: someone@example.com) ve ardından **sonraki**.
+5. Üzerinde **bir iş veya Okul hesabı ayarlamanız** iletişim kutusunda, hesap adınızı girin (örneğin, someone@example.com) ve ardından **sonraki**.
 
     ![Bağlan](./media/device-management-azuread-registered-devices-windows10-setup/06.png)
 
@@ -104,9 +106,9 @@ Alternatif olarak, Azure AD portalı aygıt ayarlarını gözden geçirebilirsin
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla ayrıntı için bkz: [Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md)
+- Daha fazla bilgi için bkz: [Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md)
 
-- Azure AD portalında cihazları yönetme hakkında daha fazla ayrıntı için bkz: [Azure portalını kullanarak cihazları yönetme ](device-management-azure-portal.md).
+- Azure AD portalında cihazları yönetme hakkında daha fazla bilgi için bkz: [Azure portalını kullanarak cihazları yönetme ](device-management-azure-portal.md).
 
 
 

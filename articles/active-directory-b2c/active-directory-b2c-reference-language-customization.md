@@ -1,21 +1,21 @@
 ---
-title: Azure AD B2C dil özelleştirme | Microsoft Docs
+title: Azure Active Directory B2C dil özelleştirme | Microsoft Docs
 description: Dil deneyimini özelleştirme hakkında bilgi edinin.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 72a2bd20d08cd12cc1965bd06090d2cd705fc111
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711945"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C dil özelleştirme
 
@@ -182,28 +182,28 @@ Chrome ve Firefox her ikisi de kümesi dillerini isteyin. Desteklenen bir dil is
 
 | Dil              | Dil kodu |
 |-----------------------|---------------|
-| Bangla dili                | Bn            |
+| Bangla                | Bn            |
 | Çekçe                 | cs            |
 | Danca                | da            |
-| Almanca                | de            |
+| Almanca                 | de            |
 | Yunanca                 | el            |
 | Türkçe               | tr            |
-| İspanyolca               | es            |
+| İspanyolca                | es            |
 | Fince               | fi            |
-| Fransızca                | fr            |
+| Fransızca                 | fr            |
 | Gucerat dili              | gu            |
 | Hintçe                 | yüksek            |
 | Hırvatça              | sa.            |
 | Macarca             | hu            |
 | İtalyanca               | it            |
 | Japonca              | ja            |
-| Kannada dili               | kn            |
+| Kannada dili               | KN            |
 | Kore dili                | ko            |
 | Malayalam dili             | ML            |
 | Marathi dili               | MR            |
 | Malay dili                 | ms            |
 | Norveççe Bokmal      | nb            |
-| Hollanda dili                 | nl            |
+| Felemenkçe                 | nl            |
 | Pencap dili               | Pa            |
 | Lehçe                | pl            |
 | Portekizce - Brezilya   | pt-br         |
@@ -214,7 +214,7 @@ Chrome ve Firefox her ikisi de kümesi dillerini isteyin. Desteklenen bir dil is
 | İsveç dili               | sv            |
 | Tamil dili                 | eri            |
 | Telugu dili                | metin            |
-| Tay Dili                  | TH            |
+| Tay Dili                  | .            |
 | Türkçe               | tr            |
 | Çince - Basitleştirilmiş  | zh-atanır       |
 | Geleneksel Çince- | zh-hant       |

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34271658"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS ağ geçidi'ni kullanarak Internet erişimi bilgisayarları bağlama
 Bu belge, Azure Automation ile iletişimi yapılandırmak açıklar ve günlük doğrudan olduğunda OMS ağ geçidini kullanma analizi bağlı veya izlenen Operations Manager bilgisayarları Internet erişimine sahip değildir.  OMS HTTP BAĞLAMAK komutunu kullanarak HTTP tüneli destekleyen bir HTTP iletme proxy ağ geçidi, veri toplamak ve onların adına Azure Automation ve günlük analizi gönderebilirsiniz.  

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917413"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Excel ve SOA iş yüklerini Azure HPC Pack kümede çalışan kullanmaya başlama
 Bu makalede Azure Hızlı Başlangıç şablonu veya isteğe bağlı olarak bir Azure PowerShell dağıtım komut dosyası kullanarak bir Azure sanal makineler Microsoft HPC Pack 2012 R2 kümesinde dağıtma gösterilmektedir. Küme, Microsoft Excel ya da hizmet odaklı mimari (SOA) iş yükleri HPC paketi ile çalışacak biçimde tasarlanan Azure Market VM görüntüleri kullanır. Küme, bir şirket içi istemci bilgisayarından Excel HPC ve SOA hizmetlerini çalıştırmak için kullanabilirsiniz. Excel çalışma kitabı aktarma ve Excel kullanıcı tanımlı işlevler veya UDF'ler Excel HPC hizmetleri içerir.

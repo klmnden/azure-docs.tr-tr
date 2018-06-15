@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Kullanıcı geçiş yaklaşımlar'
+title: Kullanıcı Geçişi yaklaşıyor Azure Active Directory B2C'de | Microsoft Docs
 description: Temel ve Gelişmiş kavramları grafik API'sini kullanarak ve isteğe bağlı olarak Azure AD B2C özel ilkelerini kullanarak kullanıcı geçişi tartışın.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 47f813839a5495591356e5ecd461902fa8745c65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 7c78cb13f9028b2be527794751d5f8ced9bff171
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711350"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Kullanıcı Geçişi
 Azure Active Directory B2C, kimlik sağlayıcısı geçirirken (Azure AD B2C) de gerekebilir kullanıcı hesabını geçirin. Bu makalede, var olan kullanıcı hesaplarını herhangi kimlik sağlayıcısından Azure AD B2C'ye geçirme açıklanmaktadır. Makaleyi Düzenleyici olacak şekilde tasarlanmamıştır ancak bunun yerine, birkaç senaryolar açıklanmaktadır. Geliştirici, her iki yaklaşımın uygunluğuna sorumludur.
@@ -146,7 +146,7 @@ JSON dosyasının düzenlemek için açın `AADB2C.UserMigration.sln` Visual Stu
 
 Gördüğünüz gibi dosya kullanıcı varlıkları listesini içerir. Her kullanıcı varlık aşağıdaki özelliklere sahiptir:
 * e-posta
-* Görünen adı
+* displayName
 * FirstName
 * Soyadı
 * Parola (boş olabilir)

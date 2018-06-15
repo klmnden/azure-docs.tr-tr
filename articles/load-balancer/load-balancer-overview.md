@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726270"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure yük dengeleyici nedir?
 
@@ -93,7 +94,7 @@ Yük Dengeleyici TCP ve UDP uygulamalar için aşağıdaki temel yetenekleri sa�
 
     - **TCP özel araştırma**: tanımlı araştırma noktasına başarılı bir TCP oturumu oluşturma Bu araştırma kullanır. Belirtilen dinleyici VM'de var olduğu sürece, bu araştırma başarılı olur. Bağlantıyı reddetti araştırma başarısız olur. Bu araştırma varsayılan Konuk aracı araştırması geçersiz kılar.
 
-    - **Konuk Aracısı araştırma (platformunda yalnızca bir hizmet [PaaS] vm'lerle)**: yük dengeleyici ayrıca VM Konuk Aracısı'nı kullanabilir. Konuk Aracısı dinler ve yalnızca örnek hazır durumda olduğunda bir HTTP 200 Tamam yanıt ile yanıt verir. Aracı bir HTTP 200 Tamam ile yanıt vermiyorsa, yük dengeleyici örneği yanıt olarak işaretler ve trafiği için bu örneği göndermeye durdurur. Yük Dengeleyici örneği ulaşmaya çalışır devam eder. Yük Dengeleyici trafiği için bu örneği ile bir HTTP 200 Konuk aracısı yanıt verirse, yeniden gönderir. Konuk Aracısı araştırmalar son çare olan ve HTTP veya TCP özel araştırma yapılandırmaları mümkün olduğunda önerilmez. 
+    - **Konuk Aracısı araştırma**: yük dengeleyici ayrıca VM Konuk Aracısı'nı kullanabilir. Konuk Aracısı dinler ve yalnızca örnek hazır durumda olduğunda bir HTTP 200 Tamam yanıt ile yanıt verir. Aracı bir HTTP 200 Tamam ile yanıt vermiyorsa, yük dengeleyici örneği yanıt olarak işaretler ve trafiği için bu örneği göndermeye durdurur. Yük Dengeleyici örneği ulaşmaya çalışır devam eder. Yük Dengeleyici trafiği için bu örneği ile bir HTTP 200 Konuk aracısı yanıt verirse, yeniden gönderir. Konuk Aracısı araştırmalar olan bir _son çare ve önerilmez_ zaman HTTP veya TCP özel araştırma yapılandırmaları mümkün. 
     
 * **Giden bağlantılar (SNAT)**
 

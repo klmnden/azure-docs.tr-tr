@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: faf526082a9a38d5d98443ff2b74eac4eef1ca08
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a0e05543734ae0604149d18564ae1bc1eff1892b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714638"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Sanal makine yapılandırma ölçek kümesi yönetilen hizmet kimliği (MSI) Azure CLI kullanma
 
@@ -119,8 +120,7 @@ Bu bölümde bir VMSS oluşturulmasını ve atama kimlik VMSS atanmış bir kull
 
 2. Kimlik bilgileriniz kullanılarak atanmış bir kullanıcı oluşturmak [az kimliği oluşturma](/cli/azure/identity#az-identity-create).  `-g` Parametresi, burada kimlik atanmış kullanıcı oluşturuldu, kaynak grubu belirtir ve `-n` parametresi adını belirtir. Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<USER ASSIGNED IDENTITY NAME>` parametre değerlerini kendi değerlerinizi ile:
 
-    > [!IMPORTANT]
-    > Atanan kullanıcı kimlikleri yalnızca destekler alfasayısal oluşturma ve tire (0-9 veya a-z veya A-Z veya -) karakter. Ayrıca, ad atama düzgün çalışması için VM/VMSS için 24 karakter uzunluğu sınırlı olmalıdır. Geri güncelleştirmeleri denetleyin. Daha fazla bilgi için bkz: [SSS ve bilinen sorunlar](known-issues.md)
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
@@ -176,10 +176,10 @@ Yanıt oluşturulan, aşağıdakine benzer atanan kullanıcı kimliğini ayrınt
    }
    ```
 
-2. Atanan kullanıcı kimliğini kullanarak VMSS Ata [az vmss kimlik atamak](/cli/azure/vmss/identity#az_vm_assign_identity). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlere sahip. `<USER ASSIGNED IDENTITY ID>` Kullanıcıya atanan kimliğin kaynak olacak `id` özelliği, önceki adımda oluşturduğunuz olarak:
+2. Atanan kullanıcı kimliğini kullanarak VMSS Ata [az vmss kimlik atamak](/cli/azure/vmss/identity#az_vm_assign_identity). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlere sahip. `<USER ASSIGNED IDENTITY ID>` Kullanıcıya atanan kimliğin kaynak olacak `id` özelliği, önceki adımda oluşturduğunuz olarak:
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Bir Azure VMSS kimliği atanır kullanıcıyı kaldırma
@@ -187,15 +187,15 @@ Yanıt oluşturulan, aşağıdakine benzer atanan kullanıcı kimliğini ayrınt
 > [!NOTE]
 >  Kimlik atanmış bir sistem olmadığı sürece tüm atanan kullanıcı kimlikleri bir sanal makine ölçek kümesi'den kaldırma şu anda, desteklenmiyor. 
 
-Birden çok kullanıcı tarafından atanan kimlik bilgilerinizi VMSS varsa, tüm son bir kullanarak ancak kaldırabilirsiniz [az vmss kimliğini kaldırma](/cli/azure/vmss/identity#az-vmss-identity-remove). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VM NAME>` parametre değerlerini kendi değerlere sahip. `<MSI NAME>` Tarafından VM kullanmanın kimlik bölümünde bulunabilir kullanıcıya atanan kimliğin adı özelliği `az vm show`:
+Birden çok kullanıcı tarafından atanan kimlik bilgilerinizi VMSS varsa, tüm son bir kullanarak ancak kaldırabilirsiniz [az vmss kimliğini kaldırma](/cli/azure/vmss/identity#az-vmss-identity-remove). Değiştirdiğinizden emin olun `<RESOURCE GROUP>` ve `<VMSS NAME>` parametre değerlerini kendi değerlere sahip. `<MSI NAME>` Tarafından VM kullanmanın kimlik bölümünde bulunabilir kullanıcıya atanan kimliğin adı özelliği `az vm show`:
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 VMSS atanan sistem ve kimlikler atanan kullanıcı varsa, sadece atanan sistemini kullanacak şekilde geçerek kimlikleri atanan tüm kullanıcı kaldırabilirsiniz. Aşağıdaki komutu kullanın: 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

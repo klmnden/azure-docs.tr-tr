@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34305234"
 ---
 # <a name="create-azure-portal-user-interface-for-your-managed-application"></a>Yönetilen uygulamanız için Azure portal kullanıcı arabirimi oluşturma
 Bu belge createUiDefinition.json dosyasının temel kavramları tanıtır. Azure portal, yönetilen bir uygulama oluşturmak için kullanılan kullanıcı arabirimi oluşturmak için bu dosyayı kullanır.
