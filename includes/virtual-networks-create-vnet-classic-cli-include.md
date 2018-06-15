@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805191"
 ---
 ## <a name="how-to-create-a-classic-vnet-using-azure-cli"></a>Azure CLI kullanarak klasik bir VNet oluşturma
 Windows, Linux veya OSX çalıştıran herhangi bir bilgisayarın komut isteminden Azure kaynaklarınızı yönetmek için Azure CLI’yi kullanabilirsiniz.

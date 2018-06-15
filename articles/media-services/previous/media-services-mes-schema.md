@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788994"
 ---
 # <a name="media-encoder-standard-schema"></a>Medya Kodlayıcısı standart şeması
 Bu makalede bazı öğeler ve XML Şeması türleri üzerinde açıklanmaktadır [Medya Kodlayıcısı standart hazır ayarları](media-services-mes-presets-overview.md) temel alır. Makaleyi öğeleri ve geçerli değerleri açıklamasını verir.  

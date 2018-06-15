@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32190099"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene sorgu söz dizimi örnekler Azure arama sorguları oluşturmak için
 Azure arama sorguları oluşturmak, her iki varsayılan kullanabilirsiniz [Basit Sorgu söz dizimi](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) veya diğer [Lucene sorgu ayrıştırıcı Azure Search'te](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Lucene sorgu ayrıştırıcı alan kapsamlı sorgular, benzer arama, yakınlık araması, terim artırma ve normal ifade araması gibi daha karmaşık sorgu yapıları destekler.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32188387"
 ---
 # <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Azure Data Lake Deposu'ndan veri SQL Data Warehouse'a veri yükleme
 Azure Data Lake Deposu'ndan veri Azure SQL Data Warehouse'a veri yüklemek için PolyBase dış tabloları kullanın. ADLS içinde depolanan veriler üzerinde geçici sorguları çalıştırabilirsiniz, ancak en iyi performans için SQL veri ambarına veri alma öneririz.

@@ -18,6 +18,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182594"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-redis-cache"></a>Azure Redis önbelleği Redis komut satırı aracını kullanma
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33780186"
 ---
 # <a name="get-started-with-the-java-client-sdk-for-azure-media-services"></a>Azure Media Services için Java istemci SDK’sı kullanmaya başlama
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]

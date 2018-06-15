@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162271"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Azure kapsayıcı hizmeti DC/OS aracısı havuzları
 Azure kapsayıcı hizmeti DC/OS kümelerde iki havuzları, ortak bir havuzu ve özel bir havuzu Aracısı düğümleri içerir. Bir uygulama ya da havuzuna kapsayıcı hizmetiniz makinelerinizde arasında erişilebilirlik etkileyen dağıtılabilir. Makineler (Genel) Internet'e açık veya dahili (özel) tutulur. Bu makalede vardır neden ortak ve özel havuzları kısa bir genel bakış sağlar.

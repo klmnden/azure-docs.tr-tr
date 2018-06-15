@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185969"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Veri ambarı birimlerini (Dwu'lar) ve bilgi işlem Data Warehouse birimleri (cDWUs)
 Veri ambarı birimi (Dwu, cDWUs) fiyat ve performans ve birim sayısını değiştirmek nasıl en iyi duruma getirme ideal sayısını seçmeye ilişkin öneriler. 

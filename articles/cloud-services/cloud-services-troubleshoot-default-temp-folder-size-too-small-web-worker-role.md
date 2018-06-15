@@ -20,6 +20,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32154537"
 ---
 # <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Varsayılan TEMP klasörü boyutu bir bulut hizmeti web/çalışan rolü çok küçük.
 Varsayılan geçici dizini bulut hizmeti çalışan veya web rolünün belirli bir noktada tam dönüşebilir 100 MB maksimum boyuta sahiptir. Bu makalede, geçici dizin için alanının tükenmesinden önlemek açıklar.

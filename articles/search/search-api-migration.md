@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32181979"
 ---
 # <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>En son Azure Search Hizmeti REST API'si sürüme yükseltme
 Önceki bir sürümünü kullanıyorsanız, [Azure Search Hizmeti REST API'si](https://docs.microsoft.com/rest/api/searchservice/), bu makalede, en son kullanmak için uygulamanızı yükseltmenize yardımcı olur genel olarak kullanılabilir API sürümü, 2017 11 11.

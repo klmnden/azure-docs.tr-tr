@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788231"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Nasıl yapılır: bir varlık indirme tarafından teslim
 Bu makalede medya varlıklar Media Services'e teslim etmek için seçenekleri açıklar. Medya Hizmetleri içerik çok sayıda uygulama senaryolarında sunabilir. Kodlama sonra oluşturulan ortam varlıkları indirin veya akış Bulucusu kullanarak erişim. Bir içerik teslim ağı (CDN) kullanarak, Gelişmiş performans ve ölçeklenebilirlik için içerik sunabilir.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32156504"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Çevrimdışı iOS mobil uygulamaları ile eşitlemeyi etkinleştir
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
