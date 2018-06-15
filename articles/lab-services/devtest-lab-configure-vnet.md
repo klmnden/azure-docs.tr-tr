@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33787412"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Azure DevTest Labs'de sanal ağ yapılandırma
 Makalesinde açıklandığı gibi [bir VM'yi laboratuvara ekleme](devtest-lab-add-vm.md), bir laboratuar ortamında bir VM oluştururken yapılandırılmış bir sanal ağ belirtin. Örneğin, ExpressRoute veya siteden siteye VPN ile yapılandırılmış sanal ağını kullanarak, Vm'lerde, corpnet kaynaklarına gerekebilir.

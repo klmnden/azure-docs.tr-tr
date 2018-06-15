@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788980"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services parçalanmış MP4 Canlı belirtimi alma
 Bu belirtimi protokolü ve parçalanmış MP4 tabanlı canlı akış alımı için Azure Media Services biçimini açıklar. Media Services müşteriler canlı olay akışını ve bulut platformu olarak Azure kullanarak gerçek zamanlı içeriği yayını için kullanabileceğiniz bir canlı akış hizmeti sağlar. Bu belge, ayrıca en iyi anlatılmaktadır Canlı yüksek oranda yedekli ve sağlam oluşturmaya yönelik yöntemler mekanizmaları alma.

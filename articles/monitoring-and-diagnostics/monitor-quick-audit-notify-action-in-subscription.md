@@ -1,20 +1,20 @@
 ---
-title: Azure aboneliğinizdeki önemli eylemleri denetleme ve bunlar hakkında bildirimle alma | Microsoft Docs
+title: Azure aboneliğinizdeki önemli eylemleri denetleme ve bunlar hakkında bildirimle alma
 description: Kaynak yönetiminin geçmişini, hizmet durumunu ve Etkinlik Günlüğü'ndeki diğer abonelik etkinliklerini anlayın, ardından aboneliğinizde üst düzeyde ayrıcalıklı bir işlem yapıldığında e-posta bildirimi almak için bir Etkinlik Günlüğü uyarısı kullanın.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: dd04cd9c8074d49df168b32840d12901da83c834
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 5a6f4d7ab978543a6871eb0ac3926fa25fb65ad2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263339"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>Azure aboneliğinizdeki önemli eylemleri denetleme ve bunlar hakkında bildirimle alma
 

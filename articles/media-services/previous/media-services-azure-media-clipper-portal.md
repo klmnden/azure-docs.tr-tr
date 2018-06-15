@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788224"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Küçük resimleri portalda Azure medya Kırpıcıyı ile oluşturma
 Portalda Azure medya Kırpıcıyı klipleri varlıklarından media services hesaplarınızı oluşturmak için kullanabilirsiniz. Başlamak için Portalı'nda media services hesabınıza gidin. Ardından, **Subclip** sekmesi.

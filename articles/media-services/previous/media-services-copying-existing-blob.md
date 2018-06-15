@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33788644"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Bir Media Services varlığa mevcut BLOB kopyalama
 Bu makalede, BLOB Depolama hesabından kullanarak yeni bir Azure Media Services (AMS) varlık içine kopyalamak gösterilmiştir [Azure Media Services .NET SDK uzantıları](https://github.com/Azure/azure-sdk-for-media-services-extensions/).

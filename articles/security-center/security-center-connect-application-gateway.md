@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure uygulama ağ geçidi Azure Güvenlik Merkezi'ne bağlanma | Microsoft Docs"
-description: "Uygulama ağ geçidi ve Azure Güvenlik Merkezi, kaynaklarınızın genel güvenliğini artırmak için tümleştirme öğrenin."
+title: Microsoft Azure uygulama ağ geçidi Azure Güvenlik Merkezi'ne bağlanma | Microsoft Docs
+description: Uygulama ağ geçidi ve Azure Güvenlik Merkezi, kaynaklarınızın genel güvenliğini artırmak için tümleştirme öğrenin.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854496"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Microsoft Azure uygulama ağ geçidi Azure Güvenlik Merkezi'ne bağlanma
 Bu belge, uygulama ağ geçidi web uygulaması Güvenlik Duvarı (WAF) ve Güvenlik Merkezi ile tümleştirme yapılandırmanıza yardımcı olur.

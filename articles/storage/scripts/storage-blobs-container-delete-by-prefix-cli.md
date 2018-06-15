@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI Betiği Örneği - Kapsayıcıları ön eke göre silme | Microsoft Docs"
-description: "Azure Depolama blob’u kapsayıcılarını, bir kapsayıcı adı ön ekine göre silin."
+title: Azure CLI Betiği Örneği - Kapsayıcıları ön eke göre silme | Microsoft Docs
+description: Azure Depolama blob’u kapsayıcılarını, bir kapsayıcı adı ön ekine göre silin.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29848296"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Kapsayıcıları, kapsayıcı adı ön ekine göre silme
 

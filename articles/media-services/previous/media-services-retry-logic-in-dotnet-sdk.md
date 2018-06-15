@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33790429"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>.NET için Media Services SDK'sı mantığı yeniden dene
 Microsoft Azure Hizmetleri ile çalışırken, geçici hataları oluşabilir. Geçici bir hata oluşursa, çoğu durumda, birkaç denemeden sonra işlemi başarılı olur. .NET için Media Services SDK'sı, sorgular, değişiklikler ve depolama işlemleri kaydetme yürütme özel durumlar ve web isteklerine göre neden hataları ile ilişkili geçici hataları işlemek için yeniden deneme mantığı uygular.  Varsayılan olarak, .NET için Media Services SDK'sı, uygulamanızın özel durumu yeniden atmadan önce dört yeniden denemenin yürütür. Uygulamanızdaki kod sonra bu özel durumun düzgün işlemesi gerekir.  

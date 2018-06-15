@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267456"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>AzCopy komutunu kullanarak bulut depolamaya şirket içi verileri geçirme
 
@@ -22,8 +23,8 @@ AzCopy; basit komutlar kullanılarak Azure Blob depolamaya, Azure Dosyaları’n
 
 AzCopy komutunun iki sürümünü indirebilirsiniz:
 
-* [Linux üzerinde AzCopy](storage-use-azcopy.md), .NET Core Framework ile derlenir. Bu, POSIX stili komut satırı seçeneklerini sunarak Linux platformlarını hedefler. 
-* [Windows üzerinde AzCopy](../storage-use-azcopy.md), .NET Framework ile derlenir. Windows stili komut satırı seçenekleri sunar. 
+* [Linux üzerinde AzCopy](storage-use-azcopy-linux.md), .NET Core Framework ile derlenir. Bu, POSIX stili komut satırı seçeneklerini sunarak Linux platformlarını hedefler. 
+* [Windows üzerinde AzCopy](storage-use-azcopy.md), .NET Framework ile derlenir. Windows stili komut satırı seçenekleri sunar. 
  
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 

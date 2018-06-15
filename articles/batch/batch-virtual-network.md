@@ -1,6 +1,6 @@
 ---
-title: "Bir sanal ağ Azure Batch havuzunda sağlama | Microsoft Docs"
-description: "İşlem düğümlerine güvenli bir şekilde ağındaki bir dosya sunucusu gibi diğer VM'ler ile iletişim kurabilmesi için Batch havuzundaki bir sanal ağ oluşturabilirsiniz."
+title: Bir sanal ağ Azure Batch havuzunda sağlama | Microsoft Docs
+description: İşlem düğümlerine güvenli bir şekilde ağındaki bir dosya sunucusu gibi diğer VM'ler ile iletişim kurabilmesi için Batch havuzundaki bir sanal ağ oluşturabilirsiniz.
 services: batch
 author: dlepow
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29846817"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Bir sanal ağ içinde bir Azure Batch havuzu oluşturma
 
