@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30836104"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Linux sanal makinelerinin Azure DNS ad çözümlemesi seçenekleri
 Azure DNS ad çözümlemesi tek bir sanal ağdaki tüm sanal makineler için varsayılan olarak sağlar. Azure barındıran sanal makinelerde kendi DNS hizmetleri yapılandırarak kendi DNS ad çözümlemesi çözüm uygulayabilirsiniz. Aşağıdaki senaryolarda durumunuz için çalışan bir seçmenize yardımcı olmalıdır.

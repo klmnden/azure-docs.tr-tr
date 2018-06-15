@@ -18,9 +18,10 @@ ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7f2d0b261a991dc02b670488c14392697ea984ec
 ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316962"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>.NET için Batch hesaplarını ve kotalarını Batch Yönetimi istemci kitaplığı ile yönetme
 

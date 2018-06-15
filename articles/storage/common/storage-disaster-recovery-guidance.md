@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323160"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Bir Azure depolama kesinti oluşursa yapmanız gerekenler
 Microsoft, biz sabit hizmetlerimizle her zaman kullanılabilir olduğundan emin olmak için çalışır. Bazen bizim denetim etkisi bize bir veya daha fazla bölgelerde planlanmayan hizmet kesintileri neden yolla zorlar. Bu nadir örnekleri işlemenize yardımcı olmak için Azure depolama hizmetleri için aşağıdaki üst düzey Kılavuzu sunuyoruz.

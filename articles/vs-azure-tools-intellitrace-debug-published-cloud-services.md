@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292566"
 ---
 # <a name="debugging-a-published-azure-cloud-service-with-visual-studio-and-intellitrace"></a>Yayımlanan Azure bulut hizmeti Visual Studio ve IntelliTrace ile hata ayıklama
 IntelliTrace ile Azure içinde çalıştığında bir rol örneği için kapsamlı hata ayıklama bilgileri oturum açabilir. Bir sorunun nedenini bulmak gerekiyorsa, Azure'da çalışıyormuş gibi kodunuzu Visual Studio'dan adım için IntelliTrace günlüklerini kullanabilirsiniz. Etkin, Azure uygulamanız Azure'daki bir bulut hizmeti olarak çalışan ve Visual Studio kaydedilen verileri yeniden yürütme olanak tanır, IntelliTrace kayıtları kodu yürütme ve ortam verilerini anahtarı. 
