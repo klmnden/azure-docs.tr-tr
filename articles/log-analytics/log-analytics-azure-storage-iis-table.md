@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi olayları için IIS ve tablo depolama için BLOB storage kullanma | Microsoft Docs"
-description: "Günlük analizi tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya blob depolamaya yazılabilir IIS günlüklerini okuyabilir."
+title: Azure günlük analizi olayları için IIS ve tablo depolama için BLOB storage kullanma | Microsoft Docs
+description: Günlük analizi tablo depolama için tanılama yazma Azure Hizmetleri için günlükleri veya blob depolamaya yazılabilir IIS günlüklerini okuyabilir.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855449"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Günlük analizi olan olaylar için IIS ve Azure tablo depolaması için Azure blob storage kullanma
 

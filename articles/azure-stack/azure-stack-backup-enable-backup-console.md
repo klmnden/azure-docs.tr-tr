@@ -19,6 +19,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34302265"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Yedekleme Azure yığını için Yönetim Portalı'ndan etkinleştir
 Azure yığın yedeklemeleri oluşturabilmesi altyapı Yedekleme Hizmet Yönetim Portalı aracılığıyla etkinleştirin. Bulut kurtarma durumunda kullanarak ortamınızı geri yüklemek için bu yedeklemeler kullanabilirsiniz [geri dönülemez bir hataya](.\azure-stack-backup-recover-data.md). Bulut kurtarma amacı, Kurtarma tamamlandıktan sonra işleçler ve kullanıcıları portalına geri oturum sağlamaktır. Kullanıcıların, rol tabanlı erişim izinleri ve rolleri, özgün planları, teklifleri ve önceden tanımlanmış işlem, depolama ve ağ kotalar dahil olmak üzere geri aboneliği gerekir.

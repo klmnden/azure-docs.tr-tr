@@ -1,11 +1,11 @@
 ---
-title: "StorSimple fileshare Azure Site Recovery ile DR otomatikleştirmek | Microsoft Docs"
-description: "Adımları ve Microsoft Azure StorSimple depolama alanında barındırılan dosya paylaşımları için olağanüstü durum kurtarma çözümü oluşturmak için en iyi yöntemleri açıklar."
+title: StorSimple fileshare Azure Site Recovery ile DR otomatikleştirmek | Microsoft Docs
+description: Adımları ve Microsoft Azure StorSimple depolama alanında barındırılan dosya paylaşımları için olağanüstü durum kurtarma çözümü oluşturmak için en iyi yöntemleri açıklar.
 services: storsimple
 documentationcenter: NA
 author: vidarmsft
 manager: syadav
-editor: 
+editor: ''
 ms.assetid: 23049a2c-055e-4d0e-b8f5-af2a87ecf53f
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23890883"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>StorSimple üzerinde barındırılan dosya paylaşımları için Azure Site RECOVERY'yi kullanarak otomatikleştirilmiş olağanüstü durum kurtarma çözümü
 ## <a name="overview"></a>Genel Bakış

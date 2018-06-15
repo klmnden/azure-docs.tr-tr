@@ -1,6 +1,6 @@
 ---
 title: Hudson Blob storage ile kullanma | Microsoft Docs
-description: "Hudson ile Azure Blob storage depo olarak derleme yapıları için nasıl kullanılacağını açıklar."
+description: Hudson ile Azure Blob storage depo olarak derleme yapıları için nasıl kullanılacağını açıklar.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874167"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Hudson Sürekli Tümleştirme çözümüyle Azure Depolama'yı kullanma
 ## <a name="overview"></a>Genel Bakış

@@ -1,8 +1,8 @@
 ---
-title: "Twilio ses ve SMS (PHP) için nasıl kullanılacağı | Microsoft Docs"
-description: "Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. PHP ile yazılan kod örnekleri."
+title: Twilio ses ve SMS (PHP) için nasıl kullanılacağı | Microsoft Docs
+description: Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. PHP ile yazılan kod örnekleri.
 documentationcenter: php
-services: 
+services: ''
 author: devinrader
 manager: twilio
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866180"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Ses ve PHP SMS özelliklerini için Twilio kullanma
 Bu kılavuz, Azure üzerinde Twilio API hizmeti genel programlama görevleri gerçekleştirmek gösterilmiştir. Kapsamdaki senaryolar bir telefon araması yapmadan ve kısa ileti hizmeti (SMS) ileti gönderme içerir. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz: [sonraki adımlar](#NextSteps) bölümü.

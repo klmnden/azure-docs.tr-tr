@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213053"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors hizmetine giriş
 Güvenilir aktörler dayalı bir çerçevedir Service Fabric uygulaması [sanal aktör](http://research.microsoft.com/en-us/projects/orleans/) düzeni. Güvenilir aktörler API Service Fabric tarafından sağlanan ölçeklenebilirlik ve güvenilirlik garantileri üzerine kurulu bir tek iş parçacıklı programlama modeli sağlar.

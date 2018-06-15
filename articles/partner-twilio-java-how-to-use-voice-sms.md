@@ -1,7 +1,7 @@
 ---
-title: "Twilio ses ve SMS (Java) için nasıl kullanılacağı | Microsoft Docs"
-description: "Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. Java dilinde yazılan kod örnekleri."
-services: 
+title: Twilio ses ve SMS (Java) için nasıl kullanılacağı | Microsoft Docs
+description: Bir telefon araması yapın ve Azure üzerinde Twilio API hizmetiyle SMS mesajı göndermek öğrenin. Java dilinde yazılan kod örnekleri.
+services: ''
 documentationcenter: java
 author: devinrader
 manager: twilio
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866159"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Ses ve Java SMS yetenekler için Twilio kullanma
 Bu kılavuz, Azure üzerinde Twilio API hizmeti genel programlama görevleri gerçekleştirmek gösterilmiştir. Kapsamdaki senaryolar bir telefon araması yapmadan ve kısa ileti hizmeti (SMS) ileti gönderme içerir. Twilio ve ses ve SMS uygulamalarınızda kullanma hakkında daha fazla bilgi için bkz: [sonraki adımlar](#NextSteps) bölümü.

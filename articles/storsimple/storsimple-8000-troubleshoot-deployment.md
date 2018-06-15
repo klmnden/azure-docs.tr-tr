@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi dağıtım sorunlarını giderme | Microsoft Docs"
-description: "Tanılama ve StorSimple ilk kez dağıttığınızda oluşan hataları düzeltme açıklar."
+title: StorSimple 8000 serisi dağıtım sorunlarını giderme | Microsoft Docs
+description: Tanılama ve StorSimple ilk kez dağıttığınızda oluşan hataları düzeltme açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927862"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple cihaz dağıtım sorunlarını giderme
 ## <a name="overview"></a>Genel Bakış

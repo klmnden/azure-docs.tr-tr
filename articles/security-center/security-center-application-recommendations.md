@@ -1,11 +1,11 @@
 ---
-title: "Uygulamalarınızı Azure Güvenlik Merkezi'nde koruma | Microsoft Docs"
-description: "Yardımcı olacak öneriler Azure Güvenlik Merkezi'nde Azure uygulamalarınızı korumaya ve güvenlik ilkeleriyle uyumlu olmak bu belge adresleri."
+title: Uygulamalarınızı Azure Güvenlik Merkezi'nde koruma | Microsoft Docs
+description: Yardımcı olacak öneriler Azure Güvenlik Merkezi'nde Azure uygulamalarınızı korumaya ve güvenlik ilkeleriyle uyumlu olmak bu belge adresleri.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: b5fc7a9e-24b1-415f-b3b5-62a53f5dd424
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23866271"
 ---
 # <a name="protecting-your-applications-in-azure-security-center"></a>Uygulamalarınızı Azure Güvenlik Merkezi'nde koruma
 Azure Güvenlik Merkezi, ayrıca Azure kaynaklarınızın güvenlik durumunu çözümler. Güvenlik Merkezi olası güvenlik açıklarını belirlediğinde, gerekli denetimlerin yapılandırılması sürecinde size rehberlik öneriler oluşturur.  Önerileri Azure kaynak türleri için geçerlidir: sanal ağ, SQL ve uygulamaları makineleri (VM'ler).

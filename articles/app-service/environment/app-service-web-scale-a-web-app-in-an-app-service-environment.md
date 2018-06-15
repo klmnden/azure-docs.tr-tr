@@ -1,8 +1,8 @@
 ---
-title: "Bir uygulama hizmeti ortamı'nda bir uygulama ölçeklendirme"
-description: "Bir uygulama hizmeti ortamı'nda bir uygulama ölçeklendirme"
+title: Bir uygulama hizmeti ortamı'nda bir uygulama ölçeklendirme
+description: Bir uygulama hizmeti ortamı'nda bir uygulama ölçeklendirme
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836556"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>App Service Ortamında uygulamaları ölçeklendirme
 Azure App Service'te normal şekilde ölçeklendirebilirsiniz üç şey vardır:

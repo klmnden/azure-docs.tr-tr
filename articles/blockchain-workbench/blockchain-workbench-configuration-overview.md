@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34303823"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain çalışma ekranı yapılandırma başvurusu
 

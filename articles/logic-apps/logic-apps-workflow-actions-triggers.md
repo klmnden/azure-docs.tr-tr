@@ -3,7 +3,7 @@ title: İş akışı tetikleyiciler ve Eylemler - Azure Logic Apps | Microsoft D
 description: Tetikleyiciler ve Eylemler Azure mantıksal uygulamaları için iş akışı tanımları hakkında bilgi edinin
 services: logic-apps
 author: kevinlam1
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 86a53bb3-01ba-4e83-89b7-c9a7074cb159
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 5/8/2018
 ms.author: klam; LADocs
-ms.openlocfilehash: 88ee3d810a80bed418e8dbafa4f3e35ccf5e85b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: f44de1a316a8375618cfef2e4a98d40c2b21e019
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886791"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300156"
 ---
 # <a name="triggers-and-actions-for-workflow-definitions-in-azure-logic-apps"></a>Tetikleyiciler ve Eylemler Azure Logic Apps içinde iş akışı tanımları
 
@@ -56,7 +56,7 @@ Bazı isteğe bağlıdır, ancak bu üst düzey öğeleri tüm Tetikleyicileri v
 | ------------ | ---- | ----------- | 
 | <*tetikleyiciadı*> | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
 | type | Dize | Tetikleyici yazın, örneğin: "Http" veya "ApiConnection" | 
-| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| girişler | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
 | yineleme | JSON nesnesi | Ne sıklıkta tetiği harekete açıklar aralığı ve sıklığı |  
 | frequency | Dize | Ne sıklıkta tetiği harekete açıklar zaman biriminin: "Saniye", "dakika", "Saat", "Gün", "Hafta" veya "Ay" | 
 | interval | Tamsayı | Ne sıklıkta tetiği harekete açıklar pozitif bir tamsayı sıklığı temel alarak. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
@@ -124,7 +124,7 @@ Tetikleyici tanımı aşağıda verilmiştir:
 | ------------ | ---- | ----------- | 
 | Yineleme | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
 | type | Dize | Tetikleyici türü olan "Recurrence" | 
-| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| girişler | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
 | yineleme | JSON nesnesi | Ne sıklıkta tetiği harekete açıklar aralığı ve sıklığı |  
 | frequency | Dize | Ne sıklıkta tetiği harekete açıklar zaman biriminin: "Saniye", "dakika", "Saat", "Gün", "Hafta" veya "Ay" | 
 | interval | Tamsayı | Ne sıklıkta tetiği harekete açıklar pozitif bir tamsayı sıklığı temel alarak. <p>Minimum ve maksimum aralıkları şunlardır: <p>-Ay: 1-16 ay </br>-Günü: 1-500 gün </br>-Saat: 1-12.000 saatleri </br>-Dakika: 1-72,000 dakika </br>-İkinci: 1-9,999,999 saniye<p>Örneğin, aralığı 6'dır ve sıklığı "ay" ise, yineleme 6 ayda olur. | 
@@ -228,7 +228,7 @@ Bu tetikleyici, gelen HTTP isteklerini kabul edebilecek bir uç nokta oluşturar
 | El ile | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
 | type | Dize | Tetikleyici türü olan "İstek" | 
 | türü | Dize | "Http" istek türü | 
-| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| girişler | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
 |||| 
 
 *İsteğe bağlı*
@@ -239,7 +239,7 @@ Bu tetikleyici, gelen HTTP isteklerini kabul edebilecek bir uç nokta oluşturar
 | RelativePath | Dize | HTTP uç noktanın URL'sini kabul parametresi için göreli yolu | 
 | Şema | JSON nesnesi | Açıklayan ve yükü doğrular JSON Şeması veya tetikleyici gelen istekte alan girişleri. Bu şemayı başvurmak için özellikler bilmeniz sonraki iş akışı eylemlerinin yardımcı olur. | 
 | properties | JSON nesnesi | Bir veya daha fazla özelliklerinde yükü tanımlayan JSON şeması | 
-| Gerekli | Dizi | Değerleri için gereken bir veya daha fazla özellikleri | 
+| gerekli | Dizi | Değerleri için gereken bir veya daha fazla özellikleri | 
 |||| 
 
 *Örnek*
@@ -316,7 +316,7 @@ Bu tetikleyici belirtilen uç nokta yoklar ve yanıt denetler. Yanıt, iş akı�
 | ------------ | ---- | ----------- | 
 | HTTP | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
 | type | Dize | Tetikleyici türü olan "Http" | 
-| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| girişler | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
 | method | Evet | Dize | Belirtilen uç nokta yoklama için HTTP yöntemini: "GET", "PUT", "POST", "Düzeltme Eki", "DELETE" veya "HEAD" | 
 | uri | Evet| Dize | Tetikleyici ya da yoklar HTTP veya HTTPS uç noktası URL'si <p>Maksimum dize boyutu: 2 KB | 
 | yineleme | JSON nesnesi | Ne sıklıkta tetiği harekete açıklar aralığı ve sıklığı |  
@@ -415,7 +415,7 @@ Tetikleyici davranışı bölümleri dahil olup olmadığı hakkında dolayısı
 | ------------ | ---- | ----------- | 
 | *APIConnectionTriggerName* | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
 | type | Dize | Tetikleyici türü olan "ApiConnection" | 
-| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| girişler | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
 | konak | JSON nesnesi | Kimliği ve ana bilgisayar ağ geçidi için yönetilen API tanımlayan JSON nesnesinin <p>`host` JSON nesnesi bu öğeleri sahiptir: `api` ve `connection` | 
 | api | JSON nesnesi | Yönetilen API uç noktası URL'si: <p>`"runtimeUrl": "<managed-API-endpoint-URL>"` | 
 | bağlantı | JSON nesnesi | Bağlantı için ad, adlı bir parametre için bir başvuru içermelidir iş akışının kullandığı, yönetilen API `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>'].name"` | 
@@ -516,7 +516,7 @@ Bu tetikleyici gibi çalışır [isteği tetikleyici](#request-trigger) mantığ
 | ------------ | ---- | ----------- | 
 | HTTP_Webhook | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
 | type | Dize | Tetikleyici türü olan "HttpWebhook" | 
-| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| girişler | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
 | abone olma | JSON nesnesi| Giden istek çağırın ve tetikleyici oluşturduğunuzda ilk kaydı gerçekleştirmek için. Tetikleyici olayları uç noktada dinleme başlayabilmeniz için bu çağrı yapılır. Daha fazla bilgi için bkz: [abone olma ve aboneliği](#subscribe-unsubscribe). | 
 | method | Dize | Abonelik istek için kullanılan HTTP yöntemini: "GET", "PUT", "POST", "Düzeltme Eki", "DELETE" veya "HEAD" | 
 | uri | Dize | Abonelik isteğinin gönderileceği yeri için uç nokta URL'si | 
@@ -616,7 +616,7 @@ Tetikleyici tanımı aşağıda verilmiştir:
 | ------------ | ---- | ----------- | 
 | <*ApiConnectionWebhookTriggerName*> | JSON nesnesi | Javascript nesne gösterimi (JSON) biçiminde açıklandığı bir nesnedir tetikleyici için ad  | 
 | type | Dize | Tetikleyici türü olan "ApiConnectionWebhook" | 
-| Girişleri | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
+| girişler | JSON nesnesi | Tetikleyici davranışını tanımlayın tetikleyici girişleri | 
 | konak | JSON nesnesi | Kimliği ve ana bilgisayar ağ geçidi için yönetilen API tanımlayan JSON nesnesinin <p>`host` JSON nesnesi bu öğeleri sahiptir: `api` ve `connection` | 
 | bağlantı | JSON nesnesi | Bağlantı için ad, adlı bir parametre için bir başvuru içermelidir iş akışının kullandığı, yönetilen API `$connection`: <p>`"name": "@parameters('$connections')['<connection-name>']['connectionId']"` | 
 | body | JSON nesnesi | Yönetilen API'sine göndermek için (veri) yükü tanımlayan JSON nesnesi | 
@@ -1435,7 +1435,7 @@ Switch deyimi Bu eylem, bir nesne, ifade ya da belirteci belirli değerlerine g�
 | Durumları | Evet | JSON nesnesi | İfade sonucuna göre çalıştır iç Eylemler kümesi içerir. | 
 | Durumu | Evet | Dize | Sonucu ile eşleşecek değer | 
 | Eylemler | Evet | JSON nesnesi | Deyimin sonucu eşleşen çalışması için çalıştırma iç eylemleri | 
-| varsayılan | Hayır | JSON nesnesi | Hiçbir örnek sonucu eşleştiğinde çalışacak iç eylemleri | 
+| default | Hayır | JSON nesnesi | Hiçbir örnek sonucu eşleştiğinde çalışacak iç eylemleri | 
 ||||| 
 
 Örneğin:

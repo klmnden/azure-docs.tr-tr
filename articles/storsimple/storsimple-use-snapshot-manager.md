@@ -1,11 +1,11 @@
 ---
-title: "StorSimple anlık görüntü Yöneticisi kullanıcı arabirimi | Microsoft Docs"
-description: "StorSimple Snapshot Manager kullanıcı arabirimini tanımlar ve bu yedekleme işleri ve yedekleme kataloğu yönetmek için nasıl kullanılacağını açıklar."
+title: StorSimple anlık görüntü Yöneticisi kullanıcı arabirimi | Microsoft Docs
+description: StorSimple Snapshot Manager kullanıcı arabirimini tanımlar ve bu yedekleme işleri ve yedekleme kataloğu yönetmek için nasıl kullanılacağını açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927953"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>Yedekleme işleri ve yedekleme kataloğu yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın kullanıcı arabirimi
 

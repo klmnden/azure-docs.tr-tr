@@ -15,6 +15,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34304979"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Yönetilen kaynaklarla çalışmak için Azure kaynak grubu yönetilen uygulama
 
