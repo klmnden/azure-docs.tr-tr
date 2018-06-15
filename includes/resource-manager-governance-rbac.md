@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433258"
 ---
 Kuruluşunuzdaki kullanıcıların bu kaynaklara erişim doğru düzeyde sahip olduğunuzdan emin olmak istersiniz. Sınırsız erişimi kullanıcılara vermek istediğiniz yoktur, ancak işlerini yapmak için emin olmanız gerekir. Rol tabanlı erişim denetimi (RBAC), hangi kullanıcıların belirli eylemleri bir kapsamda tamamlamak için izni yönetmenizi sağlar. Bir rolü izin verilen eylemleri kümesini tanımlar. Bir kapsama rolü atayın ve bu rol kapsam için hangi kullanıcıların ait belirtin.
 

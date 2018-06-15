@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31411225"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Raporlar Power BI çalışma koleksiyonlarda Kaydet
 

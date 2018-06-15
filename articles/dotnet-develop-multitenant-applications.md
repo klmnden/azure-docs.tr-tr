@@ -1,11 +1,11 @@
 ---
-title: "Çok Kiracılı Web uygulama düzeni | Microsoft Docs"
-description: "Mimari genel bakış ve Azure üzerinde bir çok kiracılı web uygulamasını uygulamak açıklar tasarım desenleri bulun."
-services: 
+title: Çok Kiracılı Web uygulama düzeni | Microsoft Docs
+description: Mimari genel bakış ve Azure üzerinde bir çok kiracılı web uygulamasını uygulamak açıklar tasarım desenleri bulun.
+services: ''
 documentationcenter: .net
 author: wadepickett
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 4f0281d2-1555-42b0-a99d-1222fade0b0f
 ms.service: active-directory
 ms.workload: identity
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23850717"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure'da çok müşterili uygulamalar
 Çok kiracılı uygulama farklı kullanıcılar veya "Kiracı," kendi olduğu gibi sorgulamanıza uygulamayı görüntülemek için izin veren paylaşılan bir kaynaktır. Kendi çok kiracılı bir uygulamaya uygundur tipik bir senaryo içinde uygulamanın tüm kullanıcılar kullanıcı deneyimini özelleştirme ancak Aksi halde aynı temel iş gereksinimleriniz isteyebilir biridir. Office 365, Outlook.com ve visualstudio.com büyük çok müşterili uygulamalar örnekleridir.

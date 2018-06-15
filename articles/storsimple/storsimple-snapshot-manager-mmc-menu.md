@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager MMC menü Eylemler | Microsoft Docs"
-description: "StorSimple anlık görüntü Yöneticisi'nde standart Microsoft Yönetim Konsolu (MMC) menü Eylemler kullanmayı açıklar."
+title: StorSimple Snapshot Manager MMC menü Eylemler | Microsoft Docs
+description: StorSimple anlık görüntü Yöneticisi'nde standart Microsoft Yönetim Konsolu (MMC) menü Eylemler kullanmayı açıklar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875896"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>StorSimple anlık görüntü Yöneticisi'nde MMC menü eylemlerini kullanın
 

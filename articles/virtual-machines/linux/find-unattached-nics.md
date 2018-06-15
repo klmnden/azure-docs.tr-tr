@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427321"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>Azure VM'ler için nasıl bulacağınızı ve eklenmemiş ağ arabirimini silmek kartları (NIC)
 Azure'da sanal makine (VM) sildiğinizde, ağ arabirimi kartlarıyla (NIC) varsayılan olarak silinmez. Oluşturma ve birden çok VM silme kullanılmayan NIC'ler iç IP adresi kiraları kullanmaya devam edin. Diğer VM NIC'ler oluştururken, alt ağın adres alanındaki IP kira alınamıyor olabilir. Bu makalede bulma ve eklenmemiş NIC'ler silme gösterilmektedir.

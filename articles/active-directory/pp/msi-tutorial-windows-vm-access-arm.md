@@ -1,8 +1,8 @@
 ---
-title: "Azure Kaynak Yöneticisi'ne erişmek için bir Windows VM MSI kullanın"
-description: "Azure Resource Manager erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma sürecinde anlatan öğretici."
+title: Azure Kaynak Yöneticisi'ne erişmek için bir Windows VM MSI kullanın
+description: Azure Resource Manager erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanma sürecinde anlatan öğretici.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382568"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Kaynak Yöneticisi'ne erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanın
 

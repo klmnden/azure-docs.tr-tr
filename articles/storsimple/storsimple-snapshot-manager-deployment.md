@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager dağıtma | Microsoft Docs"
-description: "StorSimple Snapshot Manager StorSimple veri koruma ve yedekleme özellikleri yönetmek için MMC ek bileşenini yükleyip öğrenin."
+title: StorSimple Snapshot Manager dağıtma | Microsoft Docs
+description: StorSimple Snapshot Manager StorSimple veri koruma ve yedekleme özellikleri yönetmek için MMC ek bileşenini yükleyip öğrenin.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23876323"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>StorSimple Snapshot Manager MMC ek bileşenini dağıtma
 

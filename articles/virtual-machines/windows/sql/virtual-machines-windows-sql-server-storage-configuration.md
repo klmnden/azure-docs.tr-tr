@@ -1,6 +1,6 @@
 ---
-title: "SQL Server VM'ler için depolama yapılandırması | Microsoft Docs"
-description: "Bu konu, nasıl Azure depolama için SQL Server Vm'lerinin (Resource Manager dağıtım modeli) sağlama sırasında yapılandırır açıklar. Ayrıca, depolama, var olan SQL Server VM'ler için nasıl yapılandırabileceğiniz açıklanmaktadır."
+title: SQL Server VM'ler için depolama yapılandırması | Microsoft Docs
+description: Bu konu, nasıl Azure depolama için SQL Server Vm'lerinin (Resource Manager dağıtım modeli) sağlama sırasında yapılandırır açıklar. Ayrıca, depolama, var olan SQL Server VM'ler için nasıl yapılandırabileceğiniz açıklanmaktadır.
 services: virtual-machines-windows
 documentationcenter: na
 author: ninarn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399092"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM'ler için depolama yapılandırması
 Azure'da bir SQL Server sanal makine görüntüsü yapılandırdığınızda, Portal depolama yapılandırmanızı otomatikleştirmek için yardımcı olur. Bu, belirli bir performans gereksinimlerinizi en iyi duruma getirmek için bu depolama SQL Server için erişilebilir hale getirme ve bu yapılandırma VM, depolama ekleme içerir.

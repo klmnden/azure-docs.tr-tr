@@ -1,11 +1,11 @@
 ---
-title: "Bulut Hizmetleri uygulamasıyla Azure tanılama akışında izleme | Microsoft Docs"
-description: "İzleme iletileri hata ayıklama, performans, izleme, trafik analizi ve daha fazla ölçme yardımcı olmak için bir Azure uygulamaya ekleyin."
+title: Bulut Hizmetleri uygulamasıyla Azure tanılama akışında izleme | Microsoft Docs
+description: İzleme iletileri hata ayıklama, performans, izleme, trafik analizi ve daha fazla ölçme yardımcı olmak için bir Azure uygulamaya ekleyin.
 services: cloud-services
 documentationcenter: .net
 author: thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
 ms.service: cloud-services
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461256"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Bulut Hizmetleri uygulaması Azure Tanılama ile akışı izleme
 İzleme, çalışırken, uygulamanızın yürütülmesini izlemek bir yoldur. Kullanabileceğiniz [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx), ve [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) hatalarla ilgili bilgileri kaydetmek için sınıflar ve Uygulama yürütme günlükleri, metin dosyaları veya diğer cihazları daha sonra çözümlemek için. İzleme hakkında daha fazla bilgi için bkz: [izleme ve düzenleme uygulamaları](https://msdn.microsoft.com/library/zs6s4h68.aspx).

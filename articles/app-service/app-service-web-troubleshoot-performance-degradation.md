@@ -1,13 +1,13 @@
 ---
-title: "Yavaş App Service'te web uygulaması performans | Microsoft Docs"
-description: "Bu makale, Azure App Service'te yavaş web uygulaması performans sorunlarını gidermenize yardımcı olur."
+title: Yavaş App Service'te web uygulaması performans | Microsoft Docs
+description: Bu makale, Azure App Service'te yavaş web uygulaması performans sorunlarını gidermenize yardımcı olur.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
-editor: 
+editor: ''
 tags: top-support-issue
-keywords: "Web uygulama performansı, yavaş uygulama, uygulama yavaş"
+keywords: Web uygulama performansı, yavaş uygulama, uygulama yavaş
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.service: app-service-web
 ms.workload: web
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29461851"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Azure App Service'te yavaş web uygulaması performans sorunlarını giderme
 Bu makalede yavaş web uygulaması performans sorunları gidermenize yardımcı [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).

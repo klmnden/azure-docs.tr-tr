@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31517439"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Azure CDN kurallar altyapısı için X EC Debug HTTP üstbilgileri
 Hata ayıklama önbellek istek üstbilgisi `X-EC-Debug`, istenen varlık uygulanan önbellek İlkesi hakkında ek bilgi sağlar. Bu üstbilgileri özgü **verizon'dan Azure CDN Premium** ürünler.

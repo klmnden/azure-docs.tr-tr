@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31425604"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM'ler için Kıyaslama puanları işlem
 Aşağıdaki CoreMark Kıyaslama puanlar Ubuntu çalışan Azure'nın yüksek performans VM serisi için işlem performansı gösterir. İşlem Kıyaslama puanları için kullanılabilir de [Windows VM'ler](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

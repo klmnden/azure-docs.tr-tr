@@ -1,8 +1,8 @@
 ---
-title: "Azure depolama kullanmak için SQL Server Yedekleme ve geri yükleme | Microsoft Docs"
-description: "Azure Storage için SQL Server'ı Yedekle öğrenin. Azure depolama birimine SQL veritabanlarını yedekleme yararlarını açıklar."
+title: Azure depolama kullanmak için SQL Server Yedekleme ve geri yükleme | Microsoft Docs
+description: Azure Storage için SQL Server'ı Yedekle öğrenin. Azure depolama birimine SQL veritabanlarını yedekleme yararlarını açıklar.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: MikeRayMSFT
 manager: craigg
 tags: azure-service-management
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399058"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>SQL Server Yedekleme ve geri yükleme için Azure Storage kullanma
 ## <a name="overview"></a>Genel Bakış

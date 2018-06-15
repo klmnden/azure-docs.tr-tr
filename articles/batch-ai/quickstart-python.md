@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513257"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-python-sdk"></a>Azure Python SDK’sını kullanarak CNTK eğitim işini çalıştırma
 

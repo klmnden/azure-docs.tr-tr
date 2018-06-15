@@ -1,13 +1,13 @@
 ---
-title: "Yerel ağ geçidi IP adresi öneklerini ve VPN ağ geçidi IP adresini değiştirme | Azure | Portal | Microsoft Docs"
-description: "Bu makalede Azure Portalı'nı kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla anlatılmaktadır."
+title: Yerel ağ geçidi IP adresi öneklerini ve VPN ağ geçidi IP adresini değiştirme | Azure | Portal | Microsoft Docs
+description: Bu makalede Azure Portalı'nı kullanarak yerel ağ geçidinizin IP adresi ön eklerini değiştirme aracılığıyla anlatılmaktadır.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23883827"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yerel ağ geçidi ayarlarını değiştirme
 

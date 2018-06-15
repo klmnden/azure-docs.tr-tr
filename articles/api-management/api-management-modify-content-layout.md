@@ -1,11 +1,11 @@
 ---
-title: "API Management'ta geliştirici portalındaki sayfaların içeriğini değiştirme | Microsoft Docs"
-description: "Azure API Management'ta geliştirici portalındaki sayfaların içeriğini düzenlemeyi öğrenin."
+title: API Management'ta geliştirici portalındaki sayfaların içeriğini değiştirme | Microsoft Docs
+description: Azure API Management'ta geliştirici portalındaki sayfaların içeriğini düzenlemeyi öğrenin.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: antonba
 manager: vlvinogr
-editor: 
+editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
 ms.service: api-management
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29377808"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management geliştirici portalındaki sayfaların içeriğini ve düzenini değiştirme
 Azure API Management'ta geliştirici portalını özelleştirmek için kullanılabilecek üç temel yöntem vardır:

@@ -1,12 +1,12 @@
 ---
-title: "Oluşturma ve yayımlama Market öğesi Market araç kullanma | Microsoft Docs"
-description: "Market öğesi ile Araç Seti yayımlama hızlı bir şekilde oluşturmayı öğrenin"
+title: Oluşturma ve yayımlama Market öğesi Market araç kullanma | Microsoft Docs
+description: Market öğesi ile Araç Seti yayımlama hızlı bir şekilde oluşturmayı öğrenin
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386886"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Yayımlama aracını kullanarak Market öğesi ekleme
 İçeriğinizi ekleme [Azure yığın Market](azure-stack-marketplace.md) çözümlerinizi sizin ve kiracılarınızın dağıtımı için kullanılabilir yapar.  Market araç seti, Iaas Azure Resource Manager şablonları veya VM uzantıları göre Azure Market paketleri (.azpkg) dosyaları oluşturur.  Market Araç Seti .azpkg dosyaları, aracı ile oluşturulmuş veya kullanarak yayımlamak için de kullanabilirsiniz [el ile](azure-stack-create-and-publish-marketplace-item.md) adımları.  Bu konu, aracı yükleme, bir VM şablonunu temel alan bir Market öğesi oluşturma ve ardından bu öğeyi Azure yığın Marketinde yayımlama kılavuzluk eder.     

@@ -1,13 +1,13 @@
 ---
-title: "Self Servis parola sıfırlama - Azure Active Directory'ye kaydetme"
-description: "Kimlik doğrulama verileri için Azure AD Self Servis parola kaydı Sıfırla"
+title: Self Servis parola sıfırlama - Azure Active Directory'ye kaydetme
+description: Kimlik doğrulama verileri için Azure AD Self Servis parola kaydı Sıfırla
 services: active-directory
-keywords: 
-documentationcenter: 
+keywords: ''
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: sahenry
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29460484"
 ---
 # <a name="register-for-self-service-password-reset"></a>Self servis parola sıfırlama için kaydolma
 

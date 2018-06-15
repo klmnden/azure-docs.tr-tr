@@ -1,11 +1,11 @@
 ---
-title: "Bir kurtarma planı Azure Site kurtarma için bir komut dosyası ekleme | Microsoft Docs"
-description: "Yeni bir System Center Virtual Machine Manager (VMM) komut dosyası Azure kurtarma planında eklemeye yönelik önkoşulları hakkında bilgi edinin."
+title: Bir kurtarma planı Azure Site kurtarma için bir komut dosyası ekleme | Microsoft Docs
+description: Yeni bir System Center Virtual Machine Manager (VMM) komut dosyası Azure kurtarma planında eklemeye yönelik önkoşulları hakkında bilgi edinin.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: shons
-editor: 
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402436"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Bir kurtarma planı için bir VMM komut dosyası ekleme
 

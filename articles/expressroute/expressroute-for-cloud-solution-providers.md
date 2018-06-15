@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405713"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>Bulut Çözüm Sağlayıcıları (CSP) için ExpressRoute
 Microsoft, geleneksel satıcılar veya dağıtımcıların (CSP), yeni hizmetler geliştirmeye yatırım yapmaya gerek kalmadan müşterileriniz için hızlı bir şekilde yeni hizmetler ve çözümler sağlayabilmesi amacıyla hiper ölçekli hizmetler sağlar. Bulut Çözüm Sağlayıcısının (CSP) bu hizmetleri doğrudan yönetebilmesini sağlamak için Microsoft, CSP’nin Microsoft Azure kaynaklarını müşterilerinizin adına yönetebilmesine olanak sağlayan programlar ve API’ler sunar. Bu kaynaklardan biri de ExpressRoute’dur. ExpressRoute, CSP’nin var olan Azure hizmetlerine bağlanmasına olanak sağlar. ExpressRoute, Azure’daki hizmetlere yüksek hızlı özel iletişim bağlantısıdır. 

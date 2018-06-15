@@ -1,10 +1,10 @@
 ---
-title: "Azure mobil uygulaması (Cordova) için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs"
-description: "Mobil uygulama hizmeti için önbellek ve eşitleme çevrimdışı veri Cordova uygulamanızda nasıl kullanılacağını öğrenin"
+title: Azure mobil uygulaması (Cordova) için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
+description: Mobil uygulama hizmeti için önbellek ve eşitleme çevrimdışı veri Cordova uygulamanızda nasıl kullanılacağını öğrenin
 documentationcenter: cordova
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593723"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

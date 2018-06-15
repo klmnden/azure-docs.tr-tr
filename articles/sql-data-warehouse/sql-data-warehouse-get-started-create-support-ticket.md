@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31523056"
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>SQL Data Warehouse için destek bileti oluşturma
 SQL Veri Ambarı’nız ile ilgili herhangi bir sorun yaşıyorsanız mühendislik destek ekibimizin size yardımcı olabilmesi için bir destek bileti oluşturun.

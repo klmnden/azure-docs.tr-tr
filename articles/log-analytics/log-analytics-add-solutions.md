@@ -1,11 +1,11 @@
 ---
-title: "Azure günlük analizi yönetim çözümleri ekleme | Microsoft Docs"
-description: "Azure yönetim çözümlerine kurallarının belirli sorunu etrafına özetlenebilir ölçümleri sağlayan mantığı, Görselleştirme ve veri alım koleksiyonudur."
+title: Azure günlük analizi yönetim çözümleri ekleme | Microsoft Docs
+description: Azure yönetim çözümlerine kurallarının belirli sorunu etrafına özetlenebilir ölçümleri sağlayan mantığı, Görselleştirme ve veri alım koleksiyonudur.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29395471"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Sunucunuzdan çalışma alanınıza Azure günlük analizi yönetim çözümleri Ekle
 

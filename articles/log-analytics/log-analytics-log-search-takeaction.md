@@ -1,12 +1,12 @@
 ---
-title: "Kullanıcı tarafından başlatılan Azure Otomasyonu Runbook günlük analizi eylemde | Microsoft Docs"
-description: "Bu makalede, bir günlük analizi arama sonucu isteğe bağlı bir Otomasyon runbook'u çalıştırmak açıklar."
+title: Kullanıcı tarafından başlatılan Azure Otomasyonu Runbook günlük analizi eylemde | Microsoft Docs
+description: Bu makalede, bir günlük analizi arama sonucu isteğe bağlı bir Otomasyon runbook'u çalıştırmak açıklar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29394624"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Günlük analizi günlük arama sonucu Otomasyon Runbook'tan eylemiyle alın
 

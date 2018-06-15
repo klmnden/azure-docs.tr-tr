@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi aygıtta kasa Değiştir | Microsoft Docs"
-description: "StorSimple birincil muhafaza veya EBOD muhafazası için kasa kaldırdığınızda ve açıklar."
+title: StorSimple 8000 serisi aygıtta kasa Değiştir | Microsoft Docs
+description: StorSimple birincil muhafaza veya EBOD muhafazası için kasa kaldırdığınızda ve açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874804"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Kasa, StorSimple Cihazınızda değiştirin
 ## <a name="overview"></a>Genel Bakış

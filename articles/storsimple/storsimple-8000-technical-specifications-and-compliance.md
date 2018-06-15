@@ -1,12 +1,12 @@
 ---
-title: "StorSimple Teknik Özellikleri | Microsoft Docs"
-description: "StorSimple donanım bileşenleri için yasal standartları uyumluluk bilgileri ve teknik özellikleri açıklar."
+title: StorSimple Teknik Özellikleri | Microsoft Docs
+description: StorSimple donanım bileşenleri için yasal standartları uyumluluk bilgileri ve teknik özellikleri açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27785535"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Teknik Özellikleri ve StorSimple aygıt için uyumluluğu
 

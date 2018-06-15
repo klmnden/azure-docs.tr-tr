@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler"
+title: Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler
 metadata:
-  title: "Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler - Öğreticiler, API Başvurusu"
-  description: "Azure Tarafından Yönetilen Uygulamaları kullanarak, tüketicilerin daha kolay şekilde çalıştırabileceği bulut çözümleri yayımlayın."
+  title: Azure Tarafından Yönetilen Uygulamalarla İlgili Belgeler - Öğreticiler, API Başvurusu
+  description: Azure Tarafından Yönetilen Uygulamaları kullanarak, tüketicilerin daha kolay şekilde çalıştırabileceği bulut çözümleri yayımlayın.
   services: managed-applications
   author: tfitzmac
   manager: timlt
@@ -18,13 +18,14 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 01/12/2018
+  ms.locfileid: "27779576"
 abstract:
-  description: "Azure Tarafından Yönetilen Uygulamalar, bulut çözümlerinizi iç ve dış müşterilere sunmanıza olanak tanır. Çözümün altyapısını ve sürekli yönetimine ilişkin koşulları siz tanımlarsınız. Çözümünüzün faturalandırma işlemi, Azure faturalandırması aracılığıyla gerçekleştirilir."
+  description: Azure Tarafından Yönetilen Uygulamalar, bulut çözümlerinizi iç ve dış müşterilere sunmanıza olanak tanır. Çözümün altyapısını ve sürekli yönetimine ilişkin koşulları siz tanımlarsınız. Çözümünüzün faturalandırma işlemi, Azure faturalandırması aracılığıyla gerçekleştirilir.
 sections:
-- title: "5 Dakikalık Hızlı Başlangıçlar"
+- title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: "Yönetilen uygulama yayımlamayı ve dağıtmayı öğrenin."
+    text: Yönetilen uygulama yayımlamayı ve dağıtmayı öğrenin.
   - type: list
     style: icon48
     items:
@@ -32,24 +33,24 @@ sections:
         src: /azure/managed-applications/media/index/cli.svg
       text: Azure CLI
       href: /azure/managed-applications/managed-apps-quickstart-cli
-- title: "Adım Adım Öğreticiler"
+- title: Adım Adım Öğreticiler
   items:
   - type: paragraph
-    text: "Yönetilen uygulamalar geliştirmeyi ve bunları Azure Market aracılığıyla sunmayı öğrenin."
+    text: Yönetilen uygulamalar geliştirmeyi ve bunları Azure Market aracılığıyla sunmayı öğrenin.
   - type: list
     style: ordered
     items:
-    - html: "<a href=\"/azure/managed-applications/publish-service-catalog-app\">İç kullanıcılar için yönetilen uygulama yayımlama</a>"
-    - html: "<a href=\"/azure/managed-applications/publish-marketplace-app\">Dış kullanıcılar için yönetilen uygulama yayımlama</a>"
-- title: "Başvuru"
+    - html: <a href="/azure/managed-applications/publish-service-catalog-app">İç kullanıcılar için yönetilen uygulama yayımlama</a>
+    - html: <a href="/azure/managed-applications/publish-marketplace-app">Dış kullanıcılar için yönetilen uygulama yayımlama</a>
+- title: Başvuru
   items:
   - type: list
     style: cards
     className: cardsD
     items:
-    - title: "Komut Satırı"
+    - title: Komut Satırı
       html: <p><a href="/cli/azure/managedapp">Azure CLI</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
     - title: REST API'leri
       html: <p><a href="/rest/api/resources/">REST</a></p>
-    - title: "Kullanıcı arabirimi"
-      html: "<p><a href=\"/azure/managed-applications/create-uidefinition-elements\">Kullanıcı arabirimi öğeleri</a></p><p><a href=\"/azure/managed-applications/create-uidefinition-functions\">Kullanıcı arabirimi işlevleri</a></p>"
+    - title: Kullanıcı arabirimi
+      html: <p><a href="/azure/managed-applications/create-uidefinition-elements">Kullanıcı arabirimi öğeleri</a></p><p><a href="/azure/managed-applications/create-uidefinition-functions">Kullanıcı arabirimi işlevleri</a></p>

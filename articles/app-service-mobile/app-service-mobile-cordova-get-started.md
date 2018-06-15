@@ -1,12 +1,12 @@
 ---
-title: "Azure Uygulama Hizmeti Mobile Apps’de Cordova uygulaması oluşturma | Microsoft Belgeleri"
-description: "Apache Cordova geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın."
+title: Azure Uygulama Hizmeti Mobile Apps’de Cordova uygulaması oluşturma | Microsoft Belgeleri
+description: Apache Cordova geliştirme için Azure mobil uygulaması arka uçlarını kullanmaya başlamak için bu öğreticiden yararlanın.
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
-tags: 
+editor: ''
+tags: ''
 keywords: cordova,javascript,mobil,istemci
 ms.assetid: 0b08fc12-0a80-42d3-9cc1-9b3f8d3e3a3f
 ms.service: app-service-mobile
@@ -21,6 +21,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595185"
 ---
 # <a name="create-an-apache-cordova-app"></a>Apache Cordova uygulaması oluşturma
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

@@ -1,12 +1,12 @@
 ---
-title: "Uygulama hizmeti genel bakış: Azure yığın | Microsoft Docs"
-description: "Azure yığın uygulama hizmeti genel bakış"
+title: 'Uygulama hizmeti genel bakış: Azure yığın | Microsoft Docs'
+description: Azure yığın uygulama hizmeti genel bakış
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386087"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack’te App Service’e genel bakış
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*

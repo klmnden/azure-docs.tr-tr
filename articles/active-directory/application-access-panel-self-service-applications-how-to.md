@@ -1,11 +1,11 @@
 ---
-title: "Self Servis uygulamaya erişim kullanma | Microsoft Docs"
-description: "Kullanıcıların kendi uygulamalarını bulmak izin vermek Self Servis uygulama erişimini etkinleştir"
+title: Self Servis uygulamaya erişim kullanma | Microsoft Docs
+description: Kullanıcıların kendi uygulamalarını bulmak izin vermek Self Servis uygulama erişimini etkinleştir
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383200"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Self Servis uygulamaya erişim kullanma
 

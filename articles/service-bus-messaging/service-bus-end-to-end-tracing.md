@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus uçtan uca izleme ve tanılama | Microsoft Docs"
-description: "Hizmet veri yolu istemci tanılama ve uçtan uca izleme genel bakış"
+title: Azure Service Bus uçtan uca izleme ve tanılama | Microsoft Docs
+description: Hizmet veri yolu istemci tanılama ve uçtan uca izleme genel bakış
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: lmolkova
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27741338"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Dağıtılmış izleme ve Service Bus Mesajlaşma hizmeti aracılığıyla bağıntı
 

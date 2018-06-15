@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31421564"
 ---
 # <a name="scp-programming-guide"></a>SCP Programlama Kılavuzu
 SCP gerçek zamanlı, güvenilir ve tutarlı, oluşturmak için platform ve yüksek performanslı veri işleme uygulama ' dir. Üstünde oluşturulmuş [Apache Storm](http://storm.incubator.apache.org/) --bir akış tarafından OSS toplulukları tasarlanmış sistemi işleme. Açık Twitter tarafından kaynaklıdır ve Storm Nathan Marz tarafından tasarlanmıştır. Bunu yararlanır [Apache ZooKeeper](http://zookeeper.apache.org/), yüksek oranda güvenilir etkinleştirmek için başka bir Apache proje dağıtılmış eşgüdümü ve durum yönetimi. 

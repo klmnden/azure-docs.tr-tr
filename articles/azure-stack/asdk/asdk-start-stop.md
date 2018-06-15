@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427156"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Başlatma ve durdurma Azure yığın Geliştirme Seti (ASDK)
 Yalnızca ASDK ana bilgisayarı yeniden başlatmak için önerilmez. Bunun yerine, düzgün kapatılır ve ASDK hizmetlerini yeniden başlatmak için bu makaledeki yordamları izlemelisiniz. 

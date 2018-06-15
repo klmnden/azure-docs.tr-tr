@@ -1,11 +1,11 @@
 ---
-title: "Always On kullanılabilirlik grupları için dış dinleyici yapılandırma | Microsoft Docs"
-description: "Bu öğreticide, harici olarak erişilebilir olan ilişkili bulut hizmetinin genel sanal IP adresi kullanarak azure'da bir her zaman üzerinde kullanılabilirlik grubu dinleyicisi oluşturma adımları açıklanmaktadır."
+title: Always On kullanılabilirlik grupları için dış dinleyici yapılandırma | Microsoft Docs
+description: Bu öğreticide, harici olarak erişilebilir olan ilişkili bulut hizmetinin genel sanal IP adresi kullanarak azure'da bir her zaman üzerinde kullanılabilirlik grubu dinleyicisi oluşturma adımları açıklanmaktadır.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a2453032-94ab-4775-b976-c74d24716728
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29398871"
 ---
 # <a name="configure-an-external-listener-for-always-on-availability-groups-in-azure"></a>Always On kullanılabilirlik grupları için dış dinleyici Azure'da yapılandırın
 > [!div class="op_single_selector"]

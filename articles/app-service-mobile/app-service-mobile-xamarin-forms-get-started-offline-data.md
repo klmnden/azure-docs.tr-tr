@@ -1,10 +1,10 @@
 ---
-title: "Azure mobil uygulaması (Xamarin.Forms) için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs"
-description: "Mobil uygulama hizmeti için önbellek ve eşitleme çevrimdışı veri Xamarin.Forms uygulamanızda nasıl kullanılacağını öğrenin"
+title: Azure mobil uygulaması (Xamarin.Forms) için çevrimdışı eşitlemeyi etkinleştirme | Microsoft Docs
+description: Mobil uygulama hizmeti için önbellek ve eşitleme çevrimdışı veri Xamarin.Forms uygulamanızda nasıl kullanılacağını öğrenin
 documentationcenter: xamarin
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594726"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Xamarin.Forms mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

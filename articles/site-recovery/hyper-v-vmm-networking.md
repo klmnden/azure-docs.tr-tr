@@ -1,6 +1,6 @@
 ---
-title: "IP adresi Azure Site Recovery ile yük devretme sonrasında bir ikincil şirket içi siteye bağlanmak için ayarlama | Microsoft Docs"
-description: "Bir ikincil şirket içi site vm'lerinin yük devretme sonrasında Azure Site Recovery bağlanmak için IP adresleme yukarı ayarlanacağını açıklar."
+title: IP adresi Azure Site Recovery ile yük devretme sonrasında bir ikincil şirket içi siteye bağlanmak için ayarlama | Microsoft Docs
+description: Bir ikincil şirket içi site vm'lerinin yük devretme sonrasında Azure Site Recovery bağlanmak için IP adresleme yukarı ayarlanacağını açıklar.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29378893"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>IP adresi yük devretme sonrasında bir ikincil şirket içi siteye bağlanmak için ayarlama
 

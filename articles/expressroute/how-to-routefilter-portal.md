@@ -1,13 +1,13 @@
 ---
-title: "Azure ExpressRoute Microsoft eşliği için rota filtrelerini yapılandırın: portalı | Microsoft Docs"
-description: "Bu makalede, Microsoft Azure portalını kullanarak Peering için yol filtrelerini yapılandırmak açıklar"
+title: 'Azure ExpressRoute Microsoft eşliği için rota filtrelerini yapılandırın: portalı | Microsoft Docs'
+description: Bu makalede, Microsoft Azure portalını kullanarak Peering için yol filtrelerini yapılandırmak açıklar
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: rossort
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29387736"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>Microsoft eşliği için rota filtrelerini yapılandırın: Azure portal
 > [!div class="op_single_selector"]

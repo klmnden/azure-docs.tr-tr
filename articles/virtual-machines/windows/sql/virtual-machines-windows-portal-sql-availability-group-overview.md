@@ -1,6 +1,6 @@
 ---
-title: "SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - genel bakış | Microsoft Docs"
-description: "Bu makalede, Azure sanal makinelerde SQL Server kullanılabilirlik gruplarını tanıtılır."
+title: SQL Server kullanılabilirlik gruplarını - Azure sanal makineleri - genel bakış | Microsoft Docs
+description: Bu makalede, Azure sanal makinelerde SQL Server kullanılabilirlik gruplarını tanıtılır.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396440"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerde Tanıtımı #
 

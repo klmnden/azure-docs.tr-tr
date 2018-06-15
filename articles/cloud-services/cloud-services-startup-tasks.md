@@ -1,11 +1,11 @@
 ---
-title: "Azure bulut hizmetlerine başlangıç görevleri çalıştırmak | Microsoft Docs"
-description: "Başlangıç görevi, bulut hizmeti ortamınızı uygulamanız için hazırlanmanıza yardımcı. Bu, başlangıç görevleri nasıl çalıştığını ve bunları nasıl öğretir"
+title: Azure bulut hizmetlerine başlangıç görevleri çalıştırmak | Microsoft Docs
+description: Başlangıç görevi, bulut hizmeti ortamınızı uygulamanız için hazırlanmanıza yardımcı. Bu, başlangıç görevleri nasıl çalıştığını ve bunları nasıl öğretir
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843682"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Nasıl yapılandırılacağı ve bir bulut hizmeti için başlangıç görevleri Çalıştır
 Başlangıç görevi, bir rol başlamadan önce işlemlerini gerçekleştirmek için kullanabilirsiniz. Bir bileşeni yüklemek, COM bileşenlerini kaydetme, kayıt defteri anahtarlarını ayarlamak veya uzun süre çalışan bir işlem başlatılıyor gerçekleştirmek isteyebileceğiniz işlemleri içerir.

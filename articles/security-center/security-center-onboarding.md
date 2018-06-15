@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31416498"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Azure Güvenlik Merkezi standart Gelişmiş güvenlik için hazırlanma
 Gelişmiş güvenlik yönetimi ve tehdit koruması, karma bulut iş yükleri için yararlanmak için Güvenlik Merkezi standart yükseltin.  Standart 60 gün süreyle ücretsiz deneyebilirsiniz. Güvenlik Merkezi bkz [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/security-center/) daha fazla bilgi için.

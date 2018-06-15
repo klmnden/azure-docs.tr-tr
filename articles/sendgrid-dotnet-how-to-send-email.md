@@ -1,11 +1,11 @@
 ---
 title: SendGrid e-posta hizmetine (.NET) kullanma | Microsoft Docs
-description: "Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. C# dilinde yazılan kod örnekleri ve .NET API kullanır."
-services: 
+description: Bilgi nasıl Azure üzerinde SendGrid e-posta hizmeti ile e-posta gönderin. C# dilinde yazılan kod örnekleri ve .NET API kullanır.
+services: ''
 documentationcenter: .net
 author: thinkingserious
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 21bf4028-9046-476b-9799-3d3082a0f84c
 ms.service: multiple
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/23/2017
+ms.locfileid: "27534864"
 ---
 # <a name="how-to-send-email-using-sendgrid-with-azure"></a>Azure ile SendGrid kullanarak e-posta gönderme
 ## <a name="overview"></a>Genel Bakış

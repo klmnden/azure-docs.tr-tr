@@ -1,6 +1,6 @@
 ---
-title: "include dosyası"
-description: "include dosyası"
+title: include dosyası
+description: include dosyası
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -10,9 +10,10 @@ ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 4f5dbbd1da8a221fb5f8b9641e016829987db538
 ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29529964"
 ---
 Tüm öğeleri oluşturmadan önce şimdi kapsam kavramı gözden geçirin. Azure yönetim dört düzeyleri sağlar: Yönetim grupları, abonelik, kaynak grubu ve kaynak. [Yönetim grupları](../articles/billing/billing-enterprise-mgmt-group-overview.md) Önizleme sürümünde olan. Aşağıdaki resimde bu katmanların bir örnek gösterilmektedir.
 

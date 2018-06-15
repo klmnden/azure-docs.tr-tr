@@ -1,8 +1,8 @@
 ---
-title: "OMS günlük analizi CollectD veri toplamak | Microsoft Docs"
-description: "CollectD düzenli aralıklarla veri uygulamaları ve sistem düzeyi bilgileri toplayan bir açık kaynak Linux arka plan programı kullanılır.  Bu makalede, günlük analizi CollectD gelen veri toplama hakkında bilgi sağlar."
+title: OMS günlük analizi CollectD veri toplamak | Microsoft Docs
+description: CollectD düzenli aralıklarla veri uygulamaları ve sistem düzeyi bilgileri toplayan bir açık kaynak Linux arka plan programı kullanılır.  Bu makalede, günlük analizi CollectD gelen veri toplama hakkında bilgi sağlar.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855211"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Veri günlük analizi Linux aracıları CollectD Topla
 [CollectD](https://collectd.org/) uygulamaları ve sistem düzeyi bilgileri düzenli aralıklarla performans ölçümleri toplayan bir açık kaynak Linux arka plan programı kullanılır. Örnek uygulamalar, Java sanal makine (JVM), MySQL Server ve Nginx içerir. Bu makalede günlük analizi CollectD gelen performans verileri toplama hakkında bilgi sağlar.

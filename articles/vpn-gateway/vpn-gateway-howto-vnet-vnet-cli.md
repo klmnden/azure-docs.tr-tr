@@ -1,11 +1,11 @@
 ---
-title: "Sanal ağlar arası bağlantı kullanarak sanal ağı başka bir sanal ağa bağlama: Azure CLI | Microsoft Docs"
-description: "Sanal ağlar arası bağlantı ve Azure CLI kullanarak sanal ağları birbirine bağlayın."
+title: 'Sanal ağlar arası bağlantı kullanarak sanal ağı başka bir sanal ağa bağlama: Azure CLI | Microsoft Docs'
+description: Sanal ağlar arası bağlantı ve Azure CLI kullanarak sanal ağları birbirine bağlayın.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400326"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Azure CLI kullanarak sanal ağlar arası VPN ağ geçidi bağlantısı yapılandırma
 

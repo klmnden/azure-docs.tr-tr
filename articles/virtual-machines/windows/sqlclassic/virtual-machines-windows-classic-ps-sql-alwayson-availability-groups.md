@@ -1,11 +1,11 @@
 ---
-title: "PowerShell kullanarak Azure VM temelinde Always On kullanılabilirlik grubu yapılandırma | Microsoft Docs"
-description: "Bu öğretici Klasik dağıtım modeliyle oluşturulan kaynakları kullanır. Always On kullanılabilirlik grubu oluşturmak için PowerShell kullanın."
+title: PowerShell kullanarak Azure VM temelinde Always On kullanılabilirlik grubu yapılandırma | Microsoft Docs
+description: Bu öğretici Klasik dağıtım modeliyle oluşturulan kaynakları kullanır. Always On kullanılabilirlik grubu oluşturmak için PowerShell kullanın.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: a4e2f175-fe56-4218-86c7-a43fb916cc64
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401302"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>PowerShell ile Azure VM'de Always On kullanılabilirlik grubu yapılandırma
 > [!div class="op_single_selector"]

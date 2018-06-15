@@ -1,12 +1,12 @@
 ---
-title: "Kapasite Azure yığınında Azure App Service sunucu rolleri için planlama | Microsoft Docs"
-description: "Kapasite Azure yığınında Azure App Service sunucu rolleri için planlama"
+title: Kapasite Azure yığınında Azure App Service sunucu rolleri için planlama | Microsoft Docs
+description: Kapasite Azure yığınında Azure App Service sunucu rolleri için planlama
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388592"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapasite Azure yığınında Azure App Service sunucu rolleri için planlama
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*

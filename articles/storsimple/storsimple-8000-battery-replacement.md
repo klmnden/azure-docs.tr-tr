@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure StorSimple 8000 serisi aygıt pilde Değiştir | Microsoft Docs"
-description: "Kaldırmak için değiştirin ve StorSimple Cihazınızda yedek pil modülü korumak açıklar."
+title: Microsoft Azure StorSimple 8000 serisi aygıt pilde Değiştir | Microsoft Docs
+description: Kaldırmak için değiştirin ve StorSimple Cihazınızda yedek pil modülü korumak açıklar.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27742822"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>StorSimple Cihazınızda yedek pil modülü değiştirin
 

@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 8000 serisi Cihazınızı Aç veya kapat | Microsoft Docs"
-description: "Yeni bir StorSimple cihazında kapatın, kapatıldı veya güç kesintisi bir cihazda etkinleştirmek ve çalışan bir aygıtı devre dışı açıklanmaktadır."
+title: StorSimple 8000 serisi Cihazınızı Aç veya kapat | Microsoft Docs
+description: Yeni bir StorSimple cihazında kapatın, kapatıldı veya güç kesintisi bir cihazda etkinleştirmek ve çalışan bir aygıtı devre dışı açıklanmaktadır.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779457"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Açma veya StorSimple 8000 serisi aygıtınızı kapatın
 
