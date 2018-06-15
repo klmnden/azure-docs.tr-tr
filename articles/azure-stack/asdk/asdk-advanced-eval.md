@@ -1,12 +1,12 @@
 ---
-title: "Gelişmiş Azure yığın değerlendirme görevleri | Microsoft Docs"
-description: "Bu makalede, Gelişmiş Azure yığın değerlendirme görevleri açıklar."
+title: Gelişmiş Azure yığın değerlendirme görevleri | Microsoft Docs
+description: Bu makalede, Gelişmiş Azure yığın değerlendirme görevleri açıklar.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29975828"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Gelişmiş Azure yığın Geliştirme Seti değerlendirme görevleri
 Temel Azure yığın Geliştirme Seti (ASDK) hizmet özellikleri ve yetenekleri öğrendikten sonra daha gelişmiş senaryolarını test etmeye göre daha fazla Azure yığın Anlayışınızı deepen. Bu daha gelişmiş değerlendirme görevleri Azure yığın işleci belgelerinde tam olarak belgelenmiştir.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597376"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Günlük analizi olarak toplamak ve bir Azure Otomasyonu runbook'u
 Günlük analizi veri önemli miktarda bir çeşitli kaynaklardan dahil olmak üzere toplayabilirsiniz [veri kaynakları](../log-analytics/log-analytics-data-sources.md) aracılar üzerinde hem de [Azure'dan toplanan veriler](../log-analytics/log-analytics-azure-storage.md).  Burada veri toplamanız gerekir, bu standart kaynakları aracılığıyla erişilebilir değil ancak bir senaryo vardır.  Bu durumlarda, kullandığınız [HTTP veri toplayıcı API](../log-analytics/log-analytics-data-collector-api.md) herhangi bir REST API istemciden için günlük analizi veri yazmak için.  Bu veri toplama gerçekleştirmek için ortak bir yöntemi, Azure Automation'da bir runbook kullanıyor.   

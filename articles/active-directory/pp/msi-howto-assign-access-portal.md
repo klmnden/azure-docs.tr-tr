@@ -1,11 +1,11 @@
 ---
-title: "Bir MSI erişim Azure Portalı'nı kullanarak bir Azure kaynak atama"
-description: "Azure portalını kullanarak başka bir kaynak için bir MSI bir kaynağa erişim atamak için adım adım yönergeler."
+title: Bir MSI erişim Azure Portalı'nı kullanarak bir Azure kaynak atama
+description: Azure portalını kullanarak başka bir kaynak için bir MSI bir kaynağa erişim atamak için adım adım yönergeler.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28978846"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure portalı kullanarak bir kaynak için bir yönetilen hizmet kimliği erişimi atayın
 

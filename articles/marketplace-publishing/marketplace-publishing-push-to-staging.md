@@ -1,11 +1,11 @@
 ---
-title: "Hazırlama ve teklifiniz Azure Marketi dağıtımını test | Microsoft Docs"
-description: "Pazar içerik sağlayarak, fiyatlandırma planları yapılandırma ve Azure Marketi dağıtmadan önce teklifiniz test etme hakkında ayrıntılı yönergeler."
+title: Hazırlama ve teklifiniz Azure Marketi dağıtımını test | Microsoft Docs
+description: Pazar içerik sağlayarak, fiyatlandırma planları yapılandırma ve Azure Marketi dağıtmadan önce teklifiniz test etme hakkında ayrıntılı yönergeler.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 3ccd2448-895b-477e-adf6-ab655a21d2fa
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29947279"
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>Teklif oluşturma pazarlama içerikle tamamlayın
 Yayımlama işleminin bu adımında belirli pazarlama içeriği ve teklif ve/veya Azure Marketi SKU ayrıntılarını sağlamanız gerekir. Örneğin, ürün, şirket logoları, fiyat planları, plan ayrıntılarını ve teklif ve/veya SKU için hazırlama göndermek gerekli diğer bilgileri açıklamasını sağlayacaktır. Bu bilgiler, Azure portalında pazarlama içeriği olarak kullanılır. Bu işlemde başlayacak [yayımlama portalında][link-pubportal].

@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage SAS kimlik bilgilerini kullanarak erişmek için bir Linux VM MSI kullanın"
-description: "Azure depolama, depolama hesabının erişim anahtarı yerine SAS kimlik bilgilerini kullanarak erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanmayı gösterir Öğreticisi."
+title: Azure Storage SAS kimlik bilgilerini kullanarak erişmek için bir Linux VM MSI kullanın
+description: Azure depolama, depolama hesabının erişim anahtarı yerine SAS kimlik bilgilerini kullanarak erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanmayı gösterir Öğreticisi.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28981294"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Azure Storage bir SAS kimlik bilgisi erişmek için bir Linux VM yönetilen hizmet kimliği kullanın
 

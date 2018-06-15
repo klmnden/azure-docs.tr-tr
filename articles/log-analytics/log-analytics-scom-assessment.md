@@ -1,8 +1,8 @@
 ---
-title: "System Center Operations Manager ortamınızı Azure günlük analizi ile en iyi duruma getirme | Microsoft Docs"
-description: "System Center Operations Manager sistem durumu denetleyin çözüm, risk ve ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için kullanabilirsiniz."
+title: System Center Operations Manager ortamınızı Azure günlük analizi ile en iyi duruma getirme | Microsoft Docs
+description: System Center Operations Manager sistem durumu denetleyin çözüm, risk ve ortamlarınızın durumunu düzenli aralıklarla değerlendirmek için kullanabilirsiniz.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
 editor: tysonn
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29180045"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 

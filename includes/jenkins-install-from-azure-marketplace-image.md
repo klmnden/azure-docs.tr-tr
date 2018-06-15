@@ -1,5 +1,5 @@
 ---
-description: "include dosyası"
+description: include dosyası
 author: tomarcher
 manager: rloutlaw
 ms.service: multiple
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29957558"
 ---
 1. Tarayıcınızda açın [Azure Market görüntüsü için Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 

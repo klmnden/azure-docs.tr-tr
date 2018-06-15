@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage erişmek için bir Windows VM MSI kullanın"
-description: "Azure depolama alanına erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici."
+title: Azure Storage erişmek için bir Windows VM MSI kullanın
+description: Azure depolama alanına erişmek için bir Windows VM yönetilen hizmet kimliği (MSI) kullanarak sürecinde anlatan öğretici.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984842"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Azure depolama erişim tuşu erişmek için bir Windows VM yönetilen hizmet kimliği kullanın
 

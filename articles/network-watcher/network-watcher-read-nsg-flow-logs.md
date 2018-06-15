@@ -1,11 +1,11 @@
 ---
-title: "Okuma NSG akış günlükleri | Microsoft Docs"
-description: "Bu makalede NSG akış günlükleri ayrıştırmak nasıl gösterir"
+title: Okuma NSG akış günlükleri | Microsoft Docs
+description: Bu makalede NSG akış günlükleri ayrıştırmak nasıl gösterir
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149643"
 ---
 # <a name="read-nsg-flow-logs"></a>Okuma NSG akış günlükleri
 

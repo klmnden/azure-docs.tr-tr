@@ -1,11 +1,11 @@
 ---
-title: "Hizmet Yönetimi API'si (Python) - özellik kılavuzu kullanın"
-description: "Program aracılığıyla Python ortak hizmet yönetim görevlerini gerçekleştirmek öğrenin."
+title: Hizmet Yönetimi API'si (Python) - özellik kılavuzu kullanın
+description: Program aracılığıyla Python ortak hizmet yönetim görevlerini gerçekleştirmek öğrenin.
 services: cloud-services
 documentationcenter: python
 author: lmazuel
 manager: wpickett
-editor: 
+editor: ''
 ms.assetid: 61538ec0-1536-4a7e-ae89-95967fe35d73
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124808"
 ---
 # <a name="use-service-management-from-python"></a>Python'dan Hizmet Yönetimi'ni kullanın
 Bu kılavuz program aracılığıyla Python ortak hizmet yönetim görevlerini gerçekleştirmek nasıl gösterir. **ServiceManagementService** sınıfını [Python için Azure SDK](https://github.com/Azure/azure-sdk-for-python) programlı erişim kullanılabilir servis yönetimiyle ilgili işlevlerinin çoğunu destekler [Azure Portal][management-portal]. Oluştur, Güncelleştir ve bulut Hizmetleri, dağıtımları, Veri Yönetimi Hizmetleri ve sanal makineleri silmek için bu işlevi kullanabilirsiniz. Bu işlev hizmet yönetimi için programlı erişim ihtiyaç duyan uygulamalar oluşturmada faydalı olabilir.

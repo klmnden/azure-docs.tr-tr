@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949846"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>Öğretici: Service Fabric ile Jenkins ortamı ayarlama
 Bu öğretici, bir serinin beşinci kısmıdır. Yükseltmeleri uygulamanızda dağıtmak için Jenkins’in nasıl kullanılacağını gösterir. Bu öğreticide Service Fabric Jenkins eklentisi, uygulamayı bir kümede dağıtmak için Oylama uygulamasını barındıran bir Github deposuyla birlikte kullanılır. 

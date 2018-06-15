@@ -1,7 +1,7 @@
 ---
-title: "Hızlı Başlangıç: Çoklu giriş kullanarak iş akışı gönderme | Microsoft Docs"
+title: 'Hızlı Başlangıç: Çoklu giriş kullanarak iş akışı gönderme | Microsoft Docs'
 titleSuffix: Azure
-description: "Bu hızlı başlangıçta msgen istemcisini yüklediğiniz ve hizmette örnek verileri başarıyla çalıştırdığınız kabul edilmektedir."
+description: Bu hızlı başlangıçta msgen istemcisini yüklediğiniz ve hizmette örnek verileri başarıyla çalıştırdığınız kabul edilmektedir.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120004"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Aynı örnekten birden fazla giriş kullanarak iş akışı gönderme
 

@@ -1,8 +1,8 @@
 ---
-title: "Büyük miktarlarda veri taşıma/Azure içinde bulut depolama biriminden | Microsoft Docs"
-description: "Azure Storage gelen ve verilerin taşınması için farklı yöntemler genel bakış."
+title: Büyük miktarlarda veri taşıma/Azure içinde bulut depolama biriminden | Microsoft Docs
+description: Azure Storage gelen ve verilerin taşınması için farklı yöntemler genel bakış.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: JarrettRenshaw
 manager: msmets
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28984604"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage’a ve Azure Storage’da veri taşıma
 Şirket içi verileri Azure Storage (veya tersi) taşımak istiyorsanız, çeşitli yollarla Bunu yapmak için vardır. En uygun bir yaklaşım, senaryoya bağlıdır. Bu makalede farklı senaryolar ve her biri için uygun teklifleri hızlı bir genel bakış sağlar.

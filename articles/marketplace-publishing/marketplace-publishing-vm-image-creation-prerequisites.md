@@ -1,11 +1,11 @@
 ---
-title: "Bir sanal makine görüntüsü için Azure Marketi oluşturma teknik önkoşulları | Microsoft Docs"
-description: "Oluşturma ve bir sanal makine görüntüsü Azure satın almak için Marketinde başkalarının dağıtma gereksinimlerini anlayın."
+title: Bir sanal makine görüntüsü için Azure Marketi oluşturma teknik önkoşulları | Microsoft Docs
+description: Oluşturma ve bir sanal makine görüntüsü Azure satın almak için Marketinde başkalarının dağıtma gereksinimlerini anlayın.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 63c16966-0304-4b17-a715-368a0a5ccb2c
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936664"
 ---
 # <a name="technical-prerequisites-for-creating-a-virtual-machine-image-for-the-azure-marketplace"></a>Bir sanal makine görüntüsü için Azure Marketi oluşturma teknik önkoşulları
 İşlemi başlamadan önce baştan sona okuyun ve nerede ve neden her adım gerçekleştirilir anlayın. Mümkün olduğunca, şirket bilgilerinizi ve diğer verileri hazırlama, gerekli Araçları'nı indirmek ve/veya teknik bileşenleri teklifi oluşturma işlemi başlamadan önce oluşturun. Bu öğeler bu makaleyi gözden açık olmalıdır.  

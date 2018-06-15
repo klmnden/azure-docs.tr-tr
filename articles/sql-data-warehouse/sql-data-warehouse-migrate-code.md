@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31527462"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>SQL kodunuzu SQL veri ambarına geçirme
 Bu makalede, büyük olasılıkla kodunuzun başka bir veritabanından SQL veri ambarı'na geçirirken yapmanız gerekecektir kod değişiklikleri açıklanmaktadır. Dağıtılmış bir şekilde çalışması için tasarlanmış gibi bazı SQL veri ambarı özellikleri önemli ölçüde performansını iyileştirebilir. Ancak, performansı ve ölçeği korumak için bazı özellikler de kullanılamaz.

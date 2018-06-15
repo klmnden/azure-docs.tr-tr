@@ -1,12 +1,12 @@
 ---
-title: "Azure'da SQLRuleAction söz dizimi başvurusu | Microsoft Docs"
-description: "SQLRuleAction dilbilgisi hakkında ayrıntılar."
+title: Azure'da SQLRuleAction söz dizimi başvurusu | Microsoft Docs
+description: SQLRuleAction dilbilgisi hakkında ayrıntılar.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29125828"
 ---
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction sözdizimi
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure yığın tümleşik sistemleri bağlantı modelleri | Microsoft Docs"
-description: "Dağıtım Planlama kararları çok düğümlü Azure yığınının belirler."
+title: Azure yığın tümleşik sistemleri bağlantı modelleri | Microsoft Docs
+description: Dağıtım Planlama kararları çok düğümlü Azure yığınının belirler.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118797"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure tümleşik yığını sistemleri bağlantı modelleri
 Bir Azure tümleşik yığını sistemde düşünüyorsanız anlamanız gerekir [birçok veri merkezi tümleştirme konuları](azure-stack-datacenter-integration.md) sistem merkeziniz nasıl sığacak belirlemek Azure yığın dağıtımı için. Ayrıca, tam olarak nasıl, Azure yığın karma bulut ortamınıza tümleştirecek karar vermeniz gerekir. Bu makalede Azure bağlantısı, kimlik deposu dahil ve model kararları faturalama bu önemli kararlar genel bir bakış sağlar.

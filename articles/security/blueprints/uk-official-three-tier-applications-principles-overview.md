@@ -1,6 +1,6 @@
 ---
-title: "Birleşik Krallık resmi üç katmanlı Web uygulamaları Otomasyon - genel bakış"
-description: "Birleşik Krallık resmi üç katmanlı Web uygulamaları Otomasyon - genel bakış"
+title: Birleşik Krallık resmi üç katmanlı Web uygulamaları Otomasyon - genel bakış
+description: Birleşik Krallık resmi üç katmanlı Web uygulamaları Otomasyon - genel bakış
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151387"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>Ulusal siber Güvenlik Merkezi bulut Güvenlik İlkeleri'ne genel bakış
 

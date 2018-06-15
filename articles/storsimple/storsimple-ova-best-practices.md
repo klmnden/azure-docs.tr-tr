@@ -1,11 +1,11 @@
 ---
-title: "En iyi uygulamalar için StorSimple sanal dizisi | Microsoft Docs"
-description: "Dağıtma ve StorSimple sanal dizinin yönetmeye yönelik en iyi uygulamaları açıklar."
+title: En iyi uygulamalar için StorSimple sanal dizisi | Microsoft Docs
+description: Dağıtma ve StorSimple sanal dizinin yönetmeye yönelik en iyi uygulamaları açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 57ac6eeb-c47c-442d-a5f4-b360d81a76a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972849"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple sanal dizinin en iyi uygulamalar
 ## <a name="overview"></a>Genel Bakış

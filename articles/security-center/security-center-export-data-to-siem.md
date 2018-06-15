@@ -1,12 +1,12 @@
 ---
-title: "Azure güvenlik verileri dışarı aktarma SIEM ardışık düzen yapılandırma için [Önizleme] | Microsoft Docs"
-description: "Bu makalede Azure Güvenlik Merkezi bir SIEM günlüklerini alma üretmek belgeleri"
+title: Azure güvenlik verileri dışarı aktarma SIEM ardışık düzen yapılandırma için [Önizleme] | Microsoft Docs
+description: Bu makalede Azure Güvenlik Merkezi bir SIEM günlüklerini alma üretmek belgeleri
 services: security-center
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124842"
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>SIEM - ardışık düzen yapılandırma [Önizleme] Azure güvenlik veri verme
 

@@ -1,11 +1,11 @@
 ---
-title: "VM teklifiniz Market için test | Microsoft Docs"
-description: "VM görüntüsü için Azure Marketi test etme anlayın."
+title: VM teklifiniz Market için test | Microsoft Docs
+description: VM görüntüsü için Azure Marketi test etme anlayın.
 services: marketplace-publishing
-documentationcenter: 
+documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-editor: 
+editor: ''
 ms.assetid: 7a41c3c6-625c-4478-b804-e124dee89040
 ms.service: marketplace
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29936948"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>VM teklifiniz için Azure Marketi hazırlamada test etme
 Hazırlama, SKU özel ", test ve Market'te dağıtmadan önce işlevselliğini doğrulamak sandbox" dağıtma anlamına gelir. SKU dağıtmış olan bir müşteriye gibi hazırlama görüntülenir. VM görüntüsü için hazırlama edilmesini sertifikalı gerekir.

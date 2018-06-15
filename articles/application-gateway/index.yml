@@ -16,6 +16,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32160265"
 abstract:
   description: Bir hizmet olarak uygulama teslim denetleyicisi (ADC) olan Application Gateway’i nasıl dağıtabileceğinizi öğrenin. Öğreticiler, API başvuruları ve diğer belgelerde, kullanılabilirlik düzeyi yüksek ve ölçeklenebilir web ön ucu oluşturmanızı sağlayan uygulama düzeyinde yönlendirme ve yük dengeleme hizmetlerini nasıl ayarlayacağınız açıklanmıştır.
 sections:

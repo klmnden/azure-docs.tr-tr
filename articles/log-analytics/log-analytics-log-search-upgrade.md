@@ -1,11 +1,11 @@
 ---
-title: "Yeni günlük arama Azure günlük analizi yükseltme | Microsoft Docs"
-description: "Yeni günlük analizi sorgu dili neredeyse işte ve genel önizlemede katılabilirsiniz.  Bu makalede yeni dil ve çalışma alanınızda Dönüştür nasıl avantajları açıklanmıştır."
+title: Yeni günlük arama Azure günlük analizi yükseltme | Microsoft Docs
+description: Yeni günlük analizi sorgu dili neredeyse işte ve genel önizlemede katılabilirsiniz.  Bu makalede yeni dil ve çalışma alanınızda Dönüştür nasıl avantajları açıklanmıştır.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28983997"
 ---
 # <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Yeni günlük arama Azure günlük analizi yükseltme
 
