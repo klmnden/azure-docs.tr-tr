@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895672"
 ---
 # <a name="azure-service-fabric-security-overview"></a>Azure Service Fabric güvenliğine genel bakış
 [Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) paketini, dağıtmak ve ölçeklenebilir ve güvenilir mikro daha kolay hale getirir dağıtılmış sistemler platformudur. Service Fabric geliştirme ve bulut uygulamalarını yönetme önemli sorunları giderir. Geliştiriciler ve yöneticiler, karmaşık altyapı sorunlarını çözmeye çalışmak yerine görev açısından kritik, zorlu iş yüklerini uygulamaya odaklanabilir. Service Fabric, bu iş yüklerinin ölçeklenebilir, güvenilir ve yönetilebilir olmasını sağlar.

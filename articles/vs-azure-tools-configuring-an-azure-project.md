@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792180"
 ---
 # <a name="configure-an-azure-cloud-service-project-with-visual-studio"></a>Bir Azure bulut hizmeti projesi ile Visual Studio'yu yapılandırma
 Bu proje için gereksinimlerinize bağlı olarak, bir Azure bulut hizmeti projesi yapılandırabilirsiniz. Aşağıdaki kategorilerde ve proje özelliklerini ayarlayabilirsiniz:

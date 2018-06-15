@@ -16,6 +16,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31793979"
 ---
 # <a name="managing-roles-in-azure-cloud-services-with-visual-studio"></a>Azure bulut Hizmetleri'ni Visual Studio ile rollerini yönetme
 Azure bulut hizmetinizi oluşturduktan sonra yeni rolleri ekleyin veya mevcut rolleri kaldırın. Ayrıca, mevcut bir projeyi alın ve bir role dönüştürün. Örneğin, bir ASP.NET web uygulamasını almak ve bir web rolü olarak belirleyin.

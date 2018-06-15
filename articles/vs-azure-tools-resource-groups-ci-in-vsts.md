@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192953"
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Azure kaynak grubu dağıtım projeleri kullanarak Visual Studio Team Services sürekli tümleştirme
 Bir Azure şablonu dağıtmak için çeşitli aşamalarda görevleri: Azure derleme, Test, kopyalama ("Hazırlama" da denir) ve şablon dağıtın. Visual Studio Team Services (VS Team Services) şablonları dağıtmak için iki farklı yolu vardır. Yöntemlerin her ikisi de aynı sonuçları sağlamak, bu nedenle, iş akışınızı en uygun olanı seçin.

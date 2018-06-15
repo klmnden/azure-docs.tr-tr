@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942644"
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Windows için OMS sanal makine uzantısı
 

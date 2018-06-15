@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790517"
 ---
 # <a name="query-an-azure-search-index-using-search-explorer-in-the-azure-portal"></a>Azure Portal’ın Arama Gezgini’ni kullanarak Azure Search dizinini sorgulama
 > [!div class="op_single_selector"]

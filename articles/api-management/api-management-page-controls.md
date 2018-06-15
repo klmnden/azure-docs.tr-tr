@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33936183"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management sayfası denetimleri
 Azure API Management portal şablonları aşağıdaki denetimleri Geliştirici kullanmak için sağlar.  

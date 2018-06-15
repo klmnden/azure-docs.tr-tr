@@ -16,9 +16,10 @@ ms.date: 02/21/2017
 ms.author: bwren;dairwin
 ms.openlocfilehash: 6fbc49584b040f952fdff147207864d2d1f6377e
 ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33887877"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>System Center Operations Manager ile hizmet Haritası tümleştirme
   > [!NOTE]

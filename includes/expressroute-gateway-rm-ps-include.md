@@ -13,6 +13,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31613628"
 ---
 Bu görev için adımlar aşağıdaki yapılandırma başvuru listesinde değerlere dayalı bir sanal ağ kullanın. Ayrıca ek ayarlar ve adları bu listede özetlenmiştir. Bu listedeki değerlerin temelinde değişkenleri eklediğimiz ancak Biz bu listeyi adımları, doğrudan hiçbirinde kullanmayın. Değerleri kendinizinkilerle değiştirerek bir başvuru olarak kullanılacak listesini kopyalayabilirsiniz.
 

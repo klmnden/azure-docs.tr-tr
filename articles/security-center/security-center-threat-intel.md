@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774582"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure Güvenlik Merkezi'ndeki tehdit bilgileri
 Bu makale Azure Güvenlik Merkezi'ndeki tehdit bilgilerini kullanarak güvenlikle ilgili sorunları gidermenizi sağlar.

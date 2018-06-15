@@ -14,6 +14,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33893659"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Stream Analytics Pencereleme işlevleri giriş
 Zaman akış senaryolarda, zamana bağlı Windows'da bulunan veriler üzerinde işlemler genel bir desen olur. Akış analizi, geliştiriciler için en az çaba ile yazar karmaşık akış işleme işleri etkinleştirme Pencereleme işlevler için yerel destek vardır.

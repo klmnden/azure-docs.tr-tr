@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33835789"
 ---
 1. Android Studio’nun araç çubuğundaki simgeye tıklayarak ya da menüde **Araçlar** > **Android** > **SDK Manager** ’a tıklayarak Android SDK Manager’ı açın. Projenizde kullanılan hedef Android SDK sürümünü bulup, **Paket Ayrıntılarını Göster**'e tıklayarak bunu açın ve henüz yüklenmemişse **Google API'ler**'i seçin.
 2. **SDK Araçları** sekmesine tıklayın. Google Play Hizmeti’ni zaten yüklemediyseniz **Google Play Hizmetleri** ’ne, aşağıda gösterildiği gibi tıklayın. Ardından, yüklemek için **Uygula** ’ya tıklayın. 
