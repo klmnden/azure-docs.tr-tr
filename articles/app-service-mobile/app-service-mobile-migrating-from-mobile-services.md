@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32158877"
 ---
 # <a name="article-top"></a>Mevcut Azure mobil hizmetiniz Azure App Service'e geçirme
 İle [Azure uygulama hizmeti genel kullanılabilirliğini], Azure Mobile Services siteleri kolayca geçiş yapabilir yerinde Azure App Service'in tüm özelliklerden yararlanmak için.  Bu belgede, sitenizin Azure App Service için Azure Mobile Services geçirilirken beklenmesi gerekenler açıklanmaktadır.

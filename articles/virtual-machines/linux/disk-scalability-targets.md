@@ -1,6 +1,6 @@
 ---
-title: "Linux - Microsoft Azure üzerinde VM diskleri için ölçeklenebilirlik ve performans hedefleri | Microsoft Docs"
-description: "Linux çalıştıran Vm'leri bağlı sanal makine diskler için ölçeklenebilirlik ve performans hedefleri hakkında bilgi edinin."
+title: Linux - Microsoft Azure üzerinde VM diskleri için ölçeklenebilirlik ve performans hedefleri | Microsoft Docs
+description: Linux çalıştıran Vm'leri bağlı sanal makine diskler için ölçeklenebilirlik ve performans hedefleri hakkında bilgi edinin.
 services: virtual-machines
 author: tamram
 manager: jeconnoc
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24872333"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Linux VM diskleri için ölçeklenebilirlik ve performans hedefleri
 

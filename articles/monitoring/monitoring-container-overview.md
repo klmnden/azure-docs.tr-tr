@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207536"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Azure kapsayıcı izleme genel bakış
 Azure ile verimli izleyebilir ve Kubernetes veya Docker çalışan Azure kapsayıcılarında dağıtılan iş yüklerinizi yönetebilirsiniz. Mikro hizmet uygulamalarla birden çok kapsayıcı ölçekte güvenilir bir hizmet sunmak ve izleme planı desteklemek için nasıl çalıştığını anlamak önemlidir. Bu makalede yönetim kısa bir genel bakış sağlar ve izleme kapasiteleri yardımcı olmak için Azure her anlamak ve gereksinimlerinizi temel alarak uygun olduğu.

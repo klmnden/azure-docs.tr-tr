@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179342"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft Developer hesabı oluşturma
 Bu makalede, kayıt işlemi için Azure Marketi onaylanmış bir Microsoft Developer olmasını ve gerekli hesap oluşturma açıklanmaktadır.

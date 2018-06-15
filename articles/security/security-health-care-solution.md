@@ -1,5 +1,5 @@
 ---
-title: "Azure'da güvenli sağlık çözümleri tasarlama için pratik bir kılavuz | Microsoft Docs"
+title: Azure'da güvenli sağlık çözümleri tasarlama için pratik bir kılavuz | Microsoft Docs
 description: " Bu makalede, yapılandırma özellikleri ve Azure Hizmetleri kullanarak güvenlik sağlık çözümleriniz için iyileştirmek nasıl tasarlandığını anlamanıza yardımcı olur. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540984"
 ---
 # <a name="a-practical-guide-to-designing-secure-health-care-solutions-in-azure"></a>Azure'da güvenli sağlık çözümleri tasarlama için pratik bir kılavuz
 Sistem durumu endüstri startup'lar, sistem tümleştiricileri (SIS), bağımsız yazılım satıcılarının (ISV'ler) ve Azure Git bunları yardımcı olan yönergeler için arayan planlayan sağlık kuruluşlar kendi uyumluluk yükümlülüklerin karşılamak için güvenlik denetimleri dahil.

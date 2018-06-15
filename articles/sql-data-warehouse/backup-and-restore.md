@@ -12,9 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: a4f24aad95f13315eaeac790c9006ca00f61af69
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187608"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Yedekleme ve geri yükleme Azure SQL veri ambarı
 Yedekleme ve geri yükleme şeklini Azure SQL Data Warehouse'da öğrenin. Veri ambarınız birincil bölge içinde bir geri yükleme noktası geri yüklemek için veri ambarı yedekleri kullanın. Coğrafi olarak yedekli yedeklemeleri farklı bir coğrafi bölgeye geri yüklemek için kullanın. 

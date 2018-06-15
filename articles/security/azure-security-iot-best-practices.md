@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32185349"
 ---
 # <a name="internet-of-things-security-best-practices"></a>En iyi güvenlik uygulamalarını, noktalar, Internet
 
