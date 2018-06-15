@@ -17,6 +17,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316996"
 ---
 # <a name="pool-create-event"></a>Havuz oluşturma olayı
 

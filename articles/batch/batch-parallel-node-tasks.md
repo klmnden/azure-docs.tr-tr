@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316921"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>İşlem düğümleri eş zamanlı olarak toplu kullanımını en üst düzeye çıkarmak için görevleri Çalıştır 
 

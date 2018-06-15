@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31522229"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-redis-cache"></a>Premium Azure Redis önbelleği için sanal ağ desteğini yapılandırma
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini, kümeleme, sürdürme ve sanal ağ desteği gibi Premium katmanı özellikleri dahil olmak üzere seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir sanal ağ bulutta özel bir ağdır. Bir Azure Redis önbelleği örneğine sahip bir VNet yapılandırıldığında, genel olarak adreslenebilir değildir ve yalnızca sanal makineler ve sanal ağ içinden uygulamalardan erişilebilir. Bu makalede, premium Azure Redis önbelleği örneği için sanal ağ desteğini yapılandırma açıklar.

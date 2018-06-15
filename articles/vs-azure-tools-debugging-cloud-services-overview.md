@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292430"
 ---
 # <a name="learn-the-various-ways-to-debug-an-azure-cloud-service"></a>Bir Azure bulut hizmetinde hata ayıklama için değişik yollarını öğrenin
 Bu makale bir Azure bulut hizmetinde hata ayıklama için çeşitli şekillerde bağlantılar sağlar. 

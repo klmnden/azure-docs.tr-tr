@@ -17,9 +17,10 @@ ms.date: 04/27/2017
 ms.author: danlep
 ms.openlocfilehash: a16d60dd48efeced7735562884acd26640d36483
 ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311348"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Toplu işlem yönetimi çözümleri Active Directory ile kimlik doğrulaması
 

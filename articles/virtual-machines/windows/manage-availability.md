@@ -21,6 +21,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323194"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Azure'da Windows sanal makinelerin kullanılabilirliğini yönetme 
 

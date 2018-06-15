@@ -20,6 +20,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30316758"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Batch çözümleri hızla başlatmak için Visual Studio Proje şablonları kullanın
 

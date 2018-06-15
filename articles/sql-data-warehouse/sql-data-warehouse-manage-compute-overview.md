@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528503"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse işlem yönetme
 Azure SQL Data Warehouse işlem kaynakları yönetme hakkında bilgi edinin. Veri ambarı duraklatarak maliyetlerine veya performans taleplerini karşılamak üzere veri ambarına ölçeklendirin. 
