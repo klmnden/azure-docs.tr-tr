@@ -3,17 +3,18 @@ title: Azure SQL veri eşitleme (Önizleme) sorunlarını giderme | Microsoft Do
 description: Azure SQL veri eşitleme (Önizleme) ile ilgili genel sorunları gidermek öğrenin.
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757545"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme
 
@@ -224,7 +225,7 @@ Aracının parola geçerli sunucu parolanızı güncelleştirin:
 4. Üzerinde **SQL veri eşitleme (Önizleme) aracısı Önizleme özellikleri**seçin **oturum** sekmesi.
 5. İçinde **parola** kutusuna, parolanızı girin.
 6. İçinde **parolayı onayla** kutusunda, parolanızı yeniden girin.
-7. Seçin **Uygula**ve ardından **Tamam**.
+7. **Uygula**’yı ve sonra **Tamam**’ı seçin.
 8. İçinde **Hizmetleri** penceresinde sağ **SQL veri eşitleme (Önizleme) aracısı Önizleme** hizmet ve ardından **Başlat**.
 9. Kapat **Hizmetleri** penceresi.
 
@@ -240,9 +241,8 @@ Devam etmeden önce aşağıdaki koşulları denetleyin:
 
 -   SQL veri eşitleme (Önizleme) Windows hizmeti çalışıyor.  
 -   SQL veri eşitleme (Önizleme) önizleme Windows hizmeti için hizmet hesabı ağ erişimi vardır.    
--   İstemci Aracısı Konumlandırıcı Hizmeti başvurabilirsiniz. Aşağıdaki kayıt defteri anahtarının değeri olup olmadığını denetleyin https://locator.sync.azure.com/LocatorServiceApi.svc:  
-    -   Bir x86 üzerinde bilgisayar: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   X x64 üzerinde bilgisayar: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   Giden 1433 bağlantı noktasını, yerel güvenlik duvarı kuralında açıktır.
+-   Sunucuda veya eşitleme meta veri veritabanı için veritabanı güvenlik duvarı kuralı yerel IP eklenir.
 
 #### <a name="cause"></a>Nedeni
 
@@ -384,7 +384,7 @@ Kullanıcı hesabı için günlük üzerinde-a-hizmet olarak kimlik bilgileri ve
 1. Git **Başlat** > **Denetim Masası** > **Yönetimsel Araçlar** > **yerel güvenlik ilkesi**  >  **Yerel ilke** > **kullanıcı Rights Management**.
 2. Seçin **hizmet oturum açma**.
 3. İçinde **özellikleri** iletişim kutusunda, kullanıcı hesabını ekleyin.
-4. Seçin **Uygula**ve ardından **Tamam**.
+4. **Uygula**’yı ve sonra **Tamam**’ı seçin.
 5. Tüm pencereleri kapatın.
 
 ### <a name="a-database-has-an-out-of-date-status"></a>Bir veritabanı "Süresi geçmiş" durumunda
@@ -444,7 +444,7 @@ SQL veri eşitleme (Önizleme) hakkında daha fazla bilgi için bkz:
 -   [Azure SQL veri eşitleme (Önizleme) için en iyi yöntemler](sql-database-best-practices-data-sync.md)  
 -   [Günlük analizi ile İzleyici Azure SQL veri eşitleme (Önizleme)](sql-database-sync-monitor-oms.md)  
 -   SQL veri eşitleme (Önizleme) yapılandırma Göster PowerShell örnekleri tamamlayın:  
-    -   [Birden çok Azure SQL veritabanları arasında eşitlemek için PowerShell kullanma](scripts/sql-database-sync-data-between-sql-databases.md)  
+    -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)  
 -   [SQL veri eşitleme (Önizleme) REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 

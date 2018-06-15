@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/4/2018
+ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: e97b5535ac635fb5982b4dc6fb384414e3a2cfc7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 73771aaff59c3db46907ffd9f74c03f0ac0830cb
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736788"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -39,9 +40,12 @@ En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizme
 >
 >
 
-Hangi, bir konuk işletim sistemi değilseniz ya da konuk işletim sistemi iş nasıl Yayımları? Okuma [bu](#how-it-works) bölümü.
+Konuk işletim sistemi güncelleştirme konusunda emin değilseniz? Denetleme [bu] [ cloud updates] çıkışı.
 
 ## <a name="news-updates"></a>Haber güncelleştirmeleri
+###### <a name="june-1-2018"></a>**1 Haziran 2018**
+Olabilir konuk işletim sistemi yayımladı.
+
 ###### <a name="may-4-2018"></a>**4 Mayıs 2018**
 Nisan konuk işletim sistemi yayımladı.
 
@@ -69,9 +73,6 @@ Ekim konuk işletim sistemi yayımladı.
 ###### <a name="october-6-2017"></a>**6 Ekim 2017**
 Eylül konuk işletim sistemi yayımladı. Windows Server 2016 Eylül sürüm için netfx3 varsayılan olarak etkindir. Müşteriler Ekle ' dism / online Feature /featurename:netfx3' kendi iş akışının .NET 2.x uygulaması 4.x çalışma zamanı ile çalışacak biçimde gerektirir veya .NET 2.x uygulaması çalıştırdıysanız hata işlenmiş ve .NET 4.x uygulaması çalıştıran kendi ONSTART.
 
-###### <a name="september-14-2017"></a>**14 Eylül 2017**
-Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahmini sürümü vardır.
-
 
 
 ## <a name="releases"></a>Sürümleri
@@ -88,8 +89,9 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.19_201805-01 |1 Haziran 2018 |POST 5.21 |TBD |
 | WA-GUEST-OS-5.18_201804-01 |4 Mayıs 2018 |POST 5.20 |TBD |
-| WA-GUEST-OS-5.17_201803-01 |6 Nisan 2018 |POST 5.19 |TBD |
+|~~WA-GUEST-OS-5.17_201803-01~~ |6 Nisan 2018 |1 Haziran 2018|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |4 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
@@ -97,10 +99,6 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-5.10_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
-|~~WA-GUEST-OS-5.9_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
-|~~WA-GUEST-OS-5.8_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
-|~~WA-GUEST-OS-5.7_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-5.6_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 
 
 ## <a name="family-4-releases"></a>Aile 4 serbest bırakır
@@ -115,8 +113,9 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.54_201805-01 |1 Haziran 2018 |POST 4.56 |TBD |
 | WA-GUEST-OS-4.53_201804-01 |4 Mayıs 2018 |POST 4.55 |TBD |
-| WA-GUEST-OS-4.52_201803-01 |6 Nisan 2018 |POST 4.54 |TBD |
+|~~WA-GUEST-OS-4.52_201803-01~~ |6 Nisan 2018 |1 Haziran 2018 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |4 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
@@ -124,10 +123,7 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-4.45_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
-|~~WA-GUEST-OS-4.44_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
-|~~WA-GUEST-OS-4.43_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
-|~~WA-GUEST-OS-4.42_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-4.41_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
+
 
 
 ## <a name="family-3-releases"></a>Aile 3 serbest bırakır
@@ -142,8 +138,9 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.61_201805-01 |1 Haziran 2018 |POST 3.63 |TBD |
 | WA-GUEST-OS-3.60_201804-01 |4 Mayıs 2018 |POST 3.62 |TBD |
-| WA-GUEST-OS-3.59_201803-01 |6 Nisan 2018 |POST 3.61 |TBD |
+|~~WA-GUEST-OS-3.59_201803-01~~ |6 Nisan 2018 |1 Haziran 2018 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |19 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |29 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 Ocak 2018 |19 Mart 2018 |TBD |
@@ -151,10 +148,6 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-3.53_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-3.52_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
-|~~WA-GUEST-OS-3.51_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
-|~~WA-GUEST-OS-3.50_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
-|~~WA-GUEST-OS-3.49_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-3.48_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
 
 
 ## <a name="family-2-releases"></a>Ailesi 2 sürümleri
@@ -169,8 +162,9 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 
 | Yapılandırma dizesi | Sürüm tarihi | Tarih devre dışı bırak | Süresi dolmuş tarih |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.74_201805-01 |1 Haziran 2018 |POST 2.76 |TBD |
 | WA-GUEST-OS-2.73_201804-01 |4 Mayıs 2018 |POST 2,75 |TBD |
-| WA-GUEST-OS-2.72_201803-01 |6 Nisan 2018 |POST 2.74 |TBD |
+|~~WA-GUEST-OS-2.72_201803-01~~ |6 Nisan 2018 |1 Haziran 2018 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |12 Mart 2018 |4 Mayıs 2018 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |29 Ocak 2018 |6 Nisan 2018 |TBD |
 |~~WA-GUEST-OS-2.69_201712-01~~ |4 Ocak 2018 |12 Mart 2018 |TBD |
@@ -178,11 +172,6 @@ Eylül konuk işletim sistemi dağıtımı 14 Eylül başlatıyor ve Ekim 9 Tahm
 |~~WA-GUEST-OS-2.67_201710-02~~ |8 Kasım 2017 |4 Ocak 2018 |TBD |
 |~~WA-GUEST-OS-2.66_201709-01~~ |6 Ekim 2017 |14 Aralık 2017 |TBD |
 |~~WA-GUEST-OS-2.65_201708-01~~ |24 Ağustos 2017 |14 Aralık 2017 |TBD |
-|~~WA-GUEST-OS-2.64_201707-01~~ |3 Ağustos 2017 |8 Kasım 2017 |TBD |
-|~~WA-GUEST-OS-2.63_201706-01~~ |7 Temmuz 2017 |6 Ekim 2017 |TBD |
-|~~WA-GUEST-OS-2.62_201705-01~~ |5 Haziran 2017 |24 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-2.61_201704-01~~ |9 May 2017 |3 Ağustos 2017 |TBD |
-|~~WA-GUEST-OS-2.60_201703-01~~ |10 Nisan 2017 |7 Temmuz 2017 |TBD |
 
 
 ## <a name="msrc-patch-updates"></a>MSRC düzeltme eki güncelleştirmeleri
@@ -240,7 +229,8 @@ Konuk işletim sistemi el ile güncelleştirirseniz bkz [konuk işletim sistemi 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Konuk işletim sistemi desteklenebilirlik ve kullanımdan kaldırma İlkesi
 Konuk işletim sistemi desteklenebilirlik ve kullanımdan kaldırma İlkesi açıklandığı [burada][retirepolicy].
 
-[konuk işletim sistemi güncelleştirme RSS akışı]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
+[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[Konuk işletim sistemi güncelleştirme RSS akışı]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/

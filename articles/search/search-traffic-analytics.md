@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33777268"
 ---
 # <a name="what-is-search-traffic-analytics"></a>Arama trafiği analytics nedir
 Arama trafiği analytics arama hizmetiniz için bir geri döngü uygulamak için bir desen ' dir. Bu deseni gerekli veri ve Application Insights, birden çok platform hizmetlerinde izleme için bir endüstri lideri kullanarak Topla açıklar.

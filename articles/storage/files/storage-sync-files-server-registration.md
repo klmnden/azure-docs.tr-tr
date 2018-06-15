@@ -4,24 +4,25 @@ description: Kaydet ve bir Azure dosya eşitleme depolama eşitleme hizmeti ile 
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738301"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure dosya eşitleme (Önizleme) ile kayıtlı sunucuları yönetme
-Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunun için Windows sunucularınızı hızlı bir Azure Dosyaları paylaşım önbelleğine dönüştürür. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
+Azure Dosya Eşitleme (önizleme) aracısı şirket içi dosya sunucularının sağladığı esneklik, performans ve uyumluluk özelliklerinden vazgeçmeden kuruluşunuzun dosya paylaşımlarını Azure Dosyaları'nda toplamanızı sağlar. Bunu Windows sunucularınızı hızlı Azure dosya paylaşımınıza önbelleğine dönüştürerek yapar. Verilere yerel olarak erişmek için Windows Server üzerinde kullanılabilen tüm protokolleri (SMB, NFS ve FTPS gibi) kullanabilir ve dünya çapında istediğiniz sayıda önbellek oluşturabilirsiniz.
 
 Aşağıdaki makalede kaydetmek ve depolama eşitleme hizmeti ile bir sunucuyu yönetmek nasıl gösterilmektedir. Bkz: [Azure dosya eşitleme (Önizleme) dağıtma](storage-sync-files-deployment-guide.md) Azure dosya eşitleme uçtan uca dağıtma hakkında bilgi için.
 
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>Depolama eşitleme hizmeti ile sunucu kaydını Kaldır
 Bir depolama eşitleme hizmeti ile bir sunucu kaydını kaldırmak için gereken birkaç adım vardır. Düzgün bir sunucu kaydını silmek nasıl bir göz atalım.
 
-#### <a name="optional-recall-all-tiered-data"></a>(İsteğe bağlı) Tüm katmanlı veri geri çağırma
-Katmanlama sunucusu uç noktası için etkinleştirildiğinde, bulut *katmanı* , Azure dosya paylaşımları için dosya. Bu dosya sunucusu üzerindeki alanı verimli kullanılmasını sağlamak için veri kümesi, tam bir kopyasını yerine bir önbellek olarak davranmak üzere şirket içi dosya paylaşımları sağlar. Ancak, bir sunucu uç sunucuda yerel olarak hala katmanlı dosyalarla kaldırılırsa, bu dosyaları erişilemiyor olur. Bu nedenle, dosya erişimini istenen etseydi, Azure dosyaları tüm katmanlı dosyaları silme ile devam etmeden önce geri çağırma gerekir. 
+> [!Warning]  
+> Kaydı ve bir sunucu kaydetme veya kaldırarak ve sunucu uç noktalar açıkça için bir Microsoft mühendisi tarafından belirtilmedikçe yeniden eşitleme, bulut katmanlandırma veya herhangi bir değişiklik, Azure dosya eşitleme sorunlarını giderme çalışmayın. Bir sunucu kaydını ve sunucu uç noktalarını kaldırma yıkıcı bir işlemdir ve "kayıtlı sunucu ve sunucu uç noktaları sonra sunucu uç noktaları birimlerdeki katmanlı dosyalar konumlarına Azure Dosya paylaşımındaki için bağlanır değil" yeniden, hangi Eşitleme hataları neden olur. Ayrıca unutmayın, bir sunucu uç nokta ad alanı dışında mevcut katmanlı dosyalar kalıcı olarak kaybolabilir. Katmanlı dosyaları bulunabilir sunucu içinde bile bulut katmanlandırma uç noktaları hiçbir zaman etkindir.
 
-Bu PowerShell cmdlet'ini aşağıda gösterildiği gibi yapılabilir:
+#### <a name="optional-recall-all-tiered-data"></a>(İsteğe bağlı) Tüm katmanlı veri geri çağırma
+Azure dosya (örn. Bu, bir üretim olmayan bir test, ortam) eşitleme kaldırdıktan sonra kullanılabilir olması için şu anda katmanlı dosyaları isterseniz, sunucu uç noktaları içeren her bir birim üzerinde tüm dosyalar geri çağırma. Tüm sunucu uç noktaları için katmanlama Bulut devre dışı bırakın ve ardından aşağıdaki PowerShell cmdlet'ini çalıştırın:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

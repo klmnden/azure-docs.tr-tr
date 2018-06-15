@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory kimlik koruması Kılavuzu sözlüğü | Microsoft Docs"
-description: "Azure Active Directory kimlik koruması Kılavuzu sözlüğü"
+title: Azure Active Directory kimlik koruması Kılavuzu sözlüğü | Microsoft Docs
+description: Azure Active Directory kimlik koruması Kılavuzu sözlüğü
 services: active-directory
-keywords: "Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi, sözlük yönetme"
-documentationcenter: 
+keywords: Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi, sözlük yönetme
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713400"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory kimlik koruması Kılavuzu sözlüğü
 ### <a name="at-risk-user"></a>Risk (kullanıcı)
@@ -32,7 +34,7 @@ Bir oturum açma bir coğrafi konumdan belirli kullanıcı, benzer kullanıcıla
 Birleştirilmiş görünüme risk olaylarına ve olası güvenlik açıklarını kuruluşun kimlikleri etkileyen sağlayan Azure Active Directory güvenlik modül.
 
 ### <a name="conditional-access"></a>Koşullu erişim
-Kaynaklara erişim güvenliğini sağlamak için bir ilke. Koşullu erişim kuralları Azure Active Directory'de depolanır ve kaynağa erişim izni vermeden önce Azure AD tarafından değerlendirilir.  Örnek kuralları içeren kullanıcı konuma göre erişimi kısıtlama cihaz sistem durumu veya kullanıcı kimlik doğrulama yöntemi.
+Kaynaklara erişim güvenliğini sağlamak için bir ilke. Koşullu erişim kuralları Azure Active Directory'de depolanır ve kaynağa erişim izni vermeden önce Azure AD tarafından değerlendirilir.  Kullanıcı konumu, cihaz sistem durumu veya kullanıcı kimlik doğrulama yöntemini göre erişimi kısıtlama örnek kurallar içerir.
 
 ### <a name="credentials"></a>Kimlik Bilgileri
 Tanımlama ve ağ kaynaklarını ve yerel erişim sağlamak için kullanılan kimlik kanıtı içeren bilgiler. Kimlik bilgileri kullanıcı adları ve parolalar, akıllı kartlar ve sertifikalar gösterilebilir.
@@ -130,13 +132,13 @@ Azure Active Directory ve bu işlem yakalar olay bir kimlik doğrulama eylemi ve
 ### <a name="sign-in-from-anonymous-ip-address"></a>Anonim IP adresinden oturum açın
 Bir başarılı oturum açma anonim Ara sunucu IP adresi olarak tanımlanan IP adresinden sonra bir risk olayı tetiklenir.
 
-### <a name="sign-in-from-infected-device"></a>Etkilenen aygıttan oturum aç
+### <a name="sign-in-from-infected-device"></a>Etkilenen aygıttan oturum açın
 Bir oturum açma etkin bir şekilde bir bot sunucusu ile iletişim kurmak için çalıştığınız bir veya daha fazla güvenliği aşılmış cihazlara tarafından kullanılmak üzere bilinen bir IP adresi kaynaklanan harekete bir risk olayı.
 
-### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Oturum IP adresinden kuşkulu etkinliği ile açma
+### <a name="sign-in-from-ip-address-with-suspicious-activity"></a>Şüpheli etkinliğe sahip IP adresinden oturum açın
 Birden çok kullanıcı hesapları arasında kısa bir süre boyunca çok sayıda başarısız oturum açma denemesi bir başarılı oturum açma gelen bir IP adresi sonra risk olay tetiklenir.
 
-### <a name="sign-in-from-unfamiliar-location"></a>Tanınmayan bir konumdan oturum aç
+### <a name="sign-in-from-unfamiliar-location"></a>Tanınmayan bir konumdan oturum açın
 Kullanıcı başarıyla yeni bir konumdan (IP, enlem/boylam ve ASN) oturum açtığında tetiklenen bir risk olayı.
 
 ### <a name="sign-in-risk"></a>Oturum açma riski
@@ -158,7 +160,7 @@ Oturum açma göz önünde bulundurur ve önceden tanımlanmış koşullara ve k
 Etkin ya da düzeltilen risk olaylarına sahip kullanıcılar
 
 ### <a name="vulnerability"></a>Güvenlik açığı
-Bir yapılandırma veya Azure Active Directory'de dizin açıklarına maruz kalabilir kılan koşul veya tehditleri.
+Bir yapılandırma veya Azure Active Directory'de koşul hangi yapar dizin açıkları veya tehditlere maruz kalabilir.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 * [Azure Active Directory kimlik koruması](active-directory-identityprotection.md)

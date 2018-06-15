@@ -11,13 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/03/2018
+ms.date: 05/29/2018
 ms.author: shlo
-ms.openlocfilehash: 08fcc2eec1914d9f7535ea66d33045240452e2a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715046"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -138,6 +139,7 @@ Eksiksiz bir örnek için bkz. [Hızlı başlangıç: .NET SDK kullanarak veri f
 Tetikleyiciler, işlem hattı çalıştırmasını yürütmenin bir diğer yoludur. Tetikleyiciler, bir işlem hattı çalıştırmasının başlatılması gereken zamanı belirleyen işlem birimini temsil eder. Data Factory şu anda iki tür tetikleyiciyi destekler:
 
 - Zamanlama tetikleyicisi: Bir işlem hattını duvar saati zamanlamasıyla çağıran bir tetikleyici.
+
 - Atlayan pencere tetikleyicisi: Durumunu koruyarak düzenli bir aralıkta çalışan bir tetikleyici. Azure Data Factory şu anda olay tabanlı tetikleyicileri desteklememektedir. Örneğin, bir dosya varış olayına yanıt veren işlem hattı çalıştırmasının tetikleyicisi desteklenmez.
 
 İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilirken, bir tetikleyici birden fazla işlem hattını başlatabilir. Aşağıdaki tetikleyici tanımında, **pipelines** özelliği belirli bir tetikleyici tarafından tetiklenen işlem hattı listesini ifade eder. Özellik tanımı, işlem hattı parametrelerinin değerlerini içerir.
@@ -175,7 +177,9 @@ Zamanlama tetikleyicisi, işlem hatlarını duvar saati zamanlamasıyla çalış
 Zamanlama tetikleyicileri hakkında daha fazla bilgi ve örnekler için bkz. [Zamanlama tetikleyicisi oluşturma](how-to-create-schedule-trigger.md).
 
 ## <a name="tumbling-window-trigger"></a>Atlayan pencere tetikleyicisi
-Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Atlayan pencereler sabit boyutlu, çakışmayan ve bitişik zaman aralıkları dizisidir. Atlayan pencere tetikleyicileri hakkında daha fazla bilgi ve örnekler için bkz. [Atlayan pencere tetikleyicisi oluşturma](how-to-create-tumbling-window-trigger.md).
+Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Atlayan pencereler sabit boyutlu, çakışmayan ve bitişik zaman aralıkları dizisidir.
+
+Atlayan pencere tetikleyicileri hakkında daha fazla bilgi ve örnekler için bkz. [Atlayan pencere tetikleyicisi oluşturma](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Zamanlama tetikleyicisi tanımı
 Bir zamanlama tetikleyicisi oluştururken JSON tanımı kullanarak zamanlamayı ve yinelemeyi belirtirsiniz. 
@@ -280,7 +284,7 @@ Aşağıdaki tabloda bir tetikleyicinin yinelenmesi ve zamanlanmasıyla ilgili a
 
 | JSON özelliği | Tür | Gerekli | Varsayılan değer | Geçerli değerler | Örnek |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Yes | Yok | ISO 8601 tarih-saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | string | Yes | None | ISO 8601 tarih-saatleri | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | object | Yes | None | Yinelenme nesnesi | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | number | Hayır | 1 | 1-1000 arası | `"interval":10` |
 | **endTime** | string | Yes | None | Gelecekteki bir zamanı temsil eden tarih-saat değeri | `"endTime" : "2013-02-09T09:30:00-08:00"` |

@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29847507"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>CLI ile Anlık görüntüden sanal makine oluşturma
 

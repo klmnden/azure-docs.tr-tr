@@ -14,11 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
-ms.openlocfilehash: 99e67b9c8469f08f1cbfc980568eec35694d1ae2
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 68e101ebec4a90d8c0f39eedeef33d252c720ed1
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737377"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>Azure Storage ile Azure CLI 2.0 kullanma
 
@@ -394,7 +395,7 @@ az storage share snapshot -n <share name>
 }
 ```
 
-### <a name="list-share-snapshots"></a>Liste paylaşımı anlık görüntüler
+### <a name="list-share-snapshots"></a>Paylaşım anlık görüntülerini listeleme
 
 Belirli paylaşımı kullanarak bir paylaşım anlık görüntüleri listeleyebilir `az storage share list --include-snapshots`
 
@@ -438,7 +439,7 @@ az storage share list --include-snapshots
 ]
 ```
 
-### <a name="browse-share-snapshots"></a>Paylaşım anlık görüntüleri Gözat
+### <a name="browse-share-snapshots"></a>Paylaşım anlık görüntülerine göz atma
 İçerik kullanarak görüntülemek için anlık görüntü belirli bir paylaşım içine göz atabilirsiniz `az storage file list`. Paylaşım adını belirtmek bir tane var `--share-name <snare name>` ve zaman damgası `--snapshot '2017-10-04T19:45:18.0000000Z'`
 
 ```azurecli-interactive

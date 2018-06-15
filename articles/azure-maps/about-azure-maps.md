@@ -1,23 +1,20 @@
 ---
 title: Azure Haritalar’a Genel Bakış | Microsoft Docs
 description: Azure Haritalar tanıtımı
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: overview
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4882eadb8db5137d6fcf75c6d80c34ae050d3a6d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193960"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600070"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Azure Haritalar tanıtımı
 Azure Haritalar; Haritalar, Arama, Yönlendirme, Trafik ve Saat dilimlerine yönelik hizmet API’lerini içeren bir jeo-uzamsal hizmetler portföyüdür. Hizmet portföyü bilindik araçları kullanarak hızlıca konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirmenizi ve bu çözümleri ölçeklendirmenizi sağlar. Azure Haritalar, tüm sektörlerdeki geliştiricilere, web ve mobil uygulamalara yönelik coğrafi bağlam sağlamak amacıyla yeni eşleme verileriyle donatılmış güçlü jeo-uzamsal özellikler sunar. Azure Haritalar, gelişimi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulan REST API kümesidir. 

@@ -1,0 +1,66 @@
+- name: Power BI Embedded Belgeleri
+  href: index.md
+- name: Genel Bakış
+  items:
+    - name: Power BI Embedded nedir?
+      href: what-is-power-bi-embedded.md
+- name: başlarken
+  items:
+    - name: Power BI Embedded kullanmaya başlama
+      href: get-started.md
+    - name: Bir örnek ile kullanmaya başlama
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Nasıl yapılır
+  items:
+    - name: Kapasiteyi yönetme
+      items:
+        - name: Kapasite oluşturma
+          href: create-capacity.md
+        - name: Kapasite ölçeklendirme
+          href: scale-capacity.md
+        - name: Kapasiteyi duraklatma ve başlatma
+          href: pause-start.md
+    - name: Azure AD uygulamasını kaydetme
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-register-app/'
+    - name: Power BI içeriklerinizi ekleme
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embedding-content/'
+    - name: Geçiş
+      items:
+        - name: Power BI Çalışma Alanı Koleksiyonları’ndan geçiş yapma
+          href: migrate-from-power-bi-workspace-collections.md
+        - name: Geçiş aracı
+          href: migrate-tool.md
+        - name: Geçiş kod parçacıkları
+          href: migrate-code-snippets.md
+- name: Örnekler
+  items:
+    - name: Kod örnekleri
+      href: 'https://github.com/Microsoft/PowerBI-Developer-Samples'
+    - name: Örnek kılavuz
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+    - name: JavaScript örnek ekleme
+      href: 'https://microsoft.github.io/PowerBI-JavaScript/demo/'
+- name: Başvuru
+  items:
+    - name: API'ler
+      items:
+        - name: Azure Kaynak Yönetimi API’leri
+          href: 'https://docs.microsoft.com/rest/api/power-bi-embedded/'
+        - name: Power BI REST API'leri
+          href: 'https://msdn.microsoft.com/library/mt147898.aspx'
+- name: Kaynaklar
+  items:
+    - name: Power BI topluluğu
+      href: 'http://community.powerbi.com/t5/Developer/bd-p/Developer'
+    - name: .NET SDK indirmesi
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.Api/'
+    - name: JavaScript SDK indirmesi
+      href: 'https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: GitHub depoları
+      items:
+        - name: Power BI için .NET
+          href: 'https://github.com/Microsoft/PowerBI-CSharp'
+        - name: Power BI için JavaScript
+          href: 'https://github.com/Microsoft/PowerBI-JavaScript'

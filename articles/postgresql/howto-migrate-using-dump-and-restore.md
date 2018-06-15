@@ -1,6 +1,6 @@
 ---
-title: "Döküm ve Azure veritabanında PostgreSQL için geri yükleme"
-description: "Bir PostgreSQL veritabanı dökümü dosyasına ayıklayın ve Azure veritabanındaki pg_dump tarafından PostgreSQL için oluşturulan bir dosyadan geri açıklar."
+title: Döküm ve Azure veritabanında PostgreSQL için geri yükleme
+description: Bir PostgreSQL veritabanı dökümü dosyasına ayıklayın ve Azure veritabanındaki pg_dump tarafından PostgreSQL için oluşturulan bir dosyadan geri açıklar.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: f74c60cb99ee5bae1af8e000ebbd21b41600638d
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.date: 06/01/2018
+ms.openlocfilehash: 586df8d72dc05104bbf589eabcf3bd2245c268c8
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737257"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Döküm ve geri yükleme kullanarak PostgreSQL veritabanınızı geçirin
 Kullanabileceğiniz [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) PostgreSQL veritabanına dökümü dosyasına ayıklamak için ve [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) pg_dump tarafından oluşturulan bir arşiv dosyadan PostgreSQL veritabanını geri yüklemek için.
@@ -35,6 +36,10 @@ pg_dump -Fc -v --host=<host> --username=<name> --dbname=<database name> > <datab
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
+> [!IMPORTANT]
+> Azure bir blob/deposu yedek dosyalarını kopyalayın ve oradan Internet üzerinden geri yükleme gerçekleştirilmeden daha çok daha hızlı olması gereken, geri yükleme gerçekleştirin.
+> 
+
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Verileri hedef Azure veritabanı için PostrgeSQL pg_restore kullanarak geri yükleyin.
 Hedef veritabanı oluşturduktan sonra pg_restore komut ve -d, hedef veritabanına döküm dosyadan verileri geri yüklemek için--dbname parametresini kullanabilirsiniz.
 ```bash
@@ -48,4 +53,5 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- Dışarı ve içeri aktarma kullanarak bir PostgreSQL veritabanı geçirmek için bkz [verme kullanarak PostgreSQL veritabanınızı geçirin ve içeri aktarma](howto-migrate-using-export-and-import.md)
+- Dışarı ve içeri aktarma kullanarak bir PostgreSQL veritabanı geçirmek için bkz [verme kullanarak PostgreSQL veritabanınızı geçirin ve alma](howto-migrate-using-export-and-import.md).
+- Geçiş hakkında daha fazla bilgi için PostgreSQL, Azure veritabanı veritabanlarını görmek [veritabanı Geçiş Kılavuzu](http://aka.ms/datamigration).

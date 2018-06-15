@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: fe9998e3b1f5e2a3376f833c3dd8212e4a639274
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bcb4302c3a237ec75ff670b322c9d068d8700de9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738522"
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Visual Studio için Azure Stream Analytics araçlarını kullanın
 Visual Studio için Azure Stream Analytics araçları artık genel olarak kullanılabilir. Bu araçları yanı sıra gidermek karmaşık sorgular yazmak Stream Analytics kullanıcılar için daha zengin bir deneyim sağlamak ve hatta sorguları yerel olarak yazma. Ayrıca, bir Visual Studio projeye Stream Analytics işi dışa aktarabilirsiniz.
@@ -30,18 +31,17 @@ Bu öğreticiyi tamamladıktan sonra aşağıdakileri gerçekleştirebilirsiniz:
 * Var olan işleri projelerine verin.
 
 >[!IMPORTANT]
+> Microsoft Visual Studio sürümü 2.3.3000.4 için Azure Data Lake Araçları'ye yükseltin ya da üzeri önerir. Önceki sürümleri artık indirme için kullanılabilir ve artık kullanım dışı bırakılmıştır. 
 >
->Hazırlık için yeni genel veri koruma düzenleme (GDPR) 25 May 2018 üzerinde yürürlüğe giderek Visual Studio için Azure Stream Analytics araçları kullanıcılarının 2.3.3000.5 sürüme yükseltmeniz önerilir veya daha sonra. Bu sürüm, en son veri koruma gereksinimlerine göre değişiklikleri içerir. Önceki sürümler için kullanılabilir değil Not indirin ve kullanım dışı bırakılmıştır. 
->
->**Yapmak neler gerekir?**
+>**Ne yapmam gerekiyor?**
 >
 >1. Visual Studio için Azure Stream Analytics araçların 2.3.3000.5 daha önceki bir sürümünü kullanıyorsanız denetleyin. 
 >   
->   ![Onay aracı sürümü](./media/stream-analytics-tools-for-vs/about-data-lake.png)
+>   ![Araç sürümünü denetleyin](./media/stream-analytics-tools-for-vs/about-data-lake.png)
 > 
 >2. Sürümünüz 2.3.3000.5 önceki bir sürümü ise, Azure Data Lake araçları Visual Studio için Yükleme Merkezi'ni ziyaret ederek güncelleştirin: 
 >    - [Visual Studio 2017 için](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools)
->    - [Visual Studio 2013 ve 2015](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
+>    - [Visual Studio 2013 ve 2015 için](https://www.microsoft.com/en-us/download/details.aspx?id=54630)
 
 ## <a name="prerequisites"></a>Önkoşullar
 Bu öğreticiyi tamamlamak için aşağıdaki önkoşullar gerekir:

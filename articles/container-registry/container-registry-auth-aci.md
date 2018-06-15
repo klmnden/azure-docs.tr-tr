@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33768235"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Azure kapsayıcı kayıt defterinden Azure kapsayıcı örnekleri ile kimlik doğrulaması
 

@@ -1,11 +1,11 @@
 ---
-title: "Bir Linux VM üzerinde bir takas yapılandırmak için bulut init kullanın | Microsoft Docs"
-description: "Azure CLI 2.0 ile oluşturma sırasında bir Linux VM bir takas yapılandırmak için bulut init kullanma"
+title: Bir Linux VM üzerinde bir takas yapılandırmak için bulut init kullanın | Microsoft Docs
+description: Azure CLI 2.0 ile oluşturma sırasında bir Linux VM bir takas yapılandırmak için bulut init kullanma
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29952607"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Bir Linux VM üzerinde bir takas yapılandırmak için bulut init kullanın
 Bu makalede nasıl kullanılacağı gösterilmektedir [bulut init](https://cloudinit.readthedocs.io) swapfile üzerinde çeşitli Linux dağıtımları yapılandırmak için. Takas tarafından Linux Aracısı (bir hangi dağıtımları gerekli temel WALA) geleneksel olarak yapılandırıldı.  Bu belge, bulut init kullanarak sağlama süresi sırasında isteğe bağlı swapfile oluşturma işlemi özetler.  Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md)

@@ -1,24 +1,26 @@
 ---
 title: 'Azure AD Connect: Zaten varsa Azure AD | Microsoft Docs'
-description: "Bu konu, mevcut Azure AD kiracısı olduğunda Bağlan kullanmayı açıklar."
+description: Bu konu, mevcut Azure AD kiracısı olduğunda Bağlan kullanmayı açıklar.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725216"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Mevcut bir kiracı olduğunda
 Azure AD Connect kullanmayla ilgili konular çoğunu varsayar ile yeni bir Azure başlattığınız AD Kiracı ve hiçbir kullanıcı ya da diğer nesneleri vardır. Ancak bir Azure AD kiracısı ile başlamış olması durumunda kullanıcılar ve diğer nesneleri ile doldurulur ve şimdi bağlan, kullanmak istediğiniz sonra bu konuda size göre.
@@ -56,7 +58,7 @@ Posta özellikli gruplar ve kişiler için yazılım göre proxyAddresses eşle�
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Yeni bir şirket içi Active Directory verilerini Azure AD oluşturma
 Azure AD ile yalnızca bulut çözümü olan bazı müşteriler başlatmak ve şirket içi olmayan AD. Daha sonra şirket kaynaklarını tüketebilir ve bir şirket içi oluşturmak istediğiniz istedikleri AD tabanlı Azure AD verileri. Azure AD Connect bu senaryo için yardımcı olamaz. Kullanıcıların şirket içi oluşturmaz ve Azure AD ile aynı parola şirket içi koymak yeteneği yok.
 
-Eklemek için planlama neden tek nedeni şirket içi AD belki de kullanmayı düşünmelisiniz sonra LOB'lar (satır iş kolu uygulamaları) desteklemek için ise [Azure AD etki alanı Hizmetleri](../../active-directory-domain-services/index.md) yerine.
+Eklemek için planlama neden tek nedeni şirket içi AD belki de kullanmayı düşünmelisiniz sonra LOB'lar (satır iş kolu uygulamaları) desteklemek için ise [Azure AD etki alanı Hizmetleri](../../active-directory-domain-services/index.yml) yerine.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 [Şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](active-directory-aadconnect.md) hakkında daha fazla bilgi edinin.

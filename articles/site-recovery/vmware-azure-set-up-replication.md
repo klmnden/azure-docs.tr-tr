@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery ile VMware çoğaltma için çoğaltma ilkelerini yapılandırmanıza ve yönetmenize | Microsoft Docs"
-description: "Azure Site Recovery ile Azure'da VMware çoğaltma işlemini çoğaltma ayarlarını yapılandırmak açıklar."
+title: Azure Site Recovery ile VMware çoğaltma için çoğaltma ilkelerini yapılandırmanıza ve yönetmenize | Microsoft Docs
+description: Azure Site Recovery ile Azure'da VMware çoğaltma işlemini çoğaltma ayarlarını yapılandırmak açıklar.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29812673"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Yapılandırma ve VMware çoğaltma için çoğaltma ilkeleri yönetme
 Bu makalede, Azure'da VMware Vm'lerini olduğunuz çoğalttığınızda, bir çoğaltma ilkesi yapılandırmak nasıl kullanarak [Azure Site Recovery](site-recovery-overview.md).
