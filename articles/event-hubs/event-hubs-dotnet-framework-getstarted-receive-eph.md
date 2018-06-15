@@ -1,11 +1,11 @@
 ---
-title: ".NET Framework kullanarak Azure Event Hubs’dan olay alma | Microsoft Belgeleri"
-description: ".NET Framework kullanarak Azure Event Hubs’dan olay almak için bu öğreticiyi izleyin."
+title: .NET Framework kullanarak Azure Event Hubs’dan olay alma | Microsoft Belgeleri
+description: .NET Framework kullanarak Azure Event Hubs’dan olay almak için bu öğreticiyi izleyin.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29393227"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework kullanarak Azure Event Hubs’dan olay alma
 

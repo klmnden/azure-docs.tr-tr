@@ -1,6 +1,6 @@
 ---
-title: "Yedekleme ve kurtarma yönetilmeyen Azure Windows VM diskleri için artımlı anlık görüntüleri kullanma | Microsoft Docs"
-description: "Yedekleme ve kurtarma artımlı anlık görüntülerini kullanarak Azure Windows sanal makine disklerinizi için özel bir çözüm oluşturun."
+title: Yedekleme ve kurtarma yönetilmeyen Azure Windows VM diskleri için artımlı anlık görüntüleri kullanma | Microsoft Docs
+description: Yedekleme ve kurtarma artımlı anlık görüntülerini kullanarak Azure Windows sanal makine disklerinizi için özel bir çözüm oluşturun.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23879893"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

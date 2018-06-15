@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager VM'ler için yüksek kullanılabilirliği ayarlamadan ayarlama | Microsoft Docs"
-description: "Bu öğreticide Azure Resource Manager moduna Azure sanal makinelerinde ile Always On kullanılabilirlik grubu oluşturulacağını gösterir."
+title: Azure Resource Manager VM'ler için yüksek kullanılabilirliği ayarlamadan ayarlama | Microsoft Docs
+description: Bu öğreticide Azure Resource Manager moduna Azure sanal makinelerinde ile Always On kullanılabilirlik grubu oluşturulacağını gösterir.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 64e85527-d5c8-40d9-bbe2-13045d25fc68
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401030"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Always On kullanılabilirlik grupları Azure sanal makineleri otomatik olarak yapılandırın: Kaynak Yöneticisi
 

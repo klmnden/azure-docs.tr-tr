@@ -1,11 +1,11 @@
 ---
-title: "Federasyon için yapılandırılan bir galeri olmayan uygulamaya oturumu açmada sorun çoklu oturum açma | Microsoft Docs"
-description: "SAML tabanlı Federasyon tek oturum açma için Azure AD ile yapılandırılmış bir uygulama için oturum açarken karşılaşabilecekleri belirli sorunları için yönergeler"
+title: Federasyon için yapılandırılan bir galeri olmayan uygulamaya oturumu açmada sorun çoklu oturum açma | Microsoft Docs
+description: SAML tabanlı Federasyon tek oturum açma için Azure AD ile yapılandırılmış bir uygulama için oturum açarken karşılaşabilecekleri belirli sorunları için yönergeler
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/14/2018
+ms.locfileid: "29383472"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri olmayan uygulama oturum açma sorunları
 

@@ -1,8 +1,8 @@
 ---
-title: "Operations Management Suite (OMS) tümleştirme | Microsoft Docs"
-description: "OMS standart özelliklerini kullanarak ek olarak, diğer yönetim uygulamaları ve Hizmetleri ile bir karma yönetim ortamı sağlamak için özel yönetim senaryoları ortamınız için benzersiz sağlar ya da özel yönetim sağlamayı tümleştirebilirsiniz Müşterileriniz için deneyimi.  Bu makalede farklı seçeneklerinizi OMS ve ayrıntılı teknik bilgi sağlama makalelerinin bağlantıları ile tümleştirme için genel bir bakış sağlar."
+title: Operations Management Suite (OMS) tümleştirme | Microsoft Docs
+description: OMS standart özelliklerini kullanarak ek olarak, diğer yönetim uygulamaları ve Hizmetleri ile bir karma yönetim ortamı sağlamak için özel yönetim senaryoları ortamınız için benzersiz sağlar ya da özel yönetim sağlamayı tümleştirebilirsiniz Müşterileriniz için deneyimi.  Bu makalede farklı seçeneklerinizi OMS ve ayrıntılı teknik bilgi sağlama makalelerinin bağlantıları ile tümleştirme için genel bir bakış sağlar.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23865865"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>Operations Management Suite (OMS) ile tümleştirme
 Operations Management Suite, yönetmek ve şirket içi korumak ve altyapı bulut yardımcı olan Microsoft'un bulut tabanlı BT yönetimi çözümüdür.  OMS standart özelliklerini kullanarak ek olarak, diğer yönetim uygulamaları ve Hizmetleri ile bir karma yönetim ortamı sağlamak için özel yönetim senaryoları ortamınız için benzersiz sağlar ya da özel yönetim sağlamayı tümleştirebilirsiniz Müşterileriniz için deneyimi.  Bu makalede farklı seçeneklerinizi OMS Hizmetleri ve ayrıntılı teknik bilgi sağlama makalelerinin bağlantıları ile tümleştirmek için genel bir bakış sağlar. 

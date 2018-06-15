@@ -1,13 +1,13 @@
 ---
-title: "VM'ler ve diğer Azure altyapısında sağlayacak Terraform yükleyip | Microsoft Docs"
-description: "Yükleyin ve Azure kaynaklarını oluşturmak için Terraform yapılandırma hakkında bilgi edinin"
+title: VM'ler ve diğer Azure altyapısında sağlayacak Terraform yükleyip | Microsoft Docs
+description: Yükleyin ve Azure kaynaklarını oluşturmak için Terraform yapılandırma hakkında bilgi edinin
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
 manager: jtalkar
 editor: na
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399177"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Yükleme ve Azure'da VM'ler ve diğer altyapıya sağlamak için Terraform yapılandırma
  

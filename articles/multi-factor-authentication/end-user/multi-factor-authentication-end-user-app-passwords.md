@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA uygulama parolaları kullanmak üzere nasıl? | Microsoft Docs"
-description: "Bu sayfa, kullanıcıların uygulama parolaları nedir ve ne için ile kullanıldıkları Azure MFA Algıla anlamasına yardımcı olur."
+title: Azure MFA uygulama parolaları kullanmak üzere nasıl? | Microsoft Docs
+description: Bu sayfa, kullanıcıların uygulama parolaları nedir ve ne için ile kullanıldıkları Azure MFA Algıla anlamasına yardımcı olur.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27700359"
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması'ndaki uygulama parolaları nedir?
 Exchange Active Sync kullanan Apple yerel e-posta istemcisi gibi belirli bir tarayıcı olmayan uygulamaları, şu anda çok faktörlü kimlik doğrulamasını desteklemez. Çok faktörlü kimlik doğrulaması kullanıcı başına etkinleştirilir. Bu, bir kullanıcı için multi-Factor authentication etkinleştirildi ve tarayıcı olmayan uygulamaları kullanmaya çalıştığınız, bunlar yapamıyor olacağı anlamına gelir. Bir uygulama parolası bunun olabilmesini sağlar. Kullanıcı başına MFA üzerinden değil ve koşullu erişim ilkeleri aracılığıyla çok faktörlü kimlik doğrulamasını zorunlu kılarsanız, uygulama parolaları oluşturamazsınız. Erişimi denetlemek için koşullu erişim ilkeleri kullanan uygulamalar, uygulama parolaları gerekmez.

@@ -1,11 +1,11 @@
 ---
-title: "Bir uygulama hizmeti ortamına gelen trafiğinin denetleme"
-description: "Bir uygulama hizmeti ortamına gelen trafiği denetlemek için ağ güvenlik kuralları yapılandırma hakkında bilgi edinin."
+title: Bir uygulama hizmeti ortamına gelen trafiğinin denetleme
+description: Bir uygulama hizmeti ortamına gelen trafiği denetlemek için ağ güvenlik kuralları yapılandırma hakkında bilgi edinin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23836927"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Bir uygulama hizmeti ortamına gelen trafiğinin denetleme
 ## <a name="overview"></a>Genel Bakış

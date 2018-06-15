@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights kullanarak çalışma zamanı özel durumlarını tanılama | Microsoft Docs"
-description: "Azure Application Insights kullanarak uygulamanızdaki çalışma zamanı özel durumlarını bulma ve tanılama hakkındaki öğretici."
+title: Azure Application Insights kullanarak çalışma zamanı özel durumlarını tanılama | Microsoft Docs
+description: Azure Application Insights kullanarak uygulamanızdaki çalışma zamanı özel durumlarını bulma ve tanılama hakkındaki öğretici.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "27998058"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights ile çalışma zamanı özel durumlarını bulma ve tanılama
 

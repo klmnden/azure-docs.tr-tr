@@ -1,8 +1,8 @@
 ---
-title: "Sağlama ve mikro beklendiği azure'da dağıtma"
-description: "Mikro tek bir birim olarak Azure App Service ve JSON kaynak grubu şablonları ve PowerShell komut dosyası kullanarak tahmin edilebilir bir şekilde oluşan bir uygulamanın nasıl dağıtılacağı öğrenin."
+title: Sağlama ve mikro beklendiği azure'da dağıtma
+description: Mikro tek bir birim olarak Azure App Service ve JSON kaynak grubu şablonları ve PowerShell komut dosyası kullanarak tahmin edilebilir bir şekilde oluşan bir uygulamanın nasıl dağıtılacağı öğrenin.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23837102"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Sağlama ve mikro beklendiği azure'da dağıtma
 Bu öğretici, sağlamak ve oluşan bir uygulamayı dağıtmak gösterilmiştir [mikro](https://en.wikipedia.org/wiki/Microservices) içinde [Azure App Service](/services/app-service/) tek bir birim olarak ve JSON kaynak grubu şablonları ve PowerShell komut dosyası kullanarak bir tahmin edilebilir şekilde. 

@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager Yönetim | Microsoft Docs"
-description: "Genel bir bakış ve StorSimple Snapshot Manager çözüm yönetim görevleri ve iş akışları hakkında daha fazla bilgi için bağlantılar sağlar."
+title: StorSimple Snapshot Manager Yönetim | Microsoft Docs
+description: Genel bir bakış ve StorSimple Snapshot Manager çözüm yönetim görevleri ve iş akışları hakkında daha fazla bilgi için bağlantılar sağlar.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 1cdbb61d-bd16-4be4-ade2-ceab11508acb
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875434"
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>StorSimple çözümünüzün yönetmek için StorSimple anlık görüntü Yöneticisi'ni kullanın
 

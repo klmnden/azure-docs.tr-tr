@@ -1,6 +1,6 @@
 ---
-title: "Azure sanal makinelerinde bir SQL Server kullanılabilirlik grubu dinleyicisi oluşturma | Microsoft Docs"
-description: "Always On kullanılabilirlik grubu için bir dinleyici SQL Server için Azure sanal makinelerinde oluşturmak için adım adım yönergeler"
+title: Azure sanal makinelerinde bir SQL Server kullanılabilirlik grubu dinleyicisi oluşturma | Microsoft Docs
+description: Always On kullanılabilirlik grubu için bir dinleyici SQL Server için Azure sanal makinelerinde oluşturmak için adım adım yönergeler
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400639"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Always On kullanılabilirlik grubu için yük dengeleyici Azure'da yapılandırın
 Bu makalede, Azure Resource Manager ile çalışan Azure sanal makinelerde bir SQL Server Always On kullanılabilirlik grubu için yük dengeleyici oluşturma açıklanmaktadır. SQL Server örnekleri üzerinde Azure sanal makine olduğunda bir kullanılabilirlik grubu yük dengeleyici gerektirir. Yük Dengeleyici için kullanılabilirlik grubu dinleyici IP adresini depolar. Bir kullanılabilirlik grubu birden çok bölgeye yayılırsa, her bölge bir yük dengeleyicinin gerekir.

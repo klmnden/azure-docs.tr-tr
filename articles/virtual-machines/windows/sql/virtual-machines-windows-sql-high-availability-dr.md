@@ -1,11 +1,11 @@
 ---
-title: "Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için SQL Server | Microsoft Docs"
-description: "Azure sanal makinelerinde çalışan SQL Server için HADR stratejileri çeşitli türleri bir tartışma."
+title: Yüksek kullanılabilirlik ve olağanüstü durum kurtarma için SQL Server | Microsoft Docs
+description: Azure sanal makinelerinde çalışan SQL Server için HADR stratejileri çeşitli türleri bir tartışma.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401268"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Sanal Makineler’de SQL Server için yüksek kullanılabilirlik ve olağanüstü durum kurtarma
 

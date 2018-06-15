@@ -1,11 +1,11 @@
 ---
-title: "Azure içeri/dışarı aktarma aracı sorunlarını giderme | Microsoft Docs"
-description: "Azure içeri/dışarı aktarma aracı ve bunları nasıl ele alınacağını kullanılırken görülen yaygın sorunlardan bazıları hakkında bilgi edinin."
+title: Azure içeri/dışarı aktarma aracı sorunlarını giderme | Microsoft Docs
+description: Azure içeri/dışarı aktarma aracı ve bunları nasıl ele alınacağını kullanılırken görülen yaygın sorunlardan bazıları hakkında bilgi edinin.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: b91ca5eb-c557-460a-9afc-0590b38471f9
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23873698"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Azure İçeri/Dışarı Aktarma Aracı ile ilgili sorunları giderme
 Sorunla çalıştırıyorsa, Microsoft Azure içeri/dışarı aktarma aracı hata iletilerini döndürür. Bu konuda, kullanıcıların içine çalışabilir bazı yaygın sorunlar listelenmiştir.  

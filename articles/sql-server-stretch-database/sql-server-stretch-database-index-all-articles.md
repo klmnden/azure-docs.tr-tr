@@ -1,8 +1,8 @@
 ---
-title: "SQL Server Esnetme veritabanı hizmeti için tüm konuları | Microsoft Docs"
-description: "Azure hizmet için tüm konuları tablosunun http://azure.microsoft.com/documentation/articles/, başlığı ve açıklamayı mevcut bir SQL Server Esnetme veritabanı adı."
+title: SQL Server Esnetme veritabanı hizmeti için tüm konuları | Microsoft Docs
+description: Azure hizmet için tüm konuları tablosunun http://azure.microsoft.com/documentation/articles/, başlığı ve açıklamayı mevcut bir SQL Server Esnetme veritabanı adı.
 services: sql-server-stretch-database
-documentationcenter: 
+documentationcenter: ''
 author: DouglasL
 manager: jhubbard
 editor: MightyPen
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23872949"
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>Azure SQL Server Esnetme veritabanı hizmeti için tüm konuları
 Bu konuda doğrudan uygulayan her konuda listelenmiştir **SQL Server Esnetme veritabanı** Azure hizmet. Anahtar sözcükler için bu Web sayfasını kullanarak arayabilirsiniz **Ctrl + F**, geçerli ilgi konuları bulmak için.

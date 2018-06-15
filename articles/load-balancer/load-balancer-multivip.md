@@ -1,6 +1,6 @@
 ---
-title: "Bir bulut hizmeti için birden çok VIP'ler"
-description: "MultiVIP ve bir bulut hizmetinde birden çok Vip ayarlama genel bakış"
+title: Bir bulut hizmeti için birden çok VIP'ler
+description: MultiVIP ve bir bulut hizmetinde birden çok Vip ayarlama genel bakış
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23855204"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Birden çok Vip bir bulut hizmeti için yapılandırma
 

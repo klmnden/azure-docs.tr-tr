@@ -1,11 +1,11 @@
 ---
-title: "Web uygulaması PowerShell kullanarak kopyalama"
-description: "PowerShell kullanarak yeni Web uygulamaları için Web uygulamalarınızı kopyalama öğrenin."
+title: Web uygulaması PowerShell kullanarak kopyalama
+description: PowerShell kullanarak yeni Web uygulamaları için Web uygulamalarınızı kopyalama öğrenin.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: ahmedelnably
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.service: app-service-web
 ms.workload: web
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27867488"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Azure App Service uygulaması PowerShell kullanarak kopyalama
 Microsoft Azure PowerShell sürüm 1.1.0 sürümle birlikte, yeni bir seçenek eklenmiştir `New-AzureRMWebApp` olanak tanıyan yeni oluşturulan bir uygulamanın farklı bir bölgede ya da aynı bölgede var olan bir Web uygulamasının klonlayın. Bu seçenek uygulamaları birkaç farklı bölgelerdeki hızlı ve kolay bir şekilde dağıtmasını sağlar.
