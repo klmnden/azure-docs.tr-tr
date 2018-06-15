@@ -1,13 +1,13 @@
 ---
-title: "Azure işlevleri geliştirmek için Kılavuzu | Microsoft Docs"
-description: "Azure işlevleri kavramlarını ve işlevlerinin Azure, tüm programlama dilleri ve bağlamaları geliştirmek için gereken teknikleri öğrenin."
+title: Azure işlevleri geliştirmek için Kılavuzu | Microsoft Docs
+description: Azure işlevleri kavramlarını ve işlevlerinin Azure, tüm programlama dilleri ve bağlamaları geliştirmek için gereken teknikleri öğrenin.
 services: functions
 documentationcenter: na
 author: tdykstra
 manager: cfowler
-editor: 
-tags: 
-keywords: "Geliştirici Kılavuzu, azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi"
+editor: ''
+tags: ''
+keywords: Geliştirici Kılavuzu, azure işlevleri, İşlevler, olay işleme, Web kancalarını, dinamik işlem, sunucusuz mimarisi
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.service: functions
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121755"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure işlevleri Geliştirici Kılavuzu
 Azure işlevleri, belirli işlevleri birkaç temel teknik kavramlar ve bileşenler, dil veya kullandığınız bağlama bağımsız olarak paylaşın. Belirtilen dil ya da bağlama belirli Ayrıntılar öğrenme moduna geçmek önce bunların tümüne uygulanır Bu genel bakışta aracılığıyla okuduğunuzdan emin olun.

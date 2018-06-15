@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN Gelişmiş HTTP raporları kullanım istatistiklerini çözümleme | Microsoft Docs"
-description: "Microsoft Azure CDN'de Gelişmiş HTTP raporları oluşturmayı öğrenin. Bu raporlar CDN etkinliği hakkında ayrıntılı bilgi sağlar."
+title: Azure CDN Gelişmiş HTTP raporları kullanım istatistiklerini çözümleme | Microsoft Docs
+description: Microsoft Azure CDN'de Gelişmiş HTTP raporları oluşturmayı öğrenin. Bu raporlar CDN etkinliği hakkında ayrıntılı bilgi sağlar.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843619"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Azure CDN Gelişmiş HTTP raporları kullanım istatistiklerini Çözümle
 ## <a name="overview"></a>Genel Bakış

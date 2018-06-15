@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 serisi cihazda, StorSimple birim kapsayıcıları yönetme | Microsoft Docs"
-description: "Ekleme, değiştirme ve bir birim kapsayıcısı silmek için StorSimple cihaz Yöneticisi hizmeti birim kapsayıcıları sayfası nasıl kullanabileceğiniz açıklanır."
+title: StorSimple 8000 serisi cihazda, StorSimple birim kapsayıcıları yönetme | Microsoft Docs
+description: Ekleme, değiştirme ve bir birim kapsayıcısı silmek için StorSimple cihaz Yöneticisi hizmeti birim kapsayıcıları sayfası nasıl kullanabileceğiniz açıklanır.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23874846"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-storsimple-volume-containers"></a>StorSimple birim kapsayıcıları yönetmek için StorSimple cihaz Yöneticisi hizmetini kullanma
 

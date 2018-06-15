@@ -1,12 +1,12 @@
 ---
-title: "StorSimple yerel olarak sabitlenmiş birimleri ile ilgili SSS | Microsoft Docs"
-description: "StorSimple yerel olarak sabitlenmiş birimleri hakkında sık sorulan soruların yanıtlarını sağlar."
+title: StorSimple yerel olarak sabitlenmiş birimleri ile ilgili SSS | Microsoft Docs
+description: StorSimple yerel olarak sabitlenmiş birimleri hakkında sık sorulan soruların yanıtlarını sağlar.
 services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23875595"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple yerel olarak sabitlenmiş birimleri: sık sorulan sorular (SSS)
 ## <a name="overview"></a>Genel Bakış
@@ -161,7 +162,7 @@ Hakkında daha fazla bilgi [yerel olarak sabitlenmiş bir birim için katmanlı 
 
 **S.** Geri yükleme sırasında bir birim türünü değiştirebilir miyim?
 
-**A.**Hayır, geri yükleme sırasında birim türünü değiştiremezsiniz.
+**A.** Hayır, geri yükleme sırasında birim türünü değiştiremezsiniz.
 
 * Silinmiş birimleri anlık depolanan türü olarak geri yüklenir.
 * Var olan birimler geri yüklenir anlık saklanan türü ne olursa olsun geçerli tipine göre (önceki iki soruya bakın).

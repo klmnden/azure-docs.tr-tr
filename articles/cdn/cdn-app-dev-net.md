@@ -1,11 +1,11 @@
 ---
-title: ".NET için Azure CDN kitaplığını kullanmaya başlama | Microsoft Docs"
-description: "Visual Studio kullanarak Azure CDN yönetmek için .NET uygulamaları yazma öğrenin."
+title: .NET için Azure CDN kitaplığını kullanmaya başlama | Microsoft Docs
+description: Visual Studio kullanarak Azure CDN yönetmek için .NET uygulamaları yazma öğrenin.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 63cf4101-92e7-49dd-a155-a90e54a792ca
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23843052"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Azure CDN ile geliştirmeye başlama
 > [!div class="op_single_selector"]
@@ -41,7 +42,7 @@ Bu öğreticiyi tamamlamak için Visual Studio 2015 gerekir.  [Visual Studio Com
 ## <a name="create-your-project-and-add-nuget-packages"></a>Projenizi oluşturmak ve Nuget paketleri ekleme
 Bizim CDN profili için bir kaynak grubu oluşturduk artık ve CDN profili ve uç noktaları grubu içindeki yönetmek için Azure AD uygulama izni verilen göre biz uygulamamızı oluşturmaya başlayabilirsiniz.
 
-Visual Studio 2015'içinde ' ı tıklatın **dosya**, **yeni**, **proje...**  yeni proje iletişim kutusunu açın.  Genişletme **Visual C#**seçeneğini belirleyip **Windows** sol taraftaki bölmede.  Tıklatın **konsol uygulaması** Orta bölmede.  Projenizi adlandırın ve ardından **Tamam**.  
+Visual Studio 2015'içinde ' ı tıklatın **dosya**, **yeni**, **proje...**  yeni proje iletişim kutusunu açın.  Genişletme **Visual C#** seçeneğini belirleyip **Windows** sol taraftaki bölmede.  Tıklatın **konsol uygulaması** Orta bölmede.  Projenizi adlandırın ve ardından **Tamam**.  
 
 ![Yeni Proje](./media/cdn-app-dev-net/cdn-new-project.png)
 

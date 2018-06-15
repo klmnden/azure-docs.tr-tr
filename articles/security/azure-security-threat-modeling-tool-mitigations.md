@@ -1,6 +1,6 @@
 ---
-title: "Azaltıcı Etkenler - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs"
-description: "Microsoft tehdit modelleme en gösterilen olası çözümleri vurgulama aracı için Azaltıcı Etkenler sayfası tehditleri oluşturulur."
+title: Azaltıcı Etkenler - Microsoft tehdit modelleme aracı - Azure | Microsoft Docs
+description: Microsoft tehdit modelleme en gösterilen olası çözümleri vurgulama aracı için Azaltıcı Etkenler sayfası tehditleri oluşturulur.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23867986"
 ---
 # <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft tehdit modelleme aracı Azaltıcı Etkenler
 

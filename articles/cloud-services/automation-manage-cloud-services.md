@@ -1,11 +1,11 @@
 ---
-title: "Azure otomasyonu kullanarak Azure Cloud Services yönetme | Microsoft Docs"
-description: "Nasıl Azure Otomasyon hizmetine ölçekte Azure bulut hizmetlerini yönetmek için kullanılabilir hakkında bilgi edinin."
+title: Azure otomasyonu kullanarak Azure Cloud Services yönetme | Microsoft Docs
+description: Nasıl Azure Otomasyon hizmetine ölçekte Azure bulut hizmetlerini yönetmek için kullanılabilir hakkında bilgi edinin.
 services: cloud-services, automation
-documentationcenter: 
+documentationcenter: ''
 author: jodoglevy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23842940"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Azure otomasyonu kullanarak Azure Cloud Services yönetme
 Bu kılavuz Azure Otomasyon hizmetine ve nasıl Azure bulut hizmetlerinizi yönetimini basitleştirmek için kullanılabilmesi için tanıtılacaktır.

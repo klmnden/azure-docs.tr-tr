@@ -1,11 +1,11 @@
 ---
-title: "Bulut Hizmetleri için genel başlangıç görevleri | Microsoft Docs"
-description: "Bulut Hizmetleri web rolü ya da çalışan rolü gerçekleştirmek istediğinizi düşünelim ortak başlangıç görevleri, bazı örnekler sağlar."
+title: Bulut Hizmetleri için genel başlangıç görevleri | Microsoft Docs
+description: Bulut Hizmetleri web rolü ya da çalışan rolü gerçekleştirmek istediğinizi düşünelim ortak başlangıç görevleri, bazı örnekler sağlar.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: a7095dad-1ee7-4141-bc6a-ef19a6e570f1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23843703"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Genel bulut hizmeti başlangıç görevleri
 Bu makale, bulut hizmetinizin gerçekleştirmek istediğinizi düşünelim ortak başlangıç görevleri, bazı örnekler sağlar. Başlangıç görevi, bir rol başlamadan önce işlemlerini gerçekleştirmek için kullanabilirsiniz. Bir bileşeni yüklemek, COM bileşenlerini kaydetme, kayıt defteri anahtarlarını ayarlamak veya uzun süre çalışan bir işlem başlatılıyor gerçekleştirmek isteyebileceğiniz işlemleri içerir. 

@@ -1,11 +1,11 @@
 ---
-title: "Azure üzerinde bir Linux VM bash komut dosyasını çalıştırmak için bulut init kullanın | Microsoft Docs"
-description: "Azure CLI 2.0 ile oluşturma sırasında bir Linux VM bir bash komut dosyasını çalıştırmak için bulut init kullanma"
+title: Azure üzerinde bir Linux VM bash komut dosyasını çalıştırmak için bulut init kullanın | Microsoft Docs
+description: Azure CLI 2.0 ile oluşturma sırasında bir Linux VM bir bash komut dosyasını çalıştırmak için bulut init kullanma
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29123727"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>Azure'da bir Linux VM bash komut dosyasını çalıştırmak için bulut init kullanın
 Bu makalede nasıl kullanılacağı gösterilmektedir [bulut init](https://cloudinit.readthedocs.io) çalıştırmak için mevcut bir bash bir Linux sanal makinede (VM) komut dosyası veya sanal makine ölçek Azure zamanında sağlama sırasında (VMSS) ayarlar. Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın. Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md)
