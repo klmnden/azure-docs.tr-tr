@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 045b433fdea2cfb97f3002fbe692ea8e4988fbb4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726423"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Sanal Ağ eşlemesi bir - farklı oluşturmak dağıtım modelleri ve abonelikleri
 
@@ -106,7 +107,7 @@ Bu öğretici, her abonelik için farklı hesaplar kullanır. Her iki abonelikle
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. Geri kalan adımları tamamlanmış bir bash Azure CLI 2.0.4 kabuğunda veya üstü gerekir [yüklü](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), veya Azure bulut Kabuğu'nu kullanarak. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Tıklatın **deneyin** bir bulut, size Azure hesabınızda oturum Kabuğu'nu açar, izleme komut düğmesi. Bir Windows istemcisinde CLI betikleri çalıştırma seçenekleri bash için bkz: [Windows Azure CLI çalıştıran](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+5. Geri kalan adımları tamamlanmış bir bash Azure CLI 2.0.4 kabuğunda veya üstü gerekir [yüklü](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json), veya Azure bulut Kabuğu'nu kullanarak. Azure Cloud Shell doğrudan Azure portalının içinde çalıştırabileceğiniz ücretsiz bir Bash kabuğudur. Azure CLI, kabuğa önceden yüklenmiştir ve kabuk, hesabınızla birlikte kullanılacak şekilde yapılandırılmıştır. Tıklatın **deneyin** bir bulut, size Azure hesabınızda oturum Kabuğu'nu açar, izleme komut düğmesi. Bir Windows istemcisinde CLI betikleri çalıştırma seçenekleri bash için bkz: [Windows Azure CLI yükleme](/cli/azure/install-azure-cli-windows). 
 6. Aşağıdaki komut dosyası, bilgisayarınızdaki bir metin düzenleyicisine kopyalayın. Değiştir `<SubscriptionB-Id>` abonelik kimliğinizi içeren Aboneliğinizi kimliği bilmiyorsanız, girin `az account show` komutu. Değeri **kimliği** çıktıda, abonelik kimliği olan Değiştirilen betiği kopyalayın, CLI 2.0 oturumunuza yapıştırın ve ardından basın `Enter`. 
 
     ```azurecli-interactive

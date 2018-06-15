@@ -1,19 +1,19 @@
 ---
 title: Azure IOT köşesi modülleri dağıtma | Microsoft Docs
 description: Nasıl modülleri kenar cihazlara dağıttığınız hakkında bilgi edinin
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725335"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>IOT kenar dağıtımları tek cihazlar için veya ölçekte anlamak - Önizleme
 
@@ -25,7 +25,7 @@ Azure IOT sınır cihazları izleyin bir [cihaz yaşam döngüsü] [ lnk-lifecyc
 
 Azure IOT kenar IOT kenar cihazlarda çalıştırmak için modülleri yapılandırmanın iki yolu sağlar: biri geliştirme ve (kullandığınız Azure IOT kenar eğitimlerine) tek bir cihaz üzerinde hızlı yineleme için ve biri büyük fleets IOT kenar aygıtları yönetmek için. Bu yaklaşım her ikisi de Azure Portal ve program aracılığıyla kullanılabilir.
 
-Bu makalede yapılandırmasına odaklanır ve aygıtların fleets aşamaları izleme için IOT kenar dağıtımları anılan. Genel dağıtım adımları aşağıdaki gibidir:   
+Bu makalede yapılandırmasına odaklanır ve aygıtların fleets aşamaları izleme için IOT kenar otomatik dağıtımları anılan. Genel dağıtım adımları aşağıdaki gibidir:   
 
 1. Bir işleç modülleri, hem de hedef cihazlar kümesini bir dağıtım tanımlar. Her dağıtım bu bilgileri yansıtan bir dağıtım bildirimi sahiptir. 
 1. IOT Hub hizmeti istenen modüllerle yapılandırmak için tüm hedeflenen cihazların iletişim kurar. 
@@ -36,7 +36,7 @@ Bu makalede, yapılandırma ve dağıtım izleme dahil edilen her bir bileşen s
 
 ## <a name="deployment"></a>Dağıtım
 
-Bir dağıtım IOT kenar IOT sınır cihazları hedeflenen kümesine göre örnekleri çalıştırmak için modülü görüntüleri atar. Karşılık gelen başlatma parametrelerle modüllerin listesini dahil etmek için bir IOT kenar dağıtım bildirimi yapılandırarak çalışır. Bir dağıtımı (genellikle cihaz kimliği temel alarak) tek bir cihazı veya bir gruba (etiketlere göre) aygıtların atanabilir. Bir IOT sınır cihazı bir dağıtım bildirimi aldıktan sonra indirir ve ilgili kapsayıcı havuzların modülü kapsayıcı görüntüleri yükler ve bunları uygun şekilde yapılandırır. Bir dağıtımı oluşturulduktan sonra bir işleç hedeflenen cihazların doğru yapılandırıldığından olup olmadığını görmek için dağıtım durumunu izleyebilirsiniz.   
+IOT kenar otomatik bir dağıtımını IOT kenar IOT sınır cihazları hedeflenen kümesine göre örnekleri çalıştırmak için modülü görüntüleri atar. Karşılık gelen başlatma parametrelerle modüllerin listesini dahil etmek için bir IOT kenar dağıtım bildirimi yapılandırarak çalışır. Bir dağıtımı (genellikle cihaz kimliği temel alarak) tek bir cihazı veya bir gruba (etiketlere göre) aygıtların atanabilir. Bir IOT sınır cihazı bir dağıtım bildirimi aldıktan sonra indirir ve ilgili kapsayıcı havuzların modülü kapsayıcı görüntüleri yükler ve bunları uygun şekilde yapılandırır. Bir dağıtımı oluşturulduktan sonra bir işleç hedeflenen cihazların doğru yapılandırıldığından olup olmadığını görmek için dağıtım durumunu izleyebilirsiniz.   
 
 Cihazların dağıtımla yapılandırılacak IOT sınır cihazları olarak sağlanması gerekir. Aşağıdaki önkoşullar bulunmaktadır ve dağıtımda dahil edilmez:
 * Temel işletim sistemi

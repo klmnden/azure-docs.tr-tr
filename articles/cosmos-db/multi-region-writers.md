@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724916"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Küresel ölçekli çok şablonu Azure Cosmos DB ile 
  
-Genel olarak geliştirmeye verilerin tutarlı görünümlerini dünya çapında koruma zor bir sorundur ancak yerel gecikme ile yanıt uygulamaları dağıtılmış. Veri erişim gecikmesi geliştirmek, yüksek kullanılabilirlik elde etmek ve garantili olağanüstü durum kurtarma ve (4) kullanıcıların iş gereksinimlerini karşılayacak şekilde sağlamak ihtiyaç duydukları çünkü müşterilerin Genel dağıtılmış veritabanları, kullanın. Birden çok ana Azure Cosmos veritabanı yüksek düzeyde kullanılabilirlik (%99.999), veri ve ölçeklenebilirlik yerleşik kapsamlı ve esnek çakışma çözümleme desteğiyle yazmak için tek basamaklı milisaniyelik gecikme süresi sağlar. Bu özellikler, genel olarak dağıtılmış uygulamaların geliştirilmesini önemli ölçüde basitleştirir. Genel olarak dağıtılmış uygulamalar için birden çok yöneticili desteği önemlidir. 
+Genel olarak geliştirmeye verilerin tutarlı görünümlerini dünya çapında koruma zor bir sorundur ancak yerel gecikme ile yanıt uygulamaları dağıtılmış. Veri erişim gecikmesi geliştirmek, yüksek kullanılabilirlik elde etmek, garantili olağanüstü durum kurtarma sağlamak ve kendi iş gereksinimlerini karşılamak için ihtiyaç duydukları çünkü müşterilerin Genel dağıtılmış veritabanları, kullanın. Birden çok ana Azure Cosmos veritabanı yüksek düzeyde kullanılabilirlik (%99.999), veri ve ölçeklenebilirlik yerleşik kapsamlı ve esnek çakışma çözümleme desteğiyle yazmak için tek basamaklı milisaniyelik gecikme süresi sağlar. Bu özellikler, genel olarak dağıtılmış uygulamaların geliştirilmesini önemli ölçüde basitleştirir. Genel olarak dağıtılmış uygulamalar için birden çok yöneticili desteği önemlidir. 
 
 ![Birden çok yöneticili mimarisi](./media/multi-region-writers/multi-master-architecture.png)
 

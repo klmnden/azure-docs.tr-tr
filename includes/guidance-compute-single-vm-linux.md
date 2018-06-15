@@ -13,6 +13,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367139"
 ---
 Bu makalede ölçeklenebilirlik, kullanılabilirlik, yönetilebilirlik ve güvenliğe dikkat edilerek Azure’da Linux sanal makinesi (VM) çalıştırmak için işe yaradığı kanıtlanmış bir dizi uygulama açıklanır. Azure’da CentOS, Debian, Red Hat Enterprise, Ubuntu ve FreeBSD dahil olmak üzere çeşitli popüler Linux dağıtımlarını çalıştırma desteklenir. Daha fazla bilgi edinmek için bkz. [Azure ve Linux][azure-linux].
 

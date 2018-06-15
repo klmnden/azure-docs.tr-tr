@@ -5,20 +5,17 @@ keywords: ODBC, odbc sürücüsü
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 360161ec0485259029be0bbd5194911e484a57e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725100"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Azure Cosmos ODBC sürücüsüyle BI analiz araçları kullanarak veritabanına bağlan
 
@@ -123,7 +120,7 @@ Aşağıdaki adımları kullanarak bir veya daha fazla koleksiyonda verileri iç
 Bir bağlı sunucu bağlantısı kurmak ayarlayarak Azure Cosmos DB SQL Server Management Studio (SSMS) gelen sorgulayabilirsiniz.
 
 1. Bölümünde açıklandığı gibi bir sistem veri kaynağı oluşturun [2. adım](#connect), örneğin adlandırılmış `SDS Name`.
-2. [SQL Server Management Studio'yu yüklemeniz](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [SQL Server Management Studio yüklemek](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) ve sunucuya bağlanın. 
 3. SSMS sorgu Düzenleyicisi'nde bir bağlı sunucu nesnesi oluşturmak `DEMOCOSMOS` aşağıdaki komutlarla veri kaynağı için. Değiştir `DEMOCOSMOS` bağlantılı sunucunuzun adıyla ve `SDS Name` sistemi veri kaynağı adı.
 
     ```sql
@@ -181,7 +178,7 @@ Dilediğiniz gibi birçok görünümler oluşturabilirsiniz. İşiniz bittiğind
 
 ODBC uyumlu bir araçlarıyla DocumentADB bağlanmak için yeni DSN kullanabilirsiniz - Bu adım yalnızca, Power BI Desktop bağlanmak ve bir Power BI görselleştirmesi oluşturmak nasıl gösterir.
 
-1. Open Power BI Desktop.
+1. Power BI Desktop’ı açın.
 2. Tıklatın **veri alma**.
 3. İçinde **Veri Al** penceresinde tıklatın **diğer** | **ODBC** | **Bağlan**.
 4. İçinde **gelen ODBC** penceresi, veri kaynağının adını ve ardından select **Tamam**. Bırakabilirsiniz **Gelişmiş Seçenekler** girişleri boş.

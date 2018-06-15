@@ -15,11 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e25bd3e5c47667a711c53711f9823fb231dbcd86
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
+ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 05/20/2018
+ms.locfileid: "34347508"
 ---
 # <a name="what-is-the-access-panel"></a>Erişim paneli nedir?
 
@@ -60,7 +61,7 @@ Erişim paneli ulaşmak için bir iş veya Okul hesabı ile Azure AD içinde kim
 
 Azure veya Office 365 için bir abonelik varsa ve Azure portalını veya Office 365 uygulama kullanmakta olduğunuz tekrar oturum açmayı olmadan uygulamaların listesini görüntüleyebilirsiniz. Kimlik doğrulaması yapılmıyor, hesabınız için Azure AD'de kullanıcı adı ve parola kullanarak oturum açmak için istenir. Kuruluşunuzun Federasyon yapılandırdıysa, kullanıcı adı yazmaya yeterli olur.
 
-Doğrulandığında, yöneticiniz directory ile tümleşik olan uygulamalar ile etkileşim kurabilir. Uygulamaları Azure AD ile tümleştirmek öğrenmek için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](active-directory-appssoaccess-whatis.md).
+Doğrulandığında, yöneticiniz directory ile tümleşik olan uygulamalar ile etkileşim kurabilir. Uygulamaları Azure AD ile tümleştirmek öğrenmek için bkz: [uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](manage-apps/what-is-single-sign-on.md).
 
 ## <a name="web-browser-requirements"></a>Web tarayıcısı gereksinimleri
 
@@ -215,7 +216,7 @@ Bir uygulama, AD FS 2.0 kullanarak kullanıcıların kimlik doğrulaması için 
  
 - Bir SaaS uygulaması Azure AD ile tümleştirmek öğrenmek için bkz: [ilgili SaaS uygulamalarını tümleştirme ile öğreticiler listesi](active-directory-saas-tutorial-list.md).
  
-- Azure AD ile uygulamaları yönetme hakkında daha fazla bilgi için bkz: [tek oturum açma ve yönetme uygulama erişimi Azure Active Directory ile giriş](active-directory-appssoaccess-whatis.md).
+- Azure AD ile uygulamaları yönetme hakkında daha fazla bilgi için bkz: [tek oturum açma ve yönetme uygulama erişimi Azure Active Directory ile giriş](manage-apps/what-is-single-sign-on.md).
  
 - Kullanıcı hazırlama hakkında daha fazla bilgi için bkz: [kullanıcı sağlama ve SaaS uygulamaları etkinleştirmektir otomatikleştirmek](active-directory-saas-app-provisioning.md).
 
