@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205985"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric programlama modeline genel bakış
 Service Fabric yazma ve hizmetlerinizi yönetmek için birden çok yol sunar. Hizmetleri platformun özellikleri ve uygulama çerçeveleri tam anlamıyla yararlanabilmek için Service Fabric API'ları kullanmayı seçebilirsiniz. Hizmetleri herhangi bir dil veya bir Service Fabric kümesi üzerinde barındırılan bir kapsayıcıda çalışan kodu yazılmış derlenmiş bir yürütülebilir program da olabilir.

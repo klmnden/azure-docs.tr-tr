@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206329"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Azure Service Fabric barındırma modeli
 Bu makale Azure Service Fabric tarafından sağlanan modelleri barındıran uygulama genel bir bakış sağlar ve arasındaki farklar açıklanmaktadır **paylaşılan işlem** ve **özel işlem** modeller. Dağıtılan bir uygulama bir Service Fabric düğümü ve hizmet ve hizmet ana bilgisayar işlemi çoğaltmaları (veya örnekleri) arasındaki ilişkiyi nasıl göründüğünü açıklayan.

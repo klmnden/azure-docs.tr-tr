@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206445"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric olağanüstü durum kurtarma
 Yüksek kullanılabilirlik gerçekleştirirken önemli bir bölümü Hizmetleri hataları tüm farklı türlerde varlığını sürdürmesini olduğundan emin olmaktır. Bu, Planlanmayan hatalar için özellikle önemlidir ve denetiminizin dışında. Bu makalede afetler olabilir değilse modellenir ve doğru şekilde yönetilen bazı ortak hatası modları açıklanır. Bu da ele Azaltıcı Etkenler ve yine de bir olağanüstü durum oluştuysa, gerçekleştirilecek eylemler. Sınırlamaya veya planlanan hataları oluştuğunda kapalı kalma süresi veya veri kaybı riski ortadan kaldırmak veya aksi halde, ortaya hedeftir.

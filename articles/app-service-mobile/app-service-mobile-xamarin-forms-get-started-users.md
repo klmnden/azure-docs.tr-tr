@@ -1,11 +1,11 @@
 ---
-title: "Mobil uygulamaları için Xamarin Forms uygulamasında kimlik doğrulamasını kullanmaya başlama | Microsoft Docs"
-description: "Mobile Apps kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli Xamarin Forms uygulamanızdaki kullanıcıların kimliklerini doğrulamak için nasıl kullanılacağını öğrenin."
+title: Mobil uygulamaları için Xamarin Forms uygulamasında kimlik doğrulamasını kullanmaya başlama | Microsoft Docs
+description: Mobile Apps kimlik sağlayıcıları, AAD, Google, Facebook, Twitter ve Microsoft dahil olmak üzere çeşitli Xamarin Forms uygulamanızdaki kullanıcıların kimliklerini doğrulamak için nasıl kullanılacağını öğrenin.
 services: app-service\mobile
 documentationcenter: xamarin
 author: panarasi
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593407"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms kimlik doğrulaması ekleme
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

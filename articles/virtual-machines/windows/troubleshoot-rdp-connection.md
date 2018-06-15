@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: danis
-ms.openlocfilehash: 60c54850c1ca5de0e9bda4b48688ba297874e48e
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: c1444901fa46a62761d6b94ccb8e7ea3ff3d057f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701896"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Bir Azure sanal makinesi için Uzak Masaüstü bağlantı sorunlarını giderme
 Uzak Masaüstü Protokolü (RDP) bağlantısı, Windows tabanlı Azure sanal makine (VM), VM erişilemiyor bırakarak çeşitli nedenlerle başarısız olabilir. VM, ağ bağlantısı veya ana bilgisayarınızda Uzak Masaüstü İstemcisi Uzak Masaüstü hizmetiyle sorunu olabilir. Bu makalede, bazı RDP bağlantı sorunlarını gidermek için en yaygın yöntemleri size yol gösterir. 
@@ -65,7 +66,7 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin. Hala bağlanam
     Azure portalında, VM'yi seçin. Ayarları bölmesine aşağı **destek + sorun giderme** listenin alt kısmına. Tıklatın **parola sıfırlama** düğmesi. Ayarlama **modu** için **yalnızca sıfırlama yapılandırma** ve ardından **güncelleştirme** düğmesi:
    
     ![Azure portalında RDP yapılandırması sıfırlandı](./media/troubleshoot-rdp-connection/reset-rdp.png)
-2. **Doğrulama ağ güvenlik grubu kuralları**. [IP akışı doğrulamayı](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) kullanarak Ağ Güvenlik Grubu’ndaki bir kuralın bir sanal makineye giden veya gelen trafiği engelleyip engellemediğini doğrulayın. Gelen "izin ver" NSG emin olmak için etkili güvenlik grubu kuralları gözden geçirebilirsiniz kuralı var ve RDP bağlantı noktası (varsayılan 3389) öncelik. Daha fazla bilgi için bkz: [kullanarak etkili güvenlik VM gidermek için kuralları trafiğinin akmasını](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+2. **Doğrulama ağ güvenlik grubu kuralları**. [IP akışı doğrulamayı](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) kullanarak Ağ Güvenlik Grubu’ndaki bir kuralın bir sanal makineye giden veya gelen trafiği engelleyip engellemediğini doğrulayın. Gelen "izin ver" NSG emin olmak için etkili güvenlik grubu kuralları gözden geçirebilirsiniz kuralı var ve RDP bağlantı noktası (varsayılan 3389) öncelik. Daha fazla bilgi için bkz: [kullanarak etkili güvenlik VM gidermek için kuralları trafiğinin akmasını](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 3. **VM önyükleme tanılaması gözden**. Bu sorun giderme adımı VM bir sorun raporlama yapıp yapmadığını belirlemek için VM konsol günlükleri gözden geçirir. Tüm sanal makineleri önyükleme tanılaması etkin, sahip, bu nedenle sorun giderme Bu adım isteğe bağlı olabilir.
    
@@ -95,7 +96,7 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin. Hala bağlanam
    
     Bu işlem tamamlandıktan sonra kısa ömürlü disk veriler kaybolur ve VM ile ilişkili olan dinamik IP adreslerini güncelleştirilir.
 
-9. **Yönlendirme doğrulayın**. Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+9. **Yönlendirme doğrulayın**. Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/diagnose-network-routing-problem.md).
 
 10. Tüm şirket içi güvenlik duvarı veya güvenlik duvarı, bilgisayarınızdaki Azure giden TCP 3389 trafiği verdiğinden emin olun.
 
@@ -184,7 +185,7 @@ Sorun giderme her adımdan sonra VM yeniden bağlanmayı deneyin. Hala bağlanam
     Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
     ```
 
-6. **Yönlendirme doğrulayın**. Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/virtual-network-routes-troubleshoot-powershell.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+6. **Yönlendirme doğrulayın**. Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/diagnose-network-routing-problem.md).
 
 7. Tüm şirket içi güvenlik duvarı veya güvenlik duvarı, bilgisayarınızdaki Azure giden TCP 3389 trafiği verdiğinden emin olun.
 

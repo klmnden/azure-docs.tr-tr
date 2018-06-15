@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213172"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Veri seri hale getirme uygulama yükseltme nasıl etkiler
 İçinde bir [uygulama yükseltmesinde](service-fabric-application-upgrade.md), alt düğümler, aynı anda bir yükseltme etki alanı yükseltme uygulanır. Bu işlem sırasında bazı yükseltme etki alanlarının uygulamanızı sürümü, ve bazı yükseltme etki alanları, uygulamanızın eski sürümünde. Piyasaya çıkma sırasında uygulamanın yeni sürümü verilerinizin eski sürümü okuyabilir ve uygulamanızın eski sürümünü verilerinizin yeni sürümü okuyabilir. Veri biçimi ileriye ve geriye dönük olarak uyumlu değilse, yükseltme başarısız olabilir ya da kötüsü, veriler kaybolmuş veya bozulmuş. Hangi veri biçimi oluşturduğunu ve verilerinizi ileriye ve geriye doğru olduğundan emin olmanın en iyi yöntemleri sunar bu makalede ele uyumlu.

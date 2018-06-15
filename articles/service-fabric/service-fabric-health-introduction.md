@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207307"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric sistem durumu izlemeye giriş
 Azure Service Fabric zengin, esnek ve Genişletilebilir sistem durumu değerlendirmesi ve raporlama sağlar bir sistem durumu modeli sunar. Model durumu kümeyi ve içinde çalışan hizmetleri yakın gerçek zamanlı izlenmesini sağlar. Kolayca sistem durumu bilgilerini almak ve düzeltmek olası sorunlar basamaklı ve yoğun kesintileri neden önce. Tipik modelinde Hizmetleri kendi yerel görünümleri temel alan raporları göndermek ve genel bir sağlamak için bu bilgileri de toplanır küme görünüm düzeyi.

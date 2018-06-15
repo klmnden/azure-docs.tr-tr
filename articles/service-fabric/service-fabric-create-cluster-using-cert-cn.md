@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211074"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>Sertifika ortak adı yerine parmak izi kullanan bir Service Fabric kümesi dağıtma
 İki sertifika küme sertifika geçişine veya yönetim zorlaştırır aynı parmak olabilir. Birden çok sertifika, ancak aynı ortak adı veya konu sahip olabilir.  Sertifika ortak adları kullanarak bir küme sertifika yönetimini daha kolay hale getirir. Bu makalede, sertifikanın ortak adı sertifika parmak izi yerine kullanılacak bir Service Fabric kümesi dağıtmayı açıklar.

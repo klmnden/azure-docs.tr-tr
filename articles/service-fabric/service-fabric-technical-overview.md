@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212077"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric terminolojisi genel bakış
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur. Bu makalede belgelerde kullanılan terimler anlamak için Service Fabric tarafından kullanılan terminolojiyi ayrıntılarını verir.

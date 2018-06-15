@@ -1,20 +1,21 @@
 ---
-title: Sık sorulan sorular - Azure Active Directory B2C
-description: Azure Active Directory B2C hakkında sık sorulan sorular (SSS)
+title: Azure Active Directory B2C için sık sorulan sorular | Microsoft Docs
+description: Sık Azure Active Directory B2C hakkında sorulan sorular (SSS).
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: d213a3f8bed5af526efba39868855b6f6727a7c0
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
-ms.translationtype: MT
+ms.component: B2C
+ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710741"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -42,7 +43,7 @@ Kullanıma göre özel ilkelerini kullanmaya başlama bizim [özel ilke başlang
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Çeşitli sosyal kimlik sağlayıcılardan tüketicileri hakkında daha fazla bilgi toplamak üzere kapsamını yapılandırabilir miyim?
 Hayır, ancak bu özellik üzerinde bizim yol haritası. Desteklenen bizim sosyal kimlik sağlayıcıları kümesi için kullanılan varsayılan kapsamları şunlardır:
 
-* Facebook: email
+* Facebook: e-posta
 * Google +: e-posta
 * Microsoft hesabı: openıd e-posta profili
 * Amazon: profili
@@ -118,7 +119,7 @@ Azure AD B2C kiracınızın silmek için aşağıdaki adımları izleyin:
 4. Her kullanıcı Aç (dışlamak, şu anda olarak oturum açtınız Abonelik Yöneticisi kullanıcı) seçin. Tıklatın **silmek** tıklatın ve sayfanın altındaki **Evet** istendiğinde.
 5. Tıklatın **uygulama kayıtlar**.
 6. Adlı uygulama seçin **b2c uzantıları uygulaması**. Tıklatın **silmek** tıklatıp **Evet** istendiğinde.
-7. Seçin **genel bakış**.
+7. **Genel Bakış**’ı seçin.
 8. Tıklatın **Delete directory**. İşlemi tamamlamak için ekrandaki yönergeleri izleyin.
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Azure AD B2C Enterprise Mobility Suite'in parçası olarak alabilir miyim?

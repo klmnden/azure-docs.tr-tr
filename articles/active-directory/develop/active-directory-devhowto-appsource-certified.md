@@ -22,6 +22,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257540"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Azure Active Directory AppSource sertifikalı alma
 [Microsoft AppSource](https://appsource.microsoft.com/) bulmak, deneyin ve iş kolu satır SaaS uygulamaları (tek başına SaaS ve var olan Microsoft SaaS ürünlerinde eklentiye) yönetmek İşletme kullanıcıları için bir hedef.

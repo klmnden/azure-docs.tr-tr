@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905560"
 ---
 # <a name="how-to-create-a-linux-vm-using-the-azure-cli-10-an-azure-resource-manager-template"></a>Bir Azure Resource Manager şablonu Azure CLI 1.0 kullanarak bir Linux VM oluşturma
 Bu makalede hızlı bir şekilde Azure CLI 1.0 ve Azure Resource Manager şablonu kullanarak bir Linux sanal makine dağıtma gösterilir. Bu makale için şunlar gereklidir:

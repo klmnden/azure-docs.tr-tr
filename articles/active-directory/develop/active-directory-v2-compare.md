@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156815"
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>V2.0 uç noktası hakkında farklı nedir?
 Azure Active Directory ile tanıdık veya uygulamaları geçmişte Azure AD ile tümleşik değil beklediğiniz v2.0 uç noktası bazı farklılıklar olabilir. Bu belge, anlamak için bu farkları çıkışı çağırır.

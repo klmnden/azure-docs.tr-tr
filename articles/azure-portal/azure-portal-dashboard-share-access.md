@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165137"
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>Rol tabanlı erişim denetimi kullanarak Azure panoları paylaşmak
 Bir Pano yapılandırdıktan sonra yayımlayabilir ve kuruluşunuzdaki diğer kullanıcılarla paylaşmak. Diğerlerinin Azure kullanarak panonuz görüntülemesine izin vermek [rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md). Bir kullanıcı veya kullanıcılar grubunun bir role atayın ve bu rol kullanıcılarla değiştirebilir veya görüntüleyebilirsiniz yayımlanan Pano olup olmadığını tanımlar. 

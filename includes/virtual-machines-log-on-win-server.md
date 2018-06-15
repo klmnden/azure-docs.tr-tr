@@ -13,6 +13,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34012820"
 ---
 1. Tıklatın **Bağlan** düğmesi sanal makine özellikleri sayfasında. 
 2. İçinde **sanal makineye Bağlan** sayfasında uygun seçenekleri seçin tutmak ve tıklayın **karşıdan RDP dosyasını**.

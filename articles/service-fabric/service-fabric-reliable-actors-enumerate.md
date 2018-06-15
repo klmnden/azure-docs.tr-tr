@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207276"
 ---
 # <a name="enumerate-service-fabric-reliable-actors"></a>Service Fabric Reliable Actors listeleme
 Reliable Actors hizmeti meta veri hizmeti barındırma aktörler hakkında numaralandırılamadı bir istemcinin sağlar. Aktör hizmeti bölümlenmiş bir durum bilgisi olan hizmet olduğundan, numaralandırma bölüm başına gerçekleştirilir. Her bölüm birçok aktörler içerebileceğinden sabit disk belleğine alınmış sonuçlar kümesi olarak döndürülür. Tüm sayfaları oku kadar üzerinden sayfaları döngüye. Aşağıdaki örnekte bir aktör hizmeti bir bölümünü tüm etkin aktörler listesini oluşturulacağını gösterir:

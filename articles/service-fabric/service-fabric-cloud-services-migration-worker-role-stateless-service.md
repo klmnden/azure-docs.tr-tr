@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206691"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için dönüştürme Kılavuzu
 Bu makalede, bulut Hizmetleri Web ve çalışan rolleri Service Fabric durum bilgisi olmayan hizmetler için nasıl geçirileceği açıklanmaktadır. Bu en basit geçiş bulut hizmetlerinden Service Fabric, genel mimarisi kabaca aynı kalmasını gittiği uygulamalar için yoludur.

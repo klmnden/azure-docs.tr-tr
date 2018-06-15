@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638084"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>Önceden yapılandırılmış uzaktan izleme çözümünde gezinme
 
@@ -35,7 +36,7 @@ Bu makalede uzaktan izleme çözümünün nasıl çalıştığını anlamanız i
 
 Aşağıdaki diyagram önceden yapılandırılmış çözümün mantıksal bileşenlerinin ana hatların vermektedir:
 
-![Mantıksal mimari](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![Mantıksal mimari](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>Mikro Hizmetler ve Docker Kapsayıcıları
 Uzaktan İzleme, mikro hizmetler mimarisinden yararlanmak için sunulmuş önceden yapılandırılmış çözümlerimizin ilkidir. Çözüm, hem [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)’te hem de [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)’da kullanılabilir.

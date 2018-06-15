@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209163"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Windows Server çalıştıran tek başına kümesi oluşturma
 Azure Service Fabric, tüm sanal makineler veya Windows Server çalıştıran bilgisayarlarda Service Fabric kümeleri oluşturmak için kullanabilirsiniz. Yani, dağıtmak ve Service Fabric uygulamaları birbirine bağlı bir Windows Server bilgisayarlar kümesi içeren herhangi bir ortamda çalıştırılabilir, şirket içinde veya herhangi bir bulut sağlayıcısına sahip olabilir. Service Fabric tek başına Windows Server paket adlı Service Fabric kümeleri oluşturmak için Kurulum paketini sağlar.

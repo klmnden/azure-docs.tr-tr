@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 087a0f12f765b55c2e2976abd93d791409ff6d44
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757630"
 ---
 # <a name="testability-actions"></a>Test Edilebilirlik Eylemler
 Güvenilir olmayan bir altyapı benzetimini yapmak için Azure Service Fabric çeşitli gerçek hataları ve durumu geçişleri gerçekleştirecek birçok yöntem ile geliştirici olarak size sağlar. Bu Test Edilebilirlik eylemler olarak sunulur. Belirli bir arıza ekleme, durum geçişi veya doğrulama neden alt düzey API'leri eylemlerdir. Bu eylemler ile birleştirerek kapsamlı test senaryoları için hizmetlerinizi yazabilirsiniz.
@@ -36,13 +37,13 @@ Test Edilebilirlik Eylemler iki ana demet sınıflandırılır:
 Daha iyi kalite doğrulama için çeşitli normal ve durunda hataları inducing sırasında hizmet ve iş yükünü çalıştırın. Durunda hataları nerede hizmet işlemi bazı iş akışı ortasında aniden çıkar senaryoları uygulamaktadır. Hizmet çoğaltma Service Fabric tarafından geri yüklendikten sonra bu kurtarma yolu sınar. Bu, veri tutarlılığı ve hizmet durumu hataları sonra doğru olup olmadığını yönetilmesini test yardımcı olur. Diğer kümesi Service Fabric tarafından taşınan çoğaltmaları için hizmet doğru şekilde tepki verdiğini hataları (normal hata sayısı) test. Bu işleme iptal RunAsync yönteminde sınar. Olan ayarlayın, doğru durumunu kaydetmek için iptal belirteci denetleyin ve RunAsync yöntemi çıkmak hizmet gerekiyor.
 
 ## <a name="testability-actions-list"></a>Test Edilebilirlik eylemler listesi
-| action | Açıklama | Yönetilen API | PowerShell cmdlet'i | Normal/durunda hataları |
+| Eylem | Açıklama | Yönetilen API | PowerShell cmdlet'i | Normal/durunda hataları |
 | --- | --- | --- | --- | --- |
 | CleanTestState |Tüm test durumu kümeyi test sürücüsünün hatalı bir kapanma durumunda kaldırır. |CleanTestStateAsync |Remove-ServiceFabricTestState |Uygulanamaz |
 | InvokeDataLoss |Veri kaybı hizmet bölüme uygulanmasını. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |Normal |
 | InvokeQuorumLoss |Belirtilen durum bilgisi olan hizmet bölüm çekirdek kayıp yerleştirir. |InvokeQuorumLossAsync |Çağırma ServiceFabricQuorumLoss |Normal |
-| Birincil taşıma |Durum bilgisi olan hizmet belirtilen birincil çoğaltmasını belirtilen küme düğümü taşır. |MovePrimaryAsync |Taşıma ServiceFabricPrimaryReplica |Normal |
-| İkincil taşıma |Bir durum bilgisi olan hizmetin geçerli ikincil çoğaltma için farklı küme düğümü taşır. |MoveSecondaryAsync |Taşıma ServiceFabricSecondaryReplica |Normal |
+| MovePrimary |Durum bilgisi olan hizmet belirtilen birincil çoğaltmasını belirtilen küme düğümü taşır. |MovePrimaryAsync |Taşıma ServiceFabricPrimaryReplica |Normal |
+| MoveSecondary |Bir durum bilgisi olan hizmetin geçerli ikincil çoğaltma için farklı küme düğümü taşır. |MoveSecondaryAsync |Taşıma ServiceFabricSecondaryReplica |Normal |
 | RemoveReplica |Bir çoğaltma hatası bir kümeden bir çoğaltma kaldırarak benzetimini yapar. Bu çoğaltma kapatılacak ve rolüne geçirecektir 'None', durumunun tamamı kümeden kaldırma. |RemoveReplicaAsync |Remove-ServiceFabricReplica |Normal |
 | RestartDeployedCodePackage |Kod paketi işlemi başarısız bir kümedeki bir düğümün dağıtılmış kod paketi yeniden başlatarak benzetimini yapar. Bu işlemde barındırılan tüm kullanıcı hizmet çoğaltmalar yeniden kod paket işlemi durdurur. |RestartDeployedCodePackageAsync |Yeniden başlatma ServiceFabricDeployedCodePackage |Durunda |
 | RestartNode |Bir Service Fabric kümesi düğüm hatasından bir düğümü yeniden başlatarak benzetimini yapar. |RestartNodeAsync |Yeniden başlatma ServiceFabricNode |Durunda |

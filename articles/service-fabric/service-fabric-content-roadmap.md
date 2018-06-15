@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212832"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Bu nedenle Service Fabric hakkında bilgi edinmek istiyorsunuz?
 Azure Service Fabric; ölçeklenebilir ve güvenilir mikro hizmetleri paketlemeyi, dağıtmayı ve yönetmeyi kolaylaştırmayı sağlayan bir dağıtılmış sistemler platformudur.  Ancak, büyük bir yüzey alanı Service Fabric sahiptir ve öğrenmek için çok yok.  Bu makale, Service Fabric özeti sağlar ve modeller, uygulama yaşam döngüsü, test, kümeler ve sistem durumu izleme programlama temel kavramlarını açıklar. Okuma [genel bakış](service-fabric-overview.md) ve [mikro nelerdir?](service-fabric-overview-microservices.md) giriş ve Service Fabric mikro oluşturmak için nasıl kullanılabilir. Bu makalede kapsamlı bir içerik listesi içermiyor, ancak genel bakış ve her Service Fabric alanı için Başlarken makaleleri bağlayın. 

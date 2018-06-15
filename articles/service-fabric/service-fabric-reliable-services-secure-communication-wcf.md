@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205748"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>Bir hizmet için WCF tabanlı iletişimleri güvenli
 Güvenlik iletişim en önemli yönlerinden birisidir. Güvenilir hizmetler uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Bu makalede hizmet remoting kullanırken güvenliğini artırmak hakkında alınmaktadır.

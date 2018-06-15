@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205136"
 ---
 # <a name="throttling-the-service-fabric-cluster-resource-manager"></a>Service Fabric kümesi Kaynak Yöneticisi azaltma
 Küme Kaynak Yöneticisi'ni düzgün yapılandırdıktan olsa bile, küme kesintiye. Örneğin, yükseltme sırasında oluştu neler olacağını eşzamanlı düğüm ve hata etki alanı hataları - olabilir? Küme Kaynak Yöneticisi'ni daima her şeyi düzeltmek yeniden düzenleyin ve küme düzeltmek çalışarak küme kaynaklarını tüketen çalışır. Kısıtlamaları Yardım küme kaynakları Sabitle için - kullanabilmesi için bir backstop sağlamak düğümleri geri dönün, ağ bölümleri onarma, düzeltilmiş BITS dağıtılmış.

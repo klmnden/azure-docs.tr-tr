@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204864"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Yapılandırma ve Service Fabric hizmeti benzeşimini kullanma
 Benzeşim Bulut ve mikro dünyaya daha büyük tek yapılı uygulamalar geçişini kolaylaştırır yardımcı olmak için temel olarak sağlanan bir denetimdir. Bunun yapılması rağmen Hizmetleri, performansı artırmak için bir en iyi duruma getirme yan etkileri olabilir olarak da kullanılır.

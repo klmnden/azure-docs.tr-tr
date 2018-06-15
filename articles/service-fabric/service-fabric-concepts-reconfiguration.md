@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212815"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric içinde yeniden yapılandırma
 A *yapılandırma* çoğaltmaları ve kendi rolleri için durum bilgisi olan hizmet bölümü olarak tanımlanır.

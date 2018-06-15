@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: e5d9fb76f66ffb98addab24e9e8bf8b82a82af7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9db1252ffdb705308c6bdaf77f394a0e57145fb5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701930"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Bir Azure Linux VM, hatalar, başarısız olur veya reddedilir SSH bağlantı sorunlarını giderme
 Güvenli Kabuk (SSH), SSH bağlantı hataları hatalarla veya bir Linux sanal makine (VM) bağlanmaya çalıştığınızda SSH reddetti çeşitli nedenleri vardır. Bu makalede bulmanıza ve sorunları düzeltin yardımcı olur. Azure portalı, Azure CLI ya da Linux VM erişim uzantısını ve bağlantı sorunlarını gidermek için kullanabilirsiniz.
@@ -71,11 +72,11 @@ Bu menüden VM sudo ayrıcalıklarına sahip bir kullanıcı da oluşturabilirsi
 
 ### <a name="check-security-rules"></a>Güvenlik kuralları denetleyin
 
-Kullanım [IP akış doğrulayın](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) bir ağ güvenlik grubu kural trafiği için veya bir sanal makineden durumunda engelliyor onaylamak için. Gelen "izin ver" NSG emin olmak için etkili güvenlik grubu kuralları gözden geçirebilirsiniz kuralı var ve SSH bağlantı noktası (varsayılan 22) öncelik. Daha fazla bilgi için bkz: [VM gidermek için etkili güvenlik kuralları kullanarak trafiğinin akmasını](../../virtual-network/virtual-network-nsg-troubleshoot-portal.md#using-effective-security-rules-to-troubleshoot-vm-traffic-flow).
+Kullanım [IP akış doğrulayın](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) bir ağ güvenlik grubu kural trafiği için veya bir sanal makineden durumunda engelliyor onaylamak için. Gelen "izin ver" NSG emin olmak için etkili güvenlik grubu kuralları gözden geçirebilirsiniz kuralı var ve SSH bağlantı noktası (varsayılan 22) öncelik. Daha fazla bilgi için bkz: [VM gidermek için etkili güvenlik kuralları kullanarak trafiğinin akmasını](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
 ### <a name="check-routing"></a>Yönlendirmeyi denetleyin
 
-Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow).
+Ağ İzleyicisi'nin kullanmak [sonraki atlama](../../network-watcher/network-watcher-check-next-hop-portal.md) yönlendiriliyor veya bir sanal makineden bir rota trafiği önleme değil olduğunu onaylamak için yeteneği. Ayrıca, bir ağ arabirimi için tüm etkin yollar görmek için etkili yolları gözden geçirebilirsiniz. Daha fazla bilgi için bkz: [VM sorun giderme için etkili yolları kullanma trafiğinin akmasını](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli-20"></a>Azure CLI 2.0 kullanma
 Henüz yapmadıysanız, en son yükleme [Azure CLI 2.0](/cli/azure/install-az-cli2) ve bir Azure hesabı kullanarak oturum açma [az oturum açma](/cli/azure/reference-index#az_login).

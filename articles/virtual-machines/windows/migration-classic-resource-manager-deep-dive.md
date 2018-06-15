@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914000"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Klasik modelden Azure Resource Manager’a platform destekli geçişe ayrıntılı teknik bakış
 Azure Klasik dağıtım modelinden Azure Resource Manager dağıtım modeline geçiş üzerinde bir derin Dalış atalım. Biz düzeyinde kaynakları nasıl iki dağıtım modelleri arasında kaynakları Azure platformu geçirir anlamanıza yardımcı olması için bir kaynak ve özellik bakın. Daha fazla bilgi için lütfen hizmet duyuru makaleyi okuyun: [Iaas Klasik kaynaklardan Azure Resource Manager'a Platform desteklenen geçişini](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

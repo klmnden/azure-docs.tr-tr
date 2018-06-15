@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208762"
 ---
 # <a name="testability-scenarios"></a>Test Edilebilirlik senaryoları
 Bulut altyapılarının doğası gereği güvenilir gibi büyük dağıtılan sistemlerde. Azure Service Fabric geliştiriciler güvenilmez altyapısının en üstünde services yazma olanağı sağlar. Yüksek kaliteli Hizmetleri yazma için geliştiriciler böyle güvenilir olmayan bir altyapı hizmetlerini kararlılığını test etmek için anlamına olması gerekir.

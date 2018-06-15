@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209347"
 ---
 # <a name="polymorphism-in-the-reliable-actors-framework"></a>Çok biçimlilik Reliable Actors Framework'te
 Reliable Actors framework birçok nesne yönelimli tasarımında kullanacağınız aynı teknikleri kullanarak aktörler oluşturmanıza olanak sağlar. Bu teknikler biri türlerine izin verir ve'dan daha fazla devralmak için arabirimleri çok biçimlilik üst genelleştirilmiş. Reliable Actors Framework'te devralma genellikle birkaç ek kısıtlamalar .NET modeliyle izler. Java/Linux durumunda, Java modelini izler.

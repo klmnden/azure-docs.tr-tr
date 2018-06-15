@@ -1,28 +1,24 @@
 ---
-title: Ölçek U-SQL yerel çalıştırma ve test Azure Data Lake U-SQL SDK'sı | Microsoft Docs
-description: Azure Data Lake U-SQL SDK'sı için ölçek U-SQL işleri yerel çalıştırma ve test komut satırı ve yerel istasyonunuzda programlama arabirimleri ile nasıl kullanılacağını öğrenin.
+title: Çalıştırma ve U-SQL işleri için Azure Data Lake U-SQL SDK'sını kullanarak yerel olarak test etme
+description: Çalıştırma ve test yerel olarak komut satırını kullanarak ve programlama arabirimleri, yerel iş istasyonunda U-SQL işleri hakkında bilgi edinin.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737080"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Ölçek U-SQL yerel çalıştırma ve test Azure Data Lake U-SQL SDK'sı
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Çalıştırma ve U-SQL Azure Data Lake U-SQL SDK'sı ile test etme
 
-U-SQL betiği geliştirmeye çalıştırmak için yaygın bir sorundur ve yerel olarak test U-SQL betiği önce göndermek bulut için. Bu senaryo için Azure Data Lake U-SQL SDK adlı bir Nuget paketi Azure Data Lake sağlar, hangi, kolayca aracılığıyla U-SQL yerel çalıştırma ve test ölçeklendirilebilir. Bu U-SQL test derleme otomatikleştirmek ve test etmek için CI (sürekli tümleştirme) sistemi ile tümleştirmek mümkündür.
+U-SQL betiği geliştirmeye çalıştırmak için yaygın bir sorundur ve yerel olarak test U-SQL betiği önce göndermek bulut için. Bu senaryo için Azure Data Lake U-SQL SDK adlı bir Nuget paketi Azure Data Lake sağlar, hangi, kolayca aracılığıyla U-SQL çalıştırma ve test ölçeklendirilebilir. Bu U-SQL test derleme otomatikleştirmek ve test etmek için CI (sürekli tümleştirme) sistemi ile tümleştirmek mümkündür.
 
 İlgilendiğiniz ise nasıl el ile yerel çalıştırın ve Azure Data Lake araçları için Visual Studio için kullanabileceğiniz sonra U-SQL betiği GUI araçları ile hata ayıklama. ' Dan daha fazla bilgi edinebilirsiniz [burada](data-lake-analytics-data-lake-tools-local-run.md).
 
@@ -72,12 +68,12 @@ U-SQL betiği yerel olarak çalışırken, bir çalışma dizini geçerli çalı
 |--------------|--------------|--------------|----------|-----------|
 |C6A101DDCB470506| | |Karma dize çalışma zamanı sürümü|Çalışma zamanı dosyalarını yerel yürütme için gerekli gölge kopyası|
 | |Script_66AE4909AA0ED06C| |Ad script + betik yolu dizesi karma|Derleme çıktı ve yürütme günlüğü adım|
-| | |\_script\_.abr|Derleyici çıktısı|Cebiri dosyası|
+| | |\_komut dosyası\_.abr|Derleyici çıktısı|Cebiri dosyası|
 | | |\_ScopeCodeGen\_.*|Derleyici çıktısı|Oluşturulan yönetilen kod|
-| | |\_ScopeCodeGenEngine\_.*|Derleyici çıktısı|Oluşturulan yerel kod|
+| | |\_ScopeCodeGenEngine\_. *|Derleyici çıktısı|Oluşturulan yerel kod|
 | | |Başvurulan derlemeler|Derleme başvurusu|Başvurulan derleme dosyaları|
 | | |deployed_resources|Kaynak dağıtma|Kaynak dağıtım dosyaları|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|Yürütme günlüğü|Günlük yürütme adımları|
+| | |xxxxxxxx.xxx[1..n]\_\*. *|Yürütme günlüğü|Günlük yürütme adımları|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>Komut satırından SDK'yı kullanma
@@ -153,7 +149,7 @@ U-SQL yerel ihtiyaçlarını bağımlılıklar için belirtilen CppSDK yolu yan�
 |-UdoRedirect|False|Udo derleme yeniden yönlendirme yapılandırması oluşturma|
 |-UseDatabase|ana|Geçici derleme kaydı arka plan kod için kullanılacak veritabanı|
 |-Verbose|False|Çalışma zamanı ayrıntılı çıkışlarından Göster|
-|-WorkDir|Geçerli Dizin|Derleyici kullanım ve çıktı dizini|
+|-WorkDir|Geçerli dizin|Derleyici kullanım ve çıktı dizini|
 |-RunScopeCEP|0|ScopeCEP modunu kullanmak için|
 |-ScopeCEPTempPath|Temp|Veri akış için kullanılacak geçici yol|
 |-OptFlags| |İyileştirici bayrakların virgülle ayrılmış listesi|
@@ -212,12 +208,12 @@ U-SQL betiği derlemek ve bir çalışma dizini, referans derlemesini ve veritab
 
 İsteğe bağlı bağımsız değişkenleri şunlardır **yürütme**:
 
-|Bağımsız değişken|Açıklama|
-|--------|-----------|
-|-DataRoot [varsayılan değer '']|Meta veri yürütme için veri kökü. İçin varsayılan olarak **LOCALRUN_DATAROOT** ortam değişkeni.|
-|-MessageOut [varsayılan değer '']|İletiler bir dosyaya konsolunda dökümü.|
-|-Paralel [varsayılan değeri '1']|Belirtilen paralellik düzeyi ile oluşturulan yerel çalıştırma adımlarını çalıştırmak için göstergesi.|
-|-Verbose [varsayılan değer 'False']|Ayrıntılı göstermek için gösterge çalışma zamanını şuradan çıkarır.|
+|Bağımsız değişken|Varsayılan değer|Açıklama|
+|--------|-------------|-----------|
+|-DataRoot | '' |Meta veri yürütme için veri kökü. İçin varsayılan olarak **LOCALRUN_DATAROOT** ortam değişkeni.|
+|-MessageOut | '' |İletiler bir dosyaya konsolunda dökümü.|
+|-Paralel | '1' |Belirtilen paralellik düzeyi ile oluşturulan yerel çalıştırma adımlarını çalıştırmak için göstergesi.|
+|-Verbose | 'False' |Ayrıntılı göstermek için gösterge çalışma zamanını şuradan çıkarır.|
 
 Kullanım örneği aşağıdadır:
 
@@ -333,9 +329,9 @@ U-SQL betiği testi için örnek kod aşağıda verilmiştir. Test etmek için k
 
 LocalRunHelper.exe programlama arabirimleri çalıştırmak U-SQL yerel derleme, vb. için sağlar. Arabirimler aşağıda listelenmiştir.
 
-**Constructor**
+**Oluşturucusu**
 
-public LocalRunHelper([System.IO.TextWriter messageOutput = null])
+Ortak LocalRunHelper ([System.IO.TextWriter messageOutput = null])
 
 |Parametre|Tür|Açıklama|
 |---------|----|-----------|
@@ -345,26 +341,26 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
 |Özellik|Tür|Açıklama|
 |--------|----|-----------|
-|AlgebraPath|string|Cebiri dosyasının yolunu (cebiri dosya biridir derleme sonuçları)|
-|CodeBehindReferences|string|Komut dosyası başvuruları arkasında ek kod varsa, ile ayrılmış yollar belirtin ';'|
-|CppSdkDir|string|CppSDK dizini|
-|CurrentDir|string|Geçerli dizin|
-|DataRoot|string|Veri kök yolu|
-|DebuggerMailPath|string|Hata ayıklayıcı yuvası yolu|
+|AlgebraPath|dize|Cebiri dosyasının yolunu (cebiri dosya biridir derleme sonuçları)|
+|CodeBehindReferences|dize|Komut dosyası başvuruları arkasında ek kod varsa, ile ayrılmış yollar belirtin ';'|
+|CppSdkDir|dize|CppSDK dizini|
+|CurrentDir|dize|Geçerli dizin|
+|DataRoot|dize|Veri kök yolu|
+|DebuggerMailPath|dize|Hata ayıklayıcı yuvası yolu|
 |GenerateUdoRedirect|bool|Biz yeniden yönlendirmeyi geçersiz kılma config yüklenirken derleme oluşturmak istiyorsanız|
 |HasCodeBehind|bool|Komut dosyası arka plan kodu varsa|
-|InputDir|string|Giriş verileri için dizin|
-|MessagePath|string|İleti döküm dosyası yolu|
-|OutputDir|string|Çıktı verileri için dizin|
+|InputDir|dize|Giriş verileri için dizin|
+|MessagePath|dize|İleti döküm dosyası yolu|
+|OutputDir|dize|Çıktı verileri için dizin|
 |Paralellik|Int|Paralellik cebiri çalıştırmak için|
 |ParentPid|Int|Hizmet çıkmak için izleyen üst PID 0 olarak ayarlayın veya yoksaymak için negatif|
-|ResultPath|string|Sonuç döküm dosyası yolu|
-|RuntimeDir|string|Çalışma zamanı dizini|
-|ScriptPath|string|Komut dosyası nerede|
+|ResultPath|dize|Sonuç döküm dosyası yolu|
+|RuntimeDir|dize|Çalışma zamanı dizini|
+|ScriptPath|dize|Komut dosyası nerede|
 |Basit|bool|Derleme veya basit|
-|TempDir|string|Geçici dizin|
-|UseDataBase|string|Geçici derleme kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
-|WorkDir|string|Tercih edilen çalışma dizini|
+|TempDir|dize|Geçici dizin|
+|UseDataBase|dize|Geçici derleme kaydı, varsayılan olarak ana arka plan kod için kullanmak istediğiniz veritabanını belirtin|
+|WorkDir|dize|Tercih edilen çalışma dizini|
 
 
 **Yöntemi**

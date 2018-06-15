@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: tr-TR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32180802"
 abstract:
   description: Anahtar Kasası’nı kullanarak bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları koruma ve yönetme hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, bulut uygulamaları ve hizmetleri tarafından kullanılan şifreleme anahtarlarını ve gizli anahtarları oluşturma ve koruma ile ilgili bilgiler içerir.
 sections:

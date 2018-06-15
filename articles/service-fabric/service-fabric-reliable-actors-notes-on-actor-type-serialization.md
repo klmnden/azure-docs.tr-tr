@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34209061"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Service Fabric Reliable Actors Notlar serileştirme yazın
 Bağımsız değişkenleri tüm yöntemlerin aktör arabirimdeki her yöntem tarafından döndürülen sonuç türleri görevleri ve bir aktör'ın durum Yöneticisi'nde depolanan nesneler olmalıdır [veri sözleşmesi seri hale getirilebilir](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer). Bu durum tanımlanan yöntemler bağımsız değişkenleri için de geçerlidir [aktör olay arabirimleri](service-fabric-reliable-actors-events.md). (Aktör olay arabirim yöntemleri her zaman boş döndürmeleri.)

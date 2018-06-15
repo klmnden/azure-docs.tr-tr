@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206664"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Eski Java Service Fabric uygulamanızı Maven’dan Java kitaplıklarını alacak şekilde güncelleştirme
 Service Fabric Java ikili dosyalarını yakın zamanda Service Fabric Java SDK’dan Maven’a taşıdık. En son Service Fabric Java bağımlılıklarını almak için artık **mavencentral**’ı kullanabilirsiniz. Bu hızlı başlangıç, daha önce Service Fabric Java SDK ile kullanılacak şekilde Yeoman veya Eclipse kullanarak oluşturduğunuz mevcut Java uygulamalarını Maven tabanlı derlemeyle uyumlu olacak şekilde güncelleştirmenize yardımcı olur.

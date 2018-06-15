@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208038"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Ölçeklendirme Service Fabric kümeleri
 Service Fabric kümesi bir ağa bağlı içine, mikro dağıtılır ve yönetilen sanal veya fiziksel makineler kümesidir. Bir makine ya da bir kümenin parçasıysa VM düğüm denir. Küme düğümleri binlerce potansiyel olarak içerebilir. Service Fabric kümesi oluşturduktan sonra küme yatay yönde ölçeklendirebilirsiniz (düğüm sayısını değiştirmenize) veya dikey (düğümlerin kaynakları değiştirin).  Küme herhangi bir zamanda kümede iş yükleri çalıştırırken bile ölçeklendirebilirsiniz.  Küme ölçeklendirir gibi uygulamalarınızı otomatik olarak da ölçeklendirin.

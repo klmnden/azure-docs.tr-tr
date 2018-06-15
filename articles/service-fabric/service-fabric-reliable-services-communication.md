@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34210768"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>Güvenilir hizmetler iletişimi API'lerini kullanma
 Bir platform olarak Azure Service Fabric Hizmetleri arasındaki iletişim hakkında tamamen bağımsızdır. Tüm protokoller ve yığınları HTTP UDP Gelen kabul edilir. Bu hizmetleri nasıl iletişim kuracağını seçmek için hizmet geliştiriciler için hazır. Güvenilir hizmetler uygulama çerçevesi yerleşik iletişim yığınları yanı sıra, özel iletişim bileşenleri oluşturmak için kullanabileceğiniz bir API sağlar.

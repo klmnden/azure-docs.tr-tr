@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212570"
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric uygulama yaşam döngüsü
 Diğer platformlar ile Azure Service Fabric bir uygulamada genellikle aşağıdaki aşamaları geçtikçe: tasarım, geliştirme, test, dağıtım, yükseltme, Bakım ve kaldırma. Service Fabric, nihai yetkisini için bulut uygulamalarından, geliştirme aşamasından dağıtım, günlük yönetim ve Bakım tam uygulama yaşam döngüsü için birinci sınıf destek sağlar. Hizmet modeli bağımsız olarak uygulama yaşam döngüsü katılmak birçok farklı rol sağlar. Bu makalede API'ler ve Service Fabric uygulama yaşam döngüsü aşamaları boyunca farklı rolleri tarafından nasıl kullanıldıkları hakkında genel bir bakış sağlar.

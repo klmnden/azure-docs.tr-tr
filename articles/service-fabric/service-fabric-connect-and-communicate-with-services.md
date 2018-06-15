@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205595"
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>Bağlanma ve Service Fabric Hizmetleri ile iletişim
 Service Fabric içinde bir hizmet birden çok VM genellikle dağıtılmış bir Service Fabric kümesindeki herhangi bir yerde çalışır. Bu tek bir yerden diğerine hizmet sahibi tarafından ya da otomatik olarak Service Fabric tarafından taşınabilir. Hizmetleri statik olarak belirli bir makine veya adresine bağlı olmak zorunda değildir.

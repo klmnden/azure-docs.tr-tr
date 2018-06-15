@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208694"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Güvenli bağlantılar Visual Studio'dan bir Service Fabric kümesi için yapılandırın
 Azure Service Fabric kümesi yapılandırılmış erişim denetimi ilkeleri ile güvenli bir şekilde erişmek için Visual Studio kullanmayı öğrenin.

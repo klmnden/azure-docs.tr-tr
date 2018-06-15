@@ -63,8 +63,6 @@
           href: dsc-template.md
     - name: Windows için IaaS kötü amaçlı yazılımdan koruma
       href: iaas-antimalware-windows.md
-    - name: Key Vault
-      href: key-vault-windows.md
     - name: Sanal Makine Anlık Görüntüsü
       items:
         - name: Linux

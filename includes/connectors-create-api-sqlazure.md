@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>Ön koşullar
-* Bir Azure hesabı; oluşturabileceğiniz bir [ücretsiz bir hesap](https://azure.microsoft.com/free)
-* Bir [Azure SQL veritabanı](../articles/sql-database/sql-database-get-started.md) ile bağlantı bilgilerini, sunucu adını, veritabanı adı ve kullanıcı adı/parola dahil olmak üzere. Bu bilgiler, SQL veritabanı bağlantı dizesine dahil edilir:
-  
-    Sunucu = tcp:*yoursqlservername*. database.windows.net,1433;Initial katalog =*yourqldbname*; Kalıcı güvenlik bilgisi = False; Kullanıcı Kimliği {your_username} =; Parola {your_password} =; MultipleActiveResultSets = False; Şifreleme = True; TrustServerCertificate = False; Bağlantı zaman aşımı = 30;
-  
-    Daha fazla bilgi edinin [Azure SQL veritabanlarını](https://azure.microsoft.com/services/sql-database).
+---
+title: include dosyası
+description: include dosyası
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678314"
+---
+* Azure SQL veritabanı kullanıyorsanız, adımları altında [Azure SQL veritabanına bağlanma](#connect-azure-sql-db). 
 
-> [!NOTE]
-> Bir Azure SQL veritabanı oluşturduğunuzda, aynı zamanda SQL ile bulunan örnek veritabanları oluşturabilirsiniz. 
-> 
-> 
+* SQL Server kullanıyorsanız, adımları altında [SQL Server'a Bağlan](#connect-sql-server).
 
-Azure SQL veritabanınıza bir mantıksal uygulama kullanmadan önce SQL veritabanına bağlayın. Kolayca Azure portalındaki mantıksal uygulama içinde bunu yapabilirsiniz.  
+<a name="connect-azure-sql-db"></a>
 
-Aşağıdaki adımları kullanarak, Azure SQL veritabanına bağlan:  
+### <a name="connect-to-azure-sql-database"></a>Azure SQL veritabanına bağlan
 
-1. Bir mantıksal uygulama oluşturun. Logic Apps Tasarımcısı'nda bir tetikleyici ekleyin ve ardından bir eylem ekleyin. Seçin **Göster Microsoft yönetilen API'ler** açılır listesinde ve ardından arama kutusuna "sql" girin. Eylemlerden birini seçin:  
-   
-    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. Daha önce SQL veritabanı için herhangi bir bağlantısı oluşturmadıysanız, bağlantı ayrıntılarını istenir:  
-   
-    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. SQL veritabanı ayrıntılarını girin. Bir yıldız işareti özelliklerle gereklidir.
-   
-   | Özellik | Ayrıntılar |
-   | --- | --- |
-   | Ağ geçidi bağlanma |İşaretlemeden bırakın. Bu, bir şirket içi SQL Server'a bağlanırken kullanılır. |
-   | Bağlantı adı * |Bağlantınız için herhangi bir ad girin. |
-   | SQL Server adı * |Sunucu adı girin; aşağıdakine benzer olduğu *servername.database.windows.net*. Sunucu adı, SQL veritabanı özellikleri Azure portalında görüntülenen ve ayrıca bağlantı dizesinde görüntülenir. |
-   | SQL veritabanı adı * |SQL veritabanınız verdiğiniz adı girin. Bu bağlantı dizesini SQL veritabanı özelliklerinde listelenir: Initial Catalog =*yoursqldbname*. |
-   | Kullanıcı adı * |SQL Database oluşturduğunuzda oluşturulan kullanıcı adı girin. Bu, Azure portalında SQL veritabanı özelliklerinde listelenir. |
-   | Parola * |SQL veritabanı oluşturulduğunda, oluşturduğunuz parolayı girin. |
-   
-    Bu kimlik bilgileri, mantıksal uygulamanızı bağlanmak ve SQL verilerinize erişmek üzere yetkilendirmek için kullanılır. Tamamlandıktan sonra bağlantı ayrıntılarınızı şuna benzer:  
-   
-    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. **Oluştur**’u seçin. 
-5. Bağlantıyı oluşturan dikkat edin. Şimdi, mantıksal uygulamanızı diğer adımlarla devam edin: 
-   
-    ![SQL Azure bağlantısı oluşturma adım](./media/connectors-create-api-sqlazure/table.png)
+1. SQL tetikleyici veya eylem için bağlantı bilgilerini istediğinde, şu adımları izleyin:
 
+   1. Bağlantınız için bir ad oluşturun.
+
+   2. SQL server'ınızdaki seçin ve ardından, veritabanınızı seçin. 
+
+      Yalnızca SQL server'ınızdaki seçtikten sonra veritabanı listesi görüntülenir.
+ 
+   3. Sunucunuz için kullanıcı adı ve parola sağlayın.
+
+      Bu bilgiler Azure portalında ya da SQL veritabanı özellikleri'nin altında veya bağlantı dizenizi bulabilirsiniz: 
+      
+      "Kullanıcı kimliği = <*kullanıcıadınız*>"
+      <br>
+      "Parola = <*yourPassword*>"
+
+   Bu örnek, bir tetikleyici için bağlantı bilgilerini gösterir, ancak bu eylemler için çok adımlarını.
+
+   ![Azure SQL veritabanına bağlantı oluşturun](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   Yıldız işareti (*) gerekli değerleri belirtin.
+
+   | Özellik | Değer | Ayrıntılar | 
+   |----------|-------|---------| 
+   | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için ad | 
+   | SQL Sunucusu Adı | <*sql server My*> | SQL Server adı |
+   | SQL Veritabanı Adı | <*sql veritabanı My*>  | SQL veritabanınızın adı | 
+   | Kullanıcı adı | <*My-sql-username*> | Veritabanınıza erişmek için kullanıcı adı |
+   | Parola | <*sql parolası My*> | Veritabanınıza erişmek için parola | 
+   |||| 
+
+2. İşiniz bittiğinde **Oluştur**’u seçin.
+
+3. Bağlantınızı oluşturduktan sonra devam [ekleme SQL tetikleyici](#add-sql-trigger) veya [ekleme SQL eylem](#add-sql-action).
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>SQL Server'a bağlanma
+
+Ağ geçidiniz seçebilmeniz için önce emin olun, zaten [veri ağ geçidi kurun](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Bağlantınızı oluştururken bu şekilde, ağ geçidi ağ geçitleri listesinde görüntülenir.
+
+1. SQL tetikleyici veya eylem için bağlantı bilgilerini istediğinde, şu adımları izleyin:
+
+   1. Tetikleyici ya da eylemi seçin **Connect şirket içi veri ağ geçidi üzerinden** böylece SQL server seçenekleri görünür.
+
+   2. Bağlantınız için bir ad oluşturun.
+
+   3. SQL server için adresini sağlayın, sonra veritabanınız için bir ad sağlayın.
+   
+      Bağlantı dizenizi bu bilgiyi bulabilirsiniz: 
+      
+      * "Sunucu = <*yourServerAddress*>"
+      * "Veritabanı = <*yourDatabaseName*>"
+
+   4. Sunucunuz için kullanıcı adı ve parola sağlayın.
+
+      Bağlantı dizenizi bu bilgiyi bulabilirsiniz: 
+      
+      * "Kullanıcı kimliği = <*kullanıcıadınız*>"
+      * "Parola = <*yourPassword*>"
+
+   5. SQL server'ınızdaki Windows veya temel kimlik doğrulaması kullanıyorsa, kimlik doğrulama türünü seçin.
+
+   6. Daha önce oluşturduğunuz, şirket içi veri ağ geçidi için bir ad seçin.
+   
+      Ağ geçidiniz listede görünmüyorsa, denetleyin, doğru [, ağ geçidi kurun](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+
+   Bu örnek, bir tetikleyici için bağlantı bilgilerini gösterir, ancak bu eylemler için çok adımlarını.
+
+   ![SQL Server bağlantısı oluşturma](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   Yıldız işareti (*) gerekli değerleri belirtin.
+
+   | Özellik | Değer | Ayrıntılar | 
+   |----------|-------|---------| 
+   | Şirket içi ağ geçidi bağlanma | Bu seçenek önce SQL Server ayarlarını seçin. | | 
+   | Bağlantı Adı | <*sql bağlantısı My*> | Bağlantınız için ad | 
+   | SQL Sunucusu Adı | <*sql server My*> | SQL Server adı |
+   | SQL Veritabanı Adı | <*sql veritabanı My*>  | SQL veritabanınızın adı |
+   | Kullanıcı adı | <*My-sql-username*> | Veritabanınıza erişmek için kullanıcı adı |
+   | Parola | <*sql parolası My*> | Veritabanınıza erişmek için parola | 
+   | Kimlik Doğrulama Türü | Windows veya Basic | İsteğe bağlı: SQL server tarafından kullanılan kimlik doğrulama türü | 
+   | Ağ geçitleri | <*data gateway My*> | Şirket içi veri ağ geçidiniz için ad | 
+   |||| 
+
+2. İşiniz bittiğinde **Oluştur**’u seçin. 
+
+3. Bağlantınızı oluşturduktan sonra devam [ekleme SQL tetikleyici](#add-sql-trigger) veya [ekleme SQL eylem](#add-sql-action).

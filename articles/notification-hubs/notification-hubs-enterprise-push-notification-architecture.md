@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33778071"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Kurumsal gönderim mimari kılavuzu
 Kuruluşlar bugün kademeli olarak mobil uygulamaları ya da kendi son kullanıcıları (harici) oluşturmak için doğru veya (iç) çalışanlar için geçiyor. Ana bilgisayarlar veya mobil uygulama mimariye tümleşik bazı iş kolu uygulamaları olması varolan arka uç sistemleri yerinde sahiptirler. Bu kılavuz, bu tümleştirme senaryoları için olası çözüm öneren yapmak en iyi nasıl hakkında alınmaktadır.

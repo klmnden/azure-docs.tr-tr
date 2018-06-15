@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213138"
 ---
 # <a name="create-service-fabric-clusters-on-windows-server-or-linux"></a>Windows Server veya Linux Service Fabric kümeleri oluşturma
 Azure Service Fabric kümesi bir ağa bağlı içine, mikro dağıtılır ve yönetilen sanal veya fiziksel makineler kümesidir. Bir küme düğümü bir makine ya da bir kümenin parçasıysa VM adı verilir. Küme düğümleri binlerce ölçeklendirebilirsiniz. Kümeye yeni düğümler eklerseniz, Service Fabric hizmeti çoğaltmalarını ve örnekleri sayısının artması düğümleri arasında yeniden dengeler. Genel uygulama performansını artıran ve bellek erişimi için Çekişme azaltır. Kümedeki düğümler verimli bir şekilde kullanılmayan, kümedeki düğüm sayısını azaltabilirsiniz. Service Fabric yeniden örnekleri ve çoğaltmalarını azalmasına her bir düğümüne donanım daha iyi kullanılmasını sağlamak için düğüm sayısı arasında yeniden dengeler.

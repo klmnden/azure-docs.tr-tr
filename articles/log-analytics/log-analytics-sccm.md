@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30284005"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Configuration Manager günlük Analizi'ne bağlayın
 System Center Configuration Manager ortamınızı aygıt koleksiyonu veri eşitlemesine Azure günlük Analizi'ne bağlanmak ve bu koleksiyonları günlük analizi ve Azure Otomasyonu başvuru.  

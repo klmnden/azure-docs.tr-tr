@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206428"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Tanılama ve güvenilir hizmeti uzaktan iletişim için performans izleme
 Güvenilir ServiceRemoting çalışma zamanı yayar [performans sayaçları](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Bunlar ServiceRemoting nasıl çalıştığını içine bilgiler ve sorun giderme ve performans izleme ile yardımcı.

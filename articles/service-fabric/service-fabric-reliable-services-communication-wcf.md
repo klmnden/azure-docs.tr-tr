@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212233"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Güvenilir hizmetler için WCF tabanlı iletişim yığını
 Güvenilir hizmetler altyapısına hizmet yazarların kendi hizmet için kullanmak istedikleri iletişim yığını seçin izin verir. Kendi seçtikleri iletişim yığınındaki ekleyebilirsiniz **ICommunicationListener** döndürülen [CreateServiceReplicaListeners veya CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) yöntemleri. Çerçeve WCF tabanlı iletişim kullanmak istediğiniz hizmet yazarlar için Windows Communication Foundation (WCF) tabanlı iletişim yığını uygulaması sağlar.

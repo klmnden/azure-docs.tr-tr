@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212509"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Genel özel durumlar ve FabricClient API'leri ile çalışırken hataları
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API'leri yöneticilerin Service Fabric uygulama, hizmet veya küme üzerinde yönetim görevlerini gerçekleştirmek küme ve uygulama. Örneğin, uygulama dağıtımı, yükseltme ve kaldırma, bir küme durumu denetleniyor veya bir hizmet test etme. Uygulama geliştiricilerinin ve küme yöneticileri FabricClient API'ları Service Fabric kümesi ve uygulamaları yönetmek için Araçlar geliştirmek için kullanabilirsiniz.

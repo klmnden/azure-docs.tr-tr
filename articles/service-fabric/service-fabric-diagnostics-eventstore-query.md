@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34204619"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Küme olayları için sorgu EventStore API'leri
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206569"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Service Fabric uygulamanızı Visual Studio kullanarak hata ayıklama
 > [!div class="op_single_selector"]
