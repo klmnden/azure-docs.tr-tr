@@ -1,26 +1,22 @@
 ---
-title: "Azure Service Bus sık sorulan sorular (SSS) | Microsoft Docs"
-description: "Azure Service Bus hakkında bazı sık sorulan sorular yanıtlanmaktadır."
+title: Azure Service Bus sık sorulan sorular (SSS) | Microsoft Docs
+description: Azure Service Bus hakkında bazı sık sorulan sorular yanıtlanmaktadır.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: cc75786d-3448-4f79-9fec-eef56c0027ba
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: ba34938883ee342936b5c7a4568dae5e02684bb2
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: df60862b6a835340534be4ed43a27267c33b64f5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802274"
 ---
 # <a name="service-bus-faq"></a>Hizmet Veri Yolu SSS
+
 Bu makalede, Microsoft Azure Service Bus hakkında sık sorulan bazı sorular açıklanmaktadır. Ayrıca, ziyaret edebilirsiniz [Azure destek SSS](http://go.microsoft.com/fwlink/?LinkID=185083) genel Azure fiyatlandırma ve destek bilgileri için.
 
 ## <a name="general-questions-about-azure-service-bus"></a>Azure Service Bus hakkında genel sorular
@@ -37,9 +33,11 @@ A [Service Bus kuyruğuna](service-bus-queues-topics-subscriptions.md) iletileri
 Bir konu sırası olarak canlandırılabilir ve birden çok abonelik kullanırken, bu daha zengin bir Mesajlaşma modeli olur; bir çok iletişim aracı temelde. Bu yayımlama/abonelik modelini (veya *pub/alt*) birden çok uygulama tarafından alınan ileti sağlamak için birden çok abonelik ile bir konuya ileti gönderir bir uygulama sağlar.
 
 ### <a name="what-is-a-partitioned-entity"></a>Bölümlenmiş bir varlık nedir?
-Geleneksel kuyruk veya konu tek ileti aracısı tarafından işlenen ve bir Mesajlaşma deposunda depolanır. A [bölümlenmiş kuyruk veya konu](service-bus-partitioning.md) birden çok ileti aracıları tarafından işlenen ve birden çok Mesajlaşma deposunda depolanır. Başka bir deyişle, genel üretilen işi bölümlenmiş kuyruk veya konu artık tek ileti Aracısı ya da ileti deposu performans ile sınırlıdır. Ayrıca, bir Mesajlaşma deposu geçici bir kesinti bölümlenmiş kuyruk veya konu kullanılamaz işlemez.
+Geleneksel kuyruk veya konu tek ileti aracısı tarafından işlenen ve bir Mesajlaşma deposunda depolanır. Yalnızca temel ve standart Mesajlaşma katmanları, desteklenen bir [bölümlenmiş kuyruk veya konu](service-bus-partitioning.md) birden çok ileti aracıları tarafından işlenen ve birden çok Mesajlaşma deposunda depolanır. Bu özellik, bölümlenmiş kuyruk veya konu, genel üretilen işi, bir tek ileti aracısı veya Mesajlaşma deposu performansını tarafından artık sınırlı olduğu anlamına gelir. Ayrıca, bir Mesajlaşma deposu geçici bir kesinti bölümlenmiş kuyruk veya konu kullanılamaz işlemez.
 
-Sıralama kullanırken sağlanmaz Not varlıklar bölümlenmiş. Bir bölüm kullanılamıyor gelmesi durumunda, hala gönderebilir ve diğer bölümlerden iletileri alacak.
+Varlıkları kullanılarak bölümlenmiş zaman sıralama sağlanmaz. Bir bölüm kullanılamıyor gelmesi durumunda, hala gönderebilir ve diğer bölümlerden iletileri alacak.
+
+ Bölümlenen varlıklar de artık desteklenmektedir [Premium SKU](service-bus-premium-messaging.md). 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Bazı Azure Service Bus en iyi uygulamalar nelerdir?
@@ -74,9 +72,9 @@ Hayır, hizmet veri yolu için depolama ücret değil. Ancak, bir kota en fazla 
 Hizmet veri yolu sınırlarını ve kotaları listesi için bkz: [Service Bus kotaları genel bakış][Quotas overview].
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>Hizmet veri yolu olan kullanım kotaları var mı?
-Varsayılan olarak, her bulut için Microsoft hizmet tüm müşteri'nin abonelikler arasında hesaplanan bir toplama aylık kullanım kotası ayarlar. Bu sınırları birden fazla gerekebilir anlamak için böylece biz gereksinimlerinizi anlamak ve bu sınırları uygun şekilde ayarlayın Müşteri Hizmetleri herhangi bir zamanda başvurabilirsiniz. Hizmet veri yolu için toplam kullanım kotası ayda 5 milyar iletileri ' dir.
+Varsayılan olarak, her bulut için Microsoft hizmet tüm müşteri'nin abonelikler arasında hesaplanan bir toplama aylık kullanım kotası ayarlar. Bu sınırlar birden fazla gerekiyorsa, Müşteri Hizmetleri gereksinimlerinizi anlamak ve bu sınırları uygun şekilde ayarlamak için herhangi bir zamanda başvurabilirsiniz. Hizmet veri yolu için toplam kullanım kotası ayda 5 milyar iletileri ' dir.
 
-Kullanım kotalarını belirtilen aydaki aştı bir müşteri hesabı devre dışı bırakmak için sağ yedek olsa da, biz e-posta bildirimi sağlayın ve herhangi bir işlem gerçekleştirmeden önce bağlantı kurmak için birden çok deneme yapmanız gerekir. Bu kotalar aşan müşterileri kotaları aşan ücretler hala sorumludur.
+Microsoft kullanım kotalarını belirtilen aydaki aştı bir müşteri hesabı devre dışı bırakmak için hakkını olsa da, herhangi bir işlem gerçekleştirmeden önce bağlantı kurmak için birden çok deneme yapılır ve e-posta bildirimi gönderilir. Bu kotalar aşan müşterileri kotaları aşan ücretler hala sorumludur.
 
 Diğer hizmetleri gibi Azure üzerinde hizmet veri yolu Orta kaynak kullanımını olduğundan emin olmak için özel kotalar bir dizi zorlar. Bu Kotalar hakkında daha fazla ayrıntı bulabilirsiniz [Service Bus kotaları genel bakış][Quotas overview].
 

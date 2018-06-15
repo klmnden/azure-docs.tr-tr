@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30325336"
 ---
 >[!NOTE]
 >İlk cihaz ikizi durum yapılandırması yalnızca IOT Hub’ın standart katmanında kullanılabilir. Temel ve standart IoT Hub katmanları hakkında daha fazla bilgi için bkz. [Doğru IoT Hub katmanını seçme](../articles/iot-hub/iot-hub-scaling.md).

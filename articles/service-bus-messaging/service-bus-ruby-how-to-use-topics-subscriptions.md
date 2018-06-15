@@ -1,11 +1,11 @@
 ---
-title: "Service Bus konu başlıklarını (Ruby) kullanma | Microsoft Docs"
-description: "Azure'da Service Bus konu başlıklarını ve aboneliklerini kullanmayı öğrenin. Kod örnekleri Söyleniş uygulamalarına yönelik yazılır."
+title: Service Bus konu başlıklarını (Ruby) kullanma | Microsoft Docs
+description: Azure'da Service Bus konu başlıklarını ve aboneliklerini kullanmayı öğrenin. Kod örnekleri Söyleniş uygulamalarına yönelik yazılır.
 services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23926798"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>Service Bus konuları ve abonelikleri Ruby ile kullanma
  

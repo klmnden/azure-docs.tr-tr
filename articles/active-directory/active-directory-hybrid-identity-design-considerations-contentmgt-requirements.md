@@ -1,27 +1,29 @@
 ---
-title: "Karma kimlik tasarımı - içerik yönetimi gereksinimlerini Azure | Microsoft Docs"
-description: "İşinizin içerik yönetimi gereksinimlerini belirleme hakkında bilgi sağlar. Genellikle bir kullanıcı kendi aygıt olduğunda kendisi de kendisine kullanan uygulamayı göre değişen birden çok kimlik olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere hizmetler kendi gizlilik sağlamak ve veri sızıntısına karşı koruma artırın."
-documentationcenter: 
+title: Karma kimlik tasarımı - içerik yönetimi gereksinimlerini Azure | Microsoft Docs
+description: İşinizin içerik yönetimi gereksinimlerini belirleme hakkında bilgi sağlar. Bir kullanıcı kendi cihazını olduğunda, genellikle, kullandıkları uygulama göre değişen birden çok kimlik bilgisi'ne de olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere Hizmetleri gizliliklerini sağlamak ve veri sızıntısına karşı koruma artırın.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b414a1e93d5a0f4be5be82011482b492fd9ce378
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800802"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için içerik yönetimi gereksinimlerini belirleyin
-İşletmeniz için içerik yönetimi gereksinimlerini anlama doğrudan kullanmak için hangi karma kimlik çözümü üzerinde kararınızı etkileyebilir. Birden çok aygıt ve kullanıcılar kendi aygıtlarını getirip yeteneği artışı ile ([KCG](https://aka.ms/byodcg)), şirket kendi verilerini korumanız gerekir, ancak bu ayrıca kullanıcının gizliliğini korumanız gerekir. Genellikle bir kullanıcı kendi aygıt olduğunda kendisi de kendisine kullanan uygulamayı göre değişen birden çok kimlik olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere hizmetler kendi gizlilik sağlamak ve veri sızıntısına karşı koruma artırın. 
+İşletmeniz için içerik yönetimi gereksinimlerini anlama doğrudan kullanmak için hangi karma kimlik çözümü üzerinde kararınızı etkileyebilir. Birden çok aygıt ve kullanıcılar kendi aygıtlarını getirip yeteneği artışı ile ([KCG](https://aka.ms/byodcg)), şirket kendi verilerini korumanız gerekir, ancak bu ayrıca kullanıcının gizliliğini korumanız gerekir. Bir kullanıcı kendi cihazını olduğunda, genellikle, kullandıkları uygulama göre değişen birden çok kimlik bilgisi'ne de olabilir. Hangi içerik Kurumsal kimlik bilgileri kullanılarak oluşturulan olanları karşı kişisel kimlik bilgileri kullanılarak oluşturulmuş ayırt etmek önemlidir. Kimlik çözümünüzü bulut ile etkileşim sırasında son kullanıcının sorunsuz bir deneyim sağlamak üzere Hizmetleri gizliliklerini sağlamak ve veri sızıntısına karşı koruma artırın. 
 
 Kimlik çözümü, aşağıdaki çizimde gösterildiği gibi içerik yönetimi sağlamak için farklı teknik denetimler tarafından işlevden:
 
@@ -43,7 +45,7 @@ Genel olarak, içerik yönetimi gereksinimlerini kimlik yönetimi sisteminizi a�
 Kullanırken, karma kimlik çözümü planlama emin olun, kuruluşunuzun gereksinimlerine göre aşağıdaki soruları yanıtlanır:
 
 * Şirketinizin güvenlik denetimleri veri gizliliği zorunlu yerinde var mı?
-  * Yanıt Evet ise, bu güvenlik denetimleri benimsemek için uygulayacağınız karma kimlik çözümü ile tümleştirmek erişebilecek mi?
+  * Yanıt Evet ise, güvenlik denetimleri benimsemek için uygulayacağınız karma kimlik çözümü ile tümleştirmek erişebilecek mi?
 * Şirketiniz veri sınıflandırması kullanıyor mu?
   * Yanıt Evet ise, geçerli çözüme benimsemek için uygulayacağınız karma kimlik çözümü ile tümleştirmek mi?
 * Şirketiniz veri sızıntısı için herhangi bir çözümü şu anda var mı? 
@@ -52,7 +54,7 @@ Kullanırken, karma kimlik çözümü planlama emin olun, kuruluşunuzun gereksi
   * Yanıt Evet ise, hangi kaynakları tür?
   * Yanıt Evet ise, hangi bilgilerin düzeyini gerekli mi?
   * Yanıt Evet ise, Denetim günlüğü bulunduğu gerekir? Şirket içi veya bulutta?
-* Şirketinizin hassas veriler (Ssn'ler, kredi kartı numaraları, vb.) içeren e-postaları şifrelemek gerekiyor mu?
+* Şirketinizin hassas veriler (Ssn'ler, kredi kartı numaraları, vs.) içeren e-postaları şifrelemek gerekiyor mu?
 * Şirketiniz dış iş ortaklarıyla paylaşılan tüm belgeler/içerik şifrelemek gerekiyor mu?
 * Şirketinizin e-postalar belirli türden şirket ilkelerini zorlamak gerekiyor mu (tüm yanıt yapmak için iletme)?
 

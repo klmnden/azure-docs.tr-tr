@@ -1,21 +1,22 @@
 ---
-title: "Azure CLI betiği - Bir MySQL için Azure Veritabanı sunucusunu zaman içinde önceki bir noktaya geri yükleme"
-description: "Bu örnek CLI betiği, bir MySQL için Azure Veritabanı sunucusunu zaman içinde önceki bir noktaya geri yükler."
+title: Azure CLI betiği - Bir MySQL için Azure Veritabanı sunucusunu zaman içinde önceki bir noktaya geri yükleme
+description: Bu örnek CLI betiği, bir MySQL için Azure Veritabanı sunucusunu zaman içinde önceki bir noktaya geri yükler.
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 090447e21a1428d1c0ebd526ec2f48d616b39b82
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: bea3a8057e9b99dc5847e23541d41c5c68393d48
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266223"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI kullanarak MySQL için Azure Veritabanı sunucusunu geri yükleme
 Bu örnek CLI betiği, tek bir MySQL için Azure Veritabanı sunucusunu zaman içinde önceki bir noktaya geri yükler.

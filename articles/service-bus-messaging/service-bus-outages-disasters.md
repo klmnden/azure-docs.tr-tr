@@ -1,24 +1,19 @@
 ---
-title: "Azure Service Bus uygulama kesintiler ve olağanüstü karşı insulating | Microsoft Docs"
-description: "Uygulamaların olası bir hizmet veri yolu kesinti karşı koruma için teknikler."
+title: Azure Service Bus uygulama kesintiler ve olağanüstü karşı insulating | Microsoft Docs
+description: Uygulamaların olası bir hizmet veri yolu kesinti karşı koruma için teknikler.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802315"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintileri ve olağanüstü karşı uygulamalar insulating için en iyi uygulamalar
 
@@ -34,7 +29,9 @@ Service Bus kuyrukları veya konuları gönderilen iletileri depolamak için bir
 Bir veri merkezi ile bağlantılı bir hizmet ad alanındaki tüm Service Bus Mesajlaşma varlıkları (kuyruklar, konular, geçişler) bulunur. Hizmet veri yolu destekler [ *coğrafi olağanüstü durum kurtarma* ve *coğrafi çoğaltma* ](service-bus-geo-dr.md) ad alanı düzeyinde.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>Kuyruklar ve konu başlıkları deposu başarısızlıkları Mesajlaşma karşı koruma
-Bölümlenmemiş kuyruk veya konu bir Mesajlaşma deposuna atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur. Bölümlenmiş bir sıra diğer taraftan, birden çok parçalarını oluşur. Her parça farklı bir Mesajlaşma deposunda depolanır. Bölümlenmiş kuyruk veya konu için bir ileti gönderildiğinde, hizmet veri yolu ileti parçasının birine atar. Hizmet veri yolu ileti için farklı bir parçası, karşılık gelen ileti deposu kullanılamıyorsa, mümkünse yazar. Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
+Bölümlenmemiş kuyruk veya konu bir Mesajlaşma deposuna atanır. Bu ileti deposunu kullanılamıyorsa, kuyruk veya konu tüm işlemler başarısız olur. Bölümlenmiş bir sıra diğer taraftan, birden çok parçalarını oluşur. Her parça farklı bir Mesajlaşma deposunda depolanır. Bölümlenmiş kuyruk veya konu için bir ileti gönderildiğinde, hizmet veri yolu ileti parçasının birine atar. Hizmet veri yolu ileti için farklı bir parçası, karşılık gelen ileti deposu kullanılamıyorsa, mümkünse yazar. Bölümlenen varlıklar de artık desteklenmektedir [Premium SKU](service-bus-premium-messaging.md). 
+
+Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>Veri Merkezi kesintilerini veya olağanüstü karşı koruma
 İki veri merkezi arasında bir yük devretme için izin vermek için her veri merkezinde bir Service Bus hizmeti ad alanı oluşturabilirsiniz. Örneğin, Service Bus hizmeti ad alanı **contosoPrimary.servicebus.windows.net** Amerika Birleşik Devletleri Kuzey/Orta bölgesinde bulunan ve **contosoSecondary.servicebus.windows.net** BİZE Güney/Orta bölgesinde bulunan. Service Bus varlık Mesajlaşma bir veri merkezi kesintisinden varlığında erişilebilir kalması gereken, varlığın her iki ad alanları oluşturabilirsiniz.
@@ -86,7 +83,7 @@ Olağanüstü durum kurtarma hakkında daha fazla bilgi için aşağıdaki makal
 
 * [Azure Service Bus coğrafi olağanüstü durum kurtarma](service-bus-geo-dr.md)
 * [Azure SQL veritabanı iş sürekliliği][Azure SQL Database Business Continuity]
-* [Azure için esnek uygulamalar tasarlama][Azure resiliency technical guidance]
+* [Azure için dayanıklı uygulamalar tasarlama][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

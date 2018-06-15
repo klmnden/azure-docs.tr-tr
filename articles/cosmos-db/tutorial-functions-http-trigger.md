@@ -2,29 +2,26 @@
 title: Azure Cosmos DB giriş bağlama işlemiyle HTTP Tetikleyicisi oluşturma | Microsoft Docs
 description: Azure Cosmos DB’yi sorgulamak için HTTP Tetikleyicileri ile Azure İşlevleri’ni kullanmayı öğrenin.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 85a9e66491513b016380913617d8e78cf5d82f6d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ea102d56df1e47fd1d1c35bd23a3e987fa45145
+ms.sourcegitcommit: 00e875607372517b4b93ca4b6baa915cbbad8064
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818908"
 ---
 # <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Azure Cosmos DB giriş bağlama işlemiyle Azure İşlevleri HTTP Tetikleyicisi oluşturma
 
 Azure Cosmos DB global olarak dağıtılmış, hem şemasız hem de sunucusuz çok modelli bir veritabanıdır. Azure İşlevi isteğe bağlı olarak kod çalıştırmanıza olanak sağlayan sunucusuz bir işlem hizmetidir. Bu iki Azure hizmetini eşleştirdiğinizde harika uygulamalar oluşturmaya odaklanmanızın yanı sıra işlem ve veritabanı gereksinimleriniz için sunucu sağlama ve sürdürme konusunda endişe duymamanızı sağlayan sunucusuz mimariye yönelik bir altyapıya sahip olursunuz.
 
-Bu öğreticide [.NET için Graph API Hızlı Başlangıcı](create-graph-dotnet.md)’nda oluşturulan kod temel alınır. Bu öğreticide [HTTP tetikleyicisi](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger) içeren bir Azure İşlevi eklenir. HTTP tetikleyicisi, hızlı başlangıçta oluşturulan grafik veritabanından veri almak için Azure Cosmos DB [giriş bağlama işlemini](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) kullanır. Bu HTTP tetikleyicisi, veriler için Azure Cosmos DB’yi sorgular ancak işlevinizin gereksinimine göre veri girişi verilerinin alınması için Azure Cosmos DB’deki giriş bağlama işlemleri kullanılabilir.
+Bu öğreticide [.NET için Graph API Hızlı Başlangıcı](create-graph-dotnet.md)’nda oluşturulan kod temel alınır. Bu öğreticide [HTTP tetikleyicisi](../azure-functions/functions-bindings-http-webhook.md) içeren bir Azure İşlevi eklenir. HTTP tetikleyicisi, hızlı başlangıçta oluşturulan grafik veritabanından veri almak için Azure Cosmos DB [giriş bağlama işlemini](../azure-functions/functions-triggers-bindings.md) kullanır. Bu HTTP tetikleyicisi, veriler için Azure Cosmos DB’yi sorgular ancak işlevinizin gereksinimine göre veri girişi verilerinin alınması için Azure Cosmos DB’deki giriş bağlama işlemleri kullanılabilir.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 

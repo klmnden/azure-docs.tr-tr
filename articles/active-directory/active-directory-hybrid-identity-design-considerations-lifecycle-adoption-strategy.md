@@ -1,25 +1,27 @@
 ---
-title: "Karma kimlik tasarımı - yaşam döngüsü benimseme stratejinizi Azure | Microsoft Docs"
-description: "Karma kimlik yönetimi görevleri her yaşam döngüsü aşaması için kullanılabilir seçenekleri göre tanımlamasına yardımcı olur."
-documentationcenter: 
+title: Karma kimlik tasarımı - yaşam döngüsü benimseme stratejinizi Azure | Microsoft Docs
+description: Karma kimlik yönetimi görevleri her yaşam döngüsü aşaması için kullanılabilir seçenekleri göre tanımlamasına yardımcı olur.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801839"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Karma kimlik yaşam döngüsü benimseme stratejinizi belirleme
 İçinde tanımlanan iş gereksinimlerini karşılamak, karma kimlik çözümü için Kimlik Yönetimi stratejisini tanımlayın bu görevde [karma kimlik yönetimi görevleri belirlemek](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -33,13 +35,13 @@ Erişim denetimi, bir merkezi, tek noktası sağlama sistemin kritik bir işlevd
 
 Gelişmiş BT kuruluşları hesaplarında yetkilileri tanımlayan parametreleri yüzlerce içerir ve bu ayrıntıları sağlama sisteminiz tarafından denetlenebilir. Yeni kullanıcılar, yetkili kaynak sağlayan verilerle tanımlanabilir. Erişim isteği onay özelliği kendileri için sağlama kaynak onaylama (veya reddetme) işlemleri başlatır.
 
-| Yaşam döngüsü yönetimi aşaması | Şirket içinde | Bulut | Karma |
+| Yaşam döngüsü yönetimi aşaması | Şirket içinde | Bulut | Hibrit |
 | --- | --- | --- | --- |
-| Hesap Yönetimi ve sağlama |Active Directory® etki alanı Hizmetleri (AD DS) sunucu rolünü kullanarak, kullanıcı ve kaynak yönetimi için ölçeklenebilir, güvenli ve yönetilebilir bir altyapı oluşturabilir ve Microsoft® Exchange Server gibi dizin özellikli uygulamalar için destek sağlayabilirsiniz. <br><br> [Bir kimlik Yöneticisi aracılığıyla AD DS'deki gruplarının sağlayabilirsiniz](https://technet.microsoft.com/library/ff686261.aspx) <br>[Kullanıcıların AD DS'de sağlayabilirsiniz](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Yöneticiler, erişim denetimi güvenlik amacıyla paylaşılan kaynakları için kullanıcı erişimi yönetmek üzere kullanabilirsiniz. Active Directory'de ayarı farklı düzeylerde erişim veya nesneler için izinleri tarafından nesne düzeyinde erişim denetimi yönetilen gibi tam denetim, okuma, yazma ya da erişim yok. Active Directory'de erişim denetimini tanımlar nasıl farklı kullanıcılar Active Directory nesnelerini kullanabilirsiniz. Varsayılan olarak, Active Directory içindeki nesneleri izinlerini en güvenli ayar ayarlanır. |Bir Microsoft bulut hizmeti erişen her kullanıcı için bir hesap oluşturmanız gerekir. Ayrıca, kullanıcı hesaplarını değiştirmek veya artık gerekmediğinde silin. Varsayılan olarak, kullanıcı yönetici izinlerine sahip değilse, ancak bunları isteğe bağlı olarak atayabilirsiniz. Daha fazla bilgi için bkz: [yöneten kullanıcılar Azure AD'de](active-directory-create-users.md). <br><br> Azure Active Directory içinde bulunan önemli özelliklerin kaynaklara erişimi yönetme olanağı biridir. Bu kaynaklar dizin ya da SaaS uygulamaları, Azure Hizmetleri ve SharePoint siteleri veya şirket içi kaynaklar gibi dizin dışı olan kaynaklar rolleri aracılığıyla nesneleri yönetmek için izinleri durumunda olduğu gibi dizinin parçası olabilir. <br><br> Merkezi Azure Active Directory'nin erişim yönetimi çözümü güvenlik grubudur. Kaynak sahibi (veya dizinin Yöneticisi) sağ sahip oldukları kaynakları belirli bir erişim sağlamak için bir grup atayabilir. Grubun üyelerini erişim sağlanması ve kaynak sahibine bir bölüm Yöneticisi'ni veya bir Yardım Masası Yöneticisi gibi başka – birisi bir gruba üye listesini yönetmek için sağa devredebilirsiniz<br> <br> Azure AD konu yönetme gruplarında grupları üzerinden erişimi yönetme hakkında daha fazla bilgi sağlar. |Active Directory kimlik eşitleme ve Federasyon aracılığıyla buluta genişletme |
+| Hesap Yönetimi ve sağlama |Active Directory® etki alanı Hizmetleri (AD DS) sunucu rolünü kullanarak, kullanıcı ve kaynak yönetimi için ölçeklenebilir, güvenli ve yönetilebilir bir altyapı oluşturabilir ve Microsoft® Exchange Server gibi dizin özellikli uygulamalar için destek sağlayabilirsiniz. <br><br> [Bir kimlik Yöneticisi aracılığıyla AD DS'deki gruplarının sağlayabilirsiniz](https://technet.microsoft.com/library/ff686261.aspx) <br>[ Kullanıcıların AD DS'de sağlayabilirsiniz](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Yöneticiler, erişim denetimi güvenlik amacıyla paylaşılan kaynakları için kullanıcı erişimi yönetmek üzere kullanabilirsiniz. Active Directory'de ayarı farklı düzeylerde erişim veya nesneler için izinleri tarafından nesne düzeyinde erişim denetimi yönetilen gibi tam denetim, okuma, yazma ya da erişim yok. Active Directory'de erişim denetimini tanımlar nasıl farklı kullanıcılar Active Directory nesnelerini kullanabilirsiniz. Varsayılan olarak, Active Directory içindeki nesneleri izinlerini en güvenli ayar ayarlanır. |Bir Microsoft bulut hizmeti erişen her kullanıcı için bir hesap oluşturmanız gerekir. Ayrıca, kullanıcı hesaplarını değiştirmek veya artık gerekmediğinde silin. Varsayılan olarak, kullanıcı yönetici izinlerine sahip değilse, ancak bunları isteğe bağlı olarak atayabilirsiniz. Daha fazla bilgi için bkz: [yöneten kullanıcılar Azure AD'de](active-directory-create-users.md). <br><br> Azure Active Directory içinde bulunan önemli özelliklerin kaynaklara erişimi yönetme olanağı biridir. Bu kaynaklar dizin ya da SaaS uygulamaları, Azure Hizmetleri ve SharePoint siteleri veya şirket içi kaynaklar gibi dizin dışı olan kaynaklar rolleri aracılığıyla nesneleri yönetmek için izinleri durumunda olduğu gibi dizinin parçası olabilir. <br><br> Merkezi Azure Active Directory'nin erişim yönetimi çözümü güvenlik grubudur. Kaynak sahibi (veya dizinin Yöneticisi) sağ sahip oldukları kaynakları belirli bir erişim sağlamak için bir grup atayabilir. Grubun üyelerini erişim sağlanması ve kaynak sahibine bir bölüm Yöneticisi'ni veya bir Yardım Masası Yöneticisi gibi başka – birisi bir gruba üye listesini yönetmek için sağa devredebilirsiniz<br> <br> Azure AD bölümdeki yönetme Grup grupları üzerinden erişimi yönetme hakkında daha fazla bilgi sağlar. |Active Directory kimlik eşitleme ve Federasyon aracılığıyla buluta genişletme |
 
 ## <a name="role-based-access-control"></a>Rol tabanlı erişim denetimi
 Rol tabanlı erişim (RBAC) kullanan rolleri denetler ve sağlama ilkelerini değerlendirmek için test ve iş süreçlerini ve kullanıcılara erişim izni verme için kuralları zorlar. Anahtar yöneticileri sağlama ilkeleri oluşturma ve kullanıcıları rollere atamak ve bu rolleri kaynaklarına yetkilendirmeler kümelerini tanımlayın. RBAC yazılım tabanlı işlemler kullanmak ve kullanıcı sağlama işlemini el ile etkileşimini azaltmak için kimlik yönetimi çözümü genişletir.
-Azure AD RBAC kendisinin Azure Yönetim Portalı erişimi sonra bir kişinin yapabileceği işlemleri miktarını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticilerinin ca temsilci erişimi aşağıdaki erişim yönetimi yaklaşım kullanarak:
+Azure AD RBAC kendisinin Azure portalına erişim olduğunda, bir kişinin yapabileceği işlemleri sayısını sınırlamak şirket sağlar. Portal erişimini denetlemek için RBAC kullanarak, BT yöneticilerinin ca temsilci erişimi aşağıdaki erişim yönetimi yaklaşım kullanarak:
 
 * **Grup tabanlı rol ataması**: erişim eşitlenebilen Azure AD grupları yerel Active Directory'den atayabilirsiniz. Bu, kuruluşunuzun araçları ve grupları yönetmek için işlemlerdeki yaptı Yatırımlar yararlanmanızı sağlar. Azure AD Premium temsilci Grup Yönetimi özelliği de kullanabilirsiniz.
 * **Azure rollerinde yerleşik Dengeleme**: üç rol kullanabilirsiniz — sahibi, katkıda bulunan ve okuyucu, kullanıcılar ve gruplar yalnızca işlerini gerçekleştirmek için ihtiyaç duydukları görevleri gerçekleştirme izniniz olduğundan emin olun.
@@ -67,17 +69,18 @@ Kuruluşunuzun tüm iç kuruluşlar arasında kaynakları sağlamak üzere başl
 > 
 > 
 
-Lisans tabanlı Azure AD (yetkilendirme tabanlı), Azure AD directory/hizmet kiracınız abonelikte etkinleştirerek iş Hizmetleri. Abonelik etkinleştirildikten sonra hizmet özellikleri dizin/hizmet yöneticileri tarafından yönetilen ve lisanslı kullanıcılar tarafından kullanılır. Daha fazla bilgi için bkz: Azure AD iş lisanslama nasıl yapar?
-Diğer 3. taraf sağlayıcılar ile tümleştirme
+Lisans tabanlı Azure AD (yetkilendirme tabanlı), Azure AD directory/hizmet kiracınız abonelikte etkinleştirerek iş Hizmetleri. Abonelik etkinleştirildikten sonra hizmet özellikleri dizin/hizmet yöneticileri tarafından yönetilen ve lisanslı kullanıcılar tarafından kullanılır. 
 
-Azure Active Directory çoklu oturum sağlar ve Gelişmiş binlerce SaaS uygulamaları ve şirket içi web uygulamaları için uygulama erişim güvenlik. Azure Active Directory Federasyon Uyumluluğu Listesi desteklenen SaaS uygulamaları için Azure Active Directory Uygulama galerisinde ayrıntılı bir listesi için bkz: çoklu oturum açmayı uygulamak için kullanılan üçüncü taraf kimlik sağlayıcıları
+## <a name="integration-with-other-3rd-party-providers"></a>Diğer 3. taraf sağlayıcılar ile tümleştirme
+
+Azure Active Directory çoklu oturum sağlar ve Gelişmiş binlerce SaaS uygulamaları ve şirket içi web uygulamaları için uygulama erişim güvenlik. Daha fazla bilgi için bkz: [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md)
 
 ## <a name="define-synchronization-management"></a>Eşitleme management tanımlama
-Şirket içi dizinlerinizin Azure AD ile tümleştirilmesi, kullanıcılarınızın hem bulut kaynaklarına hem de şirket içi kaynaklara erişmesi için ortak bir kimlik oluşturarak daha üretken olmalarını sağlar. İle tümleştirme, kullanıcılar ve kuruluşlar aşağıdaki özelliklerden yararlanabilirsiniz:
+Şirket içi dizinlerinizin Azure AD ile tümleştirilmesi, kullanıcılarınızın hem bulut kaynaklarına hem de şirket içi kaynaklara erişmesi için ortak bir kimlik oluşturarak daha üretken olmalarını sağlar. İle tümleştirme, kullanıcılar ve kuruluşlar aşağıdaki yararlanabilirsiniz:
 
 * Kuruluşlar, şirket içi veya Windows Server Active Directory yararlanan ve Azure Active Directory'ye bağlanırken bulut tabanlı hizmetleri arasında ortak bir karma kimlik kullanıcılarla sağlayabilir.
 * Yöneticiler, Uygulama kaynağı, aygıt ve kullanıcı kimliği, ağ konumu ve çok faktörlü kimlik doğrulaması göre koşullu erişim sağlayabilir.
-* Kullanıcılar, Office 365, Intune, SaaS uygulamaları ve üçüncü taraf uygulamaları için Azure AD'de ortak kimliklerini hesapları yoluyla yararlanabilirsiniz.
+* Kullanıcılar, Office 365, Intune, SaaS uygulamaları için Azure AD'de ortak kimliklerini hesapları yoluyla yararlanabilir ve üçüncü taraf uygulamalar.
 * Geliştiriciler, uygulamaları içi Active Directory veya Azure içinde bulut tabanlı uygulamalar için tümleştirme ortak kimlik modeli yararlanan uygulamalar oluşturabilir
 
 Aşağıdaki şekil kimlik eşitleme işlemi üst düzey bir görünümünü örneği vardır.
@@ -90,7 +93,7 @@ Eşitleme seçenekleri karşılaştırmak için aşağıdaki tabloyu gözden ge�
 
 | Eşitleme yönetim seçeneği | Avantajları | Olumsuz yönleri |
 | --- | --- | --- |
-| Eşitleme tabanlı (aracılığıyla, DirSync veya AADConnect) |Kullanıcılar ve gruplar şirket içi ve bulut eşitlendi <br>  **İlke denetimi**: hesap ilkeleri yönetici parola ilkeleri, iş istasyonu, kısıtlamalar, kilitleme denetimleri yönetmenizi sağlar, Active Directory üzerinden ve daha fazlasını kalmadan bulutta ek görevleri gerçekleştirmek ayarlanabilir.  <br>  **Erişim denetimi**: Hizmetleri çevrimiçi sunucuları veya her ikisi de aracılığıyla şirket ortamında aracılığıyla erişilebilir böylece bulut hizmetine erişimi kısıtlayabilirsiniz. <br>  Destek aramaları azaltılmış: kullanıcıların anımsaması daha az parolaları varsa, bunlar unutmanız olasılığı daha düşüktür. <br>  Güvenlik: Kullanıcı kimlikleri ve bilgileri tüm sunucuların ve çoklu oturum açma içinde kullanılan hizmetler yönetilen çünkü korumalı ve şirket içi denetlenir. <br>  Güçlü kimlik doğrulaması için destek: güçlü kimlik doğrulaması (iki öğeli kimlik doğrulama olarak da bilinir) bulut hizmetiyle kullanabilirsiniz. Ancak, güçlü kimlik doğrulaması kullanırsanız, çoklu oturum açma kullanmanız gerekir. | |
+| Eşitleme tabanlı (aracılığıyla, DirSync veya AADConnect) |Kullanıcılar ve gruplar şirket içi ve bulut eşitlendi <br>  **İlke denetimi**: hesap ilkeleri yönetici parola ilkeleri, iş istasyonu, kısıtlamalar, kilitleme denetimleri yönetmenizi sağlar, Active Directory üzerinden ve daha fazlasını kalmadan ek görevleri gerçekleştirmek ayarlanabilir bulut.  <br>  **Erişim denetimi**: Hizmetleri çevrimiçi sunucuları veya her ikisi de aracılığıyla şirket ortamında aracılığıyla erişilebilir böylece bulut hizmetine erişimi kısıtlayabilirsiniz. <br>  Destek aramaları azaltılmış: kullanıcıların anımsaması daha az parolaları varsa, bunlar unutmanız olasılığı daha düşüktür. <br>  Güvenlik: Kullanıcı kimlikleri ve bilgileri tüm sunucuların ve çoklu oturum açma içinde kullanılan hizmetler yönetilen çünkü korumalı ve şirket içi denetlenir. <br>  Güçlü kimlik doğrulaması için destek: güçlü kimlik doğrulaması (iki öğeli kimlik doğrulama olarak da bilinir) bulut hizmetiyle kullanabilirsiniz. Ancak, güçlü kimlik doğrulaması kullanırsanız, çoklu oturum açma kullanmanız gerekir. | |
 | Federasyon tabanlı (aracılığıyla AD FS) |Güvenlik belirteci hizmeti (STS) tarafından etkinleştirilmiş. Bir Microsoft bulut hizmeti ile oturum açma tek erişim sağlamak için bir STS yapılandırdığınızda, bir federasyon güveni, şirket içi STS ile Azure AD kiracınızda belirlediğiniz Federasyon etki alanı arasında oluşturacağınız. <br> Son kullanıcıların birden çok kaynaklarına erişim elde etmek için aynı kimlik bilgileri kümesini kullanın olanak sağlar <br>Son kullanıcılar birden çok kimlik bilgileri kümesi sağlamak zorunda değildir. Kullanıcıların katılımcı kaynakları., her biri için kimlik bilgilerini sağlamak henüz B2B ve B2C senaryoları desteklenir. |Dağıtım ve içi adanmış bakım için uzman personeli gerektirir AD FS sunucuları. AD FS, STS için kullanmayı planlıyorsanız, güçlü kimlik doğrulaması kullanma kısıtlamaları vardır. Daha fazla bilgi için bkz: [AD FS 2.0 için Gelişmiş Seçenekleri yapılandırma](http://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]

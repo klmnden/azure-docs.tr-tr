@@ -1,35 +1,37 @@
 ---
-title: "Karma kimlik tasarımı erişim denetimi gereksinimlerine Azure | Microsoft Docs"
-description: "Kimlik ve karma bir ortamda kullanıcıları için kaynaklar için erişim gereksinimleri tanımlama ayaklar kapsar."
-documentationcenter: 
+title: Karma kimlik tasarımı erişim denetimi gereksinimlerine Azure | Microsoft Docs
+description: Kimlik ve karma bir ortamda kullanıcıları için kaynaklar için erişim gereksinimleri tanımlama ayaklar kapsar.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801227"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için erişim denetimi gereksinimleri belirleme
-Bir kuruluş kendi karma kimlik çözümü tasarlarken, bu fırsatı kullanıcılar için kullanılabilir hale getirmek için planlama kaynaklar için erişim gereksinimleri gözden geçirmek için kullanabilirsiniz. Veri erişimi olan tüm dört ayaklar kimliğini, çapraz:
+Bir kuruluş kendi karma kimlik çözümü tasarlarken, bunlar bu fırsatı kullanıcılar için kullanılabilir hale getirmek için planlama kaynaklar için erişim gereksinimleri gözden geçirmek için kullanabilirsiniz. Veri erişimi olan tüm dört ayaklar kimliğini, çapraz:
 
 * Yönetim
 * Kimlik Doğrulaması
 * Yetkilendirme
 * Denetim
 
-Aşağıdaki bölümlerde, kimlik doğrulama ve yetkilendirme daha ayrıntılı ele alınacaktır, yönetim ve denetimi karma kimlik yaşam döngüsü parçasıdır. Okuma [karma kimlik yönetimi görevleri belirlemek](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) bu özellikleri hakkında daha fazla bilgi için.
+Kimlik doğrulaması ve yetkilendirmeyi daha fazla ayrıntı, yönetim, aşağıdaki bölümlerde ele alınacaktır ve karma kimlik yaşam döngüsünün parçası olan denetim. Okuma [karma kimlik yönetimi görevleri belirlemek](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) bu özellikleri hakkında daha fazla bilgi için.
 
 > [!NOTE]
 > Okuma [dört ayaklar kimliği - karma BT yaş Identity Management](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) bu dayanaklarından her biri hakkında daha fazla bilgi.
@@ -41,7 +43,7 @@ Kimlik doğrulama ve yetkilendirme için farklı senaryolar vardır, bu senaryol
 
 * Kuruluşunuzun kimlik doğrulaması ve kimlik yönetimi sistemlerine bulunan kullanıcıları yetkilendirmek?
   * B2B senaryolarını için herhangi bir plan var mı?
-  * Yanıt Evet ise, hangi protokollerin (SAML, OAuth, Kerberos, belirteçleri veya sertifikaları) her iki işletmeler bağlanmak için kullanılan zaten biliyor musunuz?
+  * Yanıt Evet ise, hangi protokollerin (SAML, OAuth, Kerberos veya Sertifikalar) hem de işletmeler bağlanmak için kullanılan zaten biliyor musunuz?
 * Destek benimsemeyi kalacaklarını karma kimlik çözümü protokollerin mu?
 
 Dikkate alınması gereken başka bir önemli olduğu kullanıcılar ve iş ortakları tarafından kullanılacak kimlik doğrulama deposu bulunur ve kullanılacak yönetim modeli noktasıdır. Aşağıdaki iki çekirdek seçenekleri göz önünde bulundurun:
@@ -58,7 +60,7 @@ Kuruluşunuz benimseyeceği hangi modeli iş gereksinimlerine göre farklılık 
   * Yanıt Evet ise, bir karma kimlik modeli benimsenmesi bu işlem etkiliyor mu?
 
 ## <a name="access-control"></a>Access Control
-Kimlik doğrulama ve yetkilendirme kullanıcının doğrulama şirket verilerine erişimi etkinleştirmek için çekirdek öğeleri olsa da, ayrıca, bu kullanıcıların sahip ve erişim yöneticileri düzeyini yönetmekte olduğunuz kaynakları sahip erişim düzeyini denetlemek önemlidir. Karma kimlik çözümü kaynaklar, temsilci ve rol tabanlı erişim denetimini ayrıntılı erişim sağlamak mümkün olması gerekir. Aşağıdaki soruyu erişim denetimi ile ilgili yanıtlanır emin olun:
+Kimlik doğrulama ve yetkilendirme kullanıcının doğrulama şirket verilerine erişimi etkinleştirmek için çekirdek öğeleri olsa da, ayrıca, bu kullanıcıların sahip ve erişim yöneticileri düzeyini yönetmekte olduğunuz kaynakları sahip erişim düzeyini denetlemek önemlidir. Karma kimlik çözümü kaynakları, temsilci seçme ve rol tabanlı erişim denetimini ayrıntılı erişim sağlamak mümkün olması gerekir. Erişim denetimi ile ilgili aşağıdaki soruyu yanıtlandığını emin olun:
 
 * Şirketinizin yükseltilmiş ayrıcalığa sahip birden fazla kullanıcı, kimlik sistemi yönetmek için var mı?
   * Yanıt Evet ise, her kullanıcı aynı erişim düzeyini gerekiyor mu?

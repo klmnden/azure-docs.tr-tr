@@ -2,28 +2,26 @@
 title: PowerShell ile Azure Cosmos DB tablo API işlemleri | Microsoft Docs
 description: PowerShell ile Azure Cosmos DB tablo API işlemleri gerçekleştirme
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798653"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell ile Azure Cosmos DB tablo API işlemleri 
 
 >[!NOTE]
->Azure Cosmos DB tablo API anahtar teslimi genel dağıtım, düşük gecikme süresi okuma ve yazma, otomatik ikincil dizin oluşturma ve ayrılmış işleme gibi tablo depolama premium özellikleri sunar. Çoğu durumda, bu makalede çalışma Azure Cosmos DB tablo API ve Azure Table storage, ancak bu makale için PowerShell komutlarını Azure Cosmos DB tablo API'sine özel. Azure Table depolama birimi kullanıyorsanız bkz [gerçekleştirmek Azure Table depolama işlemleri Azure PowerShell ile](table-storage-how-to-use-powershell.md).
+>Azure Cosmos DB tablo API anahtar teslimi genel dağıtım, düşük gecikme süresi okuma ve yazma, otomatik ikincil dizin oluşturma ve ayrılmış işleme gibi tablo depolama premium özellikleri sunar. Çoğu durumda, bu makalede çalışma Azure Cosmos DB tablo API ve Azure Table storage, ancak bu makale için PowerShell komutlarını Azure Cosmos DB tablo API'sine özel. Azure Table depolama birimi kullanıyorsanız bkz [gerçekleştirmek Azure Table depolama işlemleri Azure PowerShell ile](../storage/tables/table-storage-how-to-use-powershell.md).
 >
 
 Azure Cosmos DB tablo API, depolamak ve yapılandırılmış ve ilişkisel olmayan verilerin büyük kümelerini sorgulamanızı sağlar. Hizmet ana bileşenlerinin tabloları, varlıkları ve özellikler mevcuttur. Bir tablo, varlıkları koleksiyonudur. Bir varlık özellikler kümesidir. Her varlığın tüm ad-değer çiftleri en çok 252 özellik olabilir. Bu makale, zaten Azure Cosmos DB tablo API kavramlarını olduğunuzu varsayar. Ayrıntılı bilgi için bkz: [Azure Cosmos DB tablo API giriş](table-introduction.md) ve [tablo API kullanarak bir .NET uygulaması oluşturma](create-table-dotnet.md).

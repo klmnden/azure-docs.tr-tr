@@ -3,7 +3,7 @@ title: İş akışı tanımlama dili şema - Azure Logic Apps | Microsoft Docs
 description: İş akışı tanımlama dili ile Azure mantıksal uygulamaları için özel iş akışı tanımları yazma
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,11 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: MT
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300190"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>İş akışı tanımlama dili şema Logic Apps iş akışı tanımları
 
@@ -358,7 +359,7 @@ Bir değerin türü veya biçimi değiştirmek için bu dönüşüm işlevleri k
 
 <a name="math-functions"></a>
 
-### <a name="math-functions"></a>Matematik işlevleri
+### <a name="math-functions"></a>Matematiksel işlevler
 
 Tamsayılar ve float çalışmak için bu matematik işlevleri kullanabilirsiniz. Her işlevi hakkında tam başvuru için bkz: [alfabetik başvurusu makalesinde](../logic-apps/workflow-definition-language-functions-reference.md).
 
@@ -444,7 +445,7 @@ Bu iş akışı işlevler yardımcı olabilir:
 
 <a name="uri-parsing-functions"></a>
 
-### <a name="uri-parsing-functions"></a>URI işlevleri ayrıştırma
+### <a name="uri-parsing-functions"></a>URI ayrıştırma işlevleri
 
 Tekdüzen Kaynak Tanımlayıcıları (URI'ler) ile çalışır ve bu URI çeşitli özellik değerlerini almak için işlevleri ayrıştırma bu URI kullanabilirsiniz. Her işlevi hakkında tam başvuru için bkz: [alfabetik başvurusu makalesinde](../logic-apps/workflow-definition-language-functions-reference.md).
 
