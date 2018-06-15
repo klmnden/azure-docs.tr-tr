@@ -1,12 +1,12 @@
 ---
-title: "Veri 0 değiştirme StorSimple 8000 serisi cihazın ayarlarının | Microsoft Docs"
-description: "StorSimple için Windows PowerShell, StorSimple Cihazınızda DATA 0 ağ arabirimindeki yeniden yapılandırmak için nasıl kullanılacağını öğrenin."
+title: Veri 0 değiştirme StorSimple 8000 serisi cihazın ayarlarının | Microsoft Docs
+description: StorSimple için Windows PowerShell, StorSimple Cihazınızda DATA 0 ağ arabirimindeki yeniden yapılandırmak için nasıl kullanılacağını öğrenin.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927589"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>StorSimple 8000 serisi aygıtınızda veri 0 ağ arabirimi ayarlarını değiştirme
 

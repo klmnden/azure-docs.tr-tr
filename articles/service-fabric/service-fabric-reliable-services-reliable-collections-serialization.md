@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34207674"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric güvenilir koleksiyon nesnesi serileştirmede
 Güvenilir koleksiyonları çoğaltmak ve makine hataları ve güç kesintileri arasında dayanıklı olduklarından emin olmak için kendi öğeleri kalır.

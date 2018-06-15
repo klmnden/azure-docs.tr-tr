@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32191528"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında Azure SQL veri ambarı oluşturma ve sorgulama
 

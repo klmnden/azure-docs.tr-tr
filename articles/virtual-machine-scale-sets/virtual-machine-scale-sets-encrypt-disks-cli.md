@@ -20,6 +20,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776423"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-20-preview"></a>İşletim sistemi ve Azure CLI 2.0 (Önizleme) ayarlama bir sanal makine ölçek eklenen veri disklerini şifrele
 

@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 10 GbE için donanım arabirimleri | Microsoft Docs"
-description: "Desteklenen küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar 10 GbE ağ arabirimleri için StorSimple Cihazınızda açıklar."
+title: StorSimple 10 GbE için donanım arabirimleri | Microsoft Docs
+description: Desteklenen küçük form Faktörlü Takılabilir (SFP) vericilerinin, kablolar ve anahtarlar 10 GbE ağ arabirimleri için StorSimple Cihazınızda açıklar.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: df8d40c7-f5ad-4f84-93eb-779fbd5f7243
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23927757"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple Cihazınızda 10 GbE ağ arabirimleri için desteklenen donanım
 ## <a name="overview"></a>Genel Bakış
