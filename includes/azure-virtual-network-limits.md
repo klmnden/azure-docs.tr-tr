@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568135"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35683041"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, geçerli kaynak kullanımına karşı abonelik sınırlarınızı görüntülemek](../articles/networking/check-usage-against-limits.md).
 
@@ -50,7 +50,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 | Ağ Güvenlik Grupları (NSG) |100 |5000 |
 | NSG başına NSG kuralları |1000 ** |1000 |
 | IP adresleri ve aralıkları kaynak veya hedef bir güvenlik grubu için belirtilen |2000 |4000 |
-| Uygulama güvenliği grupları |200 |500 |
+| Uygulama güvenliği grupları |500 |3000 |
 | NIC başına IP yapılandırması başına uygulama güvenlik grupları |10 |20 |
 | Uygulama güvenlik grubu başına IP yapılandırmaları |1000 |4000 |
 | Ağ güvenlik grubunun tüm güvenlik kuralları içinde belirtilen uygulama güvenlik grupları |50 |100 |

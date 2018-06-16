@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34307575"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683058"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -16,7 +16,14 @@ Azure ayrılmış örnekler satın alabileceğiniz [Azure portal](https://portal
 -   Ayrılmış örnek satın alma işlemleri Kurumsal abonelikler için etkinleştirilmesi gerekir [EA portal](https://ea.azure.com).
 -   Bulut çözümü sağlayıcısı (CSP) programı için ayrılmış örnekler yalnızca yönetim aracıları veya satış aracılarının satın alabilirsiniz.
 
-## <a name="buy-a-reserved-instance"></a>Ayrılmış örnek satın alma
+[!IMPORTANT]
+Tanımlamak için aşağıda açıklanan yöntemlerden birini kullanmalıdır doğru ayırma satın alma için VM boyutu.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>Satın alma önce sağ VM boyutu belirleme
+1. Kullanım dosyasını veya rezervasyon satın alma için doğru VM boyutunu belirlemek için kullanım API'si additionalınfo alanına alanına bakın. Bu alan bir VM S ve Non-S sürümleri arasında ayrım yapmaz beri değerlerini ölçer alt kategori veya ürün alanlardan kullanmayın.
+2. Ayrıca Azure Resource Manager Powershell kullanarak doğru VM boyutu bilgi elde edebilirsiniz veya Azure portalında sanal makineden ayrıntıları.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>Ayrılmış sanal makine örneğini satın alın
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. Seçin **tüm hizmetleri** > **ayırmaları**.
 3. Seçin **Ekle** yeni bir ayrılmış örnek satın alın.
