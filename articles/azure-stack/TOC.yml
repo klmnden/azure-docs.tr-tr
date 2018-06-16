@@ -130,8 +130,6 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: Yeni kullanıcı abonelik sahibi
           href: azure-stack-change-subscription-owner.md
-        - name: Windows Azure Paketi VM’lerini yönetme
-          href: azure-stack-manage-windows-azure-pack.md
         - name: Azure yığın durdurup başlatın
           href: azure-stack-start-and-stop.md
         - name: Kapasiteyi yönetme
