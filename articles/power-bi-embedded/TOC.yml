@@ -4,12 +4,14 @@
   items:
     - name: Power BI Embedded nedir?
       href: what-is-power-bi-embedded.md
-- name: başlarken
+- name: Öğreticiler
+  items:
+    - name: Müşteriler için içerik ekleme örneği
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: Kavramlar
   items:
     - name: Power BI Embedded kullanmaya başlama
       href: get-started.md
-    - name: Bir örnek ile kullanmaya başlama
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
 - name: Nasıl yapılır
   items:
     - name: Kapasiteyi yönetme

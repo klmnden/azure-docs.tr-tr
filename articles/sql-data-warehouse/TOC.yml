@@ -63,6 +63,8 @@
           href: sql-data-warehouse-overview-manage-security.md
         - name: Kimlik Doğrulaması
           href: sql-data-warehouse-authentication.md
+        - name: Sütun düzeyi güvenlik
+          href: column-level-security.md
     - name: SQL Veri Ambarı’na geçiş
       items:
         - name: Genel Bakış

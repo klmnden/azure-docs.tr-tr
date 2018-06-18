@@ -1,22 +1,22 @@
 # [Azure Active Directory Belgeleri](index.md)
 
 # Genel Bakış
-## [Azure Active Directory nedir?](active-directory-whatis.md)
+## [Azure Active Directory nedir?](fundamentals/active-directory-whatis.md)
 ## [Azure kimlik yönetimi hakkında](fundamentals/identity-fundamentals.md)
 ## [Azure kimlik çözümlerini anlama](fundamentals/understand-azure-identity-solutions.md)
 ## [Karma kimlik çözümü seçin](choose-hybrid-identity-solution.md)
-## [Azure aboneliklerini ilişkilendirme](active-directory-how-subscriptions-associated-directory.md)
+## [Azure aboneliklerini ilişkilendirme](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [Yerleşim ve verilerle ilgili dikkat edilecek konular](fundamentals/active-directory-data-storage-eu.md)
 ## [SSS](fundamentals/active-directory-faq.md)
 ## [Yenilikler](fundamentals/whats-new.md)
 
 
 # başlarken
-## [Azure AD’yi kullanmaya başlama](get-started-azure-ad.md)
+## [Azure AD’yi kullanmaya başlama](fundamentals/get-started-azure-ad.md)
 ## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
-## [Özel bir etki alanı adı ekleme](add-custom-domain.md)
-## [Şirket markası yapılandırma](customize-branding.md)
-## [Kullanıcıları Azure AD’ye ekleme](add-users-azure-active-directory.md)
+## [Özel bir etki alanı adı ekleme](fundamentals/add-custom-domain.md)
+## [Şirket markası yapılandırma](fundamentals/customize-branding.md)
+## [Kullanıcıları Azure AD’ye ekleme](fundamentals/add-users-azure-active-directory.md)
 ## [Kullanıcılara lisans atama](fundamentals/license-users-groups.md)
 ## [Self servis parola sıfırlamasını yapılandırma](authentication/quickstart-sspr.md)
 ## [Azure AD’ye kuruluşunuzun gizlilik bilgilerini ekleme](active-directory-properties-area.md)
@@ -44,11 +44,11 @@
 #### [Araç karşılaştırması](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Kullanıcıları yönetme
-### [Azure AD’ye yeni kullanıcı ekleme](add-users-azure-active-directory.md)
-### [Kullanıcı profillerini yönetme](active-directory-users-profile-azure-portal.md)
+### [Azure AD’ye yeni kullanıcı ekleme](fundamentals/add-users-azure-active-directory.md)
+### [Kullanıcı profillerini yönetme](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Hesapları paylaşma](active-directory-sharing-accounts.md)
-### [Kullanıcıları yönetici rollerine atama](active-directory-users-assign-role-azure-portal.md)
-### [Silinen bir kullanıcıyı geri yükleme](active-directory-users-restore.md)
+### [Kullanıcıları yönetici rollerine atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [Silinen bir kullanıcıyı geri yükleme](fundamentals/active-directory-users-restore.md)
 ### [Başka bir dizinden konuk kullanıcılar ekleme (B2B)](b2b/what-is-b2b.md)
 #### [B2B kullanıcıları ekleyen yöneticiler](b2b/add-users-administrator.md)
 #### [B2B kullanıcıları ekleyen bilgi çalışanları](b2b/add-users-information-worker.md)
@@ -80,15 +80,15 @@
 #### [B2B işbirliğini B2C ile karşılaştırma](b2b/compare-with-b2c.md)
 #### [B2B desteği alma](b2b/get-support.md)
 
-## [Grupları ve üyeleri yönetme](active-directory-manage-groups.md)
+## [Grupları ve üyeleri yönetme](fundamentals/active-directory-manage-groups.md)
 ### Grupları yönetme
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Graph için Azure AD PowerShell (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
-### [Grup sahiplerini yönetme](active-directory-accessmanagement-managing-group-owners.md)
+### [Grup sahiplerini yönetme](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Grup üyeliğini yönetme](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [Grupları kullanarak lisansları atama](active-directory-licensing-whatis-azure-portal.md)
+### [Grupları kullanarak lisansları atama](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [Bir gruba lisans atama](active-directory-licensing-group-assignment-azure-portal.md)
 #### [Bir gruptaki lisans sorunlarını tanımlama ve çözme](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [Tek tek lisanslı kullanıcıları grup tabanlı lisanslamaya geçirme](active-directory-licensing-group-migration-azure-portal.md)
@@ -98,10 +98,10 @@
 #### [Azure AD’de ürünler ve hizmet planları için başvurular](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 gruplarının süre sonlarını ayarlama](active-directory-groups-lifecycle-azure-portal.md)
 ### [Gruplar için bir adlandırma ilkesini zorlama](groups-naming-policy.md)
-### [Tüm grupları görüntüleme](active-directory-groups-view-azure-portal.md)
+### [Tüm grupları görüntüleme](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [SaaS uygulamalarına grup erişimi ekleme](active-directory-accessmanagement-group-saasapps.md)
 ### [Silinen bir Office 365 grubunu geri yükleme](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Grup ayarlarını yönetme](active-directory-groups-settings-azure-portal.md) 
+### [Grup ayarlarını yönetme](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### Gelişmiş kurallar oluşturma
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [Self servis gruplarını kurma](active-directory-accessmanagement-self-service-group-management.md)
@@ -153,7 +153,7 @@
 ### [SSPR Veri gereksinimleri](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Raporlama](authentication/howto-sspr-reporting.md)
 ### BT Yöneticileri: Parolaları sıfırlama
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [SSPR lisanslama](authentication/concept-sspr-licensing.md)
 ### [Parola geri yazma](authentication/howto-sspr-writeback.md)
 ### [Sorun giderme](authentication/active-directory-passwords-troubleshoot.md)
@@ -277,7 +277,7 @@
 ## Dizininizi yönetme
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### Özel etki alanı adları
-#### [Hızlı Başlangıç](add-custom-domain.md)
+#### [Hızlı Başlangıç](fundamentals/add-custom-domain.md)
 #### [Özel etki alanı adı ekleme](active-directory-domains-manage-azure-portal.md)
 ### [Dizininizi yönetme](fundamentals/active-directory-administer.md)
 ### [Bir dizini silme](directory-delete-howto.md)
@@ -294,11 +294,9 @@
 
 ### [Azure AD Connect kullanarak şirket içi kimlikleri tümleştirme](./connect/active-directory-aadconnect.md)
 
-## [Azure’a erişimi yönetme](../role-based-access-control/toc.yml)
-
 ## Kaynaklara temsilci erişimi
 ### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
-#### [Kullanıcıya yönetici rolü atama](active-directory-users-assign-role-azure-portal.md) 
+#### [Kullanıcıya yönetici rolü atama](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md) 
 ### [Ayrıcalıklı erişimin güvenliğini sağlama](admin-roles-best-practices.md)  
 ### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -325,6 +323,7 @@
 #### [Kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md)
 #### Hızlı Başlangıçlar
 ##### [Bulut uygulaması MFA başına yapılandırma](active-directory-conditional-access-app-based-mfa.md)
+##### [Kullanım koşullarının kabul edilmesini gerektirme](active-directory-conditional-access-tou.md)
 #### Öğreticiler
 ##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
 #### Kavramlar
@@ -371,7 +370,7 @@
 ### [Yüksek kullanılabilirlik](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Değişiklik imzası karma algoritması](active-directory-federation-sha256-guidance.md)
 
-## [Sorun giderme](active-directory-troubleshooting-support-howto.md)
+## [Sorun giderme](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Azure AD Kavram Kanıtı (PoC) Dağıtma
 ### [PoC El Kitabı: Giriş](active-directory-playbook-intro.md)
