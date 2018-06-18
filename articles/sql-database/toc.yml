@@ -343,7 +343,7 @@
         - name: BCP ile veri yükleme
           href: sql-database-load-from-csv-with-bcp.md
         - name: ADF ile veri yükleme
-          href: ../data-factory/connector-azure-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: Veri eşitleme
           href: sql-database-get-started-sql-data-sync.md
     - name: İzleme ve ayarlama
