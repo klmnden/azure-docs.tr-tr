@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: Bellek içi izleme
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: Elastik Veritabanı işleri
+      items:
+        - name: Genel Bakış
+          href: elastic-jobs-overview.md
+        - name: Oluşturma ve yönetme (PowerShell)
+          href: elastic-jobs-powershell.md
+        - name: Oluşturma ve yönetme (T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: Geçirme (eski Elastik işlerden)
+          href: elastic-jobs-migrate.md
+        - name: Elastik işler (kullanım dışı)
+          items:
+            - name: Genel bakış (kullanım dışı)
+              href: sql-database-elastic-jobs-overview.md
+            - name: Elastik işleri yükleme (kullanım dışı)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: İş oluşturma - Portal (kullanım dışı)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: İş oluşturma - Azure PowerShell (kullanım dışı)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: İş oluşturma - Örnek uygulama (kullanım dışı)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: Elastik işin yüklemesini kaldırma (kullanım dışı)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: Ölçeği genişletme
       items:
         - name: Genel Bakış
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: Elastik işlemler
           href: sql-database-elastic-transactions-overview.md
-        - name: Esnek işler
-          href: sql-database-elastic-jobs-overview.md
         - name: Parça eşlemeleri
           href: sql-database-elastic-scale-shard-map-management.md
         - name: Sorgu yönlendirme
@@ -276,16 +298,6 @@
       items:
         - name: Elastik veritabanı istemci kitaplığını yükseltme
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: Elastik işleri yükleme
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: İş oluşturma - Portal
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: İş oluşturma - Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: İş oluşturma - Örnek uygulama
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Elastik işin yüklemesini kaldırma
-          href: sql-database-elastic-jobs-uninstall.md
         - name: Dikey olarak bölümlenmiş verileri sorgulama
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: Ölçeklendirilmiş veri katmanı üzerinden raporlama
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell (Elastik Veritabanı)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: /cli/azure/sql
     - name: .NET

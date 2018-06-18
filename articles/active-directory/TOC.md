@@ -13,7 +13,7 @@
 
 # başlarken
 ## [Azure AD’yi kullanmaya başlama](fundamentals/get-started-azure-ad.md)
-## [Azure AD Premium’a kaydolun](active-directory-get-started-premium.md)
+## [Azure AD Premium’a kaydolun](fundamentals/active-directory-get-started-premium.md)
 ## [Özel bir etki alanı adı ekleme](fundamentals/add-custom-domain.md)
 ## [Şirket markası yapılandırma](fundamentals/customize-branding.md)
 ## [Kullanıcıları Azure AD’ye ekleme](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [Grupları ve üyeleri yönetme](fundamentals/active-directory-manage-groups.md)
 ### Grupları yönetme
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Graph için Azure AD PowerShell (v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [Grup üyelerini yönetme](active-directory-groups-members-azure-portal.md)
+### [Grup üyelerini yönetme](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [Grup sahiplerini yönetme](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [Grup üyeliğini yönetme](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [Grupları kullanarak lisansları atama](fundamentals/active-directory-licensing-whatis-azure-portal.md)

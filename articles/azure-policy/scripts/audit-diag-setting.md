@@ -15,15 +15,16 @@ ms.workload: ''
 ms.date: 04/27/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 1f87d411e244d10437e3b6f9befbdee13dde14e9
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 01e5dc3b7c141841dd6dbd44290360b94493b548
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601284"
 ---
 # <a name="audit-diagnostic-setting"></a>Tanılama ayarını denetle
 
-Bu yerleşik ilke, tanılama ayarları belirli kaynak türleri için etkinleştirilmediyse denetler. Tanılama ayarlarının etki olup olmadığını denetlemek için bir kaynak türü dizisi belirtirsiniz.
+Bu yerleşik ilke, tanılama ayarları belirli kaynak türleri için etkinleştirilmediyse denetler. Tanılama ayarlarının etkin olup olmadığını denetlemek için bir kaynak türü dizisi belirtirsiniz.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -81,4 +82,4 @@ az policy assignment delete --name "Audit diagnostics" --resource-group myResour
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ek Azure İlkesi şablonu örnekleri [Azure İlkesi Şablonları](../json-samples.md)’ndadır.
+- [Azure İlkesi örnekleri](../json-samples.md) sayfasındaki diğer örnekleri inceleyin.

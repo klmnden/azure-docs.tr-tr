@@ -201,7 +201,13 @@
         - name: Uzak Masaüstü kullanma
           href: use-remote-desktop.md
         - name: VM’yi Azure Active Directory’e ekleme
-          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+          items:
+            - name: Red Hat Enteprise Linux
+              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+            - name: CentOS
+              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+            - name: Ubuntu
+              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
         - name: Azure Active Directory kimlik bilgileriyle oturum açma
           href: login-using-aad.md
         - name: Güncelleştirmeler ve düzeltme ekleri

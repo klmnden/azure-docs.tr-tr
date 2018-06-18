@@ -15,12 +15,12 @@ ms.workload: ''
 ms.date: 10/30/2017
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 90c846a056707048a93f3c6cf23e0d9645d5fe8b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f825c2083308a11f152ba2906f0f6d27d2b06b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151724"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600859"
 ---
 # <a name="allowed-resource-types"></a>İzin verilen kaynak türleri
 
@@ -77,4 +77,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Ek Azure İlkesi şablonu örnekleri [Azure İlkesi Şablonları](../json-samples.md)’ndadır.
+- [Azure İlkesi örnekleri](../json-samples.md) sayfasındaki diğer örnekleri inceleyin.

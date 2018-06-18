@@ -49,8 +49,6 @@
           href: sql-data-warehouse-manage-compute-overview.md
         - name: Yedekleme ve geri yükleme
           href: backup-and-restore.md
-        - name: Denetim
-          href: sql-data-warehouse-auditing-overview.md
         - name: Kapasite sınırları
           href: sql-data-warehouse-service-capacity-limits.md
         - name: Bakım
@@ -61,8 +59,22 @@
       items:
         - name: Genel Bakış
           href: sql-data-warehouse-overview-manage-security.md
+        - name: Erişim denetimi
+          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Güvenlik duvarı kuralları
+          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Güvenlik duvarı sanal ağ kuralları
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Kimlik Doğrulaması
-          href: sql-data-warehouse-authentication.md
+          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Azure AD
+          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Oturum açma bilgileri ve kullanıcılar
+          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Multi-Factor Authentication
+          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Denetim
+          href: sql-data-warehouse-auditing-overview.md
         - name: Sütun düzeyi güvenlik
           href: column-level-security.md
     - name: SQL Veri Ambarı’na geçiş
@@ -181,6 +193,12 @@
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: Güvenlik
       items:
+        - name: Azure AD kimlik doğrulamasını yapılandırma
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Koşullu erişim
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: PowerShell’in sanal ağ kuralları
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Şifrelemeyi etkinleştirme - portal
           href: sql-data-warehouse-encryption-tde.md
         - name: Şifrelemeyi etkinleştirme - T-SQL

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen yapılandırma rol talep | Microsoft Docs
+title: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma | Microsoft Docs
 description: Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma konusunda bilgi edinin
 services: active-directory
 documentationcenter: ''
@@ -12,248 +12,249 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/30/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 43a4db9114cd47da5bef98ed634847b547589b47
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 5aa716f91a3155e81ef8dc7c436b4a9a5811238b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34723261"
 ---
-# <a name="configuring-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma
+# <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory'de kurumsal uygulamalar için SAML belirtecinde verilen rol talep yapılandırma
 
-Bu özellik, kullanıcıların Azure AD kullanarak bir uygulama yetkilendirme temel alınan yanıt belirtecinde 'rolleri' talep için talep türü özelleştirme olanak tanır.
+Azure Active Directory (Azure AD) kullanarak, talep türü rol talep için yanıt belirteçte uygulama yetkilendirmek sonra aldığınız özelleştirebilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
-- Bir Azure AD directory Kurulum abonelikle
-- Bir çoklu oturum açma abonelik etkin
-- SSO ile uygulamanızı yapılandırmanız gerekir
+- Bir dizin Kurulumu Azure AD abonelikle.
+- Çoklu oturum etkin açma (SSO) sahip bir abonelik. SSO ile uygulamanızı yapılandırmanız gerekir.
 
 ## <a name="when-to-use-this-feature"></a>Bu özelliği kullanmak ne zaman
 
-Uygulamanızı SAML yanıt olarak geçirilecek özel roller görüyorsa, bu özelliği kullanmak gerekir. Bu özellik, uygulamanızı Azure AD'den geçirilecek gerektiği gibi birçok rol oluşturmanıza olanak sağlar.
+Uygulamanızı bir SAML yanıtında geçirilecek özel roller görüyorsa, bu özelliği kullanmak gerekir. Uygulamanızı Azure AD'den geçirilecek gerektiği kadar rolleri oluşturabilirsiniz.
 
-## <a name="steps-to-use-this-feature"></a>Bu özelliği kullanmak için adımları
+## <a name="create-roles-for-an-application"></a>Bir uygulama için roller oluşturma
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde [Azure portal](https://portal.azure.com), sol bölmede seçin **Azure Active Directory** simgesi. 
 
-    ![Azure Active Directory düğmesi][1]
+    ![Azure Active Directory simgesi][1]
 
-2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
+2. Seçin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
-    ![Kurumsal uygulamalar dikey penceresi][2]
+    ![Kuruluş uygulamaları bölmesi][2]
     
-3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
+3. Yeni bir uygulama eklemek için seçin **yeni uygulama** iletişim kutusunun üst kısmında düğmesi.
 
-    ![Yeni Uygulama düğmesi][3]
+    !["Yeni uygulamayı" düğmesi][3]
 
-4. Arama kutusuna, uygulamanızın adını yazın, uygulamanızın sonuç panelinden seçin'ı tıklatın **Ekle** uygulama eklemek için düğmesi.
+4. Arama kutusuna uygulamanızın adını yazın ve ardından uygulamanızı sonuç panelinden seçin. Seçin **Ekle** uygulama eklemek için düğmesi.
 
     ![Sonuçlar listesinde uygulama](./media/active-directory-enterprise-app-role-management/tutorial_app_addfromgallery.png)
 
-5. Uygulama eklendikten sonra Git **özellikleri** sayfası ve kopyalama **nesne kimliği**.
+5. Uygulama eklendikten sonra Git **özellikleri** sayfasında ve nesne kimliği kopyalayın.
 
-<!-- ![Properties Page](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png) Note: Image is missing. -->
+    ![Özellikler sayfası](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. Açık [Azure AD Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) başka bir pencerede.
+6. Açık [Azure AD Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) başka bir pencerede ve aşağıdaki adımları uygulayın:
 
-    a. Graph Explorer'a sitenin kiracınız için genel yönetici/ortak yönetici kimlik bilgilerini kullanarak oturum açın.
+    a. Graph Explorer'a siteye kiracınız için genel yönetici veya ortak yönetici kimlik bilgilerini kullanarak oturum açın.
 
-    b. Rolleri oluşturmak için yeterli izinleri olması gerekir. Tıklayın **değiştirme izinleri** gerekli izinleri almak için. 
+    b. Rolleri oluşturmak için yeterli izinleri gerekir. Seçin **değiştirme izinleri** için izin almak üzere. 
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
+      !["İzinleri değiştirme" düğmesi](./media/active-directory-enterprise-app-role-management/graph-explorer-new9.png)
 
-    c. Aşağıdaki izinleri (, bunlar zaten yoksa) listesinden seçin ve "İzinleri değiştir"'i tıklatın 
+    c. Aşağıdaki izinleri (, bunlar zaten yoksa) listesi ve select seçin **izinleri değiştir**. 
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
+      ![İzinler ve "İzinleri değiştir" düğmesi listesi](./media/active-directory-enterprise-app-role-management/graph-explorer-new10.png)
 
-    d. Bu, oturum açmayı yeniden ve onay kabul etmek ister. Onay kabul ettikten sonra sisteme yeniden kaydedilir.
+    d. Onay kabul edin. Sistem yeniden oturum açtınız.
 
-    e. Sürüm olarak değiştirin **beta** ve sorguyu kullanarak Kiracı gelen hizmet asıl adı listesi getirilemedi:
+    e. Sürüm olarak değiştirin **beta**ve aşağıdaki sorguyu kullanarak Kiracı hizmet asıl adı listesi getirilemedi:
     
      `https://graph.microsoft.com/beta/servicePrincipals`
         
-    Birden çok dizin kullanıyorsanız, bu deseni izlemelidir `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Birden çok dizin kullanıyorsanız, bu deseni izleyin: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+      ![Hizmet sorumluları getirme için sorguyla grafik Explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-    f. Alınan hizmet asıl adı listesinden değiştirmek için gereken bir alın. Ctrl + F, tüm listelenen ServicePrincipals uygulamadan aramak için de kullanabilirsiniz. Arama **nesne kimliği**, hangi özellikleri sayfasında kopyaladığınız ve ilgili hizmet sorumlusu almak için sorguyu kullanın.
+    f. Getirilen hizmet asıl adı listesinden değiştirmek için gereken bir alın. Ctrl + F, tüm listelenen hizmet asıl adı uygulamadan aramak için de kullanabilirsiniz. Öğesinden kopyalanan nesne kimliği Ara **özellikleri** sayfasında ve hizmet sorumlusu almak için aşağıdaki sorguyu kullanın:
     
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+      `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+      ![Değişiklik yapmanız hizmet sorumlusu almak için sorgu](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
 
-    g. AppRoles özelliği hizmet asıl nesneden ayıklayın. 
+    g. Extract **appRoles** hizmet sorumlusu nesnesi özelliğinden. 
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+      ![AppRoles özelliğinin ayrıntıları](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+
+      > [!Note]
+      > Özel uygulama (Azure Market uygulaması değil) kullanıyorsanız, iki varsayılan rolleri Bkz: kullanıcı ve msiam_access. Market uygulaması için msiam_access yalnızca varsayılan rolüdür. Varsayılan rollerinde herhangi bir değişiklik yapmak gerekmez.
+
+    h. Uygulamanız için yeni rolleri oluşturun. 
+
+      Aşağıdaki JSON örneğidir **appRoles** nesnesi. Uygulamanız için istediğiniz rolleri eklemek için benzer bir nesnesi oluşturun. 
+
+      ```
+      {
+         "appRoles": [
+          {
+              "allowedMemberTypes": [
+                  "User"
+              ],
+              "description": "msiam_access",
+              "displayName": "msiam_access",
+              "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
+              "isEnabled": true,
+              "origin": "Application",
+              "value": null
+          },
+          {
+              "allowedMemberTypes": [
+                  "User"
+              ],
+              "description": "Administrators Only",
+              "displayName": "Admin",
+              "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
+              "isEnabled": true,
+              "origin": "ServicePrincipal",
+              "value": "Administrator"
+          }
+      ]
+      }
+      ```
+      
+      > [!Note]
+      > Düzeltme eki işlemi için msiam_access sonra yeni rolleri yalnızca ekleyebilirsiniz. Ayrıca, kuruluş gereksinimlerinize kadar rolleri ekleyebilirsiniz. Azure AD değeri bu roller, talep değeri SAML yanıt olarak gönderir. GUID üretmek için web araçları gibi yeni rollerinin Kimliğini değerlerini kullanın [bu](https://www.guidgenerator.com/)
+    
+    i. Graph Explorer'a geri dönün ve yönteminden değiştirin **almak** için **düzeltme eki**. İstenen rollerin güncelleştirerek sağlamak için hizmet sorumlusu nesnesi düzeltme eki **appRoles** özelliği önceki örnekte gösterilene benzer. Seçin **sorgu çalıştırma** düzeltme eki işlemi yürütmek için. Bir başarı iletisi rolünün oluşturulmasını onaylar.
+
+      ![Düzeltme eki işlemi başarı iletisi](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
+
+7. Hizmet sorumlusu daha fazla rolleriyle uygulandıktan sonra kullanıcılar ilgili roller atayabilirsiniz. Kullanıcı Portalı'na gidip uygulama için gözatma atayabilirsiniz. Seçin **kullanıcılar ve gruplar** sekmesi. Bu sekme, tüm kullanıcılar ve uygulamaya zaten atanmış grupları listeler. Yeni roller üzerinde yeni kullanıcılar ekleyebilir. Ayrıca varolan bir kullanıcı seçin ve Seç **Düzenle** rolünü değiştirmek için.
+
+    !["Kullanıcılar ve Gruplar" sekmesi](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
+
+    Herhangi bir kullanıcı rolü atamak için yeni rolünü seçin ve seçin **atamak** sayfanın düğmesinde.
+
+    !["Atama Düzenle" ve "Rol Seç" bölmesinde](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
 
     > [!Note]
-    > Özel (Galerisi olmayan) uygulama kullanıyorsanız, iki varsayılan rolleri - kullanıcı ve msiam_access bakın. Galeri uygulama durumunda msiam_access yalnızca varsayılan rolüdür. Varsayılan rollerinde herhangi bir değişiklik yapmanız gerekmez.
+    > Yeni rolleri görmek için Azure portal oturumunuzda yenilemeniz gerekir.
 
-    h. Artık uygulamanız için yeni rolleri oluşturmak gerekir. 
+8. Güncelleştirme **öznitelikleri** rol talep özelleştirilmiş bir eşleme tablosunu.
 
-    i. JSON appRoles nesnesinin bir örnektir. Uygulamanız için istediğiniz rolleri eklemek için benzer bir nesne oluşturun. 
-
-    ```
-    {
-       "appRoles": [
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
-            "description": "msiam_access",
-            "displayName": "msiam_access",
-            "id": "b9632174-c057-4f7e-951b-be3adc52bfe6",
-            "isEnabled": true,
-            "origin": "Application",
-            "value": null
-        },
-        {
-            "allowedMemberTypes": [
-                "User"
-            ],
-            "description": "Administrators Only",
-            "displayName": "Admin",
-            "id": "4f8f8640-f081-492d-97a0-caf24e9bc134",
-            "isEnabled": true,
-            "origin": "ServicePrincipal",
-            "value": "Administrator"
-        }
-    ]
-    }
-    ```
-    > [!Note]
-    > Sonra yeni rolleri yalnızca ekleyebilirsiniz **msiam_access** düzeltme eki işlemi için. Ayrıca, kuruluş gereksiniminizi istediğiniz sayıda rolleri ekleyebilirsiniz. Azure AD gönderecek **değeri** SAML yanıt talep değeri olarak bu rollerin.
+9. İçinde **kullanıcı öznitelikleri** bölümünü **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin.
     
-    j. Graph Explorer'a geri dönün ve yönteminden değiştirin **almak** için **düzeltme eki**. Hizmet sorumlusu nesnesi rolleri appRoles özelliği yukarıdaki örnekte gösterilene benzer güncelleştirerek istenen için düzeltme eki. Tıklatın **sorgu çalıştırma** düzeltme eki işlemi yürütmek için. Bir başarı iletisi rolünün oluşturulmasını onaylar.
-
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new11.png)
-
-7. Hizmet sorumlusu daha fazla rolleriyle uygulandıktan sonra kullanıcılar ilgili roller atayabilirsiniz. Bu Portalı'na gidip ilgili uygulama gezinme yapılabilir. Tıklayın **kullanıcılar ve gruplar** üst sekmesinde. Bu, tüm kullanıcılar ve uygulamanın zaten atanan grupları listeler. Yeni rolü yeni kullanıcı ekleme ve ayrıca varolan bir kullanıcı seçin ve'ı tıklatın **Düzenle** rolünü değiştirmek için.
-
-    ![Çoklu oturum açma yapılandırma ekleme](./media/active-directory-enterprise-app-role-management/graph-explorer-new5.png)
-
-     Herhangi bir kullanıcı rolüne atamak için yeni rolünü seçin ve tıklayın **atamak** sayfanın düğmesini.
-
-    ![Çoklu oturum açma yapılandırma ekleme](./media/active-directory-enterprise-app-role-management/graph-explorer-new6.png)
-
-    > [!Note]
-    > Yeni rolleri görmek için Azure portalında oturumunuzu yenilemek gerektiğini unutmayın.
-
-8. Kullanıcılara roller atama sonra güncelleştirmek ihtiyacımız **öznitelikleri** özelleştirilmiş Eşleme tablosunu **rol** talep.
-
-9. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
-    
-    | Öznitelik Adı | Öznitelik Değeri |
+    | Öznitelik adı | Öznitelik değeri |
     | -------------- | ----------------|    
-    | Rol Adı      | User.assignedrole |
+    | Rol adı      | User.assignedrole |
 
-    a. Tıklatın **Ekle özniteliği** açmak için **özniteliği eklemek** iletişim.
+    a. Seçin **Ekle özniteliği** açmak için **özniteliği eklemek** bölmesi.
 
-    ![Çoklu oturum açma yapılandırma ekleme](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
+      !["Öznitelik Ekle" düğmesi](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 
-    ![Çoklu oturum açma özniteliği yapılandırın](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
+      !["Öznitelik Ekle" bölmesi](./media/active-directory-enterprise-app-role-management/tutorial_attribute_05.png)
 
-    b. İçinde **adı** metin kutusuna, gerektiği şekilde öznitelik adı yazın. Bu örnekte kullandık **rol adı** adı talebi olarak.
+    b. İçinde **adı** gerektiği şekilde öznitelik adı yazın. Bu örnekte **rol adı** talep adı.
 
     c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
-    d. Bırakın **Namespace** boş.
+    d. Bırakın **Namespace** kutusu boş.
     
-    e. **Tamam**’a tıklayın.
+    e. Seçin **Tamam**.
 
-10. Çoklu oturum açma IDP'de uygulamanızı test etmek için erişim paneline oturum açma, başlatılan (https://myapps.microsoft.com) , uygulama kutucuğuna tıklayın. SAML belirteci atanan tüm rolleri verdiğiniz talep ada sahip kullanıcı için görmeniz gerekir.
+10. Bir tek bir kimlik sağlayıcısı tarafından başlatılan oturum içinde uygulamanızı test etmek için oturum açın [erişim paneli](https://myapps.microsoft.com) ve uygulama kutucuğunuzun seçin. SAML belirteci atanan tüm rolleri verdiğiniz talep ada sahip kullanıcı için görmeniz gerekir.
 
-## <a name="update-existing-role"></a>Mevcut bir rolü güncelleştirir
+## <a name="update-an-existing-role"></a>Mevcut bir rolü güncelleştirir
 
-Mevcut bir rolü güncelleştirmek için adımları izleyerek-
+Mevcut bir rolü güncelleştirmek için aşağıdaki adımları gerçekleştirin:
 
 1. Açık [Azure AD Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer).
 
-2. Graph Explorer'a sitenin kiracınız için genel yönetici/ortak yönetici kimlik bilgilerini kullanarak oturum açın.
+2. Graph Explorer'a siteye kiracınız için genel yönetici veya ortak yönetici kimlik bilgilerini kullanarak oturum açın.
     
-3. Sürüm olarak değiştirin **beta** ve sorguyu kullanarak Kiracı gelen hizmet asıl adı listesi getirilemedi:
+3. Sürüm olarak değiştirin **beta**ve aşağıdaki sorguyu kullanarak Kiracı hizmet asıl adı listesi getirilemedi:
     
     `https://graph.microsoft.com/beta/servicePrincipals`
     
-    Birden çok dizin kullanıyorsanız, bu deseni izlemelidir `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Birden çok dizin kullanıyorsanız, bu deseni izleyin: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![Hizmet sorumluları getirme için sorguyla grafik Explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-4. Alınan hizmet asıl adı listesinden değiştirmek için gereken bir alın. Ctrl + F, tüm listelenen ServicePrincipals uygulamadan aramak için de kullanabilirsiniz. Arama **nesne kimliği**, hangi özellikleri sayfasında kopyaladığınız ve ilgili hizmet sorumlusu almak için sorguyu kullanın.
+4. Getirilen hizmet asıl adı listesinden değiştirmek için gereken bir alın. Ctrl + F, tüm listelenen hizmet asıl adı uygulamadan aramak için de kullanabilirsiniz. Öğesinden kopyalanan nesne kimliği Ara **özellikleri** sayfasında ve hizmet sorumlusu almak için aşağıdaki sorguyu kullanın:
     
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![Değişiklik yapmanız hizmet sorumlusu almak için sorgu](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-5. AppRoles özelliği hizmet asıl nesneden ayıklayın.
+5. Extract **appRoles** hizmet sorumlusu nesnesi özelliğinden.
     
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
+    ![AppRoles özelliğinin ayrıntıları](./media/active-directory-enterprise-app-role-management/graph-explorer-new3.png)
     
-6. Mevcut rolünü güncelleştirmek için aşağıdaki adımları izleyin:
+6. Mevcut rolünü güncelleştirmek için aşağıdaki adımları kullanın.
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
+    !["Açıklama" ve "vurgulanmış displayname" ile "Düzeltme eki için" istek gövdesindeki](./media/active-directory-enterprise-app-role-management/graph-explorer-patchupdate.png)
     
-    * Yönteminden değiştirme **almak** için **düzeltme eki**.
+    a. Yönteminden değiştirme **almak** için **düzeltme eki**.
 
-    * Mevcut rollerin kopyalayıp bunları içinde **iste gövde**.
+    b. Mevcut rollerin kopyalayıp altında **iste gövde**.
 
-    * Rol değerini güncelleştirmek **rol açıklaması**, **rolü değeri** veya **rol displayname** gerektiğinde.
+    c. Bir rolü değerini rol açıklaması, rolü değeri veya rol görünen adı gerektiği gibi güncelleştirerek güncelleştirin.
 
-    * Gerekli tüm rolleri güncelleştirildikten sonra tıklatın **sorgu çalıştırma**.
+    d. Gerekli tüm rolleri güncelleştirdikten sonra Seç **sorgu çalıştırma**.
         
-## <a name="delete-existing-role"></a>Varolan rolünü silme
+## <a name="delete-an-existing-role"></a>Mevcut bir rolü silme
 
-Mevcut bir rolü silmek için şu adımları gerçekleştirin:
+Mevcut bir rolü silmek için aşağıdaki adımları gerçekleştirin:
 
 1. Açık [Azure AD Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) başka bir pencerede.
 
-2. Graph Explorer'a sitenin kiracınız için genel yönetici/ortak yönetici kimlik bilgilerini kullanarak oturum açın.
+2. Graph Explorer'a siteye kiracınız için genel yönetici veya ortak yönetici kimlik bilgilerini kullanarak oturum açın.
 
-3. Sürüm olarak değiştirin **beta** ve sorguyu kullanarak Kiracı gelen hizmet asıl adı listesi getirilemedi:
+3. Sürüm olarak değiştirin **beta**ve aşağıdaki sorguyu kullanarak Kiracı hizmet asıl adı listesi getirilemedi:
     
     `https://graph.microsoft.com/beta/servicePrincipals`
     
-    Birden çok dizin kullanıyorsanız, bu deseni izlemelidir `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Birden çok dizin kullanıyorsanız, bu deseni izleyin: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
     
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
+    ![Hizmet sorumluları listesini getirme için sorguyla grafik Explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
     
-4. Alınan hizmet asıl adı listesinden değiştirmek için gereken bir alın. Ctrl + F, tüm listelenen ServicePrincipals uygulamadan aramak için de kullanabilirsiniz. Arama **nesne kimliği**, hangi özellikleri sayfasında kopyaladığınız ve ilgili hizmet sorumlusu almak için sorguyu kullanın.
+4. Getirilen hizmet asıl adı listesinden değiştirmek için gereken bir alın. Ctrl + F, tüm listelenen hizmet asıl adı uygulamadan aramak için de kullanabilirsiniz. Öğesinden kopyalanan nesne kimliği Ara **özellikleri** sayfasında ve hizmet sorumlusu almak için aşağıdaki sorguyu kullanın:
      
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
+    ![Değişiklik yapmanız hizmet sorumlusu almak için sorgu](./media/active-directory-enterprise-app-role-management/graph-explorer-new2.png)
     
-5. AppRoles özelliği hizmet asıl nesneden ayıklayın.
+5. Extract **appRoles** hizmet sorumlusu nesnesi özelliğinden.
     
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
+    ![Hizmet sorumlusu nesnesi appRoles özelliğinden ayrıntıları](./media/active-directory-enterprise-app-role-management/graph-explorer-new7.png)
 
-6. Mevcut rolünü silmek için aşağıdaki adımları izleyin:
+6. Mevcut rolünü silmek için aşağıdaki adımları kullanın.
 
-    ![Grafik explorer iletişim kutusu](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
+    !["Düzeltme eki için" false olarak ayarlanmış IsEnabled ile istek gövdesindeki](./media/active-directory-enterprise-app-role-management/graph-explorer-new8.png)
 
-    * Yönteminden değiştirme **almak** için **düzeltme eki**.
+    a. Yönteminden değiştirme **almak** için **düzeltme eki**.
 
-    * Mevcut rollerin uygulamadan kopyalayıp bunları **iste gövde**.
+    b. Mevcut rollerin uygulamadan kopyalayıp altında **iste gövde**.
         
-    * Ayarlama **IsEnabled** değeri **false** silmek istediğiniz rolü
+    c. Ayarlama **IsEnabled** değeri **false** silmek istediğiniz rolü için.
 
-    * Tıklatın **sorgusu**.
+    d. Seçin **sorgusu**.
     
     > [!NOTE] 
-    > Lütfen sahip olduğunuzdan emin olun **msiam_access** kullanıcı rolü ve kimliği oluşturulan rolünde eşleşen.
+    > Msiam_access rolüne sahip ve oluşturulan rolünde eşleşen kimliği emin olun.
     
-7. Rolü devre dışı bırakıldığında, bu rolü blok appRoles bölümünden silmek, yöntemi olarak tutun **düzeltme eki** tıklatıp **sorgu çalıştırma**.
+7. Rolü devre dışı bırakıldıktan sonra bu rolü bloğundan silme **appRoles** bölümü. Yöntemi olarak tutun **düzeltme eki**seçip **sorgu çalıştırma**.
     
 8. Sorgu çalıştırdıktan sonra rol silinir.
     
     > [!NOTE]
-    > Rolü kaldırılmadan önce ilk devre dışı bırakılması gerekir. 
+    > Rolü kaldırılmadan önce devre dışı bırakılması gerekir. 
 
-## <a name="next-steps"></a>Sonraki Adımlar
+## <a name="next-steps"></a>Sonraki adımlar
 
-Başvuru [uygulama belgeleri ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) ek adımlar için.
+Ek adımlar için bkz: [uygulama belgelerine](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
 <!--Image references-->
 <!--Image references-->

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: özel ilkeler kullanarak Azure AD B2C kullanıcı arabirimi (UI) dinamik olarak özelleştirebilirsiniz.'
+title: Özel ilkeler kullanarak Azure Active Directory B2C kullanıcı arabirimi (UI) dinamik olarak özelleştirme | Microsoft Docs
 description: Çalışma zamanında dinamik olarak değişir HTML5/CSS içeriğe sahip birden çok marka deneyimlerini destekler.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: davidmu
-ms.openlocfilehash: 77f6ae1df8a364eecc5e7d6d6fe3a07dd215ac16
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: d01f7b884e03bb311350c508dc46f699cd6717c0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709351"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: kullanıcı Arabirimi ile dinamik içerik özel ilkeler kullanarak yapılandırma
 
