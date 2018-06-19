@@ -30,3 +30,13 @@
       href: /azure/iot-edge
     - name: IoT Cihaz SDK'ları
       href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: Güvenlik
+  items:
+    - name: Güvenlik mimarisi
+      href: iot-security-architecture.md
+    - name: En iyi güvenlik uygulamaları
+      href: iot-security-best-practices.md
+    - name: Güvenli dağıtım
+      href: iot-security-deployment.md
+    - name: Baştan sona güvenlik
+      href: iot-security-ground-up.md

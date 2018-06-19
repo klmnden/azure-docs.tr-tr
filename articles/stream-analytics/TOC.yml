@@ -54,11 +54,11 @@
           href: stream-analytics-login-credentials-inputs-outputs.md
         - name: Uyarı yapılandırma
           href: stream-analytics-set-up-alerts.md
-        - name: İşinizi test etme
+        - name: Bir işi test etme
           href: stream-analytics-test-query.md
         - name: Sonuçları bir panoda görüntüleme
           href: stream-analytics-power-bi-dashboard.md
-        - name: İşinizi temizleme
+        - name: Bir işi temizleme
           href: stream-analytics-clean-up-your-job.md
         - name: Güvenilirlik için işleri eşleştirme
           href: stream-analytics-job-reliability.md

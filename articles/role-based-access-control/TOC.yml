@@ -1,5 +1,5 @@
-- name: Erişimi yönetmeye genel bakış
-  href: manage-access-to-azure-resources.md
+- name: Rol Tabanlı Erişim Denetimi Belgeleri
+  href: index.yml
   items: null
 - name: Genel Bakış
   items:
@@ -36,6 +36,7 @@
     - name: Azure yönetimi için koşullu erişim
       href: conditional-access-azure-management.md
 - name: Nasıl yapılır kılavuzları
+  expanded: true
   items:
     - name: Erişimi yönetme
       items:

@@ -249,15 +249,10 @@
           href: apache-hbase-replication.md
         - name: HBase ve Phoenix için yedekleme ve çoğaltma ayarlama
           href: apache-hbase-backup-replication.md
-    - name: OMS’leri kullanarak izleme
+    - name: Log Analytics kullanarak izleme
       items:
         - name: Azure Log Analytics’i kullanma
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: HBase'i OMS ile izleme
-          href: apache-hbase-monitor-with-oms.md
-        - name: Kümeye özgü panolar
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Log Analytics ile sorguları kullanma
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md

@@ -53,7 +53,7 @@
     - name: Güvenlik durumunu izleme
       href: security-center-monitoring.md
       items:
-        - name: İşlem güvenliği
+        - name: İşleme ve uygulama güvenliği
           href: security-center-virtual-machine-recommendations.md
           items:
             - name: Disk şifrelemesi uygulayın
@@ -74,6 +74,10 @@
               href: security-center-update-os-version.md
             - name: Güvenlik açığı değerlendirmesi yüklü değil
               href: security-center-vulnerability-assessment-recommendations.md
+            - name: Web uygulaması güvenlik duvarı ekleme
+              href: security-center-add-web-application-firewall.md
+            - name: Uygulama korumasını sonlandırma
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Ağ güvenliği
           href: security-center-network-recommendations.md
           items:
@@ -94,13 +98,6 @@
               href: security-center-enable-auditing-on-sql-servers.md
             - name: Saydam Veri Şifrelemesini Etkinleştirme
               href: security-center-enable-transparent-data-encryption.md
-        - name: Uygulama güvenliği
-          href: security-center-application-recommendations.md
-          items:
-            - name: Web uygulaması güvenlik duvarı ekleme
-              href: security-center-add-web-application-firewall.md
-            - name: Uygulama korumasını sonlandırma
-              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: Kimlik ve Erişim
           href: security-center-identity-access.md
     - name: Bulut savunmalarını uygulama

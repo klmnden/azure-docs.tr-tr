@@ -97,6 +97,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: Karşılıklı Sertifika kimlik doğrulaması
           href: api-management-howto-mutual-certificates.md
+        - name: Protokolleri ve şifrelemeleri yönetme
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: Geliştirici deneyimini özelleştirme
       items:
         - name: Sayfa içeriği ve düzenini değiştirme

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9522e1f56c7aa8ce8fbe2b5b7b04f5482738342c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f18e94b6f788609dc5a0466e9d8ffa0c02056b1e
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236701"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35678064"
 ---
 ### <a name="supportedclientos"></a>Noktadan Siteye ile hangi istemci işletim sistemlerini kullanabilirim?
 
@@ -21,14 +21,13 @@ Aşağıdaki istemci işletim sistemleri desteklenmektedir:
 
 * Windows 7 (32 bit ve 64 bit)
 * Windows Server 2008 R2 (yalnızca 64 bit)
-* Windows 8 (32 bit ve 64 bit)
 * Windows 8.1 (32 bit ve 64 bit)
 * Windows Server 2012 (yalnızca 64 bit)
 * Windows Server 2012 R2 (yalnızca 64 bit)
 * Windows Server 2016 (yalnızca 64 bit)
 * Windows 10
-* Mac OS X sürüm 10.11 sürümünü (El Capitan)
-* Mac OS X sürüm 10,12 (Sierra)
+* Mac OS X sürüm 10.11 (El Capitan)
+* Mac OS X sürüm 10.12 (Sierra)
 * Linux (StrongSwan)
 * iOS
 
@@ -74,28 +73,28 @@ Hayır. SSTP için yalnızca Windows’daki yerel VPN istemcisini ve IKEv2 için
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure Windows ile IKEv2 VPN destekler mi?
 
-Ikev2, Windows 10 ve Server 2016 desteklenir. Ancak, Ikev2 kullanmak için güncelleştirmeleri yüklemeli ve kayıt defteri anahtar değerini yerel olarak ayarlayın. Windows 10'den önceki işletim sistemi sürümleri desteklenmez ve SSTP yalnızca kullanabilirsiniz.
+IKEv2, Windows 10 ve Server 2016’da desteklenir. Ancak IKEv2 kullanmak için güncelleştirmeleri yüklemeli ve yerel bir kayıt defteri anahtar değeri ayarlamalısınız. Windows 10’dan önceki işletim sistemleri desteklenmez ve yalnızca SSTP kullanabilir.
 
-Windows 10 veya Server 2016 için Ikev2 hazırlamak için:
+IKEv2 için Windows 10 ve Server 2016’yı hazırlamak için:
 
 1. Güncelleştirmeyi yükleyin.
 
-  | OS sürümü | Tarih | Sayı/bağlantı |
+  | İşletim sistemi sürümü | Tarih | Sayı/Bağlantı |
   |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 sürümü 1607 | 17 Ocak 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Windows 10 sürümü 1703 | 17 Ocak 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+  | Windows Server 2016<br>Windows 10 Sürüm 1607 | 17 Ocak 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+  | Windows 10 Sürüm 1703 | 17 Ocak 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
   |  |  |  |  |
 
-2. Kayıt defteri anahtarı değerini ayarlayın. Oluşturun veya 1 için kayıt defterindeki "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload" REG_DWORD anahtarı ayarlayın.
+2. Kayıt defteri anahtar değerini ayarlayın. Kayıt defterinde “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD anahtarını oluşturun veya 1 olarak ayarlayın.
 
-### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>P2S VPN bağlantıları için SSTP ve Ikev2 yapılandırdığım ne olur?
+### <a name="what-happens-when-i-configure-both-sstp-and-ikev2-for-p2s-vpn-connections"></a>P2S VPN bağlantıları için hem SSTP hem de IKEv2 yapılandırırsam ne olur?
 
-(Windows ve Mac cihazları oluşan), karma bir ortamda SSTP ve Ikev2 yapılandırdığınızda Windows VPN istemcisi Ikev2 tünel önce her zaman deneyecek, ancak Ikev2 bağlantı başarılı olmazsa, SSTP için geri döner. MacOSX yalnızca Ikev2 bağlanır.
+Karma bir ortamda (Windows ve Mac cihazlarından oluşan) hem SSTP hem de IKEv2 yapılandırdığınızda, Windows VPN istemcisi her zaman ilk önce IKEv2 tünelini dener, ancak IKEv2 bağlantısı başarılı olmazsa SSTP’ye geri döner. MacOSX yalnızca IKEv2 üzerinden bağlanır.
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Azure, P2S VPN için Windows ve Mac dışında hangi platformları destekliyor?
 
 Azure, P2S VPN için yalnızca Windows ve Mac’i desteklemektedir.
 
-### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Zaten dağıtılmış bir Azure VPN Gateway’im var. RADIUS ve/veya Ikev2 VPN üzerinde etkinleştirebilirim?
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>Zaten dağıtılmış bir Azure VPN Gateway’im var. Bu ağ geçidi üzerinde RADIUS ve/veya IKEv2 VPN etkinleştirebilir miyim?
 
-Evet, ağ geçidi, kullanmakta olduğunuz SKU RADIUS ve/veya Ikev2 desteklediğini varsayarak zaten dağıtılmış ağ geçitlerinde Powershell veya Azure portalını kullanarak bu yeni özellikleri etkinleştirebilirsiniz. Örneğin, VPN ağ geçidi temel SKU RADIUS veya IKEv2'yi desteklemiyor.
+Evet, kullandığınız ağ geçidi SKU’sunun RADIUS ve/veya IKEv2’yi desteklemesi şartıyla Azure portalı veya PowerShell’i kullanarak zaten dağıtılmış ağ geçitleri üzerinde bu yeni özellikleri etkinleştirebilirsiniz. Örneğin VPN ağ geçidi Temel SKU’su RADIUS’u veya IKEv2’yi desteklemez.

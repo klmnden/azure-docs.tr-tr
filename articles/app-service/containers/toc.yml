@@ -29,13 +29,13 @@
       items:
         - name: SQL DB ile .NET Core
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: MySQL ile Ruby
-          href: tutorial-ruby-mysql-app.md
+        - name: Postgres ile Ruby
+          href: tutorial-ruby-postgres-app.md
         - name: MySQL ile PHP
           href: tutorial-php-mysql-app.md
         - name: MongoDB ile Node.js
           href: tutorial-nodejs-mongodb-app.md
-        - name: PostgreSQL ile Python özel kapsayıcısı
+        - name: Postgres ile Python özel kapsayıcısı
           href: tutorial-docker-python-postgresql-app.md
     - name: Birden çok kapsayıcılı uygulamalar
       href: tutorial-multi-container-app.md

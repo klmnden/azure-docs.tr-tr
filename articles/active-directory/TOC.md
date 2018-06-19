@@ -122,7 +122,6 @@
 ### Başvuru
 #### [Bekletme](active-directory-reporting-retention.md)
 #### [Gecikmeler](active-directory-reporting-latencies-azure-portal.md)
-#### [Bildirimler](active-directory-reporting-notifications.md)
 #### [Denetim etkinliği başvurusu](active-directory-reporting-activity-audit-reference.md)
 #### [Oturum açma etkinliği hata kodları](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [SSPR’yi Özelleştirme](authentication/concept-sspr-customization.md)
 ### [SSPR Veri gereksinimleri](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Raporlama](authentication/howto-sspr-reporting.md)
+### [Zayıf parolaları ortadan kaldırma](authentication/concept-password-ban-bad.md)
+### [Engellenen parola listesini yapılandırma](authentication/howto-password-ban-bad.md)
+### [Şirket içi tümleştirme](authentication/concept-password-ban-bad-on-premises.md)
+### [Azure AD parola korumasını dağıtma](authentication/howto-password-ban-bad-on-premises.md)
+### [Azure AD parola korumasını yapılandırma](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Azure AD parola korumasını izleme](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### BT Yöneticileri: Parolaları sıfırlama
 #### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [SSPR lisanslama](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## Uygulamaları yönetme
 ### [Genel Bakış](manage-apps/what-is-application-management.md)
 ### [Başlarken](manage-apps/plan-an-application-integration.md)
-### [SaaS uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md)
+### [SaaS uygulama tümleştirmesi öğreticileri](saas-apps/tutorial-list.md)
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Anlık görüntü raporları oluşturma](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [Özel günlük ayrıştırıcı kullanma](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [SaaS uygulamalarına kullanıcı hazırlama ve hazırlamayı kaldırma](active-directory-saas-app-provisioning.md) 
-#### [Uygulama tümleştirmesi öğreticileri](active-directory-saas-tutorial-list.md) 
+#### [Uygulama tümleştirmesi öğreticileri](saas-apps/tutorial-list.md) 
 #### [SCIM etkin uygulamalara otomatik sağlama](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [Öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md) 
 #### [Öznitelik eşlemeleri için ifadeler yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md) 

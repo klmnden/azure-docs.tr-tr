@@ -16,6 +16,8 @@
   items:
     - name: Web uygulamasına Azure CDN’yi ekleme
       href: cdn-add-to-web-app.md
+    - name: Özel etki alanı kullanarak HTTPS üzerinden blob’lara erişme
+      href: cdn-storage-custom-domain-https.md
     - name: Özel etki alanı ekleme
       href: cdn-map-content-to-custom-domain.md
     - name: Özel etki alanı üzerinde HTTPS'yi yapılandırma

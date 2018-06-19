@@ -37,13 +37,10 @@
     - name: Azure VNet’te HBase kümesi çoğaltma
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: OMS’leri kullanarak izleme
+- name: Log Analytics kullanarak izleme
   items:
     - name: Azure Log Analytics’i kullanma
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: Kümeye özgü panolar
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Log Analytics ile sorguları kullanma
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
