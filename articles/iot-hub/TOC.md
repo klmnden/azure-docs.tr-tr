@@ -1,4 +1,4 @@
-# [Azure IoT Temel Konuları](../iot-fundamentals/index.yml)
+# [Azure IoT Temel Konuları](/azure/iot-fundamentals)
 # [IoT Hub Belgeleri](index.yml)
 
 # Genel Bakış
@@ -84,10 +84,10 @@
 ### [IoTHubClient kullanma](iot-hub-device-sdk-c-iothubclient.md)
 ### [Seri hale getirici kullanma](iot-hub-device-sdk-c-serializer.md)
 
-## [Baştan sona güvenlik](iot-hub-security-ground-up.md)
-## [En iyi güvenlik uygulamaları](iot-hub-security-best-practices.md)
-## [Güvenlik mimarisi](iot-hub-security-architecture.md)
-## [IoT dağıtımınızın güvenliğini sağlama](iot-hub-security-deployment.md)
+## [Baştan sona güvenlik](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [En iyi güvenlik uygulamaları](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [Güvenlik mimarisi](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [IoT dağıtımınızın güvenliğini sağlama](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## X.509 CA sertifikalarını kullanarak koruma
 ### [X.509 CA sertifika güvenliğine genel bakış](iot-hub-x509ca-overview.md)
 #### [X.509 CA sertifika güvenliği kavramları](iot-hub-x509ca-concept.md)

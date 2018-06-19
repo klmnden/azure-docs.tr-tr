@@ -33,14 +33,6 @@
           href: log-analytics-oms-portal-transition.md
         - name: Sık sorulan sorular
           href: log-analytics-oms-portal-faq.md
-    - name: Çalışma alanı yükseltme
-      items:
-        - name: Yükseltmeye genel bakış
-          href: log-analytics-log-search-upgrade.md
-        - name: Değişikliklerin özeti
-          href: log-analytics-log-search-upgrade-changes.md
-        - name: Yükseltme hakkında SSS
-          href: log-analytics-log-search-faq.md
     - name: Log Analytics SSS
       href: log-analytics-faq.md
     - name: Veri güvenliği

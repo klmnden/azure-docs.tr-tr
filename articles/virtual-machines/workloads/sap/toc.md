@@ -1,5 +1,5 @@
 # Genel Bakış
-## [Kullanmaya başlama](get-started.md)
+## [Kullanmaya Başlama](get-started.md)
 ## [Sertifikalar](sap-certifications.md)
 # Azure’da SAP HANA (Büyük Örnekler)
 ## [Genel bakış ve mimari](hana-overview-architecture.md)
@@ -51,12 +51,12 @@
 ## [DBMS dağıtım kılavuzu](dbms-guide.md)
 ## [SAP Olağanüstü Durum Kurtarma için Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP Kimlik Tümleştirmesi ve Çoklu Oturum Açma
-## [SAP Bulut ile tümleştirme](../../../active-directory/active-directory-saas-sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [SAP Cloud Platform Kimlik Doğrulaması ile AAD Tümleştirmesi](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [SAP Cloud Platform ile Çoklu Oturum Açma ayarlama](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [SAP Netweaver ile AAD Tümleştirmesi](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [SAP Business ByDesign ile AAD Tümleştirmesi](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [SAP HANA DBMS ile AAD Tümleştirmesi](../../../active-directory/active-directory-saas-saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP Bulut ile tümleştirme](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP Cloud Platform Kimlik Doğrulaması ile AAD Tümleştirmesi](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP Cloud Platform ile Çoklu Oturum Açma ayarlama](../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP Netweaver ile AAD Tümleştirmesi](../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP Business ByDesign ile AAD Tümleştirmesi](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP HANA DBMS ile AAD Tümleştirmesi](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ##[Azure AD ile SAP Fiori Launchpad SAML Çoklu Oturum Açma](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
 # Kaynaklar
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/)

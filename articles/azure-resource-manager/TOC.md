@@ -17,6 +17,7 @@
 ### [Şablon bölümleri](resource-group-authoring-templates.md)
 #### [Parametreler](resource-manager-templates-parameters.md)
 #### [Değişkenler](resource-manager-templates-variables.md)
+#### [İşlevler](resource-group-authoring-templates.md#functions)
 #### [Kaynaklar](resource-manager-templates-resources.md)
 #### [Çıkışlar](resource-manager-templates-outputs.md)
 ### [Bağlantılı ve iç içe şablonlar](resource-group-linked-templates.md)

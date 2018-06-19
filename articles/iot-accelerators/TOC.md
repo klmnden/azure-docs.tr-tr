@@ -1,4 +1,4 @@
-# [Azure IoT Temel Konuları](../iot-fundamentals/index.yml)
+# [Azure IoT Temel Konuları](/azure/iot-fundamentals)
 # [IoT çözüm hızlandırıcısı belgeleri](index.md)
 
 # Genel Bakış
@@ -94,10 +94,10 @@
 # Başvuru
 ## [Geliştirici Başvuru Kılavuzu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [Geliştirici Sorun Giderme Kılavuzu](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [Güvenlik mimarisi](iot-security-architecture.md)
-## [En iyi güvenlik uygulamaları](iot-security-best-practices.md)
-## [IoT dağıtımınızın güvenliğini sağlama](iot-accelerators-security-deployment.md)
-## [Baştan sona güvenlik](securing-iot-ground-up.md)
+## [Baştan sona güvenlik](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc)
+## [En iyi güvenlik uygulamaları](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc)
+## [Güvenlik mimarisi](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc)
+## [IoT dağıtımınızın güvenliğini sağlama](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc)
 
 # İlgili
 ## Çözümler 
