@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642708"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>Öğretici: Service Fabric kümesini ölçekleme
 
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-Şimdi bağlandığınıza göre, kümedeki her bir düğümün durumunu almak için bir komut kullanabilirsiniz. PowerShell için `Get-ServiceFabricClusterHealth` komutunu ve **sfctl** için `sfctl cluster select` komutunu kullanın.
+Şimdi bağlandığınıza göre, kümedeki her bir düğümün durumunu almak için bir komut kullanabilirsiniz. **PowerShell** için `Get-ServiceFabricClusterHealth` komutunu ve **sfctl** için `sfctl cluster select` komutunu kullanın.
 
 ## <a name="scale-out"></a>Ölçeği genişletme
 
@@ -131,15 +132,15 @@ Service Fabric kümesinin, bu düğümün kaldırılacağını bilmesi gerekir. 
 
 1. Artık veriler için çoğaltma olmaması için düğümü devre dışı bırakın.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfcli: `sfctl node disable`
+sfctl: `sfctl node disable`
 
 2. Service Fabric çalışma zamanının düzgün şekilde kapanması ve uygulamanızın bir sonlandırma isteği alması için düğümü durdurun.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfcli: `sfctl node transition --node-transition-type Stop`
+sfctl: `sfctl node transition --node-transition-type Stop`
 
 2. Kümeden düğümü kaldırın.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfcli: `sfctl node remove-state`
+sfctl: `sfctl node remove-state`
 
 Bu üç adım düğüme uygulandıktan sonra ölçek kümesinden kaldırılabilir. [Bronz][durability]’un yanı sıra dayanıklılık katmanları kullanıyorsanız ölçek kümesi örneği kaldırıldığında bu adımlar sizin için uygulanır.
 

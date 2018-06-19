@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639036"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak iki sanal makine arasındaki ağ iletişimini izleme
 
@@ -141,7 +142,7 @@ Varsayılan olarak Azure, aynı sanal ağ üzerindeki sanal makineler arasında 
 
 5. Bağlantı izleyicisi 60’ar saniyelik aralıklarla araştırma yaptığından birkaç dakika bekleyin ve sonra portalın sol tarafında **Ağ İzleyicisi**’ni, ardından **Bağlantı izleyicisi**’ni ve sonra tekrar **myVm1-myVm2(22)** izleyicisini seçin. Aşağıdaki resimde gösterildiği gibi sonuçlar şimdi farklıdır:
 
-    ![İzleyici ayrıntıları hatası](./media/connection-monitor/vm-monitor-fault .png)
+    ![İzleyici ayrıntıları hatası](./media/connection-monitor/vm-monitor-fault.png)
 
     **myvm2529** ağ arabirimi için durum sütununda kırmızı bir ünlem simgesi olduğunu görebilirsiniz.
 

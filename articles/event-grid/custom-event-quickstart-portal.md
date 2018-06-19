@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 06/04/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fa6a232c657d9d96943f241eb05221e42f0f599b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302568"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763349"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure portalı ve Event Grid ile özel olaylar oluşturma ve yönlendirme
 
@@ -71,7 +71,7 @@ Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Bu mak
 
    ![İşlev oluşturma](./media/custom-event-quickstart-portal/create-function.png)
 
-1. Azure İşlevi için benzersiz bir ad belirtin. Görüntüde gösterilen adı kullanmayın. Bu makalede oluşturduğunuz kaynak grubunu seçin. Barındırma planı için **Tüketim Planı**’nı kullanın. Önerilen yeni depolama hesabını kullanın. Değerleri girdikten sonra **Oluştur**’u seçin.
+1. Azure İşlevi için benzersiz bir ad belirtin. Görüntüde gösterilen adı kullanmayın. Bu makalede oluşturduğunuz kaynak grubunu seçin. Barındırma planı için **Tüketim Planı**’nı kullanın. Önerilen yeni depolama hesabını kullanın. Application Insights’ı devre dışı bırakabilirsiniz. Değerleri girdikten sonra **Oluştur**’u seçin.
 
    ![İşlev değerleri sağlama](./media/custom-event-quickstart-portal/provide-function-values.png)
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure’da kapsayıcılar ve mikro hizmetlerle hızlı Kubernetes geliştirme
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Hizmeti, kapsayıcılar
 manager: douge
-ms.openlocfilehash: deb651170b0fd58f8c89b591f3e42b5b629f4095
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361483"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823920"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Node.js ile Azure Dev Spaces'da Çalışmaya Başlama
 
@@ -29,10 +29,10 @@ Artık Azure’da Kubernetes tabanlı bir geliştirme ortamı oluşturmaya hazı
 [!INCLUDE[](includes/portal-aks-cluster.md)]
 
 ## <a name="install-the-azure-cli"></a>Azure CLI'yı yükleme
-Azure Dev Spaces, çok az yerel makine kurulumu gerektirir. Geliştirme ortamı yapılandırmanızın büyük bölümü bulutta depolanır ve diğer kullanıcılarla paylaşılabilir. İlk olarak [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)'yi indirip yükleyin.
+Azure Dev Spaces, çok az yerel makine kurulumu gerektirir. Geliştirme ortamı yapılandırmanızın büyük bölümü bulutta depolanır ve diğer kullanıcılarla paylaşılabilir. İlk olarak [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) indirip yükleyin.
 
 > [!IMPORTANT]
-> Azure CLI zaten yüklüyse, 2.0.32 veya üzeri bir sürüm kullandığınızdan emin olun.
+> Azure CLI zaten yüklüyse, 2.0.33 veya üzeri bir sürüm kullandığınızdan emin olun.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -54,7 +54,7 @@ GitHub deposunu yerel ortamınıza indirmek için https://github.com/Azure/dev-s
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
 ### <a name="update-a-content-file"></a>İçerik dosyası güncelleştirme
-Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızla ve yinelenerek görmenizi sağlar.
+Azure Dev Spaces yalnızca kodu Kubernetes’te çalıştırmaya yönelik değildir; aynı zamanda kod değişikliklerinizin buluttaki bir Kubernetes ortamında uygulandığını hızlıca ve yinelenerek görmenizi sağlar.
 
 1. `./public/index.html` dosyasını bulun ve HTML dosyasında bir düzenleme yapın. Örneğin, sayfanın arka plan rengini mavinin bir tonu ile değiştirin:
 
@@ -174,7 +174,7 @@ Bu kılavuz için `samples` adlı klasörün altında zaten `mywebapi` örnek ko
 
 ### <a name="run-mywebapi"></a>*mywebapi* hizmetini çalıştırın
 1. *Ayrı bir VS Code penceresinde* `mywebapi` klasörünü açın.
-1. F5'e basın ve hizmetin oluşturulup dağıtılmasını bekleyin. VS Code hata ayıklama çubuğu görüntülendiğinde hazır olduğunu anlarsınız.
+1. F5'e bastıktan sonra hizmetin oluşturulup dağıtılmasını bekleyin. VS Code hata ayıklama çubuğu görüntülendiğinde hazır olduğunu anlarsınız.
 1. Uç nokta URL'sini not alın; http://localhost:\<portnumber\> benzeri bir URL olacaktır. **İpucu: VS Code durum çubuğunda tıklanabilir bir URL görüntülenir.** Kapsayıcı yerel olarak çalışıyor gibi görünebilir, ancak gerçekte Azure’daki geliştirme ortamınızda çalışıyordur. Bunun localhost adresi olmasının nedeni `mywebapi` hizmetinin hiçbir genel uç nokta tanımlamamış olması ve buna yalnızca Kubernetes örneğinin içinden erişilebilmesidir. Size rahatlık sağlamak ve yerel makinenizden özel hizmetle etkileşimi kolaylaştırmak için, Azure Dev Spaces Azure'da çalıştırılan kapsayıcıya geçici bir SSH tüneli oluşturur.
 1. `mywebapi` hazır olduğunda, tarayıcınızda localhost adresini açın. `mywebapi` hizmetinden bir yanıt görmeniz gerekir ("Hello from mywebapi").
 
@@ -185,25 +185,25 @@ Bu kılavuz için `samples` adlı klasörün altında zaten `mywebapi` örnek ko
 1. Şu kod satırlarını `server.js` dosyasının en üstüne ekleyin:
     ```javascript
     var request = require('request');
-    var propagateHeaders = require('./propagateHeaders');
     ```
 
 3. `/api` GET işleyicisinin kodunu *değiştirin*. İsteği işlerken, o da `mywebapi` hizmetine bir çağrı yapar ve her iki hizmetten de sonuçları döndürür.
 
     ```javascript
     app.get('/api', function (req, res) {
-        request({
-            uri: 'http://mywebapi',
-            headers: propagateHeaders.from(req) // propagate headers to outgoing requests
-        }, function (error, response, body) {
-            res.send('Hello from webfrontend and ' + body);
-        });
+       request({
+          uri: 'http://mywebapi',
+          headers: {
+             /* propagate the dev space routing header */
+             'azds-route-as': req.headers['azds-route-as']
+          }
+       }, function (error, response, body) {
+           res.send('Hello from webfrontend and ' + body);
+       });
     });
     ```
 
-Kubernetes’in DNS hizmeti bulma yönteminin hizmete `http://mywebapi` olarak başvuracak şekilde nasıl uygulandığına dikkat edin. **Geliştirme ortamınızdaki kod, üretimde çalışacağı şekilde çalışır**.
-
-Yukarıdaki kod örneğinde `propagateHeaders` adlı bir yardımcı modül kullanılır. Bu yardımcı kod klasörünüze `azds prep` komutunu çalıştırdığınız zaman eklenmiştir. `propagateHeaders.from()` işlevi mevcut http.IncomingMessage nesnesindeki belirli üst bilgileri giden istek için bir headers nesnesine yayar. Daha sonra bunun takımlara işbirliğine dayalı geliştirme açısından nasıl yardımcı olduğunu göreceksiniz.
+Önceki kod örneğinde `azds-route-as` üst bilgisi gelen istekten giden isteğe iletilmektedir. Daha sonra bunun takımlara işbirliğine dayalı geliştirme açısından nasıl yardımcı olduğunu göreceksiniz.
 
 ### <a name="debug-across-multiple-services"></a>Birden çok hizmette hata ayıklama
 1. Bu noktada, `mywebapi` hizmetinin hata ayıklayıcısı ekli bir şekilde çalışmaya devam ediyor olması gerekir. Devam etmiyorsa, `mywebapi` projesinde F5'e basın.

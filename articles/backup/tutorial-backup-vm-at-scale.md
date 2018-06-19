@@ -1,19 +1,20 @@
 ---
-title: "Azure sanal makinelerini uygun ölçekte yedekleme | Microsoft Docs"
-description: "Azure’da aynı anda birden çok sanal makineyi yedekleme"
+title: Azure sanal makinelerini uygun ölçekte yedekleme
+description: Azure’da aynı anda birden çok sanal makineyi yedekleme
 services: backup
-keywords: "sanal makine yedeklemesi; sanal makine yedeklemek; VM yedeklemesi; VM’yi yedekleme; Azure VM yedekleme; yedekleme ve olağanüstü durum kurtarma"
+keywords: sanal makine yedeklemesi; sanal makine yedeklemek; VM yedeklemesi; VM’yi yedekleme; Azure VM yedekleme; yedekleme ve olağanüstü durum kurtarma
 author: markgalioto
 ms.author: markgal
 ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607473"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Birden çok sanal makineyi yedeklemek için Azure portalını kullanma
 
@@ -31,7 +32,7 @@ Azure’da verileri yedeklediğinizde söz konusu veriler Kurtarma Hizmetleri ka
 
 ## <a name="create-a-recovery-services-vault"></a>Kurtarma Hizmetleri kasası oluşturma
 
-Kurtarma Hizmetleri kasası, yedekleme verilerini ve korumalı sanal makinelere uygulanan yedekleme ilkesini içerir. Sanal makineleri yedekleme işlemi, yerel bir işlemdir. Belirli bir konumdaki bir sanal makineyi başka bir konumdaki Kurtarma Hizmetlerine yönelik olarak yedekleyemezsiniz. Bu nedenle, yedeklenecek sanal makineler içeren her Azure konumu için, söz konusu konumda en az bir Kurtarma Hizmetleri kasası mevcut olmalıdır.
+Kurtarma Hizmetleri kasası, yedekleme verilerini ve korumalı sanal makinelere uygulanan yedekleme ilkesini içerir. Sanal makineleri yedekleme işlemi, yerel bir işlemdir. Belirli bir konumdaki sanal makineyi başka bir konumdaki Kurtarma Hizmetleri kasasına yedekleyemezsiniz. Bu nedenle, yedeklenecek sanal makineler içeren her Azure konumu için, söz konusu konumda en az bir Kurtarma Hizmetleri kasası mevcut olmalıdır.
 
 1. Sol taraftaki menüden **Tüm hizmetler**’i seçin ve hizmet listesinde *Kurtarma Hizmetleri* yazın. Siz yazarken kaynakların listesini filtrelenir. Listede Kurtarma Hizmetleri kasalarını gördüğünüzde Kurtarma Hizmetleri kasası menüsünü açmak için seçin.
 
@@ -76,7 +77,7 @@ Kurtarma Hizmetleri kasasını oluşturduktan sonraki adım, veri türü için k
     ![İş yükünü seçme](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. **Yedekleme ilkesi** menüsünde, **İlke Adı** türü için *Finans* yazın. Yedekleme ilkesi için aşağıdaki değişiklikleri girin: 
-    - **Yedekleme sıklığı** için saat dilimini *Merkezi Saat* olarak ayarlayın. Spor tesisi Teksas’ta olduğundan, tesisin sahibi zamanlamanın yerel olarak ayarlanmasını istemektedir. Yedekleme sıklığını Günlük 03:30 olarak ayarlanmış halde bırakın.
+    - **Yedekleme sıklığı** için saat dilimini *Orta Amerika Saati* olarak ayarlayın. Spor tesisi Teksas’ta olduğundan, tesisin sahibi zamanlamanın yerel olarak ayarlanmasını istemektedir. Yedekleme sıklığını Günlük olarak saat 03:30'a ayarlanmış halde bırakın.
     - **Günlük yedekleme noktası bekletmesi** için süreyi 90 gün olarak ayarlayın.
     - **Haftalık yedekleme noktası bekletmesi** için *Pazartesi* geri yükleme noktasını kullanın ve 52 hafta boyunca tutun.
     - **Aylık yedekleme noktası bekletmesi** için her ayın İlk Pazar günündeki geri yükleme noktasını kullanın ve 36 ay boyunca tutun.
@@ -160,11 +161,11 @@ Sonraki öğreticilerle çalışmaya devam etmeyi planlıyorsanız bu öğretici
 
 6. **Yedekleme öğesinin adını yazın** iletişim kutusuna *myVM* yazın.
  
-7. Yedekleme öğesi doğrulandıktan sonra (bir onay işareti görünür), **Yedeklemeyi durdur** düğmesi etkinleşir. İlkeyi durdurup, geri yükleme noktalarını silmek için **Yedeklemeyi Durdur** seçeneğine tıklayın. 
+7. Yedekleme öğesi doğrulandıktan sonra (bir onay işareti görünür), **Yedeklemeyi durdur** düğmesi etkinleşir. İlkeyi durdurup geri yükleme noktalarını silmek için **Yedeklemeyi Durdur** seçeneğine tıklayın. 
 
     ![Kasayı silmek için Yedeklemeyi durdur seçeneğine tıklayın](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png).
 
-8. **myRecoveryServicesVault** menüsünde, **Sil** seçeneğine tıklayın.
+8. **myRecoveryServicesVault** menüsünde **Sil** seçeneğine tıklayın.
 
     ![Kasayı silmek için Yedeklemeyi durdur seçeneğine tıklayın](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
 

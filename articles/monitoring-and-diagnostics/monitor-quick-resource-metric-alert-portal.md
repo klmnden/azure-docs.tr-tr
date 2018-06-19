@@ -1,20 +1,20 @@
 ---
-title: Ölçüm değeri bir koşula uyduğunda bildirim alma | Microsoft Docs
+title: Ölçüm değeri bir koşula uyduğunda bildirim alma
 description: Kullanıcıların bir Mantıksal Uygulama için ölçüm oluşturmasına yardımcı olmaya yönelik bir hızlı başlangıç kılavuzu
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263057"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Ölçüm değeri bir koşula uyduğunda bildirim alma
 
@@ -69,7 +69,7 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.
 
 2. **Ölçümler** sekmesinde mantıksal uygulamanızın **Abonelik**, **Kaynak Grubu**, **Kaynak Türü** ve **Kaynak** bilgilerini doldurun.
 
-3. Ölçüm listesinde **Başlatılan Çalıştırmalar**'ı seçin.
+3. Ölçüm listesinde **Başarısız Çalıştırmalar**’ı seçin.
 
 4. Geçtiğimiz saatin verilerini görüntülemek için grafiğin **Zaman aralığı**'nı değiştirin.
 
