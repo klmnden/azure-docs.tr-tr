@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 6871127ac138fb0113af73ca5222e3e2c2f99d7e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac4298b6a386ca40d5fd054ba8712b45c61f653d
+ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202554"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "36205629"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Bir JavaScript tek sayfa uygulama (SPA) Microsoft Graph API çağrısı
 
@@ -31,7 +31,7 @@ Bu kılavuz bir JavaScript tek sayfa uygulama (SPA) kişisel, iş ne kaydolabili
 ![Bu kılavuz tarafından oluşturulan örnek uygulaması nasıl çalışır](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
 
 <!--start-collapse-->
-## <a name="more-information"></a>Daha Fazla Bilgi
+### <a name="more-information"></a>Daha Fazla Bilgi
 
 Bu kılavuz tarafından oluşturulan örnek uygulamayı Microsoft Graph API veya Azure Active Directory v2 uç noktasından belirteçleri kabul eder bir Web API sorgulamak bir JavaScript SPA sağlar. Bir kullanıcı oturum açtığında, sonra bu senaryo için bir erişim belirteci istenen ve HTTP isteklerini authorization üstbilgisi yoluyla eklenir. Belirteç edinme ve yenileme Microsoft kimlik doğrulama kitaplığı (MSAL) tarafından işlenir.
 
