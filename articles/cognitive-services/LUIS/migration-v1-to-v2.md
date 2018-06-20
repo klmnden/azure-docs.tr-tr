@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: v-geberr
-ms.openlocfilehash: 07c26753ed7198a2d98f4b7d5afb4cc7845fbcbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 060baa6578f8a31234a1a667e2d591b92c39a06f
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355792"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264293"
 ---
 # <a name="api-v2-migration-guide"></a>API v2 Geçiş Kılavuzu
 Sürüm 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) ve [yazma](https://aka.ms/v1-authoring-api-docs) API'leri kullanım dışı. 2. sürüme geçirmek nasıl anlamak için bu kılavuzu kullanın [endpoint](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
@@ -170,4 +170,4 @@ Bkz: [HALUK API yanıt kodları](luis-reference-response-codes.md).
 
 Varolan REST güncelleştirmek için v2 API belgelerine çağırır LIUS için kullanım [endpoint](https://aka.ms/luis-endpoint-apis) ve [yazma](https://aka.ms/luis-authoring-apis) API'leri. 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

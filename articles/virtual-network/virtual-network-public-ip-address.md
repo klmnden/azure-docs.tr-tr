@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 30b4a7ea0d3f68e48d02e5cb72e70de74dc2addf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3962b2e598f94767bd0fbbe990084875deec5e40
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658698"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266908"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Oluşturma, değiştirme veya genel bir IP adresi silme
 
@@ -90,7 +90,7 @@ Portal, iki ortak IP adresi kaynakları (bir IPv4 ve bir IPv6) oluşturma seçen
 |Aracı|Komut|
 |---|---|
 |CLI|[az ağ ortak IP listesi](/cli/azure/network/public-ip#az-network-public-ip-list) listesi genel IP adresleri için [az ağ ortak IP Göster](/cli/azure/network/public-ip#az-network-public-ip-show) ayarları; göstermek için [az ağ ortak IP güncelleştirmesi](/cli/azure/network/public-ip#az-network-public-ip-update) güncelleştirmek için; [az ağ ortak IP silme](/cli/azure/network/public-ip#az-network-public-ip-delete) silmek için|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) bir ortak IP adres nesnesini almak ve ayarlarını görüntülemek için [kümesi AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress) ayarlarını; güncelleştirmek için [Kaldır AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) silmek için|
+|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) bir ortak IP adres nesnesini almak ve ayarlarını görüntülemek için [kümesi AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) ayarlarını; güncelleştirmek için [Kaldır AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) silmek için|
 
 ## <a name="permissions"></a>İzinler
 

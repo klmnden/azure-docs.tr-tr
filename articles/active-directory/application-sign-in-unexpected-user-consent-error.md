@@ -13,22 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: bbc0cee8a44773c025c6174eaf7eccaba81b8d1b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4fc71432707c981c0f3f12e74ad7c499d36a17d2
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "26617084"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231347"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Bir uygulama onay gerçekleştirirken beklenmeyen bir hata
 
-Bu makalede, bir uygulamaya onaylıyorsunuz işlemi sırasında oluşabilecek hatalar açıklanır. Sorun giderme beklenmeyen varsa, onay ister olmayan herhangi bir hata iletisi içeren bkz [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
+Bu makalede, bir uygulamaya onaylıyorsunuz işlemi sırasında oluşabilecek hatalar açıklanır. Herhangi bir hata iletisi içermeyen beklenmeyen onay istekleri gideriyorsanız bkz [Azure AD için kimlik doğrulama senaryoları](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios).
 
-Azure Active Directory ile tümleştirme pek çok uygulama çalışması için diğer kaynaklara erişim izinleri gerektirir. Ne zaman bu kaynakları Azure Active Directory ile bunlara erişmek için izinleri de tümleşiktir genellikle ortak izin framework kullanılarak istenir. 
+Azure Active Directory ile tümleştirme pek çok uygulama çalışması için diğer kaynaklara erişim izinleri gerektirir. Ne zaman bu kaynakları Azure Active Directory ile bunlara erişmek için izinleri de tümleşiktir genellikle ortak izin framework kullanılarak istenir. Bir onay istemi, genellikle bir uygulama kullanılır ancak uygulama üzerinde bir sonraki kullanımı da oluşabilir ilk kez oluştuğu görüntülenir.
 
-Bu, genellikle bir uygulama kullanılır ancak uygulama üzerinde bir sonraki kullanımı da oluşabilir ilk kez ortaya çıkan görüntülenmesini, bir onay istemi sonuçlanır.
-
-Belirli bir kullanıcının gerektiren bir uygulama izinleri onayı koşulların karşılanması gerekir. Bu koşullar karşılanmazsa, çeşitli hatalar oluşabilir. Bunlar:
+Belirli bir kullanıcının gerektiren bir uygulama izinleri onayı koşulların karşılanması gerekir. Bu koşullar karşılanmazsa, aşağıdaki hatalar oluşabilir.
 
 ## <a name="requesting-not-authorized-permissions-error"></a>Yetki verilmemiş izinleri hata isteme
 * **AADSTS90093:** &lt;clientAppDisplayName&gt; olduğunuz bir veya daha fazla izinler yetkisi vermek istiyor. Bu uygulama, sizin adınıza onayı bir yönetici, başvurun.
@@ -41,7 +39,7 @@ Belirli bir kullanıcının gerektiren bir uygulama izinleri onayı koşulların
 Bu hata, yönetici olmayan bir kullanıcı onay gerektiren bir uygulama kullanma girişiminde sonra kabul uygulamalara, kullanıcılara şirket Yöneticisi kapatır oluşur. Bu hata, uygulama kendi kuruluş adına erişim verilirken bir yönetici tarafından çözülebilir.
 
 ## <a name="intermittent-problem-error"></a>Aralıklı sorun hata
-* **AADSTS90090:** çalıştığınız vermek için izinleri kaydı aralıklı bir sorunla karşılaştık gibi görünüyor &lt;clientAppDisplayName&gt;. Daha sonra yeniden deneyin.
+* **AADSTS90090:** oturum açma işlemini çalıştığınız vermek için izinleri kaydı aralıklı bir sorunla karşılaştı gibi görünüyor &lt;clientAppDisplayName&gt;. Daha sonra yeniden deneyin.
 
 Bu hata, bir aralıklı Hizmet tarafı sorunu oluştuğunu gösterir. Uygulamayı yeniden kabul deneyerek çözülebilir.
 
@@ -51,24 +49,24 @@ Bu hata, bir aralıklı Hizmet tarafı sorunu oluştuğunu gösterir. Uygulamay�
 Uygulama geliştiricisine başvurun.
 
 ##  <a name="resource-not-available-in-tenant-error"></a>Kaynak Kiracı hata mevcut değil
-* **AADSTS65005:** &lt;clientAppDisplayName&gt; is requesting access to a resource &lt;resourceAppDisplayName&gt; that is not available in your organization &lt;tenantDisplayName&gt;. 
+* **AADSTS65005:** &lt;clientAppDisplayName&gt; bir kaynağa erişim isteğinde &lt;resourceAppDisplayName&gt; , kuruluşunuzda mevcut değil &lt;tenantDisplayName &gt;. 
 
 Bu kaynak kullanılabilir olduğundan emin olun veya bir sistem yöneticisine başvurun &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>İzinleri uyuşmazlığı hatası
 * **AADSTS65005:** uygulama istenen kaynağa erişim izni &lt;resourceAppDisplayName&gt;. Uygulama uygulama kaydı sırasında önceden yapılandırılmış nasıl eşleşmediğinden bu isteği başarısız oldu. Uygulama vendor.* * başvurun
 
-Bir kullanıcı için onay çalışılırken uygulama (Kiracı) kuruluşunuzun dizininde bulunan bir kaynak uygulamaya erişim izni isterken tüm ortaya bu hatalar. Bu, çeşitli nedenlerle oluşabilir:
+Bir kullanıcı için onay çalışılırken uygulama (Kiracı) kuruluşunuzun dizininde bulunan bir kaynak uygulamaya erişim izni isterken tüm ortaya bu hatalar. Bu durum, çeşitli nedenlerle oluşabilir:
 
 -   İstemci uygulama geliştiricisi uygulamasına yanlış, geçersiz bir kaynak için erişim istemek için neden yapılandırdı. Bu durumda, uygulama geliştiricisi bu sorunu çözmek için istemci uygulaması yapılandırmasını güncelleştirmeniz gerekir.
 
--   Hedef kaynak uygulama temsil eden bir hizmet sorumlusu kuruluşunuzda mevcut değil veya geçmişte vardı ancak kaldırılmıştır. İstemci uygulaması izinlere isteyebilir bu sorunu çözmek için kaynak uygulama için bir hizmet sorumlusu kuruluşta sağlanmalıdır. Bir uygulamanın türüne bağlı olarak yol sayısı cinsinden durum olabilir dahil olmak üzere:
+-   Hedef kaynak uygulama temsil eden bir hizmet sorumlusu kuruluşunuzda mevcut değil veya geçmişte vardı ancak kaldırılmıştır. İstemci uygulaması izinlere isteyebilir bu sorunu çözmek için kaynak uygulama için bir hizmet sorumlusu kuruluşta sağlanmalıdır. Hizmet sorumlusu yollarla, uygulama türüne bağlı olarak çeşitli sağlanabilir dahil olmak üzere:
 
     -   (Microsoft yayımlanan uygulamaları) kaynak uygulama için bir abonelik alınıyor
 
     -   Kaynak uygulamaya onaylıyorsunuz
 
-    -   Azure Portalı aracılığıyla uygulama izin verme
+    -   Azure portalı üzerinden uygulama izin verme
 
     -   Azure AD uygulama galerisinden uygulama ekleme
 

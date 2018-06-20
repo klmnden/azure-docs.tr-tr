@@ -1,28 +1,30 @@
 ---
-title: "Koşullu erişim ne aracı - Azure Active Directory Önizleme | Microsoft Docs"
-description: "Azure Active Directory koşullu erişim ilkelerinizi yapılandırmasını test nasıl öğrenin."
+title: Ne ne ise, Azure Active Directory koşullu erişim aracı? -Önizleme | Microsoft Docs
+description: Koşullu erişim ilkelerinizi etkisini ortamınızda nasıl anlayabilirsiniz öğrenin.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 19ebb30164eee8e03a3cd8f18b6d575c6eee5438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232533"
 ---
-# <a name="azure-active-directory-conditional-access-what-if-tool---preview"></a>Koşullu erişim ne aracı - Azure Active Directory Önizleme
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Ne ne ise, Azure Active Directory koşullu erişim aracı? -Önizleme
 
 [Koşullu erişim](active-directory-conditional-access-azure-portal.md) olan Azure Active denetimine nasıl sağlayan Directory (Azure AD) yeteneğini yetkili kullanıcılara erişimi, bulut uygulamalarınızı. Nasıl, ne form bekleneceği koşullu erişim ilkeleri, ortamınızda biliyor musunuz? Bu soruyu yanıtlamak için kullanabileceğiniz **koşullu erişim ne aracı**.
 
@@ -52,7 +54,7 @@ Değerlendirme tamamlandığında, aracı etkilenen ilkeleri bir rapor oluşturu
 
 ## <a name="running-the-tool"></a>Aracını çalıştırma
 
-Bulabileceğiniz **ne** aracındaki  **[koşullu erişim - ilkeleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)**  Azure portalında sayfası.
+Bulabileceğiniz **ne** aracındaki **[koşullu erişim - ilkeleri](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** Azure portalında sayfası.
 
 Araç çubuğunda ilkelerin listesini üstünde aracını başlatmak için tıklatın **ne**.
 
@@ -119,7 +121,7 @@ Kullanıcınız için uygulama ilkeleri listesi üzerinde olabilir ve ayrıca ne
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
+- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory koşullu erişimi olan belirli uygulamalar için MFA gerektiren](active-directory-conditional-access-app-based-mfa.md).
 
 - Ortamınız için koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md). 
 

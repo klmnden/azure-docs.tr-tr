@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 562b1f1371133a1da8d24ebbb9c588f0597dda7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c51c79b85f5277496a3b8f80fe2487136a9fcbc1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194409"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228623"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>İş durumu ve iş akışları için günlük analizi Otomasyon iletme
 Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışma alanınız gönderebilirsiniz. İş günlüğe kaydeder ve tek tek işler ve bu verir için basit araştırmalar gerçekleştirmek iş akışlarını Azure portalında veya PowerShell ile görünür. Şimdi günlük analizi ile şunları yapabilirsiniz:
@@ -29,7 +29,7 @@ Otomasyon runbook iş durumu ve iş akışları için günlük analizi çalışm
 Günlük analizi için Otomasyon günlüklerinizi göndermeye başla, gerekir:
 
 * Kasım 2016 veya sonraki sürümünün [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0).
-* Günlük analizi çalışma alanı. Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md). 
+* Log Analytics çalışma alanı. Daha fazla bilgi için bkz: [günlük Analytics ile çalışmaya başlama](../log-analytics/log-analytics-get-started.md). 
 * Azure Automation hesabınız için ResourceId.
 
 
@@ -98,8 +98,8 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResultDescription |Runbook iş sonucu durumunu açıklar. Olası değerler şunlardır:<br>- İş başlatıldı<br>- İş Başarısız Oldu<br>- İş Tamamlandı |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
-| Abonelik kimliği | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| Kaynak grubu | Otomasyon hesabının kaynak grubunun adı. |
+| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
+| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 
@@ -121,8 +121,8 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki tür oluşturur ve o
 | ResultDescription |Runbook’un çıktı akışını içerir. |
 | CorrelationId |Runbook işinin Bağıntı Kimliği olan GUID. |
 | ResourceId |Runbook'un Azure Otomasyon hesabı kaynak kimliğini belirtir. |
-| Abonelik kimliği | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| Kaynak grubu | Otomasyon hesabının kaynak grubunun adı. |
+| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
+| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 
@@ -140,7 +140,7 @@ Bir uyarı kuralı oluşturmak için uyarı çağıracağı runbook iş kaydı i
 2. Sorgu alanına aşağıdaki arama yazarak, uyarı için bir günlük arama sorgusu oluşturun: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` kullanarak RunbookName göre de gruplandırabilirsiniz: `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Günlüklerini birden fazla Otomasyon hesabı veya abonelik alanınıza ayarlarsanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz. Otomasyon hesabı adı JobLogs arama kaynak alanında bulunabilir.
-1. Açmak için **uyarı kuralı Ekle** ekranında **uyarı** sayfanın üst kısmındaki. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [günlük analizi uyarılarını](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üst kısmındaki. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [uyarıları Azure'da oturum](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Hatalarla tamamlandı tüm işleri bulun
 Hatalarında uyarı ek olarak, bir runbook işi Sonlandırıcı olmayan bir hata olduğunda bulabilirsiniz. Bu durumlarda, bir hata akışı PowerShell üretir ancak Sonlandırıcı olmayan hataları, işini askıya alma veya başarısız şekilde neden yoktur.    

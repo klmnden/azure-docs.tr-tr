@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 729f510de59fe27761389fb1f6edb4025021565a
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356394"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264018"
 ---
 # <a name="best-practices"></a>En iyi uygulamalar
 İşlem yazma uygulama HALUK uygulamanızı oluşturmak için kullanın. 
@@ -114,4 +114,5 @@ Eklemeyin çok fazla [desenleri](luis-concept-patterns.md). HALUK hızlı bir ş
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bilgi edinmek için nasıl [uygulamanızı planlama](plan-your-app.md) HALUK uygulamanızda.
-[HALUK]: Haluk başvuru regions.md #luis-Web sitesi
+
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

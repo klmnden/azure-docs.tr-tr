@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158158"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268139"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda faydalıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.
@@ -45,7 +45,7 @@ Tarafından sağlanan bir özellik [Azure portal][AZURE-portal], uygulamanın ki
 ## <a name="application-object"></a>Uygulama nesnesi
 Ne zaman, kaydetme/güncelleştirme bir uygulamada [Azure portal][AZURE-portal], portal/uygulama nesnesi ve karşılık gelen bir güncelleştirme [hizmet sorumlusu nesnesi](#service-principal-object) Bu Kiracı için. Uygulama nesnesi *tanımlar* uygulama kimlik yapılandırması (üzerinden erişim bulunduğu genel olarak tüm kiracılar), kendi karşılık gelen hizmet asıl nesneleri olan bir şablonu sağlama kullanıcının  *türetilmiş* yerel olarak çalışma zamanında (içinde belirli bir kiracı) kullanmak için.
 
-Bkz: [uygulama ve hizmet sorumlusu nesneleri] [ AAD-App-SP-Objects] daha fazla bilgi için.
+Daha fazla bilgi için bkz: [uygulama ve hizmet sorumlusu nesneleri][AAD-App-SP-Objects].
 
 ## <a name="application-registration"></a>Uygulama kaydı
 İle tümleştirmek ve Azure ad kimlik ve erişim yönetimi işlevleri temsilci seçmek için bir uygulama izin vermek üzere bir Azure AD ile kayıtlı [Kiracı](#tenant). Azure AD ile uygulamanızı kaydederken, Azure AD ile tümleştirmek ve özellikleri gibi kullandığınız izin vererek, uygulamanız için bir kimlik yapılandırması sağlanmaktadır:
@@ -132,7 +132,7 @@ Gibi [kapsamları](#scopes), rollerini sağlamak için bir yol bir [kaynak sunuc
 
 Rolleri, kaynak tanımlı dizeleri (örneğin "gider onaylayıcı", "Salt okunur", "Directory.ReadWrite.All"), içinde yönetilen [Azure portal] [ AZURE-portal] kaynağın aracılığıyla [uygulama bildirim](#application-manifest)ve kaynağın depolanan [appRoles özelliği][AAD-Graph-Sp-Entity]. Azure portalı da kullanıcılar "kullanıcı" rolü atayın ve istemci yapılandırmak için kullanılan [uygulama izinleri](#permissions) "uygulama" rolü erişmek için.
 
-Azure AD grafik API'si tarafından kullanıma sunulan uygulama rolleri hakkında ayrıntılı bilgi için bkz: [grafik API'si izin kapsamları][AAD-Graph-Perm-Scopes]. Adım adım uygulama örnek için bkz: [rol tabanlı erişim denetimi kullanarak Azure AD bulut uygulamalarında][Duyshant-Role-Blog].
+Azure AD grafik API'si tarafından kullanıma sunulan uygulama rolleri hakkında ayrıntılı bilgi için bkz: [grafik API'si izin kapsamları][AAD-Graph-Perm-Scopes]. Adım adım uygulama örnek için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme][AAD-RBAC].
 
 ## <a name="scopes"></a>Kapsamları
 Gibi [rolleri](#roles), kapsamları sağlamak için bir yol bir [kaynak sunucusu](#resource-server) korunan kaynaklara erişimi yönetmek üzere. Kapsamlar uygulamak için kullanılan [kapsam tabanlı] [ OAuth2-Access-Token-Scopes] için erişim denetimi, bir [istemci uygulaması](#client-application) , verildiği atanmış erişim için kaynak sahibi tarafından.
@@ -147,7 +147,7 @@ OAuth2 belirteci veya SAML 2.0 onaylama gibi talepleri içeren imzalı bir belge
 ## <a name="service-principal-object"></a>Hizmet sorumlusu nesnesi
 Ne zaman, kaydetme/güncelleştirme bir uygulamada [Azure portal][AZURE-portal], portal/hem güncelleştirme bir [uygulama nesnesi](#application-object) ve karşılık gelen bir hizmet sorumlusu nesnesi Bu Kiracı için. Uygulama nesnesi *tanımlar* (arasında ilişkili uygulama verildiğini erişim genel olarak tüm kiracılar), uygulamanın kimlik yapılandırması ve şablondan, karşılık gelen hizmet sorumlusu nesneleri olan *türetilmiş* yerel olarak çalışma zamanında (içinde belirli bir kiracı) kullanmak için.
 
-Bkz: [uygulama ve hizmet sorumlusu nesneleri] [ AAD-App-SP-Objects] daha fazla bilgi için.
+Daha fazla bilgi için bkz: [uygulama ve hizmet sorumlusu nesneleri][AAD-App-SP-Objects].
 
 ## <a name="sign-in"></a>oturum açma
 İşlemi bir [istemci uygulaması](#client-application) son kullanıcı kimlik doğrulamayı başlatan ve yakalama ilgili alınırken amacıyla durumu, bir [güvenlik belirteci](#security-token) ve bu durumda uygulama oturumuna kapsamı. Kullanıcı profili bilgileri gibi yapılarını içerebilir ve bu bilgileri belirteci talepleri türetilmiş durumu.
@@ -155,7 +155,7 @@ Bkz: [uygulama ve hizmet sorumlusu nesneleri] [ AAD-App-SP-Objects] daha fazla b
 Bir uygulama oturum açma işlevini genellikle çoklu oturum açma (SSO) uygulamak için kullanılır. Bu aynı zamanda "kaydolma" bir işlev tarafından bir uygulamaya (bağlı ilk oturum açma) erişim kazanmak bir son kullanıcı için giriş noktası olarak öncesinde. Kaydolma işlevi toplayın ve kullanıcıya özgü ek durum kalıcı hale getirmek için kullanılır ve gerektirebilir [kullanıcı izni](#consent).
 
 ## <a name="sign-out"></a>oturumu kapatma
-Kullanıcı durumunu ayrılırken bir son kullanıcı ilişkili beklemediğiniz kimlik doğrulama işlemini [istemci uygulaması](#client-application) oturumu sırasında [oturum açma](#sign-in)
+Kullanıcı durumunu ayrılırken bir son kullanıcı unauthenticating işlemi ilişkili [istemci uygulaması](#client-application) oturumu sırasında [oturum açma](#sign-in)
 
 ## <a name="tenant"></a>kiracı
 Azure AD dizini örneğini Azure AD kiracısı adlandırılır. Dahil olmak üzere çeşitli özellikler sunar:
@@ -170,18 +170,18 @@ Azure ve Office 365 abonelikleri ile oluşturulan/ilişkili kayıt, sağlama kim
 Tarafından uygulanan uç noktalardan biri [yetkilendirme sunucusu](#authorization-server) destek OAuth2 [yetkilendirme verir](#authorization-grant). Grant bağlı olarak, bu almak için kullanılabilir bir [erişim belirteci](#access-token) (ve ilgili "Yenile" belirteç) için bir [istemci](#client-application), veya [kimliği belirteci](#ID-token) ile kullanıldığında [Openıd Bağlantı] [ OpenIDConnect] protokolü.
 
 ## <a name="user-agent-based-client"></a>İstemci kullanıcı aracısı tabanlı
-Bir tür [istemci uygulaması](#client-application) , kodu bir web sunucusundan indirir ve bir kullanıcı aracısı içinde (örneğin, bir web tarayıcısı), bir tek sayfa uygulama (SPA) gibi yürütür. Tüm kod, bir cihazda yürütülür olduğundan, "Genel" istemci kimlik bilgileri özel olarak/ilkemiz depolamak için sorunu nedeniyle olarak kabul edilir. Bkz: [OAuth2 istemci türleri ve profiller] [ OAuth2-Client-Types] daha fazla ayrıntı için.
+Bir tür [istemci uygulaması](#client-application) , kodu bir web sunucusundan indirir ve bir kullanıcı aracısı içinde (örneğin, bir web tarayıcısı), bir tek sayfa uygulama (SPA) gibi yürütür. Tüm kod, bir cihazda yürütülür olduğundan, "Genel" istemci kimlik bilgileri özel olarak/ilkemiz depolamak için sorunu nedeniyle olarak kabul edilir. Daha fazla bilgi için bkz: [OAuth2 istemci türleri ve profiller][OAuth2-Client-Types].
 
 ## <a name="user-principal"></a>Kullanıcı asıl adı
 Benzer şekilde bir hizmet sorumlusu nesnesi uygulama örneğini temsil etmek için kullanılır, kullanıcı asıl nesne başka bir kullanıcı temsil eden güvenlik sorumlusu türüdür. Azure AD grafik [kullanıcı varlığı] [ AAD-Graph-User-Entity] kullanıcı ile ilgili özellikler adı ve Soyadı, vb. kullanıcı asıl adı, dizin rolü üyeliği de dahil olmak üzere bir kullanıcı nesnesi için şema tanımlar. Bu, kullanıcı asıl çalışma zamanında oluşturmak Azure AD kullanıcı kimlik yapılandırmasını sağlar. Kullanıcı asıl adı çoklu oturum açma için kimliği doğrulanmış bir kullanıcı göstermek için kullanılan kaydı [onayı](#consent) temsilci, erişim denetimi kararlarını, vb. yapma.
 
 ## <a name="web-client"></a>Web istemcisi
-Bir tür [istemci uygulaması](#client-application) , kimlik bilgileri sunucuda güvenli bir şekilde depolayarak "gizli" istemci olarak çalışması için tüm kodu bir web sunucusunda ve mümkün yürütür. Bkz: [OAuth2 istemci türleri ve profiller] [ OAuth2-Client-Types] daha fazla ayrıntı için.
+Bir tür [istemci uygulaması](#client-application) , kimlik bilgileri sunucuda güvenli bir şekilde depolayarak "gizli" istemci olarak çalışması için tüm kodu bir web sunucusunda ve mümkün yürütür. Daha fazla bilgi için bkz: [OAuth2 istemci türleri ve profiller][OAuth2-Client-Types].
 
 ## <a name="next-steps"></a>Sonraki adımlar
-[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] tüm Azure AD geliştirme için kullanmak için giriş sayfasıdır ilgili konular, genel bir bakış da dahil olmak üzere [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios]. Kod örnekleri & öğreticiler açık ve çalışıyor hızla alma nasıl bulabileceğiniz [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
+[Azure AD Geliştirici Kılavuzu] [ AAD-Dev-Guide] genel bir bakış da dahil olmak üzere tüm Azure AD geliştirme ile ilgili konular için kullanmak için giriş sayfasıdır [uygulama tümleştirmesi] [ AAD-How-To-Integrate] ve temelleri [Azure AD kimlik doğrulama ve desteklenen kimlik doğrulama senaryoları][AAD-Auth-Scenarios]. Kod örnekleri & öğreticiler açık ve çalışıyor hızla alma nasıl bulabileceğiniz [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=).
 
-Lütfen geri bildirim sağlamak ve iyileştirmek ve yeni tanımları istekleri dahil olmak üzere veya var olanları güncelleştirme bizim içerik şekil yardımcı olmak için aşağıdaki Açıklamalar bölümüne kullanın!
+Geri bildirim sağlamak ve iyileştirmek ve yeni tanımları istekleri dahil olmak üzere veya var olanları güncelleştirme bu içeriği biçimlendirmek için yardımcı olmak için aşağıdaki açıklamaları bölümünü kullanın!
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ Lütfen geri bildirim sağlamak ve iyileştirmek ve yeni tanımları istekleri d
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ Lütfen geri bildirim sağlamak ve iyileştirmek ve yeni tanımları istekleri d
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

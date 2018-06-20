@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 17fb10f4b39361a99d3f51ed753d333c6ec0bf15
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618598"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268167"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Sürekli tümleştirme ve Azure Data Factory dağıtımında
 
@@ -89,42 +89,9 @@ Veri Fabrikası birden çok ortamlara dağıtımını otomatik hale getirebilmen
 
 4.  Ortamınızı adını girin.
 
-5.  Git yapı ekleyin ve Data Factory ile yapılandırılmış aynı deponun seçin. Seçin `adf\_publish` son varsayılan sürümle varsayılan dalı olarak.
+5.  Git yapı ekleyin ve Data Factory ile yapılandırılmış aynı deponun seçin. Seçin `adf_publish` son varsayılan sürümle varsayılan dalı olarak.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
-
-6.  Gizli anahtarları Azure anahtar Kasası'alın. Gizli işlemek için iki yolu vardır:
-
-    a.  Parolaları parametre dosyasına ekleyin:
-
-       -   Yayımla dalının karşıya parametreleri dosyanın bir kopyasını oluşturun ve aşağıdaki biçimde anahtar Kasası'ndan almak istediğiniz parametrelerinin değerlerini ayarlayın:
-
-        ```json
-        {
-            "parameters": {
-                "azureSqlReportingDbPassword": {
-                    "reference": {
-                        "keyVault": {
-                            "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                        },
-                        "secretName": " < secret - name > "
-                    }
-                }
-            }
-        }
-        ```
-
-       -   Bu yöntemi kullandığınızda, gizli anahtar Kasası'nı otomatik olarak alınır.
-
-       -   Parametreler dosyası da Yayımla dalında olması gerekir.
-
-    b.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault):
-
-       -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturun, arama **Azure anahtar kasası** ve bunu ekleyin.
-
-       -   Anahtar kasası oluşturulan abonelik anahtar kasası görevde seçin, sağlamanız gerekiyorsa, kimlik bilgileri ve anahtar Kasası'ı seçin.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Bir Azure Resource Manager dağıtım görev ekleyin:
 
@@ -134,7 +101,7 @@ Veri Fabrikası birden çok ortamlara dağıtımını otomatik hale getirebilmen
 
     c.  Seçin **oluştur veya güncelleştir kaynak grubu** eylem.
 
-    d.  Seçin **...** içindeki "**şablonu**" alanı. Resource Manager şablonu için Gözat (*ARMTemplateForFactory.json*) Portalı'nda Yayımla eylemi tarafından oluşturuldu. Bu dosya kök klasöründe arayın `adf\_publish` dal.
+    d.  Seçin **...** içinde **şablonu** alan. Resource Manager şablonu için Gözat (*ARMTemplateForFactory.json*) Portalı'nda Yayımla eylemi tarafından oluşturuldu. Bu dosya klasöründe arayın `<FactoryName>` , `adf_publish` dal.
 
     e.  Parametreler dosyası için aynı işlevi görür. Bir kopyasını oluşturduğunuz bağlı olarak doğru dosya seçin veya varsayılan dosya kullanmakta olduğunuz *ARMTemplateParametersForFactory.json*.
 
@@ -147,6 +114,43 @@ Veri Fabrikası birden çok ortamlara dağıtımını otomatik hale getirebilmen
 9.  Bu sürüm tanımdan yeni bir sürüm oluşturun.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>İsteğe bağlı - gizli anahtarları Azure anahtar Kasası'Al
+
+Bir Azure Resource Manager şablonu geçirmek için gizli varsa Azure anahtar kasası VSTS sürümüyle kullanmanızı öneririz.
+
+Gizli işlemek için iki yolu vardır:
+
+1.  Parolaları parametre dosyasına ekleyin. Daha fazla bilgi için bkz: [dağıtım sırasında güvenli parametre değeri geçirmek için kullanım Azure anahtar kasası](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+
+    -   Yayımla dalının karşıya parametreleri dosyanın bir kopyasını oluşturun ve aşağıdaki biçimde anahtar Kasası'ndan almak istediğiniz parametrelerinin değerlerini ayarlayın:
+
+    ```json
+    {
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
+    }
+    ```
+
+    -   Bu yöntemi kullandığınızda, gizli anahtar Kasası'nı otomatik olarak alınır.
+
+    -   Parametreler dosyası da Yayımla dalında olması gerekir.
+
+2.  Ekleme bir [Azure anahtar kasası görev](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) Azure Resource Manager önceki bölümde açıklanan dağıtmadan önce:
+
+    -   Seçin **görevleri** sekmesinde, yeni bir görev oluşturun, arama **Azure anahtar kasası** ve bunu ekleyin.
+
+    -   Anahtar kasası oluşturulan abonelik anahtar kasası görevde seçin, sağlamanız gerekiyorsa, kimlik bilgileri ve anahtar Kasası'ı seçin.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-vsts-agent"></a>VSTS aracıya izinleri
 Azure anahtar kasası Görev ilk kez bir erişim reddedildi hatası ile başarısız olabilir. Yayın günlükleri indirmek ve bulun `.ps1` VSTS aracıya izin vermek için komut dosyasıyla. Komutu doğrudan çalıştırabilirsiniz veya dosyadan sorumlusunun Kimliğini kopyalayın ve erişim ilkesini Azure portalında el ile ekleyin. (*Almak* ve *listesi* olan gerekli minimum izinleri).
@@ -161,14 +165,9 @@ Etkin Tetikleyiciler güncelleştirmeye çalıştığınızda, dağıtım başar
 3.  Seçin **satır içi betiği** komut dosyası olarak yazın ve ardından kodunuzu sağlayın. Aşağıdaki örnek Tetikleyiciler durdurur:
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)

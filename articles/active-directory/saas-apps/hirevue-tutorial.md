@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: aadfc342-14db-4d74-a83d-f0c76f0cf63c
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 194da45965e7606930bcf7da1b94166cba2a112d
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 0c82f34c82a95d0fcd7c91042b8d7299d13868c4
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35971910"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231313"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Öğretici: Azure Active Directory Tümleştirme HireVue ile
 
@@ -113,7 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     a. İçinde **oturum açma URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın:
 
-    | Ortam | URL |
+    | Ortam | URL'si |
     |-------------|---|
     | Üretim | `https://<companyname>.hirevue.com` |
     | Hazırlanıyor    | `https://<companyname>.stghv.com` |

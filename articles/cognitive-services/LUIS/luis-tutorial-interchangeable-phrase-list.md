@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: v-geberr
-ms.openlocfilehash: 4ced7bcec87a9edde2e3ded8c8c61abe96003572
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: feb8acb674fd2dc62b62c26da6a6b42515f30242
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356085"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265980"
 ---
 # <a name="tutorial-add-phrase-list-to-improve-predictions"></a>Öğretici: tahminleri artırmak için tümcecik listeye ekleyin
 Bu öğreticide hedefi puanları doğruluğunu artırmak ve varlıklar için bir birbirinin yerine ekleyerek (anlamlıları) ile aynı anlamı olan sözcükler tanımlamak [tümcecik liste özelliğini](./luis-concept-feature.md).
@@ -33,7 +33,7 @@ Bu makalede, ücretsiz bir gereksinim duyduğunuz [HALUK] [ LUIS] HALUK uygulama
 
 2. Bölümünde açıklandığı gibi [bir uygulama oluşturmak](Create-new-app.md#import-new-app), içine indirilen dosyayı içeri [HALUK] [ LUIS] yeni bir uygulama olarak Web sitesi. Uygulama adı "Benim tümcecik listesi." öğreticidir Hedefleri, varlıkları ve utterances sahiptir. 
 
-3. [Tren](luis-how-to-train.md) uygulamanızı. Denenip ayarlanana kadar yapamazsınız [etkileşimli olarak test](Train-Test.md#interactive-testing) içinde [HALUK] [ LUIS] Web sitesi. 
+3. [Tren](luis-how-to-train.md) uygulamanızı. Denenip ayarlanana kadar yapamazsınız [etkileşimli olarak test](interactive-test.md#interactive-testing) içinde [HALUK] [ LUIS] Web sitesi. 
 
 4. Üzerinde [Yayımla](PublishApp.md) sayfasında, **dahil tüm tahmin hedefi puanları** onay kutusu. Onay kutusu seçili olduğunda, tüm hedefleri döndürülür. Onay kutusu temizlendiğinde, yalnızca üst hedefi döndürülür. 
 
@@ -174,7 +174,7 @@ HALUK öğretmek gerekir *istediğiniz* ve *gerektiren* bir sözcük birden fazl
 5. Üst gezinti çubuğunda seçin **eğitmek** uygulama Eğitilecek ancak onu yayımlama. Şimdi iki modelleri vardır. İki model değerleri karşılaştırabilirsiniz.
 
 ## <a name="compare-the-phrase-list-model-to-the-published-model"></a>Yayımlanan modeli tümcecik listesi modeline Karşılaştır
-Bu uygulamada, yayımlanan modeli ile anlamlıları eğitildi değil. Yalnızca şu anda düzenlenen modeli eş anlamlıları tümcecik listesini içerir. Modeli karşılaştırmak için kullanmak [etkileşimli sınama](Train-Test.md#interactive-testing). 
+Bu uygulamada, yayımlanan modeli ile anlamlıları eğitildi değil. Yalnızca şu anda düzenlenen modeli eş anlamlıları tümcecik listesini içerir. Modeli karşılaştırmak için kullanmak [etkileşimli sınama](interactive-test.md#interactive-testing). 
 
 1. Açık **Test** bölmesinde, aşağıdaki utterance girin:
 
@@ -196,7 +196,7 @@ Tümcecik listesi, utterance artan doğruluğunu ekledikten sonra ve **donanım*
 | Şu anda düzenleme |✔| 0.92 | Tanımlanan donanım varlık |
 
 > [!TIP]
-> * Kullanarak [etkileşimli test](Train-Test.md#interactive-testing), yayımlanan, yayımladıktan sonra yapılan değişiklikleri eğitilen modele karşılaştırabilirsiniz. 
+> * Kullanarak [etkileşimli test](interactive-test.md#interactive-testing), yayımlanan, yayımladıktan sonra yapılan değişiklikleri eğitilen modele karşılaştırabilirsiniz. 
 > * Kullanarak [Endpoint test](PublishApp.md#test-your-published-endpoint-in-a-browser), tam HALUK yanıt JSON görüntüleyebilirsiniz. 
 
 ## <a name="get-the-entity-score-with-the-endpoint-test"></a>Uç nokta test ile varlık puan Al
@@ -261,8 +261,6 @@ Artık gerektiğinde HALUK uygulamayı silin. Bunu yapmak için uygulama adını
 > [!div class="nextstepaction"]
 > [Uç nokta sorgusuyla utterance tahmin al](luis-get-started-cs-get-intent.md)
 
-[LUIS]: luis-reference-regions.md
-
-  [LUIS]:luis-reference-regions.md
-  [LuisFeatures]: luis-concept-feature.md
-  [LuisSampleApp]:https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LuisFeatures]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-feature
+[LuisSampleApp]: https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/phrase_list/interchangeable/luis-app-before-phrase-list.json

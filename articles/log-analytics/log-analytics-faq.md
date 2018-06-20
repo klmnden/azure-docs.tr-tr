@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637183"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221555"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics SSS
 Bu Microsoft FAQ Microsoft Azure Log Analytics hakkında sık sorulan soruların listesidir. Günlük analizi hakkında ek herhangi bir sorunuz varsa, Git [tartışma Forumu](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) ve sorularınızı gönderin. Sık sorulan bir soru, böylece hızla ve kolayca bulunabilir, bu makaleye ekleriz.
@@ -75,18 +75,21 @@ Günlük analizi UTC saati kullanır ve her gün UTC gece yarısı başlar. Çal
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Veri toplama durduğunda nasıl bildirim?
 
-Y: açıklanan adımları kullanın [bir uyarı kuralı oluştur](log-analytics-alerts-creating.md#create-an-alert-rule) veri toplama durduğunda bildirilmesi.
+Y: açıklanan adımları kullanın [yeni bir günlük uyarı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) veri toplama durduğunda bildirilmesi.
 
 Veri toplama durduğunda için uyarı oluşturulurken ayarlayın:
-- **Ad** için *veri toplama durdu*
-- **Önem derecesi**: *Uyarı*
-- **Arama sorgusu**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
-- **Zaman penceresi** için *30 dakika*.
-- **Uyarı sıklığı** her *on* dakika.
-- **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
-- **Sonuç sayısı**: *Şundan büyüktür: 0*
 
-Sorgu sonuçları döndürdüğünde yalnızca 15 dakikadan fazla bir süre için eksik sinyal varsa bu uyarı ateşlenir.  Uyarı kuralı olarak bir e-postayı, web kancasını veya runbook eylemini yapılandırmak için, [Uyarı kurallarına eylemler ekleme](log-analytics-alerts-actions.md) başlığı altında açıklanan adımları kullanın.
+- **Uyarı koşulu tanımla** günlük analizi çalışma alanınız kaynak hedefi olarak belirtin.
+- **Uyarı ölçütleri** aşağıdakileri belirtin:
+   - **Sinyal adı** seçin **özel günlük arama**.
+   - **Arama sorgusu**: `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`
+   - **Uyarı mantığı** olan **göre** *sonuçları sayısı* ve **koşulu** olan *büyük* bir **eşiği**  , *0*
+   - **Süre** , *30* dakika ve **uyarı sıklığı** her *10* dakika
+- **Uyarı ayrıntılarını tanımlayın** aşağıdakileri belirtin:
+   - **Ad** için *veri toplama durdu*
+   - **Önem derecesi**: *Uyarı*
+
+Varolan bir belirtin veya yeni bir [eylem grubu](../monitoring-and-diagnostics/monitoring-action-groups.md) zaman günlük uyarı ölçütlerle eşleşen böylece 15 dakikadan fazla bir süre için eksik sinyal varsa size bildirilir.
 
 ## <a name="configuration"></a>Yapılandırma
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. Azure tanılama (WAD) okumak için kullanılan tablo/blob kapsayıcısının adını değiştirebilir miyim?

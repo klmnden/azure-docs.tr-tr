@@ -3,21 +3,22 @@ title: Kurulum Azure SSIS tümleştirmesi çalışma zamanı için özelleştirm
 description: Bu makalede Azure SSIS tümleştirmesi çalışma zamanı için özel kurulum arabirimi ek bileşenleri yüklemek veya ayarlarını değiştirmek için nasıl kullanılacağını açıklar
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.author: douglasl
-ms.openlocfilehash: 7b6cae9eaa4674e60edfae13c571d89153c9b498
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: d724de8d5252318b37ae539ba2513faaf2313a76
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298401"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268132"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Kurulum Azure SSIS tümleştirmesi çalışma zamanı için özelleştirme
 
@@ -30,13 +31,13 @@ Boş veya lisanssız bileşenleri hem ücretli veya lisanslı bileşenlerini yü
 
 ## <a name="current-limitations"></a>Geçerli sınırlamalar
 
--   Kullanmak istiyorsanız, `gacutil.exe` derlemeleri Genel Derleme Önbelleği'ne (GAC) yüklemek için özel kurulumunun bir parçası olarak sağlamak veya genel Önizleme kapsayıcısında sağlanan kopyayı kullanmak gerekir.
+-   Kullanmak istiyorsanız, `gacutil.exe` derlemeleri Genel Derleme Önbelleği'ne (GAC) yüklemek için sağlamanız gerekir `gacutil.exe` özel kurulum veya kullanım genel Önizleme kapsayıcısında sağlanan kopyalama parçası olarak.
+
+-   Komut, bir alt klasöre başvurmak istiyorsanız `msiexec.exe` desteklemediği `.\` kök klasör başvurmak için gösterimi. Gibi bir komut kullanın `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` yerine `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 
 -   Bir sanal ağa, Azure SSIS IR özel kurulum ile katılmak gerekiyorsa, yalnızca Azure Resource Manager sanal ağ desteklenir. Klasik sanal ağı desteklenmiyor.
 
 -   Yönetim paylaşımı üzerinde Azure SSIS IR şu anda desteklenmiyor
-
--   Özel kurma, bir sürücü için bir dosya paylaşımına eşlemek istiyorsanız `net use` komutu şu anda desteklenmiyor. Sonuç olarak, benzer bir komutu kullanılamaz. `net use d: \\fileshareserver\sharename`. Bunun yerine, kullanın `cmdkey` - Örneğin, komut `cmdkey /add:fileshareserver /user:yyy /pass:zzz` - erişimi `\\fileshareserver\folder` doğrudan paketlerde.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -58,8 +59,7 @@ Azure SSIS IR özelleştirmek için aşağıdakiler gerekir:
 
     1.  Adlı bir komut dosyası olmalıdır `main.cmd`, özel kurulumunuzu giriş noktasını olduğu.
 
-    2.  Diğer araçları tarafından oluşturulan ek günlükleri istiyorsanız (örneğin, `msiexec.exe`), kapsayıcıya yüklenebilmesi için önceden tanımlanmış ortam değişkeni belirtin `CUSTOM_SETUP_SCRIPT_LOG_DIR` komut dosyalarınızı günlük klasöründe olarak (örneğin, `msiexec /i xxx.msi /quiet
-        /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
+    2.  Diğer araçları tarafından oluşturulan ek günlükleri istiyorsanız (örneğin, `msiexec.exe`), kapsayıcıya yüklenebilmesi için önceden tanımlanmış ortam değişkeni belirtin `CUSTOM_SETUP_SCRIPT_LOG_DIR` komut dosyalarınızı günlük klasöründe olarak (örneğin, `msiexec /i xxx.msi /quiet /lv %CUSTOM_SETUP_SCRIPT_LOG_DIR%\install.log`).
 
 4.  İndirme, yükleme ve başlatma [Azure Storage Gezgini](http://storageexplorer.com/).
 

@@ -3,17 +3,16 @@ title: Contoso-geçiş altyapı ayarlama | Microsoft Docs
 description: Contoso geçiş Azure için Azure altyapısının nasıl ayarlar hakkında bilgi edinin.
 services: azure-migrate
 author: rayne-wiselman
-manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 8b7f0675c1bbf378d02eb52843caf27a1dce2fb8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: bf861dc6317a8cc3a3ed862dfd6c133a1dcbe685
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301210"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232562"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - geçiş altyapısı dağıtın
 
@@ -42,11 +41,12 @@ Bu makaledeki tüm altyapı öğeleri Contoso ayarlamak geçiş senaryolarını 
 
 Azure'a geçirebilmeniz için önce Contoso altyapılarını hazırlama önemlidir.  Genellikle, dikkat etmeniz gereken beş geniş alan vardır:
 
-1. **Azure abonelikleri**: ne bunlar Azure satın alma ve Azure platformu ve Hizmetleri ile etkileşim?
-2. **Karma kimlik**: nasıl bunlar yönetmek ve denetlemek için şirket içi ve Azure kaynaklarına erişim geçişten sonra? Nasıl bunlar genişletmek veya kimlik yönetimi buluta taşımak?
-3. **Olağanüstü durum kurtarma ve esnekliği**: nasıl bunlar olmasını kesintiler ve olağanüstü durumları ortaya çıkarsa, uygulamalar ve altyapı esnek mi?
-4. **Ağ**: nasıl, ağ altyapınızın tasarım ve kendi şirket içi veri merkezi ve Azure arasında bağlantı kurmak?
-5. **Güvenlik ve idare**: nasıl, karma/Azure dağıtımınızın güvenliğini ve güvenlik ve idare gereksinimleri ile hizalı tutmak?
+**1. adım: Azure abonelikleri**: ne bunlar Azure satın alma ve Azure platformu ve Hizmetleri ile etkileşim?  
+**Adım 2: Karma kimlik**: nasıl bunlar yönetmek ve denetlemek için şirket içi ve Azure kaynaklarına erişim geçişten sonra? Nasıl bunlar genişletmek veya kimlik yönetimi buluta taşımak?  
+**3. adım: Olağanüstü durum kurtarma ve esnekliği**: nasıl bunlar olmasını kesintiler ve olağanüstü durumları ortaya çıkarsa, uygulamalar ve altyapı esnek mi?  
+**4. adım: Ağ**: nasıl, ağ altyapınızın tasarım ve kendi şirket içi veri merkezi ve Azure arasında bağlantı kurmak?  
+**5. adım: Güvenlik**: Bunlar güvenliğini nasıl bunların karma/Azure dağıtımı?  
+**6. adım: İdare**: nasıl bunlar olmanızı güvenlik ve idare gereksinimleri ile hizalı bunların dağıtımı?
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
@@ -780,4 +780,4 @@ Yerinde bu altyapı ile bunların geçmek ve geçiş deneyin hazırsınız demek
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-İlk geçiş senaryosu Contoso giderek Azure'da VMware Vm'lerinde çalışan, şirket içi SmartHotel iki katmanlı uygulama geçirmek için. Yönetilen bir Azure SQL örneğine bunlar Azure vm'lerine app sanal makineleri ve uygulama veritabanı geçirmeniz.
+Contoso ilk geçiş senaryosu geçmeye [, şirket içi SmartHotel iki katmanlı uygulama geçiş Azure için değerlendirmek](contoso-migration-assessment.md). 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725151"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265297"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory'de Visual yazma
 Görsel olarak yazar ve herhangi bir kod yazmak zorunda kalmadan veri fabrikanızın kaynakları dağıtma Azure Data Factory kullanıcı arabirimi (UX) deneyimi sağlar. Etkinlikleri bir ardışık düzen tuvale sürükleyin, test çalışmalarını gerçekleştirmek, yinelemeli olarak, hata ayıklama ve dağıtabilir ve ardışık düzen çalışmalarınız izleyin. Görsel geliştirme gerçekleştirmek için kullanıcı Deneyimini kullanmak için iki yaklaşım vardır:
@@ -63,11 +63,11 @@ Bölmesinde aşağıdaki VSTS kod deposu ayarlarını gösterir:
 |:--- |:--- |:--- |
 | **Depo türü** | VSTS kod depo türü.<br/>**Not**: GitHub şu anda desteklenmiyor. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Azure AD Kiracı adınız. | <your tenant name> |
-| **Visual Studio Team Services hesabı** | VSTS hesap adınızı. VSTS hesap adınızı bulabilir `https://{account name}.visualstudio.com`. Yapabilecekleriniz [VSTS hesabınızda oturum açın](https://www.visualstudio.com/team-services/git/) Visual Studio profilinizi erişip depoları ve proje bakın. | \<hesap adınız > |
-| **ProjectName** | VSTS projenizin adına. VSTS proje adınızı bulabilir `https://{account name}.visualstudio.com/{project name}`. | \<VSTS proje adı > |
-| **RepositoryName** | VSTS kod deposu adınız. VSTS projeleri projenizi büyüdükçe, kaynak kodunuzu yönetmek için Git depoları içerir. Yeni bir havuz oluşturabilir veya projenizde zaten varolan bir havuz kullanabilirsiniz. | \<VSTS kod depo adı > |
-| **İşbirliği şube** | Yayımlama için kullanılacak VSTS işbirliği dalı. Varsayılan olarak bu değer `master`. Başka bir şube kaynaklardan yayımlamak istediğiniz durumlarda bu değiştirin. | \<İşbirliği şube adı > |
-| **Kök klasör** | Kök klasörünüzde VSTS işbirliği dalı. | \<kök klasör adı > |
+| **Visual Studio Team Services hesabı** | VSTS hesap adınızı. VSTS hesap adınızı bulabilir `https://{account name}.visualstudio.com`. Yapabilecekleriniz [VSTS hesabınızda oturum açın](https://www.visualstudio.com/team-services/git/) Visual Studio profilinizi erişip depoları ve proje bakın. | <your account name> |
+| **ProjectName** | VSTS projenizin adına. VSTS proje adınızı bulabilir `https://{account name}.visualstudio.com/{project name}`. | <your VSTS project name> |
+| **RepositoryName** | VSTS kod deposu adınız. VSTS projeleri projenizi büyüdükçe, kaynak kodunuzu yönetmek için Git depoları içerir. Yeni bir havuz oluşturabilir veya projenizde zaten varolan bir havuz kullanabilirsiniz. | <your VSTS code repository name> |
+| **İşbirliği şube** | Yayımlama için kullanılacak VSTS işbirliği dalı. Varsayılan olarak bu değer `master`. Başka bir şube kaynaklardan yayımlamak istediğiniz durumlarda bu değiştirin. | <your collaboration branch name> |
+| **Kök klasör** | Kök klasörünüzde VSTS işbirliği dalı. | <your root folder name> |
 | **Mevcut Veri Fabrikası Kaynakları depoya Al** | Mevcut Veri Fabrikası Kaynakları UX'dan alma belirtir **tuvale yazma** VSTS Git deposu içine. Veri Fabrikası Kaynakları ilişkili Git deposu JSON biçiminde aktarmak için kutuyu işaretleyin. Bu eylem her bir kaynağın ayrı ayrı verir (diğer bir deyişle, veri kümeleri ve bağlantılı Hizmetleri ayrı JSONs verilir). Bu kutu işaretli değilse, varolan kaynakları içe aktarılmaz. | Seçili (varsayılan) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>Yapılandırma yöntem 2: UX tuvale yazma

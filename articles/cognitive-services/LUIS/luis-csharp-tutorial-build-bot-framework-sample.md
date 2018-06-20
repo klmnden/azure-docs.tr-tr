@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3db2588edefa2f07d22609d7c454367d5572d5e0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 273fca51d83f25e2657b51b68179e46f4295f92b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356133"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263889"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web uygulaması HALUK şablonu için C# kullanarak Bot
 
@@ -80,7 +80,7 @@ Açık **uygulama ayarları** ve düzenleme **LuisAppId** HALUK uygulamanızı u
 > HALUK uygulama Kimliğini yoksa [giriş Otomasyon uygulama](luis-get-started-create-app.md), oturum [HALUK](luis-reference-regions.md) Azure'da oturum açma için kullandığınız aynı hesabı kullanarak Web sitesi. 
 > 1. Tıklayın **uygulamalarım**. 
 > 2. Hedefleri ve HomeAutomation etki alanından varlıkları içeren daha önce oluşturduğunuz, HALUK uygulamayı bulun.
-> 3. İçinde **ayarları** sayfasında HALUK, bulmak ve uygulama kimliği kopyalayın. Olmasına dikkat edin [eğitilen](Train-Test.md) ve [yayımlanan](PublishApp.md). 
+> 3. İçinde **ayarları** sayfasında HALUK, bulmak ve uygulama kimliği kopyalayın. Olmasına dikkat edin [eğitilen](interactive-test.md) ve [yayımlanan](PublishApp.md). 
 
     > [!WARNING]
     > If you delete your app ID or LUIS key, the bot will stop working.
@@ -145,7 +145,7 @@ Azure portalında tıklayın **Test Web sohbet** bot test etmek için. İletiler
    ![Web sohbet HomeAutomation bot test](./media/luis-tutorial-cscharp-web-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> HALUK uygulamanızı bot's kod kendilerine herhangi bir değişiklik olmadan yeniden eğitme. Bkz: [örnek utterances ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitmek ve HALUK uygulamanızı test](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test). 
+> HALUK uygulamanızı bot's kod kendilerine herhangi bir değişiklik olmadan yeniden eğitme. Bkz: [örnek utterances ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitmek ve HALUK uygulamanızı test](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Hata ayıklama için bot indirin
 Bot çalışmıyorsa, projeyi yerel makinenize indirmek ve devam et [hata ayıklama](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
@@ -160,6 +160,8 @@ HALUK amaçları ve işleme Bot hizmet iletişim kutularına ekleme **yardımcı
 > [!div class="nextstepaction"]
 > [Hedefleri Ekle](./luis-how-to-add-intents.md)
 > [konuşma Hazırlama işlemi](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)
+
+
 <!-- Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
@@ -168,7 +170,7 @@ HALUK amaçları ve işleme Bot hizmet iletişim kutularına ekleme **yardımcı
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[AssignedEndpointDoc]:https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
+[AssignedEndpointDoc]: https://docs.microsoft.com/azure/cognitive-services/LUIS/manage-keys
 [VisualStudio]: https://www.visualstudio.com/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 <!-- tested on Win10 -->

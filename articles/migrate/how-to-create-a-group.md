@@ -3,16 +3,15 @@ title: Grup makineler değerlendirmesi ile Azure geçirmek için | Microsoft Doc
 description: Azure geçiş hizmeti ile bir değerlendirme çalıştırmadan önce makineleri Grup açıklar.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 5c5b5dc97c0faf43c9543422406c4fa1c30ed679
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ccab88c0195a7ca459c8579b7870d121dfd0fe1d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203708"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231415"
 ---
 # <a name="group-machines-for-assessment"></a>Değerlendirme için Grup makineler
 

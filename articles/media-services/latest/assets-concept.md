@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 791871fc3da98b380da9dbe32333a55f670c22e8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 541a8e83029fe1dc0ba386d1906b366e63041882
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638288"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268244"
 ---
 # <a name="assets"></a>Varlıklar
 
@@ -88,7 +88,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 Sayfa numaralandırma her dört etkin sıralamalar için desteklenir. 
 
-Bir sorgu yanıtı birçok (şu anda üzerinden 1000) içeriyorsa, öğeler, hizmet döndüren bir "@odata.nextLink" sonraki sonuç sayfasını alınacağı özellik. Bu kullanılabilir tüm sonuç kümesini aracılığıyla sayfasına. Sayfa boyutunu kullanıcı tarafından yapılandırılabilir değildir. 
+Bir sorgu yanıtı birçok (şu anda üzerinden 1000) içeriyorsa, öğeler, hizmet döndüren bir "\@odata.nextLink" sonraki sonuç sayfasını alınacağı özellik. Bu kullanılabilir tüm sonuç kümesini aracılığıyla sayfasına. Sayfa boyutunu kullanıcı tarafından yapılandırılabilir değildir. 
 
 Varlıklar oluşturduysanız veya disk belleği koleksiyonu aracılığıyla sırasında silinmiş (Bu değişiklikleri indirilmedi koleksiyonu içinde parçasıysa.) değişiklikler döndürülen sonuçlarda yansıtılır 
 
@@ -105,6 +105,21 @@ while (currentPage.NextPageLink != null)
 ```
 
 Diğer örnekler için bkz: [varlıklar - liste](https://docs.microsoft.com/rest/api/media/assets/list)
+
+
+### <a name="storage-side-encryption"></a>Depolama tarafı şifreleme
+
+Varlıklarınızı REST korumak için depolama Tarafı Şifrelemesi tarafından varlıklar şifrelenmelidir. Aşağıdaki tabloda, depolama tarafı şifreleme Media Services ile nasıl çalıştığı gösterilmektedir:
+
+|şifreleme seçeneği|Açıklama|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Depolama şifrelemesi medya Hizmetleri|Medya Hizmetleri tarafından yönetilen AES-256 şifrelemesi, anahtar|Desteklenen<sup>(1)</sup>|Desteklenmeyen<sup>(2)</sup>|
+|[Rest verileri için depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Sunucu tarafı şifreleme Azure Storage tarafından sunulan anahtar Azure veya müşteri tarafından yönetilen|Desteklenen|Desteklenen|
+|[İstemci tarafı şifreleme depolama](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure depolama, anahtar kasası müşteri tarafından yönetilen anahtar tarafından sunulan istemci tarafı şifreleme|Desteklenmiyor|Desteklenmiyor|
+
+<sup>1</sup> sırada Media Services, içeriği işlenmesini desteklemez, temiz/herhangi bir biçimde şifreleme olmadan, bunun nedenle önerilmez.
+
+<sup>2</sup> Media Services'ın v3 depolama şifreleme (AES 256 şifreleme), yalnızca Media Services v2 ile varlıklarınızı oluşturulduğunda için geriye dönük uyumluluk desteklenir. Var olan depolama ile v3 çalışır anlamı varlıklar şifrelenmiş ancak yenilerini oluşturulmasına izin vermez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

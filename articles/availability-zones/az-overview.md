@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/21/2018
+ms.date: 06/08/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 9eb7105b2d1a95eb8ccfa96ea0bc5188aab1b4aa
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 7cfd3fba459f409079cb0c621edab3197070285e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164730"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232539"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik bölgeleri nelerdir?
 Kullanılabilirlik bölgeleri, uygulamaları ve verileri datacenter hatalarından korur sunan bir yüksek kullanılabilirlik ' dir. Kullanılabilirlik bölgeleri bir Azure bölgesine benzersiz fiziksel konumlara ' dir. Her bölge soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezleri oluşur. Dayanıklılık sağlamak için en az üç ayrı bölgelere etkinleştirilmiş tüm bölgelerde yoktur. Kullanılabilirlik bölgeleri fiziksel ayrımı bir bölge içinde uygulamaları ve verileri datacenter hatalarından korur. Bölge olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-in-arızasına karşı korumak için kullanılabilirlik bölgeler arasında çoğaltılır. Kullanılabilirlik bölgeleri ile sektör en iyi % 99,99 VM çalışma süresi SLA Azure sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
+
+Bir Azure bölgesi bir kullanılabilirlik bölgede bir arıza hem de bir güncelleştirme etki birleşimidir. Örneğin, bir Azure bölgesi üç bölgeleri arasında üç veya daha fazla sanal makine oluşturursanız, Vm'leriniz etkili bir şekilde üç hata etki alanları ve üç güncelleştirme etki alanları arasında dağıtılır. Azure platformu bu dağıtım farklı bölgelerdeki sanal makineleri aynı anda güncelleştirilmez emin olmak için güncelleştirme alanlarında tanır.
 
 Yüksek kullanılabilirlik, işlem, depolama, ağ ve veri kaynaklarınızın bir bölge içinde birlikte bulunması ve diğer bölgelerde çoğaltmaya göre uygulama Mimarinizi oluşturun. Kullanılabilirlik bölgeleri destekleyen azure Hizmetleri iki kategoriye ayrılır:
 
@@ -58,7 +60,7 @@ Kullanılabilirlik bölgeleri destekler Azure hizmetler şunlardır:
 
 
 ## <a name="pricing"></a>Fiyatlandırma
-Bir kullanılabilirlik bölgesinde dağıtılan sanal makineleri için ek bir maliyet yoktur. Bir Azure bölgesi içindeki iki veya daha fazla kullanılabilirlik bölgeler arasında iki veya daha fazla sanal makine dağıtıldığında % 99,99 VM çalışma süresi SLA sunulur. Ek arası kullanılabilirlik bölge VM-VM veri aktarımı ücretlerine olacaktır. Daha fazla bilgi için gözden [bant genişliği fiyatlandırma](https://azure.microsoft.com/pricing/details/bandwidth/) sayfası.
+Bir kullanılabilirlik bölgesinde dağıtılan sanal makineleri için ek bir maliyet yoktur. Bir Azure bölgesi içindeki iki veya daha fazla kullanılabilirlik bölgeler arasında iki veya daha fazla VM dağıtıldığında % 99,99 VM çalışma süresi SLA sunulur. Ek arası kullanılabilirlik bölge VM-VM veri aktarımı ücretlerine olacaktır. Daha fazla bilgi için gözden [bant genişliği fiyatlandırma](https://azure.microsoft.com/pricing/details/bandwidth/) sayfası.
 
 
 ## <a name="get-started-with-availability-zones"></a>Kullanılabilirlik bölge ile çalışmaya başlama

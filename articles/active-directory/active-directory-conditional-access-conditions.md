@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory koşullu erişim koşullarında | Microsoft Docs
-description: Atamaları bir ilke tetiklemek için Azure Active Directory koşullu erişimin nasıl kullanıldığı hakkında bilgi edinin.
+title: Azure Active Directory koşullu erişim koşulları nelerdir? | Microsoft Docs
+description: Koşullar ilke tetiklemek için Azure Active Directory koşullu erişimin nasıl kullanıldığı hakkında bilgi edinin.
 services: active-directory
 keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34735150"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232571"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim koşulları nelerdir? 
 
 İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), bulut uygulamalarınızı nasıl yetkili kullanıcılara erişimi denetleyebilirsiniz. Bir koşullu erişim ilkesi ("bunu") yanıt ("Bu durumda") ilkeniz tetikleme nedenini tanımlayın. 
 
@@ -140,7 +140,7 @@ Bu koşul için ortak kullanım durumları olan ilkeler:
 
 - Bir hizmeti belirli ülke veya bölgelerden erişen kullanıcıların erişimi engeller. 
 
-Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim konumu koşullarında](active-directory-conditional-access-locations.md).
+Daha fazla bilgi için bkz: [Azure Active Directory koşullu erişim konumu durumu nedir?](active-directory-conditional-access-locations.md)
 
 
 ## <a name="client-apps"></a>İstemci uygulamaları
@@ -241,7 +241,7 @@ Hayır. Varsayılan ilke davranışında değişiklik yoktur. İlkeler, tarayıc
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
+- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory koşullu erişimi olan belirli uygulamalar için MFA gerektiren](active-directory-conditional-access-app-based-mfa.md).
 
 - Ortamınız için koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md). 
 

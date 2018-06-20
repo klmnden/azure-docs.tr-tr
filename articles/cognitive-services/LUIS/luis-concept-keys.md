@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/23/2018
 ms.author: v-geberr
-ms.openlocfilehash: bf131877080f46781e74991ef627922384cc4c08
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 70bca3b181e02f42da50e827154193936544131a
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355744"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263827"
 ---
 # <a name="keys-in-luis"></a>HALUK anahtarlarında
 HALUK iki anahtar kullanır: [yazma](#programmatic-key) ve [endpoint](#endpoint-key). Geliştirme anahtarı HALUK hesabınızı oluşturduğunuzda, sizin için otomatik olarak oluşturulur. HALUK uygulamanızı yayımlamak hazır olduğunuzda, gerek [uç noktası anahtarı oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [onu atayın](Manage-keys.md#assign-endpoint-key) HALUK uygulamanıza ve [endpoint sorgu ile birlikte kullanmak](#use-endpoint-key-in-query). 
@@ -76,4 +76,4 @@ Aşarsanız, ikinci kota bir HTTP 429 hatasını alıyorsunuz. Aşarsanız, ay k
 
 * Bilgi [kavramları](Manage-Keys.md#assign-endpoint-key) yazma ve uç nokta anahtarları hakkında.
 
-[LUIS]:luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

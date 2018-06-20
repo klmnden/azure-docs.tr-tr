@@ -8,22 +8,24 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: d1ae8e5dfbb1455d639e3e2119a4606a8c3a0047
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4148370828f4ac2b7e75b49ed13cf1d1dafb8844
+ms.sourcegitcommit: 7de1432648c4ff3bcd09530c079418477d9f4d00
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32196585"
+ms.lasthandoff: 06/18/2018
+ms.locfileid: "35719448"
 ---
-### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Azure Portalı kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
+### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Azure portalı kullanarak ana bilgisayar adı, bağlantı noktaları ve erişim anahtarlarını alma
 
 Azure Redis Cache örneğine bağlanırken, önbellek istemcileri için ana bilgisayar adı, bağlantı noktaları ve önbellek anahtarı gereklidir. Bazı istemciler bu öğelere biraz daha farklı adlarla başvurabilir. Bu bilgileri Azure portalında bulabilirsiniz.
 
-[Azure portalını](https://portal.azure.com) kullanarak erişim anahtarlarını almak için, önbelleğinize göz atın ve **Erişim anahtarlarına** tıklayın. 
+#### <a name="to-retrieve-the-access-keys-and-host-name"></a>Erişim tuşlarını ve ana bilgisayar adını alma
 
-![Redis Cache anahtarları](media/redis-cache-access-keys/redis-cache-keys.png)
+1. [Azure portalı](https://portal.azure.com) kullanarak erişim anahtarlarını almak için önbelleğinize göz atın ve **Erişim anahtarları** seçeneğini belirleyin. 
 
-Ana bilgisayar adını ve bağlantı noktalarını almak için **Özellikler**’e tıklayın.
+    ![Azure Redis Cache anahtarları](media/redis-cache-access-keys/redis-cache-keys.png)
 
-![Redis önbelleği özellikleri](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+2. Ana bilgisayar adını ve bağlantı noktalarını almak için **Özellikler** seçeneğini belirleyin.
+
+    ![Azure Redis Cache özellikleri](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

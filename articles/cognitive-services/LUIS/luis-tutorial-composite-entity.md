@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5e4d5a03db6210c159227530b94fbde6873bc211
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: cb581ee60dea2b0810332933455a03a8b68e16ea
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356117"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264394"
 ---
 # <a name="use-composite-entity-to-extract-complex-data"></a>Karmaşık veri ayıklamak için Bileşik varlık kullanın
 Bu basit uygulama iki sahip [hedefleri](luis-concept-intent.md) ve birkaç varlıklar. Amacı uçuşlar '1 biletindeki Seattle Kahire Cuma günü için' gibi kitap ve veri tek bir parçası olarak ayırma tüm özellikleri geri dönmek için ' dir. 
@@ -249,5 +249,5 @@ Bu istekle HALUK yapılır. Bir chatbot gibi çağrı yapan uygulamanın topScor
 [Varlıklar hakkında daha fazla bilgi](luis-concept-entity-types.md). 
 
 <!--References-->
-[LUIS]:luis-reference-regions.md#luis-website
-[LUIS-regions]:luis-reference-regions.md#publishing-regions
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

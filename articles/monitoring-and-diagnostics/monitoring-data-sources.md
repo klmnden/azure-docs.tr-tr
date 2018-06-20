@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/27/2017
+ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 7b3cb869f3c220c20db53216c96449d01c16eaf6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263186"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220093"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>İzleme verilerini Azure kullanma
 
@@ -40,7 +40,7 @@ Azure platformu üzerinde biz birlikte Azure İzleyicisi ile tek bir yerde izlem
 | Ölçüm uyarıları Azure izleme | Bildirimler | [Burada listesine bakın](monitoring-supported-metrics.md) | <ul><li>**Web kancası:** [Azure ölçüm uyarıları](insights-webhooks-alerts.md)</li></ul> |
 | Azure Etkinlik günlüğünü izleme uyarıları | Bildirimler | Tüm Azure Hizmetleri | <ul><li>**Web kancası:** Azure etkinlik günlüğü uyarıları</li></ul> |
 | Otomatik ölçeklendirme bildirimleri | Bildirimler | [Burada listesine bakın](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**Web kancası:** [otomatik ölçeklendirme bildirim Web kancası yükü şeması](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| Arama sorgusu uyarıları oturum | Bildirimler | Log Analytics | <ul><li>**Web kancası:** [günlük analizi uyarıları](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| Arama sorgusu uyarıları oturum | Bildirimler | Log Analytics | <ul><li>**Web kancası:** [günlük uyarı kuralları için Web kancası eylemi](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Uygulama Öngörüler ölçüm uyarıları | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../application-insights/app-insights-alerts.md)</li></ul> |
 | Uygulama Öngörüler web testleri | Bildirimler | Application Insights | <ul><li>**Web kancası:** [Application Insights uyarıları](../application-insights/app-insights-alerts.md)</li></ul> |
 

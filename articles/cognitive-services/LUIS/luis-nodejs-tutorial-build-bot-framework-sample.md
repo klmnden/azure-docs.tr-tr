@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cc84942c139d3c5e981aec902557201c9c8092
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355769"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264982"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Node.js için Bot Oluşturucu SDK'yı kullanarak bir bot HALUK tümleştirileceğini
 
@@ -235,15 +235,14 @@ Azure Portalı'nda seçin **Test Web sohbet** bot test etmek için. Türü ileti
    ![Web sohbet HomeAutomation bot test](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> Bot her zaman doğru amacını veya varlıklar tanımıyor bulursanız, onu eğitmek için daha fazla örnek utterances vererek HALUK uygulamanızın performansı iyileştirir. HALUK uygulamanızı bot's kod kendilerine herhangi bir değişiklik olmadan yeniden eğitme. Bkz: [örnek utterances ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitmek ve HALUK uygulamanızı test](https://docs.microsoft.com/azure/cognitive-services/LUIS/train-test).
+> Bot her zaman doğru amacını veya varlıklar tanımıyor bulursanız, onu eğitmek için daha fazla örnek utterances vererek HALUK uygulamanızın performansı iyileştirir. HALUK uygulamanızı bot's kod kendilerine herhangi bir değişiklik olmadan yeniden eğitme. Bkz: [örnek utterances ekleme](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) ve [eğitmek ve HALUK uygulamanızı test](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test).
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework hakkında daha fazla bilgi edinin
 Daha fazla bilgi edinmek [Bot Framework](https://dev.botframework.com/) ve [3.x](https://github.com/Microsoft/BotBuilder) ve [4.x](https://github.com/Microsoft/botbuilder-js) SDK'ları.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.-->
-Yardım, iptal et ve tebrik, gibi diğer amaçlar için HALUK uygulama eklemek deneyebilirsiniz. Ardından yeni hedefleri iletişim kutularında ekleyin ve bunları bot kullanarak test. 
+<!-- From trying the bot, you can see that the recognizer can trigger interruption of the currently active dialog. Allowing and handling interruptions is a flexible design that accounts for what users really do. Learn more about the various actions you can associate with a recognized intent.--> Yardım, iptal et ve tebrik, gibi diğer amaçlar için HALUK uygulama eklemek deneyebilirsiniz. Ardından yeni hedefleri iletişim kutularında ekleyin ve bunları bot kullanarak test. 
 
 <!-- 
 > [!NOTE] 
@@ -298,10 +297,10 @@ Yardım, iptal et ve tebrik, gibi diğer amaçlar için HALUK uygulama eklemek d
 <!-- Old Links -->
 [Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
 [Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-node-hotel-bot]:https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
+[Github-LUIS-Samples-node-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/nodejs
 [NodeJs]: https://nodejs.org/
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
 

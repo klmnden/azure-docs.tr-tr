@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: b1d0d01621769a6bfc0e14e703d7f988403703c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e6e363649a0bdab5525de7b8e7abe9a53d14573
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355745"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266031"
 ---
 # <a name="manage-your-luis-keys"></a>HALUK tuşlarınızı yönetme
 Bir anahtar, yazar ve HALUK uygulamanızı yayınlama veya uç noktanızı sorgu olanak sağlar. 
@@ -73,4 +73,4 @@ Yayımlama hakkında daha fazla bilgi [bölgeleri](luis-reference-regions.md) Ya
 
 Uygulamanızı yayımlamak için anahtarınızı kullanma **Yayımla uygulama** sayfası. Yayımlama hakkında yönergeler için bkz: [Yayımla uygulama](PublishApp.md).
 
-[LUIS]: luis-reference-regions.md#luis-website
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

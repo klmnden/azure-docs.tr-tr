@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 6b45b00de53822224afbfb3a15dbc6790deb11ce
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: e923167ef0b7cdb300fa5ad1421cc18489393ce2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34356350"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265187"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
@@ -142,8 +142,8 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 
 1. Tıklatın **kuralları** ve ardından **yol tabanlı**.
 2. Girin *Kural 2* adı.
-3. Girin *görüntüleri* ilk yol adı. Girin */images/** yolu. Seçin **imagesBackendPool** arka uç havuzu için.
-4. Girin *Video* ikinci yol adı. Girin */video/** yolu. Seçin **videoBackendPool** arka uç havuzu için.
+3. Girin *görüntüleri* ilk yol adı. Girin */images/* \* yolu. Seçin **imagesBackendPool** arka uç havuzu için.
+4. Girin *Video* ikinci yol adı. Girin */video/* \* yolu. Seçin **videoBackendPool** arka uç havuzu için.
 
     ![Yol tabanlı bir kural oluşturun](./media/create-url-route-portal/application-gateway-route-rule.png)
 

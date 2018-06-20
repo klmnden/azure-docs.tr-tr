@@ -9,18 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 8d3fa9bf11cd1c14b2d7ef37544cb5e043e2d9da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 88e6b1a64d4ceff64c1ee74a297e7af0c5a27379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232598"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory'de koşullu erişim için en iyi yöntemler
 
@@ -29,7 +31,7 @@ ms.lasthandoff: 03/23/2018
 - Bilmeniz gerekenler 
 - Nedir koşullu erişim ilkeleri yapılandırırken yapılması kaçınmalısınız. 
 
-Bu makale size tanıdık kavramları ve terminolojiyi özetlenen olduğunu varsayar [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md)
+Bu makale size tanıdık kavramları ve terminolojiyi özetlenen olduğunu varsayar [Azure Active Directory'de koşullu erişim nedir?](active-directory-conditional-access-azure-portal.md)
 
 
 
@@ -43,7 +45,7 @@ Yeni bir ilke oluşturduğunuzda, hiçbir kullanıcıları, grupları, uygulamal
 İlkenizle çalışmak için yapılandırmanız gerekir:
 
 
-|Ne           | Nasıl                                  | Neden|
+|Ne:           | Nasıl                                  | Neden|
 |:--            | :--                                  | :-- |
 |**Bulut uygulamaları** |Bir veya daha fazla uygulama seçmeniz gerekir.  | Bir koşullu erişim ilkesi nasıl yetkili kullanıcıların denetim sağlamak için hedefidir bulut uygulamalarını erişebilirsiniz.|
 | **Kullanıcılar ve gruplar** | En az bir kullanıcı veya seçili bulut uygulamalarınız erişim yetkisi grubu seçmeniz gerekir. | Hiçbir zaman yok kullanıcılar ve gruplar atanan bir koşullu erişim ilkesi tetiklenir. |
@@ -152,4 +154,4 @@ Daha fazla bilgi için bkz: [Azure portalında Klasik ilkelerine](active-directo
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
+Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory koşullu erişimi olan belirli uygulamalar için MFA gerektiren](active-directory-conditional-access-app-based-mfa.md).

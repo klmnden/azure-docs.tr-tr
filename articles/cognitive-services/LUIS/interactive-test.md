@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 760434253a3ece14352154a22cc68142ec2b0531
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35760274"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221640"
 ---
 # <a name="test-your-luis-app"></a>HALUK uygulamanızı test etme
 <a name="train-your-app"></a>
@@ -92,18 +92,23 @@ Birkaç HALUK uç noktaları varsa, **ek ayarlar** bağlantıyı test bölmesi t
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Bing yazım denetimi düzeltmelerini test panelinde görüntüleyin
-Tarafından sağlanan yazım düzeltmeleri görüntüleyebilirsiniz [Bing yazım denetimi v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) API JSON görünümünde **yayımlanan** Test bölmesini panelini. 
+Yazım denetimi düzeltmeleri görüntülemek için gereksinimler: 
 
-Bu özelliği kullanmak için uygulama yayımladığınız gerekir ve Bing yazım denetimi [hizmet anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). Hizmet anahtarı olmayan depolanır ve her bir tarayıcı oturumu için sıfırlanması gerekir. 
+* Yayımlanan uygulama
+* Bing yazım denetimi [hizmet anahtarı](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api). Hizmet anahtarı olmayan depolanır ve her bir tarayıcı oturumu için sıfırlanması gerekir. 
 
-Bing yazım denetimi v7 hizmet anahtarı Test Bölmesi'nde kullanmak için aşağıdakileri kullanın. 
+Dahil etmek için aşağıdaki yordamı kullanın [Bing yazım denetimi v7](https://azure.microsoft.com/services/cognitive-services/spell-check/) Test bölmesi sonuçları hizmet. 
 
-1. Test panelinde üzerinde **yayımlanan** bölmesinde, **ek ayarlar**.
+1. İçinde **Test** bölmesinde, bir utterance girin. Utterance tahmin, seçin **[incele](#inspect-score)** girdiğiniz utterance altında. 
 
-2. Açılan iletişim kutusunda girin, **Bing yazım denetimi** hizmet anahtarı. 
+2. Zaman **incele** paneli açılır, select  **[yayımlanan ile karşılaştırmak](#compare-with-published-version)**. 
+
+3. Zaman **yayımlanan** paneli açılır, select  **[ek ayarlar](#additional-settings-in-test-panel)**.
+
+4. Açılan iletişim kutusunda girin, **Bing yazım denetimi** hizmet anahtarı. 
     ![Bing yazım denetimi hizmet anahtarı girin](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
-3. Bir hatalı gibi yazım denetimi ile bir sorgu girin `book flite to seattle` ve select girin. Word yanlış yazım `flite` HALUK için gönderilen sorgusunda değiştirilir ve sonuçta elde edilen JSON olarak hem orijinal sorguyu gösterir `query`ve sorgu düzeltilmiş yazım olarak `alteredQuery`.
+5. Bir hatalı gibi yazım denetimi ile bir sorgu girin `book flite to seattle` ve select girin. Word yanlış yazım `flite` HALUK için gönderilen sorgusunda değiştirilir ve sonuçta elde edilen JSON olarak hem orijinal sorguyu gösterir `query`ve sorgu düzeltilmiş yazım olarak `alteredQuery`.
 
     ![JSON yazım düzeltildi](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
 

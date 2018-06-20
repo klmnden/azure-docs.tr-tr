@@ -1,0 +1,125 @@
+---
+title: C# SDK HALUK - Azure konuşarak | Microsoft Docs
+titleSuffix: Azure
+description: Konuşma C# SDK'sı örneği mikrofona ve döndürülen HALUK amacını ve varlıkları Öngörüler almak için kullanın.
+services: cognitive-services
+author: v-geberr
+manager: kamran.iqbal
+ms.service: cognitive-services
+ms.technology: luis
+ms.topic: article
+ms.date: 05/10/2018
+ms.author: v-geberr;
+ms.openlocfilehash: 6f2bf2ae454d5af1bba0c176940db1820268a129
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266286"
+---
+# <a name="integrate-speech-service"></a>Konuşma hizmeti tümleştirmek
+[Konuşma hizmet](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesnelerinin HALUK tahmin dönmek için tek bir istek kullanmanıza olanak sağlar.
+
+Bu makalede, indirin ve mikrofon içine bir utterance seslendir ve HALUK tahmin bilgi almak için Visual Studio'da bir C# projesi kullanın. Konuşma projenin kullandığı [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paket, önceden bir başvuru olarak eklendi. 
+
+Bu makalede, ücretsiz bir gereksinim duyduğunuz [HALUK] [ LUIS] uygulama içe aktarmak için Web sitesi hesabı.
+
+## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları HALUK Al uygulama
+Kullanılabilir İnsan Kaynakları HALUK uygulamadan amaçları ve bu makalenin utterances olan [HALUK-Samples](https://github.com/Microsoft/LUIS-Samples) Github depo. Karşıdan [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) dosya *.json uzantısıyla kaydedin ve [alma](create-new-app.md#import-new-app) HALUK içine. 
+
+Bu uygulamanın amaçları, varlıkları ve İnsan Kaynakları etki alanına ilgili utterances yok. Örnek utterances şunları içerir:
+
+```
+Who is John Smith's manager?
+Who does John Smith manage?
+Where is Form 123456?
+Do I have any paid time off?
+```
+
+## <a name="add-keyphrase-prebuilt-entity"></a>Anahtar cümlesi eklemek önceden oluşturulmuş varlık
+Uygulama aldıktan sonra Seç **varlıklar**, ardından **önceden oluşturulmuş varlıkları Yönet**. Ekleme **anahtar cümlesi** varlık. Anahtar cümlesi varlık utterance anahtar konuyla ilgili ayıklar.
+
+## <a name="train-and-publish-the-app"></a>Eğitmek ve uygulama yayımlama
+Eğitmek ve uygulamayı yayımlama. Üzerinde **Yayımla** sayfasında, uygulama kimliği toplamak, bölge ve abonelik kimliğini yayımlama Bu makalenin sonraki bölümlerinde bu değerleri kullanmak için kodu değiştirmeniz gerekir. 
+
+Bu değerler tüm alt kısmındaki uç nokta URL'si dahil edilen **Yayımla** sayfası. 
+
+https://**bölge**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonelik anahtarı =**LUISKEY**& q =
+
+## <a name="download-the-luis-sample-project"></a>HALUK örnek projenizi indirin
+ Kopyalama veya indirme [HALUK-Samples](https://github.com/Microsoft/LUIS-Samples) deposu. Açık [hedefi projesine konuşma](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) Visual Studio ile ve NuGet paketleri geri yükleyin. VS çözüm.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln dosyasıdır.
+
+Konuşma SDK'sı zaten bir başvuru olarak dahil edilir. 
+
+[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "Visual Studio 2017 ekran görüntüsü görüntüleme Microsoft.CognitiveServices.Speech NuGet paketi")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+
+## <a name="modify-the-c-code"></a>C# kodunu değiştirme
+Açık **LUIS_samples.cs** dosya ve aşağıdaki değişkenleri değiştirin:
+
+|Değişken adı|Amaç|
+|--|--|
+|luisSubscriptionKey|Uç nokta URL'SİNİN abonelik anahtarı değerine Yayımla sayfasından karşılık gelir.|
+|luisRegion|Uç nokta URL'SİNİN ilk alt etki alanı için karşılık gelen|
+|luisAppId|Uç nokta URL'SİNİN yol aşağıdaki karşılık gelen **apps /**|
+
+[![](./media/luis-tutorial-speech-to-intent/change-variables.png "Ekran görüntüsü, Visual Studio LUIS_samples.cs değişkenleri görüntüleme 2017")](./media/luis-tutorial-speech-to-intent/change-variables.png#lightbox)
+
+Eşlenen İnsan Kaynakları hedefleri dosya zaten var.
+
+[![](./media/luis-tutorial-speech-to-intent/intents.png "Ekran görüntüsü, Visual Studio LUIS_samples.cs hedefleri görüntüleme 2017")](./media/luis-tutorial-speech-to-intent/intents.png#lightbox)
+
+Derleme ve uygulamayı çalıştırın. 
+
+![Komut satırı programı ekran görüntüsü](./media/luis-tutorial-speech-to-intent/cmdline-1.png)
+
+## <a name="test-code-with-utterance"></a>Kodu utterance ile test
+Seçin **8** ve mikrofon konuşun "Kim Hasan Aydın Yöneticisi".
+
+```cmd
+1. Speech recognition with microphone input.
+2. Speech recognition in the specified language.
+3. Speech recognition with file input.
+4. Speech recognition using customized model.
+5. Speech continuous recognition using events.
+6. Translation with microphone input.
+7. Translation with file input.
+8. Speech recognition of LUIS intent.
+0. Stop.
+Your choice: 8
+LUIS...
+Say something...
+ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
+  "query": "Who is the manager of John Smith?",
+  "topScoringIntent": {
+    "intent": "GetEmployeeOrgChart",
+    "score": 0.617331
+  },
+  "entities": [
+    {
+      "entity": "manager of john smith",
+      "type": "builtin.keyPhrase",
+      "startIndex": 11,
+      "endIndex": 31
+    }
+  ]
+}
+
+Recognition done. Your Choice:
+
+```
+
+Doğru hedefi **GetEmployeeOrgChart**, % 61'i güvenle bulundu. Anahtar cümlesi varlık döndürüldü. 
+
+Konuşma SDK'sı tüm HALUK yanıtı döndürür. 
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+Artık gerektiğinde HALUK İnsanKaynakları uygulamayı silin. Bunu yapmak için uygulama adının sağ tarafındaki üç nokta menüsüne (...) uygulama listesinde seçin **silmek**. Açılan iletişim kutusunda **Delete uygulama?** seçin **Tamam**.
+
+İşiniz bittiğinde HALUK örnekleri dizinini silmeye unutmayın örnek kodu kullanarak.
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+> [!div class="nextstepaction"]
+> [HALUK BOT ile tümleştirme](luis-csharp-tutorial-build-bot-framework-sample.md)
+
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

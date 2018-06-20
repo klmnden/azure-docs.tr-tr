@@ -14,53 +14,70 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3a7656e54181c8e8e7b6b1bd39f80ce8ed01c807
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294869"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264086"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını güncelle
-Azure yığın derlemeleri güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı yayımlanan. Varolan bağdaştırıcısı çalışmaya devam ederken, en son sürüme mümkün olan en kısa sürede güncelleştirilmesi önerilir. Güncelleştirmeleri sırayla yüklü olmalıdır: sürümleri atlayamazsınız (sürümleri listesinde bkz [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
 
-Kullandığınız kaynak sağlayıcısı güncelleştirmek için *UpdateSQLProvider.ps1* komut dosyası. İşlem bölümünde açıklandığı gibi bir kaynak Sağlayıcısı'nı yüklemek için kullanılan işlem benzer [kaynak sağlayıcısı dağıtmak](.\azure-stack-sql-resource-provider-deploy.md) makalesi. Betik kaynak sağlayıcısı yükleme ile dahil edilir.
+*Uygulandığı öğe: Azure yığın tümleşik sistemler.*
 
-*UpdateSQLProvider.ps1* komut dosyası en son kaynak sağlayıcısı kodu ile yeni bir VM oluşturur ve yeni VM'ye eski sanal makineden ayarları geçirir. Geçiş ayarları veritabanı ve barındırma sunucusu bilgilerini içerir ve gerekli DNS kaydı.
+Yeni bir derleme Azure yığın güncelleştirildiğinde yeni bir SQL kaynak sağlayıcısı yayımlanan. Varolan bağdaştırıcısı çalışmaya devam eder, ancak en son sürüme mümkün olan en kısa sürede güncelleştirme öneririz.
 
-Komut dosyası için DeploySqlProvider.ps1 komut açıklanan aynı bağımsız değişkenlere kullanılmasını gerektirir. Sertifika burada da sağlar. 
+>[!IMPORTANT]
+>Bunlar serbest sırayla güncelleştirmeleri yüklemeniz gerekir. Sürümleri atlayamazsınız. Sürümleri listesinde başvurmak [kaynak sağlayıcı önkoşulları dağıtma](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
-Market Yönetimi'nden en son Windows Server 2016 Core görüntüyü indirmeyi öneririz. Bir güncelleştirme yüklemeniz gerekiyorsa, tek bir yerleştirebilirsiniz. Yerel bağımlılık yolundaki MSU paketi. Birden fazla ise. MSU dosyası bulundu, komut dosyası başarısız olur.
+## <a name="overview"></a>Genel Bakış
 
-Aşağıdaki örneği verilmiştir *UpdateSQLProvider.ps1* PowerShell isteminden çalıştırıp komut dosyası. Hesap bilgileri ve gerektiğinde parolaları değiştirdiğinizden emin olun: 
+Kaynak sağlayıcısı güncelleştirmek için *UpdateSQLProvider.ps1* komut dosyası. Bu komut dosyasını yeni SQL kaynak sağlayıcısı yükleme ile dahil edilir. Güncelleştirme işlemi için kullanılan işlem benzer [kaynak sağlayıcısı dağıtmak](.\azure-stack-sql-resource-provider-deploy.md). Güncelleştirme betiğini DeploySqlProvider.ps1 komut dosyası olarak aynı bağımsız değişkenlere kullanır ve sertifika bilgilerini sağlamanız gerekir.
+
+### <a name="update-script-processes"></a>Güncelleştirme komut dosyası işlemleri
+
+*UpdateSQLProvider.ps1* komut dosyası en son kaynak sağlayıcısı kodu ile yeni bir sanal makine (VM) oluşturur.
+
+>[!NOTE]
+>Market Yönetimi'nden en son Windows Server 2016 Core görüntüyü indirmeyi öneririz. Bir güncelleştirme yüklemeniz gerekiyorsa, yerleştirebilirsiniz bir **tek** yerel bağımlılık yolu MSU paketinde. Bu konumda birden fazla MSU dosyası ise, komut dosyası başarısız olur.
+
+Sonra *UpdateSQLProvider.ps1* komut dosyasını yeni bir VM oluşturur, komut dosyasını aşağıdaki ayarları eski sağlayıcıdan VM geçirir:
+
+* Veritabanı bilgileri
+* barındırma sunucusu bilgileri
+* gerekli DNS kaydı
+
+### <a name="update-script-powershell-example"></a>Komut dosyası PowerShell örnek güncelleştir
+
+Düzenle ve yükseltilmiş bir PowerShell ISE aşağıdaki betiği çalıştırın. Ortamınız için gerektiği gibi parola ve hesap bilgilerini değiştirmeyi unutmayın.
 
 > [!NOTE]
-> Güncelleştirme işlemi yalnızca tümleşik sistemleri için geçerlidir.
+> Bu güncelleştirme işlemi yalnızca Azure tümleşik yığını sistemleri için geçerlidir.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines
+# For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
 
-# The service admin account (can be Azure AD or AD FS).
+# The service administrator account (this can be Azure AD or AD FS).
 $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set credentials for the new Resource Provider VM.
+# Set the credentials for the new resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-# And the cloudadmin credential required for privileged endpoint access.
+# Add the cloudadmin credential required for privileged endpoint access.
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
@@ -74,11 +91,13 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
   -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
+  -DependencyFilesLocalPath $tempDir\cert `
+
  ```
 
 ## <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parametreleri
-Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli parametreler sağlamanız istenir.
+
+Komut dosyasını çalıştırdığınızda, komut satırından aşağıdaki parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hiçbir parametre doğrulaması başarısız olursa, gerekli parametreler sağlamanız istenir.
 
 | Parametre adı | Açıklama | Açıklama veya varsayılan değer |
 | --- | --- | --- |
@@ -86,13 +105,12 @@ Komut satırında bu parametreleri belirtebilirsiniz. Bunu yapmazsanız veya hi�
 | **AzCredential** | Azure yığın hizmet yönetici hesabı için kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerini kullanın. | _Gerekli_ |
 | **VMLocalCredential** | SQL kaynak sağlayıcısının VM yerel yönetici hesabı için kimlik bilgileri. | _Gerekli_ |
 | **PrivilegedEndpoint** | IP adresi veya ayrıcalıklı uç noktanın DNS adı. |  _Gerekli_ |
-| **DependencyFilesLocalPath** | Sertifika .pfx dosyasının bu dizinde yerleştirilmelidir. | _İsteğe bağlı_ (_zorunlu_ çok düğümlü için) |
+| **DependencyFilesLocalPath** | Ayrıca, bu dizinde sertifika .pfx dosyanızı konulmalıdır. | _Tek düğüm, ancak çok düğümlü için zorunlu için isteğe bağlı_ |
 | **DefaultSSLCertificatePassword** | .Pfx sertifika parolası. | _Gerekli_ |
 | **MaxRetryCount** | Bir hata olduğunda her işlemini yeniden denemek istiyor sayısı.| 2 |
 | **RetryDuration** |Saniye cinsinden yeniden denemeler arasındaki zaman aşımı aralığı. | 120 |
-| **Kaldırma** | (Aşağıdaki notlara bakın) ilişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır. | Hayır |
+| **Kaldırma** | İlişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır. | Hayır |
 | **DebugMode** | Otomatik temizleme hatasında engeller. | Hayır |
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

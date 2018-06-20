@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 23a857a5-2720-400a-ab9b-1ba61e7b145a
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: be8ff16b5383be19c1a8dc85f7afdf7506bfd4ce
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587952"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265057"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
@@ -69,7 +69,7 @@ Aşağıdaki bağlantı noktalarını hizmetine Azure AD etki alanı Hizmetleri 
 | --- | --- | --- |
 | 443 | Zorunlu |Azure AD kiracınıza ile eşitleme |
 | 5986 | Zorunlu | Etki alanınızın Yönetimi |
-| 3389 | İsteğe bağlı | Etki alanınızın Yönetimi |
+| 3389 | Zorunlu | Etki alanınızın Yönetimi |
 | 636 | İsteğe bağlı | Yönetilen etki alanınız için güvenli LDAP (LDAPS) erişim |
 
 **Bağlantı noktası 443 (Azure AD ile eşitleme)**
@@ -80,12 +80,13 @@ Aşağıdaki bağlantı noktalarını hizmetine Azure AD etki alanı Hizmetleri 
 **Bağlantı noktası 5986 (PowerShell uzaktan iletişimi)**
 * PowerShell uzaktan iletişimi yönetilen etki alanınızda kullanarak yönetim görevlerini gerçekleştirmek için kullanılır.
 * Bu bağlantı noktası, nsg'deki üzerinden erişime izin vermek için zorunludur. Bu bağlantı noktası erişimi olmadan, yönetilen etki alanınızı güncelleştirilmiş, yapılandırılmış, yedeklenen veya izlenen olamaz.
-* Aşağıdaki kaynak IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
+* Herhangi bir yeni etki alanları veya bir KOL sanal ağ ile etki alanları için aşağıdaki kaynak IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz: 52.180.179.108, 52.180.177.87, 13.75.105.168, 52.175.18.134, 52.138.68.41, 52.138.65.157, 104.41.159.212, 104.45.138.161 52.169.125.119, 52.169.218.0, 52.187.19.1, 52.187.120.237, 13.78.172.246, 52.161.110.169, 52.174.189.149, 40.68.160.142, 40.83.144.56, 13.64.151.161, 52.180.183.67, 52.180.181.39, 52.175.28.111, 52.175.16.141, 52.138.70.93, 52.138.64.115, 40.80.146.22, 40.121.211.60, 52.138.143.173, 52.169.87.10, 13.76.171.84, 52.187.169.156, 13.78.174.255, 13.78.191.178, 40.68.163.143, 23.100.14.28, 13.64.188.43, 23.99.93.197
+* Klasik sanal ağ ile etki alanları için aşağıdaki kaynak IP adresleri için bu bağlantı noktasına gelen erişimi kısıtlayabilirsiniz: 52.180.183.8, 23.101.0.70, 52.225.184.198, 52.179.126.223, 13.74.249.156, 52.187.117.83, 52.161.13.95, 104.40.156.18, 104.40.87.209, 52.180.179.108, 52.175.18.134, 52.138.68.41, 104.41.159.212, 52.169.218.0, 52.187.120.237, 52.161.110.169, 52.174.189.149, 13.64.151.161
 * Yönetilen etki alanınız için etki alanı denetleyicileri genellikle bu bağlantı noktasında dinleme değil. Yalnızca bir yönetim veya bakım işlemi yönetilen etki alanı için gerçekleştirilmesi gerektiğinde hizmet yönetilen etki alanı denetleyicilerinde Bu bağlantı noktası açar. İşlemi tamamlanır tamamlanmaz hizmet yönetilen etki alanı denetleyicilerinde Bu bağlantı noktasını kapatır.
 
 **Bağlantı noktası 3389 (Uzak Masaüstü)**
 * Yönetilen etki alanınız için etki alanı denetleyicilerine Uzak Masaüstü bağlantıları için kullanılır.
-* Bu bağlantı noktası, NSG üzerinden açma isteğe bağlıdır.
+* Aşağıdaki kaynak IP adresine gelen erişimi kısıtlayabilirsiniz: 207.68.190.32/27, 13.106.78.32/27, 13.106.174.32/27, 13.106.4.96/27
 * Bu bağlantı noktası da büyük ölçüde yönetilen etki alanınızda devre dışı kalır. PowerShell uzaktan iletişimi kullanarak yönetim ve izleme görevlerini gerçekleştirilen beri bu düzenek sürekli olarak kullanılmaz. Bu bağlantı noktası Microsoft Gelişmiş sorun giderme adımları için yönetilen etki alanınız uzaktan bağlanmak için gereken nadir durumlarda kullanılır. Sorun giderme işlemi tamamlandıktan hemen sonra bağlantı noktası kapalı.
 
 **Bağlantı noktası 636 (güvenli LDAP)**

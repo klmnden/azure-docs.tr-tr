@@ -1,28 +1,30 @@
 ---
-title: "Azure portalında Klasik ilkelerine | Microsoft Docs"
-description: "Azure portalında Klasik ilkelerine bilmeniz gerekenleri öğrenin."
+title: Azure Active Directory koşullu erişim ilkesi geçişi nedir? | Microsoft Docs
+description: Azure portalında Klasik ilkelerine bilmeniz gerekenleri öğrenin.
 services: active-directory
-keywords: "uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim"
-documentationcenter: 
+keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
+documentationcenter: ''
 author: MarkusVi
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 16628bd4fa41d2e7697e1c2501f2ccd31dbd0496
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232540"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Azure portalında Klasik ilkelerine 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim ilkesi geçişi nedir? 
 
 
 [Koşullu erişim](active-directory-conditional-access-azure-portal.md) olduğunu denetlemek için nasıl sağlayan Azure Active directory (Azure AD) yeteneğini yetkili kullanıcılara erişimi, bulut uygulamalarınızı. Amacı hala aynı olsa da, yeni Azure portalına sürümü koşullu erişimin nasıl çalıştığı için önemli geliştirmeler anlatılmıştır.
@@ -81,13 +83,13 @@ Seçilen grupları değiştirerek veya belirli grupların hariç tarafından ekl
 
 Azure portalında koşullu erişim ile tek bir merkezi konumda tüm ilkelerinizi yönetebilirsiniz. Koşullu erişim uygulama önemli ölçüde değiştiğinden, Klasik ilkelerinizi geçirmeden önce şu temel kavramları kendiniz alışmanız gerekir.
 
-Bkz.:
+Bkz:
 
-- [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md) temel kavramları ve terminolojiyi hakkında bilgi edinmek için.
+- [Azure Active Directory'de koşullu erişim nedir](active-directory-conditional-access-azure-portal.md) temel kavramları ve terminolojiyi hakkında bilgi edinmek için.
 
 - [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md) koşullu erişim, kuruluşunuzda dağıtma konusunda bazı yönergeler almak için.
 
-- [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md) Azure portalında kullanıcı arabirimi tanımak için.
+- [Azure Active Directory koşullu erişimi olan belirli uygulamalar için MFA'ya gerek](active-directory-conditional-access-app-based-mfa.md) Azure portalında kullanıcı arabirimi tanımak için.
 
 
  
@@ -168,6 +170,6 @@ Yeni bir ilke seçmeniz gerekir. [cihaz platformları](active-directory-conditio
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [Azure Active Directory'de koşullu erişimi kullanmaya başlama](active-directory-conditional-access-azure-portal-get-started.md).
+- Koşullu erişim ilkesini yapılandırma hakkında bilmek istiyorsanız [GRequire MFA Azure Active Directory koşullu erişimi olan belirli uygulamalar için](active-directory-conditional-access-app-based-mfa.md).
 
 - Ortamınız için koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için en iyi uygulamaları](active-directory-conditional-access-best-practices.md). 

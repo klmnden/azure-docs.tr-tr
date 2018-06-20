@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1620fe80b032245c6ca19279c3981dcff4b9820f
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356109"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265997"
 ---
 # <a name="prediction-score"></a>Tahmin puanı
 Tahmin puanı HALUK tahmin sonuçlarını sahip güvenirlik düzeyini gösterir. 
@@ -62,4 +62,4 @@ Chatbot amacına güveni göstermek için belirli bir HALUK puan gerektiriyorsa,
 
 Bkz: [varlıkları ekleyin](luis-how-to-add-entities.md) HALUK uygulamanıza varlıklar ekleme hakkında daha fazla bilgi için.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

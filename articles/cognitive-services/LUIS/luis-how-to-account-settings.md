@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 25989d07b7d879ac68283ee56a7ccb0c07e09623
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
-ms.translationtype: HT
+ms.openlocfilehash: 76300b307c8e87a3dd108fc53d3b30a53d3276dd
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35356061"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263933"
 ---
 # <a name="manage-your-luis-account"></a>LUIS hesabınızı yönetme
 İki anahtar bilgi HLUIShesabı için kullanıcı hesabı ve geliştirme anahtar parçalarıdır. Oturum açma bilgilerini, yönetilen [account.microsoft.com](https://account.microsoft.com). Geliştirme anahtarınızı gelen yönetilen [LUIS][LUIS] Web sitesi **ayarları** sayfası. 
@@ -50,8 +50,12 @@ Kiracı yönetici LUIS için oturum açacak değil, yönetici erişebilir [onay�
 
 Kiracı yönetici yalnızca belirli kullanıcıların LUIS kullanmasını isterse, bunun için başvuruda [kimliği blogu](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
 
+### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Ortak Çalışanlar için birden çok e-posta ile kullanıcı hesapları
+Ortak Çalışanlar bir HALUK uygulamasına eklerseniz, bir ortak çalışanı HALUK kullanmak için bir ortak çalışanı gerekli tam e-posta adresi belirlersiniz. Azure Active Directory (Azure AD) birbirinin yerine kullanılan birden fazla e-posta hesabına sahip tek bir kullanıcı sağlar, ancak HALUK ortak çalışanı'nın listesinde belirtilen e-posta adresi oturum oturum kullanıcının gerektirir. 
+
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Daha fazla bilgi edinmek, [anahtar yazma](luis-concept-keys.md#authoring-key). 
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

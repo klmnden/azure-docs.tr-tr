@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: d3a59c2d9b62bdbde75c54347ce9117fc9114cd6
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164398"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220025"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Program aracılığıyla Azure panolar oluşturun
 
@@ -89,11 +89,11 @@ Azure birden fazla kaynak dağıtım düzenlemek olanağı sunar. Aralarındaki 
 Bu rota oluşturacağız sonra parametrelemeyi yapılması şablonun parametresi sözdizimini kullanarak.  Aşağıda gösterildiği gibi daha önce bulduk kaynak kimliği tüm örneklerini değiştirin.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>Örnek JSON özelliğiyle sabit kodlanmış kaynak kimliği
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Şablonun parametrelere göre parametreli bir sürüme dönüştürülen örnek JSON özelliği
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 Ayrıca bazı gerekli şablon meta verilerine ve bu gibi json şablonunu üstündeki parametreleri bildirmeniz gerekir:
 
@@ -122,7 +122,7 @@ __Bu belgenin sonundaki tam, çalışma şablonu görebilirsiniz.__
 
 Şablonunuzu hazırlanmış sonra kullanarak dağıtabilirsiniz [REST API'leri](https://docs.microsoft.com/rest/api/resources/deployments), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), [Azure CLI](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create), veya [portalın şablon dağıtımı sayfası ](https://portal.azure.com/#create/Microsoft.Template).
 
-İşte bizim örnek Pano JSON iki sürümü. İlk biz zaten bir kaynağa bağlı Portalı'ndan dışarı sürümüdür. Program aracılığıyla tüm VM bağlanabilir ve Azure Resource Manager kullanılarak dağıtılan şablon sürümü saniyedir.
+Burada, bizim örnek Pano JSON iki sürümü bulunmaktadır. İlk biz zaten bir kaynağa bağlı Portalı'ndan dışarı sürümüdür. Program aracılığıyla tüm VM bağlanabilir ve Azure Resource Manager kullanılarak dağıtılan şablon sürümü saniyedir.
 
 ## <a name="json-representation-of-our-example-dashboard-before-templating"></a>JSON gösterimi bizim örnek Pano (önce şablonu oluşturma)
 

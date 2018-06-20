@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 299e0d4fa53f9b8a2aef2fc881b136aa41aacfe4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5d7f0d1fc32f18991be6614bb7661b63570a8700
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157784"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264931"
 ---
 # <a name="azure-active-directory-code-samples-v1-endpoint"></a>Azure Active Directory kod örnekleri (V1 uç noktası)
 
@@ -50,7 +50,7 @@ Mobil (UWP)            | .NET / C#  | Etkileşimli | [Yerel uwp wam dotnet](http
 Mobil (Android, iOS, UWP)   | .NET / C# (Xamarin) | Etkileşimli | [DotNet yerel multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
 Mobil (Android)           | Android/Java | Etkileşimli |   [Android](https://github.com/Azure-Samples/active-directory-android) |
 Mobil (iOS)           | iOS/Objective C | Etkileşimli |   [nativeClient iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Masaüstü (konsol)          | .NET / C# | Kullanıcı adı / parola </p> Windows tümleşik kimlik doğrulaması | | [DotNet-yerel-gözetimsiz](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Masaüstü (konsol)          | .NET / C# | Kullanıcı adı / parola </p> Tümleşik Windows Kimlik Doğrulaması | | [DotNet-yerel-gözetimsiz](https://github.com/azure-samples/active-directory-dotnet-native-headless)
 Masaüstü (konsol)           | .NET core / C# | Cihaz profili | | [DotNet deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="web-applications"></a>Web Uygulamaları
@@ -109,9 +109,11 @@ ASP.NET 4.5 | [DotNet webapı onbehalfof ca](https://github.com/azure-samples/ac
 
 Bu örnek, Azure AD ile güvenli bir tek sayfa uygulamasının nasıl yazılacağını göstermektedir.
 
- Platform |  Çağrıları Microsoft Graph | Kendi API çağrıları
- -------- |  --------------------- | -------------------------
-JavaScript (Açısal) / ASP.NET 4.x |  | [angularjs singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp)
+ Platform |  Çağrıları Microsoft Graph | Kendi API çağrıları | Başka bir Web API çağrıları
+ -------- |  --------------------- | ------------------ | ----------------
+JavaScript / ASP.NET 4.x |  | [JavaScript singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+JavaScript (AngularJS) / ASP.NET 4.x |  | [angularjs singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) |
+JavaScript (AngularJS) / ASP.NET 4.x |  |  | [angularjs singlepageapp cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## <a name="other-microsoft-graph-samples"></a>Diğer Microsoft Graph örnekleri
 

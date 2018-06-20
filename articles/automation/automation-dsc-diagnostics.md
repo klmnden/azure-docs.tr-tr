@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195973"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218964"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Azure Otomasyonu DSC için günlük analizi veri raporlama ilet
 
@@ -86,14 +86,14 @@ Ayrıca, sorgu işlemi adıyla da daraltabilirsiniz. Örneğin: ' türü AzureDi
 
 Bizim üst müşteri isteklerinden biri, bir şeyler bir DSC yapılandırması yanlış gittiğinde bir e-posta veya bir metin gönderme olanağı içindir.   
 
-Bir uyarı kuralı oluşturmak için bir günlük arama uyarı çağıracağı DSC rapor kayıtlar için oluşturarak başlayın.  Tıklatın **uyarı** oluşturmak ve uyarı kuralı yapılandırmak için düğmesi.
+Bir uyarı kuralı oluşturmak için bir günlük arama uyarı çağıracağı DSC rapor kayıtlar için oluşturarak başlayın.  Tıklatın **+ yeni uyarı kuralı** oluşturmak ve uyarı kuralı yapılandırmak için düğmesi.
 
 1. Günlük analizi genel bakış sayfasında **günlük arama**.
 1. Uyarınız için günlük arama sorgusunu sorgu alanına aşağıdaki arama yazarak oluşturun:  `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`
 
   Günlüklerini birden fazla Otomasyon hesabı veya abonelik alanınıza ayarladıysanız, uyarılarınızı aboneliği ve Automation hesabı göre gruplandırabilirsiniz.  
   Otomasyon hesabı adı DscNodeStatusData arama kaynak alanından elde edilebilir.  
-1. Açmak için **uyarı kuralı Ekle** ekranında **uyarı** sayfanın üst kısmındaki. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [günlük analizi uyarılarını](../log-analytics/log-analytics-alerts.md#alert-rules).
+1. Açmak için **oluşturma kuralı** ekranında **+ yeni uyarı kuralı** sayfanın üst kısmındaki. Uyarı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz: [bir uyarı rulelert oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>Tüm düğümleri arasında başarısız DSC kaynakları bulun
 
@@ -141,8 +141,8 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki kategorisi oluşturu
 | SourceSystem | Günlük analizi nasıl veriler toplanır. Her zaman *Azure* Azure tanılama için. |
 | ResourceId |Azure Otomasyonu hesabını belirtir. |
 | ResultDescription | Bu işlem açıklaması. |
-| Abonelik kimliği | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| Kaynak grubu | Otomasyon hesabının kaynak grubunun adı. |
+| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
+| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |Uyumluluk raporu bağıntı kimliği GUID. |
@@ -172,8 +172,8 @@ Azure Otomasyonu tanılama günlük analizi kayıtları iki kategorisi oluşturu
 | SourceSystem | Günlük analizi nasıl veriler toplanır. Her zaman *Azure* Azure tanılama için. |
 | ResourceId |Azure Otomasyonu hesabını belirtir. |
 | ResultDescription | Bu işlem açıklaması. |
-| Abonelik kimliği | Otomasyon hesabının Azure abonelik kimliği (GUID). |
-| Kaynak grubu | Otomasyon hesabının kaynak grubunun adı. |
+| SubscriptionId | Otomasyon hesabının Azure abonelik kimliği (GUID). |
+| ResourceGroup | Otomasyon hesabının kaynak grubunun adı. |
 | ResourceProvider | MICROSOFT. OTOMASYON |
 | ResourceType | AUTOMATIONACCOUNTS |
 | CorrelationId |Uyumluluk raporu bağıntı kimliği GUID. |

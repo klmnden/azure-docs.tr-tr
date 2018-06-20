@@ -3,25 +3,25 @@ title: Azure Active Directory portalındaki oturum açma etkinlik raporları | M
 description: Azure Active Directory portalındaki oturum açma etkinlik raporlarına giriş
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588616"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232550"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory portalındaki oturum açma etkinlik raporları
 
@@ -38,7 +38,7 @@ Azure Active Directory'nin raporlama mimarisi aşağıdaki bileşenlerden oluşu
 
 Bu konu başlığı oturum açma etkinliklerine genel bakış sunmaktadır.
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="who-can-access-the-data"></a>Verilere kimler erişebilir?
 * Güvenlik Yöneticisi, Güvenlik Okuyucusu veya Rapor Okuyucusu rolündeki kullanıcılar
@@ -113,7 +113,7 @@ Raporlanan verileri kendinize uygun bir seviyeye gelecek şekilde daraltmak içi
 **Algılanan Risk** filtresi aşağıdakilerden birini seçmenize imkan tanır:
 
 - Tümü
-- Yes
+- Evet
 - Hayır 
 
 
@@ -153,7 +153,7 @@ Azure portalının dışında çalışmak istiyorsanız oturum açma etkinlik ve
 
 ![İndir](./media/active-directory-reporting-activity-sign-ins/71.png "İndir")
 
-**İndir**’e tıkladığınızda en son 5 bin kaydı içeren bir CSV dosyası oluşturulur. Daha fazla esneklik gerekiyorsa betik çözümünü kullanabilirsiniz. **Betik** öğesine tıkladığınızda, ayarladığınız tüm filtreleri içeren bir betik oluşturulur. Teknik uygulamaya ek olarak, indirebileceğiniz kayıt sayısı aynı zamanda [Azure Active Directory rapor saklama ilkeleri](active-directory-reporting-retention.md) ile kısıtlanır.  
+**İndir**’e tıkladığınızda en son 5 bin kaydı içeren bir CSV dosyası oluşturulur. Daha fazla esneklik gerekiyorsa betik çözümünü kullanabilirsiniz. Tıklatarak **betik** ayarladığınız tüm filtreleri içeren bir PowerShell komut dosyası oluşturur. Karşıdan yükleme ve bu komut dosyası çalıştırma **Yönetici modu** CSV dosyasını oluşturmak için. Teknik uygulamaya ek olarak, indirebileceğiniz kayıt sayısı aynı zamanda [Azure Active Directory rapor saklama ilkeleri](active-directory-reporting-retention.md) ile kısıtlanır.  
 
 
 

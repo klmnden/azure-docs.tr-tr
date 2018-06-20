@@ -7,18 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 7e768f424d439041c5602ba219de5bb3f12dfa0e
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 6912aaaae39f4207d5ee7a8556e156aa7ca47633
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35982159"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Öğretici: Azure Active Directory Tümleştirme VERITAS Kurumsal Vault.cloud SSO
 
@@ -115,7 +116,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. İçinde **tanımlayıcısı** metin kutusuna, veri merkezi başına URL'yi kullanın
 
-    | Datacenter| URL |
+    | Veri merkezi| URL'si |
     |----------|----|
     | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
     | Avrupa | `https://auth.ams.archivecloud.net` |
@@ -123,7 +124,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. İçinde **yanıt URL'si** metin kutusuna, veri merkezi başına URL'yi kullanın
 
-    | Datacenter| URL |
+    | Veri merkezi| URL'si |
     |----------|----|
     | Kuzey Amerika| `https://auth.lax.archivecloud.net` |
     | Avrupa | `https://auth.ams.archivecloud.net` |

@@ -10,12 +10,12 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: d28bb4b8e171ef6189f81acc337088b3c5499ccf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2281a35d1616aa88b0c646fb96cb9f95c3272536
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655309"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264377"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure multi-Factor Authentication kullanıcı veri toplama
 
@@ -151,39 +151,39 @@ MFA sunucusunun komut satırından yüklemenizi göre yolu değiştirerek aşağ
 
 ## <a name="gather-data-from-nps-extension"></a>NPS uzantısını verileri toplayın
 
-Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) dışa aktarma için bir istek yapma.
+Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) dışa aktarma için bir istek yapma.
 
 - MFA bilgileri saat veya tamamlamak için gün sürebilir verme içinde bulunur.
 - Kullanıcı adı kimlik doğrulama/AzureMfa/AuthNOptCh, AuthZ/AzureMfa/AuthZAdminCh ve AuthZ/AzureMfa/AuthZOptCh olay günlüklerini oluşumları işletimsel ve dışa aktarma sağlanan bilgilere yinelenen olarak kabul edilir.
 
 ## <a name="delete-data-from-nps-extension"></a>NPS uzantısını verileri silme
 
-Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) tüm MFA bulut hizmeti bu kullanıcı için toplanan bilgiler silmek için Kapat hesabı için bir istek yapma.
+Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) tüm MFA bulut hizmeti bu kullanıcı için toplanan bilgiler silmek için Kapat hesabı için bir istek yapma.
 
 - Tamamen kaldırmak veri 30 güne kadar sürebilir.
 
 ## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure MFA AD FS bağdaştırıcısı verileri toplayın
 
-Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) dışa aktarma için bir istek yapma. 
+Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) dışa aktarma için bir istek yapma. 
 
 - MFA bilgileri saat veya tamamlamak için gün sürebilir verme içinde bulunur.
 - AD FS izleme/Debug olay günlüklerindeki (etkinse) kullanıcıadı oluşumları işletimsel ve dışa aktarma sağlanan bilgilere yinelenen olarak kabul edilir.
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure MFA AD FS bağdaştırıcısı verilerini sil
 
-Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) tüm MFA bulut hizmeti bu kullanıcı için toplanan bilgiler silmek için Kapat hesabı için bir istek yapma.
+Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) tüm MFA bulut hizmeti bu kullanıcı için toplanan bilgiler silmek için Kapat hesabı için bir istek yapma.
 
 - Tamamen kaldırmak veri 30 güne kadar sürebilir.
 
 ## <a name="gather-data-for-azure-mfa"></a>Azure MFA için veri toplama
 
-Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) dışa aktarma için bir istek yapma.
+Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) dışa aktarma için bir istek yapma.
 
 - MFA bilgileri saat veya tamamlamak için gün sürebilir verme içinde bulunur.
 
 ## <a name="delete-data-for-azure-mfa"></a>Azure MFA için verilerini sil
 
-Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.) tüm MFA bulut hizmeti bu kullanıcı için toplanan bilgiler silmek için Kapat hesabı için bir istek yapma.
+Kullanım [Microsoft gizlilik portalı](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview) tüm MFA bulut hizmeti bu kullanıcı için toplanan bilgiler silmek için Kapat hesabı için bir istek yapma.
 
 - Tamamen kaldırmak veri 30 güne kadar sürebilir.
 

@@ -9,46 +9,47 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 06/13/2018
 ms.author: juliako
-ms.openlocfilehash: 21fc80d7cb274197ae75d2fd5524e76e1e6288d9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 75bfb0d5d29f0b8e038e68af08130564b72a05bf
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788434"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266762"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Kotalar ve Azure Media Services v3 sınırlamaları
 
-Bu konu, kotalar ve Azure Media Services v3 sınırlamalarını açıklar.
+Bu makalede, kotalar ve Azure Media Services v3 sınırlamalar açıklanır.
 
 | Kaynak | Varsayılan Sınır | 
 | --- | --- | 
 | Azure Media Services hesabı başına varlıklar | 1.000.000|
-| İş başına JobInputs | 100 |
-| İş başına JobOutputs | 30 (sabit) |
+| İş başına JobInputs | 50 |
+| İş başına JobOutputs | 20 (sabit) |
 | Dosya boyutu| Bazı senaryolarda, Media Services işlemek için desteklenen en büyük dosya boyutu üzerinde bir sınırı yoktur. <sup>(1)</sup> |
-| Media Services hesabı başına iş | 50,000<sup>(2)</sup> |
+| Media Services hesabı başına iş | 500.000 <sup>(2)</sup>|
+| Dönüşümler listeleme|Sayfa başına 1000 dönüşümler ile yanıt sayfalara bölme|
+| İşlerini listeleme|Sayfa başına 500 işleriyle yanıt sayfalara bölme|
 | Media Services hesabı başına LiveEvents |5|
 | Tek bir abonelik Media Services hesapları | 25 (sabit) |
 | StreamingPolicies | 1.000.000<sup>(3)</sup> |
 | Çalışır durumda LiveEvent başına LiveOutputs |3|
 | Durdurulmuş durumda LiveEvent başına LiveOutputs |50|
-| Depolama hesapları | 1.000<sup>(4)</sup> (sabit) |
+| JobInput başına dosya sayısı|10|
+| Depolama hesapları | 100<sup>(4)</sup> (sabit) |
 | Media Services hesabı başına çalışır durumda akış uç noktaları|2|
-| Media Services hesabı başına dönüşümler | 20 |
+| Media Services hesabı başına dönüşümler | 100 |
+| Bir dönüşüm TransformOutputs| 20|
 | Bir seferde bir varlıkla ilişkilendirilen benzersiz StreamingLocators | 20<sup>(5)</sup> |
-  
-<sup>1</sup>tek bir blob şu anda 5 TB Azure Blob Depolama için desteklenen en büyük boyutu. Ancak, Azure Media Services hizmeti tarafından kullanılan VM boyutları göre ek sınırları uygulayın. Kaynak dosyanızı 260 GB'den büyükse, işinizi büyük olasılıkla başarısız olur. 260 GB sınırından daha büyük olan 4 K içerik varsa, adresinden bize başvurun amshelp@microsoft.com senaryonuz desteklemek olası Azaltıcı Etkenler için.
+
+<sup>1</sup> tek bir blob şu anda 5 TB Azure Blob Depolama için desteklenen en büyük boyutu. Ancak, Azure Media Services hizmeti tarafından kullanılan VM boyutları göre ek sınırları uygulayın. Kaynak dosyanızı 260 GB'den büyükse, işinizi büyük olasılıkla başarısız olur. 260 GB sınırından daha büyük olan 4 K içerik varsa, adresinden bize başvurun amshelp@microsoft.com senaryonuz desteklemek olası Azaltıcı Etkenler için.
 
 <sup>2</sup> sıraya alınan, tamamlandı, etkin ve iptal edilen işler bu sayı içerir. Silinen işleri içermez. 
 
 Toplam kayıt sayısı en yüksek kota altında olsa bile 90 günden daha eski hesabınızda herhangi bir işi kaydının otomatik olarak silinir. 
 
-<sup>3</sup> 1.000.000 StreamingPolicy girişlerinin farklı Media Services ilkeleri (örneğin, StreamingLocator ilke veya ContentKeyAuthorizationPolicy) için bir sınır yoktur. 
-
->[!NOTE]
-> Kullandığınız günler / erişim izinleri / vb. her zaman aynıysa, aynı ilke kimliğini kullanmanız gerekir. 
+<sup>3</sup> özel kullanırken [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), medya hizmeti hesabınızı gibi ilkelerin sınırlı sayıda tasarım ve aynı şifreleme seçenekleri ve protokolleri olduğunda bunları, StreamingLocators için aşağıdaki yeniden kullanmanız gerekir gerekli. Her StreamingLocator için yeni bir StreamingPolicy oluşturmamanız gerekir.
 
 <sup>4</sup> depolama hesapları aynı Azure aboneliğinden olması gerekir.
 
@@ -56,7 +57,7 @@ Toplam kayıt sayısı en yüksek kota altında olsa bile 90 günden daha eski h
 
 ## <a name="support-ticket"></a>Destek bileti
 
-Açarak çıkarılmasına kotaları isteyebilir sabitlenmemiş kaynaklar için bir [destek bileti](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Lütfen istenen kota değişikliklerinden, kullanım örneği senaryoları ve gerekli bölgeleri isteğindeki ayrıntılı bilgiler içerir. <br/>Daha yüksek sınırlar elde etmek için başka Azure Media Services hesapları **oluşturmayın**.
+Açarak çıkarılmasına kotaları isteyebilir sabitlenmemiş kaynaklar için bir [destek bileti](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). İstenen kota değişikliklerinden, kullanım örneği senaryoları ve gerekli bölgeleri isteğindeki ayrıntılı bilgiler içerir. <br/>Daha yüksek sınırlar elde etmek için başka Azure Media Services hesapları **oluşturmayın**.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

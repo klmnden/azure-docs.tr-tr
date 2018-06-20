@@ -3,17 +3,18 @@ title: Bilişsel arama işlem hattı (Azure Search) içinde bir skillset oluştu
 description: Doğal dil işleme, veri çıkarma tanımlayın veya Azure Search'te zenginleştirmek ve verileriniz için yapılandırılmış bilgi ayıklamak için görüntü analiz adımları kullanın.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640935"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268237"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>İyileştirmesini ardışık düzeninde bir skillset oluşturma
 
@@ -106,11 +107,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +211,11 @@ Bazı durumlarda, bir dizinin her öğe ayrı olarak başvurmak için çağırı
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +229,9 @@ Bazı durumlarda, bir dizinin her öğe ayrı olarak başvurmak için çağırı
 
 Bu tanım iyileştirmesini işleminin bir parçası bir web API'si çağıran özel bir yetenektir. Adlandırılmış varlık tanıma tarafından tanımlanan her kuruluş için bir web API açıklaması söz konusu kuruluşun bulmak için bu yetenek çağırır. Ne zaman orchestration çağrısı web API ve alınan bilgi akışını nasıl için dahili olarak iyileştirmesini altyapısı tarafından işlenir. Ancak, bu özel API çağırmak için gerekli başlatma (örneğin, URI, httpHeaders ve beklenen girişleri) JSON sağlanmalıdır. İyileştirmesini ardışık düzeni için özel web API'si oluşturma yönergeleri için bkz [özel bir arabirim tanımlamak nasıl](cognitive-search-custom-skill-interface.md).
 
-"İçerik" alanı ayarlamak için bildirim ```"/document/content/organizations/*"``` iyileştirmesini adım anlamı yıldız işaretiyle adlı *her* altında kuruluş ```"/document/content/organizations"```. 
+"İçerik" alanı ayarlamak için bildirim ```"/document/organizations/*"``` iyileştirmesini adım anlamı yıldız işaretiyle adlı *her* altında kuruluş ```"/document/organizations"```. 
 
-Çıkış, bu durumda şirket açıklaması oluşturulur tanımlanan her kuruluş için. Bir aşağı akış adımında (örneğin, anahtar tümcecik ayıklama) açıklamasında söz konusu olduğunda yol kullanacaksınız ```"/document/content/organizations/*/description"``` Bunu yapmak için. 
+Çıkış, bu durumda şirket açıklaması oluşturulur tanımlanan her kuruluş için. Bir aşağı akış adımında (örneğin, anahtar tümcecik ayıklama) açıklamasında söz konusu olduğunda yol kullanacaksınız ```"/document/organizations/*/description"``` Bunu yapmak için. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Enrichments dışı yapılandırılmamış bilgilerinin yapısı oluşturun
 

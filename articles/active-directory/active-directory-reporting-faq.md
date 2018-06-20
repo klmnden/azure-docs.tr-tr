@@ -3,24 +3,24 @@ title: Azure Active Directory Raporlama ile ilgili SSS | Microsoft Docs
 description: Azure Active Directory Raporlama ile ilgili SSS.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588599"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232554"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>SSS raporlama Azure Active Directory
 
@@ -72,7 +72,7 @@ Bu makalede raporlama Azure Active Directory (Azure AD) hakkında sık sorulan s
 
 **S: kaç kayıt Azure portalından karşıdan yükleyebilir miyim?**
 
-**Y:** en fazla 120 K kayıtları Azure Portalı'ndan yükleyebilirsiniz. Kayıtları göre sıralanır *en son* ve varsayılan olarak, en son 120 K kayıtları alın. 
+**Y:** en fazla 5000 kayıtları Azure Portalı'ndan yükleyebilirsiniz. Kayıtları göre sıralanır *en son* ve varsayılan olarak, en son 5000 kayıtları alın. 5000'den büyük kayıt boyutları için filtre koşulları seçin ve ardından *betik* Azure portalındaki düğmesi. Bu, bir CSV dosyası, filtre koşulları eşleşen tüm kayıtların üretmek için çalıştırabilirsiniz bir PowerShell betiğini indirir. PowerShell betiğini çalıştırmak gereken *Yönetici modu*. Daha fazla bilgi için bkz: [karşıdan oturum açma etkinliklerini](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
 
 ---
 
@@ -84,7 +84,7 @@ Bu makalede raporlama Azure Active Directory (Azure AD) hakkında sık sorulan s
 
 **S: premium lisansı nasıl sağlarım?**
 
-**Y:** bkz [Azure Active Directory Premium ile çalışmaya başlama](active-directory-get-started-premium.md) bu yanıtını için.
+**Y:** bkz [Azure Active Directory Premium ile çalışmaya başlama](fundamentals/active-directory-get-started-premium.md) bu yanıtını için.
 
 ---
 

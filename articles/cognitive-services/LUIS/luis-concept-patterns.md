@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 7ccc8353c91c354c745d52f9fc9663131f2b1c4e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f45a9dfaf2863b81083fbfb647f420d9a4baed5a
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35356445"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264672"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenler tahmin doğruluğunu artırmak
 Desenler birkaç utterances çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır. Utterance için bir desen sağlayarak HALUK yüksek güvenilirlik tahmin sahip olabilir. 
@@ -90,7 +90,7 @@ Desen bir Pattern.any içeriyorsa ve desen sözdizimi için olasılığı verir 
 
 Desen '[Bul] e-posta {konuda} [kişiden {}]'. Aşağıdaki utterances içinde **konu** ve **kişi** doğru ve yanlış varlık ayıklanır:
 
-|utterance|Varlık|Doğru ayıklama|
+|Utterance|Varlık|Doğru ayıklama|
 |--|--|:--:|
 |Chris köpekler hakkında e-posta|Konu köpekler =<br>kişi Chris =|✔|
 |ADAM La Mancha gelen e-posta|Konu adam =<br>kişi La Mancha =|X|
@@ -119,4 +119,4 @@ Bilgi [en iyi uygulamalar](luis-concept-best-practices.md).
 > [!div class="nextstepaction"]
 > [Bu öğreticide desenlerini uygulama öğrenin](luis-tutorial-pattern.md)
 
-[LUIS]: luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

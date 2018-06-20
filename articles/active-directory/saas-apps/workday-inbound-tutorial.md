@@ -7,18 +7,19 @@ documentationcenter: na
 manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 8e1fb97d23c294d02341ac89120bbafefa4b0f77
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35970288"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213150"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -288,7 +289,7 @@ Kullanıcı bir Active Directory ormanı hazırlama yapılandırmadan önce aşa
 
    * Tıklatın **Bağlantıyı Sına** düğmesi. Bağlantı testi başarılı olursa, tıklatın **kaydetmek** üstündeki düğmesi. Başarısız olursa, Workday kimlik iş günü içinde geçerli olduğunu denetleyin. 
 
-![Azure portalı](./media/workday-inbound-tutorial/WD_1.PNG)
+![Azure portalına](./media/workday-inbound-tutorial/WD_1.PNG)
 
 ### <a name="part-2-configure-attribute-mappings"></a>2. Kısım: öznitelik eşlemelerini yapılandırın 
 
@@ -345,7 +346,7 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 
 6. Eşlemelerinizin kaydetmek için tıklatın **kaydetmek** özniteliği eşleme bölümüne üstünde.
 
-![Azure portalı](./media/workday-inbound-tutorial/WD_2.PNG)
+![Azure portalına](./media/workday-inbound-tutorial/WD_2.PNG)
 
 **Aşağıda bazı örnek, bazı ortak ifadelerle Workday ve Active Directory arasında öznitelik eşlemelerini verilmiştir**
 
@@ -491,7 +492,7 @@ Bölümleri 1-3 tamamladıktan sonra Azure portalında sağlama hizmeti başlata
 
 6. Bir tamamlandı, onu bir denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
 
-![Azure portalı](./media/workday-inbound-tutorial/WD_3.PNG)
+![Azure portalına](./media/workday-inbound-tutorial/WD_3.PNG)
 
 
 ## <a name="configuring-user-provisioning-to-azure-active-directory"></a>Azure Active Directory'ye kullanıcı sağlamayı yapılandırma

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0094362ee083511b05027f22b37ed62d56d68d41
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192672"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217145"
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Log Analytics uyarısından Azure Otomasyonu runbook’u çağırma
 
@@ -33,7 +33,7 @@ Uyarı yapılandırmasında runbook'u çağırmak için iki seçenek vardır:
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>Web kancası kullanarak bir runbook çağırma
 
-Web kancası kullanarak tek bir HTTP isteği ile Azure Otomasyonu’nda belirli bir runbook başlatabilirsiniz. Web kancası kullanarak bir uyarı eylemi olarak runbook'u çağırmak üzere [Log Analytics uyarısını](../log-analytics/log-analytics-alerts.md#alert-rules) yapılandırmadan önce, bu yöntem kullanılarak çağrılacak runbook için bir [web kancası oluşturmanız](automation-webhooks.md#creating-a-webhook) gerekir. Uyarı kuralını yapılandırırken başvurabilmeniz için web kancası URL'sini kaydetmeyi unutmayın.   
+Web kancası kullanarak tek bir HTTP isteği ile Azure Otomasyonu’nda belirli bir runbook başlatabilirsiniz. Yapılandırmadan önce [günlük uyarılar için Web kancası eylem](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md) bir uyarı eylem olarak bir Web kancası kullanarak runbook'u çağırmak için yapmanız [bir Web kancası oluşturma](automation-webhooks.md#creating-a-webhook) bu yöntemle adlı runbook için. Uyarı kuralını yapılandırırken başvurabilmeniz için web kancası URL'sini kaydetmeyi unutmayın.   
 
 ## <a name="calling-a-runbook-directly"></a>Doğrudan bir runbook çağırma
 
@@ -99,6 +99,6 @@ Alternatif olarak, günlük analizi çalışma alanına bağlı Automation hesab
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Log Analytics’teki uyarılar ve bir uyarı oluşturma hakkında daha fazla bilgi için bkz. [Log Analytics’teki Uyarılar](../log-analytics/log-analytics-alerts.md).
+* Bir Azure günlük arama özelliğini kullanarak uyarı oluşturma hakkında daha fazla bilgi için bkz: [uyarıları Azure'da oturum](../monitoring-and-diagnostics/monitor-alerts-unified-log.md).
 
 * Web kancası kullanarak runbook’ları tetikleme hakkında bilgi almak için bkz. [Azure Otomasyonu web kancaları](automation-webhooks.md).

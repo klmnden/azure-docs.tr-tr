@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: ad9eaa966aafc4a9fc526d44d57c68cdaee3a5e0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356138"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265261"
 ---
 # <a name="data-extraction"></a>Veri ayıklama
 HALUK, bir kullanıcının doğal dil utterances bilgi almak için olanak sağlar. Bilgi, programı, uygulama veya chatbot tarafından eyleme geçmek için kullanılabilmesi için bir biçimde ayıklanır.
@@ -711,4 +711,4 @@ HALUK endpoint farklı varlıkları aynı verileri bulabilir:
 
 Bkz: [varlıkları ekleyin](luis-how-to-add-entities.md) HALUK uygulamanıza varlıklar ekleme hakkında daha fazla bilgi için.
 
-[LUIS]:luis-reference-regions.md
+[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 420f268090dbcfcc4f2fa7383b8b8892952030ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355762"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265396"
 ---
 # <a name="glossary"></a>Sözlük
 
@@ -179,7 +179,7 @@ Abonelik anahtarı HALUK hizmetle ilişkilendirilmiş anahtarıdır [Azure'da ol
 
 ## <a name="test"></a>test etme
 
-[Sınama](train-test.md#test-your-app) HALUK uygulama sonuçları bir utterance için HALUK geçirme ve JSON görüntüleme anlamına gelir.
+[Sınama](interactive-test.md#test-your-app) HALUK uygulama sonuçları bir utterance için HALUK geçirme ve JSON görüntüleme anlamına gelir.
 
 ## <a name="timezoneoffset"></a>Saat dilimi uzaklığı
 
@@ -210,4 +210,4 @@ Bir utterance "Seattle sonraki Salı defteri 2 bilet" gibi bir doğal dil terimd
 
 Bir HALUK [sürüm](luis-how-to-manage-versions.md) HALUK uygulama kimliği ve yayımlanan uç ile ilişkili bir özel veri model. Her HALUK uygulamanın en az bir sürüme sahip.
 
-[batch-testing]: train-test.md#batch-testing
+[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/18/2018
 ms.author: msangapu
-ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294020"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222986"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure uygulama hizmeti Linux SSS
 
 Uygulama hizmeti Linux'ta sürümle birlikte, özellik ekleme ve bizim platformu geliştirmeler yapıyoruz çalışıyoruz. Bu makale, müşterilerimizin bize son isteyen olduğunu soruların yanıtlarını sağlar.
 
-Varsa, makaleyi yorum sorularınız ve biz bunu mümkün olan en kısa sürede yanıt.
+Bir sorunuz varsa, bu makalede açıklama.
 
 ## <a name="built-in-images"></a>Yerleşik görüntüleri
 
@@ -54,13 +54,13 @@ Evet, bunu kaynak denetimi (SCM) yönetim sitesi üzerinden yapabilirsiniz.
 
 **Bir Linux uygulama hizmeti planı bir SDK veya Azure Resource Manager şablonu aracılığıyla nasıl oluşturabilir miyim?**
 
-Ayarlamak gereken **ayrılmış** app Service'e alanını *doğru*.
+Ayarlamanız gerekir **ayrılmış** app Service'e alanını *doğru*.
 
 ## <a name="continuous-integration-and-deployment"></a>Sürekli tümleştirme ve dağıtım
 
 **Docker hub'a görüntüde güncelleştirilmiş sonra web Uygulamam eski Docker kapsayıcısı görüntüyü devam eder. Sürekli tümleştirme ve özel kapsayıcılar dağıtımını destekliyor musunuz?**
 
-Azure kapsayıcı kayıt defteri veya DockerHub denetimi tarafından aşağıdaki makaleyi görüntülerini için sürekli tümleştirme/dağıtımı ayarlamak üzere [kapsayıcıları için Web uygulaması ile sürekli dağıtımın](./app-service-linux-ci-cd.md). Özel kayıt defterleri için kapsayıcı durdurma ve ardından web uygulamanızı başlatma yenileyebilirsiniz. Değiştirme veya, kapsayıcı yenilemeye zorlamak için sahte uygulama ayarı ekleyin.
+Sürekli Tümleştirme/dağıtım Azure kapsayıcı kayıt defteri veya DockerHub, aşağıdaki tarafından belirlenen için Evet'i, [kapsayıcıları için Web uygulaması ile sürekli dağıtımın](./app-service-linux-ci-cd.md). Özel kayıt defterleri için kapsayıcı durdurma ve ardından web uygulamanızı başlatma yenileyebilirsiniz. Değiştirme veya, kapsayıcı yenilemeye zorlamak için sahte uygulama ayarı ekleyin.
 
 **Hazırlama ortamlarını destekliyor musunuz?**
 
@@ -70,15 +70,15 @@ Evet.
 
 Evet, denilen bir uygulama ayarlamanız gerekir `WEBSITE_WEBDEPLOY_USE_SCM` için *false*.
 
-**Linux web uygulaması kullanılırken uygulamamın Git dağıtımı başarısız oluyor. Nasıl yapabilirim geçici çözüm bu sorunu?**
+**Linux web uygulaması kullanılırken uygulamamın Git dağıtımı başarısız oluyor. Sorunun geçici nasıl çalışabilir mi?**
 
-Linux web uygulamanızı Git dağıtımı başarısız olursa, uygulama kodunuzun dağıtmak için aşağıdaki diğer seçenekleri seçebilirsiniz:
+Linux web uygulamanızı Git dağıtımı başarısız olursa, uygulama kodunuzun dağıtmak için aşağıdaki seçeneklerden birini seçin:
 
-- Kesintisiz teslim (Önizleme) özelliğini kullanın: bir Team Services Git deposuna ya da Azure kesintisiz teslim kullanmak için GitHub deposuna uygulamanızın kaynak kodunu depolayabilirsiniz. Daha fazla ayrıntı için bkz: [Linux web uygulaması için sürekli teslim yapılandırma](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Kesintisiz teslim (Önizleme) özelliğini kullanın: bir Team Services Git deposuna ya da Azure kesintisiz teslim kullanmak için GitHub deposuna uygulamanızın kaynak kodunu depolayabilirsiniz. Daha fazla bilgi için bkz: [Linux web uygulaması için sürekli teslim yapılandırma](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
-- Kullanmak [ZIP dağıtmak API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API kullanmak için [web uygulamanızı içine SSH](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasörüne gidin. Aşağıdakileri çalıştırın:
+- Kullanmak [ZIP dağıtmak API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Bu API kullanmak için [web uygulamanızı içine SSH](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) ve kodunuzu dağıtmak istediğiniz klasörüne gidin. Aşağıdaki kodu çalıştırın:
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -86,10 +86,11 @@ Linux web uygulamanızı Git dağıtımı başarısız olursa, uygulama kodunuzu
 
 ## <a name="language-support"></a>Dil desteği
 
-**Websockets Node.js uygulamamda, herhangi bir özel ayarlarını veya yapılandırmaları ayarlamak için kullanmak istediğiniz?**
+**Web yuvalarını Node.js Uygulamam, tüm özel ayarlarını veya yapılandırmaları ayarlamak için kullanmak istediğiniz?**
 
-Evet, devre dışı `perMessageDeflate` , sunucu tarafı Node.js kodunuzda. Örneğin, Socket.IO kullanıyorsanız aşağıdakileri yapın:
-```
+Evet, devre dışı `perMessageDeflate` , sunucu tarafı Node.js kodunuzda. Örneğin, Socket.IO kullanıyorsanız, aşağıdaki kodu kullanın:
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -101,16 +102,16 @@ Evet.
 
 **PHP uygulamaları için bir bağımlılık Yöneticisi olarak Oluşturucu destekliyor musunuz?**
 
-Evet. Git dağıtımı sırasında Kudu (sayesinde dosyasının varlığı, yönetimin bir composer.lock) PHP uygulaması dağıtıyorsanız, Kudu sonra Oluşturucu yükleme sizin için tetikleyecek algılar ve.
+Evet, Git dağıtımı sırasında Kudu (sayesinde dosyasının varlığı, yönetimin bir composer.lock) PHP uygulaması dağıtıyorsanız ve Kudu sonra Oluşturucu yükleme tetikleyecek algılaması gerekir.
 
 ## <a name="custom-containers"></a>Özel kapsayıcılar
 
 **Kendi özel kapsayıcı kullanıyorum. Bir SMB paylaşımına bağlamak için platform istediğiniz `/home/` dizin.**
 
-Bunu ayarlayarak yapabilirsiniz `WEBSITES_ENABLE_APP_SERVICE_STORAGE` uygulama ayarının *doğru* veya uygulama kaldırarak tamamen ayarlama. Platform depolama bir değişiklik olduğunda Bunun yapılması kapsayıcı yeniden neden olacak göz önünde bulundurun. 
+Bunu ayarlayarak yapabilirsiniz `WEBSITES_ENABLE_APP_SERVICE_STORAGE` uygulama ayarının *doğru*. Platform depolama bir değişiklik olduğunda bu kapsayıcı yeniden oluşturacağını aklınızda bulundurun.
 
 >[!NOTE]
->Varsa `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ayar *false*, `/home/` dizin paylaşılmayan ölçek örneklerinde ve orada yazılan dosyaları kalıcı hale getirilemedi yeniden başlatmaları arasındaki.
+>Varsa `WEBSITES_ENABLE_APP_SERVICE_STORAGE` ayarı belirtilmemiş veya kümesine *false*, `/home/` dizin paylaşılmayan ölçek örneklerinde ve orada yazılan dosyaları kalıcı hale getirilemedi yeniden başlatmaları arasındaki.
 
 **My özel kapsayıcı Başlat uzun süren ve başlatma tamamlanmadan önce platform kapsayıcıyı yeniden başlatır.**
 
@@ -162,6 +163,6 @@ Bir fikir gönderme [Web Apps geri bildirim Forumunda](https://aka.ms/webapps-us
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Linux üzerinde Azure App Service nedir?](app-service-linux-intro.md)
-* [Azure App Service’te hazırlık ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Web uygulaması ile sürekli dağıtımın kapsayıcıları için](./app-service-linux-ci-cd.md)
+- [Linux üzerinde Azure App Service nedir?](app-service-linux-intro.md)
+- [Azure App Service’te hazırlık ortamları ayarlama](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Web uygulaması ile sürekli dağıtımın kapsayıcıları için](./app-service-linux-ci-cd.md)
