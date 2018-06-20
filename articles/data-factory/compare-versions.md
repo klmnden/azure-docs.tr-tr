@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7d7fcaded1f088961fb139b1fba6b1944b383435
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616520"
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1 ile V2’yi karşılaştırma
 Bu makale, Azure Data Factory’nin V2 sürümünü V1 sürümüyle karşılaştırır. V1 hakkında giriş bilgileri için bkz. [Azure Data Factory'ye giriş](v1/data-factory-introduction.md). V2 hakkında giriş bilgileri için bkz. [Data Factory'ye giriş (V2 - önizleme)](introduction.md).
@@ -139,7 +140,7 @@ V2 için güncelleştirilmiş olan SDK'lar V1 istemcileriyle uyumlu değildir.
 
 ## <a name="roles-and-permissions"></a>Roller ve izinler
 
-Veri Fabrikası sürüm 1 Katkıda Bulunan rolü, Veri Fabrikası v2 kaynakları oluşturmak ve yönetmek için kullanılabilir.
+Veri Fabrikası sürüm 1 Katkıda Bulunan rolü, Veri Fabrikası v2 kaynakları oluşturmak ve yönetmek için kullanılabilir. Daha fazla bilgi için bkz. [Data Factory Katılımcısı](../role-based-access-control/built-in-roles.md#data-factory-contributor).
 
 ## <a name="monitoring-experience"></a>İzleme deneyimi
 V2'de, [Azure İzleyici](monitor-using-azure-monitor.md)’yi kullanarak veri fabrikalarını izleyebilirsiniz. Yeni PowerShell cmdlet’leri, [tümleştirme çalışma zamanlarını](monitor-integration-runtime.md) izlemeyi destekler. V1 ve V2, Azure portalından başlatılabilen izleme uygulaması aracılığıyla görsel izleme desteği sunar.

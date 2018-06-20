@@ -1,19 +1,20 @@
 ---
 title: Azure IoT Central nedir? | Microsoft Docs
 description: Azure IoT Central, özel IoT çözümünüzü derleyip yönetmek için kullanabileceğiniz bir uçtan uca SaaS çözümüdür. Bu makalede Azure IoT Central’ın özelliklerine genel bir bakış sunulmaktadır.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 41eb9049b45c6835dd866c988af486a4975c4831
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201175"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628785"
 ---
 <!---
 Purpose of an Overview article: 
@@ -109,7 +110,7 @@ Yöneticiler, [kullanıcı rolleri ve izinleri](howto-administer.md) ile uygulam
 
 Azure IoT Central’a genel bir bakış elde ettiğinize göre, aşağıdaki önerilen adımlara geçebilirsiniz:
 
-- [Azure IoT Central ile Azure IoT Paketi](overview-iot-options.md) arasındaki farklılıkları anlama.
+- [Azure IoT Central ile Azure IoT çözüm hızlandırıcıları](overview-iot-options.md) arasındaki farklılıkları anlayın.
 - [Azure IoT Central Kullanıcı Arabirimi](overview-iot-central-tour.md)’ni tanıma.
 - [Azure IoT Central uygulaması oluşturmaya](quick-deploy-iot-central.md) bağlama.
 - Aşağıdaki işlemlerin nasıl yapılacağını gösteren bir öğretici dizisini takip etme:

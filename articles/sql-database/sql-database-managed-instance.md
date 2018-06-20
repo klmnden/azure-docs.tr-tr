@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648134"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215533"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
@@ -39,7 +39,7 @@ Aşağıdaki tablo anahatları farklar anahtar ve SQL Iaas, Azure SQL Database v
 
 | | Kullanım senaryosu | 
 | --- | --- | 
-|SQL Veritabanı Yönetilen Örneği |Şirket içi veya otomatik olarak oluşturulan, Iaas veya sağlanan, ISV çok sayıda uygulamaları geçirmek isteyen müşteriler için ile mümkün olduğunca düşük geçiş çaba olarak yönetilen örneği önerin. Tam otomatik kullanarak [veri taşıma hizmeti (DMS)](/sql/dma/dma-overview) Azure'da, müşterilerinizin kaldırın ve kendi şirket içi SQL Server örneğine bir yönetilen şirket içi SQL Server ve tam yalıtımını uyumluluğu sunan kaydırma Yerel VNET desteğiyle müşteri örnekleri.  Yazılım Güvencesi ile kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için var olan, lisansları değiştirebilir [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL veritabanı yönetilen bulut yüksek güvenlik ve zengin programlamasına yüzeyini gerektiren SQL Server örnekleri için en iyi geçiş hedef örneğidir. |
+|SQL Veritabanı Yönetilen Örneği |Şirket içi veya otomatik olarak oluşturulan, Iaas veya sağlanan, ISV çok sayıda uygulamaları geçirmek isteyen müşteriler için ile mümkün olduğunca düşük geçiş çaba olarak yönetilen örneği önerin. Tam otomatik kullanarak [veri taşıma hizmeti (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) Azure'da, müşterilerinizin kaldırın ve kendi şirket içi SQL Server örneğine bir yönetilen şirket içi SQL Server ve tam yalıtımını uyumluluğu sunan kaydırma Yerel VNET desteğiyle müşteri örnekleri.  Yazılım Güvencesi ile kullanarak bir SQL veritabanı yönetilen örneği üzerinde indirimli fiyatlar için var olan, lisansları değiştirebilir [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  SQL veritabanı yönetilen bulut yüksek güvenlik ve zengin programlamasına yüzeyini gerektiren SQL Server örnekleri için en iyi geçiş hedef örneğidir. |
 |Azure SQL veritabanı (tek veya havuz) |**Esnek havuzlar**: yeni SaaS çok kiracılı uygulamaları geliştirme veya kasıtlı olarak var olan dönüştürme müşteriler uygulamaları SaaS çok müşterili bir uygulamaya şirket için esnek havuzlar önerin. Bu model avantajları şunlardır: <br><ul><li>Servis abonelikleri (ISV'ler için) satış lisansları satış gelen iş modeli dönüştürme</li></ul><ul><li>Kolay ve madde işareti kanıt Kiracı yalıtımı</li></ul><ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul><ul><li>Olası sabit bir tavan basarsa olmadan ölçeği genişletme</li></ul>**Tek veritabanlarını**: iş yükü kararlı ve öngörülebilir, SaaS çok kiracılı dışında yeni uygulama geliştirme müşterilerin tek veritabanlarını önermek için. Bu model avantajları şunlardır:<ul><li>Basitleştirilmiş bir veritabanı odaklı programlama modeli</li></ul>  <ul><li>Her veritabanı için tahmin edilebilir performans</li></ul>|
 |SQL Iaas sanal makine|İşletim sistemini veya veritabanı sunucusu yanı sıra (aynı VM'de), SQL Server ile yan yana çalışan üçüncü taraf uygulamalar açısından belirli gereksinimlerine sahip müşteriler özelleştirmek ihtiyaç duyan müşteriler SQL VM'ler önermek için / Iaas en iyi çözümü olarak|
 |||
@@ -186,11 +186,10 @@ Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma 
 
 Geçiş yaklaşım SQL yedeklemeleri Azure blob depolamaya yararlanır. Azure depolama blobunu depolanan yedeklerini doğrudan yönetilen örneğine geri yüklenebilir. Varolan bir SQL veritabanının bir yönetilen örneğine geri yüklemek için şunları yapabilirsiniz:
 
-- Kullanım [veri taşıma hizmeti (DMS)](/sql/dma/dma-overview). Bir öğretici için bkz: [yönetilen Azure veritabanı geçiş hizmeti (DMS) kullanarak bir örneğini geçiş](../dms/tutorial-sql-server-to-managed-instance.md) bir veritabanı yedekleme dosyasından geri yüklemek için
+- Kullanım [veri taşıma hizmeti (DMS)](../dms/dms-overview.md). Bir öğretici için bkz: [yönetilen Azure veritabanı geçiş hizmeti (DMS) kullanarak bir örneğini geçiş](../dms/tutorial-sql-server-to-managed-instance.md) bir veritabanı yedekleme dosyasından geri yüklemek için
 - Kullanım [T-SQL Geri Yükle komutunu](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql). 
   - Wide World Importers - standart veritabanı yedek dosyasını geri yükleme gösteren bir öğretici için bkz: [bir yedekleme dosyası yönetilen bir örneğine geri](sql-database-managed-instance-restore-from-backup-tutorial.md). Bu öğretici, Azure blogu depolama ve güvenli bir paylaşılan erişim imzası (SAS) anahtarı kullanarak bir yedekleme dosyası karşıya yüklemeniz gösterir.
   - URL'den geri yükleme hakkında daha fazla bilgi için bkz: [yerel geri URL'den](sql-database-managed-instance-migrate.md#native-restore-from-url).
-- [Bir BACPAC Dosyadan İçeri Aktar](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>Desteklenen SQL özellikleri 
 

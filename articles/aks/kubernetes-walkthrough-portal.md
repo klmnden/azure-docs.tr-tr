@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6fa40d1d170c9a9c5666c7c96980e658d1fe85fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 8b9a9eddc6876451a75f0deae911d73b57198827
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597289"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
@@ -61,7 +62,7 @@ AKS kümesi dağıtılırken Azure Container Insights, AKS kümesinin ve kümede
 
 ![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-3.png)
 
-Kısa bir beklemeden sonra AKS kümesi dağıtılmıştır ve kullanıma hazırdır. AKS kümesi kaynak grubuna göz atın, AKS kaynağını seçin. AKS kümesi panosunu görmeniz gerekir.
+Kısa bir süre bekledikten sonra AKS kümesi dağıtılır ve kullanıma hazır hale gelir. AKS kümesi kaynak grubuna göz atın, AKS kaynağını seçin. AKS kümesi panosunu görmeniz gerekir.
 
 ![Birinci AKS kümesini oluşturma](media/container-service-walkthrough-portal/aks-portal-5.png)
 

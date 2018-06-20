@@ -1,25 +1,24 @@
 ---
 title: Azure IoT Hub’a telemetri gönderme hızlı başlangıç kılavuzu | Microsoft Docs
 description: Bu hızlı başlangıçta bir IoT hub’a sanal telemetri göndermek ve bulutta işlemek üzere IoT hub’dan telemetri okumak amacıyla örnek bir iOS uygulaması çalıştıracaksınız.
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808188"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>Bir cihazdan IoT hub’a telemetri gönderme (Swift)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’a telemetri gönderme (iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub, IoT cihazlarınızdan buluta depolama veya işleme amacıyla yüksek hacimlerde telemetri almanızı sağlayan bir Azure hizmetidir. Bu makalede, bir simülasyon cihazı uygulamasından IoT Hub’a telemetri göndereceksiniz. Daha sonra, bir arka uç uygulamasından verileri görüntüleyebilirsiniz. 
 
@@ -42,32 +41,8 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-Birinci adım, Azure portalını kullanarak aboneliğinizde bir IoT hub’ı oluşturmaktır. IoT hub’ı, çok sayıda cihazdan buluta yüksek hacimlerde telemetri almanızı sağlar. Hub daha sonra o telemetriyi okuyup işlemek üzere bulutta çalışan bir veya daha fazla arka uç hizmetini etkinleştirir.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. [Azure Portal](http://portal.azure.com)’da oturum açın.
-
-1. **Kaynak oluştur** > **Nesnelerin İnterneti** > **Iot Hub** seçeneğini belirleyin. 
-
-   ![IoT Hub’ı yüklemek için seçin](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. IoT hub’ınızı oluşturmak için aşağıdaki tabloda bulunan değerleri kullanın:
-
-    | Ayar | Değer |
-    | ------- | ----- |
-    | Adı | Hub’ınız için benzersiz bir ad |
-    | Fiyatlandırma ve ölçek katmanı | F1 Ücretsiz |
-    | IoT Hub birimleri | 1 |
-    | Cihazdan buluta bölümler | 2 bölüm |
-    | Abonelik | Azure aboneliğiniz. |
-    | Kaynak grubu | Yeni oluşturun. Kaynak grubunuz için bir ad girin. |
-    | Konum | Size en yakın konumu seçin. |
-    | Panoya sabitle | Yes |
-
-1. **Oluştur**’a tıklayın.  
-
-   ![Hub ayarları](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. IoT hub ve kaynak grubu adlarını not alın. Bu değerleri daha sonra bu hızlı başlangıçta kullanacaksınız.
 
 ## <a name="register-a-device"></a>Cihaz kaydetme
 
@@ -168,10 +143,13 @@ Artık gerekli değilse portaldan IoT hub’ı ve kaynak grubunu silin. Bunu yap
 
 Bu makalede bir IoT hub’ı ayarladınız, bir cihaz kaydettiniz, bir iOS cihazından hub’a sanal telemetri gönderdiniz ve hub’dan telemetri okudunuz. 
 
-iOS cihazlarının IoT Hub ile nasıl çalıştığı hakkında bilgi almaya devam etmek için bkz. [iOS ile buluttan cihaza iletiler gönderme (Swift)](iot-hub-ios-swift-c2d.md)
+Bir arka uç uygulamasından simülasyon cihazınızı denetlemeyi öğrenmek için sonraki hızlı başlangıçla devam edin.
+
+> [!div class="nextstepaction"]
+> [Hızlı Başlangıç: IoT hub’a bağlı bir cihazı denetleme](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

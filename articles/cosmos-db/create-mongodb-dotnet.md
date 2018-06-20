@@ -2,23 +2,21 @@
 title: "Azure Cosmos DB: .NET ve MongoDB API'si ile bir web uygulaması derleme | Microsoft Docs"
 description: Azure Cosmos DB MongoDB API'sine bağlanmak ve sorgu göndermek için kullanabileceğiniz bir .NET kodu örneği sunar
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/19/2018
+ms.date: 05/22/2018
 ms.author: sngun
-ms.openlocfilehash: bab2728db7cdb410e995c30d69642c968ef6567d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 2e0de0f15612b21345bd8df6f9808222ec328c3d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798738"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-web-app-with-net-and-the-azure-portal"></a>Azure Cosmos DB: .NET ve Azure portalı ile bir MongoDB API'si web uygulaması derleme
 
@@ -38,6 +36,8 @@ Visual Studio yoksa [Visual Studio 2017 Community Edition](https://www.visualstu
 ## <a name="create-a-database-account"></a>Veritabanı hesabı oluşturma
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-mongodb.md)]
+
+Bu makalede açıklanan örnek, MongoDB.Driver 2.6.1 sürümü ile uyumludur.
 
 ## <a name="clone-the-sample-app"></a>Örnek uygulamayı kopyalama
 
@@ -81,10 +81,7 @@ Aşağıdaki kod parçacıklarının tümü, DAL dizinindeki Dal.cs dosyasından
         MongoIdentity identity = new MongoInternalIdentity(dbName, userName);
         MongoIdentityEvidence evidence = new PasswordEvidence(password);
 
-        settings.Credentials = new List<MongoCredential>()
-        {
-            new MongoCredential("SCRAM-SHA-1", identity, evidence)
-        };
+        settings.Credential = new MongoCredential("SCRAM-SHA-1", identity, evidence);
 
         MongoClient client = new MongoClient(settings);
     ```

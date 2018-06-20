@@ -188,6 +188,8 @@
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: HTTP’ler üzerinden özel etki alanlarıyla bloblara erişmek için Azure CDN'yi kullanma
           href: storage-https-custom-domain-cdn.md
+        - name: Azure Blob depolamasının sabit depolama özelliği (Önizleme)
+          href: storage-blob-immutable-storage.md
     - name: İzleme ve sorun giderme
       items:
         - name: Sorun giderme öğreticisi
@@ -350,11 +352,11 @@
     - name: .NET
       items:
         - name: 'Bloblar, Kuyruklar, Tablolar ve Dosyalar'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Veri taşıma
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
         - name: Resource Manager
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
       items:
         - name: 'Bloblar, Kuyruklar, Tablolar ve Dosyalar'

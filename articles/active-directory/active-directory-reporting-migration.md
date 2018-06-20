@@ -3,34 +3,28 @@ title: Azure portalında Azure Active Directory kullanıcı etkinlik raporları 
 description: Azure portalında Azure Active Directory kullanıcı etkinlik raporları nerede olduğunu öğrenin.
 services: active-directory
 documentationcenter: ''
-author: curtand
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: users-groups-roles
 ms.date: 12/06/2017
-ms.author: curtand
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 985bdc3c00549844958c23a83496a019d7a31944
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f22219a0e2ff342e25a2efdeb319f389250ecfef
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36231330"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure portalında etkinlik raporları Bul
 
 Bu makalede, Azure portalında Azure Active Directory kullanıcı etkinlik raporları bulmak nasıl açıklanmaktadır.
 
-## <a name="whats-new"></a>Yenilikler
-
-Azure Klasik portalında raporları kategorilere ayrılmış:
-* Güvenlik raporları
-* Etkinlik raporları
-* Tümleşik uygulama raporları
-
-### <a name="activity-and-integrated-app-reports"></a>Etkinlik ve tümleşik uygulama raporları
+## <a name="activity-and-integrated-app-reports"></a>Etkinlik ve tümleşik uygulama raporları
 
 Azure portalında raporlama Bağlam tabanlı için varolan raporları tek bir görünümde birleştirilir. Tek bir API temel alınan veri görünümüne sağlar.
 
@@ -87,7 +81,7 @@ Altında tek bir uygulamayı veya tüm uygulamalar için uygulama kullanımı ha
 
 #### <a name="azure-ad-anomalous-activity-reports"></a>Azure AD anormal etkinlik raporları
 
-Azure AD anormal bir etkinliğin güvenlik raporları Azure Klasik portalından birleştirilmiş bir merkezi görünümünü sağlamak için. Bu görünüm, Azure AD algılamak ve raporlama tüm risk güvenlikle ilgili olayları gösterir.
+Azure AD anormal bir etkinliğin güvenlik raporları birleştirilmiş bir merkezi görünümünü sağlamak için. Bu görünüm, Azure AD algılamak ve raporlama tüm risk güvenlikle ilgili olayları gösterir.
 
 Aşağıdaki tablo listeleri Azure AD anormal bir etkinliğin güvenlik raporları ve Azure portalında karşılık gelen risk olayı türleri.
 
@@ -104,8 +98,6 @@ Aşağıdaki Azure AD anormal bir etkinliğin güvenlik raporları olmayan risk 
 
 * Birden çok hatadan sonra gerçekleştirilen oturum açma işlemleri
 * Birden çok coğrafyadan gerçekleştirilen oturum açma işlemleri
-
-Bu raporlara Klasik Azure portalında hala kullanılabilir, ancak bunlar gelecekte bir zamanda kullanım dışı kalacaktır.
 
 Daha fazla bilgi için bkz. [Azure Active Directory risk olayları](active-directory-identity-protection-risk-events.md).  
 
@@ -125,29 +117,10 @@ Güvenlik raporları hakkında daha fazla bilgi için bkz:
 - [Azure Active Directory portalında riskli oturum açma işlemleri raporu](active-directory-reporting-security-risky-sign-ins.md)
 
 
-## <a name="activity-reports-in-the-azure-classic-portal-vs-the-azure-portal"></a>Azure portalı ve Azure Klasik portalında etkinlik raporları
-
-Bu bölümdeki tabloda Klasik Azure portalındaki varolan raporları listeler. Ayrıca, Azure portalında aynı bilgilerin nasıl erişebileceğini anlatır.
-
-Tüm denetim verileri görüntülemek için **Azure Active Directory** dikey altında **etkinlik**gidin **denetim günlüklerini**.
-
-![Denetim günlükleri](./media/active-directory-reporting-migration/61.png "Denetim günlükleri")
-
-| Klasik Azure portalı                 | Azure Portalı'nda bulmak için                                                         |
-| ---                                  | ---                                                                        |
-| Denetim günlükleri                           | İçin **etkinlik kategorisi**seçin **çekirdek dizin**.                       |
-| Parola sıfırlama etkinliği              | İçin **etkinlik kategorisi**seçin **Self Servis parola yönetimi**. |
-| Parola sıfırlama kaydı etkinliği | İçin **etkinlik kategorisi**seçin **Self Servis parola yönetimi**.     |
-| Self Servis Grup etkinliği         | İçin **etkinlik kategorisi**seçin **Self Servis Grup Yönetimi**.        |
-| Hesap etkinlik sağlama        | İçin **etkinlik kategorisi**seçin **kullanıcı hesabı sağlama**.         |
-| Parola rollover durumu             | İçin **etkinlik kategorisi**seçin **otomatik uygulama parolası Rollover**.      |
-| Hesap hazırlama hataları          | İçin **etkinlik kategorisi**seçin **kullanıcı hesabı sağlama**.        |
-| Office365 grup adı değişikliği         | İçin **etkinlik kategorisi**seçin **Self Servis parola yönetimi**. İçin **etkinlik kaynak türü**seçin **grup**. İçin **etkinlik kaynağı**seçin **O365 grupları**.|
-
 Görüntülemek için **uygulama kullanımı** üzerinde rapor **Azure Active Directory** dikey altında **Yönet**seçin **kurumsal uygulamalar**, ve ardından **oturum açma işlemleri**.
 
 
-![Kuruluş uygulamaları oturum açma işlemleri raporu](./media/active-directory-reporting-migration/199.png "Kurumsal uygulamaları oturum açma işlemleri raporu")
+![Kuruluş uygulamaları oturum açma işlemleri raporu](./media/active-directory-reporting-migration/199.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

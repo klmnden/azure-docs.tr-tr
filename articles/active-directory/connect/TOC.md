@@ -18,6 +18,7 @@
 ### [Önceki sürümden yükseltme](active-directory-aadconnect-upgrade-previous-version.md)
 ### [Mevcut bir AD Eşitleme veritabanını kullanarak yükleme](active-directory-aadconnect-existing-database.md)
 ### [SQL yönetici temsilcisi izinlerini kullanarak yükleme](active-directory-aadconnect-sql-delegation.md)
+### [Azure AD Connect veritabanını uzak SQL Server’a taşıma](active-directory-aadconnect-move-db.md)
 
 # Nasıl yapılır
 ## Planlama ve tasarım

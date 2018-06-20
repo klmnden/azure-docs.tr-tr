@@ -290,6 +290,13 @@
           href: logic-apps-enterprise-integration-b2b.md
 - name: Başvuru
   items:
+    - name: Mimari Desenleri
+      href: logic-apps-architectures-simple-enterprise-integration.md
+      items:
+        - name: Basit Kurumsal Tümleştirme
+          href: logic-apps-architectures-simple-enterprise-integration.md
+        - name: Kuyruklar ve Olaylar ile Kurumsal Tümleştirme
+          href: logic-apps-architectures-enterprise-integration-with-queues-events.md
     - name: 'Bağlayıcılar: Tüm ayrıntılar'
       href: 'https://docs.microsoft.com/connectors/'
     - name: Limitler ve yapılandırma

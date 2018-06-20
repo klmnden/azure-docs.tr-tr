@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/12/2018
 ms.author: magoedte
-ms.openlocfilehash: f0501d4404375ee44b96ae4514c15e69b616d38a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3aca03d39221ffe32d7a4198c83c0cfad27f6349
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266946"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Azure Kubernetes hizmet (AKS) kapsayıcı (Önizleme) izlemesi
 
@@ -38,8 +39,8 @@ Desteklenen Önkoşullar anlamaları için başlatmadan önce aşağıdaki ayrı
 
 - AKS küme aşağıdaki sürümleri desteklenir: 1.7.7 için 1.9.6.
 - Kapsayıcılı bir OMS Aracısı Linux sürümü için microsoft / oms:ciprod04202018 ve daha sonra. Bu aracı, kapsayıcı durumu onboarding işlemi sırasında otomatik olarak yüklenir.  
-- Günlük analizi çalışma alanı.  Yeni AKS kümenizi izleme etkinleştirdiğinizde ya da aracılığıyla bir tane oluşturabilirsiniz oluşturulabilir [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
-
+- Log Analytics çalışma alanı.  Yeni AKS kümenizi izleme etkinleştirdiğinizde ya da aracılığıyla bir tane oluşturabilirsiniz oluşturulabilir [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
+- Kapsayıcı izleme etkinleştirmek için günlük analizi katkıda bulunan rolü üyesi.  Günlük analizi çalışma alanı erişimi denetleme hakkında daha fazla bilgi için bkz: [çalışma alanlarını yönet](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Bileşenler 
 
@@ -65,7 +66,27 @@ Yalnızca Azure portalından dağıttığınızda AKS kümenizi izleme de etkinl
 İzleme etkinleştirildikten sonra küme için işletimsel veri görebilmek için önce yaklaşık 15 dakika sürebilir.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Kapsayıcı mevcut yönetilen kümeleri için sistem durumu izlemeyi etkinleştir
-Zaten dağıtılmış AKS kapsayıcının izlemeyi etkinleştirme olamaz elde portaldan, sağlanan Azure Resource Manager şablonu ile PowerShell cmdlet'ini kullanarak yalnızca gerçekleştirilebilir **New-AzureRmResourceGroupDeployment** veya Azure CLI.  İzlemeyi etkinleştirmek için yapılandırmayı bir JSON şablonunu belirtir ve bir JSON şablonu aşağıdakileri belirtmek için yapılandırdığınız parametre değerleri içerir:
+Zaten dağıtılmış AKS kapsayıcının izlemeyi etkinleştirme gerçekleştirilebilir Azure portalından veya PowerShell cmdlet'ini kullanarak sağlanan Azure Resource Manager şablonu ile **New-AzureRmResourceGroupDeployment** veya Azure CLI.  
+
+
+### <a name="enable-from-azure-portal"></a>Azure portalından etkinleştirme
+Azure portalından, AKS kapsayıcısının izlemeyi etkinleştirmek için aşağıdaki adımları gerçekleştirin.
+
+1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde yazın **kapsayıcıları**. Yazmaya başladığınızda liste, girişinize göre filtrelenir. Seçin **Kubernetes Hizmetleri**.<br><br> ![Azure portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+2. Kapsayıcılar, listeden bir kapsayıcı seçin.
+3. Kapsayıcı genel bakış sayfasında seçin **kapsayıcı sistem durumu izleme** ve **kapsayıcı sistem durumu ve günlükleri için hazırlanma** sayfası görüntülenir.
+4. Üzerinde **kapsayıcı sistem durumu ve günlükleri için hazırlanma** sayfasında, varolan bir günlük analizi varsa çalışma kümesi ile aynı abonelikte, aşağı açılan listeden seçin.  Listeden varsayılan çalışma alanını belirler ve konum AKS kapsayıcı abonelikte dağıtılmış. Ya da seçebilirsiniz **Yeni Oluştur** ve yeni bir çalışma alanı aynı abonelikte belirtin.<br><br> ![AKS kapsayıcı sistem durumu izlemeyi etkinleştir](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+
+    Seçerseniz **Yeni Oluştur**, **yeni çalışma alanı oluşturma** bölmesinde görünür. **Bölge** bölgeye varsayılan kapsayıcı kaynağınız oluşturulur ve varsayılan kabul edin veya farklı bir bölge seçin ve çalışma alanı için bir ad belirtin.  Tıklatın **oluşturma** seçiminizi kabul etmek için.<br><br> ![Kapsayıcı monintoring için çalışma tanımlayın](./media/monitoring-container-health/create-new-workspace-01.png)  
+
+    >[!NOTE]
+    >Batı Orta ABD bölgede yeni bir çalışma alanı oluşturamazsınız şu anda bu bölgede önceden var olan bir çalışma alanı yalnızca seçebilirsiniz.  Bu bölge listeden seçebilirsiniz olsa bile, dağıtım başlatılır, ancak daha sonra kısa bir süre içinde başarısız.  
+    >
+ 
+İzleme etkinleştirildikten sonra küme için işletimsel veri görebilmek için önce yaklaşık 15 dakika sürebilir. 
+
+### <a name="enable-using-azure-resource-manager-template"></a>Azure Resource Manager şablonu kullanarak etkinleştirin
+Bu yöntem iki JSON şablonları içerir, tek bir şablonda izlemeyi etkinleştirmek için yapılandırma belirtir ve bir JSON şablonu aşağıdakileri belirtmek için yapılandırdığınız parametre değerleri içerir:
 
 * AKS kapsayıcı kaynak kimliği 
 * Küme kaynak grubu içinde dağıtılan 
@@ -77,7 +98,7 @@ PowerShell ile bir şablon kullanarak kaynakları dağıtma kavramları hakkınd
 
 Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak gerekir.  Gerekli olan Azure CLI Sürüm 2.0.27 çalıştırdığınız veya sonraki bir sürümü. Çalıştırma `az --version` sürümünü belirlemek için. Yükleme veya yükseltme yapmanız gerekiyorsa bkz. [Azure CLI'yı yükleme](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-### <a name="create-and-execute-template"></a>Oluşturma ve şablon yürütme
+#### <a name="create-and-execute-template"></a>Oluşturma ve şablon yürütme
 
 1. Aşağıdaki JSON söz dizimini kopyalayıp dosyanıza yapıştırın:
 
@@ -89,7 +110,7 @@ Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak ge
       "aksResourceId": {
         "type": "string",
         "metadata": {
-           "description": "AKS Cluster resource id"
+           "description": "AKS Cluster Resource ID"
         }
     },
     "aksResourceLocation": {
@@ -101,7 +122,7 @@ Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak ge
       "workspaceId": {
         "type": "string",
         "metadata": {
-          "description": "Azure Monitor Log Analytics resource id"
+          "description": "Azure Monitor Log Analytics Resource ID"
         }
       },
       "workspaceRegion": {
@@ -223,12 +244,12 @@ Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak ge
 İzleme etkinleştirildikten sonra küme için işletimsel veri görebilmek için önce yaklaşık 15 dakika sürebilir.  
 
 ## <a name="verify-agent-deployed-successfully"></a>Aracı başarıyla dağıtıldığından emin olun
-Düzgün şekilde dağıtıldığından OMS Aracısı doğrulamak için aşağıdaki komutu çalıştırın: ` kubectl get ds omsagent -—namespace=kube-system`.
+Düzgün şekilde dağıtıldığından OMS Aracısı doğrulamak için aşağıdaki komutu çalıştırın: ` kubectl get ds omsagent --namespace=kube-system`.
 
 Çıktı aşağıdaki düzgün bir şekilde dağıtın belirten benzemelidir:
 
 ```
-User@aksuser:~$ kubectl get ds omsagent -—namespace=kube-system 
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
@@ -248,7 +269,7 @@ Sayfanın üst kısmından denetleyicileri veya kapsayıcılarını seçin ve bu
 
 Varsayılan olarak, performans verileri son altı saatleri temel alır ancak penceresiyle değiştirebileceğiniz **zaman aralığı** açılan listesinden, sayfanın sağ üst köşesinde bulundu. Şu anda sayfa değil otomatik yenileme, bu nedenle el ile yenilemeniz gerekir. 
 
-Aşağıdaki örnekte, düğüm için fark *aks-agentpool-3402399-0*, değeri **kapsayıcıları** kapsayıcıları dağıtılan toplam sayısı toplamını olduğu 10 ' dur.<br><br> ![Düğüm örnek başına kapsayıcıların dökümü](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Bu, kümedeki düğümler arasında kapsayıcıların doğru dengenin yoksa hızla tanımlamanıza yardımcı olabilir.  
+Aşağıdaki örnekte, düğüm için fark *aks-agentpool-3402399-0*, değeri **kapsayıcıları** kapsayıcıları dağıtılan toplam sayısı toplamını olduğu 10 ' dur.<br><br> ![Düğüm örnek başına kapsayıcıların dökümü](./media/monitoring-container-health/container-performance-and-health-view-07.png)<br><br> Kapsayıcılar, küme düğümleri arasında uygun dengesi yoksa hızla tanımlamanıza yardımcı olabilir.  
 
 Aşağıdaki tabloda düğümleri görüntülediğinizde sunulan bilgiler açıklanmaktadır.
 
@@ -325,8 +346,8 @@ Aşağıdaki tablo, kapsayıcı durumu ve günlük arama sonuçlarında görüne
 | Kubernetes küme düğümleri parçası sayımı | `KubeNodeInventory` | TimeGenerated, bilgisayar, ClusterName, ClusterId, LastTransitionTimeReady, etiketler, durum, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | Kubernetes olayları | `KubeEvents_CL` | TimeGenerated, bilgisayar, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, ileti, SourceSystem | 
 | Kubernetes Küme Hizmetleri | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Kubernetes küme düğümleri parçası için performans ölçümleri | Perf &#124; burada ObjectName "K8SNode" == | cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes | 
-| Kapsayıcıları Kubernetes kümesinin parçası için performans ölçümleri | Perf &#124; burada ObjectName "K8SContainer" == | cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes | 
+| Kubernetes küme düğümleri parçası için performans ölçümleri | Perf &#124; burada ObjectName "K8SNode" == | Bilgisayar, ObjectName, CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, sayaç yolu, SourceSystem | 
+| Kapsayıcıları Kubernetes kümesinin parçası için performans ölçümleri | Perf &#124; burada ObjectName "K8SContainer" == | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, sayaç yolu, SourceSystem | 
 
 ## <a name="search-logs-to-analyze-data"></a>Verileri çözümlemek için arama günlükleri
 Günlük analizi için eğilimleri arayın, performans sorunlarını tanılamanıza yardımcı olabilir, yardımcı olabilecek tahmin correlate verileri veya geçerli küme yapılandırmasını en iyi durumda olup olmadığını belirleyin.  Önceden tanımlanmış günlük aramaları hemen kullanmaya başlamak için ya da istediğiniz gibi bilgileri döndürmek için özelleştirmek için sağlanır. 
@@ -363,7 +384,7 @@ Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak ge
         "aksResourceId": {
            "type": "string",
            "metadata": {
-             "description": "AKS Cluster resource id"
+             "description": "AKS Cluster Resource ID"
            }
        },
       "aksResourceLocation": {
@@ -429,7 +450,7 @@ Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak ge
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        Yapılandırma değişikliği tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonucu içeren aşağıdakine benzer bir ileti görürsünüz:
+        Yapılandırma değişikliği tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonucu içeren aşağıdakine benzer bir ileti döndürdü:
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -443,7 +464,7 @@ Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak ge
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        Yapılandırma değişikliği tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonucu içeren aşağıdakine benzer bir ileti görürsünüz:
+        Yapılandırma değişikliği tamamlanması birkaç dakika sürebilir. Tamamlandığında, sonucu içeren aşağıdakine benzer bir ileti döndürdü:
 
         ```azurecli
         ProvisioningState       : Succeeded

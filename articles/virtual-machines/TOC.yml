@@ -1,0 +1,26 @@
+- name: Sanal Makineler Belgeleri
+  href: index.md
+- name: Azure’da Linux Sanal Makineleri
+  href: linux/overview.md
+- name: Azure’da Windows Sanal Makineleri
+  href: windows/overview.md
+- name: VM Uzantıları Belgeleri
+  href: extensions/overview.md
+- name: İş yükleri
+  items:
+    - name: Oracle
+      href: workloads/oracle/oracle-considerations.md
+    - name: SAP
+      href: workloads/sap/get-started.md
+- name: Klasik dağıtımlar
+  items:
+    - name: Klasik dağıtım kullanan Linux sanal makineleri
+      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+    - name: Klasik dağıtım kullanan Windows sanal makineleri
+      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=compute'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'

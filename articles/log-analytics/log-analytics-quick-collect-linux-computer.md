@@ -15,16 +15,17 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 30bb21ebd6b19f4cc52e364039b9be8a9a7695e5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: af385a7cbf97ff15156cc78c77f8b54e2f79badb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637642"
 ---
 # <a name="collect-data-from-linux-computer-hosted-in-your-environment"></a>Ortamınızda barındırılan Linux bilgisayarından verileri toplama
 [Azure Log Analytics](log-analytics-overview.md), doğrudan fiziksel veya sanal Linux bilgisayarlarınızdan ve ortamınızdaki diğer kaynaklardan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Linux bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Linux VM’leri için [Azure Sanal Makineler hakkında veri toplama](log-analytics-quick-collect-azurevm.md) konusuna bakın.  
 
-Linux aracısını dağıtmak üzere ağı ve sistem gereksinimlerini anlamak için, [Linux işletim sistemi önkoşulları](log-analytics-concept-hybrid.md#prerequisites)’nı gözden geçirin.
+Desteklenen yapılandırmayı anlamak için [desteklenen Linux işletim sistemlerini](log-analytics-concept-hybrid.md#supported-linux-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements) inceleyin.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 
@@ -102,7 +103,7 @@ Log Analytics uzun süreli analiz ve raporlama için belirttiğiniz Linux Syslog
 2. Bir olay günlüğü eklemek için günlüğün adını yazın.  **Syslog** yazıp artı işaretine **+** tıklayın.  
 3. Tabloda, **Bilgiler**, **Bildirim** ve **Hata Ayıklama** önem derecelerinin işaretini kaldırın. 
 4. Yapılandırmayı kaydetmek için sayfanın en üstünde yer alan **Kaydet**’e tıklayın.
-5. Bir Linux bilgisayarda performans sayaçlarını toplamayı etkinleştirmek için **Linux Performans Verileri**’ni seçin. 
+5. Bir Windows bilgisayarda performans sayaçlarını toplamayı etkinleştirmek için **Linux Performans Verileri**’ni seçin. 
 6. Yeni bir Log Analytics çalışma alanı için Linux Performans sayaçlarını ilk kez yapılandırırken, birkaç ortak sayacı hızlı bir şekilde oluşturma seçenekleri sunulur. Her birinin yanında bir onay kutusu görüntülenir.<br><br> ![Varsayılan Windows performans sayaçları seçildi](media/log-analytics-quick-collect-azurevm/linux-perfcounters-default.png)<br> **Seçili performans sayaçlarını ekle**’ye tıklayın.  Eklenir ve on saniye koleksiyon örnek aralığı ile ayarlanır.  
 7. Yapılandırmayı kaydetmek için sayfanın en üstünde yer alan **Kaydet**’e tıklayın.
 

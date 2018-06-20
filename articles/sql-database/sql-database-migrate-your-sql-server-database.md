@@ -7,13 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,migrate
 ms.topic: tutorial
-ms.date: 04/10/2018
+ms.date: 05/22/2018
 ms.author: carlrab
-ms.openlocfilehash: e714667183704670807fd2f62767b75f62978a38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: be22f2b45262b144c87a0e97f1c78e0167b0e24d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648107"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>DMA kullanarak SQL Server veritabanınızı Azure SQL Veritabanı’na geçirme
 
@@ -89,7 +90,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
    > [!IMPORTANT]
    > - Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   > - Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, UK Güney, UK Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - Premium katmanında 1 TB’tan fazla depolama alanı, şu bölgeler dışındaki tüm bölgelerde kullanılabilir: UK Kuzey, Orta Batı ABD, UK Güney 2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, US Gov Güneybatı, US Gov Orta Güney, Almanya Kuzeydoğu, Çin Kuzey, US Gov Doğu. Kullanılabilirliğin genişletilmesi planlanmaktadır. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  

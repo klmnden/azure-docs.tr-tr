@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
+ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 76ed05d55389e2c05b38fe1f2c239f544c6a5d38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595208"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure'da Active Directory Federasyon Hizmetlerini dağıtma
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.

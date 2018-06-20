@@ -1,28 +1,26 @@
 ---
 title: Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 description: Azure ile Nasıl Yapılır? - Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 03/30/2018
-ms.topic: hero-article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: ''
-ms.devlang: na
+services: iot-dps
+manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 14c9bc0dd82575783a5af7293b48f56b36110f9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "34630434"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure’da Cihaz Sağlama Hizmeti İstemci SDK'sı ile farklı kanıtlama mekanizmaları kullanma
 
 Bu makalede, C için Cihaz Sağlama Hizmeti İstemci SDK’sı ile farklı [kanıtlama mekanizmalarının](concepts-security.md#attestation-mechanism) nasıl kullanılacağı gösterilmektedir. Fiziksel bir cihaz veya simülatör kullanabilirsiniz. Sağlama hizmeti, iki tür kanıtlama mekanizması için kimlik doğrulamasını destekler: X **.** 509 ve Güvenilir Platform Modülü (TPM).
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 Geliştirme ortamınızı [Simülasyon cihazı oluşturma ve sağlama](./quick-create-simulated-device.md) kılavuzundaki "Geliştirme ortamınızı hazırlama" başlıklı bölüme göre hazırlayın.
 

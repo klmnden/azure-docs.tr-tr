@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236204"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway SSS
 
@@ -166,13 +167,13 @@ Siteden Siteyi şirket içi ve dışı yapılandırması için Windows Server 20
 
 Endüstri standardı IPsec uygulamalarıyla uyumlu olana kadar diğer yazılım VPN çözümleri bizim ağ geçidimizle çalışmalıdır. Yapılandırma ve destek hakkında yönergeler için yazılım satıcısına başvurun.
 
-## <a name="P2S"></a>Noktadan Siteye - Yerel Azure sertifika doğrulaması
+## <a name="P2S"></a>Yerel Azure sertifika doğrulamasını kullanarak Noktadan Siteye
 
 Bu bölüm Resource Manager dağıtım modeli için geçerlidir.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>Noktadan Siteye - RADIUS kimlik doğrulaması
+## <a name="P2SRADIUS"></a>RADIUS kimlik doğrulamasını kullanarak Noktadan Siteye
 
 Bu bölüm Resource Manager dağıtım modeli için geçerlidir.
 

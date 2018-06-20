@@ -1,14 +1,14 @@
 ---
-title: "Service Fabric kapsayıcıları uygulaması paketleme ve dağıtma | Microsoft Belgeleri"
-description: "Bu öğreticide, Yeoman kullanarak Azure Service Fabric uygulaması tanımı oluşturmayı ve uygulamayı paketlemeyi öğrenirsiniz."
+title: Service Fabric kapsayıcıları uygulaması paketleme ve dağıtma | Microsoft Belgeleri
+description: Bu öğreticide, Yeoman kullanarak Azure Service Fabric uygulaması tanımı oluşturmayı ve uygulamayı paketlemeyi öğrenirsiniz.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, Kapsayıcılar, Mikro Hizmetler, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, Kapsayıcılar, Mikro Hizmetler, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 6e3200676807bbd9a15c5c7b19312a2e0c18d77a
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642803"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>Öğretici: Kapsayıcıları Service Fabric uygulaması olarak paketleme ve dağıtma
 
@@ -45,7 +46,8 @@ Service Fabric, Yeoman şablon oluşturucu kullanarak terminalden uygulama oluş
 1. Makinenize nodejs ve NPM’yi yükleyin. Mac OSX kullanıcılarının Homebrew paket yöneticisi'ni kullanması gerekir
 
     ```bash
-    sudo apt-get install npm && sudo apt install nodejs-legacy
+    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
+    sudo apt-get install -y nodejs 
     ```
 2. NPM’den makinenize Yeoman şablon oluşturucuyu yükleyin 
 
@@ -235,7 +237,7 @@ Kendi kümenizi oluşturma hakkında daha fazla bilgi için bkz. [Azure'da Servi
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Uygulamayı oluşturup kümeye dağıtma
 Uygulamayı, Service Fabric CLI’yi kullanarak Azure kümesine dağıtabilirsiniz. Service Fabric CLI makinenizde yüklü değilse [buradaki](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) yönergeleri uygulayarak yükleyin. 
 
-Azure’daki Service Fabric kümesine bağlanın. Yer tutucu uç noktayı kendi uç noktanız ile değiştirin. Uç nokta, aşağıdaki gibi tam bir URL olmalıdır.
+Azure’daki Service Fabric kümesine bağlanın. Örnek uç noktayı kendi uç noktanız ile değiştirin. Uç nokta, aşağıdaki gibi tam bir URL olmalıdır.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify
@@ -247,7 +249,7 @@ sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19
 ./install.sh
 ```
 
-Bir tarayıcı penceresi açın ve http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer adresindeki Service Fabric Explorer’a gidin. Uygulamalar düğümünü genişletin ve uygulamanızın türü için bir giriş ve örnek için başka bir giriş olduğuna dikkat edin.
+Bir tarayıcı açın ve http://lin4hjim3l4.westus.cloudapp.azure.com:19080/Explorer adresinde Service Fabric Explorer’a gidin. Uygulamalar düğümünü genişletin ve uygulamanızın türü için bir giriş ve örnek için başka bir giriş olduğuna dikkat edin.
 
 ![Service Fabric Explorer][sfx]
 

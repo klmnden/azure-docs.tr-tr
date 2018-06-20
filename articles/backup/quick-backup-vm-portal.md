@@ -1,26 +1,22 @@
 ---
-title: "Azure Hızlı Başlangıcı - Azure portalıyla VM yedekleme | Microsoft Docs"
-description: "Azure portalıyla sanal makinelerinizi nasıl yedekleyeceğinizi öğrenin"
+title: Azure Hızlı Başlangıcı - Azure portalla VM yedekleme
+description: Azure portalıyla sanal makinelerinizi nasıl yedekleyeceğinizi öğrenin
 services: backup
-documentationcenter: virtual-machines
 author: saurabhsensharma
 manager: shivamg
-editor: 
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 60963553e012e6655e7ef9bf90d4ff6958427c9f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 19711fcac4bdcca93abb4dcbb830dd9869360362
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609044"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure'daki bir sanal makineyi yedekleme
 Azure yedekleri Azure portalı üzerinden oluşturulabilir. Bu yöntem, Azure yedeklerini ve tüm ilgili kaynakları oluşturup yapılandırmaya yönelik tarayıcı tabanlı bir kullanıcı arabirimi sağlar. Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede Azure portalıyla bir sanal makinenin nasıl yedekleneceği anlatılmaktadır. 
@@ -29,7 +25,7 @@ Bu hızlı başlangıç belgesi var olan bir Azure VM'de yedeklemeyi etkinleşti
 
 ## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-http://portal.azure.com sayfasından Azure portalda oturum açın.
+http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="select-a-vm-to-back-up"></a>Yedeklenecek sanal makineyi seçme
 Kurtarma Hizmetleri Kasasına basit bir zamanlanmış günlük yedekleme oluşturma. 

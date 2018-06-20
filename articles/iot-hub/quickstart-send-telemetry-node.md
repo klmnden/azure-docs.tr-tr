@@ -1,23 +1,21 @@
 ---
 title: Azure IoT Hub’a telemetri gönderme hızlı başlangıcı (Node.js) | Microsoft Docs
 description: Bu hızlı başlangıçta bir IoT hub’a sanal telemetri göndermek ve bulutta işlemek üzere IoT hub’dan gelen telemetriyi okumak için iki örnek Node.js uygulaması çalıştırırsınız.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: node
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 0be67b936780d68198a00cb99529643d453621e3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 572ecbfee6a3c361a2940d74b560910fd85b344b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635874"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’ına telemetri gönderme ve arka uç uygulaması ile hub’dan telemetriyi okuma (Node.js)
 
@@ -82,7 +80,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
 Simülasyon cihazı uygulaması, IoT hub’ınız üzerindeki cihaza özgü bir uç noktaya bağlanır ve sanal sıcaklık ve nem telemetrisi gönderir.
 
-1. Terminal penceresinde, örnek Node.js projesinin kök klasörüne gidin. Ardından **Quickstarts\simulated-device** klasörüne gidin.
+1. Terminal penceresinde, örnek Node.js projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\simulated-device** klasörüne gidin.
 
 1. **SimulatedDevice.js** dosyasını, istediğiniz bir metin düzenleyicide açın.
 
@@ -105,7 +103,7 @@ Arka uç uygulaması, IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç no
 
 1. Başka bir terminal penceresinde, örnek Node.js projesinin kök klasörüne gidin. Ardından **read-d2c-messages** klasörüne gidin.
 
-1. **Quickstarts\ReadDeviceToCloudMessages.js** dosyasını istediğiniz bir metin düzenleyicide açın.
+1. **iot-hub\Quickstarts\ReadDeviceToCloudMessages.js** dosyasını istediğiniz bir metin düzenleyicide açın.
 
     `connectionString` değişkeninin değerini, önceden not ettiğiniz hizmet bağlantı dizesiyle değiştirin. Ardından **ReadDeviceToCloudMessages.js** dosyasına değişikliklerinizi kaydedin.
 

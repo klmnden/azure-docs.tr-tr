@@ -346,6 +346,14 @@
           href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: Veri eşitleme
           href: sql-database-get-started-sql-data-sync.md
+        - name: SQL Data Sync için şema değişikliklerini çoğaltma
+          href: sql-database-update-sync-schema.md
+        - name: OMS Log Analytics ile SQL Data Sync izleme
+          href: sql-database-sync-monitor-oms.md
+        - name: SQL Data Sync için en iyi deneyimler
+          href: sql-database-best-practices-data-sync.md
+        - name: SQL Data Sync sorunlarını giderme
+          href: sql-database-troubleshoot-data-sync.md
     - name: İzleme ve ayarlama
       items:
         - name: Performansı izleme ve artırma
@@ -374,12 +382,6 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Azure Otomasyonu
           href: sql-database-manage-automation.md
-        - name: OMS Log Analytics ile SQL Data Sync izleme
-          href: sql-database-sync-monitor-oms.md
-        - name: SQL Data Sync için en iyi deneyimler
-          href: sql-database-best-practices-data-sync.md
-        - name: SQL Data Sync sorunlarını giderme
-          href: sql-database-troubleshoot-data-sync.md
     - name: Ölçeği genişletme
       items:
         - name: Parçalı uygulama oluşturma

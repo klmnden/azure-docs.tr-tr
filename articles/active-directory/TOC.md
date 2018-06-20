@@ -184,6 +184,8 @@
 ### [Genel Bakış](manage-apps/what-is-application-management.md)
 ### [Başlarken](manage-apps/plan-an-application-integration.md)
 ### [SaaS uygulama tümleştirmesi öğreticileri](saas-apps/tutorial-list.md)
+
+
 ### [Cloud App Discovery](manage-apps/cloud-app-discovery.md)
 #### [Anlık görüntü raporları oluşturma](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [Sürekli raporlamayı yapılandırma](https://docs.microsoft.com/cloud-app-security/discovery-docker)
@@ -255,27 +257,110 @@
 #### [Kiracı kısıtlamaları](manage-apps/tenant-restrictions.md)
 #### [SCIM kullanıcı sağlama hizmetinden yararlanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [Sorun giderme](active-directory-application-troubleshoot-content-map.md)
-#### [Uygulama Geliştirme](active-directory-application-dev-troubleshoot-content-map.md)
-##### [Yapılandırma ve Kayıt](active-directory-application-dev-config-content-map.md)
-##### [Geliştirme](active-directory-application-dev-development-content-map.md)
-#### [Uygulama Yönetimi](active-directory-application-management-troubleshoot-content-map.md)
-##### [Yapılandırma](active-directory-application-config-content-map.md)
-##### [Oturum açma](active-directory-application-sign-in-content-map.md)
-##### [Sağlama](active-directory-application-provisioning-content-map.md)
 
-###### [Kullanıcının sağlanmasını doğrulama](application-provisioning-when-will-provisioning-finish-specific-user.md) 
-###### [Sağlama uzun sürüyor](application-provisioning-when-will-provisioning-finish.md) 
-###### [Kullanıcı sağlamayı yapılandırma](application-provisioning-config-how-to.md) 
-###### [Sağlama yapılandırma sorunu](application-provisioning-config-problem.md) 
-###### [Yönetici kimlik bilgilerini kaydetme sorunu](application-provisioning-config-problem-storage-limit.md) 
-###### [Hiçbir kullanıcı sağlanmıyor](application-provisioning-config-problem-no-users-provisioned.md) 
-###### [Yanlış kullanıcılar sağlanıyor](application-provisioning-config-problem-wrong-users-provisioned.md) 
+### Sorun giderme
 
-##### [Erişimi yönetme](active-directory-application-access-content-map.md)
-##### [Erişim Paneli](active-directory-application-access-panel-content-map.md)
-##### [Uygulama Proxy’si](active-directory-application-proxy-content-map.md)
-##### [Koşullu erişim](active-directory-application-conditional-access-content-map.md)
+
+
+#### Erişim Paneli
+##### [Uygulama görüntülenmiyor](application-access-panel-unexpected-application-not-appearing.md)
+##### [Beklenmeyen uygulama görüntüleniyor](application-access-panel-unexpected-application-appears.md)
+##### [Oturum açılamıyor](application-access-panel-web-sign-in-problem.md)
+##### [Tarayıcı uzantısı yüklenirken hata oluşuyor](application-access-panel-extension-problem-installing.md)
+##### [Self servis uygulama erişiminin kullanma](application-access-panel-self-service-applications-how-to.md)
+##### [Self servis uygulama erişiminin kullanırken hata oluşuyor](application-access-panel-self-service-applications-problem.md)
+
+#### Uygulama ekleme
+##### [Uygulama türünü seçme](application-config-add-app-problem-how-to-choose-application-type.md)
+##### [Yaygın sorunlar - Galeri uygulamaları](application-config-add-app-problem-problem-adding-gallery-app.md)
+##### [Yaygın sorunlar - Galeri dışındaki uygulamalar](application-config-add-app-problem-problem-adding-non-gallery-app.md)
+
+#### Uygulama Ara Sunucusu
+##### [Uygulama sayfası görüntülenirken sorun oluşuyor](application-proxy-page-appearance-broken-problem.md)
+##### [Uygulamanın yüklenmesi çok uzun sürüyor](application-proxy-page-load-speed-problem.md)
+##### [Uygulama sayfasındaki bağlantılar çalışmıyor](application-proxy-page-links-broken-problem.md)
+##### [Uygulamam için açılacak bağlantı noktaları](application-proxy-connectivity-ports-how-to.md)
+##### [Uygulamam için bağlayıcı grubunda çalışan bağlayıcı yok](application-proxy-connectivity-no-working-connector.md)
+##### [Azure portalda yapılandırma](application-proxy-config-how-to.md)
+##### [Uygulamamda çoklu oturum açmayı yapılandırma](application-proxy-config-sso-how-to.md)
+##### [Yönetici portalında uygulama oluştururken sorun oluşuyor](application-proxy-config-problem.md)
+##### [Kerberos Kısıtlanmış Temsilini Yapılandırma](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [PingAccess ile yapılandırma](application-proxy-back-end-ping-access-how-to.md)
+##### ["Bu Şirket Uygulamasına Erişilemiyor" hatası](application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [Uygulama Ara Sunucusu Aracı Bağlayıcısı’nı yüklerken sorun oluşuyor](application-proxy-connector-installation-problem.md)
+
+
+#### Uygulama kaydı
+##### [Uygulama nesnesi için alan girme](application-dev-registration-config-specific-application-property-how-to.md)
+##### [Belirteç ömrü varsayılanlarını değiştirme](application-dev-registration-config-change-token-lifetime-how-to.md)
+
+#### Kimlik Doğrulaması
+##### [Uç noktaları yapılandırma](application-dev-registration-config-how-to.md)
+
+#### Koşullu Erişim
+##### [Müşteri Cihaz Kaydı önkoşullarına uymadı](active-directory-conditional-access.md)
+##### [Koşullu Erişim ilkeleri yanlış ayarlandığından kiracı engelleniyor](active-directory-conditional-access-device-remediation.md)
+##### [Kapalı Corpnet kuralları nasıl ve ne zaman geçerlik kazanır?](https://aka.ms/calocation)
+##### [Azure AD’de kullanıcının kaydetmesine izin verilen cihaz sayısını artırma](active-directory-azureadjoin-setup.md)
+##### [Exchange Online için Koşullu Erişimi Ayarlama](https://aka.ms/csforexchange)
+##### [Windows 7 cihazları için Koşullu Erişimi ayarlama](active-directory-conditional-access.md#device-based-conditional-access)
+##### [Koşullu erişim ile desteklenen uygulamalar](active-directory-conditional-access-supported-apps.md)
+
+#### API bulma
+##### [API bulma](application-dev-api-find-an-api-how-to.md)
+
+#### Erişimi yönetme
+##### [Uygulamaya kullanıcı ve grup atama](application-access-assignment-how-to-add-assignment.md)
+##### [Kullanıcıların bir uygulamaya erişimini kaldırma](application-access-assignment-how-to-remove-assignment.md)
+##### [Self servis uygulama atamasını yapılandırma](application-access-self-service-how-to.md)
+##### [Beklenmeyen kullanıcı ataması](application-access-unexpected-user-assignment.md)
+##### [Uygulamalar listesinde beklenmeyen uygulama](application-access-unexpected-application.md)
+
+#### Çok kiracılı uygulamalar
+##### [Yeni bir uygulama yapılandırma](application-dev-setup-multi-tenant-app.md)
+##### [Uygulama galerisine ekleme](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+
+#### İzinler
+##### [API için izinleri seçme](application-dev-perms-for-given-api.md)
+##### [Uygulamama izin verme](application-dev-registration-config-grant-permissions-how-to.md)
+##### [Temsilci izinleri ile uygulama izinlerini karşılaştırması](application-dev-delegated-and-app-perms.md)
+##### [Uygulama onayı](application-dev-consent-framework.md)
+
+#### Sağlama
+##### [Gereken süre](application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [Saatler sürüyor - Galeri uygulaması](application-provisioning-when-will-provisioning-finish.md)
+##### [Kullanıcı sağlamayı yapılandırma - galeri uygulaması](application-provisioning-config-how-to.md)
+##### [Kullanıcı sağlamayı yapılandırma sorunu - galeri uygulaması](application-provisioning-config-problem.md)
+##### [Kullanıcı sağlama galeri uygulamasını yapılandırırken yönetici kimlik bilgilerini kaydetme sorunu](application-provisioning-config-problem-storage-limit.md)
+##### [Kullanıcılar sağlanmıyor - galeri uygulaması](application-provisioning-config-problem-no-users-provisioned.md)
+##### [Yanlış kullanıcılar sağlanıyor - galeri uygulaması](application-provisioning-config-problem-wrong-users-provisioned.md)
+
+#### Çoklu oturum açma
+##### [Yöntem seçme](application-config-sso-how-to-choose-sign-on-method.md)
+##### [Yapılandırma](application-dev-registration-config-sso-how-to.md)
+##### [Federasyon yapılandırma - galeri uygulamaları](application-config-sso-how-to-configure-federated-sso-gallery.md)
+##### [Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [Federasyon yapılandırma - galeri dışındaki uygulamalar](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+##### [Federasyon yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar](application-config-sso-problem-configure-federated-sso-non-gallery.md)
+##### [Parola yapılandırma - galeri uygulamaları](application-config-sso-how-to-configure-password-sso-gallery.md)
+##### [Parola yapılandırmayla ilgili yaygın sorunlar - galeri uygulamaları](application-config-sso-problem-configure-password-sso-gallery.md)
+##### [Parola yapılandırma - galeri dışındaki uygulamalar](application-config-sso-how-to-configure-password-sso-non-gallery.md)
+##### [Parola yapılandırmayla ilgili yaygın sorunlar - galeri dışındaki uygulamalar](application-config-sso-problem-configure-password-sso-non-gallery.md)
+
+#### Kullanıcı oturumu açma sorunları
+##### [Beklenmeyen izin alma istemi](application-sign-in-unexpected-user-consent-prompt.md)
+##### [Kullanıcı onayı hatası](application-sign-in-unexpected-user-consent-error.md)
+##### [Özel portaldan oturum açma sorunları](application-sign-in-other-problem-deeplink.md)
+##### [Özel bölmeden oturum açma sorunları](application-sign-in-other-problem-access-panel.md)
+##### [Uygulama oturum açma sayfasında hata](application-sign-in-problem-application-error.md)
+##### [Parolayla çoklu oturum açma sorunu - galeri dışındaki uygulama](application-sign-in-problem-password-sso-non-gallery.md)
+##### [Parolayla çoklu oturum açma sorunu - galeri uygulaması](application-sign-in-problem-password-sso-gallery.md)
+##### [Microsoft uygulamasında oturum açma sorunu](application-sign-in-problem-first-party-microsoft.md)
+##### [Federasyonda çoklu oturum açma sorunu - galeri dışındaki uygulama](application-sign-in-problem-federated-sso-non-gallery.md)
+##### [Federasyonda çoklu oturum açma sorunu - galeri uygulaması](application-sign-in-problem-federated-sso-gallery.md)
+##### [Özel geliştirilmiş uygulama ile ilgili sorun](application-sign-in-problem-custom-dev.md)
+##### [Şirket içi uygulamayla ilgili sorun - Uygulama Ara Sunucusu](application-sign-in-problem-on-premises-application-proxy.md)
+
 ### [Uygulama geliştirme](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [Belge kitaplığı](active-directory-apps-index.md)
 
