@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: f0386307-bb3b-4810-8d4b-d0bfebda04f4
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.openlocfilehash: a6bad0faa6247036b1e0eb6e1aa8ca95239193db
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 6bcd4c654c2dc9812fe62dc07d5fb1170ef3fa38
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35972093"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221504"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Öğretici: Azure Active Directory Tümleştirme SD öğeleri
 
@@ -124,7 +125,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 5. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin: 
 
-    | Öznitelik adı | Öznitelik değeri |
+    | Öznitelik Adı | Öznitelik Değeri |
     | --- | --- |
     | e-posta |User.Mail |
     | FirstName |User.givenName |

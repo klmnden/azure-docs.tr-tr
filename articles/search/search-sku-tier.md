@@ -7,14 +7,14 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266889"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36210933"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Arama'ya ilişkin bir fiyatlandırma katmanı seçin
 
@@ -39,7 +39,7 @@ Katmanı seçimi için anlamanız gereken kavramlar kapasite tanımları, hizmet
 Kapasite olarak yapılandırıldığı *çoğaltmaları* ve *bölümleri*. Çoğaltmaları arama hizmeti her çoğaltma dizin yük dengeli bir kopyasını barındırdığı örnekleridir. Örneğin, bir hizmet 6 yinelemelerle hizmetinde yüklenen her dizin 6 kopyalarını sahiptir. Bölümler dizinleri depolamak ve otomatik olarak, aranabilir verileri böl: iki bölüm yarım, üç bölüm dizininizdeki Üçe bölme ve benzeri. Kapasite, bakımından *bölüm boyutu* birincil farklılaştırıcı katmanları arasında bir özelliktir.
 
 > [!NOTE]
-> Tüm **standart** katmanlarını Destek [esnek birleşimleri çoğaltma ve bölümleri](search-capacity-planning.md#chart) yapabilmeniz [hızı veya depolama sisteminizi ağırlık](search-performance-optimization.md) Bakiye değiştirerek. **Temel** üç çoğaltmaları yedeklemek için yüksek kullanılabilirlik ancak yalnızca bölüm sunar. **Ücretsiz** katmanları özel kaynakları sağlamaz: kaynakları birden çok ücretsiz hizmetler tarafından paylaşılan bilgisayar.
+> Tüm **standart** katmanlarını Destek [esnek birleşimleri çoğaltma ve bölümleri](search-capacity-planning.md#chart) yapabilmeniz [hızı veya depolama sisteminizi ağırlık](search-performance-optimization.md) Bakiye değiştirerek. **Temel** üç çoğaltmaları yedeklemek için yüksek kullanılabilirlik ancak yalnızca bir bölüm sunar. **Ücretsiz** katmanları özel kaynakları sağlamaz: kaynakları birden çok ücretsiz hizmetler tarafından paylaşılan bilgisayar.
 
 ### <a name="limits"></a>Sınırlar
 

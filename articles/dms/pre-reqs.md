@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/22/2018
-ms.openlocfilehash: b3fe97343d844eb5c030cf0aaa9da2a6f54a2472
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/19/2018
+ms.openlocfilehash: 3dc449724e405f83ce976b9f8b01a89c25d693fe
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168216"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221259"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti kullanma önkoşulları genel bakış
 Azure veritabanı geçiş hizmeti düzgün veritabanı geçiş gerçekleştirirken çalıştığından emin olmak için gereken birkaç önkoşul vardır. Bazı Önkoşullar Önkoşullar belirli bir senaryoyla benzersiz durumdayken service tarafından desteklenen tüm senaryoları (kaynak hedef çiftleri) uygulamak.
@@ -63,4 +63,4 @@ SQL Server, tüm geçiş senaryoları için ortak olan önkoşulların yanı sı
    > Öğretici, SQL Server'dan Azure SQL veritabanı yönetilen örneğine geçişler gerçekleştirmeyi Azure veritabanı geçiş hizmeti kullanmak için gereken önkoşulları tam listesi için bkz [SQL Server'a geçirmek yönetilen Azure SQL veritabanı örneği ](https://aka.ms/migratetomiusingdms).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure veritabanı geçiş hizmeti ve genel Önizleme sırasında bölgesel kullanılabilirlik genel bakış için bkz: [Azure veritabanı geçiş hizmeti Önizleme nedir](dms-overview.md). 
+Azure veritabanı geçiş hizmeti ve bölgesel kullanılabilirlik genel bakış için bkz: [Azure veritabanı geçiş hizmeti nedir](dms-overview.md). 

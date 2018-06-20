@@ -7,18 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.assetid: bf79e858-1dfb-4ab3-a6df-74b2d5a878d2
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 7e284c59855533b4d6d3735fa97a470fcabeafb2
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 8b45eb87af7ed56a6641ffcaeb6ea47c3d07389c
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35982163"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36226216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Öğretici: Azure Active Directory Tümleştirme myPolicies ile
 
@@ -129,7 +130,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | givenName | User.givenName |
     | Soyadı | User.surname |
     | emailaddress | User.Mail |
-    | name | User.userPrincipalName |
+    | ad | User.userPrincipalName |
     
     a. Özniteliği açmak için tıklatın **öznitelik Düzenle** iletişim.
     

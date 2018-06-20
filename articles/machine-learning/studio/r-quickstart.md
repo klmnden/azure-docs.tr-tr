@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836384"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227249"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure Machine Learning için R programlama diline yönelik hızlı başlangıç öğreticisi
 
@@ -41,7 +41,7 @@ Zaman serisi veri değerlerin bir zaman dizine sahip verilerdir. Örneğin, her 
 
 Bu Hızlı Başlangıç Kılavuzu'nda biz California Süt ürün çalışma ve veri fiyatlandırma. Bu veriler, birkaç süt ürünleri üretim ve sütlü fat, kıyaslama Emtia fiyat aylık bilgi içerir.
 
-Bu makalede, R betiklerini birlikte kullanılan veri [burada indirilen][download]. Bu veriler University Wisconsin gelen bilgilerden başlangıçta oluşturulan http://future.aae.wisc.edu/tab/production.html.
+Bu makalede, R betiklerini birlikte kullanılan veri [burada indirilen](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv). Bu veriler University Wisconsin gelen bilgilerden başlangıçta oluşturulan https://dairymarkets.com.
 
 ### <a name="organization"></a>Kuruluş
 Oluşturma, test ve Azure Machine Learning ortamında analizi ve veri işleme R kod yürütmek öğrenirken size çeşitli adımlarda ilerleyeceğini.  
@@ -123,7 +123,7 @@ Azure Machine Learning 350'den önceden yüklenmiş R dil paketleriyle birlikte 
 Şu anda bu kodu son satırının anlamadığınız okumaya devam edin. Bu belgenin geri kalanı Java'da Azure Machine Learning ortamında R kullanarak aşağıdakiler ele alınacaktır.
 
 ### <a name="introduction-to-rstudio"></a>Rstudio'dan giriş
-R için yaygın olarak kullanılan bir IDE Rstudio'dan olduğu Rstudio'dan düzenleme, test ve bu Hızlı Başlangıç Kılavuzu'nda kullanılan R kodu bazıları hata ayıklama için kullanır. R kodu test edilmiş ve hazır olduğunda size kesip Rstudio'dan Düzenleyicisi'nden bir Machine Learning Studio'ya [R betiği yürütün] [ execute-r-script] modülü.  
+R için yaygın olarak kullanılan bir IDE Rstudio'dan olduğu Rstudio'dan düzenleme, test ve bu Hızlı Başlangıç Kılavuzu'nda kullanılan R kodu bazıları hata ayıklama için kullanır. R kodu test edilmiş ve hazır olduğunda, yalnızca kesebilir ve Rstudio'dan Düzenleyicisi'nden bir Machine Learning Studio'ya Yapıştır [R betiği yürütün] [ execute-r-script] modülü.  
 
 Masaüstü makinenize yüklü R programlama dili yoksa, bunu şimdi yapın ı öneririz. Açık kaynak R dilinin ücretsiz indirme en kapsamlı R arşiv ağ (CRAN), kullanılabilir [ http://www.r-project.org/ ](http://www.r-project.org/). Windows, Mac OS ve Linux/UNIX için kullanılabilir yüklemeler vardır. Yakındaki bir yansıtma seçin ve yükleme yönergeleri izleyin. Ayrıca, CRAN bol miktarda yararlı analizi ve veri işleme paketleri içerir.
 
@@ -837,7 +837,7 @@ Bu kodu çalıştırmak Şekil 18'de gösterilen günlük üretir.
 
 *Şekil 18. Ccf listesini ikili bağıntı çözümlemesinden nesneleri.*
 
-Her gecikme için bir bağıntı değer yoktur. Bu bağıntı değerleri hiçbiri önemli olmadığı kadar büyük. Biz biz her bir değişken bağımsız olarak model oluşturabilirsiniz, bu nedenle tamamlanabilmesi.
+Her gecikme için bir bağıntı değer yoktur. Bu bağıntı değerleri hiçbiri önemli olmadığı için yeterince büyük değil. Biz biz her bir değişken bağımsız olarak model oluşturabilirsiniz, bu nedenle tamamlanabilmesi.
 
 ### <a name="output-a-dataframe"></a>Bir dataframe çıkış
 Biz pairwise bağıntıları R ccf nesneleri listesi olarak hesaplanan. Sonuç veri kümesinin çıkış bağlantı noktasına bir dataframe gerçekten gerektirdiğinden bu biraz bir sorunu gösterir. Ayrıca, ccf nesnesi kendisini listesini ve yalnızca değerleri bu listenin ilk öğesindeki çeşitli gecikmelere adresindeki bağıntıları istiyoruz.
@@ -1241,7 +1241,7 @@ Başlamanıza yardımcı olabilecek R birçok books vardır. Yararlı bulabiliri
 * R Inferno CAN yanıklara tarafından r'de programlamada karşılaştı hassas ve zor konular sayısıyla ilgilidir şaşırtıcı esprili bir kitap olduğu Kitap ücretsiz adresten edinilebilir http://www.burns-stat.com/documents/books/the-r-inferno/.
 * Derinlemesine Gelişmiş konular R, içine istiyorsanız Gelişmiş R Hadley Wickham tarafından kitap bakmak gerekir. Bu kitap çevrimiçi sürümünü ücretsiz adresten edinilebilir http://adv-r.had.co.nz/.
 
-Zaman serisi çözümleme için CRAN görev görünümünde Kataloğu R zaman serisi paketlerin bulunabilir: http://cran.r-project.org/web/views/TimeSeries.html. Paketleri serisi nesne belirli bir zaman hakkında bilgi için bu paket için belgelerine başvurmalıdır.
+R zaman serisi paketleri kataloğunu zaman serisi analiz için CRAN görev görünümünü bulunabilir: http://cran.r-project.org/web/views/TimeSeries.html. Paketleri serisi nesne belirli bir zaman hakkında bilgi için bu paket için belgelerine başvurmalıdır.
 
 Paul Cowpertwait ve Barış Metcalfe r Giriş zaman serisi defteri R zaman serisi analize kullanmaya giriş bilgileri sağlar. Çok fazla teorik metinleri R örnekleri sağlar.
 

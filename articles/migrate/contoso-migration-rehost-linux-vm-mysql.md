@@ -1,19 +1,17 @@
 ---
 title: Azure ve Azure MySQL Contoso Linux hizmet Masası uygulamayı rehost | Microsoft Docs
 description: Contoso geçirerek bir şirket içi Linux uygulama nasıl rehosts öğrenin Azure Vm'leri ve Azure MySQL için.
-services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 4367bf7cb02bb6a1e343dc3fb171be731e15c32b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 15a429c033cfd1598dd01b5c8cd2743c397dacdb
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300720"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36225526"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso geçiş: Azure Vm'leri ve Azure MySQL için şirket içi Linux uygulama yeniden barındırma
 

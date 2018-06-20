@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/19/2018
 ms.author: victorh
-ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a2f664525235fa97b0694362d7dc82086e31f71d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699912"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36229344"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
 
@@ -166,6 +166,10 @@ Bu senaryo yapılabilir uygulama ağ geçidi alt ağda Nsg'leri kullanarak. Aşa
 * Bir reddetme ile diğer tüm gelen trafiği engelle tüm kuralı.
 
 * Tüm hedefler için internet giden trafiğe izin verin.
+
+**Q. Aynı bağlantı noktasını genel ve özel karşılıklı dinleyicileri için kullanılabilir mi?**
+
+Hayır, bu desteklenmez.
 
 ## <a name="performance"></a>Performans
 

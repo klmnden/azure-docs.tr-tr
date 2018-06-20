@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0be34d3a0e9bccd6658b5285ddfe6da1e96ef19a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 239ece0f126e1c92c2e94206baa7026ac04d604f
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724933"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227998"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory koşullu erişim ayarları başvurusu
 
@@ -237,7 +237,7 @@ Bu ayar, aşağıdaki istemci uygulamalar için geçerlidir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Koşullu erişim genel bakış için bkz: [Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md).
+- Koşullu erişim genel bakış için bkz: [Azure Active Directory'de koşullu erişim nedir?](active-directory-conditional-access-azure-portal.md)
 - Ortamınızda koşullu erişim ilkelerini yapılandırma için hazır olup olmadığını görmek [Azure Active Directory'de koşullu erişim için önerilen yöntemleri](active-directory-conditional-access-best-practices.md).
 
 

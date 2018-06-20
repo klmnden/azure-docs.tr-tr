@@ -10,25 +10,25 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 0e10907ac3db2d792b73e0a37aa2d0f6a916d746
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.date: 06/19/2018
+ms.openlocfilehash: 2fd5049b8b65620087e3c1ec42b6a5dcb0e0741a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850081"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214112"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti ile ilgili SSS
 Bu makalede Azure veritabanı geçiş hizmeti ile ilgili yanıtlar birlikte kullanma hakkında sık sorulan soruların listelenmektedir.
 
 ### <a name="q-what-is-azure-database-migration-service"></a>Q. Azure veritabanı geçiş hizmeti nedir?
-Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma süresi ile birden çok veritabanı kaynakları sorunsuz kümesinden sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Hizmet şu anda odaklanan geliştirme çalışmalarını ile genel önizlemede değil:
+Azure veritabanı geçiş hizmeti, Azure veri platformları en az kapalı kalma süresi ile birden çok veritabanı kaynakları sorunsuz kümesinden sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Hizmet şu anda genellikle, devam eden geliştirme çalışmalarını odaklanan ile kullanılabilir:
 - Güvenilirlik ve performans.
 - Yinelemeli Ayrıca kaynak hedef çifti.
 - Uyuşmazlık serbest geçişler sürekli yatırım.
 
 ### <a name="q-what-source-target-pairs-does-the-azure-database-migration-service-currently-support"></a>Q. Hangi kaynak hedef çiftleri Azure veritabanı geçiş hizmeti şu anda destekliyor mu?
-Genel Önizleme hizmetinde şu anda Azure SQL veritabanı için SQL Server'dan geçişleri destekler ve bu senaryo için Azure veritabanı geçiş hizmeti kullanmaya başlamak için Azure Portalı'nı şimdi gidebilirsiniz. Yönetilen Azure SQL veritabanı örneğine SQL Server ve Oracle Azure SQL veritabanı gibi diğer kaynak hedef çifti ile sınırlı özel Önizleme kullanılabilir. Bu senaryoların sınırlı özel önizleme olarak katılmak için bir fırsat için kaydolun [burada](https://sqldatabase-migrationpreview.azurewebsites.net/).
+Hizmet şu anda Azure SQL veritabanı için SQL Server'dan geçişleri destekler ve bu senaryo için Azure veritabanı geçiş hizmeti kullanmaya başlamak için Azure Portalı'nı şimdi gidebilirsiniz. Azure SQL veritabanı için Oracle gibi diğer kaynak hedef çifti ile sınırlı özel Önizleme kullanılabilir. Bu senaryoların sınırlı özel önizleme olarak katılmak için bir fırsat için kaydolun [burada](https://aka.ms/dms-preview/).
 
 ### <a name="q-how-does-the-azure-database-migration-service-compare-to-other-microsoft-database-migration-tools-such-as-the-database-migration-assistant-dma-or-sql-server-migration-assistant-ssma"></a>Q. Azure veritabanı geçiş hizmeti veritabanı geçiş Yardımcısı (DMA) veya SQL Server Geçiş Yardımcısı (SSMA) gibi diğer Microsoft veritabanı Geçiş Araçları nasıl şekilde karşılaştırma?
 Azure veritabanı geçiş hizmeti ölçekte veritabanı geçiş Microsoft Azure için tercih edilen yöntemdir. Diğer Microsoft Azure veritabanı geçiş hizmeti nasıl karşılaştırır hakkında daha fazla ayrıntı için Geçiş Araçları veritabanı ve blog nakil çeşitli senaryolar için hizmetinin kullanılmasıyla ilgili daha fazla önerileri için bkz: [ayrım Microsoft'un veritabanı Geçiş Araçları ve Hizmetleri](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -93,4 +93,4 @@ Kullanıcı Azure veritabanı geçiş hizmeti (DMS) açıkça durdurursa veya hi
 Sizden duymak istiyoruz. Lütfen herhangi bir geri bildirim gönderin ve / fikirleriniz kullanıcı sesi aracılığıyla Azure veritabanı geçiş hizmeti hakkında [burada](https://feedback.azure.com/forums/906100-azure-database-migration-service).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure veritabanı geçiş hizmeti ve genel Önizleme sırasında bölgesel kullanılabilirlik genel bakış için bkz: [Azure veritabanı geçiş hizmeti Önizleme nedir](dms-overview.md). 
+Azure veritabanı geçiş hizmeti ve bölgesel kullanılabilirlik genel bakış için bkz: [Azure veritabanı geçiş hizmeti nedir](dms-overview.md). 

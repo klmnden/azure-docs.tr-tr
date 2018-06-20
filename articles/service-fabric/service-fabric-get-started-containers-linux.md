@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: a38eb1f291d00d942ff0a1579b20bca7e012991a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642946"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213133"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -171,26 +171,12 @@ Bu görüntüde iş yükü giriş noktası tanımlanmış olduğundan, giriş ko
 
 "1" örnek sayısı belirtin.
 
+Bağlantı noktası eşlemesi uygun biçimde belirtin. Bu makalede, sağlamanız gerekir. ```80:4000``` bağlantı noktası eşlemesi olarak. Bu, ana makinede 4000 bağlantı noktasına gelen tüm gelen istekleri yapılandırdığınız yaparak kapsayıcısı üzerinde 80 numaralı bağlantı noktasına yönlendirilir.
+
 ![Kapsayıcılar için Service Fabric Yeoman oluşturucusu][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>Bağlantı noktası eşlemesini ve kapsayıcı deposu kimlik doğrulamasını yapılandırma
-Kapsayıcı içinde alınmış hizmetinize iletişim için bir uç nokta gerekir. Şimdi ServiceManifest.xml dosyasındaki "Resources" etiketinin altına `Endpoint` öğesine protokol, bağlantı noktası ve tür ekleyebilirsiniz. Bu makalede kapsayıcı hizmeti 4000 numaralı bağlantı noktasında dinler: 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-`UriScheme` değerinin sağlanması, kapsayıcı uç noktasını bulunabilirlik için Service Fabric Adlandırma hizmetine otomatik olarak kaydeder. Bu makalenin sonunda tam bir ServiceManifest.xml örnek dosyası verilmiştir. 
-
-ApplicationManifest.xml dosyasının `ContainerHostPolicies` kısmında bir `PortBinding` ilkesi belirterek kapsayıcı bağlantı noktasından ana bilgisayar bağlantı noktasına eşleme yapılandırın. Bu makalede `ContainerPort` değeri 80 (Dockerfile içinde belirtildiği gibi kapsayıcı 80 numaralı bağlantı noktasını gösterir) ve `EndpointRef` değeri "myServiceTypeEndpoint"tir (hizmet bildiriminde tanımlanan uç nokta). 4000 numaralı bağlantı noktasında hizmete gelen istekler, kapsayıcı üzerindeki 80 numaralı bağlantı noktasıyla eşlenir. Kapsayıcınızın özel bir depoda kimlik doğrulaması yapması gerekiyorsa, `RepositoryCredentials` öğesini ekleyin. Bu makale için, myregistry.azurecr.io kapsayıcı kayıt defterine ait hesap adını ve parolayı ekleyin. İlkenin doğru hizmet paketine ait "ServiceManifestImport" etiketinin altına eklendiğinden emin olun.
+## <a name="configure-container-repository-authentication"></a>Kapsayıcı depo kimlik doğrulamasını yapılandırma
+ Kapsayıcınızın özel bir depoda kimlik doğrulaması yapması gerekiyorsa, `RepositoryCredentials` öğesini ekleyin. Bu makale için, myregistry.azurecr.io kapsayıcı kayıt defterine ait hesap adını ve parolayı ekleyin. İlkenin doğru hizmet paketine ait "ServiceManifestImport" etiketinin altına eklendiğinden emin olun.
 
 ```xml
    <ServiceManifestImport>
@@ -227,14 +213,6 @@ ApplicationManifest dosyasındaki **ContainerHostPolicies** kapsamında **Health
 Varsayılan olarak *IncludeDockerHealthStatusInSystemHealthReport* özelliği **true**, *RestartContainerOnUnhealthyDockerHealthStatus* özelliği **false** olarak ayarlanır. *RestartContainerOnUnhealthyDockerHealthStatus* özelliği **true** olarak ayarlanırsa, tekrarlanan şekilde durumunun iyi olmadığı bildirilen kapsayıcılar yeniden başlatılır (muhtemelen diğer düğümlerde).
 
 Tüm Service Fabric kümesi için **HEALTHCHECK** tümleştirmesini devre dışı bırakmak istiyorsanız [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) özelliğini **false** olarak ayarlamanız gerekir.
-
-## <a name="build-and-package-the-service-fabric-application"></a>Service Fabric uygulamasını oluşturma ve paketleme
-Service Fabric Yeoman şablonları, uygulamayı terminalden oluşturmak için kullanabileceğiniz bir [Gradle](https://gradle.org/) derleme betiği içerir. Uygulamayı derlemek ve paketlemek için şu komutu çalıştırın:
-
-```bash
-cd mycontainer
-gradle
-```
 
 ## <a name="deploy-the-application"></a>Uygulamayı dağıtma
 Uygulama oluşturulduktan sonra Service Fabric CLI kullanarak yerel kümeye dağıtabilirsiniz.

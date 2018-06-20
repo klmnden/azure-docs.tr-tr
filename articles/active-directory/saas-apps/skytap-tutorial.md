@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d6cb7ab2-da1a-4015-8e6f-c0c47bb6210f
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: f397052959b5c7a0959c3352cded3f85730960c1
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 7fb1006fc83b0fc09fd5e0f40ea925508bb2b35f
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35972225"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36223771"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Öğretici: Azure Active Directory Tümleştirme Skytap ile
 

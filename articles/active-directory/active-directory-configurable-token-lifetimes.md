@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 086a2fde5905321da7d5689b6f1ee2f5139209ba
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 95a3c1d3effe6d4b73354fb3ef871aeb7767bfb4
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588871"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228584"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory'de (genel Önizleme) yapılandırılabilir belirteci yaşam süresi
 Azure Active Directory (Azure AD) tarafından verilmiş bir belirteç ömrü belirtebilirsiniz. Kuruluşunuzdaki tüm uygulamalar, kuruluşunuzda, çok kiracılı (çok kuruluş) uygulama veya belirli hizmet sorumlusu belirteci yaşam süresi ayarlayabilirsiniz.
@@ -335,7 +335,7 @@ Bu örnekte, öncelik sistem nasıl çalıştığını öğrenmek için birkaç 
 
     Artık, tüm kuruluş genelinde geçerli bir ilkesi var. Bu 30 günlük ilkesi için bir özel hizmet sorumlusu korumak, ancak "kadar iptal edilen." sayısı üst sınırı için kuruluşunuzun varsayılan ilkesini değiştirmek isteyebilirsiniz
 
-    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için ya da sorgulayabilirsiniz [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) veya [Azure AD grafik](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bu test ayrıca [Azure AD Graph Explorer'a](https://graphexplorer.cloudapp.net/)ve [Microsoft Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) Azure AD hesabınızı kullanarak.
+    1.  Kuruluşunuzun tüm hizmet asıl adı görmek için ya da sorgulayabilirsiniz [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) veya [Azure AD grafik](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Bu test ayrıca [Azure AD Graph Explorer'a](https://graphexplorer.azurewebsites.net/)ve [Microsoft Graph Explorer'a](https://developer.microsoft.com/graph/graph-explorer) Azure AD hesabınızı kullanarak.
 
     2.  Olduğunda **objectID** aşağıdaki komutu çalıştırın, hizmet asıl:
 

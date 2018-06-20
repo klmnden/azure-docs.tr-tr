@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/4/2017
 ms.author: saurse
-ms.openlocfilehash: aee0a3044ea4d1b9b867e795e94a37f8835ad212
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 89a39f6189367f91248b3868b1e1cb9f6abf0407
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605765"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228399"
 ---
 # <a name="troubleshoot-azure-backup-agent-configuration-and-registration-issues"></a>Azure Yedekleme aracısı yapılandırma ve kayıt sorunlarını giderme
 ## <a name="recommended-steps"></a>Önerilen adımlar
@@ -36,13 +36,19 @@ Aşağıdaki tablolarda yapılandırma ve Azure yedekleme Aracısı'nın kayıt 
 
 | Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
 | ---     | ---     | ---    |      
-| **Hata** </br>*Güvenli yedeklemeler için şifreleme anahtarı ayarlanamadı. Geçerli işlem bir iç hizmet hatası 'geçersiz giriş hatası nedeniyle' başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse, lütfen Microsoft desteğine başvurun*. |Sunucu, başka bir kasasına zaten kayıtlı.| Kasa sunucusundan kaydını silin ve yeniden kaydedin.
+| **Hata** </br>*Güvenli yedekler etkinleştirme tamamen etkinleştirilemedi ancak şifreleme parolası şu dosyasına kaydedildiği için şifreleme anahtarı ayarlanamadı*. |<li>Sunucu, başka bir kasasına zaten kayıtlı.<li>Yapılandırma sırasında parola bozuk| Kasa sunucunun kaydını silmek ve yeni bir parola ile yeniden kaydedin.
 
 ## <a name="the-activation-did-not-complete-successfully-the-current-operation-failed-due-to-an-internal-service-error-0x1fc07"></a>Etkinleştirme başarıyla tamamlanamadı. Geçerli işlem bir iç hata nedeniyle [0x1FC07] başarısız oldu
 
 | Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
 | ---     | ---     | ---    |          
-| **Hata** </br><ol><li>*Etkinleştirme başarıyla tamamlanmadı. Geçerli işlem bir iç hata nedeniyle [0x1FC07] başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse, lütfen Microsoft Destek'e başvurun* <li>*Hata 34506. Bu bilgisayarda depolanan şifreleme parolası düzgün yapılandırılmamış*. | <li> Geçici klasör yeterli alana sahip bir birimde bulunur. <li> Geçici klasör yanlış başka bir konuma taşındı. <li> OnlineBackup.KEK dosyası eksik. | <li>Geçici klasör veya önbellek konumu yedek verilerin toplam boyutu 5-%10 eşdeğer boş alanı olan bir birim taşıyın. Önbellek konumunu doğru taşımak için adımlarda bakın [Azure Yedekleme aracısı hakkında sorular](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> OnlineBackup.KEK dosyasının var olduğundan emin olun. <br>*Geçici klasör veya önbellek konumu yolu için varsayılan konumu C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch:*.
+| **Hata** </br><ol><li>*Etkinleştirme başarıyla tamamlanmadı. Geçerli işlem bir iç hata nedeniyle [0x1FC07] başarısız oldu. Lütfen bir süre sonra işlemi yeniden deneyin. Sorun devam ederse, lütfen Microsoft Destek'e başvurun*| <li> Geçici klasör yeterli alana sahip bir birimde bulunur. <li> Geçici klasör yanlış başka bir konuma taşındı. <li> OnlineBackup.KEK dosyası eksik. | <li>Yükseltme için [en son sürümünü](http://aka.ms/azurebackup_agent) MARS Aracısı'nın.<li>Geçici klasör veya önbellek konumu yedek verilerin toplam boyutu 5-%10 eşdeğer boş alanı olan bir birim taşıyın. Önbellek konumunu doğru taşımak için adımlarda bakın [Azure Yedekleme aracısı hakkında sorular](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> OnlineBackup.KEK dosyasının var olduğundan emin olun. <br>*Geçici klasör veya önbellek konumu yolu için varsayılan konumu C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch:*.
+  
+## <a name="error-34506-the-encryption-passphrase-stored-on-this-computer-is-not-correctly-configured"></a>Hata 34506. Bu bilgisayarda depolanan şifreleme parolası düzgün yapılandırılmamış
+
+| Hata ayrıntıları | Olası nedenler | Önerilen eylemler |
+| ---     | ---     | ---    |          
+| **Hata** </br><ol><li>*Hata 34506. Bu bilgisayarda depolanan şifreleme parolası düzgün yapılandırılmamış*. | <li> Geçici klasör yeterli alana sahip bir birimde bulunur. <li> Geçici klasör yanlış başka bir konuma taşındı. <li> OnlineBackup.KEK dosyası eksik. | <li>Yükseltme için [en son sürümünü](http://aka.ms/azurebackup_agent) MARS Aracısı'nın.<li>Geçici klasör veya önbellek konumu yedek verilerin toplam boyutu 5-%10 eşdeğer boş alanı olan bir birim taşıyın. Önbellek konumunu doğru taşımak için adımlarda bakın [Azure Yedekleme aracısı hakkında sorular](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> OnlineBackup.KEK dosyasının var olduğundan emin olun. <br>*Geçici klasör veya önbellek konumu yolu için varsayılan konumu C:\Program Files\Microsoft Azure kurtarma Hizmetleri Agent\Scratch:*.  
 
 ## <a name="need-help-contact-support"></a>Yardım mı gerekiyor? Desteğe başvurun
 Hala yardıma gereksiniminiz varsa [desteğine başvurun](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) hızla çözümlenen sorunu almak için.

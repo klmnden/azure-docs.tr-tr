@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 1c9f8dab4d872d045c4781cd8b6b0405c74df231
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: e9c67a9ac733a1dd7e4810f3f8a3185ff7142041
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35972072"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212613"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>Öğretici: Azure Active Directory Tümleştirme AwardSpring ile
 
@@ -130,8 +131,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | ---------------| --------------- |    
     | Ad | User.givenName |
     | Soyadı | User.surname |
-    | E-posta | User.Mail |
-    | Kullanıcı Adı | User.userprinicipalname |
+    | Email | User.Mail |
+    | Kullanıcı adı | User.userprinicipalname |
     | studentID | < Öğrenci Kimliği > |
 
     > [!NOTE]
