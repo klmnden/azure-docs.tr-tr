@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850000"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect özel yüklemesi
 Yükleme için daha fazla seçenek istediğinizde Azure AD Connect **Özel ayarları** kullanılır. Birden fazla ormanınız varsa veya hızlı yükleme kapsamında yer almayan isteğe bağlı özellikleri yapılandırmak istiyorsanız kullanılır. [**Hızlı yükleme**](active-directory-aadconnect-get-started-express.md) seçeneğinin dağıtımınız veya topolojiniz için uygun olmadığı tüm durumlarda kullanılır.
@@ -214,12 +216,11 @@ Grup İlkesi yönetim araçlarına sahip bir bilgisayarda.
 1.  Grup İlkesi Yönetimi araçlarını açın
 2.  Tüm kullanıcılara uygulanacak Grup ilkesini düzenleyin. Örneğin, Varsayılan Etki Alanı İlkesi.
 3.  **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page** bölümüne gidin ve aşağıdaki şekilde gösterildiği gibi **Siteden Bölgeye Atama Listesi**'ni seçin.
-4.  İlkeyi etkinleştirin ve iletişim kutusuna aşağıdaki iki öğeyi girin.
+4.  İlkeyi etkinleştirin ve iletişim kutusuna aşağıdaki öğeyi girin.
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+    
 
 5.  Şunun gibi görünmelidir:  
 ![Intranet Bölgeleri](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -303,7 +304,7 @@ Birleştirilecek etki alanını seçtiğinizde Azure AD Connect, size doğrulanm
 >
 
 ## <a name="configuring-federation-with-pingfederate"></a>PingFederate ile federasyonu yapılandırma
-Azure AD Connect ile PingFederate’i yalnızca birkaç tıklama ile kolayca yapılandırabilirsiniz. Yapılandırma için aşağıdakiler gereklidir.  Ancak aşağıdaki önkoşullar gereklidir.
+Azure AD Connect ile PingFederate’i yalnızca birkaç tıklama ile kolayca yapılandırabilirsiniz. Ancak aşağıdaki önkoşullar gereklidir.
 - PingFederate 8.4 veya daha yüksek bir sürüm.  Daha fazla bilgi için bkz. [Azure Active Directory ve Office 365 ile PingFederate Tümleştirmesi](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)
 - Kullanmayı düşündüğünüz federasyon hizmeti adı (örneğin, sts.contoso.com) için bir SSL sertifikası
 

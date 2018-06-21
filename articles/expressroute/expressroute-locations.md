@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
 ms.author: pareshmu
-ms.openlocfilehash: 8d17c8dee89bf0ea2a4683c3b41d2eed50c65e2c
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f45aa884f05cc638002067a502b472731e3393e7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303703"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763570"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute ortakları ve eşleme konumları
 
@@ -88,7 +88,7 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Destekleniyor |Destekleniyor |Chicago, Denver, Los Angeles, New York, Silikon Vadisi, Washinton DC |
 | **eir** |Destekleniyor |Destekleniyor |Dublin|
 | **Epsilon Global Communications** |Destekleniyor |Destekleniyor |Singapur |
-| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Destekleniyor |Destekleniyor |Amsterdam, Atlanta, Chicago, Dallas, Hong Kong, Londra, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silikon Vadisi, Singapur, Sidney, Tokyo, Toronto, Washington DC |
+| **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |Destekleniyor |Destekleniyor |Amsterdam, Atlanta, Chicago, Dallas, Dublin,  Hong Kong, Londra, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silikon Vadisi, Singapur, Sidney, Tokyo, Toronto, Washington DC |
 | **euNetworks** |Destekleniyor |Destekleniyor |Amsterdam, Londra |
 | **GÉANT** |Destekleniyor |Destekleniyor |Amsterdam |
 | **[Genel Bulut Değişimi (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | Destekleniyor| Destekleniyor | Chennai, Mumbai |
@@ -121,7 +121,6 @@ Aşağıdaki tabloda hizmet sağlayıcısına göre konumlar gösterilmektedir. 
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |Destekleniyor |Destekleniyor |Osaka, Tokyo |
 | **[Sprint](https://business.sprint.com/solutions/cloud-networking/)** |Destekleniyor |Destekleniyor |Washington DC |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Destekleniyor |Destekleniyor |Amsterdam, Chennai, Hong Kong, Londra, Mumbai, Silikon Vadisi, Singapur, Washington DC |
-| **[TeleCity Group](http://www.telecitygroup.com/investor-centre/news_details.htm?locid=03100500400b00d&xml)** |Destekleniyor |Destekleniyor |Amsterdam, Dublin, Londra |
 | **[Telefonica](https://www.business-solutions.telefonica.com/es/enterprise/solutions/efficient-infrastructure/managed-voice-data-connectivity/)** |Destekleniyor |Destekleniyor |Amsterdam, Sao Paulo |
 | **[Telehouse - KDDI](http://www.telehouse.net/solutions/cloud-services/cloud-link)** |Destekleniyor |Destekleniyor |Londra |
 | **Telenor** |Destekleniyor |Destekleniyor |Amsterdam, Londra |
@@ -245,15 +244,15 @@ Bağlantı sağlayıcınız önceki bölümlerde listelenmemişse hala bağlant�
 | **Sağlayıcı**|
 | --- |
 | **AARNET**| 
-| **DeIC, GÉANT üzerinden**|
-| **GARR, GÉANT üzerinden**|
+| **GÉANT aracılığıyla DeIC**|
+| **GÉANT aracılığıyla GARR**|
 | **GÉANT**|
-| **HEAnet, GÉANT üzerinden**|
+| **GÉANT aracılığıyla HEAnet**|
 | **Internet2**|
 | **JISC**|
-| **RedIRIS, GÉANT üzerinden**|
+| **GÉANT aracılığıyla RedIRIS**|
 | **SINET**|
-| **Surfnet, GÉANT üzerinden**|
+| **GÉANT aracılığıyla Surfnet**|
 
 * Bağlantı sağlayıcınız bu listede yoksa, lütfen yukarıda listelenen ExpressRoute Exchange İş Ortaklarından herhangi birine bağlı olup olmadığınızı denetleyin.
 

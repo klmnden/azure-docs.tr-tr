@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 27b8c9391de4014f45257e3808647b3e49c250b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651956"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>Sanal makine ölçek kümeleri için Azure PowerShell örnekleri
 
@@ -29,7 +30,8 @@ Aşağıdaki tablo, Azure PowerShell kullanılarak derlenen bash komut dosyalar�
 | | |
 |---|---|
 |**Ölçek kümesi oluşturma ve yönetme**||
-| [Sanal makine ölçek kümesi oluşturma](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | En düşük yapılandırmayla bir sanal makine ölçek kümesi oluşturur. |
+| [Basit bir sanal makine ölçek kümesi oluşturma](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | En düşük yapılandırmayla bir sanal makine ölçek kümesi oluşturur. |
+| [Tam bir sanal makine ölçek kümesi oluşturma](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | Bir sanal makine ölçek kümesi ve yapılandırma dosyasına sahip ilişkili kaynakları oluşturur. |
 | [Özel bir sanal makine görüntüsünden ölçek kümesi oluşturma](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Özel bir sanal makine görüntüsü kullanan bir sanal makine ölçek kümesi oluşturur. |
 | [Ölçek kümesine uygulama yükleme](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Ölçek kümesine temel bir web uygulaması yüklemek için Azure Özel Betik Uzantısı kullanın. |
 |**Depolamayı yönetme**||

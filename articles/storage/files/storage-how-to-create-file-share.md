@@ -1,11 +1,11 @@
 ---
-title: Azure Dosya paylaşımı oluşturma | Microsoft Docs
+title: Azure dosya paylaşımı oluşturma | Microsoft Docs
 description: Azure portalı, PowerShell ve Azure CLI kullanarak Azure Dosyaları'nda bir Azure dosya paylaşımı oluşturma.
 services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
@@ -14,20 +14,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 4dfc4bca4453b5a8027086bd7c3625efc8feda03
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 85e021d439698e864a26bde9515369ae801c3796
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737869"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Azure Dosyaları'nda bir dosya paylaşımı oluşturma
 [Azure portalını](https://portal.azure.com/), Azure Storage PowerShell cmdlet'lerini, Azure Storage istemcisi kitaplıklarını veya Azure Storage REST API'sini kullanarak Azure dosya paylaşımları oluşturabilirsiniz. Bu öğreticide şunları öğreneceksiniz:
-* [Azure portalını kullanarak Azure Dosya paylaşımı oluşturma](#Create file share through the Portal)
-* [PowerShell kullanarak Azure Dosya paylaşımı oluşturma](#Create file share using PowerShell)
-* [CLI kullanarak Azure Dosya paylaşımı oluşturma](#create-file-share-using-command-line-interface-cli)
+* [Azure portalı kullanarak Azure dosya paylaşımı oluşturma](#create-file-share-through-the-azure-portal)
+* [PowerShell kullanarak Azure dosya paylaşımı oluşturma](#create-file-share-through-powershell)
+* [CLI kullanarak Azure dosya paylaşımı oluşturma](#create-file-share-through-command-line-interface-cli)
 
 ## <a name="prerequisites"></a>Ön koşullar
-Azure Dosya paylaşımı oluşturmak için zaten var olan bir Depolama Hesabı kullanabilir veya [yeni bir Azure Depolama Hesabı oluşturabilirsiniz](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). PowerShell ile Azure Dosya paylaşımı oluşturmak için depolama hesabınızın hesap anahtarı ve adı gerekir. PowerShell veya CLI kullanmayı planlıyorsanız Depolama hesabının anahtarı gerekir.
+Azure dosya paylaşımı oluşturmak için zaten var olan bir Depolama Hesabı kullanabilir veya [yeni bir Azure Depolama Hesabı oluşturabilirsiniz](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). PowerShell ile Azure dosya paylaşımı oluşturmak için depolama hesabınızın hesap anahtarı ve adı gerekir. PowerShell veya CLI kullanmayı planlıyorsanız Depolama hesabının anahtarı gerekir.
 
 ## <a name="create-file-share-through-the-azure-portal"></a>Azure portalı üzerinden dosya paylaşımı oluşturma
 1. **Azure portalındaki Depolama Hesabı dikey penceresine gidin**:    

@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261330"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>Linux üzerinde özel görüntü kullanarak bir işlev oluşturma (önizleme)
 
@@ -43,7 +44,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gerekir:
 
 * [Git](https://git-scm.com/downloads)
 * Etkin bir [Azure aboneliği](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * [Docker Hub hesabı](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -226,7 +227,7 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * Docker Hub’dan bir işlev uygulaması dağıtın.
 > * Uygulama ayarlarını işlevi uygulamasına ekleyin.
 
-Azure İşlevleri Çekirdek Araçları’nı kullanarak yerel olarak Azure İşlevleri geliştirme hakkında daha fazla bilgi edinin.
+Temel App Service platformu içine yerleştirilmiş sürekli tümleştirme işlevselliğini nasıl etkinleştireceğinizi öğrenin. İşlev uygulamanızı, Docker Hub’da görüntünüzü güncelleştirdiğinizde kapsayıcının yeniden dağıtılmasını sağlayacak şekilde yapılandırabilirsiniz.
 
 > [!div class="nextstepaction"] 
-> [Azure İşlevleri’ni yerel olarak kodlama ve test etme](functions-run-local.md)
+> [Kapsayıcılar için Web App ile sürekli dağıtım](../app-service/containers/app-service-linux-ci-cd.md)

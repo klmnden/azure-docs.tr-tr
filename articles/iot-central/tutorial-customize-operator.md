@@ -1,21 +1,22 @@
 ---
 title: Azure IoT Central’da operatör görünümlerini özelleştirme | Microsoft Docs
 description: Oluşturucu olarak, Azure IoT Central uygulamanızda operatör görünümlerini özelleştirin.
-services: iot-central
 author: sandeeppujar
 ms.author: sadeepu
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 3e0dfab05fc7972a055853af45f0d1b13d52c0a1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: ddb6e6d7859227b8eec7f13b95fab06b333dacda
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202331"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235377"
 ---
-# <a name="3---customize-the-azure-iot-central-operators-view"></a>3 - Azure IoT Central operatör görünümünü özelleştirme
+# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Öğretici: Azure IoT Central operatör görünümünü özelleştirme
 
 Bu öğreticide, bir oluşturucu olarak uygulamanızın operatör görünümünü nasıl özelleştireceğiniz gösterilmektedir. Oluşturucu olarak uygulamada bir değişiklik yaptığınızda, Microsoft Azure IoT Central uygulamasında operatör görünümünün önizlemesini görebilirsiniz.
 
@@ -35,8 +36,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Başlamadan önce, önceki iki öğreticiyi tamamlamanız gerekir:
 
-1. [Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md).
-1. [Cihazınız için kurallar ve eylemler yapılandırma](tutorial-configure-rules.md).
+* [Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md).
+* [Cihazınız için kurallar ve eylemler yapılandırma](tutorial-configure-rules.md).
 
 ## <a name="configure-your-device-dashboard"></a>Cihaz panonuzu yapılandırma
 
@@ -46,17 +47,17 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
 
     ![Gezgin sayfası](media/tutorial-customize-operator/explorer.png)
 
-1. Bağlı klima cihazınızın panosunu özelleştirmeye başlamak için **Bağlı Klima (1.0.0)** cihaz şablonunu seçin. [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md) öğreticisinde oluşturduğunuz **Bağlı Klima-1** cihazını seçin:
+2. Bağlı klima cihazınızın panosunu özelleştirmeye başlamak için **Bağlı Klima (1.0.0)** cihaz şablonunu seçin. [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-define-device-type.md) öğreticisinde oluşturduğunuz **Bağlı Klima-1** cihazını seçin:
 
     ![Bağlı klima cihazını seçme](media/tutorial-customize-operator/selectdevice.png)
 
     **Bağlı Klima-1** gibi bir cihazda değişiklik yaptığınızda, temel alınan şablonda değişiklik yapmış olursunuz. Daha fazla bilgi için bkz. [Yeni bir cihaz şablonu sürümü oluşturma](howto-version-devicetemplate.md).
 
-1. Panoyu düzenlemek için **Pano**’yu seçin:
+3. Panoyu düzenlemek için **Pano**’yu seçin:
 
     ![Cihaz şablonu pano sayfası](media/tutorial-customize-operator/dashboard.png)
 
-1. Panoya bir KPI kutucuğu eklemek için **KPI**’yı seçin:
+4. Panoya bir KPI kutucuğu eklemek için **KPI**’yı seçin:
 
     ![KPI ekleme](media/tutorial-customize-operator/addkpi.png)
 
@@ -69,11 +70,11 @@ Oluşturucu olarak, bir cihaz panosunda hangi bilgilerin gösterileceğini tanı
     | Toplama | Maksimum |
     | Zaman aralığı  | Geçen 1 hafta |
 
-1. **Kaydet**'i seçin. Artık KPI kutucuğunu panoda görebilirsiniz:
+5. **Kaydet**'i seçin. Artık KPI kutucuğunu panoda görebilirsiniz:
 
     ![KPI kutucuğu](media/tutorial-customize-operator/temperaturekpi.png)
 
-1. Panodaki bir kutucuğu taşımak veya yeniden boyutlandırmak için, fare işaretçisini kutucuğun üzerine getirin. Kutucuğu yeni bir konuma sürükleyebilir ya da yeniden boyutlandırabilirsiniz:
+6. Panodaki bir kutucuğu taşımak veya yeniden boyutlandırmak için, fare işaretçisini kutucuğun üzerine getirin. Kutucuğu yeni bir konuma sürükleyebilir ya da yeniden boyutlandırabilirsiniz:
 
     ![Pano düzenini düzenleme](media/tutorial-customize-operator/dashboardlayout.png)
 
@@ -85,7 +86,7 @@ Oluşturucu olarak, cihaz ayarlarının operatör görünümünü de yapılandı
 
     ![Ayarlar sayfası](media/tutorial-customize-operator/settings.png)
 
-1. Ayar kutucuklarını taşıyabilir ve yeniden boyutlandırabilirsiniz:
+2. Ayar kutucuklarını taşıyabilir ve yeniden boyutlandırabilirsiniz:
 
     ![Ayarlar düzenini değiştirme](media/tutorial-customize-operator/settingslayout.png)
 
@@ -100,7 +101,7 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
     ![Özellikler sayfası](media/tutorial-customize-operator/properties.png)
 
-1. Özellikler alanlarını taşıyabilir ve yeniden boyutlandırabilirsiniz:
+2. Özellikler alanlarını taşıyabilir ve yeniden boyutlandırabilirsiniz:
 
     ![Özellikler düzenini değiştirme](media/tutorial-customize-operator/propertieslayout.png)
 
@@ -113,17 +114,17 @@ Pano ve ayarlara ek olarak cihaz özelliklerinin operatör görünümünü de ya
 
 1. Operatör olarak bağlı klima cihazınızı görüntülemek için **Tasarım Modu**’nu kapatmanız gerekir. **Tasarım Modu**’nu kapatmak için sayfanın sağ üst köşesinden **Tasarım Modu**’nu kapatın.
 
-1. Bu cihazın seri numarasını güncelleştirmek için seri numarası kutucuğundaki değeri düzenleyin ve **Kaydet**’i seçin:
+2. Bu cihazın seri numarasını güncelleştirmek için seri numarası kutucuğundaki değeri düzenleyin ve **Kaydet**’i seçin:
 
     ![Özellik değerini düzenleme](media/tutorial-customize-operator/editproperty.png)
 
-1. Bağlı klimanıza bir ayar göndermek için **Ayarlar**’ı seçin, bir kutucuktaki ayar değerini değiştirin ve **Güncelleştir**’i seçin:
+3. Bağlı klimanıza bir ayar göndermek için **Ayarlar**’ı seçin, bir kutucuktaki ayar değerini değiştirin ve **Güncelleştir**’i seçin:
 
     ![Cihaza ayar gönderme](media/tutorial-customize-operator/sendsetting.png)
 
     Cihaz yeni ayar değerini kabul ettiğinde, ayar kutucukta **eşitlendi** olarak görünür.
 
-1. Operatör olarak, cihaz panosunu oluşturucu tarafından yapılandırıldığı şekilde görüntüleyebilirsiniz:
+4. Operatör olarak, cihaz panosunu oluşturucu tarafından yapılandırıldığı şekilde görüntüleyebilirsiniz:
 
     ![Cihaz panosunun operatör görünümü](media/tutorial-customize-operator/operatordashboard.png)
 
@@ -135,14 +136,14 @@ Oluşturucu veya operatör bir Azure IoT Central uygulamasında oturum açtığ�
 
     ![Uygulama Oluşturucu sayfası](media/tutorial-customize-operator/builderhome.png)
 
-1. Giriş sayfasını özelleştirmek için **Kütüphane**’den kutucuk ekleyin. **Bağlantı**’yı seçin ve kuruluşunuzun web sitesinin ayrıntılarını ekleyin. Ardından **Kaydet**'i seçin:
+2. Giriş sayfasını özelleştirmek için **Kütüphane**’den kutucuk ekleyin. **Bağlantı**’yı seçin ve kuruluşunuzun web sitesinin ayrıntılarını ekleyin. Ardından **Kaydet**'i seçin:
 
     ![Giriş sayfasına bağlantı ekleme](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > Azure IoT Central uygulamanızdaki sayfalara bağlantılar da ekleyebilirsiniz. Örneğin, bir cihazın panosuna ya da ayarlar sayfasına bağlantı ekleyebilirsiniz.
 
-1. İsteğe bağlı olarak, **Görüntü**’yü seçin ve giriş sayfanızda gösterilecek bir görüntü yükleyin. Görüntünün, üzerine tıkladığınızda gidebileceğiniz bir URL’si olabilir:
+3. İsteğe bağlı olarak, **Görüntü**’yü seçin ve giriş sayfanızda gösterilecek bir görüntü yükleyin. Görüntünün, üzerine tıkladığınızda gidebileceğiniz bir URL’si olabilir:
 
     ![Giriş sayfasına görüntü ekleme](media/tutorial-customize-operator/addimage.png)
 
@@ -169,7 +170,7 @@ Bu öğreticide, uygulamanın operatör görünümünü özelleştirme hakkında
 > * Varsayılan giriş sayfanızı yapılandırma
 > * Bir operatör olarak varsayılan giriş sayfasının önizlemesini görme
 
-Uygulamanın operatör görünümünü özelleştirmeyi öğrendikten sonra şu adımları uygulamanız önerilir:
+Uygulamanın operatör görünümünü özelleştirmeyi öğrendiğinize göre, önerilen sonraki adımlar şunlardır:
 
 * [Cihazlarınızı izleme (operatör olarak)](tutorial-monitor-devices.md)
 * [Uygulamanıza yeni cihaz ekleme (operatör ve cihaz geliştiricisi olarak)](tutorial-add-device.md)

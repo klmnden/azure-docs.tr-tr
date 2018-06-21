@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: spelluru
-ms.openlocfilehash: b42183369b9ad88c77a05a91fdba8fe0efca2a8c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637862"
 ---
-# <a name="an-introduction-to-azure-lab-services-formerly-azure-devtest-labs"></a>Azure Lab Services’e giriş (önceki adıyla Azure DevTest Labs)
+# <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services’a giriş
 Azure Lab Services, takımınız için bulutta hızlıca bir ortam ayarlamanızı sağlar (örneğin: geliştirme ortamı, test ortamı, sınıf laboratuvarı ortamı). Laboratuvar sahibi laboratuvarı oluşturur, Windows veya Linux sanal makineleri sağlar, gerekli yazılım ve araçları yükler ve laboratuvar kullanıcıları için kullanılabilir hale getirir. Laboratuvar kullanıcıları, laboratuvardaki sanal makinelere (VM) bağlanır ve bunları günlük işleri, kısa süreli projeleri ya da sınıf egzersizleri yapmak için kullanır. Kullanıcılar laboratuvardaki kaynakları kullanmaya başladıktan sonra, laboratuvar yöneticisi birden fazla laboratuvardaki maliyet ve kullanımı analiz edebilir ve kuruluşunuzun veya takımınızın maliyetlerini en iyi duruma getirmeye yönelik kapsayıcı ilkeler ayarlayabilir.
 
 > [!IMPORTANT]
-> Azure DevTest Labs, yeni laboratuvar türleri (Azure Lab Services) ile genişletiliyor! 
+> **Azure DevTest Labs**, yeni laboratuvar türleri (Azure Lab Services) ile genişletiliyor! 
 > 
 > Azure Lab Services, sınıf laboratuvarları gibi yönetilen laboratuvarlar oluşturmanıza olanak tanır. Hizmet, yönetilen bir laboratuvar için, VM’leri tasarlamaktan hataları işlemeye ve altyapıyı ölçeklendirmeye varan tüm altyapı yönetimi konularını ele alır. Yönetilen laboratuvarlar şu an için önizleme aşamasındadır. Önizleme aşaması sona erdikten sonra, yeni laboratuvar türleri ve mevcut DevTest Labs, tüm laboratuvar türlerinin gelişmeye devam edeceği Azure Lab Services adı altında birleşecektir. 
 
@@ -31,7 +32,7 @@ Azure Lab Services, takımınız için bulutta hızlıca bir ortam ayarlamanız�
 Azure Lab Services aşağıdaki temel özellikleri destekler: 
 
 - **Hızlı ve esnek bir laboratuvar kurulumu**. Laboratuvar sahipleri Azure Lab Services’i kullanarak gereksinimlerine uygun bir laboratuvarı hızlıca ayarlayabilir. Hizmet, laboratuvar sahibinin aboneliği kapsamında yönetilen laboratuvarlara yönelik tüm Azure altyapı işlerini halletme veya laboratuvar yöneticilerinin altyapıyı kendi kendine yönetmesini ya da özelleştirmesini sağlama seçeneği sunar. Hizmet, sizin yerinize yönettiği laboratuvarlar için yerleşik ölçeklendirme ve esneklik özelliği sağlar. 
-- **Laboratuvar kullanıcıları için basitleştirilmiş deneyim**. Sınıf laboratuvarı gibi yönetilen bir laboratuvarda laboratuvar kullanıcıları, bir kayıt kodu ile laboratuvara kaydolabilir ve laboratuvarın kaynaklarını kullanmak üzere diledikleri zaman laboratuvara erişebilir. DevTest Labs hizmetinde oluşturulan özel bir laboratuvarda laboratuvar sahibi, laboratuvar kullanıcılarına sanal makine oluşturma ve sanal makinelere erişme, veri disklerini yönetme ve yeniden kullanma ve yeniden kullanılabilir gizli diziler oluşturma izinleri verebilir.  
+- **Laboratuvar kullanıcıları için basitleştirilmiş deneyim**. Sınıf laboratuvarı gibi yönetilen bir laboratuvarda laboratuvar kullanıcıları, bir kayıt kodu ile laboratuvara kaydolabilir ve laboratuvarın kaynaklarını kullanmak üzere diledikleri zaman laboratuvara erişebilir. DevTest Labs hizmetinde oluşturulan bir laboratuvarda laboratuvar sahibi, laboratuvar kullanıcılarına sanal makine oluşturma ve sanal makinelere erişme, veri disklerini yönetme ve yeniden kullanma ve yeniden kullanılabilir gizli diziler ayarlama izinleri verebilir.  
 - **Maliyet iyileştirme ve analizi**. Laboratuvar sahibi, sanal makineleri otomatik olarak kapatmak ve başlatmak için laboratuvar zamanlamaları ayarlayabilir. Laboratuvar sahibi, laboratuvarın sanal makinelerine kullanıcılar tarafından erişilebildiğinde zaman dilimlerini belirlemek üzere bir zamanlama ayarlayabilir, maliyeti iyileştirmek için kullanıcı ya da laboratuvar başına kullanım ilkeleri belirleyebilir ve bir laboratuvardaki kullanım ve etkinlik eğilimlerini analiz edebilir. Sınıf laboratuvarları gibi yönetilen laboratuvarlar için şu anda daha küçük bir maliyet iyileştirme ve analiz seçenekleri alt kümesi mevcuttur. 
 - **Yerleşik güvenlik**. Laboratuvar sahibi, özel bir sanal ağ ve bir laboratuvar alt ağı oluşturabilir ve paylaşılan bir genel IP adresini etkinleştirebilir. Laboratuvar kullanıcıları, ExpressRoute veya siteden siteye VPN ile yapılandırılan sanal ağı kullanarak kaynaklara güvenle erişebilir. (şu anda yalnızca DevTest Labs ile kullanılabilir)
 - **İş akışlarınız ve araçlarınızla tümleştirme**. Azure Lab Services, laboratuvarları kuruluşunuzun web sitesi ve yönetim sistemleri ile tümleştirme olanağı sağlar. Ortamları sürekli tümleştirme/sürekli dağıtım (CI/CD) araçlarınızın içinden otomatik olarak sağlayabilirsiniz. (şu anda yalnızca DevTest Labs ile kullanılabilir)
@@ -93,5 +94,5 @@ Laboratuvar kullanıcısı aşağıdaki görevleri yerine getirir:
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:
 
-- [Bir sınıf laboratuvarı ayarlama](tutorial-setup-classroom-lab.md)
-- [Özel bir laboratuvarı ayarlama](tutorial-create-custom-lab.md)
+- [Bir sınıf laboratuvarı ayarlama](classroom-labs/tutorial-setup-classroom-lab.md)
+- [Laboratuvar ayarlama](tutorial-create-custom-lab.md)

@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6c84b60018ec03b7f9bc572db9181b8a47a0c595
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 860d28cb6726a86194460977b822197a37ab7279
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365415"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642878"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>Hızlı Başlangıç: Azure’a Java Spring Boot Uygulaması dağıtma
 Azure Service Fabric; mikro hizmetleri ve kapsayıcıları dağıtmayı ve yönetmeyi sağlayan bir dağıtılmış sistemler platformudur. 
 
-Bu hızlı başlangıçta, bir Mac veya Linux geliştirici makinesi kullanılarak bir Spring Boot uygulamasının Service Fabric’e nasıl dağıtılacağı gösterilmektedir. Bu hızlı başlangıçta Spring web sitesindeki [Kullanmaya Başlama](https://spring.io/guides/gs/spring-boot/) örneği kullanılır. Bu hızlı başlangıç, bilindik komut satırı araçlarını kullanarak bir Service Fabric uygulaması olarak Spring Boot örneğini dağıtma adımlarını gösterir. İşlemi tamamladığınızda, Spring Boot Kullanmaya Başlama örneği, Service Fabric üzerinde çalışmaya başlar. 
+Bu hızlı başlangıçta tanıdık komut satırı araçları ile, Spring web sitesindeki [Kullanmaya Başlama](https://spring.io/guides/gs/spring-boot/) örneği kullanılarak bir Mac veya Linux geliştirici makinesinde işlevsel bir Spring Boot uygulamasının Service Fabric’e nasıl dağıtılacağı açıklanmaktadır.
 
 ![Uygulama Ekran Görüntüsü](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -224,7 +224,7 @@ Uygulama ve kümeniz qhazır olduğuna göre, doğrudan komut satırındaki bir 
 Artık Azure’da bir Service Fabric kümesi çalıştıran Spring Boot uygulamasına erişebilirsiniz.  
     
 ## <a name="scale-applications-and-services-in-a-cluster"></a>Bir kümedeki uygulamaları ve hizmetleri ölçeklendirme
-Hizmet yükündeki bir değişikliği karşılamak için kümedeki hizmetler kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; örneğin, Service Fabric CLI’den (sfctl) betikler veya komutlar kullanabilirsiniz. Aşağıdaki adımlarda, Service Fabric Explorer kullanılmaktadır.
+Hizmet yükündeki bir değişikliği karşılamak için kümedeki hizmetler kolayca ölçeklendirilebilir. Kümede çalıştırılan örnek sayısını değiştirerek bir hizmeti ölçeklendirebilirsiniz. Hizmetlerinizi ölçeklendirmenin birçok yolu vardır; örneğin, Service Fabric CLI’den (sfctl) betikler veya komutlar kullanabilirsiniz. Aşağıdaki adımlarda Service Fabric Explorer kullanılmaktadır.
 
 Service Fabric Explorer tüm Service Fabric kümelerinde çalıştırılır ve tarayıcıdan kümelerin HTTP yönetim bağlantı noktasına (19080) göz atılarak (örneğin, `http://localhost:19080`) erişilebilir.
 
@@ -246,7 +246,7 @@ Web ön uç hizmetini ölçeklendirmek için aşağıdakileri yapın:
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
 4. Ağaç görünümünde **fabric:/SpringServiceFabric/SpringGettingStarted** düğümüne tıklayın ve bölüm düğümünü (GUID ile gösterilir) genişletin.

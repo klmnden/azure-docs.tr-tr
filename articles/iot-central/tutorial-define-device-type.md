@@ -1,21 +1,22 @@
 ---
 title: Azure IoT Central'da yeni bir cihaz türü tanımlama | Microsoft Docs
 description: Bu öğreticide, bir oluşturucu olarak Azure IoT Central uygulamanızda yeni bir cihaz türünü nasıl tanımlayacağınız gösterilir. Türünüz için telemetriyi, durumu, özellikleri ve ayarları tanımlarsınız.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: e1488b708bbbee67362d834a9a703520d37bef37
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 71ccae1951020a522fbbdddcdce0bbeeea5f1fb9
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201681"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235799"
 ---
-# <a name="1---define-a-new-device-type-in-your-azure-iot-central-application"></a>1 - Azure IoT Central uygulamanıza yeni bir cihaz türü tanımlama
+# <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Öğretici: Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlama
 
 Bu öğreticide, bir oluşturucu olarak Microsoft Azure IoT Central uygulamanızda yeni bir cihaz türü tanımlamak için cihaz şablonunu nasıl tanımlayacağınız gösterilir. Cihaz şablonu, cihaz türünüz için telemetriyi, durumu, özellikleri ve ayarları tanımlar.
 
@@ -43,27 +44,27 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıcı tamamlamak bir Azure IoT Central uygulamanızın olması gerekir. [Azure IoT Central uygulamasını oluşturma](quick-deploy-iot-central.md) hızlı başlangıcını tamamladıysanız, hızla başlangıçta oluşturduğunuz uygulamayı yeniden kullanabilirsiniz. Aksi takdirde, aşağıdaki adımları tamamlayarak boş bir Azure IoT Central uygulaması oluşturun:
+Bu öğreticiyi tamamlamak için bir Azure IoT Central uygulamanızın olması gerekir. [Azure IoT Central uygulamasını oluşturma](quick-deploy-iot-central.md) hızlı başlangıcını tamamladıysanız, hızla başlangıçta oluşturduğunuz uygulamayı yeniden kullanabilirsiniz. Aksi takdirde, aşağıdaki adımları tamamlayarak boş bir Azure IoT Central uygulaması oluşturun:
 
 1. Azure IoT Central [Uygulama Yöneticisi](https://aka.ms/iotcentral) sayfasına gidin.
 
-1. Azure aboneliğinize erişmek için kullandığınız e-posta adresini ve parolayı girin:
+2. Azure aboneliğinize erişmek için kullandığınız e-posta adresini ve parolayı girin:
 
    ![Kuruluş hesabınızı girin](media/tutorial-define-device-type/sign-in.png)
 
-1. Yeni bir Azure IoT Central uygulaması oluşturmaya başlamak için **Yeni Uygulama**'yı seçin:
+3. Yeni bir Azure IoT Central uygulaması oluşturmaya başlamak için **Yeni Uygulama**'yı seçin:
 
     ![Azure IoT Central Uygulama Yöneticisi sayfası](media/tutorial-define-device-type/iotcentralhome.png)
 
-1. Yeni bir Azure IoT Central uygulaması oluşturmak için:
+4. Yeni bir Azure IoT Central uygulaması oluşturmak için:
 
-    1. **Contoso Klimaları** gibi kolay bir uygulama adı seçin. Azure IoT Central sizin için benzersiz bir URL ön eki oluşturur. Bu URL ön ekini daha akılda kalır bir şeyle değiştirebilirsiniz.
-    1. Kullanılacak Azure Active Directory'yi ve Azure aboneliğini seçin. Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Azure IoT Central uygulaması oluşturma](howto-create-application.md).
-    1. Mevcut kaynak grubunu kullanın veya kendi seçtiğiniz adla yeni bir kaynak grubu oluşturun. Örneğin, **contoso-rg**.
-    1. Coğrafi olarak size en yakın olan bölgeyi seçin.
-    1. **Özel Uygulama** adlı uygulama şablonunu seçin.
-    1. **Ücretsiz 30 Günlük Deneme Uygulaması** ödeme planını seçin.
-    1. Ardından **Oluştur**’u seçin.
+    * **Contoso Klimaları** gibi kolay bir uygulama adı seçin. Azure IoT Central sizin için benzersiz bir URL ön eki oluşturur. Bu URL ön ekini daha akılda kalır bir şeyle değiştirebilirsiniz.
+    * Kullanılacak Azure Active Directory'yi ve Azure aboneliğini seçin. Dizinler ve abonelikler hakkında daha fazla bilgi için bkz. [Azure IoT Central uygulaması oluşturma](howto-create-application.md).
+    * Mevcut kaynak grubunu kullanın veya kendi seçtiğiniz adla yeni bir kaynak grubu oluşturun. Örneğin, **contoso-rg**.
+    * Coğrafi olarak size en yakın olan bölgeyi seçin.
+    * **Özel Uygulama** adlı uygulama şablonunu seçin.
+    * **Ücretsiz 30 Günlük Deneme Uygulaması** ödeme planını seçin.
+    * **Oluştur**’u seçin.
 
     ![Azure IoT Central Uygulama Oluştur sayfası](media/tutorial-define-device-type/iotcentralcreate.png)
 
@@ -85,15 +86,15 @@ Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar i
 
     ![Uygulama Oluşturucu sayfası, Cihaz Şablonu Oluştur](media/tutorial-define-device-type/builderhomedevices.png)
 
-1. **Cihaz Şablonları** sayfasında **Özel**'i seçin. **Özel** cihaz şablonu, bağlı klimanızın tüm özelliklerini ve davranışlarını tanımlamanıza olanak sağlar:
+2. **Cihaz Şablonları** sayfasında **Özel**'i seçin. **Özel** cihaz şablonu, bağlı klimanızın tüm özelliklerini ve davranışlarını tanımlamanıza olanak sağlar:
 
     ![Cihazlar](media/tutorial-define-device-type/builderhomedevicescustom.png)
 
-1. **Yeni Cihaz Şablonu** sayfasında, cihazınızın adı olarak **Bağlı Klima** girin ve ardından **Oluştur**'u seçin. Device Explorer'da cihazınızın operatörlerin görebileceği bir resmini de karşıya yükleyebilirsiniz:
+3. **Yeni Cihaz Şablonu** sayfasında, cihazınızın adı olarak **Bağlı Klima** girin ve ardından **Oluştur**'u seçin. Device Explorer'da cihazınızın operatörlerin görebileceği bir resmini de karşıya yükleyebilirsiniz:
 
     ![Özel Cihaz](media/tutorial-define-device-type/createcustomdevice.png)
 
-1. **Bağlı Klima** cihaz şablonunda, telemetriyi tanımladığınız **Ölçümler** sayfasına geldiğinizden emin olun. Tanımladığınız her cihaz şablonunun aşağıdakileri yapmanızı sağlayan ayrı sayfaları vardır:
+4. **Bağlı Klima** cihaz şablonunda, telemetriyi tanımladığınız **Ölçümler** sayfasına geldiğinizden emin olun. Tanımladığınız her cihaz şablonunun aşağıdakileri yapmanızı sağlayan ayrı sayfaları vardır:
 
     * Telemetri, olay ve durum gibi cihaz tarafından gönderilen ölçümleri belirtme.
     * Cihazı denetlemek için kullanılan ayarları tanımlama.
@@ -106,11 +107,11 @@ Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar i
     > [!NOTE]
     > Cihazın veya cihaz şablonunun adını değiştirmek için, sayfanın en üstündeki metne tıklayın.
 
-1. Sıcaklık telemetri ölçümünü eklemek için **Yeni Ölçüm**'ü seçin. Ardından ölçüm türü olarak **Telemetri** seçin:
+5. Sıcaklık telemetri ölçümünü eklemek için **Yeni Ölçüm**'ü seçin. Ardından ölçüm türü olarak **Telemetri** seçin:
 
     ![Bağlı klima ölçümleri](media/tutorial-define-device-type/airconmeasurementsnew.png)
 
-1. Cihaz şablonu için oluşturduğunuz her telemetri türü aşağıdakiler gibi [yapılandırma seçenekleri](howto-set-up-template.md) içerir:
+6. Cihaz şablonu için oluşturduğunuz her telemetri türü aşağıdakiler gibi [yapılandırma seçenekleri](howto-set-up-template.md) içerir:
 
     * Görüntü seçenekleri.
     * Telemetrinin ayrıntıları.
@@ -131,22 +132,23 @@ Aşağıdaki adımlar, uygulamanıza sıcaklık telemetrisi gönderen cihazlar i
 
     ![Sıcaklık simülasyonunu yapılandırma](media/tutorial-define-device-type/temperaturesimulation.png)
 
-1. Kısa bir süre sonra, **Ölçümler** sayfasında bağlı klima simülasyon cihazınızdan gelen sıcaklık telemetrisinin grafiği gösterilir. Görünürlüğü, toplamayı yönetmek veya telemetri tanımını düzenlemek için denetimleri kullanın:
+7. Kısa bir süre sonra, **Ölçümler** sayfasında bağlı klima simülasyon cihazınızdan gelen sıcaklık telemetrisinin grafiği gösterilir. Görünürlüğü, toplamayı yönetmek veya telemetri tanımını düzenlemek için denetimleri kullanın:
 
     ![Sıcaklık simülasyonunu görüntüleme](media/tutorial-define-device-type/viewsimulation.png)
 
-1. Ayrıca, **Çizgi**, **Yığılmış** ve **Zaman Aralığını Düzenle** denetimlerini kullanarak grafiği de özelleştirebilirsiniz:
+8. Ayrıca, **Çizgi**, **Yığılmış** ve **Zaman Aralığını Düzenle** denetimlerini kullanarak grafiği de özelleştirebilirsiniz:
 
     ![Grafiği özelleştirme](media/tutorial-define-device-type/customizechart.png)
 
 ## <a name="define-event-measurement"></a>Olay ölçümünü tanımlama
+
 Cihaz tarafından bir hata veya bileşen arızası gibi önemli bir duruma işaret etmek için gönderilmiş, zamanın belirli bir noktasına ilişkin verileri tanımlamak için Olay kullanabilirsiniz. Telemetri ölçümlerinde olduğu gibi, fiziksel cihazı bağlamadan önce uygulamanızın davranışını test edebilmeniz için Azure IoT Central cihaz olaylarının da simülasyonunu yapabilir. Cihaz türünüzün olay ölçümlerini **Ölçümler** görünümünde tanımlarsınız.
 
 1. **Fan Motoru Hatası** olay ölçümünü eklemek için **Yeni Ölçüm**'ü seçin. Ardından ölçüm türü olarak **Olay** seçin:
 
     ![Bağlı klima ölçümleri](media/tutorial-define-device-type/eventnew.png)
 
-1. Cihaz şablonu için oluşturduğunuz her Olay türü aşağıdakiler gibi [yapılandırma seçenekleri](howto-set-up-template.md) içerir:
+2. Cihaz şablonu için oluşturduğunuz her Olay türü aşağıdakiler gibi [yapılandırma seçenekleri](howto-set-up-template.md) içerir:
 
     * Görünen Ad
     * Alan Adı.
@@ -158,13 +160,13 @@ Cihaz tarafından bir hata veya bileşen arızası gibi önemli bir duruma işar
     | -------------------- | -----------       |
     | Görünen Ad         | Fan Motoru Hatası   |
     | Alan Adı           | fanmotorerr       |
-    | Önem Derecesi             | Hata             |
+    | Severity             | Hata             |
 
     Olay tanımını kaydetmek için **Kaydet**'i seçin:
 
     ![Olay ölçümünü yapılandırma](media/tutorial-define-device-type/eventconfiguration.png)
 
-1. Kısa bir süre sonra, **Ölçümler** sayfasında bağlı klima simülasyon cihazınızdan rastgele oluşturulan olayların grafiği gösterilir. Görünürlüğü yönetmek veya olay tanımını düzenlemek için denetimleri kullanın:
+3. Kısa bir süre sonra, **Ölçümler** sayfasında bağlı klima simülasyon cihazınızdan rastgele oluşturulan olayların grafiği gösterilir. Görünürlüğü yönetmek veya olay tanımını düzenlemek için denetimleri kullanın:
 
     ![Olay simülasyonunu görüntüleme](media/tutorial-define-device-type/eventview.png)
 
@@ -172,15 +174,15 @@ Cihaz tarafından bir hata veya bileşen arızası gibi önemli bir duruma işar
 
     ![Olay Ayrıntılarını Görüntüleme](media/tutorial-define-device-type/eventviewdetail.png)
 
-
 ## <a name="define-state-measurement"></a>Durum ölçümünü tanımlama
+
 Belirli bir zaman süresince cihazın veya bileşeninin durumunu tanımlamak ve görselleştirmek için Durum ölçümünü kullanabilirsiniz. Telemetri ölçümlerinde olduğu gibi, fiziksel cihazı bağlamadan önce uygulamanızın davranışını test edebilmeniz için Azure IoT Central cihaz durumunun da simülasyonunu yapabilir. Cihaz türünüzün durum ölçümlerini **Ölçümler** görünümünde tanımlarsınız.
 
 1. **Fan Modu** ölçümünü eklemek için **Yeni Ölçüm**'ü seçin. Ardından ölçüm türü olarak **Durum** seçin:
 
     ![Bağlı klima durum ölçümleri](media/tutorial-define-device-type/statenew.png)
 
-1. Cihaz şablonu için oluşturduğunuz her Durum türü aşağıdakiler gibi [yapılandırma seçenekleri](howto-set-up-template.md) içerir:
+2. Cihaz şablonu için oluşturduğunuz her Durum türü aşağıdakiler gibi [yapılandırma seçenekleri](howto-set-up-template.md) içerir:
 
     * Görünen Ad
     * Alan Adı.
@@ -202,11 +204,11 @@ Belirli bir zaman süresince cihazın veya bileşeninin durumunu tanımlamak ve 
 
     ![Durum ölçümünü yapılandırma](media/tutorial-define-device-type/stateconfiguration.png)
 
-1. Kısa bir süre sonra, **Ölçümler** sayfasında bağlı klima simülasyon cihazınızdan rastgele oluşturulan durumların grafiği gösterilir. Görünürlüğü yönetmek veya durum tanımını düzenlemek için denetimleri kullanın:
+3. Kısa bir süre sonra, **Ölçümler** sayfasında bağlı klima simülasyon cihazınızdan rastgele oluşturulan durumların grafiği gösterilir. Görünürlüğü yönetmek veya durum tanımını düzenlemek için denetimleri kullanın:
 
     ![Durum simülasyonunu görüntüleme](media/tutorial-define-device-type/stateview.png)
 
-1. Kısa bir süre içinde cihazdan çok fazla veri noktası gönderildiği olursa, durum ölçümü aşağıda gösterildiği gibi farklı bir görselle görüntülenir. Grafiğe tıklarsanız, söz konusu süre içindeki tüm veri noktaları kronolojik sırada görüntülenir. Ayrıca süreyi daraltarak ölçümün grafikte çizilmiş halini de görebilirsiniz.
+4. Kısa bir süre içinde cihazdan çok fazla veri noktası gönderildiği olursa, durum ölçümü aşağıda gösterildiği gibi farklı bir görselle görüntülenir. Grafiğe tıklarsanız, söz konusu süre içindeki tüm veri noktaları kronolojik sırada görüntülenir. Ayrıca süreyi daraltarak ölçümün grafikte çizilmiş halini de görebilirsiniz.
 
     ![Durum ayrıntılarını görüntüleme](media/tutorial-define-device-type/stateviewdetail.png)
 
@@ -215,12 +217,14 @@ Belirli bir zaman süresince cihazın veya bileşeninin durumunu tanımlamak ve 
 Özellikler, cihaz özellikleri ve ayarlar, cihaz şablonunda tanımlanan ve tek tek her cihazla ilişkilendirilen farklı değerlerdir:
 
 * Uygulamanızdan cihaza yapılandırma verilerini göndermek için _ayarları_ kullanırsınız. Örneğin, operatör bir ayar kullanarak cihazın iki saniye olan telemetri aralığını beş saniye olarak değiştirebilir. Operatör ayarı değiştirdiğinde, cihaz ayar değişikliğini uyguladığını kabul edene kadar bu ayar kullanıcı arabiriminde beklemede olarak işaretlenir.
+
 * Uygulamanızda cihazınız hakkındaki bilgileri kaydetmek için _özellikleri_ kullanırsınız. Örneğin, özellikleri kullanarak cihazın seri numarasını veya cihaz üreticisinin telefon numarasını kaydedebilirsiniz. Özellikler uygulamada depolanır ve cihazla eşitlenmez. Bir operatör özelliklere değerler atayabilir.
+
 * Cihazın uygulamanıza özellik değerlerini göndermesini sağlamak için _cihaz özelliklerini_ kullanırsınız. Bu özellikler yalnızca cihaz tarafından değiştirilebilir. Operatör açısından cihaz özellikleri salt okunurdur.
 
 ## <a name="use-settings"></a>Ayarları kullanma
 
-Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için _ayarları_ kullanırsınız. Bu bölümde, **Bağlı Klima** cihaz şablonunuza operatörün bağlı klimanın hedef sıcaklığını ayarlamasına olanak tanıyan bir ayar ekleyeceksiniz.
+Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için *ayarları* kullanırsınız. Bu bölümde, **Bağlı Klima** cihaz şablonunuza operatörün bağlı klimanın hedef sıcaklığını ayarlamasına olanak tanıyan bir ayar ekleyeceksiniz.
 
 1. **Bağlı Klima** cihaz şablonunuzun **Ayarlar** sayfasına gidin:
 
@@ -228,9 +232,9 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
 
     Sayılar veya metinler gibi farklı türlerin ayarlarını oluşturabilirsiniz.
 
-1. Cihazınıza bir sayı ayarı eklemek için **Sayı**'yı seçin.
+2. Cihazınıza bir sayı ayarı eklemek için **Sayı**'yı seçin.
 
-1. **Sıcaklık Ayarlama** ayarınızı yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
+3. **Sıcaklık Ayarlama** ayarınızı yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Alan                | Değer           |
     | -------------------- | -----------     |
@@ -250,13 +254,13 @@ Operatörün cihaza yapılandırma verilerini gönderebilmesini sağlamak için 
     > [!NOTE]
     > Cihaz bir ayar değişikliğini kabul ettikten sonra, ayarın durumu **eşitlendi** olarak değişir.
 
-1. Ayarlar kutucuklarını taşıyarak ve yeniden boyutlandırarak **Ayarlar** sayfasının düzenini özelleştirebilirsiniz:
+4. Ayarlar kutucuklarını taşıyarak ve yeniden boyutlandırarak **Ayarlar** sayfasının düzenini özelleştirebilirsiniz:
 
     ![Ayarlar düzenini özelleştirme](media/tutorial-define-device-type/settingslayout.png)
 
 ## <a name="use-properties"></a>Özellikleri kullanma
 
-_Özellikleri_, cihazınız hakkındaki bilgileri uygulamada depolamak için kullanırsınız. Bu bölümde, her cihazın cihaz seri numarasını ve üretici yazılımı sürümünü depolamak için **Bağlı Klima** cihaz şablonunuza özellikleri eklersiniz.
+*Özellikleri*, cihazınız hakkındaki bilgileri uygulamada depolamak için kullanırsınız. Bu bölümde, her cihazın cihaz seri numarasını ve üretici yazılımı sürümünü depolamak için **Bağlı Klima** cihaz şablonunuza özellikleri eklersiniz.
 
 1. **Bağlı Klima** cihaz şablonunuzun **Özellikler** sayfasına gidin:
 
@@ -264,7 +268,7 @@ _Özellikleri_, cihazınız hakkındaki bilgileri uygulamada depolamak için kul
 
     Sayılar veya metinler gibi farklı türlerin özelliklerini oluşturabilirsiniz. Cihaz şablonunuza seri numarası özelliği eklemek için **Metin**'i seçin.
 
-1. Seri numarası özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
+2. Seri numarası özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Alan                | Değer                |
     | -------------------- | -------------------- |
@@ -279,9 +283,9 @@ _Özellikleri_, cihazınız hakkındaki bilgileri uygulamada depolamak için kul
 
     Ardından **Kaydet**'i seçin.
 
-1. Cihaz şablonunuza üretici yazılımı sürümü özelliği eklemek için **Metin**'i seçin
+3. Cihaz şablonunuza üretici yazılımı sürümü özelliği eklemek için **Metin**'i seçin
 
-1. Üretici yazılımı sürümü özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
+4. Üretici yazılımı sürümü özelliğinizi yapılandırmak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Alan                | Değer                   |
     | -------------------- | ----------------------- |
@@ -294,7 +298,7 @@ _Özellikleri_, cihazınız hakkındaki bilgileri uygulamada depolamak için kul
 
     Ardından **Kaydet**'i seçin.
 
-1. Özellikler kutucuklarını taşıyarak ve yeniden boyutlandırarak **Özellikler** sayfasının düzenini özelleştirebilirsiniz:
+5. Özellikler kutucuklarını taşıyarak ve yeniden boyutlandırarak **Özellikler** sayfasının düzenini özelleştirebilirsiniz:
 
     ![Özellikler düzenini özelleştirme](media/tutorial-define-device-type/propertieslayout.png)
 
@@ -306,11 +310,11 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     ![Bağlı klima cihazı panoları](media/tutorial-define-device-type/aircondashboards.png)
 
-1. **Çizgi Grafik** bileşenini seçerek bunu **Pano**'ya ekleyin:
+2. **Çizgi Grafik** bileşenini seçerek bunu **Pano**'ya ekleyin:
 
     ![Pano bileşenleri](media/tutorial-define-device-type/dashboardcomponents1.png)
 
-1. Aşağıdaki tabloda yer alan bilgileri kullanarak **Çizgi Grafik** bileşenini yapılandırın:
+3. Aşağıdaki tabloda yer alan bilgileri kullanarak **Çizgi Grafik** bileşenini yapılandırın:
 
     | Ayar      | Değer       |
     | ------------ | ----------- |
@@ -322,7 +326,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     Ardından **Kaydet**'i seçin.
 
-1. Aşağıdaki tabloda yer alan bilgileri kullanarak **Olay Grafiği** bileşenini yapılandırın:
+4. Aşağıdaki tabloda yer alan bilgileri kullanarak **Olay Grafiği** bileşenini yapılandırın:
 
     | Ayar      | Değer       |
     | ------------ | ----------- |
@@ -334,7 +338,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     Ardından **Kaydet**'i seçin.
 
-1. Aşağıdaki tabloda yer alan bilgileri kullanarak **Durum Grafiği** bileşenini yapılandırın:
+5. Aşağıdaki tabloda yer alan bilgileri kullanarak **Durum Grafiği** bileşenini yapılandırın:
 
     | Ayar      | Değer       |
     | ------------ | ----------- |
@@ -346,11 +350,11 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     Ardından **Kaydet**'i seçin.
 
-1. Panoya sıcaklık ayarlama ayarını eklemek için **Ayarlar ve Özellikler**'i seçin:
+6. Panoya sıcaklık ayarlama ayarını eklemek için **Ayarlar ve Özellikler**'i seçin:
 
     ![Pano bileşenleri](media/tutorial-define-device-type/dashboardcomponents4.png)
 
-1. Aşağıdaki tabloda yer alan bilgileri kullanarak **Ayarlar ve Özellikler** bileşenini yapılandırın:
+7. Aşağıdaki tabloda yer alan bilgileri kullanarak **Ayarlar ve Özellikler** bileşenini yapılandırın:
 
     | Ayar                 | Değer         |
     | ----------------------- | ------------- |
@@ -361,11 +365,11 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     Ardından **Kaydet**'i seçin.
 
-1. Panoya cihaz seri numarası eklemek için **Ayarlar ve Özellikler**'i seçin:
+8. Panoya cihaz seri numarası eklemek için **Ayarlar ve Özellikler**'i seçin:
 
     ![Pano bileşenleri](media/tutorial-define-device-type/dashboardcomponents3.png)
 
-1. Aşağıdaki tabloda yer alan bilgileri kullanarak **Ayarlar ve Özellikler** bileşenini yapılandırın:
+9. Aşağıdaki tabloda yer alan bilgileri kullanarak **Ayarlar ve Özellikler** bileşenini yapılandırın:
 
     | Ayar                 | Değer         |
     | ----------------------- | ------------- |
@@ -376,11 +380,11 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     Ardından **Kaydet**'i seçin.
 
-1. Panoya cihaz üretici yazılımı sürümünü eklemek için **Ayarlar ve Özellikler**'i seçin:
+10. Panoya cihaz üretici yazılımı sürümünü eklemek için **Ayarlar ve Özellikler**'i seçin:
 
     ![Pano bileşenleri](media/tutorial-define-device-type/dashboardcomponents4.png)
 
-1. Aşağıdaki tabloda yer alan bilgileri kullanarak **Ayarlar ve Özellikler** bileşenini yapılandırın:
+11. Aşağıdaki tabloda yer alan bilgileri kullanarak **Ayarlar ve Özellikler** bileşenini yapılandırın:
 
     | Ayar                 | Değer            |
     | ----------------------- | ---------------- |
@@ -391,7 +395,7 @@ Artık **Bağlı Klima** cihaz şablonunuzu tanımladığınıza göre, **Panosu
 
     Ardından **Kaydet**'i seçin.
 
-1. Bir operatör olarak panoyu görüntülemek için, sayfanın sağ üst kısmında **Tasarım Modu**'nu kapatın.
+12. Bir operatör olarak panoyu görüntülemek için, sayfanın sağ üst kısmında **Tasarım Modu**'nu kapatın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

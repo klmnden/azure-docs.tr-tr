@@ -1,3 +1,1 @@
-Azure Portalı'ndaki Hizmetler listesinden **Azure AD B2C**’yi seçin.
-
-![B2C hizmetini seçin](media/active-directory-b2c-find-service-settings/select-b2c-service.png)
+Azure portalın sol üst köşesinde **Tüm hizmetler**’i seçin ve **Azure AD B2C**’yi arayıp seçin. Artık önceki öğreticide oluşturduğunuz kiracıyı kullanıyor olmanız gerekir.
