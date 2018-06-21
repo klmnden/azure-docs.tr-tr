@@ -1,84 +1,82 @@
 ---
-title: "Kullanım Azure IOT Hub cihaz sağlama hizmeti yük arasında cihazları sağlamak için IOT hub'ları dengeli | Microsoft Docs"
-description: "IOT hub'ları Azure Portalı'nda dengeli dağıtım noktaları arasında yük otomatik cihaz sağlama"
-services: iot-dps
-keywords: 
+title: Yük dengeli IoT Hub'larında cihazları sağlamak için Azure IoT Hub Cihazı Sağlama Hizmeti'ni kullanma | Microsoft Docs
+description: Azure Portalı'nda yük dengeli IoT Hub'larında DPS otomatik cihaz sağlama
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: MT
+ms.openlocfilehash: d0a3720fe729d5e260bbe5b0902460c8c7cfc7cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629635"
 ---
-# <a name="provision-devices-across-load-balanced-iot-hubs"></a>Yük dengeli IOT hub'ları aygıtlarda sağlama
+# <a name="provision-devices-across-load-balanced-iot-hubs"></a>Yük dengeli IoT Hub'larında cihazları sağlama
 
-Bu öğretici için birden çok, cihazlara sağlamak nasıl gösterir cihaz sağlama hizmeti (DPS) kullanarak yük dengeli IOT hub'ları. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğreticide, Cihaz Sağlama Hizmeti (DPS) kullanılarak birden çok yük dengeli IoT Hub'ı için cihazları sağlama işlemi gösterilir. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
-> * İkinci bir IOT hub'ına ikinci bir cihaz sağlamak için Azure portalını kullanma 
-> * İkinci bir cihaz için bir kayıt listesi Girişi Ekle
-> * DPS ayırma ilkesini ayarlamak **bile dağıtım**
-> * Yeni IOT hub'ı dağıtım noktaları için bağlantı
+> * Azure portalını kullanarak ikinci bir IoT Hub'ı için ikinci cihazı sağlama 
+> * İkinci cihaza bir kayıt listesi girdisi ekleme
+> * DPS ayırma ilkesi olarak **eşit dağılım**'ı ayarlama
+> * Yeni IoT Hub'ını DPS'ye ayarlama
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticinin önceki üzerinde derlemeler [sağlama aygıt hub'ına](tutorial-provision-device-to-hub.md) Öğreticisi.
+Bu öğretici, önceki [Hub'a cihaz sağlama](tutorial-provision-device-to-hub.md) öğreticisinin üzerine kurulmuştur.
 
-## <a name="use-the-azure-portal-to-provision-a-second-device-to-a-second-iot-hub"></a>İkinci bir IOT hub'ına ikinci bir cihaz sağlamak için Azure portalını kullanma
+## <a name="use-the-azure-portal-to-provision-a-second-device-to-a-second-iot-hub"></a>Azure portalını kullanarak ikinci bir IoT Hub'ı için ikinci cihazı sağlama
 
-Adımları [sağlama aygıt hub'ına](tutorial-provision-device-to-hub.md) ikinci bir cihaz başka bir IOT hub'ına sağlayacak öğretici.
+Başka bir IoT Hub'ına ikinci cihazı sağlamak için, [Hub'a cihaz sağlama](tutorial-provision-device-to-hub.md) öğreticisindeki adımları izleyin.
 
-## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>İkinci bir cihaz için bir kayıt listesi Girişi Ekle
+## <a name="add-an-enrollment-list-entry-to-the-second-device"></a>İkinci cihaza bir kayıt listesi girdisi ekleme
 
-Kayıt listesi, hangi yöntemi kanıt (cihaz kimliğini onaylayan yöntemi) aygıtıyla kullanıyor DPS söyler. Sonraki adım, ikinci bir cihaz için bir kayıt listesi giriş eklemektir. 
+Kayıt listesi DPS'ye cihazla hangi kanıtlama yöntemini (cihazın kimliğini onaylama yöntemi) kullandığını bildirir. Sonraki adım, ikinci cihaz için bir kayıt listesi girdisi eklemektir. 
 
-1. Dağıtım noktaları sayfasında tıklatın **kayıtlarını yönetme**. **Kayıt liste girdisi eklemek** sayfası görüntülenir. 
-2. Sayfanın üstündeki **Ekle**.
-2. Alanları doldurun ve ardından **kaydetmek**.
+1. DPS'nizin sayfasında **Kayıtları yönetme**'ye tıklayın. **Kayıt listesi girdisi ekleme** sayfası görüntülenir. 
+2. Sayfanın en üstündeki **Ekle**'ye tıklayın.
+2. Alanları doldurun ve ardından **Kaydet**'e tıklayın.
 
-## <a name="set-the-dps-allocation-policy"></a>DPS ayırma ilkesi ayarlama
+## <a name="set-the-dps-allocation-policy"></a>DPS ayırma ilkesini ayarlama
 
-Ayırma ilkesi aygıtları bir IOT hub'ına nasıl atanacağını belirleyen DPS bir ayardır. Üç desteklenen ayırma ilkeleri vardır: 
+Ayırma ilkesi, bir IoT Hub’ına cihazların nasıl atandığını belirleyen bir DPS ayarıdır. Desteklenen üç ayırma ilkesi vardır: 
 
-1. **En düşük gecikme süresine**: cihazları cihaz için en düşük gecikme süresine sahip hub'ına bağlı bir IOT hub'ına sağlanan.
-2. **Dağıtım'eşit ağırlıklı** (varsayılan): bağlantılı IOT hub'ları için sağlaması yapılan aygıtlar eşit şekilde etkileyebilir. Bu varsayılan ayardır. Yalnızca bir IOT hub'ına aygıtları sağlıyorsanız, bu ayarı tutabilirsiniz. 
-3. **Kayıt listesi aracılığıyla statik Yapılandırması**: İstenen IOT hub'ı kayıt listesinde belirtimi DPS düzeyi ayırma ilkesine göre öncelik alır.
+1. **En düşük gecikme**: Cihaza yönelik en düşük gecikme ile hub’a dayalı bir IoT hub’a cihazlar sağlanabilir.
+2. **Eşit ağırlıklı dağılım** (varsayılan): Bağlı IoT hub’lara cihaz sağlanma olasılığı eşittir. Bu varsayılan ayardır. Yalnızca bir IoT hub'a aygıtları sağlıyorsanız bu ayarı değiştirmeyebilirsiniz. 
+3. **Kayıt listesi aracılığıyla statik yapılandırma**: Kayıt listesindeki istenen IoT hub’ın belirtimi, DPS düzeyindeki ayırma ilkesinden önceliklidir.
 
-Ayırma İlkesi ayarlamak için aşağıdaki adımları izleyin:
+Ayırma ilkesini ayarlamak için şu adımları izleyin:
 
-1. Ayırma ilkesini ayarlamak için dağıtım noktaları sayfasında tıklayın **ayırma ilkesini yönetmek**.
-2. Ayırma ilkesini ayarlamak **eşit, dağıtım ağırlıklı**.
-3. **Kaydet** düğmesine tıklayın.
+1. Ayırma ilkesini ayarlamak için DPS sayfasında **Ayırma ilkesini yönetme** seçeneğine tıklayın.
+2. Ayırma ilkesi olarak **Eşit ağırlıklı dağılım**'ı ayarlayın.
+3. **Kaydet**’e tıklayın.
 
-## <a name="link-the-new-iot-hub-to-dps"></a>Yeni IOT hub'ı dağıtım noktaları için bağlantı
+## <a name="link-the-new-iot-hub-to-dps"></a>Yeni IoT Hub'ını DPS'ye bağlama
 
-Dağıtım noktaları, hub'ına cihazlarını kaydedebilir DPS ve IOT hub bağlayın.
+DPS'nin cihazları bu hub'a kaydedebilmesi için DPS'yi IoT Hub'ına bağlayın.
 
-1. İçinde **tüm kaynakları** sayfasında, daha önce oluşturduğunuz dağıtım noktaları'ı tıklatın.
-2. Dağıtım noktaları sayfasında tıklatın **bağlantılı IOT hub'ları**.
+1. **Tüm kaynaklar** sayfasında, daha önce oluşturduğunuz DPS'ye tıklayın.
+2. DPS sayfasında **IoT hub'larına bağlanıldı** öğesine tıklayın.
 3. **Ekle**'ye tıklayın.
-4. İçinde **IOT hub'ına Bağlantı Ekle** sayfasında, bağlı IOT hub'ı geçerli abonelik ya da farklı bir abonelik bulunup bulunmadığını belirtmek için radyo düğmelerini kullanın. Ardından, IOT hub'ından adını seçin **IOT hub'ı** kutusu.
-5. **Kaydet** düğmesine tıklayın.
+4. **IoT hub'a bağlantı ekleme** sayfasında, bağlı IoT hub’ın geçerli abonelikte mi yoksa farklı bir abonelikte mi bulunduğunu belirtmek için radyo düğmelerini kullanın. Sonra **IoT hub** kutusunda IoT hub’ın adını seçin.
+5. **Kaydet**’e tıklayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * İkinci bir IOT hub'ına ikinci bir cihaz sağlamak için Azure portalını kullanma 
-> * İkinci bir cihaz için bir kayıt listesi Girişi Ekle
-> * DPS ayırma ilkesini ayarlamak **bile dağıtım**
-> * Yeni IOT hub'ı dağıtım noktaları için bağlantı
+> * Azure portalını kullanarak ikinci bir IoT Hub'ı için ikinci cihazı sağlama 
+> * İkinci cihaza bir kayıt listesi girdisi ekleme
+> * DPS ayırma ilkesi olarak **eşit dağılım**'ı ayarlama
+> * Yeni IoT Hub'ını DPS'ye bağlama
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

@@ -1,31 +1,26 @@
 ---
 title: Azure IoT Hub'ı (.NET) ile ileti yönlendirmeyi yapılandırma | Microsoft Docs
 description: Azure IoT Hub'ı ile ileti yönlendirmeyi yapılandırma
-services: iot-hub
-documentationcenter: .net
 author: robinsh
 manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: dotnet
+services: iot-hub
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/01/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 0674ed033f77d7d2eca319d0b1e82171dfa4256d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ab354410ba3b0b37ae630a2b68daec63a9051555
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700834"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Öğretici: IoT Hub'ı ile ileti yönlendirmeyi yapılandırma
 
-İleti Yönlendirme IoT cihazlarınızdan yerleşik Olay Hub'ı ile uyumlu uç noktalara veya blob depolama, Service Bus Kuyruğu, Service Bus Konusu ve Olay Hub'ları gibi özel uç noktalara telemetri verileri gönderilmesine olanak tanır. İleti Yönlendirme'yi yapılandırırken belirli bir kurala uyan yolu özelleştirmek için yönlendirme kuralları oluşturabilirsiniz. Ayarlandıktan sonra, gelen veriler IoT Hub'ı tarafından otomatik olarak uç noktalara yönlendirilir. 
+İleti yönlendirme IoT cihazlarınızdan yerleşik Olay Hub'ı ile uyumlu uç noktalara veya blob depolama, Service Bus Kuyruğu, Service Bus Konusu ve Olay Hub'ları gibi özel uç noktalara telemetri verileri gönderilmesine olanak tanır. İleti yönlendirmeyi yapılandırırken belirli bir kurala uyan yolu özelleştirmek için yönlendirme kuralları oluşturabilirsiniz. Ayarlandıktan sonra, gelen veriler IoT Hub'ı tarafından otomatik olarak uç noktalara yönlendirilir. 
 
-Bu öğreticide, IoT Hub'ı ile yönlendirme kurallarını ayarlamayı ve kullanmayı öğreneceksiniz. İletileri IoT cihazından blob depolama ve Service Bus kuyruğu gibi çeşitli hizmetlerden birine yönlendireceksiniz. Service Bus kuyruğuna yönelik iletiler bir Mantıksal Uygulama tarafından seçilecek ve e-postayla gönderilecek. Özel olarak yönlendirmenin ayarlanmadığı iletiler varsayılan uç noktaya gönderilir ve PowerBI görselleştirmesinde gösterilir.
+Bu öğreticide, IoT Hub'ı ile yönlendirme kurallarını ayarlamayı ve kullanmayı öğreneceksiniz. İletileri IoT cihazından blob depolama ve Service Bus kuyruğu gibi çeşitli hizmetlerden birine yönlendireceksiniz. Service Bus kuyruğuna yönelik iletiler bir Mantıksal Uygulama tarafından seçilecek ve e-postayla gönderilecek. Özel olarak yönlendirmenin ayarlanmadığı iletiler varsayılan uç noktaya gönderilir ve Power BI görselleştirmesinde görüntülenir.
 
 Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 
@@ -34,11 +29,11 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 > * IoT hub'ında depolama hesabı ve Service Bus kuyruğu için uç noktaları ve yolları yapılandırma.
 > * Service Bus kuyruğuna ileti eklendiğinde tetiklenen ve e-posta gönderen bir Mantıksal Uygulama oluşturma.
 > * Farklı yönlendirme seçenekleri için hub'a iletiler gönderen bir IoT Cihazının simülasyonu olan bir uygulama indirme ve çalıştırma.
-> * Varsayılan uç noktaya gönderilen veriler için PowerBI görselleştirmesi oluşturma.
+> * Varsayılan uç noktaya gönderilen veriler için bir Power BI görselleştirmesi oluşturun.
 > * Service Bus kuyruğunda ve e-postalarda ...
 > * Depolama hesabında ...
 > * PowerBI görselleştirmesinde ...
-> * ...sonuçları görüntüleme.
+> * ...sonuçları görüntüleyin.
 
 ## <a name="prerequisites"></a>Ön koşullar
 
@@ -46,7 +41,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştireceksiniz:
 
 - [Windows için Visual Studio](https://www.visualstudio.com/) yükleyin. 
 
-- Varsayılan uç noktanın akış analizini yapmak için PowerBI hesabı. ([PowerBI'ı ücretsiz deneyin](https://app.powerbi.com/signupredirect?pbi_source=web))
+- Varsayılan uç noktanın akış analizini yapmak için Power BI hesabı. ([Power BI'ı ücretsiz deneyin](https://app.powerbi.com/signupredirect?pbi_source=web).)
 
 - Bildirim e-postalarını göndermek için Office 365 hesabı. 
 
@@ -104,24 +99,24 @@ Bu betiği kullanmanın en kolay yolu, betiği kopyalayıp Cloud Shell'e yapış
 # You need it to create the device identity. 
 az extension add --name azure-cli-iot-ext
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 location=westus
 resourceGroup=ContosoResources
 iotHubConsumerGroup=ContosoConsumers
 containerName=contosoresults
 iotDeviceName=Contoso-Test-Device 
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-iotHubName=ContosoTestHub 
-storageAccountName=contosoresultsstorage 
-sbNameSpace=ContosoSBNamespace 
-sbQueueName=ContosoSBQueue
-
 # Create the resource group to be used
 #   for all the resources for this tutorial.
 az group create --name $resourceGroup \
     --location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+iotHubName=ContosoTestHub$RANDOM
+echo "IoT hub name = " $iotHubName
 
 # Create the IoT hub.
 az iot hub create --name $iotHubName \
@@ -131,6 +126,10 @@ az iot hub create --name $iotHubName \
 # Add a consumer group to the IoT hub.
 az iot hub consumer-group create --hub-name $iotHubName \
     --name $iotHubConsumerGroup
+
+# The storage account name must be globally unique, so add a random number to the end.
+storageAccountName=contosostorage$RANDOM
+echo "Storage account name = " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 az storage account create --name $storageAccountName \
@@ -154,11 +153,19 @@ az storage container create --name $containerName \
     --account-key $storageAccountKey \
     --public-access off 
 
+# The Service Bus namespace must be globally unique, so add a random number to the end.
+sbNameSpace=ContosoSBNamespace$RANDOM
+echo "Service Bus namespace = " $sbNameSpace
+
 # Create the Service Bus namespace.
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
     
+# The Service Bus queue name must be globally unique, so add a random number to the end.
+sbQueueName=ContosoSBQueue$RANDOM
+echo "Service Bus queue name = " $sbQueueName
+
 # Create the Service Bus queue to be used as a routing destination.
 az servicebus queue create --name $sbQueueName \
     --namespace-name $sbNameSpace \
@@ -183,23 +190,23 @@ Bu betiği kullanmanın en kolay yolu [PowerShell ISE](/powershell/scripting/cor
 # Log into Azure account.
 Login-AzureRMAccount
 
-# Set the values for the resource names.
+# Set the values for the resource names that don't have to be globally unique.
+# The resources that have to have unique names are named in the script below
+#   with a random number concatenated to the name so you can probably just
+#   run this script, and it will work with no conflicts.
 $location = "West US"
 $resourceGroup = "ContosoResources"
 $iotHubConsumerGroup = "ContosoConsumers"
 $containerName = "contosoresults"
 $iotDeviceName = "Contoso-Test-Device"
 
-# These resource names must be globally unique.
-# You might need to change these if they are already in use by someone else.
-$iotHubName = "ContosoTestHub"
-$storageAccountName = "contosoresultsstorage"
-$serviceBusNamespace = "ContosoSBNamespace"
-$serviceBusQueueName  = "ContosoSBQueue"
-
-# Create the resource group to be used  
+# Create the resource group to be used 
 #   for all resources for this tutorial.
 New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+
+# The IoT hub name must be globally unique, so add a random number to the end.
+$iotHubName = "ContosoTestHub$(Get-Random)"
+Write-Host "IoT hub name is " $iotHubName
 
 # Create the IoT hub.
 New-AzureRmIotHub -ResourceGroupName $resourceGroup `
@@ -213,6 +220,10 @@ Add-AzureRmIotHubEventHubConsumerGroup -ResourceGroupName $resourceGroup `
   -Name $iotHubName `
   -EventHubConsumerGroupName $iotHubConsumerGroup `
   -EventHubEndpointName "events"
+
+# The storage account name must be globally unique, so add a random number to the end.
+$storageAccountName = "contosostorage$(Get-Random)"
+Write-Host "storage account name is " $storageAccountName
 
 # Create the storage account to be used as a routing destination.
 # Save the context for the storage account 
@@ -228,10 +239,20 @@ $storageContext = $storageAccount.Context
 New-AzureStorageContainer -Name $containerName `
     -Context $storageContext
 
+# The Service Bus namespace must be globally unique,
+#   so add a random number to the end.
+$serviceBusNamespace = "ContosoSBNamespace$(Get-Random)"
+Write-Host "Service Bus namespace is " $serviceBusNamespace
+
 # Create the Service Bus namespace.
 New-AzureRmServiceBusNamespace -ResourceGroupName $resourceGroup `
     -Location $location `
     -Name $serviceBusNamespace 
+
+# The Service Bus queue name must be globally unique,
+#  so add a random number to the end.
+$serviceBusQueueName  = "ContosoSBQueue$(Get-Random)"
+Write-Host "Service Bus queue name is " $serviceBusQueueName 
 
 # Create the Service Bus queue to be used as a routing destination.
 New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
@@ -256,8 +277,6 @@ Sonra bir cihaz kimliği oluşturun ve anahtarını daha sonra kullanmak üzere 
 
    ![Anahtarlarla birlikte cihaz ayrıntılarını gösteren ekran görüntüsü.](./media/tutorial-routing/device-details.png)
 
-
-
 ## <a name="set-up-message-routing"></a>İleti yönlendirmeyi ayarlama
 
 Simülasyon cihazı tarafından iletiye eklenen özellikler temelinde iletileri farklı kaynaklara yönlendireceksiniz. Özel yönlendirmesi olmayan iletiler varsayılan uç noktaya gönderilir (iletiler/olaylar). 
@@ -266,7 +285,7 @@ Simülasyon cihazı tarafından iletiye eklenen özellikler temelinde iletileri 
 |------|------|
 |level="storage" |Azure Depolama'ya yazın.|
 |level="critical" |Service Bus kuyruğuna yazın. Mantıksal Uygulama iletiyi kuyruktan alır ve Office 365 kullanarak iletiyi e-postayla gönderir.|
-|default |Bu verileri PowerBI kullanarak görüntüleyin.|
+|default |Power BI'ı kullanarak bu verileri görüntüleyin.|
 
 ### <a name="routing-to-a-storage-account"></a>Depolama hesabına yönlendirme 
 
@@ -278,7 +297,7 @@ Simülasyon cihazı tarafından iletiye eklenen özellikler temelinde iletileri 
    
    **Uç Nokta Türü**: Açılan listeden **Azure Depolama Kapsayıcısı**'nı seçin.
 
-   Depolama hesaplarının listesini görmek için **Bir kapsayıcı seçin** öğesine tıklayın. Depolama hesabınızı seçin. Bu öğreticide **contosoresultsstorage** kullanılır. Ardından, kapsayıcıyı seçin. Bu öğreticide **contosoresults** kullanılır. **Seç**'e tıklayın; Uç nokta ekle bölmesine dönersiniz. 
+   Depolama hesaplarının listesini görmek için **Bir kapsayıcı seçin** öğesine tıklayın. Depolama hesabınızı seçin. Bu öğreticide **contosostorage** kullanılır. Ardından, kapsayıcıyı seçin. Bu öğreticide **contosoresults** kullanılır. **Uç nokta ekle** bölmesine dönmenizi sağlayan **Seç**'e tıklayın. 
    
    ![Uç nokta eklemeyi gösteren ekran görüntüsü.](./media/tutorial-routing/add-endpoint-storage-account.png)
    
@@ -390,7 +409,7 @@ Service Bus kuyruğu kritik olarak belirlenmiş iletileri almak için kullanıla
 
 ## <a name="set-up-azure-stream-analytics"></a>Azure Stream Analytics'i ayarlama
 
-Verileri PowerBI görselleştirmesinde görmek için, önce verileri almak için bir Stream Analytics işi ayarlayın. Yalnızca **level** değeri **normal** olan iletilerin varsayılan uç noktaya gönderildiğini ve PowerBI görselleştirmesi için Stream Analytics işi tarafından alınacağını unutmayın.
+Verileri Power BI görselleştirmesinde görmek için, önce bir Stream Analytics işi ayarlayarak verileri alın. Yalnızca **düzeyi** **normal** olan iletilerin varsayılan uç noktaya gönderildiğini ve Power BI görselleştirmesi için Stream Analytics işi tarafından alınacağını unutmayın.
 
 ### <a name="create-the-stream-analytics-job"></a>Stream Analytics işi oluşturma
 
@@ -405,6 +424,8 @@ Verileri PowerBI görselleştirmesinde görmek için, önce verileri almak için
    **Konum**: Kurulum betiğinde kullanılan konumun aynısını kullanın. Bu öğreticide **West US** kullanılır. 
 
    ![Stream Analytics işi oluşturma işleminin gösterildiği ekran görüntüsü.](./media/tutorial-routing/stream-analytics-create-job.png)
+
+3. İşi oluşturma için **Oluştur**'a tıklayın. İşe dönmek için **Kaynak grupları**'na tıklayın. Bu öğreticide **ContosoResources** kullanılır. Kaynak grubunu seçin ve ardından kaynak listesinde Stream Analytics işine tıklayın. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics işine giriş ekleme
 
@@ -434,17 +455,17 @@ Verileri PowerBI görselleştirmesinde görmek için, önce verileri almak için
 
 1. **İş Topolojisi**'nin altında **Çıkışlar**'a tıklayın.
 
-2. **Çıkışlar** bölmesinde **Ekle**'ye tıklayın ve **PowerBI** öğesini seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
+2. **Çıkışlar** bölmesinde **Ekle**'ye tıklayın ve **Power BI**'ı seçin. Görüntülenen ekranda aşağıdaki alanları doldurun:
 
    **Çıkış diğer adı**: Çıkışın benzersiz diğer adı. Bu öğreticide **contosooutputs** kullanılır. 
 
-   **Veri kümesi adı**: PowerBI'da kullanılacak olan veri kümesinin adı. Bu öğreticide **contosodataset** kullanılır. 
+   **Veri kümesi adı**: Power BI'da kullanılacak veri kümesinin adı. Bu öğreticide **contosodataset** kullanılır. 
 
-   **Tablo adı**: PowerBI'da kullanılacak olan tablonun adı. Bu öğreticide **contosotable** kullanılır.
+   **Tablo adı**: Power BI'da kullanılacak tablonun adı. Bu öğreticide **contosotable** kullanılır.
 
    Kalan alanlarda varsayılan değerleri kabul edin.
 
-3. **Yetkilendir**'e tıklayın ve PowerBI hesabınızda oturum açın.
+3. **Yetkilendir**'e tıklayın ve Power BI hesabınızda oturum açın.
 
    ![Stream Analytics işi için çıkışların ayarlanmasını gösteren ekran görüntüsü.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
@@ -462,19 +483,19 @@ Verileri PowerBI görselleştirmesinde görmek için, önce verileri almak için
 
 4. **Kaydet**’e tıklayın.
 
-5. Sorgu bölmesini kapatın.
+5. Sorgu bölmesini kapatın. Bu sizi Kaynak Grubu'ndaki kaynakların görünümüne döndürür. Stream Analytics işine tıklayın. Bu öğreticide **contosoJob** olarak adlandırılmıştır.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics işini çalıştırma
 
 Stream Analytics işinde **Başlat** > **Şimdi** > **Başlat**'a tıklayın. İş düzgün bir şekilde başlatıldıktan sonra, **Durduruldu** olan iş durumu **Çalışıyor** olarak değiştirilir.
 
-PowerBI raporunu ayarlamak için verilere ihtiyacınız vardır. Bu nedenle, cihazı oluşturduktan ve cihaz simülasyon uygulamasını çalıştırdıktan sonra PowerBI'ı ayarlayacaksınız.
+Power BI raporunu ayarlamak için verilere ihtiyacınız vardır; bu nedenle, cihazı oluşturup cihaz simülasyon uygulamasını çalıştırdıktan sonra Power BI'ı ayarlarsınız.
 
 ## <a name="run-simulated-device-app"></a>Simülasyon Cihazı uygulamasını çalıştırma
 
 Betik ayarlama bölümünün başlarında, IoT cihazı kullanarak simülasyonu yapılacak bir cihaz ayarlamıştınız. Bu bölümde, IoT Hub'a cihazdan buluta iletiler gönderen bir cihazın simülasyonunu yapan bir .NET konsol uygulaması indireceksiniz. Bu uygulama, farklı yönlendirme yöntemlerinin her biri için iletiler gönderir. 
 
-[IoT Cihaz Simülasyonu](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) çözümünü indirin. Bu işlem, içinde birkaç uygulama bulunan bir depo indirir; aradığınız çözüm Tutorials/Routing/SimulatedDevice/ yolunda yer alır.
+[IoT Cihaz Simülasyonu](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) çözümünü indirin. İçinde çeşitli uygulamalar bulunan bir depo indirilir; aradığınız çözüm iot-hub/Tutorials/Routing/SimulatedDevice/ klasöründedir.
 
 Kodu Visual Studio'da açmak için çözüm dosyasına (SimulatedDevice.sln) çift tıklayın, sonra da Program.cs'yi açın. `{iot hub hostname}` değerini IoT hub'ı konak adıyla değiştirin. IoT hub'ı konak adı **{iot-hub-adı}.azure-devices.net** biçimindedid. bu öğreticide, hub konak adı olarak **ContosoTestHub.azure-devices.net** kullanılır. Ardından, `{device key}` değerini daha önce simülasyon cihazını ayarlarken kaydettiğiniz cihaz anahtarıyla değiştirin. 
 
@@ -512,11 +533,11 @@ Bunun anlamı:
 
    * Depolama hesabına yapılan yönlendirme düzgün çalışıyor.
 
-Şimdi uygulama hala çalışır durumdayken, varsayılan yönlendirme üzerinden gelen iletileri görmek için PowerBI görselleştirmesini ayarlayın. 
+Şimdi uygulamanız hala çalışırken, varsayılan yönlendirme aracılığıyla gelen iletileri görmek için Power BI görselleştirmesini ayarlayın. 
 
-## <a name="set-up-the-powerbi-visualizations"></a>PowerBI Görselleştirmelerini ayarlama
+## <a name="set-up-the-power-bi-visualizations"></a>Power BI Görselleştirmelerini ayarlama
 
-1. [PowerBI](https://powerbi.microsoft.com/) hesabınızda oturum açın.
+1. [Power BI](https://powerbi.microsoft.com/) hesabınızda oturum açın.
 
 2. **Çalışma Alanları**'na gidin ve Stream Analytics işi için çıkış oluştururken ayarladığını çalışma alanını seçin. Bu öğreticide **My Workspace** kullanılır. 
 
@@ -526,7 +547,7 @@ Bunun anlamı:
 
 4. **EYLEMLER**'in altında, ilk simgeye tıklayarak bir rapor oluşturun.
 
-   ![Eylemler ve rapor simgesinin vurgulandığı PowerBI çalışma alanını gösteren ekran görüntüsü.](./media/tutorial-routing/power-bi-actions.png)
+   ![Eylemler ve rapor simgesinin vurgulandığı Power BI çalışma alanını gösteren ekran görüntüsü.](./media/tutorial-routing/power-bi-actions.png)
 
 5. Zamanla değişen gerçek zamanlı sıcaklığı göstermek için bir çizgi grafik oluşturun.
 
@@ -544,7 +565,7 @@ Bunun anlamı:
 
 7. Zamanla değişen gerçek zamanlı nem oranını göstermek için bir çizgi grafik daha oluşturun. İkinci grafiği ayarlamak için yukarıdaki adımları aynı şekilde izleyin ve x eksenine **EventEnqueuedUtcTime**, y eksenine de **humidity** öğelerini yerleştirin.
 
-   ![İki grafiğin bulunduğu son PowerBI raporunu gösteren ekran görüntüsü.](./media/tutorial-routing/power-bi-report.png)
+   ![İki grafiği olan Power BI raporunun son halini gösteren ekran görüntüsü.](./media/tutorial-routing/power-bi-report.png)
 
 8. Raporu kaydetmek için **Kaydet**’e tıklayın.
 
@@ -552,17 +573,17 @@ Her iki grafikteki verileri de görüyor olmalısınız. Bunun anlamı:
 
    * Varsayılan uç noktaya yapılan yönlendirme düzgün çalışıyor.
    * Azure Stream Analytics işi doğru akış yapıyor.
-   * PowerBI Görselleştirmesi doğru ayarlanmış.
+   * Power BI Görselleştirmesi doğru ayarlanmış.
 
-PowerBI penceresinin üst kısmındaki Yenile düğmesine tıklayarak grafikleri yenileyip en son verileri görebilirsiniz. 
+Power BI penceresinin en üstündeki Yenile düğmesine tıklayıp grafikleri yenileyerek en son verileri görebilirsiniz. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme 
 
 Oluşturduğunuz tüm kaynakları kaldırmak istiyorsanız, kaynak grubunu silin. Bu eylem grubun içerdiği tüm kaynakları siler. Bu durumda IoT hub'ını, Service Bus ad alanıyla kuyruğunu, Mantıksal Uygulamayı, depolama hesabını ve kaynak grubunun kendisini kaldırır. 
 
-### <a name="clean-up-resources-in-the-powerbi-visualization"></a>PowerBI görselleştirmesindeki kaynakları temizleme
+### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Power BI görselleştirmesinde kaynakları temizleme
 
-[PowerBI](https://powerbi.microsoft.com/) hesabınızda oturum açın. Çalışma alanınıza gidin. Bu öğreticide **My Workspace** kullanılır. PowerBI görselleştirmesini kaldırmak için DataSets'e gidin ve çöp kutusu simgesine tıklayarak veri kümesini silin. Bu öğreticide **contosodataset** kullanılır. Veri kümesini kaldırdığınızda, rapor da kaldırılır.
+[Power BI](https://powerbi.microsoft.com/) hesabınızda oturum açın. Çalışma alanınıza gidin. Bu öğreticide **My Workspace** kullanılır. Power BI görselleştirmesini kaldırmak için, DataSets'e gidin ve çöp kutusu simgesine tıklayarak veri kümesini silin. Bu öğreticide **contosodataset** kullanılır. Veri kümesini kaldırdığınızda, rapor da kaldırılır.
 
 ### <a name="clean-up-resources-using-azure-cli"></a>Azure CLI kullanarak kaynakları temizleme
 
@@ -589,15 +610,15 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirerek IoT Hub'ı iletileri
 > * IoT hub'ında depolama hesabı ve Service Bus kuyruğu için uç noktaları ve yolları yapılandırma.
 > * Service Bus kuyruğuna ileti eklendiğinde tetiklenen ve e-posta gönderen bir Mantıksal Uygulama oluşturma.
 > * Farklı yönlendirme seçenekleri için hub'a iletiler gönderen bir IoT Cihazının simülasyonu olan bir uygulama indirme ve çalıştırma.
-> * Varsayılan uç noktaya gönderilen veriler için PowerBI görselleştirmesi oluşturma.
+> * Varsayılan uç noktaya gönderilen veriler için bir Power BI görselleştirmesi oluşturun.
 > * Service Bus kuyruğunda ve e-postalarda ...
 > * Depolama hesabında ...
 > * PowerBI görselleştirmesinde ...
-> * ...sonuçları görüntüleme.
+> * ...sonuçları görüntüleyin.
 
 IoT cihazı durumunun nasıl yönetileceğini öğrenmek için sonraki öğreticiye geçin. 
 
 > [!div class="nextstepaction"]
-[Azure IoT Hub'ı cihaz ikizlerini kullanmaya başlama](iot-hub-node-node-twin-getstarted.md)
+[Cihazlarınızı bir arka uç hizmetinden yapılandırma](tutorial-device-twins.md)
 
  <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

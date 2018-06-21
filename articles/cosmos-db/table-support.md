@@ -1,41 +1,53 @@
 ---
-title: Azure Table Storage destek Azure Cosmos veritabanı | Microsoft Docs
-description: Azure Cosmos DB tablo API ve Azure depolama tabloları birlikte nasıl çalıştığını öğrenin.
+title: Azure Cosmos DB'de Azure Tablo Depolama desteği | Microsoft Docs
+description: Azure Cosmos DB Tablo API'si ile Azure Depolama Tabloları'nın birlikte nasıl çalıştığını öğrenin.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 378f00f2-cfd9-4f6b-a9b1-d1e4c70799fd
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 2560c2ee34a83ce86db043e17fb41192c31de398
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 1ebf244aeb00b1eb87b846a5bb1db6bd4f954e26
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798177"
 ---
-# <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB tablo API ve Azure Table storage ile geliştirme
+# <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması ile geliştirme
 
-Azure Cosmos DB tablo API Azure Table storage aynı tablo veri modeline paylaşabilir ve aynı oluştur, Sil, güncelleştirme ve sorgu işlemleri kendi SDK aracılığıyla kullanıma sunar. 
+Azure Cosmos DB Tablo API'si ve Azure Tablo depolaması aynı tablo veri modelini paylaşır ve SDK'ları aracılığıyla aynı oluşturma, silme, güncelleştirme ve sorgulama işlemlerini gösterir. 
 
-## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB tablo API ile geliştirme
+[!INCLUDE [storage-table-cosmos-comparison](../../includes/storage-table-cosmos-comparison.md)]
 
-Şu anda [Azure Cosmos DB tablo API](table-introduction.md) dört SDK geliştirme için kullanılabilir olan: 
-- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK'sı. Bu kitaplık genel olarak aynı sınıfları ve yöntem imzaları sahip [Windows Azure depolama SDK](https://www.nuget.org/packages/WindowsAzure.Storage), ancak tablo API kullanarak Azure Cosmos DB hesaplarına bağlanma özelliği de vardır. 
-- [Python SDK](table-sdk-python.md). Yeni Azure Cosmos DB Python SDK'sı Azure Table storage ' Python destekler yalnızca SDK ' dir. Bu SDK, Azure Table depolama ve Azure Cosmos DB tablo API ile bağlanır.
-- [Java SDK](table-sdk-java.md). Bu Azure depolama SDK'sını tablo API kullanarak Azure Cosmos DB hesaplarına bağlamak için özelliğine sahiptir.
-- [Node.js SDK'sı](table-sdk-nodejs.md). Bu Azure depolama SDK'sını tablo API kullanarak Azure Cosmos DB hesaplarına bağlamak için özelliğine sahiptir.
+## <a name="developing-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB Tablo API'siyle geliştirme
 
-Tablo API ile çalışma hakkında ek bilgi sağlanmıştır [SSS: Tablo API ile geliştirme](faq.md#develop-with-the-table-api) makalesi.
+Şu anda [Azure Cosmos DB Tablo API'sinin](table-introduction.md) geliştirme için kullanılabilen dört SDK'sı vardır: 
+- [Microsoft.Azure.CosmosDB.Table](https://aka.ms/tableapinuget) .NET SDK. Bu kitaplık genel [Windows Azure Depolama SDK'sı](https://www.nuget.org/packages/WindowsAzure.Storage) ile aynı sınıf ve yöntem imzalarına sahip olmasının yanı sıra Tablo API'sini kullanarak Azure Cosmos DB hesaplarına da bağlanabilir. 
+- [Python SDK’sı](table-sdk-python.md). Yeni Azure Cosmos DB Python SDK'sı, Python'da Azure Tablo depolamasını destekleyen tek SDK'sıdır. Bu SDK hem Azure Tablo depolaması hem de Azure Cosmos DB Tablo API'sine bağlanır.
+- [Java SDK'sı](table-sdk-java.md). Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
+- [Node.js SDK’sı](table-sdk-nodejs.md). Bu Azure Depolama SDK'sı, Tablo API'sini kullanarak Azure Cosmos DB hesaplarına bağlanabilir.
 
-## <a name="developing-with-the-azure-table-storage"></a>Azure Table storage'ı geliştirme
+Tablo API'siyle çalışma hakkındaki ek bilgileri [SSS: Tablo API'siyle geliştirme](faq.md#develop-with-the-table-api) makalesinde bulabilirsiniz.
 
-[Azure Table storage](table-storage-overview.md) birçok SDK'ları kullanılabilir ve öğreticiler kullanılabilir, tümü şimdi kullanılabilir olan [Azure Table depolama](table-storage-overview.md) bölümü. Bu makaleler Azure Table depolama SDK'ları arasında birlikte çalışabilirlik olarak güncelleştirilen ve Azure Cosmos DB tablo API'leri kullanılabilir hale gelir.  
+## <a name="developing-with-azure-table-storage"></a>Azure Tablo depolamasıyla geliştirme
+
+Azure Tablo depolamasının geliştirme için kullanılabilen SDK'ları vardır:
+
+- [WindowsAzure.Storage .NET SDK'sı](https://www.nuget.org/packages/WindowsAzure.Storage/). Bu kitaplık, depolama Tablo hizmetiyle çalışmanıza olanak tanır.
+- [Python SDK’sı](table-sdk-python.md). Python için Azure Cosmos DB Tablo SDK'sı depolama Tablo hizmetini de destekler.
+- [Java için Azure Depolama SDK'sı](https://github.com/azure/azure-storage-java). Bu Azure Depolama SDK'sı, Azure Tablo depolamasını kullanmak için Java'da bir istemci kitaplığı sağlar.
+- [Node.js SDK’sı](table-sdk-nodejs.md). Bu SDK, depolama Tablo hizmetini kullanmak için bir Node.js paketi ve tarayıcıyla uyumlu bir JavaScript istemci kitaplığı sağlar.
+- [AzureRmStorageTable PowerShell modülü](https://www.powershellgallery.com/packages/AzureRmStorageTable/1.0.0.7). Bu PowerShell modülünün depolama Tablolarıyla çalışmak için cmdlet'leri vardır.
+- [C++ için Azure Depolama İstemcisi Kitaplığı](https://github.com/Azure/azure-storage-cpp/). Bu kitaplık Azure Depolama için uygulamalar oluşturmanıza olanak tanır.
+- [Ruby için Azure Depolama Tablosu İstemci Kitaplığı](https://github.com/azure/azure-storage-ruby/tree/master/table). Bu proje, Azure depolaması Tablo hizmetlerine erişmeyi kolaylaştıran bir Ruby paketi sağlar.
+- [Azure Depolama Tablosu PHP İstemci Kitaplığı](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). Bu proje, Azure depolaması Tablo hizmetlerine erişmeyi kolaylaştıran bir PHP istemci kitaplığı sağlar.
+
+
+   
 
 
 
