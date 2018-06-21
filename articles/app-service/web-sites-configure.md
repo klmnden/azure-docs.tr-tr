@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234538"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293725"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure Uygulama Hizmeti’nde Web uygulamalarını yapılandırma
 
@@ -46,7 +46,7 @@ Bu konuda, bir web uygulamasını kullanarak yapılandırmak açıklanmaktadır 
 Teknik nedenlerle .NET, PHP ve Python seçenekleri uygulamanız için Java'yı etkinleştirme devre dışı bırakır.
 
 <a name="platform"></a>
-**Platform**. Web uygulamanızı 32 bit veya 64-bit bir ortamda çalışır olup olmadığını belirler. 64 bit ortamı temel veya standart modu gerektirir. Ücretsiz ve paylaşılan modları her zaman bir 32 bit ortamda çalıştırılabilir.
+**Platform**. Web uygulamanızı 32 bit veya 64-bit bir ortamda çalışır olup olmadığını belirler. 64 bit ortamı temel veya standart katmanı gerektirir. Ücretsiz ve paylaşılan katmanı her zaman bir 32 bit ortamda çalıştırın.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -56,6 +56,13 @@ Teknik nedenlerle .NET, PHP ve Python seçenekleri uygulamanız için Java'yı e
 **Always On**. Varsayılan olarak, belirli bir süre için boşta olmaları durumunda web uygulamaları kaldırılır. Bu kaynakların tasarrufu sistem sağlar. Temel veya standart modunda etkinleştirebilirsiniz **her zaman açık** uygulama korumak için her zaman yüklenir. Sürekli Webjob'lar uygulamanızın çalıştırdığı veya çalıştığı Web işleri tetiklenen CRON ifade kullanılarak, etkinleştirmeniz gerekir **her zaman açık**, ya da web işleri güvenilir bir şekilde çalışmayabilir.
 
 **Yönetilen ardışık düzen sürüm**. IIS ayarlar [ardışık düzen modu]. IIS daha eski bir sürümü gerektiren eski bir uygulama yoksa bu kümesi tümleşik (varsayılan) bırakın.
+
+**HTTP sürümü**. Kümesine **2.0** desteğini etkinleştirmek için [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protokolü. 
+
+> [!NOTE]
+> Çoğu modern tarayıcılar HTTP/2 protokol TLS şifrelenmemiş trafik HTTP/1.1 kullanmaya devam ederken yalnızca desteklemez. Bu istemci emin olmak için tarayıcılar HTTP/2 ile uygulamanızı ya da bağlanmak [bir uygulama hizmet sertifikası satın](web-sites-purchase-ssl-web-site.md) uygulamanızın özel etki alanı veya [bir üçüncü taraf sertifika bağlama](app-service-web-tutorial-custom-ssl.md).
+
+**ARR benzeşim**. Bir uygulamada, giden birden çok VM örnekleri, ARR benzeşim tanımlama bilgilerini istemci oturumu için aynı örneğini yönlendirilir garanti ölçeklendirilir. Durum bilgisiz uygulamaların performansını artırmak için bu seçeneği belirlemek **devre dışı**.   
 
 **Otomatik Takas**. Otomatik Takas için bir dağıtım yuvası etkinleştirirseniz, bu yuva için bir güncelleştirme bastığınızda uygulama hizmeti otomatik olarak web uygulaması üretime değiştireceksiniz. Daha fazla bilgi için bkz: [hazırlama yuvası için Azure App Service'te web uygulamalarını dağıtma](web-sites-staged-publishing.md).
 
