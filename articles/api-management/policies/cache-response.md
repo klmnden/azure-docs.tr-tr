@@ -1,6 +1,6 @@
 ---
 title: Azure API management İlkesi örnek - bir arka uç hizmetine yetenekleri ekleme | Microsoft Docs
-description: Azure API management ilke örnek - bir arka uç hizmetine yetenekleri ekleme gösterir. Örneğin, enlem ve boylam hava tahmini API içinde yerine yer adını kabul edin.
+description: Azure API management ilke örnek - bir arka uç hizmetine yetenekleri ekleme gösterir. Örneğin, hava durumu tahmini API'sinde enlem ve boylam yerine bir yer adını kabul edin.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: apimpm
-ms.openlocfilehash: 3ae168473b4fa603afaf3dcf42516687b4dde33e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a019eb4556dc7cde34d51af6858f576e8ea9abcf
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933315"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284540"
 ---
 # <a name="add-capabilities-to-a-backend-service"></a>Bir arka uç hizmetine yetenekleri ekleme
 
-Bu makalede bir arka uç hizmetine özellikleri eklemek nasıl oluşturulduğunu gösteren bir Azure API management ilke örnek gösterilmektedir. Örneğin, enlem ve boylam hava tahmini API içinde yerine yer adını kabul edin. Ayarlamak veya ilke kodu düzenlemek için açıklanan adımları izleyin [ayarlama veya düzenleme bir ilke](../set-edit-policies.md). Diğer örnekleri görmek için bkz: [ilkesi örnekleri](../policy-samples.md).
+Bu makalede bir arka uç hizmetine özellikleri eklemek nasıl oluşturulduğunu gösteren bir Azure API management ilke örnek gösterilmektedir. Örneğin, hava durumu tahmini API'sinde enlem ve boylam yerine bir yer adını kabul edin. Ayarlamak veya ilke kodu düzenlemek için açıklanan adımları izleyin [ayarlama veya düzenleme bir ilke](../set-edit-policies.md). Diğer örnekleri görmek için bkz: [ilkesi örnekleri](../policy-samples.md).
 
 ## <a name="policy"></a>İlke
 
 Koda Yapıştır **gelen** bloğu.
 
-[!code-xml[Main](../../../api-management-policy-samples/Snippets/Call out to an HTTP endpoint and cache the response.policy.xml)]
+[!code-xml[Main](../../../api-management-policy-samples/examples/Call out to an HTTP endpoint and cache the response.policy.xml)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

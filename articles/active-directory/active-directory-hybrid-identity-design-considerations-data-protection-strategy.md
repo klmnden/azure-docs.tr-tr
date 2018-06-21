@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
-ms.translationtype: HT
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824177"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295578"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Karma kimlik çözümü için veri koruma stratejisini tanımlayın
 Bu görevde tanımlanan iş gereksinimlerini karşılamak karma kimlik çözümünü veri koruma stratejisini tanımlayın:
@@ -57,7 +57,7 @@ Nasıl sorulara verdiğiniz yanıtlara bağlı olarak [veri koruma gereksinimler
 >
 
 ## <a name="define-content-management-options"></a>İçerik yönetimi seçeneklerini tanımlayın
-Karma kimlik altyapınızı yönetmek için Azure AD kullanmanın bir avantajı, işlem son kullanıcının açısından tamamen saydam olmasıdır. Kullanıcı bir paylaşılan kaynağa erişmeye çalışırsa, kaynak kimlik doğrulaması gerektirir, belirteç edinme ve kaynağa erişmek için Azure AD kimlik doğrulama isteği göndermek kullanıcının sahip. Tüm bu işlem, kullanıcı etkileşimi olmadan arka planda gerçekleşir. İzni vermek mümkündür bir [grup](active-directory-manage-groups.md#getting-started-with-access-management) ortak belirli eylemleri gerçekleştirmek üzere bunları izin vermek üzere kullanıcı.
+Karma kimlik altyapınızı yönetmek için Azure AD kullanmanın bir avantajı, işlem son kullanıcının açısından tamamen saydam olmasıdır. Kullanıcı bir paylaşılan kaynağa erişmeye çalışırsa, kaynak kimlik doğrulaması gerektirir, belirteç edinme ve kaynağa erişmek için Azure AD kimlik doğrulama isteği göndermek kullanıcının sahip. Tüm bu işlem, kullanıcı etkileşimi olmadan arka planda gerçekleşir. İzni vermek mümkündür bir [grup](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) ortak belirli eylemleri gerçekleştirmek üzere bunları izin vermek üzere kullanıcı.
 
 Genellikle veri gizliliğiyle ilgili endişeleri olan kuruluşlar veri sınıflandırması için kendi çözümü gerektirir. Geçerli şirket içi altyapısını veri sınıflandırması kullanıyorsa, Azure AD için kullanıcının kimliğini ana deposu olarak kullanmak da mümkündür. Veri Sınıflandırması adlı için kullanılan şirket içi olduğundan emin genel bir aracı [veri sınıflandırma Araç Seti](https://msdn.microsoft.com/library/Hh204743.aspx) Windows Server 2012 R2 için. Bu araç tanımlamak, sınıflandırmak ve özel bulutunuzdaki dosya sunucularındaki verileri korumaya yardımcı olabilir. Kullanmak da mümkündür [otomatik dosya sınıflandırma](https://technet.microsoft.com/library/hh831672.aspx) bu görevi gerçekleştirmek için Windows Server 2012'de.
 
@@ -131,12 +131,12 @@ Kullanıcı Azure AD kullanarak kimlik doğrulaması gerçekleştikten sonra kul
 
   3. Microsoft Intune ile Office 365 uygulamaları için koşullu erişim: BT yöneticileri bilgi çalışanlarının hizmetlere erişmek için uyumlu cihazlara izin verme aynı anda sırada şirket kaynaklarına güvenli hale getirmek için koşullu erişim cihaz ilkeleri sağlayabilirler. Daha fazla bilgi edinmek için bkz. [Office 365 hizmetleri için Koşullu Erişim Cihaz İlkeleri](active-directory-conditional-access-device-policies.md).
 
-  4. Saas uygulamaları için koşullu erişim: [bu özellik](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx) , uygulama başına çok faktörlü kimlik doğrulama erişim kuralları ve güvenilir bir ağda değil, kullanıcılar için erişimi engelleme özelliği yapılandırmanıza olanak sağlar. Uygulama ya da yalnızca belirtilen güvenlik gruplarının içinde kullanıcılar için atanmış tüm kullanıcılar için çok faktörlü kimlik doğrulama kurallarını uygulayabilirsiniz. Kullanıcılar, kuruluşun içindeki ağ bir IP adresinden uygulama erişiyorsa çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
+  4. Saas uygulamaları için koşullu erişim: [bu özellik](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) , uygulama başına çok faktörlü kimlik doğrulama erişim kuralları ve güvenilir bir ağda değil, kullanıcılar için erişimi engelleme özelliği yapılandırmanıza olanak sağlar. Uygulama ya da yalnızca belirtilen güvenlik gruplarının içinde kullanıcılar için atanmış tüm kullanıcılar için çok faktörlü kimlik doğrulama kurallarını uygulayabilirsiniz. Kullanıcılar, kuruluşun içindeki ağ bir IP adresinden uygulama erişiyorsa çok faktörlü kimlik doğrulaması gereksinimden atlanabilir.
 
 Erişim denetimi için seçenekleri çok katmanlı bir yaklaşım kullandığından, bu seçenekler arasında karşılaştırma olmayan bu görev için uygulanabilir. Kaynaklarınıza erişimi denetlemek gerektiren her senaryo için kullanılabilir tüm seçenekleri yararlanarak emin olun.
 
 ## <a name="define-incident-response-options"></a>Olay yanıtlama seçeneklerini tanımlayın
-Azure AD yardımcı olabilir kimlik olası güvenlik risklerini kullanıcının etkinliğini izleme tarafından ortamında DÖNÜŞTÜRÜLEMİYOR. BT ve kullanım raporları bütünlük ve kuruluşunuzun dizin güvenliğini görünürlük elde etmek için Azure AD erişim kullanabilirsiniz. Bu bilgi ile bir BT yöneticisi böylece bunlar bu riskleri azaltmak yeterli planlayabilirsiniz olası güvenlik riskleri burada bulunan daha iyi belirleyebilirsiniz.  [Azure AD Premium aboneliği](active-directory-get-started-premium.md) etkinleştirebilirsiniz güvenlik raporları ayarlanmış bu bilgileri almak için BT. [Azure AD raporları](active-directory-view-access-usage-reports.md) aşağıdaki gibi kategorilere ayrılır:
+Azure AD yardımcı olabilir kimlik olası güvenlik risklerini kullanıcının etkinliğini izleme tarafından ortamında DÖNÜŞTÜRÜLEMİYOR. BT ve kullanım raporları bütünlük ve kuruluşunuzun dizin güvenliğini görünürlük elde etmek için Azure AD erişim kullanabilirsiniz. Bu bilgi ile bir BT yöneticisi böylece bunlar bu riskleri azaltmak yeterli planlayabilirsiniz olası güvenlik riskleri burada bulunan daha iyi belirleyebilirsiniz.  [Azure AD Premium aboneliği](fundamentals/active-directory-get-started-premium.md) etkinleştirebilirsiniz güvenlik raporları ayarlanmış bu bilgileri almak için BT. [Azure AD raporları](active-directory-view-access-usage-reports.md) aşağıdaki gibi kategorilere ayrılır:
 
 * **Kural dışı durum raporları**: anormal bulundu oturum açma olayları içerir. Bu tür etkinlik farkında olun ve bir olay şüpheli olup olmadığı hakkında bir belirleme yapmanızı etkinleştirmek için belirtilir.
 * **Uygulama rapor tümleşik**: Bulut uygulamalarını, kuruluşunuzda nasıl kullanıldığını içine Öngörüler sağlar. Azure Active Directory bulut uygulamalarını binlerce ile tümleştirme sağlar.
@@ -145,9 +145,9 @@ Azure AD yardımcı olabilir kimlik olası güvenlik risklerini kullanıcının 
 * **Etkinlik günlükleri**: Son 24 saat, son 7 gün veya son 30 Günün yanı sıra grup etkinlik değişikliklerini ve parola sıfırlama ve kayıt etkinliği içinde tüm Denetlenen olayları kaydını içerir.
 
 > [!TIP]
-> Ayrıca bir servis talebi üzerinde çalışan olay yanıtı takım yardımcı olabilecek başka bir rapordur [sızan kimlik bilgilerine sahip kullanıcı](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) rapor. Bu rapor, sızan kimlik bilgileri listesi ve Kiracı arasında eşleşmeleri ortaya çıkarır.
+> Ayrıca bir servis talebi üzerinde çalışan olay yanıtı takım yardımcı olabilecek başka bir rapordur [sızan kimlik bilgilerine sahip kullanıcı](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) rapor. Bu rapor, sızan kimlik bilgileri listesi ve Kiracı arasında eşleşmeleri ortaya çıkarır.
 >
->
+
 
 Diğer önemli yerleşik raporları bir olay yanıtlama İnceleme sırasında kullanılabilir ve Azure AD'de:
 

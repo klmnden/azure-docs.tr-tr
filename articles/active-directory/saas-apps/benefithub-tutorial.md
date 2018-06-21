@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.openlocfilehash: c2b28d4f5d29855bf438f0e411bfb7c2fe82a6be
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5accb676c7fb732c9b59dbbbeda944a3a3015d50
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224999"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285425"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Öğretici: Azure Active Directory Tümleştirme BenefitHub ile
 
@@ -227,7 +227,7 @@ Bu bölümde, Britta BenefitHub için erişim vererek, Azure çoklu oturum açma
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli BenefitHub parçasında tıklattığınızda, otomatik olarak BenefitHub uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -247,4 +247,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/benefithub-tutorial/tutorial_general_201.png
 [202]: ./media/benefithub-tutorial/tutorial_general_202.png
 [203]: ./media/benefithub-tutorial/tutorial_general_203.png
-

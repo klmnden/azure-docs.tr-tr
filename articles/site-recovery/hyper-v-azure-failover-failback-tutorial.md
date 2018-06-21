@@ -5,83 +5,71 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/8/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 7863feb29fbb04f643aa3b7e1984209f44cdbe9a
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 6a34187a87c6ecda461357a1c2fc8747ddf4b056
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852906"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294301"
 ---
-# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Yük devri ve başarısız geri Hyper-V Azure'a kopyalanan VM
+# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Yük devretme ve yeniden çalışma Hyper-V Azure'a kopyalanan VM
 
-Bu öğretici, Azure'da bir Hyper-V VM yük devri açıklar. Yük devrettikten sonra şirket içi siteniz kullanılabilir olduğunda yeniden çalıştırabilirsiniz. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+Bu öğretici açıklayan bir Hyper-V VM azure'a yük devretme nasıl. Kullanılabilir olduğunda, yeniden çalışma üzerinden, şirket içi sitenize başarısız sonra. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Hyper-V VM özelliklerini denetlemek için Azure gereksinimlerine uygun doğrulayın
 > * Azure'a yük devretme işlemini çalıştırma
-> * Azure VM’lerini şirket içi sitede yeniden koruma
-> * Azure'dan şirket içi başarısız
-> * Tekrar Azure’a çoğaltmaya başlamak için şirket içi VM’leri yeniden koruma
+> * Azure'dan şirket içi
+> * Ters çoğaltmak Azure'a çoğaltma yeniden başlatmak için sanal makineleri, şirket içi
 
-Bu, serideki beşinci öğreticidir. Bu öğreticide, önceki öğreticilerdeki adımları zaten tamamladığınız varsayılır.
+Bu öğretici serisinde beşinci öğreticidir. Bunu zaten önceki eğitimlerine görevleri tamamladığınızdan emin varsayar.    
 
 1. [Azure’u hazırlama](tutorial-prepare-azure.md)
-2. [Şirket içi VMware’leri hazırlama](tutorial-prepare-on-premises-hyper-v.md)
+2. [Şirket içi Hyper-V’leri hazırlama](tutorial-prepare-on-premises-hyper-v.md)
 3. Olağanüstü durum kurtarma için ayarlama [Hyper-V sanal makineleri](tutorial-hyper-v-to-azure.md), veya [System Center VMM bulutlarında yönetilen Hyper-V Vm'lerini](tutorial-hyper-v-vmm-to-azure.md)
 4. [Olağanüstü durum kurtarma tatbikatı çalıştırma](tutorial-dr-drill-azure.md)
 
 ## <a name="prepare-for-failover-and-failback"></a>Yük devretme ve yeniden çalışma için hazırlama
 
-VM anlık görüntü yok vardır ve şirket içi VM sırasında yükü kapalı olduğundan emin olun. Bu işlem, çoğaltma sırasında veri tutarlığını sağlar. Yeniden koruma bittikten sonra VM’yi açmayın. 
+VM anlık görüntü yok vardır ve şirket içi VM yeniden çalışma sırasında kapalı olduğundan emin olun. Bu, çoğaltma sırasında veri tutarlılığını sağlamaya yardımcı olur. Şirket içi sanal makine yeniden çalışma sırasında kapatmayın. 
 
-Yük devretme ve yeniden çalışma dört aşamalıdır:
+Yük devretme ve yeniden çalışma üç aşama vardır:
 
-1. **Azure’a yük devretme**: Makineleri şirket içi siteden Azure’a devredin.
-2. **Azure Vm'leri koruyun**: geri şirket içi Hyper-V Vm'lerini çoğaltma başlatmaları böylece Azure Vm'leri koruyun.
-3. **Şirket içi yük devri**: kullanılabilir olduğunda bir yük devretme Azure'dan şirket içi sitenize çalıştırın.
-4. **Yeniden koruma şirket içi sanal makineleri**: veri geri başarısız oldu sonra şirket içi sanal makineleri Azure'a çoğaltma işlemi başlatma için yeniden koruyun.
+1. **Azure'a yük devretme**: şirket içi siteden yük devretme Hyper-V Vm'lerini azure'a.
+2. **Şirket içi yeniden çalışma**: yük devretme Azure VM'ler kullanılabilir olduğunda, şirket içi sitenize. Bu sanal makineleri şirket içi Hyper-V Vm'lerini geri çoğaltmaya başlar. İlk veri eşitlemeyi sonra Yük devretme Azure VM'ler şirket içi siteye.  
+3. **Ters çoğaltmak şirket içi sanal makineleri**: veri geri başarısız oldu sonra ters çoğaltma Azure'a çoğaltma başlatmak için şirket içi sanal makineleri.
 
 ## <a name="verify-vm-properties"></a>VM özelliklerini doğrulama
 
-VM özelliklerini doğrulayın ve VM’nin [Azure gereksinimleriyle](hyper-v-azure-support-matrix.md#replicated-vms) uyumlu olduğundan emin olun.
+Yük devretme önce VM özelliklerini doğrulayın ve VM karşılamasına ile dikkat edin [Azure gereksinimleri](hyper-v-azure-support-matrix.md#replicated-vms).
 
 1. İçinde **korunan öğeler**, tıklatın **çoğaltılan öğeler** >< VM-adı >.
 
 2. İçinde **yinelenmiş öğesi** bölmesinde, VM bilgileri, sistem durumu ve en son kullanılabilir kurtarma noktalarını gözden geçirin. Daha fazla ayrıntı görüntülemek için **Özellikler**’e tıklayın.
-     - İçinde **işlem ve ağ**, VM ayarlarını değiştirin ve ağ ayarlarını, ağ/alt ağ içinde dahil olmak üzere Azure VM. Yönetilen diskleri azure'dan Hyper-v için desteklenmez.
-   Yük devretme ve kendisine atanmış IP adresi sonra bulunur.
-    - **Diskler** bölümünde VM’deki işletim sistemi ve veri diskleriyle ilgili bilgileri görüntüleyebilirsiniz.
+     - İçinde **işlem ve ağ**VM ayarlarını değiştirebilir ve ağ ayarlarını, ağ/Azure VM yük devretme sonrasında bulunur ve IP adresi alt ağı içeren kendisine atanacaktır. Yönetilen diskleri azure'dan Hyper-v için desteklenmez.
+      - **Diskler** bölümünde VM’deki işletim sistemi ve veri diskleriyle ilgili bilgileri görüntüleyebilirsiniz.
 
-## <a name="fail-over-to-azure"></a>Azure'a yük
+## <a name="failover-to-azure"></a>Azure'a yük devretme
 
 1. **Ayarlar** > **Çoğaltılan öğeler** bölümünde VM > **Yük devretme**’ye tıklayın.
 2. İçinde **yük devretme** seçin **son** kurtarma noktası. 
 3. **Yük devretmeyi başlatmadan önce makineyi kapatın** seçeneğini belirleyin. Yük devretme tetiklemeden önce kaynak VM'lerin bir kapatma yapmak Site Recovery çalışır. Kapatma işlemi başarısız olsa bile yük devretme devam eder. Yük devretme işleminin ilerleme durumunu **İşler** sayfasında takip edebilirsiniz.
-4. Yük devretme tıklatın doğruladıktan sonra **yürütme**. Bu, tüm kullanılabilir kurtarma noktalarını siler.
+4. Yük devretme tıklatın doğruladıktan sonra **yürütme**. Tüm kullanılabilir kurtarma noktalarını siler.
 
 > [!WARNING]
-> **Devam eden yük devretme işlemini iptal etmeyin**: Yük devretme başlatılmadan önce VM çoğaltma durdurulur. Sürüyor, yük devretme durduruyor, iptal ancak VM yeniden çoğaltma olmaz
+> **Bir yük devretme devam ediyor iptal etme**: sürüyor, yük devretme durduruyor, iptal ancak VM yeniden çoğaltma olmaz.
 
-## <a name="reprotect-azure-vms"></a>Azure VM’lerini yeniden koruma
+## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>Yeniden çalışma Azure VM şirket içi ve geriye doğru çoğaltma şirket içi VM
 
-1. İçinde **AzureVMVault** > **öğeleri çoğaltılan**üzerinde başarısız oldu VM'ye sağ tıklayın ve seçin **yeniden koruma**.
-2. Koruma yön değerine ayarlandığını doğrulayın **şirket içi Azure**.
-3. Şirket içi VM veri tutarlılığını sağlamak için yükü sırasında devre dışı bırakılır. Yükü tamamladıktan sonra açmak yok.
-4. Yükü işleminden sonra VM Azure'dan şirket içi siteye çoğaltmaya başlar.
-
-
-
-## <a name="fail-over-from-azure-and-reprotect-the-on-premises-vm"></a>Azure'dan yük devri ve şirket içi VM koruyun
-
-Azure'dan şirket içi siteye yük devri ve şirket içi siteden Vm'lerini Azure'a çoğaltma başlatın.
+Yeniden çalışma temel bir yük devretme azure'dan şirket içi siteye ve şirket içi siteden Vm'lerini Azure'a çoğaltma yeniden başlar ters çoğaltmak işlemdir.
 
 1. İçinde **ayarları** > **öğeleri çoğaltılan**, VM tıklayın > **planlı yük devretme**.
 2. İçinde **planlı yük devretme onaylayın**, yük devretme yönünden (Azure) doğrulayın ve kaynak ve hedef konumları seçin.
 3. Seçin **yük devretme önce verileri eşitle (yalnızca delta değişiklikler eşitleme)**. Bu seçenek VM kapatmadan eşitlediğinden VM kapalı kalma süresi en aza indirir.
 4. Yük devretme başlatın. Yük devretme işleminin ilerleyişini izleyin **işleri** sekmesi.
-5. Sonra ilk veri eşitlemesi gerçekleştirilir ve Azure VM'ler tıklatın kapatmaya hazır **işleri** > Planlı yük devretme-proje-adı > **yük devretmeyi tamamlamak**. Bu Azure VM kapatan, en son değişiklikleri şirket içi aktarır ve şirket içi VM başlatır.
+5. Sonra ilk veri eşitlemesi gerçekleştirilir ve Azure VM'ler tıklatın kapatmaya hazır **işleri** > Planlı yük devretme-proje-adı > **yük devretmeyi tamamlamak**. Azure VM kapatan, en son değişiklikleri şirket içi aktarır ve şirket içi VM başlatır.
 6. Beklendiği gibi kullanılabilir denetlemek için şirket içi VM oturum açın.
-7. Şirket içi VM olduğunu bir **Commit bekleyen** durumu. Tıklatın **yürütme**. Bu, Azure Vm'leri ve kendi diskleri siler ve şirket içi VM çoğaltmayı tersine çevirme için hazırlar.
-Şirket içi VM Azure'a çoğaltma başlatmak için etkinleştirme **ters çoğaltma**. Bu, Azure VM değiştirildi devre dışı olduğundan oluşan delta değişikliklerini tetikler.  
+7. Şirket içi VM olduğunu bir **Commit bekleyen** durumu. Tıklatın **yürütme**. Azure sanal makinelerini ve onun diskleri siler ve şirket içi VM çoğaltmayı tersine çevirme için hazırlar.
+Şirket içi VM Azure'a çoğaltma başlatmak için etkinleştirme **ters çoğaltma**. Azure VM değiştirildi devre dışı olduğundan oluşan delta değişiklikleri çoğaltmasını tetikler.  

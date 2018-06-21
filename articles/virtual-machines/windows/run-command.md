@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a2a1c916543da07f25b2b9727e309709632afe00
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267280"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284973"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell komut dosyalarını çalıştır komutu ile Windows VM'nizi çalıştırın
 
@@ -33,6 +33,7 @@ Bu yetenek burada betik etkileşimindeki sanal makineleri çalıştırmak istedi
 * Bir komut dosyasını çalıştırmak için en düşük saat yaklaşık 20 saniyenin altındadır
 * Sistemi olarak Windows üzerinde çalışan komut dosyaları
 * Bir defada tek bir betik çalıştırabilir
+* Bilgi (etkileşimli mod) isteminde betikleri desteklenmez.
 * Çalışan bir komut iptal edilemez
 * Bir komut dosyası çalıştırabilirsiniz en uzun süre 90 hangi BT sonra zaman aşımına uğrar, dakikadır
 

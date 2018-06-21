@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: v-geberr
-ms.openlocfilehash: 918f5d9efa1163558e44c2c67028dbf802f479a5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266796"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286027"
 ---
 # <a name="entities-in-luis"></a>HALUK varlıklar
 
@@ -66,7 +66,7 @@ HALUK türlerde varlıklar sunar. önceden oluşturulmuş varlıklar, varlık ve
 | Ad | Etiketleyebilirsiniz | Açıklama |
 | -- |--|--|
 | **Önceden oluşturulmuş** <br/>[Özel](#prebuilt)| |  **Tanım**<br>Ortak kavramlar temsil eden yerleşik türleri. <br><br>**Liste**<br/>anahtar tümcecik numarası, sıra, sıcaklık, boyut, para, geçerlilik süresi, yüzde, e-posta, URL, telefon numarası ve anahtar tümcecik. <br><br>Önceden oluşturulmuş varlık adları ayrılmıştır. <br><br>Uygulamaya eklenen tüm önceden oluşturulmuş varlıklar döndürülür [endpoint](luis-glossary.md#endpoint) sorgu. Daha fazla bilgi için bkz: [önceden oluşturulmuş varlıklar](./Pre-builtEntities.md). <br/><br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **Normal ifade**<br/>[RegEx](#regex)||**Tanım**<br>Biçimlendirilmiş metin için özel normal ifade. Küçük büyük harf duyarlı ve kültürel değişken yok sayar.  <br><br>Bu varlık kelimeler ve aynı zamanda tutarlı olan çeşitlemeleri ile tutarlı bir şekilde biçimlendirilmiş ifadeler için uygundur.<br><br>Normal ifadeyle eşleşen yazım değişiklikleri sonra uygulanır. <br><br>Normal ifade birçok parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek mümkün değildir. <br><br>**Örnek**<br>`kb[0-9]{6,}` KB123456 eşleşir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intents-regex-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **Normal ifade**<br/>[RegEx](#regex)||**Tanım**<br>Biçimlendirilmiş ham utterance metin için özel normal ifade. Küçük büyük harf duyarlı ve kültürel değişken yok sayar.  <br><br>Bu varlık kelimeler ve aynı zamanda tutarlı olan çeşitlemeleri ile tutarlı bir şekilde biçimlendirilmiş ifadeler için uygundur.<br><br>Normal ifadeyle eşleşen yazım değişiklikleri sonra uygulanır. <br><br>Normal ifade birçok parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek mümkün değildir. <br><br>**Örnek**<br>`kb[0-9]{6,}` KB123456 eşleşir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intents-regex-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md)|
 | **Basit** <br/>[Makine öğrendiniz](#machine-learned) | ✔ | **Tanım**<br>Bir varlığın tek bir kavram açıklayan ve makine öğrenilen bağlamından öğrenilen genel bir varlıktır. Bağlam, sözcük seçimi, word yerleştirme ve utterance uzunluğu içerir.<br/><br/>Bu, kelimeler ve tutarlı bir şekilde biçimlendirilmemiş ancak aynı şeyi gösteren ifadeler için iyi bir varlıktır. <br/><br/>[Hızlı Başlangıç](luis-quickstart-primary-and-secondary-data.md)<br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Liste** <br/>[Tam eşleşme](#exact-match)|| **Tanım**<br>Liste varlık sisteminizde kendi synoymns birlikte ilgili sözcükler sabit, kapalı bir kümesini temsil eder. <br><br>Her bir liste varlık, bir veya daha fazla form olabilir. Aynı kavram temsil edecek şekilde çeşidi bilinen bir dizi için en iyi şekilde kullanılır.<br/><br/>HALUK listesi varlıklar için ek değerler bulmaz. Kullanım görmek için [anlamsal sözlük](luis-glossary.md#semantic-dictionary) geçerli listesini temel alan yeni sözcükleri yönelik öneriler bulmak için.<br/><br>Aynı değere sahip birden fazla listesi varlık varsa, her bir varlık uç nokta sorguda döndürülür. <br/><br/>[Hızlı Başlangıç](luis-quickstart-intent-and-list-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.Any** <br/>[Karma](#mixed) | ✔|**Tanım**<br>Patterns.Any yalnızca bir deseninin şablonu utterance içinde olduğu varlık başlar ve biter işaretlemek için kullanılan bir değişken uzunlukta yer tutucudur.  <br><br>**Örnek**<br>Başlığa göre books utterance Ara verildiğinde, pattern.any tam başlık ayıklar. Pattern.Any kullanarak bir şablon utterance olan `Who wrote {BookTitle}[?]`.<br/><br/>[Öğretici](luis-tutorial-pattern.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md#composite-entity-data)|  

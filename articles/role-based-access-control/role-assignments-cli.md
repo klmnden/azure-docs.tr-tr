@@ -1,6 +1,6 @@
 ---
-title: Rol tabanlı erişim denetimi (RBAC) Azure CLI ile yönetme | Microsoft Docs
-description: Rolleri ve rol eylemlerin listesini içeren ve rolleri için abonelik ve uygulama kapsamları atama rol tabanlı erişim denetimi (RBAC) Azure komut satırı arabirimi ile yönetmeyi öğrenin.
+title: RBAC ve Azure CLI kullanarak erişimini yönetme | Microsoft Docs
+description: Kullanıcılar, gruplar ve uygulamalar, rol tabanlı erişim denetimi (RBAC) ve Azure CLI kullanarak erişimi yönetmek üzere öğrenin. Bu erişim listeleme, erişim verilmesi ve erişimi kaldırma içerir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,30 +14,24 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266746"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294413"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Rol tabanlı erişim denetimini Azure komut satırı arabirimi ile yönetme
+# <a name="manage-access-using-rbac-and-azure-cli"></a>RBAC ve Azure CLI kullanarak erişimini yönetme
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
-
-
-Rol tabanlı erişim denetimi (RBAC) ile belirli bir kapsamda rolleri atayarak erişim için kullanıcıları, grupları ve hizmet asıl adı tanımlayın. Bu makalede, Azure komut satırı arabirimi (CLI) kullanarak rol atamalarını yönetmek açıklar.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcılar, gruplar ve RBAC ve Azure CLI kullanarak uygulamalar için erişim yönetme açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 Rol atamalarını yönetmek için Azure CLI kullanmak için aşağıdaki önkoşullar olması gerekir:
 
-* [Azure CLI 2.0](/cli/azure). Bunu [Azure Cloud Shell](../cloud-shell/overview.md) ile tarayıcınızda kullanabilir veya macOS, Linux ve Windows’a [yükleyerek](/cli/azure/install-azure-cli) komut satırından çalıştırabilirsiniz.
+* [Azure CLI](/cli/azure). Bunu [Azure Cloud Shell](../cloud-shell/overview.md) ile tarayıcınızda kullanabilir veya macOS, Linux ve Windows’a [yükleyerek](/cli/azure/install-azure-cli) komut satırından çalıştırabilirsiniz.
 
-## <a name="list-role-definitions"></a>Liste rol tanımları
+## <a name="list-roles"></a>Liste rolleri
 
 Tüm kullanılabilir rol tanımlarını listelemek için kullanın [az rol tanımı listesi](/cli/azure/role/definition#az-role-definition-list):
 
@@ -94,7 +88,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>Bir rol tanımı liste eylemleri
+### <a name="list-actions-of-a-role"></a>Bir rolün liste eylemleri
 
 Rol tanımı Eylemler listelemek için kullanın [az rol tanımı listesi](/cli/azure/role/definition#az-role-definition-list):
 
@@ -182,7 +176,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>Liste rol atamaları
+## <a name="list-access"></a>Liste erişim
+
+RBAC, liste erişim için rol atamalarını listeleyin.
 
 ### <a name="list-role-assignments-for-a-user"></a>Bir kullanıcı için rol atamalarını listesi
 
@@ -240,7 +236,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>Rol atamaları oluşturma
+## <a name="grant-access"></a>Erişim verme
+
+RBAC, erişim vermek için bir rol ataması oluşturun.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>Bir kullanıcı için rol ataması oluşturma
 
@@ -290,9 +288,9 @@ Aşağıdaki örnek atar *sanal makine Katılımcısı* nesne kimliği 44444444-
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>Bir rol ataması Kaldır
+## <a name="remove-access"></a>Erişimi kaldır
 
-Bir rol atamasını kaldırmak için kullanın [az rol atamasını silin](/cli/azure/role/assignment#az-role-assignment-delete):
+RBAC, erişimi kaldırmak için bir rol ataması kullanarak Kaldır [az rol atamasını silin](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>

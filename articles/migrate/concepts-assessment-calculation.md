@@ -4,14 +4,14 @@ description: Değerlendirme hesaplamalar Azure geçirmek hizmetindeki genel bir 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: ec8e026fc9bab192f6944e590fa703dbbd5772c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221368"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287897"
 ---
 # <a name="assessment-calculations"></a>Değerlendirme hesaplamaları
 
@@ -132,7 +132,7 @@ Aşağıdaki nedenlerle bir değerlendirme için tüm veri noktaları kullanıla
 
 Boyutlandırma önerileri tamamlandıktan sonra Azure geçirmek geçiş sonrası işlem ve depolama maliyetleri hesaplar.
 
-- **Maliyet işlem**: önerilen Azure VM boyutu kullanarak, Azure geçirmek faturalama VM için aylık maliyeti hesaplamak için API'sini kullanır. Hesaplama, işletim sistemi, Yazılım Güvencesi, konum ve para birimi ayarları dikkate alır. Bu maliyet aylık toplam işlem maliyetini hesaplamak için tüm makineler arasında toplar.
+- **Maliyet işlem**: önerilen Azure VM boyutu kullanarak, Azure geçirmek faturalama VM için aylık maliyeti hesaplamak için API'sini kullanır. Hesaplama, işletim sistemi, Yazılım Güvencesi, ayrılmış örnekler, VM çalışır durumda kalma süresi, konum ve para birimi ayarları dikkate alır. Bu maliyet aylık toplam işlem maliyetini hesaplamak için tüm makineler arasında toplar.
 - **Depolama maliyeti**: bir makine tüm diskleri aylık maliyeti toplayarak hesaplanır maliyeti aylık depolama makineye bağlı. Azure geçirme toplam aylık depolama maliyetleri tüm makinelerin depolama maliyetleri toplayarak hesaplar. Şu anda, hesaplama göz önüne değerlendirme ayarlarında belirtilen teklifleri almaz.
 
 Maliyetleri tahakkuk ayarlarında belirtilen para birimi görüntülenir.

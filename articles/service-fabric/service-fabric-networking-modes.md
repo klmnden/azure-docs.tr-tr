@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205663"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287641"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric kapsayıcı ağ modları
 
@@ -180,11 +180,11 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
    |Ayar |Değer | |
    | --- | --- | --- |
    |Öncelik |2000 | |
-   |name |Custom_Dns  | |
+   |Ad |Custom_Dns  | |
    |Kaynak |VirtualNetwork | |
    |Hedef | VirtualNetwork | |
    |Hizmet | DNS (UDP/53) | |
-   |action | İzin ver  | |
+   |Eylem | İzin Ver  | |
    | | |
 
 4. Her hizmet için uygulama bildiriminde ağ modunu belirtin: `<NetworkConfig NetworkType="Open">`. **Açık** modu sonuçları bir ayrılmış IP adresi alma hizmetindeki ağ. Hizmet bir mod belirtilmezse, varsayılan **nat** modu. Aşağıdaki örnekte bildirim, `NodeContainerServicePackage1` ve `NodeContainerServicePackage2` hizmetleri her aynı bağlantı noktasını dinler olabilir (her iki hizmetlerin dinlediği `Endpoint1`). Açık ağ modu belirtildiğinde, `PortBinding` yapılandırmaları belirtilemez.
@@ -231,7 +231,23 @@ Bir kapsayıcı hizmetini yeniden başlatır veya kümedeki başka bir düğüme
      </Endpoints>
    </Resources>
    ```
+   
+6. Windows, bir VM yeniden oluşturulmaları açık ağ neden olur. Bu ağ yığınını bir arka plandaki sorunu azaltmak için yapılır. Varsayılan davranışa ağ yeniden oluşturmaktır. Bu davranışı devre dışı bırakılması gerekiyorsa, aşağıdaki yapılandırma config yükseltme tarafından izlenen kullanılabilir.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Service Fabric uygulama modelini anlama](service-fabric-application-model.md)
 * [Service Fabric hizmet bildirimi kaynakları hakkında daha fazla bilgi edinin](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

@@ -3,15 +3,15 @@ title: Azure Site Recovery Azure çoğaltma mimarisinde VMware | Microsoft Docs
 description: Bu makalede, bileşenleri ve şirket içi VMware sanal makineleri Azure Site Recovery ile azure'a çoğaltırken kullanılan mimariye genel bakış sağlar
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: c1aa89f14edab7d0e560c20d6bc48480aff1631f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 61c283c178936c98a9a18509c1b46035e48f8f24
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184590"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285279"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware Azure çoğaltma mimarisi
 
@@ -42,7 +42,7 @@ VMware Azure olağanüstü durum kurtarma veya geçiş için geniş adımlar aş
 3. **Çoğaltmayı ayarlama**. Konumu seçin, çoğaltmak istediğiniz. Kaynak çoğaltma ortamı ayarlayarak tek şirket içi VMware tüm şirket içi gerek duyduğunuz Site Recovery bileşenlerini çalıştıran VM (yapılandırma sunucusu) yapılandırın. Kurulum sonrasında kurtarma Hizmetleri kasasına yapılandırma sunucu makinesi kaydedin. Ardından, hedef ayarlarını seçin. [Daha fazla bilgi edinin](vmware-azure-tutorial.md).
 4. **Bir çoğaltma ilkesi oluşturmak**. Çoğaltma nasıl olması gerektiğini belirten bir çoğaltma ilkesi oluşturun. 
     - **RPO eşiği**: Bu çoğaltma belirtilen süre içinde gerçekleşmezse, durumları olan izleme ayarı, bir uyarı (ve isteğe bağlı olarak bir e-posta) verilir. Örneğin, RPO eşik 30 dakikaya ayarlayın ve bir sorun oluşmasını 30 dakika Çoğaltmada engeller, bir olay oluşturulur. Bu ayar, çoğaltma etkilemez. Sürekli çoğaltma ve kurtarma noktaları birkaç dakikada oluşturulur
-    - **Bekletme**: kurtarma noktası bekletme belirtir ne kadar süreyle kurtarma noktaları Azure'da saklanması. 0 ve premium depolama için 24 saat arasında bir değer belirtin veya yukarı ile standart depolama için 72 saat. Sıfırdan daha yüksek bir değer ayarlarsanız, en son kurtarma noktası ya da bir saklı noktası yük devretme gerçekleştirebilirsiniz. Kurtarma noktası bekletme penceresi sonra temizlenir.
+    - **Bekletme**: kurtarma noktası bekletme belirtir ne kadar süreyle kurtarma noktaları Azure'da saklanması. 0 ve premium depolama için 24 saat arasında bir değer belirtin veya yukarı ile standart depolama için 72 saat. Sıfırdan daha yüksek bir değer ayarlarsanız, üzerinden en son kurtarma noktası ya da bir saklı noktası başarısız olabilir. Kurtarma noktası bekletme penceresi sonra temizlenir.
     - **Kilitlenme tutarlı anlık görüntüleri**: varsayılan olarak, Site Recovery kilitlenme ile tutarlı anlık görüntü alır ve bunları birkaç dakikada kurtarma noktaları oluşturur. Bir kurtarma noktası kilitlenme birbiriyle veri bileşenlerinin tümünü yazma-sırası tutarlı olması durumunda tutarlı, anlık oldukları gibi kurtarma noktası oluşturulmadı. Daha iyi anlamak için bilgisayar sabit diskinizde veri durumunu bir güç kesintisi veya benzer olay sonra düşünün. Kilitlenme tutarlı bir kurtarma noktası, uygulamanızın veri tutarsızlıkları olmadan bir kilitlenme kurtarılır tasarlandıysa genellikle yeterli olur.
     - **Uygulamayla tutarlı anlık görüntüleri**: Bu değer sıfır değilse, dosya sisteminin tutarlı anlık görüntüler ve kurtarma noktaları oluşturmak VM'de çalıştırılan Mobility hizmeti çalışır. İlk çoğaltma tamamlandıktan sonra ilk anlık görüntüsü alınır. Sonra anlık görüntüler, belirttiğiniz sıklığında alınır. Yazma sipariş edilen yanı sıra tutarlı, çalışan uygulamaları kendi işlemlerin tamamlayın ve diske (uygulama sessiz moda) önbelleklerini, bir kurtarma noktası uygulama tutarlı olur. Uygulamayla tutarlı kurtarma noktaları, SQL, Oracle ve Exchange gibi veritabanı uygulamaları için önerilir. Kilitlenme tutarlı bir anlık görüntü yeterli ise, bu değeri 0 olarak ayarlayabilirsiniz.  
     - **Çoklu VM tutarlılığını**: isteğe bağlı olarak bir çoğaltma grubu oluşturabilirsiniz. Ardından, çoğaltma etkinleştirdiğinizde, o gruba VM'ler toplayabilirsiniz. Bir çoğaltma sanal makineleri çoğaltmak gruplamak ve üzerinden başarısız olduğunda kilitlenme tutarlı ve uygulamayla tutarlı kurtarma noktaları paylaşılan. Birden fazla makine arasında toplanması gereken anlık görüntüleri olarak iş yükü performansını etkileyebilecek beri bu seçeneği dikkatlice kullanmanız gerekir. Sanal makineleri aynı iş yükünü ve tutarlı olması gerekiyor çalıştırırsanız yalnızca bunu ve benzer karmaşıklıklarını VM'ye sahip. En fazla 8 sanal makineleri bir gruba ekleyebilirsiniz. 

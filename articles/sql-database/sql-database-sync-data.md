@@ -1,6 +1,6 @@
 ---
-title: Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
-description: Azure SQL veri eşitleme (Önizleme) bu genel bakış sunar
+title: Azure SQL veri eşitleme | Microsoft Docs
+description: Azure SQL veri eşitleme bu genel bakış sunar
 services: sql-database
 author: douglaslms
 manager: craigg
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 18177e0671ddf36d0e02e6b943467d703f78ffd0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301057"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296186"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL veri eşitleme ile birden çok Bulut ve şirket içi veritabanları arasında eşitleme verileri
 
 SQL veri eşitleme veri birden çok SQL veritabanları ve SQL Server örnekleri arasında çift yönlü Seç eşitlemenize olanak sağlayan Azure SQL veritabanı üzerine kurulu bir hizmettir.
 
@@ -53,15 +53,15 @@ Veri eşitleme veri birkaç Azure SQL veritabanlarını veya SQL Server veritaba
 
 -   **Genel olarak dağıtılmış uygulamalar:** birçok işletme birkaç bölgeler ve hatta bazı ülkelerde span. Ağ gecikmesini en aza indirmek için yakın bir bölgede verileriniz en iyisidir. Veri Eşitleme ile eşitlenen tüm dünyada bölgelerdeki veritabanlarını kolayca tutabilirsiniz.
 
-Veri Eşitleme aşağıdaki senaryolar için uygun değil:
+Veri Eşitleme aşağıdaki senaryolar için en iyi çözüm değil:
 
--   Olağanüstü Durum Kurtarma
-
--   Ölçek okuma
-
--   ETL (OLTP OLAP için)
-
--   Şirket içi SQL Server'dan Azure SQL veritabanı geçiş
+| Senaryo | Bazı önerilen çözümleri |
+|----------|----------------------------|
+| Olağanüstü Durum Kurtarma | [Coğrafi olarak yedekli Azure yedeklemeleri](sql-database-automated-backups.md) |
+| Ölçek okuma | [Salt okunur çoğaltmaların salt okunur sorgu dengelemeye (Önizleme) yüklemek için kullanın](sql-database-read-scale-out.md) |
+| ETL (OLTP OLAP için) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) veya [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| Şirket içi SQL Server'dan Azure SQL veritabanı geçiş | [Azure veritabanı geçiş hizmeti](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>Veri Eşitleme nasıl çalışır? 
 
@@ -83,7 +83,7 @@ Veri Eşitleme tetikleyici tabanlı olduğundan, işlem tutarlılığı garanti 
 #### <a name="performance-impact"></a>Performans etkisi
 Veri Eşitleme kullanır Ekle, Güncelleştir ve değişiklikleri izlemek için Tetikleyiciler silin. Kullanıcı veritabanında değişiklik izleme yan tablolar oluşturur. Bu değişiklik izleme etkinlikleri veritabanının yükünüzü etkiler. Hizmet katmanı değerlendirmek ve gerekirse yükseltin.
 
-Sağlama ve eşitleme grubu oluşturma sırasında etkinleştirmektir, güncelleştirme ve silme de veritabanı performansını etkileyebilir. 
+Ayrıca sağlama ve eşitleme grubu oluşturma, güncelleştirme ve silme işlemi sırasında etkinleştirmektir veritabanı performansını etkileyebilir. 
 
 ### <a name="general-requirements"></a>Genel gereksinimler
 
@@ -127,13 +127,13 @@ Sağlama ve eşitleme grubu oluşturma sırasında etkinleştirmektir, güncelle
 
 ## <a name="faq-about-sql-data-sync"></a>SQL veri eşitleme hakkında SSS
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Nasıl SQL veri eşitleme (Önizleme) hizmeti maliyeti nedir?
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>Nasıl SQL veri eşitleme hizmeti maliyeti nedir?
 
-Önizleme sırasında SQL veri eşitleme (Önizleme) hizmeti için ücret ödemeden yoktur.  Ancak, yine veri aktarımı ücretlerine veri taşıma için SQL veritabanı örneğinde ve bu moddan tahakkuk eder. Daha fazla bilgi için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
+SQL veri eşitleme hizmeti için ücret ödemeden yoktur.  Ancak, yine veri aktarımı ücretlerine veri taşıma için SQL veritabanı örneğinde ve bu moddan tahakkuk eder. Daha fazla bilgi için bkz: [SQL Database fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### <a name="what-regions-support-data-sync"></a>Hangi bölgeleri veri eşitleme destekliyor?
 
-SQL veri eşitleme (Önizleme) tüm genel bulut bölgelerde kullanılabilir.
+SQL veri eşitleme tüm genel bulut bölgelerde kullanılabilir.
 
 ### <a name="is-a-sql-database-account-required"></a>Gerekli bir SQL veritabanı hesabı mı? 
 
@@ -152,7 +152,7 @@ Evet. Şema özgün komut dosyası tarafından yeni veritabanında el ile oluşt
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Yedekleme ve geri yükleme my veritabanları için SQL veri eşitleme kullanmalıyım?
 
-Verilerinizi bir yedekleme oluşturmak için SQL veri eşitleme (Önizleme) kullanmak için önerilmez. Yedekleme ve SQL veri eşitleme (Önizleme) eşitlemeleri sürümlü olduğundan zaman içinde belirli bir noktaya geri alamazsınız. Ayrıca, SQL veri eşitleme (Önizleme) saklı yordamlar gibi diğer SQL nesneleri yedeklemez ve geri yükleme işlemi denk hızlı bir şekilde yapın.
+SQL veri eşitleme verilerinizi bir yedekleme oluşturmak üzere kullanmak için önerilmez. Yedekleme ve SQL veri eşitleme eşitlemeler sürümlü olduğundan zaman içinde belirli bir noktaya geri alamazsınız. Ayrıca, SQL veri eşitleme saklı yordamlar gibi diğer SQL nesneleri yedeklemez ve geri yükleme işlemi denk hızlı bir şekilde yapın.
 
 Bir yedekleme teknik önerilen için bkz: [bir Azure SQL veritabanını kopyalama](sql-database-copy.md).
 
@@ -172,7 +172,7 @@ Evet. SQL veri eşitleme harmanlama aşağıdaki senaryolarda destekler:
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>Federasyon SQL veri eşitleme destekleniyor mu?
 
-Federasyon kök veritabanı SQL veri eşitleme (Önizleme) hizmeti herhangi bir sınırlama olmadan kullanılabilir. Geçerli SQL veri eşitleme (Önizleme) sürümüne Federe veritabanı uç noktası ekleyemezsiniz.
+Federasyon kök veritabanı SQL veri eşitleme hizmeti herhangi bir sınırlama olmadan kullanılabilir. SQL veri eşitleme geçerli sürüme Federe veritabanı uç noktası ekleyemezsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

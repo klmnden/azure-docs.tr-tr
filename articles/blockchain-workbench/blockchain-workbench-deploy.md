@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831644"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294858"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain çalışma ekranı dağıtma
 
@@ -48,7 +48,10 @@ Azure Blockchain çalışma ekranı dağıtımından önce bazı Önkoşullar ge
 
 ### <a name="blockchain-workbench-api-app-registration"></a>Blockchain çalışma ekranı API uygulama kaydı
 
-Azure AD uygulaması kaydını Blockchain çalışma ekranının dağıtım gerektirir. Bir Azure Active Directory (Azure AD) Kiracı uygulamanızı kaydetmeniz gerekir. Mevcut bir kiracı kullanabilir veya yeni bir kiracı oluşturabilirsiniz. Var olan Azure AD kiracısı kullanıyorsanız, uygulamaları Azure AD kiracısı içinde kaydetmek için yeterli izinleri gerekir. Uygulama kayıtlar çalışma ekranı dağıtıldığı abonelik abonelik yöneticisinin Kiracı içinde olması gerekir. Azure AD kiracılarıyla hakkında daha fazla bilgi için bkz: [bir Active Directory kiracısı alma](../active-directory/develop/active-directory-howto-tenant.md) ve [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md).
+Azure AD uygulaması kaydını Blockchain çalışma ekranının dağıtım gerektirir. Bir Azure Active Directory (Azure AD) Kiracı uygulamanızı kaydetmeniz gerekir. Mevcut bir kiracı kullanabilir veya yeni bir kiracı oluşturabilirsiniz. Var olan Azure AD kiracısı kullanıyorsanız, uygulamaları kaydetmek ve Azure AD kiracısı içinde grafik API'si izinleri vermek için yeterli izinleri gerekir. Var olan bir Azure AD kiracısında yeterli izinleri yoksa yeni bir kiracı oluşturun. 
+
+> [!IMPORTANT]
+> Çalışma ekranı Azure AD uygulaması kaydetmek için kullandığınız hesapla aynı Kiracı dağıtılması gerekmez. Çalışma ekranı kaynakları dağıtmak için yeterli izinlere sahip olduğu bir kiracı dağıtılması gerekir. Azure AD kiracılarıyla hakkında daha fazla bilgi için bkz: [bir Active Directory kiracısı alma](../active-directory/develop/active-directory-howto-tenant.md) ve [uygulamaları Azure Active Directory ile tümleştirme](../active-directory/develop/active-directory-integrating-applications.md).
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Kiracı hesabınızda sağ üst köşe ve geçiş yapmak istediğiniz Azure AD seçin. Kiracı abonelik yöneticisinin Kiracı abonelik burada çalışma ekranı dağıtılır ve uygulamalarını kaydetmek için yeterli izinlere sahip olması gerekir.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643218"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294821"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows üzerinde ilk Service Fabric kapsayıcı uygulamanızı oluşturma
 > [!div class="op_single_selector"]
@@ -40,17 +40,17 @@ Bir Service Fabric kümesindeki Windows kapsayıcısında mevcut olan bir uygula
   
   Kapsayıcılar, kümeniz için ihtiyacınız olan Windows Server sürümünü belirlemek için çalıştırın `ver` geliştirme makinenizde bir Windows komut isteminde komutu:
 
-  * Sürüm içeriyorsa *x.x.14323.x*, ardından [bir küme oluşturmak](service-fabric-cluster-creation-via-portal.md) seçtiğinizden emin olmak *kapsayıcıları ile Windows Server 2016 Datacenter* işletim sistemi için veya [Service Fabric ücretsiz deneyin](https://aka.ms/tryservicefabric) bir taraf kümeyle.
-  * Sürüm içeriyorsa *x.x.16299.x*, ardından [bir küme oluşturmak](service-fabric-cluster-creation-via-portal.md) seçmek emin olma *WindowsServerSemiAnnual Datacenter-Core-1709-ile-kapsayıcıları* için İşletim Sistemi. Bir taraf kümesi kullanamaz.
+  * Sürüm içeriyorsa *x.x.14323.x*seçeneğini belirleyip *kapsayıcıları ile Windows Server 2016 Datacenter* işletim sistemi için zaman [küme oluşturma](service-fabric-cluster-creation-via-portal.md). Ayrıca [Service Fabric ücretsiz deneyin](https://aka.ms/tryservicefabric) bir taraf kümeyle.
+  * Sürüm içeriyorsa *x.x.16299.x*seçeneğini belirleyip *WindowsServerSemiAnnual Datacenter-Core-1709-ile-kapsayıcıları* işletim sistemi için zaman [Kümeoluşturma](service-fabric-cluster-creation-via-portal.md). Ancak bir taraf küme kullanamazsınız.
 
 * Azure Container Registry’deki bir kayıt defteri - Azure aboneliğinizde [Kapsayıcı kayıt defteri oluşturun](../container-registry/container-registry-get-started-portal.md).
 
 > [!NOTE]
-> Windows 10’daki bir Service Fabric kümesine veya Docker CE’li bir kümede kapsayıcı dağıtma desteklenmez. Bu kılavuzda, Windows 10’da Docker altyapısı kullanılarak yerel test uygulanır ve son olarak kapsayıcı hizmetleri Azure’da Docker EE çalıştıran bir Windows Server kümesine dağıtılır. 
+> Windows 10 çalıştıran bir Service Fabric kümesine kapsayıcıları dağıtma desteklenir.  Bkz: [bu makalede](service-fabric-how-to-debug-windows-containers.md) Windows kapsayıcıları çalıştırmak için Windows 10 yapılandırma hakkında bilgi için.
 >   
 
 > [!NOTE]
-> Service Fabric 6.1 sürümünde Windows Server 1709 sürümü için önizleme desteği sağlanır. Açık ağ ve Service Fabric DNS Hizmeti, Windows Server 1709 sürümüyle çalışmaz. 
+> Service Fabric sürümleri 6.2 ve sonraki sürüm 1709 Windows Server'da çalışan kümelerine dağıtma kapsayıcıları destekler.  
 > 
 
 ## <a name="define-the-docker-container"></a>Docker kapsayıcısını tanımlama

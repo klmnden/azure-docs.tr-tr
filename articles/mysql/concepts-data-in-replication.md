@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 14ed3ef57da28b6929115cf3e5746653d199b140
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: 72f8211ecc0534b15402911de8fc0ec3d541a835
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263757"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294913"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>MySQL için Azure veritabanına verileri
 
-Verileri, çoğaltma özelliği, şirket içi, sanal makine ya da MySQL hizmeti Azure veritabanına diğer bulut sağlayıcıları tarafından barındırılan veritabanı Hizmetleri çalışan bir MySQL sunucusu verileri eşitlemek sağlar. Verileri, çoğaltma ikili günlük (binlog) dosya konum temelinde çoğaltma için MySQL yerel temel alır. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
+Verileri, çoğaltma, şirket içi, sanal makine ya da MySQL hizmeti Azure veritabanına diğer bulut sağlayıcıları tarafından barındırılan veritabanı Hizmetleri çalışan bir MySQL sunucusu verileri eşitlemenize olanak tanır. Verileri, çoğaltma ikili günlük (binlog) dosya konumu tabanlı çoğaltma için MySQL yerel temel alır. Binlog çoğaltma hakkında daha fazla bilgi için bkz: [MySQL binlog Çoğaltmaya genel bakış](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html). 
 
 ## <a name="when-to-use-data-in-replication"></a>Verileri, çoğaltma kullanma zamanı
 Verileri, çoğaltma'yı kullanarak dikkate alınması gereken temel senaryolar şunlardır:

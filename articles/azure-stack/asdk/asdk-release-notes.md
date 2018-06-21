@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 06/20/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 185cd6f20cdb19531777ccb58e72be14ea656549
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: bbd9bb0d56dd61fd0a32531ac425a1dbc1aa8923
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850129"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295794"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure yığın Geliştirme Seti sürüm notları  
 Bu sürüm notları geliştirmeleri, düzeltmeler ve Azure yığın Geliştirme Seti bilinen sorunlar hakkında bilgi sağlar. Çalıştırdığınız hangi sürümünün emin değilseniz, yapabilecekleriniz [denetlemek için portal'ı kullanmanızı](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -37,7 +37,7 @@ Bu sürüm notları geliştirmeleri, düzeltmeler ve Azure yığın Geliştirme 
 ### <a name="new-features"></a>Yeni Özellikler 
 Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına içerir.  
 
-- <!-- 2297790 - IS, ASDK --> **Azure Stack now includes a *Syslog* client** as a *preview feature*. This client allows the forwarding of audit and security logs related to the Azure Stack infrastructure to a Syslog server or security information and event management (SIEM) software that is external to Azure Stack. Currently, the Syslog client only supports unauthenticated UDP connections over default port 514. The payload of each Syslog message is formatted in Common Event Format (CEF). 
+- <!-- 2297790 - IS, ASDK --> **Artık Azure yığını içeren bir *Syslog* istemci** olarak bir *önizleme özelliği*. Bu istemci Azure yığınına dış bir Syslog sunucusu veya güvenlik bilgileri ve Olay yönetimi (SIEM) yazılımını Azure yığın altyapısına ilgili denetim ve güvenlik günlüklerini iletilmesini sağlar. Şu anda, Syslog istemcisi yalnızca varsayılan bağlantı noktası 514'üzerinden kimlik doğrulamasız UDP bağlantılar destekler. Her Syslog ileti yükünü ortak olay biçimi (CEF) olarak biçimlendirilir. 
 
   Syslog istemcisini yapılandırmak için kullanın **kümesi SyslogServer** ayrıcalıklı uç sunulan cmdlet'i. 
 
@@ -50,6 +50,7 @@ Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına i
 
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar
+- Sorunu engellenen biz sabit [aşağı açılır listeden yeni bir destek isteği açma](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen yönetim portalında bulabilirsiniz. Bu seçenek artık tasarlandığı gibi çalışır. 
 
 - **Çeşitli düzeltmeleri** performans, sağlamlık, güvenlik ve Azure yığını tarafından kullanılan işletim sistemi için
 
@@ -63,22 +64,26 @@ Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına i
 ### <a name="known-issues"></a>Bilinen sorunlar
  
 #### <a name="portal"></a>Portal
-- <!-- 2551834 - IS, ASDK --> When you select **Overview** for a storage account in either the admin or user portals, the information from the *Essentials* pane does not display.  The Essentials pane displays information about the account like its *Resource group*, *Location*, and *Subscription ID*.  Other options for Overview  are accessible, like *Services* and *Monitoring*, as well as options to *Open in Explorer* or to *Delete storage account*.  
+- <!-- 2551834 - IS, ASDK --> Seçtiğinizde, **genel bakış** yönetici veya Kullanıcı Portalı, bilgileri bir depolama hesabı için *Essentials* bölmesinde görüntülemez.  Essentials bölmesi gibi hesabı hakkındaki bilgileri görüntüler kendi *kaynak grubu*, *konumu*, ve *abonelik kimliği*.  Genel bakış için diğer seçenekleri gibi erişilebilir *Hizmetleri* ve *izleme*, de olarak seçenekleri için *Gezgini'nde Aç* veya *depolama hesabı Sil* .  
 
   Kullanılabilir bilgi görüntülemek için kullanın [Get-azureRMstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet'i. 
 
-- <!-- TBD - IS ASDK --> Do not use the new administrative subscription types of *Metering subscription*, and *Consumption subscription*. These new subscription types were introduced with version 1804 but are not yet ready for use. You should continue to use the *Default Provider* subscription type.  
+- <!-- 2551834 - IS, ASDK --> Seçtiğinizde, **etiketleri** bir depolama hesabı için yönetici veya Kullanıcı Portalı'nda, bilgileri yüklenemiyordur ve görüntülenmez.  
 
-- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
+  Kullanılabilir bilgi görüntülemek için kullanın [Get-AzureRmTag](https://docs.microsoft.com/powershell/module/azurerm.tags/get-azurermtag?view=azurermps-6.2.0) PowerShell cmdlet'i.
+
+- <!-- TBD - IS ASDK --> Yeni Yönetim abonelik türünü kullanmayın *abonelik ölçümü*, ve *tüketim abonelik*. Bu yeni abonelik türleri 1804 sürümü ile sunulan ancak henüz kullanıma hazır değil. Kullanmaya devam etmelidir *varsayılan sağlayıcı* abonelik türü.  
+
+- <!-- 2403291 - IS ASDK --> Yatay kaydırma çubuğunun alt kısmındaki yönetici ve kullanıcı portalı kullanımını sahip olmayabilir. Yatay kaydırma çubuğu erişemiyorsanız, önceki bir dikey pencerede portal dikey adını seçerek, gitmek için içerik haritalarında en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.
   ![İçerik haritası](media/asdk-release-notes/breadcrumb.png)
 
-- <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+- <!-- TBD -  IS ASDK --> Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin.
 
-- <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
+- <!-- TBD -  IS ASDK --> Azure yığın Portal kullanımı aboneliğinizi izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
 
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Uyarılar için görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bileşen:  
 
    Uyarı #1:
    - Ad: Altyapı rolü sağlıksız
@@ -94,17 +99,17 @@ Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına i
 
   Her iki uyarı güvenle yoksayılabilir ve zaman içinde otomatik olarak kapatılacak.  
 
-- <!-- 2392907 – ASDK -->   You might see a *critical* alert for **Low memory capacity**. This alert has the following description: *The region has consumed more than 95.00 % of available memory. Creating virtual machines with large amounts of memory may fail.*
+- <!-- 2392907 – ASDK -->   Görebilirsiniz bir *kritik* uyarısını **düşük bellek kapasitesi**. Bu uyarı aşağıdaki açıklama vardır: *bölge kullanılabilir bellek % 95,00'den fazla tüketti. Büyük miktarlarda bellek ile sanal makineler oluşturma başarısız olabilir.*
 
   Azure yığın bellek kullanımı için Azure yığın Geliştirme Seti yanlış hesaplarını. Bu uyarı oluşturulabilir.  
 
   Bu uyarıyı göz ardı edilebilir ve sorunu sanal makinelerin yerleşimi üzerinde hiçbir etkisi olmaz. 
 
-- <!-- 2368581 - IS. ASDK --> An Azure Stack operator, if you receive a low memory alert and tenant virtual machines fail to deploy with a *Fabric VM creation error*, it is possible that the Azure Stack stamp is out of available memory. Use the [Azure Stack Capacity Planne](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) to best understand the capacity available for your workloads. 
+- <!-- 2368581 - IS. ASDK --> Düşük bellek uyarısı alırsanız ve Kiracı sanal makineler yük ile dağıtmak bir Azure yığın işleci bir *doku VM oluşturma hatası*, Azure yığın damga kullanılabilir bellek yetersiz olduğunu mümkündür. Kullanım [Azure yığın kapasite Planne](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) , iş yükleri için kapasite en iyi anlamak için. 
 
 
 #### <a name="compute"></a>İşlem
-- <!-- TBD - IS, ASDK --> When selecting a virtual machine size for a virtual machine deployment, some F-Series VM sizes are not visible as part of the size selector when you create a VM. The following VM sizes do not appear in the selector: *F8s_v2*, *F16s_v2*, *F32s_v2*, and *F64s_v2*.  
+- <!-- TBD - IS, ASDK --> Bir sanal makine dağıtımı için bir sanal makine boyutu seçerken, bazı F-serisi VM boyutları görünür olmayan bir VM oluştururken boyutu seçici bir parçası olarak. Aşağıdaki VM boyutları seçicide görünmez: *F8s_v2*, *F16s_v2*, *F32s_v2*, ve *F64s_v2*.  
   Geçici bir çözüm olarak, bir VM'yi dağıtmak için aşağıdaki yöntemlerden birini kullanın. Her bir yöntemin, kullanmak istediğiniz VM boyutu belirtmeniz gerekir.
 
   - **Azure Resource Manager şablonu:** bir şablonu kullandığınızda ayarlamak *vmSize* şablonda kullanmak istediğiniz VM boyutu eşit. Örneğin, şu girdiyi kullanan bir VM'yi dağıtmak için kullanılan *F32s_v2* boyutu:  
@@ -120,58 +125,60 @@ Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına i
   - **PowerShell:** kullanabileceğiniz PowerShell ile [yeni AzureRMVMConfig](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvmconfig?view=azurermps-6.0.0) benzer VM boyutunu belirleyen parametresiyle `-VMSize "Standard_F32s_v2"`.
 
 
-- <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
+- <!-- TBD -  IS ASDK --> Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
 
-- <!-- TBD -  IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach a D series VM. All supported D series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD -  IS ASDK --> Sanal makineler Azure yığın kullanıcı portalında oluşturduğunuzda, portal D serisinin VM iliştirebilirsiniz veri diskleri yanlış sayıda görüntüler. Tüm desteklenen D serisinin VM'ler sayıda veri diski Azure yapılandırması sağlayabilir.
 
-- <!-- TBD -  IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
+- <!-- TBD -  IS ASDK --> Oluşturulacak bir VM görüntüsü başarısız olduğunda, VM görüntüleri işlem dikey penceresine eklenen silemezsiniz başarısız bir öğe.
 
   Geçici bir çözüm olarak, Hyper-V ile oluşturulan bir kukla VHD ile yeni bir VM görüntüsü oluşturma (yeni-VHD-yol C:\dummy.vhd-- SizeBytes sabit 1 GB). Bu işlem başarısız öğesini silmeden engeller sorunu çözer. Ardından, kukla görüntüsünü oluşturduktan sonra 15 dakika başarılı bir şekilde silebilirsiniz.
 
   Ayrıca, daha önce başarısız VM görüntüsü yeniden indirin daha sonra deneyebilirsiniz.
 
-- <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+- <!-- TBD -  IS ASDK --> VM dağıtımı üzerinde uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemi durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermemelisiniz.  
 
-- <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+- <!-- 1662991 - IS ASDK --> Linux VM tanılama Azure yığınında desteklenmiyor. VM tanılaması etkin bir Linux VM dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz dağıtım de başarısız olur. 
 
 #### <a name="networking"></a>Ağ
-- <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
+- <!-- TBD - IS ASDK --> Yönetici veya Kullanıcı Portalı ya da kullanıcı tanımlı yollar oluşturamazsınız. Geçici bir çözüm olarak kullanmak [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
 
-- <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+- <!-- 1766332 - IS, ASDK --> Altında **ağ**, tıklatırsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **İlkesi tabanlı** bir VPN türü olarak listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure yığınında desteklenir.
+
+- <!-- 2388980 -  IS ASDK --> Bir VM oluşturulur ve bir ortak IP adresi ile ilişkili sonra bu VM IP adresinden ilişkisini olamaz. Çalışmak için disassociation görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır.
 
   Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 
   Yeni bir VM için IP adresi yeniden atama olsa bile bu davranış oluşur (genellikle olarak adlandırılan bir *VIP takası*). Tüm gelecekte bu IP adresi sonucu orijinal VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
 
 
-- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
+- <!-- 2292271 - IS ASDK --> Bir teklif ve Kiracı abonelikle ilişkili planı parçası olan bir ağ kaynağı için kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artışı sonra oluşturulan yeni abonelikler için geçerlidir. 
 
   Bu sorunu geçici olarak çözmek için plan zaten bir aboneliği ile ilişkili olduğunda ağ Kotayı artırmak için bir eklenti planı kullanın. Daha fazla bilgi için bkz: nasıl yapılır [bir eklenti planı kullanılabilir hale](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
+- <!-- 2304134 IS ASDK --> DNS bölgesi kaynakları veya yol tablosu kaynakları ilişkili olan bir abonelik silinemiyor. Abonelik başarıyla silmek için DNS bölgesi ve yol tablosu kaynakları Kiracı abonelikten silmeniz gerekir. 
 
 
-- <!-- 1902460 -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- <!-- 1902460 -  IS ASDK --> Azure yığın destekleyen tek bir *yerel ağ geçidi* her bir IP adresi. Bu Kiracı abonelikler arasında geçerlidir. Aynı IP adresiyle bir yerel ağ geçidi kaynağı oluşturmak ilk yerel ağ geçidi bağlantısı sonraki oluşturulmasını denemesinden sonra engellenir.
 
-- <!-- 16309153 -  IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+- <!-- 16309153 -  IS ASDK --> Bir DNS sunucusu ayarı ile oluşturulan bir sanal ağda *otomatik*, özel bir DNS sunucusunun başarısız olması için değiştirilmesi. Bu Vnet vm'lerinin güncelleştirilmiş ayarları gönderilir değil.
  
-- <!-- TBD -  IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+- <!-- TBD -  IS ASDK --> Azure yığın VM dağıtıldıktan sonra ek ağ arabirimleri VM örneğine eklemeyi desteklemez. VM birden fazla ağ arabirimi gerektiriyorsa, dağıtım sırasında tanımlanmalıdır.
 
 
 #### <a name="sql-and-mysql"></a>SQL ve MySQL 
-- <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+- <!-- TBD - ASDK --> Veritabanı sunucuları barındırma kaynak sağlayıcısı ve kullanıcı iş yükleri tarafından kullanım için ayrılmış olmalıdır. Uygulama Hizmetleri dahil olmak üzere diğer herhangi bir tüketici tarafından kullanılan örneğini kullanamazsınız.
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
+- <!-- IS, ASDK --> Alanları ve dönemleri gibi özel karakterler desteklenmiyor **ailesi** SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda olarak adlandırın. 
 
 #### <a name="app-service"></a>App Service
-- <!-- 2352906 - IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- 2352906 - IS ASDK --> Kullanıcılar, bunlar ilk Azure işlevlerine abonelikte oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
 
-- <!-- TBD - IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.  
+- <!-- TBD - IS ASDK --> (Çalışanları, yönetim, ön uç rolleri) altyapıyı ölçeklendirme için PowerShell işlem için Sürüm Notları'nda açıklandığı şekilde kullanmanız gerekir.  
 
-- <!-- TBD - IS ASDK --> App Service can only be deployed into the *Default Provider subscription* at this time. In a future update, App Service will deploy into the new *Metering subscription* that was introduced in Azure Stack 1804. When Metering is supported for use, all existing deployments will be migrated to this new subscription type.
+- <!-- TBD - IS ASDK --> Uygulama hizmeti yalnızca dağıtılabilir içine *varsayılan sağlayıcı abonelik* şu anda. Uygulama hizmeti gelecek bir güncelleştirmede yeni içine dağıtacağınız *abonelik ölçümü* Azure yığın 1804 sunulmuştur. Ölçüm kullanılmak üzere desteklendiğinde, bu yeni abonelik türü için tüm mevcut dağıtımları geçirilecektir.
 
 #### <a name="usage"></a>Kullanım  
-- <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+- <!-- TBD -  IS ASDK --> Kullanım genel IP adresi kullanım ölçüm verileri gösterilir aynı *olay tarihi-saati* yerine her kayıt için değer *TimeDate* kaydının oluşturulduğu gösterilir Damga. Şu anda, ortak IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
 
 <!-- #### Identity -->
 
@@ -182,7 +189,7 @@ Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına i
 ### <a name="new-features"></a>Yeni Özellikler 
 Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına içerir.  
 
-- <!-- 1759172 - IS, ASDK --> **New administrative subscriptions**. With 1804 there are two new subscription types available in the portal. These new subscription types are in addition to the Default Provider subscription and visible with new Azure Stack installations beginning with version 1804. *Do not use these new subscription types with this version of Azure Stack*. We will announce the availability to use these subscription types in with a future update. 
+- <!-- 1759172 - IS, ASDK --> **Yeni Yönetim abonelikler**. İle 1804 portalda kullanılabilecek iki yeni abonelik türü vardır. Bu yeni abonelik varsayılan sağlayıcı abonelik yanı sıra ve görünür 1804 sürümünden başlayarak yeni Azure yığın yüklemelerde türleridir. *Bu yeni abonelik türleri Azure yığını, bu sürümü ile kullanmayın*. Biz bu abonelik türleri gelecekteki bir güncelleştirme ile kullanmak için kullanılabilirlik Duyurusu. 
 
   Bu yeni abonelik türleri görünür, ancak varsayılan sağlayıcı abonelik güvenli ve SQL barındırma sunucuları gibi paylaşılan kaynakları dağıtmayı kolaylaştırmak için daha büyük bir değişikliğin parçası değildir. 
 
@@ -192,11 +199,11 @@ Bu yapı aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına i
   - Tüketim abonelik: *Bu abonelik türünde kullanmayın*
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar
-- <!-- IS, ASDK -->  In the admin portal, you no longer have to refresh the Update tile before it displays information. 
+- <!-- IS, ASDK -->  Yönetim Portalı'nda artık bilgi görüntülemeden önce güncelleştirme döşeme Yenile yok. 
 
-- <!-- 2050709 - IS, ASDK -->  You can now use the admin portal to edit storage metrics for Blob service, Table service, and Queue service.
+- <!-- 2050709 - IS, ASDK -->  Blob hizmeti, tablo hizmeti ve kuyruk hizmeti için depolama ölçümlerini düzenlemek için Yönetim Portalı'nı şimdi kullanabilirsiniz.
 
-- <!-- IS, ASDK --> Under **Networking**, when you click **Connection** to set up a VPN connection, **Site-to-site (IPsec)** is now the only available option. 
+- <!-- IS, ASDK --> Altında **ağ**'ye tıkladığınızda **bağlantı** bir VPN bağlantısı kurmak için **siteden siteye (IPSec)** kullanılabilir tek seçenek sunulmuştur. 
 
 - **Çeşitli düzeltmeleri** performans, sağlamlık, güvenlik ve Azure yığını tarafından kullanılan işletim sistemi için
 
@@ -214,23 +221,23 @@ Aşağıdaki artık kullanılabilir, ancak Azure yığın güncelleştirme 1804 
 ### <a name="known-issues"></a>Bilinen sorunlar
  
 #### <a name="portal"></a>Portal
-- <!-- TBD - IS ASDK --> The ability [to open a new support request from the dropdown](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) from within the administrator portal isn’t available. Instead, use the following link:     
+- <!-- TBD - IS ASDK --> Özelliği [aşağı açılır listeden yeni bir destek isteği açma](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
     - Azure yığın Geliştirme Seti için kullanmak https://aka.ms/azurestackforum.    
 
-- <!-- 2403291 - IS ASDK --> You might not have use of the horizontal scroll bar along the bottom of the admin and user portals. If you can’t access the horizontal scroll bar, use the breadcrumbs to navigate to a previous blade in the portal by selecting the name of the blade you want to view from the breadcrumb list found at the top left of the portal.
+- <!-- 2403291 - IS ASDK --> Yatay kaydırma çubuğunun alt kısmındaki yönetici ve kullanıcı portalı kullanımını sahip olmayabilir. Yatay kaydırma çubuğu erişemiyorsanız, önceki bir dikey pencerede portal dikey adını seçerek, gitmek için içerik haritalarında en üstünde bulunan içerik haritası listeden görüntülemek istediğiniz kullanım portalın sol.
   ![İçerik haritası](media/asdk-release-notes/breadcrumb.png)
 
-- <!-- TBD -  IS ASDK --> Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete user subscriptions.
+- <!-- TBD -  IS ASDK --> Kullanıcı abonelikleri yalnız bırakılmış kaynakları sonuçlarında siliniyor. Geçici bir çözüm olarak ilk kullanıcı kaynakları veya tüm kaynak grubunu silme ve kullanıcı abonelikleri silin.
 
-- <!-- TBD -  IS ASDK --> You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use PowerShell to verify permissions.
+- <!-- TBD -  IS ASDK --> Azure yığın Portal kullanımı aboneliğinizi izinleri görüntüleyemezsiniz. Geçici bir çözüm olarak, izinleri doğrulamak için PowerShell kullanın.
 
--   <!-- TBD -  IS ASDK --> In the admin portal, you might see a critical alert for the Microsoft.Update.Admin component. The Alert name, description, and remediation all display as:  
+-   <!-- TBD -  IS ASDK --> Yönetim Portalı'nda Microsoft.Update.Admin bileşeni için kritik bir uyarı görebilirsiniz. Uyarı adı, açıklama ve düzeltmesi tümü olarak görüntülenir:  
     - *HATA - FaultType ResourceProviderTimeout için şablon eksik.*
 
     Bu uyarı güvenle yoksayılabilir. 
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Uyarılar için görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bileşen:  
 
    Uyarı #1:
    - Ad: Altyapı rolü sağlıksız
@@ -250,55 +257,55 @@ Aşağıdaki artık kullanılabilir, ancak Azure yığın güncelleştirme 1804 
 - Kullanıcılar bir abonelik olmadan tam Market göz atabilir ve planları ve teklifleri gibi yönetim öğelerini görebilirsiniz. Bu öğeler kullanıcılara işlevsiz.
  
 #### <a name="compute"></a>İşlem
-- <!-- TBD -  IS ASDK --> Scaling settings for virtual machine scale sets are not available in the portal. As a workaround, you can use [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Because of PowerShell version differences, you must use the `-Name` parameter instead of `-VMScaleSetName`.
+- <!-- TBD -  IS ASDK --> Sanal makine ölçek kümeleri için ölçeklendirme ayarları portalda kullanılabilir değildir. Geçici bir çözüm olarak, kullandığınız [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). PowerShell sürümü farklılıkları nedeniyle kullanmalısınız `-Name` yerine parametre `-VMScaleSetName`.
 
-- <!-- TBD -  IS ASDK --> When you create virtual machines on the Azure Stack user portal, the portal displays an incorrect number of data disks that can attach to a DS series VM. DS series VMs can accommodate as many data disks as the Azure configuration.
+- <!-- TBD -  IS ASDK --> Sanal makineler Azure yığın kullanıcı portalında oluşturduğunuzda, portal DS serisi VM iliştirebilirsiniz veri diskleri yanlış sayıda görüntüler. DS serisi VM'ler sayıda veri diski Azure yapılandırması sağlayabilir.
 
-- <!-- TBD -  IS ASDK --> When a VM image fails to be created, a failed item that you cannot delete might be added to the VM images compute blade.
+- <!-- TBD -  IS ASDK --> Oluşturulacak bir VM görüntüsü başarısız olduğunda, VM görüntüleri işlem dikey penceresine eklenen silemezsiniz başarısız bir öğe.
 
   Geçici bir çözüm olarak, Hyper-V ile oluşturulan bir kukla VHD ile yeni bir VM görüntüsü oluşturma (yeni-VHD-yol C:\dummy.vhd-- SizeBytes sabit 1 GB). Bu işlem başarısız öğesini silmeden engeller sorunu çözer. Ardından, kukla görüntüsünü oluşturduktan sonra 15 dakika başarılı bir şekilde silebilirsiniz.
 
   Ayrıca, daha önce başarısız VM görüntüsü yeniden indirin daha sonra deneyebilirsiniz.
 
-- <!-- TBD -  IS ASDK --> If provisioning an extension on a VM deployment takes too long, users should let the provisioning time-out instead of trying to stop the process to deallocate or delete the VM.  
+- <!-- TBD -  IS ASDK --> VM dağıtımı üzerinde uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemi durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermemelisiniz.  
 
-- <!-- 1662991 - IS ASDK --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+- <!-- 1662991 - IS ASDK --> Linux VM tanılama Azure yığınında desteklenmiyor. VM tanılaması etkin bir Linux VM dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz dağıtım de başarısız olur. 
 
 #### <a name="networking"></a>Ağ
-- <!-- 1766332 - IS, ASDK --> Under **Networking**, if you click **Create VPN Gateway** to set up a VPN connection, **Policy Based** is listed as a VPN type. Do not select this option. Only the **Route Based** option is supported in Azure Stack.
+- <!-- 1766332 - IS, ASDK --> Altında **ağ**, tıklatırsanız **VPN ağ geçidi Oluştur** bir VPN bağlantısı kurmak için **İlkesi tabanlı** bir VPN türü olarak listelenir. Bu seçeneği belirlemeyin. Yalnızca **rota tabanlı** seçeneği Azure yığınında desteklenir.
 
-- <!-- 2388980 -  IS ASDK --> After a VM is created and associated with a public IP address, you can't disassociate that VM from that IP address. Disassociation appears to work, but the previously assigned public IP address remains associated with the original VM.
+- <!-- 2388980 -  IS ASDK --> Bir VM oluşturulur ve bir ortak IP adresi ile ilişkili sonra bu VM IP adresinden ilişkisini olamaz. Çalışmak için disassociation görünür, ancak daha önce atanan genel IP adresi orijinal VM ile ilişkili olarak kalır.
 
   Şu anda, oluşturduğunuz yeni VM'ler için yalnızca yeni ortak IP adreslerini kullanmanız gerekir.
 
   Yeni bir VM için IP adresi yeniden atama olsa bile bu davranış oluşur (genellikle olarak adlandırılan bir *VIP takası*). Tüm gelecekte bu IP adresi sonucu orijinal VM ve yeni bir bağlantı üzerinden bağlanma girişiminde bulunur.
 
-- <!-- 2292271 - IS ASDK --> If you raise a Quota limit for a Network resource that is part of an Offer and Plan that is associated with a tenant subscription, the new limit is not applied to that subscription. However, the new limit does apply to new subscriptions that are created after the quota is increased. 
+- <!-- 2292271 - IS ASDK --> Bir teklif ve Kiracı abonelikle ilişkili planı parçası olan bir ağ kaynağı için kota sınırı yükseltirseniz, bu abonelik için yeni sınır uygulanmaz. Ancak, yeni sınır kota artışı sonra oluşturulan yeni abonelikler için geçerlidir. 
 
   Bu sorunu geçici olarak çözmek için plan zaten bir aboneliği ile ilişkili olduğunda ağ Kotayı artırmak için bir eklenti planı kullanın. Daha fazla bilgi için bkz: nasıl yapılır [bir eklenti planı kullanılabilir hale](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available).
 
-- <!-- 2304134 IS ASDK --> You cannot delete a subscription that has DNS Zone resources or Route Table resources associated with it. To successfully delete the subscription, you must first delete DNS Zone and Route Table resources from the tenant subscription. 
+- <!-- 2304134 IS ASDK --> DNS bölgesi kaynakları veya yol tablosu kaynakları ilişkili olan bir abonelik silinemiyor. Abonelik başarıyla silmek için DNS bölgesi ve yol tablosu kaynakları Kiracı abonelikten silmeniz gerekir. 
 
 
-- <!-- 1902460 -  IS ASDK --> Azure Stack supports a single *local network gateway* per IP address. This is true across all tenant subscriptions. After the creation of the first local network gateway connection, subsequent attempts to create a local network gateway resource with the same IP address are blocked.
+- <!-- 1902460 -  IS ASDK --> Azure yığın destekleyen tek bir *yerel ağ geçidi* her bir IP adresi. Bu Kiracı abonelikler arasında geçerlidir. Aynı IP adresiyle bir yerel ağ geçidi kaynağı oluşturmak ilk yerel ağ geçidi bağlantısı sonraki oluşturulmasını denemesinden sonra engellenir.
 
-- <!-- 16309153 -  IS ASDK --> On a Virtual Network that was created with a DNS Server setting of *Automatic*, changing to a custom DNS Server fails. The updated settings are not pushed to VMs in that Vnet.
+- <!-- 16309153 -  IS ASDK --> Bir DNS sunucusu ayarı ile oluşturulan bir sanal ağda *otomatik*, özel bir DNS sunucusunun başarısız olması için değiştirilmesi. Bu Vnet vm'lerinin güncelleştirilmiş ayarları gönderilir değil.
  
-- <!-- TBD -  IS ASDK --> Azure Stack does not support adding additional network interfaces to a VM instance after the VM is deployed. If the VM requires more than one network interface, they must be defined at deployment time.
+- <!-- TBD -  IS ASDK --> Azure yığın VM dağıtıldıktan sonra ek ağ arabirimleri VM örneğine eklemeyi desteklemez. VM birden fazla ağ arabirimi gerektiriyorsa, dağıtım sırasında tanımlanmalıdır.
 
 
 #### <a name="sql-and-mysql"></a>SQL ve MySQL 
-- <!-- TBD - ASDK --> The database hosting servers must be dedicated for use by the resource provider and user workloads. You cannot use an instance that is being used by any other consumer, including App Services.
+- <!-- TBD - ASDK --> Veritabanı sunucuları barındırma kaynak sağlayıcısı ve kullanıcı iş yükleri tarafından kullanım için ayrılmış olmalıdır. Uygulama Hizmetleri dahil olmak üzere diğer herhangi bir tüketici tarafından kullanılan örneğini kullanamazsınız.
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers. 
+- <!-- IS, ASDK --> Alanları ve dönemleri gibi özel karakterler desteklenmiyor **ailesi** SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda olarak adlandırın. 
 
 #### <a name="app-service"></a>App Service
-- <!-- TBD -  IS ASDK --> Users must register the storage resource provider before they create their first Azure Function in the subscription.
+- <!-- TBD -  IS ASDK --> Kullanıcılar, bunlar ilk Azure işlevlerine abonelikte oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.
 
-- <!-- TBD -  IS ASDK --> In order to scale out infrastructure (workers, management, front-end roles), you must use PowerShell as described in the release notes for Compute.
+- <!-- TBD -  IS ASDK --> (Çalışanları, yönetim, ön uç rolleri) altyapıyı ölçeklendirme için PowerShell işlem için Sürüm Notları'nda açıklandığı şekilde kullanmanız gerekir.
  
 #### <a name="usage"></a>Kullanım  
-- <!-- TBD -  IS ASDK --> Usage Public IP address usage meter data shows the same *EventDateTime* value for each record instead of the *TimeDate* stamp that shows when the record was created. Currently, you can’t use this data to perform accurate accounting of public IP address usage.
+- <!-- TBD -  IS ASDK --> Kullanım genel IP adresi kullanım ölçüm verileri gösterilir aynı *olay tarihi-saati* yerine her kayıt için değer *TimeDate* kaydının oluşturulduğu gösterilir Damga. Şu anda, ortak IP adresi kullanımının doğru hesap gerçekleştirmek için bu verileri kullanamazsınız.
 
 <!--
 #### Identity
@@ -333,7 +340,7 @@ Yeni özellikleri ve düzeltmeleri Azure tümleşik sistemleri sürüm 1803 uygu
 - Özelliği [aşağı açılır listeden yeni bir destek isteği açma](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
     - Azure yığın Geliştirme Seti için kullanmak https://aka.ms/azurestackforum.    
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.  
+- <!-- 2050709 --> Yönetim Portalı'nda Blob hizmeti, tablo hizmeti ya da sıra hizmeti için depolama ölçümlerini düzenlemek mümkün değil. Depolama birimine gidin ve blob, tablo veya kuyruğu hizmeti bölmesi seçtiğinizde, bu hizmet için bir ölçüm grafik görüntüleyen yeni bir dikey pencere açılır. Ölçümleri grafik döşeme üstten ardından Düzenle seçerseniz grafiği Düzenle dikey penceresini açar ancak ölçümleri düzenlemek için seçenekleri görüntülemez.  
 
 - Gördüğünüz bir **gerekli etkinleştirme** Azure yığın Geliştirme Seti kaydetmek için öneren bir uyarı bildirimi. Bu davranış beklenir.
 
@@ -356,7 +363,7 @@ Yeni özellikleri ve düzeltmeleri Azure tümleşik sistemleri sürüm 1803 uygu
 
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Uyarılar için görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bileşen:  
 
    Uyarı #1:
    - Ad: Altyapı rolü sağlıksız
@@ -391,7 +398,7 @@ Yeni özellikleri ve düzeltmeleri Azure tümleşik sistemleri sürüm 1803 uygu
 
 -  VM dağıtımı üzerinde uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemi durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermemelisiniz.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings. 
+- <!-- 1662991 --> Linux VM tanılama Azure yığınında desteklenmiyor. VM tanılaması etkin bir Linux VM dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz dağıtım de başarısız olur. 
 
 
 #### <a name="networking"></a>Ağ
@@ -418,7 +425,7 @@ Yeni özellikleri ve düzeltmeleri Azure tümleşik sistemleri sürüm 1803 uygu
 
 - Veritabanı sunucuları barındırma kaynak sağlayıcısı ve kullanıcı iş yükleri tarafından kullanım için ayrılmış olmalıdır. Uygulama Hizmetleri dahil olmak üzere diğer herhangi bir tüketici tarafından kullanılan örneğini kullanamazsınız.
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** or **Tier** names when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Özel karakterler, boşluklar ve dönemleri dahil olmak üzere desteklenmiyor **ailesi** veya **katmanı** SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda adları.
 
 #### <a name="app-service"></a>App Service
 - Kullanıcılar, bunlar ilk Azure işlevlerine abonelikte oluşturmadan önce depolama kaynak sağlayıcısı kaydetmeniz gerekir.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: b85a92e60bb897bfd5f1b1c7af6f724a6afd3340
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ba24422f7ff5759153a6e067cc61251b43a7a091
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220252"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286941"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Öğretici: Azure Active Directory Tümleştirme PurelyHR ile
 
@@ -228,7 +228,7 @@ Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandı
 
 Erişim paneli almak LMS parçasında tıklatıp, otomatik olarak Al LMS uygulamanıza açan.
 
-Erişim paneli hakkında daha fazla bilgi için bkz. [Erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Erişim paneli hakkında daha fazla bilgi için bkz. [Erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

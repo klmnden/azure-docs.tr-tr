@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: barclayn
-ms.openlocfilehash: 0d34a19658ae67a9c98d6f31aaca35e67add5beb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 5f7cccfe0288b547f84d5642c46c21ab4095a7bf
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26345120"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287730"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Azure anahtar kasası için nasıl oluşturma ve aktarma HSM korumalı anahtarları
 ## <a name="introduction"></a>Giriş
@@ -183,6 +183,13 @@ BYOK araçları India.zip KeyVault
 49EDCEB3091CF1DF7B156D5B495A4ADE1CFBA77641134F61B0E0940121C436C8
 
 - - -
+**Fransa:**
+
+BYOK araçları France.zip KeyVault
+
+5C9D1F3E4125B0C09E9F60897C9AE3A8B4CB0E7D13A14F3EDBD280128F8FE7DF
+
+- - -
 **Birleşik Krallık:**
 
 BYOK araçları UnitedKingdom.zip KeyVault
@@ -304,6 +311,9 @@ Bu adım isteğe bağlıdır ancak aşağıdakileri doğrulayabilmeniz böylece 
    * Hindistan için:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-INDIA-1 -w BYOK-SecurityWorld-pkg-INDIA-1
+   * Fransa için:
+
+         "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-FRANCE-1 -w BYOK-SecurityWorld-pkg-FRANCE-1
    * Birleşik Krallık için:
 
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
@@ -385,6 +395,9 @@ Yeni bir komut istemi açın ve burada BYOK zip dosyası unzipped konumun geçer
 * Hindistan için:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1
+* Fransa için:
+
+        KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-FRANCE-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-FRANCE-1
 * Birleşik Krallık için:
 
         KeyTransferRemote.exe -ModifyAcls -KeyAppName simple -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1
@@ -444,6 +457,9 @@ Coğrafi bölge veya Azure örneği bağlı olarak aşağıdaki komutlardan biri
 * Hindistan için:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-INDIA-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-INDIA-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
+* Fransa için:
+
+        KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-France-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-France-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey
 * Birleşik Krallık için:
 
         KeyTransferRemote.exe -Package -KeyIdentifier contosokey -ExchangeKeyPackage BYOK-KEK-pkg-UK-1 -NewSecurityWorldPackage BYOK-SecurityWorld-pkg-UK-1 -SubscriptionId SubscriptionID -KeyFriendlyName ContosoFirstHSMkey

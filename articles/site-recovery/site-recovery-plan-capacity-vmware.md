@@ -3,17 +3,16 @@ title: Kapasite planlama ve Azure Site Recovery ile Azure'da VMware çoğaltma i
 description: VMware Vm'leri Azure Site Recovery ile azure'a çoğaltırken planı kapasite ve ölçek bu makaleyi kullanın
 services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/27/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: rayne
-ms.openlocfilehash: dbaf1e29fbf4be8ef9432842b7ea4d6511b21cbb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 30e4534fbc235a228ac887ddc3336f09909b4fa6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692207"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287363"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Kapasite ve Azure Site Recovery ile VMware çoğaltma için ölçeklendirme planı
 
@@ -38,7 +37,7 @@ Bu makale için kapasite planlaması ve ölçeklendirme, şirket içi VMware Vm'
 8 Vcpu'lar (2 yuva * 2,5 gigahertz [GHz] @ 4 çekirdek) | 16 GB | 300 GB | 500 GB veya daha az | 100'den az makineler çoğaltılır.
 12 Vcpu'lar (2 yuva * 2,5 GHz @ 6 çekirdek) | 18 GB | 600 GB | 1 TB ' 500 GB | 100-150 makineler arasında çoğaltılır.
 16 Vcpu (2 yuva * 2,5 GHz @ 8 çekirdek) | 32 GB | 1 TB | 1 TB ile 2 TB | 150-200 makineler arasında çoğaltılır.
-Başka bir işlem sunucusu Dağıt | | | > 2 TB | Ek işlem sunucusu 200'den fazla makineleri çoğaltma yapıyorsanız ya da günlük verileri değiştirirseniz oranı 2 TB aştığında dağıtın.
+Başka bir işlem sunucusu Dağıt | | | &GT; 2 TB | Ek işlem sunucusu 200'den fazla makineleri çoğaltma yapıyorsanız ya da günlük verileri değiştirirseniz oranı 2 TB aştığında dağıtın.
 
 Konumlar:
 

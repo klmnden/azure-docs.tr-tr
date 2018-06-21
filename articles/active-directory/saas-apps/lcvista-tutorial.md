@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1a82718b17c623a59b0ea03297f47d54ff49eced
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0cd42f5863293dfe5b52ab1fd99c2fc04aa9aeee
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225961"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285823"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Öğretici: Azure Active Directory Tümleştirme LCVista ile
 
@@ -224,7 +224,7 @@ Bu bölümde, Britta LCVista için erişim vererek, Azure çoklu oturum açma ku
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin. Erişim panelinde LCVista kutucuğuna tıklayın, kuruluşunuzun oturum açma sayfası için yönlendirilir. Başarılı oturum açtıktan sonra LCVista uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin. Erişim panelinde LCVista kutucuğuna tıklayın, kuruluşunuzun oturum açma sayfası için yönlendirilir. Başarılı oturum açtıktan sonra LCVista uygulamanıza açan. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

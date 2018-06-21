@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864678"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292568"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Lisans gereksinimleri için Azure AD Self Servis parola sıfırlama
 
-Azure Active Directory (Azure AD) parola sıfırlama işlevi için sırayla, *kuruluşunuzda atanan en az bir Lisansı olmalıdır*. Kullanıcı başına parola sıfırlama deneyimi lisans biz zorlamaz. Uygun bir lisans, bir kullanıcının bu lisansın kapsadığı özelliklerden doğrudan veya dolaylı olarak faydalandığı durumlarda gereklidir.
+Azure Active Directory (Azure AD) parola sıfırlama işlevi için sırayla, *kuruluşunuzda atanan en az bir Lisansı olmalıdır* o kullanıcı için. Uygun bir lisans, bir kullanıcının bu lisansın kapsadığı özelliklerden doğrudan veya dolaylı olarak faydalandığı durumlarda gereklidir.
 
 * **Yalnızca bulut kullanıcıları**: Office 365 herhangi SKU veya Azure AD temel Ücretli
 * **Bulut** veya **şirket içi kullanıcıların**: Azure AD Premium P1 veya P2, Enterprise Mobility + Security (EMS) veya Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>Parola geri yazma için gerekli lisansları
+## <a name="licensing-requirements-for-password-writeback"></a>Parola geri yazma için lisans gereksinimleri
+
+**Self Servis parola sıfırlama/Değiştir/Unlock şirket içi geri yazma ile Azure AD premium özelliğidir**. Lisanslama hakkında daha fazla bilgi için bkz: [Azure Active Directory sitesi fiyatlandırma](https://azure.microsoft.com/pricing/details/active-directory/).
 
 Parola geri yazma özelliğini kullanmak için aşağıdaki lisansları Kiracı'atanmış olması gerekir:
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + güvenlik E3 veya A3
+* Enterprise Mobility + güvenlik E5 veya A5
+* Microsoft 365 E3 veya A3
+* Microsoft 365 E5 veya A5
 * Microsoft 365 F1'e
 
 > [!WARNING]

@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868834"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296165"
 ---
 # <a name="password-writeback-overview"></a>Parola geri yazma genel bakış
 
-Parola geri yazma ile Azure parolalar, şirket içi Active Directory'ye geri yazma için Active Directory'ye (Azure AD) yapılandırabilirsiniz. Parola geri yazma içi karmaşık Self Servis parola sıfırlama (SSPR) çözümü ayarlamanıza gerek kaldırır ve bulut tabanlı kolay bir yol, kullanıcılarınızın nerede olurlarsa olsunlar şirket içi parolalarını sıfırlamaya sağlar. Parola geri yazma özelliğini bir bileşenidir [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) , etkinleştirilebilir ve Premium geçerli aboneler tarafından kullanılan [Azure Active Directory sürümleri](../active-directory-whatis.md).
+Parola geri yazma ile Azure parolalar, şirket içi Active Directory'ye geri yazma için Active Directory'ye (Azure AD) yapılandırabilirsiniz. Parola geri yazma içi karmaşık Self Servis parola sıfırlama (SSPR) çözümü ayarlamanıza gerek kaldırır ve bulut tabanlı kolay bir yol, kullanıcılarınızın nerede olurlarsa olsunlar şirket içi parolalarını sıfırlamaya sağlar. Parola geri yazma özelliğini bir bileşenidir [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) , etkinleştirilebilir ve Premium geçerli aboneler tarafından kullanılan [Azure Active Directory sürümleri](../fundamentals/active-directory-whatis.md).
 
 Parola geri yazma aşağıdaki özellikleri sağlar:
 
@@ -129,7 +129,7 @@ Parola geri yazmanın gerçekleşmesini sağlamak için gerekli izinleri ayarlam
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Parola geri yazma için lisans gereksinimleri
 
-Lisanslama hakkında daha fazla bilgi için bkz: [lisansları parola geri yazma için gereken](concept-sspr-licensing.md#licenses-required-for-password-writeback) veya aşağıdaki siteleri:
+Lisanslama hakkında daha fazla bilgi için bkz: [lisansları parola geri yazma için gereken](concept-sspr-licensing.md) veya aşağıdaki siteleri:
 
 * [Site fiyatlandırma Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

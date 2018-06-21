@@ -1,6 +1,6 @@
 ---
-title: Azure rol tabanlı erişim denetimi (RBAC) için yerleşik roller | Microsoft Docs
-description: Azure rol tabanlı erişim denetimi (RBAC) için yerleşik roller açıklanmıştır. NotActions ve eylemleri listeler.
+title: Azure'da yerleşik roller | Microsoft Docs
+description: Azure rol tabanlı erişim denetimi (RBAC) için yerleşik roller açıklanmıştır. Eylemler, notActions, dataActions ve notDataActions listeler.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267382"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294505"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi için yerleşik roller
+# <a name="built-in-roles-in-azure"></a>Azure'da yerleşik roller
 [Rol tabanlı erişim denetimi (RBAC)](overview.md) kullanıcıları, grupları ve hizmet asıl adı atayabilirsiniz birkaç yerleşik rol tanımı yok. Rol atamalarını azure'daki kaynaklara erişimi denetlemek yoludur. Yerleşik roller, kuruluşunuzun özel ihtiyaçlarını karşılamıyorsa, kendi oluşturabileceğiniz [özel roller](custom-roles.md).
 
 Yerleşik roller her zaman artmaktadır. Son rol tanımları almak için [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) veya [az rol tanımı listesi](/cli/azure/role/definition#az-role-definition-list).
@@ -39,7 +39,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [AcrImageSigner](#acrimagesigner) | acr görüntüsü imzalayan |
 | [AcrQuarantineReader](#acrquarantinereader) | acr karantina veri okuyucu |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr karantina veri yazıcı |
-| [API Management hizmeti katkıda bulunan](#api-management-service-contributor) | Hizmeti ve API'leri yönetebilir |
+| [API Management hizmeti katkıda bulunan](#api-management-service-contributor) | Hizmet ve API'leri Yönet |
 | [API Management hizmet işleci rolü](#api-management-service-operator-role) | Hizmeti yönetebilir, ancak API'leri yönetemez |
 | [API Management hizmet okuyucu rolü](#api-management-service-reader-role) | Hizmet ve API'lere salt okunur erişim |
 | [Uygulama Öngörüler bileşen katkıda bulunan](#application-insights-component-contributor) | Application Insights bileşenlerini yönetebilir |
@@ -51,7 +51,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Yedekleme katkıda bulunan](#backup-contributor) | Yedekleme hizmetini yönetmenize olanak sağlar ancak kasa oluşturma ve diğer kullanıcılara erişim verme izni sağlamaz |
 | [Yedekleme işletmeni](#backup-operator) | Yedekleme kaldırma, kasa oluşturma ve diğer kullanıcılara erişim verme dışındaki yedekleme hizmetlerini yönetmenize olanak sağlar |
 | [Yedekleme okuyucusu](#backup-reader) | Yedekleme hizmetlerini görüntüleyebilir ancak değişiklik yapamaz |
-| [Faturalama okuyucusu](#billing-reader) | Faturalandırma verilerine okuma erişimi verir |
+| [Faturalama okuyucusu](#billing-reader) | Fatura veri okuma erişimi sağlar |
 | [BizTalk katkıda bulunan](#biztalk-contributor) | BizTalk hizmetlerini yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [CDN uç noktası katkıda bulunan](#cdn-endpoint-contributor) | CDN uç noktalarını yönetebilir, ancak diğer kullanıcılara erişim izni veremez. |
 | [CDN uç noktası okuyucusu](#cdn-endpoint-reader) | CDN uç noktalarını görüntüleyebilir, ancak değişiklik yapamaz. |
@@ -63,10 +63,10 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 | [Klasik sanal makine Katılımcısı](#classic-virtual-machine-contributor) | Klasik sanal makineleri yönetmenizi sağlar ancak bunlara veya bağlı oldukları sanal ağ ya da depolama hesaplarına yönelik erişimi yönetme izni vermez. |
 | [ClearDB MySQL DB katkıda bulunan](#cleardb-mysql-db-contributor) | ClearDB MySQL veritabanlarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
 | [Cosmos DB hesap okuyucu rolü](#cosmos-db-account-reader-role) | Azure Cosmos DB hesap verileri okuyabilir. Bkz: [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) Azure Cosmos DB hesapları yönetmek için. |
-| [Veri Fabrikası katkıda bulunan](#data-factory-contributor) | Veri fabrikaları ile birlikte bunların alt kaynaklarını oluşturup yönetin. |
+| [Veri Fabrikası katkıda bulunan](#data-factory-contributor) | Oluşturun ve bunların içindeki alt kaynakları yanı sıra veri fabrikaları yönetin. |
 | [Data Lake Analytics Geliştirici](#data-lake-analytics-developer) | İşlerinizi göndermenize, izlemenize ve yönetmenize izin verir, ancak Data Lake Analytics hesabı oluşturmanıza veya silmenize izin vermez. |
-| [Veri Purger](#data-purger) | Analytics verilerini temizle |
-| [DevTest Labs kullanıcı](#devtest-labs-user) | Azure DevTest Labs'teki tüm sanal makinelerinize bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
+| [Veri Purger](#data-purger) | Analiz verilerini temizleyebilir |
+| [DevTest Labs kullanıcı](#devtest-labs-user) | Bağlandığınız, sağlar başlangıç, yeniden başlatma ve kapatma sanal makinelerinizi Azure DevTest Labs. |
 | [DNS bölgesi katkıda bulunan](#dns-zone-contributor) | Azure DNS'te, DNS bölgelerini ve kayıt kümelerini yönetmenize izin verir, ancak bunlara kimlerin erişebildiğini denetlemenize izin vermez. |
 | [DocumentDB hesabı katkıda bulunan](#documentdb-account-contributor) | Azure Cosmos DB hesapları yönetebilirsiniz. Azure Cosmos DB önceden DocumentDB bilinirdi. |
 | [Akıllı sistemler hesap katkıda bulunan](#intelligent-systems-account-contributor) | Akıllı Sistemler hesaplarını yönetmenizi sağlar ancak onlara yönelik erişimi yönetme izni vermez. |
@@ -178,7 +178,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Hizmeti ve API'leri yönetebilir |
+> | **Açıklama** | Hizmet ve API'leri Yönet |
 > | **Kimlik** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **Eylemler** |  |
 > | Microsoft.ApiManagement/service/* | Oluşturma ve API Management hizmeti yönetme |
@@ -472,7 +472,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Faturalandırma verilerine okuma erişimi verir |
+> | **Açıklama** | Fatura veri okuma erişimi sağlar |
 > | **Kimlik** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -660,7 +660,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Veri fabrikaları ile birlikte bunların alt kaynaklarını oluşturup yönetin. |
+> | **Açıklama** | Oluşturun ve bunların içindeki alt kaynakları yanı sıra veri fabrikaları yönetin. |
 > | **Kimlik** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -703,11 +703,11 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Write | Oluşturun veya bir işlem İlkesi güncelleştirin. |
 > | Microsoft.DataLakeAnalytics/accounts/computePolicies/Delete | Bir işlem ilkeyi silin. |
 
-## <a name="data-purger"></a>Veri Purger
+## <a name="data-purger"></a>Veri Temizleyici
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Analytics verilerini temizle |
+> | **Açıklama** | Analiz verilerini temizleyebilir |
 > | **Kimlik** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **Eylemler** |  |
 > | Microsoft.Insights/components/*/read |  |
@@ -719,7 +719,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Açıklama** | Azure DevTest Labs'teki tüm sanal makinelerinize bağlanmanıza, bu makineleri başlatmanıza, yeniden başlatmanıza ve kapatmanıza izin verir. |
+> | **Açıklama** | Bağlandığınız, sağlar başlangıç, yeniden başlatma ve kapatma sanal makinelerinizi Azure DevTest Labs. |
 > | **Kimlik** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **Eylemler** |  |
 > | Microsoft.Authorization/*/read | Okuma rolleri ve rol atamaları |
@@ -1110,7 +1110,7 @@ Aşağıdaki tabloda yerleşik roller kısa açıklamaları sağlar. Rol adı li
 > | Microsoft.Security/policies/write | Güvenlik İlkesi güncelleştirmeleri |
 > | Microsoft.Support/* | Oluşturma ve Destek biletlerini yönetme |
 
-## <a name="security-manager-legacy"></a>Güvenlik Yöneticisi (Eski)
+## <a name="security-manager-legacy"></a>Güvenlik Yöneticisi'ni (eski)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

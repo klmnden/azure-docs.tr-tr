@@ -1,24 +1,22 @@
 ---
 title: Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısı | Microsoft Docs
-description: Bu makalede Hyper-V'den Azure’a geçiş yapılırken Azure Site Recovery dağıtım planlayıcısının çalışma modu açıklanır.
-services: site-recovery
+description: Bu makalede Site Recovery dağıtımı Planlayıcısı foro Hyper-V için Azure çoğaltmanın çalışması öğretir.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236238"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287499"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V’den Azure’a Azure Site Recovery dağıtım planlayıcısını çalıştırma
 
-## <a name="modes-of-running-the-deployment-planner"></a>Dağıtım planlayıcısını çalıştırma modları
-Komut satırı aracını (ASRDeploymentPlanner.exe) şuradaki dört modun herhangi birinde çalıştırabilirsiniz: 
+Site Recovery çalıştırabilirsiniz dağıtım Planlayıcısı komut satırı aracı (ASRDeploymentPlanner.exe) herhangi bir bu dört modu: 
 -   [Sanal makine (VM) listesini alma](#get-vm-list-for-profiling-hyper-v-vms)
 -   [Profil](#profile-hyper-v-vms)
 -   [Rapor oluşturma](#generate-report)
@@ -40,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | Hyper-V konağı veya Hyper-V kümesine bağlanmak için gereken kullanıcı adı. Kullanıcının yönetici erişimi olmalıdır.|
-|-ServerListFile | Profili oluşturulacak VM’leri içeren sunucuların listesinin bulunduğu dosya. Dosya yolu mutlak veya göreli olabilir. Bu dosya her satırda aşağıdakilerden birini içermelidir:<ul><li>Hyper-V konak adı veya IP adresi</li><li>Hyper-V küme adı veya IP adresi</li></ul><br>**Örnek:** ServerList.txt dosyası aşağıdaki sunucuları içerir:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | Profili oluşturulacak VM’leri içeren sunucuların listesinin bulunduğu dosya. Dosya yolu mutlak veya göreli olabilir. Bu dosya her satırda aşağıdakilerden birini içermelidir:<ul><li>Hyper-V konak adı veya IP adresi</li><li>Hyper-V küme adı veya IP adresi</li></ul><br>**Örnek:** ServerList.txt dosyası aşağıdaki sunucuları içerir:<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(İsteğe bağlı) Bu işlem sırasında oluşturulan verileri depolamak için evrensel adlandırma kuralı (UNC) veya yerel dizin yolu. Bir ad belirtilmemişse, varsayılan dizin olarak geçerli yolun altındaki “ProfiledData” adlı dizin kullanılır.|
-|-OutputFile| (İsteğe bağlı) Hyper-V sunucularından alınan VM'lerin listesinin kaydedildiği dosya. Bir ad belirtilmezse, ayrıntılar VMList.txt dosyasında depolanır.  Profili gerekmeyen VM'ler kaldırdıktan sonra profil oluşturmayı başlatmak için bu dosyayı kullanın.|
+|-OutputFile| (İsteğe bağlı) Hyper-V sunucularından alınan VM'lerin listesini dosyasıyla kaydedilir. Bir ad belirtilmezse, ayrıntılar VMList.txt dosyasında depolanır.  Profili gerekmeyen VM'ler kaldırdıktan sonra profil oluşturmayı başlatmak için bu dosyayı kullanın.|
 |-Password|(İsteğe bağlı) Hyper-V konağına bağlanmak için gereken parola. Bunu bir parametre olarak belirtmezseniz komutu çalıştırdığında belirtmeniz istenir.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList bulma
-**Hyper-V kümesi**: Sunucunun liste dosyasında Hyper-V küme adı belirtildiğinde, araç kümenin tüm Hyper-V düğümlerinin bulur ve her Hyper-V konağında mevcut olan VM'leri alır.
 
+- **Hyper-V kümesi**: Sunucunun liste dosyasında Hyper-V küme adı belirtildiğinde, araç kümenin tüm Hyper-V düğümlerinin bulur ve her Hyper-V konağında mevcut olan VM'leri alır.
 **Hyper-V konağı**: Hyper-V konak adı verildiğinde, araç öncelikle bu adın bir kümeye ait olup olmadığını denetler. Değerin evet olması durumunda araç kümeye ait düğümleri getirir. Ardından sanal makineleri her Hyper-V ana bilgisayarından alır. 
 
 Dilerseniz profilini el ile oluşturmak istediğiniz sanal makinelerin kolay adlarını veya IP adreslerini bir dosyada listeleyebilirsiniz.
@@ -154,7 +152,7 @@ Aracın çalıştığı sunucu yeniden başlatılırsa veya kilitlenmişse ya da
 
 Depolama hesabı adı ve anahtarı geçirildiğinde, araç profil oluşturma işleminin son adımında aktarım hızını ölçer. Profil oluşturma tamamlanmadan önce araç kapatılırsa, aktarım hızı hesaplanmaz. Raporu oluşturmadan önce aktarım hızını bulmak için, komut satırı konsolundan GetThroughput işlemini çalıştırabilirsiniz. Aksi takdirde, oluşturulan rapor aktarım hızı bilgilerini içermez.
 
-Azure Site Recovery, iSCSI ve geçiş disklerine sahip olan VM’leri desteklemez. Ancak araç, VM’lere eklenmiş iSCSI ve geçiş disklerini algılayamaz ve bunların profilini oluşturamaz.
+Azure Site Recovery, iSCSI ve geçişli disklere sahip sanal makineleri desteklemiyor. Aracı algılayabilir ve VM'ler için bağlı iSCSI ve geçişli diskler profil.
 
 ## <a name="generate-a-report"></a>Rapor oluşturma
 Araç, rapor çıktısı olarak makro özellikli bir Microsoft Excel dosyası (XLSM dosyası) oluşturur. Bu dosya tüm dağıtım önerilerini özetler. Rapor, DeploymentPlannerReport_*benzersiz sayısal tanımlayıcı*.xlsm olarak adlandırılıp belirtilen dizine yerleştirilir.

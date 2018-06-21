@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 520a1212eaccc48f8b8b423f7dede9c16409220b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300336"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294318"
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Sorgu için AS2, X 12 ve EDIFACT iletileri günlük analizi
 
@@ -53,41 +53,33 @@ Bu örnek, değişim denetimi numarasına göre iletileri nasıl bulabilirsiniz 
 
    ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. Altında **Yönetim**, seçin **OMS portalı**.
+3. Altında **Yönetim**, seçin **günlük arama**.
 
-   ![OMS portalı seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![Aet.aet arama seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. Giriş sayfanızda seçin **günlük arama**.
-
-   ![Giriş sayfanızda "Günlük arama" seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   -veya-
-
-   ![Menüsünde "Günlük arama" öğesini seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. Arama kutusuna, bulmak ve basın istediğiniz bir alan girin **Enter**. Yazmaya başladığınızda, günlük analizi olası eşleşmeler ve kullanabileceğiniz işlemleri gösterir. Daha fazla bilgi edinmek [günlük analizi verileri bulmak üzere nasıl](../log-analytics/log-analytics-log-searches.md).
+4. Arama kutusuna, bulmak ve basın istediğiniz bir alan girin **Enter**. Yazmaya başladığınızda, günlük analizi olası eşleşmeler ve kullanabileceğiniz işlemleri gösterir. Daha fazla bilgi edinmek [günlük analizi verileri bulmak üzere nasıl](../log-analytics/log-analytics-log-searches.md).
 
    Bu örnekte arama olan olaylar için **türü AzureDiagnostics =**.
 
    ![Sorgu dizesi yazmaya başlayın](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. Sol çubuğunda görüntülemek istediğiniz zaman dilimini seçin. Sorgunuz için bir filtre eklemek için **+ Ekle**.
+5. Sol çubuğunda görüntülemek istediğiniz zaman dilimini seçin. Sorgunuz için bir filtre eklemek için **+ Ekle**.
 
    ![Filtre sorguya ekleme](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. Altında **filtreler Ekle**, istediğiniz filtreyi bulabilmek için filtre adı girin. Filtreyi seçin ve **+ Ekle**.
+6. Altında **filtreler Ekle**, istediğiniz filtreyi bulabilmek için filtre adı girin. Filtreyi seçin ve **+ Ekle**.
 
    Değişim Denetimi numarasını bulmak için bu örnek "değişim" sözcüğü için arar ve seçer **event_record_messageProperties_interchangeControlNumber_s** filtre olarak.
 
    ![Filtreyi seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. Sol çubuğunda ve seçin istediğiniz filtre değeri seçin **Uygula**.
+7. Sol çubuğunda ve seçin istediğiniz filtre değeri seçin **Uygula**.
 
    Bu örnek istiyoruz iletilerin değiş tokuş denetim numarası seçer.
 
    ![Filtre değeri seçin](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. Şimdi oluşturmakta olduğunuz sorgu döndür. Sorgunuz seçilen filtre olay ve değeri ile güncelleştirilmiştir. Önceki sonuçlarınızı artık çok filtrelenir.
+8. Şimdi oluşturmakta olduğunuz sorgu döndür. Sorgunuz seçilen filtre olay ve değeri ile güncelleştirilmiştir. Önceki sonuçlarınızı artık çok filtrelenir.
 
     ![Sorgunuz filtrelenmiş sonuçlar döndürür](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 

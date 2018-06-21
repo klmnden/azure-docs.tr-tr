@@ -1,6 +1,6 @@
 ---
 title: Geliştirme ve sınama için Azure storage öykünücüsünü kullanma | Microsoft Docs
-description: Azure storage öykünücüsü geliştirmek ve Azure Storage uygulamalarınızı test etme için boş yerel geliştirme ortamı sağlar. İstekleri nasıl doğrulanır, uygulamanızdan öykünücüsünü bağlanma ve komut satırı aracının nasıl kullanılacağını öğrenin.
+description: Azure storage öykünücüsü geliştirmek ve Azure Storage uygulamalarınızı test etme için boş yerel geliştirme ortamı sağlar. İstekleri nasıl yetkilendirileceğini, uygulamanızdan öykünücüsünü bağlanma ve komut satırı aracının nasıl kullanılacağını öğrenin.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
-ms.translationtype: HT
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34305115"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295592"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Geliştirme ve sınama için Azure storage öykünücüsünü kullanma
 
@@ -81,14 +81,14 @@ Bu komutlar hakkında daha fazla bilgi için bkz: [depolama öykünücüsü komu
 > Kullanabileceğiniz [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) LocalDB yükleme de dahil olmak üzere, SQL Server örneklerini yönetmek için (SSMS). SMSS içinde **sunucuya Bağlan** iletişim kutusunda, belirtin `(localdb)\MSSQLLocalDb` içinde **sunucu adı:** alan yerel veritabanı örneğine bağlanın.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Depolama öykünücüsü isteklerinde kimlik doğrulaması
-Yüklenmiş ve depolama öykünücüsü başlatılmış sonra kodunuzu onu karşı test edebilirsiniz. Anonim İstek olmadığı sürece bulutta Azure depolama gibi storage öykünücüsüne karşı yaptığınız her istek, kimliğinizin doğrulanması gerekiyor. İstekleri paylaşılan anahtar kimlik doğrulaması kullanarak storage öykünücüsüne karşı veya bir paylaşılan erişim imzası (SAS) ile kimlik doğrulaması yapabilir.
+Yüklenmiş ve depolama öykünücüsü başlatılmış sonra kodunuzu onu karşı test edebilirsiniz. Anonim İstek olmadığı sürece bulutta Azure depolama gibi storage öykünücüsüne karşı yaptığınız her istek, yetkilendirilmesi gerekir. Paylaşılan anahtar kimlik doğrulaması kullanarak storage öykünücüsüne karşı veya bir paylaşılan erişim imzası (SAS) ile isteklerini yetki verebilir.
 
-### <a name="authenticate-with-shared-key-credentials"></a>Paylaşılan anahtar kimlik bilgileriyle kimlik doğrulaması
+### <a name="authorize-with-shared-key-credentials"></a>Paylaşılan anahtar kimlik bilgileriyle yetkilendirmek
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 Bağlantı dizeleri hakkında daha fazla bilgi için bkz: [yapılandırma Azure Storage bağlantı dizelerini](../storage-configure-connection-string.md).
 
-### <a name="authenticate-with-a-shared-access-signature"></a>İle paylaşılan erişim imzası kimlik doğrulaması
+### <a name="authorize-with-a-shared-access-signature"></a>Paylaşılan erişim imzası ile yetkilendirmek
 Xamarin kitaplığı gibi bazı Azure storage istemcisi kitaplıklarını yalnızca bir paylaşılan erişim imzası (SAS) belirteci ile kimlik doğrulamasını destekler. Gibi bir araç kullanarak SAS belirteci oluşturabilirsiniz [Depolama Gezgini](http://storageexplorer.com/) veya paylaşılan anahtar kimlik doğrulamasını destekleyen başka bir uygulama.
 
 Azure PowerShell kullanarak bir SAS belirteci de oluşturabilirsiniz. Aşağıdaki örnek, bir blob kapsayıcısı için tam izinleri olan bir SAS belirteci oluşturur:
@@ -204,12 +204,23 @@ Tablo depolama öykünücüsü alanına aşağıdaki farkları Uygula:
 Kuyruk depolama öykünücüsü içinde belirli bir fark yoktur.
 
 ## <a name="storage-emulator-release-notes"></a>Depolama öykünücüsü sürüm notları
+
+### <a name="version-55"></a>Sürüm 5.5
+* Depolama öykünücüsü şimdi Blob, kuyruk ve tablo Hizmeti uç noktalarda depolama hizmetleri 2017 11 09 sürümünü destekler.
+* Destek için blob eklenmiştir **oluşturulan** blob'un oluşturulma zamanı döndürür özelliği.
+
+### <a name="version-54"></a>5.4 sürümü
+Yükleme kararlılığını geliştirmek üzere öykünücü artık yükleme zamanında bağlantı noktalarını ayırma çalışır. Bağlantı noktası ayırmaları isterseniz kullanın *- reserveports* seçeneği **init** bunları belirtmek için komutu.
+
+### <a name="version-53"></a>Sürüm 5.3
+Depolama öykünücüsü şimdi Blob, kuyruk ve tablo Hizmeti uç noktalarda depolama hizmetleri 2017 07 29 sürümünü destekler.
+
 ### <a name="version-52"></a>5.2 sürümü
 * Depolama öykünücüsü şimdi Blob, kuyruk ve tablo Hizmeti uç noktalarda depolama hizmetleri 2017-04-17 sürümünü destekler.
 * Bir hata olduğu tablo özellik değerlerini düzgün şekilde kodlanmamış sabit.
 
 ### <a name="version-51"></a>Sürüm 5.1
-* Depolama öykünücüsü burada döndürdü hatanın düzeltildiğini `DataServiceVersion` nerede hizmet değildi bazı yanıtları üstbilgisinde.
+Depolama öykünücüsü burada döndürdü hatanın düzeltildiğini `DataServiceVersion` nerede hizmet değildi bazı yanıtları üstbilgisinde.
 
 ### <a name="version-50"></a>Sürüm 5.0
 * Depolama öykünücüsü yükleyici artık için varolan MSSQL denetler ve .NET Framework yükler.

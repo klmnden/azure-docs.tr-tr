@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
 ms.author: vturecek
-ms.openlocfilehash: fa79d50d6ef2899dcaf4116dcfe8ac7fae077959
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85eb1cd40986bd6fb83c80a274046bbae3756b7e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212696"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295462"
 ---
 # <a name="manage-secrets-in-service-fabric-applications"></a>Service Fabric uygulamaları gizli anahtarları Yönet
 Bu kılavuz, Service Fabric uygulaması parolalarında yönetme adım adım anlatılmaktadır. Gizli depolama bağlantı dizeleri, parolalar veya düz metin olarak işleneceğini olmayan diğer değerleri gibi herhangi bir önemli bilgi olabilir.
@@ -43,7 +43,7 @@ Veri şifreleme sertifikası kesinlikle şifreleme için kullanılır ve şifre 
 Bu sertifika, kümedeki her düğümde yüklenmelidir. Bu çalışma zamanında bir hizmetin Settings.xml depolanan değerleri şifresini çözmek için kullanılır. Bkz: [Azure Kaynak Yöneticisi'ni kullanarak bir küme oluşturmak nasıl] [ service-fabric-cluster-creation-via-arm] kurulum yönergeleri. 
 
 ## <a name="encrypt-application-secrets"></a>Uygulama parolaları şifrelemek
-Bir uygulama dağıtırken, sertifika gizli değerlerle şifrelemek ve bir hizmetin Settings.xml yapılandırma dosyasına Ekle. Service Fabric SDK yerleşik gizli şifreleme ve şifre çözme işlevi vardır. Gizli değerleri yerleşik anda şifrelenmiş şifresi ve program aracılığıyla hizmet kodunda okuyun. 
+Bir uygulama dağıtırken, sertifika gizli değerlerle şifrelemek ve bir hizmetin Settings.xml yapılandırma dosyasına Ekle. Service Fabric SDK yerleşik gizli şifreleme ve şifre çözme işlevi vardır. Gizli değerleri derleme zamanında şifrelenmiş şifresi ve program aracılığıyla hizmet kodunda okuyun. 
 
 Aşağıdaki PowerShell komutunu bir gizli anahtarı şifrelemek için kullanılır. Bu komut, yalnızca değeri şifreler; Mevcut **değil** şifre metnin imzalayın. Ciphertext gizli değerleri için üretmek için kümenizdeki yüklü aynı şifreleme sertifikası kullanmanız gerekir:
 

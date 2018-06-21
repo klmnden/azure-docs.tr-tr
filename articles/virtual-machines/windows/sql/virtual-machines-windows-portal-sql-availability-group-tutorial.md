@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716729"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287812"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Yapılandırma her zaman üzerindeki kullanılabilirlik grubu Azure VM'de el ile
 
@@ -56,7 +56,7 @@ Aşağıdaki tabloda bu öğreticiye başlamadan önce tamamlamanız gereken ön
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## Küme oluşturma
+## <a name="create-the-cluster"></a>Kümeyi oluşturma
 
 Önkoşullar tamamlandıktan sonra ilk adım iki SQL Server'lar içeren Windows Server Yük devretme kümesi ve bir Tanık oluşturmaktır.
 
@@ -413,8 +413,8 @@ Yük Dengeleyici yapılandırmak için bir arka uç havuzu, bir araştırma olu�
    | **Ad** | Metin | SQLAlwaysOnEndPointListener |
    | **Ön uç IP adresi** | Adres seçin |Yük Dengeleyici oluşturduğunuz sırada oluşturduğunuz adresi kullanın. |
    | **Protokol** | TCP seçin |TCP |
-   | **Bağlantı Noktası** | Bağlantı noktası için SQL Server örneğini kullan | 1433 |
-   | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarladığınızda, bu alan kullanılmıyor | 1433 |
+   | **Bağlantı Noktası** | Kullanılabilirlik grubu dinleyicisinin bağlantı noktası kullanma | 1435 |
+   | **Arka uç bağlantı noktası** | Kayan IP için doğrudan sunucu dönüş ayarladığınızda, bu alan kullanılmıyor | 1435 |
    | **Araştırma** |Araştırması için belirtilen adı | SQLAlwaysOnEndPointProbe |
    | **Oturum kalıcılığı** | Açılan liste | **Yok** |
    | **Boşta kalma zaman aşımı** | Bir TCP bağlantısı açık tutmak için dakika | 4 |

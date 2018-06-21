@@ -12,20 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299952"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294583"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>İzleme ve günlük analizi ile mantığı uygulama çalışır hakkında Öngörüler alın
 
 İzleme ve daha zengin hata ayıklama bilgileri almak için bir mantıksal uygulama oluşturduğunuzda, aynı anda günlük analizi kapatabilirsiniz. Günlük analizi günlüğe kaydetme ve izleme mantığı uygulamanız için tanılama Azure portalı üzerinden çalışan sağlar. Logic Apps yönetim çözümü eklediğinizde, logic app çalıştırır ve durumu, yürütme süresi, yeniden gönderme durumu ve bağıntı kimlikleri gibi belirli Ayrıntılar için toplanan durumunu alın.
 
-Bu konu, günlük analizi çalışma olaylarını görüntüleyebilir ve veri mantığı uygulamanız için çalıştırmaları için devre dışı bırakma gösterir.
+Bu makalede günlük analizi çalışma olaylarını görüntüleyebilir ve veri mantığı uygulamanız için çalıştırmaları için devre dışı bırakma gösterilmektedir.
 
  > [!TIP]
  > Mevcut mantıksal uygulamalarınızı izlemek için aşağıdaki adımları izleyin [tanılama günlük özelliğini açar ve günlük analizi için mantığı uygulama çalışma zamanı verileri Gönder](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
@@ -67,17 +67,17 @@ Mantıksal uygulamanızı oluşturduğunuzda günlük analizi zaten etkinleştir
 
    ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. Altında **Yönetim**, seçin **OMS portalı**.
+3. Altında **Yönetim**, seçin **genel bakış**.
 
-   !["OMS portalı" seçin](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   !["OMS portalı" seçin](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. Altında **tüm çözümleri**, bulmak ve seçmek için döşeme **Logic Apps Yönetim** çözümü.
+4. Genel bakış sayfasında, **Ekle** yönetim çözümleri kutucuğu açın. 
 
-   !["Logic Apps Yönetimi" seçin](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   !["Logic Apps Yönetimi" seçin](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Günlük analizi çalışma alanınızda çözümü yüklemek için tercih **Ekle**.
+5. Listesini kaydırın **yönetim çözümleri**, seçin **Logic Apps Yönetim** çözümü ve **oluşturma** Genel Bakış sayfasına yüklemek için.
 
-   !["" Logic Apps yönetimi için"Ekle" yi seçin](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   !["" Logic Apps yönetimi için"Ekle" yi seçin](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

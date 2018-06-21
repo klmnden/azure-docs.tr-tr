@@ -4,14 +4,14 @@ description: Adresleri Azure geçirme hakkında sık sorulan sorular
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/20/2018
 ms.author: snehaa
-ms.openlocfilehash: a18cab73a019039bf5e5829ad1faa4b8f1a70391
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209954"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285714"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure geçirmek - sık sorulan sorular (SSS)
 
@@ -21,7 +21,7 @@ Bu makale Azure geçirme hakkında sık sorulan sorular içerir. Bu makaleyi oku
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Nasıl Azure geçirmek Azure Site Recovery'den farkı nedir?
 
-Azure geçirme, şirket içi iş yüklerini bulabilir ve Azure, geçişi planlamanıza yardımcı olacak bir değerlendirme hizmetidir. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), olağanüstü durum kurtarma çözümü olmasının yanı sıra, şirket içi iş yüklerini Azure Iaas vm'lerine geçirmek yardımcı olur. 
+Azure geçirme, şirket içi iş yüklerini bulabilir ve Azure, geçişi planlamanıza yardımcı olacak bir değerlendirme hizmetidir. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure), olağanüstü durum kurtarma çözümü olmasının yanı sıra, şirket içi iş yüklerini Azure Iaas vm'lerine geçirmek yardımcı olur.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Nasıl Azure geçirmek Azure Site Recovery dağıtımı Planlayıcı'dan farklı mı?
 
@@ -36,6 +36,10 @@ Azure geçirme geçiş aracı planlaması ve Azure Site Recovery dağıtımı pl
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure geçirmek vCenter Server VMware ortamı bulmak için gerekiyor mu?
 
 Evet, Azure geçirmek vCenter VMware ortamı bulmak için sunucu gerektirir. VCenter Server tarafından yönetilmeyen ESXi konakları bulunmasını desteklemez.
+
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Hangi Azure bölgeleri Azure geçirmek tarafından destekleniyor mu?
+
+Azure geçirme şu anda proje konumları olarak Doğu ABD ve Batı Orta ABD destekler. Batı Orta ABD ve Doğu ABD yalnızca geçiş projeler oluşturabilir olsa bile, makineleriniz için hala değerlendirebilirsiniz Not [birden çok hedef konumları](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). Proje konumu, yalnızca bulunan verileri depolamak için kullanılır.
 
 ## <a name="discovery"></a>Bulma
 

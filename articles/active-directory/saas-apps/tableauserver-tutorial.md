@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 5d40e7ca41e79b3593d1bf8218aeaec13a07a265
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: be600fa6707e86e483e21f638d0d80515f9372b4
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218947"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Öğretici: Azure Active Directory Tümleştirme Tableau sunucusuyla
 
@@ -257,7 +257,7 @@ Bu bölümde, Britta Tableau sunucuya erişim vererek, Azure çoklu oturum açma
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim panelinde Tableau sunucu bölmesi tıklattığınızda, otomatik olarak Tableau sunucu uygulamanızı açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

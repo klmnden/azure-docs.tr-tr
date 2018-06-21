@@ -1,6 +1,6 @@
 ---
-title: Rol tabanlı erişim denetimini Azure RBAC sorunlarını giderme | Microsoft Docs
-description: Sorunları veya soruları rol tabanlı erişim denetimi kaynaklar hakkında yardım alın.
+title: Azure RBAC sorunlarını giderme | Microsoft Docs
+description: Azure rol tabanlı erişim denetimi (RBAC) ile ilgili sorunları giderin.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 557d3330ef155181c050a18b14d31b65ba1f2dcf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267180"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295412"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Azure rol tabanlı erişim denetimi sorunlarını giderme 
+# <a name="troubleshooting-rbac-in-azure"></a>Azure RBAC sorunlarını giderme
 
-Bu makalede kullanırken Azure portal ve can rollerinde erişimi sorunlarını giderme beklenmesi gerekenler bilmesi rolleri ile verilen özel erişim hakları hakkında sık sorulan sorular yanıtlanmaktadır. Bu üç rol tüm kaynak türleri kapsar:
+Bu makalede, Azure portalı ve can rollerinde erişimi sorunlarını giderme kullanırken beklenmesi gerekenler bilmesi rol tabanlı erişim denetimi (RBAC) hakkında sık sorulan sorular yanıtlanmaktadır. Bu üç rol tüm kaynak türleri kapsar:
 
 * Sahip  
 * Katılımcı  
 * Okuyucu  
 
-Sahipleri ve katkıda bulunanları yönetim deneyimi tam erişime sahip, ancak bir katkıda bulunan diğer kullanıcılara veya gruplara erişim veremez. Burada süre çok harcama yaptığımız böylece şeyler okuyucu rolüyle biraz daha ilginç alın. Bkz: [rol tabanlı erişim denetimi get-started makale](role-assignments-portal.md) erişim hakkında ayrıntılar için.
+Sahipleri ve katkıda bulunanları yönetim deneyimi tam erişime sahip, ancak katkıda bulunan, diğer kullanıcılara veya gruplara erişim izni veremiyor. Burada süre çok harcama yaptığımız böylece şeyler okuyucu rolüyle biraz daha ilginç alın. Hakkında bilgi için erişim seee [RBAC ve Azure portalını kullanarak erişimini yönetme](role-assignments-portal.md).
 
 ## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>Yazma erişimi özellikleri
@@ -97,9 +97,7 @@ Bunlar **yazma** her ikisi de erişim **sanal makine**ve **kaynak grubu** (etki 
 
 Bu kutucukların erişemiyorsanız, katkıda bulunan erişim kaynak grubu için yöneticinizden isteyin.
 
-## <a name="see-more"></a>Diğerlerini görüntüle
-* [Rol tabanlı erişim denetimi](role-assignments-portal.md): Azure portalında RBAC ile çalışmaya başlama.
-* [Yerleşik roller](built-in-roles.md): Get RBAC standart gelen rolleri hakkında ayrıntılar.
-* [Azure rbac'de özel roller](custom-roles.md): erişim gereksinimlerinize uyacak şekilde özel roller oluşturma hakkında bilgi edinin.
-* [Erişim değişiklik geçmişi raporu oluşturma](change-history-report.md): RBAC içinde rol atamalarını değiştirme izler.
+## <a name="next-steps"></a>Sonraki adımlar
+* [RBAC ve Azure portalını kullanarak erişimini yönetme](role-assignments-portal.md)
+* [RBAC değişiklikleri etkinlik günlüklerini görüntüle](change-history-report.md)
 

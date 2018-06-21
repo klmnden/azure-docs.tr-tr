@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299986"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293215"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Azure günlük analizi ile B2B iletişim izleme
 
@@ -56,39 +56,31 @@ Günlük analizi B2B iletileri mantıksal uygulamanızı izlemek için eklemelis
 
    ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Altında **Yönetim**, seçin **OMS portalı**.
+3. Altında **Yönetim**, seçin **genel bakış**.
 
-   ![OMS portalı seçin](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Günlük analizi portalında seçin](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. Giriş sayfası açıldıktan sonra Seç **Çözümleri Galerisi**.    
+4. Giriş sayfası açıldıktan sonra Seç **Ekle** Logic Apps B2B çözümü yüklemek için.    
+   ![Çözümleri Galerisi seçin](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![Çözümleri Galerisi seçin](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. Altında **tüm çözümleri**, bulun ve seçin **Logic Apps B2B**.     
-
-   ![Logic Apps B2B seçin](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. Altında **Logic Apps B2B**, seçin **Ekle**.
-
-   ![Seçin ekleme](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. Altında **yönetim çözümleri**, bulmak ve oluşturmak **Logic Apps B2B** çözümü.     
+   ![Logic Apps B2B seçin](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    Bölme için giriş sayfasındaki **Logic Apps B2B iletileri** artık görünür. 
    B2B iletilerinizi işlendiğinde bu kutucuğu ileti sayısı güncelleştirir.
-
-   ![Giriş sayfası, Logic Apps B2B iletileri döşeme](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>İleti durumu ve günlük analizi ayrıntılarında izleme
 
-1. B2B iletilerinizi işlendikten sonra durumu ve bu iletileri ayrıntılarını görüntüleyebilirsiniz. Giriş sayfasında, **Logic Apps B2B iletileri** döşeme.
+1. B2B iletilerinizi işlendikten sonra durumu ve bu iletileri ayrıntılarını görüntüleyebilirsiniz. Genel bakış sayfasında, **Logic Apps B2B iletileri** döşeme.
 
-   ![Güncelleştirilmiş ileti sayısı](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![Güncelleştirilmiş ileti sayısı](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > Varsayılan olarak, **Logic Apps B2B iletileri** döşeme tek bir günde göre verileri gösterir. Farklı bir zaman aralığı için veri kapsamını değiştirmek için sayfanın üst kısmındaki kapsam denetimi seçin:
    > 
-   > ![Veri Kapsamı Değiştir](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![Veri Kapsamı Değiştir](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. İleti sonra durum Panosu görüntülenir, tek bir gün bazında verileri gösteren bir belirli bir ileti türü için daha fazla bilgi görüntüleyebilirsiniz. Bölme için seçin **AS2**, **X12**, veya **EDIFACT**.

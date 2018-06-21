@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264349"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287846"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Oluşturun, görüntüleyin ve Azure İzleyicisi'ni kullanarak Uyarıları yönetme  
 
@@ -148,7 +148,13 @@ Ayrıntılı İleri Azure uyarıları kullanarak adım adım Kılavuzu ' dir.
 2. **Uyarılar Panosu** görüntülenir - tüm Azure uyarıları birleşik ve tekil panosunda görüntülenir; burada görüntülerle ![uyarı Panosu](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)
 3. Üst soldan sağa, Pano ayrıntılı listesini görmek için tıklattığınız aşağıdaki - bir bakışta gösterir:
     - *Uyarıları harekete*: mantığı karşılanır ve içinde durum harekete uyarılar şu anda sayısı
-    - *Toplam uyarı kuralları*: oluşturulan uyarı kuralları ve alt, şu an etkin olan numarasını sayısı
+    - *Toplam uyarı kuralları*: oluşturulan uyarı kuralları ve alt, şu an etkin olan numarasını sayısı 
+    
+
+        > [!NOTE]
+        > Tüm ayrıntılarla tutarlı Pano emin olmak için application ınsights ve günlük analizi için günlük uyarıları dahil olmak üzere uyarılar harekete; [Geliştirilmiş birleşik uyarı (Önizleme)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview) kullanılmalıdır
+  
+  
 4. Tüm Mazotlu uyarıların bir listesi, kullanıcının ayrıntılarını görüntülemek için tıklatabileceği gösterilir
 5. Bulma özel uyarıları kuruluşlara yardımcı olmaktayız; bir kullanabileceğiniz üstteki açılan seçenekleri belirli filtreleme için *abonelik, kaynak grubu ve/veya kaynak*. Herhangi bir çözümlenmemiş uyarı için bir kullanım başka *filtre uyarı* seçeneği bulmak için sağlanan anahtar - belirli eşleşen uyarılarla *adı, Uyarı ölçütleri, kaynak grubu ve hedef kaynak*
 

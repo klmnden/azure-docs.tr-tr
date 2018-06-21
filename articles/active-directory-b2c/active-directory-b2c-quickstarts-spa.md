@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5ea6b85803fdc5c768a23bf770b3646cc6add36b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ad9153b9b8d0235ad2cdc71b56f7b6179e98afdb
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711901"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293290"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Hızlı Başlangıç: oturum açma için Azure Active Directory B2C kullanarak bir tek sayfalı uygulama ayarlama
 
@@ -104,4 +104,4 @@ Bu hızlı başlangıçta özel bir oturum açma sayfasıyla oturum açmak, sosy
 Sonraki adımda kendi Azure AD B2C kiracınızı oluşturup kiracınızı kullanarak çalıştırmak için örneği yapılandıracaksınız. 
 
 > [!div class="nextstepaction"]
-> [Azure portalında Azure Active Directory B2C kiracısı oluşturma](active-directory-b2c-get-started.md)
+> [Azure portalında Azure Active Directory B2C kiracısı oluşturma](tutorial-create-tenant.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 7a9ffacdcb871bcd79d937b9349d76b29681c77c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 12859384ce79a34dbdb437aa402189fbf039c44c
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225397"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285348"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Öğretici: Azure Active Directory Tümleştirme Bambu Sprout sosyal tarafından ile
 
@@ -212,7 +212,7 @@ Bu bölümde, Britta Sprout sosyal tarafından Bambu için kendi erişim vererek
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Sprout sosyal parçasında tarafından Bambu tıklattığınızda, otomatik olarak, Bambu Sprout sosyal uygulama tarafından açan. Erişim paneli hakkında daha fazla ayrıntı için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). 
+Erişim paneli Sprout sosyal parçasında tarafından Bambu tıklattığınızda, otomatik olarak, Bambu Sprout sosyal uygulama tarafından açan. Erişim paneli hakkında daha fazla ayrıntı için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -234,4 +234,3 @@ Erişim paneli Sprout sosyal parçasında tarafından Bambu tıklattığınızda
 [201]: ./media/bambubysproutsocial-tutorial/tutorial_general_201.png
 [202]: ./media/bambubysproutsocial-tutorial/tutorial_general_202.png
 [203]: ./media/bambubysproutsocial-tutorial/tutorial_general_203.png
-

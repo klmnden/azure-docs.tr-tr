@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658681"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295676"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Oluşturma, değiştirme veya bir ağ güvenlik grubu silme
 
@@ -39,7 +39,7 @@ Hesap oturum açın veya Azure ile bağlanmak için atanmalıdır [ağ Katılım
 
 ## <a name="work-with-network-security-groups"></a>Ağ güvenlik grupları ile çalışma
 
-Oluşturabileceğiniz, [tüm görüntüle](#view-all-network-security-groups), [ayrıntılarını görüntülemek](#view-details-of-a-network-security-group), [değiştirme](#change-a-network-security-group), ve [silme](#delete-a-network-security-group) bir ağ güvenlik grubu. Ayrıca [ilişkilendir ya da ilişkilendirmesini](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource) bir ağ arabirimi veya alt ağ güvenlik grubu.
+Oluşturabileceğiniz, [tüm görüntüle](#view-all-network-security-groups), [ayrıntılarını görüntülemek](#view-details-of-a-network-security-group), [değiştirme](#change-a-network-security-group), ve [silme](#delete-a-network-security-group) bir ağ güvenlik grubu. Ayrıca [ilişkilendir ya da ilişkilendirmesini](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface) bir ağ arabirimi veya alt ağ güvenlik grubu.
 
 ### <a name="create-a-network-security-group"></a>Ağ güvenlik grubu oluşturma
 
@@ -121,9 +121,9 @@ Ağ güvenlik grubu başına kaç tane kuralları Azure konumu ve abonelik oluş
     
     |Ayar  |Değer  |Ayrıntılar  |
     |---------|---------|---------|
-    |Kaynak     | Seçin **herhangi**, **IP adreslerini**, veya **hizmet etiketi**.        | Seçerseniz **IP adreslerini**, ardından belirtmelisiniz **kaynak IP adresleri/CIDR aralıkları**. Tek değer veya birden çok değer virgülle ayrılmış bir listesini belirtebilirsiniz. Birden çok değer 10.0.0.0/16, 192.188.1.1 örnektir. Belirleyebileceğiniz değerlerinin sayısı sınırı vardır. Bkz: [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) Ayrıntılar için. Seçerseniz **hizmet etiketi**, ardından bir hizmet etiketi seçmeniz gerekir. Bir hizmet etiketi, bir IP adresi kategorisini belirtmek için önceden tanımlanmış bir tanımlayıcıdır. Kullanılabilir hizmet etiketleri ve ne her etiketi temsil hakkında daha fazla bilgi için bkz: [hizmet etiketleri](security-overview.md#service-tags)        |
+    |Kaynak     | Seçin **herhangi**, **IP adreslerini**, veya **hizmet etiketi**.        | Seçerseniz **IP adreslerini**, ardından belirtmelisiniz **kaynak IP adresleri/CIDR aralıkları**. Tek değer veya birden çok değer virgülle ayrılmış bir listesini belirtebilirsiniz. Birden çok değer 10.0.0.0/16, 192.188.1.1 örnektir. Belirleyebileceğiniz değerlerinin sayısı sınırı vardır. Bkz: [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) Ayrıntılar için. Seçerseniz **hizmet etiketi**, ardından bir hizmet etiketi seçmeniz gerekir. Bir hizmet etiketi, bir IP adresi kategorisini belirtmek için önceden tanımlanmış bir tanımlayıcıdır. Kullanılabilir hizmet etiketleri ve ne her etiketi temsil hakkında daha fazla bilgi için bkz: [hizmet etiketleri](security-overview.md#service-tags). Bir Azure sanal makinesi için belirttiğiniz IP adresi atanmışsa, sanal makineye bir ortak IP adresi atanmışsa, ortak IP adresi değil, özel IP adresi belirttiğinizden emin olun. Güvenlik kuralları, gelen güvenlik kuralları için özel bir IP adresi genel IP adresine Azure çevirir sonra ve Azure genel IP adresine giden kuralları için özel bir IP adresi çevirir önce işlenir. Azure ortak ve özel IP adresleri hakkında daha fazla bilgi için bkz: [IP adresi türleri](virtual-network-ip-addresses-overview-arm.md).        |
     |Kaynak bağlantı noktası aralıkları     | 1024-65535 80 gibi tek bir bağlantı noktası, 1024-65535 gibi bir bağlantı noktaları aralığı veya tek bağlantı noktaları ve/veya bağlantı noktası aralığı 80 gibi virgülle ayrılmış listesini belirtin. Herhangi bir bağlantı noktasında trafiğine izin vermek için bir yıldız işareti girin. | Aralıkları ve bağlantı noktaları hangi bağlantı noktalarının trafiğinin izin verilen veya kural tarafından reddedilen belirtin. Belirleyebileceğiniz bağlantı noktalarının sayısı sınırı vardır. Bkz: [Azure sınırlar](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) Ayrıntılar için.  |
-    |Hedef     | Seçin **herhangi**, **IP adreslerini**, veya **sanal ağ**.        | Seçerseniz **IP adreslerini**, ardından belirtmelisiniz **hedef IP adresleri/CIDR aralıkları**. Benzer şekilde **kaynak** ve **kaynak IP adresleri/CIDR aralıkları**, tek bir veya birden çok adresler veya aralıklar belirtebilirsiniz ve sınırlar vardır sayıya, belirtebilirsiniz. Seçme **sanal ağ**, bir hizmet etiketi olduğu, trafiği anlamına gelir sanal ağın adres alanı içinde tüm IP adreslerine izin verilir.        |
+    |Hedef     | Seçin **herhangi**, **IP adreslerini**, veya **sanal ağ**.        | Seçerseniz **IP adreslerini**, ardından belirtmelisiniz **hedef IP adresleri/CIDR aralıkları**. Benzer şekilde **kaynak** ve **kaynak IP adresleri/CIDR aralıkları**, tek bir veya birden çok adresler veya aralıklar belirtebilirsiniz ve sınırlar vardır sayıya, belirtebilirsiniz. Seçme **sanal ağ**, bir hizmet etiketi olduğu, trafiği anlamına gelir sanal ağın adres alanı içinde tüm IP adreslerine izin verilir. Bir Azure sanal makinesi için belirttiğiniz IP adresi atanmışsa, sanal makineye bir ortak IP adresi atanmışsa, ortak IP adresi değil, özel IP adresi belirttiğinizden emin olun. Güvenlik kuralları, gelen güvenlik kuralları için özel bir IP adresi genel IP adresine Azure çevirir sonra ve Azure genel IP adresine giden kuralları için özel bir IP adresi çevirir önce işlenir. Azure ortak ve özel IP adresleri hakkında daha fazla bilgi için bkz: [IP adresi türleri](virtual-network-ip-addresses-overview-arm.md).        |
     |Hedef bağlantı noktası aralıkları     | Bir tek değer veya değerlerini virgülle ayrılmış listesini belirtin. | Benzer şekilde **kaynak bağlantı noktası aralıkları**, tek bir veya birden çok bağlantı noktaları ve aralıklarını belirtebilirsiniz ve sınırlar vardır sayıya, belirtebilirsiniz. |
     |Protokol     | Seçin **herhangi**, **TCP**, veya **UDP**.        |         |
     |Eylem     | Seçin **izin** veya **Reddet**.        |         |

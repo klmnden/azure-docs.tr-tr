@@ -1,6 +1,6 @@
 ---
 title: Ayrıcalıklı Kimlik Yönetimi (PIM) ile Azure kaynaklarına erişimi yönetme
-description: Azure kaynaklarına erişmek için rol tabanlı erişim yönetimi PIM içinde kullanma hakkında bilgi edinin.
+description: Ayrıcalıklı Kimlik Yönetimi (PIM) ve rol tabanlı erişim denetimi (RBAC) kullanarak Azure kaynaklarına erişimi yönetme hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: fb0a1ff3821efd7114b509b72e143d5240b61b4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 838c889f2dc099b4a4c5d84521871c64eb989163
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204218"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293759"
 ---
 # <a name="manage-access-to-azure-resources-with-privileged-identity-management"></a>Privileged Identity Management ile Azure kaynaklarına erişimi yönetme
 
@@ -33,4 +33,4 @@ Artık Azure rol tabanlı erişim denetimi (RBAC) PIM yönetin, denetleyin ve Az
 - Hızlı Görevler veya çağrısı zamanlamalar için Azure kaynaklarını geçici erişim atayın
 - Kaynak erişim yeni kullanıcılar veya gruplar atandığında ve uygun atamaları etkinleştirdiğinizde uyarıları alma
 
-Daha fazla bilgi için bkz: [Overview of Role-Based erişim denetimini Azure PIM](../active-directory/privileged-identity-management/azure-pim-resource-rbac.md).
+Daha fazla bilgi için bkz: [Azure PIM rol tabanlı erişim denetimine genel bakış](../active-directory/privileged-identity-management/azure-pim-resource-rbac.md).

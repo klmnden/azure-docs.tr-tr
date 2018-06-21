@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: dc5a1e21dacff74394c2ce05ebb8013306bbc13c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2bc4f42b0a22ce804db9290728944575888f9c72
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211246"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Öğretici: Azure Active Directory Tümleştirme ile LinkedIn satış Gezgini
 
@@ -261,7 +261,7 @@ Bu bölümde, Britta LinkedIn satış Gezgini'ne erişim vererek, Azure çoklu o
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli LinkedIn satış Gezgini parçasında tıklattığınızda, kişisel LinkedIn hesap ayrıntılarını sağlamak için sahip olduğu kuruluş sayfasına yönlendirilmeniz gerekir. Kişisel hesabınızı LinkedIn iş hesabınızla bağlar. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). 
+Erişim paneli LinkedIn satış Gezgini parçasında tıklattığınızda, kişisel LinkedIn hesap ayrıntılarını sağlamak için sahip olduğu kuruluş sayfasına yönlendirilmeniz gerekir. Kişisel hesabınızı LinkedIn iş hesabınızla bağlar. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

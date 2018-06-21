@@ -1,6 +1,6 @@
 ---
 title: MySQL için Azure veritabanı en düşük kapalı kalma geçiş
-description: Bu makalede MySQL için bir MySQL veritabanı Azure veritabanı en düşük kapalı kalma geçişini gerçekleştirmek ve ilk yükleme ve sürekli veri eşitleme kaynak veritabanından hedef veritabanına Attunity çoğaltmak için Microsoft kullanarak ayarlamak açıklar Geçişler.
+description: Bu makalede, bir kapalı kalma süresi en az bir MySQL veritabanı Azure veritabanı için MySQL Azure veritabanı geçiş hizmetini kullanarak geçirmek açıklar.
 services: mysql
 author: HJToland3
 ms.author: jtoland
@@ -8,32 +8,24 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 99add55188615debdc96b6cfc8b21e34552fd9d4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: ecbd35bd45bd11292bbe4a032329d704858d4c77
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267263"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293930"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>MySQL için Azure veritabanı en düşük kapalı kalma geçiş
-Mevcut MySQL veritabanınız için Microsoft Migrations Attunity Replicate kullanarak MySQL için Azure veritabanına geçirebilirsiniz. Attunity Replicate Attunity ve Microsoft tarafından birleşik bir tekliftir. Azure veritabanı geçiş hizmeti ile birlikte Microsoft müşterileri için hiçbir ek ücret ödemeden dahil edilir. 
+Yeni sunulan kullanarak en az kapalı kalma MySQL için Azure veritabanı için MySQL geçiş gerçekleştirebilirsiniz **sürekli eşitleme özelliği** için [Azure veritabanı geçiş hizmeti](https://aka.ms/get-dms) (DMS). Bu işlev uygulama tarafından oluşturulan kapalı kalma süresini sınırlar.
 
-Kaynak veritabanı işlemi boyunca işletimsel tutar ve veritabanı geçişler sırasında kapalı kalma süresini en aza indirmek Attunity Replicate yardımcı olur.
+## <a name="overview"></a>Genel Bakış
+DMS MySQL için şirket içi Azure veritabanı için bir başlangıç yüklemesini gerçekleştirir ve uygulama çalışmaya devam ederken yeni işlemler Azure için sürekli olarak eşitlenir. Hedef Azure yan verilerini yakalar sonra kısa bir süre (en düşük kapalı kalma süresi) uygulamayı durdurun, verilerin (uygulama herhangi bir yeni trafiğini almak etkili bir şekilde kullanılabilir olana kadar uygulama durdurmanız zamandan) son toplu bekleyin yakalamak için Hedef ayarlama ve sonra bağlantı dizenizi Azure işaret edecek şekilde güncelleştirin. İşiniz bittiğinde, uygulamanızı Azure üzerinde dinamik olur!
 
-Attunity Replicate çeşitli kaynakları ve hedefleri arasında veri eşitlemeye sağlayan bir veri çoğaltma aracıdır. Her veritabanı tablosu ile ilişkili veri ve şema oluşturma komut dosyasında yayar. Attunity Replicate herhangi bir yapı (örneğin, SP, Tetikleyiciler, İşlevler ve benzeri) veya dönüştürme, örneğin, T-SQL böyle yapılara içinde barındırılan PL/SQL kodunu dağıtılmaz.
+![Azure veritabanı geçiş hizmeti ile sürekli eşitleme](./media/howto-migrate-online/ContinuousSync.png)
 
-> [!NOTE]
-> Geçiş senaryoları geniş bir dizi Attunity Replicate desteklemesine rağmen belirli bir alt kaynak/hedef çifti için destek odaklanır.
+DMS geçiş MySQL kaynakları şu anda önizlemede değil. MySQL iş yüklerinizi geçirmek için servisi denemek istiyorsanız, Azure DMS kaydolun [Önizleme sayfası](https://aka.ms/dms-preview) ilginize ifade etmek için. Geri bildiriminiz çok daha fazla hizmeti geliştirmek için yardımcı olur.
 
-En düşük kapalı kalma geçiş gerçekleştirmeye işlemine genel bakış içerir:
-
-* **MySQL kaynak şema geçirme** MySQL için bir Azure veritabanı yönetilen veritabanı hizmeti kullanarak [MySQL çalışma ekranı](https://www.mysql.com/products/workbench/).
-
-* **İlk yükleme ve sürekli veri eşitleme kaynak veritabanından hedef veritabanına ayarlama** Attunity çoğaltmak için Microsoft Migrations kullanarak. Bunun yapılması kaynak veritabanı salt okunur olarak Azure üzerinde uygulamalarınızı hedef MySQL veritabanına geçiş yapmak hazırlanırken ayarlanmalıdır süresini en aza indirir.
-
-Microsoft teklifi Migrations Attunity çoğaltmak hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
- - Git [Attunity çoğaltmak için Microsoft Migrations](https://aka.ms/attunity-replicate) Web sayfası.
- - Karşıdan [Attunity Replicate Microsoft geçişler için](http://discover.attunity.com/download-replicate-microsoft-lp6657.html).
- - Git [Attunity çoğaltmak topluluk](https://aka.ms/attunity-community) bir Hızlı Başlangıç Kılavuzu, eğitim ve destek için.
- - MySQL veritabanınız için Azure veritabanı için MySQL geçirmek için Attunity Replicate kullanma hakkında adım adım yönergeler için bkz: [veritabanı Geçiş Kılavuzu](https://datamigration.microsoft.com/scenario/mysql-to-azuremysql).
+## <a name="next-steps"></a>Sonraki adımlar
+- Videosunu görüntüleyin [MySQL/PostgreSQL kolayca geçiş hizmeti ile yönetilen uygulamalar Azure](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201), MySQL uygulamaları için Azure veritabanı için MySQL geçirmek nasıl gösteren bir tanıtım içerir.
+- MySQL Azure veritabanı en düşük kapalı kalma geçişler aracılığıyla Azure DMS MySQL için sınırlı önizlemesi için kaydolun [Önizleme sayfası](https://aka.ms/dms-preview).

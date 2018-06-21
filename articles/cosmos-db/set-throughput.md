@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: sngun
-ms.openlocfilehash: 777655d8976990396b2c78a5b6d977a92b1a2335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34614086"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285782"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Ayarlama ve Azure Cosmos DB kapsayıcıları ve veritabanı için işleme alma
 
@@ -177,7 +177,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 Üretilen iş için bir ayırma modeli Azure Cosmos DB çalıştırır. Diğer bir deyişle, işleme miktarı faturalandırılır *ayrılmış*ne olursa olsun, üretilen işi ne kadarının etkin olduğundan, *kullanılan*. Uygulamanızı olarak kullanıcının, kolayca ölçeklendirilebilir sayısı yukarı ve aşağı yük, veri ve kullanım desenlerini değişiklik ayrılmış RUs üzerinden SDK'ları veya kullanarak [Azure Portal](https://portal.azure.com).
 
-Her kapsayıcı veya kapsayıcıları, kümesi eşlenmiş bir `Offer` kaynak, sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak bakarak, ardından yeni işleme değeri ile güncelleştirme ayrılmış işleme değiştirebilirsiniz. .NET SDK kullanarak saniye başına 5.000 istek birimi için bir kapsayıcı verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir:
+Her kapsayıcı veya kapsayıcıları, kümesi eşlenmiş bir `Offer` kaynak, sağlanan işleme hakkındaki meta verileri olan Azure Cosmos veritabanı. Kapsayıcı için ilgili teklif kaynak bakarak, ardından yeni işleme değeri ile güncelleştirme ayrılmış işleme değiştirebilirsiniz. .NET SDK kullanarak saniye başına 5.000 istek birimi için bir kapsayıcı verimini değiştirmek için bir kod parçacığı aşağıda verilmiştir. Üretilen iş değiştirdikten sonra var olan Azure portal pencereleri gösterilmeye değiştirilen üretilen iş için yenilemeniz gerekir. 
 
 ```csharp
 // Fetch the resource to be updated

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: 3962b2e598f94767bd0fbbe990084875deec5e40
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4345199ed952b6d0e044d4ac99c29c47c477780d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266908"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287077"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Oluşturma, değiştirme veya genel bir IP adresi silme
 
@@ -92,6 +92,16 @@ Portal, iki ortak IP adresi kaynakları (bir IPv4 ve bir IPv6) oluşturma seçen
 |CLI|[az ağ ortak IP listesi](/cli/azure/network/public-ip#az-network-public-ip-list) listesi genel IP adresleri için [az ağ ortak IP Göster](/cli/azure/network/public-ip#az-network-public-ip-show) ayarları; göstermek için [az ağ ortak IP güncelleştirmesi](/cli/azure/network/public-ip#az-network-public-ip-update) güncelleştirmek için; [az ağ ortak IP silme](/cli/azure/network/public-ip#az-network-public-ip-delete) silmek için|
 |PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) bir ortak IP adres nesnesini almak ve ayarlarını görüntülemek için [kümesi AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress) ayarlarını; güncelleştirmek için [Kaldır AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress) silmek için|
 
+## <a name="assign-a-public-ip-address"></a>Bir ortak IP adresi atayın
+
+Bir ortak IP adresi aşağıdaki kaynaklara atama hakkında bilgi edinin:
+
+- A [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (oluştururken) VM veya bir [var olan VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [Internet'e yönelik Yük Dengeleyici](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure uygulama ağ geçidi](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Bir Azure VPN ağ geçidi kullanarak siteden siteye bağlantı](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+
 ## <a name="permissions"></a>İzinler
 
 Ortak IP adreslerini görevleri gerçekleştirmek için hesabınızı atanmalıdır [ağ Katılımcısı](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) rolü veya bir [özel](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) uygun eylemleri atanan rolü aşağıdaki tabloda listelenen:
@@ -107,4 +117,3 @@ Ortak IP adreslerini görevleri gerçekleştirmek için hesabınızı atanmalıd
 
 - Genel bir IP adresini kullanarak oluşturmak [PowerShell](powershell-samples.md) veya [Azure CLI](cli-samples.md) örnek komut dosyaları veya Azure kullanarak [Resource Manager şablonları](template-samples.md)
 - Oluşturma ve uygulama [Azure ilke](policy-samples.md) için ortak IP adresleri
-- Oluştururken genel IP adresleri atamak bir [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) veya [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure sanal makine, bir [Azure Internet'e yönelik Azure yük dengeleyici](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), bir [Azure Uygulama ağ geçidi](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [bir Azure VPN ağ geçidi kullanarak siteden siteye bağlantı](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), veya bir [Azure sanal makine ölçek kümesi](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

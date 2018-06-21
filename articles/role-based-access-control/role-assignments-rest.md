@@ -1,6 +1,6 @@
 ---
-title: Rol tabanlı erişim denetimini REST - Azure AD ile | Microsoft Docs
-description: Rol tabanlı erişim denetimini REST API ile yönetme
+title: RBAC ve REST API - Azure kullanarak erişimini yönetme | Microsoft Docs
+description: Kullanıcılar, gruplar ve uygulamalar, rol tabanlı erişim denetimi (RBAC) ve REST API kullanarak erişimi yönetmek üzere öğrenin. Bu erişim listeleme, erişim verilmesi ve erişimi kaldırma içerir.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: f81c84f5db4b595acf851a315c03cd4189514afa
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fdf246ede9fd030c03a70a90b35d4dd1fb645df1
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267484"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294471"
 ---
-# <a name="manage-role-based-access-control-with-the-rest-api"></a>Rol tabanlı erişim denetimini REST API ile yönetme
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-the-rest-api"></a>RBAC ve REST API kullanarak erişimini yönetme
 
-Rol tabanlı erişim denetimi (RBAC) ile belirli bir kapsamda rolleri atayarak erişim için kullanıcıları, grupları ve hizmet asıl adı tanımlayın. Bu makalede, REST API kullanarak erişimi yönetmek üzere açıklar.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcılar, gruplar ve RBAC ve REST API kullanarak uygulamalar için erişim yönetme açıklanmaktadır.
 
 ## <a name="list-all-role-assignments"></a>Tüm rol atamalarını listesi
 Belirtilen kapsam ve subscopes tüm rol atamalarını listeler.

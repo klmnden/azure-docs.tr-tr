@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
-ms.openlocfilehash: 18276b5706caad854c0160044b7e0efff10bc280
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a809859e9f0c6e51247abc2d03af673a2850a87e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616177"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284898"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Amazon basit depolama Azure Data Factory kullanarak hizmetinden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -95,7 +95,7 @@ Amazon S3'ten verileri kopyalamak için kümesine tür özelliği ayarlamak **Am
 |:--- |:--- |:--- |
 | type | Veri kümesi türü özelliği ayarlamak: **AmazonS3Object** |Evet |
 | bucketName | S3 demetini adı. Joker karakter filtresi desteklenmiyor. |Evet |
-| anahtar | **Adı veya joker karakter filtresini** belirtilen demetini altındaki S3 nesne anahtarının. Yalnızca "öneki" özelliği olmayan belirtildiğinde geçerlidir. <br/><br/>Joker karakter filtresi, yalnızca dosya adı bölümü ancak klasör bölümü için desteklenir. Joker karakterler izin verilir: `*` (birden çok karakter) ve `?` (tek bir karakter).<br/>-Örnek 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Örnek 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Kullanım `^` , gerçek dosya adı joker karakter ya da bu kaçış karakteri içinde varsa kaçınmak için. |Hayır |
+| anahtar | **Adı veya joker karakter filtresini** belirtilen demetini altındaki S3 nesne anahtarının. Yalnızca "öneki" özelliği olmayan belirtildiğinde geçerlidir. <br/><br/>Joker karakter filtresi, yalnızca dosya adı bölümü ancak klasör bölümü için desteklenir. Joker karakterler izin verilir: `*` (sıfır veya daha fazla karakterle eşleşir) ve `?` (eşleşen sıfır veya tek bir karakter).<br/>-Örnek 1: `"key": "rootfolder/subfolder/*.csv"`<br/>-Örnek 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Kullanım `^` , gerçek dosya adı joker karakter ya da bu kaçış karakteri içinde varsa kaçınmak için. |Hayır |
 | önek | S3 nesne anahtarı için önek. Seçilen nesneler, anahtarları Bu önek ile başlatın. Yalnızca "anahtar" özelliği belirtilmediğinde geçerlidir. |Hayır |
 | sürüm | S3 sürüm etkinleştirilirse S3 nesne sürümü. |Hayır |
 | Biçimi | İsterseniz **olarak dosyaları kopyalama-olduğu** dosya tabanlı depoları arasında (ikili kopya), her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>Ayrıştırma veya belirli bir biçime sahip dosyaları oluşturmak istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır (yalnızca ikili kopyalama senaryosu) |

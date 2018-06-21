@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801499"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284679"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory karma kimlik tasarımı hakkında dikkat edilecek noktalar sonraki adımlar
 Gereksinimlerinizi tanımlamayı ve mobil cihaz Yönetimi çözümünüz için tüm seçenekleri incelemeyi tamamladığınıza göre sonraki adımlar kendiniz ve kuruluşunuz için destekleyici altyapının dağıtımını yapmaya hazırsınız demektir.
@@ -42,7 +42,7 @@ Mobil cihaz Yönetimi çözümünüzü hayata geçirirken kavramların ve yordam
 ## <a name="hybrid-identity-resources"></a>Karma kimlik kaynakları
 Genellikle aşağıdaki kaynakları izleyerek en son haberlere ve mobil cihaz Yönetimi çözümlerimizle ilgili güncelleştirmeleri:
 
-* [Microsoft Enterprise Mobility blogu](http://blogs.technet.com/b/enterprisemobility/)
+* [Microsoft Enterprise Mobility blogu](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft ın Cloud blogu](http://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune blogu](http://blogs.technet.com/b/microsoftintune/)
 * [Microsoft System Center Configuration Manager blogu](http://blogs.technet.com/b/configurationmgr/)

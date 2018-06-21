@@ -1,19 +1,17 @@
 ---
 title: Azure Site Recovery ile VMware Azure'dan tutulamadı | Microsoft Docs
 description: Azure için sanal makinelerin yük devretme sonrasında geri şirket içi sanal makineleri getirmek için yeniden çalışma başlatabilirsiniz. Yeniden çalışmak adımlar öğrenin.
-services: site-recovery
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 05/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 8f580fa40bade2bf586dd116729881b249bbba88
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1e8e2384d6d5672e29e6d7bc28f0772cd5b78519
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29944016"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287526"
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Azure'dan şirket içi siteye başarısız
 

@@ -3,32 +3,37 @@ title: Azure Güvenlik Merkezi'ndeki Özel Uyarı Kuralları | Microsoft Docs
 description: Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza yardımcı olur.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2017
-ms.author: yurid
-ms.openlocfilehash: e43d925317e32d2fcbdeb75eff71de0cc5a91378
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.date: 06/19/2018
+ms.author: terrylan
+ms.openlocfilehash: f950b6fef575e9dc2d637c17ba40b6f504d1f227
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775811"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284786"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure Güvenlik Merkezi'ndeki Özel Uyarı Kuralları (Önizleme)
 Bu belge, Azure Güvenlik Merkezi'nde özel uyarı kuralları oluşturmanıza yardımcı olur.
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>Güvenlik Merkezi'ndeki özel uyarı kuralları nelerdir?
 
-Güvenlik Merkezi'nde bir tehdit veya şüpheli etkinlik gerçekleştiğinde tetiklenen önceden tanımlı [güvenlik uyarıları](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) vardır. Bazı senaryolarda ortamınızın ihtiyaçlarına uyacak özel bir uyarı oluşturmak isteyebilirsiniz. 
+Güvenlik Merkezi'nde bir tehdit veya şüpheli etkinlik gerçekleştiğinde tetiklenen önceden tanımlı [güvenlik uyarıları](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) vardır. Bazı senaryolarda ortamınızın ihtiyaçlarına uyacak özel bir uyarı oluşturmak isteyebilirsiniz.
 
-Güvenlik Merkezi'ndeki özel uyarı kuralları, ortamınızdan toplanmış olan verilerle yeni güvenlik uyarıları tanımlamanızı sağlar. Sorgu oluşturabilir, bu sorguların sonuçlarını özel kuralın ölçütü olarak kullanabilir ve ölçütler karşılandığında kuralın yürütülmesini sağlayabilirsiniz. Özel sorgularınızı oluşturmak için bilgisayarların güvenlik olaylarını, iş ortağı güvenlik çözümü günlüklerini veya API'ler kullanılarak toplanan verileri kullanabilirsiniz. 
+Güvenlik Merkezi'ndeki özel uyarı kuralları, ortamınızdan toplanmış olan verilerle yeni güvenlik uyarıları tanımlamanızı sağlar. Sorgu oluşturabilir, bu sorguların sonuçlarını özel kuralın ölçütü olarak kullanabilir ve ölçütler karşılandığında kuralın yürütülmesini sağlayabilirsiniz. Özel sorgularınızı oluşturmak için bilgisayarların güvenlik olaylarını, iş ortağı güvenlik çözümü günlüklerini veya API'ler kullanılarak toplanan verileri kullanabilirsiniz.
+
+> [!NOTE]
+> Özel uyarı depolamak için seçtiğiniz çalışma alanında yazma izni.
+>
+>
 
 ## <a name="how-to-create-a-custom-alert-rule-in-security-center"></a>Güvenlik Merkezi'nde özel uyarı kuralı nasıl oluşturulur?
 
@@ -38,16 +43,16 @@ Güvenlik Merkezi'ndeki özel uyarı kuralları, ortamınızdan toplanmış olan
 2.  **Güvenlik Merkezi – Özel uyarı kuralları (Önizleme)** sayfasında **Yeni özel uyarı kuralı**'na tıklayın.
 
     ![Özel uyarı](./media/security-center-custom-alert/security-center-custom-alert-fig1.png)
-    
+
 3.  Açılan Özel uyarı kuralı oluştur sayfasında aşağıdaki seçenekler yer alır:
-    
+
     ![Oluştur](./media/security-center-custom-alert/security-center-custom-alert-fig2.png)
 
 4.  **Ad** alanına bu özel kuralın adını yazın.
 5.  **Açıklama** alanına bu kuralın amacını belirten kısa bir açıklama yazın.
 6.  **Güvenlik** alanında ihtiyaçlarınıza uygun önem derecesini (Yüksek, Orta, Düşük) seçin.
 7.  **Abonelik** alanında kuralın uygulanacağı aboneliği seçin.
-8.  **Çalışma alanı** bölümünde bu kuralla izlemek istediğiniz çalışma alanını, **Arama Sorgusu** alanında da sonuçları almak için kullandığınız sorguyu seçin. Sorgunun sonucu uyarıyı tetikler. Geçerli bir sorgu yazdığınızda bu alanın sağ köşesinde yeşil renkli onay işareti görünür:
+8.  Bu kuralda izlemek istediğiniz çalışma alanını seçin **çalışma** alan ve **arama sorgusu** alan, sonuçları elde etmek için kullanmak istediğiniz sorgu. Özel uyarı depolamak için seçtiğiniz çalışma alanında yazma izni. Sorgunun sonucu uyarıyı tetikler. Geçerli bir sorgu yazdığınızda bu alanın sağ köşesinde yeşil renkli onay işareti görünür:
 
     ![Sorgu](./media/security-center-custom-alert/security-center-custom-alert-fig3.png)
 
@@ -73,7 +78,6 @@ Bu belgede, Azure Güvenlik Merkezi'nde bir özel uyarı kuralının nasıl olu�
 * [Azure Güvenlik Merkezi'nde güvenlik uyarılarını yönetme ve ele alma](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Güvenlik Merkezi’nde uyarıları yönetme ve güvenlik olaylarına yanıt vermeyi öğrenin.
 * [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). Azure kaynaklarınızı durumunu izleme hakkında bilgi edinin.
 * [Azure Güvenlik Merkezi'ndeki güvenlik uyarılarını anlama](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Farklı güvenlik uyarısı türleri hakkında bilgi edinin.
-* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin. 
+* [Azure Güvenlik Merkezi Sorun Giderme Kılavuzu](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Güvenlik Merkezi’nde sık karşılaşılan sorunları gidermeyi öğrenin.
 * [Azure Güvenlik Merkezi SSS](security-center-faq.md). Hizmet kullanımı ile ilgili sık sorulan soruları bulun.
 * [Azure Güvenlik Blogu](http://blogs.msdn.com/b/azuresecurity/). Azure güvenliği ve uyumluluğu ile ilgili blog yazılarını bulun.
-

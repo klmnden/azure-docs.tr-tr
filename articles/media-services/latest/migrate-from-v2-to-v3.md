@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655784"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295690"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Geçiş medya Hizmetleri v3 v2
 
@@ -50,6 +50,10 @@ Bu makalede Azure Media Services (AMS) v3 sunulan değişiklikleri açıklar ve 
 
 ## <a name="changes-from-v2"></a>V2 değişiklikler
 
+* Media Services v3 depolama şifreleme (AES 256 şifreleme) Only'dir varlıklarınızı ile Media Services v2 oluşturulduğunda için geriye dönük uyumluluk desteklenir. Var olan depolama ile v3 çalışır anlamı varlıklar şifrelenmiş ancak yenilerini oluşturulmasına izin vermez.
+
+    Varlıklar v3 ile oluşturulan için Media Services destekler [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) sunucu tarafı depolama şifrelemesi.
+    
 * Media Services SDK'ları depolama SDK'sı üzerinde daha fazla denetim imkanı sağlayan depolama SDK ayrılmış kullanılır ve sürüm oluşturma sorunları önler. 
 * V3, kodlama bit hızlarını saniyede bit tümü. Bu Medya Kodlayıcısı standart hazır ayarları REST v2'den farklı değildir. Örneğin, v2, bit hızı 128 belirtilmesi, ancak v3 128000 olacaktır. 
 * AssetFiles, AccessPolicies, IngestManifests v3 yok.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. İçerik anahtarı ilkesi oluşturma
 2. Varlık oluşturma
 3. İçerik yüklemek veya varlık JobOutput kullanın
-4. Bulucu oluşturun
+4. StreamingLocator oluşturma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

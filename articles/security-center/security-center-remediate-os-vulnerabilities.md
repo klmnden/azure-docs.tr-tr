@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103940"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285925"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde güvenlik yapılandırmalarını Düzelt
 Azure Güvenlik Merkezi günlük sanal makineleri (VM'ler) ve sanal makineleri hale getirebilecek bir yapılandırma için ve bilgisayarları daha savunmasız işletim sistemi (OS) çözümler. Güvenlik Merkezi, işletim sistemi yapılandırması önerilen güvenlik yapılandırma kuralları eşleşmiyor ve bu güvenlik açıklarına değinen yapılandırma değişiklikleri önerir güvenlik açıkları gidermek önerir.
@@ -51,7 +51,7 @@ Bu örnekte "güvenlik yapılandırmalarını Düzelt" önerinin altında kapsay
 
   - **CCEID**: CCE kuralı için benzersiz tanımlayıcı. Güvenlik Merkezi, benzersiz tanımlayıcıları için yapılandırma kuralları atamak için Common Configuration Enumeration (CCE) kullanır.
   - **Ad**: başarısız kuralının adı.
-  - **Kural türü**: *kayıt defteri anahtarı*, *Güvenlik İlkesi*, veya *Denetim İlkesi* kural türü.
+  - **Kural türü**: *kayıt defteri anahtarı*, *Güvenlik İlkesi*, *Denetim İlkesi*, veya *IIS* kural türü.
   - **Hayır. sanal makineleri & bilgisayarları**: VM'ler ve başarısız kuralın uygulanacağı bilgisayarların toplam sayısı.
   - **Kural önem**: CCE değeri *kritik*, *önemli*, veya *uyarı*.
   - **Durum**: önerinin geçerli durumu:
@@ -100,10 +100,10 @@ Bu makalede "Düzelt güvenlik yapılandırmalarını." Güvenlik Merkezi öneri
 
 Güvenlik Merkezi hakkında daha fazla bilgi için aşağıdaki kaynaklara bakın:
 
-* Desteklenen Windows ve Linux VM'ler listesi için bkz: [desteklenen platformlar Azure Güvenlik Merkezi'nde](security-center-os-coverage.md). 
-* Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerinin nasıl yapılandırılacağını öğrenmek için bkz: [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md). 
-* Önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md). 
-* Azure kaynaklarınızı sağlığını izlemek öğrenmek için bkz: [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md). 
+* Desteklenen Windows ve Linux VM'ler listesi için bkz: [desteklenen platformlar Azure Güvenlik Merkezi'nde](security-center-os-coverage.md).
+* Azure Abonelikleriniz ve kaynak grupları için güvenlik ilkelerinin nasıl yapılandırılacağını öğrenmek için bkz: [Azure Güvenlik Merkezi'nde güvenlik ilkelerini ayarlama](security-center-policies.md).
+* Önerilerin Azure kaynaklarınızı korumanıza nasıl yardımcı bilgi edinmek için [Azure Güvenlik Merkezi'nde güvenlik önerilerini yönetme](security-center-recommendations.md).
+* Azure kaynaklarınızı sağlığını izlemek öğrenmek için bkz: [Azure Güvenlik Merkezi'nde güvenlik durumunu izleme](security-center-monitoring.md).
 * Yönetme ve güvenlik uyarılarını yanıtlama hakkında bilgi edinmek için [yönetme ve Azure Güvenlik Merkezi'nde güvenlik uyarılarını yanıtlama](security-center-managing-and-responding-alerts.md).
 * İş ortağı çözümlerinizin sistem durumunu öğrenmek için bkz: [Azure Güvenlik Merkezi ile iş ortağı çözümlerini izleme](security-center-partner-solutions.md).
 * Hizmet kullanma hakkında sık sorulan soruların yanıtları için bkz: [Azure Güvenlik Merkezi ile ilgili SSS](security-center-faq.md).

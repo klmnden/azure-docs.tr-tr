@@ -14,15 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7147b282d9bcbf48391d60466c77d28eca396832
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590387"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294284"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Connect Health düzenli olarak güncelleştirir. Bu makalede, çıkarılan özellikleri ve sürümleri listelenmektedir.
+
+## <a name="june-2018"></a>Haziran 2018 
+**Yeni Önizleme özellikleri:** 
+* Azure AD Connect Health eşitleme için - tanılamak ve Portalı'ndan yinelenen öznitelik eşitleme hatalarını Düzelt 
+
+**Aracı güncelleştirmesi:** 
+*   AD FS (sürüm 3.1.2.0) için Azure AD Connect Health Aracısı  
+   1. Hata düzeltmeleri ve Uyarılar için geliştirme 
+
 
 ## <a name="may-2018"></a>Mayıs 2018
 **Aracı güncelleştirmesi:**
@@ -35,7 +44,7 @@ Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Conn
  2. Aracı gizlilik geliştirme  
  3. Hata düzeltmeleri ve genel iyileştirmeler
 
-* Azure AD Connect Health aracısını eşitleme (sürüm 3.0.244.0)
+* Azure AD Connect ile sürüm 1.1.819.0 yayımlanan eşitleme (sürüm 3.0.164.0) için Azure AD Connect Health Aracısı
  1. Aracı gizlilik geliştirme  
  2. Hata düzeltmeleri ve genel iyileştirmeler
 
@@ -98,7 +107,7 @@ Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Conn
 ## <a name="october-2016"></a>Ekim 2016
 **Aracı güncelleştirmesi:**
 
-* AD FS için Azure AD Connect Health Aracısı \(sürüm 2.6.408.0\)
+* AD FS (sürüm 2.6.408.0) için Azure AD Connect Health Aracısı
 1. İstemci IP adresleri kimlik doğrulama isteklerinin seviyelerinden geliştirmeleri
 2. Uyarılar ilgili hata düzeltmeleri
 * AD DS (sürüm 2.6.408.0) için Azure AD Connect Health Aracısı

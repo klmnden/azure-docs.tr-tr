@@ -1,13 +1,13 @@
 ---
-title: Azure dış kullanıcılar için rol atamalarını yönetme | Microsoft Docs
-description: Rol tabanlı erişim denetimi (RBAC), kuruluş için dış kullanıcılar için Azure'da yönetin.
+title: Azure RBAC kullanarak dış kullanıcıların erişimini yönetme | Microsoft Docs
+description: Azure rol tabanlı erişim denetimi (RBAC) kullanan bir kuruluşun dış kullanıcıların erişimini yönetmeyi öğrenin.
 services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: kgremban
+editor: ''
 ms.assetid: ''
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
@@ -16,13 +16,14 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: dc0d91482637e3ade1147083b6d9c890e2798036
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
-ms.translationtype: HT
+ms.openlocfilehash: 98eb104981051bd5e7440954470960977b38286d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296221"
 ---
-# <a name="manage-role-assignments-for-external-users"></a>Dış kullanıcılar için rol atamalarını yönetme
+# <a name="manage-access-for-external-users-using-rbac"></a>RBAC kullanarak dış kullanıcıların erişimini yönetme
 
 Rol tabanlı erişim denetimi (RBAC) dış ortak çalışanları, satıcılar veya ortamınızdaki belirli kaynakların ancak mutlaka tüm erişmeniz freelancers ile çalışma büyük kuruluşlarda ve SMB'ler için daha iyi güvenlik yönetimi sağlar. Altyapı veya herhangi bir faturalama ilişkili kapsam. Bir Azure aboneliğine sahip esnekliğini yönetici hesabı (Hizmet Yöneticisi rolü bir abonelik düzeyinde) tarafından yönetilen ve birden çok kullanıcı aynı abonelik altında ancak tüm yönetim haklarına sahip olmayan çalışmak için davet edildi RBAC sağlar .
 
@@ -43,10 +44,10 @@ RBAC rolleri olanağı verilir yalnızca **sahipleri** abonelik. Bu role sahip b
 Yönetici olarak oturum açtıktan sonra Azure portalından "Abonelikleri" ve seçtiğiniz istenen bir seçin.
 ![Azure portalında abonelik dikey penceresinde](./media/role-assignments-external-users/0.png) yönetici kullanıcı Azure aboneliği satın aldıysa varsayılan olarak, kullanıcı olarak görünecek **Hesap Yöneticisi**, bu abonelik rol bırakılıyor. Azure aboneliği rolleri hakkında daha fazla bilgi için bkz: [abonelik ya da hizmetleri yönetmek ekleme veya değiştirme Azure yönetici rolleri](../billing/billing-add-change-azure-subscription-administrator.md).
 
-Bu örnekte, kullanıcı "alflanigan@outlook.com" olan **sahibi** "ücretsiz deneme sürümü" AAD abonelikte Kiracı "varsayılan Kiracı Azure". Bu kullanıcı ilk Microsoft Account "Outlook" Azure aboneliği oluşturan olduğundan (Microsoft Account Outlook, Canlı vb. =) bu Kiracı eklenen diğer tüm kullanıcılar için varsayılan etki alanı adı olacaktır **"@alflaniganuoutlook.onmicrosoft.com"**. Tasarım gereği, yeni etki alanının sözdizimi Kiracı oluşturan kullanıcının kullanıcı adı ve etki alanı adını bir araya getirilmesi ve uzantı ekleyerek biçimlendirildiğinden **". onmicrosoft.com"**.
+Bu örnekte, kullanıcı "alflanigan@outlook.com" olan **sahibi** "ücretsiz deneme sürümü" AAD abonelikte Kiracı "varsayılan Kiracı Azure". Bu kullanıcı ilk Microsoft Account "Outlook" Azure aboneliği oluşturan olduğundan (Microsoft Account Outlook, Canlı vb. =) bu Kiracı eklenen diğer tüm kullanıcılar için varsayılan etki alanı adı olacaktır **"\@ alflaniganuoutlook.onmicrosoft.com"**. Tasarım gereği, yeni etki alanının sözdizimi Kiracı oluşturan kullanıcının kullanıcı adı ve etki alanı adını bir araya getirilmesi ve uzantı ekleyerek biçimlendirildiğinden **". onmicrosoft.com"**.
 Ayrıca, kullanıcıların bir kiracı özel etki alanı adı ekleme ve yeni bir kiracı için doğruladıktan sonra oturum. Azure Active Directory kiracısı bir özel etki alanı adını doğrulayın hakkında daha fazla bilgi için bkz: [bir özel etki alanı adı dizininize eklemek](/active-directory/active-directory-add-domain).
 
-Bu örnekte, yalnızca etki alanı adı olan kullanıcılar "Varsayılan Kiracı Azure" dizinini içeren "@alflanigan.onmicrosoft.com".
+Bu örnekte, yalnızca etki alanı adı olan kullanıcılar "Varsayılan Kiracı Azure" dizinini içeren "\@alflanigan.onmicrosoft.com".
 
 Abonelik seçtikten sonra yönetici kullanıcı tıklatmalısınız **erişim denetimi (IAM)** ve ardından **yeni rol ekleme**.
 
@@ -54,7 +55,7 @@ Abonelik seçtikten sonra yönetici kullanıcı tıklatmalısınız **erişim de
 
 ![erişim denetimi IAM Özelliği Azure portalında yeni kullanıcı Ekle](./media/role-assignments-external-users/2.png)
 
-Sonraki adım atanacak rol ve kullanıcı kim RBAC rolü atandı seçmektir. İçinde **rol** açılır menüsünde, yönetici kullanıcı, Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamların açıklamalarını ayrıntılı için bkz: [Azure rol tabanlı erişim denetimi için yerleşik roller](built-in-roles.md).
+Sonraki adım atanacak rol ve kullanıcı kim RBAC rolü atandı seçmektir. İçinde **rol** açılır menüsünde, yönetici kullanıcı, Azure'da kullanılabilen yalnızca yerleşik RBAC rolleri görür. Her rol ve bunların atanabilir kapsamların açıklamalarını ayrıntılı için bkz: [yerleşik roller](built-in-roles.md).
 
 Yönetici kullanıcı, ardından dış kullanıcı e-posta adresini eklemesi gerekir. Varolan Kiracı göstermemeyi dış kullanıcı için beklenen davranıştır bakın. Dış kullanıcı davet sonra kendisinin altında görünür olacak **abonelikleri > erişim denetimi (IAM)** abonelik kapsamında bir RBAC rolü atanmış olan tüm geçerli kullanıcılar ile.
 

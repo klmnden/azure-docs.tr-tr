@@ -1,27 +1,19 @@
 ---
 title: Azure Site Recovery yönetmek için rol tabanlı erişim denetimini kullanma | Microsoft Docs
 description: Bu makalede nasıl uygulanacağını ve Azure Site Recovery dağıtımlarınızı yönetmek için rol tabanlı erişim denetimi (RBAC) kullanın
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+author: mayanknayar
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: manayar
-ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9d1d6aac463e5b9cf9994bfefac1aa1c38bb1e03
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071614"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284750"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Azure Site Recovery dağıtımları yönetmek için rol tabanlı erişim denetimi kullanma
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>Site Recovery erişimi yönetmek için rol tabanlı erişim denetimi kullanın
 
 Azure Rol Tabanlı Erişim Denetimi (RBAC), Azure için ayrıntılı erişim yönetimi sağlar. RBAC kullanarak, ekibiniz içinde sorumlulukları kurabilmeleri ve belirli işlerini gerçekleştirmek için gereken şekilde kullanıcılara yalnızca belirli erişim izinleri verin.
 
@@ -33,7 +25,7 @@ Azure Site Recovery Site Recovery yönetim işlemlerini denetlemek için 3 yerle
 
 Daha fazla denetim için kendi rolleri tanımlamak için arıyorsanız, bkz: nasıl yapılır [özel roller yapı](../role-based-access-control/custom-roles.md) Azure.
 
-## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Yeni sanal makineler için çoğaltmayı etkinleştirme için gereken izinler
+## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>Yeni sanal makineler için çoğaltmayı etkinleştirmek için gereken izinler
 Yeni bir sanal makine için Azure Site Kurtarma'yı kullanarak Azure çoğaltıldığında ilişkili kullanıcının erişim düzeyleri kullanıcı için Site Recovery sağlanan Azure kaynaklarını kullanmak için gerekli izinlere sahip olduğundan emin olmak için doğrulanır.
 
 Yeni bir sanal makine için çoğaltmayı etkinleştirmek için bir kullanıcı olması gerekir:

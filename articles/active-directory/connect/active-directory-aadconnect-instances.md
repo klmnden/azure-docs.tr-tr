@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592271"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295620"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Özel konular örnekleri
 Azure AD Connect ile Azure AD dünya çapındaki örneğini en yaygın olarak kullanılan ve Office 365. Ancak aynı zamanda diğer örneği vardır ve bu URL'leri ve diğer özel durumlar için farklı gereksinimlere sahip.
@@ -38,8 +38,6 @@ Azure AD kiracınıza oturum açtığınızda onmicrosoft.de etki alanındaki bi
 
 Özellikleri Microsoft Cloud Almanya şu anda yok:
 
-* **Azure AD Connect Health** kullanılabilir değil.
-* **Otomatik Güncelleştirmeler** kullanılabilir değil.
 * **Parola geri yazma** 1.1.570.0 Azure AD Connect sürümüyle ve sonra Önizleme için kullanılabilir.
 * Diğer Azure AD Premium hizmetlerine kullanılabilir değil.
 
@@ -61,8 +59,6 @@ Bu bulut DirSync önceki sürümleri tarafından desteklenen. Yapıdan Azure AD 
 
 Özellikleri Microsoft Azure kamu bulutta şu anda yok:
 
-* **Azure AD Connect Health** kullanılabilir değil.
-* **Otomatik Güncelleştirmeler** kullanılabilir değil.
 * **Parola geri yazma** 1.1.570.0 Azure AD Connect sürümüyle ve sonra Önizleme için kullanılabilir.
 * Diğer Azure AD Premium hizmetlerine kullanılabilir değil.
 

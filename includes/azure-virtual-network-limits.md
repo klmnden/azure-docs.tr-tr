@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 7c7540a650d8726fb0a376788073968af6b48834
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35683041"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297975"
 ---
 <a name="virtual-networking-limits-classic"></a>Aşağıdaki sınırlar yalnızca abonelik başına klasik dağıtım modeliyle yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, geçerli kaynak kullanımına karşı abonelik sınırlarınızı görüntülemek](../articles/networking/check-usage-against-limits.md).
 
@@ -25,7 +25,7 @@ ms.locfileid: "35683041"
 | Sanal ağ başına özel IP Adresi sayısı |4096 |4096 |
 | Bir sanal makine veya rol örneği NIC eşzamanlı TCP veya UDP akışlar |500K |500K |
 | Ağ Güvenlik Grupları (NSG) |100 |200 |
-| NSG başına NSG kuralları |200 |400 |
+| NSG başına NSG kuralları |200 |1000 |
 | Kullanıcı tanımlı yol tabloları |100 |200 |
 | Yol tablosu başına kullanıcı tanımlı yol sayısı |100 |400 |
 | Genel IP adresleri (dinamik) |5 |desteğe başvurun |
@@ -64,6 +64,7 @@ Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resourc
 ** Daha önce desteğini artan bu sınırları uygulanmamış aboneliklere bu varsayılan sınırları Uygula
 
 #### <a name="load-balancer"></a>Yük Dengeleyici sınırları
+Aşağıdaki sınırlar yalnızca abonelik başına bölgeye göre Azure Resource Manager ile yönetilen ağ kaynakları için geçerlidir. Bilgi edinmek için nasıl [, geçerli kaynak kullanımına karşı abonelik sınırlarınızı görüntüleyin](../articles/networking/check-usage-against-limits.md)
 
 | Kaynak | Varsayılan limit | Üst Sınır |
 | --- | --- | --- |

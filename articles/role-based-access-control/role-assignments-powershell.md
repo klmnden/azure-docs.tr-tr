@@ -1,6 +1,6 @@
 ---
-title: Rol tabanlı erişim denetimi (RBAC) Azure PowerShell ile yönetme | Microsoft Docs
-description: Rolleri listeleme, rol atama ve rol atamalarını silme de dahil olmak üzere Azure PowerShell ile RBAC yönetme konuları.
+title: RBAC ve Azure PowerShell kullanarak erişimini yönetme | Microsoft Docs
+description: Kullanıcılar, gruplar ve uygulamalar, rol tabanlı erişim denetimi (RBAC) ve Azure PowerShell kullanarak erişimi yönetmek üzere öğrenin. Bu erişim listeleme, erişim verilmesi ve erişimi kaldırma içerir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,27 +14,23 @@ ms.workload: identity
 ms.date: 04/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 00646187da1f93c01c3a57b50905239afd5e2bc8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 231f7b915c324a5af91564c80d17bbad335d658d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266807"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294783"
 ---
-# <a name="manage-role-based-access-control-with-azure-powershell"></a>Rol tabanlı erişim denetimini Azure PowerShell ile yönetme
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
+# <a name="manage-access-using-rbac-and-azure-powershell"></a>RBAC ve Azure PowerShell kullanarak erişimini yönetme
 
-Rol tabanlı erişim denetimi (RBAC) ile belirli bir kapsamda rolleri atayarak erişim için kullanıcıları, grupları ve hizmet asıl adı tanımlayın. Bu makalede, Azure PowerShell kullanarak erişimi yönetmek üzere açıklar.
+[Rol tabanlı erişim denetimi (RBAC)](overview.md) Azure kaynaklarına erişimi yönetme yoludur. Bu makalede, kullanıcılar, gruplar ve RBAC ve Azure PowerShell kullanarak uygulamalar için erişim yönetme açıklanmaktadır.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 RBAC yönetmek için PowerShell kullanmadan önce aşağıdakilerden biri gerekir:
 
 * [PowerShell Azure bulut Kabuğu](/azure/cloud-shell/overview)
-* [Azure PowerShell 5.1.0 veya daha yenisi](/powershell/azure/install-azurerm-ps)
+* [Azure PowerShell](/powershell/azure/install-azurerm-ps)
 
 ## <a name="list-roles"></a>Liste rolleri
 
@@ -146,9 +142,9 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 ...
 ```
 
-## <a name="see-who-has-access"></a>Kimlerin erişebileceğini bakın
+## <a name="list-access"></a>Liste erişim
 
-RBAC erişim atamalarını listelemek için kullanmak [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
+RBAC, liste erişim için rol atamalarını listeleyin.
 
 ### <a name="list-role-assignments-at-a-specific-scope"></a>Belirli bir kapsamda listesi rol atamaları
 
@@ -174,7 +170,7 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast
 ```
 
-### <a name="list-roles-assigned-to-a-user"></a>Bir kullanıcıya atanmış listesi rolleri
+### <a name="list-role-assignments-for-a-user"></a>Bir kullanıcı için rol atamalarını listesi
 
 Belirtilen bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
@@ -200,15 +196,17 @@ Get-AzureRmRoleAssignment -SignInName <user email> -ExpandPrincipalGroups
 Get-AzureRmRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-classic-service-administrator-and-coadmin-role-assignments"></a>Klasik Hizmet Yöneticisi ve ortak yönetici rol atamalarını listesi
+### <a name="list-role-assignments-for-classic-service-administrator-and-co-administrators"></a>Klasik Hizmet Yöneticisi ve ortak Yöneticiler listesi rol atamaları
 
-Klasik Abonelik Yöneticisi ve ortak Yöneticiler için erişim atamalarını listelemek için kullanmak [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment):
+Rol atamaları Klasik Abonelik Yöneticisi ve ortak yöneticiler listesinden, kullanmak için [Get-AzureRmRoleAssignment](/powershell/module/azurerm.resources/get-azurermroleassignment):
 
 ```azurepowershell
 Get-AzureRmRoleAssignment -IncludeClassicAdministrators
 ```
 
 ## <a name="grant-access"></a>Erişim verme
+
+RBAC, erişim vermek için bir rol ataması oluşturun.
 
 ### <a name="search-for-object-ids"></a>Nesne kimlikleri için arama
 
@@ -228,7 +226,7 @@ Azure AD hizmet sorumlusu veya uygulama için nesne kimliği almak için [Get-Az
 Get-AzureRmADServicePrincipal -SearchString <service name in quotes>
 ```
 
-### <a name="assign-a-role-to-an-application-at-the-subscription-scope"></a>Uygulamanın abonelik kapsamında bir rol atayın
+### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>Bir abonelik kapsamında bir uygulama için bir rol ataması oluşturma
 
 Abonelik kapsamında bir uygulamaya erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -250,7 +248,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-user-at-the-resource-group-scope"></a>Kaynak grubu kapsamındaki bir kullanıcıya rol atama
+### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Bir kaynak grubu kapsamda bir kullanıcının bir rol ataması oluşturun
 
 Kaynak grubu kapsamındaki bir kullanıcı için erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -274,7 +272,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="assign-a-role-to-a-group-at-the-resource-scope"></a>Kaynak kapsamdaki bir gruba rol atama
+### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>Bir kaynak kapsamda bir rol ataması için bir grup oluşturun
 
 Kaynak kapsamdaki bir gruba erişim vermek için kullanın [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment):
 
@@ -307,7 +305,7 @@ CanDelegate        : False
 
 ## <a name="remove-access"></a>Erişimi kaldır
 
-Kullanıcılar, gruplar ve uygulamalar için erişim kaldırmak için kullanın [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment):
+RBAC, erişimi kaldırmak için bir rol ataması kullanarak Kaldır [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment):
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -ObjectId <object id> -RoleDefinitionName <role name> -Scope <scope such as subscription id>
@@ -581,7 +579,7 @@ Are you sure you want to remove role definition with name 'Virtual Machine Opera
 [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 ```
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="next-steps"></a>Sonraki adımlar
 
 * [Azure PowerShell’i Azure Resource Manager ile kullanma](../azure-resource-manager/powershell-azure-resource-manager.md)
 

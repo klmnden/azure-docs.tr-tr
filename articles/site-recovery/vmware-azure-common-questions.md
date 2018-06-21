@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185229"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285976"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Sık sorulan sorular - VMware Azure çoğaltma
 
@@ -29,7 +29,7 @@ Gözden geçirme [Azure Site Recovery fiyatlandırma](https://azure.microsoft.co
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>VMware ile Azure çoğaltma ne yapabilirim?
 - **Olağanüstü durum kurtarma**: tam olağanüstü durum kurtarma ayarlayabilirsiniz. Bu senaryoda, şirket içi VMware sanal makineleri Azure depolama alanına çoğaltabilir. Şirket içi altyapınızı kullanılamıyorsa, daha sonra üzerinden Azure'a yük devredebilir. Üzerinden başarısız olduğunda, Azure Vm'leri çoğaltılan veriler kullanılarak oluşturulur. Şirket içi veri merkeziniz yeniden kullanılabilir hale gelene kadar uygulamaları ve iş yüklerini Azure vm'lerinde erişebilirsiniz. Ardından, şirket içi sitenize yeniden başarısız olabilir.
-- **Geçiş**: şirket içi VMware sanal makinelerini Azure'a geçirmek için Site RECOVERY'yi kullanabilirsiniz. Bu senaryoda, şirket içi VMware sanal makineleri Azure depolama alanına çoğaltabilir. Ardından, şirket içinden Azure'a yük. Yük devretme sonrasında olduğunuz uygulamaları ve iş yüklerini kullanılabilir ve Azure vm'lerinde çalışıyor.
+- **Geçiş**: şirket içi VMware sanal makinelerini Azure'a geçirmek için Site RECOVERY'yi kullanabilirsiniz. Bu senaryoda, şirket içi VMware sanal makineleri Azure depolama alanına çoğaltabilir. Ardından, şirket içinden Azure'a yük. Yük devretme sonrasında kullanılabilir ve Azure vm'lerinde çalışan uygulamalar ve iş yükleri.
 
 
 
@@ -41,7 +41,7 @@ Bir Azure aboneliği, bir kurtarma Hizmetleri kasası, bir depolama hesabı ve s
 Bir LRS veya GRS depolama hesabınızın olması gerekir. Bölgesel bir kesintinin meydana gelmesi veya birincil bölgenin kurtarılamaması durumunda verilerin korunması için GRS'yi tavsiye ederiz. Premium depolama desteklenir.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Azure Hesabımı VM'ler oluşturmak için izinlere ihtiyaç duyuyor mu?
-Bir abonelik yöneticisi değilseniz, gereksinim duyduğunuz çoğaltma izinlerine sahip. Siz değilseniz, kaynak grubu ve sanal ağ sitesi Reocvery yapılandırırken belirttiğiniz bir Azure VM oluşturmak için izinlere ve seçilen depolama hesap yazma izinleri gerekir. [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+Bir abonelik yöneticisi değilseniz, gereksinim duyduğunuz çoğaltma izinlerine sahip. Siz değilseniz, kaynak grubu ve Site Recovery yapılandırırken belirttiğiniz sanal ağ içinde bir Azure VM oluşturmak için izinler ve seçili depolama hesabına yazma izinleri gerekir. [Daha fazla bilgi edinin](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 
@@ -160,7 +160,7 @@ Site Recovery aşağıdakiler için VMware sunucularına erişmesi gerekir:
 ### <a name="is-replication-data-sent-to-site-recovery"></a>Çoğaltma verilerini Site Recovery hizmetine gönderilir mi?
 Hayır, Site Recovery çoğaltılan verilere müdahale etmez ve Vm'leriniz çalıştıran hakkında herhangi bir bilgi yoktur. Çoğaltma verilerinin VMware hiper yöneticileri ve Azure depolama arasında paylaşılmaz. Site Recovery bu verilere müdahale edemez. Yalnızca çoğaltma ve yük devretme işlemlerini düzenlemek için gereken meta veriler Site Recovery hizmetine gönderilir.  
 
-Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
+Site Recovery ISO 27001: 2013, 27018, HIPAA, DPA sertifikalı ve SOC2 ile FedRAMP JAB değerlendirmelerini sürecinde olduğundan ' dir.
 
 ### <a name="can-we-keep-on-premises-metadata-within-a-geographic-regions"></a>Biz, bir coğrafi bölge içinde şirket içi meta verileri tutabilir miyim?
 Evet. Bir bölgede bir kasayı oluşturduğunuzda tüm meta veriler Site Recovery kalır bölgenin coğrafi sınırları içinde tarafından kullanılan emin olun.

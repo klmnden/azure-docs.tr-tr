@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: fd393107fa8e142f042b0bf1e4283b3cacd4050e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e39bd40a25333f6b2e323439d29e2a85e67d20d5
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218223"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>Öğretici: Azure Active Directory Tümleştirme Apptio ile
 
@@ -121,7 +121,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın](./media/apptio-tutorial/tutorial_apptio_attributes.png)     
     
     > [!NOTE]
-    > Lütfen tıklatın [burada](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/) nasıl yapılandırılacağını öğrenmek için **rol** Azure AD'de
+    > Lütfen tıklatın [burada](../../role-based-access-control/role-assignments-portal.md) nasıl yapılandırılacağını öğrenmek için **rol** Azure AD'de
     
 6. İçinde **kullanıcı öznitelikleri** bölümünde **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği görüntüde gösterildiği gibi yapılandırın ve aşağıdaki adımları gerçekleştirin:
 
@@ -243,4 +243,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/apptio-tutorial/tutorial_general_201.png
 [202]: ./media/apptio-tutorial/tutorial_general_202.png
 [203]: ./media/apptio-tutorial/tutorial_general_203.png
-

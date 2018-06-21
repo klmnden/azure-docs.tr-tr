@@ -4,8 +4,8 @@ description: Azure dosyaları dağıtımı için planlama yaparken göz önünde
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: ebfa7da32859f8d2d0ff3778af3b5cca99bdf1f4
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296179"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -144,6 +145,9 @@ Azure dosya eşitleme ve DFS-R için yan yana çalışmak:
 
 Daha fazla bilgi için bkz: [DFS Çoğaltmaya genel bakış](https://technet.microsoft.com/library/jj127250).
 
+### <a name="windows-search"></a>Windows arama
+Bulut katmanlama bir sunucu uç noktasında etkinleştirildiğinde, musunuz dosya atlandı ve Windows Search tarafından dizinli değil. Olmayan katmanlı dosyaları düzgün bir şekilde dizine alınır.
+
 ### <a name="antivirus-solutions"></a>Virüsten koruma çözümleri
 Virüsten koruma bilinen kötü amaçlı kod dosyaları tarayarak çalıştığından, bir virüsten koruma yazılımı katmanlı dosyaların geri çağırma neden olabilir. Katmanlı dosyaları "Çevrimdışı" özniteliği olmadığından, çevrimdışı dosyaları okuma atlamak için kendi çözümünü yapılandırma konusunda bilgi edinmek için yazılım satıcınıza danışmanlık öneririz. 
 
@@ -157,6 +161,11 @@ Aşağıdaki çözümlerde, çevrimdışı dosyalar atlanıyor desteklemek için
 
 ### <a name="backup-solutions"></a>Yedekleme çözümleri
 Virüsten koruma çözümleri gibi yedekleme çözümleri katmanlı dosyaların geri çağırma neden olabilir. Bir şirket içi yedek ürün yerine Azure dosya paylaşımı yedeklemek için bir bulut yedekleme çözümünün kullanmanızı öneririz.
+
+Bir şirket içi yedekleme çözümü kullanıyorsanız, yedeklemeleri devre dışı katmanlama bulut olan eşitleme grubundaki bir sunucuda yapılmalıdır. Dosya sunucusu uç noktası konum içinde geri yüklerken dosya düzeyinde geri yükleme seçeneğini kullanın. Geri yüklenen dosyaları eşitleme grubundaki tüm uç noktalara eşitlenir ve mevcut dosyaları yedekten geri sürüm ile değiştirilecek.
+
+> [!Note]  
+> Uygulama algılayan birim düzeyi ve tam kurtarma (BMR) geri yükleme seçenekleri beklenmeyen sonuçlara neden olabilir ve şu anda desteklenmiyor. Bu geri yükleme seçenekleri gelecekteki bir sürümde desteklenir.
 
 ### <a name="encryption-solutions"></a>Şifreleme çözümleri
 Şifreleme çözümleri için destek nasıl uygulanana üzerinde bağlıdır. Azure dosya eşitleme çalışmak bilinmektedir:
@@ -179,6 +188,7 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 | Bölge | Veri merkezinin konumu |
 |--------|---------------------|
 | Avustralya Doğu | New South Wales |
+| Avustralya Güneydoğu | Victoria |
 | Orta Kanada | Toronto |
 | Doğu Kanada | Quebec City |
 | Orta ABD | Iowa |
@@ -188,6 +198,7 @@ Azure dosya eşitleme yalnızca önizleme aşağıdaki bölgelerde kullanılabil
 | Kuzey Avrupa | İrlanda |
 | Güneydoğu Asya | Singapur |
 | Birleşik Krallık Güney | Londra |
+| Birleşik Krallık Batı | Cardiff |
 | Batı Avrupa | Hollanda |
 | Batı ABD | Kaliforniya |
 

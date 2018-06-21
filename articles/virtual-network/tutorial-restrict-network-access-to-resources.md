@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2efbd6e0fc3f90909553bc839a8b61ff3ed681ad
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267399"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak sanal ağ hizmet uç noktaları ile PaaS kaynaklarına ağ erişimini kısıtlama
 
@@ -65,6 +65,8 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="enable-a-service-endpoint"></a>Hizmet uç noktasını girin
 
+Hizmet uç noktaları her hizmet ve her alt ağ için etkinleştirilir. Alt ağ oluşturun ve alt ağ için bir hizmet uç noktasını etkinleştirin.
+
 1. Portalın üst kısmındaki **Kaynak, hizmet ve belgeleri arayın** kutusuna *myVirtualNetwork* yazın. Arama sonuçlarında **myVirtualNetwork** göründüğünde seçin.
 2. Sanal ağa bir alt ağ ekleyin. **AYARLAR** altında **Alt Ağlar**’ı ve sonra aşağıdaki resimde gösterildiği gibi **+ Alt Ağ**’ı seçin:
 
@@ -78,11 +80,16 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
     |Adres aralığı| 10.0.1.0/24|
     |Hizmet uç noktaları| **Hizmetler** altında **Microsoft.Storage** öğesini seçin|
 
+> [!CAUTION]
+> İçinde kaynaklar bulunan mevcut alt ağ için hizmet uç noktasını etkinleştirmeden önce, bkz. [Alt ağ ayarlarını değiştirme](virtual-network-manage-subnet.md#change-subnet-settings).
+
 ## <a name="restrict-network-access-for-a-subnet"></a>Bir kaynak için ağ erişimini kısıtlama
+
+Varsayılan olarak, alt ağdaki tüm VM'ler tüm kaynaklarla iletişim kurabilir. Bir ağ güvenlik grubu oluşturup bunu alt ağ ile ilişkilendirerek, alt ağdaki tüm kaynaklara giden ve gelen iletişimi sınırlandırabilirsiniz.
 
 1. Azure portalının sol üst köşesinde bulunan **+ Kaynak oluştur** seçeneğini belirleyin.
 2. **Ağ**'ı ve sonra **Ağ güvenlik grubu**’nu seçin.
-**Ağ güvenlik grubu oluşturun** altında aşağıdaki bilgileri girin veya seçin ve sonra **Oluştur**’u seçin:
+3. **Ağ güvenlik grubu oluşturun** altında aşağıdaki bilgileri girin veya seçin ve sonra **Oluştur**’u seçin:
 
     |Ayar|Değer|
     |----|----|
@@ -94,7 +101,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 4. Ağ güvenlik grubu oluşturulduktan sonra portalın üst kısmındaki **Kaynak, hizmet ve belgeleri arayın** kutusuna *myNsgPrivate* ifadesini girin. Arama sonuçlarında **myNsgPrivate** göründüğünde seçin.
 5. **AYARLAR** altında **Giden güvenlik kuralları**’nı seçin.
 6. **+ Ekle** öğesini seçin.
-7. Azure Depolama hizmetine atanmış genel IP adreslerine giden erişime izin veren bir kural oluşturun. Aşağıdaki bilgileri girin veya seçin ve sonra **Tamam**’ı seçin:
+7. Azure Depolama hizmetine giden iletişime izin veren bir kural oluşturun. Aşağıdaki bilgileri girin veya seçin ve sonra **Tamam**’ı seçin:
 
     |Ayar|Değer|
     |----|----|
@@ -107,7 +114,8 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
     |Eylem|İzin Ver|
     |Öncelik|100|
     |Adı|İzin Ver-Depolama-Tümü|
-8. Tüm genel IP adreslerine giden erişime izin veren varsayılan bir güvenlik kuralını geçersiz kılan bir kural oluşturun. Aşağıdaki değerleri kullanarak 6. ve 7. adımları yeniden tamamlayın:
+    
+8. İnternet'e giden iletişimi engelleyen bir kural oluşturun. Bu kural, giden İnternet iletişimine izin veren tüm ağ güvenlik gruplarında varsayılan kuralı geçersiz kılar. Aşağıdaki değerleri kullanarak 6. ve 7. adımları yeniden tamamlayın:
 
     |Ayar|Değer|
     |----|----|
@@ -171,9 +179,9 @@ Hizmet uç noktaları için etkinleştirilmiş Azure hizmetleri aracılığıyla
 4. **Ad** altında *my-file-share* girip **Tamam**’ı seçin.
 5. **Dosya hizmeti** kutusunu kapatın.
 
-### <a name="enable-network-access-from-a-subnet"></a>Bir alt ağdan ağ erişimini etkinleştirme
+### <a name="restrict-network-access-to-a-subnet"></a>Bir alt ağa erişimi kısıtlama
 
-Varsayılan olarak, depolama hesapları herhangi bir ağdaki istemcilerden gelen ağ bağlantılarını kabul eder. Yalnızca belirli bir alt ağdan erişime izin vermek ve diğer tüm ağlardan ağ erişimini engellemek için aşağıdaki adımları tamamlayın:
+Varsayılan olarak, depolama hesapları İnternet de dahil olmak üzere herhangi bir ağdaki istemcilerden gelen ağ bağlantılarını kabul eder. İnternet'ten ve *myVirtualNetwork* sanal ağındaki *Özel* alt ağı dışında tüm sanal ağlardaki diğer tüm alt ağlardan ağ erişimini reddedin.
 
 1. Depolama hesabının **AYARLAR** menüsünde **Güvenlik duvarları ve sanal ağlar**’ı seçin.
 2. **Sanal ağlar** altında **Seçili ağlar**’ı seçin.
@@ -256,13 +264,13 @@ Sanal makinenin dağıtılması birkaç dakika sürer. Oluşturma işlemi tamaml
 
     Z sürücüsüne başarıyla eşlenen Azure dosya paylaşımı.
 
-7. Bir komut isteminden VM’nin başka bir genel IP adresine giden bağlantısının olmadığını doğrulayın:
+7. Bir komut isteminden, VM’nin İnternet'e giden bağlantısının olmadığını doğrulayın:
 
     ```
     ping bing.com
     ```
     
-    *Özel* alt ağ ile ilişkili ağ güvenlik grubu Azure Depolama hizmetine atanan adreslerden başka genel IP adreslerine giden erişime izin vermediği için bir yanıt almazsınız.
+    *Özel* alt ağı ile ilişkili ağ güvenlik grubu İnternet'e giden erişime izin vermediği için bir yanıt almazsınız.
 
 8. *myVmPrivate* VM ile uzak masaüstü oturumunu kapatın.
 
@@ -272,7 +280,7 @@ Sanal makinenin dağıtılması birkaç dakika sürer. Oluşturma işlemi tamaml
 2. Arama sonuçlarında **myVmPublic** göründüğünde seçin.
 3. *myVmPublic* VM için [Depolama hesabına erişimi onaylama](#confirm-access-to-storage-account) bölümündeki 1-6. adımları tamamlayın.
 
-    Erişim reddedilir ve bir `New-PSDrive : Access is denied` hatası alırsınız. *myVmPublic* VM *Genel* alt ağa dağıtıldığı için erişim reddedilir. *Genel* alt ağında Azure Depolama için etkinleştirilmiş bir hizmet uç noktası bulunmaz ve depolama hesabı *Genel* alt ağından değil, yalnızca *Özel* alt ağından ağ erişimine izin verir.
+    Erişim reddedilir ve bir `New-PSDrive : Access is denied` hatası alırsınız. *myVmPublic* VM *Genel* alt ağa dağıtıldığı için erişim reddedilir. *Genel* alt ağın Azure Depolama için etkinleştirilmiş bir hizmet uç noktası yoktur. Depolama hesabı yalnızca *Özel* alt ağdan ağ erişimine izin verir; *Genel* alt ağdan erişime izin vermez.
 
 4. *myVmPublic* VM ile uzak masaüstü oturumunu kapatın.
 
@@ -295,7 +303,7 @@ Artık gerekli olmadığında kaynak grubunu ve içerdiği tüm kaynakları sili
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide bir sanal ağ alt ağı için hizmet uç noktası etkinleştirdiniz. Hizmet uç noktalarının birden fazla Azure hizmeti ile dağıtılmış kaynaklar için etkinleştirilebildiğini öğrendiniz. Bir Azure Depolama hesabı oluşturdunuz ve depolama hesabına ağ erişimini yalnızca bir sanal ağ alt ağındaki kaynaklarla sınırladınız. Hizmet uç noktaları hakkında daha fazla bilgi için bkz. [Hizmet uç noktalarına genel bakış](virtual-network-service-endpoints-overview.md) ve [Alt ağları yönetme](virtual-network-manage-subnet.md).
+Bu öğreticide bir sanal ağ alt ağı için hizmet uç noktası etkinleştirdiniz. Hizmet uç noktalarını birden fazla Azure hizmetinden dağıtılmış kaynaklar için etkinleştirebileceğinizi öğrendiniz. Bir Azure Depolama hesabı oluşturdunuz ve depolama hesabına ağ erişimini yalnızca bir sanal ağ alt ağındaki kaynaklarla kısıtladınız. Hizmet uç noktaları hakkında daha fazla bilgi için bkz. [Hizmet uç noktalarına genel bakış](virtual-network-service-endpoints-overview.md) ve [Alt ağları yönetme](virtual-network-manage-subnet.md).
 
 Hesabınızda birden fazla sanal ağ varsa, her bir sanal ağın içindeki kaynakların birbiriyle iletişim kurabilmesi iki sanal ağı birbirine bağlamak isteyebilirsiniz. Sanal ağları bağlama hakkında bilgi almak için sonraki öğreticiye ilerleyin.
 

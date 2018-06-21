@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: d7d22355ba3521bd080e7229a6254d0f992942f2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d9199f96c4263a8027067b0784a63aaeafe0a06d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218930"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294661"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Öğretici: Azure Active Directory Tümleştirme Skillport ile
 
@@ -210,7 +210,7 @@ Bu bölümde, Britta Skillport için erişim vererek, Azure çoklu oturum açma 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
 Erişim paneli Skillport parçasında tıklattığınızda, otomatik olarak Skillport uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). 
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

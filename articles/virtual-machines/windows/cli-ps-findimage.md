@@ -15,16 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
-ms.openlocfilehash: 885ee10bc63b65d936f5b433a18c4435b2503720
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 269d1392e00d02a79a360e3528fdde174563f2cf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32313452"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295219"
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell ile Azure Market'te Windows VM görüntüleri bulma
 
 Bu makalede, Azure Marketi'nde VM görüntüleri bulmak için Azure PowerShell kullanmayı açıklar. Bir VM PowerShell ile programlı olarak oluşturduğunuzda bir Market görüntüsü belirtmek için bu bilgileri kullanın Resource Manager şablonları veya diğer araçlar.
+
+Kullanılabilir görüntüleri ve kullanarak teklifler de göz [Azure Marketi](https://azuremarketplace.microsoft.com/) vitrininizi, [Azure portal](https://portal.azure.com), veya [Azure CLI](../linux/cli-ps-findimage.md). 
 
 Yüklü ve en son yapılandırıldığından emin olun [Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps).
 

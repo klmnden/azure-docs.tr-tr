@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 4cf4e0ffc339bb90f013315a53025c83fcaad21f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4aa2a2f41bcdd78991184e026f22f8e04754eccb
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217580"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Öğretici: Azure Active Directory Tümleştirme almak LMS ile
 
@@ -266,7 +266,7 @@ Kullanıcı Britta Simon almak LMS atamak için aşağıdakileri yapın:
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test.
 
-Erişim panelinde seçme **almak LMS** döşeme otomatik olarak oturum açtığında, almak LMS uygulamanıza. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Erişim panelinde seçme **almak LMS** döşeme otomatik olarak oturum açtığında, almak LMS uygulamanıza. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
@@ -288,4 +288,3 @@ Erişim panelinde seçme **almak LMS** döşeme otomatik olarak oturum açtığ�
 [201]: ./media/absorblms-tutorial/tutorial_general_201.png
 [202]: ./media/absorblms-tutorial/tutorial_general_202.png
 [203]: ./media/absorblms-tutorial/tutorial_general_203.png
-

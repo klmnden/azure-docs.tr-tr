@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 9a6b14be6b41aacf0cc2ccbc4cf1c8421bc8aa98
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0ff053b88a718c152d31b593a7759b034347f3ef
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231170"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293681"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Öğretici: Azure Active Directory Tümleştirme Teamphoria ile
 
@@ -245,7 +245,7 @@ Bu bölümde, Britta Teamphoria için erişim vererek, Azure çoklu oturum açma
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Çoklu oturum açma ayarlarınızı test etmek isterseniz, erişim paneli açın. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Çoklu oturum açma ayarlarınızı test etmek isterseniz, erişim paneli açın. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

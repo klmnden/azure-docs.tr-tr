@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.openlocfilehash: aee99add093a6da14a4d146ed29e48604eabfb1f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 96608c491fe4d62b6b4bdb48ee5386c9a72212cf
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229081"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>Öğretici: Azure Active Directory Tümleştirme Learning bilgisayar başına LMS ile
 
@@ -207,7 +207,7 @@ Bu bölümde, Britta Learning bilgisayar başına LMS erişim vererek, Azure ço
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin. 
 
-Erişim panelinde Learning bilgisayar başına LMS kutucuğuna tıklayın, otomatik olarak imzalanmış Learning bilgisayar başına LMS uygulamanıza açma. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Erişim panelinde Learning bilgisayar başına LMS kutucuğuna tıklayın, otomatik olarak imzalanmış Learning bilgisayar başına LMS uygulamanıza açma. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

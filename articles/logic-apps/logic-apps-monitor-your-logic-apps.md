@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 061269050ad598e1877c3b7bc6745d4095816020
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f11db2009328118dda036057918ba853f5032200
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301227"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293532"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Durum İzleme, tanılama günlük ayarlama ve Azure Logic Apps için uyarılarını Aç
 
@@ -118,19 +118,11 @@ Bulma ve mantıksal uygulamanızı olaylarını görüntüleme gibi için olayla
 
    ![Günlük analizi çalışma alanınızı seçin](media/logic-apps-monitor-your-logic-apps/selectla.png)
 
-3. Altında **Yönetim**, seçin **OMS portalı**.
+3. Altında **Yönetim**, seçin **günlük arama**.
 
-   !["OMS portalı" seçin](media/logic-apps-monitor-your-logic-apps/omsportalpage.png)
+   !["Günlük arama" seçin](media/logic-apps-monitor-your-logic-apps/log-search.png)
 
-4. Giriş sayfanızda seçin **günlük arama**.
-
-   ![Giriş sayfanızda "Günlük arama" seçin](media/logic-apps-monitor-your-logic-apps/logsearch.png)
-
-   -veya-
-
-   ![Menüsünde "Günlük arama" öğesini seçin](media/logic-apps-monitor-your-logic-apps/logsearch-2.png)
-
-5. Arama kutusuna, bulmak ve basın istediğiniz bir alanı belirtmek **Enter**. Yazmaya başladığınızda, olası eşleşmeler ve kullanabileceğiniz işlemleri bakın. 
+4. Arama kutusuna, bulmak ve basın istediğiniz bir alanı belirtmek **Enter**. Yazmaya başladığınızda, olası eşleşmeler ve kullanabileceğiniz işlemleri bakın. 
 
    Örneğin, ilk 10 olayları bulmak için girin ve bu arama sorgusuna seçin: **kategori arama "WorkflowRuntime" == | 10 sınırla**
 
@@ -138,27 +130,27 @@ Bulma ve mantıksal uygulamanızı olaylarını görüntüleme gibi için olayla
 
    Daha fazla bilgi edinmek [günlük analizi verileri bulmak üzere nasıl](../log-analytics/log-analytics-log-searches.md).
 
-6. Sonuçları sayfasında sol çubuğunda görüntülemek istediğiniz zaman dilimini seçin.
+5. Sonuçları sayfasında sol çubuğunda görüntülemek istediğiniz zaman dilimini seçin.
 Bir filtre ekleyerek sorgunuzu daraltın tercih **+ Ekle**.
 
    ![Sorgu sonuçları ilişkin zaman çerçevesini seçin](media/logic-apps-monitor-your-logic-apps/query-results.png)
 
-7. Altında **filtreler Ekle**, istediğiniz filtreyi bulabilmek için filtre adı girin. Filtreyi seçin ve **+ Ekle**.
+6. Altında **filtreler Ekle**, istediğiniz filtreyi bulabilmek için filtre adı girin. Filtreyi seçin ve **+ Ekle**.
 
    Bu örnekte "Durum" word altında başarısız olayları bulmak için kullanır. **AzureDiagnostics**.
    Burada filtresi için **status_s** zaten seçilidir.
 
    ![Filtreyi seçin](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
-8. Sol çubuğunda ve seçin istediğiniz filtre değeri seçin **Uygula**.
+7. Sol çubuğunda ve seçin istediğiniz filtre değeri seçin **Uygula**.
 
    ![Filtre değeri seçin, "Uygula"](media/logic-apps-monitor-your-logic-apps/log-search-apply-filter.png)
 
-9. Şimdi oluşturmakta olduğunuz sorgu döndür. Sorgunuz seçili filtresi ve değer ile güncelleştirilir. Önceki sonuçlarınızı artık çok filtrelenir.
+8. Şimdi oluşturmakta olduğunuz sorgu döndür. Sorgunuz seçili filtresi ve değer ile güncelleştirilir. Önceki sonuçlarınızı artık çok filtrelenir.
 
    ![Sorgunuz filtrelenmiş sonuçlar döndürür](media/logic-apps-monitor-your-logic-apps/log-search-query-filtered-results.png)
 
-10. Sorgunuz gelecekte kullanım için kaydetmek üzere seçim yapın **kaydetmek**. Bilgi [sorgunuzu kaydetmek nasıl](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
+9. Sorgunuz gelecekte kullanım için kaydetmek üzere seçim yapın **kaydetmek**. Bilgi [sorgunuzu kaydetmek nasıl](../logic-apps/logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md#save-oms-query).
 
 <a name="extend-diagnostic-data"></a>
 

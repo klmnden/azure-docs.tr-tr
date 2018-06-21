@@ -1,20 +1,18 @@
 ---
 title: " Azure Site kurtarma VMware vCenter sunucuları yönetme | Microsoft Docs"
 description: Bu makalede nasıl ekleyin ve Azure Site Recovery VMware Vcenter'da yönetin.
-services: site-recovery
 author: AnoopVasudavan
-manager: gauravd
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: anoopkv
-ms.openlocfilehash: be415340da09043eccd361b0168bb304d8904bef
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 48b6cf9b90b429520df435aee00f57ea7b588748
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852311"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285007"
 ---
 # <a name="manage-vmware-vcenter-servers"></a>VMware vCenter sunucuları yönetme 
 
@@ -72,7 +70,7 @@ VCenter sunucusu veya ESXi ana şu şekilde bağlanmak için kullanılan kimlik 
 2. Üzerinde **ayrıntıları** sayfasında, vCenter sunucusu seçin.
 3. Tıklayın **silmek** düğmesi.
 
-  ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+  ![hesabı Sil](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
 
 > [!NOTE]
 Ardından vCenter IP adresi, FQDN veya bağlantı noktası değiştirmeniz gerekiyorsa, vCenter server silme ve portala geri eklemeniz gerekir.

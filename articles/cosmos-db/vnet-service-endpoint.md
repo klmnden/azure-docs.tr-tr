@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: aab2446a21739beb029b103241431fb9998e1861
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735467"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294004"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure sanal ağ hizmeti uç noktası kullanarak bir Azure Cosmos DB hesabı güvenli erişim
 
@@ -80,7 +80,7 @@ Azure Virtual Network hizmet uç noktaları Azure Cosmos DB veritabanı hesabın
 
 Azure Cosmos DB hesabınızı Azure Search gibi diğer Azure Hizmetleri tarafından kullanılan veya akış analizi veya Power BI erişilen, denetleyerek erişim izni **Azure hizmetlerine erişime izin ver**.
 
-Erişiminiz Azure Cosmos DB ölçümleri portaldan emin olmak için etkinleştirmeniz gerekir **Azure portalına erişim izin** seçenekleri. Bu seçenekler hakkında daha fazla bilgi için bkz: [Azure portalından bağlantıları](firewall-support.md#connections-from-the-azure-portal) ve [Azure PaaS Hizmetleri bağlantılarından](firewall-support.md#connections-from-other-azure-paas-services) bölümler. Erişim seçtikten sonra seçin **kaydetmek** ayarları kaydetmek için.
+Erişiminiz Azure Cosmos DB ölçümleri portaldan emin olmak için etkinleştirmeniz gerekir **Azure portalına erişim izin** seçenekleri. Bu seçenekler hakkında daha fazla bilgi için bkz: [Azure portalından bağlantıları](firewall-support.md#connections-from-the-azure-portal) ve [Azure PaaS Hizmetleri bağlantılarından](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) bölümler. Erişim seçtikten sonra seçin **kaydetmek** ayarları kaydetmek için.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>Bir sanal ağ veya alt ağı Kaldır 
 

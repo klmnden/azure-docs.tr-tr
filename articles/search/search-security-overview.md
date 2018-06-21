@@ -1,31 +1,39 @@
 ---
-title: Verilerin ve işlemlerin Azure Search'te güvenli | Microsoft Docs
-description: Azure arama güvenlik SOC 2 uyumluluk, şifreleme, kimlik doğrulama ve kullanıcı ve grup güvenlik tanımlayıcıları Azure Search filtrelerde aracılığıyla kimlik erişimi temel alır.
+title: Güvenlik ve veri gizlilik Azure Search'te | Microsoft Docs
+description: Azure arama, SOC 2, HIPAA ve diğer sertifikaları ile uyumludur. Bağlantı ve veri şifreleme, kimlik doğrulama ve kimlik erişim kullanıcı ve grup güvenlik tanımlayıcıları Azure Search'te aracılığıyla filtreler.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 7db1b6c6f72f3cea7446b5f96dac7cd6e9b4252d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 888f7c3ced0ef48cff222bffdbf0f278fa5f42b3
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795808"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285738"
 ---
-# <a name="security-and-controlled-access-in-azure-search"></a>Güvenlik ve Azure Search'te denetimli erişim
+# <a name="security-and-data-privacy-in-azure-search"></a>Azure Search'te güvenlik ve veri gizliliği
 
-Azure arama [SOC 2 uyumlu](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports)kapsamlı güvenlik mimarisi yayılan fiziksel güvenlik, şifrelenmiş iletimler, şifrelenmiş depolama ve platform genelinde yazılım koruması. İşletimsel olarak, Azure Search yalnızca kimliği doğrulanmış istekler kabul eder. İsteğe bağlı olarak, içerik üzerinde kullanıcı başına erişim denetimleri ekleyebilirsiniz. Bu makalede her katmanda güvenlik dokunur, ancak öncelikle nasıl Azure Search'te verilerin ve işlemlerin güvenlidir odaklanmıştır.
+Özel içerik bu şekilde kaldığından emin olmak için Azure Search kapsamlı güvenlik özellikleri ve erişim denetimleri oluşturulmuştur. Bu makalede, Azure Search yerleşik güvenlik özellikleri ve standartları uyumluluk numaralandırır.
 
-![Güvenlik katmanları Blok Diyagramı](media/search-security-overview/azsearch-security-diagram.png)
+Azure arama güvenlik mimarisi fiziksel güvenliği, şifrelenmiş iletimler, şifrelenmiş depolama ve platform genelinde standartları uyumluluğu yayar. İşletimsel olarak, Azure Search yalnızca kimliği doğrulanmış istekler kabul eder. İsteğe bağlı olarak, güvenlik filtreleri yoluyla içerik üzerinde kullanıcı başına erişim denetimleri ekleyebilirsiniz. Bu makalede her katmanda güvenlik dokunur, ancak öncelikle nasıl Azure Search'te verilerin ve işlemlerin güvenlidir odaklanmıştır.
 
-## <a name="physical-security"></a>Fiziksel güvenlik
+## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Standartları uyumluluğu: ISO 27001, SOC 2, HIPAA
 
-Microsoft veri merkezleri endüstri lideri fiziksel güvenlik sağlar ve kapsamlı bir standartlar ve düzenlemelere yelpazesini ile uyumludur. Daha fazla bilgi edinmek için şu adrese gidin [küresel veri merkezleri](https://www.microsoft.com/cloud-platform/global-datacenters) sayfa veya Güvenlik Merkezi veri hakkında kısa bir video izleyin.
+Standartları uyumluluğu kısmi bir listesine SOC 2 Tür 2 ve HIPAA için genel olarak kullanılabilir özellikler içerir. Önizleme özellikleri genel kullanılabilirlik bir parçası olarak sertifikalı ve belirli standartlara gereksinimlerine sahip çözümlerinde kullanılmamalıdır. Uyumluluk sertifika bölümlerinde [Microsoft Azure genel bakış Uyumluluk](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) ve [Güven Merkezi](https://www.microsoft.com/en-us/trustcenter). 
 
-> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
+Sertifika aşağıdaki standartları için olan [Haziran 2018 duyurdu](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/).
+
++ [ISO 27001: 2013](https://www.iso.org/isoiec-27001-information-security.html) 
++ [SOC 2 Tür 2 Uyumluluk](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) tam rapor için Git [Azure - ve Azure kamu SOC 2 türü II rapor](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
++ [Sağlık Sigortası Taşınabilirlik ve Sorumluluk Yasası (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
++ [GxP (21 CFR Kısım 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
++ [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
++ [PCI DSS düzey 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
++ [Avustralya IRAP Sınıflandırılmamış DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
 ## <a name="encrypted-transmission-and-storage"></a>Şifrelenmiş iletim ve depolama
 
@@ -35,15 +43,14 @@ Microsoft veri merkezleri endüstri lideri fiziksel güvenlik sağlar ve kapsaml
 |----------------|-------------|
 | Aktarımdaki şifreleme | Azure arama HTTPS bağlantı noktası 443 üzerinde dinler. Platform arasında Azure hizmetlerine bağlantıları şifrelenir. |
 | Bekleme sırasında şifreleme | Şifreleme dizin oluşturma işleminde, dizin oluşturma süresi tamamlama veya dizin boyutu ölçülebilir bir etki olmadan tam olarak internalized. Otomatik olarak tüm dizin üzerinde (Ocak 2018 önce oluşturulan) tam olarak şifrelenmemiş bir dizine artımlı güncelleştirmeler dahil olmak üzere oluşur.<br><br>Dahili olarak, şifreleme dayanır [Azure depolama hizmeti şifrelemesi](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), 256 bit kullanarak [AES şifreleme](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
-| [SOC 2 uyumluluk](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) | Tüm arama hizmetleri tam olarak AICPA SOC 2 uyumlu, Azure Search sağlayan tüm veri merkezlerinde oluşturulur. Tam raporu gözden geçirmek için Git [Azure - ve Azure kamu SOC 2 türü II rapor](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). |
 
 Şifreleme sertifikaları ve dahili olarak Microsoft tarafından yönetilen ve evrensel uygulanması şifreleme anahtarları ile Azure arama için dahili kullanım içindir. Olamaz şifreleme Aç veya Kapat, yönetme veya kendi anahtarları yerine veya portal veya program aracılığıyla şifreleme ayarları görüntüleyin. 
 
 Bekleyen şifreleme 24 Ocak 2018 içinde duyurulan ve tüm bölgelerde paylaşılan (ücretsiz) Hizmetleri dahil olmak üzere tüm hizmet katmanları için geçerlidir. Tam şifreleme için bu tarihten önce oluşturulan dizinleri bırakılan ve şifrelemenin gerçekleşmesi için sırayla yeniden. Aksi takdirde, 24 Ocak sonra eklenen yalnızca yeni veriler şifrelenir.
 
-## <a name="azure-wide-logical-security"></a>Azure genelinde mantıksal güvenliği
+## <a name="azure-wide-user-access-controls"></a>Azure genelinde kullanıcı erişim denetimleri
 
-Birkaç güvenlik mekanizmaları Azure yığın üzerinden kullanılabilen ve bu nedenle otomatik olarak oluşturduğunuz Azure Search kaynaklar için kullanılabilir.
+Birkaç güvenlik mekanizmaları kullanılabilir Azure kapsamındadır ve bu nedenle otomatik olarak kullanılabilir Azure Search kaynaklar için oluşturun.
 
 + [Abonelik ya da silinmesini önlemek için kaynak düzeyi kilitleri](../azure-resource-manager/resource-group-lock-resources.md)
 + [Rol tabanlı erişim denetimi (bilgi ve yönetim işlemleri erişimi denetlemek için RBAC)](../role-based-access-control/overview.md)
@@ -67,7 +74,7 @@ Her istekte her istek zorunlu bir anahtar, bir işlem ve bir nesne burada oluşu
 
 Azure Search'te tek bir dizin güvenliği sağlanabilir nesne değil. Bunun yerine, bir dizine erişim katmanında hizmet (okuma veya yazma erişimi), bir işlem bağlamında birlikte belirlenir.
 
-Son kullanıcı erişimi söz konusu olduğunda, herhangi bir istek salt okunur yapar ve uygulamanız tarafından kullanılan belirli dizin içeren bir sorgu anahtarı kullanarak bağlanmak için uygulamanızın sorgu isteği yapısı. Bir sorgu isteği dizinleri katılma veya tüm istekleri tek bir dizin tanımı tarafından hedef için aynı anda birden çok dizin erişme hiçbir kavramı yoktur. Bu nedenle, güvenlik sınırı sorgu isteği kendisi (bir anahtar artı tek hedef dizin) yapısını tanımlar.
+Son kullanıcı erişimi için herhangi bir istek salt okunur yapar ve uygulamanız tarafından kullanılan belirli dizin içeren bir sorgu anahtarı kullanarak bağlanmak için bir sorgu isteği yapısı. Bir sorgu isteği dizinleri katılma veya tüm istekleri tek bir dizin tanımı tarafından hedef için aynı anda birden çok dizin erişme hiçbir kavramı yoktur. Bu nedenle, sorgu isteği kendisi (bir anahtar artı tek hedef dizin) yapımı güvenlik sınırını tanımlar.
 
 Yönetici ve geliştirici erişimini dizinler için protokole: her ikisi de oluşturma, silme ve hizmet tarafından yönetilen nesneleri güncelleştirmek için yazma erişimi gerekir. Hizmetiniz için bir yönetici anahtarı kimseyle okuma, değiştirmek veya aynı hizmetindeki tüm dizini silin. Dizinleri yanlışlıkla veya kötü amaçlı silinmesini karşı koruma için şirket içi kaynak kodu varlıklar için bir istenmeyen dizin silinmesi veya değiştirilmesi ters çevirme için remedy denetimdir. Azure arama kullanılabilirliğini sağlamak için küme içindeki yük devretme gerekiyor, ancak bunu depolamaz veya oluşturmak veya dizinleri yüklemek için kullanılan özel kodunuzu yürütün.
 
@@ -106,6 +113,12 @@ Aşağıdaki tabloda Azure Search'te izin işlemleri özetler ve hangi anahtar e
 | Sorgu istatistiklerini, sayıları ve nesneleri listesi döndüren gibi sistem bilgisi | Yönetici anahtarını, kaynak (sahibi, katkıda bulunan, okuyucu) RBAC |
 | Yönetici anahtarları Yönet | RBAC sahibi veya katkıda kaynak üzerinde yönetici anahtarı. |
 | Sorgu anahtarlarını yönet |  RBAC sahibi veya katkıda kaynak üzerinde yönetici anahtarı.  |
+
+## <a name="physical-security"></a>Fiziksel güvenlik
+
+Microsoft veri merkezleri endüstri lideri fiziksel güvenlik sağlar ve kapsamlı bir standartlar ve düzenlemelere yelpazesini ile uyumludur. Daha fazla bilgi edinmek için şu adrese gidin [küresel veri merkezleri](https://www.microsoft.com/cloud-platform/global-datacenters) sayfa veya Güvenlik Merkezi veri hakkında kısa bir video izleyin.
+
+> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
 
 
 ## <a name="see-also"></a>Ayrıca bkz.

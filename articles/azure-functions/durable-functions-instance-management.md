@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d6f7c924491614190952ce620f33572307a22c22
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265444"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287757"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Dayanıklı işlevleri (Azure işlevleri) durumlarda yönetme
 
@@ -216,6 +216,41 @@ Orchestration örneğinden yanıt almak için gereken zamana bağlı olarak iki 
 
 > [!NOTE]
 > Web kancası URL'leri biçimi çalıştırdığınız Azure işlevleri ana bilgisayarın hangi sürümünün bağlı olarak değişebilir. Önceki örnekte için Azure işlevleri 2.0 ana bilgisayardır.
+
+## <a name="retrieving-http-management-webhook-urls"></a>HTTP Yönetim Web kancası URL'lerini alma
+
+Dış sistemler dayanıklı işlev aracılığıyla açıklanan varsayılan yanıt parçası olan Web kancası URL'ler ile iletişim kurabilir [HTTP API URL bulma](durable-functions-http-api.md). Ancak, Web kancası URL'leri da programlı olarak orchestration istemci veya bir etkinlik işlevinde erişilebilen [CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) yöntemi [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html)sınıfı. 
+
+[CreateHttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateHttpManagementPayload_) bir parametreye sahiptir:
+
+* **InstanceId**: örneğinin benzersiz kimliği.
+
+Yöntem örneği döndürür [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) aşağıdaki dize özelliklere sahip:
+
+* **Kimliği**: orchestration örnek kimliği (aynı olmalıdır `InstanceId` giriş).
+* **StatusQueryGetUri**: orchestration örneğinin durumu URL'si.
+* **SendEventPostUri**: orchestration örneğinin "olursa olay" URL'si.
+* **TerminatePostUri**: orchestration örneğinin "sonlandırmak" URL.
+
+Etkinlik işlevleri örneği gönderebilir [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) izlemek veya bir orchestration olaylarına yükseltmek için dış sistemler için:
+
+```csharp
+#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
+
+public static void SendInstanceInfo(
+    [ActivityTrigger] DurableActivityContext ctx,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [DocumentDB(
+        databaseName: "MonitorDB",
+        collectionName: "HttpManagementPayloads",
+        ConnectionStringSetting = "CosmosDBConnection")]out dynamic document)
+{
+    HttpManagementPayload payload = client.CreateHttpManagementPayload(ctx.InstanceId);
+
+    // send the payload to Cosmos DB
+    document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

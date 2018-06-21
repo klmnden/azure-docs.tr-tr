@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: 062b5e48cfba5de64aa11f79629e82645df87f96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7e2eb9bad8c95e61d5b750cacd0724fc2536f2c5
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809269"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294118"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory karma kimlik çözümü için uygun kimlik doğrulama yöntemini seçin 
 
@@ -41,6 +41,8 @@ Varolan bir şirket içi dizin ayak izini sahip olmayan kuruluşlarda, bu makale
 Azure AD karma kimlik çözümü yeni denetim düzlemi olduğunda, kimlik doğrulama bulut erişimi temelidir. Doğru kimlik doğrulama yöntemi seçerek Azure AD karma kimlik çözümünü ayarlama önemli bir ilk karar değil. Ayrıca kullanıcılar bulutta sağlar Azure AD Connect kullanarak yapılandırılan kimlik doğrulama yöntemini uygulayın.
 
 Bir kimlik doğrulama yöntemi seçmek için zaman, mevcut altyapınızı, karmaşıklık ve tercih ettiğiniz uygulama maliyetini göz önünde bulundurmanız gerekir. Bu faktörlerin her kuruluş için farklı ve zaman içinde değişebilir. 
+
+>[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD karma kimlik çözümleri için aşağıdaki kimlik doğrulama yöntemini destekler.
 
@@ -162,7 +164,7 @@ Aşağıdaki diyagramlarda, Azure AD karma kimlik çözümü ile kullandığın�
 |Bir SSL sertifikası gereksinimi var mı?|Hayır|Hayır|Evet|
 |Bir sistem durumu izleme çözümü var mı?|Gerekli değil|Aracı durumu tarafından sağlanan [Azure Active Directory Yönetim Merkezi](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
 |Kullanıcılar, şirket ağı içinde etki alanına katılmış aygıtlardan bulut kaynaklarına çoklu oturum açma alma?|Evet ile [sorunsuz SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)|Evet ile [sorunsuz SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)|Evet|
-|Hangi oturum açma türleri desteklenir?|UserPrincipalName + parola<br><br>Kullanarak Windows tümleşik kimlik [sorunsuz SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternatif oturum açma kimliği](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)|UserPrincipalName + parola<br><br>Kullanarak Windows tümleşik kimlik [sorunsuz SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternatif oturum açma kimliği](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)|UserPrincipalName + parola<br><br>sAMAccountName + parola<br><br>Windows tümleşik kimlik doğrulaması<br><br>[Sertifika ve akıllı kart kimlik doğrulaması](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternatif oturum açma kimliği](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
+|Hangi oturum açma türleri desteklenir?|UserPrincipalName + parola<br><br>Kullanarak Windows tümleşik kimlik [sorunsuz SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternatif oturum açma kimliği](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)|UserPrincipalName + parola<br><br>Kullanarak Windows tümleşik kimlik [sorunsuz SSO](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso)<br><br>[Alternatif oturum açma kimliği](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)|UserPrincipalName + parola<br><br>sAMAccountName + parola<br><br>Tümleşik Windows Kimlik Doğrulaması<br><br>[Sertifika ve akıllı kart kimlik doğrulaması](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[Alternatif oturum açma kimliği](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |Windows Hello desteklenen iş için mi?|[Anahtar güven modeli](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Intune ile sertifika güven modeli](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Anahtar güven modeli](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Intune ile sertifika güven modeli](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Anahtar güven modeli](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Sertifika güven modeli](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Çok faktörlü kimlik doğrulama seçenekleri nelerdir?|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/)<br><br>[Azure MFA sunucusu](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[Üçüncü taraf MFA](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|
 |Hangi kullanıcı hesabı durumları destekleniyor mu?|Devre dışı bırakılan hesapları<br>(en fazla 30 dakikalık gecikme)|Devre dışı bırakılan hesapları<br><br>Hesap Kilitlendi<br><br>Parolanın süresi dolsun<br><br>Oturum açma saatleri|Devre dışı bırakılan hesapları<br><br>Hesap Kilitlendi<br><br>Parolanın süresi dolsun<br><br>Oturum açma saatleri|

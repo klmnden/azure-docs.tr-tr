@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 06/08/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 7cfd3fba459f409079cb0c621edab3197070285e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7a67d65621da129640d3bb551cb0976ec1912050
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232539"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284813"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik bölgeleri nelerdir?
 Kullanılabilirlik bölgeleri, uygulamaları ve verileri datacenter hatalarından korur sunan bir yüksek kullanılabilirlik ' dir. Kullanılabilirlik bölgeleri bir Azure bölgesine benzersiz fiziksel konumlara ' dir. Her bölge soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezleri oluşur. Dayanıklılık sağlamak için en az üç ayrı bölgelere etkinleştirilmiş tüm bölgelerde yoktur. Kullanılabilirlik bölgeleri fiziksel ayrımı bir bölge içinde uygulamaları ve verileri datacenter hatalarından korur. Bölge olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-in-arızasına karşı korumak için kullanılabilirlik bölgeler arasında çoğaltılır. Kullanılabilirlik bölgeleri ile sektör en iyi % 99,99 VM çalışma süresi SLA Azure sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -57,6 +57,8 @@ Kullanılabilirlik bölgeleri destekler Azure hizmetler şunlardır:
 - Genel IP adresi
 - Bölgesel olarak yedekli depolama
 - SQL Veritabanı
+- Event Hubs
+- Service Bus
 
 
 ## <a name="pricing"></a>Fiyatlandırma

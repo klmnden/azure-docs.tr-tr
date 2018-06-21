@@ -12,21 +12,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/18/2017
+ms.date: 06/20/2018
 ms.author: ryanwi
-ms.openlocfilehash: 31defde289643b2adfd6e15bb8417b5498ba65d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e854ed42b6af8bc090950e8399e3229e202a2ed0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212509"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293421"
 ---
 # <a name="common-exceptions-and-errors-when-working-with-the-fabricclient-apis"></a>Genel özel durumlar ve FabricClient API'leri ile çalışırken hataları
 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API'leri yöneticilerin Service Fabric uygulama, hizmet veya küme üzerinde yönetim görevlerini gerçekleştirmek küme ve uygulama. Örneğin, uygulama dağıtımı, yükseltme ve kaldırma, bir küme durumu denetleniyor veya bir hizmet test etme. Uygulama geliştiricilerinin ve küme yöneticileri FabricClient API'ları Service Fabric kümesi ve uygulamaları yönetmek için Araçlar geliştirmek için kullanabilirsiniz.
 
 Farklı türlerde FabricClient kullanılarak gerçekleştirilen işlemler vardır.  Her yöntem hataları hatalı giriş nedeniyle, çalışma zamanı hataları veya geçici altyapı sorunlarını istisnalar atabilirsiniz.  Belirli bir yöntemle hangi özel durumlar bulmak için API Başvurusu belgelerine bakın. Çoğu tarafından oluşturulan bazı özel durumlar, ancak, farklı [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) API'leri. Aşağıdaki tabloda FabricClient API'ları arasında ortak olan özel durumlar listelenir.
 
-| Özel Durum | Ne zaman oluşturulur |
+| Özel durum | Ne zaman oluşturulur |
 | --- |:--- |
 | [System.Fabric.FabricObjectClosedException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricobjectclosedexception#System_Fabric_FabricObjectClosedException) |[FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) nesne kapalı durumda değil. Elden [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) nesne kullanıyorsanız ve yeni bir örneğini [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient#System_Fabric_FabricClient) nesnesi. |
 | [System.TimeoutException](https://docs.microsoft.com/dotnet/core/api/system.timeoutexception#System_TimeoutException) |İşlem zaman aşımına uğradı. [OperationTimedOut](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode#System_Fabric_FabricErrorCode) işlemi tamamlamak için MaxOperationTimeout birden yönlendirdiğinde döndürülür. |

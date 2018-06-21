@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737818"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294099"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -91,7 +91,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 
 * <a id="afs-region-availability"></a>
 **Hangi bölgeleri Azure dosya eşitleme (Önizleme) destekleniyor mu?**  
-    Şu anda, Azure dosya eşitleme Avustralya Doğu, Orta Kanada, Doğu ABD, Güneydoğu Asya, Birleşik Krallık Güney, Batı Avrupa ve Batı ABD içinde kullanılabilir. Biz genel kullanılabilirlik doğru çalışırken daha fazla bölgeler için destek eklenecektir. Daha fazla bilgi için bkz: [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability).
+    Şu anda, Azure dosya eşitleme Avustralya Doğu, Avustralya Güneydoğu, Orta Kanada, Doğu Kanada, Orta ABD, Doğu Asya, Doğu ABD, Doğu US2, Kuzey Avrupa, Güneydoğu Asya, Birleşik Krallık Güney, Birleşik Krallık Batı, Batı Avrupa ve Batı ABD içinde kullanılabilir. Biz genel kullanılabilirlik doğru çalışırken daha fazla bölgeler için destek eklenecektir. Daha fazla bilgi için bkz: [bölge kullanılabilirliği](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>
 **Etki alanına katılmış ve etki alanına katılmış sunucuları aynı eşitleme grubuna sahip olabilir?**  

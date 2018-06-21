@@ -8,18 +8,24 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185952"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284990"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Oluşturma ve Azure Search hizmeti için API anahtarları Yönet
 
-Bir arama hizmeti için tüm istekleri özellikle hizmetinizin api oluşturulan anahtarı gerekir. Bu API anahtarı, Arama Hizmeti uç noktanızı erişimi kimlik doğrulaması için tek bir mekanizmadır. 
+Bir arama hizmeti için tüm istekleri özellikle hizmetiniz için bir salt okunur API-oluşturulan anahtarı gerekir. API anahtarı, Arama Hizmeti uç noktası erişimi kimlik doğrulaması için tek mekanizması ve her istek eklenmesi gerekir. İçinde [REST çözümleri](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key), API anahtarı, genellikle bir istek üstbilgisinde belirtilir. İçinde [.NET çözümleri](search-howto-dotnet-sdk.md#core-scenarios), bir anahtar genellikle bir yapılandırma ayarı olarak belirtilen ve olarak geçirilen [kimlik bilgileri](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (yönetici anahtarını) veya [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (sorgu anahtarı) üzerinde[SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+
+Anahtarları ile arama hizmetinizi hizmet sağlama işlemi sırasında oluşturulur. Görebilir ve anahtar değerlerini elde [Azure portal](https://portal.azure.com).
+
+![Portal sayfasında, ayarları, anahtarları bölümüne](media/search-manage/azure-search-view-keys.png)
+
+## <a name="what-is-an-api-key"></a>Bir API anahtarı nedir
 
 Bir API anahtarı rastgele oluşturulmuş sayılar ve harflerden oluşan bir dizedir. Aracılığıyla [role dayalı izinleri](search-security-rbac.md), silebilir veya anahtarları okumak, ancak bir anahtarı kullanıcı tanımlı bir parolayla değiştirmek veya Active Directory arama işlemleri erişmek için birincil kimlik doğrulama yöntemi kullanın. 
 

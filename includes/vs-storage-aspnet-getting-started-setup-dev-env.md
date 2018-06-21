@@ -22,7 +22,7 @@ Bu bölümde, geliştirme ortamını ayarlama aracılığıyla anlatılmaktadır
 
 2. Bağlam menüsünden seçin **Ekle** > **bağlı hizmet**.
 
-1. İçinde **bağlantılı Hizmetler** iletişim kutusunda **Azure Storage ile bulut depolama**ve ardından **yapılandırma**.
+1. İçinde **bağlantılı Hizmetler** iletişim kutusunda **Azure Storage ile bulut depolama**.
 
     ![Bağlantılı Hizmetler ekran iletişim kutusu](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

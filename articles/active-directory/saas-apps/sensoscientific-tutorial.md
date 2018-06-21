@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.openlocfilehash: bb0952fe5b78b0a9933cf7e9f20787150bdbcc3b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ad3eed8886754c5785b7dfd19b36c9e18f1623ea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231517"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Öğretici: Azure Active Directory Tümleştirme ile SensoScientific kablosuz sıcaklık sistem izleme
 
@@ -214,7 +214,7 @@ Bu bölümde, Britta SensoScientific kablosuz sıcaklık izleme sistemine erişi
     
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
-Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin. Erişim panelinde SensoScientific kablosuz sıcaklık sistem izleme kutucuğuna tıklayın, otomatik olarak imzalanmış SensoScientific kablosuz sıcaklık sistem izleme uygulamanıza açma. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586).
+Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin. Erişim panelinde SensoScientific kablosuz sıcaklık sistem izleme kutucuğuna tıklayın, otomatik olarak imzalanmış SensoScientific kablosuz sıcaklık sistem izleme uygulamanıza açma. Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

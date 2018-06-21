@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3979c2a10707936c54c0d55ebcc85c470cabc3aa
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798296"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294539"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB: MongoDB API’sinde dizinleme
 
@@ -101,3 +101,4 @@ Yukarıdaki komut, ```db.coll``` koleksiyonunda son 10 saniye içinde değiştir
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Azure Cosmos DB verileri nasıl dizinler?](../cosmos-db/indexing-policies.md)
 * [Azure Cosmos DB koleksiyonlarındaki verileri yaşam süresi ile otomatik olarak sonlandır](../cosmos-db/time-to-live.md)
+* [Azure Cosmos DB MongoDB API verileri süresi dolacak](../cosmos-db/mongodb-ttl.md)

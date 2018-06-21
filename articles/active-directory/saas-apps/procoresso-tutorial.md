@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-ms.openlocfilehash: e96a34cf0e9fe4f4b0a35790089bda17ced5d818
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 380b7e8fc48b88449cf43fda92af7f9503771777
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231255"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287233"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Öğretici: Azure Active Directory Tümleştirme Procore SSO
 
@@ -254,7 +254,7 @@ Bu bölümde, Britta Procore SSO kendi erişim vererek, Azure çoklu oturum açm
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Çoklu oturum açma ayarlarınızı test etmek isterseniz, erişim paneli açın. Erişim paneli hakkında daha fazla ayrıntı için bkz: [erişim Paneli'ne giriş](https://msdn.microsoft.com/library/dn308586). Erişim paneli Procore SSO parçasında tıklattığınızda, otomatik olarak Procore SSO uygulamanıza açan.
+Çoklu oturum açma ayarlarınızı test etmek isterseniz, erişim paneli açın. Erişim paneli hakkında daha fazla ayrıntı için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). Erişim paneli Procore SSO parçasında tıklattığınızda, otomatik olarak Procore SSO uygulamanıza açan.
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 

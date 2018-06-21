@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265760"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294430"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure veritabanı için MySQL veri çoğaltma yapılandırma
 
-Bu makalede, verileri, MySQL hizmeti tarafından Azure veritabanı çoğaltmasında yapılandırma birincil nasıl ayarlanacağını ve çoğaltma sunucuları öğreneceksiniz.
+Bu makalede, birincil ve çoğaltma sunucuları yapılandırarak verileri, MySQL hizmeti için Azure veritabanı çoğaltmasında ayarlamak üzere öğreneceksiniz. Verileri, çoğaltma, şirket içi, sanal makine ya da MySQL hizmeti için Azure veritabanı'nda çoğaltma içine diğer bulut sağlayıcıları tarafından barındırılan veritabanı Hizmetleri çalıştıran birincil bir MySQL server ile veri eşitlemenize olanak tanır. 
 
 Bu makalede, MySQL sunucuları ve veritabanlarıyla konusunda en az biraz deneyim sahibi olduğunuzu varsayar.
 
@@ -29,7 +29,7 @@ Bu makalede, MySQL sunucuları ve veritabanlarıyla konusunda en az biraz deneyi
    Yeni bir MySQL server (örneğin oluşturun "replica.mysql.database.azure.com"). Başvurmak [Azure portalını kullanarak MySQL sunucusu için bir Azure veritabanı oluşturun](quickstart-create-mysql-server-database-using-azure-portal.md) sunucu oluşturma. Bu sunucu, verileri, çoğaltma "çoğaltma" sunucusudur.
 
    > [!IMPORTANT]
-   > Bu sunucu genel amaçlı veya bellek için iyileştirilmiş fiyatlandırma katmanlarına oluşturulması gerekir.
+   > Azure veritabanı MySQL sunucusu için genel amaçlı veya bellek için iyileştirilmiş fiyatlandırma katmanında oluşturulması gerekir.
    > 
 
 2. Aynı kullanıcı hesapları ve karşılık gelen ayrıcalıkları oluşturun
@@ -37,6 +37,7 @@ Bu makalede, MySQL sunucuları ve veritabanlarıyla konusunda en az biraz deneyi
    Kullanıcı hesapları birincil sunucudan çoğaltma sunucusuna çoğaltılmaz. Çoğaltma sunucusuna erişimi olan kullanıcılara sağlamaya planlıyorsanız, bu yeni Azure veritabanı MySQL sunucusu için oluşturulan tüm hesaplar ve karşılık gelen ayrıcalıkları el ile oluşturmanız gerekir.
 
 ## <a name="configure-the-primary-server"></a>Birincil sunucuyu yapılandırma
+Aşağıdaki adımları hazırlamak ve MySQL server barındırılan şirket içi, bir sanal makine ya da diğer verileri, çoğaltma için bulut sağlayıcıları tarafından barındırılan veritabanı hizmeti yapılandırın. Bu verileri, çoğaltma "birincil" sunucusudur. 
 
 1. İkili günlüğünü etkinleştirme
 
@@ -226,3 +227,6 @@ Bir çoğaltma hatası atlayın ve devam etmek çoğaltma izin vermek için aşa
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+- Daha fazla bilgi edinmek [verileri, çoğaltma](concepts-data-in-replication.md) Azure veritabanı için MySQL için. 

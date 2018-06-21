@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/19/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: a2f664525235fa97b0694362d7dc82086e31f71d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229344"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295537"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Uygulama ağ geçidi için sık sorulan sorular
 
@@ -115,7 +115,7 @@ Hayır, ancak alt ağdaki diğer uygulama ağ geçitleri dağıtabilir.
 
 Ağ güvenlik grupları, aşağıdaki kısıtlamalarla uygulama ağ geçidi alt ağı üzerinde desteklenir:
 
-* Özel durumlar gelen trafiği 65503-65534 düzgün çalışması arka uç sistem durumu için bağlantı noktalarında koyun gerekir.
+* Özel durumlar gelen trafiği için bağlantı noktalarını 65503 65534 koyun gerekir. Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında değişiklikleri başlatmak mümkün olmaz.
 
 * Giden internet bağlantısı engellenemez.
 
@@ -159,7 +159,7 @@ Bu senaryo yapılabilir uygulama ağ geçidi alt ağda Nsg'leri kullanarak. Aşa
 
 * IP/IP aralığı kaynağından gelen trafiğe izin verecek.
 
-* İçin bağlantı noktalarını 65503 65534 tüm kaynaklardan gelen isteklere izin [arka uç sağlık iletişimi](application-gateway-diagnostics.md).
+* İçin bağlantı noktalarını 65503 65534 tüm kaynaklardan gelen isteklere izin [arka uç sağlık iletişimi](application-gateway-diagnostics.md). Bu bağlantı noktası aralığı, Azure altyapı iletişimi için gereklidir. Bunlar Azure sertifikaları tarafından korunur (kilitlenir). Uygun sertifikaları olmadan, bu ağ geçitlerinin müşterileri dahil dış varlıklar, bu uç noktalarında değişiklikleri başlatmak mümkün olmaz.
 
 * Gelen Azure yük dengeleyici araştırmalar (AzureLoadBalancer etiketi) ve gelen sanal ağ trafiği (VirtualNetwork etiketi) izin [NSG](../virtual-network/security-overview.md).
 

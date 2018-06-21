@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59bc6652a61e0c61188bbfd09251161411923628
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594236"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287589"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect Eşitleme: Filtrelemeyi yapılandırma
 Filtreleme kullanarak, hangi nesnelerin Azure Active Directory (Azure AD) görüneceğini şirket içi dizininizden denetleyebilirsiniz. Varsayılan yapılandırma, yapılandırılmış ormandaki tüm etki alanlarındaki tüm nesneleri alır. Genel olarak, bu önerilen yapılandırmadır. E-posta gönderin ve herkesin çağırmak için Exchange Online ve Skype Kurumsal, gibi Office 365 iş yükleri kullanarak kullanıcıların tam genel adres listesinden yararlanır. Varsayılan yapılandırma ile kullanıcılar bir şirket içi Exchange veya Lync uygulamasıyla olurdu aynı deneyimi gerekir.
@@ -40,7 +40,7 @@ Bu makalede, farklı filtreleme yöntemlerinin nasıl yapılandırılacağı ele
 ## <a name="basics-and-important-notes"></a>Temel kavramları ve önemli notlar
 Azure AD Connect eşitleme herhangi bir zamanda filtreleme etkinleştirebilirsiniz. Dizin eşitleme, varsayılan yapılandırmayla başlatma ve filtrelemeyi yapılandırma, filtrelenmiş nesneler artık Azure AD ile eşitlenir. Bu değişikliği nedeniyle, Azure AD'de daha önce eşitlendi, ancak ardından filtre tüm nesnelerin Azure AD'de silinir.
 
-Filtreleme için değişiklik yapmaya başlamadan önce emin olun, [zamanlanmış görevi devre dışı](#disable-scheduled-task) şekilde doğru olması için henüz doğrulamadınız değişiklikleri yanlışlıkla vermeyin.
+Filtreleme için değişiklik yapmaya başlamadan önce emin olun, [zamanlanmış görevi devre dışı](#disable-the-scheduled-task) şekilde doğru olması için henüz doğrulamadınız değişiklikleri yanlışlıkla vermeyin.
 
 Filtreleme birçok nesne aynı anda kaldırabilirsiniz çünkü herhangi bir değişiklik için Azure AD dışarı aktarma başlamadan önce yeni filtrelerinizi doğru olduğundan emin olmak istersiniz. Yapılandırma adımlarını tamamladıktan sonra uymanızı öneririz [doğrulama adımları](#apply-and-verify-changes) dışarı aktarma ve Azure AD ile değişiklik yapmak için önce.
 
