@@ -5,24 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 03/20/2018
+ms.date: 05/24/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 695aa5c567882ef7742666146877e1fbc660492b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: aad4fa9e8a3cfeaa01abc0512830bba63f90d4be
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34300960"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626027"
 ---
 # <a name="create-and-route-custom-events-with-azure-powershell-and-event-grid"></a>PowerShell ve Event Grid ile özel olaylar oluşturma ve yönlendirme
 
-Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure PowerShell kullanarak özel bir konu oluşturur, konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Normalde olayları olaya yanıt veren bir uç noktaya (web kancası veya Azure İşlevi gibi) gönderirsiniz. Ancak, bu makaleyi basitleştirmek amacıyla olayları yalnızca iletileri toplayan bir URL’ye gönderirsiniz. [Hookbin](https://hookbin.com/)’den bir üçüncü taraf araç kullanarak bu URL’yi oluşturursunuz.
+Azure Event Grid, bulut için bir olay oluşturma hizmetidir. Bu makalede, Azure PowerShell kullanarak özel bir konu oluşturur, konuya abone olur ve sonucu görüntülemek için olayı tetiklersiniz. Normalde olayları, olay verilerini işleyen ve eylemler gerçekleştiren bir uç noktaya gönderirsiniz. Bununla birlikte, bu makaleyi basitleştirmek için olayları iletilerin toplandığı ve görüntülendiği bir web uygulamasına gönderirsiniz.
 
->[!NOTE]
->**Hookbin**, yüksek aktarım hızı kullanımı için tasarlanmamıştır. Bu aracın kullanımı tamamen gösterim amaçlıdır. Aynı anda birden fazla olay gönderirseniz araçta tüm olaylarınızı göremeyebilirsiniz.
+İşiniz bittiğinde, olay verilerinin web uygulamasına gönderildiğini görürsünüz.
 
-İşiniz bittiğinde, olay verilerinin bir uç noktaya gönderildiğini görürsünüz.
+![Sonuçları görüntüleme](./media/custom-event-quickstart-powershell/view-result.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,42 +35,72 @@ Event Grid konuları Azure kaynaklarıdır ve bir Azure kaynak grubuna yerleşti
 
 Aşağıdaki örnek *westus2* konumunda *gridResourceGroup* adlı bir kaynak grubu oluşturur.
 
-```powershell
+```powershell-interactive
 New-AzureRmResourceGroup -Name gridResourceGroup -Location westus2
 ```
 
 ## <a name="create-a-custom-topic"></a>Özel konu oluşturma
 
-Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<topic_name>` değerini konunuz için benzersiz bir adla değiştirin. Konu adı bir DNS girdisi ile temsil edildiğinden konu adı benzersiz olmalıdır.
+Event grid konusu, olaylarınızı göndereceğiniz kullanıcı tanımlı bir uç nokta sağlar. Aşağıdaki örnekte özel konu, kaynak grubunuzda oluşturulur. `<your-topic-name>` değerini konunuz için benzersiz bir adla değiştirin. Konu adı bir DNS girdisinin parçası olduğundan benzersiz olmalıdır.
 
-```powershell
-New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name <topic_name>
+```powershell-interactive
+$topicname="<your-topic-name>"
+
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location westus2 -Name $topicname
 ```
 
 ## <a name="create-a-message-endpoint"></a>İleti uç noktası oluşturma
 
-Özel konuya abone olmadan önce, olay iletisi için uç noktayı oluşturalım. Konuya yanıt vermek için kod yazmak yerine, görüntüleyebilmeniz için iletileri toplayan bir uç nokta oluşturalım. Hookbin, bir uç nokta oluşturmanıza ve buna gönderilen istekleri görüntülemenize imkan tanıyan üçüncü taraf bir araçtır. [Hookbin](https://hookbin.com/)’e gidin ve **Yeni Uç Nokta Oluştur**’a tıklayın.  Daha sonra konuya abone olurken gerekecek kutu URL’sini kopyalayın.
+Konuya abone olmadan önce olay iletisi için uç noktayı oluşturalım. Normalde, olay verileri temelinde uç nokta eylemleri gerçekleştirir. Bu hızlı başlangıcı basitleştirmek için, olay iletilerini görüntüleyin bir [önceden oluşturulmuş web uygulaması](https://github.com/dbarkol/azure-event-grid-viewer) dağıtırsınız. Dağıtılan çözüm bir App Service planı, App Service web uygulaması ve GitHub'dan kaynak kod içerir.
+
+`<your-site-name>` değerini web uygulamanız için benzersiz bir adla değiştirin. Web uygulaması adı bir DNS girdisinin parçası olduğundan benzersiz olmalıdır.
+
+```powershell-interactive
+$sitename="<your-site-name>"
+
+New-AzureRmResourceGroupDeployment `
+  -ResourceGroupName gridResourceGroup `
+  -TemplateUri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" `
+  -siteName $sitename `
+  -hostingPlanName viewerhost
+```
+
+Dağıtımın tamamlanması birkaç dakika sürebilir. Dağıtım başarıyla gerçekleştirildikten sonra, web uygulamanızı görüntüleyip çalıştığından emin olun. Web tarayıcısında şu adrese gidin: `https://<your-site-name>.azurewebsites.net`
+
+Şu anda iletilerin görüntülenmediği siteyi görüyor olmalısınız.
 
 ## <a name="subscribe-to-a-topic"></a>Bir konuya abone olma
 
-Event Grid’e hangi olayları izlemek istediğinizi bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, oluşturduğunuz özel konuya abone olur ve Hookbin URL’sini olay bildirimi için uç nokta olarak geçirir. `<event_subscription_name>` değerini aboneliğiniz için benzersiz bir adla, `<endpoint_URL>` değerini ise önceki bölümden bir değerle değiştirin. Abone olurken bir uç nokta belirttiğinizde, Event Grid olayların bu uç noktaya yönlendirilmesini sağlar. `<topic_name>` için daha önce oluşturduğunuz değeri kullanın.
+Event Grid’e hangi olayları izlemek istediğinizi ve bu olayların nereye gönderileceğini bildirmek için bir konuya abone olursunuz. Aşağıdaki örnek, oluşturduğunuz konuya abone olur ve web uygulamanızın URL’sini olay bildirimi için uç nokta olarak geçirir.
 
-```powershell
-New-AzureRmEventGridSubscription -EventSubscriptionName <event_subscription_name> -Endpoint <endpoint_URL> -ResourceGroupName gridResourceGroup -TopicName <topic_name>
+Web uygulamanızın uç noktası `/api/updates/` sonekini içermelidir.
+
+```powershell-interactive
+$endpoint="https://$sitename.azurewebsites.net/api/updates"
+
+New-AzureRmEventGridSubscription `
+  -EventSubscriptionName demoViewerSub `
+  -Endpoint $endpoint `
+  -ResourceGroupName gridResourceGroup `
+  -TopicName $topicname
 ```
+
+Web uygulamanızı yeniden görüntüleyin ve buna bir abonelik doğrulama olayının gönderildiğine dikkat edin. Göz simgesini seçerek olay verilerini genişletin. Uç noktanın olay verilerini almak istediğini doğrulayabilmesi için Event Grid doğrulama olayını gönderir. Web uygulaması aboneliği doğrulamak için kod içerir.
+
+![Abonelik olayını görüntüleme](./media/custom-event-quickstart-powershell/view-subscription-event.png)
 
 ## <a name="send-an-event-to-your-topic"></a>Konunuza olay gönderme
 
-Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. İlk olarak konunun URL’sini ve anahtarını alalım. Tekrar belirtmek gerekirse, `<topic_name>` için kendi konu adınızı kullanın.
+Event Grid’in iletiyi uç noktanıza nasıl dağıttığını görmek için bir olay tetikleyelim. İlk olarak konunun URL’sini ve anahtarını alalım.
 
-```powershell
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name <topic-name>
+```powershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicname).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicname
 ```
 
 Bu makaleyi basitleştirmek için özel konuya gönderilmek üzere örnek olay verileri ayarlayın. Normalde olay verilerini bir uygulama veya Azure hizmeti gönderir. Aşağıdaki örnek, olayın `htbody` verilerini oluşturmak için Hashtable kullanır ve ardından doğru biçimlendirilmiş `$body` JSON yük nesnesine dönüştürür:
 
-```powershell
+```powershell-interactive
 $eventID = Get-Random 99999
 
 #Date format should be SortableDateTimePattern (ISO 8601)
@@ -99,11 +128,11 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 
 Şimdi olayı konunuza gönderin.
 
-```powershell
+```powershell-interactive
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Daha önce oluşturduğunuz uç nokta URL’sine gidin. Veya açık olan tarayıcınızda Yenile’ye tıklayın. Az önce gönderdiğiniz olayı görürsünüz.
+Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız uç noktaya gönderdi. Az önce gönderdiğiniz olayı görmek için web uygulamanızı görüntüleyin.
 
 ```json
 [{
@@ -123,7 +152,7 @@ Olayı tetiklediniz ve Event Grid, iletiyi abone olurken yapılandırdığınız
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Bu olayla çalışmaya devam etmeyi planlıyorsanız bu makalede oluşturulan kaynakları temizlemeyin. Aksi takdirde, bu makalede oluşturduğunuz kaynakları silmek için aşağıdaki komutu kullanın.
+Bu olayla veya olay görüntüleyici uygulamasıyla çalışmaya devam etmeyi planlıyorsanız bu makalede oluşturulan kaynakları temizlemeyin. Aksi takdirde, bu makalede oluşturduğunuz kaynakları silmek için aşağıdaki komutu kullanın.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name gridResourceGroup

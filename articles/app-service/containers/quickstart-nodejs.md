@@ -3,8 +3,8 @@ title: Linux’ta Azure App Service’te Node.js oluşturma | Microsoft Docs
 description: Linux’ta Azure App Service’te ilk Node.js Merhaba Dünya uygulamanızı birkaç dakika içinde dağıtın.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: syntaxc4
+author: msangapu
+manager: cfowler
 editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/05/2017
-ms.author: cephalin
+ms.date: 06/07/2017
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: a2643e65b74f44ee05001d5df26c7c77a430fbb2
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: eb1c769e034f37d05de63896f65290db79103637
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293913"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>Linux’ta Azure App Service’te bir Node.js web uygulaması oluşturma
 
@@ -27,114 +28,119 @@ ms.lasthandoff: 03/16/2018
 > Bu makalede bir uygulamanın Linux üzerinde App Service'e dağıtımı yapılır. _Windows_'da App Service dağıtmak için bkz. [Azure'da Node.js web uygulaması oluşturma](../app-service-web-get-started-nodejs.md).
 >
 
-[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta Linux üzerinde yerleşik görüntü kullanarak bir Node.js uygulamasını App Service’e dağıtma gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) kullanarak yerleşik görüntü ile web uygulamasını oluşturabilir ve Node.js kodunu web uygulamasına dağıtmak için Git kullanabilirsiniz.
+[Linux’ta App Service](app-service-linux-intro.md) Linux işletim sistemini kullanan yüksek oranda ölçeklenebilir, otomatik olarak düzeltme eki uygulayan bir web barındırma hizmeti sağlar. Bu hızlı başlangıçta Linux üzerinde [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview) kullanarak bir Node.js uygulamasını App Service’e dağıtma gösterilmektedir.
+
+Bu hızlı başlangıcı Cloud Shell'de tamamlayacaksınız ama bu komutları [Azure CLI](/cli/azure/install-azure-cli) ile yerel olarak da çalıştırabilirsiniz.
 
 ![Azure'da çalışan örnek uygulama](media/quickstart-nodejs/hello-world-in-browser.png)
 
-Mac, Windows veya Linux makinesi kullanarak bu öğreticideki adımları izleyebilirsiniz. Ayrıca bu makalenin işlendiği [videoyu](#video) izleyerek de takip edebilirsiniz.
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Bu hızlı başlangıcı tamamlamak için:
+## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell için web uygulama uzantısını yükleme
 
-* <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
-* <a href="https://nodejs.org/" target="_blank">Node.js ve NPM'yi yükleyin</a>
+Bu hızlı başlangıcı tamamlamak için, [az web uygulama uzantısını](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add) eklemelisiniz. Uzantı zaten yüklenmişse, bunu en son sürüme güncelleştirmeniz gerekir. Web uygulama uzantısını güncelleştirmek için `az extension update -n webapp` yazın.
+
+Webapp uzantısını yüklemek için aşağıdaki komutu çalıştırın:
+
+```bash
+az extension add -n webapp
+```
+
+Uzantı yüklendiğinde, Cloud Shell aşağıda gösterilen örnekteki bilgileri gösterir:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Makinenizde bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+Cloud Shell'de bir quickstart dizini oluşturun ve o dizine geçin.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Ardından, örnek uygulama deposunu quickstart dizininize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
 
-Bu hızlı başlangıç öğreticisindeki tüm komutları çalıştırmak için bu terminal penceresini kullanırsınız.
-
-Örnek kodu içeren dizine geçin.
+Çalıştırıldığında, aşağıdaki örneğe benzer bilgiler görüntüler:
 
 ```bash
-cd nodejs-docs-hello-world
-```
-
-## <a name="run-the-app-locally"></a>Uygulamayı yerel olarak çalıştırma
-
-Yerleşik Node.js HTTP sunucusunu başlatmak için bir terminal penceresi açıp ve `npm start` betiğini kullanıp uygulamayı yerel olarak çalıştırın.
-
-```bash
-npm start
-```
-
-Bir web tarayıcısı açın ve `http://localhost:1337` konumundaki örnek uygulamaya gidin.
-
-Sayfada gösterilen örnek uygulamada **Hello World** iletisini görebilirsiniz.
-
-![Yerel olarak çalışan örnek uygulama](media/quickstart-nodejs/localhost-hello-world-in-browser.png)
-
-Terminal pencerenizde **Ctrl+C** tuşlarına basarak web sunucusundan çıkın.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
-
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
-
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+Cloning into 'nodejs-docs-hello-world'...
+remote: Counting objects: 40, done.
+remote: Total 40 (delta 0), reused 0 (delta 0), pack-reused 40
+Unpacking objects: 100% (40/40), done.
+Checking connectivity... done.
+````
 
 ## <a name="create-a-web-app"></a>Web uygulaması oluşturma
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-nodejs-linux-no-h.md)]
+Örnek kodu içeren dizine geçin ve `az webapp up` komutunu çalıştırın.
 
-Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini kendi web uygulamanızın adıyla değiştirin.
-
-```bash
-http://<app name>.azurewebsites.net
-```
-
-Yeni web uygulamanız aşağıdaki gibi görünmelidir:
-
-![Boş web uygulaması sayfası](media/quickstart-nodejs/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
+Aşağıdaki komutta <app_name> kısmını benzersiz uygulama adıyla değiştirin.
 
 ```bash
-Counting objects: 23, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (21/21), done.
-Writing objects: 100% (23/23), 3.71 KiB | 0 bytes/s, done.
-Total 23 (delta 8), reused 7 (delta 1)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'bf114df591'.
-remote: Generating deployment script.
-remote: Generating deployment script for node.js Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling node.js deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Copying file: 'index.js'
-remote: Copying file: 'package.json'
-remote: Copying file: 'process.json'
-remote: Deleting file: 'hostingstart.html'
-remote: Ignoring: .git
-remote: Using start-up script index.js from package.json.
-remote: Node.js versions available on the platform are: 4.4.7, 4.5.0, 6.2.2, 6.6.0, 6.9.1.
-remote: Selected node.js version 6.9.1. Use package.json file to choose a different version.
-remote: Selected npm version 3.10.8
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net:443/<app_name>.git
- * [new branch]      master -> master
+cd nodejs-docs-hello-world
+
+az webapp up -n <app_name>
 ```
+
+Bu komutun çalıştırılması birkaç dakika sürebilir. Çalıştırıldığında, aşağıdaki örneğe benzer bilgiler görüntüler:
+
+```json
+Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Resource group creation complete
+Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+App service plan creation complete
+Creating app '<app_name>' ....
+Webapp creation complete
+Updating app settings to enable build after deployment
+Creating zip with contents of dir /home/username/quickstart/nodejs-docs-hello-world ...
+Preparing to deploy and build contents to app.
+Fetching changes.
+
+Generating deployment script.
+Generating deployment script.
+Generating deployment script.
+Running deployment command...
+Running deployment command...
+Running deployment command...
+Deployment successful.
+All done.
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Linux",
+  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
+  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "sku": "STANDARD",
+  "src_path": "/home/username/quickstart/nodejs-docs-hello-world ",
+  "version_detected": "6.9",
+  "version_to_create": "node|6.9"
+}
+```
+
+`az webapp up` komutu şu eylemleri gerçekleştirir:
+
+- Varsayılan kaynak grubunu oluşturur.
+
+- Bir varsayılan uygulama hizmeti planı oluşturur.
+
+- Belirtilen adla bir uygulama oluşturur.
+
+- Dosyaları geçerli çalışma dizininden web uygulamasına [sıkıştırıp dağıtır](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip).
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
-Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin.
+Web tarayıcınızı kullanarak, dağıtılan uygulamanın konumuna gidin. <app_name> değerini kendi web uygulamanızın adıyla değiştirin.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -148,20 +154,25 @@ Node.js örnek kodu bir web uygulaması yerleşik görüntüsünde çalışıyor
 
 ## <a name="update-and-redeploy-the-code"></a>Kodu güncelleştirme ve yeniden dağıtma
 
-Yerel dizinde `index.js` dosyasını Node.js uygulaması içinde açın ve `response.end` çağrısındaki metinde küçük bir değişiklik yapın:
+Cloud Shell'de, nano metin düzenleyicisini açmak için `nano index.js` yazın.
+
+![Nano index.js](media/quickstart-nodejs/nano-indexjs.png)
+
+ `response.end` çağrısında metinde küçük bir değişiklik yapın:
 
 ```nodejs
 response.end("Hello Azure!");
 ```
 
-Değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
+Değişikliklerinizi kaydedin ve nanodan çıkın. Kaydetmek için `^O` ve çıkmak için `^X` komutunu kullanın.
+
+Şimdi uygulamayı yeniden dağıtacaksınız. `<app_name>` kısmını web uygulamanızla değiştirin.
 
 ```bash
-git commit -am "updated output"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp yenile öğesine dokunun.
+Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 
 ![Azure'da çalışan güncelleştirilmiş örnek uygulama](media/quickstart-nodejs/hello-azure-in-browser.png)
 
@@ -173,17 +184,21 @@ Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın a
 
 ![Portaldan Azure web uygulamasına gitme](./media/quickstart-nodejs/nodejs-docs-hello-world-app-service-list.png)
 
-Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. 
+Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini tamamlayabilirsiniz.
 
 ![Azure portalında App Service sayfası](media/quickstart-nodejs/nodejs-docs-hello-world-app-service-detail.png)
 
-Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
+Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-## <a name="video"></a>Video
+Önceki adımlarda, bir kaynak grubunda Azure kaynakları oluşturdunuz. İleride bu kaynaklara ihtiyaç duymayacağınızı düşünüyorsanız, kaynak grubunu Cloud Shell'den silin. Bölgeyi değiştirdiyseniz, `appsvc_rg_Linux_CentralUS` kaynak grubu adını uygulamanıza özel kaynak grubuyla değiştirin.
 
->[!VIDEO https://www.youtube.com/embed/S9eqK7xPKqU]
+```azurecli-interactive
+az group delete --name appsvc_rg_Linux_CentralUS
+```
+
+Bu komutun çalıştırılması bir dakika sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
