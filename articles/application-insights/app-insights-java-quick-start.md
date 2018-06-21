@@ -10,11 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 0198614f34b5e4ad31d9cf19f6799913dc71e21f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798449"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java Web Uygulamanızı İzlemeye Başlama
 
@@ -33,6 +34,8 @@ Bu hızlı başlangıcı tamamlamak için:
 Bir Java Dynamic Web Projeniz yoksa [Java web uygulaması oluşturma hızlı başlangıcı](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java) ile bir tane oluşturabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz](https://azure.microsoft.com/free/) bir hesap oluşturun.
+
+Spring çerçevesini tercih ediyorsanız, [Application Insights kılavuzunu kullanmak için Spring Boot başlatıcı uygulamasını yapılandırmayı](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights) deneyin
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 

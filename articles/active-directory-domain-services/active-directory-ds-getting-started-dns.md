@@ -7,39 +7,39 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: d4f3e82c-6807-4690-b298-4eabad2b7927
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/26/2017
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 972b995d3768e765b95c136b3cfbee91ab0a88ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d4ff41e51622adb7776df5e053025911bfa3ee16
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215418"
 ---
 # <a name="enable-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services’ı etkinleştirme
 
 ## <a name="task-4-update-dns-settings-for-the-azure-virtual-network"></a>Görev 4: Azure sanal ağı için DNS ayarlarını güncelleştirme
-Önceki yapılandırma görevlerinde dizininiz için Azure Active Directory Domain Services başarıyla etkinleştirdiniz. Sonraki göreviniz sanal ağınızdaki bilgisayarların bu hizmetlere bağlanabilmesini ve bu hizmetleri kullanabilmesini sağlamaktır. Bu makalede, sanal ağınızdaki DNS sunucusu ayarlarını, sanal ağda Azure Active Directory Domain Services’in kullanılabilir olduğu iki IP adresini işaret edecek şekilde güncelleştirin.
+Önceki yapılandırma görevlerinde dizininiz için Azure Active Directory Domain Services başarıyla etkinleştirdiniz. Ardından, sanal ağ içindeki bilgisayarları bu hizmetlere bağlanacak ve bu hizmetleri kullanacak şekilde etkinleştirin. Bu makalede, sanal ağınızdaki DNS sunucusu ayarlarını, sanal ağda Azure Active Directory Domain Services’in kullanılabilir olduğu iki IP adresini işaret edecek şekilde güncelleştirin.
 
-Azure Active Directory Domain Services'i etkinleştirdiğiniz sanal ağın DNS sunucusu ayarını güncelleştirmek için aşağıdaki adımları uygulayın:
+Azure Active Directory Domain Services'i etkinleştirdiğiniz sanal ağın DNS sunucusu ayarını güncelleştirmek için aşağıdaki adımları tamamlayın:
+
 
 1. **Genel Bakış** sekmesinde, yönetilen etki alanınız tamamen hazır hale getirildikten sonra gerçekleştirilecek **gerekli yapılandırma adımları** kümesi bulunur. İlk yapılandırma adımı, **sanal ağınız için DNS sunucusu ayarlarını güncelleştirmektir**.
 
-    ![Etki Alanı Hizmetleri - Tamamen hazır haldeki Genel Bakış sekmesi](./media/getting-started/domain-services-provisioned-overview.png)
+    ![Domain Services - Genel bakış sekmesi](./media/getting-started/domain-services-provisioned-overview.png)
 
-2. Etki alanınız tamamen hazır hale getirildiğinde bu kutucukta iki IP adresi görüntülenir. Bu IP adreslerinden her biri, yönetilen etki alanınıza yönelik bir etki alanı denetleyicisini temsil eder.
+    > [!TIP]
+    > Bu yapılandırma adımını görmüyor musunuz? Sanal ağınızın DNS sunucusu ayarlarının güncel olması durumunda, 'Sanal ağınızın DNS sunucusu ayarlarını güncelleştirin' kutucuğunu Genel Bakış sekmesinde görmezsiniz.
+    >
+    >
 
-3. İlk IP adresini panoya kopyalamak için yanında bulunan kopyalama düğmesine tıklayın. Ardından **DNS sunucularını yapılandır** düğmesine tıklayın.
-
-4. İlk IP adresini **DNS sunucuları** dikey penceresinde bulunan **DNS sunucusu ekle** metin kutusuna yapıştırın. İkinci IP adresini kopyalamak için yatay olarak sola kaydırma yapın ve IP adresini **DNS sunucusu ekle** metin kutusuna yapıştırın.
-
-    ![Etki Alanı Hizmetleri - DNS'yi güncelleştirme](./media/getting-started/domain-services-update-dns.png)
-
-5. İşlemi tamamladığınızda, sanal ağ için DNS sunucularını güncelleştirmek üzere **Kaydet**'e tıklayın.
+2. Sanal ağın DNS sunucusu ayarlarını güncelleştirmek için **Yapılandır** düğmesine tıklayın.
 
 > [!NOTE]
 > Ağ üzerindeki sanal makineler, yeni DNS ayarlarını yalnızca yeniden başlatma işleminin ardından alabilir. Sanal makinelerin güncelleştirilen DNS ayarlarını doğrudan almasını istiyorsanız portal, PowerShell veya CLI aracılığıyla bir yeniden başlatma tetikleyin.

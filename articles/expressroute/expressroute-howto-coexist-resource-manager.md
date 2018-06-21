@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: deb2a768d766f3fcfa5523b5b3e77b85c0b87b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823572"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Birlikte bulunan ExpressRoute bağlantıları ile Siteden Siteye bağlantıları yapılandırma
 > [!div class="op_single_selector"]
@@ -28,7 +29,16 @@ ms.lasthandoff: 04/28/2018
 > 
 > 
 
-Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırmanın çeşitli avantajları vardır. ExpressRoute için güvenli bir yük devretme yolu olarak siteden siteye bir VPN yapılandırın. Alternatif olarak ExpressRoute aracılığıyla bağlı olmayan sitelere bağlanmak için Siteden Siteye VPN’ler kullanabilirsiniz. İki senaryo için de yapılandırma adımları bu makalede verilmektedir. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır. Bu yapılandırma Azure portalında kullanılamaz.
+Siteden Siteye VPN ve ExpressRoute eşzamanlı bağlantılarını yapılandırmanın çeşitli avantajları vardır:
+
+* ExpressRoute için güvenli bir yük devretme yolu olarak siteden siteye bir VPN yapılandırın. 
+* Alternatif olarak ExpressRoute aracılığıyla bağlı olmayan sitelere bağlanmak için Siteden Siteye VPN’ler kullanabilirsiniz. 
+
+İki senaryo için de yapılandırma adımları bu makalede verilmektedir. Bu makale Resource Manager dağıtım modelleri için geçerlidir ve PowerShell kullanır. Bu yapılandırma Azure portalında kullanılamaz.
+
+>[!NOTE]
+>ExpressRoute devresi üzerinde bir Siteden Siteye VPN oluşturmak istiyorsanız, lütfen [bu makaleye](site-to-site-vpn-over-microsoft-peering.md) bakınız.
+>
 
 ## <a name="limits-and-limitations"></a>Sınırlar ve sınırlamalar
 * **Geçiş yönlendirmesi desteklenmez.** Siteden Siteye VPN aracılığıyla bağlanan yerel ağınız ve ExpressRoute aracılığıyla bağlanan yerel ağınız arasında (Azure aracılığıyla) yönlendirme yapamazsınız.

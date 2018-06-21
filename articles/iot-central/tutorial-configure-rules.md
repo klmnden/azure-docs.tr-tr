@@ -1,21 +1,22 @@
 ---
 title: Azure IoT Central’da kural ve eylem yapılandırma | Microsoft Docs
 description: Bu öğreticide, bir oluşturucu olarak Azure IoT Central uygulamanızda telemetri tabanlı kural ve eylemleri nasıl yapılandıracağınız gösterilir.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202246"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236340"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2 - Azure IoT Central’da cihazınız için kurallar ve eylemler yapılandırma
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Öğretici: Azure IoT Central’da cihazınız için kurallar ve eylemler yapılandırma
 
 Bu öğreticide, bir oluşturucu olarak Microsoft Azure IoT Central uygulamanızda telemetri tabanlı kural ve eylemleri nasıl yapılandıracağınız gösterilir.
 
@@ -39,17 +40,17 @@ Başlamadan önce, [Uygulamanızda yeni bir cihaz türü tanımlama](tutorial-de
 
     **Bağlı Klima (1.0.0)** cihaz şablonunu ve önceki öğreticide oluşturduğunuz **Bağlı Klima-1** cihazını görürsünüz.
 
-1. Bağlı klima cihazınızı özelleştirmeye başlamak için, önceki öğreticide oluşturduğunuz cihazı seçin:
+2. Bağlı klima cihazınızı özelleştirmeye başlamak için, önceki öğreticide oluşturduğunuz cihazı seçin:
 
     ![Bağlı klima sayfası](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. **Kurallar** görünümünde bir kural eklemeye başlamak için **Kurallar**’ı seçin:
+3. **Kurallar** görünümünde bir kural eklemeye başlamak için **Kurallar**’ı seçin:
 
     ![Kurallar görünümü](media/tutorial-configure-rules/builderrulesview.png)
 
-1. Bu öğreticide, eşik tabanlı bir telemetri kuralı ekleyeceksiniz. Eşik tabanlı bir kural oluşturmaya başlamak için **Yeni Kural** ve ardından **Telemetri**’yi seçin.
+4. Eşik tabanlı telemetri kuralı oluşturmaya başlamak için **Yeni Kural** ve ardından **Telemetri**’yi seçin.
 
-1. Kuralınızı tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
+5. Kuralınızı tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Ayar     | Değer                          |
     | ----------- | ------------------------------ |
@@ -67,7 +68,7 @@ Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman ça
 
     ![Sıcaklık kuralı eylemi](media/tutorial-configure-rules/builderaddaction.png)
 
-1. Eyleminizi tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
+2. Eyleminizi tanımlamak için aşağıdaki tabloda yer alan bilgileri kullanın:
 
     | Ayar   | Değer                          |
     | --------- | ------------------------------ |
@@ -79,7 +80,7 @@ Bir kural tanımladığınızda, kural koşulları yerine getirildiği zaman ça
 
     ![Uygulama Oluşturucu Sıcaklık eylemi](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. **Kaydet**'i seçin. Kuralınız **Kurallar** sayfasında listelenir:
+3. **Kaydet**'i seçin. Kuralınız **Kurallar** sayfasında listelenir:
 
     ![Uygulama Oluşturucu kuralları](media/tutorial-configure-rules/builderrules.png)
 

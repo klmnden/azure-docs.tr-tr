@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850619"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure portalında Azure SQL Veritabanı Yönetilen Örneği oluşturma
 
@@ -161,16 +162,16 @@ Aşağıdaki adımlar, önizlemeniz onaylandıktan sonra Yönetilen Örneğinizi
 
    ![yönetilen örnek oluşturma](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. Aboneliğinizi seçin ve önizleme koşullarında **Kabul Edildi** ifadesinin gösterildiğini doğrulayın.
+4. Aboneliğinizi seçin ve önizleme koşullarında **Kabul Edildi** ifadesinin gösterildiğini doğrulayın.
 
    ![yönetilen örnek önizlemesi kabul edildi](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. Yönetilen Örnek formunu aşağıdaki tabloda verilen bilgileri kullanarak istenen bilgilerle doldurun:
+5. Yönetilen Örnek formunu aşağıdaki tabloda verilen bilgileri kullanarak istenen bilgilerle doldurun:
 
    | Ayar| Önerilen değer | Açıklama |
    | ------ | --------------- | ----------- |
    |**Yönetilen örnek adı**|Geçerli bir ad|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Yönetilen örnek yöneticisi oturum açma**|Geçerli bir kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).| 
+   |**Yönetilen örnek yöneticisi oturum açma**|Geçerli bir kullanıcı adı|Geçerli adlar için bkz. [Adlandırma kuralları ve kısıtlamalar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Ayrılmış bir sunucu düzeyi rolü olduğundan "serveradmin" kullanmayın.| 
    |**Parola**|Geçerli bir parola|Parola en az 16 karakter uzunluğunda olmalı ve [tanımlanmış karmaşıklık gereksinimlerini](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm) karşılamalıdır.|
    |**Kaynak Grubu**|Önceden oluşturduğunuz kaynak grubu||
    |**Konum**|Daha önce seçtiğiniz konum|Bölgeler hakkında bilgi için bkz. [Azure Bölgeleri](https://azure.microsoft.com/regions/).|
@@ -178,17 +179,17 @@ Aşağıdaki adımlar, önizlemeniz onaylandıktan sonra Yönetilen Örneğinizi
 
    ![yönetilen örnek oluşturma formu](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. İşlem ve depolama kaynaklarını boyutlandırmaya ek olarak fiyatlandırma katmanı seçeneklerini gözden geçirmek için **Fiyatlandırma katmanı**’na tıklayın. Varsayılan olarak, örneğiniz ücretsiz 32 GB depolama alanı alır ancak bu boyut uygulamalarınız için yeterli olmayabilir.
-6. Depolama miktarını ve sanal çekirdek sayısını belirtmek için kaydırıcıları veya metin çubuklarını kullanın. 
-   ![yönetilen örnek oluşturma formu](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. İşlem ve depolama kaynaklarını boyutlandırmaya ek olarak fiyatlandırma katmanı seçeneklerini gözden geçirmek için **Fiyatlandırma katmanı**’na tıklayın. Varsayılan olarak, örneğiniz ücretsiz 32 GB depolama alanı alır ancak bu boyut uygulamalarınız için yeterli olmayabilir.
+7. Depolama miktarını ve sanal çekirdek sayısını belirtmek için kaydırıcıları veya metin çubuklarını kullanın. 
+   ![yönetilen örnek fiyatlandırma katmanı](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. Tamamlandığında, seçiminizi kaydetmek için **Uygula**’ya tıklayın.  
-8. Yönetilen Örneği dağıtmak için **Oluştur**’a tıklayın.
-9. Dağıtım durumunu görüntülemek için **Bildirimler** simgesine tıklayın.
+8. Tamamlandığında, seçiminizi kaydetmek için **Uygula**’ya tıklayın.  
+9. Yönetilen Örneği dağıtmak için **Oluştur**’a tıklayın.
+10. Dağıtım durumunu görüntülemek için **Bildirimler** simgesine tıklayın.
  
    ![dağıtım ilerleme durumu](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. Dağıtımın ilerleme durumunu daha ayrıntılı izlemek üzere Yönetilen Örnek penceresini açmak için **Dağıtım sürüyor**’a tıklayın.
+11. Dağıtımın ilerleme durumunu daha ayrıntılı izlemek üzere Yönetilen Örnek penceresini açmak için **Dağıtım sürüyor**’a tıklayın.
  
    ![dağıtım ilerleme durumu 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ Aşağıdaki adımlar, Yönetilen Örneği oluşturulduğu sanal ağın içinde 
 
    ![sanal makine oluşturma formu](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. **Tamam**’a tıklayın.
-4. VM için bir boyut seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Bu öğretici için yalnızca küçük bir sanal makine gerekir.
+4. **Tamam**’a tıklayın.
+5. VM için bir boyut seçin. Daha fazla boyut görmek için **Tümünü görüntüle**’yi seçin veya **Desteklenen disk türü** filtresini değiştirin. Bu öğretici için yalnızca küçük bir sanal makine gerekir.
 
     ![VM boyutları](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. **Seç**'e tıklayın.
-6. **Ayarlar** formunda **Alt ağ**’a tıklayın ve sonra **vm_subnet**’i seçin. Yönetilen Örneğin hazırlandığı alt ağı değil, aynı sanal ağ içindeki farklı bir alt ağı seçin.
+6. **Seç**'e tıklayın.
+7. **Ayarlar** formunda **Alt ağ**’a tıklayın ve sonra **vm_subnet**’i seçin. Yönetilen Örneğin hazırlandığı alt ağı değil, aynı sanal ağ içindeki farklı bir alt ağı seçin.
 
     ![VM ayarları](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. **Tamam**’a tıklayın.
-8. Özet sayfasında teklif ayrıntılarını gözden geçirin ve sonra **Oluştur**’a tıklayarak sanal makine dağıtımını başlatın.
+8. **Tamam**’a tıklayın.
+9. Özet sayfasında teklif ayrıntılarını gözden geçirin ve sonra **Oluştur**’a tıklayarak sanal makine dağıtımını başlatın.
  
 ## <a name="connect-to-virtual-machine"></a>Sanal makineye bağlanma
 

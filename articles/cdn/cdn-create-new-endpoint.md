@@ -4,7 +4,7 @@ description: Bu hızlı başlangıçta, yeni bir CDN profili ve uç noktası olu
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/13/2018
-ms.author: mazha
+ms.date: 05/24/2018
+ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 87216a861aa150c5f9a16f6193f2abf2af6d57d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198716"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607880"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Hızlı Başlangıç: Azure CDN profili ve uç noktası oluşturma
 Bu hızlı başlangıçta, yeni bir CDN profili ve CDN uç noktası oluşturarak Azure Content Delivery Network’ü (CDN) etkinleştireceksiniz. Bir profil ve uç nokta oluşturduktan sonra müşterilerinize içerik sunmaya başlayabilirsiniz.
@@ -28,7 +28,7 @@ Bu hızlı başlangıçta, yeni bir CDN profili ve CDN uç noktası oluşturarak
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu hızlı başlangıç amaçları doğrultusunda, kaynak konak adı için kullandığınız *mystorageacct123* adlı bir depolama hesabı oluşturmuş olmanız gerekir. Daha fazla bilgi için bkz. [Azure CDN ile bir Azure depolama hesabını tümleştirme](cdn-create-a-storage-account-with-cdn.md)
+Bu hızlı başlangıç amaçları doğrultusunda, kaynak konak adı için kullandığınız *mystorageacct123* adlı bir depolama hesabı oluşturmuş olmanız gerekir. Daha fazla bilgi için bkz. [Azure CDN ile bir Azure depolama hesabını tümleştirme](cdn-create-a-storage-account-with-cdn.md).
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
 Azure hesabınızla [Azure portalında](https://portal.azure.com) oturum açın.
@@ -47,23 +47,23 @@ CDN profili oluşturduktan sonra bir uç nokta oluşturmak için bunu kullanabil
    
     ![CDN profili](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
-    **Uç nokta ekleyin** sayfası görüntülenir.
+    **Uç nokta ekleyin** bölmesi görünür.
 
-    Görüntünün altındaki tabloda belirtilen ayarları kullanın.
-   
-    ![Uç nokta ekleyin bölmesi](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+3. Uç noktası ayarları için aşağıdaki tabloda belirtilen değerleri kullanın:
 
     | Ayar | Değer |
     | ------- | ----- |
-    | **Ad** | Uç nokta konak adınız için *my-endpoint-123* değerini girin. Bu ad genel olarak benzersiz olmalıdır; halihazırda kullanılıyorsa farklı bir ad girebilirsiniz. Bu ad, _&lt;uç nokta adı&gt;_.azureedge.net etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılır.|
+    | **Ad** | Uç nokta konak adınız için *my-endpoint-123* değerini girin. Bu ad küresel olarak benzersiz olmalıdır; zaten kullanılıyorsa farklı bir ad girebilirsiniz. Bu ad, _&lt;uç nokta adı&gt;_.azureedge.net etki alanındaki önbelleğe alınmış kaynaklarınıza erişmek için kullanılır.|
     | **Kaynak türü** | **Depolama**’yı seçin. | 
-    | **Kaynak konak adı** | Konak adınız için *mystorageacct123.blob.core.windows.net* değerini girin. Bu ad genel olarak benzersiz olmalıdır; halihazırda kullanılıyorsa farklı bir ad girebilirsiniz |
+    | **Kaynak konak adı** | Konak adınız için *mystorageacct123.blob.core.windows.net* değerini girin. Bu ad küresel olarak benzersiz olmalıdır; zaten kullanılıyorsa farklı bir ad girebilirsiniz. |
     | **Kaynak yolu** | Boş bırakın. |
     | **Kaynak barındırma üst bilgisi** | Varsayılan olarak oluşturulan değeri değiştirmeyin. |  
     | **Protokol** | Varsayılan **HTTP** ve **HTTPS** seçeneklerini seçili şekilde bırakın. |
     | **Kaynak bağlantı noktası** | Varsayılan bağlantı noktası değerlerini değiştirmeyin. | 
     | **Şunun için iyileştirildi:** | Varsayılan **Genel web teslimatı** seçimini değiştirmeyin. |
-    
+
+    ![Uç nokta ekleyin bölmesi](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
+
 3. Yeni uç nokta oluşturmak için **Ekle**’yi seçin.
    
    Uç nokta oluşturulduktan sonra, profile yönelik uç noktalar listesinde görünür.

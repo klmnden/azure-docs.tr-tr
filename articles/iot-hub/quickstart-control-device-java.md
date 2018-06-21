@@ -1,23 +1,21 @@
 ---
 title: Azure IoT Hub’dan bir cihazı denetleme hızlı başlangıcı (Java) | Microsoft Docs
 description: Bu hızlı başlangıçta iki örnek Java uygulaması çalıştıracaksınız. Bir uygulama, hub’ınıza bağlı cihazları uzaktan denetleyebilen bir arka uç uygulamasıdır. Diğer uygulama, uzaktan denetlenebilen hub’ınıza bağlanan bir cihazın simülasyonunu yapar.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 6dcbf954fdfd6f5b6f65b54edf33e9da234c7d0f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5025eeda46f36982266a0bc3357b3d1e9249884a
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808215"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>Hızlı Başlangıç: IoT hub’a bağlı bir cihazı denetleme (Java)
 
@@ -99,7 +97,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 Simülasyon cihazı, IoT hub’ınızdaki cihaza özgü bir uç noktaya bağlanır, sanal telemetri gönderir ve hub’ınızdan gelen doğrudan yöntem çağrılarını dinler. Bu hızlı başlangıçta, hub’dan gelen doğrudan yöntem çağrısı, telemetri gönderme aralığını değiştirmesini cihaza bildirir. Simülasyon cihazı, doğrudan yöntemi yürüttükten sonra hub’ınıza geri bir onay gönderir.
 
-1. Terminal penceresinde, örnek Java projesinin kök klasörüne gidin. Ardından **Quickstarts\simulated-device-2** klasörüne gidin.
+1. Terminal penceresinde, örnek Java projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\simulated-device-2** klasörüne gidin.
 
 1. **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** dosyasını istediğiniz bir metin düzenleyicide açın.
 
@@ -125,9 +123,9 @@ Simülasyon cihazı, IoT hub’ınızdaki cihaza özgü bir uç noktaya bağlan�
 
 Arka uç uygulaması, IoT Hub’ınızdaki bir hizmet tarafı uç noktasına bağlanır. Uygulama, IoT hub’ınız üzerinden bir cihaza doğrudan yöntem çağrıları yapar ve onayları dinler. IoT Hub arka uç uygulaması genellikle bulutta çalışır.
 
-1. Başka bir terminal penceresinde, örnek Java projesinin kök klasörüne gidin. Ardından **Quickstarts\back-end-application** klasörüne gidin.
+1. Başka bir terminal penceresinde, örnek Java projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\back-end-application** klasörüne gidin.
 
-1. **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** dosyasını istediğiniz bir metin düzenleyicide açın.
+1. **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** dosyasını istediğiniz bir metin düzenleyicide açın.
 
     `iotHubConnectionString` değişkeninin değerini, önceden not ettiğiniz hizmet bağlantı dizesiyle değiştirin. Sonra **BackEndApplication.java** dosyasına değişikliklerinizi kaydedin.
 
@@ -164,4 +162,4 @@ Bu hızlı başlangıçta, bir arka uç uygulamasındaki cihazda doğrudan yönt
 Cihazdan buluta iletileri, buluttaki farklı hedeflere yönlendirmeyi öğrenmek için sonraki öğreticiyle devam edin.
 
 > [!div class="nextstepaction"]
-> [Öğretici: Telemetriyi işlenmek üzere farklı uç noktalara yönlendirme](iot-hub-java-java-process-d2c.md)
+> [Öğretici: Telemetriyi işlenmek üzere farklı uç noktalara yönlendirme](tutorial-routing.md)

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211805"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726338"
 ---
 # <a name="virtual-network-traffic-routing"></a>Sanal ağ trafiğini yönlendirme
 
@@ -167,7 +167,9 @@ Adres ön eki 0.0.0.0/0 olan bir yol, Azure’a bir alt ağın yol tablosundaki 
         - Ağ adresini çevirip iletebilmesi veya trafik ile alt ağdaki hedef kaynak arasında ara sunucu oluşturabilmesi ve trafiği İnternet’e geri döndürebilmesi. 
     - **Sanal ağ geçidi**: Ağ geçidi bir ExpressRoute sanal ağ geçidi ise, İnternet’e bağlı bir şirket içi cihaz ağ adresini çevirip iletebilir, trafik ile alt ağdaki hedef kaynak arasında ExpressRoute'un [özel eşlemesi](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) üzerinden ara sunucu oluşturabilir. 
 
-  İnternet ile Azure arasında sanal ağ geçitleri ve sanal gereçler kullanılırken uygulama ayrıntıları için [Azure ile şirket içi veri merkeziniz arasında DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Azure ile İnternet arasında DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) konularını inceleyin.
+Sanal ağınız bir Azure VPN ağ geçidine bağlıysa, rota tablosunu 0.0.0.0/0 hedefine sahip bir rota içeren [ağ geçidi alt ağına](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) ilişkilendirmeyin. Bunun yapılması, ağ geçidinin düzgün çalışmasını engelleyebilir.
+
+İnternet ile Azure arasında sanal ağ geçitleri ve sanal gereçler kullanılırken uygulama ayrıntıları için [Azure ile şirket içi veri merkeziniz arasında DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) ve [Azure ile İnternet arasında DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) konularını inceleyin.
 
 ## <a name="routing-example"></a>Yönlendirme örneği
 
@@ -259,5 +261,5 @@ Resimdeki *Subnet2* için yol tablosu aşağıdaki yolları içerir:
 - [Yollar ve ağ sanal gereci içeren bir kullanıcı tanımlı yol tablosu oluşturma](tutorial-create-route-table-portal.md)
 - [Azure VPN Gateway için BGP yapılandırma](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute ile BGP kullanma](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [Bir alt ağ için tüm yolları görüntüleme](virtual-network-routes-troubleshoot-portal.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan yollarını değil, yalnızca kullanıcı tanımlı ve BGP yollarını gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.
+- [Bir alt ağ için tüm yolları görüntüleme](diagnose-network-routing-problem.md). Kullanıcı tanımlı yol tablosu, bir alt ağın varsayılan yollarını değil, yalnızca kullanıcı tanımlı ve BGP yollarını gösterir. Tüm yollar görüntülendiğinde ağ arabiriminin içinde bulunduğu alt ağa ait varsayılan, BGP ve kullanıcı tanımlı yollar gösterilir.
 - Sanal makine ile hedef IP adresi arasında [sonraki atlama türünü belirleyin](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Ağ İzleyicisi sonraki atlama özelliği, trafiğin bir alt ağdan ayrıldığını ve olması gereken yere yönlendirildiğini belirlemenizi sağlar.

@@ -11,14 +11,14 @@ ms.workload: infrastructure-services
 ms.date: 3/22/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a3bd3e772c6c80bb86af7f6aac6a578e857a3f2d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0ef9ad7705c240e1c06c80ba3b765fa7aad8c70a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356282"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598853"
 ---
-# <a name="restrict-web-traffic-with-a-web-application-firewall-using-azure-powershell"></a>Azure PowerShell kullanarak web uygulaması güvenlik duvarı ile web trafiğini kısıtlama
+# <a name="enable-web-application-firewall-using-azure-powershell"></a>Azure PowerShell kullanarak web uygulaması güvenlik duvarını etkinleştirme
 
 Bir [uygulama ağ geçidi](overview.md) üzerindeki trafiği [web uygulaması güvenlik duvarı](waf-overview.md) (WAF) ile kısıtlayabilirsiniz. WAF, uygulamanızı korumak için [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) kurallarını kullanır. Bu kurallar SQL ekleme, siteler arası betik saldırıları ve oturum ele geçirme gibi saldırılara karşı korumayı içerir. 
 
@@ -31,6 +31,8 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 > * Bir depolama hesabı oluşturma ve tanılamaları yapılandırma
 
 ![Web uygulaması güvenlik duvarı örneği](./media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+
+Tercih ederseniz, [Azure CLI](tutorial-restrict-web-traffic-cli.md) kullanarak bu öğreticiyi tamamlayabilirsiniz.
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

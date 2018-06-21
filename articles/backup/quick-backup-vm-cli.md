@@ -1,26 +1,22 @@
 ---
-title: "Azure Hızlı Başlangıç - Azure CLI ile sanal makine yedekleme | Microsoft Docs"
-description: "Azure CLI ile sanal makinelerinizi nasıl yedekleyeceğinizi öğrenin"
+title: Azure Hızlı Başlangıç - Azure CLI ile sanal makine yedekleme
+description: Azure CLI ile sanal makinelerinizi nasıl yedekleyeceğinizi öğrenin
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor: 
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-linux
-ms.workload: storage-backup-recovery
 ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3696f57c0520cd8cb3d9fbf22a708c2323d666fc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 68aeb6e96e7588696d31b7b03e0c639506e0c89b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607183"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI ile Azure'daki bir sanal makineyi yedekleme
 Azure CLI, komut satırından veya betik içindeki Azure kaynaklarını oluşturmak ve yönetmek için kullanılır. Düzenli aralıklarla yedekleme yaparak verilerinizi koruyabilirsiniz. Azure Backup, coğrafi olarak yedekli kurtarma kasalarında saklanabilecek kurtarma noktaları oluşturur. Bu makalede Azure CLI ile Azure'daki bir sanal makinenin nasıl yedekleneceği anlatılmaktadır. Bu adımları [Azure PowerShell](quick-backup-vm-powershell.md) veya [Azure portalı](quick-backup-vm-portal.md) ile de gerçekleştirebilirsiniz.
@@ -61,6 +57,16 @@ az backup protection enable-for-vm \
     --policy-name DefaultPolicy
 ```
 
+> [!NOTE]
+VM, kasayla aynı kaynak grubunda değilse, myResourceGroup kasanın oluşturulduğu kaynak grubuna başvurur. VM adı yerine, aşağıda gösterildiği gibi VM kimliğini girin.
+
+```azurecli-interactive 
+az backup protection enable-for-vm \
+    --resource-group myResourceGroup \
+    --vault-name myRecoveryServicesVault \
+    --vm $(az vm show -g VMResourceGroup -n MyVm --query id) \
+    --policy-name DefaultPolicy
+```
 
 ## <a name="start-a-backup-job"></a>Bir yedekleme işi başlatma
 Varsayılan ilkenin işi planlanan saatte başlatmasını beklemek yerine yedekleme işini hemen başlatmak için [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now) komutunu kullanın. İlk yedekleme işi tam kurtarma noktası oluşturur. Bu ilk yedekleme sonrasında çalıştırılan tüm yedekleme işleri artımlı kurtarma noktaları oluşturur. Yalnızca son yedekleme sonrasında yapılan değişiklikleri aktardığından artımlı kurtarma noktaları depolama alanı ve süre açısından verimlilik sağlar.

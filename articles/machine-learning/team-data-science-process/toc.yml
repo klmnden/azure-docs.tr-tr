@@ -54,15 +54,17 @@
     - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
-        - name: Hassas sınıflandırma
+        - name: Keras & Scikit Learn kullanarak hassas sınıflandırma
           href: predict-twitter-sentiment.md
+        - name: AML metin analizi paketi kullanarak hassas sınıflandırma
+          href: predict-twitter-sentiment-amltextpackage.md
         - name: ABD içi gelir sınıflandırma
           href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: Biyomedikal varlık tanıma
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
-        - name: Cilt kanseri görüntü sınıflandırması
+        - name: AML görüntü paketi kullanarak cilt kanseri görüntü sınıflandırması
           href: isic-image-classification.md
           maintainContext: true
     - name: PySpark ve Scala ile Spark

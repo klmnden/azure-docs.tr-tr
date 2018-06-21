@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de8b354cf0199d36d5e0b1410a9f79d4a9e3e05c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359790"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608398"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Öğretici: Azure App Service web uygulamasına Azure CDN ekleme
 
@@ -55,6 +55,9 @@ Kullanacağınız web uygulamasını oluşturmak için, [statik HTML hızlı ba�
 
 Bir tarayıcıyı açın ve [Azure portalına](https://portal.azure.com) gidin.
 
+### <a name="dynamic-site-acceleration-optimization"></a>Dinamik site hızlandırma iyileştirmesi
+CDN uç noktanızı dinamik site hızlandırma (DSA) için iyileştirmek istiyorsanız, profilinizi ve uç noktanızı oluşturmak için [CDN portalını](cdn-create-new-endpoint.md) kullanmalısınız. [DSA iyileştirme](cdn-dynamic-site-acceleration.md) sayesinde, dinamik içeriğe sahip web sayfalarının performansı ölçülebilir şekilde iyileştirilir. CDN portalından bir CDN uç noktasını DSA için iyileştirme hakkında yönergeler için bkz. [Dinamik dosyaların teslimini hızlandırmak için CDN uç nokta yapılandırması](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). Aksi takdirde, yeni uç noktanızı iyileştirmek istemiyorsanız, sonraki bölümde yer alan adımları izleyerek oluşturmak için web uygulaması portalını kullanabilirsiniz. **Verizon’dan Azure CDN** profilleri için, bir CDN uç noktası oluşturulduktan sonra uç nokta iyileştirmesini değiştiremediğinizi unutmayın.
+
 ## <a name="create-a-cdn-profile-and-endpoint"></a>CDN profili ve uç noktası oluşturma
 
 Sol gezinti bölmesinde **Uygulama Hizmetleri**’ni ve sonra [statik HTML hızlı başlangıç](../app-service/app-service-web-get-started-html.md) içinde oluşturduğunuz uygulamayı seçin.
@@ -64,9 +67,6 @@ Sol gezinti bölmesinde **Uygulama Hizmetleri**’ni ve sonra [statik HTML hızl
 **App Service** sayfasındaki **Ayarlar** bölümünde, **Ağ > Uygulamanız için Azure CDN'i yapılandırın** seçeneğini belirleyin.
 
 ![Portalda CDN’yi seçin](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### <a name="dynamic-site-acceleration-optimization"></a>Dinamik site hızlandırma iyileştirmesi
-CDN uç noktanızı dinamik site hızlandırma (DSA) için iyileştirmek istiyorsanız, doğrudan uç noktayı oluşturmak için CDN portalını kullanın. [DSA iyileştirme](cdn-dynamic-site-acceleration.md) sayesinde, dinamik içeriğe sahip web sayfalarının performansı ölçülebilir şekilde iyileştirilir. CDN portalından bir CDN uç noktasını DSA için iyileştirme hakkında daha fazla bilgi için bkz. [Dinamik dosyaların teslimini hızlandırmak için CDN uç nokta yapılandırması](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). **Verizon Azure CDN** profilleri için, bir CDN uç noktası oluşturulduktan sonra uç nokta iyileştirmesini değiştiremezsiniz.
 
 **Azure Content Delivery Network** sayfasında, **Yeni uç nokta** ayarlarını tabloda belirtildiği gibi girin.
 

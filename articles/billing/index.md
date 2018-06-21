@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 313d6cfd69fbf63066add46c7a467c5090604067
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807264"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285857"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure faturalama ve maliyet yönetimi belgeleri
 
@@ -133,7 +133,7 @@ Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayr�
                     <div class="cardText">
                         <h3>Ayrılmış VM Örnekleri ile tasarruf etme</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Ayrılmış örnekler nelerdir?</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Ayrılmış örnekler nelerdir?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Ayrılmış örnek satın alma</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">İndirim nasıl uygulanır?</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Yazılım maliyetleri dahil değil</a>
@@ -165,12 +165,18 @@ Azure faturalandırmanızı anlamayı, kullanımı ve maliyetleri izlemeyi, ayr�
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Sorun giderme</h3>
+                        <h3>Kurumsal abonelik: EA portal erişimi gerektirir</h3>
+                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
-                        <a href="/azure/billing/billing-no-subscriptions-found">'Abonelik bulunamadı'</a><br/>
-                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">Reddedilen kart</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">Kaydolma sorunları</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">Oturum açma sorunları</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">Bölümleri yönetme<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">Hesapları yönetme<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">Abonelikleri oluşturma<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">Fiyat listesini görüntüleme<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">Kullanım ayrıntılarını görüntüleme<span class="docon docon-navigate-external"></span></a>
                         </p>
                     </div>
                 </div>

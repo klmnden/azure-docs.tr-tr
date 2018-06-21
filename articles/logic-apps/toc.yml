@@ -268,14 +268,14 @@
       items:
         - name: Mantıksal uygulamaların durumunu izleme
           href: logic-apps-monitor-your-logic-apps.md
-        - name: Log Analytics ile OMS’de mantıksal uygulamanın durumunu izleme
+        - name: Azure Log Analytics ile mantıksal uygulama durumunu izleme
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: B2B iletilerini izleme
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: OMS’de B2B iletilerini izleme
+            - name: Azure Log Analytics’te B2B iletilerini izleme
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: B2B iletileri için OMS’yi sorgulama
+            - name: Azure Log Analytics’i B2B iletileri için sorgulama
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: 'Örnekler, senaryolar ve kılavuzlar'
       href: logic-apps-examples-and-scenarios.md

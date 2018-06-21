@@ -16,11 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: c9c4cb42e6bf9f60c883242fad6963f72b772063
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dab9e7b4ee62624ba32b7b6b41d0dee5ac01af09
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598326"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux’ta Azure App Service’e Giriş
 
@@ -75,7 +76,7 @@ Azure portalı, yalnızca şu anda Kapsayıcılar için Web App ile kullanılabi
 
 Sanal ağ tümleştirme, Azure Active Directory/üçüncü taraf kimlik doğrulaması veya Kudu site uzantıları gibi bazı özellikler henüz kullanılamamaktadır. Bu özellikler kullanıma sunulduğunda belgelerimizi ve blogumuzu güncelleştireceğiz.
 
-Linux’ta App Service yalnızca [Temel ve Standart](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux dışı Web App’ler barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız.
+Linux’ta App Service yalnızca [Temel ve Standart](https://azure.microsoft.com/pricing/details/app-service/plans/) uygulama hizmeti planlarıyla desteklenir ve [Ücretsiz veya Paylaşılan](https://azure.microsoft.com/pricing/details/app-service/plans/) katman içermez. Zaten Linux olmayan Web Apps barındıran bir App Service planında Kapsayıcılar için Web App oluşturamazsınız. Aynı zamanda Windows ve Linux uygulamalarını aynı kaynak grubunda karıştırmamayla da ilgili geçerli bir sınırlama bulunuyor.
 
 ## <a name="troubleshooting"></a>Sorun giderme
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric CLI örnekleri
-description: Azure Service Fabric CLI örnekleri
+title: Azure CLI (az) ve Azure Service Fabric CLI (sfctl) Örnekleri
+description: Azure CLI (az) ve Azure Service Fabric CLI (sfctl) Örnekleri
 services: service-fabric
 documentationcenter: service-fabric
 author: Thraka
@@ -16,23 +16,24 @@ ms.workload: service-fabric
 ms.date: 04/09/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: c7f6ce7cea62bd4bf9baca6119f204fc43cf4d45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e37bbd5e12608c5acbd19d5c57667d9e34c74b3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641858"
 ---
-# <a name="azure-service-fabric-cli-samples"></a>Azure Service Fabric CLI örnekleri
+# <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Azure CLI (az) ve Azure Service Fabric CLI (sfctl) Örnekleri
 
-Aşağıdaki tablo, Service Fabric kümelerini, uygulamalarını ve hizmetlerini yöneten [Service Fabric CLI](service-fabric-cli.md) betiği örneklerinin bağlantılarını içerir.
+Aşağıdaki tablo, Service Fabric kümelerini, uygulamalarını ve hizmetlerini yönetmeyle ilgili örneklerin bağlantılarını içerir.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
 | | |
 |-|-|
-| **Küme oluşturma** ||
-| [Güvenli bir Linux kümesi oluşturma (Azure)](./scripts/cli-create-cluster.md)| Bir Azure Service Fabric kümesi oluşturur. |
-| **Uygulamaları yönetme** ||
+| **Küme oluşturma** (Azure CLI ile)||
+| [Güvenli bir Linux kümesi oluşturma](./scripts/cli-create-cluster.md)| Bir Azure Service Fabric kümesi oluşturur. |
+| **Uygulamaları yönetme** (Service Fabric CLI ile)||
 | [Uygulamaları listeleme](./scripts/sfctl-list-applications.md)| Kümeye sağlanan uygulamaları listeleyin.|
 | [Uygulama dağıtma](./scripts/cli-deploy-application.md)| Kümeye bir uygulama dağıtın.|
 | [Uygulamayı kaldırma](./scripts/cli-remove-application.md)| Kümeden bir uygulama kaldırın.|

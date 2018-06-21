@@ -7,13 +7,14 @@ author: eamonoreilly
 ms.author: eamono
 manager: carmonm
 ms.topic: tutorial
-ms.date: 03/16/2018
+ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 97db493b77483d68860c6124f1063bc4a743c3be
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5d03ec7c5e0aaa68c1db34fedbd428f264e49e43
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830529"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Güncelleştirme ve değişiklik izleme çözümlerini Azure Otomasyonu’na ekleme
 
@@ -36,7 +37,7 @@ Bu öğreticiyi tamamlamak için aşağıdakiler gereklidir:
 
 ## <a name="onboard-an-azure-vm"></a>Bir Azure VM ekleme
 
-Makine eklemenin birden fazla yolu vardır. Çözümü [bir sanal makineden](automation-onboard-solutions-from-vm.md), [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md) veya runbook ile ekleyebilirsiniz. Bu öğretici bir runbook üzerinden Güncelleştirme Yönetimini etkinleştirme konusunda size yol gösterir. Uygun ölçekte Azure Sanal Makinelerin eklenmesi için mevcut bir VM’ye Değişiklik izleme veya Güncelleştirme yönetimi çözümünün eklenmesi gerekir. Bu adımda, bir sanal makineye Güncelleştirme yönetimi ve Değişiklik izleme özelliğini eklersiniz.
+Makine eklemenin birden fazla yolu vardır. Çözümü [bir sanal makineden](automation-onboard-solutions-from-vm.md), [birden çok makineye gözatmadan](automation-onboard-solutions-from-browse.md), [Otomasyon hesabınızdan](automation-onboard-solutions-from-automation-account.md) veya runbook ile ekleyebilirsiniz. Bu öğretici bir runbook üzerinden Güncelleştirme Yönetimini etkinleştirme konusunda size yol gösterir. Uygun ölçekte Azure Sanal Makinelerin eklenmesi için mevcut bir VM’ye Değişiklik izleme veya Güncelleştirme yönetimi çözümünün eklenmesi gerekir. Bu adımda, bir sanal makineye Güncelleştirme yönetimi ve Değişiklik izleme özelliğini eklersiniz.
 
 ### <a name="enable-change-tracking-and-inventory"></a>Değişiklik İzlemeyi ve Sayımı Etkinleştirme
 

@@ -2,24 +2,22 @@
 title: Azure için MongoDB, Angular ve Node öğreticisi - 3. Bölüm | Microsoft Belgeleri
 description: MongoDB için kullandığınız API'lerle Azure Cosmos DB üzerinde Angular ve Node ile bir MongoDB uygulaması oluşturma öğreticisi dizisinin 3. bölümü.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eba96be567094a3e2e3977f505d4e4a67f0b5cea
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798313"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular ve Azure Cosmos DB ile bir MongoDB uygulaması oluşturma - 3. Bölüm: Angular ile Kullanıcı Arabirimini Oluşturma
 
@@ -55,56 +53,20 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
 
     Terminal penceresi yeni bileşenlerin onayını görüntüler.
 
-    ```bash
-    installing component
-      create src\client\app\heroes.component.ts
-      update src\client\app\app.module.ts 
-    ```
+    ![Hero bileşenini yükleme](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
 
     Oluşturulan ve güncelleştirilen dosyalara bir göz atalım. 
 
-3. Visual Studio Code içinde **Explorer** bölmesinde, yeni **src\client\app** klasörüne gidin ve 2. adımda oluşturulan yeni **heroes.component.ts** dosyasını açın. Bu TypeScript bileşen dosyası önceki komut tarafından oluşturulmuştur.
+3. Visual Studio Code'daki **Explorer** bölmesinde, yeni **src\app** klasörüne gidin ve uygulama klasörünün içinde oluşturulan yeni **heroes.component.ts** dosyasını açın. Bu TypeScript bileşen dosyası önceki komut tarafından oluşturulmuştur.
 
     > [!TIP]
     > Visual Studio Code’da uygulama klasörü görünmüyorsa, Mac bilgisayarlarda CMD + SHIFT P tuşlarına, Windows çalıştıran bilgisayarlarda Ctrl + Shift + P tuşlarına basarak Komut Paletini açın ve ardından *Reload Window* yazarak sistem değişikliğini alın.
-
-    ![heroes.component.ts dosyasını açın](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
 
 4. Aynı klasörde **app.module.ts** dosyasını açın. 5. ve 10. satırdaki bildirimlere `HeroesComponent` bileşeninin eklendiğine dikkat edin.
 
     ![app-module.ts dosyasını açın](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    Artık Heroes bileşeniniz olduğuna göre, heroes bileşeni HTML’si için yeni bir dosya oluşturun. Minimal bir uygulama oluşturduğumuz için HTML kodları TypeScript dosyasıyla aynı dosyada olabilir, ancak şimdilik ayırmak ve farklı bir dosya oluşturmak istiyoruz.
-
-5. **Explorer** bölmesinde **uygulama** klasörüne sağ tıklayın, **New File** (Yeni Dosya) seçeneğine tıklayın ve yeni dosyaya *heroes.component.html* adını verin.
-
-6. **heroes.component.ts** dosyasında, 5-9 arası satırları silin 
-
-    ```ts
-    template: `
-        <p>
-          heroes Works!
-        </p>
-      `,
-      ```
-      ve bu satırları
-  
-    ```ts
-    templateUrl: './heroes.component.html',
-    ```
-
-    yeni HTML dosyasına başvuracak şekilde değiştirin.
- 
-    > [!TIP]
-    > Geliştirme sürecinizi hızlandırmak için John Papa'nın Angular Essentials uzantılarını ve Visual Studio Code kod parçacıklarını kullanabilirsiniz. 
-    > 1. **Extensions** (Uzantılar) düğmesine ![Visual Studio Code Uzantılar düğmesi](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png) tıklayın.
-    > 2. Arama kutusuna *angular essentials* yazın.
-    > 3. **Yükle**'ye tıklayın. 
-    > 4. Yeni uzantıları kullanmak için **Reload** (Yenile) düğmesine tıklayın.
-    > veya [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials) adresinden indirin. 
-    > ![Angular Essentials uzantısı](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
-
-7. **heroes.component.html** dosyasına dönün ve bu kodları kopyalayın. `<div>`, tüm sayfaya yönelik kapsayıcıdır. Kapsayıcı içinde, oluşturmamız gereken hero'ların bir listesi vardır. Kullanıcı arabiriminde bunları tıklayarak seçebilir, düzenleyebilir veya silebilirsiniz. HTML'de hangisinin seçili olduğunu anlayabilmeniz için bazı stil farklılıkları vardır. Ayrıca yeni hero’yu eklemenizi veya mevcut bir hero’yu düzenlemenizi sağlayan bir düzenleme alanı bulunur. 
+5. **heroes.component.html** dosyasına dönün ve bu kodları kopyalayın. `<div>`, tüm sayfaya yönelik kapsayıcıdır. Kapsayıcı içinde, oluşturmamız gereken hero'ların bir listesi vardır. Kullanıcı arabiriminde bunları tıklayarak seçebilir, düzenleyebilir veya silebilirsiniz. HTML'de hangisinin seçili olduğunu anlayabilmeniz için bazı stil farklılıkları vardır. Ayrıca yeni hero’yu eklemenizi veya mevcut bir hero’yu düzenlemenizi sağlayan bir düzenleme alanı bulunur. 
 
     ```html
     <div>
@@ -143,7 +105,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     </div>
     ```
 
-8. HTML’yi oluşturduğumuza göre artık şablonla etkileşim kurmasını sağlamak için **heroes.component.ts** dosyasına eklememiz gerekiyor. Aşağıdaki **heroes.component.ts** üzerine eklenen kodlar, şablonu bileşen dosyamıza ekler. Bazı hero’ları alan ve tüm verileri almak için hero hizmet bileşenini başlatan bir oluşturucu eklendi. Bu kod ayrıca, kullanıcı arabirimindeki olayları işleyebilmek için gerekli tüm yöntemleri ekler. **heroes.component.ts**’deki mevcut kodun üzerine aşağıdaki kodu kopyalayabilirsiniz. 
+7. HTML’yi oluşturduğumuza göre artık şablonla etkileşim kurmasını sağlamak için **heroes.component.ts** dosyasına eklememiz gerekiyor. Aşağıdaki kod, şablonu bileşen dosyanıza ekler. Bazı hero’ları alan ve tüm verileri almak için hero hizmet bileşenini başlatan bir oluşturucu eklendi. Bu kod ayrıca, kullanıcı arabirimindeki olayları işleyebilmek için gerekli tüm yöntemleri ekler. **heroes.component.ts**’deki mevcut kodun üzerine aşağıdaki kodu kopyalayabilirsiniz. Hero ve HeroService alanlarında hataları görmeyi bekleyebilirsiniz çünkü bunlara karşılık gelen bileşenler henüz içeri aktarılmamıştır; bu hataları sonraki bölümde düzelteceksiniz. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -151,6 +113,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     @Component({
       selector: 'app-heroes',
       templateUrl: './heroes.component.html'
+        styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;
@@ -210,7 +173,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     }
     ```
 
-9. **Explorer**’dan, **app/app.module.ts** dosyasını açın ve `FormsModule`’e yönelik içeri aktarma eklemek için 13 (virgül ekleyin) ile 14. satırları güncelleştirin. İçeri aktarma bölümü artık şöyle görünmeli:
+8. **Explorer**’da **app/app.module.ts** dosyasını açın ve `FormsModule`’e yönelik içeri aktarma eklemek için imports bölümünü güncelleştirin. Import bölümü artık şöyle görünmelidir:
 
     ```
     imports: [
@@ -219,7 +182,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     ],
     ```
 
-10. 3. satırdaki yeni FormsModule modülüne yönelik içeri aktarma ekleyin. 
+9. **app/app.module.ts** dosyasına 3. satırdaki yeni FormsModule modülüne yönelik içeri aktarma ekleyin. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -229,7 +192,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
 
 ## <a name="use-css-to-set-the-look-and-feel"></a>Görünümü ayarlamak için CSS kullanma
 
-1. Explorer sekmesinden, **src/client/styles.scss** dosyasını açın.
+1. Explorer sekmesinden, **src/styles.scss** dosyasını açın.
 
 2. Aşağıdaki kodu **styles.scss** dosyasına kopyalayarak dosyanın mevcut içeriğini değiştirin.
 
@@ -392,34 +355,34 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
 
 Şu an bileşenimiz var, peki ekranda görünmesini nasıl sağlarız? **app.component.ts** dosyasındaki varsayılan bileşenleri değiştirelim.
 
-1. Explorer bölmesinden, **client/app/app.component.ts** dosyasını açın.
-
-2. 6 ila 8. satırlar arasında başlığı Heroes olarak değiştirin, ardından **heroes.components.ts** (app-heroes) dosyasında oluşturduğumuz bileşenin adını, yeni bileşene başvurmak üzere ekleyin. Şablon bölümü artık şöyle görünmeli: 
+1. Explorer bölmesinde **/app/app.component.ts**'yi açın, başlığı Heroes olarak değiştirin, ardından **heroes.components.ts** (app-heroes) dosyasında oluşturduğumuz bileşenin adını, yeni bileşene başvurmak üzere ekleyin. Dosyanın içeriği şimdi aşağıdaki gibi görünmelidir: 
 
     ```ts
-    template: `
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss'],
+      template: `
       <h1>Heroes</h1>
       <div class="header-bar"></div>
       <app-heroes></app-heroes>
-    `,
+    `
+    })
+    export class AppComponent {
+      title = 'app';
+    }
+
     ```
 
-3. **heroes.components.ts** dosyasında Hero bileşeni gibi başvurduğumuz diğer bileşenler de bulunduğu için bunu da oluşturmamız gerekir. Angular CLI komut isteminde g=oluştur, cl=sınıf ve hero=sınıf adı olmak üzere bir hero modeli ve **hero.ts** adlı bir dosya oluşturmak için aşağıdaki komutu kullanın.
+2. **heroes.components.ts** dosyasında Hero bileşeni gibi başvurduğumuz diğer bileşenler de bulunduğu için bunu da oluşturmamız gerekir. Angular CLI komut isteminde g=oluştur, cl=sınıf ve hero=sınıf adı olmak üzere bir hero modeli ve **hero.ts** adlı bir dosya oluşturmak için aşağıdaki komutu kullanın.
 
     ```bash
     ng g cl hero
     ```
 
-    Terminal penceresi yeni sınıfın onayını görüntüler.
-
-    ```bash
-    installing class
-    create src\client\app\hero.ts
-    ```
-
-4. Explorer bölmesinden **src\client\app\hero.ts** dosyasını açın.
-
-5. **hero.ts** dosyasının içeriğini, bir kimlik, ad ve söze sahip bir Hero sınıfı ekleyen aşağıdaki kodla değiştirin. 
+3. Explorer bölmesinden **src\app\hero.ts** dosyasını açın. **hero.ts** dosyasının içeriğini, bir kimlik, ad ve söze sahip bir Hero sınıfı ekleyen aşağıdaki kodla değiştirin.
 
     ```ts
       export class Hero {
@@ -429,15 +392,15 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     }
     ```
 
-6. **heroes.components.ts** dosyasına geri dönün ve `selectedHero: Hero;` satırındaki (10. satır) `Hero`’nun altında kırmızı bir çizgi olduğuna dikkat edin. 
+4. **heroes.components.ts** dosyasına geri dönün ve `selectedHero: Hero;` satırındaki (10. satır) `Hero`’nun altında kırmızı bir çizgi olduğuna dikkat edin. 
 
-7. `Hero` terimine sol tıkladığınızda Visual Studio, kod bloğunun sol tarafında bir ampul simgesi görüntüler. 
+5. `Hero` terimine sol tıkladığınızda Visual Studio, kod bloğunun sol tarafında bir ampul simgesi görüntüler. 
 
     ![Visual Studio Code'da Ampul](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-8. Ampule ve ardından **Import Hero from "istemci/uygulama/hero".** ("istemci/uygulama/hero"dan Hero İçeri Aktar.) seçeneğine veya **Import Hero from "./hero".** ("./hero"dan Hero İçeri Aktar.) seçeneğine tıklayın. (İleti, kurulumunuza bağlı olarak değişebilir)
+6. Ampule ve ardından **Import Hero from "/app/hero".** ("/uygulama/hero"dan Hero İçeri Aktar) seçeneğine tıklayın. veya **Import Hero from "./hero".** ("./hero"dan Hero İçeri Aktar.) seçeneğine tıklayın. (İleti, kurulumunuza bağlı olarak değişebilir)
 
-    2. satırda yeni bir kod satırı görünür. 2. satır istemci/uygulama/hero’ya başvuruyorsa, yerel klasördeki (./hero) hero dosyasına başvurması için bu satırı değiştirin. 2. satır şu şekilde görünmelidir:
+    2. satırda yeni bir kod satırı görünür. 2. satır /app/hero’ya başvuruyorsa, yerel klasördeki (./hero) hero dosyasına başvurması için bu satırı değiştirin. 2. satır şu şekilde görünmelidir:
 
    ```
    import { Hero } from "./hero";
@@ -453,23 +416,15 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     ng g s hero -m app.module
     ```
 
-    Çıktı, **hero.service.ts** dosyasının oluşturulduğunu ve **app.module.ts** dosyasının güncelleştirildiğini bildirir.
-  
-    ```bash
-    installing service
-      create src\client\app\hero.service.ts
-      update src\client\app\app.module.ts
-    ```
+2. Visual Studio Code’da **heroes.components.ts** dosyasına geri dönün. `constructor(private heroService: HeroService) {}` satırında (13. satır), `HeroService` altında kırmızı bir çizgi vardır. `HeroService`’e tıkladığınızda kod bloğunun sol tarafında bir ampul görünür. Ampule ve **Import HeroService from "./hero.service ".** ("./hero.service "den İçeri Aktar.) seçeneğine veya **Import HeroService from "/app/hero.service ".** ("/uygulama/hero.service"den HeroService İçeri Aktar) seçeneğine tıklayın.
+
+    Ampule tıkladığınızda 2. satıra yeni bir kod satırı eklenir. 2. satır /app/hero.service klasörüne başvuruyorsa, yerel klasördeki (./hero.service) hero dosyasına başvurması için bu satırı değiştirin. 2. satır şu şekilde görünmelidir:
     
-    app.module.ts dosyasına aşağıdaki kod satırları (6. ve 17. satır) eklendi:
-    
-    ```typescript
-    import { HeroService } from './hero.service';
-    ...
-        providers: [HeroService],
+    ```javascript
+    import { HeroService } from "./hero.service"
     ```
 
-2. Visual Studio Code'da **hero.service.ts** dosyasını açın ve dosyanın içeriğinin yerine aşağıdaki kodu kopyalayın.
+3. Visual Studio Code'da **hero.service.ts** dosyasını açın ve dosyanın içeriğinin yerine aşağıdaki kodu kopyalayın.
 
     ```ts
     import { Injectable } from '@angular/core';
@@ -503,7 +458,7 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
 
     Bu kod, sağlamanız gereken bir modül olan ve Angular’ın en yeni sürümünü sunduğu HttpClient'ı kullanır. Şimdi bunu yapacağız.
 
-3. Visual Studio Code'da **app.module.ts** dosyasını açın ve içeri aktarma bölümünü HttpClientModule’ü içerecek şekilde güncelleştirerek HttpClientModule’ü içeri aktarın.
+4. Visual Studio Code'da **app.module.ts** dosyasını açın ve içeri aktarma bölümünü HttpClientModule’ü içerecek şekilde güncelleştirerek HttpClientModule’ü içeri aktarın.
 
     ```ts
     imports: [
@@ -513,18 +468,10 @@ Bu çok bölümlü öğretici, Express ve Angular ile Node.js kullanılarak yaz�
     ],
     ```
 
-4. **app.module.ts** dosyasında içeri aktarma listesine HttpClientModule içeri aktarma deyimini ekleyin.
+5. **app.module.ts** dosyasında içeri aktarma listesine HttpClientModule içeri aktarma deyimini ekleyin.
 
     ```ts
     import { HttpClientModule } from '@angular/common/http';
-    ```
-
-5. Visual Studio Code’da **heroes.components.ts** dosyasına geri dönün. `constructor(private heroService: HeroService) {}` satırında (13. satır), `HeroService` altında kırmızı bir çizgi vardır. `HeroService`’e tıkladığınızda kod bloğunun sol tarafında bir ampul görünür. Ampule ve **Import HeroService from "./hero.service ".** ("./hero.service "den İçeri Aktar.) seçeneğine veya **Import HeroService from "client/app/hero.service ".** ("client/app/hero.service"den HeroService İçeri Aktar.) seçeneğine tıklayın.
-
-    Ampule tıkladığınızda 2. satıra yeni bir kod satırı eklenir. 2. satır istemci/uygulama/hero.service klasörüne başvuruyorsa, yerel klasördeki (./hero.service) hero dosyasına başvurması için bu satırı değiştirin. 2. satır şu şekilde görünmelidir:
-    
-    ```javascript
-    import { HeroService } from "./hero.service"
     ```
 
 6. Visual Studio Code’daki tüm dosyaları kaydedin.

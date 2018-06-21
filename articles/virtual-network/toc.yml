@@ -161,12 +161,8 @@
               href: virtual-networks-dmz-nsg.md
     - name: Yapılandırma
       items:
-        - name: Sanal makineler
-          items:
-            - name: Ağ arabirimi ekleme veya kaldırma
-              href: virtual-network-network-interface-vm.md
-            - name: VM’ler ve bulut hizmetleri içi ad çözümlemesi
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: VM’ler ve bulut hizmetleri içi ad çözümlemesi
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: Kendi DNS sunucunuzla dinamik DNS’yi kullanma
           href: virtual-networks-name-resolution-ddns.md
         - name: Ağ aktarım hızını iyileştirme
@@ -191,17 +187,16 @@
               href: virtual-network-nsg-manage-log.md
         - name: Yol tabloları
           href: manage-route-table.md
-        - name: Ağ arabirimleri
-          href: virtual-network-network-interface.md
+        - name: Sanal makine ağı
           items:
-            - name: IP adresleri
+            - name: Ağ arabirimi oluşturma veya silme
+              href: virtual-network-network-interface.md
+            - name: Ağ arabirimi ekleme veya kaldırma
+              href: virtual-network-network-interface-vm.md
+            - name: IP adreslerini ekleme veya değiştirme
               href: virtual-network-network-interface-addresses.md
         - name: Genel IP adresleri
           href: virtual-network-public-ip-address.md
-        - name: Sanal makineler
-          items:
-            - name: Farklı bir alt ağa sanal ağ taşıma
-              href: virtual-networks-move-vm-role-to-subnet.md
     - name: Sorun giderme
       items:
         - name: Ağ güvenlik grupları
@@ -277,6 +272,8 @@
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: VM’yi farklı bir alt ağa taşıma
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: Bulut hizmeti ve ağ güvenliği
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           items:

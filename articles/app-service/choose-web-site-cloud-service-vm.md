@@ -15,17 +15,18 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597935"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Sanal Makineler, Service Fabric ve Cloud Services karşılaştırması
 ## <a name="overview"></a>Genel Bakış
 Azure, Web sitelerini barındırmak için çeşitli yollar sunar: [Azure App Service][Azure App Service], [Sanal Makineler][Virtual Machines], [Service Fabric][Service Fabric] ve [Cloud Services][Cloud Services]. Bu makale, Web uygulamanız için seçenekleri anlamanıza ve doğru seçim yapmanıza yardımcı olur.
 
-Azure App Service, çoğu Web uygulaması için en iyi seçenektir. Dağıtım ve yönetim süreçleri platform ile tümleştirilmiştir, siteler hızla yüksek trafik yüklerinin altından kalkacak şekilde ölçeklendirilebilir ve yerleşik yük dengeleme ve trafik yöneticisi yüksek kullanılabilirlik sağlar. Mevcut siteleri [çevrimiçi geçiş aracı](https://www.migratetoazure.net/) ile kolayca Azure App Service’a taşıyabilir, Web Uygulamaları Galerisi'nden açık kaynaklı bir uygulamayı kullanabilir veya istediğiniz çerçeve ve araçları kullanarak yeni bir site oluşturabilirsiniz. [WebJobs][WebJobs] özelliği, App Service Web uygulamanıza arka plan iş işlemleri eklemeyi kolaylaştırır.
+Azure App Service, çoğu Web uygulaması için en iyi seçenektir. Dağıtım ve yönetim süreçleri platform ile tümleştirilmiştir, siteler hızla yüksek trafik yüklerinin altından kalkacak şekilde ölçeklendirilebilir ve yerleşik yük dengeleme ve trafik yöneticisi yüksek kullanılabilirlik sağlar. Mevcut siteleri [çevrimiçi geçiş aracı][migrate-tool] ile kolayca Azure App Service’a taşıyabilir, Web Uygulaması Galerisi'nden açık kaynaklı bir uygulamayı kullanabilir veya istediğiniz çerçeve ve araçları kullanarak yeni bir site oluşturabilirsiniz. [WebJobs][WebJobs] özelliği, App Service Web uygulamanıza arka plan iş işlemleri eklemeyi kolaylaştırır.
 
 Mikro hizmet mimarisi kullanan yeni bir uygulama oluşturuyor ya da mevcut bir uygulamayı yeniden yazıyorsanız Service Fabric iyi bir seçenektir. Paylaşılan makine havuzu üzerinde çalışan uygulamalar küçükten başlayıp ihtiyaç olduğunda yüzlerce hatta binlerce makineyle devasa bir ölçeğe ulaşabilirler. Durum bilgisi olan hizmetler uygulama durumunu tutarlı ve güvenilir bir şekilde depolamayı kolaylaştırır ve Service Fabric hizmet bölümleme, ölçeklendirme ve kullanılabilirlik işlemlerini sizin yerinize otomatik olarak yönetir.  Service Fabric aynı zamanda .NET İçin Açık Web Arabirimi (OWIN) ve ASP.NET Core ile WebAPI’yi destekler.  App Service ile karşılaştırıldığında Service Fabric ayrıca temel altyapı üzerinde daha fazla kontrol veya ona doğrudan erişim sağlar. Sunucularınıza uzaktan bağlanabilir veya sunucu başlatma görevleri yapılandırabilirsiniz. Cloud Services, kullanım kolaylığı ve kontrol derecesi bakımından Service Fabric’e benzerdir, ancak artık eski bir hizmettir ve yeni dağıtımlar için Service Fabric önerilir.
 
@@ -97,7 +98,7 @@ Azure App Service, şirket Web sitelerini barındırmak için harika bir çözü
 * Active Directory ile tümleştirme
 
 ### <a id="iis6"></a> Windows Server 2003'te çalışan bir IIS6 uygulamam var.
-Azure App Service, eski IIS6 uygulamalarını geçirme ile ilişkili altyapı maliyetlerini önlemeyi kolaylaştırır. Microsoft, uyumluluğu denetlemenizi ve yapılması gereken tüm değişiklikleri belirlemenizi sağlayan [kullanımı kolay geçiş araçları ve ayrıntılı geçiş yönergeleri](https://www.migratetoazure.net/) hazırlamıştır. Visual Studio, TFS ve ortak CMS araçları ile tümleştirme, IIS6 uygulamalarını doğrudan buluta dağıtmayı kolaylaştırır. Uygulama dağıtıldıktan sonra, Azure Portalı, maliyetleri yönetmek amacıyla ölçeği azaltmanızı ve gerektiğinde talebi karşılamak için de genişletmenizi sağlayan güçlü yönetim araçları sunar. Geçiş aracı ile şunları yapabilirsiniz:
+Azure App Service, eski IIS6 uygulamalarını geçirme ile ilişkili altyapı maliyetlerini önlemeyi kolaylaştırır. Microsoft, uyumluluğu denetlemenizi ve yapılması gereken tüm değişiklikleri belirlemenizi sağlayan [kullanımı kolay geçiş araçları ve ayrıntılı geçiş yönergeleri][migrate-tool] hazırlamıştır. Visual Studio, TFS ve ortak CMS araçları ile tümleştirme, IIS6 uygulamalarını doğrudan buluta dağıtmayı kolaylaştırır. Uygulama dağıtıldıktan sonra, Azure Portalı, maliyetleri yönetmek amacıyla ölçeği azaltmanızı ve gerektiğinde talebi karşılamak için de genişletmenizi sağlayan güçlü yönetim araçları sunar. Geçiş aracı ile şunları yapabilirsiniz:
 
 * Eski Windows Server 2003 Web uygulamanızı hızlı ve kolay bir şekilde buluta geçirme.
 * Hibrit uygulama oluşturmak amacıyla iliştirilmiş SQL veritabanını şirket içinde bırakmayı tercih etme.
@@ -191,3 +192,4 @@ Uygulamanıza yönelik belirlenmiş seçeneklerle başlamak için aşağıdaki k
 <!-- IMG List -->
 
 [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+[migrate-tool]: https://www.movemetothecloud.net/

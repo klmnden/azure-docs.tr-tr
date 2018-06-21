@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824695"
 ---
 # <a name="virtual-network-service-endpoints"></a>Sanal Ağ Hizmeti Uç Noktaları
 
@@ -31,6 +32,7 @@ Bu özellik aşağıdaki Azure hizmetleri ve bölgeleri için sağlanır:
 - **Azure SQL Veritabanı**: Tüm Azure bölgelerinde Genel Kullanıma sunuldu
 - **Azure Cosmos DB**: Tüm Azure genel bulut bölgelerinde Genel Kullanıma sunuldu 
 - **Azure SQL Veri Ambarı**: Tüm Azure genel bulut bölgelerini önizleyin
+- **PostgreSQL ve MySQL için Azure veritabanı hizmetleri**: Veritabanı hizmetinin kullanılabilir olduğu Azure bölgelerinde önizleyin.
 
 En güncel bildirimler için [Azure Sanal Ağ güncelleştirmeleri](https://azure.microsoft.com/updates/?product=virtual-network) sayfasını inceleyin.
 
@@ -98,7 +100,7 @@ Hizmet uç noktaları belirli bir hizmet için yapılandırıldıktan sonra geç
   - Zorlamalı tünel rotalarıyla kıyaslandığında geçerli hizmete daha doğrudan bir bağlantı belirtir
 
 >[!NOTE]
-> Hizmet uç noktası rotaları, Azure hizmeti olarak adres ön eki eşleşmesi için BGP veya UDR rotasını geçersiz kılar. [Geçerli rotalarla sorun giderme](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow) hakkında daha fazla bilgi edinin
+> Hizmet uç noktası rotaları, Azure hizmeti olarak adres ön eki eşleşmesi için BGP veya UDR rotasını geçersiz kılar. [Geçerli rotalarla sorun giderme](diagnose-network-routing-problem.md) hakkında daha fazla bilgi edinin
 
 ## <a name="provisioning"></a>Sağlama
 

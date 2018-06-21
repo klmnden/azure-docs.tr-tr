@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: aaac2fa4d62fb02bf17342a0db27fad79e495693
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597765"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure’da PHP web uygulaması oluşturma
 
@@ -104,7 +105,7 @@ Web uygulaması oluşturulduğunda Azure CLI aşağıda yer alan çıktıdaki gi
 }
 ```
 
-Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;app name>_ değerini benzersiz bir uygulama adıyla değiştirin.
+Yeni oluşturduğunuz web uygulamasına göz atın. _&lt;uygulama adı>_’nı, önceki adımda oluşturulan benzersiz uygulama adınızla değiştirin.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -186,7 +187,7 @@ Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma,
 
 ![Azure portalında App Service sayfası](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
+Soldaki menü, uygulamanızı yapılandırmak için farklı seçenekler sağlar. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

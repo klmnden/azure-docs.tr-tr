@@ -1,8 +1,8 @@
 ---
-title: "Güvenlik duvarının arkasındaki Anahtar Kasasına erişme | Microsoft Belgeleri"
-description: "Güvenlik duvarının arkasındaki bir uygulamadan Azure Anahtar Kasasına nasıl erişebileceğinizi öğrenin"
+title: Güvenlik duvarının arkasındaki Anahtar Kasasına erişme | Microsoft Belgeleri
+description: Güvenlik duvarının arkasındaki bir uygulamadan Azure Anahtar Kasasına nasıl erişebileceğinizi öğrenin
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736257"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Güvenlik duvarının ardındayken Azure Anahtar Kasası’na erişme
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>S: Anahtar kasası istemci uygulamamın güvenlik duvarının ardında olması gerekiyor. Anahtar kasasına erişebilmek için hangi bağlantı noktaları, konaklar veya IP adreslerini açmam gerekiyor?
@@ -26,12 +27,12 @@ Bir anahtar kasasına erişmek için, anahtar kasası istemci uygulamanızın ç
 
 * Azure Active Directory aracılığıyla kimlik doğrulama (Azure AD).
 * Azure Anahtar Kasası'nın yönetimi. Buna, Azure Resource Manager aracılığıyla erişim ilkeleri oluşturma, okuma, güncelleştirme, silme ve ayarlama da dahildir.
-* Anahtar Kasası’nda depolanan nesnelere (anahtarlar ve gizli anahtarlar) erişim ve bu nesnelerin yönetimi, Anahtar Kasası’na özgü uç nokta üzerinden gerçekleşir (örneğin, [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
+* Key Vault’ta depolanan nesnelere (anahtarlar ve gizli diziler) erişim ve bu nesnelerin yönetimi, Key Vault’a özgü uç nokta üzerinden gerçekleşir (örneğin, [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
 
 Yapılandırmanıza ve ortamınıza bağlı olarak, bazı farklılıklar mevcuttur.   
 
 ## <a name="ports"></a>Bağlantı Noktaları
-Üç işlev (kimlik doğrulama, yönetim ve veri düzlemi erişimi) için de anahtar kasası trafiği HTTPS: bağlantı noktası 443 üzerinden gider. Ancak CRL için zaman zaman HTTP (bağlantı noktası 80) trafiği de olacaktır. OCSP destekleyen istemciler CRL'ye erişmemelidir, ancak zaman zaman [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl)'ye erişebilirler.  
+Üç işlev (kimlik doğrulama, yönetim ve veri düzlemi erişimi) için de anahtar kasası trafiği HTTPS: bağlantı noktası 443 üzerinden gider. Ancak CRL için zaman zaman HTTP (bağlantı noktası 80) trafiği de olacaktır. OCSP destekleyen istemciler CRL'ye erişmemelidir, ancak zaman zaman [http://cdp1.public-trust.com/CRL/Omniroot2025.crl](http://cdp1.public-trust.com/CRL/Omniroot2025.crl) adresine erişebilirler.  
 
 ## <a name="authentication"></a>Kimlik Doğrulaması
 Anahtar kasası istemci uygulamasının, kimlik doğrulaması için Azure Active Directory uç noktalarına erişmesi gerekir. Kullanılan uç nokta, Azure AD kiracı yapılandırmasına, sorumlu türüne (kullanıcı sorumlusu veya hizmet sorumlusu) ve hesap türüne (örneğin, Microsoft hesabı ya da iş veya okul hesabı) bağlıdır.  
@@ -60,7 +61,7 @@ Tüm anahtar kasası nesne (anahtarlar ve gizli anahtarlar) yönetimi ve şifrel
 | Anahtarlar üzerindeki şifreleme işlemlerini de içeren işlemler, anahtarları ve gizli anahtarları oluşturma, okuma, güncelleştirme ve silme, anahtar kasası nesnelerindeki etiketleri ve diğer öznitelikleri (anahtarlar ya da gizli anahtarlar) ayarlama veya alma |**Genel:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure Çin:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure ABD:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Almanya:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>IP adresi aralıkları
-Anahtar Kasası hizmeti, PaaS altyapısı gibi diğer Azure kaynaklarını kullanır. Bu nedenle, Anahtar Kasası hizmet uç noktalarının belirli bir zamanda sahip olacağı IP adresleri için özel bir aralık belirtmek mümkün değildir. Güvenlik duvarınız yalnızca IP adresi aralıklarını destekliyorsa [Microsoft Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) belgesini inceleyin. Kimlik doğrulaması ve kimlik için (Azure Active Directory), uygulamanızın [Kimlik doğrulaması ve kimlik adresleri](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2) bölümünde açıklanan uç noktalara bağlanabilmesi gerekir.
+Anahtar Kasası hizmeti, PaaS altyapısı gibi diğer Azure kaynaklarını kullanır. Bu nedenle, Anahtar Kasası hizmet uç noktalarının belirli bir zamanda sahip olacağı IP adresleri için özel bir aralık belirtmek mümkün değildir. Güvenlik duvarınız yalnızca IP adresi aralıklarını destekliyorsa [Microsoft Azure Veri Merkezi IP Aralıkları](https://www.microsoft.com/download/details.aspx?id=41653) belgesini inceleyin. Kimlik doğrulama ve Kimlik (Azure Active Directory) genel bir hizmettir ve diğer bölgelere yük devredebilir veya trafiği bilgi vermeden taşıyabilir. Bu senaryoda, [Kimlik Doğrulama ve Kimlik IP Adresleri](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip)’nde listelenen tüm IP aralıklarının güvenlik duvarına eklenmesi gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Anahtar Kasası ile ilgili sorularınız varsa bkz. [Azure Anahtar Kasası Forumları](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

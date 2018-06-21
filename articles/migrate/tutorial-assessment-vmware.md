@@ -4,15 +4,15 @@ description: Azure’a geçiş için şirket içi VMware VM’lerinin Azure Geç
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 695298be6cb9f56de26b8682c556285aba22d4a6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272072"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236153"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure’a geçiş için şirket içi VMware VM’lerini bulma ve değerlendirme
 
@@ -118,29 +118,6 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    OVA 1.0.8.59 sürümü için
-
-    **Algoritma** | **Karma değeri**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    OVA 1.0.8.49 sürümü için
-    **Algoritma** | **Karma değeri**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    OVA 1.0.8.40 sürümü için:
-
-    **Algoritma** | **Karma değeri**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>Toplayıcı VM’yi oluşturma
 
 İndirilen dosyayı vCenter Server’a aktarın.
@@ -162,7 +139,8 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
 1. vSphere Client konsolunda VM’ye sağ tıklayın ve **Konsolu Aç** seçeneğini belirleyin.
 2. Gereç için dil, saat dilimi ve parola tercihlerini belirtin.
 3. Masaüstünde **Toplayıcı çalıştır** kısayoluna tıklayın.
-4. Azure Geçişi Toplayıcısı’nda **Önkoşulları ayarla** seçeneğini açın.
+4. Toplayıcı kullanıcı arabiriminin üst çubuğundaki **Güncelleştirmeleri denetle**'ye tıklayın ve toplayıcının en son sürümde çalıştırıldığını doğrulayın. Aksi takdirde, bağlantıdan en son yükseltme paketini indirmeyi seçebilir ve toplayıcıyı güncelleştirebilirsiniz.
+5. Azure Geçişi Toplayıcısı’nda **Önkoşulları ayarla** seçeneğini açın.
     - Lisans koşullarını kabul edin ve üçüncü taraf bilgilerini okuyun.
     - Toplayıcı, VM’nin İnternet erişimine sahip olup olmadığını denetler.
     - VM, proxy üzerinden İnternet erişimine sahipse **Proxy ayarları**’na tıklayın ve proxy adresini ve dinleme bağlantı noktasını belirtin. Proxy için kimlik doğrulaması gerekiyorsa kimlik bilgilerini gerekin. İnternet bağlantısı gereksinimleri ve toplayıcının eriştiği URL'lerin listesi hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity).
@@ -173,13 +151,13 @@ Dağıtmadan önce .OVA dosyasının güvenilir olup olmadığını kontrol edin
     - Toplayıcı, toplayıcı hizmetinin çalışıp çalışmadığını denetler. Hizmet, toplayıcı VM’ye varsayılan olarak yüklenir.
     - VMware PowerCLI’yı indirin ve yükleyin.
 
-5. **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
+6. **vCenter Server bilgilerini belirtin** bölümünde şunları yapın:
     - vCenter sunucusunun adını (FQDN) veya IP adresini belirtin.
     - **Kullanıcı adı** ve **Parola** bölümünde, toplayıcının vCenter sunucusundaki VM’leri bulmak için kullanacağı salt okunur hesabın kimlik bilgilerini belirtin.
     - **Toplama kapsamı**’nda, VM bulma için bir kapsam seçin. Toplayıcı yalnızca belirtilen kapsam içindeki VM’leri bulabilir. Kapsam belirli bir klasör, veri merkezi veya küme olarak ayarlanabilir. Kapsam en fazla 1500 VM’yi içermelidir. Daha büyük bir ortamı nasıl bulabileceğiniz hakkında [daha fazla bilgi edinin](how-to-scale-assessment.md).
 
-6. **Geçişi projesini belirtin** bölümünde portaldan kopyaladığınız Azure Geçişi proje kimliğini ve anahtarını belirtin. Bu bilgileri kopyalamadıysanız toplayıcı VM’den Azure portalını açın. Projenin **Genel Bakış** sayfasında **Makineleri Bul**’a tıklayın ve değerleri kopyalayın.  
-7. **Toplama durumunu görüntüle** bölümünde bulma işlemini izleyin ve VM’lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar. Azure Geçişi toplayıcı tarafından toplanan veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected).
+7. **Geçişi projesini belirtin** bölümünde portaldan kopyaladığınız Azure Geçişi proje kimliğini ve anahtarını belirtin. Bu bilgileri kopyalamadıysanız toplayıcı VM’den Azure portalını açın. Projenin **Genel Bakış** sayfasında **Makineleri Bul**’a tıklayın ve değerleri kopyalayın.  
+8. **Toplama durumunu görüntüle** bölümünde bulma işlemini izleyin ve VM’lerden toplanan meta verilerin kapsam içinde olup olmadığını denetleyin. Toplayıcı, yaklaşık bir bulma süresi sağlar. Azure Geçişi toplayıcı tarafından toplanan veriler hakkında [daha fazla bilgi edinin](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected).
 
 > [!NOTE]
 > Toplayıcı, işletim sistemi dili ve toplayıcı arabirimi dili olarak yalnızca "İngilizce (ABD)"yi destekler. Yakında daha fazla dil desteği kullanıma sunulacaktır.
@@ -219,7 +197,7 @@ Değerlendirmedeki Azure için hazır olma görünümü, her bir sanal makinenin
 - Azure için hazır değil
 - Hazır olma durumu bilinmiyor
 
-Azure Geçişi, hazır olan VM’ler için Azure’da bir VM boyutu önerir. Azure Geçişi’nin yaptığı boyut önerisi, değerlendirme özelliklerinde belirtilen boyutlandırma ölçütüne bağlıdır. Boyutlandırma ölçütü performansa dayalı boyutlandırma ise, sanal makinelerin performans geçmişi dikkate alınarak boyut önerisinde bulunulur. Boyutlandırma ölçütü 'şirket içi olarak' ise, şirket içi sanal makinenin boyutuna bakılarak Azure'daki VM boyutu için öneride bulunulur (olduğu gibi boyutlandırma). VM boyutlandırmasında VM'nin CPU ve bellek kullanım verileri dikkate alınmaz. Bununla birlikte, şirketi içi olarak boyutlandırma durumunda diskler performans verilerine bakılarak boyutlandırılır.  Azure Geçişi’nde boyutlandırmanın nasıl yapıldığı hakkında [daha fazla bilgi edinin](concepts-assessment-calculation.md).
+Azure Geçişi, hazır olan VM’ler için Azure’da bir VM boyutu önerir. Azure Geçişi’nin yaptığı boyut önerisi, değerlendirme özelliklerinde belirtilen boyutlandırma ölçütüne bağlıdır. Boyutlandırma ölçütü performansa dayalı boyutlandırma ise, sanal makinelerin performans geçmişi (CPU ve bellek) ve diskleri (IOPS ve aktarım hızı) dikkate alınarak boyut önerisinde bulunulur. Boyutlandırma ölçütünün 'şirket içinde olduğu gibi' olması durumunda, Azure Geçişi VM'ler ve diskler için performans verilerini dikkate almaz. Azure'da VM boyutu önerisi, şirket içi VM'nin boyutuna bakılarak yapılır ve disk boyutlandırması da değerlendirme özelliklerinde belirtilen Depolama türü (varsayılan değer premium diskler) temelinde yapılır. Azure Geçişi’nde boyutlandırmanın nasıl yapıldığı hakkında [daha fazla bilgi edinin](concepts-assessment-calculation.md).
 
 Azure için hazır olmayan veya koşullu olarak hazır olan sanal makineler için Azure Geçişi, hazır olma durumu sorunlarını açıklar ve düzeltme adımları sağlar.
 
@@ -244,7 +222,7 @@ Bu görünümde, Azure’da çalışan VM’lerin toplam işlem ve depolama mali
 
 Azure Geçişi’ndeki her değerlendirme 1 yıldız ile 5 yıldız (1 yıldız en düşük, 5 yıldız en yüksektir) arasında değişen bir güvenilirlik derecesiyle ilişkilendirilir. Güvenilirlik derecelendirmesi, değerlendirmeyi hesaplamak için gereken veri noktalarının kullanılabilirliği temelinde bir değerlendirmeye atanır. Bir değerlendirmenin güvenilirlik derecesi, Azure Geçişi tarafından sağlanan boyut önerilerinin güvenilirliğini tahmin etmenize yardımcı olur.
 
-VM’nin performans tabanlı boyutlandırması için Azure Geçişi, CPU ve bellek için kullanım verileri gerektirir. Ayrıca VM’ye takılı her diskin boyutlandırması için okuma/yazma IOPS ve aktarım hızı gereklidir. Sanal makineye eklenmiş her bir ağ bağdaştırıcısı için benzer şekilde Azure Geçişi’nin performansa dayalı boyutlandırma gerçekleştirmek amacıyla ağ giriş/çıkışına ihtiyacı vardır. Yukarıdaki kullanım rakamlarından herhangi biri vCenter Server’da mevcut değilse Azure Geçişi’nin yaptığı boyut önerisi güvenilir olmayabilir. Kullanılabilir veri noktalarının yüzdesine bağlı olarak değerlendirme için aşağıdaki gibi güvenilirlik derecelendirmesi sağlanır:
+Bir değerlendirmenin güvenilirlik derecesi, boyutlandırma ölçütü 'performansa dayalı boyutlandırma' olan değerlendirmelerde daha kullanışlıdır. Performansa dayalı boyutlandırma için Azure Geçişi, CPU ile VM'nin belleği için kullanım verilerine ihtiyaç duyar. Bunlara ek olarak, VM'ye eklenen her disk için disk IOPS ve aktarım hızı değerleri de gerekir. Sanal makineye eklenmiş her bir ağ bağdaştırıcısı için benzer şekilde Azure Geçişi’nin performansa dayalı boyutlandırma gerçekleştirmek amacıyla ağ giriş/çıkışına ihtiyacı vardır. Yukarıdaki kullanım rakamlarından herhangi biri vCenter Server’da mevcut değilse Azure Geçişi’nin yaptığı boyut önerisi güvenilir olmayabilir. Kullanılabilir veri noktalarının yüzdesine bağlı olarak değerlendirme için aşağıdaki gibi güvenilirlik derecelendirmesi sağlanır:
 
    **Veri noktalarının kullanılabilirliği** | **Güvenilirlik derecelendirmesi**
    --- | ---
@@ -269,3 +247,4 @@ Aşağıdaki nedenlerle bir değerlendirme için tüm veri noktaları kullanıla
 - [Makine bağımlılık eşlemesi](how-to-create-group-machine-dependencies.md) kullanarak yüksek güvenilirlikli değerlendirme grubu oluşturmayı öğrenin
 - Değerlendirmelerin nasıl hesaplandığı hakkında [daha fazla bilgi](concepts-assessment-calculation.md) edinin.
 - Geniş bir VMware ortamında bulma ve değerlendirme işlemlerinin nasıl yapılacağını [öğrenin](how-to-scale-assessment.md).
+- Azure Geçişi’ne ilişkin SSS hakkında [daha fazla bilgi edinin](resources-faq.md)

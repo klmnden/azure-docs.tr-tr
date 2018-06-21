@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724107"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Azure kaynakları için Yönetilen Hizmet Kimliği (MSI) nedir?
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 Bulut uygulamaları oluştururken yaygın olarak karşılaşılan bir zorluk, bulut hizmetlerinde kimlik doğrulaması yapmak için kodunuzda bulunması gereken kimlik bilgilerinin yönetimidir. Bu kimlik bilgilerinin güvenlik altında tutulması önemli bir görevdir. İdeal olan bunların geliştirici iş istasyonlarında asla gösterilmemesi veya kaynak denetimine kaydedilmesidir. Azure Key Vault kimlik bilgilerini ve diğer anahtarlarla gizli dizileri güvenle depolamak için bir yol sağlar, ama bunları alabilmek için kodunuzun Key Vault'ta kimlik doğrulaması yapması gerekir. Yönetilen Hizmet Kimliği (MSI), Azure hizmetlerine Azure Active Directory (Azure AD) üzerinde otomatik olarak yönetilen bir kimlik vererek bu soruna daha basit bir çözüm getirir. Bu kimliği kullanarak, Key Vault da dahil olmak üzere Azure AD kimlik doğrulamasını destekleyen tüm hizmetlerde kodunuzda kimlik bilgileri bulunmasına gerek kalmadan kimlik doğrulaması yapabilirsiniz.
 
+Yönetilen Hizmet Kimliği, Azure aboneliklerinde varsayılan olarak sağlanan Azure Active Directory ücretsiz ile birlikte gelir. Yönetilen Hizmet Kimliği'nin ek maliyeti yoktur.
+
 ## <a name="how-does-it-work"></a>Nasıl çalışır?
 
 İki tür Yönetilen Hizmet Kimliği vardır: **Sistem Tarafından Atanan** ve **Kullanıcı Tarafından Atanan**.
 
 - **Sistem Tarafından Atanan Kimlik** doğrudan bir Azure hizmet örneğinde etkinleştirilir. Etkinleştirildiğinde, Azure hizmet örneği aboneliğinin güvendiği Azure AD kiracısında hizmet örneği için bir kimlik oluşturur. Kimlik oluşturulduktan sonra, bu kimliğin bilgileri hizmet örneğine sağlanır. Sistem tarafından atanan kimliğin yaşam döngüsü, içinde etkinleştirildiği Azure hizmet örneğine doğrudan bağlıdır. Hizmet örneği silinirse, Azure AD'deki kimlik bilgileri ve kimlik Azure tarafından otomatik olarak temizlenir.
-- **Kullanıcı Tarafından Atanan Kimlik** (genel önizleme) tek başına bir Azure kaynağı olarak oluşturulur. Bir oluşturma işlemi çerçevesinde, Azure kullanılan abonelik tarafından güvenilen Azure AD kiracısında bir kimlik oluşturur. Kimlik oluşturulduktan sonra, bir veya birden çok Azure hizmet örneğine atanabilir. Kullanıcı tarafından atanan kimliğin yaşam döngüsü, bu kimliğin atandığı Azure hizmet örneklerinin yaşam döngüsünden ayrı olarak yönetilir.
+- **Kullanıcı Tarafından Atanan Kimlik** tek başına bir Azure kaynağı olarak oluşturulur. Bir oluşturma işlemi çerçevesinde, Azure kullanılan abonelik tarafından güvenilen Azure AD kiracısında bir kimlik oluşturur. Kimlik oluşturulduktan sonra, bir veya birden çok Azure hizmet örneğine atanabilir. Kullanıcı tarafından atanan kimliğin yaşam döngüsü, bu kimliğin atandığı Azure hizmet örneklerinin yaşam döngüsünden ayrı olarak yönetilir.
 
 Sonuç olarak, kodunuz Azure AD kimlik doğrulamasını destekleyen hizmetler için erişim belirteçleri istemek amacıyla sistem tarafından atanan veya kullanıcı tarafından atanan kimliği kullanabilir. Hizmet örneği tarafından kullanılan kimlik bilgilerinin dağıtımıyla da tümüyle Azure ilgilenir.
 
@@ -103,17 +106,6 @@ Farklı Azure kaynaklarına erişime yönelik uçtan uca senaryoları öğrenmek
 
 Yönetilen kimlikler, Azure AD kimlik doğrulamasını destekleyen hizmetlerde kimlik doğrulaması yapmak için kullanılabilir. Yönetilen Hizmet Kimliği'ni destekleyen Azure hizmetlerinin listesi için şu makaleye bakın:
 - [Yönetilen Hizmet Kimliği’ni destekleyen hizmetler](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>Yönetilen Hizmet Kimliği'nin maliyeti nedir?
-
-Yönetilen Hizmet Kimliği, Azure aboneliklerinde varsayılan olarak sağlanan Azure Active Directory Ücretsiz ile birlikte gelir. Yönetilen Hizmet Kimliği'nin ek maliyeti yoktur.
-
-## <a name="support-and-feedback"></a>Destek ve geri bildirim
-
-Fikrinizi öğrenmek isteriz!
-
-* Stack Overflow ile ilgili nasıl yapılır sorularında [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi) etiketini kullanın.
-* [Geliştiriciler için Azure AD geri bildirim forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences) özellik isteklerinde bulunabilir veya geri bildirim sağlayabilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -1,171 +1,166 @@
 ---
-title: Azure İzleyiciye Genel Bakış | Microsoft Docs
-description: Azure İzleyici uyarıları, Web kancalarını, otomatik ölçeklendirme ve Otomasyon kullanımda istatistikleri toplar. Makale ayrıca diğer Microsoft izleme seçenekleri listeleyin.
+title: Azure İzleyiciye Genel Bakış
+description: Azure İzleyici uyarılar, web kancaları, otomatik ölçeklendirme ve otomasyonda kullanılan istatistikleri toplar. Makalede ayrıca diğer Microsoft izleme seçenekleri listelenmiştir.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/28/2018
 ms.author: robb
 ms.custom: mvc
-ms.openlocfilehash: 9a9166e93d24f6402d849b1bee3bcf470685c814
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: MT
+ms.component: ''
+ms.openlocfilehash: a96991c424b4709002d46b6b7abe1e884c3605dd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264594"
 ---
-# <a name="overview-of-azure-monitor"></a>Azure İzleyicisi'ne genel bakış
-Bu makalede, Microsoft Azure Azure İzleyici hizmetinde genel bir bakış sağlar. Hangi Azure İzleyici yapar ve Azure İzleyicisi'ni kullanma hakkında ek bilgi işaretçiler sağlar açıklanır.  Bir tanıtım tercih ederseniz, bu makalenin sonundaki sonraki adımları bağlantılara bakın. 
+# <a name="overview-of-azure-monitor"></a>Azure İzleyici’ye genel bakış
+Bu makalede Microsoft Azure’daki Azure İzleyici hizmetine genel bir bakış sunulmaktadır. Azure İzleyici’nin ne yaptığı açıklanmış ve Azure İzleyici’yi nasıl kullanacağınız hakkında ek bilgiler verilmiştir.  Videolu bir tanıtım tercih ederseniz, bu makalenin sonundaki sonraki adımlar bağlantılarına bakın. 
 
-## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure İzleyicisi'ni ve Microsoft kullanıcının diğer izleme ürünleri
-Azure İzleyicisi, çoğu Microsoft Azure hizmetlerini taban düzeyi altyapı ölçümleri ve günlükleri sağlar. Henüz verilerini Azure izleyicisine koymayın azure Hizmetleri bu var. gelecekte sokar.
+## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure İzleyici ve Microsoft’un diğer izleme ürünleri
+Azure İzleyici, çoğu Microsoft Azure’daki çoğu hizmet için temel düzey altyapı ölçümleri ve günlükleri sağlar. Henüz verilerini Azure İzleyiciye göndermeyen Azure Hizmetleri gelecekte bunu yapacaktır.
 
-Microsoft, geliştiriciler, DevOps veya şirket içi yüklemeleri de BT Ops için ek izleme olanakları sağlayan ek ürün ve hizmetlerin birlikte gönderilir. Bir genel bakış ve bu farklı ürün ve hizmetlerin birlikte nasıl çalıştığını anlamak için bkz: [Microsoft Azure'da izleme](monitoring-overview.md).
+Microsoft, şirket içi kurulumları olan geliştiriciler, geliştirici operasyonları ve BT operasyonları için de ek izleme olanakları sağlayan ek ürün ve hizmetler sunar. Bu farklı ürün ve hizmetlere bir genel bakış ve bunların birlikte nasıl çalıştıklarının açıklaması için bkz. [Microsoft Azure'da izleme](monitoring-overview.md).
 
-## <a name="portal-overview-page"></a>Portal genel bakış sayfası
+## <a name="portal-overview-page"></a>Portala genel bakış sayfası
 
-Azure İzleyici kullanıcıların yardımcı olan bir giriş sayfası vardır: 
-- Azure tarafından sunulan izleme olanakları anlayın.
-- Bulma, yapılandırmak ve yerleşik Azure'nın platform ve de izleme kapasiteleri premium.
+Azure İzleyici’de kullanıcılara yardımcı olan bir giriş sayfası vardır: 
+- Azure tarafından sunulan izleme olanaklarını öğrenin.
+- Azure platformunu ve premium izleme olanaklarını keşfedin, yapılandırın ve kullanıma alın.
 
-Sayfa Gezinti devreye alma dahil olmak üzere için bir başlangıç noktasıdır. Farklı Hizmetleri'nden seçkin önem düzeyindeki sorunlar gösterir ve onlara bağlamda gidin olanak tanır.
+Bu sayfa, kullanıma alma aşaması da dahil olmak üzere her konu için giriş noktanızdır. Farklı hizmetlerden önemli sorunları içerir ve kullanıcının bunları bağlam içinde görmesine olanak verir.
  
-![İzleme ve tanılama işlem dışı kaynakları modeli](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
+![İşlem dışı kaynaklar için izleme ve tanılama modeli](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
 
-Sayfasını açtığınızda, okuma erişimi olan abonelikleri arasından seçim yapabilirsiniz. Seçilen bir abonelik için görebilirsiniz:
+Sayfayı açtığınızda, okuma erişiminiz olan abonelikler arasından seçim yapabilirsiniz. Seçilen bir abonelik için şunları görebilirsiniz:
 
-- **Tetiklenen uyarıları ve uyarı kaynakları** - Bu tablo Özet sayılarını, uyarı kaynakları gösterir ve seçilen süre için tetiklenen uyarıları kaç kez. Eski ve yeni uyarılar için geçerlidir. Daha fazla bilgi edinin [yeni Azure uyarıları](monitoring-overview-unified-alerts.md). 
-- **Etkinlik günlüğü hatalarını** -Azure kaynaklarınızı hiçbirini hata düzeyi önem derecesine sahip olayları oturum açarsanız, bir üst düzey sayısı görüntülemek ve aracılığıyla her olay araştırmak için etkinlik günlüğü sayfasında'ı tıklatın.
-- **Azure hizmet durumu** -hizmet sistem durumu hizmeti sorunları, planlı bakım etkinliği ve sistem durumu danışma sayısını görebilirsiniz. Azure hizmet durumu hizmetlerinizi Azure altyapı sorunlarını etkisi kişiselleştirilmiş bilgileri sağlar.  Bkz: [Azure hizmet durumu](../service-health/service-health-overview.md) daha fazla bilgi için.  
-- **Application Insights** -her Appınsights'dan kaynağın geçerli abonelikte KPI'ler bakın. KPI'ları, ASP.NET web uygulamaları, Java, düğüm ve genel uygulama türleri izleme sunucu tarafı uygulama için en iyi duruma getirilir. KPI'ları istek hızı, yanıt süresi, hata oranı ve kullanılabilirlik % ölçümlerini içerir. 
+- **Tetiklenen uyarılar ve uyarı kaynakları** - Bu tabloda özet sayıları, uyarı kaynakları ve seçilen sürede uyarıların kaç kez tetiklendiği gösterilir. Hem eski hem de yeni uyarılar için geçerlidir. [Yeni Azure uyarıları](monitoring-overview-unified-alerts.md) hakkında daha fazla bilgi edinin. 
+- **Etkinlik Günlüğü Hataları** -Azure kaynaklarınızdan herhangi biri bir hata düzeyi önem derecesine sahip olay kaydederse genel bir kayıt sayısı görebilir ve etkinlik günlüğü sayfasında tıklayarak her bir olayı inceleyebilirsiniz.
+- **Azure Hizmet Durumu** -Hizmet Durumu hizmet sorunları, planlı bakım etkinlikleri ve sistem durumu danışma sayısını görebilirsiniz. Azure Hizmet Durumu, Azure altyapı sorunları hizmetlerinizi etkilediğinde kişiselleştirilmiş bilgiler sağlar.  Daha fazla bilgi için bkz. [Azure Hizmet Durumu](../service-health/service-health-overview.md).  
+- **Application Insights** -Geçerli abonelikteki her AppInsights kaynağı için KPI'leri görün. KPI'lar; ASP.NET web uygulamaları, Java, Node ve genel uygulama türleri üzerinde sunucu tarafı uygulama izleme için en iyi duruma getirilmiştir. KPI'lar istek sıklığı, yanıt süresi, hata oranı ve kullanılabilirlik yüzdesi ölçümlerini içerir. 
 
-Günlük analizi veya Application Insights dahil edilmiş değil veya geçerli abonelikte herhangi bir Azure uyarı yapılandırmadıysanız, sayfa devreye alma işlemini başlatmak için bağlantılar sağlar.
-
-
-
-## <a name="azure-monitor-sources---compute-subset"></a>Azure İzleyici kaynakları - işlem alt
-
-![İzleme ve tanılama işlem dışı kaynakları modeli](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+Log Analytics veya Application Insights kullanmıyorsanız veya geçerli abonelikte herhangi bir Azure Uyarısı yapılandırmadıysanız, sayfa devreye alma işlemini başlatmak için bağlantılar sağlar.
 
 
-Burada işlem hizmetleri içerir 
+
+## <a name="azure-monitor-sources---compute-subset"></a>Azure İzleyici Kaynakları - İşlem alt kümesi
+
+![İşlem dışı kaynaklar için izleme ve tanılama modeli](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
+
+
+Buradaki İşlem hizmetleri şunları içerir: 
 - Cloud Services 
 - Virtual Machines 
-- Sanal makine ölçekleme kümeleri 
+- Sanal Makine ölçek kümeleri 
 - Service Fabric
 
-### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Uygulama - tanılama günlükleri, uygulama günlüklerini ve ölçümleri
-Uygulamaları, işlem modelinde konuk işletim sistemi üzerinde çalıştırılabilir. Bunlar, kullanıcıların kendi günlüklerini ve ölçümleri kümesini yayma. Azure İzleyici çoğu uygulama düzeyindeki ölçümlerini ve günlükleri toplamak için Azure tanılama uzantısını (Windows veya Linux) kullanır. Türler
+### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>Uygulama - Tanılama Günlükleri, Uygulama Günlükleri ve Ölçümler
+Uygulamalar, işlem modelinde konuk işletim sistemi üzerinde çalıştırılabilir. Kendi günlüklerini ve ölçümlerini yayınlarlar. Azure İzleyici çoğu uygulama düzeyi ölçümleri ve günlükleri toplamak için Azure tanılama uzantısını (Windows veya Linux) kullanır. Türlere şunlar dahildir:
 
 * Performans sayaçları
-* Uygulama günlükleri
-* Windows olay günlükleri
-* .NET olay kaynağı
-* IIS günlükleri
-* Temel ETW bildirimi
-* Kilitlenme bilgi dökümleri
-* Müşteri hata günlükleri
+* Uygulama Günlükleri
+* Windows Olay Günlükleri
+* .NET Olay Kaynağı
+* IIS Günlükleri
+* Bildirim tabanlı ETW
+* Kilitlenme Bilgi Dökümleri
+* Müşteri Hata Günlükleri
 
-Tanılama uzantısını yalnızca birkaç ölçümleri CPU kullanımı gibi kullanılabilir. 
+Tanılama uzantısı olmadan yalnızca CPU kullanımı gibi birkaç ölçüm kullanılabilir. 
 
-### <a name="host-and-guest-vm-metrics"></a>Ana bilgisayar ve Konuk VM ölçümleri
-Daha önce listelenen işlem kaynaklarını ayrılmış bir ana bilgisayar VM ve konuk işletim sistemi ile etkileşim vardır. Konuk işletim sistemi ve ana bilgisayar VM kök VM ve Konuk VM Hyper-V hiper yönetici modelinde eşdeğerdir. Ölçümleri hem de toplayabilir. Ayrıca, konuk işletim sistemi tanılama günlüklerini toplayabilir.   
+### <a name="host-and-guest-vm-metrics"></a>Konak ve Konuk VM ölçümleri
+Daha önce listelenen işlem kaynaklarının ayrılmış bir konak VM ve konuk işletim sistemi ile etkileşimi vardır. Konak VM ve konuk işletim sistemi Hyper-V hiper yönetici modelinde kök VM ve konuk VM ile eşdeğerdir. İkisinde de ölçüm toplayabilirsiniz. Konuk işletim sisteminde de tanılama günlüklerini toplayabilirsiniz.   
 
 ### <a name="activity-log"></a>Etkinlik Günlüğü
-Azure altyapısı tarafından görülen, kaynak hakkında bilgi için (daha önce işlemsel veya denetim günlüklerini denir) etkinlik günlüğü arayın. Günlük kez kaynakları zaman oluşturulan veya yok gibi bilgileri içerir.  Daha fazla bilgi için bkz: [etkinlik günlüğü'ne genel bakış](monitoring-overview-activity-logs.md). 
+Azure altyapısı tarafından görülen şekliyle kaynağınız hakkında bilgi için (daha önce işlemsel veya denetim günlüklerini olarak adlandırılmıştır) Etkinlik Günlüğünde arama yapabilirsiniz. Günlük, kaynakların oluşturulduğu veya yok edildiği zamanlar gibi bilgiler içerir.  Daha fazla bilgi için bkz. [Etkinlik Günlüğüne genel bakış](monitoring-overview-activity-logs.md). 
 
-## <a name="azure-monitor-sources---everything-else"></a>-Şey Azure İzleyici kaynakları
+## <a name="azure-monitor-sources---everything-else"></a>Azure İzleyici Kaynakları - diğer her şey
 
-![İzleme ve tanılama işlem kaynakları için modeli](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
+![İşlem kaynakları için izleme ve tanılama modeli](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
 
 
-### <a name="resource---metrics-and-diagnostics-logs"></a>Kaynak - ölçümleri ve tanılama günlükleri
-Toplanabilir ölçümleri ve tanılama günlüklerini kaynak türüne bağlı olarak değişir. Örneğin, Web uygulamaları Yüzde CPU ve Disk g/ç üzerinde istatistikler sağlar. Bu ölçümleri yerine kuyruk boyutu ve ileti işleme gibi ölçümleri sağlar Service Bus kuyruğuna için mevcut değil. Her kaynak için toplanabilir ölçümleri listesi kullanılabilir [ölçümleri desteklenen](monitoring-supported-metrics.md). 
+### <a name="resource---metrics-and-diagnostics-logs"></a>Kaynak - Ölçümler ve Tanılama Günlükleri
+Toplanabilir ölçümler ve tanılama günlükleri kaynak türüne bağlı olarak değişir. Örneğin, Web Apps Disk G/Ç ve CPU yüzdesi hakkında istatistikler sağlar. Bu ölçümler kuyruk boyutu ve ileti işleme gibi ölçümleri sağlayan Service Bus kuyruğunda yoktur. Her kaynak için toplanabilir ölçümlerin bir listesi [desteklenen ölçümler](monitoring-supported-metrics.md) altında bulunabilir. 
 
-### <a name="host-and-guest-vm-metrics"></a>Ana bilgisayar ve Konuk VM ölçümleri
-Olmadığından değil mutlaka kaynağınız ve belirli ana bilgisayar veya konuk VM 1:1 eşlemesini ölçümleri kullanılabilir değil.
+### <a name="host-and-guest-vm-metrics"></a>Konak ve Konuk VM ölçümleri
+Kaynağınız ve belirli bir Konak ve Konuk VM’leri arasında 1’e 1 bir eşleme olması gerekmediğinden ölçümler kullanılabilir değildir.
 
 ### <a name="activity-log"></a>Etkinlik Günlüğü
 Etkinlik günlüğü işlem kaynakları ile aynıdır.  
 
-## <a name="uses-for-monitoring-data"></a>Veri izleme kullanır
-Veri toplama sonra onunla aşağıdaki Azure İzleyicisi'nde yapabilirsiniz.
+## <a name="uses-for-monitoring-data"></a>İzleme Verilerinin Kullanımı
+Verilerinizi topladıktan sonra Azure İzleyici'de aşağıdakileri yapabilirsiniz.
 
 ### <a name="route"></a>Yol
-İzleme verilerini başka konumlara akışını sağlayabilirsiniz. 
+İzleme verilerinin başka konumlara akışını sağlayabilirsiniz. 
 
 Örneklere şunlar dahildir:
 
-- Daha zengin Görselleştirme ve çözümleme araçları kullanabilmeniz için Application Insights'a gönderme.
-- Üçüncü taraf araçları yönlendirmek için Event Hubs'a gönderin. 
+- Daha zengin görselleştirme ve çözümleme araçlarını kullanmak için Application Insights'a gönderebilirsiniz.
+- Üçüncü taraf araçlarına yönlendirmek için Event Hubs'a gönderebilirsiniz. 
 
-### <a name="store-and-archive"></a>Depolama ve Arşiv
-Bazı izleme verilerini bir kümesi süre boyunca depolanan ve Azure İzleyicisi'nde kullanılabilir zaten var. 
-- Ölçümleri 90 gün süreyle depolanır. 
+### <a name="store-and-archive"></a>Yedekleme ve Arşivleme
+Bazı izleme verileri Azure İzleyici'de belirli bir süre boyunca depolanır ve kullanılabilir. 
+- Ölçümler 90 gün süreyle depolanır. 
 - Etkinlik günlüğü girişleri 90 gün süreyle depolanır. 
-- Tanılama günlüklerini hiç depolanmaz. 
+- Tanılama günlükleri depolanmaz. 
 
-Yukarıda listelenen süreleri daha uzun veri depolamak istiyorsanız, Azure depolamayı kullanabilirsiniz. İzleme verilerini ayarladığınız bir bekletme ilkesi temel alınarak depolama hesabınızdaki tutulur. Verileri Azure depolama alanında kapladığı alanı için ödeme yapmak zorunda. 
+Verileri yukarıda listelenen sürelerden daha uzun süre depolamak istiyorsanız Azure depolamayı kullanabilirsiniz. İzleme verileri, ayarladığınız bekletme ilkesine göre depolama hesabınızda tutulur. Verilerin Azure depolama alanında kapladığı alan için ödeme yapmanız gerekir. 
 
-Bu verileri kullanmak için birkaç yolu:
+Bu verileri kullanmanın birkaç yolu:
 
-- Yazıldıktan sonra onu okuyun ve işleme diğer araçları içinde veya Azure dışında olabilir.
-- Uzun süre için verileri tutmak için bulutta, bekletme ilkesi değiştirmek veya verileri yerel olarak yerel bir arşiv indirilir.  
-- Arşiv amacıyla süresiz olarak Azure storage'da veri bırakın. 
+- Yazıldıktan sonra verileri okumak ve işlemek için Azure içinde veya dışında diğer araçları kullanabilirsiniz.
+- Verileri uzun süreliğine tutmak için yerel olarak indirebilir veya buluttaki tutma ilkenizi değiştirebilirsiniz.  
+- Verilerinizi arşiv amacıyla Azure Depolama'da süresiz olarak bırakabilirsiniz. 
 
 ### <a name="query"></a>Sorgu
-Sistem ya da Azure depolama verilere erişmek için çapraz platform komut satırı arabirimi (CLI) komutları, PowerShell cmdlet'lerini veya .NET SDK'sı Azure İzleyici REST API'sini kullanabilirsiniz
+Sistem ya da Azure depolamada verilere erişmek için Azure İzleyici REST API'sini, çapraz platform Komut Satırı Arabirimi (CLI) komutlarını, PowerShell cmdlet'lerini veya .NET SDK'sini kullanabilirsiniz
 
 Örneklere şunlar dahildir:
 
-* Yazdığınız özel bir izleme uygulama için veri alma
-* Özel sorgular oluşturma ve bir üçüncü taraf uygulama için bu verileri gönderme.
+* Yazdığınız özel bir izleme uygulaması için veri alma
+* Özel sorgular oluşturma ve bu verileri bir üçüncü taraf uygulamaya gönderme.
 
 ### <a name="visualize"></a>Görselleştirme
-Grafikleri izleme verilerinizi görselleştirme eğilimleri verilerine bakan hızlıdır bulmanıza yardımcı olur.  
+İzleme verilerinizi grafik ve tablo olarak görselleştirmek eğilimleri doğrudan veriye bakmaya göre daha hızlı bulmanıza yardımcı olur.  
 
-Birkaç görselleştirme yöntemler şunlardır:
+Görselleştirme yöntemlerinden bazıları şunlardır:
 
 * Azure portalı kullanma
-* Azure Application Insights için rota verileri
-* Microsoft PowerBI rota verileri
-* Bir üçüncü taraf görselleştirme aracı ya da canlı akış kullanarak veya bir arşiv Azure depolama alanında okuma aracı sahip verileri yönlendirmek
+* Azure Application Insights’a veri yönlendirme
+* Microsoft PowerBI’a veri yönlendirme
+* Canlı akış kullanarak veya aracın Azure depolama alanındaki bir arşivden okumasını sağlayarak verileri bir üçüncü taraf görselleştirme aracına yönlendirme
 
 
 ### <a name="automate"></a>Otomatikleştirme
 > [!NOTE]
-> Uyarıları Microsoft Azure üzerinde devam eden evrimi bir parçası olarak, uyarı verme birleşik bir deneyim kullanıma sunulmuştur. Daha fazla ayrıntı [yeni Azure uyarıları](monitoring-overview-unified-alerts.md)
+> Microsoft Azure’daki uyarıların evriminin bir parçası olarak, uyarılar için birleşik bir deneyim kullanıma sunulmuştur. Daha fazla ayrıntı için bkz. [yeni Azure uyarıları](monitoring-overview-unified-alerts.md)
 
-Azure uyarıları izleme verilerini tetikleyici uyarıları veya hatta tüm işlemler için kullanabilirsiniz. Örneklere şunlar dahildir:
+Azure uyarılarında izleme verilerini uyarıları veya işlemleri tetiklemek için kullanabilirsiniz. Örneklere şunlar dahildir:
 
-* Otomatik ölçeklendirme işlem örnekleri için verileri, uygulama yüküne göre yukarı veya aşağı kullanın.
-* Ölçüm ya da günlük koşullara göre e-postalar gönderin. 
-* Azure dışında bir sistemde bir eylemi çalıştırmak için bir web URL'si (Web kancası) çağırın
-* Tüm çeşitli görevleri gerçekleştirmek için Azure Otomasyonu'nda bir runbook başlatın
+* Uygulama yüküne işlem örneklerinin ölçeğini genişletmek veya daraltmak için veri kullanma.
+* Ölçüm ya da günlük koşullara göre e-posta gönderme. 
+* Azure dışında bir sistemde bir eylemi çalıştırmak için bir web URL'si (web kancası) çağırma
+* Çeşitli görevleri gerçekleştirmek için Azure otomasyonunda bir runbook başlatma
 
-## <a name="methods-of-accessing-azure-monitor"></a>Azure İzleyicisi'ne erişim yöntemleri
-Genel olarak, veri izleme, Yönlendirme ve aşağıdaki yöntemlerden birini kullanarak alma yönetebilirsiniz. Tüm yöntemler, tüm eylemler veya veri türleri için kullanılabilir.
+## <a name="methods-of-accessing-azure-monitor"></a>Azure İzleyici'ye erişim yöntemleri
+Genel olarak, aşağıdaki yöntemlerden birini kullanarak veri izleme, yönlendirme ve alma yöntemlerini yönetebilirsiniz. Tüm eylemler veya veri türleri için tüm yöntemler kullanılabilir olmayabilir.
 
 * [Azure Portal](https://portal.azure.com)
 * [PowerShell](insights-powershell-samples.md)  
-* [Platformlar arası komut satırı arabirimi (CLI)](insights-cli-samples.md)
+* [Platformlar arası Komut Satırı Arabirimi (CLI)](insights-cli-samples.md)
 * [REST API](https://docs.microsoft.com/rest/api/monitor/)
 * [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Şu konular hakkında daha fazla bilgi edinin:
-- Videosu yalnızca Azure İzleyicisi'ni şu adresten edinilebilir  
-[Azure İzleyicisi ile çalışmaya başlama](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
-- Burada kullanabileceğiniz Azure monitör bir senaryoda açıklayan bir video için bkz. [Microsoft Azure keşfedin izleme ve tanılama](https://channel9.msdn.com/events/Ignite/2016/BRK2234) ve [Ignite 2016'den video Azure izleyicisinde](https://myignite.microsoft.com/videos/4977).
-- Azure İzleyicisi arabirimi aracılığıyla çalıştırmak [Azure İzleyicisi ile çalışmaya başlama](monitoring-get-started.md)
-- Ayarlanan [Azure tanılama uzantıları](../azure-diagnostics.md) çalışıyorsanız, bulut hizmeti, sanal makine sorunlarını tanılamak sanal makine ölçekleme kümeleri veya Service Fabric uygulaması.
-- [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) App Service Web uygulamanızda tanılama sorunları çalışıyorsanız.
-- [Azure Storage sorunlarını giderme](../storage/common/storage-e2e-troubleshooting.md) depolama BLOB'ları, tabloların veya kuyrukların kullanırken
+- Azure İzleyici'nin bir videosu şu adresten edinilebilir:  
+[Azure İzleyici’yi kullanmaya başlama](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor). 
+- Azure İzleyici’yi kullanabileceğiniz bir senaryoyu açıklayan bir video için bkz. [Microsoft Azure izleme ve tanılamayı keşfedin](https://channel9.msdn.com/events/Ignite/2016/BRK2234) ve [Ignite 2016'dan bir videoda Azure İzleyicisi](https://myignite.microsoft.com/videos/4977).
+- Azure İzleyici arabirimini [Azure İzleyici ile çalışmaya başlama](monitoring-get-started.md) makalesinde öğrenebilirsiniz
+- Bulut Hizmeti, Sanal Makine ölçek kümeleri veya Service Fabric uygulamasında sorunları tanılamaya çalışıyorsanız [Azure Tanılama Uzantıları](../azure-diagnostics.md)’nı ayarlayın.
+- App Service Web uygulamanızda sorunları tanılamaya çalışıyorsanız [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) kullanın.
+- Depolama Blob'ları, Tabloları veya Kuyruklarını kullanırken [Azure Depolama sorunlarını giderme](../storage/common/storage-e2e-troubleshooting.md)
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/)

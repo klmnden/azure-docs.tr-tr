@@ -8,13 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 04/04/2018
+ms.date: 05/22/2018
 ms.author: carlrab
-ms.openlocfilehash: 1560ba95b0d53bd74f0cb2b35e5af2c6a3c66342
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1d5bc6b63a6322919afd65f6e77371f5504bba64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648981"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure portalında Azure SQL veritabanı oluşturma
 
@@ -76,9 +77,9 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
 6. Hizmet katmanını, DTU'ların sayısını ve depolama alanı miktarını belirtmek için **Fiyatlandırma katmanı**’na tıklayın. Her hizmet katmanı için kullanılabilir DTU'lar ve depolama alanı miktarı seçeneklerini araştırın.
 
    > [!IMPORTANT]
-   > -  Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
-   >-  Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama mevcuttur: Avustralya Doğu, Avustralya Güneydoğu, Brezilya Güney, Orta Kanada, Doğu Kanada, Orta ABD, Fransa Orta, Orta Almanya, Doğu Japonya, Batı Japonya, Orta Kore, Kuzey Orta ABD, Kuzey Avrupa, Güney Orta ABD, Güneydoğu Asya, UK Güney, UK Batı, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
+   > - Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
+   >- Premium katmanında 1 TB’tan fazla depolama alanı, şu bölgeler dışındaki tüm bölgelerde kullanılabilir: UK Kuzey, Orta Batı ABD, UK Güney 2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, US Gov Güneybatı, US Gov Orta Güney, Almanya Kuzeydoğu, Çin Kuzey, US Gov Doğu. Kullanılabilirliğin genişletilmesi planlanmaktadır. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >
 
 7. Bu hızlı başlangıç için **Standart** hizmet katmanını seçip kaydırıcıyı kullanarak **10 DTU (S0)** ve **1** GB depolama alanını seçin.
 
@@ -89,7 +90,7 @@ Adventure Works LT örnek verilerini içeren bir SQL veritabanı oluşturmak iç
    > [!IMPORTANT]
    > - Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/).
    >
-   >- Premium katmanında, şu anda şu bölgelerde 1 TB'den daha fazla depolama kullanılabilir: Brezilya Güney, Kanada Orta, Kanada Doğu, Orta ABD, Fransa Orta, Almanya Orta, Japonya Doğu, Japonya Batı, Kore Orta, Orta Kuzey ABD, Kuzey Avrupa, Orta Güney ABD, Güneydoğu Asya, UK Güney, UK Batı, ABD Doğu2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > - Premium katmanında 1 TB’tan fazla depolama alanı, şu bölgeler dışındaki tüm bölgelerde kullanılabilir: UK Kuzey, Orta Batı ABD, UK Güney 2, Çin Doğu, USDoDCentral, Almanya Orta, USDoDEast, US Gov Güneybatı, US Gov Orta Güney, Almanya Kuzeydoğu, Çin Kuzey, US Gov Doğu. Kullanılabilirliğin genişletilmesi planlanmaktadır. Diğer bölgelerde Premium katmanda depolama için 1 TB üst sınırı uygulanır. Bkz. [P11 P15 Geçerli Sınırlamalar](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    >
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  

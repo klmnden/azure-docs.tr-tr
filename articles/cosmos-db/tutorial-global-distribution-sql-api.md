@@ -3,25 +3,22 @@ title: SQL API’si için Azure Cosmos DB genel dağıtım öğreticisi | Micros
 description: SQL API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlamayı öğrenin.
 services: cosmos-db
 keywords: genel dağıtım
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
 ms.custom: mvc
-ms.openlocfilehash: 81b4049f6316e732f0052d4b07ed4f7765861356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d0a660845052f51af84b78584787760e01f16a6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615606"
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-sql-api"></a>SQL API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>SQL API’sini kullanarak Azure Cosmos DB genel dağıtımını ayarlama
 
 Bu makalede, Azure portalını kullanarak Azure Cosmos DB genel dağıtımını ayarlama ve sonra SQL API’sini kullanarak bağlanma işlemlerinin nasıl yapılacağı gösterilmektedir.
 

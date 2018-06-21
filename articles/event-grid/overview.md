@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
-ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303986"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725250"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid’e giriş
 
@@ -71,8 +71,6 @@ Her bir olay kaynağının nasıl kullanılacağını gösteren makalelerin bağ
 * Kuyruk Depolama
 * WebHooks
 
-İşleyici olarak Azure İşlevleri’ni kullanırken, genel HTTP tetikleyicileri yerine Event Grid tetikleyicisini kullanın. Event Grid, Event Grid İşlevi tetikleyicilerini otomatik olarak doğrular. Genel HTTP tetikleyicileri ile [doğrulama yanıtını](security-authentication.md#webhook-event-delivery) uygulamanız gerekir.
-
 Her bir olay işleyicisinin nasıl kullanılacağını gösteren makalelerin bağlantıları için bkz: [Azure Event Grid’de olay işleyicileri](event-handlers.md).
 
 ## <a name="concepts"></a>Kavramlar
@@ -80,7 +78,7 @@ Her bir olay işleyicisinin nasıl kullanılacağını gösteren makalelerin ba�
 Azure Event Grid’de başlangıç yapmanızı sağlayan beş kavram vardır:
 
 * **Olaylar** - Ne olduğu.
-* **Olay kaynakları/yayımcıları** - Olayın nerede gerçekleştiği.
+* **Olay kaynakları** - Olayın gerçekleştiği yer.
 * **Konu Başlıkları** - Yayımcıların olayları gönderdiği uç nokta.
 * **Olay abonelikleri** - Olayları bazı durumlarda birden fazla işleyiciye gönderecek uç nokta ya da yerleşik mekanizma. Abonelikler ayrıca işleyiciler tarafından gelen olayları akıllıca filtrelemek için de kullanılır.
 * **Olay işleyicileri** - Olaya tepki veren uygulama ya da hizmet.
@@ -126,7 +124,7 @@ Event Grid, uygulamanızı diğer hizmetlere bağlar. Örneğin, uygulamanızın
 
 ## <a name="how-much-does-event-grid-cost"></a>Event Grid’in maliyeti ne kadardır?
 
-Azure Event Grid, olay başına ödeme fiyatlandırma modeli kullanır, bu nedenle yalnızca kullandığınız kadar ödeme yaparsınız. Her ay ilk 100.000 işlem ücretsizdir. İşlemler; olay girişi, gelişmiş eşleştirme, teslim denemesi ve yönetim çağrıları olarak tanımlanır. Ayrıntılar için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/event-grid/).
+Azure Event Grid, olay başına ödeme fiyatlandırma modeli kullanır, bu nedenle yalnızca kullandığınız kadar ödeme yaparsınız. Her ay ilk 100.000 işlem ücretsizdir. İşlemler olay girişi, abonelik teslim denemeleri, yönetim çağrıları ve konu sonekine göre filtreleme olarak tanımlanır. Ayrıntılar için bkz. [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/event-grid/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

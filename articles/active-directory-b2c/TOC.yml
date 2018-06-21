@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: Öğreticiler
   items:
-    - name: 1 - Uygulamaları kaydetme
-      href: tutorial-register-applications.md
+    - name: 1 - B2C kiracısı oluşturma
+      href: tutorial-create-tenant.md
     - name: 2 - Hesaplarda kimlik doğrulaması yapma
       items:
         - name: ASP.NET

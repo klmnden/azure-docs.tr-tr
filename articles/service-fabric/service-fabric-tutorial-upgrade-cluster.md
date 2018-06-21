@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: 407268299e77d771a53c49c11995dce1ada65112
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 375e0171f1a131ad95a9c6594cc0e05926e4dcc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642844"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster"></a>Öğretici: Bir Service Fabric kümesinin çalışma zamanını yükseltme
 
@@ -97,7 +98,7 @@ Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
 > [!IMPORTANT]
 > Küme çalışma zamanını yükseltme işleminin tamamlanması uzun sürebilir. Yükseltme çalıştığı sırada PowerShell engellenir. Yükseltme durumunu denetlemek için başka bir PowerShell oturumu kullanabilirsiniz.
 
-Yükseltme durumu PowerShell veya `sfctl` CLI ile izlenebilir.
+Yükseltme durumu PowerShell veya Azure Service Fabric CLI (sfctl) ile izlenebilir.
 
 İlk olarak öğreticinin birinci bölümünde oluşturulan SSL sertifikası ile kümeye bağlanın. `Connect-ServiceFabricCluster` cmdlet’ini veya `sfctl cluster upgrade-status` komutunu kullanın.
 

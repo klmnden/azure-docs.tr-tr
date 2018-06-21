@@ -10,31 +10,28 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: eefe59da69eb60f2ac9e266389fa7f68e6139215
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 0216a95a5209f5545b34e446904b3215950c6fbc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362218"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638118"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-using-apis"></a>Öğretici: API’leri kullanarak videoları karşıya yükleme, kodlama ve akışla aktarma
 
-Bu öğreticide Azure Media Services ile video dosyalarını karşıya yükleme, kodlama ve akışla aktarma işlemleri gösterilmektedir. İçeriğinizi, çeşitli tarayıcı ve cihazlarda oynatılabilmesi için Apple HLS, MPEG DASH veya CMAF biçimlerinde akışla aktarmak isteyebilirsiniz. Videonuzu akışla aktarabilmeniz için videonun uygun şekilde kodlanmış ve paketlenmiş olması gerekir.
-
-Öğreticide bir videoyu karşıya yükleme adımları gösterilse de, Media Services hesabınızın erişimine açtığınız içerikleri bir HTTPS URL’si üzerinden de kodlayabilirsiniz.
+Media Services, medya dosyalarınızı pek çok tarayıcı ve cihazda oynatılabilecek biçimlerde kodlamanızı sağlar. Örneğin, içeriğinizi Apple'ın HLS veya MPEG DASH biçimlerinde akışla göndermek isteyebilirsiniz. Akışla göndermeden önce yüksek kaliteli dijital medya dosyanızı kodlamanız gerekir. Kodlama yönergeleri için bkz. [Kodlama kavramı](encoding-concept.md). Bu öğretici yerel video dosyasını karşıya yükler ve karşıya yüklenen dosyayı kodlar. Ayrıca, HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri de kodlayabilirsiniz. Daha fazla bilgi için bkz. [HTTP(s) URL'sinde iş girişi oluşturma](job-input-from-http-how-to.md).
 
 ![Videoyu yürütme](./media/stream-files-tutorial-with-api/final-video.png)
 
 Bu öğretici şunların nasıl yapıldığını gösterir:    
 
 > [!div class="checklist"]
-> * Azure Cloud Shell'i başlatma
 > * Media Services hesabı oluşturma
 > * Media Services API’sine erişim
 > * Örnek uygulamayı yapılandırma
-> * Kodu ayrıntılı olarak inceleme
+> * Karşıya yüklenen, kodlanan ve akışı yapılan kodu inceleme
 > * Uygulamayı çalıştırma
 > * Akış URL’sini test etme
 > * Kaynakları temizleme
@@ -53,19 +50,31 @@ Aşağıdaki komutu kullanarak, akış .NET örneğini içeren bir GitHub havuzu
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
+Örnek, [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles) klasöründe yer alır.
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="examine-the-code"></a>Kodu inceleme
+## <a name="examine-the-code-that-uploads-encodes-and-streams"></a>Karşıya yüklenen, kodlanan ve akışı yapılan kodu inceleme
 
 Bu bölümde, *UploadEncodeAndStreamFiles* projesinin [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs) dosyasında tanımlı işlevler incelenmektedir.
 
+Örnek aşağıdaki eylemleri gerçekleştirir:
+
+1. Yeni Dönüşüm oluşturur (ilk olarak, belirtilen Dönüşümün var olup olmadığını denetler). 
+2. Kodlama İşinin çıkışı olarak kullanılan bir çıkış Varlığı oluşturur.
+3. Giriş Varlığı oluşturur ve belirtilen yerel video dosyasını o varlığa yükler. Varlık, İşin girişi olarak kullanılır. 
+4. Oluşturulan giriş ve çıkışı kullanarak kodlama İşini gönderir.
+5. İşin durumunu denetler.
+6. StreamingLocator oluşturur.
+7. Akış URL'leri oluşturur.
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK ile Media Services API’sini kullanmaya başlama
 
-.NET ile Media Services API’lerini kullanmaya başlamak için bir **AzureMediaServicesClient** nesnesi oluşturmanız gerekir. Nesneyi oluşturmak için, Azure AD kullanarak Azure’a bağlanmak üzere istemcinin ihtiyaç duyduğu kimlik bilgilerini sağlamanız gerekir. İlk olarak bir belirteç almanız ve sonra döndürülen belirteçten **ClientCredential** nesnesini oluşturmanız gerekir. Makalenin başına kopyaladığınız kodda, belirteci almak için **ArmClientCredential** nesnesi kullanılır.  
+.NET ile Media Services API’lerini kullanmaya başlamak için bir **AzureMediaServicesClient** nesnesi oluşturmanız gerekir. Nesneyi oluşturmak için, Azure AD kullanarak Azure’a bağlanmak üzere istemcinin ihtiyaç duyduğu kimlik bilgilerini sağlamanız gerekir. Makalenin başlangıcında kopyaladığınız kodda, **GetCredentialsAsync** işlevi, yerel yapılandırma dosyasında sağlanan kimlik bilgilerini temel alarak ServiceClientCredentials nesnesi oluşturur. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
 
@@ -96,7 +105,7 @@ Media Services’te içerik kodlarken veya işlerken, kodlama ayarlarını bir t
 
 Yeni bir [Dönüşüm](https://docs.microsoft.com/rest/api/media/transforms) örneği oluştururken çıktı olarak neyi üretmesi istediğinizi belirtmeniz gerekir. Gerekli parametre, aşağıdaki kodda gösterildiği gibi bir **TransformOutput** nesnesidir. Her **TransformOutput** bir **Ön ayar** içerir. **Ön ayar**, video ve/veya ses işleme işlemlerinin istenen **TransformOutput** nesnesini oluşturmak üzere kullanılacak adım adım yönergelerini açıklar. Bu makalede açıklanan örnek, **AdaptiveStreaming** adlı yerleşik bir Ön Ayar kullanır. Ön Ayar, giriş çözünürlüğü ve bit hızını temel alarak, giriş videosunu otomatik olarak oluşturulan bir bit hızı basamağına (bit hızı-çözünürlük çiftleri) kodlar ve her bir bit hızı-çözünürlük çiftine karşılık gelen H.264 video ve AAC sesi ile ISO MP4 dosyaları üretir. Bu Ön Ayar hakkında bilgi için bkz. [otomatik oluşturulan bit hızı basamağı](autogen-bitrate-ladder.md).
 
-Yerleşik bir EncoderNamedPreset ön ayarını veya özel ön ayarları kullanabilirsiniz. 
+Yerleşik bir EncoderNamedPreset ön ayarını veya özel ön ayarları kullanabilirsiniz. Daha fazla bilgi için bkz. [Kodlayıcı önayarlarını özelleştirme](customize-encoder-presets-how-to.md).
 
 Bir [Dönüşüm](https://docs.microsoft.com/rest/api/media/transforms) oluştururken ilk olarak aşağıdaki kodda gösterildiği gibi **Get** yöntemi ile bir dönüşümün zaten var olup olmadığını denetlemeniz gerekir.  Media Services v3’te varlıklar üzerindeki **Get** yöntemleri, varlığın mevcut olmaması durumunda **null** değerini döndürür (büyük/küçük harfe duyarlı ad denetimi).
 
@@ -112,7 +121,7 @@ Bu örnekte giriş videosu, yerel makinenizden yüklenmiştir. Bir HTTPS URL’s
 
 ### <a name="wait-for-the-job-to-complete"></a>İşin tamamlanmasını bekleyin
 
-Aşağıdaki kod örneği, [İş](https://docs.microsoft.com/rest/api/media/jobs)’in durumu için hizmette nasıl yoklama yapılacağını gösterir. Yoklama, olası gecikme süresi nedeniyle üretim uygulamaları için önerilen en iyi uygulamalardan biri değildir. Yoklama, bir hesap üzerinde gereğinden fazla kullanılırsa kısıtlanabilir. Geliştiricilerin onun yerine Event Grid kullanmalıdır.
+İşin tamamlanması biraz sürüyor ve tamamlandığında bildirim almak istiyorsunuz. Aşağıdaki kod örneği, [İş](https://docs.microsoft.com/rest/api/media/jobs)’in durumu için hizmette nasıl yoklama yapılacağını gösterir. Yoklama, olası gecikme süresi nedeniyle üretim uygulamaları için önerilen en iyi uygulamalardan biri değildir. Yoklama, bir hesap üzerinde gereğinden fazla kullanılırsa kısıtlanabilir. Geliştiricilerin onun yerine Event Grid kullanmalıdır.
 
 Event Grid yüksek kullanılabilirlik, tutarlı performans ve dinamik ölçek için tasarlanmıştır. Event Grid ile uygulamalarınız neredeyse tüm Azure hizmetleri ve özel kaynaklardan gelen olayları takip edip bu olaylara yanıt verebilir. Basit, HTTP tabanlı reaktif olay işleme özelliği, olayların akıllı filtrelenmesi ve yönlendirilmesi sayesinde etkili çözümler oluşturmanıza yardımcı olur.  Bkz. [Olayları özel bir web uç noktasına yönlendirme](job-state-events-cli-how-to.md).
 
@@ -122,11 +131,11 @@ Event Grid yüksek kullanılabilirlik, tutarlı performans ve dinamik ölçek i�
 
 ### <a name="get-a-streaminglocator"></a>StreamingLocator alma
 
-Kodlama tamamlandıktan sonra sıradaki adım, çıktı Varlığındaki videoyu yürütme için istemcilerin kullanımına sunmaktır. Bunu iki adımda gerçekleştirebilirsiniz: ilk olarak, bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluşturun ve ikinci olarak, istemcilerin kullanabildiği akış URL’lerini derleyin. 
+Kodlama tamamlandıktan sonra sıradaki adım, çıktı Varlığındaki videoyu yürütmek için istemcilerin kullanımına sunmaktır. Bunu iki adımda gerçekleştirebilirsiniz: ilk olarak, bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluşturun ve ikinci olarak, istemcilerin kullanabildiği akış URL’lerini derleyin. 
 
 **StreamingLocator** oluşturma işlemine yayımlama denir. Varsayılan olarak **StreamingLocator**, API çağrılarını yapmanızdan hemen sonra geçerli olur ve isteğe bağlı başlangıç ve bitiş süreleri yapılandırmadıkça silinene kadar devam eder. 
 
-Bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluştururken istenen **StreamingPolicyName** değerini belirtmeniz gerekir. Bu örnekte, temiz veya şifrelenmemiş içeriğin akışını yapacağınız için önceden tanımlı temiz akış ilkesi **PredefinedStreamingPolicy.ClearStreamingOnly** kullanılabilir.
+Bir [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) oluştururken istenen **StreamingPolicyName** değerini belirtmeniz gerekir. Bu örnekte, temiz (şifrelenmemiş) içeriğin akışını yapacağınız için önceden tanımlı temiz akış ilkesi **PredefinedStreamingPolicy.ClearStreamingOnly** kullanılır.
 
 > [!IMPORTANT]
 > Özel [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies)’yi kullanırken Media Service hesabınız için bu tür ilkelerin sınırlı bir kümesini tasarlamanız ve aynı şifreleme seçenekleri ve protokoller gerekli olduğunda StreamingLocators için bunları kullanmanız gerekir. Media Service hesabınızda StreamingPolicy girişlerinin sayısı için bir kota bulunur. Her StreamingLocator için yeni bir StreamingPolicy oluşturmamanız gerekir.

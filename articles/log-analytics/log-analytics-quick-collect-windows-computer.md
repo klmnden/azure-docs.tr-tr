@@ -15,16 +15,17 @@ ms.topic: quickstart
 ms.date: 04/02/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: de94735676934af21dc08a0953987729fba756aa
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ec85f2c473fa0c4ac4d69599a24b878278309577
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637237"
 ---
 # <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>Ortamınızda barındırılan Windows bilgisayarlardan verileri toplama
 [Azure Log Analytics](log-analytics-overview.md), doğrudan fiziksel veya sanal Windows bilgisayarlarınızdan ve ortamınızdaki diğer kaynaklardan verileri ayrıntılı analiz ve bağıntı için tek bir depoda toplayabilir.  Bu hızlı başlangıçta birkaç kolay adımda Windows bilgisayarınızı nasıl yapılandırabileceğiniz ve veri toplayabileceğiniz gösterilmektedir.  Azure Windows VM’leri için [Azure Sanal Makineler hakkında veri toplama](log-analytics-quick-collect-azurevm.md) konusuna bakın.  
 
-Windows aracısını dağıtmak üzere ağı ve sistem gereksinimlerini anlamak için [Windows işletim sistemi önkoşulları](log-analytics-concept-hybrid.md#prerequisites)’nı gözden geçirin.
+Desteklenen yapılandırmayı anlamak için [desteklenen Windows işletim sistemlerini](log-analytics-concept-hybrid.md#supported-windows-operating-systems) ve [ağ güvenlik duvarı yapılandırmasını](log-analytics-concept-hybrid.md#network-firewall-requirements) inceleyin.
  
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) oluşturun.
 

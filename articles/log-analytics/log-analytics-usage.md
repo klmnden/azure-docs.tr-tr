@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802060"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Veri kullanımını gözden geçirmek ve analiz etmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
@@ -34,7 +35,7 @@ Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği 
     - Veri gönderen bilgisayarlar
     - Son 24 içinde hiç veri göndermeyen bilgisayarlar
 - Teklifler
-    - Öngörü ve Analiz düğümleri
+    - İçgörü ve Analiz düğümleri
     - Otomasyon ve Kontrol düğümleri
     - Güvenlik düğümleri  
 - Performans
@@ -116,7 +117,7 @@ Aşağıdaki ekran görüntüsünde, bilgisayar için en fazla gönderilen veri 
 
 Ardından, *Kullanım* panosuna dönün ve *Çözüme göre veri hacmi* grafiğine bakın. Bir çözümle ilgili en fazla veriyi gönderen bilgisayarları görmek için, listede çözümün adına tıklayın. Listedeki ilk çözümün adına tıklayın. 
 
-Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok veriyi *acmetomcat* bilgisayarının gönderdiği doğrulanır.<br><br> ![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+Aşağıdaki ekran görüntüsünde, Günlük Yönetimi çözümü için en çok veriyi *mycon* bilgisayarının gönderdiği doğrulanır.<br><br> ![çözüm için veri hacmi](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 Gerekirse, bir çözüm veya veri türü içindeki büyük hacimleri belirlemek için ek çözümlemeler yapın. Örnek sorgular şunları içerir:
 

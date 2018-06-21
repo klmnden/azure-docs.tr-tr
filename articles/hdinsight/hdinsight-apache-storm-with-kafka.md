@@ -12,13 +12,14 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/06/2018
+ms.date: 05/21/2018
 ms.author: larryfr
-ms.openlocfilehash: 8baafd69e45210b74db8b0bf41b765067b1251a8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626299"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Öğretici: HDInsight üzerinde Kafka ile Apache Storm kullanma
 
@@ -59,7 +60,7 @@ Dağıtım iş istasyonunuza Java ve JDK yüklerken aşağıdaki ortam değişke
     * Maven'ın yüklendiği dizin.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar hem HDInsight üzerinde Storm hem de HDInsight kümesi üzerinde Kafka içeren bir Azure kaynak grubu gerektirir. Bu kümelerin her ikisi de Spark kümesinin Kafka kümesiyle doğrudan iletişim kurmasına olanak tanıyan bir Azure Sanal Ağı içinde bulunur.
+> Bu belgede yer alan adımlar hem HDInsight üzerinde Storm hem de HDInsight kümesi üzerinde Kafka içeren bir Azure kaynak grubu gerektirir. Bu kümelerin her ikisi de Storm kümesinin Kafka kümesiyle doğrudan iletişim kurmasına olanak tanıyan bir Azure Sanal Ağı içinde bulunur.
 > 
 > Size kolaylık sağlamak için bu belgede, tüm gerekli Azure kaynaklarını oluşturabilecek bir şablonun bağlantıları sağlanır. 
 >

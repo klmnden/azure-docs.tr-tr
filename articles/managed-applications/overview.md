@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305006"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639216"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure yönetilen uygulamalarına genel bakış
 
@@ -53,7 +53,9 @@ Market'te yönetilen uygulama yayımlama hakkında daha fazla bilgi için [Marke
 
 ## <a name="resource-groups-for-managed-applications"></a>Yönetilen uygulamalar için kaynak grupları
 
-Genellikle, yönetilen bir uygulamanın kaynakları iki kaynak grubunda yer alır. Tüketici, bir kaynak grubunu yönetirken yayımcı diğer kaynak grubunu yönetir. Yayımcı, yönetilen uygulamayı tanımlarken erişim düzeylerini belirtir. Aşağıdaki görüntüde, yayımcının yönetilen kaynak grubu için sahip rolünü istediği bir senaryo gösterilmektedir. Yayımcı, tüketici için bu kaynak grubuna salt okunur bir kilit yerleştirmiştir. Yönetilen kaynak grubuna erişim izni verilen yayımcı kimlikleri kilitli olmaz.
+Genellikle, yönetilen bir uygulamanın kaynakları iki kaynak grubunda yer alır. Tüketici, bir kaynak grubunu yönetirken yayımcı diğer kaynak grubunu yönetir. Yayımcı, yönetilen uygulamayı tanımlarken erişim düzeylerini belirtir. [Veri işlemlerine](../role-based-access-control/role-definitions.md) yönelik erişim kısıtlama şu anda Azure’daki tüm veri sağlayıcıları için desteklenmiyor.
+
+Aşağıdaki görüntüde, yayımcının yönetilen kaynak grubu için sahip rolünü istediği bir senaryo gösterilmektedir. Yayımcı, tüketici için bu kaynak grubuna salt okunur bir kilit yerleştirmiştir. Yönetilen kaynak grubuna erişim izni verilen yayımcı kimlikleri kilitli olmaz.
 
 ![Kaynak grubu erişimi](./media/overview/access.png)
 
