@@ -205,6 +205,8 @@
           href: backup-azure-mars-troubleshoot.md
         - name: Azure Dosya paylaşımı
           href: troubleshoot-azure-files.md
+        - name: SQL Server
+          href: backup-sql-server-azure-troubleshoot.md
 - name: Başvuru
   items:
     - name: .NET

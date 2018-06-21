@@ -48,7 +48,7 @@
           href: role-assignments-powershell.md
         - name: REST
           href: role-assignments-rest.md
-    - name: Etkinlik günlükleri
+    - name: Etkinlik günlüklerini görüntüleme
       href: change-history-report.md
     - name: Genel yönetici erişimini yükseltme
       href: elevate-access-global-admin.md
