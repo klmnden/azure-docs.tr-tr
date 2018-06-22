@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: jodebrui
-ms.openlocfilehash: 89e5497c10f3e24dd84333f095a9bd7c0017ea88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a21ce5c9cbf5517733a6b491124e51b163f6c2b9
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647876"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309308"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL veritabanı'nda Bellek içi teknolojileri kullanılarak performansı en iyi duruma getirme
 
@@ -72,7 +72,7 @@ Teknolojileri hakkında ayrıntılı videolar:
 
 Bellek içi OLTP kullanıcı verilerini depolamak için kullanılan bellek için iyileştirilmiş tablolar içerir. Bu tablolar belleğe sığması için gereklidir. SQL veritabanı hizmetinin bellekte doğrudan yönetmek için biz kullanıcı verileri için bir kota kavramı vardır. Bu fikir olarak adlandırılır *bellek içi OLTP depolama*.
 
-Belirli bir miktarda bellek içi OLTP depolama fiyatlandırma katmanı ve fiyatlandırma katmanı her esnek havuz her desteklenen tek başına veritabanı içerir. Bkz: [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md) ve [vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md).
+Belirli bir miktarda bellek içi OLTP depolama fiyatlandırma katmanı ve fiyatlandırma katmanı her esnek havuz her desteklenen tek başına veritabanı içerir. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - esnek havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[vCore tabanlı kaynak sınırları - tek veritabanlarını](sql-database-vcore-resource-limits-single-databases.md) ve [vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Aşağıdaki öğeler, bellek içi OLTP depolama cap doğru sayısı:
 
@@ -521,7 +521,7 @@ P2 fiyatlandırma katmanı ile bir veritabanında, geleneksel dizin ile karşıl
 
 #### <a name="tools"></a>Araçlar
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 

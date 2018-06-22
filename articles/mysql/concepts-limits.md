@@ -2,19 +2,19 @@
 title: MySQL için Azure veritabanındaki sınırlamaları
 description: Bu makalede, MySQL, bağlantı ve depolama altyapısı seçenekleri sayısı gibi Azure veritabanındaki sınırlamalar açıklanır.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264893"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309928"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>MySQL için Azure veritabanındaki sınırlamaları
 Aşağıdaki bölümlerde, kapasite, depolama altyapısı desteği, ayrıcalık desteği, veri işleme ifadesi desteği ve veritabanı hizmeti işlevsel sınırları açıklanmaktadır. Ayrıca bkz. [genel sınırlamaları](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) MySQL veritabanı altyapısı için geçerlidir.
@@ -60,29 +60,29 @@ Bağlantı sınırı aştıklarında, aşağıdaki hata iletisini alabilirsiniz:
 ## <a name="data-manipulation-statement-support"></a>Veri işleme ifadesi desteği
 
 ### <a name="supported"></a>Desteklenen
-- Yük veri GİRİŞDOSYASI - desteklenir, ancak bir UNC yolu (Azure depolama XSMB bağlanan) yönlendirildiği [Yerel] parametresini belirtmeniz gerekir.
+- `LOAD DATA INFILE` desteklenir, ancak `[LOCAL]` parametresi belirtilen ve bir UNC yolu (Azure storage'ı SMB bağlanan) yönlendirilmiş.
 
 ### <a name="unsupported"></a>Desteklenmiyor
-- SEÇİN... ÇIKIŞDOSYASI
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>İşlev sınırlamaları
 
 ### <a name="scale-operations"></a>Ölçek işlemleri
-- Dinamik sunucularının ölçeklendirme fiyatlandırma katmanları arasında şu anda desteklenmiyor. Diğer bir deyişle, temel, genel amaçlı ve bellek için iyileştirilmiş fiyatlandırma katmanları arasında geçiş yapma.
+- Temel fiyatlandırma katmanlarına gelen ve giden dinamik ölçeklendirme şu anda desteklenmiyor.
 - Sunucu depolama boyutunu azaltmak desteklenmiyor.
 
 ### <a name="server-version-upgrades"></a>Sunucu sürüm yükseltme
 - Ana veritabanı altyapısı sürümleri arasında otomatik geçiş şu anda desteklenmiyor.
 
 ### <a name="point-in-time-restore"></a>belirli bir noktaya geri yükleme
-- Farklı bir hizmet katmanı ve/veya bir işlem birimleri ve depolama boyutu geri izin verilmiyor.
+- PITR özelliğini kullanırken, yeni sunucu dayanır sunucusu olarak aynı yapılandırmaya sahip oluşturulur.
 - Silinen bir sunucuya geri yüklenmesi desteklenmez.
 
 ### <a name="subscription-management"></a>Abonelik yönetimi
 - Önceden oluşturulmuş sunucuları abonelik ve kaynak grubu arasında dinamik olarak taşıma şu anda desteklenmiyor.
 
 ## <a name="current-known-issues"></a>Geçerli bilinen sorunlar
-- Bağlantı kurulduktan sonra MySQL server örneği yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği sürüm almak için select version() kullanın; MySQL isteminde komutu.
+- Bağlantı kurulduktan sonra MySQL server örneği yanlış sunucu sürümünü görüntüler. Doğru sunucu örneği altyapısı sürümü almak için `select version();` komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Her hizmet katmanında nelerin kullanılabildiğini](concepts-pricing-tiers.md)

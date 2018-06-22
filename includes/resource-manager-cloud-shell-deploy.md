@@ -2,7 +2,7 @@
 
 Şablonunuzu dağıtmak için [Cloud Shell](../articles/cloud-shell/overview.md) kullanabilirsiniz. Ancak, ilk şablonunuzu storage hesabınıza bulut Kabuğunuzu yüklemeniz gerekir. Daha önce Cloud Shell kullanmadıysanız, kurulumu hakkında bilgi için bkz. [Azure Cloud Shell’e Genel Bakış](../articles/cloud-shell/overview.md).
 
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 
 1. Cloud Shell kaynak grubunuzu seçin. Ad deseni `cloud-shell-storage-<region>` şeklindedir.
 

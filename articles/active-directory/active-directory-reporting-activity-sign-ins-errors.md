@@ -3,25 +3,25 @@ title: Azure Active Directory portalında bulunan oturum açma etkinlik raporund
 description: Oturum açma etkinlik raporu hata kodları başvurusu.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb636db4e6e2097f494fcbc7a6584f0172514b95
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698518"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232547"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında bulunan oturum açma etkinlik raporundaki hata kodları
 
@@ -65,13 +65,13 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |40008|Federasyon Kimlik Sağlayıcısı ile ilgili bir sorun var. Bu sorunu çözmek için IDP’ye başvurun.|
 |40009|Federasyon Kimlik Sağlayıcısı ile ilgili bir sorun var. Bu sorunu çözmek için IDP’ye başvurun.|
 |40014|Federasyon Kimlik Sağlayıcısı ile ilgili bir sorun var. Bu sorunu çözmek için IDP’ye başvurun.|
-|50000|Oturum açma hizmetimizle ilgili bir sorun var. Bu sorunu çözmek için bir [destek bileti açın](active-directory-troubleshooting-support-howto.md).|
+|50000|Oturum açma hizmetimizle ilgili bir sorun var. Bu sorunu çözmek için bir [destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50001|Hizmet asıl adı bu kiracıda bulunamadı. Uygulama, kiracının yöneticisi tarafından yüklenmediyse bu durum oluşabilir. Ayrıca, kaynak sorumlusu dizinde bulunamamış veya geçersiz de olabilir.|
 |50002|Kiracıda kısıtlı proxy erişimi nedeniyle oturum açma başarısız oldu. Kiracı ilkesi size aitse, bu sorunu çözmek için kısıtlı kiracı ayarlarınızı değiştirebilirsiniz|
 |50003|Eksik anahtar veya sertifika nedeniyle oturum açma başarısız oldu. Bunun nedeni, uygulamada yapılandırılmış bir imzalama anahtarının olmaması olabilir. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) sayfasında belirtilen çözümlere bakın. Hala sorun görüyorsanız, uygulama sahibine veya uygulama yöneticisine başvurun|
 |50005|Kullanıcı şu anda koşullu erişim ilkesiyle desteklenmeyen bir platformdan cihazda oturum açmayı denedi|
 |50006| Geçersiz imza nedeniyle imza doğrulaması başarısız oldu. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery) sayfasında belirtilen çözüme bakın. Hala sorun görüyorsanız uygulama sahibine veya uygulama yöneticisine başvurun|
-|50007|Bu uygulama için iş ortağı şifreleme sertifikası bulunamadı. Bu sorunu çözmek için Microsoft’ta [bir destek bileti açın](active-directory-troubleshooting-support-howto.md)|
+|50007|Bu uygulama için iş ortağı şifreleme sertifikası bulunamadı. Bu sorunu çözmek için Microsoft’ta [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md)|
 |50008|SAML onayı eksik veya belirteçte yanlış yapılandırılmış. Federasyon sağlayıcınıza başvurun.|
 |50010|Belirteç hedef kitlesi yapılandırılmadığından uygulama için doğrulaması başarısız oldu. Uygulama sahibine başvurun|
 |50011|Yanıt adresi eksik, yanlış yapılandırılmış veya uygulama için yapılandırılan yanıt adresleriyle eşleşmiyor. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application) sayfasında listelenen çözümü deneyin. Hala sorun görüyorsanız uygulama sahibine veya uygulama yöneticisine başvurun|
@@ -114,8 +114,8 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |50133|Süresi dolduğu veya yakın zamanda parola değiştirildiği için oturum geçersiz.|
 |50135|Hesap riski nedeniyle parola değişikliği gerekiyor|
 |50136|Msa oturumunu uygulamaya yeniden yönlendirin - Tek MSA oturumu algılandı |
-|50140|Bu hata, kullanıcı oturum açtığında "Oturumumu açık bırak" kesintisi nedeniyle oluştu. Daha fazla bilgi almak için Bağıntı Kimliği, İstek Kimliği ve Hata kodu ile [bir destek bileti açın](active-directory-troubleshooting-support-howto.md). |
-|50143|Oturum uyuşmazlığı - Kullanıcı kiracısı farklı kaynak nedeniyle etki alanı ipucu ile eşleşmediğinden oturum geçersiz. Daha fazla bilgi almak için Bağıntı Kimliği, İstek Kimliği ve Hata kodu ile [bir destek bileti açın](active-directory-troubleshooting-support-howto.md).|
+|50140|Bu hata, kullanıcı oturum açtığında "Oturumumu açık bırak" kesintisi nedeniyle oluştu. Daha fazla bilgi almak için Bağıntı Kimliği, İstek Kimliği ve Hata kodu ile [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md). |
+|50143|Oturum uyuşmazlığı - Kullanıcı kiracısı farklı kaynak nedeniyle etki alanı ipucu ile eşleşmediğinden oturum geçersiz. Daha fazla bilgi almak için Bağıntı Kimliği, İstek Kimliği ve Hata kodu ile [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50144|Kullanıcının Active Directory parolasının süresi doldu. Kullanıcı için yeni bir parola oluşturun veya son kullanıcıdan self servis sıfırlama aracını kullanmasını isteyin|
 |50146|Bu uygulamanın, uygulamaya özel bir imzalama anahtarı ile yapılandırılması gerekiyor. Bu şekilde yapılandırılmamış veya anahtarın süresi dolmuş ya da anahtar henüz geçerli değil. Uygulama sahibine başvurun|
 |50148|code_verifier, PKCE yetkilendirme isteğinde belirtilen code_challenge ile eşleşmiyor. Uygulama geliştiricisine başvurun. |
@@ -150,7 +150,7 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |70007|Uygulama bir belirteç isterken desteklenmeyen bir 'response_mode' değeri döndürdü. Uygulama sahibine başvurun|
 |70008|Sağlanan yetkilendirme kodu veya yenileme belirtecinin süresi doldu -iptal edildi. Kullanıcıdan yeniden oturum açmasını isteyin|
 |70011|Uygulama tarafından istenen kapsam geçersiz. Uygulama sahibine başvurun|
-|70012|MSA (tüketici) kullanıcısının kimliği doğrulanırken bir sunucu hatası oluştu. Lütfen yeniden deneyin. Başarısız olmaya devam ederse [bir destek bileti açın](active-directory-troubleshooting-support-howto.md) |
+|70012|MSA (tüketici) kullanıcısının kimliği doğrulanırken bir sunucu hatası oluştu. Lütfen yeniden deneyin. Başarısız olmaya devam ederse [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md) |
 |70018|Kullanıcının cihaz kod akışı için yanlış kullanıcı kodu girmesi nedeniyle geçersiz doğrulama kodu. Yetkilendirme onaylanmadı|
 |70019|Doğrulama kodunun süresi doldu. Kullanıcıdan oturum açmayı yeniden denemesini isteyin|
 |70037|Hatalı sınama yanıtı sağlandı. Uzaktan kimlik doğrulama oturumu reddedildi.|
@@ -161,15 +161,15 @@ Aşağıdaki bölümde, tüm olası hataları ve ilgili açıklamalarını kapsa
 |75011|Kullanıcının hizmette kimlik doğrulaması yaparken kullandığı kimlik doğrulama yöntemi, istenen kimlik doğrulama yöntemi ile eşleşmiyor. Uygulama sahibine başvurun|
 |75016|SAML2 Kimlik Doğrulama İsteği geçersiz NameIdPolicy değerine sahip. Uygulama sahibine başvurun|
 |80001|Kimlik Doğrulama Aracısı Active Directory'ye bağlanamadı. Kimlik doğrulama aracısının, kullanıcının oturum açma isteğine hizmet edebilen bir CD ile görüş hattı olan, etki alanına katılmış bir makinede yüklü olduğundan emin olun.|
-|80002|İç hata. Parola doğrulama isteği zaman aşımına uğradı. İç Karma Kimlik Hizmeti’ne kimlik doğrulama isteği gönderemedik. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](active-directory-troubleshooting-support-howto.md)|
-|80003|Kimlik Doğrulama Aracısı tarafından geçersiz yanıt alındı. Şirket içi Active Directory ile kimlik doğrulaması denenirken bilinmeyen bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](active-directory-troubleshooting-support-howto.md).|
-|80005|Kimlik Doğrulama Aracısı: Kimlik Doğrulama Aracısının yanıtı işlenirken bilinmeyen bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](active-directory-troubleshooting-support-howto.md).|
+|80002|İç hata. Parola doğrulama isteği zaman aşımına uğradı. İç Karma Kimlik Hizmeti’ne kimlik doğrulama isteği gönderemedik. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md)|
+|80003|Kimlik Doğrulama Aracısı tarafından geçersiz yanıt alındı. Şirket içi Active Directory ile kimlik doğrulaması denenirken bilinmeyen bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md).|
+|80005|Kimlik Doğrulama Aracısı: Kimlik Doğrulama Aracısının yanıtı işlenirken bilinmeyen bir hata oluştu. Hata hakkında daha fazla bilgi almak için [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |80007|Kimlik Doğrulama Aracısı kullanıcının parolasını doğrulayamıyor.|
 |80010|Kimlik Doğrulama Aracısı parolanın şifresini çözemedi. |
 |80011|Kimlik Doğrulama Aracısı şifreleme anahtarını alamıyor.|
 |80012|Kullanıcılar izin verilen saatlerin (AD’de belirtilmiştir) dışında oturum açmayı denedi|
 |80013|Kimlik doğrulama aracısını ve AD’yi çalıştıran makineler arasındaki zaman dengesizliği nedeniyle kimlik doğrulaması girişimi tamamlanamadı. Zaman eşitleme sorunlarını düzeltin|
-|80014|Kimlik doğrulama aracısı zaman aşımına uğradı. Bu hata hakkında daha fazla bilgi almak için hata kodu, bağıntı kimliği ve Tarih saat ile [bir destek bileti açın](active-directory-troubleshooting-support-howto.md)|
+|80014|Kimlik doğrulama aracısı zaman aşımına uğradı. Bu hata hakkında daha fazla bilgi almak için hata kodu, bağıntı kimliği ve Tarih saat ile [bir destek bileti açın](fundamentals/active-directory-troubleshooting-support-howto.md)|
 |81001|Kullanıcının Kerberos anahtarı fazla büyük. Bu durum, kullanıcı çok fazla grupta ise ve sonuç olarak Kerberos bileti çok fazla grup üyeliği içeriyorsa gerçekleşebilir. Kullanıcının grup üyeliklerini azaltın ve yeniden deneyin.|
 |81005|Kimlik Doğrulaması Paketi Desteklenmiyor|
 |81007|Kiracı Sorunsuz SSO için etkinleştirilmedi|

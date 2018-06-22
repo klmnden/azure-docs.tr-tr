@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: iainfou
 ms.custom: include file
-ms.openlocfilehash: 08b0cd35294a6cd4086fd5640b09d944ed361c41
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba7a13a94d01de9d284282cbed25c873778e46e0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367139"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309571"
 ---
 Bu makalede ölçeklenebilirlik, kullanılabilirlik, yönetilebilirlik ve güvenliğe dikkat edilerek Azure’da Linux sanal makinesi (VM) çalıştırmak için işe yaradığı kanıtlanmış bir dizi uygulama açıklanır. Azure’da CentOS, Debian, Red Hat Enterprise, Ubuntu ve FreeBSD dahil olmak üzere çeşitli popüler Linux dağıtımlarını çalıştırma desteklenir. Daha fazla bilgi edinmek için bkz. [Azure ve Linux][azure-linux].
 
@@ -139,7 +139,7 @@ Sanal makineyi serbest bırakmak için aşağıdaki CLI komutunu kullanın:
 azure vm deallocate <resource-group> <vm-name>
 ```
 
-Azure portalındaki **Durdur** düğmesi sanal makineyi serbest bırakır. Bununla birlikte, sanal makineyi oturumunuz açıkken işletim sistemi aracılığıyla kapatırsanız sanal makine durdurulmasına rağmen *serbest bırakılmaz* ve bu nedenle ücretlendirilmeye devam edersiniz.
+Azure portalındaki **Durdur** düğmesi sanal makineyi serbest bırakır. Ancak, VM oturum açtıktan sonra işletim sistemi aracılığıyla kapatmak, durduruldu ancak *değil* hala ücret şekilde, serbest bırakıldı.
 
 **Sanal makineyi silme.** Bir sanal makineyi silerseniz VHD’ler silinmez. Bu, sanal makineyi verileri kaybetmeden güvenli bir şekilde silebileceğiniz anlamına gelir. Ancak, depolama ücretlendirilmeye devam edersiniz. VHD’yi silmek için dosyayı [Blob depolamadan][blob-storage] silin.
 

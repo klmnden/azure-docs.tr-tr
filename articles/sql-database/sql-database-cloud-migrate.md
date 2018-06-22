@@ -10,12 +10,12 @@ ms.custom: migrate
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 73f7c9ae9a3badd9d9dc3628145132238c8670d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9acff6f2b3e668707a6ef4cc3c736ebd28b4d3a
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645931"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309390"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL veritabanı için SQL Server veritabanı geçirme
 
@@ -64,7 +64,7 @@ Geçiş tamamlandıktan sonra tam tarama ile [istatistikleri güncelleştirin](h
 
 ### <a name="method-2-use-transactional-replication"></a>Yöntem 2: İşlem Çoğaltma Kullanma
 
-Geçiş gerçekleşirken SQL Server veritabanınızı üretimden kaldırmak kabul edilebilir bir durum değilse, geçiş çözümü olarak SQL Server işlem çoğaltmayı kullanabilirsiniz. Bu yöntemi kullanmak için, kaynak veritabanının [işlem çoğaltma gereksinimlerini](https://msdn.microsoft.com/library/mt589530.aspx) karşılaması ve Azure SQL Veritabanı ile uyumlu olması gerekir. AlwaysOn SQL çoğaltma hakkında daha fazla bilgi için bkz: [Always On kullanılabilirlik grupları (SQL Server) için çoğaltma yapılandırma](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
+Geçiş gerçekleşirken SQL Server veritabanınızı üretimden kaldırmak kabul edilebilir bir durum değilse, geçiş çözümü olarak SQL Server işlem çoğaltmayı kullanabilirsiniz. Bu yöntemi kullanmak için, kaynak veritabanının [işlem çoğaltma gereksinimlerini](https://msdn.microsoft.com/library/mt589530.aspx) karşılaması ve Azure SQL Veritabanı ile uyumlu olması gerekir. Her zaman açık SQL çoğaltma hakkında daha fazla bilgi için bkz: [Always On kullanılabilirlik grupları (SQL Server) için çoğaltma yapılandırma](/sql/database-engine/availability-groups/windows/configure-replication-for-always-on-availability-groups-sql-server).
 
 Bu çözümü kullanmak için, Azure SQL Veritabanınızı, geçirmek istediğiniz SQL Server örneğine abone olacak şekilde yapılandırabilirsiniz. Yeni işlemler gerçekleşmeye devam ederken, işlem çoğaltma dağıtıcısı, veritabanındaki eşitlenecek verileri eşitler (yayımcı). 
 

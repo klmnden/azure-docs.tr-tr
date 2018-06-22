@@ -1,6 +1,6 @@
 #### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
 
-1.  Microsoft hesabı kimlik bilgilerinizi, Azure portalında şu URL oturum açtığı kullanarak: <https://portal.azure.com/>. Kamu portal cihazı dağıtma, oturum açın: <https://portal.azure.us/>
+1.  Microsoft hesabı kimlik bilgilerinizi kullanarak Azure portalında şu URL için oturum açın: <https://portal.azure.com/>. Kamu portal cihazı dağıtma, adresinde oturum açın: <https://portal.azure.us/>
 
 2.  Azure portalında tıklatın **+ kaynak oluşturma** &gt; **depolama** &gt; **StorSimple sanal serisi**.
 

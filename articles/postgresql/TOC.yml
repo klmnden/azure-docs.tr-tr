@@ -169,5 +169,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: Müşteri hikayeleri
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
+    - name: İş Ortakları
+      href: partners-migration-postgresql.md
     - name: Veritabanı Geçiş Kılavuzu
       href: 'https://datamigration.microsoft.com/'

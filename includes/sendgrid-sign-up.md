@@ -1,7 +1,7 @@
 Azure müşterileri her ay 25.000 ücretsiz e-postanın kilidini açabilir. Bu aylık 25.000 ücretsiz e-posta sayesinde gelişmiş raporlama ve analitiklerin yanı sıra [tüm API'lere][all APIs] (Web, SMTP, Olay, Ayrıştırma ve diğerleri) erişebilirsiniz. SendGrid tarafından sağlanan ek hizmetler hakkında bilgi için [SendGrid Solutions][SendGrid Solutions] sayfasını ziyaret edin.
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>SendGrid hesabı açmak için
-1. Oturum [Azure portal][Azure portal].
+1. [Azure portalında][Azure portal] oturum açın.
 2. Soldaki menüde tıklatın **kaynak oluşturma**.
 
     ![komut-çubuğu-yeni][command-bar-new]

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371278"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313522"
 ---
 Başlattığınızda veya bir Azure sanal makine (VM) üzerinde çalışan bir uygulamaya Bağlan çeşitli nedenleri vardır. Çalışmıyor uygulama nedenleri veya beklenen bağlantı noktalarında dinleme, engellenen dinleme bağlantı noktası veya ağ doğru uygulamaya geçirme trafiği kuralları. Bu makalede bulmak ve sorunu düzeltmek için sistemli bir yaklaşım açıklanmaktadır.
 
@@ -32,7 +32,7 @@ Bir uygulamaya bağlantı sorunlarınız varsa, aşağıdaki genel sorun giderme
 
 * Sanal makineyi yeniden başlatın
 * Uç nokta yeniden / kuralları güvenlik duvarı / ağ güvenlik grubu (NSG) kuralları
-  * [Resource Manager modeli - ağ güvenlik gruplarını yönetme](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager modeli - ağ güvenlik gruplarını yönetme](../articles/virtual-network/manage-network-security-group.md)
   * [Klasik model - Cloud Services'ı Yönet uç noktaları](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * Farklı bir Azure sanal ağı gibi farklı bir konumdan bağlanma
 * Sanal makineyi yeniden dağıtın
@@ -93,7 +93,7 @@ Uygulama erişemiyorsanız, aşağıdaki ayarları doğrulayın:
 * Yetkisiz erişim algılama ya da ağ izleme hedef VM çalıştıran yazılım trafiğe izin verdiğinden.
 * Bulut Hizmetleri uç noktaları veya ağ güvenlik grupları trafiğe izin:
   * [Klasik model - Cloud Services'ı Yönet uç noktaları](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager modeli - ağ güvenlik gruplarını yönetme](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager modeli - ağ güvenlik gruplarını yönetme](../articles/virtual-network/manage-network-security-group.md)
 * VM'nizi yolundaki arasında test VM ve yük dengeleyici veya güvenlik duvarı gibi VM çalıştıran ayrı bir bileşen trafiğe izin verdiğinden.
 
 Bir Windows tabanlı sanal makinede güvenlik duvarı kuralları, uygulamanızın gelen ve giden trafik hariç olup olmadığını belirlemek için Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı'nı kullanın.

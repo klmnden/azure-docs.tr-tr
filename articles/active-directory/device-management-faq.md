@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4358b57284721642957d56ad8cfeea2b0f53fd89
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309865"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory cihaz yönetimi ile ilgili SSS
 
@@ -42,7 +44,7 @@ ms.lasthandoff: 04/16/2018
 **S: son cihazın kayıtlı. Azure portalında kullanıcı bilgilerimi altında aygıt neden göremiyorum?**
 
 **Y:** karma Azure AD alanına katılmış Windows 10 cihazları gösterme kullanıcı aygıtları altında.
-Tüm aygıtları görmek için PowerShell kullanmanız gerekir. 
+Tüm aygıtlar görünümü Azure portalında kullanmanız gerekir. PowerShell de kullanabilirsiniz [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
 
 Yalnızca aşağıdaki cihazları kullanıcı aygıtları altında listelenmiştir:
 
@@ -50,25 +52,24 @@ Yalnızca aşağıdaki cihazları kullanıcı aygıtları altında listelenmişt
 - Tüm Windows 10 olmayan / Windows Server 2016 aygıtlar.
 - Tüm Windows dışı cihazlar 
 
----
-
-**Neden Azure portalında Azure Active Directory'de kayıtlı tüm cihazları görebilirim değil mi?** 
-
-**Y:** artık bunları tüm aygıtları menüsü -> Azure AD dizini altında görebilirsiniz. Azure PowerShell, tüm aygıtları bulmak için de kullanabilirsiniz. Daha fazla ayrıntı için bkz: [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet'i.
-
 --- 
 
 **S: istemci cihaz kayıt durumu nedir nasıl biliyor musunuz?**
 
-**Y:** Windows 10 ve Windows Server 2016 veya üzeri cihazlar için dsregcmd.exe/Status çalıştırın.
+**Y:** Azure portalı, tüm aygıtlar için Git ve kullanabileceğiniz cihaz kimliğini kullanarak aygıt için arama Birleştirme türü sütunu altında değerini denetleyin.
 
-Alt düzey işletim sistemi sürümleri için "%programFiles%\Microsoft çalışma alanına Join\autoworkplace.exe" Çalıştır
+Kayıtlı bir cihaza yerel aygıt kaydı durumundan denetlemek istiyorsanız:
+
+- Windows 10 ve Windows Server 2016 veya üzeri cihazlar için dsregcmd.exe/Status çalıştırın.
+- Alt düzey işletim sistemi sürümleri için "%programFiles%\Microsoft çalışma alanına Join\autoworkplace.exe" Çalıştır
 
 ---
 
-**Bir aygıt neden olduğundan Azure portalında silinmiş ya da Windows PowerShell kullanarak hala listelenen kayıtlı olarak?**
+**S: Azure portalında silinmiş veya cihazda Windows PowerShell, ancak yerel durumu kullanma hala kaydedildiğini belirten?**
 
-**Y:** bu tasarım gereğidir. Cihazın kaynaklara bulutta erişimi. İşlemi el ile yeniden yeniden kaydetmek istiyorsanız, cihaz üzerinde gerçekleştirilecek olmalıdır. 
+**Y:** bu tasarım gereğidir. Cihazın kaynaklara bulutta erişimi. 
+
+İşlemi el ile yeniden yeniden kaydetmek istiyorsanız, cihaz üzerinde gerçekleştirilecek olmalıdır. 
 
 Windows 10 ve Windows Server 2016'de, olan birleşim durumundan temizlemek için AD etki alanına katılmış şirket içi:
 
@@ -83,6 +84,13 @@ Windows 10 ve Windows Server 2016'de, olan birleşim durumundan temizlemek için
 1.  Komut istemini yönetici olarak açın.
 2.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` yazın.
 3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` yazın.
+
+---
+** S: Nasıl t bir Azure AD katılmış aygıt yerel cihazda ayrılma?
+**A:** 
+- Karma Azure AD alanına katılmış cihazlar için zamanlanmış bir görev aygıta yeniden kayıt için otomatik kayıtlarını devre dışı bırakmak üzere emin olun. Ardından, açık komut istemini bir yönetici ve türü `dsregcmd.exe /debug /leave`. Alternatif olarak, bu komutu bir komut dosyası olarak toplu olarak ayrılma birden çok aygıt üzerinden çalıştırılabilir.
+
+- Saf Azure AD katılmış için aygıtlar, tüm Azure AD kullanıcı kimlik bilgileriyle oturum açamazsınız gibi hesap veya bir oluşturma çevrimdışı bir yerel yönetici sağladığınızdan emin olun. Ardından, Git **ayarları** > **hesapları** > **erişim iş veya Okul**. Hesabınızı seçin ve tıklayın **Bağlantıyı Kes**. Komut istemlerini izleyin ve istendiğinde yerel yönetici kimlik bilgilerini sağlayın. Cihaz ayrılma işlemini tamamlamak için yeniden başlatın.
 
 ---
 
@@ -117,7 +125,7 @@ Windows 10 ve Windows Server 2016'de, olan birleşim durumundan temizlemek için
 ---
 
 
-**S: Azure portalında kullanıcı bilgileri altında cihaz kaydı görebilir ve istemcide kayıtlı olarak durumunu görebilirsiniz. Koşullu erişim kullanarak ayarlarım doğru miyim?**
+**S: Azure portalında kullanıcı bilgileri altında cihaz kaydı görebilir ve cihazda kayıtlı olarak durumunu görebilirsiniz. Koşullu erişim kullanarak ayarlarım doğru miyim?**
 
 **Y:** DeviceID tarafından yansıtılan aygıt birleşim durumu üzerinde Azure AD ile eşleşen ve koşullu erişim için herhangi bir değerlendirme ölçütleri karşılayan gerekir. Daha fazla ayrıntı için bkz: [Azure Active Directory cihaz kaydı ile çalışmaya başlama](active-directory-device-registration.md).
 
@@ -135,6 +143,8 @@ Windows 10 ve Windows Server 2016'de, olan birleşim durumundan temizlemek için
 
 - Federasyon oturumları bir WS-Trust etkin uç noktası desteklemek için Federasyon sunucusu gerektirir. 
 
+- Kimlik doğrulama geçiş etkinleştirdiyseniz ve kullanıcının oturum açma özelliğini değiştirilmesi gereken geçici bir parola.
+
 ---
 
 **S: görmemin nedeni "... Oops bir hata oluştu!" Azure AD yapmak çalıştığınızda iletişim katılma Bilgisayarımda?**
@@ -145,7 +155,7 @@ Windows 10 ve Windows Server 2016'de, olan birleşim durumundan temizlemek için
 
 **Neden hata bilgilerini almadım rağmen bir PC katılmaya my girişimi başarısız oldu?**
 
-**Y:** kullanıcının aygıtına yerleşik yönetici hesabı kullanarak açanlar bir nedeni olması. Lütfen farklı bir yerel hesap Azure Active Directory katılım Kurulumu tamamlamak için kullanmadan önce oluşturun. 
+**Y:** kullanıcı cihazda yerel yerleşik yönetici hesabı kullanarak oturum, olası bir nedeni olmamasıdır. Lütfen farklı bir yerel hesap Azure Active Directory katılım Kurulumu tamamlamak için kullanmadan önce oluşturun. 
 
 ---
 

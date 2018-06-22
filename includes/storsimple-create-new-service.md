@@ -2,7 +2,7 @@
 
 
 #### <a name="to-create-a-new-service"></a>Yeni hizmet oluşturmak için
-1. Microsoft hesabı kimlik bilgilerinizi, Azure Klasik portalında şu URL oturum açtığı kullanarak: [ https://manage.windowsazure.com/ ](https://manage.windowsazure.com/).
+1. Microsoft hesabı kimlik bilgilerinizi kullanarak, bu URL'de Klasik Azure portalında oturum açın: [ https://manage.windowsazure.com/ ](https://manage.windowsazure.com/).
 2. Klasik Azure portalında **Yeni** > **Veri Hizmetleri** > **StorSimple Yöneticisi** > **Hızlı Oluştur**’a tıklayın.
 3. Görüntülenen formda şunları yapın:
    

@@ -14,7 +14,7 @@ Azure Portal’ı veya Azure CLI 2.0’ı kullanarak bir DC/OS, Docker Swarm vey
 
 ## <a name="scale-with-the-azure-cli-20"></a>Azure CLI 2.0 ile ölçeklendirme
 
-Azure CLI 2.0’ın en son sürümünü [yüklediğinizden](/cli/azure/install-az-cli2) ve bir azure hesabında (`az login`) oturum açtığınızdan emin olun.
+Olduğundan emin olun, [yüklü](/cli/azure/install-az-cli2) 2.0 ve oturum açmış olan bir Azure hesabı için en son Azure CLI (`az login`).
 
 ### <a name="see-the-current-agent-count"></a>Geçerli aracı sayısını görme
 Şu anda kümedeki aracıları sayısını görmek için `az acs show` komutunu çalıştırın. Bunu yaptığınızda küme yapılandırması gösterilir. Örneğin, aşağıdaki komut `myResourceGroup` kaynak grubundaki `containerservice-myACSName` adlı kapsayıcı hizmetinin yapılandırmasını gösterir:

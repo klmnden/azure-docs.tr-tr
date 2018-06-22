@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: cshoe
 ms.custom: include file
-ms.openlocfilehash: 3d85208096b1300904e1cc1f59c45dd4dd5713a3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6a0ded137162328fd446b65ddb4a15fa6f1db88
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34684430"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313889"
 ---
 ## <a name="deleting-personal-information"></a>Kişisel bilgiler siliniyor
 
@@ -40,7 +40,7 @@ Kişisel iletişim bilgilerinizin aşağıdaki yollarla silinmiş:
 - İşin kaydedilen verilerin işlemiyle silinir. Kullanıcılar işlerini el ile silebilir ve tamamlanan işler 90 gün sonra otomatik olarak silinir. İşlerini REST API veya Azure Portalı aracılığıyla el ile silebilirsiniz. Azure portalında işi silmek için içeri/dışarı aktarma iş'e gidin ve tıklatın *silmek* komut çubuğundan. İçeri/dışarı aktarma işini REST API aracılığıyla silme hakkında ayrıntılar için başvurmak [içeri/dışarı aktarma işini silmek](../articles/storage/common/storage-import-export-cancelling-and-deleting-jobs.md).
 
 - Portal ayarlarını silerek portal ayarlarında kaydedilmiş kişi bilgileri kaldırılmış olabilir. Aşağıdaki adımları izleyerek portal ayarları silebilirsiniz:
-  - [Azure Portal](https://portal.azure.com)’da oturum açın.
+  - [Azure Portal](https://portal.azure.com) oturum açın.
   - Tıklayın *ayarları* simgesi ![Azure ayarları simgesi](media/storage-import-export-delete-personal-info/azure-settings-icon.png)
   - Tıklatın *tüm ayarları dışarı* (geçerli ayarlarınızı kaydetmek için bir `.json` dosyası).
   - Tıklatın *tüm ayarları ve özel panolar silmek* kaydedilen kişi bilgileri de dahil olmak üzere tüm ayarlar silinecek.

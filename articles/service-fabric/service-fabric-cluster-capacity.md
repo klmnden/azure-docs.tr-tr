@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: 78cff3ba5bd2f8bc80f302a232e45864159ca88f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641892"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309425"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlama konuları
 Her üretim dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak göz önünde bulundurmanız gereken öğelerin bazıları aşağıda verilmiştir.
@@ -46,6 +46,8 @@ Kümenizi ile başlatmak için gereken düğüm türleri sayısı kurun.  Her d�
 Her düğüm ayrı ölçeği ayarlamak ve ölçeklendirilebilir veya Aşağı bağımsız olarak, farklı bağlantı noktalarının açık yoksa ve farklı kapasite ölçümlerini türüdür. Düğüm türleri ve sanal makine ölçek kümeleri arasındaki ilişkileri hakkında daha fazla bilgi için örneklerden birini rdp'ye yeni açmak nasıl bağlantı noktaları ve nasıl vb. bkz [Service Fabric kümesi düğüm türleri](service-fabric-cluster-nodetypes.md).
 
 Service Fabric kümesi birden fazla düğüm türü oluşabilir. Bu olay tek bir birincil düğüm türü küme oluşur ve bir veya daha fazla birincil olmayan düğüm türleri.
+
+Tek düğüm türü yalnızca 100 sanal makine ölçek kümesi başına en fazla düğüm aşamaz. Sanal makine ölçek ayarlar hedeflenen ölçeği elde etmek için ve otomatik ölçeklendirme olamaz automagically eklemeniz gerekebilir sanal makine ölçek kümeleri ekleyin. Sanal makine ölçek yerinde ayarlar ekleme dinamik bir kümeye bir görevdir ve yaygın olarak bu yeni küme oluşturma sırasında sağlanan uygun düğümü türleriyle sağlama kullanıcılar sonuçlanır. 
 
 ### <a name="primary-node-type"></a>Birincil düğüm türü
 
@@ -188,7 +190,7 @@ Bu kılavuz, birincil olmayan nodetype üzerinde çalışan durum bilgisiz iş y
 
 **VM örneği sayısı:** durum bilgisiz üretim iş yükleri için en düşük desteklenen olmayan birincil düğüm türü boyutu 2'dir. Bu, uygulamanızı ve hizmetinizi vererek VM örneği kaybı varlığını sürdürmesi için iki durum bilgisiz örneklerini çalıştırmanıza olanak sağlar. 
 
-**VM SKU:** VM SKU onun için seçtiğiniz planladığınız her düğüm yerleştirilecek yoğun yük dikkate gerekir böylece bu düğüm uygulama hizmetlerinizi burada çalıştırıyorsanız, türüdür. Nodetype kapasite ihtiyaçlarını, biz, ancak İşte yardımcı olmak için geniş Kılavuzu, belirli iş yükü için nitel Kılavuzu ile çalışmaya başlama sağlayamaz böylece kümedeki çalıştırmayı planladığınız iş yükü tarafından belirlenir
+**VM SKU:** VM SKU onun için seçtiğiniz planladığınız her düğüm yerleştirilecek yoğun yük dikkate gerekir böylece bu düğüm uygulama hizmetlerinizi burada çalıştırıyorsanız, türüdür. Düğüm türü Kapasite ihtiyaçlarını, biz, ancak İşte yardımcı olmak için geniş Kılavuzu, belirli iş yükü için nitel Kılavuzu ile çalışmaya başlama sağlayamaz böylece kümedeki çalıştırmayı planladığınız iş yükü tarafından belirlenir
 
 Üretim iş yükleri için 
 

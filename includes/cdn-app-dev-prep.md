@@ -5,9 +5,9 @@ CDN yönetim kod yazmadan önce Azure Kaynak Yöneticisi ile etkileşim kurmak i
 * Uygulaması için kimlik doğrulaması sağlamak için Azure Active Directory yapılandırma
 * Böylece yalnızca yetkili kullanıcıların Azure AD kiracınız CDN profili ile etkileşim kurabilir kaynak grubu için izinleri uygula
 
-### <a name="creating-the-resource-group"></a>Kaynak grubu oluşturma
-1. İçine oturum [Azure Portal](https://portal.azure.com).
-2. Tıklatın **kaynak oluşturma**.
+### <a name="creating-the-resource-group"></a>Kaynak grubunu oluşturma
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+2. **Kaynak oluştur**’a tıklayın.
 3. Arama **kaynak grubu** ve kaynak grubu bölmesinde **oluşturma**.
 
     ![Yeni bir kaynak grubu oluşturma](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)

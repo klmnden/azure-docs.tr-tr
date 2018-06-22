@@ -7,14 +7,14 @@ manager: carmonm
 keywords: yedeklemeleri; Yedekleme;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/1/2018
+ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5aa07d7861413fa0ddc0d5af7aefe828df412b4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606645"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309155"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager ile dağıtılan sanal makineleri yedeklemek için ortamınızı hazırlama
 
@@ -34,11 +34,14 @@ Koruma (veya yedekleme önce) bir Resource Manager tarafından dağıtılan sana
 Bu koşullar, ortamınızda zaten mevcutsa devam [, Vm'leri yedekleme](backup-azure-arm-vms.md) makalesi. Ayarlayın veya bu Önkoşullar hiçbirini denetleyin ihtiyacınız varsa, bu makalede adımlarında size yol gösterir.
 
 ## <a name="supported-operating-systems-for-backup"></a>Yedekleme için desteklenen işletim sistemleri
- * **Linux**: Azure Backup destekleyen [Azure Symantec'in dağıtımları listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), hariç CoreOS Linux. 
- 
+
+ * **Linux**: Azure Backup destekleyen [Azure Symantec'in dağıtımları listesini](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), hariç CoreOS Linux. Dosyaları geri yükleme desteği Linux işletim sistemlerinin listesi için bkz [dosyaları sanal makine yedeklemeden kurtarmak](backup-azure-restore-files-from-vm.md#for-linux).
+
     > [!NOTE] 
     > Diğer Getir-bilgisayarınızı-kendi-Linux dağıtımları VM aracısının sanal makinede kullanılabilir olduğu sürece, iş ve Python var. desteği. Ancak, bu dağıtımları desteklenmez.
- * **Windows Server**:  Windows Server 2008 R2’den eski sürümler desteklenmez.
+    >
+ * **Windows Server**, **Windows İstemcisi**: Windows Server 2008 R2 veya Windows 7 ' daha eski sürümleri desteklenmez.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>Yedekleme ve geri yükleme VM sınırlamaları
 Ortamınızı hazırlama önce sınırlamalara anladığınızdan emin olun:

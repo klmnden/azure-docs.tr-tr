@@ -356,6 +356,8 @@
           href: monitor-visually.md
         - name: Azure İzleyici ile izleme
           href: monitor-using-azure-monitor.md
+        - name: OMS ile izleme
+          href: data-factory-monitor-oms.md
         - name: SDK’lar ile izleme
           href: monitor-programmatically.md
         - name: Tümleştirme çalışma zamanını izleme

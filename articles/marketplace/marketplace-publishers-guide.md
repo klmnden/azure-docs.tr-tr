@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823393"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309240"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Market ve AppSource yayımcı Kılavuzu  
 
@@ -118,7 +118,7 @@ Her mağaza yayımlama yatırımınızı en üst düzeye çıkarmanıza yardımc
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>Markette vitrinlerde Yayımlama  
-Aşağıdaki bölümlerde AppSource ve Azure Marketi'nde yayımlama seçeneklerini gezinmenize yardımcı olur.  
+Aşağıdaki sayfalarda AppSource ve Azure Marketi'nde yayımlama seçeneklerini gezinmenize yardımcı olur.  
 
 Üç kolay adımı Market'te veriş Publisher'da haline gelir.  
 1.  Ziyaret [listeleme türü için bilgisayarınızı çözümü belirlemek](./determine-your-listing-type.md) sayfası.  
@@ -135,7 +135,6 @@ Aşağıdaki bölümlerde AppSource ve Azure Marketi'nde yayımlama seçenekleri
 ---  
 
 ## <a name="support"></a>Destek  
-
 *   Ziyaret [AppSource desteği](./support-appsource.md) sayfası.  
 *   Ziyaret [Azure Marketi desteği](./support-azure-marketplace.md) sayfası.  
 
@@ -147,6 +146,7 @@ Aşağıdaki bölümlerde AppSource ve Azure Marketi'nde yayımlama seçenekleri
 
 ## <a name="guidelines"></a>Yönergeler  
 *   Ziyaret [yönergeleri](./guidelines.md) sayfası.  
+    *   Ziyaret [Market hesabını yönetmek için a Microsoft ID oluşturma yönergeleri](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) bölümü.  
 *   Ziyaret [kaydetmek geliştirme Merkezi'nde](./register-dev-center.md) sayfası.  
 *   Ziyaret [Ekle banka ve vergi bilgilerini](./add-bank-tax-info.md) sayfası.  
 *   Ziyaret [Azure AD kullanarak deneme etkinleştirmek](./enable-trial-using-azure-ad.md) sayfası.  

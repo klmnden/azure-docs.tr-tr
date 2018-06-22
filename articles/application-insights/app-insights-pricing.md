@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 04/02/2018
+ms.topic: conceptual
+ms.reviewer: Dale.Koetke
+ms.date: 06/21/2018
 ms.author: mbullwin
-ms.openlocfilehash: 22c8616c1585e3f728a03a794c527cb34fc0c4eb
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: a401bc3ed68dc9273ac14cfd357b9c05111dd54c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309858"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Application Insights fiyatlandırma ve veri biriminde yönetme
 
@@ -88,7 +90,7 @@ Verilerin hacmi üç şekilde sınırlıdır:
 
     Günlük sınır ayarlarken dikkatli olun. Maksadınızı olmalıdır *hiç günlük ucun isabet*. Günlük sınır isabet durumunda geri kalanı gün için veri kaybına ve uygulamanızı izleyemez. Günlük cap değiştirmek için kullanmak **günlük birimi cap** seçeneği. Bu seçenek erişebilirsiniz **kullanım ve tahmini maliyetleri** bölmesinde (Bu açıklanan makalenin ilerleyen bölümlerinde daha ayrıntılı).
     Kısıtlama için Application Insights kullanılamadı alacak bazı abonelik türlerinde kaldırdık. Daha önce abonelik bir harcama sınırı varsa, günlük sınır iletişim harcama sınırını kaldırmak ve 32.3 MB/gün çıkarılmasına günlük ucun etkinleştirmek için yönergeler vardır.
-* **Azaltma**: azaltma sınırları 32.000 olayları saniye başına veri hızı ortalaması 1 dakika içinde.
+* **Azaltma**: azaltma sınırları 32.000 olayları saniye başına veri hızı ortalaması izleme anahtarını başına 1 dakika içinde.
 
 *Uygulamam azaltma oranı aşarsa ne olur?*
 

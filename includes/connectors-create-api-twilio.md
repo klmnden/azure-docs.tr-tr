@@ -1,4 +1,4 @@
-### <a name="prerequisites"></a>Ön koşullar
+### <a name="prerequisites"></a>Önkoşullar
 * Twilio hesabı
 * SMS alabileceği bir doğrulanmış Twilio telefon numarası
 * SMS gönderebilen bir doğrulanmış Twilio telefon numarası
@@ -16,9 +16,9 @@ Mantıksal uygulamanızı Twilio hesabınıza bağlanmak için yetki vermek içi
    ![](./media/connectors-create-api-twilio/twilio-0.png)
 2. Twilio önce bağlantılarına oluşturmadıysanız, Twilio kimlik bilgilerinizi girmeniz istendiğinde şunu. Bu kimlik bilgileri bağlanmak için mantıksal uygulamanızı yetkilendirmek için kullanılır ve Twilio hesabınızın veri erişim:  
    ![](./media/connectors-create-api-twilio/twilio-1.png)  
-3. İhtiyacınız vardır **Twilio hesap kimliği** ve **Twilio erişim belirteci** Twilio içinde panodan şekilde bu iki parça bilgi şablonlarınızdan Twilio hesabınıza şimdi oturum açın:  
+3. İhtiyacınız vardır **Twilio hesap kimliği** ve **Twilio erişim belirteci** Twilio içinde panodan şekilde Twilio hesabınıza şimdi bu iki parça bilgi edinmek oturum açın:  
    ![](./media/connectors-create-api-twilio/twilio-2.png)  
-4. Twilio ve Logic apps farklı adlar iki bu bilgilerin tanımlamak için kullanın. İşte nasıl bunları Logic apps iletişim kutusuna eşlemeniz gerekir:![](./media/connectors-create-api-twilio/twilio-3.png)  
+4. Twilio ve Logic apps farklı adlar iki bu bilgilerin tanımlamak için kullanın. İşte nasıl bunları Logic apps iletişim kutusuna eşlemeniz gerekir: ![](./media/connectors-create-api-twilio/twilio-3.png)  
 5. Seçin **bağlantı oluşturmak** düğmesi:  
    ![](./media/connectors-create-api-twilio/twilio-4.png)
 6. Bağlantı oluşturuldu ve artık bir mantıksal uygulamanızı adımlarda yüklemeye devam etmek ücretsiz dikkat edin:  

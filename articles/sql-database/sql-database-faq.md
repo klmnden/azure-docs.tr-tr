@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 9bb79a2054a0e51ce435f51a52f964062427cea4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648005"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309138"
 ---
 # <a name="sql-database-faq"></a>SQL Veritabanı SSS
 
@@ -24,9 +24,9 @@ Geçerli SQL veritabanı V12 sürümüdür. Sürüm V11 devre dışı bırakılm
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL veritabanı için SLA nedir?
 Süre en az % 99,99 garanti ediyoruz, bağlantı, Microsoft Azure SQL veritabanı ve bizim Internet ağ geçidi arasında bağımsız olarak, hizmet katmanı gerekir. Daha fazla bilgi için bkz: [SLA](http://azure.microsoft.com/support/legal/sla/).
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Yeni vCore tabanlı satın alma modeli (Önizleme) Azure SQL veritabanı için Whatis?
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Yeni vCore tabanlı satın alma modeli (Önizleme) Azure SQL veritabanı için nedir?
 
-Yeni satın alma modeli varolan DTU tabanlı yanı sıra modelidir. VCore tabanlı modeli müşteriler esneklik, Denetim, saydamlık sunmak üzere tasarlanmıştır ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini. Bilgi işlem ve depolama birimine iş yükü gereksinimlerine göre müşterileri de sağlar. Tek veritabanı ve esnek havuz seçenekleri vCore modelini kullanarak da ile yüzde 30 tasarrufları uygun için yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) daha fazla bilgi için. 
+Yeni satın alma modeli, mevcut DTU temelli model üzerinde yapılan bir eklemedir. VCore tabanlı modeli müşteriler esneklik, Denetim, saydamlık sunmak üzere tasarlanmıştır ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini. Ayrıca, iş yükü gereksinimlerine göre kendi işlem ve depolama rsources ölçeklendirme yapmasını sağlar. Tek veritabanı ve esnek havuz seçenekleri vCore modelini kullanarak da ile yüzde 30 tasarrufları uygun için yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) daha fazla bilgi için. 
 
 ## <a name="what-is-a-vcore"></a>Sanal çekirdek nedir? 
 Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder. 4 mantıksal CPU dayalı gen üzerinde Intel E5-2673 v3 (Haswell) 2.4 GHz işlemci ve Gen 5 mantıksal CPU üzerinde Intel E5-2673 v4 temel alır (Broadwell) 2.3 GHz işlemci.
@@ -36,7 +36,7 @@ Hayır, giriş vCore tabanlı modelinin tek veritabanı dağıtım seçenekleri 
 
 Çoğu durumda, önceden yapılandırılmış bir paket kaynakların Basitlik uygulamalar yararlı olabilir. Bu nedenle, sunar ve bu DTU tabanlı seçenekler müşterilerimiz için destek devam ediyoruz. Bunları kullanmakta olduğunuz ve iş gereksinimlerinizi karşılayan, bunu yapmak devam etmelidir.
 
-DTU ve sanal çekirdek tabanlı modeller birlikte sunulmaya devam edecektir. Veritabanı kaynakları için daha fazla şeffaflığın yanı sıra bilgi işlemi ve depolamayı ayrı olarak ölçeklendirebilme olanağına yönelik müşteri isteklerine yanıt olarak sanal çekirdek tabanlı modeli kullanıma sunuyoruz. VCore tabanlı modeli ayrıca ek tasarruf Azure karma avantajı ile etkin Yazılım Güvencesi sahip müşteriler için SQL Server sağlar.
+DTU ve sanal çekirdek tabanlı modeller birlikte sunulmaya devam edecektir. Biz, daha fazla saydamlık veritabanı kaynaklarını ve işlem ve depolama kaynaklarını ayrı olarak ölçeklendirebilmeniz çözmek için müşteri isteklerine yanıt vCore tabanlı modelinde başlatma. VCore tabanlı modeli ayrıca ek tasarruf Azure karma avantajı ile etkin Yazılım Güvencesi sahip müşteriler için SQL Server sağlar.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>VCore tabanlı satın alma modeli (Önizleme) nasıl satın alma modeli DTU tabanlı vs arasında seçmem gerekir? 
 Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma bir ölçümüne dayalıdır. DTU tabanlı performans düzeyleri, farklı uygulama performansı düzenleri elde etmek için önceden yapılandırılmış kaynak paketlerini temsil eder. Temel alınan kaynaklar hakkında endişelenmeniz ve her ay sabit bir tutar ödeme sırasında önceden yapılandırılmış bir paketin Basitlik tercih etmek istiyor musunuz müşteriler DTU tabanlı modeli gereksinimlerine için daha uygun bulabilirsiniz. Ancak, temel alınan kaynaklara konusunda daha fazla bilgi gerekiyor ya da bunları bağımsız olarak en iyi performans elde etmek için ölçeklendirmek gereken müşteriler için vCore tabanlı modeli en iyi seçenek olacaktır.  Ayrıca, bir müşteri SQL Server için bir etkin Yazılım Güvencesi (SA) varsa, bunlar kendi varolan yatırımdan yararlanmanızı ve % 30 ile Kaydet [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Seçenekler her satın alma modeli içinde tam olarak yönetilen bir hizmet otomatik yedeklemeler, yazılım güncelleştirmelerini ve düzeltme ekleri gibi yararları sağlar. 
@@ -49,10 +49,10 @@ Veritabanı İşlem Birimi (DTU); CPU, bellek, okuma ve yazma eylemlerinin karma
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>SQL Server için Azure karma avantajı lisans taşınabilirliği nasıl farkı nedir?
-Bugün, Yazılım Güvencesi Lisansı olan SQL Server müşterileri üçüncü taraf paylaşılan sunucularına lisansları kullanımlarını yeniden atama sağlayan mobility avantajları sunuyoruz. Bu avantajı Azure Iaas ve AWS EC2 kullanılabilir.
+Bugün, lisans mobility avantajları üçüncü taraf paylaşılan sunucularına lisansları kullanımlarını yeniden atamaya izin veren Yazılım Güvencesi ile SQL Server müşterilere sunuyoruz. Bu avantajı Azure Iaas ve AWS EC2 kullanılabilir.
 SQL Server için Azure karma avantajı lisans taşınabilirliği iki anahtar alanlarda farklıdır:
 - Bu, yüksek oranda sanallaştırılmış iş yüklerini Azure'a taşımak için ekonomik avantaj sağlar. SQL EE müşteriler, 4 çekirdek alabilirsiniz şirket içi yüksek oranda sanallaştırılmış uygulamaları oldukları her çekirdek için genel amaçlı SKU azure'da. Lisans taşınabilirliği sanallaştırılmış iş yükleri buluta taşımak için hiçbir özel maliyet avantajlarını izin vermiyor.
-- SQL Server ile şirket içi – SQL veritabanı yönetilen örneği çok uyumlu Azure üzerinde bir PaaS hedef sağlar.
+- SQL Server ile şirket içi çok uyumlu Azure (SQL veritabanı yönetilen örneği) PaaS hedefte için sağlar
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server için Azure karma avantajı belirli haklar nelerdir?
 SQL veritabanı müşteriler, SQL Server için Azure karma avantajı ile ilişkili aşağıdaki haklarına sahip olur:
@@ -70,7 +70,7 @@ SQL veritabanı müşteriler, SQL Server için Azure karma avantajı ile ilişki
 İşlem maliyet uygulama için sağlanan toplam işlem kapasitesini yansıtır. İş kritik hizmet katmanında biz otomatik olarak en az 3 her zaman açık çoğaltmaları ayırır. Bu ek ayırma işlem kaynakları yansıtacak şekilde vCore fiyat yaklaşık 2.7 x kritik iş daha yüksek olur. Aynı nedenden dolayı yüksek g/ç ve düşük gecikme süresi SSD depolama alanının GB daha yüksek depolama fiyatı iş kritik katmanındaki yansıtır. Her iki durumda da biz standart depolama sınıfının kullandığından aynı anda yedekleme depolama maliyeti, farklı değildir.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Depolama - ne ı önceden yapılandırmak veya ne veritabanını kullanan temel için nasıl tahsil?
-Farklı depolama türlerini farklı faturalandırılır. Veri depolama için olması için ücretlendirilirsiniz sağlanan depolama en fazla veritabanı veya seçtiğiniz havuzu boyutuna. Azaltın veya bu maksimum artırın sürece maliyeti değiştirmez. Yedekleme alanı, örneğinizin otomatik yedekleme işlemleriyle ilişkilidir. Yedekleme saklama döneminizin artırılması, örneğiniz tarafından kullanılan yedekleme alanının artmasına neden olur. Toplam sağlanan sunucu depolama alanınızın yüzde 100’üne ulaşana kadar yedekleme alanı için ek ücret ödemezsiniz. Ek yedekleme depolama tüketiminin GB aylık ücret kesilir. Örneğin, veritabanı depolama alanınızın boyutu 100 GB’sa ek maliyet olmaksızın 100 GB yedekleme alanına sahip olursunuz. Ancak yedekleme 110 GB ise, ek 10 GB için ödeme yaparsınız.
+Farklı depolama türlerini farklı faturalandırılır. Veri depolama için seçtiğiniz en fazla veritabanı veya havuz boyutuna bağlı sağlanan depolama için ücretlendirilirsiniz. Azaltın veya bu maksimum artırın sürece maliyeti değiştirmez. Yedekleme alanı, örneğinizin otomatik yedekleme işlemleriyle ilişkilidir. Yedekleme saklama döneminizin artırılması, örneğiniz tarafından kullanılan yedekleme alanının artmasına neden olur. Toplam sağlanan sunucu depolama alanınızın yüzde 100’üne ulaşana kadar yedekleme alanı için ek ücret ödemezsiniz. Ek yedekleme depolama tüketiminin GB aylık ücret kesilir. Örneğin, veritabanı depolama alanınızın boyutu 100 GB’sa ek maliyet olmaksızın 100 GB yedekleme alanına sahip olursunuz. Ancak yedekleme 110 GB ise, ek 10 GB için ödeme yaparsınız.
 
 Tek bir veritabanı yedekleme depolaması için veritabanının boyutunu eksi veritabanı yedeklemeleri için ayrılan depolama alanı için eşit olarak bölünmüş temelinde ücretlendirilirsiniz. Bir esnek havuz Yedekleme depolaması için eşit olarak bölünmüş olarak veritabanı yedeklemeleri esnek havuz maksimum veri boyutu eksi havuzdaki tüm veritabanları için ayrılan depolama alanı için ücretlendirilirsiniz. Tüm veritabanı boyutu veya esnek havuz artış ya da işlem hızı artış daha fazla depolama alanı gerektirir ve bu nedenle Yedekleme depolaması faturanızda artırır.  Maksimum veri boyutu artırdığınızda, bu yeni tutarı faturalanan yedekleme depolama boyutu çıkarılır.
 
@@ -90,18 +90,18 @@ Evet, bağımsız olarak uygulamanız gerekir ve değişmeden depolama tutmak i�
 Yedekleme bekletme 7 ile 35 gün arasında PITR için yapılandırabilirsiniz. Yedekleme depolama maksimum veri boyutuna eşit depolama miktarını aşarsa, ayrı ayrı depolamanın tüketime dayanarak ücretlendirilir. Önizleme'de, varsayılan olarak PITR Bekletme dönemi 7 gün olarak ayarlanır. Çoğu durumda, maksimum veri boyutu 7 gün yedeklemelerini depolamak için yeterli olur.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>İşlem için donanım nesil seçimi neden verilsin mi?
-Amacımız uygulama ihtiyaçlarını yakından eşleşen bir performans yapılandırması seçebilmeleri maksimum esneklik sağlamaktır. Yukarıdaki tabloda Gen4 ve Gen5 arasındaki farklar gösterilmektedir. Özellikle, Gen4 donanım vCore başına önemli ölçüde daha fazla bellek sunar. Ancak, Gen5 donanım işlem çok daha yüksek ölçeklendirmenizi sağlar. Böylece, uygulamanız için en iyi fiyat/performans oranı elde edebilirsiniz Bu farklılıklar saydam olmak istiyoruz.
+Amacımız uygulama ihtiyaçlarını yakından eşleşen bir performans yapılandırması seçebilmeleri maksimum esneklik sağlamaktır. Yukarıdaki tabloda Gen4 ve Gen5 arasındaki farklar gösterilmektedir. Özellikle, Gen4 donanım vCore başına önemli ölçüde daha fazla bellek sunar. Ancak, Gen5 donanım kaynakları işlem çok daha yüksek ölçeklendirmenizi sağlar. Böylece, uygulamanız için en iyi fiyat/performans oranı elde edebilirsiniz Bu farklılıklar saydam olmak istiyoruz.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU tabanlı bir veritabanından bir vCore tabanlı hizmet katmanına dönüştürmek için Uygulamam çevrimdışı olması gerekiyor mu? 
-Yeni hizmet katmanları, Standard hizmet katmanından Premium hizmet katmanına ve tam tersi yönde veritabanı yükseltmesi için kullanılan mevcut işleme benzeyen basit bir çevrimiçi dönüştürme yöntemi sunar. Bu dönüştürme Portal, ARM, PowerShell, Azure CLI veya T-SQL kullanılarak başlatılabilir. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-resources.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
+Yeni hizmet katmanları, Standard hizmet katmanından Premium hizmet katmanına ve tam tersi yönde veritabanı yükseltmesi için kullanılan mevcut işleme benzeyen basit bir çevrimiçi dönüştürme yöntemi sunar. Bu dönüştürme, Azure portalını, PowerShell'i, Azure CLI, T-SQL veya REST API kullanarak başlatılabilir. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-scale.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>I bir veritabanı vCore tabanlı hizmet katmanından bir DTU tabanlı bir dönüştürebilir miyim? 
-Evet, tüm desteklenen performans hedefi portalı veya program aracılığıyla Portal, ARM, PowerShell, Azure CLI veya T-SQL kullanarak veritabanınızı kolayca dönüştürebilirsiniz. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-resources.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
+Evet, Azure portalını, PowerShell'i, Azure CLI, T-SQL veya REST API kullanarak tüm desteklenen performans hedefi veritabanınızı kolayca dönüştürebilirsiniz. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-scale.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>I yükseltebilir veya genel amaçlı ve iş kritik hizmet katmanları arasında düşürmek? 
 Evet, bazı kısıtlamalarla. Hedefinizi SKU en fazla veritabanı ya da varolan dağıtımınız için yapılandırılmış esnek havuz boyutu karşılaması gerekir. Kullanıyorsanız [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md), iş kritik SKU yalnızca Enterprise Edition lisansına sahip müşteriler için kullanılabilir. Yalnızca şirket içi Azure karma avantajı için SQL Server Enterprise Edition ile lisanslarla genel amaçlı geçirilen müşteriler için kritik iş yükseltebilirsiniz. Ayrıntılar için bkz: [SQL Server için Azure karma kullanımı avantajı belirli haklar nelerdir](../virtual-machines/windows/hybrid-use-benefit-licensing.md)?
 
-Bu dönüştürme kapalı kalma sürelerine neden değil ve Portal, ARM, PowerShell, Azure CLI veya T-SQL kullanarak başlatılabilir. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-resources.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
+Bu dönüştürme kapalı kalma sürelerine neden değil ve Azure portalını, PowerShell'i, Azure CLI, T-SQL veya REST API kullanarak başlatılabilir. Bkz: [tek veritabanlarını yönetme](sql-database-single-database-scale.md) ve [yönetmek esnek havuzlar](sql-database-elastic-pool.md).
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>Genel olarak kullanılabilir olmaz Premium RS veritabanı kullanıyorum - miyim yeni katmana yükseltin ve benzer bir fiyat/performans avantajı elde?
 VCore modeli sağlanan işlem ve depolama miktarını bağımsız denetime izin verdiğinden, Premium RS veritabanları için çekici bir hedef kolaylaştırarak sonuçta elde edilen maliyetleri daha etkili bir şekilde yönetebilirsiniz. Ayrıca, [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md) vCore tabanlı modeli kullanıldığında önemli indirim sağlar. 
@@ -193,3 +193,4 @@ Biz, birincil veritabanı ile coğrafi-ikincil bir DMV aracılığıyla arasınd
 
 ## <a name="to-move-a-database-between-subscriptions"></a>Bir veritabanını abonelikler arasında taşıma
 İçinde [Azure portal](https://portal.azure.com), tıklatın **SQL sunucuları** ve ardından listeden, veritabanını barındıran sunucuyu belirleyin. Tıklatın **taşıma**ve taşımak istediğiniz kaynakları ve taşımak için abonelik seçin.
+

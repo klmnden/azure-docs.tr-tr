@@ -12,35 +12,35 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1c7fd3ac1a4cf62dd8f909acc26615ea5f96f32c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235816"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309107"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>Çözümünüz için liste türü belirlenemiyor  
 Veriş birçok yayımlama seçeneklerini destekler: türlerini listeleme ve türleri sunar. En iyi çözüm ve hizmet ayrıntılarınızı temsil eden bir teklif türü seçin. Tüm yayımlama seçeneklerini, paylaşım sağlama için size erişim sağlar.   
 
 | Vitrin | Liste türü | Uygulama türü | Teknik yönergeleri |  
 |:--- |:--- |:--- |:--- |  
-| AppSource | [Liste](#list) | [Hizmet danışmanlık](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
-| Azure Market | [Liste](#list) | [Hizmet danışmanlık](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| Azure Market | [Liste](#list) | [Benimle iletişim](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| Azure Market | [Deneme](#trial) | [Ücretsiz deneme sürümü / SaaS deneme](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
+| AppSource | [Liste](#list) | [Hizmet danışmanlık](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| Azure Market | [Liste](#list) | [Hizmet danışmanlık](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| Azure Market | [Liste](#list) | [Benimle iletişim](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| Azure Market | [Deneme](#trial) | [Ücretsiz deneme sürümü / SaaS deneme](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
 | AppSource |  | Cortana Intelligence | [docs.microsoft.com/Azure/Machine-Learning/Team-Data-Science-Process/cortana-intelligence-appsource-Publishing-Guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 | AppSource |  |Dynamics 365 müşteri katılım için | [docs.microsoft.com/dynamics365/Customer-engagement/Developer/Publish-App-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 | AppSource |  | Dynamics 365 Finans ve işlemleri | [docs.microsoft.com/dynamics365/Unified-Operations/dev-itpro/LCS-Solutions/LCS-Solutions-App-Source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
-| Azure Market | [Deneme](#trial) | [Etkileşimli Tanıtımı](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| Azure Market | [Deneme](#trial) | [Test sürücü](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
+| Azure Market | [Deneme](#trial) | [Etkileşimli Tanıtımı](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| Azure Market | [Deneme](#trial) | [Test sürücü](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
 | AppSource |  | Office 365 | [docs.microsoft.com/Office/dev/Store/Submit-to-the-Office-Store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
-| AppSource |  | Power BI | [docs.microsoft.com/Power-bi/Developer/Office-Store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Market | [Transact](#transact) | [Azure uygulamaları: yönetilen bir uygulama](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| Azure Market | [Transact](#transact) | [Azure uygulamaları: Çözüm şablonu](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| Azure Market | [Transact](#transact) | [kapsayıcı](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| Azure Market | [Transact](#transact) | [SaaS uygulama](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| Azure Market | [Transact](#transact) | [Sanal makine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |   
+| AppSource |  | Power BI | [docs.microsoft.com/Power-bi/Developer/Office-Store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Market | [Transact](#transact) | [Azure uygulamaları: yönetilen bir uygulama](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| Azure Market | [Transact](#transact) | [Azure uygulamaları: Çözüm şablonu](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| Azure Market | [Transact](#transact) | [kapsayıcı](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| Azure Market | [Transact](#transact) | [SaaS uygulama](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| Azure Market | [Transact](#transact) | [Sanal makine](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |   
 
 ## <a name="azure-certified-program"></a>Azure Onaylandı programı  
 Tüm Azure Marketi'nde yayımlanan makineleri (VM'ler) için Azure Certified program sınanır.  
@@ -58,7 +58,7 @@ Aşağıdaki tabloda, Office, Dynamics ve Power BI genişletmek AppSource uygula
 
 | Liste türü | Uygulama türü | Teknik yönergeleri |  
 |:--- |:--- |:--- |  
-| [Liste](#list) | [Hizmet danışmanlık](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| [Liste](#list) | [Hizmet danışmanlık](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
 |  | Cortana Intelligence | [docs.microsoft.com/Azure/Machine-Learning/Team-Data-Science-Process/cortana-intelligence-appsource-Publishing-Guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 |  |Dynamics 365 müşteri katılım için | [docs.microsoft.com/dynamics365/Customer-engagement/Developer/Publish-App-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 |  | Dynamics 365 Finans ve işlemleri | [docs.microsoft.com/dynamics365/Unified-Operations/dev-itpro/LCS-Solutions/LCS-Solutions-App-Source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
@@ -68,20 +68,23 @@ Aşağıdaki tabloda, Office, Dynamics ve Power BI genişletmek AppSource uygula
 ---   
 
 ## <a name="azure-marketplace-publishing-by-product"></a>Ürüne göre Azure Marketi'nde yayımlama  
+
+![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
+
 Aşağıdaki tabloda, Azure Marketi belirli gereksinimleri hakkında daha fazla bilgi sunar sağlar.  
 
 | Liste türü | Teklif türü |  Teknik yönergeleri |  
 |:--- |:--- |:--- |  
-| [Liste](#list) | [Hizmet danışmanlık](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| [Liste](#list) | [Benimle iletişim](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| [Deneme](#trial) | [Ücretsiz deneme sürümü / SaaS deneme](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
-| [Deneme](#trial) | [Etkileşimli Tanıtımı](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| [Deneme](#trial) | [Test sürücü](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
-| [Transact](#transact) | [Azure uygulamaları: yönetilen bir uygulama](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| [Transact](#transact) | [Azure uygulamaları: Çözüm şablonu](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| [Transact](#transact) | [kapsayıcı](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| [Transact](#transact) | [SaaS uygulama](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| [Transact](#transact) | [Sanal makine](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |  
+| [Liste](#list) | [Hizmet danışmanlık](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| [Liste](#list) | [Benimle iletişim](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| [Deneme](#trial) | [Ücretsiz deneme sürümü / SaaS deneme](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
+| [Deneme](#trial) | [Etkileşimli Tanıtımı](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| [Deneme](#trial) | [Test sürücü](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
+| [Transact](#transact) | [Azure uygulamaları: yönetilen bir uygulama](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/Azure/Managed-Applications/Overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| [Transact](#transact) | [Azure uygulamaları: Çözüm şablonu](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| [Transact](#transact) | [kapsayıcı](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| [Transact](#transact) | [SaaS uygulama](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| [Transact](#transact) | [Sanal makine](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |  
 
 ---   
 
@@ -93,10 +96,10 @@ Liste türü listeleme markette aşağıdaki veriş teklif türleri içerir.
 
 | Teklif türü | Vitrin | Ayrıntılar |  
 |:---        |:---        |:---     |  
-| Danışmanlık Hizmetleri | AppSource | [Gereksinimleri: AppSource: listesi: Danışmanlık Hizmetleri](#requirements:-appsource:-list:-consulting-service) |  
-| Danışmanlık Hizmetleri | Azure Market | [Gereksinimleri: Azure Market: listesi: Danışmanlık Hizmetleri](#requirements:-azure-marketplace:-list:-consulting-service) |  
+| Danışmanlık Hizmetleri | AppSource | [Gereksinimleri: AppSource: listesi: Danışmanlık Hizmetleri](#requirements-appsource-list-consulting-service) |  
+| Danışmanlık Hizmetleri | Azure Market | [Gereksinimleri: Azure Market: listesi: Danışmanlık Hizmetleri](#requirements-azure-marketplace-list-consulting-service) |  
 | Benimle iletişime geçin | AppSource | [](#) |  
-| Benimle iletişime geçin | Azure Market | [Gereksinimleri: AppSource: listesi: benimle iletişim](#requirements:-azure-marketplace:-list:-contact-me) |  
+| Benimle iletişime geçin | Azure Market | [Gereksinimleri: AppSource: listesi: benimle iletişim](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>Gereksinimleri: AppSource: listesi: hizmet danışmanlık  
 Teklif öncelikle profesyonel hizmetinden, örneğin, değerlendirmeleri, uygulamaları, Atölyeleri, oluşan danışmanlık hizmetleri Teklif türü kullanın.  
@@ -130,12 +133,12 @@ Liste türü deneme markette aşağıdaki veriş teklif türleri içerir.
 
 | Teklif türü | Vitrin | Ayrıntılar |  
 |:---        |:---        |:---     |  
-| Ücretsiz / SaaS deneme | AppSource | [Türü gereksinimlerini listeleyen: deneme](#Listing-Type-Requirements:-trial) |  
-| Ücretsiz / SaaS deneme | Azure Market | [Gereksinimleri: Azure Market: deneme: ücretsiz deneme sürümü / SaaS deneme](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| Etkileşimli tanıtım | AppSource | [Türü gereksinimlerini listeleyen: deneme](#Listing-Type-Requirements:-trial) |  
-| Etkileşimli tanıtım | Azure Market | [Gereksinimleri: Azure Market: deneme: etkileşimli Tanıtımı](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| Test sürüşü | AppSource | [Türü gereksinimlerini listeleyen: deneme](#Listing-Type-Requirements:-trial) |  
-| Test sürüşü | Azure Market | [Gereksinimleri: Azure Market: deneme: Test sürücü](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| Ücretsiz / SaaS deneme | AppSource | [Türü gereksinimlerini listeleyen: deneme](#listing-type-requirements-trial) |  
+| Ücretsiz / SaaS deneme | Azure Market | [Gereksinimleri: Azure Market: deneme: ücretsiz deneme sürümü / SaaS deneme](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| Etkileşimli tanıtım | AppSource | [Türü gereksinimlerini listeleyen: deneme](#listing-type-requirements-trial) |  
+| Etkileşimli tanıtım | Azure Market | [Gereksinimleri: Azure Market: deneme: etkileşimli Tanıtımı](#requirements-azure-marketplace-trial-interactive-demo) |  
+| Test sürüşü | AppSource | [Türü gereksinimlerini listeleyen: deneme](#listing-type-requirements-trial) |  
+| Test sürüşü | Azure Market | [Gereksinimleri: Azure Market: deneme: Test sürücü](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>Gereksinimleri: Azure Market: deneme  
 
@@ -177,11 +180,11 @@ Transact liste türü, markette aşağıdaki veriş teklif türleri içerir.
 
 | Teklif türü | Vitrin | Ayrıntılar |   
 |:---        |:---        | :--- |  
-| Azure uygulamaları: yönetilen bir uygulama | Azure Market | [Gereksinimleri: Azure Market: Transact: Azure uygulamaları: yönetilen bir uygulama](#requirements:-azure-marketplace:-transact:-Azure-apps:-Managed-app) |  
-| Azure uygulamaları: Çözüm şablonu | Azure Market | [Gereksinimleri: Azure Market: Transact: Azure uygulamaları: Çözüm şablonu](#requirements:-azure-marketplace:-transact:-Azure-apps:-Solution-template) |  
-| Kapsayıcılar | Azure Market | [Gereksinimleri: Azure Market: Transact: kapsayıcı](#requirements:-azure-marketplace:-transact:-Container) |  
-| SaaS uygulama  | Azure Market | [Gereksinimleri: Azure Market: Transact: SaaS uygulama](#requirements:-azure-marketplace:-transact:-SaaS-app) |  
-| Sanal makine | Azure Market | [Gereksinimleri: Azure Market: Transact: sanal makine](#requirements:-azure-marketplace:-transact:-Virtual-Machine) |  
+| Azure uygulamaları: yönetilen bir uygulama | Azure Market | [Gereksinimleri: Azure Market: Transact: Azure uygulamaları: yönetilen bir uygulama](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure uygulamaları: Çözüm şablonu | Azure Market | [Gereksinimleri: Azure Market: Transact: Azure uygulamaları: Çözüm şablonu](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| Kapsayıcılar | Azure Market | [Gereksinimleri: Azure Market: Transact: kapsayıcı](#requirements-azure-marketplace-transact-container) |  
+| SaaS uygulama  | Azure Market | [Gereksinimleri: Azure Market: Transact: SaaS uygulama](#requirements-azure-marketplace-transact-saas-app) |  
+| Sanal makine | Azure Market | [Gereksinimleri: Azure Market: Transact: sanal makine](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 #### <a name="requirements-azure-marketplace-transact-azure-apps-managed-app"></a>Gereksinimleri: Azure Market: Transact: Azure uygulamaları: yönetilen bir uygulama  
 Azure app kullanın: aşağıdaki koşullar gerekli olduğunda yönetilen uygulama Teklif türü.  
@@ -209,11 +212,10 @@ Microsoft, şu anda ücretsiz ve Getir bilgisayarınızı-kendi-lisans lisans mo
 
 | Gereksinim | Ayrıntılar |  
 |:--- |:--- |  
-|Faturalama ve ölçümü  |  Kapsayıcı ya da desteklemelidir boş veya faturalama modelleri kendi lisansını getir.       |  
-|Dockerfile yerleşik görüntüsü   |   Kapsayıcı görüntüleri Docker görüntü belirtimine dayalı gerekir ve bir Dockerfile oluşturulmalıdır. [Burada] docker görüntülerinizi oluşturmak hakkında daha fazla bilgi edinin. (https://docs.docker.com/engine/reference/builder/#usage)
-|ACR barındırma   |   Kapsayıcı görüntüleri bir Azure kapsayıcı kayıt defteri (ACR) deposunda barındırılması gerekir. [Burada] ACR ile çalışma hakkında daha fazla bilgi edinin. (https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
-|Görüntü etiketleme   |   Kapsayıcı görüntüleri, en az 1 etiketi içermelidir (en fazla etiketler: 16). Bir görüntü [buraya] etiketleme hakkında daha fazla bilgi edinin. (https://docs.docker.com/engine/reference/commandline/tag/)     | 
-
+| Faturalama ve ölçümü | Ya da ücretsiz destek veya KLG faturalama modeli. |  
+| Dockerfile yerleşik görüntüsü | Kapsayıcı görüntüleri Docker görüntü belirtimine dayalı gerekir ve bir Dockerfile oluşturulmalıdır.<ul> <li>Docker görüntülerinizi oluşturmak hakkında daha fazla bilgi için konumunda bulunan kullanım bölümünü ziyaret edin ve [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage).</li> </ul> |  
+| ACR barındırma | Kapsayıcı görüntüleri bir Azure kapsayıcı kayıt defteri (ACR) deposunda barındırılması gerekir.<ul> <li>ACR ile çalışma hakkında daha fazla bilgi için hızlı başlangıç sayfasını ziyaret edin: konumunda bulunan Azure portal sayfası kullanarak bir kapsayıcı kayıt [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal).</li> </ul> |  
+| Görüntü etiketleme | Kapsayıcı görüntüleri, en az 1 etiketi içermelidir (en fazla etiketler: 16).<ul> <li>Bir görüntü etiketleme hakkında daha fazla bilgi için konumunda bulunan docker etiket sayfasını ziyaret edin [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag).</li> </ul> |  
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>Gereksinimleri: Azure Market: Transact: SaaS uygulama  
@@ -225,12 +227,10 @@ Microsoft commerce işlem barındırır. Microsoft, müşteriniz, sizin adınız
 
 | Gereksinim | Ayrıntılar |  
 |:--- |:--- |  
-|Faturalama ve ölçümü   |   Teklifiniz aylık bir düz hızında fiyatlandırılır. Kullanım tabanlı fiyatlandırma ve kullanım tabanlı "true li" özellikleri şu anda desteklenmiyor.      |  
-|İptali  |   Herhangi bir zamanda müşteri tarafından iptal edilebilen teklifidir.      |  
-|İşlem giriş sayfası   |   Azure ortak markalı işlem giriş sayfası, kullanıcıların oluşturmak ve SaaS hizmet hesaplarını yönetmek bir ana bilgisayar.      |   
-|Abonelik API    |   SaaS oluşturmak, güncelleştirmek ve bir kullanıcı hesabı ve hizmet planını silmek için abonelik ile etkileşim kurabilen bir hizmeti kullanıma sunar. 24 saat içinde desteklenen kritik API değişiklikleri gerekir. Kritik olmayan API değişiklikleri düzenli olarak kullanıma sunulacaktır.      | 
-
-
+|Faturalama ve ölçümü | Teklifiniz aylık bir düz hızında fiyatlandırılır. Kullanım tabanlı fiyatlandırma ve kullanım tabanlı "true li" özellikleri şu anda desteklenmiyor. |  
+|İptali | Herhangi bir zamanda müşteri tarafından iptal edilebilen teklifidir. |  
+|İşlem giriş sayfası | Azure ortak markalı işlem giriş sayfası, kullanıcıların oluşturmak ve SaaS hizmet hesaplarını yönetmek bir ana bilgisayar. |   
+| Abonelik API | SaaS oluşturmak, güncelleştirmek ve bir kullanıcı hesabı ve hizmet planını silmek için abonelik ile etkileşim kurabilen bir hizmeti kullanıma sunar. 24 saat içinde desteklenen kritik API değişiklikleri gerekir. Kritik olmayan API değişiklikleri düzenli olarak kullanıma sunulacaktır. |  
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>Gereksinimleri: Azure Market: Transact: sanal makine  
 Bir sanal gereç, müşteriyle ilişkili abonelik dağıttığınızda sanal makine teklif türünü kullanın. Kullandıkça Öde veya Getir bilgisayarınızı-kendi-lisanslama modelleri lisans (KLG) kullanarak etkin ticaret VM'ler tam olarak var. Microsoft commerce işlem barındırır ve müşteriniz, sizin adınıza bills. Müşteri ve Microsoft Kurumsal anlaşmalarındaki dahil olmak üzere, tercih edilen ödeme ilişkisi kullanmanın faydası alın.  

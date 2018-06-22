@@ -7,15 +7,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 06/07/2018
+ms.date: 06/20/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: 6e58d3ed84771cedda126511e868ad264db88606
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5ef32b231a77906a6840ad3550e81b631ddc0c13
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850500"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309663"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Esnek havuz yönetmek ve birden çok Azure SQL veritabanı ölçekleme Yardım
 
@@ -138,9 +138,7 @@ Havuza alınan veritabanları genellikle tek veritabanları için kullanılabile
 
 - **Aktif coğrafi çoğaltma**: coğrafi geri yükleme sunabileceğiniz çok daha agresif kurtarma gereksinimlerine sahip uygulamalar için yapılandırma [aktif coğrafi çoğaltma](sql-database-geo-replication-overview.md).
 
-## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>Esnek havuzlar ve Azure portalını kullanarak veritabanlarını yönetme
-
-### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yeni bir SQL Database esnek havuzunu oluşturma
+## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>Azure Portalı'nı kullanarak yeni bir SQL Database esnek havuzunu oluşturma
 
 Azure portalında bir esnek havuz oluşturmanın iki yolu vardır.
 1. Arayarak bir esnek havuz oluşturabilirsiniz **SQL esnek havuzu** içinde **Market** veya tıklatarak **+ Ekle** SQL esnek havuzlarını dikey göz atın. İş akışı sağlama bu havuzu aracılığıyla yeni veya var olan bir sunucuyu belirtmek kullanabilirsiniz.
@@ -149,13 +147,13 @@ Azure portalında bir esnek havuz oluşturmanın iki yolu vardır.
 > [!NOTE]
 > Bir sunucuda birden çok havuz oluşturabilirsiniz, ancak aynı havuza farklı sunuculara ait veritabanlarını ekleyemezsiniz.
 
-Havuzun hizmet katmanı havuzu ve en büyük miktarda kaynak her veritabanı için kullanılabilen elastics için kullanılabilen özelliklerin belirler. Ayrıntılar için bkz: kaynak sınırlarını esnek havuzlar için [DTU modeli](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels) ve [vCore modeli](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
+Havuzun hizmet katmanı havuzu ve en büyük miktarda kaynak her veritabanı için kullanılabilen elastics için kullanılabilen özelliklerin belirler. Ayrıntılar için bkz: kaynak sınırlarını esnek havuzlar için [DTU modeli](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Esnek havuzlar için vCore tabanlı kaynak sınırları için bkz: [vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Kaynaklarını yapılandırmak ve havuzu, fiyatlandırma tıklatın **havuzu yapılandırma**. Bir hizmet katmanı seçin, havuza veritabanı ekleme ve havuzu ve onun veritabanları için kaynak sınırlarını yapılandırın.
 
 Havuz yapılandırma tamamladıktan sonra 'Uygula', adı havuzu tıklatın ve 'havuzu oluşturmak için Tamam' ı tıklatın.
 
-### <a name="monitor-an-elastic-pool-and-its-databases"></a>Bir esnek havuz ve veritabanlarını izleme
+## <a name="monitor-an-elastic-pool-and-its-databases"></a>Bir esnek havuz ve veritabanlarını izleme
 
 Azure portalında bir esnek havuz ve bu havuz içindeki veritabanlarının kullanımını izleyebilirsiniz. Ayrıca, esnek havuz için bir değişiklik kümesini yapın ve aynı anda tüm değişiklikleri gönderir. Bu değişiklikler ekleyerek veya veritabanları kaldırma, esnek havuz ayarlarınızı değiştirme veya veritabanı ayarlarını değiştirerek içerir.
 
@@ -174,13 +172,13 @@ Havuzunuzu içinde veritabanları izlemek istiyorsanız tıklatabilirsiniz **ver
 
 ![Veritabanı kaynak kullanımı sayfası](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
-#### <a name="to-customize-the-chart-display"></a>Grafik görüntüsünü özelleştirmek için
+### <a name="to-customize-the-chart-display"></a>Grafik görüntüsünü özelleştirmek için
 
 Grafik ve diğer ölçümleri CPU yüzdesi, veri g/ç yüzdesi ve kullanılan günlük GÇ yüzdesi gibi görüntülenecek ölçüm sayfa düzenleyebilirsiniz.
 
 Üzerinde **grafiği Düzenle** form, sabit bir zaman seçebilirsiniz aralığı veya tıklatın **özel** son iki hafta içinde herhangi bir 24 saatlik penceresi seçin ve ardından izlemek için kaynakları seçin.
 
-#### <a name="to-select-databases-to-monitor"></a>İzlemek üzere seçmek için veritabanları
+### <a name="to-select-databases-to-monitor"></a>İzlemek üzere seçmek için veritabanları
 
 Varsayılan olarak, grafikte **veritabanı kaynak kullanımını** dikey DTU veya CPU ilk 5 veritabanları (bağlı olarak, hizmet katmanı) gösterir. Bu grafikteki veritabanlarını seçerek ve onay kutularını soldaki aracılığıyla grafiği aşağıdaki listeden veritabanları unselecting geçebilirsiniz.
 
@@ -188,104 +186,9 @@ Daha fazla ölçümleri yan yana veritabanları performansınızı daha eksiksiz
 
 Daha fazla bilgi için bkz: [Azure Portalı'nda SQL veritabanı uyarıları oluşturma](sql-database-insights-alerts-portal.md).
 
-### <a name="manage-an-elastic-pool-and-its-databases"></a>Bir esnek havuz ve veritabanlarını yönetme
-
-Tüm havuzu ayarları tek bir yerde bulunabilir: **havuzu yapılandırma** dikey. Burada almak için bir esnek havuz portal ve tıklatın Bul **havuzu yapılandırma** dikey pencerenin üst veya sol kaynak menüsünden.
-
-Buradan tüm bir toplu işlemde herhangi bir birleşimini kaydetmek ve aşağıdaki değişiklikleri yapabilirsiniz:
-1. Havuz Hizmet katmanını değiştirme
-2. Performans (DTU veya vCores) ve depolama yukarı veya aşağı ölçeklendirme
-3. Eklemek veya kaldırmak için/havuzundan veritabanları
-4. (Garanti) min ayarlamak ve performans sınırı havuzları veritabanları için en fazla
-5. Faturanızı yeni seçimlerinizi sonucunda herhangi bir değişiklik görüntülemeyi maliyet özeti gözden geçirin
-
-![Esnek havuzu yapılandırma dikey penceresi](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
-
-## <a name="manage-elastic-pools-and-databases-using-powershell"></a>Esnek havuzlar ve PowerShell kullanarak veritabanlarını yönetme
-
-Oluşturun ve SQL Database esnek havuzlar Azure PowerShell ile yönetmek için aşağıdaki PowerShell cmdlet'lerini kullanın. Gerekirse yükleyin veya PowerShell yükseltme, bakın [yükleme Azure PowerShell Modülü](/powershell/azure/install-azurerm-ps). Veritabanları, sunucuları ve güvenlik duvarı kuralları oluşturmak ve yönetmek için bkz: [oluşturma ve Azure SQL veritabanı sunucularının ve PowerShell kullanarak veritabanlarını](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell).
-
-> [!TIP]
-> PowerShell örnek komut dosyaları için bkz: [esnek havuzlar oluşturmak ve PowerShell kullanarak havuz dışında havuzları arasında veritabanlarını taşımak](scripts/sql-database-move-database-between-pools-powershell.md) ve [kullanımı izlemek ve Azure SQL veritabanıSQLesnekhavuzdaölçeklendirmeiçinPowerShell](scripts/sql-database-monitor-and-scale-pool-powershell.md).
->
-
-| Cmdlet | Açıklama |
-| --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Esnek veritabanı havuzu bir mantıksal SQL sunucusu üzerinde oluşturur.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Mantıksal bir SQL Server'da esnek havuzlar ve özellik değerlerini alır.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Esnek veritabanı havuzu mantıksal SQL Server'da özelliklerini değiştirir. Örneğin, **StorageMB** bir esnek havuzun en fazla depolama değiştirmek için özellik.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Esnek veritabanı havuzu mantıksal SQL Server'da siler.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Mantıksal SQL Server'da bir esnek havuz işlemlerinin durumunu alır.|
-|[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Yeni bir veritabanı var olan bir havuzu veya tek bir veritabanı oluşturur. |
-|[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Bir veya daha fazla veritabanını alır.|
-|[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar ya da var olan bir veritabanı içine, dışı veya esnek havuzlar arasında taşır.|
-|[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Bir veritabanı kaldırır.|
-
-
-> [!TIP]
-> Esnek havuzdaki birçok veritabanı oluşturulmasını portalı veya aynı anda yalnızca tek bir veritabanı oluşturabilirsiniz PowerShell cmdlet'lerini kullanarak tamamlanınca zaman alabilir. İçine bir esnek havuz oluşturmayı otomatikleştirmek için bkz: [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
->
-
-## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>Esnek havuzlar ve Azure CLI kullanarak veritabanlarını yönetme
-
-Oluşturun ve SQL Database esnek havuzları ile yönetmek için [Azure CLI](/cli/azure), aşağıdaki [Azure CLI SQL veritabanı](/cli/azure/sql/db) komutları. CLI’yi tarayıcınızda çalıştırmak için [Cloud Shell](/azure/cloud-shell/overview) kullanın veya macOS, Linux ya da Windows’da [yükleyin](/cli/azure/install-azure-cli).
-
-> [!TIP]
-> Azure CLI örnek komut dosyaları için bkz: [kullanım SQL esnek havuzu içinde bir Azure SQL veritabanını taşımak için CLI](scripts/sql-database-move-database-between-pools-cli.md) ve [Azure SQL veritabanındaki bir SQL esnek havuzu ölçeklendirmek için kullanım Azure CLI](scripts/sql-database-scale-pool-cli.md).
->
-
-| Cmdlet | Açıklama |
-| --- | --- |
-|[az sql esnek havuzu oluşturma](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|Bir esnek havuz oluşturur.|
-|[az sql esnek havuzu listesi](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|Bir sunucu esnek havuzlar listesini döndürür.|
-|[az sql esnek havuzu listesi-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|Bir esnek havuz veritabanlarının bir listesini döndürür.|
-|[az sql esnek havuzu listesi-sürümleri](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|Ayrıca, depolama sınırları, kullanılabilir havuz DTU ayarlarını bulundurur ve veritabanı ayarlarını başına. Ayrıntı, ek depolama sınırları azaltmak için ve veritabanı başına ayarlar varsayılan olarak gizlidir.|
-|[az sql esnek havuzu güncelleştirme](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|Bir esnek havuz güncelleştirir.|
-|[az sql esnek havuzu silme](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|Esnek havuz siler.|
-
-## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>Transact-SQL kullanarak esnek havuzlar içinde veritabanlarını yönetme
-
-Oluşturma ve içinde var olan esnek havuzlar veritabanlarını taşımak veya Transact-SQL ile bir SQL Database esnek havuzunu hakkında bilgi döndürmek için aşağıdaki T-SQL komutlarını kullanın. Azure portalını kullanarak bu komutlar gönderebilirsiniz [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), veya bir Azure SQL veritabanı sunucusuna bağlanın ve Transact-SQL geçirmek başka bir programı komutları. Veritabanları, sunucuları ve güvenlik duvarı kuralları oluşturmak ve yönetmek için bkz: [oluşturma ve Azure SQL veritabanı sunucularının ve Transact-SQL kullanarak veritabanlarını](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql).
-
-> [!IMPORTANT]
-> Oluşturmak, güncelleştirmek veya Transact-SQL kullanarak bir Azure SQL Database esnek havuzunu silmek olamaz. Ekleyebilir veya bir esnek havuzdan veritabanı kaldırma ve var olan esnek havuzları hakkında bilgi döndürmek için Dmv'leri kullanabilirsiniz.
->
-
-| Komut | Açıklama |
-| --- | --- |
-|[Veritabanı (Azure SQL veritabanı) oluşturma](/sql/t-sql/statements/create-database-azure-sql-database)|Yeni bir veritabanı var olan bir havuzu veya tek bir veritabanı oluşturur. Yeni bir veritabanı oluşturmak için ana veritabanına bağlanması gerekir.|
-| [ALTER DATABASE (Azure SQL veritabanı)](/sql/t-sql/statements/alter-database-azure-sql-database) |Bir veritabanı içine, dışı veya esnek havuzlar arasında taşıyın.|
-|[VERİTABANINI (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Bir veritabanını siler.|
-|[sys.elastic_pool_resource_stats (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Tüm esnek veritabanı havuzları için kaynak kullanım istatistikleri, bir mantıksal sunucu döndürür. Her esnek veritabanı havuzu için 15 penceresi (dakika başına dört satır) bildirdiği saniyede için bir satır yok. Bu CPU, IO, günlük, depolama alanı tüketimi ve eşzamanlı istek/oturum kullanımı havuzdaki tüm veritabanları tarafından içerir.|
-|[sys.database_service_objectives (Azure SQL veritabanı)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Edition (hizmet katmanı), hizmet hedefi (fiyatlandırma katmanı) ve esnek havuz adı, varsa Azure SQL veritabanına veya Azure SQL Data Warehouse için döndürür. Azure SQL Database sunucusu ana veritabanında oturum açtıysanız, bilgiler tüm veritabanlarını döndürür. Azure SQL Data Warehouse için ana veritabanına bağlı olmalıdır.|
-
-## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>Esnek havuzlar ve REST API kullanarak veritabanlarını yönetme
-
-Oluşturun ve SQL Database esnek yönetmek için bu REST API istekleri havuzları kullanın.
-
-| Komut | Açıklama |
-| --- | --- |
-|[Esnek havuzlar - oluştur veya güncelleştir](/rest/api/sql/elasticpools/createorupdate)|Yeni bir esnek havuz oluşturur veya mevcut bir esnek havuz güncelleştirir.|
-|[Esnek havuzlar - Sil](/rest/api/sql/elasticpools/delete)|Esnek havuz siler.|
-|[Esnek havuzlar - Al](/rest/api/sql/elasticpools/get)|Bir esnek havuz alır.|
-|[Esnek havuzlar - sunucu tarafından listesi](/rest/api/sql/elasticpools/listbyserver)|Bir sunucu esnek havuzlar listesini döndürür.|
-|[Esnek havuzlar - güncelleştirme](/rest/api/sql/elasticpools/update)|Var olan bir esnek havuzu güncelleştirir.|
-|[Önerilen esnek havuzları - Al](/rest/api/sql/recommendedelasticpools/get)|Önerilen esnek havuz alır.|
-|[Önerilen esnek havuzları - sunucu tarafından listesi](/rest/api/sql/recommendedelasticpools/listbyserver)|Önerilen esnek havuzları döndürür.|
-|[Önerilen esnek havuzları - liste ölçümleri](/rest/api/sql/recommendedelasticpools/listmetrics)|Esnek havuz ölçümleri döndürür önerilir.|
-|[Esnek havuz etkinlikleri](/rest/api/sql/elasticpoolactivities)|Esnek havuz etkinlikleri döndürür.|
-|[Esnek havuz veritabanı etkinlikleri](/rest/api/sql/elasticpooldatabaseactivities)|Etkinlik bir esnek havuz içinde veritabanlarını döndürür.|
-|[Veritabanları - oluştur veya güncelleştir](/rest/api/sql/databases/createorupdate)|Yeni bir veritabanı oluşturur veya varolan bir veritabanını güncelleştirir.|
-|[Veritabanları - Al](/rest/api/sql/databases/get)|Bir veritabanı alır.|
-|[Veritabanı - esnek havuz tarafından Al](/rest/api/sql/databases/getbyelasticpool)|Bir veritabanını bir esnek havuz içinde alır.|
-|[Önerilen esnek havuzu tarafından veritabanları - Al](/rest/api/sql/databases/getbyrecommendedelasticpool)|Bir veritabanı içinde önerilen bir esnek havuz alır.|
-|[Veritabanı - esnek havuz göre listesi](/rest/api/sql/databases/listbyelasticpool)|Bir esnek havuz veritabanlarının bir listesini döndürür.|
-|[Veritabanları - önerilen esnek havuz göre listesi](/rest/api/sql/databases/listbyrecommendedelasticpool)|Önerilen esnek havuz içindeki veritabanlarının bir listesini döndürür.|
-|[Veritabanları - sunucu tarafından listesi](/rest/api/sql/databases/listbyserver)|Bir sunucu veritabanlarının bir listesini döndürür.|
-|[Veritabanları - güncelleştirme](/rest/api/sql/databases/update)|Varolan bir veritabanını güncelleştirir.|
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
+- Esnek havuzlar ölçeklendirmek için bkz: [esnek havuzlar ölçeklendirme](sql-database-elastic-pool.md) ve [bir esnek havuz - örnek kod ölçeklendirme](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 * Video için bkz: [Microsoft Virtual Academy video indirmelere Azure SQL Database esnek özellikleri hakkında](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Esnek havuzları kullanan SaaS uygulamalarının tasarım desenleri hakkında daha fazla bilgi edinmek için bkz. [Azure SQL Database kullanan Çok Kiracılı SaaS Uygulamaları için Tasarım Desenleri](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * Esnek havuzları kullanan SaaS öğretici için bkz: [Wingtip SaaS uygulamasına giriş](sql-database-wtp-overview.md).

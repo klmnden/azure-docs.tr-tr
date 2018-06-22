@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: bbd38380370821c749a70d59a819a84ed06458a7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2a71e405c36c632b7c396e2f06564aa4be9d1464
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264808"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313307"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına MySQL için
 
@@ -25,7 +25,7 @@ MySQL sunucusu için bir Azure veritabanı üç farklı fiyatlandırma katmanlar
 | İşlem oluşturma | Gen 4, 5 Gen | Gen 4, 5 Gen | 5. Nesil |
 | Sanal çekirdekler | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | VCore başına bellek | 2 GB | 5 GB | 10 GB |
-| Depolama boyutu | 1 TB ' 5 GB | 5 GB ile 2 TB | 5 GB ile 2 TB |
+| Depolama boyutu | 1 TB ' 5 GB | 5 GB ila 4 TB | 5 GB ila 4 TB |
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Veritabanı yedekleme bekletme süresi | 7 için 35 gün | 7 için 35 gün | 7 için 35 gün |
 
@@ -37,7 +37,7 @@ Bir fiyatlandırma katmanı seçmek için bir başlangıç noktası olarak aşa�
 | Genel Amaçlı | Dengeli işlem ve bellek ölçeklenebilir g/ç işleme ile gerektirir, çoğu kurumsal iş yükleri. Örnek web ve mobil uygulamaları ve diğer Kurumsal uygulamaları barındıran sunucuları içerir.|
 | Bellek için İyileştirilmiş | Daha hızlı işlem yapma ve daha yüksek eşzamanlılık için bellek içi performans gerektiren yüksek performanslı veritabanı iş yükleri. Örnekler gerçek zamanlı veri ve yüksek performanslı işlem veya analitik uygulamaları işlemek için sunucuları içerir.|
 
-Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı (aynı fiyatlandırma katmanı içinde) saniye içinde değiştirilebilir. Depolama alanı ve yedekleme bekletme süresi yukarı veya aşağı uygulama kapalı kalma süresi ile miktarı da bağımsız olarak ayarlayabilirsiniz. Bir sunucu oluşturulduktan sonra fiyatlandırma katmanı veya yedekleme depolama türünü değiştiremezsiniz. Daha fazla bilgi için bkz: [ölçeklendirme kaynakları](#scale-resources) bölümü.
+Bir sunucu oluşturduktan sonra sayısı vCores, donanım oluşturma ve fiyatlandırma Katmanı (temel gelen ve giden hariç) yukarı veya aşağı saniye içinde değiştirilebilir. Depolama alanı ve yedekleme bekletme süresi yukarı veya aşağı uygulama kapalı kalma süresi ile miktarı da bağımsız olarak ayarlayabilirsiniz. Bir sunucu oluşturulduktan sonra yedekleme depolama türünü değiştiremezsiniz. Daha fazla bilgi için bkz: [ölçeklendirme kaynakları](#scale-resources) bölümü.
 
 ## <a name="compute-generations-and-vcores"></a>İşlem nesli ve vCores
 
@@ -48,7 +48,7 @@ Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı (aynı fiy
 | Orta ABD | X |  |
 | Doğu ABD | X | X |
 | Doğu ABD 2 | X | X |
-| Orta Kuzey ABD | X |  |
+| Orta Kuzey ABD | X | X |
 | Orta Güney ABD | X | X |
 | Batı ABD | X | X |
 | Batı ABD 2 |  | X |
@@ -59,7 +59,7 @@ Bir sunucu oluşturduktan sonra vCores sayısı yukarı veya aşağı (aynı fiy
 | Batı Avrupa |  | X |
 | Birleşik Krallık Batı |  | X |
 | Birleşik Krallık Güney |  | X |
-| Doğu Asya | X |  |
+| Doğu Asya | X | X |
 | Güneydoğu Asya | X | X |
 | Avustralya Doğu |  | X |
 | Avustralya Güneydoğu |  | X |
@@ -77,9 +77,9 @@ Sağlamanız depolama MySQL sunucusu için Azure veritabanınıza kullanılabili
 |    | **Temel** | **Genel amaçlı** | **Bellek için iyileştirilmiş** |
 |:---|:----------|:--------------------|:---------------------|
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
-| Depolama boyutu | 1 TB ' 5 GB | 5 GB ile 2 TB | 5 GB ile 2 TB |
+| Depolama boyutu | 1 TB ' 5 GB | 5 GB ila 4 TB | 5 GB ila 4 TB |
 | Depolama artırım boyutu | 1 GB | 1 GB | 1 GB |
-| IOPS | Değişken |3 IOP/GB<br/>En az 100 IOPS | 3 IOP/GB<br/>En az 100 IOPS |
+| IOPS | Değişken |3 IOP/GB<br/>En az 100 IOPS<br/>Maksimum 7500 IOPS | 3 IOP/GB<br/>En az 100 IOPS<br/>Maksimum 7500 IOPS |
 
 Ek depolama kapasitesi sırasında ve sunucu oluşturulduktan sonra ekleyebilirsiniz. Temel katman bir IOPS garanti sağlamaz. Genel amaçlı ve fiyatlandırma katmanlarına Bellek için iyileştirilmiş, 3:1 oranında sağlanan depolama boyutu ile IOPS ölçeklendirin.
 
@@ -97,9 +97,9 @@ Hizmeti sunucunuzun yedeklemeleri otomatik olarak alır. Yedeklemeler için en d
 
 ## <a name="scale-resources"></a>Kaynakları ölçeklendirme
 
-Sunucunuz oluşturduktan sonra bağımsız olarak vCores, depolama alanı miktarı ve yedekleme bekletme süresini değiştirebilirsiniz. Bir sunucu oluşturulduktan sonra fiyatlandırma katmanı veya yedekleme depolama türünü değiştiremezsiniz. VCores sayısı yukarı veya aşağı içinde aynı fiyatlandırma katmanı genişletilebilir. Yedekleme Bekletme dönemi yukarı veya aşağı 7'den 35 gün ölçeklendirilebilir. Depolama boyutu yalnızca artırılabilir. Kaynaklarını ölçeklendirme portalı veya Azure CLI yoluyla gerçekleştirilebilir. Azure CLI kullanarak ölçeklendirme ilişkin bir örnek için bkz: [İzleyici ve ölçek Azure CLI kullanarak MySQL sunucusu için bir Azure veritabanı](scripts/sample-scale-server.md).
+Sunucunuz oluşturduktan sonra bağımsız olarak değiştirebileceğiniz vCores, donanım oluşturma, fiyatlandırma Katmanı (temel gelen ve giden hariç), depolama ve yedekleme Bekletme dönemi miktarı. Bir sunucu oluşturulduktan sonra yedekleme depolama türünü değiştiremezsiniz. VCores sayısı yukarı veya aşağı genişletilebilir. Yedekleme Bekletme dönemi yukarı veya aşağı 7'den 35 gün ölçeklendirilebilir. Depolama boyutu yalnızca artırılabilir. Kaynaklarını ölçeklendirme portalı veya Azure CLI yoluyla gerçekleştirilebilir. Azure CLI kullanarak ölçeklendirme ilişkin bir örnek için bkz: [İzleyici ve ölçek Azure CLI kullanarak MySQL sunucusu için bir Azure veritabanı](scripts/sample-scale-server.md).
 
-VCores sayısı değiştirdiğinizde, özgün sunucu kopyası ile yeni işlem ayırma oluşturulur. Yeni Sunucu çalışır durumda sonra bağlantıları yeni sunucuya geçiş. Sistem yeni sunucuya zaman geçer şu sırasında yeni bağlantı kuruldu ve tüm kaydedilmemiş işlemleri geri alınacak. Bu pencere değişir, ancak çoğu durumda bir dakikadan az olur.
+VCores sayısı değiştirdiğinizde, donanım oluşturma ya da fiyatlandırma katmanı, özgün sunucu kopyası ile yeni işlem ayırma oluşturulur. Yeni Sunucu çalışır durumda sonra bağlantıları yeni sunucuya geçiş. Sistem yeni sunucuya zaman geçer şu sırasında yeni bağlantı kuruldu ve tüm kaydedilmemiş işlemleri geri alınacak. Bu pencere değişir, ancak çoğu durumda, bir dakikadan az olur.
 
 Depolama ölçekleme ve yedekleme Bekletme dönemi değiştirmeyi true çevrimiçi işlemlerdir. Kapalı kalma süresi yoktur ve uygulamanızı etkilenmez. Sağlanan depolama boyutu ile IOPS ölçeği gibi depolama alanı ölçeklendirme tarafından kullanılabilir IOPS sunucunuza artırabilir.
 

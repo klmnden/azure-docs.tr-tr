@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 45b645fe556d1f9630ee15b1f2f605bbaf3f87f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648073"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309342"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL veritabanı yönetilen örneği için bir sanal ağ yapılandırma
 
 Azure SQL veritabanı örneği (Önizleme) yönetilen bir Azure içinde dağıtılmalıdır [sanal ağ (VNet)](../virtual-network/virtual-networks-overview.md). Bu dağıtım aşağıdaki senaryolara olanak sağlar: 
-- Yönetilen bir örneğine doğrudan bağlanma formu bir şirket içi ağı 
+- Doğrudan bir şirket içi ağ üzerinden yönetilen bir örneğine bağlanma 
 - Bağlantılı sunucu veya başka bir yönetilen örneği bağlanma veri deposu şirket içi 
 - Yönetilen bir örneğini Azure kaynaklarına bağlanma  
 

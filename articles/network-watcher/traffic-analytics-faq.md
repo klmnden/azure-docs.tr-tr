@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: de85e4295a59c54cb68306bf0cbc516bf5e1f8e2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236408"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313300"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analytics sık sorulan sorular
 
@@ -28,17 +28,25 @@ ms.locfileid: "35236408"
 
     - Ağ İzleyicisi'ni etkin abonelik
     - İzlemek istediğiniz Nsg'ler için etkin NSG akış günlükleri
-    - Ham depolamak için bir Azure depolama hesabınızın flog günlükleri
+    - Ham akış günlükleri depolamak için bir Azure Storage hesabı
     - Okuma ve yazma erişimi olan bir günlük analizi (OMS) çalışma alanı
     - Kullanıcıya abonelik düzeyinde aşağıdaki rolleri birini ile atanmalıdır:
     
-            All permissions *
-            All Read permissions */read
-            All network permissions Microsoft.Network/*
-            All network read permissions Microsoft.Network/*/read
+    1.  Şu Klasik yönetici herhangi biri olması gerekir
+    
+        - Hesap yöneticisi
+        - Hizmet yöneticisi 
+        - Ortak yönetici
+        
+    2.  Hesabınızda herhangi biri şu RBAC rolleri aboneliği kapsamında olması gerekir.
+    
+        - Sahip
+        - Katılımcı
+        - Okuyucu
+        - Ağ Katılımcısı
 
-    Veya kullanıcıya abonelik düzeyinde tüm rolleri aşağıdaki ile atanmalıdır: 
-
+    3. Hesabınızda herhangi bir özel RBAC rolü tüm aşağıdaki sözü edilen eylemler için izne sahip abonelik düzeyinde olması gerekir.
+            
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
         - Microsoft.Network/loadBalancers/read 
@@ -50,22 +58,22 @@ ms.locfileid: "35236408"
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
         
-Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için lütfen aşağıdaki adımları izleyin:
+    Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için lütfen aşağıdaki adımları izleyin:
 
-Login-AzureRmAccount kullanarak Azure'da oturum aç 
+    Azure kullanarak oturum açma **Login-AzureRmAccount** 
 
-Select-AzureRmSubscription kullanarak gerekli aboneliği seçin 
+    Gerekli olan abonelik kullanarak seçin **Select-AzureRmSubscription** 
 
-Artık belirli bir kullanıcıya atanmış olan tüm rollerini listelemek için Get-AzureRmRoleAssignment - SignInName kullanın <user email> - IncludeClassicAdministrators 
+    Belirtilen bir kullanıcıya atanmış olan tüm rolleri listelemek için artık kullanmak **Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators** 
 
-Yürütme commends sonra herhangi bir çıktı görmüyorsanız sonra lütfen ilgili abonelik Yönetici'ye komutları yürütmek için erişim sağlamak için ulaşın.  
+    Yürütme commends sonra herhangi bir çıktı görmüyorsanız sonra lütfen ilgili abonelik Yönetici'ye komutları yürütmek için erişim sağlamak için ulaşın.  
 
-Daha fazla ayrıntı Lütfen başvurun [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+    Daha fazla ayrıntı Lütfen başvurun [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
 
 
 2.  Hangi Azure bölgeleri trafiği analytics kullanılabilir?
 
-    Önizleme sürümde karşın, trafik analizi için Nsg'ler herhangi birini kullanabilirsiniz **bölgeler desteklenen**: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Kuzey Orta ABD, Orta Güney ABD, Orta ABD, Batı ABD, Batı ABD-2, Batı Avrupa, Kuzey Avrupa , Batı İngiltere, Güney İngiltere, Avustralya Doğu ve Avustralya Güneydoğu. Günlük analizi çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, Avustralya Güneydoğu veya Güney UK bölge içinde bulunmalıdır.
+    Önizleme sürümde karşın, trafik analizi için Nsg'ler herhangi birini kullanabilirsiniz **bölgeler desteklenen**: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Kuzey Orta ABD, Orta Güney ABD, Orta ABD, Batı ABD, Batı ABD 2, Batı Avrupa, Kuzey Avrupa Birleşik Krallık Batı, Birleşik Krallık Güney, Avustralya Doğu, Avustralya Güneydoğu ve Güneydoğu Asya. Günlük analizi çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, Birleşik Krallık Güney, Avustralya Güneydoğu veya Güneydoğu Asya bölge içinde bulunmalıdır.
 
 3.  Akış etkinleştirebilirim Nsg'ler olabilir günlüklerini olması OMS çalışma Alanım'den farklı bölgelerdeki?
 
@@ -127,11 +135,11 @@ Daha fazla ayrıntı Lütfen başvurun [rol tabanlı erişim denetimini Azure Po
 
 14. PowerShell veya Azure Resource Manager şablonu kullanarak trafiği analytics yapılandırabilir miyim?
 
-Evet, windows powershell 6.2.1 sürümünden desteklenen kullanarak trafiği Analizi Yapılandırması ve sonraki sürümleri, ancak Azure Resource Manager şablonu destek kullanılamıyor sunar. Daha fazlasını PowerShell analytics başvurun trafiğini yapılandırmak için nasıl kullanılabileceğini öğrenmek için aşağıdaki [belgelerine](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+        Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
 
 15.  Trafik analytics nasıl fiyatlandırılır?
 
-Hizmet tarafından işlenir ve günlük analizi çalışma alanında sonuçlandı Gelişmiş günlüklerini depolamak akışı günlük verileri için trafiği analytics ölçülen. Plan fiyatlandırması hakkında daha fazla Lütfen bilmeniz [burayı tıklatın](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+        Hizmet tarafından işlenir ve günlük analizi çalışma alanında sonuçlandı Gelişmiş günlüklerini depolamak akışı günlük verileri için trafiği analytics ölçülen. Plan fiyatlandırması hakkında daha fazla Lütfen bilmeniz [burayı tıklatın](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
 
 16.  Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
 
@@ -162,3 +170,47 @@ Hizmet tarafından işlenir ve günlük analizi çalışma alanında sonuçland�
         - `ESC` Genişletilmiş seçimi daraltır.
         - `UP Arrow` Anahtar ile aynı eylemi gerçekleştirir `ESC`. `Down arrow` Anahtar ile aynı eylemi gerçekleştirir `Enter`.
         - Kullanım `Shift+Plus` , yakınlaştırma ve `Shift+Minus` uzaklaştırmak için.
+
+17. Klavyeyi kullanarak VNet topoloji görünümünde nasıl gidebilirsiniz?
+
+    Sanal ağ topolojisi sayfasında, iki ana bölümleri içerir:
+    
+    - **Başlık**: sanal ağlar topolojisinin üst yerleştirilen başlık bağlı sanal ağlar/bağlantı kesildi sanal ağlar/etkin/devre dışı/üzerinde-şirket içi/Azure bölgesi/genel IP'ler gibi düğmeleri üzerinden trafik dağıtım filtreleri seçin yeteneği sağlar / Ağır/Orta/düşük/izin verilen/engellenen ve gösterge bilgileri. Tanımlı düğmeleri seçimde topoloji dağıtımınızda bulunan "Active" sanal ağlar vurgular sonra gibi bir kullanıcı başlığı altında "Active" filtre düğmesini seçerse topoloji, ilgili filtre uygulanır.
+    - **Topoloji**: topolojisi Bölümü başlık yerleştirilen sanal ağlar arasındaki trafik dağılımı gösterir.
+    
+    **Başlık çubuğunda klavye gezinme**
+    
+    - Varsayılan olarak, başlık sanal ağ topolojisi sayfasında "Bağlı sanal ağlar" düğmesine filtre seçimdir.
+    - Başka bir filtre düğmesine gitmek için kullanabileceğiniz `Tab` sonraki taşımak için anahtar. Geriye doğru gidin, `Shift+Tab` anahtarı. İleri gezinti yönü öncelik sağa sol alta üst tarafından izlenen.
+    - Tuşuna `Enter` seçilen filtre uygulamak için ok tuşu. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğüm (VNet) topolojisi bölümü altında vurgulanır.
+        - Arasında geçiş yapmak için **başlık** ve **topoloji**, basın `Ctrl+F6`.
+        
+    **Klavye gezinti topolojisi hakkında**
+    
+    - Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**VNet**) topoloji görünümünde.
+    - Diğer gitmek için kullanabileceğiniz topoloji görünümü düğümler vurgulanmış `Shift+Right arrow` İleri hareketi için anahtar. 
+    - Odağı vurgulanan düğümlerinde taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak, odak "Ayrıntılar" düğmesine taşır **bilgileri araç kutusu**. Daha fazla içinde gezinmek için **kutusunu** görüntülemek için kullanmak `Right` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
+    - Bu tür bir düğüm, buna ait tüm bağlantıları ziyaret, tek tek, basarak seçimini `Shift+Left arrow` anahtarı. Odağı taşır **bilgileri araç kutusu** o bağlantı. Herhangi bir noktada odağı düğüme geri tuşlarına basarak gölgeye `Shift+Right arrow` yeniden.
+    
+
+18. Alt ağ topolojisi görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
+
+    Sanal ağlarla topolojisi sayfasında, iki ana bölümleri içerir:
+    
+    - **Başlık**: sanal ağlarla topolojisinin üst yerleştirilen başlık trafik dağıtım filtreleri etkin/devre dışı/dış bağlantıları/üzerinde-şirket içi/Azure bölgesi/genel IP'ler gibi düğmeleri aracılığıyla seçmek için yeteneği sağlar/etkin akar / Ağır/Orta/düşük/kötü amaçlı trafiği/izin verilen/engellenen, ağ geçidi alt ağları/arka uç alt ağları ve ön uç alt ağları. Tanımlı düğmeleri seçimde dağıtımınızda bulunan "Active" sanal alt ağ topolojisi vurgular sonra gibi bir kullanıcı başlığı altında "Active" filtre düğmesini seçerse topoloji, ilgili filtre uygulanır.
+    - **Topoloji**: topolojisi Bölümü başlık yerleştirilen sanal alt ağlar arasındaki trafik dağılımı gösterir.
+    
+    **Başlık çubuğunda klavye gezinme**
+    
+    - Varsayılan olarak, başlık sanal ağlarla topolojisi sayfasında "Alt" düğmesine filtre seçimdir.
+    - Başka bir filtre düğmesine gitmek için kullanabileceğiniz `Tab` sonraki taşımak için anahtar. Geriye doğru gidin, `Shift+Tab` anahtarı. İleri gezinti yönü öncelik sağa sol alta üst tarafından izlenen.
+    - Tuşuna `Enter` seçilen filtre uygulamak için ok tuşu. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğüm (alt ağ) topolojisi bölümü altında vurgulanır.
+        - Arasında geçiş yapmak için **başlık** ve **topoloji**, basın `Ctrl+F6`.
+        
+    **Klavye gezinti topolojisi hakkında**
+    
+    - Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**alt**) topoloji görünümünde.
+    - Diğer gitmek için kullanabileceğiniz topoloji görünümü düğümler vurgulanmış `Shift+Right arrow` İleri hareketi için anahtar. 
+    - Odağı vurgulanan düğümlerinde taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak, odak "Ayrıntılar" düğmesine taşır **bilgileri araç kutusu**. Daha fazla içinde gezinmek için **kutusunu** görüntülemek için kullanmak `Right` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
+    - Bu tür bir düğüm, buna ait tüm bağlantıları ziyaret, tek tek, basarak seçimini `Shift+Left arrow` anahtarı. Odağı taşır **bilgileri araç kutusu** o bağlantı. Herhangi bir noktada odağı düğüme geri tuşlarına basarak gölgeye `Shift+Right arrow` yeniden.    
+

@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
-ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
+ms.openlocfilehash: 32fdc23aded78ca491fbde2ef5c76247c56d0c4c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/16/2018
-ms.locfileid: "35683058"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313753"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
@@ -24,7 +24,7 @@ Tanımlamak için aşağıda açıklanan yöntemlerden birini kullanmalıdır do
 2. Ayrıca Azure Resource Manager Powershell kullanarak doğru VM boyutu bilgi elde edebilirsiniz veya Azure portalında sanal makineden ayrıntıları.
 
 ## <a name="buy-a-reserved-virtual-machine-instance"></a>Ayrılmış sanal makine örneğini satın alın
-1. [Azure Portal](https://portal.azure.com)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com) oturum açın.
 2. Seçin **tüm hizmetleri** > **ayırmaları**.
 3. Seçin **Ekle** yeni bir ayrılmış örnek satın alın.
 4. Gerekli alanları doldurun. Ayrılmış örnek indirim almak için seçtiğiniz özniteliklerine nitelemek eşleşen çalışan VM örnekleri. İndirim almak üzerindeki VM örneklerinize gerçek sayısını kapsam ve seçili miktar bağlıdır.

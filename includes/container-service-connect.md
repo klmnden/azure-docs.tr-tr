@@ -5,7 +5,7 @@ Kubernetes, DC/OS ve Docker Swarm kümeleri yerel olarak HTTP uç noktaları sa�
 
 DC/OS ve Docker Swarm için yerel bilgisayarınızdan küme yönetim sistemine bir güvenli kabuk (SSH) tüneli oluşturmanız önerilir. Tünel oluşturulduktan sonra HTTP uç noktalarını kullanan komutları çalıştırabilir ve düzenleyicinin web arabirimini (varsa) yerel sisteminizden görüntüleyebilirsiniz. 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 
 * Bir Kubernetes, DC/OS veya Docker Swarm kümesi [Azure Container Service’e dağıtılır](../articles/container-service/dcos-swarm/container-service-deployment.md).
 * Dağıtım sırasında kümeye eklenen ortak anahtara karşılık gelen SSH RSA özel anahtar dosyası. Bu komutlar, özel SSH anahtarının bilgisayarınızda `$HOME/.ssh/id_rsa` içerisinde olduğunu varsayar. Daha fazla bilgi için [macOS ve Linux](../articles/virtual-machines/linux/mac-create-ssh-keys.md) veya [Windows](../articles/virtual-machines/linux/ssh-from-windows.md) ile ilgili şu yönergelere bakın. SSH bağlantısı çalışmıyorsa, [SSH anahtarlarınızı sıfırlamanız](../articles/virtual-machines/linux/troubleshoot-ssh-connection.md) gerekebilir.
@@ -19,7 +19,7 @@ Bilgisayarınızda `kubectl` yükleyip yapılandırmak için şu adımları taki
 > 
 
 ### <a name="install-kubectl"></a>Kubectl yükleyin
-Bu aracı yüklemenin kolay yollarından biri, Azure CLI 2.0 `az acs kubernetes install-cli` komutunu kullanmaktır. Bu komutu çalıştırmak için Azure CLI 2.0’ın en son sürümünü [yüklediğinizden](/cli/azure/install-az-cli2) ve bir Azure hesabında (`az login`) oturum açtığınızdan emin olun.
+Bu aracı yüklemenin kolay yollarından biri, Azure CLI 2.0 `az acs kubernetes install-cli` komutunu kullanmaktır. Bu komutu çalıştırmak için olduğundan emin olun, [yüklü](/cli/azure/install-az-cli2) 2.0 ve oturum açmış olan bir Azure hesabı için en son Azure CLI (`az login`).
 
 ```azurecli
 # Linux or macOS
