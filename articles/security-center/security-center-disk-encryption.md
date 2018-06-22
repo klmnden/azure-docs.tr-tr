@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: bde17a47e0e3e70daf52f4c460118c054b7c1152
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 29d843e2752046e8ab66a4f46fcbb212f6fb57c6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824406"
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Azure Sanal Makine'yi şifreleme
 Şifrelenmemiş sanal makineleriniz varsa Azure Güvenlik Merkezi sizi uyarır. Bu uyarılar Yüksek Önem Derecesine Sahip olarak gösterilir ve bu sanal makineleri şifrelemeniz önerilir.
@@ -61,7 +62,7 @@ Azure Disk Şifrelemesi Önkoşulları Yapılandırma Betiği, Azure Virtual Mac
 
 Artık betik içeriği kaydedildiğine göre, PowerShell ISE'deki betiği açın:
 
-1. Başlat Menüsünde **Cortana**'ya tıklayın. Cortana arama metni kutusuna **PowerShell** yazarak **Cortana** "PowerShell" sorusunu sorun.
+1. Başlatma - Windows PowerShell ISE
 2. **Windows PowerShell ISE**'ye sağ tıklayın ve **Yönetici olarak çalıştır**'a tıklayın.
 3. **Yönetici: Windows PowerShell ISE** penceresinde **Görünüm**'e tıklayın ve ardından **Betik Bölmesini Göster**'e tıklayın.
 4. Pencerenin sağ tarafında **Komutlar** bölmesini görürseniz kapatmak için bölmenin sağ üst köşesindeki **"x"** simgesine tıklayın. Metin göremeyeceğiniz kadar küçükse **CTRL+Ekle**'yi ("Ekle", "+" işaretidir) kullanın. Metin çok büyükse **CTRL+Çıkar** (Çıkar "-" işaretidir).
@@ -74,8 +75,8 @@ Artık betik içeriği kaydedildiğine göre, PowerShell ISE'deki betiği açın
 
 Üst bölme "betik bölmesi" olarak adlandırılır ve alt bölme de "konsol" olarak adlandırılır. Daha sonra bu makalede bu terimleri kullanacağız.
 
-## <a name="run-the-azure-disk-encryption-prerequisites-powershell-command"></a>Azure disk şifrelemesi önkoşulları PowerShell komutunu çalıştırma
-Azure Disk Şifrelemesi Önkoşulları betiği, başlatıldıktan sonra sizden aşağıdaki bilgileri ister:
+## <a name="run-the-azure-disk-encryption-prerequisites-powershell-script"></a>Azure disk şifrelemesi önkoşulları PowerShell betiğini çalıştırma
+Azure Disk Şifrelemesi Önkoşulları betiği aşağıdaki parametreleri kabul eder: 
 
 * **Kaynak Grubu Adı** - Anahtar Kasasını yerleştirmek istediğiniz Kaynak Grubunun adı.  Bu ada sahip önceden oluşturulmuş bir kaynak grubu yoksa girdiğiniz ad ile yeni bir Kaynak Grubu oluşturulur. Bu abonelikte kullanmak istediğiniz bir Kaynak Grubu zaten varsa bu Kaynak Grubunun adını girin.
 * **Anahtar Kasasının Adı** - Şifreleme anahtarlarının yerleştirileceği Anahtar Kasasının adı. Bu ada sahip bir Anahtar Kasanız zaten yoksa bu ad ile yeni bir Anahtar Kasası oluşturulur. Kullanmak istediğiniz bir Anahtar Kasası zaten varsa var olan Anahtar Kasasının adını girin.
@@ -92,18 +93,18 @@ Bir Azure Sanal Makinesini şifrelemek için aşağıdaki adımları gerçekleş
 1. PowerShell ISE'yi kapattıysanız yükseltilmiş bir PowerShell ISE örneği açın. PowerShell ISE zaten açık değilse bu makalede önceden geçen yönergeleri izleyin. Betiği kapattıysanız **Dosya**'ya ve ardından **Aç**'a tıklayarak ve **c:\AzureADEScript** klasöründen betiği seçerek **ADEPrereqScript.ps1**'i açın. Makaleyi baştan beri izlediyseniz sonraki adıma geçmeniz yeterlidir.
 2. PowerShell ISE konsolunda (PowerShell ISE'nin en alt bölmesi) **cd c:\AzureADEScript** yazıp **ENTER**'a basarak betiğin odağını yerel olarak değiştirin.
 3. Makinenizdeki yürütme ilkesini, betiği çalıştırabilecek şekilde ayarlayın. Konsolda **Set-ExecutionPolicy Unrestricted** yazın ve ardından ENTER'a basın. Yürütme ilkesindeki değişikliğin etkilerini anlatan bir iletişim kutusu görürseniz **Tümüne evet** veya **Evet**'e tıklayın (**Tümüne evet**'i görürseniz bu seçeneği belirleyin; **Tümüne evet**'i görmezseniz **Evet**'e tıklayın).
-4. Azure hesabınızda oturum açın. Konsolda **Connect-AzureRmAccount** yazın ve **ENTER**'a basın. Kimlik bilgilerinizi gireceğiniz bir iletişim kutusu görünür (sanal makineleri değiştirme haklarına sahip olduğunuzdan emin olun; bu haklara sahip değilseniz şifreleme yapamazsınız. Emin değilseniz aboneliğinizin sahibine veya yöneticinize sorun). **Environment**, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount**'ınız hakkında bilgiler görmeniz gerekir. **SubscriptionId**'yi Not Defteri'ne kopyalayın. Bunu 6. adımda kullanmanız gerekir.
+4. Azure hesabınızda oturum açın. Konsolda **Login-AzureRmAccount** yazın ve **ENTER**'a basın. Kimlik bilgilerinizi gireceğiniz bir iletişim kutusu görünür (sanal makineleri değiştirme haklarına sahip olduğunuzdan emin olun; bu haklara sahip değilseniz şifreleme yapamazsınız. Emin değilseniz aboneliğinizin sahibine veya yöneticinize sorun). **Environment**, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount**'ınız hakkında bilgiler görmeniz gerekir. **SubscriptionId**'yi Not Defteri'ne kopyalayın. Bunu 6. adımda kullanmanız gerekir.
 5. Sanal makinenizin hangi aboneliğe ait olduğunu ve konumunu bulun. [https://portal.azure.com](ttps://portal.azure.com) adresine gidin ve oturum açın.  Sayfanın sol tarafında **Virtual Machines**'e tıklayın. Sanal makinelerinizi ve ait oldukları aboneliklerin listesini görürsünüz.
 
    ![Virtual Machines](./media/security-center-disk-encryption/security-center-disk-encryption-fig3.png)
 6. PowerShell ISE'ye dönün. Betiğin çalıştırılacağı abonelik bağlamını ayarlayın. Konsolda **Select-AzureRmSubscription –SubscriptionId <your_subscription_Id>** yazın (**< your_subscription_Id >** öğesini gerçek Abonelik Kimliğinizle değiştirin) ve **ENTER**'a basın. Environment, **Account**, **TenantId**, **SubscriptionId** ve **CurrentStorageAccount** hakkında bilgiler görürsünüz.
-7. Şimdi betiği çalıştırmaya hazırsınız. **Betiği Çalıştır** düğmesine tıklayın veya klavyede **F5**'e basın.
+7. Komut penceresi içinden aşağıdakileri parametre olarak geçiren betik komutunu yürütün: 
 
    ![PowerShell Betiğini Yürütme](./media/security-center-disk-encryption/security-center-disk-encryption-fig4.png)
-8. Betik **resourceGroupName:** öğesini ister; kullanmak istediğiniz *Kaynak Grubu*'nun adını girin, ardından **ENTER**'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir *Kaynak Grubu* zaten varsa (sanal makinenizin içinde olduğu grup gibi) var olan Kaynak Grubu'nun adını girin.
-9. Betik **keyVaultName:** öğesini ister; kullanmak istediğiniz *Anahtar Kasası*'nın adını girin, ardından ENTER'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir Anahtar Kasası zaten varsa var olan *Anahtar Kasası*'nın adını girin.
+8. **-resourceGroupName:** - kullanmak istediğiniz *Kaynak Grubu*'nun adını girin. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir *Kaynak Grubu* zaten varsa (sanal makinenizin içinde olduğu grup gibi) var olan Kaynak Grubu'nun adını girin.
+9. **-keyVaultName:** - kullanmak istediğiniz *Anahtar Kasası*'nın adını girin. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir Anahtar Kasası zaten varsa var olan *Anahtar Kasası*'nın adını girin.
 10. Betik **konum** ister; şifrelemek istediğiniz VM'nin bulunduğu konumun adını girin, ardından **ENTER**'a basın. Konumu hatırlamıyorsanız 5. adıma geri dönün.
-11. Betik **aadAppName:** ister; kullanmak istediğiniz *Azure Active Directory* uygulamasının adını girin, ardından **ENTER**'a basın. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir *Azure Active Directory uygulaması* zaten varsa var olan *Azure Active Directory uygulamasının* adını girin.
+11. **-aadAppName:** - kullanmak istediğiniz *Azure Active Directory* uygulamasının adını girin. Ad yoksa yenisi için kullanmak istediğiniz adı girin. Kullanmak istediğiniz bir *Azure Active Directory uygulaması* zaten varsa var olan *Azure Active Directory uygulamasının* adını girin.
 12. İletişim kutusunda bir günlük görüntülenir. Kimlik bilgilerinizi sağlayın (evet, bir kere oturum açtınız ancak şimdi yeniden yapmanız gerekiyor).
 13. Betik çalışır ve tamamlandığında **aadClientID**, **aadClientSecret**, **diskEncryptionKeyVaultUrl** ve **keyVaultResourceId** değerlerini kopyalamayı sorar. Bu değerlerin her birini panoya kopyalayın ve Not Defteri'ne yapıştırın.
 14. PowerShell ISE'ye dönün ve imleci son satırın sonuna yerleştirip **ENTER**'a basın.

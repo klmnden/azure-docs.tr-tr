@@ -1,28 +1,24 @@
 ---
-title: İlk otomatik iş akışınızı oluşturma - Azure Logic Apps | Microsoft Docs
-description: Bu hızlı başlangıçta, sistemleri ve bulut hizmetlerini tümleştiren sistem tümleştirmesi ve kuruluş uygulaması tümleştirme (EAI) senaryoları için Azure Logic Apps ile ilk iş akışınızı nasıl otomatikleştirebileceğiniz açıklanır
-author: ecfan
-manager: anneta
-editor: ''
+title: İlk iş akışınızı oluşturma ve otomatikleştirme - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps ile görevleri, işlemleri ve iş akışlarını otomatikleştiren ilk mantıksal uygulamanızı oluşturmaya ilişkin hızlı başlangıç. Sistemlerinize ve bulut hizmetlerinize yönelik sistem tümleştirme ve kuruluş uygulaması tümleştirme (EAI) çözümleri için mantıksal uygulamalar oluşturma
 services: logic-apps
-keywords: iş akışı, bulut hizmetleri, sistem tümleştirmesi, kuruluş uygulaması tümleştirme, EAI
-documentationcenter: ''
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300948"
 ---
-# <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>Hızlı Başlangıç: İlk Logic Apps iş akışınızı oluşturma - Azure portalı
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Hızlı başlangıç: Azure Logic Apps ile ilk otomatik iş akışınızı oluşturma - Azure portal
 
 Bu hızlı başlangıçta, [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ile ilk otomatik iş akışınızı nasıl oluşturabileceğiniz konusuna giriş yapılır. Bu makalede, bir web sitesinin RSS akışında yeni öğe olup olmadığını düzenli olarak denetleyen bir mantıksal uygulama oluşturursunuz. Yeni öğeler varsa, mantıksal uygulama her öğe için bir e-posta gönderir. İşlemi tamamladığınızda, mantıksal uygulamanız bu yüksek düzeyli iş akışı gibi görünür:
 

@@ -1,31 +1,28 @@
 ---
-title: Azure CLI 2.0 aracını kullanarak Azure Data Lake Analytics ile çalışmaya başlama | Microsoft Docs
-description: "Bir Data Lake Analytics hesabı oluşturmak, U-SQL'yi kullanarak Data Lake Analytics işi oluşturmak ve işi göndermek için Azure Komut Satırı Arabirimi 2.0 aracının nasıl kullanılacağını öğrenin. "
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Azure CLI 2.0 aracını kullanarak Azure Data Lake Analytics ile çalışmaya başlama
+description: Bir Azure Data Lake Analytics hesabı oluşturmak ve bir U-SQL işi göndermek için Azure Komut Satırı Arabirimi 2.0 aracının nasıl kullanılacağını öğrenin.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625110"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Azure CLI 2.0 aracını kullanarak Azure Data Lake Analytics ile çalışmaya başlama
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Bu öğreticide, sekmeyle ayrılmış değerler (TSV) dosyasını okuyan ve bu dosyayı virgülle ayrılmış değerler (CSV) dosyasına dönüştüren bir iş geliştireceksiniz. Öğreticiyi desteklenen diğer araçları kullanarak tamamlamak için bu bölümün üst kısmındaki açılan listeyi kullanın.
+Bu makale, Azure Data Lake Analytics hesapları oluşturmak ve USQL işleriyle katalogları göndermek için Azure CLI 2.0 komut satırı arabiriminin nasıl kullanılacağını açıklar. İş, sekmeyle ayrılmış değerler (TSV) dosyasını okur ve bu dosyayı virgülle ayrılmış değerler (CSV) dosyasına dönüştürür. 
 
 ## <a name="prerequisites"></a>Ön koşullar
-Bu öğreticiye başlamadan önce aşağıdaki öğelere sahip olmanız gerekir:
+Başlamadan önce aşağıdaki öğelerin olması gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure CLI 2.0**. Bkz. [Azure CLI'yı yükleme ve yapılandırma](https://docs.microsoft.com/cli/azure/install-azure-cli).

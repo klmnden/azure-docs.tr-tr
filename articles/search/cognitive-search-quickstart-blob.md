@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640270"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Hızlı Başlangıç: Becerileri ve örnek verileri kullanarak bilişsel arama işlem hattı oluşturma
 
@@ -95,6 +96,8 @@ Azure Search hizmeti panosu sayfasına geri dönün ve komut çubuğundaki **Ver
 ### <a name="step-2-add-cognitive-skills"></a>2. Adım: Bilişsel yetenekler ekleme
 
 Daha sonra dizin oluşturma işlem hattına zenginleştirme adımları ekleyin. Portal size görüntü analizi ve metin analizi için önceden tanımlanmış bilişsel beceriler sunar. Portalda beceri kümesi, tek bir kaynak alanının üzerinde çalışır. Bu küçük bir hedef gibi görünebilir, ancak Azure blobları için `content` alanı, blob belgesinin çoğunu içerir (örneğin, Word belgesi veya PowerPoint destesi). Aynı şekilde bir blobun tüm içeriği de bu alanda bulunduğundan bu alan ideal bir giriştir.
+
+Bazen tarayıcı tarafından oluşturulan bir PDF gibi çoğunlukla taranmış görüntülerden oluşan dosyaların metinsel gösterimini ayıklamak istersiniz. Azure Search, belgedeki ekli görüntülerin içeriklerini otomatik olarak ayıklayabilir. Bunu yapmak için **OCR’yi etkinleştirip tüm metni merged_content alanına birleştirin** seçeneğini belirleyin. Bu işlem otomatik olarak, belgeden ayıklanmış metin ile birlikte belgede eklenmiş olan görüntülerin metinsel gösterimini içeren bir `merged_content` alanı oluşturur. Bu seçeneği belirlediğinizde `Source data field`, `merged_content` olarak ayarlanır.
 
 **Bilişsel beceriler ekle** bölümünde, doğal dil işleme gerçekleştiren becerileri seçin. Bu hızlı başlangıç için, kişiler, kuruluşlar ve konumlar için varlık tanımayı seçin.
 

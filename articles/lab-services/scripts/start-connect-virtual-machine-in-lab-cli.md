@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Betik Örneği - Özel laboratuvarda sanal makine başlatma | Microsoft Docs
-description: Bu Azure CLI betiği, özel laboratuvarda bir sanal makine başlatır.
+title: Azure CLI Betik Örneği - Laboratuvarda sanal makine başlatma | Microsoft Docs
+description: Bu Azure CLI betiği, Azure DevTest Labs’deki bir laboratuvarda bir sanal makine başlatır.
 services: lab-services
 author: spelluru
 manager: ''
@@ -14,15 +14,16 @@ ms.workload: na
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: c14328904f29f8160a1ccc1130fe6d2cfa629822
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a635766c1a7fb9ae10a651d09ecd7da9a5f01e51
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763145"
 ---
-# <a name="use-azure-cli-to-start-a-virtual-machine-in-a-custom-lab"></a>Özel laboratuvarda bir sanal makine başlatmak için Azure CLI’yı kullanma
+# <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs’deki bir laboratuvarda bir sanal makine başlatmak için Azure CLI’yi kullanma
 
-Bu Azure CLI betiği, özel laboratuvardaki bir sanal makineyi (VM) başlatır. 
+Bu Azure CLI betiği, laboratuvardaki bir sanal makineyi (VM) başlatır. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -39,10 +40,10 @@ Bu betik şu komutları kullanır:
 
 | Komut | Notlar |
 |---|---|
-| [az lab vm start ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-start) | Özel laboratuvardaki bir sanal makineyi (VM) başlatır. Bu işlemin tamamlanması biraz zaman alabilir. |
+| [az lab vm start ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-start) | Laboratuvardaki bir sanal makineyi (VM) başlatır. Bu işlemin tamamlanması biraz zaman alabilir. |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Azure CLI hakkında daha fazla bilgi için bkz. [Azure CLI belgeleri](https://docs.microsoft.com/cli/azure).
 
-Ek Azure Lab Services PowerShell betik örnekleri, [Azure Lab Services CLI örnekleri](../samples-cli.md) içinde bulunabilir.
+Ek Azure Lab Services CLI betik örnekleri, [Azure Lab Services CLI örnekleri](../samples-cli.md) içinde bulunabilir.

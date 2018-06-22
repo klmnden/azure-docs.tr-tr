@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs’de bir özel laboratuvar oluşturma | Microsoft Docs
-description: Bu hızlı başlangıçta, Azure DevTest Labs kullanarak özel bir laboratuvar oluşturursunuz.
+title: Azure DevTest Labs kullanarak bir laboratuvar oluşturma | Microsoft Docs
+description: Bu hızlı başlangıçta, Azure DevTest Labs kullanarak bir laboratuvar oluşturursunuz.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362252"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636996"
 ---
-# <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs kullanarak özel bir laboratuvar ayarlama
-Bu öğreticide, Azure portalını kullanarak özel bir laboratuvar oluşturursunuz. Laboratuvar yöneticisi bir kuruluşta laboratuvar ayarlar, laboratuvarda sanal makineler oluşturur ve ilkeler yapılandırır. Laboratuvar kullanıcıları (örneğin: geliştirici ve test ediciler), laboratuvarda sanal makineler talep eder, sanal makinelere bağlanır ve sanal makineleri kullanır. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs kullanarak bir laboratuvar ayarlama
+Bu öğreticide, Azure portalı kullanarak bir laboratuvar oluşturursunuz. Laboratuvar yöneticisi bir kuruluşta laboratuvar ayarlar, laboratuvarda sanal makineler oluşturur ve ilkeler yapılandırır. Laboratuvar kullanıcıları (örneğin: geliştirici ve test ediciler), laboratuvarda sanal makineler talep eder, sanal makinelere bağlanır ve sanal makineleri kullanır. 
 
 Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 
 > [!div class="checklist"]
-> * Özel laboratuvar oluşturma
+> * Laboratuvar oluşturma
 > * Laboratuvara sanal makineler (VM) ekleme
 > * Laboratuvar Kullanıcısı rolüne kullanıcı ekleme
 
 Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/) oluşturun.
 
-## <a name="create-a-custom-lab"></a>Özel laboratuvar oluşturma
+## <a name="create-a-lab"></a>Laboratuvar oluşturma
 Aşağıdaki adımlar, Azure portal kullanarak Azure DevTest Labs’de nasıl bir laboratuvar oluşturulacağını göstermektedir. 
 
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -97,8 +97,8 @@ Sonraki öğreticide, bir laboratuvar kullanıcısının laboratuvardaki bir san
 4. `<your resource group name><random numbers>` adıyla sizin için oluşturulan ek kaynak grubunu silmek için bu adımları yineleyin. Örneğin: `splab3988722144001`. Sanal makineler, laboratuvarın bulunduğu kaynak grubunda değil, bu kaynak grubunda oluşturulur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, bir sanal makine ile özel laboratuvar oluşturdunuz ve bir kullanıcıya bu laboratuvara erişme izni verdiniz. Laboratuvar kullanıcısı olarak laboratuvara erişme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin:
+Bu öğreticide, bir sanal makine ile laboratuvar oluşturdunuz ve bir kullanıcıya bu laboratuvara erişme izni verdiniz. Laboratuvar kullanıcısı olarak laboratuvara erişme hakkında bilgi edinmek için sonraki öğreticiye ilerleyin:
 
 > [!div class="nextstepaction"]
-> [Öğretici: Özel laboratuvara erişme](tutorial-use-custom-lab.md)
+> [Öğretici: Laboratuvara erişme](tutorial-use-custom-lab.md)
 

@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248250"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Öğretici: Log Analytics kullanarak Service Fabric’te Windows kapsayıcılarını izleme
 
@@ -41,7 +42,7 @@ Bu öğreticiye başlamadan önce karşılamanız gereken ön koşullar şunlard
 
 Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) kullandıysanız, genel bir Service Fabric Azure Resource Manager şablonuna aşağıdaki eklemeler zaten yapılmıştır. Kendinize ait bir kümeniz varsa ve bunu Log Analytics ile kapsayıcıları izlemek üzere ayarlamak istiyorsanız:
 * Resource Manager şablonunuzda aşağıdaki değişiklikleri yapın.
-* [Şablonu dağıtarak](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) kümenizi yükseltmek için PowerShell ile dağıtın. Azure Resource Manager, kaynağın mevcut olduğunu algılar ve yükseltme olarak kullanıma sunar.
+* PowerShell ile [şablonu dağıtarak](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) kümenizi yükseltin. Azure Resource Manager, kaynağın mevcut olduğunu algılar ve yükseltme olarak kullanıma sunar.
 
 ### <a name="adding-log-analytics-to-your-cluster-template"></a>Log Analytics’i küme şablonunuza ekleme
 
@@ -180,17 +181,17 @@ Bu öğreticinin ilk bölümünde [sağlanan şablonu](https://github.com/ChackD
     },
     ```
 
-[Burada](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json), bu değişikliklerin tümünü içeren, gerektiği şekilde başvurabileceğiniz bir örnek şablon (bu öğreticinin ilk bölümünde kullanılan) verilmiştir. Bu değişiklikler, kaynak grubunuza bir Log Analytics çalışma alanı ekler. Çalışma alanı, [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) aracısıyla yapılandırılan depolama tablolarından Service Fabric platform olaylarını alacak şekilde yapılandırılır. OMS aracısı da (Microsoft Monitoring Agent) kümenizdeki her düğüme sanal makine uzantısı olarak eklenmiştir. Böylece siz kümenizi ölçekledikçe aracı her bir makinede otomatik olarak yapılandırılır ve aynı çalışma alanına bağlanır.
+[Burada](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json), gerektiğinde başvurmanız için bu değişikliklerin tümünü içeren (ve bu öğreticinin ilk bölümünde kullanılan) bir örnek şablon verilmiştir. Bu değişiklikler, kaynak grubunuza bir Log Analytics çalışma alanı ekler. Çalışma alanı, [Windows Azure Diagnostics](service-fabric-diagnostics-event-aggregation-wad.md) aracısıyla yapılandırılan depolama tablolarından Service Fabric platform olaylarını alacak şekilde yapılandırılır. OMS aracısı da (Microsoft Monitoring Agent) kümenizdeki her düğüme sanal makine uzantısı olarak eklenmiştir. Böylece siz kümenizi ölçekledikçe aracı her bir makinede otomatik olarak yapılandırılır ve aynı çalışma alanına bağlanır.
 
 Geçerli kümenizi yükseltmek için şablonu yeni değişikliklerinizle dağıtın. Bu işlem tamamlandığında kaynak grubunuzda Log Analytics kaynaklarını görürsünüz. Küme hazır olduğunda kümeye kapsayıcılı uygulamanızı dağıtın. Sonraki adımda, kapsayıcıları izleme özelliğini ayarlayacağız.
 
 ## <a name="add-the-container-monitoring-solution-to-your-log-analytics-workspace"></a>Log Analytics çalışma alanınıza Kapsayıcı İzleme Çözümünü ekleme
 
-Çalışma alanınızda Kapsayıcı çözümünü ayarlamak için *Kapsayıcı İzleme Çözümü* araması yapın ve Kapsayıcılar kaynağı oluşturun (İzleme ve Yönetim kategorisi altında).
+Çalışma alanınızda Kapsayıcı çözümünü ayarlamak için *Kapsayıcı İzleme Çözümü* araması yapın ve İzleme ve Yönetim kategorisi altında Kapsayıcılar kaynağı oluşturun.
 
 ![Kapsayıcılar çözümü ekleme](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-*Log Analytics Çalışma Alanı* için istem görüntülendiğinde kaynak grubunuzda oluşturulan çalışma alanını seçin ve **Oluştur**’a tıklayın. Bu, çalışma alanınıza bir *Kapsayıcı İzleme Çözümü* ekler, docker günlüklerinin ve istatistiklerinin toplanmaya başlanması için otomatik olarak OMS’nin şablon tarafından dağıtılmasını sağlar. 
+*Log Analytics Çalışma Alanı* için istem görüntülendiğinde kaynak grubunuzda oluşturulan çalışma alanını seçin ve **Oluştur**’a tıklayın. Bu, çalışma alanınıza bir *Kapsayıcı İzleme Çözümü* ekler ve otomatik olarak, şablon tarafından dağıtılan OMS aracısının docker günlüklerini ve istatistiklerini toplamaya başlamasını sağlar. 
 
 *Kaynak grubunuza* geri dönün. Yeni eklenen izleme çözümünü burada görürsünüz. Bu çözüme tıklarsanız giriş sayfası, çalıştırdığınız kapsayıcı görüntülerinin sayısını size gösterir. 
 
@@ -212,18 +213,14 @@ Bu panellerden herhangi birine tıklamanız sizi görüntülenen değeri oluştu
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>OMS aracısını performans sayaçlarını alacak şekilde yapılandırma
 
-OMS aracısını kullanmanın diğer bir avantajı da her seferinde Azure tanılama aracısını yapılandırmak ve Resource Manager şablonuna dayalı bir yükseltme gerçekleştirmek zorunda kalmadan OMS UI deneyimi aracılığıyla almak istediğiniz performans sayaçlarını değiştirebilmenizdir. Bunu yapmak için Kapsayıcı İzleme (veya Service Fabric) çözümünüzün giriş sayfasında **OMS Portalı**’na tıklayın.
+OMS aracısını kullanmanın diğer bir avantajı da her seferinde Azure tanılama aracısını yapılandırmak ve Resource Manager şablonuna dayalı bir yükseltme gerçekleştirmek zorunda kalmadan OMS UI deneyimi aracılığıyla almak istediğiniz performans sayaçlarını değiştirebilmenizdir. Bunu yapmak için Kapsayıcı İzleme (veya Service Fabric) çözümünüzün giriş sayfasında **OMS Çalışma Alanı**’na tıklayın.
 
-![OMS portalı](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-Bu sizi OMS portalındaki çalışma alanınıza yönlendirir. Burada çözümlerinizi görüntüleyebilir, özel panolar oluşturabilir ve OMS aracısını yapılandırabilirsiniz. 
-* Ekranınızın sağ üst köşesindeki **dişli çarka** tıklayarak *Ayarlar* menüsünü açın.
+Bu sizi OMS Çalışma Alanınıza yönlendirir. Burada çözümlerinizi görüntüleyebilir, özel panolar oluşturabilir ve OMS aracısını yapılandırabilirsiniz. 
+* Gelişmiş Ayarlar menüsünü açmak için **Gelişmiş Ayarlar**’a tıklayın.
 * **Bağlı Kaynaklar** > **Windows Sunucuları**’na tıklayarak *5 Windows Bilgisayarı Bağlı* ifadesini gördüğünüzden emin olun.
-* Yeni performans sayaçlarını aramak ve eklemek için **Veriler** > **Windows Performans Sayaçları**’na tıklayın. Burada, toplayabileceğiniz performans sayaçlarına ilişkin Log Analytics önerilerinin listesinin yanı sıra başka sayaçları arama seçeneğini de görürsünüz. Önerilen ölçümleri toplamaya başlamak için **Seçili performans sayaçlarını ekle** seçeneğine tıklayın.
+* Yeni performans sayaçlarını aramak ve eklemek için **Veriler** > **Windows Performans Sayaçları**’na tıklayın. Burada, toplayabileceğiniz performans sayaçlarına ilişkin Log Analytics önerilerinin listesinin yanı sıra başka sayaçları arama seçeneğini de görürsünüz. Doğrulayın **Processor(_Total)\% İşlemci Zamanı** ve **Memory(*)\Available MBytes** sayaçlarının toplandığını doğrulayın.
 
-    ![Performans sayaçları](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-Azure portalına geri döndüğünüzde Kapsayıcı İzleme Çözümünüzü birkaç dakika içinde **yenileyin**. Bunu yaptığınızda *Bilgisayar Performansı* verilerini görmeye başlarsınız. Bu, kaynaklarınızın nasıl kullanıldığını anlamanıza yardımcı olur. Kümenizi ölçeklendirme konusunda doğru kararlar vermek veya bir kümenin yükünüzü beklenen şekilde dengeleyip dengelemediğini doğrulamak için de bu ölçümleri kullanabilirsiniz.
+Kapsayıcı İzleme Çözümünüzü birkaç dakika içinde **yenileyin**. Bunu yaptığınızda *Bilgisayar Performansı* verilerinin geldiğini görmeye başlarsınız. Bu, kaynaklarınızın nasıl kullanıldığını anlamanıza yardımcı olur. Kümenizi ölçeklendirme konusunda doğru kararlar vermek veya bir kümenin yükünüzü beklenen şekilde dengeleyip dengelemediğini doğrulamak için de bu ölçümleri kullanabilirsiniz.
 
 *Not: Zaman filtrelerinin bu ölçümleri kullanabilmeniz için uygun şekilde ayarlandığından emin olun.* 
 

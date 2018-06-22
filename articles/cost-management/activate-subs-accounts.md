@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6a42f4b5b54056424bc3e2d865408ad6711403e0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 4a5e613169bf3173b7585b49803fc7ac7f5186ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297980"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-azure-cost-management"></a>Azure Maliyet Yönetimi ile Azure aboneliklerini ve hesaplarını etkinleştirme
 
@@ -35,7 +36,7 @@ Hesabınıza **Katkıda Bulunan** rolü atandıysa, uygulamayı atamak için yet
 
 ### <a name="check-azure-active-directory-permissions"></a>Azure Active Directory izinlerini denetleme
 
-1. [Azure portalında](https://portal.azure.com) oturum açın.
+1. [Azure portalda](https://portal.azure.com) oturum açın.
 2. Azure portalında **Azure Active Directory** seçeneğini belirleyin.
 3. Azure Active Directory’de **Kullanıcı ayarları**’nı seçin.
 4. **Uygulama kayıtları** seçeneğini işaretleyin.
@@ -59,7 +60,7 @@ Bir hesap eklediğinizde veya bir aboneliği güncelleştirdiğinizde, Azure Mal
 1. Azure Maliyet Yönetimi’nde Hesap Yönetimi’nde önceden mevcut olan _etkinleştirilmemiş_ bir aboneliği güncelleştirmek istiyorsanız, üst _kiracı GUID_’inin sağındaki düzenle kalem simgesine tıklayın. Abonelikler bir üst kiracı altında gruplanır, bu nedenle abonelikleri tek tek etkinleştirmekten kaçının.
     ![Abonelikleri yeniden keşfetme](./media/activate-subs-accounts/existing-sub.png)
 2. Gerekirse Kiracı Kimliğini girin. Kiracı Kimliğinizi bilmiyorsanız, bulmak için aşağıdaki adımları kullanın:
-    1. [Azure portalında](https://portal.azure.com) oturum açın.
+    1. [Azure Portal](https://portal.azure.com) oturum açın.
     2. Azure portalında **Azure Active Directory** seçeneğini belirleyin.
     3. Kiracı kimliğini almak için Azure AD kiracınızda **Özellikler**'i seçin.
     4. Dizin Kimliği GUID’ini kopyalayın. Bu değer kiracı kimliğinizdir.
@@ -95,14 +96,39 @@ Sorunların çözümü:
 1. Kurumsal bayinin hesabınız için _işaretlemeyi_ etkinleştirmesi gerekir. Yönergeler için bkz. [Dolaylı Müşteri Ekleme Kılavuzu](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 2. Azure Maliyet Yönetimi ile kullanmak üzere Azure Kurumsal Anlaşma anahtarını oluşturursunuz. Yönergeler için bkz. [Azure Kurumsal Anlaşma kaydetme ve maliyet verilerini görüntüleme](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
 
-Yalnızca bir Azure hizmet yöneticisi Maliyet Yönetimini etkinleştirebilir. Ortak yönetici izinleri yeterli değil.
-
 Azure Maliyet Yönetimi’ni ayarlamak için Azure Kurumsal Anlaşma API anahtarını oluşturabilmeniz için aşağıda belirtilen kaynaklarda yer alan yönergeleri izleyerek Azure Faturalama API’sini etkinleştirmeniz gerekir:
 
 - [Kurumsal müşteriler için Raporlama API’lerine genel bakış](../billing/billing-enterprise-api.md)
 - **API’lere veri erişimini etkinleştirme** bölümünde [Microsoft Azure kurumsal portal Raporlama API’si](https://ea.azure.com/helpdocs/reportingAPI)
 
 Departman yöneticilerine, hesap sahiplerine ve kurumsal yöneticilere Faturalama API’si ile _ücretleri görüntüleme_ izni vermeniz de gerekebilir.
+
+Yalnızca bir Azure hizmet yöneticisi Maliyet Yönetimini etkinleştirebilir. Ortak yönetici izinleri yeterli değil. Ancak, yönetici gereksinimine geçici bir çözüm sunabilirsiniz. Azure Active Directory yöneticinizin PowerShell betiği ile **CloudynAzureCollector**’ı yetkilendirme izni vermesini isteyebilirsiniz. Aşağıdaki betik, **CloudynAzureCollector** adlı Azure Active Directory Hizmet Sorumlusu’nu kaydetme izni verir.
+
+```
+#THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+#Tenant - enter your tenant ID or Name
+$tenant = "<ReplaceWithYourTenantID>"
+
+#Cloudyn Collector application ID
+$appId = "83e638ef-7885-479f-bbe8-9150acccdb3d"
+
+#URL to activate the consent screen
+$url = "https://login.windows.net/"+$tenant+"/oauth2/authorize?api-version=1&response_type=code&client_id="+$appId+"&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2FCloudynJava&prompt=consent"
+
+#Choose your browser, the default is Internet Explorer
+
+#Chrome
+#[System.Diagnostics.Process]::Start("chrome.exe", "--incognito $url")
+
+#Firefox
+#[System.Diagnostics.Process]::Start("firefox.exe","-private-window $url" )
+
+#IExplorer
+[System.Diagnostics.Process]::Start("iexplore.exe","$url -private" )
+
+```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

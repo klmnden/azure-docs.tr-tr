@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 618ed0f72886fff1c2de11e2fd856f6cc065a7b3
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 11178c574bcfa2224d15f81653f7d202ba88fb55
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657596"
 ---
 # <a name="network-security"></a>Ağ güvenliği
 
@@ -138,7 +139,7 @@ Varsayılan kuralları kaldıramazsınız ancak daha yüksek önceliğe sahip ku
 
 Uygulama güvenlik grupları ağ güvenliğini uygulamanın yapısının doğal bir uzantısı olarak yapılandırmanıza imkan vererek sanal makineleri gruplamanızı ve ağ güvenlik ilkelerini bu gruplara göre tanımlamanızı sağlar. Bu özellik, açık IP adreslerinin bakımını el ile yapmanıza gerek kalmadan güvenlik ilkesini farklı ölçeklerde yeniden kullanmanıza izin verir. Platform açık IP adreslerinin ve birden fazla kural kümesinin karmaşık süreçlerini üstlenerek iş mantığınıza odaklanmanızı sağlar.
 
-Bir uygulama güvenlik grubunu bir güvenlik kuralında kaynak ve hedef olarak belirtebilirsiniz. Güvenlik ilkeniz tanımlandıktan sonra sanal makineler oluşturarak sanal makinedeki ağ arabirimlerini bir uygulama güvenlik grubuna atayabilirsiniz. İlke bir sanal makine içindeki her bir ağ arabiriminin uygulama güvenlik grubu üyeliğine göre uygulanır. Aşağıdaki örnekte bir uygulama güvenlik grubunu aboneliğinizdeki tüm web sunucuları için nasıl kullanacağınız gösterilmiştir:
+Bir uygulama güvenlik grubunu bir güvenlik kuralında kaynak ve hedef olarak belirtebilirsiniz. Kaynak ve hedefte birden çok uygulama güvenlik grubu belirtemezsiniz. Güvenlik ilkeniz tanımlandıktan sonra sanal makineler oluşturarak sanal makinedeki ağ arabirimlerini bir uygulama güvenlik grubuna atayabilirsiniz. İlke bir sanal makine içindeki her bir ağ arabiriminin uygulama güvenlik grubu üyeliğine göre uygulanır. Aşağıdaki örnekte bir uygulama güvenlik grubunu aboneliğinizdeki tüm web sunucuları için nasıl kullanacağınız gösterilmiştir:
 
 1. *WebServers* adlı bir uygulama güvenlik grubu oluşturun.
 2. *MyNSG* adlı bir ağ güvenlik grubu oluşturun.
@@ -152,7 +153,7 @@ Uygulama güvenlik grubu oluşturma ve bunları güvenlik kurallarında belirtme
 Uygulama güvenlik grupları aşağıdaki sınırlamalara sahiptir:
 
 -   Bir uygulama güvenlik grubuna atanan tüm ağ arabirimleri, uygulama güvenlik grubuna atanmış ilk ağ arabirimiyle aynı sanal ağda olmalıdır. Örneğin, ilk ağ arabirimi *VNet1* adlı sanal ağdaki *ASG1* adlı bir uygulama güvenlik grubuna atanmışsa *ASG1*’e atanan sonraki tüm ağ arabirimleri *VNet1*’de olmalıdır. Bir uygulama güvenlik grubuna farklı ağlarda bulunan ağ arabirimlerini ekleyemezsiniz.
-- Uygulama güvenlik gruplarını bir güvenlik kuralında kaynak ve hedef olarak belirtirseniz iki uygulama güvenlik grubundaki ağ arabirimlerinin de aynı sanal ağda bulunması gerekir. Örneğin ASG1 içinde VNet1 içinde bulunan ağ arabirimleri, ASG2 içinde de VNet2 içinde bulunan ağ arabirimleri varsa bir kural içinde ASG1 grubunu kaynak, ASG2 grubunu da hedef olarak belirleyemezsiniz. Tüm ağ arabirimlerinin VNet1 içinde olması gerekir.
+- Uygulama güvenlik grubunu bir güvenlik kuralında kaynak ve hedef olarak belirtirseniz iki uygulama güvenlik grubundaki ağ arabirimlerinin de aynı sanal ağda bulunması gerekir. Örneğin ASG1 içinde VNet1 içinde bulunan ağ arabirimleri, ASG2 içinde de VNet2 içinde bulunan ağ arabirimleri varsa bir kural içinde ASG1 grubunu kaynak, ASG2 grubunu da hedef olarak belirleyemezsiniz. Tüm ağ arabirimlerinin VNet1 içinde olması gerekir.
 
 ## <a name="azure-platform-considerations"></a>Azure platformunda dikkat edilmesi gerekenler
 

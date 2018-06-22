@@ -2,24 +2,22 @@
 title: Azure için MongoDB, Angular ve Node öğreticisi - 2. Bölüm | Microsoft Belgeleri
 description: Azure Cosmos DB üzerinde Angular ve Node ile MongoDB için kullandığınız aynı API'leri kullanarak bir MongoDB uygulaması oluşturma öğreticisi dizisinin 2. bölümü.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 9d3c3209807a201f11d4d0a4ddd905f332a3951f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35f003c18e19eafd3dfa9988409ceacb44e3bc4
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798075"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Angular ve Azure Cosmos DB ile MongoDB uygulaması oluşturma - 2. Bölüm: Angular CLI ile bir Node.js Express uygulaması oluşturma 
 
@@ -65,10 +63,10 @@ Bu öğretici için aşağıdakiler de gereklidir:
 
 ## <a name="use-the-angular-cli-to-create-a-new-project"></a>Yeni bir proje oluşturmak için Angular CLI’yi kullanma
 
-1. Komut isteminde, yeni projenizi oluşturmak istediğiniz klasöre gidin, ardından aşağıdaki komutu çalıştırın. Bu komut, yeni bir klasör ve angular-cosmosdb adlı bir proje oluşturur ve yeni bir uygulama için gerekli Angular bileşenlerini yükler. Ayrıca src/client klasörüne kaynak kodları yükler (-sd src/client), minimal kurulumu kullanır (--minimal) ve projenin Sass kullandığını belirtir (scss bayrağıyla CSS benzeri bir sözdizimi).
+1. Komut isteminde, yeni projenizi oluşturmak istediğiniz klasöre gidin, ardından aşağıdaki komutu çalıştırın. Bu komut, yeni bir klasör ve angular-cosmosdb adlı bir proje oluşturur ve yeni bir uygulama için gerekli Angular bileşenlerini yükler. Minimal kurulumu kullanır (--minimal) ve projenin Sass kullandığını belirtir (--style scss bayrağıyla CSS benzeri bir sözdizimi).
 
     ```bash
-    ng new angular-cosmosdb -sd src/client --minimal --style scss
+    ng new angular-cosmosdb --minimal --style scss
     ```
 
 2. Komut tamamlandığında, dizinleri src/istemci klasörüyle değiştirin.
@@ -151,11 +149,9 @@ Bu öğretici için aşağıdakiler de gereklidir:
 
 7. Tüm değiştirilmiş dosyalarınızı kaydeder. 
 
-8. Visual Studio Code’da **Hata ayıkla** düğmesine tıklayın ![Visual Studio Code’da Hata ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png), dişli düğmesine ![Visual Studio Code’da dişli düğmesi](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png) tıklayın, ardından bir yapılandırma oluşturmak için **Node.js**’yi seçin.
+8. Visual Studio Code’da **Hata ayıkla** düğmesine ![Visual Studio Code’da Hata ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) ve ardından dişli düğmesine ![Visual Studio Code’da dişli düğmesi](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png) tıklayın. Yeni Launch.json dosyası Visual Studio Code’da açılır.
 
-   Yeni Launch.json dosyası Visual Studio Code’da açılır.
-
-8. launch.json dosyasının 11. satırında `"program": "${file}"` değerini `"program": "${workspaceRoot}/src/server/index.js"` ile değiştirin dosyayı kaydedin.
+8. launch.json dosyasının 11. satırında `"${workspaceFolder}\\server"` değerini `"program": "${workspaceRoot}/src/server/index.js"` ile değiştirin dosyayı kaydedin.
 
 9. Uygulamayı çalıştırmak için **Hata Ayıklamayı Başlat** düğmesine ![Visual Studio Code’da Hata ayıkla simgesi](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) tıklayın.
 

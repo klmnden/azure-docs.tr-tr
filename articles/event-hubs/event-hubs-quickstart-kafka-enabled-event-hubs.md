@@ -5,32 +5,31 @@ services: event-hubs
 documentationcenter: ''
 author: basilhariri
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2018
+ms.date: 06/08/2018
 ms.author: bahariri
-ms.openlocfilehash: cabbb7ed6157a6c68530ab6b5f405aa67b31a1b2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8ef6240d19ce1ac1b891c95ce525a8bd211a2900
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297232"
 ---
-# <a name="stream-into-event-hubs-for-kafka-ecosystem"></a>Kafka Ekosistemi için Event Hubs’a akış oluşturma
+# <a name="stream-into-event-hubs-for-the-kafka-ecosystem"></a>Kafka Ekosistemi için Event Hubs’a akış oluşturma
 
 > [!NOTE]
 > Bu örnek [GitHub](https://github.com/Azure/azure-event-hubs)'da sağlanır
 
-Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturulacağı gösterilir. Üreticilerinizi nasıl kullanacağınızı ve yalnızca uygulamalarınızdaki bir yapılandırma değişikliğiyle tüketicilerin Kafka etkin Event Hubs ile nasıl konuşabildiğini öğrenin. Kafka Ekosistemi için Azure Event Hubs [Apache Kafka sürüm 1.0](https://kafka.apache.org/10/documentation.html)’ı destekliyor.
+Bu hızlı başlangıçta, protokol istemcilerinizi değiştirmenize veya kendi kümelerinizi çalıştırmanıza gerek kalmadan Kafka etkin Event Hubs’a nasıl akış oluşturulacağı gösterilir. Yalnızca uygulamalarınızdaki bir yapılandırma değişikliğiyle Kafka etkin Event Hubs ile konuşmak için üreticilerinizi ve tüketicilerinizi nasıl kullanacağınızı öğrenirsiniz. Kafka ekosistemi için Azure Event Hubs [Apache Kafka sürüm 1.0](https://kafka.apache.org/10/documentation.html)’ı destekler
 
 ## <a name="prerequisites"></a>Ön koşullar
 
-Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emin olun:
+Bu hızlı başlangıcı tamamlamak için aşağıdaki önkoşulların karşılandığından emin olun:
 
 * Azure aboneliği. Aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
@@ -44,7 +43,7 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emi
 
 2. `azure-event-hubs/samples/kafka/quickstart/producer` sayfasına gidin.
 
-3. Burada gösterildiği gibi src/main/resources/producer.config konumunda bulunan üreticinin yapılandırma ayrıntılarını güncelleştirin.
+3. `src/main/resources/producer.config` konumundaki üreticinin yapılandırma ayrıntılarını aşağıdaki şekilde güncelleştirin:
 
     ```xml
     bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -52,15 +51,15 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emi
     sasl.mechanism=PLAIN
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
-4. Üretici kodunu çalıştırın ve Kafka etkin Event Hubs’a akış oluşturun.
+4. Üretici kodunu çalıştırın ve Kafka etkin Event Hubs’a akış oluşturun:
    
-    ```java
+    ```shell
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestProducer"                                    
     ```
-5. azure-event-hubs/samples/kafka/quickstart/consumer konumuna gidin.
+5. `azure-event-hubs/samples/kafka/quickstart/consumer` sayfasına gidin.
 
-6. Burada gösterildiği gibi src/main/resources/consumer.config konumunda bulunan tüketicinin yapılandırma ayrıntılarını güncelleştirin.
+6. `src/main/resources/consumer.config` konumundaki tüketicinin yapılandırma ayrıntılarını aşağıdaki şekilde güncelleştirin:
    
     ```xml
     bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -69,17 +68,18 @@ Bu hızlı başlangıcı tamamlamak için aşağıdakileri yaptığınızdan emi
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
     ```
 
-7. Tüketici kodunu çalıştırın ve Kafka istemcilerinizi kullanarak Kafka etkin Event Hubs’tan işleyin.
+7. Tüketici kodunu çalıştırın ve Kafka istemcilerinizi kullanarak Kafka etkin Event Hubs’tan işleyin:
 
     ```java
     mvn clean package
     mvn exec:java -Dexec.mainClass="TestConsumer"                                    
     ```
 
-Event Hubs Kafka kümenizin üretici tarafından kuyruğa alınmış olayları varsa, bu olayları artık tüketiciden almaya başlamalısınız.
+Event Hubs Kafka kümenizin olayları varsa, bu olayları artık tüketiciden almaya başlarsınız.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Kafka Ekosistemi için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
 * [Event Hubs hakkında bilgi edinin](event-hubs-what-is-event-hubs.md)
-* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) kullanarak olayları Kafka şirket içinden bulutta Kafka etkin Event Hubs’a akışla aktarın.](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Kafka Ekosistemi için Event Hubs hakkında bilgi edinin](event-hubs-for-kafka-ecosystem-overview.md)
+* [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) kullanarak [olayları Kafka şirket içinden bulutta Kafka etkin Event Hubs’a akışla aktarın.](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Apache Flink](event-hubs-kafka-flink-tutorial.md) ya da [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md) kullanarak Kafka etkin Event Hubs’a nasıl akış oluşturacağınızı öğrenin.

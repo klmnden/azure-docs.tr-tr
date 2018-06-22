@@ -1,74 +1,72 @@
 ---
-title: Azure Table Storage ve Azure Cosmos DB C++ ile kullanma | Microsoft Docs
-description: Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın.
+title: Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini C++ ile kullanma | Microsoft Docs
+description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak yapılandırılmış verileri bulutta depolayın.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: f191f308-e4b2-4de9-85cb-551b82b1ea7c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-table
+ms.devlang: cpp
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 60c419a45e795d5968b58fbb6b469d06750a0679
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 520c0868e51f1212ee1beca8967d3c08f1d6e869
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797922"
 ---
-# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Azure Table depolama ve Azure Cosmos DB tablo API C++ ile kullanma
+# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini C++ ile kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz Azure Table depolama hizmeti veya Azure Cosmos DB tablo API kullanarak yaygın senaryolar gerçekleştirmek nasıl yapacağınızı gösterir. C++ ve kullanım örnekleri yazılır [C++ için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Kapsamdaki senaryolar dahil **oluşturma ve bir tablo silme** ve **tablo varlıklarla çalışmaya**.
+Bu kılavuzda Azure Tablo depolama hizmeti ve Azure Cosmos DB Tablo API’si kullanılarak genel senaryoların nasıl uygulanacağı gösterilir. Örnekler C++ dilinde yazılmıştır ve [C++ için Azure Depolama İstemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md)’nı kullanır. **Tablo oluşturma ve silme** ile **tablo varlıkları ile çalışma** senaryoları ele alınmaktadır.
 
 > [!NOTE]
-> Bu kılavuz, c++ sürümü 1.0.0 ve yukarıda Azure Storage istemci kitaplığı hedefler. Aracılığıyla kullanılabilir olan depolama istemci kitaplığı 2.2.0, önerilen sürümüdür [NuGet](http://www.nuget.org/packages/wastorage) veya [GitHub](https://github.com/Azure/azure-storage-cpp/).
+> Bu kılavuz C++ için Azure Depolama İstemci Kitaplığı sürüm 1.0.0 ve üzerini hedefler. Önerilen sürüm, [NuGet](http://www.nuget.org/packages/wastorage) ya da [GitHub](https://github.com/Azure/azure-storage-cpp/) üzerinden ulaşılabilen Depolama İstemci Kitaplığı 2.2.0’dır.
 > 
 
-## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
+## <a name="create-an-azure-service-account"></a>Azure hizmet hesabı oluşturma
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Tablo API’si hesabı oluşturma
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-c-application"></a>C++ uygulaması oluşturma
-Bu kılavuzda, C++ uygulamasında çalıştırılabilir depolama özelliklerini kullanır. Bunu yapmak için Azure Storage istemci kitaplığı C++ için yükleme ve Azure aboneliğinizde bir Azure depolama hesabı oluşturmanız gerekir.  
+Bu kılavuzda bir C++ uygulamasında çalıştırılabilen depolama özelliklerini kullanacaksınız. Bunu yapmak için, C++ için Azure Depolama İstemci Kitaplığı’nı yüklemeniz ve Azure aboneliğinizde bir Azure depolama hesabı oluşturmanız gerekir.  
 
-C++ için Azure Storage istemci kitaplığı yüklemek için aşağıdaki yöntemleri kullanabilirsiniz:
+C++ için Azure Depolama İstemci Kitaplığı’nı aşağıdaki yöntemleri kullanarak yükleyebilirsiniz:
 
-* **Linux:** üzerinde verilen yönergeleri izleyin [C++ Benioku için Azure Storage istemci Kitaplığı](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfası.  
-* **Windows:** Visual Studio'da sırasıyla **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**. Aşağıdaki komutu yazın [NuGet Paket Yöneticisi Konsolu](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) ve Enter tuşuna basın.  
+* **Linux:** [C++ için Azure Depolama İstemci Kitaplığı BENİOKU](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) sayfasında verilen yönergeleri izleyin.  
+* **Windows:** Visual Studio'da **Araçlar > NuGet Paket Yöneticisi > Paket Yöneticisi Konsolu**’na tıklayın. Aşağıdaki komutu [NuGet Paket Yöneticisi konsoluna](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) yazıp Enter’a basın.  
   
      Install-Package wastorage
 
-## <a name="configure-access-to-the-table-client-library"></a>Tablo istemci kitaplığı erişimi yapılandırma
-Azure depolama API'leri tabloları erişmek için kullanmasını istediğiniz C++ dosyanın en üstüne deyimlerini şunlar ekleyin:  
+## <a name="configure-access-to-the-table-client-library"></a>Tablo istemci kitaplığına erişimi yapılandırma
+Tablolara erişmek üzere Azure depolama API’lerini kullanmak istediğiniz C++ dosyasının üstüne aşağıdaki deyimleri ekleyin:  
 
 ```cpp
 #include <was/storage_account.h>
 #include <was/table.h>
 ```
 
-Bir Azure Storage istemcisi veya Cosmos DB istemci uç noktaları ve Veri Yönetimi Hizmetleri erişmek için kimlik bilgilerini depolamak için bir bağlantı dizesi kullanır. Bir istemci uygulaması çalıştırırken, depolama bağlantı dizesi veya Azure Cosmos DB bağlantı dizesi uygun biçimdeki sağlamanız gerekir.
+Azure Depolama istemcisi veya Cosmos DB istemcisi, veri yönetimi hizmetlerine erişmek üzere uç noktaları ve kimlik bilgilerini depolamak için bir bağlantı dizesi kullanır. Bir istemci uygulama çalıştırırken, depolama bağlantı dizesini veya Azure Cosmos DB bağlantı dizesini doğru biçimde sağlamanız gerekir.
 
-## <a name="set-up-an-azure-storage-connection-string"></a>Bir Azure depolama bağlantı dizesi ayarlama
- Listelenen depolama hesabı için depolama hesabınız ve erişim anahtarı adını kullanmak [Azure Portal](https://portal.azure.com) için *AccountName* ve *AccountKey* değerleri. Depolama hesapları ve erişim anahtarları hakkında daha fazla bilgi için bkz: [hakkında Azure depolama hesapları](../storage/common/storage-create-storage-account.md). Bu örnek, Azure depolama bağlantı dizesi tutmak için statik bir alana nasıl bildirebilir gösterir:  
+## <a name="set-up-an-azure-storage-connection-string"></a>Azure Depolama bağlantı dizesini ayarlama
+ *AccountName* ve *AccountKey* değerleri için [Azure Portalında](https://portal.azure.com) listelenen Depolama hesabınızın adını ve Depolama hesabına ait erişim anahtarını kullanın. Depolama hesapları ve erişim anahtarları hakkında bilgi için bkz. [Azure Depolama hesapları hakkında](../storage/common/storage-create-storage-account.md). Bu örnekte Azure Depolama bağlantı dizesini tutmak için nasıl statik bir alan bildirebileceğiniz gösterilmektedir:  
 
 ```cpp
 // Define the Storage connection string with your values.
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Bir Azure Cosmos DB bağlantı dizesi ayarlama
-Azure Cosmos DB hesabınızı, birincil anahtar ve uç nokta listelenen adını kullanmak [Azure Portal](https://portal.azure.com) için *hesap adı*, *birincil anahtar*, ve * Uç nokta* değerleri. Bu örnek, nasıl Azure Cosmos DB bağlantı dizesi tutmak için statik bir alana bildirebilir gösterir:
+## <a name="set-up-an-azure-cosmos-db-connection-string"></a>Azure Cosmos DB bağlantı dizesini ayarlama
+Azure Cosmos DB hesabınızın adını, birincil anahtarınızı ve *Hesap Adı*, *Birincil Anahtar* ve *Uç Nokta* değerleri için [Azure Portalında](https://portal.azure.com) listelenen uç noktayı kullanın. Bu örnekte Azure Cosmos DB bağlantı dizesini tutmak için nasıl statik bir alan bildirebileceğiniz gösterilmektedir:
 
 ```cpp
 // Define the Azure Cosmos DB connection string with your values.
@@ -76,26 +74,26 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 ```
 
 
-Yerel Windows tabanlı bilgisayarınızın uygulamanızı test etmek için Azure kullanabilirsiniz [depolama öykünücüsü](../storage/common/storage-use-emulator.md) ile yüklü [Azure SDK'sı](https://azure.microsoft.com/downloads/). Depolama öykünücüsü Azure Blob, kuyruk ve Tablo Hizmetleri, yerel geliştirme makinenizde kullanılabilir benzetim yapan bir yardımcı programdır. Aşağıdaki örnek, yerel depolama öykünücüsü için bağlantı dizesi tutmak için statik bir alana nasıl bildirebilir gösterir:  
+Uygulamanızı yerel Windows tabanlı bilgisayarınızda test etmek için, [Azure SDK](https://azure.microsoft.com/downloads/) ile birlikte yüklenen Azure [depolama öykünücüsünü](../storage/common/storage-use-emulator.md) kullanabilirsiniz. Depolama öykünücüsü, yerel geliştirme makinenizde mevcut olan Azure Blob, Kuyruk ve Tablo hizmetlerini benzeten bir yardımcı programdır. Aşağıdaki örnekte bağlantı dizesini yerel depolama öykünücünüzde tutmak için nasıl statik bir alan bildirebileceğiniz gösterilmektedir:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Azure storage öykünücüsü başlatmak için tıklatın **Başlat** düğmesine veya Windows tuşuna basın. Yazmaya başlayın **Azure Storage öykünücüsü**ve ardından **Microsoft Azure Storage öykünücüsü** uygulamalar listesinden.  
+Azure Depolama öykünücüsünü başlatmak için **Başlat** düğmesine tıklayın veya Windows tuşuna basın. **Azure Depolama Öykünücüsü** yazmaya başlayın ve sonra uygulama listesinden **Microsoft Azure Depolama Öykünücüsü**’nü seçin.  
 
-Aşağıdaki örnekler, bu iki yöntemden birini depolama bağlantı dizesini almak için kullanılan olduğunu varsayalım.  
+Aşağıdaki örnekler, depolama bağlantı dizesini almak için bu iki yöntemden birini kullandığınızı varsayar.  
 
-## <a name="retrieve-your-connection-string"></a>Bağlantı dizesi alma
-Kullanabileceğiniz **cloud_storage_account** depolama hesabı bilgileri temsil eden sınıf. Depolama bağlantı dizesi, depolama hesabı bilgilerini almak için kullanabileceğiniz **ayrıştırma** yöntemi.
+## <a name="retrieve-your-connection-string"></a>Bağlantı dizenizi alma
+Depolama hesabınızın bilgilerini temsil etmesi için **cloud_storage_account** sınıfını kullanabilirsiniz. Depolama bağlantı dizesinden depolama hesabı bilgilerini almak için **parse** yöntemini kullanabilirsiniz.
 
 ```cpp
 // Retrieve the storage account from the connection string.
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-Ardından, bir başvuru almak bir **cloud_table_client** sınıfı gibi tablolar ve tablo depolama hizmet içinde depolanan varlıklar için başvuru nesneleri alabilmenizi sağlar. Aşağıdaki kod oluşturur bir **cloud_table_client** biz alınan yukarıda depolama hesabı nesnesini kullanarak nesnesi:  
+Ardından, Tablo depolama hizmeti içinde tablo ve varlıklar için başvuru nesneleri almanıza olanak tanıyan bir **cloud_table_client** sınıfına başvuru alın. Aşağıdaki kod, yukarıda aldığımız depolama hesabı nesnesini kullanarak bir **cloud_table_client** nesnesi oluşturur:  
 
 ```cpp
 // Create the table client.
@@ -103,7 +101,7 @@ azure::storage::cloud_table_client table_client = storage_account.create_cloud_t
 ```
 
 ## <a name="create-a-table"></a>Bir tablo oluşturma
-A **cloud_table_client** nesne tabloları ve varlıkları için başvuru nesneleri almak olanak sağlar. Aşağıdaki kod oluşturur bir **cloud_table_client** nesne ve yeni bir tablo oluşturmak için kullanır.
+**cloud_table_client** nesnesi, tablo ve varlıklar için başvuru nesneleri almanıza olanak tanır. Aşağıdaki kod bir **cloud_table_client** nesnesi oluşturur ve yeni bir tablo oluşturmak için bu nesneyi kullanır.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -120,9 +118,9 @@ table.create_if_not_exists();
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Tabloya bir varlık ekleme
-Bir tabloya bir varlık eklemek için yeni bir oluşturma **table_entity** nesne ve ona geçirin **table_operation::insert_entity**. Aşağıdaki kod, bölüm anahtarı olarak müşterinin adını satır anahtarını ve Soyadı kullanır. Birlikte, bir varlığın bölüm ve sıra anahtarı varlığı tabloda benzersiz şekilde tanımlar. Aynı bölüm anahtarına sahip varlıklar farklı bölüm anahtarlarının göre daha hızlı sorgulanabilir ancak farklı bölüm anahtarlarının kullanılması daha fazla paralel işlem ölçeklenebilirlik sağlar. Daha fazla bilgi için bkz: [Microsoft Azure depolama performans ve ölçeklenebilirlik Yapılacaklar listesi](../storage/common/storage-performance-checklist.md).
+Bir tabloya varlık eklemek için yeni bir **table_entity** nesnesi oluşturun ve **table_operation::insert_entity** nesnesine geçirin. Aşağıdaki kod, satır anahtarı olarak müşterinin adını, bölüm anahtarı olarak soyadını kullanır. Birlikte, bir varlığın bölüm ve sıra anahtarı varlığı tabloda benzersiz şekilde tanımlar. Aynı bölüm anahtarına sahip varlıklar farklı bölüm anahtarlı varlıklara göre daha hızlı sorgulanabilir ancak farklı bölüm anahtarlarının kullanılması paralel işlemler için daha büyük ölçeklendirme sağlar. Daha fazla bilgi için bkz. [Microsoft Azure depolama performansı ve ölçeklenebilirliği yapılacaklar listesi](../storage/common/storage-performance-checklist.md).
 
-Aşağıdaki kod yeni bir örneğini oluşturur **table_entity** depolanması için bazı müşteri verileri. Kodun sonraki çağrılar **table_operation::insert_entity** oluşturmak için bir **table_operation** bir tabloya bir varlık eklemek için nesne ve yeni tablo varlığı ile ilişkilendirir. Son olarak, kod üzerinde yürütme yöntemini çağırır **cloud_table** nesnesi. Ve yeni **table_operation** "Kişiler" tablosuna yeni müşteri varlık eklemek için tablo hizmetine bir istek gönderir.  
+Aşağıdaki kod, depolanacak bazı müşteri verileri ile birlikte **table_entity** sınıfının yeni bir örneğini oluşturur. Kod daha sonra **table_operation::insert_entity** yöntemini çağırarak bir tabloya varlık eklemek üzere bir **table_operation** nesnesi oluşturur ve onunla yeni tabloyu ilişkilendirir. Son olarak, kod **cloud_table** nesnesi üzerinde execute yöntemini çağırır. Yeni **table_operation** ise Tablo hizmetine yeni müşteri varlığını "people" tablosuna eklemeye yönelik bir istek gönderir.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -154,7 +152,7 @@ azure::storage::table_result insert_result = table.execute(insert_operation);
 ```
 
 ## <a name="insert-a-batch-of-entities"></a>Toplu işlem varlık yerleştirme
-Toplu işlem varlık tablo hizmeti için bir yazma işlemi ekleyebilirsiniz. Aşağıdaki kod oluşturur bir **table_batch_operation** nesne ve üç ekleme işlemleri ona ekler. Yeni bir varlık nesnesi oluşturarak, kendi değerlerini ayarlama ve üzerinde Insert yöntemini çağırmak her ekleme işlemi eklenen **table_batch_operation** varlığı yeni bir ekleme işlemi ile ilişkilendirmek için nesne. Ardından, **cloud_table.execute** işlemi yürütmek için çağrılır.  
+Tablo hizmetine tek bir yazma işlemiyle çok sayıda varlık ekleyebilirsiniz. Aşağıdaki kod bir **table_batch_operation** nesnesi oluşturur, ardından nesneye üç insert işlemi ekler. Bir insert işlemi, varlığı yeni bir insert işlemi ile ilişkilendirmek üzere yeni bir varlık nesnesi oluşturularak, değerleri ayarlanarak ve sonra **table_batch_operation** nesnesi üzerinde insert yöntemi çağrılarak eklenir. Ardından, işlemi yürütmek için **cloud_table.execute** çağrılır.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -202,18 +200,18 @@ batch_operation.insert_or_replace_entity(customer3);
 std::vector<azure::storage::table_result> results = table.execute_batch(batch_operation);
 ```
 
-Toplu işlem dikkat edilecek bazı noktalar:  
+Toplu işlemlerde dikkat edilecek bazı noktalar:  
 
-* Tek bir toplu işteki herhangi bir arada en fazla 100 Ekle, Sil, birleştirme, Değiştir, ekleme veya birleştirme ve ekleme veya değiştirme işlemleri gerçekleştirebilir.  
-* Toplu işlemdeki tek işlem olması durumunda toplu işlem bir alma işlemi olabilir.  
+* Tek bir toplu işlemdeki herhangi bir birleşimde en fazla 100 insert, delete, merge, replace, insert-or-merge ve insert-or-replace işlemi gerçekleştirebilirsiniz.  
+* Bir toplu işlem toplu iş içindeki tek işlemse bir retrieve işlemi içerebilir.  
 * Tek bir toplu işlemdeki tüm varlıkların bölüm anahtarları aynı olmalıdır.  
-* Bir toplu işlemi için 4 MB veri yükü sınırlıdır.  
+* Toplu işlem 4 MB veri yükü ile sınırlıdır.  
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Tüm varlıkları bir bölüme alma
-Bir bölümdeki tüm varlıklar için bir tabloyu sorgulamak için kullanın bir **table_query** nesnesi. Aşağıdaki kod örneği, ‘Smith’in bölüm anahtarı olduğu varlıklar için bir filtre belirtir. Bu örnek sorgu sonuçlarındaki her varlığın alanlarını konsola yazdırır.  
+Bir bölümdeki tüm varlıklar için bir tabloyu sorgulamak üzere bir **table_query** nesnesi kullanın. Aşağıdaki kod örneği, ‘Smith’in bölüm anahtarı olduğu varlıklar için bir filtre belirtir. Bu örnek sorgu sonuçlarındaki her varlığın alanlarını konsola yazdırır.  
 
 > [!NOTE]
-> Bu yöntemler, C++ Azure Cosmos veritabanı için şu anda desteklenmemektedir.
+> Bu yöntemler şu anda Azure Cosmos DB’de C++ için desteklenmemektedir.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -245,13 +243,13 @@ for (; it != end_of_results; ++it)
 }  
 ```
 
-Bu örnekte sorgu, filtre ölçütüyle eşleşen tüm varlıkların getirir. Büyük tabloları varsa ve tablo varlıkları indirmek için genellikle öneririz, verilerinizi Azure storage bloblarında yerine depolar.
+Bu örnekteki sorgu, filtre ölçütleriyle eşleşen tüm varlıkları getirir. Büyük tablolarınız varsa ve tablo varlıklarını sık indirmeniz gerekiyorsa, verilerinizi bunun yerine Azure depolama bloblarında depolamanız önerilir.
 
 ## <a name="retrieve-a-range-of-entities-in-a-partition"></a>Bir bölüme bir grup varlık alma
 Bir bölümdeki tüm varlıkları sorgulamak istemiyorsanız bölüm anahtarı filtresi ile bir satır anahtarı filtresini birleştirerek bir aralık belirleyebilirsiniz. Aşağıdaki kod örneği, 'Smith' bölümünde, satır anahtarı (ad) alfabede 'E' harfinden önce gelen bir harfle başlayan tüm varlıkları almak için iki filtre kullanır, ardından sorgu sonuçlarını yazdırır.  
 
 > [!NOTE]
-> Bu yöntemler, C++ Azure Cosmos veritabanı için şu anda desteklenmemektedir.
+> Bu yöntemler şu anda Azure Cosmos DB’de C++ için desteklenmemektedir.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -288,7 +286,7 @@ for (; it != end_of_results; ++it)
 ```
 
 ## <a name="retrieve-a-single-entity"></a>Tek bir varlık alma
-Tek, belirli bir varlığı almak üzere bir sorgu yazabilirsiniz. Aşağıdaki kod **table_operation::retrieve_entity** 'Jeff Smith' müşteri belirtmek için. Bu yöntem bir koleksiyon yerine yalnızca bir varlık döndürür ve döndürülen değer olarak **table_result**. Bir sorguda hem bölüm hem de satır anahtarını belirtmek Tablo hizmetinden tek bir varlık almanın en hızlı yoludur.  
+Tek, belirli bir varlığı almak üzere bir sorgu yazabilirsiniz. Aşağıdaki kod 'Jeff Smith' müşterisini belirtmek için **table_operation::retrieve_entity** kullanır. Bu yöntem bir koleksiyon yerine yalnızca bir varlık döndürür ve döndürülen değer **table_result** içindedir. Bir sorguda hem bölüm hem de satır anahtarını belirtmek Tablo hizmetinden tek bir varlık almanın en hızlı yoludur.  
 
 ```cpp
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -313,7 +311,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 ```
 
 ## <a name="replace-an-entity"></a>Bir varlığı değiştirme
-Bir varlığı değiştirmek için tablo hizmetinden alın, varlık nesnesini değiştirin ve değişiklikleri tablo hizmetine geri kaydedin. Aşağıdaki kod mevcut bir müşterinin telefon numarası ve e-posta adresini değiştirir. Çağırmak yerine **table_operation::insert_entity**, bu kod **table_operation::replace_entity**. Bu, sunucu üzerindeki varlık alındığından beri değiştirilmemişse varlığın sunucu üzerinde tamamen değiştirilmesini sağlar, aksi takdirde işlem başarısız olur. Bu işlem, uygulamanızın başka bir bileşeninin alım ve güncelleştirme arasında gerçekleştirilen bir değişikliğin yanlışlıkla üzerine yazılmasını engellemek üzere başarısız olur. Varlığın yeniden alınması, (hala geçerli ise) değişiklikleri yapın ve ardından başka bir gerçekleştirmek için bu hatanın uygun işleme olan **table_operation::replace_entity** işlemi. Sonraki bölüm bu davranışı nasıl geçersiz kılacağınızı gösterecektir.  
+Bir varlığı değiştirmek için Tablo hizmetinden alın, varlık nesnesini değiştirin ve değişiklikleri Tablo hizmetine geri kaydedin. Aşağıdaki kod mevcut bir müşterinin telefon numarasını ve e-posta adresini değiştirir. Bu kod **table_operation::insert_entity** nesnesini çağırmak yerine **table_operation::replace_entity** nesnesini kullanır. Bu, sunucu üzerindeki varlık alındığından beri değiştirilmemişse varlığın sunucu üzerinde tamamen değiştirilmesini sağlar, aksi takdirde işlem başarısız olur. Bu işlem, uygulamanızın başka bir bileşeninin alım ve güncelleştirme arasında gerçekleştirilen bir değişikliğin yanlışlıkla üzerine yazılmasını engellemek üzere başarısız olur. Bu başarısız işlem, varlığın yeniden alınması, (hala geçerli ise) değişikliklerin yapılması ve yeni bir **table_operation::replace_entity** işleminin gerçekleştirilmesiyle uygun şekilde ele alınır. Sonraki bölüm bu davranışı nasıl geçersiz kılacağınızı gösterecektir.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -344,7 +342,7 @@ azure::storage::table_result replace_result = table.execute(replace_operation);
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>Bir varlığı yerleştirme veya değiştirme
-**table_operation::replace_entity** varlık sunucudan alındığından beri değiştirilmişse işlemleri başarısız olur. Ayrıca, varlığın sunucudan ilk sırada aldığınız gerekir **table_operation::replace_entity** başarılı olması için. Bazı durumlarda, Bununla birlikte, varlık sunucuda bulunduğundan ve içinde saklı geçerli değerlerin ilgisiz olup olmadığını bilmiyorsanız — güncelleştirmeniz tümünün üzerine yazmalıdır. Bunu gerçekleştirmek için kullanacağınız bir **table_operation::insert_or_replace_entity** işlemi. Bu işlem, varlık mevcut değilse varlığı yerleştirir, eğer varlık mevcutsa yapılan son güncelleştirmeden bağımsız olarak değiştirir. Aşağıdaki kod örneğinde Jeff Smith için müşteri varlığı hala alınabilir, ancak ardından sunucuya geri kaydedilir **table_operation::insert_or_replace_entity**. Varlığa alma ve güncelleştirme işlemi arasında yapılan güncelleştirmeler üzerine yazılır.  
+Varlık sunucudan alındığından beri değiştirilmişse, **table_operation::replace_entity** işlemleri başarısız olacaktır. Dahası, **table_operation::replace_entity** işleminin başarılı olması için ilk olarak varlığın sunucudan alınması gerekir. Buna karşın bazı durumlarda varlığın sunucuda olup olmadığını ve içinde saklı geçerli değerlerin ilgisiz olup olmadığını bilemeyebilirsiniz. Güncelleştirmeniz bunların tümünün üzerine yazılmalıdır. Bunu gerçekleştirmek için bir **table_operation::insert_or_replace_entity** işlemi kullanırsınız. Bu işlem, varlık mevcut değilse varlığı yerleştirir, eğer varlık mevcutsa yapılan son güncelleştirmeden bağımsız olarak değiştirir. Aşağıdaki kod örneğinde Jeff Smith için müşteri varlığı hala alınabilir, ancak ardından **table_operation::insert_or_replace_entity** ile sunucuya geri kaydedilir. Varlığa alma ve güncelleştirme işlemleri arasında yapılan tüm güncelleştirmelerin üzerine yazılacaktır.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -376,7 +374,7 @@ azure::storage::table_result insert_or_replace_result = table.execute(insert_or_
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>Giriş özellikleri alt kümesi sorgulama
-Sorguda bir tabloya bir varlık birkaç özelliği alabilir. Aşağıdaki kodda sorgusu kullanan **table_query::set_select_columns** tabloda yalnızca e-posta adresleri varlıkların döndürülecek yöntemi.  
+Tabloya gönderilen bir sorgu, bir varlıktan yalnızca birkaç özellik alabilir. Aşağıdaki kodda yer alan sorgu, **table_query::set_select_columns** yöntemini kullanarak yalnızca tablodaki varlıkların e-posta adreslerini döndürür.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -415,12 +413,12 @@ for (; it != end_of_results; ++it)
 ```
 
 > [!NOTE]
-> Bir varlıktaki birkaç özelliği sorgulama tüm özellikleri alınırken değerinden daha verimli bir işlemdir.
+> Bir varlıktaki birkaç özelliğin sorgulanması, tüm özelliklerin alınmasından daha verimli bir işlemdir.
 > 
 > 
 
 ## <a name="delete-an-entity"></a>Bir varlığı silme
-Bir varlık, onu aldıktan sonra kolayca silebilirsiniz. Varlık alındıktan sonra arama **table_operation::delete_entity** varlıkla silin. ' I çağırın **cloud_table.execute** yöntemi. Aşağıdaki kod alır ve bir varlık bir bölüm anahtarı "Smith" ve "Jeff" satır anahtarı ile siler.  
+Bir varlığı aldıktan sonra kolayca silebilirsiniz. Varlık alındıktan sonra, silinecek varlıkla birlikte **table_operation::delete_entity** yöntemini çağırın. Sonra **cloud_table.execute** yöntemini çağırın. Aşağıdaki kod, "Smith" bölüm anahtarı ve "Jeff" satır anahtarı ile bir varlığı alır ve siler.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -468,18 +466,18 @@ if (table.delete_table_if_exists())
 ```
 
 ## <a name="troubleshooting"></a>Sorun giderme
-* Derleme hataları Visual Studio 2017 Community Edition
+* Visual Studio 2017 Community Edition derleme hataları
 
-  Projenizi içerme dosyaları storage_account.h ve table.h nedeniyle derleme hataları alırsa, kaldırma **/ izin veren-** derleyici anahtar. 
-  - İçinde **Çözüm Gezgini**, projenize sağ tıklayın ve seçin **özellikleri**.
-  - İçinde **özellik sayfaları** iletişim kutusunda, genişletin **yapılandırma özellikleri**, genişletin **C/C++**seçip **dil**.
-  - Ayarlama **uyumluluk modu** için **Hayır**.
+  Projeniz include files storage_account.h ve table.h nedeniyle derleme hataları alırsa, **/permissive-** derleme anahtarını kaldırın. 
+  - **Çözüm Gezgini**’nde projenize sağ tıklayın ve **Özellikler**’i seçin.
+  - **Özellik Sayfaları** iletişim kutusunda **Yapılandırma Özellikleri**’ni, **C/C++**’yi genişletin ve **Dil**’i seçin.
+  - **Uyumluluk modu**’nu **Hayır** olarak ayarlayın.
    
 ## <a name="next-steps"></a>Sonraki adımlar
-Azure Storage ve Azure Cosmos veritabanı tablo API hakkında daha fazla bilgi için aşağıdaki bağlantıları izleyin: 
+Azure Depolama ve Azure Cosmos DB Tablo API’si hakkında daha fazla bilgi almak için şu bağlantıları izleyin: 
 
-* [Tablo API giriş](table-introduction.md)
+* [Tablo API’sine giriş](table-introduction.md)
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
-* [C++'ta Azure Storage kaynakları listeler](../storage/common/storage-c-plus-plus-enumeration.md)
-* [C++ başvurusu için depolama istemci kitaplığı](http://azure.github.io/azure-storage-cpp)
-* [Azure Storage belgeleri](https://azure.microsoft.com/documentation/services/storage/)
+* [Azure Depolama Kaynaklarını C++ dilinde listeleme](../storage/common/storage-c-plus-plus-enumeration.md)
+* [C++ başvurusu için Depolama İstemci Kitaplığı](http://azure.github.io/azure-storage-cpp)
+* [Azure Depolama belgeleri](https://azure.microsoft.com/documentation/services/storage/)

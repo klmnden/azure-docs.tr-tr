@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639352"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Ağ İzleyicisi nedir?
 
@@ -48,11 +49,11 @@ Resmin svg biçiminde düzenlenebilir bir sürümünü indirebilirsiniz. [Topolo
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>Sanal makinede gelen veya giden ağ trafiği filtreleme sorunlarını tanılama
 
-Bir sanal makine dağıttığınızda, Azure sanal makineye gelen veya giden trafiğe izin veren veya bu trafiği reddeden çeşitli varsayılan güvenlik kuralları uygular. Azure'un varsayılan kurallarını geçersiz kılabilir veya ek kurallar oluşturabilirsiniz. Belirli bir noktada, güvenlik kuralı nedeniyle sanal makine diğer kaynaklarla iletişim kuramaz duruma gelebilir. *IP akışı doğrulama* özelliği, kaynak ve hedef IPv4 adresini, bağlantı noktasını, protokolünü (TCP veya UDP) ve trafik yönünü (gelen veya giden) belirtmenize olanak tanır. Ardından IP akışı doğrulama özelliği iletişimi test eder ve bağlantının başarılı olup olmadığını size bildirir. Bağlantı başarısız olursa, IP akışı doğrulama hangi güvenlik kuralının iletişime izin verdiğini veya iletişimi reddettiğini size bildirir ve siz de sorunu çözebilirsiniz. [IP akışı doğrulama](network-watcher-ip-flow-verify-overview.md) özelliği hakkında daha fazla bilgi edinin.
+Bir sanal makine dağıttığınızda, Azure sanal makineye gelen veya giden trafiğe izin veren veya bu trafiği reddeden çeşitli varsayılan güvenlik kuralları uygular. Azure'un varsayılan kurallarını geçersiz kılabilir veya ek kurallar oluşturabilirsiniz. Belirli bir noktada, güvenlik kuralı nedeniyle sanal makine diğer kaynaklarla iletişim kuramaz duruma gelebilir. *IP akışı doğrulama* özelliği, kaynak ve hedef IPv4 adresini, bağlantı noktasını, protokolünü (TCP veya UDP) ve trafik yönünü (gelen veya giden) belirtmenize olanak tanır. Ardından IP akışı doğrulama özelliği iletişimi test eder ve bağlantının başarılı olup olmadığını size bildirir. Bağlantı başarısız olursa, IP akışı doğrulama hangi güvenlik kuralının iletişime izin verdiğini veya iletişimi reddettiğini size bildirir ve siz de sorunu çözebilirsiniz. [Bir sanal makine ağ trafiği filtresi sorununu tanılama](diagnose-vm-network-traffic-filtering-problem.md) öğreticisini tamamlayarak IP akışı doğrulaması hakkında daha fazla bilgi edinin.
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>Sanal makineden gelen ağ yönlendirme sorunlarını tanılama
 
-Sanal makine oluşturduğunuzda, Azure varsayılan olarak ağ trafiği için çeşitli giden yollar oluşturur. Sanal makineler gibi sanal ağ üzerine dağıtılmış tüm kaynaklardan giden trafik, Azure'un varsayılan yolları temelinde yönlendirilir. Azure'un varsayılan yollarını geçersiz kılabilir veya ek yollar oluşturabilirsiniz. Sanal makinenin belirli bir yol nedeniyle diğer kaynaklarla artık iletişim kuramadığını fark edebilirsiniz. *Sonraki atlama* özelliği kaynak ve hedef IPv4 adresi belirtmenize olanak tanır. Ardından sonraki atlama özelliği iletişimi test eder ve trafiği yönlendirmek için kullanılan sonraki atlama türü hakkında sizi bilgilendirir. Siz de yönlendirme sorununu çözmek için yolu kaldırabilir, değiştirebilir veya yol ekleyebilirsiniz. [Sonraki atlama](network-watcher-next-hop-overview.md?) özelliği hakkında daha fazla bilgi edinin.
+Sanal makine oluşturduğunuzda, Azure varsayılan olarak ağ trafiği için çeşitli giden yollar oluşturur. Sanal makineler gibi sanal ağ üzerine dağıtılmış tüm kaynaklardan giden trafik, Azure'un varsayılan yolları temelinde yönlendirilir. Azure'un varsayılan yollarını geçersiz kılabilir veya ek yollar oluşturabilirsiniz. Sanal makinenin belirli bir yol nedeniyle diğer kaynaklarla artık iletişim kuramadığını fark edebilirsiniz. *Sonraki atlama* özelliği kaynak ve hedef IPv4 adresi belirtmenize olanak tanır. Ardından sonraki atlama özelliği iletişimi test eder ve trafiği yönlendirmek için kullanılan sonraki atlama türü hakkında sizi bilgilendirir. Siz de yönlendirme sorununu çözmek için yolu kaldırabilir, değiştirebilir veya yol ekleyebilirsiniz. [Sonraki atlama](diagnose-vm-network-routing-problem.md) özelliği hakkında daha fazla bilgi edinin.
 
 ### <a name="connection-troubleshoot"></a>Sanal makineden giden bağlantı sorunlarını tanılama
 
@@ -64,7 +65,7 @@ Zaman ve boyut sınırlamaları ayarlama gibi gelişmiş filtreleme seçenekleri
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Azure Sanal ağ geçidi ve bağlantılarındaki sorunları giderme
 
-Sanal ağ geçitleri şirket içi kaynaklarla Azure sanal ağları arasında bağlantı sağlar. Ağ geçitlerinin ve bağlantılarının izlenmesi, iletişimin kesilmemesini güvence altına alma açısından kritik önem taşır. *VPN tanılama* özelliği ağ geçitlerinde ve bağlantılarda tanılama olanağı sağlar. VPN tanılama özelliği ağ geçidinin veya ağ geçidi bağlantısının durumunu tanılar ve ağ geçidi ile ağ geçidi bağlantılarının kullanılabilir olup olmadığını size bildirir. Ağ geçidi veya bağlantı kullanılamıyorsa, VPN tanılama özelliği bunun nedenini belirtir ve siz de sorunu çözebilirsiniz. [VPN tanılama](network-watcher-troubleshoot-overview.md) özelliği hakkında daha fazla bilgi edinin.
+Sanal ağ geçitleri şirket içi kaynaklarla Azure sanal ağları arasında bağlantı sağlar. Ağ geçitlerinin ve bağlantılarının izlenmesi, iletişimin kesilmemesini güvence altına alma açısından kritik önem taşır. *VPN tanılama* özelliği ağ geçitlerinde ve bağlantılarda tanılama olanağı sağlar. VPN tanılama özelliği ağ geçidinin veya ağ geçidi bağlantısının durumunu tanılar ve ağ geçidi ile ağ geçidi bağlantılarının kullanılabilir olup olmadığını size bildirir. Ağ geçidi veya bağlantı kullanılamıyorsa, VPN tanılama özelliği bunun nedenini belirtir ve siz de sorunu çözebilirsiniz. [Ağlar arasındaki bir iletişim sorununu tanılama](diagnose-communication-problem-between-networks.md) öğreticisini tamamlayarak VPN tanılama hakkında daha fazla bilgi edinin.
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Azure bölgeleriyle İnternet servis sağlayıcıları arasındaki göreli gecikme sürelerini saptama
 
@@ -90,7 +91,7 @@ Ağ güvenlik grupları (NSG) sanal makinedeki ağ arabirimine gelen veya burada
 
 ![Trafik analizi](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-[NSG akış günlükleri](network-watcher-nsg-flow-logging-overview.md) ve [trafik analizi](traffic-analytics.md) hakkında daha fazla bilgi edinin.
+[Bir sanal makineye giden ve sanal makineden gelen ağ trafiğini günlüğe kaydetme](network-watcher-nsg-flow-logging-portal.md) öğreticisini ve [trafik analizini](traffic-analytics.md) uygulamayı tamamlayarak NSG akış günlükleri hakkında daha fazla bilgi edinin.
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Ağ kaynakları için tanılamak günlüklerini görüntüleme
 

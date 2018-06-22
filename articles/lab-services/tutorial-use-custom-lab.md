@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs’de bir özel laboratuvara erişme | Microsoft Docs
+title: Azure DevTest Labs'de laboratuvara erişme | Microsoft Docs
 description: Bu öğreticide, Azure DevTest Labs kullanılarak oluşturulan laboratuvara erişir, sanal makineler talep eder, sanal makineleri kullanır ve sanal makine talebini geri alırsınız.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: be4bde6bd320e8af7cd3119ff4ccdabd942963ca
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361847"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638033"
 ---
-# <a name="tutorial-access-a-custom-lab-in-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs’de bir özel laboratuvara erişme
-Bu öğreticide, [Öğretici: Özel laboratuvar oluşturma](tutorial-create-custom-lab.md) başlıklı öğreticide oluşturulan özel laboratuvarı kullanırsınız.
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Öğretici: Azure DevTest Labs’de bir laboratuvara erişme
+Bu öğreticide, [Öğretici: Azure DevTest Labs’de laboratuvar oluşturma](tutorial-create-custom-lab.md) başlıklı öğreticide oluşturulan laboratuvarı kullanırsınız.
 
 Bu öğreticide, aşağıdaki eylemleri gerçekleştireceksiniz:
 
 > [!div class="checklist"]
-> * Özel laboratuvarda sanal makine (VM) talep etme
+> * Laboratuvarda sanal makine (VM) talep etme
 > * VM’ye bağlanma
 > * Sanal makine talebini geri alma
 
@@ -70,8 +70,8 @@ Sanal makineyi kullandıktan sonra şu adımları izleyerek sanal makine talebin
 1. Talebi geri alma işlemi bittikten sonra, en alt kısımdaki **Talep edilebilir sanal makineler** listesinde sanal makineyi görürsünüz. 
     
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, Azure DevTest Labs kullanılarak oluşturulan bir özel laboratuvara nasıl erişeceğiniz ve bu laboratuvarı nasıl kullanacağınız gösterildi. Özel laboratuvardaki sanal makinelere erişme ve bu sanal makineleri kullanma hakkında daha fazla bilgi için bkz. 
+Bu öğreticide, Azure DevTest Labs kullanılarak oluşturulan bir laboratuvara nasıl erişeceğiniz ve bu laboratuvarı nasıl kullanacağınız gösterildi. Laboratuvardaki sanal makinelere erişme ve bu sanal makineleri kullanma hakkında daha fazla bilgi için bkz. 
 
 > [!div class="nextstepaction"]
-> [Nasıl yapılır: Özel laboratuvardaki sanal makineleri kullanma](devtest-lab-add-vm.md)
+> [Nasıl yapılır: Laboratuvardaki sanal makineleri kullanma](devtest-lab-add-vm.md)
 

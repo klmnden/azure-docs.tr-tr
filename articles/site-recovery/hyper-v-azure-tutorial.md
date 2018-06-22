@@ -1,18 +1,19 @@
 ---
-title: "Azure Site Recovery ile şirket içi Hyper-V sanal makineleri (VMM olmadan) için Azure’da olağanüstü durum kurtarma ayarlama | Microsoft Docs"
-description: "Azure Site Recovery hizmeti ile şirket içi Hyper-V sanal makineleri (VMM olmadan) için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını öğrenin."
+title: Azure Site Recovery ile şirket içi Hyper-V sanal makineleri (VMM olmadan) için Azure’da olağanüstü durum kurtarma ayarlama | Microsoft Docs
+description: Azure Site Recovery hizmeti ile şirket içi Hyper-V sanal makineleri (VMM olmadan) için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını öğrenin.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 05/21/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9ee5478412b02615efec983dd0b99c12fc2d9213
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643592"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Şirket içi Hyper-V sanal makineleri için Azure’da olağanüstü durum kurtarma ayarlama
 
@@ -40,19 +41,31 @@ Başlamadan önce bu olağanüstü durum kurtarma senaryosu için [mimariyi göz
 2. **Başlarken** bölümünde **Site Recovery**’ye tıklayın. Daha sonra **Altyapıyı Hazırlama**’ya tıklayın
 3. **Koruma hedefi** > **Makineleriniz nerede** bölümünde **Şirket içi** seçeneğini belirleyin.
 4. **Makinelerinizi nereye çoğaltmak istiyorsunuz** bölümünde **Azure’a** seçeneğini belirleyin.
-5. **Makineleriniz sanallaştırılmış mı?** bölümünde **Hayır**’ı seçin. Daha sonra, **Tamam**'a tıklayın.
+5. **Hyper-V ana bilgisayarlarınızı yönetmek için System Center VMM mi kullanıyorsunuz** başlığında **Hayır**’ı seçin. Daha sonra, **Tamam**'a tıklayın.
 
     ![Çoğaltma hedefi](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## <a name="confirm-deployment-planning"></a>Dağıtım planlamasını onaylama
+
+Büyük bir dağıtım planlarken, [Hyper-V çoğaltma için dağıtım planlaması](hyper-v-deployment-planner-overview.md) konusunu tamamladığınızdan emin olmalısınız. Bu öğretici için **Dağıtım planlamasını tamamladınız mı?** seçeneğinde açılan listede **Daha sonra yapacağım**’ı seçin.
+
+![Dağıtım planlaması](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## <a name="set-up-the-source-environment"></a>Kaynak ortamı ayarlama
 
-Kaynak ortamı ayarlamak için Hyper-V konaklarını bir Hyper-V sitesine ekleyin, Azure Site Kurtarma Sağlayıcısı’nı ve Azure Kurtarma Hizmetleri aracısını yükleyin ve Hyper-V sitesini kasaya kaydedin. 
+Kaynak ortamını ayarlamak için bir Hyper-V sitesi oluşturun ve siteye Hyper-V ana bilgisayarları ekleyin. Ardından her ana bilgisayarda Azure Site Recovery Sağlayıcısı ile Azure Kurtarma Hizmetleri aracısını indirip yükleyin ve Hyper-V sitesini kasaya kaydedin. 
 
 1. **Altyapıyı Hazırlama** bölümünde **Kaynak** seçeneğine tıklayın.
 2. **+Hyper-V Sitesi**’ne tıklayın ve önceki öğreticide oluşturulan sitenin adını (**ContosoHyperVSite**) belirtin.
-3. **+Hyper-V Sunucusu**’na tıklayın.
+
+    ![Hyper-V sitesi](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. Site oluşturulduktan sonra **+Hyper-V Server**’a tıklayın.
+
+    ![Hyper-V sunucusu](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Sağlayıcı kurulum dosyasını indirin.
-5. Kasa kayıt anahtarını indirin. Sağlayıcı kurulumunu çalıştırırken bu anahtara ihtiyaç duyarsınız. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
+6. Kasa kayıt anahtarını indirin. Sağlayıcı kurulumunu çalıştırırken bu anahtara ihtiyaç duyarsınız. Anahtar, oluşturulduktan sonra beş gün boyunca geçerlidir.
 
     ![Sağlayıcıyı indirin](./media/hyper-v-azure-tutorial/download.png)
     

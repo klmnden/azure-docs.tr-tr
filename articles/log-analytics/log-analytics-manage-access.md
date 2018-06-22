@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271679"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637540"
 ---
 # <a name="manage-workspaces"></a>Çalışma alanlarını yönetme
 
@@ -98,7 +98,7 @@ Eski Log Analytics kullanıcı rolleri yalnızca [Log Analytics portalında](htt
 
 | Eylem                                                          | Gereken Azure İzni | Notlar |
 |-----------------------------------------------------------------|--------------------------|-------|
-| Yönetim çözümlerini ekleme ve kaldırma                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| Yönetim çözümlerini ekleme ve kaldırma                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Bu izinlerin kaynak grubu veya abonelik düzeyinde verilmiş olması gerekir. |
 | Fiyatlandırma katmanını değiştirme                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | *Backup* ve *Site Recovery* çözüm kutucuklarındaki verileri görüntüleme | Yönetici / Ortak yönetici | Klasik dağıtım modeli kullanılarak dağıtılan kaynaklara erişir |
 | Azure portalında bir çalışma alanı oluşturma                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Azure Log Analytics için iki yerleşik kullanıcı rolüne sahiptir:
 
 
 *Log Analytics Katkıda Bulunan* rolünün üyeleri aşağıdakileri yapabilir:
-- Tüm izleme verilerini okuma 
-- Otomasyon hesaplarını oluşturma ve yapılandırma
-- Yönetim çözümlerini ekleme ve kaldırma
-- Depolama hesabı anahtarlarını okuma 
-- Azure Depolama’dan günlüklerin toplanmasını yapılandırma
+- Tüm izleme verilerini okuma  
+- Otomasyon hesaplarını oluşturma ve yapılandırma  
+- Yönetim çözümlerini ekleme ve kaldırma    
+    > [!NOTE] 
+    > Bu iki eylemi başarıyla gerçekleştirmek için, bu iznin kaynak grubu veya abonelik düzeyinde verilmiş olması gerekir.  
+
+- Depolama hesabı anahtarlarını okuma   
+- Azure Depolama’dan günlüklerin toplanmasını yapılandırma  
 - Azure kaynaklarına ilişkin izleme ayarlarını düzenleme:
   - VM'lere VM uzantısı ekleme
   - Tüm Azure kaynaklarında Azure tanılamayı yapılandırma
@@ -157,7 +160,7 @@ Bu rolleri, kullanıcılara farklı kapsamlarda erişim vermek için kullanın:
 - Kaynak grubu - Kaynak grubundaki tüm çalışma alanına erişim
 - Kaynak - Yalnızca belirtilen çalışma alanına erişim
 
-Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../active-directory/role-based-access-control-custom-roles.md) kullanın.
+Doğru erişim denetimi sağlamak için atamaları kaynak düzeyinde (çalışma alanında) gerçekleştirmenizi öneririz.  Gereken özel izinlere sahip rolleri oluşturmak için [özel rolleri](../active-directory/role-based-access-control-custom-roles.md) kullanın.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure kullanıcı rolleri ve Log Analytics portalı kullanıcı rolleri
 Log Analytics çalışma alanında en az Azure okuma izniniz varsa, Log Analytics çalışma alanını görüntülerken **OMS Portal** görevine tıklayarak Log Analytics portalını açabilirsiniz.

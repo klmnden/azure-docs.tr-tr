@@ -1,6 +1,6 @@
 ---
 title: Azure Lab Services’te farklı laboratuvar türlerini karşılaştırma | Microsoft Docs
-description: Azure Lab Services (önceki adıyla DevTest Labs) kullanarak oluşturabileceğiniz farklı laboratuvar türlerini açıklar ve karşılaştırır.
+description: Azure Lab Services kullanarak oluşturabileceğiniz farklı laboratuvar türlerini açıklar ve karşılaştırır
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 22a1c90dd1a1ca305431d91a801e5293a6d08703
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361191"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637882"
 ---
-# <a name="compare-managed-and-devtest-labs-in-azure-lab-services"></a>Azure Lab Services’te yönetilen ve DevTest laboratuvarları karşılaştırma
-İki tür laboratuvar oluşturabilirsiniz: Azure Lab Services ile **yönetilen laboratuvarlar** ve Azure DevTest Labs ile **özel laboratuvarlar** . Yalnızca bir laboratuvardaki gereksinimlerinizi eklemek ve laboratuvar için gerekli altyapıyı ayarlayıp yönetmeyi hizmete bırakmak istiyorsanız, **yönetilen laboratuvarlardan** birini seçin. Şu anda **sınıf laboratuvarı**, Azure Lab Services ile oluşturabileceğiniz tek yönetilen laboratuvar türüdür. Kendi altyapınızı yönetmek istiyorsanız, Azure DevTest Labs kullanarak bir **özel laboratuvar** oluşturun.
+# <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Azure Lab Services ve DevTest Labs’te yönetilen laboratuvarları karşılaştırma
+İki tür laboratuvar oluşturabilirsiniz: Azure Lab Services ile **yönetilen laboratuvarlar** ve Azure DevTest Labs ile **özel laboratuvarlar** . Yalnızca bir laboratuvardaki gereksinimlerinizi eklemek ve laboratuvar için gerekli altyapıyı ayarlayıp yönetmeyi hizmete bırakmak istiyorsanız, **yönetilen laboratuvarlardan** birini seçin. Şu anda **sınıf laboratuvarı**, Azure Lab Services ile oluşturabileceğiniz tek yönetilen laboratuvar türüdür. Kendi altyapınızı yönetmek istiyorsanız, Azure DevTest Labs kullanarak bir laboratuvar oluşturun.
 
 Aşağıdaki bölümlerde bu laboratuvarlar hakkında daha ayrıntılı bilgi verilmektedir. 
 
@@ -38,10 +38,10 @@ Bu yönetilen laboratuvarlarda Azure kaynakları oluşturup kullandığınızda 
 - Bir hackathon barındırmak için hızlıca bir sanal makine laboratuvarı sağlayın. İşiniz bittiğinde tek bir tıklama ile laboratuvarı silin. 
 
 
-## <a name="devtest-labs"></a>DevTest laboratuvarları
-Tüm altyapıyı ve yapılandırmayı kendi başınıza, kendi aboneliğiniz içinde yönetmek istediğiniz senaryolar olabilir. Bunu yapmak için, Azure portalında Azure DevTest Labs ile özel bir laboratuvar oluşturabilirsiniz. Bu laboratuvarlar için bir laboratuvar hesabı oluşturmanız gerekmez. Bu laboratuvarlar, laboratuvar hesabında (yönetilen laboratuvarlar için mevcuttur) gösterilmez.  
+## <a name="devtest-labs"></a>DevTest Labs
+Tüm altyapıyı ve yapılandırmayı kendi başınıza, kendi aboneliğiniz içinde yönetmek istediğiniz senaryolar olabilir. Bunu yapmak için, Azure portalda Azure DevTest Labs ile bir laboratuvar oluşturabilirsiniz. Bu laboratuvarlar için bir laboratuvar hesabı oluşturmanız gerekmez. Bu laboratuvarlar, laboratuvar hesabında (yönetilen laboratuvarlar için mevcuttur) gösterilmez.  
 
-**DevTest laboratuvarları kullanmaya ilişkin kullanım örneklerinden** bazıları aşağıda verilmiştir: 
+**DevTest Labs kullanmaya ilişkin kullanım örneklerinden** bazıları aşağıda verilmiştir: 
 
 - Bir hackathon veya bir konferansta uygulamalı oturum barındırmak için hızlıca bir sanal makine laboratuvarı sağlayın. İşiniz bittiğinde tek bir tıklama ile laboratuvarı silin. 
 - Uygulamanızla yapılandırılan bir VM havuzu oluşturun ve takımınızın yoğun hata ayıklama için bir sanal makineyi kolayca kullanmasını sağlayın.  
@@ -51,10 +51,10 @@ Tüm altyapıyı ve yapılandırmayı kendi başınıza, kendi aboneliğiniz iç
 - Ürününüzün en son sürümü ile yapılandırılmış bir laboratuvar kullanarak müşterilerinize eğitim oturumları sunun. Her müşteriye laboratuvarda kullanmak üzere sınırlı sayıda saat verin. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Yönetilen laboratuvarlar ve DevTest laboratuvarları
+## <a name="managed-labs-vs-devtest-labs"></a>Yönetilen laboratuvarlar ve DevTest Labs
 Aşağıdaki tabloda Azure Lab Services tarafından desteklenen iki laboratuvar türü karşılaştırılmaktadır: 
 
-| Özellikler | Yönetilen laboratuvarlar | DevTest laboratuvarları |
+| Özellikler | Yönetilen laboratuvarlar | DevTest Labs |
 | -------- | ----------------  | ---------- |
 | Laboratuvarda Azure altyapısı yönetimi. |  Hizmet tarafından otomatik olarak yönetilir | Kendi başınıza yönetirsiniz  |
 | Altyapı sorunlarında yerleşik esneklik | Hizmet tarafından otomatik olarak gerçekleştirilir | Kendi başınıza yönetirsiniz  |
@@ -64,5 +64,5 @@ Aşağıdaki tabloda Azure Lab Services tarafından desteklenen iki laboratuvar 
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure Lab Services kullanarak bir laboratuvarı ayarlamaya başlama:
 
-- [Bir sınıf laboratuvarı ayarlama](tutorial-setup-classroom-lab.md)
-- [Özel bir laboratuvarı ayarlama](tutorial-create-custom-lab.md)
+- [Bir sınıf laboratuvarı ayarlama](classroom-labs/tutorial-setup-classroom-lab.md)
+- [Laboratuvar ayarlama](tutorial-create-custom-lab.md)

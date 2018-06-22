@@ -1,29 +1,26 @@
 ---
-title: Visual Studio ve Azure Logic Apps ile görev ve işlemleri otomatik hale getirme | Microsoft Docs
-description: Bu hızlı başlangıçta, Visual Studio’da Azure Logic Apps ile görev ve işlemleri otomatik hale getiren iş akışları oluşturma işlemi gösterilmektedir
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: Visual Studio ile iş akışlarını otomatikleştiren mantıksal uygulamalar oluşturma - Azure Logic Apps | Microsoft Docs
+description: Visual Studio’da Azure Logic Apps ile görevleri, işlemleri ve iş akışlarını otomatik hale getirmeyi gösteren hızlı başlangıç
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300761"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>Hızlı başlangıç: Azure Logic Apps - Visual Studio ile görev ve işlemleri otomatik hale getirme
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Hızlı başlangıç: Azure Logic Apps ile görevleri, işlemleri ve iş akışlarını oluşturma ve otomatik hale getirme - Visual Studio
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ile uygulama, veri, sistem hizmetleri kuruluşlar arasında otomatik hale getiren iş akışları oluşturabilirsiniz. Bu hızlı başlangıçta, Visual Studio’da mantıksal uygulamalar oluşturup bu uygulamaları bulutta <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>’a dağıtarak söz konusu iş akışlarını nasıl tasarlayıp derleyebileceğiniz gösterilmektedir. Ayrıca, bu görevleri <a href="https://portal.azure.com" target="_blank">Azure portalında</a> gerçekleştirebilmenize rağmen, Visual Studio’yu kullanarak kaynak denetimine mantıksal uygulamalar ekleyebilir, farklı sürümler yayımlayabilir ve farklı dağıtım ortamları için Azure Resource Manager şablonları oluşturabilirsiniz. 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ve Visual Studio ile uygulama, veri, sistem ve hizmetleri kurum ve kuruluşlar arasında otomatik hale getiren iş akışları oluşturabilirsiniz. Bu hızlı başlangıçta, Visual Studio’da mantıksal uygulamalar oluşturup bu uygulamaları bulutta <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>’a dağıtarak söz konusu iş akışlarını nasıl tasarlayıp derleyebileceğiniz gösterilmektedir. Ayrıca, bu görevleri <a href="https://portal.azure.com" target="_blank">Azure portalında</a> gerçekleştirebilmenize rağmen, Visual Studio’yu kullanarak kaynak denetimine mantıksal uygulamalar ekleyebilir, farklı sürümler yayımlayabilir ve farklı dağıtım ortamları için Azure Resource Manager şablonları oluşturabilirsiniz. 
 
 Azure Logic Apps kullanmaya yeni başladıysanız ve yalnızca temel kavramları istiyorsanız, bunun yerine [Azure portalında mantıksal uygulama oluşturmak için hızlı başlangıç](../logic-apps/quickstart-create-first-logic-app-workflow.md) makalesini deneyin. Mantıksal Uygulama Tasarımcısı hem Azure portalında hem de Visual Studio’da benzer şekilde çalışır. 
 
@@ -187,4 +184,5 @@ Artık gerek kalmadığında mantıksal uygulamanızı ve ilgili kaynakları iç
 Bu makalede Visual Studio kullanarak mantıksal uygulamanızı derlediniz, dağıttınız ve çalıştırdınız. Visual Studio ile mantıksal uygulamalarda gelişmiş dağıtımı yönetme ve gerçekleştirme hakkında daha fala bilgi almak için şu makalelere bakın:
 
 > [!div class="nextstepaction"]
-> [Visual Studio ile mantıksal uygulamaları yönetme](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Visual Studio ile mantıksal uygulamaları yönetme](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Visual Studio ile mantıksal uygulamalar için dağıtım şablonları oluşturma](../logic-apps/logic-apps-create-deploy-template.md)

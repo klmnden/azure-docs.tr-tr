@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701047"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Hızlı Başlangıç: Video dosyalarını akışa alma - .NET
 
 > [!NOTE]
 > En son Azure Media Services sürümü Önizleme aşamasındadır ve v3 olarak adlandırılabilir. v3 API’lerini kullanmaya başlamak için, bu hızlı başlangıçta açıklandığı gibi yeni bir Media Services hesabı oluşturmanız gerekir. 
 
-Bu hızlı başlangıçta, Azure Media Services kullanarak çok çeşitli tarayıcı ve cihazda videoları akışa almaya başlamanın ne kadar kolay olduğu size gösterilmektedir. 
+Bu hızlı başlangıçta, Azure Media Services kullanarak çok çeşitli tarayıcı ve cihazda videoları akışa almaya başlamanın ne kadar kolay olduğu size gösterilmektedir. Bu konu başlığındaki örnek, bir HTTPS URL’si aracılığıyla erişilebilir hale getirdiğiniz içerikleri kodlar. 
 
 Hızlı başlangıcın sonunda bir videoyu akışa alabileceksiniz.  
 
@@ -43,6 +44,18 @@ Aşağıdaki komutu kullanarak, akış .NET örneğini içeren bir GitHub havuzu
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+Örnek [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) klasöründe bulunur.
+
+Örnek aşağıdaki eylemleri gerçekleştirir:
+
+1. Bir Dönüşüm oluşturur (ilk olarak, belirtilen Dönüşümün var olup olmadığını denetler). 
+2. Kodlama İşinin çıkışı olarak kullanılan bir çıkış Varlığı oluşturur.
+3. İşin bir HTTPS URL'sini temel alan girişini oluşturur.
+4. Daha önce oluşturulan giriş ve çıkışı kullanarak kodlama İşini gönderir.
+5. İşin durumunu denetler.
+6. StreamingLocator oluşturur.
+7. Akış URL'leri oluşturur.
 
 Örnekteki her bir işlevin ne yaptığına dair açıklamalar için kodu inceleyin ve [bu kaynak dosyadaki](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) açıklamalara bakın.
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 777ba32a6c3ec7545c9911c820ceda7ac823096a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809292"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Senaryolar ve Media Services özelliklerinin veri merkezleri arasında kullanılabilirliği
 
@@ -25,7 +26,7 @@ Microsoft Azure Media Services (AMS), çeşitli istemcilere (TV, PC ve mobil cih
 
 AMS, dünyanın dört bir yanındaki birden fazla veri merkezinde çalışmaktadır. Bu veri merkezleri, coğrafi bölgeler halinde gruplandırılarak uygulamalarınızı oluşturacağınız yeri seçme esnekliği tanır. [Bölgeler ve konumlarının listesini](https://azure.microsoft.com/regions/) gözden geçirebilirsiniz. 
 
-Bu konu başlığı altında, içeriğinizin [canlı](#live_scenarios) veya [isteğe bağlı](#vod_scenarios) teslimiyle ilgili yaygın senaryolar gösterilmektedir. Bu makalede, medya özellikleri ve hizmetlerinin veri merkezleri arasında kullanılabilirliği hakkındaki ayrıntılar da sağlanır.
+Bu konu başlığı altında, içeriğinizin [canlı](#live_scenarios) veya [isteğe bağlı](#vod_scenarios) teslimiyle ilgili yaygın senaryolar gösterilmektedir. Bu konu başlığında, medya özellikleri ve hizmetlerinin veri merkezleri arasında kullanılabilirliği hakkındaki ayrıntılar da sağlanır.
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -165,7 +166,7 @@ Bu bölümde, Media Services özelliklerinin veri merkezleri arasında kullanıl
 
 #### <a name="availability"></a>Kullanılabilirlik
 
-Bir veri merkezinde Media Services’ın kullanılabilir olup olmadığını belirlemek için https://azure.microsoft.com/status/ adresine göz atın ve MEDYA tablosuna gidin.
+Bir veri merkezinde Media Services’ın kullanılabilir olup olmadığını belirlemek için https://azure.microsoft.com/status/ adresine göz atın ve MEDYA tablosuna kaydırın.
 
 ### <a name="streaming-endpoints"></a>Akış uç noktaları 
 
