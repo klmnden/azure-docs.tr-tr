@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 11a4fe4cd7b4b08b4468e08bba754518d27abb99
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825349"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309547"
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource ile işinizi Büyüt  
 İş müşteriler bulmak için deneyin ve iş yazılım (SaaS) hizmet olarak alma devreye AppSource kullanın uygulamaları ve sürücü iş sonuçları yardımcı değerine süresini azaltmak için uygulama hizmetleri.  
@@ -32,8 +32,7 @@ ms.locfileid: "34825349"
 | ***Verimlilik, verimliliğini ve iş öngörüleri geliştirmeye yardımcı olmak için uygulamalar*** | İş, Müşteri Hizmetleri, ik, işlemleri ve benzeri satırlar için uygulamalar sağlar |  
 | ***Müşteri için benzersiz durum uygulamalara uyarlamak için deneyimli uygulama iş ortağı*** | Bir katalog Dynamics 365, Power BI, PowerApps ve iş ortağı uygulamalarını tahmin edilebilir sonuçlar teslim iş kullanıcıları yardımcı olmak için göre çözümleri için danışmanlık hizmetleri tekliflerinin sağlar |  
 
-<!-- # Grow your business with AppSource  -->
-Azure Market ve AppSource Microsoft ile birleşik Git Pazar etkinlikler için başlatma noktaları ve iş büyüme flywheel var. Market teklifiniz başlatma yükseltme, isteğe bağlı oluşturma ve satış ve pazarlama Eklem kullanarak bulut iş altyapınız merkez olabilir. Katılım için hiçbir ücretleri vardır. Microsoft müşterileri veriş Market'te her gün doğru uygulamaları ve iş müşterinizi artırmanıza yardımcı olmak için hizmetleri bulmak için ziyaret edin. Microsoft hedef çözümleriyle kuruluşlar bağlanmak ve Microsoft ve Microsoft iş ortaklarının hizmetleri.  
+<!-- # Grow your business with AppSource  --> Azure Market ve AppSource Microsoft ile birleşik Git Pazar etkinlikler için başlatma noktaları ve iş büyüme flywheel var. Market teklifiniz başlatma yükseltme, isteğe bağlı oluşturma ve satış ve pazarlama Eklem kullanarak bulut iş altyapınız merkez olabilir. Katılım için hiçbir ücretleri vardır. Microsoft müşterileri veriş Market'te her gün doğru uygulamaları ve iş müşterinizi artırmanıza yardımcı olmak için hizmetleri bulmak için ziyaret edin. Microsoft hedef çözümleriyle kuruluşlar bağlanmak ve Microsoft ve Microsoft iş ortaklarının hizmetleri.  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>Bir bulut Market birleştirme iş avantajları  
 Market'te veriş neden katılması gereken birçok ilgi çekici nedeni vardır. Özellikle işinizi genişletmenize yardımcı olmak için Teklifleriniz AppSource üzerinde listeleme avantajları şunlardır:  
@@ -53,7 +52,7 @@ Market'te veriş neden katılması gereken birçok ilgi çekici nedeni vardır. 
 *   **Danışmanlık Hizmetleri Teklifleriniz listesi**  
     İş kullanıcıları, tahmin edilebilir sonuçlar sağlamak üzere tasarlanmış kalite danışmanlık hizmetleri sunarak güvenle başlamak müşteriye yardımcı olmak deneyimli iş ortakları için aramaktadır. İş kullanıcıların teklifler müşteriye yardımcı olmak için hızlı şekilde kullanmaya bulmasına yardımcı olmak için danışmanlık hizmetleri Teklifleriniz listeleyin.  
 *   **Güvenle kullanmaya başlama**  
-    Microsoft AppSource takım sorunsuz ekleme deneyimi sağlamak için aşağıda verilmiştir. AppSource takım burada her adımda yardımcı olmaktır — olup listeleme ölçütleri ve daha fazlasını karşılamanıza yardımcı deneme veya test sürücü deneyimi, çalışma.  
+    Microsoft AppSource takım sorunsuz ekleme deneyimi sağlamak için aşağıda verilmiştir. AppSource takım, burada her adımda yardımcı olur; olup olmadığını ve listeleme ölçütleri karşılayan yardımcı deneme veya test sürücü deneyimi üzerinde çalışmaktadır.  
 *   **Uygulama listesi sayfanızı özelleştirme**  
     Uygulamalarınızı AppSource üzerinde pazara yönteminizi karar geldiğinde esnekliğe sahip olursunuz. Bir video, veri sayfaları, belgeleri ve ayrıntılı bir açıklama sağlayın. Microsoft, uygulamanızın üzerinde AppSource ilgi çekici bir yolla sunmak için sizinle birlikte çalışır.  
 *   **Eyleme dönüştürülebilir Öngörüler alın**  
@@ -112,7 +111,7 @@ Aşağıdaki tablolarda teklif listenizi çıkışı doldurma her adım ayrınt�
 | StoreFront ayarları | En iyi uygulamalar | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **Teklif adı** | Teklif AppSource giriş sayfası ve uygulama Galerisi üzerinde arama sayfasında özeti görüntülenir. Arama anahtar sözcükleri uygulamanızı arama motoru sonuçlarında sıralamasını geliştirmeye yardımcı olmak için teklif özeti dahil edin. |
-| **Teklif açıklaması** | **İyi teklif açıklamasını girin**<br />Açıkça değer teklifinde teklifinizin ilk birkaç cümle, açıklama açıklanmaktadır. İlk birkaç cümleleri arama motoru sonuçlarında görüntülenebilir aklınızda bulundurun.<br />Özellikleri ve işlevselliği ürününüzü satmak için kullanmayın. Bunun yerine, teslim değeri odaklanın. Sektöre özgü sözlük veya avantajı tabanlı ifadesi mümkün olduğunca kullanın.<br />Değer teklifinde çekirdek bileşenleri hakkında bilgiler içermelidir:<br />•What ürünüdür<br />•Who buradan en kazanır<br />•What gereksinim veya sorun mu adresi.<br />Çözümünüzü kullandıktan sonra nasıl kendi iş ya da iş yaşam farklı olabilir, müşterilerin açıklayın.<br />Arama anahtar sözcükleri ve anahtar sözcüğü Çeşitlemeler teklifiniz arama motoru sonuçlarında sıralamasını geliştirmeye yardımcı olmak için teklif açıklama ekleyebilirsiniz.<br />Basit HTML kullanarak teklif açıklama sağlayın.<br />Anahtar özelliklerinin listesini tarafından izlenen bir özeti sağlar (yukarıda gösterilen listeleme örnekte gösterildiği gibi) sayfa listeleyen bir basit tekliftir bir örneği burada verilmiştir. En fazla karakter sayısını 3, 000 ' dir.<br />_Örnek HTML_<br /><p>Dynamics 365 (çevrimiçi) için kuruluş Insights önemli benimseme ve kullanım ölçümlerini Dynamics 365 kuruluşunuz ve performans ve Destek sorunlarının üstesinden olmanıza yardımcı olan araçlar sağlar.</p> <ul><li><strong>Panoları Özelleştirme</strong><br /> Zengin bir kullanıcı deneyimi ve önemli verilerinizin anlık görüntüleri sağlamak için Pano ayarlayın.<ul> <li><strong>İzleme benimseme ve kullanın:</strong> en etkin kullanıcılarınız tanımlamak sayfa istekleri, en sık kullanılan varlıkları, iş akışları ve daha fazlasını sayısı.</li> </ul><p>Minimum desteklenen platform sürümü: 8.1.1</p> |
+| **Teklif açıklaması** | **İyi teklif açıklamasını girin**<br />Açıkça değer teklifinde teklifinizin ilk birkaç cümle, açıklama açıklanmaktadır. İlk birkaç cümleleri arama motoru sonuçlarında görüntülenebilir aklınızda bulundurun.<br />Özellikleri ve işlevselliği ürününüzü satmak için kullanmayın. Bunun yerine, teslim değeri odaklanın. Sektöre özgü sözlük veya avantajı tabanlı ifadesi mümkün olduğunca kullanın.<br />Değer teklifinde çekirdek bileşenleri hakkında bilgiler içermelidir:<ul> <li>Ürün nedir</li>  <li>Kimin ondan en kazanır</li> <li>Hangi gereksinim veya sorun adresi.</li> </ul>Çözümünüzü kullandıktan sonra nasıl kendi iş ya da iş yaşam farklı olabilir, müşterilerin açıklayın.<br />Arama anahtar sözcükleri ve anahtar sözcüğü Çeşitlemeler teklifiniz arama motoru sonuçlarında sıralamasını geliştirmeye yardımcı olmak için teklif açıklama ekleyebilirsiniz.<br />Basit HTML kullanarak teklif açıklama sağlayın.<br />Anahtar özelliklerinin listesini tarafından izlenen bir özeti sağlar (yukarıda gösterilen listeleme örnekte gösterildiği gibi) sayfa listeleyen bir basit tekliftir bir örneği burada verilmiştir. En fazla karakter sayısını 3, 000 ' dir.<br />*Örnek HTML*<br />Dynamics 365 (çevrimiçi) için kuruluş Insights önemli benimseme ve kullanım ölçümlerini Dynamics 365 kuruluşunuz ve performans ve Destek sorunlarının üstesinden olmanıza yardımcı olan araçlar sağlar. <ul> <li>**Panoları Özelleştirme**<br />Zengin bir kullanıcı deneyimi ve önemli verilerinizin anlık görüntüleri sağlamak için Pano ayarlayın.<ul> <li>**Benimseme izlemek ve kullanma**<br />En etkin kullanıcılarınız tanımlamak sayfa istekleri, en sık kullanılan varlıkları, iş akışları ve daha fazlasını sayısı.</li> </ul></li> </ul>Minimum desteklenen platform sürümü: `8.1.1` |
 
 **StoreFront ayrıntıları - dökümü ayrıntıları**  
 
@@ -134,7 +133,7 @@ Aşağıdaki tablolarda teklif listenizi çıkışı doldurma her adım ayrınt�
 | **Ekran görüntüleri** | En fazla beş ekran görüntüleri eklemek için arama anahtar sözcükleri adlarını içerecek. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>Teklifiniz AppSource üzerinde kullanılabilirliğini Yükselt  
-Teklifiniz AppSource üzerinde listelendiğinde, sayfanızda "AppSource kullanılabilir üzerinde" rozet görüntülemek için sağa kazandınız. 
+Teklifiniz AppSource üzerinde listelendiğinde, görüntülemek için sağa kazandınız ***AppSource üzerinde kullanılabilir*** sayfanızda rozet. 
 
  ![AppSource rozet](./media/marketplace-appsource/appsourcebadge.png)
     

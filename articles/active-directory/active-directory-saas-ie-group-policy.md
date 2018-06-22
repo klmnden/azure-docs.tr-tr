@@ -15,12 +15,12 @@ ms.date: 10/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a39e454bd0993f07efd1168404df453f3013e0fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2d719a31700e8d693dd7edb7de603682daae14ea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34341015"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308546"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Grup İlkesi'ni kullanarak Internet Explorer için erişim paneli uzantısı dağıtma
 Bu öğretici, Grup İlkesi uzaktan erişim paneli uzantısı Internet Explorer için kullanıcılarınızın makinelere yüklemeniz için nasıl kullanılacağını gösterir. Bu uzantı kullanılarak yapılandırılmış olan uygulamalarda oturum açmak için gereken Internet Explorer kullanıcılar için gerekli [parola tabanlı çoklu oturum açma](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -44,7 +44,7 @@ Erişim paneli uzantısı da kullanılabilir [Chrome](https://go.microsoft.com/f
    
     ![Açık dosyaları ve depolama hizmetleri](./media/active-directory-saas-ie-group-policy/shares.png)
 4. Tamamlamak **yeni paylaşım Sihirbazı'nı** ve kullanıcılarınızın makinelerden erişilebildiğinden emin olmak için izinleri ayarlayın. [Paylaşımları hakkında daha fazla bilgi edinin.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Aşağıdaki Microsoft Windows Installer paketini (.msi dosyası) indirin: [erişim paneli Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access Panel Extension.msi)
+5. Aşağıdaki Microsoft Windows Installer paketini (.msi dosyası) indirin: [erişim paneli Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Yükleyici paketi paylaşımdaki istediğiniz bir konuma kopyalayın.
    
     ![.Msi dosya paylaşımına kopyalayın.](./media/active-directory-saas-ie-group-policy/copy-package.png)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c87b90e82b1300e147533256e3286421a73f08d2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42d1b40e01653e8fb5fa5bf118c65de758832f4d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218903"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Öğretici: Azure Active Directory Tümleştirme Tangoe komutu Premium Mobile ile
 
@@ -114,7 +114,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Tangoe komutu Premium mobil istemci destek ekibi](https://www.tangoe.com/contact-2/) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek yanıt URL'si ve oturum açma URL'si ile güncelleştirin. Kişi [Tangoe komutu Premium mobil istemci destek ekibi](https://www.tangoe.com/contact-us/) bu değerleri almak için. 
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -128,7 +128,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Tangoe komutu Premium mobil yapılandırma bölümü](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Uygulamanız için yapılandırılmış SSO almak için başvurun, [Tangoe komutu Premium mobil istemci destek ekibi](https://www.tangoe.com/contact-2/) ve şunları sağlar:
+7. Uygulamanız için yapılandırılmış SSO almak için başvurun, [Tangoe komutu Premium mobil istemci destek ekibi](https://www.tangoe.com/contact-us/) ve şunları sağlar:
 
    - İndirilen meta veri dosyası
    - **SAML varlık kimliği**
@@ -174,7 +174,7 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
 
 Bu bölümde, Britta Simon Tangoe komutu Premium Mobile'da adlı bir kullanıcı oluşturun. 
 
-Tangoe komutu Premium mobil uygulama tüm kullanıcılar tekli oturum açma işleminden önce uygulamayı sağlanması gerekir. İş, bu nedenle Lütfen ile [Tangoe komutu Premium mobil istemci destek ekibi](https://www.tangoe.com/contact-2/) bu kullanıcıların uygulamaya sağlamak için. 
+Tangoe komutu Premium mobil uygulama tüm kullanıcılar tekli oturum açma işleminden önce uygulamayı sağlanması gerekir. İş, bu nedenle Lütfen ile [Tangoe komutu Premium mobil istemci destek ekibi](https://www.tangoe.com/contact-us/) bu kullanıcıların uygulamaya sağlamak için. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 

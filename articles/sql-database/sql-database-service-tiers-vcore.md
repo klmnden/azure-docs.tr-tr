@@ -1,65 +1,24 @@
 ---
 title: Azure SQL veritabanı hizmetinin - vCore | Microsoft Docs
-description: Tek hizmet katmanları ve performans düzeyleri ve depolama boyutları sağlamak için havuz veritabanları hakkında bilgi edinin.
+description: VCore tabanlı satın alma modeli (Önizleme) bağımsız olarak işlem ve depolama kaynaklarını ölçeklendirme, şirket içi performans eşleşen ve fiyat en iyi duruma olanak tanır.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648362"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309588"
 ---
-# <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>satın alma modeli vCore tabanlı Azure SQL veritabanı (Önizleme)
+# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>VCore hizmet katmanı, hesaplama, bellek, depolama ve g/ç kaynakları seçme
 
-[Azure SQL veritabanı](sql-database-technical-overview.md) işlem, depolama ve g/ç kaynaklar için iki satın alma modeli sunar: DTU tabanlı satın alma modeli ve vCore tabanlı satın alma modeli (Önizleme). Aşağıdaki tablo ve grafik karşılaştırır ve bu iki satın alma modeli karşılaştırın.
-
-> [!IMPORTANT]
-> DTU tabanlı satın alma modeli için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md).
-
-
-|**Satın alma modeli**|**Açıklama**|**En iyi**|
-|---|---|---|
-|DTU tabanlı modeli|Bu model, işlem, depolama ve g/ç kaynakları ile birlikte gelen bir ölçüye temel alır. Performans düzeyleri tek veritabanları için Veritabanı İşlem Birimleri (DTU’lar), elastik havuzlar için de elastik Veritabanı İşlem Birimleri (eDTU’lar) ile ifade edilir. Dtu ve Edtu hakkında daha fazla bilgi için bkz: [Dtu ve Edtu nelerdir](sql-database-what-is-a-dtu.md)?|Basit, önceden yapılandırılmış kaynak seçenekleri isteyen müşteriler için en iyisidir.| 
-|vCore tabanlı modeli|Bu model bağımsız olarak işlem ve depolama kaynaklarını - en fazla 80 vCores, 4 TB veri depolama ve 200000 IOPS ölçeklendirmenizi sağlar. Ayrıca, maliyet tasarrufu sağlamak için SQL Server için Azure karma avantajı kullanmanıza olanak sağlar.|Esneklik, Denetim ve saydam değer müşteriler için en iyisidir.|
-||||  
-
-![Fiyatlandırma modeli](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="vcore-based-purchasing-model--preview"></a>satın alma modeli vCore tabanlı (Önizleme)
-
-Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder. Ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini esneklik, Denetim, tek tek kaynak tüketimini saydamlığını vCore tabanlı satın alma modeli (Önizleme) sağlar. Bu model, bilgi işlem, bellek ve kendi iş yükü ihtiyaçlarına depolama olanak tanır. VCore tabanlı satın alma modeli (Önizleme), müşteriler genel amaçlı ve iş kritik hizmet katmanları (Önizleme) her ikisi için seçebilir [tek veritabanlarını](sql-database-single-database-resources.md) ve [esnek havuzlar](sql-database-elastic-pool.md). 
-
-Hizmet katmanları, bir dizi performans düzeyleri, yüksek kullanılabilirlik tasarımı, arıza yalıtımı, depolama türlerini ve g/ç aralığı tarafından ayrılır. Müşteri yedeklemeler için gerekli depolama ve Bekletme dönemi ayrı olarak yapılandırmanız gerekir. Tek veritabanları ve esnek havuzlar vCore modeli kullanılırken ile yüzde 30 tasarrufları uygun için yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
-
-VCore tabanlı satın alma modeli (Önizleme) müşteriler için ödeme içinde:
-- İşlem (hizmet katmanı + vCores + donanım nesil sayısı) *
-- Türü ve veri ve günlük depolama alanı miktarı 
-- IOs ** sayısı
-- Yedekleme depolama (RA-GRS) ** 
-
-\* İlk genel önizlemede Gen 4 mantıksal CPU'ları üzerinde Intel E5-2673 v3 temel alır (Haswell) 2.4 GHz işlemci
-
-\*\* Önizleme sırasında yedeklemeler ve IOs 7 gün boş
-
-> [!IMPORTANT]
-> İşlem, IOs, veri ve günlük depolama veritabanı veya esnek havuz ücretlendirilirsiniz. Yedekleme depolama her veritabanı başına ücret kesilir. Yönetilen örneği ücretleri ayrıntılarını başvurmak [yönetilen Azure SQL veritabanı örneği](sql-database-managed-instance.md).
-
-> [!IMPORTANT]
-> Bölge sınırlamaları: 
->
-> VCore tabanlı satın alma modeli (Önizleme) henüz Avustralya Güneydoğu kullanılabilir değil. Önizleme aşağıdaki bölgelerde kullanılabilir değil: Batı Avrupa, Fransa Merkezi, Birleşik Krallık Güney ve Birleşik Krallık Batı.
-> 
-
-## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>Hizmet katmanı, hesaplama, bellek, depolama ve g/ç kaynakları seçme
-
-VCore tabanlı satın alma modeli için (Önizleme) dönüştürme bağımsız olarak işlem ve depolama kaynaklarını ölçeklendirme, şirket içi performans eşleşen ve fiyat en iyi duruma olanak tanır. Veritabanı veya esnek havuz vCore 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih veya kapalı kalma süresi ile Azure portal kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli performans ve iş gereksinimleri karşılıyorsa kullanmaya devam etmelidir. DTU modelden vCore modeline dönüştürmeye karar verirseniz, aşağıdaki kural altın kullanarak performans düzeyini seçmeniz gerekir: genel amaçlı katmanındaki; en az 1 vCore her 100 DTU standart katmanındaki gerektirir Premium katmanındaki 125 her DTU iş kritik katmanındaki en az 1 vCore gerektirir.
+Hizmet katmanları, bir dizi performans düzeyleri, yüksek kullanılabilirlik tasarımı, arıza yalıtımı, depolama türlerini ve g/ç aralığı tarafından ayrılır. Müşteri yedeklemeler için gerekli depolama ve Bekletme dönemi ayrı olarak yapılandırmanız gerekir. VCore modeliyle tek veritabanları ve esnek havuzlar ile yüzde 30 tasarrufları uygun için yukarı [SQL Server için Azure karma kullanımı avantajı](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı olur:
 
@@ -80,8 +39,6 @@ Aşağıdaki tabloda, bu iki katmanı arasındaki farklar anlamanıza yardımcı
 > [!IMPORTANT]
 > İşlem kapasitesi değerinden bir vCore gerekirse DTU tabanlı satın alma modeli kullanın.
 
-Belirli performans düzeylerini ve tek veritabanı için kullanılabilir depolama boyutu seçenekleri hakkında daha fazla bilgi için bkz: [tek veritabanları için SQL veritabanı vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels) ve esnek havuzlar görmek için [SQL veritabanı Esnek havuzlar için vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels).
-
 Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için. 
 
 ## <a name="storage-considerations"></a>Depolama hakkında dikkat edilmesi gerekenler
@@ -91,7 +48,7 @@ Aşağıdaki topluluklara bir göz atın:
 - Her performans düzeyi varsayılan en büyük boyutu 32 GB olan bir maksimum veritabanı boyutu destekler.
 - İstenen veritabanı boyutu (MDF boyutunu) yapılandırırken, ek depolama alanı % 30 LDF desteklemek için otomatik olarak eklenir
 - Desteklenen en fazla 10 GB arasındaki herhangi bir veritabanı boyutu seçebilirsiniz
- - Standart depolama artırın veya 10 GB artışlarla boyutunu azaltın
+ - Standart depolama artırabilir ya da 10 GB'lik artışlarla boyutunu azaltın
  - Premium depolama artırın veya boyutu 250 GB artışlarla azaltın
 - Genel amaçlı hizmet katmanında `tempdb` ekli bir SSD ve maliyet bu depolama vCore fiyatına dahil kullanır.
 - İş kritik hizmet katmanında `tempdb` paylaşımları MDF ve LDF dosyalarını ve maliyet tempDB depolama alanı ile ekli SSD vCore fiyatına dahildir.
@@ -142,7 +99,7 @@ Birden fazla veritabanı olan yük devretme gruplarının geçiş birincil ve ik
 
 ## <a name="creation-of-a-geo-replication-secondary"></a>Coğrafi çoğaltma ikincil oluşturma
 
-Yalnızca birincil olarak aynı hizmet katmanı kullanarak bir coğrafi-ikincil oluşturabilirsiniz. Yüksek günlük oluşturma hızını ile daha fazla veritabanı için ikincil birincil olarak aynı performans düzeyiyle oluşturulur kesinlikle önerilir. Esnek havuz tek bir birincil veritabanı için bir coğrafi ikincil oluşturuyorsanız kesinlikle havuzu olduğunu önerilir `maxVCore` eşleşen birincil veritabanı performans düzeyi ayarı. Esnek havuz için başka bir esnek havuzdaki birincil coğrafi ikincil oluşturuyorsanız kesinlikle havuzlarının aynı olması önerilir `maxVCore` ayarları
+Yalnızca birincil olarak aynı hizmet katmanı kullanarak bir coğrafi-ikincil oluşturabilirsiniz. Yüksek günlük oluşturma hızını ile daha fazla veritabanı için ikincil birincil olarak aynı performans düzeyiyle oluşturulur önerilir. Esnek havuz tek bir birincil veritabanı için bir coğrafi ikincil oluşturuyorsanız havuzu olduğunu önerilir `maxVCore` eşleşen birincil veritabanı performans düzeyi ayarı. Esnek havuz için başka bir esnek havuzdaki birincil coğrafi ikincil oluşturuyorsanız havuzlarının aynı olması önerilir `maxVCore` ayarları
 
 ## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Veritabanı kopyasını vCore tabanlı bir veritabanı kullanarak DTU tabanlı bir veritabanı.
 
@@ -150,6 +107,5 @@ DTU tabanlı performans düzeyine sahip herhangi bir veritabanı bir veritabanı
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Belirli performans düzeylerini ve kullanılabilir depolama boyutu seçenekleri hakkında daha fazla bilgi için bkz: [SQL veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md) ve [SQL veritabanı vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md).
-- Bkz: [SQL veritabanı SSS](sql-database-faq.md) sık sorulan soruların yanıtları için.
-- Hakkında bilgi edinin [Azure aboneliği ve hizmet sınırları, kotaları ve kısıtlamaları](../azure-subscription-service-limits.md)
+- Belirli performans düzeylerini ve tek veritabanı için kullanılabilir depolama boyutu seçenekleri hakkında daha fazla bilgi için bkz: [tek veritabanları için SQL veritabanı vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
+- Esnek havuzlar için kullanılabilir boyut seçenekleri belirli performans düzeylerini ve depolama hakkında ayrıntılar için bkz [esnek havuzlar için SQL veritabanı vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 613fc4d914635f46d09552858706975006fcbff6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650477"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309224"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL veritabanında performans ayarlama
 
@@ -25,7 +25,7 @@ Düzenlemek istediğiniz herhangi bir geçerli önerimiz yok ve performans sorun
 - Uygulamanızı ayarlama ve performansı artırabilir bazı en iyi uygulamalar uygulayın. 
 - Veritabanı, dizinler ve daha verimli bir şekilde verilerle çalışmak için sorgular değiştirerek ayarlayın.
 
-El ile uygulanan yöntemleri ne karar vermeniz gerekir çünkü bunlar [DTU tabanlı modeli kaynak sınırları](sql-database-dtu-resource-limits.md) ve [vCore tabanlı modeli kaynak sınırları (Önizleme)](sql-database-vcore-resource-limits.md) gereksinimlerinizi karşılayacak. Aksi takdirde uygulama veya veritabanı kodu yeniden yazma ve değişiklikleri dağıtmak gerekir.
+Kaynakları karşılamak miktarını gereksinimlerinizi karar vermeniz gerekir çünkü bunlar el ile yöntemleridir. Aksi takdirde uygulama veya veritabanı kodu yeniden yazma ve değişiklikleri dağıtmak gerekir.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>Veritabanınızın artan performans katmanı
 
@@ -71,8 +71,7 @@ Bu bölümde, uygulamanız için en iyi performansı elde etmek ve en düşük o
 ### <a name="identify-performance-issues-using-azure-portal"></a>Azure portalını kullanarak performans sorunlarını belirle
 Azure portalında aşağıdaki araçlar, SQL veritabanıyla performans sorunlarını çözün ve çözümlemenize yardımcı olabilir:
 
-* 
-  [Sorgu Performansı İçgörüleri](sql-database-query-performance.md)
+* [Sorgu Performansı İçgörüleri](sql-database-query-performance.md)
 * [SQL Veritabanı Danışmanı](sql-database-advisor.md)
 
 Azure portal her ikisi de bu araçlar ve bunların nasıl kullanılacağını hakkında daha fazla bilgi sahiptir. Verimli bir şekilde sorunlarını tanılamak ve düzeltmek için öncelikle Azure portalında araçları deneyin öneririz. Eksik dizinler ve özel durumlarda sorgu ayarlama için ardından, aşağıdakiler ele yaklaşımlar ayarlama el ile kullanmanızı öneririz.
@@ -272,8 +271,8 @@ Bazı uygulamalar yazma yoğunluklu. Bazen yazma birlikte toplu nasıl dikkate a
 Bazı veritabanı uygulamaları okuma yoğun iş yükleri vardır. Katmanlar önbelleğe alma veritabanı azaltabilir ve Azure SQL veritabanını kullanarak bir veritabanı desteklemek için gereken performans düzeyi azaltmak. İle [Azure Redis önbelleği](https://azure.microsoft.com/services/cache/), okuma ağır iş yükü varsa, bir kez veri okuma (ya da belki nasıl yapılandırıldığına bağlı olarak bir kez uygulama katmanı makine başına,), SQL veritabanınızın dışındaki verileri depolamak ve. Bu veritabanı Yükü (CPU ve okuma g/ç) azaltmak için bir yoludur ancak önbellekten okunan verileri veritabanındaki verileri ile eşitlenmemiş olabilir çünkü işlemsel tutarlılık üzerinde bir etkisi olan. Birçok uygulamada belirli bir düzeyde tutarsızlık kabul edilebilir olmasına rağmen tüm iş yükleri için geçerli değildir. Bir uygulama katmanı önbelleğe alma stratejisi uygulamadan önce herhangi bir uygulama gereksinimi tam olarak anlamanız gerekir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md) ve [DTU tabanlı modeli kaynak sınırları](sql-database-dtu-resource-limits.md)
-* VCore tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md) ve [vCore tabanlı kaynak sınırları (Önizleme)](sql-database-vcore-resource-limits.md)
+* DTU tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md).
+* VCore tabanlı hizmet katmanları hakkında daha fazla bilgi için bkz: [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md).
 * Esnek havuzları hakkında daha fazla bilgi için bkz: [Azure bir esnek havuz nedir?](sql-database-elastic-pool.md)
 * Performans ve esnek havuzları hakkında daha fazla bilgi için bkz: [ne zaman bir esnek havuz göz önünde bulundurun](sql-database-elastic-pool-guidance.md)
 

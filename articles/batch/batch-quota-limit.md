@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310545"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304454"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch hizmet kotaları ve limitleri
 
@@ -51,14 +51,10 @@ Havuzu ayırma modu ayarlamak toplu işlem hesabı oluşturduysanız **kullanıc
 | [Eş zamanlı görevleri](batch-parallel-node-tasks.md) işlem düğümü başına |düğüm çekirdeği 4 x sayısı |
 | [Uygulamaları](batch-application-packages.md) toplu işlem hesabı başına |20 |
 | Uygulama başına uygulama paketleri |40 |
-| Uygulama paketi boyutu (her) |Yaklaşık 195 GB'den<sup>1</sup> |
-| En fazla başlangıç görevi boyutu | 32768 karakter<sup>2</sup> |
-| En fazla görev yaşam süresi | 7 gün<sup>3</sup> |
+| En fazla görev yaşam süresi | 7 gün<sup>1</sup> |
 | İşlem düğümleri havuzunda etkin düğümler arası iletişim | 100 |
 
-<sup>1</sup> en büyük blok blob boyutu için azure depolama sınırı<br />
-<sup>2</sup> kaynak dosyaları ve ortam değişkenleri içerir<br />
-<sup>3</sup> tamamlandığında, bunu projeye eklendiğinde bir görevin, en uzun kullanım ömrünü 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
+<sup>1</sup> tamamlandığında, bunu projeye eklendiğinde bir görevin, en uzun kullanım ömrünü 7 gündür. Tamamlanan görevler süresiz olarak kalır. En uzun yaşam süresi içinde tamamlanmamış görevlerin verileri erişilemez.
 
 
 ## <a name="view-batch-quotas"></a>Toplu kotaları görüntüle

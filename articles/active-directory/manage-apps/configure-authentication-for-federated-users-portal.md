@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 86b7d8aa9d1c0d770f7b145377f49c5dc2c694a2
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f2ab0a4458c83aa9e5c9cee4875e41c24f615018
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303915"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301208"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Giriş bölgesi bulma İlkesi kullanarak bir uygulama için davranış Azure Active Directory oturum açma yapılandırın
 
@@ -185,7 +185,7 @@ New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFe
 Aşağıdaki ilke otomatik-kullanıcıların bir Federasyon etki alanını kiracınızda fazla var olan bir AD FS oturum açma ekranını hızlandırır. Uygulamalar için kullanıcıların kimliğini doğrulayan birden fazla Federasyon etki alanınız varsa, otomatik hızlandırmak için etki alanı belirtmeniz.
 
 ``` powershell
-New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, "PreferredDomain":"federated.example.edu"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
+New-AzureADPolicy -Definition @("{`"HomeRealmDiscoveryPolicy`":{`"AccelerateToFederatedDomain`":true, `"PreferredDomain`":`"federated.example.edu`"}}") -DisplayName MultiDomainAutoAccelerationPolicy -Type HomeRealmDiscoveryPolicy
 ```
 
 Federasyon kullanıcıları için kullanıcı adı/parola kimlik doğrulaması doğrudan belirli uygulamalar için Azure Active Directory ile etkinleştirmek için bir ilke oluşturmak için aşağıdaki komutu çalıştırın:

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a29ef6535d1d4e64df7b97fc7519e55f511df222
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 759052a073103304f89096a43f0cbef88e0a1624
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212181"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308267"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Öğretici: Azure Active Directory Tümleştirme SimpleNexus ile
 
@@ -117,7 +117,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://simplenexus.com/<companyname>`
 
     > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [SimpleNexus istemci destek ekibi](https://simplenexus.com/site/contact) bu değerleri almak için. 
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [SimpleNexus istemci destek ekibi](https://simplenexus.com/sn/contact-us/) bu değerleri almak için. 
  
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
@@ -127,7 +127,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/simplenexus-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açma yapılandırmak için **SimpleNexus** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [SimpleNexus destek ekibi](https://simplenexus.com/site/contact). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+6. Çoklu oturum açma yapılandırmak için **SimpleNexus** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [SimpleNexus destek ekibi](https://simplenexus.com/sn/contact-us/). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

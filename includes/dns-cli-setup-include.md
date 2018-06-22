@@ -9,7 +9,7 @@ Yapılandırmanıza başlamadan önce aşağıdaki öğelerin bulunduğunu doğr
 
 ### <a name="sign-in-to-your-azure-account"></a>Azure hesabınızda oturum açma
 
-Bir konsol penceresi açın ve kimlik bilgilerinizi girerek kimliğinizi doğrulayın. Daha fazla bilgi için bkz. [Azure CLI üzerinden Azure’da oturum açma](/cli/azure/authenticate-azure-cli)
+Bir konsol penceresi açın ve kimlik bilgilerinizi girerek kimliğinizi doğrulayın. Daha fazla bilgi için bkz: [Azure'da oturum aç Azure CLI üzerinden](/cli/azure/authenticate-azure-cli)
 
 ```azurecli
 azure login

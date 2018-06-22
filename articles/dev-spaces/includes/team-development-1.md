@@ -10,41 +10,42 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 404e238e51b7ac8b799f413965560a8d42ccc5df
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825559"
 ---
-Uygulama üzerinde çalışan tek Geliştirici değilmiş gibi şu ana kadar uygulamanızın kod çalışır durumda. Bu bölümde, nasıl Azure Dev alanları takım geliştirme kolaylaştırır öğreneceksiniz:
-* Aynı geliştirme ortamında geliştiricilerin ekibi etkinleştirin.
-* Her geliştirici kendi kodunda yalıtımı ve diğerleri parçalamak, korkusu olmadan yineleme destekler.
-* Kod uçtan uca, kod tamamlama önce mocks oluşturmak veya bağımlılıkları benzetimini yapmak zorunda kalmadan sınayın.
+Şu ana kadar uygulamanızın kodunu uygulama üzerinde çalışan tek geliştiriciymişsiniz gibi çalıştırıyordunuz. Bu bölümde, Azure Dev Spaces’ın ekip geliştirmesini nasıl kolaylaştırdığını öğreneceksiniz:
+* Paylaşılan bir geliştirme alanında veya gerektiğinde ayrı geliştirme alanlarında çalışarak bir geliştirici ekibinin aynı ortamda çalışmasını sağlayın.
+* Her geliştiricinin yalıtılmış olarak ve başkalarını bölme korkusu olmadan kodlarını yinelemelerini destekler.
+* Kod işlemeden önce sahtelerini yaratmaya veya bağımlılıkları benzetmeye gerek kalmadan kodu uçtan uca test edin.
 
-## <a name="challenges-with-developing-microservices"></a>Mikro geliştirme ile zorlukları
-Örnek uygulamanızı şu anda çok karmaşık değil. Ancak gerçek geliştirme zorluklar yakında daha fazla hizmet ekleyin ve geliştirme ekibi büyütmeleri olarak ortaya çıkan.
+### <a name="challenges-with-developing-microservices"></a>Mikro hizmet geliştirme zorlukları
+Örnek uygulamanız şu an için pek karmaşık değil. Ancak gerçek dünyada geliştirme sırasında daha çok hizmet ekledikçe ve geliştirme ekibi büyüdükçe zorluklar kısa sürede ortaya çıkar.
 
-Kendinizi etkileşimde bulunan diğer hizmetler düzinelerce hizmetiyle çalışan görüntüleyin.
+Diğer düzinelerce hizmetle etkileşimde bulunan bir hizmet üzerinde çalıştığınızı düşünün.
 
-- Her şey geliştirme için yerel olarak çalıştırmak için belirtmeyi gerçekçi hale gelebilir. Geliştirme makinenizde tüm uygulamayı çalıştırmak için yeterli kaynağı olmayabilir. Veya, belki de uygulamanız genel olarak erişilebilir olması gereken uç noktaları (örneğin, uygulamanızı bir Web kancası için bir SaaS uygulamadan yanıt verir).
+- Geliştirme için her şeyi yerel olarak çalıştırmak pek mantıklı olmayabilir. Geliştirme makineniz uygulamanın tamamını çalıştıracak yeterli kaynaklara sahip olmayabilir. Ya da uygulamanız genel olarak erişilebilmesi gereken uç noktalara sahip olabilir (örneğin, uygulamanızın bir SaaS uygulamasındaki web kancasına yanıt vermesi durumunda).
 
-- Yalnızca üzerinde bağlı olan hizmetleri çalıştırmasına deneyin, ancak bu bağımlılıkları (örneğin, bağımlılıkları bağımlılıklarını) tam kapatması bilmeniz anlamına gelir. Veya, kolayca nasıl oluşturulacağı ve bunlar üzerinde işe yaramadı bağımlılıklarınızı çalıştırılamıyor bilmesinin bir konudur.
-- Bazı geliştiriciler benzetimini yapma veya birçok Hizmet bağımlılıklarını, mocking çözümlemelere. Bu yaklaşım bazen yardımcı olabilir, ancak bu mocks yönetme kendi geliştirme çaba yakında alabilir. Ayrıca, bu yaklaşım, geliştirme ortamınızı üretime çok farklı arayan müşteri adayları ve zarif hatalar işi.
-- Bu, uçtan uca test herhangi bir türünü yapmak zor izler. Tümleştirme sınaması sorunları daha sonra geliştirme döngüsü göreceğiniz anlamına gelir sonrası tamamlama yalnızca gerçekçi oluşabilir.
+- Yalnızca bağımlı olduğunuz hizmetleri çalıştırmayı deneyebilirsiniz, ancak bu durumda bağımlılıkların tam kapanışını bilmeniz gerekir (örneğin, bağımlılıkların bağımlılıkları). Ya da üzerinde çalışmadığınız için bağımlılıklarınızı oluşturup çalıştırmayı tam olarak bilmemenizle ilgili bir mesele olabilir.
+- Bazı geliştiriciler, hizmet bağımlılıklarının birçoğunu benzetmeye veya bu bağımlılıkların sahtelerini oluşturmaya başvurur. Bu yaklaşım bazen yardımcı olabilir, ancak bu sahteleri yönetmek için ayrı bir geliştirme çabası sarf etmek gerekebilir. Ayrıca bu yaklaşım, geliştirme alanınızın üretimden çok farklı görünmesine ve fark edilmeyen hataların ortaya çıkmasına yol açar.
+- Bunun sonucunda da uçtan uca testin herhangi bir türünü yapmak zorlaşır. Tümleştirme testi yalnızca yürütme sonrası gerçekleşebilir, bu da geliştirme döngüsünün sonraki aşamalarında sorunlarla karşılaşacağınız anlamına gelir.
 
 ![](../media/common/microservices-challenges.png)
 
 
-## <a name="work-in-a-shared-development-environment"></a>Paylaşılan geliştirme ortamında çalışma
-Ayarlayabileceğiniz Azure Dev alanları ile bir *paylaşılan* Azure geliştirme ortamında. Her geliştirici yalnızca uygulamanın postalara odaklanabilirsiniz ve yinelemeli olarak geliştirebilirsiniz *önceden yürüttüğünüzde kodunuz* bir ortamda zaten tüm diğer hizmetler ve bunların senaryoları bağımlı bulut kaynakları içerir. Bağımlılıkları her zaman güncel ve geliştiriciler, üretim yansıtan bir şekilde çalışıyoruz.
+### <a name="work-in-a-shared-dev-space"></a>Paylaşılan geliştirme alanında çalışma
+Azure Dev Spaces ile, Azure’da *paylaşılan* bir geliştirme alanı ayarlayabilirsiniz. Her geliştirici, uygulamanın yalnızca kendisine ayrılan kısmıyla ilgilenebilir ve senaryolarının bağımlı olduğu diğer tüm hizmetleri ve bulut kaynaklarını barındırmakta olan bir geliştirme alanında yinelemeli olarak *yürütme öncesi kod* geliştirebilir. Bağımlılıklar her zaman günceldir ve geliştiriciler üretimi yansıtan bir şekilde çalışır.
 
-## <a name="work-in-your-own-space"></a>Kendi alanında çalışır
-Hizmetiniz için kod geliştirirken ve iade hazırsınız önce kodu genellikle iyi bir durumda olmayacaktır. Hala tekrarlayarak, test ve çözümlerle denemeler şekillendirme. Azure Dev alanları kavramı sağlar bir **alanı**, yalıtım ve ekip üyelerinizin sapması korkusu olmadan iş sağlar.
+### <a name="work-in-your-own-space"></a>Kendi alanınızda çalışma
+Hizmetiniz için kod geliştirirken ve kodu iade etmeye hazır olmadan önce, kodun iyi durumda olmadığı zamanlar olacaktır. Hala yinelemeli olarak şekillendiriyor, test ediyor ve çözümlerle deney yapıyorsunuz. Azure Dev Spaces, ekip üyelerinizi bölme korkusu olmadan yalıtılmış olarak çalışmanızı sağlayan **alan** kavramını sunar.
 
 > [!Note]
-> Devam etmek için her iki hizmet tüm VS Code pencerelerini kapatın ve ardından çalıştırın önce `azds up -d` her hizmetin kök klasör. (Bu bir önizleme kısıtlamadır.)
+> Devam etmeden önce, her iki hizmet için de tüm VS Code pencerelerini kapatın ve sonra hizmetin kök klasörlerinin her birinde `azds up -d` komutunu çalıştırın. (Bu bir Önizleme kısıtlamasıdır.)
 
-Burada Hizmetleri şu anda çalışan bir daha yakından bakalım. Çalıştırma `azds list` komut ve aşağıdakine benzer bir çıktı göreceksiniz:
+Şimdi hizmetlerin çalışmakta olduğu yeri daha yakından inceleyelim. `azds list` komutunu çalıştırdığınızda aşağıdakine benzer bir çıktı görürsünüz:
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points
@@ -53,15 +54,15 @@ mywebapi     default  mywebapi-0.1.0     80/TCP  2m ago     <not attached>
 webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
-Her iki hizmet adlı bir alana çalıştığını alanı sütunda görüntülenir `default`. Ortak URL açar ve web uygulaması'na götürür herkes hem Hizmetleri aracılığıyla çalıştıran daha önce yazdığınız kod yolu çağırır. Şimdi geliştirmeye devam istediğinizi varsayalım `mywebapi`. Nasıl, kod değişiklikler yapabilir ve bunları test ve geliştirme ortamı kullanarak diğer geliştiriciler kesme değil mi? Bunu yapmak için kendi alan boşaltın ayarlarsınız.
+Alan sütunu, her iki hizmetin de `default` adlı bir alanda çalıştığını gösterir. Genel URL’yi açıp web uygulamasına giden herkes, her iki hizmet üzerinden de çalışan, önceden yazmış olduğunuz kod yolunu çağırır. Şimdi `mywebapi` geliştirmeye devam istediğinizi varsayalım. Nasıl kod değişiklikleri yapabilir ve bunları test edebilir, öte yandan da geliştirme ortamını kullanan diğer geliştiricilerin işlemini kesintiye uğratmazsınız? Bunu yapmak için kendi alanınızı ayarlarsınız.
 
-## <a name="create-a-space"></a>Bir alanı oluşturma
-Kendi sürümünü çalıştırmak için `mywebapi` dışındaki bir alana `default`, aşağıdaki komutu kullanarak kendi alan oluşturabilirsiniz:
+### <a name="create-a-space"></a>Alan oluşturma
+Kendi `mywebapi` sürümünüzü `default` dışında bir alanda çalıştırmak için, aşağıdaki komutu kullanarak kendi alanınızı oluşturabilirsiniz:
 
 ``` 
 azds space create --name scott
 ```
 
-Yukarıdaki örnekte, böylece çalışıyorum içinde yer my eşleri için tanımlanabilen adımın yeni alan için kullandığınız, ancak herhangi bir şey gibi ve, 'sprint4' veya 'demo.' gibi anlamı hakkında esnek çağırabilirsiniz
+Yukarıdaki örnekte, iş arkadaşlarım bunun benim çalıştığım alan olduğunu anlayabilsin diye yeni alan için kendi adımı kullandım; ancak siz buna istediğiniz adı verebilir ve anlamı konusunda da esnek olabilirsiniz; örn. 'sprint4' veya 'demo.'
 
-Çalıştırma `azds space list` geliştirme ortamında tüm alanları listesini görmek için komutu. Bir yıldız işareti (*) şu anda seçili alanının yanında görüntülenir. Sizin durumunuzda, oluşturulduğunda 'tan' adlı alan otomatik olarak seçilir. İle herhangi bir zamanda başka bir alan seçin `azds space select` komutu.
+Geliştirme ortamındaki tüm alanların listesini görmek için `azds space list` komutunu çalıştırın. Şu anda seçili alanın yanında bir yıldız işareti (*) görüntülenir. Sizin durumunuzda, oluşturulduğu anda otomatik olarak 'scott' adlı alan seçildi. İstediğiniz zaman `azds space select` komutuyla başka bir alan seçebilirsiniz.

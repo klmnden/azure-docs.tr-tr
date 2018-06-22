@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220643"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>Öğretici: SAP Business nesnesi bulut Azure Active Directory Tümleştirme
 
@@ -129,7 +129,7 @@ Azure AD çoklu oturum açma SAP Business nesnesi bulut ile ayarlamak için:
     ![SAP Business nesnesi bulut etki alanı ve URL'leri sayfa URL'leri](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > Bu URL'leri yalnızca tanıtım değerler. Değerlerini tanımlayıcı URL'sini ve gerçek oturum açma URL'si ile güncelleştirin. Oturum açma URL'si almak için başvurun [SAP Business nesnesi bulut istemci destek ekibi](https://www.sap.com/product/analytics/cloud-analytics.support.html). Yönetici konsolundan SAP Business nesnesi bulut meta verileri yükleyerek tanımlayıcı URL'sini alabilirsiniz. Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır. 
+    > Bu URL'leri yalnızca tanıtım değerler. Değerlerini tanımlayıcı URL'sini ve gerçek oturum açma URL'si ile güncelleştirin. Oturum açma URL'si almak için başvurun [SAP Business nesnesi bulut istemci destek ekibi](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US). Yönetici konsolundan SAP Business nesnesi bulut meta verileri yükleyerek tanımlayıcı URL'sini alabilirsiniz. Bu öğreticinin ilerleyen bölümlerinde açıklanmıştır. 
 
 4. Altında **SAML imzalama sertifikası**seçin **meta veri XML**. Ardından, meta veri dosyası, bilgisayarınıza kaydedin.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1ccd0048eb2f1ab32e9fbf403b65f68b07ada480
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4fbb0e5512511842e020e5670f1290c6b6359305
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227386"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-zscloud"></a>Öğretici: Azure Active Directory Tümleştirme Zscaler ZSCloud ile
 
@@ -116,7 +116,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
      İçinde **oturum açma URL'si** metin kutusuna, türü URL kullanıcılarınıza oturum açma ZScaler ZSCloud uygulamanıza tarafından kullanılıyor.
     
     > [!NOTE] 
-    > Bu değer gerçek oturum açma URL'si ile güncelleştirmeniz gerekir. Kişi [Zscaler ZSCloud istemci destek ekibi](https://support.zscaler.com/hc/articles/210172606-Zscaler-is-Expanding-Its-Zscloud-Global-Footprint) bu değeri alınamıyor. 
+    > Bu değer gerçek oturum açma URL'si ile güncelleştirmeniz gerekir. Kişi [Zscaler ZSCloud istemci destek ekibi](https://help.zscaler.com/zia) bu değeri alınamıyor. 
  
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 

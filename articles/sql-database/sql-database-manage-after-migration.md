@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650120"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309622"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı, veritabanınızı yönetme
 
@@ -31,7 +31,6 @@ Bu makalede Azure SQL DB temel özelliklerinden bazıları kolayca yararlanabili
 - Güvenlik ve uyumluluk
 - Akıllı veritabanı izleme ve Bakım
 - Veri taşıma
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>İş devamlılığı ve olağanüstü durum kurtarma (BCDR)
 İş devamlılığı ve olağanüstü durum kurtarma yeteneklerini işletmenizin bir olağanüstü durumda her zamanki gibi devam etmek etkinleştirin. Olağanüstü durum veritabanı düzeyi olay olabilir (örneğin, birisi yanlışlıkla önemli bir tabloyu bırakır) veya bir veri merkezi düzeyi olay (Bölgesel catastrophe, örneğin bir tsunami). 
@@ -235,7 +234,7 @@ SQL veritabanı çeşitli temel, standart ve Premium hizmet katmanları sunar. H
 
 Doğru performans düzeyini olduğunuzdan emin olmak, sorgu ve veritabanı kaynak tüketimini "Nasıl SQL veritabanında performans ve kaynak kullanımı izlerim" yukarıda belirtilen yollardan biriyle üzerinden izleyebilirsiniz. Sorguları/veritabanlarınızı tutarlı bir şekilde etkin CPU/bellek daha yüksek bir performans düzeyine ölçeklendirmeyi düşünebilirsiniz vb. üzerinde çalıştığını bulmanız gerekir. Benzer şekilde, hatta yoğun saatlerde unutmayın, kaynakları kadar kullanmak için görünmüyor; geçerli performans düzeyini ölçeklendirme göz önünde bulundurun. 
 
-SaaS uygulama deseni veya bir veritabanı birleştirme senaryo varsa, bir esnek havuz için maliyet iyileştirmesi kullanmayı düşünün. Esnek havuz veritabanı birleştirme ve maliyet iyileştirmesi elde etmek için harika bir yoludur. Daha fazla bilgi için bkz. esnek havuz kullanarak birden çok veritabanını yönetme hakkında: [havuzları ve veritabanlarını yönetme](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal). 
+SaaS uygulama deseni veya bir veritabanı birleştirme senaryo varsa, bir esnek havuz için maliyet iyileştirmesi kullanmayı düşünün. Esnek havuz veritabanı birleştirme ve maliyet iyileştirmesi elde etmek için harika bir yoludur. Daha fazla bilgi için bkz. esnek havuz kullanarak birden çok veritabanını yönetme hakkında: [havuzları ve veritabanlarını yönetme](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Veritabanı için veritabanı tutarlılığı denetimleri çalıştırmak ne sıklıkta gerekiyor mu?
 SQL veritabanı otomatik olarak ve herhangi bir veri kaybı olmadan veri bozulması belirli sınıfları işlemeye izin bazı akıllı teknikleri kullanır. Bu teknikler hizmete yerleşiktir ve hizmet tarafından işlevden gerektiğinde ortaya çıkar. Düzenli aralıklarla, bunları geri yükleme ve DBCC CHECKDB üzerinde çalıştırarak veritabanı yedeklerinizi hizmet genelinde sınanır. Sorun varsa, SQL veritabanı proaktif olarak bunları giderir. [Otomatik sayfa onarım](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) sayfalarını bozuk veya veri bütünlüğü sorunları düzeltmek için kullanılabilir. Veritabanı sayfaları, sayfa bütünlüğünü doğrular varsayılan sağlama toplamı ayarı ile her zaman doğrulanır. SQL veritabanı proaktif olarak izler ve veritabanınızı veri bütünlüğünü inceler ve sorunlar çıkması durumunda bunları en yüksek öncelikli giderir. Bunlara ek olarak, isteğe bağlı olarak, işlem sırasında kendi bütünlük denetimlerinin çalıştırmak isteyebilirsiniz.  Daha fazla bilgi için bkz: [SQL veritabanında veri bütünlüğü](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

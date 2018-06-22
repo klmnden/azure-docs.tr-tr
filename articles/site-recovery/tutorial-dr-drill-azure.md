@@ -5,41 +5,42 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 06/04/2018
 ms.author: raynew
-ms.openlocfilehash: 724144e8f2f2f76c4ad98b4c5cad84e69dadadbb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209734"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737116"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
 
-Bu öğretici, Azure’da bir yük devretme testi kullanarak şirket içi makine için olağanüstü durum tatbikatı gerçekleştirme işlemini gösterir. Tatbikat, veri kaybı olmadan çoğaltma stratejinizi doğrular. Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
+[Azure Site Recovery](site-recovery-overview.md), planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
+
+- Bu, şirket içi VMware sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki dördüncü öğreticidir. Bu öğreticide, ilk iki öğreticiyi tamamladığınız varsayılır:
+    - [Birinci öğreticide](tutorial-prepare-azure.md), VMware olağanüstü durum kurtarma için gerekli Azure bileşenlerini ayarladık.
+    - [İkinci öğreticide](vmware-azure-tutorial-prepare-on-premises.md), olağanüstü durum kurtarma için şirket içi bileşenleri hazırladık ve önkoşulları gözden geçirdik.
+    - [Üçüncü öğreticide](vmware-azure-tutorial.md), şirket içi VMware sanal makinemiz için çoğaltmayı ayarlayıp etkinleştirdik.
+- Öğreticiler, bir senaryo için en basit dağıtım yolunu size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. 
+
+
+Bu makalede, Azure’da bir yük devretme testi kullanarak şirket içi makine için olağanüstü durum kurtarma tatbikatı çalıştırma işlemi gösterilmektedir. Tatbikat, veri kaybı olmadan çoğaltma stratejinizi doğrular. Şunları nasıl yapacağınızı öğrenin:
 
 > [!div class="checklist"]
 > * Yük devretme testi için yalıtılmış bir ağ ayarlama
 > * Yük devretme sonrasında Azure VM'ye bağlanmak için hazırlık yapma
 > * Tek bir makine için yük devretme testi çalıştırma
 
-Bu, serideki dördüncü öğreticidir. Bu öğreticide, önceki öğreticilerdeki adımları zaten tamamladığınız varsayılır.
-
-1. [Azure’u hazırlama](tutorial-prepare-azure.md)
-2. [Şirket içi VMware’leri hazırlama](tutorial-prepare-on-premises-vmware.md)
-3. [Olağanüstü durum kurtarmayı ayarlama](tutorial-vmware-to-azure.md)
+Bu öğretici, VMware olağanüstü durum kurtarmayı en basit ayarlarla Azure’a ayarlar. Yük devretme testi adımları hakkında daha ayrıntılı bilgi edinmek istiyorsanız, [Nasıl Yapılır Kılavuzu](site-recovery-test-failover-to-azure.md)’nu okuyun.
 
 ## <a name="verify-vm-properties"></a>VM özelliklerini doğrulama
 
-Bir yük devretme testi gerçekleştirmeden önce VM özelliklerini doğrulayın ve Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM ya da fiziksel sunucunun](vmware-physical-azure-support-matrix.md#replicated-machines) Azure gereksinimlerine uygun olduğundan emin olun.
+Bir yük devretme testi çalıştırmadan önce VMware VM özelliklerini doğrulayın ve Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM ya da fiziksel sunucunun](vmware-physical-azure-support-matrix.md#replicated-machines) Azure gereksinimlerine uygun olduğundan emin olun.
 
 1. **Korunan Öğeler**’de **Çoğaltılan Öğeler** > VM seçeneğine tıklayın.
 2. **Çoğaltılan öğe** bölmesinde VM bilgileri ile sistem durumunun bir özeti ve kullanılabilen son kurtarma noktaları yer alır. Daha fazla ayrıntı görüntülemek için **Özellikler**’e tıklayın.
-3. **İşlem ve Ağ** bölümünde Azure adını, kaynak grubunu, hedef boyutunu, [kullanılabilirlik kümesini](../virtual-machines/windows/tutorial-availability-sets.md) ve yönetilen disk ayarlarını değiştirebilirsiniz.
-   
-      >[!NOTE]
-      Yönetilen disklerle Azure VM’lerinden şirket içi Hyper-V makinelerine yeniden çalışma şu anda desteklenmemektedir. Yönetilen diskler seçeneğini yalnızca şirket içi VM’leri yeniden çalıştırmadan Azure’a geçirmeyi planlıyorsanız yük devretme için kullanmalısınız.
-   
+3. **İşlem ve Ağ** bölümünde Azure adını, kaynak grubunu, hedef boyutunu, kullanılabilirlik kümesini ve yönetilen disk ayarlarını değiştirebilirsiniz.
 4. Ağ ayalarını, yük devretmeden sonra Azure VM’nin yerleştirileceği ağ/alt ağ ve VM’ye atanacak IP adresi dahil olmak üzere görüntüleyebilir ve değiştirebilirsiniz.
 5. **Diskler** bölümünde VM’deki işletim sistemi ve veri diskleriyle ilgili bilgileri görüntüleyebilirsiniz.
 

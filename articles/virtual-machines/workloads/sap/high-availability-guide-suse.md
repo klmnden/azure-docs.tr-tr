@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 12efeba68f30aa8723acc32449ae05ffac4c1ac4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d6c56f96c085de60b7cc05e4cc16b57867f6a7d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658766"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308369"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SUSE Linux Enterprise Server üzerinde Azure vm'lerinde SAP NetWeaver SAP uygulamalar için yüksek kullanılabilirlik
 
@@ -42,7 +42,7 @@ ms.locfileid: "34658766"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
@@ -75,8 +75,7 @@ Aşağıdaki SAP notlar ve raporları ilk okuma
 * [Azure sanal makineleri planlama ve uygulama Linux üzerinde SAP için][planning-guide]
 * [(Bu makalede) Linux'ta SAP için Azure sanal makineler dağıtımı][deployment-guide]
 * [Linux üzerinde SAP için Azure sanal makineleri DBMS dağıtımı][dbms-guide]
-* [Senaryo SAP HANA SR performansı en iyi duruma getirilmiş][suse-hana-ha-guide]  
-  Kılavuz SAP HANA sistem çoğaltma şirket içi yedekleme ayarlamak için gereken tüm bilgileri içerir. Bu kılavuz, bir taban çizgisi olarak kullanın.
+* [SUSE SAP HA en iyi yöntem kılavuzlarını] [ suse-ha-guide] kılavuzlarını içeren Netweaver HA ayarlamak için gerekli tüm bilgileri ve SAP HANA sistem çoğaltma şirket içi. Lütfen bu genel bir taban çizgisi olarak kılavuzları kullanın. Bunlar çok daha ayrıntılı bilgi sağlar.
 * [Yüksek oranda kullanılabilir NFS depolama DRBD ve Pacemaker] [ suse-drbd-guide] kılavuz yüksek oranda kullanılabilir bir NFS sunucusu kurmak için gerekli tüm bilgileri içerir. Bu kılavuz, bir taban çizgisi olarak kullanın.
 
 

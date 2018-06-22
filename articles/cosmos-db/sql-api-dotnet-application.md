@@ -3,23 +3,21 @@ title: 'Azure Cosmos DB için ASP.NET MVC öğreticisi: Web Uygulaması Gelişti
 description: Azure Cosmos DB'yi kullanarak bir MVC web uygulaması oluşturmak için hazırlanan ASP.NET MVC öğreticisi. Azure Web Siteleri'nde barındırılan bir yapılacaklar uygulamasında JSON ve erişim verilerini depolayacaksınız - adım adım ASP.NET MVC öğreticisi.
 keywords: asp.net mvc öğreticisi, web uygulaması dağıtımı, mvc web uygulaması, asp net mvc adım adım öğreticisi
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 1193ef84f8edf701f98e50d92a67426e36c40218
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 193f0f74d7a8ebaee72105698c646b55a8159a3b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797004"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC Öğreticisi: Azure Cosmos DB ile Web uygulaması geliştirme
 > [!div class="op_single_selector"]
@@ -34,7 +32,7 @@ Bu makale, JSON belgelerini depolama ve sorgulama amacıyla Azure Cosmos DB'yi n
 
 ![Bu öğreticiyle oluşturulan yapılacaklar listesi MVC web uygulamasının ekran görüntüsü - adım adım ASP.NET MVC öğreticisi](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
-Bu kılavuz, Azure Cosmos DB hizmet depolamak için nasıl kullanılacağı ve erişim verilerini Azure üzerinde barındırılan bir ASP.NET MVC web uygulamasından gösterir. ASP.NET MVC bileşenleri yerine yalnızca Azure Cosmos DB'ye odaklanan bir öğretici arıyorsanız bkz. [Azure Cosmos DB C# konsol uygulaması oluşturma](sql-api-get-started.md).
+Bu adım adım kılavuz, Azure Cosmos DB hizmetinin, Azure üzerinde barındırılan bir ASP.NET MVC web uygulamasında verileri depolamak ve bunlara erişmek için nasıl kullanılacağını gösterir. ASP.NET MVC bileşenleri yerine yalnızca Azure Cosmos DB'ye odaklanan bir öğretici arıyorsanız bkz. [Azure Cosmos DB C# konsol uygulaması oluşturma](sql-api-get-started.md).
 
 > [!TIP]
 > Bu öğretici, ASP.NET MVC ve Azure Web Siteleri'ni kullanma konusunda deneyim sahibi olduğunuzu varsayar. ASP.NET veya [önkoşul araçlarında](#_Toc395637760) yeniyseniz [GitHub][GitHub] konumundan örnek projenin tamamını indirmenizi ve bu örnekteki yönergeleri uygulamanızı öneririz. Oluşturduktan sonra, proje bağlamında kodu daha iyi kavramak için bu makaleyi inceleyebilirsiniz.
@@ -49,12 +47,12 @@ Bu makaledeki yönergeleri uygulamadan önce aşağıdakilere sahip olduğunuzda
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
-* Visual Studio 2017, Visual Studio yükleyicisi kullanılabilen .NET için Microsoft Azure SDK.
+* Visual Studio 2017 için .NET için Microsoft Azure SDK’sına Visual Studio Yükleyicisi ile erişilebilir.
 
-Bu makaledeki tüm ekran görüntüleri Microsoft Visual Studio Community 2017 kullanılarak alınmıştır. Sisteminiz farklı bir sürüme sahip yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı, ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir mümkündür.
+Bu makaledeki tüm ekran görüntüleri, Microsoft Visual Studio Community 2017 kullanılarak alınmıştır. Sisteminiz farklı bir sürümle yapılandırılmışsa ekranlarınızın ve seçeneklerinizin tamamen eşleşmeme olasılığı bulunur ancak yukarıdaki önkoşulları karşılarsanız bu çözümün çalışması gerekir.
 
 ## <a name="_Toc395637761"></a>1. Adım: Azure Cosmos DB veritabanı hesabı oluşturma
-İlk olarak bir Azure Cosmos DB hesabı oluşturalım. SQL hesabı için Azure Cosmos DB zaten varsa veya Bu öğretici için Azure Cosmos DB öykünücüsü kullanıyorsanız, adımına atlayabilirsiniz [yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762).
+İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten Azure Cosmos DB için bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [Yeni bir ASP.NET MVC uygulaması oluşturma](#_Toc395637762) adımına atlayabilirsiniz.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -74,9 +72,9 @@ Bu makaledeki tüm ekran görüntüleri Microsoft Visual Studio Community 2017 k
 3. **Ad** kutusunda projenin adını yazın. Bu öğretici "todo" adını kullanır. Bunun dışında bir şey kullanmayı seçerseniz bu öğreticinin todo ad alanından söz ettiği her yerde sağlanan kod örneklerini uygulamanıza verdiğiniz ada göre ayarlamanız gerekir. 
 4. Projeyi oluşturmak istediğiniz klasöre gitmek için **Gözat**'a tıklayın ve ardından **Tamam**'a tıklayın.
    
-      **Yeni ASP.NET Web uygulaması** iletişim kutusu görüntülenir.
+      **Yeni ASP.NET Web Uygulaması** iletişim kutusu görüntülenir.
    
-    ![MVC uygulama şablonu vurgulanmış ile yeni bir ASP.NET Web uygulaması iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
+    ![MVC uygulama şablonu vurgulanmış şekilde Yeni ASP.NET Web Uygulaması iletişim kutusunun ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-MVC.png)
 5. Şablonlar bölmesinde **MVC**'yi seçin.
 
 6. **Tamam**'a tıklayarak Visual Studio'nun boş ASP.NET MVC şablonu çevresinde iskele oluşturmasını sağlayın. 
@@ -89,16 +87,16 @@ Bu makaledeki tüm ekran görüntüleri Microsoft Visual Studio Community 2017 k
 ## <a name="_Toc395637767"></a>3. Adım: MVC web uygulaması projenize Azure Cosmos DB ekleme
 Bu çözüm için gereken ASP.NET MVC altyapısının çoğunu elde ettiğimize göre, bu öğreticinin asıl amacı olan MVC web uygulamamıza Azure Cosmos DB'yi eklemeye geçelim.
 
-1. Azure Cosmos DB .NET SDK'sı paketlenir ve bir NuGet paketi olarak dağıtılmış. NuGet paketini Visual Studio'da almak için, **Çözüm Gezgini**'nde projeye sağ tıklayarak ve ardından **NuGet Paketlerini Yönet**'e tıklayarak Visual Studio'daki NuGet paket yöneticisini kullanın.
+1. Azure Cosmos DB .NET SDK’sı, bir NuGet paketi olarak paketlenir ve dağıtılır. NuGet paketini Visual Studio'da almak için, **Çözüm Gezgini**'nde projeye sağ tıklayarak ve ardından **NuGet Paketlerini Yönet**'e tıklayarak Visual Studio'daki NuGet paket yöneticisini kullanın.
    
     ![NuGet Paketlerini Yönet vurgulanmış şekilde, Çözüm Gezgini'nde web uygulaması projesi için sağ tıklama seçeneklerinin ekran görüntüsü.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
     **NuGet Paketlerini Yönet** iletişim kutusu görünür.
-2. NuGet **Gözat** kutusunda ***Azure DocumentDB*** yazın. (Paket adı için Azure Cosmos DB güncelleştirilmemiş.)
+2. NuGet **Gözat** kutusunda ***Azure DocumentDB*** yazın. (Paket adı, Azure Cosmos DB olarak güncelleştirilmemiştir.)
    
-    Sonuçlardan yüklemek **Microsoft.Azure.DocumentDB Microsoft tarafından** paket. Bu, indirin ve Newtonsoft.Json gibi tüm bağımlılıkları yanı sıra Azure Cosmos DB paketini yükleyin. **Önizleme** penceresinde **Tamam**'a tıklayıp **Lisans Kabulü** penceresinde **Kabul Ediyorum**'a tıklayarak yüklemeyi tamamlayın.
+    Sonuçlardan **Microsoft’a ait Microsoft.Azure.DocumentDB** paketini yükleyin. Bu işlem, Azure Cosmos DB paketini ve aynı zamanda Newtonsoft.Json gibi tüm bağımlılıkları indirir ve yükler. **Önizleme** penceresinde **Tamam**'a tıklayıp **Lisans Kabulü** penceresinde **Kabul Ediyorum**'a tıklayarak yüklemeyi tamamlayın.
    
-    ![Microsoft Azure Cosmos DB istemci kitaplığı vurgulanmış ile NuGet paketlerini Yönet penceresinin ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
+    ![Microsoft Azure Cosmos DB İstemci Kitaplığı vurgulanmış şekilde NuGet Paketlerini Yönet penceresinin ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
       Alternatif olarak, paketi yüklemek için Paket Yöneticisi Konsolu'nu kullanabilirsiniz. Bunu yapmak için, **Araçlar** menüsünde **NuGet Paket Yöneticisi**'ne tıklayın ve ardından **Paket Yöneticisi Konsolu**'na tıklayın. İstendiğinde aşağıdakileri yazın.
    
@@ -313,7 +311,7 @@ Burada yapılacak ilk şey, Azure Cosmos DB'ye bağlanmayı ve kullanmayı sağl
         <add key="collection" value="Items"/>
 4. Şimdi de Azure Portal'ın Anahtarlar dikey penceresini kullanarak *endpoint* ve *authKey* değerlerini güncelleştirin. Uç nokta ayarının değeri olarak Anahtarlar dikey penceresinden **URI**'yi kullanın ve authKey ayarının değeri olarak Anahtarlar dikey penceresinden **BİRİNCİL ANAHTAR** veya **İKİNCİL ANAHTAR**'ı kullanın.
 
-    Azure Cosmos DB depoyu şimdi bağlamayı, alır dikkatli uygulama mantığımızı ekleyelim.
+    Azure Cosmos DB deposunu bağlamayı tamamladık, şimdi de uygulama mantığımızı ekleyelim.
 
 1. Bir yapılacaklar listesi uygulamasıyla yapabilmeyi istediğimiz ilk şey, tamamlanmamış öğeleri görüntülemektir.  **DocumentDBRepository** sınıfının içinde herhangi bir yere aşağıdaki kod parçacığını kopyalayıp yapıştırın.
    
@@ -388,7 +386,7 @@ Azure Cosmos DB'deki kaydı kalıcı hale getirmek için Azure Cosmos DBReposito
            return await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri(DatabaseId, CollectionId), item);
        }
    
-   Bu yöntem yalnızca kendisine geçirilen nesneyi alır ve Azure Cosmos DB'de devam ettirir.
+   Bu yöntem kendisine geçirilen bir nesneyi alır ve bunu Azure Cosmos DB’de kalıcı hale getirir.
 2. ItemController.cs dosyasını açın ve sınıfın içine aşağıdaki kod parçacığını ekleyin. ASP.NET MVC **Oluştur** eylemi için ne yapacağını bu şekilde bilir. Bu durumda yalnızca daha önce oluşturulan ilişkili Create.cshtml görünümünü işler.
    
         [ActionName("Create")]
@@ -518,33 +516,33 @@ Yerel makinenizde uygulamayı test etmek için aşağıdakileri yapın:
     ![Tamamlandı kutusu işaretlenmiş şekilde Dizin görünümünün ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 5. Uygulamayı test ettikten sonra, uygulamanın hata ayıklamasını durdurmak için Ctrl+F5'e basın. Dağıtıma hazırsınız!
 
-## <a name="_Toc395637774"></a>7. adım: Azure uygulama hizmeti uygulamaya dağıtma 
-Azure Cosmos DB ile düzgün çalışmasını tam uygulama sahip olduğunuza göre bu web uygulamasını Azure App Service'e dağıtmak için yapacağız.  
+## <a name="_Toc395637774"></a>7. Adım: Uygulamayı Azure App Service’e dağıtma 
+Artık uygulamanın tamamı Azure Cosmos DB ile doğru şekilde çalıştığına göre, bu web uygulamasını Azure App Service’e dağıtacağız.  
 
 1. Bu uygulamayı yayımlamak için yapmanız gereken tek şey, **Çözüm Gezgini**'nde projeye sağ tıklamak ve **Yayımla**'ya tıklamaktır.
    
     ![Çözüm Gezgini'nde Yayımla seçeneğinin ekran görüntüsü](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish.png)
 
-2. İçinde **Yayımla** iletişim kutusu, tıklatın **Microsoft Azure App Service**seçeneğini belirleyip **Yeni Oluştur** tıklayın veya bir uygulama hizmeti profili oluşturma **var olanı Seç**  varolan profili kullanmak için.
+2. **Yayımla** iletişim kutusunda **Microsoft Azure App Service**’e tıklayın, ardından **Yeni Oluştur**’u seçerek bir App Service profili oluşturun veya **Mevcut Olanı Seç**’e tıklayarak mevcut bir profili kullanın.
 
-    ![Visual Studio'da Yayımla iletişim kutusu](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
+    ![Visual Studio’da Yayımla iletişim kutusu](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-publish-to-existing.png)
 
-3. Var olan bir Azure uygulama hizmeti profiliniz varsa, abonelik adınızı girin. Kullanım **Görünüm** kaynak grubu veya kaynak türü göre sıralamak için filtre sonra Azure uygulama hizmeti seçin. 
+3. Mevcut bir Azure App Service profiliniz varsa, abonelik adınızı girin. **Görünüm** filtresini kullanarak kaynak grubuna veya kaynak türüne göre sıralayın ve sonra Azure App Service’inizi seçin. 
    
-    ![Visual Studio'da uygulama hizmeti iletişim kutusu](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+    ![Visual Studio’da App Service iletişim kutusu](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
 
-4. Yeni bir Azure uygulama hizmeti profili oluşturmak için tıklatın **Yeni Oluştur** içinde **Yayımla** iletişim kutusu. İçinde **App Service Oluştur** iletişim kutusunda, Web uygulaması adı ve uygun abonelik, kaynak grubu ve uygulama hizmeti planı girin ve ardından **oluşturma**.
+4. Yeni bir Azure App Service profili oluşturmak için, **Yayımla** iletişim kutusunda **Yeni Oluştur**’a tıklayın. **Uygulama Hizmetini Oluştur** iletişim kutusunda, Web uygulamanızın adını ve uygun aboneliği, kaynak grubunu ve App Service planını girip **Oluştur**’a tıklayın.
 
-    ![Visual Studio'da uygulama hizmeti iletişim kutusu oluşturma](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+    ![Visual Studio’da App Service’i Oluştur iletişim kutusu](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
 
-Visual Studio birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek ve Azure'da çalışan, handiwork görebileceğiniz bir tarayıcıyı başlatacak!
+Visual Studio birkaç saniye içinde web uygulamanızı yayımlamayı bitirecek ve eserinizi Azure’da çalışırken görebileceğiniz bir tarayıcı başlatacak!
 
 
 
 ## <a name="_Toc395637775"></a>Sonraki adımlar
-Tebrikler! Yalnızca ilk ASP.NET MVC Azure Cosmos DB kullanarak web uygulaması oluşturdunuz ve bunu Azure yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][GitHub]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
+Tebrikler! Azure Cosmos DB kullanarak ilk ASP.NET MVC web uygulamanızı oluşturdunuz ve bunu Azure’a yayımladınız. Bu öğreticide bulunmayan ayrıntı ve silme işlevleri dahil olmak üzere, tüm uygulamanın kaynak kodu [GitHub][GitHub]'dan indirilebilir veya kopyalanabilir. Uygulamanıza bunları eklemek isterseniz kodu alın ve bu uygulamaya ekleyin.
 
-Uygulamanıza ek işlevsellik eklemek için kullanılabilen API'leri inceleyin [Azure Cosmos DB .NET kitaplığı](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) ve Azure Cosmos DB .NET Kitaplığı'na katkıda bulunmaktan çekinmeyin [GitHub] [GitHub]. 
+Uygulamanıza ilave işlevler eklemek için [Azure Cosmos DB .NET Kitaplığı](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)’ndaki mevcut API’leri gözden geçirin ve [GitHub][GitHub]’daki Azure Cosmos DB .NET Kitaplığı’na katkıda bulunmaktan çekinmeyin. 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx

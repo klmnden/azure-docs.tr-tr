@@ -8,14 +8,14 @@ ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: aee8f8c830ac504b6688c02c2b262a0d87bc5278
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646635"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308875"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL veritabanı uygulaması geliştirmeye genel bakış
 Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzere kod yazarken dikkat etmesi gereken noktalara yer verilmiştir.
@@ -33,9 +33,12 @@ Bu makalede, geliştiricilerin Azure SQL Veritabanı ile bağlantı kurmak üzer
 Gibi açık kaynaklı araçları yararlanabilirsiniz [cheetah](https://github.com/wunderlist/cheetah), [sql CLI](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/). Ayrıca, Azure SQL Veritabanı [Visual Studio](https://www.visualstudio.com/downloads/) ve [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) gibi Microsoft araçlarıyla birlikte çalışır.  Azure Yönetim Portalı, PowerShell ve REST API'leri de ek verimlilik elde etmenize yardımcı olabilir.
 
 ## <a name="resource-limitations"></a>Kaynak sınırlamaları
-Azure SQL Veritabanı, bir veritabanı tarafından kullanılabilecek kaynakları iki farklı sistemle yönetir: Kaynak İdaresi ve Sınır Zorlama.
+Azure SQL veritabanı iki farklı mekanizmalarını kullanarak bir veritabanı için kullanılabilir kaynakları yönetir: kaynak İdaresi ve sınırlarının zorlama. Daha fazla bilgi için bkz.
 
-* Daha fazla bilgi: [Azure SQL veritabanı DTU tabanlı kaynak modeli sınırları](sql-database-dtu-resource-limits.md) ve [Azure SQL veritabanı vCore tabanlı kaynak modeli sınırları (Önizleme)](sql-database-vcore-resource-limits.md).
+- [DTU tabanlı kaynak modeli sınırları - tek veritabanı](sql-database-dtu-resource-limits-elastic-pools.md)
+- [DTU tabanlı kaynak modeli sınırları - tek veritabanı](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore tabanlı kaynak sınırları - tek veritabanları](sql-database-vcore-resource-limits-single-databases.md)
+- [vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>Güvenlik
 Azure SQL Veritabanı, bir SQL Veritabanında erişim sınırlama, veri koruma ve izleme etkinlikleri için kaynaklar sunar.

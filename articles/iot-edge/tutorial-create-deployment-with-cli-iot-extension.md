@@ -1,54 +1,54 @@
 ---
-title: Modüller için Azure CLI 2.0 IOT uzantısını kullanarak IOT kenar cihazlara dağıtma | Microsoft Docs
-description: Azure CLI 2.0 için IOT uzantısını kullanarak bir IOT sınır cihazı modülleri dağıtma
-services: iot-edge
-keywords: ''
+title: Azure CLI 2.0 için IoT uzantısını kullanarak IoT Edge cihazlarına modüller dağıtma | Microsoft Docs
+description: Azure CLI 2.0 için IoT uzantısını kullanarak IoT Edge cihazlarına modüller dağıtma
 author: chrissie926
-manager: timlt
+manager: ''
 ms.author: menchi
 ms.date: 03/02/2018
-ms.topic: article
-ms.service: iot-edge
-ms.custom: ''
+ms.topic: tutorial
 ms.reviewer: kgremban
-ms.openlocfilehash: 7bc0d0706385f2f3e101d06be3a2837341c331b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.service: iot-edge
+services: iot-edge
+md.custom: mvc
+ms.openlocfilehash: deee54fe5d11d6d1cf5485357f853b1cb078f96d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631590"
 ---
-# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 için IOT uzantısını kullanarak bir IOT sınır cihazı modülleri dağıtma
+# <a name="deploy-modules-to-an-iot-edge-device-using-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 için IoT uzantısını kullanarak IoT Edge cihazlarına modüller dağıtma
 
 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), IoT Edge gibi Azure kaynaklarını yönetmeye yönelik açık kaynaklı bir platformlar arası komut satırı aracıdır. Azure CLI 2.0 Windows, Linux ve Mac OS ile kullanılabilir.
 
-Azure CLI 2.0’ı kullanarak Azure IoT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub’ları hemen yönetmeye başlayabilirsiniz. Yeni IOT uzantısı aygıt yönetimi ve tam IOT kenar özelliği gibi özellikler ile Azure CLI 2.0 aşağıdakilere zenginleştirir.
+Azure CLI 2.0’ı kullanarak Azure IoT Hub kaynaklarını, cihaz sağlama hizmeti örneklerini ve bağlı hub’ları hemen yönetmeye başlayabilirsiniz. IoT uzantısı, Azure CLI 2.0’ı cihaz yönetimi ve tam IoT Edge kapasitesi gibi özelliklerle zenginleştirir.
 
-Bu makalede, Azure CLI 2.0 ve IOT uzantısı ayarlayın. Ardından, modüller CLI komutları kullanarak bir IOT sınır cihazı dağıtmayı öğrenin.
+Bu makalede, Azure CLI 2.0 ve IoT uzantısını ayarlarsınız. Daha sonra, kullanılabilir CLI komutlarını kullanarak bir IoT Edge cihazına modüllerin nasıl dağıtılacağını öğrenirsiniz.
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Bir Azure hesabı. Henüz yoksa, şunları yapabilirsiniz [ücretsiz bir hesap oluşturma](https://azure.microsoft.com/free/?v=17.39a) bugün. 
+* Bir Azure hesabı. Henüz bir hesabınız yoksa bugün [ücretsiz bir hesap oluşturabilirsiniz](https://azure.microsoft.com/free/?v=17.39a). 
 
-* [Python 2.7 x veya Python 3.x](https://www.python.org/downloads/).
+* [Python 2.7x veya Python 3.x](https://www.python.org/downloads/).
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) ortamınızdaki. Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir.
+* Ortamınızdaki [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 2.0 sürümünüz en az 2.0.24 veya üzerinde olmalıdır. Doğrulamak için `az –-version` kullanın. Bu sürüm, az uzantı komutlarını destekler ve Knack komut çerçevesini kullanıma sunar. Windows’a yüklemenin kolay bir yolu, [MSI](https://aka.ms/InstallAzureCliWindows) indirip yüklemektir.
 
-* [Azure CLI 2.0 IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension):
+* [Azure CLI 2.0 için loT uzantısı](https://github.com/Azure/azure-iot-cli-extension):
    1. `az extension add --name azure-cli-iot-ext` öğesini çalıştırın. 
-   2. Yükleme sonrasında kullanma `az extension list` yüklü uzantıları doğrulamak için veya `az extension show --name azure-cli-iot-ext` IOT uzantısı ayrıntılarını görmek için.
-   3. Uzantıyı kaldırmak için kullanın `az extension remove --name azure-cli-iot-ext`.
+   2. Yükleme sonrasında `az extension list` kullanarak o anda yüklü uzantıları doğrulayın veya `az extension show --name azure-cli-iot-ext` kullanarak IoT uzantısına ilişkin ayrıntıları görüntüleyin.
+   3. Uzantıyı kaldırmak için `az extension remove --name azure-cli-iot-ext` komutunu kullanın.
 
 
-## <a name="create-an-iot-edge-device"></a>Bir IOT sınır cihazı oluşturma
-Bu makalede bir IOT kenar dağıtımı oluşturmak için yönergeler sağlar. Örnek Azure hesabınızda oturum açın, Azure kaynak grubu (Azure çözümünü ilgili kaynaklara tutan bir kapsayıcı) oluşturmak, IOT Hub oluşturma, üç IOT kenar cihaz kimliği oluşturma, kümesi etiketleri ve, bir IOT kenar dağıtımı oluşturmak nasıl gösterir Bu cihazlar hedefler. 
+## <a name="create-an-iot-edge-device"></a>IoT Edge cihazı oluşturma
+Bu makalede, IoT Edge dağıtımı oluşturmaya yönelik yönergeler sağlanmaktadır. Örnekte, Azure hesabınızda oturum açma, bir Azure Kaynak Grubu (bir Azure çözümü için ilgili kaynakları tutan kapsayıcı) oluşturma, bir IoT Hub oluşturma, üç IoT Edge cihaz kimliği oluşturma, etiketler ayarlama ve sonra bu cihazları hedefleyen bir IoT Edge dağıtımı oluşturma işlemleri gösterilmiştir. 
 
-Azure hesabınızda oturum açın. Aşağıdaki oturum açma komutu girdikten sonra bir kerelik kodu kullanarak oturum için bir web tarayıcısı kullanın istenir: 
+Azure hesabınızda oturum açın. Aşağıdaki oturum açma komutunu girdikten sonra, bir defalık kod kullanarak web tarayıcısından oturum açmanız istenir: 
 
    ```cli
    az login
    ```
 
-Adlı yeni bir kaynak grubu oluştur **IoTHubCLI** Doğu ABD bölgesinde: 
+Doğu ABD bölgesinde **IoTHubCLI** adlı yeni bir kaynak grubu oluşturun: 
 
    ```cli
    az group create -l eastus -n IoTHubCLI
@@ -56,28 +56,28 @@ Adlı yeni bir kaynak grubu oluştur **IoTHubCLI** Doğu ABD bölgesinde:
 
    ![Kaynak grubu oluşturma][2]
 
-Adlı IOT hub oluşturma **CLIDemoHub** yeni oluşturulmuş bir kaynak grubunda:
+Yeni oluşturulan kaynak grubunda **CLIDemoHub** adlı bir IoT hub oluşturun:
 
    ```cli
    az iot hub create --name CLIDemoHub --resource-group IoTHubCLI --sku S1
    ```
 
    >[!TIP]
-   >Her abonelik bir ücretsiz IOT hub ayrılan. CLI komutuyla boş bir hub oluşturmak için SKU değeriyle `--sku F1`. Boş bir hub'ı aboneliğinizde zaten varsa ikinci oluşturmaya çalışırken bir hata iletisi alırsınız. 
+   >Her aboneliğe tek bir ücretsiz IoT hub tahsis edilir. CLI komutuyla boş bir hub oluşturmak için SKU değerini `--sku F1` ile değiştirin. Aboneliğinizde zaten boş bir hub varsa, ikincisini oluşturmayı denediğinizde bir hata iletisi alırsınız. 
 
-Bir IOT sınır cihazı oluşturun:
+IoT Edge cihazı oluşturma:
 
    ```cli
-   az iot hub device-identity create --device-id edge001 -hub-name CLIDemoHub --edge-enabled
+   az iot hub device-identity create --device-id edge001 --hub-name CLIDemoHub --edge-enabled
    ```
 
-   ![IOT sınır cihazı oluşturma][4]
+   ![IoT Edge cihazı oluşturma][4]
 
-## <a name="configure-the-iot-edge-device"></a>IOT sınır cihazı yapılandırma
+## <a name="configure-the-iot-edge-device"></a>IoT Edge cihazını yapılandırma
 
-Bir dağıtım JSON şablonu oluşturun ve yerel olarak bir txt dosyası olarak kaydedin. Uygula yapılandırma komutunu çalıştırdığınızda, dosya yolunu gerekir.
+Bir dağıtım JSON şablonu oluşturun ve bunu yerel ortamda txt dosyası olarak kaydedin. apply-configuration komutunu çalıştırdığınızda dosyanın yolu gerekir.
 
-Dağıtım JSON şablonları her zaman iki sistem modüller, edgeAgent ve edgeHub içermesi gerekir. Bu iki ek olarak IOT kenar ek modüller dağıtmak için bu dosyayı kullanabilirsiniz. IOT sınır cihazı bir tempSensor modülü ile yapılandırmak için aşağıdaki örneği kullanın:
+Dağıtım JSON şablonları her zaman iki sistem modülünü içermelidir: edgeAgent ve edgeHub. Bu ikisine ek olarak, IoT Edge cihazına ek modüller dağıtmak için bu dosyayı kullanabilirsiniz. Bir tempSensor modülü ile IoT Edge cihazınızı yapılandırmak için aşağıdaki örneği kullanın:
 
    ```json
    {
@@ -140,23 +140,23 @@ Dağıtım JSON şablonları her zaman iki sistem modüller, edgeAgent ve edgeHu
    }
    ```
 
-Yapılandırma IOT kenar Cihazınızı Uygula:
+IoT Edge cihazınıza yapılandırmayı uygulama:
 
    ```cli
    az iot hub apply-configuration --device-id edge001 --hub-name CLIDemoHub --content C:\<configuration.txt file path>
    ```
 
-Modülleri IOT kenar aygıtınızda görüntüleyin:
+IoT Edge cihazınızda modülleri görüntüleme:
     
    ```cli
    az iot hub module-identity list --device-id edge001 --hub-name CLIDemoHub
    ```
 
-   ![Liste modülleri][6]
+   ![Modülleri listeleme][6]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bilgi edinmek için nasıl [IOT sınır cihazı bir ağ geçidi olarak kullanma](how-to-create-transparent-gateway.md)
+* [Bir IoT Edge cihazını ağ geçidi olarak kullanmayı](how-to-create-transparent-gateway.md) öğrenme
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

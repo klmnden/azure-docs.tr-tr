@@ -1,36 +1,37 @@
 ---
-title: "Azure PowerShell komut dosyası örneği için genelleştirilmiş bir VHD yüklemek | Microsoft Docs"
-description: "Genelleştirilmiş bir VHD Azure'a yükleyin ve yönetilen diskleri ve resource manager dağıtım modelini kullanarak yeni bir VM oluşturmak için PowerShell örnek komut dosyası."
+title: Azure PowerShell Betik Örneğine genelleştirilmiş bir VHD yükleme | Microsoft Docs
+description: Azure’a genelleştirilmiş bir VHD yüklemek ve kaynak yöneticisi dağıtım modelini ve Yönetilen Diskleri kullanarak yeni bir sanal makine oluşturmak için PowerShell örnek betiği.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 01/02/2017
+ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9534ce2a32ac57a441535cfa26f2981b804182d1
-ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
-ms.translationtype: MT
+ms.openlocfilehash: c1887bc7dc3cddce7f1c9f91f077388df2e73e9a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716780"
 ---
-# <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Bir VHD Azure'a yükleyin ve yeni bir VM oluşturmak için örnek komut dosyası
+# <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Bir VHD’yi Azure’a yüklemek ve yeni bir sanal makine oluşturmak için örnek betik
 
-Bu komut dosyası genelleştirilmiş bir sanal makineden bir yerel .vhd dosyası alır ve Azure'a yükler, yönetilen Disk görüntüsü oluşturduğu ve kullandığı yeni bir VM oluşturmak için.
+Bu betik, genelleştirilmiş bir sanal makineden yerel bir .vhd dosyasını alıp Azure’a yükler, bir Yönetilen Disk görüntüsü oluşturur ve yeni sanal makine oluşturmak için bunu kullanır.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Örnek komut dosyası
+## <a name="sample-script"></a>Örnek betik
 
 ```powershell
 # Provide values for the variables
@@ -118,41 +119,41 @@ $vmList.Name
 
 ## <a name="clean-up-deployment"></a>Dağıtımı temizleme 
 
-Kaynak grubu, VM ve tüm ilgili kaynaklar kaldırmak için aşağıdaki komutu çalıştırın.
+Kaynak grubunu, VM’yi ve ilgili tüm kaynakları kaldırmak için aşağıdaki komutu çalıştırın.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-## <a name="script-explanation"></a>Komut dosyası açıklaması
+## <a name="script-explanation"></a>Betik açıklaması
 
-Bu komut dosyası dağıtımı oluşturmak için aşağıdaki komutları kullanır. Komut belirli belgeleri tablo bağlanan her öğe.
+Bu betik, dağıtımı oluşturmak için aşağıdaki komutları kullanır. Tablodaki her öğe, komuta özgü belgelere yönlendirir.
 
 | Komut                                                                                                             | Notlar                                                                                                                                                                                |
 |---------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [Yeni-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Tüm kaynaklar depolandığı bir kaynak grubu oluşturur.                                                                                                                          |
-| [Yeni-AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Bir depolama hesabı oluşturur.                                                                                                                                                           |
-| [Ekleme AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | Bir sanal sabit diskten bir şirket içi sanal makine için Azure içinde bulut depolama hesabındaki blob karşıya yükleme.                                                                       |
-| [AzureRmImageConfig yeni](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Yapılandırılabilir Resim nesnesi oluşturur.                                                                                                                                                 |
-| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | İşletim sistemi görüntüsü nesne üzerinde disk özelliklerini ayarlar.                                                                                                                        |
-| [AzureRmImage yeni](/powershell/module/azurerm.resources/new-azurermimage)                                           | Yeni bir görüntü oluşturur.                                                                                                                                                                 |
-| [AzureRmVirtualNetworkSubnetConfig yeni](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Bir alt ağ yapılandırması oluşturur. Bu yapılandırma sanal ağ oluşturma işlemine kullanılır.                                                                                |
-| [Yeni-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Sanal ağ oluşturur.                                                                                                                                                           |
-| [AzureRmPublicIpAddress yeni](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Bir ortak IP adresi oluşturur.                                                                                                                                                         |
-| [AzureRmNetworkInterface yeni](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Bir ağ arabirimi oluşturur.                                                                                                                                                         |
-| [AzureRmNetworkSecurityRuleConfig yeni](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Bir ağ güvenlik grubu kural yapılandırması oluşturur. Bu yapılandırma, NSG oluşturulduğunda bir NSG kuralı oluşturmak için kullanılır.                                                       |
-| [AzureRmNetworkSecurityGroup yeni](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Bir ağ güvenlik grubu oluşturur.                                                                                                                                                    |
-| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | Bir sanal ağ, bir kaynak grubunda alır.                                                                                                                                          |
-| [AzureRmVMConfig yeni](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Bir VM yapılandırması oluşturur. Bu yapılandırma VM adı, işletim sistemi ve yönetici kimlik bilgileri gibi bilgileri içerir. Yapılandırma VM oluşturma sırasında kullanılır. |
-| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Bir sanal makine için bir görüntü belirtir.                                                                                                                                            |
-| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | İşletim sistemi, bir sanal makineye disk özelliklerini ayarlar.                                                                                                                      |
-| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | İşletim sistemi, bir sanal makineye disk özelliklerini ayarlar.                                                                                                                      |
-| [Ekleme AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Bir ağ arabirimi bir sanal makineye ekler.                                                                                                                                       |
-| [Yeni-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Bir sanal makine oluşturun.                                                                                                                                                            |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Bir kaynak grubu ve içerdiği tüm kaynaklar kaldırır.                                                                                                                         |
+| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)                           | Tüm kaynakların depolandığı bir kaynak grubu oluşturur.                                                                                                                          |
+| [New-AzureRmStorageAccount](/powershell/module/azurerm.resources/new-azurermstorageaccount)                         | Bir depolama hesabı oluşturur.                                                                                                                                                           |
+| [Add-AzureRmVhd](/powershell/module/azurerm.resources/add-azurermvhd)                                               | Şirket içi bir sanal makineden, Azure’da bulut depolama hesabındaki bir bloba sanal sabit disk yükler.                                                                       |
+| [New-AzureRmImageConfig](/powershell/module/azurerm.resources/new-azurermimageconfig)                               | Yapılandırılabilir bir görüntü nesnesi oluşturur.                                                                                                                                                 |
+| [Set-AzureRmImageOsDisk](/powershell/module/azurerm.resources/set-azurermimageosdisk)                               | Bir görüntü nesnesinde işletim sistemi disk özelliklerini ayarlar.                                                                                                                        |
+| [New-AzureRmImage](/powershell/module/azurerm.resources/new-azurermimage)                                           | Yeni bir görüntü oluşturur.                                                                                                                                                                 |
+| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.resources/new-azurermvirtualnetworksubnetconfig) | Bir alt ağ yapılandırması oluşturur. Bu yapılandırma, sanal ağ oluşturma işlemiyle birlikte kullanılır.                                                                                |
+| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/new-azurermvirtualnetwork)                         | Sanal ağ oluşturur.                                                                                                                                                           |
+| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.resources/new-azurermpublicipaddress)                       | Genel bir IP adresi oluşturur.                                                                                                                                                         |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.resources/new-azurermnetworkinterface)                     | Ağ arabirimi oluşturur.                                                                                                                                                         |
+| [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.resources/new-azurermnetworksecurityruleconfig)   | Ağ güvenlik grubu kuralı yapılandırması oluşturur. Bu yapılandırma, NSG oluşturulduğunda bir NSG kuralı oluşturmak için kullanılır.                                                       |
+| [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.resources/new-azurermnetworksecuritygroup)             | Ağ güvenlik grubu oluşturur.                                                                                                                                                    |
+| [Get-AzureRmVirtualNetwork](/powershell/module/azurerm.resources/get-azurermvirtualnetwork)                         | Bir kaynak grubundaki sanal ağı alır.                                                                                                                                          |
+| [New-AzureRmVMConfig](/powershell/module/azurerm.resources/new-azurermvmconfig)                                     | Sanal makine yapılandırması oluşturur. Bu yapılandırma; sanal makine adı, işletim sistemi ve yönetici kimlik bilgileri gibi bilgileri içerir. Yapılandırma, sanal makine oluşturulurken kullanılır. |
+| [Set-AzureRmVMSourceImage](/powershell/module/azurerm.resources/set-azurermvmsourceimage)                           | Sanal makine için bir görüntü belirtir.                                                                                                                                            |
+| [Set-AzureRmVMOSDisk](/powershell/module/azurerm.resources/set-azurermvmosdisk)                                     | Bir sanal makinedeki işletim sistemi disk özelliklerini ayarlar.                                                                                                                      |
+| [Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.resources/set-azurermvmoperatingsystem)                   | Bir sanal makinedeki işletim sistemi disk özelliklerini ayarlar.                                                                                                                      |
+| [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.resources/add-azurermvmnetworkinterface)                 | Sanal makineye bir ağ arabirimi ekler.                                                                                                                                       |
+| [New-AzureRmVM](/powershell/module/azurerm.resources/new-azurermvm)                                                 | Sanal makine oluşturur.                                                                                                                                                            |
+| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)                     | Kaynak grubunu ve grubun içerdiği tüm kaynakları kaldırır.                                                                                                                         |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure PowerShell modülü hakkında daha fazla bilgi için bkz: [Azure PowerShell belgelerine](/powershell/azure/overview).
+Azure PowerShell modülü hakkında daha fazla bilgi için bkz. [Azure PowerShell belgeleri](/powershell/azure/overview).
 
-Ek sanal makine PowerShell komut dosyası örnekleri bulunabilir [Azure Windows VM belgelerine](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Ek sanal makine PowerShell betiği örnekleri, [Azure Windows VM belgeleri](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) içinde bulunabilir.

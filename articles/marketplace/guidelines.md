@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 135f934cd6b352dad9e4cea5a14406804f31b66b
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 4da6f5c4513477d1adbf4d7645a66de112eeab23
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825335"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307494"
 ---
 # <a name="guidelines"></a>Yönergeler  
 
@@ -35,7 +35,7 @@ Birden çok kişi Market hesabınızı oluşturmak için kullanılan aynı Micro
 
 >[!IMPORTANT]
 >Microsoft Developer Center'da (Dev Center) hesabınıza erişmek için birden çok kullanıcı yetkilendirmek için Microsoft Azure Active Directory (Azure AD) bireysel kullanıcılara rolleri atamak için kullanmanızı önerir. Her kullanıcı hesabı tek oturum imzalayarak erişmelisiniz Azure AD kimlik. Bir etki alanında bir e-posta adresi kullanarak Microsoft ID oluşturun şirketiniz için kayıtlı Microsoft e-posta için bir kişinin atanmaması önerir. `windowsapps@fabrikam.com` bunun bir örneğidir.  
->*   Daha fazla bilgi için ziyaret [sorun: Microsoft ID Azure AD etki alanı Federasyon](#issue:-microsoft-id-in-an-azure-ad-federated-domain) bölümü.  
+>*   Daha fazla bilgi için ziyaret [sorun: Microsoft ID Azure AD etki alanı Federasyon](#issue-microsoft-id-in-an-azure-ad-federated-domain) bölümü.  
 
 *   Geliştiriciler en küçük olası sayıyı Microsoft ID erişimi sınırlayın. 
 *   Geliştirici Merkezi hesabınızda erişmelisiniz herkes içeren şirket e-posta dağıtım listesini (DT) olarak ayarlayın. DL e-posta adresi güvenlik bilgilerinizi ekleyin. DL istendiğinde güvenlik kodlarını almak ve Microsoft ID. için güvenlik bilgilerini yönetmek için tamamı listesindeki sağlar Bir dağıtım listesi oluşturarak uygun değilse, tek tek e-posta hesabının sahibi erişmek ve istendiğinde güvenlik kodu paylaşmak kullanılabilir olmalıdır.  

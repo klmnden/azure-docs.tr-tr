@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 4cf20dacf66ee334dcd455ce1770609c175d3b88
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 48dbd89216d27e9495a9129c6b873f86a9a23338
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763264"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Hızlı Başlangıç: Kaynak Yöneticisi şablonunu kullanarak Azure HDInsight’ta Hadoop ve Hive’ı kullanmaya başlama
 
@@ -77,6 +78,110 @@ Bu bölümde, Azure Resource Manager şablonu kullanarak HDInsight'ta Hadoop kü
 > Diğer küme oluşturma yöntemleri ve bu öğreticide kullanılan özellikler hakkında bilgi edinmek için bkz. [HDInsight kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).       
 > 
 >
+
+## <a name="use-vscode-to-run-hive-queries"></a>Hive sorgularını çalıştırmak için VSCode kullanma
+
+VSCode’da HDInsight Araçları’nı edinme hakkında bilgi için bkz. [Visual Studio Code için Azure HDInsight Araçları’nı kullanma](../hdinsight-for-vscode.md).
+
+### <a name="submit-interactive-hive-queries"></a>Etkileşimli Hive sorguları gönderme
+
+VSCode için HDInsight Araçları ile, HDInsight etkileşimli sorgu kümelerine etkileşimli Hive sorguları gönderebilirsiniz.
+
+1. Yoksa, yeni bir çalışma klasörü ve yeni bir Hive betik dosyası oluşturun.
+
+2. Azure hesabınıza bağlanın ve henüz yapmadıysanız varsayılan kümeyi yapılandırın.
+
+3. Aşağıdaki kodu kopyalayıp Hive dosyanıza yapıştırın ve kaydedin.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Betik düzenleyiciye sağ tıklayın ve **HDInsight: Hive Interactive** seçeneğini belirleyerek sorguyu gönderin. Araçlar, bağlam menüsünü kullanarak betik dosyasının tamamı yerine bir kod bloğu göndermenize de olanak sağlar. Kısa süre içinde sorgu sonuçları yeni bir sekmede görüntülenir.
+
+   ![Interactive Hive sonucu](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
+
+    - **SONUÇLAR** paneli: Sonucun tamamını CSV, JSON veya Excel dosyası olarak yerel yola kaydedebilir veya yalnızca birkaç satır seçebilirsiniz.
+
+    - **İLETİLER** paneli: **Satır** numarasını seçtiğinizde, çalıştırılmakta olan betiğin birinci satırına atlar.
+
+Etkileşimli sorgu çalıştırılması, [bir Hive toplu işinin çalıştırılmasından](#submit-hive-batch-scripts) daha kısa sürer.
+
+### <a name="submit-hive-batch-scripts"></a>Hive toplu iş betikleri gönderme
+
+1. Yoksa, yeni bir çalışma klasörü ve yeni bir Hive betik dosyası oluşturun.
+
+2. Azure hesabınıza bağlanın ve henüz yapmadıysanız varsayılan kümeyi yapılandırın.
+
+3. Aşağıdaki kodu kopyalayıp Hive dosyanıza yapıştırın ve kaydedin.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. Betik düzenleyiciye sağ tıklayın ve **HDInsight: Hive Toplu İş** seçeneğini belirleyerek bir Hive işi gönderin. 
+
+5. Göndermek istediğiniz kümeyi seçin.  
+
+    Bir Hive işi göndermenizin ardından, **ÇIKTI** panelinde gönderim başarısı bilgileri ve iş kimliği görüntülenir. Hive işi, gerçek zamanlı iş günlüklerini ve durumunu gösteren **WEB TARAYICISI**’nı da açar.
+
+   ![Hive işi sonucu gönderme](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
+
+[Etkileşimli Hive sorguları gönderme](#submit-interactive-hive-queries), toplu iş göndermeden çok daha kısa sürer.
+
+## <a name="use-visualstudio-to-run-hive-queries"></a>Hive sorguları çalıştırmak için Visual Studio kullanma
+
+Visual Studio’da HDInsight Araçları’nı edinme hakkında bilgi için bkz. [Visual Studio için Data Lake Araçları’nı kullanma](./apache-hadoop-visual-studio-tools-get-started.md).
+
+### <a name="run-hive-queries"></a>Hive sorguları çalıştırma
+
+Hive sorguları oluşturmak ve çalıştırmak için iki seçeneğiniz vardır:
+
+* Geçici sorgular oluşturma
+* Hive uygulaması oluşturma
+
+Geçici sorgular oluşturmak ve çalıştırmak için:
+
+1. **Sunucu Gezgini**’nde **Azure** > **HDInsight Kümeleri**’ni seçin.
+
+2. Sorguyu çalıştırmak istediğiniz yerde sağ tıklayın ve **Hive Sorgusu Yaz**’ı seçin.  
+
+3. Hive sorgularını girin. 
+
+    Hive düzenleyicisi IntelliSense’i destekler. Visual Studio için Data Lake Araçları, Hive betiğinizi düzenlerken uzak meta verilerin yüklenmesini destekler. Örneğin, **SELECT * FROM** yazarsanız IntelliSense önerilen tüm tablo adlarını listeler. Bir tablo adı belirtildiğinde, IntelliSense sütun adlarını listeler. Araçlar çoğu Hive DML deyimlerini, alt sorguları ve yerleşik UDF'leri destekler.
+   
+    ![HDInsight Visual Studio Araçları IntelliSense örnek 1’in ekran görüntüsü](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![HDInsight Visual Studio Araçları IntelliSense örnek 2’nin ekran görüntüsü](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
+   
+   > [!NOTE]
+   > IntelliSense yalnızca HDInsight araç çubuğunda seçilen kümelerin meta verilerini önerir.
+   > 
+   
+4. **Gönder** veya **Gönder (Gelişmiş)** öğesini seçin. 
+   
+    ![Hive sorgusu gönderme ekran görüntüsü](./media/apache-hadoop-linux-tutorial-get-started/vs-batch-query.png)
+
+   Gelişmiş gönderme seçeneğini belirlerseniz, betik için **İş Adı**, **Bağımsız Değişkenler**, **Ek Yapılandırmalar** ve **Durum Dizini**’ni yapılandırın:
+
+    ![HDInsight Hadoop Hive sorgusunun ekran görüntüsü](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "Sorgu gönderme")
+
+   Etkileşimli Hive sorguları çalıştırma
+
+   * Aşağı oka tıklayarak **etkileşimli** seçeneğini belirleyin. 
+   
+   * **Yürüt**'e tıklayın.
+
+   ![Etkileşimli Hive sorguları yürütme ekran görüntüsü](./media/apache-hadoop-linux-tutorial-get-started/vs-execute-hive-query.png)
+
+Hive çözümü oluşturmak ve çalıştırmak için:
+
+1. **Dosya** menüsünde **Yeni**'yi ve ardından **Proje**'yi seçin.
+2. Sol bölmede **HDInsight**’ı seçin. Orta bölmede seçin **Hive Uygulaması**’nı seçin. Özellikleri girip **Tamam**’ı seçin.
+   
+    ![HDInsight Visual Studio Araçları yeni Hive projesinin ekran görüntüsü](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Visual Studio’dan Hive uygulamaları oluşturma")
+3. Betiği açmak için **Çözüm Gezgini**’nde **Script.hql** öğesine çift tıklayın.
+4. Hive sorgularını girin ve gönderin. (Yukarıdaki 3. ve 4. adıma bakın)  
+
+
 
 ## <a name="run-hive-queries"></a>Hive sorguları çalıştırma
 
@@ -158,7 +263,7 @@ HDInsight ile veri çözümleme hakkında daha fazla bilgi için aşağıdaki ma
 * Verileri dönüştürmek için kullanılan bir dil olan Pig hakkında bilgi için bkz. [HDInsight ile Pig kullanma](hdinsight-use-pig.md).
 * Hadoop’ta verileri işleyen programları yazmanın bir yöntemi olan MapReduce hakkında bilgi edinmek için bkz. [HDInsight ile MapReduce kullanma](hdinsight-use-mapreduce.md).
 * HDInsight’taki verileri çözümlemek amacıyla Visual Studio için HDInsight Araçları kullanma hakkında bilgi edinmek için bkz. [HDInsight için Visual Studio Hadoop araçlarını kullanmaya başlama](apache-hadoop-visual-studio-tools-get-started.md).
-
+* HDInsight’taki verileri analiz etmek amacıyla VSCode için HDInsight Araçları’nı kullanma hakkında bilgi edinmek için bkz. [Visual Studio Code için Azure HDInsight Araçları’nı kullanma](../hdinsight-for-vscode.md).
 
 
 HDInsight kümesi oluşturma ve yönetme hakkında daha fazla bilgi edinmek istiyorsanız, aşağıdaki makalelere bakın:

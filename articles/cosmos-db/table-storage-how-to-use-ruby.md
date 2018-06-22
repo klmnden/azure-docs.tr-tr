@@ -1,73 +1,71 @@
 ---
-title: Azure Table Storage ve Azure Cosmos DB tablo API Ruby ile kullanma | Microsoft Docs
-description: Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın.
+title: Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini Ruby ile kullanma | Microsoft Belgeleri
+description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak bulutta yapılandırılmış veri depolayın.
 services: cosmos-db
-documentationcenter: ruby
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: 047cd9ff-17d3-4c15-9284-1b5cc61a3224
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: ruby
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19ffdab40b3032421612ef4ba1b840eeb0d2e62b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: d1583001550f5f272f4070006a4a6ac3be000de6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798279"
 ---
-# <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-ruby"></a>Azure Table Storage ve Azure Cosmos DB tablo API Ruby ile kullanma
+# <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Azure Tablo Depolama ve Azure Cosmos DB Tablo API’sini Ruby ile kullanma
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz Azure Table hizmeti ve Azure Cosmos DB tablo API kullanarak genel senaryolar gerçekleştirme gösterir. Ruby ve kullanım örnekleri yazılır [Ruby için Azure Storage tablo istemci Kitaplığı](https://github.com/azure/azure-storage-ruby/tree/master/table). Kapsamdaki senaryolar dahil **oluşturma ve bir tablo silme ve ekleme ve bir tablo varlıkları sorgulama**.
+Bu kılavuz Azure Tablo hizmeti ve Azure Cosmos DB Tablo API’sini kullanarak genel senaryoları nasıl gerçekleştireceğinizi gösterir. Örnekler Ruby ile yazılmıştır ve [Ruby için Azure Depolama Tablo İstemcisi Kitaplığı](https://github.com/azure/azure-storage-ruby/tree/master/table)'nı kullanır. Senaryolarda **tablo oluşturma ve silme ve bir tablodaki varlıkları ekleme ve sorgulama** ele alınmıştır.
 
-## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
+## <a name="create-an-azure-service-account"></a>Azure hizmet hesabı oluşturma
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
+### <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB hesabı oluşturma
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
-## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Depolama veya Azure Cosmos DB erişim Ekle
-Azure Storage veya Azure Cosmos DB kullanmak için indirme ve tablo REST Hizmetleri ile iletişim kuran bir dizi kolaylık içeren Ruby Azure paketi kullanmanız gerekir.
+## <a name="add-access-to-storage-or-azure-cosmos-db"></a>Depolama'ya veya Azure Cosmos DB'sine erişim ekleme
+Azure Depolama'yı veya Azure Cosmos DB'yi kullanmak için Tablo REST hizmetleri ile iletişim kuran kolaylık sağlayıcı kitaplıklar içeren Ruby Azure paketini indirip kullanmalısınız.
 
-### <a name="use-rubygems-to-obtain-the-package"></a>Paket elde etmek için RubyGems kullanın
-1. Bir komut satırı arabirimi gibi kullandığınız **PowerShell** (Windows), **Terminal** (Mac) veya **Bash** (UNIX).
-2. Tür **gem yüklemek azure depolama tablosu** gem ve bağımlılıklarını yüklemek için komut penceresinde.
+### <a name="use-rubygems-to-obtain-the-package"></a>Paketi edinmek için RubyGems kullanma
+1. **PowerShell** (Windows), **Terminal** (Mac) veya **Bash** (Unix) gibi bir komut satırı arabirimi kullanın.
+2. Gem'i ve bağımlılıklarını yüklemek için komut satırı penceresine **gem install azure-storage-table** yazın.
 
-### <a name="import-the-package"></a>Paket alma
-Sık kullandığınız metin düzenleyiciyi kullanın, burada depolama kullanmayı düşündüğünüz Söyleniş dosyasının üstüne aşağıdakileri ekleyin:
+### <a name="import-the-package"></a>Paketi içeri aktarma
+Sık kullandığınız metin düzenleyiciyi kullanarak aşağıdakileri Storage kullanmak istediğiniz Ruby dosyasının en üstüne ekleyin:
 
 ```ruby
 require "azure/storage/table"
 ```
 
-## <a name="add-an-azure-storage-connection"></a>Bir Azure depolama bağlantı Ekle
-Azure Storage modül ortam değişkenleri okur **AZURE_STORAGE_ACCOUNT** ve **AZURE_STORAGE_ACCESS_KEY** Azure depolama hesabınıza bağlanmak için gerekli bilgileri için. Bu ortam değişkenleri ayarlanmamışsa, hesap bilgilerini kullanmadan önce belirtmelisiniz **Azure::Storage::Table::TableService** aşağıdaki kod ile:
+## <a name="add-an-azure-storage-connection"></a>Azure Depolama bağlantısı ekleme
+Azure Depolama modülü, Azure Depolama hesabınıza bağlanırken gereken bilgiler için **AZURE_STORAGE_ACCOUNT** ve **AZURE_STORAGE_ACCESS_KEY** ortam değişkenlerini okur. Bu ortam değişkenleri ayarlanmamışsa, **Azure::Storage::Table::TableService** kullanmadan önce aşağıdaki kod ile hesap bilgilerini belirtmelisiniz:
 
 ```ruby
 Azure.config.storage_account_name = "<your Azure Storage account>"
 Azure.config.storage_access_key = "<your Azure Storage access key>"
 ```
 
-Klasik veya Resource Manager depolama hesabı Azure portalında bu değerleri almak için:
+Bu değerleri Azure portalında bir klasik veya Kaynak Yöneticisi depolama hesabından edinmek için:
 
 1. [Azure Portal](https://portal.azure.com)’da oturum açın.
-2. Kullanmak istediğiniz depolama hesabınıza gidin.
-3. Sağ taraftaki ayarları dikey penceresinde tıklayın **erişim tuşları**.
-4. Görüntülenen erişim anahtarları dikey penceresinde, erişim tuşu 1 ve 2 erişim anahtarı görürsünüz. Bunlardan kullanabilirsiniz.
+2. Kullanmak istediğiniz depolama hesabına gidin.
+3. Sağdaki Ayarlar dikey penceresinde **Erişim Anahtarları**'na tıklayın.
+4. Açılan Erişim anahtarları dikey penceresinde, 1. ve 2. erişim anahtarını göreceksiniz. Bunlardan birini kullanabilirsiniz.
 5. Anahtarı panoya kopyalamak için Kopyala simgesine tıklayın.
 
-## <a name="add-an-azure-cosmos-db-connection"></a>Bir Azure Cosmos DB Bağlantısı Ekle
-Azure Cosmos Veritabanına bağlanmak için birincil bağlantı dizenizi Azure Portal'dan kopyalayın ve oluşturma bir **istemci** kopyalanan bağlantı dizenizi kullanarak nesne. Geçirebilirsiniz **istemci** nesne oluşturduğunuzda bir **TableService** nesnesi:
+## <a name="add-an-azure-cosmos-db-connection"></a>Azure Cosmos DB bağlantısını ekleme
+Azure Cosmos DB'ye bağlanmak için, Azure portalından birincil bağlantı dizenizi kopyalayın ve kopyaladığınız bağlantı dizesini kullanarak bir **Client** nesnesi oluşturun. **Client** nesnesini bir **TableService** nesnesi oluştururken geçebilirsiniz:
 
 ```ruby
 common_client = Azure::Storage::Common::Client.create(storage_account_name:'myaccount', storage_access_key:'mykey', storage_table_host:'mycosmosdb_endpoint')
@@ -75,7 +73,7 @@ table_client = Azure::Storage::Table::TableService.new(client: common_client)
 ```
 
 ## <a name="create-a-table"></a>Bir tablo oluşturma
-**Azure::Storage::Table::TableService** nesnesi, tabloları ve varlıkları ile çalışmanıza olanak sağlar. Bir tablo oluşturmak için kullanmak **create_table()** yöntemi. Aşağıdaki örnek, bir tablo oluşturur veya hata varsa yazdırır.
+**Azure::Storage::Table::TableService** nesnesi tablolar ve varlıklar ile çalışmanızı sağlar. Bir tablo oluşturmak için **create_table()** yöntemini kullanın. Aşağıdaki örnek, bir tablo oluşturur veya varsa hatayı yazdırır.
 
 ```ruby
 azure_table_service = Azure::Storage::Table::TableService.new
@@ -87,7 +85,7 @@ end
 ```
 
 ## <a name="add-an-entity-to-a-table"></a>Tabloya bir varlık ekleme
-Bir varlık eklemek için önce varlık özelliklerinizi tanımlayan bir karma nesnesi oluşturun. Her varlık için belirtmelisiniz Not bir **PartitionKey** ve **RowKey**. Bunlar, varlıklarınızı'nın benzersiz tanımlayıcıları ve çok diğer özelliklerinizi daha hızlı sorgulanabilir değerlerdir. Azure depolama kullanan **PartitionKey** tablonun varlıklar birçok depolama düğümleri üzerinde otomatik olarak dağıtmak için. Aynı varlıkla **PartitionKey** aynı düğümde depolanır. **RowKey** varlığın ait bölüm içinde benzersiz kimliğidir.
+Bir varlık eklemek için ilk olarak varlık özelliklerinizi tanımlayan bir karma değer nesnesi oluşturun. Her varlık için bir **PartitionKey** ve **RowKey** belirtmeniz gerektiğini unutmayın. Bunlar, varlıklarınızın benzersiz tanımlayıcılarıdır ve diğer özelliklerinizden çok daha hızlı sorgulanabilen değerlerdir. Azure Depolama, tablonun varlıklarını çok sayıda depolama düğümüne otomatik olarak dağıtmak için **PartitionKey** değerini kullanır. Aynı **PartitionKey** değerine sahip varlıklar aynı düğüme depolanır. **RowKey**, varlığın ait olduğu bölümdeki benzersiz kimliğidir.
 
 ```ruby
 entity = { "content" => "test entity",
@@ -95,15 +93,15 @@ entity = { "content" => "test entity",
 azure_table_service.insert_entity("testtable", entity)
 ```
 
-## <a name="update-an-entity"></a>Bir varlığı güncelleştirir
-Var olan bir varlığı güncelleştirmek için kullanılabilir birden çok yöntemi vardır:
+## <a name="update-an-entity"></a>Varlığı güncelleştirme
+Mevcut bir varlığı güncelleştirmenin birçok yolu vardır:
 
-* **update_entity():** var olan bir varlığı değiştirme tarafından güncelleştirin.
-* **merge_entity():** varolan varlık kümesine yeni özellik değerlerinin birleştirerek var olan bir varlığı güncelleştirir.
-* **insert_or_merge_entity():** değiştirme tarafından var olan bir varlığı güncelleştirir. Hiçbir varlık varsa, yeni bir tane eklenir:
-* **insert_or_replace_entity():** varolan varlık kümesine yeni özellik değerlerinin birleştirerek var olan bir varlığı güncelleştirir. Hiçbir varlık varsa, yeni bir tane eklenir.
+* **update_entity():** Varlığı başkasıyla değiştirerek güncelleştirme.
+* **merge_entity():** Mevcut bir varlığı yeni özellik değerleriyle birleştirerek güncelleştirir.
+* **insert_or_merge_entity():** Mevcut bir varlığı başkasıyla değiştirerek güncelleştir. Bir varlık yoksa, yenisi eklenir:
+* **insert_or_replace_entity():** Mevcut bir varlığı, yeni özellik değerleriyle birleştirerek güncelleştirir. Bir varlık yoksa, yenisi eklenir.
 
-Aşağıdaki örnek, bir varlık kullanarak güncelleştirme gösterir **update_entity()**:
+Aşağıdaki örnekte **update_entity()** kullanılarak bir varlığın güncelleştirilmesi gösterilmektedir:
 
 ```ruby
 entity = { "content" => "test entity with updated content",
@@ -111,10 +109,10 @@ entity = { "content" => "test entity with updated content",
 azure_table_service.update_entity("testtable", entity)
 ```
 
-İle **update_entity()** ve **merge_entity()**, güncelleştirdiğiniz varlık yoksa güncelleştirme işlemi başarısız olur. Bu nedenle, bir varlık zaten var olup olmadığını bağımsız olarak depolamak istiyorsanız, bunun yerine kullanmalısınız **insert_or_replace_entity()** veya **insert_or_merge_entity()**.
+**update_entity()** ve **merge_entity()** yöntemlerinde, güncelleştirmekte olduğunuz varlık yoksa, güncelleştirme işlemi başarısız olur. Bu nedenle bir varlığı daha önceden mevcut olup olmadığına bakmaksızın depolamak istiyorsanız, **insert_or_replace_entity()** veya **insert_or_merge_entity()** kullanmalısınız.
 
-## <a name="work-with-groups-of-entities"></a>Varlıkları gruplarıyla çalışma
-Bazen birden çok sunucu tarafından işleme atomik emin olmak için birlikte toplu iş işlemlerinde göndermek için mantıklıdır. Bunu yapmaya yönelik önce oluşturduğunuz bir **toplu** nesnesi ve ardından **execute_batch()** yöntemi **TableService**. Aşağıdaki örnek, iki varlık RowKey 2 ve 3 toplu gönderme gösterir. Yalnızca aynı PartitionKey sahip varlıklar için çalışır durumda olduğunu dikkat edin.
+## <a name="work-with-groups-of-entities"></a>Varlık gruplarıyla çalışma
+Bazen, sunucu tarafından atomik olarak işlenmelerini sağlamak için birden fazla işlemin toplu bir işte bir arada gönderilmesi mantıklıdır. Bunun için önce bir **Batch** nesnesi oluşturmalı, sonra **TableService** üzerinde **execute_batch()** yöntemini kullanmalısınız. Aşağıdaki örnekte, iki varlığın RowKey 2 ve 3 ile toplu bir işte gönderilmesi gösterilmektedir. Bunun yalnızca aynı PartitionKey değerine sahip varlıklar için sonuç vereceğini unutmayın.
 
 ```ruby
 azure_table_service = Azure::TableService.new
@@ -126,8 +124,8 @@ end
 results = azure_table_service.execute_batch(batch)
 ```
 
-## <a name="query-for-an-entity"></a>Bir varlık için sorgu
-Bir tablodaki bir varlık sorgulamak için kullanın **get_entity()** tablo adı geçirerek yöntemi **PartitionKey** ve **RowKey**.
+## <a name="query-for-an-entity"></a>Varlık sorgulama
+Bir tablodaki bir varlığı sorgulamak için, tablo adını ve **PartitionKey** ve **RowKey** değerlerini geçerek **get_entity()** yöntemini kullanın.
 
 ```ruby
 result = azure_table_service.get_entity("testtable", "test-partition-key",
@@ -135,7 +133,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
 ```
 
 ## <a name="query-a-set-of-entities"></a>Varlık kümesi sorgulama
-Bir tablodaki varlıkları kümesinin sorgulamak için bir sorgu karma nesnesi oluşturma ve kullanma **query_entities()** yöntemi. Aşağıdaki örnek, aynı tüm varlıkları alma gösterir **PartitionKey**:
+Bir tablodaki bir varlık kümesini sorgulamak için, bir sorgu karma değer nesnesi oluşturun ve **query_entities()** yöntemini kullanın. Aşağıdaki örnekte aynı **PartitionKey** değerine sahip tüm nesnelerin alınması gösterilmektedir:
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'" }
@@ -143,12 +141,12 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 > [!NOTE]
-> Sonuç kümesi dönmek tek bir sorgu için çok büyük ise, bir devamlılık belirteci sonraki sayfalarda almak için kullanabileceğiniz döndürülür.
+> Sonuç kümesi tek bir sorgunun döndüremeyeceği kadar büyükse, sonraki sayfaları almak üzere kullanabileceğiniz bir devam belirteci döndürülür.
 >
 >
 
 ## <a name="query-a-subset-of-entity-properties"></a>Giriş özellikleri alt kümesi sorgulama
-Sorguda bir tabloya bir varlık birkaç özelliği alabilir. "Projeksiyon," olarak adlandırılan bu teknik bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Select yan tümcesi kullanın ve istemciye Getir istediğiniz özellik adlarını geçirin.
+Tabloya gönderilen bir sorgu, bir varlıktan yalnızca birkaç özellik alabilir. "Projeksiyon" olarak adlandırılan bu teknik, bant genişliğini azaltır ve özellikle büyük varlıklar için sorgu performansını iyileştirebilir. Select yan tümcesini kullanın ve istemciye getirmek istediğiniz özelliklerin adlarını geçin.
 
 ```ruby
 query = { :filter => "PartitionKey eq 'test-partition-key'",
@@ -157,14 +155,14 @@ result, token = azure_table_service.query_entities("testtable", query)
 ```
 
 ## <a name="delete-an-entity"></a>Bir varlığı silme
-Bir varlığı silmek için kullanın **delete_entity()** yöntemi. Varlık, PartitionKey ve RowKey varlık içeren bir tablo adına geçirin.
+Bir varlığı silmek için **delete_entity()** yöntemini kullanın. Varlığı içeren tablonun adını ve varlığın PartitionKey ve RowKey değerlerini geçin.
 
 ```ruby
 azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 ```
 
 ## <a name="delete-a-table"></a>Bir tablo silme
-Bir tablo silmek için kullanın **delete_table()** yöntemi ve silmek istediğiniz tabloyu adına geçirin.
+Bir tablo silmek için **delete_table()** yöntemini kullanın ve silmek istediğiniz tablonun adını geçin.
 
 ```ruby
 azure_table_service.delete_table("testtable")
@@ -174,5 +172,5 @@ azure_table_service.delete_table("testtable")
 
 * [Microsoft Azure Depolama Gezgini](../vs-azure-tools-storage-manage-with-storage-explorer.md), Microsoft’un Windows, macOS ve Linux üzerinde Azure Depolama verileriyle görsel olarak çalışmanızı sağlayan ücretsiz ve tek başına uygulamasıdır.
 * [Ruby Geliştirici Merkezi](https://azure.microsoft.com/develop/ruby/)
-* [Ruby için Microsoft Azure depolama tablo istemci kitaplığı](https://github.com/azure/azure-storage-ruby/tree/master/table) 
+* [Ruby için Microsoft Azure Depolama Tablosu İstemci Kitaplığı](https://github.com/azure/azure-storage-ruby/tree/master/table) 
 

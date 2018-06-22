@@ -1,26 +1,24 @@
 ---
-title: "NoSQL Öğreticisi: Azure Cosmos DB Java SDK'sı SQL API'yi | Microsoft Docs"
-description: Çevrimiçi bir veritabanı ve Azure Cosmos DB için SQL API'yi kullanarak Java konsol uygulaması oluşturan bir NoSQL Öğreticisi. Azure SQL, JSON için bir NoSQL veritabanıdır.
+title: 'NoSQL öğreticisi: Azure Cosmos DB Java SDK’sı için SQL API’si | Microsoft Docs'
+description: Azure Cosmos DB için SQL API’sini kullanarak çevrimiçi bir veritabanı ve Java konsol uygulaması oluşturan bir NoSQL öğreticisi. Azure SQL, JSON için bir NoSQL veritabanıdır.
 keywords: nosql öğreticisi, çevrimiçi veritabanı, java konsol uygulaması
 services: cosmos-db
-documentationcenter: Java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 75a9efa1-7edd-4fed-9882-c0177274cbb2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 8405894451c60f0661922584d9927960e3d0f611
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 36d65d7755b45f0da02776a90b09df3c6a3bcf02
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796987"
 ---
-# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL Öğreticisi: SQL API Java konsol uygulaması oluşturma
+# <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL öğreticisi: SQL API Java konsol uygulaması derleme
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -31,7 +29,7 @@ ms.lasthandoff: 04/16/2018
 >  
 > 
 
-NoSQL Öğreticisi, Azure Cosmos DB Java SDK'sı için SQL API'yi Hoş Geldiniz! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
+Azure Cosmos DB Java SDK’sı için SQL API’sine yönelik NoSQL öğreticisine hoş geldiniz! Bu öğreticiyi uyguladıktan sonra, Azure Cosmos DB kaynaklarını oluşturan ve sorgulayan bir konsol uygulamasına sahip olacaksınız.
 
 Kapsanan konular:
 
@@ -49,7 +47,7 @@ Kapsanan konular:
 
 Şimdi başlayalım!
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 Aşağıdakilere sahip olduğunuzdan emin olun:
 
 * Etkin bir Azure hesabı. Bir aboneliğiniz yoksa [ücretsiz bir hesap](https://azure.microsoft.com/free/) için kaydolabilirsiniz. 
@@ -72,7 +70,7 @@ Bir Azure Cosmos DB hesabı oluşturalım. Kullanmak istediğiniz bir hesap zate
 
     cd azure-cosmos-db-documentdb-java-getting-started
 
-Dizini içeren bir `pom.xml` projesi için ve bir `src` Java kaynak kodu da dahil olmak üzere içeren klasörü `Program.java` hangi gösterir nasıl basit belgelerin oluşturulması ve bir koleksiyon içinde veri sorgulama gibi Azure Cosmos DB ile işlemleri . `pom.xml` Bir bağımlılık içerir [Azure Cosmos DB Java SDK'sı Maven üzerinde](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+Dizinde proje için bir `pom.xml` nesnesinin yanı sıra Java kaynak kodunu içeren `src` klasörü vardır. Bu klasör içindeki `Program.java`, Azure Cosmos DB ile belge oluşturma ve bir koleksiyondaki verileri sorgulama gibi basit işlemlerin nasıl yapılacağını gösterir. `pom.xml`, [Maven üzerindeki Azure Cosmos DB Java SDK’sı](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb) bağımlılığını içerir.
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -120,7 +118,7 @@ Bir [koleksiyon](sql-api-resources.md#collections), **DocumentClient** sınıfı
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>6. Adım: JSON belgeleri oluşturma
-Bir [belge](sql-api-resources.md#documents), **DocumentClient** sınıfının [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) metodu kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, Azure Cosmos veritabanı kullanabilirsiniz [veri geçiş aracı](import-data.md) verileri bir veritabanına aktarmak için.
+Bir [belge](sql-api-resources.md#documents), **DocumentClient** sınıfının [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) metodu kullanılarak oluşturulabilir. Belgeler, kullanıcı tanımlı (rastgele) JSON içerikleridir. Şimdi bir veya daha fazla belge ekleyebiliriz. Veritabanınızda depolamak istediğiniz veriler zaten varsa, verileri bir veritabanına içeri aktarmak için Azure Cosmos DB’nin [Veri Geçişi aracını](import-data.md) kullanabilirsiniz.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -177,7 +175,7 @@ Oluşturulan veritabanı silindiğinde, veritabanı ve tüm alt kaynaklar (kolek
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>11. Adım: Java konsol uygulamanızı hep birlikte çalıştırın!
-Konsoldan uygulamayı çalıştırmak için proje klasöre gidin ve Maven kullanarak derleyin:
+Konsoldan uygulamayı çalıştırmak için Maven kullanarak proje klasörüne gidin ve derleyin:
     
     mvn package
 

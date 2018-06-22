@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: b0772e3186c86239c773222a2b2e8d602a46aa52
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807484"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300603"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IOT merkezi uygulamanızı aygıtları yönetme
 
@@ -49,7 +49,7 @@ Azure IOT merkezi uygulamanıza bir cihaz eklemek için:
 1. Seçin **gerçek** veya **benzetimli**. Azure IOT merkezi uygulamanıza bağlanan bir fiziksel aygıt gerçek bir cihazı içindir. Bir sanal cihaz sizin için Azure IOT Merkezi tarafından oluşturulan örnek veriler var. Bu örnek, gerçek cihaz kullanır. Seçin **gerçek** gitmek için **cihaz ayrıntıları** yeni cihazınız için sayfa.
 
 
-## <a name="bulk-import-devices"></a>Cihazları toplu içeri aktarma
+## <a name="import-devices"></a>Cihazları içeri aktarma
 
 Uygulamanıza, Azure IOT merkezi sayıda cihazlar bağlanmak için bir CSV dosyası içe aktarma aygıtına teklifleri toplu. 
 
@@ -65,9 +65,12 @@ Toplu kayıt, uygulamanızda aygıtları için:
 
 1. Sol panelde, toplu istediğiniz cihaz şablonu oluşturma aygıtları seçin.
 
-1. Seçin **yeni** seçip **toplu içeri**.
+ >   [!NOTE] 
+    Bir aygıt şablonuna sahip olmayan henüz aygıtlar'ın altında içeri aktarabilirsiniz **aygıtları ilişkili değil** ve herhangi bir şablonu kaydedin. Aygıtları içe aktardıktan sonra daha sonra bunları sahip bir şablon bir sonraki adım olarak ilişkilendirebilirsiniz.
 
-    [![Toplu içe aktarma işlemi](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. **İçeri Aktar**’a tıklayın.
+
+    [![Alma eylemi](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. İçeri aktarılacak cihaz kimlikleri listesine sahip CSV dosyasını seçin.
 
@@ -75,9 +78,25 @@ Toplu kayıt, uygulamanızda aygıtları için:
 
 1. İçeri aktarma işlemi tamamlandıktan sonra cihaz kılavuzda bir başarı iletisi gösterilir.
 
-    [![Toplu içeri aktarma başarılı](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![İçeri aktarma başarılı](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 İşlemi başarısız aygıt içe aktarırsanız, cihaz ızgarasında hata iletisi görürsünüz. Tüm hataları yakalama bir günlük dosyası oluşturulur ve hata iletisi tıklayarak indirilebilir.
+
+
+**Cihazlar bir şablon ile ilişkilendirme**
+
+Al altında başlatarak aygıtları kaydederseniz **aygıtları ilişkili değil**, cihazları cihaz şablonu ilişkilere oluşturulur sonra. Aygıt verileri ve cihaz ile ilgili diğer ayrıntıları keşfetmek için bir şablon ile ilişkilendirilmiş olması gerekir. Cihazlar bir şablon ile ilişkilendirmek için aşağıdaki adımları izleyin:
+1. Seçin **Explorer** sol gezinti menüsünde.
+1. Sol panelde seçin **ilişkili değil aygıtlarını**.
+    [![İlişkilendirilmemiş cihazları](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. Bir şablon ile ilişkilendirmek istediğiniz aygıtları seçin.
+1. Tıklatın **ilişkilendirmek** seçeneği.
+    [![Aygıtları ilişkilendirme](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. Şablonu kullanılabilir şablonlar listesinden seçin ve'ı tıklatın **ilişkilendirmek** düğmesi.
+1. Seçili cihazların ilgili cihaz şablonu altında taşınır.
+
+ >   [!NOTE] 
+    Bir aygıt, değiştirilemez veya başka bir şablonla ilişkili bir şablon ile ilişkilendirildikten sonra.
 
 ## <a name="export-devices"></a>Dışarı aktarma cihazları
 
@@ -86,7 +105,7 @@ Aygıtların IOT Orta bağlanmasını sağlamak için IOT Orta tarafından oluş
 Uygulamanızdan verme cihazları toplu olarak:
 1. Seçin **Explorer** sol gezinti menüsünde.
 
-1. Bir sol panelde aygıtları vermek istediğiniz cihaz şablonu seçin.
+1. Sol panelde aygıtları vermek istediğiniz aygıt şablonunu seçin.
 
 1. Dışarı aktarmak ve ardından istediğiniz aygıtları seçin **verme** eylem.
 

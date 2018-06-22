@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/28/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8452708ef6b3d1944495c3c2c152c1e753a9cebf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f237e2b25089e4f89ddda2d37a7aa4019befe0da
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599907"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302085"
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS giriş Azure Kubernetes Service (AKS)
 
@@ -33,13 +33,19 @@ Helm NGINX giriş denetleyicisi yüklemek için kullanın. Bkz. NGINX giriş con
 Grafik depo güncelleştirin.
 
 ```console
-helm repo update
+$ helm repo update
 ```
 
-NGINX giriş denetleyicisi yükleyin. Bu örnek, denetleyicide yükler `kube-system` ad alanı, bu tercih ettiğiniz bir ad alanına değiştirilebilir.
+NGINX giriş denetleyicisi yükleyin. Bu örnek, denetleyicide yükler `kube-system` ad alanı (RBAC varsayılarak olan *değil* etkin), bu tercih ettiğiniz bir ad alanına değiştirilebilir.
 
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
 ```
-helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+
+**Not:** varsa RBAC *olan* kubernetes kümenizde etkinse, yukarıdaki komut, giriş denetleyicinizin ulaşılamaz hale getirir. Aşağıdakileri deneyin:
+
+```console
+$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=true --set rbac.createRole=true --set rbac.createClusterRole=true
 ```
 
 Yükleme sırasında Azure ortak IP adresi giriş denetleyici için oluşturulur. Genel IP adresi almak için kubectl get hizmet komutunu kullanın. Hizmete atanan IP adresi için biraz zaman alabilir.

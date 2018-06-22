@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 4e92d1ba948626c05e7b66d2c0d469ac6c6571a2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4813c492ba25b0d6dd524e2c0b4b5b6e8c2a2bfa
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228195"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Öğretici: Azure Active Directory Tümleştirme TimeOffManager ile
 
@@ -112,7 +112,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
-    > Bu değer gerçek değil. Bu değer ile gerçek yanıt URL'si güncelleştirin. Bu değerden alabilirsiniz **çoklu oturum açma ayarları sayfasında** daha sonra öğreticide veya kişi içinde açıklanan [TimeOffManager destek ekibi](http://www.timeoffmanager.com/contact-us.aspx).
+    > Bu değer gerçek değil. Bu değer ile gerçek yanıt URL'si güncelleştirin. Bu değerden alabilirsiniz **çoklu oturum açma ayarları sayfasında** daha sonra öğreticide veya kişi içinde açıklanan [TimeOffManager destek ekibi](https://www.purelyhr.com/contact-us).
  
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 

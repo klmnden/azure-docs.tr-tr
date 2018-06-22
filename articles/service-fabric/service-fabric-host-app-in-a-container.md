@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/07/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207494"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642691"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Öğretici: Azure Service Fabric’e Windows kapsayıcısındaki bir .NET uygulamasını dağıtma
 
@@ -51,6 +51,8 @@ Fabrikam Fiber CallCenter uygulamasının hatasız derlendiğinden ve çalışt�
 
 ## <a name="containerize-the-application"></a>Uygulamayı kapsayıcılı hale getirme
 **FabrikamFiber.Web** projesi > **Ekle** > **Container Orchestrator Desteği**'ne sağ tıklayın.  Kapsayıcı düzenleyicisi olarak **Service Fabric**'i seçin ve **Tamam**'a tıklayın.
+
+Docker’ı şimdi Windows kapsayıcılarına geçirmek için **Evet**’e tıklayın.
 
 Çözümde yeni bir Service Fabric uygulama projesi (**FabrikamFiber.CallCenterApplication**) oluşturulur.  Mevcut **FabrikamFiber.Web** projesine bir Dockerfile eklenir.  Ayrıca **FabrikamFiber.Web** projesine bir **PackageRoot** dizini de eklenir ve bu dizin yeni FabrikamFiber.Web hizmetinin hizmet bildirimiyle ayarlarını içerir. 
 
@@ -120,16 +122,17 @@ Write-Host "Server name is $servername"
 >Ana bilgisayarınızdan erişilebilir olduğu sürece, yerel hata ayıklama için tercih ettiğiniz herhangi bir SQL Server’ı kullanabilirsiniz. Ancak **localdb**, `container -> host` iletişimini desteklemez. Web uygulamanızın sürüm derlemesini oluştururken farklı bir SQL veritabanı kullanmak isterseniz, *web.release.config* dosyasına başka bir bağlantı dizesi ekleyin.
 
 ## <a name="run-the-containerized-application-locally"></a>Kapsayıcılı hale getirilen uygulamayı yerel olarak çalıştırma
-Uygulamayı yerel Service Fabric geliştirme kümesindeki bir kapsayıcıda çalıştırmak ve hatalarını ayıklamak için **F5** tuşuna basın.
+Uygulamayı yerel Service Fabric geliştirme kümesindeki bir kapsayıcıda çalıştırmak ve hatalarını ayıklamak için **F5** tuşuna basın. 'ServiceFabricAllowedUsers' grubuna, Visual Studio proje dizininize yönelik okuma ve yürütme izni verilmesini isteyen bir ileti kutusu sunulursa **Evet**’e tıklayın.
 
 ## <a name="create-a-container-registry"></a>Kapsayıcı kayıt defteri oluşturma
-Artık uygulama yerel olarak çalıştırıldığına göre, Azure'a dağıtmak için hazırlamaya başlayın.  Kapsayıcı görüntülerinin bir kapsayıcı kayıt defterinde depolanması gerekir.  Aşağıdaki betiği kullanarak bir [Azure kapsayıcı kayıt defteri](/azure/container-registry/container-registry-intro) oluşturun.  Uygulamayı Azure'a dağıtmadan önce kapsayıcı görüntüsünü bu kayıt defterine gönderirsiniz.  Uygulama Azure'daki kümeye dağıtılırken kapsayıcı görüntüsü bu kayıt defterinden çekilir.
+Artık uygulama yerel olarak çalıştırıldığına göre, Azure'a dağıtmak için hazırlamaya başlayın.  Kapsayıcı görüntülerinin bir kapsayıcı kayıt defterinde depolanması gerekir.  Aşağıdaki betiği kullanarak bir [Azure kapsayıcı kayıt defteri](/azure/container-registry/container-registry-intro) oluşturun. Kapsayıcı kayıt defteri adı diğer Azure aboneliklerine görünür olduğundan benzersiz olmalıdır.
+Uygulamayı Azure'a dağıtmadan önce kapsayıcı görüntüsünü bu kayıt defterine gönderirsiniz.  Uygulama Azure'daki kümeye dağıtılırken kapsayıcı görüntüsü bu kayıt defterinden çekilir.
 
 ```powershell
 # Variables
 $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
-$registryname="fabrikamregistry"
+$registryname="fabrikamregistry$(Get-Random)"
 
 New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 
@@ -143,7 +146,9 @@ Service Fabric uygulamaları, ağ bağlantılı sanal veya fiziksel makinelerin 
 - Visual Studio'dan test kümesi oluşturma. Bu seçenek doğrudan Visual Studio'dan tercih ettiğiniz yapılandırmalarla güvenli bir küme oluşturmanızı sağlar. 
 - [Şablondan güvenli bir küme oluşturma](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-Kümeyi oluştururken, çalışan kapsayıcıları destekleyen (Kapsayıcılar ile Windows Server 2016 Datacenter gibi) bir SKU seçin. Bu öğretici Visual Studio'dan bir küme oluşturur; bu test senaryoları için idealdir. Başka herhangi bir yolla küme oluşturursanız veya mevcut kümelerden birini kullanırsanız, bağlantı uç noktanızı kopyalayıp yapıştırabilir veya aboneliğinizden seçebilirsiniz. 
+Bu öğretici Visual Studio'dan bir küme oluşturur; bu test senaryoları için idealdir. Başka herhangi bir yolla küme oluşturursanız veya mevcut kümelerden birini kullanırsanız, bağlantı uç noktanızı kopyalayıp yapıştırabilir veya aboneliğinizden seçebilirsiniz. 
+
+Küme oluştururken, çalıştırılan kapsayıcıları destekleyen bir SKU seçin. Küme düğümlerinizdeki Windows Server işletim sistemi, kapsayıcınızın Windows Server işletim sistemiyle uyumlu olmalıdır. Daha fazla bilgi için bkz. [Windows Server kapsayıcı işletim sistemi ve ana bilgisayar işletim sistemi uyumluluğu](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). Varsayılan olarak bu öğretici, Windows Server 2016 LTSC’yi temel alan bir Docker görüntüsü oluşturur. Bu görüntüyü temel alan kapsayıcılar, Kapsayıcılar içeren Windows Server 2016 Veri Merkezi ile oluşturulan kümelerde çalıştırılır. Ancak bir küme oluşturur veya Kapsayıcılar içeren Windows Server Datacenter Core 1709’u temel alan mevcut bir kümeyi kullanırsanız, kapsayıcının temel aldığı Windows Server işletim sistemi görüntüsünü değiştirmeniz gerekir. **FabrikamFiber.Web** projesinde **Dockerfile** öğesini açın, mevcut `FROM` deyimini açıklama satırı yapın (`windowsservercore-ltsc` temelinde) ve `windowsservercore-1709` temelinde `FROM` deyiminin açıklamasını kaldırın. 
 
 1. Çözüm Gezgini'nde **FabrikamFiber.CallCenterApplication** uygulama projesine sağ tıklayın ve **Yayımla**’yı seçin.
 

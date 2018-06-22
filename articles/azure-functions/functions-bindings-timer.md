@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725454"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308168"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Zamanlayıcı tetikleyicisi için Azure işlevleri 
 
@@ -280,6 +280,10 @@ Bir depolama hesabı birden çok işlev uygulama arasında paylaşıyorsanız, h
 ## <a name="retry-behavior"></a>Yeniden deneme davranışını
 
 Bir işlev başarısız olduktan sonra sıra tetikleyici Zamanlayıcı tetikleyicisi yeniden değil. Bir işlev başarısız olduğunda, zamanlamaya göre yeniden açana kadar adı değil.
+
+## <a name="troubleshooting"></a>Sorun giderme
+
+Zamanlayıcı tetikleyicisi beklendiği gibi çalışmıyor ne yapmanız gerektiği hakkında daha fazla bilgi için bkz: [Investigating ve sorunları süreölçerli raporlama tetiklenen değil tetikleme işlevleri](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

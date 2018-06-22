@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 027a10e687673bdeedf2858b4c23ff459df61b70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad4725ff6871ef489c6a10656af9a76e588edfa1
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649117"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308430"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Otomatik veritabanı yedeklerini kullanarak bir Azure SQL veritabanını kurtarma
 SQL veritabanı kullanarak veritabanı kurtarma için bu seçenekleri sağlar [veritabanı yedeklemeleri otomatik](sql-database-automated-backups.md) ve [uzun vadeli bekletme yedeklemeleri](sql-database-long-term-retention.md). Bir veritabanı yedeğinden geri yükleyebilirsiniz:
@@ -32,7 +32,7 @@ Geri yüklenen veritabanı aşağıdaki koşullarda bir ek depolama alanı maliy
 - Veritabanı boyutu üst sınırını 500 GB'den büyükse, P11 – P15 S4 S12 veya P1 – P6 geri yükleme.
 - Veritabanı boyutu 250 GB'den büyükse P1 – P6 S4 S12 için geri yükleme.
 
-Ek maliyetidir geri yüklenen veritabanının en büyük boyut için performans düzeyi dahil depolama miktarını daha büyük olduğundan ve dahil edilen miktar sağlanan ek depolama alanı ekstra ücret kesilir.  Ek depolama alanı ayrıntılarını fiyatlandırma için bkz: [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).  Kullanılan gerçek miktarını dahil depolama miktarından daha az ise, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir. Veritabanı Depolama boyutları ve veritabanı en büyük boyutunu değiştirme hakkında daha fazla bilgi için bkz: [tek veritabanı DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) ve [tek veritabanı vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels).  
+Ek maliyetidir geri yüklenen veritabanının en büyük boyut için performans düzeyi dahil depolama miktarını daha büyük olduğundan ve dahil edilen miktar sağlanan ek depolama alanı ekstra ücret kesilir.  Ek depolama alanı ayrıntılarını fiyatlandırma için bkz: [SQL veritabanı fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/sql-database/).  Kullanılan gerçek miktarını dahil depolama miktarından daha az ise, ardından bu ekstra maliyet veritabanı boyutu üst sınırını dahil edilen miktarını azaltarak önlenebilir.  
 
 > [!NOTE]
 > [Veritabanı Yedeklemeleri otomatik](sql-database-automated-backups.md) , oluştururken kullanılan bir [veritabanı kopyalama](sql-database-copy.md). 

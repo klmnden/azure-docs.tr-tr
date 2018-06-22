@@ -1,6 +1,6 @@
 ---
-title: Windows için OMS Azure sanal makine uzantısı | Microsoft Docs
-description: OMS Aracısı'nı kullanarak bir sanal makine uzantısı Windows sanal makine dağıtın.
+title: Windows için Azure günlük analizi sanal makine uzantısı | Microsoft Docs
+description: Günlük analizi Aracısı'nı kullanarak bir sanal makine uzantısı Windows sanal makine dağıtın.
 services: virtual-machines-windows
 documentationcenter: ''
 author: danielsollondon
@@ -15,33 +15,33 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: c365c43eb5abb975bf77e28ad061ff091f5ec627
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 49e5033f6c77b19dd8545e9b6fd30ce03ce21f34
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942644"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301789"
 ---
-# <a name="oms-virtual-machine-extension-for-windows"></a>Windows için OMS sanal makine uzantısı
+# <a name="log-analytics-virtual-machine-extension-for-windows"></a>Windows için Analytics sanal makine uzantısı oturum
 
-Operations Management Suite (OMS) bulut izleme, uyarma ve uyarı düzeltme özellikleri sağlar ve şirket içi varlıklar. Windows için OMS Aracısı sanal makine uzantısı yayımlanan ve Microsoft tarafından desteklenmiyor. Uzantı Azure sanal makinelerde OMS Aracısı'nı yükler ve sanal makineleri olan bir OMS çalışma kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Windows için OMS sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
+Günlük analizi bulut izleme özellikleri sağlar ve şirket içi varlıklar. Windows için günlük analizi Aracısı sanal makine uzantısı yayımlanan ve Microsoft tarafından desteklenmiyor. Uzantı Azure sanal makinelerde günlük analizi aracısını yükler ve sanal makineleri olan bir günlük analizi çalışma kaydeder. Bu belge, desteklenen platformlar, yapılandırmaları ve Windows için günlük analizi sanal makine uzantısı için dağıtım seçeneklerini ayrıntıları.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="operating-system"></a>İşletim sistemi
 
-Windows, Windows Server 2008 R2 karşı çalıştırılabilir için OMS aracısının uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
+Windows, Windows Server 2008 R2 karşı çalıştırılabilir için günlük analizi aracı uzantısı 2012, 2012 R2 ve 2016 serbest bırakır.
 
 ### <a name="azure-security-center"></a>Azure Güvenlik Merkezi
 
-Azure Güvenlik Merkezi otomatik olarak OMS aracısı sağlar ve Azure aboneliğinin varsayılan günlük analizi çalışma bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
+Azure Güvenlik Merkezi otomatik olarak günlük analizi aracı sağlar ve Azure aboneliğinin varsayılan günlük analizi çalışma bağlanır. Azure Güvenlik Merkezi kullanıyorsanız, bu belgedeki adımları çalıştırmayın. Bunun yapılması yapılandırılmış çalışma ve bağlantıyı kesme Azure Güvenlik Merkezi ile üzerine yazar.
 
 ### <a name="internet-connectivity"></a>İnternet bağlantısı
-Windows için OMS aracısının uzantısı hedef sanal makine internet'e bağlı olduğunu gerektirir. 
+Windows için günlük analizi aracı uzantısı hedef sanal makine internet'e bağlı olduğunu gerektirir. 
 
 ## <a name="extension-schema"></a>Uzantı şeması
 
-Aşağıdaki JSON şeması OMS Aracısı uzantısı gösterir. Uzantı çalışma alanı kimliği ve hedef OMS çalışma alanından bir çalışma alanı anahtarı gerektirir, bu OMS Portalı'nda bulunabilir. Çalışma alanı anahtarı hassas verileri olarak değerlendirilmesi için bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
+Aşağıdaki JSON şeması Log Analytics Agent uzantısı gösterir. Uzantısı için çalışma alanı kimliği ve hedef günlük analizi çalışma alanından bir çalışma alanı anahtarı gerekiyor. Bunlar Azure portalında çalışma alanı için ayarları'nda bulunabilir. Çalışma alanı anahtarı hassas verileri olarak değerlendirilmesi için bir korumalı ayarı yapılandırmasında depolanması gerekir. Azure VM uzantısının korumalı ayarı veri şifrelenir ve yalnızca hedef sanal makineye şifresi. Unutmayın **Workspaceıd** ve **workspaceKey** büyük küçük harfe duyarlıdır.
 
 ```json
 {
@@ -79,11 +79,11 @@ Aşağıdaki JSON şeması OMS Aracısı uzantısı gösterir. Uzantı çalışm
 
 ## <a name="template-deployment"></a>Şablon dağıtımı
 
-Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonu OMS Aracısı uzantısı bir Azure Resource Manager şablon dağıtımı sırasında çalıştırmak için kullanılabilir. OMS Aracısı VM uzantısı içeren bir örnek şablonu bulunabilir [Azure hızlı başlangıç Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
+Azure VM uzantıları, Azure Resource Manager şablonları ile dağıtılabilir. Önceki bölümde ayrıntılı JSON şeması bir Azure Resource Manager şablonunda bir Azure Resource Manager şablon dağıtımı sırasında günlük analizi aracı uzantısı çalıştırmak için kullanılabilir. Günlük analizi aracı VM uzantısı içeren bir örnek şablonu bulunabilir [Azure hızlı başlangıç Galerisi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 Bir sanal makine uzantısı için JSON içinde sanal makine kaynağı iç içe geçmiş veya kök veya Resource Manager JSON şablonu en üst düzeyinde yerleştirilir. JSON yerleşimini kaynak adı ve türü değeri etkiler. Daha fazla bilgi için bkz: [Ayarla alt kaynakları için ad ve tür](../../azure-resource-manager/resource-manager-templates-resources.md#child-resources). 
 
-Aşağıdaki örnek, OMS uzantısı içinde sanal makine kaynağı iç içe geçmiş varsayar. Uzantı kaynak iç içe geçirme sırasında JSON yerleştirilir `"resources": []` sanal makinenin nesnesi.
+Aşağıdaki örnek, günlük analizi uzantısı içinde sanal makine kaynağı iç içe geçmiş varsayar. Uzantı kaynak iç içe geçirme sırasında JSON yerleştirilir `"resources": []` sanal makinenin nesnesi.
 
 
 ```json
@@ -138,7 +138,7 @@ JSON uzantısı şablon kökünde yerleştirirken, kaynak adı üst sanal makine
 
 ## <a name="powershell-deployment"></a>PowerShell dağıtım
 
-`Set-AzureRmVMExtension` Komutu, OMS Aracısı sanal makine uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Komutu çalıştırmadan önce genel ve özel yapılandırmaları bir PowerShell karma tablosunda depolanması gerekir. 
+`Set-AzureRmVMExtension` Komutu, günlük analizi Aracısı sanal makine uzantısı olan bir sanal makineyi dağıtmak için kullanılabilir. Komutu çalıştırmadan önce genel ve özel yapılandırmaları bir PowerShell karma tablosunda depolanması gerekir. 
 
 ```powershell
 $PublicSettings = @{"workspaceId" = "myWorkspaceId"}

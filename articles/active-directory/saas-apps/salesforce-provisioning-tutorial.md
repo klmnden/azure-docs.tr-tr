@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: be6e5fb83ea88ce30b64f5e1eb53422f0404410f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbf4e2a35667484fea66a1888cdfc0184a806583
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229677"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308325"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Öğretici: Salesforce otomatik kullanıcı sağlamayı yapılandırın
 
@@ -95,7 +95,7 @@ Bu bölümün amacı, Active Directory kullanıcı hesaplarının Salesforce kul
 
 10. Belirteç kopyalama, Azure AD penceresine gidin ve yapıştırın **gizli belirteci** alan.
 
-11. **Kiracı URL** Salesforce örneği üzerinde Salesforce Bulutu ise girilmesi gerekir. Aksi takdirde isteğe bağlıdır. Kiracı URL biçimi kullanarak girin https://your-instance.my.salesforce.com, örnek bilgisayarınızı Salesforce örneğinizi adıyla değiştirerek.
+11. **Kiracı URL** Salesforce örneği üzerinde Salesforce Bulutu ise girilmesi gerekir. Aksi takdirde isteğe bağlıdır. Biçimi kullanarak Kiracı URL'sini girin "https://\<örneği bilgisayarınızı\>. my.salesforce.com," değiştirme \<örneği bilgisayarınızı\> Salesforce örneğinin adı.
 
 12. Azure portalında tıklatın **Bağlantıyı Sına** Azure emin olmak için AD Salesforce uygulamanıza bağlanabilir.
 

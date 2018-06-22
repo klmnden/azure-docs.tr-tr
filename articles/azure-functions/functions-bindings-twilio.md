@@ -3,7 +3,7 @@ title: Azure işlevleri Twilio bağlama
 description: Azure işlevleriyle Twilio bağlamaları kullanmayı öğrenme.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62df5ebc6f5928c0992bd715e208137d89789e9a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4ab0ea0726031a1db36f4fbc4ee1db8a0c7f07bf
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724454"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308284"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 

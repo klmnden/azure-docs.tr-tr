@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 25660eef50a0a18d4f404944daeb443133424897
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b5ade0f3a6590832b6717bbb5f91a4d62cdc9e0c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261160"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309052"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Sorun giderme Azure Active Directory'de Kurumsal durumda Dolaşım ayarları
 
@@ -178,7 +178,7 @@ Listelenen adımlarla devam [KB3196528](https://support.microsoft.com/kb/3196528
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Kullanım [kullanıcı sesi Forumu](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) görüş ve öneriler Kurumsal durumda Dolaşım geliştirme hakkında yapın.
+- Kullanım [kullanıcı sesi Forumu](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) görüş ve öneriler Kurumsal durumda Dolaşım geliştirme hakkında yapın.
 
 - Daha fazla bilgi için bkz: [Kurumsal durumda Dolaşım genel bakış](active-directory-windows-enterprise-state-roaming-overview.md). 
 

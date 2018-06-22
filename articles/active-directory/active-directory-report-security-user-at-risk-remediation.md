@@ -1,23 +1,25 @@
 ---
-title: "Azure Active Directory portalında risk güvenliği raporu için işaretlenmiş kullanıcılar | Microsoft Docs"
-description: "Azure Active Directory portalında risk güvenliği için işaretlenmiş kullanıcılar hakkında bilgi edinin"
+title: Azure Active Directory portalında risk güvenliği raporu için işaretlenmiş kullanıcılar | Microsoft Docs
+description: Azure Active Directory portalında risk güvenliği için işaretlenmiş kullanıcılar hakkında bilgi edinin
 services: active-directory
-author: MarkusVi
-manager: femila
+author: priyamohanram
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
-ms.translationtype: HT
+ms.openlocfilehash: 60a77a8bee54c0582cbc9c88b9d517820a2760e0
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221989"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcıları düzeltme
 
@@ -29,12 +31,20 @@ Microsoft ortamınızın güvenliğini korumak için çalışmaktadır. Bu çal�
 Kullanıcılarınızdan bazılarının hesaplarına yetkisiz erişimi gösteriyor olabilecek alışılmadık etkinlikler algılanırsa, eyleme geçmenizi sağlayacak bildirimler alırsınız. Size bildirimler sağlanması Microsoft'un kendi sistemlerinde herhangi bir şekilde güvenliğin aşıldığı anlamına gelmez.
  
 
-## <a name="azure-active-directory-report-access"></a>Azure Active Directory rapor erişimi
+## <a name="access-the-users-flagged-for-risk-report"></a>Riskli olarak işaretlenen kullanıcılar raporuna erişme
 
-Çevrimiçi bir Azure Active Directory raporu aracılığıyla riskli olduğu için işaretlenmiş kullanıcıları gözden geçirebilirsiniz. Azure'a abone değilseniz, [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD) adresinde hiç ücret ödemeden abonelik işlemi yapabilirsiniz.  
-İşlem tamamlandığında, Office 365 kimlik bilgilerinizi kullanarak Azure Yönetim Merkezi'ne erişebilirsiniz. Temel abonelik düzeyinde sağlanan ayrıntı miktarının sınırlı olduğunu lütfen unutmayın. Ek veriler ve analizler, Azure Premium abonelerine sağlanır. Daha fazla bilgi için bkz. [Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcılar güvenlik raporu](active-directory-reporting-security-user-at-risk.md).
+Azure Active Directory’deki (AD) ilgili [rapor](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) aracılığıyla riskli olduğu için işaretlenmiş kullanıcıları gözden geçirebilirsiniz. Azure AD’ye abone değilseniz, [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) adresinde hiç ücret ödemeden bir defalık abonelik işlemi yapabilirsiniz. Bu raporda aşağıda örnekleri verilen çeşitli eylemleri gerçekleştirebilirsiniz:
 
-Azure AD'ye erişiminizi etkinleştirdikten sonra, [Azure AD portalına](https://portal.azure.com) yeniden yönlendirilirsiniz. Doğrudan rapora ulaşmak için, şu URL'ye gidin: [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk).
+- Geçici parola oluşturma
+- Kullanıcının bir sonraki defa oturum açtığında parolasını güvenli şekilde sıfırlamasını zorunlu tutma
+- Herhangi bir düzeltme eylemi gerçekleştirmeden kullanıcı riskini kapatma.
+
+Daha fazla bilgi için bkz. [Azure Active Directory portalında riskli olarak işaretlenmiş kullanıcılar güvenlik raporu](active-directory-reporting-security-user-at-risk.md).
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Office 365 müşterileri için Azure AD aboneliği
+
+İşlem tamamlandığında, Office 365 kimlik bilgilerinizi kullanarak Azure Yönetim Merkezi'ne erişebilirsiniz. Azure AD’ye erişiminizi etkinleştirdikten sonra, Azure AD portalına yeniden yönlendirilirsiniz. Temel abonelik düzeyinde, raporlarda sağlanan ayrıntı miktarı sınırlıdır. Ek veriler ve analizler, Azure Premium abonelerine sağlanır.
+
 
 **Office 365 yönetim merkezinde Riskli olarak işaretlenmiş kullanıcılar raporlarına erişmek için:**
 
@@ -45,7 +55,7 @@ Azure AD'ye erişiminizi etkinleştirdikten sonra, [Azure AD portalına](https:/
 4.  Sol taraftaki gezinti menüsünde **Azure Active Directory**'ye tıklayın. 
 5.  Gezinti bölmesinde, **Güvenlik**'in altında **Riskli oldukları belirlenen kullanıcılar**'a tıklayın.
 
-Burada görüntülenen bilgileri gözden geçirin. Burada listelenen tüm hesapların parolasını sıfırlamalısınız. 
+Burada görüntülenen bilgileri gözden geçirin. Listelenen tüm hesapların parolasını sıfırlamalısınız. 
 
 ## <a name="remediation-actions"></a>Düzeltme eylemleri
 

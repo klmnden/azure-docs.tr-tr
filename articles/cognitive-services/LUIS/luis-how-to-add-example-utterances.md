@@ -10,21 +10,21 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: 12cbffdbd9ab299d4405aa50c0e49db9c20ab0fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 74a4b77bd9823e5462eecd438cf4c1d863e79892
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35355757"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300647"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Örnek utterances ve varlıklarla etiket ekleme
 
-Utterances kullanıcı sorular veya komutları örnekleridir. Dil anlama (HALUK) öğretmeyi eklemeniz gerekir [örnek utterances](luis-concept-utterance.md) için bir [hedefi](luis-concept-intent.md).
+Örnek utterances metin kullanıcı sorular veya komutları gösterilebilir. Dil anlama (HALUK) öğretmeyi eklemeniz gerekir [örnek utterances](luis-concept-utterance.md) için bir [hedefi](luis-concept-intent.md).
 
-Genellikle, bir utterance önce ekleyin ve ardından varlıkları oluşturur ve hedefi sayfasında utterances etiket. Varlıkları ilk yerine oluşturacak olup [varlıkları ekleyin](luis-how-to-add-entities.md).
+Genellikle, bir örnek utterance amacına için ilk olarak ekleyin ve ardından hedefi sayfasında varlıkları ve etiket utterances oluşturun. Varlıkları ilk yerine oluşturacak olup [varlıkları ekleyin](luis-how-to-add-entities.md).
 
 ## <a name="add-an-utterance"></a>Bir utterance ekleyin
-Bir hedefi sayfasında beklediğiniz, kullanıcılardan gibi ilgili utterance girin `book 2 adult business tickets to Paris tomorrow on Air France` hedefi adı ve ENTER tuşuna basın altındaki metin kutusuna. 
+Bir hedefi sayfasında beklediğiniz, kullanıcılardan gibi ilgili örnek utterance girin `book 2 adult business tickets to Paris tomorrow on Air France` hedefi adı ve ENTER tuşuna basın altındaki metin kutusuna. 
  
 >[!NOTE]
 >HALUK tüm utterances küçük harflere dönüştürür.
@@ -32,6 +32,9 @@ Bir hedefi sayfasında beklediğiniz, kullanıcılardan gibi ilgili utterance gi
 ![Vurgulanan utterance ile ekran görüntüsü, hedefleri Ayrıntılar sayfası](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
 
 Utterances geçerli amacı için utterances listesine eklenir. 
+
+## <a name="ignoring-words-and-punctuation"></a>Sözcük ve noktalama yoksayılıyor
+Belirli bir sözcük veya örnek utterance noktalama yoksaymak istiyorsanız, kullanmak bir [düzeni](luis-concept-patterns.md#pattern-syntax) ile _Yoksay_ sözdizimi. 
 
 ## <a name="add-simple-entity-label"></a>Basit varlık etiketi ekleyin
 Aşağıdaki yordamda oluşturun ve aşağıdaki utterance hedefi sayfasında özel varlıkları etiketi:

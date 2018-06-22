@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212284"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301589"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric ters proxy
 Azure Service Fabric yerleşik ters proxy bulmak ve http uç noktaları olan diğer hizmetleri ile iletişim Service Fabric kümede çalışan mikro yardımcı olur.
@@ -57,8 +57,13 @@ Yük dengeleyicisi bir bireysel hizmet bağlantı noktasını yapılandırmak ye
 ![Dış iletişimi][0]
 
 > [!WARNING]
-> Yük dengeleyicisi öğesi ters proxy bağlantı noktası yapılandırdığınızda, bir HTTP uç noktası kullanıma tüm mikro kümedeki küme dışında adreslenebilir.
+> Yük dengeleyicisi öğesi ters proxy bağlantı noktası yapılandırdığınızda, bir HTTP uç noktası kullanıma tüm mikro kümedeki küme dışında adreslenebilir. Başka bir deyişle, iç olma amacını mikro belirlendiği niyetli bir kullanıcı tarafından bulunabilir olması olabilir. Bu potenially yararlanılabilir ciddi güvenlik açıkları gösterir; Örneğin:
 >
+> * Kötü niyetli bir kullanıcı, sürekli olarak yeterince sıkı saldırı yüzeyini sahip olmayan bir iç hizmet çağırarak bir hizmet reddi saldırısı başlatabilir.
+> * Kötü niyetli bir kullanıcının hatalı biçimlendirilen paketler istenmeyen davranışı kaynaklanan bir iç hizmet sunmak.
+> * İç olma amacını bir hizmet, böylece kötü niyetli bir kullanıcı için bu hassas bilgileri gösterme küme dışındaki hizmetlerine açığa çıkarılması amaçlanmamıştır özel ya da hassas bilgi döndürebilir. 
+>
+> Tam olarak anlamanız ve olası güvenlik ayrımlar kümenizi ve ters proxy bağlantı noktası ortak yapmadan önce bunun üzerinde çalışan uygulamalar için azaltmak emin olun. 
 >
 
 

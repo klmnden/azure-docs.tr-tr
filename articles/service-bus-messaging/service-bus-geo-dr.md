@@ -2,23 +2,18 @@
 title: Azure Service Bus coğrafi olağanüstü durum kurtarma | Microsoft Docs
 description: Coğrafi bölgeler için yük devretme kullanın ve Azure hizmet veri yolundaki olağanüstü durum kurtarma gerçekleştirmek nasıl
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237354"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301528"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus coğrafi olağanüstü durum kurtarma
 
@@ -68,7 +63,7 @@ Yük devretme sistemleri izleme ile ya da özel olarak geliştirilmiş izleme ç
 
 Yük devretme'ı başlattığınızda, iki adım gerekli değildir:
 
-1. Başka bir kesinti oluşursa yeniden yük devretme kullanabilmek ister. Bu nedenle, başka bir pasif ad alanı ayarlama ve eşleştirme güncelleştirin. 
+1. Başka bir kesinti oluşursa yeniden üzerinden vermesine kullanabilmek ister. Bu nedenle, başka bir pasif ad alanı ayarlama ve eşleştirme güncelleştirin. 
 
 2. Yeniden kullanılabilir olduğunda eski birincil ad alanından iletileri çeker. Bundan sonra normal coğrafi kurtarma kurulumunuzu dışında ileti için bu ad alanını kullanmak veya eski birincil ad alanını silin.
 
@@ -89,9 +84,9 @@ Hata yaptıysanız; Örneğin, yanlış bölgeler ilk kurulum sırasında eşlen
 
 [Örnekler github'da](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/) ayarlamak ve yük devretme işlemi gösterilmektedir. Bu örnekleri aşağıdaki kavramları göstermektedir:
 
-- .Net örnek ve Azure Azure Resource Manager ile Service Bus kurulumunda ve coğrafi olağanüstü durum kurtarmayı etkinleştirmek için Active Directory'de gerekli ayarları.
+- .NET örnek ve Azure Active Directory'de Azure Resource Manager ayarlamak ve coğrafi olağanüstü durum kurtarmayı etkinleştirmek için Service Bus ile kullanmak için gereken ayarları.
 - Örnek kod yürütmek için gerekli adımlar.
-- Var olan bir ad alanı diğer ad olarak kullanma
+- Varolan bir ad bir diğer ad olarak kullanma
 - Bunun yerine PowerShell veya CLI aracılığıyla coğrafi olağanüstü durum kurtarmayı etkinleştirmek için adımlar.
 - [Gönderme ve alma](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1) diğer adı kullanarak geçerli birincil veya ikincil ad.
 
@@ -106,6 +101,17 @@ Bu sürüm ile göz önünde bulundurmanız gereken aşağıdaki konuları göz 
 3. Karmaşık bir dağıtılmış altyapı yapabilmesini olmalıdır [prova](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) en az bir kez. 
 
 4. Varlıkları eşitleme dakika başına yaklaşık 50-100 varlık biraz zaman alabilir. Abonelikler ve kuralları da varlıklar sayısı. 
+
+## <a name="availability-zones-preview"></a>Kullanılabilirlik bölgeler (Önizleme)
+
+Service Bus Premium SKU da destekler [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md), bir Azure bölgesi hataya yalıtılmış konumlara sağlama. 
+
+> [!NOTE]
+> Kullanılabilirlik bölgeleri Önizleme yalnızca desteklenen **Orta ABD**, **Doğu ABD 2**, ve **Fransa Merkezi** bölgeleri.
+
+Azure Portalı'nı kullanarak yeni ad alanında bulunan yalnızca kullanılabilirlik bölgeleri etkinleştirebilirsiniz. Hizmet veri yolu var olan ad alanlarının geçişini desteklemez. Bölge artıklık ad alanınıza etkinleştirdikten sonra devre dışı bırakılamıyor.
+
+![3][]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
@@ -123,3 +129,4 @@ Service Bus Mesajlaşma hizmeti hakkında daha fazla bilgi için aşağıdaki ma
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

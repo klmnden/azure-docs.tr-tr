@@ -15,12 +15,12 @@ ms.prod: vs-devops-alm
 ms.date: 03/02/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 3e37edbf8d29441541e77ed0660dc9a71618fdee
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7809e0b9265ec62bded67d0b0ed851ee0ba98315
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894288"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301708"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure üzerinde Visual Studio görüntüleri
 Önceden yapılandırılmış Azure sanal makinede (VM) Visual Studio kullanarak herhangi bir şey için bir yukarı ve çalışan geliştirme ortamı gitmek için hızlı ve kolay bir yoludur. Sistem görüntüleri farklı Visual Studio yapılandırmalarla kullanılabilir [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -32,8 +32,8 @@ Görüntüleri en son ana sürüm, Visual Studio 2017 ve Visual Studio 2015 içi
 
 | Yayın sürümü                                              | Sürümleri                     |     Ürün sürümü     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017: En son (sürüm 15.7)                    |    Kuruluş, topluluk     |      Sürüm 15.7.0     |
-| Visual Studio 2017: En son Önizleme (sürüm 15,8, Preview 1) |    Kuruluş, topluluk     |      Sürüm 15.8.1     |
+| Visual Studio 2017: En son (sürüm 15.7)                    |    Kuruluş, topluluk     |      Sürüm 15.7.3     |
+| Visual Studio 2017: En son Önizleme (sürüm 15,8, Önizleme 2) |    Kuruluş, topluluk     |      Sürüm 15.8.2     |
 |         Visual Studio 2017: RTW                              |    Kuruluş, topluluk     |      Sürüm 15.0.13    |
 |   Visual Studio 2015: En son (güncelleştirme 3)                      |    Kuruluş, topluluk     |  Sürüm 14.0.25431.01  |
 |         Visual Studio 2015: RTW                              |             None             | (Bakım için süresi) |

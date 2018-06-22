@@ -1,6 +1,6 @@
 ---
-title: Bilgisayar görme (AMLPCV) ve Team veri bilimi işlemi (TDSP) için görüntü sınıflandırma Azure Machine Learning (AML) paketi ile | Microsoft Docs
-description: Görüntü sınıflandırma TDSP (Takım veri bilimi işlemi) ve AMLPCV kullanımını açıklar
+title: Görüntü sınıflandırma bilgisayar görme ve takım veri bilimi işlem (TDSP) için Azure Machine Learning paketi ile | Microsoft Docs
+description: Bilgisayar görme görüntü sınıflandırma için takım veri bilimi işlem (TDSP) ve Azure Machine Learning paket kullanımını açıklar.
 services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: xibingao
@@ -15,73 +15,70 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: xibingao
-ms.openlocfilehash: a3dcfd8a9292d31c7342b8d50ec58c0da53318d3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f9e88cfb7185845e96f287b39bebaaa24320f537
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837227"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300817"
 ---
-# <a name="skin-cancer-image-classification-with-azure-machine-learning-aml-package-for-computer-vision-amlpcv-and-team-data-science-process-tdsp"></a>Dış Görünüm Kanseri görüntü sınıflandırma bilgisayar görme (AMLPCV) ve Team veri bilimi işlem (TDSP) Azure Machine Learning (AML) paketi ile
+# <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>Kanseri görüntü sınıflandırma bilgisayar görme ve takım veri bilimi işlemi Azure Machine Learning paketi ile dış görünüm
 
-## <a name="introduction"></a>Giriş
+Bu makalede nasıl kullanılacağı gösterilmektedir [bilgisayar görme için Azure Machine Learning paketi](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) eğitmek için test etme ve dağıtma bir *görüntü sınıflandırma* modeli. Örnek takım veri bilimi işlem (TDSP) yapısı ve şablonlar kullanır [Azure Machine Learning çalışma ekranı](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). Bu kılavuz, tam bir örnek sağlar. Kullandığı [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/cognitive-toolkit/) framework öğrenme ve eğitim derin gerçekleştirilir gibi bir [veri bilimi sanal makine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU makine. Dağıtım CLI Azure Machine Learning operationalization kullanır.
 
-Bu makalede nasıl kullanılacağını gösterir [Azure Machine Learning paket bilgisayar görme (AMLPCV) için](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) eğitmek için test etme ve dağıtma bir **görüntü sınıflandırma** modeli. Örnek TDSP yapısı ve şablonlar kullanır [Azure Machine Learning çalışma ekranı](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). Bu kılavuzda tam örnek sağlanır. Kullandığı [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) framework öğrenme ve eğitim derin gerçekleştirilir gibi bir [veri bilimi VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview) GPU makine. Dağıtım Azure ML Operationalization CLI kullanır.
+Birçok uygulama bilgisayar görme etki alanındaki görüntü sınıflandırma sorunları Çerçeveli. Bunlar gibi basit soruları yanıt "nesneyi görüntüde mevcut olduğunu?" model oluşturmaya içerir Burada nesne köpek, car veya sevk olabilir. Ayrıca daha karmaşık soruların yanıtlarını gibi içerir "hangi sınıfın göz Hastalık önem derecesine göre bu hasta'nın retinal tarama evinced?" Bilgisayar görme için Azure Machine Learning paketi görüntü sınıflandırma veri işleme ve modelleme ardışık düzen kolaylaştırır. 
 
-Birçok uygulama bilgisayar görme etki alanındaki görüntü sınıflandırma sorunları Çerçeveli. Bu soruları "olduğu gibi görüntüde mevcut bir nesne?" model oluşturmaya içerir (nesne olabilir *köpek*, *araba*, veya *sevk*) ve daha karmaşık "hangi sınıfın göz Hastalık önem derecesine sahip evinced bu hasta'nın retinal taramasıyla?" gibi sorular Görüntü sınıflandırma veri işleme ve modelleme ardışık düzen AMLPCV kolaylaştırır. 
+## <a name="link-to-the-github-repository"></a>GitHub depo bağlantı
+Bu makalede, örnek hakkında özet bir belgedir. Daha kapsamlı belgeler bulabilirsiniz [GitHub site](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification).
 
-## <a name="link-to-github-repository"></a>GitHub deponuza bağlayın
-Örnek hakkındaki Özet belgelere burada sunuyoruz. Daha kapsamlı belgeler bulunabilir [GitHub site](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification).
+## <a name="team-data-science-process-walkthrough"></a>Takım veri bilimi işlemi gözden geçirme
 
-## <a name="team-data-science-process-tdsp-walkthrough-with-amlpcv"></a>Takım veri bilimi işlem (TDSP) izlenecek AMLPCV ile
+Bu kılavuzda kullanılır [takım veri bilimi işlemi](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) yaşam döngüsü. İzlenecek yol aşağıdaki yaşam döngüsü adımları kapsar.
 
-Bu kılavuzda kullanılır [takım veri bilimi işlem (TDSP)](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) yaşam döngüsü.
-
-İzlenecek yol aşağıdaki yaşam döngüsü adımları kapsar:
-
-### <a name="1-data-acquisionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Veri acquision](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
-ISIC dataset görüntü sınıflandırma görev için kullanılır. ISIC (uluslararası kaplama Imaging işbirliği) partership eğitimle araştırmak ve melanoma mortality azaltmaya yardımcı olmak üzere dijital kaplama Imaging uygulamayı kolaylaştırmak için endüstri arasındaki olur. [ISIC arşiv](https://isic-archive.com/#images) etiketleri zararsız veya malignant 13. 000'den kaplama lesion görüntülerle içerir. Biz ISIC arşivinden görüntüleri örneği indirin.
+### <a name="1-data-acquisitionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Veri alma](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
+Uluslararası kaplama Imaging işbirliği (ISIC) veri kümesi görüntü sınıflandırma görevi için kullanılır. Eğitimle araştırmak ve melanoma mortality azaltmaya yardımcı olmak için Imaging dijital kaplama uygulamayı kolaylaştırmak için endüstri arasındaki iş ortaklığına ISIC. [ISIC arşiv](https://isic-archive.com/#images) olarak zararsız ya da malignant etiketli 13. 000'den fazla kaplama lesion görüntülerini içerir. Görüntüleri örneği ISIC arşivinden indirin.
 
 ### <a name="2-modelinghttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode02modeling"></a>[2. Modelleme](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/02_modeling)
-Modelleme adımda, aşağıdaki alt adımlar gerçekleştirilir. 
+Modelleme adımda, aşağıdaki alt adımlar gerçekleştirilir.
 
-<b>2.1 veri kümesi oluşturma</b><br>
+#### <a name="dataset-creation"></a>Veri kümesi oluşturma
 
-AMLPCV bir veri kümesi nesnesi oluşturmak için yerel diskte bir kök dizin görüntülerinin sağlar. 
+Yerel disk üzerindeki bir kök dizin görüntülerinin sağlayarak bilgisayar görme için Azure Machine Learning paketinde bulunan bir veri kümesi nesnesi oluşturur. 
 
-<b>2.2 Görselleştirme ve ek açıklama görüntü</b><br>
+#### <a name="image-visualization-and-annotation"></a>Görüntü Görselleştirme ve ek açıklaması
 
-Veri kümesi nesnesi görüntülerinde görselleştirin ve bazı etiketlerin gerekirse düzeltin.
+Veri kümesi nesnesi görüntülerinde görselleştirmek ve etiketleri gerektiği şekilde düzeltin.
 
-<b>2.3 görüntü augmentation'a</b><br>
+#### <a name="image-augmentation"></a>Görüntü augmentation'a
 
 Açıklanan dönüşümleri kullanarak bir veri kümesi nesnesi büyütmek [imgaug](https://github.com/aleju/imgaug) kitaplığı.
 
-<b>2.4 DNN modeli tanımı</b><br>
+#### <a name="dnn-model-definition"></a>DNN modeli tanımı
 
-Eğitim adımda kullanılan model mimarisi tanımlayın. Altı farklı başına eğitilmiş derin sinir ağı modelleri AMLPCV desteklenmektedir: AlexNet, Resnet 18, Resnet-34 ve Resnet-50, Resnet 101 ve Resnet 152.
+Kullanılan model mimarisi eğitim adımda tanımlayın. Altı önceden eğitilen derin sinir ağı modelleri bilgisayar görme için Azure Machine Learning paketindeki desteklenmektedir: AlexNet, Resnet 18, Resnet 34, Resnet-50, Resnet 101 ve Resnet 152.
 
-<b>2.5 sınıflandırıcı eğitim</b><br>
+#### <a name="classifier-training"></a>Sınıflandırıcı eğitim
 
 Varsayılan veya özel parametreler sinir ağları eğitmek.
 
-<b>2.6 değerlendirme ve görselleştirme</b><br>
+#### <a name="evaluation-and-visualization"></a>Değerlendirme ve görselleştirme
 
-Alt adım eğitilen model bağımsız sınama veri kümesi üzerinde performansını değerlendirmek için işlevsellik sağlar. Değerlendirme ölçümleri doğruluğu, duyarlık ve geri çağırma ve ROC eğrisi içerir.
+Bir bağımsız sınama veri kümesi üzerinde eğitilen model performansını değerlendirmek için işlevsellik sağlar. Değerlendirme ölçümleri doğruluğu, duyarlık geri çekme ve ROC eğrisi içerir.
 
-Bu alt adımlar karşılık gelen Jupyter not defteri ayrıntılı açıklanmıştır. Biz de yönergeleri oranı, mini toplu iş boyutu ve daha fazla model performansını artırmak için çıkarma oranı öğrenme gibi parametreleri etkinleştirilmesinde sağlanır.
+Alt adımlar karşılık gelen Jupyter not defteri ayrıntılı açıklanmıştır. Not Defteri öğrenme oranı, mini toplu iş boyutu ve daha fazla model performansını artırmak için çıkarma oranı gibi parametreleri etkinleştirilmesinde yönergeleri de sağlar.
 
 ### <a name="3-deploymenthttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode03deployment"></a>[3. Dağıtım](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/03_deployment)
 
-Bu adım modelleme adımdan üretilen modeli operationalizes. Operationalization önkoşulları ve Kurulum tanıtır. Son olarak, web hizmetinin tüketimi de açıklanmıştır. Bu öğreticide AMLPCV ile derin öğrenme modelleri oluşturabilir ve Azure modelinde faaliyete geçirmek bilgi edinebilirsiniz.
+Bu adım modelleme adımdan üretilen modeli operationalizes. Önkoşullar ve gerekli Kurulumu tanıtır. Web hizmeti tüketiminin de açıklanmıştır. Bu öğreticide, Azure Machine Learning paket bilgisayar görme için derin öğrenme modelleri oluşturabilir ve Azure modelinde faaliyete öğrenin.
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Daha fazla üzerinde belgeleri okuyun [Azure Machine Learning paket bilgisayar görme (AMLPCV) için](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) ve [takım veri bilimi işlem (TDSP)](https://aka.ms/tdsp) başlamak için.
+## <a name="next-steps"></a>Sonraki adımlar
+- Hakkında ek belgeleri okuyun [bilgisayar görme için Azure Machine Learning paketi](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
+- Okuma [takım veri bilimi işlemi](https://aka.ms/tdsp) başlamak için belgeleri.
 
 
 ## <a name="references"></a>Başvurular
 
-* [Azure Machine paket Learning bilgisayar görme (AMLPCV)](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
+* [Azure Machine Learning paketi için bilgisayar görme](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
 * [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)
-* [Veri bilimi VM](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
+* [Veri bilimi sanal makine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
 

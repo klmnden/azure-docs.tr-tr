@@ -3,17 +3,18 @@ title: Veri ayıklama, doğal dil Azure Search'te işleme bilişsel Ara | Micros
 description: Veri ayıklama, doğal dil işleme (NLP) ve Azure Search'te bilişsel becerileri kullanarak dizin aranabilir içeriği oluşturmak için görüntü işleme.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: ca6c285348208a7ad24faf966073d641810039fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 64b4c0a315e206cd260f2f1108362e92f55d1843
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641120"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304636"
 ---
 # <a name="what-is-cognitive-search"></a>Bilişsel arama nedir?
 
@@ -25,12 +26,12 @@ AI tümleştirme olduğu aracılığıyla *bilişsel becerileri* kaynak belgeler
 
 Dizin oluşturma sırasında kullanılan becerileri önceden tanımlanmış veya özel olabilir:
 
-+ [Yetenekler prefined](cognitive-search-predefined-skills.md) Bilişsel hizmetler API'leri kullanılan AI algoritmalar dayanır: [adlı varlık tanıma](cognitive-search-skill-named-entity-recognition.md), [anahtar tümcecik ayıklama](cognitive-search-skill-keyphrases.md), ve [OCR](cognitive-search-skill-ocr.md) yalnızca birkaç var. 
++ [Önceden tanımlanmış becerileri](cognitive-search-predefined-skills.md) Bilişsel hizmetler API'leri kullanılan AI algoritmalar dayanır: [adlı varlık tanıma](cognitive-search-skill-named-entity-recognition.md), [anahtar tümcecik ayıklama](cognitive-search-skill-keyphrases.md), ve [OCR](cognitive-search-skill-ocr.md)birkaç şunlardır. 
 
 + [Özel becerileri](cognitive-search-create-custom-skill-example.md) ihtiyaç duyduğunuz özel işleme için sizin tarafınızdan geliştirilebilir. Özel becerileri örnekleri Finans, bilimsel yayınlar veya tıp gibi belirli bir etki alanı hedefleme özel varlık modül veya belge sınıflandırıcı olabilir.
 
 > [!NOTE]
-> Bilişsel Arama, genel önizlemededir ve beceri yürütmesi şu anda ücretsiz olarak sunulur. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
+> Bilişsel arama genel Önizleme aşamasındadır ve skillset yürütme şu anda ücretsiz sunulur. İlerleyen zamanlarda bu özelliğin fiyatlandırması duyurulacaktır.
 
 ## <a name="components-of-cognitive-search"></a>Bilişsel arama bileşenleri
 

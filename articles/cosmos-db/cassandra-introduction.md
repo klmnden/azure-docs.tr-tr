@@ -1,98 +1,96 @@
 ---
-title: Azure Cosmos DB Cassandra API giriş | Microsoft Docs
-description: Nasıl "yükseltme ve shift" var olan uygulamaları için Azure Cosmos DB kullanın ve Cassandra Cassandra sürücüleri ve zaten aşina CQL kullanarak API'yi kullanarak yeni uygulamalar öğrenin.
+title: Azure Cosmos DB Cassandra API'ye giriş | Microsoft Belgeler
+description: Mevcut uygulamaları "yükseltmek ve kaydırmak" için Azure Cosmos DB'yi ve yeni uygulamalar geliştirmek için zaten aşina olduğunuz Cassandra sürücüleri ve CQL ile Cassandra API'yi nasıl kullanacağınızı öğrenin.
 services: cosmos-db
 author: govindk
-manager: ''
-documentationcenter: ''
-ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
+manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-cassandra
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 65ab01031ed0fe554ef162f0115bdda39fd1c80b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: edc8ba7f8dd52a5facbfeb930a8660b082d72877
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795280"
 ---
-# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB giriş: Apache Cassandra API
+# <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB'ye giriş: Apache Cassandra API'si
 
-Azure Cosmos DB Cassandra API (Önizleme) için Apache Cassandra premium özellikleri gibi yazılan uygulamaları için sağlar:
+Azure Cosmos DB, Apache Cassandra ile yazılmış ve aşağıdaki gibi premium özellikler gereken uygulamalar için Cassandra API'sini (önizleme) sağlar:
 
-* [Ölçeklenebilir depolama boyutu ve üretilen iş](partition-data.md).
-* [Anahtar teslim genel dağıtım](distribute-data-globally.md)
+* [Ölçeklenebilir depolama boyutu ve aktarım hızı](partition-data.md).
+* [Anahtar teslimi genel dağıtım](distribute-data-globally.md)
 * 99 yüzdebirlikte tek basamaklı milisaniyelik gecikme süresi.
-* [Beş iyi tanımlanmış tutarlılık düzeyleri](consistency-levels.md)
-* [Otomatik dizin oluşturma verileri](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) gerektirmeden şema ve dizin yönetimi ile ilgilidir. 
-* Yüksek kullanılabilirlik, tarafından yedeklenen tüm garanti [endüstri lideri SLA'ları](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
+* [Beş iyi tanımlanmış tutarlılık düzeyi](consistency-levels.md)
+* Şema ve dizin yönetimi ile ilgilenmenize gerek kalmadan [veriler için otomatik dizin oluşturma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). 
+* [Endüstri lideri SLA'lar](https://azure.microsoft.com/support/legal/sla/cosmos-db/) tarafından desteklenen garantili yüksek kullanılabilirlik
 
-## <a name="what-is-the-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB Apache Cassandra API nedir?
+## <a name="what-is-the-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB Apache Cassandra API'si nedir?
 
-Azure Cosmos DB yazılmış uygulamalar için veri deposu olarak kullanılabilir [Apache Cassandra](https://cassandra.apache.org/), Apache Cassandra API'yi kullanarak. Varolan kullanarak buna [Apache lisanslı CQLv4 ile uyumlu sürücüleri](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver), uygulamanızın Cassandra Azure Cosmos DB Cassandra API'si ile artık iletişim kurmak için yazılmış. Çoğu durumda, sadece bir bağlantı dizesi değiştirilerek Azure Cosmos veritabanı Apache Cassandra API kullanarak Apache Cassandra kullanarak geçiş yapabilirsiniz. Bu işlevini kullanarak, kolayca oluşturabilir ve çalışma Cassandra API veritabanı uygulamaları Azure bulut ile Azure Cosmos veritabanı genel dağıtım ve [kapsamlı endüstri lideri SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db), bilinen kullanmaya devam ederken becerileri ve araçları Cassandra API'si.
+Azure Cosmos DB, [Apache Cassandra](https://cassandra.apache.org/) için Apache Cassandra API'si kullanılarak yazılmış uygulamalar için veri deposu olarak kullanılabilir. Bu, Cassandra için yazılmış uygulamanız, mevcut [Apache lisanslı CQLv4 uyumlu sürücüleri](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) kullanarak artık Azure Cosmos DB Cassandra API'si ile iletişim kurabilir. Çoğu durumda sadece bir bağlantı dizesini değiştirerek Apache Cassandra'yı kullanmaktan Azure Cosmos DB'nin Apache Cassandra API'sini kullanmaya geçebilirsiniz. Bu işlevselliği kullanarak, Cassandra API'nin tanıdık beceri ve araçlarını kullanmaya devam ederken, Azure Cosmos DB'nin genel dağıtımı ve [kapsamlı endüstri lideri SLA'ları](https://azure.microsoft.com/support/legal/sla/cosmos-db) ile Azure bulutunda kolayca Cassandra API'si veritabanı uygulamaları geliştirebilir ve çalıştırabilirsiniz.
 
-![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cosmosdb-cassandra.png)
+![Azure Cosmos DB Cassandra API'si](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-Cassandra istemci sürücüleri zaten alışık olduğunuz ve Azure Cosmos (gibi CQLSH) Cassandra sorgu tabanlı dil araçları kullanarak veritabanında depolanan verileri ile etkileşim kurmak Cassandra API sağlar. Bu Microsoft Mechanics video sorumlu mühendislik Yöneticisi Kirill Gavrylyuk ile hakkında daha fazla bilgi edinin.
+Cassandra API'si, (CQLSH gibi) Cassandra Sorgu Dili tabanlı araçları ve zaten aşina olduğunuz Cassandra istemci sürücülerini kullanarak Azure Cosmos DB'de depolanan verilerle etkileşim kurmanızı sağlar. Bu konuda, Baş Mühendislik Yöneticisi Kirill Gavrylyuk ile yapılmış bu Microsoft Mechanics videosunda daha fazla bilgi edinebilirsiniz.
 
 > [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
 >
 
-## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Apache Cassandra API için Azure Cosmos DB kullanmanın faydası nedir?
+## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Azure Cosmos DB için Apache Cassandra API'si kullanmanın avantajı nedir?
 
-**Operations management**: Gerçek hizmet tam olarak yönetilen olarak Azure Cosmos DB Cassandra API Yöneticiler yönetme ve işletim sistemi, JVM ve yaml dosyaları ve bunların Interplay arasında çok ayarları izleme hakkında endişelenmeniz gerekmez sağlar. Azure Cosmos DB verimlilik, gecikme, depolama ve kullanılabilirlik ve yapılandırılabilir uyarıları izleme sağlar. 
+**İşletim yönetimi gerekmez**: Gerçek anlamda tam olarak yönetilen bir hizmet olan Azure Cosmos DB, Cassandra API yöneticilerinin işletim sistemleri, JVM ve YAML dosyaları genelindeki sayısız ayarı ve bunların etkileşimlerini yönetme ve izleme konusunda kaygılanmasına gerek bırakmaz. Azure Cosmos DB aktarım hızı, gecikme süresi, depolama ve kullanılabilirlik için izleme ve yapılandırılabilir uyarılar sunar. 
 
-**Performans Yönetimi**: Azure Cosmos DB için 99 yazar ve yedeklenen SLA düşük gecikme süresi okuma sağlar. Kullanıcıların iyi okuma sağlamak ve SLA'ları yazmak için işlem yükünü çok hakkında endişelenmeniz gerekmez. Bu, genellikle silinmiş öğe, çiçek tomurcukları filtreler ayarlayarak ve çoğaltma gecikmelere yönetme sıkıştırma, zamanlama içerir. Bunlar yönetme endişe sorunları ve olanak sağlayan azure Cosmos DB alır hemen üzerinde uygulama sonuçlara odaklanın.
+**Performans yönetimi**: Azure Cosmos DB, yüzde 99. dilim için SLA ile desteklenen düşük gecikme süreli okuma ve yazmalar sunar. Kullanıcıların iyi okuma ve yazma SLA'ları sağlamak için büyük bir ek işletim yükünün altında kalması gerekmez. Bunlar arasında zamanlama sıkıştırması, kaldırılmış uygulama kayıtlarının yönetilmesi, Bloom filtrelerinin ayarlanması ve çoğaltma gecikmeleri sayılabilir. Azure Cosmos DB, bu sorunları yönetme kaygısını ortadan kaldırır ve uygulama teslimlerine odaklanmanızı sağlar.
 
-**Otomatik dizin oluşturma**: Azure Cosmos DB Cassandra API'si veritabanı tablosunun tüm sütunları otomatik olarak dizinler. Azure Cosmos DB sorgulamalarını hızlandırmak için ikincil dizinlerin oluşturulmasını gerektirmez. Bu, düşük gecikme süresi okuma ve yazma otomatik tutarlı dizin yaparken deneyimi sunar. 
+**Otomatik dizin oluşturma**: Azure Cosmos DB, Cassandra API veritabanındaki tablonun tüm sütunlarının otomatik olarak dizinlerini oluşturur. Azure Cosmos DB sorgularını hızlandırmak için ikincil dizinler oluşturulması gerekmez. Otomatik olarak tutarı dizinler oluştururken düşük gecikme süreli okuma ve yazma deneyimi sunar. 
 
-**Var olan kodu ve araçlarını kullanma yeteneğini**: Azure Cosmos DB kablo protokolü düzeyi uyumluluğunu varolan SDK'lar ve araçlar sağlar. Bu uyumluluk varolan kullanabileceğiniz sağlar Önemsiz değişikliklerle Cassandra API, Azure Cosmos DB ile codebase.
+**Mevcut kodu ve araçları kullanma olanağı**: Azure Cosmos DB, mevcut SDK'lar ve araçlar ile kablo protokolü düzeyinde uyumluluk sunar. Bu uyumluluk, Azure Cosmos DB'nin Cassandra API'sine dayanan mevcut kod tabanınızı önemsiz değişikliklerle kullanabilmenizi sağlar.
 
-**Üretilen iş ve depolama esneklik**: Azure Cosmos platform, basit portalı, PowerShell aracılığıyla bölgeler arasında garantili verimlilik esneklik sağlar veya CLI işlemleri. Uygulamanız büyüdükçe, Özellikler esnek Azure Cosmos DB tabloları tahmin edilebilir performansla sorunsuz bir şekilde ölçeklendirebilirsiniz. Azure Cosmos DB neredeyse sınırsız depolama boyutlarına ölçeklendirebilirsiniz Cassandra API tabloları destekler. 
+**Aktarım hızı ve depolama esnekliği**: Azure Cosmos platformu basit portal, PowerShell veya CLI işlemleriyle bölgeler genelinde garantili aktarım hızı esnekliği sunar. Uygulamanız büyüdükçe, Azure Cosmos DB Tablolarınızı tahmin edilebilir performansla sorunsuz ve esnek bir şekilde ölçeklendirebilirsiniz. Azure Cosmos DB, neredeyse sınırsız depolama boyutlarına kadar ölçeklenebilen Cassandra API tablolarını destekler. 
 
-**Genel dağıtım ve kullanılabilirlik**: Azure Cosmos DB kullanıcıların kullanılabilirlik sağlarken düşük gecikme süreli bir deneyim sağlamak için Azure bölgeleri verilerinin dağıtma olanağı sağlar. Bir bölge içinde % 99,99 kullanılabilirlik Azure Cosmos DB sağlar ve hiçbir işlem yüküyle bölgelere kullanılabilirlik %99.999 okuyun. Azure Cosmos DB kullanılabilir 30 + [Azure bölgeleri](https://azure.microsoft.com/regions/services/). Daha fazla bilgi edinin [verilerini genel dağıtmak](distribute-data-globally.md). 
+**Genel dağıtım ve kullanılabilirlik**: Azure Cosmos DB, kullanıcılara düşük gecikme süresi deneyimi sağlamanın yanı sıra kullanılabilirliği de garantilemek için verileri Azure bölgeleri genelinde dağıtma olanağı sunar. Azure Cosmos DB, bölgeler içinde %99,99'luk kullanılabilirliği ve bölgeler arasında %99,999'luk okuma kullanılabilirliğini ek işletim yükü getirmeden sağlar. Azure Cosmos DB 30+ [Azure Bölgesinde](https://azure.microsoft.com/regions/services/) kullanılabilir. [Verileri küresel olarak dağıtma](distribute-data-globally.md) bölümünde daha fazlasını öğrenin. 
 
-**Tutarlılık seçimine**: Azure Cosmos DB beş iyi tanımlanmış tutarlılık düzeyleri tutarlılık ve performans arasında en iyi dengeyi elde etmek için seçimi sağlar. Güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek bu tutarlılık düzeyleri olan ve son. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri ses dengelemeler tutarlılık, kullanılabilirlik ve gecikme süresi arasında yapmak geliştiriciye izin verir. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md). 
+**Seçimde tutarlılık**: Azure Cosmos DB, tutarlılık ve performans arasında en iyi oranı elde etmek için beş iyi tanımlanmış tutarlılık düzeyi seçeneği sunar. Bu tutarlılık düzeyleri güçlü, sınırlanmış eskime durumu, oturum, tutarlı önek ve son şeklindedir. Bu ayrıntılı ve iyi tanımlanmış tutarlılık düzeyleri geliştiricinin tutarlılık, kullanılabilirlik ve gecikme süresi arasında sağlam bir denge kurmasına olanak tanır. Daha fazla bilgi için bkz. [Kullanılabilirlik ve performansı en üst düzeye çıkarmak için tutarlılık düzeylerini kullanma](consistency-levels.md). 
 
-**Kurumsal düzeyde**: güvenli ve varsayılan – DB sağlayan Azure cosmos uyumlu [uyumluluk sertifikalarından](https://www.microsoft.com/trustcenter) kullanıcıların, uyumluluk sorunları hakkında endişelenmeden platform kullanabilir emin olmak için. Azure Cosmos DB şifreleme REST ve hareket, IP Güvenlik Duvarı'nı ve denetim düzlemi etkinlikler için denetim günlüklerini de sağlar.  
+**Kurumsal düzey**: Azure Cosmos DB, kullanıcıların platformu güvenli bir şekilde kullanabilmesini sağlamak için [uyumluluk sertifikaları](https://www.microsoft.com/trustcenter) sunar. Azure Cosmos DB ayrıca durağan ve hareketli durumlarda şifreleme, IP güvenlik duvarı ve denetim düzlemi etkinlikleri için denetim günlükleri sunar.  
 
 <a id="sign-up-now"></a>
 ## <a name="sign-up-now"></a>Hemen kaydolun 
 
-Bir Azure aboneliğiniz zaten varsa, Cassandra API (Önizleme) programa katılmak kaydolabilirsiniz [Azure portal](https://aka.ms/cosmosdb-cassandra-signup).  Azure'da yeniyseniz, kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/free) 12 ay ücretsiz Azure Cosmos DB erişimin nereden. Cassandra API (Önizleme) programı'na erişim istemek için aşağıdaki adımları tamamlayın.
+Zaten bir Azure aboneliğiniz varsa, [Azure portalında](https://aka.ms/cosmosdb-cassandra-signup) Cassandra API (önizleme) programına katılmak üzere kaydolabilirsiniz.  Azure'da yeniyseniz, Azure Cosmos DB'ye 12 aylık ücretsiz erişim elde edeceğiniz [ücretsiz denemeye](https://azure.microsoft.com/free) kaydolun. Cassandra API (önizleme) programına erişim istemek için aşağıdaki adımları tamamlayın.
 
-1. İçinde [Azure portal](https://portal.azure.com), tıklatın **kaynak oluşturma** > **veritabanları** > **Azure Cosmos DB**. 
+1. [Azure portalı](https://portal.azure.com)'nda, **Kaynak oluştur** > **Veritabanları** > **Azure Cosmos DB**'ye tıklayın. 
 
-2. Yeni hesap sayfasında seçin **Cassandra** API kutusunda. 
+2. Yeni Hesap sayfasında, API kutusunda **Cassandra**'yı seçin. 
 
-3. İçinde **abonelik** kutusunda, bu hesap için kullanmak istediğiniz Azure aboneliğini seçin.
+3. **Abonelik** kutusunda, bu hesap için kullanmak istediğiniz Azure aboneliğini seçin.
 
-4. Tıklatın **önizlemeye hemen kaydolun**.
+4. **Önizlemeye bugün kaydolun**'a tıklayın.
 
-    ![Azure Cosmos DB Cassandra API](./media/cassandra-introduction/cassandra-sign-up.png)
+    ![Azure Cosmos DB Cassandra API'si](./media/cassandra-introduction/cassandra-sign-up.png)
 
-3. Bugün bölmesinde önizlemek için kaydolun tıklatın **Tamam**. 
+3. Önizlemeye bugün kaydolun bölmesinde **Tamam**'a tıklayın. 
 
-    İsteği gönderirseniz sonra durum değişikliklerini **onay bekleyen** yeni hesap bölmesinde. 
+    İsteği gönderdikten sonra durum Yeni hesap bölmesinde **Onay bekliyor**'a dönüşür. 
 
-İsteği gönderdikten sonra isteğiniz onaylandıktan e-posta bildirimi için bekleyin. İsteği nedeniyle yüksek hacimli bir hafta içinde bildirim almanız gerekir. İsteği tamamlamak için bir destek bileti oluşturun gerekmez. Sıraya alınmış olan istekleri incelenecektir. 
+İsteği gönderdikten sonra, isteğinizin onaylandığını bildiren e-postayı bekleyin. İsteklerin yüksek sayıda olması nedeniyle bildirimin gelmesi bir hafta alabilir. İsteği tamamlamak için bir istek bileti oluşturmanız gerekmez. İstekler alındıkları sırada incelenecektir. 
 
 ## <a name="how-to-get-started"></a>Nasıl kullanmaya başlarım
-Önizleme programına katıldıktan sonra Cassandra API'sini kullanarak bir uygulama oluşturmak için Cassandra API quickstarts izleyin:
+Önizleme programına katıldıktan sonra, Cassandra API'sini kullanarak bir uygulama oluşturmak için Cassandra API'si hızlı başlangıçlarını izleyin:
 
-* [Hızlı Başlangıç: bir Cassandra Node.js ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-nodejs.md)
-* [Hızlı Başlangıç: bir Cassandra Java ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-java.md)
-* [Hızlı Başlangıç: bir Cassandra .NET ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-dotnet.md)
-* [Hızlı Başlangıç: bir Cassandra Python ve Azure Cosmos DB ile web uygulaması oluşturma](create-cassandra-python.md)
+* [Hızlı Başlangıç: Node.js ve Azure Cosmos DB ile Cassandra uygulaması oluşturma](create-cassandra-nodejs.md)
+* [Hızlı Başlangıç: Java ve Azure Cosmos DB ile Cassandra uygulaması oluşturma](create-cassandra-java.md)
+* [Hızlı Başlangıç: .NET ve Azure Cosmos DB ile Cassandra uygulaması oluşturma](create-cassandra-dotnet.md)
+* [Hızlı Başlangıç: Python ve Azure Cosmos DB ile Cassandra uygulaması oluşturma](create-cassandra-python.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Cosmos DB Cassandra API'si hakkında bilgi Azure Cosmos DB belgeler genel tümleştirilmiştir, ancak başlamanıza yardımcı olmak için birkaç işaretçi şunlardır:
+Azure Cosmos DB Cassandra API'si hakkında bilgiler, genel Azure Cosmos DB belgeleriyle tümleştirilmiştir ancak başlamanıza yardımcı olacak birkaç ipucu verebiliriz:
 
-* İzleyin [Quickstarts](create-cassandra-nodejs.md) Git örnek kullanarak bir hesap ve yeni bir uygulama oluşturmak için
-* İzleyin [öğretici](tutorial-develop-cassandra-java.md) program aracılığıyla yeni bir uygulama oluşturmak için.
-* İzleyin [alma Cassandra veri öğretici](cassandra-import-data.md) mevcut verilerinizi Azure Cosmos Veritabanına içeri aktarmak için.
-* Okuma [SSS](faq.md#cassandra).
+* Bir Git örneğini kullanarak bir hesap ve yeni bir uygulama oluşturmak için ve [Hızlı başlangıçlar](create-cassandra-nodejs.md)'ı izleyin
+* Programlamayla yeni bir uygulama oluşturmak için [Öğretici](tutorial-develop-cassandra-java.md)'yi izleyin.
+* Mevcut verilerinizi Azure Cosmos DB'ye içeri aktarmak için [Cassandra verisi içeri aktarma öğreticisi](cassandra-import-data.md)'ni izleyin.
+* [SSS](faq.md#cassandra)'yi okuyun.

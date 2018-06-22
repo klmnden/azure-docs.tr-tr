@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265057"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301004"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD etki alanı Hizmetleri için ağ konuları
 ## <a name="how-to-select-an-azure-virtual-network"></a>Nasıl bir Azure sanal ağı seçin
@@ -107,7 +107,7 @@ Ayrıca, NSG Internet üzerinden güvenli LDAP erişim kilitlemek nasıl göster
 
 ![Örnek internet üzerinden LDAPS erişimi güvenli hale getirmek için NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**Daha fazla bilgi** - [bir ağ güvenlik grubu oluşturun](../virtual-network/virtual-networks-create-nsg-arm-pportal.md).
+**Daha fazla bilgi** - [bir ağ güvenlik grubu oluşturun](../virtual-network/manage-network-security-group.md).
 
 
 ## <a name="network-connectivity"></a>Ağ bağlantısı
@@ -145,4 +145,4 @@ Azure AD Etki Alanı Hizmetleri'ni etkinleştirdiğiniz Azure Klasik sanal ağı
 * [Azure sanal ağ eşlemesi](../virtual-network/virtual-network-peering-overview.md)
 * [Klasik dağıtım modeli için VNet-VNet bağlantı yapılandırma](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure ağ güvenlik grupları](../virtual-network/security-overview.md)
-* [Bir ağ güvenlik grubu oluşturun](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [Bir ağ güvenlik grubu oluşturun](../virtual-network/manage-network-security-group.md)

@@ -14,12 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7a58fca716389f35db7312948674e86b3104fe62
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292285"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308005"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD ile hesapları paylaşma
 ## <a name="overview"></a>Genel Bakış
@@ -63,10 +63,10 @@ Hesap paylaşımını etkinleştir azure AD özellikleri içerir:
 ## <a name="sharing-an-account"></a>Bir hesap paylaşımı
 Bir hesabı paylaşmak için Azure AD kullanmak için aktarmanız gerekir:
 
-* Bir uygulama eklemek [uygulama Galerisi](https://azure.microsoft.com/marketplace/active-directory/) veya [özel uygulama](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)
+* Bir uygulama eklemek [uygulama Galerisi](https://azure.microsoft.com/marketplace/active-directory/) veya [özel uygulama](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Uygulaması parola çoklu oturum açma (SSO) için yapılandırma
 * Kullanım [grup tabanlı atama](active-directory-accessmanagement-group-saasapps.md) ve paylaşılan bir kimlik bilgisi girin seçeneğini belirleyin
-* İsteğe bağlı: Facebook, Twitter ve LinkedIn, gibi bazı uygulamalarda, seçeneğini etkinleştirebilirsiniz [Azure AD parola toplama-üzerinden otomatik](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* İsteğe bağlı: Facebook, Twitter ve LinkedIn, gibi bazı uygulamalarda, seçeneğini etkinleştirebilirsiniz [Azure AD parola toplama-üzerinden otomatik](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 Da paylaşılan hesabınızı çok faktörlü kimlik doğrulama (MFA) ile daha güvenli hale getirebilirsiniz (hakkında daha fazla bilgi [uygulamalarını Azure AD ile güvenli hale getirme](authentication/concept-mfa-whichversion.md)) ve uygulama kullanarak erişimi olanların yönetme olanağı devredebilirsiniz [Azure AD Self Servis](active-directory-accessmanagement-self-service-group-management.md) Grup Yönetimi.
 

@@ -1,33 +1,22 @@
 ---
-title: Azure SQL sunucuları ve veritabanlarını yönetme & Oluştur | Microsoft Docs
-description: Azure SQL veritabanı sunucusu ve veritabanı kavramları hakkında ve sunucular ve veritabanları oluşturma ve yönetme hakkında bilgi edinin.
+title: Azure SQL mantıksal sunucuları ve tek veritabanları | Microsoft Docs
+description: Azure SQL Database mantıksal sunucusu ve tek veritabanı kavramlarını ve kaynakları hakkında bilgi edinin.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 2600e39dec91fc6916fa7bbd02e318d33cfa3c99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649066"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309189"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL veritabanı sunucuları ve veritabanları oluşturma ve yönetme
-
-SQL veritabanı veritabanları üç tür sunar:
-
-- İçinde oluşturulan tek bir veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ile bir [işlem ve depolama kaynaklarını kümesi birleştirilmiş](sql-database-service-tiers-dtu.md) veya bir [işlem ve depolama kaynaklarınıbağımsızölçeğini](sql-database-service-tiers-vcore.md). Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
-- Bir parçası olarak oluşturulmuş bir veritabanını bir [veritabanları havuzu](sql-database-elastic-pool.md) içinde bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ile bir [işlem ve depolama kaynaklarını kümesi birleştirilmiş (DTU tabanlı)](sql-database-service-tiers-dtu.md) veya bir [işlem ve depolama kaynaklarını (vCore tabanlı) bağımsız ölçeğini](sql-database-service-tiers-vcore.md) tüm havuzdaki veritabanları arasında paylaşılan. Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
-- Bir [bir SQL server örneğini](sql-database-managed-instance.md) (yönetilen örneği) oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) işlem ve depolama kaynaklarını bu sunucu örneğindeki tüm veritabanları için tanımlanmış bir dizi. Yönetilen bir örneği, sistem ve kullanıcı veritabanlarını içerir. Yönetilen örnek uygulamayı yeniden olmadan veritabanı yükseltme-ve-kaydırma tam yönetilen bir PaaS sağlamak üzere tasarlanmıştır. Yönetilen örneği şirket içi SQL Server programlama modeli ile yüksek uyumluluk sağlar ve SQL Server özellikleri ve eşlik eden araçları ve Hizmetleri büyük çoğunu destekler.  
-
-Microsoft Azure SQL veritabanı tablo veri akışı (TDS) Protokolü istemci sürümü 7.3 veya üst sürümünü destekler ve yalnızca şifrelenmiş TCP/IP bağlantılarını sağlar.
-
-> [!IMPORTANT]
-> SQL veritabanı örneği, yönetilen şu anda genel önizlemede, tek bir genel amaçlı hizmet katmanı sunar. Daha fazla bilgi için bkz. [SQL Veritabanı Yönetilen Örneği](sql-database-managed-instance.md). Bu makalenin sonraki bölümlerinde yönetilen örneği için geçerli değildir.
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Azure SQL Database mantıksal sunucu ve tek veritabanları ve kaynakları
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Bir Azure SQL mantıksal sunucusuna nedir?
 
@@ -59,6 +48,20 @@ Azure SQL Veritabanı mantıksal sunucusu:
 - Sunucu düzeyinde asıl kullanıcı bilgileri bir sunucudaki tüm veritabanlarını yönetebilir
 - Şirketinizde sunucu üzerindeki bir veya daha fazla veritabanına erişim verilmiş SQL Server örneklerinde bulunanlara benzer kullanıcı bilgileri içerebilir ve sınırlı yönetici hakları alabilir. Daha fazla bilgi için bkz. [Kullanıcı Bilgileri](sql-database-manage-logins.md).
 - Mantıksal bir sunucuda oluşturulan tüm kullanıcı veritabanları için varsayılan harmanlama `SQL_LATIN1_GENERAL_CP1_CI_AS`, burada `LATIN1_GENERAL` İngilizce (Birleşik Devletler) `CP1` kod sayfası 1252, `CI` , küçük harf duyarlıdır ve `AS` aksan duyarlı değil.
+
+## <a name="logical-servers-and-databases"></a>Mantıksal sunucular ve veritabanları
+
+Mantıksal bir sunucuda, oluşturabilirsiniz:
+
+- İçinde oluşturulan tek bir veritabanı bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ile bir [işlem ve depolama kaynaklarını kümesi birleştirilmiş](sql-database-service-tiers-dtu.md) veya bir [işlem ve depolama kaynaklarınıbağımsızölçeğini](sql-database-service-tiers-vcore.md). Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
+- Bir parçası olarak oluşturulmuş bir veritabanını bir [veritabanları havuzu](sql-database-elastic-pool.md) içinde bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) ile bir [işlem ve depolama kaynaklarını kümesi birleştirilmiş (DTU tabanlı)](sql-database-service-tiers-dtu.md) veya bir [işlem ve depolama kaynaklarını (vCore tabanlı) bağımsız ölçeğini](sql-database-service-tiers-vcore.md) tüm havuzdaki veritabanları arasında paylaşılan. Azure SQL veritabanını, belirli bir Azure bölge içinde oluşturulan bir Azure SQL Database mantıksal sunucusu ile ilişkilidir.
+
+> [!IMPORTANT]
+> SQL veritabanı örneği, yönetilen şu anda genel önizlemede olan bir [bir SQL server örneğini](sql-database-managed-instance.md) (yönetilen örneği) oluşturulan bir [Azure kaynak grubu](../azure-resource-manager/resource-group-overview.md) işlem ve depolama tanımlı kümesiyle Bu sunucu örneğindeki tüm veritabanları için kaynaklar. Yönetilen bir örneği, sistem ve kullanıcı veritabanlarını içerir. Yönetilen örnek uygulamayı yeniden olmadan veritabanı yükseltme-ve-kaydırma tam yönetilen bir PaaS sağlamak üzere tasarlanmıştır. Yönetilen örneği şirket içi SQL Server programlama modeli ile yüksek uyumluluk sağlar ve SQL Server özellikleri ve eşlik eden araçları ve Hizmetleri büyük çoğunu destekler. Daha fazla bilgi için bkz. [SQL Veritabanı Yönetilen Örneği](sql-database-managed-instance.md). Bu makalenin sonraki bölümlerinde yönetilen örneği için geçerli değildir.
+
+## <a name="tds-and-tcpip-connections"></a>TDS ve TCP/IP'yi bağlantıları
+
+Microsoft Azure SQL veritabanı tablo veri akışı (TDS) Protokolü istemci sürümü 7.3 veya üst sürümünü destekler ve yalnızca şifrelenmiş TCP/IP bağlantılarını sağlar.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>SQL veritabanı güvenlik duvarı tarafından korunan azure SQL veritabanları
 
@@ -109,7 +112,7 @@ Azure SQL server, veritabanları ve güvenlik duvarları Azure PowerShell ile ol
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Bir veya daha fazla veritabanı alır|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Bir veritabanı özelliklerini ayarlar ya da varolan bir veritabanını bir esnek havuza taşır|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Bir veritabanı kaldırır|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Bir kaynak grubu oluşturur]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|Bir kaynak grubu oluşturur|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|Sunucu oluşturur|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|Sunucuları hakkında bilgi döndürür|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|Bir sunucu özelliklerini değiştirir|

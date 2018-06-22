@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 2600565493a334c7227e5c0d67a5808f30751108
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8475c79782730e989f9590566c31ccd50af9f144
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261081"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302055"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Destek Azure Cosmos DB'de akış değişiklik ile çalışma
 
@@ -219,138 +219,253 @@ Daha fazla değişiklik akış dört nasıl bu unsuru anlamak için işlemci iş
 
 İşlemci NuGet paketi değişikliği yükleme akışı önce ilk yükleyin: 
 
-* Microsoft.Azure.DocumentDB, sürüm 1.13.1 veya üstü 
-* Newtonsoft.Json, sürüm 9.0.1 veya üstü
+* Microsoft.Azure.DocumentDB, en son sürümü.
+* Newtonsoft.Json, en son sürümü
 
 Daha sonra yüklemek [Microsoft.Azure.DocumentDB.ChangeFeedProcessor Nuget paketi](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) ve bir başvuru olarak dahil edin.
 
 Yapmanız gereken değişiklik akış işlemci kitaplığı uygulamak için aşağıdaki:
 
 1. Uygulama bir **DocumentFeedObserver** uygulayan nesne **IChangeFeedObserver**.
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Documents;
+    using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
+    using Microsoft.Azure.Documents.Client;
 
-2. Uygulama bir **DocumentFeedObserverFactory**, hangi uygulayan bir **IChangeFeedObserverFactory**.
-
-3. İçinde **CreateObserver** yöntemi **DocumentFeedObserverFacory**, örneği **ChangeFeedObserver** 1. adımda oluşturduğunuz ve onu döndürür.
-
-    ```
-    public IChangeFeedObserver CreateObserver()
+    /// <summary>
+    /// This class implements the IChangeFeedObserver interface and is used to observe 
+    /// changes on change feed. ChangeFeedEventHost will create as many instances of 
+    /// this class as needed. 
+    /// </summary>
+    public class DocumentFeedObserver : IChangeFeedObserver
     {
-              DocumentFeedObserver newObserver = new DocumentFeedObserver(this.client, this.collectionInfo);
-              return newObserver;
+    private static int totalDocs = 0;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocumentFeedObserver" /> class.
+        /// Saves input DocumentClient and DocumentCollectionInfo parameters to class fields
+        /// </summary>
+        /// <param name="client"> Client connected to destination collection </param>
+        /// <param name="destCollInfo"> Destination collection information </param>
+        public DocumentFeedObserver()
+        {
+            
+        }
+
+        /// <summary>
+        /// Called when change feed observer is opened; 
+        /// this function prints out observer partition key id. 
+        /// </summary>
+        /// <param name="context">The context specifying partition for this observer, etc.</param>
+        /// <returns>A Task to allow asynchronous execution</returns>
+        public Task OpenAsync(IChangeFeedObserverContext context)
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("Observer opened for partition Key Range: {0}", context.PartitionKeyRangeId);
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// Called when change feed observer is closed; 
+        /// this function prints out observer partition key id and reason for shut down. 
+        /// </summary>
+        /// <param name="context">The context specifying partition for this observer, etc.</param>
+        /// <param name="reason">Specifies the reason the observer is closed.</param>
+        /// <returns>A Task to allow asynchronous execution</returns>
+        public Task CloseAsync(IChangeFeedObserverContext context, ChangeFeedObserverCloseReason reason)
+        {
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("Observer closed, {0}", context.PartitionKeyRangeId);
+            Console.WriteLine("Reason for shutdown, {0}", reason);
+            return Task.CompletedTask;
+        }
+
+        public Task ProcessChangesAsync(IChangeFeedObserverContext context, IReadOnlyList<Document> docs, CancellationToken cancellationToken)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Change feed: PartitionId {0} total {1} doc(s)", context.PartitionKeyRangeId, Interlocked.Add(ref totalDocs, docs.Count));
+            foreach (Document doc in docs)
+            {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine(doc.Id.ToString());
+            }
+
+            return Task.CompletedTask;
+        }
     }
     ```
 
-4. Örneği **DocumentObserverFactory**.
-
-5. Örneği bir **ChangeFeedEventHost**:
-
+2. Uygulama bir **DocumentFeedObserverFactory**, hangi uygulayan bir **IChangeFeedObserverFactory**.
     ```csharp
-    ChangeFeedEventHost host = new ChangeFeedEventHost(
-                     hostName,
-                     documentCollectionLocation,
-                     leaseCollectionLocation,
-                     feedOptions,
-                     feedHostOptions);
+     using Microsoft.Azure.Documents.ChangeFeedProcessor.FeedProcessing;
+
+    /// <summary>
+    /// Factory class to create instance of document feed observer. 
+    /// </summary>
+    public class DocumentFeedObserverFactory : IChangeFeedObserverFactory
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DocumentFeedObserverFactory" /> class.
+        /// Saves input DocumentClient and DocumentCollectionInfo parameters to class fields
+        /// </summary>
+        public DocumentFeedObserverFactory()
+        {
+        }
+
+        /// <summary>
+        /// Creates document observer instance with client and destination collection information
+        /// </summary>
+        /// <returns>DocumentFeedObserver with client and destination collection information</returns>
+        public IChangeFeedObserver CreateObserver()
+        {
+            DocumentFeedObserver newObserver = new DocumentFeedObserver();
+            return newObserver as IChangeFeedObserver;
+        }
+    }
     ```
 
-6. Kayıt **DocumentFeedObserverFactory** ana bilgisayarla.
+3. Tanımlamak *CancellationTokenSource* ve *ChangeFeedProcessorBuilder*
 
-4. adım 6-kodu verilmiştir: 
+    ```csharp
+    private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+    private readonly ChangeFeedProcessorBuilder builder = new ChangeFeedProcessorBuilder();
+    ```
 
-```
-ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-feedOptions.StartFromBeginning = true;
+5. Yapı **ChangeFeedProcessorBuilder** sonra ilgili nesneleri tanımlama 
 
-ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
- 
-// Customizing lease renewal interval to 15 seconds.
-// Can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay
-feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
- 
-using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
-{
-        DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
-        ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
-        await host.RegisterObserverFactoryAsync(docObserverFactory);
-        await host.UnregisterObserversAsync();
-}
-```
+    ```csharp
+            string hostName = Guid.NewGuid().ToString();
+      
+            // monitored collection info 
+            DocumentCollectionInfo documentCollectionInfo = new DocumentCollectionInfo
+            {
+                Uri = new Uri(this.monitoredUri),
+                MasterKey = this.monitoredSecretKey,
+                DatabaseName = this.monitoredDbName,
+                CollectionName = this.monitoredCollectionName
+            };
+            
+            DocumentCollectionInfo leaseCollectionInfo = new DocumentCollectionInfo
+                {
+                    Uri = new Uri(this.leaseUri),
+                    MasterKey = this.leaseSecretKey,
+                    DatabaseName = this.leaseDbName,
+                    CollectionName = this.leaseCollectionName
+                };
+            DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
+            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
 
-İşte bu kadar. Bu adımlarda sonra belgeleri giren başlatmak **DocumentFeedObserver ProcessChangesAsync** yöntemi. Yukarıdaki kod Bul [GitHub depo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
+            /* ie customize StartFromBeginning so change feed reads from beginning
+                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
+            */
 
-## <a name="faq"></a>SSS
+            feedOptions.StartFromBeginning = true;
+        
+            ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
-### <a name="what-are-the-different-ways-you-can-read-change-feed-and-when-to-use-each-method"></a>Değişiklik akış okuyabilir farklı yolları nelerdir? ve ne zaman her bir yöntemin kullanılır?
+            // ie. customizing lease renewal interval to 15 seconds
+            // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
+            feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
 
-Değişiklik akış okumak üç seçeneğiniz vardır:
+            this.builder
+                .WithHostName(hostName)
+                .WithFeedCollection(documentCollectionInfo)
+                .WithLeaseCollection(leaseCollectionInfo)
+                .WithProcessorOptions (feedProcessorOptions)
+                .WithObserverFactory(new DocumentFeedObserverFactory());               
+                //.WithObserver<DocumentFeedObserver>();  If no factory then just pass an observer
 
-* **[Azure Cosmos DB SQL API .NET SDK'sını kullanma](#sql-sdk)**
+            var result =  await this.builder.BuildAsync();
+            await result.StartAsync();
+            Console.Read();
+            await result.StopAsync();    
+            ```
+
+That’s it. After these few steps documents will start showing up into the **DocumentFeedObserver.ProcessChangesAsync** method.
+
+Above code is for illustration purpose to show different kind of objects and their interaction. You have to define proper variables and initiate them with correct values. You can get the complete code used in this article from the [GitHub repo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
+
+> [!NOTE]
+> You should never have a master key in your code or in config file as shown in above code. Please see [how to use Key-Vault to retrive the keys](https://sarosh.wordpress.com/2017/11/23/cosmos-db-and-key-vault/).
+
+
+## FAQ
+
+### What are the different ways you can read Change Feed? and when to use each method?
+
+There are three options for you to read change feed:
+
+* **[Using Azure Cosmos DB SQL API .NET SDK](#sql-sdk)**
    
-   Bu yöntemi kullanarak, düşük düzeyde değişiklik akış denetimi alın. Denetim noktası yönetebilir, belirli bir bölüm anahtarı vb. erişebilir. Birden çok okuyucular varsa, kullanabileceğiniz [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) farklı iş parçacıklarındaki ya da farklı istemcileri okuma yükü dağıtmak için. .
+   By using this method, you get low level of control on change feed. You can manage the checkpoint, you can access a particular partition key etc. If you have multiple readers, you can use [ChangeFeedOptions](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) to distribute read load to different threads or different clients. .
 
-* **[Azure Cosmos DB değişikliği kullanarak akış işlemci kitaplığı](#change-feed-processor)**
+* **[Using the Azure Cosmos DB change feed processor library](#change-feed-processor)**
 
-   Değişiklik akışın karmaşıklıkta çok dış istiyorsanız, değişiklik akış işlemci kitaplığı kullanabilirsiniz. Bu kitaplık karmaşıklıkta çok gizler ancak hala akış, üzerinde tam denetim verir değiştirmek. Bu kitaplık izleyen bir [gözlemci deseni](https://en.wikipedia.org/wiki/Observer_pattern), işleme işlevinizi SDK tarafından çağrılır. 
+   If you want to outsource lot of complexity of change feed then you can use change feed processor library. This library hides lot of complexity, but still gives you complete control on change feed. This library follows an [observer pattern](https://en.wikipedia.org/wiki/Observer_pattern), your processing function is called by the SDK. 
 
-   Akış bir yüksek verimlilik değişiklik varsa, değişiklik akış okumak için birden çok istemci örneğini oluşturabilirsiniz. "Akış işlemci kitaplığı Değiştir" kullandığından, otomatik olarak yükü farklı istemciler arasında böler. Bir şey yapmanız gerekmez. Tüm karmaşıklık SDK tarafından yapılır. Kendi yük dengeleyiciye sahip olmak istiyorsanız, ancak daha sonra IParitionLoadBalancingStrategy için özel bölüm stratejisi uygulayabilirsiniz. Bir bölüm özel işleme değişikliklerin IPartitionProcessor – uygulayın. SDK'sı, bölüm aralığı işlem ancak, belirli bir bölüm anahtarı işlemek istiyorsanız, daha sonra SDK SQL API'yi kullanmak zorunda.
+   If you have a high throughput change feed, you can instantiate multiple clients to read the change feed. Because you are using “change feed processor library”, it will automatically divide the load among different clients. You do not have to do anything. All the complexity is handled by SDK. However, if you want to have your own load balancer, then you can implement IParitionLoadBalancingStrategy for custom partition strategy. Implement IPartitionProcessor – for custom processing changes on a partition. However, with SDK, you can process a partition range but if you want to process a particular partition key then you have to use SDK for SQL API.
 
-* **[Azure işlevlerini kullanma](#azure-functions)** 
+* **[Using Azure Functions](#azure-functions)** 
    
-   Son seçenek Azure işlevi en basit bir seçenektir. Bu seçeneği kullanmanızı öneririz. Bir Azure işlevleri uygulamada bir Azure Cosmos DB tetikleyicisi oluşturduğunuzda, bağlanmak için Azure Cosmos DB koleksiyonu seçin ve koleksiyona bir değişiklik yapıldığında işlevi tetiklenir. Gözcü bir [ekran cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) Azure kullanarak işlev ve akış değiştirme
+   The last option Azure Function is the simplest option. We recommend using this option. When you create an Azure Cosmos DB trigger in an Azure Functions app, you select the Azure Cosmos DB collection to connect to and the function is triggered whenever a change to the collection is made. watch a [screen cast](https://www.youtube.com/watch?v=Mnq0O91i-0s&t=14s) of using Azure function and change feed
 
-   Azure işlevleri Portalı'nda tetikleyicileri oluşturulabilir Azure Cosmos DB portalında veya program aracılığıyla. Visual Studio ve VS Code Azure işlevi yazma için harika desteğine sahiptir. Yazma ve masaüstünde kodda hata ayıklama ve ardından işlevi tek bir tıklatmayla dağıtın. Daha fazla bilgi için bkz: [Azure Cosmos DB: sunucusuz veritabanı Azure işlevleri kullanarak bilgi işlem](serverless-computing-database.md) makalesi.
+   Triggers can be created in the Azure Functions portal, in the Azure Cosmos DB portal, or programmatically. Visual Studio and VS Code has great support to write Azure Function. You can write and debug the code on your desktop, and then deploy the function with one click. For more information, see [Azure Cosmos DB: Serverless database computing using Azure Functions](serverless-computing-database.md) article.
 
-### <a name="what-is-the-sort-order-of-documents-in-change-feed"></a>Akış değişiklik belgelerde sıralama düzenini nedir?
+### What is the sort order of documents in change feed?
 
-Belgeleri akış değişiklik kendi değiştirme saati sırasına göre gelir. Bu sıralama düzeni yalnızca bölüm başına sağlanır.
+Change feed documents comes in order of their modification time. This sort order is guaranteed only per partition.
 
-### <a name="for-a-multi-region-account-what-happens-to-the-change-feed-when-the-write-region-fails-over-does-the-change-feed-also-failover-would-the-change-feed-still-appear-contiguous-or-would-the-fail-over-cause-change-feed-to-reset"></a>Bölgeli hesabı için yazma bölge başarısız-üzerinden olduğunda akış değişiklik ne olur? Değişiklik de yük devretme akışı mu? Hala akış değişiklik bitişik görünür veya yük devretme neden sıfırlamak için akış değiştirmek?
+### For a multi-region account, what happens to the change feed when the write-region fails-over? Does the change feed also failover? Would the change feed still appear contiguous or would the fail-over cause change feed to reset?
 
-Evet, değişiklik akış el ile yük devretme işlemi çalışır ve bitişik olmalı.
+Yes, change feed will work across the manual failover operation and it will be contiguous.
 
-### <a name="how-long-change-feed-persist-the-changed-data-if-i-set-the-ttl-time-to-live-property-for-the-document-to--1"></a>Ne kadar süreyle değişiklik akış kalıcı değiştirilen verileri belge için TTL (yaşam süresi) özelliği -1 olarak ayarlarsanız?
+### How long change feed persist the changed data if I set the TTL (Time to Live) property for the document to -1?
 
-Değişiklik akış sonsuza kadar korunur. Veri silinmez değişiklik Akışta geçersiz kalır.
+Change feed will persist forever. If data is not deleted, it will remain in change feed.
 
-### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region-as-change-feed-is-available-in-all-the-read-regions-by-default"></a>Nasıl değişiklik akış, varsayılan olarak tüm okuma bölgelerde kullanılabilir olduğu gibi belirli bir bölgesinden okumak için Azure işlevleri yapılandırabilirsiniz?
+### How can I configure Azure functions to read from a particular region, as change feed is available in all the read regions by default?
 
-Şu anda belirli bir bölgesinden okumak için Azure işlevleri yapılandırmak mümkün değil. Tüm Azure Cosmos DB bağlama ve tetikleyici tercih edilen bölge ayarlamak için Azure işlevleri depodaki GitHub sorun yoktur.
+Currently it’s not possible to configure Azure Functions to read from a particular region. There is a GitHub issue in the Azure Functions repo to set the preferred regions of any Azure Cosmos DB binding and trigger.
 
-Azure işlevleri, varsayılan bağlantı İlkesi kullanır. Azure işlevleri ve varsayılan olarak bağlantı modu yapılandırabilirsiniz, Azure işlevleri aynı bölgede üzerinde birlikte bulunmasına en iyisidir yazma bölgesinden okur.
+Azure Functions uses the default connection policy. You can configure connection mode in Azure Functions and by default, it reads from the write region, so it is best to co-locate Azure Functions on the same region.
 
-### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>Azure işlevleri'toplu varsayılan boyutu nedir?
+### What is the default size of batches in Azure Functions?
 
-Azure işlevleri her çalıştırılışı 100 belgeleri. Ancak, bu numara function.json dosyasının içinde yapılandırılabilir değildir. İşte tam [yapılandırma seçeneklerinin listesi](../azure-functions/functions-run-local.md). Yerel olarak geliştiriyorsanız, içinde uygulama ayarlarını güncelleştirme [local.settings.json](../azure-functions/functions-run-local.md) dosya.
+100 documents at every invocation of Azure Functions. However, this number is configurable within the function.json file. Here is complete [list of configuration options](../azure-functions/functions-run-local.md). If you are developing locally, update the application settings within the [local.settings.json](../azure-functions/functions-run-local.md) file.
 
-### <a name="i-am-monitoring-a-collection-and-reading-its-change-feed-however-i-see-i-am-not-getting-all-the-inserted-document-some-documents-are-missing-what-is-going-on-here"></a>Bir koleksiyon izleme ve değişiklik okuma akışı, ancak eklenen tüm belge alıyorum değil görüyorum, bazı belgeleri eksik. Burada neler olup bittiğini?
+### I am monitoring a collection and reading its change feed, however I see I am not getting all the inserted document, some documents are missing. What is going on here?
 
-Aynı kira derlemesiyle aynı koleksiyonda okuma hiçbir işlev olduğundan emin olun. Bana oldu ve daha sonra ı, ayrıca aynı kira kullanarak my diğer Azure işlevleri tarafından işlenen eksik belgeleri gerçekleşmiş.
+Please make sure that there is no other function reading the same collection with the same lease collection. It happened to me, and later I realized the missing documents are processed by my other Azure functions, which is also using the same lease.
 
-Okumak için birden çok Azure işlevleri oluşturuyorsanız, sonra farklı kira koleksiyonunu kullanın veya aynı koleksiyonda paylaşmak için "leasePrefix" yapılandırmasını kullanın Bu nedenle, aynı akışın değiştirin. Ancak, değişiklik akış işlemci kitaplığı kullandığınızda işlevinizi birden çok örneğini başlayabilir ve SDK Belgeleri otomatik olarak için farklı örnekler arasında böler.
+Therefore, if you are creating multiple Azure Functions to read the same change feed then they must use different lease collection or use the “leasePrefix” configuration to share the same collection. However, when you use change feed processor library you can start multiple instances of your function and SDK will divide the documents between different instances automatically for you.
 
-### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>My belge saniyede güncelleştirilir ve tüm değişiklikleri Azure işlevlerinde akış değiştirmek için dinleme alıyorum değil.
+### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
 
-5 saniye arasında yapılan tüm değişiklikler kaybedilir şekilde azure işlevleri yoklamalar değişiklik 5 saniyede için akış. Belge üzerinde 5 değişiklik alırsınız için azure Cosmos DB tek sürüm 5 saniyede için depolar. Ancak, 5 saniye gidin ve saniyede akışı değişiklik yoklamak istediğiniz istiyorsanız, yoklama zaman "feedPollTime" yapılandırmak, yapabilirsiniz bkz [Azure Cosmos DB bağlamaları](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). Varsayılan değer 5000 milisaniye cinsinden tanımlanır. Daha fazla CPU yazma başlayacak şekilde 1 saniye olası ancak değil önerilir.
+Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time “feedPollTime”, see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
 
-### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>Bir belge Mongo API koleksiyonunda ekledim, ancak Belge değişikliği akışta aldığınızda, farklı kimlik değeri gösterir. Burada yanlış nedir?
+### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
 
-Koleksiyonunuz Mongo API koleksiyonudur. Değişiklik akış SQL istemcisini kullanarak okunur ve öğeleri JSON biçimine serileştiren unutmayın. Biçimlendirme, JSON nedeniyle istemciler yaşar MongoDB biçimlendirilmiş BSON belgeler ve JSON arasında bir uyuşmazlık akış değişiklik biçimlendirilmiş. Sizin gördüğünüz JSON BSON belgede gösterimidir. Mongo hesaplarında ikili öznitelikler kullanıyorsa, bunlar JSON biçiminde seri hale dönüştürülür.
+Your collection is Mongo API collection. Remember, change feed is read using the SQL client and serializes items into JSON format. Because of the JSON formatting, MongoDB clients will experience a mismatch between BSON formatted documents and the JSON formatted change feed. You are seeing is the representation of a BSON document in JSON. If you use binary attributes in a Mongo accounts, they are converted to JSON.
 
-### <a name="is-there-a-way-to-control-change-feed-for-updates-only-and-not-inserts"></a>Yalnızca güncelleştirmeler için akış değişiklik denetlemek için bir yol yoktur ve değil ekler?
+### Is there a way to control change feed for updates only and not inserts?
 
-Bugün değil, ancak bu işlevselliği üzerinde yol haritası. Bugün, belge güncelleştirmeleri için bir yumuşak işaret ekleyebilirsiniz.
+Not today, but this functionality is on roadmap. Today, you can add a soft marker on the document for updates.
 
-### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>Değişiklik akışta siler almanın bir yolu var mı?
+### Is there a way to get deletes in change feed?
 
-Şu anda değişiklik akış siler oturum değil. Değişiklik akış sürekli olarak gelişiyor ve yol haritası üzerinde bu işlevdir. Bugün, belge silme için bir yumuşak işaret ekleyebilirsiniz. Bir öznitelik "silinmiş" adlı "true" olarak ayarlarsanız ve bir TTL, belge üzerinde ayarlayabilir, böylece otomatik olarak silinebilir belgeyi ekleyin.
+Currently change feed doesn’t log deletes. Change feed is continuously improving, and this functionality is on roadmap. Today, you can add a soft marker on the document for delete. Add an attribute on the document called “deleted” and set it to “true” and set a TTL on the document so that it can be automatically deleted.
 
-### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>Geçmiş belgeleri (örneğin, 5 yıllık geri eklenen belgeler) akış değişiklik okuyabilir miyim?
+### Can I read change feed for historic documents(for example, documents that were added 5 years back) ?
 
-Belge silinmez, Evet değişikliği okuyabilir, koleksiyonunuzu kaynak durum akış.
+Yes, if the document is not deleted you can read the change feed as far as the origin of your collection.
 
-### <a name="can-i-read-change-feed-using-javascript"></a>JavaScript kullanarak değişiklik akış okuyabilir miyim?
+### Can I read change feed using JavaScript?
 
-Evet, Node.js SDK'sı ilk desteği değişiklik akış için en son eklenir. Kod çalıştırmadan önce aşağıdaki örnekte, Lütfen geçerli sürümüne güncelleştirme documentdb modülünü gösterildiği gibi kullanılabilir:
+Yes, Node.js SDK initial support for change feed is recently added. It can be used as shown in the following example, please update documentdb module to current version before you run the code:
 
 ```js
 
@@ -422,6 +537,7 @@ Hata, onay noktasına başına Geri Sar olmayan olasılığına başka bu belgel
 
 Kodunuzu düzelttikten tutmak gibi yakında sahipsiz sırayı hiçbir belge bulabilirsiniz.
 Azure işlevleri değişiklik akış sistem tarafından otomatik olarak çağrılır ve denetim noktası vb. Azure işlevi tarafından dahili olarak korunur. Denetim noktası geri ve her yönüyle denetlemek istiyorsanız, değişikliği kullanarak işlemci SDK akış düşünmelisiniz.
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

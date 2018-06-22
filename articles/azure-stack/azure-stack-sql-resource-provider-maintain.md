@@ -11,46 +11,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e7ddbe1235b3957a1e0cb7693ee728bfdbf9db6b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295668"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300919"
 ---
-# <a name="maintenance-operations"></a>Bakım işlemleri 
-SQL kaynak kilitli bir sanal makineyi sağlayıcıdır. Kaynak sağlayıcısı sanal makinenin güvenlik güncelleştirme PowerShell yalnızca yetecek kadar Yönetim (JEA) uç noktası aracılığıyla yapılabilir _DBAdapterMaintenance_. Bir betik bu işlemleri kolaylaştırmak için RP'ın yükleme paketi ile birlikte sağlanır.
+# <a name="sql-resource-provider-maintenance-operations"></a>SQL kaynak sağlayıcısı bakım işlemleri
+
+SQL kaynak sağlayıcısı kilitli bir sanal makine üzerinde çalışır. Bakım işlemlerini etkinleştirmek için sanal makinenin güvenlik güncelleştirmesi gerekir. En az ayrıcalık ilkesini kullanarak bunu yapmak için kullanabileceğiniz [PowerShell yalnızca yetecek kadar Yönetim (JEA)](https://docs.microsoft.com/en-us/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Kaynak Sağlayıcı yükleme paketi bu işlem için bir komut dosyası içerir.
 
 ## <a name="patching-and-updating"></a>Düzeltme eki uygulama ve güncelleştirme
-Bir eklenti bileşeni olduğu gibi SQL kaynak sağlayıcısı Azure yığın bir parçası olarak bakım değil. Microsoft, gerektiği gibi SQL kaynak sağlayıcısı için güncelleştirmeleri sağlarken. Üzerinde SQL kaynak sağlayıcısı örneği bir _kullanıcı_ varsayılan sağlayıcı abonelik altında sanal makine. Bu nedenle, Windows düzeltme ekleri, virüsten koruma imzaları vb. sağlamak gereklidir. Windows güncelleştirme, düzeltme ve güncelleştirme döngüsünün parçası Windows VM güncelleştirmeleri uygulamak için kullanılabilir olarak sağlanan paketleri. Güncelleştirilmiş bir bağdaştırıcı yayımlandığında, bir komut dosyası güncelleştirmeyi uygulamak için sağlanır. Bu komut dosyasını yeni bir RP VM oluşturur ve zaten herhangi bir durum geçirme.
 
- ## <a name="backuprestoredisaster-recovery"></a>Yedekleme/geri yükleme/olağanüstü durum kurtarma
- Bir eklenti bileşeni olduğu gibi SQL kaynak sağlayıcısı Azure yığın BC-DR işleminin bir parçası yedeklenmez. Komut dosyaları kolaylaştırmak için sağlanır:
-- (Bir Azure yığın depolama hesabında depolanır) gerekli durum bilgisinin yedekleme
-- Tam yığını kurtarma gerekli hale gelmesi durumunda RP geri yükleniyor.
-Veritabanı sunucuları ilk (gerekirse) kurtarılması gerekiyor, önce kaynak sağlayıcısı geri yüklenir.
+Bir eklenti bileşeni olduğundan SQL kaynak sağlayıcısı Azure yığın bir parçası olarak bakım değil. Microsoft SQL kaynak sağlayıcı gerekli güncelleştirmeler sağlar. Güncelleştirilmiş SQL bağdaştırıcıyı yayımlandığında, bir komut dosyası güncelleştirmeyi uygulamak için sağlanır. Bu komut dosyasını yeni bir kaynak sağlayıcısı VM, eski sağlayıcısı VM durumu için yeni bir VM geçirme oluşturur. Daha fazla bilgi için bkz: [SQL kaynak sağlayıcısını güncelle](azure-stack-sql-resource-provider-update.md).
+
+### <a name="provider-virtual-machine"></a>Sağlayıcı sanal makine
+
+Kaynak sağlayıcısı çalıştığından bir *kullanıcı* sanal makine, serbest zaman güncelleştirmeleri ve gerekli düzeltme eklerini uygulamak vermeniz gerekir. VM güncelleştirmeleri uygulamak için düzeltme ve güncelleştirme döngüsü bir parçası olarak sağlanan Windows güncelleştirme paketleri kullanabilirsiniz.
+
+## <a name="backuprestoredisaster-recovery"></a>Yedekleme/geri yükleme/olağanüstü durum kurtarma
+
+ SQL kaynak sağlayıcısı, bir eklenti bileşeni olduğundan, bir Azure yığın iş sürekliliği olağanüstü durum kurtarma (BCDR) işleminin bir parçası yedeklenmediğini. Komut dosyaları için aşağıdaki işlemleri sağlanır:
+
+- Yedekleme durumu bilgilerini (bir Azure yığın depolama hesabında depolanır.)
+- Tam yığını kurtarma gerekliyse, kaynak sağlayıcısı geri yükleniyor.
+
+>[!NOTE]
+>Bir kurtarma yapmanız gerekiyorsa, kaynak sağlayıcısı geri yüklenmeden önce veritabanı sunucularının kurtarıldı gerekir.
 
 ## <a name="updating-sql-credentials"></a>SQL kimlik bilgileri güncelleştiriliyor
-Oluşturma ve SQL Server sistem yönetici hesaplarında korumaya yönelik sorumluluğu size aittir. Kaynak sağlayıcısının veritabanlarını kullanıcılar adına yönetmek için bu ayrıcalıklarına sahip bir hesap gerekir - bu veritabanları veri erişimi gerekmez. SQL Server sa parolalarını güncellemeniz gerekiyorsa, kaynak sağlayıcı tarafından kullanılan depolanan parolayı değiştirmek için kaynak sağlayıcısının Yöneticisi arabirimini güncelleştirme özelliğini kullanabilirsiniz. Bu parolalar bir anahtar kasası, Azure yığın örneğinde depolanır.
 
-Ayarları değiştirmek için tıklatın **Gözat** &gt; **yönetim KAYNAKLARININ** &gt; **SQL barındırma sunucuları** &gt; **SQL oturum açma bilgileri** ve bir oturum açma adı seçin. Değişiklik SQL örneğinde önce yapılmalıdır (ve gerekirse, tüm yinelemeleri). İçinde **ayarları** paneli, tıklayın **parola**.
+Oluşturma ve SQL Server sysadmin hesaplarında sürdürmek için sorumlu. Kaynak sağlayıcısının kullanıcıların veritabanlarını yönetmek için bu ayrıcalıklarına sahip bir hesap gerekir, ancak kullanıcıların verilere erişimi gerekmez. SQL Server sysadmin parolalarını güncellemeniz gerekiyorsa, depolanmış parolayı değiştirmek için kaynak sağlayıcısı yönetici arabirimi kullanabilirsiniz. Bu parolalar bir anahtar kasası, Azure yığın örneğinde depolanır.
+
+Ayarları değiştirmek üzere seçin **Gözat** &gt; **yönetim KAYNAKLARININ** &gt; **SQL barındırma sunucuları** &gt; **SQL oturum açma bilgileri** ve bir kullanıcı adı seçin. Değişiklik SQL örneğinde önce yapılmalıdır (ve gerekirse, tüm çoğaltmalar.) Altında **ayarları**seçin **parola**.
 
 ![Yönetici parolasını güncelleştirin](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
-## <a name="secrets-rotation"></a>Gizli anahtarları döndürme 
-*Bu yönergeler yalnızca Azure yığın tümleşik sistemleri sürüm 1804 ve sonrası için geçerlidir. Gizli dönüş öncesi 1804 Azure yığın sürümlerinde çalışmayın.*
+## <a name="secrets-rotation"></a>Gizli anahtarları döndürme
+
+*Bu yönergeler yalnızca Azure yığın tümleşik sistemleri sürüm 1804 ve sonrası için geçerlidir. Öncesi 1804 Azure yığın sürümleri parolaları döndürmek denemeyin.*
 
 SQL ve MySQL kaynak sağlayıcıları ile Azure yığın kullanarak sistemleri tümleştirildiğinde aşağıdaki altyapı (dağıtım) gizlilikler döndürebilirsiniz:
+
 - Dış SSL sertifikası [dağıtım sırasında sağladığınız](azure-stack-pki-certs.md).
 - Dağıtım sırasında sağlanan kaynak sağlayıcısı VM yerel yönetici hesabı parolası.
 - Kaynak sağlayıcı Tanılama kullanıcı (dbadapterdiag) parolası.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Gizli anahtarları döndürme için PowerShell örnekleri
 
-**Aynı anda tüm parolaları değiştirme**
+**Tüm gizli aynı anda değiştirin.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
@@ -62,16 +76,18 @@ SQL ve MySQL kaynak sağlayıcıları ile Azure yığın kullanarak sistemleri t
     -VMLocalCredential $localCreds
 ```
 
-**Yalnızca tanılama kullanıcı parolasını değiştirme**
+**Tanılama kullanıcı parolasını değiştirin.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
-    –DiagnosticsUserPassword  $passwd 
+    –DiagnosticsUserPassword  $passwd
 ```
 
-**VM yerel yönetici hesabı parolasını değiştirme**
+**VM yerel yönetici hesabının parolasını değiştirin.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
@@ -80,14 +96,15 @@ SQL ve MySQL kaynak sağlayıcıları ile Azure yığın kullanarak sistemleri t
     -VMLocalCredential $localCreds
 ```
 
-**Değişiklik SSL sertifikası**
+**SSL sertifikası parolayı değiştirin.**
+
 ```powershell
 .\SecretRotationSQLProvider.ps1 `
     -Privilegedendpoint $Privilegedendpoint `
     -CloudAdminCredential $cloudCreds `
     -AzCredential $adminCreds `
     -DependencyFilesLocalPath $certPath `
-    -DefaultSSLCertificatePassword $certPasswd 
+    -DefaultSSLCertificatePassword $certPasswd
 ```
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parametreleri
@@ -97,81 +114,103 @@ SQL ve MySQL kaynak sağlayıcıları ile Azure yığın kullanarak sistemleri t
 |AzCredential|Azure yığın hizmet yönetici hesabı kimlik bilgileri.|
 |CloudAdminCredential|Azure yığın bulut yönetici etki alanı hesabı kimlik bilgileri.|
 |PrivilegedEndpoint|Get-AzureStackStampInformation erişmek için ayrıcalıklı uç noktası'ı seçin.|
-|DiagnosticsUserPassword|Tanılama kullanıcı parolası.|
-|VMLocalCredential|MySQLAdapter VM yerel yönetici hesabı.|
+|DiagnosticsUserPassword|Tanılama kullanıcı hesabı parolası.|
+|VMLocalCredential|MySQLAdapter VM üzerinde yerel yönetici hesabı.|
 |DefaultSSLCertificatePassword|Varsayılan SSL sertifikası (* pfx) parola.|
 |DependencyFilesLocalPath|Bağımlılık dosyalarını yerel yolu.|
 |     |     |
 
 ### <a name="known-issues"></a>Bilinen sorunlar
-**Sorunu**: gizli döndürme özel komut dosyası çalışırken başarısız olursa gizli anahtarları döndürme için günlükleri otomatik olarak toplanmadı.
 
-**Geçici çözüm**: Get-AzsDBAdapterLogs C:\Logs altında AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log dahil olmak üzere tüm kaynak sağlayıcısı günlükleri toplamak için kullanın.
+**Sorunu**: gizli anahtarları döndürme günlükleri.<br>
+Gizli döndürme özel komut dosyası çalışırken başarısız olursa gizli anahtarları döndürme için günlükleri otomatik olarak toplanan değil.
+
+**Geçici çözüm**:<br>
+C:\Logs kaydedilen AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log dahil olmak üzere tüm kaynak sağlayıcısı günlükleri toplamak için Get-AzsDBAdapterLogs cmdlet'ini kullanın.
 
 ## <a name="update-the-virtual-machine-operating-system"></a>Sanal makine işletim sistemini güncelleştirmek
-Windows Server VM güncelleştirmek için birkaç yolu vardır:
-- Şu anda düzeltme eki yüklenmiş bir Windows Server 2016 Core görüntüsünü kullanarak en son kaynak sağlayıcısı paketini yükle
-- RP güncelleştirilmesini veya yükleme sırasında Windows Update paket yükleme
+
+Sanal makine işletim sistemini güncelleştirmek için aşağıdaki yöntemlerden birini kullanın.
+
+- Şu anda düzeltme eki yüklenmiş bir Windows Server 2016 Core görüntüsünü kullanarak en son kaynak sağlayıcısı paketini yükleyin.
+- Bir Windows Update paketi yüklemesi sırasında yüklemek veya kaynak sağlayıcısı için güncelleştirin.
 
 ## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Sanal makine Windows Defender tanımlarını güncelleştirme
-Defender tanımlarını güncelleştirmek için aşağıdaki adımları izleyin:
+
+Windows Defender tanımlarını güncelleştirmek için:
 
 1. Windows Defender tanımlarını Update'ten indirme [Windows Defender tanım](https://www.microsoft.com/en-us/wdsi/definitions).
 
-    Bu sayfada "El ile yükleyip tanımları altında" indir "Windows 10 ve Windows 8.1" 64-bit dosya için Windows Defender Antivirus. 
-    
-    Doğrudan bağlantı: https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64.
+   Tanımlarını sayfa güncelleştirmesi, "El ile yükleyip tanımları" öğesine gidin. "Windows 10 ve Windows 8.1 için Windows Defender Antivirus" 64-bit dosyasını indirin.
 
-2. Bir PowerShell oturumuna SQL RP bağdaştırıcısı sanal makinenin bakım uç noktası oluşturma
-3. Bakım uç nokta oturumu kullanarak DB bağdaştırıcısı makineye tanımları güncelleştirme dosyasını kopyalayın
-4. Bakım PowerShell oturumu çağırma _güncelleştirme DBAdapterWindowsDefenderDefinitions_ komutu
-5. Yüklemeden sonra kullanılan tanımları güncelleştirme dosyası kaldırmak için önerilir. Bakım kullanarak oturum kaldırılabilir _Kaldır ItemOnUserDrive)_ komutu.
+   Alternatif olarak, kullanın [bu doğrudan bağlantı](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) için yükleme/fpam fe.exe dosyasını çalıştırın.
 
+2. SQL kaynak sağlayıcısı bağdaştırıcısı sanal makinenin bakım uç noktası için bir PowerShell oturumu oluşturun.
 
-(Adresi veya gerçek değer ile sanal makine adını değiştirin) Defender tanımlarını güncelleştirmek için örnek bir betik verilmiştir:
+3. Bakım uç nokta oturumu kullanarak sanal makine tanımları güncelleştirme dosyasını kopyalayın.
+
+4. Bakım PowerShell oturumunda çalıştırmak *güncelleştirme DBAdapterWindowsDefenderDefinitions* komutu.
+
+5. Tanımları yükledikten sonra tanımları güncelleştirme dosyasını kullanarak silme öneririz *Kaldır ItemOnUserDrive* komutu.
+
+**Tanımları güncelleştirmek için PowerShell komut dosyası örneği.**
+
+Düzenle ve Defender tanımlarını güncelleştirmek için aşağıdaki betiği çalıştırın. Komut dosyası değerleri ortamınıza gelen değerlerle değiştirin.
 
 ```powershell
-# Set credentials for the RP VM local admin user
+# Set credentials for local admin on the resource provider VM.
 $vmLocalAdminPass = ConvertTo-SecureString "<local admin user password>" -AsPlainText -Force
 $vmLocalAdminUser = "<local admin user name>"
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
     ($vmLocalAdminUser, $vmLocalAdminPass)
 
-# Public IP Address of the DB adapter machine
+# Provide the public IP address for the adapter VM.
 $databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
 
-# Download Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions. 
+# Download the Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions.
 Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64' `
-    -Outfile $localPathToDefenderUpdate 
+    -Outfile $localPathToDefenderUpdate
 
-# Create session to the maintenance endpoint
+# Create a session to the maintenance endpoint.
 $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
-# Copy defender update file to the db adapter machine
+# Copy the defender update file to the adapter virtual machine.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\"
-# Install the update file
+# Install the update definitions.
 Invoke-Command -Session $session -ScriptBlock `
     {Update-AzSDBAdapterWindowsDefenderDefinition -DefinitionsUpdatePackageFile "User:\mpam-fe.exe"}
-# Cleanup the definitions package file and session
+# Cleanup the definitions package file and session.
 Invoke-Command -Session $session -ScriptBlock `
     {Remove-AzSItemOnUserDrive -ItemPath "User:\mpam-fe.exe"}
-$session | Remove-PSSession 
+$session | Remove-PSSession
 ```
 
-
 ## <a name="collect-diagnostic-logs"></a>Tanılama günlüklerini toplayın
-SQL kaynak kilitli bir sanal makineyi sağlayıcıdır. Bu sanal makineden bir PowerShell yalnızca yetecek kadar Yönetim (JEA) uç noktası günlükleri toplamak için gerekli olur _DBAdapterDiagnostics_ bu amaç için sağlanır. Bu uç noktası aracılığıyla kullanılabilen iki komut vardır:
 
-- **Get-AzsDBAdapterLog**. RP tanılama günlükleri içeren bir zip paketini hazırlar ve oturum kullanıcı sürücüde yerleştirir. Komut parametresiz çağrılabilir ve günlükleri son dört saatlik toplar.
-- **Remove-AzsDBAdapterLog**. Kaynak sağlayıcısı VM mevcut günlük paketlerini temizler
+Kilitli sanal makineden günlükleri toplamak için PowerShell yalnızca yetecek kadar Yönetim (JEA) uç noktası kullanabilirsiniz *DBAdapterDiagnostics*. Bu uç noktaya aşağıdakileri sağlar:
 
-Bir kullanıcı hesabı olarak adlandırılan **dbadapterdiag** RP dağıtım veya RP günlükleri ayıklanacağı tanılama uç noktasına bağlanmak için güncelleştirme işlemi sırasında oluşturulur. Bu hesabın parolasını dağıtım/güncelleştirme sırasında yerel yönetici hesabı için girilen parola ile aynıdır.
+- **Get-AzsDBAdapterLog**. Bu komut, kaynak sağlayıcısı tanılama günlüklerinin zip paketini oluşturur ve oturumunun kullanıcı sürücüde dosyası kaydeder. Hiçbir parametre olmadan bu komutu çalıştırabilirsiniz ve günlükleri son dört saatlik toplanır.
+- **Remove-AzsDBAdapterLog**. Bu komut kaynak sağlayıcıdaki VM mevcut günlük paketleri kaldırır.
 
-Bu komutları kullanmak için kaynak sağlayıcısı sanal makineye uzak PowerShell oturumu oluşturmak ve komut çağırma gerekecektir. İsteğe bağlı olarak FromDate ve ToDate parametreleri sağlayabilir. Aşağıdakilerden birini veya bunların her ikisi de belirtmezseniz, geçerli tarihten önce dört saat FromDate olacaktır ve ToDate geçerli saati olacaktır.
+### <a name="endpoint-requirements-and-process"></a>Uç nokta gereksinimleri ve süreci
 
-Bu örnek betik, bu komutları kullanımını göstermektedir:
+Bir kaynak sağlayıcısı yüklü veya güncelleştirildiğinde, **dbadapterdiag** kullanıcı hesabı oluşturulur. Bu hesap, tanılama günlüklerini toplamak için kullanacaksınız.
+
+>[!NOTE]
+>Dbadapterdiag hesap parolası bir sağlayıcı dağıtım veya güncelleştirme sırasında oluşturulan sanal makine üzerinde yerel yönetici için kullanılan parola ile aynıdır.
+
+Kullanılacak *DBAdapterDiagnostics* komutlar, kaynak sağlayıcısı sanal makineye uzak PowerShell oturumu oluşturmak ve çalıştırmak **Get-AzsDBAdapterLog** komutu.
+
+Kullanarak günlük toplama için zaman aralığını ayarlamanıza **FromDate** ve **ToDate** parametreleri. Birini veya her ikisini bu parametreleri belirtmezseniz, aşağıdaki varsayılanlar kullanılır:
+
+- FromDate değeri, geçerli tarihten önce dört saattir.
+- ToDate geçerli saattir.
+
+**Günlüklerinin toplanması için PowerShell komut dosyası örneği.**
+
+Aşağıdaki betik, kaynak Sağlayıcısı'ndan VM tanılama günlükleri toplamak gösterilmektedir.
 
 ```powershell
 # Create a new diagnostics endpoint session.
@@ -184,22 +223,23 @@ $diagCreds = New-Object System.Management.Automation.PSCredential `
 $session = New-PSSession -ComputerName $databaseRPMachineIP -Credential $diagCreds `
         -ConfigurationName DBAdapterDiagnostics
 
-# Sample captures logs from the previous one hour
+# Sample that captures logs from the previous hour.
 $fromDate = (Get-Date).AddHours(-1)
 $dateNow = Get-Date
 $sb = {param($d1,$d2) Get-AzSDBAdapterLog -FromDate $d1 -ToDate $d2}
 $logs = Invoke-Command -Session $session -ScriptBlock $sb -ArgumentList $fromDate,$dateNow
 
-# Copy the logs
+# Copy the logs to the user drive.
 $sourcePath = "User:\{0}" -f $logs
 $destinationPackage = Join-Path -Path (Convert-Path '.') -ChildPath $logs
 Copy-Item -FromSession $session -Path $sourcePath -Destination $destinationPackage
 
-# Cleanup logs
+# Cleanup the logs.
 $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove- AzsDBAdapterLog }
-# Close the session
+# Close the session.
 $session | Remove-PSSession
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 [Sunucuları barındıran SQL Server ekleyin](azure-stack-sql-resource-provider-hosting-servers.md)

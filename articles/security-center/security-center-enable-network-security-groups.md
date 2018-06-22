@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 3c0ad4a0e1a5f4f2fd6def4f29599e2e55eb1a9d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fe75781629e8d6416405cc9eec9ce14e61a00b14
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364463"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301436"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Ağ güvenlik grupları Azure Güvenlik Merkezi'nde etkinleştir
 Azure Güvenlik Merkezi bir zaten etkin değilse, bir ağ güvenlik grubu (NSG) etkinleştirmenizi önerir. Nsg'ler izin veren veya bir sanal ağ üzerindeki VM örneklerinize ağ trafiğinin reddeden erişim denetimi listesi (ACL) kurallarının bir listesini içerir. NSG'ler alt ağlarla veya bu alt ağların içindeki tekil VM örnekleriyle ilişkili olabilir. NSG bir alt ağ ile ilişkili olduğunda ACL kuralları bu alt ağdaki tüm VM örnekleri için geçerli olur. Ayrıca, tekil bir VM trafik kısıtlanabilir başka bir NSG doğrudan bu VM ilişkilendirerek. Daha fazla bilgi edinmek için [bir ağ güvenlik grubu (NSG) nedir?](../virtual-network/security-overview.md)
@@ -43,7 +43,7 @@ Nsg'ler etkin yoksa Güvenlik Merkezi iki önerileri size gösterir: alt ağlar�
 
    ![Ağ güvenlik grubu seç][4]
 
-Bir NSG'yi oluşturursanız, adımları [Azure portalını kullanarak Nsg'ler yönetme](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) bir NSG oluşturmak ve güvenlik kuralları ayarlamak için.
+Bir NSG'yi oluşturursanız, adımları [bir ağ güvenlik grubunu yönetme](../virtual-network/manage-network-security-group.md) bir NSG oluşturmak ve güvenlik kuralları ayarlamak için.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Bu makalenin alt ağlar ya da sanal makineleri için Güvenlik Merkezi öneri "Ağ güvenlik grupları'ı etkinleştir" uygulamak nasıl oluşturulacağını gösterir. Nsg'ler etkinleştirme hakkında daha fazla bilgi edinmek için aşağıdakilere bakın:

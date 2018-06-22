@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: a82db16f2012672f6e2669f2fd8198b177f501f3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 56d21b76268f94f4254985a6924c4ca2d778a9cd
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264191"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300831"
 ---
 # <a name="create-sql-databases"></a>SQL veritabanı oluşturma
 
@@ -27,7 +27,7 @@ Oluşturun ve veritabanlarının Self Servis Kullanıcı Portalı'nda yönetin. 
 
 1. Oturum [Azure yığın](azure-stack-poc.md) Kullanıcı Portalı.
 
-2. Seçin **+ yeni** &gt; **veri + depolama "** &gt; **SQL Server veritabanı** &gt; **eklemek**.
+2. Seçin **+ yeni** &gt; **veri + depolama** &gt; **SQL Server veritabanı** &gt; **eklemek**.
 
 3. Altında **Create Database**, gerekli bilgileri girin **veritabanı adı** ve **MB cinsinden en büyük boyutu**.
 

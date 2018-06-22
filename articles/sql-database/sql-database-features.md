@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: d49cd0096eb173c0f483a7b7ab1f3def745f56a6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: de85a555def31d164f2cda5c6c6bc9fae9fb5a7e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231619"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309291"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Özellik karşılaştırması: SQL Server ile Azure SQL veritabanı 
 
@@ -32,7 +32,7 @@ Aşağıdaki tabloda, SQL Server'ın önemli olan özellikler listelenmekte ve �
 | **SQL özelliği** | **Azure SQL veritabanı/mantıksal Server'da desteklenen** | **Azure SQL veritabanı/yönetilen örneği (Önizleme) desteklenir** |
 | --- | --- | --- |
 | [Her zaman şifreli](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Evet - bkz [sertifika deposu](sql-database-always-encrypted.md) ve [anahtar kasası](sql-database-always-encrypted-azure-key-vault.md) | Evet - bkz [sertifika deposu](sql-database-always-encrypted.md) ve [anahtar kasası](sql-database-always-encrypted-azure-key-vault.md) |
-| [AlwaysOn Kullanılabilirlik grupları:](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) |
+| [Always On kullanılabilirlik grupları](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) | [Yüksek kullanılabilirlik](sql-database-high-availability.md) her veritabanı ile eklenmiştir. Olağanüstü durum kurtarma ele alınmıştır [iş sürekliliği bir bakış ile Azure SQL veritabanı](sql-database-business-continuity.md) |
 | [Bir veritabanı ekleme](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Hayır | Hayır |
 | [Uygulama rolleri](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | Evet | Evet |
 |[Denetim](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Evet](sql-database-auditing.md)| [Evet](sql-database-managed-instance-auditing.md) |

@@ -14,16 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839597"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302191"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Olay çözümleme ve görselleştirme günlük analizi
-
-Günlük analizi, OMS (Operations Management Suite) olarak da bilinen, izleme ve tanılama uygulamaları için yardımcı Yönetim Hizmetleri ve bulutta barındırılan hizmetleri koleksiyonudur. Bu makalede Öngörüler elde edin ve kümenizdeki neler olduğunu sorun giderme için günlük analizi sorguları çalıştırmak nasıl özetlenmektedir. Aşağıdaki sık sorulan ele alınmıştır:
+Günlük analizi toplar ve uygulamalardan ve bulutta barındırılan hizmetleri telemetri analiz eder ve bunların kullanılabilirliğini ve performansını en üst düzeye çıkarmanıza yardımcı olmak için analiz araçları sağlar. Bu makalede Öngörüler elde edin ve kümenizdeki neler olduğunu sorun giderme için günlük analizi sorguları çalıştırmak nasıl özetlenmektedir. Aşağıdaki sık sorulan ele alınmıştır:
 
 * Sistem durumu olayları nasıl sorun giderme?
 * Ne zaman bir düğüm arıza nasıl anlarım?
@@ -43,9 +42,9 @@ Günlük analizi tarafından alınan veri sonra Azure birkaç sahip *yönetim ç
 
 2. Özet olarak, her biri için Service Fabric dahil olmak üzere etkin çözümleri için bir grafik biçiminde kutucuklar görürsünüz. Tıklatın **Service Fabric** Service Fabric analiz çözümü devam etmek için (aşağıdaki ilk görüntü) grafik (aşağıdaki ikinci görüntü).
 
-    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
+    ![Service Fabric çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS BT çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
+    ![Service Fabric çözümü](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 Yukarıdaki resimde Service Fabric analiz çözümü giriş sayfasıdır. Neler olduğuna dair kümenizdeki bir anlık görüntü görünüm budur. Küme oluşturma tanılama etkinleştirilirse, olayları görebilirsiniz. 
 
@@ -60,11 +59,11 @@ Yukarıdaki resimde Service Fabric analiz çözümü giriş sayfasıdır. Neler 
 
 1. Grafik için Service Fabric Analytics sayfasında tıklayın **Service Fabric olayları**.
 
-    ![OMS BT çözüm işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
+    ![Service Fabric çözüm işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
 2. Tıklatın **listesi** olayları bir listesini görüntülemek için. Bir kez Burada, toplanan tüm sistem olayları görebilirsiniz. Başvuru için bu Azure depolama hesabında WADServiceFabricSystemEventsTable arasındadır ve benzer şekilde güvenilir hizmetler ve sonraki gördüğünüz aktörler olayları ilgili bu tablolardaki.
     
-    ![OMS sorgu işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
+    ![Sorgu işletimsel kanal](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
 Alternatif olarak soldaki Büyüteç'i tıklatın ve Kusto sorgu dili aradığınızı bulmak için kullanın. Örneğin, kümedeki düğümler üzerinde gerçekleştirilen tüm eylemler bulmak için aşağıdaki sorguyu kullanabilirsiniz. Aşağıda kullanılan olay kimlikleri bulunan [işletimsel kanal olay başvurusu](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -79,11 +78,11 @@ Belirli düğümler (bilgisayar) sistem hizmeti (görevadı) gibi pek çok fazla
 
 1. Grafik için Service Fabric Analytics sayfasında, tıklatın **Reliable Services**.
 
-    ![OMS BT çözüm güvenilir hizmetler](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
+    ![Service Fabric çözüm güvenilir hizmetler](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
 2. Tıklatın **listesi** olayları bir listesini görüntülemek için. Burada güvenilir hizmetler olayları görebilirsiniz. Hizmet runasync başlatıldığında ve hangi dağıtım ve yükseltme işlemleri genellikle olur tamamlandı için farklı olayları görebilirsiniz. 
 
-    ![Güvenilir hizmetler OMS sorgulama](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
+    ![Sorgu güvenilir hizmetler](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
 Güvenilir aktör olayları, benzer bir biçimde görüntülenebilir. Güvenilir aktörler için Ayrıntılı olayları yapılandırmak için değiştirmeniz gerekir `scheduledTransferKeywordFilter` (aşağıda gösterilen) tanılama uzantısı yapılandırmada. Bunlar için değerlerine ayrıntıları [güvenilir aktörler olay başvurusu](service-fabric-reliable-actors-diagnostics.md#keywords).
 
@@ -101,12 +100,12 @@ Güvenilir aktör olayları, benzer bir biçimde görüntülenebilir. Güvenilir
 
 Kusto sorgu dili güçlüdür. Başka bir değerli sorgu çalıştırabilirsiniz, çoğu olayları hangi düğümlerin oluşturduğunu bulmaktır. Aşağıdaki ekran görüntüsünde sorgu düğümü ve belirli bir hizmeti ile bir araya getirilir Service Fabric çalışma olaylarını gösterir.
 
-![Düğüm başına OMS sorgu olayları](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
+![Düğüm başına sorgu olayları](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Altyapı yani performans sayaçlarını izleme etkinleştirmek için üzerinden için head [OMS aracısı ekleme](service-fabric-diagnostics-oms-agent.md). Aracı performans sayaçlarını toplar ve bunları mevcut çalışma alanına ekler.
-* Şirket içi kümeleri için OMS için OMS veri göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla bilgi [Internet erişimi olmayan bilgisayarlar için OMS OMS ağ geçidini kullanarak bağlanma](../log-analytics/log-analytics-oms-gateway.md)
-* Ayarlamak için OMS yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için
+* Altyapı yani performans sayaçlarını izleme etkinleştirmek için üzerinden için head [günlük analizi aracısı ekleme](service-fabric-diagnostics-oms-agent.md). Aracı performans sayaçlarını toplar ve bunları mevcut çalışma alanına ekler.
+* Şirket içi kümeleri için günlük analizi için günlük analizi veri göndermek için kullanılan bir ağ geçidi (HTTP İleri Proxy) sunar. Uygulamasında hakkında daha fazla bilgi [günlük OMS ağ geçidini kullanma analizi için Internet erişimi olmayan bilgisayarları bağlama](../log-analytics/log-analytics-oms-gateway.md)
+* Yapılandırma [uyarı otomatik](../log-analytics/log-analytics-alerts.md) algılama ve tanılama yardımcı olmak için
 * İle familiarized [günlük arama ve sorgulama](../log-analytics/log-analytics-log-searches.md) günlük analizi bir parçası olarak sunulan özellikler
 * Günlük analizi ve ne sunar daha ayrıntılı bir bakış elde, okuma [günlük analizi nedir?](../operations-management-suite/operations-management-suite-overview.md)

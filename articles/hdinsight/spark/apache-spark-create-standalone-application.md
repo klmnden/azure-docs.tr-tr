@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: c72f513c7134c556afa5fa5d0b94c17b1142be54
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed90e50167f7e86c464b1571b91dc27435437e9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627425"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Öğretici: HDInsight’ta IntelliJ kullanarak Spark için bir Scala Maven uygulaması oluşturma
 
@@ -46,6 +47,41 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap oluşturun](htt
 * HDInsight üzerinde bir Apache Spark kümesi. Yönergeler için bkz. [Azure HDInsight'ta Apache Spark kümeleri oluşturma](apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development kit. [Buradan](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) yükleyebilirsiniz.
 * Bir Java IDE. Bu makalede IntelliJ IDEA 18.1.1 kullanılmaktadır. [Buradan](https://www.jetbrains.com/idea/download/) yükleyebilirsiniz.
+
+## <a name="use-intellij-to-create-application"></a>Uygulama oluşturmak için IntelliJ kullanma
+
+1. IntelliJ IDEA’yı başlatın ve sonra bir proje oluşturun. **Yeni Proje** iletişim kutusunda aşağıdakileri yapın: 
+
+   a. **HDInsight** > **HDInsight’ta Spark (Scala)** seçeneğini belirleyin.
+
+   b. **Derleme aracı** listesinde, gereksiniminize göre aşağıdakilerden birini seçin:
+
+      * Scala projesi oluşturma sihirbazı desteği için **Maven**
+      * Scala projesi için bağımlılıkları ve derlemeyi yönetmek için **SBT**
+
+   ![Yeni Proje iletişim kutusu](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. **İleri**’yi seçin.
+
+3. Scala projesi oluşturma sihirbazı, Scala eklentisini yükleyip yüklemediğinizi otomatik olarak algılar. **Yükle**’yi seçin.
+
+   ![Scala Eklentisi Denetimi](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. Scala eklentisini indirmek için **Tamam**’ı seçin. IntelliJ’yi yeniden başlatmak için yönergeleri izleyin. 
+
+   ![Scala eklentisi yükleme iletişim kutusu](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. **Yeni Proje** penceresinde aşağıdakileri yapın:  
+
+    ![Spark SDK’sını seçme](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. Bir proje adı ve konum girin.
+
+   b. **Proje SDK’sı** açılır listesinde, Spark 2.x kümesi için **Java 1.8**’i seçin veya Spark 1.x kümesi için **Java 1.7**’yi seçin.
+
+   c. **Spark sürümü** açılır listesinde Scala projesi oluşturma sihirbazı, Spark SDK’sı ve Scala SDK’sı için uygun sürümü bütünleştirir. Spark kümesi sürümü 2.0’dan eskiyse **Spark 1.x** seçeneğini belirleyin. Aksi takdirde, **Spark2.x** seçeneğini belirleyin. Bu örnek, **Spark 2.0.2 (Scala 2.11.8)** kullanır.
+
+6. **Son**’u seçin.
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>IntelliJ IDEA için Scala eklentisini yükleme
 Scala eklentisini yüklemek için aşağıdaki adımları kullanın:

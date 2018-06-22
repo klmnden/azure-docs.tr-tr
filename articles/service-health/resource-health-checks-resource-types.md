@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795954"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309605"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Kaynak türleri ve sistem durumu denetler Azure kaynak durumu
 Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir listesi aşağıdadır.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Sunucunun hazır ve çalışır mı?</li><li>Sunucunun bellek yetersiz çalıştırıldı?</li><li>Sunucu başlatılıyor?</li><li>Sunucunun kurtarma?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |Yürütülen denetimleri|
@@ -105,6 +110,11 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 |Yürütülen denetimleri|
 |---|
 |<ul><li> Oturum açma bilgileri veritabanına bulunmamış mi?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|Yürütülen denetimleri|
+|---|
+|<ul><li>Depolama hesabından veri okuma isteklerini Azure depolama platform sorunları nedeniyle başarısız oluyor?</li><li>Veri depolama hesabına yazma isteklerini Azure depolama platform sorunları nedeniyle başarısız oluyor?</li><li>Depolama hesabının bulunduğu depolama kümesi kullanılamıyor?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |Yürütülen denetimleri|

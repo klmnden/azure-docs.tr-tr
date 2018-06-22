@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d97e380f83cc4e5e5a2d9686a7ac8426967f4b93
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237792"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302208"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute Manager
+# <a name="expressroute-manager"></a>Expressroute Bağlantı Yöneticisi
 
 Azure ExpressRoute Yöneticisi özelliği kullanabileceğiniz [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) Azure ExpressRoute uçtan uca bağlantısı ve şube ofislerinde ve Azure arasında performansı izlemek için. Anahtar avantajları şunlardır: 
 
@@ -29,7 +29,7 @@ Azure ExpressRoute Yöneticisi özelliği kullanabileceğiniz [Ağ Performansı 
 - Bant genişliği kullanımı, kaybı ve gecikme hattı, eşleme ve Azure sanal ağ düzeyinde ExpressRoute için izleme.
 - ExpressRoute bağlantı hatları, ağ topolojisi bulma.
 
-![ExpressRoute Monitor](media/log-analytics-network-performance-monitor/expressroute-intro.png)
+![ExpressRoute İzleyicisi](media/log-analytics-network-performance-monitor/expressroute-intro.png)
 
 ## <a name="configuration"></a>Yapılandırma 
 Ağ Performansı İzleyicisi Yapılandırması'nı açmak için açın [Ağ Performansı İzleyicisi çözüm](log-analytics-network-performance-monitor.md) seçip **yapılandırma**.
@@ -37,7 +37,7 @@ Ağ Performansı İzleyicisi Yapılandırması'nı açmak için açın [Ağ Perf
 ### <a name="configure-network-security-group-rules"></a>Ağ güvenlik grubu kurallarını yapılandırma 
 Ağ Performansı İzleyicisi İzleme için kullanılan sunucular için azure'da, ağ güvenlik grubu (NSG) kuralları yapay işlemler için Ağ Performansı İzleyicisi tarafından kullanılan bağlantı noktası TCP trafiğine izin verecek şekilde yapılandırın. Varsayılan bağlantı noktası 8084 ' dir. Bu yapılandırma bir şirket içi ile iletişim kurmak için Azure vm'lerinde yüklü Operations Management Suite aracısının sağlar İzleme Aracısı. 
 
-NSG hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/virtual-networks-create-nsg-arm-pportal.md). 
+Nsg'ler hakkında daha fazla bilgi için bkz: [ağ güvenlik grupları](../virtual-network/manage-network-security-group.md). 
 
 >[!NOTE]
 > Bu adımla devam etmeden önce şirket içi sunucu aracısı ve Azure server aracısı yükleyin ve EnableRules.ps1 PowerShell betiğini çalıştırın. 

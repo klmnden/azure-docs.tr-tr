@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/18/2018
+ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: 4b12652783c94d132a5c1f4d4aa352d4e2318edf
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797677"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300688"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Cosmos DB zaman uyumsuz Java için Azure SDK SQL API: sürüm notları ve kaynakları
 > [!div class="op_single_selector"]
@@ -53,6 +53,16 @@ SQL API zaman uyumsuz Java SDK'sını desteği ile zaman uyumsuz işlemleri sağ
 
 ## <a name="release-notes"></a>Sürüm notları
 
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* Performansı artırmak ve lisans nedeniyle org.JSON bağımlılık jackson tarafından değiştirildi ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* Kullanım dışı OfferV2 sınıfı kaldırıldı.
+* Üretilen iş içerik teklif sınıfına yöntemi eklenen erişimcisi.
+* Herhangi bir yöntem belge/kaynak nesne türü bir jackson döndürülecek değiştirilen org.json türleri döndürüyor.
+* jackson ObjectNode dönmek için genişletme JsonSerializable değiştirilen sınıfların getObject(.) yöntemi yazın.
+* getCollection(.) yöntemi, koleksiyon ObjectNode döndürülecek değişti.
+* Kaldırılan JsonSerializable alt sınıfların oluşturucularla org.json.JSONObject bağımsız değişken.
+* JsonSerializable.toJson (SerializationFormattingPolicy.Indented), artık girintileme için iki alanları kullanır.
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * Benzersiz bir dizin ilke desteği eklendi.
 * Yanıt devamlılık belirteci boyutu akışı seçenekleri sınırlamak için destek eklendi.
@@ -89,6 +99,7 @@ Cosmos devre dışı bırakılan bir SDK'sını kullanarak DB'de herhangi bir is
 
 | Sürüm | Yayınlanma Tarihi | Sona erme tarihi |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |20 Haziran 2018|--- |
 | [1.0.2](#1.0.2) |18 May 2018|--- |
 | [1.0.1](#1.0.1) |20 Nisan 2018|--- |
 | [1.0.0](#1.0.0) |27 Şubat 2018|--- |

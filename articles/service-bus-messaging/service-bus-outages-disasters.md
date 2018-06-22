@@ -6,18 +6,18 @@ author: sethmanheim
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802315"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301725"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Hizmet veri yolu kesintileri ve olağanüstü karşı uygulamalar insulating için en iyi uygulamalar
 
-Görev açısından kritik uygulamalar, Planlanmayan kesintiler veya olağanüstü varlığında olsa bile sürekli olarak çalışması gerekir. Bu konu, hizmet veri yolu uygulamaları potansiyel hizmet kesintisi veya olağanüstü durum karşı korumak için kullanabileceğiniz teknikleri açıklar.
+Görev açısından kritik uygulamalar, Planlanmayan kesintiler veya olağanüstü varlığında olsa bile sürekli olarak çalışması gerekir. Bu makale, Service Bus uygulamaların potansiyel hizmet kesintisi veya olağanüstü durum karşı koruma için kullanabileceğiniz teknikleri açıklar.
 
 Bir kesinti geçici olarak kullanım dışı kalması Azure hizmet veri yolu tanımlanır. Kesinti Service Bus Mesajlaşma deposu veya hatta tüm veri merkezi gibi bazı bileşenleri etkileyebilir. Sorun çözüldükten sonra hizmet veri yolu yeniden kullanılabilir hale gelir. Genellikle, bir kesinti iletileri veya diğer veri kaybına neden olmaz. Belirli bir Mesajlaşma deposu kullanılamama bileşeni hatası örnektir. Bir güç kesintisi datacenter ya da hatalı veri merkezi ağ anahtarı, bir veri merkezi çapında kesinti örnektir. Bir kesinti birkaç dakika ile birkaç gün sürebilir.
 
@@ -78,6 +78,17 @@ Pasif çoğaltma kullanırken, aşağıdaki senaryolarda iletileri kaybolabilir 
 
 Hizmet veri yolu coğrafi olağanüstü durum kurtarma ve coğrafi çoğaltma, ad alanı düzeyinde destekler. Daha fazla bilgi için bkz: [Azure Service Bus coğrafi olağanüstü durum kurtarma](service-bus-geo-dr.md). Kullanılabilir olağanüstü durum kurtarma özelliği [Premium SKU](service-bus-premium-messaging.md) yalnızca meta veri olağanüstü durum kurtarma uygular ve birincil ve ikincil olağanüstü durum kurtarma ad alanında bulunan kullanır.
 
+## <a name="availability-zones-preview"></a>Kullanılabilirlik bölgeler (Önizleme)
+
+Service Bus Premium SKU destekleyen [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md), bir Azure bölgesi hataya yalıtılmış konumlara sağlama. 
+
+> [!NOTE]
+> Kullanılabilirlik bölgeleri Önizleme yalnızca desteklenen **Orta ABD**, **Doğu ABD 2**, ve **Fransa Merkezi** bölgeleri.
+
+Azure Portalı'nı kullanarak yeni ad alanında bulunan yalnızca kullanılabilirlik bölgeleri etkinleştirebilirsiniz. Hizmet veri yolu var olan ad alanlarının geçişini desteklemez. Bölge artıklık ad alanınıza etkinleştirdikten sonra devre dışı bırakılamıyor.
+
+![1][]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 Olağanüstü durum kurtarma hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 
@@ -93,3 +104,5 @@ Olağanüstü durum kurtarma hakkında daha fazla bilgi için aşağıdaki makal
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

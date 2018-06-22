@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ef20cdb0f6a7b5afd624a7910495ee784140c48
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b61465e9f38a5a461802d4ab46a7221c557b4595
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219991"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>Öğretici: Azure Active Directory Tümleştirme Keeper parola Yöneticisi & dijital kasası
 
@@ -133,7 +133,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açmayı yapılandırın](./media/keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
 
-7. Çoklu oturum açma yapılandırmak için **Keeper parola Yöneticisi & dijital kasası yapılandırma** tarafı, sırasında verilen yönergeleri izleyin [Keeper destek Kılavuzu](https://keepersecurity.com/assets/pdf/SettingupAzurewithKeeperSSOConnect.pdf)
+7. Çoklu oturum açma yapılandırmak için **Keeper parola Yöneticisi & dijital kasası yapılandırma** tarafı, sırasında verilen yönergeleri izleyin [Keeper destek Kılavuzu](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf).
 
 > [!TIP]
 > Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)

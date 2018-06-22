@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için BulkExecutor .NET kitaplığını kullanarak | Microsoft Docs
-description: Toplu alma ve Azure Cosmos DB koleksiyonlarına belgeleri güncelleştirmek için Azure Cosmos veritabanı BulkExecutor .NET kitaplığını kullanın.
+title: Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığını kullanarak | Microsoft Docs
+description: Toplu alma ve Azure Cosmos DB koleksiyonlarına belgeleri güncelleştirmek için Azure Cosmos DB'ın toplu Yürütücü .NET Kitaplığı'nı kullanın.
 keywords: .NET toplu Yürütücü
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 0e8c5f9a848eaa1543ce9d58895b035e23d9f335
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611169"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300780"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için BulkExecutor .NET kitaplığı kullanma
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için toplu Yürütücü .NET kitaplığı kullanma
 
-Bu öğretici, alabilir ve belgeleri Azure Cosmos DB koleksiyonlarına güncelleştirmek için Azure Cosmos veritabanı BulkExecutor .NET kitaplığı kullanma hakkında yönergeler sağlar. BulkExecutor kitaplığı nasıl, çok büyük verim ve depolama yararlanan yardımcı hakkında bilgi edinmek için bkz: [BulkExecutor kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğretici bir Azure Cosmos DB koleksiyona içeri aktarmalar rastgele oluşturulan belgeleri toplu örnek bir .NET uygulama size yol gösterecek. İçeri aktardıktan sonra onu nasıl Toplu içe aktarılan verilerin üzerinde belirli belge alanları gerçekleştirmek için işlemler olarak düzeltme ekleri belirterek güncelleştirme gösterir.
+Bu öğretici yönergeleri Azure Cosmos veritabanı toplu Yürütücü kullanarak alabilir ve belgeleri Azure Cosmos DB koleksiyonlarına güncelleştirmek için .NET kitaplığı sağlar. Toplu Yürütücü kitaplığı nasıl, çok büyük verim ve depolama yararlanan yardımcı hakkında bilgi edinmek için bkz: [toplu Yürütücü kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğretici bir Azure Cosmos DB koleksiyona içeri aktarmalar rastgele oluşturulan belgeleri toplu örnek bir .NET uygulama size yol gösterecek. İçeri aktardıktan sonra onu nasıl Toplu içe aktarılan verilerin üzerinde belirli belge alanları gerçekleştirmek için işlemler olarak düzeltme ekleri belirterek güncelleştirme gösterir.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -27,7 +27,7 @@ Bu öğretici, alabilir ve belgeleri Azure Cosmos DB koleksiyonlarına güncelle
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun. 
 
-* [Azure Cosmos DB’yi ücretsiz olarak](https://azure.microsoft.com/try/cosmosdb/) bir Azure aboneliği olmadan, ücretsiz ve herhangi bir taahhütte bulunmadan deneyebilirsiniz. Veya, kullanabileceğiniz [Azure Cosmos DB öykünücüsü](https://docs.microsoft.com/azure/cosmos-db/local-emulator) ile `https://localhost:8081` URI. Birincil anahtar sağlanan [istekleri kimlik doğrulaması](local-emulator.md#authenticating-requests).
+* [Azure Cosmos DB’yi ücretsiz olarak](https://azure.microsoft.com/try/cosmosdb/) bir Azure aboneliği olmadan, ücretsiz ve herhangi bir taahhütte bulunmadan deneyebilirsiniz. Veya, kullanabileceğiniz [Azure Cosmos DB öykünücüsü](https://docs.microsoft.com/azure/cosmos-db/local-emulator) ile `https://localhost:8081` URI. Birincil Anahtar, [Kimlik doğrulama istekleri](local-emulator.md#authenticating-requests) bölümünde sağlanır.
 
 * Açıklanan adımları kullanarak bir Azure Cosmos DB SQL API hesabı oluşturmak [veritabanı hesabı oluşturma](create-sql-api-dotnet.md#create-a-database-account) .NET hızlı başlangıç makalenin bölümüne. 
 
@@ -166,7 +166,7 @@ BulkUpdateAsync API'sini kullanarak, varolan belgeleri güncelleştirebilirsiniz
     
 ## <a name="performance-tips"></a>Performans ipuçları 
 
-BulkExecutor kitaplığı kullanırken daha iyi performans için aşağıdaki noktaları göz önünde bulundurun:
+Toplu Yürütücü kitaplığı kullanırken daha iyi performans için aşağıdaki noktaları göz önünde bulundurun:
 
 * En iyi performans için uygulamanızı Cosmos DB hesap yazma bölgeniz aynı bölgede bulunan bir Azure sanal makinesinden çalıştırın.  
 
@@ -196,4 +196,4 @@ BulkExecutor kitaplığı kullanırken daha iyi performans için aşağıdaki no
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Nuget paketi ayrıntıları hakkında bilgi edinin ve sürüm notları BulkExecutor .net kitaplığı için bkz:[BulkExecutor SDK ayrıntıları](sql-api-sdk-bulk-executor-dot-net.md). 
+* Nuget paketi ayrıntıları hakkında bilgi edinin ve sürüm notları toplu Yürütücü .net kitaplığı için bkz:[toplu Yürütücü SDK ayrıntıları](sql-api-sdk-bulk-executor-dot-net.md). 

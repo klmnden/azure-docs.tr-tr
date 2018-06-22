@@ -5,27 +5,22 @@ services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: e756c15d-31fc-45c0-8df4-0bca0da10bb2
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/05/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: e6762d988da7d34893852505d8ce0fd30622eaaf
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: e168dcab182f9eb30291b58bdde252ec66d18e8c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802553"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301810"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Service Bus Mesajlaşma hizmeti kullanarak performans iyileştirmeleri için en iyi yöntemler
 
 Bu makalede Azure Service Bus aracılı ileti alışverişi sırasında performansı iyileştirmek için nasıl kullanılacağını açıklar. Bu makalenin ilk bölümü performansını artırmaya yardımcı olmak için sunulan farklı mekanizmaları açıklar. İkinci bölümü, belirli bir senaryo en iyi performans sunabilir şekilde Service Bus hizmetini kullanmak hakkında yönergeler sağlar.
 
-Bu konu boyunca terimi "istemci" Service Bus erişen herhangi bir varlığa anlamına gelir. Bir istemci bir gönderici veya bir alıcı rolüne alabilir. "Gönderen" terimi, Service Bus kuyruk veya konu başlığı aboneliği iletileri gönderen bir Service Bus kuyruk veya konu istemci için kullanılır. "Alıcı" terimi, bir hizmet veri yolu kuyruğu ya da abonelik iletileri alan Service Bus kuyruğu veya abonelik istemci anlamına gelir.
+Bu makale terimi "istemci" Service Bus erişen herhangi bir varlığa anlamına gelir. Bir istemci bir gönderici veya bir alıcı rolüne alabilir. "Gönderen" terimi, Service Bus kuyruk veya konu başlığı aboneliği iletileri gönderen bir Service Bus kuyruk veya konu istemci için kullanılır. "Alıcı" terimi, bir hizmet veri yolu kuyruğu ya da abonelik iletileri alan Service Bus kuyruğu veya abonelik istemci anlamına gelir.
 
 Bu bölümler performansı artırmaya yardımcı olmak için hizmet veri yolu kullanır birkaç kavramları tanıtır.
 
@@ -37,7 +32,7 @@ Hizmet veri yolu, istemcilerin üç protokolden birini aracılığıyla iletiler
 2. Service Bus Mesajlaşma protokolünü (SBMP)
 3. HTTP
 
-Mesajlaşma fabrikası var olduğu sürece, hizmet veri yolu bağlantı korumak için AMQP ve SBMP daha etkili olurlar. Ayrıca, toplu işleme ve prefetching uygular. Açıkça belirtilmediği sürece, bu konudaki tüm içeriğin AMQP veya SBMP kullanımını varsayar.
+Mesajlaşma fabrikası var olduğu sürece, hizmet veri yolu bağlantı korumak için AMQP ve SBMP daha etkili olurlar. Ayrıca, toplu işleme ve prefetching uygular. Açıkça belirtilmediği sürece, bu makaledeki tüm içeriği AMQP veya SBMP kullanımını varsayar.
 
 ## <a name="reusing-factories-and-clients"></a>Oluşturucular ve istemcilerin yeniden kullanma
 
@@ -45,13 +40,13 @@ Service Bus istemci nesneleri, gibi [QueueClient] [ QueueClient] veya [MessageSe
 
 ## <a name="concurrent-operations"></a>Eşzamanlı operasyonlar
 
-Bir işlemi gerçekleştirilirken (gönderme, alma, silme, vb.) biraz zaman alabilir. Bu süre, istek ve yanıt gecikmesi ek olarak Service Bus hizmeti tarafından işlemi işlenmesini içerir. Saat başına işlem sayısını artırmak için işlemler aynı anda yürütmeniz gerekir. Bu tutarlılık birkaç farklı yolla elde edebilirsiniz:
+Bir işlemi gerçekleştirilirken (gönderme, alma, silme, vb.) biraz zaman alabilir. Bu süre, istek ve yanıt gecikmesi ek olarak Service Bus hizmeti tarafından işlemi işlenmesini içerir. Saat başına işlem sayısını artırmak için işlemler aynı anda yürütmeniz gerekir. 
 
-* **Zaman uyumsuz işlemleri**: zaman uyumsuz işlemleri gerçekleştirerek istemci işlemleri zamanlar. Bir sonraki istekte, önceki isteği tamamlanmadan önce başlatılır. Aşağıdaki kod parçacığını bir zaman uyumsuz gönderme işlemi örneğidir:
+İstemci, zaman uyumsuz işlemleri gerçekleştirerek eşzamanlı işlem zamanlar. Bir sonraki istekte, önceki isteği tamamlanmadan önce başlatılır. Aşağıdaki kod parçacığını bir zaman uyumsuz gönderme işlemi örneğidir:
   
  ```csharp
-  BrokeredMessage m1 = new BrokeredMessage(body);
-  BrokeredMessage m2 = new BrokeredMessage(body);
+  Message m1 = new BrokeredMessage(body);
+  Message m2 = new BrokeredMessage(body);
   
   Task send1 = queueClient.SendAsync(m1).ContinueWith((t) => 
     {
@@ -65,25 +60,14 @@ Bir işlemi gerçekleştirilirken (gönderme, alma, silme, vb.) biraz zaman alab
   Console.WriteLine("All messages sent");
   ```
   
-  Aşağıdaki kod örneği zaman uyumsuz bir alma işlemi şöyledir:
+  Zaman uyumsuz bir örneği alma işlemi aşağıdaki kodudur. Tam program bkz [burada](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.Azure.ServiceBus/SendersReceiversWithQueues):
   
   ```csharp
-  Task receive1 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  Task receive2 = queueClient.ReceiveAsync().ContinueWith(ProcessReceivedMessage);
-  
-  Task.WaitAll(receive1, receive2);
-  Console.WriteLine("All messages received");
-  
-  async void ProcessReceivedMessage(Task<BrokeredMessage> t)
-  {
-    BrokeredMessage m = t.Result;
-    Console.WriteLine("{0} received", m.Label);
-    await m.CompleteAsync();
-    Console.WriteLine("{0} complete", m.Label);
-  }
-  ```
+  var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
+  var doneReceiving = new TaskCompletionSource<bool>();
 
-* **Birden çok oluşturucuları**: aynı üreteçleri tarafından oluşturulan tüm istemciler (göndericiler alıcıları yanı sıra) bir TCP bağlantısı paylaşın. En fazla ileti işleme bu TCP bağlantısı üzerinden gidebilirsiniz işlemlerinin sayısı sınırlıdır. Tek bir Fabrika ile elde edilebilir verimlilik TCP iletim süreleriyle ve ileti boyutu olmadığına göre değişir. Daha yüksek performans oranına almak için birden çok Mesajlaşma oluşturucuları kullanın.
+  receiver.RegisterMessageHandler(
+  ```
 
 ## <a name="receive-mode"></a>Mod alma
 
@@ -108,7 +92,7 @@ mfs.NetMessagingTransportSettings.BatchFlushInterval = TimeSpan.FromSeconds(0.05
 MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 ```
 
-Toplu işleme Faturalanabilir Mesajlaşma işlemlerinin sayısını etkilemez ve yalnızca hizmet veri yolu istemci protokolü için kullanılabilir. Toplu işleme HTTP protokolünü desteklemiyor.
+Toplu işleme Faturalanabilir Mesajlaşma işlemlerinin sayısını etkilemez ve yalnızca hizmet veri yolu istemci protokolünü kullanarak için kullanılabilir [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) kitaplığı. Toplu işleme HTTP protokolünü desteklemiyor.
 
 ## <a name="batching-store-access"></a>Mağaza erişimi toplu işleme
 
@@ -135,7 +119,7 @@ Toplu depolama erişim Faturalanabilir Mesajlaşma işlemlerinin sayısını etk
 
 Bir ileti prefetched, hizmet prefetched ileti kilitler. Kilidi ile farklı bir alıcı tarafından prefetched ileti alınamıyor. Kilit süresi dolmadan önce alıcı iletiyi tamamlanamazsa, iletinin diğer alıcılar için kullanılabilir hale gelir. İletinin prefetched kopyasını önbellekte kalır. Bu iletiyi tamamlamak çalıştığında, süresi dolan önbelleğe alınan kopya tüketir alıcı bir özel durum alır. Varsayılan olarak, ileti kilidi 60 saniye sonra süresi dolar. Bu değer 5 dakika olarak genişletilebilir. Süresi dolan iletileri kullanımını önlemek için önbellek boyutu her zaman bir istemci tarafından kilit zaman aşımı aralığı içinde kullanılabilecek iletileri sayısından daha küçük olmalıdır.
 
-Varsayılan kilitleme sona erme tarihi 60 saniye kullanırken, iyi bir değer için [SubscriptionClient.PrefetchCount] [ SubscriptionClient.PrefetchCount] 20 kez maksimum işliyor Factory tüm alıcıları oranları. Örneğin, üç alıcılar bir Üreteç oluşturur ve her alıcı saniye başına en fazla 10 iletileri işleyebilir. Önceden getirme sayısı, 20 X 3 X 10 = 600 aşamaz. Varsayılan olarak, [QueueClient.PrefetchCount] [ QueueClient.PrefetchCount] hiçbir ek iletiler hizmetinden getirilen yani 0 olarak ayarlayın.
+Varsayılan kilitleme sona erme tarihi 60 saniye kullanırken, iyi bir değer için [PrefetchCount] [ SubscriptionClient.PrefetchCount] 20 kez maksimum işliyor Factory tüm alıcıları oranları. Örneğin, üç alıcılar bir Üreteç oluşturur ve her alıcı saniye başına en fazla 10 iletileri işleyebilir. Önceden getirme sayısı, 20 X 3 X 10 = 600 aşamaz. Varsayılan olarak, [PrefetchCount] [ QueueClient.PrefetchCount] hiçbir ek iletiler hizmetinden getirilen yani 0 olarak ayarlayın.
 
 Mesaj işlemleri ya da gidiş dönüş genel sayısını azalttığı iletileri prefetching bir kuyruk veya abonelik için genel üretilen işi artırır. İlk iletinin getirme, ancak, bu kadar (daha fazla ileti boyutu nedeniyle) daha uzun sürer. Bu iletiler istemci tarafından önceden yüklenmiş olan çünkü prefetched iletileri alma daha hızlı olacaktır.
 
@@ -158,12 +142,12 @@ Kayıp olmaması gereken önemli bilgileri içeren bir ileti hızlı bir varlı�
 > [!NOTE]
 > İfade varlıkları işlemleri desteklemez.
 
-## <a name="use-of-partitioned-queues-or-topics"></a>Bölümlenmiş sıraları veya konuları
+## <a name="partitioned-queues-or-topics"></a>Bölümlenmiş sıralar veya konuları
 
 Dahili olarak, Service Bus aynı düğümde kullanır ve iletileri depolamak bir Mesajlaşma varlığıyla (kuyruk veya konu) için tüm iletileri depolamak ve işlemek için. A [bölümlenmiş kuyruk veya konu](service-bus-partitioning.md), diğer yandan, birden çok düğümüne dağıtılmış ve depoları Mesajlaşma. Bölümlenmiş kuyruklar ve konu başlıkları yalnızca normal kuyruklar ve konu başlıkları daha yüksek verimlilik elde etmek, bunlar ayrıca üst düzey kullanılabilirlik sergiler. Bölümlenmiş bir varlık oluşturmak için [EnablePartitioning] [ EnablePartitioning] özelliğine **doğru**, aşağıdaki örnekte gösterildiği gibi. Bölümlenen varlıklar hakkında daha fazla bilgi için bkz: [bölümlenmiş Mesajlaşma varlıkları][Partitioned messaging entities].
 
 > [!NOTE]
-> Bölümlenen varlıklar de artık desteklenmektedir [Premium SKU](service-bus-premium-messaging.md). 
+> Bölümlenen varlıklar desteklenmiyor [Premium SKU](service-bus-premium-messaging.md). 
 
 ```csharp
 // Create partitioned queue.
@@ -172,7 +156,7 @@ qd.EnablePartitioning = true;
 namespaceManager.CreateQueue(qd);
 ```
 
-## <a name="use-of-multiple-queues"></a>Birden çok sıraya kullanımı
+## <a name="multiple-queues"></a>Birden çok sıraları
 
 Bölümlenmiş kuyruk veya konu kullanmak mümkün değil veya beklenen yükü tek bölümlenmiş kuyruk veya konu tarafından işlenemez birden çok Mesajlaşma varlıkları kullanmanız gerekir. Birden çok varlık kullanırken, ayrılmış bir istemci tüm varlıklar için aynı istemci kullanmak yerine her varlık için oluşturun.
 

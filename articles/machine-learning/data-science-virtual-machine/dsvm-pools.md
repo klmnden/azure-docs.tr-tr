@@ -1,6 +1,6 @@
 ---
 title: Veri bilimi sanal makine havuzları - Azure | Microsoft Docs
-description: Takım için paylaşılan bir kaynak olarak veri bilimi VM havuzlarını dağıtma
+description: Bir takım için paylaşılan bir kaynak olarak veri bilimi VM'ler havuzlarını dağıtma
 keywords: derin öğrenme, AI, veri bilimi araçları, veri bilimi sanal makine, Jeo-uzamsal analytics, takım veri bilimi işlemi
 services: machine-learning
 documentationcenter: ''
@@ -15,60 +15,68 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: c7aab0435ecbd0aee57a15008ac0270159ec2eb3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0740ff7542d066442146b8e80e188ad5ba49a2b5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837091"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309407"
 ---
-# <a name="creating-a-shared-pool-of-data-science-virtual-machines"></a>Paylaşılan bir havuz veri bilimi sanal makineler oluşturma
+# <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Paylaşılan bir havuzu veri bilimi sanal makineler oluşturun
 
-Bu makalede ekibi tarafından nasıl paylaşılan havuz veri bilimi sanal makineler (DSVM) kullanım için oluşturulabilir anlatılmaktadır. Paylaşım ve işbirliği kolaylaştırmanın ve vererek, daha iyi kaynak kullanımı, paylaşılan bir havuzu kullanmanın faydası olduğu DSVM kaynaklarınızı daha etkili bir şekilde yönetmek için BT. 
+Bu makalede, paylaşılan bir havuz, veri bilimi sanal makineleri kullanır (DSVMs) ekibin nasıl oluşturabileceğiniz açıklanmaktadır. Paylaşılan bir havuzu kullanmanın yararları daha iyi kaynak kullanımı, paylaşım ve işbirliği dönüştüğünde, yönetim ve daha etkili yönetim DSVM kaynakların ' dir. 
 
-Birçok yolu ve DSVM havuzu oluşturmak için kullanılan farklı teknolojiler vardır.  Ana senaryolar aşağıda verilmiştir:
+DSVMs havuzu oluşturmak için birçok yöntem ve teknolojileri kullanabilirsiniz. Bu makalede, toplu işleme ve etkileşimli VM'ler için havuzları odaklanır.
 
-* Toplu işleme için havuzu
-* Etkileşimli VM'ler için havuzu
+## <a name="batch-processing-pool"></a>Toplu işlem havuzu
+Çoğunlukla çevrimdışı bir toplu işlemde işlerini çalıştırmak için DSVMs kuyruğunu ayarlamak istiyorsanız kullanabileceğiniz [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) veya [Azure Batch](https://docs.microsoft.com/azure/batch/) hizmet. Bu makale Azure Batch AI odaklanır.
 
-## <a name="batch-processing-pool"></a>Toplu işleme havuzu
-Çoğunlukla çevrimdışı bir toplu işlemde işlerini çalıştırmak için DSVM kuyruğunu ayarlamak istediğiniz sonra kullanabileceğiniz [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) hizmet veya [Azure Batch](https://docs.microsoft.com/azure/batch/). 
+Azure Batch AI görüntülerinde biri olarak DSVM Ubuntu sürümünde desteklenir. Azure CLI veya Python oluşturduğunuz Azure Batch AI küme, SDK'sı belirtebilirsiniz `image` parametre ve ayarlamak `UbuntuDSVM`. Ne tür bir işlem düğümlerini istediğiniz seçebilirsiniz: GPU tabanlı örnekleri yalnızca CPU örnekler, CPU ve bellek sayısı yerine bir [VM örnekleri geniş seçim](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) Azure üzerinde kullanılabilir. 
 
-### <a name="azure-batch-ai"></a>Azure Batch AI
-Azure Batch AI görüntülerinde biri olarak DSVM Ubuntu sürümünde desteklenir. Azure CLI veya Azure Batch AI küme oluşturacağınız Python SDK belirtebilirsiniz ```image``` parametre ve ayarlamak ```UbuntuDSVM```. Ne tür bir işlem düğümlerini istediğiniz seçebilirsiniz - GPU tabanlı örnekleri vs CPU yalnızca örnekler, CPU, bellek sayısı bir [VM örnekleri geniş seçim](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) Azure üzerinde kullanılabilir. Kullandığınızda, Ubuntu DSVM görüntünün toplu AI GPU tabanlı düğüm ile tüm gerekli GPU sürücüleri ve derin öğrenme çerçeveleri, toplu işlem düğümleri hazırlamak için önemli ölçüde zaman kazandırır önceden yüklenmiş. Aslında, bir Ubuntu DSVM etkileşimli olarak geliştiriyorsanız, toplu AI düğümlerin tam olarak aynı kurulumu ve yapılandırması olduğunu fark edeceksiniz. Bir toplu AI küme oluşturulduğunda genellikle, ayrıca tüm düğümler tarafından oluşturulmuş ve girdi ve çıktı veri yanı toplu iş kodu depolamak için kullanılan bir dosya paylaşımı oluşturmak / komut dosyası. 
+GPU tabanlı düğümleriyle toplu AI Ubuntu DSVM görüntüsünü kullandığınızda, tüm gerekli GPU sürücüleri ve çerçeveleri öğrenme derin önceden. Önkurulum toplu işlem düğümleri hazırlamak için önemli ölçüde zaman kazandırır. Aslında, bir Ubuntu DSVM etkileşimli olarak geliştiriyorsanız, toplu AI düğümlerin tam olarak aynı kurulumu ve yapılandırması olduğunu fark edeceksiniz. 
 
-Toplu AI kümenizi oluşturulduktan sonra çalıştırılacak iş göndermek için aynı CLI veya Python SDK'sını kullanabilirsiniz. Yalnızca toplu işlerini çalıştırmak için kullanılan zaman için ödeme yaparsınız. 
+Genellikle toplu AI kümesi oluşturduğunuzda, aynı zamanda tüm düğümler tarafından oluşturulmuş bir dosya paylaşımı oluşturun. Dosya Paylaşımı, girdi ve çıktı veri, yanı toplu iş kodu/komut dosyalarını depolamak için kullanılır. 
 
-#### <a name="more-information"></a>Daha fazla bilgi
+Bir toplu AI küme oluşturduktan sonra çalıştırılacak iş göndermek için aynı CLI veya Python SDK'sını kullanabilirsiniz. Yalnızca toplu işlerini çalıştırmak için kullanılan zaman için ödeme yaparsınız. 
+
+Daha fazla bilgi için bkz.
 * Kullanarak adım adım [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) toplu AI yönetmek için
 * Kullanarak adım adım [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) toplu AI yönetmek için
-* [Toplu AI tarif](https://github.com/Azure/BatchAI) çeşitli AI/derin öğrenme çerçeveleri toplu AI ile kullanmak nasıl kullanılabilir.
+* [Toplu AI tarif](https://github.com/Azure/BatchAI) çeşitli AI ve toplu AI çerçeveleri öğrenme derin nasıl kullanılacağı gösterilmektedir
 
 ## <a name="interactive-vm-pool"></a>Etkileşimli VM havuzu
 
-Tüm AI tarafından paylaşılan etkileşimli DSVMs havuzu / veri bilimi ekibi her kullanıcı kümesi için adanmış bir örneği olması yerine DSVM kullanılabilir bir örneğini oturum açmak kullanıcıların sağlar. Bu, daha iyi kullanılabilirlik ve kaynakları daha etkili kullanımı ile yardımcı olur. 
+Tüm AI/veri bilimi ekibi tarafından paylaşılan etkileşimli VM'ler havuzu kullanıcıların her kullanıcı kümesi için adanmış bir örneği olması yerine DSVM kullanılabilir bir örneğini oturum olanak tanır. Bu kurulumu daha iyi kullanılabilirlik ve kaynakları daha etkili kullanımı ile yardımcı olur. 
 
-Etkileşimli bir VM havuzu oluşturmak için kullanılan teknolojidir [Azure sanal makine ölçek kümeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) (VMSS) olanak sağlayan, aynı grup, Yük Dengeleme ve otomatik ölçeklendirmeyi VM'ler oluşturun ve yönetin. Kullanıcının oturum açtığı ana havuzunun IP veya DNS adresi. Ölçek oturum yollar ölçek kümesindeki bir kullanılabilir DSVM için otomatik olarak ayarlayın. Kullanıcı içine oturum benzer ortamı VM yedeklemiş istediğiniz olduğundan, VM ölçek kümesindeki tüm örneklerini paylaşılan bir ağ sürücüsündeki bir Azure dosyaları veya bir NFS paylaşımına gibi bağlar. Kullanıcının paylaşılan çalışma alanı, normalde her örnekleri takılı paylaşılan dosya deposu tutulur. 
+Etkileşimli bir VM havuzu oluşturmak için kullandığınız teknolojidir [Azure sanal makine ölçek kümeleri](https://docs.microsoft.com/azure/virtual-machine-scale-sets/). Ölçek kümeleri aynı, yük dengeli bir grup ve otomatik ölçeklendirmeyi VM'ler oluşturmak ve yönetmek için kullanabilirsiniz. 
 
-Ubuntu DSVMs örnekleriyle oluşturan bir VM ölçek kümesi örnek Azure Resource Manager şablonu bulunabilir [github](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). Azure Resource Manager şablonu örneği [parametre dosyası](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) aynı konumda de sağlanır. 
+Kullanıcı ana havuzunun IP veya DNS adresine bağlanır. Ölçek oturum yollar ölçek kümesindeki bir kullanılabilir DSVM için otomatik olarak ayarlayın. Kullanıcıların VM bakılmaksızın benzer bir ortam istediğiniz çünkü bunlar oturum açtığınızdan, Azure dosya paylaşımı veya bir NFS paylaşımına gibi bir paylaşılan ağ sürücüsü VM ölçek kümesindeki tüm örneklerini takma. Kullanıcının paylaşılan çalışma alanı, normalde her örnekleri takılı paylaşılan dosya deposu tutulur. 
 
-Azure Resource Manager şablonu Azure CLI kullanarak parametre dosyası için uygun değerleri ayarlamak VM ölçek oluşturabilirsiniz. 
+Ubuntu DSVM örnekleriyle Ayarla ölçek oluşturur bir örnek Azure Resource Manager şablonu bulabilirsiniz [GitHub](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json). Bir örnek [parametre dosyası](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.parameters.json) Azure Resource Manager için aynı konumda şablonudur. 
+
+Azure Resource Manager şablonu Azure CLI parametre dosyası değerlerini ayarlamak ölçek oluşturabilirsiniz. 
 
 ```
 az group create --name [[NAME OF RESOURCE GROUP]] --location [[ Data center. For eg: "West US 2"]
 az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  --template-uri https://raw.githubusercontent.com/Azure/DataScienceVM/master/Scripts/CreateDSVM/Ubuntu/dsvm-vmss-cluster.json --parameters @[[PARAMETER JSON FILE]]
 ```
-Yukarıdaki komutlarda VM ölçek kümesi VM örneği sayısı, her bir VM bağlanacaktır depolama hesabı için kimlik bilgileri ile birlikte, Azure dosyalarınızı işaretçiler Örneğiniz için belirtilen değerlerle parametre dosyasının bir kopyası olduğunu varsayın. Parametre dosyasını yerel olarak yukarıdaki komutu başvurulmaktadır. Ayrıca, parametreleri satır içi ya da bunlar için komut isteminde geçirebilirsiniz.  
+Yukarıdaki komutlar, sahip olduğunuz varsayılmaktadır:
+* Ölçek Örneğiniz için belirtilen değerlerle parametre dosyanın bir kopyasını ayarlayın.
+* VM örneği sayısı.
+* Azure dosyaları işaretçiler paylaşır.
+* Her VM bağlanacaktır depolama hesabı için kimlik bilgileri. 
 
-Yukarıdaki şablonu SSH sağlar ve Ubuntu DSVMs arka uç havuzuna Jupyterhub bağlantı VM ölçek ön uç noktasından ayarlayın.  Bir kullanıcı olarak, yalnızca VM SSH veya JupyterHub normal şekilde oturum açın. VM örnekleri genişletilebilir veya aşağı dinamik olarak herhangi bir durum olması gereken beri bağlı kaydedilen Azure dosyaları paylaşır. Aynı yaklaşımı Windows DSVMs havuzu oluşturmak için kullanılabilir. 
+Parametre dosyası, komutları yerel olarak başvurulur. Ayrıca, parametreleri satır içi ya da bunlar için komut isteminde geçirebilirsiniz.  
 
-[Azure dosyaları bağlar betik](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) de Azure DataScienceVM Github'da bulunmaktadır. Azure dosyaları parametre dosyasında belirtilen bağlama noktası oluşturma, ek olarak da ilk kullanıcının giriş dizininde bağlı sürücüye ek yazılım bağlantılarını oluşturur ve bir kullanıcıya özgü dizüstü dizin paylaşılan Azure dosyaları içinde yazılım bağlı ```$HOME/notebooks/remote``` erişim, çalıştırmak ve bunların Jupyter not defterleri kaydetmek kullanıcı etkinleştirme dizin.  Her kullanıcının Jupyter çalışma paylaşılan Azure dosyaları'na işaret etmek için VM üzerinde ek kullanıcılar oluşturduğunuzda, aynı kurala kullanılabilir. 
+Yukarıdaki şablonu SSH ve ön uç ölçeği Ubuntu DSVMs arka uç havuzuna Ayarla JupyterHub bağlantı noktasını etkinleştirir. Bir kullanıcı olarak, yalnızca JupyterHub veya SSH üzerinde VM normal şekilde oturum açın. VM örnekleri genişletilebilir veya aşağı dinamik olarak herhangi bir durum olması gerekir çünkü bağlı kaydedilen Azure dosyaları paylaşır. Windows DSVMs havuzu oluşturmak için aynı yaklaşımı kullanın. 
 
-Azure VM ölçek kuralları ek örnekleri oluşturmak ne zaman ve sanal makineleri hiç kullanılmadığı zaman hangi koşullarda kaydetmek için sıfır örnekler aşağıya doğru getirilmesi dahil olmak üzere örnekleri ölçeğini donanım kullanım maliyetleri bulut altında ayarlayabileceğiniz destek otomatik ölçeklendirmeyi ayarlar. . Ayrıntılı adımlar için VM ölçek kümesi belge sayfalarının sağlamak [otomatik ölçeklendirme](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+[Azure dosya paylaşımı bağladığı betik](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) da github'da Azure DataScienceVM Havuzda kullanılabilir. Komut parametresi dosyasında belirtilen bağlama noktası Azure dosyaları paylaşıma bağlar. Komut dosyası, ilk kullanıcının giriş dizininde bağlı sürücüye yazılım bağlantılarını da oluşturur. Bağlantılı bir kullanıcıya özgü dizüstü dizin Azure dosya paylaşımı içinde yazılım `$HOME/notebooks/remote` dizin böylece kullanıcılar erişim, çalıştırmak ve bunların Jupyter not defterleri kaydedin. Her kullanıcının Jupyter çalışma Azure dosya paylaşımına işaret edecek şekilde VM üzerinde ek kullanıcılar oluştururken, aynı yöntemi kullanabilirsiniz. 
+
+Sanal makine ölçek destek otomatik ölçeklendirmeyi ayarlar. Ek örnekleri oluşturmak ne zaman ve zaman örnekleri ölçeklendirmek kurallar ayarlayabilir. Örneğin, sanal makineleri hiç kullanılmadığı zaman bulut donanım kullanım maliyetlerinde kaydetmek için sıfır örneklerine ölçeklendirmek. Ayrıntılı adımlar için sanal makine ölçek kümeleri belge sayfalarının sağlamak [otomatik ölçeklendirmeyi](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Ortak kimlik ayarlayın](dsvm-common-identity.md)
+* [Ortak bir kimlik ayarlayın](dsvm-common-identity.md)
 * [Bulut kaynaklarına erişmek için kimlik bilgilerini güvenli bir şekilde saklayın](dsvm-secure-access-keys.md)
 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 58cf30163837f6d3c327b7c0c6c2542ea294e8d6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e9dc784d84c43600f3ba4fda92e023c01afe8995
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229005"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shmoop-for-schools"></a>Öğretici: Azure Active Directory ile tümleştirme için Shmoop okullar ile
 
@@ -120,7 +120,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın](./media/shmoopforschools-tutorial/tutorial_attribute.png)
 
     > [!NOTE]
-    > Okul Shmoop kullanıcılar için iki rolünü destekler: **Öğretmen** ve **Öğrenci**. Bu rolleri Azure AD'de kullanıcıları uygun roller atanabilir şekilde ayarlayın. Azure AD'de rollerini yapılandırmak nasıl anlamak için bkz: [rol tabanlı erişim denetimi kullanarak Azure AD bulut uygulamalarında](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/).
+    > Okul Shmoop kullanıcılar için iki rolünü destekler: **Öğretmen** ve **Öğrenci**. Bu rolleri Azure AD'de kullanıcıları uygun roller atanabilir şekilde ayarlayın. Azure AD'de rollerini yapılandırmak nasıl anlamak için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme](../../role-based-access-control/role-assignments-portal.md).
     
 5. İçinde **kullanıcı öznitelikleri** bölümüne **çoklu oturum açma** iletişim kutusunda, SAML belirteci özniteliği önceki görüntüde gösterildiği gibi yapılandırın.  Ardından aşağıdaki adımları uygulayın:
 

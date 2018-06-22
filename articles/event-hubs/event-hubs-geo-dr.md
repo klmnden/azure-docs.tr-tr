@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745903"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302122"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs coğrafi olağanüstü durum kurtarma
 
@@ -101,6 +101,17 @@ Bu sürüm ile göz önünde bulundurmanız gereken aşağıdaki konuları göz 
 
 4. Varlıkları eşitleme dakika başına yaklaşık 50-100 varlık biraz zaman alabilir.
 
+## <a name="availability-zones-preview"></a>Kullanılabilirlik bölgeler (Önizleme)
+
+Olay hub'ları standart SKU da destekler [kullanılabilirlik bölgeleri](../availability-zones/az-overview.md), bir Azure bölgesi hataya yalıtılmış konumlara sağlama. 
+
+> [!NOTE]
+> Kullanılabilirlik bölgeleri Önizleme yalnızca desteklenen **Orta ABD**, **Doğu ABD 2**, ve **Fransa Merkezi** bölgeleri.
+
+Azure Portalı'nı kullanarak yeni ad alanında bulunan yalnızca kullanılabilirlik bölgeleri etkinleştirebilirsiniz. Olay hub'ları, var olan ad alanlarının geçişini desteklemez. Bölge artıklık ad alanınıza etkinleştirdikten sonra devre dışı bırakılamıyor.
+
+![3][]
+
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * [Github'da örnek](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) coğrafi çifti oluşturur ve bir olağanüstü durum kurtarma senaryosunda bir yük devretme başlatır basit bir iş akışı anlatılmaktadır.
@@ -114,3 +125,4 @@ Event Hubs hakkında daha fazla bilgi için şu bağlantıları ziyaret edin:
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400248"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301395"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure SQL Server sanal makineye bağlanma
 
@@ -139,7 +139,7 @@ Aşağıdaki tabloda bir Azure VM içinde çalışan SQL Server için bağlantı
 | [Bir SQL oturum açma oluşturun](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL kimlik doğrulaması kullanıyorsanız, bir SQL oturum açma kullanıcı adı ve ayrıca, hedef veritabanı için izinlere sahip parola gerekir. |
 | [TCP/IP protokolünü etkinleştirin](#manualTCP) | SQL Server TCP üzerinden bağlantılara izin vermesi gerekir. |
 | [SQL Server bağlantı noktası için güvenlik duvarı kuralını etkinleştir](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Güvenlik Duvarı'nı VM SQL Server bağlantı noktası (varsayılan 1433) gelen trafiğe izin vermelidir. |
-| [TCP 1433 için ağ güvenlik grubu kural oluşturma](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | VM internet üzerinden bağlanmak isterseniz SQL Server bağlantı noktası (varsayılan 1433) trafiği almaya izin vermeniz gerekir. Yerel ve sanal ağ-yalnızca bağlantıları bu gerektirmez. Azure portalında gereken tek adım budur. |
+| [TCP 1433 için ağ güvenlik grubu kural oluşturma](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | VM internet üzerinden bağlanmak isterseniz SQL Server bağlantı noktası (varsayılan 1433) trafiği almaya izin vermeniz gerekir. Yerel ve sanal ağ-yalnızca bağlantıları bu gerektirmez. Azure portalında gereken tek adım budur. |
 
 > [!TIP]
 > Portalda bağlantısını yapılandırırken yukarıdaki tabloda adımlarda sizin için yapılır. Yalnızca yapılandırmanızı onaylamak için veya el ile bağlantı kurmak için aşağıdaki adımları kullanın SQL Server için.

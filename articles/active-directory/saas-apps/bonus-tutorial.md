@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: adde08f7981e6e23ba5bf2601d2f019702d1d33c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231653"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Öğretici: Azure Active Directory Tümleştirme Bonusly ile
 
@@ -112,7 +112,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > Değer gerçek değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Bonusly destek ekibi](https://Bonusly/contact) değeri alınamıyor.
+    > Değer gerçek değil. Değerin gerçek yanıt URL'si ile güncelleştirin. Kişi [Bonusly destek ekibi](https://bonus.ly/contact) değeri alınamıyor.
  
 4. Üzerinde **SAML imzalama sertifikası** bölümünde, kopyalama **parmak İZİ** sertifika değeri.
 

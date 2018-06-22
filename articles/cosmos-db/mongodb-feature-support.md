@@ -1,63 +1,61 @@
 ---
 title: MongoDB için Azure Cosmos DB özellik desteği | Microsoft Docs
-description: Azure Cosmos DB MongoDB API MongoDB 3.4 sağlar özellik desteği hakkında bilgi edinin.
+description: Azure Cosmos DB MongoDB API'sinin MongoDB 3.4 için sağladığı özellik desteği hakkında bilgi edinin.
 services: cosmos-db
 author: alekseys
 manager: kfile
-documentationcenter: ''
-ms.assetid: 29b6547c-3201-44b6-9e0b-e6f56e473e24
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: cadf637dd3a71e040fef8188f7290907659e5cdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796364"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB özellikleri ve söz dizimi için MongoDB API’si desteği
 
-Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Açık kaynak MongoDB istemci kanalıyla veritabanının MongoDB API ile iletişim kurabilir [sürücüleri](https://docs.mongodb.org/ecosystem/drivers). MongoDB API MongoDB için uygun olarak yüklemeyi mevcut istemci sürücüleri kullanılmasına izin verir [wire Protokolü](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB, Microsoft'un genel olarak dağıtılmış çok modelli veritabanı hizmetidir. Veritabanının MongoDB API'siyle iletişim kurmak için herhangi bir açık kaynaklı MongoDB istemcisinin [sürücülerini](https://docs.mongodb.org/ecosystem/drivers) kullanabilirsiniz. MongoDB API'si, MongoDB [kablo protokolüne](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol) bağlı kalarak mevcut istemci sürücülerinin kullanımını etkinleştirir.
 
-Azure Cosmos DB MongoDB API'sini kullanarak MongoDB için kullandığınız, tüm Azure Cosmos DB sağladığı kurumsal özelliklere API'leri yararları keyfini çıkarabilirsiniz: [genel dağıtım](distribute-data-globally.md), [otomatik parçalanmasını](partition-data.md), kullanılabilirlik ve gecikme garantileri, dizin oluşturma, her alanı, rest, yedeklemeler ve daha fazlasını şifreleme otomatik.
+Azure Cosmos DB MongoDB API'sini kullanarak, Azure Cosmos DB'nin sağladığı tüm kurumsal olanaklarla birlikte tanıdığınız MongoDB API'lerinin avantajlarından yararlanabilirsiniz: [küresel dağıtım](distribute-data-globally.md), [otomatik parçalama](partition-data.md), kullanılabilirlik ve gecikme süresi garantileri, her alanın otomatik olarak dizininin oluşturulması, REST'te şifreleme, yedekler ve daha pek çok şey.
 
-## <a name="mongodb-query-language-support"></a>MongoDB sorgu dil desteği
+## <a name="mongodb-query-language-support"></a>MongoDB sorgu dili desteği
 
-Azure Cosmos DB MongoDB API MongoDB sorgu dil yapıları için kapsamlı destek sağlar. Aşağıda şu anda desteklenen işlemler, işleçler, aşama, komutları ve seçenekleri ayrıntılı listesini bulabilirsiniz.
+Azure Cosmos DB MongoDB API'si, MongoDB sorgu dili yapıları için kapsamlı destek sağlar. Aşağıda şu anda desteklenen işlem, işleç, aşama, komut ve seçeneklerin ayrıntılı bir listesini bulabilirsiniz.
 
 
 ## <a name="database-commands"></a>Veritabanı komutları
 
-Azure Cosmos DB tüm MongoDB API hesaplarında veritabanı aşağıdakileri destekler. 
+Azure Cosmos DB, tüm MongoDB API'si hesaplarında aşağıdaki veritabanı komutlarını destekler. 
 
-### <a name="query-and-write-operation-commands"></a>Sorgu ve yazma işlemi komutları
-- sil
-- Bul
+### <a name="query-and-write-operation-commands"></a>Sorgulama ve yazma işlemi komutları
+- delete
+- find
 - findAndModify
 - getLastError
 - getMore
-- Ekle
-- Güncelleştirme
+- insert
+- update
 
 ### <a name="authentication-commands"></a>Kimlik doğrulama komutları
-- oturumu kapat
-- kimlik doğrulaması
+- logout
+- authenticate
 - getnonce
 
 ### <a name="administration-commands"></a>Yönetim komutları
 - dropDatabase
 - listCollections
-- bırakma
+- drop
 - oluşturmaya
 - filemd5
 - createIndexes
 - listIndexes
 - dropIndexes
-- ConnectionStatus
+- connectionStatus
 - reIndex
 
 ### <a name="diagnostics-commands"></a>Tanılama komutları
@@ -70,13 +68,13 @@ Azure Cosmos DB tüm MongoDB API hesaplarında veritabanı aşağıdakileri dest
 
 <a name="aggregation-pipeline"/>
 
-## <a name="aggregation-pipelinea"></a>Toplama ardışık düzen</a>
+## <a name="aggregation-pipelinea"></a>Toplama ardışık düzeni</a>
 
-Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blogu](https://aka.ms/mongodb-aggregation) hakkında yönergeler için genel Önizleme için onboarding için.
+Azure Cosmos DB, genel önizlemede toplama ardışık düzenini destekler. Genel önizlemenin katılımı hakkında yönergeler için [Azure bloguna](https://aka.ms/mongodb-aggregation) bakın.
 
 ### <a name="aggregation-commands"></a>Toplama komutları
-- Toplama
-- sayı
+- aggregate
+- count
 - distinct
 
 ### <a name="aggregation-stages"></a>Toplama aşamaları
@@ -84,7 +82,7 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 - $match
 - $limit
 - $skip
-- $ geriye doğru izleme
+- $unwind
 - $group
 - $sample
 - $sort
@@ -95,12 +93,12 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 
 ### <a name="aggregation-expressions"></a>Toplama ifadeleri
 
-#### <a name="boolean-expressions"></a>Boole ifadeleri
-- $ve
-- $veya
+#### <a name="boolean-expressions"></a>Mantıksal ifadeler
+- $and
+- $or
 - $not
 
-#### <a name="set-expressions"></a>Set deyimleri
+#### <a name="set-expressions"></a>Küme ifadeleri
 - $setEquals
 - $setIntersection
 - $setUnion
@@ -120,7 +118,7 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 
 #### <a name="arithmetic-expressions"></a>Aritmetik ifadeler
 - $abs
-- $Ekle
+- $add
 - $ceil
 - $divide
 - $exp
@@ -129,10 +127,10 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 - $log
 - $log10
 - $mod
-- $Çarp
+- $multiply
 - $pow
 - $sqrt
-- $çıkarma
+- $subtract
 - $trunc
 
 #### <a name="string-expressions"></a>Dize ifadeleri
@@ -159,7 +157,7 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 - $reverseArray
 - $size
 - $slice
-- içinde $
+- $in
 
 #### <a name="date-expressions"></a>Tarih ifadeleri
 - $dayOfYear
@@ -170,20 +168,20 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 - $week
 - $hour
 - $minute
-- $İkinci
+- $second
 - $millisecond
 - $isoDayOfWeek
 - $isoWeek
 
-#### <a name="conditional-expressions"></a>Koşullu deyimler
+#### <a name="conditional-expressions"></a>Koşullu ifadeler
 - $cond
 - $ifNull
 
-## <a name="aggregation-accumulators"></a>Toplama accumulators
+## <a name="aggregation-accumulators"></a>Toplama biriktiricileri
 - $sum
 - $avg
-- $ilk
-- $Son
+- $first
+- $last
 - $max
 - $min
 - $push
@@ -191,7 +189,7 @@ Azure Cosmos DB toplama ardışık genel önizlemede destekler. Bkz: [Azure blog
 
 ## <a name="operators"></a>İşleçler
 
-Aşağıdaki işleçleri bunların kullanımıyla ilgili örnekler desteklenir. Sorgularda kullanılan bu örnek belgeyi göz önünde bulundurun:
+Desteklenen işleçler, bunların kullanımıyla ilgili örneklerle birlikte aşağıda verilmiştir. Sorgularda kullanılan bu örnek belgeyi göz önünde bulundurun:
 
 ```json
 {
@@ -220,22 +218,22 @@ $gte | ``` { "Elevation": { $gte: 4392 } } ``` |  | -
 $lt | ``` { "Elevation": { $lt: 5000 } } ``` |  | -
 $lte | ``` { "Elevation": { $lte: 5000 } } ``` | | -
 $ne | ``` { "Elevation": { $ne: 1 } } ``` |  | -
-içinde $ | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |  | -
+$in | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |  | -
 $nin | ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ``` | | -
-$veya | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
-$ve | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$or | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
+$and | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |  | -
 $not | ``` { "Elevation": { $not: { $gt: 5000 } } } ```|  | -
-$ ya da | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
-$var. | ``` { "Status": { $exists: true } } ```|  | -
+$nor | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |  | -
+$exists | ``` { "Status": { $exists: true } } ```|  | -
 $type | ``` { "Status": { $type: "string" } } ```|  | -
 $mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |  | -
 $regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|  | -
 
 ### <a name="notes"></a>Notlar
 
-$Regex sorgularda dizin arama sola bağlantılı ifadeleri izin verin. Ancak, 'i' kullanan değiştiricisi (olmama durumunu) ve 'M ' değiştiricisi (multiline) tüm ifadelerinde toplama tarama neden olur.
-Eklenecek '$' bir gereksinim olduğunda veya ' |', iki (veya daha fazla) regex sorguları oluşturmak en iyisidir. Örneğin, aşağıdaki özgün sorgu verilen: ```find({x:{$regex: /^abc$/})```, şu şekilde değiştirilecek vardır: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-İlk bölümü dizin arama itibaren bu belgeleri sınırlamak için kullanacağı ^ tam girişleri abc ve ikinci bölümü ile eşleşir. Çubuğu işleci ' |' bir "veya" işlevi - sorgu davranır ```find({x:{$regex: /^abc|^def/})``` hangi alanında 'x', "abc" veya "def" ile başlayan değerler bulunan belgeleri eşleşir. Dizin faydalanmak için sorgu $ya da operatör tarafından birleştirilmiş iki farklı sorgular bölüneceği önerilir: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+Normal ifade ($regex) sorgularında, soldan başlayan ifadeler dizin aramasına izin verir. Ancak 'i' değiştiricisini (büyük/küçük harf duyarlığı) ve 'm' değiştiricisini (çok satırlılık) kullanmak, tüm ifadelerde koleksiyon taramasına neden olur.
+'$' veya '|' karakterinin dahil edilmesinin gerektiği durumlarda iki (veya daha fazla) normal ifade sorgusu oluşturmak en iyisidir. Örneğin şu özgün sorgu: ```find({x:{$regex: /^abc$/})``` şu şekilde değiştirilmelidir: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+İlk kısım aramayı ^abc ile başlayan belgeler ile sınırlamak için dizini kullanır, ikinci kısım ise tam girişler ile eşleşir. Çubuk işleci '|' "veya" işlevini görür - ```find({x:{$regex: /^abc|^def/})``` sorgusu 'x' alanının değerlerinin "abc" ile veya "def" ile başladığı belgelerle eşleşir. Dizinden yararlanmak için sorgunun $or işleci ile birleştirilen iki farklı sorguya bölünmesi gerekir: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### <a name="update-operators"></a>Güncelleştirme işleçleri
 
@@ -245,7 +243,7 @@ Eklenecek '$' bir gereksinim olduğunda veya ' |', iki (veya daha fazla) regex s
 - $rename
 - $setOnInsert
 - $set
-- $ayarlama
+- $unset
 - $min
 - $max
 - $currentDate
@@ -254,10 +252,10 @@ Eklenecek '$' bir gereksinim olduğunda veya ' |', iki (veya daha fazla) regex s
 - $addToSet
 - $pop
 - $pullAll
-- $pull (Not: $pull koşulu desteklenmez)
+- $pull (Not: koşulu $pull desteklenmez)
 - $pushAll
 - $push
-- $Her
+- $each
 - $slice
 - $sort
 - $position
@@ -265,21 +263,21 @@ Eklenecek '$' bir gereksinim olduğunda veya ' |', iki (veya daha fazla) regex s
 #### <a name="bitwise-update-operator"></a>Bit düzeyinde güncelleştirme işleci
 - $bit
 
-### <a name="geospatial-operators"></a>Jeo-uzamsal işleçleri
+### <a name="geospatial-operators"></a>Jeo-uzamsal işleçler
 
 İşleç | Örnek 
 --- | --- |
-$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Evet
-$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Evet
-$yakın | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Evet
-$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Evet
-$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Evet
-$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Evet
-$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Evet
-$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | Evet
-$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Evet
-$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Evet
-$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Evet
+$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Yes
+$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
+$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
+$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Yes
+$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
+$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Yes
+$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Yes
+$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | Yes
+$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Yes
+$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Yes
+$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes
 
 ## <a name="additional-operators"></a>Ek işleçler
 
@@ -289,42 +287,42 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | Desteklenmiyor. Bunun yerine $regex kullanın 
+$text |  | Desteklenmiyor. Yerine $regex kullanın 
 
 ### <a name="methods"></a>Yöntemler
 
-Aşağıdaki yöntemlerden desteklenir:
+Aşağıdaki yöntemler desteklenir:
 
 #### <a name="cursor-methods"></a>İmleç yöntemleri
 
 Yöntem | Örnek | Notlar 
 --- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Belgeler sıralama anahtarı olmadan geri
+cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Sıralama anahtarı olmayan belgeler döndürülmez
 
 ## <a name="unique-indexes"></a>Benzersiz dizinler
 
-Azure Cosmos DB varsayılan olarak veritabanına yazılır belgelerde her alan dizinler. Benzersiz dizinler belirli bir alan bir koleksiyondaki tüm belgeler arasında yinelenen değer yok, varsayılan "_ıd" anahtarı benzer şekilde benzersizlik şekilde korunduğundan emin olun. Artık 'benzersiz' kısıtlaması dahil olmak üzere CreateIndex komutunu kullanarak Azure Cosmos DB'de özel dizinler oluşturabilirsiniz.
+Azure Cosmos DB, varsayılan olarak veritabanına yazılan belgelerdeki her alanın dizinini oluşturur. Benzersiz dizinler, varsayılan "_id" anahtarında özgünlüğün korunmasına benzer bir şekilde bir koleksiyondaki tüm belgeler genelinde belirli bir alanda yinelenen değer olmamasını sağlar. Azure Cosmos DB'de artık createIndex komutunu kullanarak, 'unique' kısıtlamasını dahil ederek özel dizinler oluşturabilirsiniz.
 
-Benzersiz dizinler tüm MongoDB API hesapları için kullanılabilir.
+Benzersiz dizinler tüm MongoDB API hesaplarında bulunur.
 
-## <a name="time-to-live-ttl"></a>İçin-yaşam süresi (TTL)
+## <a name="time-to-live-ttl"></a>Etkin kalma süresi (TTL)
 
-Azure Cosmos DB belgenin zaman damgasını göre göreli bir yaşam süresi (TTL) destekler. TTL, MongoDB API koleksiyonlarına için etkinleştirilebilir [Azure portal](https://portal.azure.com).
+Azure Cosmos DB, belgenin zaman damgasına bağlı göreli bir etkin kalma süresini (TTL) destekler. TTL, MongoDB API koleksiyonlarında [Azure portalı](https://portal.azure.com) aracılığıyla etkinleştirilebilir.
 
 ## <a name="user-and-role-management"></a>Kullanıcı ve rol yönetimi
 
-Kullanıcıları ve rolleri Azure Cosmos DB henüz desteklemiyor. Azure Cosmos DB rol tabanlı erişim denetimi (RBAC) destekler ve okuma-yazma ve salt okunur parolaları/aracılığıyla edinilen anahtarları [Azure portal](https://portal.azure.com) (bağlantı dizesi sayfası).
+Azure Cosmos DB henüz kullanıcıları ve rolleri desteklememektedir. Azure Cosmos DB, rol tabanlı erişim denetimini (RBAC) ve [Azure portalı](https://portal.azure.com) (Bağlantı Dizesi sayfası) aracılığıyla edinilebilecek okuma-yazma ve salt-okuma parolalarını/anahtarlarını destekler.
 
 ## <a name="replication"></a>Çoğaltma
 
-Azure Cosmos DB en düşük katmanları otomatik, yerel çoğaltmasını destekler. Bu mantık, düşük gecikme süreli, genel çoğaltma da elde etmek için kullanıma genişletilir. Azure Cosmos DB el ile çoğaltma komutları desteklemiyor.
+Azure Cosmos DB, en düşük katmanlarda otomatik, yerel çoğaltmayı destekler. Bu mantık, düşük gecikme süresi ve küresel çoğaltma elde etmek için genişletilir. Azure Cosmos DB, el ile çoğaltma komutlarını desteklemez.
 
 ## <a name="sharding"></a>Parçalama
 
-Azure Cosmos DB otomatik, sunucu tarafı parçalama destekler. Azure Cosmos DB el ile parçalama komutları desteklemiyor.
+Azure Cosmos DB, otomatik, sunucu tarafı parçalamasını destekler. Azure Cosmos DB, el ile parçalama komutlarını desteklemez.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Bilgi nasıl [Studio 3T kullanmak](mongodb-mongochef.md) bir API MongoDB veritabanı ile.
-- Bilgi nasıl [Robo 3T kullanmak](mongodb-robomongo.md) bir API MongoDB veritabanı ile.
-- MongoDB için protokol desteği ile Azure Cosmos DB keşfedin [örnekleri](mongodb-samples.md).
+- Bir API for MongoDB veritabanı ile [Studio 3T kullanmayı](mongodb-mongochef.md) öğrenin.
+- Bir API for MongoDB veritabanı ile [Robo 3T kullanmayı](mongodb-robomongo.md) öğrenin.
+- MongoDB için protokol desteği [örnekleri](mongodb-samples.md) ile Azure Cosmos DB'yi keşfedin.

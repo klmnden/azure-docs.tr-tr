@@ -7,20 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: jodebrui
-ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647349"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308688"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>İzleyici bellek içi OLTP depolama
-Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolar ve Tablo değişkenlerinin verileri bellek içi OLTP depolamada yer alıyor. Her Premium ve iş kritik hizmet katmanı belgelenen en fazla bir bellek içi OLTP depolama boyutuna sahip [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md) ve [vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md). Bu sınır aşılırsa sonra ekleme ve güncelleştirme işlemleri hata 41823 bağımsız veritabanları ve esnek havuzlar için 41840 hata ile başarısız başlayabilir. Bu noktada, ya da belleği geri almasını verileri silmek veya veritabanınızın performans katmanı yükseltin.
+Kullanırken [bellek içi OLTP](sql-database-in-memory.md), bellek için iyileştirilmiş tablolar ve Tablo değişkenlerinin verileri bellek içi OLTP depolamada yer alıyor. Her Premium ve iş kritik bir hizmet katmanına bir maksimum bellek içi OLTP depolama boyutuna sahip. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - esnek havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[vCore tabanlı kaynak sınırları - tek veritabanlarını](sql-database-vcore-resource-limits-single-databases.md) ve [vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
+
+Bu sınır aşılırsa sonra ekleme ve güncelleştirme işlemleri hata 41823 bağımsız veritabanları ve esnek havuzlar için 41840 hata ile başarısız başlayabilir. Bu noktada, ya da belleği geri almasını verileri silmek veya veritabanınızın performans katmanı yükseltin.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Veri içinde bellek içi OLTP depolama ucun uygun olup olmadığını belirleme
-Farklı hizmet katmanları, depolama caps belirler. Bkz: [DTU tabanlı kaynak sınırları](sql-database-dtu-resource-limits.md) ve [vCore tabanlı kaynak sınırları](sql-database-vcore-resource-limits.md).
+Farklı hizmet katmanları, depolama caps belirler. Bkz: [DTU tabanlı kaynak sınırları - tek veritabanı](sql-database-dtu-resource-limits-single-databases.md), [DTU tabanlı kaynak sınırları - esnek havuzlar](sql-database-dtu-resource-limits-elastic-pools.md),[vCore tabanlı kaynak sınırları - tek veritabanlarını](sql-database-vcore-resource-limits-single-databases.md) ve [vCore tabanlı kaynak sınırları - esnek havuzlar](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Bellek için iyileştirilmiş tablo works onu aynı şekilde SQL Server için Azure SQL veritabanı'nda mu bellek gereksinimlerini tahmin etme. Bu makale üzerinde gözden geçirmek için birkaç dakika sürebilir [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Cosmos DB'de toplu işlemleri gerçekleştirmek için BulkExecutor Java kitaplığı kullanılarak | Microsoft Docs
-description: Toplu alma ve Azure Cosmos DB koleksiyonlarına belgeleri güncelleştirmek için Azure Cosmos veritabanı BulkExecutor Java kitaplığını kullanın.
+title: Toplu Yürütücü Java Kitaplığı'ı kullanarak Azure Cosmos DB'de toplu işlemleri gerçekleştirmeyi | Microsoft Docs
+description: Toplu alma ve Azure Cosmos DB koleksiyonları belgeleri güncelleştirme için Azure Cosmos DB'ın toplu Yürütücü Java Kitaplığı'nı kullanın.
 keywords: Java toplu Yürütücü
 services: cosmos-db
 author: tknandu
@@ -10,22 +10,22 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610251"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300723"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>BulkExecutor Java kitaplığı Azure Cosmos DB veri toplu işlemleri gerçekleştirmek için kullanın
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Toplu Yürütücü Java kitaplığı Azure Cosmos DB veri toplu işlemleri gerçekleştirmek için kullanın
 
-Bu öğretici, alma ve Azure Cosmos DB belgeleri güncelleştirmek için Azure Cosmos veritabanı toplu Yürütücü Java kitaplığı kullanma hakkında yönergeler sağlar. BulkExecutor kitaplığı nasıl, çok büyük verim ve depolama yararlanan yardımcı hakkında bilgi edinmek için bkz: [BulkExecutor kitaplığına genel bakış](bulk-executor-overview.md) makalesi. Bu öğreticide rastgele belgeleri oluşturan bir Java uygulaması oluşturma ve bunlar toplu bir Azure Cosmos DB koleksiyonuna alındı. İçeri aktardıktan sonra toplu bir belgenin bazı özellikler güncelleştirme. 
+Bu öğretici, alma ve Azure Cosmos DB belgeleri güncelleştirmek için Azure Cosmos veritabanı toplu Yürütücü Java kitaplığı kullanma hakkında yönergeler sağlar. Toplu Yürütücü kitaplığı nasıl, çok büyük verim ve depolama yararlanan yardımcı hakkında bilgi edinmek için bkz: [Yürütücü kitaplığına genel bakış toplu](bulk-executor-overview.md) makalesi. Bu öğreticide rastgele belgeleri oluşturan bir Java uygulaması oluşturma ve bunlar toplu bir Azure Cosmos DB koleksiyonuna alındı. İçeri aktardıktan sonra toplu bir belgenin bazı özellikler güncelleştirme. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) oluşturun.  
 
-* [Azure Cosmos DB’yi ücretsiz olarak](https://azure.microsoft.com/try/cosmosdb/) bir Azure aboneliği olmadan, ücretsiz ve herhangi bir taahhütte bulunmadan deneyebilirsiniz. Veya, kullanabileceğiniz [Azure Cosmos DB öykünücüsü](https://docs.microsoft.com/azure/cosmos-db/local-emulator) ile `https://localhost:8081` URI. Birincil anahtar sağlanan [istekleri kimlik doğrulaması](local-emulator.md#authenticating-requests).  
+* [Azure Cosmos DB’yi ücretsiz olarak](https://azure.microsoft.com/try/cosmosdb/) bir Azure aboneliği olmadan, ücretsiz ve herhangi bir taahhütte bulunmadan deneyebilirsiniz. Veya, kullanabileceğiniz [Azure Cosmos DB öykünücüsü](https://docs.microsoft.com/azure/cosmos-db/local-emulator) ile `https://localhost:8081` URI. Birincil Anahtar, [Kimlik doğrulama istekleri](local-emulator.md#authenticating-requests) bölümünde sağlanır.  
 
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
   - Ubuntu’da JDK’yi yüklemek için `apt-get install default-jdk` komutunu çalıştırın.  
@@ -197,7 +197,7 @@ BulkUpdateAsync API'sini kullanarak, varolan belgeleri güncelleştirebilirsiniz
 
 ## <a name="performance-tips"></a>Performans ipuçları 
 
-BulkExecutor kitaplığı kullanırken daha iyi performans için aşağıdaki noktaları göz önünde bulundurun:
+Toplu Yürütücü kitaplığı kullanırken daha iyi performans için aşağıdaki noktaları göz önünde bulundurun:
 
 * En iyi performans için bir Azure VM Cosmos DB hesap yazma bölgeniz ile aynı bölgede uygulamanızı çalıştırın.  
 * Yüksek verimlilik elde için:  
@@ -211,6 +211,6 @@ BulkExecutor kitaplığı kullanırken daha iyi performans için aşağıdaki no
 
     
 ## <a name="next-steps"></a>Sonraki adımlar
-* Maven Paket ayrıntılarını hakkında bilgi edinin ve sürüm notları BulkExecutor Java kitaplığı için bkz:[BulkExecutor SDK ayrıntıları](sql-api-sdk-bulk-executor-java.md).
+* Maven Paket ayrıntılarını hakkında bilgi edinin ve sürüm notları toplu Yürütücü Java kitaplığı için bkz:[toplu Yürütücü SDK ayrıntıları](sql-api-sdk-bulk-executor-java.md).
 
 
