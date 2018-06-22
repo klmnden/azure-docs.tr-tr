@@ -1,108 +1,105 @@
 ---
-title: Azure Cosmos DB öykünücüsü sertifikaları verme | Microsoft Docs
-description: Diller ve Windows sertifika deposunda kullanmayın çalışma zamanları geliştirirken vermek ve SSL sertifikalarını yönetmek gerekir. Bu post adım adım yönergeler sağlar.
+title: Azure Cosmos DB Öykünücüsü sertifikalarını dışarı aktarma | Microsoft Docs
+description: Windows Sertifika Deposu’nu kullanmayan dil ve çalışma zamanlarında geliştirirken, SSL sertifikalarını dışarı aktarmanız ve yönetmeniz gerekir. Bu gönderi adım adım yönergeler verir.
 services: cosmos-db
-documentationcenter: ''
-keywords: Azure Cosmos DB öykünücüsü
+keywords: Azure Cosmos DB Öykünücüsü
 author: voellm
 manager: kfile
 editor: ''
-ms.assetid: ef43deda-c2e9-4193-99e2-7f6a88a0319f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 87d453cd544b3e913209f50e4e08b77282efab39
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: 5fce6553ce7407f892ed1de1f71bc812798f91c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611815"
 ---
-# <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python ve Node.js ile kullanmak için Azure Cosmos DB öykünücüsü sertifikaları verme
+# <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Azure Cosmos DB Öykünücü sertifikalarını Java, Python ve Node.js ile kullanmak için dışarı aktarma
 
-[**Öykünücüyü yükleyin**](https://aka.ms/cosmosdb-emulator)
+[**Öykünücüyü İndirin**](https://aka.ms/cosmosdb-emulator)
 
-Azure Cosmos DB öykünücüsü Geliştirme amaçlı SSL bağlantılarını kullanımı dahil olmak üzere Azure Cosmos DB hizmet öykünen yerel bir ortam sağlar. Bu post diller ve kendi kullanan Java gibi Windows sertifika deposunda entegre değil çalışma zamanları kullanmak için SSL sertifikaları vermek gösterilmiştir [sertifika deposu](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) ve kullandığı Python [yuva sarmalayıcıları](https://docs.python.org/2/library/ssl.html) ve kullandığı Node.js [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback). Daha fazla bilgiyi öykünücüsünde hakkında [geliştirme ve sınama için Azure Cosmos DB öykünücüsünü kullanma](./local-emulator.md).
+Azure Cosmos DB Öykünücüsü, SSL bağlantılarının kullanımı dahil geliştirme amaçlı olarak Azure Cosmos DB hizmetine öykünen yerel bir ortam sağlar. Bu gönderide, kendi [sertifika deposunu](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) kullanan Java ve [yuva sarmalayıcıları](https://docs.python.org/2/library/ssl.html) kullanan Python ve [tlsSocket](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) kullanan Node.js gibi Windows Sertifika Deposu’yla tümleştirilmeyen diller ve çalışma zamanları ile kullanım için SSL sertifikalarının nasıl dışarı aktarılacağı gösterilmektedir. [Geliştirme ve test için Azure Cosmos DB Emulator kullanma](./local-emulator.md) konusunda öykünücü hakkında daha fazla bilgi edinebilirsiniz.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Sertifikaları döndürme
+> * Sertifikalar döndürülüyor
 > * SSL sertifikasını dışarı aktarma
-> * Java, Python ve Node.js sertifika kullanmayı öğrenme
+> * Java, Python ve Node.js’de sertifika kullanmayı öğrenme
 
 ## <a name="certification-rotation"></a>Sertifika döndürme
 
-Azure Cosmos DB yerel öykünücüsü sertifikalarda öykünücü bir ilk çalıştırıldığında oluşturulur. İki sertifika vardır. Biri yerel öykünücüsü, diğeri öykünücü içinde parolaları yönetmek için bağlanmak için kullanılır. Dışarı aktarmak istediğiniz sertifika kolay adı "DocumentDBEmulatorCertificate" bağlantı sertifikası yok.
+Azure Cosmos DB Yerel Öykünücüsündeki sertifikalar öykünücü ilk kez çalıştırıldığında oluşturulur. İki sertifika vardır. Yerel öykünücüye bağlanmak için bir tane ve öykünücü içindeki gizli dizileri yönetmek için bir tane. Dışarı aktarmak istediğiniz sertifika, "DocumentDBEmulatorCertificate" kısa adına sahip bağlantı sertifikasıdır.
 
-Her iki sertifikanın tıklayarak üretilebilir **sıfırlama verileri** Azure Cosmos DB Windows tepsisinde çalıştıran öykücüsünden aşağıda gösterildiği gibi. Aksi takdirde sertifikaları yeniden oluşturmak ve bunları Java sertifika deposuna yüklediyseniz veya bunları başka bir yerde bunları güncelleştirmeniz gerekecektir kullanılan, uygulamanız artık yerel öykünücüsü bağlanır.
+İki sertifika da aşağıda Windows Tepsisinde çalışan Azure Cosmos DB Öykünücüsü’nde gösterildiği gibi **Verileri Sıfırla**’ya tıklanarak yeniden oluşturulabilir. Sertifikaları yeniden oluşturursanız ve bunları Java sertifika deposuna yüklediyseniz ya da başka bir yerde kullandıysanız sertifikaları güncelleştirmeniz gerekir, aksi takdirde uygulamanız artık yerel öykünücüye bağlanamaz.
 
-![Verileri Azure Cosmos DB yerel öykünücüsünü sıfırlayın](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
+![Azure Cosmos DB yerel öykünücüsü sıfırlama verileri](./media/local-emulator-export-ssl-certificates/database-local-emulator-reset-data.png)
 
 ## <a name="how-to-export-the-azure-cosmos-db-ssl-certificate"></a>Azure Cosmos DB SSL sertifikasını dışarı aktarma
 
-1. Windows Sertifika Yöneticisi'ni başlatın certlm.msc çalıştıran ve kişisel-> sertifikaları klasöre gidin ve sertifikanın kolay adla açın **DocumentDbEmulatorCertificate**.
+1. Certlm.msc’yi çalıştırarak Windows Sertifika yöneticisini çalıştırın ve Kişisel->Sertifikalar klasörüne gidip **DocumentDbEmulatorCertificate** kısa adına sahip sertifikayı açın.
 
-    ![Azure Cosmos DB yerel öykünücüsü verme 1. adım](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 1](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png)
 
-2. Tıklayın **ayrıntıları** sonra **Tamam**.
+2. **Ayrıntılar**’a ve ardından **Tamam**’a tıklayın.
 
-    ![Azure Cosmos DB yerel öykünücüsü verme 2. adım](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 2](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png)
 
-3. Tıklatın **dosyaya Kopyala...** .
+3. **Dosyaya Kopyala...** seçeneğini belirleyin.
 
-    ![Azure Cosmos DB yerel öykünücüsü verme 3. adım](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 3](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png)
 
 4. **İleri**’ye tıklayın.
 
-    ![Azure Cosmos DB yerel öykünücüsü verme 4. adım](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 4](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png)
 
-5. Tıklatın **Hayır, özel anahtarı verme**, ardından **sonraki**.
+5. **Hayır, özel anahtarı dışarı aktarma**’ya tıklayın ve **İleri**’ye tıklayın.
 
-    ![Azure Cosmos DB yerel öykünücüsü verme 5. adım](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 5](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-5.png)
 
-6. Tıklayın **Base-64 ile kodlanmış X.509 (. CER)** ve ardından **sonraki**.
+6. **Base-64 ile kodlanmış X.509 (.CER)** seçeneğine ve ardından **İleri**’ye tıklayın.
 
-    ![Azure Cosmos DB yerel öykünücüsü verme 6. adım](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 6](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png)
 
-7. Sertifika bir ad verin. Bu durumda **documentdbemulatorcert** ve ardından **sonraki**.
+7. Sertifikaya bir ad verin. Bu durumda **documentdbemulatorcert** dosyasını seçin ve **İleri**’ye tıklayın.
 
-    ![Azure Cosmos DB yerel öykünücüsü verme 7. adım](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 7](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png)
 
 8. **Son**'a tıklayın.
 
-    ![Azure Cosmos DB yerel öykünücüsü 8. adımda dışarı aktarma](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
+    ![Azure Cosmos DB yerel öykünücüsü dışarı aktarma adımı 8](./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png)
 
-## <a name="how-to-use-the-certificate-in-java"></a>Java sertifikada kullanma
+## <a name="how-to-use-the-certificate-in-java"></a>Java içinde sertifika kullanma
 
-Java uygulamalarını veya Java istemcisi kullanan MongoDB uygulamaları çalıştırırken geçirme daha Java varsayılan sertifika deposuna sertifika yüklemek daha kolay "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>"bayraklar. Örneğin dahil [Java Demo uygulama](https://localhost:8081/_explorer/index.html) varsayılan sertifika deposuna bağlıdır.
+Java uygulamaları veya Java istemcisini kullanan MongoDB uygulamalarını çalıştırırken sertifikayı Java varsayılan sertifika deposuna yüklemek "-Djavax.net.ssl.trustStore=<keystore> -Djavax.net.ssl.trustStorePassword="<password>" bayraklarını geçirmekten daha kolaydır. Örneğn dahil edilen [Java Demo uygulaması](https://localhost:8081/_explorer/index.html) varsayılan sertifika deposuna bağlıdır.
 
-' Ndaki yönergeleri izleyin [Java CA sertifikalarını depolamak için bir sertifika ekleme](https://docs.microsoft.com/azure/java-add-certificate-ca-store) X.509 sertifikası varsayılan Java sertifika deposuna içeri aktarmak için. İçinde kalmasını keytool çalıştırırken % JAVA_HOME % dizininde unutmayın çalışacaksınız.
+X.509 sertifikasını varsayılan Java sertifika deposuna içeri aktarmak için, [Java CA Sertifika Deposuna Sertifika Ekleme](https://docs.microsoft.com/azure/java-add-certificate-ca-store) bölümündeki yönergeleri izleyin. Anahtar aracını çalıştırırken %JAVA_HOME% dizininde çalışacağınıza dikkat edin.
 
-Bir kez "CosmosDBEmulatorCertificate" SSL sertifika yüklü uygulamanızı bağlanmak ve yerel Azure Cosmos DB öykünücüsünü kullanma yapabiliyor olmanız gerekir. Sorun yaşamaya devam ederseniz izlemek isteyebilir [hata ayıklama SSL/TLS bağlantılarını](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) makalesi. Sertifika %JAVA_HOME%/jre/lib/security/cacerts deposuna yüklenmemiş olasılığı yüksektir. Java uygulamanızı yüklü birden fazla sürümünü varsa örnek olandan güncelleştirildi, farklı cacerts deposu kullanabilecek için.
+"CosmosDBEmulatorCertificate" SSL sertifikası yüklendiğinde uygulamanızın yerel Azure Cosmos DB Öykünücüsüne bağlanıp kullanabilmesi gerekir. Sorun yaşamaya devam ederseniz [SSL/TLS Bağlantılarında hata ayıklama](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) makalesindeki yönergeleri izleyin. Sertifika %JAVA_HOME%/jre/lib/security/cacerts deposuna yüklenmemiş olabilir. Örneğin birden çok Java sürümü yüklüyse, uygulamanız güncelleştirdiğinizden farklı bir cacerts deposu kullanıyor olabilir.
 
-## <a name="how-to-use-the-certificate-in-python"></a>Sertifika Python içinde kullanma
+## <a name="how-to-use-the-certificate-in-python"></a>Python içinde sertifika kullanma
 
-Varsayılan olarak [Python SDK(version 2.0.0 or higher)](sql-api-sdk-python.md) SQL API değil deneyin ve yerel öykünücüsü bağlanırken SSL sertifikası kullanın. Ancak, SSL doğrulama kullanmak istediğiniz örneklerde takip edebilirsiniz, [Python yuva sarmalayıcıları](https://docs.python.org/2/library/ssl.html) belgeleri.
+Varsayılan olarak SQL API’si için [Python SDK (sürüm 2.0.0 veya üzeri)](sql-api-sdk-python.md) yerel öykünücüye bağlanırken SSL sertifikasını kullanmaya çalışmaz. Ancak SSL doğrulama kullanmak istiyorsanız [Python yuva sarmalayıcıları](https://docs.python.org/2/library/ssl.html) belgelerindeki örnekleri izleyebilirsiniz.
 
-## <a name="how-to-use-the-certificate-in-nodejs"></a>Sertifika Node.js içinde kullanma
+## <a name="how-to-use-the-certificate-in-nodejs"></a>Node.js içinde sertifika kullanma
 
-Varsayılan olarak [Node.js SDK(version 1.10.1 or higher)](sql-api-sdk-node.md) SQL API değil deneyin ve yerel öykünücüsü bağlanırken SSL sertifikası kullanın. Ancak, SSL doğrulama kullanmak istediğiniz örneklerde takip edebilirsiniz, [Node.js belgelerine](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback).
+Varsayılan olarak SQL API’si için [Node.js SDK (sürüm 1.10.1 veya üzeri)](sql-api-sdk-node.md) yerel öykünücüye bağlanırken SSL sertifikasını kullanmaya çalışmaz. Ancak SSL doğrulamasını kullanmak istiyorsanız [Node.js belgelerindeki](https://nodejs.org/api/tls.html#tls_tls_connect_options_callback) örnekleri izleyebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide aşağıdakileri yaptınız:
 
 > [!div class="checklist"]
-> * Döndürülen sertifikaları
-> * SSL sertifikasını dışarı
-> * Java, Python ve Node.js sertifikayı kullanmak üzere öğrendiniz
+> * Döndürülen sertifikalar
+> * Dışarı aktarılan SSL sertifikası
+> * Java, Python ve Node.js’de sertifika kullanmayı öğrendiniz
 
-Şimdi bir Azure işlevleri HTTP tetikleyicisi bir Azure Cosmos DB giriş bağlaması öğretici ile oluşturmak için devam edebilirsiniz.
+Şimdi Azure Cosmos DB giriş bağlama işlemiyle Azure İşlevleri HTTP Tetikleyicisi oluşturma öğreticisine geçebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB girişten ile bir Azure işlevi oluşturma](tutorial-functions-http-trigger.md) 
+> [Azure Cosmos DB’den girişlerle bir Azure İşlevi oluşturma](tutorial-functions-http-trigger.md) 

@@ -1,311 +1,278 @@
 ---
-title: "Azure Redis Cache’i Kullanma | Microsoft Belgeleri"
-description: "Azure Redis Cache ile Azure, uygulamalarınızın performansını artırmayı öğrenin"
+title: .NET uygulamaları ile Azure Redis Cache’in nasıl kullanılacağı hakkında bilgi edinmek için hızlı başlangıç | Microsoft Docs
+description: Bu hızlı başlangıçta, .NET uygulamalarınızdan Azure Redis Cache’e nasıl erişileceğini öğrenirsiniz
 services: redis-cache,app-service
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: c502f74c-44de-4087-8303-1b1f43da12d5
 ms.service: cache
 ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 07/27/2017
+ms.topic: quickstart
+ms.date: 05/18/2018
 ms.author: wesmc
-ms.openlocfilehash: a9276eaa4c7d8b11891d7dfade475316ffac5f71
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.custom: mvc
+ms.openlocfilehash: 31d93fc8b2034152e61d24a789bba62bfd3b7892
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639818"
 ---
-# <a name="how-to-use-azure-redis-cache"></a>Azure Redis Cache’i kullanma
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+# <a name="quickstart-use-azure-redis-cache-with-a-net-application"></a>Hızlı başlangıç: .NET uygulaması ile Azure Redis Cache kullanma
 
-Bu kılavuz **Azure Redis Cache**’i kullanmaya başlamayı gösterir. Microsoft Azure Redis Cache popüler açık kaynak Redis Cache’i temel alır. Microsoft tarafından yönetilen güvenli, ayrılmış bir Redis Cache’e erişmenizi sağlar. Azure Redis Cache kullanılarak oluşturulan bir önbelleğe Microsoft Azure’daki her uygulamadan erişilebilir.
 
-Microsoft Azure Redis Cache aşağıdaki katmanlarda kullanılabilir:
 
-* **Temel** – Tek düğümlü. 53 GB'a kadar birden çok boyut.
-* **Standart** – İki düğümlü Birincil/Çoğaltma. 53 GB'a kadar birden çok boyut. %99,9 SLA.
-* **Premium** – İki düğümlü Birincil/Çoğaltma, En fazla 10 parça. 6 GB'tan 530 GB'a kadar birden çok boyut. [Redis kümesi](cache-how-to-premium-clustering.md), [Redis kalıcılığı](cache-how-to-premium-persistence.md), and [Azure Virtual Network](cache-how-to-premium-vnet.md) dahil tüm Standart katman özellikleri ve fazlası. %99,9 SLA.
+Bu hızlı başlangıçta, .NET ile Microsoft Azure Redis Cache kullanmaya nasıl başlayacağınız gösterilmektedir. Microsoft Azure Redis Cache popüler açık kaynak Redis Cache’i temel alır. Microsoft tarafından yönetilen güvenli, ayrılmış bir Redis Cache’e erişmenizi sağlar. Azure Redis Cache kullanılarak oluşturulan bir önbelleğe Microsoft Azure’daki her uygulamadan erişilebilir.
 
-Her katman özellikler ve fiyatlandırma açısından farklıdır. Fiyatlandırma hakkında daha fazla bilgi için bkz. [Önbellek Fiyatlandırma Ayrıntıları][Cache Pricing Details].
+Bu hızlı başlangıçta, bir konsol uygulamasında C\# kodu ile [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) istemcisini kullanacaksınız. Bir önbellek oluşturacak ve .NET istemci uygulamasını yapılandıracaksınız. Daha sonra, önbelleğe nesneler ekleyecek ve önbellekteki nesneleri güncelleştireceksiniz. 
 
-Bu kılavuz C\# kodu kullanarak [StackExchange.Redis][StackExchange.Redis] istemcisi kullanmayı gösterir. Ele alınan senaryolar **bir önbellek oluşturma ve yapılandırma**, **önbellek istemcilerini yapılandırma** ve **önbelleğe nesne ekleme ve nesneleri önbellekten kaldırma** konularını içerir. Azure Redis Cache’i kullanma hakkında daha fazla bilgi için bkz. [Sonraki Adımlar][Next Steps]. Redis Cache ile ASP.NET MVC web uygulaması oluşturmaya ilişkin adım bir öğretici için, bkz. [Redis Cache ile Web Uygulaması Oluşturma](cache-web-app-howto.md)
+![Konsol uygulaması tamamlandı](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
 
-<a name="getting-started-cache-service"></a>
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="get-started-with-azure-redis-cache"></a>Azure Redis Cache’i kullanmaya başlama
-Azure Redis Cache’i kullanmaya başlamak kolaydır. Başlamak için, bir önbellek hazırlayın ve yapılandırın. Ardından, önbelleğe erişebilmeleri için önbellek istemcilerini yapılandırın. Önbellek istemcileri yapılandırıldıktan sonra, bunlarla çalışmaya başlayabilirsiniz.
+## <a name="prerequisites"></a>Ön koşullar
 
-* [Önbelleği oluşturma][Create the cache]
-* [Önbellek istemcilerini yapılandırma][Configure the cache clients]
-
-<a name="create-cache"></a>
+* [Visual Studio](https://www.visualstudio.com/downloads/)
+* StackExchange.Redis istemcisi [.NET Framework 4 veya üst sürümünü](https://www.microsoft.com/net/download/dotnet-framework-runtime) gerektirir.
 
 ## <a name="create-a-cache"></a>Bir önbellek oluşturma
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
 
-### <a name="to-access-your-cache-after-its-created"></a>Oluşturulduktan sonra önbelleğinize erişmek için
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
+[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Önbelleğinizi yapılandırma hakkında daha fazla bilgi için, bkz. [Azure Redis Cache’i yapılandırma](cache-configure.md).
+Bilgisayarınızda *CacheSecrets.config* adlı bir dosya oluşturun ve örnek uygulamanızın kaynak kodu ile denetlenmeyecek bir konuma yerleştirin. Bu hızlı başlangıç için *CacheSecrets.config* dosyası şu konumda bulunur: *C:\AppSecrets\CacheSecrets.config*.
 
-<a name="NuGet"></a>
+*CacheSecrets.config* dosyasını düzenleyin ve aşağıdaki içerikleri ekleyin:
 
-## <a name="configure-the-cache-clients"></a>Önbellek istemcilerini yapılandırma
-[!INCLUDE [redis-cache-configure](../../includes/redis-cache-configure-stackexchange-redis-nuget.md)]
+```xml
+<appSettings>
+    <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<access-key>"/>
+</appSettings>
+```
 
-İstemci projeniz önbelleğe almak üzere yapılandırıldığında, önbelleğinizle çalışmak için aşağıdaki bölümlerde açıklanan teknikleri kullanabilirsiniz.
+`<cache-name>` adını, önbellek ana bilgisayar adınızla değiştirin.
 
-<a name="working-with-caches"></a>
+`<access-key>` adını, önbelleğinizin birincil anahtarıyla değiştirin.
 
-## <a name="working-with-caches"></a>Önbelleklerle Çalışma
-Bu bölümdeki adımlar Önbellek ile ortak görevler gerçekleştirmeyi açıklar.
 
-* [Önbelleğe bağlanma][Connect to the cache]
-* [Önbelleğe nesneler ekleme ve nesneleri önbellekten alma][Add and retrieve objects from the cache]
-* [Önbellekte .NET nesneleriyle çalışma](#work-with-net-objects-in-the-cache)
+## <a name="create-a-console-app"></a>Konsol uygulaması oluşturma
 
-<a name="connect-to-cache"></a>
+Visual Studio’da, **Dosya** > **Yeni** > **Proje**’ye tıklayın.
+
+**Visual C#** altında, **Windows Klasik Masaüstü**’ne tıklayın ve daha sonra **Konsol Uygulaması**’na ve **Tamam**’a tıklayarak yeni bir konsol uygulaması oluşturun.
+
+
+<a name="configure-the-cache-clients"></a>
+
+## <a name="configure-the-cache-client"></a>Önbellek istemcisini yapılandırma
+
+Bu bölümde, .NET için [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) istemcisini kullanmak üzere konsol uygulamasını yapılandıracaksınız.
+
+Visual Studio’da, **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**’na tıklayın ve Paket Yöneticisi Konsolu penceresinden aşağıdaki komutu çalıştırın.
+
+```powershell
+Install-Package StackExchange.Redis
+```
+
+Yükleme tamamlandıktan sonra *StackExchange.Redis* önbellek istemcisi, projenizle kullanılabilir olur.
+
 
 ## <a name="connect-to-the-cache"></a>Önbelleğe bağlanma
-Program aracılığıyla bir önbellekle çalışmak için önbelleğe başvuru gerekir. Azure Redis Cache’e erişmek üzere StackExchange.Redis istemcisini kullanmak istediğiniz bir dosyanın en üstüne aşağıdakileri ekleyin.
 
-    using StackExchange.Redis;
+Visual Studio’da, *App.config* dosyanızı açın ve *CacheSecrets.config* dosyasına başvuran bir `appSettings` `file` özniteliği içerecek şekilde güncelleştirin.
 
-> [!NOTE]
-> StackExchange.Redis istemcisi .NET Framework 4 veya üst sürümünü gerektirir.
-> 
-> 
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <startup> 
+        <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.7.1" />
+    </startup>
 
-Azure Redis Cache bağlantısı `ConnectionMultiplexer` sınıfı tarafından yönetilir. Bu sınıf istemci uygulamanız genelinde paylaşılmak ve yeniden kullanılmak içindir ve işlem bazında oluşturulmasına gerek yoktur. 
+    <appSettings file="C:\AppSecrets\CacheSecrets.config"></appSettings>  
 
-Bir Azure Redis Cache’e bağlanmak ve bağlı bir `ConnectionMultiplexer` örneği döndürülmesi için, statik `Connect` yöntemini çağırın ve önbellek uç noktasını ve anahtarı geçirin. Parola parametresi olarak Azure portalında oluşturulan anahtarı kullanın.
+</configuration>
+```
 
-    ConnectionMultiplexer connection = ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
+Çözüm Gezgini’nde, **Başvurular**’a sağ tıklayın ve **Başvuru ekle**’ye tıklayın. **System.Configuration** bütünleştirilmiş koduna bir başvuru ekleyin.
 
-> [!IMPORTANT]
-> Uyarı: Kimlik bilgilerini asla kaynak kodunda depolamayın. Bu örneği basit tutmak için bunları kaynak kodunda gösteriyorum. Kimlik bilgilerini depolamaya hakkında bilgi için, bkz. [Uygulama Dizeleri ve Bağlantı Dizeleri Nasıl Çalışır?][How Application Strings and Connection Strings Work]
-> 
-> 
+Aşağıdaki `using` deyimlerini *Program.cs* dosyasına ekleyin:
 
-SSL kullanmak istemiyorsanız, `ssl=false` ayarlayın ya da `ssl` parametresini atlayın.
+```csharp
+using StackExchange.Redis;
+using System.Configuration;
+```
 
-> [!NOTE]
-> SSL olmayan bağlantı noktasın yeni önbellekler için varsayılan olarak devre dışı bırakılmıştır. SSL olmayan bağlantı noktası etkinleştirme hakkında yönergeler için bkz. [Erişim Bağlantı Noktaları](cache-configure.md#access-ports).
-> 
-> 
+Azure Redis Cache bağlantısı `ConnectionMultiplexer` sınıfı tarafından yönetilir. Bu sınıf, istemci uygulamanız genelinde paylaşılmalı ve yeniden kullanılmalıdır. Her işlem için yeni bir bağlantı oluşturmayın. 
 
-Uygulamanızda bir `ConnectionMultiplexer` örneği paylaşmaya ilişkin bir yaklaşım, aşağıdaki örneğe benzer bir bağlı örnek döndüren statik özelliğe sahip olmaktır. Bu yaklaşım yalnızca tek bir bağlı `ConnectionMultiplexer` örneği başlatmak için iş parçacığı güvenli bir yol sağlar. Bu örneklerde `abortConnect` false olarak ayarlanır; bunun anlamı Azure Redis Cache’e bağlantı kurulmasa bile çağrının başarılı olacağıdır. `ConnectionMultiplexer` temel özelliklerinden biri ağ sorunu ya da diğer nedenler çözümlendiğinde önbellek bağlantısını otomatik olarak geri yüklemesidir.
+Kimlik bilgilerini asla kaynak kodunda depolamayın. Bu örneği basit tutmak için, yalnızca bir dış gizli diziler yapılandırma dosyası kullanıyorum. Daha iyi bir yaklaşım [Sertifikalar ile Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios) kullanmaktır.
 
-    private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-    {
-        return ConnectionMultiplexer.Connect("contoso5.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-    });
+*Program.cs* dosyasında, konsol uygulamanızın `Program` sınıfına aşağıdaki üyeleri ekleyin:
 
-    public static ConnectionMultiplexer Connection
-    {
-        get
+```csharp
+        private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
         {
-            return lazyConnection.Value;
+            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+            return ConnectionMultiplexer.Connect(cacheConnection);
+        });
+
+        public static ConnectionMultiplexer Connection
+        {
+            get
+            {
+                return lazyConnection.Value;
+            }
         }
-    }
+```
 
-Gelişmiş bağlantı yapılandırma seçenekleri hakkında daha fazla bilgi için bkz:.[StackExchange.Redis yapılandırma modeli][StackExchange.Redis configuration model].
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+Uygulamanızda bir `ConnectionMultiplexer` örneğini paylaşmaya ilişkin bu yaklaşım, bağlı bir örnek döndüren bir statik özelliği kullanır. Kod yalnızca tek bir bağlı `ConnectionMultiplexer` örneği başlatmak için iş parçacığı güvenli bir yol sağlar. `abortConnect` false olarak ayarlanır; başka bir deyişle, Azure Redis Cache’e bağlantı kurulmasa bile çağrı başarılır olur. `ConnectionMultiplexer` temel özelliklerinden biri ağ sorunu ya da diğer nedenler çözümlendiğinde önbellek bağlantısını otomatik olarak geri yüklemesidir.
 
-Bağlantı kurulduktan sonra, `ConnectionMultiplexer.GetDatabase` yöntemini çağırarak Redis Cache veritabanına bir başvuru döndürün. `GetDatabase` yönteminden döndürülen nesne küçük, geçişli bir nesnedir ve depolanması gerekmez.
+*CacheConnection* appSetting değeri parola parametresi olarak Azure portalından önbellek bağlantısı dizesine başvurmak için kullanılır.
 
-    // Connection refers to a property that returns a ConnectionMultiplexer
-    // as shown in the previous example.
-    IDatabase cache = Connection.GetDatabase();
+## <a name="executing-cache-commands"></a>Önbellek komutlarını yürütme
 
-    // Perform cache operations using the cache object...
-    // Simple put of integral data types into the cache
-    cache.StringSet("key1", "value");
-    cache.StringSet("key2", 25);
+Konsol uygulamanıza yönelik `Program` sınıfının `Main` yordamı için aşağıdaki kodu ekleyin:
 
-    // Simple get of data types from the cache
-    string key1 = cache.StringGet("key1");
-    int key2 = (int)cache.StringGet("key2");
+```csharp
+        static void Main(string[] args)
+        {
+            // Connection refers to a property that returns a ConnectionMultiplexer
+            // as shown in the previous example.
+            IDatabase cache = lazyConnection.Value.GetDatabase();
 
-Azure Redis Cache’ler, bir Redis Cache’teki verileri mantıksal olarak ayırmak için yapılandırılabilir sayıda veritabanına (varsayılan değer 16) sahiptir. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration).
+            // Perform cache operations using the cache object...
 
-Artık Azure Redis Cache örneğine bağlanmayı ve önbellek veritabanına bir başvuru döndürmeyi bildiğinize göre, şimdi önbellekle çalışmaya göz atalım.
+            // Simple PING command
+            string cacheCommand = "PING";
+            Console.WriteLine("\nCache command  : " + cacheCommand);
+            Console.WriteLine("Cache response : " + cache.Execute(cacheCommand).ToString());
 
-<a name="add-object"></a>
+            // Simple get and put of integral data types into the cache
+            cacheCommand = "GET Message";
+            Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
+            Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
 
-## <a name="add-and-retrieve-objects-from-the-cache"></a>Önbelleğe nesneler ekleme ve nesneleri önbellekten alma
-`StringSet` ve `StringGet` yöntemleri.kullanılarak öğeleri bir önbellekte depolanabilir ve önbellekten alınabilir.
+            cacheCommand = "SET Message \"Hello! The cache is working from a .NET console app!\"";
+            Console.WriteLine("\nCache command  : " + cacheCommand + " or StringSet()");
+            Console.WriteLine("Cache response : " + cache.StringSet("Message", "Hello! The cache is working from a .NET console app!").ToString());
 
-    // If key1 exists, it is overwritten.
-    cache.StringSet("key1", "value1");
+            // Demostrate "SET Message" executed as expected...
+            cacheCommand = "GET Message";
+            Console.WriteLine("\nCache command  : " + cacheCommand + " or StringGet()");
+            Console.WriteLine("Cache response : " + cache.StringGet("Message").ToString());
 
-    string value = cache.StringGet("key1");
+            // Get the client list, useful to see if connection list is growing...
+            cacheCommand = "CLIENT LIST";
+            Console.WriteLine("\nCache command  : " + cacheCommand);
+            Console.WriteLine("Cache response : \n" + cache.Execute("CLIENT", "LIST").ToString().Replace("id=", "id="));
+
+            lazyConnection.Value.Dispose();
+        }
+```
+
+Azure Redis Cache’ler, bir Redis Cache’teki verileri mantıksal olarak ayırmak için yapılandırılabilir sayıda veritabanına (varsayılan değer 16) sahiptir. Kod, DB 0 adlı varsayılan veritabanına bağlanır. Daha fazla bilgi için bkz. [Redis veritabanı nedir?](cache-faq.md#what-are-redis-databases) ve [Varsayılan Redis sunucu yapılandırması](cache-configure.md#default-redis-server-configuration).
+
+`StringSet` ve `StringGet` yöntemleri kullanılarak önbellek öğeleri depolanabilir ve alınabilir.
 
 Redis, Redis dizeleri kadar veri depolar, ancak bu dizeler önbellekte .NET nesneleri depolarken kullanılabilecek seri hale getirilmiş ikili veriler dahil, birçok veri türünü içerebilir.
 
-`StringGet` çağrılırken, nesne varsa, döndürülür ve nesne yoksa, `null` döndürülür. `null` döndürülürse istenen veri kaynağından değeri alabilir ve sonra kullanmak için önbellekte saklayabilirsiniz. Bu kullanım şekli edilgen önbellek düzeni olarak bilinir.
+Konsol uygulamasını derleyip çalıştırmak için **Ctrl+F5**'e basın.
 
-    string value = cache.StringGet("key1");
-    if (value == null)
-    {
-        // The item keyed by "key1" is not in the cache. Obtain
-        // it from the desired data source and add it to the cache.
-        value = GetValueFromDataSource();
+Aşağıdaki örnekte, `Message` anahtarının Azure portalındaki Redis Konsolu kullanılarak ayarlanan, önceden önbelleğe alınmış bir değer içerdiğini görebilirsiniz. Uygulama, önbelleğe alınan bu değeri güncelleştirdi. Ayrıca uygulama, `PING` ve `CLIENT LIST` komutlarını da yürüttü.
 
-        cache.StringSet("key1", value);
-    }
+![Kısmi konsol uygulaması](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-partial.png)
 
-Aynı zamanda aşağıdaki örnekte gösterildiği gibi `RedisValue` kullanabilirsiniz. `RedisValue`, tam sayı veri türleriyle çalışmaya yönelik örtük işleçlere sahiptir ve önbelleğe alınan öğe için `null` beklenen bir değerse yararlı olabilir.
-
-
-    RedisValue value = cache.StringGet("key1");
-    if (!value.HasValue)
-    {
-        value = GetValueFromDataSource();
-        cache.StringSet("key1", value);
-    }
-
-
-Bir öğenin önbellekte sona erme tarihini belirtmek için, `StringSet` dizesine ait `TimeSpan` parametresini kullanın.
-
-    cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));
 
 ## <a name="work-with-net-objects-in-the-cache"></a>Önbellekte .NET nesneleriyle çalışma
+
 Azure Redis Cache temel veri türlerinin yanı sıra .NET nesnelerini de önbelleğe alabilir, ancak bir .NET nesnesini önbelleğe alabilmek için seri hale getirilmesi gerekir. Bu .NET nesne serileştirmesi uygulama geliştiricisinin sorumluluğundadır ve geliştiriciye seri hale getirici tercihinde esneklik sağlar.
 
-Nesneleri seri hale getirmenin basit bir yolu [Newtonsoft.Json.NET](https://www.nuget.org/packages/Newtonsoft.Json/8.0.1-beta1)’te `JsonConvert` seri hale getirme yöntemleri kullanmak ve JSON’a ve JSON’dan seri hale getirmektir. Aşağıdaki örnekte bir `Employee` nesnesi örneği kullanılarak al ve ayarla seçeneği gösterilmiştir.
+Nesneleri seri hale getirmenin basit bir yolu, [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)’da `JsonConvert` seri hale getirme yöntemlerini kullanmak ve JSON’a ve JSON’dan seri hale getirmektir. Bu bölümde, önbelleğe bir .NET nesnesi ekleyeceksiniz.
 
-    class Employee
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
+Visual Studio’da, **Araçlar** > **NuGet Paket Yöneticisi** > **Paket Yöneticisi Konsolu**’na tıklayın ve Paket Yöneticisi Konsolu penceresinden aşağıdaki komutu çalıştırın.
 
-        public Employee(int EmployeeId, string Name)
+```powershell
+Install-Package Newtonsoft.Json
+```
+
+Aşağıdaki `using` deyimini *Program.cs* dosyasının üst kısmına ekleyin:
+
+```charp
+using Newtonsoft.Json;
+```
+
+Aşağıdaki `Employee` sınıf tanımını *Program.cs* dosyasına ekleyin:
+
+```csharp
+        class Employee
         {
-            this.Id = EmployeeId;
-            this.Name = Name;
+            public string Id { get; set; }
+            public string Name { get; set; }
+            public int Age { get; set; }
+
+            public Employee(string EmployeeId, string Name, int Age)
+            {
+                this.Id = EmployeeId;
+                this.Name = Name;
+                this.Age = Age;
+            }
         }
-    }
+```
 
-    // Store to cache
-    cache.StringSet("e25", JsonConvert.SerializeObject(new Employee(25, "Clayton Gragg")));
+*Program.cs* dosyasındaki `Main()` yordamının alt kısmına ve `Dispose()` için çağrı yapılmadan önce aşağıdaki kod satırlarını önbelleğe ekleyin ve seri hale getirilmiş bir .NET nesnesi alın:
 
-    // Retrieve from cache
-    Employee e25 = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e25"));
+```csharp
+            // Store .NET object to cache
+            Employee e007 = new Employee("007", "Davide Columbo", 100);
+            Console.WriteLine("Cache response from storing Employee .NET object : " + 
+                cache.StringSet("e007", JsonConvert.SerializeObject(e007)));
+
+            // Retrieve .NET object from cache
+            Employee e007FromCache = JsonConvert.DeserializeObject<Employee>(cache.StringGet("e007"));
+            Console.WriteLine("Deserialized Employee .NET object :\n");
+            Console.WriteLine("\tEmployee.Name : " + e007FromCache.Name);
+            Console.WriteLine("\tEmployee.Id   : " + e007FromCache.Id);
+            Console.WriteLine("\tEmployee.Age  : " + e007FromCache.Age + "\n");
+```
+
+.NET nesnelerinin serileştirilmesini test etmek üzere konsol uygulamasını oluşturmak ve çalıştırmak için **Ctrl+F5** tuşlarına basın. 
+
+![Konsol uygulaması tamamlandı](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-console-app-complete.png)
+
+
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Sonraki öğreticiyle devam edecekseniz, bu hızlı başlangıçta oluşturulan kaynakları tutabilir ve sonraki öğreticide yeniden kullanabilirsiniz.
+
+Aksi takdirde, hızlı başlangıç örnek uygulamasını tamamladıysanız ücret yansıtılmaması için bu hızlı başlangıçta oluşturulan Azure kaynaklarını silebilirsiniz. 
+
+> [!IMPORTANT]
+> Bir kaynak grubunu silme işlemi geri alınamaz ve kaynak grubunun ve içindeki tüm kaynaklar kalıcı olarak silinir. Yanlış kaynak grubunu veya kaynakları yanlışlıkla silmediğinizden emin olun. Bu örneği, tutmak istediğiniz kaynakları içeren mevcut bir kaynak grubunda barındırmak için kaynaklar oluşturduysanız, kaynak grubunu silmek yerine her kaynağı kendi ilgili dikey penceresinden tek tek silebilirsiniz.
+>
+
+[Azure portalında](https://portal.azure.com) oturum açın ve **Kaynak grupları**’na tıklayın.
+
+**Ada göre filtrele...** metin kutusuna kaynak grubunuzun adını girin. Bu makaledeki yönergelerde *TestResources* adlı bir kaynak grubu kullanılmıştır. Sonuç listesindeki kaynak grubunuzda **...** ve sonra **Kaynak grubunu sil**’e tıklayın.
+
+![Sil](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
+
+Kaynak grubunun silinmesini onaylamanız istenir. Onaylamak için kaynak grubunuzun adını yazın ve **Sil**’e tıklayın.
+
+Birkaç dakika sonra kaynak grubu ve içerdiği kaynakların tümü silinir.
+
+
 
 <a name="next-steps"></a>
 
-## <a name="next-steps"></a>Sonraki Adımlar
-Artık temel bilgileri öğrendiğinize göre, Azure Redis Cache hakkında daha fazla bilgi edinmek için aşağıdaki bağlantıları izleyin.
+## <a name="next-steps"></a>Sonraki adımlar
 
-* Azure Redis Cache için ASP.NET sağlayıcılarına göz atın.
-  * [Azure Redis Oturum Durumu Sağlayıcısı](cache-aspnet-session-state-provider.md)
-  * [Azure Redis Cache ASP.NET Çıktı Önbelleği Sağlayıcısı](cache-aspnet-output-cache-provider.md)
-* Önbelleğinizin sistem durumunu [izleyebilmeniz](cache-how-to-monitor.md) için [önbellek tanılamayı etkinleştirin](cache-how-to-monitor.md#enable-cache-diagnostics). Azure portalında ölçümleri görüntüleyebilir ve ayrıca istediğiniz araçları kullanarak bunları [indirebilir ve gözden geçirebilirsiniz](https://github.com/rustd/RedisSamples/tree/master/CustomMonitoring).
-* [StackExchange.Redis önbellek istemcisi belgelerine][StackExchange.Redis cache client documentation] bakın.
-  * Azure Redis Cache birçok Redis istemcisinden ve geliştirme dilinden erişilebilir. Daha fazla bilgi için bkz. [http://redis.io/clients][http://redis.io/clients].
-* Azure Redis Cache ayrıca Redsmin ve Redis Desktop Manager gibi üçüncü taraf hizmetler ve araçlarla birlikte kullanılabilir.
-  * Redsmin hakkında daha fazla bilgi için bkz. [Azure Redis bağlantı dizesi alma ve Redsmin ile birlikte kullanma][How to retrieve an Azure Redis connection string and use it with Redsmin].
-  * Azure Redis Cache’teki verilerinize erişin ve bunları [RedisDesktopManager](https://github.com/uglide/RedisDesktopManager) kullanan bir GUI ile inceleyin.
-* [redis][redis] belgelerine bakın ve [redis veri türleri][redis data types] hakkında bilgi edinin ve [Redis veri türlerine on beş dakikalık bir giriş][a fifteen minute introduction to Redis data types] sayfasına göz atın.
+Bu hızlı başlangıçta, bir .NET uygulamasından Azure Redis Cache’in nasıl kullanılacağını öğrendiniz. Bir ASP.NET web uygulaması ile Redis Cache’i kullanmaya ilişkin sonraki hızlı başlangıca ilerleyin.
 
-<!-- INTRA-TOPIC LINKS -->
-[Next Steps]: #next-steps
-[Introduction to Azure Redis Cache (Video)]: #video
-[What is Azure Redis Cache?]: #what-is
-[Create an Azure Cache]: #create-cache
-[Which type of caching is right for me?]: #choosing-cache
-[Prepare Your Visual Studio Project to Use Azure Caching]: #prepare-vs
-[Configure Your Application to Use Caching]: #configure-app
-[Get Started with Azure Redis Cache]: #getting-started-cache-service
-[Create the cache]: #create-cache
-[Configure the cache]: #enable-caching
-[Configure the cache clients]: #NuGet
-[Working with Caches]: #working-with-caches
-[Connect to the cache]: #connect-to-cache
-[Add and retrieve objects from the cache]: #add-object
-[Specify the expiration of an object in the cache]: #specify-expiration
-[Store ASP.NET session state in the cache]: #store-session
-
-
-<!-- IMAGES -->
-
-
-[StackExchangeNuget]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-stackexchange-redis.png
-
-[NuGetMenu]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-nuget-menu.png
-
-[CacheProperties]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-properties.png
-
-[ManageKeys]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-manage-keys.png
-
-[SessionStateNuGet]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-session-state-provider.png
-
-[BrowseCaches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
-
-[Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png
-
-
-
-
-
-
-
-<!-- LINKS -->
-[http://redis.io/clients]: http://redis.io/clients
-[Develop in other languages for Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn690470.aspx
-[How to retrieve an Azure Redis connection string and use it with Redsmin]: https://redsmin.uservoice.com/knowledgebase/articles/485711-how-to-connect-redsmin-to-azure-redis-cache
-[Azure Redis Session State Provider]: http://go.microsoft.com/fwlink/?LinkId=398249
-[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
-[Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
-[Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure Shared Caching]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
-[Team Blog]: http://blogs.msdn.com/b/windowsazure/
-[Azure Caching]: http://www.microsoft.com/showcase/Search.aspx?phrase=azure+caching
-[How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
-[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/library/z852zf6b.aspx
-[Configure a cache in Azure Redis Cache]: http://msdn.microsoft.com/library/azure/dn793612.aspx
-
-[StackExchange.Redis configuration model]: https://stackexchange.github.io/StackExchange.Redis/Configuration
-
-[Work with .NET objects in the cache]: http://msdn.microsoft.com/library/dn690521.aspx#Objects
-
-
-[NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Cache Pricing Details]: http://www.windowsazure.com/pricing/details/cache/
-[Azure portal]: https://portal.azure.com/
-
-[Overview of Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=320830
-[Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=398247
-
-[Migrate to Azure Redis Cache]: http://go.microsoft.com/fwlink/?LinkId=317347
-[Azure Redis Cache Samples]: http://go.microsoft.com/fwlink/?LinkId=320840
-[Using Resource groups to manage your Azure resources]: ../azure-resource-manager/resource-group-overview.md
-
-[StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis
-[StackExchange.Redis cache client documentation]: http://github.com/StackExchange/StackExchange.Redis#documentation
-
-[Redis]: http://redis.io/documentation
-[Redis data types]: http://redis.io/topics/data-types
-[a fifteen minute introduction to Redis data types]: http://redis.io/topics/data-types-intro
-
-[How Application Strings and Connection Strings Work]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+> [!div class="nextstepaction"]
+> [Azure Redis Cache kullanan bir ASP.NET web uygulaması oluşturun.](./cache-web-app-howto.md)
 
 

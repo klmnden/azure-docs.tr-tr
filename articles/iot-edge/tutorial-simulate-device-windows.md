@@ -1,61 +1,62 @@
 ---
-title: Windows Azure IOT kenarına benzetimini | Microsoft Docs
-description: Sanal cihazda Windows Azure IOT kenar çalışma zamanı yükleme ve ilk modülünüzün dağıtma
-services: iot-edge
-keywords: ''
+title: Windows'da Azure IoT Edge benzetimi | Microsoft Docs
+description: Azure IoT Edge çalışma zamanını Windows'da benzetimli bir cihaza yükleme ve ilk modülünüzü dağıtma
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
 ms.date: 11/16/2017
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 213a0e7cebda6a8b89ef460799cbec477b487a64
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
-ms.translationtype: MT
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 7ad99a49a578de4997a2d76d48da33aba6847f3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631199"
 ---
-# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Bir sanal cihaz Windows Azure IOT kenar dağıtın - Önizleme
+# <a name="deploy-azure-iot-edge-on-a-simulated-device-in-windows----preview"></a>Azure IoT Edge'i Windows'da benzetimli bir cihazda dağıtma -  önizleme
 
-Azure IOT kenar, tüm verileri buluta itme zorunda kalmak yerine cihazlarınızda analizi ve veri işleme gerçekleştirmenizi sağlar. IOT kenar öğreticileri Azure hizmetlerine veya özel kod yerleşik modülleri, farklı türlerde dağıtmak nasıl gerçekleştirileceğini gösterir ancak önce test etmek için bir aygıt gerekir. 
+Azure IoT Edge, tüm verilerinizi buluta göndermek zorunda kalmak yerine analiz ve veri işlemeyi cihazlarınızda gerçekleştirmenizi sağlar. IoT Edge öğreticileri, Azure hizmetlerinden veya özel koddan geliştirilmiş farklı tür modülleri dağıtmayı gösterir, ancak önce test etmek için bir cihaz gerekir. 
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
-1. IOT Hub oluşturma
-2. Bir IOT sınır cihazı kaydetme
-3. IOT kenar çalışma zamanı Başlat
-4. Bir modül dağıtma
+1. IoT Hub'ı oluşturma
+2. IoT Edge cihazı kaydetme
+3. IoT Edge çalışma zamanını başlatma
+4. Modül dağıtma
 
 ![Öğretici mimarisi][2]
 
-Bu öğreticide oluşturduğunuz benzetimli sıcaklık ve nem Basıncı verileri oluşturan Rüzgar Türbin monitörde aygıttır. Turbines verimlilik hava durumu koşullara bağlı olarak farklı düzeylerde gerçekleştirdiğinden bu veriyi ilginizi. İşletme öngörüleri için verileri analiz modülleri dağıtarak yapılacağını burada iş bağlı diğer Azure IOT kenar öğreticileri oluşturun. 
+Bu öğreticide oluşturduğunuz benzetimli cihaz, bir rüzgar türbininde sıcaklık, nem ve basınç verileri üreten bir monitördür. Bu verilerle ilgilenmenizin nedeni, türbinlerinizin hava koşullarına bağlı olarak farklı verimlilik düzeylerinde çalışmasıdır. Diğer Azure IoT Edge öğreticileri, burada iş içgörüsü için verileri analiz eden modüller dağıtarak burada yaptığınız çalışmayı temel almaktadır. 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğretici, bir bilgisayarı veya Windows çalıştıran sanal makine bir nesnelerin interneti aygıt benzetimini yapmak için kullanmakta olduğunuz olduğunu varsayar. 
+Bu öğretici, bir Nesnelerin İnterneti cihazının benzetimi için Windows çalıştıran bir bilgisayar veya bir sanal makine kullanmakta olduğunuzu varsayar. 
 
 >[!TIP]
->Bir sanal makinede Windows çalıştırıyorsanız, etkinleştirme [iç içe geçmiş sanallaştırma] [ lnk-nested] ve en az 2 GB bellek ayıramadı. 
+>Windows'u sanal bir makinede çalıştırıyorsanız, [iç içe sanallaştırmayı][lnk-nested] etkinleştirin ve en az 2 GB bellek ayırın. 
 
-1. Desteklenen bir Windows sürümünü kullandığınızdan emin olun:
+1. Desteklenen bir Windows sürümü kullandığınızdan emin olun:
    * Windows 10 
    * Windows Server
-2. Yükleme [Windows için Docker] [ lnk-docker] ve emin olun çalıştığından.
-3. Yükleme [Windows Python] [ lnk-python] ve PIP komutunu kullanabilirsiniz emin olun. Bu öğretici Python sürümleri ile test edilmiştir > 2.7.9 = ve > 3.5.4 =.  
-4. IOT kenar denetim komut dosyasını karşıdan yüklemek için aşağıdaki komutu çalıştırın.
+2. [Docker for Windows] [ lnk-docker] yükleyin ve çalıştığından emin olun.
+3. [Windows'da Python] [ lnk-python] yükleyin ve PIP komutunu kullanabildiğinizden emin olun. Bu öğretici Python'ın 2.7.9 ve 3.5.4 veya üzeri sürümleri ile test edilmiştir.  
+4. IoT Edge kontrol betiğini indirmek için aşağıdaki komutu çalıştırın.
 
    ```cmd
    pip install -U azure-iot-edge-runtime-ctl
    ```
 
 > [!NOTE]
-> Azure IOT kenar Windows kapsayıcıları veya Linux kapsayıcıları çalıştırabilirsiniz. Aşağıdaki Windows sürümlerinden birini kullanıyorsanız, Windows kapsayıcıları kullanabilirsiniz:
->    * Windows 10 sonbaharda oluşturucuları güncelleştir
->    * Windows Server 1709 (16299 derleme)
->    * X64 tabanlı bir cihazda Windows IOT Core (yapı 16299)
+> Azure IoT Edge, Windows veya Linux kapsayıcılarını çalıştırabilir. Aşağıdaki Windows sürümlerinden birini kullanıyorsanız, Windows kapsayıcılarını kullanabilirsiniz:
+>    * Windows 10 Fall Creators Update
+>    * Windows Server 1709 (Derleme 16299)
+>    * x64 tabanlı bir cihazda Windows IoT Core (Derleme 16299)
 >
-> Windows IOT Core için yönergeleri izleyin [Windows IOT Core üzerinde IOT kenar çalışma zamanı yükleme][lnk-install-iotcore]. Aksi takdirde, sadece [Windows kapsayıcılar kullanmak için Docker yapılandırma][lnk-docker-containers]. Önkoşulların doğrulamak için aşağıdaki komutu kullanın:
+> Windows IoT Core'da, [Windows IoT Core'a IoT Edge çalışma zamanını yükleme][lnk-install-iotcore] yönergelerini izleyin. Diğer durumlarda [Docker'ı Windows kapsayıcılarını kullanmak üzere yapılandırmanız][lnk-docker-containers] yeterlidir. Önkoşullarınızı doğrulamak için aşağıdaki komutu kullanın:
 >    ```powershell
 >    Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
 >    ```
@@ -63,84 +64,84 @@ Bu öğretici, bir bilgisayarı veya Windows çalıştıran sanal makine bir nes
 
 ## <a name="create-an-iot-hub"></a>IoT hub oluşturma
 
-Öğretici, IOT Hub'ınızı oluşturarak başlayın.
-![IOT Hub oluşturma][3]
+IoT Hub'ınızı oluşturarak öğreticiyi başlatın.
+![IoT Hub'ı oluşturma][3]
 
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
-## <a name="register-an-iot-edge-device"></a>Bir IOT sınır cihazı kaydetme
+## <a name="register-an-iot-edge-device"></a>IoT Edge cihazı kaydetme
 
-Bir IOT sınır cihazı, yeni oluşturulan IOT Hub ile kaydedin.
-![Bir cihaz kaydetme][4]
+Yeni oluşturulan IoT Hub'a bir IoT Edge cihazı kaydetme.
+![Cihaz kaydetme][4]
 
 [!INCLUDE [iot-edge-register-device](../../includes/iot-edge-register-device.md)]
 
-## <a name="configure-the-iot-edge-runtime"></a>IOT kenar çalışma zamanı yapılandırma
+## <a name="configure-the-iot-edge-runtime"></a>IoT Edge çalışma zamanını yapılandırma
 
-Yükleyin ve Azure IOT kenar çalışma zamanı aygıtınızda başlatın. 
-![Bir cihaz kaydetme][5]
+Azure IoT Edge çalışma zamanını cihazınıza yükleyin ve başlatın. 
+![Cihaz kaydetme][5]
 
-IOT kenar çalışma zamanı, tüm IOT kenar aygıtlarda dağıtılır. İki modülden oluşur. **IOT kenar Aracısı** dağıtım ve IOT sınır cihazı modülleri izlenmesini kolaylaştırır. **IOT kenar hub** IOT sınır cihazı modülleri arasında ve cihaz IOT hub'ı arasındaki iletişim yönetir. Çalışma zamanı yeni aygıtınızda yapılandırdığınızda, yalnızca IOT kenar aracı ilk başta başlayacaktır. Bir modül dağıttığınızda kenar IOT hub'ı daha sonra gelir. 
+IoT Edge çalışma zamanı tüm IoT Edge cihazlarına dağıtılır. İki modülden oluşur. **IoT Edge aracısı**, IoT Edge cihazındaki modüllerin dağıtımını ve izlenmesini kolaylaştırır. **IoT Edge hub'ı** IoT Edge cihazındaki modüller ve cihaz ile IoT Hub'ı arasındaki iletişimi yönetir. Çalışma zamanını yeni cihazınızda yapılandırdığınızda, ilk önce yalnızca IoT Edge aracısı başlayacaktır. Bir modül dağıttığınızda IoT Edge hub'ı daha sonra gelir. 
 
 
-Çalışma zamanı IOT kenar cihaz bağlantı dizenizi önceki bölümdeki yapılandırın.
+Çalışma zamanını önceki bölümdeki IoT Edge cihaz bağlantı dizesi ile yapılandırın.
 
 ```cmd
 iotedgectl setup --connection-string "{device connection string}" --nopass
 ```
 
-Çalışma zamanı başlatın.
+Çalışma zamanını başlatın.
 
 ```cmd
 iotedgectl start
 ```
 
-Docker IOT kenar Aracısı'nı bir modül olarak çalışıp çalışmadığını denetleyin.
+IoT Edge arasının bir modül olarak çalıştığından emin olmak için Docker'ı denetleyin.
 
 ```cmd
 docker ps
 ```
 
-![Docker edgeAgent bakın](./media/tutorial-simulate-device-windows/docker-ps.png)
+![Docker'da edgeAgent'a bakın](./media/tutorial-simulate-device-windows/docker-ps.png)
 
-## <a name="deploy-a-module"></a>Bir modül dağıtma
+## <a name="deploy-a-module"></a>Modül dağıtma
 
-Azure IOT kenar Cihazınızı IOT Hub'ına telemetri verileri gönderecek bir modül dağıtmak için buluttan yönetin.
-![Bir cihaz kaydetme][6]
+Azure IoT Edge cihazınızı, IoT Hub'ına telemetri verileri gönderecek bir modül dağıtmak için buluttan yönetin.
+![Cihaz kaydetme][6]
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 
 ## <a name="view-generated-data"></a>Oluşturulan verileri görüntüleme
 
-Bu öğreticide, yeni bir IOT sınır cihazı oluşturulur ve IOT kenar çalışma zamanı yüklü. Ardından, cihaz için değişiklik yapmak zorunda kalmadan cihazda çalıştırmak için bir IOT kenar modülü göndermek için Azure portal kullanılır. Bu durumda, gönderilen modülü öğreticileri için kullanabileceğiniz çevresel veri oluşturur. 
+Bu öğreticide yeni bir IoT Edge cihazı oluşturdunuz ve üzerine IoT Edge çalışma zamanını yüklediniz. Ardından, cihazda bir değişiklik yapmak zorunda kalmadan çalışacak bir IoT Edge modülünü göndermek için Azure portalı kullandınız. Bu örnekte gönderdiğiniz modül öğreticiler için kullanabileceğiniz ortam verileri oluşturmaktadır. 
 
-Sanal cihazınız yeniden çalıştıran bilgisayarda komut istemi açın. Buluttan dağıtılan modülü IOT kenar aygıtınızda çalışır durumda olduğunu doğrulayın. 
+Benzetimli cihazınızı çalıştıran bilgisayarda yeniden komut istemini açın. Buluttan dağıtılan modülün IoT Edge cihazınızda çalıştığından emin olun. 
 
 ```cmd
 docker ps
 ```
 
-![Cihazınızda üç modüller görünümü](./media/tutorial-simulate-device-windows/docker-ps2.png)
+![Cihazınızda üç modül görüntüleme](./media/tutorial-simulate-device-windows/docker-ps2.png)
 
-TempSensor modülünden buluta gönderilen iletiler görüntüleyin. 
+tempSensor modülünden buluta gönderilen iletileri görüntüleyin. 
 
 ```cmd
 docker logs -f tempSensor
 ```
 
-![Modülünüzün verileri görüntüleme](./media/tutorial-simulate-device-windows/docker-logs.png)
+![Verileri modülünüzden görüntüleme](./media/tutorial-simulate-device-windows/docker-logs.png)
 
-Cihaz kullanarak göndermeyi telemetriyi de görüntüleyebilirsiniz [IOT hub'ı explorer aracı][lnk-iothub-explorer]. 
+Ayrıca, [IoT Hub Gezgini aracını][lnk-iothub-explorer] kullanarak cihazın gönderdiği telemetriyi görüntüleyebilirsiniz. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, yeni bir IOT sınır cihazı oluşturulur ve Azure IOT kenar bulut arabirimi kodu cihaza dağıtmak için kullanılır. Artık, kendi ortamı hakkında ham verileri oluşturma bir sanal cihaz var. 
+Bu öğreticide yeni bir IoT Edge cihazı oluşturdunuz ve cihaza kod dağıtmak için Azure IoT Edge bulut arabirimini kullandınız. Artık ortamı hakkında ham veri üreten benzetimli bir cihazınız var. 
 
-Bu öğretici, tüm diğer IOT kenar öğreticileri için önkoşuldur. Azure IOT kenar işletme öngörüleri kenarına bu verileri dönüştürmek nasıl yardımcı olabileceğini öğrenmek için diğer öğreticileri birini açın devam edebilirsiniz.
+Bu öğretici diğer tüm IoT Edge öğreticilerinin önkoşuludur. Azure IoT Edge'in bu verileri Edge'de iş içgörüsüne dönüştürmenize nasıl yardımcı olabileceğini öğrenmek için diğer öğreticilere devam edebilirsiniz.
 
 > [!div class="nextstepaction"]
-> [C# kod bir modül olarak geliştirmek ve dağıtmak](tutorial-csharp-module.md)
+> [Modül olarak C# kodu geliştirme ve dağıtma](tutorial-csharp-module.md)
 
 <!-- Images -->
 [2]: ./media/tutorial-install-iot-edge/install-edge-full.png

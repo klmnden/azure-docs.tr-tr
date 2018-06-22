@@ -1,26 +1,24 @@
 ---
 title: Azure Cosmos DB kullanarak Java uygulaması geliştirme öğreticisi | Microsoft Docs
-description: Bu Java web uygulaması Öğreticisi Azure Web Siteleri'nde barındırılan bir Java uygulaması erişim verileri ve Azure Cosmos DB ve SQL API'yi depolamak için nasıl kullanılacağını gösterir.
-keywords: Uygulama geliştirme, veritabanı Öğreticisi, java uygulaması, java web uygulaması Öğreticisi, azure, Microsoft azure
+description: Bu Java web uygulaması öğreticisi, Azure Web Siteleri'nde barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için Azure Cosmos DB ve SQL API’sinin nasıl kullanılacağını size gösterir.
+keywords: Uygulama geliştirme, veritabanı öğreticisi, java uygulaması, java web uygulaması öğreticisi, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: java
 author: dennyglee
 manager: kfile
-ms.assetid: 0867a4a2-4bf5-4898-a1f4-44e3868f8725
 ms.service: cosmos-db
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: denlee
-ms.openlocfilehash: 2124e22ca5ab47b5e1836384132014cc0b356ff1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 4e3fd2fc31bda1dd8172c574fe087d9fcc6068db
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796834"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API'yi kullanarak bir Java web uygulaması oluşturma
+# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB ve SQL API’sini kullanarak bir Java web uygulaması oluşturma
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
@@ -29,9 +27,9 @@ ms.lasthandoff: 04/06/2018
 > 
 > 
 
-Bu Java web uygulaması Öğreticisi nasıl kullanılacağını gösterir [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) depolamak ve Azure App Service Web Apps üzerinde barındırılan bir Java uygulamasında verilere erişmek için hizmet. Bu konu başlığında şunları öğreneceksiniz:
+Bu Java web uygulaması öğreticisi, Azure App Service Web Apps’te barındırılan bir Java uygulamasında verileri depolamak ve bunlara erişmek için [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) hizmetinin nasıl kullanılacağını size gösterir. Bu makalede aşağıdakileri öğreneceksiniz:
 
-* Eclipse'te temel bir JavaServer sayfaları (JSP) uygulaması oluşturma.
+* Eclipse'te temel bir JavaServer Pages (JSP) uygulaması oluşturma.
 * [Azure Cosmos DB Java SDK’sı](https://github.com/Azure/azure-documentdb-java) kullanılarak Azure Cosmos DB hizmetiyle çalışma.
 
 Bu Java uygulaması öğreticisi görevleri oluşturmanızı, almanızı ve aşağıdaki görüntüde gösterilen şekilde tamamlandı olarak işaretlemenizi sağlayan bir web tabanlı görev yönetimi uygulamasını nasıl oluşturacağınızı gösterir. Yapılacaklar listesindeki görevlerin her biri, Azure Cosmos DB'de JSON belgeleri olarak depolanır.
@@ -52,11 +50,11 @@ Bu uygulama geliştirme öğreticisine başlamadan önce aşağıdakilere sahip 
 
 * [Java Geliştirme Seti (JDK) 7 +](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Java EE Geliştiricileri için Eclipse IDE.](http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunasr1)
-* [Etkin bir Java Çalışma zamanı ortamı (ör. Tomcat veya Jetty) sahip bir Azure Web sitesi.](../app-service/app-service-web-get-started-java.md)
+* [Java çalışma zamanı ortamı (ör. Tomcat veya Jetty) etkin bir Azure Web Sitesi.](../app-service/app-service-web-get-started-java.md)
 
 Bu araçları ilk kez yüklüyorsanız coreservlets.com adresindeki [Öğretici: TomCat7'yi yükleme ve Eclipse ile kullanma](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) makalesinin Hızlı Başlangıç bölümünde yükleme işlem için bir adım adım kılavuz mevcuttur.
 
-## <a id="CreateDB"></a>1. adım: Azure Cosmos DB hesabı oluşturma
+## <a id="CreateDB"></a>1. Adım: Azure Cosmos DB hesabı oluşturma
 İlk olarak bir Azure Cosmos DB hesabı oluşturalım. Zaten bir hesabınız varsa veya bu öğretici için Azure Cosmos DB Öykünücüsü’nü kullanıyorsanız [2. Adım: Java JSP uygulaması oluşturma](#CreateJSP) adımına atlayabilirsiniz.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
@@ -75,7 +73,7 @@ JSP uygulaması oluşturmak için:
    
     ![Yeni bir JSP Dosyası Oluşturma - Java Web Uygulaması Öğreticisi](./media/sql-api-java-application/image11.png)
 5. **Select JSP Template (JSP Şablon Seçme)** iletişim kutusunda bu öğreticinin amacı doğrultusunda **New JSP File (html) (Yeni JSP Dosyası (html))** seçeneğini belirleyin ve ardından **Finish (Son)** düğmesine tıklayın.
-6. index.jsp dosyası Eclipse'te açıldığında, var olan **öğesinin içinde** <body>Hello World! (Merhaba Dünya!) ifadesinin görüntülenmesi için metni ekleyin. Güncelleştirilmiş <body> içeriğiniz aşağıdaki kod gibi görünmelidir:
+6. index.jsp dosyası Eclipse'te açıldığında, var olan **öğesinin içinde** <body>Hello World! (Merhaba Dünya!) ifadesinin görüntülenmesi için metni ekleyin. Güncelleştirilmiş <body> içeriği aşağıdaki kod gibi görünmelidir:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -85,8 +83,8 @@ JSP uygulaması oluşturmak için:
    
     ![Hello World - Java Uygulaması Öğreticisi](./media/sql-api-java-application/image12.png)
 
-## <a id="InstallSDK"></a>3. adım: SQL Java'yı yükleme SDK
-SQL Java SDK'sını ve bağımlılıklarını çıkarmak için kolay yolunu [Apache Maven](http://maven.apache.org/).
+## <a id="InstallSDK"></a>3. Adım: SQL Java SDK’sını yükleme
+[Apache Maven](http://maven.apache.org/), SQL Java SDK'sını ve bağımlılıklarını çekmenin en kolay yolunu sağlar.
 
 Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven projesine dönüştürmeniz gerekir:
 
@@ -96,20 +94,20 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
 4. **Bağımlılıklar** sekmesindeki **Bağımlılıklar** bölmesinde **Ekle**'ye tıklayın.
 5. **Bağımlılık Seç** penceresinde aşağıdakileri yapın:
    
-   * İçinde **Grup Kimliği** kutusuna, com.microsoft.azure girin.
-   * İçinde **Artifact ID** kutusuna, azure-documentdb girin.
-   * İçinde **sürüm** kutusuna, 1.5.1 girin.
+   * **Grup Kimliği** kutusuna com.microsoft.azure girin.
+   * **Yapıt Kimliği** kutusuna azure-documentdb girin.
+   * **Sürüm** kutusuna 1.5.1 girin.
      
-   ![SQL Java uygulaması SDK'sını yükleyin](./media/sql-api-java-application/image13.png)
+   ![SQL Java Uygulaması SDK'sını yükleme](./media/sql-api-java-application/image13.png)
      
-   * Veya bağımlılık XML'sini grup kimliği ve yapı kimliği için doğrudan bir metin düzenleyicisi aracılığıyla pom.XML'ye ekleyin:
+   * Alternatif olarak, Grup Kimliği ve Yapıt Kimliği için bağımlılık XML'sini bir metin düzenleyicisi aracılığıyla doğrudan pom.xml'ye ekleyin:
      
-        <dependency> <groupId>com.microsoft.Azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
-6. Tıklatın **Tamam** ve Maven SQL Java SDK'sını yükler.
+        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+6. **Tamam**'a tıkladığınızda Maven SQL Java SDK'sını yükler.
 7. Pom.xml dosyasını kaydedin.
 
 ## <a id="UseService"></a>4. Adım: Azure Cosmos DB hizmetini bir Java uygulamasında kullanma
-1. İlk olarak, Todoıtem nesnesini TodoItem.java içinde şimdi tanımlayın:
+1. İlk olarak, TodoItem.java içinde TodoItem nesnesini tanımlayalım:
    
         @Data
         @Builder
@@ -120,8 +118,8 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
             private String name;
         }
    
-    Bu projede oluşturucuyu, alıcıları ve ayarlayıcıları oluşturmak için [Project Lombok](http://projectlombok.org/)'u kullanıyoruz. Alternatif olarak, bu kodu el ile yazabilir veya IDE'nin oluşturmasını sağlayabilirsiniz.
-2. Azure Cosmos DB hizmetini çağırmak için yeni bir **DocumentClient** örneği oluşturmanız gerekir. Genel olarak, sonraki her istek için yeni bir istemci oluşturmak yerine **DocumentClient**'ı tekrar kullanmak en iyisidir. İstemciyi bir **DocumentClientFactory**'ye sarmalayarak tekrar kullanabiliriz. DocumentClientFactory.java içinde kaydettiğiniz panonuza URI ve birincil anahtar değeri yapıştırmanız gereken [1. adım](#CreateDB). [YOUR\_ENDPOINT\_HERE] yerine URI'nizi ve [YOUR\_KEY\_HERE] yerine BİRİNCİL ANAHTARINIZI girin.
+    Bu projede oluşturucuyu, alıcıları, ayarlayıcıları ve bir derleyici oluşturmak için [Project Lombok](http://projectlombok.org/)'u kullanırsınız. Alternatif olarak, bu kodu el ile yazabilir veya IDE'nin oluşturmasını sağlayabilirsiniz.
+2. Azure Cosmos DB hizmetini çağırmak için yeni bir **DocumentClient** örneği oluşturmanız gerekir. Genel olarak, sonraki her istek için yeni bir istemci oluşturmak yerine **DocumentClient**'ı tekrar kullanmak en iyisidir. İstemciyi bir **DocumentClientFactory**'ye sarmalayarak tekrar kullanabiliriz. DocumentClientFactory.java içinde, [1. adımda](#CreateDB) panonuza kopyaladığınız URI ve BİRİNCİL ANAHTAR değerini yapıştırmanız gerekir. [YOUR\_ENDPOINT\_HERE] yerine URI'nizi ve [YOUR\_KEY\_HERE] yerine BİRİNCİL ANAHTARINIZI girin.
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
         private static final String MASTER_KEY = "[YOUR_KEY_HERE]";
@@ -278,7 +276,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
                 return null;
             }
         }
-7. Biz de bir koleksiyon veya SQL kullanarak Todoıtems listesini almak için DocumentClient kullanabilirsiniz:
+7. SQL kullanarak bir koleksiyonu veya TodoItems listesini almak için DocumentClient'ı da kullanabiliriz:
    
         @Override
         public List<TodoItem> readTodoItems() {
@@ -343,7 +341,7 @@ Bunu yapmak için aşağıdaki adımları tamamlayarak projenizi bir Maven proje
         }
 
 ## <a id="Wire"></a>5. Adım: Java uygulaması geliştirme projesinin geriye kalan kısmını bağlama
-Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir Hızlı kullanıcı arabirimi oluşturma ve bunu dao'muza.
+Artık eğlenceli kısımları tamamladığımıza göre, geriye sadece hızlı bir kullanıcı arabirimi oluşturmak ve bunu DAO'muza bağlamak kaldı.
 
 1. İlk olarak, DAO'muzu çağırmak için bir denetleyici oluşturmakla başlayalım:
    
@@ -450,7 +448,7 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
                 doGet(request, response);
             }
         }
-3. Kullanıcıya görüntülenecek web kullanıcı arabirimi ihtiyacımız. Daha önce oluşturduğumuz index.jsp'yi yeniden yazalım:
+3. Kullanıcıya gösterilecek bir web kullanıcı arabirimine ihtiyacımız olacak. Daha önce oluşturduğumuz index.jsp'yi yeniden yazalım:
     ```html
         <html>
         <head>
@@ -539,7 +537,7 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
         </body>
         </html>
     ```
-4. Ve son olarak, web kullanıcı arabirimi ile servlet'i birbirine bağlamak için bazı istemci tarafı JavaScript'i yazın:
+4. Son olarak, web kullanıcı arabirimi ile servlet'i birbirine bağlamak için biraz istemci tarafı JavaScript'i yazın:
    
         var todoApp = {
           /*
@@ -714,19 +712,19 @@ Biz eğlenceli kısımları tamamladığımıza göre şimdi - kalan tüm bittir
 5. Harika! Şimdi geriye yalnızca uygulamayı test etmek kaldı. Uygulamayı yerel olarak çalıştırın, ardından öğe adı ve kategoriyi doldurarak ve **Görev Ekle**'ye tıklayarak birkaç Yapılacaklar öğesi ekleyin.
 6. Öğe göründükten sonra, onay kutusundaki işareti değiştirip **Görevleri Güncelleştir**'e tıklayarak öğeyi tamamlandı veya tamamlanmadı olarak güncelleştirebilirsiniz.
 
-## <a id="Deploy"></a>6. adım: Java uygulamanızı Azure Web siteleri için dağıtma
-Uygulamanızı bir WAR dosyası olarak dışarı aktarma ve ya da kaynak denetimi (ör. Gıt) veya FTP aracılığıyla karşıya kadar basit Java uygulamalarını dağıtma azure Web siteleri yapar.
+## <a id="Deploy"></a>6. Adım: Java uygulamanızı Azure Web Siteleri'ne dağıtma
+Azure Web Siteleri Java uygulamalarını dağıtmayı, uygulamanızı bir WAR dosyası olarak dışarı aktarmak ve kaynak denetimi (ör. Git) veya FTP aracılığıyla karşıya yüklemek kadar basit hale getirir.
 
-1. Uygulamanızı bir WAR dosyası olarak dışarı aktarmak için projenize sağ tıklayın **Proje Gezgini**, tıklatın **verme**ve ardından **WAR dosyasını**.
+1. Uygulamanızı bir WAR dosyası olarak dışarı aktarmak için **Proje Gezgini**'nde projenize sağ tıklayın, **Dışarı Aktar**'a tıklayın ve ardından **WAR Dosyası**'na tıklayın.
 2. **WAR Dışarı Aktar** penceresinde aşağıdakileri yapın:
    
    * Web projesi kutusuna azure-documentdb-java-sample metnini girin.
    * Hedef kutusunda WAR dosyasını kaydetmek için bir hedef seçin.
    * **Son**'a tıklayın.
-3. Eldeki elinizde bir WAR dosyası, yalnızca bunu Azure Web sitenizin için yükleyebilirsiniz **webapps** dizin. Dosyayı karşıya yükleme ile ilgili yönergeler için bkz: [Azure App Service Web Apps bir Java uygulama eklemek](../app-service/web-sites-java-add-app.md).
+3. Artık elinizde bir WAR dosyası olduğuna göre, bunu Azure Web Sitenizin **webapps** dizinine yüklemeniz yeterlidir. Dosyayı karşıya yükleme konusunda yönergeler için bkz. [Azure App Service Web Apps’e Java uygulaması ekleme](../app-service/web-sites-java-add-app.md).
    
     WAR dosyası webapps dizinine yüklendikten sonra, çalışma zamanı ortamı bunu eklemiş olduğunuzu algılar ve otomatik olarak yükler.
-4. Tamamlanmış ürününüzü görmek için gidin http://YOUR \_SITE\_NAME.azurewebsites.net/azure-java-sample/ ve görevlerinizi eklemeye başlayın!
+4. Tamamlanmış ürününüzü görüntülemek için, http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ adresine gidip görevlerinizi eklemeye başlayın!
 
 ## <a id="GetProject"></a>Projeyi GitHub'dan alma
 Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) projesinde bulunur. todo projesini Eclipse'e aktarmak için [Önkoşullar](#Prerequisites) bölümünde listelenen yazılım ve kaynaklara sahip olduğunuzdan emin olun ve ardından aşağıdakileri yapın:
@@ -736,12 +734,12 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 3. Eclipse'te **Dosya** menüsünde **İçeri Aktar**'a tıklayın.
 4. **İçeri Aktar** penceresinde **Git**'e tıklayın, **Git Projeleri**'ne tıklayın ve ardından **İleri**'ye tıklayın.
 5. **Depo Kaynağı Seçin** ekranında **URI'yi kopyalama**'ya tıklayın.
-6. Üzerinde **kaynak Git deposu** ekranında **URI** kutusuna https://github.com/Azure-Samples/java-todo-app.gitve ardından **sonraki**.
+6. **Kaynak Git Deposu** ekranında, **URI** kutusunda, https://github.com/Azure-Samples/documentdb-java-todo-app.git girin ve ardından **İleri**’ye tıklayın.
 7. **Dal Seçimi** ekranında **master**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
 8. **Yerel Hedef** ekranında deponun kopyalanabileceği bir klasör seçmek için **Gözat**'a tıklayın ve ardından **İleri**'ye tıklayın.
 9. **Projeleri içeri aktarmada kullanmak için sihirbaz seçin** ekranında **Var olan projeleri içeri aktar**'ın seçili olduğundan emin olun ve ardından **İleri**'ye tıklayın.
-10. **Projeleri İçeri Aktar** ekranında **DocumentDB** projesinin seçimini kaldırın ve ardından **Son**'a tıklayın. DocumentDB projesi Azure Cosmos DB Java biz bağımlılık olarak ekleyeceğimiz SDK içerir.
-11. İçinde **Proje Gezgini**, azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java için gidin ve HOST ve MASTER_KEY değerlerini URI ve birincil anahtar yerine, Azure Cosmos DB hesap ve ardından dosyayı kaydedin. Daha fazla bilgi için bkz. [1. Adım. Bir Azure Cosmos DB veritabanı hesabı oluşturma](#CreateDB).
+10. **Projeleri İçeri Aktar** ekranında **DocumentDB** projesinin seçimini kaldırın ve ardından **Son**'a tıklayın. DocumentDB projesi, daha sonra bağımlılık olarak ekleyeceğimiz Azure Cosmos DB Java SDK'sını içerir.
+11. **Proje Gezgini**’nde azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java konumuna gidin ve HOST ve MASTER_KEY değerlerini Azure Cosmos DB hesabınızın URI ve PRIMARY KEY değerleriyle değiştirin ve ardından dosyayı kaydedin. Daha fazla bilgi için bkz. [1. Adım. Azure Cosmos DB veritabanı hesabı oluşturun](#CreateDB).
 12. **Proje Gezgini**'nde **azure-documentdb-java-sample**'a sağ tıklayın, **Yapı Yolu**'na tıklayın ve ardından **Oluşturma Yolunu Yapılandır**'a tıklayın.
 13. **Java Oluşturma Yolu** ekranında sağ bölmedeki **Kitaplıklar** sekmesini seçin ve ardından **Dış JAR'lar Ekle**'ye tıklayın. Lombok.jar dosyasının konumuna gidin, **Aç**'a tıklayın ve ardından **Tamam**'a tıklayın.
 14. **Özellikler** penceresini tekrar açmak için 12. adımı kullanın ve ardından sol bölmedeki **Hedeflenen Çalışma Zamanları**'na tıklayın.
@@ -750,7 +748,7 @@ Bu öğreticideki tüm örnekler GitHub'daki [todo](https://github.com/Azure-Sam
 17. **Proje Modelleri** ekranında **Dinamik Web Modülü**'nü ve **Java**'yı seçin ve ardından **Tamam**'a tıklayın.
 18. Ekranın en altındaki **Sunucular** sekmesinde **Localhost'ta Tomcat v7.0 Sunucusu**'na sağ tıklayın ve ardından **Ekle ve Kaldır**'a tıklayın.
 19. **Ekle ve Kaldır** penceresinde **azure-documentdb-java-sample**'ı **Yapılandırılmış** kutusuna taşıyın ve ardından **Son**'a tıklayın.
-20. İçinde **sunucuları** sekmesinde, sağ **Server localhost'ta Tomcat v7.0**ve ardından **yeniden**.
-21. Bir tarayıcıda gidin http://localhost:8080/azure-documentdb-java-sample/ ve görev listenize eklemeye başlayın. Varsayılan bağlantı noktası değerlerinizi değiştirdiyseniz 8080'i seçtiğiniz değere değiştirmeyi unutmayın.
-22. Projenizi bir Azure web sitesine dağıtmak için bkz. [6. Adım. Uygulamanızı Azure Web siteleri için dağıtmak](#Deploy).
+20. **Sunucular** sekmesinde **Localhost'ta Tomcat v7.0 Sunucusu**'na sağ tıklayın ve ardından **Yeniden Başlat**'a tıklayın.
+21. Bir tarayıcıda, http://localhost:8080/azure-documentdb-java-sample/ konumuna gidin ve görev listenizi eklemeye başlayın. Varsayılan bağlantı noktası değerlerinizi değiştirdiyseniz 8080'i seçtiğiniz değere değiştirmeyi unutmayın.
+22. Projenizi bir Azure web sitesine dağıtmak için bkz. [6. Adım. Uygulamanızı Azure Web Siteleri'ne dağıtın](#Deploy).
 

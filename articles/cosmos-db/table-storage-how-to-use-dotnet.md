@@ -1,45 +1,43 @@
 ---
-title: .NET kullanarak Azure Tablo Depolama’yı kullanmaya başlama | Microsoft Belgeleri
-description: Bir NoSQL veri deposu olan Azure Table Storage kullanarak bulutta yapılandırılmış veri depolayın.
+title: .NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama | Microsoft Docs
+description: Azure Tablo Depolama veya Azure Cosmos DB Tablo API’sini kullanarak yapılandırılmış verileri bulutta depolayın.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: MT
+ms.openlocfilehash: 927a734b288f5bb0082e77be15ae540702fe4e8b
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808290"
 ---
-# <a name="get-started-with-azure-table-storage-using-net"></a>.NET kullanarak Azure Table Storage’ı kullanmaya başlayın
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Azure Tablo Depolama, yapılandırılmış NoSQL verilerini bulutta depolayan ve şemasız bir tasarım ile anahtar/öznitelik deposu sağlayan bir hizmettir. Table Storage şemasız olduğu için uygulamanızın ihtiyaçları geliştikçe verilerinizi kolayca uyarlayabilirsiniz. Tablo Depolama verilerine erişim, çoğu uygulama türü için hızlı ve ekonomik olmanın yanı sıra benzer veri hacimleri için geleneksel SQL’e kıyasla genellikle daha düşük maliyetlidir.
+Şemasız bir tasarım ile anahtar/öznitelik deposu sağlayarak yapılandırılmış NoSQL verilerini bulutta depolamak için Azure Tablo depolama veya Azure Cosmos DB Tablo API’sini kullanabilirsiniz. Tablo depolama ve Azure Cosmos DB Tablo API’si şemasız olduğu için uygulamanızın ihtiyaçları geliştikçe verilerinizi kolayca uyarlayabilirsiniz. Tablo depolama verilerine ve Azure Cosmos DB Tablo API’sine erişim, çoğu uygulama türü için hızlı ve ekonomik olmanın yanı sıra benzer veri hacimleri için geleneksel SQL’e kıyasla genellikle daha düşük maliyetlidir.
 
-Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri veya hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini Tablo Depolama ile depolayabilirsiniz. Bir tabloda istediğiniz kadar varlık depolayabilirsiniz ve bir depolama hesabı kapasite limitini dolduracak kadar tablo içerebilir.
+Web uygulamaları için kullanıcı verileri, adres defterleri, cihaz bilgileri veya hizmetiniz için gerekli olan tüm diğer meta veri türleri gibi esnek veri kümelerini depolamak için Tablo depolama veya Azure Cosmos DB Tablo API’sini kullanabilirsiniz. Bir tabloda istediğiniz kadar varlık depolayabilirsiniz ve bir depolama hesabı veya Tablo API’si depolama hesabının ya da Tablo API’si hesabının kapasite limitini dolduracak kadar tablo içerebilir.
 
-### <a name="about-this-tutorial"></a>Bu öğretici hakkında
-Bu öğretici nasıl kullanılacağını gösterir [.NET için Microsoft Azure CosmosDB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) ortak Azure Table depolama senaryolarında. Paket adını Azure Cosmos DB için kullanılır, ancak paket hem Azure Cosmos DB hem de Azure tablo depolama ile çalışır, her hizmetin yalnızca bir benzersiz uç noktası vardır gösterir. Bu senaryolar gösteren C# örnekleri kullanarak keşfedilen nasıl yapılır:
-* Oluşturma ve tabloları silin
-* Ekle, Güncelleştir ve satırları silme
+### <a name="about-this-sample"></a>Bu örnek hakkında
+Bu örnekte ortak Azure Tablo depolama ve Tablo API’si senaryoları için [.NET için Microsoft Azure CosmosDB Tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)’nın kullanılması gösterilmektedir. Paket adı Azure Cosmos DB ile kullanılabileceğini gösteriyor ancak paket hem Azure Cosmos DB Tablo API’si hem de Azure Tabloları depolamasıyla birlikte kullanılabilir ve her bir hizmetin kendine özgü bir uç noktası vardır. Bu senaryolarda aşağıdakileri yapmayı gösteren C# örnekleri kullanılır:
+* Tablo oluşturma ve silme
+* Satır ekleme, güncelleştirme ve silme
 * Sorgu tabloları
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-Bu öğreticiyi başarıyla tamamlamak için aşağıdakiler gerekir:
+Bu örneği başarıyla tamamlamak için aşağıdakiler gerekir:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [.NET (Önizleme) için Azure Storage ortak kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Bu, üretim ortamlarında desteklenir gerekli Önizleme paketidir. 
-* [.NET için Microsoft Azure CosmosDB tablo kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+* [.NET için Azure Depolama Ortak Kitaplığı (Önizleme)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Bu, üretim ortamlarında desteklenen gerekli bir önizleme paketidir. 
+* [.NET için Microsoft Azure CosmosDB Tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
 * [.NET için Azure Yapılandırma Yöneticisi](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure depolama hesabı](../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
@@ -48,7 +46,7 @@ Bu öğreticiyi başarıyla tamamlamak için aşağıdakiler gerekir:
 ### <a name="more-samples"></a>Daha fazla örnek
 Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Kullanmaya Başlama](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/). Örnek uygulamayı indirip çalıştırabilir veya GitHub’daki örneğe göz atabilirsiniz.
 
-## <a name="create-an-azure-service-account"></a>Bir Azure hizmet hesabı oluşturma
+## <a name="create-an-azure-service-account"></a>Azure hizmet hesabı oluşturma
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Azure Storage hesabı oluşturma
@@ -58,7 +56,7 @@ Tablo depolama kullanan diğer örnekler için [.NET’te Azure Table Storage Ku
 
 Şu anda bir depolama hesabı oluşturmayı tercih ediyorsanız, yerel bir ortamda kodunuzu çalıştırıp sınamak için Azure Storage öykünücüsü de kullanabilirsiniz. Daha fazla bilgi için bkz. [Geliştirme ve Sınama için Azure Storage Öykünücüsünü Kullanma](../storage/common/storage-use-emulator.md).
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Bir Azure Cosmos DB tablo API hesabı oluşturma
+### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Tablo API’si hesabı oluşturma
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="set-up-your-development-environment"></a>Geliştirme ortamınızı kurma
@@ -68,36 +66,36 @@ Ardından, geliştirme ortamınızı Visual Studio’da ayarlayın; böylece bu 
 Visual Studio'da yeni bir Windows konsol uygulaması oluşturun. Aşağıdaki adımlar Visual Studio 2017’de bir konsol uygulaması oluşturmayı gösterir. Adımlar Visual Studio’nun diğer sürümlerinde de benzerdir.
 
 1. **Dosya** > **Yeni** > **Proje**’yi seçin.
-2. Seçin **yüklü** > **Visual C#** > **Windows Klasik Masaüstü**.
+2. **Yüklü** > **Visual C#** > **Windows Klasik Masaüstü** öğesini seçin.
 3. **Konsol Uygulaması (.NET Framework)** öğesini seçin.
 4. **Ad** alanına uygulamanız için bir ad girin.
 5. **Tamam**’ı seçin.
 
-Bu öğreticideki tüm kod örnekleri konsol uygulamanızın `Program.cs` dosyasındaki `Main()` yöntemine eklenebilir.
+Bu örnekteki tüm kod örnekleri konsol uygulamanızın `Program.cs` dosyasındaki `Main()` yöntemine eklenebilir.
 
-Bir Azure bulut hizmeti veya web uygulaması dahil olmak üzere, .NET uygulaması ve Masaüstü ve mobil uygulamaları herhangi bir türde Azure CosmosDB tablo kitaplıkta kullanabilirsiniz. Bu kılavuzda, sadeleştirmek için konsol uygulaması kullanmaktayız.
+Azure bulut hizmeti veya web uygulaması ile masaüstü ve mobil uygulamaları dahil olmak üzere herhangi bir .NET uygulaması türünde Azure CosmosDB Tablo Kitaplığını kullanabilirsiniz. Bu kılavuzda, sadeleştirmek için konsol uygulaması kullanmaktayız.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>Gereken paketleri yüklemek için NuGet kullanma
-Bu öğreticiyi tamamlamak için projenizde başvuruda bulunmanız üç önerilen paketi vardır:
+Bu örneği tamamlamak için projenizde başvurmanız gereken üç önerilen paket vardır:
 
-* [.NET (Önizleme) için Azure Storage ortak kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
-* [.NET için Microsoft Azure Cosmos DB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Bu paket, Azure Table depolama hesabı ya da Azure Cosmos DB tablo API hesabını veri kaynaklarına programlı erişim sağlar.
+* [.NET için Azure Depolama Ortak Kitaplığı (önizleme)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
+* [.NET için Microsoft Azure Cosmos DB Tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Bu paket Azure Tablo depolama hesabınızdaki veya Azure Cosmos DB Tablo API’si hesabınızdaki veri kaynaklarına programlı erişim sağlar.
 * [.NET için Microsoft Azure Configuration Manager Kitaplığı](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Bu paket, uygulamanızın nerede çalıştığına bakmaksızın yapılandırma dosyasından bağlantı dizesini ayrıştırmak için bir sınıf sağlar.
 
 Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın:
 
 1. **Çözüm Gezgini**'nde projenize sağ tıklayın ve **NuGet Paketlerini Yönet**’i seçin.
-2. "Microsoft.Azure.Storage.Common için" çevrimiçi olarak arayın ve seçin **yükleme** Azure Storage ortak kitaplığı .NET (Önizleme) ve bağımlılıklarını yüklemek için. Olun **dahil et** bu bir önizleme paketini olduğu gibi kutunun işaretli.
-3. "Microsoft.Azure.CosmosDB.Table için" çevrimiçi olarak arayın ve seçin **yükleme** Microsoft Azure CosmosDB tablo kitaplığı yüklemek için.
-4. "WindowsAzure.ConfigurationManager için" çevrimiçi olarak arayın ve seçin **yükleme** Microsoft Azure Yapılandırma Yöneticisi kitaplığı yüklemek için.
+2. "Microsoft.Azure.Storage.Common" için çevrimiçi arama yapın ve .NET için Azure Depolama Ortak Kitaplığı (Önizleme) ve bağımlılıklarını yüklemek için **Yükle**’yi seçin. Bu bir ön sürüm paketi olduğundan, **Ön sürümü dahil et** kutusunun işaretli olduğundan emin olun.
+3. Microsoft Azure CosmosDB Tablo Kitaplığı’nı yüklemek için çevrimiçi "Microsoft.Azure.CosmosDB.Table" öğesini arayın ve **Yükle**’yi seçin.
+4. Çevrimiçi olarak "WindowsAzure.ConfigurationManager" ifadesini arayın ve Microsoft Azure Yapılandırma Yöneticisi Kitaplığı’nı yüklemek için **Yükle**’yi seçin.
 
 > [!NOTE]
-> .NET için depolama ortak Kitaplığı'ndaki ODataLib bağımlılıkları, WCF Veri Hizmetleri değil, NuGet üzerinde kullanılabilir ODataLib paketleri tarafından çözümlenir. ODataLib kitaplıkları NuGet aracılığıyla doğrudan indirilebilir veya kod projenizle başvurulabilir. Depolama İstemcisi Kitaplığı tarafından kullanılan belirli ODataLib paketleri [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) ve [Spatial](http://nuget.org/packages/System.Spatial/) paketleridir. Bu kitaplıklar Azure Table storage sınıfları tarafından kullanılırken depolama ortak Kitaplığı'yla programlama için gerekli bağımlılıkları oldukları.
+> .NET için Depolama Ortak Kitaplığı’ndaki ODataLib bağımlılıkları, WCF Veri Hizmetleri’nden değil, NuGet üzerindeki ODataLib paketleriyle çözümlenir. ODataLib kitaplıkları NuGet aracılığıyla doğrudan indirilebilir veya kod projenizle başvurulabilir. Depolama İstemcisi Kitaplığı tarafından kullanılan belirli ODataLib paketleri [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/) ve [Spatial](http://nuget.org/packages/System.Spatial/) paketleridir. Bu kitaplıklar, Azure Tablo depolama sınıfları tarafından kullanılırken Depolama Ortak Kitaplığıyla programlama için gerekli bağımlılıklardır.
 > 
 > 
 
 > [!TIP]
-> Geliştiricilerin Azure Table storage'ı zaten tanıdık kullanmış olabilirsiniz [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) geçmişte paket. Tüm yeni tablo uygulamaları kullanmanız önerilir [Azure Storage ortak kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) ve [Azure Cosmos DB tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table), ancak WindowsAzure.Storage paket hala desteklenmektedir. WindowsAzure.Storage kitaplığı kullanırsanız, Microsoft.WindowsAzure.Storage.Table kullanarak dahil deyimleri.
+> Azure Tablo depolamayı zaten tanıyan geliştiriciler geçmişte [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) paketini kullanmış olabilir. Tüm yeni tablo uygulamalarının [Azure Depolama Ortak Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) ve [Azure Cosmos DB Tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)’nı kullanması önerilir ancak WindowsAzure.Storage paketi hala desteklenmektedir. WindowsAzure.Storage kitaplığını kullanırsanız, kullanım deyimlerinize Microsoft.WindowsAzure.Storage.Table deyimini ekleyin.
 >
 >
 
@@ -105,29 +103,29 @@ Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın
 Bu kılavuzdaki örnekleri çalıştırmak için üç ortam seçeneğiniz vardır:
 
 * Kodunuzu buluttaki bir Azure Storage hesabına karşı çalıştırabilirsiniz. 
-* Kodunuzu buluttaki bir Azure Cosmos DB hesabını karşı çalıştırabilirsiniz.
+* Kodunuzu buluttaki bir Azure Cosmos DB hesabına karşı çalıştırabilirsiniz.
 * Kodunuzu Azure Storage öykünücüsüne karşı çalıştırabilirsiniz. Depolama öykünücüsü, buluttaki Azure Storage hesabına öykünen bir yerel ortamdır. Öykünücü, uygulamanız geliştirildiği sırada kodunuzu test etmek ve hatalarını ayıklamak için bağımsız bir seçenektir. Öykünücü iyi bilinen hesabı ve anahtarı kullanır. Daha fazla bilgi için bkz. [Geliştirme ve test için Azure depolama öykünücüsünü kullanma](../storage/common/storage-use-emulator.md).
 
 Buluttaki bir depolama hesabını hedefliyorsanız, depolama hesabınız için birincil erişim anahtarını Azure portalından kopyalayın. Daha fazla bilgi için bkz. [Depolama erişim anahtarlarını görüntüleme ve kopyalama](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 > [!NOTE]
-> Azure Storage ile ilişkili maliyetlerin oluşmasını önlemek için depolama öykünücüsünü hedefleyebilirsiniz. Ancak, buluttaki bir Azure Storage hesabını hedeflemeyi seçerseniz, bu öğreticiyi gerçekleştirme maliyetleri göz ardı edilecektir.
+> Azure Storage ile ilişkili maliyetlerin oluşmasını önlemek için depolama öykünücüsünü hedefleyebilirsiniz. Ancak, buluttaki bir Azure Storage hesabını hedeflemeyi seçerseniz, bu örneği gerçekleştirme maliyetleri göz ardı edilecektir.
 > 
 > 
 
-Bir Azure Cosmos DB hesabını hedefliyorsanız, tablo API hesabınız için birincil erişim tuşunu Azure Portal'dan kopyalayın. Daha fazla bilgi için bkz: [bağlantı dizenizi güncelleştirme](create-table-dotnet.md#update-your-connection-string).
+Bir Azure Cosmos DB hesabını hedefliyorsanız, Tablo API’si hesabınız için birincil erişim anahtarını Azure portalından kopyalayın. Daha fazla bilgi için bkz. [Bağlantı dizenizi güncelleştirme](create-table-dotnet.md#update-your-connection-string).
 
 ### <a name="configure-your-storage-connection-string"></a>Depolama bağlantı dizelerinizi yapılandırma
-İçin Azure Storage ortak kitaplığı uç noktaları ve depolama hizmetleri erişmek için kimlik bilgilerini yapılandırmak için bir depolama bağlantı dizesi kullanarak .NET destekler. Depolama bağlantı dizenizi korumanın en iyi yolu bir yapılandırma dosyasında tutmaktır. 
+.NET için Azure Depolama Ortak Kitaplığı,depolama hizmetlerine erişilmesi amacıyla uç noktaları ve kimlik bilgilerini yapılandıracak depolama bağlantı dizesinin kullanılmasını destekler. Depolama bağlantı dizenizi korumanın en iyi yolu bir yapılandırma dosyasında tutmaktır. 
 
 Bağlantı dizeleri hakkında daha fazla bilgi için bkz. [Azure Depolama’da bir bağlantı dizesi yapılandırma](../storage/common/storage-configure-connection-string.md).
 
 > [!NOTE]
-> Hesabı anahtarınız depolama hesabınızın kök parolasına benzer. Depolama hesabı anahtarınızı korumak için her zaman özen gösterin. Diğer kullanıcılara dağıtmaktan, sabit kodlamaktan ve başkalarının erişebileceği düz metin dosyasına kaydetmekten kaçının. Anahtarınızın tehlikede olduğunu düşünüyorsanız, Azure portalını kullanarak hesap anahtarınızı yeniden oluşturun.
+> Hesap anahtarınız depolama hesabınızın kök parolasına benzer. Depolama hesabı anahtarınızı korumak için her zaman özen gösterin. Diğer kullanıcılara dağıtmaktan, sabit kodlamaktan ve başkalarının erişebileceği düz metin dosyasına kaydetmekten kaçının. Anahtarınızın tehlikede olduğunu düşünüyorsanız, Azure portalını kullanarak hesap anahtarınızı yeniden oluşturun.
 > 
 > 
 
-Bağlantı dizenizi yapılandırmak için, `app.config` dosyasını Visual Studio’daki Çözüm Gezgini'nden açın. `<appSettings>` öğesinin içeriğini aşağıda gösterildiği gibi ekleyin. Değiştir `account-name` , hesabınızın adıyla ve `account-key` hesap erişim anahtarı ile:
+Bağlantı dizenizi yapılandırmak için, `app.config` dosyasını Visual Studio’daki Çözüm Gezgini'nden açın. `<appSettings>` öğesinin içeriğini aşağıda gösterildiği gibi ekleyin. `account-name` değerini hesabınızın adıyla ve `account-key` değerini hesabınızın erişim anahtarıyla değiştirin:
 
 ```xml
 <configuration>
@@ -140,16 +138,16 @@ Bağlantı dizenizi yapılandırmak için, `app.config` dosyasını Visual Studi
 </configuration>
 ```
 
-Örneğin, bir Azure depolama hesabı kullanıyorsanız, yapılandırma ayarlarınızı benzer şekilde görünür:
+Örneğin, bir Azure Depolama hesabı kullanıyorsanız, yapılandırma ayarlarınız şuna benzer şekilde görünür:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>" />
 ```
 
-Bir Azure Cosmos DB hesabı kullanıyorsanız, yapılandırma ayarlarınızı benzer şekilde görünür:
+Bir Azure Cosmos DB hesabı kullanıyorsanız, yapılandırma ayarlarınız şuna benzer şekilde görünür:
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=<account-key>;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
 ```
 
 Depolama öykünücüsünü hedeflemek için iyi bilinen hesap adıyla ve anahtarıyla eşleşen bir kısayolu kullanabilirsiniz. Bu durumda, bağlantı dizesi ayarı şöyle olur:

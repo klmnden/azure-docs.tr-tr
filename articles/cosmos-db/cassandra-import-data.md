@@ -1,67 +1,65 @@
 ---
-title: Azure Cosmos Veritabanına Cassandra veri alma | Microsoft Docs
-description: Azure Cosmos Veritabanına Cassandra verileri kopyalamak için CQL Copy komutu kullanmayı öğrenin.
+title: Cassandra verilerini Azure Cosmos DB’ye aktarma | Microsoft Docs
+description: Cassandra verilerini Azure Cosmos DB içine kopyalamak için CQL Kopyala komutunu kullanmayı öğrenin.
 services: cosmos-db
 author: govindk
 manager: kfile
-documentationcenter: ''
-ms.assetid: eced5f6a-3f56-417a-b544-18cf000af33a
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.component: cosmosdb-cassandra
+ms.devlang: dotnet
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 64f60e6beb5451d8f5acd382ca8e5672a2d096f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
-ms.translationtype: MT
+ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795083"
 ---
-# <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Alma Cassandra veri
+# <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Cassandra verilerini içeri aktarma
 
-Bu öğretici yönergeleri Cassandra verileri Azure Cosmos Veritabanına alma Cassandra sorgu dili (CQL) kopyalama komutunu kullanarak sağlar. 
+Bu öğreticide Cassandra Sorgu Dili (CQL) COPY komutu kullanılarak Cassandra verilerini Azure Cosmos DB’ye içeri aktarma yönergeleri sağlanmaktadır. 
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Bağlantı dizesi alınıyor
-> * Cqlsh kopyalama komutunu kullanarak veri içeri aktarma
-> * Spark Bağlayıcısı'nı kullanarak içeri aktarma 
+> * Bağlantı dizenizi alma
+> * Cqlsh COPY komutunu kullanarak verileri içeri aktarma
+> * Spark bağlayıcısını kullanarak içeri aktarma 
 
-# <a name="prerequisites"></a>Önkoşullar
+# <a name="prerequisites"></a>Ön koşullar
 
-* Yükleme [Apache Cassandra](http://cassandra.apache.org/download/) ve özellikle olun *cqlsh* mevcuttur.
-* Verimliliğini artırmak: veri geçişinizi süresini tablolarınız için sağlanan işleme miktarına bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Performansı artırma hakkında daha fazla bilgi için [Azure portal](https://portal.azure.com), bkz: [Azure Cosmos DB kapsayıcıları için kümesi işleme](set-throughput.md).
-* SSL'yi etkinleştirin: Azure Cosmos DB sıkı güvenlik gereksinimlerine ve standartları vardır. Hesabınız ile etkileşim kurarken SSL'yi emin olun. SSH ile CQL kullandığınızda, SSL bilgileri sağlamak için bir seçeneğiniz vardır. 
+* [Apache Cassandra](http://cassandra.apache.org/download/)’yı yükleyin ve özellikle *cqlsh* öğesinin bulunduğundan emin olun.
+* Aktarım hızını artırma: Veri geçişinizin süresi, Tablolarınız için sağladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. [Azure portalında](https://portal.azure.com) aktarım hızını artırma hakkında daha fazla bilgi için bkz. [Azure Cosmos DB kapsayıcıları için aktarım hızını ayarlama](set-throughput.md).
+* SSL’yi etkinleştir: Azure Cosmos DB sıkı güvenlik gereksinimleri ve standartlarına sahiptir. Hesabınız ile etkileşim kurarken SSL’yi etkinleştirdiğinizden emin olun. SSH ile CQL kullandığınızda, SSL bilgilerini sağlama seçeneğine sahip olursunuz. 
 
-## <a name="find-your-connection-string"></a>Bağlantı dizenizi Bul
+## <a name="find-your-connection-string"></a>Bağlantı dizenizi bulma
 
-1. İçinde [Azure portal](https://portal.azure.com), üzerinde şu ana kadar sol tıklatın **Azure Cosmos DB**.
+1. [Azure portalında](https://portal.azure.com), en solda **Azure Cosmos DB** seçeneğine tıklayın.
 
-2. İçinde **abonelikleri** bölmesinde, hesabınızın adını seçin.
+2. **Abonelikler** bölmesinde, hesabınızın adını seçin.
 
-3. Tıklatın **bağlantı dizesi**. Sağ bölmede başarıyla hesabınıza bağlanmak için gereken tüm bilgileri içerir.
+3. **Bağlantı Dizesi**’ne tıklayın. Sağ bölme, hesabınıza başarıyla bağlanmak için gereken tüm bilgileri içerir.
 
     ![Bağlantı dizesi sayfası](./media/cassandra-import-data/keys.png)
 
-## <a name="use-cqlsh-copy"></a>Cqlsh kopyalama kullanın
+## <a name="use-cqlsh-copy"></a>cqlsh COPY kullanma
 
-Cassandra API ile kullanmak için Azure Cosmos Veritabanına Cassandra veri almak için aşağıdaki yönergeleri kullanın:
+Cassandra verilerini Cassandra API’si ile birlikte kullanmak üzere Azure Cosmos DB’ye içeri aktarmak için aşağıdaki kılavuzu kullanın:
 
-1. Cqhsh portalından bağlantı bilgilerini kullanarak oturum açın.
-2. Kullanım [CQL COPY komutu](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) yerel veri Apache Cassandra API uç noktasına kopyalamak için. Kaynak ve hedef aynı veri merkezinde gecikmesi sorunları en aza indirmek için olduğundan emin olun.
+1. Portaldan bağlantı bilgilerini kullanarak cqhsh oturumu açın.
+2. Yerel verileri Apache Cassandra API uç noktasına kopyalamak için [CQL COPY komutunu](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) kullanın. Gecikme sorunlarını en aza indirmek için kaynak ve hedefin aynı veri merkezinde olduğundan emin olun.
 
-### <a name="guide-for-moving-data-with-cqlsh"></a>Cqlsh verilerle taşıma için kılavuz
+### <a name="guide-for-moving-data-with-cqlsh"></a>Cqlsh ile veri taşıma kılavuzu
 
-1. Önceden oluşturma ve tablonuzu ölçeği:
-    * Varsayılan olarak, Azure Cosmos DB hükümleri yeni bir Cassandra API 1.000 istek birimleri (RU/s (CQL tabanlı oluşturma 400 RU/s ile sağlanır)) saniyede içeren tablo. Cqlsh kullanarak Geçişe başlamadan önce tüm tablolardan önceden oluştur [Azure portal](https://portal.azure.com) veya cqlsh. 
+1. Tablonuzu önceden oluşturup ölçeklendirin:
+    * Varsayılan olarak, Azure Cosmos DB yeni bir Cassandra API tablosunu saniyede 1.000 istek birimiyle (RU/s) sağlar (CQL tabanlı oluşturma 400 RU/s ile sağlanır). Cqlsh kullanarak geçişe başlamadan önce, [Azure portal](https://portal.azure.com) veya cqlsh’den tüm tablolarınızı önceden oluşturun. 
 
-    * Gelen [Azure portal](https://portal.azure.com), tablolarınızı verimini varsayılan işleme (400 veya 1000 RU/s) 10.000 RU/s için geçiş süresince artırın. Daha yüksek işleme ile azaltma önlemek ve daha kısa sürede geçirilir. Azure Cosmos DB'de saatlik faturalandırma ile maliyet tasarrufu sağlamak hemen geçişten sonra işleme azaltabilir.
+    * [Azure portalından](https://portal.azure.com), geçiş süresi boyunca tablolarınızın aktarım hızını varsayılan değerden (400 veya 1000 RU/s) 10.000 RU/s değerine artırın. Daha yüksek aktarım hızı ile, azaltmayı önleyebilir ve daha kısa sürede geçişi tamamlayabilirsiniz. Azure Cosmos DB’de saatlik faturalandırma ile, maliyet tasarrufu sağlamak için geçiş işleminden hemen sonra aktarım hızını azaltabilirsiniz.
 
-2. Bir işlemin RU ücret belirler. Tercih ettiğiniz Azure Cosmos DB Cassandra API SDK kullanarak bunu yapabilirsiniz. Bu örnek RU ücretleri alınıyor .NET sürümünü gösterir. 
+2. Bir işlem için RU ücretini belirleyin. Bunu istediğiniz Azure Cosmos DB Cassandra API SDK’sını kullanarak yapabilirsiniz. Bu örnekte .NET sürümünün RU ücretleri gösterilmektedir. 
 
     ```csharp
     var tableInsertStatement = table.Insert(sampleEntity);
@@ -76,30 +74,30 @@ Cassandra API ile kullanmak için Azure Cosmos Veritabanına Cassandra veri alma
  
     ``` 
 
-3. Azure Cosmos DB hizmetine makinenizden gecikme süresini belirler. Bir Azure veri merkezi içinde varsa, gecikme düşük tek basamaklı milisaniyelik bir sayı olmalıdır. Azure veri merkezi dışında varsa, daha sonra psping veya azurespeed.com yaklaşık gecikme bulunduğunuz yerden almak için kullanabilirsiniz.   
+3. Makinenizden Azure Cosmos DB hizmetine gecikmeyi belirleyin. Bir Azure Veri merkezindeyseniz, gecikme düşük bir tek basamaklı milisaniyelik sayı olmalıdır. Azure Veri Merkezi’nin dışındaysanız, konumunuzdan yaklaşık uzaklığı almak için psping veya azurespeed.com kullanabilirsiniz.   
 
-4. Uygun iyi performans sağlayan parametrelerin değerlerini (NUMPROCESS, INGESTRATE, MAXBATCHSIZE veya MINBATCHSIZE) hesaplar. 
+4. İyi performans sağlayan parametreler (NUMPROCESS, INGESTRATE, MAXBATCHSIZE veya MINBATCHSIZE) için uygun değerleri hesaplayın. 
 
-5. Son geçiş komutunu çalıştırın. Bu komutu çalıştırmak bağlantı dizesi bilgilerini kullanarak cqlsh başlatılmışsa varsayar.
+5. Son geçiş komutunu çalıştırın. Bu komutun çalıştırılması, cqlsh’yi bağlantı dizesini bilgilerini kullanarak başlattığınızı varsayar.
 
    ```
    COPY exampleks.tablename FROM filefolderx/*.csv 
    ```
 
-## <a name="use-spark-to-import-data"></a>Veri almak için Spark kullanma
+## <a name="use-spark-to-import-data"></a>Verileri içeri aktarmak için Spark kullanma
 
-Azure sanal makineleri varolan bir kümede bulunan verileri için Spark kullanarak veriyi içeri aktarma uygun bir seçenek değil. Bu, Spark aracı gibi bir kez veya normal alımı için ayarlanmasını gerektirir. 
+Azure sanal makinelerinde mevcut bir kümede bulunan veriler için, verileri Spark kullanarak içeri aktarmak da uygun bir seçenektir. Bu, Spark’ın bir kez veya normal alma için aracı olarak ayarlanmasını gerektirir. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Bu öğreticide, aşağıdaki görevlerin nasıl öğrendiniz:
+Bu öğreticide aşağıdaki görevleri tamamlamayı öğrendiniz:
 
 > [!div class="checklist"]
-> * Bağlantı dizesi alma
-> * Cql kopyalama komutunu kullanarak veri içeri aktar
-> * Spark Bağlayıcısı'nı kullanarak içeri aktarma 
+> * Bağlantı dizenizi alma
+> * Cql copy komutunu kullanarak verileri içeri aktarma
+> * Spark bağlayıcısını kullanarak içeri aktarma 
 
-Artık Azure Cosmos DB hakkında daha fazla bilgi için kavramları bölümüne geçebilirsiniz. 
+Şimdi Azure Cosmos DB hakkında daha fazla bilgi için Kavramlar bölümüne geçebilirsiniz. 
 
 > [!div class="nextstepaction"]
->[İnce ayarlanabilir veri tutarlılık düzeylerini Azure Cosmos veritabanı](../cosmos-db/consistency-levels.md)
+>[Azure Cosmos DB'deki ayarlanabilir tutarlılık düzeyleri](../cosmos-db/consistency-levels.md)

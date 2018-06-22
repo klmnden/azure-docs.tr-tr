@@ -1,167 +1,161 @@
 ---
-title: Azure uygulamaları ve kaynakları izleme | Microsoft Docs
-description: Microsoft Hizmetleri ve Azure Hizmetleri ve uygulamaları için tam bir izleme stratejisi katkıda işlevler genel bakış.
+title: Azure uygulamalarını ve kaynaklarını izleme
+description: Azure hizmetleriniz ve uygulamalarınız için eksiksiz bir izleme stratejisine katkıda bulunan Microsoft hizmetleri ve işlevlerine genel bakış.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 354aadd4377e054bc9c10561bbda8fc8009a98a7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.component: ''
+ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640107"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265141"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure uygulamalarını ve kaynaklarını izleme
 
-İzleme, toplama ve performans, sistem durumu ve iş uygulamanız ve bağımlı kaynakları kullanılabilirliğini belirlemek için verileri analiz etme işlemidir. Etkili izleme stratejisi, uygulamanızın bileşenlerinin ayrıntılı işlem anlamanıza yardımcı olur. Ayrıca sorun haline gelmeden önce bunları çözümleyebilirsiniz böylece önceden, kritik sorunlar bildirerek, çalışma süresini artırmanıza yardımcı olur.
+İzleme, iş uygulamalarınızın ve bağımlı oldukları kaynakların performansını, sistem durumunu ve kullanılabilirliğini belirlemeye yönelik verileri toplayıp analiz etme eylemidir. Etkili bir izleme stratejisi, uygulamanız için bileşenlerin ayrıntılı işlemini anlamanıza yardımcı olur. Ayrıca sorunları büyümeden çözümleyebilmeniz için kritik sorunları proaktif şekilde size bildirerek çalışma sürenizi artırmanıza da yardımcı olur.
 
-Azure ayrı ayrı bir spesifik rol ya da görev İzleme alanı gerçekleştirmek birden çok hizmetleri içerir. Birlikte, bu hizmetleri toplama, çözümleme ve uygulamanız ve bunları destekleyen Azure kaynaklarını telemetrisinden işlevi gören için kapsamlı bir çözüm sunar. Karma bir ortamı izleme sağlamak için kritik şirket içi kaynakları izlemek için de çalışabilir. Araçlar ve kullanılabilir verileri anlamak, uygulamanız için tam bir izleme stratejisi geliştirme ilk adımdır.
+Azure, izleme alanında belirli bir rolü veya görevi tek tek gerçekleştiren birden çok hizmet içerir. Bu hizmetler birlikte, uygulamanız için telemetri verilerini toplama, analiz etme ve bu verilere göre eylemde bulunmaya ilişkin kapsamlı bir çözüm ve bunları destekleyen Azure kaynaklarını sunar. Karma bir izleme ortamı sağlamak için kritik şirket içi kaynakları izlemek için de çalışır. Kullanılabilir olan araç ve verilerin anlaşılması, uygulamanız için eksiksiz bir izleme stratejisi geliştirmenin ilk adımıdır.
 
-Aşağıdaki diyagramda, Azure kaynaklarının izleme sunmak için birlikte çalışan tüm bileşenleri kavramsal bir görünüm gösterir. Aşağıdaki bölümlerde bu bileşenlerini açıklar ve ayrıntılı teknik bilgi için bağlantılar sağlar.
+Aşağıdaki diyagramda, Azure kaynaklarının izlenmesini sağlamak için birlikte çalışan bileşenlerin kavramsal bir görünümü gösterilmektedir. Aşağıdaki bölümlerde bu bileşenler açıklanmakta ve ayrıntılı teknik bilgilerin bağlantıları sağlanmaktadır.
 
 ![İzlemeye genel bakış](media/monitoring-overview/monitoring-products-overview.png)
 
 
-## <a name="shared-capabilities"></a>Paylaşılan Özellikleri
-Çekirdek ve ayrıntılı izleme hizmeti aşağıdaki özellikleri sağlayan işlevselliği paylaşır.
+## <a name="shared-capabilities"></a>Paylaşılan Özellikler
+Temel ve ayrıntılı izleme hizmeti, aşağıdaki özellikleri sağlayan işlevleri paylaşır.
 
 ### <a name="alerts"></a>Uyarılar
-[Azure uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md) proaktif olarak kritik koşulları size bildirir ve potansiyel olarak düzeltme eylemlerini gerçekleştirin. Uyarı kuralları ölçümleri ve günlükleri de dahil olmak üzere birden çok kaynaktan veri kullanabilirsiniz. Kullandıkları [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md), alıcıları ve yanıt olarak bir uyarı eylemleri benzersiz kümesini içerir. Gereksinimlerinize bağlı olarak, Web kancalarını kullanarak dış eylemleri başlatmak ve ITSM araçlarıyla tümleştirmenize uyarıları olabilir.
+[Azure uyarıları](../monitoring-and-diagnostics/monitoring-overview-alerts.md) size proaktif olarak kritik koşulları bildirir ve düzeltici eylemler uygular. Uyarı kuralları, ölçümler ve günlükler de dahil olmak üzere birden çok kaynaktan verileri kullanabilir. Bir uyarıya yanıt olarak benzersiz alıcıları ve eylemleri içeren [eylem gruplarını](../monitoring-and-diagnostics/monitoring-action-groups.md) kullanır. Gereksinimlerinize bağlı olarak, web kancalarını kullanıp uyarıların dış eylemler başlatmasını ve ITSM araçlarınızla tümleştirilmesini sağlayabilirsiniz.
 
 ### <a name="dashboards"></a>Panolar
-Kullanabileceğiniz [Azure panolar](../azure-portal/azure-portal-dashboards.md) farklı veri türleri tek bir bölme halinde birleştirmek için [Azure portal](https://portal.azure.com). Bu gibi durumlarda, Pano sonra Azure kullanıcılarıyla paylaşabilirsiniz.
+Farklı türde verileri [Azure portalında](../azure-portal/azure-portal-dashboards.md) tek bir bölgede birleştirmek için [Azure panolarını](https://portal.azure.com) kullanabilirsiniz. Daha sonra panoyu diğer Azure kullanıcılarıyla paylaşabilirsiniz.
 
-Örneğin, bir araya getiren bir Pano oluşturabilirsiniz:
-- Bir grafik ölçümleri Göster döşeme
-- Etkinlik günlükleri tablosu
-- Application Insights kullanım grafikten
-- Günlük analizi günlük aramada çıktısı
+Örneğin, şunları birleştiren bir pano oluşturabilirsiniz:
+- Ölçümlerin grafiğini gösteren kutucuklar
+- Etkinlik günlüklerinin tablosu
+- Application Insights’ın kullanım grafiği
+- Log Analytics’te günlük araması çıktısı
 
-Günlük analizi veri dışa aktarabilirsiniz [Power BI](https://docs.microsoft.com/power-bi/). Burada, ek görselleştirmeleri yararlanabilir. Diğerleri için kullanılabilir içinde ve kuruluşunuzun dışındaki verileri de yapabilirsiniz.
+Log Analytics verilerini [Power BI](https://docs.microsoft.com/power-bi/)’a da dışarı aktarabilirsiniz. Burada, ek görselleştirmelerden yararlanabilirsiniz. Ayrıca verileri kuruluşunuzun içindeki ve dışındaki başka kişilerin de kullanımına sunabilirsiniz.
 
 ### <a name="metrics-explorer"></a>Ölçüm Gezgini
-[Ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md) sayısal işlemi ve kaynak performansını anlamanıza yardımcı olması için bir Azure kaynağı tarafından üretilen değerler. Ölçümleri Gezgini'ni kullanarak, ölçümler için günlük analizi veri çözümleme için diğer kaynaklardan gönderebilirsiniz.
+[Ölçümler](../monitoring-and-diagnostics/monitoring-overview-metrics.md), kaynağın işlemini ve performansını anlamanıza yardımcı olması için bir Azure kaynağı tarafından oluşturulan sayısal değerlerdir. Ölçüm Gezgini’ni kullanarak, diğer kaynaklardan gelen verilerin analizi için Log Analytics’e ölçümler gönderebilirsiniz.
 
 
-## <a name="core-monitoring"></a>Çekirdek izleme
-Çekirdek izleme temel, gerekli Azure kaynaklarını izleme sağlar. Bu hizmetler minimal yapılandırma gerektirir ve premium izleme hizmetlerini kullanan çekirdek telemetri toplar.    
+## <a name="core-monitoring"></a>Temel izleme
+Temel izleme, Azure kaynakları arasında temel ve gerekli izleme deneyimini sağlar. Bu hizmetler minimum yapılandırma gerektirir ve premium izleme hizmetlerinin kullandığı temel telemetri verilerini toplar.    
 
 ### <a name="azure-monitor"></a>Azure İzleyici
-[Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md) koleksiyonunu sağlayarak Azure Hizmetleri için çekirdek izleme sağlayan [ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), ve [tanılama günlükleri](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md). Örneğin, etkinlik günlüğü, yeni kaynaklar olduğunda oluşturulan veya değiştirilen bildirir.
+[Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md), [ölçümlerin](../monitoring-and-diagnostics/monitoring-overview-metrics.md), [etkinlik günlüklerinin](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) ve [tanılama günlüklerinin](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) toplanmasına olanak sağlayarak Azure hizmetleri için temel izleme deneyimi sağlar. Örneğin, etkinlik günlüğü size yeni kaynakların ne zaman oluşturulduğunu veya değiştirildiğini bildirir.
 
-Ölçümleri kullanılabilir farklı kaynaklar ve hatta bir sanal makine içinde işletim sistemi performans istatistiklerini sağlayan. Azure portalında gezginler biri ile bu verileri görüntüleme ve bu ölçümleri temel uyarılar oluşturabilir. Azure İzleyicisi süresi kritik uyarılar ve bildirimler için kullanmalısınız şekilde hızlı ölçümleri (1 dakika kadar 5 dakika), potansiyel satış sağlar.
+Farklı kaynaklar için ve hatta bir sanal makinenin içindeki işletim sistemi için bile performans istatistikleri sağlayan ölçümler kullanılabilir. Azure portalında gezginlerden biriyle bu verileri görüntüleyebilir ve bu ölçümlere dayalı uyarılar oluşturabilirsiniz. Azure İzleyici, en hızlı ölçüm işlem hattını (5 dakika ila 1 dakika) sağlar, bu nedenle zaman açısından kritik uyarılar ve bildirimler için bunu kullanmalısınız.
 
-Bu ölçümleri ve günlükleri oluşturan eğilim ve ayrıntılı çözümleme için Azure günlük Analizi'ne göndermek veya proaktif olarak size, analiz sonucunda kritik sorunları bildirmek için ek uyarı kuralları oluşturun.  
+Ayrıca eğilim analizi ve ayrıntılı analiz için bu ölçümleri ve günlükleri Azure Log Analytics’e gönderebilir veya bu analizin sonucunda kritik sorunları proaktif olarak size bildirecek ek uyarı kuralları oluşturabilirsiniz.  
 
 > [!NOTE]
-> Çok boyutlu ölçümleri günlük analizi için tanılama ayarları gönderme şu anda desteklenmiyor. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
+> Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla Log Analytics’e gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
-> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, günlük analizi ölçüm gelen tüm iletilerin tüm temsil edilir dışarı aktardığınızda olay hub'ı sıralar.
+> *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, Log Analytics’e dışarı aktarılan ölçüm, Event Hub’daki tüm kuyruklarda tüm gelen iletiler olarak ifade edilir.
 >
 >
 
 ### <a name="azure-advisor"></a>Azure Advisor
-[Azure Danışmanı](../advisor/advisor-overview.md) kaynak yapılandırma ve kullanım telemetrisi sürekli olarak izler. Ardından, en iyi uygulamalarına göre kişiselleştirilmiş önerileri sağlar. Bu öneriler aşağıdaki performans, güvenlik ve uygulamalarınızı destekleyen kaynaklar kullanılabilirliğini geliştirmenize yardımcı olur.
+[Azure Danışmanı](../advisor/advisor-overview.md) sürekli olarak kaynak yapılandırma ve kullanımına ilişkin telemetri verilerinizi izler. Daha sonra size en iyi uygulamalara dayalı kişiselleştirilmiş öneriler sunar. Bu önerileri izleyerek, uygulamalarınızı destekleyen kaynakların performansının, güvenliğinin ve kullanılabilirliğinin artırılmasına yardımcı olabilirsiniz.
 
 ### <a name="service-health"></a>Hizmet Durumu
-Sistem, uygulamanızın bağımlı Azure hizmetlerini kullanır. [Azure hizmet durumu](../service-health/service-health-overview.md) uygulamanızı etkileyebilecek Azure hizmetleriyle ilgili sorunları tanımlar. Hizmet durumu zamanlanmış bakım işlemleri için planlama da yardımcı olur.
+Uygulamanızın durumu, bağımlı olduğu Azure hizmetlerine bağlıdır. [Azure Hizmet Durumu](../service-health/service-health-overview.md), Azure hizmetleriyle ilgili uygulamanızı etkileyebilecek tüm sorunları tanımlar. Hizmet Durumu, zamanlanan bakım için plan yapmanıza da yardımcı olur.
 
 ### <a name="activity-log"></a>Etkinlik Günlüğü
-[Etkinlik günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) bir Azure kaynağı ilgili verileri sağlar. Bu bilgiler içerir:
-- Yapılandırma kaynağı değiştirir.
-- Hizmet sistem durumu olayları.
-- Kaynak yararlanarak daha iyi öneriler.
-- Otomatik ölçeklendirme işlemleriyle ilgili bilgileri.
+[Etkinlik Günlüğü](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md), bir Azure kaynağının işlemi hakkında veriler sağlar. Bu bilgiler arasında şunlar yer alır:
+- Kaynak üzerindeki yapılandırma değişiklikleri.
+- Hizmet durumu olayları.
+- Kaynağın daha iyi kullanımına ilişkin öneriler.
+- Otomatik ölçeklendirme işlemleriyle ilgili bilgiler.
 
-Kendi sayfasında Azure Portalı'ndaki belirli bir kaynak için günlükleri görüntüleyebilirsiniz. Veya birden çok kaynak günlüklerinden etkinlik günlüğü Gezgini'nde görüntüleyebilirsiniz.
+Belirli bir kaynağın günlüklerini Azure portalında kendi sayfasında görüntüleyebilirsiniz. Veya Etkinlik Günlüğü Gezgini’nde birden fazla kaynaktan günlükleri görüntüleyebilirsiniz.
 
-Etkinlik günlüğü girişleri için günlük analizi de gönderebilirsiniz. Burada, yönetim çözümleri, sanal makinelerde aracıları ve diğer kaynakları tarafından toplanan verileri kullanarak günlüklerini analiz edebilirsiniz.
+Etkinlik günlüğü girişlerini Log Analytics’e de gönderebilirsiniz. Burada, yönetim çözümleri, sanal makinelerdeki aracılar ve diğer kaynaklardan toplanan verileri kullanarak günlükleri analiz edebilirsiniz.
 
-## <a name="deep-monitoring-services"></a>Ayrıntılı izleme Hizmetleri
-Aşağıdaki Azure hizmetlerini toplama ve daha ayrıntılı bir düzeyde izleme verilerini çözümleme için zengin özellikleri sağlar. Bu hizmetler çekirdek izleme oluşturmak ve Azure'da ortak işlevsellikten yararlanmak. Uygulamalarını ve altyapısını benzersiz fikir vermek için toplanan verilerle güçlü analytics sağlarlar. Bunlar veri hedeflenen senaryoları bağlamında farklı izleyicilere sunar.
+## <a name="deep-monitoring-services"></a>Ayrıntılı izleme hizmetleri
+Aşağıdaki Azure hizmetleri, izleme verilerini daha ayrıntılı düzeyde toplama ve analiz etmeye ilişkin zengin özellikler sağlar. Bu hizmetler, temel izleme temelinde oluşturulmuş olup Azure’daki genel işlevlerden yararlanır. Size, uygulamalarınıza ve altyapınıza yönelik benzersiz içgörü sunmak için toplanan verilerle güçlü analiz sağlar. Farklı kitleleri hedefleyen senaryolar bağlamında veri sunar.
 
 ## <a name="deep-application-monitoring"></a>Ayrıntılı uygulama izleme
 ### <a name="application-insights"></a>Application Insights
-Kullanabileceğiniz [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) kullanılabilirliği, performansı ve kullanımı, uygulamanızın Bulut veya şirket içi barındırılan olup olmadığını izlemek için.
+İster bulutta isterse şirket içinde barındırılıyor olsun, uygulamanızın kullanılabilirliğini, performansını ve kullanımını izlemek için [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) kullanabilirsiniz.
 
-Application Insights ile çalışmak için uygulamanızın işaretlenerek ayrıntılı Öngörüler elde etmek ve DevOps senaryoları uygulayın. Hızla tanımlayın ve bunları raporlamak bir kullanıcı için beklemeden hatalarını tanılayın. Topladığınız bilgileri kullanarak, uygulamanızın Bakım ve geliştirmeler hakkında bilgi sahibi seçimler yapabilirsiniz.
+Application Insights ile çalışmak için uygulamanızı düzenleyerek ayrıntılı içgörüler elde edebilir ve DevOps senaryoları uygulayabilirsiniz. Bir kullanıcının bildirmesini beklemeden hataları hızlıca tanımlayıp tespit edebilirsiniz. Topladığınız bilgilerle, uygulamanızın bakımı ve iyileştirmeleri ile ilgili bilinçli kararlar alabilirsiniz.
 
-Application Insights topladığı veri ile etkileşim için kapsamlı araçlar vardır. Application Insights, ortak bir depo verilerini depolar. Bu uyarılar, panolar ve derin çözümleme günlük analizi sorgu dili gibi paylaşılan işlevlerin yararlanabilir.
+Application Insights, topladığı verilerle etkileşim kurmak için kapsamlı araçlara sahiptir. Application Insights, verilerini genel bir depoda saklar. Log Analytics sorgu diliyle ayrıntılı analiz, uyarılar ve panolar gibi paylaşılan işlevlerden yararlanabilir.
 
-## <a name="deep-infrastructure-monitoring"></a>Derin altyapısını izleme
+## <a name="deep-infrastructure-monitoring"></a>Ayrıntılı altyapı izleme
 ### <a name="log-analytics"></a>Log Analytics
-[Günlük analizi](http://azure.microsoft.com/documentation/services/log-analytics) Azure veri kaynakları (Microsoft dışı araçlar dahil) çeşitli arasından tek bir depoya toplayarak izleme merkezi bir rol oynar. Burada, güçlü sorgu dili kullanarak verileri analiz edebilirsiniz.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics), çeşitli kaynaklardan (Microsoft olmayan araçlar dahil olmak üzere) verileri tek bir depoda toplayarak Azure izlemede merkezi bir rol oynar. Burada, güçlü bir sorgu dili kullanarak verileri analiz edebilirsiniz.
 
-Application Insights ve Azure Güvenlik Merkezi günlük verileri depolamak ve analiz altyapısını kullanma analizi verilerini depolar. Verileri de Azure İzleyici, yönetim çözümleri ve bulutta veya şirket içi sanal makinelerde yüklü aracıları toplanır. Paylaşılan bu işlevsellik, ortamınızı eksiksiz bir görünümünü form yardımcı olur.
+Application Insights ve Azure Güvenlik Merkezi, verilerini Log Analytics veri deposunda saklar ve analiz altyapısını kullanır. Azure İzleyici, yönetim çözümleri ve buluttaki veya şirket içi sanal makinelerde yüklü olan aracılardan da veri toplanır. Bu paylaşılan işlevsellik, ortamınızın eksiksiz bir resmini oluşturmanıza yardımcı olur.
 
 ### <a name="management-solutions"></a>Yönetim çözümleri
-[Yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md) belirli bir uygulama veya hizmet için bilgiler sunan paketlenmiş mantığı kümeleridir. Bunlar, depolamak ve bunlar toplamak izleme verilerini analiz etmek için günlük analizi üzerinde kullanır.
+[Yönetim çözümleri](../log-analytics/log-analytics-add-solutions.md), belirli bir uygulama veya hizmet için içgörüler sağlayan paketlenmiş mantık kümeleridir. Topladıkları izleme verilerini depolamak ve analiz etmek için Log Analytics’i kullanır.
 
-Yönetim çözümleri, Microsoft ve ortaklarından çeşitli Azure ve üçüncü taraf hizmetleri için izlemeyi sağlamak için kullanılabilir. Çözümlerini izleme örnekleri şunlardır:
-* [Kapsayıcı izleme](../log-analytics/log-analytics-containers.md), yardımcı olan görüntülemenize ve yönetmenize kapsayıcı konaklarınızın.
-* [Azure SQL analizi](../log-analytics/log-analytics-azure-sql.md), toplar ve Azure SQL veritabanları için performans ölçümleri visualizes.
+Çeşitli Azure hizmetlerine ve üçüncü taraf hizmetlere yönelik izleme sağlamak için Microsoft ve iş ortaklarının yönetim çözümleri mevcuttur. İzleme çözümü örnekleri arasında şunlar yer alır:
+* Kapsayıcı ana bilgisayarlarınızı görüntülemenize ve yönetmenize yardımcı olan [Kapsayıcı İzleme](../log-analytics/log-analytics-containers.md).
+* Azure SQL veritabanları için performans ölçümlerini toplayan ve görselleştiren [Azure SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
-Azure portalında altında tüm kullanılabilir yönetim çözümleri görüntüleyebilirsiniz *İzleyici* ekran.
+Azure Portal’da *İzleyici* ekranında tüm kullanılabilir yönetim çözümlerini görüntüleyebilirsiniz.
 
-### <a name="network-monitoring"></a>Ağ izleme
-Azure veya şirket içi ağınızda, çeşitli yönlerini izlemek için birlikte çalışan çeşitli araçlar vardır.  
+### <a name="network-monitoring"></a>Ağ İzleme
+Azure veya şirket içi ağınızda, ağınızın çeşitli yönlerini izlemek için birlikte çalışan birçok araç vardır.  
 
-[Ağ İzleyicisi](../network-watcher/network-watcher-monitoring-overview.md) Azure senaryolarda farklı bir ağ için senaryo tabanlı izleme ve tanılama sağlar. Azure ölçümleri ve daha fazla çözümleme için tanılama veri depolar. Ağınız çeşitli yönlerini izlemek için aşağıdaki çözümleri ile çalışır.
+[Ağ İzleyicisi](../network-watcher/network-watcher-monitoring-overview.md), Azure’da farklı ağ senaryoları için senaryoya dayalı izleme ve tanılama sağlar. Daha fazla analiz için Azure ölçümleri ve tanılamalarında verileri depolar. Ağınızın çeşitli yönlerini izlemek için aşağıdaki çözümlerle birlikte çalışır.
 
-[Ağ Performans İzleyicisi'ni (NPM)](../log-analytics/log-analytics-network-performance-monitor.md) izleme genel Bulutlar, veri merkezleri ve şirket içi ortamları bağlantısını izler çözümü bulut tabanlı bir ağda.
+[Ağ Performans İzleyicisi (NPM)](../log-analytics/log-analytics-network-performance-monitor.md), genel bulutlar, veri merkezleri ve şirket içi ortamlar arasında bağlantıyı izleyen, bulut tabanlı bir ağ izleme çözümüdür.
 
-[ExpressRoute İzleyici](../expressroute/how-to-npm.md) Azure ExpressRoute bağlantı hatları uçtan uca bağlantısını ve performans izleyen bir NPM bir özelliktir.
+[ExpressRoute İzleyicisi](../expressroute/how-to-npm.md), Azure ExpressRoute devrelerindeki uçtan uca bağlantı ve performansı izleyen bir NPM özelliğidir.
 
-[DNS Analytics](../log-analytics/log-analytics-dns.md) güvenlik, performans ve DNS sunucularını temel alarak, işlemleri ile ilgili Öngörüler sağlayan bir çözümdür.
+[DNS Analizi](../log-analytics/log-analytics-dns.md), DNS sunucularınıza dayalı olarak güvenlik, performans ve işlemlerle ilgili içgörüler sağlayan bir çözümdür.
 
-[Hizmet uç noktası İzleyicisi](../networking/network-monitoring-overview.md) uygulamaları ulaşılabilirlik sınar ve şirket içi, taşıyıcı ağlar ve bulut/özel veri merkezleri üzerinden performans sorunları algılar.
+[Hizmet Uç Noktası İzleyicisi](../networking/network-monitoring-overview.md), şirket içinde, taşıyıcı ağlarında ve bulut/özel veri merkezlerinde uygulamaların ulaşılabilirliğini test eder ve performans sorunlarını algılar.
 
 
 ### <a name="service-map"></a>Hizmet Eşlemesi
-[Hizmet eşlemesi](../operations-management-suite/operations-management-suite-service-map.md) kendi farklı işlemler ve diğer bilgisayarlardaki ve dış işlemlere bağımlılıkları olan sanal makineleri çözümleyerek Iaas ortamınız hakkında bilgi sağlar. Olaylar, performans verileri ve günlük analizi yönetim çözümlerine tümleştirir. Bu veriler, her bilgisayar ve, ortamın geri kalanının ilişkisi bağlamında sonra görüntüleyebilirsiniz.
+[Hizmet Eşlemesi](../operations-management-suite/operations-management-suite-service-map.md), diğer bilgisayarlardaki ve dış süreçlerdeki farklı süreçleri ve bağımlılıkları ile sanal makineleri analiz ederek IaaS ortamınıza yönelik içgörü sağlar. Log Analytics’te olayları, performans verilerini ve yönetim çözümlerini tümleştirir. Daha sonra her bir bilgisayar bağlamında bu verileri ve ortamınızın geri kalanıyla ilişkisini görüntüleyebilirsiniz.
 
-Hizmet eşlemesi benzer [Application Insights uygulama eşlemesinde](../application-insights/app-insights-app-map.md). Uygulamalarınızı destekleyen altyapı bileşenlerine odaklanır.
+Hizmet Eşlemesi, [Application Insights’taki Uygulama Eşlemesine](../application-insights/app-insights-app-map.md) benzer. Uygulamalarınızı destekleyen altyapı bileşenlerine odaklanır.
 
 
 ## <a name="example-scenarios"></a>Örnek senaryolar
-Nasıl farklı izleme araçları Azure'da farklı senaryolar için kullanabileceğiniz gösteren yüksek düzey örnekler verilmiştir.
+Aşağıda, farklı senaryolar için Azure’da farklı izleme araçlarını nasıl kullanabileceğinizi gösteren yüksek düzey örnekler verilmiştir.
 
-### <a name="monitoring-a-web-application"></a>Bir web uygulaması izleme
-Azure App Service, Azure Storage ve SQL veritabanı ile azure'da dağıtılan bir web uygulaması göz önünde bulundurun. Erişerek Başlat [ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md) ve [etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) bu kaynakların Azure portalında kendi sayfalarında. Ortalama yanıt süresi ve uygulama için istek sayısı gibi kritik bilgileri arayın. Ayrıca, herhangi bir yapılandırma değişikliği de tanımlar.
+### <a name="monitoring-a-web-application"></a>Web uygulamasını izleme
+Azure App Service, Azure Depolama ve SQL veritabanı aracılığıyla Azure’da dağıtılan bir web uygulamasını düşünün. Bu kaynakların Azure portalındaki sayfalarından bu kaynaklar için [ölçümlere](../monitoring-and-diagnostics/monitoring-overview-metrics.md) ve [etkinlik günlüklerine](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) erişerek başlarsınız. Uygulamaya yönelik istek sayısı ve ortalama yanıt süresi gibi kritik bilgileri ararsınız. Ayrıca varsa, yapılandırma değişikliklerini de belirlersiniz.
 
-Ardından ölçümleri ve farklı kaynaklar için günlükleri birlikte görüntülemek için izleme Portalı'nda gidin. Ölçümleri standart parametrelerini belirlemek, [uyarı kuralları oluşturmak](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md). Örneğin, ortalama yanıt süresi eşiği artırır, bu kurallar proaktif olarak size bildirir. Uygulamanızın günlük performansını hızlı bir görünümünü almak için kritik KPI'ları temsil ölçümleri grafikleri göstermeyi Azure bir pano oluşturun.
+Daha sonra farklı kaynaklar için ölçümleri ve günlükleri birlikte görüntülemek için portalda İzleyici’ye gidersiniz. Ölçümler için standart parametreleri belirlerken [uyarı kuralları oluşturursunuz](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md). Bu kurallar, örneğin, ortalama yanıt süresi bir eşiği aştığında proaktif olarak size bildirim gönderir. Uygulamanızın günlük performansının hızlı bir görünümünü almak için bir Azure panosu oluşturarak kritik KPI’leri temsil eden metriklerin grafiklerini gösterirsiniz.
 
-Uygulamanızın veya daha ayrıntılı izleme gerçekleştirmek için [için Application Insights yapılandırma](../application-insights/quick-monitor-portal.md). Artık daha fazla işlemi ve uygulamanızın performansını sağlar ek verileri toplayabilir. Application Insights, uygulamanızın bileşenleri arasındaki temel ilişkileri algılar. Görsel sağlar [uygulama eşlemesi](../application-insights/app-insights-app-map.md) ile birlikte [uçtan uca izleme](../application-insights/app-insights-transaction-diagnostics.md) tam bileşeni, bağımlılık veya özel durum bir sorun oluştuğu tanılamak için.
+Uygulamanızı daha ayrıntılı izlemek için [Application Insights için uygulamanızı yapılandırırsınız](../application-insights/quick-monitor-portal.md). Artık, uygulamanızın işlem ve performansına yönelik daha fazla içgörü sağlayan ek veriler toplayabilirsiniz. Application Insights, uygulamanızın bileşenleri arasındaki temel ilişkileri algılar. Bir sorunun oluştuğu tam bileşeni, bağımlılığı veya istisnayı tespit etmek için [uçtan uca izleme](../application-insights/app-insights-transaction-diagnostics.md) ile birlikte [Uygulama Eşlemesi](../application-insights/app-insights-app-map.md) aracılığıyla görsel temsile olanak sağlar.
 
-Oluşturduğunuz [kullanılabilirlik testleri](../application-insights/app-insights-monitor-web-app-availability.md) proaktif olarak farklı bölgelerdeki uygulamanızı test etmek için. Geliştiricilere yardımcı olmak için [profil oluşturucu etkinleştirmek](../application-insights/enable-profiler-compute.md) böylece istekleri ve belirli satırlık bir kod için özel durumlar izleyebilirsiniz. Daha fazla uygulamanızda kullanılan hizmetler görünürlük elde etmek için eklemeniz [SQL analiz çözümü](../log-analytics/log-analytics-azure-sql.md) günlük analizi ek veriler toplamak için.
+Farklı bölgelerden uygulamanızı proaktif şekilde test etmek için [Uygulanabilirlik testleri](../application-insights/app-insights-monitor-web-app-availability.md) oluşturursunuz. Geliştiricilerinize yardımcı olmak için, [Profil Oluşturucuyu etkinleştirerek](../application-insights/enable-profiler-compute.md) istekleri ve istisnaları belirli bir kod satırına kadar izleyebilirsiniz. Uygulamanızda kullanılan hizmetlere yönelik daha fazla görünürlük elde etmek için, [SQL Analytics çözümünü](../log-analytics/log-analytics-azure-sql.md) ekleyerek Log Analytics’te ek veriler toplarsınız.
 
-Bir süre sonra ne zaman sitesinde performans eşiğin altına düştü nokta kök nedeni araştırın karar verin. Günlük analizi kullanarak bir sorgu yazın. Yapılandırmayla Application Insights tarafından toplanan kullanım ve performans verilerini ve performans verilerini uygulamanızı desteklemek Azure kaynakları arasında ilişkilendirmenize yardımcı olur.
+Bir süre sonra, sitedeki performansın bir eşiğin altına düştüğü zamanların kök nedenini araştırmaya karar verirsiniz. Log Analytics kullanarak bir sorgu yazarsınız. Application Insights tarafından toplanan kullanım ve performans verilerini, uygulamanızı destekleyen Azure kaynaklarındaki yapılandırma ve performans verileriyle ilişkilendirmenize yardımcı olur.
 
 
 ### <a name="monitoring-virtual-machines"></a>Sanal makineleri izleme
-Windows ve Linux Azure üzerinde çalışan sanal makineler karışımına sahip. Azure İzleyici görüntülemek için kullandığınız [etkinlik günlükleri](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) ve [ana bilgisayar düzeyinde ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md). Eklediğiniz [Azure tanılama uzantısını](../virtual-machines/linux/tutorial-monitoring.md#install-diagnostics-extension) konuk işletim sisteminden ölçümleri toplamak için sanal makineler için. Ardından oluşturduğunuz [uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) işlemci kullanımı ve bellek gibi temel ölçümleri eşikleri geçtiğinde önceden size bildirilmesini.
+Azure’da çalışan hem Windows hem de Linux sanal makineleriniz vardır. [Etkinlik günlüklerini](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md) ve [ana bilgisayar düzeyinde ölçümleri](../monitoring-and-diagnostics/monitoring-overview-metrics.md) görüntülemek için Azure İzleyici’yi kullanırsınız. Konuk işletim sisteminden ölçümleri toplamak için sanal makinelere [Azure Tanılama uzantısını](../virtual-machines/linux/tutorial-monitoring.md#install-diagnostics-extension) eklersiniz. Daha sonra, işlemci kullanımı ve belleği gibi temel ölçümler eşikleri geçtiğinde proaktif olarak size bildirim göndermesi için [uyarı kuralları](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) oluşturursunuz.
 
-Bir iş uygulaması çalıştıran sanal makineler hakkında daha fazla bilgi toplamak için [günlük analizi çalışma alanı oluşturma ve VM uzantısı etkinleştirme](../log-analytics/log-analytics-quick-collect-azurevm.md) her makinede. Yapılandırdığınız [farklı veri kaynakları koleksiyonunu](../log-analytics/log-analytics-data-sources.md) uygulamanız için ve [görünümleri oluşturma](../log-analytics/log-analytics-view-designer.md) kendi günlük işlemi ve performans bildirmek için. Daha sonra [uyarı kuralları oluşturmak](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) belirli hata olayları alındığında sizi bilgilendirmek üzere.
+Bir iş uygulaması çalıştıran sanal makineler hakkında daha fazla ayrıntı toplamak için, her makinede [bir Log Analytics çalışma alanı oluşturur ve sanal makine uzantısını etkinleştirirsiniz](../log-analytics/log-analytics-quick-collect-azurevm.md). Uygulamanız için [farklı veri kaynakları koleksiyonunu](../log-analytics/log-analytics-data-sources.md) yapılandırır ve bunun günlük işlem ve performansını bildirmek için [görünümler oluşturursunuz](../log-analytics/log-analytics-view-designer.md). Daha sonra belirli hata olayları alındığında size bildirim göndermesi için [uyarı kuralları oluşturursunuz](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).
 
-Sürekli olarak yüklü aracı durumunu izlemek için eklediğiniz [Aracısı sistem yönetimi çözümü](../operations-management-suite/oms-solution-agenthealth.md). Daha fazla uygulama kavramanıza için [bağımlılık aracısı ekleme](../operations-management-suite/operations-management-suite-service-map-configure.md) bunlara eklemek için sanal makinelere [hizmet Haritası](../operations-management-suite/operations-management-suite-service-map.md). Hizmet eşlemesi önemli işlemlerin bulur ve diğer hizmetlerle makineler arasındaki bağlantıları tanımlar.
+Yüklü aracının durumunu sürekli olarak izlemek için [Aracı Durumu yönetim çözümünü](../operations-management-suite/oms-solution-agenthealth.md) eklersiniz. Uygulamaya ilişkin daha fazla içgörü elde etmek için, sanal makinelere [bağımlılık aracısını ekleyerek](../operations-management-suite/operations-management-suite-service-map-configure.md) bu makineleri [Hizmet Eşlemesi](../operations-management-suite/operations-management-suite-service-map.md)’ne eklersiniz. Hizmet Eşlemesi, kritik işlemleri keşfeder ve makineler ile diğer hizmetler arasındaki bağlantıları tanımlar.
 
-Bildirilen bir kesinti sonra adli sorun yaşayan belirli makineler tanımlayacak gerçekleştirmek için hizmet Haritası kullanın. Ardından oluşturduğunuz bir [günlük analizi veri sorgusu](../log-analytics/log-analytics-log-search-new.md) sorunun gelecekte tanımlamak için. Ve koşulu algıladığında sizi önceden bilgilendirmek üzere bir uyarı kuralı oluşturun.
+Bildirilen bir kesintiden sonra Hizmet Eşlemesini kullanarak, sorunu yaşayan makineyi belirlemek amacıyla adli araştırma gerçekleştirirsiniz. Ardından, gelecekte sorunu tanımlamak için [Log Analytics verilerinde bir sorgu](../log-analytics/log-analytics-log-search-new.md) oluşturursunuz. Ayrıca koşul algılandığında proaktif olarak size bildirim göndermesi için bir uyarı kuralı oluşturursunuz.
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Daha fazla bilgi edinin:
+Aşağıdakiler hakkında daha fazla bilgi edinin:
 
-* [Azure İzleyici](https://azure.microsoft.com/services/monitor/) çekirdek ölçümleri ve Uyarıları izleme ile çalışmaya başlamak için.
-* [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) App Service web uygulamanızda sorunlara tanı koymak çalışıyorsanız.
-* [Günlük analizi](https://azure.microsoft.com/documentation/services/log-analytics/) toplanan izleme verileri ve günlüklerini çözümlemek için.
+* Temel izleme ölçümlerini ve uyarılarını kullanmaya başlamak için [Azure İzleyici](https://azure.microsoft.com/services/monitor/).
+* App Service web uygulamanızda sorunları tanılamaya çalışıyorsanız [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/).
+* Toplanan izleme verilerini ve günlüklerini analiz etmek için [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/).

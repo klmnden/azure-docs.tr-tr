@@ -1,53 +1,51 @@
 ---
-title: Azure Cosmos DB tablo API ile kullanmak için içeri aktarma verileri | Microsoft Docs
-description: Bilgi nasıl Azure Cosmos DB tablo API ile kullanmak için veri alabilirsiniz.
+title: Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma | Microsoft Belgeleri
+description: Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma hakkında bilgi edinin.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b60743e2-0227-43ab-965a-0ae3ebacd917
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: b6e912d450e1a2fed98fab5b18ba835396257ac9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: MT
+ms.openlocfilehash: 25e922e211304774462c747ea6a003e47fb38736
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797779"
 ---
-# <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB tablo API ile kullanmak için veri alma
+# <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Azure Cosmos DB Tablo API'si ile kullanmak üzere veri içe aktarma
 
-Bu öğretici Azure Cosmos DB ile kullanmak için veri alma hakkında yönergeler sağlar. [tablo API](table-introduction.md). Azure Table depolama alanında depolanan verileri varsa, verilerinizi almak için veri geçiş aracı veya AzCopy kullanabilirsiniz. Bir Azure Cosmos DB tablo API (Önizleme) hesabında depolanan verileriniz varsa, verileri geçirmek için veri geçiş aracı kullanmanız gerekir. Verilerinizi alındıktan sonra anahtar teslimi genel dağıtım, ayrılmış işleme, en yüksek oranda kullanılabilirlik garanti 99 tek basamaklı milisaniyelik gecikme gibi Azure Cosmos DB teklifleri premium özelliklerinden yararlanmak kullanabileceksiniz, ve otomatik ikincil dizin oluşturma.
+Bu öğretici, Azure Cosmos DB [Tablo API’si](table-introduction.md) ile kullanmak üzere veri içeri aktarma hakkında yönergeler sağlar. Azure Table depolamasında depolanan verileriniz varsa, verilerinizi içeri aktarmak için Veri Taşıma Aracı'nı veya AzCopy'yi kullanabilirsiniz. Bir Azure Cosmos DB Tablo API'si (önizleme) hesabında depolanan verileriniz varsa, verilerinizi taşımak için Veri Taşıma Aracı'nı kullanmanız gerekir. Verileriniz içeri aktarıldıktan sonra Azure Cosmos DB tekliflerinin anahtar teslimi genel dağıtım, ayrılmış aktarım hızı, 99. yüzdede tek sayılı milisaniyelik gecikme, garantili yüksek kullanılabilirlik ve otomatik ikincil dizinleme gibi premium özelliklerinden yararlanabilirsiniz.
 
 Bu öğretici aşağıdaki görevleri kapsar:
 
 > [!div class="checklist"]
-> * Veri Geçiş Aracı ile veri alma
-> * AzCopy ile veri alma
-> * Tablo API için tablo API (Önizleme) geçirme 
+> * Veri Taşıma Aracı ile veri içeri aktarma
+> * AzCopy ile veri içeri aktarma
+> * Tablo API’sinden (önizleme) Tablo API’sine geçiş 
 
-## <a name="prerequisites"></a>Önkoşullar
+## <a name="prerequisites"></a>Ön koşullar
 
-* Verimliliğini artırmak: ayarladığınız tek tek bir koleksiyon için işleme miktarı veya koleksiyonları kümesi, veri geçiş süresini bağlıdır. Büyük veri geçişler verimliliğini artırmak emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak verimliliği azaltır. Azure portalında verimliliği artırma hakkında daha fazla bilgi için performans düzeyleri ve Azure Cosmos veritabanı fiyatlandırma katmanlarına bakın.
+* Aktarım hızını artırma: Veri geçişinizin süresi, tek bir koleksiyon veya bir koleksiyon kümesi için ayarladığınız aktarım hızı miktarına bağlıdır. Büyük veri geçişleri için aktarım hızını artırdığınızdan emin olun. Geçişi tamamladıktan sonra maliyet tasarrufu sağlamak için aktarım hızını azaltın. Azure portalda aktarım hızını artırma hakkında daha fazla bilgi için bkz. Azure Cosmos DB’de performans düzeyleri ve fiyatlandırma katmanları.
 
-## <a name="data-migration-tool"></a>Veri Geçiş Aracı
+## <a name="data-migration-tool"></a>Veri Taşıma aracı
 
-Komut satırı Azure Cosmos DB veri Geçiş Aracı (dt.exe) bir tablo API GA hesabına, var olan Azure Table depolama veri almak için kullanılan veya verileri bir tabloda API (Önizleme) hesabından bir tablo API GA hesabına geçirmek. Diğer kaynakları şu anda desteklenmemektedir. Temelli UI veri Geçiş Aracı (dtui.exe) tablo API hesapları için şu anda desteklenmiyor. 
+Komut satırı Azure Cosmos DB Veri Taşıma Aracı (dt.exe), var olan Azure Table depolama verilerinizi bir Tablo API GA hesabına içeri aktarmak veya verileri bir Tablo API (önizleme) hesabından bir Tablo API GA hesabına taşımak için kullanılabilir. Diğer kaynaklar şu anda desteklenmemektedir. Kullanıcı arabirimi temelli Veri Taşıma Aracı (dtui.exe), Tablo API hesapları için şu anda desteklenmemektedir. 
 
-Tablo verisi geçişini gerçekleştirmek için aşağıdaki görevleri tamamlayın:
+Tablo verilerinin geçişini gerçekleştirmek için aşağıdaki görevleri tamamlayın:
 
-1. Geçiş aracından karşıdan [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Çalıştırma `dt.exe` senaryonuz için komut satırı bağımsız değişkenleri kullanma.
+1. Geçiş aracını [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool)'dan indirin.
+2. `dt.exe` aracını, senaryonuzun komut satırı bağımsız değişkenlerini kullanarak çalıştırın.
 
 dt.exe aşağıdaki biçimde bir komut alır:
 
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
 
-Komutu için Seçenekler şunlardır:
+Komutun seçenekleri şunlardır:
 
     /ErrorLog: Optional. Name of the CSV file to redirect data transfer failures
     /OverwriteErrorLog: Optional. Overwrite error log file
@@ -56,7 +54,7 @@ Komutu için Seçenekler şunlardır:
 
 ### <a name="command-line-source-settings"></a>Komut satırı kaynak ayarları
 
-Azure Table Storage veya tablo API Önizleme geçiş kaynağı olarak tanımlarken aşağıdaki kaynak seçenekleri kullanın.
+Azure Tablo Depolama veya Tablo API önizlemesini geçişin kaynağı olarak tanımlarken aşağıdaki kaynak seçeneklerini kullanın.
 
     /s:AzureTable: Reads data from Azure Table storage
     /s.ConnectionString: Connection string for the table endpoint. This can be retrieved from the Azure portal
@@ -66,21 +64,21 @@ Azure Table Storage veya tablo API Önizleme geçiş kaynağı olarak tanımlark
     /s.Filter: Optional. Filter string to apply
     /s.Projection: Optional. List of columns to select
 
-Azure tablo depolamasından içeri aktarırken kaynak bağlantı dizesini almak için Azure Portalı'nı açın ve **depolama hesapları** > **hesap**  >   **Erişim tuşları**ve kopyalamak için Kopyala düğmesini kullanın **bağlantı dizesi**.
+Azure tablo depolamasından içeri aktarırken kaynak bağlantı dizesini almak için Azure Portal’ı açın ve **Depolama hesapları** > **Hesap** > **Erişim anahtarları**'na tıklayın ve **Bağlantı dizesini** kopyalamak için kopyalama düğmesini kullanın.
 
-![Ekran görüntüsü, HBase kaynak seçenekleri](./media/table-import/storage-table-access-key.png)
+![HBase kaynağı seçeneklerinin ekran görüntüsü](./media/table-import/storage-table-access-key.png)
 
-Bir Azure Cosmos DB tablo API (Önizleme) hesabından alırken kaynak bağlantı dizesini almak için Azure portal, açmak **Azure Cosmos DB** > **hesap**  >  **Bağlantı dizesi** ve kopyalamak için Kopyala düğmesini kullanın **bağlantı dizesi**.
+Bir Azure Cosmos DB Tablo API (önizleme) hesabından içeri aktarma sırasında kaynak bağlantı dizesini almak için, Azure portalı açın, **Azure Cosmos DB** > **Hesap** > **Bağlantı Dizesi**'ni tıklatın ve **Bağlantı Dizesi**'ni kopyalamak için kopyalama düğmesini kullanın.
 
-![Ekran görüntüsü, HBase kaynak seçenekleri](./media/table-import/cosmos-connection-string.png)
+![HBase kaynağı seçeneklerinin ekran görüntüsü](./media/table-import/cosmos-connection-string.png)
 
-[Azure Table Storage komut örneği](#azure-table-storage)
+[Azure Tablo Depolama komutu örneği](#azure-table-storage)
 
-[Örnek Azure Cosmos DB tablo API (Önizleme) komutu](#table-api-preview)
+[Azure Cosmos DB Tablo API’si (önizleme) komutu örneği](#table-api-preview)
 
-### <a name="command-line-target-settings"></a>Komut satırı hedef ayarları
+### <a name="command-line-target-settings"></a>Komut satırı hedefi ayarları
 
-Geçiş hedefi olarak Azure Cosmos DB tablo API tanımlarken, aşağıdaki hedef seçenekleri kullanın.
+Azure Cosmos DB Tablo API'sini geçiş hedefi olarak tanımlarken aşağıdaki hedef seçeneklerini kullanın.
 
     /t:TableAPIBulk: Uploads data into Azure CosmosDB Table in batches
     /t.ConnectionString: Connection string for the table endpoint
@@ -91,60 +89,60 @@ Geçiş hedefi olarak Azure Cosmos DB tablo API tanımlarken, aşağıdaki hedef
     /t.MaxBatchSize: Optional, default is 2MB. Specify the batch size in bytes
 
 <a id="azure-table-storage"></a>
-### <a name="sample-command-source-is-azure-table-storage"></a>Örnek komut: kaynağıdır Azure tablo depolaması
+### <a name="sample-command-source-is-azure-table-storage"></a>Örnek komut: Kaynak Azure Table depolaması
 
-Tablo API için Azure tablo depolamasından içeri aktarma gösteren bir komut satırı örnek aşağıda verilmiştir:
+Azure Tablo depolamasından Tablo API'sine içeri aktarmayı gösteren bir komut satırı örneği:
 
 ```
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Table storage account name>;AccountKey=<Account Key>;EndpointSuffix=core.windows.net /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 <a id="table-api-preview"></a>
-### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Örnek komut: kaynağıdır Azure Cosmos DB tablo API (Önizleme)
+### <a name="sample-command-source-is-azure-cosmos-db-table-api-preview"></a>Örnek komut: Kaynak Azure Cosmos DB Tablo API (önizleme)
 
-Tablo API Önizlemesi'nden tablo API GA almak için komut satırı bir örnek şudur:
+Tablo API önizleme sürümünden Table API GA'ya içeri aktarma için bir komut satırı örneği:
 
 ```
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
-## <a name="azcopy-command"></a>AzCopy komut
+## <a name="azcopy-command"></a>AzCopy komutu
 
-AzCopy komut satırı yardımcı programını kullanarak geçirmek için diğer seçenek olan Azure Table depolama biriminden verileri Azure Cosmos DB tablo API. AzCopy kullanmak için önce verilerinizi açıklandığı gibi dışa [veri tablosu depodan dışarı aktarma](../storage/common/storage-use-azcopy.md#export-data-from-table-storage), sonra verileri açıklandığı gibi Azure Cosmos DB almanız [Azure Cosmos DB tablo API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
+Azure Tablo depolamasından Azure Cosmos DB Tablo API'sine veri geçirmek için AzCopy komut satırı yardımcı programı da kullanılabilir. AzCopy'yi kullanmak için önce verilerinizi [Tablo deposundan veri dışarı aktarma](../storage/common/storage-use-azcopy.md#export-data-from-table-storage)'da açıklandığı gibi dışarı aktarır, sonra bu verileri [Azure Cosmos DB Tablo API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage)'de açıklandığı gibi Azure Cosmos DB'ye içeri aktarırsınız.
 
-Azure Cosmos DB içe gerçekleştirirken, aşağıdaki örneğe bakın. / Dest değeri cosmosdb, çekirdek değildir kullandığını unutmayın.
+Azure Cosmos DB'ye içeri aktarmayı gerçekleştirirken aşağıdaki örneğe bakın. /Dest değerinin core değil cosmosdb kullandığını unutmayın.
 
-Örnek alma komutu:
+Örnek içeri aktarma komutu:
 
 ```
 AzCopy /Source:C:\myfolder\ /Dest:https://myaccount.table.cosmosdb.windows.net/mytable1/ /DestKey:key /Manifest:"myaccount_mytable_20140103T112020.manifest" /EntityOperation:InsertOrReplace
 ```
 
-## <a name="migrate-from-table-api-preview-to-table-api"></a>Tablo API (Önizleme) tablo API'sine geçirin
+## <a name="migrate-from-table-api-preview-to-table-api"></a>Tablo API’sinden (önizleme) Tablo API’sine geçiş
 
 > [!WARNING]
-> Genel olarak kullanılabilir tabloların hemen avantajlarından sonra mevcut Önizleme belirtildiği gibi bu bölümdeki tablolarda, lütfen geçirmek istiyorsanız, aksi takdirde biz otomatik geçişler gerçekleştirecekseniz haftalarda mevcut Önizleme müşteriler için unutmayın Otomatik geçirilen ancak Önizleme tablolar yeni tablolar oluşturulmamış bazı kısıtlamalar bunlara sahip olur.
+> Genel olarak kullanılabilen tabloların avantajlarından hemen yararlanmak istiyorsanız, lütfen var olan önizleme tablolarınızı bu bölümde belirtildiği şekilde geçirin. Aksi halde mevcut önizleme müşterileri için önümüzdeki haftalarda otomatik taşımalar gerçekleştireceğiz, ancak otomatik taşınan önizleme tablolarında yeni oluşturulan tablolarda olmayan bazı kısıtlamalar olacak.
 > 
 
-Tablo artık genel olarak kullanılabilir (GA) API'dir. Önizleme ve tabloları hem de istemcide çalışan kod yanı sıra bulutta çalışan bir kod GA sürümleri arasındaki farklar vardır. Bu nedenle, bir GA tablo API hesabıyla Önizleme SDK istemcisi karışımı denemek için önerilmez ve tersi. Varolan tablolarıyla kullanmaya devam ancak bir üretim ortamında Önizlemesi'nden GA ortamına geçirin veya otomatik geçişi için beklemeniz gerekir istediğiniz API Önizleme Müşteriler tablosu. Otomatik geçişi için beklerseniz, geçirilen tablolarda kısıtlama bildirilir. Geçişten sonra (geçirilen tabloları kısıtlamaları yalnızca) yeni tablolar var olan hesabınızı kısıtlama olmadan oluşturmak mümkün olacaktır.
+Tablo API genel kullanıma (GA) sunulmuştur. Tabloların önizleme ve GA sürümleri arasında gerek bulutta çalışan kodda, gerek istemcide çalışan kodda farklar vardır. Bu nedenle bir önizleme SDK istemcisini bir GA Tablo API hesabıyla karıştırmayı veya bunun aksini denemek önerilmez. Mevcut tablolarını kullanmaya devam etmek isteyen ancak bir üretim ortamında önizleme GA ortamına geçmesi gereken Tablo API önizleme müşterileri otomatik geçişi beklemelidir. Otomatik geçişi beklerseniz, taşınan tablolardaki kısıtlamalar size bildirilir. Geçişten sonra mevcut hesabınızda kısıtlamaları olmayan yeni tablolar oluşturabilirsiniz (yalnızca geçirilen tabloların kısıtlamaları olacaktır).
 
-Genel olarak kullanılabilir tablo API (Önizleme) tablo API'SİNDEN geçirmek için:
+Tablo API önizleme sürümünden genel olarak kullanılabilen Tablo API'sine geçiş için:
 
-1. Yeni bir Azure Cosmos DB hesabı oluşturun ve açıklandığı gibi Azure tablosuna API türünü ayarlayın [bir veritabanı hesabı oluşturma](create-table-dotnet.md#create-a-database-account).
+1. Yeni bir Azure Cosmos DB hesabı oluşturun ve API türünü [Veritabanı hesabı oluşturma](create-table-dotnet.md#create-a-database-account)'da açıklandığı gibi Azure Tablosu olarak ayarlayın.
 
-2. Değiştirme GA sürümünü kullanmak için istemcileri [tablo API SDK'ları](table-sdk-dotnet.md).
+2. İstemcileri [Tablo API SDK'larının](table-sdk-dotnet.md) GA sürümünü kullanacak şekilde değiştirin.
 
-3. İstemci verilerini Önizleme tablolarından veri geçiş aracı kullanarak GA tablolara geçirin. Bu amaç için veri geçiş aracı kullanma yönergeleri açıklanmıştır [veri geçiş aracı](#data-migration-tool). 
+3. Veri Taşıma Aracı'nı kullanarak istemci veritabanını önizleme tablolarından GA tablolarına geçirin. Veri taşıma aracının bu amaçla kullanım yönergeleri [Veri Taşıma Aracı](#data-migration-tool)'nda açıklanmaktadır. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
-> * Veri Geçiş Aracı ile veri alma
-> * AzCopy ile verileri içeri aktar
-> * Tablo API (Önizleme) tablo API'sine geçirin
+> * Veri Taşıma Aracı ile veri içeri aktarma
+> * AzCopy ile veril içeri aktarma
+> * Tablo API’sinden (önizleme) Tablo API’sine geçiş
 
-Şimdi, sonraki öğretici devam etmek ve Azure Cosmos DB tablo API'sini kullanarak veri sorgu öğrenin. 
+Şimdi sonraki öğreticiye devam edebilir ve Azure Cosmos DB Tablo API’sini kullanarak veri sorgulamayı öğrenebilirsiniz. 
 
 > [!div class="nextstepaction"]
->[Sorgu verileri nasıl?](../cosmos-db/tutorial-query-table.md)
+>[Veriler nasıl sorgulanır?](../cosmos-db/tutorial-query-table.md)

@@ -1,74 +1,74 @@
 ---
-title: "Azure Log Analytics Uyarılarıyla olaylara yanıt verme | Microsoft Docs"
-description: "Bu öğretici, OMS deponuzdaki önemli bilgileri belirlemek ve proaktif olarak sorunları bildirip bu sorunları düzeltme girişiminde bulunmak amacıyla eylemler çağırmak için Log Analytics’te uyarıları anlamanıza yardımcı olur."
+title: Azure Log Analytics Uyarılarıyla olaylara yanıt verme | Microsoft Docs
+description: Bu öğretici, çalışma alanınızdaki önemli bilgileri belirlemek ve sorunları önceden bildirmek veya bunları düzeltme girişiminde bulunmak amacıyla eylemler çağırmak için Log Analytics ile uyarı kullanmayı anlamanıza yardımcı olur.
 services: log-analytics
 documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/20/2017
+ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: fcfaa849f67ffcfa69672d116837e96d318c2124
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 70698dc233dac60a2fa2d1444930d21d3fba8773
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637132"
 ---
-# <a name="respond-to-events-with-log-analytics-alerts"></a>Log Analytics Uyarılarıyla olaylara yanıt verme
-Log Analytics’teki uyarılar, Log Analytics deponuzdaki önemli bilgileri belirler. Bunlar düzenli aralıklarla otomatik olarak günlük aramaları çalıştıran uyarı kuralları tarafından oluşturulur. Günlük aramasının sonuçları belirli ölçütlerle eşleşirse bir uyarı kaydı oluşturulur ve otomatik yanıt gerçekleştirmek için yapılandırılabilir.  Bu öğretici, [Log Analytics verilerinin panolarını oluşturma ve paylaşma](log-analytics-tutorial-dashboards.md) öğreticisinin devamı niteliğindedir.   
+# <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure İzleyici Uyarıları ile olaylara yanıt verme
+Azure İzleyici'deki uyarılar, Log Analytics deponuzdaki önemli bilgileri belirleyebilir. Bunlar düzenli aralıklarla otomatik olarak günlük aramaları çalıştıran uyarı kuralları tarafından oluşturulur. Günlük aramasının sonuçları belirli ölçütlerle eşleşirse bir uyarı kaydı oluşturulur ve kayıt otomatik bir yanıt gerçekleştirmek için yapılandırılabilir.  Bu öğretici, [Log Analytics verilerinin panolarını oluşturma ve paylaşma](log-analytics-tutorial-dashboards.md) öğreticisinin devamı niteliğindedir.   
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Uyarı kuralı oluşturma
-> * E-posta bildirimi göndermek için bir uyarı kuralını yapılandırma
+> * E-posta bildirimi göndermek için Eylem Grubu yapılandırma
 
-Bu öğreticideki örneği tamamlamak için, mevcut bir sanal makinenizin [Log Analytics çalışma alanına bağlanmış](log-analytics-quick-collect-azurevm.md) olması gerekir.  
+Bu öğreticideki örneği tamamlamak için [Log Analytics çalışma alanına bağlı](log-analytics-quick-collect-azurevm.md) mevcut bir sanal makinenizin olması gerekir.  
 
 ## <a name="log-in-to-azure-portal"></a>Azure portalında oturum açın
-[https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın. 
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın. 
 
 ## <a name="create-alerts"></a>Uyarı oluşturma
+Uyarılar, Azure İzleyici'deki uyarı kuralları tarafından oluşturulur ve kaydedilmiş sorguları veya özel günlük aramalarını düzenli aralıklarla otomatik olarak çalıştırabilir.  Belirli performans ölçümleri temelinde veya belirli bir zaman aralığında bir olay sayısı oluşturulduğunda, bir olay olmadığında ya da belirli olaylar oluşturulduğunda uyarılar oluşturabilirsiniz.  Örneğin uyarılar ortalama CPU kullanımı belirli bir eşiği aştığında, eksik bir güncelleştirme algılandığında veya belirli bir Windows hizmetinin veya Linux daemon'unun çalışmadığının algılanması üzerine bir olay oluşturulduğunda bunu size bildirmek için kullanılabilir.  Günlük aramasının sonuçları belirli ölçütlerle eşleşiyorsa bir uyarı oluşturulur. Kural daha sonra otomatik olarak, size bir uyarıyı bildirmek veya başka bir işlemi çağırmak gibi bir veya daha fazla eylemi çalıştırabilir. 
 
-Düzenli aralıklarla otomatik olarak günlük aramaları çalıştıran uyarı kuralları tarafından uyarılar oluşturulur.  Belirli performans ölçümleri temelinde veya belirli bir zaman aralığında bir olay sayısı oluşturulduğunda, bir olay olmadığında ya da belirli olaylar oluşturulduğunda uyarılar oluşturabilirsiniz.  Örneğin, ortalama CPU kullanımı belirli bir eşiği aştığında veya belirli bir Windows hizmeti ya da Linux programı çalışmıyorken bir olay oluşturulduğunda size bildirim göndermek için uyarılar kullanılabilir.   Günlük aramasının sonuçları belirli ölçütlerle eşleşiyorsa bir uyarı kaydı oluşturulur. Daha sonra kural, uyarı hakkında proaktif olarak size bildirim göndermek veya başka bir işlem çağırmak için otomatik olarak bir ya da daha fazla eylem çalıştırabilir. 
-
-Aşağıdaki örnekte, %90 eşiğini aşan değere sahip sorgudaki her bir bilgisayar nesnesi için uyarı oluşturan bir ölçüm ölçüsü uyarı kuralı oluşturursunuz.
+Aşağıdaki örnekte, [Veri görselleştirme öğreticisinde](log-analytics-tutorial-dashboards.md) kaydedilen *Azure VM'leri - İşlemci Kullanımı* sorgusuna dayanarak bir metrik ölçüm uyarı kuralı oluşturacaksınız.  Yüzde 90'lık bir eşiği aşan her sanal makine için bir uyarı oluşturulur.  
 
 1. Azure portalında **Tüm hizmetler**’e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-2. OMS Portalını seçerek OMS portalını başlatın ve **Genel Bakış** sayfasında **Günlük Araması**’nı seçin.  
-3. Portalın üst kısmından **Sık Kullanılanlar**’ı seçin ve sağdaki **Kayıtlı Aramalar** bölmesinde *Azure VM’leri - İşlemci Kullanımı* sorgusunu seçin.  
-4. Sayfanın üst kısmındaki **Uyarı**’ya tıklayarak **Uyarı Kuralı Ekle** ekranını açın.  
-5. Aşağıdaki bilgilerle uyarı kuralını yapılandırın:  
-   a. Uyarınız için *VM işlemci kullanımı aşıldı >90* gibi bir **Ad** belirtin  
-   b. **Zaman Aralığı** için, sorguya ilişkin *30* gibi bir zaman aralığı belirtin.  Sorgu yalnızca bu geçerli zaman aralığı içinde oluşturulmuş olan kayıtları döndürür.  
-   c. **Uyarı Sıklığı**, sorgunun çalıştırılması gereken sıklığı belirtir.  Bu örnek için, belirtilen zaman aralığımız içinde gerçekleşen *5* dakika değerini belirtin.  
-   d. **Ölçüm Ölçüsü**’nü seçin ve **Toplam Değer** için *90* değerini ve **Şuna bağlı olarak uyarıyı tetikle:**  için *3* değerini girin  
-   e. **Eylemler** bölümünde e-posta bildirimini devre dışı bırakın.
-6. **Kaydet**’e tıklayarak uyarı kuralını tamamlayın. Hemen çalıştırılmaya başlar.<br><br> ![Uyarı kuralı örneği](media/log-analytics-tutorial-response/log-analytics-alert-01.png)
+2. Sol bölmede, **Uyarılar**'ı seçin ve ardından yeni bir uyarı oluşturmak için sayfanın üst kısmındaki **Yeni Uyarı Kuralı**'na tıklayın.<br><br> ![Yeni uyarı kuralı oluşturma](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
+3. İlk adımda, **Uyarı Oluştur** bölümünde, bu günlük tabanlı bir uyarı sinyali olduğundan kaynak olarak Log Analytics çalışma alanınızı seçeceksiniz.  Birden fazla aboneliğiniz varsa aşağı açılan listeden daha önce oluşturulan VM'yi ve Log Analytics çalışma alanını içeren bir **Abonelik** seçerek sonuçları filtreleyin.  **Kaynak Türü**'nü aşağı açılan listeden **Log Analytics**'i seçerek filtreleyin.  Son olarak, **Kaynak** **DefaultLAWorkspace**'i ve sonra **Bitti**'yi seçin.<br><br> ![Uyarı oluşturma 1. adım görevi](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
+4. **Uyarı Ölçütleri** bölümünde, kaydettiğimiz sorguyu seçmek için **Ölçüt Ekle**'yi tıklatın ve uyarı kuralının uyacağı mantığı belirtin.  **Sinyal mantığını yapılandır** bölmesinde listeden *Azure VM'leri - İşlemci Kullanımı*'nı seçin.  Bölme, uyarının yapılandırma ayarlarını göstermek için güncelleşir.  Üstte, seçilen sinyal için son 30 dakikanın sonuçları ve arama sorgusunun kendisi gösterilir.  
+5. Uyarıyı aşağıdaki bilgilerle yapılandırın:  
+   a. Aşağı açılan **Tetikleyici* listesinden **Metrik ölçüm**'ü seçin.  Bir metrik ölçümü, sorgudaki belirttiğimiz eşiği aşan her nesne için bir uyarı oluşturacaktır.  
+   b. **Koşul** için **Büyüktür**'ü seçin ve **Eşik** için **90**'ı girin.  
+   c. Uyarı Tetikleyicisi bölümünde **Art arda ihlaller**'i ve seçin ve aşağı açılan listeden **Büyüktür**'ü seçip 3 değerini girin.  
+   d. Değerlendirme ölçütü bölümünde, varsayılanları kabul edin. Kural beş dakikada bir çalışır ve bu süre içinde oluşturulan kayıtları döndürür.  
+6. **Bitti**'ye tıklayarak uyarı kuralını tamamlayın.<br><br> ![Uyarı sinyalini yapılandırma](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)<br> 
+7. Şimdi ikinci adıma geçiyoruz. Uyarınız için **Uyarı kuralı adı** alanına **CPU yüzdesi 90'dan büyük** gibi bir ad girin.  Uyarının ayrıntılarını veren bir **Açıklama** girin ve sağlanan seçeneklerden **Önem düzeyi** için **Kritik (Önem derecesi 0)** değerini belirleyin.<br><br> ![Uyarı ayrıntılarını yapılandırma](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)<br>
+8. Oluşturmadan hemen sonra uyarı kuralını etkinleştirmek için, **Oluşturulduktan sonra kuralı etkinleştir** için varsayılan değeri kabul edin.
+9. Üçüncü ve son adım olarak, bir uyarı tetiklendiğinde aynı eylemlerin yapılmasını sağlayan tanımladığınız her kural için kullanılabilecek bir **Eylem Grubu** belirtin.  Yeni bir eylem grubunu aşağıdaki bilgilerle yapılandırın:  
+   a. **Yeni eylem grubu**'nu seçerseniz **Eylem grubu ekle** bölmesi görünür.
+   b. **Eylem grubu adı** olarak **BT İşlemleri - Bildirim** gibi bir ad ve **btisl-b** gibi bir **Kısa ad** belirtin.  
+   c. **Abonelik** ve **Kaynak grubu** varsayılan değerlerinin doğru olduğundan emin olun. Değilse, aşağı açılan listeden doğru olanı seçin.   
+   d. Eylemler bölümünde, eylem için **E-posta Gönder** gibi bir ad belirtin ve **Eylem Türü** altında aşağı açılan listeden **E-posta/SMS/Gönderme/Sesli** seçeneğini belirleyin. **E-posta/SMS/Gönderme/Sesli** özellikler bölmesi, ek bilgi sağlamak için sağa doğru açılır.
+   e. **E-posta/SMS/Gönderme/Sesli** bölmesinde **E-posta**'yı etkinleştirin ve iletiyi teslim etmek için geçerli bir e-posta SMTP adresi sağlayın. f. Değişikliklerinizi kaydetmek için **Tamam**’a tıklayın.<br><br> ![Yeni eylem grubu oluşturma](./media/log-analytics-tutorial-response/action-group-properties-01.png)<br>
+10. Eylem grubunu tamamlamak için **Tamam**'a tıklayın. 
+11. Uyarı kuralını tamamlamak için **Uyarı kuralı oluştur**'a tıklayın. Hemen çalıştırılmaya başlar.<br><br> ![Yeni uyarı kuralı oluşturmayı tamamlama](./media/log-analytics-tutorial-response/alert-rule-01.png)<br> 
 
-Log Analytics’teki uyarı kuralları tarafından oluşturulan uyarı kayıtlarının Türü **Uyarı** ve Kaynak Sistemi **OMS**’dir.<br><br> ![Oluşturulan Uyarı olayları örneği](media/log-analytics-tutorial-response/log-analytics-alert-events-01.png)  
+## <a name="view-your-alerts-in-azure-portal"></a>Uyarılarınızı Azure portalda görüntüleme
+Bir uyarı oluşturduğunuza göre artık Azure uyarılarını tek bir bölmede görebilir ve Azure abonelikleriniz genelinde tüm uyarı kurallarınızı yönetebilirsiniz. Tüm uyarı kurallarını (etkin veya devre dışı) listeler ve hedef kaynaklarına, kaynak gruplarına, kural adına veya duruma göre sıralanabilir. Tetiklenen tüm uyarıların toplu bir özeti ve toplam yapılandırılmış/etkin uyarı kuralı sayısı da bulunur.<br><br> ![Azure Alerts durum sayfası](./media/log-analytics-tutorial-response/azure-alerts-02.png)  
 
-## <a name="alert-actions"></a>Uyarı eylemleri
-Uyarı ölçütleri karşılandığında yanıt olarak [BT Hizmet Yönetimi Bağlayıcısı çözümü](log-analytics-itsmc-overview.md) ile veya ITSM olay yönetimi sisteminizde olay kaydı oluşturmak amacıyla bir web kancası kullanma, [Otomasyon runbook'u](../automation/automation-runbook-types.md) başlatma, e-posta bildirimi oluşturma gibi uyarılarla gelişmiş eylemler gerçekleştirebilirsiniz.   
-
-E-posta eylemleri, bir veya daha fazla alıcıya uyarının ayrıntılarını içeren bir e-posta gönderir. Postanın konusunu belirtebilirsiniz ancak içeriği, Log Analytics tarafından oluşturulan standart bir biçimdedir.  Şimdi daha önceden oluşturulan uyarı kuralını güncelleştirelim ve günlük araması ile uyarı kaydını etkin şekilde izlemek yerine size e-posta bildirimi gönderilecek şekilde kuralı yapılandıralım.     
-
-1. OMS portalında üst menüden **Ayarlar**’ı ve sonra **Uyarılar**’ı seçin.
-2. Uyarı kuralları listesinden, daha önceden oluşturulan uyarının yanındaki kalem simgesine tıklayın.
-3. **Eylemler** bölümünde e-posta bildirimlerini etkinleştirin.
-4. E-posta için *İşlemci kullanımı eşiği aştı >90* gibi bir **Konu** belirtin.
-5. **Alıcılar** alanına bir veya daha fazla e-posta alıcısının adresini ekleyin.  Birden fazla adres belirtirseniz, adresleri noktalı virgül (;) ile ayırın.
-6. **Kaydet**’e tıklayarak uyarı kuralını tamamlayın. Hemen çalıştırılmaya başlar.<br><br> ![E-posta bildirimi ile uyarı kuralı](media/log-analytics-tutorial-response/log-analytics-alert-02.png)
+Uyarı tetiklendiğinde tablo koşulu ve seçilen zaman aralığı içinde (varsayılan altı saattir) koşulun kaç kez oluştuğunu yansıtır.  Gelen kutunuzda, sorun çıkaran sanal makineyi ve burada arama sorgusuyla en iyi eşleşen sonuçları gösteren, aşağıdaki örneğe benzer bir e-posta olmalıdır.<br><br> ![Uyarı e-posta eylemi örneği](./media/log-analytics-tutorial-response/azure-alert-email-notification-01.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu öğreticide, uyarı kurallarının zamanlanan aralıklarda günlük aramaları çalıştırdığında ve belirli bir ölçütle eşleştiğinde proaktif şekilde bir sorunu nasıl belirleyebildiğini ve yanıtlayabildiğini öğrendiniz.  
+Bu öğreticide, uyarı kurallarının zamanlanan aralıklarda günlük aramaları çalıştırdığında ve belirli bir ölçütle eşleştiğinde proaktif şekilde bir sorunu nasıl belirleyebildiğini ve yanıtlayabildiğini öğrendiniz.
 
 Önceden oluşturulmuş Log Analytics betik örneklerini görmek için bu bağlantıyı izleyin.  
 
