@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b16c88b5ec45dec7bf0fe40da24e817ae325a3e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887919"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304489"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Günlük analizi ekleme arar ve Uyarıları kaydedilen yönetim çözümü (Önizleme)
 
@@ -44,19 +44,16 @@ Her günlük analizi kaynak adına çalışma adıdır.  Bu çözümle yapılır
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
 ## <a name="log-analytics-api-version"></a>Günlük analizi API sürümü
-Resource Manager şablonunda tanımlanan tüm günlük analizi kaynaklarını özelliğine sahip **apiVersion** kaynak kullanması gereken API sürümü tanımlar.  Bu kullanan kaynaklar için farklı bir sürümdür [eski ve yükseltilmiş sorgu dili](../log-analytics/log-analytics-log-search-upgrade.md).  
+Resource Manager şablonunda tanımlanan tüm günlük analizi kaynaklarını özelliğine sahip **apiVersion** kaynak kullanması gereken API sürümü tanımlar.   
 
- Aşağıdaki tabloda, eski ve yükseltilmiş çalışma alanlarında Kaydedilmiş aramaları için günlük analizi API sürümleri belirtir: 
+Bu örnekte kullanılan kaynak için API sürümü aşağıdaki tabloda listelenmektedir.
 
-| Çalışma alanında sürümü | API sürümü | Sorgu |
+| Kaynak türü | API sürümü | Sorgu |
 |:---|:---|:---|
-| V1 (eski)   | 2015-11-01-Önizleme | Eski biçimi.<br> Örnek: Yazın olay EventLevelName = hata =  |
-| v2 (yükseltme) | 2015-11-01-Önizleme | Eski biçimi.  Yükleme yükseltilmiş biçimine dönüştürülür.<br> Örnek: Yazın olay EventLevelName = hata =<br>Dönüştürülen: olay &#124; burada EventLevelName "Error" ==  |
-| v2 (yükseltme) | 2017-03-03-Önizleme | Yükseltme biçimi. <br>Örnek: Olay &#124; burada EventLevelName "Error" ==  |
+| savedSearches | 2017-03-15-Önizleme | Olay &#124; burada EventLevelName "Error" ==  |
 
 
-
-## <a name="saved-searches"></a>Kaydedilen aramalar
+## <a name="saved-searches"></a>Kayıtlı Aramalar
 Dahil [kayıtlı aramalar](../log-analytics/log-analytics-log-searches.md) çözümünüz tarafından toplanan sorgu veri kullanıcılarına izin vermek için bir çözüm içinde.  Kaydedilmiş aramaları altında görünen **Sık Kullanılanlar** OMS portalında ve **kayıtlı aramaları** Azure portalında.  Kaydedilmiş bir aramayı de her uyarı için gereklidir.   
 
 [Günlük analizi kaydedilen arama](../log-analytics/log-analytics-log-searches.md) kaynaklarınız türü `Microsoft.OperationalInsights/workspaces/savedSearches` ve aşağıdaki yapı ayarlanmıştır.  Kopyalayabilir ve çözüm dosyanıza Bu kod parçacığını yapıştırın ve parametre adlarını değiştirmek için bu ortak değişkenleri ve parametreleri içerir. 
@@ -90,7 +87,7 @@ Kaydedilmiş bir aramayı, her bir özellik aşağıdaki tabloda açıklanmışt
 > JSON olarak yorumlanabilecek karakterler içeriyorsa, sorguda kaçış karakterleri kullanmanız gerekebilir.  Örneğin, sorgu, **türü: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, çözüm dosyasındaki yazılmalıdır **türü: AzureActivity işlemadı:\" Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Uyarılar
-[Analytics uyarıları oturum](../log-analytics/log-analytics-alerts.md) düzenli aralıklarla kaydedilmiş bir aramayı çalıştırma uyarı kuralları tarafından oluşturulur.  Sorgu eşleşmesinin sonuçlarını ölçütleri belirtilmişse, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylem çalıştırın.  
+[Azure günlük uyarıları](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) düzenli aralıklarla belirtilen günlük sorguları çalıştırmak Azure uyarı kuralları tarafından oluşturulur.  Sorgu sonuçlarını belirtilen ölçütlerle eşleşen, bir uyarı kaydı oluşturulur ve bir veya daha fazla eylemleri kullanarak çalışması [Eylem grupları](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
 > 14 Mayıs 2018 başlayan bir çalışma alanındaki tüm uyarıları, Azure'da genişletmek otomatik olarak başlatılacak. Bir kullanıcı gönüllü 14 Mayıs 2018 önce Azure genişletme uyarıları başlatabilir. Daha fazla bilgi için bkz: [genişletmek uyarıları OMS Azure içine](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Uyarılar için Azure genişletmek kullanıcılar için Eylemler artık Azure eylem gruplarında denetlenir. Azure için genişletilmiş bir çalışma alanı ve onun uyarıları, almak veya eylemleri kullanarak eklemek [eylem Grup - Azure Resource Manager şablonu](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
@@ -196,7 +193,7 @@ Uyarı eylemi kaynaklar için özellikler aşağıdaki tabloda açıklanmıştı
 | Tür | Evet | Eylem türü.  Bu **uyarı** uyarı eylemleri için. |
 | Ad | Evet | Uyarı görünen adı.  Bu uyarı kuralı için konsolunda görüntülenen addır. |
 | Açıklama | Hayır | Uyarı isteğe bağlı bir açıklama. |
-| Önem Derecesi | Evet | Aşağıdaki değerlerden uyarı kaydının önem derecesi:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme**
+| Severity | Evet | Aşağıdaki değerlerden uyarı kaydının önem derecesi:<br><br> **Kritik**<br>**Uyarı**<br>**Bilgilendirme**
 
 
 #### <a name="threshold"></a>Eşik
@@ -338,11 +335,12 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-03-20",
-    
+          "LogAnalyticsApiVersion-Search": "2017-03-15-preview",
+              "LogAnalyticsApiVersion-Solution": "2015-11-01-preview",
+
           "MySearch": {
             "displayName": "Error records by hour",
-            "query": "Type=MyRecord_CL | measure avg(Rating_d) by Instance_s interval 60minutes",
+            "query": "MyRecord_CL | summarize AggregatedValue = avg(Rating_d) by Instance_s, bin(TimeGenerated, 60m)",
             "category": "Samples",
             "name": "Samples-Count of data"
           },
@@ -350,7 +348,7 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
             "Name": "[toLower(concat('myalert-',uniqueString(resourceGroup().id, deployment().name)))]",
             "DisplayName": "My alert rule",
             "Description": "Sample alert.  Fires when 3 error records found over hour interval.",
-            "Severity": "Critical",
+            "Severity": "critical",
             "ThresholdOperator": "gt",
             "ThresholdValue": 3,
             "Schedule": {
@@ -378,7 +376,7 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
             "location": "[parameters('workspaceRegionId')]",
             "tags": { },
             "type": "Microsoft.OperationsManagement/solutions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Solution')]",
             "dependsOn": [
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
@@ -406,7 +404,7 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [ ],
             "tags": { },
             "properties": {
@@ -419,7 +417,7 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name)]"
             ],
@@ -433,7 +431,7 @@ Aşağıdaki kaynakları içermektedir içeren bir çözüm örneği aşağıda 
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/',  variables('MyAlert').Schedule.Name, '/',  variables('MyAlert').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]"
             ],

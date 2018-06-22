@@ -1,95 +1,93 @@
 ---
-title: Azure Cosmos DB Gremlin destek | Microsoft Docs
-description: Apache TinkerPop Gremlin dilden hakkında bilgi edinin. Hangi özellikler ve adımları Azure Cosmos DB'de kullanılabilir olduğunu öğrenin
+title: Azure Cosmos DB Gremlin desteği | Microsoft Docs
+description: Apache TinkerPop’un Gremlin dili hakkında bilgi edinin. Azure Cosmos DB’de kullanılabilen özellikleri ve adımları öğrenin
 services: cosmos-db
-documentationcenter: ''
 author: LuisBosquez
 manager: kfile
-ms.assetid: 6016ccba-0fb9-4218-892e-8f32a1bcc590
 ms.service: cosmos-db
+ms.component: cosmosdb-graph
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: ''
+ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c3d80fcaa38d0f1d7fa1770879ca9b40642bb796
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: MT
+ms.openlocfilehash: c675f37e50f5b8a259048d9a92fcdbe5b947068c
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797626"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin grafik desteği
-Azure Cosmos DB destekleyen [Apache Tinkerpop'ın](http://tinkerpop.apache.org) grafik geçişi dil [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), grafik varlıkları oluşturma ve grafik sorgu işlemleri gerçekleştirmek için bir grafik API'si olan. Grafik varlıkları (köşeleri ve kenarları) oluşturmak, bu varlıkların içinde özelliklerini değiştirmek, sorgular ve çapraz geçişlerine gerçekleştirmek ve varlıkları silmek için Gremlin dil kullanabilirsiniz. 
+Azure Cosmos DB, [Apache Tinkerpop’un](http://tinkerpop.apache.org) grafik varlıkları oluşturmak ve grafik sorgu işlemlerini gerçekleştirmeye yönelik Graph API’si ve aynı zamanda bir grafik geçiş dili olan [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)’i destekler. Grafik varlıkları (köşeler ve kenarlar) oluşturmak, bu varlıkların içindeki özellikleri değiştirmek, sorgu ve geçiş işlemleri gerçekleştirmek ve varlıkları silmek için Gremlin dilini kullanabilirsiniz. 
 
-Azure Cosmos DB Kurumsal kullanıma hazır özellikler grafik veritabanlarına getirir. Bu genel dağıtım, depolama ve işleme, tahmin edilebilir tek basamaklı milisaniyelik gecikme ölçeklendirme bağımsız içerir okuma iki veya daha fazla Azure bölgeleri kapsayıcı veritabanı hesapları için kullanılabilirlik SLA'ları, otomatik dizin. Azure Cosmos DB TinkerPop/Gremlin desteklediğinden, başka bir grafik veritabanı kod değişikliklerini yapmak zorunda kalmadan kullanılarak yazılmış uygulamaları kolayca geçirebilirsiniz. Ayrıca, Gremlin desteği sayesinde, Azure Cosmos DB sorunsuz bir şekilde TinkerPop etkin analitik çerçeveler gibi bütünleşir [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+Azure Cosmos DB, kurumsal kullanıma hazır özellikleri grafik veritabanlarına getirir. Buna genel dağıtım, depolama ve aktarım hızının bağımsız ölçeklendirmesi, öngörülebilir tek basamaklı milisaniyelik gecikmeler, otomatik dizinleme, iki veya daha fazla Azure bölgesine yayılan veritabanı hesaplarının kullanılabilirliğini okuma dahildir. Azure Cosmos DB TinkerPop/Gremlin’i desteklediğinden başka bir grafik veritabanı kullanılarak yazılmış uygulamaları kod değişikliği yapmanıza gerek kalmadan kolayca geçirebilirsiniz. Azure Cosmos DB, Gremlin desteği sayesinde [Apache Spark GraphX](http://spark.apache.org/graphx/) gibi TinkerPop etkin analitik çerçevelerle de sorunsuz bir şekilde tümleşir. 
 
-Bu makalede, biz Gremlin hızlı bir kılavuz sağlar ve Gremlin özellikleri ve grafik API'si tarafından desteklenen adımları numaralandırır.
+Bu makalede Gremlin’e ilişkin hızlı bir adım adım kılavuz sağlıyoruz ve Graph API tarafından desteklenen Gremlin özelliklerinin ve adımlarının listesini oluşturuyoruz.
 
-## <a name="gremlin-by-example"></a>Örneğe göre gremlin
-Bir örnek grafik nasıl sorguları Gremlin ifade edilebilir anlamak için kullanalım. Aşağıdaki şekilde, kullanıcılar, ilgi alanları ve bir grafik biçiminde aygıtlar hakkındaki verileri yöneten bir iş uygulaması gösterilmiştir.  
+## <a name="gremlin-by-example"></a>Örneğe göre Gremlin
+Sorguların Gremlin’de nasıl ifade edildiğini anlamak için örnek bir grafik kullanalım. Aşağıdaki şekilde kullanıcılar, ilgi alanları ve cihazlar hakkındaki verileri yöneten bir iş uygulaması grafik biçiminde gösterilir.  
 
-![Kişilerin, cihazların ve ilgi gösteren örnek veritabanı](./media/gremlin-support/sample-graph.png) 
+![Kişileri, cihazları ve ilgi alanlarını gösteren örnek grafik](./media/gremlin-support/sample-graph.png) 
 
-Bu grafik (Gremlin içinde "etiketi" olarak adlandırılır) aşağıdaki köşe türleri vardır:
+Bu grafikte aşağıdaki köşe türleri (Gremlin’de “etiket” olarak adlandırılır) vardır:
 
-- Kişiler: Grafikte bir kez deneme, Thomas ve Ben üç kişilerin var
-- İlgi: Kendi ilgi alanlarına, bu örnekte, futbol oyun
-- Aygıtlar: kullanımı cihazları
-- İşletim sistemleri: Çalıştıran cihazlar üzerinde sistemleri
+- Kişiler: Grafikte Robin, Thomas ve Ben olmak üzere üç kişi var
+- İlgi Alanları: Bu örnekteki kişilerin ilgi alanı futbol
+- Cihazlar: Kişilerin kullandığı cihazlar
+- İşletim Sistemleri: Cihazların çalıştığı işletim sistemleri
 
-Biz aşağıdaki sınır türlerinin/etiketler aracılığıyla bu varlıklar arasındaki ilişkiler temsil eder:
+Aşağıdaki kenar türleri/etiketleri üzerinden bu varlıklar arasındaki ilişkiyi temsil ediyoruz:
 
-- Bilir: Örneğin, "Thomas deneme bilir"
-- : Kişileri ilgi bizim grafikte temsil etmek için örneğin, "Ben futbol ilginizi ilgilenmektedir"
-- RunsOS: Dizüstü bilgisayar Windows işletim sistemi çalıştırır.
-- Kullanır: bir kişinin hangi cihaz göstermek kullanır. Örneğin, bir kez deneme 77 seri numarasıyla Motorola telefon kullanır.
+- Tanıma: Örneğin, “Thomas, Robin’i tanıyor”
+- İlgilenme: Grafiğimizdeki kişilerin ilgilerini temsil eder, örneğin “Ben, futbolla ilgilenmektedir”
+- İşletim Sistemi Çalıştırma: Dizüstü bilgisayar, Windows işletim sistemini çalıştırır
+- Kullanma: Kişinin kullandığı cihazı temsil eder. Örneğin Robin, seri numarası 77 olan bir Motorola telefon kullanır
 
-Bu grafik kullanarak karşı bazı işlemler şimdi çalıştırmak [Gremlin konsol](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Tercih ettiğiniz (Java, Node.js, Python veya .NET) platform Gremlin sürücüleri kullanarak bu işlemler gerçekleştirebilir.  Azure Cosmos DB'de desteklenen adresindeki Ara önce sözdizimi hakkında bilgi edinmek için birkaç örnek bakalım.
+Şimdi [Gremlin Console](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)’u kullanarak bu grafiğe yönelik birkaç işlem yapalım. Dilerseniz bu işlemleri, tercih ettiğiniz platformdaki (Java, Node.js, Python veya .NET) Gremlin sürücülerini kullanarak da gerçekleştirebilirsiniz.  Azure Cosmos DB’de nelerin desteklendiğine bakmadan önce söz dizimine hakkında bilgi edinmek için birkaç örneğe bakalım.
 
-İlk CRUD bakalım. Aşağıdaki Gremlin deyimi "Thomas" köşe grafiği ekler:
+İlk olarak CRUD’a bakalım. Aşağıdaki Gremlin deyimi “Thomas” köşesini grafiğe ekler:
 
 ```
 :> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
 ```
 
-Ardından, aşağıdaki Gremlin deyimi bir "bilir" kenar Thomas ve bir kez deneme arasındaki ekler.
+Daha sonra aşağıdaki Gremlin deyimi, Thomas ve Robin arasına bir “Tanıma” kenarı ekler.
 
 ```
 :> g.V('thomas.1').addE('knows').to(g.V('robin.1'))
 ```
 
-Aşağıdaki sorgu "kişi" köşeleri ilk adlarının azalan sırada döndürür:
+Aşağıdaki sorgu, “kişiler” köşesini ilk adlarına göre azalan sırada döndürür:
 ```
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-Burada yanıtlamanız gerektiğinde grafikleri bekliyoruz "hangi işletim sistemleri Thomas arkadaşların kullanıyor musunuz?" gibi soruları. Grafikten bu bilgileri almak için bu basit Gremlin geçişi çalıştırabilirsiniz:
+Grafiklerin asıl iyi olduğu kısımlar, “Thomas’ın arkadaşları hangi işletim sistemini kullanıyor?” gibi sorular sorduğunuzda ortaya çıkıyor. Bu bilgileri grafikten edinmek için bu örnek Gremlin geçişini çalıştırabilirsiniz:
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
 ```
-Şimdi ne Azure Cosmos DB Gremlin geliştiricileri için sağladığı konumundaki bakalım.
+Şimdi de Azure Cosmos DB’nin Gremlin geliştiricilerine neler sunduğuna bakalım.
 
 ## <a name="gremlin-features"></a>Gremlin özellikleri
-TinkerPop grafik teknolojileri çeşitli kapsayan bir standarttır. Bu nedenle, hangi özelliklerin bir grafik sağlayıcısı tarafından sağlanan tanımlamak için standart terimleri vardır. Azure Cosmos DB kalıcı, yüksek eşzamanlılık, birden çok sunuculara veya kümelere bölümlenebilir yazılabilir grafik veritabanı sağlar. 
+TinkerPop, çeşitli grafik teknolojilerini kapsayan bir standarttır. Bu nedenle bir grafik sağlayıcısı tarafından sağlanan özellikleri tanımlamaya yönelik standart bir terminolojisi vardır. Azure Cosmos DB kalıcı, yüksek eşzamanlılığa sahip, birden çok sunucu ve kümeye ayrılabilen yazılabilir bir grafik veritabanı sağlar. 
 
-Aşağıdaki tabloda Azure Cosmos DB tarafından uygulanan TinkerPop özellikler listelenmektedir: 
+Aşağıdaki tabloda Azure Cosmos DB tarafından uygulanan TinkerPop özellikleri listelenmektedir: 
 
-| Kategori | Azure Cosmos DB uygulama |  Notlar | 
+| Kategori | Azure Cosmos DB uygulaması |  Notlar | 
 | --- | --- | --- |
-| Grafik özellikleri | Kalıcılığı ve ConcurrentAccess sağlar. İşlemleri desteklemek için tasarlanmış | Bilgisayar yöntemlerini Spark bağlayıcısı aracılığıyla uygulanabilir. |
-| Değişken özellikleri | Boolean, tamsayı, bayt destekler çift, tamsayı, uzun, dize Float | İlkel türler destekler, veri modeli aracılığıyla karmaşık türler ile uyumlu |
-| Köşe özellikleri | RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty destekler  | Oluşturma, değiştirme ve silme köşeleri destekler |
-| Köşe özellik özellikleri | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Oluşturma, değiştirme ve silme köşe özelliklerini destekler |
-| Edge özellikleri | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Oluşturma, değiştirme ve silme kenarları destekler |
-| Özellik özellikleri | Özellikler, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Oluşturma, değiştirme ve silme kenar özellikleri destekler |
+| Grafik özellikleri | Kalıcılık ve EşzamanlıErişim sağlar. İşlemleri desteklemek için tasarlanmıştır | Bilgisayar yöntemleri, Spark bağlayıcısı tarafından uygulanabilir. |
+| Değişken özellikleri | Boolean, Tamsayı, Bayt, Çift, Kayan Sayı, Uzun, Dize destekler | İlkel türleri destekler ve veri modeli aracılığıyla oluşan karmaşık türlerle uyumludur |
+| Köşe özellikleri | RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty işlevlerini destekler  | Köşe oluşturma, değiştirme ve silmeyi destekler |
+| Köşe özellikleri | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues işlevlerini destekler | Köşe özelliklerini oluşturma, değiştirme ve silmeyi destekler |
+| Kenar özellikleri | AddEdges, RemoveEdges, StringIds, UserSuppliedIds, AddProperty, RemoveProperty | Kenar oluşturma, değiştirme ve silmeyi destekler |
+| Kenar özellikleri | Properties, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Kenar özelliklerini oluşturma, değiştirme ve silmeyi destekler |
 
-## <a name="gremlin-wire-format-graphson"></a>Gremlin kablo biçimi: GraphSON
+## <a name="gremlin-wire-format-graphson"></a>Gremlin gönderme biçimi: GraphSON
 
-Azure Cosmos DB kullanır [GraphSON biçimi](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) sonuçları Gremlin işlemlerinden döndürülürken. GraphSON köşeleri, kenarları ve JSON kullanarak özelliklerini (tek ve birden çok değerli) temsil eden Gremlin standart biçimidir. 
+Azure Cosmos DB, Gremlin işlemlerinden sonuçları döndürürken [GraphSON biçimini](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) kullanır. GraphSON köşeleri, kenarları ve özellikleri (tek ve birden çok değerli özellikleri) JSON kullanarak temsil etmeye yönelik standart Gremlin biçimidir. 
 
-Örneğin, aşağıdaki kod parçacığını bir köşe GraphSON gösterimini gösterir *istemciye döndürülen* Azure Cosmos DB'den. 
+Örneğin aşağıdaki kod parçacığında Azure Cosmos DB’den *istemciye döndürülen* bir köşenin temsili gösterilir. 
 
 ```json
   {
@@ -128,74 +126,74 @@ Azure Cosmos DB kullanır [GraphSON biçimi](https://github.com/thinkaurelius/fa
   }
 ```
 
-Köşe için GraphSON tarafından kullanılan özellikleri şunlardır:
+Köşeler için GraphSON tarafından kullanılan özellikler şunlardır:
 
 | Özellik | Açıklama |
 | --- | --- |
-| id | Köşe kimliği. (Birleşimi _partition varsa değerle) benzersiz olmalıdır |
-| Etiket | Köşe etiketi. İsteğe bağlı ve varlık türünü belirtmek için kullanılan budur. |
-| type | Grafik olmayan belgelerden köşeleri ayırt etmek için kullanılır |
-| properties | Köşe ile ilişkili kullanıcı tanımlı özellik paketi. Her bir özellik, birden çok değerlere sahip olabilir. |
-| _partition (yapılandırılabilir) | Köşe bölüm anahtarı. Kullanılabilir birden çok sunucuya grafikleri genişleme için |
-| outE | Bu, bir köşe kenarlarından çıkışı bir listesini içerir. Köşe bitişik bilgilerle depolama çapraz geçişlerine hızlı yürütülmesini sağlar. Kenarları etiketlerine göre gruplandırılır. |
+| id | Köşenin kimliği. Benzersiz olmalıdır (varsa _partition değeriyle birlikte) |
+| etiket | Köşenin etiketi. Bu isteğe bağlıdır ve varlık türünü tanımlamak için kullanılır. |
+| type | Grafik olmayan belgelerdeki köşeleri ayırt etmek için kullanılır |
+| properties | Köşe ile ilişkili, kullanıcı tanımlı özellikler paketi. Her bir özellik birden çok değere sahip olabilir. |
+| _partition (yapılandırılabilir) | Köşenin bölüm anahtarı. Grafiklerin ölçeğini birden çok sunucuya genişletmek için kullanılabilir |
+| outE | Bu, bir köşenin dış kenarlarının listesini içerir. Komşuluk bilgilerini köşeyle birlikte depolamak, geçişlerin hızla yürütülmesini sağlar. Kenarlar etiketlerine göre gruplandırılır. |
 
-Ve kenar grafiği, diğer bölümlerine gezinme yardımcı olmak için aşağıdaki bilgileri içerir.
-
-| Özellik | Açıklama |
-| --- | --- |
-| id | Kenar kimliği. (Birleşimi _partition varsa değerle) benzersiz olmalıdır |
-| Etiket | Kenar etiketi. Bu özellik isteğe bağlıdır ve kullanılan ilişki türü açıklamak için kullanılır. |
-| Stok | Bu bir kenar için köşeleri listesi içerir. Edge bitişik bilgilerini depolamak için çapraz geçişlerine Hızlı yürütme sağlar. Köşeleri etiketlerine göre gruplandırılır. |
-| properties | Edge ile ilişkili kullanıcı tanımlı özellikleri paketi. Her bir özellik, birden çok değerlere sahip olabilir. |
-
-Her bir özellik, bir dizi birden çok değer depolayabilirsiniz. 
+Kenar, grafiğin diğer bölümlerine gezintiyi kolaylaştırmak için aşağıdaki bilgiyi içerir.
 
 | Özellik | Açıklama |
 | --- | --- |
-| değer | Özelliğinin değeri
+| id | Kenarın kimliği. Benzersiz olmalıdır (varsa _partition değeriyle birlikte) |
+| etiket | Kenarın etiketi. Bu özellik isteğe bağlıdır ve ilişki türünü tanımlamak için kullanılır. |
+| inV | Bu, bir kenarın iç köşelerinin listesini içerir. Komşuluk bilgilerini kenarla birlikte depolamak, geçişlerin hızla yürütülmesini sağlar. Köşeler etiketlerine göre gruplandırılır. |
+| properties | Kenar ile ilişkili, kullanıcı tanımlı özellikler paketi. Her bir özellik birden çok değere sahip olabilir. |
+
+Her bir özellik, bir dizi içinde birden çok değer depolayabilir. 
+
+| Özellik | Açıklama |
+| --- | --- |
+| değer | Özelliğin değeri
 
 ## <a name="gremlin-steps"></a>Gremlin adımları
-Artık Azure Cosmos DB tarafından desteklenen Gremlin adımları bakalım. Gremlin üzerinde tam bir başvuru için bkz: [TinkerPop başvuru](http://tinkerpop.apache.org/docs/current/reference).
+Şimdi de Azure Cosmos DB tarafından desteklenen Gremlin adımlarına bakalım. Gremlin hakkında eksiksiz bir başvuru için bkz. [TinkerPop başvurusu](http://tinkerpop.apache.org/docs/current/reference).
 
-| Adım | Açıklama | TinkerPop 3.2 belgeleri |
+| adım | Açıklama | TinkerPop 3.2 Belgeleri |
 | --- | --- | --- |
-| `addE` | İki köşeleri arasında kenar ekler | [addE adım](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
+| `addE` | İki köşe arasına kenar ekler | [addE step](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Grafiğe bir köşe ekler | [addV step](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Tüm çapraz geçişlerine bir değer döndürmesi sağlar | [ve adım](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
-| `as` | Bir adım için bir değişken atamak için bir adım modülatörü | [adım olarak](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | İle kullanılan bir adım modülatörü `group` ve `order` | [Adım](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
-| `coalesce` | Bir sonuç döndürür ilk geçişi döndürür | [Adım birleşim](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Sabit bir değer döndürür. İle kullanılan `coalesce`| [Sabit adım](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
-| `count` | Geçişi sayımını döndürür | [Count adım](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
-| `dedup` | Yinelenen değerleri kaldırılmış değerleri döndürür | [Yinelenenleri kaldırma adım](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
-| `drop` | Değerleri (köşe/kenar) bırakır | [bırakma adımı](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
-| `fold` | Toplama sonuçları hesaplar bir engel görür| [Katlama adım](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
-| `group` | Grupları belirtilen etiketlerini esas alan değerleri| [Grup adımı](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
-| `has` | Özellikler, köşe ve kenarları filtrelemek için kullanılır. Destekler `hasLabel`, `hasId`, `hasNot`, ve `has` çeşitleri. | [adım vardır](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
-| `inject` | Değerleri bir akışa ekleme| [Adım ekleme](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
-| `is` | Boole ifadesi kullanarak bir filtre gerçekleştirmek için kullanılan | [Adım](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
-| `limit` | Geçişi öğelerin sayısını sınırlamak için kullanılır| [sınır adım](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
-| `local` | Geçişi, bir alt sorgu için benzer bir bölümünü yerel sarmalar | [Yerel adım](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
-| `not` | Bir filtre değilleme üretmek için kullanılan | [Adım değil](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
-| `optional` | Bir sonuç döndürürse belirtilen geçişi sonucunu döndürür başka arama öğeyi döndürür | [İsteğe bağlı adım](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
-| `or` | Çapraz geçişlerine en az biri bir değer döndürür sağlar | [veya adımı](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
-| `order` | Belirtilen sıralama düzeni sonuçlarında döndürür | [Sipariş adım](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
-| `path` | Geçişi tam yolunu döndürür | [yol adım](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
-| `project` | Bir eşleme özelliklerini projeleri | [Proje adım](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
-| `properties` | Belirtilen etiket için özellikleri döndürür | [özellikleri adım](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
-| `range` | Belirtilen değer aralığı için filtreleri| [Aralık adım](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
-| `repeat` | Adım belirtilen sayıda için yineler. Döngü için kullanılan | [adımı yineleyin](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
-| `sample` | Örnek sonuçları geçişi kullanılan | [Örnek adım](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Proje sonuçları geçişi kullanılan |  [adım seçin](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
-| `store` | Engelleyici olmayan toplamalar gelen geçişi için kullanılır | [Mağaza adım](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
-| `tree` | Bir ağaç içine köşe toplama yolları | [Ağaç adım](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
-| `unfold` | Yineleyici bir adım olarak unroll| [Adım unfold](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
-| `union` | Birden çok çapraz geçişlerine sonuçlarından birleştirme| [birleşim adım](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
-| `V` | Köşeleri ve kenarları arasında çapraz geçişlerine için gerekli olan adımları içerir `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV` , `bothV`, ve `otherV` için | [Köşe adımları](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
-| `where` | Geçişi sonuçlarını filtrelemek için kullanılır. Destekler `eq`, `neq`, `lt`, `lte`, `gt`, `gte`, ve `between` işleçleri  | [Burada adım](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
+| `and` | Tüm geçişlerin bir değer döndürmesini sağlar | [and step](http://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Bir adımın çıktısına değişken atanmasını sağlayan adım modülatörü | [as step](http://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | `group` ve `order` ile kullanılan bir adım modülatörü | [by step](http://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `coalesce` | Sonuç döndüren ilk geçişi döndürür | [coalesce step](http://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
+| `constant` | Sabit bir değer döndürür. `coalesce` ile kullanılır| [constant step](http://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `count` | Geçiş sayımını döndürür | [count step](http://tinkerpop.apache.org/docs/current/reference/#count-step) |
+| `dedup` | Yinelenenlerin kaldırıldığı değerleri döndürür | [dedup step](http://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
+| `drop` | Değerleri (köşe/kenar) bırakır | [drop step](http://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `fold` | Sonuçların toplamını hesaplayan bir engel gibi davranır| [fold step](http://tinkerpop.apache.org/docs/current/reference/#fold-step) |
+| `group` | Belirtilen etiketleri temel alarak değerleri gruplandırır| [group step](http://tinkerpop.apache.org/docs/current/reference/#group-step) |
+| `has` | Özellikleri, köşeleri ve kenarları filtrelemek için kullanılır. `hasLabel`, `hasId`, `hasNot` ve `has` değişkenlerini destekler. | [has step](http://tinkerpop.apache.org/docs/current/reference/#has-step) |
+| `inject` | Değerleri bir akışa ekler| [inject step](http://tinkerpop.apache.org/docs/current/reference/#inject-step) |
+| `is` | Boole ifadesi kullanarak bir filtre uygulamak için kullanılır | [is step](http://tinkerpop.apache.org/docs/current/reference/#is-step) |
+| `limit` | Geçişteki öğelerin sayısını sınırlamak için kullanılır| [limit step](http://tinkerpop.apache.org/docs/current/reference/#limit-step) |
+| `local` | Alt sorgu gibi, geçişin bir bölümünü yerel olarak sarmalar | [local step](http://tinkerpop.apache.org/docs/current/reference/#local-step) |
+| `not` | Filtre olumsuzlamayı üretmek için kullanılır | [not step](http://tinkerpop.apache.org/docs/current/reference/#not-step) |
+| `optional` | Bir sonuç elde ettiği takdirde, belirtilen geçişin sonucunu döndürür; aksi takdirde çağıran öğeyi döndürür | [optional step](http://tinkerpop.apache.org/docs/current/reference/#optional-step) |
+| `or` | En azından bir geçişin değer döndürmesini sağlar | [or step](http://tinkerpop.apache.org/docs/current/reference/#or-step) |
+| `order` | Sonuçları, belirtilen sıralama düzeninde döndürür | [order step](http://tinkerpop.apache.org/docs/current/reference/#order-step) |
+| `path` | Geçişin tam yolunu döndürür | [path step](http://tinkerpop.apache.org/docs/current/reference/#path-step) |
+| `project` | Özellikleri bir Harita gibi projelendirir | [project step](http://tinkerpop.apache.org/docs/current/reference/#project-step) |
+| `properties` | Belirtilen etiketlerin özelliklerini döndürür | [properties step](http://tinkerpop.apache.org/docs/current/reference/#properties-step) |
+| `range` | Belirtilen değer aralığını filtreler| [range step](http://tinkerpop.apache.org/docs/current/reference/#range-step) |
+| `repeat` | Adımı belirtilen sayıda tekrarlar. Döngü için kullanılır | [repeat step](http://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
+| `sample` | Sonuçları geçişten örneklendirmek için kullanılır | [sample step](http://tinkerpop.apache.org/docs/current/reference/#sample-step) |
+| `select` | Sonuçları geçişten projelendirmek için kullanılır |  [select step](http://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `store` | Geçişteki engelleyici olmayan toplamalar için kullanılır | [store step](http://tinkerpop.apache.org/docs/current/reference/#store-step) |
+| `tree` | Bir köşeden ağaca yolları toplar | [tree step](http://tinkerpop.apache.org/docs/current/reference/#tree-step) |
+| `unfold` | Adım olarak bir yineleyici açar| [unfold step](http://tinkerpop.apache.org/docs/current/reference/#unfold-step) |
+| `union` | Birden çok geçişin sonuçlarını birleştirir| [union step](http://tinkerpop.apache.org/docs/current/reference/#union-step) |
+| `V` | Köşe ve kenarlar arasında geçiş için gerekli olan adımları içerir: `V`, `E`, `out`, `in`, `both`, `outE`, `inE`, `bothE`, `outV`, `inV`, `bothV` ve `otherV`  | [vertex steps](http://tinkerpop.apache.org/docs/current/reference/#vertex-steps) |
+| `where` | Geçişten alınan sonuçları filtrelemek için kullanılır. `eq`, `neq`, `lt`, `lte`, `gt`, `gte` ve `between` işleçlerini destekler  | [where step](http://tinkerpop.apache.org/docs/current/reference/#where-step) |
 
-Azure Cosmos DB tarafından sağlanan yazma iyileştirilmiş altyapısı otomatik köşeleri ve kenarları içindeki tüm özelliklerinin varsayılan dizin oluşturmayı destekler. Bu nedenle, sorgular filtreleriyle, sorguları, sıralama, aralık veya herhangi bir özellikte toplamalar dizinden işlenir ve verimli bir şekilde hizmet. Üzerinde şu incelemeyi Azure Cosmos veritabanı dizin oluşturma nasıl çalıştığıyla ilgili daha fazla bilgi için bkz [şema belirsiz dizin](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
+Azure Cosmos DB tarafından sağlanan, yazma için iyileştirilmiş altyapı, köşe ve kenarlar içindeki tüm özelliklerin dizinlerinin otomatik olarak oluşturulmasını varsayılan olarak destekler. Bu nedenle herhangi bir özellik üzerindeki sorgulu filtreler, aralık sorguları, sıralama veya toplamalar dizinden işlenir ve etkin bir biçimde sunulur. Azure Cosmos DB’de dizin oluşturmanın işleyişi hakkında daha fazla bilgi için [schema-agnostic dizin oluşturma](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) makalemizi okuyun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Graph uygulaması oluşturmaya başlamak [bizim SDK'ları kullanma](create-graph-dotnet.md) 
-* Daha fazla bilgi edinmek [grafik destek](graph-introduction.md) Azure Cosmos veritabanı
+* [SDK’larımızı kullanarak](create-graph-dotnet.md) bir grafik uygulaması oluşturmaya başlayın 
+* Azure Cosmos DB’de [grafik desteği](graph-introduction.md) hakkında daha fazla bilgi edinin
