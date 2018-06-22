@@ -36,6 +36,8 @@
       href: cdn-china-delivery.md
     - name: HTTP/2 desteği
       href: cdn-http2.md
+    - name: Standart Verizon’dan Premium Verizon’a geçirme
+      href: cdn-migrate.md
 - name: Nasıl yapılır kılavuzları
   items:
     - name: İçeriği iyileştirme

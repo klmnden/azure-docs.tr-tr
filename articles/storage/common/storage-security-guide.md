@@ -6,22 +6,23 @@ author: craigshoemaker
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: 4145f7edb93801aa6f98df7e9cff34ae7370fc52
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304531"
 ---
 # <a name="azure-storage-security-guide"></a>Azure depolama Güvenlik Kılavuzu
-
-## <a name="overview"></a>Genel Bakış
 
 Azure depolama kapsamlı bir araya geliştiricilerin güvenli uygulamalar oluşturmasını sağlama güvenlik özellikleri sağlar:
 
 - Tüm verileri Azure depolama alanına yazılır, kullanarak otomatik olarak şifrelenir [depolama hizmeti şifreleme (SSE)](storage-service-encryption.md). Daha fazla bilgi için bkz: [Azure BLOB'ları, dosyalar, tablo ve kuyruk depolama varsayılan şifreleme Duyurusu](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
-- Depolama hesabı rol tabanlı erişim denetimi ve Azure Active Directory kullanılarak güvenli hale getirilebilir. 
+- Azure Active Directory (Azure AD) ve rol tabanlı erişim denetimi (RBAC) desteklenen Azure depolama için kaynak yönetimi işlemleri ve veri işlemleri için aşağıdaki gibi:   
+    - Güvenlik ilkeleri ve kullanım Azure AD anahtar yönetimi gibi kaynak yönetimi işlemleri yetkilendirmek için depolama hesabına kapsamına RBAC roller atayabilirsiniz.
+    - Azure AD tümleştirme Blob ve kuyruk Hizmetleri veri işlemleri için Önizleme'de desteklenir. Bir abonelik, kaynak grubu, depolama hesabı ya da bir bireysel kapsayıcı veya bir güvenlik sorumlusu ya da yönetilen hizmet kimliği kuyruğuna kapsamına RBAC roller atayabilirsiniz. Daha fazla bilgi için bkz: [Azure Active Directory'yi (Önizleme) kullanarak Azure Storage erişimi kimlik doğrulaması](storage-auth-aad.md).   
 - Veri güvenli bir uygulama ile Azure arasında aktarımda kullanarak [istemci tarafı şifreleme](../storage-client-side-encryption.md), HTTPS veya SMB 3.0.  
 - Azure sanal makineler tarafından kullanılan işletim sistemi ve veri diskleri kullanılarak şifrelenir [Azure Disk şifrelemesi](../../security/azure-security-disk-encryption.md). 
 - Azure storage'da veri nesneleri yetkilendirilmiş erişim olanağı verilir kullanarak [paylaşılan erişim imzaları](../storage-dotnet-shared-access-signature-part-1.md).
@@ -100,7 +101,7 @@ Bir Azure Storage hesabı yönetim işlemlerini erişmek için RBAC kullanarak h
 * [Azure depolama kaynak sağlayıcısı REST API Başvurusu](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Bu API Başvurusu depolama hesabınız programlı olarak yönetmek için kullanabileceğiniz API'ları açıklar.
-* [Azure Kaynak Yöneticisi API'si ile kimlik doğrulama için Geliştirici Kılavuzu](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Erişim abonelikler için kaynak yöneticisi kimlik doğrulaması API'sini kullanın](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   Bu makalede Resource Manager API'leri kullanılarak kimlik doğrulaması yapmayı gösterir.
 * [Ignite’tan Microsoft Azure için Rol Tabanlı Erişim Denetimi](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -108,7 +109,7 @@ Bir Azure Storage hesabı yönetim işlemlerini erişmek için RBAC kullanarak h
   Bu bağlantı 2015 MS Ignite konferansının 9. Kanalındaki videoya aittir. Bu oturumda, Azure’daki erişim yönetimi ve raporlama özellikleri konuşulmakta ve Azure Active Directory'yi kullanarak Azure aboneliklerine erişimin güvenliğini sağlama konusundaki en iyi uygulamalar keşfedilmektedir.
 
 ### <a name="managing-your-storage-account-keys"></a>Depolama hesabı anahtarlarını yönetme
-Depolama hesabı anahtarları, depolama hesabı adı ile birlikte, örneğin depolama hesabında depolanan verileri nesnelere erişmek için kullanılan Azure, BLOB, tablo, kuyruk iletileri ve bir Azure dosya paylaşımında varlıkları tarafından oluşturulan 512 bit dizelerdir. Depolama hesabı anahtarları denetimleri erişimi veri düzlemi bu depolama hesabı için erişimi denetleme.
+Depolama hesabı anahtarları, depolama hesabı adı ile birlikte depolama hesabında örneğin depolanan veri nesneleri erişmek için kullanılan, BLOB, tablo, kuyruk iletileri ve bir Azure dosya paylaşımında varlıkları Azure tarafından oluşturulan 512 bit dizelerdir. Depolama hesabı anahtarları denetimleri erişimi veri düzlemi bu depolama hesabı için erişimi denetleme.
 
 Her Depolama hesabı "Anahtar 1" ve "2 anahtar" başvurulan iki anahtarlara sahip [Azure portal](http://portal.azure.com/) ve PowerShell cmdlet'leri. Bunlar, ancak bunlarla sınırlı olmamak kullanarak da dahil olmak üzere birkaç yöntemden birini kullanarak el ile yeniden üretilebilir [Azure portal](https://portal.azure.com/), PowerShell, Azure CLI veya .NET depolama istemci kitaplığı veya Azure Storage Hizmetleri program aracılığıyla kullanarak REST API.
 
@@ -160,12 +161,15 @@ Not: yalnızca anahtarların tüm uygulamalar aynı anda kullanmak için öneril
 ## <a name="data-plane-security"></a>Veri düzlemi güvenliği
 Veri düzlemi güvenliği Azure Storage – BLOB, kuyruklar, tablolar ve dosyaları depolanan veri nesneleri güvenli hale getirmek için kullanılan yöntemleri gösterir. Veri ve güvenlik veriler aktarım sırasında şifrelemek için yöntemleri gördük ancak nesnelere erişimi denetleme hakkında olduğunu nasıl gittiğiniz?
 
-Veri nesnelerine erişimi yetkilendirmek için iki yöntem vardır. Bunlar, depolama hesabı anahtarlarını erişimini denetleme ve belirli bir süre için belirli veri nesnelerine erişim vermek için paylaşılan erişim imzaları kullanma içerir.
+Azure storage'da veri nesnelere erişimi yetkilendirmek için üç seçeneğiniz de dahil olmak üzere:
+
+- Kapsayıcılar ve Kuyruklar (Önizleme) erişim yetkisi vermek için Azure AD kullanma. Azure AD yetkilendirme, kodunuzda parolaları depolamak için gereken kaldırma dahil olmak üzere diğer yaklaşımları avantaj sağlar. Daha fazla bilgi için bkz: [Azure Active Directory'yi (Önizleme) kullanarak Azure Storage erişimi kimlik doğrulaması](storage-auth-aad.md). 
+- Paylaşılan anahtar aracılığıyla erişim yetkisi vermek için depolama hesabı anahtarlarını kullanıyor. Paylaşılan anahtar yetkilendirme Microsoft Azure AD, bunun yerine, mümkün olduğunda kullanılmasını önerir şekilde depolama hesabı anahtarları, uygulamanızda saklanması gerekir. Üretim uygulamaları için ya da Azure tabloları ve dosyalarına erişimi yetkilendirmek için Azure AD tümleştirme önizlemesinde paylaşılan anahtar kullanarak devam edin.
+- Belirli bir süre için belirli veri nesneleri denetimli izinleri için paylaşılan erişim imzaları kullanma.
 
 Ayrıca, Blob Depolama için genel erişim bloblarınızın için uygun şekilde BLOB tutan kapsayıcı için erişim düzeyi ayarlayarak izin verebilirsiniz. Blob veya kapsayıcı için bir kapsayıcı erişim ayarlarsanız bu kapsayıcıda BLOB'lar için herkese okuma erişimi sağlar. Bu, kapsayıcı bir blob'a işaret eden bir URL kimseyle bir tarayıcıda paylaşılan erişim imzası kullanarak veya depolama hesabı anahtarlarını sahip açmadan anlamına gelir.
 
 Yetkilendirme aracılığıyla erişimi sınırlayan ek olarak da kullanabilirsiniz [güvenlik duvarları ve sanal ağlar](storage-network-security.md) ağ kurallara göre depolama hesabına erişimi sınırlamak için.  Ortak Internet trafiği ve vermek için erişimi engellemek bu yaklaşım etkinleştirir yalnızca belirli Azure sanal ağları veya genel internet erişimi IP adresi aralıkları.
-
 
 ### <a name="storage-account-keys"></a>Depolama Hesabı Anahtarları
 Depolama hesabı anahtarları, depolama hesabı adı ile birlikte depolama hesabında depolanan verileri nesnelere erişmek için kullanılan Azure tarafından oluşturulan 512 bit dizelerdir.
@@ -205,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Paylaşılan erişim imzası Azure depolama hizmeti tarafından kimlik doğrulamasının nasıl
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Paylaşılan erişim imzası Azure depolama hizmeti tarafından nasıl yetkilendirilir
 Depolama hizmet isteği aldığında, giriş sorgu parametrelerini alır ve çağıran program yöntemin aynısı kullanılarak bir imza oluşturur. Ardından, iki imzaları karşılaştırır. Kullanıcının kabul etmesi durumunda, depolama birimi hizmeti geçerli olduğundan emin olun, geçerli tarih ve saat içinde belirtilen pencere olduğunu doğrulayın, istenen erişim karşılık gelen yapılan istek, vb. emin olmak için depolama hizmet sürümü kontrol edebilirsiniz.
 
 URL yerine bir blobu bir dosyaya işaret eden paylaşılan erişim imzası blob için olduğunu belirtir örneğin, yukarıdaki bizim URL ile bu isteği başarısız. Çağrılan REST komutunu blob güncelleştirmek için paylaşılan erişim imzası yalnızca okuma erişimi verilip belirttiğinden başarısız olur.
@@ -264,21 +268,9 @@ REST API'larını çağırma veya erişme depolama nesneleri güvenli bir ileti�
 Depolama hesaplarında etkinleştirerek nesneleri erişmek için REST API'larını çağırma HTTPS kullanılmasını zorunlu kılabilir [güvenli aktarımı gerekli](../storage-require-secure-transfer.md) depolama hesabı için. Bu özellik etkinleştirildiğinde, HTTP kullanarak bağlantı reddedilecek.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Azure dosya paylaşımları ile aktarım sırasında şifreleme kullanma
-Azure dosyaları, REST API kullanırken HTTPS destekler, ancak daha sık SMB dosya paylaşımı kullanılan bir VM öğesine bağlı. Bağlantıları yalnızca Azure aynı bölgede içinde izin için SMB 2.1 şifrelemeyi desteklemiyor. Ancak, SMB 3.0 Şifreleme destekler ve Windows Server 2012 R2, Windows 8, Windows 8.1 ve Windows 10 masaüstüne bölgeler arası erişim ve erişim sağlayan, içinde kullanılabilir.
+[Azure dosyaları](../files/storage-files-introduction.md) şifreleme SMB 3.0 üzerinden ve HTTPS ile dosya REST API'si kullanılırken destekler. Azure dosya paylaşımı Azure bölgesi dışında takma içinde şirket içi gibi veya başka bir Azure bölgesindeki bulunduğunda, SMB 3.0 şifrelemesi ile her zaman gereklidir. Varsayılan olarak bağlantıları yalnızca Azure aynı bölgede içinde izin verilir ancak şifrelemesi ile SMB 3.0 tarafından zorlanır SMB 2.1 şifrelemeyi desteklemiyor [güvenli aktarımı gerektiren](../storage-require-secure-transfer.md) depolama hesabı için.
 
-Azure dosya paylaşımları ile UNIX kullanılabilse de, erişimi yalnızca bir Azure bölgesi içinde izin Linux SMB istemcisi henüz şifrelemeyi desteklemez. Linux için şifreleme desteği Linux geliştiriciler için SMB işlevselliği sorumlu Haritası açıktır. Şifreleme eklediğinizde, Windows için yaptığınız gibi Linux üzerinde bir Azure dosya paylaşımına erişmek için aynı özelliği gerekir.
-
-Etkinleştirerek Azure dosya hizmeti ile şifreleme kullanılmasını zorunlu kılabilir [güvenli aktarımı gerekli](../storage-require-secure-transfer.md) depolama hesabı için. REST API'lerini kullanarak, HTTPs gereklidir. SMB için şifrelemeyi destekleyen SMB bağlantıları başarıyla bağlanır.
-
-#### <a name="resources"></a>Kaynaklar
-* [Azure dosyaları giriş](../files/storage-files-introduction.md)
-* [Windows Azure dosyaları kullanmaya başlama](../files/storage-how-to-use-files-windows.md)
-
-  Bu makalede, Azure dosya paylaşımları ve bağlama ve Windows kullanma hakkında genel bir bakış sağlar.
-
-* [Azure Dosyaları'nı Linux ile kullanma](../files/storage-how-to-use-files-linux.md)
-
-  Bu makalede, Azure dosya paylaşımını Linux sistem ve yükleme/indirme dosyaları bağlama gösterilmektedir.
+SMB 3.0 şifrelemesi ile sağlanmıştır [tüm desteklenen Windows ve Windows Server işletim sistemlerini](../files/storage-how-to-use-files-windows.md) Windows 7 ve Windows Server 2008 R2 dışında yalnızca destekleyen SMB 2.1. SMB 3.0 da desteklenir [macOS](../files/storage-how-to-use-files-mac.md) ve dağıtımları [Linux](../files/storage-how-to-use-files-linux.md) Linux çekirdeği 4.11 kullanan ve üstü. SMB 3.0 şifreleme desteği backported birkaç Linux dağıtımları Linux çekirdekten eski sürümleri için de açıldı, başvurun [anlama SMB istemci gereksinimleri](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>Depolama birimine gönderdiğiniz verilerin güvenliğini sağlamak için istemci tarafı şifreleme kullanma
 Bir istemci uygulaması ve depolama arasında aktarılırken verilerinizin güvenli olduğundan emin olun yardımcı olan başka bir istemci tarafı şifreleme seçenektir. Verileri Azure depolama alanına aktarılmadan önce şifrelenir. İstemci tarafında alındıktan sonra verileri Azure depolama biriminden alırken, verilerin şifresi çözülür. Hangi verilerin bütünlüğünü etkileyen ağ hataları azaltmaya yardımcı olmak içinde yerleşik veri bütünlüğü denetimlerini olduğu gibi kablo giderek veri şifrelenir olsa da, aynı zamanda HTTPS kullanmanızı öneririz.
@@ -412,11 +404,11 @@ Var olan kaynaklar, aşağıda listelenen bir makale günlüklerine ve ne için 
 
 ![Bir günlük dosyası alanların anlık görüntü](./media/storage-security-guide/image3.png)
 
-GetBlob girişlerinde ilginizi çalışıyoruz ve kimlikleri doğrulanır nasıl böylece ihtiyacımız işlemi türü "Get-Blob" girdilerini arayın ve istek durumunu denetlemek (Dördüncü</sup> sütun) ve Yetkilendirme türü (sekizinci</sup> sütun).
+GetBlob girişlerinde ilginizi çalışıyoruz ve yetkileri nasıl böylece ihtiyacımız işlemi türü "Get-Blob" girdilerini arayın ve istek durumunu denetlemek (Dördüncü</sup> sütun) ve Yetkilendirme türü (sekizinci</sup> sütun).
 
-Örneğin, ilk birkaç satırı yukarıdaki listede istek durumu "Başarılı" olur ve Yetkilendirme türü "kimlik doğrulaması". Bu istek depolama hesabı anahtarı kullanılarak doğrulandı anlamına gelir.
+Örneğin, ilk birkaç satırı yukarıdaki listede istek durumu "Başarılı" olur ve Yetkilendirme türü "kimlik doğrulaması". Bu istek depolama hesabı anahtarı kullanılarak yetkilendirildi anlamına gelir.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>Nasıl my BLOB'lar kimlik doğrulaması gerçekleştirilen?
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>Nasıl yetkilendirilmekte my BLOB'lar erişimi var mı?
 Biz ilgilendiğiniz üç durumda sunuyoruz.
 
 1. Blob geneldir ve paylaşılan erişim imzası olmadan bir URL kullanılarak erişilir. Bu durumda, istek status "AnonymousSuccess" ve Yetkilendirme türü "anonim".
@@ -513,8 +505,7 @@ CORS ve etkinleştirmek hakkında daha fazla bilgi için aşağıdaki kaynaklara
 
    Microsoft FIPS modunda etkinleştirmek karar vermek için her bir müşteri kadar bırakır. Varsayılan olarak FIPS modunda etkinleştirmek için kamu düzenlemeleri tabi olmayan müşteriler ilgi çekici bir neden yoktur inanıyoruz.
 
-   **Kaynaklar**
-
+### <a name="resources"></a>Kaynaklar
 * [Neden biz "FIPS modunda" artık öneren değil](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Bu Web günlüğü makalesini FIPS genel bir bakış sağlar ve bunlar varsayılan olarak FIPS modunda neden etkinleştirmezseniz açıklanmaktadır.

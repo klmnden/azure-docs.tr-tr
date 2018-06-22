@@ -610,13 +610,13 @@
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure Tanılama
               href: service-fabric-diagnostics-event-aggregation-lad.md
-            - name: OMS Log Analytics’i ayarlama
+            - name: Log Analytics’i ayarlama
               href: service-fabric-diagnostics-oms-setup.md
-            - name: OMS ile izleme
+            - name: Log Analytics ile izleme
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: Altyapıyı izleme
           items:
-            - name: OMS Aracısı ile performans izleme
+            - name: Log Analytics Aracısı ile performans izleme
               href: service-fabric-diagnostics-oms-agent.md
             - name: WAD ile performans izleme
               href: service-fabric-diagnostics-perf-wad.md

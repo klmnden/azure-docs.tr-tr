@@ -417,6 +417,7 @@
 #### Öğreticiler
 ##### [Klasik MFA ilkesini geçirme](active-directory-conditional-access-migration-mfa.md)
 #### Kavramlar
+##### [Anahat Koruma](active-directory-conditional-access-baseline-protection.md)
 ##### [Koşullar](active-directory-conditional-access-conditions.md)
 ##### [Konum koşulları](active-directory-conditional-access-locations.md)
 ##### [Denetimler](active-directory-conditional-access-controls.md)

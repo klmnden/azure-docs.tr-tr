@@ -259,6 +259,7 @@
 ## [Azure IoT Geliştirici Merkezi](https://azure.microsoft.com/develop/iot/)
 ## [Müşteri verisi istekleri](iot-hub-customer-data-requests.md)
 ## [Azure Yol Haritası](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Azure IoT Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [DeviceExplorer aracı](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics tool](https://github.com/Azure/iothub-diagnostics)
 ## [iothub-explorer tool](https://github.com/Azure/iothub-explorer)
