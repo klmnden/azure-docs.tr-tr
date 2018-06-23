@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/12/2015
 ms.author: rasquill
-ms.openlocfilehash: 19c704d965ff3e2fc9ac8c5b623aeb386cb0b974
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
+ms.openlocfilehash: be5089b825a873006696eb074ed4355f415e680b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "23886186"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319527"
 ---
 ## <a name="setting-up-powershell"></a>PowerShell ayarlama
 Azure PowerShell kullanmadan önce aşağıdaki adımları izleyin.
@@ -56,7 +56,7 @@ Yönergeler ve en son sürüme bir bağlantı için bkz: [yükleme ve yapıland�
 ### <a name="set-your-azure-account-and-subscription"></a>Azure hesabınızı ve aboneliğinizi ayarlama
 Bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
-Bu komutla bir Azure PowerShell komut istemi ve Azure oturumunu açın.
+Bir Azure PowerShell komut istemi açın ve bu komutla Azure'da oturum açın.
 
     Add-AzureAccount
 

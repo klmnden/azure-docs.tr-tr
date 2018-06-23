@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: c2209a06921ffd6a8efb6fc38dacfa88fc87fa05
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 840d3737efe4314359ba3a3bf0f5c4f888f92567
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29958733"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329578"
 ---
 Depolama en iyi duruma getirilmiş VM boyutları yüksek disk işleme ve g/ç sağlar ve büyük veri, SQL ve NoSQL veritabanları için idealdir. Bu makale Vcpu, veri diskleri ve NIC yanı sıra bu gruplandırmadaki her boyutu için depolama üretilen iş ve ağ bant sayısı hakkında bilgi sağlar. 
 
@@ -31,7 +31,7 @@ ACU: 180-240
 | Standard_L32s <sup>1</sup> | 32   | 256  | 5,630 | 64   | 160,000 / 1,600   | 40.000/1000     | 8 / 20,000 | 
  
 
-Ls Serisi VM ile maksimum disk aktarım hızı, tüm ekli disklerin sayısı, boyutu ve bölümleme türüyle sınırlı olabilir. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). 
+Ls-serisi VM'ler ile olası en fazla disk verimlilik olabilir sayısı, boyutu ve şeritleme herhangi biri tarafından sınırlandırılır bağlı diskler. Ayrıntılar için bkz. [Premium Depolama: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md). En yüksek yerel depolama kullanımı ile iş yüklerini ls-serisi VM'ler hedeflenen ve genellikle Ls-serisi desteklemediği bu gibi durumlarda etkisiz diskleri bağlı kullanmak için ilk yükleme ve önbelleğe alma olarak günlüğe kaydetme, yalnızca ana bilgisayar için önbelleğe almayı diskleri ekli, diskler bağlı olması gerekir önbelleğe alınmamış modda. 
 
 <sup>1</sup> örneği için tek bir müşteriye ayrılmış donanım için ayrılmış.
 

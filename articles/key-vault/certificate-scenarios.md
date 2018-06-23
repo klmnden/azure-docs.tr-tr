@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333522"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Anahtar kasası sertifikalar ile çalışmaya başlama
 Aşağıdaki senaryolarda anahtar Kasası'nın sertifika yönetim hizmeti, ilk sertifikanızı anahtar kasanızı oluşturmak için gereken ek adımlar da dahil olmak üzere birincil kullanımlarını bazıları ana hatlarıyla gösterilir.
@@ -82,8 +83,9 @@ Not - Bu süreçte adım 3.1, bir kez bir işlemdir.
       -   Yenileme bilgilerinizi - > örn. süre sonu önce 90 gün  
 
   - Sertifika oluşturma işlemi genellikle zaman uyumsuz bir işlemdir ve anahtar kasanızı oluşturma sertifika işlemi durumu için yoklama içerir.  
-[Alma sertifika işlemi](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) -durum: tamamlandı için hata bilgileri ile başarısız oldu veya diğer iptal  
-            -Oluşturmak için gecikme nedeniyle, iptal etme işlemi başlatılabilir. İptal edebilir veya etkili olmayabilir.  
+[Alma sertifika işlemi](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   Durumu: hata bilgileri ile başarısız oldu veya iptal edilen tamamlandı  
+      -   Oluşturmak için gecikme nedeniyle iptal etme işlemi başlatılabilir. İptal edebilir veya etkili olmayabilir.  
 
 ## <a name="import-a-certificate"></a>Sertifika alma  
  Alternatif olarak – bir sertifika anahtar kasasını – PFX veya PEM içeri aktarılabilir.  

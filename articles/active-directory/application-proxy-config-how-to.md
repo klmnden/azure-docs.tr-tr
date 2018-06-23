@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: b297aab75212070aa435c58bf9024bf90e8ffec3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: asteen
+ms.openlocfilehash: 047679b52de1b095112948e869f35811346b846b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590163"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331632"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Uygulama proxy'si uygulama yapılandırma
 
@@ -36,7 +36,7 @@ Sertifikaları karşıya yükleniyor ve özel etki alanlarını kullanma hakkın
 
 ## <a name="create-the-applicationsetting-the-urls"></a>Uygulama/ayarı URL'leri oluştur
 
-İçindeki adımları takip ediyorsanız [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md) belgelerine ve bu uygulama oluşturulurken bir hata alma Bkz. bilgi için hata ayrıntıları ve uygulama gidermeye yönelik öneriler. Çoğu hata iletileri önerilen bir düzeltmeyi içerir. Sık karşılaşılan hataları önlemek için doğrulayın:
+İçindeki adımları takip ediyorsanız [Azure AD uygulama proxy'si ile uygulama yayımlama](manage-apps/application-proxy-publish-azure-portal.md) belgelerine ve bu uygulama oluşturulurken bir hata alma Bkz. bilgi için hata ayrıntılarını ve gidermeye yönelik öneriler uygulama. Çoğu hata iletileri önerilen bir düzeltmeyi içerir. Sık karşılaşılan hataları önlemek için doğrulayın:
 
 -   Uygulama proxy'si uygulama oluşturmak için izne sahip bir yönetici
 

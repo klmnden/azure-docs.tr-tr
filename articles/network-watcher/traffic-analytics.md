@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: badd2d63ffaf8e88ff672087783f2bce150bc7c3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ad26772650cf052926a2534d343f64765f47b78f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264999"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333403"
 ---
 # <a name="traffic-analytics"></a>Trafik analizi
 
@@ -267,9 +267,9 @@ Trafik Analytics tam olarak yapılandırdıktan sonra elde isteyebilirsiniz Öng
 
 **Aramak**
 
-- Alt ağ, topoloji, üst kaynakları alt ağ ve uygulama protokolleri konuşmaya üst konuşmaya üst rouge ağ trafiği alt ağına başına trafik dağılımı.
+- Alt ağ, topoloji, trafik alt ağına üst kaynakları başına dağıtım alt ağ ve uygulama protokolleri konuşmaya üst konuşmaya üst dolandırıcı ağ trafiği.
     - Hangi alt bilerek hangi alt ağına konuşmaya. Beklenmeyen görüşmeleri görürseniz, yapılandırmanızı düzeltebilirsiniz.
-    - Rouge ağları bir alt ağ ile konuşmaya, dolandırıcı ağları engellemek için NSG kuralları yapılandırarak düzeltebilirsiniz.
+    - Yanlış ağları bir alt ağ ile konuşmaya, dolandırıcı ağları engellemek için NSG kuralları yapılandırarak düzeltmek imkanınız olur.
 - Alt ağ topolojisi Active/Inactive alt ağ, dış bağlantıları, etkin araç ve kötü amaçlı akışlar alt ağın gibi parametreleri seçilmek üst Şerit gösterir.
 - Alt ağ topolojisi akışlar (izin verilen/engellenen/gelen/giden/Benign/kötü amaçlı), uygulama protokolü ve Nsg'ler, göre sanal ağa trafik dağılımı örneğin gösterir:
 
@@ -277,10 +277,10 @@ Trafik Analytics tam olarak yapılandırdıktan sonra elde isteyebilirsiniz Öng
 
 **Aramak**
 
-Trafik dağılımı uygulama ağ geçidi ve yük dengeleyici, topoloji başına trafik, en üst kaynakları uygulama ağ geçidi & yük dengeleyici ve uygulama protokolleri konuşmaya üst konuşmaya ağları rouge. 
+Trafik dağılımı uygulama ağ geçidi ve yük dengeleyici, topoloji başına trafik, en üst kaynakları uygulama ağ geçidi & yük dengeleyici ve uygulama protokolleri konuşmaya üst konuşmaya ağları standart dışı. 
     
  - Hangi alt bilerek hangi uygulama ağ geçidi veya yük dengeleyici konuşmaya. Beklenmeyen görüşmeleri gözlemlerseniz, yapılandırmanızı düzeltebilirsiniz.
- - Rouge ağları bir uygulama ağ geçidi veya yük dengeleyici ile konuşmaya, dolandırıcı ağları engellemek için NSG kuralları yapılandırarak düzeltebilirsiniz. 
+ - Yanlış ağları bir uygulama ağ geçidi veya yük dengeleyici ile konuşmaya, dolandırıcı ağları engellemek için NSG kuralları yapılandırarak düzeltmek imkanınız olur. 
 
     ![subnet-topology-showcasing-traffic-Distribution-to-a-Application-Gateway-subnet-With-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 

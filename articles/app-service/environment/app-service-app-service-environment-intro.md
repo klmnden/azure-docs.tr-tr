@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: b13f726ada6deba67d5ed484eca769fed354e400
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca30818b015e95594d3b2c9861d98f24174c0aea
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836787"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318172"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>Giriş App Service ortamı v1
 
@@ -71,7 +71,7 @@ Uygulama hizmeti ortamı'ortak bir IP adresiyle veya iç yalnızca bir Azure iç
 
 Kullanabileceğiniz [ağ güvenlik grubu] [ NetworkSecurityGroups] bir uygulama hizmeti ortamı bulunduğu alt ağı için gelen ağ iletişimleri kısıtlamak için.  Bu uygulamalar Yukarı Akış aygıtlar ve web uygulaması güvenlik duvarı ve ağ SaaS sağlayıcıları gibi hizmetler arkasında çalıştırmanıza olanak sağlar.
 
-Uygulamalar da sıklıkla iç veritabanları gibi şirket kaynaklarına erişmek ve web Hizmetleri gerekir.  Bu uç noktaları, bir Azure sanal ağı içinde akan yalnızca iç ağ trafiğini kullanımına ortak bir yaklaşımdır.  Bir uygulama hizmeti ortamı iç Hizmetleri aynı sanal ağ katıldığı sonra ortamda çalışan uygulamalar, aracılığıyla erişilebilir uç noktalar dahil erişebilmeleri [siteden siteye] [ SiteToSite] ve [Azure ExpressRoute] [ ExpressRoute] bağlantıları.
+Uygulamalar, iç veritabanları ve web hizmetleri gibi şirket kaynaklarına da sıklıkla erişmelidir.  Bu uç noktaları, bir Azure sanal ağı içinde akan yalnızca iç ağ trafiğini kullanımına ortak bir yaklaşımdır.  Bir uygulama hizmeti ortamı iç Hizmetleri aynı sanal ağ katıldığı sonra ortamda çalışan uygulamalar, aracılığıyla erişilebilir uç noktalar dahil erişebilmeleri [siteden siteye] [ SiteToSite] ve [Azure ExpressRoute] [ ExpressRoute] bağlantıları.
 
 Uygulama hizmeti ortamları sanal ağlar ve şirket içi ağlar ile nasıl çalıştığı hakkında daha fazla ayrıntı üzerinde aşağıdaki makalelere bakın için [ağ mimarisi][NetworkArchitectureOverview], [denetleme gelen Trafik][ControllingInboundTraffic], ve [arka uçlarını bağlanırken güvenli bir şekilde][SecurelyConnectingToBackends]. 
 
@@ -93,7 +93,7 @@ ExpressRoute ile bir uygulama hizmeti ortamı kullanımıyla ilgili ayrıntılar
 [AzureConDeepDive]:  https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/
 [GeodistributedAppFootprint]:  app-service-app-service-environment-geo-distributed-scale.md
 [NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
-[SiteToSite]: https://azure.microsoft.com/documentation/articles/vpn-gateway-site-to-site-create/
+[SiteToSite]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-multi-site
 [ExpressRoute]: http://azure.microsoft.com/services/expressroute/
 [HowToConfigureanAppServiceEnvironment]:  app-service-web-configure-an-app-service-environment.md
 [ControllingInboundTraffic]:  app-service-app-service-environment-control-inbound-traffic.md

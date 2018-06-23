@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 7b75bd5987ccf89c77509d0f2b4d8def5583e928
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a4f300666d0ab5345274d69d9ad6ad6871ce85e3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617442"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334049"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL verileri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,10 +39,9 @@ Tüm desteklenen havuz veri deposuna PostgreSQL veritabanından veri kopyalayabi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu PostgreSQL bağlayıcıyı kullanmak için aktarmanız gerekir:
+PostgreSQL veritabanınızı genel olarak erişilebilir durumda değilse, Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Kendini barındıran tümleştirme çalışma zamanları hakkında bilgi edinmek için [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) makalesi. Tümleştirme çalışma zamanı 3.7 sürümünden başlayarak yerleşik bir PostgreSQL sürücü sağlar, bu nedenle herhangi bir sürücüsü el ile yüklemeniz gerekmez.
 
-- Self-hosted tümleştirme çalışma zamanı ayarlayın. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) Ayrıntılar için makale.
-- Yükleme [PostgreSQL için Ngpsql veri sağlayıcısı](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 3.1.9 tümleştirmesi çalışma zamanı makinede arasındaki sürümüyle.
+Yüklemenize gerek 3.7 düşük Self-Hosted IR sürümü için [PostgreSQL için Ngpsql veri sağlayıcısı](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 3.1.9 tümleştirmesi çalışma zamanı makinede arasındaki sürümüyle.
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -57,14 +56,36 @@ Aşağıdaki özellikler PostgreSQL bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **PostgreSql** | Evet |
-| sunucu | PostgreSQL sunucunun adıdır. |Evet |
-| veritabanı | PostgreSQL veritabanının adı. |Evet |
-| Şema | Veritabanı şemasında adı. Şema adı büyük/küçük harf duyarlıdır. |Hayır |
-| kullanıcı adı | PostgreSQL veritabanına bağlanmak için kullanıcı adını belirtin. |Evet |
-| password | Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
+| connectionString | PostgreSQL için Azure veritabanına bağlanmak için bir ODBC bağlantı dizesi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+Tipik bağlantı dizesi `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
+
+| Özellik | Açıklama | Seçenekler | Gerekli |
+|:--- |:--- |:--- |:--- |:--- |
+| EncryptionMethod (EM)| Sürücü yöntemi sürücü ve veritabanı sunucusu arasında gönderilen verileri şifrelemek için kullanır. Örneğin `ValidateServerCertificate=<0/1/6>;`| 0 (şifreleme) **(varsayılan)** / 1 (SSL) / 6 (RequestSSL) | Hayır |
+| ValidateServerCertificate (VSC'yi) | Sürücü SSL şifrelemesi etkin olduğunda, veritabanı sunucusu tarafından gönderilen sertifikayı doğrulayıp doğrulamadığını belirler (şifreleme yöntemini = 1). Örneğin `ValidateServerCertificate=<0/1>;`| 0 (devre dışı) **(varsayılan)** / 1 (etkin) | Hayır |
 
 **Örnek:**
+
+```json
+{
+    "name": "PostgreSqlLinkedService",
+    "properties": {
+        "type": "PostgreSql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+            }
+        }
+    }
+}
+```
+
+Aşağıdaki yük ile bağlantılı PostgreSQL hizmeti kullanıyorsanız, hala olarak desteklenmektedir-ileride yeni bir kullanmak için önerilir, açıkken.
+
+**Önceki yükü:**
 
 ```json
 {

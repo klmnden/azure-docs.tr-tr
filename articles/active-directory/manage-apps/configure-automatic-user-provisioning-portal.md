@@ -3,7 +3,7 @@ title: Kullanıcı Yönetimi Azure Active Directory'de kurumsal uygulamalar içi
 description: Kullanıcı hesabı için Azure Active Directory'yi kullanarak kurumsal uygulamalar sağlama yönetmeyi öğrenin
 services: active-directory
 documentationcenter: ''
-author: asmalser
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/26/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: eabeeb407b4894f92192932e44b9add1aa7d9307
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 926db432e413c3fc1360f68598e952830d212cb9
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303914"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331474"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure portalında Kurumsal uygulamaları için sağlama kullanıcı hesabı yönetme
-Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve bunu "özel" kategoriden eklenen olanları özellikle destekleyen uygulamalarda sağlamayı kaldırma özelliklerini yönetmek için [Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](../active-directory-saas-app-provisioning.md).
+Bu makalede nasıl kullanılacağını açıklar [Azure portal](https://portal.azure.com) otomatik olarak bir kullanıcı hesabı sağlama ve onu "özel"kategorideneklenenolanlarıözellikledestekleyenuygulamalardasağlamayıkaldırmaözellikleriniyönetmekiçin[ Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Otomatik olarak bir kullanıcı hesabı sağlama ve nasıl çalıştığı hakkında daha fazla bilgi için bkz: [otomatikleştirmek kullanıcı hazırlama ve sağlamayı kaldırma işlemlerini Azure Active Directory ile SaaS uygulamalarına](../active-directory-saas-app-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Portalda uygulamalarınızı bulma
 Bir dizindeki çoklu oturum açma kullanarak bir dizin yönetici tarafından yapılandırılan tüm uygulamaları [Azure Active Directory Uygulama galerisinde](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), görüntülenebilir ve yönetilen [Azure portal](https://portal.azure.com). Uygulamaları bulunabilir **tüm hizmetleri** &gt; **kurumsal uygulamalar** portalı bölümü. Kurumsal uygulamalar dağıtılan ve kuruluşunuzda kullanılan uygulamalardır.
@@ -39,7 +39,7 @@ Kullanıcı hesabının ayarlarını sağlama seçerek yönetilebilir **sağlama
 ## <a name="provisioning-modes"></a>Sağlama modları
 **Sağlama** Bölmesi ile başlayıp bir **modu** hangi sağlama modları Kurumsal uygulama için desteklenen gösterir ve bunları yapılandırılacak veren menüsü. Mevcut seçenekler şunlardır:
 
-* **Otomatik** -bu seçenek, Azure AD API tabanlı otomatik sağlama ve/veya bu uygulama için kullanıcı hesaplarının sağlamayı kaldırma özelliklerini destekliyorsa görünür. Bu mod seçmek, Hesap Eşleştirmeleri ve kullanıcı hesabı veri Azure AD arasında akışı nasıl olmalı tanımlamak iş akışları oluşturma, uygulamanın kullanıcı yönetimi API bağlanmak için Azure AD yapılandırma yoluyla Yöneticiler kılavuzları bir arabirim görüntüler ve uygulama ve hizmet sağlama Azure AD yönetme.
+* **Otomatik** -bu seçenek, Azure AD API tabanlı otomatik sağlama ve/veya bu uygulama için kullanıcı hesaplarının sağlamayı kaldırma özelliklerini destekliyorsa görünür. Bu mod seçmek, Hesap Eşleştirmeleri ve kullanıcı hesabı veri Azure AD arasında akışı nasıl olmalı tanımlamak iş akışları oluşturma, uygulamanın kullanıcı yönetimi API bağlanmak için Azure AD yapılandırma yoluyla Yöneticiler kılavuzları bir arabirim görüntüler ve Uygulama ve hizmet sağlama Azure AD yönetme.
 * **El ile** -Azure AD kullanıcı hesaplarının bu uygulamaya otomatik sağlamayı desteklemiyor, bu seçenek gösterilir. Bu seçenek, uygulamada depolanan kullanıcı hesabı kayıtları (içerebilen SAML Just-In-Time sağlama) bu uygulama tarafından sağlanan kullanıcı yönetimi ve sağlama yeteneklerine dayalı bir dış işlem kullanarak yönetilmelidir anlamına gelir.
 
 ## <a name="configuring-automatic-user-account-provisioning"></a>Otomatik olarak bir kullanıcı hesabı sağlama yapılandırma
@@ -70,7 +70,7 @@ Sağlama için uygulamanın ilk kez etkinleştiriliyor, hizmette değiştirerek 
 
 Değiştirme **sağlama durumu** için **kapalı** yalnızca sağlama hizmeti duraklatır. Bu durumda Azure değil oluşturmak, güncelleştirmek veya herhangi bir kullanıcı veya grup nesneleri uygulamada kaldırın. Durumu geri üzerinde değiştirme kaldığı yerden alması hizmetinin neden olur.
 
-Seçme **temizleme geçerli durumu ve eşitlemeyi yeniden başlatma** onay ve kaydetme hangi hesapların Azure AD hakkındaki önbelleğe alınmış verileri yönetiyor, hizmetleri yeniden başlatır ve ilk eşitlemeyi yeniden gerçekleştirir dökümleri sağlama hizmeti durdurur. Bu seçenek, sağlama dağıtım işlemini yeniden başlatmak yöneticilerinin olanak tanır.
+Seçme **temizleme geçerli durumu ve eşitlemeyi yeniden başlatma** onay ve kaydetme hangi hesapların Azure AD hakkındaki önbelleğe alınan verileri yönetme, hizmetleri yeniden başlatır ve ilk gerçekleştirir dökümleri sağlama hizmeti durdurur yeniden eşitleme. Bu seçenek, sağlama dağıtım işlemini yeniden başlatmak yöneticilerinin olanak tanır.
 
 ### <a name="synchronization-details"></a>Eşitleme Ayrıntıları
 Bu bölümde uygulama ve kaç kullanıcı ve Grup nesneleri yönetilmekte olan karşı sağlama hizmeti verdi ilk ve son kez dahil olmak üzere sağlama hizmeti işlemi hakkında ek ayrıntılar sağlar.

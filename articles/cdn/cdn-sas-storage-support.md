@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/21/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261177"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316577"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Azure CDN ile SAS kullanma
 
@@ -41,7 +41,7 @@ Bir SAS belirteci ürettiğiniz sonra ekleyerek blob depolama dosyanızı erişe
  
 Örneğin:
  ```
-https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
+https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
 Parametreleri ayarlama hakkında daha fazla bilgi için bkz: [SAS parametre konuları](#sas-parameter-considerations) ve [paylaşılan erişim imzası parametreleri](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters).
@@ -62,7 +62,7 @@ Bu seçenek en kolayıdır ve Azure CDN ' kaynak sunucunun geçirilen tek bir SA
 
    Örneğin:   
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
 3. Önbellek süresi önbelleğe alma kurallarını kullanarak veya ekleyerek ince ayar `Cache-Control` kaynak sunucuda üstbilgileri. Azure CDN SAS belirteci düz sorgu dizesi olarak davrandığı için en iyi uygulama olarak noktada veya SAS sona erme süresi sona bir önbelleğe alma süresi ayarlamanız gerekir. Aksi halde, bir dosya SAS etkin olduğundan daha uzun bir süre önbelleğe alınır, SAS sona erme süresi dolduktan sonra dosyayı Azure CDN kaynak sunucudan erişilebilir olarak olabilir. Bu durum ortaya çıkar ve önbelleğe alınmış dosya erişilemez hale getirmek istediğiniz, bir dosyanın önbellekten temizlemek için temizleme işlemi gerçekleştirmeniz gerekir. Azure CDN önbellek süresini ayarlama hakkında daha fazla bilgi için bkz: [denetim Azure CDN kuralları önbelleğe alma ile önbelleğe alma davranışı](cdn-caching-rules.md).
@@ -80,14 +80,14 @@ Bu seçenek yalnızca için kullanılabilir **verizon'dan Azure CDN Premium** pr
    Aşağıdaki örnek URL yeniden yazma kuralı bir yakalama grubunu ve adlı bir uç nokta ile bir normal ifade deseni kullanır *storagedemo*:
    
    Kaynak:   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    Hedef:   
    ```
-   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![CDN URL yeniden yazma kuralı](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![Kural - sol CDN URL yeniden yazma](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
 2. Yeni Kural etkin hale geldikten sonra herkes belirtilen kapsayıcıda bunlar URL'de bir SAS belirteci olup olmadığını kullandığınızdan bağımsız olarak CDN uç noktası üzerindeki dosyalara erişebilir. Biçimi şöyledir: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
@@ -118,14 +118,14 @@ Azure CDN güvenlik belirteci kimlik doğrulaması kullanmak için olmalıdır b
    Aşağıdaki örnek URL yeniden yazma kuralı bir yakalama grubunu ve adlı bir uç nokta ile bir normal ifade deseni kullanır *storagedemo*:
    
    Kaynak:   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    Hedef:   
    ```
-   $1&sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![CDN URL yeniden yazma kuralı](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![Kural - sol CDN URL yeniden yazma](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL yeniden yazma kuralı - sağ](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
 3. SAS yenileyin, yeni SAS belirteci Url yeniden yazma kuralı güncelleştirdiğinizden emin olun. 
 
@@ -140,7 +140,10 @@ SAS parametreleri Azure CDN görünür olduğundan Azure CDN üzerlerinde göre 
 | İzin verilen IP adresi | İsteğe bağlı. Kullanıyorsanız **verizon'dan Azure CDN**, tanımlı aralıklar için bu parametreyi ayarlayın [Azure CDN Verizon kenar sunucu IP aralıklarından](https://msdn.microsoft.com/library/mt757330.aspx). Kullanıyorsanız **akamai'den Azure CDN**, IP adreslerini statik olduğundan IP aralıkları parametresi ayarlanamıyor.|
 | İzin verilen protokoller | Hesap SAS ile yapılan bir istek için izin verilen protokollerini. HTTPS ayarı önerilir.|
 
-## <a name="see-also"></a>Ayrıca bkz.
+## <a name="next-steps"></a>Sonraki adımlar
+
+SAS hakkında daha fazla bilgi için aşağıdaki makalelere bakın:
 - [Paylaşılan erişim imzaları (SAS) kullanma](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [Paylaşılan erişim imzası, bölüm 2: Oluşturma ve bir SAS Blob storage'ı kullanma](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
-- [Azure içerik teslim ağı varlıklar belirteci kimlik doğrulaması ile güvenli hale getirme](https://docs.microsoft.com/azure/cdn/cdn-token-auth)
+
+Belirteç kimlik doğrulama ayarlama hakkında daha fazla bilgi için bkz: [belirteci kimlik doğrulaması ile güvenli hale getirme Azure içerik teslim ağı varlıklar](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

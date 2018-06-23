@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 9fcf751d1b7655cf38bbcaca0aa8c918e38e4fda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 94c94d949874dcf3b48a7ecf2d8ec63da056aec5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619074"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334284"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>Servicenow'ı kullanarak Azure Data Factory kopyalama verileri
 
@@ -35,7 +35,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını ServiceNow bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

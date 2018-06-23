@@ -3,22 +3,23 @@ title: Bir uygulama için kullanıcının erişimini kaldırma | Microsoft Docs
 description: Bir uygulama için kullanıcının erişimini kaldırmak öğrenme
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 3731049d2bc42c7fac492f7609f54b5d4a1443b6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.openlocfilehash: e227f46db05c108c27322e8dd76177cf9849c937
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292329"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330341"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Bir uygulama için kullanıcının erişimini kaldırma
 
@@ -64,7 +65,7 @@ Tüm dizin önlemek için son kullanıcılar için herhangi bir uygulama onaylı
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  Tıklatın **kullanıcı ayarlarını**.
 

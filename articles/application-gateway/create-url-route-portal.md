@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: e923167ef0b7cdb300fa5ad1421cc18489393ce2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: ecb8a46c57d31c8a19f3a7b75306e42a7d3981bd
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265187"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335746"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure portalını kullanarak yol tabanlı yönlendirme kuralları ile bir uygulama ağ geçidi oluşturma
 
@@ -155,7 +155,7 @@ Bu örnekte uygulama ağ geçidi için arka uç sunucuları olarak kullanılacak
 
     ![Uygulama ağ geçidi genel IP adresini kaydetme](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin http://http://40.121.222.19.
+2. Genel IP adresini kopyalayıp tarayıcınızın adres çubuğuna yapıştırın. Örneğin http://40.121.222.19.
 
     ![Temel URL’yi uygulama ağ geçidinde test etme](./media/create-url-route-portal/application-gateway-iistest.png)
 

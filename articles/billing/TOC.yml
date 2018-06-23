@@ -117,6 +117,22 @@
       href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
     - name: Desteğe başvurun
       href: ../azure-supportability/how-to-create-azure-support-request.md
+- name: Örnekler
+  items:
+    - name: REST API
+      items:
+        - name: Kuruluş maliyetlerini gözden geçirme
+          href: billing-review-enterprise-billing.md
+        - name: Abonelik kullanımını gözden geçirme
+          href: billing-review-subscription-billing.md
+    - name: .NET örnekleri
+      items:
+        - name: Fatura API’si kod örneği
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: Kullanım API’si kod örneği
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: RateCard API’si kod örneği
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: Başvuru
   items:
     - name: Faturalandırma Otomasyon Senaryoları
@@ -142,11 +158,3 @@
       items:
         - name: Kurumsal raporlama REST API’si
           href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
-    - name: Faturalandırma kodu örnekleri
-      items:
-        - name: Fatura API’si kod örneği
-          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-        - name: Kullanım API’si kod örneği
-          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-        - name: RateCard API’si kod örneği
-          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'

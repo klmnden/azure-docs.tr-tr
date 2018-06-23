@@ -10,17 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 056608e7843c8feab28359de5f2762164287f09d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 12a63e65a739be08d436f8f1b53df566255b1fb1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35356141"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36322061"
 ---
 # <a name="publish-your-trained-app"></a>Eğitilmiş uygulamanızı yayınlama
 Derleme ve HALUK uygulamanızı test etme tamamladığınızda, yayımlayın. Uygulama yayımlandıktan sonra ilişkili tüm HTTP Yayımla Sayfası gösterilir [uç noktaları](luis-glossary.md#endpoint). Bu uç noktalar başına [bölge](luis-reference-regions.md) ve başına [anahtar](Manage-Keys.md), ardından herhangi bir istemci, chatbot veya arka uç uygulama tümleştirilmiştir. 
 
-Her zaman [test](train-test.md) yayımlamadan önce uygulamanızın. 
+Her zaman [test](interactive-test.md) yayımlamadan önce uygulamanızın. 
 
 ## <a name="production-and-staging-slots"></a>Üretim ve hazırlama yuvası
 Uygulamanıza yayımlayabilirsiniz **hazırlama yuvası** veya **üretim yuvasına**. İki yayımlama yuvaları kullanarak, bu iki farklı bitiş noktasında yayımlanan uç noktaları ile iki farklı sürümü veya aynı sürüme sahip olmanızı sağlar. 
@@ -138,8 +138,8 @@ Aşağıdaki sorgu dizesi parametreleri uç nokta URL'si ile kullanılabilir:
 
 |Sorgu dizesi|Tür|Örnek değer|Amaç|
 |--|--|--|--|
-|Ayrıntılı|boole|true|Dahil [tüm hedefi puanları](#include-all-predicted-intent-scores) utterance için|
-|timezoneOffset|sayı (birimi, dakika)|60|Ayarlama [saat dilimi uzaklığı](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) için [datetimeV2 önceden oluşturulmuş varlıklar](luis-reference-prebuilt-entities.md#builtindatetimev2)|
+|ayrıntılı|boole|true|Dahil [tüm hedefi puanları](#include-all-predicted-intent-scores) utterance için|
+|timezoneOffset|sayı (birimi, dakika)|60|Ayarlama [saat dilimi uzaklığı](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) için [datetimeV2 önceden oluşturulmuş varlıklar](luis-reference-prebuilt-datetimev2.md)|
 |Yazım denetimi|boole|true|[Yazımı düzeltin](#enable-bing-spell-checker) utterance--bing yazım-onay-abonelik-anahtar sorgu dizesi parametresi ile birlikte kullanıldığında,|
 |Bing yazım-onay-abonelik-anahtar|Abonelik kimliği||Yazım denetimi sorgu dizesi parametresi ile birlikte kullanılan|
 |Hazırlama|boole|false|Hazırlık veya üretim uç noktası seçin|
@@ -154,4 +154,4 @@ URL'de seçerek yayımlanan uç noktanızı test **Endpoint** sütun. Varsayıla
 ## <a name="next-steps"></a>Sonraki adımlar
 
 * Bkz: [anahtarları Yönet](./Manage-Keys.md) anahtarları HALUK uygulamanıza ekleyin ve anahtarları bölgelerine nasıl eşleme hakkında bilgi edinin.
-* Bkz: [eğitimi ve uygulamanızı test](Train-Test.md) test konsolunda yayımlanan uygulamanızı test etme hakkında yönergeler için.
+* Bkz: [eğitimi ve uygulamanızı test](interactive-test.md) test konsolunda yayımlanan uygulamanızı test etme hakkında yönergeler için.

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 4c9c97f30801ff901677156b0ea37c1eeb348502
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43a27b98d8b53523bee8694ed3071e65a03355a6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808732"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335882"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory kullanarak MySQL verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,13 +38,9 @@ Tüm desteklenen havuz veri deposuna MySQL veritabanından veri kopyalayabilirsi
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bu MySQL bağlayıcıyı kullanmak için aktarmanız gerekir:
+MySQL veritabanınız genel olarak erişilebilir durumda değilse, Self-hosted tümleştirmesi çalışma zamanı ayarlamanız gerekir. Kendini barındıran tümleştirme çalışma zamanları hakkında bilgi edinmek için [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) makalesi. Tümleştirme çalışma zamanı 3.7 sürümünden başlayarak yerleşik bir MySQL sürücüsünün sağlar, bu nedenle herhangi bir sürücüsü el ile yüklemeniz gerekmez.
 
-- Self-hosted tümleştirme çalışma zamanı ayarlayın. Bkz: [Self-hosted tümleştirmesi çalışma zamanı](create-self-hosted-integration-runtime.md) Ayrıntılar için makale.
-- Yükleme [MySQL Connector/Net için Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) 6.6.5 6.10.7 tümleştirmesi çalışma zamanı makinede arasındaki sürüm. Bu 32 bit sürücü IR 64 bit ile uyumlu değil
-
-> [!TIP]
-> MySQL Connector/Net daha yüksek bir sürüme yükseltmek için "Uzak taraf aktarım akışı. kapatıldığı için kimlik doğrulaması başarısız oldu" hata isabet durumunda göz önünde bulundurun.
+Yüklemenize gerek 3.7 düşük Self-Hosted IR sürümü için [MySQL Connector/Net için Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) 6.6.5 6.10.7 tümleştirmesi çalışma zamanı makinede arasındaki sürüm. Bu 32 bit sürücü IR 64 bit ile uyumlu değil
 
 ## <a name="getting-started"></a>Başlarken
 
@@ -59,14 +55,40 @@ Aşağıdaki özellikleri, bağlantılı MySQL hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **MySql** | Evet |
-| sunucu | MySQL sunucu adı. | Evet |
-| veritabanı | MySQL veritabanının adı. | Evet |
-| Şema | Veritabanı şemasında adı. | Hayır |
-| kullanıcı adı | MySQL veritabanına bağlanmak için kullanıcı adını belirtin. | Evet |
-| password | Belirttiğiniz kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Bölümünde belirtildiği gibi bir Self-hosted tümleştirmesi çalışma zamanı gereklidir [Önkoşullar](#prerequisites). |Evet |
+| connectionString | MySQL örneği için Azure veritabanına bağlanmak için gereken bilgileri belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. Self-hosted tümleştirme (data store özel bir ağda yer alıyorsa) çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+
+Tipik bağlantı dizesi `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
+
+| Özellik | Açıklama | Seçenekler | Gerekli |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | Bu seçenek sürücü SSL şifreleme ve doğrulama için MySQL bağlanırken kullanıp kullanmadığını belirtir. Örneğin `SSLMode=<0/1/2/3/4>`| Devre dışı (0) / tercih edilen (1) **(varsayılan)** / gerekli (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Hayır |
+| useSystemTrustStore | Bu seçenek bir CA sertifikası sistem güven deposundan veya belirtilen PEM dosyası kullanılıp kullanılmayacağını belirtir. Örneğin `UseSystemTrustStore=<0/1>;`| (1) etkin / devre dışı (0) **(varsayılan)** | Hayır |
 
 **Örnek:**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Aşağıdaki yük ile bağlantılı MySQL hizmeti kullanıyorsanız, hala olarak desteklenmektedir-ileride yeni bir kullanmak için önerilir, açıkken.
+
+**Önceki yükü:**
 
 ```json
 {

@@ -79,17 +79,17 @@
     - name: REST
       items:
         - name: İşleme hizmeti
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/renderservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Yönlendirme hizmeti
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/routeservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/route'
         - name: Arama hizmeti
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/searchservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/search'
         - name: Saat dilimi hizmeti
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/timezone'
         - name: Trafik hizmeti
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps/trafficservice'
+          href: 'https://docs.microsoft.com/rest/api/maps/traffic'
         - name: Haritalar hesabı yönetimi
-          href: 'https://docs.microsoft.com/en-us/rest/api/maps-management'
+          href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript
       items:
         - name: Harita denetimi

@@ -13,12 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 905cedd6ee781ca163731a6f71b083acfc11b5eb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800746"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332380"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft karma kimlik çözümleri
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) karma kimlik çözümleri hala kullanıcıların şirket içi yönetme sırasında Azure AD ile şirket içi dizin nesneleri eşitleme olanak tanır. Şirket içi Windows Server Active Directory'nizi Azure AD ile eşitlemek planlama kullanmak isteyip istemediğinizi yapmak için ilk karar kimlik eşitlenen veya kimlik Federasyon. Eşitlenen kimlikler ve isteğe bağlı olarak parola karmaları şirket içi ve bulut tabanlı kurumsal kaynaklara erişmek için aynı parolayı kullanmalarına olanak sağlar. Çoklu oturum açma (SSO) veya şirket içi MFA gibi daha gelişmiş senaryo gereksinimleri için Active Directory Federasyon Hizmetleri (kimlikleri birleştirmek için AD FS) dağıtmanız gerekir. 
@@ -53,7 +53,7 @@ Doğrudan kimlik doğrulaması için parola doğrulama isteklerini dinleyen bir 
 - Üzerinden kullanıcıların doğrulandığı ormandaki bir etki alanına katılmış
 
 ## <a name="federated-identity-ad-fs"></a>Federe kimlik (AD FS)
-Kullanıcıların Office 365 ve diğer bulut hizmetlerine erişme üzerinde daha fazla denetim için çoklu oturum açma (SSO) kullanarak dizin eşitlemeyi ayarlayabilirsiniz [Active Directory Federasyon Hizmetleri (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016). Kullanıcı oturum açma işlemleri AD FS ile federasyonunu kullanıcı kimlik bilgilerini doğrulayan bir şirket içi sunucu kimlik doğrulaması atar. Bu modelde, şirket içi Active Directory kimlik bilgileri hiçbir zaman Azure AD'ye aktarılır.
+Kullanıcıların Office 365 ve diğer bulut hizmetlerine erişme üzerinde daha fazla denetim için çoklu oturum açma (SSO) kullanarak dizin eşitlemeyi ayarlayabilirsiniz [Active Directory Federasyon Hizmetleri (AD FS)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). Kullanıcı oturum açma işlemleri AD FS ile federasyonunu kullanıcı kimlik bilgilerini doğrulayan bir şirket içi sunucu kimlik doğrulaması atar. Bu modelde, şirket içi Active Directory kimlik bilgileri hiçbir zaman Azure AD'ye aktarılır.
 
 ![Federe kimlik](./media/choose-hybrid-identity-solution/federated-identity.png)
 

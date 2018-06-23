@@ -3,22 +3,23 @@ title: Federasyon tek oturum açma için Azure AD galeri uygulamanın yapıland�
 description: Bazı yapılandırma tek federe olduğunda karşılaşabilir yaygın sorunları ele Azure AD uygulama galerisinde listelenen uygulamalar için SAML kullanarak oturum
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 581b3c4ff7cc7b25f238602560f30280efa34edd
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 7fcc8c24214465bc1e601ced69ee67df2c48274f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053318"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334267"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Federasyon tek oturum açma için Azure AD galeri uygulamanın yapılandırma sorunu
 

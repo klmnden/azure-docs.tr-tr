@@ -3,22 +3,24 @@ title: Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma sorunu 
 description: Azure AD uygulama galerisinde listelenen yapılandırma kullanıcı bir uygulama zaten sağlama genişlettiklerinde karşılaştığı yaygın sorunlar nasıl giderilir
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 9fcfee9cbbeb01422e7d9e92d90b908e054f96da
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 637a2af17cf3b36392e0a694df8c10a55d616675
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30160340"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333032"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulamaya kullanıcı sağlamayı yapılandırma sorunu
 
@@ -44,7 +46,7 @@ Başlatılacağı konum hakkında bir fikir varsa, ayrıntılarına geçebilir g
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Başlatmak için hizmet sağlama görünmüyor
 
-Ayarlarsanız **sağlama durumu** olmasını **üzerinde** içinde **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt;sağlama** Azure portalının bölümü. Ancak sonraki yeniden yükler sonra diğer bir durum ayrıntıları bu sayfada gösterilir. Hizmet çalışıyor ancak bir ilk eşitleme henüz tamamlanmadı olasıdır. Denetleme **denetim günlüklerini** hizmet gerçekleştirip, hangi işlemleri belirlemek için yukarıda açıklanan ve herhangi bir hata varsa.
+Ayarlarsanız **sağlama durumu** olmasını **üzerinde** içinde **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt;Sağlama** Azure portalının bölümü. Ancak sonraki yeniden yükler sonra diğer bir durum ayrıntıları bu sayfada gösterilir. Hizmet çalışıyor ancak bir ilk eşitleme henüz tamamlanmadı olasıdır. Denetleme **denetim günlüklerini** hizmet gerçekleştirip, hangi işlemleri belirlemek için yukarıda açıklanan ve herhangi bir hata varsa.
 
 >[!NOTE]
 >Bir başlangıç eşitlemesi 20 dakika arasında herhangi bir yere Azure AD dizini ve sayısı, kullanıcı sağlama kapsamında boyutuna bağlı olarak birkaç saat sürebilir. İlk eşitleme sonrasında sonraki eşitlemeler daha hızlı olması sağlama hizmeti, sonraki eşitlemeler performansını iyileştirme ilk eşitleme sonrasında her iki sistem durumunu temsil filigranlar depolar.

@@ -1,93 +1,57 @@
 ---
-title: Azure CLI kullanarak Linux VM için bir disk ekleyin | Microsoft Docs
-description: Azure CLI 1.0 ve 2. 0, Linux VM kalıcı bir disk eklemek öğrenin.
-keywords: Linux sanal makine, kaynak disk ekleme
+title: Azure CLI kullanarak Linux VM için bir veri diski Ekle | Microsoft Docs
+description: Azure ile Linux VM için kalıcı veri diski eklemeyi öğrenin
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-ms.author: rclaus
+ms.date: 06/13/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837015"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331232"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM'ye disk ekleme
 Bu makalede, verilerinizi - koruyabilmeniz için VM'yi yeniden sağlaması yapılana Bakım veya yeniden boyutlandırma nedeniyle olsa bile kalıcı bir disk VM'nize nasıl ekleneceği gösterilmektedir. 
 
 
-## <a name="use-managed-disks"></a>Yönetilen diskleri kullanın
-Azure Yönetilen Diskler, VM diskleriyle ilişkili depolama hesaplarını yöneterek Azure VM’leri için disk yönetimini basitleştirir. Sizin yalnızca gereksinim duyduğunuz disk türünü (Premium veya Standart) ve boyutunu belirtmeniz yeterlidir; disk Azure tarafından sizin adınıza oluşturulur ve yönetilir. Daha fazla bilgi için bkz: [yönetilen diskleri genel bakış](managed-disks-overview.md).
+## <a name="attach-a-new-disk-to-a-vm"></a>Yeni bir disk bir VM'e ekleyin
 
-
-### <a name="attach-a-new-disk-to-a-vm"></a>Yeni bir disk bir VM'e ekleyin
-Yeni bir disk üzerinde VM yeterlidir kullanırsanız [az vm diskini](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutunu `--new` parametresi. VM'yi bir kullanılabilirlik dilimindeyse disk VM ile aynı bölgedeki otomatik olarak oluşturulur. Daha fazla bilgi için bkz: [kullanılabilirlik bölgeleri genel bakış](../../availability-zones/az-overview.md). Aşağıdaki örnek adlı bir disk oluşturur *myDataDisk* diğer bir deyişle *50*Gb boyutunda:
+Yeni, boş veri diski de kendi VM'nizi eklemek istiyorsanız, kullanmak [az vm diskini](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutunu `--new` parametresi. VM'yi bir kullanılabilirlik dilimindeyse disk VM ile aynı bölgedeki otomatik olarak oluşturulur. Daha fazla bilgi için bkz: [kullanılabilirlik bölgeleri genel bakış](../../availability-zones/az-overview.md). Aşağıdaki örnek adlı bir disk oluşturur *myDataDisk* yani 50 Gb boyutunda:
 
 ```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --disk myDataDisk \
+   --new \
+   --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme 
-Çoğu durumda. önceden oluşturulmuş diskleri bağlayın. Varolan bir disk eklemek için disk Kimliğini bulun ve Kimliğine geçirin [az vm diskini](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutu. Aşağıdaki örnek sorgularda adlı bir disk için *myDataDisk* içinde *myResourceGroup*, adlı VM'ye iliştirir *myVM*:
+## <a name="attach-an-existing-disk"></a>Var olan bir diski ekleme 
+
+Varolan bir disk eklemek için disk Kimliğini bulun ve Kimliğine geçirin [az vm diskini](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) komutu. Aşağıdaki örnek sorgularda adlı bir disk için *myDataDisk* içinde *myResourceGroup*, adlı VM'ye iliştirir *myVM*:
 
 ```azurecli
-# find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
-```
-
-Çıktı aşağıdakine benzer görünüyor (kullanabileceğiniz `-o table` çıktıda biçimlendirmek için herhangi bir komuttan seçeneğine):
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "westus",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
-
-## <a name="use-unmanaged-disks"></a>Yönetilmeyen diskleri kullanın
-Yönetilmeyen diskler temel alınan depolama hesaplarını oluşturmak ve yönetmek için ek yükü gerektirir. Yönetilmeyen diskleri aynı depolama hesabı işletim sistemi diski olarak oluşturulur. Oluşturmak ve yönetilmeyen bir disk eklemek için kullanın [az vm yönetilmeyen disk ekleme](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) komutu. Aşağıdaki örnek iliştirir bir *50*GB yönetilmeyen disk adlı VM'ye *myVM* kaynak grubunda adlı *myResourceGroup*:
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
 ```
 
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Yeni diski Linux VM'ye bağlanın
-Bölüm, biçimlendirme ve Linux VM, Azure VM içine SSH kullanabilmesi için yeni disk bağlamak için. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](mac-create-ssh-keys.md). Aşağıdaki örnek genel DNS girişi ile VM bağlanır *mypublicdns.westus.cloudapp.azure.com* kullanıcı *azureuser*: 
+Bölüm, biçimlendirme ve Linux VM, VM'yi içine SSH kullanabilmesi için yeni disk bağlamak için. Daha fazla bilgi için bkz. [Azure’da Linux ile SSH kullanma](mac-create-ssh-keys.md). Aşağıdaki örnek genel DNS girişi ile VM bağlanır *mypublicdns.westus.cloudapp.azure.com* kullanıcı *azureuser*: 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -115,7 +79,7 @@ Burada, *sdc* istiyoruz disktir. Diskle bölüm `fdisk`, birincil disk bölüm 1
 sudo fdisk /dev/sdc
 ```
 
-Çıktı aşağıdaki örneğe benzer:
+Kullanım `n` yeni bir bölüm eklemek için komutu. Bu örnekte, biz de seçin `p` için birincil bölüm ve geri kalan varsayılan değerler kabul edin. Çıktı aşağıdaki örneğe benzer olacaktır:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -137,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Bölüm yazarak oluşturmak `p` şekilde isteminde:
+Bölüm tablosuna yazarak yazdırma `p` ve ardından `w` disk ve çıkmak için tablo yazmak için. Çıktı aşağıdaki örneğe benzer görünmelidir:
 
 ```bash
 Command (m for help): p
@@ -225,7 +189,7 @@ Ardından, açık */etc/fstab* gibi bir metin düzenleyicisinde dosya:
 sudo vi /etc/fstab
 ```
 
-Bu örnekte, UUID değeri kullanırız */dev/sdc1* oluşturulduğu önceki adımları ve mountpoint, aygıt */datadrive*. Sonuna aşağıdaki satırı ekleyin */etc/fstab* dosyası:
+Bu örnekte, UUID değeri kullanmak */dev/sdc1* oluşturulduğu önceki adımları ve mountpoint, aygıt */datadrive*. Sonuna aşağıdaki satırı ekleyin */etc/fstab* dosyası:
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
@@ -266,7 +230,6 @@ KIRPMA etkinleştirmenin iki yolu desteği, Linux VM'NİZDE vardır. Her zamanki
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Unutmayın, bu bilgileri yazma sürece bunu yeniden başlatılırsa, yeni disk VM kullanılabilir olmadığını, [fstab](http://en.wikipedia.org/wiki/Fstab) dosya.
 * Linux VM doğru şekilde yapılandırıldığından emin olmak için gözden [Linux makine performansı en iyi duruma](optimization.md) öneriler.
 * İlave diskler eklenerek, depolama kapasitesi ve [RAID yapılandırma](configure-raid.md) ek performans.
 

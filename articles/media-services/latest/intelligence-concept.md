@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788756"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331529"
 ---
 # <a name="media-intelligence"></a>Medya zekası
 
@@ -50,7 +50,7 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
 |Ad|Açıklama|
 |---|---|
 |id|Satır kimliği.|
-|Metin|Dökümü kendisi.|
+|metin|Dökümü kendisi.|
 |Dil|Dökümü dili. Dökümü desteklemek her bir satır farklı bir dil sahip olduğu amaçlanmıştır.|
 |örnekler|Burada bu satırı görünen zaman aralıkları listesi. Bir dökümü örneğiyse yalnızca 1 örneği gerekir.|
 
@@ -87,8 +87,8 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
 
 |Ad|Açıklama|
 |---|---|
-|id|OCR satır kimliği.|
-|Metin|OCR metin.|
+|id|OCR satır kimliği|
+|metin|OCR metin.|
 |Güven|Tanıma güven.|
 |Dil|OCR dili.|
 |örnekler|Burada bu OCR görünen zaman aralıkları listesi (aynı OCR birden çok kez görünebilir).|
@@ -126,12 +126,12 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
   ],
 ```
 
-### <a name="keywords"></a>Anahtar sözcükler
+### <a name="keywords"></a>anahtar sözcükler
 
 |Ad|Açıklama|
 |---|---|
 |id|Anahtar sözcük kimliği.|
-|Metin|Anahtar sözcüğü metin.|
+|metin|Anahtar sözcüğü metin.|
 |Güven|Anahtar sözcüğü'nın tanıma güven.|
 |Dil|(Çevrildiğinde) anahtar sözcüğü dili.|
 |örnekler|Bu anahtar sözcük burada görünen zaman aralıkları listesi (bir anahtar sözcük birden çok kez görünebilir).|
@@ -181,10 +181,10 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
 |id|Yüz kimliği.|
 |ad|Yüz adı. 'Bilinmeyen #0', tanımlanan ünlülerle veya müşteri eğitilen kişi olabilir.|
 |Güven|Yüz kimliği güven.|
-|açıklama|Bir ünlülerle açıklamasını durumunda ("Satya Nadella doğacak adresindeki..."). |
+|açıklama|Bir ünlülerle durumunda açıklamasını. |
 |thumbnalId|Bu yüz küçük resim kimliği.|
-|knownPersonId|Bir bilinen kişi olması durumunda, kendi iç kimliği.|
-|Referenceıd|Bing ünlülerle durumunda Bing kimliğini.|
+|knownPersonId|Bilinen kişi olması durumunda, kendi iç kimliği.|
+|Referenceıd|Bir Bing ünlülerle durumunda, Bing kimliği|
 |referenceType|Şu anda yalnızca Bing.|
 |başlık|Bir ünlülerle durumunda başlığını (örneğin "CEO Microsoft'un").|
 |ImageUrl|Bir ünlülerle durumunda resim URL'si.|
@@ -219,7 +219,7 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
 }]
 ```
 
-### <a name="labels"></a>Etiketleri
+### <a name="labels"></a>etiketleri
 
 |Ad|Açıklama|
 |---|---|
@@ -331,35 +331,8 @@ Azure Media Services REST v3 API, ses ve video içeriğine çözümlemek sağlar
   ]
 ```
 
-### <a name="audioeffects"></a>audioEffects
 
-|Ad|Açıklama|
-|---|---|
-|id|Ses efekti kimliği.|
-|type|Ses efekti türü (örneğin, Clapping, okuma, sessizlik).|
-|örnekler|Burada bu ses efekti görünen zaman aralıkları listesi.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
-```
-
-
-### <a name="sentiments"></a>düşüncelerin
+### <a name="sentiments"></a>yaklaşımlar
 
 Düşüncelerin sentimentType alanı (nötr/olumlu/olumsuz) tarafından toplanır. Örneğin, 0-0.1, 0,1 0.2.
 

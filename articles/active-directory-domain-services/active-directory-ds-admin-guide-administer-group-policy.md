@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 3f49e4ac0073c81a6e55e6653acc7c6531989379
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ea7aa6c9dbde9a161567a815870b05da06cc82c8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212249"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331720"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Grup İlkesi, bir Azure AD etki alanı Hizmetleri yönetilen etki alanını yönetme
 Azure Active Directory etki alanı Hizmetleri için 'AADDC kullanıcılar' ve 'AADDC Bilgisayarları' kapsayıcı yerleşik Grup İlkesi nesneleri (GPO'lar) içerir. Yönetilen etki alanında Grup İlkesi yapılandırmak için bu yerleşik GPO'ları özelleştirebilirsiniz. Ayrıca, 'AAD DC Yöneticiler' grubunun üyeleri yönetilen etki alanında özel kendi OU'ları oluşturabilirsiniz. Bunlar ayrıca özel GPO'ları oluşturmak ve bunları bu özel OU'lara bağlayın. 'AAD DC Yöneticiler' gruba ait kullanıcılar yönetilen etki alanı Grup İlkesi yönetim ayrıcalıkları verilir.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu makalede listelenen görevleri gerçekleştirmek için gerekir:

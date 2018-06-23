@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 5fb3aca61b63d70c9341a3964247addf7241a844
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b48bfcd5057dcdcce921a56e664d5bc3506585c1
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618132"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335916"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Web tablodan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,7 +42,7 @@ Bu Web tablo bağlayıcıyı kullanmak için Self-hosted tümleştirmesi çalı�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli Web tablo bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

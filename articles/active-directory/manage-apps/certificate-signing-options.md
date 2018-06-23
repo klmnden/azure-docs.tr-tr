@@ -3,7 +3,7 @@ title: Gelişmiş Sertifika imzalama Azure Active Directory'de önceden tümleş
 description: Gelişmiş Sertifika imzalama Azure Active Directory'de önceden tümleştirilen uygulamalar için SAML belirtecinde seçenekleri kullanmayı öğrenin
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
-ms.author: jeedes
+ms.author: barbkess
+ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 16cb3e034bd928bbae8ae1f2e8d6b94b9ec699e4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 77cf2b1fb6eb4f67c0d6595e244bb317b5e68462
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303890"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332942"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Gelişmiş Seçenekleri Azure Active Directory'de galeri uygulamalar için SAML belirtecinde imzalama sertifikası
 Bugün Azure Active Directory (Azure AD) önceden tümleştirilmiş binlerce uygulamasına Azure Active Directory Uygulama galerisinde destekler. Bu sayı SAML 2.0 protokolü kullanarak çoklu oturum açma desteği 500'den fazla uygulama içerir. Bir kullanıcı Azure AD üzerinden bir uygulama SAML kullanarak kimlik doğrulaması gerçekleştirdiğinde, Azure AD bir belirteç (aracılığıyla bir HTTP POST) uygulamaya gönderir. Ardından, uygulama doğrular ve bir kullanıcı adı ve parola istemek yerine kullanıcı oturum belirteci kullanır. Bu SAML belirteçleri, Azure AD'de ve belirli standart algoritmaların tarafından oluşturulan benzersiz sertifikayla imzalanmış.

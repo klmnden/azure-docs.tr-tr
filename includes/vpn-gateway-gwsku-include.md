@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 05dc8ae48a9164e4f7118d378ab0eb7c30a4249e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/23/2018
 ms.locfileid: "30196856"
 ---
 Bir sanal ağ geçidi oluşturduğunuzda, kullanmak istediğiniz ağ geçidi SKU’sunu belirtmeniz gerekir. İş yükü, aktarım hızı, özellik ve SLA türlerine bağlı olarak gereksinimlerinize uyan SKU’ları seçin.
@@ -29,7 +29,7 @@ Yeni VPN ağ geçidi SKU'ları üzerindeki ağ geçitlerini sunulan özellik kü
 
 | **SKU**| **Özellikler**|
 | ---    | ---         |
-|**Basic** (**)   | **Rota tabanlı VPN**: P2S 10 tünelleri; P2S için; RADIUS kimlik doğrulaması P2S için hiçbir Ikev2<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
+|**Temel** (*)   | **Rota tabanlı VPN**: P2S 10 tünelleri; P2S için; RADIUS kimlik doğrulaması P2S için hiçbir Ikev2<br>**İlke tabanlı VPN** (IKEv1): 1 tünel; P2S yok|
 | **VpnGw1, VpnGw2 ve VpnGw3** | **Rota tabanlı VPN**: 30 tünelleri (*), P2S, BGP, etkin-etkin, özel IPSec/IKE İlkesi, ExpressRoute/VPN birlikte kullanımı |
 |        |             |
 
@@ -44,7 +44,7 @@ SLA ve özellik kümeleri farklılıkları nedeniyle, geliştirme, test ve üret
 | **İş yükü**                       | **SKU'lar**               |
 | ---                                | ---                    |
 | **Üretim, kritik iş yükleri** | VpnGw1, VpnGw2, VpnGw3 |
-| **Geliştirme-test veya kavram kanıtı**   | Basic (**)                 |
+| **Geliştirme-test veya kavram kanıtı**   | Temel (*)                 |
 |                                    |                        |
 
 (**) Temel SKU eski SKU kabul edilir ve özellik kısıtlamaları vardır. Temel SKU kullanmadan önce gereksinim duyduğunuz özelliği desteklendiğinden emin olun.

@@ -5,36 +5,37 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 05/16/2018
+ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 63653795ad8c52e2743fb02fa804dd2edbf0d2ab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d65c75a9b4f308ddd1bb6a6bff28c52c946e4f05
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371329"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320041"
 ---
 Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için yerinde aşağıdaki varsayılan sınırları sahip çok kiracılı bir hizmettir. Birçok sınırları kolayca sınırına kadar aboneliğiniz için desteğe başvurarak yükseltilebilir.
 
 ### <a name="version-2"></a>Sürüm 2
 
-| Kaynak | Varsayılan Sınır | Üst Sınır | 
-| -------- | ------------- | ------------- | 
-| bir Azure aboneliğinizin Data factory'leri | 50 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| data factory içinde komut zincirleri | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| data factory içinde veri kümeleri | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Data factory içinde Tetikleyiciler | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Bağlı hizmetler data factory içinde | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Data factory içinde tümleştirme çalışma zamanları <sup>4</sup> | 2500 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Kaynak | Varsayılan Sınır | Üst Sınır |
+| -------- | ------------- | ------------- |
+| Bir Azure aboneliğinizin Data factory'leri | 50 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Data factory içinde varlıkları (ardışık düzeni, veri kümeleri, Tetikleyiciler, bağlı hizmetler, tümleştirme çalışma zamanları) toplam sayısı | 5000 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Bir abonelik altında toplam CPU çekirdeği Azure SSIS tümleştirme Runtime(s) için | 100 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Ardışık Düzen eşzamanlı ardışık düzen çalışır | 100 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Ardışık Düzen başına en fazla etkinlikleri | 20 | 40 |
-| Ardışık Düzen başına en fazla parametreleri | 20 | 30 |
+| Veri Fabrikası eşzamanlı ardışık düzen çalışır | 10,000  | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Ardışık Düzen (kapsayıcıları için iç etkinlikler içerir) başına en fazla etkinlikleri | 40 | 40 |
+| Ardışık Düzen başına en fazla parametreleri | 50 | 50 |
+| ForEach öğeleri | 100,000 | 100,000 |
+| ForEach paralellik | 20 | 50 |
+| İfade başına karakter | 8,192 | 8,192 |
+| Minimum dönen pencere tetikleyici aralık | 15 dakika | 15 dakika |
+| Ardışık Düzen etkinlik çalışması için en büyük zaman aşımı | 7 gün | 7 gün |
 | Ardışık Düzen nesneleri için nesne başına bayt <sup>1</sup> | 200 KB | 200 KB |
 | Veri kümesi için nesne ve bağlantılı hizmet nesneleri başına bayt <sup>1</sup> | 100 KB | 2000 KB |
 | Bulut veri taşıma birimleri Etkinlik başına <sup>3</sup> | 256 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Yeniden deneme sayısı ardışık düzen etkinlik çalışması | 1 day(timeout) | 1 gün (zaman aşımı) |
 | API çağrıları yazma | 2500/İK<br/><br/> Bu sınır, Azure Resource Manager Azure Data Factory sınırlamasıdır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Okuma API çağrıları | 12.500/İK<br/><br/> Bu sınır, Azure Resource Manager Azure Data Factory sınırlamasıdır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
@@ -43,10 +44,10 @@ Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak i
 
 | **Kaynak** | **Varsayılan Sınır** | **Üst Sınır** |
 | --- | --- | --- |
-| bir Azure aboneliğinizin Data factory'leri |50 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| data factory içinde komut zincirleri |2500 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| data factory içinde veri kümeleri |5000 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| veri kümesi başına eşzamanlı dilimleri |10 |10 |
+| Bir Azure aboneliğinizin Data factory'leri |50 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Data factory içinde komut zincirleri |2500 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Data factory içinde veri kümeleri |5000 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Veri kümesi başına eşzamanlı dilimleri |10 |10 |
 | Ardışık Düzen nesneleri için nesne başına bayt <sup>1</sup> |200 KB |200 KB |
 | Veri kümesi için nesne ve bağlantılı hizmet nesneleri başına bayt <sup>1</sup> |100 KB |2000 KB |
 | Bir abonelik içindeki Hdınsight isteğe bağlı küme çekirdeği <sup>2</sup> |60 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |

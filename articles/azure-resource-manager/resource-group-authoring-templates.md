@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603085"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334807"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Yapı ve Azure Resource Manager şablonları sözdizimi anlama
 Bu makalede Azure Resource Manager şablonu yapısını tanımlar. Bir şablon ve bu bölümlerdeki özellikler farklı bölümlerini gösterir. JSON ve dağıtımınız için değerleri oluşturmada kullanabileceğiniz ifadeler, şablon oluşur. Şablon oluşturmanın adım adım öğretici için bkz [, ilk Azure Resource Manager şablonu oluşturma](resource-manager-create-first-template.md).
@@ -214,6 +214,7 @@ Değişkenleri tanımlama hakkında daha fazla bilgi için bkz: [Azure Resource 
 Bir kullanıcı işlevi tanımlanırken, bazı sınırlamalar vardır:
 
 * İşlevin değişkenleri erişemiyor.
+* Diğer kullanıcı tanımlı işlevler işlevi çağrılamaz.
 * İşlevini kullanamazsınız [başvuru işlevi](resource-group-template-functions-resource.md#reference).
 * İşlev parametreleri varsayılan değerlere sahip olamaz.
 

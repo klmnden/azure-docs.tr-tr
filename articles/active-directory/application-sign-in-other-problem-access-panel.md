@@ -3,23 +3,24 @@ title: Bir uygulamaya erişim panelinde oturum açmada sorun | Microsoft Docs
 description: Sorunları gidermek nasıl uygulama myapps.microsoft.com adresindeki Microsoft Azure AD erişim paneli erişme
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 5765d64fccba69edd0ebe91a6c34694763e6c539
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 28076dc0234b91d80f8aac44a96b00001b96f2a0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070293"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331880"
 ---
 # <a name="problems-signing-in-to-an-application-from-the-access-panel"></a>Bir uygulamaya erişim panelinde oturum açma sorunları
 
@@ -79,7 +80,7 @@ Erişim paneli tarayıcı uzantısı yüklemek için aşağıdaki adımları izl
 
 1.  Açık [erişim paneli](https://myapps.microsoft.com) olarak oturum açın ve desteklenen tarayıcılar birinde bir **kullanıcı** Azure ad.
 
-2.  tıklatın bir **parola SSO uygulaması** erişim panelinde.
+2.  Tıklatın bir **parola SSO uygulaması** erişim panelinde.
 
 3.  Yazılımı yüklemek soran istem içinde seçin **Şimdi Yükle**.
 
@@ -181,7 +182,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 13. tıklatın **yapılandırma &lt;uygulama adı&gt;**  erişim belgelerine çoklu oturum açma uygulamada yapılandırma. Ayrıca, uygulama ile SSO kurulum için gerekli sertifika ve meta verileri URL'leri vardır.
 
-14. tıklatın **kaydetmek** yapılandırmayı kaydetmek için.
+14. Tıklatın **kaydetmek** yapılandırmayı kaydetmek için.
 
 15. Kullanıcılar uygulamayı atayın.
 

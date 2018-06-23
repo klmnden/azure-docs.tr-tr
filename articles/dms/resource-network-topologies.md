@@ -1,5 +1,5 @@
 ---
-title: Ağ topolojileri Azure veritabanı geçiş hizmeti ile Azure SQL DB yönetilen örneği geçişler için | Microsoft Docs
+title: Ağ topolojileri Azure veritabanı geçiş hizmeti ile Azure SQL veritabanı örneği yönetilen geçişler için | Microsoft Docs
 description: Veritabanı geçiş hizmeti için kaynak ve hedef yapılandırmaları hakkında bilgi edinin.
 services: database-migration
 author: HJToland3
@@ -10,16 +10,16 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/06/2018
-ms.openlocfilehash: 5904864ffba656dab17e1549ed9832be4258a67f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/21/2018
+ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235409"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316876"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Azure veritabanı geçiş hizmeti ile Azure SQL DB yönetilen örneği geçişler için ağ topolojisi
-Bu makalede, Azure veritabanı geçiş hizmeti Azure SQL veritabanı yönetilen örneği için şirket içi SQL sunucularından sorunsuz geçiş deneyimi sağlamak için birlikte çalışabilir çeşitli ağ topolojileri hakkında bilgi edineceksiniz.
+Bu makalede Azure veritabanı geçiş hizmeti Azure SQL veritabanı yönetilen örneği için şirket içi SQL sunucularından kapsamlı geçiş deneyimi sağlamak için birlikte çalışabilir çeşitli ağ topolojileri açıklanır.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>Azure SQL veritabanı yönetilen karma iş yükleri için yapılandırılmış örneği 
 Azure SQL veritabanı yönetilen örneğiniz şirket içi ağınıza bağlanırsa bu topoloji kullanın. Bu yaklaşım ağ en Basitleştirilmiş yönlendirme sağlar ve geçiş sırasında maksimum veri işleme verir.
@@ -40,7 +40,7 @@ Bir veya daha fazla aşağıdaki senaryolarda ortamınızı gerektiriyorsa, bu a
 
 **Gereksinimleri**
 - Bu senaryo için Azure veritabanı geçiş hizmetini kullanan VNET ayrıca şirket içi ağ kullanarak bağlanmalıdır (https://docs.microsoft.com/azure/expressroute/expressroute-introduction) veya [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Bunu ayarlamanız gerekir [VNET ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) yönetilen Azure SQL veritabanı örneği ve Azure veritabanı geçiş hizmeti için kullanılan VNET arasında.
+- Ayarlanan [VNET ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) yönetilen Azure SQL veritabanı örneği ve Azure veritabanı geçiş hizmeti için kullanılan VNET arasında.
 
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Bulut Bulut geçişler: VNET paylaşılan
@@ -62,7 +62,7 @@ Bir veya daha fazla aşağıdaki senaryolarda ortamınızı gerektiriyorsa, bu a
 ![Yalıtılmış bir vnet ile Bulut Bulut geçişler için ağ topolojisi](media\resource-network-topologies\cloud-to-cloud-isolated.png)
 
 **Gereksinimleri**
-- Bunu ayarlamanız gerekir [VNET ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) yönetilen Azure SQL veritabanı örneği ve Azure veritabanı geçiş hizmeti için kullanılan VNET arasında.
+- Ayarlanan [VNET ağ eşlemesi](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) yönetilen Azure SQL veritabanı örneği ve Azure veritabanı geçiş hizmeti için kullanılan VNET arasında.
 
 
 ## <a name="see-also"></a>Ayrıca Bkz.

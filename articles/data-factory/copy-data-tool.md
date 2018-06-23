@@ -3,20 +3,20 @@ title: Veri Kopyala aracı Azure Data Factory | Microsoft Docs
 description: Azure veri fabrikası arabiriminde veri Kopyala aracı hakkında bilgi sağlar
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/10/2018
-ms.author: jingwang
-ms.openlocfilehash: 5180a490a543b6cfc2a8129423f0e663de2e06e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/18/2018
+ms.author: yexu
+ms.openlocfilehash: 8941ec26cef5e3dc2f17faf0d7eb843b76f8926f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619431"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331852"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory kopyalama veri aracı
 Azure veri fabrikası kopya veri aracı kolaylaştırır ve genellikle bir uçtan uca veri tümleştirme senaryosunun bir ilk adım olan bir veri gölü içine veri alma sürecini en iyi duruma getirir.  Zaman kaydeder özellikle Azure Data Factory ilk kez bir veri kaynağından veri alma için kullandığınızda. Bu aracı kullanarak avantajlarından bazıları şunlardır:

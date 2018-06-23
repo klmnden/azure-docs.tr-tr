@@ -1,5 +1,5 @@
 ---
-title: Amazon Market Web Azure Data Factory (Beta) kullanarak hizmetinden veri kopyalama | Microsoft Docs
+title: Amazon Market Web Azure Data Factory (Önizleme) kullanarak hizmetinden veri kopyalama | Microsoft Docs
 description: Verileri Amazon Market Web hizmetinden desteklenen havuz veri depoları için kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 0f15ab5a84a51f0a22b00b647046e5a15da469a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: add0f9185ac94a8b673e0c05de9de919286ffa3a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616371"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337957"
 ---
-# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Amazon Market Web hizmetinden veri Kopyala
+# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Amazon Market Web hizmetinden veri Kopyala
 
 Bu makalede kopya etkinliği Azure Data Factory'de Amazon Market Web hizmetinden veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
@@ -28,7 +28,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de Amazon Market Web hizmetinden
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve bize geri bildirimde bulunun. Üretim ortamında kullanmayın.
+> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -38,7 +38,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Amazon Market Web hizmet Bağlayıcısı için Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

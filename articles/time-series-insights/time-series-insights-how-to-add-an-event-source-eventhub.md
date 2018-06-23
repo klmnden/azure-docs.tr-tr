@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 780a7cb3035dbe19c45b5fe9c6dfae54fccafd03
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8b1fe447cb673b9bc1f4fe4e73f7412a21f701a5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293657"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330871"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Zaman serisi Öngörüler ortam için bir olay hub'ı olay kaynağı ekleme
 
@@ -26,6 +26,22 @@ Bu makalede, bir Event Hub'ından zaman serisi Öngörüler ortamınıza veriler
 - Olay Hub'ı oluşturma. Event Hubs hakkında daha fazla bilgi için bkz: [bir olay hub'ları ad alanı ve Azure portalını kullanarak bir event hub oluşturma](../event-hubs/event-hubs-create.md)
 - Olay hub'ı etkin ileti olayları gönderilen olmalıdır. Daha fazla bilgi için bkz: [.NET Framework kullanılarak Azure Event Hubs için olayları göndermek](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Gelen kullanmak için olay hub'zaman serisi Insight ortamı için ayrılmış bir tüketici grubu oluşturun. Herhangi bir tüketiciye paylaşılmayan kendi ayrılmış bir tüketici grubundaki her zaman serisi Öngörüler olay kaynağı olmalıdır. Birden çok okuyucular aynı tüketici grubu olaylarından kullanırsa, tüm okuyucular hatalar görmeniz olasıdır. Ayrıca olay hub'ı başına 20 tüketici grupları sınırı yoktur. Ayrıntılar için bkz [Event Hubs Programlama Kılavuzu](../event-hubs/event-hubs-programming-guide.md).
+
+### <a name="add-a-consumer-group-to-your-event-hub"></a>Bir tüketici grubu için olay Hub'ınızı ekleyin
+Tüketici grupları, Azure olay hub'larından verilerini çekmesini uygulamalar tarafından kullanılır. Güvenilir bir şekilde olay Hub'ından veri okumak için bu zaman serisi Öngörüler ortam yalnızca tarafından kullanılmak üzere ayrılmış bir tüketici grubu, sağlar.
+
+Olay Hub'ınıza yeni bir tüketici grubu eklemek için aşağıdaki adımları izleyin:
+1. Azure portalında bulun ve olay Hub'ınızı açın.
+
+2. Altında **varlıklar** başlığını seçin **tüketici grupları**.
+
+   ![Olay hub'ı - bir tüketici grubu Ekle](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+
+3. Seçin **+ tüketici grubu** yeni bir tüketici grubu eklemek için. 
+
+4. Üzerinde **tüketici grupları** sayfasında, yeni bir sağlayın benzersiz **adı**.  Zaman serisi Öngörüler ortamında yeni bir olay kaynağı oluştururken, bu aynı adı kullanın.
+
+5. Seçin **oluşturma** yeni tüketici grubu oluşturun.
 
 ## <a name="add-a-new-event-source"></a>Yeni bir olay kaynağı Ekle
 1. [Azure Portal](https://portal.azure.com) oturum açın.
@@ -78,29 +94,14 @@ Bu makalede, bir Event Hub'ından zaman serisi Öngörüler ortamınıza veriler
    | Olay serileştirme biçimi | JSON günümüzde yalnızca serileştirme şeklindedir. Olay iletileri bu biçiminde olması gerekir veya hiç veri okuyabilir. |
    | Zaman damgası özelliği adı | Bu değeri belirlemek için olay Hub'ına gönderilen ileti verilerin ileti biçimi anlamanız gerekir. Bu değer **adı** olay zaman damgası kullanmak istediğiniz ileti veri belirli olay özelliğinin. Değeri büyük/küçük harf duyarlıdır. Boş bırakılırsa **olay sıraya alma süresi** içinde olay kaynağı olay zaman damgası kullanılır. |
 
+10. Olay hub'ınıza eklenen ayrılmış TSI tüketici grubu adını ekleyin.
 
-10. Seçin **oluşturma** yeni olay kaynağı ekleyin.
+11. Seçin **oluşturma** yeni olay kaynağı ekleyin.
    
    ![Oluştur’a tıklayın](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
 
    Olay kaynağının oluşturulmasından sonra, Zaman Serisi Görüşleri ortamınıza veri akışını otomatik olarak başlatır.
 
-
-### <a name="add-a-consumer-group-to-your-event-hub"></a>Bir tüketici grubu için olay Hub'ınızı ekleyin
-Tüketici grupları, Azure olay hub'larından verilerini çekmesini uygulamalar tarafından kullanılır. Güvenilir bir şekilde olay Hub'ından veri okumak için bu zaman serisi Öngörüler ortam yalnızca tarafından kullanılmak üzere ayrılmış bir tüketici grubu, sağlar.
-
-Olay Hub'ınıza yeni bir tüketici grubu eklemek için aşağıdaki adımları izleyin:
-1. Azure portalında bulun ve olay Hub'ınızı açın.
-
-2. Altında **varlıklar** başlığını seçin **tüketici grupları**.
-
-   ![Olay hub'ı - bir tüketici grubu Ekle](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
-
-3. Seçin **+ tüketici grubu** yeni bir tüketici grubu eklemek için. 
-
-4. Üzerinde **tüketici grupları** sayfasında, yeni bir sağlayın benzersiz **adı**.  Zaman serisi Öngörüler ortamında yeni bir olay kaynağı oluştururken, bu aynı adı kullanın.
-
-5. Seçin **oluşturma** yeni tüketici grubu oluşturun.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Veri erişim ilkeleri tanımlamanıza](time-series-insights-data-access.md) verilerin güvenliğini sağlamak için.

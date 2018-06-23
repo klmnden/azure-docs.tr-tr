@@ -3,21 +3,23 @@ title: Federasyon tek oturum açma için Azure AD galeri uygulamanın yapıland�
 description: Yapılandırmak için Federasyon nasıl çoklu oturum açmayı olan bir Azure AD galeri uygulamanın ve öğreticiler hızlı bir şekilde kullanmaya başlamak için kullanın
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: f74e614cd8709503afcbae8714732bbacf7c2ae2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331659"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Federasyon tek oturum açma için Azure AD galeri uygulama yapılandırma
 
@@ -104,7 +106,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 13. tıklatın **yapılandırma &lt;uygulama adı&gt;**  erişim belgelerine çoklu oturum açma uygulamada yapılandırma. Ayrıca, uygulama ile SSO kurulum için gerekli sertifika ve meta verileri URL'leri vardır.
 
-14. tıklatın **kaydetmek** yapılandırmayı kaydetmek için.
+14. Tıklatın **kaydetmek** yapılandırmayı kaydetmek için.
 
 15. Kullanıcılar uygulamayı atayın.
 
@@ -165,7 +167,7 @@ Uygulama meta verileri veya sertifika Azure AD'den karşıdan yüklemek için a�
 
 8.  Git **SAML imzalama sertifikası** bölümünde ve ardından **karşıdan** sütun değeri. Çoklu oturum açma yapılandırma hangi uygulama gerektiriyor bağlı olarak, meta veri XML yükleme seçeneği ya da sertifika bakın.
 
-Azure AD meta verilerini almak için bir URL sağlamaz. Meta veriler yalnızca bir XML dosyası olarak alınabilir.
+Azure AD meta verilerini almak için bir URL de sağlar. Meta veri URL'sini uygulamaya özgü almak için bu deseni izlemenizi: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
 
 ## <a name="assign-users-to-the-application"></a>Uygulamaya kullanıcılar atama
 

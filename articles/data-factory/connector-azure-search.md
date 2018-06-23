@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 280c91d6a871984959d587e9895166853e89cc45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 85c854e697e7178bbdb3429c5384d67731770117
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615691"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335521"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Search dizini için veri kopyalama
 
@@ -37,7 +37,7 @@ Tüm desteklenen kaynak veri deposundan verileri Azure Search dizinine kopyalaya
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Azure Search bağlayıcıya Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -176,7 +176,7 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 | Dize | E |
 | Int32 | E |
 | Int64 | E |
-| Çift | E |
+| çift | E |
 | Boole | E |
 | DataTimeOffset | E |
 | Dize dizisi | N |

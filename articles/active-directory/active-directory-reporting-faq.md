@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2ceaf4ecf7da78377c52135b7de5191c1dc3dd28
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232554"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335066"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>SSS raporlama Azure Active Directory
 
@@ -72,7 +72,7 @@ Bu makalede raporlama Azure Active Directory (Azure AD) hakkında sık sorulan s
 
 **S: kaç kayıt Azure portalından karşıdan yükleyebilir miyim?**
 
-**Y:** en fazla 5000 kayıtları Azure Portalı'ndan yükleyebilirsiniz. Kayıtları göre sıralanır *en son* ve varsayılan olarak, en son 5000 kayıtları alın. 5000'den büyük kayıt boyutları için filtre koşulları seçin ve ardından *betik* Azure portalındaki düğmesi. Bu, bir CSV dosyası, filtre koşulları eşleşen tüm kayıtların üretmek için çalıştırabilirsiniz bir PowerShell betiğini indirir. PowerShell betiğini çalıştırmak gereken *Yönetici modu*. Daha fazla bilgi için bkz: [karşıdan oturum açma etkinliklerini](active-directory-reporting-activity-sign-ins.md#download-sign-in-activities).
+**Y:** en fazla 5000 kayıtları Azure Portalı'ndan yükleyebilirsiniz. Kayıtları göre sıralanır *en son* ve varsayılan olarak, en son 5000 kayıtları alın.
 
 ---
 

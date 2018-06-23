@@ -1,6 +1,6 @@
 ---
-title: 'Öğretici: Azure Active Directory Tümleştirme ile Cisco Cloudlock | Microsoft Docs'
-description: Çoklu oturum açma Azure Active Directory ve Cisco Cloudlock arasında yapılandırmayı öğrenin.
+title: 'Öğretici: Azure Active Directory ile tümleştirme bulut güvenlik doku ile | Microsoft Docs'
+description: Çoklu oturum açma Azure Active Directory ve bulut güvenlik doku arasında yapılandırmayı öğrenin.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,38 +8,37 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 549e8810-1b3b-4351-bf4b-f07de98980d1
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2491c0887cdcb47e6ce8f686835042bc23092df8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5ec729c6f82cec503cae2fa057f5842849004ac7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220473"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318254"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-cisco-cloudlock"></a>Öğretici: Cisco Cloudlock Azure Active Directory Tümleştirme
+# <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>Öğretici: Azure Active Directory ile tümleştirme bulut güvenlik doku ile
 
-Bu öğreticide, Azure Active Directory (Azure AD) ile Cisco Cloudlock tümleştirmek öğrenin.
+Bu öğreticide, Azure Active Directory (Azure AD) ile bulut güvenlik doku tümleştirmek öğrenin.
 
-Cisco Cloudlock Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
+Bulut güvenlik doku Azure AD ile tümleştirme ile aşağıdaki avantajları sağlar:
 
-- Cisco Cloudlock erişimi, Azure AD'de kontrol edebilirsiniz.
-- Azure AD hesaplarına otomatik olarak (çoklu oturum açma) için Cisco Cloudlock açan kullanıcılarınıza etkinleştirebilirsiniz.
+- Bulut güvenlik doku erişimi, Azure AD'de kontrol edebilirsiniz.
+- Azure AD hesaplarına otomatik olarak bulut güvenlik dokuya (çoklu oturum açma) açan kullanıcılarınıza etkinleştirebilirsiniz.
 - Hesaplarınızı bir merkezi konumda - Azure portalında yönetebilir.
 
 Azure AD ile SaaS uygulama tümleştirmesi hakkında daha fazla ayrıntı bilmek istiyorsanız, bkz: [uygulama erişimi ve çoklu oturum açma Azure Active Directory ile nedir](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Cisco Cloudlock ile Azure AD tümleştirme yapılandırmak için aşağıdaki öğeleri gerekir:
+Azure AD tümleştirme bulut güvenlik doku ile yapılandırmak için aşağıdaki öğeleri gerekir:
 
 - Bir Azure AD aboneliği
-- Bir Cisco Cloudlock çoklu oturum açma abonelik etkin
+- Bir bulut güvenlik doku çoklu oturum açma abonelik etkin
 
 > [!NOTE]
 > Bu öğreticide adımları test etmek için bir üretim ortamı'nı kullanarak önermiyoruz.
@@ -52,13 +51,13 @@ Bu öğreticide test adımları için bu önerileri uygulamanız gerekir:
 ## <a name="scenario-description"></a>Senaryo açıklaması
 Bu öğreticide, Azure AD çoklu oturum açma bir test ortamında test edin. Bu öğreticide gösterilen senaryo iki ana yapı taşlarını oluşur:
 
-1. Cisco Cloudlock Galeriden ekleme
+1. Galeriden bulut güvenlik doku ekleme
 2. Çoklu oturum açmayı yapılandırma ve Azure AD sınama
 
-## <a name="adding-cisco-cloudlock-from-the-gallery"></a>Cisco Cloudlock Galeriden ekleme
-Azure AD Cisco Cloudlock tümleştirilmesi yapılandırmak için Cisco Cloudlock Galeriden yönetilen SaaS uygulamaları listenize eklemeniz gerekir.
+## <a name="adding-the-cloud-security-fabric-from-the-gallery"></a>Galeriden bulut güvenlik doku ekleme
+Azure AD bulut güvenlik doku tümleştirilmesi yapılandırmak için yönetilen SaaS uygulamaları listenize Galeriden bulut güvenlik doku eklemeniz gerekir.
 
-**Cisco Cloudlock Galeriden eklemek için aşağıdaki adımları gerçekleştirin:**
+**Galeriden bulut güvenlik doku eklemek için aşağıdaki adımları gerçekleştirin:**
 
 1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
 
@@ -72,41 +71,41 @@ Azure AD Cisco Cloudlock tümleştirilmesi yapılandırmak için Cisco Cloudlock
 
     ![Yeni Uygulama düğmesi][3]
 
-4. Arama kutusuna **Cisco Cloudlock**seçin **Cisco Cloudlock** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
+4. Arama kutusuna **bulut güvenlik doku**seçin **bulut güvenlik doku** sonuç panelinden ardından **Ekle** uygulama eklemek için düğmeyi.
 
-    ![Cisco Cloudlock sonuçlar listesinde](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
+    ![Sonuçlar listesinde bulut güvenlik yapı](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Yapılandırma ve Azure AD çoklu oturum açmayı test etme
 
-Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma Cisco "Britta Simon" adlı bir test kullanıcı tabanlı Cloudlock ile test etme.
+Bu bölümde, yapılandırma ve Azure AD çoklu oturum açma "Britta Simon" adlı bir test kullanıcı tabanlı bulut güvenlik doku ile test etme.
 
-Tekli çalışmaya oturum için Azure AD Cisco Cloudlock karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının Cisco Cloudlock ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
+Tekli çalışmaya oturum için Azure AD bulut güvenlik doku karşılık gelen kullanıcı için bir kullanıcı Azure AD'de nedir bilmek ister. Diğer bir deyişle, bir Azure AD kullanıcısının bulut güvenlik doku ilgili kullanıcı arasında bir bağlantı ilişkisi kurulması gerekir.
 
-Yapılandırmak ve Azure AD çoklu oturum açma ile Cisco Cloudlock sınamak için aşağıdaki yapı taşları tamamlamanız gerekir:
+Yapılandırma ve Azure AD çoklu oturum açma bulut güvenlik doku ile test etmek için aşağıdaki yapı taşları tamamlamanız gerekir:
 
 1. **[Azure AD çoklu oturum açma yapılandırma](#configure-azure-ad-single-sign-on)**  - bu özelliği kullanmak, kullanıcılarınızın etkinleştirmek için.
 2. **[Bir Azure AD test kullanıcısı oluşturma](#create-an-azure-ad-test-user)**  - Azure AD çoklu oturum açma Britta Simon ile test etmek için.
-3. **[Cisco Cloudlock test kullanıcısı oluşturma](#create-a-cisco-cloudlock-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlı Cisco Cloudlock sağlamak için.
+3. **[Bulut güvenlik doku test kullanıcısı oluşturma](#create-a-the-cloud-security-fabric-test-user)**  - Britta Simon, karşılık gelen kullanıcı Azure AD gösterimini bağlantılı bulut güvenlik doku sağlamak için.
 4. **[Azure AD test kullanıcısı atayın](#assign-the-azure-ad-test-user)**  - Azure AD çoklu oturum açma kullanmak Britta Simon etkinleştirmek için.
 5. **[Test çoklu oturum açma](#test-single-sign-on)**  - yapılandırma çalışıp çalışmadığını doğrulayın.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD çoklu oturum açmayı yapılandırın
 
-Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma Cisco Cloudlock uygulamanızda yapılandırın.
+Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve çoklu oturum açma, bulut güvenlik doku uygulamanızda yapılandırın.
 
-**Azure AD çoklu oturum açma ile Cisco Cloudlock yapılandırmak için aşağıdaki adımları gerçekleştirin:**
+**Azure AD çoklu oturum açma ile bulut güvenlik doku yapılandırmak için aşağıdaki adımları gerçekleştirin:**
 
-1. Azure portalında üzerinde **Cisco Cloudlock** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
+1. Azure portalında üzerinde **bulut güvenlik doku** uygulama tümleştirme sayfasını tıklatın **çoklu oturum açma**.
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+
     ![Çoklu oturum açma iletişim kutusu](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_samlbase.png)
 
-3. Üzerinde **Cisco Cloudlock etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **bulut güvenlik doku etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
-    ![Cisco Cloudlock etki alanı ve URL'leri tek oturum açma bilgileri](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
+    ![Bulut güvenlik doku etki alanı ve URL'ler tek oturum açma bilgileri](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. İçinde **oturum açma URL'si** metin kutusuna, bir URL yazın:
     | |
@@ -114,28 +113,24 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
-    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: 
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın:
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
     | `https://app.cloudlock.com/gate/saml/sso/<subdomain>` |
 
-    > [!NOTE] 
-    > Tanımlayıcı değeri gerçek değil. Değerin gerçek tanımlayıcısı ile güncelleştirin. Kişi [Cisco Cloudlock istemci destek ekibi](mailto:support@cloudlock.com) değeri alınamıyor. 
- 
+    > [!NOTE]
+    > Tanımlayıcı değeri gerçek değil. Değerin gerçek tanımlayıcısı ile güncelleştirin. Kişi [bulut güvenlik doku istemci destek ekibi](mailto:support@cloudlock.com) değeri alınamıyor. 
+
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_certificate.png)
 
 5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/ciscocloudlock-tutorial/tutorial_general_400.png)
 
-6. Çoklu oturum açma yapılandırmak için **Cisco Cloudlock** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Cisco Cloudlock destek ekibi](mailto:support@cloudlock.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+6. Çoklu oturum açma yapılandırmak için **bulut güvenlik doku** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [bulut güvenlik doku destek ekibi](mailto:support@cloudlock.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -168,26 +163,26 @@ Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı 
     c. Seçin **Göster parola** onay kutusunu işaretleyin ve ardından görüntülenen değer aşağı yazma **parola** kutusu.
 
     d. **Oluştur**’a tıklayın.
- 
-### <a name="create-a-cisco-cloudlock-test-user"></a>Cisco Cloudlock test kullanıcısı oluşturma
 
-Bu bölümde, Cisco Cloudlock Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [Cisco Cloudlock destek ekibi](mailto:support@cloudlock.com) Cisco Cloudlock platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
+### <a name="create-a-the-cloud-security-fabric-test-user"></a>Bulut güvenlik doku test kullanıcısı oluşturma
+
+Bu bölümde, bulut güvenlik yapıda Britta Simon adlı bir kullanıcı oluşturun. Çalışmak [bulut güvenlik doku destek ekibi](mailto:support@cloudlock.com) bulut güvenlik doku platform kullanıcıları eklemek için. Kullanıcıların oluşturulan ve çoklu oturum açma kullanmadan önce etkinleştirilmelidir. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD test kullanıcısı atayın
 
-Bu bölümde, Cisco Cloudlock erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
+Bu bölümde, bulut güvenlik doku erişim vererek, Azure çoklu oturum açma kullanılacak Britta Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
-**Cisco Cloudlock Britta Simon atamak için aşağıdaki adımları gerçekleştirin:**
+**Britta Simon bulut güvenlik dokuya atamak için aşağıdaki adımları gerçekleştirin:**
 
 1. Azure portalında uygulamaları görünümünü açın ve ardından dizin görünümüne gidin ve Git **kurumsal uygulamalar** ardından **tüm uygulamaları**.
 
-    ![Kullanıcı atama][201] 
+    ![Kullanıcı atama][201]
 
-2. Uygulamalar listesinde **Cisco Cloudlock**.
+2. Uygulamalar listesinde **bulut güvenlik doku**.
 
-    ![Uygulamalar listesinde Cisco Cloudlock bağlantı](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
+    ![Uygulamalar listesinde bulut güvenlik doku bağlantı](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_app.png)  
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
@@ -202,20 +197,18 @@ Bu bölümde, Cisco Cloudlock erişim vererek, Azure çoklu oturum açma kullan�
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
 
-Erişim paneli Cisco Cloudlock parçasında tıklattığınızda, otomatik olarak Cisco Cloudlock uygulamanıza açan.
-Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md). 
+Erişim paneli bulut güvenlik doku parçasında tıklattığınızda, otomatik olarak bulut güvenlik Fabric uygulamanızı açan.
+Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](../active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ek kaynaklar
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 
@@ -230,4 +223,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/ciscocloudlock-tutorial/tutorial_general_201.png
 [202]: ./media/ciscocloudlock-tutorial/tutorial_general_202.png
 [203]: ./media/ciscocloudlock-tutorial/tutorial_general_203.png
-

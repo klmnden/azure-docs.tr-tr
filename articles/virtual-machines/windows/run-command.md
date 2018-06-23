@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3feed9c1c8903db66a0506f09161982dadaa79ba
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284973"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332723"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell komut dosyalarını çalıştır komutu ile Windows VM'nizi çalıştırın
 
@@ -23,7 +23,7 @@ Bir Azure Windows VM dahilinde Kabuk PowerShell betikleri çalıştırmak için 
 
 Sanal makinelerinize erişmek için kullanılan birden fazla seçeneği vardır. Çalıştır komutunu kullanarak uzaktan VM Aracısı, sanal makinelerde çalıştırabilir. Azure Portalı aracılığıyla çalıştırma komutu kullanılabilir [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), veya [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Bu yetenek burada betik etkileşimindeki sanal makineleri çalıştırmak istediğiniz ve sorun giderme ve RDP sahip olmayan bir sanal makine düzeltmek için yalnızca yollarından biri, veya SSH bağlantı noktası açın hatalı ağ veya yönetici kullanıcı nedeniyle tüm senaryolarda kullanışlıdır yapılandırma.
+Bu yetenek olduğu bir sanal makine içinde bir komut dosyası çalıştırmak istediğiniz ve sorun giderme ve RDP sahip olmayan bir sanal makine düzeltmek için yalnızca yollarından biri, veya SSH bağlantı noktası açın hatalı ağ veya yönetici kullanıcı nedeniyle tüm senaryolarda kullanışlıdır yapılandırma.
 
 ## <a name="restrictions"></a>Kısıtlamalar
 
@@ -33,9 +33,10 @@ Bu yetenek burada betik etkileşimindeki sanal makineleri çalıştırmak istedi
 * Bir komut dosyasını çalıştırmak için en düşük saat yaklaşık 20 saniyenin altındadır
 * Sistemi olarak Windows üzerinde çalışan komut dosyaları
 * Bir defada tek bir betik çalıştırabilir
-* Bilgi (etkileşimli mod) isteminde betikleri desteklenmez.
 * Çalışan bir komut iptal edilemez
 * Bir komut dosyası çalıştırabilirsiniz en uzun süre 90 hangi BT sonra zaman aşımına uğrar, dakikadır
+
+**PermissionsConfig OrchestratorUsersGroup***GroupName***- OrchestratorUser***kullanıcıadı***\-uzaktan** 
 
 ## <a name="run-a-command"></a>Bir komutu çalıştırın
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cb68b00232edd79a7b9cf239c1576c88731812d6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cca35d75f6d5560a621d377ae544eeba41434962
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617690"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316388"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SQL Server gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ Aşağıdaki özellikler, SQL Server bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **SqlServer** | Evet |
-| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulamasını kullanarak SQL Server veritabanına bağlanmak için gereken connectionString bilgilerini belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
+| connectionString |SQL kimlik doğrulaması veya Windows kimlik doğrulamasını kullanarak SQL Server veritabanına bağlanmak için gereken connectionString bilgilerini belirtin. Aşağıdaki örneğe bakın ve eklediğiniz daha fazla özellik örneğin AlwaysOn içerecek şekilde zenginleştirmek. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
 | Kullanıcı adı |Windows kimlik doğrulamasını kullanıyorsanız kullanıcı adı belirtin. Örnek: **domainname\\kullanıcıadı**. |Hayır |
 | password |Kullanıcı adı için belirtilen kullanıcı hesabı için parola belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Hayır |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu genel olarak erişilebilir ise) Self-hosted tümleştirmesi çalışma zamanı veya Azure tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
@@ -492,9 +492,9 @@ SQL Server başlangıç/bitiş veri kopyalama işlemi sırasında aşağıdaki e
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan |Çift |
-| görüntü |Byte] |
-| Int |Int32 |
+| Kayan |çift |
+| image |Byte] |
+| int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |

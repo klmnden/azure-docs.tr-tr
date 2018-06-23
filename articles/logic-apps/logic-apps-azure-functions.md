@@ -15,12 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297878"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331181"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Ekleme ve logic apps için özel kod aracılığıyla Azure işlevleri çalıştırın
 
@@ -35,7 +35,7 @@ C# veya node.js özel parçacıkları logic apps içinde çalıştırmak için A
 
 Gelen bir işlev Azure işlevleri portalındaki oluşturmanızı öneririz **Genel Web kancası - düğüm** veya **Genel Web kancası - C#** şablonları. Sonuç bir otomatik doldurulmuş kabul eden bir şablon oluşturur `application/json` mantığı uygulamasından. Bu şablondan Oluştur işlevleri otomatik olarak algılanır ve altında mantığı Uygulama Tasarımcısı'nda görünen **my bölgede Azure işlevleri.**
 
-Azure portalında üzerinde **tümleştir** bölmesini işlevinizi için şablonunuzu göstermek, **modu** kümesine **Web kancası** ve **Web kancası türü** ayarlanır **genel JSON**. 
+Azure portalında üzerinde **tümleştir** bölmesini işlevinizi için şablonunuzu göstermek, **modu** kümesine **Web kancası** ve **Web kancası türü**ayarlanır **genel JSON**. 
 
 Web kancası işlevleri bir isteğini kabul edin ve yöntemiyle uygulamasına geçirmek bir `data` değişkeni. Gibi noktalı gösterim kullanılarak yükünüzü özelliklerini erişebilirsiniz `data.function-name`. Örneğin, bir tarih saat değeri bir tarih dizeye dönüştürür basit bir JavaScript işlevi aşağıdaki gibi görünür:
 
@@ -62,7 +62,7 @@ Bir işlev içinde bir mantıksal uygulama tetikleyebilir. Bkz: [Logic apps aran
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Mantıksal Uygulama Tasarımcısı'ndan bir işlev oluşturun
 
-Tasarımcısı'ndan bir node.js Web kancası işlevi de oluşturabilirsiniz. İlk olarak seçin **Azure işlevleri my bölgede** ve işlevinizi için bir kapsayıcı seçin. Henüz bir kapsayıcınız yoksa, birinden oluşturmanıza gerek [Azure işlevleri portalına](https://functions.azure.com/signin). Ardından **Yeni Oluştur**.  
+Tasarımcısı'ndan bir node.js Web kancası işlevi de oluşturabilirsiniz. İlk olarak seçin **Azure işlevleri my bölgede** ve işlevinizi için bir kapsayıcı seçin. Henüz bir kapsayıcınız yoksa, birinden oluşturmanıza gerek [Azure işlevleri portalına](https://functions.azure.com/). Ardından **Yeni Oluştur**.  
 
 İşlem yapmak istediğiniz verileri temel alan bir şablon oluşturmak için bir işlevdeki geçirmek için planlama context nesnesi belirtin. Bu nesne bir JSON nesnesi olmalıdır. Örneğin, bir FTP eylemden dosya içeriğinde geçirirseniz, bağlam yükü aşağıdaki gibi görünür:
 

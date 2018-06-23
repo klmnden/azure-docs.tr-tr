@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266015"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319097"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Yedekleme ve Azure CLI kullanarak MySQL için Azure veritabanı bir sunucuya geri yükleme
 
@@ -32,32 +32,6 @@ Nasıl yapılır bu kılavuzu tamamlamak için gerekir:
 
 > [!IMPORTANT]
 > Nasıl yapılır bu kılavuz, Azure CLI Sürüm 2.0 veya üstü kullanmanızı gerektirir. Azure CLI komut isteminde sürümünü onaylamak için girin `az --version`. Yüklemek veya yükseltmek için bkz: [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Uzantıyı ekleme
-Aşağıdaki komutu kullanarak güncelleştirilmiş MySQL için Azure Veritabanı yönetim uzantısını ekleyin:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Doğru uzantı sürümünü yüklediğinizden emin olun. 
-```azurecli-interactive
-az extension list
-```
-
-Dönüş JSON'u aşağıdakileri içermelidir: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Sürüm 0.0.5 döndürülmezse, aşağıdakini çalıştırarak uzantıyı güncelleştirin: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Yedekleme kümesi yapılandırması
 

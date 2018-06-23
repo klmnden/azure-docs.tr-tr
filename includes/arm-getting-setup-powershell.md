@@ -24,7 +24,7 @@ Doğrulayın değerini **PSVersion** 3.0 veya 4.0. Aksi takdirde bkz [Windows Ma
 ### <a name="set-your-azure-account-and-subscription"></a>Azure hesabınızı ve aboneliğinizi ayarlama
 Bir Azure aboneliği zaten sahip değilseniz, etkinleştirebilir, [MSDN abone Avantajlarınızı](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) veya kaydolun bir [ücretsiz deneme sürümü](https://azure.microsoft.com/pricing/free-trial/).
 
-Bu komutla bir Azure PowerShell komut istemi ve Azure oturumunu açın.
+Bir Azure PowerShell komut istemi açın ve bu komutla Azure'da oturum açın.
 
     Connect-AzureRmAccount
 

@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe7cad2910bed2dc08180d28fdf1af1d6cffd9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223425"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Öğretici: Azure Active Directory Tümleştirme Hightail ile
 
@@ -105,31 +104,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açmayı yapılandırın][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. Üzerinde **Hightail etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
+3. Üzerinde **Hightail etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
 
     ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-     İçinde **yanıt URL'si** metin olarak URL'yi yazın: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
+    İçinde **yanıt URL'si** metin olarak URL'yi yazın: `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`
 
-    > [!NOTE] 
-    > Önceki değerin gerçek değeri değil. Değer, gerçek yanıt, öğreticide daha sonra açıklanan URL ile güncelleştirir.
- 
-4. Üzerinde **Hightail etki alanı ve URL'leri** uygulamada yapılandırmak istiyorsanız, bölüm **SP tarafından başlatılan modu**, aşağıdaki adımları gerçekleştirin:
-    
+    > [!NOTE]
+    > Yanıt URL'si değerin gerçek değeri değil. Yanıt URL'si değerin gerçek yanıt, öğreticide daha sonra açıklanan URL ile güncelleştirir.
+
+4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
+
     ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    a. Tıklatın **Göster Gelişmiş URL ayarları**.
-
-    b. İçinde **oturum üzerinde URL'si** metin olarak URL'yi yazın: `https://www.hightail.com/loginSSO`
+    İçinde **oturum üzerinde URL'si** metin olarak URL'yi yazın: `https://www.hightail.com/loginSSO`
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
     ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Hightail uygulama belirli bir biçimde SAML onaylar bekler. Lütfen bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **"Atrribute"** uygulama sekmesinde. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. 
+5. Hightail uygulama belirli bir biçimde SAML onaylar bekler. Lütfen bu uygulama için aşağıdaki talep yapılandırın. Bu öznitelik değerlerini yönetebilirsiniz **"Özniteliği"** uygulama sekmesinde. Aşağıdaki ekran görüntüsünde bunun bir örneği gösterir. 
 
     ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -137,7 +134,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     
     | Öznitelik Adı | Öznitelik Değeri |
     | ------------------- | -------------------- |
-    | FirstName | User.givenName |
+    | firstName | User.givenName |
     | Soyadı | User.surname |
     | Email | User.Mail |    
     | Userıdentity | User.Mail |
@@ -153,7 +150,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     c. Gelen **değeri** listesinde, ilgili satır için gösterilen öznitelik değeri yazın.
 
     d. Bırakın **Namespace** boş.
-    
+
     e. **Tamam**’a tıklayın.
 
 7. Tıklatın **kaydetmek** düğmesi.
@@ -162,41 +159,32 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 8. Üzerinde **Hightail yapılandırma** 'yi tıklatın **yapılandırma Hightail** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Çoklu oturum açma Hightail uygulamaya yapılandırmadan önce lütfen beyaz liste Hightail ile e-posta etki alanınızı team böylece bu etki alanını kullanan tüm kullanıcılar tekli oturum açma işlevini kullanabilirsiniz.
 
+9. Başka bir tarayıcı penceresinde açmak **Hightail** Yönetici portalı.
 
-9. Uygulamanız için yapılandırılmış SSO almak için Hightail kiracınız yönetici olarak oturum gerekir.
-   
-    a. Üstteki menüde tıklatın **hesap** sekmesinde ve seçin **yapılandırma SAML**.
- 
-    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. Tıklayın **kullanıcı simgesi** sayfanın sağ üst köşesinde gelen. 
 
-    b. Onay kutusunu işaretleyin **SAML kimlik doğrulamasını etkinleştir**.
+    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/configure1.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. Tıklatın **görünüm Yönetici Konsolu** sekmesi.
 
-    c. Base-64 kodlanmış sertifikanızı Azure portalından indirdiğiniz Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **SAML belirteç imzalama sertifikası** metin kutusu.
+    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/configure2.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. Üstteki menüde tıklatın **SAML** sekmesinde ve aşağıdaki adımları gerçekleştirin:
 
-    d. İçinde **SAML yetkilisi (Kimlik sağlayıcısı)** metin kutusuna, değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanır.
+    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/configure3.png)
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_004.png)
+    a. İçinde **oturum açma URL'si** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanır.
 
-    e. Uygulamada yapılandırmak istiyorsanız **IDP başlatılan modu** seçin **"Kimlik sağlayıcıyı (IDP) başlatılan oturum açma"**. Varsa **SP tarafından başlatılan modu** seçin **"Hizmet sağlayıcısı (SP) başlatılan oturum açma"**.
+    b. Base-64 kodlanmış sertifikanızı Azure portalından indirdiğiniz Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **SAML sertifika** metin kutusu.
 
-    ![Çoklu oturum açmayı yapılandırın](./media/hightail-tutorial/tutorial_hightail_006.png)
+    c. ' I tıklatın **kopyalama** örneğinizi SAML tüketici URL'sini kopyalayıp yapıştırmak için **yanıt URL'si** metin kutusuna **Hightail etki alanı ve URL'leri** Azure Portal'daki bölüm.
 
-    f. Örneğiniz için SAML tüketici URL'sini kopyalayın ve yapıştırın **yanıt URL'si** metin kutusuna **Hightail etki alanı ve URL'leri** Azure Portal'daki bölümü.
-    
-    g. **Kaydet**’e tıklayın.
-
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Tıklatın **yapılandırmaları kaydetme**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 Bu bölümün amacı, Britta Simon adlı Azure portalında bir test kullanıcı oluşturmaktır.
@@ -256,7 +244,7 @@ Bu bölümde, Britta Hightail için erişim vererek, Azure çoklu oturum açma k
 
 3. Soldaki menüde tıklatın **kullanıcılar ve gruplar**.
 
-    ![Kullanıcı atama][202] 
+    ![Kullanıcı atama][202]
 
 4. Tıklatın **Ekle** düğmesi. Ardından **kullanıcılar ve gruplar** üzerinde **eklemek atama** iletişim.
 
@@ -267,7 +255,7 @@ Bu bölümde, Britta Hightail için erişim vererek, Azure çoklu oturum açma k
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="testing-single-sign-on"></a>Çoklu oturum açmayı test etme
 
 Bu bölümün amacı erişim paneli kullanılarak Azure AD çoklu oturum açma yapılandırmanızı test etmektir.
@@ -279,8 +267,6 @@ Erişim paneli Hightail parçasında tıklattığınızda, otomatik olarak Hight
 
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

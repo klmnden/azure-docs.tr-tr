@@ -1,6 +1,6 @@
 ---
 title: RBAC ve Azure CLI kullanarak erişimini yönetme | Microsoft Docs
-description: Kullanıcılar, gruplar ve uygulamalar, rol tabanlı erişim denetimi (RBAC) ve Azure CLI kullanarak erişimi yönetmek üzere öğrenin. Bu erişim listeleme, erişim verilmesi ve erişimi kaldırma içerir.
+description: Kullanıcılar, gruplar ve uygulamalar, rol tabanlı erişim denetimi (RBAC) ve Azure CLI kullanarak erişimi yönetmek üzere öğrenin. Bu erişim listesinde, erişim ve erişimi kaldırmak nasıl içerir.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2018
+ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 16577339f1aa33fbd1a8b90f4beaef1ee4ce806c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294413"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316405"
 ---
 # <a name="manage-access-using-rbac-and-azure-cli"></a>RBAC ve Azure CLI kullanarak erişimini yönetme
 
@@ -27,9 +27,10 @@ ms.locfileid: "36294413"
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Rol atamalarını yönetmek için Azure CLI kullanmak için aşağıdaki önkoşullar olması gerekir:
+Erişimi yönetmek için aşağıdakilerden biri gerekir:
 
-* [Azure CLI](/cli/azure). Bunu [Azure Cloud Shell](../cloud-shell/overview.md) ile tarayıcınızda kullanabilir veya macOS, Linux ve Windows’a [yükleyerek](/cli/azure/install-azure-cli) komut satırından çalıştırabilirsiniz.
+* [Azure bulut Kabuğu'nda bash](/azure/cloud-shell/overview)
+* [Azure CLI](/cli/azure)
 
 ## <a name="list-roles"></a>Liste rolleri
 
@@ -308,139 +309,7 @@ Aşağıdaki örnek kaldırır *okuyucu* rolünden *Ann Mack takım* kimliği 22
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --scope /subscriptions/11111111-1111-1111-1111-111111111111
 ```
 
-## <a name="custom-roles"></a>Özel roller
-
-### <a name="list-custom-roles"></a>Liste özel roller
-
-Bir kapsamda atama için kullanılabilen rolleri listelemek için kullanın [az rol tanımı listesi](/cli/azure/role/definition#az-role-definition-list).
-
-Aşağıdaki örnekler her ikisi de geçerli Abonelikteki tüm özel rollere listesi:
-
-```azurecli
-az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "roleType":.roleType}'
-```
-
-```azurecli
-az role definition list --output json | jq '.[] | if .roleType == "CustomRole" then {"roleName":.roleName, "roleType":.roleType} else empty end'
-```
-
-```Output
-{
-  "roleName": "My Management Contributor",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Operator Role",
-  "type": "CustomRole"
-}
-{
-  "roleName": "My Service Reader Role",
-  "type": "CustomRole"
-}
-
-...
-```
-
-### <a name="create-a-custom-role"></a>Özel bir rol oluşturun
-
-Özel bir rol oluşturmak üzere kullanmanız [az rol tanımı oluşturma](/cli/azure/role/definition#az-role-definition-create). Rol tanımı JSON açıklamasını veya JSON açıklamasını içeren bir dosya için bir yol olabilir.
-
-```azurecli
-az role definition create --role-definition <role_definition>
-```
-
-Aşağıdaki örnek adlı özel bir rol oluşturur *sanal makine işleci*. Bu özel rolü tüm okuma işlemleri için erişim atar *Microsoft.Compute*, *Microsoft.Storage*, ve *Microsoft.Network* kaynak sağlayıcıları ve atar erişimi başlatmak için yeniden başlatın ve sanal makineleri izleyin. Bu özel rolü iki Aboneliklerde kullanılabilir. Bu örnek bir JSON dosyası bir giriş olarak kullanır.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition create --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="update-a-custom-role"></a>Özel bir rol güncelleştirme
-
-Özel bir rol güncelleştirmek için önce kullanın [az rol tanımı listesi](/cli/azure/role/definition#az-role-definition-list) rol tanımı alınamadı. İkinci olarak, rol tanımı istediğiniz değişiklikleri yapın. Son olarak, [az rol tanımı güncelleştirme](/cli/azure/role/definition#az-role-definition-update) güncelleştirilmiş rol tanımı kaydetmek için.
-
-```azurecli
-az role definition update --role-definition <role_definition>
-```
-
-Aşağıdaki örnek, *Microsoft.Insights/diagnosticSettings/* işlemi için *Eylemler* , *sanal makine işleci* özel rol.
-
-vmoperator.json
-
-```json
-{
-  "Name": "Virtual Machine Operator",
-  "IsCustom": true,
-  "Description": "Can monitor and restart virtual machines.",
-  "Actions": [
-    "Microsoft.Storage/*/read",
-    "Microsoft.Network/*/read",
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/start/action",
-    "Microsoft.Compute/virtualMachines/restart/action",
-    "Microsoft.Authorization/*/read",
-    "Microsoft.Resources/subscriptions/resourceGroups/read",
-    "Microsoft.Insights/alertRules/*",
-    "Microsoft.Insights/diagnosticSettings/*",
-    "Microsoft.Support/*"
-  ],
-  "NotActions": [
-
-  ],
-  "AssignableScopes": [
-    "/subscriptions/11111111-1111-1111-1111-111111111111",
-    "/subscriptions/33333333-3333-3333-3333-333333333333"
-  ]
-}
-```
-
-```azurecli
-az role definition update --role-definition ~/roles/vmoperator.json
-```
-
-### <a name="delete-a-custom-role"></a>Bir özel rolü silmeyi
-
-Bir özel rolü silmek için kullanın [az rol tanımı silinemiyor](/cli/azure/role/definition#az-role-definition-delete). Rol adı veya rol kimliği silmek için rolü belirtmek için kullanın Rol Kimliği belirlemek için [az rol tanımı listesi](/cli/azure/role/definition#az-role-definition-list).
-
-```azurecli
-az role definition delete --name <role_name or role_id>
-```
-
-Aşağıdaki örnek siler *sanal makine işleci* özel rol:
-
-```azurecli
-az role definition delete --name "Virtual Machine Operator"
-```
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
+- [Öğretici: Azure CLI kullanarak özel bir rol oluşturma](tutorial-custom-role-cli.md)
+- [Azure kaynakları ve kaynak gruplarını yönetmek için Azure CLI kullanma](../azure-resource-manager/xplat-cli-azure-resource-manager.md)

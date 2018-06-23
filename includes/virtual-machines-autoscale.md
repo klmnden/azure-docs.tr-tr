@@ -2,13 +2,13 @@ Kolayca [otomatik olarak ölçeklendirme](../articles/monitoring-and-diagnostics
 
 ## <a name="horizontal-or-vertical-scaling"></a>Yatay veya dikey ölçekleme
 
-Azure İzleyici'nin otomatik ölçeklendirme özelliği yalnızca yatay artışı ("out") veya ("içinde") VM'lerin sayısını azaltın ölçeklendirir. Yatay ölçekleme yükü işlemek üzere VM'ler binlerce potansiyel olarak çalıştırmanıza izin veren gibi bir bulut durumda daha esnektir. Kapasite (veya örnek sayısı) otomatik olarak veya el ile değiştirerek ölçeği yatay ölçek kümesi. 
+Azure İzleyici'nin otomatik ölçeklendirme özelliği yalnızca yatay artışı ("out") veya ("içinde") VM'lerin sayısını azaltın ölçeklendirir. Yatay ölçekleme yükü işlemek üzere VM'ler binlerce potansiyel olarak çalıştırmanıza izin veren gibi bir bulut durumda daha esnektir. Yatay Ölçek kümesi kapasitesi (veya örnek sayısı) otomatik olarak veya el ile değiştirerek ölçeklendirin. 
 
 Dikey ölçekleme VM'ler ile aynı sayıda tutar ancak sanal makineleri ("yukarı") daha fazla veya az ("kapalı") güçlü yapar. Güç bellek, CPU hızı veya disk alanı gibi öznitelikleri ölçülür. Dikey ölçeklendirme hızla bir üst sınır İsabetli ve bölgeye göre farklılık gösterebilir büyük donanım kullanılabilirliği bağımlıdır. Dikey ölçeklendirme da genellikle durdurup yeniden başlatmak bir VM gerektirir. Ölçek kümesindeki sanal makineleri yapılandırmasındaki yeni bir boyutu ayarlayarak dikey olarak ölçeklendirin.
 
 Runbook'ları kullanarak [Azure Otomasyonu](../articles/automation/automation-intro.md), kolayca [ölçek kümesindeki sanal makineleri ölçeklendirme](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md) yukarı veya aşağı.
 
-## <a name="create-a-virtual-machine-scale-set"></a>Bir sanal makine ölçek kümesi oluşturma
+## <a name="create-a-virtual-machine-scale-set"></a>Sanal makine ölçek kümesi oluşturma
 
 Ölçek kümeleri, dağıtmak ve bir küme olarak aynı sanal makineleri yönetmek kolay hale getirir. Linux oluşturabilir veya Windows ölçek ayarlar kullanarak [Azure portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), veya [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). Ayrıca oluşturmak ve SDK'ları ile ölçek kümeleri gibi yönetmek [Python](/develop/python) veya [Node.js](/nodejs/azure), veya doğrudan [REST API'leri](/rest/api/compute/virtualmachinescalesets). Otomatik ölçeklendirme Vm'leri ölçümleri ve kuralları ölçek kümesine uygulayarak gerçekleştirilir.
 
@@ -18,7 +18,7 @@ Otomatik ölçeklendirme, uygulamanızın üzerinde yükü işlemek üzere VM sa
 
 Kullanılarak ayarlanan ölçek oluşturduğunuzda, otomatik ölçeklendirme etkinleştirebilirsiniz [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) veya [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings). Ölçek kümesi oluşturulduktan sonra aynı zamanda etkinleştirebilirsiniz. Bir ölçek kümesi oluşturma, uzantıyı yüklemek ve otomatik ölçeklendirme kullanarak yapılandırma bir [Azure Resource Manager şablonu](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md). Azure portalında Azure İzleyicisi'nden otomatik ölçeklendirme etkinleştirebilir ya da otomatik ölçeklendirme ölçek kümesi ayarlarından etkinleştirebilirsiniz.
 
-![Otomatik ölçeklendirme etkinleştir](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
+![Otomatik ölçeklendirmeyi etkinleştir](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
 ### <a name="metrics"></a>Ölçümler
 

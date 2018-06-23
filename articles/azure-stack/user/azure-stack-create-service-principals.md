@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320761"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Uygulamaları Azure yığın kaynaklar için hizmet asıl adı oluşturarak erişmenizi
 
@@ -61,7 +63,7 @@ Sahip olduğunuz denetleyin [gereken Azure AD izinler](../../azure-resource-mana
 
 Uygulamanız için bir hizmet sorumlusu oluşturmak için:
 
-1. Oturum açtığınızda Azure hesabınız üzerinden [Azure portal](https://portal.azure.com).
+1. Oturum Azure hesabınıza [Azure portal](https://portal.azure.com).
 2. Seçin **Azure Active Directory** > **uygulama kayıtlar** > **Ekle**.
 3. Uygulama için bir ad ve URL sağlayın. Şunlardan birini seçin **Web uygulaması / API** veya **yerel** oluşturmak istediğiniz uygulama türü için. Değerleri ayarladıktan sonra Seç **oluşturma**.
 
@@ -93,54 +95,7 @@ Azure AD FS kimlik deposu olarak kullanarak yığın dağıtılmışsa, aşağı
 * Hizmet sorumlusu bir role atayın.
 * Hizmet sorumlusunun kimliğini kullanarak oturum açın.
 
-### <a name="before-you-begin"></a>Başlamadan önce
-
-[Gereken Azure yığın Araçlar, yerel bilgisayarınıza indirin.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Kimlik PowerShell modülünü içeri aktarın
-
-Azure yığın araçları için yükleme klasörüne gidin ve aşağıdaki komutu kullanarak kimlik PowerShell modülünü içeri aktarın:
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Kimlik modülü içe aktardığınızda, bu hata iletisini alabilirsiniz: "AzureStack.Connect.psm1 dijital olarak imzalı değil. Komut dosyası sistemde çalıştırmaz".
-
-Bu sorunu gidermek için komut dosyası çalıştırmaya izin vermek için yürütme İlkesi yapılandırmanız gerekir. Yürütme ilkesini ayarlamak için yükseltilmiş bir PowerShell oturumunda aşağıdaki komutu çalıştırın:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>Hizmet sorumlusunu oluşturma
-
-Bir hizmet sorumlusu aşağıdaki komutu çalıştırarak güncelleştirmek emin oluşturabileceğiniz **DisplayName** parametre:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>Rol atama
-
-Hizmet sorumlusu oluşturduktan sonra şunları yapmalısınız [rol atama](azure-stack-create-service-principals.md#assign-role-to-service-principal).
-
-### <a name="sign-in-using-powershell"></a>PowerShell kullanarak oturum açın
-
-Azure yığını için aşağıdaki komutu çalıştırarak güncelleştirmek emin oturum **EnvironmentName** parametresini, uygulamanızın adıyla:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+Hizmet sorumlusu oluşturma hakkında daha fazla bilgi için bkz [AD FS için hizmet sorumlusu oluşturma](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs).
 
 ## <a name="assign-the-service-principal-to-a-role"></a>Hizmet sorumlusu rol atama
 

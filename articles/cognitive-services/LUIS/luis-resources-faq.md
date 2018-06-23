@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: b6b333937e7c88f566fc401967b26cbd31ca158b
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301511"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333624"
 ---
 # <a name="language-understanding-faq"></a>Dil anlama SSS
 
@@ -127,7 +127,9 @@ Başka bir Azure aboneliğine HALUK uygulama aktarmak için HALUK uygulama dış
 Varsayılan olarak, kullanıcıların utterances HALUK uygulamanızı günlüğe kaydeder. Kullanıcıların HALUK uygulamanıza gönderme utterances günlüğünü indirmek için Git **My uygulamaları**ve üzerinde üç nokta düğmesine (***...*** ) uygulamanız için listesinde. Ardından **Endpoint günlükleri dışarı**. Günlük bir virgülle ayrılmış değer (CSV) dosyası olarak biçimlendirilir.
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Utterances günlüğe kaydetmeyi nasıl devre dışı bırakabilirim?
-Ayarlayarak kullanıcı utterances oturumunu kapatma etkinleştirebilirsiniz `log=false` uç nokta URL'deki sorgu HALUK istemci uygulamanızı kullanır. Ancak, utterances önermek veya kullanıcı sorgularına dayalı performansı HALUK uygulamanızın yeteneği oturumunu kapatma kapatma devre dışı bırakır. Ayarlarsanız `log=false` veri Gizlilik sorunları nedeniyle, bu kullanıcı utterances kaydını HALUK indirin veya değiştiremezsiniz uygulamanızı artırmak için bu utterances kullanın.
+Ayarlayarak kullanıcı utterances oturumunu kapatma etkinleştirebilirsiniz `log=false` uç nokta URL'deki sorgu HALUK istemci uygulamanızı kullanır. Ancak, utterances önermek veya dayanır performansı HALUK uygulamanızın yeteneği oturumunu kapatma kapatma devre dışı bırakır [etkin öğrenme](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Ayarlarsanız `log=false` veri Gizlilik sorunları nedeniyle, bu kullanıcı utterances kaydını HALUK indirin veya değiştiremezsiniz uygulamanızı artırmak için bu utterances kullanın.
+
+Günlük utterances yalnızca depolanmasını ' dir. 
 
 ### <a name="why-dont-i-want-all-my-endpoint-utterances-logged"></a>Oturum my uç nokta utterances neden istiyor mu?
 Tahmin analize günlüğünüzün kullanıyorsanız, günlüğüne test utterances yakalamayın.

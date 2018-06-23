@@ -3,22 +3,24 @@ title: Federasyon için yapılandırılan bir galeri olmayan uygulamaya oturumu 
 description: SAML tabanlı Federasyon tek oturum açma için Azure AD ile yapılandırılmış bir uygulama için oturum açarken karşılaşabilecekleri belirli sorunları için yönergeler
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: d72fe88ef955dbe821a1fab55de8356ac14619a1
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/14/2018
-ms.locfileid: "29383472"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334175"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Federasyon çoklu oturum açma için yapılandırılmış bir galeri olmayan uygulama oturum açma sorunları
 
@@ -148,7 +150,7 @@ Bir kısa süre sonra seçtiğiniz kullanıcıların çözüm Açıklama bölüm
 
 **Olası neden**
 
-Azure AD çoklu oturum açma için uygulama tarafından gönderilen isteği SAML desteklemiyor. Bazı yaygın sorunlar şunlardır:
+Azure AD, uygulama tarafından Çoklu oturum açma için gönderilen SAML İsteğini desteklemiyor. Bazı yaygın sorunlar şunlardır:
 
 -   SAML isteğinde gerekli alanlar eksik
 

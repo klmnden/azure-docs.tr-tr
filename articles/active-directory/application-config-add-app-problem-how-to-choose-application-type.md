@@ -3,22 +3,23 @@ title: Bir uygulama eklerken kullanmak için hangi uygulama türü seçme | Micr
 description: Azure AD ile tümleştirebilir uygulamaları desteklenen türlerini anlamanız ve bunların ilgili yapılandırma seçenekleri
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: a34c3343b669cb80ad88c1b09fe95b1b1d9b5275
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: barbkess
+ms.openlocfilehash: 6ee5be99a64ee6e637501534e0a152c6968c380f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054606"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331317"
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Bir uygulama eklerken kullanmak için hangi uygulama türü seçme
 

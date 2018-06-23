@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: d17af33a3cfa0720649c8c4c7cffd5c4b0a8f272
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7d9066607add71e6439d55f2ae329c1da5a75ccb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618088"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331764"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Azure Data Factory kullanarak Phoenix verilerini 
 
@@ -35,7 +35,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Phoenix bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

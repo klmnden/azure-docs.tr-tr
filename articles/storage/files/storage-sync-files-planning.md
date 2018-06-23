@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296179"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335848"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Bir Azure dosya eşitleme (Önizleme) dağıtımı için planlama
 Esneklik, performans ve uyumluluk bir şirket içi dosya sunucusunun tanırken kuruluşunuzun dosya paylaşımları Azure dosyalarında merkezileştirmek için Azure dosya eşitleme (Önizleme) kullanın. Azure dosya eşitleme, Windows Server Hızlı Azure dosya paylaşımınıza önbelleğine dönüştürür. SMB ve NFS FTPS çeşitli verilerinize yerel olarak erişmek için Windows Server üzerinde kullanılabilir herhangi bir protokolünü kullanabilirsiniz. Dünya genelinde gerektiği kadar önbellekleri olabilir.
@@ -144,6 +144,9 @@ Azure dosya eşitleme ve DFS-R için yan yana çalışmak:
 2. Sunucu uç noktaları DFS-R Salt okunur çoğaltma klasörlerde yapılandırılmamalıdır.
 
 Daha fazla bilgi için bkz: [DFS Çoğaltmaya genel bakış](https://technet.microsoft.com/library/jj127250).
+
+### <a name="sysprep"></a>Sysprep
+Azure dosya eşitleme aracısının yüklü olduğu bir sunucuda Sysprep kullanma desteklenmiyor ve beklenmeyen sonuçlara yol açabilir. Aracı yükleme ve sunucu kaydı sunucu görüntüsü dağıtmak ve sysprep mini kurulum tamamlandıktan sonra olmalıdır.
 
 ### <a name="windows-search"></a>Windows arama
 Bulut katmanlama bir sunucu uç noktasında etkinleştirildiğinde, musunuz dosya atlandı ve Windows Search tarafından dizinli değil. Olmayan katmanlı dosyaları düzgün bir şekilde dizine alınır.

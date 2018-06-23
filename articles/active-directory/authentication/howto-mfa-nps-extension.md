@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868339"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331798"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Varolan NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -82,7 +82,7 @@ NPS sunucusu, Azure Active Directory'ye bağlanır ve MFA isteklerin kimliğini 
 1. Sunucunuzda açmak **Ekle roller ve Özellikler Sihirbazı** Sunucu Yöneticisi'ni Hızlı Başlangıç menüsünde.
 2. Seçin **rol tabanlı veya özellik tabanlı yükleme** için yükleme türü.
 3. Seçin **Ağ İlkesi ve Erişim Hizmetleri** sunucu rolü. Bir pencere bu rolü çalıştırmak için gerekli özellikleri hakkında bilgilendirmek için açılır.
-4. Sihirbaza onay sayfasında kadar devam edin. Seçin **yükleme**.
+4. Sihirbaza onay sayfasında kadar devam edin. **Yükle**’yi seçin.
 
 NPS için belirlenmiş bir sunucunuz varsa, VPN çözümden gelen RADIUS isteklerini işlemek için bu sunucuyu yapılandırmanız gerekir.
 
@@ -172,7 +172,7 @@ Bu bölümde, tasarım konuları ve başarılı NPS uzantısı dağıtımlar iç
 ### <a name="configuration-limitations"></a>Yapılandırma sınırlamaları
 
 - Azure MFA için NPS uzantısı kullanıcılar ve ayarlarını MFA sunucusundan buluta geçirmek için araçları içermez. Bu nedenle, varolan dağıtım yerine yeni dağıtımlar için uzantısını kullanarak öneririz. Uzantı üzerinde var olan bir dağıtıma kullanırsanız, kullanıcılarınızın bulutta MFA ayrıntılarını yeniden doldurmak için kanıt Yukarı yapmanız gerekir.  
-- NPS uzantısı şirket içi Active Directory'den ikincil kimlik doğrulaması gerçekleştirmek için Azure MFA kullanıcı tanımlamak için kullanır Uzantı alternatif oturum açma kimliği veya özel Active Directory alan UPN dışında gibi farklı bir kimlik kullanacak şekilde yapılandırılabilir. Bkz: [Gelişmiş çok faktörlü kimlik doğrulaması için NPS uzantısı için yapılandırma seçenekleri](howto-mfaserver-nps-vpn.md) daha fazla bilgi için.
+- NPS uzantısı şirket içi Active Directory'den ikincil kimlik doğrulaması gerçekleştirmek için Azure MFA kullanıcı tanımlamak için kullanır Uzantı alternatif oturum açma kimliği veya özel Active Directory alan UPN dışında gibi farklı bir kimlik kullanacak şekilde yapılandırılabilir. Bkz: [Gelişmiş çok faktörlü kimlik doğrulaması için NPS uzantısı için yapılandırma seçenekleri](howto-mfa-nps-extension-advanced.md) daha fazla bilgi için.
 - Tüm şifreleme protokolleri tüm doğrulama yöntemlerini destekler.
    - **PAP** telefon araması, tek yönlü SMS mesajı, mobil uygulama bildirimi ve mobil uygulama doğrulama kodu destekler
    - **CHAPV2** ve **EAP** telefon araması ve mobil uygulama bildirimi desteği

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fa3ab6df9b471a596cc229edf5fb555009c3101d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621355"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318402"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - sık sorulan sorular
 > [!NOTE]
@@ -41,7 +41,7 @@ Bkz: [veri fabrikası fiyatlandırma ayrıntıları sayfası] [ adf-pricing-deta
 * Bir öğretici için nasıl **copy/move veri** kopyalama etkinliği'ni kullanarak bkz [kopyalama verileri Azure Blob depolama alanından Azure SQL veritabanına](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * Bir öğretici için nasıl **verileri** Hdınsight Hive etkinliği kullanma. Bkz: [Hadoop kümesindeki Hive betiği çalıştırılarak verileri işlemek](data-factory-build-your-first-pipeline.md)
 
-### <a name="what-is-the-data-factorys-region-availability"></a>Veri Fabrikası s bölge kullanılabilirliği nedir?
+### <a name="what-is-the-data-factorys-region-availability"></a>Veri fabrikasının bölge kullanılabilirliği nedir?
 Veri Fabrikası sağlanmıştır **BİZE Batı** ve **Kuzey Avrupa**. Veri fabrikaları tarafından kullanılan işlem ve depolama hizmetleri başka bölgelerde olabilir. Bkz: [desteklenen bölgeler](data-factory-introduction.md#supported-regions).
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>Veri fabrikaları/işlem hatları/etkinlikleri/veri kümeleri sayısının sınırları nelerdir?

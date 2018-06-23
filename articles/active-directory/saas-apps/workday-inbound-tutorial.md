@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213150"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334335"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Öğretici: otomatik kullanıcı sağlamayı için Workday yapılandırın
 
@@ -60,6 +60,8 @@ Azure AD kullanıcı sağlama hizmeti tarafından desteklenen Workday kullanıc�
 * Kuruluşlar gerektiren birleştirme, taşıma ve bir veya daha fazla Active Directory ormanları eşitlenen kullanıcılar bırakarak, etki alanları ve OU'lar yalnızca temel bilgileri Workday HCM modülünde algılandı değiştirin (bkz [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html))
 
 * Office 365 için e-posta kullanarak kuruluşlar
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>Çözümünüzü planlarken
 
@@ -362,22 +364,22 @@ Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl ak
 | **WorkerID**  |  EmployeeID | **Evet** | Yazılan üzerinde yalnızca oluştur |
 | **Kullanıcı Kimliği**    |  CN =    |   |   Yazılan üzerinde yalnızca oluştur |
 | **Birleştirme ("@", [UserID] "contoso.com")**   | userPrincipalName     |     | Yazılan üzerinde yalnızca oluştur 
-| **Değiştirin (Mid (Değiştir (\[UserID\],, "(\[ \\ \\ / \\ \\ \\ \\ \\ \\ \[ \\\\\]\\\\:\\\\;\\ \\|\\\\=\\\\,\\\\+\\\\\*\\ \\? \\ \\ &lt; \\ \\ &gt; \]) "," ",), 1, 20)," ([\\\\.) \* \$] (file:///\\.) *$)", , "", , )**      |    SAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
-| **Anahtar (\[etkin\],, "0", "True", "1")** |  AccountDisabled      |     | Oluştur + güncelleştir |
-| **FirstName**   | givenName       |     |    Oluştur + güncelleştir |
+| **Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Yazılan üzerinde yalnızca oluştur |
+| **Anahtar (\[etkin\],, "0", "True", "1")** |  accountDisabled      |     | Oluştur + güncelleştir |
+| **firstName**   | givenName       |     |    Oluştur + güncelleştir |
 | **Soyadı**   |   sn   |     |  Oluştur + güncelleştir |
 | **PreferredNameData**  |  displayName |     |   Oluştur + güncelleştir |
 | **Şirket**         | Şirket   |     |  Oluştur + güncelleştir |
 | **SupervisoryOrganization**  | bölüm  |     |  Oluştur + güncelleştir |
 | **ManagerReference**   | yönetici  |     |  Oluştur + güncelleştir |
 | **BusinessTitle**   |  başlık     |     |  Oluştur + güncelleştir | 
-| **AddressLineData**    |  StreetAddress  |     |   Oluştur + güncelleştir |
-| **Belediye**   |   m   |     | Oluştur + güncelleştir |
+| **AddressLineData**    |  streetAddress  |     |   Oluştur + güncelleştir |
+| **Belediye**   |   M   |     | Oluştur + güncelleştir |
 | **CountryReferenceTwoLetter**      |   Ortak |     |   Oluştur + güncelleştir |
 | **CountryReferenceTwoLetter**    |  c  |     |         Oluştur + güncelleştir |
 | **CountryRegionReference** |  St     |     | Oluştur + güncelleştir |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Oluştur + güncelleştir |
-| **posta kodu**  |   posta kodu  |     | Oluştur + güncelleştir |
+| **Posta kodu**  |   posta kodu  |     | Oluştur + güncelleştir |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Oluştur + güncelleştir |
 | **Faks**      | facsimileTelephoneNumber     |     |    Oluştur + güncelleştir |
 | **Mobil**  |    Mobil       |     |       Oluştur + güncelleştir |
@@ -543,14 +545,13 @@ Aşağıdaki bölümlerde yalnızca bulut kullanıcıları sağlamak için Workd
 
    * Bağlantı testi başarılı olursa, tıklatın **kaydetmek** üstündeki düğmesi. Başarısız olursa Workday URL ve kimlik bilgilerini iş günü içinde geçerli olduğunu denetleyin.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>2. Kısım: öznitelik eşlemelerini yapılandırın 
 
 Bu bölümde, kullanıcı verilerini Workday'deki Azure Active Directory'ye yalnızca bulut kullanıcıları için nasıl akacağını yapılandırır.
 
-1.  Sağlama sekmesinde altında **eşlemeleri**, tıklatın **Azure ad eşitleme çalışanları**.
+1. Sağlama sekmesinde altında **eşlemeleri**, tıklatın **Azure ad eşitleme çalışanları**.
 
-2.   İçinde **kaynak nesne kapsamı** alan, hangi kullanıcı kümeleri için iş günü içinde Azure AD ile öznitelik tabanlı bir filtre kümesi tanımlayarak sağlama kapsamında olmalıdır seçebilirsiniz. Varsayılan "tüm kullanıcılar iş günü içinde" kapsamıdır. Örnek filtreler:
+2. İçinde **kaynak nesne kapsamı** alan, hangi kullanıcı kümeleri için iş günü içinde Azure AD ile öznitelik tabanlı bir filtre kümesi tanımlayarak sağlama kapsamında olmalıdır seçebilirsiniz. Varsayılan "tüm kullanıcılar iş günü içinde" kapsamıdır. Örnek filtreler:
 
    * Örnek: Kapsamıyla kullanıcılara 1000000 2000000 arasında çalışan kimlikler
 
@@ -566,9 +567,9 @@ Bu bölümde, kullanıcı verilerini Workday'deki Azure Active Directory'ye yaln
 
       * İşleci: NULL değil
 
-3.  İçinde **hedef nesne eylemleri** alan, genel filtre uygulayabilirsiniz hangi eylemleri üzerinde Azure AD gerçekleştirilmesine izin verilir. **Oluşturma** ve **güncelleştirme** en sık kullanılan.
+3. İçinde **hedef nesne eylemleri** alan, genel filtre uygulayabilirsiniz hangi eylemleri üzerinde Azure AD gerçekleştirilmesine izin verilir. **Oluşturma** ve **güncelleştirme** en sık kullanılan.
 
-4.  İçinde **öznitelik eşlemelerini** bölümünde, tek tek nasıl Workday tanımlayabilirsiniz öznitelikleri eşlemek için Active Directory öznitelikleri.
+4. İçinde **öznitelik eşlemelerini** bölümünde, tek tek nasıl Workday tanımlayabilirsiniz öznitelikleri eşlemek için Active Directory öznitelikleri.
 
 5. Güncelleştirmek için varolan bir özniteliği eşlemesini üzerinde veya tıklatın **yeni eklemesi** yeni eşlemeler eklemek için ekranın altındaki. Bir tek özniteliği eşlemesi bu özellikleri destekler:
 
@@ -602,7 +603,7 @@ Bu bölümde, kullanıcı verilerini Workday'deki Azure Active Directory'ye yaln
 ### <a name="part-3-start-the-service"></a>3. Kısım: Hizmetini başlatmak için
 Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 
-1.  İçinde **sağlama** sekmesinde, ayarlamak **sağlama durumu** için **üzerinde**.
+1. İçinde **sağlama** sekmesinde, ayarlamak **sağlama durumu** için **üzerinde**.
 
 2. **Kaydet**’e tıklayın.
 
@@ -612,7 +613,6 @@ Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 
 5. Bir tamamlandı, onu bir denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Geri yazma Workday e-posta adreslerini yapılandırma
 Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma yapılandırmak için bu yönergeleri izleyin.
 
@@ -620,21 +620,21 @@ Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma ya
 
 **Active Directory sağlama için Workday yapılandırmak için:**
 
-1.  Şuraya gidin: <https://portal.azure.com>
+1. Şuraya gidin: <https://portal.azure.com>
 
-2.  Sol gezinti çubuğunda seçin **Azure Active Directory**
+2. Sol gezinti çubuğunda seçin **Azure Active Directory**
 
-3.  Seçin **kurumsal uygulamalar**, ardından **tüm uygulamaları**.
+3. Seçin **kurumsal uygulamalar**, ardından **tüm uygulamaları**.
 
-4.  Seçin **bir uygulama eklemek**seçeneğini belirleyip **tüm** kategorisi.
+4. Seçin **bir uygulama eklemek**seçeneğini belirleyip **tüm** kategorisi.
 
-5.  Arama **Workday geri yazma**, bu uygulama Galeriden ekleyin.
+5. Arama **Workday geri yazma**, bu uygulama Galeriden ekleyin.
 
-6.  Uygulama eklenir ve uygulama ayrıntıları ekranına gösterilen, select sonra **sağlama**
+6. Uygulama eklenir ve uygulama ayrıntıları ekranına gösterilen, select sonra **sağlama**
 
-7.  Değişiklik **sağlama** **modu** için **otomatik**
+7. Değişiklik **sağlama** **modu** için **otomatik**
 
-8.  Tamamlamak **yönetici kimlik bilgileri** gibi bölümünde:
+8. Tamamlamak **yönetici kimlik bilgileri** gibi bölümünde:
 
    * **Yönetici kullanıcı adı** – eklenmiş Kiracı etki alanı adıyla Workday entegrasyonu sistem hesabı kullanıcı adı girin. Gibi görünmelidir: username@contoso4
 
@@ -646,24 +646,22 @@ Azure Active Directory'den kullanıcı e-posta adreslerini Workday geri yazma ya
 
    * Tıklatın **Bağlantıyı Sına** düğmesi. Bağlantı testi başarılı olursa, tıklatın **kaydetmek** üstündeki düğmesi. Başarısız olursa Workday URL ve kimlik bilgilerini iş günü içinde geçerli olduğunu denetleyin.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>2. Kısım: öznitelik eşlemelerini yapılandırın 
-
 
 Bu bölümde, kullanıcı verilerini Workday'deki Active Directory ile nasıl akacağını yapılandırır.
 
-1.  Sağlama sekmesinde altında **eşlemeleri**, tıklatın **eşitleme Azure AD iş günü kullanıcılara**.
+1. Sağlama sekmesinde altında **eşlemeleri**, tıklatın **eşitleme Azure AD iş günü kullanıcılara**.
 
-2.  İçinde **kaynak nesne kapsamı** alan, isteğe bağlı olarak filtreleyebilir hangi kullanıcı kümeleri için Azure Active Directory'de e-posta adreslerini yazdığınız geri Workday için. Varsayılan "tüm kullanıcılar Azure AD'de" kapsamıdır. 
+2. İçinde **kaynak nesne kapsamı** alan, isteğe bağlı olarak filtreleyebilir hangi kullanıcı kümeleri için Azure Active Directory'de e-posta adreslerini yazdığınız geri Workday için. Varsayılan "tüm kullanıcılar Azure AD'de" kapsamıdır. 
 
-3.  İçinde **öznitelik eşlemelerini** bölümünde, tek tek nasıl Workday tanımlayabilirsiniz öznitelikleri eşlemek için Active Directory öznitelikleri. Varsayılan olarak e-posta adresi için bir eşleme yoktur. Ancak, Azure AD'de Workday bunların karşılık gelen girdilere sahip kullanıcıları eşleştirmek için eşleşen kimliği güncelleştirilmesi gerekir. Popüler eşleşen yöntemi Workday çalışan kimliği veya çalışan kimliği extensionAttribute1 15 Azure AD'de eşitleme ve ardından bu öznitelik Azure AD'de geri iş günü içinde kullanıcıları eşleştirmek için kullanmaktır.
+3. İçinde **öznitelik eşlemelerini** bölümünde, tek tek nasıl Workday tanımlayabilirsiniz öznitelikleri eşlemek için Active Directory öznitelikleri. Varsayılan olarak e-posta adresi için bir eşleme yoktur. Ancak, Azure AD'de Workday bunların karşılık gelen girdilere sahip kullanıcıları eşleştirmek için eşleşen kimliği güncelleştirilmesi gerekir. Popüler eşleşen yöntemi Workday çalışan kimliği veya çalışan kimliği extensionAttribute1 15 Azure AD'de eşitleme ve ardından bu öznitelik Azure AD'de geri iş günü içinde kullanıcıları eşleştirmek için kullanmaktır.
 
-4.  Eşlemelerinizin kaydetmek için tıklatın **kaydetmek** özniteliği eşleme bölümüne üstünde.
+4. Eşlemelerinizin kaydetmek için tıklatın **kaydetmek** özniteliği eşleme bölümüne üstünde.
 
 ### <a name="part-3-start-the-service"></a>3. Kısım: Hizmetini başlatmak için
 Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 
-1.  İçinde **sağlama** sekmesinde, ayarlamak **sağlama durumu** için **üzerinde**.
+1. İçinde **sağlama** sekmesinde, ayarlamak **sağlama durumu** için **üzerinde**.
 
 2. **Kaydet**’e tıklayın.
 
@@ -672,7 +670,6 @@ Bölümleri 1-2 tamamladıktan sonra sağlama hizmeti başlatabilirsiniz.
 4. Bireysel eşitleme olayları görüntülenebilir **denetim günlüklerini** sekmesi. **[Denetim günlüklerini okumak ayrıntılı yönergeler için sağlama raporlama Kılavuzu bakın.](../active-directory-saas-provisioning-reporting.md)**
 
 5. Bir tamamlandı, onu bir denetim özet raporu yazacak **sağlama** sekmesinde, aşağıda gösterildiği gibi.
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Workday kullanıcı özniteliklerinin listesi özelleştirme
 Active Directory ve her ikisi Workday kullanıcı özniteliklerinin varsayılan listesini içeren Azure AD için uygulamalar sağlama Workday arasından seçim yapabilirsiniz. Ancak, bu listeleri kapsamlı değildir. Workday yüzlerce ya da standart ya da iş günü kiracınız için benzersiz olabilir olası kullanıcı öznitelikleri destekler. 
@@ -799,15 +796,9 @@ Bunu yapmak için kullanmanız gerekir [Workday Studio](https://community.workda
 
 * Avrupa Birliği bulunan Azure AD kiracılarıyla görünmeyen denetim günlüklerini önceki bir sorun çözüldü. Ancak, ek Aracısı yapılandırması AB Azure AD kiracıları için gereklidir. Ayrıntılar için bkz [bölümü 3: şirket içi eşitleme Aracısı'nı yapılandırma](#Part 3: Configure the on-premises synchronization agent)
 
-
 ## <a name="managing-personal-data"></a>Kişisel verileri yönetme
 
 Çözüm için Active Directory sağlama iş günü bir eşitleme aracısı etki alanına katılmış bir sunucuda yüklü olmasını gerektirir ve bu aracı Windows olay günlüğünde, kişisel olarak tanımlanabilir bilgiler içerebilir günlükleri oluşturur.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]  Burada... / başvuruları Makalenizi hiyerarşi yapısını eşleştirme
-
-> [!NOTE]
-> Görüntüleme veya kişisel verileri silme düşünüyorsanız, lütfen Microsoft'un Kılavuzu gözden [Windows verileri konu istekleri için GDPR](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) site. GDPR hakkında genel bilgi arıyorsanız bkz [hizmet Portalı'nın güven GDPR bölümünü](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

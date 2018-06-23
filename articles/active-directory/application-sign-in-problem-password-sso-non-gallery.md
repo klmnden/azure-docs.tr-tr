@@ -3,22 +3,24 @@ title: Parola için yapılandırılmış bir Azure AD galeri uygulaması oturumu
 description: Parola çoklu oturum açma için yapılandırılmış Azure AD galeri uygulamaları için oturum açma ile ilgili sorunları gidermek için kılavuzluk sorunlu alanları açıklanır
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: f13f9fa54af13dbbe435a846be35c9e06fe65455
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 020a5ec2a6cea2854e46d9da8aa0a178695deb86
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068767"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331914"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Parola çoklu oturum açma için yapılandırılmış bir Azure AD galeri uygulaması için oturum açma sorunları
 
@@ -49,7 +51,7 @@ Erişim paneli tarayıcı uzantısı yüklemek için aşağıdaki adımları izl
 
 1.  Açık [erişim paneli](https://myapps.microsoft.com) olarak oturum açın ve desteklenen tarayıcılar birinde bir **kullanıcı** Azure ad.
 
-2.  tıklatın bir **parola SSO uygulaması** erişim panelinde.
+2.  Tıklatın bir **parola SSO uygulaması** erişim panelinde.
 
 3.  Yazılımı yüklemek soran istem içinde seçin **Şimdi Yükle**.
 
@@ -81,7 +83,7 @@ Uzaktan erişim paneli uzantısı Internet Explorer için kullanıcılarınızı
 
 ## <a name="troubleshoot-the-access-panel-in-internet-explorer"></a>Internet Explorer erişim panelinde sorun giderme
 
-İzleyin [erişim paneli uzantısı Internet Explorer için sorun giderme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-Troubleshoot) uzantısı için IE yapılandırma erişim için bir tanılama aracı ve adım adım yönergeler Kılavuzu.
+İzleyin [erişim paneli uzantısı Internet Explorer için sorun giderme](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting) uzantısı için IE yapılandırma erişim için bir tanılama aracı ve adım adım yönergeler Kılavuzu.
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Parola çoklu oturum açma galeri olmayan uygulama için yapılandırma
 

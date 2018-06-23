@@ -3,22 +3,24 @@ title: Azure AD galeri uygulamaya hiçbir kullanıcı sağlanan | Microsoft Docs
 description: Sık rastlanan sorunları giderme konusunda karşılaştığı görüntülenmesini kullanıcılar görmüyorsanız, Azure AD bir kullanıcı Azure AD ile sağlamak için yapılandırdığınız uygulama Galerisi
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: asteen
-ms.openlocfilehash: a36d60b8915ae0b46226bb2127829a8f1767daba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 394e8642c177312c8990ea211f77fb802d4228fd
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26616300"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332418"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Azure AD galeri uygulamaya hiçbir kullanıcı sağlandı
 
@@ -34,7 +36,7 @@ Kullanıcıların sağlanan değil Gözlemleme, belirli bir kullanıcı için g�
 
 Sağlama denetim günlüklerini Azure portalında erişilebilen **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; denetim günlüklerini** sekmesi. Günlükleri filtre **hesap sağlama** yalnızca bu uygulama için sağlama olayları görmek için kategori. "İçinde öznitelik eşlemelerini kendileri için yapılandırılan eşleşen ID" temel alarak kullanıcılara arayabilirsiniz. Örneğin "kullanıcı asıl adı" veya "Azure AD tarafında eşleşen öznitelik olarak e-posta adresi" yapılandırılmış ve değil sağlama kullanıcı değerine sahip "audrey@contoso.com". Denetim günlüklerini arama "audrey@contoso.com" ve gözden geçirin, ardından girdi döndü.
 
-Sağlama denetim sağlama, hedef uygulama kullanıcılarla varlığı için sorgulama, sistem arasında kullanıcı nesneleri karşılaştırma kapsamında atanan kullanıcılar için Azure AD Sorgulama dahil olmak üzere sağlama hizmeti tarafından gerçekleştirilen tüm işlemler kaydı günlüğe kaydeder. Ardından ekleme, güncelleştirme veya karşılaştırma üzerine dayalı hedef sistem kullanıcı hesabı devre dışı bırakın.
+Sağlama, hedef uygulama kullanıcılarla varlığı için sorgulama, kullanıcı nesneleri karşılaştırma kapsamında atanan kullanıcılar için Azure AD Sorgulama dahil olmak üzere sağlama hizmeti tarafından gerçekleştirilen tüm işlemler kayıt sağlama denetim günlüklerini Sistem arasında. Ardından ekleme, güncelleştirme veya karşılaştırma üzerine dayalı hedef sistem kullanıcı hesabı devre dışı bırakın.
 
 ## <a name="general-problem-areas-with-provisioning-to-consider"></a>Genel sorun alanlarından dikkate alınması gereken hazırlama
 
@@ -45,7 +47,7 @@ Başlatılacağı konum hakkında bir fikir varsa, ayrıntılarına geçebilir g
 
 ## <a name="provisioning-service-does-not-appear-to-start"></a>Başlatmak için hizmet sağlama görünmüyor
 
-Ayarlarsanız **sağlama durumu** olmasını **üzerinde** içinde **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt;sağlama** Azure portalının bölümü. Ancak başka durumunu Ayrıntılar gösterilir bu sayfada sonraki yeniden yükler sonra hizmeti çalışıyor ancak bir ilk eşitleme henüz tamamlanmadı olasıdır. Denetleme **denetim günlüklerini** hizmet gerçekleştirip, hangi işlemleri belirlemek için yukarıda açıklanan ve herhangi bir hata varsa.
+Ayarlarsanız **sağlama durumu** olmasını **üzerinde** içinde **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt;Sağlama** Azure portalının bölümü. Ancak başka durumunu Ayrıntılar gösterilir bu sayfada sonraki yeniden yükler sonra hizmeti çalışıyor ancak bir ilk eşitleme henüz tamamlanmadı olasıdır. Denetleme **denetim günlüklerini** hizmet gerçekleştirip, hangi işlemleri belirlemek için yukarıda açıklanan ve herhangi bir hata varsa.
 
 >[!NOTE]
 >Bir başlangıç eşitlemesi 20 dakika arasında herhangi bir yere Azure AD dizini ve sayısı, kullanıcı sağlama kapsamında boyutuna bağlı olarak birkaç saat sürebilir. İlk eşitleme sonrasında sonraki eşitlemeler daha hızlı olduğunu sağlama hizmeti ilk eşitleme sonrasında her iki sistem durumunu temsil filigranlar depolar. Bu, sonraki eşitlemeler performansını artırır.

@@ -3,7 +3,7 @@ title: Azure AD içinde Federasyon sertifikalarını yönetmek | Microsoft Docs
 description: Federasyon sertifikalarınızı sona erme tarihini özelleştirmeyi ve süresi yakında dolacak sertifikaları yenilemek nasıl öğrenin.
 services: active-directory
 documentationcenter: ''
-author: jeevansd
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2017
-ms.author: jeedes
-ms.openlocfilehash: c4d812db6371a4cd1fcc701f7eae2c913c29fb6b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.author: barbkess
+ms.reviewer: jeedes
+ms.openlocfilehash: 5b4e2694a9b7e67643cb1e3b3cbc99fab940bd9d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303902"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337803"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Federasyon tek oturum açma için Azure Active Directory'de sertifikaları yönetme
 Bu makale ortak sorular ve Federasyon çoklu oturum açma (SSO) SaaS uygulamalarınıza oluşturmak için Azure Active Directory (Azure AD) oluşturur sertifikalar ilgili bilgiler yer almaktadır. Uygulamaları Azure AD uygulama galerisinde veya bir galeri olmayan uygulama şablonu kullanarak ekleyin. Uygulama, Federasyon SSO seçeneğini kullanarak yapılandırın.
@@ -84,7 +85,7 @@ Aşağıdaki yenileme adımları sonucunda kullanıcılarınız için önemli ka
     ![Yeni bir sertifika oluşturma](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](../active-directory-saas-tutorial-list.md)
+* [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](../saas-apps/tutorial-list.md)
 * [Azure Active Directory'de uygulama yönetimi için makale dizini](../active-directory-apps-index.md)
 * [Uygulama erişimi ve Azure Active Directory ile çoklu oturum açma](what-is-single-sign-on.md)
 * [Sorun giderme SAML tabanlı çoklu oturum açma](../develop/active-directory-saml-debugging.md)

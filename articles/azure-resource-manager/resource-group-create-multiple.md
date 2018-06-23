@@ -12,20 +12,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2017
+ms.date: 06/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: ce442793a9917320b6b2b0a7014a20f885c3720c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 580ecc98913dc35e2d1e21f1dcfa19936bb59826
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337964"
 ---
 # <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Bir kaynak veya Azure Resource Manager şablonları özelliğinde birden fazla örneğini dağıtma
 Bu makalede, koşullu bir kaynak dağıtma ve birden fazla örneğini bir kaynak oluşturmak için Azure Resource Manager şablonu yineleme gösterir.
 
 ## <a name="conditionally-deploy-resource"></a>Koşullu kaynağını dağıtma
 
-Bir örnek veya bir kaynak örneği oluşturmak için dağıtım sırasında karar verdiğinizde, kullanın `condition` öğesi. Bu öğe için değer true veya false değerine çözümler. Değer doğru olduğunda, kaynak dağıtılır. Değer false olduğunda, kaynak dağıtılmaz. Örneğin, yeni bir depolama hesabı dağıtılan ya da mevcut bir depolama hesabını kullanılan belirtmek için kullanın:
+Bir örnek veya bir kaynak örneği oluşturmak için dağıtım sırasında karar verdiğinizde, kullanın `condition` öğesi. Bu öğe için değer true veya false değerine çözümler. Değer doğru olduğunda, kaynak dağıtılır. Değer false olduğunda, kaynak dağıtılan değil. Örneğin, yeni bir depolama hesabı dağıtılan ya da mevcut bir depolama hesabını kullanılan belirtmek için kullanın:
 
 ```json
 {
@@ -127,7 +128,7 @@ Bu adları oluşturur:
 * storagefabrikam
 * storagecoho
 
-Varsayılan olarak, Resource Manager kaynakları paralel olarak oluşturur. Bu nedenle, oluşturulan siparişi garanti edilmez. Ancak, kaynakları sırayla dağıtılan belirtmek isteyebilirsiniz. Örneğin, bir üretim ortamında güncelleştirirken, güncelleştirmeleri bu nedenle kademelendirebilirsiniz isteyebilirsiniz yalnızca belirli sayıda herhangi bir zamanda güncelleştirilir.
+Varsayılan olarak, Resource Manager kaynakları paralel olarak oluşturur. Bu nedenle, oluşturulan siparişi garantisi yoktur. Ancak, kaynakları sırayla dağıtılan belirtmek isteyebilirsiniz. Örneğin, bir üretim ortamında güncelleştirirken, güncelleştirmeleri bu nedenle kademelendirebilirsiniz isteyebilirsiniz yalnızca belirli sayıda herhangi bir zamanda güncelleştirilir.
 
 Seri olarak birden fazla örneğini bir kaynak dağıtım yapmak için `mode` için **seri** ve `batchSize` aynı anda dağıtılacak örnek sayısı. Önceki toplu iş tamamlanana kadar tek bir toplu başlamıyor şekilde seri moduyla, Resource Manager döngü önceki durumlarda bir bağımlılık oluşturur.
 
@@ -191,7 +192,7 @@ Aşağıdaki örnekte nasıl uygulanacağını gösterir `copy` bir sanal makine
       ...
 ```
 
-Kullanırken dikkat `copyIndex` özelliği yineleme içinde yineleme adı sağlamanız gerekir. Kaynak bir yineleme kullanıldığında ad gerekmez.
+Kullanırken dikkat `copyIndex` özelliği yineleme içinde yineleme adı sağlamanız gerekir. Kaynak bir yineleme kullanıldığında ad sağlamak zorunda değilsiniz.
 
 Kaynak Yöneticisi'ni genişletir `copy` dağıtımı sırasında dizi. Dizi adı özelliğinin adı haline gelir. Giriş değerleri nesne özellikleri haline gelir. Dağıtılan şablonu olur:
 
@@ -220,6 +221,34 @@ Kaynak Yöneticisi'ni genişletir `copy` dağıtımı sırasında dizi. Dizi ad�
           }
       }],
       ...
+```
+
+Kaynak için birden fazla özellik belirtebilmeniz copy öğesi bir dizidir. Bir nesne oluşturmak her bir özellik için ekleyin.
+
+```json
+{
+    "name": "string",
+    "type": "Microsoft.Network/loadBalancers",
+    "apiVersion": "2017-10-01",
+    "properties": {
+        "copy": [
+          {
+              "name": "loadBalancingRules",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          },
+          {
+              "name": "probes",
+              "count": "[length(parameters('loadBalancingRules'))]",
+              "input": {
+                ...
+              }
+          }
+        ]
+    }
+}
 ```
 
 Kaynak ve özellik yineleme birlikte kullanabilirsiniz. Özellik yineleme adlarıyla başvurmalıdır.
@@ -309,8 +338,29 @@ Birden fazla örneğini bir değişken oluşturmak için kullanın `copy` deği�
 }
 ```
 
+Böylece birden fazla değişken belirtebilirsiniz ya da yaklaşımda, kopya bir dizi öğedir. Bir nesne oluşturmak her bir değişken ekleyin.
+
+```json
+"copy": [
+  {
+    "name": "first-variable",
+    "count": 5,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('first-variable'))]",
+    }
+  },
+  {
+    "name": "second-variable",
+    "count": 3,
+    "input": {
+      "demoProperty": "[concat('myProperty', copyIndex('second-variable'))]",
+    }
+  },
+]
+```
+
 ## <a name="depend-on-resources-in-a-loop"></a>Döngü kaynakları bağlıdır
-Bir kaynak sonra başka bir kaynak kullanarak dağıtılmış belirttiğiniz `dependsOn` öğesi. Döngü kaynaklar topluluğu bağımlı bir kaynak dağıtmak için ' dependsOn'öğesinde kopyalama döngüsü adını sağlayın. Aşağıdaki örnekte, sanal makineyi dağıtmadan önce üç depolama hesapları dağıtmayı gösterilmektedir. Tam sanal makine tanımı gösterilmez. Copy öğesi kümesine adı olduğuna dikkat edin `storagecopy` ve sanal makineler için dependsOn öğesini de ayarlamak `storagecopy`.
+Bir kaynak sonra başka bir kaynak kullanarak dağıtılmış belirttiğiniz `dependsOn` öğesi. Döngü kaynaklar topluluğu bağımlı bir kaynak dağıtmak için ' dependsOn'öğesinde kopyalama döngüsü adını sağlayın. Aşağıdaki örnekte, sanal makineyi dağıtmadan önce üç depolama hesapları dağıtmayı gösterilmektedir. Tam sanal makine tanımı gösterilen değil. Copy öğesi kümesine adı olduğuna dikkat edin `storagecopy` ve sanal makineler için dependsOn öğesini de ayarlamak `storagecopy`.
 
 ```json
 {
@@ -409,7 +459,7 @@ Aşağıdaki örnekler, birden çok kaynakları veya özellikleri oluşturmak i�
 |[VM bir yeni veya var olan sanal ağ, depolama ve genel IP ile](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) |Koşullu bir sanal makine yeni veya var olan kaynaklarla dağıtır. |
 |[Değişken bir veri diski sayısı ile VM dağıtımı](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Bir sanal makineyle birden çok veri diskleri dağıtır. |
 |[Kopyalama değişkenleri](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Değişkenlerde yineleme farklı yollarını gösterir. |
-|[Birden çok güvenlik kuralları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Birden çok güvenlik kuralları bir ağ güvenlik grubuna dağıtır. Güvenlik kuralları bir parametre oluşturur. |
+|[Birden çok güvenlik kuralları](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |Birden çok güvenlik kuralları bir ağ güvenlik grubuna dağıtır. Güvenlik kuralları bir parametre oluşturur. Parametresi için bkz: [birden fazla NSG parametre dosyası](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json). |
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Bir şablon bölümleri hakkında bilgi edinmek istiyorsanız, bkz: [Azure Resource Manager şablonları yazma](resource-group-authoring-templates.md).

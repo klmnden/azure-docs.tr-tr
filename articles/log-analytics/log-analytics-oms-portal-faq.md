@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851362"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333641"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Günlük analizi kullanıcılar için Azure portalı OMS portalı geçiş için ortak soruları
 Günlük analizi OMS portalı adlı kendi portal yapılandırmasını yönetmek ve toplanan verileri çözümlemek için başlangıçta kullanılır.  Bu portalı tüm işlevinden burada geliştirilecek devam edecek Azure portalına taşındı.
@@ -39,7 +39,7 @@ Azure portalında çalışma alanları listesinden tıklatın **Ekle** çalışm
 ![Genel Bakış sayfası](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>My genel bakış sayfası nerede?
-OMS portalında ana ekran çalışma alanınızı ve oluşturduğunuz özel görünümleri yüklenen tüm yönetim çözümleri için kutucukları görüntüler. Azure portalında bu olarak adlandırılır **genel bakış** sayfası. Azure portalında, çalışma alanından ya da seçin **genel bakış** menüsü veya **genel bakış** ana sayfada düğmesi.
+OMS portalında ana ekran çalışma alanınızı ve oluşturduğunuz özel görünümleri yüklenen tüm yönetim çözümleri için kutucukları görüntüler. Bu aynı görünüm Azure portalında kullanılabilir. Alanınızdan, seçin **çalışma Özet**.
 
 ![Genel Bakış sayfası](media/log-analytics-new-portal/overview.png)
 
@@ -87,7 +87,7 @@ Bilgisayar gruplarını yönetme **Gelişmiş ayarları** çalışma alanı men�
 
 | OMS portalında ayarlama | Azure portalında eşdeğeri |
 |:---|:---|
-| Windows olay günlükleri           | **Gelişmiş ayarlar** çalışma alanı menüsüne. |
+| Windows Olay Günlükleri           | **Gelişmiş ayarlar** çalışma alanı menüsüne. |
 | Windows performans sayaçları | **Gelişmiş ayarlar** çalışma alanı menüsüne. |
 | Linux performans sayaçları   | **Gelişmiş ayarlar** çalışma alanı menüsüne. |
 | IIS Günlükleri                     | **Gelişmiş ayarlar** çalışma alanı menüsüne. |

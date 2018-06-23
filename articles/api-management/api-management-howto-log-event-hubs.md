@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 3f4da70d94d28496f5b08035ead0ef7acf1ca3bc
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 2334aefdfb442054226ef6d7d55a8c097a433565
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969606"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316332"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Azure Event hubs'a Azure API Management'te olayları günlüğe kaydetme hakkında
 Azure Event Hubs, bağlı cihazlarınız ve uygulamalarınız tarafından üretilen oldukça büyük miktardaki verileri işleyip analiz edebilmeniz için saniye başına milyonlarca olayı işleyebilen ileri düzeyde ölçeklenebilir bir veri alım sistemidir. Event Hubs bir olay komut zincirinin "ön kapı" olarak görev yapan ve veriler bir event hub'ına toplandıktan sonra dönüştürülebilir ve tüm gerçek zamanlı analiz sağlayıcısı veya toplu işlem/depolama bağdaştırıcısı kullanılarak saklanır. Event Hubs olay akışı üretimlerini bu olayların tüketilmesinden ayırır, böylece olay tüketicileri olaylara kendi zamanlamalarında erişebilir.
 
 Bu makalede bir yardımcı olan [olay hub'ları ile Azure API Management tümleştirmek](https://azure.microsoft.com/documentation/videos/integrate-azure-api-management-with-event-hubs/) video ve Azure Event Hubs kullanarak API Management olaylarını günlüğe kaydedecek şekilde açıklar.
 
-## <a name="create-an-azure-event-hub"></a>Bir Azure olay hub'ı Oluştur
+## <a name="create-an-azure-event-hub"></a>Azure Olay Hub’ı oluşturma
 
 Bir olay hub'ı oluşturma ve olay hub'ı gelen ve giden olayları alıp göndermek için gereken bağlantı dizeleri alma hakkında ayrıntılı adımlar için bkz: [bir olay hub'ları ad alanı oluşturup Azure portalını kullanarak bir event hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
@@ -79,7 +79,7 @@ API Management'te, Günlükçü yapılandırıldıktan sonra günlük eventhubs 
 1. APIM örneğinize göz atın.
 2. API sekmesini seçin.
 3. İlke eklemek istediğiniz API seçin. Bu örnekte, biz bir ilkeye eklediğiniz **Echo API'si** içinde **sınırsız** ürün.
-4. Seçin **tüm işlemleri**.
+4. **Tüm işlemler**’i seçin.
 5. Ekranın üst kısmında Tasarım sekmesini seçin.
 6. Gelen veya giden işlem penceresinde üçgen (yanındaki kalem) tıklatın.
 7. Kod Düzenleyicisi'ni seçin. Daha fazla bilgi için bkz: [nasıl ayarlayacağınız veya ilkeleri düzenleme](set-edit-policies.md).
@@ -105,7 +105,8 @@ Tıklatın **kaydetmek** güncelleştirilmiş ilke yapılandırmasını kaydetme
 * API Management ve Event Hubs ile tümleştirme hakkında daha fazla bilgi edinin
   * [Günlükçü varlık başvurusu](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [Günlük eventhub ilke başvurusu](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
-  * [Azure API Management, olay hub'ları ve Runscope Apı'lerinizi izleme](api-management-log-to-eventhub-sample.md)    
+  * [Azure API Management, olay hub'ları ve Runscope Apı'lerinizi izleme](api-management-log-to-eventhub-sample.md)  
+* Daha fazla bilgi edinmek [Azure Application Insights ile tümleştirme](api-management-howto-app-insights.md)
 
 [publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
 [create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png

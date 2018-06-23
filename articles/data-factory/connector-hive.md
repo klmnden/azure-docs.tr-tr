@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f3ed658ffb3f85baacf7eeec8395aaeff84806b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a6d72f2aefa11636653bea5f9e0e17e0e98f421
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616354"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332509"
 ---
 # <a name="copy-data-from-hive-using-azure-data-factory"></a>Azure Data Factory kullanarak kovanından veri kopyalama 
 
@@ -35,7 +35,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, Data Factory varlıklarını belirli Hive bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

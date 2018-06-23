@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Beta) kullanarak QuickBooks veri kopyalama | Microsoft Docs
+title: Azure Data Factory (Önizleme) kullanarak QuickBooks veri kopyalama | Microsoft Docs
 description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak QuickBooks desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: db9b57ed64485882a9b0e0bb020392131f4c5d62
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0c7557c400be36fed59e48fc346afb0fa5b198b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619186"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337943"
 ---
-# <a name="copy-data-from-quickbooks-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak QuickBooks verilerini
+# <a name="copy-data-from-quickbooks-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak QuickBooks verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de QuickBooks verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
@@ -28,7 +28,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de QuickBooks verileri kopyalama
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve bize geri bildirimde bulunun. Üretim ortamında kullanmayın.
+> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -40,7 +40,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını QuickBooks bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 
@@ -53,6 +53,8 @@ Aşağıdaki özellikler QuickBooks bağlantılı hizmeti için desteklenir:
 | type | Type özelliği ayarlanmalıdır: **QuickBooks** | Evet |
 | endpoint | QuickBooks sunucusu uç noktası. (diğer bir deyişle, quickbooks.api.intuit.com)  | Evet |
 | Companyıd | Yetkilendirmek için QuickBooks şirket şirket kimliği.  | Evet |
+| consumerKey | OAuth 1.0 kimlik doğrulaması için tüketici anahtarı. | Evet |
+| consumerSecret | Tüketici gizli anahtarı OAuth 1.0 kimlik doğrulaması için. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | accessToken | OAuth 1.0 kimlik doğrulaması için erişim belirteci. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | accessTokenSecret | Erişim belirteci gizli anahtarı OAuth 1.0 kimlik doğrulaması için. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
@@ -67,6 +69,11 @@ Aşağıdaki özellikler QuickBooks bağlantılı hizmeti için desteklenir:
         "typeProperties": {
             "endpoint" : "quickbooks.api.intuit.com",
             "companyId" : "<companyId>",
+            "consumerKey": "<consumerKey>",
+            "consumerSecret": {
+                "type": "SecureString",
+                "value": "<consumerSecret>"
+            },
             "accessToken": {
                  "type": "SecureString",
                  "value": "<accessToken>"

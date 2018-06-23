@@ -1,5 +1,5 @@
 ---
-title: Oracle Azure Data Factory (Beta) kullanarak Eloqua veri kopyalama | Microsoft Docs
+title: Oracle Azure Data Factory (Önizleme) kullanarak Eloqua veri kopyalama | Microsoft Docs
 description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak Oracle Eloqua desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7fa26e71651f0b13da97653e998974c6fd39fe3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edab4a27966a0bdb278007c0d030fe43a126a35
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617204"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36320607"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-beta"></a>Oracle Azure Data Factory (Beta) kullanarak Eloqua verilerini
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Oracle Azure Data Factory (Önizleme) kullanarak Eloqua verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de Oracle Eloqua verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
@@ -28,7 +28,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de Oracle Eloqua verileri kopyal
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve geri bildirim sağlayın. Üretim ortamında kullanmayın.
+> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve geri bildirim sağlayın. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -49,8 +49,8 @@ Aşağıdaki özellikler, Oracle Eloqua bağlantılı hizmeti için desteklenir:
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **Eloqua** | Evet |
-| endpoint | Eloqua sunucusu uç noktası. (diğer bir deyişle, eloqua.example.com)  | Evet |
-| kullanıcı adı | Eloqua hesabınızı biçiminde kullanıcı adını ve site adı: site adı/kullanıcı adı. (diğer bir deyişle, Eloqua/Alice)  | Evet |
+| endpoint | Eloqua sunucusu uç noktası. Eloqua destekleyen uç noktanızı, oturum açma belirlemek için birden çok veri merkezleri, https://login.eloqua.com ile kimlik bilgilerinizi, daha sonra kopyalayın **ana URL** yeniden yönlendirilen URL'si desenini ile kısımlarından `xxx.xxx.eloqua.com`. | Evet |
+| kullanıcı adı | Eloqua hesabınızı biçiminde kullanıcı adını ve site adı: `SiteName\Username` örneğin `Eloqua\Alice`.  | Evet |
 | password | Kullanıcı adına karşılık gelen parola. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | useEncryptedEndpoints | Veri kaynağı uç noktaları HTTPS kullanılarak şifrelenmiş olup olmadığını belirtir. Varsayılan değer true olur.  | Hayır |
 | useHostVerification | SSL üzerinden bağlanırken sunucusunun ana bilgisayar adı ile eşleşmesi için sunucunun sertifikası ana bilgisayar adlarında istenip istenmeyeceğini belirtir. Varsayılan değer true olur.  | Hayır |
@@ -64,8 +64,8 @@ Aşağıdaki özellikler, Oracle Eloqua bağlantılı hizmeti için desteklenir:
     "properties": {
         "type": "Eloqua",
         "typeProperties": {
-            "endpoint" : "eloqua.example.com",
-            "username" : "Eloqua/Alice",
+            "endpoint" : "<base URL e.g. xxx.xxx.eloqua.com>",
+            "username" : "<site name>\\<user name e.g. Eloqua\\Alice>",
             "password": {
                  "type": "SecureString",
                  "value": "<password>"

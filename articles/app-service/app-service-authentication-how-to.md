@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: c41cb3ef2939fe7271b1f8738fcf0cb95c4b1111
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 688ea090384755b9a6d60a4968d958678edc27ad
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763151"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337859"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Kimlik doğrulama ve yetkilendirme Azure App Service'te özelleştirme
 
@@ -89,11 +89,11 @@ Sağlayıcınızın erişim belirtecinin süresi dolduğunda, kullanıcının ye
 
 - **Google**: Append bir `access_type=offline` sorgu dizesi parametresi, `/.auth/login/google` API çağrısı. Mobile Apps SDK'sı kullanıyorsanız, parametre birine ekleyebileceğiniz `LogicAsync` aşırı (bkz [Google yenileme belirteçleri](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: yenileme belirteçleri sağlamaz. Uzun süreli belirteçler 60 gün içinde sona (bkz [Facebook geçerlilik süresi ve erişim belirteçleri uzantısı](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter**: erişim belirteçleri verme süresi (bkz [Twitter OAuth SSS](https://developer.twitter.com/docs/basics/authentication/guides/oauth-faq)).
+- **Twitter**: erişim belirteçleri verme süresi (bkz [Twitter OAuth SSS](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq)).
 - **Microsoft Account**: zaman [Microsoft hesap kimlik doğrulama ayarlarını yapılandırma](app-service-mobile-how-to-configure-microsoft-authentication.md)seçin `wl.offline_access` kapsam.
 - **Azure Active Directory**: içinde [ https://resources.azure.com ](https://resources.azure.com), aşağıdaki adımları uygulayın:
     1. Sayfanın en üstünde seçin **okuma/yazma**.
-    1. Sol tarayıcıda gidin **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grup\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri** > _**\<uygulama \_adı >**_ > **config** > **authsettings**. 
+    1. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
     1. **Düzenle**’ye tıklayın.
     1. Aşağıdaki özelliğini değiştirin. Değiştir  _\<uygulama\_kimliği >_ erişmek istediğiniz hizmet Azure Active Directory Uygulama kimliği.
 
@@ -103,7 +103,7 @@ Sağlayıcınızın erişim belirtecinin süresi dolduğunda, kullanıcının ye
 
     1. Tıklatın **Put**. 
 
-Sağlayıcınız yapılandırıldıktan sonra yenileme belirteçleri çağırarak belirteci deposunda olup olmadığını görebilirsiniz `/.auth/me`. 
+Sağlayıcınız yapılandırıldıktan sonra şunları yapabilirsiniz [yenileme belirtecini ve erişim belirteci süre sonu zamanı bulmak](#retrieve-tokens-in-app-code) belirteci deposundaki. 
 
 Erişim belirteci zaman yenilemek için yalnızca çağrı `/.auth/refresh` herhangi bir dilde. Aşağıdaki kod parçacığında jQuery JavaScript istemcisinden, erişim belirteçleri yenilemek için kullanır.
 
@@ -140,7 +140,7 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Microsoft Account ve Azure Active Directory birden çok etki alanından oturum açmanızı sağlar. Örneğin, Microsoft Account sağlar _outlook.com_, _live.com_, ve _hotmail.com_ hesaplar. Azure Active Directory oturum açma hesapları için özel etki alanlarını herhangi bir sayıda sağlar. Bu davranış kimseyle istemediğiniz bir iç uygulama için istenmeyen bir _outlook.com_ hesap erişim. Oturum açma hesapları etki alanı adını sınırlandırmak için aşağıdaki adımları izleyin.
 
-İçinde [ https://resources.azure.com ](https://resources.azure.com), gitmek **abonelikleri** > **_\<abonelik\_adı_**   >  **resourceGroups** > _**\<kaynak\_grup\_adı >**_   >  **sağlayıcıları** > **Microsoft.Web** > **siteleri**  >    _**\<uygulama\_adı >**_ > **config** > **authsettings**. 
+In [https://resources.azure.com](https://resources.azure.com), navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**. 
 
 Tıklatın **Düzenle**, aşağıdaki özelliğini değiştirin ve ardından **Put**. Değiştirdiğinizden emin olun  _\<etki alanı\_adı >_ istediğiniz etki alanı ile.
 

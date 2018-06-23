@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/05/2018
 ms.author: anoopkv
-ms.openlocfilehash: b2c564e8d49e39d9cdc09d3fe168388d579de70e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 01b0717660265b28d4ea7d804a761e7e425c997c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29812659"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319609"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure çoğaltma için VMware kaynak ortamını ayarlama
 
@@ -39,12 +39,12 @@ Makale, zaten sahip olduğunuz varsayılmaktadır:
 
 ## <a name="set-up-the-configuration-server"></a>Yapılandırma sunucusu kurma
 
-Yapılandırma sunucusunu bir şirket içi VMware VM ayarlama, açık sanallaştırma biçimi (OVF) şablonunu kullanın. [Daha fazla bilgi edinin](concepts-vmware-to-azure-architecture.md) VMware VM üzerinden yüklenecek bileşenleri hakkında. 
+Yapılandırma sunucusunu ayarlamayı açık sanallaştırma uygulama (OVA) şablonu aracılığıyla şirket içi VMware VM ayarlayabilirsiniz. [Daha fazla bilgi edinin](concepts-vmware-to-azure-architecture.md) VMware VM üzerinden yüklenecek bileşenleri hakkında.
 
 1. Hakkında bilgi edinin [Önkoşullar](vmware-azure-deploy-configuration-server.md#prerequisites) yapılandırma sunucusu dağıtımı için.
 2. [Kapasite numaraları denetleyin](vmware-azure-deploy-configuration-server.md#capacity-planning) dağıtımı için.
-3. [Karşıdan](vmware-azure-deploy-configuration-server.md#download-the-template) ve [alma](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) şirket içi VMware yapılandırma sunucusu çalıştıran VM ayarlamak için OVF şablonu (how-to-dağıtma-yapılandırma-server.md).
-4. VMware VM üzerinden etkinleştirmek ve [kaydetmek](vmware-azure-deploy-configuration-server.md#register-the-configuration-server) kurtarma Hizmetleri kasası.
+3. [Karşıdan](vmware-azure-deploy-configuration-server.md#download-the-template) ve [alma](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) şirket içi VMware yapılandırma sunucusu çalıştıran VM ayarlamak için OVA şablonu. Şablonla sağlanan lisans değerlendirme lisans olduğunu ve 180 gün için geçerli değil. POST bu süre, müşteri tedarik edilen bir lisans ile windows etkinleştirmesi gerekir.
+4. VMware VM üzerinden etkinleştirmek ve [kaydetmek](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services) kurtarma Hizmetleri kasası.
 
 
 ## <a name="add-the-vmware-account-for-automatic-discovery"></a>Otomatik bulma için VMware hesabı ekleyin

@@ -13,20 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 4ee07d8b9180c04c714476da845ceffaa4388bee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 43b43be154756838d8c130b2ec1a0dbc40405422
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229538"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332363"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD uygulama proxy'si bir Azure AD etki alanı Hizmetleri yönetilen etki alanında dağıtma
 Azure Active Directory (AD) uygulama proxy'si, internet üzerinden erişilebilmesi için şirket içi uygulamaları yayımlama tarafından uzaktan çalışanlar destek yardımcı olur. Azure AD etki alanı Hizmetleri ile Azure altyapı hizmetleri için şirket içi çalışan şimdi yükseltme-ve-shift eski uygulamalar olabilir. Ardından, kuruluşunuzdaki kullanıcılar için güvenli uzaktan erişim sağlamak için Azure AD uygulama proxy'si kullanarak bu uygulamaları yayımlayabilirsiniz.
 
 Azure AD uygulama proxy'si yeniyseniz, bu özellik aşağıdaki makaleyi ile hakkında daha fazla bilgi: [güvenli uzaktan erişim sağlamak şirket içi uygulamalar](../active-directory/manage-apps/application-proxy.md).
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu makalede listelenen görevleri gerçekleştirmek için gerekir:

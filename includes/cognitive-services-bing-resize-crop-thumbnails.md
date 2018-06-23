@@ -1,67 +1,76 @@
-Some Bing responses include URLs to thumbnail images served by Bing. You may resize and crop the thumbnail images. 
+Bazı Bing yanıtları resimlerin Bing tarafından sunulan URL'leri eklenecek. Yeniden boyutlandırma ve küçük resim görüntüleri kırpma. 
 
 > [!NOTE]
-> Ensure the size and cropping of the thumbnail provide a search scenario and respect third party rights, as required by [Search API Use and Display Requirements](/useanddisplayrequirements.md).
+> Boyutu emin olun ve küçük resmini kırpma arama senaryo sağlar ve Bing arama API'si kullanılarak gerektiği gibi üçüncü taraf haklarını saygı ve gereksinimlerini görüntülemek.
 
 
-To resize an image, include the w (width) and h (height) query parameters in the thumbnail’s URL. Specify the width and height in pixels. For example:  
+Görüntüyü yeniden boyutlandırmak için w (genişlik) ve y (yükseklik) dahil sorgu parametreleri küçük resim ait URL. Genişlik ve yükseklik piksel cinsinden belirtin. Örneğin:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-If you resize the image, its aspect ratio is maintained. To maintain the aspect ratio, white padding may be added to the boarder of the image. For example, if you resize a 480x359 image to 200x200 without cropping, the full width contains the image but the height contains 25 pixels of white padding at the top and bottom of the image. The same would be true if the image was 359x480 except the left and right boarders would contain white padding. If you crop the image, white padding is not added.  
-  
-The following picture shows the original size of a thumbnail image (480x300).  
-  
-![Original landscape image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape.PNG)  
-  
-The following picture shows the image resized to 200x200. The aspect ratio is maintained and the top and bottom boarders are padded with white (the black boarder is included to show the padding).  
-  
-![Resized landscape image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape-resized.PNG)  
-  
-If you specify dimensions that are greater than the image’s original width and height, the image is padded with white on the left and top boarders.  
-  
-To crop an image, include the c (crop) query parameter. The following are the possible values that you may specify.  
-  
-- 4&mdash;Blind Ratio  
-- 7&mdash;Smart Ratio  
-  
-If you request Smart Ratio cropping (c=7), the image is cropped from the center of the image’s region of interest outward while maintaining the image’s aspect ratio. The region of interest is the area of the image that Bing determines contains the most import parts. The following shows an example region of interest.  
-  
-![Region of interest](./media/cognitive-services-bing-resize-crop/bing-resize-crop-regionofinterest.PNG)
+Görüntüyü yeniden boyutlandırmak, en boy oranı korunur. En boy oranını korumak için kenarlık görüntüsünün beyaz doldurma eklenebilir. Örneğin, kırpma olmadan 200 x 200 480 x 359 görüntüye yeniden boyutlandırmak, görüntü tam genişlik içerir ancak üst ve alt görüntünün doldurma beyaz 25 piksel yüksekliği içeriyor. Aynı oluştuysa, görüntünün 359 x 480 dışında sol ve sağ kenarlık beyaz doldurma içerecektir true olması. Görüntü kırpma, beyaz dolgu eklenmez.  
 
-If you resize an image and request Smart Ratio cropping, the image is reduced to the requested size while maintaining the aspect ratio. The image is then cropped based on the resized dimensions. For example, if the resized width is less than or equal to the height, the image is cropped to the left and right of the center of the region of interest. Otherwise, the image is cropped to the top and bottom of the center of the region of interest.  
+ 
+Aşağıdaki resimde, küçük resim (480 x 300) özgün boyutunu gösterir.  
   
-The following shows the image reduced to 200x200 using Smart Ratio cropping.  
+![Özgün yatay görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape.PNG)  
   
-![Landscape image cropped to 200x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x200c7.PNG)
+Aşağıdaki resimde 200 x 200'e yeniden boyutlandırılan resim göstermektedir. En boy oranını saklanır ve üst ve Alt Kenarlık (doldurma göstermek için siyah kenarlık bulunur) beyaz renkle doldurulur.  
   
-The following shows the image reduced to 200x100 using Smart Ratio cropping.  
+![Yeniden boyutlandırılan yatay görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape-resized.PNG)  
+
+
+
+Resmin özgün genişlik ve yükseklik büyük boyutları belirtirseniz, görüntünün beyaz sol ve üst sınırlar üzerinde sıfır eklenir.  
+  
+Görüntü kırpma için c (kırpma) dahil sorgu parametresi. Belirttiğiniz olası değerler şunlardır:  
+  
+- 4&mdash;görme oranı  
+- 7&mdash;akıllı oranı  
+  
+Akıllı oranı kırpma isterse (c = 7), görüntü görüntünün bölge ilgi Merkezi'nden resmin en boy oranını koruyarak dışa doğru kırpılır. İlgi çoğu alma bölümleri içeren Bing belirler resmin bölgedir. Aşağıdaki örnekte bölge ilgi gösterir.  
+  
+![Bölge ilgi](./media/cognitive-services-bing-resize-crop/bing-resize-crop-regionofinterest.PNG)
+
+Görüntüyü yeniden boyutlandırma ve akıllı oranı kırpma isteği, resmin en boy oranını koruyarak istenen boyuta azalır. Görüntüyü yeniden boyutlandırılan boyutlara dayanan kırpılır. Örneğin, yeniden boyutlandırılan genişliği veya yüksekliği eşittir azsa, görüntü sol ve sağ ilgi bölge merkezi kırpılır. Aksi takdirde, görüntünün üst ve alt bölgenin ilgi merkezinin kırpılır.  
+  
+ 
+200 x akıllı oranı kırpma kullanarak 200'e azaltılmış görüntü gösterir.  
+  
+![200 x 200'e kırpılmış yatay görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x200c7.PNG)
+  
+200 x akıllı oranı kırpma kullanarak 100 azaltılmış görüntü gösterir.  
    
-![Landscape image cropped to 200x100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x100c7.PNG)
+![200 x 100'e kırpılmış yatay görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape200x100c7.PNG)
   
-The following shows the image reduced to 100x200 using Smart Ratio cropping.  
+100 x akıllı oranı kırpma kullanarak 200'e azaltılmış görüntü gösterir.  
   
-![Landscape image cropped to 100x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape100x200c7.PNG)
+![100 x 200'e kırpılmış yatay görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-landscape100x200c7.PNG)
+
+
+
+Bing görüntünün bölge ilgi belirleyemiyorsa, Bing görme oranı kırpma kullanır.  
   
-If Bing cannot determine the image’s region of interest, Bing uses Blind Ratio cropping.  
+Görme engelli oranı kırpma isterse (c = 4), Bing görüntü kırpma için aşağıdaki kuralları kullanır.  
   
-If you request Blind Ratio cropping (c=4), Bing uses the following rules to crop the image.  
+- Varsa (özgün görüntü genişliği / özgün görüntü yüksekliği) < (görüntü genişliği istenen / Görüntü yüksekliği istenen), görüntü sol köşe ve alt kısmındaki kırpılmış üstten ölçülür.  
+- Varsa (özgün görüntü genişliği / özgün görüntü yüksekliği) > (görüntü genişliği istenen / Görüntü yüksekliği istenen), görüntünün merkezden ölçülen ve sol ve sağ kırpılmış.  
+
+
+
+Aşağıdaki 225 x 300 bir dikey görüntüsü gösterir.  
   
-- If (Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height), the image is measured from top left corner and cropped at the bottom.  
-- If (Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height), the image is measured from the center and cropped to the left and right.  
+![Özgün Ayçiçeği görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower.PNG)
   
-The following shows a portrait image that’s 225x300.  
+200 x görme oranı kırpma kullanarak 200'e azaltılmış görüntü gösterir. Resim kırpılmış olmaktan görüntü alt kısmında kaynaklanan sol üst köşesinde ölçülür.  
   
-![Original sunflower image](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower.PNG)
+![200 x 200'e kırpılmış Ayçiçeği görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x200c4.PNG)
   
-The following shows the image reduced to 200x200 using Blind Ratio cropping. The image is measured from the top left corner resulting in the bottom part of the image being cropped.  
+200 x görme oranı kırpma kullanarak 100 azaltılmış görüntü gösterir. Resim kırpılmış olmaktan görüntü alt kısmında kaynaklanan sol üst köşesinde ölçülür.  
   
-![Sunflower image cropped to 200x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x200c4.PNG)
+![200 x 100'e kırpılmış Ayçiçeği görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x100c4.PNG)
   
-The following shows the image reduced to 200x100 using Blind Ratio cropping. The image is measured from the top left corner resulting in the bottom part of the image being cropped.  
+100 x görme oranı kırpma kullanarak 200'e azaltılmış görüntü gösterir. Resim kırpılmış olmaktan görüntü sol ve sağ bölümlerinde kaynaklanan Merkezi'nden ölçülür.  
   
-![Sunflower image cropped to 200x100](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower200x100c4.PNG)
-  
-The following shows the image reduced to 100x200 using Blind Ratio cropping. The image is measured from the center resulting in the left and right parts of the image being cropped.  
-  
-![Sunflower image cropped to 100x200](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower100x200c4.PNG)
+![100 x 200'e kırpılmış Ayçiçeği görüntüsü](./media/cognitive-services-bing-resize-crop/bing-resize-crop-sunflower100x200c4.PNG)
+

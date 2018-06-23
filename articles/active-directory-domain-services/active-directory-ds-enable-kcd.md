@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: fc4e738e95799838c5761e8b1ee5973aefea7dc6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c6e25972b47edf67dac8557e1925bb44463f4d6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213853"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331038"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Yönetilen bir etki alanında Kerberos Kısıtlı temsilci (KCD) yapılandırma
 Birçok uygulama, kullanıcının bağlamında kaynaklara erişim izni gerekir. Active Directory bu kullanım örneği sağlayan Kerberos temsilcisi olarak adlandırılan bir mekanizma destekler. Ayrıca, böylece yalnızca belirli kaynaklara kullanıcı bağlamında erişilebilir temsilci kısıtlayabilirsiniz. Bunlar daha güvenli bir şekilde kilitlendiğini beri azure AD etki alanı Hizmetleri yönetilen etki alanları geleneksel Active Directory etki alanından farklı.
 
 Bu makale bir Azure AD etki alanı Hizmetleri yönetilen etki alanında kısıtlı Kerberos temsilcisi yapılandırma gösterilmektedir.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="kerberos-constrained-delegation-kcd"></a>Kerberos Kısıtlı temsilci (KCD)
 Kerberos temsilcisi başka bir güvenlik sorumlusu (örneğin, bir kullanıcı) kaynaklara erişmek için kimliğine bürünmek için bir hesap sağlar. Bir kullanıcı bağlamında bir arka uç web API'si erişen bir web uygulaması göz önünde bulundurun. Bu örnekte, (bir hizmet hesabı veya bilgisayar/makine hesabının bağlamında çalışır) web uygulaması (arka uç web API'si) kaynağa erişilirken kullanıcı temsil eder. Kerberos temsilcisi güvenli olduğu özellikleri alınırken hesabı kullanıcı bağlamında erişebildiği kaynakları kısıtlamaz.

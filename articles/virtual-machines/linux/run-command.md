@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 0e87243b4b6e8362cb840a6510c175d2712b8a1a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285765"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334882"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Kabuk komut dosyalarını çalıştır komutu ile Linux VM ile Çalıştır
 
@@ -23,7 +23,7 @@ Bir Azure Linux VM dahilinde Kabuk komut dosyalarını çalıştırmak için VM 
 
 Sanal makinelerinize erişmek için kullanılan birden fazla seçeneği vardır. Çalıştır komutunu kullanarak uzaktan VM Aracısı, sanal makinelerde çalıştırabilir. Azure Portalı aracılığıyla çalıştırma komutu kullanılabilir [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [Azure CLI](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), veya [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
 
-Bu yetenek burada betik etkileşimindeki sanal makineleri çalıştırmak istediğiniz ve sorun giderme ve RDP sahip olmayan bir sanal makine düzeltmek için yalnızca yollarından biri, veya SSH bağlantı noktası açın hatalı ağ veya yönetici kullanıcı nedeniyle tüm senaryolarda kullanışlıdır yapılandırma.
+Bu yetenek olduğu bir sanal makine içinde bir komut dosyası çalıştırmak istediğiniz ve sorun giderme ve RDP sahip olmayan bir sanal makine düzeltmek için yalnızca yollarından biri, veya SSH bağlantı noktası açın hatalı ağ veya yönetici kullanıcı nedeniyle tüm senaryolarda kullanışlıdır yapılandırma.
 
 ## <a name="restrictions"></a>Kısıtlamalar
 

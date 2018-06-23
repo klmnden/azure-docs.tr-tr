@@ -3,23 +3,24 @@ title: Atanmış bir uygulama erişim Paneli'ne üzerinde görünmeyen | Microso
 description: Bir uygulama erişim panelinde görünmeyen neden sorun giderme
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 ms.reviwer: japere
-ms.openlocfilehash: 5cb8b600f77c5b7dae91204126e64ec7b9a861ae
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e67f64a40d99bdced79f37cd206a048ee60cfbfb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29384125"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333444"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Atanmış bir uygulama erişim Paneli'ne görünmüyor
 
@@ -135,7 +136,7 @@ Bir uygulama için çoklu oturum açmayı yapılandırmak için aşağıdaki ad�
 
 13. tıklatın **yapılandırma &lt;uygulama adı&gt;**  erişim belgelerine çoklu oturum açma uygulamada yapılandırma. Ayrıca, uygulama ile SSO'yu ayarlamak için gerekli sertifika ve meta verileri URL'leri vardır.
 
-14. tıklatın **kaydetmek** yapılandırmayı kaydetmek için.
+14. Tıklatın **kaydetmek** yapılandırmayı kaydetmek için.
 
 15. Kullanıcılar uygulamayı atayın.
 
@@ -507,7 +508,7 @@ Bir kullanıcının atanan lisansları denetlemek için aşağıdaki adımları 
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -527,7 +528,7 @@ Bir kullanıcıya bir lisans atamak için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -565,7 +566,7 @@ Bir grubun üyeliğini denetlemek için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -623,7 +624,7 @@ Kısa bir süre sonra seçtiğiniz kullanıcıların erişim panelinde bu uygula
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -647,7 +648,7 @@ Bir gruba bir lisans atamak için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm grupları**.
 

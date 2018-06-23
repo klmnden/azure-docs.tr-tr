@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 85919ccdc13ab363b32e593159abe54498ca98c9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 314920d4aae2bd364ea93451fcbda2034a36cc7e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702042"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332108"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Oluşturma, değiştirme veya bir sanal ağ eşlemesi silme
 
@@ -117,7 +117,7 @@ Bazen iletişim kurmak için sanal ağlar istiyor, ancak her zaman, bir eşleme 
     - Bir sanal ağ kaynaklarında Azure iç yük dengeleyiciye eşlenen sanal ağdaki IP adresi ile iletişim kuramıyor. Yük Dengeleyici ve onunla iletişim kaynakları aynı sanal ağda olması gerekir.
     - Uzak ağ geçitlerini kullanan veya ağ geçidi transit izin verin. Uzak ağ geçitleri kullanın veya ağ geçidi transit izin vermek için her iki sanal ağ eşlemesi içindeki aynı bölgede bulunması gerekir. 
     - Aşağıdaki VM türler yoluyla genel eşlenen sanal ağlar üzerinden iletişimi desteklenmiyor: [yüksek performanslı bilgi işlem](../virtual-machines/windows/sizes-hpc.md) ve [GPU](../virtual-machines/windows/sizes-gpu.md). Bu, H, NC, NV, NCv2, NCv3 ve ND serisi VM'ler içerir.
-- Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Sanal ağlar farklı Aboneliklerde olduğunda, her iki aboneliğin aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracıları için ilişkili farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
+- Sanal ağlar aynı ya da farklı Aboneliklerde olabilir. Sanal ağlar farklı Aboneliklerde eş, her iki aboneliğin aynı Azure Active Directory Kiracı ilişkilendirilmiş olması gerekir. Bir AD kiracısıyla zaten sahip değilseniz, hızlı bir şekilde yapabilecekleriniz [oluşturmak](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). Kullanabileceğiniz bir [VPN ağ geçidi](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) farklı Active Directory kiracıları için ilişkili farklı Aboneliklerde bulunan iki sanal ağlara bağlanma.
 - Eş sanal ağlar, IP adresi alanları çakışmayan olması gerekir.
 - Adres aralıklarına ekleyemez veya başka bir sanal ağ ile sanal ağ eşlendikten sonra bir sanal ağın adres alanından adres aralıklarını silin. Adres aralıklarını kaldırmak, eşlemesini silmek, eklediğinizde veya adres aralıklarını kaldırmak için ardından eşliği yeniden oluşturun. Adres aralıklarını ekleyin ya da sanal ağlardan adres aralıklarını kaldırmak için bkz: [sanal ağlarını yönetmeleri](manage-virtual-network.md).
 - Resource Manager veya Klasik dağıtım modeli aracılığıyla dağıtılan bir sanal ağ ile Resource Manager aracılığıyla dağıtılan bir sanal ağ üzerinden dağıtılan iki sanal ağ eş. Klasik dağıtım modeliyle oluşturulan iki sanal ağ eş olamaz. Azure dağıtım modelleri bilmiyorsanız okuma [anlamak Azure dağıtım modelleri](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) makalesi. Klasik dağıtım modeliyle oluşturulan iki sanal ağı bağlamak için [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) kullanabilirsiniz.

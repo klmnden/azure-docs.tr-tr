@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: 9f70cb03a26fd5bea7e1e034c653ece8e0b8c349
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 25601b01489b95de0e86b314b4b934d3cffd38c2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363698"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330749"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde yeni nesil güvenlik duvarı ekleme
 Azure Güvenlik Merkezi bir Microsoft iş ortağı güvenlik korumaları artırmak için yeni nesil Güvenlik Duvarı (NGFW) eklediğiniz önerebilir. Bu belge, bunun nasıl yapılacağı örneği aracılığıyla açıklanmaktadır.
@@ -58,7 +58,7 @@ Geri dönüp **önerileri** dikey. Güvenlik Merkezi, adlı aracılığıyla bir
 Bu belgede Güvenlik Merkezi öneri "Ekleme yeni nesil güvenlik duvarı." uygulamak nasıl oluşturulacağını gösterir NGFWs ve denetim noktası iş ortağı çözümü hakkında daha fazla bilgi için aşağıdakilere bakın:
 
 * [Yeni nesil güvenlik duvarı](https://en.wikipedia.org/wiki/Next-Generation_Firewall)
-* [Denetim noktası vSEC](https://azure.microsoft.com/marketplace/partners/checkpoint/check-point-r77-10/)
+* [Denetim noktası vSEC](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/checkpoint.vsec)
 
 Güvenlik Merkezi hakkında daha fazla bilgi edinmek için şunlara bakın:
 

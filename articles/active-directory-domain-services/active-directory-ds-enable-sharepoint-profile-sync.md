@@ -13,19 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: e1162a3f87c9242e7366109302b3bd807b1fdcc8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9e21547f6e1088677bb5699d17d81d170b4cab3d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214384"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332142"
 ---
 # <a name="configure-a-managed-domain-to-support-profile-synchronization-for-sharepoint-server"></a>SharePoint Server Profil eşitleme desteklemek için yönetilen bir etki alanını yapılandırın
 SharePoint Server kullanıcı profili eşitleme için kullanılan bir kullanıcı profili hizmeti içerir. Kullanıcı profili hizmetini kurma, uygun izinleri bir Active Directory etki alanında verilmiş olması gerekir. Daha fazla bilgi için bkz: [SharePoint Server 2013'te profil eşitleme için Active Directory etki alanı Hizmetleri izinleri](https://technet.microsoft.com/library/hh296982.aspx).
 
 Bu makalede SharePoint Server kullanıcı profili eşitleme hizmeti dağıtmak için kullanılan Azure AD etki alanı Hizmetleri yönetilen etki alanları nasıl yapılandırabileceğiniz açıklanmaktadır.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="the-aad-dc-service-accounts-group"></a>'AAD DC hizmet hesapları' grubu
 Bir güvenlik grubu olarak adlandırılan '**AAD DC hizmet hesaplarını**' 'Kullanıcılar' kuruluş birimi, yönetilen etki alanınızda içinde kullanılabilir. Bu gruptaki görebilirsiniz **Active Directory Kullanıcıları ve Bilgisayarları** MMC ek bileşenini, yönetilen etki alanınızda.

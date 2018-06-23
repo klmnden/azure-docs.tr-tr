@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: Tek veritabanı kaynaklarını ölçeklendirme
           href: sql-database-single-database-scale.md
-        - name: Elastik havuzlar ve havuza alınmış veritabanları
-          items:
-            - name: Elastik havuzlar ve havuza alınmış veritabanları
-              href: sql-database-elastic-pool.md
-            - name: Havuzları ve havuza alınmış veritabanlarını yönetme
-              href: sql-database-elastic-pool-manage.md
-            - name: Sanal çekirdek tabanlı kaynak sınırları
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: DTU tabanlı kaynak sınırları
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Elastik havuz kaynaklarını ölçeklendirme
-          href: sql-database-elastic-pool-scale.md
         - name: Bağlantı mimarisi
           href: sql-database-connectivity-architecture.md
         - name: T-SQL farklılıkları
           href: sql-database-transact-sql-information.md
+    - name: Elastik havuzlar ve havuza alınmış veritabanları
+      items:
+        - name: Elastik havuzlar ve havuza alınmış veritabanları
+          href: sql-database-elastic-pool.md
+        - name: Havuzları ve havuza alınmış veritabanlarını yönetme
+          href: sql-database-elastic-pool-manage.md
+        - name: Sanal çekirdek tabanlı kaynak sınırları
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: DTU tabanlı kaynak sınırları
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: Elastik havuz kaynaklarını ölçeklendirme
+          href: sql-database-elastic-pool-scale.md
     - name: Yönetilen Örnekler
       items:
         - name: Yönetilen Örnekler

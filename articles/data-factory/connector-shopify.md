@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Beta) kullanarak Shopify veri kopyalama | Microsoft Docs
+title: Azure Data Factory (Önizleme) kullanarak Shopify veri kopyalama | Microsoft Docs
 description: Desteklenen havuz veri depolarına Shopify bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: c080ef95bb6341e9d90940381cf86ff5e1722ed7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7c7081de5244501115b595140db3225ff1923191
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618795"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337572"
 ---
-# <a name="copy-data-from-shopify-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Shopify verilerini
+# <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Shopify verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de Shopify verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
@@ -28,7 +28,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de Shopify verileri kopyalamak i
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve bize geri bildirimde bulunun. Üretim ortamında kullanmayın.
+> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -38,7 +38,7 @@ Azure Data Factory bağlantısını etkinleştirmek için yerleşik bir sürüc�
 
 ## <a name="getting-started"></a>Başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Shopify bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

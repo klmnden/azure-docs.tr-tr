@@ -3,25 +3,27 @@ title: Ne zaman belirli bir kullanıcı bir uygulamaya erişim kuramaz çıkış
 description: Kritik düzeyde önemli bir kullanıcı, kullanıcı Azure AD ile sağlamak için yapılandırdığınız uygulama erişebilmeleri zaman öğrenmek nasıl
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 42c305ad48e6994b1d2c729b849acf665e575807
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: a97e898c503a1078c5bae8ba45f0dcd49627aee8
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26613631"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330776"
 ---
 # <a name="find-out-when-a-specific-user-will-be-able-to-access-an-application"></a>Belirli bir kullanıcı bir uygulamaya erişim mümkün olduğunda öğrenin
-Bir uygulama ile otomatik kullanıcı sağlamayı kullanırken, Azure AD uygulama sağlama ve güncelleştirme kullanıcı hesapları gibi şeyleri temel alınarak otomatik olarak [kullanıcı ve grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) genellikle her 10 dakikada bir düzenli olarak zamanlanan saat aralığında.
+Bir uygulama ile otomatik kullanıcı sağlamayı kullanırken, Azure AD uygulama sağlama ve güncelleştirme kullanıcı hesapları gibi şeyleri temel alınarak otomatik olarak [kullanıcı ve grup atama](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) bir düzenli olarak zamanlanan saat aralığı, genellikle her 10 dakika.
 
 ## <a name="how-long-does-it-take"></a>Ne kadar sürer?
 
@@ -37,7 +39,7 @@ Seçilen kullanıcı için sağlama durumunu görmek için Azure AD'de denetim g
 
 Sağlama denetim günlüklerini Azure portalında erişilebilen **Azure Active Directory &gt; Kurumsal uygulamaları &gt; \[uygulama adı\] &gt; denetim günlüklerini** sekmesi. Günlükleri filtre **hesap sağlama** yalnızca bu uygulama için sağlama olayları görmek için kategori. "İçinde öznitelik eşlemelerini kendileri için yapılandırılan eşleşen ID" temel alarak kullanıcılara arayabilirsiniz. 
 
-Örneğin "kullanıcı asıl adı" veya "Azure AD tarafında eşleşen öznitelik olarak e-posta adresi" yapılandırılmış ve değil sağlama kullanıcı değerine sahip "audrey@contoso.com", denetim günlüklerini arama "audrey@contoso.com" ve gözden geçirin, ardından girdi döndü.
+Örneğin "kullanıcı asıl adı" veya "Azure AD tarafında eşleşen öznitelik olarak e-posta adresi" yapılandırılmış ve değil sağlama kullanıcı değerine sahip "audrey@contoso.com", denetim günlüklerini arama "audrey@contoso.com" ve girişlerini gözden geçirin döndürdü.
 
 Sağlama denetim günlüklerini sağlama hizmeti tarafından gerçekleştirilen tüm işlemlerin kayıt dahil olmak üzere:
 

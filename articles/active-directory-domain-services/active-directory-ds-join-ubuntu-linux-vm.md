@@ -13,18 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 5cbed14553462d8aff16304e52b66da7ad2652e3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d9f4dc0883ced599dd13d0c5d52ff865e03b73ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217240"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332920"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Ubuntu sanal makine Azure'da yönetilen bir etki alanına katılın.
 Bu makalede bir Ubuntu Linux sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu makalede listelenen görevleri gerçekleştirmek için gerekir:  
@@ -122,17 +123,17 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
     sudo realm discover CONTOSO100.COM
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > **Sorun giderme:** varsa *bölge Bul* yönetilen etki alanınızı bulamıyor:
      * Etki alanı sanal makine (try ping) erişilebilir olduğundan emin olun.
      * Sanal makine yönetilen etki alanı kullanılamıyor aynı sanal ağa gerçekten dağıtıldıktan denetleyin.
      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
    >
 
-2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın: 
+2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın:
 
-    > [!TIP] 
-    > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun. 
+    > [!TIP]
+    > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun.
     > * Büyük harflerle etki alanı adı belirtin, başka kinit başarısız olur.
     >
 
@@ -140,9 +141,9 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
     kinit bob@CONTOSO100.COM
     ```
 
-3. Makine etki alanına katılın. SSH terminalinizde aşağıdaki komutu yazın: 
+3. Makine etki alanına katılın. SSH terminalinizde aşağıdaki komutu yazın:
 
-    > [!TIP] 
+    > [!TIP]
     > Önceki adımda ('kinit') belirtilen aynı kullanıcı hesabı kullanın.
     >
 
@@ -175,7 +176,7 @@ Kullanıcılar oturum sonra otomatik olarak oluşturulmasını giriş dizini etk
 ```
 sudo vi /etc/pam.d/common-session
 ```
-    
+
 Satırın 'oturumu isteğe bağlı pam_sss.so' aşağıda bu dosyada aşağıdaki satırı ekleyin ve dosyayı kaydedin:
 ```
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077

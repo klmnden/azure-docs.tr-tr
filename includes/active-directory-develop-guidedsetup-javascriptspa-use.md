@@ -1,4 +1,4 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcı oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Kullanıcıyla oturum açmak için Microsoft kimlik doğrulama kitaplığı (MSAL) kullanın
 
 1.  Adlı bir dosya oluşturun `app.js`. Visual Studio kullanıyorsanız, projeyi (Proje kök klasöründe) seçin, sağ tıklatın ve seçin: `Add`  >  `New Item`  >  `JavaScript File`:
 2.  Aşağıdaki kodu ekleyin, `app.js` dosyası:
@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-off button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -119,16 +119,16 @@ Bu kılavuz tarafından oluşturulan SPA kullanmayan doğrudan kimliği belirtec
 
 #### <a name="getting-a-user-token-interactively"></a>Kullanıcı etkileşimli olarak belirteci alma
 
-İlk oturum açma işleminden sonra ask kullanıcıları, bir kaynak – şekilde erişmek için bir belirteç istemek ihtiyaç duydukları her zaman doğrulamaya istemediğiniz *acquireTokenSilent* belirteçleri almak üzere çoğu zaman kullanılmalıdır. Durumlar vardır ancak zorlamak gereken kullanıcıların Azure Active Directory v2 uç noktasıyla etkileşim – bazı örnekler şunlardır:
--   Kullanıcıların parolanızın süresi dolduğu için kimlik bilgilerini yeniden girmeniz gerekebilir
--   Uygulamanız için onayı için kullanıcının gerektiren bir kaynağa erişim isteme
--   İki faktörlü kimlik doğrulama gereklidir
+Kullanıcıları bir kaynağa – şekilde erişmek için bir belirteç istemek ihtiyaç duydukları her zaman kimlik doğrulamaya isteyin istemediğiniz ilk oturum açma işleminden sonra *acquireTokenSilent* belirteçleri almak üzere çoğu zaman kullanılmalıdır. Durumlar vardır ancak kullanıcıların Azure Active Directory v2 noktayla – etkileşim kurmasına zorlamak gereken bazı örnekler şunlardır:
+- Kullanıcıların parolanızın süresi dolduğu için kimlik bilgilerini yeniden girmeniz gerekebilir
+- Uygulamanız için onayı için kullanıcının gerektiren bir kaynağa erişim isteme
+- İki faktörlü kimlik doğrulama gereklidir
 
-Çağırma *acquireTokenRedirect(scope)* neden kullanıcıların Azure Active Directory v2 uç noktasına yeniden yönlendirme (veya *acquireTokenPopup(scope)* bir açılır pencere sonucuna) kullanıcılar nerede gereken etkileşim kurmak ile kimlik bilgilerini onaylayan, gerekli kaynağa izin vermiş veya Tamamlanıyor tarafından iki öğeli kimlik doğrulamasını.
+Çağırma *acquireTokenRedirect(scope)* neden kullanıcıların Azure Active Directory v2 uç noktasına yeniden yönlendirme (veya *acquireTokenPopup(scope)* bir açılır pencere sonucuna) kullanıcılar nerede gereken etkileşim kurmak kimlik bilgilerini onaylayan, gerekli kaynağa izin vermiş veya Tamamlanıyor tarafından iki öğeli kimlik doğrulamasını.
 
 #### <a name="getting-a-user-token-silently"></a>Bir kullanıcı sessizce belirteci alma
 ` acquireTokenSilent` Yöntemi belirteci satın almalar ve herhangi bir kullanıcı etkileşimi olmadan yenileme işler. Sonra `loginRedirect` (veya `loginPopup`) ilk kez yürütüldüğünde `acquireTokenSilent` veya belirteçleri yenileme isteği için çağrıları sessizce gerçekleştirilmediğinden sonraki çağrılar için-korumalı kaynaklara erişmek için kullanılan belirteçleri elde etmek için yaygın olarak kullanılan yöntem.
-`acquireTokenSilent`başarısız olabileceği bazı durumlarda – Örneğin, kullanıcının parolasının süresi doldu. Uygulamanız bu özel durumun iki yolla işleyebilir:
+`acquireTokenSilent` başarısız olabileceği bazı durumlarda – Örneğin, kullanıcının parolasının süresi doldu. Uygulamanız bu özel durumun iki yolla işleyebilir:
 
 1.  Çağırmaya `acquireTokenRedirect` hemen hangi sonuçları oturum açmak için kullanıcıdan içinde. Bu desen çevrimiçi uygulamalarında yaygın olarak kullanılan söz konusu olduğunda kimliği doğrulanmamış içerik uygulamada kullanıcı tarafından kullanılabilir. Bu Destekli kurulum tarafından oluşturulan örnek bu deseni kullanır.
 
@@ -198,13 +198,13 @@ Bu kılavuzu tarafından oluşturulan örnek uygulamasında `callWebApiWithToken
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Kullanıcı imzalamak için bir yöntem ekleyin
+## <a name="add-a-method-to-sign-off-the-user"></a>Kullanıcı oturumunu imzalamak için bir yöntem ekleyin
 
 Aşağıdaki kodu ekleyin, `app.js` dosyası:
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign off the user
  */
 function signOut() {
     userAgentApplication.logout();

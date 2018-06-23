@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32178245"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335100"
 ---
 # <a name="what-is-appsource"></a>AppSource nedir
 AppSource, teknoloji ve hizmetler bulunabilirlik müşterileri Microsoft tarafından desteklenen bir çevrimiçi mağaza ile yapmak, Microsoft iş ortaklarının sağlar. Bir AppSource yayımcı olarak sürücü iş sonuçları yardımcı ve saat değeri azaltmak için iş kullanıcıları bulmak için deneyin ve uygulama hizmetlerinin yanı sıra iş kolu satır SaaS uygulamaları alma AppSource üzerinde göster: 
@@ -76,7 +76,7 @@ Bazı AppSource mağaza uygulamaları, Azure Active Directory (yayımlanmasını
 | SaaS uygulamaları (önceki adıyla Web uygulamaları) | Tercih edilen | Azure AD sorunsuz bir müşteri deneyimi ve yüksek kaliteli müşteri adayları sürücüleri sağlamak için en iyi uygulamadır |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>Tablo: Azure Active Directory Tümleştirmesi gerektiren AppSource teklifleri
 
-Başlangıçta, öneririz **Azure Marketi'nde yayımlama için adanmış bir aboneliği ayarlama*** etkinleştirme, diğer girişimleri çalışmanızı sağlar. Aşağıdaki araçlar zaten yüklü değilse, ayrıca, ardından aşağıdaki araçlar geliştirme ortamınızı eklenmesi öneririz: 
+Başlangıçta, öneririz **Azure Marketi'nde yayımlama için adanmış bir aboneliği ayarlama** \* etkinleştirme, diğer girişimleri çalışmanızı sağlar. Aşağıdaki araçlar zaten yüklü değilse, ayrıca, ardından aşağıdaki araçlar geliştirme ortamınızı eklenmesi öneririz: 
 *   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
 *   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   Kullanılabilir araçları gözden [Azure Geliştirici Araçları](https://azure.microsoft.com/tools/ "Azure - Geliştirici Araçları") sayfası

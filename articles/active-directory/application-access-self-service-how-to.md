@@ -3,22 +3,23 @@ title: Self Servis uygulama atama yapılandırma | Microsoft Docs
 description: Kullanıcıların kendi uygulamalarını bulmak izin vermek Self Servis uygulama erişimini etkinleştir
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: asteen
-ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.openlocfilehash: 359640384891ebdf66345d3f5664db1cbefbde77
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833107"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333754"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>Self Servis uygulama atama yapılandırma
 
@@ -84,7 +85,7 @@ Bir uygulama Self Servis uygulama erişimi etkinleştirmek için aşağıdaki ad
 
 14. Tıklatın **kaydetmek** tamamlamak için dikey pencerenin üstündeki düğmesi.
 
-Self Servis uygulama yapılandırması tamamlandığında, kullanıcılar için gezinebilir kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/) tıklatıp **+ Ekle** Self Servis erişim etkin uygulamalar Bul düğmesi. İş onaylayanlar Ayrıca bkz. bir bildirim kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/). Bir kullanıcı kendi onay gerektiren bir uygulamaya erişim istendiğinde bildiren bir e-posta etkinleştirebilirsiniz. 
+Self Servis uygulama yapılandırması tamamlandığında, kullanıcılar için gezinebilir kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/) tıklatıp **+ Ekle** Self-Servis etkin uygulamalar Bul düğmesi erişim. İş onaylayanlar Ayrıca bkz. bir bildirim kendi [uygulama erişim Paneli'ne](https://myapps.microsoft.com/). Bir kullanıcı kendi onay gerektiren bir uygulamaya erişim istendiğinde bildiren bir e-posta etkinleştirebilirsiniz. 
 
 Bu onaylar, birden çok onaylayanlar belirtirseniz, tek bir onaylayan uygulamaya onaylayan erişim olabilir yani yalnızca tek onay iş akışları destekler.
 

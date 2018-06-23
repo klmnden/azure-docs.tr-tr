@@ -3,22 +3,24 @@ title: Bir Microsoft uygulaması için oturum açma sorunları | Microsoft Docs
 description: Birinci taraf Microsoft Azure AD (örneğin, Office 365) kullanarak Applications oturum açarken karşılaştığı yaygın sorunlarını giderme
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 1dc727f46785d2896544d8ef9098259f9ab994d1
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 4053c272fe78647ac646e0feefa884cf014a6b72
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29384237"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334233"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Bir Microsoft uygulaması için oturum açma sorunları
 
@@ -32,7 +34,7 @@ Bir kullanıcı bir Microsoft yayımlanan uygulamaya erişim sağlayabilmek içi
 
 -   Microsoft ya da bir 3. taraf yayımlar uygulamalar için herkes için ücretsiz olarak, kullanıcılar ayrıca aracılığıyla erişimi verilebilir **yönetici izni**. Bu, bir yöneticinin kuruluşunuzdaki herkes tarafından uygulama bir genel yönetici hesabı ile oturum açın ve kuruluştaki herkesin erişim vermek için uygulama kullanılabilir belirledi anlamına gelir.
 
-İle sorunu gidermek için başlangıç [uygulama erişimi dikkate alınması gereken genel sorun alanlarından](#general-problem-areas-with-application-access-to-consider) ve okunur [izlenecek yol: Microsoft Application erişim sorunlarını giderme adımları](#walkthrough-steps-to-troubleshoot-microsoft-application-access) bilgi almak için.
+İle sorunu gidermek için başlangıç [uygulama erişimi dikkate alınması gereken genel sorun alanlarından](#general-problem-areas-with-application-access-to-consider) ve okunur [izlenecek yol: Microsoft Application erişim sorunlarını giderme adımları](#walkthrough-steps-to-troubleshoot-microsoft-application-access) almak için Ayrıntıları.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Genel sorun alanlarından dikkate alınması gereken uygulama erişimi
 
@@ -76,7 +78,7 @@ Bir Microsoft uygulaması, kullanıcılar oturum açamaz terimleri içine çalı
 
    * Lisans ise **atanan bir** **dinamik grup**, emin **dinamik Grup kural doğru olarak ayarlandığında**. [Dinamik bir grubun üyeliğini ölçütlerini denetleyin](#check-a-dynamic-groups-membership-criteria)
 
-   * Lisans ise **atanan bir** **dinamik grup**, dinamik grup sahip olduğundan emin olun **işleme tamamlandı** üyeliğine ve, **kullanıcının üyesi olduğu** (Bu işlem biraz zaman alabilir). [Bir kullanıcı grup üyeliklerini denetleyin](#check-a-users-group-memberships)
+   * Lisans ise **atanan bir** **dinamik grup**, dinamik grup sahip olduğundan emin olun **işleme tamamlandı** üyeliğine ve, **üyesi**  (Bu işlem biraz zaman alabilir). [Bir kullanıcı grup üyeliklerini denetleyin](#check-a-users-group-memberships)
 
    *  Lisans atandığı emin yaptıktan sonra lisans olduğundan emin olun **süresi**.
 
@@ -86,7 +88,7 @@ Bir Microsoft uygulaması, kullanıcılar oturum açamaz terimleri içine çalı
 
    * Uygulama istiyorsa **kullanıcı düzeyinde izinler** (örneğin "Bu kullanıcının posta kutusu erişim"), kullanıcı uygulamaya imzaladığı emin olun ve gerçekleştirdiği bir **kullanıcı düzeyinde onay işlemi** kendi veri erişim izin vermek için.
 
-   * Uygulama istiyorsa **yönetici düzeyi izinler** (örneğin "tüm kullanıcının posta kutularına erişim"), genel yönetici yürüttü emin olun bir **tüm kullanıcılar adına yönetici düzeyi onay işlemi** kuruluştaki.
+   * Uygulama istiyorsa **yönetici düzeyi izinler** (örneğin "tüm kullanıcının posta kutularına erişim"), genel yönetici yürüttü emin olun bir **yönetici düzeyi onay işlemi tüm kullanıcılar adına** kuruluştaki.
 
 ## <a name="problems-with-the-users-account"></a>Kullanıcı hesabının sorunları
 
@@ -120,7 +122,7 @@ Bir kullanıcı hesabının mevcut olup olmadığını denetlemek için aşağı
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -138,7 +140,7 @@ Bir kullanıcının hesap durumunu denetlemek için aşağıdaki adımları izle
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -158,7 +160,7 @@ Bir kullanıcının parolasını sıfırlamak için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -190,7 +192,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için 
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -214,7 +216,7 @@ Bir kullanıcının çok faktörlü kimlik doğrulama durumunu denetlemek için 
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -236,7 +238,7 @@ Bir kullanıcı grup üyeliklerini denetlemek için aşağıdaki adımları izle
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -254,7 +256,7 @@ Bir kullanıcının atanan lisansları denetlemek için aşağıdaki adımları 
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -272,7 +274,7 @@ Bir kullanıcıya bir lisans atamak için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm kullanıcılar**.
 
@@ -312,7 +314,7 @@ Bir grubun üyeliğini denetlemek için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm grupları**.
 
@@ -330,7 +332,7 @@ Dinamik grubun Üyelik ölçütleri denetlemek için aşağıdaki adımları izl
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm grupları**.
 
@@ -350,7 +352,7 @@ Bir grubun atanan lisansları denetlemek için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm grupları**.
 
@@ -368,7 +370,7 @@ Bir grubun atanan lisansları yeniden işlemek için şu adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm grupları**.
 
@@ -393,7 +395,7 @@ Bir gruba bir lisans atamak için aşağıdaki adımları izleyin:
 
 3.  Yazın **"Azure Active Directory**" Filtre Arama kutusuna seçip **Azure Active Directory** öğesi.
 
-4.  tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
+4.  Tıklatın **kullanıcılar ve gruplar** Gezinti menüsünde.
 
 5.  tıklatın **tüm grupları**.
 
@@ -509,15 +511,15 @@ Uygun izinleri onay işlemi değil oluştuğu için uygulama erişimi engelleneb
 
 ### <a name="perform-administrator-level-consent-operation-for-any-application"></a>Herhangi bir uygulama için yönetici düzeyi onay işlemi gerçekleştirme
 
--   İçin **yalnızca V1 uygulama modeli kullanılarak geliştirilen uygulamaları**, ekleyerek gerçekleşmesi için bu administrator düzeyinde onayı zorlayabilirsiniz "**? yönetici komut isteminde =\_onayı**" bir uygulamanın oturum açma URL'si sonuna.
+-   İçin **yalnızca V1 uygulama modeli kullanılarak geliştirilen uygulamaları**, ekleyerek gerçekleşmesi için bu administrator düzeyinde onayı zorlayabilirsiniz "**? yönetici komut isteminde =\_onayı**" sonuna bir uygulamanın oturum açma URL'si.
 
--   İçin **herhangi bir uygulama geliştirilen V2 uygulama modelini kullanarak**, başlığı altında verilen yönergeleri izleyerek gerçekleşmesi için bu administrator düzeyinde onayı zorunlu kılabilir **directory yönetici olarak izinleri isteği** bölümünü [yönetici onayı uç noktası kullanarak](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   İçin **herhangi bir uygulama geliştirilen V2 uygulama modelini kullanarak**, başlığı altında verilen yönergeleri izleyerek gerçekleşmesi için bu administrator düzeyinde onayı zorunlu kılabilir **bir dizin Yöneticisiizinleriiste** bölümünü [yönetici onayı uç noktası kullanarak](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-single-tenant-application"></a>Bir tek kiracılı uygulama için yönetici düzeyi onay gerçekleştirme
 
 -   İçin **tek Kiracı uygulamaları** izinleri (gelenler geliştirdiğiniz veya, kuruluşunuzda sahip), istek gerçekleştirebileceğiniz bir **yönetici düzeyi onay** tüm adına işlemi Genel yönetici olarak oturum açmayı ve üzerinde tıklatarak kullanıcıları **izinleri verin** en üstündeki düğmesi **uygulama kayıt defteri -&gt; tüm uygulamalar -&gt; bir uygulama - seçin&gt; Gereken izinler** bölmesi.
 
--   İçin **herhangi bir uygulama geliştirilen V1 veya V2 uygulama modelini kullanarak**, başlığı altında verilen yönergeleri izleyerek gerçekleşmesi için bu administrator düzeyinde onayı zorunlu kılabilir **directory yönetici olarak izinleri isteği** bölümünü [yönetici onayı uç noktası kullanarak](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+-   İçin **herhangi bir uygulama geliştirilen V1 veya V2 uygulama modelini kullanarak**, başlığı altında verilen yönergeleri izleyerek gerçekleşmesi için bu administrator düzeyinde onayı zorunlu kılabilir **directory yönetici olarak izinleri iste**  bölümünü [yönetici onayı uç noktası kullanarak](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ### <a name="perform-administrator-level-consent-for-a-multi-tenant-application"></a>Çok kiracılı uygulama için yönetici düzeyi onay gerçekleştirme
 

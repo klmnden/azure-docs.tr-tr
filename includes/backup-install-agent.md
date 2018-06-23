@@ -2,9 +2,9 @@
 Kurtarma Hizmetleri kasası oluşturduktan sonra Azure için verileri yedeklemek için kullanılan yedekleme aracısı her Windows makinelerinizin (Windows Server, Windows istemci, System Center Data Protection Manager sunucusu veya Azure yedekleme sunucusu makine) yükleyin.
 
 1. Aboneliğinizde açmak [Azure Portal](https://ms.portal.azure.com/).
-2. Sol taraftaki menüden seçin **tüm hizmetleri** ve Hizmetler listesinde yazın **kurtarma Hizmetleri**. Tıklatın **kurtarma Hizmetleri kasaları**.
+2. Sol taraftaki menüden **Tüm hizmetler**’i seçin ve hizmet listesinde **Kurtarma Hizmetleri** yazın. **Kurtarma Hizmetleri kasaları**’na tıklayın.
 
-   ![Açık kurtarma Hizmetleri kasası](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
+   ![Kurtarma Hizmetleri kasasını açma](../articles/backup/media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 3. Hızlı Başlangıç sayfasında, tıklatın **için Windows Server veya System Center Data Protection Manager veya Windows İstemcisi** altında seçeneği **aracıyı indir**. Tıklatın **kaydetmek** yerel makineye kopyalanması için.
    
     ![Aracı Kaydet](./media/backup-install-agent/agent.png)
@@ -18,7 +18,7 @@ Kurtarma Hizmetleri kasası oluşturduktan sonra Azure için verileri yedeklemek
    
     ![Kasa kimlik bilgileri](./media/backup-install-agent/vc.png)
    
-    Kasa kimlik bilgileri dosyası yalnızca 48 için geçerlidir (portaldan yüklendikten sonra) saat. Varsa bu ekran oturum açma (örneğin "kasa kimlik bilgileri dosyasının süresi doldu sağlanan"), Azure portalına içinde herhangi bir hatayla karşılaşırsanız ve kasa kimlik bilgileri dosyasını yeniden indirin.
+    Kasa kimlik bilgileri dosyası yalnızca 48 için geçerlidir (portaldan yüklendikten sonra) saat. Bu ekran ("dosya süresi doldu örneğin kasa kimlik bilgileri sağlandı") içinde herhangi bir hatayla karşılaşırsanız, Azure portalında oturum açın ve kasa kimlik bilgileri dosyasını yeniden indirin.
    
     Kurulum uygulaması kasa kimlik bilgileri dosyası erişebilirsiniz emin olun. Erişim ile ilgili hatalarla karşılaşırsanız, kasa kimlik bilgileri dosyası yerel makine üzerinde geçici bir konuma kopyalayın ve işlemi yeniden deneyin.
    

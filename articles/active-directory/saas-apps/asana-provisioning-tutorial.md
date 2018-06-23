@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 2abd10f90d2e6d86d7f82aa43016a31bfdbd324b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231432"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332220"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Öğretici: Asana otomatik kullanıcı sağlamayı yapılandırın
 
@@ -36,7 +36,7 @@ Bu öğreticide gösterilen senaryo, aşağıdaki öğeleri zaten sahip olduğun
 *   Asana yönetici izinlerine sahip bir kullanıcı hesabı 
 
 > [!NOTE] 
-> Azure AD tümleştirme sağlama kullanır [Asana API](https://app.asana.com/api/1.0/scim/Users), Asana için kullanılabilir olduğu.
+> Azure AD tümleştirme sağlama kullanır [Asana API](https://asana.com/developers/api-reference/users), Asana için kullanılabilir olduğu.
 
 ## <a name="assign-users-to-asana"></a>Kullanıcılar için Asana atama
 

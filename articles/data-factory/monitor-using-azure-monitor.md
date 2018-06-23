@@ -11,22 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 234dacca152dca6e8e212a86f3921c9355f640e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e60f368115e91cbd8972af8dfa7f0f3d6ea8765b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620349"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337600"
 ---
-# <a name="monitor-data-factories-using-azure-monitor"></a>Veri fabrikaları Azure İzleyicisi'ni kullanarak izleme  
+# <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Uyarı ve İzleyici veri fabrikaları Azure İzleyicisi'ni kullanma
 Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
 
-Azure İzleyicisi, çoğu Microsoft Azure hizmetlerini taban düzeyi altyapı ölçümleri ve günlükleri sağlar. Ayrıntılar için bkz [izlemeye genel bakış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure tanılama günlüklerini bu kaynakla ilgili zengin, sık sık veri sağlayan bir kaynak tarafından gösterilen günlüklerin. Veri Fabrikası Azure İzleyicisi'nde tanılama günlüklerini çıkarır. 
+Azure İzleyicisi, çoğu Microsoft Azure hizmetlerini taban düzeyi altyapı ölçümleri ve günlükleri sağlar. Ayrıntılar için bkz [izlemeye genel bakış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure tanılama günlüklerini bu kaynakla ilgili zengin, sık sık veri sağlayan bir kaynak tarafından gösterilen günlüklerin. Veri Fabrikası Azure İzleyicisi'nde tanılama günlüklerini çıkarır.
 
 > [!NOTE]
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [İzleyici ve ardışık düzenlerinde Data Factory version1 yönetmek](v1/data-factory-monitor-manage-pipelines.md).
+
+## <a name="persist-data-factory-data"></a>Veri Fabrikası veri Sürdür
+Veri Fabrikası yalnızca ardışık düzen veri 45 gün çalıştırmak depolar. Azure İzleyicisi'ni kullanarak birden fazla 45 gün için veri çalıştırmak ardışık düzen kalıcı hale getirmek istiyorsanız, size yalnızca çözümleme için tanılama günlükleri yönlendirebilir değil, sizin chossing süresi için Fabrika bilgilerine sahip olması için bunları bir depolama hesabına sürdürebilirsiniz.
 
 ## <a name="diagnostic-logs"></a>Tanılama günlükleri
 
@@ -101,15 +104,15 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
             ]
     },
     "location": ""
-} 
+}
 ```
 
 | Özellik | Tür | Açıklama |
 | --- | --- | --- |
 | storageAccountId |Dize | Tanılama günlükleri göndermesini istediğiniz depolama hesabının kaynak kimliği |
-| serviceBusRuleId |Dize | Olay hub'ın tanılama günlüklerini akış için oluşturulmuş olmasını istediğiniz hizmet veri yolu ad alanı service bus kuralı kimliği. Kimliktir biçimi kuralı: {hizmet veri yolu kaynak kimliği} /authorizationrules/ {anahtar adı}.|
+| serviceBusRuleId |Dize | Olay hub'ın tanılama günlüklerini akış için oluşturulmuş olmasını istediğiniz hizmet veri yolu ad alanı service bus kuralı kimliği. Kimliktir biçimi kuralı: "{hizmet veri yolu kaynak kimliği} /authorizationrules/ {anahtar name}".|
 | Workspaceıd | Karmaşık Tür | Ölçüm zaman grains ve bekletme ilkelerini dizisi. Bu özellik şu anda boştur. |
-|metrics| Çağrılan ardışık düzene iletilecek parametre değerlerini ardışık çalıştırın| Parametre adları bağımsız değişken değeri için eşleştirme bir JSON nesnesi | 
+|metrics| Çağrılan ardışık düzene iletilecek parametre değerlerini ardışık çalıştırın| Parametre adları bağımsız değişken değeri için eşleştirme bir JSON nesnesi |
 | günlükler| Karmaşık Tür| Bir kaynak türü için bir tanılama günlük kategori adı. Bir kaynak için tanılama günlük kategorileri listesini almak için önce bir GET tanılama ayarlarını işlemi gerçekleştirin. |
 | category| Dize| Günlük kategorileri ve bekletme ilkelerini dizisi |
 | timeGrain | Dize | ISO 8601 süre biçiminde yakalanır ölçümleri ayrıntı düzeyi. PT1M (bir dakika) olması gerekir|
@@ -231,14 +234,14 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Daha fazla bilgi](https://msdn.microsoft.com/library/azure/dn931932.aspx)
+[Daha fazla bilgi](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>Şema günlüklerini ve olayları
 
 ### <a name="activity-run-logs-attributes"></a>Etkinlik çalışma özniteliklerini günlüğe kaydeder
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -252,7 +255,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:" 
+   "properties:"
        {
           "Input": "{
               "source": {
@@ -294,7 +297,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="pipeline-run-logs-attributes"></a>Ardışık Düzen Çalıştır öznitelikleri günlüğe kaydeder
 
 ```json
-{  
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -307,7 +310,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "start":"",
    "end":"",
    "status":"",
-   "properties": 
+   "properties":
     {
       "Parameters": {
         "<parameter1Name>": "<parameter1Value>"
@@ -340,7 +343,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ### <a name="trigger-run-logs-attributes"></a>Tetikleyici Çalıştır öznitelikleri günlüğe kaydeder
 
 ```json
-{ 
+{
    "Level": "",
    "correlationId":"",
    "time":"",
@@ -362,7 +365,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
       },
       "SystemParameters": {}
     }
-} 
+}
 
 ```
 
@@ -397,7 +400,7 @@ Aşağıdaki ölçümleri ADFV2 yayar
 | TriggerSucceededRuns | Tetikleyici çalıştırır ölçümleri başarılı oldu  | Sayı    | Toplam                | Toplam tetikleyici dakika pencereye başarılı çalıştırır   |
 | TriggerFailedRuns    | Tetikleyici çalıştırır ölçümleri başarısız oldu     | Sayı    | Toplam                | Toplam tetikleyici dakika pencereye başarısız çalıştırır      |
 
-Ölçümleri erişmek için makalesindeki yönergeleri izleyin- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics 
+Ölçümleri erişmek için makalesindeki yönergeleri izleyin- https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
 
 ## <a name="alerts"></a>Uyarılar
 
@@ -445,4 +448,4 @@ Ayrıca Azure portalında oturum açın ve'ı tıklatın **İzleyicisi -&gt; uya
     ![Eylem grubu, ekran 4 4](media/monitor-using-azure-monitor/alerts_image12.png)
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bkz: [İzleyici ve ardışık düzen programlı olarak yönetmek](monitor-programmatically.md) makalede izleme ve ardışık düzen çalıştırarak yönetme hakkında bilgi edinin. 
+Bkz: [İzleyici ve ardışık düzen programlı olarak yönetmek](monitor-programmatically.md) makalede izleme ve ardışık düzen çalıştırarak yönetme hakkında bilgi edinin.

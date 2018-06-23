@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: 7448a6c37df2c0bbffbebf23d211e3ace8d12edc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157084"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317404"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory Uygulama bildirimini
 Azure AD ile tümleştirmek uygulamaları Azure AD kiracısı ile kayıtlı olması gerekir. Bu uygulama, uygulama bildirimi (altında Azure AD dikey) kullanılarak yapılandırılabilir [Azure portal](https://portal.azure.com).
@@ -35,10 +35,10 @@ Azure AD ile tümleştirmek uygulamaları Azure AD kiracısı ile kayıtlı olma
 |---------|---------|---------|---------|
 |AppID     |  Kimlik dizesi       |""|  Bir uygulama için Azure AD tarafından atanan uygulama için benzersiz tanımlayıcı.|
 |appRoles     |    Dizi türü     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|Bir uygulama bildirebilir rolleri koleksiyonu. Bu roller, kullanıcıları, grupları veya hizmet asıl adı atanabilir.|
-|AvailableToOtherTenants|boole|`true`|Bu değer ayarlanırsa true, uygulama diğer kiracılar için kullanılabilir. Uygulama false olarak ayarlanırsa yalnızca Kiracı için kullanılabilir olduğunda olarak kaydedilir. Daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory (AD) kullanıcı oturum nasıl](active-directory-devhowto-multi-tenant-overview.md). |
-|Görünen adı     |dize         |`MyRegisteredApp`         |Uygulama görünen adı. |
+|availableToOtherTenants|boole|`true`|Bu değer ayarlanırsa true, uygulama diğer kiracılar için kullanılabilir. Uygulama false olarak ayarlanırsa yalnızca Kiracı için kullanılabilir olduğunda olarak kaydedilir. Daha fazla bilgi için bkz: [çok kiracılı uygulama desenini kullanarak herhangi bir Azure Active Directory (AD) kullanıcı oturum nasıl](active-directory-devhowto-multi-tenant-overview.md). |
+|displayName     |dize         |`MyRegisteredApp`         |Uygulama görünen adı. |
 |errorURL     |dize         |`http://MyRegisteredAppError`         |Bir uygulamada oluşan hatalar için URL. |
-|GroupMembershipClaims     |    dize     |    `1`     |   Bir kullanıcı veya uygulama bekler OAuth 2.0 erişim belirteci verilen "grupları" talep yapılandırır bir bit maskesi. Bit maskesi değerler: 0: None, 1: güvenlik gruplarını ve Azure AD roller, 2: ayrılmış ve 4: ayrılmış. 7 bit maskesi ayarı tüm güvenlik gruplarını, dağıtım grupları ve oturum açmış kullanıcının üyesi olduğu Azure AD directory rolleri alır. |
+|groupMembershipClaims     |    dize     |    `1`     |   Bir kullanıcı veya uygulama bekler OAuth 2.0 erişim belirteci verilen "grupları" talep yapılandırır bir bit maskesi. Bit maskesi değerler: 0: None, 1: güvenlik gruplarını ve Azure AD roller, 2: ayrılmış ve 4: ayrılmış. 7 bit maskesi ayarı tüm güvenlik gruplarını, dağıtım grupları ve oturum açmış kullanıcının üyesi olduğu Azure AD directory rolleri alır. |
 |optionalClaims     |  dize       |     `null`    |    [İsteğe bağlı talep](active-directory-optional-claims.md) özel bu uygulama için güvenlik belirteci hizmeti tarafından belirteç döndürdü. |
 |acceptMappedClaims    |      boole   | `true`        |    Bu değer verir, true olarak ayarlanırsa bir özel imzalama anahtarı belirtmeden eşlemesi kullanmak için bir uygulama talep.|
 |Giriş sayfası     |  dize       |`http://MyRegistererdApp`         |    Uygulama giriş sayfası URL'si. |
@@ -52,10 +52,10 @@ Azure AD ile tümleştirmek uygulamaları Azure AD kiracısı ile kayıtlı olma
 |oauth2RequiredPostResponse     | boole        |    `false`     |      OAuth 2.0 belirteç isteklerini bir parçası olarak, Azure AD GET istekleri aksine POST istekleri izin olup olmadığını belirtir. Yalnızca GET isteklerini verileceğini belirten varsayılan false değeridir. 
 |objectId     | Kimlik dizesi        |     ""    |    Dizinde uygulama için benzersiz tanımlayıcı. Bu kimliği herhangi bir protokolü işlem uygulamada tanımlamak için kullanılan tanımlayıcı değil. Dizin sorguları nesnesinde başvurmak için kullanıcı değil.|
 |passwordCredentials     | Dizi türü        |   <code>[{<br>"customKeyIdentifier":null,<br>"endDate":"2018-10-19T17:59:59.6521653Z",<br>"keyId":"\<guid>",<br>"startDate":"2016-10-19T17:59:59.6521653Z",<br>"value":null<br>}]  </code>    |    KeyCredentials özelliği açıklamasına bakın. |
-|PublicClient     |  boole       |      `false`   | Bir uygulamanın genel bir istemci (örneğin, bir mobil cihazda çalışan yüklü bir uygulama) olup olmadığını belirtir. Varsayılan değer false’tur. |
+|publicClient     |  boole       |      `false`   | Bir uygulamanın genel bir istemci (örneğin, bir mobil cihazda çalışan yüklü bir uygulama) olup olmadığını belirtir. Varsayılan değer false’tur. |
 |supportsConvergence     |  boole       |   `false`      | Bu özelliği düzenlenmemelidir. Varsayılan değerini kabul edin. |
 |replyUrls     |  Dize dizisi       |   `http://localhost`     |  Bu çok değerli özellik belirteçleri döndürülürken hedefleri olarak Azure AD kabul edeceği kayıtlı redirect_uri değerlerin listesini tutar. |
-|RequiredResourceAccess     |     Dizi türü    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}] </code>    |   Bu uygulama için erişim ve OAuth izin kapsamları ve her kaynaklarla altında gereken uygulama rolleri kümesi gerektirir kaynaklarını belirtir. Bu ön yapılandırma gerekli kaynağa erişim onayı deneyimi sürücüleri.|
+|requiredResourceAccess     |     Dizi türü    |    <code>[{<br>"resourceAppId":"00000002-0000-0000-c000-000000000000",<br>"resourceAccess":[{<br>&nbsp;&nbsp;&nbsp;&nbsp;"id":"311a71cc-e848-46a1-bdf8-97ff7156d8e6",<br>&nbsp;&nbsp;&nbsp;&nbsp;"type":"Scope"<br>&nbsp;&nbsp;}]<br>}] </code>    |   Bu uygulama için erişim ve OAuth izin kapsamları ve her kaynaklarla altında gereken uygulama rolleri kümesi gerektirir kaynaklarını belirtir. Bu ön yapılandırma gerekli kaynağa erişim onayı deneyimi sürücüleri.|
 |resourceAppId     |    Kimlik dizesi     |  ""      |   Uygulama erişim gerektiren kaynak için benzersiz tanımlayıcı. Bu değer, hedef kaynak uygulamanın bildirilen AppID eşit olmalıdır. |
 |resourceAccess     |  Dizi türü       | Örnek değer requiredResourceAccess özelliği için bkz. |   OAuth2.0 izin kapsamları ve uygulama (belirtilen kaynaklar kimliği ve türü değerleri içerir) belirtilen kaynak gerektiriyor uygulama rolleri listesi        |
 |samlMetadataUrl    |dize| `http://MyRegisteredAppSAMLMetadata` |Uygulama SAML meta verilerinin URL'si.| 

@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.reviewer: elisol
+ms.openlocfilehash: d9379a54258b33277904d88b62dfdd7dfdec59a0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268139"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317757"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory Geliştirici sözlüğü
 Bu makalede, Azure AD için uygulama geliştirme öğrenmeye olduğunda faydalıdır çekirdek Azure Active Directory (AD) Geliştirici kavramları bazıları için tanımları içerir.
@@ -91,7 +92,7 @@ Tarafından tanımlanan [OAuth2 yetkilendirme Framework][OAuth2-Role-Def], adın
 
 Bir istemci uygulaması ister [yetkilendirme](#authorization) 'na katılmak için bir kaynak sahibinden bir [OAuth2 yetkilendirme verme](#authorization-grant) akış ve API/veri kaynak sahibinin adınıza erişebilir. OAuth2 yetkilendirme Framework [iki istemci türlerini tanımlayan][OAuth2-Client-Types], "gizli" ve "Genel", istemcinin kimlik bilgilerini gizliliğini korumak becerisini göre. Uygulamaları uygulayabilirsiniz bir [web istemcisi (gizli)](#web-client) bir web sunucusunda çalışan bir [yerel istemci (Genel)](#native-client) bir aygıtta yüklü veya [kullanıcı aracısı-tabanlı istemci (Genel)](#user-agent-based-client)bir cihazın tarayıcısında çalıştırır.
 
-## <a name="consent"></a>Onay
+## <a name="consent"></a>onay
 İşlemi bir [kaynak sahibi](#resource-owner) yetkisi verme bir [istemci uygulaması](#client-application), özel korumalı kaynaklarınıza erişmek için [izinleri](#permissions), adına Kaynak sahibi. İstemci tarafından istenilen izinlerine bağlı olarak, bir yönetici veya kullanıcı sırasıyla kuruluşun/tek verilerine erişmesine izin vermek için izin istenir. Unutmayın, içinde bir [çok kiracılı](#multi-tenant-application) senaryosu, uygulamanın [hizmet sorumlusu](#service-principal-object) consenting kullanıcı Kiracı da kaydedilir.
 
 ## <a name="id-token"></a>ID simgesi
@@ -134,7 +135,7 @@ Rolleri, kaynak tanımlı dizeleri (örneğin "gider onaylayıcı", "Salt okunur
 
 Azure AD grafik API'si tarafından kullanıma sunulan uygulama rolleri hakkında ayrıntılı bilgi için bkz: [grafik API'si izin kapsamları][AAD-Graph-Perm-Scopes]. Adım adım uygulama örnek için bkz: [RBAC ve Azure portalını kullanarak erişimini yönetme][AAD-RBAC].
 
-## <a name="scopes"></a>Kapsamları
+## <a name="scopes"></a>kapsamları
 Gibi [rolleri](#roles), kapsamları sağlamak için bir yol bir [kaynak sunucusu](#resource-server) korunan kaynaklara erişimi yönetmek üzere. Kapsamlar uygulamak için kullanılan [kapsam tabanlı] [ OAuth2-Access-Token-Scopes] için erişim denetimi, bir [istemci uygulaması](#client-application) , verildiği atanmış erişim için kaynak sahibi tarafından.
 
 Kapsamları dizelerdir yönetilen kaynak tanımlı (örneğin "Mail.Read", "Directory.ReadWrite.All"), [Azure portal] [ AZURE-portal] kaynağın aracılığıyla [uygulama bildirimi](#application-manifest)ve kaynağın depolanan [oauth2Permissions özelliği][AAD-Graph-Sp-Entity]. Azure portal ayrıca istemci uygulamasını yapılandırmak için kullanılan [izinleri atanmış](#permissions) kapsam erişmek için.

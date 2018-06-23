@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: f45a9dfaf2863b81083fbfb647f420d9a4baed5a
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264672"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318067"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenler tahmin doğruluğunu artırmak
 Desenler birkaç utterances çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır. Utterance için bir desen sağlayarak HALUK yüksek güvenilirlik tahmin sahip olabilir. 
@@ -50,7 +50,9 @@ Yeterli örnek utterances verildiğinde, HALUK tahmin güvenirlik desenleri olma
 Bir desen varlıklar düzeni içinde ilk algılama sonra sözcükleri kalan ve desen word sırasını doğrulama göre eşleşir. Varlıkları düzeni eşleştirmek için bir desen için gereklidir. 
 
 ## <a name="pattern-syntax"></a>Desen sözdizimi
-Desenleri varlıklarda, süslü ayraç içine alınmış. Desenler varlıkları ve varlıkları rolleriyle içerebilir. Pattern.Any yalnızca düzenleri kullanılan bir varlıktır. Bunların her biri için sözdizimi aşağıdaki bölümlerde açıklanmıştır.
+Desen sözdizimi bir utterance yönelik bir şablondur. Şablon sözcükler ve sözcüklerin yanı sıra eşleştirmek istediğiniz varlıkları ve noktalama yoksaymak istediğiniz içermelidir. Bu **değil** normal bir ifade. 
+
+Desenler varlıklarda süslü ayraç tarafından çevrelenen `{}`. Desenler varlıkları ve varlıkları rolleriyle içerebilir. Pattern.Any yalnızca düzenleri kullanılan bir varlıktır. Sözdizimi aşağıdaki bölümlerde açıklanmıştır.
 
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Bir desen şablon için bir varlık eklemek için sözdizimi
 Surround gibi süslü ayraçlar varlık adıyla düzeni şablonuna bir varlık eklemek için `Who does {Employee} manage?`. 
@@ -90,7 +92,7 @@ Desen bir Pattern.any içeriyorsa ve desen sözdizimi için olasılığı verir 
 
 Desen '[Bul] e-posta {konuda} [kişiden {}]'. Aşağıdaki utterances içinde **konu** ve **kişi** doğru ve yanlış varlık ayıklanır:
 
-|Utterance|Varlık|Doğru ayıklama|
+|utterance|Varlık|Doğru ayıklama|
 |--|--|:--:|
 |Chris köpekler hakkında e-posta|Konu köpekler =<br>kişi Chris =|✔|
 |ADAM La Mancha gelen e-posta|Konu adam =<br>kişi La Mancha =|X|
@@ -109,7 +111,7 @@ Desen bu özel durumu düzeltmek için add `the man from la mancha` {konu} varl�
 Noktalama işaretleri gibi `.`, `!`, ve `?` köşeli ayraç kullanarak göz ardı edilebilir. Bu işaretler yoksaymak için her işareti ayrı bir düzende olması gerekir. İsteğe bağlı sözdizimi şu anda birkaç öğelerin bir listedeki bir öğe yok sayılıyor desteklemiyor.
 
 ## <a name="patterns-only"></a>Yalnızca desenleri
-HALUK amacı bir uygulamanın tüm örnek utterances olmadan sağlar. Yalnızca desenleri kullanılıyorsa bu izin verilir. Desenler her düzeni en az bir varlık gerektirir. Bu örnek utterances gerektirdiğinden yalnızca desen uygulaması için makine öğrenilen varlıklar düzeni içeremez. 
+HALUK amacı bir uygulamanın tüm örnek utterances olmadan sağlar. Bu kullanım desenlerini yalnızca kullanılan izin verilir. Desenler her düzeni en az bir varlık gerektirir. Bu örnek utterances gerektirdiğinden yalnızca desen uygulaması için makine öğrenilen varlıklar düzeni içeremez. 
 
 ## <a name="best-practices"></a>En iyi uygulamalar
 Bilgi [en iyi uygulamalar](luis-concept-best-practices.md).

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801873"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317835"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD belirteç başvurusu
 Azure Active Directory (Azure AD), her kimlik doğrulama akışı işlenmesini güvenlik belirteçlerinde çeşitli türlerde yayar. Bu belgede biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklanmaktadır. 
@@ -113,7 +113,8 @@ Azure AD tarafından yayınlanan belirteçleri RSA 256 gibi endüstri standart a
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > Bu URL'yi bir tarayıcıda deneyin!
-> 
-> 
 
 Bu meta veri belgesi, bilgi, Openıd Connect kimlik doğrulama gerçekleştirmek için gereken çeşitli uç noktaları konumu gibi çeşitli yararlı parçalarını içeren bir JSON nesnesidir. 
 
 Ayrıca içeren bir `jwks_uri`, Belirteçleri imzalamak için kullanılan ortak anahtarlar konumunu sağlar. JSON belgesini konumundaki `jwks_uri` tüm zaman içinde belirli o anda kullanımda ortak anahtar bilgileri içerir. Uygulamanızı kullanabilirsiniz `kid` hangi ortak anahtar bu belgedeki belirli bir belirteç imzalamak için kullanılan seçmek için JWT üstbilgisinde talep. Ardından, doğru ortak anahtar ve belirtilen algoritmasını kullanarak imza doğrulaması de gerçekleştirebilirsiniz.
+
+> [!NOTE]
+> Her ikisi de v1.0 son noktasını döndürür `x5t` ve `kid` talep. `x5t` Talep v2.0 belirteçlerinden eksik. V2.0 uç noktası ile yanıt `kid` talep. İleriye dönük kullanmanızı öneririz `kid` belirtecinizi doğrulamak talep.
 
 İmza doğrulaması gerçekleştirme, bu belgenin kapsamı dışında - birçok açık kaynak kitaplıkları, gerekirse, bunu yardımcı olduğunuz için kullanılabilir.
 

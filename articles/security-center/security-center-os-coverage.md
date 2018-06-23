@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756910"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335899"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure Güvenlik Merkezi'nde desteklenen platformlar
 Güvenlik durumunu izleme ve öneriler, hem Klasik ve Resource Manager dağıtım modelleri ve Bilgisayarları kullanılarak oluşturulan sanal makineleri için (VM'ler) kullanılabilir.
@@ -42,12 +42,14 @@ Desteklenen Windows işletim sistemleri:
 ## <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux bilgisayarları ve VM'ler için desteklenen platformlar
 Desteklenen Linux işletim sistemleri:
 
-* Ubuntu sürüm 12.04, 14.04, 16.04, 16.10
-* Debian sürüm 7, 8
-* CentOS sürüm 6. \*, 7.*
-* Red Hat Enterprise Linux (RHEL) sürüm 6. \*, 7.*
-* SUSE Linux Enterprise Server (SLES) sürüm 11 SP4 +, 12.*
-* Oracle Linux sürüm 6. \*, 7.*
+* Ubuntu sürüm 12.04 LTS, 14.04 LTS, 16.04 LTS
+* Debian sürüm 6, 7, 8, 9
+* CentOS sürüm 5, 6, 7
+* Red Hat Enterprise Linux (RHEL) sürüm 5, 6, 7
+* SUSE Linux Enterprise Server (SLES) sürüm 11, 12
+* Oracle Linux sürümleri 5, 6, 7
+* Amazon Linux 2017 aracılığıyla 2012.09
+* Openssl 1.1.0 yalnızca (64 bit) x86_64 platformlarda desteklenir
 
 > [!NOTE]
 > Sanal makine davranış analizi henüz Linux işletim sistemleri için kullanılabilir değildir.

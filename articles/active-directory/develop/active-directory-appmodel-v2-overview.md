@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 0fde3cb77389994352b62f06d370c709fa115749
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 1c91c1ed8358f58ab7a4d9a697ec2d7933c4f137
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155349"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316747"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Microsoft Account hem de Azure Active Directory'de kullanıcılar tek bir uygulamada oturum
 Geçmişte, hem kişisel Microsoft hesaplarını destekler ve iş hesaplarını Azure Active Directory'den isteyen uygulama geliştiricileri iki ayrı sistemlerle tümleştirmek gerekiyordu. Azure Active Directory (Azure AD) v2.0 uç noktası bu işlemi basitleştirir yeni bir kimlik doğrulama API sürümü tanıtır. Tek bir tümleştirme kullanarak oturum açma hesapları her iki tür Azure AD v2.0 uç sağlar. Azure AD v2.0 uç kullanan uygulamalar, REST API'lerinin ayrıca tüketebileceği [Microsoft Graph API](https://graph.microsoft.io) ya da hesap türünü kullanarak.

@@ -21,7 +21,7 @@ Arama metin kutusuna **StackExchange.Redis** ya da **StackExchange.Redis.StrongN
 NuGet paketi, StackExchange.Redis önbellek istemcisiyle Azure Redis Cache’e erişmek üzere istemci uygulamanız için gerekli derleme başvurularını ekler.
 
 > [!NOTE]
-> Daha önce projenizi StackExchange.Redis kullanacak şekilde yapılandırdıysanız **NuGet Paket Yöneticisi**’nden paket güncelleştirmelerini denetleyebilirsiniz. StackExchange.Redis NuGet paketinin güncelleştirilmiş sürümlerini denetlemek ve yüklemek için **NuGet Paket Yöneticisi** penceresinde **Güncelleştirmeler**’e tıklayın. StackExchange.Redis NuGet paketin bir güncelleştirme varsa projenizi güncelleştirilmiş sürüme yükseltebilirsiniz.
+> Daha önce projenizi StackExchange.Redis kullanacak şekilde yapılandırdıysanız **NuGet Paket Yöneticisi**’nden paket güncelleştirmelerini denetleyebilirsiniz. StackExchange.Redis NuGet paketi güncelleştirilmiş sürümlerini yüklemek ve denetlemek için tıklatın **güncelleştirmeleri** içinde **NuGet Paket Yöneticisi** penceresi. StackExchange.Redis NuGet paketin bir güncelleştirme varsa projenizi güncelleştirilmiş sürüme yükseltebilirsiniz.
 > 
 > 
 

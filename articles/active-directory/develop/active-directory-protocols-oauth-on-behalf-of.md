@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: hirsin; nacanuma
+ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2bb0d10fee04c4ee48344695769fa7768b0f3a85
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e8957db002dd6fdeaf6da03b02e518e3e423539d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823875"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317740"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-temsili akış kullanıcı kimliğini kullanarak hizmeti çağrıları için hizmet temsilcisi
 Burada bir hizmet/sırayla başka çağırmak için gereken web API, uygulamanın çağırır kullanım örneği akış hizmet OAuth 2.0 On-Behalf-Of (OBO) hizmeti/web API. Temsilci atanan kullanıcı kimliğini ve izinleri istek zincirinin aracılığıyla yaymak için kullanılan uygulamadır. Orta katman hizmet kimliği doğrulanmış istekler için aşağı akış hizmeti yapmak, Azure Active Directory'den (Azure AD), bir erişim belirteci güvenli kullanıcı adına gerekir.
@@ -83,7 +83,7 @@ Paylaşılan gizlilik kullanırken, hizmetten hizmete erişim belirteci isteği 
 | Parametre |  | Açıklama |
 | --- | --- | --- |
 | grant_type |gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
+| Onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
 | client_id |gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
 | client_secret |gerekli | Anahtar arama hizmeti için Azure AD'de kayıtlı. Bu değer kayıt aynı anda not. |
 | kaynak |gerekli | Uygulama Kimliği URI'sini alma hizmetinin (güvenli kaynak). Uygulama Kimliği URI'sini Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizini tıklatın, uygulama adı'ı tıklatın, tıklatın **tüm ayarları** ve ardından **özellikleri**. |
@@ -115,7 +115,7 @@ Hizmetten hizmete erişim belirteci isteği bir sertifika ile aşağıdaki param
 | Parametre |  | Açıklama |
 | --- | --- | --- |
 | grant_type |gerekli | Belirteç isteği türü. JWT'nin kullanarak bir istek için değer olmalıdır **urn: ietf:params:oauth:grant-türü: jwt-taşıyıcı**. |
-| onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
+| Onaylama işlemi |gerekli | İstekte kullanılan belirteç değeri. |
 | client_id |gerekli | Azure AD ile kayıt sırasında arama hizmete atanan uygulama kimliği. Uygulama Kimliği Azure Yönetim Portalı'nda bulmak için tıklatın **Active Directory**dizin'i tıklatın ve ardından uygulama adına tıklayın. |
 | client_assertion_type |gerekli |Değer olmalıdır `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |gerekli | Oluşturma ve sertifika ile imzalamak için gereken bir onaylama işlemi (bir JSON Web belirteci) uygulamanız için kimlik bilgileri olarak kayıtlı. Hakkında bilgi edinin [sertifika kimlik bilgileri](active-directory-certificate-credentials.md) sertifikanızı ve onaylama biçimi kaydetme hakkında bilgi edinmek için.|

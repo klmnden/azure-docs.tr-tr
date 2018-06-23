@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9537380daab80529c3ba6307f1b2cd82a8c0ca41
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867400"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334678"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>En son Azure multi-Factor Authentication Sunucusu'na yükseltme
 
@@ -48,21 +48,12 @@ V6.x veya v7.x eski veya yeni yükseltiyorsanız, tüm bileşenler için .NET 4.
 
 Birden çok sunucu üzerinde kullanıcı portalı varsa, bunların tümünün yüklemesinde yineleyin. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>Mobil uygulama Web Hizmeti'ni yükseltme
 
-1. Mobil uygulama Web hizmeti yükleme konumu (örneğin, C:\inetpub\wwwroot\app veya C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService) sanal dizinde bulunan web.config dosyasının yedeğini alın.
-2. MFA sunucuları yükleme konumundan multifactorauthenticationmobileappwebservicesetup64.msi dosyasını dosyasını kopyalayın ve mobil uygulama kayıt web sunucuya yerleştirin.
-3. Yükleyiciyi çalıştırın. 
-
-  Microsoft Visual C++ 2015 Redistributable Update 1 veya daha yüksek gerekli olduğunu bildiren bir hata meydana gelirse, yükleyip en son güncelleştirme paketinden [Microsoft Download Center](https://www.microsoft.com/download/). X86 hem x64 sürümlerini yükleyin.
-
-4. Güncelleştirilmiş mobil uygulama Web hizmeti yazılım yüklendikten sonra yeni web.config dosyasına ile 1. adımda yedeklenen web.config dosyasını karşılaştırın. Yeni öznitelik yeni web.config dosyasında yoksa, kaydedilen web.config sanal dizine kopyalayın ve yeni bir üzerine yazma. Başka bir seçenek kopyalayıp appSettings değerleri ve Web hizmeti SDK URL'si yedekleme dosyasından yeni özelliği web.config dosyasına yapıştırın oluşturmaktır.
-
-Mobil uygulama Web hizmeti birden fazla sunucuda varsa, bunların tümünün yüklemesinde yineleyin. 
+> [!NOTE]
+> Mobil uygulama web hizmeti yükseltmeden sonra kaldırılabilir Azure MFA Server 8.0 için 8.0 + daha eski bir sürümünü yükseltirken
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>AD FS bağdaştırıcısı yükseltme
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>MFA ADFS değerinden farklı sunucularda çalışıyorsa
 

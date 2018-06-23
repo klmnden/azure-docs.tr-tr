@@ -2,11 +2,11 @@
 Mobile Apps hizmetinin uygulamanızdaki kimlik doğrulama işlemini yönetmesi için kimlik sağlayıcınıza uygulamanızı kaydetmeniz gerekir. Ardından, Azure App Service'te sağlayıcınız tarafından verilen uygulama kimliği ile parolasını yapılandırmanız gerekir.
 Daha fazla bilgi için [Uygulamanıza kimlik doğrulaması ekleme](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md) öğreticisine bakın.
 
-Kimlik sağlayıcınızı kaydettikten sonra sağlayıcınızın adıyla `.login()` yöntemini çağırın. Örneğin, Facebook ile oturum açmak için aşağıdaki kodu kullanın:
+Kimlik sağlayıcınızı kaydettikten sonra sağlayıcınızın adıyla `.login()` yöntemini çağırın. Örneğin, aşağıdaki kodu Facebook kullanımı ile imzalamak için şunu yazın:
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -17,7 +17,7 @@ client.login("facebook").done(function (results) {
 > [!NOTE]
 > Google Kimlik Doğrulaması şu anda Sunucu Akışı ile çalışmamaktadır.  Google kimlik doğrulamasını yapmak için bir [istemci akışı yöntemi](#client-auth) kullanmanız gerekir.
 
-Bu durumda, OAuth 2.0 kimlik doğrulama akışını Azure App Service yönetir.  Seçili sağlayıcının oturum açma sayfasını gösterir ve kimlik sağlayıcı ile oturum başarıyla açıldıktan sonra bir App Service kimlik doğrulama belirteci oluşturur. Oturum açma işlevi tamamlandığında, hem kullanıcı kimliğini hem de App Service kimlik doğrulama belirtecini sırasıyla userId ve authenticationToken alanlarında ortaya çıkaran bir JSON nesnesi döndürür. Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir.
+Bu durumda, OAuth 2.0 kimlik doğrulama akışını Azure App Service yönetir.  Seçili sağlayıcıyı oturum açma sayfasını görüntüler ve sonra başarılı oturum açma kimlik sağlayıcısı ile bir uygulama hizmeti kimlik doğrulama belirteci oluşturur. Oturum açma işlevi tamamlandığında, hem kullanıcı kimliğini hem de App Service kimlik doğrulama belirtecini sırasıyla userId ve authenticationToken alanlarında ortaya çıkaran bir JSON nesnesi döndürür. Bu belirteç önbelleğe alınabilir süresi sona erene kadar yeniden kullanılabilir.
 
 ###<a name="client-auth"></a>Nasıl yapılır: Bir sağlayıcı ile (İstemci Akışı) kimlik doğrulaması
 
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);

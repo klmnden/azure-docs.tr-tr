@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c4294947cba72b1638e77c2dd8de1f5ee37b62a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286007"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335763"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Azure Kubernetes hizmet (AKS) kapsayıcı (Önizleme) izlemesi
 
@@ -37,7 +37,7 @@ Docker ve Windows yönetme ve izleme de ilgileniyorsanız kapsayıcı ana görü
 ## <a name="requirements"></a>Gereksinimler 
 Desteklenen Önkoşullar anlamaları için başlatmadan önce aşağıdaki ayrıntıları gözden geçirin.
 
-- AKS küme aşağıdaki sürümleri desteklenir: 1.7.7 için 1.9.6.
+- Yeni veya varolan bir AKS küme
 - Kapsayıcılı bir OMS Aracısı Linux sürümü için microsoft / oms:ciprod04202018 ve daha sonra. Bu aracı, kapsayıcı durumu onboarding işlemi sırasında otomatik olarak yüklenir.  
 - Log Analytics çalışma alanı.  Yeni AKS kümenizi izleme etkinleştirdiğinizde ya da aracılığıyla bir tane oluşturabilirsiniz oluşturulabilir [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), veya [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - Kapsayıcı izleme etkinleştirmek için günlük analizi katkıda bulunan rolü üyesi.  Günlük analizi çalışma alanı erişimi denetleme hakkında daha fazla bilgi için bkz: [çalışma alanlarını yönet](../log-analytics/log-analytics-manage-access.md).
@@ -244,7 +244,7 @@ Azure CLI kullanmayı seçerseniz, önce yükleyip CLI yerel olarak kullanmak ge
 İzleme etkinleştirildikten sonra küme için işletimsel veri görebilmek için önce yaklaşık 15 dakika sürebilir.  
 
 ## <a name="verify-agent-deployed-successfully"></a>Aracı başarıyla dağıtıldığından emin olun
-Düzgün şekilde dağıtıldığından OMS Aracısı doğrulamak için aşağıdaki komutu çalıştırın: ` kubectl get ds omsagent --namespace=kube-system`.
+Düzgün şekilde dağıtıldığından OMS Aracısı doğrulamak için aşağıdaki komutu çalıştırın: `kubectl get ds omsagent --namespace=kube-system`.
 
 Çıktı aşağıdaki düzgün bir şekilde dağıtın belirten benzemelidir:
 

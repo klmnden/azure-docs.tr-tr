@@ -8,12 +8,12 @@ ms.date: 04/30/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fbac725894d01b2dc622d3542f865a66b240743
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631029"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333785"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Sürekli tümleştirme ve sürekli dağıtımı Azure IOT ucunu - Önizleme
 Bu öğretici sürekli tümleştirme nasıl kullanabileceğinizi gösterir ve sürekli dağıtımı özellikleri geliştirmek için Visual Studio Team Services (VSTS) ve Microsoft Team Foundation Server (TFS) için test ve uygulamaları hızlı ve verimli şekilde dağıtmak için Azure IOT kenar. 
@@ -33,7 +33,7 @@ Bu öğreticiyi tamamlamak için 30 dakika sürer.
 
 Bu bölümde, oluşturma işleminin bir parçası olarak çalışabilecek çözüm birim testleri içeren bir örnek IOT kenar oluşturur. Bu bölümde yer alan yönergeleri izlemeden önce bölümündeki adımları tamamlamanız [IOT kenar çözümünü birden fazla modülü Visual Studio Code ile geliştirme](tutorial-multiple-modules-in-vscode.md).
 
-1. VS Code komutu palette yazın ve şu komutu çalıştırın **kenar: yeni IOT uç çözümünün**. Çalışma klasörü seçin, çözüm adı belirtin (varsayılan ad **EdgeSolution**) ve bir C# modül oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. Ayrıca, ilk modülü için Docker görüntü deposuna belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri tabanlı (`localhost:5000/filtermodule`). Azure kapsayıcı kayıt defterine değiştirmeniz gerekir (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker Hub.
+1. VS Code komutu palette yazın ve şu komutu çalıştırın **kenar: yeni IOT uç çözümünün**. Çalışma klasörü seçin, çözüm adı belirtin (varsayılan ad **EdgeSolution**) ve bir C# modül oluşturun (**FilterModule**) Bu çözümdeki ilk kullanıcı modülü olarak. İlk modülünüz için Docker görüntü deposunu da belirtmeniz gerekir. Varsayılan görüntü deposu yerel bir Docker kayıt defteri tabanlı (`localhost:5000/filtermodule`). Azure kapsayıcı kayıt defterine değiştirmeniz gerekir (`<your container registry address>/filtermodule`) veya daha fazla sürekli tümleştirme için Docker Hub.
 
     ![ACR Kurulumu](./media/how-to-ci-cd/acr.png)
 
@@ -452,7 +452,7 @@ Bu nedenle, IOT sınır cihazları dağıtırken, üç ana ortamları vardır.
 Bu öğretici, sürekli tümleştirme ve sürekli dağıtım özellikleri VSTS veya TFS nasıl kullanabileceğinizi gösterir. 
 
 * IOT kenar dağıtımda anlamak [anlamak IOT kenar dağıtımları tek cihazlar için veya ölçekte](module-deployment-monitoring.md)
-* Oluştur, Güncelleştir veya bir dağıtımda silmek için izleyeceğiniz adımlarda size yol [dağıtma ve izleme IOT kenar modülleri ölçekte] [how-to-dağıtma-monitor.md].
+* Oluştur, Güncelleştir veya bir dağıtımda silmek için izleyeceğiniz adımlarda size yol [dağıtma ve izleme IOT kenar modülleri ölçekte](how-to-deploy-monitor.md).
 
 
 

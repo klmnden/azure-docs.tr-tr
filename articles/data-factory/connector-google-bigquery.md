@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
-ms.openlocfilehash: d63cb26acdc0a8b6c8435167b1043428de9f0729
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e88d8046e31a43f444193dff91895b474be70d91
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807627"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332346"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Google BigQuery veri kopyalama
 
@@ -35,7 +35,7 @@ Google BigQuery verileri herhangi bir desteklenen havuz veri deposuna kopyalayab
 
 ## <a name="get-started"></a>başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Google BigQuery bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

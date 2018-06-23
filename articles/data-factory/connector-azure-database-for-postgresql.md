@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b47dbf081d857d0c6eb5e1bd4eb9781c4c894698
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 27b975df5d0161f0b64e02b62c89989a670731aa
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615946"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330569"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL için Azure veritabanından veri kopyalama 
 
@@ -49,7 +49,7 @@ Aşağıdaki özellikler PostgreSQL bağlantılı hizmeti için Azure veritaban�
 | connectionString | PostgreSQL için Azure veritabanına bağlanmak için bir ODBC bağlantı dizesi. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
 | connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
 
-Tipik bağlantı dizesi `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
+Tipik bağlantı dizesi `Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`. Daha fazla özellik durumunuz ayarlayabilirsiniz:
 
 | Özellik | Açıklama | Seçenekler | Gerekli |
 |:--- |:--- |:--- |:--- |:--- |
@@ -66,7 +66,7 @@ Tipik bağlantı dizesi `Server=<server>.postgres.database.azure.com;Database=<d
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>@admstest;Password=<Password>"
+                 "value": "Server=<server>.postgres.database.azure.com;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
             }
         }
     }

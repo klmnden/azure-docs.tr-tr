@@ -1,6 +1,6 @@
 ---
-title: Veri kopyalama/Data Factory kullanarak Azure SQL veri ambarından | Microsoft Docs
-description: Azure SQL Data Warehouse için desteklenen kaynak depoları (veya) SQL veri ambarından veri kopyalamak için desteklenen havuz depoları Data Factory kullanarak öğrenin.
+title: Azure Data Factory kullanarak ve Azure SQL veri ambarından veri kopyalamak | Microsoft Docs
+description: Veri Fabrikası kullanarak Azure SQL Data Warehouse için desteklenen kaynak depoları veya SQL Data Warehouse desteklenen havuz depolarına veri kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,44 +13,48 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/28/2018
 ms.author: jingwang
-ms.openlocfilehash: c862f269a8e32814dfb6d311706e65b57d52d1bb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a7ee7862e102093efa2c203eac2497b025af4e5
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617085"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337824"
 ---
-# <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarından veri kopyalayın
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-azure-sql-data-warehouse-connector.md)
-> * [Sürüm 2 - Önizleme](connector-azure-sql-data-warehouse.md)
+#  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak veya Azure SQL veri ambarından veri kopyalayın 
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
+> * [Sürüm 1: GA](v1/data-factory-azure-sql-data-warehouse-connector.md)
+> * [Sürüm 2: Önizleme](connector-azure-sql-data-warehouse.md)
 
-Bu makalede kopya etkinliği Azure Data Factory'de ve bir Azure SQL veri ambarından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
+Bu makalede kopya etkinliği Azure Data Factory'de veya Azure SQL veri ambarından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
 > [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Azure SQL Data Warehouse Bağlayıcısı](v1/data-factory-azure-sql-data-warehouse-connector.md).
+> Bu makale, sürüm 2 Data Factory, şu anda önizlemede için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Azure SQL Data Warehouse Bağlayıcısı](v1/data-factory-azure-sql-data-warehouse-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
-Tüm desteklenen havuz veri deposuna başlangıç/bitiş Azure SQL Data Warehouse verilerini kopyalayabilir veya verileri Azure SQL Data Warehouse için tüm desteklenen kaynak veri deposundan kopyalayın. Kaynakları/havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
+Azure SQL veri ambarından veri tüm desteklenen havuz veri deposuna kopyalayabilirsiniz. Ve tüm desteklenen kaynak veri deposundan Azure SQL Data Warehouse'a veri kopyalayabilirsiniz. Kaynakları veya havuzlarını kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları ve biçimleri](copy-activity-overview.md#supported-data-stores-and-formats) tablo.
 
-Özellikle, bu Azure SQL Data Warehouse Bağlayıcısı destekler:
+Özellikle, bu Azure SQL Data Warehouse Bağlayıcısı bu işlevler destekler:
 
-- Verileri kullanarak kopyalama **SQL kimlik doğrulaması**, ve **Azure Active Directory Uygulama belirteci kimlik doğrulaması** hizmet sorumlusu veya yönetilen hizmet kimliği (MSI).
-- SQL sorgusu veya saklı yordam kullanarak veri kaynağı olarak alınıyor.
-- Havuz, verileri kullanarak yükleme olarak **PolyBase** veya toplu ekleme. Eski olan **önerilen** daha iyi kopyalama performans.
-
-> [!IMPORTANT]
-> Not PolyBase, SQL authentcation ancak değil Azure Active Directory kimlik doğrulaması yalnızca destekler.
+- Bir hizmet sorumlusu veya yönetilen hizmet kimliği (MSI) ile SQL kimlik doğrulaması ve Azure Active Directory (Azure AD) uygulama belirteci kimlik doğrulaması kullanarak veri kopyalayın.
+- Bir kaynağı olarak bir SQL sorgusu veya saklı yordam kullanarak verileri alır.
+- Bir havuz PolyBase ya da bir toplu kullanarak yük veri ekleyin. Daha iyi kopyalama performans PolyBase öneririz.
 
 > [!IMPORTANT]
-> Azure tümleştirmesi çalışma zamanı kullanarak verileri kopyalarsanız, yapılandırma [Azure SQL Server Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) için [Azure hizmetlerinin sunucuya erişimine izin](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Self-hosted tümleştirme çalışma zamanı kullanarak verileri kopyalarsanız, Azure SQL veritabanına bağlanmak için kullanılan makinenin IP de dahil olmak üzere uygun IP aralığını izin vermek için Azure SQL Server Güvenlik Duvarı'nı yapılandırın.
+> PolyBase yalnızca SQL kimlik doğrulaması ancak değil Azure AD kimlik doğrulaması desteklediğini unutmayın.
 
-## <a name="getting-started"></a>Başlarken
+> [!IMPORTANT]
+> Azure veri fabrikası tümleştirmesi çalışma zamanı kullanarak verileri kopyalarsanız, yapılandırma bir [Azure SQL server Güvenlik Duvarı](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) Azure hizmetlerinin sunucunun erişebilmesi için.
+> Kendini barındıran tümleştirmesi çalışma zamanı kullanarak verileri kopyalarsanız, uygun IP aralığını izin vermek için Azure SQL server güvenlik duvarını yapılandırın. Bu aralık, Azure SQL veritabanına bağlanmak için kullanılan makinenin IP içerir.
+
+## <a name="get-started"></a>başlarken
+
+> [!TIP]
+> En iyi performansı elde etmek için Azure SQL Data Warehouse'a veri yüklemek için PolyBase kullanın. [Kullanım Azure SQL Data Warehouse'a veri yüklemek için PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) bölümde ayrıntılar bulunur. Kullanım örneği ile bir anlatım için bkz: [1 TB altında 15 dakika Azure Data Factory ile Azure SQL Data Warehouse'a veri yükleme](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Aşağıdaki bölümler için Azure SQL Data Warehouse Bağlayıcısı Data Factory varlıklarını belirli tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
+Aşağıdaki bölümler, Data Factory varlıklarını belirli bir Azure SQL Data Warehouse Bağlayıcısı tanımlama özellikleri hakkında ayrıntılı bilgi sağlar.
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
 
@@ -58,22 +62,22 @@ Aşağıdaki özellikler, Azure SQL Data Warehouse bağlantılı hizmeti için d
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Type özelliği ayarlanmalıdır: **AzureSqlDW** | Evet |
-| connectionString |ConnectionString özelliği için Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). |Evet |
-| servicePrincipalId | Uygulamanın istemci kimliği belirtin. | AAD kimlik doğrulama ile hizmet sorumlusu kullanırken, Evet. |
-| servicePrincipalKey | Uygulamanın anahtarını belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | AAD kimlik doğrulama ile hizmet sorumlusu kullanırken, Evet. |
-| kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | AAD kimlik doğrulama ile hizmet sorumlusu kullanırken, Evet. |
-| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya Self-hosted tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. |Hayır |
+| type | Type özelliği ayarlamak **AzureSqlDW**. | Evet |
+| connectionString | İçin Azure SQL Data Warehouse örneğine bağlanmak için gereken bilgileri belirtin **connectionString** özelliği. Bu alan olarak işaretlemek bir **SecureString** veri fabrikasında güvenli bir şekilde depolamak için veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet |
+| servicePrincipalId | Uygulamanın istemci kimliği belirtin. | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
+| servicePrincipalKey | Uygulamanın anahtarını belirtin. Bu alan veri fabrikasında güvenli bir şekilde depolamak için bir SecureString olarak işaretle veya [Azure anahtar kasasında depolanan gizli başvuru](store-credentials-in-key-vault.md). | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
+| kiracı | Uygulamanızın bulunduğu altında Kiracı bilgileri (etki alanı adı veya Kiracı kimliği) belirtin. Azure portalının sağ üst köşedeki fare gelerek alabilir. | Evet, bir hizmet sorumlusu ile Azure AD kimlik doğrulaması kullandığınızda. |
+| connectVia | [Tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri deposuna bağlanmak için kullanılacak. (Veri deposu özel bir ağda yer alıyorsa) Azure tümleştirmesi çalışma zamanı veya bir kendi kendini barındıran tümleştirmesi çalışma zamanı kullanabilirsiniz. Belirtilmezse, varsayılan Azure tümleştirmesi çalışma zamanı kullanır. | Hayır |
 
-Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örnekleri aşağıdaki bölümlere bakın:
+Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örnekleri, aşağıdaki bölümlere bakın:
 
-- [SQL kimlik doğrulaması kullanma](#using-sql-authentication)
-- [AAD uygulama belirteci kimlik doğrulaması - hizmet sorumlusunu kullanarak](#using-service-principal-authentication)
-- [AAD uygulama belirteci kimlik doğrulaması - yönetilen hizmet kimliği kullanma](#using-managed-service-identity-authentication)
+- [SQL kimlik doğrulaması](#sql-authentication)
+- Azure AD uygulama belirteci kimlik doğrulaması: [hizmet sorumlusu](#service-principal-authentication)
+- Azure AD uygulama belirteci kimlik doğrulaması: [yönetilen hizmet kimliği](#managed-service-identity-authentication)
 
-### <a name="using-sql-authentication"></a>SQL kimlik doğrulaması kullanma
+### <a name="sql-authentication"></a>SQL kimlik doğrulaması
 
-**SQL kimlik doğrulaması kullanarak bağlantılı hizmet örneği:**
+#### <a name="linked-service-example-that-uses-sql-authentication"></a>SQL kimlik doğrulaması kullanan bağlantılı hizmet örneği
 
 ```json
 {
@@ -94,34 +98,34 @@ Farklı kimlik doğrulama türleri için sırasıyla önkoşulları ve JSON örn
 }
 ```
 
-### <a name="using-service-principal-authentication"></a>Hizmet asıl kimlik doğrulaması kullanma
+### <a name="service-principal-authentication"></a>Hizmet sorumlusu kimlik doğrulaması
 
-Hizmet asıl tabanlı AAD uygulama belirteci kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
+Hizmet sorumlusu tabanlı Azure AD uygulama belirteci kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
 
-1. **[Bir Azure Active Directory uygulaması Azure portalından oluşturmak](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).**  Uygulama adı ve bağlantılı hizmet tanımlamak üzere kullanabileceğiniz aşağıdaki değerleri not edin:
+1. **[Azure Active Directory Uygulama oluşturma](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**  Azure portalından. Uygulama adı ve bağlantılı hizmet tanımlayan aşağıdaki değerleri not edin:
 
     - Uygulama Kimliği
     - Uygulama anahtarı
     - Kiracı Kimliği
 
-2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  bunu yapmadıysanız Azure Portal'da Azure SQL Server. AAD yönetici bir AAD kullanıcı veya AAD grup olabilir. MSI grubuyla Yönetici rolü izni varsa, yönetici DB tam erişim yaptığınız gibi adım 3 ve 4 aşağıda atlayın.
+2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun. Azure AD Yöneticisi bir Azure AD kullanıcısının veya Azure AD grup olabilir. MSI grubuyla Yönetici rolü izni varsa, 3 ve 4 numaralı adımları atlayın. Yönetici veritabanına tam erişime sahip.
 
-3. **Kapsanan veritabanı kullanıcı için hizmet sorumlusu oluşturmak**, bağlayarak veri ambarından/SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bir AAD ile kimlik en az olması ALTER herhangi bir kullanıcı izni ve aşağıdaki T-SQL yürütme . Kapsanan veritabanı kullanıcıdan hakkında daha fazla bilgi edinin [burada](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. **[Kapsanan veritabanı kullanıcıları oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  hizmet sorumlusu için. Veri ambarı veya en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bağlanmak ALTER herhangi bir kullanıcı izni. Aşağıdaki T-SQL çalıştırın:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Hizmet sorumlusu gerekli izinleri vermek** , SQL kullanıcılar için Örneğin aşağıda çalıştırarak her zamanki gibi:
+4. **Hizmet sorumlusu gerekli izinleri vermek** SQL kullanıcılar veya başkaları için normalde yaptığınız gibi. Aşağıdaki kodu çalıştırın:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. ADF içinde bir Azure SQL Data Warehouse bağlı hizmetini yapılandırın.
+5. **Bir Azure SQL Data Warehouse bağlantılı hizmeti yapılandırma** Azure veri fabrikası'nda.
 
 
-**Hizmet asıl kimlik doğrulaması kullanarak bağlantılı hizmet örneği:**
+#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Hizmet asıl kimlik doğrulaması kullanan bağlantılı hizmet örneği
 
 ```json
 {
@@ -148,42 +152,42 @@ Hizmet asıl tabanlı AAD uygulama belirteci kimlik doğrulaması kullanmak içi
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>Yönetilen hizmet kimlik doğrulama kullanılarak
+### <a name="managed-service-identity-authentication"></a>Yönetilen hizmet kimlik doğrulama
 
-Data factory ile ilişkilendirilebilir bir [yönetilen hizmet kimliği (MSI)](data-factory-service-identity.md), bu belirli veri fabrikası temsil eder. Bu hizmet kimliği, verilerinizi veri ambarına / erişim ve kopyalama verilere atanmış bu Fabrika sağlayan, Azure SQL Data Warehouse kimlik doğrulaması için kullanabilirsiniz.
+Data factory ile ilişkili bir [yönetilen hizmet kimliği](data-factory-service-identity.md) , belirli üretecini temsil eder. Bu hizmet kimliği Azure SQL Data Warehouse kimlik doğrulaması için kullanabilirsiniz. Bu kimliği kullanarak veya bu verilerinizi kopya veri ambarı ve belirlenen Fabrika erişebilirsiniz.
 
 > [!IMPORTANT]
-> Not PolyBase MSI authentcation için şu anda desteklenmiyor.
+> PolyBase MSI kimlik doğrulaması için şu anda desteklenmediğini unutmayın.
 
-Tabanlı AAD uygulama belirteci kimlik doğrulaması MSI kullanmak için aşağıdaki adımları izleyin:
+MSI tabanlı Azure AD uygulama belirteci kimlik doğrulaması kullanmak için aşağıdaki adımları izleyin:
 
-1. **Azure AD'de bir grup oluşturun ve MSI Fabrika grubunun bir üyesi yapın**.
+1. **Azure AD'de bir grup oluşturun.** MSI Fabrika grubunun bir üyesi yapın.
 
-    a. Azure Portalı'ndan veri fabrikası hizmet kimliği bulunamıyor. Veri fabrikanızın -> Özellikler kopyalama -> **hizmet kimlik kimliği**.
+    a. Veri Fabrikası hizmet kimliği Azure portalından bulun. Veri fabrikasının gidin **özellikleri**. Hizmet kimlik kimliği kopyalayın.
 
-    b. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) Modülü'nü kullanarak oturum `Connect-AzureAD` komut ve bir grup oluşturun ve veri fabrikası MSI üyesi olarak eklemek için aşağıdaki komutları çalıştırın.
+    b. Yükleme [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) modülü. Kullanarak oturum `Connect-AzureAD` komutu. Bir grup oluşturun ve veri fabrikası MSI üyesi olarak eklemek için aşağıdaki komutları çalıştırın.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  bunu yapmadıysanız Azure Portal'da Azure SQL Server.
+2. **[Azure Active Directory yönetici sağlamak](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  zaten yapmadıysanız Azure Portal'da Azure SQL sunucunuzun.
 
-3. **AAD grubu için kapsanan veritabanı kullanıcısı oluşturmak**, bağlayarak veri ambarından/SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bir AAD ile kimlik en az olması ALTER herhangi bir kullanıcı izni ve aşağıdaki T-SQL yürütme. Kapsanan veritabanı kullanıcıdan hakkında daha fazla bilgi edinin [burada](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities).
+3. **[Kapsanan veritabanı kullanıcıları oluşturun](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  Azure AD grubu için. Veri ambarı veya en az bir Azure AD kimlik ile SSMS gibi araçları kullanarak veri kopyalamak istediğiniz bağlanmak ALTER herhangi bir kullanıcı izni. Aşağıdaki T-SQL çalıştırın. 
     
     ```sql
-    CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **AAD Grup gerekli izinleri vermek** , SQL kullanıcılar için Örneğin aşağıda çalıştırarak her zamanki gibi:
+4. **Azure AD grubundaki gerekli izinleri vermek** SQL kullanıcılar ve başkaları için normalde yaptığınız gibi. Örneğin, aşağıdaki kodu çalıştırın.
 
     ```sql
-    EXEC sp_addrolemember [role name], [your AAD group name];
+    EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
-5. ADF içinde bir Azure SQL Data Warehouse bağlı hizmetini yapılandırın.
+5. **Bir Azure SQL Data Warehouse bağlantılı hizmeti yapılandırma** Azure veri fabrikası'nda.
 
-**MSI kimlik doğrulaması kullanarak bağlantılı hizmet örneği:**
+#### <a name="linked-service-example-that-uses-msi-authentication"></a>MSI kimlik doğrulaması kullanan bağlantılı hizmet örneği
 
 ```json
 {
@@ -206,16 +210,16 @@ Tabanlı AAD uygulama belirteci kimlik doğrulaması MSI kullanmak için aşağ�
 
 ## <a name="dataset-properties"></a>Veri kümesi özellikleri
 
-Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için veri kümeleri makalesine bakın. Bu bölümde Azure SQL veri ambarı veri kümesi tarafından desteklenen özellikler listesini sağlar.
+Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [veri kümeleri](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services) makalesi. Bu bölümde Azure SQL veri ambarı veri kümesi tarafından desteklenen özellikler listesini sağlar.
 
-/ Azure SQL Data warehouse'a veri kopyalamak için veri kümesi için tür özelliği ayarlamak **AzureSqlDWTable**. Aşağıdaki özellikler desteklenir:
+Gelen veya Azure SQL Data Warehouse veri kopyalamak için ayarlanmış **türü** dataset özelliğinin **AzureSqlDWTable**. Aşağıdaki özellikler desteklenir:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Veri kümesi türü özelliği ayarlamak: **AzureSqlDWTable** | Evet |
-| tableName |Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL Data Warehouse örneğinde adı. | Evet |
+| type | **Türü** dataset özelliğinin ayarlanması gerekir **AzureSqlDWTable**. | Evet |
+| tableName | Tablo veya Görünüm başvuran bağlı hizmetin Azure SQL Data Warehouse örneğinde adı. | Evet |
 
-**Örnek:**
+#### <a name="dataset-properties-example"></a>Veri kümesi özellikleri örneği
 
 ```json
 {
@@ -234,28 +238,28 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri t
 }
 ```
 
-## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
+## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
 
 Bölümleri ve etkinlikleri tanımlamak için kullanılabilen özellikleri tam listesi için bkz: [ardışık düzen](concepts-pipelines-activities.md) makalesi. Bu bölümde Azure SQL Data Warehouse kaynak ve havuz tarafından desteklenen özellikler listesini sağlar.
 
-### <a name="azure-sql-data-warehouse-as-source"></a>Kaynak olarak Azure SQL veri ambarı
+### <a name="azure-sql-data-warehouse-as-the-source"></a>Kaynak olarak Azure SQL veri ambarı
 
-Azure SQL veri ambarından veri kopyalamak için kopyalama etkinliği için kaynak türünü ayarlayın. **SqlDWSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
+Azure SQL veri ambarından veri kopyalamak için ayarlanmış **türü** kopyalama etkinliği kaynağına özelliğinde **SqlDWSource**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **kaynak** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **SqlDWSource** | Evet |
-| sqlReaderQuery |Verileri okumak için özel SQL sorgusu kullanın. Örnek: `select * from MyTable`. |Hayır |
-| sqlReaderStoredProcedureName |Kaynak tablodan veri okuyan saklı yordamın adı. Son SQL deyimi SELECT deyimi içinde saklı yordamı olması gerekir. |Hayır |
-| storedProcedureParameters |Saklı yordam parametreleri.<br/>İzin verilen değerler: ad/değer çiftleri. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. |Hayır |
+| type | **Türü** kopyalama etkinliği kaynak özelliği ayarlanmalıdır **SqlDWSource**. | Evet |
+| sqlReaderQuery | Verileri okumak için özel SQL sorgusu kullanın. Örnek: `select * from MyTable`. | Hayır |
+| sqlReaderStoredProcedureName | Kaynak tablodan veri okuyan saklı yordamın adı. Son SQL deyimi SELECT deyimi içinde saklı yordamı olması gerekir. | Hayır |
+| storedProcedureParameters | Saklı yordam parametreleri.<br/>İzin verilen değerler ad veya değer çiftleridir. Adları ve büyük/küçük harf parametrelerinin adlarını ve saklı yordam parametreleri büyük/küçük harf eşleşmelidir. | Hayır |
 
-**Dikkat edilecek noktalar:**
+### <a name="points-to-note"></a>Dikkat edilecek noktaları
 
-- Varsa **sqlReaderQuery** belirtilen SqlSource için kopyalama etkinliği veri almak için Azure SQL Data Warehouse kaynağında bu sorguyu çalıştırır. Alternatif olarak, bir saklı yordam belirterek belirleyebileceğiniz **sqlReaderStoredProcedureName** ve **storedProcedureParameters** (saklı yordam parametreleri alıyorsa).
-- "SqlReaderQuery" veya "sqlReaderStoredProcedureName" belirtmezseniz, JSON veri kümesi'nin "yapısı" bölümünde tanımlanan sütunları bir sorgu oluşturmak için kullanılır (`select column1, column2 from mytable`) Azure SQL veri ambarına karşı çalıştırmak için. Veri kümesi tanımı "yapısı" yoksa, tüm sütunları tablodan seçilir.
+- Varsa **sqlReaderQuery** için belirtilen **SqlSource**, kopyalama etkinliği bu sorguyu veri almak için Azure SQL Data Warehouse kaynağına karşı çalışır. Veya bir saklı yordam belirtebilirsiniz. Belirtin **sqlReaderStoredProcedureName** ve **storedProcedureParameters** saklı yordamın kullandığı parametreler varsa.
+- Ya da belirtmezseniz **sqlReaderQuery** veya **sqlReaderStoredProcedureName**, tanımlanan sütunları **yapısı** bölüm JSON veri kümesi için kullanılan bir sorgu oluşturun. `select column1, column2 from mytable` Azure SQL veri ambarına karşı çalışır. Veri kümesi tanımı yoksa **yapısı**, tüm sütunlar tablosundan seçilir.
 - Kullandığınızda **sqlReaderStoredProcedureName**, yine de bir kukla belirtmeniz gerekiyorsa **tableName** JSON veri kümesi bir özellik.
 
-**Örnek: SQL sorgusu kullanma**
+#### <a name="sql-query-example"></a>SQL sorgu örneği
 
 ```json
 "activities":[
@@ -287,7 +291,7 @@ Azure SQL veri ambarından veri kopyalamak için kopyalama etkinliği için kayn
 ]
 ```
 
-**Örnek: saklı yordam kullanma**
+#### <a name="stored-procedure-example"></a>Saklı yordam örneği
 
 ```json
 "activities":[
@@ -323,7 +327,7 @@ Azure SQL veri ambarından veri kopyalamak için kopyalama etkinliği için kayn
 ]
 ```
 
-**Saklı yordam tanımı:**
+### <a name="stored-procedure-definition"></a>Saklı yordam tanımı
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -342,24 +346,24 @@ END
 GO
 ```
 
-### <a name="azure-sql-data-warehouse-as-sink"></a>Havuz olarak Azure SQL veri ambarı
+### <a name="azure-sql-data-warehouse-as-sink"></a> Havuz olarak Azure SQL veri ambarı
 
-Azure SQL Data Warehouse'a veri kopyalamak için kopyalama etkinliği Havuz türü ayarlayın. **SqlDWSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **havuz** bölümü:
+Azure SQL Data Warehouse'a veri kopyalamak için kopyalama etkinliği için Havuz türü ayarlayın. **SqlDWSink**. Aşağıdaki özellikler kopyalama etkinliği desteklenen **havuz** bölümü:
 
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
-| type | Kopya etkinliği havuz tür özelliği ayarlamak: **SqlDWSink** | Evet |
-| Bulunan'allowpolybase |BULKINSERT mekanizması yerine PolyBase (varsa) kullanılıp kullanılmayacağını belirtir. <br/><br/> **PolyBase kullanarak SQL Data Warehouse'a veri yükleme için önerilen yoldur.** Bkz [kullanım Azure SQL Data Warehouse'a veri yüklemek için PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü.<br/><br/>İzin verilen değerler: **True**, ve **False** (varsayılan).  |Hayır |
-| polyBaseSettings |Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. |Hayır |
-| rejectValue |Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir.<br/><br/>PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi **bağımsız değişkenleri** bölümünü [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) konu. <br/><br/>İzin verilen değerler: 0 (varsayılan), 1, 2... |Hayır |
-| rejectType |RejectValue seçeneği bir hazır değer veya bir yüzde belirtilen belirtir.<br/><br/>İzin verilen değerler: **değeri** (varsayılan), ve **yüzde**. |Hayır |
-| Havuzu'na ilişkin |PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler.<br/><br/>İzin verilen değerler: 1, 2... |Evet, varsa **rejectType** olan **yüzdesi** |
-| useTypeDefault |PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>İzin verilen değerler: **True**, **False** (varsayılan). |Hayır |
-| writeBatchSize |Arabellek boyutu writeBatchSize ulaştığında veri SQL tablosuna ekler. Yalnızca PolyBase değil kullanıldığında geçerlidir.<br/><br/>İzin verilen değerler: tamsayı (satır sayısı). |Hayır (varsayılan değeri: 10000) |
-| writeBatchTimeout |Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. Yalnızca PolyBase değil kullanıldığında geçerlidir.<br/><br/>İzin verilen değerler: timespan. Örnek: "00: 30:00" (30 dakika). |Hayır |
-| preCopyScript |Her çalıştırma sırasında Azure SQL Data Warehouse'a veri yazmadan önce yürütmek kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenmiş veriyi temizlemek için bu özelliği kullanın. |Hayır |(#repeatability sırasında-kopyalama). |Sorgu bildirimi. |Hayır |
+| type | **Türü** kopyalama etkinliği havuz özelliği ayarlanmalıdır **SqlDWSink**. | Evet |
+| Bulunan'allowpolybase | PolyBase, uygun olduğunda, yerine BULKINSERT mekanizması kullanılıp kullanılmayacağını belirtir. <br/><br/> PolyBase kullanarak SQL Data Warehouse'a veri yükleme öneririz. Bkz [kullanım Azure SQL Data Warehouse'a veri yüklemek için PolyBase](#use-polybase-to-load-data-into-azure-sql-data-warehouse) kısıtlamaları ve ayrıntıları bölümü.<br/><br/>İzin verilen değerler **True** ve **False** (varsayılan).  | Hayır |
+| polyBaseSettings | Bir grup olabilir özellik belirtilen **Bulunan'allowpolybase** özelliği ayarlanmış **doğru**. | Hayır |
+| rejectValue | Sayı veya yüzde değeri sorgu başarısız önce reddedilemiyor satır belirtir.<br/><br/>Bağımsız değişkenler bölümünde PolyBase'nın reddetme seçenekleri hakkında daha fazla bilgi [CREATE dış TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>0 (varsayılan), 1, 2, izin verilen değerler vs. |Hayır |
+| rejectType | Belirtir olup olmadığını **rejectValue** seçenektir değişmez değer veya bir yüzde.<br/><br/>İzin verilen değerler **değeri** (varsayılan) ve **yüzde**. | Hayır |
+| Havuzu'na ilişkin | PolyBase reddedilen satırları yüzdesini yeniden hesaplar önce almak için satır sayısını belirler.<br/><br/>İzin verilen değerler: 1, 2, vs. | Evet, varsa **rejectType** olan **yüzde**. |
+| useTypeDefault | PolyBase metin dosyasından veri aldığında sınırlandırılmış metin dosyaları eksik değerleri nasıl ele alınacağını belirtir.<br/><br/>Bağımsız değişkenler bölümünde bu özelliği hakkında daha fazla bilgi [oluşturma EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>İzin verilen değerler **True** ve **False** (varsayılan). | Hayır |
+| writeBatchSize | Arabellek boyutu ulaştığında veri SQL tablosuna ekler **writeBatchSize**. Yalnızca PolyBase kullanıldığında değilse geçerlidir.<br/><br/>İzin verilen değer **tamsayı** (satır sayısı). | Hayır. 10000 varsayılandır. |
+| writeBatchTimeout | Toplu ekleme işlemi zaman aşımına uğramadan önce tamamlamak bir süre bekleyin. Yalnızca PolyBase kullanıldığında değilse geçerlidir.<br/><br/>İzin verilen değer **timespan**. Örnek: "00: 30:00" (30 dakika). | Hayır |
+| preCopyScript | Her çalıştırma sırasında Azure SQL Data Warehouse'a veri yazmadan önce çalıştırmak kopyalama etkinliği için bir SQL sorgusunu belirtin. Önceden yüklenen veriyi temizlemek için bu özelliği kullanın. | Hayır | (#repeatability sırasında-kopyalama). | Sorgu bildirimi. | Hayır |
 
-**Örnek:**
+#### <a name="sql-data-warehouse-sink-example"></a>SQL veri ambarı havuzu örnek
 
 ```json
 "sink": {
@@ -375,34 +379,34 @@ Azure SQL Data Warehouse'a veri kopyalamak için kopyalama etkinliği Havuz tür
 }
 ```
 
-PolyBase SQL Data Warehouse sonraki bölümünden verimli bir şekilde yüklemek için nasıl kullanılacağı hakkında daha fazla bilgi edinin.
+SQL veri ambarı sonraki bölümde verimli bir şekilde yüklemek için PolyBase kullanma hakkında daha fazla bilgi edinin.
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse'a veri yüklemek için Polybase'i kullanın
 
-Kullanarak **[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)** büyük miktarda veri yüksek işleme ile Azure SQL Data Warehouse'a veri yükleme etkili bir yoldur. PolyBase yerine varsayılan BULKINSERT mekanizmasını kullanarak büyük kazanç verimliliği de görebilirsiniz. Bkz: [kopyalama performans başvuru numarası](copy-activity-performance.md#performance-reference) ayrıntılı karşılaştırması ile. Kullanım örneği ile bir anlatım için bkz: [1 TB altında 15 dakika Azure Data Factory ile Azure SQL Data Warehouse'a veri yükleme](connector-azure-sql-data-warehouse.md).
+Kullanarak [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) büyük miktarda veri yüksek işleme ile Azure SQL Data Warehouse'a veri yüklemek için etkili bir yoldur. PolyBase yerine varsayılan BULKINSERT mekanizmasını kullanarak iş çıkarma büyük kazanç görürsünüz. Bkz: [Performans başvurusu](copy-activity-performance.md#performance-reference) ayrıntılı bir karşılaştırması için. Kullanım örneği ile bir anlatım için bkz: [1 TB Azure SQL Data Warehouse'a veri yükleme](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
-* Veri kaynağınızı ise **Azure Blob veya Azure Data Lake Store**ve biçimini PolyBase ile uyumlu ise, doğrudan Azure SQL veri Polybase'i kullanarak ambarına kopyalayabilirsiniz. Bkz: **[Polybase'i kullanarak doğrudan kopyalama](#direct-copy-using-polybase)** ayrıntılarla.
-* Kaynak veri deposu ve biçim başlangıçta desteklenmiyor, PolyBase tarafından kullanabileceğiniz **[Polybase'i kullanarak kopyalama hazırlanan](#staged-copy-using-polybase)** yerine özellik. Ayrıca, daha iyi verim otomatik olarak veri PolyBase uyumlu biçimine dönüştürmek için kullanılan ve Azure Blob depolama alanına veri depolayarak sağlar. Ardından verileri SQL Data Warehouse'a veri yükler.
+* Kaynak verileriniz Azure Blob storage veya Azure Data Lake Store hem biçiminde ise PolyBase, PolyBase kullanarak kopyalama doğrudan Azure SQL veri ambarı ile uyumludur. Ayrıntılar için bkz  **[doğrudan kopyalama PolyBase kullanarak](#direct-copy-by-using-polybase)**.
+* Kaynak veri deposu ve biçim başlangıçta desteklenmez, PolyBase tarafından kullanın **[kopyalama PolyBase kullanarak hazırlanmış](#staged-copy-by-using-polybase)** yerine özelliği. Hazırlanan kopyalama özelliğini de daha iyi verimlilik sağlar. Otomatik olarak veri PolyBase uyumlu biçime dönüştürür. Ve verileri Azure Blob Depolama alanında depolar. Ardından verileri SQL Data Warehouse'a veri yükler.
 
 > [!IMPORTANT]
-> PolyBase yönetilen hizmet kimliği (MSI) şu anda desteklenmeyen Not AAD uygulama belirteci authentcation temel.
+> PolyBase MSI tabanlı Azure AD uygulama belirteci kimlik doğrulaması için şu anda desteklenmediğini unutmayın.
 
-### <a name="direct-copy-using-polybase"></a>Polybase'i kullanarak doğrudan kopyalama
+### <a name="direct-copy-by-using-polybase"></a>PolyBase kullanarak doğrudan Kopyala
 
-SQL veri ambarı PolyBase doğrudan desteği Azure Blob ve Azure Data Lake Store (hizmet sorumlusu kullanarak) kaynak olarak ve belirli dosya biçimi gereksinimleriyle. Veri kaynağınızı Bu bölümde açıklanan ölçütlerini karşılıyorsa, kaynak veri deposundan doğrudan Azure SQL veri Polybase'i kullanarak ambarına kopyalayabilirsiniz. Aksi takdirde, kullanabileceğiniz [Polybase'i kullanarak kopyalama hazırlanan](#staged-copy-using-polybase).
+SQL veri ambarı PolyBase, Azure Blob ve Azure Data Lake Store doğrudan destekler. Bir kaynak olarak hizmet sorumlusu kullanır ve belirli dosya biçimi gereksinimleri vardır. Veri kaynağınızı Bu bölümde açıklanan ölçütlerini karşılıyorsa, doğrudan Azure SQL Data Warehouse için kaynak veri deposundan kopyalamak için Polybase'i kullanın. Aksi takdirde kullanın [kopyalama PolyBase kullanarak hazırlanmış](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> Verimli bir şekilde SQL veri ambarı için verileri Data Lake Deposu'ndan veri kopyalamak için'dan daha fazla bilgi edinin [Azure Data Factory sağlar, bu, daha kolay ve Data Lake Store ile SQL veri ambarı kullanırken verilerden Öngörüler ortaya çıkarmak uygun bile](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> Verileri SQL Data Warehouse için verimli bir şekilde Data Lake Deposu'ndan veri kopyalamak için'dan daha fazla bilgi edinin [Azure Data Factory sağlar, bu, daha kolay ve Data Lake Store ile SQL veri ambarı kullanırken verilerden Öngörüler ortaya çıkarmak uygun bile](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
-Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri taşıma için BULKINSERT mekanizması için otomatik olarak geri döner.
+Gereksinimleri karşılanmadığı takdirde Azure Data Factory ayarları denetler ve veri taşıma için BULKINSERT mekanizması için otomatik olarak geri döner.
 
-1. **Kaynak bağlantılı hizmeti** türüdür: **AzureStorage** veya **AzureDataLakeStore** hizmet asıl kimlik doğrulamasına sahip.
-2. **Girdi veri kümesi** türüdür: **AzureBlob** veya **AzureDataLakeStoreFile**ve altında yazın biçimi `type` özellikleri **OrcFormat** , **ParquetFormat**, veya **TextFormat** aşağıdaki yapılandırmalara sahip:
+1. **Kaynak bağlantılı hizmeti** türü **AzureStorage** veya **AzureDataLakeStore** hizmet asıl kimlik doğrulamasına sahip.
+2. **Girdi veri kümesi** türü **AzureBlob** veya **AzureDataLakeStoreFile**. Biçim türü'nün altında `type` özellikleri **OrcFormat**, **ParquetFormat**, veya **TextFormat**, aşağıdaki yapılandırmaları ile:
 
    1. `rowDelimiter` olmalıdır **\n**.
    2. `nullValue` ayarlanmış **boş dize** (""), veya `treatEmptyAsNull` ayarlanır **doğru**.
-   3. `encodingName` ayarlanmış **utf-8**, olduğu **varsayılan** değeri.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, ve `skipLineCount` belirtilmedi.
+   3. `encodingName` ayarlanmış **utf-8**, varsayılan değer olan.
+   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, ve `skipLineCount` belirtilen değil.
    5. `compression` olabilir **sıkıştırma yok**, **GZip**, veya **Deflate**.
 
     ```json
@@ -423,7 +427,7 @@ Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri ta�
     ```
 
 3. Yoktur hiçbir `skipHeaderLineCount` altında ayarı **BlobSource** veya **AzureDataLakeStore** işlem hattının kopyalama etkinliği için.
-4. Var olan hiçbir `sliceIdentifierColumnName` altında ayarlama **SqlDWSink** işlem hattının kopyalama etkinliği için. (Tüm veriler güncelleştirilir veya hiçbir şey bir tek çalıştırmada güncelleştirildiğinde PolyBase garanti eder. Elde etmek için **Yinelenebilirlik**, kullanabileceğinizi `sqlWriterCleanupScript`).
+4. Yoktur hiçbir `sliceIdentifierColumnName` altında ayarı **SqlDWSink** işlem hattının kopyalama etkinliği için. PolyBase tüm verileri güncelleştirilir veya hiçbir şey bir tek çalıştırmada güncelleştirildiğinde güvence altına alır. Elde etmek için **Yinelenebilirlik**, kullanmak `sqlWriterCleanupScript`.
 
 ```json
 "activities":[
@@ -455,11 +459,11 @@ Gereksinimler karşılanmazsa, Azure Data Factory ayarları denetler ve veri ta�
 ]
 ```
 
-### <a name="staged-copy-using-polybase"></a>Polybase'i kullanarak hazırlanmış kopyalama
+### <a name="staged-copy-by-using-polybase"></a>PolyBase kullanarak hazırlanmış Kopyala
 
-Veri kaynağınızı önceki bölümde sunulan ölçütlere uyan değil, bir geçici hazırlama Azure Blob (Premium depolama olamaz) depolama aracılığıyla veri kopyalamayı etkinleştirebilirsiniz. Bu durumda, Azure Data Factory otomatik olarak dönüşümleri verileri PolyBase, veri biçimi gereksinimlerini karşılamak sonra verileri SQL Data Warehouse'a veri yüklemek için Polybase'i kullanın ve ardından geçici verilerinizi Blob depolama biriminden temizleyin gerçekleştirir. Bkz: [hazırlanan kopyalama](copy-activity-performance.md#staged-copy) nasıl hazırlama Azure Blob üzerinden veri kopyalama genel çalıştığı hakkında bilgi.
+Veri kaynağınızı önceki bölümdeki ölçütlerle eşleşmeyen verileri geçici hazırlama Azure Blob Depolama örneği kopyalama etkinleştirin. Azure Premium Storage olamaz. Bu durumda, Azure Data Factory PolyBase veri biçimi gereksinimlerini karşılamak için veri dönüşümleri otomatik olarak çalıştırılır. Ardından SQL Data Warehouse'a veri yüklemek için PolyBase kullanır. Son olarak, blob depolama biriminden, geçici verileri temizler. Bkz: [kopyalama hazırlanan](copy-activity-performance.md#staged-copy) bir hazırlama Azure Blob Depolama örneği aracılığıyla veri kopyalama hakkında ayrıntılar için.
 
-Bu özelliği kullanmak için oluşturma bir [Azure depolama bağlantılı hizmeti](connector-azure-blob-storage.md#linked-service-properties) Ara blob depolama alanına sahip Azure depolama hesabı anlamına gelir, sonra belirtin `enableStaging` ve `stagingSettings` kopyalama gösterildiği gibi etkinliğin özellikleri Aşağıdaki kod:
+Bu özelliği kullanmak için oluşturma bir [Azure depolama bağlantılı hizmeti](connector-azure-blob-storage.md#linked-service-properties) Ara blob storage ile Azure depolama hesabı için başvuruyor. Ardından belirtin `enableStaging` ve `stagingSettings` kopyalama aşağıdaki kodda gösterildiği gibi etkinliği özellikleri:
 
 ```json
 "activities":[
@@ -498,36 +502,36 @@ Bu özelliği kullanmak için oluşturma bir [Azure depolama bağlantılı hizme
 ]
 ```
 
-## <a name="best-practices-when-using-polybase"></a>PolyBase kullanırken en iyi uygulamalar
+## <a name="best-practices-for-using-polybase"></a>Polybase'i kullanarak için en iyi uygulamalar
 
-Aşağıdaki bölümlerde bölümünde belirtildiği olanlara ek en iyi yöntemleri sağlamak [en iyi uygulamalar Azure SQL Data Warehouse için](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Aşağıdaki bölümlerde belirtilen listelenenlere en iyi yöntemleri sağlamak [en iyi uygulamalar Azure SQL Data Warehouse için](../sql-data-warehouse/sql-data-warehouse-best-practices.md).
 
 ### <a name="required-database-permission"></a>Gerekli veritabanı izni
 
-PolyBase kullanmak için SQL Data Warehouse'a veri yükleme için kullanılan kullanıcı gerektiriyor ["Denetim" izni](https://msdn.microsoft.com/library/ms191291.aspx) hedef veritabanı üzerinde. Elde etmenin bir yolu, "db_owner" rolünün bir üyesi o kullanıcı eklemektir. Aşağıdaki kullanarak bunu öğrenin [Bu bölümde](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
+PolyBase kullanmak için SQL Data Warehouse'a veri yükleyen kullanıcının olmalıdır ["Denetim" izni](https://msdn.microsoft.com/library/ms191291.aspx) hedef veritabanı üzerinde. Elde etmenin bir yolu olan bir üye olarak kullanıcı eklemek için **db_owner** rol. Bunu yapmak öğrenin [SQL Data Warehouse genel bakış](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization).
 
-### <a name="row-size-and-data-type-limitation"></a>Satır boyutu ve verileri sınırlama yazın
+### <a name="row-size-and-data-type-limits"></a>Satır boyutu ve veri sınırları yazın
 
-Polybase yükleri sınırlı yükleme satırları hem küçük **1 MB** ve VARCHR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) yüklenemiyor. Başvurmak [burada](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+PolyBase yükleri satır 1 MB'den küçük sınırlıdır. Bunlar VARCHR(MAX), NVARCHAR(MAX) veya VARBINARY(MAX) yüklenemiyor. Daha fazla bilgi için bkz: [SQL veri ambarı hizmet kapasite sınırları](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
-Kaynak verileri satır boyutu 1 MB'tan fazla ile varsa, kaynak tabloları dikey Burada bunların her biri en büyük satır boyutu sınırı aşmadığından birkaç küçük parçalara bölmek isteyebilirsiniz. Daha küçük tabloları sonra PolyBase kullanarak yüklenebilir ve Azure SQL Data Warehouse'da birleştirmeniz.
+Veri kaynağınızı 1 MB'tan fazla satır olduğunda, dikey olarak kaynak tabloları birkaç küçük parçalara bölmek isteyebilirsiniz. Her satırın en büyük boyut sınırı aşmadığından emin olun. Daha küçük tabloları PolyBase kullanılarak yüklenen ve Azure SQL Data Warehouse'da birlikte birleştirilir.
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL veri ambarı kaynak sınıfı
 
-Olası en iyi verime ulaşmak için daha büyük bir kaynak sınıfı PolyBase aracılığıyla SQL veri ambarında verileri yüklemek için kullanılan kullanıcı atama göz önünde bulundurun.
+Olası en iyi performans elde etmek için verileri SQL Data Warehouse PolyBase aracılığıyla yükler kullanıcı daha büyük bir kaynak sınıfı atayın.
 
-### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse tableName
+### <a name="tablename-in-azure-sql-data-warehouse"></a>**tableName** Azure SQL veri ambarı
 
-Aşağıdaki tabloda belirleme konusunda örnekler **tableName** dataset JSON çeşitli şema ve tablo adı için bir özellik.
+Aşağıdaki tabloda nasıl belirleneceğini örnekleri verir **tableName** JSON veri kümesi bir özellik. Şema ve tablo adlarının birkaç birleşimlerini gösterir.
 
-| DB şeması | Tablo adı | tableName JSON özelliği |
+| DB şeması | Tablo adı | **tableName** JSON özelliği |
 | --- | --- | --- |
-| dbo |MyTable |MyTable ya da dbo. MyTable ya da [dbo]. [MyTable] |
-| dbo1 |MyTable |dbo1. MyTable veya [dbo1]. [MyTable] |
-| dbo |My.Table |[My.Table] veya [dbo]. [My.Table] |
-| dbo1 |My.Table |[dbo1]. [My.Table] |
+| dbo | MyTable | MyTable ya da dbo. MyTable ya da [dbo]. [MyTable] |
+| dbo1 | MyTable | dbo1. MyTable veya [dbo1]. [MyTable] |
+| dbo | My.Table | [My.Table] veya [dbo]. [My.Table] |
+| dbo1 | My.Table | [dbo1]. [My.Table] |
 
-Aşağıdaki hata görürseniz, tableName özelliği için belirtilen değer ile ilgili bir sorun olabilir. TableName JSON özellik değerlerini belirtmek doğru bir şekilde için tabloya bakın.
+Aşağıdaki hatayla karşılaşırsanız, sorun için belirtilen değer olabilir **tableName** özelliği. Değerlerini belirtmek doğru bir şekilde için önceki tabloya bakın **tableName** JSON özelliği.
 
 ```
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
@@ -535,52 +539,52 @@ Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account
 
 ### <a name="columns-with-default-values"></a>Varsayılan değerleri içeren sütun
 
-Şu anda, veri fabrikası'nda PolyBase özelliği yalnızca aynı sayıda sütun hedef tabloda olduğu gibi kabul eder. Dört sütun içeren bir tablo varsa ve bunlardan birini varsayılan bir değerle tanımlanan söyleyin. Giriş verisi hala dört sütun içermelidir. 3-sütun girdi veri kümesi sağlayan aşağıdaki iletiye benzer bir hata verir:
+Şu anda, veri fabrikası'nda PolyBase özelliği yalnızca aynı sayıda sütun hedef tabloda olduğu gibi kabul eder. Bunlardan birini varsayılan bir değerle tanımlandığı dört sütun içeren bir tablo örneğidir. Giriş verisi hala dört sütun olmalıdır. Üç sütun girdi veri kümesi aşağıdaki iletiye benzer bir hata verir:
 
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
 
-NULL değer, varsayılan değeri özel bir biçimidir. Sütun null ise girdi verilerini (blob) Bu sütun için boş olabilir (giriş kümesinden eksik olamaz). PolyBase, Azure SQL Data Warehouse bunları NULL ekler.
+NULL değeri, varsayılan değeri özel bir biçimidir. Sütunu null atanabilir ise, bu sütun için blob girdi verileri boş olabilir. Ancak giriş kümesinden eksik olamaz. PolyBase, Azure SQL Data Warehouse eksik değerleri NULL ekler.
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse için veri türü eşlemesi
 
-Başlangıç/bitiş Azure SQL Data Warehouse veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Azure SQL Data Warehouse veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) nasıl kopyalama etkinliği kaynak şema ve veri türü için havuz eşlemeleri hakkında bilgi edinmek için.
+Gelen veya Azure SQL Data Warehouse veri kopyaladığınızda, aşağıdaki eşlemelerini Azure SQL Data Warehouse veri türlerinden Azure Data Factory geçici veri türleri için kullanılır. Bkz: [şema ve veri türü eşlemeleri](copy-activity-schema-and-type-mapping.md) kopyalama etkinliği kaynak şema ve veri türü için havuz nasıl eşlendiğini öğrenin.
 
 | Azure SQL veri ambarı veri türü | Veri Fabrikası geçici veri türü |
 |:--- |:--- |
-| bigint |Int64 |
-| İkili |Byte] |
-| bit |Boole |
-| char |Dize, Char] |
-| tarih |DateTime |
-| Tarih saat |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| Ondalık |Ondalık |
-| FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan |Çift |
-| görüntü |Byte] |
-| Int |Int32 |
-| para |Ondalık |
-| nchar |Dize, Char] |
-| ntext |Dize, Char] |
-| sayısal |Ondalık |
-| nvarchar |Dize, Char] |
-| Gerçek |Tek |
-| rowVersion |Byte] |
-| smalldatetime |DateTime |
-| tamsayı |Int16 |
-| küçük para |Ondalık |
-| sql_variant |Nesne * |
-| metin |Dize, Char] |
-| time |TimeSpan |
-| timestamp |Byte] |
-| Mini tamsayı |Bayt |
-| benzersiz tanımlayıcı |Guid |
-| varbinary |Byte] |
-| varchar |Dize, Char] |
-| xml |Xml |
+| bigint | Int64 |
+| İkili | Byte] |
+| bit | Boole |
+| char | Dize, Char] |
+| tarih | DateTime |
+| Tarih saat | DateTime |
+| datetime2 | DateTime |
+| Datetimeoffset | DateTimeOffset |
+| Ondalık | Ondalık |
+| FILESTREAM özniteliği (varbinary(max)) | Byte] |
+| Kayan | çift |
+| image | Byte] |
+| int | Int32 |
+| para | Ondalık |
+| nchar | Dize, Char] |
+| ntext | Dize, Char] |
+| sayısal | Ondalık |
+| nvarchar | Dize, Char] |
+| Gerçek | Tek |
+| rowVersion | Byte] |
+| smalldatetime | DateTime |
+| tamsayı | Int16 |
+| küçük para | Ondalık |
+| sql_variant | Nesne * |
+| metin | Dize, Char] |
+| time | TimeSpan |
+| timestamp | Byte] |
+| Mini tamsayı | Bayt |
+| benzersiz tanımlayıcı | Guid |
+| varbinary | Byte] |
+| varchar | Dize, Char] |
+| xml | Xml |
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).
+Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları ve biçimleri](copy-activity-overview.md##supported-data-stores-and-formats).

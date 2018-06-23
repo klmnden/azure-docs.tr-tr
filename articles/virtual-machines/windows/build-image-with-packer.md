@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 03/29/2018
 ms.author: iainfou
-ms.openlocfilehash: d84e8d41d79d9800c952ba3ef0e89e0cdfbdd8dd
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: b7f07ec8736086483f91746512f10118ee90762d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850653"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333174"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Azure'da Windows sanal makine görüntülerini oluşturmak için Packer kullanma
 Azure her sanal makine (VM) Windows Dağıtım ve işletim sistemi sürümü tanımlayan bir görüntüden oluşturulur. Görüntüleri, önceden yüklenmiş uygulamalar ve yapılandırmalar içerebilir. Azure Market birçok ilk ve üçüncü taraf en yaygın işletim sistemi için sağlar ve uygulama ortamları veya gereksinimlerinize göre tasarlanmıştır, kendi özel görüntülerinizi oluşturabilirsiniz. Bu makalede açık kaynak aracının nasıl kullanılacağını ayrıntıları [Packer](https://www.packer.io/) tanımlamak ve Azure özel görüntülerinizi oluşturmak için.
@@ -68,7 +68,7 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | Görünüm hizmet asıl kimliği ile `$sp.applicationId` |
 | *client_secret*                     | Belirttiğiniz parola `$securePassword` |
-| *Tenant_id*                         | Çıktı `$sub.TenantId` komutu |
+| *tenant_id*                         | Çıktı `$sub.TenantId` komutu |
 | *subscription_id*                   | Çıktı `$sub.SubscriptionId` komutu |
 | *object_id*                         | Görünüm hizmet asıl nesne kimliği ile `$sp.Id` |
 | *managed_image_resource_group_name* | İlk adımda oluşturduğunuz kaynak grubunun adı |
@@ -94,8 +94,8 @@ Adlı bir dosya oluşturun *windows.json* ve aşağıdaki içeriği yapıştır�
     "image_sku": "2016-Datacenter",
 
     "communicator": "winrm",
-    "winrm_use_ssl": "true",
-    "winrm_insecure": "true",
+    "winrm_use_ssl": true,
+    "winrm_insecure": true,
     "winrm_timeout": "3m",
     "winrm_username": "packer",
 

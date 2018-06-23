@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: d570428f3e3ea23302e3cecc6bfa759468419986
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d76371935fddbfe94c6dc45e27971487e7fa4277
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216835"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333590"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>CentOS Linux sanal makinesini yönetilen bir etki alanına katma
 Bu makalede CentOS Linux sanal makine Azure'da bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
@@ -87,7 +89,7 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
     > [!NOTE]
     > **Sorun giderme:** varsa *bölge Bul* yönetilen etki alanınızı bulamıyor:  
       * Etki alanı sanal makine (try ping) erişilebilir olduğundan emin olun.  
-      * Sanal makine yönetilen etki alanı kullanılamıyor aynı sanal ağa gerçekten dağıtıldıktan denetleyin. 
+      * Sanal makine yönetilen etki alanı kullanılamıyor aynı sanal ağa gerçekten dağıtıldıktan denetleyin.
       * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.  
       >
 

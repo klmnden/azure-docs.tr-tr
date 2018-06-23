@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e3c4ec0062b6a155d0f4b11da1c699a0906c442
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618632"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318237"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Şema eşleme kopyalama etkinliğinde
 Şema eşleme ve veri türü eşlemesi veri kaynağı verilerden Azure Data Factory kopyalama etkinliği nasıl yapar bu makalede veri kopyalamayı yapılırken.
@@ -128,11 +128,18 @@ Aşağıdaki JSON ardışık düzeninde kopyalama etkinliği tanımlar. Kaynak h
         "translator":
         {
             "type": "TabularTranslator",
-            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+            "columnMappings": 
+            {
+                "UserId": "MyUserId",
+                "Group": "MyGroup",
+                "Name": "MyName"
+            }
         }
     }
 }
 ```
+
+Söz dizimi kullanıyorsanız `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` sütun eşlemesi belirtmek için hala olarak desteklenmektedir-değil.
 
 **Sütun eşlemesi akışı:**
 
@@ -156,7 +163,7 @@ Veri fabrikası aşağıdaki geçici veri türlerini destekler: tür bilgileri s
 * Tarih saat
 * Datetimeoffset
 * Ondalık
-* Çift
+* çift
 * Guid
 * Int16
 * Int32

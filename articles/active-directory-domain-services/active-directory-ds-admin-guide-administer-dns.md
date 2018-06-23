@@ -13,20 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 20f6c95deb78c04668c484a20abcf41a58130847
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d8559df366bdd9c1439f2ff8c7b7ebc1a7c66960
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211375"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334199"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Bir Azure AD etki alanı Hizmetleri yönetilen etki alanının DNS yönetme
 Azure Active Directory etki alanı Hizmetleri yönetilen etki alanı için DNS çözümlemesi sağlayan bir DNS (etki alanı adı çözümlemesine) sunucusu içerir. Bazen, yönetilen etki alanında DNS yapılandırmanız gerekebilir. Etki alanına katılmamış makineler için DNS kayıtlarını oluşturun, yük Dengeleyiciler için sanal IP adreslerini yapılandırın veya dış DNS ileticileri Kurulum gerekebilir. Bu nedenle, 'AAD DC Yöneticiler' gruba ait kullanıcılar yönetilen etki alanı DNS yönetim ayrıcalıkları verilir.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="before-you-begin"></a>Başlamadan önce
-Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
+Bu makalede listelenen görevleri tamamlamak için gerekir:
 
 1. Geçerli bir **Azure aboneliği**.
 2. Bir **Azure AD dizini** -ya da bir şirket içi dizin veya bir yalnızca bulut dizini ile eşitlenir.
@@ -36,21 +38,21 @@ Bu makalede listelenen görevleri gerçekleştirmek için gerekir:
 
 <br>
 
-## <a name="task-1---provision-a-domain-joined-virtual-machine-to-remotely-administer-dns-for-the-managed-domain"></a>Görev 1 - yönetilen etki alanı için DNS uzaktan yönetmek için bir etki alanına katılmış sanal makine sağlama
+## <a name="task-1---create-a-domain-joined-virtual-machine-to-remotely-administer-dns-for-the-managed-domain"></a>Görev 1 - yönetilen etki alanı için DNS uzaktan yönetmek için bir etki alanına katılmış sanal makine oluşturma
 Azure AD etki alanı Hizmetleri yönetilen etki alanları, Active Directory Yönetim Merkezi (ADAC) veya AD PowerShell gibi bilinen Active Directory yönetim araçlarını kullanarak uzaktan yönetilebilir. Benzer şekilde, yönetilen etki alanı için DNS DNS sunucu yönetim araçları kullanarak uzaktan yönetilebilir.
 
-Yöneticiler, Azure AD dizini, Uzak Masaüstü aracılığıyla yönetilen etki alanında etki alanı denetleyicisine bağlanmak için ayrıcalıklara sahip değil. 'AAD DC Yöneticiler' grubunun üyeleri, yönetilen etki alanına katılmış bir Windows Server/istemci bilgisayardan DNS sunucu araçları kullanarak uzaktan yönetilen etki alanları için DNS yönetebilirsiniz. DNS sunucusu araçları, Windows Server ve yönetilen etki alanına katılan istemci makineleri Uzak Sunucu Yönetim Araçları (RSAT) isteğe bağlı özellik bir parçası olarak yüklenebilir.
+Yöneticiler, Azure AD dizini, Uzak Masaüstü aracılığıyla yönetilen etki alanında etki alanı denetleyicisine bağlanmak için ayrıcalıklara sahip değil. 'AAD DC Yöneticiler' grubunun üyeleri, yönetilen etki alanına katılmış bir Windows Server/istemci bilgisayardan DNS sunucu araçları kullanarak uzaktan yönetilen etki alanları için DNS yönetebilirsiniz. DNS sunucusu araçları, Uzak Sunucu Yönetim Araçları (RSAT) isteğe bağlı özellik bir parçasıdır.
 
-İlk yönetilen etki alanına katılmış bir Windows Server sanal makine sağlamak için bir görevdir. Yönergeler için başlıklı makaleye bakın [bir Windows Server sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılmak](active-directory-ds-admin-guide-join-windows-vm.md).
+İlk yönetilen etki alanına katılmış bir Windows Server sanal makine oluşturmak için bir görevdir. Yönergeler için başlıklı makaleye bakın [bir Windows Server sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılmak](active-directory-ds-admin-guide-join-windows-vm.md).
 
 ## <a name="task-2---install-dns-server-tools-on-the-virtual-machine"></a>Görev 2 - sanal makineye yükleme DNS Sunucusu Araçları
-Etki alanına katılmış sanal makinede DNS Yönetim Araçları'nı yüklemek için aşağıdaki adımları gerçekleştirin. Daha fazla bilgi için [yükleme ve uzak sunucu yönetim araçları kullanarak](https://technet.microsoft.com/library/hh831501.aspx), Technet konusuna bakın.
+Etki alanına katılmış sanal makinede DNS Yönetim Araçları'nı yüklemek için aşağıdaki adımları tamamlayın. Daha fazla bilgi için [yükleme ve uzak sunucu yönetim araçları kullanarak](https://technet.microsoft.com/library/hh831501.aspx), Technet konusuna bakın.
 
 1. Azure portalına gidin. Tıklatın **tüm kaynakları** Sol paneldeki. Bulun ve görev 1'de oluşturduğunuz sanal makineye tıklayın.
 2. Tıklatın **Bağlan** Genel Bakış sekmesindeki düğmesi. Bir Uzak Masaüstü Protokolü (.rdp) dosyası oluşturulur ve indirilir.
 
     ![Windows sanal makineye bağlanma](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. VM'nize bağlanmak için indirilen RDP dosyasını açın. İstenirse, **Bağlan**’a tıklayın. Oturum açma isteminde 'AAD DC Yöneticiler' grubuna ait olan bir kullanıcının kimlik bilgilerini kullanın. Örneğin, kullandığımız 'bob@domainservicespreview.onmicrosoft.com' bizim durumda. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Evet'i tıklatın veya bağlantı ile devam etmek devam edin.
+3. VM'nize bağlanmak için indirilen RDP dosyasını açın. İstenirse, **Bağlan**’a tıklayın. 'AAD DC Yöneticiler' grubuna ait olan bir kullanıcının kimlik bilgilerini kullanın. Örneğin, 'bob@domainservicespreview.onmicrosoft.com'. Oturum açma işlemi sırasında bir sertifika uyarısı alabilirsiniz. Evet'i tıklatın veya bağlanmak devam edin.
 
 4. Başlangıç ekranından açmak **Sunucu Yöneticisi'ni**. Tıklatın **rol ve Özellik Ekle** merkezi bölmesinde Sunucu Yöneticisi penceresi.
 
@@ -64,7 +66,7 @@ Etki alanına katılmış sanal makinede DNS Yönetim Araçları'nı yüklemek i
 7. Üzerinde **sunucu seçimi** sayfasında, sunucu havuzundan geçerli sanal makine seçin ve tıklayın **sonraki**.
 
     ![Sunucu seçimi sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
-8. Üzerinde **sunucu rolleri** sayfasında, **sonraki**. Biz herhangi bir rol sunucuda yüklemiyorsanız beri Biz bu sayfayı atla.
+8. Üzerinde **sunucu rolleri** sayfasında, **sonraki**.
 9. Üzerinde **özellikleri** sayfası, genişletmek için tıklatın **Uzak Sunucu Yönetim Araçları** düğümü genişletmek için tıklayın ve sonra **Rol Yönetim Araçları** düğümü. Seçin **DNS Sunucusu Araçları** rol yönetim araçları listesinden özelliği.
 
     ![Özellikler sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
@@ -73,7 +75,7 @@ Etki alanına katılmış sanal makinede DNS Yönetim Araçları'nı yüklemek i
     ![Onay sayfası](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
 
 ## <a name="task-3---launch-the-dns-management-console-to-administer-dns"></a>Görev 3 - DNS yönetmek için DNS management konsolunu başlatın
-DNS Sunucusu Araçları özelliği yüklü göre sanal makine etki alanına katıldı, biz DNS araçları yönetilen etki alanı DNS yönetmek için kullanabilirsiniz.
+Şimdi, yönetilen etki alanı DNS yönetmek için Windows Server DNS araçlarını kullanabilirsiniz.
 
 > [!NOTE]
 > Yönetilen etki alanı DNS yönetmek için 'AAD DC Yöneticiler' grubunun bir üyesi olmanız gerekir.
@@ -84,7 +86,7 @@ DNS Sunucusu Araçları özelliği yüklü göre sanal makine etki alanına kat�
 
     ![Yönetim Araçları - DNS konsolunu](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
 2. Tıklatın **DNS** DNS Yönetimi konsolunu başlatın.
-3. İçinde **DNS sunucusuna bağlan** iletişim kutusunda, başlıklı seçeneğini **aşağıdaki bilgisayar**, yönetilen etki alanı (örneğin, ' contoso100.com') DNS etki alanı adını girin.
+3. İçinde **DNS sunucusuna bağlan** iletişim kutusunda, tıklatın **aşağıdaki bilgisayar**, yönetilen etki alanı (örneğin, ' contoso100.com') DNS etki alanı adını girin.
 
     ![DNS konsolunu - etki alanına bağlayın](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 4. DNS konsolunu yönetilen etki alanına bağlanır.
@@ -97,7 +99,7 @@ DNS Sunucusu Araçları özelliği yüklü göre sanal makine etki alanına kat�
 >
 >
 
-Bkz: [DNS araçları Technet makalesi](https://technet.microsoft.com/library/cc753579.aspx) DNS yönetme hakkında daha fazla bilgi için.
+DNS yönetme hakkında daha fazla bilgi için bkz: [DNS araçları Technet makalesi](https://technet.microsoft.com/library/cc753579.aspx).
 
 ## <a name="related-content"></a>İlgili İçerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)

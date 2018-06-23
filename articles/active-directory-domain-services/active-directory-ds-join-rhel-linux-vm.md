@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: 93c96e71aea98598492ec32f13fddb0b0732196e
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fceeb9655562d7abf6930cc484b4a9eb275ee81e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217067"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330810"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 sanal makinesini yönetilen bir etki alanına ekleme
 Bu makalede bir Red Hat Enterprise Linux (RHEL) 7 sanal makine bir Azure AD etki alanı Hizmetleri yönetilen etki alanına katılma kullanmayı gösterir.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Başlamadan önce
 Bu makalede listelenen görevleri gerçekleştirmek için gerekir:  
@@ -84,17 +86,17 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE] 
+     > [!NOTE]
      > **Sorun giderme:** varsa *bölge Bul* yönetilen etki alanınızı bulamıyor:
      * Etki alanı sanal makine (try ping) erişilebilir olduğundan emin olun.
      * Sanal makine yönetilen etki alanı kullanılamıyor aynı sanal ağa gerçekten dağıtıldıktan denetleyin.
      * Sanal ağın DNS sunucusu ayarlarını yönetilen etki alanının etki alanı denetleyicilerine işaret edecek şekilde güncelleştirdiyseniz denetleyin.
      >
 
-2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın: 
+2. Kerberos başlatır. SSH terminalinizde aşağıdaki komutu yazın:
 
-    > [!TIP] 
-    > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun. 
+    > [!TIP]
+    > * 'AAD DC Yöneticiler' grubuna ait bir kullanıcı belirttiğinizden emin olun.
     > * Büyük harflerle etki alanı adı belirtin, başka kinit başarısız olur.
     >
 
@@ -102,9 +104,9 @@ Gerekli paketleri Linux sanal makinede yüklü olan, sonraki görev sanal makine
     kinit bob@CONTOSO100.COM
     ```
 
-3. Makine etki alanına katılın. SSH terminalinizde aşağıdaki komutu yazın: 
+3. Makine etki alanına katılın. SSH terminalinizde aşağıdaki komutu yazın:
 
-    > [!TIP] 
+    > [!TIP]
     > Önceki adımda ('kinit') belirtilen aynı kullanıcı hesabı kullanın.
     >
 

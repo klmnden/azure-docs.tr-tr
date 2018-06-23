@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/30/2017
   ms.author: v-jansko
-  ms.openlocfilehash: 55ec3147a07c5c76fe1f1b356d633a9afeb783cc
-  ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+  ms.openlocfilehash: 1995f8d58c47b8e098022ca672c7889195dd5328
+  ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/20/2018
-  ms.locfileid: "36286917"
+  ms.lasthandoff: 06/22/2018
+  ms.locfileid: "36319189"
 abstract:
   description: Microsoft Translator Metin Çevirisi API'si bulut tabanlı bir makine çevirisi hizmetidir. Bu API sayesinde, herhangi bir uygulamadaki veya hizmetteki metinleri basit bir REST API çağrısı aracılığıyla neredeyse gerçek zamanlı olarak çevirebilirsiniz. En modern sinirsel makine çevirisi teknolojisini kullanan bu API, istatistiksel makine çevirisi teknolojisi de sunar. Hem sinirsel hem de istatistiksel makine çevirisinde desteklenen dillerin listesi için lütfen <a href="languages.md">Desteklenen diller</a> sayfasına başvurun.
 sections:
@@ -46,26 +46,26 @@ sections:
       values:
       - href: quickstart-csharp-translate
       - href: quickstart-java-translate
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-translate
+      - href: quickstart-python-translate
     - title: Metni bir betikten başka bir betiğe dönüştürün
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-transliterate
+      - href: quickstart-python-transliterate
     - title: Metnin dilini tanımlayın
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-detect
+      - href: quickstart-python-detect
     - title: Alternatif çeviri ve kullanım örnekleri edinin
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
-      - href: 
-      - href: 
+      - href: quickstart-nodejs-dictionary
+      - href: quickstart-python-dictionary
 - title: Başvuru
   items:
   - type: paragraph

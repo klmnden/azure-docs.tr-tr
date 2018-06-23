@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (beta) kullanarak Impala veri kopyalama | Microsoft Docs
+title: Azure Data Factory (Önizleme) kullanarak Impala veri kopyalama | Microsoft Docs
 description: Desteklenen havuz veri depolarına Impala veri fabrikası ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 73987d03cb96fa421d193504fe6eaf6c3b5ddb18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49e9c338128cc857347bbf052c19dc34dd08f9c6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618778"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337621"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Azure Data Factory (beta) kullanarak Impala verileri kopyalama
+# <a name="copy-data-from-impala-by-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Impala verileri kopyalama
 
 Bu makalede kopya etkinliği Azure Data Factory'de Impala verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [kopyalama etkinliği'ne genel bakış](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
@@ -28,7 +28,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de Impala verileri kopyalamak i�
 > Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir, veri fabrikası 1 sürümünü kullanıyorsanız bkz [kopyalama etkinliğini sürüm 1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Bu şu anda beta Bağlayıcıdır. Deneyin ve geri bildirim sağlayın. Üretim ortamında kullanmayın.
+> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve geri bildirim sağlayın. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -38,7 +38,7 @@ Tüm desteklenen havuz veri deposuna Impala veri kopyalayabilirsiniz. Kaynaklar�
 
 ## <a name="get-started"></a>başlarken
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 Aşağıdaki bölümler, belirli Data Factory varlıklarını Impala bağlayıcıya tanımlamak için kullanılan özellikleri hakkında ayrıntılı bilgi sağlar.
 

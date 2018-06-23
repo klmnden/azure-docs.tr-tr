@@ -3,7 +3,7 @@ title: SAML Protokolü Azure çoklu oturum açma | Microsoft Docs
 description: Bu makalede Azure Active Directory'de tek Sign-Out SAML Protokolü
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
@@ -14,21 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: c8373df67adbb93e25ab5a31a254efe70581d32d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155506"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317686"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Çoklu oturum kapatma SAML Protokolü
-Azure Active Directory (Azure AD) destekleyen SAML 2.0 tarayıcı tek oturum kapatma profil web. Tek doğru çalışması için oturum kapatma **LogoutURL** uygulama açıkça uygulama kaydı sırasında Azure AD ile kaydedilmesi gerekir. Azure AD LogoutURL bunlar oturumu kapattınız sonra kullanıcıları yeniden yönlendirmek için kullanır.
 
-Bu diyagramda, Azure AD çoklu oturum kapatma işlemini iş akışı gösterilmektedir.
+Azure Active Directory (Azure AD) destekleyen SAML 2.0 tarayıcı tek oturum kapatma profil web. Tek doğru çalışması için oturum kapatma **LogoutURL** uygulama açıkça uygulama kaydı sırasında Azure AD ile kaydedilmesi gerekir. Azure AD LogoutURL bunlar oturum açtıysanız sonra kullanıcıları yeniden yönlendirmek için kullanır.
 
-![Çoklu oturum açma iş akışı çıkışı](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+Aşağıdaki diyagramda, Azure AD çoklu oturum kapatma işlemini iş akışı gösterilmektedir.
+
+![Azure AD çoklu oturum kapatma iş akışı](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
 Bulut hizmeti gönderir bir `LogoutRequest` bir oturum sonlandırıldı göstermek için Azure ad ileti. Aşağıdaki alıntı bir örnek göstermektedir `LogoutRequest` öğesi.
@@ -43,9 +45,9 @@ Bulut hizmeti gönderir bir `LogoutRequest` bir oturum sonlandırıldı gösterm
 ### <a name="logoutrequest"></a>LogoutRequest
 `LogoutRequest` Azure AD ile gönderilen öğesi, aşağıdaki öznitelikler gerektirir:
 
-* `ID` : Bu, oturum kapatma isteği tanımlar. Değeri `ID` bir sayı ile başlamamalıdır. Eklenecek tipik uygulamadır **kimliği** için bir GUID dize gösterimi.
-* `Version` : Bu öğenin değerini ayarlamak **2.0**. Bu değer gereklidir.
-* `IssueInstant` : Bu bir `DateTime` dize koordine Evrensel Saat (UTC) değerine sahip ve [gidiş dönüş biçimi ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD bu türde bir değer Bekliyor, ancak bu zorunlu değildir.
+* `ID` -Bu, oturum kapatma isteği tanımlar. Değeri `ID` bir sayı ile başlamamalıdır. Eklenecek tipik uygulamadır **kimliği** için bir GUID dize gösterimi.
+* `Version` -Bu öğenin değerini ayarlayın **2.0**. Bu değer gereklidir.
+* `IssueInstant` -Bu bir `DateTime` dize koordine Evrensel Saat (UTC) değerine sahip ve [gidiş dönüş biçimi ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD bu türde bir değer bekler ancak zorunlu değildir.
 
 ### <a name="issuer"></a>Sertifikayı Veren
 `Issuer` Öğesinde bir `LogoutRequest` tam olarak eşleşmelidir **ServicePrincipalNames** Azure AD bulut hizmetinde. Genellikle, bu ayarlanır **uygulama kimliği URI'si** uygulama kaydı sırasında belirtilir.
