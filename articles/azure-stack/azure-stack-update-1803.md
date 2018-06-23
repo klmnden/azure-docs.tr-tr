@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: f7f459404b5a759bef9eb8f37141bbd4c9eae3e5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849637"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318818"
 ---
 # <a name="azure-stack-1803-update"></a>Azure yığın 1803 güncelleştirme
 
@@ -54,45 +54,40 @@ Azure yığın 1803 güncelleştirme yapı numarası **20180329.1**.
   
   Azure yığınına yönelik güncelleştirmeler, bu güncelleştirmeyi yüklemeden Azure yığın sürümünü değiştirmez. Bu güncelleştirmenin yüklendiğini doğrulamak için listesini görüntülemek **yüklü güncelleştirmeleri**.
 
-### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
-- 1803 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).
 
-  - [KB 4294441 - kaynaklar başarısız Kiracı ve beklenmeyen paylaşımları karşı işlemleri aynı Kiracı veya altyapı birim oluşturulur](https://support.microsoft.com/en-us/help/4294441)
-
-- Bu güncelleştirmeyi yükledikten sonra emin olmak için güvenlik duvarı yapılandırmasını gözden [gerekli bağlantı noktalarını](azure-stack-integrate-endpoints.md) açıktır. Örneğin, bu güncelleştirme, etkinlik günlükleri için denetim günlüklerini değişikliği içeren Azure İzleyici tanıtır. Bu değişikliği bağlantı noktası 13012 kullanılan ve açık olmalıdır.  
 
 ### <a name="new-features"></a>Yeni Özellikler 
 Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yığınına içerir.
 
 - **Azure yığın gizli güncelleştirme** - (hesapları ve sertifikaları). Parolaları yönetme hakkında daha fazla bilgi için bkz: [döndürme gizli anahtarları Azure yığınında](azure-stack-rotate-secrets.md). 
 
-- <!-- 1914853 --> **Automatic redirect to HTTPS** when you use HTTP to access the administrator and user portals. This improvement was made based on [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) feedback for Azure Stack. 
+- <!-- 1914853 --> **HTTPS için otomatik yeniden yönlendirme** yönetici ve kullanıcı portalı erişmek için HTTP kullandığınızda. Bu geliştirme, temel alarak yapıldığı [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) Azure yığını için geri bildirim. 
 
-- <!-- 2202621  --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
+- <!-- 2202621  --> **Market erişim** – kullanarak Azure yığın Market şimdi açabilirsiniz [+ yeni](https://ms.portal.azure.com/#create/hub) seçenek gelen içinde yönetici ve Kullanıcı Portalı, Azure portallarında aynı şekilde.
  
-- <!-- 2202621 --> **Azure Monitor** - Azure Stack adds [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- <!-- 2202621 --> **Azure İzleyici** -Azure yığını ekler [Azure İzleyici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) yönetici ve kullanıcı portalı için. Bu ölçümleri ve etkinlik günlükleri için yeni gezginler içerir. Bu Azure İzleyici dış ağlardan erişmek için bağlantı noktası **13012** güvenlik duvarı yapılandırmalarını açık olması gerekir. Azure yığını tarafından gerekli bağlantı noktaları hakkında daha fazla bilgi için bkz: [Azure yığın datacenter tümleştirmesi - uç noktalarını yayımlama](azure-stack-integrate-endpoints.md).
 
    Ayrıca bu parçası olarak altında değişiklik **daha fazla hizmet**, *denetim günlüklerini* olarak artık görünür *etkinlik günlükleri*. Artık Azure portalı ile tutarlı bir işlevdir. 
 
-- <!-- 1664791 --> **Sparse files** -  When you add a New image to Azure Stack, or add an image through marketplace syndication, the image is converted to a sparse file. Images that were added prior to using Azure Stack version 1803 cannot be converted. Instead, you must use marketplace syndication to resubmit those images to take advantage of this feature. 
+- <!-- 1664791 --> **Seyrek dosyalar** - Azure yığını için yeni bir görüntü ekleyin veya bir görüntü Market dağıtım aracılığıyla eklediğinizde görüntü seyrek dosyasına dönüştürülür. Azure yığın sürüm 1803 kullanılmadan önce eklenen görüntüleri dönüştürülemiyor. Bunun yerine, bu özelliğin avantajlarından yararlanmak için bu görüntüleri yeniden gönderin Market dağıtım kullanmanız gerekir. 
  
    Depolama alanı kullanımını azaltır ve g/ç geliştirmek için kullanılan bir verimli dosya biçimi seyrek dosyalarıdır.  Daha fazla bilgi için bkz: [Fsutil seyrek](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) Windows Server için. 
 
 ### <a name="fixed-issues"></a>Giderilen sorunlar
 
-- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> İç yük dengeleyici (ILB) artık düzgün MAC adresleri arka uç VM'ler için ILB arka uç ağ paketlerini Linux örnekleri arka uç ağ üzerinde kullanırken bırakmasına neden olan işler. ILB ile Windows örnekleri arka uç ağ üzerinde düzgün çalışır. 
 
-- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure. The values for SALifetime (Time) and SALiftetime (Bytes) were not compatible with Azure and have changed in 1803 to match the Azure settings. The value for SALifetime (Seconds) prior to 1803 was 14,400 and now changes to 27,000 in 1803. The value for SALifetime (Bytes) prior to 1803 was 819,200 and changes to 33,553,408 in 1803.
+- <!-- 1805496 --> Bir sorun olduğu Azure yığın arasında VPN bağlantıları Azure IKE İlkesi için farklı ayarları kullanarak Azure yığın nedeniyle bağlantıları kesildiğinde. SALifetime (saat) ve SALiftetime (bayt) değerlerini Azure ile uyumlu değil ve Azure ayarlarla eşleşecek şekilde 1803 değiştirilmiştir. SALifetime (saniye) değeri 1803 önce 14,400 ve şimdi 27.000 değişiklikler 1803 içinde oluştu. SALifetime (bayt) değeri 1803 önce 819,200 idi ve 1803 33,553,408 yapılan değişiklikler.
 
-- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> VPN bağlantıları portalda daha önce görünür olduğu IP sorunu; ancak etkinleştirme veya IP iletimi geçiş etkisi yoktur. Bu özellik, varsayılan ve bu henüz desteklenmiyor değiştirme olanağı tarafından açıktır.  Denetim Portalı'ndan kaldırıldı. 
 
-- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Seçenek portalda görünse bile azure yığın ilke tabanlı VPN ağ geçitleri, desteklemez.  Seçenek Portalı'ndan kaldırıldı. 
 
-- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1868283 --> Dinamik diskler ile oluşturulan bir sanal makinenin yeniden boyutlandırma Azure yığını şimdi engeller. 
 
-- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!-- 1756324 --> Sanal makineler için kullanım verilerini şimdi saatlik aralıklarla ayrılır. Bu, Azure ile tutarlıdır. 
 
-- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- <!--  2253274 --> Sorunu yönetici ve Kullanıcı Portalı Ayarları dikey penceresinde vNet alt ağlar için burada başarısız yüklenemiyor. Geçici bir çözüm olarak, PowerShell kullanın ve [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) görüntülemek ve bu bilgileri yönetmek için cmdlet.
 
 - İleti bir sanal makine oluşturduğunuzda *fiyatlandırma görüntülenemiyor* VM boyutu için bir boyut seçerken, artık görünür.
 
@@ -104,20 +99,29 @@ Bu güncelleştirme aşağıdaki geliştirmeleri ve düzeltmeler için Azure yı
 
 
 ### <a name="known-issues-with-the-update-process"></a>Güncelleştirme işlemi ile ilgili bilinen sorunlar    
-<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+<!-- 2328416 --> 1803 güncelleştirme yüklemesi sırasında blob hizmeti ve blob hizmeti kullanan iç Hizmetleri kapalı kalma süresi olabilir. Bu, bazı sanal makine işlemlerini içerir. Bu kesinti Kiracı hatalarının işlemleri veya uyarıları verilere erişemezsiniz Hizmetleri'nden neden olabilir. Güncelleştirme yüklemesi tamamlandığında kendisini bu sorunu çözer. 
+
+
+
+### <a name="post-update-steps"></a>Güncelleştirme sonrası adımlar
+- 1803 yüklendikten sonra geçerli düzeltmeleri yükleyin. Daha fazla bilgi için aşağıdaki Bilgi Bankası makaleleri görüntülemek yanı sıra bizim [hizmet İlkesi](azure-stack-servicing-policy.md).
+
+  - [KB 4341390 - Azure yığın düzeltme 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390).
+
+- Bu güncelleştirmeyi yükledikten sonra emin olmak için güvenlik duvarı yapılandırmasını gözden [gerekli bağlantı noktalarını](azure-stack-integrate-endpoints.md) açıktır. Örneğin, bu güncelleştirme tanıtır *Azure İzleyici* denetim günlüklerini etkinlik günlükleri için bir değişiklik içerir. Bu değişikliği bağlantı noktası 13012 kullanılan ve açık olmalıdır.  
 
 
 ### <a name="known-issues-post-installation"></a>Bilinen sorunlar (yükleme sonrası)
 Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 #### <a name="portal"></a>Portal
-- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+- <!-- 2332636 - IS -->  Azure yığınının bu sürüme güncelleştirin ve Azure yığın kimlik sistemi için AD FS kullandığınızda, varsayılan sağlayıcı aboneliğin varsayılan sahibi yerleşik olarak sıfırlanır **CloudAdmin** kullanıcı.  
   Geçici çözüm: Bu güncelleştirmeyi yükledikten sonra bu sorunu çözmek için 3 adımından kullanmak [yapılandırmak için tetikleyici Otomasyon Talep sağlayıcı güveni Azure yığınında](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) varsayılan sağlayıcı aboneliğin sahibi sıfırlamak için yordamı.   
 
 - Özelliği [aşağı açılır listeden yeni bir destek isteği açma](azure-stack-manage-portals.md#quick-access-to-help-and-support) gelen içinde Yönetici portalı kullanılamıyor. Bunun yerine, aşağıdaki bağlantıyı kullanın:     
     - Azure yığını için tümleşik sistemleri kullanan https://aka.ms/newsupportrequest.
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
+- <!-- 2050709 --> Yönetim Portalı'nda Blob hizmeti, tablo hizmeti ya da sıra hizmeti için depolama ölçümlerini düzenlemek mümkün değil. Depolama birimine gidin ve blob, tablo veya kuyruğu hizmeti bölmesi seçtiğinizde, bu hizmet için bir ölçüm grafik görüntüleyen yeni bir dikey pencere açılır. Ölçümleri grafik döşeme üstten ardından Düzenle seçerseniz grafiği Düzenle dikey penceresini açar ancak ölçümleri düzenlemek için seçenekleri görüntülemez.
 
 - Yönetici portalı'nda işlem ve depolama kaynaklarını görüntülemek mümkün olmayabilir. Bu sorunun nedeni yanlış başarılı olarak bildirilmesini güncelleştirme neden güncelleştirmenin yüklenmesi sırasında bir hata var. Bu sorun devam ederse, Yardım için Microsoft Müşteri Destek Hizmetleri'ne başvurun.
 
@@ -136,7 +140,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 
 #### <a name="health-and-monitoring"></a>Sistem durumu ve izleme
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  Uyarılar için görebilirsiniz *sistem durumu denetleyicisi* aşağıdaki ayrıntıları olan bileşen:  
 
    Uyarı #1:
    - Ad: Altyapı rolü sağlıksız
@@ -173,7 +177,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 -  VM dağıtımı üzerinde uzantı sağlama çok uzun sürerse, kullanıcıların serbest bırakma veya VM silme işlemi durdurulmaya çalışılırken yerine sağlama zaman aşımı izin vermemelisiniz.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+- <!-- 1662991 --> Linux VM tanılama Azure yığınında desteklenmiyor. VM tanılaması etkin bir Linux VM dağıttığınızda, dağıtım başarısız olur. Tanılama ayarları aracılığıyla Linux VM temel ölçümleri etkinleştirirseniz dağıtım de başarısız olur.  
 
 
 #### <a name="networking"></a>Ağ
@@ -191,7 +195,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 - Azure yığın VM dağıtıldıktan sonra ek ağ arabirimleri VM örneğine eklemeyi desteklemez. VM birden fazla ağ arabirimi gerektiriyorsa, dağıtım sırasında tanımlanmalıdır.
 
-- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+- <!-- 2096388 --> Bir ağ güvenlik grubu kuralları için Yönetim Portalı'nı kullanamazsınız. 
 
     Uygulama hizmeti için geçici çözüm: Denetleyici örnekleri için Uzak Masaüstü'nü gerekiyorsa, PowerShell ile ağ güvenlik grupları içindeki güvenlik kuralları Değiştir.  Nasıl yapılır örnekleri şunlardır *izin*ve yapılandırmasını geri yüklemek *Reddet*:  
     
@@ -262,7 +266,7 @@ Derleme için yükleme sonrası bilinen sorunlar verilmiştir **20180323.2**.
 
 - Yalnızca kaynak sağlayıcısı, o ana bilgisayar SQL veya MySQL sunucuları üzerinde öğeleri oluşturmak için desteklenir. Kaynak sağlayıcısı tarafından oluşturulmamış bir ana bilgisayar sunucusunda oluşturulan öğeleri eşleşmeyen bir duruma neden olabilir.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> Alanları ve dönemleri gibi özel karakterler desteklenmiyor **ailesi** SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda olarak adlandırın.
 
 > [!NOTE]  
 > Azure yığın 1803 güncelleştirdikten sonra daha önce dağıtmış SQL ve MySQL kaynak sağlayıcıları kullanmaya devam edebilirsiniz.  Yeni bir sürüm kullanılabilir olduğunda SQL ve MySQL güncelleştirme öneririz. Azure yığın gibi güncelleştirmeleri sırayla SQL ve MySQL kaynak sağlayıcıları için geçerlidir.  Örneğin, 1711 sürümünü kullanıyorsanız, önce sürüm 1712 sonra 1802 uygulayın ve ardından 1803 için güncelleştirin.      

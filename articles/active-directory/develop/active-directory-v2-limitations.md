@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: e026fd7021b39905d5392be55dbf3862cd307360
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: d7328ba8403f2415705d049d1fc7947b52aeb5c1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156400"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319568"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>V2.0 uç kullanmalıyım?
 Azure Active Directory ile tümleştirme uygulamalar oluştururken, v2.0 uç noktası ve kimlik doğrulama protokolleri gereksinimlerinizi karşılayıp karar vermeniz gerekir. Azure Active Directory'nin özgün uç nokta hala tam olarak desteklenir ve bazı bakımlardan v2.0'den daha fazla özellik zengin değil. Ancak, v2.0 uç [önemli avantajlar sunar](active-directory-v2-compare.md) geliştiriciler için.

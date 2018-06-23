@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: f001751c9401b88d9bfaf35444882d3d5ccbfef3
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 304f71efa009c3d8035d5707bcee73a9ac280e2a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157364"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318988"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Kapsam, izinleri ve Azure Active Directory v2.0 uç onay
 Azure Active Directory (Azure AD) ile tümleştirme uygulamalarını kullanıcılara bir uygulama verilerini nasıl erişebileceğinizi üzerinde denetim sağlar bir yetkilendirme modelini izler. Yetkilendirme modelini v2.0 uyarlamasını güncelleştirilen ve bir uygulamayı Azure AD ile nasıl etkileşim kurmalıdır değiştirir. Bu makalede, kapsamları, izinler ve onay dahil olmak üzere bu yetkilendirme modelini temel kavramları kapsar.

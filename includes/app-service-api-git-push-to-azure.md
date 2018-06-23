@@ -10,7 +10,7 @@ Yerel Git dağıtımınızı uzaktan gerçekleştirilecek şekilde yapılandır�
 git remote add azure <URI from previous step>
 ```
 
-Uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Daha önce dağıtım kullanıcısını oluştururken oluşturduğunuz parola istenir. Azure portalında oturum açarken kullandığınız parolayı değil, hızlı başlangıç öğreticisinin başlarında oluşturduğunuz parolayı girdiğinizden emin olun.
+Uygulamanızı dağıtmak için Azure uzak deposuna gönderin. Daha önce dağıtım kullanıcısını oluştururken oluşturduğunuz parola istenir. Quickstart daha önce oluşturduğunuz parola ve değil Azure portalında oturum açmak için kullandığınız parolayı girdiğinizden emin olun.
 
 ```bash
 git push azure master

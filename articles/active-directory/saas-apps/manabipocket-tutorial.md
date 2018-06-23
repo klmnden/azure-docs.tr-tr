@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212392"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Öğretici: Azure Active Directory Tümleştirme Manabi Pocket ile
 
@@ -101,35 +100,29 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. Üzerinde **Manabi Pocket etki alanı ve URL'leri** bölümünde, uygulamada yapılandırmak istiyorsanız aşağıdaki adımları gerçekleştirin **IDP** modu tarafından başlatılan:
+3. Üzerinde **Manabi Pocket etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
 
     ![Manabi Pocket etki alanı ve URL'leri tek oturum açma bilgileri](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
-    
-    b. İçinde **yanıt URL'si** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://ed-cl.com/`
+
+    b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
-    > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Manabi Pocket istemci destek ekibi](mailto:info-ed-cl@ntt.com) bu değerleri almak için.
+    > Tanımlayıcı değeri gerçek değil. Bu değer gerçek tanımlayıcısı ile güncelleştirin. Kişi [Manabi Pocket istemci destek ekibi](mailto:info-ed-cl@ntt.com) bu değeri alınamıyor.
 
-4. Denetleme **Göster Gelişmiş URL ayarları** ve uygulamada yapılandırmak istiyorsanız aşağıdaki adımı gerçekleştirin **SP** modunda başlatılan:
-
-    ![Manabi Pocket etki alanı ve URL'leri tek oturum açma bilgileri](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    İçinde **oturum açma URL'si** metin kutusuna, URL'yi yazın: `https://ed-cl.com/`
-
-5. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
+4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **meta veri XML** ve meta veri dosyası, bilgisayarınıza kaydedin.
 
     ![Sertifika indirme bağlantısı](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. Tıklatın **kaydetmek** düğmesi.
+5. Tıklatın **kaydetmek** düğmesi.
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. Çoklu oturum açma yapılandırmak için **Manabi Pocket** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Manabi Pocket destek ekibi](mailto:info-ed-cl@ntt.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
+6. Çoklu oturum açma yapılandırmak için **Manabi Pocket** yan, indirilen göndermek için ihtiyacınız **meta veri XML** için [Manabi Pocket destek ekibi](mailto:info-ed-cl@ntt.com). Bunlar, her iki tarafta da ayarlamanızı SAML SSO bağlantı sağlamak için bu ayarı ayarlayın.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -196,7 +189,7 @@ Bu bölümde, Britta Manabi Pocket erişim vererek, Azure çoklu oturum açma ku
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.
@@ -222,4 +215,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

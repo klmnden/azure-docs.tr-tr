@@ -10,21 +10,21 @@ editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: de41120a3a9d399dafecde4225d56767efcd9f38
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 850b13becb2137c9e881b2d6a657bbd06216e96e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624838"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317155"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>U-SQL çalıştırın ve yerel olarak Visual Studio kodda hata ayıklama
 Bu makalede, bir yerel geliştirme makinede erken kodlama aşama hızlandırmak için ya da Visual Studio Code yerel kodda hata ayıklamak için U-SQL işleri çalıştırma açıklar. Visual Studio Code ile Azure Data Lake aracı hakkında yönergeler için bkz [kullanım Azure Data Lake araçları Visual Studio Code için](data-lake-analytics-data-lake-tools-for-vscode.md). 
 
 ## <a name="set-up-the-u-sql-local-run-environment"></a>U-SQL yerel çalıştırma ortamını ayarlama
 
-1. Komut palet açın ve ardından girin için Ctrl + Shift + P seçin **ADL: yerel çalıştırma bağımlılık indirme** paketlerini indirmek için.  
+1. Komut palet açın ve ardından girin için Ctrl + Shift + P seçin **ADL: yükleme yerel çalıştırma paketi** paketlerini indirmek için.  
 
-   ![ADL LocalRun bağımlılık paketlerini yükleyin](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/DownloadLocalRun.png)
+   ![ADL LocalRun bağımlılık paketlerini yükleyin](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/downloadtheadllocalrunpackage.png)
 
 2. Gösterilen yolundan bağımlılık paketlerini bulun **çıkış** bölmesinde ve sonra BuildTools ve Win10SDK 10240 yükleyin. Bir örnek yolu şöyledir:  
 `C:\Users\xxx\AppData\Roaming\LocalRunDependency` 
@@ -44,7 +44,7 @@ Bu makalede, bir yerel geliştirme makinede erken kodlama aşama hızlandırmak 
 
 
 ## <a name="start-the-local-run-service-and-submit-the-u-sql-job-to-a-local-account"></a>Yerel çalışma hizmetini başlatın ve yerel bir hesap için U-SQL işi gönderin 
-İlk kez kullanıcı için kullanması **ADL: yerel çalıştırma bağımlılık indirme** yüklemediyseniz yerel çalıştırma paketlerini indirmek için [U-SQL yerel çalıştırma ortamını ayarlama](#set-up-the-u-sql-local-run-environment).
+İlk kez kullanıcı için kullanması **ADL: yükleme yerel çalıştırma paketi** yüklemediyseniz yerel çalıştırma paketlerini indirmek için [U-SQL yerel çalıştırma ortamını ayarlama](#set-up-the-u-sql-local-run-environment).
 
 1. Komut palet açın ve ardından girin için Ctrl + Shift + P seçin **ADL: yerel çalıştırma Hizmeti'ni Başlat**.   
 2. Seçin **kabul** Microsoft Yazılım Lisans Koşulları'nı ilk kez kabul etmek için. 
@@ -65,7 +65,7 @@ Bu makalede, bir yerel geliştirme makinede erken kodlama aşama hızlandırmak 
 ## <a name="start-a-local-debug-for-the-u-sql-job"></a>U-SQL işi için yerel bir hata ayıklama Başlat  
 İlk kez kullanıcı için:
 
-1. Kullanım **ADL: yerel çalıştırma bağımlılık indirme** yüklemediyseniz yerel çalıştırma paketlerini indirmek için [U-SQL yerel çalıştırma ortamını ayarlama](#set-up-the-u-sql-local-run-environment).
+1. Kullanım **ADL: yükleme yerel çalıştırma paketi** yüklemediyseniz yerel çalıştırma paketlerini indirmek için [U-SQL yerel çalıştırma ortamını ayarlama](#set-up-the-u-sql-local-run-environment).
 2. .NET Core SDK 2.0 önerildiği gibi ileti kutusunda yüklü değilse yükleyin.
  
   ![Dotnet anımsatıcı yükler](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/remind-install-dotnet.png)

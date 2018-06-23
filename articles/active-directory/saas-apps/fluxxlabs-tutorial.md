@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8fac770-bb57-4e1f-b50b-9ffeae239d07
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d22720e71788493d3663524f2b70783ba26b84d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b5fb84f8d8fbed7e1d4112e96b00af3e460661a
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218178"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Öğretici: Azure Active Directory Tümleştirme ile Fluxx Laboratuvarları
 
@@ -67,7 +66,7 @@ Azure AD Fluxx Labs tümleştirilmesi yapılandırmak için yönetilen SaaS uygu
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -103,7 +102,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
 2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+
     ![Çoklu oturum açma iletişim kutusu](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_samlbase.png)
 
 3. Üzerinde **Fluxx Labs etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -123,8 +122,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
     |-------------|------------|
     | Üretim | `https://<subdomain>.fluxx.io/auth/saml/callback` |
     | Üretim öncesi | `https://<subdomain>.preprod.fluxxlabs.com/auth/saml/callback`|
-        
-    > [!NOTE] 
+
+    > [!NOTE]
     > Bu değerler gerçek değildir. Bu değerler gerçek tanımlayıcısı ve yanıt URL'si ile güncelleştirin. Kişi [Fluxx Labs destek ekibi](mailto:travis@fluxxlabs.com) bu değerleri almak için.
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **sertifika (Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
@@ -135,7 +134,7 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Oturum açma tek Kaydet düğmesi yapılandırın](./media/fluxxlabs-tutorial/tutorial_general_400.png)
 
-6. Üzerinde **Fluxx Labs yapılandırma** 'yi tıklatın **yapılandırma Fluxx Labs** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML varlık kimliği ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
+6. Üzerinde **Fluxx Labs yapılandırma** 'yi tıklatın **yapılandırma Fluxx Labs** açmak için **yapılandırma oturum açma** penceresi. Kopya **SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
     ![Fluxx Labs yapılandırma](./media/fluxxlabs-tutorial/tutorial_fluxxlabs_configure.png)
 
@@ -148,9 +147,9 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 9. Yönetici panelinde seçin **eklentileri** > **tümleştirmeler** ve ardından **SAML SSO-(Disabled)**
 
     ![Fluxx Labs yapılandırma](./media/fluxxlabs-tutorial/config2.png)
-    
+
 10. Öznitelik bölümünde, aşağıdaki adımları gerçekleştirin:
-    
+
     ![Fluxx Labs yapılandırma](./media/fluxxlabs-tutorial/config3.png)
 
     a. Seçin **SAML SSO** onay kutusu.
@@ -159,15 +158,17 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     c. İçinde **geri çağırma yolu** metin kutusuna, türü **/auth/saml/callback**.
 
-    d. İçinde **onaylama tüketici hizmet Url(Single Sign-On URL)** metin değerini yapıştırın **SAML çoklu oturum açma hizmet URL'si**, Azure portalından kopyalanan.
+    d. İçinde **onaylama tüketici hizmet Url(Single Sign-On URL)** metin girin **yanıt URL'si** Azure portalında girdiğiniz değer.
 
-    e. İçinde **İzleyici (SP varlık kimliği)** metin değerini yapıştırın **SAML varlık kimliği**, Azure portalından kopyalanan.
+    e. İçinde **İzleyici (SP varlık kimliği)** metin girin **tanımlayıcısı** Azure portalında girdiğiniz değer.
 
-    f. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **kimlik sağlayıcısı sertifikası** metin kutusu.
+    f. İçinde **kimlik sağlayıcısı SSO hedef URL** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyaladığınız değeri.
 
-    g. İçinde **ad tanımlayıcısı biçimi** metin değeri girin `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+    g. Base-64 kodlanmış sertifikanızı Not Defteri'nde açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **kimlik sağlayıcısı sertifikası** metin kutusu.
 
-    h. **Kaydet**’e tıklayın.
+    h. İçinde **ad tanımlayıcısı biçimi** metin değeri girin `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+
+    i. **Kaydet**’e tıklayın.
 
     > [!NOTE]
     > Kaydedilmiş içeriği alanın bir kez güvenlik için boş görünür, ancak değeri yapılandırmada kaydedildi.
@@ -221,7 +222,7 @@ Fluxx Labs oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar�
     ![Fluxx Labs yapılandırma](./media/fluxxlabs-tutorial/config4.png)
 
 4. Üzerinde **yeni kişiler** bölümünde, aşağıdaki adımları gerçekleştirin:
-    
+
     ![Fluxx Labs yapılandırma](./media/fluxxlabs-tutorial/config5.png)
 
     a. Fluxx Labs e-posta SSO oturumları için benzersiz tanımlayıcı olarak kullanın. Doldurmak **SSO UID** alan SSO ile oturum açma olarak kullanarak e-posta adresiyle eşleşen kullanıcının e-posta adresine sahip.
@@ -232,7 +233,7 @@ Fluxx Labs oturum açmak Azure AD kullanıcıları etkinleştirmek için bunlar�
 
 Bu bölümde, Britta Fluxx Labs erişim vererek, Azure çoklu oturum açma kullanılacak Simon etkinleştirin.
 
-![Kullanıcı rolü atayın][200] 
+![Kullanıcı rolü atayın][200]
 
 **Britta Simon Fluxx Labs atamak için aşağıdaki adımları gerçekleştirin:**
 
@@ -257,7 +258,7 @@ Bu bölümde, Britta Fluxx Labs erişim vererek, Azure çoklu oturum açma kulla
 6. Tıklatın **seçin** düğmesini **kullanıcılar ve gruplar** iletişim.
 
 7. Tıklatın **atamak** düğmesini **eklemek atama** iletişim.
-    
+
 ### <a name="test-single-sign-on"></a>Çoklu oturum açma testi
 
 Bu bölümde, erişim paneli kullanarak Azure AD çoklu oturum açma yapılandırmanızı test edin.

@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 5c5cc1fdbe48fb93eea204e4619038052e685f1f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4e745a5de8000e0f26491c9f4f236f7f8a735ae9
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411507"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319650"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Yedekleme ve Azure veritabanındaki bir sunucu için Azure CLI kullanarak PostgreSQL geri yükleme
 
@@ -32,32 +32,6 @@ Nasıl yapılır bu kılavuzu tamamlamak için gerekir:
 
 > [!IMPORTANT]
 > Nasıl yapılır bu kılavuz, Azure CLI Sürüm 2.0 veya üstü kullanmanızı gerektirir. Azure CLI komut isteminde sürümünü onaylamak için girin `az --version`. Yüklemek veya yükseltmek için bkz: [Azure CLI 2.0 yükleme]( /cli/azure/install-azure-cli).
-
-## <a name="add-the-extension"></a>Uzantıyı ekleme
-Aşağıdaki komutu kullanarak güncelleştirilmiş PostgreSQL için Azure Veritabanı yönetim uzantısını ekleyin:
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-Doğru uzantı sürümünü yüklediğinizden emin olun. 
-```azurecli-interactive
-az extension list
-```
-
-Dönüş JSON'u aşağıdakileri içermelidir: 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-Sürüm 0.0.5 döndürülmezse, aşağıdakini çalıştırarak uzantıyı güncelleştirin: 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>Yedekleme kümesi yapılandırması
 

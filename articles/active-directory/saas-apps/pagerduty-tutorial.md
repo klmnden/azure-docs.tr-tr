@@ -8,19 +8,18 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215401"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Öğretici: Azure Active Directory Tümleştirme PagerDuty ile
 
@@ -60,14 +59,14 @@ Azure AD PagerDuty tümleştirilmesi yapılandırmak için yönetilen SaaS uygul
 
 **Galeriden PagerDuty eklemek için aşağıdaki adımları gerçekleştirin:**
 
-1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi. 
+1. İçinde  **[Azure portal](https://portal.azure.com)**, sol gezinti panosunda, tıklatın **Azure Active Directory** simgesi.
 
     ![Azure Active Directory düğmesi][1]
 
 2. Gidin **kurumsal uygulamalar**. Ardından **tüm uygulamaları**.
 
     ![Kurumsal uygulamalar dikey penceresi][2]
-    
+
 3. Yeni uygulama eklemek için tıklatın **yeni uygulama** iletişim üst kısmında düğmesi.
 
     ![Yeni Uygulama düğmesi][3]
@@ -102,8 +101,8 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     ![Çoklu oturum açma bağlantısı yapılandırma][4]
 
-2. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
- 
+1. Üzerinde **çoklu oturum açma** iletişim kutusunda **modu** olarak **SAML tabanlı oturum açma** çoklu oturum açmayı etkinleştirmek için.
+
     ![Çoklu oturum açma iletişim kutusu](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. Üzerinde **PagerDuty etki alanı ve URL'leri** bölümünde, aşağıdaki adımları gerçekleştirin:
@@ -114,12 +113,12 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
     b. İçinde **tanımlayıcısı** metin kutusuna, URL şu biçimi kullanarak bir yazın: `https://<tenant-name>.pagerduty.com`
 
-    > [!NOTE] 
-    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [PagerDuty istemci destek ekibi](https://www.pagerduty.com/support/) bu değerleri almak için. 
+    > [!NOTE]
+    > Bu değerler gerçek değildir. Bu değerler gerçek oturum açma URL'si ve tanımlayıcı ile güncelleştirin. Kişi [PagerDuty istemci destek ekibi](https://www.pagerduty.com/support/) bu değerleri almak için.
 
 4. Üzerinde **SAML imzalama sertifikası** 'yi tıklatın **Certificate(Base64)** ve sertifika dosyayı bilgisayarınıza kaydedin.
 
-    ![Sertifika indirme bağlantısı](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![Sertifika indirme bağlantısı](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. Tıklatın **kaydetmek** düğmesi.
 
@@ -127,34 +126,33 @@ Bu bölümde, Azure AD çoklu oturum açma Azure portalında etkinleştirin ve �
 
 6. Üzerinde **PagerDuty yapılandırma** 'yi tıklatın **yapılandırma PagerDuty** açmak için **yapılandırma oturum açma** penceresi. Kopya **Sign-Out URL ve SAML çoklu oturum açma hizmet URL'si** gelen **hızlı başvuru bölümü.**
 
-    ![PagerDuty yapılandırma](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![PagerDuty yapılandırma](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. Farklı web tarayıcısı penceresinde Pagerduty şirket sitenize yönetici olarak oturum açın.
 
 8. Üstteki menüde tıklatın **hesap ayarlarını**.
-   
+
     ![Hesap ayarları](./media/pagerduty-tutorial/ic778535.png "hesap ayarları")
 
 9. Tıklatın **çoklu oturum açma**.
-   
+
     ![Çoklu oturum açma](./media/pagerduty-tutorial/ic778536.png "çoklu oturum açma")
 
 10. Üzerinde **etkinleştirmek çoklu oturum açma (SSO)** sayfasında, aşağıdaki adımları gerçekleştirin:
-   
+
     ![Çoklu oturum açmayı etkinleştir](./media/pagerduty-tutorial/ic778537.png "çoklu oturum açmayı etkinleştir")
-   
+
     a. Not Defteri'nde Azure portalından indirdiğiniz, base-64 kodlanmış sertifika açın, içeriğini, panoya kopyalayın ve yapıştırın kendisine **X.509 sertifikası** metin kutusu
   
     b. İçinde **oturum açma URL'si** metin kutusuna, Yapıştır **SAML çoklu oturum açma hizmet URL'si** Azure portalından kopyalanan.
   
     c. İçinde **oturum kapatma URL'si** metin kutusuna, Yapıştır **Sign-Out URL** Azure portalından kopyalanan.
- 
-    d. Seçin **tek oturum açma kapatma**.
- 
-    e. Tıklatın **değişiklikleri kaydetmek**.
 
-> [!TIP]
-> Şimdi bu yönergeleri içinde kısa bir sürümünü okuyabilirsiniz [Azure portal](https://portal.azure.com)uygulaması kuruluyor yaparken!  Bu uygulamadan ekledikten sonra **Active Directory > Kurumsal uygulamalar** bölümünde, tıklamanız yeterlidir **çoklu oturum açma** sekmesinde ve aracılığıyla katıştırılmış belgelere erişebilir **yapılandırma** alt bölüm. Daha fazla bilgiyi burada embedded belgeler özelliği hakkında: [Azure AD embedded belgeler]( https://go.microsoft.com/fwlink/?linkid=845985)
+    d. Seçin **izin kullanıcı adı/parola oturum açma**.
+
+    e. Seçin **gerektiren tam kimlik doğrulaması bağlamı karşılaştırma** onay kutusu.
+
+    f. Tıklatın **değişiklikleri kaydetmek**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Bir Azure AD test kullanıcısı oluşturma
 
@@ -262,8 +260,6 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](tutorial-list.md)
 * [Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ Erişim paneli hakkında daha fazla bilgi için bkz: [erişim Paneli'ne giriş](
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

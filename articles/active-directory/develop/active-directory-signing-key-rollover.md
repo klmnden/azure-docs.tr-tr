@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2016
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 02d7cb28411e0baec20d334994b385dcd3b06451
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a84cca4b0944db5cde038fb72917ebac23d0be8c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293390"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317468"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory'de anahtar geçişi imzalama
 Bu makalede, Azure Active Directory (Azure AD) güvenlik belirteçleri imzalamak için kullanılan ortak anahtarlar hakkında bilmeniz gerekenler açıklanmaktadır. Bu anahtarları rollover düzenli aralıklarla ve acil bir durumda uzatılabilir olduğunu hemen dikkate almak önemlidir. Azure AD kullanan tüm uygulamalar program aracılığıyla anahtarı geçiş işlemi veya düzenli el ile geçiş işlemi oluşturmak mümkün olması gerekir. Anahtarları nasıl çalıştığını, anlamak için okumaya devam uygulamanıza rollover etkisini değerlendirin ve uygulamanızı güncelleştirmeniz veya gerekiyorsa, anahtar geçişi işlemek için düzenli el ile geçiş işlemi oluşturmak.
@@ -128,12 +128,12 @@ passport.use(new OIDCStrategy({
 ```
 
 ### <a name="vs2015"></a>Web uygulamaları / API'leri kaynakları koruma ve Visual Studio 2015 veya Visual Studio 2017 oluşturulmuş
-Uygulamanızı Visual Studio 2015 ya da Visual Studio 2017 bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **iş ve Okul hesapları** gelen **kimlik doğrulamayı Değiştir** menüsünde, zaten sahip anahtar geçişi otomatik olarak işlemek için gerekli mantığı. OWIN Openıd Connect Ara katıştırılmış bu mantığı alır ve Openıd Connect bulma belgeden anahtarlarını önbelleğe alır ve bunları düzenli aralıklarla yeniler.
+Uygulamanızı Visual Studio 2015 ya da Visual Studio 2017 bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **iş ve Okul hesapları** gelen **kimlik doğrulamayı Değiştir** menüsünde, zaten var. anahtar geçişi otomatik olarak işlemek için gerekli mantığı. OWIN Openıd Connect Ara katıştırılmış bu mantığı alır ve Openıd Connect bulma belgeden anahtarlarını önbelleğe alır ve bunları düzenli aralıklarla yeniler.
 
 Kimlik doğrulama çözümünüz için el ile eklediyseniz, uygulamanız gereken anahtar geçişi mantığı sahip olmayabilir. Kendiniz yazmak veya adımları gerekecek [Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama API'leri](#other).
 
 ### <a name="vs2013"></a>Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web uygulamaları
-Uygulamanızı Visual Studio 2013'te bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde, zaten sahip anahtar geçişi otomatik olarak işlemek için gerekli mantığı. Bu mantık, projeyle ilişkili iki veritabanı tablolarındaki kuruluşunuzun benzersiz tanımlayıcı ve imzalama anahtar bilgileri depolar. Veritabanı için bağlantı dizesi projenin Web.config dosyasında bulabilirsiniz.
+Uygulamanızı Visual Studio 2013'te bir web uygulaması şablonu kullanılarak oluşturulan ve seçtiyseniz **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde gerekli mantığı zaten var. anahtar geçişi otomatik olarak işlemek için. Bu mantık, projeyle ilişkili iki veritabanı tablolarındaki kuruluşunuzun benzersiz tanımlayıcı ve imzalama anahtar bilgileri depolar. Veritabanı için bağlantı dizesi projenin Web.config dosyasında bulabilirsiniz.
 
 Kimlik doğrulama çözümünüz için el ile eklediyseniz, uygulamanız gereken anahtar geçişi mantığı sahip olmayabilir. Kendiniz yazmak veya adımları gerekecek [Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama API'leri](#other).
 
@@ -148,7 +148,7 @@ Aşağıdaki adımlar mantığı uygulamanızda düzgün çalıştığını doğ
 7. Geri dönüp **Sunucu Gezgini** ve değerler bakmak **IssuingAuthorityKeys** ve **kiracılar** tablo. Bunlar otomatik olarak Federasyon meta veri belgesi uygun bilgilerle yeniden olduğunu fark edeceksiniz.
 
 ### <a name="vs2013"></a>Kaynakları koruma ve Visual Studio 2013 ile oluşturulan web API'leri
-Bir web API uygulaması Web API şablonunu kullanarak Visual Studio 2013'oluşturduysanız ve ardından seçili **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde, önceden uygulamanızda gerekli mantığı vardır.
+Bir web API uygulaması Web API şablonunu kullanarak Visual Studio 2013'oluşturduysanız ve ardından seçili **Kurumsal hesaplar** gelen **kimlik doğrulamayı Değiştir** menüsünde, önceden sahip gerekli uygulamanızdaki mantığı.
 
 Kimlik doğrulama el ile yapılandırdıysanız, anahtar bilgilerini otomatik olarak güncelleştirmek için Web API yapılandırma konusunda bilgi edinmek için aşağıdaki yönergeleri izleyin.
 
@@ -243,7 +243,7 @@ namespace JWTValidation
 ```
 
 ### <a name="vs2012"></a>Kaynakları koruma ve Visual Studio 2012 ile oluşturulan web uygulamaları
-Uygulamanızı Visual Studio 2012'de oluşturulduysa, büyük olasılıkla kimlik ve erişim aracı Uygulamanızı yapılandırmak için kullanılır. Ayrıca, kullandığınız büyük olasılıkla [doğrulama verenin adı kayıt defteri (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR güvenilen kimlik sağlayıcıları (Azure AD) hakkında bilgi ve onlar tarafından yayınlanan belirteçleri doğrulamak için kullanılan anahtarları sorumludur. VINR Ayrıca, bir dizinle ilişkili en son Federasyon meta veri belgesi yükleyerek bir Web.config dosyasında depolanan anahtar bilgilerini otomatik olarak güncelleştirmek kolaylaştırır yapılandırma ile son belge güncel olup olmadığı denetleniyor ve gerekirse yeni anahtarı kullanmak üzere uygulamayı güncelleştirme.
+Uygulamanızı Visual Studio 2012'de oluşturulduysa, büyük olasılıkla kimlik ve erişim aracı Uygulamanızı yapılandırmak için kullanılır. Ayrıca, kullandığınız büyük olasılıkla [doğrulama verenin adı kayıt defteri (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). VINR güvenilen kimlik sağlayıcıları (Azure AD) hakkında bilgi ve onlar tarafından yayınlanan belirteçleri doğrulamak için kullanılan anahtarları sorumludur. VINR Ayrıca, bir dizinle ilişkili en son Federasyon meta veri belgesi yükleyerek bir Web.config dosyasında depolanan anahtar bilgilerini otomatik olarak güncelleştirmek yapılandırma son belgeyle güncel olduğunda denetimi kolaylaştırır ve Yeni anahtar gerektiği şekilde kullanmak için uygulamayı güncelleştiriliyor.
 
 Uygulamanızı kod örnekleri veya Microsoft tarafından sağlanan izlenecek belgelerine herhangi birini kullanarak oluşturduysanız, anahtar geçişi mantığı zaten projenizde dahil edilir. Aşağıdaki kodu zaten projenizde var. fark edeceksiniz. Uygulamanız bu mantığı zaten yoksa ekleyin ve düzgün çalıştığını doğrulamak için aşağıdaki adımları izleyin.
 
@@ -303,7 +303,7 @@ Yapılandırmanızı güncelleştirmek için FedUtil kullanmak için yönergeler
 4. Tıklatın **son** güncelleştirme işlemini tamamlamak için.
 
 ### <a name="other"></a>Web uygulamaları / diğer kitaplıkları'nı kullanarak veya el ile desteklenen protokoller hiçbirini uygulama kaynakları koruma API'leri
-Desteklenen protokoller birini el ile uygulanan veya başka bir kitaplık kullanıyorsanız, kitaplığı veya Openıd Connect bulma belge veya Federasyon meta veri belgesi anahtar alındığını emin olmak için uygulamanızı gözden geçirmek gerekir. Bunun için bir şekilde kodunuzu veya kitaplığın kod Openıd bulma belge veya Federasyon meta veri belgesi yapılan her çağrı için arama yapmak için denetleyebilirsiniz.
+Desteklenen protokoller birini el ile uygulanan veya başka bir kitaplık kullanıyorsanız, kitaplık veya Openıd Connect bulma belge veya Federasyon meta verilerinin anahtarı alındığını emin olmak için uygulamanızı gözden gerekir Belge. Bunun için bir şekilde kodunuzu veya kitaplığın kod Openıd bulma belge veya Federasyon meta veri belgesi yapılan her çağrı için arama yapmak için denetleyebilirsiniz.
 
 Anahtarı depolanıyor yere veya sabit kodlanmış uygulamanızda el ile anahtarı almak ve buna göre bu kılavuzu belge sonunda yönergeler doğrultusunda el ile bir rollover göre gerçekleştirme güncelleştirin. **Kesinlikle otomatik geçişi desteklemek için uygulamanızın artırmak teşvik edilir** yaklaşımlar anahat birini Azure AD rollover tempoyla artırır veya Acil varsa gelecekteki kesintilerini ve ek yükü önlemek için bu makaledeki kullanarak bant dışı geçişi.
 

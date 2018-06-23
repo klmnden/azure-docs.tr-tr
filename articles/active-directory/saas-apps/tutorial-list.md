@@ -16,12 +16,12 @@ ms.date: 06/18/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 9aa060c6f28adb8361fcb9267ea658fda27b442c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 193be37f4c804d087bf404f14bc60e27349038ad
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223459"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319046"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory ile SaaS uygulama tümleştirmesi
 
@@ -137,7 +137,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco bulut](ciscocloud-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|
-| ![logosu](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|
+| ![logosu](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|[Cisco Webex - kullanıcı hazırlama](cisco-webex-provisioning-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - kullanıcı hazırlama](clarizen-provisioning-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Gözden geçirme temizleyin](clearreview-tutorial.md)|
@@ -302,7 +302,7 @@ Azure AD ile önceden tümleştirilmiş SaaS uygulamaları kapsamlı listesi iç
 | ![logosu](./media/tutorial-list/active-directory-saas-kantegassoforjira-tutorial.png)| [Kantega SSO JIRA için](kantegassoforjira-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-keeperpasswordmanager-tutorial.png)| [Keeper parola Yöneticisi & dijital kasası](keeperpasswordmanager-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-kindling-tutorial.png)| [Kindling](kindling-tutorial.md)|
-| ![logosu](./media/tutorial-list/active-directory-saas-kintone-tutorial.png)| [kintone](kintone-tutorial.md)|
+| ![logosu](./media/tutorial-list/active-directory-saas-kintone-tutorial.png)| [Kintone](kintone-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-kiteworks-tutorial.png)| [Kiteworks](kiteworks-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-klue-tutorial.png)| [Klue](klue-tutorial.md)|
 | ![logosu](./media/tutorial-list/active-directory-saas-knowbe4-tutorial.png)| [KnowBe4 güvenlik tanıma eğitim](knowbe4-tutorial.md)|

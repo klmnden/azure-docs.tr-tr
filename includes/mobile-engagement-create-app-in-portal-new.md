@@ -1,5 +1,5 @@
 
-1. [Azure Portal](https://portal.azure.com)'da oturum açın.
+1. [Azure Portal](https://portal.azure.com)’da oturum açın.
 2. **Kaynak oluştur**, ardından **Web ve Mobil** ve sonra da **Mobile Engagement**’a tıklayın.
    
     ![](./media/mobile-engagement-create-app-in-portal-new/browse-azme-extension.png)

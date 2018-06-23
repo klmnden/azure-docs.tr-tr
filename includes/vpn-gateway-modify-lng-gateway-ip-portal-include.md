@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a929149f115d716bf7f9d850abe5ba97bd5a8189
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a79184a5e08aa43a4675194adf5f10b9807418db
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198103"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329561"
 ---
 ### <a name="gwipnoconnection"></a> Yerel ağ geçidi IP adresi - ağ geçidi bağlantı değiştirmek için
 
@@ -23,7 +23,7 @@ Ağ geçidi bağlantısı olmayan bir yerel ağ geçidini değiştirmek için ö
 2. İçinde **IP adresi** kutusunda, IP adresini değiştirin.
 3. Ayarları kaydetmek için **Kaydet**’e tıklayın.
 
-### <a name="gwipwithconnection"></a>Var olan ağ geçidi bağlantısı yerel ağ geçidi ağ geçidi IP adresi - değiştirmek için
+### <a name="gwipwithconnection"></a>Var olan ağ geçidi bağlantısı yerel ağ geçidi IP adresini - değiştirmek için
 
 Bir bağlantısı olan bir yerel ağ geçidi değiştirmek için önce bağlantıyı kaldırmanız gerekir. Bağlantı kaldırıldıktan sonra ağ geçidi IP adresini değiştirebilir ve yeni bir bağlantı oluşturabilirsiniz. Aynı zamanda adres ön eklerini de değiştirebilirsiniz. Bunun sonucunda, VPN bağlantınızda kesinti oluşur. Ağ geçidi IP adresini değiştirirken, VPN ağ geçidini silmeniz gerekmez. Yalnızca bağlantıyı kaldırmanız gerekir.
  

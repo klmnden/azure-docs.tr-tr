@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: celested
-ms.reviewer: dastrock
+ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: cfc79b451eafe7dcdd0b8f4285f92714138260bb
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: cf8de9e6061df59782a6edbccf47341222d256f4
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156135"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317916"
 ---
 # <a name="federation-metadata"></a>Federasyon meta verileri
 Azure Active Directory (Azure AD) Azure AD verir güvenlik belirteçleri kabul etmesi için yapılandırılmış bir Federasyon meta veri belgesi Hizmetleri için yayımlar. Federasyon meta veri belgesi biçimi açıklanan [Web Hizmetleri Federasyon dili (WS-Federation) sürüm 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), genişleten [OASISgüvenlikonaylamaişlemibiçimlendirmedili(SAML)v2.0içinmetaveriler](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).

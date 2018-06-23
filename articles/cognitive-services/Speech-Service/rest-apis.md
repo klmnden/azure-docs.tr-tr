@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4be591a15c7ba2c6deaa17f1847233f409179472
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "35356221"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321998"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -31,11 +31,14 @@ Doğu Asya| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conver
 Kuzey Avrupa| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
 
 > [!NOTE]
-> Özel uç noktanızı akustik model veya dil modeli veya telaffuz özelleştirdiyseniz, bunun yerine kullanın.
+> Bir http 401 hatası önlemek için URI gerekli dilde eklemeniz gerekir. Bu nedenle en-US için doğru URI olacaktır: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
 
 Konuşma metin API aksi benzer [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) önceki konuşma API'si.
 
 Konuşma metin REST API için yalnızca kısa utterances destekler. İstekleri en fazla 10 saniye ses içeren ve genel 14 saniyelik en son olabilir. REST API yalnızca son sonuçları, kısmi veya Ara sonuçlar döndürür.
+
+> [!NOTE]
+> Özel uç noktanızı akustik model veya dil modeli veya telaffuz özelleştirdiyseniz, bunun yerine kullanın.
 
 ## <a name="text-to-speech"></a>Metin Okuma
 
@@ -143,7 +146,7 @@ C# sınıfı aşağıdaki bir erişim belirteci almak nasıl gösterilmektedir. 
     public class Authentication
     {
         public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
 
@@ -164,7 +167,6 @@ C# sınıfı aşağıdaki bir erişim belirteci almak nasıl gösterilmektedir. 
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -210,7 +212,7 @@ Aşağıdaki C# kodu daha önce sunulan sınıfı bir içeri kayma yerini alır.
     public class Authentication
     {
         public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0";
+            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
         private string subscriptionKey;
         private string token;
         private Timer accessTokenRenewer;
@@ -270,7 +272,6 @@ Aşağıdaki C# kodu daha önce sunulan sınıfı bir içeri kayma yerini alır.
             {
                 client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
                 UriBuilder uriBuilder = new UriBuilder(fetchUri);
-                uriBuilder.Path += "/issueToken";
 
                 var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
                 Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
@@ -279,3 +280,8 @@ Aşağıdaki C# kodu daha önce sunulan sınıfı bir içeri kayma yerini alır.
         }
     }
 ```
+
+## <a name="next-steps"></a>Sonraki adımlar
+
+* [Konuşma deneme aboneliğinizi Al](https://azure.microsoft.com/try/cognitive-services/)
+* [Bkz. Konuşma modelini özelleştirmek için](how-to-customize-speech-models.md)

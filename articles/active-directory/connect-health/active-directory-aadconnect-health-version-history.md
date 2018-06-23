@@ -3,7 +3,7 @@ title: Azure AD Connect Health Sürüm Geçmişi
 description: Bu belgede, Azure AD Connect Health ve bu sürümlerde dahil sürümleri açıklanmaktadır.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 8dd4e998-747b-4c52-b8d3-3900fe77d88f
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7147b282d9bcbf48391d60466c77d28eca396832
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294284"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319274"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: Sürüm Yayınlama Geçmişi
 Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Connect Health düzenli olarak güncelleştirir. Bu makalede, çıkarılan özellikleri ve sürümleri listelenmektedir.
@@ -30,7 +30,7 @@ Azure Active Directory ekibi, yeni özellikler ve işlevsellik ile Azure AD Conn
 
 **Aracı güncelleştirmesi:** 
 *   AD FS (sürüm 3.1.2.0) için Azure AD Connect Health Aracısı  
-   1. Hata düzeltmeleri ve Uyarılar için geliştirme 
+   1. Aracı bellek yönetimi ve ilgili uyarıları sürümü 3.0.244.0 için düzeltme
 
 
 ## <a name="may-2018"></a>Mayıs 2018

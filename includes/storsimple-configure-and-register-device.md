@@ -16,7 +16,7 @@
 6. Aşağıdaki komutu yazın:
    
      `Invoke-HcsSetupWizard` 
-7. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri verin: 
+7. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri sağlayın: 
    
    * DATA 0 ağ arabirimi için IP adresi
    * Alt ağ maskesi

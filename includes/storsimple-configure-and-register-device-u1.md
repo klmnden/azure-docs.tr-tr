@@ -14,7 +14,7 @@
      Cihazınız için en düşük gerekli ağ ayarlarını yapılandırmak için 5-12 arası adımları tamamlayın. **Bu yapılandırma adımları, cihazın etkin denetleyicisinde gerçekleştirilmelidir.** Seri konsol menüsü, bant iletisindeki denetleyici durumunu belirtir. Etkin denetleyiciye bağlı değilseniz, bağlantıyı kesip etkin denetleyiciye bağlayın.
 5. Komut istemine parolanızı yazın. Varsayılan cihaz parolası **Password1**’dir.
 6. Şu komutu yazın: `Invoke-HcsSetupWizard`. 
-7. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri verin: 
+7. Cihazın ağ ayarlarını yapılandırmanıza yardımcı olacak bir kurulum sihirbazı görüntülenir. Aşağıdaki bilgileri sağlayın: 
    
    * DATA 0 ağ arabirimi için IP adresi
    * Alt ağ maskesi

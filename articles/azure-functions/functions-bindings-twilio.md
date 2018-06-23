@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ab0ea0726031a1db36f4fbc4ee1db8a0c7f07bf
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: e6c5a2e11e8b2faa62b04a792f5040ea928d94a3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308284"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318716"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure işlevleri için Twilio bağlama
 
@@ -41,7 +41,7 @@ Twilio bağlamaları sağlanan [Microsoft.Azure.WebJobs.Extensions.Twilio](http:
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example"></a>Örnek
+## <a name="example---functions-1x"></a>Örnek - 1.x işlevleri
 
 Dile özgü örneğe bakın:
 
@@ -206,6 +206,173 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+## <a name="example---functions-2x"></a>Örnek - 2.x işlevleri
+
+Dile özgü örneğe bakın:
+
+* [2.x C#](#2x-c-example)
+* [2.x C# betik (.csx)](#2x-c-script-example)
+* [2.x JavaScript](#2x-javascript-example)
+
+### <a name="2x-c-example"></a>2.x C# örnek
+
+Aşağıdaki örnekte gösterildiği bir [C# işlevi](functions-dotnet-class-library.md) bir kuyruk iletisi tarafından tetiklendiğinde bir kısa mesaj gönderir.
+
+```cs
+[FunctionName("QueueTwilio")]
+[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
+public static SMSMessage Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
+    TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {order}");
+
+    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
+    {
+        Body = $"Hello {order["name"]}, thanks for your order!",
+        To = order["mobileNumber"].ToString()
+    };
+
+    return message;
+}
+```
+
+Bu örnekte `TwilioSms` özniteliği yönteminin dönüş değeri ile. Öznitelik ile kullanmak için bir alternatif olan bir `out CreateMessageOptions` parametresi ya da bir `ICollector<CreateMessageOptions>` veya `IAsyncCollector<CreateMessageOptions>` parametresi.
+
+### <a name="2x-c-script-example"></a>2.x C# kod örneği
+
+Aşağıdaki örnek, bağlama Twilio çıkış gösterir bir *function.json* dosyası ve bir [C# betik işlevi](functions-reference-csharp.md) bağlama kullanır. İşlevini kullanan bir `out` bir kısa mesaj göndermek için parametre.
+
+Veri bağlama işte *function.json* dosyası:
+
+Örnek function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSid": "TwilioAccountSid",
+  "authToken": "TwilioAuthToken",
+  "to": "+1704XXXXXXX",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+C# kod şöyledir:
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio.Api"
+
+using System;
+using Newtonsoft.Json;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static void Run(string myQueueItem, out CreateMessageOptions message,  TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the CreateMessageOptions variable.
+    message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    message.Body = msg;
+    message.To = order.mobileNumber;
+}
+```
+
+Out Parametreleri zaman uyumsuz kodda kullanamazsınız. Zaman uyumsuz C# betik kodu örneği şöyledir:
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio.Api"
+
+using System;
+using Newtonsoft.Json;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the CreateMessageOptions variable.
+    CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    smsText.Body = msg;
+    smsText.To = order.mobileNumber;
+
+    await message.AddAsync(smsText);
+}
+```
+
+### <a name="2x-javascript-example"></a>2.x JavaScript örneği
+
+Aşağıdaki örnek, bağlama Twilio çıkış gösterir bir *function.json* dosyası ve bir [JavaScript işlevi](functions-reference-node.md) bağlama kullanır.
+
+Veri bağlama işte *function.json* dosyası:
+
+Örnek function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSid": "TwilioAccountSid",
+  "authToken": "TwilioAuthToken",
+  "to": "+1704XXXXXXX",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+JavaScript kod aşağıdaki gibidir:
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the message binding.
+    context.bindings.message = {};
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    context.bindings.message = {
+        body : msg,
+        to : myQueueItem.mobileNumber
+    };
+
+    context.done();
+};
+```
+
 ## <a name="attributes"></a>Öznitelikler
 
 İçinde [C# sınıfı kitaplıklar](functions-dotnet-class-library.md), kullanın [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) özniteliği.
@@ -237,7 +404,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**type**|| ayarlanmalıdır `twilioSms`.|
 |**direction**|| ayarlanmalıdır `out`.|
 |**Adı**|| İşlev kodu Twilio SMS metin iletisi için kullanılan değişken adı. |
-|**AccountSid**|**AccountSid**| Bu değer, Twilio hesabının SID tutan bir uygulama ayarı adı için ayarlamanız gerekir.|
+|**accountSid**|**AccountSid**| Bu değer, Twilio hesabının SID tutan bir uygulama ayarı adı için ayarlamanız gerekir.|
 |**authToken**|**AuthToken**| Bu değer, Twilio kimlik doğrulaması belirtecine sahip bir uygulama ayarı adı için ayarlamanız gerekir.|
 |**Hedef**|**Alıcı**| SMS metni gönderilir telefon numarası için bu değeri ayarlayın.|
 |**Kaynak**|**Kaynak**| SMS metin gönderilen telefon numarası için bu değeri ayarlayın.|
@@ -249,5 +416,3 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 
 > [!div class="nextstepaction"]
 > [Azure işlevleri Tetikleyicileri ve bağlamaları hakkında daha fazla bilgi edinin](functions-triggers-bindings.md)
-
-

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700201"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318971"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure aboneliği ve hizmet sınırları, kotalar ve kısıtlamalar
 Bu belge kotaları bazen adlı en yaygın Microsoft Azure sınırları, bazıları listelenmiştir. Bu belge şu anda tüm Azure hizmetlerini kapsamaz. Zamanla, liste genişletilir ve daha fazla platform kapsayacak şekilde güncelleştirildi.
@@ -40,8 +40,7 @@ Aşağıdaki sınırlar, Azure Kaynak Yöneticisi'ni kullanırken sınırları f
 
 > [!NOTE]
 > Hizmet Yönetimi kotalar gibi Azure kaynak grupları, kaynaklar için kotalar başına bölge aboneliğinizi tarafından erişilebilir olan ve abonelik başına, olmayan vurgulamak önemlidir. Şimdi vCPU kotalarını örnek olarak kullanın. Vcpu'lar desteğiyle kota artışı isteği göndermek üzere ihtiyacınız varsa, hangi bölgelerde kullanın ve ardından belirli Azure kaynak grubu vCPU kotaları tutarlar ve istediğiniz bölgeler için istekte istediğiniz kaç Vcpu'lar karar vermeniz gerekir. Bu nedenle, uygulamanız var. çalıştırmak için 30 Vcpu'lar Batı Avrupa'da kullanmanız gerekiyorsa, Batı Avrupa'da 30 Vcpu'lar özellikle istemeniz gerekir. Ancak, diğer herhangi bir bölgede artırmak vCPU kota sahip olmaz – yalnızca Batı Avrupa 30 vCPU kotası olacak.
-> <!-- -->
-> Sonuç olarak, iş yükü herhangi bir bölgede olması için Azure kaynak grubu kotaları gerekenler karar dikkate kullanışlı ve bu miktar içine dağıtım dikkate her bölgede isteyin. Bkz: [dağıtım sorunlarını giderme](resource-manager-common-deployment-errors.md) özel bölgeler için geçerli kotalar keşfetme daha fazla yardım için.
+> <!-- --> Sonuç olarak, iş yükü herhangi bir bölgede olması için Azure kaynak grubu kotaları gerekenler karar dikkate kullanışlı ve bu miktar içine dağıtım dikkate her bölgede isteyin. Bkz: [dağıtım sorunlarını giderme](resource-manager-common-deployment-errors.md) özel bölgeler için geçerli kotalar keşfetme daha fazla yardım için.
 >
 >
 
@@ -325,7 +324,7 @@ Belge boyutu, sorguları ikinci, anahtarları, istekleri ve yanıtları, her gib
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL veritabanı sınırları
-SQL veritabanı sınırları için bkz: [SQL veritabanı kaynak sınırları](sql-database/sql-database-resource-limits.md).
+SQL veritabanı sınırları için bkz: [tek veritabanları için SQL veritabanı kaynak sınırları](sql-database/sql-database-vcore-resource-limits-single-databases.md) ve [esnek havuzlar ve havuza alınmış veritabanları için SQL veritabanı kaynak sınırları](sql-database/sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### <a name="sql-data-warehouse-limits"></a>SQL veri ambarı sınırları
 SQL veri ambarı sınırları için bkz: [SQL veri ambarı kaynak sınırları](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).

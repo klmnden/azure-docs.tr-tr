@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164467"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316677"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 belirteç başvurusu
 Azure Active Directory (Azure AD) v2.0 uç her güvenlik belirteçleri çeşitli türlerde yayar [kimlik doğrulaması akışı](active-directory-v2-flows.md). Bu başvuru biçimi, güvenlik özellikleri ve her tür bir belirteç içeriği açıklar.
@@ -60,7 +60,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
 | Hedef kitle |`aud` |`6731de76-14a6-49ae-97bc-6eba6914391e` |Belirtecin hedeflenen alıcı tanımlar. Kimliği belirteçlerinde İzleyici uygulamanızın uygulama Microsoft uygulaması kayıt portalında uygulamanıza atanan kimliğidir. Uygulamanız bu değeri doğrulamak ve değer eşleşmiyorsa belirteci reddetme gerekir. |
-| Veren |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndüren güvenlik belirteci hizmeti (STS) tanımlar. Uygulamanızı belirteç v2.0 uç noktasından gelen emin olmak için verenin talep doğrulamalıdır. Bu aynı zamanda talep GUID bölümünü uygulamaya oturum açarak kiracılar sınırlamak için kullanmanız gerekir. Kullanıcı bir Microsoft hesabı tüketici kullanıcıdan geldiğini belirten GUID'dir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+| veren |`iss` |`https://login.microsoftonline.com/b9419818-09af-49c2-b0c3-653adc1f376e/v2.0 ` |Oluşturur ve belirteci ve kullanıcı kimlik doğrulamasının yapıldığı Azure AD kiracısı döndüren güvenlik belirteci hizmeti (STS) tanımlar. Uygulamanızı belirteç v2.0 uç noktasından gelen emin olmak için verenin talep doğrulamalıdır. Bu aynı zamanda talep GUID bölümünü uygulamaya oturum açarak kiracılar sınırlamak için kullanmanız gerekir. Kullanıcı bir Microsoft hesabı tüketici kullanıcıdan geldiğini belirten GUID'dir `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 | çıkışı |`iat` |`1452285331` |Belirteç düzenlendiği zaman dönem saatle gösterilir. |
 | süre sonu |`exp` |`1452289231` |Hangi belirteci geçersiz hale geldiği tarih dönem saatle gösterilir. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | önce değil |`nbf` |`1452285331` |Hangi belirtecin geçerli olduğu zaman dönem saatle gösterilir. Genellikle verme süresi ile aynı değil. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
@@ -95,8 +95,7 @@ Yeni bir erişim belirteci için bir yenileme belirteci almak zaman (ve uygulama
 ## <a name="validating-tokens"></a>Belirteçleri doğrulanıyor
 Şu anda, uygulamalarınızı yapmanız yalnızca belirteç doğrulama kimliği belirteçleri doğruluyor. Bir kimliği belirteci doğrulamak için uygulamanızın kimliği belirtecinin imzası ve kimliği belirtecinizdeki talepleri doğrulamalıdır.
 
-<!-- TODO: Link -->
-Microsoft, kitaplıklar ve kolayca belirteci doğrulama nasıl ele alınacağını gösteren kod örnekleri sağlar. Sonraki bölümlerde, temel alınan işlem açıklanmaktadır. Bazı üçüncü taraf açık kaynak kitaplıkları da JWT doğrulama için kullanılabilir. Neredeyse her platform ve dil için en az bir kitaplığın seçeneği yoktur.
+<!-- TODO: Link --> Microsoft, kitaplıklar ve kolayca belirteci doğrulama nasıl ele alınacağını gösteren kod örnekleri sağlar. Sonraki bölümlerde, temel alınan işlem açıklanmaktadır. Bazı üçüncü taraf açık kaynak kitaplıkları da JWT doğrulama için kullanılabilir. Neredeyse her platform ve dil için en az bir kitaplığın seçeneği yoktur.
 
 ### <a name="validate-the-signature"></a>İmza doğrulama
 JWT'nin tarafından ayrılmış üç segmentleri içerir `.` karakter. İlk kesim olarak bilinen *üstbilgi*, ikinci kesim *gövde*, ve üçüncü kesim *imza*. İmza kesimi, böylece uygulamanız tarafından güvenilen kimliği belirteci özgünlüğünü doğrulamak için kullanılabilir.
@@ -113,7 +112,7 @@ Kimlik belirteçlerini RSA 256 gibi endüstri standardı asimetrik şifreleme al
 
 `alg` Talep belirteç imzalamak için kullanılan algoritmayı belirtir. `kid` Talep belirteç imzalamak için kullanılan ortak anahtar gösterir.
 
-Herhangi bir zamanda, belirli bir genel-özel anahtar çiftleri kümesini herhangi birini kullanarak v2.0 uç noktası kimliği belirteci imzalayabilir. Bu anahtar değişiklikleri otomatik olarak işlemek için uygulamanızı yazılması gereken şekilde v2.0 uç düzenli aralıklarla anahtarları, olası kümesini döndürür. 24 saatte v2.0 uç noktası tarafından kullanılan ortak anahtarlar için güncelleştirmeleri denetlemek için makul bir sıklığıdır.
+V2.0 uç noktası, belirli bir genel-özel anahtar çiftleri kümesini herhangi birini kullanarak kimlik ve erişim belirteçlerini imzalar. Bu anahtar değişiklikleri otomatik olarak işlemek için uygulamanızı yazılması gereken şekilde v2.0 uç düzenli aralıklarla anahtarları, olası kümesini döndürür. 24 saatte v2.0 uç noktası tarafından kullanılan ortak anahtarlar için güncelleştirmeleri denetlemek için makul bir sıklığıdır.
 
 Konumunda bulunan Openıd Connect meta veri belgesi kullanarak imzayı doğrulamak için gereken imzalama anahtar verileri elde edebilirsiniz:
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > URL'yi bir tarayıcıda deneyin!
->
->
 
 Bu meta veri belgesi Openıd Connect kimlik doğrulaması için gereken çeşitli uç noktaları konumu gibi bilgileri, çeşitli yararlı parçalarını içeren bir JSON nesnesidir. Belge de içeren bir *jwks_uri*, Belirteçleri imzalamak için kullanılan ortak anahtarlar konumunu sağlar. Jwks_uri bulunan JSON belgesi şu anda kullanımda olan tüm ortak anahtar bilgileri yok. Uygulamanızı kullanabilirsiniz `kid` bu belgede hangi ortak anahtarı bir belirteç imzalamak için kullanılan seçmek için JWT üstbilgisinde talep. Ardından, imza doğrulaması'nin doğru ortak anahtar ve belirtilen algoritmasını kullanarak gerçekleştirir.
+
+> [!NOTE]
+> `x5t` Talep v2.0 uç kullanım dışıdır. Kullanmanızı öneririz `kid` belirtecinizi doğrulamak talep.
 
 İmza doğrulaması gerçekleştirme, bu belgenin kapsamı dışında olur. Birçok açık kaynak kitaplıkları, bu konuda yardımcı olmak kullanılabilir.
 
@@ -142,7 +142,7 @@ Uygulamanızı gerçekleştirmesi gereken talep doğrulamaları tam bir listesi 
 
 Bu talep beklenen değerler ayrıntılarını dahil edilmiştir [kimlik belirteçlerini](# ID tokens) bölümü.
 
-## <a name="token-lifetimes"></a>Belirteç ömürleri
+## <a name="token-lifetimes"></a>Belirteç kullanım ömrü
 Aşağıdaki belirteci yaşam süreleri bilgilerinizi yalnızca sunuyoruz. Geliştirmek ve uygulama hata ayıklama bilgileri size yardımcı olabilir. Uygulamalarınızı sabit kalması için bu yaşam süreleri hiçbirini beklenir yazılmamalıysa. Yaşam süresi can belirteci ve herhangi bir zamanda değiştirir.
 
 | Belirteç | Yaşam süresi | Açıklama |
