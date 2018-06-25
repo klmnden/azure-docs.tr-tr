@@ -13,7 +13,7 @@ ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
 ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
+ms.lasthandoff: 06/25/2018
 ms.locfileid: "35351532"
 ---
 # <a name="video-moderation"></a>Video denetimi

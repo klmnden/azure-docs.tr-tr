@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337950"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>SQL Server'dan Azure SQL Database yönetilen örnek T-SQL farkları 
 
@@ -146,7 +147,7 @@ Sunucu harmanlama `SQL_Latin1_General_CP1_CI_AS` ve değiştirilemez. Bkz: [harm
 
 Aşağıdakiler `CREATE DATABASE` sınırlamaları: 
 - Dosyaları ve dosya gruplarını tanımlanamaz.  
-- `CONTAINMENT` Seçeneği desteklenmez.  
+- `CONTAINMENT` seçeneği desteklenmez.  
 - `WITH`seçenekleri desteklenmez.  
    > [!TIP]
    > Geçici çözüm olarak kullanmak `ALTER DATABASE` sonra `CREATE DATABASE` veritabanı seçenekleri dosyaları ekleme ya da kapsama ayarlamak için ayarlanacak.  
@@ -206,6 +207,10 @@ SQL Server'da etkin belgelenmemiş DBCC deyimleri yönetilen örneğinde destekl
 - `Trace Flags` desteklenmez. Bkz: [izleme bayrakları](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - `DBCC TRACEOFF` desteklenmiyor. Bkz: [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql).
 - `DBCC TRACEON` desteklenmiyor. Bkz: [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql).
+
+### <a name="distributed-transactions"></a>Dağıtılmış işlemler
+
+Hiçbiri MSDTC ya da [esnek işlemleri](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) yönetilen örneğinde şu anda desteklenmiyor.
 
 ### <a name="extended-events"></a>Genişletilmiş Olaylar 
 
@@ -375,12 +380,10 @@ Tablo oluşturma veya değiştirme hakkında daha fazla bilgi için bkz: [CREATE
  
 Aşağıdaki değişkenler, İşlevler ve görünümler farklı sonuçlar döndürür:  
 - `SERVERPROPERTY('EngineEdition')` döndürür 8 değeri. Bu özellik, yönetilen örneğini benzersiz şekilde tanımlar. Bkz: [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')` Örneğin, 'myserver' kısa örnek adını döndürür. Bkz: [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` SQL Server örneğine yönetilen uygulanmaz için örnek olarak kavramı varolduğundan NULL döndürür. Bkz: [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME` döndürür tam DNS 'bağlanılabilirlik' adı, örneğin, yönetilen my instance.wcus17662feb9ce98.database.windows.net. Bkz: [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
 - `SYS.SERVERS` -döndürür tam DNS 'bağlanılabilirlik' adı gibi `myinstance.domain.database.windows.net` Özellikleri 'name' ve 'data_source'. Bkz: [SYS. SUNUCULARI](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVERNAME` tam DNS 'bağlanılabilirlik' adı, gibi döndürür `my-managed-instance.wcus17662feb9ce98.database.windows.net`. Bkz: [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql).  
-- `SYS.SERVERS` -döndürür tam DNS 'bağlanılabilirlik' adı gibi `myinstance.domain.database.windows.net` Özellikleri 'name' ve 'data_source'. Bkz: [SYS. SUNUCULARI](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql). 
-- `@@SERVICENAME` hiçbir örnek yönetilen ortamında mantıklıdır NULL döndürür. Bkz: [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
+- `@@SERVICENAME` SQL Server örneğine yönetilen uygulanmaz için hizmet olarak kavramı varolduğundan NULL döndürür. Bkz: [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).   
 - `SUSER_ID` desteklenir. AAD oturum açma sys.syslogins içinde değilse NULL döndürür. Bkz: [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` desteklenmiyor. (Geçici bilinen sorun) veri yanlış değerini döndürür. Bkz: [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 - `GETDATE()` ve diğer yerleşik tarih/saat işlevleri her zaman saati UTC saat diliminde döndürür. Bkz: [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
