@@ -1,25 +1,22 @@
 ---
 title: Azure Haritalar ile yönergeleri Göster | Microsoft Docs
 description: Javascript harita üzerinde iki konum arasında yönergeleri görüntüleme
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: codepen
-ms.openlocfilehash: 9007afd1bc4d2361addc2a554fab1330174e88e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 5e9ab73ddc16517e17894cddd9bc102f3941f00c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33767409"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "35759802"
 ---
-# <a name="show-directions-from-a-to-b"></a>Yönergeleri A'dan B'ye Göster 
+# <a name="show-directions-from-a-to-b"></a>A'dan B'ye yönleri gösterme 
 
 Bu makalede bir rota istek ve rota haritasında Göster gösterilmektedir. 
 
@@ -42,7 +39,11 @@ Gelen yanıt kodu son bloğunu ayrıştırır. Başarılı yanıt, her waypoint 
 
 Sınıfları ve bu makalede kullanılan yöntemleri hakkında daha fazla bilgi edinin: 
 
-* [eşleme](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
+* [Eşleme](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+
+Eşlemeleri eklemek daha fazla kod örnekleri için aşağıdaki makalelere bakın: 
+* [Trafik haritasında Göster](./map-show-traffic.md)
+* [Harita - fare olayları etkileşim](./map-events.md)
