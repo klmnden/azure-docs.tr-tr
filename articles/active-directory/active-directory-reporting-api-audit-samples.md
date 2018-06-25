@@ -1,46 +1,46 @@
 ---
 title: Azure Active Directory raporlama denetim API'si örnekleri | Microsoft Docs
-description: Azure Active Directory raporlama API'sini kullanmaya başlama
+description: Azure Active Directory Raporlama API'sini kullanmaya başlama
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: de8b8ec3-49b3-4aa8-93fb-e38f52c99743
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/30/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 77ecb1f0c4b3614c9692715edae21a09f261b277
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 240095b64f4b7b37a71f84ce8d7a3521e0ab7c03
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588173"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36223894"
 ---
-# <a name="azure-active-directory-reporting-audit-api-samples"></a>Denetim API'si örnekleri raporlama Azure Active Directory
-Bu makalede Azure Active Directory'ı Raporlama API'si hakkında makale koleksiyonu bir parçasıdır.  
-Azure AD raporlama kodu veya ilgili araçları kullanarak denetim veri erişmenizi sağlayan bir API ile sağlar.
-Örnek kod için ile sağlamak için bu makalenin kapsamı olan **API denetim**.
+# <a name="azure-active-directory-reporting-audit-api-samples"></a>Azure Active Directory raporlama denetim API'si örnekleri
+Bu makale, Azure Active Directory raporlama API'si hakkındaki makale koleksiyonunun bir parçasıdır.  
+Azure AD raporlama, kod veya ilgili araçları kullanarak veri denetimi yapmanızı sağlayan bir API sunar.
+Bu makalenin kapsamı, **denetim API'si** için örnek kod sağlamaktır.
 
-Bkz:
+Bkz.
 
-* [Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için
-* [Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) raporlama API'si hakkında daha fazla bilgi için.
+* Kavram hakkında daha fazla bilgi için [denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports)
+* Raporlama API'si hakkında daha fazla bilgi için [Azure Active Directory Raporlama API'sini kullanmaya başlama](active-directory-reporting-api-getting-started.md).
 
-Sorularınız, sorunları veya Geri bildiriminiz için lütfen başvurun [raporlama AAD Yardım](mailto:aadreportinghelp@microsoft.com).
+Sorularınız, sorunlarınız veya geri bildiriminiz için lütfen [AAD Raporlama Yardımı](mailto:aadreportinghelp@microsoft.com) ile iletişime geçin.
 
 
-## <a name="prerequisites"></a>Önkoşullar
-Bu makaledeki örnekler kullanmadan önce tamamlanması gereken [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md).  
+## <a name="prerequisites"></a>Ön koşullar
+Bu makaledeki örnekleri kullanabilmeniz için [Azure AD raporlama API'sine erişim önkoşulları](active-directory-reporting-api-prerequisites.md).  
 
-## <a name="known-issue"></a>Bilinen bir sorun
-AB bölgede Kiracı ise, uygulama kimlik doğrulama çalışmaz. Lütfen biz sorunu düzeltin kadar denetim API'si geçici bir çözüm olarak erişmek için kullanıcı kimlik doğrulama kullanın. 
+## <a name="known-issue"></a>Bilinen sorun
+Kiracınız AB bölgesindeyse App Auth çalışmaz. Biz bu sorunu giderene kadar Denetim API'sine erişmek için lütfen User Auth kullanın. 
 
 ## <a name="powershell-script"></a>PowerShell betiği
 
@@ -94,17 +94,17 @@ if ($oauth.access_token -ne $null) {
 
 ```
 
-### <a name="executing-the-powershell-script"></a>PowerShell komut dosyası yürütme
-Komut dosyası düzenlemeyi tamamladıktan sonra çalıştırın ve denetim beklenen verilerden rapor günlüklerini doğrulayın döndürülür.
+### <a name="executing-the-powershell-script"></a>Powershell betiğini yürütme
+Komut dosyasını düzenlemeyi tamamladıktan sonra çalıştırın ve Denetim günlükleri raporundan beklenen verilerin döndürüldüğünden emin olun.
 
-Komut çıkış denetimi raporu JSON biçiminde döndürür. Ayrıca oluşturur bir `Audits.json` aynı çıkış dosyası. Veri diğer raporlar ve yorum ihtiyacınız olmayan çıkış biçimleri çıkışı döndürmek için komut dosyasını değiştirerek deneyebilirsiniz.
+Betik, denetim raporundan JSON biçiminde çıkış döndürür. Ayrıca aynı çıkışla bir `Audits.json` dosyası da oluşturur. Betiği farklı raporlardan veri döndürecek şekilde değiştirebilir ve ihtiyacınız olmayan çıkış biçimlerini açıklama satırına döndürebilirsiniz.
 
 
 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
-* Bu makaledeki örnekler özelleştirme ister misiniz? Kullanıma [Azure Active Directory denetim API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit). 
-* Azure Active Directory'ı Raporlama API'si kullanan bir tam genel bakış görmek istiyorsanız bkz [Azure Active raporlama API'si Directory ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
-* Azure Active Directory raporlama hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).  
+* Bu makaledeki örnekleri özelleştirmek ister misiniz? [Azure Active Directory denetim API'si referansına](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) bakın. 
+* Azure Active Directory raporlama API'sini kullanma konusunda ayrıntılı inceleme için bkz. [Azure Active Directory raporlama API'sini kullanmaya başlama](active-directory-reporting-api-getting-started.md).
+* Azure Active Directory raporlama hakkında daha fazla bilgi için bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md).  
 

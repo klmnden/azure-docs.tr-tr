@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2018
+ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c5c719d484684c0efff87671ba7e012d9bd7699e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264103"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3 nedir?
 
@@ -49,7 +50,9 @@ Media Services, bulutta çeşitli medya iş akışı derlemenize olanak sağlar.
 
 ## <a name="v3-capabilities"></a>v3 özellikleri
 
-v3, **Azure Resource Manager**’da yerleşik olan yönetim ve işlem işlevselliğini kullanıma sunan, birleşik bir API yüzeyini temel alır. Bu sürüm aşağıdaki özellikleri sağlar:  
+v3, Azure Resource Manager'da yerleşik olan yönetim ve işlem işlevselliğini kullanıma sunan, birleşik bir API yüzeyini temel alır. 
+
+Bu sürüm aşağıdaki özellikleri sağlar:  
 
 * Medya işleme veya analiz görevlerinin basit iş akışlarını tanımlamanıza yardımcı olan **dönüştürmeler**. Dönüştürme, video ve ses dosyalarınızı işlemeye yönelik bir tariftir. İşleri Dönüştürmeye göndererek içerik kitaplığınızdaki tüm dosyaları işlemek için art arda bunu uygulayabilirsiniz.
 * Videolarınızı işleme (kodlama veya analiz etme) **İşleri**. Azure Blob depolamada bulunan dosyaların yolları, SAS URL’leri veya HTTP(s) URL’leri kullanılarak bir işte girdi içeriği belirtilebilir. 
@@ -58,34 +61,29 @@ v3, **Azure Resource Manager**’da yerleşik olan yönetim ve işlem işlevsell
 * Kaynak düzeyinde **rol tabanlı erişim denetimi** ayarlanabilir ve böylece Dönüştürmeler, Kanallar vb. gibi belirli kaynaklara erişimi kilitlemeniz sağlanır.
 * Birçok dilde **İstemci SDK’ları**: .NET, .NET core, Python, Go, Java ve Node.js.
 
+## <a name="naming-conventions"></a>Adlandırma kuralları
+
+Azure Media Services v3 kaynaklarının adları (Varlıklar, İşler, Dönüşümler gibi), Azure Resource Manager adlandırma kısıtlamalarına tabidir. Azure Resource Manager uyarınca kaynak adları her zaman benzersizdir. Bu nedenle kaynaklarınızda benzersiz tanıtıcı dizeleri (GUID gibi) kullanabilirsiniz. 
+
+Media Services kaynak adları şu karakterleri içeremez: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', tek tırnak karakteri veya kontrol karakterleri. Diğer tüm karakterlere izin verilir. Bir kaynağın adı en fazla 260 karakter olabilir. 
+
+Azure Resource Manager adlandırma kuralları hakkında daha fazla bilgi için bkz. [Adlandırma gereksinimleri](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) ve [Adlandırma kuralları](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
 ## <a name="how-can-i-get-started-with-v3"></a>v3’ü kullanmaya nasıl başlayabilirim?
 
-Geliştirici olarak, özel medya iş akışlarını kolayca oluşturmak, yönetmek ve korumak için REST API ile etkileşim kurmanıza olanak sağlayan Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) veya istemci kitaplıklarını kullanabilirsiniz. Microsoft aşağıdaki istemci kitaplıklarını oluşturur ve destekler: 
+Geliştirici olarak, özel medya iş akışlarını kolayca oluşturmak, yönetmek ve korumak için REST API ile etkileşim kurmanıza olanak sağlayan Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) veya istemci kitaplıklarını kullanabilirsiniz. REST Postman örneğine [buradan](https://github.com/Azure-Samples/media-services-v3-rest-postman) ulaşabilirsiniz. [Azure Resource Manager tabanlı REST API'sini](https://github.com/Azure-Samples/media-services-v3-arm-templates) de kullanabilirsiniz.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [.NET dilleri](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (**.NET CLI** sekmesini seçin)
-* Java
+Microsoft aşağıdaki istemci kitaplıklarını oluşturur ve destekler: 
 
-  Projenize aşağıdaki bağımlılığı ekleyin:
-  
-  ```
-  <dependency>
-    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
-    <artifactId>azure-mgmt- media</artifactId>
-    <version>0.0.1-beta</version>
-  </dependency> 
-  ```
-* Node.js 
-
-  Aşağıdaki komutu kullanın:
-  
-  ```
-  npm install azure-arm-mediaservices
-  ```
-  
-* [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
-* [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
+|İstemci kitaplığı|Örnekler|
+|---|---|
+|[Azure CLI SDK'sı](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI örnekleri](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
+|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
+|[.NET Core SDK'sı](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (**.NET CLI** sekmesini seçin)|[.NET Core örnekleri](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
+|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
+|[Node.js SDK’sı](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js örnekleri](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
+|[Python SDK'sı](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
+|[Go SDK'sı](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
 
 Media Services, tercih ettiğiniz dil/teknolojiye yönelik SDK’lar oluşturmak için kullanabileceğiniz [Swagger dosyaları](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) sağlar.  
 

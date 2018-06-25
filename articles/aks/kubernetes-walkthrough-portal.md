@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 8b9a9eddc6876451a75f0deae911d73b57198827
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597289"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286605"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Hızlı Başlangıç: Azure Kubernetes Hizmeti (AKS) kümesini dağıtma
 
@@ -32,7 +32,7 @@ http://portal.azure.com adresinden Azure portalında oturum açın.
 
 ## <a name="create-aks-cluster"></a>AKS kümesi oluşturma
 
-**Kaynak oluştur**’u seçin > **Kubernetes** ifadesini arayın > **Kubernetes Hizmeti** > **Oluştur** seçeneğini belirleyin.
+**Kaynak oluştur** > **Kubernetes Hizmeti** > **Oluştur**'u seçin.
 
 AKS kümesi oluşturma formunun her bir başlığının altında aşağıdaki adımları tamamlayın.
 

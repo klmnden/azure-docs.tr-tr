@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 01/19/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f6b2cc8f3e27b65f225014ec92a7e99851eac743
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: de8b53756c64867c9b24bcd609e5b994e870da9f
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31514552"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285592"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Hızlı başlangıç: Azure portalında ilk Batch işinizi çalıştırma
 
@@ -32,7 +32,7 @@ https://portal.azure.com adresinden Azure portalında oturum açın.
 Test amacıyla örnek bir Batch hesabı oluşturmak için bu adımları izleyin. Havuzlar ve işler oluşturmak için bir Batch hesabı gerekir. Burada gösterildiği gibi, bir Azure depolama hesabını Batch hesabına bağlayabilirsiniz. Bu hızlı başlangıç için gerekli olmamasına karşın, depolama hesabı uygulamaları dağıtmak ve çoğu gerçek yaşam iş yükleri için giriş ve çıkış verilerini depolamak üzere yararlıdır.
 
 
-1. **Yeni** > **İşlem** > **Batch Hizmeti**'ne tıklayın. 
+1. **Kaynak oluştur** > **İşlem** > **Batch Hizmeti**'ni seçin. 
 
   ![Market’te Batch][marketplace_portal]
 
@@ -40,7 +40,7 @@ Test amacıyla örnek bir Batch hesabı oluşturmak için bu adımları izleyin.
 
 3. **Depolama hesabında**, mevcut bir depolama hesabını seçin veya yeni bir depolama hesabı oluşturun.
 
-4. Diğer ayarlar için varsayılan ayarları tutun ve **Oluştur**’a tıklayarak hesabı oluşturun.
+4. Diğer ayarlar için varsayılan ayarları tutun ve **Oluştur**'u seçerek hesabı oluşturun.
 
   ![Batch hesabı oluşturma][account_portal]  
 
@@ -51,7 +51,7 @@ Test amacıyla örnek bir Batch hesabı oluşturmak için bu adımları izleyin.
 Bir Batch hesabı edindikten sonra, test amacıyla örnek bir Windows işlem düğümleri havuzu oluşturun. Bu hızlı örneğe yönelik havuz, Azure Market’te Windows Server 2012 R2 görüntüsü çalıştıran 2 düğümden oluşur.
 
 
-1. Batch hesabında **Havuzlar** > **Ekle**’ye tıklayın.
+1. Batch hesabında **Havuzlar** > **Ekle**'yi seçin.
 
 2. *mypool* adlı bir **Havuz Kimliği** girin. 
 
@@ -75,21 +75,21 @@ Bir Batch hesabı edindikten sonra, test amacıyla örnek bir Windows işlem dü
 
   ![Bir havuz boyutu seçin][pool_size] 
 
-5. Diğer ayarlar için varsayılan değerleri tutun ve **Tamam**’a tıklayarak havuzu oluşturun.
+5. Diğer ayarlar için varsayılan ayarları tutun ve **Tamam**'ı seçerek havuzu oluşturun.
 
 Batch, havuzu hemen oluşturur ancak işlem düğümlerinin ayrılması ve başlatılması birkaç dakika sürer. Bu süre boyunca, havuzun **Ayırma durumu** **Yeniden boyutlandırılıyor** şeklindedir. Havuz yeniden boyutlandırılırken devam ederek iş ve görevler oluşturabilirsiniz. 
 
 ![Yeniden boyutlandırma durumunda havuz][pool_resizing]
 
-Birkaç dakika sonra havuzun durumu **Sabit** olur ve düğümler başlar. Düğümlerin durumunu denetlemek için **Düğümler**’e tıklayın. Bir düğümün durumu **Boşta** olduğunda görevleri çalıştırmaya hazırdır. 
+Birkaç dakika sonra havuzun durumu **Sabit** olur ve düğümler başlar. Düğümlerin durumunu denetlemek için **Düğümler**'i seçin. Bir düğümün durumu **Boşta** olduğunda görevleri çalıştırmaya hazırdır. 
 
 ## <a name="create-a-job"></a>Bir iş oluşturma
 
 Bir havuza sahip olduktan sonra üzerinde çalıştıracak bir iş oluşturun. Batch işi bir veya daha fazla görevin mantıksal grubudur. Bir iş, öncelik gibi görevler arasında ortak olan ayarları ve görevlerin çalıştırılacağı havuzu içerir. Başlangıçta iş hiçbir görev içermez. 
 
-1. Batch hesabı görünümünde **İşler** > **Ekle**’ye tıklayın. 
+1. Batch hesabı görünümünde **İşler** > **Ekle**'yi seçin. 
 
-2. *myjob* adlı bir **İş Kimliği** girin. **Havuz** menüsünde *mypool*’u seçin. Diğer ayarlar için varsayılan değerleri bırakın ve **Tamam**’a tıklayın.
+2. *myjob* adlı bir **İş Kimliği** girin. **Havuz** menüsünde *mypool*’u seçin. Diğer ayarlar için varsayılan değerleri kabul edin ve **Tamam**'ı seçin.
 
   ![Bir iş oluşturma][job_create]
 
@@ -103,11 +103,11 @@ Batch kullandığınızda komut satırı, uygulamanızı veya betiğinizi belirt
 
 İlk görevi oluşturmak için:
 
-1. **Ekle**'ye tıklayın.
+1. **Add (Ekle)** seçeneğini belirleyin.
 
 2. *mytask* adlı bir **Görev Kimliği** girin. 
 
-3. **Komut satırı**’na `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"` girin. Diğer ayarlar için varsayılan değerleri bırakın ve **Tamam**’a tıklayın.
+3. **Komut satırı**’na `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"` girin. Diğer ayarlar için varsayılan değerleri kabul edin ve **Tamam**'ı seçin.
 
   ![Görev oluşturma][task_create]
 
@@ -117,7 +117,7 @@ Bir görev oluşturduktan sonra Batch, görevi havuzda çalışmak üzere kuyru�
 
 ## <a name="view-task-output"></a>Görev çıkışını görüntüleme
 
-Yukarıdaki görev örnekleri birkaç dakika içinde tamamlanır. Tamamlanmış bir görevin çıktısını görüntülemek için **Düğüm üzerindeki dosyalar**’a tıklayın ve sonra `stdout.txt` dosyasını seçin. Bu dosya, görevin standart çıkışını gösterir. İçeriği aşağıdakine benzerdir:
+Yukarıdaki görev örnekleri birkaç dakika içinde tamamlanır. Tamamlanmış bir görevin çıktısını görüntülemek için **Düğüm üzerindeki dosyalar**'ı ve sonra `stdout.txt` dosyasını seçin. Bu dosya, görevin standart çıkışını gösterir. İçeriği aşağıdakine benzerdir:
 
 ![Görev çıkışını görüntüleme][task_output]
 
@@ -127,9 +127,9 @@ Yukarıdaki görev örnekleri birkaç dakika içinde tamamlanır. Tamamlanmış 
 
 Batch öğreticileri ve örnekleri ile devam etmek istiyorsanız, bu hızlı başlangıçta kullanılan Batch hesabını ve bağlı depolama hesabını kullanın. Batch hesabının kendisi için herhangi bir ücret alınmaz.
 
-Zamanlanmış bir iş olmasa bile, düğümler çalışırken havuz için sizden ücret alınır. Havuz artık gerekli değilse silin. Hesap görünümünde **Havuzlar**’a ve havuzun adına tıklayın. Sonra **Sil**’e tıklayın.  Havuzu sildiğinizde düğümler üzerindeki tüm görev çıkışları silinir. 
+Zamanlanmış bir iş olmasa bile, düğümler çalışırken havuz için sizden ücret alınır. Havuz artık gerekli değilse silin. Hesap görünümünde **Havuzlar**'ı ve havuzun adını seçin. Ardından **Sil**’i seçin.  Havuzu sildiğinizde düğümler üzerindeki tüm görev çıkışları silinir. 
 
-Artık gerekli olmadığında kaynak grubunu, Batch hesabını ve tüm ilişkili kaynakları silin. Bu işlemi yapmak için Batch hesabına ait kaynak grubunu seçin ve **Kaynak Grubunu Sil**’e tıklayın.
+Artık gerekli olmadığında kaynak grubunu, Batch hesabını ve tüm ilişkili kaynakları silin. Bu işlemi yapmak için Batch hesabına ait kaynak grubunu seçin ve **Kaynak Grubunu Sil**'i seçin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

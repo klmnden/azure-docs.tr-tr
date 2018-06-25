@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802060"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36209825"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics'te veri kullanımını çözümleme
 Log Analytics, toplanan veri miktarı, verileri hangi kaynakların gönderdiği ve gönderilen farklı veri türleri hakkındaki bilgileri içerir.  Veri kullanımını gözden geçirmek ve analiz etmek için **Log Analytics Kullanımı** panosunu kullanın. Panoda her çözüm tarafından ne kadar veri toplandığı ve bilgisayarlarınızın ne kadar veri gönderdiği gösterilir.
@@ -59,7 +59,9 @@ Bu bölümde, aşağıdaki durumlarda nasıl uyarı oluşturulacağı açıklan�
 - Veri hacmi belirtilen bir miktarı aştığında.
 - Veri hacminin belirtilen bir miktarı aşacağı tahmin edildiğinde.
 
-Log Analytics [uyarılarında](log-analytics-alerts-creating.md) arama sorguları kullanılır. Aşağıdaki sorgu, son 24 saatte 100 GB'den fazla veri toplandığında bir sonuç verir:
+Azure Uyarıları, arama sorguları kullanan [günlük uyarılarını](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) destekler. 
+
+Aşağıdaki sorgu, son 24 saatte 100 GB'den fazla veri toplandığında bir sonuç verir:
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -69,27 +71,35 @@ Aşağıdaki sorgu, ne zaman bir günde 100 GB'den fazla veri toplanacağını t
 
 Farklı bir veri hacminde uyarıda bulunmak için, sorgulardaki 100 değerini uyarılmak istediğiniz GB sayısıyla değiştirin.
 
-Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın.
+Toplanan veri beklenen miktarı aştığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) başlığı altında açıklanan adımları kullanın.
 
 İlk sorgu için, yani 24 saat içinde 100 GB'den fazla veri toplandığında uyarı oluştururken şu ayarları yapın:  
-- **Ad**: *24 saat içinde 100 GB'den büyük veri hacmi*  
-- **Önem derecesi**: *Uyarı*  
-- **Arama sorgusu**: `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`   
-- **Zaman penceresi**: *24 Saat*.
-- **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
-- **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
-- **Sonuç sayısı**: *Şundan büyüktür: 0*
 
-Uyarı kuralı olarak bir e-postayı, web kancasını veya runbook eylemini yapılandırmak için, [Uyarı kurallarına eylemler ekleme](log-analytics-alerts-actions.md) başlığı altında açıklanan adımları kullanın.
+- **Uyarı koşulunu tanımlama** adımında Log Analytics çalışma alanınızı kaynak hedefi olarak belirtin.
+- **Uyarı ölçütleri** alanında aşağıdakileri belirtin:
+   - **Sinyal Adı** bölümünde **Özel günlük araması**'nı seçin
+   - **Arama sorgusu**: `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Uyarı mantığı**, **Temeli** *bir dizi sonuçtur* ve **Koşul**, *Büyüktür* bir **Eşik değeri**, *0*
+   - Kullanım verileri saatte bir güncelleştirildiğinden **Süre** *1440* dakika, **Uyarı sıklığı** ise *60* dakikada bir olarak belirlenmiştir.
+- **Uyarı ayrıntılarını tanımlama** adımında aşağıdakileri belirtin:
+   - **Ad**: *24 saat içinde 100 GB'den büyük veri hacmi*
+   - **Önem derecesi**: *Uyarı*
+
+Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](../monitoring-and-diagnostics/monitoring-action-groups.md) kullanın veya yeni bir tane oluşturun.
 
 İkinci sorgu için, yani 24 saat içinde 100 GB'den fazla veri olacağı tahmin edildiğinde uyarı oluştururken şu ayarları yapın:
-- **Ad**: *24 saat içinde veri hacminin 100 GB'den büyük olacağı tahmin ediliyor*
-- **Önem derecesi**: *Uyarı*
-- **Arama sorgusu**: `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
-- **Zaman penceresi**: *3 Saat*.
-- **Uyarı sıklığı**: Kullanım verileri yalnızca bir saat arayla güncelleştirildiğinden bir saat.
-- **Şuna bağlı olarak uyarı oluştur**: *sonuç sayısı*
-- **Sonuç sayısı**: *Şundan büyüktür: 0*
+
+- **Uyarı koşulunu tanımlama** adımında Log Analytics çalışma alanınızı kaynak hedefi olarak belirtin.
+- **Uyarı ölçütleri** alanında aşağıdakileri belirtin:
+   - **Sinyal Adı** bölümünde **Özel günlük araması**'nı seçin
+   - **Arama sorgusu**: `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Uyarı mantığı**, **Temeli** *bir dizi sonuçtur* ve **Koşul**, *Büyüktür* bir **Eşik değeri**, *0*
+   - Kullanım verileri saatte bir güncelleştirildiğinden **Süre** *180* dakika, **Uyarı sıklığı** ise *60* dakikada bir olarak belirlenmiştir.
+- **Uyarı ayrıntılarını tanımlama** adımında aşağıdakileri belirtin:
+   - **Ad**: *24 saat içinde veri hacminin 100 GB'den büyük olacağı tahmin ediliyor*
+   - **Önem derecesi**: *Uyarı*
+
+Günlük uyarısı ölçütlerle eşleştiğinde bilgilendirme yapılması için var olan bir [Eylem Grubunu](../monitoring-and-diagnostics/monitoring-action-groups.md) kullanın veya yeni bir tane oluşturun.
 
 Uyarı aldığınızda, kullanımın neden beklenenden fazla olduğu konusundaki sorunları gidermek için aşağıdaki bölümde yer alan adımları kullanın.
 
@@ -155,12 +165,11 @@ Belirli bir teklifle ilgili veri gönderen bilgisayarların tam listesini görü
 
 Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
 
-
 ## <a name="next-steps"></a>Sonraki adımlar
 * Arama dilini nasıl kullanacağınızı öğrenmek için bkz. [Log Analytics'te günlük aramaları](log-analytics-log-searches.md). Kullanım verilerinde başka analizler yapmak için arama sorgularını kullanabilirsiniz.
-* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [Uyarı kuralı oluşturma](log-analytics-alerts-creating.md#create-an-alert-rule) başlığı altında açıklanan adımları kullanın
-* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın
-* Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin
-* [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin
-* Olay toplama ayarlarınızda değişiklik yapmak için, [olay günlüğü yapılandırması](log-analytics-data-sources-windows-events.md) konusunu gözden geçirin
-* Syslog koleksiyonu ayarlarınızda değişiklik yapmak için, [syslog yapılandırması](log-analytics-data-sources-syslog.md) konusunu gözden geçirin
+* Bir arama ölçütü karşılandığında size bildirilmesini sağlamak için, [yeni günlük uyarısı oluşturma](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) başlığı altında açıklanan adımları kullanın.
+* Yalnızca gerekli bilgisayar gruplarından veri toplamak için [çözüm hedefleme](../operations-management-suite/operations-management-suite-solution-targeting.md) özelliğini kullanın.
+* Etkili bir güvenlik olay koleksiyonu ilkesi yapılandırmak için, [Azure Güvenlik Merkezi filtreleme ilkesi](../security-center/security-center-enable-data-collection.md) konusunu gözden geçirin.
+* [Performans sayacı yapılandırmasını](log-analytics-data-sources-performance-counters.md) değiştirin.
+* Olay toplama ayarlarınızda değişiklik yapmak için, [olay günlüğü yapılandırması](log-analytics-data-sources-windows-events.md) konusunu gözden geçirin.
+* Syslog koleksiyonu ayarlarınızda değişiklik yapmak için, [syslog yapılandırması](log-analytics-data-sources-syslog.md) konusunu gözden geçirin.

@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 40c57a00363d3952f85a053724ab7dbec257670d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9697bd5a55a5cfcdcd6958f8baff85e55c880c87
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606469"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287669"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure dosya paylaşımlarını yedekleme
 Bu makalede, Azure portalını kullanarak [Azure dosya paylaşımlarını](../storage/files/storage-files-introduction.md) yedekleme ve geri yükleme işlemlerinin nasıl yapılacağı açıklanmaktadır.
@@ -28,17 +28,21 @@ Bu kılavuzda şunların nasıl yapıldığını öğrenirsiniz:
 > * Yedekleme verilerinizi silme
 
 ## <a name="prerequisites"></a>Ön koşullar
-Azure dosya paylaşımını yedekleyebilmeniz için önce [desteklenen Depolama Hesabı türlerinden](troubleshoot-azure-files.md#preview-boundaries) birinde yer aldığından emin olmalısınız. Bunu doğruladıktan sonra dosya paylaşımlarınızı koruyabilirsiniz.
+Azure dosya paylaşımını yedekleyebilmeniz için önce [desteklenen Depolama Hesabı türlerinden](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview) birinde yer aldığından emin olmalısınız. Bunu doğruladıktan sonra dosya paylaşımlarınızı koruyabilirsiniz.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Önizleme sırasında Azure dosya paylaşımı yedeklemesine yönelik sınırlamalar
-Azure dosya paylaşımları için yedekleme önizlemede sunulmaktadır. Önizleme sırasında aşağıdaki sınırlamaları unutmayın:
-- [Bölgesel olarak yedekli depolama (ZRS)](../storage/common/storage-redundancy-zrs.md) veya [okuma erişimli coğrafi olarak yedekli depolama (RA-GRS)](../storage/common/storage-redundancy-grs.md) çoğaltması ile depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
-- Sanal Ağların etkin olduğu depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
-- Azure Dosyalarını korumak için bir PowerShell veya CLI yoktur.
+Azure Dosya paylaşımları için yedekleme, Önizleme aşamasındadır. Aşağıdaki yedekleme senaryoları, Azure dosya paylaşımları için desteklenmemektedir:
+- [Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması* ile Depolama Hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
+- Sanal Ağların veya Güvenlik Duvarının etkin olduğu depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
+- Azure Backup kullanarak Azure Dosyalarını korumak için bir PowerShell veya CLI yoktur.
 - Günlük zamanlanan maksimum yedekleme sayısı birdir.
 - Günlük zamanlanan maksimum istek üzerine yedekleme sayısı dörttür.
 - Kurtarma Hizmetleri kasanızdaki yedeklemelerin yanlışlıkla silinmesini önlemek için depolama hesabındaki [kaynak kilitlerini](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) kullanın.
-- Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, kurtarma noktalarının kaybolması ve/veya geri yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir 
+- Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, kurtarma noktalarının kaybolması ve/veya geri yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir
+
+\*[Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması ile Depolama Hesaplarında Azure Dosya Paylaşımları, GRS olarak çalışır ve GRS fiyatlarıyla faturalandırılır
+
+[Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md) (ZRS) çoğaltması ile Depolama Hesaplarında Azure Dosya Paylaşımları için yedekleme şu anda yalnızca Orta ABD (CUS) ve Doğu ABD 2 (EUS2) bölgesinde kullanılabilir
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Azure dosya paylaşımı için yedeklemeyi yapılandırma
 Tüm yedekleme verileri Kurtarma Hizmetleri kasalarında depolanır. Bu öğreticide zaten yerleşik bir Azure dosya paylaşımınız olduğu varsayılır. Azure dosya paylaşımınızı yedeklemek için:

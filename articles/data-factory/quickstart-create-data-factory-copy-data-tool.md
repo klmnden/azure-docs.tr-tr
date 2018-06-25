@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: hero-article
-ms.date: 01/16/2018
+ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: aea76544f244adba8368a1d8fbe268746060b5a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 23d4afffbe108d439dd53d95ed81f7d9fc4246ef
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30169834"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284587"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Veri Kopyalama aracını kullanarak veri kopyalama 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -71,69 +71,73 @@ Bu hızlı başlangıçta Azure portalını kullanarak bir veri fabrikası oluş
 1. **Başlayalım** sayfasında, Veri Kopyalama aracını başlatmak için **Veri Kopyala** kutucuğunu seçin. 
 
    ![“Veri kopyala” kutucuğu](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-tile.png)
-2. Veri Kopyalama aracının **Özellikler** sayfasında **İleri**’yi seçin. Bu sayfada işlem hattının adını ve açıklamasını belirtebilirsiniz. 
+
+2. Veri Kopyalama aracının **Özellikler** sayfasında işlem hattı için bir ad ve açıklama belirtip **İleri**'yi seçebilirsiniz. 
 
    ![“Özellikler” sayfası](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
-3. **Kaynak veri deposu** sayfasında **Azure Blob Depolama**’yı ve ardından **İleri**’yi seçin.
+3. **Kaynak veri deposu** sayfasında aşağıdaki adımları tamamlayın:
 
-   ![“Kaynak veri deposu” sayfası](./media/quickstart-create-data-factory-copy-data-tool/source-data-store-page.png)
-4. **Azure Blob depolama hesabı belirtin** sayfasında, **Depolama hesabı adı** listesinden depolama hesabınızı ve sonra **İleri**’yi seçin. 
+    a. Bağlantı eklemek için **+ Yeni bağlantı oluştur**'a tıklayın.
 
-   ![“Azure Blob depolama hesabını belirtin” sayfası](./media/quickstart-create-data-factory-copy-data-tool/specify-blob-storage-account.png)
-5. **Girdi dosyasını veya klasörünü seçin** sayfasında aşağıdaki adımları uygulayın:
+    ![“Kaynak veri deposu” sayfası](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
-   a. **adftutorial/input** klasörüne göz atın.
+    b. Galeriden **Azure Blob Depolama**'yı ve ardından **İleri**'yi seçin.
 
-   b. **emp.txt** dosyasını seçin.
+    ![Galeriden blob depolamayı seçin](./media/quickstart-create-data-factory-copy-data-tool/select-blob-source.png)
 
-   c. **Seç** seçeneğini belirleyin. Bu adımı atlamak için **emp.txt** dosyasına çift tıklayabilirsiniz.
+    c. **Azure Blob depolama hesabı belirtin** sayfasında, **Depolama hesabı adı** listesinden depolama hesabınızı ve sonra **İleri**’yi seçin. 
 
-   d. **İleri**’yi seçin. 
+   ![Azure Blob depolama hesabını yapılandırın](./media/quickstart-create-data-factory-copy-data-tool/configure-blob-storage.png)
 
-   ![“Girdi dosyası veya klasörü seçin” sayfası](./media/quickstart-create-data-factory-copy-data-tool/choose-input-file-folder.png)
-6. **Dosya biçimi ayarları** sayfasında aracın sütun ve satır sınırlayıcılarını otomatik olarak belirlediğine dikkat edin ve **İleri**’yi seçin. Ayrıca, bu sayfada verilerin önizlemesini yapabilir ve giriş verisi şemalarını görüntüleyebilirsiniz. 
+   d. Kaynak olarak yeni oluşturulan bağlantılı hizmeti seçin ve **İleri**'ye tıklayın.
 
-   ![“Dosya biçimi ayarları” sayfası](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-page.png)
-7. **Hedef veri deposu** sayfasında **Azure Blob Depolama**’yı ve sonra **İleri**’yi seçin. 
+   ![Kaynak olarak bağlantılı hizmeti seçin](./media/quickstart-create-data-factory-copy-data-tool/select-source-linked-service.png)
 
-   ![“Hedef veri deposu” sayfası](./media/quickstart-create-data-factory-copy-data-tool/destination-data-store-page.png)    
-8. **Azure Blob depolama hesabı belirtin** sayfasında, Azure Blob depolama hesabınızın adını ve sonra **İleri**’yi seçin. 
 
-   ![“Azure Blob depolama hesabını belirtin” sayfası](./media/quickstart-create-data-factory-copy-data-tool/specify-sink-blob-storage-account.png)
-9. **Çıktı dosyasını veya klasörünü seçin** sayfasında aşağıdaki adımları uygulayın: 
+4. **Girdi dosyasını veya klasörünü seçin** sayfasında aşağıdaki adımları uygulayın:
 
-   a. Klasör yolu için **adftutorial/output** yolunu girin.
+   a. **Göz at**'a tıklayarak **adftutorial/input** klasörüne gidin, **emp.txt** dosyasını seçin ve **Seç**'e tıklayın. 
 
-   b. Dosya adı için **emp.txt** adını girin.
+   ![“Girdi dosyası veya klasörü seçin” sayfası](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 
-   c. **İleri**’yi seçin. 
+   d. Dosyayı olduğu gibi kopyalamak için **İkili kopya**'a tıklayıp **İleri**'yi seçin. 
 
-   ![“Çıktı dosyasını veya klasörünü seçin” sayfası](./media/quickstart-create-data-factory-copy-data-tool/choose-output-file-folder.png) 
-10. **Dosya biçimi ayarları** sayfasında **İleri**’yi seçin. 
+   ![“Girdi dosyası veya klasörü seçin” sayfası](./media/quickstart-create-data-factory-copy-data-tool/select-binary-copy.png)
 
-    ![“Dosya biçimi ayarları” sayfası](./media/quickstart-create-data-factory-copy-data-tool/file-format-settings-output-page.png)
-11. **Ayarlar** sayfasında **İleri**’yi seçin. 
 
-    ![“Ayarlar” sayfası](./media/quickstart-create-data-factory-copy-data-tool/advanced-settings-page.png)
-12. **Özet** sayfasında tüm ayarları gözden geçirin ve **İleri**’yi seçin. 
+5. **Hedef veri deposu** sayfasında yeni oluşturduğunuz bağlantılı **Azure Blob Depolama** hizmetini ve sonra **İleri**'yi seçin. 
+
+   ![“Hedef veri deposu” sayfası](./media/quickstart-create-data-factory-copy-data-tool/select-sink-linked-service.png)
+
+6. **Çıkış dosyasını veya klasörünü seçin** sayfasında klasör yolu olarak **adftutorial/output** girip **İleri**'yi seçin. 
+
+   ![“Çıktı dosyasını veya klasörünü seçin” sayfası](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
+
+7. **Ayarlar** sayfasında varsayılan yapılandırmaları kullanmak için **İleri**'yi seçin. 
+
+8. **Özet** sayfasında tüm ayarları gözden geçirin ve **İleri**'yi seçin. 
 
     ![“Özet” sayfası](./media/quickstart-create-data-factory-copy-data-tool/summary-page.png)
-13. **Dağıtım tamamlandı** sayfasında, oluşturduğunuz işlem hattını izlemek için **İzleyici**’yi seçin. 
+
+9. **Dağıtım tamamlandı** sayfasında, oluşturduğunuz işlem hattını izlemek için **İzleyici**’yi seçin. 
 
     ![“Dağıtım tamamlandı” sayfası](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
-14. Uygulama **İzleyici** sekmesine geçer. Bu sekmede işlem hattının durumunu görürsünüz. Listeyi yenilemek için **Yenile**’yi seçin. 
+
+10. Uygulama **İzleyici** sekmesine geçer. Bu sekmede işlem hattının durumunu görürsünüz. Listeyi yenilemek için **Yenile**’yi seçin. 
     
-    ![“Yenile” düğmeli işlem hattı çalıştırmalarını izleme sekmesi](./media/quickstart-create-data-factory-copy-data-tool/monitor-pipeline-runs-page.png)
-15. **Eylemler** sütununda **Etkinlik Çalıştırma İşlemlerini Görüntüle**’yi seçin. İşlem hattı, **Kopyalama** türünde tek bir etkinlik içerir. 
+    ![İşlem hattı çalıştırmasını izleme](./media/quickstart-create-data-factory-copy-data-tool/pipeline-monitoring.png)
 
-    ![Etkinlik çalıştırma işlemlerini görüntüleme](./media/quickstart-create-data-factory-copy-data-tool/activity-runs.png)
-16. Kopyalama işlemiyle ilgili ayrıntıları görüntülemek için **Eylemler** sütunundaki **Ayrıntılar**’ı (gözlük resmi) seçin. Özelliklerle ilgili ayrıntılar için bkz. [Kopyalama Etkinliğine genel bakış](copy-activity-overview.md). 
+11. **Eylemler** sütununda **Etkinlik Çalıştırma İşlemlerini Görüntüle**’yi seçin. İşlem hattı, **Kopyalama** türünde tek bir etkinlik içerir. 
 
-    ![İşlem ayrıntılarını kopyalama](./media/quickstart-create-data-factory-copy-data-tool/copy-operation-details.png)
-17. **adftutorial** kapsayıcısının **çıktı** klasöründe **emp.txt** dosyasının oluşturulduğunu doğrulayın. Çıkış klasörü yoksa, Data Factory hizmeti tarafından otomatik olarak oluşturulur. 
-18. Bağlı hizmetleri, veri kümelerini ve işlem hatlarını düzenleyebilmek için **Düzenle** sekmesine geçin. Bunları Data Factory kullanıcı arabiriminde düzenleme hakkında bilgi edinmek için bkz. [Azure portalını kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-portal.md).
+    ![Etkinlik çalıştırmasını izleme](./media/quickstart-create-data-factory-copy-data-tool/activity-monitoring.png)
+    
+12. Kopyalama işlemiyle ilgili ayrıntıları görüntülemek için **Eylemler** sütunundaki **Ayrıntılar**’ı (gözlük resmi) seçin. Özelliklerle ilgili ayrıntılar için bkz. [Kopyalama Etkinliğine genel bakış](copy-activity-overview.md).
 
-    ![Düzenle sekmesi](./media/quickstart-create-data-factory-copy-data-tool/edit-tab.png)
+    ![İşlem ayrıntılarını kopyalama](./media/quickstart-create-data-factory-copy-data-tool/activity-execution-details.png)
+
+13. **adftutorial** kapsayıcısının **çıktı** klasöründe **emp.txt** dosyasının oluşturulduğunu doğrulayın. Çıkış klasörü yoksa, Data Factory hizmeti tarafından otomatik olarak oluşturulur. 
+
+14. Bağlantılı hizmetleri, veri kümelerini ve işlem hatlarını düzenlemek için sol panelde **İzleyici** sekmesinin üzerindeki **Yazar** sekmesine geçin. Bunları Data Factory kullanıcı arabiriminde düzenleme hakkında bilgi edinmek için bkz. [Azure portalını kullanarak veri fabrikası oluşturma](quickstart-create-data-factory-portal.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu örnekteki işlem hattı, verileri bir konumdan Azure Blob depolama alanındaki başka bir konuma kopyalar. Data Factory’yi daha fazla senaryoda kullanma hakkında bilgi almak için [öğreticileri](tutorial-copy-data-portal.md) okuyun. 

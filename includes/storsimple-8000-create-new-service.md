@@ -5,7 +5,7 @@
 
 1. [Azure portalda](https://portal.azure.com/) oturum açmak için Microsoft hesabınızın kimlik bilgilerini kullanın.
 
-2. Azure portalında tıklatın **kaynak oluşturma** ve marketi'ndeki ardından **tümünü görmek**.
+2. Azure portalında **Kaynak oluştur** seçeneğine tıklayın ve markette **Tümünü gör**’e tıklayın.
 
     ![StorSimple Cihaz Yöneticisi oluşturma](./media/storsimple-8000-create-new-service/createssdevman1.png)
 

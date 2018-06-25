@@ -3,8 +3,8 @@ title: Azure'da statik HTML web uygulaması oluşturma | Microsoft Docs
 description: Statik bir HTML örnek uygulaması dağıtarak Azure App Service'te web uygulaması çalıştırmayı öğrenin.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,91 +12,97 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
-ms.author: cephalin
+ms.date: 06/15/2018
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: bca5757c971f15279ed6ee9b41f415cd347d91b3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28918786"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294021"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure'da statik bir HTML web uygulaması oluşturma
 
-[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, temel bir HTML+CSS sitesinin Azure'a nasıl dağıtılacağı gösterilmektedir. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)'yi kullanarak web uygulamasını oluşturabilir ve örnek HTML içeriğini web uygulamasına dağıtmak için Git'i kullanabilirsiniz.
+[Azure Web Apps](app-service-web-overview.md) yüksek oranda ölçeklenebilen, kendi kendine düzeltme eki uygulayan bir web barındırma hizmeti sunar.  Bu hızlı başlangıç öğreticisinde, temel bir HTML+CSS sitesinin Azure'a nasıl dağıtılacağı gösterilmektedir. Bu hızlı başlangıcı [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)'de tamamlayacaksınız ama bu komutları [Azure CLI](/cli/azure/install-azure-cli) ile yerel olarak da çalıştırabilirsiniz.
 
 ![Örnek uygulamanın giriş sayfası](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-Mac, Windows veya Linux makinesi kullanarak aşağıdaki adımları izleyebilirsiniz. Önkoşullar yüklendikten sonra adımların tamamlanması yaklaşık olarak beş dakika sürer.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Ön koşullar
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Bu hızlı başlangıcı tamamlamak için:
+## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell için web uygulama uzantısını yükleme
 
-- <a href="https://git-scm.com/" target="_blank">Git'i yükleyin</a>
+Bu hızlı başlangıcı tamamlamak için, [az web uygulama uzantısını](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add) eklemelisiniz. Uzantı zaten yüklenmişse, bunu en son sürüme güncelleştirmeniz gerekir. Web uygulama uzantısını güncelleştirmek için `az extension update -n webapp` yazın.
+
+Webapp uzantısını yüklemek için aşağıdaki komutu çalıştırın:
+
+```bash
+az extension add -n webapp
+```
+
+Uzantı yüklendiğinde, Cloud Shell aşağıda gösterilen örnekteki bilgileri gösterir:
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>Örneği indirme
 
-Bir terminal penceresinde, örnek uygulama deposunu yerel makinenize kopyalamak için aşağıdaki komutu çalıştırın.
+Cloud Shell'de bir quickstart dizini oluşturun ve o dizine geçin.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Ardından, örnek uygulama deposunu quickstart dizininize kopyalamak için aşağıdaki komutu çalıştırın.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-Örnek kodu içeren dizine geçin.
+## <a name="create-a-web-app"></a>Web uygulaması oluşturma
+
+Örnek kodu içeren dizine geçin ve `az webapp up` komutunu çalıştırın.
+
+Aşağıdaki komutta <app_name> kısmını benzersiz uygulama adıyla değiştirin.
 
 ```bash
 cd html-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-## <a name="view-the-html"></a>HTML’yi görüntüleme
+`az webapp up` komutu şu eylemleri gerçekleştirir:
 
-Örnek HTML’yi içeren dizine gidin. *index.html* dosyasını tarayıcınızda açın.
+- Varsayılan kaynak grubunu oluşturur.
 
-![Örnek uygulama ana sayfası](media/app-service-web-get-started-html/hello-world-in-browser.png)
+- Bir varsayılan uygulama hizmeti planı oluşturur.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Belirtilen adla bir uygulama oluşturur.
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+- Dosyaları geçerli çalışma dizininden web uygulamasına [sıkıştırıp dağıtır](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip).
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+Bu komutun çalıştırılması birkaç dakika sürebilir. Çalıştırıldığında, aşağıdaki örneğe benzer bilgiler görüntüler:
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
-
-![Boş web uygulaması sayfası](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 13, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (11/11), done.
-Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
-Total 13 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'cc39b1e4cb'.
-remote: Generating deployment script.
-remote: Generating deployment script for Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
-remote: Deleting file: 'hostingstart.html'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+```json
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Windows",
+  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
+  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "sku": "FREE",
+  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  < JSON data removed for brevity. >
+}
 ```
+
+`resourceGroup` değerini not edin. [Kaynakları temizleme](#clean-up-resources) bölümünde ihtiyacınız olacak.
 
 ## <a name="browse-to-the-app"></a>Uygulamaya göz atma
 
@@ -110,16 +116,19 @@ Sayfa bir Azure App Service web uygulaması çalıştırıyor.
 
 ## <a name="update-and-redeploy-the-app"></a>Uygulamayı güncelleştirme ve yeniden dağıtma
 
-*index.html* dosyasını bir metin düzenleyicide açın ve işaretlemede değişiklik yapın. Örneğin, "Azure App Service - Örnek Statik HTML Sitesi" H1 başlığını yalnızca "Azure App Service" olarak değiştirin.
+Cloud Shell'de, nano metin düzenleyicisini açmak için `nano index.html` yazın. Aşağıda gösterildiği gibi H1 başlığında "Azure App Service - Sample Static HTML Site" yerine "Azure App Service" yazın.
 
-Yerel terminal penceresinde, değişikliklerinizi Git’e işleyin ve ardından kod değişikliklerini Azure’a gönderin.
+![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
+
+Değişikliklerinizi kaydedin ve nanodan çıkın. Kaydetmek için `^O` ve çıkmak için `^X` komutunu kullanın.
+
+Şimdi aynı `az webapp up` komutuyla uygulamayı yeniden dağıtacaksınız.
 
 ```bash
-git commit -am "updated HTML"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-Dağıtım tamamlandıktan sonra değişiklikleri görmek için tarayıcınızı yenileyin.
+Dağıtım tamamlandıktan sonra **Uygulamaya göz atma** adımında açılan tarayıcı penceresine dönüp sayfayı yenileyin.
 
 ![Güncelleştirilen örnek uygulama giriş sayfası](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
@@ -131,13 +140,21 @@ Sol menüden **Uygulama Hizmetleri**'ne ve ardından Azure web uygulamanızın a
 
 ![Portaldan Azure web uygulamasına gitme](./media/app-service-web-get-started-html/portal1.png)
 
-Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz. 
+Web uygulamanızın Genel Bakış sayfasını görürsünüz. Buradan göz atma, durdurma, başlatma, yeniden başlatma ve silme gibi temel yönetim görevlerini gerçekleştirebilirsiniz.
 
 ![Azure portalında App Service dikey penceresi](./media/app-service-web-get-started-html/portal2.png)
 
-Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar. 
+Soldaki menü, uygulamanızı yapılandırmak için farklı sayfalar sağlar.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Kaynakları temizleme
+
+Önceki adımlarda, bir kaynak grubunda Azure kaynakları oluşturdunuz. Bu kaynakların gelecekte gerekli olacağını düşünmüyorsanız, Cloud Shell’de aşağıdaki komutu çalıştırarak kaynak grubunu silin. Kaynak grubu adının [web uygulaması oluşturma](#create-a-web-app) adında otomatik olarak oluşturulduğunu unutmayın.
+
+```bash
+az group delete --name appsvc_rg_Windows_CentralUS
+```
+
+Bu komutun çalıştırılması bir dakika sürebilir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

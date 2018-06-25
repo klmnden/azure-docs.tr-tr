@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5ac1e4c62242c088a0ac84fffc0211baf442b53
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 34a5e223dfc8ff51ce03a973e88a962643c71202
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595208"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36212681"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Azure'da Active Directory Federasyon Hizmetlerini dağıtma
 AD FS basitleştirilmiş, güvenli kimlik federasyonu ve Web’de çoklu oturum açma (SSO) özellikleri sağlar. Azure AD veya O365 ile federasyon, kullanıcıların şirket içi kimlik bilgilerini kullanarak kimlik doğrulaması yapmasını ve buluttaki tüm kaynaklara erişmesini sağlar. Sonuç olarak, hem şirket içindeki hem de buluttaki kaynaklara erişimi sağlamak için yüksek oranda kullanılabilir bir AD FS altyapısına sahip olunması önemlidir. AD FS'nin Azure’da dağıtılması en az çaba ile yüksek kullanılabilirlik elde etmeye yardımcı olabilir.
@@ -305,7 +305,7 @@ AD FS’yi test etmenin en kolay yolu IdpInitiatedSignon.aspx sayfasının kulla
 
 1. AD FS sunucusunda PowerShell ile aşağıdaki cmdlet’i çalıştırarak etkinleştirin.
    Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
-2. Herhangi bir dış makineden https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx öğesine erişin  
+2. Herhangi bir dış makineden şu adrese erişin: https:\//adfs-server.contoso.com/adfs/ls/IdpInitiatedSignon.aspx.  
 3. AD FS sayfasını aşağıdaki gibi görmeniz gerekir:
 
 ![Oturum açma sayfasını test etme](./media/active-directory-aadconnect-azure-adfs/test1.png)

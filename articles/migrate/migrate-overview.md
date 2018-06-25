@@ -4,15 +4,15 @@ description: Azure Geçişi hizmetine genel bir bakış sağlar.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/08/2018
+ms.date: 06/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236374"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285806"
 ---
 # <a name="about-azure-migrate"></a>Azure Geçişi Hakkında
 
@@ -31,7 +31,7 @@ Azure Geçişi şunları yapmanıza yardımcı olur:
 
 - Şu anda Azure sanal makinelerine geçiş için yalnızca şirket içi VMware sanal makinelerini (VM) değerlendirebilirsiniz. VMware sanal makineleri, vCenter Server (sürüm 5.5, 6.0 veya 6.5) tarafından yönetilmelidir.
 - Yol haritamızda Hyper-V desteği bulunur. Bu arada, Hyper-V iş yüklerinin geçişini planlamak için [Azure Site Recovery Dağıtım Planlayıcısı](http://aka.ms/asr-dp-hyperv-doc)’nı kullanmanız önerilir.
-- Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz.
+- Tek keşifte en fazla 1500 sanal makine ve tek projede en fazla 1500 sanal makine bulabilirsiniz. Ayrıca tek değerlendirmede en fazla 1500 sanal makineyi değerlendirebilirsiniz. Daha büyük bir ortam keşfetmek istiyorsanız keşfi bölüp birden fazla proje oluşturabilirsiniz, [daha fazla bilgi edinin](how-to-scale-assessment.md). Azure Geçişi, abonelik başına 20’ye kadar projeyi destekler.
 - Azure Geçişi projesini yalnızca Batı Orta ABD veya Doğu ABD bölgesinde oluşturabilirsiniz. Ancak, bu kısıtlama farklı bir hedef Azure konumu için geçiş planlamanızı engellemez. Geçiş projesinin konumu yalnızca şirket içi ortamda bulunan meta verileri depolamak için kullanılır.
 - Azure Geçişi yalnızca yönetilen disklerin geçiş değerlendirmesini destekler.
 
@@ -50,7 +50,10 @@ Değerlendirme, şirket içi VM’lerin Azure uygunluğunu tanımlamanıza yard�
 **Hedef konum** | Geçişi yapmak istediğiniz Azure konumu.<br/><br/>Şu anda Azure Geçişi tarafından desteklenen 30 bölge şunlardır: ABD Batı, ABD Batı 2, ABD Doğu, ABD Doğu 2, ABD Orta, ABD Orta Batı, ABD Orta Güney, ABD Orta Kuzey, Almanya Kuzeydoğu, Almanya Orta, Avustralya Doğu, Avustralya Güneydoğu, Batı Avrupa, Batı Hindistan, Brezilya Güney, Çin Doğu, Çin Kuzey, Doğu Asya, Güney Hindistan, Güneydoğu Asya, Hindistan Orta, Japonya Batı, Japonya Doğu, Kanada Doğu, Kanada Orta, Kore Güney, Kore Orta, Kuzey Avrupa, UK Batı, UK Güney, US Gov Arizona, US Gov Teksas ve US Gov Virginia. Varsayılan hedef konum, Batı ABD 2 olarak ayarlanır.
 **Depolama türü** | Azure'da ayırmak istediğiniz disklerin türünü belirtebilirsiniz. Bu özellik, boyutlandırma ölçütü şirket içi boyutlandırma gibi olduğunda geçerlidir. Hedef disk türünü Premium yönetilen diskler veya Standart yönetilen diskler olarak belirtebilirsiniz. Premium yönetilen diskler varsayılan değerdir. Performans tabanlı boyutlandırma için, disk önerisi VM'lerin performans verilerine göre otomatik olarak yapılır. Azure Geçişi’nin yönetilen diskleri yalnızca geçiş değerlendirmesi için desteklediğini unutmayın.
 **Boyutlandırma Ölçütü** | Azure için sanal makineleri doğru şekilde boyutlandırmak üzere Azure Geçişi tarafından kullanılacak ölçüt. Şirket içi sanal makinelerin *performans geçmişini* temel alarak boyutlandırma yapabilir veya performans geçmişini dikkate almadan Azure için *şirket içi olarak* sanal makineleri boyutlandırabilirsiniz. Varsayılan değer şirket içi boyutlandırma olarak bulunur.
-**Fiyatlandırma planları** | Maliyet hesaplamaları için bir değerlendirme, yazılım güvencesine sahip olup olmadığınızı ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/) için uygun olup olmadığınızı göz önünde bulundurur. Ayrıca, kaydolabileceğiniz [Azure Tekliflerini](https://azure.microsoft.com/support/legal/offer-details/) göz önünde bulundurur ve teklifle birlikte alabileceğiniz aboneliğe özel indirimleri (%) belirtmenize olanak sağlar.
+**Azure teklifi** | Kayıtlı olduğunuz [Azure teklifini](https://azure.microsoft.com/support/legal/offer-details/) belirttiğinizde Azure Geçişi, maliyeti buna göre tahmin eder.
+**Azure Hibrit Avantajı** | İndirimli fiyatlardan yararlanmak için yazılım güvencesine sahip olup olmadığınızı ve [Azure Hibrit Avantajı](https://azure.microsoft.com/pricing/hybrid-use-benefit/) için uygun olup olmadığınızı belirtebilirsiniz.
+**Ayrılmış Örnekler** |  Azure’da [ayrılmış örneklere](https://azure.microsoft.com/pricing/reserved-vm-instances/) sahip olup olmadığınızı belirttiğinizde Azure Geçişi, maliyeti buna göre tahmin eder.
+**VM çalışma süresi** | VM’leriniz Azure’da 7 gün 24 saat çalışır durumda olmayacaksa Azure’da çalışır durumda olacakları süreyi belirtebilirsiniz, böylece maliyet hesabı buna göre yapılır.
 **Fiyatlandırma katmanı** | Hedef Azure sanal makineleri için [fiyatlandırma katmanını (Temel/Standart)](../virtual-machines/windows/sizes-general.md) belirtebilirsiniz. Örneğin, bir üretim ortamına geçiş yapmayı planlıyorsanız, daha düşük gecikme süresi ile sanal makineler sağlayan, ancak daha fazla maliyetli olabilecek Standart katmanını göz önünde bulundurmak istersiniz. Öte yandan, bir Geliştirme ve Test ortamınız varsa, daha yüksek gecikme süresi ve daha düşük maliyetle sanal makineler içeren Temel katmanını göz önünde bulundurmak isteyebilirsiniz. Varsayılan olarak [Standart](../virtual-machines/windows/sizes-general.md) katmanı kullanılır.
 **Performans geçmişi** | Varsayılan olarak Azure Geçişi, %95 yüzdebirlik değer ile son bir günün performans geçmişini kullanarak şirket içi makinelerin performansını değerlendirir. Değerlendirme özelliklerinde bu değerleri değiştirebilirsiniz.
 **VM serisi** | Uygun boyutlandırma için değerlendirmek istediğiniz bir VM serisini belirtebilirsiniz. Örneğin, Azure’da A serisi VM’lere geçirmeyi planlamadığınız bir üretim ortamınız varsa, A serisini liste veya serilerin dışında bırakabilirsiniz, böylece uygun boyutlandırma yalnızca seçili serilerde yapılır.  

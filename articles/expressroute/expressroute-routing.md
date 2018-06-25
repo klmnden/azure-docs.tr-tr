@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178764"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295435"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute yönlendirme gereksinimleri
 Microsoft bulut hizmetlerine ExpressRoute kullanarak bağlanmak için yönlendirmeyi ayarlamanız ve yönetmeniz gerekir. Bazı bağlantı sağlayıcıları yönlendirme ayarlama ve yönetimini yönetilen bir hizmet olarak sunar. Bu hizmetin sunulup sunulmadığını öğrenmek için bağlantı sağlayıcınıza başvurun. Bu hizmet sağlanmıyorsa aşağıdaki gereksinimlere uymalısınız:
@@ -67,6 +67,7 @@ BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanm
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Microsoft eşlemesi için kullanılan IP adresleri
 BGP oturumlarını ayarlamak için sahip olduğunuz ortak IP adreslerini kullanmanız gerekir. Microsoft, IP adreslerinin sahipliğini Routing Internet Registries ve Internet Routing Registries ile doğrulayabilmelidir.
 
+* Portalda Microsoft Eşlemesi için Tanıtılan Genel Önekler altında listelenen IP adresleri, bu IP'lerden gelen trafiğe izin vermek için Microsoft çekirdek yönlendiricilerde gerekli ACL'leri oluşturacaktır. 
 * Bir ExpressRoute devresindeki her eşleme (birden fazla varsa) için BGP eşliği oluşturmak üzere benzersiz bir /29 (IPv4) veya /125 (IPv6) alt ağı veya iki /30 (IPv4) veya /126 (IPv6) alt ağı kullanmanız gerekir.
 * Bir /29 alt ağı kullanıldığında iki /30 alt ağına bölünür.
 * Birinci /30 alt ağı birincil bağlantı ve ikinci /30 alt ağı ikincil bağlantı için kullanılır.

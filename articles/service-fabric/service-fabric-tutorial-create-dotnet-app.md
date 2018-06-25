@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312704"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267583"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Öğretici: ASP.NET Core Web API'si ön uç hizmeti ve durum bilgisi olan bir arka uç hizmetiyle uygulama oluşturma ve dağıtma
 Bu öğretici, bir dizinin birinci bölümüdür.  Verileri depolamak için ASP.NET Core Web API'si ön ucu ve durum bilgisi olan bir arka uç hizmetiyle Azure Service Fabric uygulaması oluşturmayı öğreneceksiniz. Bitirdiğinizde, oylama sonuçlarını kümedeki durum bilgisi içeren arka uç hizmetine kaydeden bir ASP.NET Core web ön ucuna sahip oylama uygulaması sağlanır. Oylama uygulamasını el ile oluşturmak istemiyorsanız, tamamlanmış uygulamanın [kaynak kodunu indirebilir](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) ve [Oylama örnek uygulamasında izlenecek yol](#walkthrough_anchor) bölümüne atlayabilirsiniz.  İsterseniz, bu öğreticiye ait bir [video kılavuzu](https://channel9.msdn.com/Events/Connect/2017/E100) da izleyebilirsiniz.
@@ -74,9 +74,21 @@ Başlangıçta, ASP.NET Core kullanarak oylama uygulamasının web ön ucunu olu
    ![ASP.NET Core Web API'si hizmeti içeren uygulama oluşturulduktan sonra Çözüm Gezgini]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>VotingWeb hizmetine AngularJS ekleme
-[Bower desteğini](/aspnet/core/client-side/bower) kullanarak hizmetinize [AngularJS](http://angularjs.org/) ekleyin. İlk olarak, projeye bir Bower yapılandırma dosyası ekleyin.  Çözüm Gezgini'nde, **VotingWeb** öğesine sağ tıklayın ve **Ekle->Yeni Öğe**'yi seçin. **Web**'i ve ardından **Bower Yapılandırma Dosyası**'nı seçin.  *Bower.json* dosyası oluşturulur.
+[Bower desteğini](/aspnet/core/client-side/bower) kullanarak hizmetinize [AngularJS](http://angularjs.org/) ekleyin. İlk olarak, projeye bir *.bowerrc* ayar dosyası ekleyin.  Çözüm Gezgini'nde, **VotingWeb** öğesine sağ tıklayın ve **Ekle->Yeni Öğe**'yi seçin. **C#** ve ardından **JSON Dosyası**'nı seçin.  *Ad* alanına **.bowerrc** yazıp **Ekle**'ye tıklayın.
 
-*Bower.json* dosyasını açın, angular ile angular-bootstrap için girişler ekleyin ve sonra da değişikliklerinizi kaydedin.
+*.bowerrc* dosyasını açıp içeriğini, Bower'ın paket varlıklarını *wwwroot/lib* dizinine yükleyeceğini belirten aşağıdaki değerlerle değiştirin.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+Değişikliklerinizi *.bowerrc* dosyasına kaydedin.  Projenizde bir *.bowerrc* dosyası oluşturulur.  
+
+Daha sonra, projeye bir Bower yapılandırma dosyası ekleyin.  Çözüm Gezgini'nde, **VotingWeb** öğesine sağ tıklayın ve **Ekle->Yeni Öğe**'yi seçin. **C#** ve ardından **JSON Dosyası**'nı seçin.  *Ad* alanına **bower.json** yazıp **Ekle**'ye tıklayın.
+
+*bower.json* dosyasını açın, angular ile angular-bootstrap girişlerini aşağıdaki içerikle değiştirin ve sonra da değişikliklerinizi kaydedin.
 
 ```json
 {
@@ -92,7 +104,8 @@ Başlangıçta, ASP.NET Core kullanarak oylama uygulamasının web ön ucunu olu
   }
 }
 ```
-*Bower.json* dosyasının kaydedilmesi üzerine, projenizin *wwwroot/lib* klasörüne Angular yüklenir. Buna ek olarak, *Bağımlılıklar/Bower* klasörünüzde de listelenir.
+
+*bower.json* dosyasını kaydettikten sonra Visual Studio bower desteği Angular'ı projenizin *wwwroot/lib* klasörüne yükler. Buna ek olarak, *Bağımlılıklar/Bower* klasörünüzde de listelenir.
 
 ### <a name="update-the-sitejs-file"></a>Site.js dosyasını güncelleştirme
 *wwwroot/js/site.js* dosyasını açın.  Dosyanın içeriğini Giriş görünümlerinde kullanılan JavaScript ile değiştirin:

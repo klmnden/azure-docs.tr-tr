@@ -1,41 +1,41 @@
 ---
-title: Azure Active Directory oturum açma etkinliği raporu API örnekleri | Microsoft Docs
-description: Azure Active Directory raporlama API'sini kullanmaya başlama
+title: Azure Active Directory oturum açma etkinlik raporu API'si örnekleri | Microsoft Docs
+description: Azure Active Directory Raporlama API'sini kullanmaya başlama
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: c41c1489-726b-4d3f-81d6-83beb932df9c
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: dhanyahk;rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 466755d7d1cc7fbf4006826ac849b74ba306bae9
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 52d49770014a5fb6a5eec644868e702c8a8d9ef3
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698586"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36224907"
 ---
-# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Azure Active Directory oturum açma etkinliği raporu API örnekleri
-Bu makalede Azure Active Directory'ı Raporlama API'si hakkında makale koleksiyonu bir parçasıdır.  
-Azure AD raporlama kodu veya ilgili araçları kullanarak oturum açma etkinliği veri erişmenizi sağlayan bir API ile sağlar.  
-Örnek kod için ile sağlamak için bu makalenin kapsamı olan **etkinlik API oturum aç**.
+# <a name="azure-active-directory-sign-in-activity-report-api-samples"></a>Azure Active Directory oturum açma etkinlik raporu API'si örnekleri
+Bu makale, Azure Active Directory raporlama API'si hakkındaki makale koleksiyonunun bir parçasıdır.  
+Azure AD raporlama, kod veya ilgili araçları kullanarak oturum açma etkinliği verilerine erişmenizi sağlayan bir API sunar.  
+Bu makalenin kapsamı, **oturum açma etkinliği API'si** için örnek kod sağlamaktır.
 
-Bkz:
+Bkz.
 
-* [Denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports) daha fazla kavramsal bilgi için
-* [Azure Active Directory raporlama API'si ile çalışmaya başlama](active-directory-reporting-api-getting-started.md) raporlama API'si hakkında daha fazla bilgi için.
+* Kavram hakkında daha fazla bilgi için [denetim günlükleri](active-directory-reporting-azure-portal.md#activity-reports)
+* Raporlama API'si hakkında daha fazla bilgi için [Azure Active Directory Raporlama API'sini kullanmaya başlama](active-directory-reporting-api-getting-started.md).
 
 
-## <a name="prerequisites"></a>Önkoşullar
-Bu makaledeki örnekler kullanmadan önce tamamlanması gereken [Azure AD raporlama API'si erişmek için Önkoşullar](active-directory-reporting-api-prerequisites.md).  
+## <a name="prerequisites"></a>Ön koşullar
+Bu makaledeki örnekleri kullanabilmeniz için [Azure AD raporlama API'sine erişim önkoşulları](active-directory-reporting-api-prerequisites.md).  
 
 ## <a name="powershell-script"></a>PowerShell betiği
 
@@ -91,13 +91,13 @@ if ($oauth.access_token -ne $null) {
 
 
 
-## <a name="executing-the-script"></a>Komut dosyası yürütme
-Komut dosyası düzenlemeyi tamamladıktan sonra çalıştırın ve oturum açma beklenen verilerden rapor günlüklerini doğrulayın döndürülür.
+## <a name="executing-the-script"></a>Betiği derleme
+Betiği düzenlemeyi tamamladıktan sonra çalıştırın ve oturum açma günlükleri raporundan beklenen verilerin döndürüldüğünden emin olun.
 
-Komut çıktısı raporundan oturum açma JSON biçiminde döndürür. Ayrıca oluşturur bir `SignIns.json` aynı çıkış dosyası. Veri diğer raporlar ve yorum ihtiyacınız olmayan çıkış biçimleri çıkışı döndürmek için komut dosyasını değiştirerek deneyebilirsiniz.
+Betik, oturum açma raporundan JSON biçiminde çıkış döndürür. Ayrıca aynı çıkışla bir `SignIns.json` dosyası da oluşturur. Betiği farklı raporlardan veri döndürecek şekilde değiştirebilir ve ihtiyacınız olmayan çıkış biçimlerini açıklama satırına döndürebilirsiniz.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
-* Bu makaledeki örnekler özelleştirme ister misiniz? Kullanıma [Azure Active Directory oturum açma etkinliği API Başvurusu](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). 
-* Azure Active Directory'ı Raporlama API'si kullanan bir tam genel bakış görmek istiyorsanız bkz [Azure Active raporlama API'si Directory ile çalışmaya başlama](active-directory-reporting-api-getting-started.md).
-* Azure Active Directory raporlama hakkında daha fazla bilgi edinmek istiyorsanız, bkz: [Azure Active Directory raporlama Kılavuzu](active-directory-reporting-guide.md).  
+* Bu makaledeki örnekleri özelleştirmek ister misiniz? [Azure Active Directory oturum açma etkinliği API'si referansına](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin) bakın. 
+* Azure Active Directory raporlama API'sini kullanma konusunda ayrıntılı inceleme için bkz. [Azure Active Directory raporlama API'sini kullanmaya başlama](active-directory-reporting-api-getting-started.md).
+* Azure Active Directory raporlama hakkında daha fazla bilgi için bkz. [Azure Active Directory Raporlama Kılavuzu](active-directory-reporting-guide.md).  
 

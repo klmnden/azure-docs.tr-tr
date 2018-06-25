@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 3fe783f8b5a7955ebe117df02edcdc6aafeff4f8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbb4ce971e6504f33de82e31cf289a42a1640952
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636860"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293178"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’ına telemetri gönderme ve arka uç uygulaması ile hub’dan telemetriyi okuma (C#)
 
@@ -60,7 +60,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
     Cihazınız için farklı bir ad seçerseniz örnek uygulamaları çalıştırmadan önce bunlarda cihaz adını güncelleştirin.
 
-1. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutu çalıştırın:
+2. Yeni kaydettiğiniz cihazın _cihaz bağlantı dizesini_ almak için aşağıdaki komutu çalıştırın:
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -68,7 +68,7 @@ Bir cihazın bağlanabilmesi için IoT hub’ınıza kaydedilmesi gerekir. Bu h�
 
     `Hostname=...=` ifadesine benzer şekilde görünen cihaz bağlantı dizesini not edin. Bu değeri hızlı başlangıcın ilerleyen bölümlerinde kullanacaksınız.
 
-1. Arka uç uygulamasının IoT hub’ınıza bağlanmasını ve iletileri almasını sağlamak için IoT hub’ınızdaki _Event Hubs uyumlu uç nokta_, _Event Hubs uyumlu yol_ ve _iothubowner birincil anahtarı_ da gerekir. Aşağıdaki komutlar, IoT hub’ınız için şu değerleri alır:
+3. Arka uç uygulamasının IoT hub’ınıza bağlanmasını ve iletileri almasını sağlamak için IoT hub’ınızdaki _Event Hubs uyumlu uç nokta_, _Event Hubs uyumlu yol_ ve _iothubowner birincil anahtarı_ da gerekir. Aşağıdaki komutlar, IoT hub’ınız için şu değerleri alır:
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -86,17 +86,17 @@ Simülasyon cihazı uygulaması, IoT hub’ınız üzerindeki cihaza özgü bir 
 
 1. Terminal penceresinde, örnek C# projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\simulated-device** klasörüne gidin.
 
-1. **SimulatedDevice.cs** dosyasını, istediğiniz bir metin düzenleyicide açın.
+2. **SimulatedDevice.cs** dosyasını, istediğiniz bir metin düzenleyicide açın.
 
     `connectionString` değişkeninin değerini, önceden not ettiğiniz cihaz bağlantı dizesiyle değiştirin. Daha sonra **SimulatedDevice.cs** dosyasına değişikliklerinizi kaydedin.
 
-1. Terminal penceresinde, aşağıdaki komutları çalıştırarak simülasyon cihazı uygulaması için gerekli paketleri yükleyin:
+3. Terminal penceresinde, aşağıdaki komutları çalıştırarak simülasyon cihazı uygulaması için gerekli paketleri yükleyin:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Terminal penceresinde, aşağıdaki komutu çalıştırarak simülasyon cihazı uygulamasını derleyip çalıştırın:
+4. Terminal penceresinde, aşağıdaki komutu çalıştırarak simülasyon cihazı uygulamasını derleyip çalıştırın:
 
     ```cmd/sh
     dotnet run
@@ -112,21 +112,21 @@ Arka uç uygulaması, IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç no
 
 1. Başka bir terminal penceresinde, örnek C# projesinin kök klasörüne gidin. Daha sonra **iot-hub\Quickstarts\read-d2c-messages** klasörüne gidin.
 
-1. **ReadDeviceToCloudMessages.cs** dosyasını istediğiniz bir metin düzenleyicide açın.
+2. **ReadDeviceToCloudMessages.cs** dosyasını istediğiniz bir metin düzenleyicide açın. Aşağıdaki değişkenleri güncelleştirin ve yaptığınız değişiklikleri dosyaya kaydedin.
 
-    `eventHubsCompatibleEndpoint` değişkeninin değerini, önceden not ettiğiniz Event Hubs uyumlu uç noktayla değiştirin.
+    | Değişken | Değer |
+    | -------- | ----------- |
+    | `eventHubsCompatibleEndpoint` | Değişkenin değerini, önceden not ettiğiniz Event Hubs uyumlu uç noktayla değiştirin. |
+    | `eventHubsCompatiblePath`     | Değişkenin değerini, önceden not ettiğiniz Event Hubs uyumlu yolla değiştirin. |
+    | `iotHubSasKey`                | Değişkenin değerini, önceden not ettiğiniz iothubowner birincil anahtarıyla değiştirin. |
 
-    `eventHubsCompatiblePath` değişkeninin değerini, önceden not ettiğiniz Event Hubs uyumlu yolla değiştirin.
-
-    `iotHubSasKey` değişkeninin değerini, önceden not ettiğiniz iothubowner birincil anahtarıyla değiştirin. Ardından **ReadDeviceToCloudMessages.cs** dosyasına değişikliklerinizi kaydedin.
-
-1. Terminal penceresinde, aşağıdaki komutları çalıştırarak arka uç uygulaması için gerekli kitaplıkları yükleyin:
+3. Terminal penceresinde, aşağıdaki komutları çalıştırarak arka uç uygulaması için gerekli kitaplıkları yükleyin:
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. Terminal penceresinde, aşağıdaki komutları çalıştırarak arka uç uygulamasını derleyip çalıştırın:
+4. Terminal penceresinde, aşağıdaki komutları çalıştırarak arka uç uygulamasını derleyip çalıştırın:
 
     ```cmd/sh
     dotnet run
@@ -138,9 +138,7 @@ Arka uç uygulaması, IoT Hub’ınızdaki bir hizmet tarafı **Olaylar** uç no
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-Sonraki hızlı başlangıcı tamamlamayı planlıyorsanız, kaynak grubunu ve IoT hub’ı değiştirmeden bırakın ve sonra bunları yeniden kullanın.
-
-Artık gerekli değilse portaldan IoT hub’ı ve kaynak grubunu silin. Bunu yapmak için, IoT hub’ınızı içeren **qs-iot-hub-rg** kaynak grubunu seçin ve **Sil**’e tıklayın.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

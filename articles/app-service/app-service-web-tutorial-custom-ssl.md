@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714587"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293338"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Öğretici: Azure Web Apps’e var olan bir özel SSL sertifikası bağlama
 
@@ -32,9 +32,11 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 > [!div class="checklist"]
 > * Uygulamanızın fiyatlandırma katmanını yükseltme
-> * Özel SSL sertifikanızı App Service’e bağlama
-> * Uygulamanız için HTTPS zorlama
-> * Betiklerle SSL sertifikası bağlamayı otomatikleştirme
+> * Özel sertifikanızı App Service'e bağlama
+> * Sertifikaları yenileme
+> * HTTPS zorlama
+> * TLS 1.1/1.2 zorlama
+> * TLS yönetimini betiklerle otomatikleştirme
 
 > [!NOTE]
 > Özel bir SSL sertifikası almanız gerekirse, doğrudan Azure portalından bir tane edinerek web uygulamanıza bağlayabilirsiniz. [App Service Sertifikaları öğreticisini](web-sites-purchase-ssl-web-site.md) takip edin.
@@ -213,6 +215,14 @@ Web uygulamanızın **Özel etki alanı** sayfası yeni ve ayrılmış IP adresi
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>Sertifikaları yenileme
+
+Bir bağlamayı sildiğinizde, bu bağlama IP tabanlı olsa bile gelen IP adresiniz değişebilir. Bu, zaten IP tabanlı bağlamada yer alan bir sertifikayı yenilerken özellikle önemlidir. Uygulamanızın IP adresinin değişmesini önlemek için şu adımları sırasıyla izleyin:
+
+1. Yeni sertifikayı karşıya yükleyin.
+2. Eskisini silmeden yeni sertifikayı istediğiniz özel etki alanına bağlayın. Bu eylem, eskisini kaldırmak yerine bağlamayı değiştirir.
+3. Eski sertifikayı silin. 
+
 ## <a name="enforce-https"></a>HTTPS zorlama
 
 Varsayılan olarak, herkes HTTP kullanarak web uygulamanıza erişmeye devam edebilir. Tüm HTTPS isteklerini HTTP bağlantı noktasına yeniden yönlendirebilirsiniz.
@@ -236,14 +246,6 @@ Web uygulaması sayfanızın sol gezinti bölmesinde **SSL ayarları**’nı se�
 ![TLS 1.1 veya 1.2’yi zorlama](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 İşlem tamamlandığında, uygulamanız daha düşük TLS sürümleriyle tüm bağlantıları reddeder.
-
-## <a name="renew-certificates"></a>Sertifikaları yenileme
-
-Bir bağlamayı sildiğinizde, bu bağlama IP tabanlı olsa bile gelen IP adresiniz değişebilir. Bu, zaten IP tabanlı bağlamada yer alan bir sertifikayı yenilerken özellikle önemlidir. Uygulamanızın IP adresinin değişmesini önlemek için şu adımları sırasıyla izleyin:
-
-1. Yeni sertifikayı karşıya yükleyin.
-2. Eskisini silmeden yeni sertifikayı istediğiniz özel etki alanına bağlayın. Bu eylem, eskisini kaldırmak yerine bağlamayı değiştirir.
-3. Eski sertifikayı silin. 
 
 ## <a name="automate-with-scripts"></a>Betiklerle otomatikleştirme
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+Aşağıdaki komut TLS için minimum 1.2 sürümünü zorunlu tutar.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Aşağıdaki komut, dışarı aktarılan bir PFX dosyasını karşıya yükler ve SNI tabanlı bir SSL bağlaması ekler.
@@ -297,9 +308,11 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 
 > [!div class="checklist"]
 > * Uygulamanızın fiyatlandırma katmanını yükseltme
-> * Özel SSL sertifikanızı App Service’e bağlama
-> * Uygulamanız için HTTPS zorlama
-> * Betiklerle SSL sertifikası bağlamayı otomatikleştirme
+> * Özel sertifikanızı App Service'e bağlama
+> * Sertifikaları yenileme
+> * HTTPS zorlama
+> * TLS 1.1/1.2 zorlama
+> * TLS yönetimini betiklerle otomatikleştirme
 
 Azure Content Delivery Network kullanımı hakkında bilgi almak için sonraki öğreticiye ilerleyin.
 

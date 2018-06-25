@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715046"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293488"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı çalıştırma ve tetikleyiciler
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ Tetikleyiciler, işlem hattı çalıştırmasını yürütmenin bir diğer yolud
 
 - Atlayan pencere tetikleyicisi: Durumunu koruyarak düzenli bir aralıkta çalışan bir tetikleyici. Azure Data Factory şu anda olay tabanlı tetikleyicileri desteklememektedir. Örneğin, bir dosya varış olayına yanıt veren işlem hattı çalıştırmasının tetikleyicisi desteklenmez.
 
+- Olay tabanlı tetikleyici: Bir olaya yanıt veren tetikleyicidir.
+
 İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilirken, bir tetikleyici birden fazla işlem hattını başlatabilir. Aşağıdaki tetikleyici tanımında, **pipelines** özelliği belirli bir tetikleyici tarafından tetiklenen işlem hattı listesini ifade eder. Özellik tanımı, işlem hattı parametrelerinin değerlerini içerir.
 
 ### <a name="basic-trigger-definition"></a>Temel tetikleyici tanımı
@@ -175,11 +177,6 @@ Tetikleyiciler, işlem hattı çalıştırmasını yürütmenin bir diğer yolud
 Zamanlama tetikleyicisi, işlem hatlarını duvar saati zamanlamasıyla çalıştırır. Bu tetikleyici düzenli ve gelişmiş takvim seçeneklerini destekler. Örneğin, “haftalık” veya “Pazartesi saat 17:00 ve Perşembe saat 21:00” gibi aralıkları destekler. Veri kümesi deseni belirsiz olduğundan ve tetikleyici zaman serisi verileri ile zaman serisi dışı veriler arasında ayrım yapmadığından zamanlama tetikleyicisi esnektir.
 
 Zamanlama tetikleyicileri hakkında daha fazla bilgi ve örnekler için bkz. [Zamanlama tetikleyicisi oluşturma](how-to-create-schedule-trigger.md).
-
-## <a name="tumbling-window-trigger"></a>Atlayan pencere tetikleyicisi
-Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Atlayan pencereler sabit boyutlu, çakışmayan ve bitişik zaman aralıkları dizisidir.
-
-Atlayan pencere tetikleyicileri hakkında daha fazla bilgi ve örnekler için bkz. [Atlayan pencere tetikleyicisi oluşturma](how-to-create-tumbling-window-trigger.md).
 
 ## <a name="schedule-trigger-definition"></a>Zamanlama tetikleyicisi tanımı
 Bir zamanlama tetikleyicisi oluştururken JSON tanımı kullanarak zamanlamayı ve yinelemeyi belirtirsiniz. 
@@ -322,6 +319,17 @@ Aşağıdaki tabloda **schedule** öğeleri ayrıntılı bir şekilde açıklanm
 | **weekDays** | Tetikleyicinin çalıştığı hafta günleri. Bu değer yalnızca haftalık bir sıklıkta belirtilebilir.|<br />- Pazartesi<br />- Salı<br />- Çarşamba<br />- Perşembe<br />- Cuma<br />- Cumartesi<br />- Pazar<br />- Gün değerleri dizisi (en fazla dizi boyutu 7’dir)<br /><br />Gün değerleri büyük/küçük harfe duyarlı değildir|
 | **monthlyOccurrences** | Tetikleyicinin çalıştığı ay günleri. Bu değer yalnızca aylık bir sıklık ile belirtilebilir. |- **monthlyOccurence** nesneleri dizisi: `{ "day": day,  "occurrence": occurence }`<br />- **day** özniteliği, tetikleyicinin çalıştığı gündür. Örneğin, **day** değeri `{Sunday}` olan bir **monthlyOccurrences** özelliği, ayın her Pazar günü anlamına gelir. **day** özniteliği gereklidir.<br />- **occurrence** özniteliği, ay içinde belirtilen **day** değerinin gerçekleşmesidir. Örneğin, **day** ve **occurrence** değerleri `{Sunday, -1}` olan bir **monthlyOccurrences** özelliği, ayın son Pazar günü anlamına gelir. **occurrence** özniteliği isteğe bağlıdır.|
 | **monthDays** | Tetikleyicinin çalıştığı ay günü. Bu değer yalnızca aylık bir sıklık ile belirtilebilir. |- <= -1 ve >= -31 koşullarına uyan herhangi bir değer<br />- >= 1 ve <= 31 koşullarına uyan herhangi bir değer<br />- Değer dizisi|
+
+## <a name="tumbling-window-trigger"></a>Atlayan pencere tetikleyicisi
+Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Atlayan pencereler sabit boyutlu, çakışmayan ve bitişik zaman aralıkları dizisidir.
+
+Atlayan pencere tetikleyicileri hakkında daha fazla bilgi ve örnekler için bkz. [Atlayan pencere tetikleyicisi oluşturma](how-to-create-tumbling-window-trigger.md).
+
+## <a name="event-based-trigger"></a>Olay tabanlı tetikleyici
+
+Olay tabanlı tetikleyiciler Azure Blob Depolama'da bir dosyanın ulaşması veya bir dosyanın silinmesi gibi olaylarda işlem hatları çalıştırır.
+
+Olay tabanlı tetikleyiciler hakkında daha fazla bilgi için bkz. [Bir olaya yanıt olarak işlem hattı çalıştıran bir tetikleyici oluşturma](how-to-create-event-trigger.md).
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Tetikleyici yineleme zamanlaması örnekleri
 Bu bölümde yineleme zamanlaması örnekleri sağlanır. **schedule** nesnesine ve onun öğelerine odaklanılmıştır.

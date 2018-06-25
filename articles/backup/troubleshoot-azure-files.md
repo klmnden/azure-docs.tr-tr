@@ -8,31 +8,29 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: bdb35cf47b339ff2089b3849283a71aa9d8fbc3d
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 797637fbaaeb0577d0437f32d4ce244a738be84b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807423"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287340"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure Dosya Paylaşımlarını yedekleme sorunlarını giderme
 Aşağıdaki tablolarda listelenen bilgilerle Azure Dosya Paylaşımları yedeklemesi kullanılırken karşılaşılan sorunları ve hataları giderebilirsiniz.
 
-## <a name="preview-boundaries"></a>Önizleme sınırları
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Önizleme sırasında Azure dosya paylaşımı yedeklemesine yönelik sınırlamalar
 Azure Dosya paylaşımları için yedekleme, Önizleme aşamasındadır. Aşağıdaki yedekleme senaryoları, Azure dosya paylaşımları için desteklenmemektedir:
-- [Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması* ile Depolama Hesaplarında Azure dosya paylaşımlarını koruma.
-- Sanal Ağların veya Güvenlik Duvarının etkin olduğu Depolama Hesaplarında Azure dosya paylaşımlarını koruma.
-- PowerShell veya CLI kullanarak Azure dosya paylaşımlarını yedekleme.
+- [Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması* ile Depolama Hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
+- Sanal Ağların veya Güvenlik Duvarının etkin olduğu depolama hesaplarında Azure dosya paylaşımlarını koruyamazsınız.
+- Azure Backup kullanarak Azure Dosyalarını korumak için bir PowerShell veya CLI yoktur.
+- Günlük zamanlanan maksimum yedekleme sayısı birdir.
+- Günlük zamanlanan maksimum istek üzerine yedekleme sayısı dörttür.
+- Kurtarma Hizmetleri kasanızdaki yedeklemelerin yanlışlıkla silinmesini önlemek için depolama hesabındaki [kaynak kilitlerini](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) kullanın.
+- Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, kurtarma noktalarının kaybolması ve/veya geri yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir
 
 \*[Okuma erişimli coğrafi olarak yedekli depolama](../storage/common/storage-redundancy-grs.md) (RA-GRS) çoğaltması ile Depolama Hesaplarında Azure Dosya Paylaşımları, GRS olarak çalışır ve GRS fiyatlarıyla faturalandırılır
 
 [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md) (ZRS) çoğaltması ile Depolama Hesaplarında Azure Dosya Paylaşımları için yedekleme şu anda yalnızca Orta ABD (CUS) ve Doğu ABD 2 (EUS2) bölgesinde kullanılabilir
-
-### <a name="limitations"></a>Sınırlamalar
-- Günlük en fazla #Zamanlanan-yedekleme 1’dir.
-- Günlük en fazla #İsteğe-Bağlı-yedekleme 4’tür.
-- Kurtarma Hizmetleri kasanızdaki Yedeklemelerin yanlışlıkla silinmesini önlemek için Depolama Hesabı’ndaki kaynak kilitlerini kullanın.
-- Azure Backup tarafından oluşturulan anlık görüntülerin silmeyin. Anlık görüntülerin silinmesi, Kurtarma Noktalarının kaybolması veya Geri Yükleme işlemlerinin başarısız olmasıyla sonuçlanabilir
 
 ## <a name="configuring-backup"></a>Yedeklemeyi yapılandırma
 Aşağıdaki tablo, yedeklemenin yapılandırılmasına yöneliktir:

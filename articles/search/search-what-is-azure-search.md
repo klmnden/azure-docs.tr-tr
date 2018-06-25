@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 11/10/2017
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: 0957ca2b6ce58249531ca0b8e3f26bc16cabb5d5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: ad5831309ff9e4cc420e777dc06815a5e6b79f91
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802434"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217662"
 ---
 # <a name="what-is-azure-search"></a>Azure Search nedir?
 Azure Search, geliştiricilere, web uygulamalarındaki, mobil uygulamalardaki ve kurumsal uygulamalardaki özel, heterojen içeriğe yönelik zengin arama deneyimi ekleme araçlarını ve API’lerini sunan, hizmet olarak arama bulut çözümüdür.
@@ -26,7 +26,8 @@ Bilgi alma sürecinin karmaşıklığını maskeleyen basit bir [REST API’si](
 
 | Kategori | Özellikler |
 |----------|----------|
-|Tam metin araması ve metin analizi | Çoğu arama tabanlı uygulamalar için öncelikli olarak [tam metin araması](search-lucene-query-architecture.md) kullanılır. Desteklenen bir söz dizimi kullanılarak sorgular formüle edilebilir. <br/><br/>[**Basit sorgu söz dizimi**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mantıksal işleçler, tümcecik arama işleçleri, sonek işleçleri, öncelik işleçleri sağlar.<br/><br/>[**Lucene sorgu söz dizimi**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), belirsiz arama, yakınlık araması, terimle yükseltme ve düzenli ifadeler için uzantılarla birlikte basit söz diziminde tüm işlemleri içerir.| 
+|Tam metin araması ve metin analizi | Çoğu arama tabanlı uygulamalar için öncelikli olarak [tam metin araması](search-lucene-query-architecture.md) kullanılır. Desteklenen bir söz dizimi kullanılarak sorgular formüle edilebilir. <br/><br/>[**Basit sorgu söz dizimi**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), mantıksal işleçler, tümcecik arama işleçleri, sonek işleçleri, öncelik işleçleri sağlar.<br/><br/>[**Lucene sorgu söz dizimi**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), belirsiz arama, yakınlık araması, terimle yükseltme ve düzenli ifadeler için uzantılarla birlikte basit söz diziminde tüm işlemleri içerir.|
+|Bilişsel arama (önizleme) | Ham içerikten metin bilgisi elde etmek için dizinleme işlem hattına görüntü ve metin analiz için [AI destekli algoritmalar](cognitive-search-concept-intro.md). [Yerleşik yeteneklere](cognitive-search-predefined-skills.md) örnek olarak optik karakter tanıma (taranmış JPEG'leri aranabilir duruma getirme), varlık tanıma (bir kuruluşu, adı veya konumu tanıma) ve anahtar ifade tanıma verilebilir. İşlem hattına ekleme yapmak için [özel yetenek kodu da yazabilirsiniz](cognitive-search-create-custom-skill-example.md). |
 | Veri tümleştirmesi | Azure Search dizinleri, JSON veri yapısı olarak gönderilmesi şartıyla her kaynaktan gelen verileri kabul eder. <br/><br/> İsteğe bağlı olarak, Azure’da desteklenen veri kaynakları için [**dizin oluşturucuları**](search-indexer-overview.md) kullanarak [Azure SQL Veritabanı](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) veya [Azure Blob depolama](search-howto-indexing-azure-blob-storage.md)’da otomatik olarak gezinebilir ve böylece arama dizininizin içeriğini birincil veri deponuzla eşitleyebilirsiniz. Azure Blob dizin oluşturucuları, Microsoft Office, PDF ve HTML belgeleri de dahil, [başlıca dosya biçimlerinin dizinini oluşturmak](search-howto-indexing-azure-blob-storage.md) için *belge çözme* işlemini gerçekleştirebilir. |
 | Dil çözümleme | Çözümleyiciler, dizin oluşturma ve arama işlemleri sırasında metin işleme için kullanılan bileşenlerdir. İki tür vardır. <br/><br/>[**Özel sözcük temelli çözümleyiciler**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), fonetik eşleştirme ve düzenli ifadeler kullanılarak yapılan karmaşık arama sorguları için kullanılır. <br/><br/>Lucene veya Microsoft’un [**dil çözümleyicileri**](https://docs.microsoft.com/rest/api/searchservice/language-support), zaman kipleri, cinsiyet belirteçleri, düzensiz çoğul adlar (İngilizce’deki 'mouse' ve 'mice' gibi), sözcüğü bileşenlerine ayırma, sözcüklere bölme (boşluk içermeyen diller için) vb. gibi dile özgü linguistik durumları akıllıca işlemek için kullanılır. |
 | Coğrafi arama | Azure Search, coğrafi konumları işler, filtreler ve görüntüler. Kullanıcıların, bir arama sonucunun fiziksel bir konuma göre yakınlığına göre verileri bulmasını sağlar. Daha fazla bilgi edinmek için [bu videoyu izleyin](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) veya [bu örneği gözden geçirin](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). |

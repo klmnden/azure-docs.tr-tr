@@ -8,12 +8,12 @@ ms.date: 2/21/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f6dcaee1ac328a9bafce0561f421b772b7e1d119
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7429516538c892bea04d38a98abcfb13ba960d22
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605177"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286409"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Dosyalarını yedekleme ile ilgili sorular
 Bu makale, Azure Dosyalarını yedekleme hakkındaki yaygın sorulara yanıtlar sunar. Bazı yanıtlarda, kapsamlı bilgiler içeren makalelerin bağlantıları vardır. Ayrıca Azure Backup hizmeti ile ilgili sorularınızı [tartışma forumunda](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) paylaşabilirsiniz.
@@ -23,7 +23,7 @@ Bu makaledeki bölümleri hızlı taramak için **bu makale altında** sağ tara
 ## <a name="configuring-the-backup-job-for-azure-files"></a>Azure Dosyaları için yedekleme işini yapılandırma
 
 ### <a name="why-cant-i-see-some-of-my-storage-accounts-i-want-to-protect-that-contain-valid-azure-file-shares-br"></a>Korumak istediğim ve geçerli Azure dosya paylaşımları içeren Depolama Hesaplarımın bazılarını neden göremiyorum? <br/>
-Azure Dosya Paylaşımları için Yedekleme, önizleme sırasında her Depolama Hesabı türünü desteklemez. Desteklenen Depolama Hesaplarının listesini görüntülemek için [buraya](troubleshoot-azure-files.md#preview-boundaries) başvurun. Aradığınız Depolama Hesabının zaten korumalı veya başka bir Kasa ile kayıtlı olması da mümkündür. Depolama Hesabını koruma için diğer Kasalarda bulmak için kasadan [kaldırın](troubleshoot-azure-files.md#configuring-backup).
+Azure Dosya Paylaşımları için Yedekleme, önizleme sırasında her Depolama Hesabı türünü desteklemez. Desteklenen Depolama Hesaplarının listesini görüntülemek için [buraya](troubleshoot-azure-files.md#limitations-for-azure-file-share-backup-during-preview) başvurun. Aradığınız Depolama Hesabının zaten korumalı veya başka bir Kasa ile kayıtlı olması da mümkündür. Depolama Hesabını koruma için diğer Kasalarda bulmak için kasadan [kaldırın](troubleshoot-azure-files.md#configuring-backup).
 
 ### <a name="why-cant-i-see-some-of-my-azure-file-shares-in-the-storage-account-when-im-trying-to-configure-backup-br"></a>Yedeklemeyi yapılandırmaya çalışırken, Depolama Hesabında Azure dosya paylaşımlarımdan bazılarını neden göremiyorum? <br/>
 Azure dosya paylaşımının, aynı Kurtarma Hizmetleri kasasında zaten korumalı olup olmadığını veya yakın zamanda silinip silinmediğini denetleyin.
@@ -39,13 +39,13 @@ Evet. Ancak bağlanan Kasadan [Korumayı Durdurmanız](backup-azure-files.md#sto
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>Azure Dosya paylaşımlarını hangi bölgelerde yedekleyebilirim? <br/>
 Azure Dosya paylaşımları için yedekleme şu anda Önizleme aşamasındadır ve yalnızca aşağıdaki bölgelerde kullanılabilir: 
--   Avustralya Güneydoğu (ASE) 
+-   Avustralya Doğu (AE) 
+- Avustralya Güneydoğu (ASE) 
 - Brezilya Güney (BRS)
 - Kanada Orta (CNC)
 -   Kanada Doğu (CE)
 -   Orta ABD (CUS)
 -   Doğu Asya (EA)
--   Doğu Avustralya (AE) 
 -   Doğu ABD (EUS)
 -   Doğu ABD 2 (EUS2)
 - Japonya Doğu (JPE)

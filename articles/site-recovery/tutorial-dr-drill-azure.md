@@ -5,38 +5,39 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: d1b6dec122672e4f6260105f7b50af2cd7369947
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737116"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286588"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure’da olağanüstü durum kurtarma tatbikatı çalıştırma
 
-[Azure Site Recovery](site-recovery-overview.md), planlı ve plansız kesintiler sırasında iş uygulamalarınızı çalışır durumda tutarak, iş sürekliliğinize ve olağanüstü durum kurtarma (BCDR) stratejinize katkıda bulunur. Site Recovery, şirket içi makinelerin ve Azure sanal makinelerinin çoğaltma, yük devretme ve kurtarma gibi olağanüstü durum kurtarma işlemlerini yönetir ve düzenler.
+Bu makalede, Azure’da bir yük devretme testi kullanarak şirket içi makine için olağanüstü durum kurtarma tatbikatı çalıştırma işlemi gösterilmektedir. Tatbikat, veri kaybı olmadan çoğaltma stratejinizi doğrular.
 
-- Bu, şirket içi VMware sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki dördüncü öğreticidir. Bu öğreticide, ilk iki öğreticiyi tamamladığınız varsayılır:
+Bu, şirket içi VMware sanal makineleri için Azure’da olağanüstü durum kurtarmanın nasıl ayarlanacağını gösteren serideki dördüncü öğreticidir.
+
+Bu öğreticide, ilk üç öğreticiyi tamamladığınız varsayılır: 
     - [Birinci öğreticide](tutorial-prepare-azure.md), VMware olağanüstü durum kurtarma için gerekli Azure bileşenlerini ayarladık.
     - [İkinci öğreticide](vmware-azure-tutorial-prepare-on-premises.md), olağanüstü durum kurtarma için şirket içi bileşenleri hazırladık ve önkoşulları gözden geçirdik.
     - [Üçüncü öğreticide](vmware-azure-tutorial.md), şirket içi VMware sanal makinemiz için çoğaltmayı ayarlayıp etkinleştirdik.
-- Öğreticiler, bir senaryo için en basit dağıtım yolunu size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. 
+- Öğreticiler, bir senaryo için en basit dağıtım yolunu size göstermek için tasarlanmıştır. Mümkün olduğunca varsayılan seçenekleri kullanır ve tüm olası ayarları ve yolları göstermez. Site Recovery tüm öğreticilerde en basit ayarlarla, mümkün olan yerlerde varsayılan ayarlarla kurulmuştur. Yük devretme testi adımları hakkında daha ayrıntılı bilgi edinmek istiyorsanız, [Nasıl Yapılır Kılavuzu](site-recovery-test-failover-to-azure.md)’nu okuyun.
 
-
-Bu makalede, Azure’da bir yük devretme testi kullanarak şirket içi makine için olağanüstü durum kurtarma tatbikatı çalıştırma işlemi gösterilmektedir. Tatbikat, veri kaybı olmadan çoğaltma stratejinizi doğrular. Şunları nasıl yapacağınızı öğrenin:
+Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
 > [!div class="checklist"]
 > * Yük devretme testi için yalıtılmış bir ağ ayarlama
 > * Yük devretme sonrasında Azure VM'ye bağlanmak için hazırlık yapma
 > * Tek bir makine için yük devretme testi çalıştırma
 
-Bu öğretici, VMware olağanüstü durum kurtarmayı en basit ayarlarla Azure’a ayarlar. Yük devretme testi adımları hakkında daha ayrıntılı bilgi edinmek istiyorsanız, [Nasıl Yapılır Kılavuzu](site-recovery-test-failover-to-azure.md)’nu okuyun.
+Bu öğreticide:
 
 ## <a name="verify-vm-properties"></a>VM özelliklerini doğrulama
 
-Bir yük devretme testi çalıştırmadan önce VMware VM özelliklerini doğrulayın ve Hyper-V VM[hyper-v-azure-support-matrix.md#replicated-vms], [VMware VM ya da fiziksel sunucunun](vmware-physical-azure-support-matrix.md#replicated-machines) Azure gereksinimlerine uygun olduğundan emin olun.
+Bir yük devretme testi çalıştırmadan önce VMware VM özelliklerini doğrulayın ve [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms), [VMware VM ya da fiziksel sunucunun](vmware-physical-azure-support-matrix.md#replicated-machines) Azure gereksinimlerine uygun olduğundan emin olun.
 
 1. **Korunan Öğeler**’de **Çoğaltılan Öğeler** > VM seçeneğine tıklayın.
 2. **Çoğaltılan öğe** bölmesinde VM bilgileri ile sistem durumunun bir özeti ve kullanılabilen son kurtarma noktaları yer alır. Daha fazla ayrıntı görüntülemek için **Özellikler**’e tıklayın.

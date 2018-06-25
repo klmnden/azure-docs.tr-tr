@@ -2,17 +2,17 @@
 title: Azure Time Series Insights ortamı oluşturma
 description: Sanal cihazlardan verilerle doldurulmuş bir Time Series Insights ortamı oluşturma hakkında bilgi edinin.
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: bryanla
-ms.openlocfilehash: 434f9f7890b909746fd1a0f72a2dea5d7bb27e92
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301363"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295856"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Öğretici: Azure Time Series Insights ortamı oluşturma
 
@@ -230,9 +230,9 @@ Bu öğreticide, şunların nasıl yapıldığını öğrendiniz:
 > * TSI ortamına veri akışı yapmak için cihaz benzetimi çalıştırma
 > * Sanal telemetri verilerini doğrulama
 
-Kendi TSI ortamınızı oluşturmayı öğrendikten sonra aşağıdaki makaleye ilerleyerek planlama işlemi hakkında daha fazla bilgi edinin:
+Artık kendi TSI ortamınızı oluşturmayı bildiğinize göre, TSI ortamındaki verileri kullanan bir web uygulaması oluşturmayı öğrenin:
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights ortamınızı planlama](time-series-insights-environment-planning.md)
+> [Azure Time Series Insights tek sayfalı web uygulaması oluşturma](tutorial-create-tsi-sample-spa.md)
 
 
