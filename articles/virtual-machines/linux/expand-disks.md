@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: c3dcd2f9c71b64ac48c2c7b6f51d2694d649c15e
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30291291"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936896"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Bir Linux VM Azure CLI ile sanal sabit disklerde genişletmek nasıl
-Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makine (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diski Ekle](add-disk.md) ek depolama alanı, ancak için sağlamak üzere ayrıca istediğiniz varolan bir veri diski genişletin. Bu makale için bir Linux VM Azure CLI 2.0 ile yönetilen diskleri genişletmek nasıl ayrıntılarını verir. Yönetilmeyen işletim sistemi diski ile genişletebilirsiniz [Azure CLI 1.0](expand-disks-nodejs.md).
+Varsayılan sanal sabit disk boyutu işletim sistemi (OS) için azure'da bir Linux sanal makine (VM) genellikle 30 GB açıktır. Yapabilecekleriniz [veri diski Ekle](add-disk.md) ek depolama alanı, ancak için sağlamak üzere ayrıca istediğiniz varolan bir veri diski genişletin. Bu makale için bir Linux VM Azure CLI 2.0 ile yönetilen diskleri genişletmek nasıl ayrıntılarını verir. 
 
 > [!WARNING]
 > Her zaman, disk gerçekleştirmeden önce verileri yedekleyin operations yeniden boyutlandırma emin olun. Daha fazla bilgi için bkz: [Linux VM'ler için Azure'da yedekleme](tutorial-backup-vms.md).

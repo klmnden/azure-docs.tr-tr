@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 1968222940888c1e5399e257a9694d47adce2e45
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2ad04b17fc4c5bafb7fa0b7eea946832430a4f17
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525191"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936760"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Linux sanal makine Azure'da ile birden fazla ağ arabirimi kartları oluşturma
 Bir sanal makine (VM) bağlı birden çok sanal ağ arabirimlerine (NIC'ler) sahip Azure oluşturabilirsiniz. Ön uç ve arka uç bağlantısı ya da izleme veya yedekleme çözümü için ayrılmış bir ağ için farklı alt ağlara sahip ortak bir senaryodur. Bu makalede, bağlı birden çok NIC içeren bir VM oluşturma ve ekleme veya NIC var olan bir sanal makineden kaldırın ayrıntıları. Farklı [VM boyutları](sizes.md) NIC'ler değişen çok sayıda desteği, bu nedenle, VM buna göre boyutu.
 
-Bu makalede Azure CLI 2.0 ile birden çok NIC içeren bir VM oluşturmak nasıl ayrıntılarını verir. Bu adımları [Azure CLI 1.0](multiple-nics-nodejs.md) ile de gerçekleştirebilirsiniz.
+Bu makalede Azure CLI 2.0 ile birden çok NIC içeren bir VM oluşturmak nasıl ayrıntılarını verir. 
 
 
 ## <a name="create-supporting-resources"></a>Destekleyici kaynakları oluşturun

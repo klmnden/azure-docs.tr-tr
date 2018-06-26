@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5c6ff5ac909e2dc6918f85d39beb781952ee6dd0
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e0146be345215701cf1afe86345afc286933d51b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593105"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750977"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Xamarin.Android mobil uygulamanız için çevrimdışı eşitlemeyi etkinleştirme
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -28,14 +28,14 @@ ms.locfileid: "27593105"
 Bu öğretici Xamarin.Android için Azure Mobile Apps, çevrimdışı eşitleme özelliği sunmaktadır. Çevrimdışı eşitleme son kullanıcıların görüntüleme, ekleme veya ağ bağlantısı olduğunda bile veri--değiştirme bir mobil uygulamayla--etkileşime olanak sağlar. Değişiklikler yerel bir veritabanında depolanır.
 Cihaz yeniden çevrimiçi olduğunda, bu değişiklikleri uzak hizmeti ile eşitlenir.
 
-Bu öğreticide, öğreticiyi istemci projeden güncelleştirme [bir Xamarin Android uygulaması oluşturma] Azure Mobile Apps çevrimdışı özelliklerini desteklemek için. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, veri erişim uzantısı paketlerini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Bu öğreticide, öğreticiyi istemci projeden güncelleştirme [Xamarin Android uygulaması oluşturma] Azure Mobile Apps çevrimdışı özelliklerini desteklemek için. İndirilen hızlı başlangıç sunucu projesi kullanmazsanız, veri erişim uzantısı paketlerini projenize eklemeniz gerekir. Server uzantısı paketleri hakkında daha fazla bilgi için bkz: [.NET arka uç sunucusu SDK ile Azure Mobile Apps için iş](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-Çevrimdışı eşitleme özelliği hakkında daha fazla bilgi için Ek Yardım konusuna [Azure Mobile Apps çevrimdışı veri eşitleme].
+Çevrimdışı eşitleme özelliği hakkında daha fazla bilgi için Ek Yardım konusuna [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme].
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>Çevrimdışı özellikleri desteklemek için İstemci uygulamayı güncelleştirme
-Azure mobil uygulama çevrimdışı özellikler, çevrimdışı bir senaryoda olduğunda yerel bir veritabanı ile etkileşim kurmasına olanak sağlar. Bu özellikler, uygulamanızda kullanmak için başlatma bir [SyncContext] yerel depolama. Ardından tablonuz [IMobileServiceSyncTable] [IMobileServiceSyncTable] arabirimi aracılığıyla başvuru. SQLite yerel depolama aygıtında olarak kullanılır.
+Azure mobil uygulama çevrimdışı özellikler, çevrimdışı bir senaryoda olduğunda yerel bir veritabanı ile etkileşim kurmasına olanak sağlar. Bu özellikler, uygulamanızda kullanmak için başlatma bir [SyncContext] yerel depolama. Tablonuz aracılığıyla başvuru [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet) arabirimi. SQLite yerel depolama aygıtında olarak kullanılır.
 
-1. Visual Studio'da NuGet Paket Yöneticisi de tamamladığınız projesinde açın [bir Xamarin Android uygulaması oluşturma] Öğreticisi.  Arayın ve yükleyin **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet paketi.
+1. Visual Studio'da NuGet Paket Yöneticisi de tamamladığınız projesinde açın [Xamarin Android uygulaması oluşturma] Öğreticisi.  Arayın ve yükleyin **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet paketi.
 2. ToDoActivity.cs dosyasını açın ve açıklama durumundan çıkarmanız `#define OFFLINE_SYNC_ENABLED` tanımı.
 3. Visual Studio'da basın **F5** anahtarı yeniden oluşturun ve istemci uygulaması çalıştırın. Çevrimdışı eşitleme etkinleştirilmeden önce yaptığınız gibi uygulamayı aynı şekilde çalışır. Ancak, yerel veritabanı, artık çevrimdışı bir senaryoda kullanılabilir verilerle doldurulur.
 
@@ -61,10 +61,10 @@ Bu bölümde, mobil uygulama arka ucu uygulamaya yeniden bağlanın. Uygulama il
 3. (İsteğe bağlı) SQL Server Nesne Gezgini veya Fiddler gibi bir REST araç kullanılarak güncelleştirilmiş verileri görüntüleyin. Bildirim verileri Azure mobil uygulama arka uç veritabanı ve yerel depo arasında eşitlendi.
 4. Uygulamada, yerel depoda tamamlanması birkaç öğelerin yanındaki onay kutusuna tıklayın.
 
-   `CheckItem`çağrıları `SyncAsync` mobil uygulama arka ucu ile Eşitleme tamamlandı her öğesine. `SyncAsync`hem İtme hem de çekme çağırır. **İstemci için değişiklikler yaptı bir tabloda bir çekme execute olduğunda, bir itme her zaman otomatik olarak yürütülmeden**. Bu, tüm tabloları ilişkileri yanı sıra Yerel Depodaki tutarlı kalmasını sağlar. Bu davranış beklenmeyen bir itme neden olabilir. Bu davranış hakkında daha fazla bilgi için bkz: [Azure Mobile Apps çevrimdışı veri eşitleme].
+   `CheckItem` çağrıları `SyncAsync` mobil uygulama arka ucu ile Eşitleme tamamlandı her öğesine. `SyncAsync` hem İtme hem de çekme çağırır. **İstemci için değişiklikler yaptı bir tabloda bir çekme execute olduğunda, bir itme her zaman otomatik olarak yürütülmeden**. Bu, tüm tabloları ilişkileri yanı sıra Yerel Depodaki tutarlı kalmasını sağlar. Bu davranış beklenmeyen bir itme neden olabilir. Bu davranış hakkında daha fazla bilgi için bkz: [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme].
 
 ## <a name="review-the-client-sync-code"></a>İstemci eşitleme kodu gözden geçirme
-Öğretici tamamlandığında yüklediğiniz Xamarin istemci projesi [bir Xamarin Android uygulaması oluşturma] zaten yerel bir SQLite veritabanı kullanarak çevrimdışı eşitlemeyi destekleyen kodunu içerir. Aşağıda, öğretici kodu zaten eklenmiş bir kısa genel bakış verilmiştir. Özellik kavramsal bir genel bakış için bkz: [Azure Mobile Apps çevrimdışı veri eşitleme].
+Öğretici tamamlandığında yüklediğiniz Xamarin istemci projesi [Xamarin Android uygulaması oluşturma] zaten yerel bir SQLite veritabanı kullanarak çevrimdışı eşitlemeyi destekleyen kodunu içerir. Aşağıda, öğretici kodu zaten eklenmiş bir kısa genel bakış verilmiştir. Özellik kavramsal bir genel bakış için bkz: [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme].
 
 * Tablo işlemleri gerçekleştirilmeden önce yerel deposu başlatılması gerekir. Yerel deposu veritabanı başlatılmış zaman `ToDoActivity.OnCreate()` yürütür `ToDoActivity.InitLocalStoreAsync()`. Bu yöntem, yerel SQLite kullanarak bir veritabanı oluşturur `MobileServiceSQLiteStore` Azure Mobile Apps istemci SDK'sı tarafından sağlanan sınıfı.
 
@@ -96,7 +96,7 @@ Bu bölümde, mobil uygulama arka ucu uygulamaya yeniden bağlanın. Uygulama il
 
     Sağlanan kod çağrıları `ToDoActivity.SyncAsync()` todoıtem liste yenilendiğinde veya todoıtem eklenen veya tamamlanan her eşitleme. Kod eşitlemeler her yerel değişiklikten sonra.
 
-    Sağlanan kodda, tüm kayıtları uzaktan `TodoItem` tablo sorgulanabilir ancak sorgu kimliği geçirerek kayıtlarını filtreleyip için sorgu mümkündür `PushAsync`. Daha fazla bilgi için bkz *Artımlı eşitleme* içinde [Azure Mobile Apps çevrimdışı veri eşitleme].
+    Sağlanan kodda, tüm kayıtları uzaktan `TodoItem` tablo sorgulanabilir ancak sorgu kimliği geçirerek kayıtlarını filtreleyip için sorgu mümkündür `PushAsync`. Daha fazla bilgi için bkz *Artımlı eşitleme* içinde [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme].
 
         // ToDoActivity.cs
         private async Task SyncAsync()
@@ -112,12 +112,12 @@ Bu bölümde, mobil uygulama arka ucu uygulamaya yeniden bağlanın. Uygulama il
         }
 
 ## <a name="additional-resources"></a>Ek Kaynaklar
-* [Azure Mobile Apps çevrimdışı veri eşitleme]
+* [Azure Mobile Apps’te Çevrimdışı Veri Eşitleme]
 * [Azure Mobile Apps .NET SDK'sı nasıl yapılır][8]
 
 <!-- URLs. -->
-[bir Xamarin Android uygulaması oluşturma]: ../app-service-mobile-xamarin-android-get-started.md
-[Azure Mobile Apps çevrimdışı veri eşitleme]: ../app-service-mobile-offline-data-sync.md
+[Xamarin Android uygulaması oluşturma]: ../app-service-mobile-xamarin-android-get-started.md
+[Azure Mobile Apps’te Çevrimdışı Veri Eşitleme]: ../app-service-mobile-offline-data-sync.md
 
 <!-- Images -->
 

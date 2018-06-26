@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248546"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938018"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Tahmine dayalı bakım çözümleri için Azure AI Kılavuzu
 
@@ -255,7 +255,7 @@ Bu bölümde, kendi özel etiket oluşturma yöntemlerini birlikte PdM sorunlar�
 > Etiketleme stratejisi ve hata durumları için etiketleri seçimi  
 > Uzman etki alanı ile çalışmaya olarak belirlenmesi.
 
-### <a name="binary-classification"></a>ikili sınıflandırma
+### <a name="binary-classification"></a>İkili sınıflandırma
 İkili sınıflandırma için kullanılan _ekipman parçasını gelecekteki bir süre içinde başarısız olma olasılığını tahmin_ - çağrılan _gelecekteki yatay dönemi X_. X, Uzman etki alanı ile çalışmaya, iş sorununu ve veri elinizdeki tarafından belirlenir. Örnekler şunlardır:
 - _Minimum sağlama süresi_ bileşenleri değiştirmek için gerekli, bakım kaynakları dağıtmak, o dönemde gerçekleşmesi olası bir sorunu önlemek için bakım gerçekleştirin.
 - _Minimum sayısı_ bir sorun oluşmadan önce oluşabilir.
@@ -434,7 +434,7 @@ Microsoft Azure ücretsiz içerik ve eğitim genel AI kavramlar ve yöntem sunar
 |:-------------------|--------------|
 | [Azure üzerinde AI Geliştirici](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Genel |
 | [Microsoft AI Okul](http://aischool.microsoft.com/learning-paths) | Genel |
-| [Github'dan Azure AI öğrenme](http://azure.github.io/learnanalytics/public) | Genel |
+| [Github'dan Azure AI öğrenme](https://github.com/Azure/connectthedots/blob/master/readme.md) | Genel |
 | [LinkedIn öğrenme](http://www.linkedin.com/learning) | Genel |
 | [Microsoft AI Youtube Web Seminerlerini](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Genel |
 | [Microsoft AI Göster](http://channel9.msdn.com/Shows/AI-Show) | Genel |

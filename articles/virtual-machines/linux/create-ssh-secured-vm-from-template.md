@@ -1,6 +1,6 @@
 ---
 title: Bir şablondan bir Linux VM oluşturma | Microsoft Docs
-description: Bir Resource Manager şablonu bir Linux VM oluşturmak için Azure CLI 2.0 kullanma
+description: Bir Resource Manager şablonu bir Linux VM oluşturmak için Azure CLI kullanma
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e241d56eba8c8cb23b1a78227b4ca7ff725162d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fc2b4dde9796336112d6c8a68d16d0b3006b3fee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716416"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936423"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager şablonları ile Linux sanal makine oluşturma
-Bu makalede Azure Resource Manager şablonları ve Azure CLI 2.0 ile Linux sanal makine (VM) hızlı bir şekilde dağıtma gösterilmektedir. Bu adımları [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md) ile de gerçekleştirebilirsiniz.
+Bu makalede hızlı şekilde Linux sanal makine (VM) Azure Resource Manager şablonları ve Azure CLI ile nasıl dağıtılacağı gösterilmektedir. 
 
 
 ## <a name="templates-overview"></a>Şablonlara genel bakış

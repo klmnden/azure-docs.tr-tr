@@ -10,23 +10,23 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 78dca327a470394d19e6befc6578abf2d499850c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247594"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936406"
 ---
 ### <a name="run-the-service"></a>Hizmetin çalıştırılması
 
-1. F5 isabet (veya türü `azds up` Terminal penceresinde) hizmetini çalıştırmak için. Hizmet otomatik olarak yeni seçilen alanınızda çalışacak `scott`. 
-1. Hizmetinizi çalıştırarak kendi alanı çalıştığını onaylayın `azds space list` yeniden. İlk olarak, bir örneğini göreceksiniz `mywebapi` şu anda çalışıyor `scott` alanı (çalışan sürüm `default` hala çalışıyor, ancak listede olmayan). İkincisi, erişim noktası için URL `webfrontend` "scott.s." metni ile önek. Bu URL için benzersiz olan `scott` alanı. "Tan URL'ye" gönderilen istekleri Hizmetleri'nde ilk yol çalışılacak özel URL güveninin `scott` , başarısız olursa, ancak alanı, bunlar döner geri Hizmetleri'nde `default` alanı.
+1. F5 isabet (veya türü `azds up` Terminal penceresinde) hizmetini çalıştırmak için. Hizmet otomatik olarak yeni seçilen alanınızda çalışacak `default/scott`. 
+1. Hizmetinizi çalıştırarak kendi alanı çalıştığını onaylayın `azds list` yeniden. İlk olarak, bir örneğini göreceksiniz `mywebapi` şu anda çalışıyor `default/scott` alanı (çalışan sürüm `default` hala çalışıyor, ancak listede olmayan). İkincisi, erişim noktası için URL `webfrontend` "scott.s." metni ile önek. Bu URL için benzersiz olan `default/scott` alanı. "Tan URL'ye" gönderilen istekleri Hizmetleri'nde ilk yol çalışılacak özel URL güveninin `default/scott` , başarısız olursa, ancak alanı, bunlar döner geri Hizmetleri'nde `default` alanı.
 
 ```
-Name         Space     Chart              Ports   Updated     Access Points
------------  --------  -----------------  ------  ----------  -------------
-mywebapi     scott     mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
-webfrontend  default  webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
+Name         Space          Chart              Ports   Updated     Access Points
+-----------  --------       -----------------  ------  ----------  -------------
+mywebapi     default/scott  mywebapi-0.1.0     80/TCP  15s ago     http://localhost:61466
+webfrontend  default        webfrontend-0.1.0  80/TCP  5h ago      http://scott.s.webfrontend-contosodev.1234abcdef.eastus.aksapp.io
 ```
 
 ![](../media/common/space-routing.png)
