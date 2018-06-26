@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94312edaa97a5d9a7502eed4c0551151ce2a06cc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: bc260c747d5c6f3c4e3f955b1bbd93d22f9234d1
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235286"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753345"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory kullanarak Cassandra verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -138,7 +138,7 @@ Cassandra verileri kopyalamak için kopyalama etkinliği için kaynak türünü 
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **CassandraSource** | Evet |
 | sorgu |Verileri okumak için özel sorgu kullanın. |SQL-92 sorgusu veya CQL sorgusu. Bkz: [CQL başvuru](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>SQL sorgusu kullanırken belirtin **keyspace name.table adı** sorgulamak istediğiniz tabloyu temsil etmek için. |("TableName" ve "keyspace" kümesindeki belirtilirse) yok. |
-| consistencyLevel |Tutarlılık düzeyi kaç çoğaltmaları Okuma isteği için veri istemci uygulamasına geri dönmeden önce yanıt vermesi gereken belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. Bkz: [veri tutarlılığını yapılandırma](http://docs.datastax.com/en//cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için.<br/><br/>İzin verilen değerler: **bir**, **iki**, **üç**, **çekirdek**, **tüm**, **LOCAL_ Çekirdek**, **EACH_QUORUM**, ve **LOCAL_ONE**. |Hayır (varsayılan değer `ONE`) |
+| consistencyLevel |Tutarlılık düzeyi kaç çoğaltmaları Okuma isteği için veri istemci uygulamasına geri dönmeden önce yanıt vermesi gereken belirtir. Cassandra Okuma isteği karşılamak veriler için çoğaltmaları belirtilen sayısını denetler. Bkz: [veri tutarlılığını yapılandırma](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) Ayrıntılar için.<br/><br/>İzin verilen değerler: **bir**, **iki**, **üç**, **çekirdek**, **tüm**, **LOCAL_ Çekirdek**, **EACH_QUORUM**, ve **LOCAL_ONE**. |Hayır (varsayılan değer `ONE`) |
 
 **Örnek:**
 
@@ -183,7 +183,7 @@ Cassandra veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Cassandr
 | BLOB |Byte] |
 | BOOLE DEĞERİ |Boole |
 | ONDALIK |Ondalık |
-| ÇİFT |Çift |
+| ÇİFT |çift |
 | KAYAN NOKTA |Tek |
 | INET |Dize |
 | INT |Int32 |

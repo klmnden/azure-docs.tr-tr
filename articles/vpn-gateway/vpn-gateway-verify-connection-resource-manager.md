@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: b2d702ecdd5e1fca342e7c84c6e75339097f0bcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 037c1c7dd73f668bd8ad95568743b223b1e11c79
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23884135"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750206"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>Bir VPN ağ geçidi bağlantısını doğrulama
 
@@ -49,7 +49,7 @@ Azure CLI kullanarak Resource Manager dağıtım modeli için bir VPN ağ geçid
 
 ## <a name="powershell-classic"></a>PowerShell (Klasik)
 
-VPN ağ geçidi bağlantınızı PowerShell kullanarak Klasik dağıtım modeli için doğrulamak için Azure PowerShell cmdlet'lerinin en son sürümlerini yükleyin. İndirmek ve yüklemek mutlaka [Hizmet Yönetimi](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0) modülü. Klasik dağıtım modeli için oturum açmak için 'Add-AzureAccount' kullanın.
+VPN ağ geçidi bağlantınızı PowerShell kullanarak Klasik dağıtım modeli için doğrulamak için Azure PowerShell cmdlet'lerinin en son sürümlerini yükleyin. İndirmek ve yüklemek mutlaka [Hizmet Yönetimi](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets) modülü. Klasik dağıtım modeli için oturum açmak için 'Add-AzureAccount' kullanın.
 
 [!INCLUDE [Classic PowerShell](../../includes/vpn-gateway-verify-connection-ps-classic-include.md)]
 

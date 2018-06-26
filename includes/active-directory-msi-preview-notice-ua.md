@@ -9,15 +9,15 @@ ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
 ms.openlocfilehash: b7ab0eb810231af405a43df2454a66cfa09eb71d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181615"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753753"
 ---
 |  |
 |--|
-|Atanan kullanıcı kimlikleri, Azure Active Directory bir önizleme özelliğidir... Gözden geçirmeniz emin olun [bilinen sorunlar](~/articles/active-directory/managed-service-identity/known-issues.md) başlamadan önce. Önizlemeler hakkında daha fazla bilgi için bkz: [ek kullanım koşulları'nı Microsoft Azure önizlemeleri için](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+|Atanan kullanıcı kimlikleri, Azure Active Directory bir önizleme özelliğidir... Başlamadan önce [bilinen sorunları](~/articles/active-directory/managed-service-identity/known-issues.md) gözden geçirdiğinizden emin olun. Önizlemeler hakkında daha fazla bilgi için bkz. [Microsoft Azure Önizlemeleri için Ek Kullanım Koşulları](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |
 
 

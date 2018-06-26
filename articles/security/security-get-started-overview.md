@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 7cb6927b8de07566428050e06a981c8f3afabb05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227532"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752189"
 ---
 # <a name="azure-security-overview"></a>Azure güvenliğine genel bakış
 
-Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir. Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://www.microsoft.com/en-us/TrustCenter/).
+Microsoft Azure güvenlik bilgileri site Azure.com üzerindeki teknik sorularınıza Azure güvenliği için yerdir. Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve güncel bilgi bulma olduğunu olduğunu biliyoruz. Çeşitli güvenlik araçları ve yetenekler yararlanmak için uygulamalar ve hizmetler için Azure kullanmak için en iyi nedenlerinden biridir. Bu araçları ve yetenekleri güvenli Azure platformunda güvenli çözümler oluşturmak mümkün kılar yardımcı olur.
 

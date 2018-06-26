@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260490"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937341"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure İlkesi tanım yapısı
 
@@ -23,11 +23,11 @@ Azure ilke tarafından kullanılan şema şurada bulunabilir: [https://schema.ma
 
 Bir ilke tanımı oluşturmak için JSON kullanın. İlke tanımı için öğeleri içerir:
 
-- mode
+- modu
 - parametreler
 - Görünen ad
 - açıklama
-- İlke kuralı
+- ilke kuralı
   - mantıksal değerlendirme
   - Etkisi
 
@@ -192,7 +192,8 @@ Bir koşulu değerlendirir olup bir **alan** belirli kriterlere uyan. Desteklene
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-Kullanırken **gibi** ve **notLike** koşullar, bir joker karakter sağlayabilir (*) değeri. Değer 1'den fazla joker karakter içermemesi gerekir (*).
+Kullanırken **gibi** ve **notLike** koşullar, bir joker karakter sağlayabilir `*` değeri.
+Değer birden fazla joker karakter içermemesi gerekir `*`.
 
 Kullanırken **eşleşen** ve **notMatch** koşullar sağlamak `#` bir basamak temsil etmek için `?` bir harf ve o gerçek karakteri temsil etmesi için başka bir karakter. Örnekler için bkz: [birden çok adı desenleri izin](scripts/allow-multiple-name-patterns.md).
 
@@ -316,7 +317,7 @@ Diğer adlar listesini her zaman artıyor. Hangi diğer adların şu anda Azure 
 
 ## <a name="initiatives"></a>Girişimler
 
-Birkaç Grup girişimleri etkinleştir grup için tek bir öğe olarak çalışmak için atamalarını ve yönetimini basitleştirmek için İlke tanımları ilgili. Örneğin, tek bir girişim içindeki tüm ilgili etiketleme ilke tanımları gruplandırabilirsiniz. Her ilke tek tek atamak yerine Initiative uygulayın.
+Girişimleri, bir grup için tek bir öğe olarak çalışmak için atamalarını ve yönetimini basitleştirmek için birkaç ilgili ilke tanımları gruplamanıza olanak sağlar. Örneğin, tek bir girişim içindeki tüm ilgili etiketleme ilke tanımları gruplandırabilirsiniz. Her ilke tek tek atamak yerine Initiative uygulayın.
 
 Aşağıdaki örnekte nasıl iki etiket işlemek için bir girişimi oluşturulacağı gösterilmektedir: `costCenter` ve `productName`. Varsayılan etiket değeri uygulamak için iki yerleşik ilkeleri kullanır.
 
@@ -394,4 +395,4 @@ Aşağıdaki örnekte nasıl iki etiket işlemek için bir girişimi oluşturula
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- Daha fazla örnekleri, inceleyin [Azure ilkesi örnekleri](json-samples.md).
+- [Azure İlkesi örnekleri](json-samples.md) sayfasındaki diğer örnekleri inceleyin.

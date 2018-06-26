@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248478"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752801"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Depolama yaşam döngüsü (Önizleme) yönetme
 
@@ -190,7 +190,7 @@ Yürütme koşul karşılandığında Eylemler filtrelenmiş BLOB'larını uygul
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Şu anda etkin katmanı, BLOB'ları destekler         | Desteklenmiyor |
 | tierToArchive | Şu anda etkin veya etkin olmayan katmanı, BLOB'ları destekler | Desteklenmiyor |
-| sil        | Desteklenen                                   | Desteklenen     |
+| delete        | Desteklenen                                   | Desteklenen     |
 
 >[!NOTE] 
 Birden çok eylem aynı blob üzerindeki tanımlanmışsa yaşam döngüsü yönetimi için blob ucuz eylemini uygular. (örn., eylem `delete` eyleminden daha ucuz olan `tierToArchive`. Eylem `tierToArchive` eyleminden daha ucuz olan `tierToCool`.)
@@ -265,7 +265,7 @@ Bazı veriler bulutta boşta kalır ve depolandıktan sonra, olursa, nadiren eri
 
 ### <a name="expire-data-based-on-age"></a>Üzerinde yaş göre verileri süresi dolacak
 
-Bazı verileri, gün veya ay maliyetlerini azaltmak veya kamu yasal düzenlemelerle uyumlu oluşturulduktan sonra süresi dolacak şekilde beklenir. Süresi dolacak şekilde yaşam döngüsü yönetimi ilkesi ayarlanabilir silme tarihte tabanlı veri yaş üzerinde. Aşağıdaki örnekte tüm blok blobları (ile belirtilen önek) silen bir ilke 365 günden eski gösterir.
+Bazı verileri, gün veya ay maliyetlerini azaltmak veya kamu yasal düzenlemelerle uyumlu oluşturulduktan sonra süresi dolacak şekilde beklenir. Yaşam döngüsü yönetimi ilkesi verileri süresi dolacak şekilde veri yaş üzerinde temel silme işlemi tarafından ayarlanabilir. Aşağıdaki örnekte tüm blok blobları (ile belirtilen önek) silen bir ilke 365 günden eski gösterir.
 
 ```json
 {

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a748cb0e2a08ed5e8ada5db171d5ef12b2fe121e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9e8c930acd12b5197238be48722947dac5380be6
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170736"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751420"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Azure Hizmeti günlüklerini ve günlük analizi kullanımda ölçümlerini Topla
 
@@ -44,7 +44,7 @@ Günlükleri ve Azure Hizmetleri için ölçümleri toplama dört farklı yolu v
 | Veri Gölü deposu         | Microsoft.DataLakeStore/accounts        | Tanılama |             | |
 | Olay Hub'ı ad alanı     | Microsoft.EventHub/namespaces           | Tanılama | Tanılama | |
 | IoT Hub                | Microsoft.Devices/IotHubs               |             | Tanılama | |
-| Anahtar Kasası               | Microsoft.KeyVault/vaults               | Tanılama |             | [KeyVault analizi](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Tanılama |             | [KeyVault analizi](log-analytics-azure-key-vault.md) |
 | Yük Dengeleyiciler          | Microsoft.Network/loadBalancers         | Tanılama |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Tanılama | Tanılama | |
 | Ağ Güvenlik Grupları | Microsoft.Network/networksecuritygroups | Tanılama |             | [Azure ağ güvenlik grubu analizi](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
@@ -57,7 +57,7 @@ Günlükleri ve Azure Hizmetleri için ölçümleri toplama dört farklı yolu v
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Dahili numara   | Dahili numara <br> Tanılama  | |
 | Sanal makine ölçek kümeleri | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Tanılama | |
 | Web sunucu grupları        | Microsoft.Web/serverfarms               |             | Tanılama | |
-| Web Siteleri               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Tanılama | [Azure Web uygulamaları analizi (Önizleme)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) |
+| Web Siteleri               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | Tanılama | [Azure Web uygulamaları analizi (Önizleme)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
 
 
 > [!NOTE]
@@ -71,7 +71,7 @@ Birçok Azure kaynaklarını tanılama günlüklerini yazabilmesi ve ölçümler
 Destek azure kaynaklarını [Azure İzleyici](../monitoring-and-diagnostics/monitoring-overview.md) kendi günlüklerini ve ölçümleri doğrudan günlük analizi gönderebilirsiniz.
 
 > [!NOTE]
-> Çok boyutlu ölçümleri günlük analizi için tanılama ayarları gönderme şu anda desteklenmiyor. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
+> Çok boyutlu ölçümlerin tanılama ayarları aracılığıyla Log Analytics’e gönderilmesi şu anda desteklenmemektedir. Boyutlu ölçümler, boyut değerlerinin toplamı alınarak düzleştirilmiş tek yönlü ölçümler olarak dışarı aktarılır.
 >
 > *Örneğin*: Bir Olay Hub'ındaki 'Gelen İletiler' ölçümü, kuyruk düzeyi temelinde araştırılıp grafiği oluşturulabilir. Ancak, ölçüm gelen tüm iletilerin tüm temsil edilen tanılama ayarları aracılığıyla dışarı aktardığınızda olay hub'ı sıralar.
 >

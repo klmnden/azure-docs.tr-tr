@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191324"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754573"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Nasıl bir sanal ağ VPN verimlilik doğrulamak için
 
@@ -54,7 +54,7 @@ Aşağıdaki diyagramda bir şirket içi ağ VPN aracılığıyla Azure sanal a�
 4.  Internet servis sağlayıcısı (ISS) bant genişliğiniz belirler.
 5.  Beklenen Verimlilik - en az bant genişliği (VM, ağ geçidi, ISS) hesaplamak * 0,8.
 
-Hesaplanan verimlilik, uygulamanızın temel üretilen iş gereksinimlerini karşılamıyorsa, bant genişliği performans sorunu tanımlanan kaynağın artırmak gerekir. Bir Azure VPN ağ geçidi yeniden boyutlandırmak için bkz: [bir ağ geçidi SKU'su değiştirme](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Bir sanal makine yeniden boyutlandırmak için bkz: [bir VM'yi yeniden boyutlandırın](../virtual-machines/virtual-machines-windows-resize-vm.md). Beklenen Internet bant genişliği yaşıyorsanız değil, ISS'ye başvurun isteyebilirsiniz.
+Hesaplanan verimlilik, uygulamanızın temel üretilen iş gereksinimlerini karşılamıyorsa, bant genişliği performans sorunu tanımlanan kaynağın artırmak gerekir. Bir Azure VPN ağ geçidi yeniden boyutlandırmak için bkz: [bir ağ geçidi SKU'su değiştirme](vpn-gateway-about-vpn-gateway-settings.md#gwsku). Bir sanal makine yeniden boyutlandırmak için bkz: [bir VM'yi yeniden boyutlandırın](../virtual-machines/virtual-machines-windows-resize-vm.md). Beklenen Internet bant genişliği yaşıyorsanız değil, ISS'ye başvurun isteyebilirsiniz.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Performans araçları kullanarak ağ verimliliği doğrulama
 

@@ -2,19 +2,19 @@
 title: Azure SQL veritabanı denetimi ile çalışmaya başlama | Microsoft Docs
 description: Azure SQL veritabanı denetimi veritabanı olaylarını bir denetim günlüğüne izlemek için kullanın.
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 62c6e576a5ef7fa953618dcba4ddd158df131148
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644598"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751052"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -200,12 +200,17 @@ Bir komut dosyası örneği için bkz: [denetim ve tehdit algılama PowerShell k
 
 **REST API - Blob denetimi**:
 
-* [Denetim İlkesi veritabanı Blob güncelle](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-* [Oluşturma veya güncelleştirme sunucusu Blob Denetim İlkesi](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-* [Denetim İlkesi veritabanı Blob alma](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-* [Denetim İlkesi Sunucu Blob alma](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [Denetim İlkesi veritabanı Blob güncelle](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [Oluşturma veya güncelleştirme sunucusu Blob Denetim İlkesi](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [Denetim İlkesi veritabanı Blob alma](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
+* [Denetim İlkesi Sunucu Blob alma](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
 * [İşlem sonucu denetim sunucu Blob alma](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
+Burada yan tümcesi destekleyen ek filtreleme için ile Genişletilmiş İlke:
+* [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [Oluşturma veya güncelleştirme sunucusu *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [Veritabanını almak *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [Sunucusu *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

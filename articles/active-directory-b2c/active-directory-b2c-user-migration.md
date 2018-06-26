@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7c78cb13f9028b2be527794751d5f8ced9bff171
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f1c417624b2950790dba54c4278e6109fa70610b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711350"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752987"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Kullanıcı Geçişi
 Azure Active Directory B2C, kimlik sağlayıcısı geçirirken (Azure AD B2C) de gerekebilir kullanıcı hesabını geçirin. Bu makalede, var olan kullanıcı hesaplarını herhangi kimlik sağlayıcısından Azure AD B2C'ye geçirme açıklanmaktadır. Makaleyi Düzenleyici olacak şekilde tasarlanmamıştır ancak bunun yerine, birkaç senaryolar açıklanmaktadır. Geliştirici, her iki yaklaşımın uygunluğuna sorumludur.
@@ -147,7 +147,7 @@ JSON dosyasının düzenlemek için açın `AADB2C.UserMigration.sln` Visual Stu
 Gördüğünüz gibi dosya kullanıcı varlıkları listesini içerir. Her kullanıcı varlık aşağıdaki özelliklere sahiptir:
 * e-posta
 * displayName
-* FirstName
+* firstName
 * Soyadı
 * Parola (boş olabilir)
 
@@ -365,7 +365,7 @@ Daha fazla bilgi için bkz: [akış günlükleri ve konsol][AppService-Log].
 Tamamlandıktan sonra [özel ilkelerini kullanmaya başlama] [ B2C-GetStartedCustom] gözden geçirme, öneririz, kendi özel ilke dosyalarını kullanarak senaryonuz derleme. Başvuru için sağladık [örnek ilke dosyaları][UserMigrationSample].
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
 [AppService-Log]: https://docs.microsoft.com/azure/active-directory-b2c/app-service-web/web-sites-streaming-logs-and-console
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration

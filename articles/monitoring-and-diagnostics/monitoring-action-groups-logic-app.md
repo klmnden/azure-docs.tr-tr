@@ -1,6 +1,6 @@
 ---
-title: Tetikleyici karmaşık eylemleri Azure izleme uyarıları ile ve Eylemler grupları
-description: Azure uyarıları izleme işlemi için bir mantıksal uygulama eylemi oluşturmayı öğrenin.
+title: Azure izleme uyarıları ve eylem gruplarla karmaşık eylemleri tetiklemek nasıl
+description: Azure izleme uyarıları işlemek için bir mantıksal uygulama eylemi oluşturmayı öğrenin.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,56 +8,57 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: eafb2bcf0175190748c9dd020051cbebfcaee1fd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263893"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753102"
 ---
 # <a name="create-a-logic-app-action"></a>Bir mantıksal uygulama eylem oluşturun
-## <a name="overview"></a>Genel Bakış ##
-Azure İzleyici uyarıyı tetikleyen, çağıran bir [eylem grubu](monitoring-action-groups.md). Eylem gruplar uyarının kişilere bildirmek ve hatta düzeltmek için bir veya daha fazla eylemleri tetiklemek sağlar.
 
-Bu makalede, ayarlama ve bir uyarı oluşturulduğunda bir konuşma Microsoft Teams oluşturmak için bir mantıksal uygulama tetiklemek gösterilmektedir.
+Bu makalede ayarlama ve bir uyarı oluşturulduğunda bir konuşma Microsoft Teams oluşturmak için bir mantıksal uygulama tetiklemek gösterilmektedir.
+
+## <a name="overview"></a>Genel Bakış
+Azure İzleyici uyarıyı tetikleyen, çağıran bir [eylem grubu](monitoring-action-groups.md). Eylem gruplar başkaları hakkında uyarı bildirim ve ayrıca düzeltmek için bir veya daha fazla eylemleri tetiklemek sağlar.
 
 Genel süreç şöyledir:
 
--   İlgili uyarı türü için mantıksal uygulama oluşturma
+-   İlgili uyarı türü için mantıksal uygulama oluşturma.
 
--   İlgili uyarı türüne ilişkin şema mantığı uygulamaya alma
+-   İlgili uyarı türüne ilişkin şema mantıksal uygulama alın.
 
--   Mantıksal uygulama davranışını tanımlayın
+-   Mantıksal uygulama davranışını tanımlayın.
 
--   Bir Azure eylem grubuna mantığı uygulamanın HTTP uç noktası kopyalayın
+-   Mantıksal uygulama HTTP uç noktası bir Azure eylem grubuna kopyalayın.
 
-İşlemi farklı bir eylem gerçekleştirmek için bu mantıksal uygulama istiyorsanız benzer.
+İşlemi farklı bir eylem gerçekleştirmek için mantıksal uygulama istiyorsanız benzer.
 
-## <a name="create-an-activity-log-alert--administrative"></a>Yönetim etkinlik günlüğü uyarı – oluşturma
+## <a name="create-an-activity-log-alert-administrative"></a>Bir etkinlik günlüğü uyarısı oluştur: Yönetim
 
-1.  Azure portalının sol üst köşesinde bulunan **Kaynak oluştur** düğmesine tıklayın.
+1.  Azure portalında seçin **kaynak oluşturma** sol üst köşedeki.
 
-2.  **Mantıksal Uygulama**'yı arayıp bulun ve seçin. **Oluştur** düğmesine tıklayın.
+2.  Aramak ve seçmek **mantıksal uygulama**seçeneğini belirleyip **oluşturma**.
 
-3.  Mantıksal uygulamanızı adlandırın, vb. bir kaynak grubu seçin.
+3.  Mantıksal uygulamanızı vermek bir **adı**, seçin bir **kaynak grubu**ve benzeri.
 
-    ![Oluşturma mantığı uygulama iletişim](media/monitoring-action-groups/create-logic-app-dialog.png "oluşturma mantığı uygulama iletişim")
+    ![Mantıksal uygulama oluşturma](media/monitoring-action-groups/create-logic-app-dialog.png "mantıksal uygulama oluşturma")
 
-4.  Mantıksal uygulama oluşturmak için Oluştur düğmesine tıklayın. Mantıksal uygulama oluştururken açılan pencere görüntülenir. Logic Apps Tasarımcısı'nı açmak için Başlat kaynak düğmesini tıklatın.
+4.  Seçin **oluşturma** mantıksal uygulama oluşturmak için. Mantıksal uygulama oluşturduğunuz bir açılır ileti gösterir. Seçin **başlatma kaynak** açmak için **Logic Apps Tasarımcısı**.
 
-5.  Tetikleyici seçin **zaman bir HTTP isteği alındığında**.
+5.  Tetikleyici seçin: **zaman bir HTTP isteği alındığında**.
 
     ![Mantığını uygulaması Tetikleyicileri](media/monitoring-action-groups/logic-app-triggers.png "mantığını uygulaması Tetikleyicileri")
 
-6.  Seçin **Düzenle** HTTP isteği tetikleyici değiştirmek için
+6.  Seçin **Düzenle** HTTP isteği tetikleyici değiştirmek için.
 
-    ![HTTP isteği tetikleyici şekli](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP isteği tetikleyici şekli")
+    ![HTTP isteği Tetikleyicileri](media/monitoring-action-groups/http-request-trigger-shape.png "HTTP isteği Tetikleyicileri")
 
 7.  **Şema oluşturmak için örnek yük kullanma** öğesini seçin.
 
-    ![Kullanım örneği yükü düğmesi](media/monitoring-action-groups/use-sample-payload-button.png "kullanım örnek yükü düğmesi")
+    ![Bir örnek yükü kullanmak](media/monitoring-action-groups/use-sample-payload-button.png "bir örnek yükü kullanın")
 
-8.  Kopyalayın ve aşağıdaki örnek şeması iletişim kutusuna yapıştırın.
+8.  Kopyalayın ve aşağıdaki örnek şeması iletişim kutusuna yapıştırın:
 
     ```json
         {
@@ -96,11 +97,11 @@ Genel süreç şöyledir:
         }
     ```
 
-9. Mantıksal Uygulama Tasarımcısı'nı mantığı uygulamaya gönderilen bu isteği Content-Type üstbilgisi application/json değerine ayarlamanız gerekir anımsatma not görüntüler. Devam etmek ve iletişim kutusunu kapatın. Azure İzleyicisi uyarısı doğru bunu.
+9. **Mantığı Uygulama Tasarımcısı** mantığı uygulamaya gönderilen istek ayarlamalısınız anımsatmak için bir açılır pencere görüntüler **Content-Type** başlığına **uygulama/json**. Açılır penceresini kapatın. Azure İzleyicisi uyarısı üstbilgisini ayarlar.
 
-    ![Content-Type üstbilgisi](media/monitoring-action-groups/content-type-header.png "Content-Type üstbilgisi")
+    ![Content-Type üstbilgisi kümesi](media/monitoring-action-groups/content-type-header.png "Content-Type üstbilgisi ayarlayın")
 
-10. Seçin **+ yeni adım** ve ardından **Eylem Ekle**.
+10. Seçin **+** **yeni adım** ve ardından **Eylem Ekle**.
 
     ![Eylem Ekle](media/monitoring-action-groups/add-action.png "Eylem Ekle")
 
@@ -108,9 +109,9 @@ Genel süreç şöyledir:
 
     ![Microsoft Teams Eylemler](media/monitoring-action-groups/microsoft-teams-actions.png "Microsoft Teams Eylemler")
 
-12. Microsoft Teams eylemi yapılandırın. Logic Apps Tasarımcısı Office365 hesabınızın kimlik doğrulaması yapmanızı ister. Seçin **Takım Kimliği** ve **kanal kimliği** ileti göndermek için.
+12. Microsoft Teams eylemi yapılandırın. **Logic Apps Tasarımcısı** Office 365 hesabınıza kimlik doğrulaması yapmanızı ister. Seçin **Takım Kimliği** ve **kanal kimliği** ileti göndermek için.
 
-13. Yapılandırma **ileti** statik metin ve başvuru birleşimini kullanarak \<alanları\> dinamik içerik. Kesme ve mesaj alanına aşağıdaki metni yapıştırın.
+13. Statik metin ve başvurular bir bileşimini kullanarak ileti yapılandırma \<alanları\> dinamik içerik. Aşağıdaki metni kopyalayıp **ileti** alan:
 
     ```text
       Activity Log Alert: <eventSource>
@@ -121,28 +122,25 @@ Genel süreç şöyledir:
 
     İçin arama ve değiştirme \<alanları\> dinamik içerik etiketleri, aynı ada sahip.
 
-    **[NOT!]**  Adlı iki dinamik alan **durum**. Her iki durum alanları iletiye ekleyin. ActivityLog özellik paketi birinde kullanın ve diğer silin. Üzerinden farenizi getirirseniz **durum** alan ekran görüntüsünde gösterildiği gibi tam alan başvurusu görürsünüz
+    > [!NOTE]
+    > Adlandırılmış iki dinamik alan **durum**. Bu alanların her ikisi de iletiye ekleyin. İçinde alanı kullanmak **activityLog** özellik paketi ve delete diğer alan. İmlecinizi üzerine gelerek **durum** tam alan başvurusu, aşağıdaki ekran görüntüsünde gösterildiği gibi görmek için:
 
-    ![Eylem - posta iletisi ekipleri](media/monitoring-action-groups/teams-action-post-message.png "takımlar eylemi - posta iletisi")
+    ![Microsoft Teams eylem: bir ileti gönderme](media/monitoring-action-groups/teams-action-post-message.png "Microsoft Teams eylem: bir ileti gönderme")
 
-14. Tasarımcı üstündeki Kaydet düğmesine tıklayarak mantıksal uygulamanızı kaydetme
+14. Üstündeki **Logic Apps Tasarımcısı**seçin **kaydetmek** mantıksal uygulamanızı kaydetmek için.
 
-15. Genişletmek için neden HTTP isteği şekli tıklatın. HTTP POST URL'sini kopyalayın.
+15. Varolan eylem grubunuzun açın ve mantıksal uygulama başvurmak için bir eylem ekleyin. Varolan bir eylem grubu yoksa bkz [oluşturma ve Eylem grupları Azure portalında yönetmek](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups) oluşturmak için. Değişikliklerinizi kaydetmek unutmayın.
 
-    ![HTTP POST URL](media/monitoring-action-groups/http-post-url.png "HTTP POST URL'Sİ")
-
-16. Varolan eylem grubunuzun açın ve mantıksal uygulama başvurmak için bir eylem ekleyin. Var olan bir eylem grubunu sahip değilseniz, bkz: <https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups> oluşturmak için. Değişikliklerinizi kaydetmek unutmayın.
-
-    ![Güncelleştirme eylem grubu](media/monitoring-action-groups/update-action-group.png "güncelleştirme eylem grubu")
+    ![Eylem grubunu güncelleştirme](media/monitoring-action-groups/update-action-group.png "eylem grubu güncelleştir")
 
 Bir uyarı eylem grubunuzun çağırır sonraki açışınızda, mantıksal uygulamanızı adı verilir.
 
 ## <a name="create-a-service-health-alert"></a>Bir hizmet Sistem Durumu Uyarısı oluştur
 
-İşlemi aşağıdaki değişikliklerle benzer şekilde hizmet sistem durumu girişleri etkinlik günlüğü parçasıdır
+Azure hizmet durumu girişleri etkinlik günlüğü bir parçasıdır. Uyarı oluşturma süreci benzer [bir etkinlik günlüğü uyarı oluşturma](#create-an-activity-log-alert-administrative), ancak bazı değişiklikler:
 
-1.  1 ile 7 arasındaki adımları aynıdır.
-2.  Aşağıdaki örnek şeması 8. adımda HTTP tetikleyicisi için kullanın.
+- 1 ile 7 arasındaki adımları aynıdır.
+- Adım 8 için aşağıdaki örnek şeması için HTTP isteği tetikleyici kullanın:
 
     ```json
     {
@@ -186,48 +184,51 @@ Bir uyarı eylem grubunuzun çağırır sonraki açışınızda, mantıksal uygu
     }
     ```
 
-3.  Adım 9-10 aynı değildir.
-4.  Adım 11'aşağıdaki işlemi kullanın.
-5.  Tıklayın **+ yeni adım** düğmesini tıklatın ve seçin **bir koşul eklemek**. Giriş verisi bu değerleri eşleştiğinde mantıksal uygulama yalnızca çalıştığından emin olmak için aşağıdaki koşulları ayarlayın
-    - schemaId Microsoft.Insights/activityLogs ==
-    - eventSource ServiceHealth ==
-    - Sürüm 0.1.1 ==
+-  Adım 9 ve 10 aynıdır.
+-  11 ile 14 adımlar için aşağıdaki işlemi kullanın:
 
-    !["Hizmet durumu yükü koşul"](media/monitoring-action-groups/service-health-payload-condition.png "hizmet sistem durumu yükü koşulu")
+   1. Seçin **+** **yeni adım** ve ardından **bir koşul eklemek**. Mantıksal uygulama yalnızca giriş verilerini bu değerleri zaman eşleşen çalıştığından emin olmak için aşağıdaki koşulların ayarlayın:
+       - `schemaId == Microsoft.Insights/activityLogs`
+       - `eventSource == ServiceHealth`
+       - `version == 0.1.1`
 
-6. İçinde **true ise** koşul, önceki örnekten 11-13 arası adımları kullanarak Microsoft Teams eylemi ekleyin.
+      !["Hizmet durumu yükü koşul"](media/monitoring-action-groups/service-health-payload-condition.png "hizmet durumu yükü koşulu")
 
-7. HTML ve [dinamik içerik] birleşimini kullanarak ileti tanımlayın. Kopyalayıp altındaki içerik mesaj alanına yapıştırın. Değiştirme [incidentType], [Trackingıd], [başlık] ve [iletişim] alanları aynı ada sahip dinamik içerik etiketlerle
+   1. İçinde **true ise** koşul, 13'te 11 adımlara'ndaki yönergeleri izleyin [etkinlik günlüğü uyarı oluşturma](#create-an-activity-log-alert-administrative) Microsoft Teams eylem eklemek için.
 
-    ```html
-    <p>
-    <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
-    <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
-    <strong>Title:</strong>&nbsp;[title]</p>
-    <p>
-    <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard</a>
-    </p>
-    <p>[communication]</p>
-    ```
+   1. İleti, HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın. İçine aşağıdaki içeriği kopyalama ve yapıştırma **ileti** alan. Değiştir `[incidentType]`, `[trackingID]`, `[title]`, ve `[communication]` aynı ada sahip dinamik içerik etiketlerle alanlar:
 
-    !["Hizmet durumu koşulun sonrası eylemi"](media/monitoring-action-groups/service-health-true-condition-post-action.png "hizmet sistem durumu koşulun sonrası eylemi")
+       ```html
+       <p>
+       <b>Alert Type:</b>&nbsp;<strong>[incidentType]</strong>&nbsp;
+       <strong>Tracking ID:</strong>&nbsp;[trackingId]&nbsp;
+       <strong>Title:</strong>&nbsp;[title]</p>
+       <p>
+       <a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.</a>
+       </p>
+       <p>[communication]</p>
+       ```
 
-8. İçin **false ise** koşul yararlı bir iletiyi sağlayın
+       !["Hizmet durumu koşulun sonrası eylemi"](media/monitoring-action-groups/service-health-true-condition-post-action.png "hizmet durumu koşulun sonrası eylemi")
 
-    ```html
-    <p><strong>Service Health Alert</strong></p>
-    <p><b>Unrecognized alert schema</b></p>
-    <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details log into the Azure Service Health dashboard\</a></p>
-    ```
+   1. İçin **false ise** koşul, kullanışlı bir iletiyi sağlayın:
 
-    !["Hizmet durumu yanlış koşul sonrası eylemi"](media/monitoring-action-groups/service-health-false-condition-post-action.png "hizmet durumu yanlış koşul sonrası eylemi")
+       ```html
+       <p><strong>Service Health Alert</strong></p>
+       <p><b>Unrecognized alert schema</b></p>
+       <p><a href="https://ms.portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues">For details, log in to the Azure Service Health dashboard.\</a></p>
+       ```
 
-9.  Mantıksal uygulamanızı kaydetmek ve eylem grubunuzun güncelleştirmek için önceki örnekte 15 – 16 adımlarını izleyin
+       !["Hizmet durumu yanlış koşul sonrası eylemi"](media/monitoring-action-groups/service-health-false-condition-post-action.png "hizmet durumu yanlış koşul sonrası eylemi")
 
-## <a name="metric-alert"></a>Ölçüm Uyarısı
+- Adım 15 aynıdır. Mantıksal uygulamanızı kaydetmek ve eylem grubunuzun güncelleştirmek için yönergeleri izleyin.
 
-1.  1 ile 7 arasındaki adımları ilk örnekle aynıdır
-2.  Aşağıdaki örnek şeması 8. adımda HTTP tetikleyicisi için kullanın.
+## <a name="create-a-metric-alert"></a>Bir ölçüm uyarısı oluştur
+
+Ölçüm bir uyarı oluşturmak için işlem benzer [bir etkinlik günlüğü uyarı oluşturma](#create-an-activity-log-alert-administrative), ancak bazı değişiklikler:
+
+- 1 ile 7 arasındaki adımları aynıdır.
+- Adım 8 için aşağıdaki örnek şeması için HTTP isteği tetikleyici kullanın:
 
     ```json
     {
@@ -271,26 +272,26 @@ Bir uyarı eylem grubunuzun çağırır sonraki açışınızda, mantıksal uygu
     }
     ```
 
-3.  Adım 9-10 aynı değildir.
-4.  Adım 11'aşağıdaki işlemi kullanın.
-5.  Tıklayın **+ yeni adım** düğmesini tıklatın ve seçin **bir koşul eklemek**. Giriş verisi bu değerleri eşleştiğinde mantıksal uygulama yalnızca çalıştığından emin olmak için aşağıdaki koşulları ayarlayın
+- Adım 9 ve 10 aynıdır.
+- 11 ile 14 adımlar için aşağıdaki işlemi kullanın:
 
-    - schemaId AzureMonitorMetricAlert ==
-    - sürüm 2.0 ==
+   1. Seçin **+** **yeni adım** ve ardından **bir koşul eklemek**. Mantıksal uygulama yalnızca giriş verilerini bu değerleri zaman eşleşen çalıştığından emin olmak için aşağıdaki koşulların ayarlayın:
+       - `schemaId == AzureMonitorMetricAlert`
+       - `version == 2.0`
 
-    !["Ölçüm uyarı yükü koşul"](media/monitoring-action-groups/metric-alert-payload-condition.png "ölçüm uyarı yükü koşulu")
+       !["Ölçüm uyarı yükü koşul"](media/monitoring-action-groups/metric-alert-payload-condition.png "ölçüm uyarı yükü koşulu")
 
-6.  İçinde **true ise** eklenecektir koşul bir **her** şekli ve Microsoft Teams eylem ve HTML ve [dinamik içerik] birleşimini kullanarak ileti tanımlayın
+   1. İçinde **true ise** koşul, ekleme bir **her** döngü ve Microsoft Teams eylem. İleti, HTML ve dinamik içerik bir bileşimini kullanarak tanımlayın.
 
-    !["Ölçüm uyarı koşulun sonrası eylemi"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "ölçüm uyarı koşulun sonrası eylemi")
+       !["Ölçüm uyarı koşulun sonrası eylemi"](media/monitoring-action-groups/metric-alert-true-condition-post-action.png "ölçüm uyarı koşulun sonrası eylemi")
 
-7.  İçinde **false ise** şekil, ölçüm uyarı değil mantığı uygulamanın beklentilerini eşleşen ve JSON yükünü dahil et, iletişim kurar bir Microsoft Teams eylemi tanımlayın. Biz json() ifade triggerBody dinamik içeriği nasıl başvuru unutmayın.
+   1. İçinde **false ise** koşul, ölçüm uyarı mantıksal uygulama beklentilerini eşleşmiyor iletişim kurmak için bir Microsoft Teams eylemi tanımlayın. JSON yükünü dahil et. Başvuru nasıl dikkat edin `triggerBody` dinamik içeriği `json()` ifade.
 
-    !["Ölçüm uyarı yanlış koşulu sonrası eylemi"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "ölçüm uyarı yanlış koşulu sonrası eylemi")
+       !["Ölçüm uyarı yanlış koşulu sonrası eylemi"](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "ölçüm uyarı yanlış koşulu sonrası eylemi")
 
-8.  Mantıksal uygulamanızı kaydetmek ve eylem grubunuzun güncelleştirmek için ilk Örneğin 15 – 16 adımları izleyin
+- Adım 15 aynıdır. Mantıksal uygulamanızı kaydetmek ve eylem grubunuzun güncelleştirmek için yönergeleri izleyin.
 
-## <a name="next-steps"></a>Sonraki adımlar ##
-* Alma bir [etkinlik günlüğü uyarıları genel bakış](monitoring-overview-alerts.md)ve uyarıların nasıl alınacağını öğrenin.  
-* Bilgi edinmek için nasıl [hizmeti sistem durumu bildirimi gönderilen her uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).
-* Daha fazla bilgi edinmek [Eylem grupları](monitoring-action-groups.md)
+## <a name="next-steps"></a>Sonraki adımlar
+* Alma bir [Azure etkinlik günlüğü uyarılar genel bakış](monitoring-overview-alerts.md) ve uyarıların nasıl alınacağını öğrenin.  
+* Bilgi edinmek için nasıl [bir Azure hizmet durumu bildirimi gönderildiğinde uyarıları yapılandırmak](monitoring-activity-log-alerts-on-service-notifications.md).
+* Daha fazla bilgi edinmek [Eylem grupları](monitoring-action-groups.md).

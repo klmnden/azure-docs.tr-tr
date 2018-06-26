@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: d1282fa005d609394dacc818c2cb729f580bc3fc
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d48828c8d2ec439f389fe4eddabb59599cc1680b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263499"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752835"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Arşiv Azure tanılama günlükleri
 
@@ -74,7 +74,7 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | Kategoriler |Hayır |Etkinleştirmek için günlük kategorileri virgülle ayrılmış listesi. |
 | Etkin |Evet |Tanılama etkin veya bu kaynağa devre dışı olup olmadığını gösteren bir Boole değeri. |
 | RetentionEnabled |Hayır |Bir bekletme ilkesi bu kaynakta etkin olmadığını gösteren bir Boole değeri. |
-| retentionInDays |Hayır |Kendisi için olayları 1 ile 2147483647 arasında korunması gereken gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar. |
+| RetentionInDays |Hayır |Kendisi için olayları 1 ile 2147483647 arasında korunması gereken gün sayısı. Sıfır değeri günlükleri süresiz olarak depolar. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Azure CLI 2.0 aracılığıyla arşiv tanılama günlükleri
 
@@ -100,7 +100,7 @@ Ek kategoriler tanılama günlük olarak geçirilen JSON dizisine sözlükler ek
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>REST API aracılığıyla arşiv tanılama günlükleri
 
-[Bu belgede bakın](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings) Azure İzleyici REST API'sini kullanarak tanılama ayarlama nasıl ayarlanacağı hakkında bilgi için.
+[Bu belgede bakın](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings) Azure İzleyici REST API'sini kullanarak tanılama ayarlama nasıl ayarlanacağı hakkında bilgi için.
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>Tanılama günlüklerini depolama hesabındaki şeması
 

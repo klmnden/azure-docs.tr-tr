@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: iainfou
-ms.openlocfilehash: 1e5a4fcfd758c12213d6de7d0f5cfcc78531ee97
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6cf77a6fa5e2cb7f9ce349e72444e76d4c687f49
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240917"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937661"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Docker VM uzantısı kullanarak Azure'da bir Docker ortam oluşturma
-Docker popüler kapsayıcı yönetimi ve hızlı bir şekilde ile kapsayıcıları Linux üzerinde çalışmanıza olanak sağlar görüntüleme platform ' dir. Azure'da, sizin ihtiyaçlarınıza göre Docker dağıtabilirsiniz çeşitli yolları vardır. Bu makalede, Docker VM uzantısı ve Azure Resource Manager şablonları ile Azure CLI 2.0 kullanarak odaklanır. Bu adımları [Azure CLI 1.0](dockerextension-nodejs.md) ile de gerçekleştirebilirsiniz.
+Docker popüler kapsayıcı yönetimi ve hızlı bir şekilde ile kapsayıcıları Linux üzerinde çalışmanıza olanak sağlar görüntüleme platform ' dir. Azure'da, sizin ihtiyaçlarınıza göre Docker dağıtabilirsiniz çeşitli yolları vardır. Bu makalede, Docker VM uzantısı ve Azure Resource Manager şablonları ile Azure CLI 2.0 kullanarak odaklanır. 
 
 > [!WARNING]
 > Linux için Azure Docker VM uzantısı kullanım dışıdır ve Kasım 2018 kullanımdan kaldırılacaktır.

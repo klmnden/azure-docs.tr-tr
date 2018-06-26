@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2017
 ms.author: maquaran
-ms.openlocfilehash: f03b2f3d295ed7d3986c45ecb80078190a2cd935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 977ca57fdb2bcc0c9eaaa33eee06c1d8ae8e39ab
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613892"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754699"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB ile sosyal gitme
 Yüksek düzeyde birbirine topluluğu içinde yaşayan anlamına gelir hayatta bir noktada, bir parçası haline gelir, bir **sosyal ağ**. Sosyal ağlar tutmak arkadaşlarınız, iş arkadaşlarınızı, aile olmanızı sağlar, veya bazen bizim tutku ortak ilgi alanlarına sahip kişilerle paylaşmak için kullanın.
@@ -150,7 +150,7 @@ Kullanıcı bilgilerini bir örnek olarak atalım:
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -175,7 +175,7 @@ Neden biz kullanıcı bölme bile bu bilgileri ve farklı yerlerde depolamak? Ç
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 Ve bir Post aşağıdaki gibidir:
@@ -212,7 +212,7 @@ Ancak, ne biz öğrenebilirsiniz? Birkaç kolay örnekler [düşünceleri analiz
 
 Sayfaya var, büyük olasılıkla bu desenleri ve basit veritabanları ve dosyaları dışında bilgi ayıklamak için bazı Doktora matematik Bilim içinde gerekir, ancak yanlış olacaktır düşündüğünüz.
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parçası [Cortana Intelligence Suite](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx), olan basit bir Sürükle ve bırak arabirimi algoritmaları kullanarak da iş akışları oluşturmanıza olanak sağlayan tam olarak yönetilen bulut hizmeti kod kendi algoritmaları [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) veya bazı zaten oluşturulmuş ve API'leri gibi kullanıma hazır kullanın: [metin analizi](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [içerik denetleyici](https://www.microsoft.com/moderator) veya [önerileri](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/), parçası [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx), algoritmalar basit bir Sürükle ve bırak arabirimi kullanarak iş akışları oluşturmak, kendi algoritmalara koduolanaksağlayanbirtamolarakyönetilenbirbuluthizmetidir[ R](https://en.wikipedia.org/wiki/R_\(programming_language\)) veya bazı zaten oluşturulmuş ve API'leri gibi kullanıma hazır kullanın: [metin analizi](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [içerik denetleyici](https://www.microsoft.com/moderator) veya [önerileri](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2).
 
 Bu Machine Learning senaryoların herhangi biri elde etmek için size kullanabilirsiniz [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) farklı kaynaklardan bilgi alın ve kullanmak için [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) bilgi işlem ve olabilir bir çıktı oluşturmak için Azure Machine Learning tarafından işlenmesi.
 

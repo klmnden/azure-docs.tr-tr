@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23890841"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937566"
 ---
 # <a name="optimizing-your-azure-code"></a>Azure kodunuzu iyileştirme
 Microsoft Azure kullanan uygulamalar programlama, uygulama ölçeklenebilirlik, davranış ve bulut ortamında bulunan performans sorunlarını önlemek için izlemeniz gereken bazı kodlama uygulamalarını vardır. Microsoft, tanır ve bu sık karşılaşılan sorunları çeşitli tanımlar ve bunları çözmenize yardımcı olacak bir Azure Kod Analizi aracı sağlar. Visual Studio'da NuGet aracılığıyla aracı yükleyebilirsiniz.
@@ -99,7 +99,7 @@ Paylaşılan erişim imzası (SAS) kimlik doğrulaması için kullanın. Erişim
 Lütfen fikir ve geri bildirim sırasında paylaşımı [Azure Kod Analizi geri bildirim](http://go.microsoft.com/fwlink/?LinkId=403771).
 
 ### <a name="reason"></a>Neden
-Gelişmiş güvenlik için Azure Active Directory ACS kimlik doğrulaması SAS kimlik doğrulaması ile değiştirmektir. Bkz: [Azure Active Directory olduğu ACS geleceği](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) geçiş planı hakkında bilgi için.
+Gelişmiş güvenlik için Azure Active Directory ACS kimlik doğrulaması SAS kimlik doğrulaması ile değiştirmektir. Bkz: [Azure Active Directory olduğu ACS geleceği](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) geçiş planı hakkında bilgi için.
 
 ### <a name="solution"></a>Çözüm
 SAS kimlik doğrulaması uygulamalarınızı kullanın. Aşağıdaki örnek, bir hizmet veri yolu ad alanı veya varlık erişmek için var olan bir SAS belirteci kullanmayı gösterir.
@@ -364,7 +364,7 @@ Aşağıdaki kod parçacığını bu sorunla ilgili kod düzeltme gösterir. De�
 
 `var settings = ConfigurationManager.AppSettings["mySettings"];`
 
-İle
+with
 
 `var settings = CloudConfigurationManager.GetSetting("mySettings");`
 

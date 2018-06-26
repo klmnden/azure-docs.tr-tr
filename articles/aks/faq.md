@@ -6,34 +6,32 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/08/2018
+ms.date: 6/25/2018
 ms.author: nepeters
-ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5155d0c85e5b3698b0a13d2d5256a235858f0e82
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260811"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938515"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes hizmet (AKS) hakkında sık sorulan sorular
 
 Bu makale adresleri soruları Azure Kubernetes hizmet (AKS) hakkında sık.
 
-> [!IMPORTANT]
-> Azure Kubernetes Hizmeti (AKS), şu anda **önizleme** aşamasındadır. Önizlemeler, [ek kullanım koşullarını](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) kabul etmeniz şartıyla kullanımınıza sunulur. Bu özelliğin bazı yönleri genel kullanıma açılmadan önce değişebilir.
->
-
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>Hangi Azure bölgeleri Azure Kubernetes hizmet (AKS) Bugün sağlıyor?
 
+- Avustralya Doğu
 - Orta Kanada
 - Doğu Kanada
 - Orta ABD
 - Doğu ABD
+- Doğu US2
+- Kuzey Avrupa
+- Birleşik Krallık Güney
 - Batı Avrupa
-
-## <a name="when-will-additional-regions-be-added"></a>Ek bölgeler zaman eklenir?
-
-Ek bölgeler talep arttıkça eklenir.
+- Batı ABD
+- Batı ABD 2
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>Güvenlik güncelleştirmeleri AKS Aracısı düğümlerine uygulanır?
 
@@ -41,39 +39,48 @@ Azure güvenlik yamaları gecelik bir zamanlamaya göre kümenizdeki düğümler
 
 - El ile Azure portalında veya Azure CLI aracılığıyla.
 - AKS kümenizi yükselterek. Yükseltmeler otomatik olarak küme [cordon ve düğüm boşaltma](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), bunları son Ubuntu görüntüsüyle ardından çevrimiçine yedekleyin. İşletim sistemi görüntüsü, düğümlerde geçerli küme sürümde belirterek Kubernetes sürümleri değiştirmeden güncelleştirme `az aks upgrade`.
-- Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için yeniden başlatma gerekli olduğunu belirten bir dosyasının varlığı, izler. Ardından bu yeniden başlatma aynı cordon ve daha önce açıklanan boşaltma işlemi aşağıdaki kümede düzenler.
-
-## <a name="do-you-recommend-customers-use-acs-or-aks"></a>Kullanım ACS veya AKS müşteriler önerilir?
-
-AKS önizlemede kalırken, ACS Kubernetes kullanarak üretim kümeleri oluşturma öneririz veya [acs altyapısı](https://github.com/azure/acs-engine). AKS kavram kanıtı dağıtımları ve geliştirme ve test ortamları için kullanın.
-
-## <a name="when-will-acs-be-deprecated"></a>Ne zaman ACS kullanım dışı kalacaktır?
-
-ACS İST hale AKS zaman kullanım dışı kalacaktır Kümeler için AKS geçirmek için bu tarihten sonraki 12 ay sahip olur. 12 aylık dönem boyunca tüm ACS işlemleri çalıştırabilirsiniz.
+- Kullanarak [Kured](https://github.com/weaveworks/kured), Kubernetes için bir açık kaynak önyükleme arka plan programı. Kured çalışırken bir [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) ve her düğüm için yeniden başlatma gerekli olduğunu belirten bir dosyasının varlığı, izler. Ardından aynı cordon ve daha önce açıklanan boşaltma işlemi aşağıdaki kümede yeniden başlatmalar düzenler.
 
 ## <a name="does-aks-support-node-autoscaling"></a>AKS düğümü otomatik ölçeklendirmeyi destekliyor mu?
 
-Düğüm otomatik ölçeklendirmeyi desteklenmez, ancak yol haritası üzerinde değil. Bu açık kaynaklıdır bir göz atalım isteyebilirsiniz [otomatik ölçeklendirmeyi uygulama][auto-scaler].
+Evet, otomatik ölçeklendirmeyi aracılığıyla kullanılabilir [Kubernetes autoscaler] [ auto-scaler] Kubernetes 1.10 itibariyle.
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS Kubernetes rol tabanlı erişim denetimi (RBAC) destekliyor mu?
 
-Hayır, RBAC AKS içinde şu anda desteklenmiyor ancak yakında kullanıma sunulacaktır.
+Evet, RBAC, Azure CLI veya Azure Resource Manager şablonu AKS kümeden dağıtırken etkinleştirilebilir. Bu işlev, Azure portalında yakında gelecektir.
+
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Hangi Kubernetes giriş denetleyicileri AKS destekliyor mu? Bu yapılandırılabilir mi?
+
+AKS destekleyen aşağıdaki [giriş denetleyicileri][admission-controllers]:
+
+* NamespaceLifecycle
+* LimitRanger
+* HizmetHesabı
+* DefaultStorageClass
+* DefaultTolerationSeconds
+* MutatingAdmissionWebhook 
+* ValidatingAdmissionWebhook
+* ResourceQuota
+* DenyEscalatingExec
+* AlwaysPullImages
+
+AKS giriş denetleyicileri listesini değiştirmek şu anda mümkün değildir.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Varolan sanal ağımla AKS dağıtabilir miyim?
 
-Evet, bu aracılığıyla desteklendiğinden [Gelişmiş Ağ özellik](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
+Evet, kullanarak varolan bir sanal ağ içinde bir AKS kümesi dağıtabilirsiniz [Gelişmiş Ağ özellik](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure anahtar kasası AKS ile tümleştirilir?
 
-Hayır, bu değildir ancak bu tümleştirme planlanmış. Bu arada, aşağıdaki çözümden denemek [Hexadite][hexadite].
+AKS yerel olarak Azure anahtar kasası ile şu anda tümleştirilmiş değil. Ancak, topluluk çözümleri gibi vardır [acs-keyvault-Aracıdan Hexadite][hexadite].
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server kapsayıcıları AKS üzerinde çalıştırabilir miyim?
 
-Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı düğümleri çalıştırmanız gerekir. Windows Server tabanlı düğümleri halen [özel Önizleme](https://azure.microsoft.com/en-us/blog/kubernetes-on-azure/). Windows Server kapsayıcıları Kubernetes Azure Önizleme dışında çalıştırmak ihtiyacınız varsa, lütfen bkz [acs altyapısı belgelerine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
+Windows Server kapsayıcıları çalıştırmak için Windows Server tabanlı düğümleri çalıştırmanız gerekir. Windows Server tabanlı düğümleri şu anda AKS içinde kullanılamaz. Windows Server kapsayıcıları Azure Kubernetes çalıştırmak ihtiyacınız varsa, lütfen bkz [acs altyapısı belgelerine](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Neden iki kaynak grubu ile AKS oluşturulur?
 
-Her AKS dağıtım iki kaynak grubu yayar. İlk oluşturulur ve yalnızca AKS kaynak içerir. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtım sırasında otomatik olarak oluşturur. *MC_myResourceGroup_myAKSCluster_eastus*. İkinci kaynak grubu VM gibi kümesi ile ilişkili tüm altyapı kaynakları içeren ağ ve depolama. Kaynak temizleme basitleştirmek için oluşturulur.
+Her AKS dağıtım iki kaynak grubu yayar. İlk oluşturulur ve yalnızca Kubernetes Hizmet kaynağı içerir. AKS kaynak sağlayıcısı gibi bir ada sahip ikinci bir dağıtım sırasında otomatik olarak oluşturur. *MC_myResourceGroup_myAKSCluster_eastus*. İkinci kaynak grubu VM gibi kümesi ile ilişkili tüm altyapı kaynakları içeren ağ ve depolama. Kaynak temizleme basitleştirmek için oluşturulur.
 
 Depolama hesapları veya ayrılmış genel IP adresi gibi AKS kümenizi kullanılacak kaynakları oluşturuyorsanız, otomatik olarak oluşturulan kaynak grubunda yerleştirmelisiniz.
 
@@ -84,3 +91,4 @@ Bir hizmet düzeyi sözleşmesi (SLA), sağlayıcı yayınlanan hizmet düzeyi k
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
+[admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/

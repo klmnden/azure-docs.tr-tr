@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260423"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938508"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory’de yönetici rolü atama
 
@@ -29,12 +29,18 @@ Azure Active Directory (Azure AD) kullanarak, farklı işlevler hizmet için ayr
 Genel yönetici tüm yönetim özelliklerine erişebilir. Varsayılan olarak, Azure aboneliği için kaydolan kişi dizin için genel Yönetici rolüne atanır. Yalnızca küresel Yöneticiler diğer yönetici rollerini atayabilir.
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atama veya yönetici rolleri kaldırma
-Azure Active Directory'de bir kullanıcıya yönetici rolleri atama hakkında bilgi edinmek için [kullanıcı Azure Active Directory'de yönetici rolleri atama](active-directory-users-assign-role-azure-portal.md).
+Azure Active Directory'de bir kullanıcıya yönetici rolleri atama hakkında bilgi edinmek için [kullanıcı Azure Active Directory'de yönetici rolleri atama](fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="available-roles"></a>Kullanılabilir roller
 Aşağıdaki yönetici rolleri kullanılabilir:
 
+* **Uygulama Yöneticisi**: Bu roldeki kullanıcılar oluşturabilir ve kurumsal uygulamalar, uygulama kayıtlar ve uygulama proxy ayarları tüm yönlerini yönetebilirsiniz. Bu rolü de izinlere temsilci ve Microsoft Graph ve Azure AD grafik hariç olmak üzere uygulama izinleri onayı olanağı verir. Bu rolün üyeleri, yeni uygulama kayıtlar veya kuruluş uygulamalarında oluştururken sahipleri olarak eklenmez.
+
+* **Uygulama geliştiricisi**: Bu roldeki kullanıcılar, uygulama kayıtlar oluşturabilir, "Kullanıcılar uygulamaları kaydolabilir" ayarı Hayır olarak ayarlayın Bu rolü üyelerinin kendi adınıza onayı için de sağlar, "Kullanıcılar izin şirket adına şirket verilerine erişen uygulamaları" ayarı Hayır olarak ayarlayın Bu rolün üyeleri, yeni uygulama kayıtlar veya kuruluş uygulamalarında oluştururken sahipleri olarak eklenir.
+
 * **Faturalama Yöneticisi**: satın alma işlemleri yapar, abonelikleri yönetir, destek biletlerini yönetir ve hizmetin sistem durumunu izler.
+
+* **Bulut Uygulama Yöneticisi**: Bu roldeki kullanıcılar uygulama proxy'si yönetme olanağı hariç olmak üzere uygulama Yönetici rolü aynı izinlere sahip. Bu rolü oluşturmak ve kurumsal uygulamalar ve uygulama kayıtlar tüm yönlerini yönetmek için yeteneği verir. Bu rolü de izinlere temsilci ve Microsoft Graph ve Azure AD grafik hariç olmak üzere uygulama izinleri onayı olanağı verir. Bu rolün üyeleri, yeni uygulama kayıtlar veya kuruluş uygulamalarında oluştururken sahipleri olarak eklenmez.
 
 * **Uyumluluk Yöneticisi**: Bu rolüne sahip kullanıcılar Office 365 güvenlik ve Uyumluluk Merkezi ve Exchange yönetici merkezini içinde yönetim izinlerine sahip. Daha fazla bilgi "[Office 365 Yönetici rolleri hakkında](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)."
 
@@ -42,7 +48,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
   > [!NOTE]
   > Exchange ActiveSync koşullu erişim ilkesi azure'da dağıtmak için kullanıcının da genel yönetici olması gerekir.
   
-* **Cihaz yöneticileri**: Bu rolün yalnızca içinde ek bir yerel yönetici olarak atamasını kullanılabilir [aygıt ayarları](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Bu role sahip kullanıcılar, Azure Active Directory'ye katılan tüm Windows 10 cihazları üzerinde yerel makine yöneticisi olur. Azure Active Directory'de cihaz nesnelerini yönetme yeteneği sahip değil.
+* **Cihaz yöneticileri**: Bu rolün yalnızca içinde ek bir yerel yönetici olarak atamasını kullanılabilir [aygıt ayarları](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Bu role sahip kullanıcılar yerel makine Yöneticiler için Azure Active Directory'ye katılmış tüm Windows 10 cihazlarda haline gelir. Azure Active Directory'de cihaz nesnelerini yönetme yeteneği sahip değil.
 
 * **Dizin okuyucular**: Bu desteklemeyen uygulamalar için atanmış olan, eski bir rolüdür [onayı Framework](active-directory-integrating-applications.md). Tüm kullanıcılara atanmamalıdır.
 
@@ -107,11 +113,29 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 
 ## <a name="administrator-permissions"></a>Yönetici izinleri
 
+### <a name="application-administrator"></a>Uygulama Yöneticisi
+
+| Yapabilirsiniz | Yapamaz |
+| --- | --- |
+| Tüm dizin bilgilerinin okuma<br>Uygulama kaydı oluşturun<br>Uygulama kayıt özelliklerini güncelleştir<br>Kuruluş uygulamaları alma<br>Uygulama kayıt izinleri yönetme<br>Uygulama kayıtları silme<br>Kurumsal uygulama tek oturum açma ayarlarını yönet<br>Kurumsal uygulama ayarlarını sağlama yönetme<br>Self Servis Kurumsal uygulama ayarlarını yönetme<br>Kurumsal uygulama izin ayarlarını yönetme<br>Uygulama erişimini yönetme<br>Sağlama ayarlarını yönet<br>Kuruluş uygulamaları silin<br>Herkesin tüm temsilci izni isteklerini adına onayı<br>Herkes için Azure AD grafik veya Microsoft Graph dışındaki tüm uygulama izni isteklerini adına onayı<br>Uygulama proxy ayarlarını yönet<br>Erişim Hizmetleri ayarları<br>İzleme hizmeti durumu<br>Destek biletlerini yönetme<br>Gizli okuma grup üyeliği | Oluşturma, düzenleme ve grupları silme<br>Kullanıcı lisanslarını yönetme<br>Dizin eşitleme kullanma<br>Oturum açma raporları görüntülemek ve Denetim günlükleri | 
+
+### <a name="application-developer"></a>Uygulama geliştiricisi
+
+| Yapabilirsiniz | Yapamaz |
+| --- | --- |
+| Tüm dizin bilgilerinin okuma<br>Uygulama kaydı oluşturun<br>Kendi adına onayı | Oturum açma görüntülemek ve Denetim günlükleri<br>Gizli okuma grup üyeliği |
+
 ### <a name="billing-administrator"></a>Faturalama Yöneticisi
 
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
-|<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p>|
+|<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p> |
+
+### <a name="cloud-application-administrator"></a>Bulut Uygulama Yöneticisi
+
+| Yapabilirsiniz | Yapamaz |
+| --- | --- |
+| Tüm dizin bilgilerinin okuma<br>Uygulama kaydı oluşturun<br>Uygulama kayıt özelliklerini güncelleştir<br>Kuruluş uygulamaları alma<br>Uygulama kayıt izinleri yönetme<br>Uygulama kayıtları silme<br>Kurumsal uygulama tek oturum açma ayarlarını yönet<br>Kurumsal uygulama ayarlarını sağlama yönetme<br>Self Servis Kurumsal uygulama ayarlarını yönetme<br>Kurumsal uygulama izin ayarlarını yönetme<br>Uygulama erişimini yönetme<br>Sağlama ayarlarını yönet<br>Kuruluş uygulamaları silin<br>Herkesin tüm temsilci izni isteklerini adına onayı<br>Herkes için Azure AD grafik veya Microsoft Graph dışındaki tüm uygulama izni isteklerini adına onayı<br>Erişim Hizmetleri ayarları<br>İzleme hizmeti durumu<br>Destek biletlerini yönetme<br>Gizli okuma grup üyeliği | Uygulama proxy ayarlarını yönet<br>Oluşturma, düzenleme ve grupları silme<br>Kullanıcı lisanslarını yönetme<br>Dizin eşitleme kullanma<br>Oturum açma raporları görüntülemek ve Denetim günlükleri |
 
 ### <a name="conditional-access-administrator"></a>Koşullu Erişim Yöneticisi
 
@@ -119,7 +143,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 | --- | --- |
 |<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Koşullu erişim ayarlarını yönet</p> |<p>Kullanıcı parolalarını sıfırlama</p><p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Denetim günlüklerini görüntüleme</p>|
 
-### <a name="global-administrator"></a>Genel Yönetici
+### <a name="global-administrator"></a>Genel yönetici
 | Yapabilirsiniz | Yapamaz |
 | --- | --- |
 |<p>Şirket ve kullanıcı bilgilerini görüntüleme</p><p>Office destek biletlerini yönetme</p><p>Office ürünlerinin faturalama ve satın alma işlemleri gerçekleştirme</p><p>Kullanıcı parolalarını sıfırlama</p><p>Diğer yöneticiler parolalarını sıfırlama</p> <p>Oluşturma ve kullanıcı görünümleri yönetme</p><p>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme</p><p>Etki alanlarını yönetme</p><p>Şirket bilgilerini yönetme</p><p>Başkalarını yönetici rollerine temsilci seçme</p><p>Dizin eşitleme kullanma</p><p>Etkinleştirmek veya çok faktörlü kimlik doğrulamasını devre dışı bırakma</p><p>Denetim günlüklerini görüntüleme</p> |Yok |
@@ -134,7 +158,7 @@ Aşağıdaki yönetici rolleri kullanılabilir:
 -------- | ---------
 Azure Information Protection | <li>Genel ve kapsamlı ilkelerinde etiketleri ve ayarlarını yapılandırma<li>Yapılandırma ve koruma şablonlarını yönetme<li>Etkinleştirme veya devre dışı koruması
  
-### <a name="reports-reader"></a>Rapor Okuyucu 
+### <a name="reports-reader"></a>Raporları okuyucusu 
 Yapabilirsiniz | Yapamaz
 ------ | ----------
 Azure AD oturum açma raporları ve Denetim günlükleri görüntüle<br>Şirket ve kullanıcı bilgilerini görüntüleme<br>Erişim Office 365 kullanım Panosu | Oluşturma ve kullanıcı görünümleri yönetme<br>Oluşturmak, düzenlemek ve kullanıcıları ve grupları silme ve kullanıcı lisanslarını yönetme<br>Başkalarını yönetici rollerine temsilci seçme<br>Şirket bilgilerini yönetme
@@ -169,30 +193,32 @@ Azure AD oturum açma raporları ve Denetim günlükleri görüntüle<br>Şirket
 
    ![Azure AD Yönetim Merkezi açma](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. Seçin **kullanıcılar ve gruplar &gt; tüm kullanıcılar**
+2. Seçin **kullanıcılar** > **tüm kullanıcılar**.
 
-3. Genel yönetici olarak belirleyin ve o kullanıcı için dikey penceresini açmak istediğiniz kullanıcıyı bulun.
+3. Genel yönetici olarak atamak istediğiniz kullanıcı sayfasını açın.
 
-4. Kullanıcı dikey penceresinde, seçin **dizin rolünü**.
- 
-5. Dizin rolü dikey penceresinde, seçin **genel yönetici** rolü ve kaydedin.
+4. Komut çubuğunda seçin **dizin rolünü**.
+
+5. Seçin **Rol Ekle**.
+
+6. Dizin rolü sayfasında seçin **genel yönetici** rolünü ve ardından **seçin** kaydetmek için.
 
 ## <a name="deprecated-roles"></a>Kullanım dışı rolleri
 
-Aşağıdaki roller kullanılmamalıdır. Bunlar edilmiş kullanım ve gelecekte Azure AD'den kaldırılacak.
+Aşağıdaki roller kullanılmamalıdır. Bunlar kullanım dışıdır ve gelecekteki Azure AD'den kaldırılacak.
 
-* AdHoc Lisans Yöneticisi
-* E-posta Adresi Doğrulanan Kullanıcı Oluşturucu
+* Geçici Lisans Yöneticisi
+* E-postayla Doğrulanan Kullanıcı Oluşturucu
 * Cihaz birleştirme
-* Cihaz Yöneticileri
+* Cihaz yöneticileri
 * Aygıt kullanıcıları
-* Cihazla Çalışma Alanına Katılma
+* Çalışma alanına cihaz katılma
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* Bir Azure aboneliğine yönelik olarak yöneticileri değiştirme hakkında daha fazla bilgi için bkz. [Azure yönetici rollerini ekleme veya değiştirme](../billing-add-change-azure-subscription-administrator.md)
+* Bir Azure aboneliği yöneticileri değiştirme hakkında daha fazla bilgi için bkz: [ekleme veya değiştirme Azure aboneliği yöneticileri](../billing-add-change-azure-subscription-administrator.md)
 * Microsoft Azure'da kaynak erişiminin nasıl denetlendiği konusunda daha fazla bilgi için bkz. [Azure'da kaynak erişimini anlama](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Azure Active Directory Azure aboneliğinize ilişkilendirilme şekli ile ilgili daha fazla bilgi için bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili](active-directory-how-subscriptions-associated-directory.md)
+* Azure Active Directory ile Azure aboneliğinizin arasındaki ilişki hakkında bilgi için bkz. [Azure aboneliklerinin Azure Active Directory ile ilişkisi](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Kullanıcıları yönetme](active-directory-create-users.md)
 * [Parolaları yönetme](active-directory-manage-passwords.md)
-* [Grupları yönetme](active-directory-manage-groups.md)
+* [Grupları yönetme](fundamentals/active-directory-manage-groups.md)

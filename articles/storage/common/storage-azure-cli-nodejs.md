@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.openlocfilehash: a8866385c682e86e889ddf171cc640fe0bb8252d
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1e2c2dc45f2cb91ca225bf183ddde5fa2d1123c4
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737478"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936998"
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>Azure Storage ile Azure CLI 1.0 kullanma
 
@@ -43,7 +43,7 @@ Bu kılavuzda Ubuntu örnekler için kullanılır, ancak diğer işletim sistemi
 
 **Yeni Azure:** Microsoft Azure aboneliği ve bu abonelikle ilişkili bir Microsoft hesabı alın. Azure satın alma seçenekleri hakkında daha fazla bilgi için bkz: [ücretsiz deneme](https://azure.microsoft.com/pricing/free-trial/), [satın alma seçenekleri](https://azure.microsoft.com/pricing/purchase-options/), ve [üye teklifleri](https://azure.microsoft.com/pricing/member-offers/) (MSDN, Microsoft iş ortağı ağı ve, BizSpark üyeleri için ve diğer Microsoft programları).
 
-Bkz: [Azure Active Directory'de (Azure AD) yönetici rolleri atama](https://msdn.microsoft.com/library/azure/hh531793.aspx) Azure abonelikleri hakkında daha fazla bilgi için.
+Bkz: [Azure Active Directory'de (Azure AD) yönetici rolleri atama](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) Azure abonelikleri hakkında daha fazla bilgi için.
 
 **Microsoft Azure aboneliği ve hesabı oluşturduktan sonra:**
 
@@ -138,7 +138,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Anonim okuma erişimini üç düzeyi vardır: **kapalı**, **Blob**, ve **kapsayıcı**. Bloblar için anonim erişimi engellemek için izni parametre kümesini **devre dışı**. Varsayılan olarak yeni kapsayıcı özeldir ve yalnızca hesap sahibi tarafından erişilebilir. Anonim izin vermek için herkese okuma erişimi blob kaynaklarına ancak kapsayıcı meta verileri için veya kapsayıcıdaki blobları listesine izin parametre kümesine **Blob**. Kaynaklar, kapsayıcı meta verileri ve kapsayıcıdaki blobları listesi blob tam ortak okuma erişimi sağlamak üzere izin parametre kümesini **kapsayıcı**. Daha fazla bilgi için bkz: [kapsayıcılar ve bloblar için anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
+> Anonim okuma erişimini üç düzeyi vardır: **kapalı**, **Blob**, ve **kapsayıcı**. Bloblar için anonim erişimi engellemek için izni parametre kümesini **devre dışı**. Varsayılan olarak yeni kapsayıcı özeldir ve yalnızca hesap sahibi tarafından erişilebilir. Anonim izin vermek için herkese okuma erişimi blob kaynaklarına ancak kapsayıcı meta verileri için veya kapsayıcıdaki blobları listesine izin parametre kümesine **Blob**. Kaynaklar, kapsayıcı meta verileri ve kapsayıcıdaki blobları listesi blob tam ortak okuma erişimi sağlamak üzere izin parametre kümesini **kapsayıcı**. Daha fazla bilgi için bkz. [Kapsayıcılara ve bloblara anonim okuma erişimini yönetme](../blobs/storage-manage-access-to-resources.md).
 >
 >
 

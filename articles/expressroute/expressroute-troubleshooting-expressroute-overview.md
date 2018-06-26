@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: cherylmc
-ms.openlocfilehash: 5d01f2e402e4b793274761703ec3ca1ea3ff8164
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185994"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753464"
 ---
-# <a name="verifying-expressroute-connectivity"></a>ExpressRoute bağlantısı doğrulanıyor
+# <a name="verifying-expressroute-connectivity"></a>ExpressRoute bağlantısını doğrulama
 Bir şirket içi ağ bağlantı sağlayıcı tarafından kolaylaştırılan özel bir bağlantı üzerinden Microsoft bulutunu genişletir, ExpressRoute aşağıdaki üç farklı ağ bölgeleri içerir:
 
 -   Müşteri ağ
 -   Sağlayıcı ağ
--   Microsoft Datacenter
+-   Microsoft Veri merkezinde
 
 Bu belgenin amacı, nereye tanımlamak için kullanıcı yardımcı olmaktır (veya bir olsa bile) bir bağlantı sorunu var ve böylece bu sorunu çözmek için uygun ekibinden yardım aramak için hangi bölgedeki. Bir sorunu gidermek için Microsoft destek gerekirse ile destek bilet [Microsoft Support][Support].
 
@@ -169,12 +169,12 @@ Bir expressroute bağlantı hattı işletimsel olup olmadığını onaylamak iç
 >
 
 ## <a name="validate-peering-configuration"></a>Eşleme yapılandırmasını doğrulayın
-Hizmet sağlayıcısı expressroute bağlantı hattı Sağlama tamamlandıktan sonra bir yönlendirme yapılandırması MSEE PRs (4) Msee'ler (5) arasındaki expressroute bağlantı hattı üzerinden oluşturulabilir. Her expressroute bağlantı hattı etkin bir, iki veya üç yönlendirme bağlamları sahip olabilir: Azure özel eşleme (trafiğin Azure içindeki özel sanal ağların için), Azure ortak eşleme (trafiğin Azure genel IP adresleri için) ve Microsoft eşleme (trafiği Office 365 ve Dynamics 365). Oluşturma ve yönlendirme yapılandırmasını değiştirme hakkında daha fazla bilgi için bkz: [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering].
+Hizmet sağlayıcısı expressroute bağlantı hattı Sağlama tamamlandıktan sonra bir yönlendirme yapılandırması MSEE PRs (4) Msee'ler (5) arasındaki expressroute bağlantı hattı üzerinden oluşturulabilir. Her expressroute bağlantı hattı bir, iki veya üç yönlendirme bağlamları etkin olabilir: (Azure içindeki özel sanal ağların trafiği) Azure özel eşleme (trafiği Azure genel IP adresleri için) Azure ortak eşleme ve Microsoft eşleme (Office 365 trafiği ve Dynamics 365). Oluşturma ve yönlendirme yapılandırmasını değiştirme hakkında daha fazla bilgi için bkz: [oluşturma ve bir expressroute bağlantı hattı için yönlendirmeyi değiştirme][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Azure Portalı aracılığıyla doğrulama
 
 >[!NOTE]
->Katman 3 hizmet sağlayıcısı tarafından sağlanır ve eşlemeler portalda boş, Yenile düğmesini protal üzerinde kullanarak hattı yapılandırmasını yenileyin. Bu işlem doğru yönlendirme yapılandırması hattınız üzerinde uygulanır. 
+>Katman 3 hizmet sağlayıcısı tarafından sağlanır ve eşlemeler portalda boş, portaldaki Yenile düğmesini devre yapılandırma yenileyin. Bu işlem doğru yönlendirme yapılandırması hattınız üzerinde uygulanır. 
 >
 >
 
@@ -301,7 +301,7 @@ Bir örnek yanıt başarılı senaryoda komutu için:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-Benzer şekilde, MSEE ARP tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel*/*ortak*/*Microsoft* eşlemeleri.
+Benzer şekilde, MSEE ARP tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel*/*ortak*  / *Microsoft* eşlemeleri.
 
 Aşağıdaki örnek, bir eşleme için komut yanıtı yok gösterir.
 
@@ -359,7 +359,7 @@ Komutu için bir örnek başarılı sonuç verilmiştir:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-Benzer şekilde, MSEE yönlendirme tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel*/*ortak*/*Microsoft* eşleme bağlamı.
+Benzer şekilde, MSEE yönlendirme tablosundan kontrol edebilirsiniz *birincil*/*ikincil* yolu için *özel* /  *Ortak*/*Microsoft* eşleme bağlamı.
 
 Aşağıdaki örnek, bir eşleme için komut yanıtı yok gösterir:
 

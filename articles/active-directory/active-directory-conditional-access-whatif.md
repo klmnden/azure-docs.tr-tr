@@ -1,5 +1,5 @@
 ---
-title: Ne ne ise, Azure Active Directory koşullu erişim aracı? -Önizleme | Microsoft Docs
+title: Ne ne ise, Azure Active Directory koşullu erişim aracı?
 description: Koşullu erişim ilkelerinizi etkisini ortamınızda nasıl anlayabilirsiniz öğrenin.
 services: active-directory
 keywords: uygulamaları, Azure AD ile koşullu erişim, koşullu erişim ilkeleri, şirket kaynaklarına güvenli erişim için koşullu erişim
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232533"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750091"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Ne ne ise, Azure Active Directory koşullu erişim aracı? -Önizleme
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Ne ne ise, Azure Active Directory koşullu erişim aracı?
 
 [Koşullu erişim](active-directory-conditional-access-azure-portal.md) olan Azure Active denetimine nasıl sağlayan Directory (Azure AD) yeteneğini yetkili kullanıcılara erişimi, bulut uygulamalarınızı. Nasıl, ne form bekleneceği koşullu erişim ilkeleri, ortamınızda biliyor musunuz? Bu soruyu yanıtlamak için kullanabileceğiniz **koşullu erişim ne aracı**.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939878"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752048"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Günlük analizi Görünüm Tasarımcısı kullanarak özel görünümlerini oluşturma
 Görünüm Tasarımcısı'nda kullanarak [Azure günlük analizi](log-analytics-overview.md), Azure portalında veri günlük analizi çalışma alanınızdaki görselleştirmenize yardımcı olabilecek çeşitli özel görünümler oluşturabilirsiniz. Bu makalede Görünüm Tasarımcısı ve oluşturma ve özel görünümler düzenleme yordamları genel bakış sunar.
@@ -55,13 +55,14 @@ Seçenekler aşağıdaki tabloda açıklanmıştır:
 |:--|:--|
 | Yenile   | En son verilerle Görünümü yeniler. | 
 | Analiz | Açılır [Advanced Analytics portalı](log-analytics-log-search-portals.md#advanced-analytics-portal) günlük arama ile veri çözümleme için. |
-| Filtre    | Zaman filtresi görünümde bulunan veriler için ayarlar. |
-| Düzenle      | Görünüm içeriklerini ve yapılandırmasını düzenlemek için Görünüm Tasarımcısı'nda açar.  |
-| Kopyala     | Yeni bir görünüm oluşturur ve Görünüm Tasarımcısı'nda açar. Yeni Görünüm adını özgün adına, ancak ile aynıdır *kopyalama* eklenmiş. |
+| Düzenle       | Görünüm içeriklerini ve yapılandırmasını düzenlemek için Görünüm Tasarımcısı'nda açar.  |
+| Kopyala      | Yeni bir görünüm oluşturur ve Görünüm Tasarımcısı'nda açar. Yeni Görünüm adını özgün adına, ancak ile aynıdır *kopyalama* eklenmiş. |
+| Tarih aralığı | Görünümde bulunan veriler için tarih ve saat aralığı filtre ayarlayın. |
+| +          | Tanımlanmış bir özel filtre görünüm için tanımlayın. |
 
 
 ## <a name="create-a-new-view"></a>Yeni bir görünüm oluşturma
-Seçerek Görünüm Tasarımcısı'nda yeni bir görünüm oluşturabilirsiniz **Görünüm Tasarımcısı** döşemesinin **genel bakış** günlük analizi çalışma alanı sayfası.
+Seçerek Görünüm Tasarımcısı'nda yeni bir görünüm oluşturabilirsiniz **Görünüm Tasarımcısı** günlük analizi çalışma alanı menüsünde.
 
 ![Görünüm Tasarımcısı döşeme](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -104,7 +105,6 @@ Düzenleme modunda görünümleri ile çalışmak için seçenekler aşağıdaki
 | Dışarı Aktarma      | Görünüm verir bir [Azure Resource Manager şablonu](../azure-resource-manager/resource-group-authoring-templates.md) başka bir çalışma alanına alabilir. Dosyanın adını görünümü adıdır ve bunun bir *omsview* uzantısı. |
 | İçeri Aktarma      | İçeri aktarmalar *omsview* başka bir çalışma alanından dışarı aktardığınız dosya. Bu eylem, varolan bir görünümü yapılandırmasını üzerine yazar. |
 | Kopyala       | Yeni bir görünüm oluşturur ve Görünüm Tasarımcısı'nda açar. Yeni Görünüm adını özgün adına, ancak ile aynıdır *kopyalama* eklenmiş. |
-| Yayımlama     | Görünüm eklemek bir JSON dosyası dışarı aktarmaları bir [yönetim çözümü](../operations-management-suite/operations-management-suite-solutions-resources-views.md). Dosya adı Görünüm adı, ancak ile aynıdır bir *json* uzantısı. İle oluşturulan ikinci bir dosya bir *resjson* uzantısı, JSON dosyasında tanımlanmış olan kaynaklar için değerleri içerir.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * Ekleme [kutucukları](log-analytics-view-designer-tiles.md) özel görünüm.

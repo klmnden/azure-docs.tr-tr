@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: b65888ced67ba3c236c31678cf452d40489bf028
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ba2325272552a13d6e464797b1fb523415393100
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631787"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945947"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>IOT DevKit AZ3166 dil Çeviricisi yapmak için Azure işlevi ve Bilişsel hizmetler ile kullanma
 
@@ -38,13 +38,16 @@ Etkin bir Azure aboneliği. Bir yoksa, bu iki yöntemden biri kaydedebilirsiniz:
 
 ### <a name="a-start-vs-code"></a>A. VS Code'u başlatın
 
-- DevKit PC'nize bağlanmamış emin olun.
+- DevKit PC'nize bağlı olduğundan emin olun.
 - VS Code'u başlatın
 - DevKit bilgisayarınıza bağlayın.
 
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Arduino örnekler klasörünü açın
 
-Sol tarafta genişletin **ARDUINO ÖRNEKLER > örnekler MXCHIP AZ3166 için > AzureIoT**seçip **DevKitTranslator**. Bu DEVKITTRANSLATOR proje klasöründen ile yeni bir VS Code penceresi açar.
+Sol tarafta genişletin **ARDUINO ÖRNEKLER > örnekler MXCHIP AZ3166 için > AzureIoT**seçip **DevKitTranslator**. Bu DEVKITTRANSLATOR proje klasöründen ile yeni bir VS Code penceresi açar.  
+
+> [!NOTE]
+> Örnekler MXCHIP AZ3166 bölüm için göremiyorsanız, Cihazınızı düzgün bir şekilde bağlı Visual Studio Code sağlayın ve yeniden başlatın.  
 
 ![IOT DevKit örnekleri](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 

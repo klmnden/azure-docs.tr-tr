@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 0165de82850c0c80052564c5f31a5e5cf5effb11
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117546"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938317"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Kaydet ve Git kullanarak API Management hizmeti yapılandırmanızı yapılandırma
 
@@ -95,7 +95,7 @@ Herhangi bir hata alırsanız, değiştirmeyi deneyin, `git clone` kullanıcı a
 git clone https://username:password@bugbashdev4.scm.azure-api.net/
 ```
 
-Bu bir hata sağlıyorsa, URL komutun parola bölümü kodlama deneyin. Bunu yapmak için bir hızlı yoludur Visual Studio'yu açın ve aşağıdaki komutu yürütün **komut penceresi**. Açmak için **komut penceresi**, herhangi bir çözüm veya proje Visual Studio'da açın (veya yeni bir boş konsol uygulaması oluşturun) ve seçin **Windows**, **hemen** gelen **hata ayıklama** menüsü.
+Bu bir hata sağlıyorsa, URL komutun parola bölümü kodlama deneyin. Bunu yapmak için bir hızlı yoludur Visual Studio'yu açın ve aşağıdaki komutu yürütün **komut penceresi**. Açmak için **komut penceresi**, herhangi bir çözüm veya proje Visual Studio'da açın (veya yeni bir boş konsol uygulaması oluşturun) ve seçin **Windows**, **hemen** gelen **Hata ayıklama** menüsü.
 
 ```
 ?System.NetWebUtility.UrlEncode("password from the Azure portal")
@@ -149,7 +149,7 @@ Dosya ve klasörlerin yerel git deposu içinde hizmet örneği hakkında yapıla
 
 | Öğe | Açıklama |
 | --- | --- |
-| Kök API management klasörü |Hizmet örneği için en üst düzey yapılandırmayı içerir |
+| kök API management klasörü |Hizmet örneği için en üst düzey yapılandırmayı içerir |
 | API klasörü |Hizmet örneği API'lerinde için yapılandırmayı içerir |
 | grupları klasörü |Hizmet örneği gruplarında için yapılandırmayı içerir |
 | ilkeleri klasörü |Hizmet örneği ilkelerinde içerir |
@@ -162,7 +162,7 @@ Her klasör bir veya daha fazla içerebilir ve bazı durumlarda bir veya daha fa
 | Dosya türü | Amaç |
 | --- | --- |
 | json |İlgili varlık hakkında yapılandırma bilgileri |
-| html |Genellikle Geliştirici Portalı'nda görüntülenen varlık hakkında açıklamaları |
+| HTML |Genellikle Geliştirici Portalı'nda görüntülenen varlık hakkında açıklamaları |
 | xml |İlke deyimleri |
 | CSS |Geliştirici Portalı özelleştirme için stil sayfaları |
 
@@ -219,41 +219,41 @@ Son ayar `$ref-policy`, hizmet örneği için genel ilke deyimleri dosyası eşl
 ### <a name="apis-folder"></a>API klasörü
 `apis` Klasörü her API aşağıdaki öğeleri içeren hizmet örneği için bir klasör içerir.
 
-* `apis\<api name>\configuration.json`-Bu API için yapılandırması ve arka uç hizmeti URL'si ve işlemler hakkında bilgi içerir. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir API alma](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI) ile `export=true` içinde `application/json` biçimi.
-* `apis\<api name>\api.description.html`-Bu API açıklaması ve karşılık gelen `description` özelliği [API varlık](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties).
-* `apis\<api name>\operations\`-Bu klasörde `<operation name>.description.html` API işlemlerinde Eşle dosyaları. Her dosya eşleştiren API tek bir işlemde açıklamasını içerir `description` özelliği [işlemi varlık](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties) REST API'sindeki.
+* `apis\<api name>\configuration.json` -Bu API için yapılandırması ve arka uç hizmeti URL'si ve işlemler hakkında bilgi içerir. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir API alma](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) ile `export=true` içinde `application/json` biçimi.
+* `apis\<api name>\api.description.html` -Bu API açıklaması ve karşılık gelen `description` özelliği [API varlık](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` -Bu klasörde `<operation name>.description.html` API işlemlerinde Eşle dosyaları. Her dosya eşleştiren API tek bir işlemde açıklamasını içerir `description` özelliği [işlemi varlık](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) REST API'sindeki.
 
 ### <a name="groups-folder"></a>grupları klasörü
 `groups` Klasörü, hizmet örneği içinde tanımlanan her grup için bir klasör içerir.
 
-* `groups\<group name>\configuration.json`-Bu grup için bir yapılandırmadır. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir grup alma](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) işlemi.
-* `groups\<group name>\description.html`-Bu grubun açıklaması ve karşılık gelen `description` özelliği [Grup varlık](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
+* `groups\<group name>\configuration.json` -Bu grup için bir yapılandırmadır. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir grup alma](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) işlemi.
+* `groups\<group name>\description.html` -Bu grubun açıklaması ve karşılık gelen `description` özelliği [Grup varlık](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties).
 
 ### <a name="policies-folder"></a>ilkeleri klasörü
 `policies` Klasörü hizmet Örneğiniz için ilke ifadeleri içerir.
 
-* `policies\global.xml`-Hizmet Örneğiniz için genel kapsamda tanımlanan ilkeleri içerir.
-* `policies\apis\<api name>\`-API kapsamda tanımlanan tüm ilkeler varsa, bu klasörde yer alır.
-* `policies\apis\<api name>\<operation name>\`Klasör - işlemi kapsamında tanımlı tüm ilkeler varsa, bu klasörde yer alır `<operation name>.xml` her işlem için ilke deyimleri eşleme dosyaları.
-* `policies\products\`-Ürün kapsamda tanımlanan tüm ilkeler varsa, bunlar içeren bu klasörde yer alan `<product name>.xml` her ürün için ilke deyimleri eşleme dosyaları.
+* `policies\global.xml` -Hizmet Örneğiniz için genel kapsamda tanımlanan ilkeleri içerir.
+* `policies\apis\<api name>\` -API kapsamda tanımlanan tüm ilkeler varsa, bu klasörde yer alır.
+* `policies\apis\<api name>\<operation name>\` Klasör - işlemi kapsamında tanımlı tüm ilkeler varsa, bu klasörde yer alır `<operation name>.xml` her işlem için ilke deyimleri eşleme dosyaları.
+* `policies\products\` -Ürün kapsamda tanımlanan tüm ilkeler varsa, bunlar içeren bu klasörde yer alan `<product name>.xml` her ürün için ilke deyimleri eşleme dosyaları.
 
 ### <a name="portalstyles-folder"></a>portalStyles klasörü
 `portalStyles` Klasörü, Geliştirici Portalı özelleştirmeleri hizmet örneği için yapılandırma ve stil sayfalarını içerir.
 
-* `portalStyles\configuration.json`-Geliştirici Portalı tarafından kullanılan stil sayfaları adlarını içerir
-* `portalStyles\<style name>.css`-Her `<style name>.css` dosyasını içeren Geliştirici Portalı için stiller (`Preview.css` ve `Production.css` varsayılan olarak).
+* `portalStyles\configuration.json` -Geliştirici Portalı tarafından kullanılan stil sayfaları adlarını içerir
+* `portalStyles\<style name>.css` -Her `<style name>.css` dosyasını içeren Geliştirici Portalı için stiller (`Preview.css` ve `Production.css` varsayılan olarak).
 
 ### <a name="products-folder"></a>Ürünler klasörü
 `products` Klasörü, hizmet örneği içinde tanımlanan her ürün için bir klasör içerir.
 
-* `products\<product name>\configuration.json`-Bu ürün için bir yapılandırmadır. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir ürün almak](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) işlemi.
-* `products\<product name>\product.description.html`-Bu ürünün açıklaması ve karşılık gelen `description` özelliği [ürün varlığı](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) REST API'sindeki.
+* `products\<product name>\configuration.json` -Bu ürün için bir yapılandırmadır. Bu çağrı için olsaydı, döndürülür, aynı bilgilerdir [belirli bir ürün almak](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) işlemi.
+* `products\<product name>\product.description.html` -Bu ürünün açıklaması ve karşılık gelen `description` özelliği [ürün varlığı](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product) REST API'sindeki.
 
 ### <a name="templates"></a>templates
 `templates` İçeren klasör için yapılandırma [e-posta şablonları](api-management-howto-configure-notifications.md) hizmet örneği.
 
-* `<template name>\configuration.json`-Bu e-posta şablonu için bir yapılandırmadır.
-* `<template name>\body.html`-e-posta şablonunun gövdesini budur.
+* `<template name>\configuration.json` -Bu e-posta şablonu için bir yapılandırmadır.
+* `<template name>\body.html` -e-posta şablonunun gövdesini budur.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Hizmet örneğinizi yönetmenin başka yolları hakkında daha fazla bilgi için bkz:

@@ -1,5 +1,5 @@
 ---
-title: SharePoint çiftliğinin Azure yığında Azure'a yedekleyin.
+title: Bir SharePoint çiftliğinin Azure yığında yedekleyin
 description: Azure yedekleme sunucusu ve SharePoint verilerinizi Azure yığında geri yükleme için kullanın. Bu makalede, böylece istenen verileri Azure'da depolanabilir, SharePoint grubunu yapılandırmak için bilgi sağlar. Korumalı SharePoint verileri diskten veya Azure geri yükleyebilirsiniz.
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249414"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751906"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>SharePoint çiftliğinin Azure yığında Azure'a yedekleyin.
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Bir SharePoint çiftliğinin Azure yığında yedekleyin
 Bir SharePoint çiftliğinin Azure yığında Microsoft Azure için Microsoft Azure yedekleme sunucusu (MABS) çok diğer veri kaynaklarını geri aynı şekilde kullanarak yedekleyin. Azure yedekleme günlük oluşturmak için yedekleme zamanlamasını esneklik sağlar, haftalık, aylık veya yıllık yedekleme noktaları ve çeşitli yedekleme noktaları için bekletme ilkesi seçenekler sunar. Ayrıca, Hızlı Kurtarma süresi hedefi (RTO) için yerel disk kopyaları depolamak ve ekonomik, uzun vadeli bekletme için Azure kopyaları depolamak için yeteneği sağlar.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint desteklenen sürümleri ve ilgili koruma senaryoları
-Azure yedekleme DPM için aşağıdaki senaryoları destekler:
+Azure yedekleme MABS için aşağıdaki senaryoları destekler:
 
 | İş yükü | Sürüm | SharePoint dağıtımı | Koruma ve kurtarma |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ Gruptaki her 10 milyon öğe için en az 2 GB alan MABS klasörünün bulunduğu
 Azure yedekleme sunucusu LocalSystem hesabı olarak çalışır. SQL Server veritabanlarını yedeklemek için SQL Server çalıştıran sunucu için bu hesabı üzerinde Sistem Yöneticisi ayrıcalıklarına MABS gerekir. Kümesine NT AUTHORITY\SYSTEM *sysadmin* önce SQL Server çalıştıran sunucuda yedekleyin.
 
 SharePoint grubu SQL Server diğer adlarıyla yapılandırılmış SQL Server veritabanlarını ise MABS korunacak ön uç Web sunucusunda SQL Server istemci bileşenlerini yükleyin.
-
-### <a name="sharepoint-server"></a>SharePoint Server
-Performans SharePoint grubu boyutu gibi birçok faktöre bağlıdır, ancak genel bir yönerge olarak 25 TB SharePoint grubunu bir MABS koruyabilirsiniz.
 
 ### <a name="whats-not-supported"></a>Desteklenmeyen durumlar
 * Bir SharePoint grubu korur MABS, arama dizinlerini veya uygulama hizmeti veritabanlarını koruma sağlamaz. Bu veritabanlarını koruma ayrı olarak yapılandırmanız gerekir.

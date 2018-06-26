@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: e25c8d97698d7a61501094a457174202322d146f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36297958"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943428"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Oturum açma kullanıcı ve Microsoft Graph API çağrısından bir Android uygulaması
+# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Kullanıcılar oturum ve bir Android uygulaması Microsoft Graph API çağrısı
 
 Bu kılavuz, nasıl yerel bir Android uygulaması bir erişim belirteci alın ve Microsoft Graph API veya Azure Active Directory v2 uç noktasından erişim belirteçleri gerektiren diğer API'leri çağırmak gösterir.
 

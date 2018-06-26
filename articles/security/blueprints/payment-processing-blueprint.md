@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301380"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751847"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure güvenlik ve uyumluluk şeması - PCI DSS uyumlu ödeme işlenirken ortamları
 
@@ -204,8 +204,8 @@ Azure SQL veritabanı örneğinde aşağıdaki veritabanı güvenlik önlemleri 
 
 [Günlük analizi](https://azure.microsoft.com/services/log-analytics) Contoso Webstore tüm sistemi ve kullanıcı etkinliğini kapsamlı günlük kaydıyla sağlamak, kart sahibi veri günlük kaydı içerir. Değişiklikleri gözden ve doğruluk doğrulandı. 
 
-- **Etkinlik günlükleri:**[etkinlik günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.
-- **Tanılama günlüklerini:**[tanılama günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri. Bu günlükler Windows olayı sistem günlükleri, Azure Blob Depolama, tablo ve kuyruk günlükleri içerir.
+- **Etkinlik günlükleri:**[etkinlik günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) aboneliğinizde kaynaklara gerçekleştirilen işlemler hakkında bilgi sağlar.  
+- **Tanılama günlüklerini:**[tanılama günlükleri](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) olan her kaynak tarafından gösterilen tüm günlükleri.   Bu günlükler Windows olayı sistem günlükleri, Azure Blob Depolama, tablo ve kuyruk günlükleri içerir.
 - **Güvenlik Duvarı günlüklerini:** uygulama ağ geçidi tanılama tam ve günlükleri erişim sağlar. Güvenlik Duvarı günlüklerini etkin WAF sahip uygulama ağ geçidi kaynakları için kullanılabilir.
 - **Günlük arşivleme:** tüm tanılama günlüklerini merkezi ve şifrelenmiş Azure depolama hesabı için tanımlanan bekletme süresi (2 gün) ile arşivleme yazmak için yapılandırılır. Günlükleri işleme, depolama ve dashboarding için Azure günlük Analizi'ne bağlanmıştır. [Günlük analizi](https://azure.microsoft.com/services/log-analytics) ve şirket içi ortamları toplamak ve bulut kaynakları tarafından oluşturulan verileri çözümlemek yardımcı olan bir hizmettir.
 
@@ -298,7 +298,7 @@ Varsayılan dağıtım Güvenlik Merkezi önerilerini, sağlıklı ve güvenli y
 
 ## <a name="deploy-the-solution"></a>Çözümü dağıtma
 
-Bu çözümü dağıtmak için [PCI şeması kod depo] içinde kullanılabilir bileşenleridir [kodu-repo]. Temel mimari dağıtımını Microsoft PowerShell v5 yürütülen birkaç adımı gerektirir. Web sitesine bağlanmak için bir özel etki alanı adı (örneğin, contoso.com) sağlamanız gerekir. Bu kullanılarak belirtilir `-customHostName` 2. adımda geçiş yapın. Daha fazla bilgi için bkz: [Azure Web uygulamaları için özel etki alanı adı satın](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Özel etki alanı adı başarıyla dağıtmak ve çözümü çalıştırmak için gerekli değildir, ancak tanıtım amacıyla Web sitesine bağlanamadı olacaktır.
+Bu çözümü dağıtmak için kullanılabilir bileşenleridir [PCI şeması kod depo](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms). Temel mimari dağıtımını Microsoft PowerShell v5 yürütülen birkaç adımı gerektirir. Web sitesine bağlanmak için bir özel etki alanı adı (örneğin, contoso.com) sağlamanız gerekir. Bu, 2. adımda birincil dağıtım betikteki destekli Kullanıcı istemi üzerinden belirtilir. Daha fazla bilgi için bkz: [Azure Web uygulamaları için özel etki alanı adı satın](/azure/app-service-web/custom-dns-web-site-buydomains-web-app). Özel etki alanı adı başarıyla dağıtmak ve çözümü çalıştırmak için gerekli değildir, ancak tanıtım amacıyla Web sitesine bağlanamadı olacaktır.
 
 Komut dosyalarını belirttiğiniz Azure AD Kiracı etki alanı kullanıcıları ekleyin. Yeni bir oluşturmanızı öneririz bir test olarak kullanmak için Azure AD kiracısı.
 
@@ -323,19 +323,17 @@ PowerShell temiz bir yüklemesini çözümü dağıtmak için kullanılması ön
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    Ayrıntılı kullanım yönergeleri için bkz: [betik yönergeler - dağıtmak ve Azure kaynaklarını Yapılandır](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md).
+    Ayrıntılı kullanım yönergeleri için bkz: [betik yönergeler - dağıtmak ve Azure kaynaklarını Yapılandır](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Bu kod, Contoso Web deposu demo destekleme veya PCI uyumluluğunu desteklemek için bir ortamı dağıtma başlangıç adımları Pilot uygulaması için kullanılabilir. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    Contoso Web deposu demo dağıtımını desteklemek için ayrıntılı kullanım yönergeleri için bkz: [betik yönergeler - Contoso Web deposu Demo Azure kaynakları](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md). Bu kod, Contoso Web deposu demo altyapısını dağıtmak için kullanılabilir. 
+    
+    Bu komut dosyaları, birbirinden bağımsız olarak kullanılmak üzere tasarlanmıştır. En iyi çözüm anlamak için çözümü desteklemek için gereken gerekli Azure kaynakları tanımlamak için tanıtım dağıtımını tamamlamak için önerilir. 
     
 3. Günlüğe kaydetme ve izleme. Çözüm dağıtıldığında, bir günlük analizi çalışma alanı açılabilir ve çözüm deposunda sağlanan örnek şablonları nasıl izleme Panosu yapılandırılabilir göstermek için kullanılabilir. Örnek şablonlar başvurmak için [omsDashboards klasörü](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md). Verileri doğru şekilde dağıtmak için şablonları için günlük analizi'içinde toplanması gereken unutmayın. Bu bir saat veya site etkinliğe bağlı olarak daha fazla sürebilir.
  

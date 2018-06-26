@@ -10,22 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 3c80ce6e221acb8905c00e6178dd2fec1f8816af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938505"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure CLI 2.0 Azure yığınında API sürümü profillerini kullanma
 
-Bu makalede, Azure komut satırı arabirimi (CLI) Linux Azure yığın Geliştirme Seti kaynakları yönetmek için ve Mac istemci platformları kullanarak işleminde size rehberlik ediyoruz. 
+Ayarlamak için bu makaledeki adımları izleyebilirsiniz Azure komut satırı arabirimi (Azure yığın Geliştirme Seti kaynakları Linux, Mac ve Windows istemci platformları yönetmek için CLI).
 
 ## <a name="install-cli"></a>CLI yükleme
 
-Ardından, geliştirme iş istasyonunuzu oturum açın ve CLI yükleyin. Azure yığını, Azure CLI'ın 2.0 sürümünü gerektirir. Açıklanan adımları kullanarak yükleyin [yükleme Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) makalesi. Yüklemenin başarılı olup olmadığını doğrulamak için bir terminal veya bir komut istemi penceresi açın ve aşağıdaki komutu çalıştırın:
+Geliştirme iş istasyonunuzu oturum açın ve CLI yükleyin. Azure yığını, Azure CLI'ın 2.0 sürümünü gerektirir. Açıklanan adımları kullanarak yükleyin [yükleme Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) makalesi. Yüklemenin başarılı olup olmadığını doğrulamak için bir terminal veya bir komut istemi penceresi açın ve aşağıdaki komutu çalıştırın:
 
 ```azurecli
 az --version
@@ -35,27 +36,47 @@ Azure CLI ve bilgisayarınızda yüklü diğer bağımlı kitaplıkları sürüm
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure yığın CA kök sertifikasını güven
 
-Azure yığın operatöründen Azure yığın CA kök sertifikası alın ve bu güven. Azure yığın CA kök sertifikasına güvenmek için varolan bir Python sertifikayı ekleyin. Azure yığın ortamında oluşturulan Linux makineden CLI çalıştırıyorsanız, aşağıdaki bash komutu çalıştırın:
+1. Azure yığın CA kök sertifikası alma [Azure yığın operatörünüze](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) ve onu güven. Azure yığın CA kök sertifikasına güvenmek için varolan bir Python sertifikayı ekleyin.
+
+2. Makinenizde sertifika konumu bulun. Konum, Python yüklediğiniz bağlı olarak değişebilir. Sahip olmanız gerekir [PIP](https://pip.pypa.io) ve [certifi](https://pypi.org/project/certifi/) modül yüklü. Bash isteminden şu Python komutu kullanabilirsiniz:
+
+  ```bash  
+    python -c "import certifi; print(certifi.where())"
+  ```
+
+  Sertifika konumu not edin. Örneğin, `~/lib/python3.5/site-packages/certifi/cacert.pem`. Belirli yolunuz, işletim sistemi ve yüklediğiniz Python sürümü değişir.
+
+### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Yolun geliştirme makinesi içinde Ayarla
+
+Azure yığın ortamında oluşturulan Linux makineden CLI çalıştırıyorsanız, aşağıdaki bash komutu yolu sertifikanızı çalıştırın.
 
 ```bash
-sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 ```
 
-Azure Sack ortamı dışında bir makineden CLI çalıştırıyorsanız, ilk önce ayarlamanız gerekir [VPN bağlantısı Azure yığınına](azure-stack-connect-azure-stack.md). Şimdi, geliştirme iş istasyonunda daha önce dışarı PEM sertifikayı kopyalayın ve geliştirme iş istasyonunun OS bağlı olarak aşağıdaki komutları çalıştırın.
+### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>Bir geliştirme makine yolu dışında Ayarla
 
-### <a name="linux"></a>Linux
+Bir makineden CLI çalıştırıyorsanız **dışında** Azure yığın ortamı:  
+
+1. Bunu ayarlamanız gerekir [VPN bağlantısı Azure yığınına](azure-stack-connect-azure-stack.md).
+
+2. Azure yığın operatöründen aldığınız PEM sertifikayı kopyalayın ve (PATH_TO_PEM_FILE) dosyasının konumunu not edin.
+
+3. Geliştirme iş istasyonunun işletim sisteminde bitiş bağlı olarak aşağıdaki komutları çalıştırın.
+
+#### <a name="linux"></a>Linux
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="macos"></a>macOS
+#### <a name="macos"></a>macOS
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="windows"></a>Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -181,14 +202,14 @@ Kaynak grubu başarıyla oluşturulduysa, önceki komutu aşağıdaki yeni oluş
 ## <a name="known-issues"></a>Bilinen sorunlar
 CLI Azure yığınında kullanırken bilmeniz gereken bazı bilinen sorunlar vardır:
 
-* CLI etkileşimli mod yani `az interactive` komutu Azure yığınında henüz desteklenmiyor.
-* Sanal makine görüntülerini Azure yığınında kullanılabilir listesini almak için kullanmak `az vm images list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` yanıtı yalnızca Azure yığın ortamınızda kullanılabilir görüntüleri döndürür emin olur. 
-* Mevcut olan sanal makine görüntüsü diğer adlar Azure yığını için geçerli olmayabilir. Sanal makine görüntülerini kullanırken, tüm URN parametresini kullanmanız gerekir (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) yerine görüntü diğer adı. Bu URN görüntü belirtimleri türetilmiş ile eşleşmelidir `az vm images list` komutu.
-* Varsayılan olarak, CLI 2.0 "Standard_DS1_v2" varsayılan sanal makine görüntü boyutunu kullanır. Ancak, bu boyutu değil henüz Azure yığınında kullanılabilir, bu nedenle, belirtmeniz gerekir `--size` açıkça bir sanal makine oluşturulurken parametre. Kullanarak Azure yığınında kullanılabilir sanal makine boyutlarının listesi elde edebilirsiniz `az vm list-sizes --location <locationName>` komutu.
-
+ - CLI etkileşimli mod yani `az interactive` komutu Azure yığınında henüz desteklenmiyor.
+ - Sanal makine görüntülerini Azure yığınında kullanılabilir listesini almak için kullanmak `az vm images list --all` komutu yerine `az vm image list` komutu. Belirtme `--all` yanıtı yalnızca Azure yığın ortamınızda kullanılabilir görüntüleri döndürür emin olur.
+ - Mevcut olan sanal makine görüntüsü diğer adlar Azure yığını için geçerli olmayabilir. Sanal makine görüntülerini kullanırken, tüm URN parametresini kullanmanız gerekir (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) yerine görüntü diğer adı. Bu URN görüntü belirtimleri türetilmiş ile eşleşmelidir `az vm images list` komutu.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 [Azure CLI ile şablonlarını dağıtma](azure-stack-deploy-template-command-line.md)
+
+[Azure CLI için Azure yığın kullanıcıları (işleç) etkinleştir](..\azure-stack-cli-admin.md)
 
 [Kullanıcı izinlerini yönetme](azure-stack-manage-permissions.md)

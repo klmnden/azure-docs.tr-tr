@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 5c5c9894127386a05da9825435cfe5ca07b01542
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ccdeb2e57d8e2f8fc7ad2fa5e76726b90c0c8a50
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911990"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936828"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>Karşıya yükleme ve Azure CLI 2.0 ile özel diskten bir Linux VM oluşturma
-Bu makalede Azure CLI 2.0 ile Azure depolama hesabı için bir sanal sabit disk (VHD) karşıya yükleyin ve bu özel diskten Linux VM'ler oluşturmak gösterilmektedir. Bu adımları [Azure CLI 1.0](upload-vhd-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz. Bu işlevsellik, yükleme ve Linux distro gereksinimlerinize yapılandırmak ve hızlı bir şekilde Azure sanal makineleri (VM'ler) oluşturmak için bu VHD kullanmak olanak sağlar.
+Bu makalede Azure CLI 2.0 ile Azure depolama hesabı için bir sanal sabit disk (VHD) karşıya yükleyin ve bu özel diskten Linux VM'ler oluşturmak gösterilmektedir. Bu işlevsellik, yükleme ve Linux distro gereksinimlerinize yapılandırmak ve hızlı bir şekilde Azure sanal makineleri (VM'ler) oluşturmak için bu VHD kullanmak olanak sağlar.
 
 Bu konuda depolama hesapları için son VHD'leri kullanır, ancak aşağıdaki adımları kullanarak da yapabilirsiniz [yönetilen diskleri](upload-vhd.md). 
 
@@ -116,7 +116,7 @@ Azure çeşitli Linux dağıtımları destekler (bkz [destekli dağıtımlar](en
 Ayrıca bkz. **[Linux yükleme notları](create-upload-generic.md#general-linux-installation-notes)** için Azure Linux görüntüleri hazırlama hakkında daha fazla genel ipuçları için.
 
 > [!NOTE]
-> [Azure platformu SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) içinde yalnızca doğrulanan dağıtımları birini 'Sürümleri desteklenir' altında belirtildiği gibi yapılandırma ayrıntıları ile kullanıldığında, Linux çalıştıran Vm'leri uygulandığı [Azure-Endorsed dağıtımları Linux'ta](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> [Azure platformu SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) içinde yalnızca doğrulanan dağıtımları birini 'Sürümleri desteklenir' altında belirtildiği gibi yapılandırma ayrıntıları ile kullanıldığında, Linux çalıştıran Vm'leri uygulandığı [Azure destekli Linux'ta Dağıtımları](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 

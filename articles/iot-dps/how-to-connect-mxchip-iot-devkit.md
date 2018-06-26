@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 331e589aadf783fc40ab6efbfb554469c27e48d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629686"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750375"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IOT Hub cihaz hizmeti sağlama otomatik sağlama MXChip IOT DevKit IOT Hub'ınızla kaydolmak için kullanın
 
@@ -67,7 +67,7 @@ Aşağıdaki örnekte görüldüğü gibi tipik benzersiz cihaz gizli 64 karakte
 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eae
 ```
 
-Her iki karakter güvenlik hesaplama onaltılık değer olarak kullanılır. UDS Çözüldü önceki örnek: `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16` , `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
+Her iki karakter güvenlik hesaplama onaltılık değer olarak kullanılır. The preceding sample UDS is resolved to: `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
 
 Benzersiz cihaz gizli anahtarı üzerinde DevKit kaydetmek için:
 
@@ -115,6 +115,17 @@ Benzersiz cihaz gizli anahtarı üzerinde DevKit kaydetmek için:
    - geri kalan varsayılan olarak bırakın ve tıklayın **Kaydet**
 
    ![Sertifikayı karşıya yükleme](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+
+  > [!NOTE]
+  > Bu iletiyle bir hata varsa:
+  >
+  > `{"message":"BadRequest:{\r\n \"errorCode\": 400004,\r\n \"trackingId\": \"1b82d826-ccb4-4e54-91d3-0b25daee8974\",\r\n \"message\": \"The certificate is not a valid base64 string value\",\r\n \"timestampUtc\": \"2018-05-09T13:52:42.7122256Z\"\r\n}"}`
+  >
+  > Sertifika dosyasını açmak **.pem** metin (Not Defteri veya herhangi bir metin düzenleyicisinde açın) ve satırları silin:
+  >
+  > `"-----BEGIN CERTIFICATE-----"` ve `"-----END CERTIFICATE-----"`.
+  >
+
 
 ## <a name="start-the-devkit"></a>DevKit Başlat
 

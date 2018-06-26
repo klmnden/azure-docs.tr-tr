@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796725"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751787"
 ---
 # <a name="understanding-policy-effects"></a>İlke etkilerini anlama
 
@@ -90,7 +90,7 @@ Bir ekleme yalnızca etkisi bir **ayrıntıları** gerekli olan dizi. Olarak **a
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -160,7 +160,7 @@ Bir kaynak sağlayıcısı oluşturma veya güncelleştirme isteği bir kaynağa
 - **Tür** [gerekli]
   - Eşleştirilecek ilgili kaynak türünü belirtir.
   - Başlatır kaynağı altına getirmek deneyerek **varsa** koşul kaynak sonra aynı kaynak grubunda sorgulara **varsa** koşul kaynak.
-- **ad** (isteğe bağlı)
+- **Ad** (isteğe bağlı)
   - Eşleştirilecek kaynak tam adını belirtir ve belirli bir kaynak belirtilen türe ait tüm kaynakları yerine getirmek ilke neden olur.
 - **ResourceGroupName** (isteğe bağlı)
   - Farklı kaynak grubundan gelmesini ilgili kaynak eşleşen sağlar.
@@ -227,7 +227,7 @@ Bir değerlendirme döngüsü sırasında kaynakları eşleşen ilke tanımları
 - **Tür** [gerekli]
   - Eşleştirilecek ilgili kaynak türünü belirtir.
   - Başlatır kaynağı altına getirmek deneyerek **varsa** koşul kaynak sonra aynı kaynak grubunda sorgulara **varsa** koşul kaynak.
-- **ad** (isteğe bağlı)
+- **Ad** (isteğe bağlı)
   - Eşleştirilecek kaynak tam adını belirtir ve belirli bir kaynak belirtilen türe ait tüm kaynakları yerine getirmek ilke neden olur.
 - **ResourceGroupName** (isteğe bağlı)
   - Farklı kaynak grubundan gelmesini ilgili kaynak eşleşen sağlar.
@@ -304,7 +304,7 @@ Bir değerlendirme döngüsü sırasında kaynakları eşleşen ilke tanımları
 
 ## <a name="layering-policies"></a>Katmanlama ilkeleri
 
-Bir kaynak tarafından birden çok atamaları etkilenebilir. Bu atamaları aynı kapsamda (belirli bir kaynak, kaynak grubu, abonelik veya yönetim grubu) veya farklı kapsamlar olabilir. Her bu atamaları ayrıca tanımlanan farklı bir etkiye sahip olasılığı yüksektir. Ne olursa olsun, koşul ve etkili (doğrudan veya bir girişimi parçası olarak atanır) her ilke için bağımsız olarak değerlendirildiği. Reddetme efekti ve kaynak kaynaklarında kısıtlayan İlkesi 2 ile 'westus' oluşturulmakta gelen bir abonelik için konum kısıtlayan bir koşul 1 ilkesi varsa, örneğin, (A abonelikte olduğu) B denetim ile 'eastus' de oluşturulan gruplandırma etkili her ikisi de atandığından, sonuçta elde edilen sonucu olacaktır:
+Bir kaynak tarafından birden çok atamaları etkilenebilir. Bu atamaları aynı kapsamda (belirli bir kaynak, kaynak grubu, abonelik veya yönetim grubu) veya farklı kapsamlar olabilir. Her bu atamaları ayrıca tanımlanan farklı bir etkiye sahip olasılığı yüksektir. Ne olursa olsun, koşul ve etkili (doğrudan veya bir girişimi parçası olarak atanır) her ilke için bağımsız olarak değerlendirildiği. Örneğin, yalnızca reddetme etkisi olmadan 'westus' oluşturulması bir abonelik için kaynak konumu kısıtlayan bir koşul 1 ilkesi varsa ve 2 İlkesi (Bu abonelik A) kaynak konuma kaynak grubu B için yalnızca kısıtlayan bir koşulu olması 'eastus' denetim etkisi ile oluşturulan her ikisi de olan atanan, sonuçta elde edilen sonucu olacaktır::
 
 - 'Eastus' kaynak grubunda B zaten kaynak İlkesi 2 uyumlu ancak uyumsuz İlkesi 1 olarak işaretli değildir.
 - Herhangi bir kaynak zaten gruptaki kaynak B değil 'eastus' 2 ilkeyle uyumlu olmayan olarak işaretlenir ve ayrıca değil 'westus' değilse 1 İlkesi uyumlu işaretlenmesi.
@@ -324,4 +324,4 @@ Her bir atama tek tek değerlendirilmesi gibi bir boşluk kapsam farklılıklar�
 
 İlke tanımı etkileri daha derin bir anlayış sahip olduğunuza göre ilke örnekleri gözden geçirin:
 
-- Daha fazla örnekleri, inceleyin [Azure ilkesi örnekleri](json-samples.md).
+- [Azure İlkesi örnekleri](json-samples.md) sayfasındaki diğer örnekleri inceleyin.

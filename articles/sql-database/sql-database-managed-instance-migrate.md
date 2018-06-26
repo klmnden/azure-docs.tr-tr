@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647671"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936811"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server örneği geçiş yönetilen Azure SQL veritabanı örneğine
 
@@ -78,7 +78,6 @@ Yönetilen örneği (şu anda bunlar yalnızca desteklenen geçiş yöntemleridi
 
 - Azure veritabanı geçiş hizmeti - sıfır kapalı kalma süresi ile geçiş
 - URL - yerel YEDEKTEN geri yükleyin miktar kapalı kalma süresi gerektirir ve SQL Server yerel yedeklemelerden kullanır
-- BACPAC dosyasını kullanarak geçirme - BACPAC dosyasından SQL Server veya SQL veritabanını kullanır ve bazı kapalı kalma süresi gerektirir
 
 ### <a name="azure-database-migration-service"></a>Azure Veritabanı Geçiş Hizmeti
 
@@ -107,10 +106,6 @@ Aşağıdaki tabloda, kullanmakta olduğunuz kaynak SQL Server sürümüne bağl
 > Sistem veritabanlarının geri yükleme desteklenmez. (Asıl veya msdb veritabanlarında depolanır) örnek düzeyi nesneleri geçirmek için bunları komut dosyası ve hedef örneğinde T-SQL betikleri çalıştırmak için önerilir.
 
 Bir yönetilen bir SAS kimlik bilgisi kullanma örneği için bir veritabanı yedeğini geri içeren tam bir öğretici için bkz: [yönetilen bir örneğine yedekten geri](sql-database-managed-instance-restore-from-backup-tutorial.md).
-
-### <a name="migrate-using-bacpac-file"></a>BACPAC dosyasını kullanarak geçirme
-
-Azure SQL veritabanı ve yönetilen örnek verilerle bir BACPAC dosyayı özgün veritabanının bir kopyasını bir Oluştur aktarabilirsiniz. Bkz: [yeni bir Azure SQL veritabanı için bir BACPAC dosyasını içe](sql-database-import.md).
 
 ## <a name="monitor-applications"></a>Uygulamaları izleme
 

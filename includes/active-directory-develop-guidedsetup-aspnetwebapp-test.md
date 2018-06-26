@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c10a6367f07bf66f7a0a8968022881b3c616fb74
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: bfdc89d9bc5d5a07c04e857c1a46e4b988c125ab
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205612"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943564"
 ---
 ## <a name="test-your-code"></a>Kodunuzu test
 
@@ -71,7 +71,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 <!--end-collapse-->
 
 ### <a name="restrict-who-can-sign-in-to-your-application"></a>Uygulamanıza oturum açabilir kimin kısıtla
-Varsayılan olarak bu kılavuzu tarafından oluşturulan uygulamasını derlerken, uygulama kişisel bileşenleri (outlook.com, live.com ve diğerleri dahil) hesaplarının yanı sıra iş oturum kabul ve Okul hesapları herhangi bir şirket veya ile tümleşik olan Kuruluş Azure Active Directory. SaaS uygulamaları için önerilen seçenek budur.
+Varsayılan olarak bu kılavuzu tarafından oluşturulan uygulamasını derlerken, uygulamanızın (outlook.com, live.com ve diğerleri dahil) kişisel hesaplarıyla oturum açmaları yanı sıra iş kabul edin ve Okul hesapları herhangi bir şirket veya ile tümleşik olan Kuruluş Azure Active Directory. SaaS uygulamaları için önerilen seçenek budur.
 
 Uygulamanız için kullanıcı oturum açma erişimini kısıtlamak için birden çok seçenek kullanılabilir:
 

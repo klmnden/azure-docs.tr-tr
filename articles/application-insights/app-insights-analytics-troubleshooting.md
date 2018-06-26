@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294168"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936692"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights Analiz Sorunlarını Giderme
 Sorun [uygulama Öngörüler Analytics](app-insights-analytics.md)? Buradan başlayın. Analytics Azure Application Insights güçlü arama aracıdır.
@@ -57,7 +57,7 @@ Kimlik doğrulamasıyla ilgili bir hata oluştu (kimlik doğrulama veya erişim 
 4. Başka bir (normal) tarayıcı penceresi açın ve gidin [Azure](https://portal.azure.com). Oturumunuzu kapatın. Sonra bağlantınızı açın ve doğru kimlik bilgileriyle oturum açın.
 5. Edge ve Internet Explorer kullanıcıları, güvenilir bölge ayarlarının desteklenmediği durumlarda da bu hatayı alabilir.
    
-    Her ikisi de doğrulayın [Analytics portalı](https://analytics.applicationinsights.io) ve [Azure Active Directory portalında](https://portal.azure.com) aynı güvenlik bölgesinde şunlardır:
+    Her ikisi de doğrulayın [Analytics portalı](https://portal.azure.com) ve [Azure Active Directory portalında](https://portal.azure.com) aynı güvenlik bölgesinde şunlardır:
    
    * Internet Explorer'da açın **Internet Seçenekleri**, **güvenlik**, **Güvenilen siteler**, **siteleri**:
      

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248903"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753363"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack üzerinde Azure Backup Sunucusu'nu yükleme
 
@@ -42,18 +42,9 @@ Azure yedekleme sunucusu aşağıdaki Azure yığın sanal makine iş yüklerini
 | SQL Server 2016 | Database |
 | SQL Server 2014 | Database |
 | SQL Server 2012 SP1 | Database |
+| SharePoint 2016 | Grup, veritabanı, ön uç, web sunucusu |
 | SharePoint 2013 | Grup, veritabanı, ön uç, web sunucusu |
 | SharePoint 2010 | Grup, veritabanı, ön uç, web sunucusu |
-
-
-### <a name="host-vs-guest-backup"></a>VS Konuk yedekleme ana bilgisayar
-
-Azure yedekleme sunucusu ana bilgisayar veya sanal makine Konuk düzeyinde yedeklemeler gerçekleştirir. Ana bilgisayar düzeyinde Azure Yedekleme aracısı sanal makine veya küme yüklü ve tüm sanal makine ve ana bilgisayarda çalışan veri dosyalarını korur. Konuk düzeyinde Azure Yedekleme aracısı her sanal makineye yüklenir ve bu makinede mevcut iş yükü korur.
-
-Kendi Artıları ve eksileri her iki yöntem vardır:
-
-   * Ana bilgisayar düzeyinde yedeklemeler, Konuk makinelerde çalışan işletim sistemi bağımsız olarak çalışır ve Azure Backup aracısının her VM üzerinde yüklü olmasını gerektirmez. Ana bilgisayar düzeyinde yedeklemeler dağıtırsanız tüm bir sanal makine veya dosyalar ve klasörler (öğe düzeyinde kurtarma) kurtarın.
-   * Konuk düzeyinde yedekleme, bir sanal makine üzerinde çalışan belirli iş yüklerini korumak için faydalıdır. Ana bilgisayar düzeyinde tüm VM veya belirli dosyaları kurtarabilirsiniz, ancak belirli bir uygulama bağlamında verileri kurtarmak değil. Örneğin, korumalı bir sanal makineden belirli SharePoint dosyaları kurtarmak için VM Konuk düzeyinde korumanız gerekir. Doğrudan geçiş disklerinde depolanan verileri korumak istiyorsanız Konuk düzeyinde yedekleme kullanmanız gerekir. Geçiş, sanal makine depolama aygıtına doğrudan erişmesini sağlar ve sanal birim verilerini bir VHD dosyasında depolamaz.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Azure yedekleme sunucusu ortamı için Önkoşullar
 
@@ -84,13 +75,10 @@ Yedek veri depolama, yedekleme altyapısı Azure yığında azaltır. Veri beş 
 
 Azure'da yedek verileri depolamak için oluşturun veya bir kurtarma Hizmetleri kasası kullanın. Azure yedekleme sunucusu iş yükü çalışma yedeklemek hazırlarken, [kurtarma Hizmetleri kasası yapılandırma](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Bir kere yapılandırıldığında, yedekleme işi her çalıştığında, kasaya bir kurtarma noktası oluşturulur. Her kurtarma Hizmetleri kasası kadar 9999 kurtarma noktalarını tutar. Oluşturulan kurtarma noktaları ve ne kadar süreyle saklanacağını sayısına bağlı olarak, birçok yıldır yedekleme verileri koruyabilirsiniz. Örneğin, aylık kurtarma noktaları oluşturmak ve bunları beş yıl boyunca bekletmek.
  
-### <a name="using-sql-server"></a>SQL Server kullanma
-Azure yedekleme sunucusu veritabanı için uzak bir SQL Server kullanmak isterseniz, yalnızca bir Azure yığın SQL Server çalıştıran VM seçin.
-
 ### <a name="scaling-deployment"></a>Dağıtım ölçeklendirme
 Dağıtımınız ölçeklendirmek istiyorsanız aşağıdaki seçenekleriniz vardır:
   - Ölçeği artırma - D serisinin serisinden Azure yedekleme sunucusu sanal makineye boyutunu artırır ve yerel depolama alanını büyütmek [Azure yığın sanal makine yönergeleri başına](../azure-stack/user/azure-stack-manage-vm-disks.md).
-  - Veri Boşalt - eski verileri Azure yedekleme sunucusuna göndermek ve yalnızca en yeni verileri Azure yedekleme sunucusuna bağlı depolama korur.
+  - Veri Boşalt - eski verileri Azure'a gönderin ve yalnızca en yeni verileri Azure yedekleme sunucusuna bağlı depolama korur.
   - -Daha fazla Azure yedekleme iş yüklerini korumak için sunucu eklemek ölçeğini.
 
 ### <a name="net-framework"></a>.NET Framework
@@ -216,7 +204,7 @@ Azure yığın sanal makinenize tüm dosyaları indirdikten sonra yükleme konum
 
 ![Microsoft Azure yedekleme Kurulum Sihirbazı](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure yedekleme sunucusu kodu Data Protection Manager ile paylaşır. Data Protection Manager ve DPM başvuruları Azure yedekleme sunucusu yükleyicisinde görürsünüz. Azure yedekleme sunucusu ve Data Protection Manager ayrı ürünler olmakla birlikte, bu ürünler yakından ilişkilidir. Azure yedekleme sunucusu belgelerinde Data Protection Manager ve DPM yapılan tüm başvuruları Azure yedekleme sunucusu için geçerlidir.
+Azure yedekleme sunucusu kodu Data Protection Manager ile paylaşır. Data Protection Manager ve DPM başvuruları Azure yedekleme sunucusu yükleyicisinde görürsünüz. Azure yedekleme sunucusu ve Data Protection Manager ayrı ürünler olmakla birlikte, bu ürünler yakından ilişkilidir.
 
 1. Kurulum Sihirbazı'nı başlatmak için tıklatın **Microsoft Azure yedekleme sunucusu**.
 
@@ -322,7 +310,7 @@ Azure yedekleme sunucusu kodu Data Protection Manager ile paylaşır. Data Prote
 
 ## <a name="add-backup-storage"></a>Yedekleme depolama ekleme
 
-İlk yedek kopyayı Azure yedekleme sunucusu makineye bağlı depolama üzerinde tutulur. Diskleri ekleme hakkında daha fazla bilgi için bkz: [depolama havuzlarını yapılandırın ve disk depolama](https://technet.microsoft.com/library/hh758075.aspx).
+İlk yedek kopyayı Azure yedekleme sunucusu makineye bağlı depolama üzerinde tutulur. Diskleri ekleme hakkında daha fazla bilgi için bkz: [eklemek Modern yedekleme depolama](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > Azure'a veri göndermeyi planladığınız olsa bile yedekleme depolama alanı eklemeniz gerekir. Azure yedekleme sunucusu mimarisinde, Kurtarma Hizmetleri kasası ayrı tutma *ikinci* yerel depolama sırasında verilerin kopyasını ilk (ve zorunlu) yedek kopyasını tutar.
@@ -372,10 +360,10 @@ Ayrıca başvurabilirsiniz [Azure Backup ile ilgili sık sorulan sorular](backup
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Makale [DPM için ortamınızı hazırlama](https://technet.microsoft.com/library/hh758176.aspx), desteklenen Azure yedekleme sunucusu yapılandırmaları hakkında bilgi içerir.
+Makale [DPM için ortamınızı hazırlama](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), desteklenen Azure yedekleme sunucusu yapılandırmaları hakkında bilgi içerir.
 
 Microsoft Azure yedekleme sunucusu kullanarak iş yükü koruması daha derin bir anlayış edinmek için aşağıdaki makalelere kullanabilirsiniz.
 
-- [SQL Server Yedekleme](backup-azure-backup-sql.md)
-- [SharePoint server yedekleme](backup-azure-backup-sharepoint.md)
+- [SQL Server Yedekleme](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint server yedekleme](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Diğer sunucu yedekleme](backup-azure-alternate-dpm-server.md)

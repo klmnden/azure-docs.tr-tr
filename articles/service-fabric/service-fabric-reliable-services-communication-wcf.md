@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/07/2017
 ms.author: bharatn
-ms.openlocfilehash: f5ca579b446e5d3608d53cea73fa9392cd00db06
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4c45bc76c176ce9f2476f6a666afda1daf4cd9c5
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212233"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749938"
 ---
 # <a name="wcf-based-communication-stack-for-reliable-services"></a>Güvenilir hizmetler için WCF tabanlı iletişim yığını
 Güvenilir hizmetler altyapısına hizmet yazarların kendi hizmet için kullanmak istedikleri iletişim yığını seçin izin verir. Kendi seçtikleri iletişim yığınındaki ekleyebilirsiniz **ICommunicationListener** döndürülen [CreateServiceReplicaListeners veya CreateServiceInstanceListeners](service-fabric-reliable-services-communication.md) yöntemleri. Çerçeve WCF tabanlı iletişim kullanmak istediğiniz hizmet yazarlar için Windows Communication Foundation (WCF) tabanlı iletişim yığını uygulaması sağlar.
@@ -91,7 +91,7 @@ public class WcfCommunicationClient : ServicePartitionClient<WcfCommunicationCli
 
 ```
 
-İstemci kodu kullanabileceğiniz **WcfCommunicationClientFactory** ile birlikte **WcfCommunicationClient** hangi uygulayan **ServicePartitionClient** hizmet uç noktası belirlemek ve hizmeti ile iletişim için.
+İstemci kodu kullanabileceğiniz **WcfCommunicationClientFactory** ile birlikte **WcfCommunicationClient** hangi uygulayan **ServicePartitionClient** belirlemek için uç nokta hizmet ve hizmeti ile iletişim.
 
 ```csharp
 // Create binding
@@ -126,5 +126,5 @@ var result = calculatorServiceCommunicationClient.InvokeWithRetryAsync(
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Güvenilir hizmetler remoting ile uzaktan yordam çağrısı](service-fabric-reliable-services-communication-remoting.md)
 * [Web API OWIN güvenilir Hizmetleri'ndeki ile](service-fabric-reliable-services-communication-webapi.md)
-* [Güvenilir hizmetler için iletişimin güvenliğini sağlama](service-fabric-reliable-services-secure-communication.md)
+* [Güvenilir hizmetler için iletişimin güvenliğini sağlama](service-fabric-reliable-services-secure-communication-wcf.md)
 

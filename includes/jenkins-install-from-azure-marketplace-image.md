@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 552e93e9bd1b17c73fb1638fbae2ac30b051c261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957558"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943479"
 ---
 1. Tarayıcınızda açın [Azure Market görüntüsü için Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
@@ -33,7 +33,7 @@ ms.locfileid: "29957558"
 1. İçinde **Temelleri** sekmesinde, aşağıdaki değerleri belirtin:
 
     - **Ad** -girin `Jenkins`.
-    - **Kullanıcı adı** -Jenkins çalışan sanal makinede oturum açarken kullanılacak kullanıcı adını girin. Kullanıcı adı [belirli gereksinimleri](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) karşılamalıdır.
+    - **Kullanıcı adı** -Jenkins çalıştığı sanal makineye oturum açarken kullanılacak kullanıcı adını girin. Kullanıcı adı [belirli gereksinimleri](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm) karşılamalıdır.
     - **Kimlik doğrulama türü** - seçin **SSH ortak anahtarını**.
     - **SSH ortak anahtarını** -Kopyala ve Yapıştır tek satırlı biçimindeki bir RSA ortak anahtarı (başlayarak `ssh-rsa`) veya birden çok satırlı PEM biçimi. Linux ve macOS ya da Windows'da PuTTYGen ssh-keygen kullanarak SSH anahtarları oluşturabilir. SSH anahtarları ve Azure hakkında daha fazla bilgi için, bkz: [Windows Azure üzerinde ile SSH kullanma anahtarları nasıl](/azure/virtual-machines/linux/ssh-from-windows).
     - **Abonelik** -içine Jenkins yüklemek istediğiniz Azure aboneliğini seçin.

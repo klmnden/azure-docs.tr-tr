@@ -3,8 +3,8 @@ title: Azure üzerinde hizmet Haritası çözümünü kullanarak | Microsoft Doc
 description: Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulan ve hizmetler arasındaki iletişimi eşleyen bir Azure çözümüdür. Bu makalede hizmet Haritası ortamınıza dağıtmak ve çeşitli senaryolarda içinde kullanma ile ilgili ayrıntıları sağlar.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,20 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887912"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751437"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Hizmet eşlemesi çözüm Azure'da kullanma
 Hizmet Eşlemesi, Windows ve Linux sistemleri üzerindeki uygulama bileşenlerini otomatik olarak bulur ve hizmetler arasındaki iletişimi eşler. Hizmet eşlemesi ile bunları düşündüğünüz şekilde sunucularınızı görüntüleyebilirsiniz: kritik Hizmetleri sunmak birbirine bağlı sistemler. Bir aracı yüklemesini dışındaki bağlantı noktaları üzerinden tüm TCP bağlı mimarisi herhangi bir yapılandırma gerekli ve hizmet eşlemesi sunucuları, işlemleri arasındaki bağlantıları gösterir.
 
-Bu makalede hizmet eşlemesi kullanarak ilişkin ayrıntılar açıklanmaktadır. Hizmet Haritası ve ekleme aracıları yapılandırma hakkında daha fazla bilgi için bkz: [Azure yapılandırma hizmet Haritası çözümde]( monitoring-service-map-configure.md).
+Bu makalede onboarding ve hizmet eşlemesi kullanarak Ayrıntılar açıklanmaktadır. Hizmet Haritası ve ekleme aracıları yapılandırma hakkında daha fazla bilgi için bkz: [Azure yapılandırma hizmet Haritası çözümde]( monitoring-service-map-configure.md).
 
+## <a name="sign-in-to-azure"></a>Azure'da oturum açma
+[https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
+
+## <a name="enable-service-map"></a>Hizmet eşlemesini etkinleştir
+1. Azure portalında tıklatın **+ kaynak oluşturma**.
+2. Arama çubuğuna **hizmet Haritası** ve basın **Enter**.
+3. Market arama sonuçları sayfasını seçin **hizmet Haritası** listeden.<br><br> ![Hizmet eşlemesi çözüm Azure Marketi Arama sonuçlarından seçin](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. Üzerinde **hizmet Haritası** genel bakış bölmesinde, çözüm ayrıntılarını gözden geçirin ve ardından **oluşturma** günlük analizi çalışma alanınıza ekleme işlemini başlatmak için.<br><br> ![Yerleşik hizmet Haritası çözüm](./media/monitoring-service-map/service-map-onboard.png).
+5. İçinde **bir çözümü yapılandırmak** bölmesinde, var olan seçin veya yeni bir günlük analizi çalışma alanı oluşturun.  Yeni bir çalışma alanı oluşturma hakkında daha fazla bilgi için bkz: [Azure portalında günlük analizi çalışma alanı oluşturma](../log-analytics/log-analytics-quick-create-workspace.md). Gerekli bilgileri girdikten sonra tıklatın **oluşturma**.  
+
+Bilgi doğrulanır ve çözümü dağıtılmış olsa da, altında ilerleme durumunu izleyebilirsiniz **bildirimleri** menüsünde. 
+
+Hizmet Haritası günlük analizi çalışma alanınız Azure portalından erişmek ve seçeneğini **çözümleri** sol bölmeden.<br><br> ![Çalışma alanında çözümleri seçeneğini](./media/monitoring-service-map/select-solution-from-workspace.png).<br> Çözümleri listesinden seçin **ServiceMap(workspaceName)** ve hizmet eşlemesi Özet kutucuğu hizmet Haritası çözümü genel bakış sayfasında tıklatın.<br><br> ![Hizmet eşlemesi Özet kutucuğu](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Kullanım: BT'niz olun bağımlılık kullanan işler
 
@@ -44,9 +57,10 @@ Azure Site Recovery kullanıyorsanız ve uygulama ortamınız hizmet eşlemesi i
 ### <a name="patch-management"></a>Düzeltme Eki Yönetimi
 Hizmet eşlemesi, düzeltme eki uygulama sistemlerinizi aşağı olabilmesi bunları önceden bildirebilir şekilde diğer ekipler ve sunucular hizmetinizi üzerinde bağlı olan göstererek Sistem Güncelleştirme değerlendirmesi kullanımınız geliştirir. Hizmet eşlemesi, hizmetlerinizin kullanılabilir ve sonra düzgün biçimde bağlı olup bunların düzeltme eki yeniden ve göstererek düzeltme eki yönetimi de geliştirir.
 
-
 ## <a name="mapping-overview"></a>Eşleme genel bakış
-Hizmet eşlemesi aracıları, yüklü sunucu üzerindeki tüm TCP bağlı işlemler hakkında bilgi ve her işlem için gelen ve giden bağlantılar hakkında ayrıntılı bilgileri toplayın. Sol bölmede listesinde makine ya da belirtilen zaman aralığı üzerinde bağımlılıklarını görselleştirmek için hizmet Haritası aracıları olan grupları seçebilirsiniz. Belirli bir makine odaklanmak makine bağımlılık eşler ve doğrudan TCP istemciler veya sunucular bu makinenin tüm makinelerde göster.  Makine grubu eşlemeleri sunucular ve onların bağımlılıkları kümelerini gösterir.
+Hizmet eşlemesi aracıları, yüklü sunucu üzerindeki tüm TCP bağlı işlemler hakkında bilgi ve her işlem için gelen ve giden bağlantılar hakkında ayrıntılı bilgileri toplayın.
+
+Sol bölmede listeden makine ya da belirtilen zaman aralığı üzerinde bağımlılıklarını görselleştirmek için hizmet Haritası aracıları olan grupları seçebilirsiniz. Belirli bir makine odaklanmak makine bağımlılık eşler ve doğrudan TCP istemciler veya sunucular bu makinenin tüm makinelerde göster.  Makine grubu eşlemeleri sunucular ve onların bağımlılıkları kümelerini gösterir.
 
 ![Hizmet eşlemesi'ne genel bakış](media/monitoring-service-map/service-map-overview.png)
 
@@ -143,10 +157,10 @@ Başarısız bağlantı gösterilen işlemleri ve bilgisayarlar, hizmet Haritas�
 
 Başarısız bağlantı sorunlarını giderme ile geçiş doğrulama, güvenlik analizi ve genel mimari anlama yardımcı olabilir anlama. Başarısız bağlantı bazen zararsız, ancak bunlar genellikle doğrudan aniden ulaşılamaz olmadan bir yük devretme ortamında veya Bulut geçişten sonra konuşun erişememe iki uygulama katmanı gibi bir sorun üzerine gelin.
 
-## <a name="client-groups"></a>İstemci grupları
+## <a name="client-groups"></a>İstemci Grupları
 İstemci, bağımlılık aracıları olmayan istemci makineler temsil eden kutuları harita üzerinde gruplarıdır. Tek bir istemci grubundaki tek tek işlem veya makine istemcilerde temsil eder.
 
-![İstemci grupları](media/monitoring-service-map/client-groups.png)
+![İstemci Grupları](media/monitoring-service-map/client-groups.png)
 
 Bir istemci grubundaki sunucuların IP adreslerini görmek için grubu seçin. Grubun içeriğini listelenen **istemci grubu özellikleri** bölmesi.
 
@@ -187,16 +201,13 @@ Bir hizmet eşlemini gittiğinizde makineler ve bunların özelliklerini hakkın
 ![İşlem Özet bölmesi](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>Uyarıları tümleştirme
-Seçilen zaman aralığı içinde seçili sunucu için Mazotlu uyarıları göstermek için günlük analizi uyarılarını hizmet Haritası tümleşir. Geçerli uyarıların varsa bir simge sunucu görüntüler ve **makine uyarıları** bölmesi uyarıları listeler.
+Hizmet eşlemesi Azure Uyarıları'nın seçili zaman aralığı içinde seçili sunucu için Mazotlu uyarıları göster ile tümleştirir. Geçerli uyarıların varsa bir simge sunucu görüntüler ve **makine uyarıları** bölmesi uyarıları listeler.
 
 ![Makine uyarıları bölmesi](media/monitoring-service-map/machine-alerts.png)
 
 İlgili uyarıları görüntülemek hizmet Haritası etkinleştirmek için belirli bir bilgisayar için tetiklenen uyarı kuralı oluşturun. Uygun uyarıları oluşturmak için:
 - Bilgisayar tarafından bir yan tümcesi grubuna ekleyin (örneğin, **bilgisayar aralığı 1 dakika**).
 - Uyarı için ölçüm Ölçümde göre seçin.
-
-![Uyarı yapılandırması](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>Günlük olayları tümleştirme
 Hizmet Haritası günlük seçilen zaman aralığı içinde seçili sunucu için tüm kullanılabilir günlük olaylarının sayısını göstermek için arama ile tümleştirir. Listedeki tüm satır günlük arama atlamak ve tek tek günlük olayları görmek için olay sayısının tıklatabilirsiniz.
@@ -224,7 +235,7 @@ Her iki çözüm de etkin ve günlük analizi çalışma alanınızda yapıland�
 
 Aşağıdaki resimde görebileceğiniz bir ConfigurationChange olay ayrıntılı görünümüdür seçtikten sonra **Göster günlük analizi**.
 
-![ConfigurationChange olayı](media/monitoring-service-map/configuration-change-event.png)
+![ConfigurationChange olayı](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>Performans tümleştirme
@@ -254,7 +265,6 @@ Her iki çözüm de etkin ve günlük analizi çalışma alanınızda yapıland�
 **Makine güvenliği** bölmesi seçilen sunucu için güvenlik ve denetim çözümü verileri gösterir. Bölmesi, seçilen zaman aralığı içinde sunucu için bekleyen güvenlik sorunları özetini listeler. Güvenlik sorunları ayrıntısına hiçbirini aşağı içine bunları hakkındaki ayrıntılar için günlük arama'yı tıklatın.
 
 ![Makine güvenlik bölmesi](media/monitoring-service-map/machine-security.png)
-
 
 ## <a name="updates-integration"></a>Güncelleştirmeleri tümleştirme
 Her iki çözüm de etkin ve günlük Anlaytics çalışma alanınızda yapılandırılan güncelleştirme yönetimi ile hizmet Haritası tümleştirme otomatik olarak yapılır.

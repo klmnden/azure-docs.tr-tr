@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 38b2f57811b0e952d3020c06d39350918f2f0391
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: fcadac344e2e05c3f6cdd9003b87b819d7933fba
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599331"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937443"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Azure PowerShell ile Azure Redis önbelleği Yönet
 > [!div class="op_single_selector"]
@@ -137,7 +137,7 @@ Aşağıdaki tabloda, özellikleri ve açıklamaları oluştururken ve Azure Pow
 | StaticIP |Önbelleğiniz bir VNET içindeki barındırma alt önbelleği için benzersiz bir IP adresi belirtir. Sağlanmazsa, bir sizin için alt ağ üzerinden seçilir. | |
 | Alt ağ |Önbelleğinizi bir VNET içindeki barındırdığında, önbellek dağıtmak alt ağ adını belirtir. | |
 | VirtualNetwork |Önbelleğinizi bir VNET içindeki barındırdığında önbellek dağıtmak üzere VNET kaynak Kimliğini belirtir. | |
-| keyType |Erişim tuşları yenilenirken yeniden oluşturmak için hangi erişim anahtarını belirtir. Geçerli değerler: birincil, ikincil | |
+| KeyType |Erişim tuşları yenilenirken yeniden oluşturmak için hangi erişim anahtarını belirtir. Geçerli değerler: birincil, ikincil | |
 
 ### <a name="redisconfiguration-properties"></a>RedisConfiguration özellikleri
 | Özellik | Açıklama | Fiyatlandırma katmanları |
@@ -337,7 +337,7 @@ Aşağıdaki komut maxmemory İlkesi myCache adlı Redis Önbelleği'için günc
 > * Ölçeklendirme olamaz bir **Premium** aşağı önbelleğe bir **standart** veya **temel** önbelleği.
 > * Ölçeklendirme olamaz bir **standart** aşağı önbelleğe bir **temel** önbelleği.
 > * Ölçeklendirme yapılabilir bir **temel** için önbelleğe bir **standart** önbellek ancak değiştiremiyor boyutu aynı anda. Farklı bir boyut gerekiyorsa, istenen boyuta sonraki bir ölçeklendirme işlemi yapabilirsiniz.
-> * Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. Ölçeklendirme gerekir **temel** için **standart** bir ölçeklendirme işlemi ve ardından gelen **standart** için **Premium** bir sonraki ölçeklendirme işleminde.
+> * Ölçeklendirme olamaz bir **temel** doğrudan önbelleğe bir **Premium** önbelleği. Ölçeklendirme gerekir **temel** için **standart** bir ölçeklendirme işlemi ve ardından gelen **standart** için **Premium** , sonraki ölçeklendirme işlem.
 > * Büyük bir değerden aşağı ölçeklendirme olamaz **C0 (250 MB)** boyutu.
 > 
 > Daha fazla bilgi için bkz: [ölçek Azure Redis önbelleği nasıl](cache-how-to-scale.md).
@@ -783,7 +783,7 @@ Azure ile Windows PowerShell kullanma hakkında daha fazla bilgi için aşağıd
 * [MSDN'deki Azure Redis önbelleği cmdlet belgeleri](https://msdn.microsoft.com/library/azure/mt634513.aspx)
 * [Azure Resource Manager cmdlet'lerini](http://go.microsoft.com/fwlink/?LinkID=394765): Azure Resource Manager modülünde cmdlet'leri kullanmayı öğrenin.
 * [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-template-deploy-portal.md): Azure portalındaki kaynak gruplarını oluşturma ve yönetme öğrenin.
-* [Azure blogu](http://blogs.msdn.com/windowsazure): Azure yeni özellikler hakkında bilgi edinin.
+* [Azure blogu](https://azure.microsoft.com/en-us/blog/): Azure yeni özellikler hakkında bilgi edinin.
 * [Windows PowerShell Web günlüğü](http://blogs.msdn.com/powershell): Windows PowerShell'de yeni özellikler hakkında bilgi edinin.
 * ["Hey, betik yazarı!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Windows PowerShell Topluluğu'ndan gerçek ipuçları ve püf noktaları alın.
 

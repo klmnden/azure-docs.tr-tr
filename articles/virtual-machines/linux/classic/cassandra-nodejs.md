@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 5d800daa2589effe342cb2bf8b1d59d7bfce6d8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 93cd4b6c4264c5905746b85f9fa46ce31ebd9e9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652847"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937678"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js ile Azure Linux üzerinde bir Cassandra küme çalıştırın
 
@@ -120,7 +120,7 @@ Aşağıdaki yazılım sürümlerinden dağıtımı sırasında kullanılır:
 <tr><th>Yazılım</th><th>Kaynak</th><th>Sürüm</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
@@ -452,7 +452,7 @@ Küme test etmek için aşağıdaki adımları kullanın:
 Aşağıdaki sonuçları gibi bir şey görmeniz gerekir:
 
 <table>
-  <tr><th> customer_id </th><th> FirstName </th><th> Soyadı </th></tr>
+  <tr><th> customer_id </th><th> firstName </th><th> Soyadı </th></tr>
   <tr><td> 1 </td><td> John </td><td> Doe </td></tr>
   <tr><td> 2 </td><td> Jane </td><td> Doe </td></tr>
 </table>
@@ -565,7 +565,7 @@ Artık her Azure bölgesindeki 8 düğümlerle 16 düğüme Cassandra dağıtıl
 
 Bir görünüm aşağıdaki gibi görmeniz gerekir:
 
-| customer_id | FirstName | Soyadı |
+| customer_id | firstName | Soyadı |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |
@@ -578,7 +578,7 @@ Bir görünüm aşağıdaki gibi görmeniz gerekir:
 
 Batı bölgesini görüldüğü gibi aynı görüntü görmeniz gerekir:
 
-| customer_id | FirstName | Soyadı |
+| customer_id | firstName | Soyadı |
 | --- | --- | --- |
 | 1 |John |Doe |
 | 2 |Jane |Doe |

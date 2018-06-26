@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8545b092adf939520e15d8118e60f906b59bf92f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ead3d9be5b23d53cdc0ae9ffa3baec4a3cd74b8b
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232559"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946117"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -91,8 +91,8 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![CentOS tabanlı 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS tabanlı 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Bu dağıtım Linux dolandırıcı Wave yazılımı tarafından sağlanan ve CentOS üzerinde temel alır. | Yanlış Wave yazılım (önceki adıyla OpenLogic)  |
 | ![7.4 centOS tabanlı](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 centOS tabanlı](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Bu dağıtım Linux dolandırıcı Wave yazılımı tarafından sağlanan ve CentOS üzerinde temel alır. | Yanlış Wave yazılım (önceki adıyla OpenLogic) |
 | ![7.4-LVM centOS tabanlı](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4-LVM centOS tabanlı](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | Bu dağıtım Linux dolandırıcı Wave yazılımı tarafından sağlanan ve CentOS üzerinde temel alır. | Yanlış Wave yazılım (önceki adıyla OpenLogic) |
-| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer11SP4BringYourOwnSubscription) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
-| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
+| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
+| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>Üçüncü taraf KLG, ücretsiz ve deneme görüntüler ve çözüm şablonları
 

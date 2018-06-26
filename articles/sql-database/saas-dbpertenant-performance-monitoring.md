@@ -10,18 +10,18 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: bc24465fa0efc9c473a78503d18200ea5b361920
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644615"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752280"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>İzleme ve Azure SQL veritabanı ve bir çok kiracılı SaaS uygulama havuzlarında performansını yönetme
 
 Bu öğretici kapsamında, SaaS uygulamalarında kullanılan birkaç önemli performans yönetim senaryolarını ele alınan dizelerle. Tüm Kiracı veritabanları arasında etkinliği benzetimi için bir yük oluşturucuyu kullanarak yerleşik izleme ve SQL veritabanı ve esnek havuzlar özelliklerini uyarı gösterilmiştir.
 
-Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama her salonundan (Kiracı) kendi veritabanına sahip olduğu bir kiracı tek veri modeli kullanır. Birçok SaaS uygulaması gibi, beklenen kiracı iş yükü düzeni öngörülemez ve düzensizdir. Diğer bir deyişle, bilet satışı herhangi bir zamanda gerçekleşebilir. Bu tipik veritabanı kullanım düzeninden yararlanmak için kiracı veritabanları elastik veritabanı havuzlarına dağıtılır. Elastik havuzlar, kaynakları çok sayıda veritabanı arasında paylaştırarak çözüm maliyetini en iyi duruma getirir. Bu düzen türü ile yüklerin havuzlar arasında makul bir şekilde dengelendiğinden emin olmak için veritabanı ve havuz kaynak kullanımının izlenmesi önemlidir. Ayrıca, her bir veritabanının yeterli kaynağa sahip olduğundan ve havuzların [eDTU](sql-database-what-is-a-dtu.md) sınırına ulaşmadığından emin olmanız gerekir. Bu öğreticide, veritabanı ve havuzları izleyip yönetme yollarını ve iş yükündeki değişikliklere yanıt olarak nasıl düzeltici işlem yapılacağını incelenmektedir.
+Başına Wingtip biletleri SaaS veritabanı Kiracı uygulama her salonundan (Kiracı) kendi veritabanına sahip olduğu bir kiracı tek veri modeli kullanır. Birçok SaaS uygulaması gibi, beklenen kiracı iş yükü düzeni öngörülemez ve düzensizdir. Diğer bir deyişle, bilet satışı herhangi bir zamanda gerçekleşebilir. Bu tipik veritabanı kullanım düzeninden yararlanmak için kiracı veritabanları elastik veritabanı havuzlarına dağıtılır. Elastik havuzlar, kaynakları çok sayıda veritabanı arasında paylaştırarak çözüm maliyetini en iyi duruma getirir. Bu düzen türü ile yüklerin havuzlar arasında makul bir şekilde dengelendiğinden emin olmak için veritabanı ve havuz kaynak kullanımının izlenmesi önemlidir. Ayrıca, her bir veritabanının yeterli kaynağa sahip olduğundan ve havuzların [eDTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) sınırına ulaşmadığından emin olmanız gerekir. Bu öğreticide, veritabanı ve havuzları izleyip yönetme yollarını ve iş yükündeki değişikliklere yanıt olarak nasıl düzeltici işlem yapılacağını incelenmektedir.
 
 Bu öğreticide şunların nasıl yapıldığını öğrenirsiniz:
 
@@ -42,7 +42,7 @@ Bu öğreticiyi tamamlamak için aşağıdaki ön koşulların karşılandığı
 
 Veritabanı performans yönetimi, performans verilerini derleyip çözümlemeyi ve ardından uygulamanız için kabul edilebilir bir yanıt süresi sağlamak için parametreleri ayarlayarak bu verilere yanıt vermeyi içerir. Elastik veritabanı havuzları birden çok kiracıyı barındırdığında, öngörülemez iş yükü içeren bir veritabanı grubu için kaynakları sağlama ve yönetmenin uygun maliyetli bir yolunu sunar. Bazı iş yükü düzenlerinde iki S3 veritabanı bile tek bir havuzda yönetilebilir.
 
-![Uygulama diyagramı](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
+![uygulama diyagramı](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
 Havuzları ve havuzları, veritabanları, kabul edilebilir performans aralıklara kalırlar emin olmak için izlenmelidir. Havuz edtu'larını genel iş yükü için uygun olduğundan emin olduktan tüm veritabanlarının toplam iş yükü gereksinimlerini karşılamak için havuzu yapılandırmasını ayarlayın. Veritabanı başına en düşük ve veritabanı başına en yüksek eDTU değerlerini, uygulamanıza özel gereksinimler için uygun değerlere ayarlayın.
 

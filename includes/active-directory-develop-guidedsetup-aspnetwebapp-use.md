@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 98f3372b48b004c0067a085bbf130bc4e5144437
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205595"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943598"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Oturum açma ve oturum kapatma isteklerini işlemek için bir denetleyici ekleyin
 
@@ -78,7 +78,7 @@ Visual Studio'da Oturum Aç düğmesini ekleyin ve kimlik doğrulamasından sonr
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Guide</title>
+        <title>Sign in with Microsoft Guide</title>
     </head>
     <body>
     @if (!Request.IsAuthenticated)
@@ -114,7 +114,7 @@ Visual Studio'da Oturum Aç düğmesini ekleyin ve kimlik doğrulamasından sonr
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Daha Fazla Bilgi
-> Bu sayfa bir oturum açma düğmesi siyah bir arka plan ile SVG biçiminde ekler:<br/>![Microsoft ile oturum aç](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Daha fazla düğme'nın oturum açma Lütfen gidin [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "yönergeleri marka").
+> Bu sayfa bir oturum açma düğmesi siyah bir arka plan ile SVG biçiminde ekler:<br/>![Microsoft ile oturum açın](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Daha fazla düğme'nın oturum açma Lütfen gidin [bu sayfayı](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "yönergeleri marka").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Kullanıcının talepleri görüntülemek için bir denetleyici ekleyin
@@ -172,7 +172,7 @@ Visual Studio'da bir web sayfasında kullanıcının talepleri görüntülemek i
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Sample</title>
+        <title>Sign in with Microsoft Sample</title>
         <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
     </head>
     <body style="padding:50px">

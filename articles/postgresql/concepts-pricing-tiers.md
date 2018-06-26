@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: f4fe04b972cdd3d4f78a139ce5554ee7b6774d8a
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fc7a2316b5b006cbbf8a237c6a95a71b6489932b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319325"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753413"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına PostgreSQL için
 
@@ -81,13 +81,13 @@ Sağlamanız depolama PostgreSQL server Azure veritabanınıza kullanılabilir d
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Depolama boyutu | 1 TB ' 5 GB | 5 GB ila 4 TB | 5 GB ila 4 TB |
 | Depolama artırım boyutu | 1 GB | 1 GB | 1 GB |
-| IOPS | Değişken |3 IOP/GB<br/>En az 100 IOPS<br/>Maksimum 7500 IOPS | 3 IOP/GB<br/>En az 100 IOPS<br/>Maksimum 7500 IOPS |
+| IOPS | Değişken |3 IOP/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS | 3 IOP/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS |
 
 Ek depolama kapasitesi sırasında ve sunucu oluşturulduktan sonra ekleyebilirsiniz. Temel katman bir IOPS garanti sağlamaz. Genel amaçlı ve fiyatlandırma katmanlarına Bellek için iyileştirilmiş, 3:1 oranında sağlanan depolama boyutu ile IOPS ölçeklendirin.
 
 Azure portalında veya Azure CLI komutları kullanarak, g/ç tüketim izleyebilirsiniz. İzlemek için ilgili Metrik [depolama sınırı, depolama yüzdesi, kullanılan depolama alanı ve g/ç yüzde](concepts-monitoring.md).
 
-### <a name="reaching-the-store-limit"></a>Depolama sınırına ulaşmasını
+### <a name="reaching-the-storage-limit"></a>Depolama sınırına ulaşması
 
 Boş depolama alanı miktarını 5 GB ya da %5 sağlanan depolama değerinden ulaştığında sunucu salt okunur olarak işaretlenmiş, küçüktür. Örneğin, 100 GB depolama alanı sağlamış ve gerçek kullanımını gider salt okunur 95 GB, sunucu olarak işaretlendi. 5 GB depolama alanı sağladıysanız, boş depolama 250 MB'tan az ulaştığında alternatif olarak, sunucunun salt okunur işaretlenir.  
 

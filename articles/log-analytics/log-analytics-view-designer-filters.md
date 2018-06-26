@@ -12,25 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2017
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 21b54f60286e25c410b9d51de8be122c450080d3
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23945887"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752784"
 ---
 # <a name="filters-in-log-analytics-views"></a>Günlük analizi görünümlerinde filtreleri
 A **filtre** içinde bir [günlük analizi görüntülemek](log-analytics-view-designer.md) kullanıcıların Görünüm değiştirmeden görünümünde verileri belirli bir özellik değeri tarafından filtre olanak sağlar.  Örneğin, yalnızca belirli bir bilgisayardan veri görünümünü filtrelemek için görünümün kullanıcılar veya bilgisayarlar kümesi izin verebilir.  Birden çok özelliğe göre filtre yapmalarına izin vermek için tek bir görünümde birden çok filtre oluşturabilirsiniz.  Bu makalede bir filtre ve özel bir görünüm için bir tane ekleyin nasıl kullanılacağı açıklanmaktadır.
 
 ## <a name="using-a-filter"></a>Bir filtre kullanarak
-Tıklatın **filtre** bir görünüm için Filtre bölmesini açın.  Bu zaman aralığı ve görünüm için kullanılabilen herhangi bir filtre değerleri seçmenize olanak sağlar.  Bir filtre seçtiğinizde kullanılabilir değerler listesini görüntüler.  Bir veya daha fazla değerleri seçin veya bunları yazın. Görünüm belirttiğiniz değerleri üzerinde filtreleme için otomatik olarak güncelleştirilir. 
+Görünüm veri zaman aralığını değiştirebileceğiniz aşağı açılan açmak için bir görünüm üstündeki veri zaman aralığı'nı tıklatın.
 
-Herhangi bir değer için bir filtre seçili ise, bu filtre görünümüne uygulanmaz.  Tüm filtre değerleri kaldırırsanız, bu filtre artık uygulanır.
+![Filtre örneği](media/log-analytics-view-designer/filters-example-time.png)
+
+Tıklatın **+** tanımlanan özel filtreler görünümünü kullanarak bir filtre eklemek için. Bir değer girin ve açılan bir filtrenin değeri ya da seçin. Tıklayarak filtreleri eklemeye devam **+**. 
 
 
-![Filtre örneği](media/log-analytics-view-designer/filters-example.png)
+![Filtre örneği](media/log-analytics-view-designer/filters-example-custom.png)
+
+Tüm filtre değerleri kaldırırsanız, bu filtre artık uygulanır.
 
 
 ## <a name="creating-a-filter"></a>Bir filtre oluşturma
@@ -43,7 +47,7 @@ Aşağıdaki tabloda bir filtre için ayarları açıklanır.
 
 | Ayar | Açıklama |
 |:---|:---|
-| Alan adı | Filtreleme için kullanılan alanın adı.  Bu özetleme alanında eşleşmelidir **değerleri için sorgu**. |
+| Alan Adı | Filtreleme için kullanılan alanın adı.  Bu özetleme alanında eşleşmelidir **değerleri için sorgu**. |
 | Değerleri için sorgu | Filtre açılan kullanıcı için doldurmak için çalıştırılacak sorgu.  Bu da kullanmalıdır [özetlemek](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) veya [ayrı](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/distinct-operator) belirli bir alan ve eşleşmelidir için benzersiz değerler sağlamak için **alan adı**.  Kullanabileceğiniz [sıralama](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator) kullanıcıya gösterilen değerleri sıralamak için. |
 | Etiket | Filtre destekleme sorgularda kullanılan ve ayrıca kullanıcıya görüntülenen alanın adı. |
 
@@ -51,11 +55,11 @@ Aşağıdaki tabloda bir filtre için ayarları açıklanır.
 
 Aşağıdaki tabloda ortak filtreleri birkaç örnek verilmiştir.  
 
-| Alan adı | Değerleri için sorgu | Etiket |
+| Alan Adı | Değerleri için sorgu | Etiket |
 |:--|:--|:--|
 | Bilgisayar   | Sinyal &#124; farklı bilgisayar &#124; bilgisayar asc göre sırala | Bilgisayarlar |
-| EventLevelName | Event &#124; distinct EventLevelName | Önem Derecesi |
-| SeverityLevel | Syslog &#124; farklı önem düzeyi | Önem Derecesi |
+| EventLevelName | Olay &#124; ayrı EventLevelName | Severity |
+| Önem düzeyi | Syslog &#124; farklı önem düzeyi | Severity |
 | SvcChangeType | ConfigurationChange &#124; ayrı svcChangeType | ChangeType |
 
 

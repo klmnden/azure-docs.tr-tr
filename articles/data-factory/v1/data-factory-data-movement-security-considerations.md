@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: cad363309b6086197ced1a5d1c1793995db11228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ca39490174047d83968561da98409ade2832253
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621634"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752624"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - veri taşıma için güvenlik konuları
 
@@ -40,7 +40,7 @@ Azure Data Factory kullanarak veri taşıma süredir **sertifikalı** için:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
 -   [CSA YILDIZ](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
-Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx). 
+Azure uyumluluk ve Azure kendi altyapısını nasıl korur ilgileniyorsanız, ziyaret [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
 Bu makalede, aşağıdaki iki veri taşıma senaryolarda güvenlik konuları inceleyin: 
 

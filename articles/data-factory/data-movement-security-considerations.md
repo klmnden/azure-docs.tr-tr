@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 80cec0bc8136142f30ea7b957de819379b1bb139
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9061e12ac9fe0b9d858690897e582acab5169e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619142"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754580"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı ilgili güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Bu makalede, verilerinizin güvenliğini sağlamak için Azure Data Factory veri
 
 Bir Data Factory çözümünde bir veya daha fazla [işlem hattı](concepts-pipelines-activities.md) oluşturursunuz. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Bu ardışık düzen veri fabrikası oluşturulduğu bölgede yer alır. 
 
-Data Factory yalnızca Doğu ABD, Doğu ABD 2 ve Batı Avrupa bölgeler (sürüm 2 Önizleme) kullanılabilir olsa bile, veri taşıma Hizmeti'nde kullanılabilir [genel birçok bölgede](concepts-integration-runtime.md#azure-ir). Veri Taşıma hizmeti bu bölgeye henüz dağıtılmamışsa, alternatif bir bölge kullanın hizmete açıkça toplamasını sürece veri bir coğrafi konuma veya bölge oluşturmaz, Data Factory hizmeti sağlar. 
+Data Factory yalnızca birkaç bölgelerde kullanılabilir olsa bile, veri taşıma hizmeti olan [kullanılabilir genel](concepts-integration-runtime.md#integration-runtime-location) veri uyumluluğu sağlamak için verimlilik ve daha az ağ çıkış maliyetleri. 
 
 Azure Data Factory bağlantılı hizmeti kimlik bilgileri sertifikalar kullanılarak şifrelenmiş bulut veri depoları için dışında herhangi bir veriyi depolamaz. Data Factory ile arasında veri hareketini düzenlemek için veri temelli iş akışlarını oluşturma [desteklenen veri depoları](copy-activity-overview.md#supported-data-stores-and-formats)ve kullanarak verilerin işlenmesini [işlem Hizmetleri](compute-linked-services.md) de başka bölgelerde veya içinde bir Şirket içi ortamı. Ayrıca, izlemek ve SDK'ları ve Azure İzleyicisi'ni kullanarak iş akışlarını yönetme.
 
@@ -42,7 +42,7 @@ Veri Fabrikası kullanarak veri taşıma için onaylanmıştır:
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA YILDIZ](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-Azure uyumluluk ve Azure kendi altyapısını nasıl korur düşünüyorsanız ziyaret [Microsoft Trust Center](https://www.microsoft.com/trustcenter).
+Azure uyumluluk ve Azure kendi altyapısını nasıl korur düşünüyorsanız ziyaret [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 Bu makalede, aşağıdaki iki veri taşıma senaryolarda güvenlik konuları inceleyin: 
 

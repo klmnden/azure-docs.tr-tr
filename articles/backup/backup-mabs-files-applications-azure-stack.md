@@ -1,5 +1,5 @@
 ---
-title: Azure yığın dosyaları ve uygulamaları yedekleme
+title: Azure yığın VM'ler dosyalarında yedeklemek
 description: Azure Backup, yedekleme ve Azure yığın dosyaları ve uygulamaları Azure yığın ortamınıza kurtarmak için kullanın.
 services: backup
 author: adiganmsft
@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248869"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751713"
 ---
-# <a name="back-up-files-and-applications-on-azure-stack"></a>Dosyalar ve uygulamalar Azure yığında yedekleme
-Koruma (veya yedeklemek için) Azure Yedekleme'yi kullanabilirsiniz dosyalar ve uygulamalar Azure yığında. Dosya ve uygulamaların yedeklemek için Azure yığın üzerinde çalışan bir sanal makine olarak Microsoft Azure yedekleme sunucusu yükleyin. Aynı sanal ağda herhangi bir Azure yığın sunucuda çalışan uygulamaların, koruyabilirsiniz. Azure yedekleme sunucusu kez yüklediğiniz, kısa vadeli yedekleme verileri için kullanılabilir yerel depolama artırmak için Azure disk ekleyin. Azure yedekleme sunucusu uzun vadeli bekletme için Azure storage kullanır.
+# <a name="back-up-files-on-azure-stack"></a>Azure yığında dosyalarını yedekleyin
+Koruma (veya yedeklemek için) Azure Yedekleme'yi kullanabilirsiniz dosyalar ve uygulamalar Azure yığında. Dosya ve uygulamaların yedeklemek için Azure yığın üzerinde çalışan bir sanal makine olarak Microsoft Azure yedekleme sunucusu yükleyin. Aynı sanal ağda herhangi bir Azure yığın sunucuda dosyaları koruyabilirsiniz. Azure yedekleme sunucusu kez yüklediğiniz, kısa vadeli yedekleme verileri için kullanılabilir yerel depolama artırmak için Azure disk ekleyin. Azure yedekleme sunucusu uzun vadeli bekletme için Azure storage kullanır.
 
 > [!NOTE]
 > Azure yedekleme sunucusu ve System Center Data Protection Manager (DPM) benzer olmakla birlikte, DPM Azure yığını ile kullanım için desteklenmez.
 >
 
-Bu makalede Azure yığın ortamında Azure yedekleme sunucusu yükleme kapsamaz. Azure yığında Azure yedekleme sunucusu yüklemek için bkz [Azure yedekleme sunucusu kullanarak iş yüklerini Yedeklemeye hazırlanma](backup-mabs-install-azure-stack.md).
+Bu makalede Azure yığın ortamında Azure yedekleme sunucusu yükleme kapsamaz. Azure yığında Azure yedekleme sunucusu yüklemek için bkz [Azure yedekleme sunucusu yükleme](backup-mabs-install-azure-stack.md).
 
 
-## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Azure yığın VM dosya verileri için Azure yedekleme
+## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Dosya ve klasörleri Azure yığın VM'de Azure'a yedekleyin
 
-Iaas sanal makineleri korumak için Azure yedekleme sunucusu yapılandırmak için Azure Yedekleme Sunucusu konsolunu açın. Koruma gruplarını yapılandırma ve sanal makinelerinizi üzerindeki verileri korumak için konsol kullanırsınız.
+Azure yığın VM'ler sanal makinelerinizde dosyaları korumak için Azure yedekleme Sunucusu'nu yapılandırmak için Azure Yedekleme Sunucusu konsolunu açın. Koruma gruplarını yapılandırma ve sanal makinelerinizi üzerindeki verileri korumak için konsol kullanırsınız.
 
 1. Azure yedekleme sunucusu konsolunda **koruma** ve araç çubuğunda **yeni** açmak için **yeni koruma grubu oluşturma** Sihirbazı.
 
@@ -49,13 +49,13 @@ Iaas sanal makineleri korumak için Azure yedekleme sunucusu yapılandırmak iç
 
     ![Yeni koruma grubu Sihirbazı'nı açar](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft, bir koruma İlkesi, bir koruma grubuna paylaşacak tüm sanal makineleri önerir. Tam bilgi hakkında planlama ve koruma grupları, dağıtma System Center DPM makalesine bakın [dağıtmak koruma grupları](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft, bir koruma İlkesi, bir koruma grubuna paylaşacak tüm veri yerleştirme önerir. Tam bilgi hakkında planlama ve koruma grupları, dağıtma System Center DPM makalesine bakın [dağıtmak koruma grupları](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. İçinde **veri koruma yöntemini seçin** ekranında, koruma grubu için bir ad yazın. Onay kutusunu seçip **kullanarak kısa vadeli koruma istiyorum:** ve **çevrimiçi koruma istiyorum**. **İleri**’ye tıklayın.
 
     ![Yeni koruma grubu Sihirbazı'nı açar](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    Seçilecek **çevrimiçi koruma istiyorum**, önce seçmeniz gerekir. **kullanarak kısa vadeli koruma istiyorum:** Disk. Diske kısa süreli koruma için yalnızca bir seçimdir şekilde azure yedekleme sunucusu, banda kurtaramazsınız.
+    Seçilecek **çevrimiçi koruma istiyorum**, önce seçmeniz gerekir. **kullanarak kısa vadeli koruma istiyorum:** Disk. Diske kısa süreli koruma için yalnızca bir seçimdir şekilde azure yedekleme sunucusu bant olarak korumaz.
 
 5. İçinde **kısa vadeli hedefleri belirtin** ekranında, disk ve artımlı yedeklemeler kaydetmek ne zaman için kaydedilmiş kurtarma noktalarını korumak için ne kadar süreyle seçin. **İleri**’ye tıklayın.
 
@@ -73,7 +73,7 @@ Iaas sanal makineleri korumak için Azure yedekleme sunucusu yapılandırmak iç
 
     **Toplam veri boyutu** yedeklemek istediğiniz veri boyutu ve **Disk sağlanacak alan** Azure yedekleme sunucusuna koruma grubu için önerilen bir alandır. Azure Backup sunucusu ayarlarınızı temel alan ideal bir yedekleme birim seçer. Ancak, Disk ayırma ayrıntıları yedekleme birimi seçimleri düzenleyebilirsiniz. İş yükleri için tercih edilen depolama açılır menüde seçin. Düzenlemeleriniz değerleri kullanılabilir Disk depolama alanı bölmesinde toplam depolama alanı ve boş depolama için değiştirin. Azure yedekleme sunucusu yedeklemelerde sorunsuz gelecekte devam etmek için birime eklediğiniz öneren depolama miktarını underprovisioned alanıdır.
 
-7. İçinde **çoğaltma oluşturma yöntemini seçmek**, ilk tam veri çoğaltmayı düzenlemek istediğiniz yöntemini seçin. Ağ üzerinden çoğaltmasına karar verirseniz, yoğun olmayan bir zamanı seçin Azure önerir. Büyük miktarlarda veri veya en iyi durumda olmayan ağ koşulları için verileri çıkarılabilir medya kullanarak çevrimdışı olarak çoğaltmayı düşünebilirsiniz.
+7. İçinde **çoğaltma oluşturma yöntemini seçmek**, ilk tam veri çoğaltmayı düzenlemek istediğiniz yöntemini seçin. Ağ üzerinden çoğaltmasına karar verirseniz, yoğun olmayan bir zamanı seçin Azure önerir. Büyük miktarlarda veri veya en iyi durumda olmayan ağ koşulları için verileri çıkarılabilir medya kullanarak çoğaltmayı düşünebilirsiniz.
 
 8. İçinde **tutarlılık denetimi seçeneklerini belirleyin**, tutarlılık denetimleri otomatikleştirmek istediğiniz yöntemini seçin. Yalnızca veri çoğaltma tutarsız hale geldiğinde veya bir zamanlamaya göre çalıştırmak tutarlılık denetimleri etkinleştirin. Otomatik tutarlılık denetimini yapılandırmak istemiyorsanız, el ile denetim tarafından herhangi bir zamanda çalıştırın:
     * İçinde **koruma** Azure yedekleme sunucusu Konsolu'nun alanı seçin ve koruma grubunu sağ tıklatın **tutarlılık denetimi gerçekleştir**.
@@ -87,8 +87,6 @@ Iaas sanal makineleri korumak için Azure yedekleme sunucusu yapılandırmak iç
 11. İçinde **çevrimiçi bekletme ilkesini belirtin**, günlük/Haftalık/Aylık/yıllık yedeklemelerden oluşturulan kurtarma noktalarının Azure'da nasıl korunur belirtin.
 
 12. İçinde **çevrimiçi çoğaltma seçin**, ilk tam veri çoğaltmasının nasıl gerçekleştiğini belirtin. 
-
-    Ağ üzerinden çoğaltmasına veya çevrimdışı yapmak (çevrimdışı dengeli) yedekleme. Çevrimdışı Yedekleme kullanan [Azure içeri aktarma özelliğini](./backup-azure-backup-import-export.md).
 
 13. Üzerinde **Özet**, ayarlarınızı gözden geçirin. Tıkladığınızda **Grup Oluştur**, ilk veri çoğaltma oluşur. Veri çoğaltma tamamlandığında, üzerinde **durum** sayfasında, koruma grubunun durumu gösterir olarak **Tamam**. İlk yedekleme işini ayarlarına uygun olarak koruma grubu gerçekleşir.
 
@@ -116,7 +114,6 @@ Sanal makinenize verileri kurtarmak için Azure Yedekleme Sunucusu konsolunu kul
     * İçin **var olan sürüm kurtarma davranışı**seçin **kopya oluştur**, **atla**, veya **üzerine yaz**. Üzerine yalnızca özgün konuma kurtarma olduğunda kullanılabilir.
     * İçin **geri güvenlik**, seçin **hedef bilgisayarın ayarlarını uygula** veya **kurtarma noktası sürümünün güvenlik ayarlarını uygula**.
     * İçin **ağ bant genişliği kullanımını azaltma**, tıklatın **Değiştir** ağ bant genişliği kullanımını azaltmayı etkinleştirmek için.
-    * Seçin **donanım anlık görüntülerini kullanarak etkinleştirme SAN tabanlı kurtarmayı** daha hızlı kurtarma için SAN tabanlı donanım anlık görüntüleri kullanmak için. Burada donanım anlık görüntüsü işlevinin etkinleştirildiği bir SAN varsa bu seçeneği geçerli değil. Kurtarma noktası yazılabilir yapmak için SAN kopya oluşturma ve bölme mümkün olması gerekir. Korumalı VM ve Azure yedekleme sunucusu aynı SAN'a bağlı olmanız gerekir.
     * **Bildirim** tıklatın **kurtarma tamamlandığında bir e-posta Gönder**, ve bildirimi alacak alıcıları belirtin. E-posta adreslerini virgülle ayırın.
     * Seçimlerinizi yaptıktan sonra tıklatın **sonraki**
 
@@ -132,16 +129,13 @@ Modern yedekleme depolama alanı (MB) kullanıyorsanız, dosya sunucusu son kull
 
 2. Üzerinde **özellikleri** menüsünde tıklatın **önceki sürümler** ve kurtarmak istediğiniz sürümü seçin.
 
-
-
-## <a name="register-azure-backup-server-with-a-vault"></a>Azure yedekleme sunucusu bir kasayla kaydedin
-Gösteren için adımlar sağlar nasıl yapılır:
-
+## <a name="view-azure-backup-server-with-a-vault"></a>Görünüm Azure yedekleme sunucusu bir kasa ile
+Azure Portal'da Azure yedekleme sunucusu varlıkları görüntülemek için aşağıdaki adımları izleyebilirsiniz:
 1. Kurtarma Hizmetleri kasası açın.
 2. Yedekleme Altyapısı'ı tıklatın.
 3. Görünüm yedek yönetim sunucusu.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 Diğer iş yüklerini korumak için Azure Backup'ı kullanma hakkında daha fazla bilgi için aşağıdaki makalelere birine bakın:
-- [SharePoint grubunun kurulumu yedekleyin](backup-azure-backup-sharepoint-mabs.md)
-- [SQL server'ı Yedekle](backup-azure-sql-mabs.md)
+- [SharePoint grubunun kurulumu yedekleyin](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL server'ı Yedekle](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)

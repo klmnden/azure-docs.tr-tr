@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 32fcd3171f1adcfd565c38ca1191342e7afaf5a9
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8c3980231404e5c8068dbd011d20759f207d7fff
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267705"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937963"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure tanılama 1.2 yapılandırma şeması
 > [!NOTE]
@@ -109,12 +109,12 @@ Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıd
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|Gereklidir. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **overallQuotaInMB** -tanılama verilerini çeşitli türleri tarafından tüketilen yerel disk alanı miktarını Azure tanılama tarafından toplanır. Varsayılan ayar 5120 MB'tır.<br /><br /> -                     **useProxyServer** -IE ayarlarının kümesinde olarak ara sunucu ayarlarını kullanmak için Azure Tanılama'yı yapılandırın.|  
 |**CrashDumps**|Kilitlenme bilgi dökümleri koleksiyonunu etkinleştirin. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **kapsayıcı adı** -kilitlenme bilgi dökümleri depolamak için kullanılacak Azure depolama hesabınızdaki blob kapsayıcısının adı.<br /><br /> -                     **crashDumpType** -Mini ya da tam kilitlenme toplamak için Azure Tanılama'yı yapılandırır dökümünü yapar.<br /><br /> -                     **directoryQuotaPercentage**-yüzdesini yapılandırır **overallQuotaInMB** VM kilitlenme dökümleri için ayrılmış olmalıdır.|  
-|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -toplanan günlüklerini en düşük önem derecesi yapılandırır.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**Dizinleri**|Bir dizin, IIS başarısız erişim isteği günlükleri ve/veya IIS günlüklerini içeriğini koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**DiagnosticInfrastructureLogs**|Azure tanılama tarafından oluşturulan günlükleri koleksiyonunu etkinleştirin. Tanılama Altyapısı günlükleri, tanılama sistem sorun giderme için yararlıdır. İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -toplanan günlüklerini en düşük önem derecesi yapılandırır.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**Dizinler**|Bir dizin, IIS başarısız erişim isteği günlükleri ve/veya IIS günlüklerini içeriğini koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü."](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 |**EtwProviders**|EventSource ETW olayları koleksiyonu yapılandırır ve/veya ETW bildirim dayalı sağlayıcıları.|  
 |**Ölçümler**|Bu öğe hızlı sorguları için en iyi hale getirilmiş bir performans sayacı tablo oluşturmanıza olanak sağlar. Tanımlanan her performans sayacı **performans sayaçları** öğesi performans sayacı tablo yanı sıra ölçüm tablosunda depolanır. Gerekli öznitelik:<br /><br /> **ResourceId** -bu Azure tanılama dağıttığınız sanal makine kaynak kimliğidir. Alma **ResourceId** gelen [Azure portal](https://portal.azure.com). Seçin **Gözat** -> **kaynak grupları** -> **< adı\>**. Tıklatın **özellikleri** döşeme ve değerini kopyalayın **kimliği** alan.|  
-|**performans sayaçları**|Performans sayaçları koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
-|**WindowsEventLog**|Windows olay günlüklerini toplama sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/schema/schema_dtypes_date.asp)|  
+|**Performans sayaçları**|Performans sayaçları koleksiyonunu sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
+|**WindowsEventLog**|Windows olay günlüklerini toplama sağlar. İsteğe bağlı öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML "Süre veri türü".](http://www.w3schools.com/xml/schema_dtypes_date.asp)|  
 
 ## <a name="crashdumps-element"></a>CrashDumps öğesi  
  Kilitlenme bilgi dökümleri koleksiyonunu sağlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
@@ -154,8 +154,8 @@ Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıd
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Koleksiyon üretilen olayların yapılandırır [EventSource sınıfı](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Gerekli öznitelik:<br /><br /> **Sağlayıcı** -EventSource olay sınıfı adı.<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
-|**EtwManifestProviderConfiguration**|Gerekli öznitelik:<br /><br /> **Sağlayıcı** -GUID Olay sağlayıcısı<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Koleksiyon üretilen olayların yapılandırır [EventSource sınıfı](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Gerekli öznitelik:<br /><br /> **Sağlayıcı** -EventSource olay sınıfı adı.<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> -                     **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwManifestProviderConfiguration**|Gerekli öznitelik:<br /><br /> **Sağlayıcı** -GUID Olay sağlayıcısı<br /><br /> İsteğe bağlı öznitelikleri şunlardır:<br /><br /> - **scheduledTransferLogLevelFilter** -depolama hesabınıza aktarmak için en düşük önem düzeyi.<br /><br /> -                     **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration öğesi  
  Koleksiyon üretilen olayların yapılandırır [EventSource sınıfı](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
@@ -178,7 +178,7 @@ Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıd
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**MetricAggregation**|Gerekli öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/schema/schema_dtypes_date.asp).|  
+|**MetricAggregation**|Gerekli öznitelik:<br /><br /> **scheduledTransferPeriod** -depolama zamanlanmış aktarımları arasındaki aralığı yakın dakika yuvarlanan. Değer bir [XML süresi veri türü](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters öğesi  
  Performans sayaçları koleksiyonunu sağlar. Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
@@ -192,11 +192,11 @@ Toplanacak telemetri verilerini yapılandırma ayarlarını tanımlar. Aşağıd
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**Ek açıklama**|Gerekli öznitelik:<br /><br /> **displayName** -sayaç görünen adı<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **yerel ayar** -sayaç adı görüntülerken kullanılacak yerel ayar|  
+|**ek açıklama**|Gerekli öznitelik:<br /><br /> **displayName** -sayaç görünen adı<br /><br /> İsteğe bağlı öznitelik:<br /><br /> **yerel ayar** -sayaç adı görüntülerken kullanılacak yerel ayar|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog öğesi  
  Aşağıdaki tabloda, alt öğeleri açıklanmıştır:  
 
 |Öğe adı|Açıklama|  
 |------------------|-----------------|  
-|**veri kaynağı**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Tüm olaylarını toplamak için belirtin "*".|
+|**Veri kaynağı**|Windows olay günlüklerini toplamak üzere. Gerekli öznitelik:<br /><br /> **ad** - toplanacak windows olayları tanımlayan XPath sorgusu. Örneğin:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Tüm olaylarını toplamak için belirtin "*".|

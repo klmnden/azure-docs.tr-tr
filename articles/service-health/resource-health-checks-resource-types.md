@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 831383ffa3aa3464f3d62da4e1609cf3f1a4707e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: e37266f2438f9c6bc9de2d01624bda77f9d6ee8a
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309605"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945882"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Kaynak türleri ve sistem durumu denetler Azure kaynak durumu
 Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir listesi aşağıdadır.
@@ -62,13 +62,13 @@ Kaynak durumu kaynak türleri tarafından yürütülen tüm denetimler tam bir l
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
 |Yürütülen denetimleri|
 |---|
-|<ul><li>Data Lake Analytics bölgede kullanıcı gönderme işlerini kullanabilir?</li><li>Bölgede başarıyla tamamlamak ve temel işleri çalıştırma musunuz?</li><li>Kullanıcılar, katalog öğelerini bölgede listeleyebilirsiniz?</li>|
+|<ul><li>Gönderme veya Data Lake Analytics işlerini listeleme kullanıcılar deneyimli sorunları var mı?</li><li>Data Lake Analytics işlerini sistem hatalarını tamamlayamıyor misiniz?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
 |Yürütülen denetimleri|
 |---|
-|<ul><li>Kullanıcılar, Data Lake Store'a bölgede veri yükleyebilir miyim?</li><li>Kullanıcılar verileri Data Lake Store bölgede yükleyebilir?</li></ul>|
+|<ul><li>Kullanıcılar verileri Data Lake Store için karşıya yükleme sorunları karşılaşmış?</li><li>Kullanıcılar verileri Lake Deposu'ndan veri indirme sorunları karşılaşmış?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 

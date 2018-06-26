@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: d0c006b21e00693fe6c8b35237d4ce55f67c0f75
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8bb0df567fbac6e8f8a2e2f64f868b4f219e05ac
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320600"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751403"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>SAML tabanlı çoklu oturum açma Azure Active Directory uygulamalarında hata ayıklama
 
@@ -45,6 +45,9 @@ SAML tabanlı çoklu oturum açma AAD ve bir hedef uygulama arasında test etmek
 3.  Kuruluş uygulamaları listesinden çoklu oturum açmayı test etmek istediğiniz ve ardından sol tıklatıldığında seçeneklerinden uygulamayı tıklatın **çoklu oturum açma**.
 4.  SAML tabanlı çoklu oturum açma test deneyimini açmak için **etki alanı ve URL'leri** bölümünde **Test SAML ayarı**. Test SAML ayarı düğmesi gri ise, out ve gerekli öznitelikler kaydetme ilk doldurmanız gerekir.
 5.  İçinde **Test çoklu oturum açma** dikey penceresinde, hedef uygulama için oturum açmak için şirket kimlik bilgilerinizi kullanın. Geçerli kullanıcı veya farklı bir kullanıcı olarak oturum açabilir. Farklı bir kullanıcı olarak oturum açarsanız, bir istem kimlik doğrulaması yapmanızı ister.
+
+    ![Test SAML sayfası](media/active-directory-saml-debugging/testing.png)
+
 
 Başarıyla imzalı olup olmadığını test geçti. Bu durumda, Azure AD bir SAML yanıtı uygulamaya belirteç. SAML belirteci başarıyla oturum açmak için kullanılan uygulama.
 

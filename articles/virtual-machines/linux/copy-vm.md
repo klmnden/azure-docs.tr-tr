@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 kullanarak bir Linux VM Kopyala | Microsoft Docs
-description: Azure CLI 2.0 ve yönetilen diskleri kullanarak, Azure Linux VM kopyasını oluşturmayı öğrenin.
+title: Azure CLI kullanarak bir Linux VM Kopyala | Microsoft Docs
+description: Azure CLI ve yönetilen diskleri kullanarak, Azure Linux VM kopyasını oluşturmayı öğrenin.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,17 +14,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 66f2789d717816f5be3fd8b298819825f8cd87f7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d250f1289c3757d5ea862a1c195dde6f8efb0eb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905019"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938273"
 ---
-# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>Azure CLI 2.0 ve yönetilen diskleri kullanarak bir Linux VM bir kopyasını oluşturun
+# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Azure CLI ve yönetilen diskleri kullanarak bir Linux VM bir kopyasını oluşturun
 
 
-Bu makalede Azure CLI 2.0 ve Azure Resource Manager dağıtım modeli kullanarak Linux çalıştıran, Azure sanal makine (VM) bir kopyasını oluşturulacağını gösterir. Bu adımları [Azure CLI 1.0](copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
+Bu makalede Azure CLI 2.0 ve Azure Resource Manager dağıtım modeli kullanarak Linux çalıştıran, Azure sanal makine (VM) bir kopyasını oluşturulacağını gösterir. 
 
 Ayrıca [karşıya yükleyin ve bir VHD'den bir VM oluşturma](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

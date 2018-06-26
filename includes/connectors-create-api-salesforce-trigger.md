@@ -1,7 +1,7 @@
 Bu kılavuz, nasıl kullanılacağını öğreneceksiniz **bir nesne oluşturulduğunda Salesforce -** Salesforce içinde yeni bir sağlama oluşturulduğunda bir mantıksal uygulama iş akışını başlatmak için tetikleyici.
 
 > [!NOTE]
-> Değil zaten oluşturduysanız Salesforce hesabınızda oturum açın istenir bir *bağlantı* Salesforce için.  
+> Değil zaten oluşturduysanız Salesforce hesabınızda oturum açmak için parola bir *bağlantı* Salesforce için.  
 > 
 > 
 

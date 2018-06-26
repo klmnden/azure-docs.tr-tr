@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b5c396ad047567799b7541c1a125de0c1c51c39e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 900c45713541825ea36fe0b2d8684863b8138507
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186003"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936651"
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>CLI 2.0 kullanarak bir Linux sanal makine yeniden boyutlandırma
 
-Bir sanal makine (VM) sağlama sonra VM yukarı veya aşağı değiştirerek ölçeklendirmek [VM boyutu][vm-sizes]. Bazı durumlarda, ilk VM ayırması gerekir. İstenen boyut VM barındırma donanım kümede kullanılabilir değilse, VM ayırması gerekir. Bu makalede Azure CLI 2.0 ile bir Linux VM yeniden boyutlandırmak nasıl ayrıntılarını verir. Bu adımları [Azure CLI 1.0](change-vm-size-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
+Bir sanal makine (VM) sağlama sonra VM yukarı veya aşağı değiştirerek ölçeklendirmek [VM boyutu][vm-sizes]. Bazı durumlarda, ilk VM ayırması gerekir. İstenen boyut VM barındırma donanım kümede kullanılabilir değilse, VM ayırması gerekir. Bu makalede Azure CLI 2.0 ile bir Linux VM yeniden boyutlandırmak nasıl ayrıntılarını verir. 
 
 ## <a name="resize-a-vm"></a>VM’yi yeniden boyutlandırma
 Bir VM yeniden boyutlandırmak için en son gereksinim [Azure CLI 2.0](/cli/azure/install-az-cli2) yüklü ve bir Azure hesabı kullanarak oturum açmış [az oturum açma](/cli/azure/reference-index#az_login).

@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23866320"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753328"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft izleme ürün karşılaştırma
 Bu makalede, System Center Operations Manager (SCOM) ve günlük analizi Operations Management Suite (OMS) arasında bir karşılaştırma mimarilerini, nasıl bunlar kaynakları izlemesini ve bunlar toplamak veri analizi nasıl gerçekleştirdikleri mantığı bakımından sağlanmaktadır. .  Bu, kendi farklar ve göreli gücü temel bir anlayış vermektir.  
 
 ## <a name="basic-architecture"></a>Temel mimari
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-Tüm SCOM bileşenleri veri merkezinizde yüklenir.  [Aracıları yüklü](http://technet.microsoft.com/library/hh551142.aspx) Windows ve Linux makinelerde SCOM tarafından yönetilir.  Aracıları bağlanmak için [yönetim sunucuları](https://technet.microsoft.com/library/hh301922.aspx) SCOM veritabanı ve veri ambarı ile iletişim kurar.  Aracılar yönetim sunucularına bağlanmak için etki alanı kimlik doğrulaması kullanır.  Bu güvenilen bir etki alanının dışında sertifika kimlik doğrulaması gerçekleştirmek veya bağlanılan bir [ağ geçidi sunucusu](https://technet.microsoft.com/library/hh212823.aspx).
+Tüm SCOM bileşenleri veri merkezinizde yüklenir.  [Aracıları yüklü](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console) Windows ve Linux makinelerde SCOM tarafından yönetilir.  Aracıları bağlanmak için [yönetim sunucuları](https://technet.microsoft.com/library/hh301922.aspx) SCOM veritabanı ve veri ambarı ile iletişim kurar.  Aracılar yönetim sunucularına bağlanmak için etki alanı kimlik doğrulaması kullanır.  Bu güvenilen bir etki alanının dışında sertifika kimlik doğrulaması gerçekleştirmek veya bağlanılan bir [ağ geçidi sunucusu](https://technet.microsoft.com/library/hh212823.aspx).
 
 SCOM iki SQL veritabanları, işlemsel veri için bir ve Raporlama ile veri analizi desteklemek için başka bir veri ambarı gerektirir.  A [raporlama sunucusu](https://technet.microsoft.com/library/hh298611.aspx) SQL Reporting Services'ı veri ambarından veri raporlamak için çalışır. 
 
@@ -67,7 +67,7 @@ Yönetim paketleri, her bir performans sayacı örnekleme, bir hizmetin durumunu
 
 İş akışı çalıştırdıkları, burada bunlar hata göz önünde bulundurun eşik sıklığı gibi ayrıntılarını ve oluşturdukları uyarının önem derecesini geçersiz kılabilirsiniz.  Ayrıca, kendi iş akışları ekleyerek ek işlevsellik sağlayabilir.
 
-![Geçersiz kılmaları](media/operations-management-suite-monitoring-product-comparison/scom-overrides.png)
+![Geçersiz kılmalar](media/operations-management-suite-monitoring-product-comparison/scom-overrides.png)
 
 Yönetim paketleri Operations Manager veritabanına yüklenir ve aracılara yönetim sunucuları tarafından otomatik olarak dağıtılmış.  Her bir aracının otomatik olarak yönetim paketlerini karşıdan yüklemek ve yüklü uygulamalar için ilgili iş akışları yükleyin.  Aracı tarafından toplanan veriler içine eklenmek SCOM veritabanı ve veri ambarı yönetim sunucusuna geri teslim edilir.  İşlemler konsolunda görüntülemek ve özel görünümler, panolar ve raporlar yönetim paketinde aracılığıyla bu verileri çözümlemek sağlar.
 
@@ -86,7 +86,7 @@ SCOM genellikle verileri ve yanıt olarak gerçekleştirilen eylem için belirli
 #### <a name="solutions"></a>Çözümler
 Çözümleri, veri toplama ve analiz için ilave bir mantık sağlar.  Çözüm Galeriden OMS aboneliğinize eklemek için çözümler seçebilirsiniz.
 
-![Çözümleri Galerisi](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
+![Çözüm Galerisi](media/operations-management-suite-monitoring-product-comparison/log-analytics-solutiongallery.png)
 
 Olayları ve OMS depoya toplanan performans sayaçlarının analizini sağlayan bulut çözümleri öncelikle çalıştırın.  Bunlar, ayrıca günlük sorgularla veya OMS panosunda çözümü tarafından sağlanan ek kullanıcı arabirimi tarafından analiz ek verilerin toplanmasını tanımlayabilir. 
 

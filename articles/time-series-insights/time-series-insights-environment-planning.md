@@ -1,6 +1,6 @@
 ---
 title: Azure zaman serisi Öngörüler ortamınızın ölçeğini planlama | Microsoft Docs
-description: Bu makalede izleme ve depolama kapasitesi, veri saklama, giriş kapasitesi dahil olmak üzere bir Azure zaman serisi Öngörüler ortam planlarken en iyi uygulamaları izleyerek açıklar.
+description: Bu makalede, depolama kapasitesi, veri saklama, giriş kapasite, izleme ve iş olağanüstü durum kurtarma (BCDR) dahil olmak üzere bir Azure zaman serisi Öngörüler ortam planlarken en iyi uygulamaları izleyerek açıklar.
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 49842f971645f97d954451ff6755294dc3c5a40f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f0f414e43231fc6d873d639902fd4f71e48f1002
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293273"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751178"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure zaman serisi Öngörüler ortamınızı planlama
 
@@ -94,8 +94,18 @@ Bir başvuru veri kümesi, olay kaynağı olayların büyütmek öğelerin kolek
 
 Başvuru verileri firmalarda geriye dönük katılmamış unutmayın. Bu, yalnızca geçerli ve gelecekteki giriş verileri eşleşen ve yapılandırılmış ve karşıya sonra başvuru tarih kümesine birleşik anlamına gelir.  TSI için çok fazla geçmiş veri göndermek ve verme karşıya yükleme veya başvuru verileri TSI içinde ilk olarak, oluşturmak planlıyorsanız zorunda kalabilirsiniz daha sonra yeniden çalışmanıza (ipucu, eğlenceli değil).  
 
-Oluşturma, karşıya yükleme ve başvuru verilerinizi TSI yönetme hakkında daha fazla bilgi edinmek için head bizim *başvuru verileri* belgeleri [belgeleri] (https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Oluşturma, karşıya yükleme ve başvuru verilerinizi TSI yönetme hakkında daha fazla bilgi edinmek için head bizim *başvuru verileri* belgelerine [belgelerine](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
+## <a name="business-disaster-recovery"></a>İş olağanüstü durum kurtarma
+Bir Azure hizmeti zaman serisi Öngörüler çözümü tarafından gerekli herhangi bir ek iş olmadan Azure bölgesi düzeyinde açarken kullanarak yüksek kullanılabilirlik (HA) sağlar. Microsoft Azure platformu da olağanüstü durum kurtarma (DR) özelliklerini veya çapraz bölge kullanılabilirlik çözümleri oluşturmanıza yardımcı olmak için özellikler içerir. Genel sağlamak istiyorsanız, çapraz bölge yüksek kullanılabilirlik aygıtların veya kullanıcıların, bu Azure DR özelliklerden alın. Makaleyi [Azure iş sürekliliği teknik kılavuz](../resiliency/resiliency-technical-guidance.md) iş sürekliliği ve DR için Azure içinde yerleşik özellikler açıklanmaktadır. [Olağanüstü durum kurtarma ve Azure uygulamalar için yüksek kullanılabilirlik] [Azure uygulamalarını için yüksek kullanılabilirlik ve olağanüstü durum kurtarma] kağıt HA ve DR elde etmek Azure uygulamalarını stratejileri hakkında mimari yönergeleri sağlar.
+
+Zaman serisi Öngörüler yerleşik iş olağanüstü durum kurtarma (BCDR) sahip değil.  Ancak, BCDR kullanması gereken müşteriler hala bir kurtarma stratejisi uygulayabilirsiniz. İkinci bir zaman serisi Öngörüler ortamı yedekleme Azure bölgesinde oluşturup olayları bu ikincil ortamına ikinci ayrılmış bir tüketici grubu ve bu olay kaynağının BCDR yönergeleri yararlanarak birincil olay kaynağından gönderebilirsiniz.  
+
+1.  Ortam ikinci bölgede oluşturun.  Bir zaman serisi Öngörüler ortamı oluşturma hakkında daha fazla [burada](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
+2.  İkinci ayrılmış bir tüketici grubu için olay kaynağı oluşturun ve bu olay kaynağı yeni ortama bağlanma.  İkinci, ayrılmış bir tüketici grubundaki atamak emin olun.  Ya da izleyerek bu hakkında daha fazla bilgiyi [IOT Hub belgeleri](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) veya [olay hub'ı belgelerine](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+3.  Birincil bölge olağanüstü durum olay sırasında Git olsaydı, yedekleme zaman serisi Öngörüler ortamına işlemlerinin geçin.  
+
+IOT Hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Olay hub'ın BCDR ilkeleri hakkında daha fazla bilgi edinmek için head [burada](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Bir olay hub'ı olay kaynağı ekleme](time-series-insights-how-to-add-an-event-source-eventhub.md)

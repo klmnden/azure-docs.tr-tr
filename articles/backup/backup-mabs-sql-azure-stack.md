@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35249402"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751806"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>SQL Server'ı Azure yığında yedekle
+# <a name="back-up-sql-server-on-stack"></a>Yığın üzerinde SQL Server'ı Yedekle
 Bu makalede Azure yığında SQL Server veritabanlarını korumak için Microsoft Azure yedekleme sunucusu (MABS) yapılandırmak için kullanın.
 
 Azure ve Azure kurtarma için SQL Server Veritabanı yedeğinin yönetim üç adımdan oluşur:
 
-1. Azure SQL Server veritabanlarını korumak için bir yedekleme ilkesi oluşturun.
-2. İsteğe bağlı Azure yedek kopyalarını oluşturun.
-3. Veritabanını Azure'dan kurtarma.
+1. SQL Server veritabanlarını korumak için bir yedekleme İlkesi Oluştur
+2. İsteğe bağlı yedek kopyalarını oluşturun
+3. Disk ve Azure veritabanını kurtarma
 
 ## <a name="before-you-start"></a>Başlamadan önce
 
@@ -63,12 +63,6 @@ Azure ve Azure kurtarma için SQL Server Veritabanı yedeğinin yönetim üç ad
    >
 
 7. Üzerinde **disk ayırmasını gözden** ekranında, genel depolama alanı ve olası disk alanının doğrulayın. **İleri**’ye tıklayın.
-
-    ![Disk ayırma](./media/backup-azure-backup-sql/pg-storage.png)
-
-    Varsayılan olarak, Azure yedekleme sunucusu ilk yedek kopya için kullanılan veri kaynağı (SQL Server veritabanı) başına tek bir birim oluşturur. Bu yaklaşımı kullanarak, Azure Backup koruma 300 veri kaynakları (SQL Server veritabanları) için Mantıksal Disk Yöneticisi (LDM) sınırlar. Bu sınırlamaya geçici bir çözüm için seçin **DPM depolama Havuzu'ndaki verileri birlikte bulundur**. Birlikte bulundurma ile Azure yedekleme sunucusu birden çok veri kaynakları için tek bir birim kullanır ve en fazla 2000 SQL Server veritabanlarını koruyabilir.
-
-    Seçerseniz **birimleri otomatik olarak büyütün**, üretim verileri büyüdükçe Azure yedekleme sunucusu hesapları artan yedekleme birimi. Seçeneği seçmezseniz, Azure yedekleme sunucusu koruma grubundaki veri kaynakları için kullanılan yedekleme depolama sınırlar.
 
 8. İçinde **çoğaltma oluşturma yöntemini seçin**, ilk kurtarma noktası oluşturma seçin. Bant genişliği tıkanıklık önlemek için el ile (Kapalı ağ) ilk yedekleme aktarabilir veya ağ üzerinden. İlk yedek aktarmak için beklenecek seçerseniz, zaman için ilk aktarım belirtebilirsiniz. **İleri**’ye tıklayın.
 
@@ -111,12 +105,7 @@ Azure ve Azure kurtarma için SQL Server Veritabanı yedeğinin yönetim üç ad
     * Cumartesi 12: 00'da bir yedekleme 104 hafta boyunca tutulur
     * Son Cumartesi 12: 00'da bir yedekleme 60 ay korunur
     * Son Cumartesi 12: 00'da Mart yedekleme 10 yılı aşkın korunur
-13. Tıklatın **sonraki** ve Azure'a ilk yedek kopyayı aktarmak için uygun seçeneği belirleyin. Seçebileceğiniz **otomatik olarak ağ üzerinden** veya **Çevrimdışı Yedekleme**.
-
-    * **Ağ üzerinden otomatik olarak** yedekleme için seçilen zamanlamaya göre yedekleme verileri Azure'a aktarır.
-    * **Çevrimdışı Yedekleme** konumunda açıklanan [Çevrimdışı Yedekleme iş akışı Azure Yedekleme'de](backup-azure-backup-import-export.md).
-
-    İlk yedek kopyayı Azure ve seçeneğini göndermek için ilgili aktarım mekanizması seçin **sonraki**.
+13. Tıklatın **sonraki** ve Azure'a ilk yedek kopyayı aktarmak için uygun seçeneği belirleyin. Seçebileceğiniz **otomatik olarak ağ üzerinden**
 
 14. İlke ayrıntıları gözden geçirin sonra **Özet** ekranında **Grup Oluştur** iş akışını tamamlamak için. Tıklayabilirsiniz **Kapat** ve izleme çalışma alanı, işin ilerleme durumunu izleyin.
 
@@ -147,11 +136,11 @@ Aşağıdaki adımlar, bir Korunan varlık (SQL Server veritabanı) Azure yedekl
 2. Veritabanı adını sağ tıklatıp **kurtarmak**.
 
     ![Azure'dan kurtarma](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM, kurtarma noktası ayrıntılarını gösterir. **İleri**’ye tıklayın. Veritabanının üzerine yazmak için kurtarma türünü seçin **özgün SQL Server örneğine Kurtar**. **İleri**’ye tıklayın.
+3. MABS kurtarma noktası ayrıntılarını gösterir. **İleri**’ye tıklayın. Veritabanının üzerine yazmak için kurtarma türünü seçin **özgün SQL Server örneğine Kurtar**. **İleri**’ye tıklayın.
 
     ![Özgün konuma Kurtar](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    Bu örnekte, DPM veritabanını başka bir SQL Server örneğine veya tek başına bir ağ klasörüne kurtarır.
+    Bu örnekte, veritabanını başka bir SQL Server örneğine veya tek başına bir ağ klasörüne MABS kurtarır.
 
 4. İçinde **belirtin Kurtarma Seçenekleri** ekran, Kurtarma tarafından kullanılan bant genişliğini azaltmak için ağ bant genişliği kullanımını azaltma gibi kurtarma seçenekleri seçebilirsiniz. **İleri**’ye tıklayın.
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885277"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752930"
 ---
 # <a name="management-solutions-in-azure"></a>Azure yönetim çözümleri
 Yönetim çözümleri belirli bir uygulama veya hizmet işlemi hakkındaki ek bilgiler sağlamak üzere Azure hizmetlerinde yararlanın. Bu makale, kullanma ve bunları yükleme Azure ve ayrıntıları yönetim çözümlerine kısa bir genel bakış sağlar.
@@ -52,21 +52,17 @@ Aboneliğinizde yüklü yönetim çözümleri listelemek için aşağıdaki yord
 ![Çözüm özellikleri](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>Yönetim çözümleri Bul
-Göz atın ve Microsoft ve iş ortakları yönetim çözümleri kullanılabilir yükleme [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace). Gerçekleştirmek bir [arama *yönetim çözümleri* ](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions) yönetim çözümleri için filtre ve daha fazla ayrıntı için herhangi bir öğeyi tıklatın.
-
-![Market](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>Bir yönetim çözümü
+Microsoft ve ortaklarından yönetim çözümleri web'da [Azure Marketi](https://azuremarketplace.microsoft.com). Kullanılabilir çözümler aramak ve bunları aşağıdaki yordamı kullanarak yükleyin.
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>Azure Marketi'nde bir yönetim çözümü yükleyin
-Bulun ve bir yönetim çözümü yüklemesini başlatmak için aşağıdaki yöntemlerden herhangi birini kullanabilirsiniz.
+1. Gelen [aboneliğiniz için çözümlerin listesini](#list-installed-management-solutions), tıklatın **Ekle**. 
+1. Sağındaki **yönetim çözümleri**, tıklatın **daha fazla**. 
+1. İstediğiniz ve açıklamasını okuma yönetim çözümü bulun.
+1. Tıklatın **oluşturma** yükleme işlemini başlatmak için.
+1. Yükleme işlemi başladığında, hangi değişir gerekli yapılandırma için her bir çözüm sağlamak için istenir. Bunların tümünün günlük analizi çalışma alanı seçmek için çözüm yüklü olduğu ve verileri nerede toplanacağını gerektirir. 
 
-- Tıklatın **Şimdi Al** bir yönetim çözümü üzerinde [Azure Marketi](#find-management-solutions).
-- Gelen [aboneliğiniz için çözümlerin listesini](#list-installed-management-solutions), tıklatın **Ekle**. Sağındaki **yönetim çözümleri**, tıklatın **daha fazla**. Bulmak istediğiniz yönetim çözümü **oluşturma**.
-- Azure portalında seçin **kaynak oluşturma** > **izleme + Yönetim** > **tümünü görmek**. Sağındaki **yönetim çözümleri**, tıklatın **daha fazla**. Bulmak istediğiniz yönetim çözümü **oluşturma**.
-
-Yükleme işlemi başladığında, hangi değişir gerekli yapılandırma için her bir çözüm sağlamak için istenir. Bunların tümünün günlük analizi çalışma alanı seçmek için çözüm yüklü olduğu ve verileri nerede toplanacağını gerektirir. Ayrıca gerekebilir [bir Otomasyon hesabı belirtin](#log-analytics-workspace-and-automation-account) , gerekliyse çözüm tarafından.
+![Bir çözümü](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>Topluluktan bir çözüm yükleyin
 Topluluk üyeleri Azure hızlı başlangıç şablonlarını yönetim çözümleri gönderebilirsiniz. Bu çözümlerin doğrudan yükleyebilir veya daha yeni yükleme için şablonlar indirin.

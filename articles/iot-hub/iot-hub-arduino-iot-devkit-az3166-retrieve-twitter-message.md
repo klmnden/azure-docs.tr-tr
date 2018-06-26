@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631770"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752692"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Sallama Tweet için sallama--Azure işlevleri içeren bir Twitter ileti almak!
 
@@ -36,7 +36,7 @@ Etkin bir Azure aboneliği. Yoksa, aşağıdaki yöntemlerden birini kaydedebili
 
 ### <a name="start-vs-code"></a>VS Code'u başlatın
 
-- DevKit olduğundan emin olun **değil** bilgisayarınıza bağlı.
+- DevKit bilgisayarınıza bağlı olduğundan emin olun.
 - VS Code'u başlatın.
 - DevKit bilgisayarınıza bağlayın.
 
@@ -45,7 +45,10 @@ Etkin bir Azure aboneliği. Yoksa, aşağıdaki yöntemlerden birini kaydedebili
 
 ### <a name="open-arduino-examples-folder"></a>Arduino örnekler Klasör Aç
 
-Sol tarafta genişletin **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 örnekler > AzureIoT**seçip **ShakeShake**. Bu proje klasöründe içeren yeni bir VS Code pencere açılır.
+Sol tarafta genişletin **ARDUINO ÖRNEKLER** bölümünde **MXCHIP AZ3166 örnekler > AzureIoT**seçip **ShakeShake**. Bu proje klasöründe içeren yeni bir VS Code pencere açılır.  
+
+> [!NOTE]
+> MXCHIP AZ3166 bölüm göremiyorsanız, Cihazınızı düzgün bir şekilde bağlı Visual Studio Code sağlayın ve yeniden başlatın.  
 
 ![Mini solution örnekleri](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 

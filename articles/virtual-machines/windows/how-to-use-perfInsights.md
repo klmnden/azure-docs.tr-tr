@@ -3,7 +3,7 @@ title: Microsoft Azure'da PerfInsights kullanma | Microsoft Docs
 description: Windows VM performans sorunlarını gidermek için PerfInsights kullanmayı öğrenir.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160667"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946540"
 ---
-# <a name="how-to-use-perfinsights"></a>PerfInsights kullanma 
+# <a name="how-to-use-perfinsights"></a>PerfInsights kullanma
 
 [PerfInsights](http://aka.ms/perfinsightsdownload) toplar & tanılama verilerini analiz eder ve Azure Windows sanal makine performans sorunlarını gidermenize yardımcı olması için bir rapor sağlayan bir kendi kendine yardım tanılama aracıdır. PerfInsights çalıştırılabilir sanal makinelerde ayrı bir araç olarak ya da doğrudan portalından yükleyerek [Azure performans tanılama VM uzantısı](performance-diagnostics-vm-extension.md).
 
@@ -31,7 +31,7 @@ Destek ile irtibat kurmadan önce sanal makineleri performans sorunları yaşıy
 
 PerfInsights toplamak ve birkaç tür bilgiyi analiz edin. Aşağıdaki bölümlerde, yaygın senaryolar kapsar.
 
-### <a name="collect-basic-configuration"></a>Temel yapılandırma Topla 
+### <a name="quick-performance-analysis"></a>Hızlı Performans Analizi
 
 Bu senaryo disk yapılandırması ve diğer önemli bilgileri toplar dahil olmak üzere:
 
@@ -64,11 +64,11 @@ Bu senaryo çalıştıran [Diskspd](https://github.com/Microsoft/diskspd) VM'ye 
 > Bu senaryo, sistem etkileyebilir ve canlı üretim sisteminde çalıştırılması gerekir. Gerekirse, bu senaryo sorunları önlemek için bir adanmış bakım penceresinde çalıştırın. Bir izleme veya Kıyaslama test tarafından neden iş yükünün artmasına VM performansını olumsuz etkileyebilir.
 >
 
-### <a name="slow-vm-analysis"></a>Yavaş VM çözümleme 
+### <a name="slow-vm-analysis"></a>Yavaş VM çözümleme
 
 Bu senaryo çalıştıran bir [performans sayacı](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) RuleEngineConfig.json dosyasında belirtilen sayaçları kullanarak izleme. SQL Server çalıştıran bir sunucu VM tanımlanırsa, bir performans sayacı izlemesi çalıştırılır. Bunu RuleEngineConfig.json dosyasında bulunan sayaçlarını kullanarak yapar. Bu senaryo ayrıca performans tanılama verilerini içerir.
 
-### <a name="azure-files-analysis"></a>Azure dosyaları çözümleme 
+### <a name="azure-files-analysis"></a>Azure dosyaları çözümleme
 
 Bu senaryo, bir özel performans sayacı yakalama ağ izleme ile birlikte çalışır. Yakalama tüm sunucu ileti bloğu (SMB) istemci paylaşımları sayaçları içerir. Yakalama parçası olan bazı anahtar SMB istemci paylaşımı performans sayaçları verilmiştir:
 
@@ -90,9 +90,9 @@ Bu senaryo, bir özel performans sayacı yakalama ağ izleme ile birlikte çalı
 |              | Ort. Kuyruk uzunluğu yazma       |
 |              | Ort. Veri sırası uzunluğu        |
 
-### <a name="custom-slow-vm-analysis"></a>Özel yavaş VM çözümleme 
+### <a name="advanced-slow-vm-analysis"></a>Yavaş VM analiz Gelişmiş
 
-Özel bir yavaş VM analizi çalıştırdığınızda, paralel olarak çalıştırmak için izlemeleri seçin. İsterseniz, bunları tüm (performans sayacı, XPerf'in, ağ ve StorPort) çalıştırabilirsiniz.  
+Gelişmiş yavaş VM analiz çalıştırdığınızda, paralel olarak çalıştırmak için izlemeleri seçin. İsterseniz, bunları tüm (performans sayacı, XPerf'in, ağ ve StorPort) çalıştırabilirsiniz.  
 
 > [!Note]
 > Bu senaryo, sistem etkileyebilir ve canlı üretim sisteminde çalıştırılması gerekir. Gerekirse, bu senaryo sorunları önlemek için bir adanmış bakım penceresinde çalıştırın. Bir izleme veya Kıyaslama test tarafından neden iş yükünün artmasına VM performansını olumsuz etkileyebilir.
@@ -104,7 +104,7 @@ Windows VM, disk veya depolama havuzlarını yapılandırma, performans sayaçla
 
 |Toplanan veriler                              |  |  | Performans senaryoları |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Temel yapılandırma Topla | Değerlendirmesi | Yavaş VM çözümleme | Azure dosyaları çözümleme | Özel yavaş VM çözümleme |
+|                               | Hızlı Performans Analizi | Değerlendirmesi | Yavaş VM çözümleme | Azure dosyaları çözümleme | Yavaş VM analiz Gelişmiş |
 | Olay günlükleri bilgileri       | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
 | Sistem bilgileri                | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
 | Birim eşleme                        | Evet                        | Evet                                | Evet                      | Evet                  | Evet                  |
@@ -171,9 +171,9 @@ Diskspd g/ç iş yükü testleri (işletim sistemi diski [yazma] ve [okuma/yazma
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Sanal makineleri üretimde aracı çalıştırdığınızda olası sorunlar
 
--  Kıyaslama senaryosu veya XPerf'in veya Diskspd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryosu için aracı VM'in performansını olumsuz etkileyebilir. Bu senaryolar, bir canlı bir üretim ortamında çalıştırılmamalıdır.
+-  Kıyaslama senaryosu veya XPerf'in veya Diskspd kullanmak üzere yapılandırılmış "Yavaş VM analiz Gelişmiş" senaryosu için aracı VM'in performansını olumsuz etkileyebilir. Bu senaryolar, bir canlı bir üretim ortamında çalıştırılmamalıdır.
 
--  Kıyaslama senaryosu veya Diskspd kullanmak üzere yapılandırılmış "Özel yavaş VM analiz" senaryosu için başka bir arka plan etkinliği g/ç iş yükü ile uğratan emin olun.
+-  Kıyaslama senaryosu veya Diskspd kullanmak üzere yapılandırılmış "Yavaş VM analiz Gelişmiş" senaryosu için başka bir arka plan etkinliği g/ç iş yükü ile uğratan emin olun.
 
 -  Varsayılan olarak, verileri toplamak için geçici depolama birimi sürücüsünü Aracı'nı kullanır. Uzun bir süre boyunca etkin kalır izleme, toplanan veri miktarını ilgili olabilir. Bu geçici disk alanı kullanılabilirliğini azaltabilir ve bu nedenle bu sürücüde güvenen herhangi bir uygulama etkileyebilir.
 
@@ -218,10 +218,16 @@ PerfInsights aracını çalıştırmak için aşağıdaki adımları izleyin:
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    Özel Senaryo 5 dakika için XPerf'in ve performans sayacı izlemeleri çalıştırmak için aşağıdaki örneği kullanın:
+    Gelişmiş bir senaryo 5 dakika için XPerf'in ve performans sayacı izlemeleri çalıştırmak için aşağıdaki örneği kullanın:
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    Kullanabileceğiniz yavaş VM Senaryo 5 dakika için çalıştırmak ve depolama hesabına sonucu zip dosyası karşıya yüklemek için örnek aşağıda:
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     Tüm kullanılabilir senaryoları ve seçenekleri kullanarak bakabilirsiniz **/list** komutu:
@@ -237,7 +243,7 @@ PerfInsights aracını çalıştırmak için aşağıdaki adımları izleyin:
     >
     >Varsayılan olarak, PerfInsights kendisini varsa en son sürüme güncelleştirmeyi deneyin. Kullanım **/SkipAutoUpdate** veya **/sau** otomatik güncelleştirme atlamak için parametre.  
     >
-    >Süre geçiş yaparsanız **/d** belirtilmezse, PerfInsights sorar için yeniden oluşturma sorunu vmslow, geçirme ve özel senaryoları çalıştırılırken. 
+    >Süre geçiş yaparsanız **/d** belirtilmezse, PerfInsights sorar için yeniden oluşturma sorunu vmslow, geçirme ve Gelişmiş senaryolar çalıştırılırken. 
 
 İzlemeler veya işlem tamamlandığında, yeni bir dosya PerfInsights ile aynı klasörde görüntülenir. Dosya adı **CollectedData\_yyyy-aa-gg\_hh-aa-ss-fff.zip.** Analiz için destek aracı bu dosyayı göndermek veya raporu bulgularını ve önerileri gözden geçirmek için zip dosyası içinde açın.
 
@@ -251,9 +257,9 @@ Seçin **bulgularını** sekmesi.
 ![PerfInsights raporunun ekran görüntüsü](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> Kritik olarak kategorilere bulgularını performans sorunlarına neden ilgili bilinen sorunlardır. Bulguları mutlaka performans sorunlarına neden olmaz önemli temsil en iyi olmayan yapılandırmalar kategorilere. Bilgi olarak kategorilere bulgularını bilgilendirici deyimleri yalnızca ' dir.
+> Yüksek olarak kategorilere bulgularını performans sorunlarına neden ilgili bilinen sorunlardır. Orta temsil gibi mutlaka performans sorunlarına neden olmaz en iyi olmayan yapılandırmalar bulgularını kategorilere. Düşük olarak kategorilere bulgularını bilgilendirici deyimleri yalnızca ' dir.
 
-Tüm kritik ve önemli bulguları için bağlantıları ve önerileri gözden geçirin. Performans nasıl etkileyebileceği hakkında ve performansı optimize yapılandırmaları için en iyi uygulamalar hakkında bilgi edinin.
+Tüm yüksek ve orta bulgularını için bağlantıları ve önerileri gözden geçirin. Performans nasıl etkileyebileceği hakkında ve performansı optimize yapılandırmaları için en iyi uygulamalar hakkında bilgi edinin.
 
 ### <a name="storage-tab"></a>Depolama Sekmesi
 

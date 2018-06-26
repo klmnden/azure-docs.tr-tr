@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9dd9185816670da1fdb59ef42f1f3ca37784eb35
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 10f5eb239fc6320e7597e5f1380f4df8873ab3b6
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36204946"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943445"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Oturum açma Microsoft ile bir ASP.NET web uygulamasına ekleme
 
 Bu kılavuz, Openıd Connect kullanarak geleneksel web tarayıcı tabanlı bir uygulama ile ASP.NET MVC çözümünü kullanarak Microsoft ile oturum açma uygulamak gösterilmiştir. 
 
-Bu kılavuzun sonunda uygulamanız kişisel bileşenleri (outlook.com, live.com ve diğerleri dahil) hesaplarının yanı sıra iş oturum kabul edin ve Okul hesapları herhangi bir şirket veya Azure Active Directory ile tümleşik olan Kuruluş mümkün olacaktır. 
+Bu kılavuzun sonunda, uygulama oturum açma işlemleri (outlook.com, live.com ve diğerleri dahil) kişisel hesapları hem de iş kabul edin ve Okul hesapları herhangi bir şirket veya Azure Active Directory ile tümleşik olan Kuruluş mümkün olacaktır. 
 
 > Bu kılavuz, Visual Studio 2015 güncelleştirme 3'ü veya Visual Studio 2017 gerektirir.  Sahip değilseniz?  [Visual Studio 2017 ücretsiz indirme](https://www.visualstudio.com/downloads/)
 

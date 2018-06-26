@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293118"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754725"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -100,10 +100,10 @@ Yaklaşık tam süresi: 15 dakika
 | Adım | Kaynaklar |
 | --- | --- |
 | Azure AD Yönetim Portalı'na gidin | [Azure AD yönetim portalında - şirket markası](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Oturum açma sayfası (kahramanı logosu, küçük logo, etiketler, vb.) için varlıkların karşıya yükleyin. AD FS varsa, ADFS oturum açma sayfaları ile aynı varlıkları isteğe bağlı olarak Hizala | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme: özelleştirilebilir öğeler](customize-branding.md) |
+| Oturum açma sayfası (kahramanı logosu, küçük logo, etiketler, vb.) için varlıkların karşıya yükleyin. AD FS varsa, ADFS oturum açma sayfaları ile aynı varlıkları isteğe bağlı olarak Hizala | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme: özelleştirilebilir öğeler](fundamentals/customize-branding.md) |
 | Birkaç dakika değişikliğin tam olarak etkili olması bekleyin |  |
 | İçin POC kullanıcı kimlik bilgileriyle oturum https://myapps.microsoft.com |  |
-| Görünüm tarayıcıda onaylayın | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme](customize-branding.md) |
+| Görünüm tarayıcıda onaylayın | [Oturum açma ve erişim paneli sayfalarınıza şirket markası ekleme](fundamentals/customize-branding.md) |
 | İsteğe bağlı olarak, görünüm diğer aygıtları onaylayın |  |
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
@@ -118,7 +118,7 @@ Yaklaşık tam süre: 10 dakika
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Tüm POC kullanıcılar bir güvenlik grubu (Bulut veya şirket içi) bir parçasıdır | [Bir grup oluşturun ve Azure Active Directory'de üye ekleme](active-directory-groups-create-azure-portal.md) |
+| Tüm POC kullanıcılar bir güvenlik grubu (Bulut veya şirket içi) bir parçasıdır | [Bir grup oluşturun ve Azure Active Directory'de üye ekleme](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>Adımlar
 
@@ -140,16 +140,16 @@ Yaklaşık tam süresi: 60 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | Kullanılabilir SaaS uygulamasının test ortamı. Bu kılavuzda, örnek olarak ServiceNow kullanırız.<br/>Mevcut veri kalitesini ve eşlemeleri gezinme çubuğunda uyuşmazlık en aza indirmek için bir test örneği kullanmak için önerilir. | Git https://developer.servicenow.com/app.do#! / ev bir test örneği alma işlemini başlatmak için |
-| ServiceNow yönetim konsoluna yönetici erişimi | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](active-directory-saas-servicenow-tutorial.md) |
+| ServiceNow yönetim konsoluna yönetici erişimi | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](saas-apps/servicenow-tutorial.md) |
 | Hedef uygulamaya atamak için kullanıcıları oluşturun. PoC kullanıcıları içeren bir güvenlik grubu önerilir. <br/>Grup oluşturma uygun değilse, ardından kullanıcılar için doğrudan uygulama PoC için atayın | [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>Adımlar
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Tüm aktörler için öğretici Microsoft Documentation gelen paylaşma  | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](active-directory-saas-servicenow-tutorial.md) |
-| Bir çalışma toplantı ayarlayın ve her aktör ile öğretici adımları izleyin. | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](active-directory-saas-servicenow-tutorial.md) |
-| Uygulama önkoşulları belirlenen grubu atayın. POC kapsamda koşullu erişimi varsa, daha sonra yeniden ziyaret ve MFA ekleyin ve benzer. <br/>Bu (yapılandırılmışsa) sağlama işleminde kazandırın unutmayın |  [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](active-directory-groups-create-azure-portal.md) |
+| Tüm aktörler için öğretici Microsoft Documentation gelen paylaşma  | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](saas-apps/servicenow-tutorial.md) |
+| Bir çalışma toplantı ayarlayın ve her aktör ile öğretici adımları izleyin. | [Öğretici: ServiceNow Azure Active Directory Tümleştirme](saas-apps/servicenow-tutorial.md) |
+| Uygulama önkoşulları belirlenen grubu atayın. POC kapsamda koşullu erişimi varsa, daha sonra yeniden ziyaret ve MFA ekleyin ve benzer. <br/>Bu (yapılandırılmışsa) sağlama işleminde kazandırın unutmayın |  [Bir kuruluş uygulama Azure Active Directory'de bir kullanıcı veya grup atayın](manage-apps/assign-user-or-group-access-portal.md) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Galeriden ServiceNow uygulama eklemek için Azure AD Yönetim Portalı kullanın| [Azure AD Yönetim Portalı: Kurumsal uygulamalar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview) <br/>[Azure Active Directory'de Kurumsal Uygulama Yönetimi'nde yenilikler](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | "ServiceNow uygulamasının dikey"çoklu oturum açmayı"SAML tabanlı oturum açmayı" etkinleştirin |  |
 | ServiceNow URL'niz ile "Oturum üzerinde URL'si" ve "Tanımlayıcı" alanları doldurun<br/>"Yeni sertifika etkin hale getirmek için" onay kutusunu işaretleyin<br/>ve ayarları kaydedin |  |
@@ -163,7 +163,7 @@ Yaklaşık tam süresi: 60 dakika
 
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
-1. Yukarıdaki [öğretici](active-directory-saas-servicenow-tutorial.md) başvuran eski Azure AD yönetim deneyimi. Ancak PoC temel [Hızlı Başlangıç](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) karşılaşırsınız.
+1. Yukarıdaki [öğretici](saas-apps/servicenow-tutorial.md) başvuran eski Azure AD yönetim deneyimi. Ancak PoC temel [Hızlı Başlangıç](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) karşılaşırsınız.
 2. Hedef uygulama galerisinde mevcut değilse, "kendi uygulamanızı getir" kullanabilirsiniz. Daha fazla bilgi edinin: [Kurumsal Uygulama Yönetimi Azure Active Directory'deki yenilikler: tek bir yerden özel uygulamalar ekleme](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS parola SSO yapılandırma
@@ -242,7 +242,7 @@ Yaklaşık tam süresi: 20 dakika
 
 | Önkoşul | Kaynaklar |
 | --- | --- |
-| Bir Microsoft Azure AD basic veya premium aboneliği ve bir genel yönetici olan bir Azure AD dizini | [Azure Active Directory sürümleri](active-directory-whatis.md) |
+| Bir Microsoft Azure AD basic veya premium aboneliği ve bir genel yönetici olan bir Azure AD dizini | [Azure Active Directory sürümleri](fundamentals/active-directory-whatis.md) |
 | Uzaktan erişim için yapılandırmak istediğiniz şirket içi bir web uygulaması barındırılan |  |
 | Uygulama Ara sunucusu Bağlayıcısı'nı yükleyebilmek için Windows Server 2012 R2 veya Windows 8.1 veya sonraki bir sürümü çalıştıran bir sunucu | [Azure AD uygulama proxy'si bağlayıcılar anlama](manage-apps/application-proxy-connectors.md) |
 | Yolda bir güvenlik duvarı varsa, bağlayıcı uygulama ara sunucusuna HTTPS (TCP) istekleri yapabilen, açık olduğundan emin olun | [Azure portalında uygulama ara sunucusunu etkinleştirme: uygulama ara sunucusu önkoşulları](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -306,8 +306,8 @@ Yaklaşık tam süre: 10 dakika
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | SaaS uygulaması (Federasyon SSO veya parola SSO) zaten yapılandırıldı | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) |
-| #1 uygulamada erişimin atandığı bulut Grup tanımlanır | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](active-directory-groups-create-azure-portal.md) |
-| Grup sahibi için kimlik bilgilerini kullanılabilir | [Azure Active Directory grupları ile kaynaklara erişimi yönetme](active-directory-manage-groups.md) |
+| #1 uygulamada erişimin atandığı bulut Grup tanımlanır | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](fundamentals/active-directory-groups-create-azure-portal.md) |
+| Grup sahibi için kimlik bilgilerini kullanılabilir | [Azure Active Directory grupları ile kaynaklara erişimi yönetme](fundamentals/active-directory-manage-groups.md) |
 | Uygulamalara erişen bilgi çalışanı kimlik bilgileri tanımlanan | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -315,8 +315,8 @@ Yaklaşık tam süre: 10 dakika
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Uygulamaya erişim izni grubunu tanımlayın ve verilen sahibi yapılandırma grubu| [Azure Active Directory'deki bir gruba ayarlarını yönetme ](active-directory-groups-settings-azure-portal.md) |
-| Grup sahibi olarak oturum açın, bkz: Grup üyeliğini grupları sekmesinde erişim paneli | [Azure Active Directory grupları Management sayfası](https://account.activedirectory.windowsazure.com/r/#/groups) |
+| Uygulamaya erişim izni grubunu tanımlayın ve verilen sahibi yapılandırma grubu| [Azure Active Directory'deki bir gruba ayarlarını yönetme ](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| Grup sahibi olarak oturum açın, bkz: Grup üyeliğini grupları sekmesinde erişim paneli | [Azure Active Directory grupları Management sayfası](https://account.activedirectory.windowsazure.com/r#/groups) |
 | Test etmek istediğiniz bilgi çalışanı Ekle |  |
 | Bilgi çalışanı olarak oturum açın, döşeme kullanılabilir onaylayın | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
 
@@ -331,7 +331,7 @@ Uygulama etkin sağlama varsa, bilgi çalışanı olarak uygulamadan erişmeden 
 | Önkoşul | Kaynaklar |
 | --- | --- |
 | SaaS uygulaması (Federasyon SSO veya parola SSO) zaten yapılandırıldı | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) |
-| #1 uygulamada erişimin atandığı bulut Grup tanımlanır | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](active-directory-groups-create-azure-portal.md) |
+| #1 uygulamada erişimin atandığı bulut Grup tanımlanır | Yapı Taşı: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) <br/>[Bir grup oluşturun ve Azure Active Directory'de üye ekleme](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Uygulamalara erişen bilgi çalışanı kimlik bilgileri tanımlanan | [Erişim paneli nedir?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -339,7 +339,7 @@ Uygulama etkin sağlama varsa, bilgi çalışanı olarak uygulamadan erişmeden 
 
 | Adım | Kaynaklar |
 | --- | --- |
-| Kullanıcı uygulamayı atandığı grubundan kaldırın | [Azure Active Directory kiracınızdaki kullanıcıların Grup üyeliğini yönetme](active-directory-groups-members-azure-portal.md) |
+| Kullanıcı uygulamayı atandığı grubundan kaldırın | [Azure Active Directory kiracınızdaki kullanıcıların Grup üyeliğini yönetme](fundamentals/active-directory-groups-members-azure-portal.md) |
 | Sağlamayı kaldırma özelliklerini için birkaç dakika bekleyin | [SaaS, kullanıcı uygulama sağlama Azure AD'de otomatik: otomatik sağlama işi ne yapar?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | Ayrı bir tarayıcı oturumunda uygulamaları portalımı için bilgi çalışanı olarak oturum açın ve bu kutucuğu eksik onaylayın | http://myapps.microsoft.com |
 
@@ -372,7 +372,7 @@ Yaklaşık tam süre: 10 dakika
 
 Seçilen uygulamaların gereksinimlerini sağlama olabilir, bu nedenle hemen uygulamaya giderek bazı hatalara neden olabilir. Seçilen uygulama azure ad ile sağlama destekliyorsa ve yapılandırıldığından, bu bir fırsat olarak uçtan uca çalışan tüm akışını göstermek için kullanabilirsiniz. Yapı bloğu için bkz: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) daha fazla önerileri için
 
-## <a name="self-service-password-reset"></a>Self Servis Parola Sıfırlama
+## <a name="self-service-password-reset"></a>Self Servis parola sıfırlama
 
 Yaklaşık tam süresi: 15 dakika
 

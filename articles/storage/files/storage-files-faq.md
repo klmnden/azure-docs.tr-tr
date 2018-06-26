@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c78138fa06da4d83774f9a2270263a48d404b17a
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294099"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751864"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure dosyaları hakkında sık sorulan sorular (SSS)
 [Azure dosyaları](storage-files-introduction.md) tam olarak yönetilen dosya paylaşımları endüstri standardı erişilebilir bulutta sunar [sunucu ileti bloğu (SMB) Protokolü](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Azure dosya paylaşımları Windows, Linux ve macOS Bulut veya şirket içi dağıtımlar üzerinde aynı anda bağlayabilir. Windows Server makinelerini Azure dosya paylaşımlarında veri kullanıldığı yakın hızlı erişim için Azure dosya eşitleme (Önizleme) kullanarak de önbelleğe alabilir.
@@ -227,7 +227,7 @@ Bu makalede Azure dosyaları özellikleri ve işlevleri, Azure dosya eşitleme A
 
 * <a id="data-compliance-policies"></a>
 **Hangi veri uyumluluk ilkeleri, Azure dosyaları destekliyor mu?**  
-   Azure dosyaları Azure Storage diğer depolama Hizmetleri'ndeki kullanılan aynı depolama mimarisi üstünde çalışır. Azure dosyaları diğer Azure storage hizmetleri kullanılan veri uyumluluk ilkelerini uygular. Azure Storage veri uyumluluğu hakkında daha fazla bilgi için indirin ve başvurmak [Microsoft Azure veri koruması belge](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)ve Git [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx).
+   Azure dosyaları Azure Storage diğer depolama Hizmetleri'ndeki kullanılan aynı depolama mimarisi üstünde çalışır. Azure dosyaları diğer Azure storage hizmetleri kullanılan veri uyumluluk ilkelerini uygular. Azure Storage veri uyumluluğu hakkında daha fazla bilgi için indirin ve başvurmak [Microsoft Azure veri koruması belge](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)ve Git [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Şirket içi erişim
 * <a id="expressroute-not-required"></a>

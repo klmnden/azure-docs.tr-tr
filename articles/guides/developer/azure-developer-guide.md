@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 3d4b93a604170cb3b8396562a15483923330f467
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771101"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754727"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure geliştiricileri için kullanmaya başlama kılavuzu
 
@@ -205,7 +205,7 @@ Azure kullanmanın avantajları dünyanın çeşitli veri merkezleri, uygulamala
 
 Olası rağmen Internet hatası veya doğal afet gibi bir olay nedeniyle çevrimdışına veri merkezinin tamamı için mümkün değil. En yüksek kullanılabilirlik sağlamak için önemli iş uygulamalarını barındırmasını birden fazla veri merkezinde en iyi bir uygulamadır. Birden çok bölgeye kullanarak da genel kullanıcılar için gecikme süresini azaltmak ve esneklik için başka fırsatları uygulamaları güncelleştirirken sağlayın.
 
-Sanal makine ve uygulama hizmetleri gibi bazı hizmetler kullanmak [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) yüksek kullanılabilirlik Kurumsal uygulamaları desteklemek için bölgeler arasında yük devretme ile bölgeli desteğini etkinleştirmek için. Bir örnek için bkz: [Azure referans mimarisi: Web uygulaması ile yüksek kullanılabilirlik](../../guidance/guidance-web-apps-multi-region.md).
+Sanal makine ve uygulama hizmetleri gibi bazı hizmetler kullanmak [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) yüksek kullanılabilirlik Kurumsal uygulamaları desteklemek için bölgeler arasında yük devretme ile bölgeli desteğini etkinleştirmek için. Bir örnek için bkz: [Azure referans mimarisi: birden çok bölgede web uygulamasını çalıştırmak](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region).
 
 >**Ne zaman kullanılacağı**: yük devretme ve çoğaltma fayda enterprise ve yüksek kullanılabilirlik uygulamaları olduğunda.
 
@@ -263,9 +263,9 @@ Geliştiriciler, biz sağ koda daha yakından inceleyin ve çalışan bizim uygu
 
 Oluşturma veya bir Azure aboneliği ile çalışmak için bir Azure hesabınızın olması gerekir. Bir Azure hesap yalnızca bir kimlik Azure AD içinde veya Azure AD tarafından güvenilen bir dizinde bir iş veya Okul kuruluş gibi. Bu tür bir kuruluşa ait değil, Microsoft, Azure AD tarafından güvenilen Account kullanarak bir abonelik her zaman oluşturabilirsiniz. Azure AD ile şirket içi Windows Server Active Directory tümleştirme hakkında daha fazla bilgi için bkz: [şirket içi kimliklerinizi Azure Active Directory ile tümleştirme](../../active-directory/active-directory-aadconnect.md).
 
-Her Azure aboneliği bir Azure AD örneğiyle güven ilişkisine sahiptir. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Daha fazla bilgi için bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili](../../active-directory/active-directory-how-subscriptions-associated-directory.md).
+Her Azure aboneliği bir Azure AD örneğiyle güven ilişkisine sahiptir. Bu; Azure aboneliğinin kullanıcılar, hizmetler ve cihazlar için kimlik doğrulaması yapmak üzere bu dizine güvendiği anlamına gelir. Birden çok abonelik aynı dizine güvenebilir ancak bir abonelik yalnızca bir dizine güvenir. Daha fazla bilgi için bkz: [Azure aboneliklerinin Azure Active Directory ile ilişkili](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
-Tek tek Azure tanımlama yanı sıra olarak da bilinir kimlikleri, hesap *kullanıcılar*, ayrıca tanımlayabilirsiniz *grupları* Azure AD'de. Kullanıcı grubu oluşturmak, rol tabanlı erişim denetimi (RBAC) kullanarak bir abonelikte kaynaklarına erişimi yönetmek için iyi bir yoludur. Grupları oluşturma konusunda bilgi almak için bkz: [Azure Active Directory Önizleme'de bir grup oluşturmak](../../active-directory/active-directory-groups-create-azure-portal.md). Ayrıca oluşturabilir ve gruplarına göre yönetme [PowerShell kullanarak](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
+Tek tek Azure tanımlama yanı sıra olarak da bilinir kimlikleri, hesap *kullanıcılar*, ayrıca tanımlayabilirsiniz *grupları* Azure AD'de. Kullanıcı grubu oluşturmak, rol tabanlı erişim denetimi (RBAC) kullanarak bir abonelikte kaynaklarına erişimi yönetmek için iyi bir yoludur. Grupları oluşturma konusunda bilgi almak için bkz: [Azure Active Directory Önizleme'de bir grup oluşturmak](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Ayrıca oluşturabilir ve gruplarına göre yönetme [PowerShell kullanarak](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md).
 
 ### <a name="manage-your-subscriptions"></a>Aboneliklerinizi yönetme
 

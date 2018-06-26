@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b59d86ddb8422108ece66eb1a7bbea808620d063
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319551"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937147"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory ile tümleştirme
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Azure AD ile tümleştirmek, uygulamanız için birkaç yolu vardır. Birçok ve
 
 **Azure AD, uygulamanıza erişimi denetlemek için kullanın.**  Yöneticiler ve uygulama sahipleri Azure AD'de uygulamalar belirli kullanıcılar ve gruplar için erişimi atayabilirsiniz. Grafik API'sini kullanarak, bu liste okuyun ve sağlama ve kaynakları sağlamayı kaldırma özelliklerini denetlemek ve uygulamanızdaki erişmek için kullanın.
 
-**Tabanlı erişim denetimi rolleri için Azure AD kullanın.**  Yöneticiler ve uygulama sahipleri kullanıcıların ve grupların Azure AD içinde uygulamanızı kaydederken tanımladığınız roller atayabilirsiniz. Rol bilgilerini oturum belirteçlerinde uygulamanızda gönderilir ve ayrıca grafik API'sini kullanarak okunabilir. Daha fazla bilgi edinmek [yetkilendirme için Azure AD kullanarak](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx).
+**Tabanlı erişim denetimi rolleri için Azure AD kullanın.**  Yöneticiler ve uygulama sahipleri kullanıcıların ve grupların Azure AD içinde uygulamanızı kaydederken tanımladığınız roller atayabilirsiniz. Rol bilgilerini oturum belirteçlerinde uygulamanızda gönderilir ve ayrıca grafik API'sini kullanarak okunabilir. Daha fazla bilgi edinmek [yetkilendirme için Azure AD kullanarak](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/).
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Kullanıcı profili, takvim, e-posta, kişiler, dosyaları ve daha fazla erişmek
 **Azure AD, Office 365 ve diğer Microsoft iş Hizmetleri için yetkilendirme sunucusudur.**  Uygulamanızı veya OAuth 2.0 kullanan Azure AD kullanıcı hesapları için geçerli kullanıcı hesaplarınızı bağlama desteği için oturum açma için Azure AD destekliyorsa, okuma ve yazma erişimi bir kullanıcının profilini, takvim, e-posta, kişiler, dosyalara ve diğer bilgileri isteyebilir. Sorunsuz bir şekilde kullanıcının takvime yazma olayları ve da okumak veya kendi OneDrive dosyalarını yazabilirsiniz. Daha fazla bilgi edinmek [Office 365 API'leri erişme](https://msdn.microsoft.com/office/office365/howto/platform-development-overview).

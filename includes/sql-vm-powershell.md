@@ -7,7 +7,7 @@ En son ilk gerek [Azure PowerShell](http://msdn.microsoft.com/library/mt619274.a
 > 
 > 
 
-Çalıştırma [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet'ini sunulabilir kimlik bilgilerinizi girmeniz için bir oturum ile ekranında. Azure portala giriş yapmak için kullandığınız kimlik bilgilerinin aynısını kullanın.
+Çalıştırma [ **Connect-AzureRmAccount** ](http://msdn.microsoft.com/library/mt619267.aspx) cmdlet'ini sunulabilir kimlik bilgilerinizi girmeniz için bir oturum açma ekranı ile. Azure portala giriş yapmak için kullandığınız kimlik bilgilerinin aynısını kullanın.
 
     Connect-AzureRmAccount
 

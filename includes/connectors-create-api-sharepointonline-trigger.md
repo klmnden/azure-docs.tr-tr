@@ -1,12 +1,12 @@
 Bu örnekte, ı size nasıl kullanılacağını gösterir **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** yeni bir öğe, bir SharePoint Online listesinde oluşturulduğunda bir mantıksal uygulama iş akışını başlatmak için tetikleyici.
 
 > [!NOTE]
-> Değil zaten oluşturduysanız SharePoint hesabınızda oturum açın istenir bir *bağlantı* SharePoint Online.  
+> Değil zaten oluşturduysanız SharePoint hesabınızda oturum açmak için parola bir *bağlantı* SharePoint Online.  
 > 
 > 
 
 1. Girin *sharepoint* arama kutusuna logic apps tasarımcısında seçip **SharePoint yeni bir öğe oluşturulduğunda çevrimiçi -** tetikleyici.  
-   ![SharePoint online tetikleyici görüntüsü](./media/connectors-create-api-sharepointonline/trigger-1.png)  
+   ![SharePoint online tetikleyici görüntüsü ](./media/connectors-create-api-sharepointonline/trigger-1.png)  
 2. **Yeni bir öğe oluşturulduğunda** denetim görüntülenir.  
    ![SharePoint online tetikleyici görüntü 2](./media/connectors-create-api-sharepointonline/trigger-2.png)   
 3. Seçin bir **Site URL'si**. Yeni öğeler, iş akışını tetikleyen izlemek istediğiniz SharePoint online sitesi budur.  

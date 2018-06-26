@@ -10,21 +10,21 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84734b89aeb95745d237c062e5654afc4d49f966
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: 00f1dc8c9cffbff240f96fed3d2f09888c041301
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711153"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754595"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C kullanıcı arabirimini (UI) özelleştirme
 
 Kullanıcı deneyimi uygulama kullanıma yönelik bir müşteri dönüştürmektir.  Müşteri, marka Görünüm ve yapısını ile kullanıcı deneyimleri hazırlayın tarafından temel artar. Azure Active Directory B2C (Azure AD B2C) kaydolma, oturum açma profili düzenleme özelleştirmenize olanak tanır ve parola sıfırlama piksel mükemmel denetimiyle sayfaları.
 
 > [!NOTE]
-> Bu makalede açıklanan sayfası kullanıcı Arabirimi özelleştirme özelliğini tek ilke oturum açma, eşlik eden parola sıfırlama sayfası ve doğrulama için e-postaları geçerli değildir.  Bu özellikleri kullanan [şirket markası özelliğini](../active-directory/customize-branding.md) yerine.
+> Bu makalede açıklanan sayfası kullanıcı Arabirimi özelleştirme özelliğini tek ilke oturum açma, eşlik eden parola sıfırlama sayfası ve doğrulama için e-postaları geçerli değildir.  Bu özellikleri kullanan [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md) yerine.
 >
-> Benzer şekilde, bir kullanıcı intiates, bir düzenleme profili İlkesi *önce* oturum açma kullanıcı kullanılarak özelleştirilebilir bir sayfaya yönlendirilir [şirket markası özelliğini](../active-directory/customize-branding.md).
+> Benzer şekilde, bir kullanıcı intiates, bir düzenleme profili İlkesi *önce* oturum açma kullanıcı kullanılarak özelleştirilebilir bir sayfaya yönlendirilir [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md).
 
 Bu makalede aşağıdaki konuları içerir:
 
@@ -214,7 +214,7 @@ Bu sayfa bir e-posta adresi veya bir kullanıcı adı göre kaydolma yerel hesap
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>"" Sosyal hesabı kayıt sayfasına"eklenen parçası
+### <a name="fragment-inserted-into-the-social-account-sign-up-page"></a>"Sosyal hesabı kayıt sayfasına" eklenen parçası
 
 Bu sayfa, Facebook veya Google + gibi sosyal kimlik sağlayıcısından var olan bir hesabı kullanarak kaydolmak görünebilir.  Kayıt formunu kullanarak son kullanıcıdan ek bilgileri toplanması gereken olduğunda kullanılır. Bu sayfa (önceki bölümde gösterilmiştir) yerel hesap kayıt sayfasına parola giriş alanları dışında benzerdir.
 
@@ -315,7 +315,7 @@ Bu sayfada, kullanıcıların telefon numaralarına (metin veya sesli kullanarak
 </div>
 ```
 
-### <a name="fragment-inserted-into-the-error-page"></a>"" Hata sayfasına"eklenen parçası
+### <a name="fragment-inserted-into-the-error-page"></a>"Hata sayfası" eklenen parçası
 
 ```HTML
 <div id="api" class="error-page-content" data-name="GlobalException">

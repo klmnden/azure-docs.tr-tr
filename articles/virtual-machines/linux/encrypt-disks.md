@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/31/2018
 ms.author: iainfou
-ms.openlocfilehash: 86f5124143d0606fd3de4d9f7a49ab31a06b17ae
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 343408366c2970d10a952634ac671721caed74d4
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839631"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936879"
 ---
 # <a name="how-to-encrypt-a-linux-virtual-machine-in-azure"></a>Azure'da bir Linux sanal makine şifreleme
-Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskler ve VM şifrelenebilir. Sanal makineleri bir Azure anahtar kasası güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarları denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede Azure CLI 2.0 kullanarak bir Linux VM sanal disklerde şifrelemek nasıl ayrıntılarını verir. Bu adımları [Azure CLI 1.0](encrypt-disks-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ile de gerçekleştirebilirsiniz.
+Geliştirilmiş sanal makine (VM) güvenlik ve uyumluluk için sanal diskler ve VM şifrelenebilir. Sanal makineleri bir Azure anahtar kasası güvenli şifreleme anahtarları kullanılarak şifrelenir. Bu şifreleme anahtarları denetlemek ve bunların kullanılması denetleyebilirsiniz. Bu makalede Azure CLI 2.0 kullanarak bir Linux VM sanal disklerde şifrelemek nasıl ayrıntılarını verir. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

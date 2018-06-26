@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 1e48131ff784ba5bb8d5a7dfffe8afb5ce8bb4c1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364378"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752297"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure güvenlik yönetimi ve izlemeye genel bakış
 Azure yönetimi ve izlenmesi Azure bulut Hizmetleri ve sanal makineleri (VM'ler) yardımcı olmak amacıyla güvenlik mekanizmaları sağlar. Bu makalede bu temel güvenlik özellikleri ve Hizmetleri genel bakış sağlar. Daha fazla bilgi için her ayrıntılarını veren makaleler için bağlantılar sağlanmaktadır.
@@ -39,7 +39,7 @@ Rol tabanlı erişim denetimi (RBAC) Azure kaynakları için ayrıntılı erişi
 
 Daha fazla bilgi edinin:
 
-* [RBAC üzerinde Active Directory ekip blogu](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [RBAC üzerinde Active Directory ekip blogu](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure rol tabanlı erişim denetimi](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>Kötü Amaçlı Yazılımdan Koruma

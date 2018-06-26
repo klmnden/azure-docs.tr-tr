@@ -10,12 +10,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 68ccf6f64f90200359322f35ca081aa6b53493f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcc33eb7e5050c991c89b7f0998eec3707f62ebb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648277"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751352"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Akıllı Insights ile Azure SQL veritabanı performans sorunlarını giderme
 
@@ -235,7 +235,7 @@ Daha fazla bilgi için bkz: [bellek için iyileştirilmiş tablolara giriş](htt
 
 Bu algılanabilir performans deseni bir son yedi günlük taban çizgisine göre geçerli veritabanı iş yükü performans düşüşü gösterir. Aboneliğinizin esnek Havuzda kullanılabilir Dtu'lar yetersizliği nedeniyle değil. 
 
-SQL veritabanı kaynaklardaki genellikle denir [DTU kaynaklarını](sql-database-what-is-a-dtu.md), CPU ve g/ç (veri ve işlem günlüğü g/ç) kaynakları oluşan karışık bir ölçüyü oluşur. [Azure esnek havuz kaynakları](sql-database-elastic-pool.md) amacıyla ölçekleme için birden çok veritabanı arasında paylaşılan kullanılabilir eDTU kaynağı havuzu olarak kullanılır. Kullanılabilir eDTU kaynaklarını esnek havuzunuzdaki havuzdaki tüm veritabanlarını desteklemek için yeterli büyüklükte değil, sistem tarafından bir esnek havuz DTU azalması performans sorunu algılandı.
+SQL veritabanı kaynaklardaki genellikle denir [DTU kaynaklarını](sql-database-service-tiers.md#what-are-database-transaction-units-dtus), CPU ve g/ç (veri ve işlem günlüğü g/ç) kaynakları oluşan karışık bir ölçüyü oluşur. [Azure esnek havuz kaynakları](sql-database-elastic-pool.md) amacıyla ölçekleme için birden çok veritabanı arasında paylaşılan kullanılabilir eDTU kaynağı havuzu olarak kullanılır. Kullanılabilir eDTU kaynaklarını esnek havuzunuzdaki havuzdaki tüm veritabanlarını desteklemek için yeterli büyüklükte değil, sistem tarafından bir esnek havuz DTU azalması performans sorunu algılandı.
 
 ### <a name="troubleshooting"></a>Sorun giderme
 

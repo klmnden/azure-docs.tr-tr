@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric hizmeti remoting iletişimleri güvenli | Microsoft Docs
-description: Bir Azure Service Fabric kümede çalışan güvenilir hizmetler için hizmet tabanlı remoting iletişimi güvenli hale getirmek öğrenin.
+title: İle C# ile Azure Service Fabric hizmeti remoting iletişimler güvenli | Microsoft Docs
+description: Bir Azure Service Fabric kümesi çalıştıran C# güvenilir hizmetler için hizmet tabanlı remoting iletişimi güvenli hale getirmek öğrenin.
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: cd7211ecda61ab2cca0f97e292d9ce2c47ed6933
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210282"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753532"
 ---
-# <a name="secure-service-remoting-communications-for-a-service"></a>Güvenli bir hizmet için hizmet uzaktan iletişim
+# <a name="secure-service-remoting-communications-in-a-c-service"></a>C# hizmetindeki hizmet remoting iletişimleri güvenli
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C#](service-fabric-reliable-services-secure-communication.md)
 > * [Linux üzerinde Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-Güvenlik iletişim en önemli yönlerinden birisidir. Güvenilir hizmetler uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Bu makalede hizmet remoting kullanırken güvenliğini artırmak hakkında alınmaktadır.
+Güvenlik iletişim en önemli yönlerinden birisidir. Güvenilir hizmetler uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Bu makalede, C# hizmetinde hizmet remoting kullanırken güvenliğini artırmak nasıl anlatılmaktadır. Var olan derlemeler [örnek](service-fabric-reliable-services-communication-remoting.md) , C# ile yazılmış güvenilir hizmetler için uzaktan iletişim ayarlamak açıklanmaktadır. 
 
-Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-remoting.md) nasıl uzaktan iletişim için güvenilir hizmetler ayarlanacağı açıklanmaktadır. Hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
+C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
 
 1. Bir arabirim oluşturmak `IHelloWorldStateful`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, içinde bildirilen `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` ad alanı. Bu bir `ICommunicationListener` remoting özellikleri sağlayan uygulama.
 
@@ -94,7 +94,7 @@ Var olan kullanıyoruz [örnek](service-fabric-reliable-services-communication-r
        ```
    2. Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-and-service-manifests.md):
 
-       Ekleme bir `TransportSettings` settings.xml dosyasındaki bölümü.
+       Bir adlandırılmış eklemek `TransportSettings` settings.xml dosyasındaki bölümü.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
