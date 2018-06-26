@@ -1,0 +1,95 @@
+- name: Bing Resim Arama Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Bing Resim Arama nedir?
+      href: overview.md
+- name: REST API Hızlı Başlangıçları
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: SDK Hızlı başlangıçları
+  items:
+    - name: SDK örneklerine genel bakış
+      href: sdk.md
+    - name: 'Resim arama SDK’sı C# hızlı başlangıcı'
+      href: image-search-sdk-quickstart.md
+    - name: Resim arama SDK’sı Node.js hızlı başlangıcı
+      href: image-search-sdk-node-quickstart.md
+    - name: Resim Arama SDK’sı Python hızlı başlangıcı
+      href: image-sdk-python-quickstart.md
+    - name: Resim Arama SDK’sı Java hızlı başlangıcı
+      href: image-sdk-java-quickstart.md
+- name: Öğreticiler
+  items:
+    - name: Tek sayfalı web uygulaması
+      href: tutorial-bing-image-search-single-page-app.md
+    - name: Tek sayfalı web uygulaması (kaynak kodu)
+      href: tutorial-bing-image-search-single-page-app-source.md
+    - name: İçgörüler için Bing görüntü yükleme
+      href: tutorial-image-post.md
+    - name: İçgörüler için Bing görüntü yükleme (kaynak kodu)
+      href: tutorial-image-post-source.md
+- name: Örnekler
+  items:
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Kullanım ve görüntüleme sonuçları
+      href: UseAndDisplayRequirements.md
+    - name: Resim içgörüleri alma
+      href: image-insights.md
+    - name: .gif görüntüleri alma
+      href: gif-images.md
+    - name: Popüler resimler alma
+      href: trending-images.md
+    - name: Görüntüleri sayfalama
+      href: paging-images.md
+    - name: Küçük resimleri yeniden boyutlandırma ve kırpma
+      href: resize-and-crop-thumbnails.md
+    - name: v5’ten v7’ye yükseltme
+      href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Başvuru
+  items:
+    - name: Bing Resim Arama API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
+    - name: Bing Resim Arama API’si v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+- name: Kaynaklar
+  items:
+    - name: SSS
+      href: bing-image-search-resource-faq.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api'
+    - name: Deneyin!
+      href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
+    - name: Bing Resim Arama uç noktaları
+      href: image-search-endpoint.md
+    - name: Desteklenen ülkeler ve pazarlar
+      href: supported-countries-markets.md
+    - name: Bing Resim Arama API’si analizleri
+      href: bing-image-stats.md

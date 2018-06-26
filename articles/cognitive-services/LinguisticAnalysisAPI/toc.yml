@@ -1,0 +1,29 @@
+- name: Dilbilimsel Analiz API’si Belgeleri
+- name: Genel Bakış
+  items:
+    - name: Dilbilimsel Analiz API'si nedir?
+      href: Home.md
+- name: Nasıl yapılır
+  items:
+    - name: Çözümleyici adları
+      href: Analyzer-Names.md
+    - name: Hedef kitle ayrıştırma
+      href: Constituency-Parsing.md
+    - name: Konuşma bölümü etiketleme
+      href: POS-tagging.md
+    - name: Cümleler ve belirteçler
+      href: Sentences-and-Tokens.md
+    - name: Analiz yöntemi
+      href: AnalyzeMethod.md
+    - name: Çözümleyici yöntemi
+      href: AnalyzersMethod.md
+- name: Başvuru
+  items:
+    - name: Dilbilimsel Analiz API’si
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb'
+    - name: Windows SDK’sı
+      href: 'https://github.com/Microsoft/Cognitive-linguisticanalysis-windows'
+- name: Kaynaklar
+  items:
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555928-linguistic-analysis-api'

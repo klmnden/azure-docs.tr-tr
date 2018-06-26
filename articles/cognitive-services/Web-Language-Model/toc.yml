@@ -1,0 +1,15 @@
+- name: Web Dili Modeli API’si Belgeleri
+- name: Genel Bakış
+  items:
+    - name: Web Dili Modeli API’si nedir?
+      href: Home.md
+- name: Başvuru
+  items:
+    - name: Web Dil Modeli API’si
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51'
+    - name: Windows SDK’sı
+      href: 'https://github.com/Microsoft/Cognitive-WebLM-Windows'
+- name: Kaynaklar
+  items:
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555943-web-language-model-api'

@@ -1,0 +1,68 @@
+- name: Konuşma Öğrenici Belgeleri
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Konuşma Öğrenici nedir?
+      href: overview.md
+    - name: Desteklenen diller
+      href: languages-supported.md
+- name: Kavramlar
+  items:
+    - name: Denetim akışı
+      href: control-flow.md
+    - name: Varsayılan değerler ve sınırlar
+      href: cl-values-and-boundaries.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Konuşma Öğrenici ile çalışmaya başlama
+      href: quickstart.md
+    - name: Merhaba dünya
+      href: tutorials/1-hello-world.md
+    - name: Beklemeli ve beklemeli olmayan eylemler
+      href: tutorials/2-wait-vs-nonwait-actions.md
+    - name: Varlıklara giriş
+      href: tutorials/3-introduction-to-entities.md
+    - name: Beklenen varlık
+      href: tutorials/4-expected-entity.md
+    - name: Tersi alınamaz varlıklar
+      href: tutorials/5-negatable-entities.md
+    - name: Çok değerli varlıklar
+      href: tutorials/6-multi-value-entities.md
+    - name: Yerleşik varlıklar
+      href: tutorials/7-built-in-entities.md
+    - name: Alternatif girdiler
+      href: tutorials/8-alternative-inputs.md
+    - name: Günlük iletişim kutuları
+      href: tutorials/9-log-dialogs.md
+    - name: Varlık algılama geri arama
+      href: tutorials/10-entity-detection-callback.md
+    - name: Oturum geri arama
+      href: tutorials/11-session-callbacks.md
+    - name: API çağrıları
+      href: tutorials/12-api-calls.md
+    - name: Kartlar bölüm 1
+      href: tutorials/13-cards-1.md
+    - name: Kartlar bölüm 2
+      href: tutorials/14-cards-2.md
+    - name: Dallandırma ve geri alma
+      href: tutorials/15-branching-and-undo.md
+    - name: Sürüm oluşturma ve etiketleme
+      href: tutorials/16-versioning-and-tagging.md
+    - name: Tanıtım - parola sıfırlama
+      href: tutorials/demo-password-reset.md
+    - name: Tanıtım - pizza siparişi
+      href: tutorials/demo-pizza-order.md
+    - name: Tanıtım - VR uygulama başlatıcısı
+      href: tutorials/demo-vr-app-launcher.md
+    - name: Konuşma Öğrenici botunu dağıtma
+      href: deploy-to-bf.md
+    - name: Konuşma Öğrenici ile öğretme
+      href: how-to-teach-cl.md
+    - name: Kullanıcı verilerini yönetme
+      href: managing-data.md
+- name: Kaynaklar
+  items:
+    - name: Konuşma Öğrenici örnek botu
+      href: 'https://github.com/Microsoft/ConversationLearner-Samples'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

@@ -1,0 +1,28 @@
+- name: Proje URL’si Önizleme Belgeleri
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Proje URL Önizlemesi nedir?
+      href: overview.md
+    - name: URL Önizlemesi uç noktası
+      href: endpoint.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: 'C#'
+      href: csharp.md
+    - name: Java
+      href: java-quickstart.md
+    - name: JavaScript
+      href: javascript.md
+    - name: Node
+      href: node-quickstart.md
+    - name: Python
+      href: python-quickstart.md
+- name: Başvuru
+  expanded: true
+  items:
+    - name: Kullanım ve Görüntüleme Gereksinimleri
+      href: use-display-requirements.md
+    - name: URL Önizlemesi başvurusu
+      href: url-preview-reference.md

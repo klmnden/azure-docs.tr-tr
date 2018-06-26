@@ -1,0 +1,60 @@
+- name: Bing Görsel Arama Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Bing Görsel Arama API’si nedir?
+      href: overview.md
+- name: REST API Hızlı Başlangıçları
+  expanded: true
+  items:
+    - name: 'C# dilinde ilk sorgu'
+      href: quickstarts/csharp.md
+    - name: Java dilinde ilk sorgu
+      href: quickstarts/java.md
+    - name: Node.js için ilk sorgu
+      href: quickstarts/nodejs.md
+    - name: Python dilinde ilk sorgu
+      href: quickstarts/python.md
+- name: Öğreticiler
+  items:
+    - name: Tek sayfalı web uygulaması
+      href: tutorial-bing-visual-search-single-page-app.md
+    - name: Tek sayfalı web uygulaması (kaynak kodu)
+      href: tutorial-bing-visual-search-single-page-app-source.md
+- name: Örnekler
+  items:
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Visual+Search'
+- name: Kavramlar
+  items:
+    - name: Varsayılan resim içgörüleri
+      href: default-insights-tag.md
+    - name: Bing içgörü kullanımı
+      href: bing-insights-usage.md
+    - name: Desteklenen ülkeler ve pazarlar
+      href: supported-countries-markets.md
+    - name: Görsel Arama API’si analizleri
+      href: bing-visual-search-stats.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Belirteç kullanarak içgörüler edinme
+      href: use-insights-token.md
+    - name: Kullanım ve görüntüleme sonuçları
+      href: use-and-display-requirements.md
+    - name: Küçük resimleri yeniden boyutlandırma ve kırpma
+      href: resize-and-crop-thumbnails.md
+- name: Başvuru
+  expanded: true
+  items:
+    - name: REST v7 API
+      href: 'https://aka.ms/bingvisualsearchreferencedoc'
+- name: Kaynaklar
+  items:
+    - name: Ücretsiz erişim anahtarı alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api'
+    - name: Deneyin!
+      href: 'https://aka.ms/bingvisualsearchtryforfree'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-search'
+    - name: User Voice
+      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'

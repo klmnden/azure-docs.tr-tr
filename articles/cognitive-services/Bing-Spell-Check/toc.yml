@@ -1,0 +1,63 @@
+- name: Bing Yazım Denetimi API'si Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Bing Yazım Denetimi API’si nedir?
+      href: proof-text.md
+- name: REST API Hızlı Başlangıçları
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: SDK Hızlı başlangıçları
+  items:
+    - name: 'SDK C# hızlı başlangıcı'
+      href: sdk-quickstart-spell-check.md
+    - name: SDK örneklerine genel bakış
+      href: sdk.md
+- name: Öğreticiler
+  items:
+    - name: Yazım denetimi web uygulaması derleme
+      href: tutorials/spellcheck.md
+    - name: 'Kaynak kodu: yazım denetimi web uygulaması'
+      href: tutorials/spellcheck-source.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Kullanım ve görüntüleme gereksinimleri
+      href: UseAndDisplayRequirements.md
+    - name: v5’ten v7’ye yükseltme
+      href: bing-spell-check-upgrade-guide-v5-to-v7.md
+- name: Başvuru
+  items:
+    - name: Bing Yazım Denetimi API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+    - name: Bing Yazım Denetimi API’si v5 (Eski sürüm)
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+- name: Kaynaklar
+  items:
+    - name: SSS
+      href: bing-spell-check-resource-faq.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/bing-api'
+    - name: Desteklenen diller
+      href: bing-spell-check-supported-languages.md
+    - name: Bing Yazım Denetimi API’si analizleri
+      href: bing-spell-check-stats.md
+    - name: Abonelik anahtarı
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: Deneyin!
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'

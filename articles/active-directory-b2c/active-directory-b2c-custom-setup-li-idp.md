@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Özel ilkeler kullanarak LinkedIn OAuth2 kimlik sağlayıcısı olarak ekleyin'
-description: Özel ilkeler ve OAuth2 protokolü kullanarak bir LinkedIn uygulamasını ayarlama hakkında nasıl yapılır makalesi
+title: Azure Active Directory B2C'de özel ilkeler kullanarak LinkedIn OAuth2 kimlik sağlayıcısı olarak ekleme | Microsoft Docs
+description: Özel ilkeler ve OAuth2 protokolü kullanarak bir LinkedIn uygulamasını ayarlama hakkında nasıl yapılır makalesi.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: davidmu
-ms.openlocfilehash: 9e5235739abcfbee1e530685890098a45a1b093d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 889264dc06d1a6f10713ff5fcd7ff644c113bb45
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752325"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: LinkedIn özel ilkeler kullanarak bir kimlik sağlayıcısı ekleyin
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ Bu makalede kullanarak oturum açma LinkedIn hesabı kullanıcıları için etki
 Bölümündeki adımları tamamlamanız [özel ilkelerini kullanmaya başlama](active-directory-b2c-get-started-custom.md) makalesi.
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>1. adım: LinkedIn hesap uygulama oluşturma
-Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn kullanmak için (Azure AD B2C) LinkedIn uygulama oluşturmalı ve doğru parametreleri sağlayın. Bir LinkedIn uygulaması giderek kaydedebilirsiniz [LinkedIn kayıt sayfasına](https://LinkedIn.com/signup).
+Azure Active Directory B2C, kimlik sağlayıcısı LinkedIn kullanmak için (Azure AD B2C) LinkedIn uygulama oluşturmalı ve doğru parametreleri sağlayın. Bir LinkedIn uygulaması giderek kaydedebilirsiniz [LinkedIn kayıt sayfasına](https://www.linkedin.com/start/join).
 
 1. Git [LinkedIn Uygulama Yönetimi](https://www.linkedin.com/secure/developer?newapp=) Web sitesi, LinkedIn hesabı kimlik bilgilerinizle oturum açın ve ardından **uygulama oluştur**.
 

@@ -1,0 +1,35 @@
+- name: Bilgi Keşfetme Hizmeti Belgeleri
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Bilgi Keşfetme Hizmeti hakkında bilgi edinin
+      href: Overview.md
+- name: başlarken
+  items:
+    - name: Arka uç altyapısı oluşturma
+      href: GettingStarted.md
+    - name: Komut satırı
+      href: CommandLine.md
+    - name: Şema biçimi
+      href: SchemaFormat.md
+    - name: Veri biçimi
+      href: DataFormat.md
+    - name: Dil bilgisi biçimi
+      href: GrammarFormat.md
+    - name: Anlam yorumlama
+      href: SemanticInterpretation.md
+    - name: Web API arabirimi
+      href: WebAPI.md
+      items:
+        - name: calchistogram
+          href: calchistogramMethod.md
+        - name: değerlendir
+          href: evaluateMethod.md
+        - name: yorumla
+          href: interpretMethod.md
+    - name: Yapılandırılmış sorgu ifadeleri
+      href: Expressions.md
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

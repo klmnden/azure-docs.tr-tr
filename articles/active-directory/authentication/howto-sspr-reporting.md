@@ -10,11 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 45183e51e9071647e07cfd0738522f0dfa28bd7b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751505"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD parola yönetimi için raporlama seçenekleri
 
@@ -53,25 +54,6 @@ Azure portal deneyimi biz parola sıfırlama görüntüleyebilir ve parola sıf�
 6. Bu görünüm yalnızca parola sıfırlama ilgili olayları görmek için filtre uygulamak için seçim **filtre** bölmenin üstündeki düğmesi.
 7. Gelen **filtre** menüsünde, select **kategori** aşağı açılan listesinde ve şekilde değiştirin **Self Servis parola yönetimi** kategori türü.
 8. İsteğe bağlı olarak, daha fazla listesi belirli seçerek filtrelemek **etkinlik** ilgilendiğiniz.
-
-## <a name="how-to-retrieve-password-management-events-from-the-azure-ad-reports-and-events-api"></a>Parola yönetimi olayları Azure AD raporları ve olayları API alma
-
-Parola sıfırlama kaydı raporları ve Azure AD raporları ve olayları API parola sıfırlama dahil tüm bilgileri alma destekler. Bu API kullanarak, tek tek parola sıfırlama ve parola sıfırlama kayıt olayları indirin ve tercih ettiğiniz raporlama teknolojisi ile tümleştirme.
-
-> [!IMPORTANT]
-> Şu anda Azure AD raporları ve olayları API alır kadar *75,000 olayları tek tek* , [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent) ve [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent) türleri. API son 30 gün yayar.
-> 
-> Almak veya bu pencereyi aşan veri depolamak gerekiyorsa, sonuç farkları sorgulamak için API'yi kullanarak dış bir veritabanında kalıcı öneririz. Kuruluşunuzda SSPR kullanmaya başladığınızda, bu verileri almak üzere başlamanızı öneriyoruz. Harici olarak kalır ve ardından o noktadan itibaren farkları izlemek devam edin.
->
-
-### <a name="how-to-get-started-with-the-reporting-api"></a>Nasıl raporlama API'si ile çalışmaya başlama
-
-Bu verilere erişmek için bir küçük uygulama veya betik bizim sunuculardan verileri almak için yazmanız gerekir. Daha fazla bilgi için bkz: [Azure AD raporlama API'si ile çalışmaya başlama](../active-directory-reporting-api-getting-started-azure-portal.md).
-
-Bir çalışma betiği çalıştırdıktan sonra senaryolarınızı karşılayacak şekilde alabilirsiniz parola sıfırlama ve kayıt olayları inceleyin isteyeceksiniz:
-
-* [SsprActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent): olayları parola sıfırlama için kullanılabilen sütunları listeler.
-* [SsprRegistrationActivityEvent](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprRegistrationActivityEvent): kayıt olayları parola sıfırlama için kullanılabilen sütunları listeler.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure portalında rapor sütunlarını açıklaması
 

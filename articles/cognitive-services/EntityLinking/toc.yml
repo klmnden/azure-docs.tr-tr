@@ -1,0 +1,17 @@
+- name: Varlık Bağlama Belgeleri
+- name: Genel Bakış
+  href: Home.md
+- name: başlarken
+  href: GettingStarted.md
+- name: Başvuru
+  items:
+    - name: API başvurusu
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c'
+    - name: Laboratuvar API’si başvurusu
+      href: 'https://dev.labs.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c'
+    - name: Windows SDK’sı
+      href: 'https://github.com/Microsoft/Cognitive-EntityLinking-Windows'
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

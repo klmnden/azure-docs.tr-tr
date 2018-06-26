@@ -1,0 +1,189 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Konuşma Tanıma Hizmeti Belgeleri (Önizleme)
+metadata:
+  title: Konuşma Tanıma Hizmeti Belgeleri - Öğreticiler, Hızlı Başlangıçlar, API Başvurusu - Bilişsel Hizmetler | Microsoft Docs
+  meta.description: Speech SDK provides developers an easy way to create powerful speech-enabled features in their applications, such as voice command control and dialog, using natural speech conversation, speech transcription and dictation, and speech translation.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: speech-service
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/01/2018
+  ms.author: nolachar
+  ms.openlocfilehash: ae9c5a62dd4f1b83f4d1317b54e5766b80d14245
+  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35358359"
+abstract:
+  description: Microsoft Konuşma Tanıma Hizmeti ve SDK’sı, geliştiricilerin uygulamalarında sesli komut denetimi, transkripsiyon ve dikte gibi güçlü ses özellikleri oluşturması için kolay bir yol sağlar. Cortana, Microsoft Office ve diğerleri de aynı teknolojiyi kullanır. Microsoft Konuşma Tanıma Hizmeti’nin başlıca ayırt edici özelliklerinden biri, <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Konuşmayı Metne Dönüştürme</a> akustik ve dil modellerini özel sözlük, gürültülü ortamlar ve farklı konuşma yöntemlerine uyacak şekilde özelleştirme becerisidir. Aslında, özelleştirilmiş <a href="http://aka.ms/customvoice">metin okuma</a> ve <a href="http://aka.ms/customtranslator">Konuşma Çevirisi</a> de mevcuttur.<br/><br/>Konuşma SDK’mız, birkaç programlama dilinde birden çok platform üzerinde kullanılabilir. Böylece, uygulamanızın gereksinimlerine bağlı olarak canlı mikrofon yönetimi, gerçek zamanlı akış veya toplu iş temelli dosya iletişimini gerçekleştirebilirsiniz.
+sections:
+- title: 10 Dakikalık Hızlı Başlangıçlar - Yeni SDK’lar
+  items:
+  - type: paragraph
+    text: 'Hızlı başlangıçlarımızla Konuşma SDK’sını yükleme ve kullanma hakkında bilgi edinin:'
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_cplusplus.svg
+    - image:
+        src: media/index/logo_java.jpg
+    rows:
+    - title: Windows
+      values:
+      - href: quickstart-csharp-windows
+      - href: cpp-windows
+      - href: 
+    - title: Linux
+      values:
+      - href: 
+      - href: cpp-linux
+      - href: 
+    - title: Cihazlar SDK'sı (Android)
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk
+- title: Örnekler ve Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Örnekler
+      html: <ul><li><a href="speech-to-text-sample.md">Konuşma Tanıma</a></li><li><a href="intent.md">Amaç Tanıma</a></li><li><a href="translation.md">Çeviri</a></li></ul>
+    - title: API Başvurusu
+      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C# API’si</a></li><li><a href="https://aka.ms/csspeech/cppref">C++ API’si</a></li><li><a href="https://aka.ms/csspeech/javaref">Java API’si (Cihazlar SDK’sı)</a></li></ul>
+- title: Konuşmayı Metne Dönüştürme
+  items:
+  - type: paragraph
+    text: Konuşma SDK’mız <b>Konuşmayı Metne Dönüştürme</b> (STT) veya konuşma tanıma özelliğini destekler.  Konuşma SDK'sı, ses akışlarını uygulamanızın girdi olarak kabul edebileceği metinlere dönüştürür. Daha sonra uygulamanız, örneğin, metni bir belgeye girebilir veya komut olarak üzerinde işlem yapabilir.
+  - type: paragraph
+    text: Konuşma SDK’sı aracılığıyla <b>Konuşmayı Metne Dönüştürme</b> özelliğini yaygın kullanım örnekleri aşağıda verilmiştir&#58;
+  - type: list
+    style: unordered
+    items:
+    - text: Ara sonuçlar olmadan bir komut gibi kısa bir konuşmayı tanıma.
+    - text: Sesli posta iletisi gibi uzun, daha önce kaydedilmiş bir konuşmanın dökümünü çıkarma.
+    - text: Dikte etmek için kısmi sonuçlarla birlikte gerçek zamanlı olarak akış konuşmasının dökümünü çıkarma.
+    - text: Konuşma biçimindeki bir doğal dil isteğine göre kullanıcıların ne yapmak istediğini belirleme.
+  - type: paragraph
+    text: Konuşma SDK’sı, gerçek zamanlı sürekli <a href="https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-speech-models">Konuşmayı Metne Dönüştürme</a> ve ara sonuçlarla etkileşimli konuşma transkripsiyonunu destekler. Ayrıca konuşma sonu algılama, isteğe bağlı otomatik büyük harfe çevirme ve noktalama, küfür maskeleme ve metin normalleştirmeyi destekler.
+  - type: paragraph
+    text: Microsoft Konuşma Tanıma Hizmeti’nin başlıca ayırt edici özelliklerinden biri, <a href="http://aka.ms/customspeech">Konuşmayı Metne Dönüştürme</a> akustik ve dil modellerini özel sözlük, gürültülü ortamlar ve farklı konuşma yöntemlerine uyacak şekilde özelleştirme becerisidir.
+- title: Konuşma Çevirisi
+  items:
+  - type: paragraph
+    text: Konuşma SDK'sı, <a href="https://azure.microsoft.com/services/cognitive-services/speech-translation">Konuşma Çevirisi</a> için de kullanılabilir.  Konuşma SDK’sı aracılığıyla <b>Konuşma Çevirisi</b> akışı sayesinde hizmet, çeviri ilerlemesini belirtmek üzere kullanıcıya gösterilebilen ara sonuçları döndürür. Sonuçlar metin veya ses olarak döndürülebilir.
+  - type: paragraph
+    text: Konuşma SDK’sı aracılığıyla <b>Konuşma Çevirisi</b> kullanım örnekleri aşağıdakileri içerir&#58;
+  - type: list
+    style: unordered
+    items:
+    - text: Seyahat edenler için bir konuşma çevirisi mobil uygulaması kullanma.
+    - text: Ses ve video kayıtlarına altyazı eklemek için otomatik çeviriler sağlama.
+  - type: paragraph
+    text: <b>Konuşma Çevirisi</b> modelleri aynı zamanda <a href="http://aka.ms/customtranslator">özelleştirilebilir</a>.
+- title: Metin Okuma
+  items:
+  - type: paragraph
+    text: Şu anda, <a href="https://azure.microsoft.com/services/cognitive-services/text-to-speech">Metin Okuma</a> (TTS) veya konuşma birleştirme özelliği düz metni doğal sesli konuşmaya dönüştüren bir REST API aracılığıyla desteklenmektedir. Farklı cinsiyet veya aksanlarda birden fazla ses, çok sayıda dilde mevcuttur.
+  - type: paragraph
+    text: Konuşma SDK’mız Konuşmayı Metne Dönüştürme ve Konuşma Çevirisi’ne erişim sağlar. Konuşmayı Metne Dönüştürme, REST POST çağrılarını HTTP üzerinden kullanır.
+  - type: paragraph
+    text: <b>Metin Okuma</b> REST API’si, <b>Konuşma-Birleştirme-İşaretleme-Dili</b> (SSML) etiketlerini destekler, böylece sorunlu sözcükler için tam fonetik telaffuzu belirtebilirsiniz. SSML ayrıca metnin içinde konuşma özelliklerini gösterebilir (vurgu, hız, ses düzeyi, cinsiyet ve sıklık gibi).
+  - type: paragraph
+    text: Uygulamanız için desteklenmeyen bir diyalekt veya benzersiz bir ses istiyorsanız, kendi konuşma örneklerinizden <a href="http://aka.ms/customvoice">özel ses tipleri</a> oluşturabilirsiniz.
+  - type: paragraph
+    text: <b>Metin Okuma</b> REST API’si için yaygın kullanım örnekleri aşağıda verilmiştir&#58;
+  - type: list
+    style: unordered
+    items:
+    - text: Görme engelli kullanıcılar için alternatif bir ekran olarak konuşma çıktısı.
+    - text: Navigasyon gibi araç içi uygulamalar için sesli komutlar.
+    - text: <b>Konuşmayı Metne Dönüştürme</b> API’si ile uyum içindeki konuşma kullanıcı arabirimleri.
+- title: Konuşma Cihazları SDK’sı
+  items:
+  - type: paragraph
+    text: Birleştirilmiş Konuşma Tanıma Hizmeti, Microsoft ve ortakları artık konuşma özellikli cihazlar geliştirmek için iyileştirilmiş tümleşik bir donanım/yazılım platformu&#58; <b>Konuşma Cihazları SDK’sını</b> sunuyor. Bu SDK, tüm uygulama türleri için akıllı konuşma cihazları geliştirmeye uygundur.
+  - type: paragraph
+    text: <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk">Konuşma Cihazları SDK’sı</a>, ses yakalamayı başlatmak üzere markanıza özel bir uyandırma sözcüğü ile kendi ortam cihazlarınızı oluşturmanıza olanak tanır. Ayrıca, gürültü bastırma, uzak alan sesi ve hüzmeleme dahil olmak üzere daha doğru konuşma tanıma için çok kanallı kaynaklardan üstün ses işleme özelliği sağlar.
+- title: Eski SDK’lar
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/uwp.jpg
+    - image:
+        src: media/index/logo_java.jpg
+    - image:
+        src: media/index/logo_objc.jpg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_rest_sr.svg
+    - image:
+        src: media/index/logo_rest_tts.svg
+    rows:
+    - title: Windows
+      values:
+      - href: https://docs.microsoft.com/windows/uwp/design/input/speech-recognition
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: Android
+      values:
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjavaandroid
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: iOS
+      values:
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/get-started-objectivec-ios
+      - href: 
+      - href: 
+      - href: 
+    - title: Web
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedjswebsockets
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest?tabs=Powershell
+      - href: https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput
+- title: Değerlendirmedeki SDK’lar
+  items:
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_swift.jpg
+    - image:
+        src: media/index/logo_gopher.svg
+    - image:
+        src: media/index/c.jpg
+    rows:
+    - title: SDK
+      values:
+      - href: 
+      - href: 
+      - href: 
+      - href: 

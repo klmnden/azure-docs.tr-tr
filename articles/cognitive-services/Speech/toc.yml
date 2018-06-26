@@ -1,0 +1,49 @@
+- name: Genel Bakış
+  href: Home.md
+- name: Başlarken
+  expanded: true
+  href: GetStarted/GetStarted.md
+  items:
+    - name: REST
+      href: GetStarted/GetStartedREST.md
+    - name: İstemci kitaplıkları
+      href: GetStarted/GetStartedClientLibraries.md
+      items:
+        - name: 'C# masaüstü kitaplığı'
+          href: GetStarted/GetStartedCSharpDesktop.md
+        - name: 'C# hizmet kitaplığı'
+          href: GetStarted/GetStartedCSharpServiceLibrary.md
+        - name: JavaScript kitaplığı
+          href: GetStarted/GetStartedJSWebsockets.md
+        - name: Android için Java kitaplığı
+          href: GetStarted/GetStartedJavaAndroid.md
+        - name: iOS için Objective-C kitaplığı
+          href: GetStarted/Get-Started-ObjectiveC-iOS.md
+- name: Örnekler
+  href: samples.md
+- name: Kavramlar
+  href: concepts.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Hizmeti kullanmak için kimlik doğrulaması
+      href: How-to/how-to-authentication.md
+    - name: Tanıma modu seçme
+      href: How-to/how-to-choose-recognition-mode.md
+    - name: Ses akışının öbekli aktarımı
+      href: How-to/how-to-chunked-transfer.md
+- name: Başvuru
+  items:
+    - name: Microsoft konuşma WebSocket protokolü
+      href: API-Reference-REST/websocketprotocol.md
+    - name: Metin Okuma API başvurusu
+      href: API-Reference-REST/BingVoiceOutput.md
+    - name: Desteklenen diller
+      href: API-Reference-REST/supportedlanguages.md
+- name: Sorun giderme
+  href: troubleshooting.md
+- name: Kaynaklar
+  items:
+    - name: Destek
+      href: support.md
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127980-bing-speech'

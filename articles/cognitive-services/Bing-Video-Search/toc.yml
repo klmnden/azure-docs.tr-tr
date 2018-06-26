@@ -1,0 +1,87 @@
+- name: Bing Video Arama Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Bing Video Arama nedir?
+      href: search-the-web.md
+- name: REST API Hızlı Başlangıçları
+  expanded: true
+  items:
+    - name: başlarken
+      href: quick-start.md
+    - name: 'C#'
+      href: csharp.md
+    - name: Java
+      href: java.md
+    - name: Node.js
+      href: nodejs.md
+    - name: PHP
+      href: php.md
+    - name: Python
+      href: python.md
+    - name: Ruby
+      href: ruby.md
+- name: SDK Hızlı başlangıçları
+  items:
+    - name: SDK örneklerine genel bakış
+      href: sdk.md
+    - name: 'Video Arama SDK’sı C# hızlı başlangıcı'
+      href: video-search-sdk-quickstart.md
+    - name: Video Arama SDK’sı Node hızlı başlangıcı
+      href: video-search-sdk-node-quickstart.md
+    - name: Video Arama SDK’sı Python hızlı başlangıcı
+      href: video-sdk-python-quickstart.md
+    - name: Video Arama SDK’sı Java hızlı başlangıcı
+      href: video-sdk-java-quickstart.md
+- name: Öğreticiler
+  items:
+    - name: Tek sayfalı web uygulaması
+      href: tutorial-bing-video-search-single-page-app.md
+    - name: Tek sayfalı web uygulaması (kaynak kodu)
+      href: tutorial-bing-video-search-single-page-app-source.md
+- name: Örnekler
+  items:
+    - name: Kod örnekleri
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Video+Search'
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Kullanım ve görüntüleme gereksinimleri
+      href: UseAndDisplayRequirements.md
+    - name: Video içgörüleri edinme
+      href: video-insights.md
+    - name: Popüler videoları alma
+      href: trending-videos.md
+    - name: Sayfa videoları
+      href: paging-videos.md
+    - name: Küçük resimleri yeniden boyutlandırma ve kırpma
+      href: resize-and-crop-thumbnails.md
+    - name: v5’ten v7’ye yükseltme
+      href: bing-video-upgrade-guide-v5-to-v7.md
+- name: Başvuru
+  items:
+    - name: Bing Video Arama API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference'
+    - name: Bing Video Arama API’si v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v5-reference'
+- name: Kaynaklar
+  items:
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911452-bing-video-search-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+video+search'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api'
+    - name: Deneyin!
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
+    - name: Bing Video Arama uç noktaları
+      href: video-search-endpoints.md
+    - name: Bing Video Arama API'si Analizleri
+      href: bing-video-stats.md

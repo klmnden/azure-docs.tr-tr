@@ -1,0 +1,63 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Language Understanding (LUIS) Belgeleri
+metadata:
+  document_id: 
+  title: Language Understanding (LUIS) - Öğreticiler, Hızlı Başlangıçlar, API Başvurusu
+  description: Language Understanding hizmetini kullanarak bir kişinin kendi sözcükleriyle ifade ettiği isteği uygulamanızın anlamasını sağlama hakkında bilgi edinin.
+  author: Kaiqb
+  manager: carolz
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/25/2018
+  ms.author: kamrani
+  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
+  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.translationtype: HT
+  ms.contentlocale: tr-TR
+  ms.lasthandoff: 06/08/2018
+  ms.locfileid: "35358295"
+abstract:
+  description: Language Understanding (LUIS), bir kişinin kendi sözcükleriyle ifade ettiği isteği uygulamanızın anlamasını sağlar. LUIS, geliştiricilerin doğal dilde kullanıcı girdisi alabilen ve bu girdiden anlam çıkarabilen uygulamalar derlemesini sağlamak için makine öğrenimini kullanır.
+sections:
+- title: 5 Dakikalık Hızlı Başlangıçlar
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="luis-get-started-create-app.md">Önceden derlenmiş bir etki alanı için uygulama oluşturma</a>
+    - html: <a href="luis-quickstart-intents-only.md">Özel etki alanı için uygulama oluşturma</a>
+- title: Adım adım öğreticiler
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="luis-quickstart-primary-and-secondary-data">Basit varlığı kullanarak bir konuşmadan ileti verilerini ayıklama</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">Normal ifade varlığını kullanarak bir konuşmadan KB makale numaralarını ayıklama</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">Liste varlığını kullanarak bir konuşmadan içecek siparişi bilgilerini ayıklama</a>
+    - html: <a href="luis-tutorial-pattern">Desenler ile amacı ve varlık tahmini doğruluğunu artırma</a>
+    - html: <a href="luis-tutorial-interchangeable-phrase-list">Tümcecik listesi ile sözcük anlamlı değerini iyileştirme</a>
+    - html: <a href="luis-get-started-cs-get-intent">LUIS’e konuşma gönderme ve uç nokta tahmin yanıtı alma - C#</a>
+    - html: <a href="luis-get-started-cs-add-utterance">Bir amaca örnek konuşma ekleme ve LUIS uygulamasını eğitme - C#</a>
+- title: Videolar
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" > Azure Friday At Build 2018 - Bilişsel Hizmetler - Dil (LUIS)</a>
+    - html: <a href="https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player" > Build 2018 AI Show - Language Understanding Service (LUIS) ile İlgili Yenilikler</a>
+    - html: <a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 Session - Bot zekası, Konuşma Özellikleri ve NLU en iyi uygulamaları</a>
+- title: Başvuru
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API'leri v2
+      html: <p><a href="https://aka.ms/luis-endpoint-apis"> Uç nokta API’si</a></p><p><a href="https://aka.ms/luis-authoring-apis"> Yazma API’si</a></p>
+    - title: SDK’lar
+      html: <p><a href="https://aka.ms/luis-endpoint-sdk"> .NET uç nokta SDK’sı</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET Yazma SDK’sı</a></p>
+    - title: Kod örnekleri
+      html: <p><a href="https://aka.ms/luis-code-samples"> Kod Örnekleri</a></p>

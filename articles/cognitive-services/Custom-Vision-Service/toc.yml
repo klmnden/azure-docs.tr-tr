@@ -1,0 +1,67 @@
+- name: Özel Görüntü İşleme Hizmeti Belgeleri
+- name: Genel Bakış
+  items:
+    - name: Özel Görüntü İşleme Hizmeti nedir?
+      href: home.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Özel Görüntü İşleme Hizmetini kullanmaya başlama
+      items:
+        - name: Sınıflandırıcı oluşturma
+          href: getting-started-build-a-classifier.md
+        - name: Modelinizi test etme
+          href: test-your-model.md
+        - name: Sınıflandırıcınızı geliştirme
+          href: getting-started-improving-your-classifier.md
+        - name: Tahmin API’sini kullanma
+          href: use-prediction-api.md
+        - name: Modelinizi mobil cihaza dışarı aktarma
+          href: export-your-model.md
+        - name: Python’da TensorFlow modelini çalıştırma
+          href: export-model-python.md
+    - name: Uygulama oluşturma
+      items:
+        - name: Resimleri Sınıflandırma
+          items:
+            - name: 'C# öğreticisi'
+              href: csharp-tutorial.md
+            - name: Python öğreticisi
+              href: python-tutorial.md
+        - name: Nesne Algılama
+          items:
+            - name: 'C# öğreticisi'
+              href: csharp-tutorial-od.md
+            - name: Python öğreticisi
+              href: python-tutorial-od.md
+- name: Başvuru
+  items:
+    - name: Özel Görüntü Eğitim API’si
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: Özel Görüntü Tahmin API’si
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
+    - name: Limitler ve kotalar
+      href: limits-and-quotas.md
+    - name: Sözlük
+      href: glossary-of-terms.md
+    - name: SDK’lar
+      items:
+        - name: Başlayın
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
+        - name: Windows
+          href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows'
+- name: Kaynaklar
+  items:
+    - name: Örnekler
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/'
+    - name: Hesap verilerini dışarı aktarma veya silme
+      href: ./export-delete-data.md
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598141-custom-vision-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'

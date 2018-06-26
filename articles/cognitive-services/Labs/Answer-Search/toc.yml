@@ -1,0 +1,29 @@
+- name: Proje Yanıtı Arama Belgeleri
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Proje Yanıt Arama nedir?
+      href: overview.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: 'C#'
+      href: c-sharp-quickstart.md
+    - name: Java
+      href: java-quickstart.md
+    - name: Node
+      href: node-quickstart.md
+    - name: Python
+      href: python-quickstart.md
+- name: Kavramlar
+  items:
+    - name: Bilgi sorguları
+      href: fact-queries.md
+    - name: Varlık sorguları
+      href: entity-queries.md
+- name: Başvuru
+  items:
+    - name: Kullanım ve Görüntüleme Gereksinimleri
+      href: use-display-requirements.md
+    - name: Proje Yanıtı Arama başvurusu
+      href: reference.md

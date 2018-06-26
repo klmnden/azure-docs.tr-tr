@@ -1,0 +1,65 @@
+- name: Bing Otomatik Öneri Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Bing Otomatik Öneri nedir?
+      href: get-suggested-search-terms.md
+- name: REST API Hızlı Başlangıçları
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: Python
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: Öğreticiler
+  items:
+    - name: Tek sayfalı web uygulaması
+      href: tutorials/autosuggest.md
+    - name: Tek sayfalı web uygulaması (kaynak kodu)
+      href: tutorials/autosuggest-source.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Kullanım ve görüntüleme gereksinimleri
+      href: UseAndDisplayRequirements.md
+    - name: v5’ten v7’ye yükseltme
+      href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+- name: Başvuru
+  items:
+    - name: Bing Otomatik Öneri API’si v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+    - name: Bing Otomatik Öneri API’si v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+- name: Kaynaklar
+  items:
+    - name: SSS
+      href: bing-autosuggest-resource-faq.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=bing+autosuggest'
+    - name: Bölgesel kullanılabilirlik
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API anahtarını alma
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
+    - name: Deneyin!
+      href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
+    - name: Bing Otomatik Öneri uç noktası
+      href: autosuggest-endpoint.md
+    - name: Desteklenen diller
+      href: bing-autosuggest-supported-languages.md
+    - name: Bing Otomatik Öneri API’si analizleri
+      href: bing-autosuggest-stats.md

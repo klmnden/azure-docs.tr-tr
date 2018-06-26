@@ -1,0 +1,20 @@
+- name: Konuşmacı Tanıma Belgeleri
+- name: Genel Bakış
+  items:
+    - name: Konuşmacı Tanıma hakkında bilgi edinin
+      href: Home.md
+- name: Başvuru
+  items:
+    - name: API Başvurusu
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'
+      items:
+        - name: SDK’lar
+          items:
+            - name: Android
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
+            - name: Windows
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/'

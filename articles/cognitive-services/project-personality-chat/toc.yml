@@ -1,0 +1,11 @@
+- name: Proje Kişilik Sohbeti Belgeleri
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Proje Kişilik Sohbeti nedir?
+      href: overview.md
+- name: Kaynaklar
+  expanded: true
+  items:
+    - name: SSS
+      href: faq.md

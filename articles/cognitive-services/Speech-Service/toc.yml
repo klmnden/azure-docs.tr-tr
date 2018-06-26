@@ -1,0 +1,99 @@
+- name: Konuşma Tanıma Hizmeti API Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Konuşma tanıma hizmeti nedir?
+      href: overview.md
+      expanded: true
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Konuşma tanıma hizmetini ücretsiz olarak deneyin
+      href: get-started.md
+    - name: 'C# dilinde konuşmayı algılama'
+      href: quickstart-csharp-windows.md
+    - name: Windows için C++ dilinde konuşmayı algılama
+      href: cpp-windows.md
+    - name: Linux için C++ dilinde konuşmayı algılama
+      href: cpp-linux.md
+    - name: Konuşma Cihazları SDK’sı ile çalışmaya başlama
+      href: speech-devices-sdk-qsg.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Konuşma tanıma
+      href: how-to-speech-to-text.md
+    - name: Konuşma modellerini özelleştirme
+      href: how-to-customize-speech-models.md
+    - name: Konuşmayı birleştirme
+      href: how-to-text-to-speech.md
+    - name: Ses tiplerini özelleştirme
+      href: how-to-customize-voice-font.md
+    - name: Konuşmayı çevirme
+      href: how-to-translate-speech.md
+    - name: Transkript hazırlama
+      href: prepare-transcription.md
+    - name: Özel ses akışları kullanma
+      href: how-to-use-audio-input-streams.md
+    - name: Konuşma Cihazları SDK’sını edinme
+      href: get-speech-devices-sdk.md
+    - name: Cihaz uyandırma sözcüğünü özelleştirme
+      href: speech-devices-sdk-create-kws.md
+    - name: Toplu iş transkripsiyonu (çağrı merkezleri)
+      href: batch-transcription.md
+- name: Örnekler
+  items:
+    - name: Örnekleri indirme
+      href: samples.md
+    - name: Konuşma Tanıma
+      href: speech-to-text-sample.md
+    - name: Amaç Tanıma
+      href: intent.md
+    - name: Çeviri
+      href: translation.md
+- name: Kavramlar
+  items:
+    - name: Konuşmayı Metne Dönüştürme
+      href: speech-to-text.md
+    - name: Metin Okuma
+      href: text-to-speech.md
+    - name: Konuşma Çevirisi
+      href: speech-translation.md
+    - name: Konuşma SDK'sı
+      href: speech-sdk.md
+    - name: Konuşma Cihazları SDK’sı
+      href: speech-devices-sdk.md
+- name: Başvuru
+  items:
+    - name: Desteklenen diller
+      href: supported-languages.md
+    - name: REST API'leri
+      href: rest-apis.md
+    - name: Konuşma SDK'sı API’si
+      href: speech-sdk-reference.md
+    - name: Konuşma birleştirme işaretleme
+      href: speech-synthesis-markup.md
+- name: Kaynaklar
+  items:
+    - name: Konuşmayı Metne Dönüştürme SSS
+      href: faq-stt.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/912208-speech-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Gizlilik ve tanımlama bilgileri
+      href: 'https://privacy.microsoft.com/privacystatement'
+    - name: Sorun giderme
+      href: troubleshooting.md
+    - name: Uygulamanızı gönderme
+      href: ship-application.md
+    - name: Sürüm notları
+      href: releasenotes.md
+    - name: Konuşma SDK’sı Lisansı
+      href: license.md
+    - name: Konuşma Cihazları SDK’sı Lisansı
+      href: speech-devices-sdk-license.md
+    - name: Üçüncü taraf bildirimleri
+      href: third-party-notices.md

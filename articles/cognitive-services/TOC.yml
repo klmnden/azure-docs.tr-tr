@@ -1,0 +1,41 @@
+- name: Azure Bilişsel Hizmetler Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  expanded: true
+  items:
+    - name: Bilişsel Hizmetler nedir?
+      href: Welcome.md
+- name: Hızlı Başlangıçlar
+  items:
+    - name: Hesap oluşturma
+      href: cognitive-services-apis-create-account.md
+    - name: Görüntü sınıflandırıcı derleme
+      href: ./custom-vision-service/getting-started-build-a-classifier.md
+    - name: Ev otomasyonu uygulaması derleme
+      href: ./luis/luis-get-started-create-app.md
+    - name: .NET metin analizi uygulaması oluşturma
+      href: ./text-analytics/quickstarts/csharp.md
+- name: Öğreticiler
+  items:
+    - name: Özel arama web sayfası
+      href: ./bing-custom-search/tutorials/custom-search-web-page.md
+    - name: Language Understanding uygulaması
+      href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
+    - name: Komutlar için amaç doğruluğunu iyileştirme
+      href: ./luis/luis-tutorial-batch-testing.md
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
+    - name: Fiyatlandırma hesaplayıcı
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Videolar
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
+    - name: Hizmet güncelleştirmeleri
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Kullanım kuralları
+      href: 'http://go.microsoft.com/fwlink/?LinkId=698895'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase'

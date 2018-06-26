@@ -1,0 +1,149 @@
+- name: Görüntü İşleme Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Görüntü İşleme nedir?
+      href: Home.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Özet
+      href: QuickStarts/quickstart-summary.md
+    - name: 'C#'
+      items:
+        - name: Resim çözümleme
+          href: QuickStarts/CSharp-analyze.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/CSharp-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/CSharp-print-text.md
+        - name: El yazısı metni ayıklama
+          href: QuickStarts/CSharp-hand-text.md
+    - name: cURL
+      items:
+        - name: Uzak resmi çözümleme
+          href: QuickStarts/curl-analyze.md
+        - name: Yerel resmi çözümleme
+          href: QuickStarts/curl-disk.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/curl-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/curl-print-text.md
+    - name: Java
+      items:
+        - name: Resim çözümleme
+          href: QuickStarts/java-analyze.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/java-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/java-print-text.md
+        - name: El yazısı metni ayıklama
+          href: QuickStarts/java-hand-text.md
+    - name: JavaScript
+      items:
+        - name: Resim çözümleme
+          href: QuickStarts/javascript-analyze.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/javascript-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/javascript-print-text.md
+        - name: El yazısı metni ayıklama
+          href: QuickStarts/javascript-hand-text.md
+    - name: Node.js
+      items:
+        - name: Resim çözümleme
+          href: QuickStarts/node-analyze.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/node-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/node-print-text.md
+    - name: PHP
+      items:
+        - name: Resim çözümleme
+          href: QuickStarts/php-analyze.md
+        - name: Etki alanı modeli kullanma
+          href: QuickStarts/php-domain.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/php-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/php-print-text.md
+    - name: Python
+      items:
+        - name: Uzak resmi çözümleme
+          href: QuickStarts/python-analyze.md
+        - name: Yerel resmi çözümleme
+          href: QuickStarts/python-disk.md
+        - name: Etki alanı modeli kullanma
+          href: QuickStarts/python-domain.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/python-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/python-print-text.md
+        - name: El yazısı metni ayıklama
+          href: QuickStarts/python-hand-text.md
+    - name: Ruby
+      items:
+        - name: Resim çözümleme
+          href: QuickStarts/ruby-analyze.md
+        - name: Küçük resim oluşturma
+          href: QuickStarts/ruby-thumb.md
+        - name: Yazdırılan metni ayıklama
+          href: QuickStarts/ruby-print-text.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: İlk Görüntü İşleme uygulamaları
+      items:
+        - name: 'C#'
+          href: Tutorials/CSharpTutorial.md
+        - name: Java
+          href: Tutorials/java-tutorial.md
+        - name: JavaScript
+          href: Tutorials/javascript-tutorial.md
+        - name: Python
+          href: Tutorials/PythonTutorial.md
+    - name: Abonelik anahtarları alma
+      href: Vision-API-How-to-Topics/HowToSubscribe.md
+    - name: Görüntü İşleme API’sini çağırma
+      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+    - name: Videoları gerçek zamanlı olarak analiz etme
+      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+    - name: Visual Studio ile çalışma
+      items:
+        - name: Görüntü İşleme Bağlı Hizmetini kullanma
+          href: vs-computer-vision-connected-service.md
+- name: Başvuru
+  items:
+    - name: Görüntü İşleme API’si v2.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44'
+    - name: Görüntü İşleme API’si v1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
+    - name: SDK’lar
+      items:
+        - name: Başlayın
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision'
+        - name: Node.js
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
+        - name: Python
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
+        - name: Windows
+          href: 'https://github.com/Microsoft/Cognitive-vision-windows'
+        - name: Android
+          href: 'https://github.com/Microsoft/Cognitive-vision-android'
+        - name: Swift
+          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
+- name: Kaynaklar
+  items:
+    - name: Örnekler
+      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
+    - name: SSS
+      href: FAQ.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure Yol Haritası
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Kategori sınıflandırma
+      href: Category-Taxonomy.md

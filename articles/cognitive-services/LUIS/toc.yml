@@ -1,0 +1,303 @@
+- name: LUIS Belgeleri
+  href: index.yml
+- name: Genel Bakış
+  items:
+    - name: Language Understanding hakkında daha fazla bilgi edinin
+      href: Home.md
+    - name: Desteklenen diller
+      href: luis-supported-languages.md
+- name: Hızlı Başlangıçlar
+  expanded: true
+  items:
+    - name: Uygulama modeli derleme
+      items:
+        - name: Önceden derlenmiş etki alanını kullanma
+          href: luis-get-started-create-app.md
+        - name: Özel etki alanı kullanma
+          href: luis-quickstart-intents-only.md
+- name: Öğreticiler
+  items:
+    - name: Önceden derlenmiş amaçlar ve varlıklar ekleme
+      href: luis-tutorial-prebuilt-intents-entities.md
+    - name: Varlıktan veri alma
+      items:
+        - name: Basit varlık
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: Hiyerarşik varlık
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: Liste varlığı
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: Normal ifade varlığı
+          href: luis-quickstart-intents-regex-entity.md
+        - name: KeyPhrase varlığı
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: Yaklaşım analizi
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: Tahmin iyileştirme
+      items:
+        - name: Desenler ile
+          href: luis-tutorial-pattern.md
+        - name: Tümcecik listesi ile
+          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: API kullanma
+      items:
+        - name: Uç nokta sorgusuyla konuşma tahmin alma
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-get-intent.md
+            - name: Java
+              href: luis-get-started-java-get-intent.md
+            - name: JavaScript
+              href: luis-get-started-js-get-intent.md
+            - name: Node.js
+              href: luis-get-started-node-get-intent.md
+            - name: Python
+              href: luis-get-started-python-get-intent.md
+            - name: PHP
+              href: luis-get-started-php-get-intent.md
+            - name: Ruby
+              href: luis-get-started-ruby-get-intent.md
+        - name: Amaç ve eğitim uygulamasına konuşma ekleme
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-add-utterance.md
+            - name: Java
+              href: luis-get-started-java-add-utterance.md
+            - name: JavaScript
+              href: luis-get-started-javascript-add-utterance.md
+            - name: Node.js
+              href: luis-get-started-node-add-utterance.md
+            - name: Python
+              href: luis-get-started-python-add-utterance.md
+            - name: PHP
+              href: luis-get-started-php-add-utterance.md
+            - name: Ruby
+              href: luis-get-started-ruby-add-utterance.md
+- name: Örnekler
+  items:
+    - name: Kod örnekleri
+      href: 'https://github.com/Microsoft/LUIS-Samples'
+- name: Kavramlar
+  items:
+    - name: En iyi uygulamalar
+      href: luis-concept-best-practices.md
+    - name: Yazar Uygulaması
+      items:
+        - name: Yazma döngüsü
+          href: luis-concept-app-iteration.md
+        - name: İş Birliği
+          href: luis-concept-collaborator.md
+        - name: Sürüm oluşturma
+          href: luis-concept-version.md
+    - name: Tasarım Modeli
+      items:
+        - name: Hedefler
+          href: luis-concept-intent.md
+        - name: Varlıklar
+          href: luis-concept-entity-types.md
+        - name: Konuşmalar
+          href: luis-concept-utterance.md
+        - name: Roller
+          href: luis-concept-roles.md
+    - name: Uygulama performansını geliştirme
+      items:
+        - name: Tahmin puanı
+          href: luis-concept-prediction-score.md
+        - name: Uç nokta konuşmasını gözden geçirme
+          href: luis-concept-review-endpoint-utterances.md
+        - name: Tümcecik listeleri
+          href: luis-concept-feature.md
+        - name: Desenler
+          href: luis-concept-patterns.md
+    - name: Veri yönetimi
+      items:
+        - name: Verileri değiştirme
+          href: luis-concept-data-alteration.md
+        - name: Verileri dönüştürme
+          href: luis-concept-data-conversion.md
+        - name: Verileri ayıklama
+          href: luis-concept-data-extraction.md
+        - name: Veri Depolama
+          href: luis-concept-data-storage.md
+    - name: Test etme
+      items:
+        - name: Etkileşimli test
+          href: luis-concept-test.md
+        - name: Toplu işe testi
+          href: luis-concept-batch-test.md
+    - name: Enterprise
+      items:
+        - name: Tasarım stratejileri
+          href: luis-concept-enterprise.md
+    - name: Güvenlik
+      items:
+        - name: Uygulama erişimi
+          href: luis-concept-security.md
+        - name: Yazma ve uç nokta anahtarları
+          href: luis-concept-keys.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Uygulamanızı planlama
+      href: Plan-your-app.md
+    - name: Yeni bir uygulama başlatma
+      href: Create-new-app.md
+    - name: Model Oluşturma
+      items:
+        - name: Hedef ekleme
+          href: luis-how-to-add-intents.md
+        - name: Konuşma ekleme
+          href: luis-how-to-add-example-utterances.md
+        - name: Varlık ekleme
+          href: luis-how-to-add-entities.md
+        - name: Gruplandırılmış verileri ayıklamak için birleşik varlık kullanma
+          href: luis-tutorial-composite-entity.md
+        - name: Node.js kullanarak tam metin eşleştirmek için liste varlığı kullanma
+          href: luis-tutorial-list-entity.md
+        - name: Node.js kullanarak program aracılığıyla uygulama derleme
+          href: luis-tutorial-node-import-utterances-csv.md
+    - name: Tümleştirme
+      items:
+        - name: Bing Yazım Denetimi API'si v7 ile yazım düzeltme
+          href: luis-tutorial-bing-spellcheck.md
+        - name: Konuşma hizmeti ile
+          href: luis-tutorial-speech-to-intent.md
+        - name: Bot ile
+          items:
+            - name: Web uygulaması botu
+              items:
+                - name: Node.js
+                  href: luis-nodejs-tutorial-build-bot-framework-sample.md
+                - name: 'C#'
+                  href: luis-csharp-tutorial-build-bot-framework-sample.md
+            - name: Application Insights
+              items:
+                - name: Node.js
+                  href: luis-tutorial-function-appinsights.md
+                - name: 'C#'
+                  href: luis-tutorial-bot-csharp-appinsights.md
+    - name: Tahmin doğruluğunu iyileştirme
+      items:
+        - name: Uç nokta konuşmasını gözden geçirme
+          href: Label-Suggested-Utterances.md
+        - name: Tümcecik listesi ekleme
+          href: luis-how-to-add-features.md
+        - name: Desen ekleme
+          href: luis-how-to-model-intent-pattern.md
+    - name: Eğitim
+      href: luis-how-to-train.md
+    - name: Test etme
+      items:
+        - name: Etkileşimli test
+          href: interactive-test.md
+        - name: Toplu işe testi
+          href: luis-how-to-batch-test.md
+        - name: Toplu test ile doğruluğu iyileştirme
+          href: luis-tutorial-batch-testing.md
+    - name: Uygulamanızı yayımlama
+      href: PublishApp.md
+    - name: Önceden oluşturulmuş modelleri kullanma
+      items:
+        - name: Önceden oluşturulmuş varlıklar kullanma
+          href: Pre-builtEntities.md
+        - name: Önceden oluşturulmuş etki alanları kullanma
+          href: luis-how-to-use-prebuilt-domains.md
+        - name: Önceden oluşturulmuş Cortana uygulamasını kullanma
+          href: Cortana-Prebuilt-App.md
+    - name: LUIS uygulamanızı yönetme
+      items:
+        - name: Panoyu kullanma
+          href: luis-how-to-use-dashboard.md
+        - name: Anahtar oluşturma
+          href: luis-how-to-azure-subscription.md
+        - name: LUIS’e anahtar ekleme
+          href: Manage-Keys.md
+        - name: PowerShell ile uç nokta kullanımını görüntüleme
+          href: luis-how-to-manage-from-cloud-shell.md
+        - name: Sürümleri yönetme
+          href: luis-how-to-manage-versions.md
+        - name: Diğer yazarlarla birlikte çalışma
+          href: luis-how-to-collaborate.md
+        - name: Traffic Manager ile anahtarlar arasında uç nokta kotasını yayma
+          href: traffic-manager.md
+    - name: LUIS hesabınızı yönetme
+      href: luis-how-to-account-settings.md
+    - name: V2 API’ye geçiş
+      href: migration-v1-to-v2.md
+    - name: Program aracılığıyla bölgeyi bulma
+      items:
+        - name: 'C# kullanma'
+          href: find-region-csharp.md
+        - name: Node.js'yi kullanma
+          href: find-region-nodejs.md
+- name: Başvuru
+  items:
+    - name: Kullanıcı gizliliği
+      href: luis-reference-gdpr.md
+    - name: Bölgeler
+      href: luis-reference-regions.md
+    - name: Sınırlar
+      href: luis-boundaries.md
+    - name: Önceden derlenmiş varlık başvurusu
+      href: luis-reference-prebuilt-entities.md
+    - name: Önceden derlenmiş etki alanı başvurusu
+      href: luis-reference-prebuilt-domains.md
+    - name: Cortana önceden derlenmiş uygulama başvurusu
+      href: luis-reference-cortana-prebuilt.md
+    - name: Yazma V2 API’leri
+      href: 'https://aka.ms/luis-authoring-apis'
+    - name: Uç nokta V2 API’si
+      href: 'https://aka.ms/luis-endpoint-apis'
+    - name: HTTP kodları
+      href: luis-reference-response-codes.md
+    - name: Azure CLI 2.0
+      href: 'https://aka.ms/az-cli-cognitiveservices'
+    - name: Azure RM PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: SDK’lar
+      items:
+        - name: Android
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
+        - name: Node.js
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Python
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
+        - name: .Net Uç Noktası
+          href: 'https://aka.ms/luis-endpoint-sdk'
+        - name: .Net Yazma
+          href: 'https://aka.ms/luis-authoring-sdk'
+- name: İlgili
+  items:
+    - name: Bot Altyapısı
+      href: 'https://dev.botframework.com/'
+    - name: 'Bot Builder 3.x SDK C#'
+      href: 'https://github.com/Microsoft/BotBuilder'
+    - name: 'Bot Builder 4.x SDK C#'
+      href: 'https://github.com/Microsoft/botbuilder-dotnet'
+    - name: Soru-Cevap oluşturucu
+      href: 'https://qnamaker.ai/'
+    - name: Bing Konuşma API'si
+      href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+    - name: Bing Yazım Denetimi API’si
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: Metin Analizi
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+- name: Kaynaklar
+  items:
+    - name: Azure Yol Haritası
+      href: 'https://aka.ms/luis-roadmap'
+    - name: Sözlük
+      href: luis-glossary.md
+    - name: SSS
+      href: luis-resources-faq.md
+    - name: Fiyatlandırma
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/LUIS'
+    - name: UserVoice
+      href: 'https://aka.ms/luis-uservoice-forum'
+    - name: Arama
+      href: 'https://docs.microsoft.com/en-us/search/index?search=LUIS'
+    - name: Blog
+      href: 'https://blog.botframework.com/category/luis/'
+    - name: Bilgi Bankası
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service'
