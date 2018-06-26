@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248393"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938506"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Tahmine dayalı bakım Havacılık ve diğer işletmeler için Cortana Intelligence çözüm şablonu teknik Kılavuzu
 
@@ -54,14 +54,14 @@ Aşağıdaki bölümlerde çözüm bölümleri açıklanmaktadır.
 ### <a name="synthetic-data-source"></a>Yapay veri kaynağı
 Bu şablon için kullanılan veri kaynağı indirip yerel başarılı dağıtım sonrasında çalışacak bir masaüstü uygulaması oluşturulur.
 
-Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğümde, Tahmine dayalı bakım veri oluşturucusu, çözüm şablonu diyagramı seçin. Yönergeler özellikleri çubuğunda bulunur. Bu uygulama akışları [Azure olay hub'ı](#azure-event-hub) hizmeti veri noktaları ya da çözüm akışı geri kalanı kullanılan olayları ile. Bu veri kaynağı genel kullanıma açık verilerden türetilir [NASA veri deposu](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) kullanarak [Turbofan Engine Bozulması benzetimi veri kümesi](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğümde, Tahmine dayalı bakım veri oluşturucusu, çözüm şablonu diyagramı seçin. Yönergeler özellikleri çubuğunda bulunur. Bu uygulama akışları [Azure olay hub'ı](#azure-event-hub) hizmeti veri noktaları ya da çözüm akışı geri kalanı kullanılan olayları ile. Bu veri kaynağı genel kullanıma açık verilerden türetilir [NASA veri deposu](https://c3.nasa.gov/dashlink/resources/139/) kullanarak [Turbofan Engine Bozulması benzetimi veri kümesi](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
-Yalnızca bilgisayarınızda yürütülürken olay oluşturma uygulama Azure olay hub'ı doldurur.
+Yalnızca bilgisayarınızda yürütülürken olay oluşturma uygulama Azure olay hub'ı doldurur.  
 
-### <a name="azure-event-hub"></a>Azure Olay Hub'ı
+### <a name="azure-event-hub"></a>Azure Olay Hub'ı  
 [Azure olay hub'ı](https://azure.microsoft.com/services/event-hubs/) alıcı yapay veri kaynağı tarafından sağlanan girdi bir hizmettir.
 
-## <a name="data-preparation-and-analysis"></a>Veri hazırlama ve çözümleme
+## <a name="data-preparation-and-analysis"></a>Veri hazırlama ve çözümleme  
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Kullanım [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/) giriş akışından üzerinde gerçek zamanlı analiz yakın sağlamak için [Azure olay hub'ı](#azure-event-hub) hizmet. Ardından üzerine sonuçlarını yayımlamak bir [Power BI](https://powerbi.microsoft.com) Pano tüm ham gelen olayları arşiv olarak iyi [Azure Storage](https://azure.microsoft.com/services/storage/) daha sonra tarafından işlenmesi için service [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)hizmet.
 
@@ -113,11 +113,11 @@ Bu çözümde, bu çözüm şablonu bir parçası olarak sağlanan bir Power BI 
 İkinci Stream Analytics işinde sorgu **maintenancesa02asablob** yalnızca tüm çıkarır [olay hub'ı](https://azure.microsoft.com/services/event-hubs/) olayları [Azure Storage](https://azure.microsoft.com/services/storage/) ve bu nedenle hiçbir değişikliğinin gerektirir veri biçimi tam olay olarak bağımsız olarak bilgi depolama birimine akışla aktarılır.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) hizmeti, taşıma ve verilerinin işlenmesini düzenler. Tahmine dayalı bakım Havacılık çözüm şablonu için veri fabrikası üç oluşur [ardışık düzen](../../data-factory/v1/data-factory-create-pipelines.md) taşıyın ve çeşitli teknolojiler kullanılarak verileri işleme.  Veri fabrikanızın Çözüm dağıtımı ile oluşturulan çözüm şablonu diyagramı sonundaki Data Factory düğümü açarak erişin. Veri Oluşturucusu başlamadan kümeleriniz altında hatalar nedeniyle veri fabrikası dağıtılan. Bu hatalar göz ardı edilebilir ve veri fabrikanıza çalışmasını engellemez
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) hizmeti, taşıma ve verilerinin işlenmesini düzenler. Tahmine dayalı bakım Havacılık çözüm şablonu için veri fabrikası üç oluşur [ardışık düzen](../../data-factory/concepts-pipelines-activities.md) taşıyın ve çeşitli teknolojiler kullanılarak verileri işleme.  Veri fabrikanızın Çözüm dağıtımı ile oluşturulan çözüm şablonu diyagramı sonundaki Data Factory düğümü açarak erişin. Veri Oluşturucusu başlamadan kümeleriniz altında hatalar nedeniyle veri fabrikası dağıtılan. Bu hatalar göz ardı edilebilir ve veri fabrikanıza çalışmasını engellemez
 
 ![Data Factory veri kümesi hataları](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-Bu bölümde, gerekli anlatılmaktadır [ardışık düzen](../../data-factory/v1/data-factory-create-pipelines.md) ve [etkinlikleri](../../data-factory/v1/data-factory-create-pipelines.md) içinde yer alan [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Bir diyagram görünümü çözümün aşağıdadır.
+Bu bölümde, gerekli anlatılmaktadır [işlem hatlarının ve etkinliklerin](../../data-factory/concepts-pipelines-activities.md) içinde yer alan [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/). Bir diyagram görünümü çözümün aşağıdadır.
 
 ![Azure Data Factory](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
@@ -126,22 +126,22 @@ Bu fabrikada ardışık ikilisi içeren [Hive](http://blogs.msdn.com/b/bigdatasu
 Benzer şekilde [Azure akış analizi](#azure-stream-analytics-1) sorguları, [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) betikleri gelen veri biçimi hakkında örtük bilgiye sahip ve veri biçiminiz tabanlı değiştirilmesi gerekiyor.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-Bu [ardışık düzen](../../data-factory/v1/data-factory-create-pipelines.md) - tek bir etkinlik içeren bir [Hdınsighthive](../../data-factory/v1/data-factory-hive-activity.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştıran bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) Veri bölümlemek için komut dosyası içine [Azure Storage](https://azure.microsoft.com/services/storage/) sırasında [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/) işi.
+Bu [ardışık düzen](../../data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştıran bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) Veri bölümlemek için komut dosyası içine [Azure Storage](https://azure.microsoft.com/services/storage/) sırasında [Azure akış analizi](https://azure.microsoft.com/services/stream-analytics/) işi.
 
 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için komut dosyası ***AggregateFlightInfo.hql***
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
-Bu [ardışık düzen](../../data-factory/v1/data-factory-create-pipelines.md) son sonucu olan puanlanmış tahminleri çeşitli etkinlikler içeren gelen [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) Bu çözüm şablonuyla ilişkili deneme.
+Bu [ardışık düzen](../../data-factory/concepts-pipelines-activities.md) son sonucu olan puanlanmış tahminleri çeşitli etkinlikler içeren gelen [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) Bu çözüm şablonuyla ilişkili deneme.
 
 Etkinlikler dahil şunlardır:
 
-* [Hdınsighthive](../../data-factory/v1/data-factory-hive-activity.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştıran bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) mühendislik için gerekli özellik ve toplamalar gerçekleştirmek için komut dosyası [Azure makine Öğrenme](https://azure.microsoft.com/services/machine-learning/) deneyin.
+* [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) etkinliğini kullanarak bir [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) çalıştıran bir [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) mühendislik için gerekli özellik ve toplamalar gerçekleştirmek için komut dosyası [Azure makine Öğrenme](https://azure.microsoft.com/services/machine-learning/) deneyin.
   [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) bölümleme bu görev için komut dosyası ***PrepareMLInput.hql***.
-* [Kopya](https://msdn.microsoft.com/library/azure/dn835035.aspx) sonuçlarından taşır etkinlik [Hdınsighthive](../../data-factory/v1/data-factory-hive-activity.md) tek bir etkinliğe [Azure Storage](https://azure.microsoft.com/services/storage/) tarafından erişilen blob [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) Etkinlik.
+* [Kopya](https://msdn.microsoft.com/library/azure/dn835035.aspx) sonuçlarından taşır etkinlik [Hdınsighthive](../../data-factory/transform-data-using-hadoop-hive.md) tek bir etkinliğe [Azure Storage](https://azure.microsoft.com/services/storage/) tarafından erişilen blob [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) Etkinlik.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) etkinlik çağrıları [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) tek bir yerleştirme sonuçlarla deneme [Azure Storage](https://azure.microsoft.com/services/storage/) blob.
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-Bu [ardışık düzen](../../data-factory/v1/data-factory-create-pipelines.md) - tek bir etkinlik içeren bir [kopya](https://msdn.microsoft.com/library/azure/dn835035.aspx) sonuçlarını taşır etkinlik [Azure Machine Learning](#azure-machine-learning) gelen denemeler  ***MLScoringPipeline*** için [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) çözüm şablonu yüklemesinin bir parçası sağlandı.
+Bu [ardışık düzen](../../data-factory/concepts-pipelines-activities.md) - tek bir etkinlik içeren bir [kopya](https://msdn.microsoft.com/library/azure/dn835035.aspx) sonuçlarını taşır etkinlik [Azure Machine Learning](#azure-machine-learning) gelen denemeler  ***MLScoringPipeline*** için [Azure SQL veritabanı](https://azure.microsoft.com/services/sql-database/) çözüm şablonu yüklemesinin bir parçası sağlandı.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) kalan kullanım ömrü (RUL) uçak motorunun Bu çözüm şablonu sağlar için kullanılan deneyin. Denemeyi tüketilen veri kümesi özeldir ve değişikliği yapılması gerektiğinden veya değiştirilen verileri belirli getirildi.

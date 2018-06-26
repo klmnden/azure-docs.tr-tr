@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: c1597f16dda8544908bbefaf39e75e667d38b22c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 93665ab075de539f98eebe34c2229870bd5a1a6e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316477"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750247"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına MySQL için
 
@@ -41,7 +41,7 @@ Bir sunucu oluşturduktan sonra sayısı vCores, donanım oluşturma ve fiyatlan
 
 ## <a name="compute-generations-and-vcores"></a>İşlem nesli ve vCores
 
-İşlem kaynakları mantıksal CPU temel alınan donanım temsil eden vCores sağlanır. Şu anda iki işlem nesil, Gen 4 ve Gen 5 seçebilirsiniz. 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci. 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı gen (Broadwell) 2.3 GHz işlemci. Gen 4 ve Gen 5 ("X" kullanılabilir gösterir) aşağıdaki bölgelerde kullanılabilir. 
+İşlem kaynakları mantıksal CPU temel alınan donanım temsil eden vCores sağlanır. Şu anda iki işlem nesil, Gen 4 ve Gen 5 seçebilirsiniz. 4 mantıksal CPU üzerinde Intel E5-2673 v3 dayalı gen (Haswell) 2.4 GHz işlemci. 5 mantıksal CPU üzerinde Intel E5-2673 v4 dayalı gen (Broadwell) 2.3 GHz işlemci. Gen 4 ve Gen 5 ("X" kullanılabilir gösterir) aşağıdaki bölgelerde kullanılabilir.
 
 | **Azure bölgesi** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
@@ -80,7 +80,7 @@ Sağlamanız depolama MySQL sunucusu için Azure veritabanınıza kullanılabili
 | Depolama türü | Standart Azure depolama | Azure Premium Depolama | Azure Premium Depolama |
 | Depolama boyutu | 1 TB ' 5 GB | 5 GB ila 4 TB | 5 GB ila 4 TB |
 | Depolama artırım boyutu | 1 GB | 1 GB | 1 GB |
-| IOPS | Değişken |3 IOP/GB<br/>En az 100 IOPS<br/>Maksimum 7500 IOPS | 3 IOP/GB<br/>En az 100 IOPS<br/>Maksimum 7500 IOPS |
+| IOPS | Değişken |3 IOP/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS | 3 IOP/GB<br/>En az 100 IOPS<br/>En çok 6000 IOPS |
 
 Ek depolama kapasitesi sırasında ve sunucu oluşturulduktan sonra ekleyebilirsiniz. Temel katman bir IOPS garanti sağlamaz. Genel amaçlı ve fiyatlandırma katmanlarına Bellek için iyileştirilmiş, 3:1 oranında sağlanan depolama boyutu ile IOPS ölçeklendirin.
 

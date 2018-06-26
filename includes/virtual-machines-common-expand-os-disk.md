@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/18/2018
 ms.author: kirpas;iainfou;sewhee
 ms.custom: include file
-ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ab4d5326fc06cc8676ea93ed529315cc47651e26
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323808"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943462"
 ---
 ## <a name="overview"></a>Genel Bakış
 Oluşturduğunuzda, yeni bir sanal makine (VM) bir kaynak grubunda bir görüntüden dağıtarak [Azure Marketi](https://azure.microsoft.com/marketplace/), varsayılan işletim sistemi sürücüsü (bazı görüntüleri sahip küçük işletim sistemi disk boyutları varsayılan olarak) 127 GB görülür. VM’ye veri diskleri eklemek (kaç tane ekleyebileceğiniz seçtiğiniz SKU’ya bağlıdır) mümkün olmasına, hatta uygulamaları ve yoğun CPU kullanımlı iş yüklerini bu ek disklere yüklemeniz önerilmesine rağmen, sıklıkla müşterilerin aşağıdaki gibi belirli senaryoları etkinleştirmesi için işletim sistemi sürücüsünü genişletmesi gerekir:
@@ -36,7 +36,7 @@ Bu makalede, [Azure Powershell](/powershell/azureps-cmdlets-docs)’in kaynak y�
 
 Powershell ISE veya Powershell pencerenizi yönetim modunda açın ve aşağıdaki adımları izleyin:
 
-1. Aşağıdakileri yaparak Microsoft Azure hesabınızda kaynak yönetimi modunda oturum açın ve aboneliğinizi seçin:
+1. Kaynak Yönetimi modunda Microsoft Azure hesabınızda oturum açın ve aşağıdaki gibi aboneliğinizi seçin:
    
    ```Powershell
    Connect-AzureRmAccount
@@ -79,7 +79,7 @@ Powershell ISE veya Powershell pencerenizi yönetim modunda açın ve aşağıda
 
 Powershell ISE veya Powershell pencerenizi yönetim modunda açın ve aşağıdaki adımları izleyin:
 
-1. Aşağıdakileri yaparak Microsoft Azure hesabınızda kaynak yönetimi modunda oturum açın ve aboneliğinizi seçin:
+1. Kaynak Yönetimi modunda Microsoft Azure hesabınızda oturum açın ve aşağıdaki gibi aboneliğinizi seçin:
    
    ```Powershell
    Connect-AzureRmAccount

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b56cdd119bac28eec819dbf38afcd2be5aaf907
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: HT
+ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710741"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938504"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -56,7 +56,7 @@ Hayır, uygulamanızda herhangi bir yerde (Bulut veya şirket içi) barındırab
 Azure portalının sol tarafındaki menüde 'Azure AD B2C' açmadan önce yönetmek istediğiniz dizine geçmesi gerekir.  Kimliğinizi Azure portalının sağ üst tıklatarak dizinleri geçiş sonra aşağı açılan dizininde görüntülenen seçin.  Bir adım adım için görüntülerle görün [gitmek için Azure AD B2C ayarlarını](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Nasıl doğrulama e-postaları özelleştirebilirim (içerik ve "den:" alan) Azure AD B2C tarafından gönderilen?
-Kullanabileceğiniz [şirket markası özelliğini](../active-directory/customize-branding.md) doğrulama e-posta içeriğini özelleştirmek için. Özellikle, bu iki öğenin e-postanın özelleştirilebilir:
+Kullanabileceğiniz [şirket markası özelliğini](../active-directory/fundamentals/customize-branding.md) doğrulama e-posta içeriğini özelleştirmek için. Özellikle, bu iki öğenin e-postanın özelleştirilebilir:
 
 * **Kapak sayfası logosu**: sağ alt köşesinde gösterilir.
 * **Arka plan rengi**: en üstte gösterilen.
@@ -86,10 +86,10 @@ Hayır, Azure AD Connect, Azure AD B2C ile çalışmak için tasarlanmamıştır
 Hayır, güvenlik nedenleriyle, Azure AD B2C sayfaları IFRAME içinde açılamaz.  Hizmetimizi IFRAMES engellemek için tarayıcı ile iletişim kurar.  Genel ve OAUTH2 belirtimi güvenlik topluluğu tıklatın jacking riskini nedeniyle kimlik deneyimi için IFRAMES kullanmanızı karşı öneririz.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>Azure AD B2C gibi Microsoft Dynamics CRM sistemleri ile çalışır mı?
-Microsoft Dynamics 365 portalı ile tümleştirme kullanılabilir.  Bkz: [Azure AD B2C kimlik doğrulaması için kullanılacak Dynamics 365 portalı yapılandırma](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
+Microsoft Dynamics 365 portalı ile tümleştirme kullanılabilir.  Bkz: [Azure AD B2C kimlik doğrulaması için kullanılacak Dynamics 365 Portal Yapılandırma](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C mu iş SharePoint şirket içi 2016 veya önceki?
-Azure AD B2C SharePoint dış iş ortağı paylaşımı senaryo için tasarlanmamıştır; bkz: [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx) yerine.
+Azure AD B2C SharePoint dış iş ortağı paylaşımı senaryo için tasarlanmamıştır; bkz: [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/) yerine.
 
 ### <a name="should-i-use-azure-ad-b2c-or-b2b-to-manage-external-identities"></a>Azure AD B2C veya B2B dış kimlikleri yönetmek için kullanmalıyım?
 Bu makaleyi okuyun [dış kimlikler](../active-directory/active-directory-b2b-compare-external-identities.md) Dış kimlik senaryolarınız için uygun özellikleri uygulama hakkında daha fazla bilgi için.

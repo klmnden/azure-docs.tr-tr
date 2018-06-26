@@ -2,7 +2,7 @@
 
 Bağlanmak için **SharePoint Online**, kimliğinizi (kullanıcı adı ve parola, akıllı kart kimlik bilgileri, vb.) SharePoint Online'a sağlamanız gerekir. Kimlik doğruladınız sonra mantıksal uygulamanızı SharePoint çevrimiçi Bağlayıcısı'nı kullanmaya devam edebilirsiniz. 
 
-Tasarımcısı mantıksal uygulamanızı karşın, oluşturmak için SharePoint ile imzalamak için bu adımları takip **bağlantı** mantıksal uygulamanızı kullanmak için:
+Tasarımcısı mantıksal uygulamanızı karşın, oluşturmak için SharePoint ile oturum açmak için şu adımları takip **bağlantı** mantıksal uygulamanızı kullanmak için:
 
 1. SharePoint arama kutusuna girin ve tüm tetikleyiciler ve SharePoint Online'a ilgili eylemler döndürmek arama bekleyin:   
    ![SharePoint'i yapılandırma][1]  

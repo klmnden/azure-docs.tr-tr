@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 66d50c94f2aad15e0d4a1b7500e8a4aeb45b1742
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 59a00f5605f7664148b65f2ec9a88fbaa9057ccf
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214262"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946066"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Birden çok makine için güncelleştirmeleri yönetme
 
@@ -56,7 +56,7 @@ Bu çözüm, birden çok Azure günlük analizi çalışma raporu için yapılan
 
 Azure portalında, Automation hesabınızı açın ve ardından **güncelleştirme yönetimi**.
 
-Seçin **Azure VM eklemek**.
+Seçin **Azure VM'ler eklemek**.
 
 ![Azure VM sekme ekleme](./media/manage-update-multi/update-onboard-vm.png)
 
@@ -94,7 +94,7 @@ Aracının durumunu görüntülemek için bağlantıdaki seçin **güncelleştir
 
 ## <a name="view-an-update-assessment"></a>Güncelleştirme değerlendirmesini görüntüleme
 
-Güncelleştirme Yönetimi etkinleştirildikten sonra **güncelleştirme yönetimi** bölmesini açar. **Eksik güncelleştirmeler** sekmesinde eksik güncelleştirmelerin bir listesini görebilirsiniz.
+Güncelleştirme Yönetimi etkinleştirildikten sonra **Güncelleştirme yönetimi** bölmesi açılır. **Eksik güncelleştirmeler** sekmesinde eksik güncelleştirmelerin bir listesini görebilirsiniz.
 
 ## <a name="collect-data"></a>Veri toplama
 
@@ -157,7 +157,7 @@ Zamanlamayı yapılandırmayı tamamladığınızda, seçin **oluşturma** düğ
 
 ## <a name="view-results-of-an-update-deployment"></a>Güncelleştirme dağıtımının sonuçlarını görüntüleme
 
-Zamanlanmış dağıtım başladıktan sonra bu dağıtım için durum görebilirsiniz **güncelleştirme dağıtımlarının** altında sekmesinde **güncelleştirme yönetimi**.
+Zamanlanmış dağıtım başladıktan sonra, bu dağıtımın durumunu **Güncelleştirme yönetimi** bölümündeki **Güncelleştirme dağıtımları** sekmesinde görebilirsiniz.
 
 Dağıtım o anda çalışıyorsa, **Sürüyor** durumundadır. Dağıtım başarıyla tamamlandıktan sonra durum değişikliklerini **başarılı**.
 
@@ -170,8 +170,8 @@ Bir güncelleştirme dağıtımının panosunu görmek için tamamlanan dağıt�
 **Güncelleştirme sonuçları** bölmesinde güncelleştirmeleri ve sanal makine için dağıtım sonuçları toplam sayısını gösterir. Sağ taraftaki tabloda her bir güncelleştirme ve yükleme sonuçları ayrıntılı bir dökümünü sağlar. Yükleme sonuçları aşağıdaki değerlerden biri olabilir:
 
 - **Girişiminde bulunulmadı**: tanımlanmış bakım penceresinde göre yeterli zaman kullanılabilir olduğu için güncelleştirme yüklenmedi.
-- **Başarılı bir şekilde**: Güncelleştirme başarılı oldu.
-- **Başarısız**: güncelleştirme başarısız oldu.
+- **Başarılı**: Güncelleştirme başarılı oldu.
+- **Başarısız**: Güncelleştirme başarısız oldu.
 
 Dağıtımın oluşturduğu tüm günlük girişlerini görmek için **Tüm günlükler**’i seçin.
 

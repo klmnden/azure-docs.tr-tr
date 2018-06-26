@@ -5,7 +5,7 @@
 > 
 > 
 
-1. [Firebase Konsolu](https://console.firebase.google.com/)’na gidin ve Google hesabınızın kimlik bilgileriyle oturum açın.
+1. Gidin [Firebase konsol](https://console.firebase.google.com/) ve Google hesabı kimlik bilgilerinizle oturum açın.
 2. Yeni bir proje oluşturmak için **Yeni proje oluştur** düğmesine tıklayın. Alternatif olarak, mevcut bir projeyi içeri aktarmak için **Google Projesini İçeri Aktar**’a da tıklayabilirsiniz. 
 3. Yeni bir proje oluşturmayı tercih ettiyseniz **Proje adı** girin ve bir **Ülke/Bölge** seçin.
 4. Proje sayfanızda, sol üst köşedeki **Ayarlar** dişli tekerleğine tıklayın. Menüde **Proje ayarları**’na tıklayın.  

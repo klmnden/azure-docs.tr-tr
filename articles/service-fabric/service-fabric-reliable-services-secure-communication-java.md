@@ -1,6 +1,6 @@
 ---
-title: Güvenli iletişim için Azure Service Fabric Hizmetleri'nde Yardım | Microsoft Docs
-description: Güvenilir hizmetler için iletişimi güvenli hale getirmek nasıl genel bakış çalıştıran bir Azure Service Fabric kümesi.
+title: Azure Service Fabric Java ile hizmet remoting iletişimler güvenli | Microsoft Docs
+description: Bir Azure Service Fabric kümede çalışan Java güvenilir hizmetler için hizmet tabanlı remoting iletişimi güvenli hale getirmek öğrenin.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 624d9d358145fb8b41013d686821cb157693d3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1843720b9700e66af8ee84766cf7d63ac62e6283
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208004"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749921"
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Güvenli iletişim Azure Service Fabric hizmetler için Yardım
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Güvenli bir Java hizmetindeki hizmet remoting iletişim
 > [!div class="op_single_selector"]
 > * [Windows üzerinde C#](service-fabric-reliable-services-secure-communication.md)
 > * [Linux üzerinde Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>Hizmet remoting kullanırken hizmet korunmasına yardımcı olma
-Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-services-communication-remoting-java.md) nasıl uzaktan iletişim için güvenilir hizmetler ayarlanacağı açıklanmaktadır. Hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
+Güvenlik iletişim en önemli yönlerinden birisidir. Güvenilir hizmetler uygulama çerçevesi birkaç önceden oluşturulmuş iletişimi yığınları ve güvenliği geliştirmek için kullanabileceğiniz araçlar sağlar. Bu makalede, bir Java hizmetinde hizmet remoting kullanırken güvenliğini artırmak nasıl anlatılmaktadır. Var olan derlemeler [örnek](service-fabric-reliable-services-communication-remoting-java.md) nasıl uzaktan iletişim için güvenilir hizmetler Java'da yazılmış ayarlanacağı açıklanmaktadır. 
+
+Java hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek için aşağıdaki adımları izleyin:
 
 1. Bir arabirim oluşturmak `HelloWorldStateless`, hizmetiniz üzerinde uzaktan yordam çağrısı için kullanılabilecek yöntemleri tanımlar. Hizmetinizi kullanacak `FabricTransportServiceRemotingListener`, içinde bildirilen `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` paket. Bu bir `CommunicationListener` remoting özellikleri sağlayan uygulama.
 
@@ -58,7 +59,7 @@ Biz varolan kullanmaya başlayacağınız [örnek](service-fabric-reliable-servi
 
    1. Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-and-service-manifests.md):
 
-       Ekleme bir `TransportSettings` settings.xml dosyasındaki bölümü.
+       Bir adlandırılmış eklemek `TransportSettings` settings.xml dosyasındaki bölümü.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->

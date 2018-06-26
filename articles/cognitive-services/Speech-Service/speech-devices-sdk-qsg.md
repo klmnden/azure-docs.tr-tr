@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6cc5ff1c532d67c48beac1a2a10d034f5d9d7501
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 32dd295132e26e46d64b01b194b557cae26575ad
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35355654"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750804"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Konuşma aygıtları SDK'sı ile çalışmaya başlama
 
@@ -41,7 +41,7 @@ Geliştirme konuşma aygıtları SDK'sını kullanmaya başlamadan önce yazıl�
 
 * Konuşma hizmetinin hedefi tanıma kullanmak istiyorsanız, abone [dil anlama hizmet](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (HALUK) ve [bir abonelik anahtarı edinme](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
 
-    Gerekebilir [basit bir HALUK model oluşturmak](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) veya HALUK model örneği kullanmak `LUIS-example.json`, konuşma aygıtları SDK'sı bulunan [yükleme sitesine](https://shares.datatransfer.microsoft.com/). Modelinizin JSON dosyasını karşıya [HALUK portal](https://www.lui.ai/applications) tıklayarak **alma yeni uygulama** ve JSON dosyası seçme.
+    Gerekebilir [basit bir HALUK model oluşturmak](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) veya HALUK model örneği kullanmak `LUIS-example.json`, konuşma aygıtları SDK'sı bulunan [yükleme sitesine](https://shares.datatransfer.microsoft.com/). Modelinizin JSON dosyasını karşıya [HALUK portal](https://www.luis.ai/home) tıklayarak **alma yeni uygulama** ve JSON dosyası seçme.
 
 ## <a name="set-up-the-development-kit"></a>Geliştirme Seti ayarlayın
 

@@ -6,46 +6,30 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 06/25/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f237e2b25089e4f89ddda2d37a7aa4019befe0da
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: fcf0b6f3b7f6d75006d8c10aab041c25fc0d8c39
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302085"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751294"
 ---
 # <a name="https-ingress-on-azure-kubernetes-service-aks"></a>HTTPS giriş Azure Kubernetes Service (AKS)
 
 Bir giriş denetleyicisi ters proxy, yapılandırılabilir trafik yönlendirme ve TLS sonlandırma Kubernetes hizmetleri sağlayan yazılım parçasıdır. Kubernetes giriş kaynakları giriş kuralları ve tek tek Kubernetes Hizmetleri için rotalar yapılandırmak için kullanılır. Bir giriş denetleyicisi ve giriş kurallarını kullanarak, tek bir dış adresi Kubernetes kümedeki birden fazla hizmet için trafiği yönlendirmek için kullanılabilir.
 
-Bu belgede bir örnek dağıtımında kılavuzluk etmektedir [NGINX giriş denetleyicisi] [ nginx-ingress] bir Azure Kubernetes hizmet (AKS) kümesindeki. Ayrıca, [KUBE LEGO] [ kube-lego] proje otomatik olarak oluşturmak ve yapılandırmak için kullanılan [şimdi şifrelemek] [ lets-encrypt] sertifikalar. Son olarak, bazı uygulamalar, her biri tek bir adresi erişilebilen AKS kümedeki çalıştırılır.
-
-## <a name="prerequisite"></a>Önkoşul
-
-Helm CLI yükleme - Helm CLI bkz [belgelerine] [ helm-cli] yükleme yönergeleri için.
+Bu belgede bir örnek dağıtımında kılavuzluk etmektedir [NGINX giriş denetleyicisi] [ nginx-ingress] bir Azure Kubernetes hizmet (AKS) kümesindeki. Ayrıca, [Sertifika Yöneticisi] [ cert-manager] proje otomatik olarak oluşturmak ve yapılandırmak için kullanılan [şimdi şifrelemek] [ lets-encrypt] sertifikalar. Son olarak, bazı uygulamalar, her biri tek bir adresi erişilebilen AKS kümedeki çalıştırılır.
 
 ## <a name="install-an-ingress-controller"></a>Bir giriş denetleyicisi yükleme
 
 Helm NGINX giriş denetleyicisi yüklemek için kullanın. Bkz. NGINX giriş controller [belgelerine] [ nginx-ingress] ayrıntılı dağıtım bilgileri için.
 
-Grafik depo güncelleştirin.
+Bu örnek, denetleyicide yükler `kube-system` ad alanı, bu tercih ettiğiniz bir ad alanına değiştirilebilir. AKS kümenizi RBAC etkin değilse, ekleyin `--set rbac.create=false` komutu. Daha fazla bilgi için bkz: [nginx giriş grafik][nginx-ingress].
 
-```console
-$ helm repo update
-```
-
-NGINX giriş denetleyicisi yükleyin. Bu örnek, denetleyicide yükler `kube-system` ad alanı (RBAC varsayılarak olan *değil* etkin), bu tercih ettiğiniz bir ad alanına değiştirilebilir.
-
-```console
-$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
-```
-
-**Not:** varsa RBAC *olan* kubernetes kümenizde etkinse, yukarıdaki komut, giriş denetleyicinizin ulaşılamaz hale getirir. Aşağıdakileri deneyin:
-
-```console
-$ helm install stable/nginx-ingress --namespace kube-system --set rbac.create=true --set rbac.createRole=true --set rbac.createClusterRole=true
+```bash
+helm install stable/nginx-ingress --namespace kube-system
 ```
 
 Yükleme sırasında Azure ortak IP adresi giriş denetleyici için oluşturulur. Genel IP adresi almak için kubectl get hizmet komutunu kullanın. Hizmete atanan IP adresi için biraz zaman alabilir.
@@ -66,7 +50,7 @@ Genel IP adresine göz atarsanız hiçbir giriş kuralları, oluşturulduğundan
 
 HTTPS sertifika kullanıldığından, giriş denetleyicileri IP adresi için bir FQDN adı yapılandırmanız gerekir. Bu örnekte, bir Azure FQDN ile Azure CLI oluşturulur. Giriş denetleyicisi FQDN ile kullanmak istediğiniz adı ve IP adresiyle komut dosyasını güncelleştirin.
 
-```
+```bash
 #!/bin/bash
 
 # Public IP address
@@ -84,19 +68,73 @@ az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 
 Giriş denetleyicisi artık FQDN üzerinden erişilebilir olması gerekir.
 
-## <a name="install-kube-lego"></a>KUBE LEGO yükleyin
+## <a name="install-cert-manager"></a>Sertifika Yöneticisi'ni yükleyin
 
-NGINX giriş denetleyicisi TLS sonlandırma destekler. Almak ve HTTPS için sertifikaları yapılandırmak için çeşitli yollar olsa da, bu belgenin kullanımı gösterilir [KUBE LEGO][kube-lego], otomatik sağlayan [sağlar şifrelemek] [ lets-encrypt] sertifika oluşturma ve yönetim işlevselliği.
+NGINX giriş denetleyicisi TLS sonlandırma destekler. Almak ve HTTPS için sertifikaları yapılandırmak için çeşitli yollar olsa da, bu belgenin kullanımı gösterilir [Sertifika Yöneticisi][cert-manager], otomatik sağlayan [sağlar şifrelemek] [ lets-encrypt] sertifika oluşturma ve yönetim işlevselliği.
 
-KUBE LEGO denetleyicisi yüklemek için aşağıdaki Helm yükleme komutunu kullanın. E-posta adresi kuruluşunuzun birinden ile güncelleştirin.
+Sertifika Yöneticisi denetleyicisi yüklemek için aşağıdaki Helm yükleme komutunu kullanın.
 
-```
-helm install stable/kube-lego \
-  --set config.LEGO_EMAIL=user@contoso.com \
-  --set config.LEGO_URL=https://acme-v01.api.letsencrypt.org/directory
+```bash
+helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-prod --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
-KUBE LEGO yapılandırma hakkında daha fazla bilgi için bkz: [KUBE LEGO belgelerine][kube-lego].
+Kümenizi RBAC etkin değilse, bu komutu kullanın.
+
+```bash
+helm install stable/cert-manager \
+  --set ingressShim.defaultIssuerName=letsencrypt-prod \
+  --set ingressShim.defaultIssuerKind=ClusterIssuer \
+  --set rbac.create=false \
+  --set serviceAccount.create=false
+```
+
+Sertifika Yöneticisi yapılandırma hakkında daha fazla bilgi için bkz: [Sertifika Yöneticisi proje][cert-manager].
+
+## <a name="create-ca-cluster-issuer"></a>CA küme veren oluşturma
+
+Sertifika verilebilmesi için önce Sertifika Yöneticisi gerektiren bir [veren] [ cert-manager-issuer] veya [ClusterIssuer] [ cert-manager-cluster-issuer] kaynak. Kaynakları ancak işlevindeki özdeş `Issuer` tek bir ad alanında çalışır nerede `ClusterIssuer` tüm ad alanlarını çalışır. Daha fazla bilgi için bkz: [Sertifika Yöneticisi veren] [ cert-manager-issuer] belgeleri.
+
+Aşağıdaki bildirimi kullanarak bir küme veren oluşturun. E-posta adresi geçerli bir adresi kuruluşunuzdaki ile güncelleştirin.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-prod
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: user@contoso.com
+    privateKeySecretRef:
+      name: letsencrypt-prod
+    http01: {}
+```
+
+## <a name="create-certificate-object"></a>Sertifika nesnesi oluşturun
+
+Ardından, bir sertifika kaynak oluşturulması gerekir. Sertifika kaynak istenen X.509 sertifikası tanımlar. Daha fazla bilgi için bkz: [Sertifika Yöneticisi sertifika][cert-manager-certificates].
+
+Sertifika kaynağı ile aşağıdaki bildirimini oluşturun.
+
+```yaml
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: tls-secret
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - demo-aks-ingress.eastus.cloudapp.azure.com
+  acme:
+    config:
+    - http01:
+        ingressClass: nginx
+      domains:
+      - demo-aks-ingress.eastus.cloudapp.azure.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+```
 
 ## <a name="run-application"></a>Uygulamayı çalıştırma
 
@@ -106,13 +144,13 @@ Bu örnekte, Helm basit hello world uygulamasının birden çok örneği çalı�
 
 Uygulamayı çalıştırmadan önce geliştirme sisteminizde Azure örneklerinden Helm deposunu ekleyin.
 
-```
+```bash
 helm repo add azure-samples https://azure-samples.github.io/helm-charts/
 ```
 
- AKS hello world grafik birlikte aşağıdaki komutu çalıştırın:
+AKS hello world grafik birlikte aşağıdaki komutu çalıştırın:
 
-```
+```bash
 helm install azure-samples/aks-helloworld
 ```
 
@@ -120,7 +158,7 @@ helm install azure-samples/aks-helloworld
 
 İki uygulama görsel olarak ayrı; böylece ikinci örneği için yeni bir başlık belirtin. Ayrıca, benzersiz bir hizmet adı belirtmeniz gerekir. Bu yapılandırmalar aşağıdaki komutta görülebilir.
 
-```console
+```bash
 helm install azure-samples/aks-helloworld --set title="AKS Ingress Demo" --set serviceName="ingress-demo"
 ```
 
@@ -132,13 +170,14 @@ Bir dosya adı oluşturun `hello-world-ingress.yaml` ve aşağıdaki YAML kopyal
 
 Not alın adresi trafiği `https://demo-aks-ingress.eastus.cloudapp.azure.com/` adlı hizmete yönlendirilir `aks-helloworld`. Trafik adresine `https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two` yönlendirilir `ingress-demo` hizmet.
 
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
   annotations:
-    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-prod
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   tls:
@@ -185,10 +224,13 @@ Bu belgede gösterilen yazılım hakkında daha fazla bilgi edinin.
 
 - [Helm CLI][helm-cli]
 - [NGINX giriş denetleyicisi][nginx-ingress]
-- [KUBE-LEGO][kube-lego]
+- [Sertifika Yöneticisi][cert-manager]
 
 <!-- LINKS - external -->
 [helm-cli]: https://docs.microsoft.com/azure/aks/kubernetes-helm#install-helm-cli
-[kube-lego]: https://github.com/jetstack/kube-lego
+[cert-manager]: https://github.com/jetstack/cert-manager
+[cert-manager-certificates]: https://cert-manager.readthedocs.io/en/latest/reference/certificates.html
+[cert-manager-cluster-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/clusterissuers.html
+[cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx

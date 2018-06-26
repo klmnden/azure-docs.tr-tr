@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e46ae3af3a718703f9e1d6b847b2342469bf3a1e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 52c3914cc1b51bf7c2a6d0fbf28dc0bf7756e749
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517232"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751454"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Günlük analizi arası kaynak günlük aramalar gerçekleştirmek  
 
 Daha önce Azure günlük analizi ile yalnızca geçerli çalışma alanı içindeki verileri çözümleyebilir ve aboneliğinizde tanımlanan birden çok çalışma alanları arasında becerinizi sorgu sınırlıdır.  Ayrıca, yalnızca Application Insights'ta doğrudan Application Insights ile web tabanlı uygulamanız veya Visual Studio'dan toplanan telemetri öğeleri araması yapabilirsiniz.  Bu da yerel olarak işletimsel çözümlemek için sınama ve uygulama verileri birlikte yapılan.   
 
-Artık yalnızca birden çok günlük analizi çalışma alanı, aynı zamanda belirli bir Application Insights uygulamayı aynı kaynak grubu, başka bir kaynak grubu veya başka bir abonelik verileri arasında sorgulayabilirsiniz. Bu, verilerinizi bir sistem genelinde görünümünü sağlar.  Bu tür sorgularında yalnızca gerçekleştirebilirsiniz [Gelişmiş portal](log-analytics-log-search-portals.md#advanced-analytics-portal), Azure portalında değil.  
+Artık yalnızca birden çok günlük analizi çalışma alanı, aynı zamanda belirli bir Application Insights uygulamayı aynı kaynak grubu, başka bir kaynak grubu veya başka bir abonelik verileri arasında sorgulayabilirsiniz. Bu, verilerinizi bir sistem genelinde görünümünü sağlar.  Bu tür sorgularında yalnızca gerçekleştirebilirsiniz [Gelişmiş portal](log-analytics-log-search-portals.md#advanced-analytics-portal), Azure portalında değil. Tek bir sorgu içeren kaynak sayısı (günlük analizi çalışma alanları ve Application Insights uygulama) 100 sınırlıdır. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Günlük analizi çalışma alanları arasında ve Application Insights sorgulama
 Sorgunuzdaki başka bir çalışma alanı başvurmak için [ *çalışma* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) tanımlayıcısı ve bir uygulamadan için Application Insights, [ *uygulama* ](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app())tanımlayıcısı.  

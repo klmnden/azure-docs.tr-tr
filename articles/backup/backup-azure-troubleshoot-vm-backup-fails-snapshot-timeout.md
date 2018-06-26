@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure yedekleme; VM Aracısı; Ağ bağlantısı;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606367"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754596"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure yedekleme hatası sorunlarını giderme: aracı veya uzantısı ile ilgili sorunları
 
@@ -84,15 +84,15 @@ Kaydolun ve Azure Backup hizmeti için bir VM zamanlama sonra yedekleme işi zam
 ### <a name="the-vm-has-no-internet-access"></a>VM internet erişimi yok
 Dağıtımı gereksinimi VM Internet erişimi yok. Veya, Azure altyapı erişimi engelleyen kısıtlamalar olabilir.
 
-Doğru çalışması için Backup uzantısının Azure genel IP adreslerine bağlantısı gerektirir. Uzantısını komutları VM anlık görüntülerini yönetmek için bir Azure depolama uç nokta için (HTTP URL) gönderir. Uzantı genel internet erişimi yoksa, yedekleme sonunda başarısız olur.
+Doğru çalışması için Backup uzantısının Azure genel IP adreslerine bağlantısı gerektirir. Uzantısını komutları VM anlık görüntülerini yönetmek için bir Azure depolama uç nokta için (HTTPs URL) gönderir. Uzantı genel internet erişimi yoksa, yedekleme sonunda başarısız olur.
 
-Bu VM trafiği yönlendirmek için bir proxy sunucusu dağıtmayı mümkün.
-##### <a name="create-a-path-for-http-traffic"></a>HTTP trafiği için bir yol oluşturma
+VM trafiği yönlendirmek için bir proxy sunucusu dağıtmak mümkündür.
+##### <a name="create-a-path-for-https-traffic"></a>HTTPs trafiği için bir yol oluşturma
 
-1. (Örneğin, bir ağ güvenlik grubu) yerinde ağ kısıtlamalarını varsa, trafiği yönlendirmek için bir HTTP proxy sunucusu dağıtın.
-2. Erişim HTTP proxy sunucusundan internet'e izin vermek için varsa kuralları ağ güvenlik grubuna ekleyin.
+1. (Örneğin, bir ağ güvenlik grubu) yerinde ağ kısıtlamalarını varsa, trafiği yönlendirmek için bir HTTPs proxy sunucusu dağıtın.
+2. Erişim HTTPs proxy sunucusundan internet'e izin vermek için varsa kuralları ağ güvenlik grubuna ekleyin.
 
-Bir HTTP proxy VM yedeklemeler için ayarlama hakkında bilgi edinmek için bkz: [Azure sanal makineleri yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
+Bir HTTPs proxy VM yedeklemeler için ayarlama hakkında bilgi edinmek için bkz: [Azure sanal makineleri yedeklemek için ortamınızı hazırlama](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Yedeklenen VM veya proxy sunucu üzerinden trafik yönlendirilir Azure genel IP adreslerine erişim izni gerektirir
 
@@ -121,7 +121,7 @@ VM Aracısı bozulmuş veya hizmet durdurulmuş. VM Aracısı'nı yeniden yükle
 2. Windows Konuk Aracısı hizmeti Hizmetleri'nde, Denetim Masası ' nda görünür durumda değilse Git **programlar ve Özellikler** Windows Konuk aracısı yüklü olup olmadığını belirleme.
 4. Windows Konuk Aracısı görünüyorsa **programlar ve Özellikler**, Windows Konuk Aracısı'nı kaldırın.
 5. İndirme ve yükleme [MSI Aracısı en son sürümünü](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Yüklemeyi tamamlamak için yönetici haklarına sahip olmalıdır.
-6. Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde göründüğünden emin olun.
+6. Windows Konuk Aracısı hizmetlerinin Hizmetleri'nde göründüğünü doğrulayın.
 7. Bir talep üzerine yedekleme çalıştırın: 
     * Portalı'nda seçin **Şimdi Yedekle**.
 

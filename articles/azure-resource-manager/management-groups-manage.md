@@ -10,18 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/15/2018
+ms.date: 06/22/2018
 ms.author: rithorn
-ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0a13627232904f4b14cdb5cbf5c3ca927d9ea167
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754722"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Yönetim grupları ile kaynaklarınızı yönetmek 
 Yönetim erişimi, ilke ve uyumluluk arasında birden çok abonelik yönetmenize yardımcı kapsayıcılardır gruplarıdır. Değiştirme, silme ve bu kapsayıcıları kullanılabilir hiyerarşileri yönetme [Azure ilke](../azure-policy/azure-policy-introduction.md) ve [Azure rol tabanlı erişim denetimlerini (RBAC)](../role-based-access-control/overview.md). Yönetim grupları hakkında daha fazla bilgi için bkz: [kaynaklarınızı Azure Yönetim grupları ile düzenleme ](management-groups-overview.md).
 
-Yönetim grubu özelliğini genel önizleme olarak kullanılabilir. Management'ı kullanmaya başlamak için gruplar, oturum açma [Azure portal](https://portal.azure.com) veya kullanabilirsiniz [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), veya [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) için Yönetim gruplarını yönetin.
+Yönetim grubu özelliğini genel önizleme olarak kullanılabilir. Yönetim grupları'nı kullanmaya başlamak için oturum açın [Azure portal](https://portal.azure.com) veya kullanabilirsiniz [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), veya [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) için Yönetim gruplarını yönetin.
 
 Bir yönetim grubuna değişiklik yapmak için yönetim grubu üzerinde bir sahibi veya katkıda bulunan rolü olmalıdır. Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**. RBAC rolleri hakkında daha fazla bilgi edinmek için [erişim ve izinleri ile RBAC yönetme](../role-based-access-control/overview.md).
 
@@ -37,10 +38,10 @@ Portal, PowerShell veya Azure CLI kullanarak yönetim grubu adını değiştireb
 3. Yeniden adlandırmak istediğiniz yönetim grubunu seçin. 
 4. Seçin **grubu Yeniden Adlandır** sayfanın üst kısmındaki seçeneği. 
 
-    ![Grubu Yeniden Adlandır](media/management-groups/detail_action_small.png)
+    ![Grubu yeniden adlandır](media/management-groups/detail_action_small.png)
 5. Menü açıldığında, görüntülenmesini istediğiniz yeni adını girin.
 
-    ![Grubu Yeniden Adlandır](media/management-groups/rename_context.png) 
+    ![Grubu yeniden adlandır](media/management-groups/rename_context.png) 
 4. **Kaydet**’i seçin. 
 
 ### <a name="change-the-name-in-powershell"></a>PowerShell'de adını değiştirin
@@ -55,8 +56,8 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 Azure CLI için güncelleştirme komutunu kullanın. 
 
-```azure-cli
-C:\> az account management-group update --group-name Contoso --display-name "Contoso Group" 
+```azurecli-interactive
+az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
 ---
@@ -74,12 +75,12 @@ Bir yönetim grubunu silmek için aşağıdaki gereksinimlerin karşılanması g
 2. Seçin **tüm hizmetleri** > **Yönetim grupları**  
 3. Silmek istediğiniz yönetim grubunu seçin. 
     
-    ![Grubu Sil](media/management-groups/delete.png)
+    ![Grup silme](media/management-groups/delete.png)
 4. **Sil**’i seçin. 
     - Simge devre dışıysa, fare Seçici simgenin üzerine gelerek veya onları nedenini gösterir. 
 5. Yönetim grubu silmek istediğiniz onaylayan açılır penceresi yok. 
 
-    ![Grubu Sil](media/management-groups/delete_confirm.png) 
+    ![Grup silme](media/management-groups/delete_confirm.png) 
 6. Seçin **Evet** 
 
 
@@ -94,8 +95,8 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ### <a name="delete-in-azure-cli"></a>Azure CLI ile silme
 Azure CLI ile komut az hesabını yönetim grubu silmeyi kullanın. 
 
-```azure-cli
-C:\> az account management-group delete --group-name Contoso
+```azurecli-interactive
+az account management-group delete --name Contoso
 ```
 ---
 
@@ -124,13 +125,13 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ### <a name="view-in-azure-cli"></a>Azure CLI görünümünde
 Tüm grupları almak için liste komutunu kullanın.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group list
 ```
 Bir tek bir yönetim grubunun bilgilerini Göster komutunu kullanın
 
-```azurepowershell-interactive
-az account management-group show --group-name Contoso
+```azurecli-interactive
+az account management-group show --name Contoso
 ```
 ---
 
@@ -148,9 +149,9 @@ Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**.
 **Mevcut bir aboneliğe bir yönetim grubuna Ekle**
 1. İçine oturum [Azure portalı](https://portal.azure.com)
 2. Seçin **tüm hizmetleri** > **Yönetim grupları** 
-3. Üst olacak planlama yönetim grubunu seçin.      
+3. Üst olmasını planlıyorsanız yönetim grubunu seçin.      
 5. Sayfanın en üstünde seçin **ekleme varolan**. 
-6. Açılan menüde seçin **kaynak türü** olduğu taşımak için çalıştığınız öğenin **abonelik**.
+6. Açılan menüde seçin **kaynak türü** olduğu taşıma çalıştığınız öğenin **abonelik**.
 7. Doğru kimliğiyle listesinde aboneliği seçin 
 
     ![Alt Öğeler](media/management-groups/add_context_2.png)
@@ -159,7 +160,7 @@ Hangi izinlerin görmek için sahip, yönetim grubu seçin ve ardından **IAM**.
 **Bir abonelik bir yönetim grubundan Kaldır**
 1. İçine oturum [Azure portalı](https://portal.azure.com)
 2. Seçin **tüm hizmetleri** > **Yönetim grupları** 
-3. Geçerli üst planlama diğer bir deyişle yönetim grubunu seçin.  
+3. Geçerli üst yani planlıyorsanız yönetim grubunu seçin.  
 4. Abonelik için satır sonunda elips taşımak istediğiniz listeden seçin.
 
     ![Taşı](media/management-groups/move_small.png)
@@ -185,14 +186,14 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ### <a name="move-subscriptions-in-azure-cli"></a>Azure CLI Aboneliklerde taşıma
 CLI içinde bir aboneliği taşımak için Ekle komutunu kullanın. 
 
-```azure-cli
-C:\> az account management-group add --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 Abonelik yönetim grubundan kaldırmak için Aboneliği Kaldır komutunu kullanın.  
 
-```azure-cli
-C:\> az account management-group remove --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription remove --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 ---
@@ -204,25 +205,25 @@ Bir üst yönetim grubu, Yönetim grupları, abonelikler, kaynak grupları ve ka
 
 1. İçine oturum [Azure portalı](https://portal.azure.com)
 2. Seçin **tüm hizmetleri** > **Yönetim grupları** 
-3. Üst olacak planlama yönetim grubunu seçin.      
+3. Üst olmasını planlıyorsanız yönetim grubunu seçin.      
 5. Sayfanın en üstünde seçin **ekleme varolan**.
-6. Açılan menüde seçin **kaynak türü** olduğu taşımak için çalıştığınız öğenin **yönetim grubu**.
+6. Açılan menüde seçin **kaynak türü** olduğu taşıma çalıştığınız öğenin **yönetim grubu**.
 7. Yönetim grubu doğru kimliği ve adını seçin.
 
-    ![Taşıma](media/management-groups/add_context.png)
+    ![taşıma](media/management-groups/add_context.png)
 8. Seçin **Kaydet**
 
 ### <a name="move-management-groups-in-powershell"></a>Yönetim gruplarını PowerShell'de taşıma
 Farklı bir grup altında bir yönetim grubuna taşımak için PowerShell'de güncelleştirme AzureRmManagementGroup komutunu kullanın.  
 
 ```powershell
-C:\> Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
+Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ```  
 ### <a name="move-management-groups-in-azure-cli"></a>Azure CLI'daki taşıma Yönetim grupları
 Azure CLI sahip bir yönetim grubu taşımak için güncelleştirme komutunu kullanın. 
 
-```azure-cli
-C:/> az account management-group udpate --group-name Contoso --parent-id "Contoso Tenant" 
+```azurecli-interactive
+az account management-group update --name Contoso --parent "Contoso Tenant" 
 ``` 
 
 ---
