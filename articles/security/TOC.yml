@@ -65,6 +65,8 @@
       items:
         - name: Azure AD kimlik doğrulamasını seçme
           href: azure-ad-choose-authn.md
+        - name: Güvenlik denetim listesi
+          href: azure-ad-secure-steps.md
         - name: En iyi uygulamalar
           href: azure-security-identity-management-best-practices.md
         - name: Abonelik yöneticilerine MFA’yı zorunlu kılma

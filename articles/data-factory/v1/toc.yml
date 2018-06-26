@@ -1,7 +1,7 @@
 - name: Data Factory V1 Belgeleri
   href: null
 - name: Geçerli sürüm belgelerine geçiş
-  href: ../index.yml
+  href: ../introduction.md
 - name: Genel Bakış
   items:
     - name: Azure Data Factory'ye giriş

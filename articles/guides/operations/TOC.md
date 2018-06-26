@@ -93,7 +93,7 @@
 ### [Azure CLI’ı kullanarak bir sanal ağ oluşturma](../../virtual-network/quick-create-cli.md#create-a-virtual-network?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Ağ güvenlik grupları ile ağ trafiğini filtreleme](../../virtual-network/security-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### Sanal ağ öğreticileri
-#### [VM'ler için yük dengeleme](../../virtual-machines/linux/tutorial-load-balance-nodejs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [VM'ler için yük dengeleme](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Bilgisayarı sanal ağa bağlama](../../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Sonraki adımlar](azure-operations-guide.md#next-steps)
