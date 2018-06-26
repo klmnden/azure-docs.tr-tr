@@ -41,11 +41,11 @@
 # Başvuru
 ## [Azure PowerShell](/powershell/module/azurerm.keyvault)
 ## [Azure CLI](/cli/azure/keyvault)
-## [.NET](/dotnet/api/microsoft.azure.keyvault)
-## [Java](/java/api/com.microsoft.azure.keyvault)
+## [.NET](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/keyvault/client?view=azure-dotnet)
+## [Java](/java/api/overview/azure/keyvault/client)
 ## Node.js
-### [Vault yönetimi](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest)
-### [Kasa içeriği yönetimi](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest)
+### [Vault yönetimi](https://docs.microsoft.com/en-us/javascript/api/overview/azure/keyvault/client?view=azure-node-latest)
+### [Kasa içeriği yönetimi](https://docs.microsoft.com/en-us/javascript/api/azure-arm-keyvault/index?view=azure-node-latest)
 ## [REST](/rest/api/keyvault)
 ## Geliştirme
 ### [Geliştiricilere yönelik hızlı başlangıç videosu](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Key-Vault-Developer-Quick-Start)

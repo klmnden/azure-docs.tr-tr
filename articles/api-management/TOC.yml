@@ -177,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Olayları Azure Event Hubs’a kaydetme
           href: api-management-howto-log-event-hubs.md
+        - name: Azure Application Insights ile istekleri günlüğe kaydetme
+          href: api-management-howto-app-insights.md
         - name: Yedekleme/geri yükleme kullanarak DR'yi ayarlama
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Kullanıcı hesaplarını yönetme
