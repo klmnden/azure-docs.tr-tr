@@ -168,6 +168,8 @@
           href: app-service-configure-premium-tier.md
         - name: Ölçeği birden fazla örneğe genişletme
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+        - name: Yüksek yoğunluklu barındırma
+          href: app-service-high-density-hosting.md
     - name: Uygulama izleme
       items:
         - name: Kotalar ve uyarılar
