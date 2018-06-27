@@ -1,35 +1,42 @@
 ---
-title: Azure Blob storage uç noktanız için özel etki alanı adı yapılandırma | Microsoft Docs
-description: Bir Azure depolama hesabındaki Blob storage uç kendi kurallı ad (CNAME) eşleştirmek için Azure portalını kullanın.
+title: Azure depolama hesabınız için bir özel etki alanı adı yapılandırma | Microsoft Docs
+description: Bir Azure depolama hesabındaki Blob veya web uç noktası kendi kurallı ad (CNAME) eşleştirmek için Azure portalını kullanın.
 services: storage
 author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2b776e8f40f6972a60f933b0104312b119439f38
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/24/2018
-ms.locfileid: "29559936"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017929"
 ---
-# <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob depolama uç noktası için özel etki alanı adınızı yapılandırma
+# <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure depolama hesabınız için bir özel etki alanı adı yapılandırma
 
-Azure depolama hesabınızdaki blob verilerine erişmek için özel bir etki alanı yapılandırabilirsiniz. Blob storage için varsayılan uç noktası `<storage-account-name>.blob.core.windows.net`. Özel etki alanı ve alt etki alanı gibi eşlerseniz **www.contoso.com** için depolama alanınızı blob uç nokta, kullanıcıların can sonra hesap erişim o etki alanını kullanan depolama hesabınızda blob verileri.
+Azure depolama hesabınızdaki blob verilerine erişmek için özel bir etki alanı yapılandırabilirsiniz. Blob storage için varsayılan uç noktası `<storage-account-name>.blob.core.windows.net`. Bir parçası olarak oluşturulan web uç noktası de kullanabilirsiniz [statik Web sitelerine özelliği (Önizleme)](storage-blob-static-website.md). Özel etki alanı ve alt etki alanı gibi eşlerseniz **www.contoso.com** blob veya web uç noktası için depolama hesabı, kullanıcıların can sonra erişim o etki alanını kullanan depolama hesabınızda blob verileri.
 
 > [!IMPORTANT]
 > Azure depolama henüz yerel olarak HTTPS ile özel etki alanlarını desteklemiyor. Şu anda yapabilecekleriniz [BLOB'lar özel etki alanları ile HTTPS üzerinden erişmek için Azure CDN kullanan](storage-https-custom-domain-cdn.md).
 >
 
+> [!NOTE]  
+> Depolama hesapları, hesap başına yalnızca bir özel etki alanı adı şu anda destekler. Hem web hem de blob Hizmeti uç noktaları için bir özel etki alanı adı eşlenemiyor anlamına gelir.
+
 Adlı bir depolama hesabında bulunan blob veriler için birkaç örnek URL'leri aşağıdaki tabloda gösterilmektedir **mystorageaccount**. Özel etki alanı kayıtlı depolama hesabı için **www.contoso.com**:
 
 | Kaynak Türü | Varsayılan URL | Özel etki alanı URL'si |
-| --- | --- | --- |
+| --- | --- | --- | --- |
 | Depolama hesabı | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
 | Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Kök kapsayıcı | http://mystorageaccount.blob.core.windows.net/myblob or http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob ya da http://www.contoso.com/$ kök/myblob |
+| Kök kapsayıcı | http://mystorageaccount.blob.core.windows.net/myblob veya http://mystorageaccount.blob.core.windows.net/$root/myblob| http://www.contoso.com/myblob veya http://www.contoso.com/$root/myblob |
+| Web |  http://mystorageaccount. [zone].web.core.windows.net/$web/[indexdoc] veya http://mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] veya http://mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web veya http://mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http://www.contoso.com/$web veya http://www.contoso.com/ veya http://www.contoso.com/$web / [indexdoc] veya http://www.contoso.com/[indexdoc] |
+
+> [!NOTE]  
+> Tüm örnekleri Blob Hizmeti uç noktası için web hizmeti uç noktası için de geçerlidir.
 
 ## <a name="direct-vs-intermediary-domain-mapping"></a>Doğrudan ara etki alanı eşleme karşılaştırması
 
@@ -81,7 +88,7 @@ Yeni CNAME kaydı DNS dağıtıldıktan sonra kullanıcılarınızın özel etki
 1. Metin kutusuna *özel etki alanı* dikey penceresinde [Azure portal](https://portal.azure.com), alt etki alanı dahil olmak üzere, özel etki alanı adını girin. İçermeyen *asverify*. Örneğin, etki alanınız varsa **contoso.com** ve alt etki alanı diğer adı **www**, girin **www.contoso.com**. Alt etki alanı ise **fotoğraf**, girin **photos.contoso.com**. Alt etki alanı gereklidir.
 1. Seçin **dolaylı CNAME doğrulaması kullan** onay kutusu.
 1. Seçin **kaydetmek** üzerinde *özel etki alanı* özel etki alanınızı kaydetmek için dikey. Kayıt başarılı olursa, depolama hesabı başarıyla güncelleştirildi belirten bir portal bildirim görürsünüz. Bu noktada, özel etki alanınızı Azure tarafından doğrulandı, ancak etki alanınız için trafiği henüz depolama hesabınıza yönlendirilmez.
-1. DNS sağlayıcınızın Web sitesine dönüp, alt etki alanı için Blob Hizmeti uç noktanızı eşlemeleri başka bir CNAME kaydı oluşturun. Örneğin, alt etki alanı belirtin **www** veya **fotoğraf** (olmadan *asverify*) ve ana bilgisayar adı olarak **mystorageaccount.blob.core.windows.net** (burada **mystorageaccount** depolama hesabınızın adıdır). Bu adımda, özel etki alanınızı kayıt tamamlanır.
+1. DNS sağlayıcınızın Web sitesine dönüp, alt etki alanı için Blob Hizmeti uç noktanızı eşlemeleri başka bir CNAME kaydı oluşturun. Örneğin, alt etki alanı belirtin **www** veya **fotoğraf** (olmadan *asverify*) ve ana bilgisayar adı olarak **mystorageaccount.blob.core.windows.net**  (burada **mystorageaccount** depolama hesabınızın adıdır). Bu adımda, özel etki alanınızı kayıt tamamlanır.
 1. Son olarak, oluşturduğunuz içeren CNAME kaydı silebilirsiniz **asverify** şekliyle alt etki alanı bir ara adım olarak yalnızca gerekli.
 
 Yeni CNAME kaydı DNS dağıtıldıktan sonra kullanıcılarınızın özel etki alanınızı kullanarak uygun izinlere sahip oldukları sürece blob verilerini görüntüleyebilir.
@@ -158,3 +165,4 @@ Kullanım [Set-AzureRmStorageAccount](/powershell/module/azurerm.storage/set-azu
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Özel bir etki alanı Azure içerik teslim ağı (CDN) uç noktasına eşleme](../../cdn/cdn-map-content-to-custom-domain.md)
 * [BLOB'lar özel etki alanları ile HTTPS üzerinden erişmek için Azure CDN'yi kullanma](storage-https-custom-domain-cdn.md)
+* [Azure Blob Storage (Önizleme) statik Web sitesi barındırma](storage-blob-static-website.md)

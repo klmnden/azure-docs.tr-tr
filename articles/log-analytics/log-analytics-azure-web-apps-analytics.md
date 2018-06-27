@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/26/2018
 ms.author: magoedte
-ms.openlocfilehash: c44546ffe65a0849b485fb0d2dd169e4216ae80a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 5426c9c5727d76d401c00b6e7338688b8f064ad0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261377"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021246"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Tüm Azure Web uygulaması kaynaklarına arasında ölçümleri ilişkin analitik verileri görüntüle
 
@@ -57,8 +57,7 @@ Azure Web uygulamaları analizi (Önizleme) çözümü Öngörüler sunar, [Azur
 
 Alanlarınızı için Azure Web Apps analiz çözümü yapılandırmak için aşağıdaki adımları gerçekleştirin.
 
-1. Azure Web Apps Analytics çözümden etkinleştirmek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureWebAppsAnalyticsOMS?tab=Overview) veya açıklanan işlemi kullanarak [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md).
-2. [PowerShell kullanarak günlük analizi için Azure kaynak ölçümleri günlük kaydını etkinleştir](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
+1. [PowerShell kullanarak günlük analizi için Azure kaynak ölçümleri günlük kaydını etkinleştir](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell).
 
 Azure Web Apps analiz çözümü Azure'dan iki kümesi ölçümleri toplar:
 
@@ -89,7 +88,7 @@ Azure Web Apps analiz çözümü, çalışma alanına eklediğinizde **Azure Web
 
 ### <a name="view-azure-web-apps-analytics-information"></a>Azure Web uygulamaları analizi bilgilerini görüntüleme
 
-Tıklatın **Azure Web Apps Analytics** açmak için kutucuğa **Azure Web Apps Analytics** Pano. Pano Kanatlar aşağıdaki tabloda içerir. Her dikey penceresinde belirtilen kapsam ve zaman aralığı için o dikey 's ölçütlerle eşleşen en fazla on öğeleri listeler. Tıklayarak tüm kayıtları döndüren bir günlük arama çalıştırabilirsiniz **tümünü görmek** alt dikey veya dikey başlığını tıklatarak.
+Tıklatın **Azure Web Apps Analytics** açmak için kutucuğa **Azure Web Apps Analytics** Pano. Pano aşağıdaki tabloda gösterilen dikey pencereleri içerir. Her dikey penceresinde belirtilen kapsam ve zaman aralığı için o dikey 's ölçütlerle eşleşen en fazla on öğeleri listeler. Dikey pencerenin altındaki **Tümünü göster**’e tıklayarak veya dikey pencere başlığına tıklayarak tüm kayıtları döndüren bir günlük araması yapabilirsiniz.
 
 
 | Sütun | Açıklama |
@@ -120,7 +119,7 @@ Bu verileri gösteren bir temel nedeni, böylelikle yüksek yanıt süresi ile b
 
 Aşağıdaki günlük arama örnek görüntüde, görebilirsiniz *anugup3* web uygulaması, web uygulamaları'den çok daha yüksek bir yanıt süresi vardı.
 
-![Günlük arama örneği](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
+![günlük araması örneği](./media/log-analytics-azure-web-apps-analytics/web-app-search-example.png)
 
 ### <a name="app-service-plans"></a>App Service Planları
 

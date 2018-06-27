@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: d81f7889122bcf887676496a056df2148cdff6e9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 35f8937ddef54d407a6e3c83566225ca8ede8bd9
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593721"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960136"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>Twitter verilerini hdınsight'ta Hive kullanma çözümleme
 Sosyal Web siteleri büyük veri benimseme için önemli yönlendirmeli zorlar biridir. Twitter gibi siteler tarafından sağlanan ortak API'ler verileri çözümlemek ve popüler eğilimleri anlamak için yararlı bir kaynaktır.
@@ -68,7 +68,7 @@ Bu öğreticide, kullanacağınız [API'leri akış Twitter][twitter-streaming-a
 > [!NOTE]
 > 10.000 tweet'leri içeren bir dosya ve Hive betik dosyası (sonraki bölümde yer alan) bir ortak Blob kapsayıcısında karşıya. Karşıya yüklenen dosyaların kullanmak istiyorsanız, bu bölümü atlayabilirsiniz.
 
-[Tweet'leri veri](https://dev.twitter.com/docs/platform-objects/tweets) karmaşık bir iç içe geçmiş yapıyı içeren JavaScript nesne gösterimi (JSON) biçiminde depolanır. Böylece bir yapılandırılmış sorgu dili (SQL) tarafından sorgulanabilir geleneksel bir programlama dili kullanarak kod satır sayısını yazmak yerine, iç içe geçmiş bu yapı bir Hive tabloya dönüştürebilirsiniz-HiveQL adında dil ister.
+Tweet'leri verileri içeren karmaşık bir iç içe geçmiş yapıyı JavaScript nesne gösterimi (JSON) biçiminde depolanır. Böylece bir yapılandırılmış sorgu dili (SQL) tarafından sorgulanabilir geleneksel bir programlama dili kullanarak kod satır sayısını yazmak yerine, iç içe geçmiş bu yapı bir Hive tabloya dönüştürebilirsiniz-HiveQL adında dil ister.
 
 Twitter OAuth kendi API için yetkili erişimi sağlamak için kullanır. OAuth kullanıcıların parolalarını paylaşmadan kendi adına hareket uygulamaları Onayla olanak sağlayan bir kimlik doğrulama protokolüdür. Daha fazla bilgi bulunabilir [oauth.net](http://oauth.net/) veya mükemmel [OAuth Başlangıç Kılavuzu](http://hueniverse.com/oauth/) Hueniverse gelen.
 
@@ -536,7 +536,7 @@ Write-Host "==================================" -ForegroundColor Green
 > [!NOTE]
 > Hive tablosu \001 alan sınırlayıcısı olarak kullanır. Sınırlayıcı çıkışında görünür değil.
 
-Çözümleme sonuçlarını Azure Blob depolama alanına yerleştirildi sonra verileri bir Azure SQL veritabanı/SQL Server'a verin, Power Query kullanarak verileri Excel'e vermek veya Hive ODBC sürücüsünü kullanarak verileri bağlamak. Daha fazla bilgi için bkz: [Hdınsight ile kullanım Sqoop][hdinsight-use-sqoop], [Hdınsight kullanarak uçuş gecikme verileri analiz][hdinsight-analyze-flight-delay-data], [Hdınsight Power Query ile Excel'e bağlanın][hdinsight-power-query], ve [Hdınsight Microsoft Hive ODBC sürücüsü ile Excel'e bağlanın][hdinsight-hive-odbc].
+Çözümleme sonuçlarını Azure Blob depolama alanına yerleştirildi sonra verileri bir Azure SQL veritabanı/SQL Server'a verin, Power Query kullanarak verileri Excel'e vermek veya Hive ODBC sürücüsünü kullanarak verileri bağlamak. Daha fazla bilgi için bkz: [Hdınsight ile kullanım Sqoop][hdinsight-use-sqoop], [Hdınsight kullanarak uçuş gecikme verileri analiz][hdinsight-analyze-flight-delay-data], [ Hdınsight Power Query ile Excel bağlanmak][hdinsight-power-query], ve [Hdınsight Microsoft Hive ODBC sürücüsü ile Excel bağlanmak][hdinsight-hive-odbc].
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu öğreticide biz sorgulamak, keşfetmek ve Twitter verilerini Azure üzerinde Hdınsight kullanarak çözümlemek için yapılandırılmış bir Hive tablosu yapılandırılmamış bir JSON veri kümesi dönüştürmek öğrendiniz. Daha fazla bilgi için bkz:
@@ -545,7 +545,7 @@ Bu öğreticide biz sorgulamak, keşfetmek ve Twitter verilerini Azure üzerinde
 * [Hdınsight kullanma uçuş gecikme verilerini çözümleme][hdinsight-analyze-flight-delay-data]
 * [Excel'i Power Query ile Hdınsight bağlama][hdinsight-power-query]
 * [Excel'i Microsoft Hive ODBC sürücüsü ile Hdınsight bağlama][hdinsight-hive-odbc]
-* [Hdınsight ile Sqoop kullanma][hdinsight-use-sqoop]
+* [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop]
 
 [curl]: http://curl.haxx.se
 [curl-download]: http://curl.haxx.se/download.html

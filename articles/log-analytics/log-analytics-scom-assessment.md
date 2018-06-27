@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 493fb0295c1d760bb7de13ae1b703b3636750612
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29180045"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018723"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ortamınızı System Center Operations Manager sistem durumunu denetleyin (Önizleme) çözümü ile en iyi duruma getirme
 
@@ -44,7 +44,7 @@ Kuruluşunuz için en önemli ve ücretsiz ve sağlam bir risk ortam çalıştı
 
 Çözüm, Microsoft System Operations Manager 2012 Service Pack (SP1 ile) 1 ve 2012 R2 çalışır.
 
-Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
+Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
  - Günlük analizi sistem durumu denetimi çözüm kullanmadan önce çözümü yüklenmiş olması gerekir. Çözümden yüklemek [Azure Market](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
@@ -64,7 +64,7 @@ Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
 System Center Operations Manager değerlendirme verilerini aşağıdaki kaynaklardan toplar:
 
 * Kayıt Defteri
-* Windows Management Instrumentation (WMI)
+* Windows Yönetim Araçları (WMI)
 * Olay günlüğü
 * Dosya verileri
 * Doğrudan Operations Manager'dan belirttiğiniz yönetim sunucusundan PowerShell ve SQL sorgularını kullanarak.  
@@ -164,7 +164,7 @@ Varsayılan olarak, Microsoft System Center Advisor SCOM değerlendirme çalış
 2. Arama sonuçlarında metin içeren bir tanesini seçin *türü: Yönetim sunucusu*.
 3. Kuralı sağ tıklatın ve ardından **geçersiz kılmaları** > **sınıfın belirli bir nesnesi için: Yönetim sunucusu**.
 4.  Kullanılabilir yönetim sunucuları listesini kural çalıştırdığı yönetim sunucusu seçin.  Bu, aynı yönetim sunucusuna daha önce farklı çalıştır hesabıyla ilişkilendirmek üzere yapılandırılmış olması gerekir.
-5.  Geçersiz kılma değerine değiştirdiğinizden emin olun **True** için **etkin** parametre değeri.<br><br> ![override parameter](./media/log-analytics-scom-assessment/rule.png)
+5.  Geçersiz kılma değerine değiştirdiğinizden emin olun **True** için **etkin** parametre değeri.<br><br> ![parametresi geçersiz kıl](./media/log-analytics-scom-assessment/rule.png)
 
     Hala Bu pencerede karşın, bir sonraki yordamı kullanarak çalışma sıklığını yapılandırın.
 
@@ -212,14 +212,14 @@ Her öneri neden önemli olduğu hakkında yönergeler içerir. Öneri uygulama 
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Kullanım durumu Denetim odak alanı önerileri
 
-Günlük analizi bir sistem durumu denetimi çözümü kullanmadan önce çözümü yüklenmiş olması gerekir. Daha fazla bilgi için çözümleri yükleme hakkında bkz [Çözümleri Galerisi eklemek günlük analizi çözümleri](log-analytics-add-solutions.md). Yüklendikten sonra genel bakış sayfasında OMS portalında sistem Center Operations Manager sistem durumu denetimi döşeme kullanarak önerileri özetini görüntüleyebilirsiniz.
+Günlük analizi bir sistem durumu denetimi çözümü kullanmadan önce çözümü yüklenmiş olması gerekir. Daha fazla bilgi için çözümleri yükleme hakkında bkz [bir yönetim çözümü](log-analytics-add-solutions.md). Yüklendikten sonra sistem Center Operations Manager sistem durumu denetimi döşeme kullanarak önerileri özetini görüntüleyebilirsiniz **genel bakış** sayfasında Azure Portalı'ndaki çalışma alanınız için.
 
 Altyapınız ve ardından-ayrıntıya önerileri için özetlenmiş uyumluluk değerlendirmesi görüntüleyin.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Odak alanı için öneriler görüntülemek ve düzeltici işlemleri için
-1. [https://portal.azure.com](https://portal.azure.com) adresinde Azure portalında oturum açın.
+1. [https://portal.azure.com](https://portal.azure.com) adresinden Azure portalında oturum açın.
 2. Azure portalının sol alt köşesinde bulunan **Diğer hizmetler**'e tıklayın. Kaynak listesinde **Log Analytics** yazın. Yazmaya başladığınızda liste, girişinize göre filtrelenir. **Log Analytics**’i seçin.
-3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **OMS portalı** döşeme.  
+3. Günlük analizi abonelikleri bölmesinde, bir çalışma alanını seçin ve ardından **çalışma Özet** menü öğesi.  
 4. Üzerinde **genel bakış** sayfasında, **sistem Center Operations Manager sistem durumu denetimi** döşeme.
 5. Üzerinde **sistem Center Operations Manager sistem durumu denetimi** sayfasında odak alanı Kanatlar birinde özet bilgilerini inceleyin ve sonra bu odak alanı için öneriler görüntülemek için tıklatın.
 6. Odak alanı sayfaları hiçbirinde ortamınız için öncelikli önerilerin görüntüleyebilirsiniz. Önerinin altında tıklatın **etkilenen nesneleri** öneri neden yapılan hakkında ayrıntıları görüntülemek için.<br><br> ![Odaklanılan alan](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -232,7 +232,7 @@ Yoksay istediğiniz önerileri varsa, öneriler değerlendirme sonuçlarında g�
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Yoksay istediğiniz önerileri tanımlamak için
-1. Günlük analizi çalışma sayfasında seçilen çalışma alanınız için Azure portalında tıklatın **günlük arama** döşeme.
+1. Günlük analizi çalışma sayfasında seçilen çalışma alanınız için Azure portalında tıklatın **günlük arama** menü öğesi.
 2. Ortamınızdaki bilgisayarları için başarısız olan liste önerileri için aşağıdaki sorguyu kullanın.
 
     ```

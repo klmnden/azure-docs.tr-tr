@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: f0f3311f35f954f81560cad21e7f0e3bc850a094
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: 59dbc4134ee11999e54d2eba51804939e7e14229
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28030726"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020749"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Günlük analizi içinde özel alanlar
 **Özel alanlar** günlük analizi özelliği günlük analizi mevcut kayıtların kendi aranabilir alanlar ekleyerek genişletebilir olanak tanır.  Özel alanlar, aynı kayıt diğer özellikleri ayıklanan verilerinden otomatik olarak doldurulur.
@@ -79,7 +79,7 @@ Yönetim grubunuzun içindeki tüm özel alanların listesini görüntüleyebili
 ## <a name="removing-a-custom-field"></a>Özel bir alan kaldırma
 Özel bir alanı kaldırmak için iki yolu vardır.  İlk **kaldırmak** yukarıda açıklandığı gibi tam listesini görüntülerken, her bir alan için seçeneği.  Diğer yöntem olduğu bir kayıt almak ve alanın solundaki düğmesine tıklayın.  Menü özel alan kaldırmak için bir seçenek içerir.
 
-## <a name="sample-walkthrough"></a>Örnek gözden geçirme
+## <a name="sample-walkthrough"></a>Örnek kılavuz
 Aşağıdaki bölümde, özel bir alan oluşturma tam bir örnek anlatılmaktadır.  Bu örnek, bir hizmetin durumunu değiştirme belirten Windows olayları hizmetin adı ayıklar.  Bu Windows bilgisayarlarda sistem günlüğündeki hizmet denetimi yöneticisi tarafından oluşturulan olayları kullanır.  Bu örnek izleyin istiyorsanız, olmalıdır [sistem günlüğü bilgilerini olay toplama](log-analytics-data-sources-windows-events.md).
 
 Biz, hizmet denetimi yöneticisinden olay hangi başlayan veya durdurulan bir hizmeti gösterir olay kimliği 7036 olan tüm olayları döndürmek için aşağıdaki sorguyu girin.
@@ -96,7 +96,7 @@ Görünür hizmet adı istiyoruz **RenderedDescription** özelliği ve bu özell
 
 **Alan ayıklama Sihirbazı** açıldığında ve **EventLog** ve **EventID** içinde seçili alanları **ana örnek** sütun.  Bu, özel alan 7036 olay kimliği sistem günlüğündeki olaylar için tanımlanan olduğunu gösterir.  Bu, size herhangi bir alan seçin gerek kalmaması yeterlidir.
 
-![Ana örneği](media/log-analytics-custom-fields/main-example.png)
+![Ana örnek](media/log-analytics-custom-fields/main-example.png)
 
 Biz hizmeti adını vurgulayın **RenderedDescription** özelliği ve kullanım **hizmet** hizmet adını belirlemek için.  Özel alan çağrılacağı **Service_CF**.
 
@@ -130,7 +130,7 @@ Görebiliriz **Service_CF** oluşturuldu ancak henüz herhangi bir kayıt eklenm
 
 ![İlk sayımı](media/log-analytics-custom-fields/initial-count.png)
 
-Bu nedenle yeni bir süre geçtikten sonra olayları toplanır, görebiliriz, **Service_CF** alan bizim ölçütle eşleşen kayıtları eklenmiş.
+Bu nedenle yeni bir süre geçtikten sonra olayları toplanır, görebiliriz **Service_CF** alan bizim ölçütle eşleşen kayıtları eklenmiş.
 
 ![Son sonuçları](media/log-analytics-custom-fields/final-results.png)
 

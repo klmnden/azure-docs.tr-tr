@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a4a882781562ae71ad6c578577a9f9cd9096ef36
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331798"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018315"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Varolan NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -222,7 +222,7 @@ Geçerli-başlangıç ve geçerli-kadar okunabilir formda bulunan, zaman damgala
 Bu hata çeşitli nedenlerden biri olabilir. Gidermenize yardımcı olması için aşağıdaki adımları kullanın:
 
 1. NPS sunucusunu yeniden başlatın.
-2. Bu istemci sertifikası beklendiği gibi yüklü olduğunu doğrulayın.
+2. Bu istemci sertifikası beklendiği gibi yüklü doğrulayın.
 3. Sertifika üzerinde Azure AD Kiracı ile ilişkili olduğunu doğrulayın.
 4. Doğrulayın https://login.microsoftonline.com/ uzantısı'nı çalıştıran sunucudan erişilebilir.
 

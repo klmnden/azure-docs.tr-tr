@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: pullabhk
-ms.openlocfilehash: e9d1c79d6485764f4b671ad529e0812b49df34b1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737027"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958629"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Dosyaları Azure sanal makinesi yedeklemeden Kurtar
 
@@ -173,7 +173,7 @@ Aşağıdaki tabloda, sunucu ve bilgisayar işletim sistemleri arasındaki uyuml
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Linux için
+### <a name="for-linux-os"></a>Linux işletim sistemi
 
 Linux dosyaları geri yüklemek için kullanılan bilgisayarın işletim sistemi dosya sistemi korunan sanal makinenin desteklemesi gerekir. Komut dosyasını çalıştırmak için bir bilgisayar seçerken, bilgisayarda uyumlu bir işletim sistemi ve aşağıdaki tabloda tanımlanan sürümlerinden birini kullanan emin olun:
 
@@ -191,7 +191,7 @@ Komut dosyası yürütme ve güvenli bir şekilde kurtarma noktasına bağlanmak
 
 |Bileşen | Sürüm  |
 | --------------- | ---- |
-| Bash | 4 ve üstü |
+| bash | 4 ve üstü |
 | python | 2.6.6 ve üstü  |
 | TLS | 1.2 desteklenmesi gereken  |
 

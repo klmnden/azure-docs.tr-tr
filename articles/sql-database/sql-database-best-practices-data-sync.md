@@ -1,25 +1,25 @@
 ---
-title: En iyi uygulamalar için Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
-description: Yapılandırma ve Azure SQL veri eşitleme (Önizleme) çalıştırmak için en iyi uygulamalar hakkında bilgi edinin.
+title: En iyi uygulamalar Azure SQL veri eşitleme için | Microsoft Docs
+description: Yapılandırma ve Azure SQL veri eşitleme çalıştırmak için en iyi uygulamalar hakkında bilgi edinin.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646016"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025959"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>SQL veri eşitleme (Önizleme) için en iyi yöntemler 
+# <a name="best-practices-for-sql-data-sync"></a>SQL Data Sync için en iyi deneyimler 
 
-Bu makale, Azure SQL veri eşitleme (Önizleme) için en iyi uygulamaları açıklar.
+Bu makalede, Azure SQL veri eşitleme için en iyi uygulamaları açıklar.
 
-SQL veri eşitleme (Önizleme) genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme) ile](sql-database-sync-data.md).
+SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme ile](sql-database-sync-data.md).
 
 ## <a name="security-and-reliability"></a> Güvenlik ve güvenilirlik
 
@@ -50,10 +50,10 @@ Azure SQL veritabanı kimlik bilgileri, yalnızca tek bir kümesini destekler. B
 
 #### <a name="sql-database-instance-size"></a>SQL Database örnek boyutu
 
-Yeni bir SQL veritabanı örneği oluşturduğunuzda, en büyük boyutu her zaman dağıttığınız veritabanından daha büyük olduğu şekilde ayarlayın. Dağıtılan veritabanı büyük için en büyük boyutu ayarlamazsanız, eşitleme başarısız olur. SQL veri eşitleme (Önizleme) otomatik büyüme sunmaz rağmen çalıştırabilirsiniz `ALTER DATABASE` oluşturulduktan sonra veritabanı boyutunu artırmak için komutu. SQL veritabanı örneği boyutu sınırları içinde kalmasını sağlayın.
+Yeni bir SQL veritabanı örneği oluşturduğunuzda, en büyük boyutu her zaman dağıttığınız veritabanından daha büyük olduğu şekilde ayarlayın. Dağıtılan veritabanı büyük için en büyük boyutu ayarlamazsanız, eşitleme başarısız olur. SQL veri eşitleme otomatik büyüme sunmaz rağmen çalıştırabilirsiniz `ALTER DATABASE` oluşturulduktan sonra veritabanı boyutunu artırmak için komutu. SQL veritabanı örneği boyutu sınırları içinde kalmasını sağlayın.
 
 > [!IMPORTANT]
-> SQL veri eşitleme (Önizleme) ile her veritabanı ek meta verileri depolar. Gerekli alan hesaplarken bu meta veriler için hesap emin olun. Miktarını eklenen ek yükü tabloları genişliğini ilgili (örneğin, daha fazla ek yükü dar tablolarda gereklidir) ve trafik miktarı.
+> SQL veri eşitleme her veritabanı ile ek meta verileri depolar. Gerekli alan hesaplarken bu meta veriler için hesap emin olun. Miktarını eklenen ek yükü tabloları genişliğini ilgili (örneğin, daha fazla ek yükü dar tablolarda gereklidir) ve trafik miktarı.
 
 ### <a name="table-considerations-and-constraints"></a> Tablo konuları ve kısıtlamaları
 
@@ -63,19 +63,19 @@ Bir veritabanında bir eşitleme grubundaki tüm tabloları eklemek zorunda değ
 
 #### <a name="primary-keys"></a>Birincil anahtarlar
 
-Her bir eşitleme grubu tablosunda birincil anahtar olması gerekir. SQL veri eşitleme (Önizleme) hizmeti, bir birincil anahtara sahip olmayan bir tablo eşitleyemiyor.
+Her bir eşitleme grubu tablosunda birincil anahtar olması gerekir. SQL veri eşitleme hizmeti, bir birincil anahtara sahip olmayan bir tablo eşitleyemiyor.
 
-SQL veri eşitleme (Önizleme) üretimde kullanmadan önce ilk ve devam eden eşitleme performansını test edin.
+SQL veri eşitleme üretimde kullanmadan önce ilk ve devam eden eşitleme performansını test edin.
 
 ### <a name="provisioning-destination-databases"></a> Hedef veritabanı sağlama
 
-SQL veri eşitleme (Önizleme) önizleme temel veritabanı autoprovisioning sağlar.
+SQL veri eşitleme temel veritabanı autoprovisioning sağlar.
 
-Bu bölümde, SQL veri eşitleme (Önizleme) sağlama sınırlamaları anlatılmaktadır.
+Bu bölümde, SQL veri eşitleme sağlama sınırlamaları anlatılmaktadır.
 
 #### <a name="autoprovisioning-limitations"></a>Autoprovisioning sınırlamaları
 
-SQL veri eşitleme (Önizleme) autoprovisioning üzerinde aşağıdaki sınırlamalara sahiptir:
+SQL veri eşitleme autoprovisioning üzerinde aşağıdaki sınırlamalara sahiptir:
 
 -   Hedef tabloda oluşturulan sütunları seçin.  
     Eşitleme grubunu parçası olmayan herhangi bir sütundan hedef tablolarında sağlanan değil.
@@ -88,7 +88,7 @@ SQL veri eşitleme (Önizleme) autoprovisioning üzerinde aşağıdaki sınırla
 
 #### <a name="recommendations"></a>Öneriler
 
--   Yalnızca hizmetin ölçeğini çalışırken SQL veri eşitleme (Önizleme) autoprovisioning yetenek kullanın.  
+-   Yalnızca hizmetin ölçeğini çalışırken SQL veri eşitleme autoprovisioning yetenek kullanın.  
 -   Üretim için veritabanı şeması sağlayın.
 
 ### <a name="locate-hub"></a> Hub veritabanı yerleştireceğinizi
@@ -114,7 +114,7 @@ Bu bölümde, bir eşitleme grubundaki ilk eşitleme tartışın. Uzun ve gereke
 
 #### <a name="how-initial-sync-works"></a>Nasıl ilk eşitleme çalışır
 
-Bir eşitleme grubu oluşturduğunuzda, yalnızca bir veritabanındaki verilere başlayın. Birden çok veritabanlarında veri varsa, SQL veri eşitleme (Önizleme) her satır çözülmesi gereken bir çakışma değerlendirir. Bu çakışma çözümü yavaş gitmek ilk eşitleme neden olur. Birden çok veritabanlarında veri varsa, ilk eşitleme birkaç gün ve veritabanı boyutuna bağlı olarak birkaç ay arasında sürebilir.
+Bir eşitleme grubu oluşturduğunuzda, yalnızca bir veritabanındaki verilere başlayın. Birden çok veritabanlarında veri varsa, SQL veri eşitleme her satır çözülmesi gereken bir çakışma değerlendirir. Bu çakışma çözümü yavaş gitmek ilk eşitleme neden olur. Birden çok veritabanlarında veri varsa, ilk eşitleme birkaç gün ve veritabanı boyutuna bağlı olarak birkaç ay arasında sürebilir.
 
 Veritabanları farklı veri merkezlerinde varsa, her satır arasında farklı veri merkezlerinde geçmelidir. Bu bir başlangıç eşitlemesi maliyetini artırır.
 
@@ -209,16 +209,16 @@ Bunun yerine, önce bir veritabanı eşitleme grubundan kaldırın. Sonra deği�
 Bir veritabanını kaldırın ve ardından eşitleme grubu değişiklikleri dağıtma birincisini olmadan düzenleyin çalışırsanız, bir veya başka bir işlem başarısız olur. Portal arabiriminde tutarsız hale gelebilir. Bu olursa, doğru duruma geri yüklemek için sayfayı yenileyin.
 
 ## <a name="next-steps"></a>Sonraki adımlar
-SQL veri eşitleme (Önizleme) hakkında daha fazla bilgi için bkz:
+SQL veri eşitleme hakkında daha fazla bilgi için bkz:
 
--   [Eşitleme verilerle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme (Önizleme)](sql-database-sync-data.md)
--   [Azure SQL veri eşitleme (Önizleme) ayarı](sql-database-get-started-sql-data-sync.md)
--   [Günlük analizi ile İzleyici Azure SQL veri eşitleme (Önizleme)](sql-database-sync-monitor-oms.md)
--   [Azure SQL veri eşitleme (Önizleme) ile ilgili sorunları giderme](sql-database-troubleshoot-data-sync.md)  
--   SQL veri eşitleme (Önizleme) yapılandırma Göster PowerShell örnekleri tamamlayın:  
+-   [Azure SQL Data Sync ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md)
+-   [Azure SQL Data Sync’i ayarlama](sql-database-get-started-sql-data-sync.md)
+-   [Azure SQL Data Sync’i Log Analytics ile izleme](sql-database-sync-monitor-oms.md)
+-   [Azure SQL Data Sync ile ilgili sorun giderme](sql-database-troubleshoot-data-sync.md)  
+-   SQL Data Sync’in nasıl yapılandırılacağını gösteren tam PowerShell örnekleri:  
     -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell kullanarak bir Azure SQL Veritabanı ile SQL Server şirket içi veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [SQL veri eşitleme (Önizleme) REST API belgelerini indirebilirsiniz](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [SQL Data Sync REST API belgelerini indirin](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 SQL veritabanı hakkında daha fazla bilgi için bkz:
 

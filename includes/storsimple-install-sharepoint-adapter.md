@@ -2,7 +2,7 @@
 
 #### <a name="to-install-the-storsimple-adapter-for-sharepoint"></a>SharePoint için StorSimple bağdaştırıcısı yüklemek için
 1. Yükleyici, aynı zamanda SharePoint Yönetim Merkezi web uygulamasını çalıştırmak için yapılandırılmış olan web front end (WFE) sunucusuna kopyalayın. 
-2. WFE sunucusuna oturum açmak için yönetici ayrıcalıklarına sahip bir hesap kullanın.
+2. WFE sunucusunda oturum açmak için yönetici ayrıcalıklarına sahip bir hesabı kullanın.
 3. Yükleyici çift tıklayın. StorSimple bağdaştırıcısı için SharePoint Kurulum Sihirbazı'nı başlatır. Tıklatın **sonraki** yüklemeyi başlatmak için.
    
     ![StorSimple bağdaştırıcısı Kurulum başlangıç sayfası](./media/storsimple-install-sharepoint-adapter/HCS_SSASP_Setup1-include.png)

@@ -2,19 +2,19 @@
 title: İstek birimleri ve verimlilik - Azure Cosmos DB tahmin etme | Microsoft Docs
 description: Anlamak, belirtin ve Azure Cosmos veritabanı istek birimi gereksinimlerini tahmin etme hakkında bilgi edinin.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823732"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961969"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Birimleri Azure Cosmos veritabanı isteği
 
@@ -111,7 +111,7 @@ Aracı kullanmak için:
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Azure Cosmos DB istek ücret yanıt üstbilgisi kullanın
-Her yanıt Azure Cosmos DB hizmetinden bir özel üst bilgi içeriyor (`x-ms-request-charge`) belirli bir istek için kullanılan istek birimleri içerir. Bu üst Azure Cosmos DB SDK'ları da erişebilirsiniz. .NET SDK'sındaki **RequestCharge** bir özelliktir **ResourceResponse** nesnesi. Sorgular için Azure portalında Azure Cosmos DB Veri Gezgini yürütülen sorgular için istek ücret bilgileri sağlar.
+Her yanıt Azure Cosmos DB hizmetinden bir özel üst bilgi içeriyor (`x-ms-request-charge`) belirli bir istek için kullanılan istek birimleri içerir. Bu üst Azure Cosmos DB SDK'ları da erişebilirsiniz. .NET SDK'sındaki **RequestCharge** bir özelliktir **ResourceResponse** nesnesi. Sorgular için Azure portalında Azure Cosmos DB Veri Gezgini yürütülen sorgular için istek ücret bilgileri sağlar. Alma ve ayarlama işleme hakkında kullanarak farklı birden çok model API'leri öğrenmek için [ayarlama ve verimlilik Azure Cosmos DB'de alma](set-throughput.md) makalesi.
 
 Uygulamanızın gerektirdiği ayrılmış işleme miktarı tahmin etmek için bir yöntem, uygulamanız tarafından kullanılan bir temsili öğesi karşı normal işlemleri çalıştırılması ile ilişkili istek birimi ücret kaydetmektir. Ardından, her saniye gerçekleştirmek düşündüğünüz işlemlerinin sayısını tahmin edin. Ayrıca, ölçü ve tipik sorgular ve Azure Cosmos DB komut dosyası kullanımı dahil emin olun.
 

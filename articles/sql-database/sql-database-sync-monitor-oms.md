@@ -1,26 +1,26 @@
 ---
-title: İzleme günlük analizi ile Azure SQL veri eşitleme (Önizleme) | Microsoft Docs
-description: Azure SQL veri eşitleme (Önizleme) izlemek günlük analizi kullanarak öğrenin
+title: İzleme günlük analizi ile Azure SQL veri eşitleme | Microsoft Docs
+description: Günlük analizi kullanarak Azure SQL veri eşitleme izleneceği hakkında bilgi edinin
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650256"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026007"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Günlük analizi ile İzleyici SQL veri eşitleme (Önizleme) 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Günlük analizi ile İzleyici SQL veri eşitleme 
 
 SQL veri eşitleme Etkinlik günlüğünü denetleyin ve hataları ve Uyarıları algılamak için daha önce SQL veri eşitleme Azure portalında el ile denetleyin veya PowerShell veya REST API'yi kullanın zorunda kalındı. İzleme deneyimine veri eşitleme artıran özel bir çözümü yapılandırmak için bu makaledeki adımları izleyin. Bu çözüm senaryonuza uyacak şekilde özelleştirebilirsiniz.
 
-SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync (Önizleme) ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
+SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme ile](sql-database-sync-data.md).
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Tüm eşitleme grubu için izleme Panosu 
 

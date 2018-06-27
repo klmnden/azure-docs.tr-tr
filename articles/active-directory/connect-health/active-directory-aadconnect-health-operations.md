@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4377e9902696a4ee3b5bbb5fcb44d972ec14f822
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31389722"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958734"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health işlemleri
 Bu konuda, Azure Active Directory (Azure AD) Connect Health kullanarak gerçekleştirebileceğiniz çeşitli işlemler açıklanmaktadır.
@@ -122,7 +122,7 @@ Bir kullanıcının erişim izin vermek için *tüm hizmet örnekleri* düzey Az
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>2. adım: Kullanıcıları ve grupları ekleyin ve Rolleri Ata
 1. Gelen **yapılandırma** 'yi tıklatın **kullanıcılar**.<br>
-   ![Ekran Azure AD Connect sistem durumu RBAC ana dikey, vurgulanmış kullanıcılarla](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Ekran Azure AD Connect Health kaynak kenar çubuğu](./media/active-directory-aadconnect-health/startRBAC.png)
 2. **Add (Ekle)** seçeneğini belirleyin.
 3. İçinde **bir rol seçin** bölmesinde, bir rol seçin (örneğin, **sahibi**).<br>
    ![Azure ekran AD sistem durumu RBAC kullanıcıların bağlanmasına penceresi](./media/active-directory-aadconnect-health/RBAC_add.png)

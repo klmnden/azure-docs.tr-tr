@@ -1,28 +1,28 @@
 ---
-title: Azure SQL veri eşitleme (Önizleme) ayarı | Microsoft Docs
-description: Bu öğretici Azure SQL veri eşitlemeyi (Önizleme) ayarlamak nasıl gösterir
+title: Azure SQL veri eşitleme ayarı | Microsoft Docs
+description: Bu öğretici Azure SQL veri eşitlemeyi ayarlamak nasıl gösterir
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7598484a20d2d719c84e1789664ac2b40c2d0639
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df7ca91d403374e8d320822f5fa384a866fac0ae
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647859"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026091"
 ---
-# <a name="set-up-sql-data-sync-preview"></a>SQL veri eşitleme ayarı (Önizleme)
+# <a name="set-up-sql-data-sync"></a>SQL veri eşitleme ayarı
 Bu öğreticide, Azure SQL Database ve SQL Server örneklerini içeren bir karma eşitleme grubu oluşturarak Azure SQL veri eşitlemeyi ayarlamak nasıl öğrenin. Yeni eşitleme grubunu tam olarak yapılandırılmamış ve belirlediğiniz bir zamanlamaya göre eşitler.
 
 Bu öğretici, SQL Database ve SQL Server ile en az bazı konusunda deneyim sahibi olduğunuzu varsayar. 
 
-SQL Data Sync hizmetine genel bakış için bkz. [Azure SQL Data Sync (Önizleme) ile birden fazla bulut ve şirket içi veritabanı arasında veri eşitleme](sql-database-sync-data.md).
+SQL veri eşitleme genel bakış için bkz: [verileri Eşitle birden çok Bulut ve şirket içi veritabanları arasında Azure SQL veri eşitleme ile](sql-database-sync-data.md).
 
 SQL veri eşitleme yapılandırmayı gösterir tam PowerShell örnekler için aşağıdaki makalelere bakın:
 -   [PowerShell kullanarak birden çok Azure SQL veritabanı arasında eşitleme](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -199,7 +199,7 @@ En az beş dakikada sıklığıdır.
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL veri eşitleme tam olarak oluşturun ve tabloları sağlamak?
 
-Eşitleme şema tabloları hedef veritabanına zaten oluşturulmadıysa, SQL veri eşitleme (Önizleme) bunları seçtiğiniz sütunlarla oluşturur. Ancak, bu davranış tam uygunluğunu Şeması'nda, aşağıdaki nedenlerle oluşmaz:
+Eşitleme şema tabloları hedef veritabanına zaten oluşturulmadıysa, SQL veri eşitleme bunları seçtiğiniz sütunlarla oluşturur. Ancak, bu davranış tam uygunluğunu Şeması'nda, aşağıdaki nedenlerle oluşmaz:
 
 -   Yalnızca seçtiğiniz sütunları hedef tabloda oluşturulur. Kaynak tablolarda bazı sütunları eşitleme grubunun parçası değilse, bu sütunları hedef tablolarında sağlanmayan.
 
@@ -215,7 +215,7 @@ Eşitleme şema tabloları hedef veritabanına zaten oluşturulmadıysa, SQL ver
 
 Bu sınırlamalar nedeniyle şunları öneririz:
 -   Üretim ortamları için tam uygunluğunu şema kendiniz sağlayın.
--   Servisi denemek için otomatik sağlama özelliği SQL veri eşitleme (Önizleme) iyi çalışır.
+-   Servisi denemek için otomatik sağlama özelliği SQL veri eşitleme iyi çalışır.
 
 ### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Oluşturulamadı tabloları neden görüyor musunuz?  
 Veri Eşitleme yan tablolar değişiklik izleme, veritabanınızdaki oluşturur. Bunları silmeyin veya veri eşitleme çalışmayı durdurur.
@@ -246,7 +246,7 @@ Bir veritabanı olarak dışarı aktardıktan sonra bir `.bacpac` dosya ve yeni 
 
 ### <a name="why-do-i-need-a-client-agent"></a>Bir istemci Aracısı neden gerekiyor mu?
 
-SQL veri eşitleme (Önizleme) hizmeti SQL Server veritabanlarını istemci Aracısı üzerinden iletişim kurar. Bu güvenlik özelliğinin bir güvenlik duvarının arkasındaki veritabanları ile doğrudan iletişim engeller. Şifrelenmiş bağlantıları ve benzersiz bir belirteç zaman SQL veri eşitleme (Önizleme) hizmeti ile iletişim kurar aracı ile mu bunu kullanarak veya *aracı anahtarını*. SQL Server veritabanları bağlantı dizesi ve aracı anahtarı kullanılarak Aracısı kimlik doğrulaması. Bu tasarım, güvenlik, verileriniz için yüksek düzeyde sağlar.
+SQL veri eşitleme hizmeti SQL Server veritabanlarını istemci Aracısı üzerinden iletişim kurar. Bu güvenlik özelliğinin bir güvenlik duvarının arkasındaki veritabanları ile doğrudan iletişim engeller. Şifrelenmiş bağlantıları ve benzersiz bir belirteç zaman SQL veri eşitleme hizmeti ile iletişim kurar aracı ile mu bunu kullanarak veya *aracı anahtarını*. SQL Server veritabanları bağlantı dizesi ve aracı anahtarı kullanılarak Aracısı kimlik doğrulaması. Bu tasarım, güvenlik, verileriniz için yüksek düzeyde sağlar.
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Kaç tane yerel aracı örneğinin UI çalıştırabilir miyim?
 
@@ -258,7 +258,7 @@ Bir istemci Aracısı yükledikten sonra hizmet hesabını değiştirmek için y
 
 ### <a name="how-do-i-change-my-agent-key"></a>Aracı anahtarımı nasıl değişiyor?
 
-Aracı anahtarını bir aracı tarafından yalnızca bir kez kullanılabilir. Bu, kaldırın, sonra yeni bir aracıyı yeniden yükleyin veya birden çok aracı tarafından kullanılabilir olduğunda yeniden kullanılamaz. Varolan bir aracı için yeni bir anahtar oluşturmanız gerekiyorsa, aynı anahtar ile SQL veri eşitleme (Önizleme) hizmeti istemci Aracısı ile kaydedilir emin olmalısınız.
+Aracı anahtarını bir aracı tarafından yalnızca bir kez kullanılabilir. Bu, kaldırın, sonra yeni bir aracıyı yeniden yükleyin veya birden çok aracı tarafından kullanılabilir olduğunda yeniden kullanılamaz. Varolan bir aracı için yeni bir anahtar oluşturmanız gerekiyorsa, aynı anahtar ile SQL veri eşitleme hizmeti istemci Aracısı ile kaydedilir emin olmalısınız.
 
 ### <a name="how-do-i-retire-a-client-agent"></a>Bir istemci Aracısı nasıl devre dışı bırakma?
 
@@ -270,7 +270,7 @@ Hemen geçersiz ya da bir aracı devre dışı bırakmak için Portalı'nda, ana
 
 1. İstediğiniz bilgisayara aracıyı yükleyin.
 
-2. SQL veri eşitleme (Önizleme) portalında oturum açın ve yeni aracı için bir aracı anahtarını yeniden oluşturma.
+2. SQL veri eşitleme portalında oturum açın ve yeni aracı için bir aracı anahtarını yeniden oluşturma.
 
 3. Yeni aracı anahtarını göndermek için yeni aracısının kullanıcı arabirimini kullanın.
 

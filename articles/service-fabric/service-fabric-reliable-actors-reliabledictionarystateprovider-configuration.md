@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213121"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017904"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Güvenilir aktörler--ReliableDictionaryActorStateProvider yapılandırma
 Visual Studio Paketi kök yapılandırma klasörü altında belirtilen aktör için oluşturulan settings.xml dosyasını değiştirerek ReliableDictionaryActorStateProvider varsayılan yapılandırmasını değiştirebilirsiniz.
@@ -39,7 +39,7 @@ Genel yapılandırma KtlLogger bölümünde küme için küme bildiriminde belir
 Küme bildirimi ayarları ve tüm düğümleri ve küme Hizmetleri'nde geçerli yapılandırmaları tutan tek bir XML dosyasıdır. Dosya genellikle ClusterManifest.xml çağrılır. Küme görebilirsiniz Get-ServiceFabricClusterManifest powershell komutunu kullanarak, kümeniz için bildirim.
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| name | Birim | Varsayılan değer | Açıklamalar |
+| Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobayt |8388608 |Çekirdek modunda Günlükçü yazma arabelleği bellek havuzu için ayrılacak KB minimum sayısı. Bu bellek havuzundaki durum bilgilerini diske yazma önce önbelleğe almak için kullanılır. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobayt |Sınırsız |Günlükçü yazma arabelleği bellek havuzundaki en büyük boyutu büyüyebilir. |
@@ -69,6 +69,10 @@ SharedLogSizeInMB varsayılan paylaşılan günlüğü tüm düğümlerde erişi
 Çoğaltıcı güvenlik yapılandırmalarını çoğaltma sırasında kullanılır ve iletişim kanalının güvenliğini sağlamak için kullanılır. Bu hizmetler yüksek oranda kullanılabilir hale getirileceğini verileri de güvenlidir sağlama birbirlerinin çoğaltma trafiği, göremeyeceği anlamına gelir.
 Varsayılan olarak, bir boş güvenlik yapılandırması bölümü çoğaltma güvenlik engeller.
 
+> [!IMPORTANT]
+> Linux düğümleri üzerinde sertifikaların PEM biçimlendirilmiş olması gerekir. Daha fazla hakkında bulma ve Linux için sertifikaları yapılandırma öğrenmek için bkz [Linux'ta sertifikaları yapılandırma](./service-fabric-configure-certificates-linux.md). 
+> 
+
 ### <a name="section-name"></a>Bölüm adı
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
@@ -80,7 +84,7 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| name | Birim | Varsayılan değer | Açıklamalar |
+| Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
 | ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için uç nokta kaynakları hizmet bildiriminde tanımlama hakkında. |

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628132"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017518"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI kullanarak Uzaktan izleme Çözüm Hızlandırıcısı dağıtma
 
@@ -68,7 +68,7 @@ Temel bir çözüm oluşturma, Azure aboneliğinizin maliyetle içine sağlanaca
 | Sayı | Kaynak                       | Tür         | İçin kullanılır |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux sanal makine](https://azure.microsoft.com/services/virtual-machines/) | Standart D1 V2  | Mikro barındırma |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – temel katmanı | Aygıt Yönetimi ve iletişim |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – standart katmanı | Aygıt Yönetimi ve iletişim |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standart        | Yapılandırma verileri, cihaz telemetrisi kuralları, uyarılar ve iletileri gibi depolama |  
 | 1     | [Azure depolama hesabı](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standart        | VM ve kontrol noktaları akış için depolama |
 | 1     | [Web uygulaması](https://azure.microsoft.com/services/app-service/web/)        |                 | Ön uç web uygulaması barındırma |
@@ -82,7 +82,7 @@ Standart bir çözüm oluşturulurken, Azure aboneliğinizin maliyetle içine sa
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux Sanal Makineleri](https://azure.microsoft.com/services/virtual-machines/)   | Standart D2 V2  | 1 ana ve mikro hizmetler ile artıklık barındırmak için 3 aracıları |
 | 1     | [Azure kapsayıcı hizmeti](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IOT Hub] [https://azure.microsoft.com/services/iot-hub/]                     | S1 – temel katmanı | Aygıt Yönetimi, komut ve Denetim |
+| 1     | [Azure IOT Hub] [https://azure.microsoft.com/services/iot-hub/]                     | S2 – standart katmanı | Aygıt Yönetimi, komut ve Denetim |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standart        | Yapılandırma verileri, cihaz telemetrisi kuralları, uyarılar ve iletileri gibi depolama |
 | 5     | [Azure depolama hesapları](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standart        | VM depolama ve akış denetim noktaları için 1 için 4 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standart     | SSL üzerinden uygulama ağ geçidi |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
 ms.author: dugill
-ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359871"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018655"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Erişim abonelikler için kaynak yöneticisi kimlik doğrulaması API'sini kullanın
 ## <a name="introduction"></a>Giriş
@@ -204,7 +204,7 @@ Abonelik üzerinde kullanıcı izinlerini almak için yanıt örneğidir:
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-API izinleri birden çok izin verir. Her izin izin verilen eylemleri oluşur (**Eylemler**) ve Eylemler izin verilmeyen (**notactions**). Bir eylem mevcut herhangi bir izni izin verilen eylemleri ve bu izni izin verilmeyen eylemleri yok olduğunda, kullanıcının bu eylemi gerçekleştirmek için izin verilir. **Microsoft.Authorization/roleassignments/Write** , erişim yönetim hakları veren eylemdir. Uygulamanız bu eylem dizesi bir regex eşleşme aramak için izinleri sonucu ayrıştırılamıyor gerekir **Eylemler** ve **notactions** her izni.
+API izinleri birden çok izin verir. Her izin izin verilen eylemleri oluşur (**Eylemler**) ve Eylemler izin verilmeyen (**notactions**). Bir eylem mevcut herhangi bir izni izin verilen eylemleri ve bu izni izin verilmeyen eylemleri yok olduğunda, kullanıcının bu eylemi gerçekleştirmek için izin verilir. **Microsoft.Authorization/roleassignments/Write** erişim yönetim hakları verir eylemdir. Uygulamanız bu eylem dizesi bir regex eşleşme aramak için izinleri sonucu ayrıştırılamıyor gerekir **Eylemler** ve **notactions** her izni.
 
 ## <a name="get-app-only-access-token"></a>Yalnızca uygulama erişim belirteci alma
 Artık, kullanıcının Azure aboneliğine erişimi atayın, biliyorsunuz. Sonraki adımlar şunlardır:

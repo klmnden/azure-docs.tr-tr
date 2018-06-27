@@ -10,7 +10,7 @@
     ssh -L 127.0.0.1:8080:localhost:8080 <username>@<domain>.eastus.cloudapp.azure.com
     ```
 
-1. İzleyin `ssh` Jenkins sanal makinede oturum ister.
+1. İzleyin `ssh` Jenkins sanal makinede oturum açmak ister.
 
 1. İlk parola için kilidini açma Jenkins almak için aşağıdaki komutu girin.
 

@@ -2,24 +2,22 @@
 title: Azure Hdınsight'ta Linux tabanlı Hadoop Oozie iş akışlarını kullanın | Microsoft Docs
 description: Linux tabanlı Hdınsight'ta Hadoop Oozie kullanın. Oozie iş akışı tanımlamak ve Oozie işi göndermek öğrenin.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
+author: omidm1
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
 ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 8a25507ab076c4eecccea4e8a503d68ff1441ae5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 06/26/2018
+ms.author: omidm
+ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179087"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019302"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie Hadoop ile tanımlamak ve Azure Hdınsight'ta Linux tabanlı bir iş akışını çalıştırmak için kullanın.
 
@@ -37,15 +35,13 @@ Oozie, Java programları veya kabuk betikleri gibi sisteme özel işleri planlam
 > [!NOTE]
 > Hdınsight iş akışlarıyla tanımlamak için başka bir seçenek, Azure Data Factory kullanmaktır. Data Factory hakkında daha fazla bilgi için bkz: [kullanım Pig ve Hive Data Factory ile][azure-data-factory-pig-hive].
 
-> [!IMPORTANT]
-> Oozie etki alanına katılmış Hdınsight üzerinde etkin değil.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 * **Hdınsight kümesi**: bkz [Linux'ta Hdınsight ile çalışmaya başlama](/hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux üzerinde Hdınsight sürüm 3.4 veya üstü kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux üzerinde Hdınsight sürüm 3.4 veya üstü kullanılan yalnızca işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="example-workflow"></a>Örnek iş akışı
 
@@ -78,7 +74,7 @@ Oozie aynı dizinde bir iş için gereken tüm kaynakları depolamak için bekli
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
 
-    Değiştir `sshuser` küme için SSH kullanıcı adı. Değiştir `clustername` küme adı. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
+    `sshuser` değerini kümenin SSH kullanıcı adıyla değiştirin. Değiştir `clustername` küme adı. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Dizin oluşturmak için aşağıdaki komutu kullanın:
 
@@ -240,7 +236,7 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
 ### <a name="create-the-table"></a>Tablo oluşturma
 
 > [!NOTE]
-> Bir tablo oluşturmak için SQL veritabanına bağlanmak için birçok yolu vardır. Aşağıdaki adımları kullanın [ücretsiz](http://www.freetds.org/) Hdınsight kümesine ait.
+> Bir tablo oluşturmak için SQL veritabanına bağlanmak için birçok yolu vardır. Aşağıdaki adımlarda HDInsight kümesinden [FreeTDS](http://www.freetds.org/) kullanılır.
 
 
 1. Ücretsiz Hdınsight kümesine yüklemek için aşağıdaki komutu kullanın:
@@ -263,7 +259,7 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
         Default database being set to oozietest
         1>
 
-3. Konumundaki `1>` isteminde, aşağıdaki satırları girin:
+3. `1>` isteminde aşağıdaki satırları girin:
 
     ```sql
     CREATE TABLE [dbo].[mobiledata](
@@ -274,7 +270,7 @@ Bir SQL veritabanı oluşturmak için adımları [bir SQL veritabanı oluşturma
     GO
     ```
 
-    Zaman `GO` deyimi girilir, önceki deyimleri değerlendirilir. Bu ifadeler adlı bir tablo oluşturmak **mobiledata**, iş akışı tarafından kullanılır.
+    `GO` deyimi girildiğinde önceki deyimler değerlendirilir. Bu ifadeler adlı bir tablo oluşturmak **mobiledata**, iş akışı tarafından kullanılır.
 
     Tablo oluşturulduğunu doğrulamak için aşağıdaki komutları kullanın:
 
@@ -535,7 +531,7 @@ Oozie web kullanıcı Arabirimi erişmek için aşağıdaki adımları tamamlay�
 
 3. Sayfanın sol taraftan seçin **Oozie** > **hızlı bağlantılar** > **Oozie Web kullanıcı arabirimini**.
 
-    ![görüntüsü menüler](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
+    ![Görüntüsü menüler](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
 4. Oozie web kullanıcı Arabirimi varsayılan olarak çalışan iş akışı işleri görüntüleyin. Tüm iş akışı işleri görmek için seçin **tüm işleri**.
 

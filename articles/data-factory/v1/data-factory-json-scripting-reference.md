@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d5d085e24efb7008e8275ec51afe00ba18ca9ba0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 32d1504571c16f4aa5ea07bab32820ba10b79d60
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753566"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019473"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON betik oluşturma başvurusu
 > [!NOTE]
@@ -1945,7 +1945,7 @@ Bağlantılı hizmetinin bir Oracle tanımlamak için Ayarla **türü** bağlant
 | --- | --- | --- |
 | driverType | Hangi sürücünün/Oracle veritabanına veri kopyalamak için kullanılacağını belirtin. İzin verilen değerler **Microsoft** veya **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) sürücü ayrıntıları bölümü. | Hayır |
 | connectionString | ConnectionString özelliği için Oracle veritabanı örneğine bağlanmak için gereken bilgileri belirtin. | Evet |
-| gatewayName | Ağ geçidinin adı, şirket içi Oracle sunucusuna bağlanmak için kullanılır |Evet |
+| gatewayName | Şirket içi Oracle sunucusuna bağlanmak için kullanılan ağ geçidinin adı |Evet |
 
 #### <a name="example"></a>Örnek
 ```json

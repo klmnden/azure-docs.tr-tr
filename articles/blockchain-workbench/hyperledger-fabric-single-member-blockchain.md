@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 7b60c086896506e5883607db48a64d2a2efbd967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 28561f5f94044d19cfd07e99d7f7a736ec470cf1
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655451"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960364"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger doku tek üye ağ
 
@@ -89,7 +89,7 @@ Sonraki altında **ağ boyutu ve performans,** girişleri üyeliği, sipariş ed
 Parametre Adı| Açıklama| İzin Verilen Değerler|Varsayılan Değer
 ---|---|---|---
 **Üyelik düğüm sayısı**|Üyelik hizmeti çalışan düğüm sayısı. Güvenlik ve Üyelik Hizmetleri Hyperledger altında üyelik hizmeti hakkında daha fazla ayrıntı için bakmak [belgelerine](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />Bu değer 1 düğümü şu anda kısıtlı olur, ancak sonraki düzeltmede kümeleme aracılığıyla genişletme desteği planlıyoruz.|1| 1
-**Sipariş eden düğüm sayısı** |Sipariş düğüm sayısı (düzenleme) işlemlere blok. Bu--> deyimi yalnızca sözcüklerden oluşan yapıların ve karmaşık. Sıralama hizmeti hakkında daha fazla ayrıntı için Hyperledger ziyaret [belgelerine](http://hyperledger-fabric.readthedocs.io/en/latest/orderingservice.html).<br /><br />Bu değer 1 düğümü şu anda kısıtlı olur. |1 |1
+**Sipariş eden düğüm sayısı** |Sipariş düğüm sayısı (düzenleme) işlemlere blok. Bu--> deyimi yalnızca sözcüklerden oluşan yapıların ve karmaşık. Sıralama hizmeti hakkında daha fazla ayrıntı için Hyperledger ziyaret [belgelerine](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Bu değer 1 düğümü şu anda kısıtlı olur. |1 |1
 **Eş düğüm sayısı**| İşlemleri yürütmek ve durumu ve muhasebe kopyasını korumak Konsorsiyumu üyeleri tarafından sahip olunan düğümleri.<br /><br />Sıralama hizmeti hakkında daha fazla ayrıntı için Hyperledger ziyaret [belgelerine](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **Depolama performansı**|Dağıtılan düğümlerin her birinde yedekleme depolama türü. Depolama hakkında daha fazla bilgi için [Microsoft Azure Storage'a giriş](https://docs.microsoft.com/azure/storage/common/storage-introduction) ve [Premium depolama](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standart veya Premium|Standart
 **Sanal makine boyutu** |Ağdaki tüm düğümler için kullanılan sanal makine boyutu|Standart bir<br />Standart D<br />Standart D v2<br />Standart F serisi<br />Standart DS<br />ve standart FS|Standart D1_v2

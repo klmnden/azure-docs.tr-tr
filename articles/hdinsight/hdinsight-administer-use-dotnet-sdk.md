@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200325"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017946"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK kullanarak hdınsight'ta Hadoop kümelerini yönetme
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Kullanarak Hdınsight kümelerini yönetme öğrenin [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
+Kullanarak Hdınsight kümelerini yönetme öğrenin [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Önkoşullar**
 
@@ -271,7 +271,7 @@ Bkz: [tanımlamak ve Hdınsight'ta bir iş akışını çalıştırmak için Had
 Bkz. [HDInsight'a veri yükleme][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Ayrıca Bkz.
-* [Hdınsight .NET SDK'sı başvuru belgeleri](https://msdn.microsoft.com/library/mt271028.aspx)
+* [Hdınsight .NET SDK'sı başvuru belgeleri](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Hdınsight Azure Portalı'nı kullanarak yönetme][hdinsight-admin-portal]
 * [Bir komut satırı arabirimi kullanarak Hdınsight yönetme][hdinsight-admin-cli]
 * [Hdınsight kümeleri oluşturma][hdinsight-provision]

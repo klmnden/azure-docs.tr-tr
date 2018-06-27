@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 176af41197810059a17daf5ab09d29e0169e9640
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 69e9d66458409bbc744416a58ceb508349418a76
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225016"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019562"
 ---
 # <a name="steps-to-configure-an-openidoauth-application-from-azure-ad-app-gallery"></a>Azure AD uygulama galerisinde Openıd/OAuth uygulamadan yapılandırma adımları
 
@@ -42,7 +42,7 @@ ms.locfileid: "36225016"
     ![Uygulama ekleme](./media/openidoauth-tutorial/addfromgallery.png)
 
     > [!NOTE]
-    > Open ID Connect ve OAuth için uygulama Ekle düğmesi varsayılan olarak devre dışıdır. Kiracı yönetici üzerinde burayı **kaydolma** düğmesine tıklayın ve uygulama onay sağlayın. Uygulama müşteri eklenen, Kiracı, açıkça eklemeye gerek yoktur ve yapılandırmaları yapın.
+    > Open ID Connect ve OAuth için uygulama Ekle düğmesi varsayılan olarak devre dışıdır. Kiracı yönetici üzerinde burayı **kaydolma** düğmesine tıklayın ve uygulama onay sağlayın. İle uygulama açıkça eklemenize gerek müşteri Kiracı eklenen ve yapılandırmaları yapın.
 
     ![Ekle düğmesi](./media/openidoauth-tutorial/addbutton.png)
 
@@ -70,7 +70,7 @@ En basit oturum açma akışını aşağıdaki adımları içerir - bunların he
 
 Azure AD onay framework çok kiracılı web ve yerel istemci uygulamaları geliştirmek kolaylaştırır. Bu uygulamalar, uygulama kayıtlı olandan farklı bir Azure AD kiracısı oturum açma ana kadar kullanıcı hesapları tarafından izin. Web API'ları (Azure Active Directory, Intune ve Office 365'te hizmetlerine erişmek için) Microsoft grafik API'si gibi ve web API'leri yanı sıra diğer Microsoft Hizmetleri API'leri erişmek de gerekebilir. Bir kullanıcı veya yönetici dizin verilerine erişme gerektirebilir kendi dizininde kaydedilecek soran bir uygulamaya izin vermiş framework dayanır. İzin verilen sonra istemci uygulamasının kullanıcı adına Microsoft Graph API çağrısı ve gerektiği gibi bilgileri kullanın.
 
-[Microsoft Graph API](https://graph.microsoft.io/) kullanıcıları ve grupları Azure AD'den ve diğer veri nesneleri daha fazla Microsoft bulut hizmetlerinden yanı sıra (takvimleri ve Exchange, siteler ve SharePoint, OneDrive, OneNote defterlerinden, Planlayıcısı görevlerden, vb. Excel çalışma kitaplarından belgelerden listelerinden iletileri) gibi Office 365'te verilere erişim sağlar.
+[Microsoft Graph API](https://graph.microsoft.io/) (takvimleri ve Exchange, siteler ve SharePoint, OneDrive belgelerden, OneNote, Planlayıcısı, Excel çalışma kitaplarından görevlerden defterlerinden listelerinden iletileri gibi Office 365'te verilere erişim sağlar , kullanıcıların ve grupların Azure AD'den ve diğer veri nesneleri daha fazla Microsoft bulut hizmetlerinden yanı sıra vb.).
 
 Aşağıdaki adımlar nasıl onayı deneyimi uygulama geliştiricisi ve kullanıcı için çalışır gösterir.
 

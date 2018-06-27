@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2018
+ms.date: 06/26/2018
 ms.author: asmalser
-ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293305"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026025"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Kullanıcı sağlama ve Azure Active Directory ile SaaS uygulamalarına sağlamayı otomatikleştirme
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS uygulamaları için kullanıcı sağlamayı otomatik nedir?
@@ -50,7 +50,6 @@ Bu özelliği kullanmak için bazı ortak sözleri şunları içerir:
 * Çok sayıda kullanıcı belirli bir SaaS uygulama veya sistem kolayca almak için.
 * İlkeleri kimin hazırlanmıştır ve bir uygulamaya oturum açabilir kimin belirlemek için tek bir dizi sahip keyfini için.
 
-
 ## <a name="how-does-automatic-provisioning-work"></a>Otomatik sağlama nasıl çalışır?
     
 **Azure AD hizmeti sağlama** her uygulama satıcısı tarafından sağlanan kullanıcı yönetimi API uç noktaları bağlanarak kullanıcılara SaaS uygulamaları ve diğer sistemler sağlar. Bu kullanıcı yönetim API uç noktaları program aracılığıyla oluşturmak, güncelleştirmek ve kullanıcıları kaldırmak Azure AD verin. Sağlama hizmeti de oluşturabilir, seçilen uygulamalar için güncelleştirme ve grupları ve rolleri gibi ek kimlikle ilgili nesneleri kaldırın. 
@@ -69,15 +68,17 @@ Bu özelliği kullanmak için bazı ortak sözleri şunları içerir:
 
 Azure AD özelliklerini SCIM'yi 2.0 standart belirli kısımlarını uygulamak uygulamaları için genel destek yanı sıra çeşitli popüler SaaS uygulamaları ve İnsan Kaynakları sistemleri için destek önceden tümleştirilmiştir.
 
-Azure AD olan tüm uygulamaların önceden tümleştirilmiş sağlama bağlayıcı destekleyen bir listesi için bkz: [kullanıcı sağlamayı uygulama öğreticiler listesi](active-directory-saas-tutorial-list.md).
+### <a name="pre-integrated-applications"></a>Önceden tümleştirilmiş uygulamalar
+Azure AD olan tüm uygulamaların önceden tümleştirilmiş sağlama bağlayıcı destekleyen bir listesi için bkz: [kullanıcı sağlamayı uygulama öğreticiler listesi](saas-apps/tutorial-list.md).
 
-Azure AD kullanıcı uygulamaya sağlama desteği ekleme hakkında daha fazla bilgi için bkz: [kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md).
-
-Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibi ek uygulamalar için sağlama destek istemek için [Azure Active Directory geri bildirim Forumunda](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).    
+Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibi ek uygulamalar için sağlama destek istemek için [Azure Active Directory geri bildirim Forumunda](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
 
 > [!NOTE]
 > Sırayla otomatik kullanıcı sağlamayı desteklemek için bir uygulama için önce gerekli kullanıcı yönetimi için dış programların oluşturulması, Bakım ve kullanıcıların kaldırılmasını otomatik hale getirmek izin API'leri sağlamanız gerekir. Bu nedenle, tüm SaaS uygulamaları bu özellik ile uyumlu değildir. Kullanıcı Yönetimi API'leri destekleyen uygulamaları için Azure AD mühendislik ekibi ardından uygulamalarla sağlama bir bağlayıcı oluşturmak mümkün olacaktır ve bu iş geçerli ve olası müşteriler gereksinimlerinize göre öncelik. 
-    
+
+### <a name="connecting-applications-that-support-scim-20"></a>SCIM'yi 2.0 destekleyen uygulamalar bağlanma
+Genel SCIM'yi kullanan uygulamalar bağlanma hakkında bilgi için bkz: 2.0 - tabanlı kullanıcı yönetimi API'leri, [kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md).
+
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Bir uygulamaya otomatik sağlamayı nasıl ayarlarım?
 
@@ -85,7 +86,7 @@ Azure AD kişiye üzerinden bir ileti gönderme mühendislik ekibi ek uygulamala
 
 Seçilen bir uygulamaya başlar için hizmet sağlama Azure ad yapılandırma  **[Azure portal](https://portal.azure.com)**. İçinde **Azure Active Directory > Kurumsal uygulamalar** bölümünde, select **Ekle**, ardından **tüm**, senaryonuza bağlı olarak aşağıdakilerden birini ekleyin:
 
-* Tüm uygulamalar **özellikli uygulamalara** destek bölümüne otomatik sağlama. Bkz: [kullanıcı sağlamayı uygulama öğreticiler listesi](active-directory-saas-tutorial-list.md) ek olanlar.
+* Tüm uygulamalar **özellikli uygulamalara** destek bölümüne otomatik sağlama. Bkz: [kullanıcı sağlamayı uygulama öğreticiler listesi](saas-apps/tutorial-list.md) ek olanlar.
 
 * Özel geliştirilmiş SCIM'yi tümleştirmeler için "galeri olmayan uygulama" seçeneğini kullanın
 
@@ -152,7 +153,7 @@ Yalnızca kullanıcıların sağlama, ancak Ayrıca grupları ve üyeleri sağla
 >[!NOTE]
 > İsteğe bağlı olarak oluşturma, güncelleştirme veya silme işlemleri kullanarak devre dışı bırakabilirsiniz **hedef nesne eylemleri** onay kutuları [öznitelik eşlemelerini](active-directory-saas-customizing-attribute-mappings.md) bölümü. Güncelleştirme sırasında bir kullanıcı devre dışı bırakmak için mantığı da "accountEnabled" gibi bir alandan özellik eşlemesi aracılığıyla denetlenir.
 
-Sağlama hizmeti uçtan uca artımlı eşitlemeler kalıcı olarak tanımlanan aralıklarla çalışmaya devam edecek [öğretici her uygulama için belirli](active-directory-saas-tutorial-list.md), aşağıdaki olaylardan biri gerçekleşene kadar:
+Sağlama hizmeti uçtan uca artımlı eşitlemeler kalıcı olarak tanımlanan aralıklarla çalışmaya devam edecek [öğretici her uygulama için belirli](saas-apps/tutorial-list.md), aşağıdaki olaylardan biri gerçekleşene kadar:
 
 * Hizmeti Azure Portalı'nı kullanarak veya uygun grafik API'si komutunu kullanarak el ile durduruldu 
 * Yeni bir ilk eşitleme kullanarak tetiklenir **durumu temizleyin ve yeniden** seçeneği Azure portalında veya uygun grafik API'si komutunu kullanarak. Bu, depolanan tüm Filigran temizler ve yeniden değerlendirilmesi tüm kaynak nesneleri neden olur.
@@ -167,7 +168,7 @@ Tek bir kullanıcı eklenemez, güncelleştirilmiş veya hedef sistemdeki bir ha
 
 Bu hatalar, kaynak sistemde etkilenen kullanıcının öznitelik değerlerini ayarlayarak ya da çakışmalarına neden değil için öznitelik eşlemelerini ayarlayarak çözülebilir.   
 
-### <a name="quarantine"></a>Karantinaya Al
+### <a name="quarantine"></a>Karantina
 Çoğu ya da tüm aramalarının hedef sistem karşı sürekli olarak yapılan (geçersiz yönetici kimlik bilgileri durumunda olduğu gibi) bir hata nedeniyle başarısız, ardından sağlama işi bir "karantina" durumuna geçtiğinde. Bu belirtilen [özet raporu sağlama](active-directory-saas-provisioning-reporting.md)ve e-posta bildirimleri Azure portalında yapılandırıldıysa e-posta yoluyla. 
 
 Karantinadaki olduğunda, artımlı eşitlemeler sıklığını kademeli olarak günde bir kez için azaltılır. 
@@ -216,33 +217,31 @@ Tamamlamak süresini etkileyen faktörler özetini bir **ilk eşitleme**:
 * Oran sınırları ve hedef sistem tarafından uygulanan kısıtlama isteyin. Bazı hedef sistemleri isteği oran sınırları ve hangi büyük eşitleme işlemler sırasındaki performansınızı etkileyebilir azaltma uygular. Bu koşullar altında çok fazla ister çok hızlı bir uygulama veya kendi yanıt hızını yavaş bağlantı kapatın. Performansı artırmak için bağlayıcı uygulama isteklerini uygulama bunları işleyebileceğinden daha hızlı göndererek değil ayarlamak gerekir. Microsoft tarafından oluşturulan sağlama bağlayıcılar bu ayarlama olun. 
 
 * Sayı ve boyutu, atanan grupları. Grupları atanan eşitleniyor kullanıcılar eşitleniyor daha uzun sürer. Hem sayı hem de atanan grupları boyutlarını performansını etkiler. Bir uygulama varsa [grup nesnesi eşitleme için etkinleştirilmiş eşlemeleri](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings), grup özellikleri gibi Grup adları ve üyeliklerinin yanı sıra kullanıcıların eşitlenen. Bu ek eşitlemeler yalnızca kullanıcı nesneleri eşitleniyor daha uzun sürer.
- 
 
-## <a name="frequently-asked-questions"></a>Sık sorulan sorular
 
-**Geçerli sağlama işinin ilerleme durumunu nasıl izleyebilir miyim?**
+##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Kullanıcıların düzgün sağlanan durumunda nasıl anlayabilirim?
 
-Bkz: [sağlama raporlama Kılavuzu](active-directory-saas-provisioning-reporting.md).
+Hizmet sağlama kullanıcı tarafından gerçekleştirilen tüm işlemler Azure AD'de kayıtlı denetim günlükleri. Bu, tüm içerir okuma ve yazma kaynak ve hedef sistemlerinin yanı sıra hangi kullanıcı verilerini okuma veya her işlemi sırasında yazılmış yapılan işlemleri.
 
-**Kullanıcıların düzgün sağlanan alma başarısız olursa nasıl anlarım?**
+Nasıl okuma Azure portalında denetim günlüklerini hakkında daha fazla bilgi için bkz: [sağlama raporlama Kılavuzu](active-directory-saas-provisioning-reporting.md).
 
-Tüm hataları Azure AD'de kayıtlı denetim günlükleri. Daha fazla bilgi için bkz: [sağlama raporlama Kılavuzu](active-directory-saas-provisioning-reporting.md).
 
-**Sağlama hizmeti ile çalışan bir uygulama nasıl oluşturabilir miyim?**
+##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Kullanıcı sağlama sorunları nasıl sorun giderme?
 
-Bkz: [kullanıcıları ve grupları Azure Active Directory'den uygulamalara otomatik olarak sağlamak için SCIM'yi kullanma](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
+Senaryo tabanlı otomatik kullanıcı sağlamayı ile ilgili sorunları giderme hakkında yönergeler için bkz [yapılandırma ve uygulama kullanıcılara sağlama sorunları](active-directory-application-provisioning-content-map.md).
 
-**Mühendislik ekibine geribildirim nasıl gönderebilir miyim?**
 
-Aracılığıyla Bize Ulaşın [Azure Active Directory geri bildirim Forumunda](https://feedback.azure.com/forums/169401-azure-active-directory/).
+##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Otomatik kullanıcı sağlamayı kullanıma alma için en iyi uygulamalar nelerdir?
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+Bir uygulamaya giden kullanıcı hazırlama için bir örnek adım adım dağıtım planı için bkz: [kullanıcı sağlamayı kimlik Dağıtım Kılavuzu](https://aka.ms/userprovisioningdeploymentplan)/
 
 
 ## <a name="related-articles"></a>İlgili makaleler
-* [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](saas-apps/tutorial-list.md)
 * [Kullanıcı sağlama öznitelik eşlemelerini özelleştirme](active-directory-saas-customizing-attribute-mappings.md)
 * [Özellik eşlemeleri için ifade yazma](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [Kapsam belirleme filtreleri kullanıcı sağlama](active-directory-saas-scoping-filters.md)
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD eşitleme API genel bakış](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-* [Giden kullanıcı bir uygulama sağlama için adım adım dağıtım planı](https://aka.ms/userprovisioningdeploymentplan)
-

@@ -6,7 +6,7 @@ StorSimple cihazına Bakım modu güncelleştirmeleri uyguladığınızda, tüm 
 > * Bakım modu girmeden önce her iki aygıt denetleyicileri Azure portalında sağlıklı olduğunu doğrulayın. Denetleyici sağlam, değilse [Microsoft Destek birimine başvurun](../articles/storsimple/storsimple-8000-contact-microsoft-support.md) sonraki adımlar için.
 > * Bakım modunda olduğunda, önce bir denetleyici ve ardından diğer denetleyicisi güncelleştirmeniz gerekir.
 
-1. Seri konsoluna bağlanmak için PuTTY kullanın. [Seri konsola bağlanmak için PuTTy kullanma](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) bölümündeki ayrıntılı yönergeleri izleyin. Komut isteminde **Enter** tuşuna basın. Tam erişimi olan aygıt oturum seçeneği 1'i seçin.
+1. Seri konsoluna bağlanmak için PuTTY kullanın. [Seri konsola bağlanmak için PuTTy kullanma](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console) bölümündeki ayrıntılı yönergeleri izleyin. Komut isteminde **Enter** tuşuna basın. Seçenek 1 **oturum oturum tam erişim**.
 
 2. Bakım moduna denetleyicisi için şunu yazın:
     
@@ -30,7 +30,7 @@ StorSimple cihazına Bakım modu güncelleştirmeleri uyguladığınızda, tüm 
 
     `Get-HcsFirmwareVersion`
    
-    Beklenen disk bellenim sürümleri şunlardır:`XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
+    Beklenen disk bellenim sürümleri şunlardır:  `XMGJ, XGEG, KZ50, F6C2, VR08, N003, 0107`
 
 6. Bakım modundan çıkın. Her aygıt denetleyicisi için aşağıdaki komutu yazın:
 

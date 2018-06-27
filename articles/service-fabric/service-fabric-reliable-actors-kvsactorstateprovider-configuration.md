@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: f29754c73db74f02214522a4de15904e65df0e98
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208269"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017656"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Güvenilir aktörler--KVSActorStateProvider yapılandırma
 Belirtilen aktör için Microsoft Visual Studio Paketi kök yapılandırma klasörü altında oluşturulan settings.xml dosyasını değiştirerek KVSActorStateProvider varsayılan yapılandırmasını değiştirebilirsiniz.
@@ -35,6 +35,10 @@ Azure Service Fabric çalışma zamanı settings.xml dosyasında tanımlanmış 
 Çoğaltıcı güvenlik yapılandırmalarını çoğaltma sırasında kullanılır ve iletişim kanalının güvenliğini sağlamak için kullanılır. Bu hizmetler yüksek oranda kullanılabilir hale getirileceğini verileri de güvenli olduğundan emin olmanın birbirlerinin çoğaltma trafiği, göremeyeceği anlamına gelir.
 Varsayılan olarak, bir boş güvenlik yapılandırması bölümü çoğaltma güvenlik engeller.
 
+> [!IMPORTANT]
+> Linux düğümleri üzerinde sertifikaların PEM biçimlendirilmiş olması gerekir. Daha fazla hakkında bulma ve Linux için sertifikaları yapılandırma öğrenmek için bkz [Linux'ta sertifikaları yapılandırma](./service-fabric-configure-certificates-linux.md). 
+> 
+
 ### <a name="section-name"></a>Bölüm adı
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
@@ -46,7 +50,7 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 &lt;ActorName&gt;ServiceReplicatorConfig
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| name | Birim | Varsayılan değer | Açıklamalar |
+| Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
 | ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için uç nokta kaynakları hizmet bildiriminde tanımlama hakkında. |
@@ -63,7 +67,7 @@ Varsayılan yapılandırma Visual Studio şablon tarafından oluşturulan ve yet
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| name | Birim | Varsayılan değer | Açıklamalar |
+| Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Milisaniye |200 |Toplu işleme aralığı dayanıklı yerel depo yürütme için maksimum ayarlar. |
 | MaxVerPages |Sayfa sayısı |16384 |En fazla yerel sürüm sayfa sayısını veritabanına depolar. Bekleyen işlemlerin sayısını belirler. |

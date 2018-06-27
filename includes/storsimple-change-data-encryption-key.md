@@ -39,7 +39,7 @@ Bu adım, StorSimple arabirimi yetkili StorSimple cihazında için Windows Power
 Windows PowerShell arabirimine bağlamak için cihaz seri konsoluna kullanıyorsanız, aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-initiate-the-service-data-encryption-key-change"></a>Hizmet verileri şifreleme anahtarı değişikliğini başlatmak için
-1. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
+1. Seçenek 1, seçin **oturum oturum tam erişim**.
 2. Komut istemine yazın:
    
      `Invoke-HcsmServiceDataEncryptionKeyChange`
@@ -60,7 +60,7 @@ StorSimple Yöneticisi hizmetinize kayıtlı birden çok aygıt varsa, bu adıml
 Hizmet verileri şifreleme aygıtınızda güncelleştirmek için aşağıdaki adımları gerçekleştirin.
 
 #### <a name="to-update-the-service-data-encryption-key"></a>Hizmet verileri şifreleme anahtarı güncelleştirmek için
-1. StorSimple için Windows PowerShell konsoluna bağlanmak için kullanın. Tam erişimle oturum açmak için 1 seçeneğini belirleyin.
+1. StorSimple için Windows PowerShell konsoluna bağlanmak için kullanın. Seçenek 1, seçin **oturum oturum tam erişim**.
 2. Komut istemine yazın:
    
     `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`

@@ -8,14 +8,14 @@ manager: kamran.iqbal
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 6f2bf2ae454d5af1bba0c176940db1820268a129
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266286"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021672"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmeti tümleştirmek
 [Konuşma hizmet](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesnelerinin HALUK tahmin dönmek için tek bir istek kullanmanıza olanak sağlar.
@@ -23,6 +23,9 @@ ms.locfileid: "36266286"
 Bu makalede, indirin ve mikrofon içine bir utterance seslendir ve HALUK tahmin bilgi almak için Visual Studio'da bir C# projesi kullanın. Konuşma projenin kullandığı [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) paket, önceden bir başvuru olarak eklendi. 
 
 Bu makalede, ücretsiz bir gereksinim duyduğunuz [HALUK] [ LUIS] uygulama içe aktarmak için Web sitesi hesabı.
+
+## <a name="create-luis-endpoint-key"></a>HALUK uç noktası anahtarı oluşturma
+Azure portalında [oluşturma](luis-how-to-azure-subscription.md#create-luis-endpoint-key) bir **dil anlama** (HALUK) anahtarı. 
 
 ## <a name="import-human-resources-luis-app"></a>İnsan Kaynakları HALUK Al uygulama
 Kullanılabilir İnsan Kaynakları HALUK uygulamadan amaçları ve bu makalenin utterances olan [HALUK-Samples](https://github.com/Microsoft/LUIS-Samples) Github depo. Karşıdan [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) dosya *.json uzantısıyla kaydedin ve [alma](create-new-app.md#import-new-app) HALUK içine. 
@@ -40,11 +43,22 @@ Do I have any paid time off?
 Uygulama aldıktan sonra Seç **varlıklar**, ardından **önceden oluşturulmuş varlıkları Yönet**. Ekleme **anahtar cümlesi** varlık. Anahtar cümlesi varlık utterance anahtar konuyla ilgili ayıklar.
 
 ## <a name="train-and-publish-the-app"></a>Eğitmek ve uygulama yayımlama
-Eğitmek ve uygulamayı yayımlama. Üzerinde **Yayımla** sayfasında, uygulama kimliği toplamak, bölge ve abonelik kimliğini yayımlama Bu makalenin sonraki bölümlerinde bu değerleri kullanmak için kodu değiştirmeniz gerekir. 
+1. Üst, sağ gezinti çubuğunda seçin **eğitmek** düğmesi HALUK uygulama eğitmek için.
 
-Bu değerler tüm alt kısmındaki uç nokta URL'si dahil edilen **Yayımla** sayfası. 
+2. Seçin **Yayımla** Yayımla sayfasına gidin. 
 
-https://**bölge**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonelik anahtarı =**LUISKEY**& q =
+3. Ekranın alt kısmındaki **Yayımla** sayfasında, eklemek oluşturulan HALUK anahtar [oluşturma HALUK uç noktası anahtarı](#create-luis-endpoint-key) bölümü.
+
+4. Seçerek HALUK uygulamayı yayımlama **Yayımla** Yayımla yuvası sağdaki düğme. 
+
+  Üzerinde **Yayımla** sayfasında, uygulama kimliği toplamak, bölgeye ve abonelik kimliği oluşturulan HALUK anahtarının yayımlama [oluşturma HALUK uç noktası anahtarı](#create-luis-endpoint-key) bölümü. Bu makalenin sonraki bölümlerinde bu değerleri kullanmak için kodu değiştirmeniz gerekir. 
+
+  Bu değerler tüm alt kısmındaki uç nokta URL'si dahil edilen **Yayımla** oluşturduğunuz anahtarı için sayfa. Yapmak **değil** bu alıştırma için ücretsiz başlangıç anahtarı kullanın. 
+
+  https://**bölge**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonelik anahtarı =**LUISKEY**& q =
+
+## <a name="audio-device"></a>Ses aygıtı
+Bu makalede, bilgisayarınızda ses aygıtını kullanır. Kulaklık mikrofon veya yerleşik bir ses aygıtı sahip olabilir. Ses aygıt tarafından algılanan konuşmanızı sağlamak için normalde verilenden daha yüksek sesle konuşurken varsa görmek için ses giriş düzeylerini denetleyin. 
 
 ## <a name="download-the-luis-sample-project"></a>HALUK örnek projenizi indirin
  Kopyalama veya indirme [HALUK-Samples](https://github.com/Microsoft/LUIS-Samples) deposu. Açık [hedefi projesine konuşma](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-speech-intent-recognition) Visual Studio ile ve NuGet paketleri geri yükleyin. VS çözüm.\LUIS-Samples-master\documentation-samples\tutorial-speech-intent-recognition\csharp\csharp_samples.sln dosyasıdır.

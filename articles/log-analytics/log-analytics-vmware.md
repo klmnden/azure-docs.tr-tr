@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775120"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019309"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Günlük analizi çözümüne VMware izleme (Önizleme)
 
@@ -33,7 +33,7 @@ Günlük analizi VMware izleme çözümde, Merkezi günlük kaydı ve büyük VM
 Çözüm ESXi ana hedef OMS Aracısı VM veri göndermek için yerel syslog işlevselliğini kullanır. Bununla birlikte, çözümü hedef VM içinde syslog içine dosyaları yazma değil. OMS Aracısı bağlantı noktası 1514 açar ve bu dinler. Verileri aldıktan sonra OMS Aracısı günlük analizi veri iter.
 
 ## <a name="install-and-configure-the-solution"></a>Yükleyin ve yapılandırın
-Yüklemek ve çözüm yapılandırmak için aşağıdaki bilgileri kullanın.
+Çözümü yüklemek ve yapılandırmak için aşağıdaki bilgileri kullanın.
 
 * Açıklanan işlemi kullanarak aboneliğinizi VMware izlemesi çözümü eklemek [bir yönetim çözümü eklemek](log-analytics-add-solutions.md#add-a-management-solution).
 
@@ -87,7 +87,7 @@ Aşağıdaki tabloda, veri toplama yöntemleri ve verileri nasıl toplanır ilgi
 
 Aşağıdaki tabloda VMware izlemesi çözümü tarafından toplanan veri alanları örnekleri göster:
 
-| Alan adı | açıklama |
+| alan adı | açıklama |
 | --- | --- |
 | Device_s |VMware depolama aygıtları |
 | ESXIFailure_s |hata türleri |

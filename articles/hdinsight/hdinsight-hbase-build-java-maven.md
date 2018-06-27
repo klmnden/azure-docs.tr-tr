@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84facb99b2264b48ede7306ae87a79605e6e8bed
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f5a8c33f2bd3c89b1049435f15d7bf2020248afa
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597097"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019332"
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>Windows tabanlı Hdınsight (Hadoop) ile HBase kullanan Java uygulamaları oluşturmak için Maven kullanın
 Oluşturma ve derleme öğrenin bir [Apache HBase](http://hbase.apache.org/) Apache Maven kullanarak Java uygulaması. Daha sonra uygulamayı Azure Hdınsight (Hadoop) ile kullanın.
 
-[Maven](http://maven.apache.org/) , yazılım, belge ve Java projeleri için raporlar oluşturmanıza olanak sağlayan bir yazılım proje yönetimi ve kavrama aracıdır. Bu makalede, sorguları, oluşturan ve Azure Hdınsight kümesinde bir HBase tablosu siler temel bir Java uygulaması oluşturmak için nasıl kullanılacağını öğrenin.
+[Maven](http://maven.apache.org/) , yazılım, belge ve Java projeleri için raporlar oluşturmanıza olanak sağlayan bir yazılım proje yönetimi ve kavrama aracıdır. Bu makalede, sorguları, oluşturur ve Azure Hdınsight kümesinde bir HBase tablosu siler temel bir Java uygulaması oluşturmak üzere kullanmak nasıl öğrenin.
 
 > [!IMPORTANT]
 > Bu belgede yer alan adımlar Windows kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -135,7 +135,7 @@ Oluşturma ve derleme öğrenin bir [Apache HBase](http://hbase.apache.org/) Apa
     Bu `<plugins>` bölüm yapılandırır [Maven derleyici eklentisi](http://maven.apache.org/plugins/maven-compiler-plugin/) ve [Maven gölge eklentisi](http://maven.apache.org/plugins/maven-shade-plugin/). Eklenti derleyici topoloji derlemek için kullanılır. Eklenti gölge lisans çoğaltma Maven tarafından oluşturulmuş JAR paketindeki önlemek için kullanılır. Bu kullanılır yinelenen lisans dosyaları Hdınsight kümesinde çalışma zamanında bir hataya neden nedenidir. Gölge maven eklentisi ile kullanarak `ApacheLicenseResourceTransformer` uygulama bu hatayı önler.
 
     Maven gölge eklentisi ayrıca bir uber jar (veya fat jar) üreten uygulama tarafından istenen tüm bağımlılıkları içerir.
-4. Kaydet **pom.xml** dosya.
+4. **Pom.xml** dosyasını kaydedin.
 5. Adlı yeni bir dizin oluşturun **conf** içinde **hbaseapp** dizini. İçinde **conf** dizin adlı bir dosya oluşturun **hbase-site.xml**. Aşağıdaki dosyasının içeriği kullanın:
 
         <?xml version="1.0"?>
@@ -595,7 +595,7 @@ Hdınsight kümenize bir dosyayı karşıya yüklemeyi birçok yolu vardır aç�
 
     Değiştir **hdinsightclustername** Hdınsight kümenizin adıyla.
 
-    Bu komut kullanır **SearchByEmail** sınıfı için herhangi bir satır arama nerede **contactinformation** sütun ailesi ve **e-posta** sütunu içeren dize **contoso.com**. Aşağıdaki sonuçları almanız gerekir:
+    Bu komut kullanır **SearchByEmail** sınıfı için herhangi bir satır arama nerede **contactinformation** sütun ailesi ve **e-posta** sütun dizeiçeriyor**contoso.com**. Aşağıdaki sonuçları almanız gerekir:
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2

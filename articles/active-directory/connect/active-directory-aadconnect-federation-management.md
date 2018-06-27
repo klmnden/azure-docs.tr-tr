@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 276e53784b30c2196ad7455cf9fd801a103fdc30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590863"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961698"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Yönetmek ve Azure AD Connect kullanarak Active Directory Federasyon Hizmetleri özelleştirme
 Bu makalede, Azure Active Directory (Azure AD) Connect kullanarak nasıl yöneteceğinizi ve Active Directory Federasyon Hizmetleri (AD FS) özelleştirme açıklanır. Ayrıca, bir AD FS grubu için bir tam yapılandırma yapmanız gerekebilecek diğer ortak AD FS görevler içerir.
@@ -246,31 +246,8 @@ Bu kural, yalnızca geçici bayrağı denetimi **idflag**. Kendi değere göre t
 > Bu kurallar sırası önemlidir.
 
 ### <a name="sso-with-a-subdomain-upn"></a>Bir alt etki alanı UPN SSO'su
-Azure AD Connect kullanarak açıklandığı gibi birleştirilecek birden fazla etki alanı ekleyebilirsiniz [yeni bir Federasyon etki alanına eklemek](active-directory-aadconnect-federation-management.md#addfeddomain). Böylece verenin kimliği kök etki alanı ve alt değil karşılık gelen alt Federasyon kök etki alanı da kapsar çünkü kullanıcı asıl adı (UPN) talebi değiştirmeniz gerekir.
 
-Varsayılan olarak, verenin kimliği için talep kuralı olarak ayarlanır:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![Varsayılan veren kimliği talebi](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-Varsayılan kural yalnızca UPN soneki alır ve veren kimliği talep kullanır. Örneğin, John sub.contoso.com içinde bir kullanıcıdır ve contoso.com Azure AD ile birleştirildiyse. John girer john@sub.contoso.com Azure AD ile oturum açma sırasında kullanıcı adı olarak. AD FS'de varsayılan veren kimliği talep kuralı aşağıdaki şekilde gerçekleştirir:
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**Talep değeri:**  http://sub.contoso.com/adfs/services/trust/
-
-Yalnızca kök etki alanı verenin talep değeri sağlamak için talep kuralı aşağıdaki eşleşecek şekilde değiştirin:
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+Azure AD Connect kullanarak açıklandığı gibi birleştirilecek birden fazla etki alanı ekleyebilirsiniz [yeni bir Federasyon etki alanına eklemek](active-directory-aadconnect-federation-management.md#addfeddomain). Azure AD Connect sürümü 1.1.553.0 ve son doğru talep kuralı oluşturur issuerID için otomatik olarak. Azure AD Connect sürüm 1.1.553.0 kullanamazsınız veya son, önerilir [Azure AD RPT talep kuralları](https://aka.ms/aadrptclaimrules) aracı oluşturmak ve Azure AD bağlı olan taraf güveni için doğru talep kurallarını ayarlamak için kullanılır.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Daha fazla bilgi edinmek [kullanıcı oturum açma seçenekleri](active-directory-aadconnect-user-signin.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: df9f53694cd72a700d593550bfde13a4f25180db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27779100"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021762"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS çalıştıran bir StorSimple konakta MPIO'yu yapılandırın
 Bu makalede, Centos 6.6 ana bilgisayar sunucusunda çoklu yol oluşturma g/ç (MPIO) yapılandırmak için gereken adımları açıklar. Ana bilgisayar sunucusu Microsoft Azure StorSimple Cihazınızı iSCSI başlatıcıları aracılığıyla yüksek kullanılabilirlik için bağlı. Bu, çok yollu aygıtlar ve yalnızca StorSimple birimler için özel kurulum otomatik olarak bulmayı ayrıntılı olarak açıklanmaktadır.
@@ -120,7 +120,7 @@ Bu bölümde, CentOS sunucu ve StorSimple cihazınız için yapılandırma önko
    4. İSCSI başlatıcısı önyükleme süresince etkinleştirildiğinden emin olmak için kullanmak `chkconfig` hizmeti etkinleştirmek için komutu.
       
        `chkconfig iscsi on`
-   5. Oluştu, düzgün şekilde Kur'un doğrulamak için komutu çalıştırın:
+   5. Bu düzgün Kurulum olduğunu doğrulamak için komutu çalıştırın:
       
        `chkconfig --list | grep iscsi`
       
@@ -438,7 +438,7 @@ Daha fazla bilgi için Git [etkileşimli komutu çoklu yol oluşturma için soru
 | &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y` |Önyükleme sırasında başlatmak çok yollu arka plan programı etkinleştir |
 | &nbsp; |`multipathd –k` |Sorun giderme için etkileşimli konsolunu başlatın |
 | &nbsp; |`multipath –l` |Liste çok yollu bağlantıları ve cihazlar |
-| &nbsp; |`mpathconf --enable` |Bir örnek mulitpath.conf dosya oluşturma`/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Bir örnek mulitpath.conf dosya oluşturma `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Sonraki adımlar

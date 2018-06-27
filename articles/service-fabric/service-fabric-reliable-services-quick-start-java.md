@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208310"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019704"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services özelliğini kullanmaya başlayın
 > [!div class="op_single_selector"]
@@ -116,10 +116,10 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 }
 ```
 
-Bu öğreticide, biz odaklanmak `runAsync()` giriş noktası yöntemi. Hemen kodunuzu çalıştırmaya başlayabileceğiniz budur.
+Bu öğretici odaklanır `runAsync()` giriş noktası yöntemi. Hemen kodunuzu çalıştırmaya başlayabileceğiniz budur.
 
 ### <a name="runasync"></a>RunAsync
-Bir hizmet örneği yerleştirilen ve çalıştırılmaya hazır olduğunda platform bu yöntemi çağırır. Hizmet örneği açıldığında durumsuz bir hizmet için basitçe anlamına gelir. Hizmet örneğinizi kapatılması gerektiğinde koordine etmek için bir iptal belirteci sağlanır. Service Fabric bu hizmet örneği Aç/Kapat döngüsünü birçok kez ömrü hizmeti bir bütün olarak ortaya çıkabilir. Bu da dahil olmak üzere çeşitli nedenlerden kaynaklanabilir:
+Bir hizmet örneği yerleştirilen ve çalıştırılmaya hazır olduğunda platform bu yöntemi çağırır. Hizmet örneği açıldığında durumsuz bir hizmet için anlamına gelir. Hizmet örneğinizi kapatılması gerektiğinde koordine etmek için bir iptal belirteci sağlanır. Service Fabric bu hizmet örneği Aç/Kapat döngüsünü birçok kez ömrü hizmeti bir bütün olarak ortaya çıkabilir. Bu da dahil olmak üzere çeşitli nedenlerden kaynaklanabilir:
 
 * Sistem, hizmet örneği için kaynak Dengeleme taşır.
 * Kodunuzdaki hataları oluşur.
@@ -201,16 +201,16 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
 ```
 
-[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) durumunu hizmetinde güvenilir bir şekilde depolamak için kullanabileceğiniz bir sözlük uygulamasıdır. Service Fabric ve güvenilir Hashmaps, hizmetiniz bir dış kalıcı depoya gerek kalmadan doğrudan veri depolayabilirsiniz. Güvenilir Hashmaps verilerinizin yüksek oranda kullanılabilir yap. Service Fabric gerçekleştirir, bu, oluşturma ve birden çok yönetme *çoğaltmaları* hizmetinizin sizin için. Ayrıca, hemen yinelemeler ve bunların durumu geçişleri yönetme karmaşıklıkları soyutlar bir API sağlar.
+[ReliableHashMap](https://docs.microsoft.com/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) durumunu hizmetinde güvenilir bir şekilde depolamak için kullanabileceğiniz bir sözlük uygulamasıdır. Service Fabric ve güvenilir HashMaps, hizmetiniz bir dış kalıcı depoya gerek kalmadan doğrudan veri depolayabilirsiniz. Güvenilir HashMaps verilerinizin yüksek oranda kullanılabilir yap. Service Fabric gerçekleştirir, bu, oluşturma ve birden çok yönetme *çoğaltmaları* hizmetinizin sizin için. Ayrıca, hemen yinelemeler ve bunların durumu geçişleri yönetme karmaşıklıkları soyutlar bir API sağlar.
 
 Güvenilir koleksiyonları birkaç uyarılar, özel türleri dahil olmak üzere, herhangi bir Java türü depolayabilirsiniz:
 
-* Service Fabric durumunuza tarafından yüksek oranda kullanılabilir kılar *çoğaltma* durumu düğümler ve güvenilir Hashmap boyunca her kopyada verilerinizi yerel diske depolar. Bu güvenilir Hashmaps depolanan her şey olması gerektiği anlamına gelir *seri hale getirilebilir*. 
-* Güvenilir Hashmaps hareketleri yaparsanız nesneleri yüksek kullanılabilirlik için çoğaltılır. Güvenilir Hashmaps içinde depolanan nesneleri hizmetinizi yerel bellekte tutulur. Bu nesne için yerel bir referans olduğu anlamına gelir.
+* Service Fabric durumunuza tarafından yüksek oranda kullanılabilir kılar *çoğaltma* durumu düğümler ve güvenilir HashMap boyunca her kopyada verilerinizi yerel diske depolar. Bu güvenilir HashMaps depolanan her şey olması gerektiği anlamına gelir *seri hale getirilebilir*. 
+* Güvenilir HashMaps hareketleri yaparsanız nesneleri yüksek kullanılabilirlik için çoğaltılır. Güvenilir HashMaps içinde depolanan nesneleri hizmetinizi yerel bellekte tutulur. Bu nesne için yerel bir referans olduğu anlamına gelir.
   
-   Bu nesne yerel örnekleri işlemde güvenilir koleksiyonu bir güncelleştirme işlemi gerçekleştirilirken olmadan mutate değil, önemlidir. Yerel nesnelerin örneklerini değişiklikler otomatik olarak çoğaltılmayacak olmasıdır. Nesneyi sözlüğün geri yeniden eklemek veya birini kullanın *güncelleştirme* sözlük yöntemleri.
+   Bu nesne yerel örnekleri işlemde güvenilir koleksiyonu bir güncelleştirme işlemi gerçekleştirilirken olmadan mutate değil, önemlidir. Yerel nesnelerin örneklerini değişiklikler otomatik olarak çoğaltılmayacak olmasıdır. Sözlüğün geri nesne takın veya birini kullanın *güncelleştirme* sözlük yöntemleri.
 
-Güvenilir durum Yöneticisi güvenilir Hashmaps tarafından yönetilir. Yalnızca güvenilir durum Yöneticisi için güvenilir bir koleksiyon adıyla herhangi bir zamanda ve herhangi bir yerde hizmetinizi sorabilirsiniz. Bir başvuru ulaşırsınız güvenilir durum Yöneticisi'ni sağlar. Verme öneririz, güvenilir koleksiyonu örneklerine başvuruları sınıf üyesi değişkenleri veya özellikleri kaydetmeniz. Başvuru hizmet yaşam döngüsü içinde her zaman bir örneğine ayarlandığından emin olmak için özel dikkatli olunması gerekir. Güvenilir durum Yöneticisi bu iş, işler ve yineleme ziyaretleriniz için optimize edilmiştir.
+Güvenilir durum Yöneticisi güvenilir HashMaps tarafından yönetilir. Güvenilir durum Yöneticisi için güvenilir bir koleksiyon adıyla herhangi bir zamanda ve herhangi bir yerde hizmetinizi sorabilirsiniz. Bir başvuru ulaşırsınız güvenilir durum Yöneticisi'ni sağlar. Sınıf üyesi değişkenleri veya özellikleri güvenilir koleksiyonu örneklerine başvuruları kaydetmenizi öneririz yok. Başvuru hizmet yaşam döngüsü içinde her zaman bir örneğine ayarlandığından emin olmak için özel dikkatli olunması gerekir. Güvenilir durum Yöneticisi bu iş, işler ve yineleme ziyaretleriniz için optimize edilmiştir.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>İşlem ve zaman uyumsuz işlemler
@@ -231,12 +231,12 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 });
 ```
 
-Güvenilir Hashmaps işlemleri zaman uyumsuzdur. Yazma işlemleri güvenilir koleksiyonlarıyla çoğaltabilir ve verileri diske kalıcı hale getirmek için g/ç işlemleri olmasıdır.
+Güvenilir HashMaps işlemleri zaman uyumsuzdur. Yazma işlemleri güvenilir koleksiyonlarıyla çoğaltabilir ve verileri diske kalıcı hale getirmek için g/ç işlemleri olmasıdır.
 
-Güvenilir Hashmap işlemleri *işlem*, böylece, durumu tutarlı birden çok güvenilir Hashmaps ve işlemler arasında tutabilirsiniz. Örneğin, bir güvenilir sözlükten bir iş öğesini almak, bir işlem gerçekleştirmek ve sonucu anoter tümü tek bir işlem içinde güvenilir Hashmap kaydetmek. Bu atomik bir işlem olarak kabul edilir ve tüm işlemi başarılı olur veya tüm işlem geri alma güvence altına alır. Öğe dequeue sonra bir hata oluşursa, ancak sonuç kaydetmeden önce tüm işlem geri alındı ve işleme sırasındaki öğesi kalır.
+Güvenilir HashMap işlemleri *işlem*, böylece, durumu tutarlı birden çok güvenilir HashMaps ve işlemler arasında tutabilirsiniz. Örneğin, bir güvenilir sözlükten bir iş öğesini almak, bir işlem gerçekleştirmek ve tümünü tek bir işlem içinde başka bir güvenilir HashMap sonucu kaydetmek. Bu atomik bir işlem olarak kabul edilir ve tüm işlemi başarılı olur veya tüm işlem geri alma güvence altına alır. Öğe dequeue sonra bir hata oluşursa, ancak sonuç kaydetmeden önce tüm işlem geri alındı ve işleme sırasındaki öğesi kalır.
 
 
-## <a name="run-the-application"></a>Uygulamayı çalıştırma
+## <a name="build-the-application"></a>Uygulama oluşturma
 
 Yeoman yapı iskelesi uygulama oluşturup dağıtın ve uygulamayı kaldırmak için komut dosyaları bash bir gradle komut dosyası içerir. Uygulamayı çalıştırmak için ilk uygulama gradle ile oluşturun:
 
@@ -246,13 +246,31 @@ $ gradle
 
 Bu, Service Fabric CLI kullanarak dağıtılan bir Service Fabric uygulama paketi oluşturur.
 
-### <a name="deploy-with-service-fabric-cli"></a>Service Fabric CLI ile dağıtma
+## <a name="deploy-the-application"></a>Uygulamayı dağıtma
 
-Uygulama paketi dağıtmak için gerekli Service Fabric CLI komutları install.sh komut dosyası içerir. Uygulamayı dağıtmak için install.sh komut dosyasını çalıştırın.
+Uygulama oluşturulduktan sonra uygulamayı yerel kümeye dağıtabilirsiniz.
 
-```bash
-$ ./install.sh
-```
+1. Yerel Service Fabric kümesine bağlanın.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. Uygulama paketini kümenin görüntü deposuna kopyalamak, uygulama türünü kaydetmek ve uygulamanın bir örneğini oluşturmak için şablonda verilen yükleme betiğini çalıştırın.
+
+    ```bash
+    ./install.sh
+    ```
+
+Oluşturulan uygulamayı dağıtma işlemi, diğer tüm Service Fabric uygulamalarında olduğu gibidir. Ayrıntılı yönergeler için [Service Fabric uygulamasını Service Fabric CLI ile yönetme](service-fabric-application-lifecycle-sfctl.md) ile ilgili belgelere bakın.
+
+Bu komutların parametreleri, uygulama paketi içinde oluşturulmuş bildirimlerde bulunabilir.
+
+Uygulama dağıtıldığında bir tarayıcı açın ve [http://localhost:19080/Explorer](http://localhost:19080/Explorer) konumundaki [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)'a gidin. Ardından, **Uygulamalar** düğümünü genişletin ve geçerli olarak uygulamanızın türü için bir giriş ve bu türün ilk örneği için başka bir giriş olduğuna dikkat edin.
+
+> [!IMPORTANT]
+> Uygulamayı azure'da güvenli bir Linux kümesi dağıtmak için Service Fabric çalışma zamanı ile uygulamanızı doğrulamak için bir sertifika yapılandırmanız gerekir. Bunun yapılması, temel alınan Service Fabric çalışma API'leri ile iletişim kurmak güvenilir hizmetler hizmetlerinizi sağlar. Daha fazla bilgi için bkz: [Linux kümeleri üzerinde çalıştırmak için güvenilir hizmetler uygulamasını yapılandırma](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+>
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

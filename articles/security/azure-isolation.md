@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010889"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018423"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure genel bulutunda yalıtımı
 ##  <a name="introduction"></a>Giriş
@@ -121,7 +121,7 @@ ISO/IEC 27001 gibi denetlenen sertifikalar ile iş Hizmetleri, Microsoft ve yasa
 
 Herhangi bir veri silerseniz, Microsoft Azure önbelleğe alınmış veya yedek kopyaları dahil olmak üzere verileri siler. Kapsamı içindeki hizmetler için bu silme saklama süresi dolduktan sonra 90 gün içinde ortaya çıkar. (Kapsam services veri işleme koşulları bölümünde tanımlanmış bizim [çevrimiçi Hizmet Koşulları'nı](http://aka.ms/Online-Services-Terms).)
 
-Depolama için kullanılan bir disk sürücüsü bir donanım hatası varsa, güvenli bir şekilde olan [silinmesi veya tahrip](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data) değiştirme veya onarım için üreticinin döndürür Microsoft önce. Herhangi bir yolla veriler kurtarılamaz emin olmak için sürücüdeki verilerin üzerine yazılır.
+Depolama için kullanılan bir disk sürücüsü bir donanım hatası varsa, güvenli bir şekilde olan [silinmesi veya tahrip](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) değiştirme veya onarım için üreticinin döndürür Microsoft önce. Herhangi bir yolla veriler kurtarılamaz emin olmak için sürücüdeki verilerin üzerine yazılır.
 
 ## <a name="compute-isolation"></a>Yalıtım işlem
 Microsoft Azure, geniş işlem örnekleri içeren çeşitli bulut tabanlı bilgi işlem hizmetler & Yukarı ve aşağı otomatik olarak uygulamanızı veya Kurumsal ihtiyaçlarını karşılamak üzere ölçeği hizmetleri sağlar. Bu işlem örneğinde ve hizmet yalıtım veri yapılandırma esneklik ödün vermeden, müşterilerinizin talep güvenliğini sağlamak için birden çok düzeyleri sunar.

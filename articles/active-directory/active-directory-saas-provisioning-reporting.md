@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e2ab7efdec326a7f1a2c7f3e7b7d0f379efa8606
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293186"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025958"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Öğretici: otomatik olarak bir kullanıcı hesabı sağlama raporlama
 
@@ -30,9 +30,9 @@ Bu makalede, bunlar ayarlanan sonra işleri sağlama durumunu kontrol etme ve te
 
 ## <a name="overview"></a>Genel Bakış
 
-Sağlama bağlayıcılar öncelikle ayarlanır ve kullanılarak yapılandırılan [Azure Yönetim Portalı](https://portal.azure.com), izleyerek [belgelerine sağlanan](active-directory-saas-tutorial-list.md) burada kullanıcı hesabı sağlama, uygulama için İstenen. Yapılandırılmış ve çalışan sonra bir uygulama için işleri sağlama iki yöntemden birini kullanarak bildirilebilir:
+Sağlama bağlayıcılar kurulur ve kullanılarak yapılandırılan [Azure portal](https://portal.azure.com), izleyerek [belgelerine sağlanan](saas-apps/tutorial-list.md) desteklenen uygulama için. Yapılandırılmış ve çalışıyor sonra işleri sağlama iki yöntemden birini kullanarak bildirilebilir:
 
-* **Azure Yönetim Portalı** -bu makalede, öncelikle rapor bilgilerini alma açıklanır [Azure Yönetim Portalı](https://portal.azure.com), hem bir sağlama özet raporu yanı sıra sağlama ayrıntılı denetim sağlar belirli bir uygulamada günlükleri.
+* **Azure Yönetim Portalı** -bu makalede, öncelikle rapor bilgilerini alma açıklanır [Azure portal](https://portal.azure.com), hem bir özet raporu sağlama hem de ayrıntılı sağlama denetim günlüklerini sağlayan bir Belirtilen uygulama.
 
 * **API denetim** -Azure Active Directory ayrıca bir denetim ayrıntılı sağlama denetim günlüklerini programlı alınmasını sağlayan API sağlar. Bkz: [Azure Active Directory denetim API Başvurusu](active-directory-reporting-api-audit-reference.md) bu API'yi kullanarak belirli belgeleri için. Bu makalede API kullanma özellikle kapsamaz olsa da, Denetim günlüğüne kaydedilen olayları sağlama türleri detaylandırır.
 
@@ -54,23 +54,23 @@ Başlatarak sağlama belirli bir uygulamada rapor bilgilerini almak için başla
 Buradan, hazırlama özet raporu hem sağlama denetim günlüklerini erişebilir, her ikisi de aşağıda açıklanmıştır.
 
 
-### <a name="provisioning-summary-report"></a>Sağlama özet raporu
+## <a name="provisioning-summary-report"></a>Sağlama özet raporu
 
-Sağlama özet raporu görünür **sağlama** uygulama sekmesinde için. Eşitleme ayrıntıları bölümü altında bulunan **ayarları**ve aşağıdaki bilgileri sağlar:
+Sağlama özet raporu görünür **sağlama** uygulama sekmesinde için. Bulunur **eşitleme ayrıntıları** altında bölümünde **ayarları**ve aşağıdaki bilgileri sağlar:
 
-* Toplam sayısı, kullanıcı ve / grupları, eşitlenmemiş ve şu anda kapsamında kaynak ve hedef sistemleri arasında sağlama.
+* Toplam sayısı, kullanıcı ve / grupları, eşitlenmemiş ve şu anda kapsamında kaynak ve hedef sistemleri arasında sağlama
 
-* En son ne zaman eşitleme çalıştırıldı. Eşitlemeler genellikle 20-40 tam eşitleme tamamlandıktan sonra dakikada oluşur.
+* En son ne zaman eşitleme çalıştırıldı. Eşitlemeler genellikle ortaya her 20-40 dakika sonra bir [ilk eşitleme](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) tamamlandı.
 
-* Desteklemediğini ilk tam Eşitleme tamamlandı.
+* Olsun veya olmasın bir [ilk eşitleme](active-directory-saas-app-provisioning.md#what-happens-during-provisioning) tamamlandı
 
-* Sağlama işlemini Karantinadaki yerleştirilmiş olup olmadığına ve karantina durum nedeni örn (geçersiz yönetici kimlik bilgileri nedeniyle hedef sistemiyle iletişim kurulamıyor) nedir
+* Sağlama işlemini Karantinadaki yerleştirilmiş olup olmadığına ve (örneğin, geçersiz yönetici kimlik bilgileri nedeniyle hedef sistemiyle iletişim kurulamıyor) karantina durum nedeni nedir
 
 Sağlama özet raporu sağlama işi işletimsel durumunu denetlemek için ilk yer admins görünüm olmalıdır.
 
  ![Özet rapor](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>Sağlama denetim günlükleri
+## <a name="provisioning-audit-logs"></a>Sağlama denetim günlükleri
 Sağlama hizmeti tarafından gerçekleştirilen tüm etkinlikler görüntülenebilir Azure AD denetim günlüklerine kaydedilir **denetim günlüklerini** altında sekmesinde **hesap sağlama** kategorisi. Günlüğe kaydedilen etkinlik olay türleri şunlardır:
 
 * **Olayları alma** -hizmet sağlama Azure AD, bir kaynak sistemi veya hedef sistem tek bir kullanıcı veya grup hakkında bilgi alır her zaman bir "alma" olayı kaydedilir. Eşitleme sırasında kullanıcılar kaynak sistemden ilk olarak, "olayları Al"olarak kaydedilen sonuçlarıyla alınır. Alınan kullanıcı eşleşen kimlikleri, de "Al" olayları olarak kaydedilen sonuçlarla varsa denetlemek için hedef sistemine karşı seçmeleri istenir. Bu olaylar, tüm eşlenen kullanıcı öznitelikleri ve olay aynı anda hizmet sağlama Azure AD tarafından görülen değerlerine kaydeder. 
@@ -87,9 +87,9 @@ Olayları tek bir kullanıcı için sağlama sırasında bakarken olaylar normal
 
 2. Alma olayı: hedef sistem sorgulanan alınan kullanıcı varlığını denetlemek için.
 
-3. Eşitleme kuralı olayı: kullanıcı verilerini hedef ve kaynak sistemlerden eşleme kurallarını ve kapsam belirleme filtreleri varsa, hangi eylemin gerçekleştirileceğini belirlemek için yapılandırılmış öznitelik karşı değerlendirilir.
+3. Eşitleme kuralı olayı: kullanıcı verilerini hedef ve kaynak sistemlerden yapılandırılmış öznitelik eşleme kurallarını ve varsa, hangi eylemin gerçekleştirileceğini belirlemek için kapsam filtreler karşı değerlendirilir.
 
-4. Olayı ver: eşitleme kuralını olay eylem olması gerektiğini dikte varsa (örneğin ekleme, güncelleştirme, silme), eylem sonuçlarını dışarı aktarma olayda kaydedilir sonra gerçekleştirilen.
+4. Olayı ver: eşitleme kuralını olay eylem olması gerektiğini belirler, eylem sonuçlarını dışarı aktarma olayda kaydedilir sonra gerçekleştirilen (ekleme, güncelleştirme, silme).
 
 ![Bir Azure AD test kullanıcısı oluşturma](./media/active-directory-saas-provisioning-reporting/audit_logs.PNG)
 
@@ -104,7 +104,7 @@ En yaygın kullanım için sağlama denetim günlüklerini bireysel bir kullanı
 
 3. İçinde **tarih aralığı** menüsünde, aramak istediğiniz tarih aralığını seçin
 
-4. İçinde **arama** çubuğu, aramak istediğiniz kullanıcının kullanıcı Kimliğini girin. Kimliği değerinin biçimi ne olursa olsun özniteliği eşleme yapılandırması (örn. userPrincipalName veya çalışan kimlik numarası) birincil eşleşen kimliği olarak seçtiğiniz eşleşmesi gerekir. Gerekli kimlik değeri hedeflere sütununda görünür.
+4. İçinde **arama** çubuğu, aramak istediğiniz kullanıcının kullanıcı Kimliğini girin. Kimliği değerinin biçimi ne olursa olsun (örneğin, userPrincipalName veya çalışan kimlik numarası) özellik eşlemesi yapılandırmasında birincil eşleşen kimliği olarak seçtiğiniz eşleşmesi gerekir. Gerekli kimlik değeri hedeflere sütununda görünür.
 
 5. Arama için Enter tuşuna basın. En son sağlama olayların ilk döndürülür.
 

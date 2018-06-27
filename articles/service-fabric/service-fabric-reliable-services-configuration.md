@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c5aaf9869326f2de86d3bff33f36e8f967f3e6fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3e058242840a3fa8b86c9ae9d5a0940cc02f04d2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210010"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020398"
 ---
 # <a name="configure-stateful-reliable-services"></a>Durum bilgisi olan güvenilir hizmetler yapılandırın
 Güvenilir hizmetler için yapılandırma ayarlarını iki kümesi vardır. Diğer küme belirli bir güvenilir hizmete özgü olsa da bir kümedeki tüm güvenilir hizmetler için genel kümesidir.
@@ -28,7 +28,7 @@ Güvenilir hizmetler için yapılandırma ayarlarını iki kümesi vardır. Diğ
 Genel güvenilir hizmet yapılandırmasını KtlLogger bölümünde küme için küme bildiriminde belirtilir. Paylaşılan günlük konumunu ve boyutunu ve Günlükçü tarafından kullanılan genel bellek sınırları yapılandırmanızı sağlar. Küme bildirimi ayarları ve tüm düğümleri ve küme Hizmetleri'nde geçerli yapılandırmaları tutan tek bir XML dosyasıdır. Dosya genellikle ClusterManifest.xml çağrılır. Küme görebilirsiniz Get-ServiceFabricClusterManifest powershell komutunu kullanarak, kümeniz için bildirim.
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| name | Birim | Varsayılan değer | Açıklamalar |
+| Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobayt |8388608 |Çekirdek modunda Günlükçü yazma arabelleği bellek havuzu için ayrılacak KB minimum sayısı. Bu bellek havuzundaki durum bilgilerini diske yazma önce önbelleğe almak için kullanılır. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobayt |Sınırsız |Günlükçü yazma arabelleği bellek havuzundaki en büyük boyutu büyüyebilir. |
@@ -83,6 +83,11 @@ Varsayılan olarak, Azure Service Fabric çalışma zamanı Settings.xml dosyas�
 ### <a name="replicator-security-configuration"></a>Çoğaltıcı güvenlik yapılandırması
 Çoğaltıcı güvenlik yapılandırmalarını çoğaltma sırasında kullanılır ve iletişim kanalının güvenliğini sağlamak için kullanılır. Bu hizmetler yüksek oranda kullanılabilir hale getirileceğini verileri de güvenli olduğundan emin olmanın birbirlerinin çoğaltma trafiği, görmeye olmayacak anlamına gelir. Varsayılan olarak, bir boş güvenlik yapılandırması bölümü çoğaltma güvenlik engeller.
 
+> [!IMPORTANT]
+> Linux düğümleri üzerinde sertifikaların PEM biçimlendirilmiş olması gerekir. Daha fazla hakkında bulma ve Linux için sertifikaları yapılandırma öğrenmek için bkz [Linux'ta sertifikaları yapılandırma](./service-fabric-configure-certificates-linux.md). 
+> 
+> 
+
 ### <a name="default-section-name"></a>Varsayılan bölüm adı
 ReplicatorSecurityConfig
 
@@ -104,7 +109,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Yapılandırma adları
-| name | Birim | Varsayılan değer | Açıklamalar |
+| Ad | Birim | Varsayılan değer | Açıklamalar |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Saniye |0.015 |Kendisi için göndermeden önce bir işlem aldıktan sonra ikincil bekler adresindeki çoğaltıcı geri bir bildirim için birincil süre. Bu aralık dahilinde işlenen işlemleri için gönderilmek üzere başka bir onayları bir yanıt olarak gönderilir. |
 | ReplicatorEndpoint |Yok |Varsayılan yok--gerekli parametre |IP adresi ve birincil/ikincil çoğaltıcı diğer çoğaltıcılar yineleme ile iletişim kurmak için kullanacağı bağlantı noktası olarak ayarlayın. Bu hizmet bildiriminde TCP kaynak uç noktası başvuruda bulunmalıdır. Başvurmak [Service manifest kaynakları](service-fabric-service-manifest-resources.md) daha fazla bilgi için bir hizmet bildirimi uç noktası kaynakları tanımlama hakkında. |

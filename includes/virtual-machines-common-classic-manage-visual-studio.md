@@ -35,7 +35,7 @@ Bir sanal makine oluştururken [Azure Yönetim Portalı](http://go.microsoft.com
      Bir Visual Studio düzeyi abonelikle bir MSDN abone değilseniz, Visual Studio gibi çeşitli diğer görüntüleri içeren bir önceden oluşturulmuş Azure sanal makine oluşturabilirsiniz. Daha fazla bilgi için bkz: [bir sanal makine Visual Studio kullanarak görüntüleri Visual Studio 2013 galeri görüntüsü tarafından MSDN aboneleri için oluşturmak](http://visualstudio2013msdngalleryimage.azurewebsites.net) ve [MSDN Abonelikleri](https://www.visualstudio.com/products/msdn-subscriptions-vs). |
 5. Üzerinde **sanal makine temel ayarları** sayfasında, bir makine adı girin ve ardından boyutu ve bir kullanıcı adı ve parola gibi sanal makinenin özelliklerini ekleyin. İşiniz bittiğinde tıklatın **sonraki**.
    
-    Unutmanız durumunda bunları not almanız iyi bir fikirdir Uzak Masaüstü'nü kullanarak makinede oturum için yeni bir ad ve parolayı kullanacaksınız. Visual Studio'da bir Azure sanal makine oluşturduktan sonra boyutuna ve diğer ayarları değiştirebilirsiniz [Azure Yönetim Portalı](http://go.microsoft.com/fwlink/?LinkID=253103).
+    Uzak Masaüstü'nü kullanarak, unutmanız durumunda bunları not almanız iyi bir fikirdir makinede oturum açmak için yeni bir ad ve parolayı kullanacaksınız. Visual Studio'da bir Azure sanal makine oluşturduktan sonra boyutuna ve diğer ayarları değiştirebilirsiniz [Azure Yönetim Portalı](http://go.microsoft.com/fwlink/?LinkID=253103).
    
    > [!NOTE]
    > Sanal makine için daha büyük boyutları seçerseniz, ek ücretleri uygulanabilir. Bkz: [sanal makineler fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/virtual-machines/) daha fazla bilgi için.
@@ -68,7 +68,7 @@ Bir sanal makine oluştururken [Azure Yönetim Portalı](http://go.microsoft.com
     
      ![Sanal makine etkinlik günlüğü - tamamlandı.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744139.png)
     
-     İşlem başarıyla tamamlanırsa altında yeni bir sanal makine görünür **sanal makineleri** Sunucu Gezgininde. İçine tıklayarak oturum **Uzak Masaüstü kullanarak bağlanmak** kısayol.
+     İşlem başarıyla tamamlanırsa altında yeni bir sanal makine görünür **sanal makineleri** Sunucu Gezgininde. Kendisine tıklayarak oturum açabildiğinizi **Uzak Masaüstü kullanarak bağlanmak** kısayol.
     
      ![Server Explorer'da görünen sanal makine.](./media/virtual-machines-common-classic-create-manage-visual-studio/IC744140.png)
 

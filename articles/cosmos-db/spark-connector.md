@@ -3,19 +3,19 @@ title: Apache Spark Azure Cosmos DB bağlanma | Microsoft Docs
 description: Apache Spark dağıtılmış toplanmalar ve veri sciences üzerinde çoklu kiracı genel gerçekleştirmek için Azure Cosmos DB'de dağıtılmış veritabanı sistem Microsoft'tan bağlanmanıza olanak sağlayan Azure Cosmos DB Spark Bağlayıcısı hakkında bilgi edinmek için bu öğreticiyi kullanın Bu Bulut için tasarlanmıştır.
 keywords: Apache spark
 services: cosmos-db
-author: dennyglee
+author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: denlee
-ms.openlocfilehash: 3502a5af5de546de0b66521e29c37f5edfdbc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: ramkris
+ms.openlocfilehash: 47abd2f3534a0f3418bc09e19a61e222093e7099
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612631"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960483"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Spark ile gerçek zamanlı büyük veri analizi Azure Cosmos DB bağlayıcıya hızlandırmak
 

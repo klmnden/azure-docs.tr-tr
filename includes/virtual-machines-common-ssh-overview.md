@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 04/16/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 919582745d166cf8b3f3937f9bac4fc0dc1fe64f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5e199771c39ba2fbdeabbd04ed4081a9cd3ea117
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "31613415"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36964527"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>SSH ve anahtarları genel bakış
 
-SSH güvenli olmayan bağlantıları üzerinden güvenli oturum açma bilgileri veren bir şifreli bir bağlantı protokolüdür. Bu Azure'da barındırılan Linux VM'ler için varsayılan bağlantı protokolüdür. SSH kendisini şifreli bir bağlantı sağlasa da, SSH bağlantılarla parolalarla hala VM yanılma saldırılarını veya parolalarını tahmin açık halde kalır. SSH kullanarak bir VM bağlayan daha güvenli ve tercih edilen bir yöntem olarak da bilinen SSH anahtarları bir genel-özel anahtar çifti kullanmaktır. 
+SSH güvenli olmayan bağlantıları üzerinden güvenli oturum açma işlemlerine izin veren bir şifreli bir bağlantı protokolüdür. Bu Azure'da barındırılan Linux VM'ler için varsayılan bağlantı protokolüdür. SSH kendisini şifreli bir bağlantı sağlasa da, SSH bağlantılarla parolalarla hala VM yanılma saldırılarını veya parolalarını tahmin açık halde kalır. SSH kullanarak bir VM bağlayan daha güvenli ve tercih edilen bir yöntem olarak da bilinen SSH anahtarları bir genel-özel anahtar çifti kullanmaktır. 
 
 * *Ortak anahtar* Linux VM veya ortak anahtar şifrelemesi ile kullanmak istediğiniz başka bir hizmet yerleştirilir.
 

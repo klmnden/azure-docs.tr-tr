@@ -9,19 +9,19 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 64a5c4e761653748c4328e310f9a399fe62f9149
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352396"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018035"
 ---
 # <a name="emotion-api-java-for-android-quick-start"></a>Duygu tanıma API'si Java Android hızlı başlangıç
 
 > [!IMPORTANT]
 > Video API Önizleme 30 Ekim 2017 sona erer. Yeni deneyin [Video dizin oluşturucu API önizlemesi](https://azure.microsoft.com/services/cognitive-services/video-indexer/) kolayca videoların öngörüleri ayıklamak ve konuşulan sözcüklerin, yüzler, karakterler ve duygular algılayarak arama sonuçları gibi içerik bulma deneyimlerini geliştirmek üzere. [Daha fazla bilgi edinin](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
-Bu makalede bilgiler sağlar ve hızlı bir şekilde yardımcı olmak için bir kod örneği ile çalışmaya başlama [duygu tanıması yöntemi](https://dev.projectoxford.ai/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) duygu tanıma API'si Android istemci Kitaplığı'nda. Örnek kişiler tarafından ifade duygular tanımak için Java nasıl kullanabileceğinizi gösterir. 
+Bu makalede bilgiler sağlar ve hızlı bir şekilde yardımcı olmak için bir kod örneği ile çalışmaya başlama [duygu tanıması yöntemi](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) duygu tanıma API'si Android istemci Kitaplığı'nda. Örnek kişiler tarafından ifade duygular tanımak için Java nasıl kullanabileceğinizi gösterir. 
 
 ## <a name="prerequisites"></a>Önkoşullar
 * Duygu tanıma API'si Java için Android SDK'sı Al [burada](https://github.com/Microsoft/Cognitive-emotion-android)

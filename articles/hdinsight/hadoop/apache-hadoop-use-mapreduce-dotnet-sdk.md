@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 068d63b7c96dd6729ebc46fb92a136be43b84385
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2b5c265827c30ec9f62cc902aa348e050aec7ba1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200869"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019613"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Hdınsight .NET SDK kullanarak MapReduce işleri çalıştırma
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -179,6 +179,6 @@ Bu makalede, Hdınsight kümesi oluşturmanın birkaç yolu öğrendiniz. Daha f
 * Hive işi göndermek için bkz: [Hdınsight .NET SDK kullanarak Hive sorgularını çalıştırma](apache-hadoop-use-hive-dotnet-sdk.md).
 * Hdınsight kümeleri oluşturmak için bkz: [Hdınsight oluşturma Linux tabanlı Hadoop kümeleri](../hdinsight-hadoop-provision-linux-clusters.md).
 * Hdınsight kümeleri için bkz. [Hdınsight'ta Hadoop yönetmek kümeleri](../hdinsight-administer-use-portal-linux.md).
-* Hdınsight .NET SDK'sı öğrenmek için bkz: [Hdınsight .NET SDK'sı başvurusu](https://msdn.microsoft.com/library/mt271028.aspx).
+* Hdınsight .NET SDK'sı öğrenmek için bkz: [Hdınsight .NET SDK'sı başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 * İçin etkileşimli olmayan için Azure kimlik doğrulaması yapmak için bkz: [etkileşimli olmayan kimlik doğrulama .NET Hdınsight uygulamaları oluşturma](../hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 

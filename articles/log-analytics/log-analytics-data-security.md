@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 8558b3b1f5a9036f1134ddce3302211b41f57c05
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37026096"
 ---
 # <a name="log-analytics-data-security"></a>Günlük analizi veri güvenliği
 Bu belge hakkında bilgi tamamlamak için Azure günlük analizi belirli bilgiler sağlamak için yöneliktir [Azure Güven Merkezi](../security/security-microsoft-trust-center.md).  
@@ -27,16 +28,16 @@ Bu makalede nasıl veri toplanan, işlenen ve günlük analizi tarafından güve
 
 Günlük analizi hizmeti aşağıdaki yöntemleri kullanarak bulut tabanlı verilerinizi güvenli bir şekilde yönetir:
 
-* veriler arasında ayrım yapma
+* Veriler arasında ayrım yapma
 * Veri saklama
 * Fiziksel güvenlik
 * Olay yönetimi
 * Uyumluluk
-* güvenlik standartları sertifikaları
+* Güvenlik standartları sertifikaları
 
 Herhangi bir sorunuz, öneriler veya bizim güvenlik ilkeleri de dahil olmak üzere aşağıdaki bilgileri ile ilgili sorunlar ile başvuracaklarını [Azure destek seçenekleri](http://azure.microsoft.com/support/options/).
 
-## <a name="data-segregation"></a>veriler arasında ayrım yapma
+## <a name="data-segregation"></a>Veriler arasında ayrım yapma
 Verilerinizi günlük analizi hizmeti tarafından alınan sonra veriler hizmet boyunca her bir bileşende mantıksal olarak ayrı tutulur. Tüm veriler çalışma etiketlenir. Bu etiketleme, veri yaşam döngüsü boyunca devam eder ve her bir hizmet katmanında uygulanır. Verilerinizi seçtiğiniz bölgede depolama kümesi adanmış bir veritabanında depolanır.
 
 ## <a name="data-retention"></a>Veri saklama
@@ -67,7 +68,7 @@ Aşağıdaki tabloda veri türlerine örnek olarak gösterilmiştir:
 | Durum |StateChangeEventId, stateId, NewHealthState, OldHealthState, bağlam, TimeGenerated, TimeAdded, StateId2, Basemanagedentityıd, Monitorıd, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>Fiziksel güvenlik
-Günlük analizi hizmeti Microsoft personeli tarafından yönetilir ve tüm etkinlikler günlüğe kaydedilir ve denetlenebilir. Günlük analizi bir Azure hizmeti olarak çalıştırılır ve tüm Azure uyumluluk ve güvenlik gereksinimlerini karşılıyor. Sayfasında 18 Azure varlıklar fiziksel güvenliğinin ilgili ayrıntıları görüntüleyebilirsiniz [Microsoft Azure güvenlik genel bakış](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Alanları güvenliğini sağlamak için fiziksel erişim hakları artık aktarımı ve sonlandırma dahil olmak üzere OMS hizmetine sorumluluğu olan herkes için bir iş günü içinde değişir. Kullanırız adresindeki genel fiziksel altyapı hakkında bilgi edinebilirsiniz [Microsoft Datacenters](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx).
+Günlük analizi hizmeti Microsoft personeli tarafından yönetilir ve tüm etkinlikler günlüğe kaydedilir ve denetlenebilir. Günlük analizi bir Azure hizmeti olarak çalıştırılır ve tüm Azure uyumluluk ve güvenlik gereksinimlerini karşılıyor. Sayfasında 18 Azure varlıklar fiziksel güvenliğinin ilgili ayrıntıları görüntüleyebilirsiniz [Microsoft Azure güvenlik genel bakış](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf). Alanları güvenliğini sağlamak için fiziksel erişim hakları artık aktarımı ve sonlandırma dahil olmak üzere OMS hizmetine sorumluluğu olan herkes için bir iş günü içinde değişir. Kullanırız adresindeki genel fiziksel altyapı hakkında bilgi edinebilirsiniz [Microsoft Datacenters](https://azure.microsoft.com/en-us/global-infrastructure/).
 
 ## <a name="incident-management"></a>Olay yönetimi
 OMS tüm Microsoft hizmetlerini uygun bir olay Yönetimi işlemini sahiptir. Özetlemek gerekirse, biz:
@@ -91,10 +92,10 @@ OMS tüm Microsoft hizmetlerini uygun bir olay Yönetimi işlemini sahiptir. Öz
 
 Tüm Müşteri verilerinin kaybına ortaya çıkarsa, size bir gün içinde her bir müşteri bildirin. Ancak, müşteri veri kaybı hiçbir zaman hizmetiyle oluştu. 
 
-Microsoft güvenlik olaylarına nasıl yanıt vereceğini hakkında daha fazla bilgi için bkz: [bulutta Microsoft Azure Security Response](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
+Microsoft güvenlik olaylarına nasıl yanıt vereceğini hakkında daha fazla bilgi için bkz: [bulutta Microsoft Azure Security Response](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf).
 
 ## <a name="compliance"></a>Uyumluluk
-Günlük analizi yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve idare program yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını kendi iş gereksinimlerini destekleyen ve [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) ve [ Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Nasıl günlük analizi güvenlik gereksinimlerini oluşturur, güvenlik denetimleri tanımlar, yönetir ve riskleri izleyen de açıklanmaktadır vardır. Yıllık, biz gözden geçirme ilkeler, standartlar, yordamlar ve yönergeleri.
+Günlük analizi yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve idare program yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını kendi iş gereksinimlerini destekleyen ve [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) ve [ Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx). Nasıl günlük analizi güvenlik gereksinimlerini oluşturur, güvenlik denetimleri tanımlar, yönetir ve riskleri izleyen de açıklanmaktadır vardır. Yıllık, biz gözden geçirme ilkeler, standartlar, yordamlar ve yönergeleri.
 
 Her geliştirme ekibi üyesi resmi uygulama güvenlik eğitimi alır. Dahili olarak, sürüm denetimi sistemi yazılım geliştirme için kullanırız. Her yazılım projesi sürüm denetimi sistemi tarafından korunur.
 
@@ -112,10 +113,10 @@ Azure günlük analizi aşağıdaki gereksinimleri karşıladığından:
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * [Ödeme Kartı endüstrisi (PCI uyumlu) veri güvenliği standardı (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) PCI güvenlik standartları Council tarafından.
 * [Hizmet kuruluş denetimleri (SOC) 1 Type 1 ve SOC 2 tür 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) uyumlu
-* [HIPAA ve HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA) HIPAA iş ilişkilendirmek anlaşması olan şirketler için
+* [HIPAA ve HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) HIPAA iş ilişkilendirmek anlaşması olan şirketler için
 * Windows ortak mühendislik ölçütler
 * Microsoft Güvenilir Bilgi İşlem
-* Bir Azure hizmeti Azure uyumluluk gereksinimlerine yönelik günlük analizi kullandığı bileşenlerinin uyması. Hakkında daha fazla bilgi edinebilirsiniz [Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/TrustCenter/Compliance/default.aspx).
+* Bir Azure hizmeti Azure uyumluluk gereksinimlerine yönelik günlük analizi kullandığı bileşenlerinin uyması. Hakkında daha fazla bilgi edinebilirsiniz [Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx).
 
 > [!NOTE]
 > Bazı sertifikalar/attestations içinde günlük analizi eski adı altında listelenir *operasyonel Öngörüler*.
@@ -130,8 +131,8 @@ Aşağıdaki diyagramda bir bulut güvenlik mimarisini bilgi akışını şirket
 ## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Günlük analizi ve veri toplama için kaydolun
 Kuruluşunuz için günlük analizi veri göndermek Azure sanal makineler veya sanal veya fiziksel bilgisayarlarda ortamınızda veya diğer bulut sağlayıcısı olarak çalışan bir Windows veya Linux Aracısı yapılandırın.  Operations Manager kullanırsanız yönetim grubundaki Operations Manager Aracısı yapılandırın. (Bu da, diğer tek tek kullanıcılara veya bir grup kişi olabilir) kullanıcılar, bir veya daha fazla günlük analizi çalışma alanı oluşturma ve aracıları şu hesaplardan birini kullanarak kaydedin:
 
-* [Kuruluş Kimliği](../active-directory/sign-up-organization.md)
-* [Microsoft hesabı - Outlook Office Live, MSN](http://www.microsoft.com/account/default.aspx)
+* [Kuruluş Kimliği](../active-directory/fundamentals/sign-up-organization.md)
+* [Microsoft hesabı - Outlook Office Live, MSN](https://account.microsoft.com/account)
 
 Günlük analizi çalışma alanı burada veri, bir araya getirilir, analiz, sunulan ve toplanan ' dir. Bir çalışma alanı öncelikle bölüm veri için bir yol olarak kullanılır ve her çalışma benzersizdir. Örneğin, bir çalışma alanıyla yönetilen üretim verilerinizi ve başka bir çalışma alanıyla yönetilen test verileri isteyebilirsiniz. Çalışma alanları, bir yönetici kullanıcı erişimini denetleme verileri de yardımcı. Her çalışma kendisiyle ilişkili birden çok kullanıcı hesabı olabilir ve her kullanıcı hesabı birden çok günlük analizi çalışma erişebilir. Veri Merkezi bölgeye göre çalışma alanları oluşturun. Her çalışma diğer veri merkezlerine bölgede öncelikle günlük analizi hizmeti kullanılabilirlik için çoğaltılır.
 

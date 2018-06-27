@@ -1,6 +1,6 @@
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Veritabanı Altyapısı’nın varsayılan örneği için Windows güvenlik duvarında TCP bağlantı noktalarını açma
 1. Uzak Masaüstü kullanarak sanal makineye bağlanın. Sanal makineye bağlanma işleminin ayrıntılı yönergeleri için bkz. [Uzak Masaüstü ile SQL VM’yi Açma](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
-2. Oturum açtıktan sonra, Başlangıç ekranında **WF.msc** yazın ve ENTER tuşuna basın.
+2. Başlangıç ekranında oturum açan bir kez yazın **WF.msc**ve ardından ENTER tuşuna basın.
    
     ![Güvenlik Duvarı Programını başlatın](./media/virtual-machines-sql-server-connection-steps/12Open-WF.png)
 3. **Gelişmiş Güvenlik Özellikli Windows Güvenlik Duvarı**’nın sol bölmesinde **Gelen Kuralları**’na tıklayın ve ardından eylem bölmesinde **Yeni Kural**’a tıklayın.

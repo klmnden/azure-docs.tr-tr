@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 64e8a20f72d451908c12751c0f8062bf4ae86370
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 0e9ed70de6d72026b8e3469417c53d6923a8a85e
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021483"
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Öğesine/öğesinden Azure Data Factory kullanarak şirket içi Oracle veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,11 +53,14 @@ Bir Azure Iaas sanal Oracle barındırılan olsa bile ağ geçidi gereklidir. A�
 Bu Oracle bağlayıcı sürücülerin iki sürümlerini destekler:
 
 - **(Önerilen) Oracle için Microsoft sürücüsü**: veri yönetimi ağ geçidi sürümü 2.7, sürücü Oracle otomatik olarak ağ geçidi ile birlikte yüklenir, ayrıca gerek kalmaması için işlemek için sürücü Microsoft başlayarak Oracle bağlantı kurar ve bu sürücü kullanarak daha iyi kopyalama performansını da karşılaşabilirsiniz. Oracle sürümleri veritabanları desteklenir:
-    - Oracle 12c R1 (12.1)
+    - Oracle 12c R1 (12,1)
     - Oracle 11g R1, R2 (11.1, 11.2)
-    - Oracle 10g R1, R2 (10.1, 10.2)
+    - Oracle 10g R1, R2 (10,1, 10.2)
     - Oracle 9i R1, R2 (9.0.1, 9.2)
     - Oracle 8i R3 (8.1.7)
+
+> [!NOTE]
+> Oracle proxy sunucusu desteklenmiyor.
 
 > [!IMPORTANT]
 > Şu anda Oracle için Microsoft sürücüsü yalnızca Oracle ancak için Oracle yazılamıyor veri kopyalamayı destekler. Ve veri yönetimi ağ geçidi tanılama sekmesinde test bağlantısı özelliği bu sürücüyü desteklemiyor not edin. Alternatif olarak, bağlantıyı doğrulamak için kopyalama Sihirbazı'nı kullanabilirsiniz.
@@ -75,7 +79,7 @@ Farklı araçlar/API'lerini kullanarak bir şirket içi Oracle veritabanından/g
 
 Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
 Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -96,7 +100,7 @@ Aşağıdaki tabloda, JSON öğeleri Oracle bağlantılı hizmete özgü açıkl
 | type |Type özelliği ayarlanmalıdır: **OnPremisesOracle** |Evet |
 | driverType | Hangi sürücünün/Oracle veritabanına veri kopyalamak için kullanılacağını belirtin. İzin verilen değerler **Microsoft** veya **ODP** (varsayılan). Bkz: [desteklenen sürümü ve yükleme](#supported-versions-and-installation) sürücü ayrıntıları bölümü. | Hayır |
 | connectionString | ConnectionString özelliği için Oracle veritabanı örneğine bağlanmak için gereken bilgileri belirtin. | Evet |
-| gatewayName | Ağ geçidinin adı, şirket içi Oracle sunucusuna bağlanmak için kullanılır |Evet |
+| gatewayName | Şirket içi Oracle sunucusuna bağlanmak için kullanılan ağ geçidinin adı |Evet |
 
 **Örnek: Microsoft sürücüsü kullanma:**
 ```json
@@ -571,7 +575,7 @@ Verileri Oracle'dan taşırken, aşağıdaki eşlemelerini Oracle veri türünde
 
 | Oracle veri türü | .NET framework veri türü |
 | --- | --- |
-| BFILE |Byte] |
+| BDOSYA |Byte] |
 | BLOB |Byte]<br/>(yalnızca Oracle 10 g ve daha yüksek olduğunda desteklenen Microsoft sürücüsü kullanarak) |
 | CHAR |Dize |
 | CLOB |Dize |
@@ -586,9 +590,9 @@ Verileri Oracle'dan taşırken, aşağıdaki eşlemelerini Oracle veri türünde
 | NCLOB |Dize |
 | SAYI |Ondalık, dize (varsa precision > 28) |
 | NVARCHAR2 |Dize |
-| RAW |Byte] |
+| HAM |Byte] |
 | SATIR KİMLİĞİ |Dize |
-| TIMESTAMP |DateTime |
+| ZAMAN DAMGASI |DateTime |
 | YEREL SAAT DİLİMİ ZAMAN DAMGASI |DateTime |
 | SAAT DİLİMİ ZAMAN DAMGASI |DateTime |
 | İŞARETSİZ TAMSAYI |Sayı |

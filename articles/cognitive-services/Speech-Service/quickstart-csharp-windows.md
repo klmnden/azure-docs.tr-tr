@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 9f37547b4b183594410b4e16b872645407ff4a6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 64281215d139731b61365936bc1b837798ad8fbf
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35356250"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016843"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma C# SDK kullanarak konuşma tanı
 
@@ -33,7 +33,7 @@ Bu makalede, metin konuşma transcribe için Bilişsel hizmetler konuşma SDK's�
 
     ![Visual C# konsol uygulaması (.NET Framework) oluşturma](media/sdk/speechsdk-05-vs-cs-new-console-app.png "Visual C# konsol uygulaması oluşturma")
 
-2. Yükleyin ve konuşma SDK NuGet paketi başvuru. Çözüm Gezgini'nde çözüme sağ tıklayın ve seçin **çözüm için NuGet paketlerini Yönet**.
+2. Yükleme ve başvuru [konuşma SDK NuGet paketini](https://aka.ms/csspeech/nuget). Çözüm Gezgini'nde çözüme sağ tıklayın ve seçin **çözüm için NuGet paketlerini Yönet**.
 
     ![Sağ tıklatın, çözüm için NuGet paketlerini Yönet](media/sdk/speechsdk-06-vs-cs-manage-nuget-packages.png "çözüm NuGet paketlerini yönetme")
 

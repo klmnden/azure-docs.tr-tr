@@ -11,15 +11,15 @@ ms.assetid: e1e249ed-5f57-40d6-b3bc-a1b4d9a871d3
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 89c5ff86b6c59223e0580860e14fdffdaef2472c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f48aa68838ff8cac0119f66f168fce6008d388bc
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166115"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959031"
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Twitter verilerini Hdınsight'ta Hive ve Hadoop kullanarak çözümleme
 
@@ -32,7 +32,7 @@ Apache Hive işlem Twitter verilerini kullanmayı öğrenin. Sonucu, belirli bir
 
 ## <a name="get-the-data"></a>Verileri alma
 
-Twitter almanıza olanak tanır [her tweet için veri](https://dev.twitter.com/docs/platform-objects/tweets) bir REST API'si aracılığıyla JavaScript nesne gösterimi (JSON) belgesi olarak. [OAuth](http://oauth.net) API kimlik doğrulaması için gereklidir.
+Twitter bir REST API'si aracılığıyla JavaScript nesne gösterimi (JSON) belgesi olarak her tweet verilerini almanıza olanak tanır. [OAuth](http://oauth.net) API kimlik doğrulaması için gereklidir.
 
 ### <a name="create-a-twitter-application"></a>Twitter uygulaması oluşturma
 
@@ -337,5 +337,4 @@ Yapılandırılmamış bir JSON veri kümesi içinde yapılandırılmış bir Hi
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
 
-[twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter

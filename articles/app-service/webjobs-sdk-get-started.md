@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234536"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018464"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay denetimli arka plan işlemesi için Azure WebJobs SDK'sını kullanmaya başlama
 
@@ -66,6 +66,9 @@ Bu makalede, sahip olduğunuz varsayılmaktadır [bir Azure hesabı](https://azu
 2. Seçin **Windows Klasik Masaüstü > konsol uygulaması (.NET Framework)**.
 
    3.x projesi oluşturmak için seçin **.NET Core > konsol uygulaması (.NET Core)**.
+   
+   > [!NOTE]
+   > 3.x hala Önizleme aşamasındadır ve geliştirme aşamasındadır. Bu makaledeki 3.x yönergeleri eksik; en son bilgiler için sayfanın sonundaki GitHub sorunları bakın.
 
 3. Proje adı *WebJobsSDKSample*ve ardından **Tamam**.
 
@@ -320,7 +323,7 @@ Bu bölümde, Azure'a dağıtmadan önce Application Insights günlük ayarlama 
 
 4. İçinde **bağlantı dizeleri** kutusunda, aşağıdaki girişi ekleyin.
 
-   |Ad  |Bağlantı dizesi  |Veritabanı Türü|
+   |Ad  |bağlantı dizesi  |Veritabanı Türü|
    |---------|---------|------|
    |AzureWebJobsStorage | {daha önce kopyaladığınız depolama bağlantı dizesi}|Özel|
    

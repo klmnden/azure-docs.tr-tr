@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240233"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959391"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis önbelleği ölçeklendirme
 Azure Redis önbelleği, önbellek boyutunu ve özelliklerini seçimi esneklik sağlayan farklı önbellek teklifleri vardır. Bir önbellek oluşturulduktan sonra uygulamanızın gereksinimlerine değiştirirseniz boyutu ve önbellek fiyatlandırma katmanı ölçeklendirebilirsiniz. Bu makalede Azure portalı ve Azure PowerShell ve Azure CLI gibi araçları kullanarak önbelleğiniz ölçeklendirme gösterilmektedir.
@@ -154,7 +154,7 @@ Hayır, önbellek adı ve anahtarları bir ölçeklendirme işlemi sırasında d
 * **Temel** önbellekleri çevrimdışı işlemleri farklı bir boyut ölçeklendirme sırasında. Temel önbellekleri kullanılabilir olmaya devam eder gelen ölçeklendirdiğinizde **temel** için **standart** ancak, bir küçük bağlantı blip karşılaşabilirsiniz. Bir bağlantı blip meydana gelirse, redis istemcileri kendi hemen yeniden bağlantı mümkün olması gerekir.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>Coğrafi relication kısıtlamalarla ölçeklendirme
+### <a name="scaling-limitations-with-geo-replication"></a>Coğrafi çoğaltma ile ölçeklendirme sınırlamaları
 
 İki önbellekleri arasında bir coğrafi çoğaltma bağlantı ekledikten sonra bir ölçeklendirme işlemi başlatın ya da bir kümedeki parça sayısını değiştirme erişemezsiniz. Bu komutlar vermek için önbellek bağlantısını gerekir. Daha fazla bilgi için bkz: [yapılandırma coğrafi çoğaltma](cache-how-to-geo-replication.md).
 

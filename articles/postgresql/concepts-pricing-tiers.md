@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/21/2018
-ms.openlocfilehash: fc7a2316b5b006cbbf8a237c6a95a71b6489932b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753413"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018348"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure veritabanı fiyatlandırma katmanlarına PostgreSQL için
 
@@ -58,6 +58,7 @@ Bir sunucu oluşturduktan sonra sayısı vCores, donanım oluşturma ve fiyatlan
 | Güney Brezilya | X | X |
 | Kuzey Avrupa | X | X |
 | Batı Avrupa |  | X |
+| Fransa Orta |  | X |
 | Birleşik Krallık Batı |  | X |
 | Birleşik Krallık Güney |  | X |
 | Doğu Asya | X | X |

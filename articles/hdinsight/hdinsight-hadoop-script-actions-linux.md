@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: d5df67021e997df3a6344701f50be4871a11386d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406039"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018391"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Hdınsight ile betik eylemi geliştirme
 
 Bash betiklerini kullanarak Hdınsight kümenize özelleştirmeyi öğrenin. Betik eylemleri, sırasında veya Küme oluşturulduktan sonra Hdınsight özelleştirmek için bir yoldur.
 
 > [!IMPORTANT]
-> Bu belgede yer alan adımlar Linux kullanan bir Hdınsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Bu belgedeki adımlar, Linux kullanan bir HDInsight kümesi gerektirir. Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz. [Windows'da HDInsight'ın kullanımdan kaldırılması](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="what-are-script-actions"></a>Betik eylemleri nelerdir
 
@@ -41,7 +41,7 @@ Betik eylemleri aşağıdaki yöntemleri kullanarak uygulanabilir:
 | Azure PowerShell |✓ |✓ |
 | Azure CLI 1.0 |&nbsp; |✓ |
 | HDInsight .NET SDK'sı |✓ |✓ |
-| Azure Resource Manager şablonu |✓ |&nbsp; |
+| Azure Resource Manager Şablonu |✓ |&nbsp; |
 
 Betik eylemleri uygulamak için bu yöntemleri kullanma hakkında daha fazla bilgi için bkz: [özelleştirme Hdınsight kümeleri betik eylemleri kullanılarak](hdinsight-hadoop-customize-cluster-linux.md).
 
@@ -377,5 +377,5 @@ Değiştir `INFILE` AĞACI içeren dosya ile. `OUTFILE` Ürün reçetesi olmadan
 ## <a name="seeAlso"></a>Sonraki adımlar
 
 * Bilgi edinmek için nasıl [özelleştirme Hdınsight kümeleri betik eylemi kullanarak](hdinsight-hadoop-customize-cluster-linux.md)
-* Kullanım [Hdınsight .NET SDK'sı başvurusu](https://msdn.microsoft.com/library/mt271028.aspx) Hdınsight yönetmek .NET uygulamaları oluşturma hakkında daha fazla bilgi edinmek için
+* Kullanım [Hdınsight .NET SDK'sı başvurusu](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight) Hdınsight yönetmek .NET uygulamaları oluşturma hakkında daha fazla bilgi edinmek için
 * Kullanmak [Hdınsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) REST Hdınsight kümelerinde yönetim eylemleri gerçekleştirmek için nasıl kullanılacağını öğrenin.

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2dbe14f6c7f8f9f1dcfaf733dc884df5adf919aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f721c371687addfe48d753e7289df78c2be1f3c7
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593180"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958009"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect eşitleme hizmeti özellikleri
 Azure AD Connect eşitleme özelliği iki bileşenden oluşur:
@@ -58,7 +58,8 @@ Aşağıdaki ayarları Azure AD Connect tarafından yapılandırılır ve taraf�
 | DeviceWriteback |[Azure AD Connect: cihaz geri yazma özelliğini etkinleştirme](active-directory-aadconnect-feature-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect eşitleme: dizin uzantıları](active-directory-aadconnectsync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Dışa aktarma sırasında başarısız olan nesnenin tamamı yerine başka bir nesnenin yinelemesi karantinaya için bir öznitelik sağlar. |
-| PasswordSync |[Azure AD Connect eşitlemesi ile parola karma eşitlemesi uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+| Parola Karması Eşitleme |[Azure AD Connect eşitlemesi ile parola karma eşitlemesi uygulama](active-directory-aadconnectsync-implement-password-hash-synchronization.md) |
+|Doğrudan Kimlik Doğrulama|[Kullanıcı oturum açma ile Azure Active Directory doğrudan kimlik doğrulaması](active-directory-aadconnect-pass-through-authentication.md)|
 | UnifiedGroupWriteback |[Önizleme: Grup geri yazma](active-directory-aadconnect-feature-preview.md#group-writeback) |
 | UserWriteback |Şu anda desteklenmiyor. |
 

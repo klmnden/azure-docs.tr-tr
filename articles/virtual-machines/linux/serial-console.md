@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425342"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961958"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Sanal makine seri konsol (Önizleme) 
 
@@ -32,6 +32,7 @@ Azure sanal makine seri konsolunuzdaki Linux ve Windows sanal makineler için me
 
 ## <a name="prerequisites"></a>Önkoşullar 
 
+* Kaynak Yönetimi dağıtım modeli kullanıyor olmanız gerekir. Klasik dağıtımlar desteklenmez. 
 * Sanal makine olmalıdır [önyükleme tanılama](boot-diagnostics.md) etkin 
 * Seri konsol kullanarak hesabı olmalıdır [katkıda bulunan rolü](../../role-based-access-control/built-in-roles.md) VM için ve [önyükleme tanılama](boot-diagnostics.md) depolama hesabı. 
 * Linux distro için belirli ayarları için bkz: [seri konsol için Linux erişme](#accessing-serial-console-for-linux)
@@ -90,8 +91,8 @@ Sistem ağ kilitleme| Sistem yönetmek için portal aracılığıyla erişim ser
 ## <a name="accessing-serial-console-for-linux"></a>Linux için seri konsol erişme
 Düzgün bir şekilde seri Konsolu için sırayla okumak ve konsol iletileri seri bağlantı noktasına yazmak için konuk işletim sistemi yapılandırılmalıdır. Çoğu [destekli Azure Linux dağıtımları](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) varsayılan olarak yapılandırılan seri konsol vardır. Seri Konsol bölümünde portalında yalnızca tıklayarak konsoluna erişimi sağlar. 
 
-### <a name="access-for-redhat"></a>RedHat için erişim 
-RedHat görüntüleri Azure üzerinde kullanılabilir, varsayılan olarak etkin Konsolu erişebilir. Red Hat tek kullanıcı modunda varsayılan olarak devre dışı etkinleştirilmesi, kök kullanıcının gerektirir. Tek kullanıcı modunda etkinleştirmek için bir gereksiniminiz varsa, aşağıdaki yönergeleri kullanın:
+### <a name="access-for-red-hat"></a>Red Hat için erişim 
+Red Hat görüntüleri Azure üzerinde kullanılabilir, varsayılan olarak etkin Konsolu erişebilir. Red Hat tek kullanıcı modunda varsayılan olarak devre dışı etkinleştirilmesi, kök kullanıcının gerektirir. Tek kullanıcı modunda etkinleştirmek için bir gereksiniminiz varsa, aşağıdaki yönergeleri kullanın:
 
 1. Red Hat sistem SSH aracılığıyla oturum açın
 2. Kök kullanıcı için parola etkinleştir 

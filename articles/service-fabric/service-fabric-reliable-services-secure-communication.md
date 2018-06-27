@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: d185be26633178d8b3f147453b4c48eb77d7e425
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: be5dab7b9714f13a4bd30e6ab33a5a0e2016212d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753532"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020028"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>C# hizmetindeki hizmet remoting iletişimleri güvenli
 > [!div class="op_single_selector"]
@@ -57,7 +57,12 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
     ```
 2. Dinleyici ayarları ve güvenlik kimlik bilgileri ekleyin.
 
-    Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
+    Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. 
+    
+    > [!NOTE]
+    > Linux düğümleri üzerinde sertifika PEM biçimli dosya olarak mevcut olmalıdır */var/lib/sfcerts* dizini. Daha fazla bilgi için bkz: [konumu ve Linux düğümleri X.509 sertifikaları biçimini](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes). 
+
+    Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
 
    1. Bunları doğrudan hizmet kodunda sağlar:
 
@@ -202,5 +207,6 @@ C# hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirmek
     string message = await client.GetHelloWorld();
 
     ```
+
 
 Sonraki adım olarak, okuma [Reliable Services OWIN ile Web API](service-fabric-reliable-services-communication-webapi.md).

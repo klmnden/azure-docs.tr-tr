@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 88baa1385bfd64cab08299bc31a6f003f6b87e48
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257688"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019325"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation bağlantı varlıkları
 
@@ -80,7 +80,7 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
 ```
 
-Otomasyon hesabınızı oluşturduğunuzda, çünkü otomatik olarak çeşitli genel modüller bağlantı türü ile birlikte varsayılan içerir bağlantı varlığı oluşturmak için komut dosyası kullanabilmek için **AzurServicePrincipal** için oluşturma **AzureRunAsConnection** bağlantı varlığı.  Farklı kimlik doğrulama yöntemiyle bir hizmet veya uygulamaya bağlanmak için yeni bir bağlantı varlığı oluşturmayı denerseniz, bağlantı türü zaten Otomasyon hesabınızda tanımlanmadığı da başarısız olacağı için bunu göz önünde bulundurmanız önemlidir.  Özel veya modülünden için kendi bağlantı türünün nasıl oluşturulacağı konusunda daha fazla bilgi [PowerShell Galerisi](https://www.powershellgallery.com), bkz: [tümleştirme modülleri](automation-integration-modules.md)
+Otomasyon hesabınızı oluşturduğunuzda, çünkü otomatik olarak çeşitli genel modüller bağlantı türü ile birlikte varsayılan içerir bağlantı varlığı oluşturmak için komut dosyası kullanabilmek için **AzureServicePrincipal** için oluşturma **AzureRunAsConnection** bağlantı varlığı.  Farklı kimlik doğrulama yöntemiyle bir hizmet veya uygulamaya bağlanmak için yeni bir bağlantı varlığı oluşturmayı denerseniz, bağlantı türü zaten Otomasyon hesabınızda tanımlanmadığı da başarısız olacağı için bunu göz önünde bulundurmanız önemlidir.  Özel veya modülünden için kendi bağlantı türünün nasıl oluşturulacağı konusunda daha fazla bilgi [PowerShell Galerisi](https://www.powershellgallery.com), bkz: [tümleştirme modülleri](automation-integration-modules.md)
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Bir runbook ya da DSC yapılandırması bir bağlantı kullanarak
 

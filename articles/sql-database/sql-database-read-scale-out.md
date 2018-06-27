@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/26/2018
 ms.author: sashan
-ms.openlocfilehash: 8de70c01f4c04d6df85c2f5acfe9efe18ff59c0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fb6e8f4420b739b5ac84f1d5c185fddc740c551a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649695"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018522"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Salt okunur çoğaltmaların salt okunur sorgu dengelemeye (Önizleme) yüklemek için kullanın
 
@@ -65,6 +65,7 @@ Aşağıdaki sorguyu çalıştırarak salt okunur bir kopyasına bağlanan olup 
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
+
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Etkinleştirme ve Azure PowerShell kullanarak okunur genişleme devre dışı
 
 Okuma genişleme Azure PowerShell'de yönetme gerektirir aralık 2016 Azure PowerShell sürüm veya daha yeni. En yeni PowerShell sürüm için bkz: [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
@@ -106,6 +107,14 @@ Body:
 ```
 
 Daha fazla bilgi için bkz: [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate).
+
+## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Coğrafi olarak çoğaltılmış veritabanlarıyla okuma genişleme kullanma
+
+Varsa olduğunuz okuma genişleme kullanarak salt okunur dengelemeye (örneğin bir bir yük devretme grubunun üyesi olarak), coğrafi olarak çoğaltılmış bir veritabanı üzerinde yükleme bu okuma genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkinleştirildiğinden emin olun. Uygulamanız için yeni birincil yük devretme sonrasında bağlandığında, bu aynı Yük Dengeleme etkisi güvence altına alır. Coğrafi olarak çoğaltılmış ikincil veritabanını okuma-etkinse, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` birincil veritabanında biz rota bağlantıları aynı şekilde çoğaltmaları birine yönlendirilir.  Oturumları olmadan `ApplicationIntent=ReadOnly` de salt okunur olduğu coğrafi olarak çoğaltılmış ikincil birincil çoğaltmadan yönlendirilir. 
+
+> [!NOTE]
+> Önizleme sırasında hepsini gerçekleştirmez veya ikincil veritabanını yerel yinelemeler arasında yönlendirme başka bir yük dengeli. 
+
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

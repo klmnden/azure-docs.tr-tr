@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 1c131c2c9ca12556c1d2cd52e7976d2f4272a0c8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32767970"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021634"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>İşlem yapılandırılabilir eşik tabanlı kurallarında Azure akış analizi
 Bu makalede, Azure Stream Analytics içinde yapılandırılabilir eşik tabanlı kuralları kullanan bir uyarı çözüm elde etmek için başvuru verileri kullanmayı açıklar.
@@ -45,7 +45,7 @@ Bu örnek başvuru verileri, eşik tabanlı bir kuralın nasıl gösterilebilir 
 - Örnek kural CPU aştığında ayarlanabilir uyarı temsil etmek için kullanılır (ortalama değerinden büyük veya eşittir) değeri `90` yüzde. `value` Alandır gerektiği gibi yapılandırılabilir.
 - Kural yok fark bir **işleci** sorgu sözdiziminde daha sonra dinamik olarak yorumlanır alan `AVGGREATEROREQUAL`. 
 - Bir kural, belirli bir boyut anahtar üzerindeki verileri filtreler `2` değerle `C1`. Bu olay alanlara göre Giriş akışı filtre belirten boş dize diğer alanlardır. Diğer eşleşen alanları gerektiği şekilde filtrelemek için ek CPU kuralları ayarlayabilirsiniz.
-- Tüm sütunları çıkış uyarı olayı dahil edilecek. Bu durumda, `includedDim` anahtar numarası `2` açık `TRUE` akış olay verileri alan sayısı 2 niteleme dahil edilecek olayları çıktı temsil etmek için. Diğer alanlar uyarı çıktıda yoktur, ancak alan listesi ayarlanabilir.
+- Tüm sütunları çıkış uyarı olayı dahil edilecek. Bu durumda, `includedDim` anahtar numarası `2` açık `TRUE` akış olay verileri alan sayısı 2 belirleme çıkış olayları dahil edileceğini temsil etmek için. Diğer alanlar uyarı çıktıda yoktur, ancak alan listesi ayarlanabilir.
 
 
 ```json

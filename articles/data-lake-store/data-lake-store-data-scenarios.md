@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 86b6d05538171fcf0e259e2761316529deb4fb37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc48bf011d95b3e60a78d2102d88dc188155ddc1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625330"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017377"
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Azure Data Lake Store için büyük veri gereksinimleri kullanma
 Büyük veri işleme, dört anahtar aşamaları şunlardır:
@@ -65,7 +65,7 @@ Web sunucu günlüğü verileri analizini büyük veri uygulamaları için ortak
 * [Azure Data Lake Store .NET SDK'sı](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
-Web sunucu günlüğü verileri karşıya yükleme için ve ayrıca verileri (örneğin sosyal düşüncelerin) diğer tür karşıya yükleme için bileşen büyük büyük veri uygulamanız bir parçası olarak karşıya yükleme, verileri içerecek şekilde esneklik verdiğinden, kendi özel komut dosyaları/uygulamaları yazmak için iyi bir yaklaşımdır. Bazı durumlarda bu kodu bir komut dosyası veya basit komut satırı yardımcı programı şeklinde. Diğer durumlarda, kodu bir iş uygulaması veya çözümü içine büyük veri işleme tümleştirmek için kullanılabilir.
+Web sunucu günlüğü verileri karşıya yükleme için ve ayrıca verileri (örneğin sosyal düşüncelerin) diğer tür karşıya yükleme için bileşen parçası olarak karşıya yükleme, verileri içerecek şekilde esneklik verdiğinden, kendi özel komut dosyaları/uygulamaları yazmak için iyi bir yaklaşım olduğu daha büyük, büyük veri uygulama. Bazı durumlarda bu kodu bir komut dosyası veya basit komut satırı yardımcı programı şeklinde. Diğer durumlarda, kodu bir iş uygulaması veya çözümü içine büyük veri işleme tümleştirmek için kullanılabilir.
 
 ### <a name="data-associated-with-azure-hdinsight-clusters"></a>Azure Hdınsight kümeleri ile ilgili veriler
 Çoğu Hdınsight küme türleri (Hadoop, HBase, Storm) Data Lake Store veri depolama depo olarak destekler. Hdınsight kümeleri, Azure Storage Blobları (WASB) veri erişim. Daha iyi performans için verileri WASB kümeyle ilişkili bir Data Lake Store hesabı kopyalayabilirsiniz. Verileri kopyalamak için aşağıdaki araçları kullanabilirsiniz.

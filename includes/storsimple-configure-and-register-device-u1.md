@@ -7,7 +7,7 @@
 3. Cihazınızda ayarlamak istediğiniz dili seçmeniz istenecektir. Dili belirtip Enter tuşuna basın. 
    
     ![StorSimple cihazı yapılandırma ve kaydetme 1](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice1-U1-include.png)
-4. Verilen seri konsol menüsünde tam erişimle oturum açmak için 1 seçeneğini belirleyin. 
+4. Sunulan seri konsol menüsünde seçeneği 1, **oturum oturum tam erişim**. 
    
     ![StorSimple kayıt cihazı 2](./media/storsimple-configure-and-register-device-u1/HCS_RegisterYourDevice2_U1-include.png)
    

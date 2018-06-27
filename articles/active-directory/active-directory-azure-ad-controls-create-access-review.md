@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234082"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020415"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD ile bir erişim gözden geçirme Grup üyeleri veya uygulama erişimi oluşturma
 
@@ -26,7 +26,7 @@ Kullanıcılar artık gerekmeyen erişim sahibi, erişim atamalarını "eski" ol
 
 ## <a name="create-an-access-review"></a>Erişim gözden geçirmesi oluştur
 
-1. Genel yönetici olarak, Git [erişim incelemeleri sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)seçip **programlar**.
+1. Bir genel yönetici veya kullanıcı hesabı yönetici Git [erişim incelemeleri sayfa](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)seçip **programlar**.
 
 2. Oluşturmak istediğiniz erişim gözden geçirme denetimi tutan programı seçin. **Varsayılan Program** her zaman mevcut değil veya farklı bir program oluşturabilirsiniz. Örneğin, bir program her uyumluluk girişimi sahip olmayı seçebilirsiniz veya İş hedefi.
 
@@ -38,7 +38,7 @@ Kullanıcılar artık gerekmeyen erişim sahibi, erişim atamalarını "eski" ol
 
 6. Erişim gözden geçirme yinelenen yapmak için haftalık, aylık, üç aylık veya yıllık olarak bir kez sıklığını değiştirmek ve kaç gün her gözden geçirme yinelenen serisinin geçirenlerin girişi için açık olacaktır tanımlamak için kaydırıcıyı veya metin kutusunu kullanın. Örneğin, için ayarlayabileceğiniz için en uzun süre incelemeler çakışan önlemek için 27 gün aylık bir gözden geçirme gerekir. 
 
-7.  Yinelenen erişim gözden geçirme serisinin 3 şekilde bitebilir: sürekli incelemeler süresiz olarak, belirli bir tarih kadar veya tanımlı bir yineleme sayısı tamamlandıktan sonra başlatmak için çalışır. Belirli bir tarihte sona ermesini sağlayacak biçimde seri Ayarları'nda tarih değiştirerek siz veya başka bir genel yönetici oluşturulduktan sonra durdurabilirsiniz.
+7.  Yinelenen erişim gözden geçirme serisinin 3 şekilde bitebilir: sürekli incelemeler süresiz olarak, belirli bir tarih kadar veya tanımlı bir yineleme sayısı tamamlandıktan sonra başlatmak için çalışır. Belirli bir tarihte sona ermesini sağlayacak biçimde seri Ayarları'nda tarih değiştirerek, başka bir kullanıcı hesabının yönetici veya başka bir genel yönetici oluşturulduktan sonra durdurabilirsiniz.
 
 8. Erişim incelemeleri, uygulamaya atanan kullanıcılar veya bir grubun üyeleri için olabilir. Daha fazla kimin üyeleridir (veya uygulamaya atanan), üyeleri olan tüm kullanıcıların gözden geçirme yerine veya uygulamaya kimlerin erişimi gözden geçirme gözden yalnızca konuk kullanıcıların erişimini kapsamını belirleyebilirsiniz.
 

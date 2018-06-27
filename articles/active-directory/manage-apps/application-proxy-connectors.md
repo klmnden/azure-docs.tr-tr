@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293016"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025971"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD uygulama proxy'si bağlayıcılar anlama
 
@@ -92,7 +92,6 @@ Bağlayıcılar, yalnızca giden istekleri göndermek. Giden trafik uygulama pro
 
 Giden güvenlik duvarı kuralları yapılandırma hakkında daha fazla bilgi için bkz: [varolan çalışma şirket içi proxy sunucuları](application-proxy-configure-connectors-with-proxy-servers.md).
 
-Kullanım [Azure AD uygulama Proxy Bağlayıcısı bağlantı noktaları Test aracı](https://aadap-portcheck.connectorporttest.msappproxy.net/) Bağlayıcınızı uygulama proxy'si hizmeti ulaşabilir doğrulanamadı. En azından, Orta ABD bölgesi ve size en yakın bölgeyi tüm yeşil onay işaretli olduğundan emin olun. Bunun ötesinde, daha fazla yeşil onay işaretleri büyük esneklik anlamına gelir. 
 
 ## <a name="performance-and-scalability"></a>Performans ve ölçeklenebilirlik
 
@@ -104,7 +103,7 @@ Bağlayıcı performansı, CPU ve ağ ile ilişkilidir. Ağ uygulamaları ve çe
 
 Buna karşılık, küçük bir sorun bağlayıcıların bellektir. Çevrimiçi hizmet işleme çoğunu ve tüm kimliği doğrulanmamış trafiği mvc'deki. Bulutta yapılabilir her şeyi bulutta yapılır. 
 
-Yük Dengeleme verilen bağlayıcı Grup bağlayıcılar arasında gerçekleşir. Biz, belirli bir istek hangi bağlayıcı grubunda hizmet belirlemek için bir kez deneme çeşitlemesi yapın. Seçme sonra bir bağlayıcı Biz bu kullanıcıyla oturum süresince uygulama arasında oturum benzeşim korumak. Bağlayıcı veya makine kullanılamaz hale herhangi bir nedenle varsa, trafik, gruptaki başka bir bağlayıcı gidip başlar. Bu esneklik, ayrıca birden çok bağlayıcı olması neden öneririz olur.
+Yük Dengeleme verilen bağlayıcı Grup bağlayıcılar arasında gerçekleşir. Biz, belirli bir istek hangi bağlayıcı grubunda hizmet belirlemek için bir kez deneme çeşitlemesi yapın. Bağlayıcı veya makine kullanılamaz hale, herhangi bir sebeple, gruptaki başka bir bağlayıcı için giden trafiği başlatılıyorsa. Bu esneklik, ayrıca birden çok bağlayıcı olması neden öneririz olur.
 
 Performansı etkileyen başka bir ağ dahil olmak üzere bu bağlayıcıları arasında kalitesini faktördür: 
 

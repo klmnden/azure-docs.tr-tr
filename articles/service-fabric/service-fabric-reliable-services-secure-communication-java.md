@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 1843720b9700e66af8ee84766cf7d63ac62e6283
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749921"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020822"
 ---
 # <a name="secure-service-remoting-communications-in-a-java-service"></a>Güvenli bir Java hizmetindeki hizmet remoting iletişim
 > [!div class="op_single_selector"]
@@ -55,7 +55,9 @@ Java hizmetleriyle hizmet remoting kullanırken bir hizmeti güvenli hale getirm
     ```
 2. Dinleyici ayarları ve güvenlik kimlik bilgileri ekleyin.
 
-    Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
+    Hizmet iletişimi güvenli hale getirmek için kullanmak istediğiniz sertifikayı kümedeki tüm düğümlerde yüklü olduğundan emin olun. Linux üzerinde çalışan hizmetleri için sertifika PEM formmatted dosyası olarak kullanılabilir olması gerekir; ya da bir `.pem` sertifika ve özel anahtarı içeren dosya veya bir `.crt` sertifikayı içeren dosyası ve bir `.key` özel anahtarı içeren dosya. Daha fazla bilgi için bkz: [konumu ve Linux düğümleri X.509 sertifikaları biçimini](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes).
+    
+    Dinleyici ayarları ve güvenlik kimlik bilgileri sağlayabilir iki yolu vardır:
 
    1. Kullanarak sağlama bir [yapılandırma paketi](service-fabric-application-and-service-manifests.md):
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 63f079f6c8e584ff3a89503104060daf056763ed
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5e225a16baef53c12a5d0a719c36a2042d391c7f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836309"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959111"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio'da örnek veri kümelerini kullanma
 [top]: #machine-learning-sample-datasets
@@ -403,7 +403,7 @@ Haber makalelerini RCV1 V2 Reuters haber kümesindeki atamaları konu. Bir haber
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-Bu veriler KDD fincanı 2010 öğrenci performans değerlendirme sınama gelir (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">Öğrenci Performans değerlendirmesinin</a>). Kullanılan verileri Algebra_2008_2009 eğitim kümesidir (Stamper, J., Niculescu-Mizil, A., Ritter, S. Gordon, G.J. & Koedinger, K.R. (2010). Cebiri ı 2008-2009. KDD fincanı 2010 eğitim veri madenciliği sınama kümesinden sınaması. Şimdi Bul <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> veya <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.
+Bu veriler KDD fincanı 2010 öğrenci performans değerlendirme sınama gelir (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">Öğrenci Performans değerlendirmesinin</a>). Kullanılan verileri Algebra_2008_2009 eğitim kümesidir (Stamper, J., Niculescu-Mizil, A., Ritter, S. Gordon, G.J. & Koedinger, K.R. (2010). Cebiri ı 2008-2009. KDD fincanı 2010 eğitim veri madenciliği sınama kümesinden sınaması. Şimdi Bul <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>.
 <p></p>
 Veri kümesi indirilir ve Azure Blob depolama alanına depolanır (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) ve sistem özel Ders öğrencinin günlük dosyalarını içerir. Sağlanan özellikler sorun kimliği ve kısa açıklamasını, Öğrenci Kimliği, zaman damgası ve kaç tane denemeleri doğru şekilde çözme önce yaptığınız Öğrenci içerir. Özgün veri kümesi 8,9 M kaydeder; yine de sahip istiyor musunuz? Bu veri kümesi, ilk 100 K satırları aşağı örneklenen olmuştur. Çeşitli türlerdeki 23 sekmeyle ayrılmış sütun kümesi vardır: kategorik, sayısal ve zaman damgası.
   </td>
