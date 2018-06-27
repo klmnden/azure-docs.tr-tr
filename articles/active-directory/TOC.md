@@ -250,7 +250,7 @@
 #### [SAML uygulamaları için gelişmiş sertifika imzalama](manage-apps/certificate-signing-options.md)
 #### [Uygulamayı kullanıcı deneyiminden gizleme](manage-apps/hide-application-from-user-portal.md)
 ### [HRD İlkesi'ni kullanarak Oturum Açma için Otomatik Hızlandırmayı Yapılandırma](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [AD FS uygulamalarını Azure AD’ye geçirme](migrate-adfs-apps-to-azure.md) 
+### [AD FS uygulamalarını Azure AD’ye geçirme](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [Uygulamalara erişimi yönetme](manage-apps/what-is-access-management.md)
 #### [SSO erişimi](manage-apps/what-is-single-sign-on.md)
 #### [SSO için sertifikalar](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## Kaynaklara temsilci erişimi
 ### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
-#### [Kullanıcıya yönetici rolü atama](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md) 
-### [Ayrıcalıklı erişimin güvenliğini sağlama](admin-roles-best-practices.md)  
-### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [Varsayılan kullanıcı izinleri](fundamentals/users-default-permissions.md)
+#### [Kullanıcıya yönetici rolü atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md)
+### [Yönetici rollerinin güvenliğini sağlama](admin-roles-best-practices.md)  
+#### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
 ### [Ayrıcalıklı rollerin güvenliğini sağlama](admin-roles-best-practices.md)

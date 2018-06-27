@@ -1,22 +1,39 @@
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806307"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Düşük maliyetli standart depolama ve yönetilen ve yönetilmeyen Azure VM diskleri
 
-Azure Standard Storage, gecikmeye duyarlı olmayan iş yükleri çalıştıran VM'ler için güvenilir, düşük maliyetli disk desteği sunar. Ayrıca, BLOB'lar, tablolar, kuyruklar ve dosyaları destekler. Standart depolama ile verileri sabit disk sürücülerinin (HDD'ler) depolanır. VM ile birlikte çalışırken, geliştirme ve Test senaryoları ve daha az önemli iş yüklerine ve kritik üretim uygulamaları için premium depolama diskleri için standart depolama diskleri kullanabilirsiniz. Standart depolama Azure tüm bölgelerde kullanılabilir. 
+Azure Standard Storage, gecikmeye duyarlı olmayan iş yükleri çalıştıran VM'ler için güvenilir, düşük maliyetli disk desteği sunar. Ayrıca, BLOB'lar, tablolar, kuyruklar ve dosyaları destekler. Standart depolama ile verileri sabit disk sürücülerinin (HDD'ler) depolanır. VM ile birlikte çalışırken, standart SSD ve HDD diskler geliştirme ve Test senaryoları için ve daha az önemli iş yüklerine ve premium SSD diskleri kritik üretim uygulamaları için kullanabilirsiniz. Standart depolama Azure tüm bölgelerde kullanılabilir. 
 
-Bu makalede, VM diskleri için standart depolama kullanımını odaklanır. BLOB'lar, tablolar, kuyruklar ve dosyalar ile depolama kullanımı hakkında daha fazla bilgi için lütfen başvurmak [depolama giriş](../articles/storage/common/storage-introduction.md).
+Bu makalede standart SSD ve HDD diskler kullanımını odaklanır. BLOB'lar, tablolar, kuyruklar ve dosyalar ile depolama kullanımı hakkında daha fazla bilgi için bkz: [depolama giriş](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Disk türleri
 
 Azure VM'ler için standart diskler oluşturmanın iki yolu vardır:
 
-**Yönetilmeyen diskleri**: VM diskleri karşılık VHD dosyaları depolamak için kullanılan depolama hesapları yöneteceğiniz özgün yöntem budur. VHD dosyaları, sayfa bloblarını depolama hesaplarındaki olarak depolanır. Yönetilmeyen diskleri öncelikle gibi DSv2 ve GS serisi Premium depolama kullanan sanal makineleri de dahil olmak üzere, herhangi bir Azure VM boyutu bağlı. Azure VM'ler birkaç standart diskler ekleme VM başına en fazla 256 TB izin vererek destekler.
+**Yönetilmeyen diskleri**: Bu tür diski özgün VM diskleri karşılık VHD dosyaları depolamak için kullanılan depolama hesapları yöneteceğiniz yöntemidir. VHD dosyaları, sayfa bloblarını depolama hesaplarındaki olarak depolanır. Yönetilmeyen diskleri öncelikle gibi DSv2 ve GS serisi Premium depolama kullanan sanal makineleri de dahil olmak üzere, herhangi bir Azure VM boyutu bağlı. Azure VM'ler birkaç standart diskler ekleme VM başına en fazla 256 TB izin vererek destekler.
 
-[**Azure yönetilen diskleri**](../articles/virtual-machines/windows/managed-disks-overview.md): Bu özellik VM diskleri için kullandığınız depolama hesapları yönetir. Türü (Premium veya standart) ve boyutunu belirtebilir duyduğunuz disk ve Azure oluşturur ve disk tarafından yönetilir. Diskleri depolama hesapları için ölçeklenebilirlik sınırları içinde kalmasını--Azure işler, sizin yerinize sağlamak için birden çok depolama hesaplarında yerleştirme hakkında endişelenmeniz gerekmez.
+[**Azure yönetilen diskleri**](../articles/virtual-machines/windows/managed-disks-overview.md): Bu özellik VM diskleri için kullandığınız depolama hesapları yönetir. Türü (Premium SSD, standart SSD veya standart HDD) ve boyutunu belirtebilir duyduğunuz disk ve Azure oluşturur ve disk tarafından yönetilir. Diskleri depolama hesapları için ölçeklenebilirlik sınırları içinde kalmasını--Azure işler, sizin yerinize sağlamak için birden çok depolama hesaplarında yerleştirme hakkında endişelenmeniz gerekmez.
 
 Her iki disk türleri için kullanılabilir olsa bile, birçok özelliklerden yararlanmak için yönetilen diskleri kullanmanızı öneririz.
 
 Azure Standard Storage ile çalışmaya başlamak için ziyaret [ücretsiz olarak başlayın](https://azure.microsoft.com/pricing/free-trial/). 
 
-Yönetilen disklerle bir VM oluşturma hakkında daha fazla bilgi için lütfen şu makaleleri birine bakın.
+Yönetilen disklerle bir VM oluşturma hakkında daha fazla bilgi için aşağıdaki makaleler birine bakın.
 
 * [Resource Manager ve PowerShell kullanarak VM oluşturma](../articles/virtual-machines/windows/quick-create-powershell.md)
 * [Azure CLI 2.0 kullanarak bir Linux VM oluşturma](../articles/virtual-machines/linux/quick-create-cli.md)
@@ -27,7 +44,9 @@ Standart depolama özelliklerden bazıları bir göz atalım. Daha fazla ayrınt
 
 **Standart depolama**: Azure Standard Storage destekleyen Azure diskleri, Azure BLOB'ları, Azure dosyaları, Azure tabloları ve Azure sıralar. İle standart depolama hizmetleri kullanmaya başlamak [bir Azure depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Standart depolama diskleri:** standart depolama diskleri gibi DSv2 ve GS serisi Premium Storage ile kullanılan boyutu-serisi Vm'leri de dahil olmak üzere tüm Azure vm'lerinin eklenebilir. Bir standart depolama diski yalnızca bir VM bağlanabilir. Ancak, bu VM boyutu için tanımlanan en fazla disk sayısı kadar bir VM için bir veya daha fazla bu diskleri ekleyebilirsiniz. Standard Storage ölçeklenebilirlik ve performans hedefleri aşağıdaki bölümde daha ayrıntılı özellikleri açıklanmaktadır. 
+**Standart SSD diskleri:** standart SSD diskleri standart HDD diskler daha daha güvenilir performans sağlar ve şu anda Önizleme'de kullanılabilir. Standart SSD diskleri bölge kullanılabilirliği hakkında daha fazla bilgi için bkz: [standart SSD diskleri (Önizleme) bölge kullanılabilirliği](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+
+**Standart HDD diskler:** standart HDD diskleri gibi DSv2 ve GS serisi Premium Storage ile kullanılan boyutu-serisi Vm'leri de dahil olmak üzere tüm Azure vm'lerinin eklenebilir. Bir standart HDD disk yalnızca bir VM bağlanabilir. Ancak, bu VM boyutu için tanımlanan en fazla disk sayısı kadar bir VM için bir veya daha fazla bu diskleri ekleyebilirsiniz. Standard Storage ölçeklenebilirlik ve performans hedefleri aşağıdaki bölümde daha ayrıntılı özellikleri açıklanmaktadır.
 
 **Standart sayfa blobu**: Standart sayfa BLOB'ları VM'ler için kalıcı diskleri tutmak için kullanılır ve doğrudan Azure BLOB'ları diğer türleri gibi REST aracılığıyla da erişilebilir. [Sayfa blobları](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) rastgele okuma ve yazma işlemleri için en iyi duruma getirilmiş 512 baytlık sayfaların koleksiyonudur. 
 
@@ -93,7 +112,7 @@ Yönetilen bir disk için bir VM bağlıysa, bazı API işlemleri disklerde izin
 Standart depolama kullanırken, aşağıdaki fatura değerlendirmeleri geçerlidir:
 
 * Yönetilmeyen standart depolama diskleri/veri boyutu 
-* Standart yönetilen disk
+* Standart yönetilen diskler
 * Standart depolama anlık görüntüleri
 * Giden veri aktarımları
 * İşlemler
@@ -122,7 +141,7 @@ Bir yedekleme işi zaman tabanlı yedeklemeler, kolay VM geri yükleme ve yedekl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Storage'a giriş](../articles/storage/common/storage-introduction.md)
+* [Azure Depolama’ya giriş](../articles/storage/common/storage-introduction.md)
 
 * [Depolama hesabı oluşturma](../articles/storage/common/storage-create-storage-account.md)
 

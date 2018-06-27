@@ -20,9 +20,158 @@
     - name: Azure İlkesi'ni inceleme (Uygulamalı Laboratuvarlar)
       href: 'https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyId=story://Content-Private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Örnekler
+  href: json-samples.md
   items:
-    - name: Azure İlkesi örnekleri
-      href: json-samples.md
+    - name: Genel
+      items:
+        - name: Adlandırma
+          items:
+            - name: Birden çok ad desenine izin ver
+              href: scripts/allow-multiple-name-patterns.md
+            - name: Benzer desen gerektir
+              href: scripts/enforce-like-pattern.md
+            - name: Eşleşme deseni gerektir
+              href: scripts/enforce-match-pattern.md
+            - name: Etiket eşleştirme deseni gerektir
+              href: scripts/enforce-tag-match-pattern.md
+        - name: Etiketler
+          items:
+            - name: Etiketi ve varsayılan değerini uygula
+              href: scripts/apply-tag-def-val.md
+            - name: Fatura etiketleri ilkesi girişimi
+              href: scripts/billing-tags-policy-init.md
+            - name: Etiketi ve değerini zorla
+              href: scripts/enforce-tag-val.md
+            - name: Etiket ve etiket değerini kaynak gruplara zorla
+              href: scripts/enforce-tag-rg.md
+        - name: Konumlar
+          items:
+            - name: İzin verilen konumlar
+              href: scripts/allowed-locs.md
+        - name: Kaynak türleri
+          items:
+            - name: İzin verilen kaynak türleri
+              href: scripts/allowed-res-types.md
+            - name: İzin verilmeyen kaynak türleri
+              href: scripts/not-allowed-res-type.md
+    - name: İşlem
+      items:
+        - name: Sanal makineler
+          items:
+            - name: Bir kaynak grubundan özel VM kullanımına izin verin
+              href: scripts/allow-custom-vm-image.md
+            - name: Depolama hesapları ve sanal makineler için izin verilen SKU'lar
+              href: scripts/allowed-skus-storage.md
+            - name: Onaylı VM görüntüleri
+              href: scripts/allowed-custom-images.md
+            - name: Uzantı yoksa denetle
+              href: scripts/audit-ext-not-exist.md
+            - name: İzin verilmeyen VM uzantıları
+              href: scripts/not-allowed-vm-ext.md
+        - name: Sanal makine ölçek kümeleri
+          items:
+            - name: VM yönetilen disk kullanmadığında denetle
+              href: scripts/create-vm-managed-disk.md
+            - name: Yönetilen diski kullanarak VM oluşturma
+              href: scripts/use-managed-disk-vm.md
+            - name: Hibrit kullanım teklifini reddet
+              href: scripts/deny-hybrid-use.md
+            - name: Yalnızca belirli bir VM platform görüntüsüne izin ver
+              href: scripts/allow-certain-vm-image.md
+    - name: Data Lake
+      items:
+        - name: Data Lake Store şifrelemesini zorunlu kıl
+          href: scripts/enforce-datalakestore-encryption.md
+    - name: İzleme
+      items:
+        - name: Tanılama ayarını denetle
+          href: scripts/audit-diag-setting.md
+    - name: Ağ
+      items:
+        - name: Ağ arabirimleri
+          items:
+            - name: Her NIC üzerinde NSG x
+              href: scripts/nsg-on-nic.md
+            - name: VM ağ arabirimlerinde onaylanan alt ağı kullan
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: VM ağ arabirimlerinde onaylanan sanal ağı kullan
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Sanal ağlar
+          items:
+            - name: İzin verilen uygulama ağ geçidi SKU’ları
+              href: scripts/allowed-app-gate-sku.md
+            - name: ER ağına ağ eşlemesi yok
+              href: scripts/no-peering-er-net.md
+            - name: Kullanıcı tanımlı yol tablosu yok
+              href: scripts/no-user-def-route-table.md
+            - name: Her alt ağ üzerinde NSG x
+              href: scripts/nsg-on-subnet.md
+            - name: VM ağ arabirimlerinde onaylanan alt ağı kullan
+              href: scripts/use-approved-subnet-vm-nics.md
+            - name: VM ağ arabirimlerinde onaylanan sanal ağı kullan
+              href: scripts/use-approved-vnet-vm-nics.md
+        - name: Ağ güvenlik grupları
+          items:
+            - name: Her NIC üzerinde NSG x
+              href: scripts/nsg-on-nic.md
+            - name: Her alt ağ üzerinde NSG x
+              href: scripts/nsg-on-subnet.md
+        - name: Express Routes
+          items:
+            - name: İzin verilen Express Route bant genişliği
+              href: scripts/allowed-er-band.md
+            - name: İzin verilen Express Route SKU’ları
+              href: scripts/allowed-er-skus.md
+            - name: Express Route için izin verilen eşleme konumu
+              href: scripts/allowed-peering-er.md
+        - name: Ağ İzleyicileri
+          items:
+            - name: Ağ İzleyicileri bölge için etkin değilse denetle
+              href: scripts/net-watch-not-enabled.md
+        - name: Uygulama ağ geçitleri
+          items:
+            - name: İzin verilen uygulama ağ geçidi SKU’ları
+              href: scripts/allowed-app-gate-sku.md
+    - name: SQL
+      items:
+        - name: SQL Sunucuları
+          items:
+            - name: Azure Active Directory yöneticisi olmadığında denetle
+              href: scripts/audit-no-aad-admin.md
+            - name: Sunucu düzeyi tehdit algılama ayarını denetle
+              href: scripts/audit-sql-ser-threat-det-setting.md
+            - name: SQL Server denetim ayarlarını denetle
+              href: scripts/sql-server-audit.md
+            - name: SQL Server düzeyi denetim ayarlarını denetle
+              href: scripts/audit-sql-ser-leve-audit-setting.md
+            - name: SQL Server sürüm 12.0 gerektir
+              href: scripts/req-sql-12.md
+        - name: SQL Veritabanları
+          items:
+            - name: İzin verilen SQL DB SKU’ları
+              href: scripts/allowed-sql-db-skus.md
+            - name: SQL DB düzeyi tehdit algılama ayarını denetle
+              href: scripts/audit-db-threat-det-setting.md
+            - name: SQL DB şifrelemesini denetle
+              href: scripts/sql-database-encryption-audit.md
+            - name: SQL DB düzeyinde denetim ayarını denetle
+              href: scripts/audit-sql-db-audit-setting.md
+            - name: Saydam veri şifreleme durumunu denetle
+              href: scripts/audit-trans-data-enc-status.md
+    - name: Depolama
+      items:
+        - name: Depolama hesabı ve VM’lerde desteklenen SKU’lar
+          href: scripts/allowed-skus-storage.md
+        - name: İzin verilen depolama hesabı SKU'ları
+          href: scripts/allowed-stor-acct-skus.md
+        - name: Depolama hesapları için seyrek erişim katmanını reddet
+          href: scripts/deny-cool-access-tiering.md
+        - name: Depolama hesabı için yalnızca HTTPS trafiğini güvence altına alma
+          href: scripts/ensure-https-stor-acct.md
+        - name: Depolama dosya şifrelemesini güvence altına alma
+          href: scripts/ensure-store-file-enc.md
+        - name: Depolama hesabı şifrelemesi iste
+          href: scripts/req-store-acct-enc.md
 - name: Kavramlar
   items:
     - name: Azure İlkesi tanım yapısı

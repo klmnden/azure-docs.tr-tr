@@ -2,7 +2,7 @@
   href: index.yml
 - name: Genel Bakış
   items:
-    - name: Language Understanding hakkında daha fazla bilgi edinin
+    - name: Language Understanding nedir?
       href: Home.md
     - name: Desteklenen diller
       href: luis-supported-languages.md
@@ -25,10 +25,10 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: Hiyerarşik varlık
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: Liste varlığı
-          href: luis-quickstart-intent-and-list-entity.md
         - name: Normal ifade varlığı
           href: luis-quickstart-intents-regex-entity.md
+        - name: Liste varlığı
+          href: luis-quickstart-intent-and-list-entity.md
         - name: KeyPhrase varlığı
           href: luis-quickstart-intent-and-key-phrase.md
         - name: Yaklaşım analizi
@@ -238,7 +238,33 @@
     - name: Sınırlar
       href: luis-boundaries.md
     - name: Önceden derlenmiş varlık başvurusu
-      href: luis-reference-prebuilt-entities.md
+      items:
+        - name: Kültür başına varlıklar
+          href: luis-reference-prebuilt-entities.md
+        - name: Yaş varlığı
+          href: luis-reference-prebuilt-age.md
+        - name: Para birimi varlığı
+          href: luis-reference-prebuilt-currency.md
+        - name: DatetimeV2 varlığı
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: Boyut varlığı
+          href: luis-reference-prebuilt-dimension.md
+        - name: Kullanım dışı varlıklar
+          href: luis-reference-prebuilt-deprecated.md
+        - name: E-posta varlığı
+          href: luis-reference-prebuilt-email.md
+        - name: Sayı varlığı
+          href: luis-reference-prebuilt-number.md
+        - name: Sıralı varlık
+          href: luis-reference-prebuilt-ordinal.md
+        - name: Yüzde varlığı
+          href: luis-reference-prebuilt-percentage.md
+        - name: Telefon numarası varlığı
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: Sıcaklık varlığı
+          href: luis-reference-prebuilt-temperature.md
+        - name: URL varlığı
+          href: luis-reference-prebuilt-url.md
     - name: Önceden derlenmiş etki alanı başvurusu
       href: luis-reference-prebuilt-domains.md
     - name: Cortana önceden derlenmiş uygulama başvurusu

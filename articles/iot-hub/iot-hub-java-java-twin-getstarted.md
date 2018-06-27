@@ -1,23 +1,20 @@
 ---
 title: Azure IOT Hub cihaz çiftlerini (Java) ile çalışmaya başlama | Microsoft Docs
 description: Azure IOT Hub cihaz çiftlerini etiket ekleyebilir ve IOT Hub sorgusuyla kullanmak için nasıl kullanılacağını. Cihaz uygulaması ve Azure IOT hizmeti etiketleri ekler ve IOT hub'ı sorgu çalışan bir hizmet uygulaması uygulamak için Java SDK'sını uygulamak için Azure IOT cihaz SDK'sı Java için kullanın.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016708"
 ---
 # <a name="get-started-with-device-twins-java"></a>Cihaz çiftlerini (Java) ile çalışmaya başlama
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 05/07/2018
 Bu öğreticide, iki Java konsol uygulamaları oluşturun:
 
 * **ekleme-etiketleri-query**, etiketleri ekler ve cihaz çiftlerini sorgular bir Java arka uç uygulaması.
-* **simulated-device**, IOT hub'ınızı bağlayan ve bağlantısını raporları bildirilen bir özellik kullanarak koşul bir Java cihaz uygulaması.
+* **simulated-device**, IOT hub'ınıza bağlanır ve bildirilen bir özellik kullanarak kendi bağlantı koşulunun raporları bir Java cihaz uygulaması.
 
 > [!NOTE]
 > Makaleyi [Azure IOT SDK'ları](iot-hub-devguide-sdks.md) hem cihaz hem de arka uç uygulamalar oluşturmak için kullanabileceğiniz Azure IOT SDK'ları hakkında bilgi sağlar.

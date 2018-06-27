@@ -15,12 +15,23 @@
       href: quickstarts/nodejs.md
     - name: Python dilinde ilk sorgu
       href: quickstarts/python.md
+- name: SDK
+  expanded: true
+  items:
+    - name: SDK örneklerine genel bakış
+      href: sdk.md
+    - name: Python’da SDK
+      href: visual-search-sdk-python.md
 - name: Öğreticiler
   items:
     - name: Tek sayfalı web uygulaması
       href: tutorial-bing-visual-search-single-page-app.md
     - name: Tek sayfalı web uygulaması (kaynak kodu)
       href: tutorial-bing-visual-search-single-page-app-source.md
+    - name: Bing Görsel Arama SDK’sı görüntü kırpma alanı ve sonuçlar
+      href: tutorial-visual-search-crop-area-results.md
+    - name: Bing Görsel Arama SDK’sı ImageInsightsToken ve sonuçlar
+      href: tutorial-visual-search-insights-token.md
 - name: Örnekler
   items:
     - name: Kod örnekleri

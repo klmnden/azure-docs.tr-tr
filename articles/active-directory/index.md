@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: ac13d584c3312918e06139035da1f777c0030895
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b2853729296d158fee77d96a807972bd4f92e5
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594151"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946049"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory Belgeleri
 
@@ -131,7 +131,7 @@ Azure Active Directory (Azure AD), çok kiracılı ve bulut tabanlı bir dizin v
                         <h3>Uygulamalar</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-enable-sso-scenario">Uygulama yönetimi</a><br/>
-                        <a href="/azure/active-directory/cloudappdiscovery-get-started">Uygulama bulma</a><br/>
+                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">Uygulama geçişi</a><br/>
                         <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Kurumsal uygulamalar</a><br/>
                         <a href="/azure/active-directory/active-directory-managing-access-to-apps">Uygulamalara erişim</a>
                         </p>

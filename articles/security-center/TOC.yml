@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Azure ilkesi kullanarak güvenlik ilkesi
           href: security-center-azure-policy.md
+        - name: Kiracı çapında görünürlük
+          href: security-center-management-groups.md
     - name: Güvenlik önerileri uygulama
       href: security-center-recommendations.md
     - name: Güvenlik durumunu izleme

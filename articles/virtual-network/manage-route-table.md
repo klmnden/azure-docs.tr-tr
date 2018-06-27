@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 93ecd0264413e0eb719c9d33f0a0b756bcee6552
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726457"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960017"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Oluşturma, değiştirme veya bir yol tablosu silme
 
@@ -95,7 +95,7 @@ Bir alt ağ için ilişkili sıfır veya bir yol tablosu olabilir. Bir yol tablo
 4. Yol tablosu ilişkilendirmek istediğiniz alt ağ seçin.
 5. Seçin **yol tablosu**, istediğiniz alt ağa ilişkilendirin ve ardından seçmek için yol tablosu seçin **kaydetmek**.
 
-Sanal ağınız için bir Azure VPN ağ geçidi bağlıysa, bir yol tablosu ilişkilendirmeyin [ağ geçidi alt ağı](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) 0.0.0.0/0 hedefi olan bir rota içerir. Bunun yapılması, ağ geçidi düzgün çalışmasını engelleyebilir. Bir rota 0.0.0.0/0 kullanma hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirmesini](virtual-networks-udr-overview.md#default-route).
+Sanal ağınız bir Azure VPN ağ geçidine bağlıysa, rota tablosunu 0.0.0.0/0 hedefine sahip bir rota içeren [ağ geçidi alt ağına](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) ilişkilendirmeyin. Bunun yapılması, ağ geçidinin düzgün çalışmasını engelleyebilir. Bir rota 0.0.0.0/0 kullanma hakkında daha fazla bilgi için bkz: [sanal ağ trafiği yönlendirmesini](virtual-networks-udr-overview.md#default-route).
 
 **Komutları**
 
@@ -213,7 +213,7 @@ Etkin bir sanal makineye bağlı her ağ arabirimi için oluşturduğunuz yol ta
 **Komutları**
 
 - Azure CLI: [az ağ NIC Göster-etkin-yol-tablosu](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>İki uç noktaları arasında yönlendirme doğrula
 

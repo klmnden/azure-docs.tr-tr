@@ -12,31 +12,33 @@
     - name: 'C# dilinde konuşmayı algılama'
       href: quickstart-csharp-windows.md
     - name: Windows için C++ dilinde konuşmayı algılama
-      href: cpp-windows.md
+      href: quickstart-cpp-windows.md
     - name: Linux için C++ dilinde konuşmayı algılama
-      href: cpp-linux.md
+      href: quickstart-cpp-linux.md
     - name: Konuşma Cihazları SDK’sı ile çalışmaya başlama
       href: speech-devices-sdk-qsg.md
-- name: Nasıl yapılır kılavuzları
+- name: Özelleştirme
   items:
-    - name: Konuşma tanıma
-      href: how-to-speech-to-text.md
     - name: Konuşma modellerini özelleştirme
       href: how-to-customize-speech-models.md
-    - name: Konuşmayı birleştirme
-      href: how-to-text-to-speech.md
     - name: Ses tiplerini özelleştirme
       href: how-to-customize-voice-font.md
-    - name: Konuşmayı çevirme
-      href: how-to-translate-speech.md
     - name: Transkript hazırlama
       href: prepare-transcription.md
     - name: Özel ses akışları kullanma
       href: how-to-use-audio-input-streams.md
+    - name: Cihaz uyandırma sözcüğünü özelleştirme (Cihazlar SDK’sı)
+      href: speech-devices-sdk-create-kws.md
+- name: Nasıl yapılır kılavuzları
+  items:
+    - name: Konuşma tanıma
+      href: how-to-speech-to-text.md
+    - name: Konuşmayı birleştirme
+      href: how-to-text-to-speech.md
+    - name: Konuşmayı çevirme
+      href: how-to-translate-speech.md
     - name: Konuşma Cihazları SDK’sını edinme
       href: get-speech-devices-sdk.md
-    - name: Cihaz uyandırma sözcüğünü özelleştirme
-      href: speech-devices-sdk-create-kws.md
     - name: Toplu iş transkripsiyonu (çağrı merkezleri)
       href: batch-transcription.md
 - name: Örnekler
@@ -73,8 +75,14 @@
       href: speech-synthesis-markup.md
 - name: Kaynaklar
   items:
-    - name: Konuşmayı Metne Dönüştürme SSS
-      href: faq-stt.md
+    - name: SSS
+      items:
+        - name: Konuşmayı Metne Dönüştürme SSS
+          href: faq-stt.md
+        - name: Metin Okuma Hakkında SSS
+          href: faq-text-to-speech.md
+        - name: Translator Hakkında SSS
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
     - name: Fiyatlandırma
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

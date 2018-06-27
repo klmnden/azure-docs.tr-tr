@@ -74,9 +74,9 @@
       href: sql-database-powershell-samples.md
 - name: Kavramlar
   items:
-    - name: Hizmet katmanları ve kaynaklar
+    - name: Satın alma modelleri ve kaynakları
       items:
-        - name: Hizmet katmanları
+        - name: Satın alma modelleri
           href: sql-database-service-tiers.md
         - name: vCore tabanlı model
           href: sql-database-service-tiers-vcore.md

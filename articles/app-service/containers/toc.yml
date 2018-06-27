@@ -23,6 +23,8 @@
       href: quickstart-ruby.md
     - name: Docker/Go uygulaması oluşturma
       href: quickstart-docker-go.md
+    - name: Çok kapsayıcılı uygulama oluşturma
+      href: quickstart-multi-container.md
 - name: Öğreticiler
   items:
     - name: DB ile uygulama

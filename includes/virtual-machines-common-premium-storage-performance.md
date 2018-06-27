@@ -14,10 +14,10 @@ Bu makalede Azure Premium Storage uygulama performansı en iyi duruma getirme ha
 
 Premium depolama üzerinde çalışan iş yüklerini yüksek performans hassas olduğundan özellikle Premium Storage için bu yönergeleri sağladık. Uygun olan yerlerde örnekler sağladık. Ayrıca standart depolama disklerle Iaas VM'ler üzerinde çalıştırılan uygulamalar bu yönergeleri bazıları uygulayabilirsiniz.
 
-Premium depolama alanına yeniyseniz, başlamadan önce ilk okuma [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md) ve [Azure Storage ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md) makaleleri.
+Premium depolama alanına yeniyseniz, başlamadan önce ilk okuma [Premium Storage: Azure sanal makine iş yükleri için yüksek performanslı depolama](../articles/virtual-machines/windows/premium-storage.md) ve [Azure Storage ölçeklenebilirlik ve performans hedefleri](../articles/storage/common/storage-scalability-targets.md)makaleler.
 
 ## <a name="application-performance-indicators"></a>Uygulama performans göstergeleri
-Bir uygulama da ya da olmasın performans göstergeleri gibi kullanarak gerçekleştiriyor olup olmadığını biz değerlendirmek, ne kadar hızlı bir uygulama bir kullanıcı isteği, istek başına bir uygulama işleme ne kadar veri işleme, kaç uygulama işleme süresinin kendi İsteği gönderdikten sonra bir yanıt elde etmek için bir kullanıcının sahip, ne kadar süreyle belirli bir süre içinde istekleri. Bu performans göstergeleri için teknik koşulları:, IOPS, üretilen iş veya bant genişliği ve gecikme süresi.
+Bir uygulama da ya da olmasın performans göstergeleri gibi kullanarak gerçekleştiriyor olup olmadığını biz değerlendirmek, ne kadar hızlı bir uygulama bir kullanıcı isteği, istek başına bir uygulama işleme ne kadar veri işleme, kaç uygulamanın belirli bir işleme istekleri süre kendi İsteği gönderdikten sonra bir yanıt elde etmek için bir kullanıcının sahip, ne kadar süre. Bu performans göstergeleri için teknik koşulları:, IOPS, üretilen iş veya bant genişliği ve gecikme süresi.
 
 Bu bölümde, Premium depolama bağlamında yaygın performans göstergelerini aşağıdakiler ele alınacaktır. Toplama uygulama gereksinimleri, aşağıdaki bölümde, bu performans göstergeleri uygulamanızın ölçmek öğreneceksiniz. Daha sonra en iyi duruma getirme uygulama performansını, bu performans göstergelerini ve bunları en iyi duruma getirmek için öneriler etkileyen faktörler hakkında bilgi edineceksiniz.
 
@@ -239,17 +239,17 @@ Diskleri doğru yetenek kümesini önbelleğini etkinleştirmek önemlidir. Prem
 | **Disk türü** | **Varsayılan önbellek ayarı** |
 | --- | --- |
 | İşletim sistemi diski |ReadWrite |
-| Veri diski |None |
+| Veri diski |Salt okunur |
 
 Veri diskleri için önerilen disk önbellek ayarlarını şunlardır,
 
 | **Önbelleğe alma ayarını disk** | **Bu ayarı kullanmak ne zaman öneriye** |
 | --- | --- |
 | None |Hiçbiri salt yazılır ve ağır yazma diskleri için konak önbelleği yapılandırın. |
-| SaltOkunur |Konak önbelleği salt okunur ve okuma-yazma diskler için salt okunur olarak yapılandırın. |
+| Salt okunur |Konak önbelleği salt okunur ve okuma-yazma diskler için salt okunur olarak yapılandırın. |
 | ReadWrite |Yalnızca uygulamanızı düzgün bir şekilde gerektiğinde kalıcı disklere önbelleğe alınmış veri yazma işliyorsa konak önbelleği ReadWrite yapılandırın. |
 
-*salt okunur*  
+*Salt okunur*  
 Premium depolama verileri önbelleğe alma diskleri ReadOnly yapılandırarak, düşük okuma gecikme süresine ulaşmanız ve çok yüksek okuma IOPS ve üretilen iş uygulamanız için alın. İki nedeni budur,
 
 1. Okuma VM belleği ve yerel SSD önbelleğinden gerçekleştirilen, Azure blob depolama veri diskten okuma hızlıdır.  

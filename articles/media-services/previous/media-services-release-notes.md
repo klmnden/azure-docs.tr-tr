@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942420"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018547"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümlerden ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -170,7 +170,6 @@ Yeni bir sürümü Azure SDK'sı takım yayımlanan [PHP için Azure SDK](http:/
 
 Daha fazla bilgi için bkz.
 
-* [Media Services SDK'sı için PHP](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) blogu.
 * Aşağıdaki [kod örnekleri](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices) hızlı şekilde kullanmaya yardımcı olur:
   * **vodworkflow_aes.php**: Bu PHP dosyasını AES-128 dinamik şifreleme ve anahtar teslim hizmeti nasıl kullanılacağını gösterir. Açıklandığı .NET örnek dayanır [kullanım AES-128 dinamik şifreleme ve anahtar teslim hizmeti](media-services-protect-with-aes128.md).
   * **vodworkflow_aes.php**: Bu PHP dosyasını PlayReady dinamik şifreleme ve lisans teslimat hizmetinin nasıl kullanılacağını gösterir. Açıklandığı .NET örnek dayanır [kullanım PlayReady ve/veya Widevine dinamik ortak şifreleme](media-services-protect-with-playready-widevine.md).
@@ -209,9 +208,7 @@ Daha fazla bilgi için bkz: [bu blog](https://azure.microsoft.com/blog/azure-med
 
 ## <a id="august_changes_15"></a>Ağustos 2015 sürüm
 * Media Services SDK'sı yeni örnekler ve Java Sürüm 0.8.0 yayın için hazırdır. Daha fazla bilgi için bkz.
-  
-  * [Bu blog gönderisine](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [Java örnekleri deposu](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * Azure Media Player, birden çok ses akışı destek ile güncelleştirilmiştir. Daha fazla bilgi için bkz: [bu blog gönderisine](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/).
 
 ## <a id="july_changes_15"></a>Temmuz 2015 sürüm
@@ -355,11 +352,11 @@ Media Services REST meta veri sürümü 2.7 sunulmuştur. En son KALAN güncelle
 * AES dinamik şifreleme. Daha fazla bilgi için bkz: [kullanım AES-128 dinamik şifreleme ve anahtar teslim hizmeti](http://msdn.microsoft.com/library/azure/dn783457.aspx).
 * PlayReady lisans teslimat hizmeti. 
 * PlayReady dinamik şifreleme. 
-* Medya Hizmetleri PlayReady lisans şablonu. Daha fazla bilgi için bkz: [Media Services PlayReady lisans şablonu genel bakış].
+* Medya Hizmetleri PlayReady lisans şablonu. Daha fazla bilgi için bkz: [Media Services PlayReady lisans şablonuna genel bakış].
 * Akış depolama şifrelenmiş varlıklar. Daha fazla bilgi için bkz: [depolama şifrelenmiş içerik akışı](http://msdn.microsoft.com/library/azure/dn783451.aspx).
 
 ## <a id="august_changes_14"></a>Ağustos 2014 sürümü
-Bir varlık kodlama, kodlama işi tamamlandığında, çıkış varlık oluşturulur. Bu sürüm kadar Media Services Encoder çıkış varlıklar hakkında meta veriler üretti. Bu sürüm ile başlayarak, kodlayıcı de giriş varlıklar hakkında meta veriler üretir. Daha fazla bilgi için bkz: [giriş meta veri] ve [çıkış meta verileri].
+Bir varlık kodlama, kodlama işi tamamlandığında, çıkış varlık oluşturulur. Bu sürüm kadar Media Services Encoder çıkış varlıklar hakkında meta veriler üretti. Bu sürüm ile başlayarak, kodlayıcı de giriş varlıklar hakkında meta veriler üretir. Daha fazla bilgi için bkz: [Giriş meta verileri] ve [çıkış meta verileri].
 
 ## <a id="july_changes_14"></a>Temmuz 2014 sürümü
 Azure Media Services Paketleyici ve Şifreleyici için aşağıdaki hata düzeltmeleri yapıldı:
@@ -386,7 +383,7 @@ Daha fazla bilgi için bkz: [.NET için Media Services SDK'sı mantığı yenide
 
 ## <a id="april_changes_14"></a>Nisan 2014 Kodlayıcı sürümü
 ### <a name="april_14_enocer_changes"></a>Media Services Kodlayıcısı güncelleştirmeleri
-* Çimen vadisi EDIUS doğrusal Düzenleyicisi'ni kullanarak yazılan AVI dosyalarını almak için destek eklendi. Bu işlem, video hafifçe Çimen vadisi denetim merkezini/HQX codec kullanılarak sıkıştırılmış. Daha fazla bilgi için bkz: [Çimen vadisi bildirdi EDIUS bulut üzerinden akış 7].
+* Çimen vadisi EDIUS doğrusal Düzenleyicisi'ni kullanarak yazılan AVI dosyalarını almak için destek eklendi. Bu işlem, video hafifçe Çimen vadisi denetim merkezini/HQX codec kullanılarak sıkıştırılmış. Daha fazla bilgi için bkz: [EDIUS bulut üzerinden akış 7 Çimen vadisi bildirdi].
 *  Medya Hizmetleri Kodlayıcı tarafından üretilen dosyalar için adlandırma kuralı belirtmek için destek eklendi. Daha fazla bilgi için bkz: [denetim Media Services Encoder çıkış dosya adları](http://msdn.microsoft.com/library/azure/dn303341.aspx).
 *  Video ve/veya ses yer paylaşımları için destek eklendi. Daha fazla bilgi için bkz: [yer paylaşımları oluşturma](http://msdn.microsoft.com/library/azure/dn640496.aspx).
 *  Birden çok video kesimi birleştirmek için destek eklendi. Daha fazla bilgi için bkz: [elde etme video kesimleri](http://msdn.microsoft.com/library/azure/dn640504.aspx).
@@ -547,8 +544,8 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni:
 [Azure Media Services MSDN Forumu]: http://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure Media Services REST API Başvurusu]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services fiyatlandırma ayrıntıları]: http://azure.microsoft.com/pricing/details/media-services/
-[giriş meta veri]: http://msdn.microsoft.com/library/azure/dn783120.aspx
-[çıkış meta verileri]: http://msdn.microsoft.com/library/azure/dn783217.aspx
+[Giriş meta verileri]: http://msdn.microsoft.com/library/azure/dn783120.aspx
+[Çıkış meta verileri]: http://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Index media files with the Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
@@ -556,14 +553,14 @@ Aşağıdaki işlevleri SDK Kasım sürümündeki yeni:
 [Use AES-128 dynamic encryption and the key delivery service]: http://msdn.microsoft.com/library/azure/dn783457.aspx
 [Use PlayReady dynamic encryption and the license delivery service]: http://msdn.microsoft.com/library/azure/dn783467.aspx
 [Preview features]: http://azure.microsoft.com/services/preview/
-[Media Services PlayReady lisans şablonu genel bakış]: http://msdn.microsoft.com/library/azure/dn783459.aspx
+[Media Services PlayReady lisans şablonuna genel bakış]: http://msdn.microsoft.com/library/azure/dn783459.aspx
 [Stream storage-encrypted content]: http://msdn.microsoft.com/library/azure/dn783451.aspx
 [Azure portal]: https://portal.azure.com
 [Dinamik paketleme]: http://msdn.microsoft.com/library/azure/jj889436.aspx
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: http://msdn.microsoft.com/library/azure/dn189154.aspx
 [.NET için Media Services SDK'sı mantığı yeniden dene]: http://msdn.microsoft.com/library/azure/dn745650.aspx
-[Çimen vadisi bildirdi EDIUS bulut üzerinden akış 7]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[EDIUS bulut üzerinden akış 7 Çimen vadisi bildirdi]: http://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: http://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: http://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: http://msdn.microsoft.com/library/azure/dn640504.aspx

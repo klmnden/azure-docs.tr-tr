@@ -48,7 +48,7 @@ Klasik dağıtım modelinde oluşturulan sanal makineler için Azure Sanal Ağ�
 Sanal makineyi oluştururken sanal makinenin ait olmasını istediğiniz ağı belirtmeniz gerekir. Mevcut bir sanal makineyi sanal ağa bağlayamazsınız. Bununla birlikte, önce mevcut sanal makineden sanal sabit diski (VHD) ayırıp sonra bu diskle istediğiniz ağ yapılandırmasına sahip yeni bir sanal makine oluşturarak bu soruna geçici bir çözüm bulabilirsiniz.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>Sanal makinelerime nasıl erişebilirim?
-Windows VM için Uzak Masaüstü Bağlantısı ya da Linux VM için Secure Shell (SSH) kullanarak sanal makinede oturum açmak için bir uzak bağlantı oluşturmanız gerekir. Yönergeler için bkz.
+Bir Windows VM veya bir güvenli Kabuk (SSH) için bir Linux VM için Uzak Masaüstü bağlantısı kullanarak sanal makinede oturum açmak için uzak bir bağlantı oluşturmanız gerekir. Yönergeler için bkz.
 
 * [Windows Server çalıştıran bir sanal makinede oturum açma](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Sunucu bir Uzak Masaüstü Hizmetleri oturum konağı olarak yapılandırılmadığı sürece en fazla 2 eş zamanlı bağlantı desteklenir.  
 * [Linux Çalıştıran Bir Sanal Makinede Oturum Açma](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Varsayılan olarak, SSH en fazla 10 eş zamanlı bağlantıya izin verir. Yapılandırma dosyasını düzenleyerek bu sayıyı artırabilirsiniz.
@@ -78,7 +78,7 @@ Yükseltme terimi genellikle donanımı değiştirmeksizin işletim sisteminin d
 Windows Server geçişine yönelik araçlar ve işlemler hakkındaki genel ayrıntılar için bkz. [Rolleri ve Özellikleri Windows Server’a Geçirme](http://go.microsoft.com/fwlink/p/?LinkId=396940).
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>Sanal makinede varsayılan kullanıcı adı ve parola nedir?
-Azure tarafından sağlanan görüntülerin önceden yapılandırılmış bir kullanıcı adı ve parolası yoktur. Bu görüntülerden birini kullanarak sanal makine oluştururken, sanal makinede oturum açmak için kullanacağınız bir kullanıcı adı ve parola sağlamanız gerekir.
+Azure tarafından sağlanan görüntülerin önceden yapılandırılmış bir kullanıcı adı ve parolası yoktur. Bu görüntülerden birini kullanarak sanal makine oluşturduğunuzda, bir kullanıcı adı ve sanal makinede oturum açmak için kullanacağınız parola sağlamanız gerekir.
 
 Kullanıcı adını veya parolayı unuttuysanız ve VM Aracısını yüklediyseniz sorunu çözmek için [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) uzantısını yükleyip kullanabilirsiniz.
 

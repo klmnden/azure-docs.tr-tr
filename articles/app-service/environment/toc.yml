@@ -64,8 +64,6 @@
           href: app-service-app-service-environment-network-architecture-overview.md
         - name: ASEv1 içinde web uygulaması oluşturma
           href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-        - name: Yüksek yoğunluklu barındırma
-          href: app-service-high-density-hosting.md
         - name: Arka uca bağlanma
           href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
         - name: ExpressRoute'u yapılandırma

@@ -1,8 +1,9 @@
 # Genel Bakış
-## [Kullanmaya Başlama](get-started.md)
+## [Kullanmaya başlama](get-started.md)
 ## [Sertifikalar](sap-certifications.md)
 # Azure’da SAP HANA (Büyük Örnekler)
 ## [Genel bakış ve mimari](hana-overview-architecture.md)
+### [HLI destekli senaryolar](hana-supported-scenario.md)
 ## [Altyapı ve bağlantı](hana-overview-infrastructure-connectivity.md)
 ## [SAP HANA yükleyin](hana-installation.md)
 ## [Yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md)

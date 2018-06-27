@@ -1,3 +1,20 @@
+---
+title: include dosyası
+description: include dosyası
+services: storage
+author: ramankumarlive
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: ramankum
+ms.custom: include file
+ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: MT
+ms.contentlocale: tr-TR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806392"
+---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Yüksek performanslı Premium depolama ve VM'ler için yönetilen diskleri
 Azure Premium Storage giriş/çıkış (g/ç) ile sanal makineleri (VM'ler) için yüksek performanslı, düşük gecikmeli disk desteği sunar-yoğun iş yükleri. Premium depolama kullanan VM diskleri verileri katı hal sürücüleri (SSD) depolar. Hız ve premium depolama diskleri performansını yararlanacak Premium depolama alanına var olan VM diskleri geçirebilirsiniz.
 
@@ -61,14 +78,14 @@ Premium depolama özelliklerden bazıları şunlardır:
 
 ## <a name="supported-vms"></a>Desteklenen VM'ler
 
-Premium depolama destekleyen B-serisi, DS serisi, DSv2 serisi, DSv3 serisi, GS serisi, Ls serisi, M-serisi ve Fs-serisi VM'ler. Bu VM türleriyle standart ve premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri depolama uyumlu Premium olmayan VM dizisi ile kullanamazsınız.
+Premium depolama destekleyen B-serisi, DS serisi, DSv2 serisi, DSv3 serisi, Esv3 serisi, GS serisi, Ls-serisi, M-serisi ve Fs-serisi VM'ler. Bu VM türleriyle standart ve premium depolama diskleri kullanabilirsiniz. Premium depolama diskleri depolama uyumlu Premium olmayan VM dizisi ile kullanamazsınız.
 
 
 Windows için Azure’da VM türleri ve boyutları hakkında bilgi edinmek için bkz. [Windows VM boyutları](../articles/virtual-machines/windows/sizes.md). Linux için Azure’da VM türleri ve boyutları hakkında bilgi edinmek için bkz. [Linux VM boyutları](../articles/virtual-machines/linux/sizes.md).
 
 DS serisi, DSv2 serisi, GS serisi özelliklerden bazıları bunlar Ls-serisi ve Fs-serisi VM'ler:
 
-* **Cloud service**
+* **Bulut hizmeti**
 
     DS serisi VM'ler yalnızca DS serisi VM'ler sahip bir bulut hizmeti ekleyebilirsiniz. DS serisi VM'ler DS serisi VM'ler dışında türünde olan bir bulut hizmetini eklemeyin. Yalnızca DS serisi VM'ler çalıştıran yeni bir bulut hizmeti için mevcut Vhd'lerinizi geçirebilirsiniz. Aynı sanal IP adresi kullanım sizin DS serisi VM'ler barındıran bir yeni bulut hizmeti kullanmak istiyorsanız, [ayrılmış IP adresi](../articles/virtual-network/virtual-networks-instance-level-public-ip.md). GS serisi VM'ler yalnızca GS serisi VM'ler sahip mevcut bir bulut hizmeti eklenebilir.
 
@@ -166,7 +183,7 @@ Premium Storage ölçeklenebilirlik ve performans hedefleri hakkında bilmeniz g
     | --- | --- | --- |
     | 100 MB/s | 100 MB/s | 0 |
     | 100 MB/s | 0 | 100 MB/s |
-    | 100 MB/s | 60 MB/sn | 40 MB/s |
+    | 100 MB/s | 60 MB/sn | 40 MB/sn |
 
 * **İsabetli Önbellek okuma sayısı**
 
@@ -218,7 +235,7 @@ Premium depolama hesabı sayfa bloblarını karşı REST işlemlerini gerçekle�
 
 ### <a name="managed-disks"></a>Yönetilen diskler
 
-Yönetilen bir disk için bir anlık görüntü, yönetilen disk, salt okunur bir kopyasıdır. Anlık görüntü, standart yönetilen disk olarak depolanır. Şu anda [artımlı anlık görüntüleri](../articles/virtual-machines/windows/incremental-snapshots.md) yönetilen disklerde desteklenmez. Yönetilen bir disk için bir anlık görüntüsünü öğrenmek için bkz: [Azure yönetilen olarak depolanan VHD bir kopyasını oluşturmak Windows'da yönetilen anlık görüntülerini kullanarak disk](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md) veya [Azure yönetilen olarak depolanan VHD bir kopyasını oluşturmak Linux içinde yönetilen anlık görüntülerini kullanarak disk](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md).
+Yönetilen bir disk için bir anlık görüntü, yönetilen disk, salt okunur bir kopyasıdır. Anlık görüntü, standart yönetilen disk olarak depolanır. Şu anda [artımlı anlık görüntüleri](../articles/virtual-machines/windows/incremental-snapshots.md) yönetilen disklerde desteklenmez. Yönetilen bir disk için bir anlık görüntüsünü öğrenmek için bkz: [Azure yönetilen olarak depolanan VHD bir kopyasını oluşturmak Windows'da yönetilen anlık görüntülerini kullanarak disk](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md) veya [Azure yönetilen olarak depolanan VHD bir kopyasını oluşturmak yönetilen kullanarak disk Linux anlık görüntüleri](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md).
 
 Yönetilen bir disk için bir VM bağlıysa, disk üzerinde bazı API işlemleri izin verilmez. Örneğin, bir paylaşılan erişim imzası (SAS) disk için bir VM eklenirken bir kopyalama işlemi gerçekleştirmek için oluşturulamıyor. Bunun yerine, önce diskin anlık görüntüsünü oluşturabilir ve sonra anlık görüntü kopyası gerçekleştirin. Alternatif olarak, disk ayırma ve ardından kopyalama işlemi gerçekleştirmek için bir SAS oluşturun.
 

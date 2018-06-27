@@ -1,39 +1,36 @@
 ---
-title: Azure PowerShell kullanarak Azure Data Lake Analytics yönetme | Microsoft Docs
-description: 'Data Lake Analytics hesapları, veri kaynaklarını, işlerini ve Katalog öğeleri yönetmeyi öğrenin. '
+title: Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme
+description: Bu makalede, Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri yönetmek için Azure PowerShell kullanmayı açıklar.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 07/23/2017
+author: matt1883
 ms.author: mahi
-ms.openlocfilehash: 96360eabefcbbdf36ef3bd83b0c6de45c1a6f3cc
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+manager: kfile
+editor: jasonwhowell
+ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
+ms.topic: conceptual
+ms.date: 06/02/2018
+ms.openlocfilehash: 560f36dc64480fd6aceaa50226b191ee40d2486f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959857"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Azure Data Lake Analytics'i Azure PowerShell'i kullanarak yönetme
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure Data Lake Analytics hesapları, veri kaynaklarını, işlerini ve Azure PowerShell'i kullanarak katalog öğeleri yönetmeyi öğrenin. 
+Bu makalede, Azure PowerShell kullanarak Azure Data Lake Analytics hesaplarını, veri kaynakları, kullanıcılar ve işleri Yönet açıklar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-Bir Data Lake Analytics hesabı oluştururken bilmeniz gerekir:
+PowerShell Data Lake Analytics ile kullanmak için şu bilgileri toplayın: 
 
-* **Abonelik kimliği**: Data Lake Analytics hesabınızı bulunduğu Azure abonelik kimliği.
+* **Abonelik kimliği**: Data Lake Analytics hesabınızı içeren Azure abonelik kimliği.
 * **Kaynak grubu**: Data Lake Analytics hesabınızı içeren Azure kaynak grubunun adı.
-* **Data Lake Analytics hesap adı**: hesap adı yalnızca küçük harfler ve rakamlardan oluşmalıdır.
-* **Varsayılan Data Lake Store hesabı**: Her Data Lake Analytics hesabı, bir varsayılan Data Lake Store hesabına sahiptir. Bu hesaplar aynı konumda olmalıdır.
-* **Konum**: "Doğu ABD 2" veya diğer gibi Data Lake Analytics hesabınızı konumunu desteklenen konumlar. Desteklenen konumlar üzerinde görülme bizim [fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/data-lake-analytics/).
+* **Data Lake Analytics hesap adı**: Data Lake Analytics hesabınızın adını.
+* **Varsayılan Data Lake Store hesabı adı**: her Data Lake Analytics hesabı varsayılan Data Lake Store hesabına sahiptir.
+* **Konum**: "Doğu ABD 2" veya diğer gibi Data Lake Analytics hesabınızı konumunu desteklenen konumlar.
 
 Bu öğreticideki PowerShell kod parçacıkları, bu bilgileri depolamak için bu değişkenleri kullanır
 
@@ -45,19 +42,21 @@ $adls = "<DataLakeStoreAccountName>"
 $location = "<Location>"
 ```
 
-## <a name="log-in"></a>Oturum açma
+## <a name="log-in-to-azure"></a>Azure'da oturum açma
 
-Bir abonelik kimliği kullanarak oturum açın.
+### <a name="log-in-using-interactive-user-authentication"></a>Etkileşimli kullanıcı kimlik doğrulaması kullanarak oturum açın
+
+Bir abonelik kimliği kullanarak veya abonelik adı oturum
 
 ```powershell
+# Using subscription id
 Connect-AzureRmAccount -SubscriptionId $subId
-```
 
-Abonelik adı kullanarak oturum açın.
-
-```
+# Using subscription name
 Connect-AzureRmAccount -SubscriptionName $subname 
 ```
+
+## <a name="saving-authenticaiton-context"></a>Kimlik doğrulaması bağlamı kaydetme
 
 `Connect-AzureRmAccount` Cmdlet her zaman için kimlik bilgilerini ister. Aşağıdaki cmdlet'leri kullanarak sorulmasını önlemek:
 
@@ -69,29 +68,42 @@ Save-AzureRmProfile -Path D:\profile.json
 Select-AzureRmProfile -Path D:\profile.json 
 ```
 
-## <a name="manage-accounts"></a>Hesapları yönetme
-
-### <a name="create-a-data-lake-analytics-account"></a>Data Lake Analytics hesabı oluşturma
-
-Henüz yoksa bir [kaynak grubu](../azure-resource-manager/resource-group-overview.md#resource-groups) kullanmak için bir oluşturun. 
+### <a name="log-in-using-a-service-principal-identity-spi"></a>Bir hizmet asıl kimlik (SPI) kullanarak oturum açın
 
 ```powershell
-New-AzureRmResourceGroup -Name  $rg -Location $location
+$tenantid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"  
+$spi_appname = "appname" 
+$spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" 
+$spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
+
+$pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
+Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
+
+## <a name="manage-accounts"></a>Hesapları yönetme
+
+
+### <a name="list-accounts"></a>Hesapları listeleme
+
+```powershell
+# List Data Lake Analytics accounts within the current subscription.
+Get-AdlAnalyticsAccount
+
+# List Data Lake Analytics accounts within a specific resource group.
+Get-AdlAnalyticsAccount -ResourceGroupName $rg
+```
+
+### <a name="create-an-account"></a>Hesap oluşturma
 
 Her Data Lake Analytics hesabı, günlükleri depolamak için kullandığı varsayılan bir Data Lake Store hesabı gerektirir. Hesabınız yeniden ya da bir hesap oluşturun. 
 
 ```powershell
+# Create a data lake store if needed, or you can re-use an existing one
 New-AdlStore -ResourceGroupName $rg -Name $adls -Location $location
-```
-
-Bir Kaynak Grubu ve Data Lake Store hesabı oluşturulduktan sonra Data Lake Analytics hesabı oluşturun.
-
-```powershell
 New-AdlAnalyticsAccount -ResourceGroupName $rg -Name $adla -Location $location -DefaultDataLake $adls
 ```
 
-### <a name="get-acount-information"></a>Hesap bilgileri alma
+### <a name="get-account-information"></a>Hesap bilgilerini alma
 
 Bir hesap ayrıntılarını alın.
 
@@ -99,30 +111,10 @@ Bir hesap ayrıntılarını alın.
 Get-AdlAnalyticsAccount -Name $adla
 ```
 
-Belirli bir Data Lake Analytics hesabı var olup olmadığını denetleyin. Cmdlet döndürür `$true` veya `$false`.
+### <a name="check-if-an-account-exists"></a>Bir hesap var olup olmadığını denetleyin
 
 ```powershell
 Test-AdlAnalyticsAccount -Name $adla
-```
-
-Belirli bir Data Lake Store hesabı var olup olmadığını denetleyin. Cmdlet döndürür `$true` veya `$false`.
-
-```powershell
-Test-AdlStoreAccount -Name $adls
-```
-
-### <a name="list-accounts"></a>Hesapları listeleme
-
-Geçerli abonelik içindeki listesi Data Lake Analytics hesapları.
-
-```powershell
-Get-AdlAnalyticsAccount
-```
-
-Belirli bir kaynak grubunun içinde listesi Data Lake Analytics hesapları.
-
-```powershell
-Get-AdlAnalyticsAccount -ResourceGroupName $rg
 ```
 
 ## <a name="manage-data-sources"></a>Veri kaynaklarını yönet
@@ -131,7 +123,7 @@ Azure Data Lake Analytics şu anda aşağıdaki veri kaynaklarını destekler:
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure Depolama](../storage/common/storage-introduction.md)
 
-Analytics hesabı oluşturduğunuzda, bir Data Lake Store hesabı varsayılan veri kaynağı olarak belirlemeniz gerekir. Varsayılan Data Lake Store hesabı iş meta verileri ve iş denetim günlüklerini depolamak için kullanılır. Bir Data Lake Analytics hesabı oluşturduktan sonra ek Data Lake Store hesapları ve/veya depolama hesapları ekleyebilirsiniz. 
+Her Data Lake Analytics hesabı bir varsayılan Data Lake Store hesabı vardır. Varsayılan Data Lake Store hesabı iş meta verileri ve iş denetim günlüklerini depolamak için kullanılır. 
 
 ### <a name="find-the-default-data-lake-store-account"></a>Varsayılan Data Lake Store hesabı bulunamadı
 
@@ -175,7 +167,7 @@ Get-AdlAnalyticsDataSource -Name $adla | where -Property Type -EQ "Blob"
 
 ## <a name="submit-u-sql-jobs"></a>U-SQL işlerini gönderme
 
-### <a name="submit-a-string-as-a-u-sql-script"></a>U-SQL komut dosyası olarak bir dize gönderme
+### <a name="submit-a-string-as-a-u-sql-job"></a>U-SQL iş olarak bir dize gönderme
 
 ```powershell
 $script = @"
@@ -196,7 +188,7 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla -Script $script -Name "Demo"
 ```
 
-### <a name="submit-a-file-as-a-u-sql-script"></a>U-SQL komut dosyası olarak bir dosya gönderin
+### <a name="submit-a-file-as-a-u-sql-job"></a>U-SQL iş olarak bir dosya gönderin
 
 ```powershell
 $scriptpath = "d:\test.usql"
@@ -204,9 +196,7 @@ $script | Out-File $scriptpath
 Submit-AdlJob -AccountName $adla –ScriptPath $scriptpath -Name "Demo"
 ```
 
-## <a name="list-jobs-in-an-account"></a>Bir hesap listesi işleri
-
-### <a name="list-all-the-jobs-in-the-account"></a>Hesaptaki tüm işleri listeleyin. 
+### <a name="list-jobs"></a>Liste işleri
 
 Çıktı o anda çalışan işleri ve yakın zamanda tamamlanan işleri içerir.
 
@@ -222,7 +212,7 @@ Get-AdlJob -Account $adla
 $jobs = Get-AdlJob -Account $adla -Top 10
 ```
 
-### <a name="list-jobs-based-on-the-value-of-job-property"></a>Proje özelliği değere göre listesi işleri
+### <a name="list-jobs-by-job-state"></a>İş durumuna göre listesi işleri
 
 Kullanarak `-State` parametresi. Bu değerleri birleştirebilirsiniz:
 
@@ -247,6 +237,8 @@ Get-AdlJob -Account $adla -State Ended
 Get-AdlJob -Account $adla -State Accepted,Compiling,New,Paused,Scheduling,Start
 ```
 
+### <a name="list-jobs-by-job-result"></a>İş sonuç listesi işleri
+
 Kullanım `-Result` sona erdi işler başarıyla tamamlandığında olup olmadığını algılamak için parametre. Bu değer vardır:
 
 * İptal edildi
@@ -262,11 +254,15 @@ Get-AdlJob -Account $adla -State Ended -Result Succeeded
 Get-AdlJob -Account $adla -State Ended -Result Failed
 ```
 
+### <a name="list-jobs-by-job-submitter"></a>Liste işleri iş gönderen tarafından
+
 `-Submitter` Parametre kullanan bir işin gönderildiği belirlemenize yardımcı olur.
 
 ```powershell
 Get-AdlJob -Account $adla -Submitter "joe@contoso.com"
 ```
+
+### <a name="list-jobs-by-submission-time"></a>Liste işleri gönderme zamanı tarafından
 
 `-SubmittedAfter` Bir zaman aralığı için filtreleme yararlıdır.
 
@@ -281,11 +277,34 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### <a name="analyzing-job-history"></a>İş geçmişi analiz etme
+### <a name="get-job-status"></a>İş durumunu Al
+
+Belirli bir işin durumunu alın.
+
+```powershell
+Get-AdlJob -AccountName $adla -JobId $job.JobId
+```
+
+
+### <a name="cancel-a-job"></a>Bir işi iptal etme
+
+```powershell
+Stop-AdlJob -Account $adla -JobID $jobID
+```
+
+### <a name="wait-for-a-job-to-finish"></a>İşin tamamlanmasını bekleyin
+
+Yinelenen yerine `Get-AdlAnalyticsJob` bir işi tamamlanana kadar kullanabileceğiniz `Wait-AdlJob` cmdlet işi sona erdirmek bekleyin.
+
+```powershell
+Wait-AdlJob -Account $adla -JobId $job.JobId
+```
+
+## <a name="analyzing-job-history"></a>İş geçmişi analiz etme
 
 Data Lake analytics çalıştıran işleri geçmişini çözümlemek için Azure PowerShell kullanarak güçlü bir tekniktir. Kullanım ve maliyet Öngörüler elde etmek için kullanabilirsiniz. Bakarak tarafından daha fazla bilgi edinebilirsiniz [iş geçmişi analiz örnek depo](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
-## <a name="get-information-about-pipelines-and-recurrences"></a>Ardışık Düzen ve tekrarları hakkında bilgi edinin
+## <a name="list-job-pipelines-and-recurrences"></a>Liste İş ardışık düzen ve tekrarları
 
 Kullanım `Get-AdlJobPipeline` ardışık düzen bilgileri görmek için cmdlet daha önce gönderilen işler.
 
@@ -302,39 +321,6 @@ $recurrences = Get-AdlJobRecurrence -Account $adla
 $recurrence = Get-AdlJobRecurrence -Account $adla -RecurrenceId "<recurrence ID>"
 ```
 
-## <a name="get-information-about-a-job"></a>Bir iş hakkında bilgi edinin
-
-### <a name="get-job-status"></a>İş durumunu Al
-
-Belirli bir işin durumunu alın.
-
-```powershell
-Get-AdlJob -AccountName $adla -JobId $job.JobId
-```
-
-### <a name="examine-the-job-outputs"></a>İş çıktısı inceleyin
-
-İş sona erdikten sonra çıktı dosyasını bir klasördeki dosyaları listeleyerek olup olmadığını kontrol edin.
-
-```powershell
-Get-AdlStoreChildItem -Account $adls -Path "/"
-```
-
-## <a name="manage-running-jobs"></a>Çalışan işleri Yönet
-
-### <a name="cancel-a-job"></a>Bir işi iptal etme
-
-```powershell
-Stop-AdlJob -Account $adls -JobID $jobID
-```
-
-### <a name="wait-for-a-job-to-finish"></a>İşin tamamlanmasını bekleyin
-
-Yinelenen yerine `Get-AdlAnalyticsJob` bir işi tamamlanana kadar kullanabileceğiniz `Wait-AdlJob` cmdlet işi sona erdirmek bekleyin.
-
-```powershell
-Wait-AdlJob -Account $adla -JobId $job.JobId
-```
 
 ## <a name="manage-compute-policies"></a>İşlem ilkelerini yönetme
 
@@ -355,14 +341,15 @@ $userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
+## <a name="manage-files"></a>Dosyalarını yönetme
 
-## <a name="check-for-the-existence-of-a-file"></a>Bir dosyanın varlığını denetleyin.
+### <a name="check-for-the-existence-of-a-file"></a>Bir dosyanın varlığını denetleyin.
 
 ```powershell
 Test-AdlStoreItem -Account $adls -Path "/data.csv"
 ```
 
-## <a name="uploading-and-downloading"></a>Karşıya yükleme ve indirme
+### <a name="uploading-and-downloading"></a>Karşıya yükleme ve indirme
 
 Bir dosyayı karşıya yükleyin.
 
@@ -391,7 +378,7 @@ Export-AdlStoreItem -AccountName $adls -Path "/" -Destination "c:\myData\" -Recu
 > [!NOTE]
 > Karşıya yükleme veya indirme işlemi kesintiye uğrarsa, yeniden cmdlet'ini çalıştırarak işlemini sürdürmek deneyebilirsiniz ``-Resume`` bayrağı.
 
-## <a name="manage-catalog-items"></a>Katalog öğelerini yönetme
+## <a name="manage-the-u-sql-catalog"></a>U-SQL kataloğunu yönetme
 
 U-SQL kataloğunu, U-SQL komut dosyaları tarafından paylaşılabilmesi veri ve kod yapısı için kullanılır. Katalog Azure Data Lake verilerle olası en yüksek performans sağlar. Daha fazla bilgi için bkz. [U-SQL kataloğunu kullanma](data-lake-analytics-use-u-sql-catalog.md).
 
@@ -408,7 +395,7 @@ Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database"
 Get-AdlCatalogItem -Account $adla -ItemType Table -Path "database.schema"
 ```
 
-Bir ADLA hesaptaki tüm veritabanları tüm derlemelerde listeleyin.
+### <a name="list-all-the-assemblies-the-u-sql-catalog"></a>Tüm derlemeleri U-SQL kataloğunu listesi
 
 ```powershell
 $dbs = Get-AdlCatalogItem -Account $adla -ItemType Database
@@ -435,7 +422,7 @@ Get-AdlCatalogItem  -Account $adla -ItemType Table -Path "master.dbo.mytable"
 Test-AdlCatalogItem  -Account $adla -ItemType Database -Path "master"
 ```
 
-### <a name="create-credentials-in-a-catalog"></a>Kimlik bilgileri bir katalogda oluşturun
+### <a name="store-credentials-in-the-catalog"></a>Katalogda kimlik bilgilerini depolamak
 
 U-SQL veritabanı içinde Azure üzerinde barındırılan bir veritabanı için bir kimlik bilgisi nesnesi oluşturun. Şu anda, U-SQL kimlik bilgileri yalnızca PowerShell aracılığıyla oluşturabilirsiniz katalog öğesi türüdür.
 
@@ -449,31 +436,6 @@ New-AdlCatalogCredential -AccountName $adla `
           -CredentialName $credentialName `
           -Credential (Get-Credential) `
           -Uri $dbUri
-```
-
-### <a name="get-basic-information-about-an-adla-account"></a>Bir ADLA hesap hakkında temel bilgi edinin
-
-Bir hesap adı verilen, aşağıdaki kod hesap hakkında temel bilgileri arar.
-
-```
-$adla_acct = Get-AdlAnalyticsAccount -Name "saveenrdemoadla"
-$adla_name = $adla_acct.Name
-$adla_subid = $adla_acct.Id.Split("/")[2]
-$adla_sub = Get-AzureRmSubscription -SubscriptionId $adla_subid
-$adla_subname = $adla_sub.Name
-$adla_defadls_datasource = Get-AdlAnalyticsDataSource -Account $adla_name  | ? { $_.IsDefault } 
-$adla_defadlsname = $adla_defadls_datasource.Name
-
-Write-Host "ADLA Account Name" $adla_name
-Write-Host "Subscription Id" $adla_subid
-Write-Host "Subscription Name" $adla_subname
-Write-Host "Defautl ADLS Store" $adla_defadlsname
-Write-Host 
-
-Write-Host '$subname' " = ""$adla_subname"" "
-Write-Host '$subid' " = ""$adla_subid"" "
-Write-Host '$adla' " = ""$adla_name"" "
-Write-Host '$adls' " = ""$adla_defadlsname"" "
 ```
 
 ## <a name="manage-firewall-rules"></a>Güvenlik duvarı kurallarını yönet
@@ -494,7 +456,7 @@ $endIpAddress = "<end IP address>"
 Add-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
 ```
 
-### <a name="change-a-firewall-rule"></a>Bir güvenlik duvarı kuralını değiştirme
+### <a name="modify-a-firewall-rule"></a>Bir güvenlik duvarı kuralını değiştirme
 
 ```powershell
 Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $startIpAddress -EndIpAddress $endIpAddress
@@ -506,7 +468,7 @@ Set-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName -StartIpAddress $sta
 Remove-AdlAnalyticsFirewallRule -Account $adla -Name $ruleName
 ```
 
-### <a name="allow-azure-ip-addresses"></a>Azure IP adreslerini verin.
+### <a name="allow-azure-ip-addresses"></a>Azure IP adreslerini izin ver
 
 ```powershell
 Set-AdlAnalyticsAccount -Name $adla -AllowAzureIpState Enabled
@@ -526,7 +488,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Resolve-AzureRmError -Last
 ```
 
-### <a name="verify-if-you-are-running-as-an-administrator"></a>Yönetici olarak çalıştırıyorsanız doğrulayın
+### <a name="verify-if-you-are-running-as-an-administrator-on-your-windows-machine"></a>Windows makinenizde yönetici olarak çalıştırıyorsanız doğrulayın
 
 ```powershell
 function Test-Administrator  
@@ -566,7 +528,6 @@ Get-TenantIdFromSubcriptionId $subid
 
 "Contoso.com" gibi bir etki alanı adresi
 
-
 ```powershell
 function Get-TenantIdFromDomain( $domain )
 {
@@ -592,7 +553,6 @@ foreach ($sub in $subs)
 ## <a name="create-a-data-lake-analytics-account-using-a-template"></a>Bir şablon kullanarak Data Lake Analytics hesabı oluşturma
 
 Aşağıdaki örneği kullanarak bir Azure kaynak grubu şablonu de kullanabilirsiniz: [bir şablon kullanarak Data Lake Analytics hesabı oluşturma](https://github.com/Azure-Samples/data-lake-analytics-create-account-with-arm-template)
-
 
 ## <a name="next-steps"></a>Sonraki adımlar
 * [Microsoft Azure Data Lake Analytics'e genel bakış](data-lake-analytics-overview.md)
