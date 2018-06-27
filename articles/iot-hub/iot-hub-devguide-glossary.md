@@ -1,24 +1,19 @@
 ---
 title: Azure IOT hub'ı terimler sözlüğü | Microsoft Docs
 description: Geliştirici Kılavuzu - Azure IOT Hub'ına ilgili ortak terimleri içeren sözlük.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 16ef29ea-a185-48c3-ba13-329325dc6716
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: aae72618da42db53304075506b4969945ff0165f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960500"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IOT hub'ı terimler sözlüğü
 Bu makalede IOT hub'ı makalelerinde kullanılan ortak terimleri bazıları listelenmektedir.
@@ -110,11 +105,8 @@ Bir cihaz uygulamasının çalışır, [aygıt](#device) ve iletişim işler, [I
 ## <a name="device-data"></a>Cihaz verileri
 IOT hub'ı depolanan aygıt başına veri başvurduğu cihaz verileri [kimlik kayıt defteri](#identity-registry). İçeri ve bu verileri dışarı aktarma mümkündür.
 
-## <a name="device-explorer"></a>Cihaz Gezgini
+## <a name="device-explorer"></a>Device Explorer
 [Aygıt explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) Windows üzerinde çalışan ve cihazlarınızı yönetmenize olanak sağlayan bir araçtır [kimlik kayıt defteri](#identity-registry). Aracı da gönderebilir ve cihazlarınıza iletileri alacak.
-
-## <a name="device-identities-rest-api"></a>Cihaz Kimlikleri REST API’si
-[Aygıt kimlikleri REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) kayıtlı cihazlarınızı yönetmenize olanak veren [kimlik kayıt defteri](#identity-registry) bir REST API kullanarak. Genellikle, üst düzey birini kullanmalıdır [SDK hizmeti](#azure-iot-service-sdks) IOT hub'ı eğitimlerine gösterildiği gibi.
 
 ## <a name="device-identity"></a>Cihaz kimliği
 Cihaz kimliği, kayıtlı her bir aygıtı atanan benzersiz tanımlayıcıdır [kimlik kayıt defteri](#identity-registry).
@@ -128,8 +120,8 @@ Cihaz Yönetimi çözümünüzde planlama, sağlama, yapılandırma, izleme ve d
 ## <a name="device-management-patterns"></a>Cihaz yönetimi modelleri
 [IOT hub'ı](#iot-hub) yeniden başlatma, fabrika ayarlarına sıfırlama gerçekleştirme ve bellenim güncelleştirmeleri aygıtlarınızda gerçekleştirme gibi sık kullanılan aygıt yönetimi desenlerini sağlar.
 
-## <a name="device-messaging-rest-api"></a>Cihaz Mesajlaşma REST API’si
-Kullanabileceğiniz [cihaz Mesajlaşma REST API](https://docs.microsoft.com/rest/api/iothub/httpruntime) bir IOT hub'ına cihaz bulut iletilerini göndermek ve almak için bir aygıttan [bulut cihaz](#cloud-to-device) IOT hub'ı gelen iletileri. Genellikle, üst düzey birini kullanmalıdır [cihaz SDK'ları](#azure-iot-device-sdks) IOT hub'ı eğitimlerine gösterildiği gibi.
+## <a name="device-rest-api"></a>Cihaz REST API'si
+Kullanabileceğiniz [aygıt REST API](https://docs.microsoft.com/rest/api/iothub/device/device) bir IOT hub'ına cihaz bulut iletilerini göndermek ve almak için bir aygıttan [bulut cihaz](#cloud-to-device) IOT hub'ı gelen iletileri. Genellikle, üst düzey birini kullanmalıdır [cihaz SDK'ları](#azure-iot-device-sdks) IOT hub'ı eğitimlerine gösterildiği gibi.
 
 ## <a name="device-provisioning"></a>Cihaz sağlama
 Cihaz sağlama olan ilk ekleme işlemini [aygıt verilerini](#device-data) çözümünüzdeki depolarına. Hub'ınıza bağlanmak yeni bir cihaz etkinleştirmek için bir cihaz kimliği ve anahtarları IOT Hub'ına eklemelisiniz [kimlik kayıt defteri](#identity-registry). Hazırlama işleminin bir parçası olarak, diğer çözüm depolarında aygıta özgü verileri başlatma gerekebilir.
@@ -141,10 +133,7 @@ A [cihaz çifti](iot-hub-devguide-device-twins.md) meta verileri, yapılandırma
 Cihaz çifti, modül twin meta verileri, yapılandırmaları ve koşulları gibi Modül durumu bilgilerini depolar JSON belgesi benzer. IOT Hub cihaz kimliği altında IOT hub'ınıza sağlamak her bir modül kimliği için bir modül twin devam ettirir. Modül çiftlerini modülü koşullar ve yapılandırmaları modülü ve çözüm arka ucu arasında eşitlemek etkinleştirin. Belirli modüller bulun ve uzun süre çalışan işlemleri durumunu sorgulamak için modülü çiftlerini sorgulayabilirsiniz.
 
 ## <a name="twin-queries"></a>Twin sorguları
-[Aygıt ve modül twin sorguları](iot-hub-devguide-query-language.md) SQL benzeri IOT hub'ı sorgu dili cihaz çiftlerini ya da modül çiftlerini bilgi almak için kullanın. Aynı IOT hub'ı sorgu dili hakkında bilgi almak için kullanabileceğiniz [işleri](#job) IOT hub'ınıza çalışıyor.
-
-## <a name="device-twin-rest-api"></a>Cihaz çifti REST API'si
-Kullanabileceğiniz [cihaz çifti REST API](https://docs.microsoft.com/rest/api/iothub/devicetwinapi) çözümden arka uç cihaz çiftlerini yönetmek için. API almak ve güncelleştirmek sağlar [cihaz çifti](#device-twin) özellikleri ve çağırma [doğrudan yöntemleri](#direct-method). Genellikle, üst düzey birini kullanmalıdır [SDK hizmeti](#azure-iot-service-sdks) IOT hub'ı eğitimlerine gösterildiği gibi.
+[Aygıt ve modül twin sorguları](iot-hub-devguide-query-language.md) SQL benzeri IOT hub'ı sorgu dili cihaz çiftlerini ya da modül çiftlerini bilgi almak için kullanın. Aynı IOT hub'ı sorgu dili hakkında bilgi almak için kullanabileceğiniz [ ](#job) IOT hub'ınıza çalışıyor.
 
 ## <a name="twin-synchronization"></a>Twin eşitleme
 Twin eşitleme kullanır [özelliklerini istenen](#desired-properties) cihaz çiftlerini veya modülü çiftlerini aygıtları veya modülleri yapılandırmak ve almak için [özellikleri bildirilen](#reported-properties) çiftine depolamak için bunlardan.
@@ -185,22 +174,19 @@ IOT hub'ı milyonlarca cihaza arasında güvenilir ve güvenli çift yönlü ile
 [IOT hub'ı ölçümleri](iot-hub-metrics.md) IOT hub'ları durumuyla ilgili size, [Azure aboneliği](#subscription). IOT hub'ı ölçümleri, hizmet ve ona bağlı aygıtlar genel durumunu değerlendirmek etkinleştirin. IOT hub'ı ölçümleri IOT hub'ınıza neler olup bittiğini görmek ve Azure desteğine başvurun gerek kalmadan kök neden sorunları araştırmanıza yardımcı olabilir.
 
 ## <a name="iot-hub-query-language"></a>IOT hub'ı sorgulama dili
-[IOT hub'ı sorgu dili](iot-hub-devguide-query-language.md) sorgusu tanır SQL benzeri bir dil olan, [işleri](#job) ve cihaz çiftlerini.
+[IOT hub'ı sorgu dili](iot-hub-devguide-query-language.md) sorgusu tanır SQL benzeri bir dil olan, [ ](#job) ve cihaz çiftlerini.
 
-## <a name="iot-hub-resource-provider-rest-api"></a>IOT hub'ı kaynak sağlayıcısı REST API'si
-Kullanabileceğiniz [IOT Hub kaynak sağlayıcısı REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) , IOT hub'ları yönetmek için [Azure aboneliği](#subscription) oluşturma, güncelleştirme ve hub'ları silme gibi işlemleri gerçekleştirme.
+## <a name="iot-hub-resource-rest-api"></a>IOT hub'ı kaynak REST API'si
+Kullanabileceğiniz [IOT Hub kaynak REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) , IOT hub'ları yönetmek için [Azure aboneliği](#subscription) oluşturma, güncelleştirme ve hub'ları silme gibi işlemleri gerçekleştirme.
 
-## <a name="iot-solution-accelerators"></a>IOT Çözüm Hızlandırıcıları
-Azure IOT Çözüm Hızlandırıcıları birden çok Azure Hizmetleri çözümleriyle birlikte paketi. Bu çözümler, ortak IOT senaryolarını uçtan uca uygulamaları ile hızlı bir şekilde başlamak etkinleştirin. Daha fazla bilgi için bkz: [Azure IOT Çözüm Hızlandırıcıları nelerdir?](../iot-suite/iot-suite-overview.md)
+## <a name="iot-solution-accelerators"></a>IoT çözüm hızlandırıcıları
+Azure IOT Çözüm Hızlandırıcıları birden çok Azure Hizmetleri çözümleriyle birlikte paketi. Bu çözümler, ortak IOT senaryolarını uçtan uca uygulamaları ile hızlı bir şekilde başlamak etkinleştirin. Daha fazla bilgi için bkz: [Azure IOT Çözüm Hızlandırıcıları nelerdir?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0 IOT uzantısı
 [Azure CLI 2.0 IOT uzantısı](https://github.com/Azure/azure-iot-cli-extension) platformlar arası, komut satırı aracıdır. Aracı, cihazlarınızı yönetmenize olanak tanır [kimlik kayıt defteri](#identity-registry)göndermek ve iletileri ve dosyaları, almasını ve IOT hub işlemlerini izleyebilirsiniz.
 
 ## <a name="job"></a>İş
-Çözüm arka ucunuz kullanabilirsiniz [işleri](iot-hub-devguide-jobs.md) zamanlamak ve IOT hub'ınıza kayıtlı cihazlar üzerinde etkinliklerini izlemek için. Etkinlikler dahil cihaz çifti güncelleştirme [özelliklerini istenen](#desired-properties), güncelleştirme cihaz çifti [etiketleri](#tags)ve çağırma [doğrudan yöntemleri](#direct-method). [IOT hub'ı](#iot-hub) işleri için de kullanır [için içeri ve dışarı aktarma](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) gelen [kimlik kayıt defteri](#identity-registry).
-
-## <a name="jobs-rest-api"></a>İşlerini REST API'si
-[İşleri REST API](https://docs.microsoft.com/rest/api/iothub/jobapi) yönetmenize olanak veren [işleri](#job) IOT hub'ınıza çalıştıran.
+Çözüm arka ucunuz kullanabilirsiniz [işleri](iot-hub-devguide-jobs.md) zamanlamak ve IOT hub'ınıza kayıtlı cihazlar üzerinde etkinliklerini izlemek için. Etkinlikler dahil cihaz çifti güncelleştirme [özelliklerini istenen](#desired-properties), güncelleştirme cihaz çifti [etiketleri](#tags)ve çağırma [doğrudan yöntemleri](#direct-method). [IOT hub'ı](#iot-hub) için de kullanır [için içeri ve dışarı aktarma](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) gelen [kimlik kayıt defteri](#identity-registry).
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) olan bir Mesajlaşma protokolleri [IOT hub'ı](#iot-hub) aygıtlarıyla iletişim kurmak için destekler. IOT hub'ı destekleyen Mesajlaşma protokolleri hakkında daha fazla bilgi için bkz: [IOT Hub ile iletileri almasına ve göndermesine](iot-hub-devguide-messaging.md).
@@ -233,15 +219,18 @@ Bağlamında bir [cihaz çifti](iot-hub-devguide-device-twins.md), özellikleri 
 İşlemek için bir yeniden deneme ilkesi kullanır [geçici hataları](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) bir bulut hizmetine bağlandığınızda.
 
 ## <a name="routing-rules"></a>Yönlendirme kuralları
-Yapılandırdığınız [yönlendirme kuralları](iot-hub-devguide-messages-read-custom.md) cihaz-bulut iletileri yönlendirmek için IOT hub'bir [yerleşik uç nokta](#built-in-endpoints) veya [özel uç noktaları](#custom-endpoints) çözüm arka ucu tarafından işlenecek.
+Yapılandırdığınız [yönlendirme kuralları](iot-hub-devguide-messages-read-custom.md) cihaz-bulut iletileri yönlendirmek için IOT hub'bir [yerleşik uç nokta](#built-in-endpoints) veya [özel uç noktaları](#custom-endpoints) çözüm arka ucu tarafından işleme .
 
 ## <a name="sasl-plain"></a>SASL DÜZ
 SASL DÜZ bir protokolüdür, [AMQP](#advanced-message-queue-protocol) Protokolü güvenlik belirteçleri aktarımı için kullanır.
 
+## <a name="service-rest-api"></a>Hizmet REST API'si
+Kullanabileceğiniz [hizmeti REST API'si](https://docs.microsoft.com/rest/api/iothub/service/service) çözümden arka uç, cihazlarınızı yönetmek için. API almak ve güncelleştirmek sağlar [cihaz çifti](#device-twin) özelliklerini çağırma [doğrudan yöntemleri](#direct-method)ve zamanlama [işleri](#job). Genellikle, üst düzey birini kullanmalıdır [SDK hizmeti](#azure-iot-service-sdks) IOT hub'ı eğitimlerine gösterildiği gibi.
+
 ## <a name="shared-access-signature"></a>Paylaşılan erişim imzası
 Paylaşılan erişim imzaları (SAS), SHA-256 güvenli karmaları veya URI dayalı bir kimlik doğrulama mekanizmasıdır. SAS kimlik doğrulaması iki bileşeni vardır: bir _paylaşılan erişim ilkesi_ ve _paylaşılan erişim imzası_ (genellikle bir belirteç olarak da adlandırılır). Bir cihaz IOT hub ile kimlik doğrulaması yapmak için SAS kullanır. [Arka uç uygulamaları](#back-end-app) ayrıca service'e yönelik uç noktalar bir IOT hub'ındaki kimlik doğrulaması yapmak için SAS kullanın. Genellikle, SAS belirteci içerir [bağlantı dizesi](#connection-string) bir uygulama bir IOT hub bağlantı kurmak için kullanır.
 
-## <a name="shared-access-policy"></a>Paylaşılan Erişim İlkesi
+## <a name="shared-access-policy"></a>Paylaşılan erişim ilkesi
 Bir paylaşılan erişim ilkesi geçerli olan herkes için verilen izinleri tanımlar [birincil veya ikincil anahtarı](#primary-and-secondary-keys) Bu ilkeyle ilişkilendirilmiş. Hub'ınıza için paylaşılan erişim ilkeleri ve anahtarları yönetebilir [portal](#azure-portal).
 
 ## <a name="simulated-device"></a>Sanal cihaz
