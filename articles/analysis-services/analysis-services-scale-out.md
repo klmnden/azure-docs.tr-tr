@@ -3,16 +3,17 @@ title: Azure Analysis Services genişleme | Microsoft Docs
 description: Azure Analysis Services sunucuları ölçeklendirme ile aynı
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 05/24/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 5d1d55a1cf29d6dc3574099cd468c42ccfc72f5b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597136"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services genişletme
 
@@ -33,6 +34,22 @@ Sorgu havuzda sahip sorgu çoğaltmaları sayısından bağımsız olarak, işle
 
 > [!NOTE]
 > Genişleme sunucunuz için kullanılabilir bellek miktarını artırın değil. Bellek artırmak için planınızı yükseltme yapmanız gerekir.
+
+## <a name="region-limits"></a>Bölge sınırları
+
+Yapılandırabileceğiniz sorgu çoğaltmaların sayısı, sunucunun bulunduğu bölgeye göre sınırlıdır. Aşağıdaki sınırları Uygula:
+
+|Bölge  |Yineleme sayısı üst sınırı  |
+|---------|---------|
+|Doğu ABD 2    |    7     |
+|Batı Orta ABD     |    7     |
+|Batı Avrupa     |    7     |
+|Batı ABD     |     7    |
+|Orta ABD     |     3    |
+|Güneydoğu Asya    |     3    |
+|Diğer tüm bölgeler  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>QPU kullanımını izleme
 

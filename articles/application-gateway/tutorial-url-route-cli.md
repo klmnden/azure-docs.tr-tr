@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 4/27/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 411baa24cc796a40f83e8530ab797f3e377ee5f6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 61f884e186316b0b7829ef8e9f8f62d6c5df6b5d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356248"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307960"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Öğretici: Azure CLI kullanarak URL'ye göre web trafiğini yönlendirme
 
@@ -246,7 +246,7 @@ az network public-ip show \
 
 ![Temel URL’yi uygulama ağ geçidinde test etme](./media/tutorial-url-route-cli/application-gateway-nginx.png)
 
-URL’yi http://&lt;ip-adresi&gt;:8080/video/test.html olarak değiştirin. Burada &lt;ip-adresi&gt; değeri olarak kendi IP adresinizi kullanın. Aşağıdaki örneğe benzer bir sonuç olacaktır:
+URL’yi http://&lt;ip-address&gt;:8080/images/test.html olarak değiştirin. Burada &lt;ip-address&gt; değeri olarak kendi IP adresinizi kullanın. Aşağıdaki örneğe benzer bir sonuç olacaktır:
 
 ![Görüntü URL’sini uygulama ağ geçidinde test etme](./media/tutorial-url-route-cli/application-gateway-nginx-images.png)
 

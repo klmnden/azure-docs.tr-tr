@@ -1,24 +1,19 @@
 ---
 title: Cihaz üretici yazılımı güncelleştirme ile Azure IOT hub'ı (düğüm) | Microsoft Docs
 description: Cihaz Yönetimi Azure IOT hub'ına aygıt üretici yazılımı güncelleştirmesi başlatmak için nasıl kullanılacağını. Sanal cihaz uygulaması ve bellenim güncelleştirme tetikleyen bir hizmet uygulaması uygulamak için Node.js için Azure IOT SDK'ları kullanın.
-services: iot-hub
-documentationcenter: .net
 author: juanjperez
-manager: timlt
-editor: ''
-ms.assetid: 70b84258-bc9f-43b1-b7cf-de1bb715f2cf
+manager: cberlin
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: juanpere
-ms.openlocfilehash: e8ef556793534c9eb8300ee262a4b134960f862a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 0cd8c019cf9a65e0e72227ba99c1995a45ed4067
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34634979"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>Bir cihaz üretici yazılımı güncelleştirmesi (düğümü/düğümü) başlatmak için cihaz Yönetimi'ni kullanın
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

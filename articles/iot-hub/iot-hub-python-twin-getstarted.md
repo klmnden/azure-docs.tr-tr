@@ -1,24 +1,20 @@
 ---
 title: Azure IOT Hub cihaz çiftlerini (Python) ile çalışmaya başlama | Microsoft Docs
 description: Azure IOT Hub cihaz çiftlerini etiket ekleyebilir ve IOT Hub sorgusuyla kullanmak için nasıl kullanılacağını. Sanal cihaz uygulamasının ve etiketleri ekler ve IOT hub'ı sorgu çalışan bir hizmet uygulaması uygulamak için Python için Azure IOT SDK'ları kullanın.
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 314c88e4-cce1-441c-b75a-d2e08e39ae7d
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: python
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: kgremban
-ms.openlocfilehash: 44b913d5f30a8465219a6793f48d82cfe39d12b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 08e457febaa7522cac86e63c0c187d1e8e49daff
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34634990"
 ---
 # <a name="get-started-with-device-twins-python"></a>Cihaz çiftlerini (Python) ile çalışmaya başlama
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -148,7 +144,7 @@ Bu bölümde, ilişkili cihaz çifti konumu meta veri ekleyen bir Python konsol 
 Sonraki bölümde, önceki bölümde sorgusunun sonucu değiştirir ve bağlantı bilgilerini raporlar bir cihaz uygulaması oluşturursunuz.
 
 ## <a name="create-the-device-app"></a>Cihaz uygulaması oluşturma
-Bu bölümde, hub'ınıza bağlanan bir Python konsol uygulaması oluşturun, **{cihaz kimliği}**ve ardından, cihaz çifti bir cep telefonu şebekesi kullanarak bağlı bilgileri içerecek şekilde özellikleri bildirilen güncelleştirmeler.
+Bu bölümde, hub'ınıza bağlanan bir Python konsol uygulaması oluşturun, **{cihaz kimliği}** ve ardından, cihaz çifti bir cep telefonu şebekesi kullanarak bağlı bilgileri içerecek şekilde özellikleri bildirilen güncelleştirmeler.
 
 1. Komut istemini açın ve **Python için Azure IoT Hub Hizmeti SDK’sını** aşağıda gösterildiği gibi yükleyin. SDK’yı yükledikten sonra komut istemini kapatın.
 
@@ -264,9 +260,9 @@ Bu öğreticide, Azure portalında yeni bir IoT hub'ı yapılandırdınız ve ar
 
 Bilgi edinmek için aşağıdaki kaynakları kullanın nasıl yapılır:
 
-* aygıtlarla telemetri gönderen [IOT Hub ile çalışmaya başlama] [ lnk-iothub-getstarted] öğretici
-* cihaz çifti'nın istenen özelliklere sahip kullanarak cihazları yapılandırma [kullanmak istediğiniz cihazları yapılandırmak için Özellikler] [ lnk-twin-how-to-configure] öğretici
-* ile etkileşimli olarak (örneğin, kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirdikten), cihazları denetleme [doğrudan yöntemleri kullanın] [ lnk-methods-tutorial] Öğreticisi.
+* Aygıtlarla telemetri gönderen [IOT Hub ile çalışmaya başlama] [ lnk-iothub-getstarted] öğretici
+* Cihaz çifti'nın istenen özelliklere sahip kullanarak cihazları yapılandırma [kullanmak istediğiniz cihazları yapılandırmak için Özellikler] [ lnk-twin-how-to-configure] öğretici
+* İle etkileşimli olarak (örneğin, kullanıcı tarafından denetlenen bir uygulamadan fan etkinleştirdikten), cihazları denetleme [doğrudan yöntemleri kullanın] [ lnk-methods-tutorial] Öğreticisi.
 
 <!-- images -->
 [1]: media/iot-hub-python-twin-getstarted/1.png

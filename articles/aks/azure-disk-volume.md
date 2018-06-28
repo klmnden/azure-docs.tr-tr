@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b790213e19b9f2aaef74a3f670c89246f54fd6d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597076"
 ---
 # <a name="volumes-with-azure-disks"></a>Azure diskleri birimlerle
 
@@ -23,34 +24,27 @@ Kubernetes birimleri hakkında daha fazla bilgi için bkz: [Kubernetes birimleri
 
 ## <a name="create-an-azure-disk"></a>Azure diski oluşturun
 
-Bir Azure takma önce disk yönetilen Kubernetes birimi olarak AKS küme kaynakları ile aynı kaynak grubunda disk bulunmalıdır. Bu kaynak grubu bulmak için [az grup listesi] [ az-group-list] komutu.
+Azure tarafından yönetilen bir disk Kubernetes toplu olarak takma önce disk AKS bulunmalıdır **düğümü** kaynak grubu. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-Benzer şekilde bir ada sahip bir kaynak grubu arıyorsunuz `MC_clustername_clustername_locaton`, burada clustername AKS kümenizin adıdır ve konum burada küme dağıtılan Azure bölgesi.
-
-```console
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Kullanım [az disketi] [ az-disk-create] Azure diski oluşturmak için komutu.
 
-Bu örneği kullanarak, güncelleştirme `--resource-group` kaynak grubu adını ve `--name` için tercih ettiğiniz bir ad.
+Güncelleştirme `--resource-group` kaynak grubu adı ile toplanan son adımda ve `--name` için tercih ettiğiniz bir ad.
 
 ```azurecli-interactive
 az disk create \
-  --resource-group MC_myAKSCluster_myAKSCluster_eastus \
+  --resource-group MC_myResourceGroup_myAKSCluster_eastus \
   --name myAKSDisk  \
   --size-gb 20 \
   --query id --output tsv
 ```
 
-Disk oluşturulduktan sonra aşağıdakine benzer bir çıktı görmeniz gerekir. Bu değer Kubernetes pod diske bağlanması sırasında kullanılan disk kimliğidir.
+Disk oluşturulduktan sonra aşağıdakine benzer bir çıktı görmeniz gerekir. Bu değer diski takma kullanıldığında disk kimliğidir.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
@@ -60,7 +54,7 @@ Disk oluşturulduktan sonra aşağıdakine benzer bir çıktı görmeniz gerekir
 
 Azure diski birim kapsayıcı spec yapılandırarak, pod bağlayın.
 
-Adlı yeni bir dosya oluşturun `azure-disk-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `diskName` yeni oluşturulan disk adını ve `diskURI` disk kimliğiyle Ayrıca, not edin `mountPath`, hangi Azure diski takılı pod yolu budur.
+Adlı yeni bir dosya oluşturun `azure-disk-pod.yaml` aşağıdaki içeriğe sahip. Güncelleştirme `diskName` yeni oluşturulan disk adını ve `diskURI` disk kimliğiyle Ayrıca, not edin `mountPath`, Azure diskin pod bağlı yolun olduğu.
 
 ```yaml
 apiVersion: v1
@@ -105,3 +99,4 @@ Azure diskleri kullanarak Kubernetes birimleri hakkında daha fazla bilgi edinin
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

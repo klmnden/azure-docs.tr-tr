@@ -1,6 +1,6 @@
-## <a name="log-in-to-the-azure-portal"></a>Azure portalında oturum açma
+## <a name="sign-in-to-the-azure-portal"></a>Azure portalında oturum açın
 
-[Azure Portal](https://portal.azure.com/)’da oturum açın.
+[Azure Portal](https://portal.azure.com/) oturum açın.
 
 ## <a name="create-a-blank-sql-database"></a>Boş bir SQL veritabanı oluşturma
 
@@ -47,7 +47,7 @@ Boş bir SQL veritabanı oluşturmak için aşağıdaki adımları izleyin.
    > [!IMPORTANT]
    > \* Mevcut depolama alanından büyük depolama alanları önizleme aşamasındadır ve ek maliyetler uygulanır. Ayrıntılar için bkz. [SQL Veritabanı fiyatlandırması](https://azure.microsoft.com/pricing/details/sql-database/). 
    >
-   >\* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama alanı mevcuttur: Orta Kanada, Doğu Kanada, Fransa Orta, Orta Almanya, Doğu Japonya, Orta Kore, Güney Orta ABD, Güneydoğu Asya, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](../articles/sql-database/sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   >\* Premium katmanında şu anda şu bölgelerde 1 TB’den fazla depolama alanı mevcuttur: Orta Kanada, Doğu Kanada, Fransa Orta, Orta Almanya, Doğu Japonya, Orta Kore, Güney Orta ABD, Güneydoğu Asya, Doğu ABD2, Batı ABD, ABD Devleti Virginia ve Batı Avrupa. Bkz. [P11 P15 Geçerli Sınırlamalar](../articles/sql-database/sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
    > 
 
 9. Sunucu katmanını, DTU'ların sayısını ve depolama alanı miktarını seçtikten sonra **Uygula**’ya tıklayın.  
@@ -94,7 +94,7 @@ Artık SQL Server Management Studio’yu veya seçtiğiniz başka bir aracı kul
 
 Azure SQL Veritabanı sunucunuzun tam sunucu adını Azure portaldan alabilirsiniz. SQL Server Management Studio kullanarak sunucunuza bağlanmak için tam sunucu adını kullanırsınız.
 
-1. [Azure Portal](https://portal.azure.com/)’da oturum açın.
+1. [Azure Portal](https://portal.azure.com/) oturum açın.
 2. Soldaki menüden **SQL Veritabanları**’nı seçin ve **SQL veritabanları** sayfasında veritabanınıza tıklayın. 
 3. Veritabanınızın Azure portal sayfasındaki **Temel Bilgiler** bölmesinde, **Sunucu adını** bulup kopyalayın.
 

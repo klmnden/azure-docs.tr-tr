@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09c85a9badaad45816a9160d09cb3c4a726426e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34658783"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell kullanarak birden çok NIC ile VM (Klasik) oluşturun
 
@@ -198,4 +199,10 @@ Ve gerekli NIC ve sanal makineleri döngüye içinde gibi birçok VM oluşturmak
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5. adım - sanal makinenin işletim sistemi içinde yönlendirmeyi yapılandırma
 
-Azure DHCP, sanal makineye bağlı ilk (birincil) ağ arabirimi için varsayılan ağ geçidi atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. İkincil ağ arabirimlerine ancak, kendi alt ağı dışından kaynaklarla iletişim kurabilirsiniz. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için bkz: [birden çok ağ arabirimlerine sahip bir sanal makine işletim sistemi içinde yönlendirme](virtual-network-network-interface-vm.md).
+Azure DHCP, sanal makineye bağlı ilk (birincil) ağ arabirimi için varsayılan ağ geçidi atar. Azure, bir sanal makineye bağlı ek (ikincil) ağ arabirimlerine varsayılan ağ geçidi atamaz. Bu nedenle varsayılan olarak, alt ağın dışında kalan ve ikincil bir ağ arabirimi içeren kaynaklarla iletişim kurulamaz. İkincil ağ arabirimlerine ancak, kendi alt ağı dışından kaynaklarla iletişim kurabilirsiniz. İkincil ağ arabirimleri için yönlendirmeyi yapılandırmak için aşağıdaki makalelere bakın:
+
+- [Bir Windows VM için birden çok NIC yapılandırın](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+)
+
+- [Bir Linux VM birden çok NIC için yapılandırma](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+)

@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2018
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 18398094dfff03739a3d3d44d2c9c58149271123
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34638645"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM ürünler/hizmetler ile BT Hizmet Yönetimi Bağlayıcısı Bağlan
 Bu makalede, iş öğelerini merkezi olarak yönetmek için günlük analizi içinde ITSM Ürün/hizmet ve BT Hizmet Yönetimi Bağlayıcısı'nı (ITSMC) arasındaki bağlantı yapılandırma hakkında bilgi sağlar. ITSMC hakkında daha fazla bilgi için bkz: [genel bakış](log-analytics-itsmc-overview.md).
@@ -85,7 +86,7 @@ System Center Service Manager Örneğiniz için ITSMC bağlanmak için aşağıd
 - Günlük analizi uyarıları veya günlük kayıtları veya Azure Uyarıları'nda bu Service Manager örneğinin olaylar oluşturabilirsiniz.
 
 
-Daha fazla bilgi edinin: [oluşturma ITSM iş öğeleri için günlük analizi uyarıları](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [günlük analizi günlükleri oluşturmak ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) ve [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Oluşturma ve Service Manager web uygulama hizmeti dağıtma
 
@@ -238,7 +239,7 @@ ServiceNow bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 - Günlük analizi uyarıları veya günlük kayıtları veya bu ServiceNow örneği Azure uyarıları olaylar oluşturabilirsiniz.
 
-Daha fazla bilgi edinin: [oluşturma ITSM iş öğeleri için günlük analizi uyarıları](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [günlük analizi günlükleri oluşturmak ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) ve [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>ServiceNow uygulamada tümleştirme kullanıcı rolü oluşturun
 
@@ -329,7 +330,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 - Günlük analizi uyarıları veya günlük kayıtları veya Azure Uyarıları'nda bu Provance örnek olaylar oluşturabilirsiniz.
 
-Daha fazla bilgi edinin: [oluşturma ITSM iş öğeleri için günlük analizi uyarıları](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [günlük analizi günlükleri oluşturmak ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) ve [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Cherwell BT hizmetine bağlanmak Azure Yönetimi Bağlayıcısı
 
@@ -381,7 +382,7 @@ Provance bağlantı oluşturmak için aşağıdaki yordamı kullanın:
 
 - Günlük analizi uyarıları veya günlük kayıtları veya Azure Uyarıları'nda bu Cherwell örnek olaylar oluşturabilirsiniz.
 
-Daha fazla bilgi edinin: [oluşturma ITSM iş öğeleri için günlük analizi uyarıları](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [günlük analizi günlükleri oluşturmak ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) ve [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
+Daha fazla bilgi edinin: [Azure uyarıları oluşturma ITSM iş öğelerinden](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>İstemci kimliği için Cherwell oluşturun.
 
@@ -395,6 +396,4 @@ Cherwell için istemci kimliği/anahtar oluşturmak için aşağıdaki yordamı 
 
 
 ## <a name="next-steps"></a>Sonraki adımlar
- - [Günlük analizi uyarılar için ITSM iş öğeleri oluşturma](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [ITSM iş öğelerini günlük analizi günlüğünden kayıtları günlükleri oluşturabilir.](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Azure uyarıları ITSM iş öğeleri oluşturma](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

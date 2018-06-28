@@ -16,20 +16,22 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34656450"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure sanal makine ölçek SSS ayarlar
 
 Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıtlarını alın.
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Üst ölçek kümeleri için sık sorulan sorular
+
 **S.** Bir ölçek kümesinde kaç tane sanal makinem olabilir?
 
-**C.** Ölçek kümeleri, platform görüntülerini temel alan 0 ila 1.000 VM’ye veya özel görüntüleri temel alan 0 ila 300 VM’ye sahip olabilir. 
+**C.** Ölçek kümeleri, platform görüntülerini temel alan 0 ila 1.000 VM’ye veya özel görüntüleri temel alan 0 ila 300 VM’ye sahip olabilir.
 
 **S.** Ölçek kümelerinde veri diskleri destekleniyor mu?
 
@@ -47,7 +49,7 @@ Azure'da sanal makine ölçek kümeleri hakkında sık sorulan soruların yanıt
 
 **S.** Özel bir görüntü kullanarak nasıl ölçek kümesi oluşturabilirim?
 
-**C.** Özel görüntü VHD’nizi temel alan bir yönetilen disk oluşturun ve ölçek kümesi şablonunuzda başvurun. [Bir örneği aşağıda verilmiştir](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+**C.** Oluşturun ve bir VM görüntüsü yakalama sonra ölçek kümesi için kaynak olarak kullanmak. Özel bir VM görüntüsü oluşturulacağı ve kullanılacağı konusunda bir öğretici için kullandığınız [Azure CLI 2.0](tutorial-use-custom-image-cli.md) veya [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **S.** Ölçek kümemin kapasitesini 20’den 15’e düşürürsem hangi VM’ler kaldırılır?
 
@@ -119,16 +121,20 @@ Sanal makine ölçek kümeleri için tam bir örnek için bkz: [sanal makine öl
 
 PowerShell veya Azure CLI aracılığıyla sanal makine ölçek kümeleri için ölçümler üzerinde uyarılar oluşturabilirsiniz. Daha fazla bilgi için bkz: [Azure İzleyici PowerShell hızlı başlangıç örnekleri](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) ve [Azure İzleyici platformlar arası CLI hızlı başlangıç örnekleri](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
-Sanal makine ölçek kümesinin uç noktası Targetresourceıd şöyle görünür: 
+Sanal makine ölçek kümesinin uç noktası Targetresourceıd şöyle görünür:
 
 /Subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.COMPUTE/virtualMachineScaleSets/yourvmssname
 
-Tüm VM performans sayacı için uyarı ayarlamak için ölçüm olarak seçebilirsiniz. Daha fazla bilgi için bkz: [Resource Manager tabanlı Windows VM'ler için konuk işletim sistemi ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) ve [Linux VM'ler için konuk işletim sistemi ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) içinde [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/) makale.
+Tüm VM performans sayacı için uyarı ayarlamak için ölçüm olarak seçebilirsiniz. Daha fazla bilgi için bkz: [Resource Manager tabanlı Windows VM'ler için konuk işletim sistemi ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) ve [Linux VM'ler için konuk işletim sistemi ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) içinde [Azure İzleyici otomatik ölçeklendirmeyi ortak ölçümleri](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)makalesi.
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell kullanarak bir sanal makine ölçek göre otomatik ölçeklendirme nasıl ayarlayabilirim?
 
-PowerShell kullanarak bir sanal makine ölçek göre otomatik ölçeklendirme ayarlamak için blog gönderisine bakın [bir Azure sanal makine ölçek kümesi için otomatik ölçeklendirme ekleme](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/).
+PowerShell kullanarak bir sanal makine ölçek göre otomatik ölçeklendirme ayarlamak için bkz: [otomatik olarak bir sanal makine ölçek kümesini ölçeklendirin](tutorial-autoscale-powershell.md). Otomatik ölçeklendirme ile de yapılandırabilirsiniz [Azure CLI 2.0](tutorial-autoscale-cli.md) ve [Azure şablonları](tutorial-autoscale-template.md)
 
+
+### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>(Serbest bırakıldığında) durdurduysanız, bir VM olan otomatik ölçeklendirme işleminin bir parçası olarak başlatıldı, VM?
+
+Hayır. Otomatik ölçeklendirme kurallarını ölçek kümesinin bir parçası ek VM örnekleri gerekiyorsa, yeni bir VM örneği oluşturulur. (Serbest bırakıldı) durdurulur VM örnekleri otomatik ölçeklendirme olaya bir parçası olarak başlatılmaz. Ancak, herhangi bir VM örneğine terabayt VM örneğine göre silinebilir aynı şekilde ölçekler örnekleri sayısının kimliği bir otomatik ölçeklendirme olay bir parçası olarak bu durduruldu (serbest bırakıldığında) VM'lerin silinebilir
 
 
 
@@ -615,7 +621,7 @@ Her VM için bir ortak IP adresi atar bir sanal makine ölçek kümesi oluşturm
 
 ### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Birden çok uygulama ağ geçitleri ile çalışacak biçimde ayarlamak ölçek yapılandırabilir miyim?
 
-Evet. Kaynak kimliği için birden fazla uygulama ağ geçidi arka uç adres havuzu ekleyebileceğiniz _applicationGatewayBackendAddressPools_ listesinde _Ipconfigurations_ bölümü, Ölçek kümesi profili.
+Evet. Kaynak kimliği için birden fazla uygulama ağ geçidi arka uç adres havuzu ekleyebileceğiniz _applicationGatewayBackendAddressPools_ listesinde _Ipconfigurations_ , Ölçek bölümünü ağ ayarlayın profili.
 
 ## <a name="scale"></a>Ölçek
 
