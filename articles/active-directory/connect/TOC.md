@@ -47,7 +47,6 @@
 ##### [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [Nasıl çalışır?](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [Önizleme aracılarını yükseltme](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
-##### [Akıllı Kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [Güvenliğe derinlemesine bakış](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
