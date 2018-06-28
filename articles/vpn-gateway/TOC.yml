@@ -106,7 +106,7 @@
       items:
         - name: Azure PowerShell
           href: vpn-gateway-activeactive-rm-powershell.md
-    - name: Azure Kullanılabilirlik Bölgelerinde bölgesel olarak yedekli VNet ağ geçidi oluşturma
+    - name: Azure Kullanılabilirlik Alanlarında bölgesel olarak yedekli VNet ağ geçidi oluşturma
       href: create-zone-redundant-vnet-gateway.md
     - name: 'Yönlendirme, BGP ve VNet Eşlemesi'
       items:
