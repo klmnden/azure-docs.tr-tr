@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: af2619a403046bd4f064b958df225e4d42a205f4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 41319ba446994da1669e58e33008a943e74ab417
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776840"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331399"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>Kindle uygulamaları için Notification Hubs'ı kullanmaya başlama
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,7 +42,7 @@ Bu öğreticide, aşağıdaki görevleri gerçekleştirmek için kod oluşturur/
 ## <a name="prerequisites"></a>Ön koşullar
 
 * <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android sitesinden</a> Android SDK’sını alın (Eclipse kullandığınız varsayılır).
-* Kindle için geliştirme ortamınızı ayarlamak üzere <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">Geliştirme Ortamınızı Ayarlama</a>'daki adımları izleyin.
+* Kindle için geliştirme ortamınızı ayarlamak üzere <a href="https://developer.amazon.com/docs/fire-tablets/ft-set-up-your-development-environment.html">Geliştirme Ortamınızı Ayarlama</a>'daki adımları izleyin.
 
 ## <a name="add-a-new-app-to-the-developer-portal"></a>Geliştirici portalına yeni bir uygulama ekleme
 1. Öncelikle, [Amazon geliştirici portalı]'nda bir uygulama oluşturun.

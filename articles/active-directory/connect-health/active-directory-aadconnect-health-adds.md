@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dcfb43003e81bb51574b401c21202925b16305f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 458d01d61872d13cee735c7098cce5dcc905c31c
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26614422"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960415"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Azure AD Connect Health'i AD DS ile Kullanma
 Aşağıdaki belgeler Azure AD Connect Health ile Active Directory Etki Alanı Hizmetleri’nin izlenmesine özgüdür. AD DS'nin desteklenen sürümleri şunlardır: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 ve Windows Server 2016.
 
 Azure Connect Health ile AD FS'yi izleme hakkında daha fazla bilgi almak için bkz. [Azure AD Connect Health'i AD FS ile kullanma](active-directory-aadconnect-health-adfs.md). Ek olarak, Azure AD Connect’i (Eşitleme) Azure AD Connect Health ile izleme hakkında bilgi için bkz. [Eşitleme için Azure AD Connect Health Kullanma](active-directory-aadconnect-health-sync.md).
 
-![AD DS için Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
+![AD DS için Azure AD Connect Health](./media/active-directory-aadconnect-health-adds/domainservicesnapshot.PNG)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>AD DS için Azure AD Connect Health uyarıları
 AD DS için Azure AD Connect Health içindeki Uyarılar bölümünde, etki alanı denetleyicileriniz ile ilgili olarak etkin ve çözümlenmiş uyarıların bir listesi verilir. Etkin veya çözümlenmiş bir uyarının seçilmesi, çözüm adımlarıyla birlikte ek bilgileri ve destekleyici belgelerin bağlantılarını içeren yeni bir dikey pencere açar. Her uyarı türünün, ilgili uyarıdan etkilenen etki alanı denetleyicilerinin her birine karşılık gelen bir veya daha fazla örneği olabilir. Uyarı dikey penceresinin alt kısmında etkilenen bir etki alanı denetleyicisine çift tıklayarak, uyarı örneğine ilişkin daha fazla ayrıntı içeren bir ek dikey pencere açabilirsiniz.

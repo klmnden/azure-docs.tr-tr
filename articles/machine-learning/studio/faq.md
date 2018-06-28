@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024785"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning ile ilgili sık sorulan sorular: Faturalama, özellikler, sınırlamalar ve destek
 Aşağıda, tahmine dayalı modeller geliştirmeye ve web hizmetleri aracılığıyla çözümleri faaliyete geçirmeye yönelik bir bulut hizmeti olan Azure Machine Learning hakkında sık sorulan bazı sorular (SSS) ve yanıtları verilmiştir. Bu SSS bölümlerinde faturalama modeli, özellikler, sınırlamalar ve destek dahil olmak üzere hizmetin nasıl kullanılacağına ilişkin sorular sağlanır.
@@ -73,7 +75,7 @@ Ayrıca, sizin için oluşturulan ve Machine Learning Studio’daki web hizmeti 
 
 **Azure Machine Learning için ana güncelleştirmeler nelerdir?**
 
-En son güncelleştirmeler için bkz. [Azure Machine Learning’deki yenilikler](whats-new.md).
+En son güncelleştirmeler için bkz. [Azure Machine Learning’deki yenilikler](../../active-directory/fundamentals/whats-new.md).
 
 ## <a name="machine-learning-studio-questions"></a>Machine Learning Studio soruları
 ### <a name="import-and-export-data-for-machine-learning"></a>Machine Learning için verileri içeri ve dışarı aktarma
@@ -472,7 +474,7 @@ Evet, Azure Machine Learning’de Klasik web hizmetleri hala kullanılabilmekted
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning Ücretsiz ve Standart katmanı
 **Azure Machine Learning Ücretsiz katmanına neler dahildir?**
 
-Azure Machine Learning Ücretsiz katmanı, Azure Machine Learning Studio’ya kapsamlı bir giriş sağlamaya yöneliktir. Kaydolmak için tek ihtiyacınız olan bir Microsoft hesabıdır. Ücretsiz katmanı her [Microsoft hesabı](https://www.microsoft.com/account/default.aspx) için bir Azure Machine Learning Studio çalışma alanına ücretsiz erişim içerir. Bu katmanda en fazla 10 GB depolama alanı kullanabilir ve modelleri hazırlama API'leri olarak operasyona dahil edebilirsiniz. Ücretsiz katmanı iş yükleri bir SLA kapsamında değildir ve yalnızca geliştirme ve kişisel kullanım amaçlıdır. 
+Azure Machine Learning Ücretsiz katmanı, Azure Machine Learning Studio’ya kapsamlı bir giriş sağlamaya yöneliktir. Kaydolmak için tek ihtiyacınız olan bir Microsoft hesabıdır. Ücretsiz katmanı her [Microsoft hesabı](https://account.microsoft.com/account) için bir Azure Machine Learning Studio çalışma alanına ücretsiz erişim içerir. Bu katmanda en fazla 10 GB depolama alanı kullanabilir ve modelleri hazırlama API'leri olarak operasyona dahil edebilirsiniz. Ücretsiz katmanı iş yükleri bir SLA kapsamında değildir ve yalnızca geliştirme ve kişisel kullanım amaçlıdır. 
 
 Ücretsiz katmanı çalışma alanları aşağıdaki sınırlamalara sahiptir:
 

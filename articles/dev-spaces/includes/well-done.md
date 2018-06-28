@@ -10,18 +10,18 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 5aee9a96270b4bcafb4ee696c0cbf6a424515cb1
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: abb7b3bbdbf16760db8595261ea8e543b6ed05f2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825562"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939205"
 ---
 ## <a name="well-done"></a>Bravo!
 Başlangıç kılavuzunu tamamladınız! Şunları öğrendiniz:
 
 > [!div class="checklist"]
-> * Azure’da geliştirme için iyileştirilmiş Kubernetes tabanlı bir ortam (bir _dev space_) oluşturun.
+> * Azure’da yönetilen bir Kubernetes ile Azure Dev Spaces’ı ayarlayın.
 > * VS Code'u ve komut satırını kullanarak kapsayıcılarda yinelemeli kod geliştirin.
 > * İki ayrı hizmeti bağımsız olarak geliştirin ve Kubernetes’in DNS hizmet bulma yöntemini kullanarak başka bir hizmete çağrı yapın.
 > * Kodunuzu bir ekip ortamında verimli bir şekilde geliştirip test edin.

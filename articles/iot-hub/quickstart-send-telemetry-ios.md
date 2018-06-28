@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: dbc1cc4a72d0346c92d506358c39a66a4d780b32
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808188"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331566"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Hızlı Başlangıç: Bir cihazdan IoT hub’a telemetri gönderme (iOS)
 
@@ -135,9 +135,7 @@ iothub-explorer komutunu çalıştırdığınızda bir hata alıyorsanız, IoT c
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 
-IoT Hub’ınızı diğer makalelerle test etmeye devam etmeyi planlıyorsanız, kaynak grubu ve IoT hub’ınızdan ayrılıp daha sonra yeniden kullanabilirsiniz.
-
-Artık gerekli değilse portaldan IoT hub’ı ve kaynak grubunu silin. Bunu yapmak için, IoT hub’ınızı içeren kaynak grubunu seçin ve **Sil**’e tıklayın.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

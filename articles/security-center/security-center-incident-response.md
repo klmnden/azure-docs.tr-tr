@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 2f3a9344b9bd383ea59ff3cb400faa90942c5b9f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8564dd8a86cab1229f31e77e072ddd4e776947e7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894501"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029705"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>Olay yanıtı için Azure Güvenlik Merkezi’ni kullanma
 Birçok kuruluş güvenlik olaylarına nasıl yanıt vereceğini ancak bir saldırıya uğradıktan sonra öğrenir. Maliyetini ve zararını azaltmak için bir saldırı gerçekleşmeden önce olay yanıtı planınızın olması önemlidir. Bir olay yanıtının farklı aşamalarında Azure Güvenlik Merkezi’ni kullanabilirsiniz.
@@ -97,7 +97,7 @@ Vedat olayı Zehra’dan alır ve Güvenlik Merkezi tarafından önerilen düzel
 ![Olay yanıtı yaşam döngüsü](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>Ek kaynaklar
-Araştırma işlemi sırasında Güvenlik bilgileri ve olay yönetimi (SIEM) çözümünü kullanan şirketler ayrıca [Güvenlik Merkezi’ni çözümleriyle tümleştirebilir](security-center-integrating-alerts-with-log-integration.md). Ayrıca, [Azure günlük tümleştirme aracını](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/) kullanarak Azure denetim günlükleri ve sanal makine (VM) güvenlik olaylarını tümleştirebilirsiniz. Bir saldırıyı araştırmak için Güvenlik Merkezi tarafından sağlanan bilgilerle birlikte bu bilgileri kullanabilirsiniz. Ayrıca, bir olayın kök nedenini belirlemenize yardımcı olması için Güvenlik Merkezi’ndeki [araştırma](https://docs.microsoft.com/azure/security-center/security-center-investigation) özelliğini kullanabilirsiniz.
+Araştırma işlemi sırasında Güvenlik bilgileri ve olay yönetimi (SIEM) çözümünü kullanan şirketler ayrıca [Güvenlik Merkezi’ni çözümleriyle tümleştirebilir](security-center-integrating-alerts-with-log-integration.md). Ayrıca, [Azure günlük tümleştirme aracını](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/) kullanarak Azure denetim günlükleri ve sanal makine (VM) güvenlik olaylarını tümleştirebilirsiniz. Bir saldırıyı araştırmak için Güvenlik Merkezi tarafından sağlanan bilgilerle birlikte bu bilgileri kullanabilirsiniz. Ayrıca, bir olayın kök nedenini belirlemenize yardımcı olması için Güvenlik Merkezi’ndeki [araştırma](https://docs.microsoft.com/azure/security-center/security-center-investigation) özelliğini kullanabilirsiniz.
 
 ## <a name="conclusion"></a>Sonuç
 Olay gerçekleşmeden önce bir ekibin toplanması kuruluşunuz için çok önemlidir ve olayların nasıl ele alındığını olumlu yönde etkiler. Kaynakları izlemek için doğru araçlara sahip olunması bu ekibin bir güvenlik olayını düzeltmek üzere doğru adımları uygulamasına yardımcı olabilir. Güvenlik Merkezi [algılama özellikleri](security-center-detection-capabilities.md), BT’nin güvenlik olaylarına hızlıca yanıt vermesine ve güvenlik sorunlarını düzeltmesine yardımcı olabilir.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 239134e7665b80ef78b6a3df12c14156bff9ae29
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600070"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317067"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Azure Haritalar tanıtımı
 Azure Haritalar; Haritalar, Arama, Yönlendirme, Trafik ve Saat dilimlerine yönelik hizmet API’lerini içeren bir jeo-uzamsal hizmetler portföyüdür. Hizmet portföyü bilindik araçları kullanarak hızlıca konum bilgilerini Azure çözümlerinizle tümleştiren çözümler geliştirmenizi ve bu çözümleri ölçeklendirmenizi sağlar. Azure Haritalar, tüm sektörlerdeki geliştiricilere, web ve mobil uygulamalara yönelik coğrafi bağlam sağlamak amacıyla yeni eşleme verileriyle donatılmış güçlü jeo-uzamsal özellikler sunar. Azure Haritalar, gelişimi kolay, esnek ve birden fazla ortam arasında taşınabilir hale getirmek amacıyla web tabanlı bir JavaScript denetimiyle birlikte sunulan REST API kümesidir. 
@@ -77,27 +77,9 @@ Azure Haritalar API’si şu anda bazı ülkelerde kullanılamamaktadır. Geçer
 * Pakistan
 * Güney Kore
 
-## <a name="relationship-with-bing-maps"></a>Bing Haritalar ile İlişki
-Bu belgede açıklanan haritalar, Bing Haritalar tarafından sağlanan hizmetlerden farklıdır. Birçok ortak işlevi olmasına rağmen bu iki hizmet birbirinden farklıdır ve birbiriyle ilişkili değildir. Bu Azure hizmeti, Bing Haritalar ürün teklifini veya yol haritasını etkilemez.
-
-Microsoft'un amacı, geliştirici topluluğuna konum hizmeti teklifleri bakımından seçenek sunmaktır. Aşağıdaki tabloda, hangi hizmetin kullanılacağına karar veren geliştiriciler için yönergeler yer alır: 
-
-| Senaryo | Azure Haritalar’ın kullanılacağı durumlar… | Bing Haritalar’ın kullanılacağı durumlar… |
-| ------------- | ------------- | ------------- |
-| Geliştirme ortamı | Diğer Azure hizmetleri üzerinde derleme veya diğer Azure hizmetleriyle koordinasyon sağlama | Üçüncü taraf bulut veya diğer geliştirici ortamını kullanma |
-| Geliştirme aşaması  | Azure Haritalar, erken aşama testleri ve Kavram Kanıtı geliştirmesi için iyileştirilmiştir | Üretim ortamı için kurumsal düzeyde bir SLA gerekir |
-| Fiyatlandırma seçenekleri | Ön geliştirici fiyatlandırma seçenekleri yeterlidir | Özelleştirilmiş kurumsal düzeyde fiyatlandırma gereklidir |
-| Kullanım örneği ortamı | Araç içi kullanım gereklidir | Araç içi kullanım gerekli değildir |
-| Coğrafi kapsam | Hindistan, Çin, Japonya ve Güney Kore gerekli değildir | Hindistan, Çin, Japonya ve Güney Kore harita kapsamı gereklidir |
-| Eşleme içeriği | Standart yüzey eşlemeleri yeterlidir | Uydu, havadan ve sokak yan görüntüleri gereklidir |
-| Temel eşleme kaynağı | TomTom eşleme verileri tercih edilir | HERE eşleme verileri tercih edilir |
-
-[Hemen Azure Haritalar hesabına](http://aka.ms/azurelbsportal) kaydolun.
-
 ## <a name="next-steps"></a>Sonraki adımlar
 
 Artık Azure Haritalar’ın genel bakış bilgilerine sahipsiniz. Sonraki adım olarak, hizmeti gösteren bir örnek uygulama denenecektir.
 
 > [!div class="nextstepaction"]
 > [Bir demo etkileşimli arama haritası başlatma](quick-demo-map-app.md)
-

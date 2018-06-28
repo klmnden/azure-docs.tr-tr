@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777483"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029008"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>Öğretici: Azure Notification Hubs ile Chrome uygulamalarına anında iletme bildirimleri gönderme
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -400,7 +400,7 @@ Test amacıyla, bir .NET konsol uygulaması kullanarak Chrome anında iletme bil
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   Projeye otomatik olarak <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet paketi ile Azure Service Bus SDK’sına bir başvuru eklenir.</a>
+   Projeye otomatik olarak <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet paketi ile Azure Service Bus SDK’sına bir başvuru eklenir.</a>
 4. `Program.cs` öğesini açın ve aşağıdaki `using` deyimini ekleyin:
    
         using Microsoft.Azure.NotificationHubs;

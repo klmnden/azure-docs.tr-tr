@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a16e9ad5b72d87614f5d3630e24e6aa36def8c51
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779580"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061854"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>Öğretici: Azure portalını kullanarak Temel Yük Dengeleyici ile VM’lere iç trafiğin yükünü dengeleme
 
@@ -43,6 +43,8 @@ Azure aboneliğiniz yoksa başlamadan önce [ücretsiz bir hesap](https://azure.
     - Alt ağ adı için *myBackendSubnet*.
 2. Sanal ağı oluşturmak için **Oluştur**’a tıklayın.
 
+![Yük dengeleyici oluşturma](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
+
 ## <a name="create-a-basic-load-balancer"></a>Temel Yük Dengeleyici oluşturma
 Portalı kullanarak bir iç Temel Yük Dengeleyici oluşturun.
 
@@ -57,10 +59,7 @@ Portalı kullanarak bir iç Temel Yük Dengeleyici oluşturun.
     - *myResourceGroupILB* - oluşturduğunuz yeni kaynak grubunun adı.
 3. Yük dengeleyiciyi oluşturmak için **Oluştur**’a tıklayın.
    
-    ![Yük dengeleyici oluşturma](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
+    ## <a name="create-backend-servers"></a>Arka uç sunucular oluşturma
 
 Bu bölümde, Temel Yük Dengeleyicinizin arka uç havuzu için iki sanal makine oluşturacak ve sonra yük dengeleyicinin test edilmesi için sanal makinelere IIS yükleyeceksiniz.
 

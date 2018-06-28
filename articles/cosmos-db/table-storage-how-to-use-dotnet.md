@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 927a734b288f5bb0082e77be15ae540702fe4e8b
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808290"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959976"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET kullanarak Azure Tablo depolamayı ve Azure Cosmos DB Tablo API’sini kullanmaya başlama
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -95,7 +95,7 @@ Her iki paketi de almak için NuGet kullanabilirsiniz. Şu adımları uygulayın
 > 
 
 > [!TIP]
-> Azure Tablo depolamayı zaten tanıyan geliştiriciler geçmişte [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) paketini kullanmış olabilir. Tüm yeni tablo uygulamalarının [Azure Depolama Ortak Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) ve [Azure Cosmos DB Tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)’nı kullanması önerilir ancak WindowsAzure.Storage paketi hala desteklenmektedir. WindowsAzure.Storage kitaplığını kullanırsanız, kullanım deyimlerinize Microsoft.WindowsAzure.Storage.Table deyimini ekleyin.
+> Azure Tablo depolamayı zaten tanıyan geliştiriciler geçmişte [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) paketini kullanmış olabilir. Tüm yeni tablo uygulamalarının [Azure Depolama Ortak Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) ve [Azure Cosmos DB Tablo Kitaplığı](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)’nı kullanması önerilir ancak WindowsAzure.Storage paketi hala desteklenmektedir. WindowsAzure.Storage kitaplığını kullanırsanız, kullanım deyimlerinize Microsoft.WindowsAzure.Storage.Table deyimini ekleyin.
 >
 >
 
