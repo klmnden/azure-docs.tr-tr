@@ -67,6 +67,8 @@
   items:
     - name: Desteklenen diller
       href: supported-languages.md
+    - name: Bölgeler
+      href: regions.md
     - name: REST API'leri
       href: rest-apis.md
     - name: Konuşma SDK'sı API’si

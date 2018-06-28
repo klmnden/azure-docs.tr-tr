@@ -195,10 +195,16 @@
           href: automation-migrate-account-subscription.md
     - name: Sorun giderme
       items:
-        - name: Sık karşılaşılan hataları giderme
-          href: automation-troubleshooting-automation-errors.md
-        - name: Karma Runbook Çalışanı ile ilgili sorunları giderme
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: Ekleme
+          href: troubleshoot/onboarding.md
+        - name: Runbook'lar
+          href: troubleshoot/runbooks.md
+        - name: İstenen Durum Yapılandırması (DSC)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Karma Runbook Çalışanı
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: Güncelleştirme Yönetimi
+          href: troubleshoot/update-management.md
 - name: Başvuru
   items:
     - name: Azure PowerShell
