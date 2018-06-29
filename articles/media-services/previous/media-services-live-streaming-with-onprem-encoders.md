@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943221"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098826"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Çoklu bit hızı akışları oluşturan şirket içi kodlayıcılarla canlı akış
 
@@ -146,7 +146,7 @@ Kanal Önizleme ve başka bir işleme ve teslim önce akışınızı doğrulamak
 
 Kanal oluşturduğunuzda Önizleme URL'sini alabilirsiniz. URL almak için kanal olması gerekmez **çalıştıran** durumu. Veri alma kanal başladıktan sonra akışınızın önizlemesini.
 
-Şu anda Önizleme akış yalnızca parçalanmış MP4 içinde teslim edilebilir belirtilen giriş türü ne olursa olsun (kesintisiz akış) biçimi. Kullanabileceğiniz [kesintisiz akış sistem durumu İzleyicisi](http://smf.cloudapp.net/healthmonitor) kesintisiz akış test etmek için player. Akışınızı görüntülemek için Azure Portalı'nda barındırılan bir oynatıcı de kullanabilirsiniz.
+Şu anda Önizleme akış yalnızca parçalanmış MP4 içinde teslim edilebilir belirtilen giriş türü ne olursa olsun (kesintisiz akış) biçimi. Kullanabileceğiniz [kesintisiz akış sistem durumu İzleyicisi](http://playready.directtaps.net/smoothstreaming/) kesintisiz akış test etmek için player. Akışınızı görüntülemek için Azure Portalı'nda barındırılan bir oynatıcı de kullanabilirsiniz.
 
 #### <a name="allowed-ip-addresses"></a>İzin verilen IP adresi
 Önizleme uç noktasına bağlanmasına izin verilen IP adreslerini tanımlayabilirsiniz. Herhangi bir IP adresi belirtilmezse, herhangi bir IP adresine izin verilir. İzin verilen IP adresi aşağıdakilerden biri belirtilebilir:

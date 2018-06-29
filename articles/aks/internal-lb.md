@@ -2,19 +2,19 @@
 title: Bir Azure Kubernetes hizmet (AKS) iç yük dengeleyici oluşturma
 description: Bir iç yük dengeleyici Azure Kubernetes hizmet (AKS) kullanın.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 3/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 910a5c85d16cb46465598a77d5321cc0eed99744
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 7606ce574c7ff94caef3ffa89320d682b22d8502
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319257"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097929"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>Bir iç yük dengeleyici Azure Kubernetes hizmet (AKS) kullanın
 

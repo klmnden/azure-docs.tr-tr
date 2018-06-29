@@ -17,12 +17,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 3693b167f196b82c520703fa50ffabb27b555050
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234963"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082674"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps’ten bir işlev çağırma
 [PowerApps](https://powerapps.microsoft.com) platform geleneksel uygulama kodu olmadan uygulamaları oluşturmak iş uzmanları için tasarlanmıştır. Profesyonel geliştiricilere PowerApps uygulama oluşturucular teknik ayrıntıları koruma sırasında PowerApps, Windows'un yeteneklerini artırmak için Azure işlevleri kullanabilirsiniz.
@@ -46,7 +46,7 @@ Bu konuda, bilgi nasıl yapılır:
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-+ Etkin bir [PowerApps hesap](https://powerapps.microsoft.com/tutorials/signup-for-powerapps.md) kimlik bilgileri Azure hesabınız olarak işaretli. 
++ Etkin bir [PowerApps hesap](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) kimlik bilgileri Azure hesabınız olarak işaretli. 
 + Excel ve [Excel örnek dosya](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) , uygulamanız için bir veri kaynağı olarak kullanır.
 + Öğreticiyi tamamlamak [işlevi için bir OpenAPI tanımı oluşturma](functions-openapi-definition.md).
 
@@ -139,7 +139,7 @@ Veri kaynakları uygulamada kullanılabilir, Türbin veri görüntüleyebilmeniz
 
 1. İçinde **veri** paneli, select **Turbines** listeden.
 
-    ![Veri kaynağı seç](media/functions-powerapps-scenario/select-data-source.png)
+    ![Veri kaynağı seçme](media/functions-powerapps-scenario/select-data-source.png)
 
     Veri kümesi bir görüntü nedenle sonraki verileri daha iyi uyacak şekilde düzenini değiştirme içermiyor. 
 

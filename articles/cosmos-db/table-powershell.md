@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9365fd70036c8b489efaea42bda9c670182c496c
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798653"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082283"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell ile Azure Cosmos DB tablo API işlemleri 
 
@@ -45,7 +45,7 @@ Azure PowerShell yüklü veya güncelleştirildikten sonra modülü yüklemelisi
 Install-Module AzureRmStorageTable
 ```
 
-Ardından yerel olarak bu PowerShell cmdlet'lerini kullanmak için Azure Cosmos DB derlemeleri yükleyin. Bunun hakkında daha fazla yönerge için bkz: [Cosmos DB tablolar için Azure RM depolama tabloları PowerShell Modülü](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Ardından yerel olarak bu PowerShell cmdlet'lerini kullanmak için Azure Cosmos DB derlemeleri yükleyin. Bunun hakkında daha fazla yönerge için bkz: [Cosmos DB tablolar için Azure RM depolama tabloları PowerShell Modülü](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/).
 
 Aşağıdaki alıştırmada denemek için bir Azure Cosmos DB veritabanı hesabınızın olması gerekir. Yeni Azure Cosmos DB oluşturma bir zaten yoksa, kullanarak hesap [Azure portal](https://portal.azure.com). Yeni bir veritabanı hesabı oluşturmanıza yardımcı olması için bkz: [Azure Cosmos DB: veritabanı hesabı oluşturma](create-table-dotnet.md#create-a-database-account).
 
@@ -88,7 +88,7 @@ PowerShell kullanarak Azure Cosmos DB hesabını tablolarda listelenemiyor, anca
 
 ## <a name="delete-a-table"></a>Bir tablo silme 
 
-PowerShell Azure Cosmos DB silme tablolardan desteklemiyor. Bir tabloyu silmek için şu adrese gidin [Azure portal](https://azure.portal.com), kullanmakta olduğunuz Azure Cosmos DB hesabını bulun, sonra bulma ve tablo silme. 
+PowerShell Azure Cosmos DB silme tablolardan desteklemiyor. Bir tabloyu silmek için şu adrese gidin [Azure portal](https://portal.azure.com), kullanmakta olduğunuz Azure Cosmos DB hesabını bulun, sonra bulma ve tablo silme. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
 

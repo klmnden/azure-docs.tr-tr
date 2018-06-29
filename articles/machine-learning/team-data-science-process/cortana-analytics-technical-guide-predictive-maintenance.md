@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 3715dcceb4330f6eaab01f49aee9d4d19663b62e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938506"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099679"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Tahmine dayalı bakım Havacılık ve diğer işletmeler için Cortana Intelligence çözüm şablonu teknik Kılavuzu
 
@@ -54,7 +54,7 @@ Aşağıdaki bölümlerde çözüm bölümleri açıklanmaktadır.
 ### <a name="synthetic-data-source"></a>Yapay veri kaynağı
 Bu şablon için kullanılan veri kaynağı indirip yerel başarılı dağıtım sonrasında çalışacak bir masaüstü uygulaması oluşturulur.
 
-Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğümde, Tahmine dayalı bakım veri oluşturucusu, çözüm şablonu diyagramı seçin. Yönergeler özellikleri çubuğunda bulunur. Bu uygulama akışları [Azure olay hub'ı](#azure-event-hub) hizmeti veri noktaları ya da çözüm akışı geri kalanı kullanılan olayları ile. Bu veri kaynağı genel kullanıma açık verilerden türetilir [NASA veri deposu](https://c3.nasa.gov/dashlink/resources/139/) kullanarak [Turbofan Engine Bozulması benzetimi veri kümesi](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Bu uygulamayı indirmek ve yüklemek için yönergeleri bulmak için ilk düğümde, Tahmine dayalı bakım veri oluşturucusu, çözüm şablonu diyagramı seçin. Yönergeler özellikleri çubuğunda bulunur. Bu uygulama akışları [Azure olay hub'ı](#azure-event-hub) hizmeti veri noktaları ya da çözüm akışı geri kalanı kullanılan olayları ile. Bu veri kaynağı genel kullanıma açık verilerden türetilir [NASA veri deposu](https://c3.nasa.gov/dashlink/resources/139/) kullanarak [Turbofan Engine Bozulması benzetimi veri kümesi](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan).
 
 Yalnızca bilgisayarınızda yürütülürken olay oluşturma uygulama Azure olay hub'ı doldurur.  
 
@@ -82,7 +82,7 @@ Kullanım [Power BI](https://powerbi.microsoft.com) toplamalar ve Uyarıları ta
 ## <a name="how-to-bring-in-your-own-data"></a>Kendi verilerinizi getirilmesi
 Bu bölümde, Azure için kendi verilerinizi getirmek açıklar ve hangi alanlarda bu mimariye Getir veri değişiklikleri gerektirir.
 
-Veri kümesi tarafından kullanılan veri kümesi eşleştiğini düşüktür [Turbofan Engine Bozulması benzetimi veri kümesi](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) Bu çözüm şablonu için kullanılır. Verilerinizi ve gereksinimleri anlamanız, kendi verilerle çalışmak için bu şablonu nasıl değiştirileceği de önemli. 
+Veri kümesi tarafından kullanılan veri kümesi eşleştiğini düşüktür [Turbofan Engine Bozulması benzetimi veri kümesi](http://ti.arc.nasa.gov/tech/dash/groups/pcoe/prognostic-data-repository/#turbofan) Bu çözüm şablonu için kullanılır. Verilerinizi ve gereksinimleri anlamanız, kendi verilerle çalışmak için bu şablonu nasıl değiştirileceği de önemli. 
 
 Aşağıdaki bölümlerde değişiklikler yeni bir veri kümesi eklendiğinde gerektiren şablon bölümlerini açıklanmaktadır.
 

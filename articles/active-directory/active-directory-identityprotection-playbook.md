@@ -2,7 +2,7 @@
 title: Azure Active Directory kimlik koruması Kılavuzu | Microsoft Docs
 description: Azure AD kimlik koruması nasıl yeteneğini bir saldırgan güvenliği aşılmış kimlik veya aygıt yararlanmaya ve güvenli bir kimlik veya önceden şüpheli veya tehlikeye bilinen bir cihaz için sınırlamak sağladığını öğrenin.
 services: active-directory
-keywords: Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme
+keywords: Azure active directory kimlik koruması, bulut bulma, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff4a8bfb5a92f0969aef726893bebb6aacd4d942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 566748d7d7a2ec89c69ab706700583a9db1f5246
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714315"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083966"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory kimlik koruması Kılavuzu
 
@@ -104,7 +104,7 @@ Oturum açma kimlik koruması panosunda 2-4 saat içinde görüntülenir.
 Güvenlik açıkları tarafından hatalı aktör yararlanan bir Azure AD ortamda zayıf giderilmiştir. Şu anda açık 3 türlerinin diğer özelliklerden Azure ad içinde Azure AD Identity Protection çıkmış. Bu özellikler ayarlandıktan sonra bu güvenlik açıklarından otomatik olarak kimlik koruması panosunda görüntülenir.
 
 * Azure AD [çok faktörlü kimlik doğrulaması](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
+* Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 * Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
 
 

@@ -3,7 +3,7 @@ title: Azure işlevlerini test etme | Microsoft Docs
 description: Postman, cURL ve Node.js kullanarak Azure işlevlerinizi test edin.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41796a8cdde0756e5157ba276463a56b07679d04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23838957"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083269"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure işlevleri, kodunuzu test etmek için stratejileri
 
@@ -189,7 +189,7 @@ Bir blob Tetik işlevi kullanarak test edebilirsiniz [Azure Storage Gezgini](htt
 1. İçinde [Azure portal] işlevi uygulamanız için bir C#, F # veya JavaScript blob tetikleyici işlev oluşturun. Blob kapsayıcı adı için izleme yolu ayarlayın. Örneğin:
 
         files
-2. Tıklatın  **+**  düğmesini seçin veya kullanmak istediğiniz depolama hesabı oluşturun. Sonra **Oluştur**’a tıklayın.
+2. Tıklatın **+** düğmesini seçin veya kullanmak istediğiniz depolama hesabı oluşturun. Sonra **Oluştur**’a tıklayın.
 3. Şu metinle birlikte bir metin dosyası oluşturun ve kaydedin:
 
         A text file for blob trigger function testing.
@@ -244,7 +244,7 @@ Azure işlevleriyle bağlamaları kullanma hakkında daha ayrıntılı bilgi iç
 Bu yaklaşım tanıtmak için önce test adlı bir kuyruk için istiyoruz bir sıra Tetik işlevi oluşturuyoruz `queue-newusers`. Bu işlev, yeni bir kullanıcı için kuyruk depolama alanına bırakılan ad ve adres bilgilerini işler.
 
 > [!NOTE]
-> Farklı sıra adı kullanırsanız, emin olun, kullandığınız adı uyan [adlandırma kuyrukları ve meta verileri](https://msdn.microsoft.com/library/dd179349.aspx) kuralları. Aksi takdirde bir hata alıyorsunuz.
+> Farklı sıra adı kullanırsanız, emin olun, kullandığınız adı uyan [adlandırma kuyrukları ve meta verileri](https://msdn.microsoft.com/library/dd179349.aspx) kuralları. Aksi takdirde bir hata alırsınız.
 >
 >
 
@@ -252,7 +252,7 @@ Bu yaklaşım tanıtmak için önce test adlı bir kuyruk için istiyoruz bir s�
 2. Sıra işlevi tarafından izlenmesi için sıra adı girin:
 
         queue-newusers
-3. Tıklatın  **+**  düğmesini seçin veya kullanmak istediğiniz depolama hesabı oluşturun. Sonra **Oluştur**’a tıklayın.
+3. Tıklatın **+** düğmesini seçin veya kullanmak istediğiniz depolama hesabı oluşturun. Sonra **Oluştur**’a tıklayın.
 4. Varsayılan sıra işlevi şablon kodu günlük girişlerini izleyebilmek bu portal tarayıcı penceresini açık bırakın.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>Kuyruğa bir ileti bırakmaya Zamanlayıcı tetikleyicisi oluşturma
@@ -268,7 +268,7 @@ Bu yaklaşım tanıtmak için önce test adlı bir kuyruk için istiyoruz bir s�
 6. İletinin nerede gönderilen sıra adı girin:
 
         queue-newusers
-7. Tıklatın  **+**  düğmesine tıklayarak, kullanılan önceden sıra tetikleyiciyle depolama hesabı seçin. Daha sonra **Kaydet**'e tıklayın.
+7. Tıklatın **+** düğmesine tıklayarak, kullanılan önceden sıra tetikleyiciyle depolama hesabı seçin. Daha sonra **Kaydet**'e tıklayın.
 8. Tıklatın **geliştirme** Zamanlayıcı tetikleyicinizin sekmesi.
 9. Daha önce gösterilen aynı sıraya ileti nesne adını kullandığınız sürece, C# Zamanlayıcı işlevi için aşağıdaki kodu kullanabilirsiniz. Daha sonra **Kaydet**'e tıklayın.
 

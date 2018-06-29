@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: sngun
-ms.openlocfilehash: 867a48674fe2489629a887ff9626d8e10b41e653
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e3ee75a07f19fef50d9aca61773bd7ea860f2ca4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613991"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102660"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -49,7 +49,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
 3. **ConnectionPolicy ayarlama**
 
-    Azure Cosmos DB isteklerini zaman uyumsuz Java SDK'yı kullanarak, HTTPS/REST yapılan ve olduğu için varsayılan en fazla bağlantı havuzu boyutu tabi (1000). Bu varsayılan değeri, çoğu kullanım durumu için ideal olmalıdır. Birçok bölüm ile çok büyük bir koleksiyon olması durumunda, ancak, en fazla bağlantı havuzu boyutu daha büyük bir sayı (say, 1500) ayarlayabileceğiniz setMaxPoolSize kullanarak.
+    Azure Cosmos DB isteklerini zaman uyumsuz Java SDK'yı kullanarak, HTTPS/REST yapılan ve olduğu için varsayılan en fazla bağlantı havuzu boyutu tabi (1000). Bu varsayılan değeri, çoğu kullanım durumu için ideal olmalıdır. Birçok bölüm ile büyük bir koleksiyon olması durumunda, ancak, en fazla bağlantı havuzu boyutu daha büyük bir sayı (say, 1500) ayarlayabileceğiniz setMaxPoolSize kullanarak.
 
 4. **Paralel sorgular bölümlenmiş koleksiyonlar için ayarlama**
 
@@ -83,11 +83,11 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Sayfa boyutu setMaxItemCount yöntemi kullanarak da ayarlayabilirsiniz.
     
-9. **Uygun Zamanlayıcısı'nı (Eventloop GÇ Netty iş parçacığı çalarak kaçının)**
+9. **Uygun Zamanlayıcısı'nı (olay döngü GÇ Netty iş parçacığı çalarak kaçının)**
 
-    Zaman uyumsuz Java SDK'sı [netty](https://netty.io/) engelleyici olmayan g/ç için. SDK'sı, g/ç işlemleri yürütmek için sabit sayıda g/ç netty eventloop iş parçacıkları (kadar CPU çekirdekleri makinenizde var.) kullanır. API tarafından döndürülen Observable paylaşılan GÇ eventloop netty iş parçacıklarının birini sonucuna yayar. Bu nedenle paylaşılan GÇ eventloop netty iş parçacığı engelleme değil önemlidir. CPU yoğunluklu iş yapıyor veya GÇ eventloop netty iş parçacığı üzerindeki işlemi engelleyen kilitlenmeye neden veya SDK verimlilik önemli ölçüde azaltabilir.
+    Zaman uyumsuz Java SDK'sı [netty](https://netty.io/) engelleyici olmayan g/ç için. SDK'sı, g/ç işlemleri yürütmek için sabit sayıda g/ç netty olay döngü iş parçacıkları (kadar CPU çekirdekleri makinenizde var.) kullanır. API tarafından döndürülen Observable paylaşılan GÇ olay döngü netty iş parçacıklarının birini sonucuna yayar. Bu nedenle paylaşılan GÇ olay döngü netty iş parçacığı engelleme değil önemlidir. CPU yoğunluklu iş yapıyor veya GÇ olay döngü netty iş parçacığı üzerindeki işlemi engelleyen kilitlenmeye neden veya SDK verimlilik önemli ölçüde azaltabilir.
 
-    Örneğin aşağıdaki kod bir cpu yoğunluklu iş eventloop GÇ netty iş parçacığı üzerinde çalıştırır:
+    Örneğin aşağıdaki kod bir cpu yoğunluklu iş olay döngüsünü GÇ netty iş parçacığı çalıştırır:
 
     ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -103,7 +103,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
       });
     ```
 
-    CPU yoğunluklu iş vb. eventloop GÇ netty iş parçacığı yapılması kaçınmalısınız sonuç üzerinde yapmak istiyorsanız, sonuç alındıktan sonra. Bunun yerine, işinizi çalıştırmak için kendi iş parçacığı sağlamak için kendi Zamanlayıcı sağlayabilir.
+    Sonuç yapmak istiyorsanız alındıktan sonra CPU bakımından yoğun vb. olay döngü GÇ netty iş parçacığı yapılması kaçınmalısınız sonucu üzerinde çalışır. Bunun yerine, işinizi çalıştırmak için kendi iş parçacığı sağlamak için kendi Zamanlayıcı sağlayabilir.
 
     ```java
     import rx.schedulers;
@@ -126,13 +126,13 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
 
     Daha fazla bilgi için lütfen bakmak [Github sayfası](https://github.com/Azure/azure-cosmosdb-java) zaman uyumsuz Java SDK'sı.
 
-10. **Netty'nın günlüğü devre dışı bırakmak** Netty kitaplığı günlük chatty ve kapatılması gerekiyor (günlük yapılandırmasında gizleme olmayabilir yeterli) ek CPU maliyetleri önlemek için. Hata ayıklama modunda değilse devre dışı bırakma netty'nın günlüğü tamamen. Log4j tarafından ek CPU maliyetleri kaldırmak için kullanıyorsanız, bunu ``org.apache.log4j.Category.callAppenders()`` netty temelinizde için aşağıdaki satırı ekleyin:
+10. **Netty'nın günlüğü devre dışı bırakmak** Netty kitaplığı günlük chatty ve kapatılması gerekiyor (oturum yapılandırmasında gizleme olmayabilir yeterli) ek CPU maliyetleri önlemek için. Hata ayıklama modunda değilse devre dışı bırakma netty'nın günlüğü tamamen. Log4j tarafından ek CPU maliyetleri kaldırmak için kullanıyorsanız, bunu ``org.apache.log4j.Category.callAppenders()`` netty temelinizde için aşağıdaki satırı ekleyin:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **İşletim sistemi açık dosyaları kaynak sınırına** bazı Linux sistemleri (örneğin, Redhat) sahip bir üst sınır açık sayısına dosyaları ve bu nedenle bağlantıları toplam sayısı. Geçerli sınırlarını görüntülemek için aşağıdaki komutu çalıştırın:
+11. **İşletim sistemi açık dosyaları kaynak sınırına** bazı Linux sistemleri (Red Hat gibi) bir üst sınır açık sayısına sahip dosyaları ve bu nedenle bağlantıları toplam sayısı. Geçerli sınırlarını görüntülemek için aşağıdaki komutu çalıştırın:
 
     ```bash
     ulimit -a
@@ -170,7 +170,7 @@ Soran, "nasıl ı my veritabanı performansını geliştirebilir şekilde?" Aşa
     </dependency>
     ```
 
-Diğer platformlar için (Redhat, Windows, Mac, vb.), bu yönergelerine başvurun https://netty.io/wiki/forked-tomcat-native.html
+Diğer platformlar için (Red Hat, Windows, Mac, vb.) başvurmak için bu yönergeleri https://netty.io/wiki/forked-tomcat-native.html
 
 ## <a name="indexing-policy"></a>Dizin Oluşturma İlkesi
  
@@ -209,7 +209,7 @@ Diğer platformlar için (Redhat, Windows, Mac, vb.), bu yönergelerine başvuru
     response.getRequestCharge();
     ```             
 
-    Bu üstbilgisinde döndürülen istek ücret bir sağlanan işleme bölümüdür. Örneğin, 2000 varsa RU/s sağlanan ve önceki sorgunun 1000 1 KB-belgeleri döndürürse, işlem maliyetini 1000'dir. Bu nedenle, bir saniye içinde sonraki istekler azaltma önce sunucunun yalnızca iki tür isteklere korur. Daha fazla bilgi için bkz: [istek birimleri](request-units.md) ve [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
+    Bu üstbilgisinde döndürülen istek ücret bir sağlanan işleme bölümüdür. Örneğin, 2000 varsa RU/s sağlanan ve önceki sorgunun 1000 1 KB-belgeleri döndürürse, işlem maliyetini 1000'dir. Bu nedenle, bir saniye içinde sonraki istekleri hız sınırı önce yalnızca iki tür isteklere sunucunun geliştirir. Daha fazla bilgi için bkz: [istek birimleri](request-units.md) ve [istek birimi hesaplayıcı](https://www.documentdb.com/capacityplanner).
 <a id="429"></a>
 2. **Tanıtıcı oranı sınırlama istek oranı çok büyük**
 

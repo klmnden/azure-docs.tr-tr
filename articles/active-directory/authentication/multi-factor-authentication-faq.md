@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 226400c6da5db589db6ce2f1887c3e96cf9e1f14
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 2b006976aef59c55ccb51362e05ceb4275602fd1
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869878"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096501"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması hakkında sık sorulan sorular
 
@@ -131,7 +131,7 @@ Yetkisiz erişimi önlemek için kullanıcının tüm uygulama parolalarını Si
 
 **S: Peki bir kullanıcı için tarayıcı olmayan uygulamalara oturum açamıyorsunuz?**
 
-Kuruluşunuz eski istemcileri ve hala kullanıyorsa [uygulama parolaları kullanılmasına izin](howto-mfa-mfasettings.md#app-passwords), sonra da kullanıcılarınızın bu eski istemciler kullanıcı adı ve parola ile oturum açılamıyor. Bunun yerine, için gereksinim duydukları [uygulama parolaları ayarlamanız](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md). Kullanıcılarınızın (silme) temizlemeniz gerekir, oturum açma bilgilerini uygulamayı yeniden başlatın ve kendi kullanıcı adıyla oturum ve *uygulama parolası* normal parolalarını yerine.
+Kuruluşunuz eski istemcileri ve hala kullanıyorsa [uygulama parolaları kullanılmasına izin](howto-mfa-mfasettings.md#app-passwords), sonra da kullanıcılarınızın bu eski istemciler kullanıcı adı ve parola ile oturum açılamıyor. Bunun yerine, için gereksinim duydukları [uygulama parolaları ayarlamanız](end-user/current/multi-factor-authentication-end-user-app-passwords.md). Kullanıcılarınızın (silme) temizlemeniz gerekir, oturum açma bilgilerini uygulamayı yeniden başlatın ve kendi kullanıcı adıyla oturum ve *uygulama parolası* normal parolalarını yerine.
 
 Kuruluşunuz eski istemciler yoksa, kullanıcılarınızın uygulama parolaları oluşturmasına izin.
 

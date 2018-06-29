@@ -3,7 +3,7 @@ title: Azure BT işleçler kılavuzuna Başlarken | Microsoft Docs
 description: Azure BT operatörleri için başlangıç kılavuzu
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361672"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099502"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Bulut için giriş ve Microsoft Azure
 
@@ -61,7 +61,7 @@ SaaS merkezi olarak barındırılan ve yönetilen bir yazılımdır. Genellikle 
 
 Microsoft Office 365 sunan bir SaaS iyi bir örnektir. Aboneleri aylık veya yıllık abonelik ücret ödemeniz ve Microsoft Exchange, Microsoft OneDrive ve bir hizmet olarak Microsoft Office suite kalan alın. Abonelerin her zaman en son sürümünü almak ve Exchange server sizin için yönetilir. Office'i yükleme ve her yıl yükseltme için ile karşılaştırıldığında, bu daha az pahalıdır ve daha az çaba gerektirir.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Hizmet olarak Platform 
+#### <a name="paas-platform-as-a-service"></a>PaaS: Hizmet olarak Platform
 
 PaaS ile uygulamanızı bulut hizmeti satıcının sağladığı bir ortama dağıtın. Uygulama geliştirmeye odaklanabilirsiniz satıcı tüm altyapı yönetimini desteklemez.
 
@@ -381,11 +381,11 @@ Azure depolama hesapları farklı düzeylerde artıklık yapılandırılabilir:
 
 -   **Coğrafi olarak yedekli depolamaya okuma erişimi** coğrafi olarak yedekli depolama artı ikincil bölge verileri okuma özelliği. Bu özelliği kısmi olağanüstü durum kurtarma için uygun hale getirir. Birincil bölge ile ilgili bir sorun varsa, eşleştirilmiş bir bölgeye salt okunur erişim sağlamak için uygulamanızın değiştirebilirsiniz.
 
-### <a name="use-cases"></a>Uygulama alanları 
+### <a name="use-cases"></a>Uygulama alanları
 
 Her depolama türü farklı kullanım örneği vardır.
 
-**Blob depolama** 
+**Blob depolama**
 
 Word *blob* kısaltması olan *ikili büyük nesne*. BLOB'ları, bilgisayarınızda depolamak olanlar gibi yapılandırılmamış dosyalarıdır. Blob Storage belge, medya dosyası veya uygulama yükleyici gibi her tür metin veya ikili veri depolayabilir. Blob Storage aynı zamanda nesne depolama olarak adlandırılır. Azure Blob storage ayrıca Azure sanal makine veri diski tutar.
 
@@ -445,7 +445,7 @@ Benzer şekilde, bir Azure Resource Manager şablonu dağıtmak için Azure CLI 
 
 ### <a name="access-and-security-for-azure-storage"></a>Erişim ve güvenliği Azure depolama
 
-Azure depolama, ancak Azure portalı, VM oluşturma işlemi sırasında ve depolama istemci kitaplıklarından dahil olmak üzere çeşitli yollarla erişilir. 
+Azure depolama, ancak Azure portalı, VM oluşturma işlemi sırasında ve depolama istemci kitaplıklarından dahil olmak üzere çeşitli yollarla erişilir.
 
 **Sanal makine disklerini**
 

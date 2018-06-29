@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 49a381efa0603889336f43e409698bbcef44f41f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f6852de2c09e3de9375a2cb5d73f052ac68f039
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615650"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100581"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>İzleme ve ölçümleri Azure Cosmos veritabanı ile hata ayıklama
 
@@ -33,7 +33,7 @@ Bu makalede, ortak kullanım durumları ve analiz etmek ve bu sorunların hatala
 
 Başlamak için head [Azure portal](https://portal.azure.com) gidin **ölçümleri** dikey. Dikey penceresinde Bul **istek sayısını 1 dakika başına kapasitesi aşıldı** grafik. Bu grafik durum kodu tarafından bölümlenmiş bir dakika tarafından dakika toplam istek sayısı gösterilir. HTTP durum kodları hakkında daha fazla bilgi için bkz: [Azure Cosmos DB için HTTP durum kodları](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
-Azure Cosmos DB isteklerine sağlanan işleme aşan anlamına gelir (azaltma) 429 en sık karşılaşılan hata durum kodu var. Bunun en yaygın çözüm [RUs ölçeklendirme](./set-throughput.md) bir koleksiyon için.
+En yaygın hata durum kodu (sınırlama ve azaltma oranı) 429 Azure Cosmos DB isteklerine sağlanan işleme aşan anlamına gelir. Bunun en yaygın çözüm [RUs ölçeklendirme](./set-throughput.md) bir koleksiyon için.
 
 ![Dakika başına istek sayısı](media/use-metrics/metrics-12.png)
 

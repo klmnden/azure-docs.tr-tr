@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: vibhork;dominic.may@sendgrid.com;elmer.thomas@sendgrid.com
-ms.openlocfilehash: d80d7d9c54bad12a4d26d8623eeccdf9bc2a743a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fab76467025518bc455295da681d0b0127a9cbfe
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873950"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098738"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java-in-an-azure-deployment"></a>Bir Azure dağıtımında SendGrid Java kullanarak e-posta gönderme
 Aşağıdaki örnek, Azure üzerinde barındırılan bir web sayfasından e-postalar gönderme SendGrid nasıl kullanabileceğinizi gösterir. Sonuçta elde edilen uygulama kullanıcı e-posta değerleri için aşağıdaki ekran görüntüsünde gösterildiği gibi isteyecektir.
@@ -213,7 +213,7 @@ E-posta gönderme yanı sıra emailform.jsp kullanıcı için bir sonuç sağlar
 
 Bu kod, Azure üzerinde Java SendGrid kullanmayı göstermek için sağlanmıştır. Azure'a üretimde dağıtmadan önce daha fazla hata işleme veya diğer özellikler eklemek isteyebilirsiniz. Örneğin: 
 
-* E-posta adreslerini ve bir web formu kullanmak yerine, e-posta iletileri depolamak için Azure storage bloblarında veya SQL veritabanı'nı kullanabilirsiniz. Azure storage bloblarında Java kullanma hakkında daha fazla bilgi için bkz: [Java'dan Blob Depolama hizmetini kullanmayı](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). SQL veritabanı Java kullanma hakkında daha fazla bilgi için bkz: [SQL veritabanında kullanarak Java](https://azure.microsoft.com/develop/java/how-to-guides/using-sql-azure-in-java/).
+* E-posta adreslerini ve bir web formu kullanmak yerine, e-posta iletileri depolamak için Azure storage bloblarında veya SQL veritabanı'nı kullanabilirsiniz. Azure storage bloblarında Java kullanma hakkında daha fazla bilgi için bkz: [Java'dan Blob Depolama hizmetini kullanmayı](https://azure.microsoft.com/develop/java/how-to-guides/blob-storage/). SQL veritabanı Java kullanma hakkında daha fazla bilgi için bkz: [SQL veritabanında kullanarak Java](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connect-query-java).
 * Kullanabileceğinizi `RoleEnvironment.getConfigurationSettings` bu değerleri almak için web formu kullanmak yerine dağıtımınızın yapılandırma ayarlarını SendGrid kullanıcı adı ve parola almalarını sağlar. Hakkında bilgi için `RoleEnvironment` sınıfı için bkz: [JSP biçiminde Azure hizmeti çalışma zamanı kitaplığını kullanarak](http://msdn.microsoft.com/library/windowsazure/hh690948) ve Azure hizmet çalışma zamanı paketi belgelerine <http://dl.windowsazure.com/javadoc>.
 * SendGrid Java kullanma hakkında daha fazla bilgi için bkz: [SendGrid Java kullanarak e-posta göndermek nasıl](store-sendgrid-java-how-to-send-email.md).
 

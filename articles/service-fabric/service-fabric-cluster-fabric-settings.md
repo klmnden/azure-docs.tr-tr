@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 84f8827a58d7f3c5dcc32943d2ba891b02c1e1ab
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062288"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083201"
 ---
-# <a name="description-of-the-different-upgrade-policies"></a>Farklı yükseltme ilkeleri açıklaması
-
-- **Dinamik** – dinamik yapılandırma değişiklikleri tüm işlem yeniden başlatmalar Service Fabric işlemleri ya da hizmet ana bilgisayarı işlemlerinin neden olmaz. 
-- **Statik** – statik yapılandırması değişiklikleri değişiklik kullanmak için yeniden başlatmak Service Fabric düğümü neden olur. Düğümlerde hizmetleri yeniden başlatılır.
-- **QueuedDeliveryRequirements** – bu ayarlar değiştirilemez. Bu ayarlar gerektiren küme yok edilmesi değiştirme ve oluşturulan yeni bir küme. 
-
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Service Fabric kümesi ayarlarını ve yapı yükseltme İlkesi özelleştirme
 Bu belge çeşitli doku ayarlarını özelleştirmek anlatır ve yapı Service Fabric kümesi için ilke yükseltin. Aralarında özelleştirebilirsiniz [Azure portal](https://portal.azure.com) veya bir Azure Resource Manager şablonu kullanarak.
 
 > [!NOTE]
 > Tüm ayarlar Portalı'nda kullanılabilir. Aşağıda listelenen bir ayar portalı yoluyla kullanılamaz durumda bir Azure Resource Manager şablonu kullanarak özelleştirin.
 > 
+
+## <a name="description-of-the-different-upgrade-policies"></a>Farklı yükseltme ilkeleri açıklaması
+
+- **Dinamik** – dinamik yapılandırma değişiklikleri tüm işlem yeniden başlatmalar Service Fabric işlemleri ya da hizmet ana bilgisayarı işlemlerinin neden olmaz. 
+- **Statik** – statik yapılandırması değişiklikleri değişiklik kullanmak için yeniden başlatmak Service Fabric düğümü neden olur. Düğümlerde hizmetleri yeniden başlatılır.
+- **QueuedDeliveryRequirements** – bu ayarlar değiştirilemez. Bu ayarlar gerektiren küme yok edilmesi değiştirme ve oluşturulan yeni bir küme. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Resource Manager şablonları kullanarak küme ayarlarını özelleştirme
 Aşağıdaki adımlar yeni bir ayar eklemek nasıl çalışılacağını *MaxDiskQuotaInMB* için *tanılama* bölümü.

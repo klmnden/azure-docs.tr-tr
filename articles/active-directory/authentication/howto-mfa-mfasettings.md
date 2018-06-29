@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 509df5274a5e44342390036511689fa8f8146807
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869810"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097504"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure çok faktörlü kimlik doğrulama ayarlarını yapılandırın
 
@@ -292,7 +292,7 @@ Varsayılan olarak, kullanıcıların uygulama parolaları oluşturulamıyor. Uy
 
 Kullanıcıların uygulama parolaları, ilk kaydı sırasında oluşturabilirsiniz. Kullanıcı kayıt işleminin sonunda uygulama parolaları oluşturma seçeneğiniz vardır.
 
-Kullanıcıların uygulama parolaları kayıttan sonra oluşturabilirsiniz. Uygulama parolaları, Azure portalında veya Office 365 portalında ayarlarıyla değiştirilebilir. Daha fazla bilgi ve kullanıcılarınız için ayrıntılı adımlar için bkz: [Azure çok faktörlü kimlik doğrulaması'ndaki uygulama parolaları nedir?](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-app-passwords.md)
+Kullanıcıların uygulama parolaları kayıttan sonra oluşturabilirsiniz. Uygulama parolaları, Azure portalında veya Office 365 portalında ayarlarıyla değiştirilebilir. Daha fazla bilgi ve kullanıcılarınız için ayrıntılı adımlar için bkz: [Azure çok faktörlü kimlik doğrulaması'ndaki uygulama parolaları nedir?](end-user/current/multi-factor-authentication-end-user-app-passwords.md)
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>Çok faktörlü kimlik doğrulaması için güvenilen cihazlar unutmayın
@@ -301,7 +301,7 @@ _Çok faktörlü kimlik doğrulaması unutmayın_ özelliği cihazları ve kulla
 >[!IMPORTANT]
 >Bir hesap veya aygıt aşılırsa, çok faktörlü kimlik doğrulaması için güvenilen cihazlar hatırlamak güvenlik etkileyebilir. Bir kurumsal hesap güvenliği tehlikeye girdiğinde veya güvenilir bir cihaz kaybolur veya çalınırsa durumunda [tüm cihazlarda çok faktörlü kimlik doğrulama geri](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user).
 >
->Tüm cihazlar güvenilen durumundan geri yükleme eylemini iptal eder ve kullanıcı yeniden iki aşamalı doğrulamayı gerçekleştirmek için gerekli. Ayrıca çok faktörlü kimlik doğrulaması'ndaki yönergeleri ile kendi cihazlarda geri yüklemek için kullanıcılarınızın söyleyebilirsiniz [iki aşamalı doğrulama için ayarlarınızı yönetme](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
+>Tüm cihazlar güvenilen durumundan geri yükleme eylemini iptal eder ve kullanıcı yeniden iki aşamalı doğrulamayı gerçekleştirmek için gerekli. Ayrıca çok faktörlü kimlik doğrulaması'ndaki yönergeleri ile kendi cihazlarda geri yüklemek için kullanıcılarınızın söyleyebilirsiniz [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted).
 >
 
 ### <a name="how-the-feature-works"></a>Özelliği nasıl çalışır
@@ -341,7 +341,7 @@ Anımsa çok faktörlü kimlik doğrulama özelliği etkinleştirdikten sonra ku
 
 Kullanarak, kullanıcılarınız için kullanılabilir olan doğrulama yöntemlerini seçebilir _seçilebilir doğrulama yöntemlerini_ özelliği. Aşağıdaki tabloda yöntemleri kısa bir genel bakış sağlar.
 
-Kullanıcılarınız için Azure multi-Factor Authentication hesaplarını kaydettiğinizde, etkinleştirdiğiniz seçenekleri arasından, tercih edilen doğrulama yöntemi seçin. Kullanıcı kayıt işlemine yönelik yönergeler sağlanır [Hesabımı iki aşamalı doğrulama için ayarlama](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md).
+Kullanıcılarınız için Azure multi-Factor Authentication hesaplarını kaydettiğinizde, etkinleştirdiğiniz seçenekleri arasından, tercih edilen doğrulama yöntemi seçin. Kullanıcı kayıt işlemine yönelik yönergeler sağlanır [Hesabımı iki aşamalı doğrulama için ayarlama](end-user/current/multi-factor-authentication-end-user-first-time.md).
 
 | Yöntem | Açıklama |
 |:--- |:--- |

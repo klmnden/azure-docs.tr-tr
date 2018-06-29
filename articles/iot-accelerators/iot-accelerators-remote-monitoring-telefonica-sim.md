@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628292"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097089"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Uzaktan izleme çözümünde SIM veri tümleştirme
 
@@ -33,9 +33,9 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 
 Bu ek Uzaktan izleme özelliği şu anda önizlemede değil. Azure Uzaktan izleme çözümüne bağlantısını verilerinizi eşitlemek için aşağıdaki adımları izleyin:
 
-1. Bir isteğiyle dolgu [Telefónica'nın site](https://iot.Telefónica.com/contact), seçeneğini **Azure Uzaktan izleme**, kişi verilerinizi dahil olmak üzere.
+1. Bir isteğiyle dolgu [Telefónica'nın site](https://iot.telefonica.com/contact), seçeneğini **Azure Uzaktan izleme**, kişi verilerinizi dahil olmak üzere.
 2. Telefónica hesabınızı etkinleştirir.
-3. Bir Telefónica istemci henüz burada değildir ve isterseniz bu veya diğer IOT bağlantı bulut hazır Hizmetleri keyfini adresini ziyaret edin [Telefónica'nın site](https://iot.Telefónica.com/contact) ve seçeneğini **bağlantı**.
+3. Bir Telefónica istemci henüz burada değildir ve isterseniz bu veya diğer IOT bağlantı bulut hazır Hizmetleri keyfini adresini ziyaret edin [Telefónica'nın site](https://iot.telefonica.com/) ve seçeneğini **bağlantı**.
 
 ### <a name="telefnica-sim-setup"></a>Telefónica SIM Kurulumu
 Telefónica SIM & Azure Twin aygıt kimliği ilişkilendirmesi Telefónica IOT SIM "diğer" özelliği üzerinde temel alır. 

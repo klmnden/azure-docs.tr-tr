@@ -2,7 +2,7 @@
 title: Azure Active Directory kimlik koruması tarafından algılanan güvenlik açığı | Microsoft Docs
 description: Azure Active Directory kimlik koruması tarafından algılanan güvenlik açığı genel bakış.
 services: active-directory
-keywords: Azure active directory kimlik koruması, cloud app discovery'yi, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme
+keywords: Azure active directory kimlik koruması, bulut bulma, uygulamalar, güvenlik, risk, risk düzeyi, güvenlik açığı, güvenlik ilkesi yönetme
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 534384f8e8fde17c2330831b346d87c50ea24183
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713703"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084017"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory kimlik koruması tarafından algılanan güvenlik açığı
 Güvenlik açıkları zayıf bir saldırgan tarafından yararlanılabilir ortamınızda giderilmiştir. Kuruluşunuzun güvenlik tutumunu artırmak için bu güvenlik açıklarına ve bunları yararlanmasını saldırganların önlemeye öneririz.
@@ -47,9 +47,9 @@ Bu güvenlik açığından kuruluşunuzdaki yönetilmeyen bulut uygulamaları ta
 
 Modern kuruluşlarda, BT departmanları genellikle kuruluşlarındaki kullanıcılar işlerini yapmak için kullandığınız tüm bulut uygulamaları farkında değildir. Yöneticileri Kurumsal verileri, olası veri sıkıntılarına ve diğer güvenlik risklerine yetkisiz erişimi endişeniz neden olurdu görmek kolaydır. 
 
-Cloud App Discovery yönetilmeyen bulut uygulamaları bulmak ve Azure Active Directory'yi kullanarak bu uygulamaları yönetmek için dağıtmak için öneririz.
+Cloud Discovery yönetilmeyen bulut uygulamaları bulmak ve Azure Active Directory'yi kullanarak bu uygulamaları yönetmek için dağıtmak için öneririz.
 
-Daha fazla bilgi için bkz: [Cloud App Discovery ile yönetilmeyen bulut uygulamaları bulma](manage-apps/cloud-app-discovery.md).
+Daha fazla bilgi için bkz: [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management'tan Güvenlik Uyarıları
 Bu güvenlik açığından bulmak ve uyarılar, kuruluşunuzda ayrıcalıklı kimlikleri hakkında çözümlemenize yardımcı olur.  

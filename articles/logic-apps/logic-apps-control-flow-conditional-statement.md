@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d4e69d33e07f484b4ccc5343786865230368c7ca
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298177"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096385"
 ---
 # <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Azure mantıksal uygulamaları iş akışı eylemlerini denetlemek koşullu deyimler oluşturma
 
@@ -50,32 +50,27 @@ Yalnızca belirtilen bir koşul geçtikten sonra mantıksal uygulamanızı belir
 
    1. Sol kutusunda veri veya karşılaştırmak istediğiniz alanı belirtin.
 
-      Gelen **dinamik içerik eklemek** listesinde, var olan mantıksal uygulamanızı alanlardan seçebilirsiniz.
+      Sol kutusunun içine tıklayın, önceki adımlardan mantıksal uygulamanızı çıkışları seçebilmeniz için dinamik içerik listesi görüntülenir. 
+      Bu örnekte, RSS akışı özeti seçin.
+
+      ![Koşulunuz derleme](./media/logic-apps-control-flow-conditional-statement/edit-condition.png)
 
    2. Orta listesinde, işlemi gerçekleştirmek için seçin. 
-   3. Sağ kutusunda bir değer veya alan ölçüt olarak belirtin.
+   Bu örnekte, seçin "**içeren**". 
 
-   Örneğin:
-
-   ![Koşul temel modunda düzenleme](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode.png)
+   3. Sağ kutusunda bir değer veya alan ölçüt olarak belirtin. 
+   Bu örnek için şu dizeyi belirtin: **Microsoft**
 
    Tam koşul şöyledir:
 
-   ![Tamamlanan koşul](./media/logic-apps-control-flow-conditional-statement/edit-condition-basic-mode-2.png)
+   ![Tamamlanan koşul](./media/logic-apps-control-flow-conditional-statement/edit-condition-2.png)
+
+5. Altında **true ise** ve **false ise**, gerçekleştirme adımları temel koşul karşılanır karşılanmaz ekleyebilirsiniz. Örneğin:
+
+   ![İle koşul "true" ve "false ise" yolları](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
 
    > [!TIP]
-   > Daha gelişmiş bir koşul oluşturmak veya ifadeleri kullanmayı seçin **Gelişmiş modda Düzenle**. İfadeleri tarafından tanımlanan kullanabilirsiniz [iş akışı tanımlama dili](../logic-apps/logic-apps-workflow-definition-language.md).
-   > 
-   > Örneğin:
-   >
-   > ![Kod koşulunda Düzenle](./media/logic-apps-control-flow-conditional-statement/edit-condition-advanced-mode.png)
-
-5. Altında **Evet IF** ve **IF Hayır**, gerçekleştirme adımları temel koşul karşılanır karşılanmaz ekleyebilirsiniz. Örneğin:
-
-   ![Evet ve hiçbir yol koşulu](./media/logic-apps-control-flow-conditional-statement/condition-yes-no-path.png)
-
-   > [!TIP]
-   > Varolan eylemlere sürükleyebilirsiniz **Evet IF** ve **IF Hayır** yollar.
+   > Varolan eylemlere sürükleyebilirsiniz **true ise** ve **false ise** yollar.
 
 6. Mantıksal uygulamanızı kaydedin.
 
@@ -87,14 +82,21 @@ Bir koşullu ifade kullanarak bir mantıksal uygulama oluşturduğunuza göre ko
 
 ``` json
 "actions": {
-  "myConditionName": {
+  "Condition": {
     "type": "If",
-    "expression": "@contains(triggerBody()?['summary'], 'Microsoft')",
     "actions": {
       "Send_an_email": {
-        "inputs": { },
+        "inputs": {},
         "runAfter": {}
-      }
+    },
+    "expression": {
+      "and": [ 
+        { 
+          "contains": [ 
+            "@triggerBody()?['summary']", "Microsoft"
+          ]
+        } 
+      ]
     },
     "runAfter": {}
   }

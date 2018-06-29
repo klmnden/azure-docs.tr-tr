@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 0c677b88228097efcaa30399160dfdafa1c01788
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060247"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096351"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -49,7 +49,7 @@ Bir Linux karma Runbook çalışanı için minimum gereksinimleri şunlardır:
 | **Gerekli paket** | **Açıklama** | **En düşük sürüm**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C Kitaplığı| 2.5-12 |
-|Openssl| OpenSSL kitaplıkları | 0.9.8E veya 1.0|
+|Openssl| OpenSSL kitaplıkları | 1.0 (TLS 1.1 ve TLS 1.2 desteklenir|
 |Curl | cURL web istemcisi | 7.15.5|
 |Python ctypes | |
 |PAM | Eklenebilir kimlik doğrulaması modülleri|

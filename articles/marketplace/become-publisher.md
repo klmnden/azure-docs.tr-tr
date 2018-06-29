@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825346"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083170"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>Market'te veriş Publisher'da olur  
 Aşağıdaki adımlar, yayımcı Market'te veriş olarak kaydetme yardımcı. Microsoft ile var olan katılım temel ve liste türü seçili, aşağıdaki adımlardan bazıları gerekli olmayabilir.  
@@ -29,8 +29,7 @@ Aşağıdaki adımlar, yayımcı Market'te veriş olarak kaydetme yardımcı. Mi
 | 1 | Microsoft iş ortağı ağı kaydet | 15 dakika | [Microsoft iş ortağı ağı kaydet](#register-in-microsoft-partner-network) |  
 | 2 | Microsoft kimlik oluşturun | 15 dakika | [Microsoft kimlik oluşturun](#create-a-microsoft-id) |  
 | 3 | Market Adaylığı form gönderme | 1-3 gün | [Market Adaylığı form gönderme](#submit-the-marketplace-nomination-form) |  
-| 4 | Microsoft Developer Center'da (Dev Center) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne kaydetme](#register-in-dev-center) |  
-| 5 | Oturum AppSource açın | 15 dakika | [Oturum AppSource açın](#sign-into-appSource) |  
+| 4 | Microsoft Developer Center'da (Dev Center) kaydetme | 5-10 gün | [Geliştirme Merkezi'ne Kaydolma](#register-in-dev-center) |  
 | 5 |  Bulut iş ortağı portalında oturum açın | 15 dakika | [Bulut iş ortağı portalında oturum açın](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>Microsoft iş ortağı ağı kaydet  
@@ -81,18 +80,6 @@ Bir Geliştirici Merkezi hesabına sahip liste türü Transact yayımlama uygula
 >[!Important]
 >Bir Geliştirme Merkezi hesabı oluşturmak, doğrulamak, çalışmadan önce şirketinizin zaten bir Geliştirici Merkezi hesabına sahip değil. 
 >*   Daha fazla bilgi için ziyaret [Dev Center kayıttaki nasıl](#how-to-register-in-dev-center) bölümü.  
-
----  
-
-## <a name="sign-into-appsource"></a>Oturum AppSource açın  
-| 15 dakika |  
-Adaylığı onaylandıktan sonra MPN ve Geliştirme Merkezi kayıtlı, Market hesabınızı AppSource erişim oluşturulur. İlk kez oturum açma kimlik bilgileri, Adaylığı onay e-postayla gönderilir. 
-*   MPN erişmek için konumunda bulunan üyelik sayfasını ziyaret edin [partner.microsoft.com/membership](https://partner.microsoft.com/membership).  
-*   Geliştirici Merkezi'ne erişmek için Windows Geliştirme Merkezi sayfasında bulunan ziyaret edin [dev.windows.com](https://dev.windows.com).  
-*   AppSource erişmek için konumunda bulunan AppSource sayfasını ziyaret edin [appsource.microsoft.com](https://appsource.microsoft.com).  
-*   Microsoft bulut iş ortağı portalına erişmek için sayfa bulunan bulut iş ortağı portalını ziyaret edin [cloudpartner.azure.com](https://cloudpartner.azure.com).  
-*   Bulut iş ortağı portalını kullanma hakkında daha fazla bilgi için konumunda bulunan öğrenin bölümünü ziyaret edin ve [cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn).  
-*   Bulut iş ortağı portalını ilgili belgeler için konumunda bulunan bir belge bölümü ziyaret [cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation).  
 
 ---  
 

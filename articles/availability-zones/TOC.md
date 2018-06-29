@@ -37,11 +37,23 @@
 
 ### [Genel IP adresi](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 
-### SQL Database
+### SQL Veritabanı
 #### [SQL Veritabanı ile kullanılabilirlik alanları](../sql-database/sql-database-high-availability.md#availability-zones)
 
 ### Depolama
 #### [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md)
+
+### Event Hubs
+#### [Event Hubs coğrafi olağanüstü durum kurtarma](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Service Bus
+#### [Service Bus coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### VPN Gateway
+#### [Bölgesel olarak yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [Bölgesel olarak yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Olağanüstü Durum Kurtarma
 ## [Azure Site Recovery’yi kullanma](https://docs.microsoft.com/azure/site-recovery/)

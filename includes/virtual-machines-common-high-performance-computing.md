@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: b8bbcf81f48e82417a0d51e29f7dd8ce76681fed
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34152232"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37095344"
 ---
 Kuruluşların büyük ölçekli bilgi işlem gereksinimleri vardır. Bu Big Compute iş yükleri, mühendislik tasarımı ve analizi, finansal risk hesaplamaları, görüntü işleme, karmaşık modelleme, Monte Carlo benzetimleri ve daha fazla bilgi içerir. 
 
@@ -40,7 +40,7 @@ Azure bulut verimli bir şekilde işlem yoğunluklu Linux ve Windows iş yükler
     * Azure etkin mühendislik ve benzetimi çözümlerin de dahil olmak üzere satıcılardan çalıştırılması [Altair](http://www.altair.com/), [yeniden Ölçeklendir](https://www.rescale.com/azure/), ve [Cycle Computing](https://cyclecomputing.com/) (şimdi [ile birleştirilmiş Microsoft](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/)).
     * Kullanım bir [Cray Süper bilgisayar](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure) Azure üzerinde barındırılan bir hizmet olarak.
 * **Market çözümleri**
-    * Ölçek kullanmak [HPC uygulamaları](#hpc-applications) ve [çözümleri](#marketplace-solutions) içinde sunulan [Azure Marketi](https://azuremarketplace.microsoft.com/). 
+    * Ölçek kullanmak [HPC uygulamaları](#hpc-applications) ve [çözümleri](#marketplace-solutions) içinde sunulan [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/). 
     
 
 
@@ -64,7 +64,7 @@ Ziyaret [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace/) Lin
  
 ## <a name="hpc-applications"></a>HPC uygulamaları
 
-Ticari veya özel HPC uygulamaları Azure üzerinde çalışır. Bu bölümdeki birkaç örnekleri, ek VM ile birlikte ölçeklendirilmesine veya çekirdek işlem benchmarked. Ziyaret [Azure Marketi](https://marketplace.azure.com) çözümlerini dağıtmak için hazır.
+Ticari veya özel HPC uygulamaları Azure üzerinde çalışır. Bu bölümdeki birkaç örnekleri, ek VM ile birlikte ölçeklendirilmesine veya çekirdek işlem benchmarked. Ziyaret [Azure Marketi](https://azuremarketplace.microsoft.com/marketplace) çözümlerini dağıtmak için hazır.
 
 > [!NOTE]
 > Herhangi bir ticari uygulama bulutta çalıştırmak için lisans ya da başka kısıtlamalar için satıcıyla denetleyin. Satıcıların tümü kullandıkça öde lisansı sunmaz. Çözümünüz için bulutta bir lisans sunucusuna ihtiyacınız olabilir veya bir şirket içi lisans sunucusuna bağlanın.

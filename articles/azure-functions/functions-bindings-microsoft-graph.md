@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 3b9a7d998e7153318b21adcada7c143b428e591f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: af748f234a27ed9b37ac50438d7497fd680bc193
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724783"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085581"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Azure işlevleri için Microsoft Graph bağlamaları
 
@@ -352,8 +352,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**userId**|**Kullanıcı Kimliği**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 |**Yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
-|**WorksheetName**|**WorksheetName**|Tablonun bulunduğu çalışma sayfası.|
-|**TableName**|**TableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
+|**worksheetName**|**WorksheetName**|Tablonun bulunduğu çalışma sayfası.|
+|**tableName**|**tableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
 
 <a name="excel-input-code"></a>
 ### <a name="excel-input---usage"></a>Excel girişi - kullanım
@@ -512,8 +512,8 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**Kullanıcı Kimliği** |**userId** |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 |**Yol**|**Path**|Gerekli - onedrive'da Excel çalışma kitabı yolu.|
-|**WorksheetName**|**WorksheetName**|Tablonun bulunduğu çalışma sayfası.|
-|**TableName**|**TableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
+|**worksheetName**|**WorksheetName**|Tablonun bulunduğu çalışma sayfası.|
+|**tableName**|**tableName**|Tablonun adı. Belirtilmezse, çalışma kitabının içeriğini kullanılır.|
 |**güncelleştirme türü**|**Güncelleştirme türü**|Gerekli - tabloya yapmak için değişiklik türü. Aşağıdaki değerlerden biri olabilir:<ul><li><code>update</code> -OneDrive tabloda içeriğini değiştirir.</li><li><code>append</code> -Yükü OneDrive tabloda sonuna yeni satırlar oluşturarak ekler.</li></ul>|
 
 <a name="excel-output-code"></a>
@@ -976,7 +976,7 @@ Web kancası Microsoft Graph olaylara tepki olanak sağlar. Web kancası destekl
 - A [Microsoft Graph Web kancası abonelik girişi bağlamayı](#webhook-input) mevcut abonelikleri listesinde ve isteğe bağlı olarak bunları Yenile olanak tanır.
 - A [Microsoft Graph Web kancası abonelik çıktı bağlama](#webhook-output) oluşturmak veya Web kancası abonelikleri silmek olanak tanır.
 
-Bağlamaları kendilerini Azure AD izinlerin gerektirmez, ancak tepki istediğiniz kaynak türü için ilgili izinleri istemek gerekir. Hangi izinleri gerekiyor her kaynak türü için bir listesi için bkz: [abonelik izinleri](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions#permissions).
+Bağlamaları kendilerini Azure AD izinlerin gerektirmez, ancak tepki istediğiniz kaynak türü için ilgili izinleri istemek gerekir. Hangi izinleri gerekiyor her kaynak türü için bir listesi için bkz: [abonelik izinleri](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/subscription_post_subscriptions).
 
 Web kancası hakkında daha fazla bilgi için bkz: [Web kancası Microsoft Graph ile çalışma].
 
@@ -1382,7 +1382,7 @@ Aşağıdaki tabloda, kümesinde bağlama yapılandırma özellikleri açıklanm
 |**userId**|**Kullanıcı Kimliği**  |Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromId`. Daha önce oturum açma kullanıcı ile ilişkili kullanıcı asıl kimliği.|
 |**userToken**|**UserToken**|Gerekli olduğunda ve yalnızca _kimlik_ ayarlanır `userFromToken`. İşlev uygulaması için geçerli bir belirteç. |
 |**Eylem**|**Eylem**|Gerekli - bağlama eylem gerçekleştirmesi gerektiğini belirtir. Aşağıdaki değerlerden biri olabilir:<ul><li><code>create</code> -Yeni bir abonelik kaydeder.</li><li><code>delete</code> -Belirtilen bir abonelik siler.</li><li><code>refresh</code> -Süresinin dolmasını tutmak için belirtilen abonelik yeniler.</li></ul>|
-|**SubscriptionResource**|**SubscriptionResource**|Gerekli olduğunda ve yalnızca _eylem_ ayarlanır `create`. Değişiklikleri izlenen Microsoft Graph kaynağı belirtir. Bkz: [Web kancası Microsoft Graph ile çalışma]. |
+|**subscriptionResource**|**SubscriptionResource**|Gerekli olduğunda ve yalnızca _eylem_ ayarlanır `create`. Değişiklikleri izlenen Microsoft Graph kaynağı belirtir. Bkz: [Web kancası Microsoft Graph ile çalışma]. |
 |**ChangeType**|**ChangeType**|Gerekli olduğunda ve yalnızca _eylem_ ayarlanır `create`. Bir bildirim oluşturacak abone olduğunuz kaynak değişiklik türünü belirtir. Desteklenen değerler: `created`, `updated`, `deleted`. Virgülle ayrılmış bir liste kullanarak birden çok değer birleştirilebilir.|
 
 ### <a name="webhook-output---usage"></a>Web kancası çıktı - kullanım

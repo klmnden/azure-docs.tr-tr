@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 11335079373b627bab923f63eda148b0a74307ea
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938504"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100530"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Sık sorulan sorular (SSS) 
 Bu sayfa, Azure Active Directory (Azure AD) B2C hakkında sık sorulan sorular yanıtlanmaktadır. Geri Güncelleştirmeler denetleniyor tutun.
@@ -97,9 +97,9 @@ Bu makaleyi okuyun [dış kimlikler](../active-directory/active-directory-b2b-co
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Hangi raporlama ve Özellikler Denetim Azure AD B2C sağlar? Azure AD Premium ile aynı oldukları?
 Hayır, Azure AD B2C Azure AD Premium aynı kümesi raporları desteklemiyor. Ancak birçok commonalities vardır:
 
-* **Oturum açma raporları** yalnızca Azure portalında kullanılabilir (Azure Active Directory > etkinlik > oturum açma işlemleri) ve grafik API'si kullanılabilir değil. Her oturum açma kaydını azaltılmış ayrıntılarla sağlarlar.
-* **Denetim raporları** yalnızca Azure portalında kullanılabilir (Azure Active Directory > etkinlik > Denetim günlüklerini) ve grafik API'si kullanılabilir değil. Hem yönetici etkinliği, hem de uygulama etkinlik içerirler. 
-* **Kullanım raporları** aracılığıyla yalnızca kullanılabilir [kullanım raporlama API'si](active-directory-b2c-reference-usage-reporting-api.md) ve Azure portalı üzerinden kullanılabilir değil. Bunlar kullanıcı sayısı, oturum açma sayısı ve MFA hacmi içerir. 
+* **Oturum açma raporları** her oturum açma kaydı ile sınırlı ayrıntıları sağlayın.
+* **Denetim raporları** hem yönetici etkinliği, hem de uygulama etkinlik içerir. 
+* **Kullanım raporları** kullanıcı sayısı, oturum açma sayısı ve MFA hacmi içerir. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Azure AD B2C tarafından sunulan sayfalardaki UI yerelleştirme? Hangi dilleri destekleniyor mu?
 Evet!  Hakkında bilgi edinin [dil özelleştirme](active-directory-b2c-reference-language-customization.md), genel önizlemede değil.  36 diller için çeviriler sağladığımız ve gereksinimlerinize uygun olarak herhangi bir dize geçersiz kılabilirsiniz.

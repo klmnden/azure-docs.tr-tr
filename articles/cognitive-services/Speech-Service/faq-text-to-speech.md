@@ -9,146 +9,48 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 4a29435c0ace79fc3a5d3a5a42a0e91bdbc8da5e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045852"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082833"
 ---
-# <a name="custom-speech-service-frequently-asked-questions"></a>Özel konuşma hizmet sık sorulan sorular
+# <a name="text-to-speech-frequently-asked-questions"></a>Metin okuma sık sorulan sorular
 
 Bu SSS sorularınızın yanıtlarını bulamazsanız, üzerinde özel konuşma hizmeti topluluğu isteyen deneyin [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ve [UserVoice](https://cognitive.uservoice.com/)
 
 ## <a name="general"></a>Genel
 
-**Soru**: metin modelleri için temel ve özel konuşma arasındaki fark nedir?
+**Soru**: standart ve özel sesli modelleri arasındaki fark nedir?
 
-**Yanıt**: temel modelleri veri ait Microsoft ile eğitilmiş ve bulutta zaten dağıtılmış. Özel modelleri belirli ortam gürültüsünü veya dil olan belirli bir ortamı daha iyi uyacak şekilde bir model uyum izin verin. Fabrika Katlar, araba, Biyoloji, fizik, radyoloji, ürün adları ve özel kısaltmalar gibi belirli konular dil modeli gerektirir ancak gürültülü streets uyarlanmış akustik modeli duyar.
+**Yanıt**: standart sesi modeller (paketini sesli yazı tipleri) veri ait Microsoft ile eğitilmiş ve bulutta zaten dağıtılmış. Özel sesli modelleri ortalama bir model uyum ve timbre ve Konuşmacı sesli stili göre ifade şekilde aktarmak için veya kullanıcı tarafından hazırlanan eğitim verileri temel alan bir tam yeni modeli eğitmek için verin. Bugün daha da fazla müşteriler kendi aracılarını için tür, bir, markalı bir ses istiyorsanız. Platform derleme özel sesli söz konusu doğru seçimdir.
 
-**Soru**: nereden başlamalıyım temel model kullanılacak isterseniz?
+**Soru**: nereden başlamalıyım standart sesi modelini kullanmak isterseniz?
 
-**Yanıt**: ilk almanız gereken bir [abonelik anahtarı](get-started.md). Predeployed temel modelleri REST çağrı yapmak istiyorsanız, başvurun [burada ayrıntıları](rest-apis.md). WebSockets indirme kullanmak istiyorsanız, [SDK](speech-sdk.md)
+**Yanıt**: 80'den fazla standart sesi modelleri üzerinde 45 dillerde HTTP istekleri üzerinden kullanılabilir. İlk almanız gereken bir [abonelik anahtarı](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Önceden dağıtılan sesli modelleri REST çağrı yapmak için başvurun [burada ayrıntıları](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
-**Soru**: ı yapmak her zaman özel konuşma modelini oluşturmak için ihtiyacınız?
+**Soru**: özelleştirilmiş sesli modelini kullanmak istiyorsanız API standart sesi aynıdır?
 
-**Yanıt**: uygulamanızı özel sözlük veya o olabilir nadir ardından olmadan genel günlük dil kullanıyorsa, Hayır, size bir model özelleştirmek gerekmez. Ayrıca, uygulamanızın nerede çok az kayıpla veya hiç arka plan gürültü olduğundan sonra olmayan bir ortamda kullanılacak ya da özelleştirmeniz gerekiyorsa ise. Portal taban çizgisi ve özelleştirilmiş modelleri dağıtmak ve bunlara karşı doğruluğu testleri çalıştırmak kullanıcıların sağlar. Kullanıcıların özel bir model temel vs doğruluğunu ölçmek için bu özelliği kullanabilirsiniz.
+**Yanıt**: oluşturulan ve dağıtılan özel sesli modeli sahip olduğunuzda, benzersiz bir uç noktası için modelinizin alırsınız. Uygulamalarınızda konuşmaya ses kullanmak için HTTP isteklerinde uç noktası belirtmeniz gerekir. Metin okuma hizmet için REST API aracılığıyla kullanılabilir aynı işlevselliği de özel uç noktası için kullanılabilir. Bkz: nasıl yapılır [oluşturma ve özel uç noktanızı kullanma](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
-**Soru**: nasıl bilebilirim my veri kümesi veya model işlenmesi tamamlandığında?
+**Soru**: özel sesli modelleri kendime oluşturmak için eğitim verileri hazırlamak gerekiyor mu?
 
-**Yanıt**: şu anda, model veya tablosu veri kümesinde yalnızca bilmek istiyorsanız durumudur.
-İşlem tamamlandığında, durum "Hazır" olur.
+**Yanıt**: eğitim verileri kendiniz için hazırlamanız gerekir. Konuşma veri koleksiyonu, bir özelleştirilmiş sesli model oluşturmak için gereklidir. Bu koleksiyon, konuşma kayıtları ses dosyalarının kümesi ve her ses dosyası transcription bir metin dosyasından oluşur. Dijital sesinizi sonucunu eğitim verilerinizi kalitesinden yoğun olarak kullanır. İyi bir TTS ses üretmek için kayıtları ile yüksek kaliteli durumu Mikrofon Sessiz bir odada yapılır önemlidir. Tutarlı birim, aralık ve açıklayıcı veren davranışların konuşma bile tutarlılık oranı, konuşma harika bir dijital ses oluşturmak için gerekli. Bir kayıt Studio'da kaydedilen sesi sahip olması gerektiğini öneririz.
+Şu anda biz çevrimiçi kayıt destek sağlamaz veya herhangi bir kayıt studio önerimiz sahip. Biçim gereksinimini bkz [kayıtları ve dökümleri hazırlama](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts)
+ 
+**Soru**: hangi betikleri özel sesli eğitim konuşma verilerini kaydetmek için kullanmalıyım? 
 
-**Soru**: aynı anda birden fazla model oluşturabilirim?
+**Yanıt**: ses kaydetmeye için komut dosyalarını sınırlamaz. Konuşma kaydetmek için kendi komut dosyalarını kullanabilirsiniz. Yalnızca yeterli ses kapsamı konuşma verilerinizi olduğundan emin olun. Özel sesli eğitmek için 50 farklı cümleleri olabilir konuşma verilerin küçük bir birimle başlatabilirsiniz (konuşma hakkında 3-5 dakika). Daha fazla veri sağlarsanız, sesiniz fazla doğal olacaktır. 2000'den fazla cümleleri (yaklaşık konuşma 3-4 saat) kayıtlarını sağladığınızda tam sesli yazı tipi eğitmek başlatabilirsiniz. Yüksek kaliteli tam sesli almak için birden çok 6000 cümleleri (yaklaşık konuşma 8-10 saat) kayıtlarını hazırlamak gerekir.  
+Komut dosyaları kayıt için hazırlanmanıza yardımcı olması için ek hizmetler sunuyoruz. Kişi [özel sesli müşteri desteği](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) sorgular için.
 
-**Yanıt**: kaç modelleri, koleksiyonda yer alan bir sınır yoktur ancak tek zaman her sayfada oluşturulabilir.
-Örneğin, varsa şu anda bir dil modeli işlem aşamasında bir dil modeli oluşturma işlemi başlatılamıyor.
-Ancak, bir akustik modeli ve aynı anda işleme dil modeli olabilir. 
+**Soru**: varsayılan değerinden daha yüksek eşzamanlılık ne ihtiyacım veya ne portalında sunulur?
 
-**Soru**: t hata yaptığım gerçekleşmiş. Nasıl veri içe aktarma işlemi iptal edin veya devam ediyor oluşturma model? 
-
-**Yanıt**: şu anda bir kullanım veya dil uyarlama işlemi geri alamazsınız.
-Alma işlemi tamamlandıktan sonra içeri aktarılan veriler silinebilir
-
-**Soru**: arama & dikte modelleri ve konuşma modelleri arasındaki fark nedir?
-
-**Yanıt**: iki temel akustik & dil modelleri özel konuşma hizmetinde seçilecek vardır.
-sorgular veya dikte arayın. Microsoft Conversational AM konuşma stilde konuşulan konuşma tanıma için uygundur.
-Bu tür bir konuşma genellikle başka bir kişinin, gibi çağrı merkezleri veya toplantılar yönlendirilir.
-
-**Soru**: (modeli yığınlama) my varolan modeli güncelleştirmek?
-
-**Yanıt**: Varolan modelleri güncelleştirilemez. Geçici bir çözüm olarak eski veri kümesinin yeni birleştirmek ve readapt.
-
-Dil veri ise, eski ve yeni veri kümeleri (Akustik veri ise) tek bir .zip veya .txt dosyası birleştirilmiş gerekir. Yeni bir uç noktası edinmek için XML'deki dağıtılmış olması yeni güncelleştirilmiş model gereken uyarlama bir kez gerçekleştirilir
-
-**Soru**: varsayılan değerinden daha yüksek eşzamanlılık ne ihtiyacım veya ne portalında sunulur. 
-
-**Yanıt**: 20 eş zamanlı istek artışlarla modelinizi yukarı ölçeklendirebilirsiniz. 
-
-Daha yüksek ölçek gerekiyorsa bizimle iletişime geçin.
+**Yanıt**: 20 eş zamanlı istek artışlarla modelinizi yukarı ölçeklendirebilirsiniz. Kişi [özel sesli müşteri desteği](mailto:customvoice@microsoft.com?subject=Inquiries%20about%20scripts%20generation%20for%20Custom%20Voice%20creation) daha yüksek genişletilmesi sorgular için.
 
 **Soru**: t my modeli indirebilir ve yerel olarak çalıştırma?
 
 **Yanıt**: modelleri indirilir ve yerel olarak yürütülür.
-
-**Soru**: olan oturum isteklerim?
-
-**Yanıt**: transcriptions oturum açmış olmanız ya da izleme devre dışı, bu noktada hiçbir ses geçiş yapmak için bir dağıtım oluşturulması sırasında seçenekleriniz vardır. Aksi takdirde istekleri Azure'da genellikle güvenli depolama kaydedilir. Daha fazla özel konuşma hizmeti kullanarak yasaktır Gizlilik sorunları varsa, destek kanallarını başvurun.
-
-## <a name="importing-data"></a>Veri alma
-
-**Soru**: veri kümesi boyutu sınırı nedir? Neden? 
-
-**Yanıt**: geçerli bir veri kümesi için 2 GB ' HTTP yüklemek için bir dosya boyutu sınırlaması nedeniyle sınırlıdır. 
-
-**Soru**: metin dosyalarımı ı daha büyük bir metin dosyasını karşıya yüklemek için ZIP? 
-
-**Yanıt**: Hayır, şu anda yalnızca sıkıştırılmamış metin dosyalarını izin verilir.
-
-**Soru**: başarısız utterances vardı veri raporu söyler. Sorun nedir?
-
-**Yanıt**: % 100'dosyasında utterances karşıya yüklemek başarısız olan bir sorun değildir.
-Bir kullanım veya dil veri utterances çoğunluğu ayarlarsanız (örneğin, > % 95) başarıyla içeri veri kümesi kullanışlı olabilir. Ancak, utterances neden geçemediğini anlamak ve sorunları düzeltmek deneyin önerilir. Hataları, biçimlendirme gibi en sık karşılaşılan sorunları düzeltmek kolaydır. 
-
-## <a name="creating-am"></a>AM oluşturma
-
-**Soru**: akustik ne kadar veri ihtiyacım var?
-
-**Yanıt**: 30 dakika akustik verilerin bir saat ile başlayan öneririz
-
-**Soru**: t hangi veri toplamanız gerekir?
-
-**Yanıt**: uygulama senaryo olarak yakın olan verileri toplamak ve durumu mümkün olduğunca kullanın.
-Veri toplama, cihaz veya cihazları, ortamları ve konuşmacılar türleri açısından kullanıcılar ve hedef uygulama eşleşmesi gerekir. Genel olarak, mümkün olduğunca konuşmacılar çeşitli geniş olarak verileri toplamanız gerekir. 
-
-**Soru**: nasıl ı toplamak onu? 
-
-**Yanıt**: bir tek başına veri toplama uygulaması oluşturabilir veya bazı raf ses kaydını yazılım kapalı kullanın.
-Ses verilerini günlüğe kaydeder ve kullanan uygulamanızın sürümünü de oluşturabilirsiniz. 
-
-**Soru**: uyarlama veri kendim transcribe gerekiyor mu? 
-
-**Yanıt**: veri transcribed gerekir. Kendiniz transcribe ya da professional transcription hizmeti kullanın. Bu kullanım profesyonel transcribers ve diğerleri bazıları kitle kaynak kullanın.
-
-**Soru**: ne kadar özel akustik modeli oluşturmak için sürer?
-
-**Yanıt**: akustik veri kümesi uzunluğu ile aynı özel akustik model oluşturma için işleme süresi hakkındadır.
-Bu nedenle, bir saat beş veri kümesinden oluşturulan özelleştirilmiş bir akustik modeli yaklaşık beş saat arasında zaman alacak işleyemedi. 
-
-## <a name="offline-testing"></a>Çevrimdışı Test
-
-**Soru**: Çevrimdışı özel dil modeli kullanarak my özel akustik modelinin testi gerçekleştirebilirsiniz?
-
-**Yanıt**: Evet, çevrimdışı testi ayarlama yalnızca özel dil modeli açılan seçin
-
-**Soru**: Çevrimdışı özel akustik modelini kullanarak my özel dil modelinin testi gerçekleştirebilirsiniz?
-
-**Yanıt**: Evet, çevrimdışı test ayarladığınızda açılır menüde yalnızca özel akustik modelini seçin.
-
-**Soru**: Word hata oranı nedir ve nasıl, hesaplanan?
-
-**Yanıt**: Word hata hızıdır konuşma tanıma için değerlendirme ölçüm. Eklemeler, silme ve kısaltmaları bölü başvuru transcription sözcükleri toplam sayısı, içeren hatalarının toplam sayısını, olarak sayılır.
-
-**Soru**: doğruluğunu test sonuçlarını iyi olup olmadığını nasıl belirleyebilirim?
-
-**Yanıt**: temel model ve, özelleştirilmiş bir arasında bir karşılaştırma sonuçları gösterir.
-Özelleştirme faydalı yapmak için temel model uluslararası hedeflemeniz gerektiğini
-
-**Soru**: nasıl ı şekil temel modelleri WER geliştirme olup olmadığını görebilmeniz için? 
-
-**Yanıt**: Çevrimdışı test sonuçları temel doğruluğunu özel model ve geliştirme doğruluğunu temel gösterir.
-
-## <a name="creating-lm"></a>LM oluşturma
-
-**Soru**: ne kadar metin verileri karşıya yüklemek yapmalıyım?
-
-**Yanıt**: üzerinde nasıl farklı sözlük bağlıdır ve uygulamanızda kullanılan tümcecikleri başlangıç dili modellerinden. Tüm yeni sözcükler için bu sözcükleri kullanımını mümkün olduğu kadar örnekler sağlamak kullanışlıdır. Bu koşulları için dinleme sisteme bildirdiğinde, uygulamanızda kullanılan ortak tümcecikleri tümcecikleri dil verileri de dahil olmak üzere de yararlıdır. En az bir 100 ve genellikle birkaç yüz utterances dil veri kümesi ya da daha fazla bilgi için yaygın bir durumdur. Ayrıca belirli sorgu türlerini diğerlerinden daha sık olması beklenmektedir, veri kümesinde Genel sorgular birden çok kopyasını ekleyebilirsiniz.
-
-**Soru**: yalnızca sözcüklerin listesini karşıya yükleyebilir?
-
-**Yanıt**: sözcüklerin listesini karşıya sözcüklere sözlük için alma ancak sistem nasıl sözcükler genellikle kullanılan öğretmek değildir.
-Tam veya kısmi utterances (cümleleri veya kullanıcıların söylemek büyük olasılıkla şeyleri tümceleri) sağlayarak dil modeli yeni sözcükleri öğrenebilirsiniz ve nasıl kullanılır. Özel dil modeli sistemindeki yeni sözcükleri almak için yalnızca aynı zamanda, uygulamanız için bilinen sözcükler olasılığını ayarlamak için uygundur. Tam utterances sağlayarak daha iyi bilgi sistemi yardımcı olur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169617"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081176"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>Hdınsight'ta Hadoop ile pig kullanma
 
@@ -55,7 +55,7 @@ Pig Latin dili istenen çıkış üretmek için bir veya daha fazla dönüşüml
 
 Pig Latin kullanıcı tanımlı işlevler (UDF), Pig Latin modelinde zordur mantığı uygulamanız dış bileşenlere çağırma olanak tanıyan de destekler.
 
-Pig Latin hakkında daha fazla bilgi için bkz: [Pig Latin başvuru el ile 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) ve [Pig Latin başvuru el ile 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html).
+Pig Latin hakkında daha fazla bilgi için bkz: [Pig Latin başvuru el ile 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) ve [Pig Latin başvuru el ile 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html).
 
 UDF'ler ile Pig kullanma örneği için aşağıdaki belgelere bakın:
 

@@ -2,9 +2,9 @@
 title: Azure AD kullanarak erişim gözden erişim değerlendirmeleri | Microsoft Docs
 description: Azure Active Directory erişimi incelemeler kullanarak erişim gözden geçirmek öğrenin.
 services: active-directory
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,12 +13,13 @@ ms.topic: article
 ms.component: compliance-reports
 ms.date: 09/19/2017
 ms.author: rolyon
-ms.openlocfilehash: dbc06f7978b5669e67f1e4161ebcd0bbeb3dec41
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: e6a109e499395e09be27770a510427038872da38
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233504"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085132"
 ---
 # <a name="review-access-with-azure-ad-access-reviews"></a>Azure AD ile erişim gözden geçirme erişim gözden geçirme
 

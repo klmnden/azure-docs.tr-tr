@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cfac573bc9f1bdec3fd884f8090e11514f1e93b3
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604718"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083235"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure yığın sertifika imzalama isteği oluşturma
 
@@ -30,8 +30,6 @@ Azure yığın hazırlık Denetleyicisi aracını (AzsReadinessChecker) aşağı
 
  - **Standart sertifika istekleri**  
     Göre isteği [Azure yığın dağıtımı için PKI sertifikaları oluşturmak](azure-stack-get-pki-certs.md).
- - **İstek türü**  
-    Sertifika imzalama isteği tek bir istekte ya da birden çok istek olup olmadığını belirtir.
  - **Hizmet olarak Platform**  
     İsteğe bağlı olarak hizmet olarak platform (PaaS) adlarını belirtildiği şekilde sertifikalarla isteği [Azure yığın ortak anahtar altyapısı sertifika gereksinimleri - isteğe bağlı PaaS sertifikaları](azure-stack-pki-certs.md#optional-paas-certificates).
 
@@ -98,22 +96,22 @@ Hazırlama ve Azure yığın PKI sertifikalarını doğrulamak için aşağıdak
     > [!note]  
     > `<regionName>.<externalFQDN>` üzerinde Azure yığınında tüm dış DNS adlarını oluşturulur, bu örnekte temelini oluşturur, portal olacaktır `portal.east.azurestack.contoso.com`.  
 
-6. Birden fazla konu alternatif adı ile tek bir sertifika isteği oluşturmak için:
+6. Her bir DNS adı için istekleri imzalama sertifikası oluşturmak için:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    Eklenecek anahtar PaaS Hizmetleri belirtin ```-IncludePaaS```
+
+7. Alternatif olarak, geliştirme ve Test ortamları için. Birden fazla konu alternatif adı ile tek bir sertifika isteği oluşturmak için Ekle **- RequestType SingleCSR** parametresi ve değeri (**değil** üretim ortamları için önerilen):
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     Eklenecek anahtar PaaS Hizmetleri belirtin ```-IncludePaaS```
-
-7. İmzalama istekleri her bir DNS adı için tek tek sertifikasını oluşturmak için:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    Eklenecek anahtar PaaS Hizmetleri belirtin ```-IncludePaaS```
-
+    
 8. Çıktıyı gözden geçirin:
 
     ````PowerShell  

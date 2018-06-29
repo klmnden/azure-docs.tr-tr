@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: aa140bceb5f7ad5e638f747fa8d88803c27f02a3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 74a660f7240b9ae6138c402dbbb418bbc665dc3c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867674"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098711"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Azure çok faktörlü kimlik doğrulaması için hata iletileri NPS uzantı çözümleyin
 
@@ -52,14 +52,14 @@ Azure çok faktörlü kimlik doğrulaması için NPS uzantısı hatalarla karş�
 | Hata kodu | Hata iletisi | Sorun giderme adımları |
 | ---------- | ------------- | --------------------- |
 | **Erişim engellendi** | Arayan Kiracı Kullanıcı için kimlik doğrulaması yapmak için erişim izinleri yok | Kiracı etki alanı ve etki alanı kullanıcı asıl adı (UPN) aynı olup olmadığını denetleyin. Örneğin, olduğundan emin olun user@contoso.com Contoso Kiracı kimlik doğrulaması çalışıyor. UPN Azure Kiracı için geçerli bir kullanıcı temsil eder. |
-| **AuthenticationMethodNotConfigured** | Belirtilen kimlik doğrulama yöntemi kullanıcı için yapılandırılmadı | Ekleme veya kendi doğrulama yöntemlerini yönergelerine göre doğrulamak için kullanıcının sahip [iki aşamalı doğrulama için ayarlarınızı yönetme](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **AuthenticationMethodNotConfigured** | Belirtilen kimlik doğrulama yöntemi kullanıcı için yapılandırılmadı | Ekleme veya kendi doğrulama yöntemlerini yönergelerine göre doğrulamak için kullanıcının sahip [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **AuthenticationMethodNotSupported** | Belirtilen kimlik doğrulama yöntemi desteklenmiyor. | Bu hataya dahil etmek, günlükleri toplamak ve [desteğine başvurun](#contact-microsoft-support). Desteğe başvurduğunuzda, kullanıcı adı ve hatayı tetikleyen ikincil doğrulama yöntemi sağlar. |
-| **BecAccessDenied** | MSODS Bec çağrısı erişim reddedildi döndürdü, büyük olasılıkla kullanıcıadı Kiracı içinde tanımlı değil | Kullanıcı Active Directory şirket içi var, ancak Azure AD tarafından AD Connect eşitlenmedi. Veya kullanıcı için Kiracı yok. Azure AD ile kullanıcı ekleyin ve bunları kendi doğrulama yöntemlerini yönergelerine göre eklemek [iki aşamalı doğrulama için ayarlarınızı yönetme](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). |
+| **BecAccessDenied** | MSODS Bec çağrısı erişim reddedildi döndürdü, büyük olasılıkla kullanıcıadı Kiracı içinde tanımlı değil | Kullanıcı Active Directory şirket içi var, ancak Azure AD tarafından AD Connect eşitlenmedi. Veya kullanıcı için Kiracı yok. Azure AD ile kullanıcı ekleyin ve bunları kendi doğrulama yöntemlerini yönergelerine göre eklemek [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). |
 | **InvalidFormat** veya **StrongAuthenticationServiceInvalidParameter** | Telefon numarası tanınmayan biçimindedir | Doğrulama telefon numaralarına düzeltmek kullanıcı sahip. |
 | **InvalidSession** | Belirtilen oturum geçersiz veya süresi sona ermiş olabilir | Oturum üç tamamlamak için dakikadan uzun sürdü. Kullanıcı doğrulama kodunu girerek, veya kimlik doğrulama isteğini başlatarak, üç dakika içinde uygulama bildirimine yanıt verme doğrulayın. Bu sorunu çözmezse, istemci, NAS sunucusu, NPS sunucusu ve Azure MFA uç noktası arasında hiçbir ağ gecikmeleri olup olmadığını denetleyin.  |
-| **NoDefaultAuthenticationMethodIsConfigured** | Varsayılan kimlik doğrulama yöntemi kullanıcı için yapılandırılan | Ekleme veya kendi doğrulama yöntemlerini yönergelerine göre doğrulamak için kullanıcının sahip [iki aşamalı doğrulama için ayarlarınızı yönetme](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Kullanıcı bir varsayılan kimlik doğrulama yöntemini seçmiş ve bu yöntem, hesap için yapılandırıldığını doğrulayın. |
+| **NoDefaultAuthenticationMethodIsConfigured** | Varsayılan kimlik doğrulama yöntemi kullanıcı için yapılandırılan | Ekleme veya kendi doğrulama yöntemlerini yönergelerine göre doğrulamak için kullanıcının sahip [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Kullanıcı bir varsayılan kimlik doğrulama yöntemini seçmiş ve bu yöntem, hesap için yapılandırıldığını doğrulayın. |
 | **OathCodePinIncorrect** | Yanlış kod ve PIN girildi. | Bu hata, NPS uzantısı'nda beklenmiyor. Bu, kullanıcı karşılaşırsa [desteğine başvurun](#contact-microsoft-support) sorun giderme Yardımı. |
-| **ProofDataNotFound** | Sağlama verileri belirtilen kimlik doğrulama yöntemi için yapılandırılmadı. | Farklı bir doğrulama yöntemi deneyin veya yeni bir doğrulama yöntemi yönergelerine göre eklemek kullanıcının [iki aşamalı doğrulama için ayarlarınızı yönetme](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-manage-settings.md). Kullanıcı kendi doğrulama yöntemini doğru şekilde kurulduğundan emin onaylandıktan sonra bu hatayı görmeye devam ederse [desteğine başvurun](#contact-microsoft-support). |
+| **ProofDataNotFound** | Sağlama verileri belirtilen kimlik doğrulama yöntemi için yapılandırılmadı. | Farklı bir doğrulama yöntemi deneyin veya yeni bir doğrulama yöntemi yönergelerine göre eklemek kullanıcının [iki aşamalı doğrulama için ayarlarınızı yönetme](end-user/current/multi-factor-authentication-end-user-manage-settings.md). Kullanıcı kendi doğrulama yöntemini doğru şekilde kurulduğundan emin onaylandıktan sonra bu hatayı görmeye devam ederse [desteğine başvurun](#contact-microsoft-support). |
 | **SMSAuthFailedWrongCodePinEntered** | Yanlış kod ve PIN girildi. (OneWaySMS) | Bu hata, NPS uzantısı'nda beklenmiyor. Bu, kullanıcı karşılaşırsa [desteğine başvurun](#contact-microsoft-support) sorun giderme Yardımı. |
 | **TenantIsBlocked** | Kiracı engellendi | [Desteğe başvurun](#contact-microsoft-support) Azure portalında Azure AD özellikler sayfasından dizin kimliği. |
 | **UserNotFound** | Belirtilen kullanıcı bulunamadı. | Kiracı artık Azure AD'de etkin olarak görünür olur. Aboneliğinizin etkin olduğunu ve gerekli olan denetleme uygulamaları'birinci taraf. Ayrıca sertifika konusu kiracısında beklendiği gibi değil ve sertifika hala geçerli ve hizmet sorumlusu altında kayıtlı olduğundan emin olun. |
@@ -98,7 +98,7 @@ Bu hatalardan biri karşılaşırsanız öneririz, [desteğine başvurun](#conta
 
 Kullanıcılarınız varsa [iki aşamalı doğrulamayı sorununuz](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user-troubleshoot.md), bunları otomatik olarak tanılamak sorunları yardımcı olur. 
 
-### <a name="contact-microsoft-support"></a>Microsoft Destek'e başvurun
+### <a name="contact-microsoft-support"></a>Microsoft desteğine başvurun
 
 Ek Yardım gerekirse, aracılığıyla destek uzmanına başvurun [Azure çok faktörlü kimlik doğrulama sunucusu desteği](https://support.microsoft.com/oas/default.aspx?prid=14947). Sorununuzu mümkün olduğunca hakkında kadar bilgi dahil ederseniz bize kurulurken yardımcı olur. Sağladığınız bilgiler içerir, özel hata kodu hatanın nerede gördüğünüzü sayfa belirli bir oturum kimliği, gördüğünüz hata ve hata ayıklama günlüklerini kullanıcının kimliği.
 

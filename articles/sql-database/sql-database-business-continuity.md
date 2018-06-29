@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 04/04/2018
+ms.date: 06/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308464"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084969"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Veritabanı'nda iş sürekliliğine genel bakış
 
@@ -40,7 +40,7 @@ Aşağıdaki tabloda, her hizmet katmanı üç yaygın senaryo için Ekle ve RPO
 
 SQL veritabanı otomatik olarak tam veritabanı yedeklemeleri haftalık bir birleşimini gerçekleştirir, artımlı veritabanı yedeklemeleri saatlik ve işlem yedeklemeleri her beş - on dakika işletmenizi veri kaybına karşı koruyun oturum açın. Kullanıyorsanız, [DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md), bu yedeklemeler veritabanları standart ve Premium hizmet katmanları ve temel hizmet katmanındaki veritabanları için 7 gün için 35 gün için RA-GRS depolama alanında depolanır. Hizmet katmanızın saklama süresi işletmenizin ihtiyaçlarını karşılamıyorsa, [hizmet katmanını değiştirerek](sql-database-single-database-scale.md) saklama süresini uzatabilirsiniz. Kullanıyorsanız, [vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md), genel amaçlı ve iş kritik katmanları yedeklemeleri bekletme 35 gün yapılandırılabilir ayarlama. Tam yedekler ve değişiklik yedekleri, veri merkezi kesintilerine karşı [eşleştirilmiş veri merkezine](../best-practices-availability-paired-regions.md) de çoğaltılır. Daha fazla bilgi için bkz: [otomatik veritabanı yedeklemeyi](sql-database-automated-backups.md).
 
-Maksimum desteklenen PITR saklama dönemi, uygulamanız için yeterli değilse, veritabanları için uzun vadeli bir bekletme (LTR) ilkesini yapılandırarak genişletebilirsiniz. Daha fazla bilgi için bkz. [Uzun süreli saklama](sql-database-long-term-retention.md).
+Maksimum desteklenen noktası zamanında (PITR) geri yükleme yaparsanız bekletme süresi, uygulamanız için yeterli değil, veritabanları için uzun vadeli bir bekletme (LTR) ilkesini yapılandırarak genişletebilirsiniz. Daha fazla bilgi için bkz: [otomatik yedeklemeler](sql-database-automated-backups.md) ve [uzun vadeli yedekleme bekletme](sql-database-long-term-retention.md).
 
 Bu otomatik veritabanı yedekleme özelliklerini kullanarak hem kendi veri merkezinizdeki hem de başka veri merkezlerindeki veritabanlarını çeşitli kesintilerden kurtarabilirsiniz. Otomatik veritabanı yedekleriyle tahmini kurtarma süresi, aynı anda aynı bölgede kurtarılan veri tabanı sayısı, veritabanı boyutu, işlem günlüğü boyutu ve ağ bant genişliği gibi birden fazla etmene göre değişiklik gösterir. Kurtarma süresi genellikle değerinden 12 saattir. Çok büyük veya etkin bir veritabanını kurtarmak için daha uzun sürebilir. Kurtarma zamanı hakkında daha fazla ayrıntı için bkz: [veritabanı kurtarma süresini](sql-database-recovery-using-backups.md#recovery-time). Başka bir veri bölgesine kurtarma gerçekleştirirken, potansiyel veri kaybı saatlik veritabanı değişiklik yedeklerinin coğrafi olarak yedekli olması sayesinde 1 saatle sınırlıdır.
 

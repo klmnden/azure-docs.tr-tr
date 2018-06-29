@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628268"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088678"
 ---
 # <a name="create-a-new-simulated-device"></a>Yeni bir simülasyon cihazı oluşturun
 
@@ -25,7 +25,7 @@ Aşağıdaki video aygıt benzeticisi mikro özelleştirme seçeneklerine genel 
 
 İlk senaryoda, Contoso yeni bir akıllı ampul aygıt test istiyor. Testleri gerçekleştirmek için aşağıdaki özelliklere sahip yeni bir sanal cihaz oluşturun:
 
-*özellikleri*
+*Özellikleri*
 
 | Ad                     | Değerler                      |
 | ------------------------ | --------------------------- |
@@ -174,7 +174,7 @@ Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.mic
     sudo grep STORAGEADAPTER_DOCUMENTDB /app/env-vars
     ```
 
-    Bağlantı dizesini not edin. Öğreticide daha sonra bu değeri kullanın.
+    Bağlantı dizesini not edin. Bu değeri öğreticinin sonraki bölümlerinde kullanacaksınız.
 
 1. IOT Hub bağlantı dizesine bulmak için sanal makineye bağlı SSH oturumunda aşağıdaki komutu çalıştırın:
 
@@ -182,7 +182,7 @@ Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.mic
     sudo grep IOTHUB_CONNSTRING /app/env-vars
     ```
 
-    Bağlantı dizesini not edin. Öğreticide daha sonra bu değeri kullanın.
+    Bağlantı dizesini not edin. Bu değeri öğreticinin sonraki bölümlerinde kullanacaksınız.
 
 > [!NOTE]
 > Bu bağlantı dizeleri kullanarak veya Azure portalında bulabilirsiniz `az` komutu.
@@ -191,15 +191,15 @@ Aşağıdaki komutları kullanın `az` komutunu [Azure CLI 2.0](https://docs.mic
 
 Cihaz benzetimi hizmet değiştirdiğinizde, yaptığınız değişiklikler yerel olarak test etmek için çalıştırabilirsiniz. Cihaz benzetimi hizmeti yerel olarak çalıştırmadan önce aşağıdaki gibi sanal makinede çalışan örnek durdurmanız gerekir:
 
-1. Bulunacak **KAPSAYICI kimliği** , **aygıt benzetimi** hizmet, sanal makineye bağlı SSH oturumunda aşağıdaki komutu çalıştırın:
+1. Bulunacak **KAPSAYICI kimliği** , **aygıt benzetimi dotnet** hizmet, sanal makineye bağlı SSH oturumunda aşağıdaki komutu çalıştırın:
 
     ```sh
     docker ps
     ```
 
-    Kapsayıcı Kimliğini Not **aygıt benzetimi** hizmet.
+    Kapsayıcı Kimliğini Not **aygıt benzetimi dotnet** hizmet.
 
-1. Durdurmak için **aygıt benzetimi** kapsayıcı, aşağıdaki komutu çalıştırın:
+1. Durdurmak için **aygıt benzetimi dotnet** kapsayıcı, aşağıdaki komutu çalıştırın:
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ Artık her şeyin yerinde sahipsiniz ve Uzaktan izleme çözümünüz için yeni
 ## <a name="create-a-simulated-device-type"></a>Bir sanal cihaz türü oluşturma
 
 Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyalamak ve mevcut bir türle değiştirmek için yoludur. Aşağıdaki adımlar nasıl yerleşik kopyalanacağını gösterir **Soğutucu** yeni bir aygıta **ampul** aygıt:
-
-1. Visual Studio'da açın **aygıt simulation.sln** yerel kopyasını çözüm dosyasında **aygıt benzetimi** deposu.
-
-1. Çözüm Gezgini'nde sağ **SimulationAgent** seçin, proje **özellikleri**ve ardından **hata ayıklama**.
-
-1. İçinde **ortam değişkenleri** bölümünde, değerini Düzenle **bilgisayarları\_IOTHUB\_SQLCOMMAND** değişken IOT Hub bağlantı dizesine olması, daha önce not ettiğiniz. Daha sonra değişikliklerinizi kaydedin.
 
 1. Çözüm Gezgini'nde sağ **WebService** seçin, proje **özellikleri**ve ardından **hata ayıklama**.
 
@@ -385,18 +379,21 @@ Cihaz benzetimi hizmetinde yeni bir aygıt türü oluşturmak için kolay kopyal
 1. Düzen **ana** işlevi aşağıdaki kod parçacığında gösterildiği gibi davranış uygulamak için:
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ Aşağıdaki adımları adlı bir depo sahip olduğunuzu varsaymaktadır **ampul
 
     Eklenen komut dosyaları **sınama** görüntüye etiketi.
 
-1. Azure'daki çözümünüzün sanal makineye bağlanmak için SSH kullanın. Ardından gidin **uygulama** klasörü ve düzenleme **docker compose.yaml** dosyası:
+1. Azure'daki çözümünüzün sanal makineye bağlanmak için SSH kullanın. Ardından gidin **uygulama** klasörü ve düzenleme **docker-compose.yml** dosyası:
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Docker görüntünüzü kullanmak aygıt benzetimi hizmeti girişini düzenleyin:
@@ -605,7 +602,7 @@ Bu bölümde, yeni bir telemetri türünü desteklemek için varolan bir sanal c
 
 Aşağıdaki adımlar yerleşik tanımlama dosyaları bulmak nasıl gösterir **Soğutucu** aygıt:
 
-1. Zaten yapmadıysanız, kopyalamak için aşağıdaki komutu kullanın **aygıt benzetimi** GitHub deposunu yerel makinenize:
+1. Zaten yapmadıysanız, kopyalamak için aşağıdaki komutu kullanın **aygıt benzetimi dotnet** GitHub deposunu yerel makinenize:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ Aşağıdaki adımlar yeni bir ekleme gösterir **iç sıcaklık** için yazın 
 
 ### <a name="test-the-chiller-device-type"></a>Soğutucu aygıt türü test
 
-Güncelleştirilmiş test etmek için **Soğutucu** aygıt türü, yerel bir kopyasını ilk çalıştırma **aygıt benzetimi** , cihaz türünüz test etmek için hizmet beklendiği gibi davranır. Test ve güncelleştirilmiş cihaz türünüz yerel olarak hata ayıklaması, kapsayıcı derlemenizi ve yeniden dağıtmanızı **aygıt benzetimi** Azure hizmet.
+Güncelleştirilmiş test etmek için **Soğutucu** aygıt türü, yerel bir kopyasını ilk çalıştırma **aygıt benzetimi dotnet** , cihaz türünüz test etmek için hizmet beklendiği gibi davranır. Test ve güncelleştirilmiş cihaz türünüz yerel olarak hata ayıklaması, kapsayıcı derlemenizi ve yeniden dağıtmanızı **aygıt benzetimi dotnet** Azure hizmet.
 
-Çalıştırdığınızda **aygıt benzetimi** Uzaktan izleme çözümünüz için telemetri gönderir hizmeti yerel olarak. Üzerinde **aygıtları** sayfasında, güncelleştirilmiş türünüz örnekleri sağlayabilirsiniz.
+Çalıştırdığınızda **aygıt benzetimi dotnet** Uzaktan izleme çözümünüz için telemetri gönderir hizmeti yerel olarak. Üzerinde **aygıtları** sayfasında, güncelleştirilmiş türünüz örnekleri sağlayabilirsiniz.
 
 Test ve değişikliklerinizi yerel olarak hata ayıklama için önceki bölüme bakın [ampul aygıt türü yerel olarak Test](#test-the-lightbulb-device-type-locally).
 

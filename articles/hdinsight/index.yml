@@ -13,14 +13,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/07/2018
   ms.author: nitinme
-  ms.openlocfilehash: e3a366cd933b8667b39df146d80d07d5548138bc
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 4d10acb6d3597b5f5007098775b9bd7751ed4b2a
+  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 05/07/2018
-  ms.locfileid: "33778673"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37053628"
 abstract:
-  description: Azure HDInsight’ı kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Öğreticilerde ve diğer belgelerde, küme oluşturma; büyük verileri işleme ve çözümleme ile Hadoop, Spark, Hive, LLAP, Kafka, Storm ve R gibi birçok diğer popüler açık kaynak altyapılarını kullanarak çözüm geliştirme konularında bilgiler sağlanmıştır.<p>Azure HDInsight kuruluşlara yönelik tam yönetilen, tam spektrumlu ve açık kaynaklı bir analiz hizmetidir. HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getiren bir bulut hizmetidir. HDInsight ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenmesi ve Nesnelerin İnterneti (IoT) gibi diğer senaryoları da destekler.</p>
+  description: Azure HDInsight’ı kullanarak akışı veya geçmiş verileri nasıl çözümleyebileceğinizi öğrenin. Küme oluşturma, büyük verileri işleme ve çözümleme ile Hadoop, Spark, Hive, LLAP, Kafka, Storm ve Microsoft Machine Learning Server gibi birçok diğer popüler açık kaynak altyapılarını kullanarak çözüm geliştirme konularında bilgi edinmek için öğreticilere ve diğer belgelere başvurabilirsiniz.<p>Azure HDInsight kuruluşlara yönelik tam yönetilen, tam spektrumlu ve açık kaynaklı bir analiz hizmetidir. HDInsight, devasa miktarlardaki verileri işlemeyi kolay, hızlı ve uygun maliyetli hale getiren bir bulut hizmetidir. HDInsight ayıklama, dönüştürme ve yükleme (ETL), veri ambarı, makine öğrenmesi ve Nesnelerin İnterneti (IoT) gibi diğer senaryoları da destekler.</p>
   aside:
     image:
       alt: 
@@ -63,8 +63,8 @@ sections:
       text: Storm
       href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
     - image:
-        src: media/index/r-server_r.svg
-      text: R Server
+        src: media/index/ml-server_r.svg
+      text: ML Services
       href: /azure/hdinsight/r-server/r-server-get-started
 - title: Adım Adım Öğreticiler
   items:
@@ -79,7 +79,7 @@ sections:
     - html: HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Bir sanal ağda HBase kümeleri oluşturma</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Apache Phoenix kullanma</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Spark’a bağlanma</a>
     - html: Etkileşimli Sorgu &#58; <a href="/azure/hdinsight/interactive-query/apache-hadoop-connect-hive-power-bi-directquery">Doğrudan Sorgu kullanarak Power BI’ya bağlanma</a>
     - html: Storm &#58; <a href="/azure/hdinsight/storm/apache-storm-develop-java-topology">Java dilinde Storm topolojisi oluşturma</a> | <a href="/azure/hdinsight/storm/apache-storm-deploy-monitor-topology-linux">HDInsight üzerinde Storm topolojileri dağıtma</a> | <a href="/azure/hdinsight/storm/apache-storm-write-data-lake-store">Storm’dan Data Lake Store’a yazma</a>
-    - html: R Server &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Visual Studio için R Araçlarını kullanma</a>
+    - html: ML Services &#58; <a href="/azure/hdinsight/r-server/r-server-submit-jobs-r-tools-vs">Visual Studio için R Araçlarını kullanma</a>
 - title: Başvuru
   items:
   - type: list

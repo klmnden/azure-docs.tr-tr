@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: 10f4b6ec29c2d9539fa7fe61c96581755e630822
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b0d6a797e4fe84ce2cb969d001ff96177f6ac641
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23950290"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097055"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 serisi: karma bulut depolama çözümü
 ## <a name="overview"></a>Genel Bakış
@@ -249,7 +249,7 @@ StorSimple ile çözümleri oluşturmak için kullanılan diğer yazılımların
 | Yedekleme hedefi |Veeam |Veeam v 9 ve sonraki sürümler |[Yedekleme hedefi olarak StorSimple Veaam ile](storsimple-configure-backup-target-veeam.md)|
 | Yedekleme hedefi |Veritas Backup Exec |Yedekleme Exec 16 ve üzeri |[Yedekleme hedefi olarak StorSimple yedekleme Exec ile](storsimple-configure-backup-target-using-backup-exec.md)|
 | Yedekleme hedefi |VERITAS NetBackup |NetBackup 7.7.x ve sonraki sürümler  |[Yedekleme hedefi olarak StorSimple NetBackup ile](storsimple-configure-backuptarget-netbackup.md)|
-| Genel dosya paylaşımı <br></br> İş Birliği |Talon  |[StorSimple Talon ile](https://www.talonstorage.com/products/fast-deployment-azure-storsimple) | |
+| Genel dosya paylaşımı <br></br> İş Birliği |Talon  |[StorSimple Talon ile](https://www.talonstorage.com/products/archive/fast-deployment-azure-storsimple) | |
 
 ## <a name="storsimple-terminology"></a>StorSimple terminolojisi
 Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki terimleri ve tanımları gözden geçirmenizi öneririz.
@@ -266,7 +266,7 @@ Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki ter
 | Yedekleme İlkesi |Birimler, yedekleme türü ve önceden tanımlanmış bir zamanlamaya göre yedeklemeler oluşturmanıza olanak tanıyan bir zaman çizelgesi seçimi. |
 | ikili büyük nesneler (BLOB) |Bir veritabanı yönetim sisteminin tek bir varlık olarak saklanan ikili verileri koleksiyonu. Bazen ikili yürütülebilir kod BLOB olarak depolanan BLOB'ları genellikle görüntüler, ses ve diğer multimedya nesneler, ancak. |
 | Karşılıklı Kimlik Doğrulama Protokolü (CHAP) |Bir parola veya gizli paylaşımı eş tabanlı bir bağlantı eş kimlik doğrulaması için kullanılan protokol. Tek yönlü veya karşılıklı CHAP olabilir. Tek yönlü CHAP ile hedef Başlatıcı kimliğini doğrular. Karşılıklı CHAP hedefi Başlatıcı kimliğini doğrulamak ve Başlatıcı Hedef doğrulayacağını gerektirir. |
-| kopya |Bir birim yinelenen bir kopyası. |
+| Kopya |Bir birim yinelenen bir kopyası. |
 | Bulut Katmanı (CaaT) olarak |Depolama mimarisi katmandadır olarak tüm depolama bir kurumsal depolama ağı parçası olarak görünmesi tümleşik depolama bulut. |
 | Bulut hizmeti sağlayıcısı (CSP) |Bulut Hizmetleri Sağlayıcısı. |
 | Bulut anlık görüntüsü |Bulutta depolanan birim verilerini zaman içinde nokta kopyası. Bir bulut anlık görüntüsü, farklı, şirket dışı depolama sisteminizde çoğaltılan bir anlık görüntü eşdeğerdir. Bulut anlık görüntüleri olağanüstü durum kurtarma senaryolarında özellikle kullanışlıdır. |
@@ -282,7 +282,7 @@ Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki ter
 | sabit disk sürücüsü (HDD) |Verileri depolamak için döndürme plaka kullanan bir sürücüye. |
 | karma bulut depolama |Bulut depolama da dahil olmak üzere, yerel ve şirket dışı kaynak kullanan bir depolama mimarisi. |
 | Internet küçük bilgisayar sistemi arabirimi (iSCSI) |Veri depolama donanımı veya tesis bağlama için bir Internet Protokolü IP tabanlı depolama ağ standardı. |
-| iSCSI initiator |Bir dış iSCSI tabanlı depolama ağına bağlanmak için Windows çalıştıran bir konak bilgisayar sağlayan bir yazılım bileşeni. |
+| iSCSI başlatıcısı |Bir dış iSCSI tabanlı depolama ağına bağlanmak için Windows çalıştıran bir konak bilgisayar sağlayan bir yazılım bileşeni. |
 | iSCSI tam adını (IQN) |Bir iSCSI hedefi veya Başlatıcı tanımlayan benzersiz bir ad. |
 | iSCSI hedefi |Merkezi iSCSI disk alt sistemleri depolama alanı ağlarında sağlayan bir yazılım bileşeni. |
 | Arşivleme Canlı |Arşiv verileri (Site dışındaki bantta, örneğin depolandıktan değil) her zaman erişilebilir olduğu depolama yaklaşımı. Microsoft Azure StorSimple Canlı arşivleme kullanır. |
@@ -302,9 +302,9 @@ Microsoft Azure StorSimple çözümünüzün dağıtmadan önce aşağıdaki ter
 | StorSimple Cihaz Yöneticisi hizmeti |Azure StorSimple şirket içi ve sanal cihazları yönetmenize olanak sağlayan Azure portalı uzantısı. |
 | StorSimple Snapshot Manager |Bir Microsoft Yönetim Konsolu (MMC) ek Microsoft Azure StorSimple yedekleme ve geri yükleme işlemleri yönetmek için bileşeni. |
 | yedek alın |Bir birim etkileşimli yedekleyin olanak tanır. bir özellik. El ile yedekleme tanımlanmış bir ilke aracılığıyla otomatik bir yedekleme yapmayı aksine bir birimin almaya alternatif bir yöntemdir. |
-| Ölçülü kaynak sağlama |Depolama sistemlerinde kullanılan kullanılabilir depolama alanı ile verimliliği en iyi duruma getirme yöntemi. Ölçülü kaynak sağlama depolama herhangi bir anda her kullanıcı tarafından gerekli en düşük alan göre birden çok kullanıcı arasında tahsis edilir. Ayrıca bkz. *fat sağlama*. |
-| Katmanlama |Geçerli kullanımı, geçerlilik süresi ve diğer verilere ilişkisine göre mantıksal gruplandırmaları verileri düzenleme. StorSimple otomatik olarak katmanları verileri düzenler. |
-| Birim |Sürücüleri biçiminde sunulan mantıksal depolama alanları. StorSimple birimlerini iSCSI ve StorSimple cihazını kullanımı ile keşfedilen dahil olmak üzere ana bilgisayar tarafından bağlanan birimler karşılık gelir. |
+| ölçülü kaynak sağlama |Depolama sistemlerinde kullanılan kullanılabilir depolama alanı ile verimliliği en iyi duruma getirme yöntemi. Ölçülü kaynak sağlama depolama herhangi bir anda her kullanıcı tarafından gerekli en düşük alan göre birden çok kullanıcı arasında tahsis edilir. Ayrıca bkz. *fat sağlama*. |
+| katmanlama |Geçerli kullanımı, geçerlilik süresi ve diğer verilere ilişkisine göre mantıksal gruplandırmaları verileri düzenleme. StorSimple otomatik olarak katmanları verileri düzenler. |
+| birim |Sürücüleri biçiminde sunulan mantıksal depolama alanları. StorSimple birimlerini iSCSI ve StorSimple cihazını kullanımı ile keşfedilen dahil olmak üzere ana bilgisayar tarafından bağlanan birimler karşılık gelir. |
 | Birim kapsayıcısı |Birimler ve kendileri için geçerli ayarları gruplandırması. StorSimple Cihazınızı tüm birimlerin birim kapsayıcıları gruplandırılır. Birim kapsayıcısı ayarları depolama hesapları, ilişkili şifreleme anahtarları ile bulut için gönderilen veri ve bulut içeren işlemleri için kullanılan bant genişliği için şifreleme ayarları içerir. |
 | birim grubu |StorSimple anlık görüntü Yöneticisi'nde, bir birim grubu birimleri yedekleme işlemi kolaylaştırmak için yapılandırılmış bir koleksiyonudur. |
 | Birim Gölge Kopyası Hizmeti (VSS) |Artımlı anlık görüntü oluşturmaya koordine etmek için VSS uyumlu uygulamalarla iletişim kurarak uygulama tutarlılığı kolaylaştıran bir Windows Server işletim sistemi hizmetidir. VSS anlık görüntülerinin alınma uygulamaları geçici olarak devre dışı olmasını sağlar. |

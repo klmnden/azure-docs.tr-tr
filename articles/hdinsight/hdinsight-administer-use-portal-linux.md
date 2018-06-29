@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcfa7a6b9a2ebd60ec804fe8a61c26300f003a5e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627032"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097793"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure portalını kullanarak hdınsight'ta Hadoop kümelerini yönetme
 
@@ -105,7 +105,7 @@ NoRegisteredProviderFound hatası veya MissingSubscriptionRegistration hatası a
     * **İzleme**: Azure günlük analizi kümede izleyin.
     * **Özellikleri**: küme özelliklerini görüntüleyin.
     * **Depolama hesapları**: depolama hesaplarını ve anahtarlarını görüntülemek. Depolama hesapları küme oluşturma işlemi sırasında yapılandırılır.
-    * **Data Lake Store erişim**: Data Lake depolar erişimi yapılandırın.  Bkz: [Hdınsight kümeleri oluşturma Data Lake Store ile Azure portalını kullanarak](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * **Data Lake Store erişim**: Data Lake depolar erişimi yapılandırın.  Bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
     * **Kaynak durumu**: bkz [Azure kaynak sistem durumu genel bakış](../service-health/resource-health-overview.md).
     * **Yeni destek isteği**: Microsoft desteği ile bir destek bileti oluşturmanızı sağlar.
     
@@ -353,12 +353,12 @@ Azure Portalı'nı kullanarak, varsayılan kapsayıcı içeriğini göz atabilir
 8. Varsayılan kapsayıcı adına tıklayın.
 
 ## <a name="monitor-cluster-usage"></a>Küme kullanımını izleme
-**Kullanım** Hdınsight küme dikey bölümde aboneliğinize Hdınsight ile kullanmak için kullanılabilir çekirdek sayısı gibi bu küme ve bu küme içindeki düğümler için nasıl ayrılacağını ayrılan çekirdek sayısı hakkında bilgileri görüntüler. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
+**Kullanım** Hdınsight küme dikey bölümde nasıl ayrıldığını ve bu küme için ayrılmış çekirdek sayısının yanı sıra, aboneliğinize Hdınsight ile kullanmak için kullanılabilir çekirdek sayısı hakkında bilgileri görüntüler Bu küme içindeki düğümler için. Bkz: [listesi ve Göster kümeleri](#list-and-show-clusters).
 
 > [!IMPORTANT]
 > Hdınsight küme tarafından sağlanan hizmetlerin izlemek için Ambari Web veya Ambari REST API kullanmanız gerekir. Ambari kullanarak daha fazla bilgi için bkz: [Ambari kullanarak Hdınsight kümelerini yönetme](hdinsight-hadoop-manage-ambari.md)
 
-## <a name="connect-to-a-cluster"></a>Bir kümeye bağlanın
+## <a name="connect-to-a-cluster"></a>Kümeye bağlanma
 
 * [HDInsight ile Hive kullanma](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [HDInsight ile SSH kullanma](hdinsight-hadoop-linux-use-ssh-unix.md)

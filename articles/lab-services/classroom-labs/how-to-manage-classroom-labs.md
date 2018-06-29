@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304524"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082533"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Sınıf labs Azure Laboratuvar Hizmetleri'nde yönetme 
 Bu makalede, oluşturma ve sınıf laboratuvarı yapılandırmak, tüm sınıf labs görüntülemek veya bir sınıf Laboratuvar silme açıklar.
@@ -86,8 +86,8 @@ Bir şablon yayımladığınızda, Azure Laboratuvar Hizmetleri şablonunu kulla
 2. Şimdi, seçtiğiniz **Yayımla** düğmesi. Bu işlem bazı alabilir kaç Vm'lerinde bağlı olarak zaman oluşturuluyor, laboratuara izin verilen kullanıcı sayısı ile aynı olduğu.
     
     > [!IMPORTANT]
-    > Bir şablon genel olarak kullanılabilir olduğunda, şablonun erişimi özel erişim olarak değiştirilemez. 
-4. Geçiş **sanal makineleri** sayfasında ve bulunan beş sanal makineleri gördüğünüzü onaylayın **atanmamış** durumu. Bu sanal makineleri için Öğrenciler henüz atanmadı. 
+    > Bir kez bir şablon yayımlandıktan sonra yayımdan kaldırılamıyor. 
+4. Geçiş **sanal makineleri** sayfasında ve bulunan sanal makineleri gördüğünüzü onaylayın **atanmamış** durumu. Bu sanal makineleri için Öğrenciler henüz atanmadı. 
 
     ![Sanal makineler](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. Sanal makineleri oluşturulana kadar bekleyin. Bunlar bulunmalıdır **durduruldu** durumu. Öğrenci VM başlatmak, VM'ye bağlanın, VM durdurun ve bu sayfadaki VM silin. Bu sayfada Başlat ya da sanal makineleri Başlat, Öğrenciler olanak tanır. 

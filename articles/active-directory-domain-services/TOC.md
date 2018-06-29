@@ -38,6 +38,7 @@
 #### [3. Görev: Azure portalını kullanarak yönetilen etki alanı için güvenli LDAP’yi etkinleştirme](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [Yönetilen bir etki alanında OU oluşturma](active-directory-ds-admin-guide-create-ou.md)
+### [Yönetilen etki alanında grup tarafından yönetilen hizmet hesabı oluşturma](active-directory-ds-create-gmsa.md)
 ### [Yönetilen etki alanında grup ilkesi yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [Sanal ağ seçme](active-directory-ds-networking.md)
 ## Uygulamaları dağıtma

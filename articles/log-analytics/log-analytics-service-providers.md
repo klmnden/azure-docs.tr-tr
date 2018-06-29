@@ -13,74 +13,71 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
-ms.author: richrund
-ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: meirm
+ms.openlocfilehash: 97e36c624e865010ada67f5163af6d7f03de079f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593058"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096579"
 ---
 # <a name="log-analytics-features-for-service-providers"></a>Hizmet sağlayıcıları için günlük analizi özellikleri
 Günlük analizi, yönetilen hizmet sağlayıcıları (MSP'ler), büyük kuruluşlar, bağımsız yazılım satıcılarının (ISV'ler) ve barındırma hizmeti sağlayıcıları yönetmek ve müşterinin şirket içi veya Bulut altyapı sunucularını izlemek yardımcı olabilir. 
 
 Büyük kuruluşlar özellikle yönetmekten sorumlu merkezi bir BT Ekibi olduğunda bu benzer şekilde hizmet sağlayıcıları ile paylaşmak için birçok farklı iş birimleri BT. Kolaylık olması için bu belgede terimini kullanır *hizmet sağlayıcısı* ancak aynı işlevselliği da kuruluşlar ve diğer müşteriler için kullanılabilir.
 
-## <a name="cloud-solution-provider"></a>Bulut Çözümü Sağlayıcısı
 İş ortakları ve parçası olan hizmet sağlayıcıları için [bulut çözümü sağlayıcısı (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) günlük analizi programdır bulunan Azure hizmetlerinden birini [Azure CSP abonelik](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview). 
 
-Aşağıdaki özellikleri günlük analizi için etkinleştirilmiş olan *bulut çözümü sağlayıcısı* abonelikleri.
+## <a name="architectures-for-service-providers"></a>Hizmet sağlayıcıları için mimariler
 
-Farklı bir *bulut çözümü sağlayıcısı* şunları yapabilirsiniz:
+Günlük analizi çalışma alanları yöneticinin yalıtım günlüklerinin ve akışını denetlemek ve belirli iş gereksinimlerini ele günlük mimarisi oluşturmak için bir yöntem sağlar. [Bu makalede](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) çalışma yönetim geçici genel konular açıklanmaktadır. Hizmet sağlayıcıları dikkat edilecek diğer noktalar vardır.
 
-* Günlük analizi çalışma alanları (müşterinin adına) Kiracı aboneliği oluşturun.
-* Erişim çalışma alanları kiracılar tarafından oluşturuldu. 
-* Ekleyin ve kullanıcı erişimini Azure kullanıcı Yönetimi'ni kullanarak çalışma alanından kaldırın. Bir kiracının çalışma OMS portalında kullanıcı yönetimi altında sayfası açıldığında ayarları kullanılabilir değil
-  * Rol tabanlı erişim henüz - kullanıcı vermiş günlük analizi desteklemiyor `reader` izin Azure portalında, OMS Portalı'nda yapılandırma değişiklikleri yapmalarına izin verir
+Günlük analizi çalışma alanları ile ilgili hizmet sağlayıcıları için üç olası mimariler vardır:
 
-Bir kiracının aboneliğine oturum açmak için Kiracı tanımlayıcı belirtmeniz gerekir. Kiracı sık sık oturum açmak için kullandığınız e-posta adresi son kısmı tanımlayıcısıdır.
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Dağıtılmış - müşterinin Kiracı içinde yer alan çalışma alanlarını günlükleri depolanır 
 
-* OMS portalında ekleme `?tenant=contoso.com` portalı için URL. Örneğin, `mms.microsoft.com/?tenant=contoso.com`
-* PowerShell'de kullanın `-Tenant contoso.com` kullanırken parametresi `Connect-AzureRmAccount` cmdlet'i
-* Kullandığınızda Kiracı tanımlayıcısı otomatik olarak eklenen `OMS portal` açmak ve seçilen çalışma alanı için OMS portalı oturum açmak için Azure portalından bağlantı
+Bu mimaride, bu müşterinin tüm günlükleri için kullanılan bir müşterinin Kiracı çalışma dağıtılır. Hizmet sağlayıcısı yöneticileri kullanarak bu çalışma alanı için erişim izni verilen [Azure Active Directory Konuk kullanıcılar (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). Hizmet sağlayıcı Yöneticisi Azure Portalı'nda bu çalışma alanları erişebilmeleri için müşterinin dizinine geçin gerekecektir.
 
-Farklı bir *müşteri* bir bulut çözümü sağlayıcısı şunları yapabilirsiniz:
+Bu mimarisinin avantajları şunlardır:
+* Müşteri, kendi kullanarak günlüklerini erişimi yönetebilirsiniz [rol tabanlı erişim](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* Her bir müşteri bekletme ve veri capping gibi kendi çalışma alanı için farklı ayarlara sahip olabilir.
+* Müşteriler için arasında yalıtım yasal düzenleme ve uyumluluk.
+* Müşteri'nin aboneliğinize her çalışma alanı için ücret alınacaktır.
+* Günlükleri tüm kaynakları, değil yalnızca Aracısı tabanlı türlerinden toplanabilir. Örneğin, Azure denetleme.
 
-* Günlük analizi çalışma alanları bir CSP abonelikte oluşturun.
-* CSP tarafından oluşturulan erişim çalışma alanları
-  * Kullanım `OMS portal` açmak ve seçilen çalışma alanı için OMS portalı oturum açmak için Azure portalından bağlantı
-* Görüntüleme ve kullanıcı yönetimi sayfasına ayarlar altında OMS portalında kullanma
+Bu mimari dezavantajları şunlardır:
+* Aynı anda çok sayıda müşteri kiracılar yönetmek hizmet sağlayıcısı için daha zordur.
+* Hizmet sağlayıcısı yöneticilerin müşteri dizinde sağlanması gerekmez.
+* Hizmet sağlayıcısı müşterilerine arasında verileri çözümlemek olamaz.
 
-> [!NOTE]
-> Günlük analizi dahil yedekleme ve Site kurtarma çözümleri bir kurtarma Hizmetleri Kasası'na bağlanabilmelidir değildir ve bir CSP aboneliğindeki yapılandırılamıyor. 
-> 
-> 
+### <a name="2-central---logs-are-stored-in-workspace-located-in-the-service-provider-tenant"></a>2. Orta - günlükleri, servis sağlayıcı kiracısı'nda bulunan çalışma alanı depolanır
 
-## <a name="managing-multiple-customers-using-log-analytics"></a>Günlük analizi kullanarak birden çok müşterileri yönetme
-Yönettiğiniz her müşteri için günlük analizi çalışma alanı oluşturma önerilir. Günlük analizi çalışma alanı sağlar:
+Bu mimaride günlükleri, Müşteri'nin kiracılar, ancak yalnızca bir merkezi konumda hizmet sağlayıcısının aboneliklerin biri içinde depolanmaz. Müşteri'nin Vm'lere yüklü aracıları çalışma alanı kimliği ve gizli anahtarı kullanarak bu çalışma alanına günlükleri göndermek için yapılandırılır.
 
-* Verilerin depolanması bir coğrafi konumu. 
-* Fatura için ayrıntı düzeyi 
-* Veri yalıtımı 
-* Benzersiz yapılandırma
+Bu mimarisinin avantajları şunlardır:
+* Müşteriler çok sayıda yönetmek ve çeşitli arka uç sistemleri tümleştirme kolaydır.
+* Hizmet sağlayıcısı günlükleri ve işlevleri gibi çeşitli yapılarını üzerinde tam sahiplik sahiptir ve sorguları kaydedilir.
+* Hizmet sağlayıcısı analytics tüm müşterilerin gerçekleştirebilirsiniz.
 
-Bir çalışma alanı Müşteri başına oluşturarak, her müşterinin veri ayrı tutmak ve ayrıca her bir müşteri kullanımını izlemek kullanabilirsiniz.
+Bu mimari dezavantajları şunlardır:
+* Müşterileri arasında veri ayrı zor olacaktır. Bunu yapmak için en iyi yöntem, bilgisayarın etki alanı adı kullanmaktır.
+* Tüm müşterilerden gelen tüm verileri tek bir fatura ve aynı saklama ve yapılandırma ayarları ile aynı bölgede depolanır.
+* Azure tanılama ve Azure denetim gerektiren aynı Kiracı kaynak olarak bu nedenle merkezi çalışma alanına günlükler gönderilemiyor olması için çalışma gibi hizmetleri Azure doku ve PaaS.
 
-Ne zaman ve neden birden çok çalışma alanı oluşturma hakkında daha fazla ayrıntı açıklanmaktadır [analytics oturum erişimini yönetme](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need).
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. Karma - günlükleri, müşterinin Kiracı içinde yer alan çalışma alanında depolanır ve bazıları merkezi bir konuma alınır.
 
-Oluşturma ve yapılandırma müşteri çalışma alanlarının otomatik hale getirilebilir kullanarak [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager şablonları](log-analytics-template-workspace-configuration.md), veya kullanarak [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/).
+İki seçenekten üçüncü mimarisi karışımı. Günlükleri olduğu her müşteri için yerel ilk dağıtılmış mimarisi dayanır, ancak günlükler merkezi bir havuz oluşturmak için bazı mekanizmasını kullanarak. Günlükleri bir kısmı, raporlama ve analiz için merkezi bir konuma alınır. Bu bölümü, az sayıda veri türleri veya günlük istatistiği gibi etkinliğinin özetini olabilir.
 
-Resource Manager şablonları kullanımı çalışma yapılandırması oluşturma ve çalışma alanları yapılandırmak için kullanılan bir ana yapılandırma sahip olmanızı sağlar. Müşteriler için çalışma alanları oluşturuldukça bunlar otomatik olarak gereksinimlerinizi için yapılandırıldığından emin olabilirsiniz. Gereksinimlerinizi güncelleştirdiğinizde, şablon güncelleştirilir ve varolan çalışma alanları yeniden. Bu işlem, hatta varolan çalışma yeni standartlarınızı karşılamak sağlar.    
+Günlük analizi merkezi bir konum uygulamak için iki seçenek vardır:
 
-Birden çok günlük analizi çalışma yönetirken, her çalışma alanında varolan gişe sistemiyle tümleştirme öneririz / işletim konsolunu kullanarak [uyarıları](log-analytics-alerts.md) işlevselliği. Varolan sistemlerinizi ile tümleştirerek, destek personeli tanıdık süreçlerinin izlemek devam edebilirsiniz. Günlük analizi düzenli olarak her çalışma alanında, belirttiğiniz Uyarı ölçütleri karşı denetler ve eylem gerekli olduğunda bir uyarı oluşturur.
+1. Merkezi çalışma: hizmet sağlayıcısı kendi Kiracı çalışma alanı oluşturma ve yararlanan bir komut dosyası kullanarak [sorgu API](https://dev.loganalytics.io/) ile [veri koleksiyonu API](log-analytics-data-collector-api.md) verileri çeşitli çalışma alanlarından için getirmek için Merkezi bir konum. Komut dosyası dışında başka bir seçenek kullanmaktır [Azure mantıksal uygulama](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
 
-Veri kişiselleştirilmiş görünümleri kullanma [Pano](../azure-portal/azure-portal-dashboards.md) Azure portalında yeteneği.  
+2. Merkezi bir konum olarak Powerbı: çeşitli çalışma alanları için günlük analizi arasındaki tümleştirmeyi kullanarak veri verdiğinizde, Power BI merkezi konumu olarak görev yapabilir ve [Power BI](log-analytics-powerbi.md). 
 
-İçin yönetici düzeyi raporları, özetleme verileri çalışma alanları arasında günlük analizi arasında tümleştirme kullanabilirsiniz ve [Powerbı](log-analytics-powerbi.md). Başka bir raporlama sistemi ile tümleştirme gerekiyorsa, arama API kullanabilirsiniz (PowerShell aracılığıyla veya [REST](log-analytics-log-search-api.md)) sorguları çalıştırmak ve arama sonuçlarını dışarı aktarma.
 
 ## <a name="next-steps"></a>Sonraki Adımlar
 * Oluşturma ve kullanarak çalışma yapılandırılmasını otomatikleştirmek [Resource Manager şablonları](log-analytics-template-workspace-configuration.md)
 * Kullanarak çalışma oluşturulmasını otomatik hale [PowerShell](log-analytics-powershell-workspace-configuration.md) 
 * Kullanım [uyarıları](log-analytics-alerts.md) mevcut sistemlerle tümleştirmek için
-* Özet raporları kullanarak oluşturmak [Powerbı](log-analytics-powerbi.md)
+* Özet raporları kullanarak oluşturmak [Power BI](log-analytics-powerbi.md)
 

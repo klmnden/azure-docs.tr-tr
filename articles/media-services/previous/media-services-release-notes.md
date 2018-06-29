@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 1a874e31c05d287522810782f743d389c86dbe27
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018547"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098932"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services sürüm notları
 Bu sürüm notlarını Azure Media Services önceki sürümlerden ve bilinen sorunlar değişiklikleri özetlemek için.
@@ -366,7 +366,7 @@ Azure Media Services Paketleyici ve Şifreleyici için aşağıdaki hata düzelt
 
 ## <a id="may_changes_14"></a>Mayıs 2014 sürümü
 ### <a id="may_14_changes"></a>Genel Media Services güncelleştirir
-Artık kullanabilirsiniz [dinamik paketleme] akışa HLS sürüm 3. Akış HLS sürüm 3 için aşağıdaki biçimi Kaynak Konum Belirleyicisi yolunu ekleyin: * .ism/manifest(format=m3u8-aapl-v3). Daha fazla bilgi için bkz: [bu blog](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/).
+Artık kullanabilirsiniz [dinamik paketleme] akışa HLS sürüm 3. Akış HLS sürüm 3 için aşağıdaki biçimi Kaynak Konum Belirleyicisi yolunu ekleyin: * .ism/manifest(format=m3u8-aapl-v3). Daha fazla bilgi için bkz: [Bu forumda](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3).
 
 Dinamik paketleme şimdi de statik olarak PlayReady ile şifrelenmiş kesintisiz akış göre PlayReady ile şifrelenmiş HLS (sürüm 3 ve sürüm 4) teslim destekler. Kesintisiz akış PlayReady ile şifreleme hakkında daha fazla bilgi için bkz: [PlayReady ile kesintisiz akış korumak](http://msdn.microsoft.com/library/azure/dn189154.aspx).
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dda37600dffaf1e8e1c85c9757696f2d8219febb
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 1a5424b69fc70f69359b12beac86060f4e23ff27
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751679"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084000"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL veritabanı modelleri ve kaynakları satın alma 
 
@@ -40,7 +40,7 @@ Aşağıdaki tablo ve grafik karşılaştırır ve bu iki satın alma modeli kar
 
 Sanal bir çekirdek donanım nesli arasında seçmek için bir seçenek ile birlikte sunulan mantıksal CPU temsil eder. Ve çevirmek için basit bir yol içi buluta iş yükü gereksinimlerini esneklik, Denetim, tek tek kaynak tüketimini saydamlığını vCore tabanlı satın alma modeli (Önizleme) sağlar. Bu model, bilgi işlem, bellek ve kendi iş yükü ihtiyaçlarına depolama olanak tanır. VCore tabanlı satın alma modeli (Önizleme), müşteriler genel amaçlı ve iş kritik hizmet katmanları (Önizleme) her ikisi için seçebilir [tek veritabanlarını](sql-database-single-database-scale.md) ve [esnek havuzlar](sql-database-elastic-pool.md). 
 
-He vCore tabanlı satın alma modeli (Önizleme) bağımsız olarak işlem ve depolama kaynaklarını ölçeklendirme, şirket içi performans eşleşen ve fiyat en iyi duruma olanak tanır. Veritabanı veya esnek havuz vCore 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih veya kapalı kalma süresi ile Azure portal kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli performans ve iş gereksinimleri karşılıyorsa kullanmaya devam etmelidir. DTU modelden vCore modeline dönüştürmeye karar verirseniz, aşağıdaki kural altın kullanarak performans düzeyini seçmeniz gerekir: genel amaçlı katmanındaki; en az 1 vCore her 100 DTU standart katmanındaki gerektirir Premium katmanındaki 125 her DTU iş kritik katmanındaki en az 1 vCore gerektirir.
+VCore tabanlı satın alma modeli (Önizleme) bağımsız olarak işlem ve depolama kaynaklarını ölçeklendirme, şirket içi performans eşleşen ve fiyat en iyi duruma olanak tanır. Veritabanı veya esnek havuz vCore 300'den fazla DTU dönüştürme kullanırsa maliyetinizi azaltabilir. API'nizi tercih veya kapalı kalma süresi ile Azure portal kullanarak dönüştürebilirsiniz. Ancak, dönüştürme gerekli değildir. DTU satın alma modeli performans ve iş gereksinimleri karşılıyorsa kullanmaya devam etmelidir. DTU modelden vCore modeline dönüştürmeye karar verirseniz, aşağıdaki kural altın kullanarak performans düzeyini seçmeniz gerekir: genel amaçlı katmanındaki; en az 1 vCore her 100 DTU standart katmanındaki gerektirir Premium katmanındaki 125 her DTU iş kritik katmanındaki en az 1 vCore gerektirir.
 
 VCore tabanlı satın alma modeli (Önizleme), müşteriler için ödeme:
 - İşlem (hizmet katmanı + vCores + donanım nesil sayısı) *

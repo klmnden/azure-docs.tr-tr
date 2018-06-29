@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: 93d5883071a012842106bdd946e4f09a0d7aa751
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bc280e9b4ade8a4fb8107ec2dcc1c33f538472e1
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260463"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081569"
 ---
-# <a name="azure-functions-tools-for-visual-studio"></a>Visual Studio için Azure işlevleri araçları  
+# <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio kullanarak Azure işlevleri geliştirin  
 
 Visual Studio 2017 için Azure işlevleri araçları, geliştirme, test ve C# işlevleri için Azure dağıtmanızı sağlar Visual Studio için bir uzantısıdır. Bu deneyim, ilk Azure işlevleriyle ise, konu hakkında daha fazla bilgi edinebilirsiniz [Azure işlevleri giriş](functions-overview.md).
 
@@ -93,7 +93,7 @@ Daha fazla bilgi için bkz: [işlevleri sınıf kitaplığı proje](functions-do
 
 Depolama hesabı bağlantı dizesi ayarlamak için:
 
-1. Visual Studio'da açın **Cloud Explorer**, genişletin **depolama hesabı** > **depolama hesabınız**seçeneğini belirleyip **özellikleri** ve kopyalama **birincil bağlantı dizesi** değeri.
+1. Visual Studio'da açın **Cloud Explorer**, genişletin **depolama hesabı** > **depolama hesabınız**seçeneğini belirleyip **özellikleri**ve kopyalama **birincil bağlantı dizesi** değeri.
 
 2. Projenizdeki local.settings.json dosyasını açın ve değerini ayarlama **AzureWebJobsStorage** anahtar bağlantı dizesine kopyalanır.
 

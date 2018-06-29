@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: a6f116842ce61585feda8f20e204e0751a360036
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 199aaf60a21e0362f27707de04f14854aa528297
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309907"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081515"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Uygulama erişimi ve çoklu oturum açma ile Azure Active Directory nedir?
 Çoklu oturum açma tüm uygulamaları ve iş, yalnızca tek bir kullanıcı hesabı kullanarak bir kez oturum açarak yapmak için gereken kaynaklar erişebildiklerinden anlamına gelir. Oturum açıldıktan sonra tüm gereken kimlik doğrulaması için gerekli olmadan uygulamaları erişebilirsiniz (örneğin, bir parola yazın) ikinci kez.
@@ -40,15 +40,16 @@ Tümleştirme mimarisi aşağıdaki dört ana yapı taşlarını oluşur:
 * Raporlama ve Azure AD'de kullanıcı etkinliğini izleme birleşik
 
 ## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>Çoklu oturum açma özelliği, Azure Active Directory ile nasıl kullanılır?
-Kullanıcıların oturum açma, bir uygulamaya kimlerin kendilerine olduklarından emin kanıtlamak için burada gereken bir kimlik doğrulama işleminde size gidin. Çoklu oturum açma, olmadan bu kimlik doğrulama işlemi, genellikle uygulamayı depolanan bir parola girerek yapılır ve kullanıcıların bu parolayı bilmeniz gerekir.
+Uygulamaya kullanıcılar oturum açtığında kimin kendilerine olmalarını kanıtlamak için gerekli olduğu bir kimlik doğrulama işlemi gidin. Çoklu oturum açma, olmadan bu kimlik doğrulama işlemi, genellikle uygulamayı depolanan bir parola girerek yapılır ve kullanıcıların bu parolayı bilmeniz gerekir.
 
 Azure AD uygulamalara oturum açmak için üç farklı yolla destekler:
 
 * **Federe çoklu oturum açma** kendi parolasını istemek yerine, kullanıcı kimlik doğrulaması için Azure AD yeniden yönlendirmek uygulamaları etkinleştirir. Federasyon çoklu oturum açma desteği gibi SAML 2.0, WS-Federasyon veya Openıd Connect, protokoller ve çoklu oturum açma richest modunun uygulamalar için desteklenir.
-* **Parola tabanlı çoklu oturum açma** güvenli uygulama parola depolama ve bir web tarayıcı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Parola tabanlı çoklu oturum açma uygulama tarafından sağlanan var olan oturum açma işlemi kullanır ancak parolaları yönetmek bir yönetici sağlar ve kullanıcının parolayı bilmeniz gerektirmez.
+* **Parola tabanlı çoklu oturum açma** güvenli uygulama parola depolama ve bir web tarayıcı uzantısı veya mobil uygulama kullanarak yeniden yürütme sağlar. Var olan parola tabanlı çoklu oturum açma kullanır 
+*  işlem, uygulama tarafından sağlanan ancak parolaları yönetmek bir yönetici etkinleştirir ve kullanıcının parolayı bilmeniz gerektirmez.
 * **Varolan çoklu oturum açma** tüm mevcut çoklu oturum açma, uygulama için ayarlanmadı, ancak bu uygulamalar için Office 365 veya Azure AD erişim paneli portalları bağlanmasını sağlar özelliğini kullanabilmeniz Azure AD sağlar ve ayrıca ek sağlar ne zaman uygulamaları var. başlatılan Azure AD'de raporlama.
 
-Bir uygulama ile bir kullanıcı kimliğini doğrulamasından sonra Ayrıca uygulama bildiren uygulamayı sağlanan bir hesap kaydı ihtiyaç duydukları burada var. izinler ve erişim düzeyi olan uygulama içinden. Bu hesap kaydını sağlama ya da otomatik olarak gerçekleşebileceği veya kullanıcı oturum açma tek erişimi sağlanan önce el ile bir yönetici tarafından ortaya çıkabilir.
+Bir uygulama ile bir kullanıcı kimliğini doğrulamasından sonra bunlar Ayrıca uygulama izinler ve erişim düzeyi uygulama içinden nerede söyler uygulama sağlanan bir hesap kaydı sahip olmanız gerekir. Bu hesap kaydını sağlama ya da otomatik olarak gerçekleşebileceği veya kullanıcı oturum açma tek erişimi sağlanan önce el ile bir yönetici tarafından ortaya çıkabilir.
 
  Bu tek oturum açma modları ve aşağıda sağlama hakkında daha ayrıntılı bilgi.
 
@@ -64,7 +65,7 @@ Ayrıca bkz: [için sertifikaları yönetme federe çoklu oturum açma](manage-c
 ### <a name="password-based-single-sign-on"></a>Parola tabanlı çoklu oturum açma
 Parola tabanlı çoklu oturum açma yapılandırma üçüncü taraf SaaS uygulamasının kullanıcı hesabı bilgilerini kullanarak Azure AD tarafından bir üçüncü taraf SaaS uygulamasına otomatik olarak oturum açmanız ve kuruluşunuzdaki kullanıcıların sağlar. Bu özelliği etkinleştirdiğinizde, Azure AD toplar ve kullanıcı hesabı bilgilerini ve ilişkili parolayı güvenli bir şekilde depolar.
 
-Azure AD parola tabanlı çoklu oturum açma, bir HTML tabanlı oturum açma sayfası olduğu tüm bulut tabanlı uygulamaları için destekler. Özel tarayıcı eklentisi kullanarak, AAD oturum açma işlemini güvenli bir şekilde uygulama kimlik bilgileri kullanıcı adı ve parola gibi dizinden alma yoluyla kullanıcının otomatikleştirir ve adına uygulama oturum açma sayfasında bu kimlik bilgilerini girer Kullanıcı. İki kullanım örnekleri şunlardır:
+Azure AD parola tabanlı çoklu oturum açma, bir HTML tabanlı oturum açma sayfası olduğu tüm bulut tabanlı uygulamaları için destekler. Özel tarayıcı eklentisi kullanarak, AAD güvenli bir şekilde kullanıcı adı ve parola gibi uygulama kimlik bilgileri dizinden almak aracılığıyla oturum açma işlemini otomatikleştiren ve kullanıcı adına uygulama oturum açma sayfası bu kimlik bilgilerini girer. İki kullanım örnekleri şunlardır:
 
 1. **Yönetici kimlik bilgilerini yöneten** – Yöneticiler oluşturmak ve uygulama kimlik bilgilerini yönetebilir ve kullanıcılara veya uygulamaya erişmek isteyen grupları bu kimlik bilgilerini atayın. Bu durumda, son kullanıcı kimlik bilgilerini bilmeniz gerekmez, ancak hala yalnızca kullanıcıların erişim panelinde veya sağlanan bağlantı üzerinden tıklayarak tek oturum açma uygulamaya erişim kazanır. Bu işlem hem de son yapabildiği unutmayın veya uygulamaya özgü parolaları yönetmek için ihtiyaç duydukları olmayan kullanıcılar için kullanışlı yanı sıra yönetici tarafından kimlik yaşam döngüsü yönetimi sağlar. Kimlik bilgileri son kullanıcıdan otomatik oturum açma işlemi sırasında gizlenmiş olan; ancak web hata ayıklama araçları'nı kullanarak kullanıcı tarafından teknik olarak bulunabilir ve kimlik bilgilerini doğrudan kullanıcı tarafından sunulan gibi kullanıcıların ve yöneticilerin aynı güvenlik ilkeleri izlemelisiniz. Yönetici tarafından sağlanan kimlik bilgileri, sosyal medya veya belge paylaşımı uygulamalar gibi çok sayıda kullanıcı arasında paylaşılan hesap erişim sağlarken faydalıdır.
 2. **Kullanıcı kimlik bilgilerini yöneten** – yöneticiler uygulamaları son kullanıcılara veya gruplara atamak ve kullanıcıların erişim panelinde ilk kez uygulamaya erişmeyi doğrudan bağlı kendi kimlik bilgilerini girmek son kullanıcıların izin. Bu son yapabildiği bunlar sürekli uygulamaya özgü parolaları uygulamaya erişim her zaman girmenize gerek olmayan kullanıcılar için bir kolaylık oluşturur. Kullanıcıların parolalarını güncelleştirme ya da gerektiği şekilde silerek yönetmek devam edebilirsiniz. Bu kullanım örneği, atlama taşı yapabildiği yönetici uygulama için yeni kimlik bilgileri gelecekteki bir tarihte son kullanıcının uygulama erişim deneyimi değiştirmeden ayarlayabilir kimlik bilgilerinin yönetimsel yönetim olarak da kullanılabilir.
@@ -133,7 +134,8 @@ Bir üçüncü taraf SaaS uygulaması için tipik yönetim görevleri şunlardı
 
 * Çoklu oturum açma parolasını SSO kullanarak veya varsa hedef SaaS için SSO Federasyon Azure AD ile etkinleştirme
 * İsteğe bağlı olarak, kullanıcı sağlama ve sağlamayı kaldırma özelliklerini (kimlik yaşam döngüsü yönetimi) kullanıcı için hazırlama etkinleştirme
-* Kullanıcı sağlamayı burada etkin uygulamalar için hangi kullanıcıların uygulama erişimi seçme
+* Uygulamalar için 
+* Kullanıcı sağlamayı etkin olduğunda, bu uygulamaya erişim sahip hangi kullanıcıların seçme
 
 Yapılandırma, Federasyon çoklu oturum açmayı destekleyen galeri uygulamaları için üçüncü taraf uygulama ve Azure AD arasında bir federasyon güveni oluşturmak için sertifikalar ve meta verileri gibi ek yapılandırma ayarlarını sağlamak genellikle gerektirir. Yapılandırma Sihirbazı'nı ayrıntılarını anlatılmaktadır ve kolay erişim SaaS uygulamaya özgü verileri ve yönergeler sağlar.
 
@@ -173,7 +175,7 @@ SAML 2.0, WS-Federasyon veya Openıd destekleyen en Federasyon uygulamalarına d
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Federasyon, parola tabanlı veya var olan uygulamalar için doğrudan oturum açma bağlantılar
 Azure AD doğrudan tek oturum açma, parola tabanlı çoklu oturum açma, var olan çoklu oturum açma ve herhangi bir biçimde Federasyon çoklu oturum açma destekleyen tek tek uygulama bağlantıları da destekler.
 
-Bu bağlantılar kullanıcı başlatın, bunları, Azure AD erişim paneli ya da Office 365 gerek kalmadan bir kullanıcı Azure AD oturum aracılığıyla belirli bir uygulama için işlem Gönder özel olarak hazırlanmış URL'leri vardır. Bu tek oturum açma URL'leri herhangi bir önceden tümleştirilmiş uygulama Pano sekmesi altında Azure portal'ın Active Directory bölümünde aşağıdaki ekran görüntüsünde gösterildiği gibi bulunabilir.
+Bu bağlantılar, Azure AD panelinde ya da Office 365 erişmesine kullanıcı başlatma gerek kalmadan kullanıcı belirli bir uygulama için Azure AD oturum açma işlemi aracılığıyla gönderme özel olarak hazırlanmış URL'leri vardır. Bu tek oturum açma URL'leri herhangi bir önceden tümleştirilmiş uygulama Pano sekmesi altında Azure portal'ın Active Directory bölümünde aşağıdaki ekran görüntüsünde gösterildiği gibi bulunabilir.
 
 ![](./media/what-is-single-sign-on/deeplink.png)
 
@@ -192,7 +194,7 @@ Office 365 ve erişim paneli aynı erişim denetimi mekanizmaları bu bağlantı
 ## <a name="related-articles"></a>İlgili makaleler
 * [Azure Active Directory'de Uygulama Yönetimi için Makale Dizini](../active-directory-apps-index.md)
 * [Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](../saas-apps/tutorial-list.md)
-* [Cloud App Discovery ile bulut uygulamaları tasdik bulma](cloud-app-discovery.md)
+* [Cloud discovery'yi ayarlama](/cloud-app/security/set-up-cloud-discovery)
 * [Uygulamalara erişimi yönetme giriş](what-is-access-management.md)
 * [Dış kimlikler Azure AD'de yönetmek için özellikleri karşılaştırma](../active-directory-b2b-compare-b2c.md)
 

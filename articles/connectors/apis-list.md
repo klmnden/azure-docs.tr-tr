@@ -1,332 +1,372 @@
 ---
 title: Azure Logic Apps için Bağlayıcılar | Microsoft Docs
-description: Mantıksal uygulamalar derlemek ve oluşturmak için kullanılabilir tüm Microsoft bağlayıcıları arasından seçim yapın
+description: İş akışlarını otomatikleştirmek API, yerleşik ile yönetilen şirket içi, tümleştirme hesabını ve Azure Logic Apps enterprise bağlayıcıları
 services: logic-apps
-documentationcenter: ''
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: f1f1fd50-b7f9-4d13-824a-39678619aa7a
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 06/21/2017
-ms.author: estfan; ladocs
-ms.openlocfilehash: caeb3bbf6e3106aff498b12906b730191e56a3d5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.topic: article
+ms.date: 06/29/2018
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2bb3e2ce29037372395aa0b30e9f76f3e712667d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294835"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096620"
 ---
-# <a name="connectors-list"></a>Bağlayıcıların listesi
-Bağlayıcıların Swagger açıklaması tarafından tanımlanan tetikleyicilerin ve eylemlerin yanı sıra bağlayıcı sınırlarını bulmak için bkz. [Bağlayıcı ayrıntıları](/connectors/).
+# <a name="connectors-for-azure-logic-apps"></a>Azure mantıksal uygulamaları için bağlayıcılar
 
-Bağlayıcılar, mantıksal uygulama oluşturma işleminin ayrılmaz bir parçasıdır. Bu bağlayıcıları kullanarak, oluşturduğunuz veriler ve zaten sahip olduğunuz veriler ile farklı işlemler yapmak üzere şirket içi ve bulut uygulamalarınızı genişletebilirsiniz. Bağlayıcılar, yerleşik eylemler veya yönetilen bağlayıcılar olarak kullanılabilir.
+Azure Logic Apps ile otomatik iş akışları oluşturduğunuzda bağlayıcılar bütünleyici yürütün. Logic apps içinde bağlayıcıları kullanarak, şirket içi için Özellikleri'ni genişletin ve uygulamalar oluşturmak ve zaten veri görevleri gerçekleştirmek için bulut. While Logic Apps teklifleri ~ 200 + bağlayıcıları, bu makalede başarıyla uygulamaları binlerce ve yürütmeleri milyonlarca tarafından veri ve bilgilerinizi işlemek için kullanılan popüler ve daha sık kullanılan bağlayıcılar.
+Bağlayıcılar, öğelerin veya yönetilen bağlayıcıların olarak kullanılabilir. 
 
-**Yerleşik eylemler**: Logic Apps altyapısı, uç noktalara iletmek ve görevleri gerçekleştirmek için kullanılan yerleşik eylemlere sahiptir. Örneğin bu eylemleri HTTP uç noktalarını, Azure İşlevleri'ni ve Azure API Management işlemlerini çağırmanın yanı sıra iletileri veri işlemleri ve değişkenleriyle değiştirmek için kullanabilirsiniz.
+* [**Öğelerin**](#built-ins): Bu yerleşik Eylemler ve özel zamanlamalarda çalıştırın logic apps oluşturmak Tetikleyicileri Yardım almak ve isteklere yanıt ve Azure çağrı diğer uç ile iletişim İşlevler, Azure API uygulamaları (Web uygulamaları), kendi API'ları, yönetilen ve Azure API Management ve iç içe geçmiş mantığı ile yayımlanan isteklerini alacak uygulama. Yerleşik de kullanabilirsiniz yardımcı eylemleri düzenlemek ve mantığı uygulamanızın iş akışını kontrol ve de verilerle çalışır.
 
-**Yönetilen bağlayıcılar**: Logic Apps hizmetinin barındırdığı ve yönettiği API bağlantıları oluşturarak farklı hizmetler için API erişimi sunar. Yönetilen bağlayıcılar şu kategorilere ayrılır:
+* **Yönetilen bağlayıcıların**: Bu bağlayıcıları tetikleyiciler ve diğer hizmetler ve sistemler erişmek için Eylemler sağlar. Bazı bağlayıcılar önce Azure Logic Apps tarafından yönetilen bağlantılar oluşturmanızı gerektirir. Yönetilen bağlayıcıların bu gruplar halinde düzenlenmiştir:
 
-* **Standart bağlayıcılar**: Mantıksal uygulamaları kullandığınızda otomatik olarak kullanılabilir durumdadır ve eklenir. Service Bus, Power BI, OneDrive ve daha birçok örnek mevcuttur.
+  |   |   |
+  |---|---|
+  | [**Yönetilen API bağlayıcılar**](#managed-api-connectors) | Azure Blob Storage, Office 365, Dynamics, Power BI, OneDrive, Salesforce, SharePoint Online ve diğerleri gibi hizmetleri kullanan mantıksal uygulamalar oluşturun. | 
+  | [**Şirket içi bağlayıcılar**](#on-premises-connectors) | Yükleme ve kurma sonra [şirket içi veri ağ geçidi][gateway-doc], logic apps erişiminizi şirket içi SQL Server, SharePoint Server, Oracle DB, dosya paylaşımları ve diğerleri gibi sistemleri bu bağlayıcılar Yardım. | 
+  | [**Tümleştirme hesap bağlayıcılar**](#integration-account-connectors) | Kullanılabilir, oluşturma ve tümleştirme için bir hesap, bu bağlayıcıların dönüştürme ödeme ve XML doğrulamak, kodlama ve düz dosyalar kod çözme ve işletmeler için işlem (B2B) AS2, EDIFACT ve X12 protokolleri iletileri. | 
+  | [**Enterprise bağlayıcıları**](#enterprise-connectors) | Ek bir maliyet SAP ve IBM MQ gibi Kurumsal sistemler için erişim sağlayın. |
+  ||| 
 
-* **Şirket içi bağlayıcılar**: [Şirket içi veri ağ geçidi][gatewaydoc] kullanarak şirket içi sunucu uygulamalarına bağlanmanızı sağlar. Şirket içi bağlayıcılar SharePoint Server, SQL Server, Oracle DB, dosya paylaşımları ve diğerleri gibi sunucu uygulamalarına bağlantı sunar.
+  Örneğin, Microsoft BizTalk Server kullanıyorsanız, logic apps için bağlanabilir ve kullanarak, BizTalk Server ile iletişim [BizTalk Server Bağlayıcısı](#on-premises-connectors). 
+  Genişletme veya BizTalk benzeri logic apps içinde kullanarak işlemleri [tümleştirme hesap Bağlayıcılar](#integration-account-connectors). 
 
-* **Tümleştirme hesabı bağlayıcıları**: Bir tümleştirme hesabı satın aldığınızda kullanılabilir. Bu bağlayıcıları kullanarak, XML dönüştürüp doğrulayabilir, AS2 / X12 / EDIFACT ile işletmeden işletmeye iletileri işleyebilir ve düz dosyaları kodlayıp kod çözebilirsiniz. BizTalk Server ile çalışıyorsanız, bu bağlayıcılar BizTalk iş akışlarınızı Azure'a genişletmek için uygundur.  
+Her bağlayıcı'nın tetikleyiciler ve Swagger açıklamasını artı herhangi bir sınır tarafından tanımlanan, eylemler hakkında teknik bilgi için bkz: [Bağlayıcısı ayrıntıları](/connectors/). Maliyet bilgileri için bkz: [Logic Apps fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/) ve [Logic Apps fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md). 
 
-    BizTalk Server ayrıca bir mantıksal uygulamadan alma ve mantıksal uygulama gönderme işlemini içeren bir [Logic Apps bağdaştırıcısına](https://msdn.microsoft.com/library/mt787163.aspx) sahiptir.
+<a name="built-ins"></a>
 
-* **Enterprise bağlayıcıları**: MQ ve SAP içerir. Ek bir maliyet karşılığında sunulur. 
+## <a name="built-ins"></a>Yerleşik öğeler
 
-Maliyetler hakkında daha fazla bilgi için bkz. Logic Apps için [fiyatlandırma ayrıntıları](https://azure.microsoft.com/pricing/details/logic-apps/) ve [fiyatlandırma modeli](../logic-apps/logic-apps-pricing.md). 
+Logic Apps yerleşik Tetikleyiciler sağlar ve böylece zamanlama tabanlı iş akışları oluşturabilirsiniz eylemler diğer uygulamalar ve hizmetler mantıksal uygulamalarınızı akışı denetimi ile iletişim kurmak ve yönetmek veya verileri işlemek logic apps yardımcı olur. 
 
-## <a name="popular-connectors"></a>Popüler bağlayıcılar
-Bu bağlayıcıları kullanarak veri ve bilgileri başarılı bir şekilde işleyen binlerce uygulama ve milyonlarca yürütme vardır. 
+|   |   |   |   | 
+|---|---|---|---| 
+| [![API Icon][schedule-icon]<br/>**zamanlama**][recurrence-doc] | -İle temel karmaşık tekrarları için arasında belirtilen bir zamanlamaya göre mantıksal uygulamanızı çalıştırın **yineleme** tetikleyici. <p>-Belirtilen bir süre ile mantıksal uygulamanızı duraklatmak **gecikme** eylem. <p>-Belirtilen tarihe kadar mantıksal uygulamanızı Duraklat ve ile saat **kadar gecikme** eylem. | [![API Icon][http-icon]<br/>**HTTP**][http-doc] | Herhangi bir uç nokta ile tetikleyiciler ve Eylemler HTTP, HTTP + Swagger, ile HTTP ve HTTP + Web kancası iletişim kurar. | 
+| [![API Icon][http-request-icon]<br/>**isteği**][http-request-doc] | -Mantıksal uygulamanızı diğer uygulamalar veya hizmetler, olay kılavuz kaynak olayları Tetikle ya da ile Azure Güvenlik Merkezi uyarılarını yanıtlarını Tetikle aranabilir hale **isteği** tetikleyici. <p>-Bir uygulama için yanıtlar göndermek veya hizmete **yanıt** eylem. | [![API Icon][batch-icon]<br/>**toplu işlem**][batch-doc] | -İşlem iletileri ile yığınlardaki **toplu iletileri** tetikleyici. <p>-Var olan çağrı mantıksal uygulamalar ile Tetikleyicileri toplu **toplu ileti gönderme** eylem. | 
+| [![API Icon][azure-functions-icon]<br/>**Azure işlevleri**][azure-functions-doc] | Mantıksal uygulamalarınızı özel kod parçacıkları (C# veya Node.js) çalışan Azure işlevlerini çağırın. | [![API Icon][azure-api-management-icon]</br>**Azure API Yönetimi**][azure-api-management-doc] | Tetikleyiciler ve Eylemler yönetmek ve yayımlamak kendi API Azure API Management ile tanımlanan çağırın. | 
+| [![API Icon][azure-app-services-icon]<br/>**Azure uygulama hizmetleri**][azure-app-services-doc] | Azure API uygulamaları veya Web uygulamaları, Azure App Service üzerinde barındırılan çağırın. Swagger dahil edildiğinde tetikleyiciler ve Eylemler bu uygulamaları tarafından tanımlanan diğer birinci sınıf tetikleyiciler ve Eylemler gibi görünür. | [![API Icon][azure-logic-apps-icon]<br/>**Azure<br/>Logic Apps**][nested-logic-app-doc] | İstek tetikleyici ile başlayan diğer mantıksal uygulamalar çağırın. | 
+||||| 
 
-### <a name="built-in-actions"></a>Yerleşik eylemler
-Logic Apps altyapısı verileri değiştirebilen, HTTP üzerinden iletişim kurabilen ve mantıksal uygulama tanımının akışını denetleyebilen eylemler sunar. Bu eylemlerin bazıları şunlardır:
+### <a name="control-workflow"></a>Denetim akışı
 
-| |  |  |  |
-| --- | --- | --- | --- |
-| [![API Simgesi][HTTPicon]<br/>**HTTP**][httpdoc] | HTTP üzerinden herhangi bir uç nokta ile iletişim kurmak için mantıksal uygulamaları kullanın.| [![API Simgesi][Azure-Functionsicon]<br/>**Azure İşlevleri**][azure-functionsdoc] | Özel C# veya node.js kod parçacıkları çalıştıran işlevler oluşturun ve sonra bu işlevleri mantıksal uygulamalarınızda kullanın.  |
-| [![API Simgesi][HTTP-Requesticon]<br/>**İstek**][HTTP-Requestdoc] | Genelde diğer uygulamalarda web kancası olarak kullanılan çağrılabilir bir HTTPS URL'si sunar. Mantıksal uygulama bu URL’ye yönelik bir istek aldığında mantıksal uygulama başlatılır. | [![API Simgesi][Recurrenceicon]<br/>**Zamanlama**][recurrencedoc] | Basit veya karmaşık yinelenme zamanlamalarını temel alan mantıksal uygulamalar oluşturun. Örneğin her gün yinelenen gibi basit veya her ayın son Cuma günü saat 09:00 ile 17:00 arasında saat başı yinelenen gibi karmaşık zamanlamalar oluşturabilirsiniz. |
-| [![API Simgesi][CallLogicApp-icon]<br/>**Çağrı<br/>Mantıksal Uygulama**][nested-logic-appdoc] | İç içe geçmiş mantıksal uygulamayı çağırın. İstek tetikleyicisine sahip tüm mantıksal uygulamalar, iç içe geçmiş mantıksal uygulama olarak çağrılabilir.| [![API Simgesi][API/Web-Appicon]<br/>**API Apps**][api/web-appdoc] | App Service API Apps'ı çağırın. Swagger'a sahip API Apps, diğer birinci sınıf eylemler gibi oluşturulur.|
+Yapılandırma ve mantığı uygulamanızın iş akışı eylemleri denetlemek için yerleşik eylemler şunlardır:
 
-### <a name="standard-connectors"></a>Standart bağlayıcılar
-Aşağıdaki tabloda en popüler olanları ve kullanıcılarımızın en sık kullandığı bazı örnekler listelenmektedir:
+|   |   |   |   | 
+|---|---|---|---| 
+| [![Yerleşik simgesi][condition-icon]<br/>**koşulu**][condition-doc] | Bir koşulu değerlendirir ve olup olmadığına göre dayanan çalışma farklı eylemler koşul true veya false. | [![Yerleşik simgesi][for-each-icon]</br>**her**][for-each-doc] | Dizideki her öğe aynı eylemleri gerçekleştirin. | 
+| [![Yerleşik simgesi][scope-icon]<br/>**kapsamı**][scope-doc] | Grup eylemlere *kapsamları*, kapsam eylemlerin çalışan işlemini tamamladıktan sonra kendi durumu Al. | [![Yerleşik simgesi][switch-icon]</br>**anahtarı**][switch-doc] | Grup eylemlere *durumlarda*, varsayılan durumu dışında benzersiz değerler atanır. Yalnızca bir ifade, nesne ya da belirteci sonucu, atanan değerinin eşleşen durumda çalıştırın. Herhangi bir eşleşme varsa, varsayılan durumda çalıştırın. | 
+| [![Yerleşik simgesi][terminate-icon]<br/>**Sonlandır**][terminate-doc] | Etkin olarak çalışan bir mantıksal uygulama iş akışı durdurun. | [![Yerleşik simgesi][until-icon]<br/>**kadar**][until-doc] | Eylemler belirtilen koşulun doğru olması veya bazı durumu değişti kadar yineleyin. | 
+||||| 
 
-| |  |  |  |
-| --- | --- | --- | --- |
-| [![API Simgesi][AzureBlobStorageicon]<br/>**Azure Blob<br/>Depolama**][AzureBlobStoragedoc] | Depolama hesabınızda herhangi bir görevi otomatik hale getirmek isterseniz bu bağlayıcıya bakmanız gerekir. CRUD (create, read, update, delete) işlemlerini destekler. | [![API Simgesi][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | En çok talep gören bağlayıcılardan biridir. Müşteri adayları ile iş akışlarını otomatikleştirmeye ve daha birçok işleme yardımcı olan tetikleyici ve eylemler içerir. |
-| [![API Simgesi][Event-Hubs-icon]<br/>**Event Hubs**][event-hubs-doc] | Bir Olay Hub’ındaki olayları tüketin ve yayımlayın. Örneğin, Event Hubs'ı kullanarak mantıksal uygulamanızdan çıkış alabilir ve ardından söz konusu çıkışı gerçek zamanlı bir analiz sağlayıcısına gönderebilirsiniz. | [![API Simgesi][FTPicon]<br/>**FTP**][FTPdoc] | FTP sunucunuza İnternet'ten erişilebiliyorsa, iş akışlarını dosya ve klasörlerle çalışacak şekilde otomatikleştirebilirsiniz. <br/><br/>SFTP ayrıca SFTP bağlayıcısı ile kullanılabilir. |
-| [![API Simgesi][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | İş akışlarınızda Office 365 e-posta ve olaylarını kullanmaya yönelik çok sayıda tetikleyici ve çok daha fazla sayıda eylem. <br/><br/>Bu bağlayıcı, tatil isteklerini, gider raporlarını, vb. onaylamaya yönelik bir *onay e-postası* eylemi içerir. <br/><br/>Office 365 kullanıcıları ayrıca Office 365 Kullanıcıları bağlayıcısı ile kullanılabilir.| [![API Simgesi][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | Müşteri Adayları gibi nesnelere ve daha fazlasına erişmek için Salesforce hesabınızla kolayca oturum açın. | 
-| [![API Simgesi][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] | Mantıksal uygulamalardaki en popüler bağlayıcı olmasının yanı sıra, zaman uyumsuz mesajlaşma ve kuyruklar, abonelikler ve konular ile yayımlama/abone olma işlemlerine yönelik tetikleyiciler ve eylemler içerir. |  [![API Simgesi][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | SharePoint ile bir işlem yapıyor ve otomasyondan yararlanabiliyorsanız, bu bağlayıcıya bakmanız önerilir. Şirket içi SharePoint ve SharePoint Online ile birlikte kullanılabilir. |
-| [![API Simgesi][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | En çok kullanılan bağlayıcılardan biri olmasının yanı sıra, şirket içi SQL Server ve bir Azure SQL Veritabanına bağlanabilir. | [![API Simgesi][Twittericon]<br/>**Twitter**][Twitterdoc] | Bir Twitter hesabıyla kolayca oturum açın ve yeni tweet gönderildiğinde bir iş akışı başlatın. Daha sonra bu tweetleri bir SQL veritabanı veya SharePoint listesine kaydedin. | 
+### <a name="manage-or-manipulate-data"></a>Yönetmek veya veri işleme
 
-### <a name="on-premises-connectors"></a>Şirket içi bağlayıcılar 
+Veri çıktıları ve bunların biçimlerini ile çalışmak için yerleşik eylemler şunlardır:  
 
-Şirket içi bağlayıcılar, şirket içi sunuculardaki verilere erişim sağlar.  Şirket içi sunucularla bağlantı kurulabilmesi için ağ altyapısını yapılandırmaya gerek kalmadan güvenli bir iletişim kanalı sağlayan [şirket içi veri ağ geçidi][gatewaydoc] gerekir.  Bağlayıcılardan bazıları şunlardır:
+|   |   | 
+|---|---| 
+| ![Yerleşik simgesi][data-operations-icon]<br/>**Veri işlemleri** | Verilerle işlemleri: <p>- **Oluşturan**: tek bir çıktı çeşitli türleri ile birden çok girişi oluşturun. <br>- **CSV tablosu oluşturma**: bir dizi JSON nesnelerini içeren bir virgülle ayrılmış değer (CSV) tablosu oluşturun. <br>- **HTML tablosu oluşturmak**: bir dizi JSON nesnelerini içeren bir HTML tablosu oluşturun. <br>- **Filtre dizisi**: başka bir dizide ölçütlerinize uyan öğelerinden bir dizi oluşturun. <br>- **Katılma**: bir dizeyi bir dizinin tüm öğeleri oluşturmak ve öğelerin belirtilen sınırlayıcı ile ayırın. <br>- **JSON ayrıştırma**: Bu özellikleri, iş akışınızı kullanabilmeniz için kullanıcı dostu belirteçleri özellikler ve değerlerinin JSON içinde içerik oluşturun. <br>- **Seçin**: öğeler veya başka bir dizideki dönüştürme ve bu öğe belirtilen özelliklerine eşleyerek JSON nesneleri içeren bir dizi oluşturmak. | 
+| ![Yerleşik simgesi][date-time-icon]<br/>**Tarih saat** | Zaman damgalı işlemleri: <p>- **Zamana Ekle**: zaman damgası için belirtilen birim sayısı ekleyin. <br>- **Saat dilimi Dönüştür**: zaman damgası kaynak saat dilimine hedef zaman dilimine Dönüştür. <br>- **Geçerli saat**: geçerli zaman damgası dize olarak döndürür. <br>- **İleride almak**: geçerli zaman damgası artı belirtilen zaman birimleri döndürür. <br>- **Zamanı alma**: belirtilen zaman birimlerini eksi geçerli zaman damgası döndürür. <br>- **Zamandan çıkarma**: zaman damgası zaman birimlerinden sayısı çıkarma. |
+| [![Yerleşik simgesi][variables-icon]<br/>**değişkenleri**][variables-doc] | Değişkenleri ile işlemleri: <p>- **Dizi değişkeni ekleme**: bir son öğesi bir değişkeni tarafından depolanan bir dizi olarak değer Ekle. <br>- **Dize değişkenine append**: bir değişkeni tarafından depolanan bir dizedeki son karakter olarak değer Ekle. <br>- **Azaltma değişkeni**: bir değişkeni sabit bir değer tarafından azaltın. <br>- **Artırma değişkeni**: bir değişkeni bir sabit değer artırın. <br>- **Değişkeni başlatmak**: bir değişken oluşturun ve kendi veri türü ve başlangıç değeri bildirin. <br>- **Değişken Ayarla**: farklı bir değer var olan bir değişkene atayın. |
+|  |  | 
 
-|  |  |  |  |
-| --- | --- | --- | --- |
-| [![API Simgesi][db2icon]<br/>**DB2**][db2doc] | [![API Simgesi][oracle-DB-icon]<br/>**Oracle DB**][oracle-db-doc] | [![API Simgesi][sharepointicon]<br/>**SharePoint</br> Server**][sharepointserver] | [![API Simgesi][filesystem-icon]<br/>**Dosya</br> Sistemi**][filesystemdoc] |
-[![API Simgesi][sql-servericon]<br/>**SQL</br> Server**][sql-serverdoc] | ![API Icon][Biztalk-Servericon]<br/>**BizTalk</br> Server**| |
+<a name="managed-api-connectors"></a>
 
-### <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları 
+## <a name="managed-api-connectors"></a>Yönetilen API bağlayıcılar
 
-Enterprise Integration Pack (EIP), BizTalk Server topluluğu tarafından iyi bilinen bağlayıcılar içerir. Bir [tümleştirme hesabı](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) satın aldığınızda aşağıdaki bağlayıcıları da elde edersiniz: 
+Görevler, işlemler ve bu hizmetler veya sistemlerde iş akışlarıyla otomatikleştirme daha popüler bağlayıcılar şunlardır:
 
-|  |  |  |  |
-| --- | --- | --- | --- |
-| [![API Simgesi][as2icon]<br/>**AS2</br> kodunu çözme**][as2decode] | [![API Simgesi][as2icon]<br/>**AS2</br> kodlama**][as2encode] | [![API Simgesi][x12icon]<br/>**EDIFACT</br> kodunu çözme**][EDIFACTdecode] | [![API Simgesi][x12icon]<br/>**EDIFACT</br> kodlama**][EDIFACTencode] |
-[![API Simgesi][flatfileicon]<br/>**Düz dosya</br> kodlama**][flatfiledoc] | [![API Simgesi][flatfiledecodeicon]<br/>**Düz dosya</br> kodunu çözme**][flatfiledecodedoc] | [![API Simgesi][integrationaccounticon]<br/>**Tümleştirme<br/>hesabı**][integrationaccountdoc] | [![API Simgesi][xmltransformicon]<br/>**Dönüştürme<br/>XML**][xmltransformdoc] |
-| [![API Simgesi][x12icon]<br/>**X12</br> kodunu çözme**][x12decode] | [![API Simgesi][x12icon]<br/>**X12</br> kodlama**][x12encode] | [![API Simgesi][xmlvalidateicon]<br/>**XML <br/>doğrulama**][xmlvalidatedoc] | [![API Icon][liquidicon]<br/>**Transform <br/>JSON**][JSONliquidtransformdoc] |
+|   |   |   |   | 
+|---|---|---|---| 
+| [![API Icon][azure-service-bus-icon]<br/>**Azure hizmet veri yolu**][azure-service-bus-doc] | Zaman uyumsuz ileti, oturumlar ve Logic Apps en yaygın kullanılan bağlayıcısıyla konu aboneliklerini yönetin. | [![API Icon][sql-server-icon]<br/>**SQL Server**][sql-server-doc] | Kayıtlarını yönetme, saklı yordamları çalıştırmak veya sorguları gerçekleştirmek için SQL Server şirket içi veya buluttaki bir Azure SQL veritabanı bağlayın. | 
+| [![API Icon][office-365-outlook-icon]<br/>**Office 365<br/>Outlook**][office-365-outlook-doc] | Office 365 e-posta hesabınızı oluşturun ve e-postalar, görevler, takvim olayları ve toplantılar, kişiler, istekleri ve diğer özellikleri yönetmenizi bağlanın. | [![API Icon][azure-blob-storage-icon]<br/>**Azure Blob<br/>depolama**][azure-blob-storage-doc] | Oluşturma ve blob içeriği yönetmek için depolama hesabınıza bağlanın. | 
+| [![API Icon][sftp-icon]<br/>**SFTP**][sftp-doc] | Dosya ve klasörlerinizi ile çalışabilmek için internet'ten erişebilirsiniz SFTP sunucularına bağlayın. | [![API Icon][sharepoint-online-icon]<br/>**SharePoint<br/>çevrimiçi**][sharepoint-online-doc] | Dosyaları, ekleri, klasörler ve daha fazlasını yönetmek için SharePoint Online'a bağlanın. | 
+| [![API Icon][dynamics-365-icon]<br/>**Dynamics 365<br/>CRM Online**][dynamics-365-doc] | Oluşturup kayıtları, öğeleri ve daha fazlasını yönetmek için Dynamics 365 hesabınıza bağlanın. | [![API Icon][ftp-icon]<br/>**FTP**][ftp-doc] | Dosya ve klasörlerinizi ile çalışabilmek için internet'ten erişebilirsiniz FTP sunucularına bağlayın. | 
+| [![API Icon][salesforce-icon]<br/>**Salesforce**][salesforce-doc] | Oluşturma ve öğeleri kaydeder, işleri, nesneleri ve daha fazlasını gibi yönetme Salesforce hesabınıza bağlanın. | [![API Icon][twitter-icon]<br/>**Twitter**][twitter-doc] | Tweet'leri, followers, zaman çizelgeniz ve daha fazlasını yönetebilirsiniz Twitter hesabınıza bağlanın. Tweet'leri SQL, Excel veya SharePoint kaydedin. | 
+| [![API Icon][azure-event-hubs-icon]<br/>**Azure olay hub'ları**][azure-event-hubs-doc] | Kullanabilir ve olayları bir Event Hub ile yayımlayın. Örneğin, mantıksal uygulamanızı Event Hubs ile çıkış almanız ve ardından bir gerçek zamanlı analiz sağlayıcısı çıkışı gönderin. | [![API Icon][azure-event-grid-icon]<br/>**Azure olay**</br>**kılavuz**][azure-event-grid-doc] | Azure kaynakları veya üçüncü taraf kaynakları değiştirdiğinizde, bir olay kılavuz, örneğin, yayımlanan olaylarını izleme. | 
+||||| 
 
-### <a name="enterprise-connectors"></a>Kurumsal bağlayıcılar
+<a name="on-premises-connectors"></a>
 
-Mantıksal uygulamalarınızın içinden kurumsal uygulamalarınıza bağlanın.
+## <a name="on-premises-connectors"></a>Şirket içi bağlayıcılar 
 
-|  |  |
-| --- | --- |
-|[![API Simgesi][MQicon]<br/>**MQ**][mqdoc]|[![API Simgesi][SAPicon]<br/>**SAP**][sapconnector]|
+Burada, şirket içi sistemlerde verilerine ve kaynaklarına erişmesini sağlayan bazı yaygın olarak kullanılan bağlayıcılar bulunmaktadır. Bir şirket içi sistem bağlantı oluşturmadan önce öncelikle [indirme, yükleme ve bir şirket içi veri ağ geçidi kurun][gateway-doc]. Bu ağ geçidi, gerekli ağ altyapısını ayarlamak zorunda kalmadan güvenli bir iletişim kanalı sağlar. 
 
-> [!TIP]
-> Azure hesabına kaydolmadan Azure Logic Apps’i kullanmaya başlamak için [Logic Apps’i Deneyin](https://tryappservice.azure.com/?appservice=logic) sayfasına gidin. Başlangıç düzeyinde kısa süreli mantıksal uygulamayı hemen oluşturabilirsiniz. Kredi kartı ve taahhüt gerekmez.
+|   |   |   |   |   | 
+|---|---|---|---|---| 
+| ![API simgesi][biztalk-server-icon]<br/>**BizTalk**</br> **Sunucu** | [![API Icon][file-system-icon]<br/>**dosya</br> sistem**][file-system-doc] | [![API Icon][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![API Icon][ibm-informix-icon]<br/>**IBM** </br> **Informix**][ibm-informix-doc] | ![API simgesi][mysql-icon]<br/>**MySQL** | 
+| [![API Icon][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![API simgesi][postgre-sql-icon]<br/>**PostgreSQL** | [![API Icon][sharepoint-server-icon]<br/>**SharePoint</br> sunucu**][sharepoint-server-doc] | [![API Icon][sql-server-icon]<br/>**SQL</br> sunucu**][sql-server-doc] | ![API simgesi][teradata-icon]<br/>**Teradata** | 
+||||| 
 
-## <a name="connectors-as-triggers-and-actions"></a>Tetikleyici ve eylem olarak bağlayıcılar
+<a name="integration-account-connectors"></a>
 
-**Tetikleyici**, mantıksal uygulamanızın bir örneğini başlatır veya çalıştırır. Bazı bağlayıcılar, belirli olaylar meydana geldiğinde uygulamanızı bilgilendiren tetikleyiciler sağlar. Örneğin, FTP bağlayıcısı bir dosya güncelleştirildiğinde mantıksal uygulamanızı başlatan `OnUpdatedFile` tetikleyicisine sahiptir. 
+## <a name="integration-account-connectors"></a>Tümleştirme hesabı bağlayıcıları 
 
-Mantıksal uygulamalar aşağıdaki tetikleyici türlerini içerir:  
+Bağlayıcılar oluştururken ve ödeme logic apps ile işletmeden işletmeye (B2B) çözümler oluşturmak için İşte bir [tümleştirme hesabını](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md), Azure Enterprise Integration Pack (EIP) aracılığıyla kullanılabilen. Bu Hesapla oluşturun ve iş ortakları, anlaşmalar, haritalar, şemalar, sertifikalar ve benzeri ticari gibi B2B yapılarını depolayın. Bu yapıtların kullanmak için mantıksal uygulamalarınızı tümleştirme hesabınızla ilişkilendirin. BizTalk Server şu anda kullanıyorsanız, bu bağlayıcıların zaten tanıdık görünebilir.
 
-* *Yoklama tetikleyicileri*: Bu tetikleyiciler yeni verileri denetlemek için hizmetinizi belirtilen aralıkta yoklar. 
+|   |   |   |   | 
+|---|---|---|---| 
+| [![API Icon][as2-icon]<br/>**AS2</br> kod çözme**][as2-decode-doc] | [![API Icon][as2-icon]<br/>**AS2</br> kodlama**][as2-encode-doc] | [![API Icon][edifact-icon]<br/>**EDIFACT</br> kod çözme**][edifact-decode-doc] | [![API Icon][edifact-icon]<br/>**EDIFACT</br> kodlama**][edifact-encode-doc] | 
+| [![API Icon][flat-file-decode-icon]<br/>**düz dosya</br> kod çözme**][flat-file-decode-doc] | [![API Icon][flat-file-encode-icon]<br/>**düz dosya</br> kodlama**][flat-file-encode-doc] | [![API Icon][integration-account-icon]<br/>**tümleştirme<br/>hesabı**][integration-account-doc] | [![API Icon][liquid-icon]<br/>**sıvı**</br>**dönüştürür**][json-liquid-transform-doc] | 
+| [![API Icon][x12-icon]<br/>**X12</br> kod çözme**][x12-decode-doc] | [![API Icon][x12-icon]<br/>**X12</br> kodlama**][x12-encode-doc] | [![API Icon][xml-transform-icon]<br/>**XML**</br>**dönüştürür**][xml-transform-doc] | [![API Icon][xml-validate-icon]<br/>**XML <br/>doğrulama**][xml-validate-doc] |  
+||||| 
 
-    Yeni veriler kullanılabilir olduğunda, mantıksal uygulamanızın yeni bir örneği girdi olarak verilerle çalışır. 
+<a name="enterprise-connectors"></a>
 
-* *Anında iletme tetikleyicileri*: Bu tetikleyiciler, uç noktada bir olayın meydana gelmesine ilişkin verileri dinler ve ardından mantıksal uygulamanızın yeni bir örneğini tetikler.
+## <a name="enterprise-connectors"></a>Kurumsal bağlayıcılar
 
-* *Yineleme tetikleyicisi*: Bu tetikleyici, önceden belirlenmiş bir zamanlamaya göre mantıksal uygulamanızın bir örneğini başlatır.
+Mantıksal uygulamalarınızı SAP ve IBM MQ gibi Kurumsal sistemler erişebilirsiniz:
 
-Bağlayıcılar ayrıca iş akışınızda kullanabileceğiniz **eylemler** sağlar. Örneğin, mantıksal uygulamanız verileri arayabilir ve bu verileri daha sonra mantıksal uygulamanızda kullanabilir. Daha ayrıntılı olarak, bir SQL veritabanından müşteri verilerini arayabilir ve sonra iş akışınızı oluşturmak için bu müşteri verilerinizi kullanabilirsiniz. 
+|   |   | 
+|---|---| 
+| [![API Icon][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API Icon][sap-icon]<br/>**SAP**][sap-connector-doc] |
+||| 
 
-> [!TIP]
-> [Bağlayıcılara genel bakış](connectors-overview.md) bölümünde tetikleyici ve eylemler hakkında daha fazla bilgi verilmektedir. 
+## <a name="more-about-triggers-and-actions"></a>Tetikleyiciler ve eylemler hakkında daha fazla
 
+Bazı bağlayıcılar sağlamak *Tetikleyicileri* , bildirim mantıksal uygulamanızı belirli olaylar oluştuğunda. Bu nedenle bu olaylar gerçekleştiğinde, tetikleyici oluşturur ve mantıksal uygulama örneğini çalıştırır. Örneğin, FTP Bağlayıcısı mantıksal uygulamanızı bir dosya güncelleştirildiğinde başlayan bir "dosya eklenen veya değiştirilirken" tetikleyicisi sağlar. 
 
-## <a name="message-manipulation-actions"></a>İleti işleme eylemleri
+Logic Apps bu tür Tetikleyiciler sağlar:  
 
-Mantıksal uygulamalar, yük verilerinizi değiştirebilen veya işleyebilen yerleşik eylemler içerir. Yerleşik **Veri İşlemleri** bağlayıcısı aşağıdaki eylemleri içerir: 
+* *Yoklama Tetikleyicileri*: Bu Tetikleyiciler hizmetinizin belirtilen sıklıkta ve denetimleri en yeni verileri yoklamak. 
 
-| | |
-|---|---|
-| **Oluştur** | Daha sonra veya iş akışınızı derlerken kullanabileceğiniz değerler ya da nesneler derleyin veya oluşturun. Örneğin, birden çok adımın değerleriyle bir JSON nesnesi yazabilir veya daha sonra bir mantıksal uygulama çalıştırmasında başvurmak üzere sabit değer hesaplayabilirsiniz. |
-| **CSV tablosu oluşturma**<br/>**HTML tablosu oluşturma** | Dizi sonuç kümesini bir CSV veya HTML tablosuna dönüştürün. Örneğin, CRM "Liste kayıtları" eylemini ekleyin ve bugün eklenen kayıtlar için bir filtre ekleyin. Sonra sonuçları bir e-posta ile HTML tablosu halinde gönderin. |
-| **Filtre dizisi** (sorgu) | Bir sonuç kümesini, sizi ilgilendiren girişlerle filtreleyin. Örneğin, `#Azure` içeren tüm tweetleri arayın ve sonra yalnızca `Tweeted_by_followers > 50` olan sonuçları döndürmek için döndürülen tweetleri “filtreleyin”. |
-| **Birleştir** | Bir diziyi bazı sınırlayıcılarla birleştirin. Örneğin, Anahtar Tümcecikleri Algıla işlemi, bir anahtar tümcecik dizisi döndürür. Bu tümcecikleri bir `,` veya benzer bir şey ile “birleştirebilirsiniz”. Bu nedenle, `["Some", "Phrase"]` yerine `"Some, Phrase"` elde edersiniz. |
-| **JSON Ayrıştırma** | Tasarımcıda bir JSON nesnesinden değerleri ayrıştırabilir ve değerlere erişebilirsiniz. Örneğin, Azure İşleviniz bir JSON yükü döndürürse, bu yükü başka bir adımda JSON özelliklerine erişmek için ayrıştırabilirsiniz. Eylem ayrıca JSON yükünün çalışma zamanında belirtilen şema ile eşleştiğini doğrular. | 
-| **Seç** | Daha fazla işleme için bir dizinin belirli özelliklerini seçin. SQL'de "Kayıtları listeleme" seçeneğini belirlerseniz ve 15 sütun döndürülürse daha fazla işleme için bu sütunların yalnızca birkaçını seçin. Çıkış, yalnızca seçtiğiniz özellikleri içeren bir dizidir. |
+  Yeni veriler kullanılabilir olduğunda, uygulamanızın yeni bir örneğini oluşturulan ve giriş olarak geçirilen verileri ile çalıştırır. 
 
-## <a name="custom-connectors-and-azure-certification"></a>Özel bağlayıcılar ve Azure sertifikaları 
+* *Tetikleyiciler anında*: Bu Tetikleyiciler yeni verileri bir uç noktada veya bir olay gerçekleşecek şekilde, oluşturur ve mantıksal uygulamanızı yeni bir örneğini çalıştıran dinleme.
 
-Özel kod çalıştıran veya bağlayıcı olarak kullanılamayan API'leri çağırmak için REST tabanlı API Apps oluşturarak [Logic Apps platformunu genişletebilirsiniz](../logic-apps/logic-apps-create-api-app.md). Ayrıca aboneliğinizdeki tüm mantıksal uygulamalar tarafından kullanılabilecek kendi [özel bağlayıcılarınızı](../logic-apps/custom-connector-overview.md) da oluşturabilirsiniz.
+* *Yineleme tetikleyici*: Bu tetikleyici oluşturur ve belirtilen bir zamanlamaya göre mantıksal uygulama örneğini çalıştırır.
 
-Özel API Apps bileşenlerinizi genel kullanıma sunmak ve Azure'da kullanılabilir hale getirmek isterseniz, [bağlayıcılarınızı Microsoft sertifikası almak üzere gönderebilirsiniz](../logic-apps/custom-connector-submit-certification.md).
+Bağlayıcılar da sağlamak *Eylemler* mantığı uygulamanızın iş akışında görevleri gerçekleştirebilir. Örneğin, mantıksal uygulamanızı veri okumak ve mantıksal uygulamanızı daha sonraki adımlarda bu verileri kullanın. Daha belirgin olarak mantıksal uygulamanızı bir SQL veritabanında müşteri verilerini bulun ve bu verileri daha sonra iş akışında mantığı uygulamanızın işlem. 
 
-## <a name="get-help"></a>Yardım alın
+Tetikleyiciler ve eylemler hakkında daha fazla bilgi için bkz: [bağlayıcılar genel bakış](connectors-overview.md). 
 
-Sorular sormak, soruları yanıtlamak ve diğer Azure Logic Apps kullanıcılarının neler yaptığını görmek için [Azure Logic Apps forumuna](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) gidin.
+## <a name="custom-apis-and-connectors"></a>Özel API'ları ve bağlayıcılar 
 
-Azure Logic Apps ve bağlayıcıları geliştirmeye yardımcı olmak için, [Logic Apps kullanıcı geri bildirim sitesinde](http://aka.ms/logicapps-wish) oy kullanın veya fikirlerinizi paylaşın.
+Özel kod çalıştırmak veya bağlayıcıları olarak kullanılabilen olmayan API'leri çağırmak için Logic Apps platformu tarafından genişletebilirsiniz [özel API uygulamaları oluşturma](../logic-apps/logic-apps-create-api-app.md). Ayrıca [özel Bağlayıcıyı oluşturmak](../logic-apps/custom-connector-overview.md) için *herhangi* REST ya da bu API'leri, Azure aboneliğinizde mantıksal uygulama kullanılabilir hale getirmek SOAP tabanlı API'ler.
+Özel API uygulamaları ya da bağlayıcıların Azure'da herkes için genel hale getirmek için [Microsoft Sertifika bağlayıcılarının gönderme](../logic-apps/custom-connector-submit-certification.md).
 
-Bağlayıcılarla ilgili olarak değinmediğimiz bir konu başlığı veya önemli olduğunu düşündüğünüz herhangi bir ayrıntı var mı? Yanıtınız evet ise mevcut konu başlıklarımıza ekleme yaparak veya kendi konu başlığınızı oluşturarak bize yardımcı olabilirsiniz. Belgelerimiz açık kaynak olup GitHub'da barındırılır. Başlamak için [GitHub depomuza](https://github.com/Microsoft/azure-docs) gidin. 
+## <a name="get-support"></a>Destek alın
+
+* Sorularınız için [Azure Logic Apps forumunu](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) ziyaret edin.
+
+* Gönderme veya Azure Logic Apps ve bağlayıcıları için oy fikir edinmek için şurayı ziyaret edin [Logic Apps kullanıcı geri bildirim sitesi](http://aka.ms/logicapps-wish).
+
+* Makaleler veya düşündüğünüz ayrıntıları eksik belgeleri önemli misiniz? Yanıt Evet ise, varolan makaleleri ekleyerek veya kendi yazarak yardımcı olabilir. Belgelere açık bir kaynaktır ve Github'da barındırılır. Azure belgelerine ait başlama [GitHub deposunu](https://github.com/Microsoft/azure-docs). 
 
 ## <a name="next-steps"></a>Sonraki adımlar
+
 * [İlk mantıksal uygulamanızı oluşturma](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Özel bağlayıcılar mantıksal uygulamalar için oluşturma](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Mantıksal uygulamalar için özel API’ler oluşturma](../logic-apps/logic-apps-create-api-app.md)
-* [Mantıksal uygulamalarınızı izleyin](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 
-<!--Connectors Documentation-->
+<!--Misc doc links-->
+[gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Şirket içi veri ağ geçidiyle mantıksal uygulamalardan şirket içi veri kaynaklarına bağlanın"
 
-[gatewaydoc]: ../logic-apps/logic-apps-gateway-connection.md "Şirket içi veri ağ geçidiyle mantıksal uygulamalardan şirket içi veri kaynaklarına bağlanın"
-[api/web-appdoc]: ../logic-apps/logic-apps-custom-hosted-api.md "Mantıksal uygulamaları App Service API Apps ile tümleştirin"
-[azureblobstoragedoc]: ./connectors-create-api-azureblobstorage.md "Blob kapsayıcınızdaki dosyaları Azure blob depolama bağlayıcısı ile yönetin"
-[azure-functionsdoc]: ../logic-apps/logic-apps-azure-functions.md "Mantıksal uygulamaları Azure İşlevleri ile tümleştirin"
-[db2doc]: ./connectors-create-api-db2.md "Bulutta veya şirket içinde IBM DB2’ye bağlanın. Bir satırı güncelleştirin, bir tabloyu alın ve diğer işlemleri yapın"
-[Dynamics-365doc]: ./connectors-create-api-crmonline.md "CRM Online verileriyle çalışabilmek için Dynamics CRM Online’a bağlanın"
-[event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Azure Event Hubs’a bağlanma. Logic Apps ile Event Hubs arasında olay gönderip alma"
-[filesystemdoc]: ../logic-apps/logic-apps-using-file-connector.md "Şirket içi dosya sistemine bağlanın"
-[ftpdoc]: ./connectors-create-api-ftp.md "Dosyaları karşıya yükleme, alma, silme ve diğer FTP görevleri için bir FTP / FTPS sunucusuna bağlanın"
-[httpdoc]: ./connectors-native-http.md "HTTP bağlayıcısı ile HTTP aramaları yapın"
-[http-requestdoc]: ./connectors-native-reqres.md "HTTP istekleri ve mantıksal uygulama yanıtları için eylemler ekleyin"
-[http-swaggerdoc]: ./connectors-native-http-swagger.md "HTTP + Swagger bağlayıcısı ile HTTP çağrıları yapın"
-[informixdoc]: ./connectors-create-api-informix.md "Bulutta veya şirket içinde Informix’e bağlanın. Bir satırı okuyun, tabloları listeleyin ve daha fazlasını yapın"
-[nested-logic-appdoc]: ../logic-apps/logic-apps-http-endpoint.md "Mantıksal uygulamaları iç içe geçmiş iş akışları ile tümleştirin"
-[office365-outlookdoc]: ./connectors-create-api-office365-outlook.md "Office 365 hesabınıza bağlanın. E-posta gönderip alın, takvim ve kişilerinizi yönetin ve daha fazlasını yapın"
+<!--Built-ins doc links-->
+[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Mantıksal uygulamaları Azure İşlevleri ile tümleştirin"
+[azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Yönetme ve, API yayımlamak için bir Azure API Management hizmet örneği oluşturma"
+[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Mantıksal uygulamaları App Service API Apps ile tümleştirin"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Service Bus Kuyruklarından ve Konu Başlıklarından iletiler gönderin ve Service Bus Kuyrukları ile Aboneliklerinden iletiler alın"
+[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Gruplar veya toplu olarak iletilerini işleme"
+[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Bir koşulu değerlendirir ve olup olmadığına göre dayanan çalışma farklı eylemler koşul true veya false olduğunda"
+[delay-doc]: ./connectors-native-delay.md "Gecikmeli eylemleri gerçekleştirin"
+[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Dizideki her öğe aynı eylemleri gerçekleştirme"
+[http-doc]: ./connectors-native-http.md "HTTP bağlayıcısı ile HTTP aramaları yapın"
+[http-request-doc]: ./connectors-native-reqres.md "HTTP istekleri ve mantıksal uygulama yanıtları için eylemler ekleyin"
+[http-response-doc]: ./connectors-native-reqres.md "HTTP istekleri ve mantıksal uygulama yanıtları için eylemler ekleyin"
+[http-swagger-doc]: ./connectors-native-http-swagger.md "HTTP + Swagger bağlayıcısı ile HTTP çağrıları yapın"
+[http-webook-doc]: ./connectors-native-webhook.md "HTTP Web kancası eylemleri ve Tetikleyicileri mantıksal uygulamalarınızı ekleme"
+[nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Mantıksal uygulamaları iç içe geçmiş iş akışları ile tümleştirin"
+[query-doc]: ./connectors-native-query.md "Sorgu eylemi ile dizileri seçip filtreleyin"
+[recurrence-doc]:  ./connectors-native-recurrence.md "Mantıksal uygulamalar için yinelenen eylemleri tetikleyin"
+[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Eylemler grubundaki Eylemler çalışan işlemini tamamladıktan sonra kendi durumunu Al gruplar halinde düzenleme" 
+[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Benzersiz değerler atanır durumlarda eylemlere düzenleyin. Yalnızca bir ifade, nesne ya da belirteci sonuç değeri eşleşen servis talebi çalıştırın. Herhangi bir eşleşme varsa, varsayılan çalışması çalıştırma"
+[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Durdurmak veya etkin olarak çalışan bir iş akışı mantığı uygulamanız için İptal"
+[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Eylemler belirtilen koşulun doğru olması veya bazı durumu değişti kadar yineleyin."
+[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Değişkenleriyle başlatılamadı, kümesi, artırma ve azaltma, gibi işlemleri gerçekleştirmek ve dize veya dizi değişkeni ekleme"
+
+<!--Managed API doc links-->
+[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Blob kapsayıcınızdaki dosyaları Azure blob depolama bağlayıcısı ile yönetin"
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md " Azure kaynakları veya üçüncü taraf kaynakları değiştirdiğinizde, bir olay kılavuz, örneğin, yayımlanan olaylarını izleme"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Azure Event Hubs’a bağlanma. Logic Apps ile Event Hubs arasında olay gönderip alma"
+[box-doc]: ./connectors-create-api-box.md "Box’a bağlanın. Dosyalarınızı karşıya yükleyin, silin, listeleyin ve diğer işlemleri yapın"
+[dropbox-doc]: ./connectors-create-api-dropbox.md "Dropbox'a bağlanın. Dosyalarınızı karşıya yükleyin, silin, listeleyin ve diğer işlemleri yapın"
+[dynamics-365-doc]: ./connectors-create-api-crmonline.md "CRM Online verileriyle çalışabilmek için Dynamics CRM Online’a bağlanın"
+[facebook-doc]: ./connectors-create-api-facebook.md "Facebook’a bağlanın. Zaman tünelinde gönderi yapın, sayfa akışı alın ve daha fazlasını yapın"
+[file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Şirket içi dosya sistemine bağlanın"
+[ftp-doc]: ./connectors-create-api-ftp.md "Dosyaları karşıya yükleme, alma, silme ve diğer FTP görevleri için bir FTP / FTPS sunucusuna bağlanın"
+[github-doc]: ./connectors-create-api-github.md "GitHub’a bağlanın ve sorunları izleyin"
+[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Google Takvime bağlanır ve takvimi yönetebilir."
+[google-drive-doc]: ./connectors-create-api-googledrive.md "Verilerinizle çalışabilmek için GoogleDrive’a bağlanın"
+[google-sheets-doc]: ./connectors-create-api-googlesheet.md "Sayfalarınızı değiştirebileceğiniz Google sayfalara bağlanın"
+[google-tasks-doc]: ./connectors-create-api-googletasks.md "Görevlerinizi yönetebilmek için Google Görevler’e bağlanın"
+[ibm-db2-doc]: ./connectors-create-api-db2.md "Bulutta veya şirket içinde IBM DB2’ye bağlanın. Bir satırı güncelleştirin, bir tabloyu alın ve diğer işlemleri yapın"
+[ibm-informix-doc]: ./connectors-create-api-informix.md "Bulutta veya şirket içinde Informix’e bağlanın. Bir satırı okuyun, tabloları listeleyin ve daha fazlasını yapın"
+[ibm-mq-doc]: ./connectors-create-api-mq.md "IBM MQ şirket içi veya ileti gönderme ve alma için azure'da bağlanmak"
+[instagram-doc]: ./connectors-create-api-instagram.md "Instagram’a bağlanın. Olayları tetikleyin veya üzerinde işlem yapın"
+[mailchimp-doc]: ./connectors-create-api-mailchimp.md "MailChimp hesabınıza bağlanın. Postaları yönetin ve otomatikleştirin"
+[mandrill-doc]: ./connectors-create-api-mandrill.md "İletişim için Mandrill’e bağlanın"
+[microsoft-translator-doc]: ./connectors-create-api-microsofttranslator.md "Microsoft Translator’a bağlanın. Metinleri çevirin, dilleri algılayın ve daha fazlasını yapın" 
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Office 365 hesabınıza bağlanın. E-posta gönderip alın, takvim ve kişilerinizi yönetin ve daha fazlasını yapın"
+[office-365-users-doc]: ./connectors-create-api-office365-users.md 
+[office-365-video-doc]: ./connectors-create-api-office365-video.md "Office 365 için video bilgileri, video listeleri ile kanallar ve kayıttan yürütme URL'lerini alın"
+[onedrive-doc]: ./connectors-create-api-onedrive.md "Kişisel Microsoft OneDrive’ınıza bağlanın. Dosyaları karşıya yükleyin, silin, listeleyin ve daha fazlasını yapın"
+[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "İş için Microsoft OneDrive’ınıza bağlanın. Dosyalarınızı karşıya yükleyin, silin, listeleyin ve diğer işlemleri yapın"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Bir Oracle veritabanına bağlanarak satır ekleme, silme ve daha fazlası"
-[mqdoc]: ./connectors-create-api-mq.md "Şirket içi MQ veya Azure bağlantısı gerçekleştirin ve ileti gönderip alın"
-[recurrencedoc]:  ./connectors-native-recurrence.md "Mantıksal uygulamalar için yinelenen eylemleri tetikleyin"
-[salesforcedoc]: ./connectors-create-api-salesforce.md "Salesforce hesabınıza bağlanın. Hesapları, müşteri adaylarını, fırsatları ve daha fazlasını yönetin"
-[sapconnector]: ../logic-apps/logic-apps-using-sap-connector.md "Şirket içi SAP sistemine bağlanın"
-[service-busdoc]: ./connectors-create-api-servicebus.md "Service Bus Kuyruklarından ve Konu Başlıklarından iletiler gönderin ve Service Bus Kuyrukları ile Aboneliklerinden iletiler alın"
-[sharepointdoc]: ./connectors-create-api-sharepointonline.md "SharePoint Online’a bağlanın. Belgeleri yönetin, öğeleri listeleyin ve daha fazlasını yapın"
-[sharepointserver]: ./connectors-create-api-sharepointserver.md "Şirket içi SharePoint sunucusuna bağlanın. Belgeleri yönetin, öğeleri listeleyin ve daha fazlasını yapın"
-[sql-serverdoc]: ./connectors-create-api-sqlazure.md "Azure SQL Veritabanı veya SQL sunucusuna bağlanın. SQL veritabanı tablosunda girdiler oluşturun, güncelleştirin, alın ve silin."
-[twitterdoc]: ./connectors-create-api-twitter.md "Twitter’a bağlanın. Zaman çizelgelerini alın, tweetler gönderin ve daha fazlasını yapın"
-[webhookdoc]: ./connectors-native-webhook.md "Mantıksal uygulamalarınıza Web kancası eylemleri ve tetikleyiciler ekleyin"
+[outlook.com-doc]: ./connectors-create-api-outlook.md "Outlook posta kutunuza bağlanın. E-posta, takvim, kişi ve diğerlerini yönetin"
+[project-online-doc]: ./connectors-create-api-projectonline.md "Microsoft Project Online’a bağlanın. Proje, görev, kaynaklar ve daha fazlasını yönetin"
+[rss-doc]: ./connectors-create-api-rss.md "Akış öğeleri yayımlayıp alın, RSS akışında yeni bir öğe yayımlandığında işlemleri tetikleyin."
+[salesforce-doc]: ./connectors-create-api-salesforce.md "Salesforce hesabınıza bağlanın. Hesapları, müşteri adaylarını, fırsatları ve daha fazlasını yönetin"
+[sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Şirket içi SAP sistemine bağlanın"
+[sendgrid-doc]: ./connectors-create-api-sendgrid.md "SendGrid’e bağlanın. E-posta gönderebilir ve alıcı listeleri yönetme"
+[sftp-doc]: ./connectors-create-api-sftp.md "SFTP hesabınıza bağlanın. Dosyalarınızı karşıya yükleyin, alın, silin ve diğer işlemleri yapın"
+[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Şirket içi SharePoint sunucusuna bağlanın. Belgeleri yönetin, öğeleri listeleyin ve daha fazlasını yapın"
+[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "SharePoint Online’a bağlanın. Belgeleri yönetin, öğeleri listeleyin ve daha fazlasını yapın"
+[slack-doc]: ./connectors-create-api-slack.md "Slack’e bağlanın ve Slack kanallarında iletiler yayınlayın"
+[smtp-doc]: ./connectors-create-api-smtp.md "Bir SMTP sunucusuna bağlanmak ve ekler içeren e-posta Gönder"
+[sparkpost-doc]: ./connectors-create-api-sparkpost.md "İletişim için SparkPost’a bağlanın"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Azure SQL veritabanı veya SQL Server bağlanın. SQL veritabanı tablosunda girdiler oluşturun, güncelleştirin, alın ve silin."
+[trello-doc]: ./connectors-create-api-trello.md "Trello’ya bağlanın. Projelerinizi yönetin ve herhangi bir şeyi herhangi bir kimseyle düzenleyin"
+[twilio-doc]: ./connectors-create-api-twilio.md "Twilio’ya bağlanın. İletiler gönderip alın, mevcut numaraları alın, gelen telefon numaralarını yönetin ve daha fazlasını yapın"
+[twitter-doc]: ./connectors-create-api-twitter.md "Twitter’a bağlanın. Zaman çizelgelerini alın, tweetler gönderin ve daha fazlasını yapın"
+[wunderlist-doc]: ./connectors-create-api-wunderlist.md "Wunderlist’e bağlanın. Görevlerinizi ve yapılacaklar listenizi yönetin, tüm işlerinizi eşitleyin ve daha fazlasını yapın"
+[yammer-doc]: ./connectors-create-api-yammer.md "Yammer’a bağlanın. İleti gönderin, yeni iletiler alın ve daha fazlasını yapın"
+[youtube-doc]: ./connectors-create-api-youtube.md "YouTube’a bağlanın. Videolarınızı ve kanallarınızı yönetin"
 
-[as2doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Enterprise integration AS2 hakkında bilgi edinin."
-[x12doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Enterprise integration X12 hakkında bilgi edinin."
-[flatfiledoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
-[flatfiledecodedoc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
-[xmlvalidatedoc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Enterprise integration XML doğrulaması hakkında bilgi edinin."
-[xmltransformdoc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Enterprise integration dönüştürmeleri hakkında bilgi edinin."
-[as2decode]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Enterprise integration AS2 kod çözme hakkında bilgi edinin"
-[as2encode]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Enterprise integration AS2 kodlama hakkında bilgi edinin"
-[X12decode]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Enterprise integration X12 kod çözme hakkında bilgi edinin"
-[X12encode]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Enterprise integration X12 kodlama hakkında bilgi edinin"
-[EDIFACTdecode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Enterprise integration EDIFACT kod çözme hakkında bilgi edinin"
-[EDIFACTencode]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Enterprise integration EDIFACT kodlama hakkında bilgi edinin"
-[integrationaccountdoc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Tümleştirme hesabınızda şemalar, haritalar, iş ortakları ve daha fazlasını arayın"
-[JSONliquidtransformdoc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Liquid ile JSON dönüştürmeleri hakkında bilgi edinin"
+<!--Enterprise Intregation Pack doc links-->
+[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Enterprise integration AS2 hakkında bilgi edinin."
+[as2-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-as2-decode.md "Enterprise integration AS2 kod çözme hakkında bilgi edinin"
+[as2-encode-doc]:../logic-apps/logic-apps-enterprise-integration-as2-encode.md "Enterprise integration AS2 kodlama hakkında bilgi edinin"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Enterprise integration EDIFACT kod çözme hakkında bilgi edinin"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Enterprise integration EDIFACT kodlama hakkında bilgi edinin"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Enterprise integration düz dosyası hakkında bilgi edinin."
+[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Tümleştirme hesabınızda şemalar, haritalar, iş ortakları ve daha fazlasını arayın"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Liquid ile JSON dönüştürmeleri hakkında bilgi edinin"
+[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Enterprise integration X12 hakkında bilgi edinin."
+[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Enterprise integration X12 kod çözme hakkında bilgi edinin"
+[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Enterprise integration X12 kodlama hakkında bilgi edinin"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Enterprise integration dönüştürmeleri hakkında bilgi edinin."
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Enterprise integration XML doğrulaması hakkında bilgi edinin."
 
+<!-- Built-ins icons -->
+[azure-api-management-icon]: ./media/apis-list/azure-api-management.png
+[azure-app-services-icon]: ./media/apis-list/azure-app-services.png
+[azure-functions-icon]: ./media/apis-list/azure-functions.png
+[azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
+[batch-icon]: ./media/apis-list/batch.png
+[condition-icon]: ./media/apis-list/condition.png
+[data-operations-icon]: ./media/apis-list/data-operations.png
+[date-time-icon]: ./media/apis-list/date-time.png
+[for-each-icon]: ./media/apis-list/for-each-loop.png
+[http-icon]: ./media/apis-list/http.png
+[http-request-icon]: ./media/apis-list/request.png
+[http-response-icon]: ./media/apis-list/response.png
+[http-swagger-icon]: ./media/apis-list/http-swagger.png
+[http-webhook-icon]: ./media/apis-list/http-webhook.png
+[schedule-icon]: ./media/apis-list/recurrence.png
+[scope-icon]: ./media/apis-list/scope.png
+[switch-icon]: ./media/apis-list/switch.png
+[terminate-icon]: ./media/apis-list/terminate.png
+[until-icon]: ./media/apis-list/until.png
+[variables-icon]: ./media/apis-list/variables.png
 
-[boxDoc]: ./connectors-create-api-box.md "Box’a bağlanın. Dosyalarınızı karşıya yükleyin, silin, listeleyin ve diğer işlemleri yapın"
-[delaydoc]: ./connectors-native-delay.md "Gecikmeli eylemleri gerçekleştirin"
-[dropboxdoc]: ./connectors-create-api-dropbox.md "Dropbox'a bağlanın. Dosyalarınızı karşıya yükleyin, silin, listeleyin ve diğer işlemleri yapın"
-[facebookdoc]: ./connectors-create-api-facebook.md "Facebook’a bağlanın. Zaman tünelinde gönderi yapın, sayfa akışı alın ve daha fazlasını yapın"
-[githubdoc]: ./connectors-create-api-github.md "GitHub’a bağlanın ve sorunları izleyin"
-[google-drivedoc]: ./connectors-create-api-googledrive.md "Verilerinizle çalışabilmek için GoogleDrive’a bağlanın"
-[google-sheetsdoc]: ./connectors-create-api-googlesheet.md "Elektronik tablolarınızı değiştirebilmek için Google E-Tablolar’a bağlanın"
-[google-tasksdoc]: ./connectors-create-api-googletasks.md "Görevlerinizi yönetebilmek için Google Görevler’e bağlanın"
-[google-calendardoc]: ./connectors-create-api-googlecalendar.md "Google Takvime bağlanır ve takvimi yönetebilir."
-[http-responsedoc]: ./connectors-native-reqres.md "HTTP istekleri ve mantıksal uygulama yanıtları için eylemler ekleyin"
-[instagramdoc]: ./connectors-create-api-instagram.md "Instagram’a bağlanın. Olayları tetikleyin veya üzerinde işlem yapın"
-[mailchimpdoc]: ./connectors-create-api-mailchimp.md "MailChimp hesabınıza bağlanın. Postaları yönetin ve otomatikleştirin"
-[mandrilldoc]: ./connectors-create-api-mandrill.md "İletişim için Mandrill’e bağlanın"
-[microsoft-translatordoc]: ./connectors-create-api-microsofttranslator.md "Microsoft Translator’a bağlanın. Metinleri çevirin, dilleri algılayın ve daha fazlasını yapın" 
-[office365-usersdoc]: ./connectors-create-api-office365-users.md 
-[office365-videodoc]: ./connectors-create-api-office365-video.md "Office 365 için video bilgileri, video listeleri ile kanallar ve kayıttan yürütme URL'lerini alın"
-[onedrivedoc]: ./connectors-create-api-onedrive.md "Kişisel Microsoft OneDrive’ınıza bağlanın. Dosyaları karşıya yükleyin, silin, listeleyin ve daha fazlasını yapın"
-[onedrive-for-businessdoc]: ./connectors-create-api-onedriveforbusiness.md "İş için Microsoft OneDrive’ınıza bağlanın. Dosyalarınızı karşıya yükleyin, silin, listeleyin ve diğer işlemleri yapın"
-[outlook.comdoc]: ./connectors-create-api-outlook.md "Outlook posta kutunuza bağlanın. E-posta, takvim, kişi ve diğerlerini yönetin"
-[project-onlinedoc]: ./connectors-create-api-projectonline.md "Microsoft Project Online’a bağlanın. Proje, görev, kaynaklar ve daha fazlasını yönetin"
-[querydoc]: ./connectors-native-query.md "Sorgu eylemi ile dizileri seçip filtreleyin"
-[rssdoc]: ./connectors-create-api-rss.md "Akış öğeleri yayımlayıp alın, RSS akışında yeni bir öğe yayımlandığında işlemleri tetikleyin."
-[sendgriddoc]: ./connectors-create-api-sendgrid.md "SendGrid’e bağlanın. E-posta gönderin ve alıcı listelerini yönetin"
-[sftpdoc]: ./connectors-create-api-sftp.md "SFTP hesabınıza bağlanın. Dosyalarınızı karşıya yükleyin, alın, silin ve diğer işlemleri yapın"
-[slackdoc]: ./connectors-create-api-slack.md "Slack’e bağlanın ve Slack kanallarında iletiler yayınlayın"
-[smtpdoc]: ./connectors-create-api-smtp.md "SMTP sunucusuna bağlanın ve ekler içeren e-postalar gönderin"
-[sparkpostdoc]: ./connectors-create-api-sparkpost.md "İletişim için SparkPost’a bağlanın"
-[trellodoc]: ./connectors-create-api-trello.md "Trello’ya bağlanın. Projelerinizi yönetin ve herhangi bir şeyi herhangi bir kimseyle düzenleyin"
-[twiliodoc]: ./connectors-create-api-twilio.md "Twilio’ya bağlanın. İletiler gönderip alın, mevcut numaraları alın, gelen telefon numaralarını yönetin ve daha fazlasını yapın"
-[wunderlistdoc]: ./connectors-create-api-wunderlist.md "Wunderlist’e bağlanın. Görevlerinizi ve yapılacaklar listenizi yönetin, tüm işlerinizi eşitleyin ve daha fazlasını yapın"
-[yammerdoc]: ./connectors-create-api-yammer.md "Yammer’a bağlanın. İleti gönderin, yeni iletiler alın ve daha fazlasını yapın"
-[youtubedoc]: ./connectors-create-api-youtube.md "YouTube’a bağlanın. Videolarınızı ve kanallarınızı yönetin"
+<!--Managed API icons-->
+[appfigures-icon]: ./media/apis-list/appfigures.png
+[asana-icon]: ./media/apis-list/asana.png
+[azure-automation-icon]: ./media/apis-list/azure-automation.png
+[azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
+[azure-cognitive-services-text-analytics-icon]: ./media/apis-list/azure-cognitive-services-text-analytics.png
+[azure-data-lake-icon]: ./media/apis-list/azure-data-lake.png
+[azure-document-db-icon]: ./media/apis-list/azure-document-db.png
+[azure-event-grid-icon]: ./media/apis-list/azure-event-grid.png
+[azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
+[azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
+[azure-ml-icon]: ./media/apis-list/azure-ml.png
+[azure-queues-icon]: ./media/apis-list/azure-queues.png
+[azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
+[azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
+[basecamp-3-icon]: ./media/apis-list/basecamp.png
+[bitbucket-icon]: ./media/apis-list/bitbucket.png
+[bitly-icon]: ./media/apis-list/bitly.png
+[biztalk-server-icon]: ./media/apis-list/biztalk.png
+[blogger-icon]: ./media/apis-list/blogger.png
+[box-icon]: ./media/apis-list/box.png
+[campfire-icon]: ./media/apis-list/campfire.png
+[common-data-service-icon]: ./media/apis-list/common-data-service.png
+[dropbox-icon]: ./media/apis-list/dropbox.png
+[dynamics-365-icon]: ./media/apis-list/dynamics-crm-online.png
+[dynamics-365-financials-icon]: ./media/apis-list/dynamics-365-financials.png
+[dynamics-365-operations-icon]: ./media/apis-list/dynamics-365-operations.png
+[easy-redmine-icon]: ./media/apis-list/easyredmine.png
+[facebook-icon]: ./media/apis-list/facebook.png
+[file-system-icon]: ./media/apis-list/file-system.png
+[ftp-icon]: ./media/apis-list/ftp.png
+[github-icon]: ./media/apis-list/github.png
+[google-calendar-icon]: ./media/apis-list/google-calendar.png
+[google-drive-icon]: ./media/apis-list/google-drive.png
+[google-sheets-icon]: ./media/apis-list/google-sheet.png
+[google-tasks-icon]: ./media/apis-list/google-tasks.png
+[hipchat-icon]: ./media/apis-list/hipchat.png
+[ibm-db2-icon]: ./media/apis-list/ibm-db2.png
+[ibm-informix-icon]: ./media/apis-list/ibm-informix.png
+[ibm-mq-icon]: ./media/apis-list/ibm-mq.png
+[insightly-icon]: ./media/apis-list/insightly.png
+[instagram-icon]: ./media/apis-list/instagram.png
+[instapaper-icon]: ./media/apis-list/instapaper.png
+[jira-icon]: ./media/apis-list/jira.png
+[mailchimp-icon]: ./media/apis-list/mailchimp.png
+[mandrill-icon]: ./media/apis-list/mandrill.png
+[microsoft-translator-icon]: ./media/apis-list/microsoft-translator.png
+[mysql-icon]: ./media/apis-list/mysql.png
+[office-365-outlook-icon]: ./media/apis-list/office-365.png
+[office-365-users-icon]: ./media/apis-list/office-365-users.png
+[office-365-video-icon]: ./media/apis-list/office-365-video.png
+[onedrive-icon]: ./media/apis-list/onedrive.png
+[onedrive-for-business-icon]: ./media/apis-list/onedrive-business.png
+[oracle-db-icon]: ./media/apis-list/oracle-db.png
+[outlook.com-icon]: ./media/apis-list/outlook.png
+[pagerduty-icon]: ./media/apis-list/pagerduty.png
+[pinterest-icon]: ./media/apis-list/pinterest.png
+[postgre-sql-icon]: ./media/apis-list/postgre-sql.png
+[project-online-icon]: ./media/apis-list/projecton-line.png
+[redmine-icon]: ./media/apis-list/redmine.png
+[rss-icon]: ./media/apis-list/rss.png
+[salesforce-icon]: ./media/apis-list/salesforce.png
+[sap-icon]: ./media/apis-list/sap.png
+[send-grid-icon]: ./media/apis-list/sendgrid.png
+[sftp-icon]: ./media/apis-list/sftp.png
+[sharepoint-online-icon]: ./media/apis-list/sharepoint-online.png
+[sharepoint-server-icon]: ./media/apis-list/sharepoint-server.png
+[slack-icon]: ./media/apis-list/slack.png
+[smartsheet-icon]: ./media/apis-list/smartsheet.png
+[smtp-icon]: ./media/apis-list/smtp.png
+[sparkpost-icon]: ./media/apis-list/sparkpost.png
+[sql-server-icon]: ./media/apis-list/sql.png
+[teradata-icon]: ./media/apis-list/teradata.png
+[todoist-icon]: ./media/apis-list/todoist.png
+[trello-icon]: ./media/apis-list/trello.png
+[twilio-icon]: ./media/apis-list/twilio.png
+[twitter-icon]: ./media/apis-list/twitter.png
+[vimeo-icon]: ./media/apis-list/vimeo.png
+[visual-studio-team-services-icon]: ./media/apis-list/visual-studio-team-services.png
+[wordpress-icon]: ./media/apis-list/wordpress.png
+[wunderlist-icon]: ./media/apis-list/wunderlist.png
+[yammer-icon]: ./media/apis-list/yammer.png
+[youtube-icon]: ./media/apis-list/youtube.png
 
-
-<!--Icon references-->
-[appFiguresicon]: ./media/apis-list/appfigures.png
-[AppServices-icon]: ./media/apis-list/AppServices.png
-[Asanaicon]: ./media/apis-list/asana.png
-[Azure-Automation-icon]: ./media/apis-list/azure-automation.png
-[AzureBlobStorageicon]: ./media/apis-list/azureblob.png
-[Azure-Data-Lake-icon]: ./media/apis-list/azure-data-lake.png
-[Azure-MLicon]: ./media/apis-list/azureml.png
-[Azure-Resource-Manager-icon]: ./media/apis-list/azure-resource-manager.png
-[Azure-Queues-icon]: ./media/apis-list/azure-queues.png
-[Basecamp-3icon]: ./media/apis-list/basecamp.png
-[Bitbucket-icon]: ./media/apis-list/bitbucket.png
-[Bitlyicon]: ./media/apis-list/bitly.png
-[BizTalk-Servericon]: ./media/apis-list/biztalk.png
-[Bloggericon]: ./media/apis-list/blogger.png
-[Boxicon]: ./media/apis-list/box.png
-[Campfireicon]: ./media/apis-list/campfire.png
-[Cognitive-Services-Text-Analyticsicon]: ./media/apis-list/cognitiveservicestextanalytics.png
-[DB2icon]: ./media/apis-list/db2.png
-[Dropboxicon]: ./media/apis-list/dropbox.png
-[Dynamics-365icon]: ./media/apis-list/dynamicscrmonline.png
-[Dynamics-365-for-Financialsicon]: ./media/apis-list/madeira.png
-[Dynamics-365-for-Operationsicon]: ./media/apis-list/dynamicsax.png
-[Easy-Redmineicon]: ./media/apis-list/easyredmine.png
-[Event-Hubs-icon]: ./media/apis-list/eventhubs.png
-[Facebookicon]: ./media/apis-list/facebook.png
-[FileSystem-icon]: ./media/apis-list/filesystem.png
-[FileSystemIcon]: ./media/apis-list/filesystem.png
-[FTPicon]: ./media/apis-list/ftp.png
-[GitHubicon]: ./media/apis-list/github.png
-[Google-Calendaricon]: ./media/apis-list/googlecalendar.png
-[Google-Driveicon]: ./media/apis-list/googledrive.png
-[Google-Sheetsicon]: ./media/apis-list/googlesheet.png
-[Google-Tasksicon]: ./media/apis-list/googletasks.png
-[HideKeyicon]: ./media/apis-list/hidekey.png
-[HipChaticon]: ./media/apis-list/hipchat.png
-[Informixicon]: ./media/apis-list/informix.png
-[Insightlyicon]: ./media/apis-list/insightly.png
-[Instagramicon]: ./media/apis-list/instagram.png
-[Instapapericon]: ./media/apis-list/instapaper.png
-[JIRAicon]: ./media/apis-list/jira.png
-[MailChimpicon]: ./media/apis-list/mailchimp.png
-[Mandrillicon]: ./media/apis-list/mandrill.png
-[Microsoft-Translatoricon]: ./media/apis-list/microsofttranslator.png
-[MQicon]: ./media/apis-list/mq.png
-[Office-365-Outlookicon]: ./media/apis-list/office365.png
-[Office-365-Usersicon]: ./media/apis-list/office365users.png
-[Office-365-Videoicon]: ./media/apis-list/office365video.png
-[OneDriveicon]: ./media/apis-list/onedrive.png
-[OneDrive-for-Businessicon]: ./media/apis-list/onedriveforbusiness.png
-[Oracle-DB-icon]: ./media/apis-list/oracle-db.png
-[Outlook.comicon]: ./media/apis-list/outlook.png
-[PagerDutyicon]: ./media/apis-list/pagerduty.png
-[Pinteresticon]: ./media/apis-list/pinterest.png
-[Project-Onlineicon]: ./media/apis-list/projectonline.png
-[Redmineicon]: ./media/apis-list/redmine.png
-[RSSicon]: ./media/apis-list/rss.png
-[Common-Data-Serviceicon]: ./media/apis-list/runtimeservice.png
-[Salesforceicon]: ./media/apis-list/salesforce.png
-[SAPicon]: ./media/apis-list/sap.png
-[SendGridicon]: ./media/apis-list/sendgrid.png
-[Service-Busicon]: ./media/apis-list/servicebus.png
-[SFTPicon]: ./media/apis-list/sftp.png
-[SharePointicon]: ./media/apis-list/sharepointonline.png
-[Slackicon]: ./media/apis-list/slack.png
-[Smartsheeticon]: ./media/apis-list/smartsheet.png
-[SMTPicon]: ./media/apis-list/smtp.png
-[SparkPosticon]: ./media/apis-list/sparkpost.png
-[SQL-Servericon]: ./media/apis-list/sql.png
-[Todoisticon]: ./media/apis-list/todoist.png
-[Trelloicon]: ./media/apis-list/trello.png
-[Twilioicon]: ./media/apis-list/twilio.png
-[Twittericon]: ./media/apis-list/twitter.png
-[Vimeoicon]: ./media/apis-list/vimeo.png
-[Visual-Studio-Team-Servicesicon]: ./media/apis-list/visualstudioteamservices.png
-[WordPressicon]: ./media/apis-list/wordpress.png
-[Wunderlisticon]: ./media/apis-list/wunderlist.png
-[Yammericon]: ./media/apis-list/yammer.png
-[YouTubeicon]: ./media/apis-list/youtube.png
-
-<!-- Primitive Icons -->
-[API/Web-Appicon]: ./media/apis-list/appservices.png
-[Azure-Functionsicon]: ./media/apis-list/function.png
-[CallLogicApp-icon]: ./media/apis-list/calllogicapp.png
-[Delayicon]: ./media/apis-list/delay.png
-[HTTPicon]: ./media/apis-list/http.png
-[HTTP-Requesticon]: ./media/apis-list/request.png
-[HTTP-Responseicon]: ./media/apis-list/response.png
-[HTTP-Swaggericon]: ./media/apis-list/http_swagger.png
-[Nested-Logic-Appicon]: ./media/apis-list/workflow.png
-[Recurrenceicon]: ./media/apis-list/recurrence.png
-[Queryicon]: ./media/apis-list/query.png
-[Webhookicon]: ./media/apis-list/webhook.png
-
-<!-- EIP Icons -->
-[as2icon]: ./media/apis-list/as2.png
-[x12icon]: ./media/apis-list/x12new.png
-[flatfileicon]: ./media/apis-list/flatfileencoding.png
-[flatfiledecodeicon]: ./media/apis-list/flatfiledecoding.png
-[xmlvalidateicon]: ./media/apis-list/xmlvalidation.png
-[xmltransformicon]: ./media/apis-list/xsltransform.png
-[integrationaccounticon]: ./media/apis-list/integrationaccount.png
-[liquidicon]: ./media/apis-list/liquidtransform.png
+<!-- Enterprise Integration Pack icons -->
+[as2-icon]: ./media/apis-list/as2.png
+[edifact-icon]: ./media/apis-list/edifact.png
+[flat-file-encode-icon]: ./media/apis-list/flat-file-encoding.png
+[flat-file-decode-icon]: ./media/apis-list/flat-file-decoding.png
+[integration-account-icon]: ./media/apis-list/integration-account.png
+[liquid-icon]: ./media/apis-list/liquid-transform.png
+[x12-icon]: ./media/apis-list/x12.png
+[xml-validate-icon]: ./media/apis-list/xml-validation.png
+[xml-transform-icon]: ./media/apis-list/xsl-transform.png

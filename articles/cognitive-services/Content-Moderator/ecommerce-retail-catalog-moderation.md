@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 5cb93941751c8744a19a5473d13f1e135a589eaa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6177758eaa3e611ad67da0778d889df48b052d90
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351755"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095760"
 ---
 # <a name="ecommerce-catalog-moderation-with-machine-learning"></a>machine learning ile e-ticaret katalog denetleme
 
@@ -158,7 +158,7 @@ Başvurmak [etiketleri](https://docs.microsoft.com/azure/cognitive-services/cont
 
 ## <a name="classify-into-flags-toys-and-pens"></a>Flags, toys ve kalemler sınıflandırma
 
-1. [Oturum](https://www.customvision.ai/account/signin) için [özel görme API Önizleme](https://www.customvision.ai/).
+1. [Oturum](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) için [özel görme API Önizleme](https://www.customvision.ai/).
 2. Kullanım [Hızlı Başlangıç](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) bayrakları, toys ve kalemler olası varolup olmadığını algılamak için özel sınıflandırıcı oluşturmak için.
    ![Özel görme eğitim görüntüleri](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Tahmin uç nokta URL'sini alma](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) özel sınıflandırıcı için.

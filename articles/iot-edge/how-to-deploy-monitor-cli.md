@@ -9,12 +9,12 @@ ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 705f7bfa62154bff62b2357bd8f33c01e97404d1
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: 3dfb0fe0227fdd0ff1a43cb7b0a89eb9d3e066f4
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036769"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097946"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Dağıtma ve IOT kenar modülleri Azure CLI kullanarak ölçekte izleme
 
@@ -65,7 +65,7 @@ Azure CLI 2.0 kullanan modülleri dağıtmak için dağıtım bildirimi yerel ol
                  "edgeAgent": {
                    "type": "docker",
                    "settings": {
-                     "image": "microsoft/azureiotedge-agent:1.0-preview",
+                     "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
                      "createOptions": "{}"
                    }
                  },
@@ -74,7 +74,7 @@ Azure CLI 2.0 kullanan modülleri dağıtmak için dağıtım bildirimi yerel ol
                    "status": "running",
                    "restartPolicy": "always",
                    "settings": {
-                     "image": "microsoft/azureiotedge-hub:1.0-preview",
+                     "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
                      "createOptions": "{}"
                    }
                  }

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018391"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098269"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Hdınsight ile betik eylemi geliştirme
 
@@ -284,7 +284,7 @@ Bir küme özelleştirmek için kullanılan komut aşağıdaki konumlardan birin
 
 * A __herkese açık şekilde okunabilir URI__. Örneğin, OneDrive, Dropbox veya barındırma hizmeti başka bir dosyaya depolanan verileri URL'sine.
 
-* Bir __Azure Data Lake Store hesabı__ Hdınsight kümesi ile ilişkili. Hdınsight ile Azure Data Lake Store kullanma hakkında daha fazla bilgi için bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+* Bir __Azure Data Lake Store hesabı__ Hdınsight kümesi ile ilişkili. Hdınsight ile Azure Data Lake Store kullanma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     > [!NOTE]
     > Hdınsight Data Lake Store erişmek için kullandığı hizmet sorumlusu komut dosyasını okuma erişimi olması gerekir.

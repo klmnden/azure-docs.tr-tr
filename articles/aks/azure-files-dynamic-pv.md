@@ -2,19 +2,19 @@
 title: Azure dosya AKS ile kullanma
 description: Azure diskleri AKS ile kullanma
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597510"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098354"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure dosyaları ile kalıcı birimleri
 
@@ -24,7 +24,7 @@ Kubernetes hakkında daha fazla bilgi için bkz: statik oluşturma dahil olmak �
 
 ## <a name="create-storage-account"></a>Depolama hesabı oluştur
 
-Dinamik olarak Kubernetes birimi olarak bir Azure dosya paylaşımı oluşturulurken AKS olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğümü** kaynak grubu. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
+Dinamik olarak Kubernetes birimi olarak bir Azure dosya paylaşımı oluşturulurken AKS olduğu sürece herhangi bir depolama hesabı kullanılabilir **düğümü** kaynak grubu. İle bir budur `MC_` AKS küme kaynaklarını sağlama tarafından oluşturulan öneki. Kaynak grubu adı ile alma [az kaynak Göster] [ az-resource-show] komutu.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -40,13 +40,15 @@ Güncelleştirme `--resource-group` kaynak grubu adı ile toplanan son adımda v
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
+> Azure dosyaları şu anda yalnızca standart depolama ile çalışır. Premium depolama kullanırsanız, biriminiz için sağlama başarısız olur.
+
 ## <a name="create-storage-class"></a>Depolama sınıfı oluşturma
 
 Depolama sınıfı, Azure dosya paylaşımının nasıl oluşturulacağını tanımlamak için kullanılır. Belirli bir depolama hesabı sınıfında belirtilebilir. Bir depolama hesabı belirtilmezse, bir `skuName` ve `location` belirtilmesi gerekir ve ilişkili kaynak grubundaki tüm depolama hesapları için bir eşleşme olarak değerlendirilir.
 
 Azure dosyaları için Kubernetes depolama sınıfları hakkında daha fazla bilgi için bkz: [Kubernetes depolama sınıfları][kubernetes-storage-classes].
 
-Adlı bir dosya oluşturun `azure-file-sc.yaml` ve aşağıdaki bildiriminde kopyalayın. Güncelleştirme `storageAccount` hedef depolama hesabı adı.
+Adlı bir dosya oluşturun `azure-file-sc.yaml` ve aşağıdaki bildiriminde kopyalayın. Güncelleştirme `storageAccount` hedef depolama hesabı adı. Daha fazla bilgi için [takma seçeneklerini] bölümüne bakarak `mountOptions`.
 
 ```yaml
 kind: StorageClass
@@ -54,8 +56,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 Depolama sınıfı oluşturmak [kubectl uygulamak] [ kubectl-apply] komutu.
@@ -206,3 +213,4 @@ Azure dosyaları kullanarak Kubernetes kalıcı birimleri hakkında daha fazla b
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

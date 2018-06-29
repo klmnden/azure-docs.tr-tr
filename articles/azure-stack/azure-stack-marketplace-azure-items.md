@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 826daae9c5d9cf5cd169651ab8603cef938e6482
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 48723a68fcad79ab7c4c670da78c95de3ea5868f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030045"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100547"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Market öğesi Azure yığını için kullanılabilir
 
@@ -204,7 +204,7 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![Basit makineler Forumu](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Basit makineler Forumu](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | Kendi çevrimiçi topluluk oluşturmak için basit forum yazılımı. | Bitnami |
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Cümbüşü](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | Kullanımı kolay e-ticaret platformudur. | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Alt sürüme](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | Açık kaynak sürüm denetimi sistemi. | Bitnami |
-| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.sugarcrm) | Esnek müşteri ilişkileri yönetimi çözümü. | Bitnami |
+| ![SugarCRM](media/azure-stack-marketplace-azure-items/sugarcrm.png) | [SugarCRM](https://azuremarketplace.microsoft.com/marketplace/apps/aad.sugarcrm) | Esnek müşteri ilişkileri yönetimi çözümü. | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | Popüler Kurumsal düzeyde CRM uygulaması. | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | Yönetim yazılımı kalite kolaylaştırmanın sınayın. | Bitnami |
 | ![Tiki Wiki CMS Groupware](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | Tam özellikli wiki platform. | Bitnami |
@@ -233,5 +233,5 @@ Microsoft Azure yığın şu Azure Marketi sanal makineleri ve çözüm şablonl
 | ![PT uygulaması güvenlik duvarı](media/azure-stack-marketplace-azure-items/pt.png) | [PT uygulaması güvenlik duvarı](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT uygulaması güvenlik duvarı bilinen & bilinmeyen güvenlik açıkları algılar ve web uygulamaları üzerinde saldırılarını önler. <b>Her iki PT Market öğesi indirin.</b> | Pozitif teknolojileri |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet kuruluş Azure yığın altyapınızın tüm yaşam döngüsü otomatikleştirmenizi sağlar. <b>Her iki Puppet Market öğesi indirin.</b> | Puppet |
 | ![İsteği Hızlı Kurtarma](media/azure-stack-marketplace-azure-items/quest.png) | [İsteği Hızlı Kurtarma çekirdek](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Veri koruma Gelişmiş Hızlı Kurtarma, yedekleme, çoğaltma ve kurtarma için bir kolay kullanımlı yazılım çözümü birleştirir. | İsteği yazılım |
-| ![SUSE Yöneticisi 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Yöneticisi 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSEManager30ProxyBringYourOwnSubscription) | En iyi sınıf açık kaynak altyapı yönetimi. | SUSE |
+| ![SUSE Yöneticisi 3.0 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Yöneticisi 3.0 Proxy (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | En iyi sınıf açık kaynak altyapı yönetimi. | SUSE |
 | ![ZeroDown yazılım aracı](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown yazılım aracı ](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.zerodown-software-tool-7_1) | ZeroDown yazılım aracı v7.1 - geçirmek + HA. | ZeroDown yazılım |

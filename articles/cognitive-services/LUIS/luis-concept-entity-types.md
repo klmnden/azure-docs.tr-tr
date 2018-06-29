@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 06/28/2018
 ms.author: v-geberr
-ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 01f451f7a3e09aacb029c2194044320717bfae96
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286027"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083266"
 ---
 # <a name="entities-in-luis"></a>HALUK varlıklar
 
@@ -28,7 +28,7 @@ Karşılaştırma amacını tüm utterance tahmin temsil eder.
 ## <a name="entities-represent-data"></a>Varlık verilerini temsil eder
 Utterance çekme istediğiniz verileri varlıklardır. Bu, bir ad, tarih, ürün adı veya sözcüklerin herhangi bir grubu olabilir. 
 
-|Utterance|Varlık|Veriler|
+|Konuşma|Varlık|Veri|
 |--|--|--|
 |New York için 3 bilet Al|Önceden oluşturulmuş numarası<br>Location.Destination|3<br>New York|
 |New York biletindeki Londra'ya 5 Mart satın alın|Location.Origin<br>Location.Destination<br>Önceden oluşturulmuş datetimeV2|New York<br>Londra<br>5 Mart 2018|
@@ -63,7 +63,7 @@ Dahil olmak üzere tüm hedefleri **hiçbiri** amacı, etiketli varlıklar sahip
 ## <a name="types-of-entities"></a>Varlık türlerini
 HALUK türlerde varlıklar sunar. önceden oluşturulmuş varlıklar, varlık ve liste varlıkları özel makine öğrendiniz.
 
-| Ad | Etiketleyebilirsiniz | Açıklama |
+| Adı | Etiketleyebilirsiniz | Açıklama |
 | -- |--|--|
 | **Önceden oluşturulmuş** <br/>[Özel](#prebuilt)| |  **Tanım**<br>Ortak kavramlar temsil eden yerleşik türleri. <br><br>**Liste**<br/>anahtar tümcecik numarası, sıra, sıcaklık, boyut, para, geçerlilik süresi, yüzde, e-posta, URL, telefon numarası ve anahtar tümcecik. <br><br>Önceden oluşturulmuş varlık adları ayrılmıştır. <br><br>Uygulamaya eklenen tüm önceden oluşturulmuş varlıklar döndürülür [endpoint](luis-glossary.md#endpoint) sorgu. Daha fazla bilgi için bkz: [önceden oluşturulmuş varlıklar](./Pre-builtEntities.md). <br/><br/>[Varlık için örnek yanıt](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 --> **Normal ifade**<br/>[RegEx](#regex)||**Tanım**<br>Biçimlendirilmiş ham utterance metin için özel normal ifade. Küçük büyük harf duyarlı ve kültürel değişken yok sayar.  <br><br>Bu varlık kelimeler ve aynı zamanda tutarlı olan çeşitlemeleri ile tutarlı bir şekilde biçimlendirilmiş ifadeler için uygundur.<br><br>Normal ifadeyle eşleşen yazım değişiklikleri sonra uygulanır. <br><br>Normal ifade birçok parantez kullanılarak gibi çok karmaşık ise, ifade modele eklemek mümkün değildir. <br><br>**Örnek**<br>`kb[0-9]{6,}` KB123456 eşleşir.<br/><br/>[Hızlı Başlangıç](luis-quickstart-intents-regex-entity.md)<br>[Varlık için örnek yanıt](luis-concept-data-extraction.md)|
@@ -90,6 +90,9 @@ HALUK türlerde varlıklar sunar. önceden oluşturulmuş varlıklar, varlık ve
 
 ## <a name="entity-limits"></a>Varlık sınırları
 Gözden geçirme [sınırları](luis-boundaries.md#model-boundaries) bir modele ekleyebilirsiniz her varlık türü kaç anlamak için.
+
+## <a name="entity-roles"></a>Varlık rolleri
+Varlık [rolleri](luis-concept-roles.md) yalnızca düzenleri kullanılır. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Bileşik vs hiyerarşik varlıklar
 Bileşik varlıkları ve hiyerarşik varlıkları hem üst-alt ilişkisi olan ve makine öğrendiniz. Machine learning farklı bağlamları (sözcükler düzenlenmesi) tabanlı varlıklar anlamak HALUK sağlar. Bileşik varlıklar farklı varlık türleri alt öğeleri olarak izin verdiğinden daha esnektir. Hiyerarşik bir varlığın alt yalnızca basit varlıklardır. 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d073732b5dd9b9867813d9ffcfad5caa1131d81
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404576"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102627"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Birden çok Hdınsight kümeleri ile bir Azure Data Lake Store hesabınız
 
 Hdınsight sürüm 3.5 ile başlayarak, varsayılan dosya sistemi Azure Data Lake Store hesapları ile Hdınsight kümeleri oluşturabilirsiniz.
-Data Lake Store, büyük miktarlarda verinin yalnızca barındırmak için ideal hale getirir sınırsız depolama destekler; ancak da barındırmak için birden çok Hdınsight tek bir Data Lake deposu hesap paylaşan kümeleri. Data Lake Store depolama ile bir Hdınsight kümesi oluşturma hakkında yönergeler için bkz: [Hdınsight kümeleri oluşturma Data Lake Store ile](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Data Lake Store, büyük miktarlarda verinin yalnızca barındırmak için ideal hale getirir sınırsız depolama destekler; ancak da barındırmak için birden çok Hdınsight tek bir Data Lake deposu hesap paylaşan kümeleri. Data Lake Store depolama ile bir Hdınsight kümesi oluşturma hakkında yönergeler için bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 Bu makalede, Data Lake için öneriler, bir tek ve paylaşılan veri Gölü depolamak birden çok kullanılan hesabı ayarlamak için yönetici depolamak sağlanmaktadır **etkin** Hdınsight kümeleri. Bu öneriler, paylaşılan bir Data Lake store hesabı üzerinde birden çok güvenli yanı sıra güvenli olmayan Hadoop kümeleri barındırmak için geçerlidir.
 
@@ -41,9 +41,9 @@ Bu klasör yapısı etkili bir şekilde Hdınsight kümeleri tarafından kullan�
 
 |Klasör  |İzinler  |Sahip olan kullanıcı  |Sahip olan grup  | Adlı kullanıcı | Adlı kullanıcı izinleri | Adlandırılmış Grup | Adlandırılmış grup izinleri |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |yönetici |yönetici  |Hizmet sorumlusu |--x  |FINGRP   |r-x         |
-|/Clusters | rwxr-x--x |yönetici |yönetici |Hizmet sorumlusu |--x  |FINGRP |r-x         |
-|/ kümeleri/Finans | rwxr-x--t |yönetici |FINGRP  |Hizmet sorumlusu |rwx  |-  |-     |
+|/ | rwxr-x--x  |Yönetici |Yönetici  |Hizmet sorumlusu |--x  |FINGRP   |r-x         |
+|/Clusters | rwxr-x--x |Yönetici |Yönetici |Hizmet sorumlusu |--x  |FINGRP |r-x         |
+|/ kümeleri/Finans | rwxr-x--t |Yönetici |FINGRP  |Hizmet sorumlusu |rwx  |-  |-     |
 
 Tabloda
 
@@ -51,13 +51,13 @@ Tabloda
 - **Hizmet sorumlusu** olan hesapla ilişkili Azure Active Directory (AAD) hizmet sorumlusu.
 - **FINGRP** Finans kuruluştan kullanıcıları içeren aad'de oluşturduğunuz bir kullanıcı grubu.
 
-(Bu da bir hizmet sorumlusu oluşturur) bir AAD uygulaması oluşturma hakkında yönergeler için bkz [bir AAD uygulaması oluşturabilir](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). AAD'de bir kullanıcı grubu oluşturma hakkında daha fazla yönerge için bkz: [Azure Active Directory içinde grupları yönetme](../active-directory/active-directory-groups-create-azure-portal.md).
+(Bu da bir hizmet sorumlusu oluşturur) bir AAD uygulaması oluşturma hakkında yönergeler için bkz [bir AAD uygulaması oluşturabilir](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). AAD'de bir kullanıcı grubu oluşturma hakkında daha fazla yönerge için bkz: [Azure Active Directory içinde grupları yönetme](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Dikkate alınması gereken bazı önemli noktalar.
 
 - İki düzey klasör yapısı (**/ / Finans/kümeleri**) oluşturulur ve uygun izinlere sahip Data Lake Store yönetici tarafından sağlanan **önce** kümeleri için depolama hesabını kullanarak. Bu yapı kümeleri oluşturulurken otomatik olarak oluşturulmaz.
-- Yukarıdaki örnekte sahibi olan Grup ayarlanırken önerir **/kümeleri/Finans** olarak **FINGRP** ve sorgulamasına **r-x** FINGRP erişimi kökünden başlayarak tüm klasör hiyerarşisi için. Bu, FINGRP üyeleri kökünden başlayarak klasör yapısı gidebilirsiniz sağlar.
-- Farklı AAD hizmet asıl adı altında kümeleri oluşturabilir, bu durumda **/kümeleri/Finans**, Yapışkan-bit (belirlendiğinde **Finans** klasörü) bir hizmet sorumlusu tarafından oluşturulan klasörler tarafından silinemiyor olmasını sağlar.
+- Yukarıdaki örnekte sahibi olan Grup ayarlanırken önerir **/kümeleri/Finans** olarak **FINGRP** ve sorgulamasına **r-x** tüm klasör hiyerarşisini başlangıç FINGRP için erişim kök dizini. Bu, FINGRP üyeleri kökünden başlayarak klasör yapısı gidebilirsiniz sağlar.
+- Farklı AAD hizmet asıl adı altında kümeleri oluşturabilir, bu durumda **/kümeleri/Finans**, Yapışkan-bit (belirlendiğinde **Finans** klasörü) klasörleri bir hizmet sorumlusu tarafından oluşturulan sağlar diğer silinemiyor.
 - İzinleri ve klasör yapısı yerinde olduktan sonra Hdınsight küme oluşturma işlemi kümeye özgü depolama loaction altında oluşturur **/ / Finans/kümeleri**. Örneğin, bir küme adı fincluster01 ile depolama olabilir **/clusters/finance/fincluster01**. Hdınsight kümesi tarafından oluşturulan klasörler için izinleri ve sahipliği tabloda burada gösterilir.
 
     |Klasör  |İzinler  |Sahip olan kullanıcı  |Sahip olan grup  | Adlı kullanıcı | Adlı kullanıcı izinleri | Adlandırılmış Grup | Adlandırılmış grup izinleri |
@@ -93,10 +93,10 @@ Bu ayarlar bir özel Hdınsight kullanım örneği yakalanan etkileyen bilinen [
 Daha önce Genel kaynaklar yerelleştirilirken bağlı YARN JIRA belirtildiği gibi yerelleştiriciye uzak dosya sistemi izinlerini denetleyerek, istenen tüm kaynakları gerçekten ortak olduğunu doğrular. Bu koşul sığmayan LocalResource yerelleştirme için reddedilir. İzinleri denetimini içeren dosyaya okuma erişimi "başkaları için". Bu senaryo Giden kutusu Azure Data Lake başkalarına"" tüm erişimini engellediği beri Azure Data Lake, Hdınsight kümelerinde barındırdığında kök klasör düzeyinde çalışmaz.
 
 #### <a name="workaround"></a>Geçici çözüm
-Kümesini yürütmek Okuma izinlerini **başkalarının** hiyerarşisi aracılığıyla örneğin **/**, **/kümeleri** ve **/kümeleri/Finans** yukarıdaki tabloda gösterilen.
+Kümesini yürütmek Okuma izinlerini **başkalarının** hiyerarşisi aracılığıyla örneğin **/**, **/kümeleri** ve   **/kümeleri/Finans** yukarıdaki tabloda gösterilen.
 
 ## <a name="see-also"></a>Ayrıca bkz.
 
-* [Hdınsight kümesi Data Lake Store ile depolama alanı olarak oluşturun.](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Hızlı Başlangıç: Hdınsight kümelerinde ayarlayın](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

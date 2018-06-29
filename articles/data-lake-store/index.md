@@ -1,26 +1,28 @@
 ---
-title: Azure Data Lake Store Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
+title: Azure Data Lake Storage Gen1 Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
 description: Her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir veri gölü deposu ayarlama, yönetme ve depoya erişme hakkında bilgi edinin.
 services: data-lake-store
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
 ms.assetid: ''
 ms.service: data-lake-store
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: d738676a0a9b16c32646734168546992d8595912
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: twooley
+ms.openlocfilehash: ba17c59169d00a8333bb9eb1c7bb0c1a56aaba83
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033452"
 ---
-# <a name="data-lake-store-documentation"></a>Data Lake Store Belgeleri
+# <a name="azure-data-lake-storage-gen1-documentation"></a>Azure Data Lake Storage Gen1 Belgeleri
 
-Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir depo oluşturma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, işlem ve keşif analizi için bir veri gölü deposu ayarlama, yönetme ve depoya erişme ile ilgili bilgiler içerir.
+Azure Data Lake Storage Gen1'i (eski adıyla Azure Data Lake Store) kullanarak her boyutta, türde ve alma hızındaki veriler üzerinde analiz gerçekleştirmek üzere hiper ölçekli, Hadoop ile uyumlu bir depo oluşturma hakkında bilgi edinin. Öğreticiler, API başvuruları ve diğer belgeler, işlem ve keşif analizi için bir veri gölü deposu ayarlama, yönetme ve depoya erişme ile ilgili bilgiler içerir.
+
+Data Lake Storage Gen2 önizleme sürümü hakkında bilgi edinmek istiyorsanız [ürün sayfasına](https://aka.ms/adlsgen2-product) bakın.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -34,7 +36,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake Store hakkında daha fazla bilgi edinin</h3>
+                        <h3>Data Lake Storage Gen1 hakkında bilgi edinin</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake Store Video Kitaplığı</h3>
+                        <h3>Data Lake Storage Gen1 Video Kitaplığı</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure portalı kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
+                        <h3>Azure portal ile Data Lake Storage Gen1'i kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>PowerShell kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
+                        <h3>PowerShell ile Data Lake Storage Gen1'i kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure CLI kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
+                        <h3>Azure CLI ile Data Lake Storage Gen1'i kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +126,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>.NET kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
+                        <h3>.NET ile Data Lake Storage Gen1'i kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Java'yı kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
+                        <h3>Java ile Data Lake Storage Gen1'i kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +162,7 @@ Data Lake Store’u kullanarak her boyutta, türde ve alma hızındaki veriler �
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js kullanarak Azure Data Lake Store ile çalışmaya başlama</h3>
+                        <h3>Node.js ile Data Lake Storage Gen1'i kullanmaya başlama</h3>
                     </div>
                 </div>
             </div>

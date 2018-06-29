@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [Yönlendirme iletileri](tutorial-routing.md)
 ## [Cihazlarınızı yapılandırma](tutorial-device-twins.md)
+## [Üretici yazılımı güncelleştirmelerini yönetme](tutorial-firmware-update.md)
 ## [Cihaz bağlantısını test etme](tutorial-connectivity.md)
 ## Buluttan cihaza iletileri gönderme
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -111,6 +112,8 @@
 #### [Eclipse Paho API'lerini kullanarak bir MQTT sunucusuna ileti gönderme](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [Manyetik algılayıcıyı izleme ve Azure İşlevleri ile e-posta bildirimleri gönderme](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
+## [Cihaz yapılandırması için en iyi yöntemler](iot-hub-configuration-best-practices.md)
+
 # Nasıl yapılır kılavuzları
 ## Planlama
 ### [IoT Hub ile Event Hubs’ı karşılaştırma](iot-hub-compare-event-hubs.md)
@@ -169,6 +172,9 @@
 ### Modül ikizlerini kullanmaya başlama
 #### [Portal](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### Doğrudan yöntemler kullanma
 #### [Node.js](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +227,9 @@
 ## [IoT hub’ı yükseltme](iot-hub-upgrade.md)
 ## [Ölçümleri kullanma](iot-hub-metrics.md)
 ## [IP filtrelemeyi yapılandırma](iot-hub-ip-filtering.md)
-## [Cihazları ölçekli olarak yapılandırma](iot-hub-auto-device-config.md)
+## Cihazları ölçekli olarak yapılandırma
+### [Azure portalını kullanma](iot-hub-auto-device-config.md)
+### [Azure CLI kullanma](iot-hub-auto-device-config-cli.md)
 
 # Başvuru
 ## [Kod örnekleri](https://azure.microsoft.com/resources/samples/?service=iot-hub)

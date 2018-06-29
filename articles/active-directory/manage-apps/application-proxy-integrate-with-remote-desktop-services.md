@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 5c6d6b9580b123dafb03af2acc885d2416ca2a56
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0a004ee6e5dbdd2ceb8546a4b7ce20b2b551fac9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292550"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084074"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD uygulama proxy'si ile Uzak Masaüstü yayımlama
 
@@ -44,6 +44,8 @@ RDS dağıtımında, RD Web rolü ve RD Ağ Geçidi rol Internet'e yönelik maki
 >RDS önce dağıtılan henüz veya başlamadan önce daha fazla bilgi istiyorsanız öğrenin nasıl [sorunsuz bir şekilde Azure Resource Manager ve Azure Marketi RDS dağıtma](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure).
 
 ## <a name="requirements"></a>Gereksinimler
+
+- Web istemcisi uygulama proxy'si desteklemediğinden Uzak Masaüstü web istemcisi dışındaki bir istemci kullanın.
 
 - RD Web ve RD Ağ Geçidi uç noktalar aynı makine üzerindeki ve bir ortak kök ile yer alması gerekir. Böylece çoklu oturum açma deneyimini iki uygulama arasındaki sahip RD Web ve RD Ağ Geçidi uygulaması proxy'si ile tek bir uygulama olarak yayımlanır.
 

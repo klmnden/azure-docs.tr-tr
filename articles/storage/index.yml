@@ -3,24 +3,24 @@ documentType: LandingData
 title: Azure Storage Belgeleri
 metadata:
   title: Azure Depolama Belgeleri - Öğreticiler, API Başvurusu | Microsoft Docs
-  description: Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Azure Depolama; Blob depolama, Dosya Depolama ve Kuyruk depolama hizmetlerinden oluşur.
+  description: Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Azure Depolama; Azure Blobları, Azure Data Lake Storage Gen2, Azure Dosyaları, Azure Kuyrukları ve Azure Tabloları hizmetlerini kapsar.
   services: storage
   author: tamram
-  manager: jeconnoc
+  manager: twooley
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/18/2018
+  ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
-  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36266680"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37030300"
 abstract:
-  description: Microsoft Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli depolama sağlayan, Microsoft tarafından yönetilen bir bulut hizmetidir. Azure Depolama; Blob depolama, Dosya Depolama ve Kuyruk depolama hizmetlerinden oluşur.  Hızlı başlangıç yönergelerimiz ve öğreticilerimizden yararlanarak Azure Depolama’dan nasıl yararlanabileceğimizi öğrenin.
+  description: Azure Depolama, yüksek oranda kullanılabilir, güvenli, dayanıklı, ölçeklenebilir ve yedekli bulut depolama sağlayan, Microsoft tarafından yönetilen bir hizmettir. Azure Depolama; Azure Blobları (nesneler), Azure Data Lake Storage Gen2, Azure Dosyaları, Azure Kuyrukları ve Azure Tabloları hizmetlerini kapsar. Hızlı başlangıç yönergelerimiz ve öğreticilerimizden yararlanarak Azure Depolama’dan nasıl yararlanabileceğimizi öğrenin.
 sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
@@ -65,30 +65,25 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-java
       - href: /azure/storage/blobs/storage-quickstart-blobs-python
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+    - title: Data Lake Storage Gen2
+      values:
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli
+      - href: 
+      - href: 
+      - href: 
+      - href: 
 - title: Adım Adım Öğreticiler
   items:
-  - type: paragraph
-    text: Karşıya yükleme ve bulutta görüntü verileri işleme işlemlerini nasıl yapabileceğinizi öğrenin.
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="/azure/storage/blobs/storage-upload-process-images">Bulutta görüntü verilerini karşıya yükleme ve kullanma</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob’ları işlemek için Azure İşlevleri’ni tetikleme</a>
-    - html: <a href="/azure/storage/blobs/storage-secure-access-application">Uygulama verilerinin güvenliğini sağlama</a>
-    - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Depolamayı izleme ve sorun giderme</a>
-  - type: paragraph
-    text: Azure Depolama’da yüksek kullanılabilirlik için uygulamanızı tasarlamayı öğrenin.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Uygulama verilerinizi yüksek oranda kullanılabilir hale getirme</a>
-    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme</a>
-  - type: paragraph
-    text: Azure Depolama’da yapılandırılmamış verileri aramayı öğrenin.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-unstructured-search">Bulut depolama alanında yapılandırılmamış verileri arama</a>
+    - title: Bloblar
+      html: <p>Görüntü verilerini buluta yükleme ve orada işleme</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Bulutta görüntü verilerini karşıya yükleme ve kullanma</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob’ları işlemek için Azure İşlevleri’ni tetikleme</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Uygulama verilerinin güvenliğini sağlama</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Depolamayı izleme ve sorun giderme</a></li></ul><p>Uygulamanızı yüksek kullanılabilirlik için tasarlama</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Uygulama verilerinizi yüksek oranda kullanılabilir hale getirme</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Okuma erişimli yedekli depolamaya erişimde hata benzetimi gerçekleştirme</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Azure Depolama’da yapılandırılmamış verileri arama</a></p>
+    - title: Data Lake Storage Gen2
+      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Azure Databricks kullanarak verileri ayıklama, dönüştürme ve yükleme</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Spark kullanarak DataBricks ile Azure Data Lake Storage Gen2 verilerine erişme</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Azure HDInsight üzerinde Apache Hive kullanarak verileri ayıklama, dönüştürme ve yükleme</a></p>
 - title: Örnekler
   items:
   - type: paragraph

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401970"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100513"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure portalını kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -74,14 +74,14 @@ Azure portalı küme özelliklerinin çoğu kullanıma sunar. Azure Resource Man
 
     * **İleri**’ye tıklayın.
 
-4. İçin **depolama**, Azure Storage (WASB) ya da Data Lake Store, varsayılan depolama alanı olarak isteyip istemediğinizi belirtin. Daha fazla bilgi için aşağıdaki tabloya bakın.
+4. İçin **depolama**, varsayılan depolama olarak Azure Storage (WASB) veya Data Lake Storage istediğinizi belirtin. Daha fazla bilgi için aşağıdaki tabloya bakın.
 
     ![Azure portalında yeni bir küme oluşturma](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Azure portalında yeni bir küme oluşturma")
 
     | Depolama                                      | Açıklama |
     |----------------------------------------------|-------------|
-    | **Azure Storage Bloblarında varsayılan depolama**   | <ul><li>İçin **birincil depolama türü**seçin **Azure Storage**. Bundan sonra için **seçim yöntemini**, seçebileceğiniz **My abonelikleri** , Azure aboneliğinizin bir parçası olan bir depolama hesabı belirtin ve ardından depolama hesabını seçin istiyorsanız. Aksi takdirde tıklatın **erişim tuşu** ve Azure aboneliğinize dışında seçmek istediğiniz depolama hesabı için bilgileri sağlayın.</li><li>İçin **varsayılan kapsayıcı**, portal tarafından önerilen varsayılan kapsayıcı adıyla gidin veya kendi koşulunuzu belirtmek seçebilirsiniz.</li><li>Varsayılan depolama alanı olarak WASB kullanıyorsanız (isteğe bağlı) tıklayabilirsiniz **ek depolama hesapları** kümesi ile ilişkilendirmek için ek depolama hesapları belirtmek için. İçin **Azure depolama anahtarları**, tıklatın **depolama anahtarı eklemek**, ve ardından, bir depolama hesabı, Azure aboneliklerinize veya diğer abonelikler (depolama hesabı erişim tuşu sağlayarak) sağlayabilirsiniz.</li><li>Varsayılan depolama alanı olarak WASB kullanıyorsanız (isteğe bağlı) tıklayabilirsiniz **Data Lake Store erişim** ek depolama alanı olarak Azure Data Lake Store belirtmek için. Daha fazla bilgi için bkz: [Azure portalını kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).</li></ul> |
-    | **Azure Data Lake Store varsayılan depolama** | İçin **birincil depolama türü**seçin **Data Lake Store** ve makalesine başvurun [Azure portalını kullanarak Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) yönergeler için. |
+    | **Azure Storage Bloblarında varsayılan depolama**   | <ul><li>İçin **birincil depolama türü**seçin **Azure Storage**. Bundan sonra için **seçim yöntemini**, seçebileceğiniz **My abonelikleri** , Azure aboneliğinizin bir parçası olan bir depolama hesabı belirtin ve ardından depolama hesabını seçin istiyorsanız. Aksi takdirde tıklatın **erişim tuşu** ve Azure aboneliğinize dışında seçmek istediğiniz depolama hesabı için bilgileri sağlayın.</li><li>İçin **varsayılan kapsayıcı**, portal tarafından önerilen varsayılan kapsayıcı adıyla gidin veya kendi koşulunuzu belirtmek seçebilirsiniz.</li><li>Varsayılan depolama alanı olarak WASB kullanıyorsanız (isteğe bağlı) tıklayabilirsiniz **ek depolama hesapları** kümesi ile ilişkilendirmek için ek depolama hesapları belirtmek için. İçin **Azure depolama anahtarları**, tıklatın **depolama anahtarı eklemek**, ve ardından, bir depolama hesabı, Azure aboneliklerinize veya diğer abonelikler (depolama hesabı erişim tuşu sağlayarak) sağlayabilirsiniz.</li><li>Varsayılan depolama alanı olarak WASB kullanıyorsanız (isteğe bağlı) tıklayabilirsiniz **Data Lake Store erişim** ek depolama alanı olarak Azure Data Lake Storage belirtmek için. Daha fazla bilgi için bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+    | **Azure Data Lake Storage varsayılan depolama** | İçin **birincil depolama türü**seçin **Azure Data Lake Storage Gen1** veya **Azure Data Lake Storage Gen2 (Önizleme)** ve makalesine başvurun [hızlı başlangıç : Hdınsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) yönergeler için. |
     | **Dış meta deponuz**                      | İsteğe bağlı olarak, kümeyle ilişkili Hive ve Oozie meta verileri kaydetmek için bir SQL veritabanı belirtebilirsiniz. İçin **bir SQL veritabanı için Hive seçin** bir SQL veritabanını seçin ve ardından veritabanı için kullandığınız kullanıcı adı/parola sağlayın. Oozie meta verileri için bu adımları yineleyin.<br><br>Azure SQL veritabanı için meta deponuz kullanırken bazı noktalar. <ul><li>Meta depo için kullanılan Azure SQL veritabanı Azure Hdınsight gibi diğer Azure hizmetlerine bağlantıyı izin vermeniz gerekir. Azure SQL veritabanı Panoda sağ tarafında sunucu adını tıklatın. Bu, SQL veritabanı örneğinin çalıştığı sunucudur. Sunucu görünümünde olduktan sonra tıklatın **yapılandırma**ve ardından **Azure Hizmetleri**, tıklatın **Evet**ve ardından **kaydetmek**.</li><li>Bu küme oluşturma işleminin başarısız olmasına neden bir meta depo oluştururken, kısa çizgi veya kısa çizgi, içeren bir veritabanı adı kullanmayın.</li></ul> |
 
     **İleri**’ye tıklayın. 
@@ -99,7 +99,7 @@ Azure portalı küme özelliklerinin çoğu kullanıma sunar. Azure Resource Man
    > [!IMPORTANT]
    > Düğümlerde 32'den fazla worker, küme oluşturma sırasında ya da Küme oluşturulduktan sonra ölçeklendirme planlıyorsanız bir baş düğüm boyutu en az 8 çekirdek ve 14 GB RAM ile seçmeniz gerekir.
    > 
-   > Düğümü boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
+   > Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
    > 
    > 
    

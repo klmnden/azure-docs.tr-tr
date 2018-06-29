@@ -1,27 +1,27 @@
 ---
-title: İki aşamalı doğrulama sorunlarını giderme | Microsoft Docs
+title: İki aşamalı doğrulama - Azure AD sorunlarını giderme | Microsoft Docs
 description: Bu belge kullanıcılar Azure çok faktörlü kimlik doğrulaması ile ilgili bir sorunu içine çalıştırırsanız yapmanız gerekenler hakkında bilgi sağlar.
 services: multi-factor-authentication
 keywords: çok faktörlü kimlik doğrulama istemcisi, kimlik doğrulama sorunu bağıntı kimliği
 documentationcenter: ''
-author: barlanmsft
+author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2017
-ms.author: barlan
+ms.author: lizross
 ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 995430a5c8a388358fcfb7c8c9bac978450df411
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e207a51b06563b38a85df47b0bac75293cccf040
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792269"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102718"
 ---
 # <a name="get-help-with-two-step-verification"></a>İki aşamalı doğrulama konusunda yardım alın
 Bu makalede, iki aşamalı doğrulama hakkında yapmalarını isteriz en yaygın sorular yanıtlanmaktadır.
@@ -46,7 +46,7 @@ Bu makalede, iki aşamalı doğrulama hakkında yapmalarını isteriz en yaygın
 3. Kullanmak istediğiniz doğrulama seçeneğini seçin.
 4. İki aşamalı doğrulama ile devam edin.
 
-Görmüyorsanız, **farklı bir doğrulama seçeneği kullanma** bağlantı kaydetmedi ayarladığınız alternatif yöntemleri için iki aşamalı doğrulamayı ilk kaydolurken anlamına gelir. Hesabınızda oturum açarken yardım almak için şirket desteğe başvurun. Oturum açtınız sonra emin olun [ayarlarınızı yönetmenize](multi-factor-authentication-end-user-manage-settings.md) gelecek sefer için ek doğrulama yöntemleri eklemek için.
+Görmüyorsanız, **farklı bir doğrulama seçeneği kullanma** bağlantı kaydetmedi ayarladığınız alternatif yöntemleri için iki aşamalı doğrulamayı ilk kaydolurken anlamına gelir. Hesabınızda oturum açarken yardım almak için şirket desteğe başvurun. Oturum açtınız sonra emin olun [ayarlarınızı yönetmenize](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) gelecek sefer için ek doğrulama yöntemleri eklemek için.
 
 Görürseniz **farklı bir doğrulama seçeneği kullanma** bağlantı, ancak sahip değilseniz erişim alternatif yöntemlerinizi şirketinizin destek hesabınızda oturum açarken yardım almak için iki, başvurun.
 
@@ -66,10 +66,10 @@ Alternatif bir telefon numarası kullanarak oturum için şu adımları izleyin:
    ![Farklı bir doğrulama](./media/multi-factor-authentication-end-user-troubleshoot/diff_option.png)
 
 3. Telefon numarası veya erişiminiz cihazı seçin.
-4. Hesabınızdaki geri girdikten sonra [ayarlarınızı yönetmenize](multi-factor-authentication-end-user-manage-settings.md) kimlik doğrulama telefon numaranızı değiştirmek için.
+4. Hesabınızdaki geri girdikten sonra [ayarlarınızı yönetmenize](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md) kimlik doğrulama telefon numaranızı değiştirmek için.
 
 ### <a name="clear-your-settings"></a>Ayarlarınızı temizleyin
-İkincil kimlik doğrulama telefon numaranızı yapılandırmadıysanız, Yardım için şirket desteğe başvurun sahip. Clear sahip bir sonraki şekilde, ayarlarınızı oturum açın, vermesi istenir [kaydetmek için iki aşamalı doğrulamayı](multi-factor-authentication-end-user-first-time.md) yeniden.
+İkincil kimlik doğrulama telefon numaranızı yapılandırmadıysanız, Yardım için şirket desteğe başvurun sahip. Clear sahip bir sonraki şekilde, ayarlarınızı oturum açın, vermesi istenir [kaydetmek için iki aşamalı doğrulamayı](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) yeniden.
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Bir metin alıyorum değil veya telefonum üzerinde çağırın
 Neden oturum açın, ancak metin ya da telefon araması almamayı deneyebilirsiniz birkaç nedeni vardır. Başarıyla metinleri ya da telefon aramaları telefonunuza geçmişte aldığınız, sonra bunun değil hesabınızı telefon sağlayıcısı ile ilgili bir sorun olabilir. İyi hücre sinyal varsa ve almaya çalıştığınız metin iletisi metin iletileri almasına mümkün olduğundan emin olun emin olun. Siz veya metin çağırmak için bir arkadaş isteyin, bir test olarak.
@@ -83,16 +83,16 @@ Bir metin veya arama için birkaç dakika beklediğinizden, farklı bir seçenek
 
     Birden çok doğrulama kodları aldıysanız, en yeni birini kullanın.
 
-Yapılandırılmış başka bir yöntem yoksa, şirket desteğine başvurun ve ayarlarınızı temizlemek isteyin. ' De, oturum açtığınızda, istenir [çok faktörlü kimlik doğrulamasını kurma](multi-factor-authentication-end-user-first-time.md) yeniden.
+Yapılandırılmış başka bir yöntem yoksa, şirket desteğine başvurun ve ayarlarınızı temizlemek isteyin. ' De, oturum açtığınızda, istenir [çok faktörlü kimlik doğrulamasını kurma](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md) yeniden.
 
-Hatalı hücre sinyali nedeniyle gecikmeler genellikle varsa kullanmanız önerilir [Microsoft Authenticator uygulaması](microsoft-authenticator-app-how-to.md) smartphone üzerinde. Uygulama oturum açmak için kullandığınız rastgele güvenlik kodlarını oluşturabilir ve bu kodları herhangi bir hücre sinyal ya da Internet bağlantısı gerektirmez.
+Hatalı hücre sinyali nedeniyle gecikmeler genellikle varsa kullanmanız önerilir [Microsoft Authenticator uygulaması](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-how-to.md) smartphone üzerinde. Uygulama oturum açmak için kullandığınız rastgele güvenlik kodlarını oluşturabilir ve bu kodları herhangi bir hücre sinyal ya da Internet bağlantısı gerektirmez.
 
 ## <a name="app-passwords-are-not-working"></a>Uygulama parolaları çalışmıyor
-İlk olarak, uygulama parolası doğru girdiğinizden emin olun. İki aşamalı doğrulamayı desteklemeyen ancak yalnızca eski Masaüstü uygulamaları için normal parolanızı oluşturulan uygulama parolasını değiştirir. Hala çalışmıyorsa, oturum açma deneyin ve [yeni bir uygulama parolası oluşturmanız](multi-factor-authentication-end-user-app-passwords.md).  Hala çalışmıyorsa, şirket desteğine başvurun ve bunları [mevcut uygulama parolalarınızın silme](../../active-directory/authentication/howto-mfa-userdevicesettings.md) ve daha sonra yeni bir tane oluşturabilirsiniz.
+İlk olarak, uygulama parolası doğru girdiğinizden emin olun. İki aşamalı doğrulamayı desteklemeyen ancak yalnızca eski Masaüstü uygulamaları için normal parolanızı oluşturulan uygulama parolasını değiştirir. Hala çalışmıyorsa, oturum açma deneyin ve [yeni bir uygulama parolası oluşturmanız](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-app-passwords.md).  Hala çalışmıyorsa, şirket desteğine başvurun ve bunları [mevcut uygulama parolalarınızın silme](../../active-directory/authentication/howto-mfa-userdevicesettings.md) ve daha sonra yeni bir tane oluşturabilirsiniz.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Bir yanıt sorunumu Bul alamadık.
 Sorun giderme adımları çalıştınız, ancak hala sorunlarla çalıştıran şirket desteğinize başvurun. Bunlar size yardımcı olmak üzere görebilmeniz gerekir.
 
 ## <a name="related-topics"></a>İlgili konular
-* [İki aşamalı doğrulama için ayarlarınızı yönetme](multi-factor-authentication-end-user-manage-settings.md)  
-* [Microsoft Authenticator uygulaması hakkında SSS](microsoft-authenticator-app-faq.md)
+* [İki aşamalı doğrulama için ayarlarınızı yönetme](../../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-manage-settings.md)  
+* [Microsoft Authenticator uygulaması hakkında SSS](../../active-directory/authentication/end-user/current/microsoft-authenticator-app-faq.md)

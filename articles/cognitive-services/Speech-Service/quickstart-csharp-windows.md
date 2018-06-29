@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 64281215d139731b61365936bc1b837798ad8fbf
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: MT
+ms.openlocfilehash: f0a2ec617c71f9e86610017d3b6fa961bbd14322
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016843"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083095"
 ---
 # <a name="quickstart-recognize-speech-using-the-cognitive-services-speech-c-sdk"></a>Hızlı Başlangıç: Bilişsel hizmetler konuşma C# SDK kullanarak konuşma tanı
 
@@ -101,4 +101,5 @@ En son örnekleri için bkz [Bilişsel hizmetler konuşma SDK örnek GitHub depo
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [Konuşma Çevir](how-to-translate-speech.md)
-- [Konuşma modelleri özelleştirme](how-to-customize-speech-models.md)
+- [Akustik modelleri özelleştirme](how-to-customize-acoustic-models.md)
+- [Dil modelleri özelleştirme](how-to-customize-language-model.md)

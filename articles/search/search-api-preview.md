@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/17/2018
 ms.author: HeidiSteen
-ms.openlocfilehash: ce5771777762414a0229cf83425c2f3601cb979a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 2e000628ebec393147328125a04d5d6f55afd3c6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655817"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100496"
 ---
 # <a name="azure-search-service-rest-api-version-2017-11-11-preview"></a>Azure Search Hizmeti REST API sürümü 2017-11-11-Önizleme
 Bu makalede `api-version=2017-11-11-Preview` Azure Search Hizmeti REST API'si, henüz genellikle kullanılamıyor Deneysel özellikleri sunan sürümü.
@@ -27,11 +27,11 @@ Bu makalede `api-version=2017-11-11-Preview` Azure Search Hizmeti REST API'si, h
 
 ## <a name="new-in-2017-11-11-preview"></a>Yeni 2017-11-11-Önizleme
 
-[Bilişsel arama](cognitive-search-concept-intro.md), yeni bir iyileştirmesini Özelliği Azure Search'te metin olmayan kaynakları ve Azure Search'te bir tam metin aranabilir içeriğe dönüştürme protokole metin görünmeyen bilgileri bulur.
+[**Otomatik Tamamlama** ](search-autocomplete-tutorial.md) varolan birleştirir [önerileri API](https://docs.microsoft.com/rest/api/searchservice/suggestions) yazarken tamamlanan tamamlayıcı karşılaştığında Arama çubuğuna eklemek için. Otomatik Tamamlama bir kullanıcı bir sonraki arama için sorgu dizesi olarak seçebilir sorgu terimlerinin adayı döndürür. Öneriler yanıt kısmi girişleri olarak gerçek belgeleri döndürür: arama sonuçlarını hemen ve arama terimi giriş uzunluğu ve ayrıntısıyla büyüdükçe dinamik olarak değiştirin.
 
-Aşağıdaki reources sunulan veya REST API önizlemede değiştirilemiyor. Genel olarak kullanılabilir çağırmak ya da sürüm Önizleme diğer tüm REST API'leri aynıdır.
+[**Bilişsel arama**](cognitive-search-concept-intro.md), yeni bir iyileştirmesini Özelliği Azure Search'te metin olmayan kaynakları ve Azure Search'te bir tam metin aranabilir içeriğe dönüştürme protokole metin görünmeyen bilgileri bulur. Aşağıdaki kaynaklar sunulan veya REST API önizlemede değiştirilemiyor. Genel olarak kullanılabilir çağırmak ya da sürüm Önizleme diğer tüm REST API'leri aynıdır.
 
-+ [Skillset oluşturun (API sürümü 2017-11-11-Önizleme =)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Skillset operations(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/skillset-operations)
 
 + [Dizin Oluşturucu yapın (API sürümü 2017-11-11-Önizleme =)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 

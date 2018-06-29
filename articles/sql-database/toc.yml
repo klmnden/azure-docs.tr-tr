@@ -50,7 +50,7 @@
       href: sql-database-design-first-database.md
     - name: 2 - .NET kullanarak DB tasarlama
       href: sql-database-design-first-database-csharp.md
-    - name: 3 - DMS’yi kullanarak SQL Server DB’ye geçirme
+    - name: 3 - DMA’yı kullanarak SQL Server DB’ye geçirme
       href: sql-database-migrate-your-sql-server-database.md
     - name: 4 - SQL veritabanınızı güvenli hale getirme
       href: sql-database-security-tutorial.md

@@ -126,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: Gelişmiş özellikler
           items:
+            - name: IP bağlantısı filtreleri
+              href: service-bus-ip-filtering.md
+            - name: Sanal Ağ hizmeti uç noktaları
+              href: service-bus-service-endpoints.md
             - name: Teslim edilemeyen iletiler sırası
               href: service-bus-dead-letter-queues.md
             - name: İletileri önceden getirme

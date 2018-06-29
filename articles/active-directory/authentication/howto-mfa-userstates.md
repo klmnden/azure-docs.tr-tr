@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: b809097e50a17178da12fdb424eba08dc8e0c4cb
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866900"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099618"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Bir kullanıcı veya grup için iki aşamalı doğrulama zorunlu kılma
 
@@ -71,7 +71,7 @@ Burada görüntüleyebilir ve kullanıcı durumlarını Yönetme sayfasına eri�
 
 5. Açılır pencere Seçiminizi onaylayın. 
 
-Kullanıcıların etkinleştirdikten sonra bunları e-posta ile bildirin. Kullanıcılar oturum açtığında kaydetmek için istenir söyleyin. Ayrıca, kuruluşunuz modern kimlik doğrulamayı desteklemeyen tarayıcı olmayan uygulamaları kullanıyorsa, kullanıcılar uygulama parolaları oluşturmanız gerekir. Bir bağlantı da içerebilir [Azure MFA Son Kullanıcı Kılavuzu](./../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md) başlama yardımcı olmak için.
+Kullanıcıların etkinleştirdikten sonra bunları e-posta ile bildirin. Kullanıcılar oturum açtığında kaydetmek için istenir söyleyin. Ayrıca, kuruluşunuz modern kimlik doğrulamayı desteklemeyen tarayıcı olmayan uygulamaları kullanıyorsa, kullanıcılar uygulama parolaları oluşturmanız gerekir. Bir bağlantı da içerebilir [Azure MFA Son Kullanıcı Kılavuzu](end-user/current/multi-factor-authentication-end-user.md) başlama yardımcı olmak için.
 
 ### <a name="use-powershell"></a>PowerShell kullanma
 Kullanarak kullanıcı durumunu değiştirmek için [Azure AD PowerShell](/powershell/azure/overview), değiştirme `$st.State`. Üç olası durum şunlardır:

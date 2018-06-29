@@ -8,12 +8,12 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6bf918428312c511505304bd23b68cd19e46471
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0a5cbabf8080efd1ae25ba151a1be339e8f5cad2
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37036812"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081763"
 ---
 # <a name="azure-iot-edge-support"></a>Azure IOT uç desteği
 Bir Azure IOT kenar ürün desteğini arama için çeşitli yollar vardır.
@@ -33,8 +33,8 @@ Katman 1 sistemleri, olarak resmi olarak desteklenen değerlendirilebilir. Bunun
 * Bunlar için yükleme paketleri sağlar
 
 Genel olarak kullanılabilir
-* Ubuntu 18.04
-* Ubuntu 16.04
+* Ubuntu Server 18.04
+* Ubuntu Server 16.04
 * Raspbian Uzat
 
 Genel Önizleme
@@ -47,9 +47,9 @@ Katman 2 sistemleri, Azure IOT Edge ile uyumlu olarak değerlendirilebilir ve g�
 * Microsoft platformlarında sınama geçici tamamladıktan veya başarılı bir şekilde Azure IOT kenar platformu üzerinde çalışan bir iş ortağının bilir
 * Diğer platformlar için kurulum paketleri bu platformlarda çalışabilir
 
-Ubuntu Server 18.04
+Ubuntu 18.04
 
-Ubuntu Server 16.04
+Ubuntu 16.04
 
 Rüzgar Akarsu 8
 

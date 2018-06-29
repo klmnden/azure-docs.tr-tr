@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 769d530d85199e3f38890589e3719ba35f7cf5d6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261568"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097980"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB SSS
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB temelleri
@@ -70,7 +70,7 @@ Evet, hiçbir taahhüdü olmadan ücret ödemeden zaman sınırlı hesap için k
 
 Azure'da yeniyseniz için kaydolabilirsiniz bir [ücretsiz Azure hesabına](https://azure.microsoft.com/free/), hangi size 30 gün ve ve tüm Azure hizmetlerini denemek için kredi. Visual Studio aboneliğiniz varsa, aynı zamanda hakkınız bulunur [ücretsiz Azure kredisi](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) herhangi bir Azure hizmetinde kullanmak için. 
 
-Aynı zamanda [Azure Cosmos DB öykünücüsü](local-emulator.md) geliştirmek ve bir Azure aboneliği oluşturmadan uygulamanızı yerel olarak ücretsiz, test etmek için. Uygulamanızı Azure Cosmos DB öykünücüsünde nasıl çalıştığını ile memnun kaldığınızda, bulutta bir Azure Cosmos DB hesabı kullanmaya geçiş yapabilirsiniz.
+Aynı zamanda [Azure Cosmos DB öykünücüsü](local-emulator.md) geliştirmek ve bir Azure aboneliği oluşturmadan uygulamanızı yerel olarak ücretsiz, test etmek için. Uygulamanızın Azure Cosmos DB Öykünücüsü’ndeki performansından memnun olduğunuzda bulut üzerinde Azure Cosmos DB hesabı kullanmaya başlayabilirsiniz.
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>Ek Yardım Azure Cosmos DB ile nasıl alabilirim?
 
@@ -80,7 +80,7 @@ Teknik bir soru sormak için bu iki soru birine göndermek ve forumlar yanıtlay
 
 Yeni özellikler istemek için yeni bir istek oluşturmak [Uservoice](https://feedback.azure.com/forums/263030-azure-cosmos-db).
 
-Hesabınızla ilgili bir sorun gidermek için dosya bir [destek isteği](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Azure portalında.
+Hesabınızla ilgili bir sorun gidermek için Azure portalda bir [destek isteği](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) oluşturun.
 
 Diğer sorular ekibi gönderilebilir [ askcosmosdb@microsoft.com ](mailto:askcosmosdb@microsoft.com); ancak bu bir teknik destek diğer adı değildir. 
 
@@ -281,9 +281,6 @@ Kullanabileceğiniz [Azure Storage Gezgini](https://docs.microsoft.com/azure/vs-
 
 Belirtilen biçiminde bir bağlantı dizesini almak için esneklik araçlarıyla daha önce yeni tablo API destekleyebilir. Tablo araçları listesi üzerinde sağlanan [Azure Storage istemci araçları](../storage/common/storage-explorers.md) sayfası. 
 
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>PowerShell veya Azure CLI tablo API ile çalışır?
-İçin destek [PowerShell](table-powershell.md). Azure CLI desteği şu anda kullanılamıyor.
-
 ### <a name="is-the-concurrency-on-operations-controlled"></a>Eşzamanlılık denetlenen işlemlerde mi?
 Evet, iyimser eşzamanlılık ETag mekanizması kullanımı aracılığıyla sağlanır. 
 
@@ -410,7 +407,7 @@ Yok. Var olan Azure Table depolama müşterileri için fiyatı değişiklik yokt
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Fiyat tablosu API için nasıl hesaplanır? 
 Fiyat üzerinde ayrılmış TableThroughput bağlıdır. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Tablo API teklifi tablolarda herhangi azaltma nasıl işleneceğini? 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>Tablo API teklifi tablolarda herhangi hız sınırlaması nasıl işleneceğini? 
 İstek oranı temel kapsayıcısı için sağlanan işleme kapasitesi veya kapsayıcıları kümesi aşarsa, bir hata alıyorsunuz ve yeniden deneme ilkesi uygulayarak SDK çağrı yeniden dener.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Üretilen iş PartitionKey ve RowKey Azure Cosmos DB tablo API sunulması yararlanmak için dışında seçmek neden gerekiyor mu?

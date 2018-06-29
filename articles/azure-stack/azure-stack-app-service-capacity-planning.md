@@ -12,20 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 06/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 8926955d5e0260b5971e07b6988bb21df9980847
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: f54481fe59df21b500ee860d1e9a202ed32bdd87
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388592"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097157"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapasite Azure yığınında Azure App Service sunucu rolleri için planlama
+
 *Uygulandığı öğe: Azure yığın tümleşik sistemleri ve Azure yığın Geliştirme Seti*
 
-Azure uygulama hizmeti Azure yığında üretim hazır dağıtımını sağlayacak desteklemek için sistem beklediğiniz kapasiteyi planlamanız gerekir.  Aşağıda, en az sayıda örnekleri ve işlem her üretim dağıtımı için kullanması gereken SKU'ları hakkında yönergeler verilmiştir.
+Azure uygulama hizmeti Azure yığında üretim hazır dağıtımını ayarlamak için desteklemek için sistem beklediğiniz kapasiteyi planlamanız gerekir.  
+
+Bu makale, en az sayıda işlem örnekleri ve işlem her üretim dağıtımı için kullanması gereken SKU'ları için yönergeler sağlar.
 
 Bu yönergeleri kullanarak, uygulama hizmeti kapasite stratejinizi planlayabilirsiniz. Gelecek sürümlerinde Azure yığın uygulama hizmeti için yüksek kullanılabilirlik seçeneklerini sağlar.
 
@@ -52,23 +55,24 @@ Azure App Service denetleyicisi genellikle CPU, bellek ve ağ kaynaklarını dü
 
 ## <a name="management-role"></a>Yönetim rolü
 
-**Önerilen minimum**: A3 iki örneği
+**Önerilen minimum**: A3 standart iki örneği
 
 Azure uygulama hizmeti yönetim rolü, uygulama hizmeti Azure Resource Manager ve API uç noktaları, portal Uzantıları (yönetici, Kiracı, işlevleri portalına) ve veri hizmeti için sorumludur. Yönetim sunucusu rolü genellikle bir üretim ortamında 4 GB RAM yalnızca hakkında gerektirir. Ancak, çok sayıda yönetim görevi (örneğin, web sitesi oluşturma) gerçekleştirildiğinde yüksek CPU düzeyleri karşılaşabilirsiniz. Yüksek kullanılabilirlik için bu role atanmış birden fazla sunucunun olmalıdır ve en az iki sunucu başına çekirdek.
 
 ## <a name="publisher-role"></a>Yayımcı rolü
 
-**Önerilen minimum**: A1 iki örneği
+**Önerilen minimum**: A1 standart iki örneği
 
-Çok sayıda kullanıcı aynı anda yayımlıyorsa, yayımcı rolü aşırı CPU kullanımı karşılaşabilirsiniz. Yüksek kullanılabilirlik için birden fazla yayımcı rolünü kullanılabilir duruma getirin.  Yayımcı yalnızca FTP/FTPS trafiğini işler.
+Çok sayıda kullanıcı aynı anda yayımlıyorsa, yayımcı rolü aşırı CPU kullanımını karşılaşabilirsiniz. Yüksek kullanılabilirlik için birden fazla yayımcı rolünü kullanılabilir duruma getirin.  Yayımcı yalnızca FTP/FTPS trafiğini işler.
 
 ## <a name="web-worker-role"></a>Web çalışanı rolü
 
-**Önerilen minimum**: A1 iki örneği
+**Önerilen minimum**: A1 standart iki örneği
 
-Yüksek kullanılabilirlik için en az dört Web çalışanı rolünüz olmalıdır, ikisi paylaşılan web sitesi modu için ve her adanmış çalışan katmanı için iki sunmak planlama. Paylaşılan ve ayrılmış işlem modları kiracılar için farklı hizmet düzeyleri sağlar. Çok sayıda müşteriniz varsa daha fazla Web çalışanı gerekebilir:
- - (yoğun bir kaynak olan) adanmış bir işlem modu çalışan katmanlarını kullanma
- - Paylaşılan işlem modunda çalışıyor.
+Yüksek kullanılabilirlik için en az dört Web çalışanı rolünüz olmalıdır, ikisi paylaşılan web sitesi modu için ve her adanmış çalışan katmanı için iki sunmak planlama. Paylaşılan ve ayrılmış işlem modları kiracılar için farklı hizmet düzeyleri sağlar. Pek çok müşteriniz varsa daha fazla Web çalışanı gerekebilir:
+
+- (Olan yoğun bir kaynak.) adanmış bir işlem modu çalışan katmanlarını kullanma
+- Paylaşılan işlem modunda çalışıyor.
 
 Bir kullanıcı bir uygulama hizmeti planı için SKU, Web App Service planı artık kullanıcılar tarafından kullanılabilir olmayacaktır, belirtilen Worker(s) sayısı adanmış bir işlem moduna oluşturduktan sonra.
 
@@ -78,8 +82,8 @@ Paylaşılan Web çalışanı rollerinin sayısını kullanmaya karar verdiğini
 
 - **Bellek**: bir Web çalışanı rolü için en önemli kaynak bellektir. Yetersiz bellek, sanal bellek diskten değiştirildiğinde web sitesi performansını etkiler. Her sunucu işletim sistemi için yaklaşık 1,2 GB RAM gerektirir. Bu eşiğin üstünde RAM, web sitelerini çalıştırmak için kullanılabilir.
 - **Etkin web sitelerinin yüzdesi**: Azure yığın dağıtımına bir Azure uygulama hizmeti uygulamaların yaklaşık yüzde 5'i genellikle etkindir. Ancak, belirli bir anda etkin olan uygulamalar yüzdesi daha yüksek veya düşük olabilir. Bir etkin uygulama oranı yüzde 5 ile en fazla sayıda Azure yığın dağıtımına bir Azure uygulama hizmeti yerleştirmek için uygulama olmalıdır küçüktür:
-    - 20 kez etkin web sitesi sayısını (5 x 20 = 100).
-- **Ortalama bellek kaplama alanı**: üretim ortamlarında gözlemlenen uygulamalar için ortalama bellek kaplama alanı yaklaşık 70 MB'dir. Bu nedenle, tüm Web çalışanı rolü bilgisayarları veya VM'ler ayrılan bellek aşağıdaki gibi hesaplanabilir:
+  - 20 kez etkin web sitesi sayısını (5 x 20 = 100).
+- **Ortalama bellek kaplama alanı**: üretim ortamlarında gözlemlenen uygulamalar için ortalama bellek kaplama alanı yaklaşık 70 MB'dir. Bu ayak izini kullanılarak, tüm Web çalışanı rolü bilgisayarları veya VM'ler ayrılan bellek aşağıdaki gibi hesaplanabilir:
 
     *Hazırlandı uygulama sayısı * 70 MB * 5-(Web çalışanı rollerinin sayısı * 1044 MB)*
 
@@ -91,14 +95,17 @@ Paylaşılan Web çalışanı rollerinin sayısını kullanmaya karar verdiğini
 
 ## <a name="file-server-role"></a>Dosya sunucusu rolü
 
-Azure uygulama hizmeti Azure yığın Geliştirme Seti dağıtırken örneğin test Bu şablon - kullanabilirsiniz ve dosya sunucusu rolü için geliştirme için bir tek başına dosya sunucusu kullanabilirsiniz https://aka.ms/appsvconmasdkfstemplate. Üretim için önceden yapılandırılmış bir Windows dosya sunucusu veya önceden yapılandırılmış Windows olmayan dosya sunucusu kullanmanız gerekir.
+Azure uygulama hizmeti Azure yığın Geliştirme Seti dağıtırken örneğin test Bu şablon - kullanabilirsiniz ve dosya sunucusu rolü için geliştirme için bir tek başına dosya sunucusu kullanabilirsiniz <https://aka.ms/appsvconmasdkfstemplate>. Üretim için önceden yapılandırılmış bir Windows dosya sunucusu veya önceden yapılandırılmış Windows olmayan dosya sunucusu kullanmanız gerekir.
 
 Üretim ortamlarında dosya sunucusu rolü yoğun disk g/ç ile karşılaşır. Bunu tüm kullanıcı web siteleri için içerik ve uygulama dosyalarını barındırdığından bu rol için aşağıdakilerden birini önceden yapılandırmanız gerekir:
+
 - bir Windows dosya sunucusu
-- Dosya sunucusu kümesi
+- bir Windows dosya sunucusu kümesi
 - Windows olmayan dosya sunucusu
-- dosya sunucusu kümesi
-- NAS (ağa bağlı depolama) aygıtı daha fazla bilgi için bkz: [bir dosya sunucusu sağlamak](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+- bir Windows olmayan dosya sunucusu kümesi
+- NAS (ağa bağlı depolama) cihaz
+
+Daha fazla bilgi için bkz: [bir dosya sunucusu sağlamak](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

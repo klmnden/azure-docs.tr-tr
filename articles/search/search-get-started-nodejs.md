@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-ms.openlocfilehash: 335781a8048e1497b74f0ecf9bef337c923d95b7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: aeff3be89121bb93432d03f108ab5d2e5fa6f007
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793554"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099546"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Node.js'de Azure Search kullanmaya başlama
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Ayrıca, bu terimlerden herhangi birini de deneyebilirsiniz:
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu, Node.js ve USGS veri kümesini temel alan ilk Azure Search öğreticisidir. Zaman içinde, özel çözümlerinizde kullanmak isteyebileceğiniz ek arama özellikleri göstermek için bu öğreticiyi genişleteceğiz.
 
-Zaten Azure Search ile ilgili belirli bir altyapınız varsa öneri araçlarını (yazarken tamamlanan veya otomatik tamamlanan sorgular ), filtreleri ve çok yönlü gezinmeyi denemek için, bu örneği dayanak olarak kullanabilirsiniz. Ayrıca, numaralar ekleyerek ve belgeleri gruplayarak arama sonuçları sayfasını da geliştirebilirsiniz. Böylece, kullanıcılar sonuç sayfalarında gezinebilir.
+Azure Search'te bazı arka plan zaten varsa, ilgili (yazarken tamamlanan veya otomatik tamamlama sorgular), filtreleri ve çok yönlü gezinmeyi denemek için bu örneği dayanak olarak kullanabilirsiniz. Ayrıca, numaralar ekleyerek ve belgeleri gruplayarak arama sonuçları sayfasını da geliştirebilirsiniz. Böylece, kullanıcılar sonuç sayfalarında gezinebilir.
 
 Azure Search'ü ilk kez mi kullanıyorsunuz? Neler yapabileceğinizi anlamak için diğer öğreticileri denemenizi öneririz. Daha fazla kaynak bulmak için [belge sayfamızı](https://azure.microsoft.com/documentation/services/search/) ziyaret edin. Daha fazla bilgiye erişmek için [Video ve Öğretici listemiz](search-video-demo-tutorial-list.md)'deki bağlantıları görüntüleyebilirsiniz.
 

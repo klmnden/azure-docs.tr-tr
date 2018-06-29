@@ -151,6 +151,7 @@
 ### [SSPR’yi Özelleştirme](authentication/concept-sspr-customization.md)
 ### [SSPR Veri gereksinimleri](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR Raporlama](authentication/howto-sspr-reporting.md)
+### [Akıllı kilitleme](authentication/howto-password-smart-lockout.md)
 ### [Zayıf parolaları ortadan kaldırma](authentication/concept-password-ban-bad.md)
 ### [Engellenen parola listesini yapılandırma](authentication/howto-password-ban-bad.md)
 ### [Şirket içi tümleştirme](authentication/concept-password-ban-bad-on-premises.md)
@@ -388,11 +389,10 @@
 ### [Yönetici rolleri](active-directory-assign-admin-roles-azure-portal.md)
 #### [Kullanıcıya yönetici rolü atama](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [Üye ve konuk kullanıcı izinlerini karşılaştırma](fundamentals/users-default-permissions.md)
-### [Yönetici rollerinin güvenliğini sağlama](admin-roles-best-practices.md)  
+### [Yönetici rolü güvenliğini artırma](admin-roles-best-practices.md)  
 #### [Acil durum erişimi yönetici hesapları oluşturma](active-directory-admin-manage-emergency-access-accounts.md)
 ### [Yönetim birimleri](active-directory-administrative-units-management.md)
 ### [Belirteç ömrünü yapılandırma](active-directory-configurable-token-lifetimes.md)
-### [Ayrıcalıklı rollerin güvenliğini sağlama](admin-roles-best-practices.md)
 
 ## Erişim gözden geçirmeleri
 ### [Erişim gözden geçirmelerine genel bakış](active-directory-azure-ad-controls-access-reviews-overview.md)

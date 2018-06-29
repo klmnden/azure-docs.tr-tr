@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751052"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081464"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL veritabanı denetimini kullanmaya başlayın
 Azure SQL veritabanı denetimi veritabanı olaylarını ve Azure depolama hesabınızdaki bunları Denetim günlüğüne yazar izler. Ayrıca denetleme:
@@ -62,20 +62,18 @@ Bir denetim ilkesi, belirli bir veritabanı veya varsayılan sunucu ilkesi olara
 Aşağıdaki bölümde denetim Azure Portalı'nı kullanarak yapılandırmayı açıklar.
 
 1. [Azure Portal](https://portal.azure.com) gidin.
-2. Git **ayarları** denetlemek istediğiniz SQL veritabanı/SQL server'ın dikey. İçinde **ayarları** dikey penceresinde, select **denetim ve tehdit algılama**.
+2. Gidin **denetim** SQL veritabanı/sunucu bölmesinde güvenlik başlığı altında.
 
     <a id="auditing-screenshot"></a>![Gezinti Bölmesi][1]
 3. Bir sunucu denetim ilkesini ayarlamak tercih ederseniz, seçebileceğiniz **sunucu ayarlarını görüntüleyin** veritabanı denetim dikey penceresinde bağlantı. Daha sonra görüntülemek veya sunucunun denetim ayarları değiştirin. Sunucu denetim ilkeleri, bu sunucudaki tüm mevcut ve yeni oluşturulan veritabanları için geçerlidir.
 
     ![Gezinti bölmesi][2]
-4. İçin veritabanı düzeyi, blob denetimi etkinleştirmeyi tercih ediyorsanız **denetim**seçin **ON**ve **türü denetimi**seçin **Blob**.
+4. Veritabanı düzeyinde denetimini etkinleştirmek tercih ederseniz, geçiş **denetim** için **ON**.
 
-    Sunucu blob denetimi etkinse, veritabanı yapılandırılmış denetim yan yana sunucu blob denetim yer alır.
+    Sunucu denetimi etkinse, veritabanı yapılandırılmış denetim yana birimi sunucu denetim ile mevcut.
 
     ![Gezinti bölmesi][3]
 5. Açmak için **denetim günlüklerini depolama** dikey penceresinde, select **depolama ayrıntıları**. Burada günlükleri kaydedilecek ve Bekletme dönemi seçin Azure depolama hesabı seçin. Eski günlükleri silinir. Daha sonra, **Tamam**'a tıklayın.
-    >[!TIP]
-    >En iyi denetim raporları şablonları almak için denetlenen tüm veritabanları için aynı depolama hesabı kullanın.
 
     <a id="storage-screenshot"></a>![Gezinti Bölmesi][4]
 6. Denetlenen olayları özelleştirmek istiyorsanız, bunu aracılığıyla yapabilirsiniz [PowerShell cmdlet'leri](#subheading-7) veya [REST API](#subheading-9).
@@ -102,7 +100,8 @@ Blob denetim günlüklerini görüntülemek için kullanabileceğiniz birkaç y�
     Bir **denetim kayıtları** dikey penceresi açılır ve kendisinden, günlükleri görüntüleyebilirsiniz.
 
     - Belirli tarihleri tıklatarak görüntüleyebileceğiniz **filtre** en üstündeki **denetim kayıtları** dikey.
-    - Bir sunucu İlkesi veya veritabanı ilke denetimi tarafından oluşturulan denetim kayıtları arasında geçiş yapabilirsiniz.
+    - Tarafından oluşturulan denetim kayıtları arasında geçiş yapabilirsiniz *sunucu denetim ilkesi* ve *veritabanı Denetim İlkesi* geçiş tarafından **kaynak denetim**.
+    - SQL ekleme Denetim kayıtlarını denetleyerek ilgili yalnızca görüntüleyebileceğiniz **Göster yalnızca SQL eklemelerini kayıtlarını denetim** onay kutusu.
 
        ![Gezinti bölmesi][8]
 
@@ -147,8 +146,8 @@ Birincil veritabanında denetim etkinleştirdiğinizde, coğrafi olarak çoğalt
 * Sunucu düzeyinde (**önerilen**): hem denetim açıldıktan **birincil sunucu** yanı sıra **ikincil sunucu** -her birincil ve ikincil veritabanları denetlenmez bağımsız olarak kendi ilgili sunucu düzeyi ilkesini temel alarak.
 
 * Veritabanı düzeyi: Veritabanı düzeyi ikincil veritabanları için denetimi yalnızca denetim ayarları birincil veritabanından yapılandırılabilir.
-   * Üzerinde BLOB denetimi etkinleştirilmelidir *birincil veritabanının kendisi*, sunucu değil.
-   * BLOB denetimi birincil veritabanında etkinleştirildikten sonra aynı zamanda ikincil veritabanı etkin hale.
+   * Üzerinde denetim etkinleştirilmelidir *birincil veritabanının kendisi*, sunucu değil.
+   * Denetim birincil veritabanında etkinleştirildikten sonra aynı zamanda ikincil veritabanı etkin hale.
 
     >[!IMPORTANT]
     >Veritabanı düzeyi denetimi ile ikincil veritabanı için depolama ayarlarını çapraz bölge trafiği neden bu birincil veritabanının aynı olacaktır. Yalnızca sunucu düzeyinde denetlemeyi etkinleştirme ve devre dışı tüm veritabanları için veritabanı düzeyinde denetimi bırakın öneririz.
@@ -204,7 +203,6 @@ Bir komut dosyası örneği için bkz: [denetim ve tehdit algılama PowerShell k
 * [Oluşturma veya güncelleştirme sunucusu Blob Denetim İlkesi](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [Denetim İlkesi veritabanı Blob alma](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [Denetim İlkesi Sunucu Blob alma](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [İşlem sonucu denetim sunucu Blob alma](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 Burada yan tümcesi destekleyen ek filtreleme için ile Genişletilmiş İlke:
 * [Oluşturma veya güncelleştirme veritabanı *Genişletilmiş* Denetim İlkesi Blob](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

@@ -2,19 +2,19 @@
 title: Bir Azure Kubernetes hizmet (AKS) kümesi oluşturma
 description: CLI veya Azure portal ile bir AKS kümesi oluşturun.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 684bf44c6c3c67ce1d5c798f3406270d76a8e2fa
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: 304f3807a70179e4aab2ede80dc08a1aa85a2e51
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029241"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098915"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Bir Azure Kubernetes hizmet (AKS) kümesi oluşturma
 

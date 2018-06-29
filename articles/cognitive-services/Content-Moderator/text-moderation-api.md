@@ -9,24 +9,22 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/30/2018
 ms.author: sajagtap
-ms.openlocfilehash: 5783a7a06d75a409969abad011de3bbd31dec292
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6924807a64cec074d9688eaad158bb9bb638f6bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35352726"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085768"
 ---
 # <a name="text-moderation"></a>Metin denetimi
 
-İçerik denetleyicinin makine destekli metin yönetimini kullanın ve [İnsan-içinde--döngü](Review-Tool-User-Guide/human-in-the-loop.md) metin içeriği Orta özellikleri.
+İçerik denetleyicinin makine destekli metin yönetimini kullanın ve [İnsan gözden geçirme](Review-Tool-User-Guide/human-in-the-loop.md) metin içeriği Orta özellikleri.
 
-İşletmeler metin denetleme hizmeti engellemek, onaylamak veya, ilkeleri ve eşikleri göre içeriği gözden geçirmek için kullanın. Metin Yönetimi hizmeti, iş ortakları, çalışanlar ve tüketicilerin metin içeriği oluşturmak gerekli ortamlarının İnsan yönetimini büyütmek üzere kullanılabilir. Bunlar, sohbet odaları, tartışma panoları, chatbots, e-ticaret katalogları, belgeler ve daha fazlasını içerir. 
-
-API için uygunsuz metin gelen metin (en fazla 1024 karakter) tarar, olası istenmeyen metin için (Önizleme) autocorrects metin sınıflandırır ve olası kişisel bilgilerin (PII) algılar. Ayrıca, özel koşulları listeler karşı eşleşir. Otomatik Düzeltme özelliği kasıtlı olarak sözcüklerin catch yardımcı olur. İçerik işlendikten sonra hizmet ayrıntılı bir yanıt döndürür. Yanıt İnsan İnceleme gözden geçirme Aracı'nda oluşturabilir veya aşağı, vb. duruma için kullanın.
+Engelleme, onaylayabilir ya da, ilkeleri ve eşikleri bağlı içeriğini gözden geçirin. İnsan yönetimini ortamlarının genişletmek için burada iş ortakları, çalışanlar ve tüketicilerin metin içeriği oluşturmak kullanın. Bunlar, sohbet odaları, tartışma panoları, chatbots, e-ticaret kataloglar ve belgeleri içerir. 
 
 Hizmet yanıtı aşağıdaki bilgileri içerir:
 
-- Uygunsuz metin: birden çok dilde saygısız içerikli terimlerin yerleşik listesiyle terim tabanlı eşleştirme
+- Uygunsuz metin: çeşitli dillerde saygısız içerikli terimlerin yerleşik listesiyle terim tabanlı eşleştirme
 - Sınıflandırma: Makine destekli sınıflandırma üç kategoride
 - Kişisel bilgiler (PII)
 - Otomatik olarak düzeltileceğini metin
@@ -52,12 +50,9 @@ API tüm saygısız içerikli koşullarını herhangi birini algılarsa, [destek
 
 ## <a name="classification"></a>Sınıflandırma
 
-İçerik denetleyici makine destekli **metin sınıflandırma özelliği** destekleyen **yalnızca İngilizce**, ve olası istenmeyen içerik algılamaya yardımcı olur. Bağlam bağlı olarak uygun olarak işaretli içerik olarak kabul. Her kategori olasılığını saymayı ek olarak, içerik İnsan gözden önerebilir. Özellik bir modeli olası kullanım, negatif veya discriminatory dil tanımlamak için kullanır. Bu argo, kısaltılmış sözcükler, gözden geçirme için rahatsız edici ve bilerek yanlış yazılmış sözcükleri içerir. 
+İçerik denetleyici makine destekli **metin sınıflandırma özelliği** destekleyen **yalnızca İngilizce**, ve olası istenmeyen içerik algılamaya yardımcı olur. Bayrak eklenmiş içerik, içerik bağlı olarak uygun olarak uygunluk. Her kategori olasılığını iletir ve İnsan İnceleme önerebilir. Özellik bir modeli olası kullanım, negatif veya discriminatory dil tanımlamak için kullanır. Bu argo, kısaltılmış sözcükler, gözden geçirme için rahatsız edici ve bilerek yanlış yazılmış sözcükleri içerir. 
 
 JSON Ayıkla içinde aşağıdaki Ayıkla bir örnek çıkış şunları gösterir:
-
-> [!NOTE]
-> Makine destekli 'Sınıflandırma' özelliği önizlemede değil.
 
     "Classification": {
         "ReviewRecommended": true,
@@ -74,9 +69,9 @@ JSON Ayıkla içinde aşağıdaki Ayıkla bir örnek çıkış şunları göster
 
 ### <a name="explanation"></a>Açıklama
 
-- `Category1` cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul dil olası varlığını temsil eder.
-- `Category2` cinsel müstehcen veya bazı durumlarda yetişkin olarak kabul dil olası varlığını temsil eder.
-- `Category3` Belirli durumlarda rahatsız edici olabilecek dil olası varlığını temsil eder.
+- `Category1` olası durum cinsel açık veya bazı durumlarda yetişkinlere yönelik olarak kabul dilinin ifade eder.
+- `Category2` olası durum cinsel müstehcen veya bazı durumlarda yetişkin olarak kabul dilinin ifade eder.
+- `Category3` Belirli durumlarda rahatsız edici olabilecek dil olası varlığını ifade eder.
 - `Score` 0 ile 1 arasında değil. Yüksek puanı kategori uygulanabilen yüksek modeli tahmin etmektir. Bu önizleme el ile kodlanmış sonuçlar yerine bir istatistik modeli kullanır. Her kategoride gereksinimlerinizi için nasıl hizalandığını belirlemek için kendi içerikle sınama öneririz.
 - `ReviewRecommended` true veya false iç puan üzerinde eşikleri bağlı değil. Müşteriler bu değeri kullanın ya da kendi içerik ilkelerine dayalı özel eşikler karar değerlendirmelisiniz.
 
@@ -151,7 +146,7 @@ Otomatik düzeltme için isteyin, yanıt metni düzeltilmiş sürümünü içeri
 
 ## <a name="creating-and-managing-your-custom-lists-of-terms"></a>Terimler, özel listeleri oluşturma ve yönetme
 
-Varsayılan olarak genel koşulları listesini çoğu zaman harika çalışırken, iş gereksinimleriniz için belirli terimleri karşı ekran isteyebilirsiniz. Örneğin, kullanıcılar tarafından gönderileri rekabet tüm marka adlarından filtrelemenize isteyebilirsiniz. İzin verilen metin içeriği eşiğiniz varsayılan listeden farklı olabilir.
+Varsayılan olarak genel koşulları listesini çoğu zaman harika çalışırken, iş gereksinimleriniz için belirli terimleri karşı ekran isteyebilirsiniz. Örneğin, kullanıcılar tarafından gönderileri rekabet tüm marka adlarından filtrelemenize isteyebilirsiniz.
 
 > [!NOTE]
 > Maksimum sınırı yoktur **5 terim listeler** her listesine ile **10.000 koşulları aşmaması**.
@@ -171,4 +166,4 @@ Aşağıdaki örnek, eşleşen liste kimliği gösterir:
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Test sürücü [metin denetleme API konsol](try-text-api.md) ve REST API kod örnekleri kullanır. Ayrıca kullanıma [metin denetleme .NET quickstart](text-moderation-quickstart-dotnet.md) Visual Studio ve C# ile hakkında bilginiz varsa.
+Test sürücü [metin denetleme API konsol](try-text-api.md) ve REST API kod örnekleri kullanır. Ayrıca kullanıma [metin denetleme .NET quickstart](text-moderation-quickstart-dotnet.md) Visual Studio ve C# ile bilginiz varsa.

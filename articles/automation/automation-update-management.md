@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 3de93c06285f36353d91a66db975c0a579c1379c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063519"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097453"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -35,9 +35,9 @@ Aşağıdaki diyagramda davranışının kavramsal bir görünüm gösterir ve v
 
 ![Güncelleştirme yönetimi işlem akışı](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Bir bilgisayarı güncelleştirme uyumluluğu için bir tarama yapar sonra aracıyı Azure günlük Analizi'ne toplu bilgi iletir. Bir Windows bilgisayarda Uyumluluk taraması, varsayılan olarak her 12 saatte gerçekleştirilir. 
+Bir bilgisayarı güncelleştirme uyumluluğu için bir tarama yapar sonra aracıyı Azure günlük Analizi'ne toplu bilgi iletir. Bir Windows bilgisayarda Uyumluluk taraması, varsayılan olarak her 12 saatte gerçekleştirilir.
 
-Tarama zamanlaması ek olarak, güncelleştirme uyumluluğu için tarama MMA yeniden başlatılırsa 15 dakika içinde güncelleştirmeyi yüklemeden önce ve sonra güncelleştirme yüklemesi başlatılır. 
+Tarama zamanlaması ek olarak, güncelleştirme uyumluluğu için tarama MMA yeniden başlatılırsa 15 dakika içinde güncelleştirmeyi yüklemeden önce ve sonra güncelleştirme yüklemesi başlatılır.
 
 Bir Linux bilgisayar için Uyumluluk taraması 3 saatte varsayılan olarak gerçekleştirilir. Bir Uyumluluk taraması MMA Aracısı'nı yeniden başlatılırsa, 15 dakika içinde başlatılır.
 
@@ -86,7 +86,7 @@ Windows aracılarının bir WSUS sunucusu ile iletişim kurmak için yapılandı
 
 #### <a name="linux"></a>Linux
 
-Linux için makine için bir güncelleştirme deposu erişimi olması gerekir. Güncelleştirme deposu özel veya genel olabilir. Operations Management Suite (OMS) aracı birden çok günlük analizi çalışma raporu için yapılandırılmış Linux için bu çözüm ile desteklenmiyor.
+Linux için makine için bir güncelleştirme deposu erişimi olması gerekir. Güncelleştirme deposu özel veya genel olabilir. TLS 1.1 veya TLS 1.2 güncelleştirme yönetimi ile etkileşim kurmak için gereklidir. Operations Management Suite (OMS) aracı birden çok günlük analizi çalışma raporu için yapılandırılmış Linux için bu çözüm ile desteklenmiyor.
 
 Linux için OMS Aracısı'nı yüklemek ve en son sürümü karşıdan yüklemek için hakkında daha fazla bilgi için bkz: [Linux için Operations Management Suite Aracısı](https://github.com/microsoft/oms-agent-for-linux). Windows için OMS Aracısı yükleme hakkında daha fazla bilgi için bkz: [Operations Management Suite aracısının for Windows](../log-analytics/log-analytics-windows-agent.md).
 
@@ -157,11 +157,11 @@ Bir Operations Manager yönetim grubu günlük analizi ile iletişim kurduğunu 
 
 Aşağıdaki tabloda bu çözüm tarafından desteklenen bağlı kaynakları açıklanmaktadır:
 
-| Bağlı kaynak | Desteklenen | Açıklama |
+| Bağlı kaynak | Destekleniyor | Açıklama |
 | --- | --- | --- |
-| Windows aracıları |Evet |Çözüm Windows aracılardan sistem güncelleştirmeleri hakkında bilgi toplar ve gerekli güncelleştirmeleri yüklemesini başlatır. |
-| Linux aracıları |Evet |Çözüm Linux aracılarını sistem güncelleştirmeleri hakkında bilgi toplar ve desteklenen dağıtımları gerekli güncelleştirmeleri yüklemesini başlatır. |
-| Operations Manager yönetim grubu |Evet |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br/>Günlük analizi Operations Manager aracısı arasında doğrudan bağlantı gerekli değildir. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
+| Windows aracıları |Yes |Çözüm Windows aracılardan sistem güncelleştirmeleri hakkında bilgi toplar ve gerekli güncelleştirmeleri yüklemesini başlatır. |
+| Linux aracıları |Yes |Çözüm Linux aracılarını sistem güncelleştirmeleri hakkında bilgi toplar ve desteklenen dağıtımları gerekli güncelleştirmeleri yüklemesini başlatır. |
+| Operations Manager yönetim grubu |Yes |Çözüm, bağlı bir yönetim grubundaki aracılardan sistem güncelleştirmeleri hakkında bilgi toplar.<br/>Günlük analizi Operations Manager aracısı arasında doğrudan bağlantı gerekli değildir. Veri yönetim grubu için günlük analizi çalışma alanına iletilir. |
 
 ### <a name="collection-frequency"></a>Toplama sıklığı
 
@@ -214,7 +214,7 @@ Yeni bir güncelleştirme dağıtımı oluşturmak için seçin **zamanlama gün
 |İşletim Sistemi| Seçin **Linux** veya **Windows**.|
 |Makineleri güncelleştirmek için |Kaydedilmiş bir aramayı seçin veya seçin **makine** aşağı açılan liste ve seçip tek tek makinelerden. |
 |Güncelleştirme sınıflandırmaları|Gereksinim duyduğunuz tüm güncelleştirme sınıflandırmalarını seçin. CentOS desteklemiyor bu kutu dışı.|
-|Hariç tutulacak güncelleştirmeler|Dışlanacak güncelleştirmeleri girin. Windows için KB makalesi olmadan girin **KB** öneki. Linux için paket adını girin veya bir joker karakter kullanın.  |
+|Dışlanacak güncelleştirmeleri|Dışlanacak güncelleştirmeleri girin. Windows için KB makalesi olmadan girin **KB** öneki. Linux için paket adını girin veya bir joker karakter kullanın.  |
 |Zamanlama ayarları|Başlangıç saati seçin ve ardından ya da **kez** veya **yinelenen** yineleme için.|| Bakım penceresi |Güncelleştirmeler için belirlediğiniz dakika sayısı. Değeri 30 dakika ya da 6 saatten daha az olamaz. |
 
 ## <a name="update-classifications"></a>Güncelleştirme sınıflandırmaları

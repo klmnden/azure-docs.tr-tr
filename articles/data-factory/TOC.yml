@@ -1,4 +1,4 @@
-- name: Data Factory V2 Belgeleri
+- name: Data Factory Belgeleri
   href: index.yml
 - name: Sürüm 1 belgelerine geçiş yapma
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Data Factory'ye Giriş
       href: introduction.md
-    - name: 1 ve 2 numaralı sürümleri karşılaştırma
+    - name: 'Geçerli sürümü, sürüm 1 ile karşılaştırma'
       href: compare-versions.md
 - name: Hızlı Başlangıçlar
   expanded: true
@@ -138,6 +138,8 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
+        - name: Azure Data Lake Storage
+          href: connector-azure-data-lake-storage.md
         - name: Azure Data Lake Store
           href: connector-azure-data-lake-store.md
         - name: MySQL için Azure Veritabanı
@@ -275,6 +277,8 @@
         - name: Veri Kopyalama aracı
           href: copy-data-tool.md
           items: null
+        - name: Data Lake Storage’ı yükleme
+          href: load-azure-data-lake-storage-gen2.md
         - name: SQL Veri Ambarı’nı yükleme
           href: load-azure-sql-data-warehouse.md
         - name: Data Lake Store’u yükleme

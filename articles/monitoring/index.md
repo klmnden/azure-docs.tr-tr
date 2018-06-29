@@ -1,6 +1,6 @@
 ---
-title: Azure Yönetimi - İzleme| Microsoft Docs
-description: Azure’da sunulan çeşitli hizmetler ve araçlar, birlikte çalışarak yalnızca Azure’da değil diğer bulutlarda ve şirket içinde çalışan uygulamalarınızı da eksiksiz biçimde yönetmenizi sağlar.  Bu makalede, bulut uygulamalarınızı ve kaynaklarınızı yönetmek amacıyla yararlandığınız farklı alanlara ait ayrıntılı açıklamalar ve Azure araçlarındaki içeriklere yönelik bağlantılar sağlanır.
+title: Azure Yönetimi ve Operations Management Suite'e (OMS) genel bakış | Microsoft Docs
+description: Daha önce Operations Management Suite (OMS) ile birlikte sunulan Azure yönetim araçlarıyla ilgili içeriğe yönlendiren bağlantılar da içeren Azure uygulamalarını ve kaynaklarını yönetme alanlarına genel bakış.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8598e3528aa0a9fb171853e5f6554346ace937ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410303"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059959"
 ---
 # <a name="azure-management---monitoring"></a>Azure Yönetimi - İzleme
 

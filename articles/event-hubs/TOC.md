@@ -36,6 +36,8 @@
 ### [Kafka Ekosistemi için Event Hubs ile Apache Flink’i kullanma](event-hubs-kafka-flink-tutorial.md)
 ### [Kafka Ekosistemi için Event Hubs ile Akka Streams’i kullanma](event-hubs-kafka-akka-streams-tutorial.md)
 ## Geliştirme
+### [IP bağlantısı filtreleri](event-hubs-ip-filtering.md)
+### [Sanal ağ hizmeti uç noktaları](event-hubs-service-endpoints.md)
 ### [.NET Framework kullanarak olayları gönderme](event-hubs-dotnet-framework-getstarted-send.md)
 ### [.NET Framework kullanarak olayları alma](event-hubs-dotnet-framework-getstarted-receive-eph.md)
 ### [Kullanılabilir API’ler](event-hubs-api-overview.md)

@@ -11,19 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 150d1c40463aa04527bdd6e356a4c24ef68b02ef
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301907"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083051"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL kaynak sağlayıcısını kaldırma
 
 SQL kaynak sağlayıcısı kaldırmadan önce tüm sağlayıcı bağımlılıklarını kaldırmanız gerekir. Kaynak sağlayıcısını yüklemek için kullanılan dağıtım paketinin bir kopyasını da gerekir.
+
+Çalıştırmadan önce yapmak için birkaç temizleme görev _DeploySqlProvider.ps1_ kaynak sağlayıcısı kaldırmak için komut dosyası.
+Kiracılar aşağıdaki temizleme görevlerden sorumlu şunlardır:
+
+* Tüm veritabanları kaynak Sağlayıcısı'ndan silin. (Kiracı veritabanlarını silerek verileri silmez.)
+* Kaynak sağlayıcısı ad alanı kaydını silin.
+
+Aşağıdaki temizleme görevler için yönetici sorumludur:
+
+* Barındırma sunucuları SQL kaynak sağlayıcısından siler.
+* SQL kaynak sağlayıcısı referans herhangi bir plan siler.
+* SQL kaynak sağlayıcı ile ilişkili tüm kotalar siler.
 
 ## <a name="to-remove-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı kaldırmak için
 
@@ -38,10 +50,10 @@ SQL kaynak sağlayıcısı kaldırmadan önce tüm sağlayıcı bağımlılıkla
 
 4. Aşağıdaki parametreleri kullanarak DeploySqlProvider.ps1 komut dosyasını çalıştırın:
 
-    - **Kaldırma**. İlişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır.
-    - **PrivilegedEndpoint**. IP adresi veya ayrıcalıklı uç noktanın DNS adı.
-    - **CloudAdminCredential**. Bulut Yöneticisi, ayrıcalıklı uç noktasına erişmek için gerekli kimlik bilgileri.
-    - **AzCredential**. Azure yığın hizmet yönetici hesabının kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerini kullanın.
+    * **Kaldırma**. İlişkili tüm kaynakları ve kaynak sağlayıcısını kaldırır.
+    * **PrivilegedEndpoint**. IP adresi veya ayrıcalıklı uç noktanın DNS adı.
+    * **CloudAdminCredential**. Bulut Yöneticisi, ayrıcalıklı uç noktasına erişmek için gerekli kimlik bilgileri.
+    * **AzCredential**. Azure yığın hizmet yönetici hesabının kimlik bilgileri. Azure yığın dağıtmak için kullanılan kimlik bilgilerini kullanın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

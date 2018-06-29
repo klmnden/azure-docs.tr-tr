@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292846"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088673"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory alma uygulamaları ile tümleştirme Kılavuzu
 ## <a name="overview"></a>Genel Bakış
@@ -61,8 +61,8 @@ Bu soruların yanıtlarını Önden belki yok ancak Tamam olmasıdır.  Bu kıla
 * Bir Azure aboneliği ve bir Azure Active Directory dizin.  Bir Azure aboneliğiniz yoksa, ücretsiz 30 gün boyunca Azure deneyebilirsiniz. [Deneyin!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Azure AD ile uygulama tümleştirmesi
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-app-discovery"></a>Cloud App Discovery ile bulut uygulamaları tasdik bulma
-Yukarıda belirtildiği gibi şimdiye kadar kuruluşunuz tarafından yönetilen henüz uygulamalar olabilir.  Envanteri işleminin bir parçası olarak, tasdik edilmemiş bulut uygulamalarını bulmak mümkündür. Bkz: [Cloud App Discovery tasdik edilmemiş bulut uygulamalarıyla bulma](cloud-app-discovery.md).
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Cloud Discovery ile bulut uygulamaları tasdik bulma
+Yukarıda belirtildiği gibi şimdiye kadar kuruluşunuz tarafından yönetilen henüz uygulamalar olabilir.  Envanteri işleminin bir parçası olarak, tasdik edilmemiş bulut uygulamalarını bulmak mümkündür. Bkz: [Cloud Discovery'yi ayarlama](/cloud-app-security/set-up-cloud-discovery.md).
 
 ### <a name="authentication-types"></a>Kimlik doğrulama türleri
 Uygulamalarınızın her birinde farklı kimlik doğrulama gereksinimleri olabilir. Azure AD ile imzalama sertifikalarının SAML 2.0, WS-Federasyon, veya Openıd Connect protokollerinin yanı parola çoklu oturum açma kullanan uygulamalar ile kullanılabilir. Uygulama hakkında daha fazla bilgi için bkz: Azure AD ile kullanmak için kimlik doğrulama türleri [sertifikaların yönetilmesi için Federasyon çoklu oturum açma Azure Active Directory'de](manage-certificates-for-federated-single-sign-on.md) ve [parola temel çoklu oturum açma](what-is-single-sign-on.md).
@@ -73,9 +73,9 @@ Microsoft Azure AD uygulama proxy'si ile özel ağınızda güvenli bir şekilde
 ### <a name="integrating-applications-with-azure-ad"></a>Uygulamaları Azure AD ile tümleştirme
 Aşağıdaki makaleler uygulamaları Azure AD ile tümleştirmek ve bazı kılavuzluk farklı şekilde ele alır.
 
-* [Hangi Active Directory belirleme](../active-directory-administer.md)
+* [Hangi Active Directory belirleme](../fundamentals/active-directory-administer.md)
 * [Azure uygulama galerisinde uygulamaları kullanma](what-is-single-sign-on.md)
-* [SaaS uygulamaları öğreticiler listesi tümleştirme](../active-directory-saas-tutorial-list.md)
+* [SaaS uygulamaları öğreticiler listesi tümleştirme](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>Uygulamalara erişimi yönetme
 Aşağıdaki makaleler Azure AD bağlayıcıları kullanarak Azure AD ve Azure AD ile tümleşik olan sonra uygulamalara erişimi yönetebilirsiniz yolları açıklanmaktadır.

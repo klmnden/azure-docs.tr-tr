@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 6370bbcda2312f907f442799e6183dd6d1a9dd50
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7349d60177982ced68b0ebb83f7e85f19e43ec15
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201991"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100205"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Anlama ve hdınsight'ta WebHCat gelen karşılaşılan hataları çözme
 
@@ -90,5 +90,5 @@ Aşağıdaki varsayılan değerler aşılırsa, WebHCat performansı düşebilir
 | WebHCat gönderilen 500'den fazla bekleyen iş |Daha fazla iş göndermeden önce şu anda bekleyen işler tamamlanana kadar bekleyin |
 
 [maximum-applications]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
-[max-procs]: https://hive.apache.org/javadocs/hcat-r0.5.0/configuration.html
+[max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration
 [max-age-ms]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml

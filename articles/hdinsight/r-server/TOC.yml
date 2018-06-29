@@ -1,6 +1,6 @@
 - name: Azure HDInsight Belgeleri
   href: /azure/hdinsight
-- name: HDInsight’ta R Server
+- name: HDInsight üzerindeki ML Services
   items:
     - name: Genel Bakış
       href: r-server-overview.md
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: başlarken
   items:
-    - name: R Server’ı kullanmaya başlama
+    - name: ML Services'ı kullanmaya başlama
       href: r-server-get-started.md
     - name: HDInsight uygulamaları yükleme
       href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
       maintainContext: true
 - name: Nasıl yapılır
   items:
-    - name: R Server’ı kullanma
+    - name: ML Services'ı kullanma
       items:
-        - name: R Server kümesi yönetme
+        - name: ML Services kümesini yönetme
           href: r-server-hdinsight-manage.md
-        - name: R Server kümesini kullanıma hazır hale getirme
+        - name: ML Services kümesini kullanıma hazır hale getirme
           href: r-server-operationalize.md
         - name: Depolama seçenekleri
           href: r-server-storage.md

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: jgao
-ms.openlocfilehash: f85772aa74e876764181330b6d29c4f8d2b48508
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: b9298b081baf94350ab19a5d9a8af2705327eed6
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102626"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight'ta Apache HBase örneğiyle çalışmaya başlama
 
@@ -34,7 +35,7 @@ Bu HBase örneğini denemeye başlamadan önce aşağıdakilere sahip olmanız g
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>HBase kümesi oluşturma
-Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md).
+Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesabı oluşturmak için Azure Resource Manager şablonu kullanılmaktadır. Yordamda ve diğer küme oluşturma yöntemlerinde kullanılan parametreleri anlamak için bkz. [HDInsight’ta Linux tabanlı Hadoop kümeleri oluşturma](../hdinsight-hadoop-provision-linux-clusters.md). Data Lake Storage Gen2 kullanma hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
 1. Azure Portal'da bir şablonu açmak için aşağıdaki görüntüye tıklayın. Şablon, [Azure Hızlı Başlangıç şablonları](https://azure.microsoft.com/resources/templates/) içinde bulunur.
    
@@ -42,7 +43,7 @@ Aşağıdaki yordamda HBase kümesi ve bağlı varsayılan Azure Depolama hesab�
 2. **Özel dağıtım** dikey penceresine şu değerleri girin:
    
    * **Abonelik**: Kümeyi oluşturmak için kullanılan Azure aboneliğinizi seçin.
-   * **Kaynak grubu**: Bir Azure Resource Management grubu oluşturun veya var olan gruplardan birini kullanın.
+   * **Kaynak grubu**: bir Azure kaynak grubu oluşturabilir veya mevcut bir kullanabilirsiniz.
    * **Konum**: Kaynak grubu konumunu belirtin. 
    * **ClusterName**: HBase kümesi için bir ad girin.
    * **Küme oturum açma adı ve parolası**: Varsayılan oturum açma adı **admin** şeklindedir.

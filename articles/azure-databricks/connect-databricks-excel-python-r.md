@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 333ff3ac3de053eae604ffeab600df7d35874f69
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598887"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085241"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python veya R Azure Databricks Bağlan
 
@@ -99,6 +99,9 @@ Bu bölümde, verileri Azure Databricks Microsoft Excel'e daha önce oluşturdu�
 Excel çalışma kitabınızı verileri bulduktan sonra analitik işlemlerini gerçekleştirebilirsiniz.
 
 ## <a name="connect-from-r"></a>R Bağlan
+
+> [!NOTE]
+> Bu bölümde, masaüstünüzü Azure Databricks ile çalışan bir R Studio istemci tümleştirme hakkında bilgi sağlar. R Studio Azure Databricks kümenin kendisi kullanma hakkında daha fazla yönerge için bkz: [Azure Databricks R Studio](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html).
 
 Bu bölümde, başvuru verileri Azure Databricks kullanılabilir bir R dilini IDE kullanın. Başlamadan önce bilgisayarda yüklü olması gerekir.
 

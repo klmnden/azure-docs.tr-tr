@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 84a0698a61e68c141cc79dbc779f352aab528afa
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: 209f159d9003838edb36728828758b76730118ff
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031490"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098473"
 ---
 # <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Modülleri dağıtmak ve yollar oluşturmak için dağıtım bildirimleri kullanmayı öğrenin
 
@@ -204,7 +204,7 @@ Bu dağıtım bildirim JSON belgesini örneği.
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "microsoft/azureiotedge-agent:1.0-preview",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
               "createOptions": ""
             }
           },
@@ -213,7 +213,7 @@ Bu dağıtım bildirim JSON belgesini örneği.
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "microsoft/azureiotedge-hub:1.0-preview",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
               "createOptions": ""
             }
           }

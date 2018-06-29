@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: v-geberr
-ms.openlocfilehash: 20950ced66497fb0dc96365975b37f244f677ce3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 37d67bef7712012a95543041744706b240b16e2d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266388"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085506"
 ---
-# <a name="use-prebuilt-intents-and-entities-to-handle-common-intents-and-data"></a>Ortak amaçları ve verileri işlemek için önceden oluşturulmuş hedefleri ve varlıkları kullanmak
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Öğretici: 2. Önceden derlenmiş amaçlar ve varlıklar ekleme
 Önceden oluşturulmuş hedefleri ve varlıkları hedefi tahmin ve verileri ayıklama hızlı bir şekilde sağlamak için İnsan Kaynakları hızlı başlangıç uygulamasını ekleyin. 
 
 Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
@@ -28,16 +28,16 @@ Bu öğreticide şunların nasıl yapıldığını öğreneceksiniz:
 * HALUK sorgulamak ve tahmin yanıtını alma
 
 ## <a name="before-you-begin"></a>Başlamadan önce
-İnsan Kaynakları uygulamadan yoksa [özel etki alanı](luis-quickstart-intents-only.md) hızlı başlangıç, [alma](create-new-app.md#import-new-app) JSON içinde yeni bir uygulama içinde [HALUK] [ LUIS] Web sitesi , gelen [HALUK-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github depo.
+Sahip değilse [İnsan Kaynakları](luis-quickstart-intents-only.md) önceki öğreticiyi uygulamadan [alma](create-new-app.md#import-new-app) JSON içinde yeni bir uygulama içinde [HALUK](luis-reference-regions.md#luis-website) Web sitesi, gelen [HALUK örnekleri ](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github depo.
 
-Özgün İnsan Kaynakları uygulaması tutmak istiyorsanız, sürüm üzerinde kopyalama [ayarları](luis-how-to-manage-versions.md#clone-a-version) sayfasında ve adlandırın `prebuilts`. Kopyalama, özgün sürümü etkilemeden çeşitli HALUK özelliklerle yürütmek için harika bir yoludur. 
+Özgün İnsan Kaynakları uygulamasını tutmak istiyorsanız [Settings](luis-how-to-manage-versions.md#clone-a-version) (Ayarlar) sayfasında sürümü kopyalayıp adını `prebuilts` olarak değiştirin. Kopyalama, özgün sürümünüzü etkilemeden farklı LUIS özelliklerini deneyebileceğiniz ideal bir yol sunar. 
 
 ## <a name="add-prebuilt-intents"></a>Önceden oluşturulmuş hedefleri Ekle
 HALUK ortak kullanıcı amaçları ile yardımcı olmak için birkaç önceden oluşturulmuş hedefleri sağlar.  
 
-1. Uygulamanızı olduğundan emin olun **yapı** HALUK bölümü. Bu bölümde seçerek değiştirebilirsiniz **yapı** menü çubuğu üst, sağ. 
+1. Uygulamanızı olduğundan emin olun **yapı** HALUK bölümü. Sağ taraftaki menü çubuğunun en üstünde bulunan **Build** (Derleme) ifadesini seçerek bu bölüme geçebilirsiniz. 
 
-    [ ![Yapı hightlighted üst, sağ gezinti çubuğunda uygulamayla HALUK, ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
+    [ ![Sağ taraftaki menü çubuğunun en üstünde bulunan Build (Derleme) ifadesi vurgulanmış LUIS uygulaması ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Seçin **önceden oluşturulmuş bir etki alanı hedefi eklemek**. 
 
@@ -71,20 +71,20 @@ HALUK birkaç önceden oluşturulmuş varlıklar için genel veri ayıklama sağ
     ![Önceden oluşturulmuş varlıklar iletişim numarası seçimi ekran görüntüsü](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>Eğitmek ve uygulama yayımlama
-1. Üst sağ tarafında HALUK Web sitesinin, seçin **tren** düğmesi. 
+1. LUIS web sitesinin sağ üst kısmından **Train** (Eğitim) düğmesini seçin. 
 
     ![Tren düğmesi](./media/luis-quickstart-intents-only/train-button.png)
 
-    Yeşil durum çubuğu başarı onaylama Web sitesinin üst gördüğünüzde eğitim tamamlanır.
+    Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde eğitim tamamlanmış olur.
 
     ![Eğitilmiş durum çubuğu](./media/luis-quickstart-intents-only/trained.png)
 
-2. Üst, sağ tarafındaki HALUK Web sitesi seçin **Yayımla** düğmesi yayımla sayfasını açın. Üretim yuvasına varsayılan olarak seçilidir. Seçin **Yayımla** üretim yuvası seçim düğmesine tıklayın. Yeşil durum çubuğu başarı onaylama Web sitesinin üst gördüğünüzde yayımlama işlemi tamamlanmış olur.
+2. Üst, sağ tarafındaki HALUK Web sitesi seçin **Yayımla** düğmesi yayımla sayfasını açın. Üretim yuvasına varsayılan olarak seçilidir. Seçin **Yayımla** üretim yuvası seçim düğmesine tıklayın. Web sitesinin üst kısmında işlemin başarılı olduğunu belirten yeşil durum çubuğunu gördüğünüzde yayımlama işlemi tamamlanmış olur.
 
     Yayımlamadan önce veya uç nokta URL'sini test önce Azure portalında HALUK anahtarı oluşturmak zorunda değildir. Her HALUK uygulama geliştirme için ücretsiz starter anahtar vardır. Size verir sınırsız yazma ve [birkaç uç noktası isabet](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-with-an-utterance"></a>Bir utterance sorgu uç noktası
-Üzerinde **Yayımla** sayfasında, **endpoint** sayfanın sonundaki bağlantı. Bu eylem, adres çubuğundaki uç nokta URL'si ile başka bir tarayıcı penceresi açar. URL adresi sonuna gidin ve girin `I want to cancel on March 3`. Son sorgu dizesi parametresi `q`, utterance **sorgu**. 
+**Publish** (Yayımla) sayfasının en altında bulunan **endpoint** (uç nokta) bağlantısını seçin. Bu eylem adres çubuğunda uç nokta URL'sinin bulunduğu başka bir tarayıcı penceresi açar. Adres çubuğundaki URL'nin sonuna gidip `I want to cancel on March 3` yazın. Son sorgu dizesi parametresi `q`, utterance **sorgu**. 
 
 Sonuç Utilities.Cancel hedefi tahmin ve Mart 3 tarihini ve 3 sayısını ayıklanır. 
 
@@ -167,8 +167,6 @@ Sonuç Utilities.Cancel hedefi tahmin ve Mart 3 tarihini ve 3 sayısını ayıkl
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-[Varlıklar hakkında daha fazla bilgi](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [Uygulamaya bir normal ifade varlık ekleme](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800733"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084731"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Karma kimlik çözümünü kimlik gereklilikleri
 Karma kimlik çözümü tasarlamanın ilk adımı, bu çözüm yararlanarak iş kuruluş gereksinimlerini belirlemektir.  Karma kimlik (diğer tüm bulut çözümleri kimlik doğrulaması sağlayarak destekler) destekleyen bir rol olarak başlatılır ve kullanıcılar için yeni iş yüklerine kilidini yeni ve ilginç yetenekleri sağlamak için geçer.  Bu iş yükleri veya kullanıcılarınız için benimsemeyi istediğiniz hizmetleri karma kimlik tasarım gereksinimleri benimsendiği belirler.  Her iki şirket içi karma kimlik yararlanmak bu hizmetleri ve iş yükleri gerekir ve bulutta.  
@@ -58,7 +58,7 @@ Ayrıca şirketinizin olabilir bulut hizmetlerin farkında olmanız gerekir. Ge�
 * Bu tümleştirme şu anda üretimde olan yoksa bir pilot mı?
 
 > [!NOTE]
-> Tüm uygulamalarınızın doğru bir eşleme varsa ve bulut Hizmetleri yok, Cloud App Discovery aracını kullanabilirsiniz. Bu araç, BT departmanınızın tüm kuruluşunuzun iş ve tüketici bulut uygulamalarını görünürlük sağlayabilirsiniz. Bu, kullanım desenleri ve bulut uygulamalarınıza erişen tüm kullanıcılar ile ilgili ayrıntılar dahil olmak üzere kuruluşunuzdaki gölge BT uygulamalarını bulmayı her zamankinden daha kolay hale getirir. Başlatılan bakın almak için [Cloud app discovery](manage-apps/cloud-app-discovery.md).
+> Microsoft Cloud App Security'nın bulut uygulaması Kataloğu derecelendirilmiş ve puanlanmış uygulamalar 70'den fazla risk faktörlerini temel alarak tekrar 16.000 bulutun karşı trafik günlüklerinizi cloud Discovery çözümler, sağlamak üzere bulut devam eden görünürlük ile kullandığınız, gölge BT ve riski Gölge BT tümleştirilmesi, kuruluşunuzun. Başlatılan bakın almak için [Cloud Discovery'yi ayarlama](/cloud-app-security/set-up-cloud-discovery).
 > 
 > 
 

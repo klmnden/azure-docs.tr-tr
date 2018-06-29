@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: d091a56fd5190ea9b40f7933e217eabac87967a5
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293101"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098772"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory'de Uygulama Yönetimi için Makale Dizini
 Bu sayfa, Azure Active Directory (Azure AD) çeşitli uygulama ile ilgili özellikler hakkında yazılan her belge kapsamlı bir listesini sağlar.
@@ -54,8 +54,8 @@ Bu bölümde, ilgili sorun giderme kılavuzları hızlı erişim sağlar. Bu say
 | Makale Kılavuzu |  |
 |:---:| --- |
 | Federasyon ve diğer türleri oturum açma giriş |[Azure AD ile çoklu oturum açma](manage-apps/what-is-single-sign-on.md) |
-| SaaS uygulamaları ile Azure AD ile önceden tümleştirilmiş binlerce Basitleştirilmiş tek oturum açma yapılandırma adımları |[Azure AD uygulama Galerisi'ni kullanmaya başlama](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon desteği önceden tümleştirilmiş uygulamaların tam listesi](active-directory-saas-tutorial-list.md)<br /><br />[Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
-| 150'den fazla uygulama öğreticileri nasıl yapılandırılacağı hakkında çoklu oturum açmayı uygulamalar gibi [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md)ve çok daha fazlası |[Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md) |
+| SaaS uygulamaları ile Azure AD ile önceden tümleştirilmiş binlerce Basitleştirilmiş tek oturum açma yapılandırma adımları |[Azure AD uygulama Galerisi'ni kullanmaya başlama](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Federasyon desteği önceden tümleştirilmiş uygulamaların tam listesi](saas-apps/tutorial-list.md)<br /><br />[Azure AD uygulama galerisinde uygulamanızı ekleme](active-directory-app-gallery-listing.md) |
+| 150'den fazla uygulama öğreticileri nasıl yapılandırılacağı hakkında çoklu oturum açmayı uygulamalar gibi [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md)ve çok daha fazlası |[Azure Active Directory ile SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](saas-apps/tutorial-list.md) |
 | El ile ayarlamak ve çoklu oturum açma yapılandırmanızı özelleştirmek nasıl |[Nasıl için yapılandırma federe çoklu oturum açma, Azure Active Directory Uygulama galerisinde bulunmayan uygulamalar](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[Önceden tümleştirilen uygulamalar için SAML belirtecinde verilen talepler özelleştirme](active-directory-saml-claims-customization.md) |
 | SAML protokolünü kullanan Federasyon uygulamaları için sorun giderme kılavuzu |[Sorun giderme SAML tabanlı çoklu oturum açma](active-directory-saml-debugging.md) |
 | Uygulamanızın sertifikanın sona erme tarihini yapılandırma ve sertifikalarınızı yenilemek için |[Federasyon tek oturum açma için Azure Active Directory'de sertifikaları yönetme](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
@@ -112,23 +112,18 @@ Azure AD Connect için kullanılabilir [Azure Active Directory'nin tüm sürüml
 | Aşağıdaki türdeki kaynakları için koşullu erişimi etkinleştirme |[SaaS uygulamaları için koşullu erişim](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 Hizmetleri için koşullu erişim](active-directory-conditional-access-device-policies.md)<br /><br />[Şirket içi uygulamalar için koşullu erişim](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD uygulama proxy'si şirket içi uygulamalar için koşullu erişim yayımlanan](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Cihaz temelli koşullu erişim ilkelerini etkinleştirmek için Azure Active Directory ile cihazları kaydetme |[Azure Active Directory cihaz kaydı genel bakış](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Etki alanı için otomatik cihaz kaydını etkinleştirme katılmış Windows cihazlarda](active-directory-conditional-access-automatic-device-registration.md)<br />— [Adımları için Windows 8.1 cihazları](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Adımları için Windows 7 aygıtları](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| İki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanma | [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| İki aşamalı doğrulama için Microsoft Authenticator uygulamasını kullanma | [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 Koşullu erişim bir [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) özelliği.
 
 ## <a name="apps--azure-ad"></a>Uygulamalar ve Azure AD
-### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud App Discovery: kuruluşunuzda hangi SaaS uygulamaları kullanılan Bul
-Cloud App Discovery hangi SaaS uygulamaları kuruluş genelinde kullanılan öğrenin BT departmanları yardımcı olur. Uygulama kullanımı ölçebilirsiniz ve BT denetim ve Azure AD ile tümleşik altında böylece hangi uygulamaların engeller en yararlı olacaktır, BT'nin belirleyebilir popülerliği getirildi.
+### <a name="cloud-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud Discovery: hangi SaaS uygulamaları, kuruluşunuzda kullanılmakta olan bulma
+Microsoft Cloud App Security'nın bulut uygulaması Kataloğu derecelendirilmiş ve puanlanmış uygulamalar 70'den fazla risk faktörlerini temel alarak tekrar 16.000 bulutun karşı trafik günlüklerinizi cloud Discovery çözümler, sağlamak üzere bulut devam eden görünürlük ile kullandığınız, gölge BT ve riski Gölge BT tümleştirilmesi, kuruluşunuzun.
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Nasıl çalıştığına ilişkin genel bir bakış |[Cloud App Discovery ile bulut uygulamaları tasdik bulma](manage-apps/cloud-app-discovery.md) |
-| Derin Dalış nasıl içine, gizlilik hakkında sorular için yanıtlar ile çalışır |[Güvenlik ve gizlilik konuları](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| Sık Sorulan Sorular |[Cloud App Discovery hakkında SSS](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
-| Cloud App Discovery dağıtmak için öğreticileri |[Grup İlkesi Dağıtım Kılavuzu](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center Dağıtım Kılavuzu](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[Proxy sunucuları özel bağlantı noktaları ile yükleme](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
-| Cloud App Discovery Aracısı güncelleştirmeleri için değişiklik günlüğü |[Değişiklik günlüğü](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
+| Nasıl çalıştığına ilişkin genel bir bakış |[Cloud discovery'yi ayarlama](/cloud-app-security/set-up-cloud-discovery) |
 
-Cloud App Discovery bir [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) özelliği.
 
 ### <a name="automatically-provision-and-deprovision-user-accounts-in-saas-apps"></a>Otomatik olarak sağlamak ve kullanıcı hesapları SaaS uygulamalarında yetkisini kaldırma
 Oluşturulması, Bakım ve kullanıcı kimlikleri Dropbox, Salesforce, ServiceNow ve daha fazlası gibi SaaS uygulamalarında kaldırılmasını otomatikleştirin. Eşleşen ve Azure AD arasında varolan kimlik eşitleme ve SaaS uygulamalarınıza ve kullanıcılar kuruluş ayrıldığında bırakılarak otomatik olarak hesaplar erişimi denetleme.
@@ -160,9 +155,9 @@ Kimlerin hangi kaynaklara erişimi olması gereken yönetmenize yardımcı olmak
 
 | Makale Kılavuzu |  |
 |:---:| --- |
-| Azure AD erişim yönetim özelliklerine genel bakış |[Uygulamalara erişimi yönetme giriş](manage-apps/what-is-access-management.md)<br /><br />[Azure AD'de erişim yönetimi nasıl çalışır?](active-directory-manage-groups.md)<br /><br />[SaaS uygulamalarına erişimi yönetmek için grupları kullanma](active-directory-accessmanagement-group-saasapps.md) |
+| Azure AD erişim yönetim özelliklerine genel bakış |[Uygulamalara erişimi yönetme giriş](manage-apps/what-is-access-management.md)<br /><br />[Azure AD'de erişim yönetimi nasıl çalışır?](fundamentals/active-directory-manage-groups.md)<br /><br />[SaaS uygulamalarına erişimi yönetmek için grupları kullanma](active-directory-accessmanagement-group-saasapps.md) |
 | Self Servis yönetimine, uygulamaların ve grupları izin ver |[Self Servis uygulama yönetimi](active-directory-self-service-application-access.md)<br /><br />[Self Servis Grup Yönetimi](active-directory-accessmanagement-self-service-group-management.md) |
-| Azure AD'de, grupları ayarlama yönergeleri |[Güvenlik grupları oluşturma](active-directory-groups-create-azure-portal.md)<br /><br />[Bir grubun sahiplerini atama](active-directory-accessmanagement-managing-group-owners.md)<br /><br />["Tüm kullanıcıları" grubu kullanma](active-directory-accessmanagement-dedicated-groups.md) |
+| Azure AD'de, grupları ayarlama yönergeleri |[Güvenlik grupları oluşturma](fundamentals/active-directory-groups-create-azure-portal.md)<br /><br />[Bir grubun sahiplerini atama](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />["Tüm kullanıcıları" grubu kullanma](active-directory-accessmanagement-dedicated-groups.md) |
 | Öznitelik tabanlı üyelik kurallarını kullanarak grup üyeliğini otomatik olarak doldurmak için dinamik grupları kullanma |[Dinamik grup üyeliğini: Gelişmiş kurallar](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[Dinamik grup üyeliklerini sorunlarını giderme](active-directory-accessmanagement-troubleshooting.md) |
 
 Grup tabanlı bir uygulamaya erişim yönetimi için kullanılabilir [Azure AD temel](https://azure.microsoft.com/pricing/details/active-directory/) ve [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/). Self Servis Grup Yönetimi, uygulama kendi kendine yönetimi ve dinamik grupların [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) özellikleri.
@@ -205,7 +200,7 @@ Azure Active Directory, çeşitli raporlar ve kuruluşunuzun uygulamalarına eri
 Hangi raporların Azure Active Directory, farklı sürümlerine dahil olduğunu görmek için [burayı](active-directory-view-access-usage-reports.md).
 
 ## <a name="see-also"></a>Ayrıca bkz.
-[Azure Active Directory nedir?](active-directory-whatis.md)
+[Azure Active Directory nedir?](fundamentals/active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 

@@ -11,15 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 135c789dc6e41e07bb939ece679756c8c42de2d1
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261024"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085292"
 ---
 # <a name="approvals"></a>Onaylar
 
@@ -40,27 +41,27 @@ Privileged Identity Management için onayları sayesinde, etkinleştirme için o
 
 **Bir ayrıcalıklı Rol Yöneticisi (PRA) olarak şunları yapabilirsiniz:**
 
--   [Belirli roller onayını etkinleştir](#enable-approval-for-specific-roles)
+-   [belirli roller onayını etkinleştir](#enable-approval-for-specific-roles)
 
 -   [Onaylayan kullanıcılara ve/veya grupları istekleri onaylanacak belirtin](#specify-approver-users-and/or-groups-to-approve-requests)
 
--   [Tüm ayrıcalıklı rolleri için istek ve onay geçmişini görüntüleme](#view-request-and-approval-history-for-all-privileged-roles)
+-   [tüm ayrıcalıklı rolleri için istek ve onay geçmişini görüntüleme](#view-request-and-approval-history-for-all-privileged-roles)
 
 **Belirlenen onaylayıcı olarak, şunları yapabilirsiniz:**
 
 -   [Bekleyen onaylar (istek) görüntüleme](#view-pending-approvals-requests)
 
--   [Onaylama veya reddetme rol yükseltme (tek ve/veya toplu) istekleri](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
+-   [onaylama veya reddetme rol yükseltme (tek ve/veya toplu) istekleri](#approve-or-reject-requests-for-role-elevation-single-and/or-bulk)
 
--   [My onay/reddetme için gerekçe](#provide-justification-for-my-approval/rejection) 
+-   [my onay/reddetme için gerekçe](#provide-justification-for-my-approval/rejection) 
 
 **Uygun bir Role kullanıcı olarak şunları yapabilirsiniz:**
 
--   [Onay gerektiren bir rolü etkinleştirme isteği](#request-activation-of-a-role-that-requires-approval)
+-   [onay gerektiren bir rolü etkinleştirme isteği](#request-activation-of-a-role-that-requires-approval)
 
 -   [İsteğiniz etkinleştirme durumunu görüntüleyin](#view-the-status-of-your-request-to-activate)
 
--   [Etkinleştirme onaylanırsa Azure AD'de Görevinizi tamamlamak](#complete-your-task-in-azure-ad-if-activation-was-approved)
+-   [etkinleştirme onaylanırsa Azure AD'de Görevinizi tamamlamak](#complete-your-task-in-azure-ad-if-activation-was-approved)
 
 ### <a name="navigation"></a>Gezinme
 

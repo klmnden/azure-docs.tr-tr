@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 36cbf9249664af1cd469d7e27c617a4810d0e74f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754725"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098966"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory kavram playbook kanıtını: yapı taşları
 
@@ -372,7 +372,7 @@ Yaklaşık tam süre: 10 dakika
 
 Seçilen uygulamaların gereksinimlerini sağlama olabilir, bu nedenle hemen uygulamaya giderek bazı hatalara neden olabilir. Seçilen uygulama azure ad ile sağlama destekliyorsa ve yapılandırıldığından, bu bir fırsat olarak uçtan uca çalışan tüm akışını göstermek için kullanabilirsiniz. Yapı bloğu için bkz: [SaaS Federasyon SSO yapılandırma](#saas-federated-sso-configuration) daha fazla önerileri için
 
-## <a name="self-service-password-reset"></a>Self Servis parola sıfırlama
+## <a name="self-service-password-reset"></a>Self Servis Parola Sıfırlama
 
 Yaklaşık tam süresi: 15 dakika
 
@@ -428,7 +428,7 @@ Yaklaşık tam süre: 10 dakika
 ### <a name="considerations"></a>Dikkat edilmesi gerekenler
 
 1. Bu yapı taşı açıkça MFA bir kullanıcı için tüm oturum ayarlama PoC adımları. MFA hakkında daha fazla bilgi devreye koşullu erişim ve kimlik koruması gibi diğer araçları vardır hedeflenen senaryoları. Bu POC üretime taşırken dikkate alınacak olacaktır.
-2. Bu yapı taşı PoC adımlarda expedience MFA yöntemi olarak telefon aramaları açıkça kullanıyor. Üretime POC geçiş gibi uygulamalar gibi kullanmanızı öneririz [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) , mümkün olduğunda ikinci öğe olarak.
+2. Bu yapı taşı PoC adımlarda expedience MFA yöntemi olarak telefon aramaları açıkça kullanıyor. Üretime POC geçiş gibi uygulamalar gibi kullanmanızı öneririz [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) , mümkün olduğunda ikinci öğe olarak.
 Daha fazla bilgi edinin: [taslak NIST özel yayını 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>SaaS uygulamaları için MFA koşullu erişim
@@ -553,7 +553,7 @@ Yaklaşık tamamlanma süresi: 20 dakika
 | --- | --- |
 | Sağlanan kullanıcı sertifikadan (Windows, iOS veya Android) Kuruluş PKI aygıtla | [Kullanıcı sertifikalarını dağıtma](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD etki alanı ADFS ile Federasyon | [Azure AD Connect ve federasyon](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory Sertifika Hizmetleri'ne Genel Bakış](https://technet.microsoft.com/library/hh831740.aspx)|
-| İOS cihazları için Microsoft Authenticator uygulamasının yüklü olması | [Microsoft Authenticator uygulaması ile çalışmaya başlama](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| İOS cihazları için Microsoft Authenticator uygulamasının yüklü olması | [Microsoft Authenticator uygulaması ile çalışmaya başlama](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Adımlar
 

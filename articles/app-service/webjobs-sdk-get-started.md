@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 6cdcfbf16f77525d6cee2085fdde9fdd630027e3
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018464"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096688"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Olay denetimli arka plan işlemesi için Azure WebJobs SDK'sını kullanmaya başlama
 
@@ -48,6 +48,9 @@ public static void Run(
 
 Yönergeleri 3.x (önizlemede) için farklı nedir hakkında notlar ile bir Web işleri SDK'si sürüm 2.x projesi oluşturmak nasıl bildirir. 3.x tarafından sunulan ana değişiklik .NET Core .NET Framework yerine kullanılır.
 
+> [!NOTE]
+> 3.x Önizleme aşamasındadır ve geliştirme aşamasındadır ve bu makaledeki 3.x yönergeleri güncel değil. En son bilgiler için sayfanın sonundaki GitHub sorunları bakın.
+
 ### <a name="azure-functions"></a>Azure İşlevleri
 
 [Azure işlevleri](../azure-functions/functions-overview.md) WebJobs SDK temel alır ve WebJobs SDK doğrudan kullanmanız gerekmez zamanki bir seçenektir. Azure işlevleri 1.x kullanan Web işleri SDK'si 2.x. Daha fazla bilgi için bkz: [Azure işlevleri ve WebJobs SDK arasında karşılaştırma](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs).
@@ -68,7 +71,7 @@ Bu makalede, sahip olduğunuz varsayılmaktadır [bir Azure hesabı](https://azu
    3.x projesi oluşturmak için seçin **.NET Core > konsol uygulaması (.NET Core)**.
    
    > [!NOTE]
-   > 3.x hala Önizleme aşamasındadır ve geliştirme aşamasındadır. Bu makaledeki 3.x yönergeleri eksik; en son bilgiler için sayfanın sonundaki GitHub sorunları bakın.
+   > 3.x Önizleme aşamasındadır ve geliştirme aşamasındadır ve bu makaledeki 3.x yönergeleri güncel değil. En son bilgiler için sayfanın sonundaki GitHub sorunları bakın.
 
 3. Proje adı *WebJobsSDKSample*ve ardından **Tamam**.
 

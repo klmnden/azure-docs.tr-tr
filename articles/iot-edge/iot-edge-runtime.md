@@ -8,12 +8,12 @@ ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-ms.translationtype: HT
+ms.openlocfilehash: aa371ef2ebad01fba379675e8438f56dca9ce356
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030388"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096977"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT kenar çalışma zamanı ve mimarisini anlama
 
@@ -40,12 +40,12 @@ Edge Aracısı'nı ve kenar hub'ı, bir IOT kenar cihazda çalışan yalnızca h
 Edge hub'ı Azure IOT kenar çalışma zamanı yapmak iki modülleri biridir. Yerel bir ara IOT hub'ın IOT hub'ı aynı protokol uç noktalarını göstererek görür. Bu tutarlılık anlamına istemcileri (olup olmadığını aygıtları veya modülleri) IOT Hub'ına gibi IOT kenar çalışma zamanına bağlanabilir. 
 
 >[!NOTE]
-> Genel Önizleme sırasında kenar Hub MQTT kullanarak bağlanan istemciler yalnızca destekler.
+>Edge Hub MQTT veya AMQP kullanarak bağlanan istemciler destekler. HTTP kullanan istemcileri desteklemez. 
 
 Edge hub'ın IOT Hub'ın yerel olarak çalışan tam sürümü değil. Edge hub'ı sessizce IOT Hub'ına temsilciler bazı şeyler vardır. Örneğin, bir cihaz ilk bağlanmaya çalıştığında kenar hub IOT Hub'ına kimlik doğrulama isteklerini iletir. İlk bağlantı kurulduktan sonra güvenlik bilgileri kenar hub tarafından yerel olarak önbelleğe alınır. Bu aygıttan sonraki bağlantılar için bulut kimlik doğrulaması yapmak zorunda kalmadan izin verilir. 
 
 >[!NOTE]
-> Bir aygıtın kimliğini doğrulamaya çalışır her zaman genel Önizleme sırasında çalışma zamanı bağlanması gerekir.
+>Çalışma zamanı, bir cihazın kimliğini doğrulamak çalışır her zaman bağlı olmanız gerekir.
 
 Kaç tane gerçek bağlantı buluta yapılan kenar hub'ı en iyi duruma getirir, IOT kenar çözümünüzü bant genişliğini azaltmak üzere kullanır. Edge hub modülleri veya yaprak cihazları gibi istemcilerden mantıksal bağlantılar alır ve bunları tek bir fiziksel bağlantı bulut için bir araya getirir. Bu işlem ayrıntılarını, çözüm geri kalanı için saydamdır. İstemciler, bunların tümü aynı bağlantı üzerinden gönderilen olsa da kendi bağlantı buluta sahip oldukları düşünün. 
 

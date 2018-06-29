@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 93cd4b6c4264c5905746b85f9fa46ce31ebd9e9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937678"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098949"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js ile Azure Linux üzerinde bir Cassandra küme çalıştırın
 
@@ -61,7 +61,7 @@ Bu yazma zaman gruba belirli hata etki alanı VM'ler açık eşleme Azure izin v
 
 **Küme oluştururken çekirdeği:** en yüksek oranda kullanılabilir düğümleri oluştururken çekirdeği için yeni düğümler küme topolojisini bulmak için çekirdek düğümleriyle iletişim olarak seçmek önemlidir. Her kullanılabilirlik kümesinden bir düğümü tek hata noktası önlemek için çekirdek düğüm olarak atanır.
 
-**Çoğaltma faktörünü ve tutarlılık düzeyi:** Cassandra'nın yerleşik yüksek kullanılabilirlik ve veri dayanıklılığı işlemleri çoğaltma faktörüyle (RF - kopya kümesinde depolanan her bir satır sayısı) ve tutarlılık düzeyi (için yineleme sayısı sonucu çağırana döndürmeden önce okunan ve yazılan olabilir). Tutarlılık düzeyi CRUD sorgu verme sırasında belirtilen ancak çoğaltma faktörü KEYSPACE (ilişkisel bir veritabanına benzer) oluşturma sırasında belirtilir. Cassandra belgelerine bakın [tutarlılık için yapılandırma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) tutarlılık ayrıntılarını ve çekirdek hesaplama formülü için.
+**Çoğaltma faktörünü ve tutarlılık düzeyi:** Cassandra'nın yerleşik yüksek kullanılabilirlik ve veri dayanıklılığı işlemleri çoğaltma faktörüyle (RF - kopya kümesinde depolanan her bir satır sayısı) ve tutarlılık düzeyi (için yineleme sayısı sonucu çağırana döndürmeden önce okunan ve yazılan olabilir). Tutarlılık düzeyi CRUD sorgu verme sırasında belirtilen ancak çoğaltma faktörü KEYSPACE (ilişkisel bir veritabanına benzer) oluşturma sırasında belirtilir. Cassandra belgelerine bakın [tutarlılık için yapılandırma](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) tutarlılık ayrıntılarını ve çekirdek hesaplama formülü için.
 
 Cassandra iki tür veri bütünlüğü modelleri – tutarlılık ve nihai tutarlılık destekler; Çoğaltma faktörünü ve tutarlılık düzeyi birlikte tam ya da sonuçta tutarlı bir yazma işlemi hemen verilerin tutarlı olup olmadığını belirler. Örneğin, çekirdek belirten tutarlılık düzeyi her zaman veri tutarlılığı gerektiğinde (örneğin bir) ÇEKİRDEĞİNİ elde etmek için yazılacak çoğaltmaların sayısı altındaki herhangi bir tutarlılık düzeyi bağlanırken sağlar gibi sonuçta tutarlı olan verileri sonuçlanır.
 
@@ -75,8 +75,8 @@ Tek bölge Cassandra küme yapılandırması:
 | Çoğaltma faktörü (RF) |3 |Belirli bir satırın çoğaltmaların sayısı |
 | Tutarlılık düzeyi (yazma) |QUORUM[(RF/2) +1) = 2] formülü sonucu yuvarlanan |Yanıt çağırana gönderilmeden önce en çok 2 çoğaltma Yazar; 3 çoğaltma sonunda tutarlı bir şekilde yazılır. |
 | Tutarlılık düzeyi (okuma) |Çekirdek [(RF/2) + 1 = 2] formül sonucu yuvarlanan |2 çoğaltma, yanıtını çağırana göndermeden önce okur. |
-| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
-| Snitch |GossipingPropertyFileSnitch bakın [anahtarları](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
+| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
+| Snitch |GossipingPropertyFileSnitch bakın [anahtarları](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
 
 **Cassandra küme Azure dikkate alınacak noktalar:** Microsoft Azure sanal makineleri özelliğine disk kalıcılığını; Azure Blob Depolama kullanır Azure depolama her disk yüksek dayanıklılık için üç çoğaltmalarının kaydeder. Her bir Cassandra tabloya eklenen veri satırının üç yinelemede zaten depolanmış anlamına gelir. Bu nedenle veri tutarlılığını zaten (RF) çoğaltma faktörü 1 olsa bile dikkate. Ana çoğaltma faktörle 1 olan tek bir Cassandra düğüm başarısız olsa bile uygulama kapalı kalma süresi karşılaştığında sorunudur. Ancak, bir düğüm Azure yapı denetleyicisi tarafından tanınan sorunları (örneğin donanım, sistem yazılım hataları) çalışmıyorsa, aynı depolama sürücülerini kullanarak onun yerine yeni bir düğüm sağlamasını yapar. Eski bir değiştirmek için yeni bir düğüm sağlama birkaç dakika sürebilir.  Benzer şekilde konuk işletim sistemi değişiklikleri gibi planlı bakım etkinlikler, Cassandra yükseltildikten ve kümedeki düğümlerin çalışırken Azure yapı denetleyicisi uygulama değişiklikleri gerçekleştirir.  Çalışırken yükseltme de birkaç düğüm aynı anda sürebilir ve bu nedenle küme birkaç bölümler için kısa kapalı kalma süresi karşılaşabilirsiniz. Ancak, veri yerleşik Azure Storage artıklık nedeniyle kayıp değildir.  
 
@@ -110,8 +110,8 @@ Yüksek tutarlılık gereken bir sistem LOCAL_QUORUM tutarlılık düzeyi (için
 | Çoğaltma faktörü (RF) |3 |Belirli bir satırın çoğaltmaların sayısı |
 | Tutarlılık düzeyi (yazma) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] formül sonucu yuvarlanan |2 düğümleri yazılmış ilk veri merkezine zaman uyumlu olarak; Çekirdek için gereken ek 2 düğümleri 2 veri merkezine zaman uyumsuz olarak yazılır. |
 | Tutarlılık düzeyi (okuma) |LOCAL_QUORUM ((RF/2) + 1) = formül sonucu aşağı yuvarlanmasını 2 |Okuma isteği yalnızca bir bölgesinden karşılanır; yanıt istemciye gönderilmeden önce 2 düğümleri salt okunurdur. |
-| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
-| Snitch |GossipingPropertyFileSnitch bakın [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
+| Çoğaltma stratejisi |NetworkTopologyStrategy bakın [veri çoğaltma](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) Cassandra belgelerinde daha fazla bilgi için |Dağıtım topolojisi anlar ve çoğaltmalar, düğümlerde yerleştirir, böylece tüm çoğaltmaların aynı rafa monte şunun yok |
+| Snitch |GossipingPropertyFileSnitch bakın [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) Cassandra belgelerinde daha fazla bilgi için |NetworkTopologyStrategy snitch kavramı topoloji anlamak için kullanır. GossipingPropertyFileSnitch veri merkezi ve raf her düğüme eşleme daha iyi denetim olanağı verir. Küme, dedikodu sonra bu bilgileri yaymak için kullanır. Bu dinamik IP ayarında PropertyFileSnitch göre çok daha kolaydır |
 
 ## <a name="the-software-configuration"></a>YAZILIM YAPILANDIRMA
 Aşağıdaki yazılım sürümlerinden dağıtımı sırasında kullanılır:
@@ -321,7 +321,7 @@ Aşağıdaki alt ağlar ekleyin:
 <table>
 <tr><th>Ad</th><th>Başlangıç IP</th><th>CIDR</th><th>Açıklamalar</th></tr>
 <tr><td>web</td><td>10.1.1.0</td><td>/24 (251)</td><td>Alt ağ web grubu</td></tr>
-<tr><td>veriler</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>veri</td><td>10.1.2.0</td><td>/24 (251)</td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsamı dışındadır üzerinden korunabilir.  
@@ -330,14 +330,14 @@ Veri ve Web alt ağlar, ağ güvenlik grupları kapsamını bu makalenin kapsam�
 
 <table>
 <tr><th>Makine Adı    </th><th>Alt ağ    </th><th>IP Adresi    </th><th>Kullanılabilirlik kümesi</th><th>DC/raf</th><th>Çekirdek?</th></tr>
-<tr><td>HK-c1-Batı-ABD    </td><td>veriler    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
-<tr><td>HK-c2-Batı-ABD    </td><td>veriler    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c3-Batı-ABD    </td><td>veriler    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
-<tr><td>HK-c4-Batı-ABD    </td><td>veriler    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c5-Batı-ABD    </td><td>veriler    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Evet</td></tr>
-<tr><td>HK-c6-Batı-ABD    </td><td>veriler    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Hayır </td></tr>
-<tr><td>HK-c7-Batı-ABD    </td><td>veriler    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Evet</td></tr>
-<tr><td>HK-c8-Batı-ABD    </td><td>veriler    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c1-Batı-ABD    </td><td>veri    </td><td>10.1.2.4    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 = </td><td>Evet</td></tr>
+<tr><td>HK-c2-Batı-ABD    </td><td>veri    </td><td>10.1.2.5    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = raf1 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c3-Batı-ABD    </td><td>veri    </td><td>10.1.2.6    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Evet</td></tr>
+<tr><td>HK-c4-Batı-ABD    </td><td>veri    </td><td>10.1.2.7    </td><td>HK-c-aset-1    </td><td>DC WESTUS raf = rack2 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c5-Batı-ABD    </td><td>veri    </td><td>10.1.2.8    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Evet</td></tr>
+<tr><td>HK-c6-Batı-ABD    </td><td>veri    </td><td>10.1.2.9    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack3 =    </td><td>Hayır </td></tr>
+<tr><td>HK-c7-Batı-ABD    </td><td>veri    </td><td>10.1.2.10    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Evet</td></tr>
+<tr><td>HK-c8-Batı-ABD    </td><td>veri    </td><td>10.1.2.11    </td><td>HK-c-aset-2    </td><td>DC WESTUS raf = rack4 =    </td><td>Hayır </td></tr>
 <tr><td>HK-w1-Batı-ABD    </td><td>web    </td><td>10.1.1.4    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 <tr><td>HK-w2-Batı-ABD    </td><td>web    </td><td>10.1.1.5    </td><td>HK-w-aset-1    </td><td>                       </td><td>Yok</td></tr>
 </table>
@@ -482,7 +482,7 @@ Aşağıdaki alt ağlar ekleyin:
 <table>
 <tr><th>Ad    </th><th>Başlangıç IP    </th><th>CIDR    </th><th>Açıklamalar</th></tr>
 <tr><td>web    </td><td>10.2.1.0    </td><td>/24 (251)    </td><td>Alt ağ web grubu</td></tr>
-<tr><td>veriler    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
+<tr><td>veri    </td><td>10.2.2.0    </td><td>/24 (251)    </td><td>Veritabanı düğümleri için alt ağ</td></tr>
 </table>
 
 
@@ -527,13 +527,13 @@ Aynı Azure depolama hesabı görüntüsünü VHD dosyasına #2 bölgede bulunan
 
 | Makine Adı | Alt ağ | IP Adresi | Kullanılabilirlik kümesi | DC/raf | Çekirdek? |
 | --- | --- | --- | --- | --- | --- |
-| HK-c1-Doğu-us |veriler |10.2.2.4 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
-| HK-c2-Doğu-us |veriler |10.2.2.5 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |
-| HK-c3-Doğu-us |veriler |10.2.2.6 |HK-c-aset-1 |DC EASTUS raf = rack2 = |Evet |
-| HK-c5-Doğu-us |veriler |10.2.2.8 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Evet |
-| HK-c6-Doğu-us |veriler |10.2.2.9 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Hayır |
-| HK-c7-Doğu-us |veriler |10.2.2.10 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Evet |
-| HK-c8-Doğu-us |veriler |10.2.2.11 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Hayır |
+| HK-c1-Doğu-us |veri |10.2.2.4 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Evet |
+| HK-c2-Doğu-us |veri |10.2.2.5 |HK-c-aset-1 |DC EASTUS raf = raf1 = |Hayır |
+| HK-c3-Doğu-us |veri |10.2.2.6 |HK-c-aset-1 |DC EASTUS raf = rack2 = |Evet |
+| HK-c5-Doğu-us |veri |10.2.2.8 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Evet |
+| HK-c6-Doğu-us |veri |10.2.2.9 |HK-c-aset-2 |DC EASTUS raf = rack3 = |Hayır |
+| HK-c7-Doğu-us |veri |10.2.2.10 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Evet |
+| HK-c8-Doğu-us |veri |10.2.2.11 |HK-c-aset-2 |DC EASTUS raf = rack4 = |Hayır |
 | HK-w1-Doğu-us |web |10.2.1.4 |HK-w-aset-1 |Yok |Yok |
 | HK-w2-Doğu-us |web |10.2.1.5 |HK-w-aset-1 |Yok |Yok |
 

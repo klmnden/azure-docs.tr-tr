@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b161fad822804ed0b2a6c7ad5315eca45984b19d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611458"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081498"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB genel verilerle dağıtmak nasıl
 Azure bulunabilen - 50 + coğrafi bölgeler arasında genel ayak izini sahiptir ve sürekli genişleyen. Genel iletişim durumu ile Azure, geliştiricilere sunduğu farklı özellikleri oluşturmak, dağıtmak ve genel olarak dağıtılmış uygulamaları kolayca yönetin olanağı biridir. 
@@ -92,7 +92,7 @@ Azure Cosmos DB otomatik yük devretme sırasında bir veya daha fazla bölgesel
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB içinde birden çok giriş
 Azure Cosmos DB kullanarak veritabanıyla etkileşim olanak tanır *mantıksal* (bölge belirsiz) veya *fiziksel* (bölgeye özgü) uç noktaları. Mantıksal uç noktalarını kullanarak çok konaklı bir yük devretme durumunda, uygulama saydam olabilir sağlar. İkincisi, fiziksel bir uç nokta okuma yönlendirmek için uygulamaya ayrıntılı denetim sağlar ve belirli bölgelerine yazar.
 
-İçin okuma tercihlerinin nasıl yapılandırılacağı hakkında bilgi bulabilirsiniz [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Gremlin API](../cosmos-db/tutorial-global-distribution-graph.md), [tablo API](../cosmos-db/tutorial-global-distribution-table.md), ve [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) içinde Bu makaleler.
+İçin okuma tercihlerinin nasıl yapılandırılacağı hakkında bilgi bulabilirsiniz [SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [tablo API](../cosmos-db/tutorial-global-distribution-table.md), ve [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md) bu makalelerde.
 
 ### <a id="TransparentSchemaMigration"></a>Saydam ve tutarlı veritabanı şeması ve dizin geçirme 
 Azure Cosmos DB olan tam olarak [şema belirsiz](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). Veritabanı Altyapısı'nın benzersiz tasarım Azure Cosmos DB otomatik olarak tanır ve zaman uyumlu olarak tüm verileri alımı, bağlı herhangi bir şemayı ya da ikincil dizinlerin kullanıcıdan gerek kalmadan dizin. Bu, veritabanı şeması ve dizin geçiş hakkında kaygı veya şema değişiklikleri çok aşaması piyasaya sürülmeleri Eşgüdümleme Genel dağıtılmış uygulamanızı hızlı bir şekilde yinelemek sağlar. Azure Cosmos DB açıkça sizin tarafınızdan yapılan ilkelere dizin oluşturma için değişiklikleri performans veya kullanılabilirlik düşmesine yol açmamasını güvence altına alır.  

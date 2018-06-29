@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/13/2018
 ms.author: genli
-ms.openlocfilehash: 665e1914f44d7c5e650a1b632d8b11c6d8a5931a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9985f6ad8721460e973d3c43f1f035506ae697c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793282"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100083"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>Azure VPN ağ geçidi RADIUS kimlik doğrulaması, çok faktörlü kimlik doğrulaması için NPS sunucusu ile tümleştirme 
 
@@ -28,7 +28,7 @@ Makale, ağ ilkesi sunucusu (NPS), noktadan siteye VPN bağlantıları için ço
 
 ## <a name="prerequisite"></a>Önkoşul
 
-MFA'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket içi eşitlenen veya ortam bulut Directory (Azure AD), olması gerekir. Ayrıca, kullanıcı zaten otomatik kayıt işlemini MFA için tamamlamış olmanız gerekir.  Daha fazla bilgi için bkz: [Hesabımı iki aşamalı doğrulama için ayarlama](../multi-factor-authentication/end-user/multi-factor-authentication-end-user-first-time.md)
+MFA'yı etkinleştirmek için kullanıcıların Azure Active ya da şirket içi eşitlenen veya ortam bulut Directory (Azure AD), olması gerekir. Ayrıca, kullanıcı zaten otomatik kayıt işlemini MFA için tamamlamış olmanız gerekir.  Daha fazla bilgi için bkz: [Hesabımı iki aşamalı doğrulama için ayarlama](../active-directory/authentication/end-user/current/multi-factor-authentication-end-user-first-time.md)
 
 ## <a name="detailed-steps"></a>Ayrıntılı adımlar
 

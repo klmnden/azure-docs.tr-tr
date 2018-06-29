@@ -190,6 +190,8 @@
           href: storage-https-custom-domain-cdn.md
         - name: Azure Blob depolamasının sabit depolama özelliği (Önizleme)
           href: storage-blob-immutable-storage.md
+        - name: Azure Depolama istemcisi için güvenli TLS'yi etkinleştirme
+          href: ../common/storage-security-tls.md
     - name: İzleme ve sorun giderme
       items:
         - name: Sorun giderme öğreticisi

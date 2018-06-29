@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: douglasl
-ms.openlocfilehash: b4e8a2dba65973919d9716655c4fbb4d533b1c78
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14cb59487788f272533fd7ec7eccf313654bf857
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824940"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082816"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen ortamlar işlem
 Bu makalede, işlem veya dönüştürme veri için kullanabileceğiniz farklı bilgi işlem ortamları açıklanmaktadır. (İsteğe bağlı karşılaştırması Getir kendi) farklı yapılandırmaları hakkındaki ayrıntıları bu bağlama bağlı hizmetler yapılandırırken Data Factory ile desteklenen ortamlar için bir Azure data factory işlem sağlar.
@@ -106,7 +106,7 @@ Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tan�
 | linkedServiceName            | Depolamak ve veri işleme için isteğe bağlı küme tarafından kullanılacak azure depolama bağlı hizmeti. Hdınsight kümesi, bu Azure depolama hesabı ile aynı bölgede oluşturulur. Azure HDInsight, desteklediği her bir Azure bölgesinde kullanabileceğiniz toplam çekirdek sayısıyla ilgili sınırlamaya sahiptir. Bu Azure bölgesinde gerekli clusterSize karşılamak için yeterli çekirdek kotası olduğundan emin olun. Ayrıntılar için başvurmak [Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)<p>Şu anda bir Azure Data Lake Store depolama alanı olarak kullanan bir isteğe bağlı Hdınsight kümesi oluşturulamıyor. Bir Azure Data Lake Store'da işleme Hdınsight sonuç verileri depolamak istiyorsanız, Azure Blob depolama alanından Azure Data Lake Store'a veri kopyalamak için kopyalama etkinliği kullanın. </p> | Evet      |
 | clusterResourceGroup         | Hdınsight kümesi bu kaynak grubunda oluşturulur. | Evet      |
 | TimeToLive                   | İsteğe bağlı Hdınsight kümesi için izin verilen boşta kalma süresi. Ne kadar süreyle isteğe bağlı Hdınsight kümesi kümedeki diğer etkin iş yok varsa bir etkinlik tamamlandıktan sonra canlı kalır belirtir. Değer izin verilen en az 5 dakikadır (00: 05:00).<br/><br/>Örneğin, bir etkinlik Çalıştır 6 dakika sürer ve timetolive 5 dakika olarak ayarlanmıştır, küme 6 etkinlik işleme dakika çalıştırdıktan sonra 5 dakika boyunca etkin kalır. Başka bir etkinlik 6 dakika penceresiyle yürütülürse, aynı küme tarafından işlenir.<br/><br/>İsteğe bağlı Hdınsight kümesi oluşturma bir pahalı işlemi (işlem zaman alabilir), bunu kullanımı isteğe bağlı Hdınsight kümesi yeniden kullanarak bir veri fabrikası performansını artırmak için bu ayarı olarak gerekli olur.<br/><br/>Timetolive değeri 0 olarak ayarlarsanız, küme etkinlik Çalıştır tamamlandıktan hemen sonra silindi. Yüksek bir değer ayarlarsanız, küme, bazı sorun giderme için oturum açmak boşta kalır ancak amacı, ancak yüksek maliyetleri de neden olabilir. Bu nedenle, gereksinimlerinize göre uygun değere ayarlamak önemlidir.<br/><br/>Timetolive özellik değerini uygun şekilde ayarlarsanız, birden çok ardışık düzen isteğe bağlı Hdınsight kümesi örneğini paylaşabilirsiniz. | Evet      |
-| clusterType                  | Oluşturulacak Hdınsight kümesi türü. İzin verilen değerler "hadoop" ve "spark" tür. Belirtilmezse, varsayılan değer hadoop olur. | Hayır       |
+| clusterType                  | Oluşturulacak Hdınsight kümesi türü. İzin verilen değerler "hadoop" ve "spark" tür. Belirtilmezse, varsayılan değer hadoop olur. Kurumsal güvenlik paketi etkin küme şu anda desteklenmiyor | Hayır       |
 | sürüm                      | Hdınsight küme sürümü. Belirtilmezse, geçerli Hdınsight tanımlanan varsayılan sürümü kullanıyor. | Hayır       |
 | hostSubscriptionId           | Hdınsight kümesi oluşturmak için kullanılan Azure abonelik kimliği. Belirtilmezse, Azure oturum açma içeriğiniz abonelik Kimliğini kullanır. | Hayır       |
 | clusterNamePrefix           | HDI küme adı, bir zaman damgası önek küme adının sonunda otomatik olarak eklenir| Hayır       |
@@ -123,6 +123,10 @@ Aşağıdaki JSON Linux tabanlı isteğe bağlı Hdınsight bağlı hizmeti tan�
 
 > [!IMPORTANT]
 > Hdınsight dağıtılabilir birden çok Hadoop küme sürümlerindeki destekler. Her sürüm seçimi Hortonworks veri Platformu (HDP) dağıtım belirli bir sürümü ve o dağıtım içinde bulunan bileşenleri kümesi oluşturur. Desteklenen sürümlerin listesi için Hdınsight son Hadoop ekosistemi bileşenlerini ve düzeltmeleri sağlamak için güncelleştirilmesini engeller. En son bilgileri her zaman başvurun emin olun [desteklenen Hdınsight sürümü ve işletim sistemi türü](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) Hdınsight'ın desteklenen sürümünü kullandığınızdan emin olmak için. 
+>
+> 
+> [!IMPORTANT]
+> Şu anda, bağlı hizmetler, HBase, etkileşimli sorgu (Hive LLAP), Storm ve kurumsal güvenlik (etki alanına katılmış) etkinleştirilmiş desteklemiyor Hdınsight kümeleri. 
 >
 > 
 
@@ -295,6 +299,10 @@ Kendi Hdınsight kümenizi Data Factory ile kaydetmek için bir Azure Hdınsight
 > [!IMPORTANT]
 > Hdınsight dağıtılabilir birden çok Hadoop küme sürümlerindeki destekler. Her sürüm seçimi Hortonworks veri Platformu (HDP) dağıtım belirli bir sürümü ve o dağıtım içinde bulunan bileşenleri kümesi oluşturur. Desteklenen sürümlerin listesi için Hdınsight son Hadoop ekosistemi bileşenlerini ve düzeltmeleri sağlamak için güncelleştirilmesini engeller. En son bilgileri her zaman başvurun emin olun [desteklenen Hdınsight sürümü ve işletim sistemi türü](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions) Hdınsight'ın desteklenen sürümünü kullandığınızdan emin olmak için. 
 >
+> [!IMPORTANT]
+> Şu anda, bağlı hizmetler, HBase, etkileşimli sorgu (Hive LLAP), Storm ve kurumsal güvenlik (etki alanına katılmış) etkinleştirilmiş desteklemiyor Hdınsight kümeleri. 
+>
+> 
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch bağlı hizmeti
 

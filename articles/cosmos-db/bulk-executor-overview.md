@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304433"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096186"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB toplu Yürütücü kitaplığına genel bakış
  
@@ -33,7 +33,7 @@ Toplu Yürütücü kitaplığı, bu çok büyük verim ve depolama yararlanan ya
  
 * Ayrıca bir kapsayıcıya ayrılmış işleme saturate için gerekli olan istemci tarafı işlem kaynaklarını önemli ölçüde azaltır. Verileri kullanarak toplu içeri aktarma API'si 10 başarır yazan tek iş parçacıklı uygulama verileri paralel olarak istemci kapasitesini doldurmaktan sırasında makinenin CPU Yazar çok iş parçacıklı bir uygulamaya kıyasla daha büyük yazma üretimi zaman.  
 
-* Hemen verimli bir şekilde bunları kitaplığın içinden işleyerek istek azaltma, istek zaman aşımları ve diğer geçici özel durumları işlemek için uygulama mantığını yazma can sıkıcı görevleri de soyutlar.  
+* Hemen verimli bir şekilde bunları kitaplığın içinden işleyerek isteği, istek zaman aşımları ve geçici diğer özel durumlar hız sınırlaması işlemek için uygulama mantığını yazma can sıkıcı görevleri de soyutlar.  
 
 * Ölçeği genişletme uygulamalar toplu işlemleri gerçekleştirmek için basitleştirilmiş bir mekanizma sağlar. Bir Azure VM üzerinde çalışan tek toplu Yürütücü örneği 500 K RU/s büyük tüketebileceği ve sanal makineleri tek tek istemcide ek örnekleri ekleyerek daha büyük verimi elde edebilirsiniz.  
  
@@ -47,7 +47,7 @@ Toplu işlem varlık ile içe aktarmak ya da belgeleri güncelleştirmek için b
 
 ![Toplu Yürütücü mimarisi](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-Toplu Yürütücü kitaplığı bir koleksiyona ayrılmış işleme maximally kullanmaya emin olur. Kullandığı bir [AIMD stili Tıkanıklık denetimi mekanizmasını](https://tools.ietf.org/html/rfc5681) her Azure Cosmos DB azaltma verimli bir şekilde işlemek için anahtar aralık ve zaman aşımlarına bölüm. 
+Toplu Yürütücü kitaplığı bir koleksiyona ayrılmış işleme maximally kullanmaya emin olur. Kullandığı bir [AIMD stili Tıkanıklık denetimi mekanizmasını](https://tools.ietf.org/html/rfc5681) her Azure Cosmos DB için hız sınırı ve zaman aşımlarına verimli bir şekilde işlemek için anahtar aralığı bölüm. 
 
 ## <a name="next-steps"></a>Sonraki Adımlar 
   

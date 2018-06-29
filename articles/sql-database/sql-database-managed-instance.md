@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054662"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082514"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
@@ -210,7 +210,7 @@ Aşağıdaki diyagramda yüzey alanını uyumluluk yönetilen örneğinde özetl
 - Yönetilen örneği izin vermiyor farklı desteklenmesi tüm ilgili senaryoları alacak şekilde tam fiziksel yolunu belirtme: geri DB WITH MOVE desteklemez, BULK INSERT çalışır ile Azure BLOB'ları yalnızca, vb. oluşturmak DB fiziksel yollar izin vermez. 
 - Örnek destekleyen yönetilen [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md) bulut alternatif olarak Windows kimlik doğrulaması. 
 - Yönetilen örneği XTP dosya ve bellek içi OLTP nesnelerini içeren veritabanları için dosyaları otomatik olarak yönetir
-- Yönetilen örneği SQL Server Integration Services (SSIS) destekler ve konak SSIS paketleri depolar SSIS katalog (SSISDB) olabilir, ancak bunlar üzerinde bir yönetilen Azure SSIS tümleştirmesi çalışma zamanı (IR) Azure veri fabrikası (ADF) yürütülür, bkz: [oluştur Azure SSIS IR ADF içinde](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+- Yönetilen örneği SQL Server Integration Services (SSIS) destekler ve konak SSIS paketleri depolar SSIS katalog (SSISDB) olabilir, ancak bunlar üzerinde bir yönetilen Azure SSIS tümleştirmesi çalışma zamanı (IR) Azure veri fabrikası (ADF) yürütülür, bkz: [oluştur Azure SSIS IR ADF içinde](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime). SQL veritabanı ve örnek yönetilen SSIS özelliklerinde karşılaştırmak için bkz: [karşılaştırmak SQL veritabanını ve örneği (Önizleme) yönetilen](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>Yönetilen örnek yönetim özellikleri  
 

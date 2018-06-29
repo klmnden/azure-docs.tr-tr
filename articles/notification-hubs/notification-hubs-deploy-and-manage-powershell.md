@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: d2350d8021925278d6362c8227d408476a569319
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2d70aff4cc569a194740fdab9373b7e11a1fcb15
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776915"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084357"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>PowerShell kullanarak Notification Hubs’ı Dağıtma ve Yönetme
 ## <a name="overview"></a>Genel Bakış
@@ -34,8 +34,8 @@ Bildirim hub'ları yönetme, doğrudan Azure PowerShell ile dahil edilen cmdlet'
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* Azure aboneliği. Azure abonelik tabanlı bir platformdur. Bir aboneliği edinme hakkında daha fazla bilgi için bkz: [satın alma seçenekleri], [üye teklifleri], veya [ücretsiz deneme].
-* Azure PowerShell ile bir bilgisayar. Yönergeler için bkz: [yükleyin ve Azure PowerShell yapılandırma].
+* Azure aboneliği. Azure abonelik tabanlı bir platformdur. Bir aboneliği edinme hakkında daha fazla bilgi için bkz: [satın alma seçenekleri], [üye teklifleri], veya [Ücretsiz deneme sürümü].
+* Azure PowerShell ile bir bilgisayar. Yönergeler için bkz: [Azure PowerShell'i yükleme ve yapılandırma].
 * PowerShell komut dosyaları, NuGet paketlerini ve .NET Framework genel anlama.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Hizmet veri yolu için .NET derlemesine başvuru dahil
@@ -154,11 +154,11 @@ Bazı hazır kodlar da indirme için kullanılabilir:
 
 * [Hizmet veri yolu PowerShell betikleri](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[satın alma seçenekleri]: http://azure.microsoft.com/pricing/purchase-options/
-[üye teklifleri]: http://azure.microsoft.com/pricing/member-offers/
-[ücretsiz deneme]: http://azure.microsoft.com/pricing/free-trial/
-[yükleyin ve Azure PowerShell yapılandırma]: /powershell/azureps-cmdlets-docs
-[bildirim hub'ları için .NET API]: https://msdn.microsoft.com/library/azure/mt414893.aspx
+[Satın alma seçenekleri]: http://azure.microsoft.com/pricing/purchase-options/
+[Üye teklifleri]: http://azure.microsoft.com/pricing/member-offers/
+[Ücretsiz deneme sürümü]: http://azure.microsoft.com/pricing/free-trial/
+[Azure PowerShell'i yükleme ve yapılandırma]: /powershell/azureps-cmdlets-docs
+[Bildirim hub'ları için .NET API]: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx

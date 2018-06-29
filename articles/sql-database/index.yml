@@ -14,14 +14,14 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/01/2018
   ms.author: carlrab
-  ms.openlocfilehash: b7888a2bece1a9b601c3629deb1c1dd1fc5cbbe3
-  ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+  ms.openlocfilehash: 64c6bd7ee69f443f819676d1605aa679066e2e84
+  ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
   ms.translationtype: HT
   ms.contentlocale: tr-TR
-  ms.lasthandoff: 04/06/2018
-  ms.locfileid: "30922391"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37063358"
 abstract:
-  description: Azure SQL Veritabanı, Microsoft SQL Server Altyapısını kullanan bir hizmet olarak ilişkisel veritabanıdır. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
+  description: Azure SQL Veritabanı, Microsoft SQL Server Veritabanı Altyapısı'nın en son kararlı sürümünü temel alan ilişkisel hizmet olarak veritabanı ürünüdür. SQL Veritabanı, altyapı yönetimine gerek kalmadan kendi seçtiğiniz programlama dilinde veri odaklı uygulamalar ve web siteleri oluşturmak için kullanabileceğiniz yüksek performanslı, güvenilir ve güvenli bir veritabanıdır. Hızlı başlangıç kılavuzlarımız, öğreticilerimiz ve örneklerimizle, SQL Veritabanı’nı kullanmayı öğrenin.
   aside:
     image:
       alt: 
@@ -35,22 +35,55 @@ sections:
 - title: 5 Dakikalık Hızlı Başlangıçlar
   items:
   - type: paragraph
-    text: 'SQL Veritabanı oluşturma, SQL Management Studio kullanarak yönetme ve C#, Java, Python, Node.js ve Ruby dillerinde geliştirme hakkında bilgi edinin:'
-  - type: list
-    style: icon48
-    items:
+    text: 'Azure SQL Veritabanı sayesinde Azure portal, Azure CLI ve Azure PowerShell’i kullanarak temel yönetim görevlerini kolayca gerçekleştirebilirsiniz. Aşağıdaki hızlı başlangıç örneklerini kullanarak temel yönetim görevlerini nasıl gerçekleştireceğinizi öğrenin:'
+  - type: table
+    style: dataMatrix
+    columns:
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure portalına
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal
+        src: media/index/portal.svg
+      title: Azure portal
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
-      text: Azure CLI
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-cli
+        src: media/index/cli.svg
+      title: Azure CLI
     - image:
-        src: https://docs.microsoft.com/azure/sql-database/media/index/logo_powershell.svg
-      text: Azure PowerShell
-      href: https://docs.microsoft.com/azure/sql-database/sql-database-get-started-powershell
+        src: media/index/logo_powershell.svg
+      title: PowerShell
+    rows:
+    - title: Tek bir SQL Veritabanı oluşturma
+      values:
+      - href: /azure/sql-database/sql-database-get-started-portal
+      - href: /azure/sql-database/sql-database-get-started-cli
+      - href: /azure/sql-database/sql-database-get-started-powershell
+    - title: SQL Yönetilen Örnek oluşturma
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
+    - title: SQL Esnek Havuzu oluşturma
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
+      - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
+    - title: Tek bir SQL Veritabanını ölçeklendirme
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
+    - title: SQL Esnek Havuzunu ölçeklendirme
+      values:
+      - href: 
+      - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
+      - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
+    - title: Yönetilen Örneği ölçeklendirme
+      values:
+      - href: 
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
+    - title: Azure ağını Yönetilen Örnek için yapılandırma
+      values:
+      - href: /azure/sql-database/sql-database-managed-instance-create-tutorial-portal
+      - href: 
+      - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
 - title: Adım Adım Öğreticiler
   items:
   - type: paragraph

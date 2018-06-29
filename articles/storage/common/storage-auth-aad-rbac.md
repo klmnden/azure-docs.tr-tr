@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34661012"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082239"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC (Önizleme) ile Azure depolama verilere erişim haklarını yönetme
 
@@ -61,7 +61,7 @@ Aşağıdaki bölümlerde, depolama hesabına kapsamlı veya tek bir kapsayıcı
 
 Tüm kapsayıcıları veya Azure Portal'da depolama hesabı kuyruklarda erişim verilmesi yerleşik bir rol atamak için:
 
-1. İçinde [Azure portal](https://azure.portal.com/), depolama hesabınıza gidin.
+1. İçinde [Azure portal](https://portal.azure.com), depolama hesabınıza gidin.
 2. Depolama hesabınızı seçin ve ardından **erişim denetimi (IAM)** hesabı için erişim denetimi ayarlarını görüntülemek için. Tıklatın **Ekle** yeni bir rolü eklemek için düğmeyi.
 
     ![Depolama erişim denetimi ayarlarını gösteren ekran görüntüsü](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Tüm kapsayıcıları veya Azure Portal'da depolama hesabı kuyruklarda erişim 
 
 Bir kapsayıcı veya kuyruğa kapsamlı yerleşik bir rol atama için adımları benzerdir. Burada gösterilen yordamı bir kapsayıcıya kapsamlı bir rol atar ancak bir sıraya kapsamlı bir rol atamak için aynı adımları izleyin: 
 
-1. İçinde [Azure portal](https://azure.portal.com/), depolama hesabınıza gidin ve görüntülemek **genel bakış** hesabı.
+1. İçinde [Azure portal](https://portal.azure.com), depolama hesabınıza gidin ve görüntülemek **genel bakış** hesabı.
 2. BLOB hizmeti altında seçin **Gözat BLOB'lar**. 
 3. Bir rol atamak istediğiniz kapsayıcıyı bulun ve kapsayıcının ayarları görüntüleyin. 
 4. Seçin **erişim denetimi (IAM)** kapsayıcısı için erişim denetimi ayarlarını görüntülemek için.

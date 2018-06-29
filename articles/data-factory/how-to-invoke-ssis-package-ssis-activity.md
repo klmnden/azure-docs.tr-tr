@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: 26b9271744d7be45c2a879fde3bb3fb5d6049a3b
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054730"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083794"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>SSIS paketi yürütme etkinliği Azure Data factory'de bir SSIS paketi çalıştırın
 Bu makalede, bir SSIS paketi yürütme etkinliğini kullanarak bir Azure Data Factory ardışık düzeninde bir SSIS paketi çalıştırmak açıklar. 
@@ -174,7 +174,7 @@ Aşağıdaki noktalara dikkat edin:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır.
-* Şu anda, Data Factory veri fabrikaları yalnızca Doğu ABD, Doğu US2, Batı Avrupa ve Güneydoğu Asya bölgeleri oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+* Veri Fabrikası olduğu şu anda Azure bölgeleri listesi için aşağıdaki sayfada ilgilendiren ve ardından genişletin bölgeleri seçin **Analytics** bulmak için **Data Factory**: [ Bölgeye göre ürünleri](https://azure.microsoft.com/global-infrastructure/services/). Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>SSIS etkinliği ile işlem hattı oluşturma 
 Bu adımda, SSIS etkinliği ile işlem hattı oluşturun. Etkinlik, SSIS paketi çalıştırır. 

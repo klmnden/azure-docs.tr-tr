@@ -10,6 +10,8 @@
       href: stream-analytics-quick-create-portal.md
     - name: İş oluşturma - PowerShell
       href: stream-analytics-quick-create-powershell.md
+    - name: İş oluşturma - Visual Studio
+      href: stream-analytics-quick-create-vs.md
 - name: Öğreticiler
   items:
     - name: 1 - İş oluşturma / yönetme

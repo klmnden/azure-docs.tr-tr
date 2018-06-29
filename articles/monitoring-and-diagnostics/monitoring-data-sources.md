@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 78b3288cf4973efa2684252581000d0e4fc56cae
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220093"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083007"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>İzleme verilerini Azure kullanma
 
@@ -28,7 +28,7 @@ Azure platformu üzerinde biz birlikte Azure İzleyicisi ile tek bir yerde izlem
 | Özel veya uygulama ölçümleri | Ölçümler | Application Insights ile izleme eklenmiş herhangi bir uygulama | <ul><li>**REST API:** [Application Insights REST API'si](https://dev.applicationinsights.io/reference)</li></ul> |
 | Depolama ölçümleri | Ölçümler | Azure Storage | <ul><li>**Depolama tablosu:** [depolama analizi](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Faturalama verisi | Ölçümler | Tüm Azure Hizmetleri | <ul><li>**REST API:** [Azure kaynak kullanımı ve RateCard API'leri](../billing/billing-usage-rate-card-overview.md)</li></ul> |
-| Etkinlik Günlüğü | Olaylar | Tüm Azure Hizmetleri | <ul><li>**REST API:** [Azure monitör olayları API](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**Depolama blobu veya olay hub:** [günlük profili](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
+| Etkinlik Günlüğü | Olaylar | Tüm Azure Hizmetleri | <ul><li>**REST API:** [Azure monitör olayları API](https://docs.microsoft.com/en-us/rest/api/monitor/eventcategories)</li><li>**Depolama blobu veya olay hub:** [günlük profili](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Azure İzleyici tanılama günlükleri | Olaylar | [Burada listesine bakın](monitoring-diagnostic-logs-schema.md) | <ul><li>**Depolama blobu veya olay hub:** [tanılama ayarları](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | Konuk işletim sistemi günlükleri (ör. işlem IIS, ETW, Syslog modüllerini) | Olaylar | [Windows](../virtual-machines-dotnet-diagnostics.md) ve Linux sanal makineleri (v2) [bulut hizmetlerini](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Depolama tablosu veya blob:** [Windows veya Linux Azure tanılama](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**Olay hub'ı:** [Windows Azure tanılama](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | Uygulama hizmeti günlükleri | Olaylar | Uygulama hizmetleri | <ul><li>**Dosya, tablo veya blob Depolama:** [Web uygulaması tanılama](../app-service/web-sites-enable-diagnostic-log.md)</li></ul> |

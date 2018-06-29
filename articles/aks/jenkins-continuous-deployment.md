@@ -2,19 +2,19 @@
 title: Jenkins sürekli dağıtımı Azure Kubernetes hizmetindeki Kubernetes ile
 description: Jenkins dağıtmak ve Azure Kubernetes hizmetindeki Kubernetes kapsayıcılı bir uygulamasını yükseltmek için sürekli dağıtım işlemine otomatikleştirme
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 376d3b916c4e01ea6111e6c1db63e976dd1ea320
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 84baf01ce6eeed8dc569d7a856189aefba788126
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069349"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096484"
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Jenkins ve Azure Kubernetes hizmetiyle sürekli dağıtım
 

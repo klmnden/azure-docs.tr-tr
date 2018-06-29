@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: MT
+ms.openlocfilehash: 95e576eb5ce6834e67d997cde57426fd09db4e6a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294075"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099805"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights ile veri toplama, tutma ve depolama
 
@@ -128,22 +128,9 @@ Veri merkezleri arasında hareket ederken tüm veriler şifrelenir.
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Application Insights sunucularına my uygulamasından Aktarımdaki veriler şifrelenir?
 Evet, biz web sunucuları, aygıtları ve HTTPS web sayfaları dahil olmak üzere, neredeyse tüm Sdk'lardan portalına veri göndermek için https kullanın. Tek özel durum düz HTTP web sayfalarından gönderilen verilerdir. 
 
-## <a name="personally-identifiable-information"></a>Kişisel bilgiler
-#### <a name="could-personally-identifiable-information-pii-be-sent-to-application-insights"></a>Kişisel bilgilerin (PII) Application Insights'a gönderilen?
-Evet, mümkündür. 
+## <a name="personal-data-stored-in-application-insights"></a>Application Insights'ta depolanan kişisel veriler
 
-Genel bir yönerge olarak:
-
-* Çoğu standart telemetri (diğer bir deyişle, size herhangi bir kod yazmadan gönderilen telemetri) açık PII dahil değildir. Ancak, olayları koleksiyonundan çıkarım tarafından kişiler belirlemek mümkün olabilir.
-* Özel durum ve izleme iletilerini PII içerebilir
-* Özel telemetri - çağrıları API ya da günlük izlemelerini kullanarak kod içinde yazma TrackEvent gibi diğer bir deyişle, - seçtiğiniz herhangi bir veri içerebilir.
-
-Bu belgenin sonundaki tabloda, toplanan verilerin daha ayrıntılı açıklamaları içerir.
-
-#### <a name="am-i-responsible-for-complying-with-laws-and-regulations-in-regard-to-pii"></a>Yasalarına ve düzenlemelerine PII in regard to ile uymak için sorumlu miyim?
-Evet. Bu toplama ve kullanım verileri uyduğundan yasalarına ve düzenlemelerine ve Microsoft çevrimiçi hizmet koşulları emin olun, sorumluluğundadır.
-
-Müşterilerinizin uygun şekilde uygulamanızı topladığı veri ve verilerin nasıl kullanıldığı hakkında bilgilendirmek.
+Bizim [Application Insights kişisel veriler makale](app-insights-customer-data.md) ayrıntılı bu konuda ele alınmıştır.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Kullanıcılarım Application Insights kapatabilir miyim?
 Doğrudan yönetilemez. Kullanıcılarınızın Application Insights devre dışı bırakma çalışabilir bir anahtar sunuyoruz yok.
@@ -154,7 +141,7 @@ Ancak, böyle bir özellik uygulamanızda uygulayabilirsiniz. Tüm SDK telemetri
 Application Insights filtre ya da verilerinizi silin. Veri uygun şekilde yönetmek ve bu tür veriler Application Insights'a göndermekten kaçınmanız gerekir.
 
 ## <a name="data-sent-by-application-insights"></a>Application Insights tarafından gönderilen verileri
-SDK'ları platformları arasında farklılık gösterir ve yüklemek için kullanabileceğiniz çeşitli bileşenler vardır. (Başvurmak [Application Insights - genel bakış][start].) Her bileşen farklı veri gönderir.
+SDK'ları platformları arasında farklılık gösterir ve yüklemek için kullanabileceğiniz birçok bileşen vardır. (Başvurmak [Application Insights - genel bakış][start].) Her bileşen farklı veri gönderir.
 
 #### <a name="classes-of-data-sent-in-different-scenarios"></a>Farklı senaryolarda gönderilen veri sınıfları
 | Eylem | (Sonraki tabloya bakın) toplanan veri sınıfları |
@@ -164,9 +151,9 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 | [Java web uygulaması için Application Insights SDK ekleme][java] |Sunucu bağlamı<br/>Çıkarımı yapılan<br/>İstek<br/>Oturum<br/>kullanıcılar |
 | [Web sayfasına JavaScript SDK'sı ekleme][client] |ClientContext <br/>Çıkarımı yapılan<br/>Sayfa<br/>ClientPerf<br/>AJAX |
 | [Varsayılan özellikleri tanımlama][apiproperties] |**Özellikler** tüm standart ve özel olayları hakkında |
-| [Çağrı TrackMetric][api] |Sayısal değerler<br/>**özellikleri** |
-| [Çağrı izleme *][api] |Olay adı<br/>**özellikleri** |
-| [Çağrı TrackException][api] |**Özel durumlar**<br/>Yığın Dökümü<br/>**özellikleri** |
+| [Çağrı TrackMetric][api] |Sayısal değerler<br/>**Özellikleri** |
+| [Çağrı izleme *][api] |Olay adı<br/>**Özellikleri** |
+| [Çağrı TrackException][api] |**Özel durumlar**<br/>Yığın Dökümü<br/>**Özellikleri** |
 | SDK, veri toplayamazsınız. Örneğin: <br/> -Performans sayacı erişemiyor<br/> -telemetri Başlatıcı özel durumu |SDK tanılama |
 
 İçin [diğer platformlar için SDK'lar][platforms], kendi belgelere bakın.
@@ -174,10 +161,10 @@ SDK'ları platformları arasında farklılık gösterir ve yüklemek için kulla
 #### <a name="the-classes-of-collected-data"></a>Toplanan veri sınıfları
 | Toplanan veriler sınıfı | (Kapsamlı bir liste değil) içerir |
 | --- | --- |
-| **özellikleri** |**Kodunuz tarafından belirlenen herhangi bir veriyi-** |
+| **Özellikleri** |**Kodunuz tarafından belirlenen herhangi bir veriyi-** |
 | DeviceContext |Kimliği, IP, yerel ayar, cihaz modeli, ağ, ağ türü, OEM adı, ekran çözünürlüğünü, rol örneği, rol adı, cihaz türü |
 | ClientContext |İşletim sistemi, yerel ayar, dil, ağ, pencere çözümleme |
-| Oturum |Oturum kimliği |
+| Oturum |oturum kimliği |
 | Sunucu bağlamı |Makine adı, yerel ayar, işletim sistemi, cihaz, kullanıcı oturumu, kullanıcı bağlamı, işlemi |
 | Çıkarımı yapılan |IP adresi, zaman damgası, işletim sistemi, tarayıcı coğrafi konumdan |
 | Ölçümler |Ölçüm adı ve değeri |

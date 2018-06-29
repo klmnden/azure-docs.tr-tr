@@ -9,12 +9,12 @@ ms.component: linguistic-analysis
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 4681098a0e56640e95463272be44f7432be26839
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351641"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084051"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Tümce ayırma ve belirteç oluşturma
 
@@ -68,4 +68,4 @@ Son olarak, kısaltmalar gibi göstermek için daha olağan dışı belirteçler
 ## <a name="specification"></a>Belirtimi
 
 Ne bir cümle ve bir belirteç oluşur hakkında tutarlı kararları önemlidir.
-Biz belirtiminden Bel [Penn Treebank](https://www.cis.upenn.edu/~treebank/) (bazı ek ayrıntıları buraya kullanılabilir: [https://www.cis.upenn.edu/~treebank/tokenization.html]).
+Biz belirtiminden Bel [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) (bazı ek ayrıntıları ftp://ftp.cis.upenn.edu/pub/treebank/public_html/tokenization.html kullanılabilir).

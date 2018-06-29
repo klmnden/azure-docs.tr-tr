@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: 500b6ef33bb70cd5138067d88303b7db9121e867
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778912"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102758"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Betik eylemleri kullanarak Linux tabanlı Hdınsight kümelerini özelleştirme
 
@@ -58,7 +58,7 @@ Betik eylemi Hdınsight kümesi düğümler üzerinde çalıştırılan Bash kom
 
 * Hdınsight küme erişilebilen bir URI üzerinde depolanmalıdır. Olası depolama konumları şunlardır:
 
-    * Bir **Azure Data Lake Store** Hdınsight küme tarafından erişilebilir olan hesap. Hdınsight ile Azure Data Lake Store hakkında daha fazla bilgi için bkz: [Data Lake Store ile bir Hdınsight kümesi oluşturmayı](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+    * Bir **Azure Data Lake Store** Hdınsight küme tarafından erişilebilir olan hesap. Hdınsight ile Azure Data Lake Store hakkında daha fazla bilgi için bkz: [hızlı başlangıç: Hdınsight kümelerinde ayarlama](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
         Data Lake Store'da depolanan bir komut dosyası kullanıldığında, URI biçimi `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
@@ -173,9 +173,7 @@ Bu bölümde, betik eylemleri bir Hdınsight kümesi oluştururken kullanabilece
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Azure portalından küme oluşturma sırasında bir betik eylemi kullanın
 
-1. Konusunda açıklandığı gibi bir küme oluşturmaya başlamak [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md). Ulaştığınızda Durdur __küme Özet__ bölümü.
-
-2. Gelen __küme Özet__ bölümünde, select __Düzenle__ için bağlantı __Gelişmiş ayarları__.
+1. Konusunda açıklandığı gibi bir küme oluşturmaya başlamak [Hdınsight'ta oluşturmak Hadoop kümeleri](hdinsight-hadoop-provision-linux-clusters.md). Küme oluşturma sırasında en uygun ulaşacağını bir __küme Özet__ sayfası. Gelen __küme Özet__ sayfasında, __Düzenle__ için bağlantı __Gelişmiş ayarları__.
 
     ![Gelişmiş ayarlar bağlantısı](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 

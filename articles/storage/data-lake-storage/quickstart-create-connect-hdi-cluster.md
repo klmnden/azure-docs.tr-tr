@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
-ms.translationtype: HT
+ms.openlocfilehash: 9e986507269d9d7d8822e6f6088901be7d92edd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062088"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096562"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Hızlı Başlangıç: Hdınsight kümelerinde ayarlayın
 
@@ -117,7 +117,7 @@ Bulutta Hadoop şirket içi yüklemesini kümesindeki depolama alanını için H
 
 Yapılandırması sırasında varsayılan depolama uç noktası için Data Lake Storage belirtin. Uygulama ve sistem varsayılan depolama içeren günlükleri. İsteğe bağlı olarak, küme erişebilirsiniz ek bağlı Azure Data Lake Storage hesaplarını belirtebilirsiniz. Hdınsight kümesi ve bağımlı depolama hesapları aynı Azure konumuna olması gerekir.
 
-![Küme depolama ayarları: HDFS uyumlu depolama uç noktaları](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![Küme depolama ayarları: HDFS uyumlu depolama uç noktaları](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > Şunları yaptığınızdan emin olun **Data Lake Store erişimi devre dışı**. Bu ayarları başvuran eski *Data Lake Store* işlevselliği ve sırayla devre dışı bırakılması gereksinimlerini *Data Lake Storage* düzgün çalışması için özellikleri.

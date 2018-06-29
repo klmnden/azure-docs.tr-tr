@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725100"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096518"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Azure Cosmos ODBC sürücüsüyle BI analiz araçları kullanarak veritabanına bağlan
 
@@ -63,7 +63,7 @@ ODBC sürücüsü nereden geldiğini budur. ODBC sürücüsünü kullanarak, tab
 4. Tıklatın **Test** düğmesi Azure Cosmos DB hesabınıza bağlandığınızdan emin olun. 
 5. Tıklatın **Gelişmiş Seçenekler** ve aşağıdaki değerleri ayarlayın:
     - **Sorgu tutarlılık**: seçin [tutarlılık düzeyi](consistency-levels.md) işlemleriniz için. Varsayılan oturumdur.
-    - **Yeniden deneme sayısı**: ilk istek hizmet azaltma nedeniyle tamamlanmazsa bir işlem yeniden deneneceğini sayısını girin.
+    - **Yeniden deneme sayısı**: ilk istek hizmet hız sınırlaması nedeniyle tamamlanmazsa bir işlem yeniden deneneceğini sayısını girin.
     - **Şema dosyası**: çeşitli seçenekler burada sahip.
         - Bu giriş (boş), olduğu gibi bırakarak varsayılan olarak, ilk sayfa verileri her koleksiyon şeması belirlemek tüm koleksiyonlar için sürücü tarar. Bu koleksiyon eşleme bilinir. Tanımlanan bir şema dosyası olmadan sürücü her bir sürücü oturumu için tarama yapması ve daha yüksek başlangıç saati DSN kullanarak bir uygulama, bir neden olabilir. Bir şema dosyası her zaman için DSN ilişkilendirmek öneririz.
         - Bir şema dosyası zaten varsa (kullanılarak oluşturulan bir büyük olasılıkla [şema Düzenleyicisi](#schema-editor)), tıklayabilirsiniz **Gözat**, dosyaya gidin, tıklatın **kaydetmek**ve ardından **Tamam**.
@@ -106,7 +106,7 @@ Aşağıdaki adımları kullanarak bir veya daha fazla koleksiyonda verileri iç
 
     b. Yalnızca belirli değerleri girdiğiniz özniteliği için örnekleme kapsam istiyorsanız, öznitelik seçimi kutusunda seçin ve ardından bir değer girin **değeri** kutusu, örneğin, Seattle ve ENTER tuşuna basın. Öznitelikler için birden çok değer eklemeye devam edebilirsiniz. Yalnızca doğru öznitelik değerleri girerken seçili olduğundan emin olun.
 
-    Örneğin dahil, bir **öznitelikleri** değeri Şehir ve istediğiniz Tablonuzun yalnızca bir şehir değer satırlarla New York ve Dubai dahil sınırlamak, öznitelikler kutusu ve New York ve ardından Dubai içinde Şehir girersiniz **değerleri** kutusu.
+    Örneğin, dahil ederseniz bir **öznitelikleri** Şehir ve değerini istediğiniz Tablonuzun yalnızca bir şehir değer satırlarla New York ve Dubai dahil sınırlamak, Şehir öznitelikleri kutusu ve New York sonra Dubai girersiniz**Değerleri** kutusu.
 4. **Tamam**’a tıklayın. 
 5. Buna örneklemek istediğiniz koleksiyonları eşleme tanımlarında tamamladıktan sonra **şema Düzenleyicisi** penceresinde tıklatın **örnek**.
      Her sütun için değiştirebileceğiniz sütun SQL adı, SQL türü, SQL uzunluğu (varsa), Ölçek (varsa), duyarlık (varsa) ve null atanabilir.
@@ -196,4 +196,4 @@ Aşağıdaki hata iletisini alırsanız olun **konak** ve **erişim tuşu** Azur
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-Azure Cosmos DB hakkında daha fazla bilgi için bkz: ['na Hoş Geldiniz Azure Cosmos DB](introduction.md).
+Azure Cosmos DB hakkında daha fazla bilgi edinmek için bkz. [Azure Cosmos DB'ye hoş geldiniz](introduction.md).

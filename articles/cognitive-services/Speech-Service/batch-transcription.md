@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-ms.translationtype: HT
+ms.openlocfilehash: cf58f676be52aa16ce6de59c3566613c7ee9276d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054832"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084091"
 ---
 # <a name="batch-transcription"></a>Toplu transcription
 
@@ -40,7 +40,7 @@ WAV |  Stereo  |
 
 Stereo ses akışları için sırasında transcription sol ve sağ kanal toplu transcription bölün. Sonuç ile iki JSON dosyaları her tek bir kanaldan oluşturulur. Zaman damgaları utterance başına sıralı son dökümü oluşturmak geliştiricinin etkinleştirin. Aşağıdaki JSON örnek bir kanal çıktısını gösterir.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,7 +53,7 @@ Stereo ses akışları için sırasında transcription sol ve sağ kanal toplu t
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
 > Toplu transcription API transcriptions, durum ve ilişkili sonuçları isteyen bir REST hizmeti kullanıyor. .NET temel alır ve dış bağımlılıkları yok. Sonraki bölümde, nasıl kullanıldığı açıklanmaktadır.
@@ -77,7 +77,24 @@ Birleşik konuşma hizmetinin tüm özellikleri ile bir abonelik anahtarı oluş
 
 ## <a name="sample-code"></a>Örnek kod
 
-API'si kullanan oldukça kolaydır. Aşağıdaki örnek kod bir abonelik anahtarı ve bir API anahtarı ile özelleştirilmiş olması gerekir.
+API'si kullanan oldukça kolaydır. Aşağıdaki örnek kod bir abonelik anahtar ve veren tasarrufludur kod parçacığında gösterildiği aşağıdaki kodu olarak bir taşıyıcı belirteci edinmek geliştirici bir API anahtarı özelleştirilmiş olması gerekir:
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+Belirteç alındıktan sonra Geliştirici transcription gerektiren ses dosyası işaret eden SAS URI'sini belirtin gerekir. Kod kalan yalnızca durum tekrarlanan ve sonuçları görüntüler.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ API'si kullanan oldukça kolaydır. Aşağıdaki örnek kod bir abonelik anahtar
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -146,7 +163,7 @@ Geçerli örnek kodu, hiçbir özel modelleri belirtmiyor. Hizmet, dosyaları ç
 Bir taban çizgisi kullanmak istediğiniz değil, bir model kimliği için kullanım ve dil modelleri geçmesi gerekir.
 
 > [!NOTE]
-> Taban çizgisi için temel modelleri uç noktalarına bildirmek transcription kullanıcı yok. Kullanıcının özel modelleri kullanmak isterse kendisinin uç noktaları kimlikleri olarak sağlamak üzere olurdu [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Kullanıcı bir temel dil modeliyle akustik temel kullanmak isterse sonra kendisinin yalnızca özel modelinin uç noktası kimliği bildirmeniz gerekir Dahili sistemimizde (Akustik veya dil olması) iş ortağı temel model şekil ve fullfill transcription isteği kullanın.
+> Taban çizgisi için temel modelleri uç noktalarına bildirmek transcription kullanıcı yok. Kullanıcının özel modelleri kullanmak isterse kendisinin uç noktaları kimlikleri olarak sağlamak üzere olurdu [örnek](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Kullanıcı bir temel dil modeliyle akustik temel kullanmak isterse sonra kendisinin yalnızca özel modelinin uç noktası kimliği bildirmeniz gerekir Dahili sistemimizde (Akustik veya dil olması) iş ortağı temel model şekil ve, transcription isteği gerçekleştirmek için kullanın.
 
 ### <a name="supported-storage"></a>Desteklenen depolama
 
