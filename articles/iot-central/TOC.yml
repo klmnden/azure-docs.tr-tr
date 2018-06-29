@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: Öğreticiler
   items:
-    - name: Oluşturucu
-      items:
-        - name: 1 - Yeni bir cihaz türü belirleme
-          href: tutorial-define-device-type.md
-        - name: 2 - Kuralları yapılandırma
-          href: tutorial-configure-rules.md
-        - name: 3 - İşlecin görünümünü özelleştirme
-          href: tutorial-customize-operator.md
-    - name: İşleç
-      items:
-        - name: 4 - Cihazlarınızı izleme
-          href: tutorial-monitor-devices.md
-        - name: 5 - Cihaz ekleme
-          href: tutorial-add-device.md
+    - name: 1 - Yeni bir cihaz türü belirleme
+      href: tutorial-define-device-type.md
+    - name: 2 - Kuralları yapılandırma
+      href: tutorial-configure-rules.md
+    - name: 3 - İşlecin görünümünü özelleştirme
+      href: tutorial-customize-operator.md
+    - name: 4 - Cihazlarınızı izleme
+      href: tutorial-monitor-devices.md
+    - name: 5 - Cihaz ekleme
+      href: tutorial-add-device.md
 - name: Kavramlar
   items:
     - name: Mimari

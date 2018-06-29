@@ -56,7 +56,7 @@
 ## [Raporlama](../active-directory/authentication/howto-mfa-reporting.md)
 ### [Veri toplama](../active-directory/authentication/howto-mfa-reporting-datacollection.md)
 
-## [MFA kullanıcı kılavuzu](./end-user/multi-factor-authentication-end-user.md)
+## [MFA kullanıcı kılavuzu](../active-directory/authentication/end-user/current/multi-factor-authentication-end-user.md)
 
 ## Sorun giderme
 ### [SSS](../active-directory/authentication/multi-factor-authentication-faq.md)
