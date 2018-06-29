@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: özel ilkelerini kullanmaya başlama | Microsoft Docs'
-description: Nasıl Azure Active Directory B2C özel ilkelerini kullanmaya başlama
+title: Azure Active Directory B2C özel ilkelerinde kullanmaya başlama | Microsoft Docs
+description: Azure Active Directory B2C özel ilkelerini kullanmaya başlama yapma.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8ff69942971950e2d4a274e7d3502379a26326c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709300"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: özel ilkelerini kullanmaya başlama
 
@@ -52,7 +52,7 @@ Devam etmeden önce tüm kullanıcıların, uygulamaları, ilkeleri ve daha fazl
  e. İçin **tarihleri**, varsayılanları kullanın.<br>
  f. İçin **anahtar kullanımı**, kullanın **şifreleme**.<br>
  g. **Oluştur**’u seçin.<br>
-5. Create B2C_1A_FacebookSecret. <br>
+5. B2C_1A_FacebookSecret oluşturun. <br>
 Facebook uygulama gizli anahtarı zaten varsa, kiracınız için bir ilke anahtar olarak ekleyin. Aksi takdirde, böylece ilkelerinizi geçemediğinden bir yer tutucu değerle anahtarı oluşturmanız gerekir.<br>
  a. **Add (Ekle)** seçeneğini belirleyin.<br>
  b. İçin **seçenekleri**, kullanın **el ile**.<br>
@@ -73,8 +73,8 @@ Azure AD B2C altyapısı tarafından kaydolma ve kullanıcılar oturum açma iç
 
 1. İçinde [Azure portal](https://portal.azure.com), içine geçiş [Azure AD B2C kiracınızın bağlamında](active-directory-b2c-navigate-to-b2c-context.md).
 2. Açık **Azure Active Directory** dikey (değil **Azure AD B2C** dikey penceresinde). Seçmeniz gerekebilir **daha Hizmetleri** bulmak için.
-3. Seçin **uygulama kayıtlar**.
-4. Seçin **yeni uygulama kaydı**.
+3. **Uygulama kayıtları**'nı seçin.
+4. **Yeni uygulama kaydı**’nı seçin.
    * İçin **adı**, kullanmak `IdentityExperienceFramework`.
    * İçin **uygulama türü**, kullanın **Web app/API**.
    * İçin **oturum açma URL'si**, kullanın `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, burada `yourtenant` , Azure AD B2C Kiracı etki alanı adıdır.
@@ -85,8 +85,8 @@ Azure AD B2C altyapısı tarafından kaydolma ve kullanıcılar oturum açma iç
 
 ### <a name="create-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework uygulaması oluşturma
 
-1. Seçin **uygulama kayıtlar**.
-1. Seçin **yeni uygulama kaydı**.
+1. **Uygulama kayıtları**'nı seçin.
+1. **Yeni uygulama kaydı**’nı seçin.
    * İçin **adı**, kullanmak `ProxyIdentityExperienceFramework`.
    * İçin **uygulama türü**, kullanın **yerel**.
    * İçin **yeniden yönlendirme URI'si**, kullanın `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, burada `yourtenant` , Azure AD B2C kiracısı.
@@ -99,7 +99,7 @@ Azure AD B2C altyapısı tarafından kaydolma ve kullanıcılar oturum açma iç
 1. Seçin **bir API seçin**.
 1. IdentityExperienceFramework adı arayın. Seçin **IdentityExperienceFramework** sonuçları ve ardından **seçin**.
 1. Onay kutusunu işaretleyin **erişim IdentityExperienceFramework**ve ardından **seçin**.
-1. Seçin **Bitti**.
+1. **Done** (Bitti) öğesini seçin.
 1. Seçin **izinler**ve ardından seçerek onaylayın **Evet**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Başlatıcı paketini karşıdan yüklemek ve ilkelerini değiştirme
@@ -144,7 +144,7 @@ Her bir başlangıç paketi içerir:
 
 5. Dosyayı kaydedin.
 6. TrustFrameworkExtensions.xml açın. Aynı iki değiştirerek değişiklik `yourtenant.onmicrosoft.com` , Azure AD B2C kiracısı ile. Aynı değiştirme olun `<TenantId>` üç değişiklikleri toplam öğesi. Dosyayı kaydedin.
-7. Open SignUpOrSignIn.xml. Aynı değiştirerek değişiklik `yourtenant.onmicrosoft.com` üç yerde, Azure AD B2C kiracısı ile. Dosyayı kaydedin.
+7. SignUpOrSignIn.xml açın. Aynı değiştirerek değişiklik `yourtenant.onmicrosoft.com` üç yerde, Azure AD B2C kiracısı ile. Dosyayı kaydedin.
 8. Parola sıfırlama açın ve profil dosyalarını düzenleyin. Aynı değiştirerek değişiklik `yourtenant.onmicrosoft.com` Azure AD B2C kiracınızda her dosya üç yerde ile. Dosyaları kaydedin.
 
 ### <a name="add-the-application-ids-to-your-custom-policy"></a>Özel ilkeniz uygulama kimlikleri Ekle

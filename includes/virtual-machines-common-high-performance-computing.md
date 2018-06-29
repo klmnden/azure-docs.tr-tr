@@ -9,10 +9,11 @@ ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
-ms.translationtype: MT
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34152232"
 ---
 Kuruluşların büyük ölçekli bilgi işlem gereksinimleri vardır. Bu Big Compute iş yükleri, mühendislik tasarımı ve analizi, finansal risk hesaplamaları, görüntü işleme, karmaşık modelleme, Monte Carlo benzetimleri ve daha fazla bilgi içerir. 
 
@@ -188,7 +189,7 @@ Azure sanal makineler, sanal makine ölçek kümeleri, toplu ve ilgili işlem Hi
 * [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
 * [AXA genel P & C](https://customers.microsoft.com/story/axa-global-p-and-c)
 * [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
-* [D3vıew](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
+* [d3vıew](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 * [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 * [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
 * [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
