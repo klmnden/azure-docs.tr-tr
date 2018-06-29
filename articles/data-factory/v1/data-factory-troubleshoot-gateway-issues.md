@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 66e6725dd4e23eeaf0c8d0dcff6e5d26e3743218
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9453099af8d9be21a97808733ffa8f8bfe5a364a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624293"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047573"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Veri Yönetimi Ağ Geçidi kullanımıyla ilgili sorunları giderme
 Bu makalede, veri yönetimi ağ geçidi kullanarak sorunlarını giderme hakkında bilgi sağlar.
 
 > [!NOTE]
-> Bu makale, Azure Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [tümleştirmesi çalışma zamanı veri fabrikasında sürüm 2'kendi kendini barındıran](../create-self-hosted-integration-runtime.md).
+> Bu makalede Azure Data Factory 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri fabrikasında tümleştirmesi çalışma zamanı'kendi kendini barındıran](../create-self-hosted-integration-runtime.md).
 
 Bkz: [veri yönetimi ağ geçidi](data-factory-data-management-gateway.md) ağ geçidi hakkında ayrıntılı bilgi için makalenin. Bkz: [şirket içi ve bulut arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) veri ağ geçidi'ni kullanarak bir şirket içi SQL Server veritabanından Microsoft Azure Blob Depolama birimine taşıma makale kılavuz.
 

@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 5d9061e12ac9fe0b9d858690897e582acab5169e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754580"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053264"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data factory'de veri taşımayı ilgili güvenlik konuları
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-data-movement-security-considerations.md)
-> * [Sürüm 2 - Önizleme](data-movement-security-considerations.md)
+> * [Sürüm 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Geçerli sürüm](data-movement-security-considerations.md)
 
 Bu makalede, verilerinizin güvenliğini sağlamak için Azure Data Factory veri taşıma hizmetleri kullanan temel güvenlik altyapısı açıklanmaktadır. Veri Fabrikası yönetim kaynakları Azure güvenlik altyapı üzerine kurulmuş ve Azure tarafından sunulan tüm olası güvenlik önlemleri kullanın.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory sürüm 1 için veri taşıma güvenlik konuları](v1/data-factory-data-movement-security-considerations.md).
 
 Bir Data Factory çözümünde bir veya daha fazla [işlem hattı](concepts-pipelines-activities.md) oluşturursunuz. İşlem hattı, bir araya geldiğinde bir görev gerçekleştiren mantıksal etkinlik grubudur. Bu ardışık düzen veri fabrikası oluşturulduğu bölgede yer alır. 
 

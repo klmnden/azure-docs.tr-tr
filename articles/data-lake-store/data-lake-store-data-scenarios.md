@@ -1,25 +1,26 @@
 ---
-title: Data Lake Store içeren veri senaryoları | Microsoft Docs
-description: Farklı senaryolar ve hangi veri kullanarak araçları alınan, işlenen, yüklenen ve bir Data Lake Store'da görselleştirilen anlama
+title: Data Lake Storage Gen1 içeren veri senaryoları | Microsoft Docs
+description: Farklı senaryolar ve hangi veri kullanarak araçları alınan, işlenen, yüklenen ve Data Lake Storage (daha önce Azure Data Lake deposu da bilinir) Gen1 görselleştirilen anlama
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: cc48bf011d95b3e60a78d2102d88dc188155ddc1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017377"
+ms.locfileid: "37031048"
 ---
-# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>Azure Data Lake Store için büyük veri gereksinimleri kullanma
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Büyük veri gereksinimleri için Azure Data Lake Storage Gen1 kullanma
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Büyük veri işleme, dört anahtar aşamaları şunlardır:
 
 * Bir veri deposuna gerçek zamanlı veya toplu büyük miktarlarda veri alma

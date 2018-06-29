@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 183d9479ae18e557b00d0867cad79600145da7bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265237"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060051"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL kaynak sağlayıcısı için barındırma sunucuları ekleme
 
@@ -26,20 +26,24 @@ ms.locfileid: "36265237"
 
 ## <a name="overview"></a>Genel Bakış
 
-SQL barındırma sunucuları için genel gereksinimleri şunlardır:
+Bir SQL server barındırma eklemeden önce aşağıdaki zorunlu ve genel gereksinimlerini gözden geçirin.
 
-* SQL örneğinin kaynak sağlayıcısı ve kullanıcı iş yükleri tarafından kullanım için ayrılmış olmalıdır. Diğer bir tüketici tarafından kullanılan bir SQL örneğini kullanamazsınız. Bu kısıtlama, uygulama hizmetleri için de geçerlidir.
-* SQL kaynak sağlayıcısı VM etki alanına katılmış değildir ve yalnızca SQL kimlik doğrulaması kullanarak bağlanabilir.
-* Kaynak sağlayıcısı tarafından kullanım için uygun ayrıcalıklara sahip bir hesap yapılandırmanız gerekir.
-* Bu ağ üzerindeki bir SQL örneğine bağlanma gerekli olacak şekilde kaynak sağlayıcısı ve kullanıcılar, Web uygulamaları gibi kullanıcı ağ kullanın. Bu gereksinim genellikle IP SQL örnekleri için ortak bir ağda olması gerektiği anlamına gelir.
-* SQL örnekleri ve konaklarının yönetimini size bağlıdır. Örneğin, kaynak sağlayıcısı olmayan güncelleştirmeleri uygulamak, tanıtıcı yedekleri veya işlemek döndürme kimlik bilgisi.
-* AlwaysOn kullanarak yüksek kullanılabilirlik ve performansı gibi SQL yeteneklerini farklı sınıflarını destekleyen SKU'ları kullanabilirsiniz.
+**Zorunlu gereksinimleri**
+
+* SQL Server örneğinde SQL kimlik doğrulamasını etkinleştirin. SQL kaynak sağlayıcısı VM etki alanına katılmış olmadığından, yalnızca SQL kimlik doğrulaması'nı kullanarak bir barındırma sunucusuna bağlanabilir.
+* SQL örnekleri için IP adreslerini genel olarak yapılandırın. Bu ağ üzerindeki bir SQL örneğine bağlanma gerekli olacak şekilde kaynak sağlayıcısı ve kullanıcılar, Web uygulamaları gibi kullanıcı ağ üzerinden iletişim kurar.
+
+**Genel gereksinimler**
+
+* SQL örneği kullanmak için kaynak sağlayıcısı ve kullanıcı iş yükleri tarafından atayın. Diğer bir tüketici tarafından kullanılan bir SQL örneğini kullanamazsınız. Bu kısıtlama, uygulama hizmetleri için de geçerlidir.
+* Bir hesap ile uygun ayrıcalık düzeyi kaynak sağlayıcısı için yapılandırın.
+* Olduğunuz SQL örnekleri ve konaklarının yönetmekten sorumludur.  Örneğin, kaynak sağlayıcısı olmayan güncelleştirmeleri uygulamak, tanıtıcı yedekleri veya işlemek döndürme kimlik bilgisi.
 
 ### <a name="sql-server-virtual-machine-images"></a>SQL Server sanal makine görüntüleri
 
 SQL Iaas sanal makine görüntülerini Market yönetim özelliği kullanılarak kullanılabilir. Bu görüntüleri mevcut olan SQL VM'ler ile aynıdır.
 
-Her zaman en son sürümünü indirme emin **SQL Iaas uzantısı** Market öğesi kullanarak bir VM'i dağıtmadan önce.  Iaas uzantısını ve karşılık gelen portal geliştirmeleri otomatik düzeltme eki uygulama gibi ek özellikler sağlar ve yedekleyin.
+Her zaman en son sürümünü indirme emin **SQL Iaas uzantısı** Market öğesi kullanarak bir SQL VM dağıtmadan önce. Iaas uzantısını ve karşılık gelen portal geliştirmeleri otomatik düzeltme eki uygulama gibi ek özellikler sağlar ve yedekleyin. Bu uzantı hakkında daha fazla bilgi için bkz: [SQL Server Aracısı uzantısına sahip Azure sanal makineler üzerinde yönetim görevlerini otomatikleştiren](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Şablonlarda dahil olmak üzere SQL VM dağıtma için diğer seçenekleri vardır [Azure yığın hızlı başlama Galerisi](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -48,12 +52,12 @@ Her zaman en son sürümünü indirme emin **SQL Iaas uzantısı** Market öğes
 
 ### <a name="required-privileges"></a>Gerekli ayrıcalıklar
 
-Bir yönetici kullanıcı daha düşük ayrıcalıklara sahip, oluşturabileceğiniz SQL sysadmin. Kullanıcı yalnızca aşağıdaki işlemleri için izinler gerekir:
+Bir SQL sysadmin'den daha düşük ayrıcalıklara sahip bir yönetici kullanıcı oluşturun. Kullanıcı yalnızca aşağıdaki işlemleri için izinler gerekir:
 
-- Veritabanı: Oluşturma, Alter, kapsama (için her zaman açık yalnızca), bırakma, yedekleme
-- Kullanılabilirlik Grubu: Alter, birleştirme, Ekle/Kaldır veritabanı
-- Oturum açma: Oluşturma, seçin, Alter, Drop, iptal etme
-- Select işlemleri: \[ana\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn) birincilindeki (AlwaysOn), sys.databases, \[ana\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[ana\].\[ sys\].\[ availability_groups\] (AlwaysOn) sys.master_files
+* Veritabanı: Oluşturma, Alter, kapsama (için her zaman açık yalnızca), bırakma, yedekleme
+* Kullanılabilirlik Grubu: Alter, birleştirme, Ekle/Kaldır veritabanı
+* Oturum açma: Oluşturma, seçin, Alter, Drop, iptal etme
+* Select işlemleri: \[ana\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn) birincilindeki (AlwaysOn), sys.databases, \[ana\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[ana\].\[ sys\].\[ availability_groups\] (AlwaysOn) sys.master_files
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>SQL server'ı barındıran bir tek başına bağlanarak kapasitesi sağlar
 
@@ -71,36 +75,45 @@ Zaten ayarlanmış bir tek başına barındırma sunucusu eklemek için aşağı
 
    ![SQL bağdaştırıcısı Panosu](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
-3. Form, SQL Server örneği ile bağlantı ayrıntıları doldurun.
+3. Üzerinde **barındıran bir SQL Server ekleme**, SQL Server örneği için bağlantı ayrıntıları sağlayın.
 
    ![Bir SQL Server barındırma ekleme](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
-    İsteğe bağlı olarak, bir örnek adı içerir ve örneği için varsayılan bağlantı noktası 1433'ü atanmamış bir bağlantı noktası numarası belirtin.
+    İsteğe bağlı olarak, bir örnek adı sağlayın ve örneği için varsayılan bağlantı noktası 1433'ü atanmamış bir bağlantı noktası numarası belirtin.
 
    > [!NOTE]
    > SQL örneğinde yönetici Azure Resource Manager ve kullanıcı tarafından erişilen sürece, kaynak sağlayıcısı denetiminde yerleştirilebilir. SQL örneği __gerekir__ özel olarak kaynak sağlayıcısı ayrılamadı.
 
-4. Sunucular eklediğinizde, hizmet teklifleri ayırt etmek için bir yeni veya var olan SKU'ya atamanız gerekir. Örneğin, sağlayan bir SQL Enterprise örneği olabilir:
+4. Sunucular eklediğinizde, varolan bir SKU'ya atayın veya yeni bir SKU oluşturun. Altında **barındıran bir sunucu eklemek**seçin **SKU'ları**.
+
+   * Varolan bir SKU kullanmak için kullanılabilir bir SKU'ı seçin ve ardından **oluşturma**.
+   * Bir SKU oluşturmak için seçin **+ yeni SKU oluşturma**. İçinde **oluşturma SKU**gerekli bilgileri girin ve ardından **Tamam**.
+
+     > [!IMPORTANT]
+     > Özel karakterler, boşluklar ve dönemleri dahil olmak üzere desteklenmeyen **adı** alan. Aşağıdaki ekran görüntüsünde değerlerini girmek için örneklerde **ailesi**, **katmanı**, ve **Edition** alanları.
+
+     ![Bir SKU oluşturma](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+
+      SKU'ları portalında görünür olması için bir saat sürebilir. SKU tam olarak oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
+
+### <a name="sku-notes"></a>SKU notları
+
+Hizmet teklifleri ayırt etmek için SKU'ları kullanabilirsiniz. Örneğin, aşağıdaki özelliklere sahip bir SQL Enterprise örneğine sahip olabilir:
   
-   - Veritabanı kapasite
-   - otomatik yedekleme
-   - tek tek departmanlar için yüksek performanslı sunucuları
+* yüksek kapasiteli
+* yüksek performans
+* Yüksek kullanılabilirlik
 
-   Bir SKU tüm barındırma sunucuları aynı olanaklara sahip olmalıdır. **Adı** kullanıcılar kendi veritabanlarını uygun SKU dağıtabilmek için SKU özelliklerini yansıtmalıdır.
+Yüksek performanslı veritabanı gereken belirli gruplara erişimi sınırlayan bir SKU önceki örnek için oluşturabilirsiniz.
 
-   > [!IMPORTANT]
-   > Özel karakterler, boşluklar ve dönemleri dahil olmak üzere desteklenmiyor **ailesi** veya **katmanı** SQL ve MySQL kaynak sağlayıcıları için bir SKU oluşturduğunuzda adları.
+>[!TIP]
+>Yansıtan bir SKU adı kullan kapasite ve performans gibi SKU sunucuların özelliklerini açıklar. Kullanıcıların kendi veritabanlarını uygun SKU dağıtmak yardımcı olmak için bir yardımcı programının adı görür.
 
-   Örneğin:
-
-   ![SKU oluşturma](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
-
-   >[!NOTE]
-   > SKU'ları portalında görünür olması için bir saat sürebilir. SKU tam olarak oluşturulana kadar kullanıcılar bir veritabanı oluşturulamıyor.
+En iyi uygulama, bir SKU tüm barındırma sunucuları aynı kaynak ve performans özelliklerini olması gerekir.
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>SQL Always On kullanılabilirlik grupları kullanarak yüksek kullanılabilirlik sağlar
 
-SQL Always On örnekleri yapılandırma ek adımlar gerektirir ve en az üç sanal makineleri (veya fiziksel makineler.) gerektirir Bu makalede, Always On kullanılabilirlik grupları düz bir anlayış zaten sahip olduğunuzu varsayar. Daha fazla bilgi için bkz.
+SQL Always On örnekleri yapılandırma ek adımlar gerektirir ve üç sanal makineleri (veya fiziksel makineler) gerektirir. Bu makalede, Always On kullanılabilirlik grupları düz bir anlayış zaten sahip olduğunuzu varsayar. Daha fazla bilgi için aşağıdaki makalelere bakın:
 
 * [SQL Server Always On kullanılabilirlik grupları'Azure sanal makinelerde Tanıtımı](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
 * [Her zaman kullanılabilirlik grupları (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
@@ -108,7 +121,7 @@ SQL Always On örnekleri yapılandırma ek adımlar gerektirir ve en az üç san
 > [!NOTE]
 > SQL bağdaştırıcısı kaynak sağlayıcısı _yalnızca_ veya daha sonra örnekler için her zaman açık SQL 2016 SP1 Enterprise destekler. Bu bağdaştırıcı yapılandırma otomatik dengeli dağıtımı gibi yeni SQL özellikleri gerektirir.
 
-Yukarıdaki gereksinimleri listesine ek olarak, etkinleştirmelisiniz [otomatik dengeli](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her kullanılabilirlik grubu SQL Server'ın her örneğinin üzerinde.
+Ayrıca, etkinleştirmelisiniz [otomatik dengeli](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) her kullanılabilirlik grubu SQL Server'ın her örneğinin üzerinde.
 
 Tüm örneklerinde otomatik dengeli dağıtımı etkinleştirmek için düzenleyin ve ardından her örneği için aşağıdaki SQL komutunu çalıştırın:
 
@@ -132,7 +145,7 @@ Tüm örneklerinde otomatik dengeli dağıtımı etkinleştirmek için düzenley
 
 2. Seçin **Gözat** &gt; **yönetim KAYNAKLARININ** &gt; **SQL barındırma sunucuları** &gt; **+ekleme**.
 
-   Altında **SQL barındırma sunucuları** SQL Server Kaynak sağlayıcısı SQL Server'ın kaynak sağlayıcısının arka ucu olarak hizmet gerçek örneklerini bağlanabilir.
+   Altında **SQL barındırma sunucuları**, SQL Server Kaynak sağlayıcısı SQL Server'ın kaynak sağlayıcısının arka ucu olarak hizmet gerçek örneklerini bağlanabilir.
 
 3. SQL Server örneği için bağlantı ayrıntılarla formu doldurun. Üzerinde her zaman dinleyicisi (ve isteğe bağlı bağlantı noktası numarası.) FQDN adresi kullandığınızdan emin olun Sysadmin ayrıcalıklarına sahip yapılandırılmış hesap için bilgi sağlar.
 

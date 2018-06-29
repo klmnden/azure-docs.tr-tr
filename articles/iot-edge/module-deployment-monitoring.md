@@ -4,18 +4,18 @@ description: Nasıl modülleri kenar cihazlara dağıttığınız hakkında bilg
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 10/05/2017
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f64e6db576b7b1605cc070948a021184fc6ee8ad
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725335"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029269"
 ---
-# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>IOT kenar dağıtımları tek cihazlar için veya ölçekte anlamak - Önizleme
+# <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale"></a>IOT kenar dağıtımları tek cihazlar için veya ölçekte anlama
 
 Azure IOT sınır cihazları izleyin bir [cihaz yaşam döngüsü] [ lnk-lifecycle] , IOT cihazları diğer türleri için benzer:
 
@@ -23,7 +23,7 @@ Azure IOT sınır cihazları izleyin bir [cihaz yaşam döngüsü] [ lnk-lifecyc
 1. Aygıtları çalışmak üzere yapılandırılan [IOT kenar modülleri][lnk-modules]ve sistem durumu için izlenen. 
 1. Son olarak, değiştirilen veya geçersiz duruma gelir aygıtları kullanımdan.  
 
-Azure IOT kenar IOT kenar cihazlarda çalıştırmak için modülleri yapılandırmanın iki yolu sağlar: biri geliştirme ve (kullandığınız Azure IOT kenar eğitimlerine) tek bir cihaz üzerinde hızlı yineleme için ve biri büyük fleets IOT kenar aygıtları yönetmek için. Bu yaklaşım her ikisi de Azure Portal ve program aracılığıyla kullanılabilir.
+Azure IOT kenar IOT kenar cihazlarda çalıştırmak için modülleri yapılandırmanın iki yolu sağlar: biri geliştirme ve (kullandığınız bu yöntem Azure IOT kenar eğitimlerine) tek bir aygıttaki hızlı yineleme için ve biri büyük fleets IOT kenar aygıtları yönetme. Bu yaklaşımların her ikisi de Azure portalda ve programlama yoluyla kullanılabilir.
 
 Bu makalede yapılandırmasına odaklanır ve aygıtların fleets aşamaları izleme için IOT kenar otomatik dağıtımları anılan. Genel dağıtım adımları aşağıdaki gibidir:   
 
@@ -32,15 +32,15 @@ Bu makalede yapılandırmasına odaklanır ve aygıtların fleets aşamaları iz
 1. IOT Hub hizmeti IOT kenar cihazlardan gelen durum alır ve izlemek işleci için ortaya çıkarır.  Örneğin, bir işleç ne zaman bir uç cihazın başarılı bir şekilde yapılandırılmamış veya bir modülü çalışma zamanı sırasında başarısız olursa görebilirsiniz. 
 1. Herhangi bir zamanda hedefleme koşullara uyan yeni IOT sınır cihazları dağıtım için yapılandırılır. Örneğin, sağlanan ve Washington State cihaz grubuna eklenen sonra yeni bir IOT sınır cihazı Washington durumdaki tüm IOT sınır cihazları otomatik olarak hedefler bir dağıtım yapılandırır. 
  
-Bu makalede, yapılandırma ve dağıtım izleme dahil edilen her bir bileşen size yol göstermektedir. Oluşturma ve güncelleştirme dağıtımı için bkz [dağıtma ve izleme IOT kenar modülleri ölçekte][lnk-howto].
+Bu makalede, yapılandırma ve dağıtım izleme dahil edilen her bir bileşen açıklanmaktadır. Oluşturma ve güncelleştirme dağıtımı için bkz [dağıtma ve izleme IOT kenar modülleri ölçekte][lnk-howto].
 
 ## <a name="deployment"></a>Dağıtım
 
-IOT kenar otomatik bir dağıtımını IOT kenar IOT sınır cihazları hedeflenen kümesine göre örnekleri çalıştırmak için modülü görüntüleri atar. Karşılık gelen başlatma parametrelerle modüllerin listesini dahil etmek için bir IOT kenar dağıtım bildirimi yapılandırarak çalışır. Bir dağıtımı (genellikle cihaz kimliği temel alarak) tek bir cihazı veya bir gruba (etiketlere göre) aygıtların atanabilir. Bir IOT sınır cihazı bir dağıtım bildirimi aldıktan sonra indirir ve ilgili kapsayıcı havuzların modülü kapsayıcı görüntüleri yükler ve bunları uygun şekilde yapılandırır. Bir dağıtımı oluşturulduktan sonra bir işleç hedeflenen cihazların doğru yapılandırıldığından olup olmadığını görmek için dağıtım durumunu izleyebilirsiniz.   
+IOT kenar otomatik bir dağıtımını IOT kenar IOT sınır cihazları hedeflenen kümesine göre örnekleri çalıştırmak için modülü görüntüleri atar. Karşılık gelen başlatma parametrelerle modüllerin listesini dahil etmek için bir IOT kenar dağıtım bildirimi yapılandırarak çalışır. Bir dağıtımı (cihaz kimliği temel alarak) tek bir cihazı veya bir gruba (etiketlere göre) aygıtların atanabilir. Bir IOT sınır cihazı bir dağıtım bildirimi aldıktan sonra indirir ve ilgili kapsayıcı havuzların modülü kapsayıcı görüntüleri yükler ve bunları uygun şekilde yapılandırır. Bir dağıtımı oluşturulduktan sonra bir işleç hedeflenen cihazların doğru yapılandırıldığından olup olmadığını görmek için dağıtım durumunu izleyebilirsiniz.   
 
-Cihazların dağıtımla yapılandırılacak IOT sınır cihazları olarak sağlanması gerekir. Aşağıdaki önkoşullar bulunmaktadır ve dağıtımda dahil edilmez:
+Cihazların dağıtımla yapılandırılacak IOT sınır cihazları olarak sağlanması gerekir. Dağıtım alabilmesi için önce aşağıdaki önkoşulların cihazda olması gerekir:
 * Temel işletim sistemi
-* Docker 
+* Moby veya Docker gibi bir kapsayıcı yönetim sistemi
 * IOT kenar çalışma zamanı sağlama 
 
 ### <a name="deployment-manifest"></a>Dağıtım bildirimi
@@ -52,12 +52,16 @@ Her modül için yapılandırma meta verilerini içerir:
 * Tür 
 * Durum (örneğin çalışıyor veya durduruldu) 
 * İlke yeniden Başlat 
-* Görüntü ve kapsayıcı deposu 
+* Görüntü ve kapsayıcı kayıt defteri
 * Giriş ve çıkış veri yolları 
+
+Modül görüntü özel kapsayıcı kayıt defterinde depolanır, IOT kenar aracı kayıt defteri kimlik bilgilerini tutar. 
 
 ### <a name="target-condition"></a>Hedef durumu
 
-Hedef durumu gereksinimlerini karşılayan yeni aygıtları dahil etmek veya artık dağıtım yaşam süresi yapmak aygıtları kaldırmak için sürekli olarak değerlendirilir. Hizmeti herhangi bir hedef koşul değişiklik algılarsa, dağıtım yeniden. Örneğin, hedef koşulu tags.environment olan bir dağıtım A sahip 'üretim' =. Dağıtımı devre dışı kazandırın, 10 üretim aygıtı yok. Modüller, bu 10 cihazların başarıyla yüklenir. IOT kenar aracı durumu 10 toplam cihaz olarak 10 başarıyla yanıtları, 0 yanıtı hatası ve 0 bekleyen yanıtları gösterilir. Tags.environment ile daha fazla 5 cihaz Ekle şimdi 'üretim' =. Hizmet değişikliği algılar ve IOT kenar aracı durumu 15 toplam aygıt, 10 başarıyla olur yanıtları, 0 hata yanıtları ve beş yeni cihazlara dağıtmak çalıştığında 5 bekleyen yanıtlar.
+Hedef durumu gereksinimlerini karşılayan yeni aygıtları dahil etmek veya artık dağıtım yaşam süresi yapmak aygıtları kaldırmak için sürekli olarak değerlendirilir. Hizmeti herhangi bir hedef koşul değişiklik algılarsa, dağıtım yeniden. 
+
+Örneği için bir A hedef koşulu tags.environment dağıtımınız 'üretim' =. Dağıtımı devre dışı kazandırın, on üretim aygıtı yok. Modüller, on bu cihazları başarıyla yüklenir. IOT kenar aracı durumu 10 toplam aygıt, 10 başarılı yanıtları, 0 yanıtı hatası ve 0 bekleyen yanıtları gösterilir. Tags.environment ile beş daha fazla cihaz Ekle şimdi 'üretim' =. Hizmet değişikliği algılar ve beş yeni cihazlara dağıtmak çalıştığında IOT kenar aracı durumu 15 toplam aygıt, 10 başarılı yanıtları, 0 hata yanıtları ve 5 bekleyen yanıtları haline gelir.
 
 Herhangi bir Boolean koşul cihaz çiftlerini etiketler veya DeviceID hedef cihazlar seçmek için kullanın. Koşul etiketleriyle kullanmak istiyorsanız, "etiketler" eklemeniz gerekir:{} özellikleri ile aynı düzeyde altında cihaz çifti bölümünde. [Cihaz çifti etiketleri hakkında daha fazla bilgi edinin](../iot-hub/iot-hub-devguide-device-twins.md)
 
@@ -73,7 +77,7 @@ Hedef durumu yapısı oluştururken bazı kısıtlar şunlardır:
 * Cihaz çiftine etiketler veya DeviceID kullanarak bir hedef durumu yalnızca oluşturabilirsiniz.
 * Çift tırnak işareti herhangi bir kısmının hedef durumu izin verilmez. Lütfen tek tırnak işareti kullanın.
 * Tek tırnak hedef durumu değerini temsil eder. Bu nedenle, aygıt adı parçası ise başka bir tek tırnaklı tek teklifle kaçış gerekir. Örneğin, için hedef durumu: operator'sDevice DeviceID yazılması gerekir =' işleci '' sDevice'.
-* Sayı, harf ve şu karakterleri hedef koşulu values:-:.+%_#* izin verilir? (),=@;$
+* Sayı, harf ve şu karakterleri hedef koşul değerlerine izin verilir: `-:.+%_#*?!(),=@;$`.
 
 ### <a name="priority"></a>Öncelik
 

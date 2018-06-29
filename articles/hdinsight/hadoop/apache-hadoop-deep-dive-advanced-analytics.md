@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400682"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048480"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Derin Dalış - Analytics'i Gelişmiş
 
@@ -53,7 +53,7 @@ En iyi sığdırma algoritmalarından seçerek yanı sıra, verileri eğitim ger
 | Sınıflandırma | Kişi ya da şeyler gruplar halinde sınıflandırın | Denetimli | Karar ağaçları, lojistik regresyon, sinir ağları |
 | Kümeleme | Örnekler kümesini homojen gruplar halinde bölme | Denetimsiz | K-ortalamaları kümeleme |
 | Desen algılama | Verilerde sık ilişkileri tanımlayın | Denetimsiz | İlişkilendirme kuralları |
-| regresyon | Sayısal sonuçlar tahmin etme | Denetimli | Doğrusal regresyon, sinir ağları |
+| Regresyon | Sayısal sonuçlar tahmin etme | Denetimli | Doğrusal regresyon, sinir ağları |
 | Öğrenmeyi | Robots için en iyi davranışı belirle | Öğrenmeyi | Monte Carlo benzetimleri, DeepMind |
 
 ## <a name="machine-learning-on-hdinsight"></a>Machine learning Hdınsight'ta
@@ -61,7 +61,7 @@ En iyi sığdırma algoritmalarından seçerek yanı sıra, verileri eğitim ger
 Hdınsight birkaç makine öğrenme Gelişmiş analytics iş akışı için seçenekleri sahiptir:
 
 * [Machine Learning ve Spark](#machine-learning-and-spark)
-* [R ve R Server](#r-and-r-server)
+* [R ve ML Hizmetleri](#r-and-r-server)
 * [Azure Machine Learning ve Hive](#azure-machine-learning-and-hive)
 * [Spark ve derin öğrenme](#spark-and-deep-learning)
 
@@ -75,9 +75,9 @@ Bu dağıtılmış ortamına algoritmik modelleme yetenekleri Getir üç ölçek
 * [**SparkML** ](https://spark.apache.org/docs/1.2.2/ml-guide.html) -SparkML olduğundan üzerinde Spark DataFrames ML işlem hatlarını oluşturmak için yerleşik yüksek düzeyli bir API sağlar daha yeni bir paket.
 * [**MMLSpark** ](https://github.com/Azure/mmlspark) - Microsoft makine Apache Spark (MMLSpark) veri bilimcilerine Spark, deneme oranını artırmak ve modern machine learning yararlanacağınızı daha verimli hale getirmek için tasarlanmıştır için kitaplık öğrenme teknikler, çok büyük veri kümeleri üzerinde derin öğrenme dahil olmak üzere. MMLSpark kitaplığı PySpark model oluşturmaya yönelik ortak modelleme görevleri basitleştirir. 
 
-### <a name="r-and-r-server"></a>R ve R Server
+### <a name="r-and-ml-services"></a>R ve ML Hizmetleri
 
-Hdınsight bir parçası olarak, bir Hdınsight kümesini oluşturabilirsiniz [R Server](../r-server/r-server-overview.md) büyük veri kümelerine ve modelleri ile kullanılmak üzere hazır. Bu yeni özellik veri bilimcileri ve istatistikçiler ölçeklendirebilirsiniz bilinen bir R arabirim sağlayan isteğe bağlı Hdınsight, aracılığıyla küme kurulum ve Bakım yükü olmadan.
+Hdınsight bir parçası olarak, bir Hdınsight kümesini oluşturabilirsiniz [ML Hizmetleri](../r-server/r-server-overview.md) büyük veri kümelerine ve modelleri ile kullanılmak üzere hazır. Bu yeni özellik veri bilimcileri ve istatistikçiler ölçeklendirebilirsiniz bilinen bir R arabirim sağlayan isteğe bağlı Hdınsight, aracılığıyla küme kurulum ve Bakım yükü olmadan.
 
 ### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning ve Hive
 

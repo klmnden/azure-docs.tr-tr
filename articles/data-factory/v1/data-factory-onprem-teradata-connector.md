@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 62b838212f94c48e39daf31877aeb5b344836571
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee2440171b54e1279571ec4fcb0c5be7bec207a1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622569"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045747"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-onprem-teradata-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-teradata.md)
+> * [Sürüm 1](data-factory-onprem-teradata-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-teradata.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 Teradata Bağlayıcısı](../connector-teradata.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Teradata Bağlayıcısı](../connector-teradata.md).
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi Teradata veritabanından veri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
 
@@ -48,7 +48,7 @@ Veri Yönetimi Teradata veritabanına bağlanmak ağ geçidi için yüklemeniz g
 Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun. 
 
 - Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz. 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -297,9 +297,9 @@ Teradata için veri taşıma olduğunda, aşağıdaki eşlemelerini Teradata tü
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Ondalık |Ondalık |
-| Çift |Çift |
+| çift |çift |
 | Tamsayı |Int32 |
-| Sayı |Çift |
+| Sayı |çift |
 | Tamsayı |Int16 |
 | Tarih |DateTime |
 | Zaman |TimeSpan |

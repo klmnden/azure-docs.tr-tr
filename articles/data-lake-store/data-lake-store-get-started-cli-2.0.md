@@ -1,26 +1,23 @@
 ---
-title: "Azure komut satırı arabirimi 2.0 aracını kullanarak Azure Data Lake Store ile çalışmaya başlama | Microsoft Docs"
-description: "Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure platformlar arası komut satırı 2.0 aracını kullanma"
+title: Azure Data Lake Storage Gen1 ile çalışmaya başlamak için kullanım Azure komut satırı 2.0 arabirimi | Microsoft Docs
+description: Bir Data Lake Store hesabı oluşturmak ve temel işlemleri gerçekleştirmek için Azure platformlar arası komut satırı 2.0 aracını kullanma
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 4ffa0f4a-1cca-46ac-803d-1fc8538c685b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
-ms.translationtype: HT
+ms.openlocfilehash: acd1182fdc66374e9abbc4964207417a7de3aadb
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036782"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Azure CLI 2.0 kullanarak Azure Data Lake Store ile çalışmaya başlama
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Azure Data Lake Storage Gen1 ile çalışmaya başlama Azure CLI 2.0 kullanma
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,12 +25,14 @@ ms.lasthandoff: 03/09/2018
 >
 > 
 
-Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure CLI 2.0 (Önizleme) aracının nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz. [Data Lake Store'a Genel Bakış](data-lake-store-overview.md).
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Azure Data Lake Store hesabı oluşturma ve klasör oluşturma, veri dosyalarını karşıya yükleme ve indirme, hesabınızı silme gibi temel işlemleri gerçekleştirmek için Azure CLI 2.0 (Önizleme) aracının nasıl kullanılacağını öğrenin. Data Lake Store hakkında daha fazla bilgi için bkz: [genel bakış Data Lake Storage Gen1](data-lake-store-overview.md).
 
 Azure CLI 2.0, Azure kaynaklarını yönetmek için Azure tarafından sunulan yeni komut satırı deneyimidir. MacOS, Linux ve Windows’da kullanılabilir. Daha fazla bilgi edinmek için bkz. [Azure CLI 2.0 aracına genel bakış](https://docs.microsoft.com/cli/azure). Tam komut ve söz dizimi listesi için [Azure Data Lake Store CLI 2.0 başvurusuna](https://docs.microsoft.com/cli/azure/dls) da bakabilirsiniz.
 
 
-## <a name="prerequisites"></a>Ön koşullar
+## <a name="prerequisites"></a>Önkoşullar
 Bu makaleye başlamadan önce aşağıdakilere sahip olmanız ve aşağıdaki işlemleri yapmış olmanız gerekir:
 
 * **Bir Azure aboneliği**. Bkz. [Azure ücretsiz deneme sürümü alma](https://azure.microsoft.com/pricing/free-trial/).
@@ -53,7 +52,7 @@ Bu makalede Data Lake Store için son kullanıcı olarak oturum açtığınız d
     az login
     ```
 
-    Sonraki adımda kullanmak üzere bir kod alırsınız. Kimliğinizi doğrulamak için bir web tarayıcısı kullanarak https://aka.ms/devicelogin adresine gidin ve kodu girin. Kimlik bilgilerinizi kullanarak oturum açmanız istenir.
+    Sonraki adımda kullanmak üzere bir kod alırsınız. Sayfasını açmak için bir web tarayıcısı kullanma https://aka.ms/devicelogin ve kimlik doğrulaması için kodu girin. Kimlik bilgilerinizi kullanarak oturum açmanız istenir.
 
 2. Oturum açtığınızda, pencerede hesabınızla ilişkili tüm Azure abonelikleri listelenir. Belirli bir aboneliği kullanmak için aşağıdaki komutu kullanın.
    

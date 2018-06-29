@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3fae9390b41d12361b820e2c37601283b37bc302
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019594"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031721"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Güvenlik çerçevesi: Özel durum yönetimi | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **WCF** | <ul><li>[WCF - dahil etmeyin serviceDebug düğümü yapılandırma dosyasında](#servicedebug)</li><li>[WCF - dahil etmeyin serviceMetadata düğümü yapılandırma dosyasında](#servicemetadata)</li></ul> |
-| **Web API** | <ul><li>[ASP.NET Web API'de uygun özel durum işleme yapıldığından emin olun](#exception)</li></ul> |
-| **Web uygulaması** | <ul><li>[Hata iletileri güvenlik ayrıntıları gösterme](#messages)</li><li>[Varsayılan hata sayfası işleme uygulama](#default)</li><li>[IIS'de perakende için dağıtım yöntemini ayarlayın](#deployment)</li><li>[Özel durumlar güvenli bir şekilde başarısız olması](#fail)</li></ul> |
+| **Web API** | <ul><li>[ASP.NET Web API'de uygun özel durum işleme yapıldığından emin olun ](#exception)</li></ul> |
+| **Web uygulaması** | <ul><li>[Hata iletileri güvenlik ayrıntıları gösterme ](#messages)</li><li>[Varsayılan hata sayfası işleme uygulama ](#default)</li><li>[IIS'de perakende için dağıtım yöntemini ayarlayın](#deployment)</li><li>[Özel durumlar güvenli bir şekilde başarısız olması](#fail)</li></ul> |
 
 ## <a id="servicedebug"></a>WCF - dahil etmeyin serviceDebug düğümü yapılandırma dosyasında
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Adımları** | Windows Communication Framework (WCF) hizmetlerini hata ayıklama bilgilerini kullanıma sunmak için yapılandırılabilir. Hata ayıklama bilgileri üretim ortamlarında kullanılmamalıdır. `<serviceDebug>` Etiketi hata ayıklama bilgileri özelliği için bir WCF hizmeti etkin olup olmadığını tanımlar. Öznitelik IncludeExceptionDetailInFaults uygulamadan true, özel durum bilgilerini ayarlarsanız istemcilere döndürülür. Saldırganlar framework, veritabanı veya uygulama tarafından kullanılan kaynaklar hedeflenen saldırılar yerleştirmek üzere çıkış hata ayıklama elde ek bilgi yararlanabilirsiniz. |
 
 ### <a name="example"></a>Örnek
@@ -54,25 +54,25 @@ Hizmetinde hata ayıklama bilgilerini devre dışı bırakın. Bu kaldırarak ge
 
 ## <a id="servicemetadata"></a>WCF - dahil etmeyin serviceMetadata düğümü yapılandırma dosyasında
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Genel, NET Framework 3 |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Adımları** | Genel olarak bir hizmet hakkında bilgileri gösterme da nasıl hizmet yararlanabilir içine değerli bilgiler sağlayabilir. `<serviceMetadata>` Etiketi meta veri yayımlama özelliğini etkinleştirir. Hizmet meta verileri genel olarak erişilebilir olmamalıdır hassas bilgiler içerebilir. En azından, yalnızca güvenilen kullanıcıların meta verilerine erişmek ve gereksiz bilgileri sunulmaz olun izin verin. Daha iyi bir yöntem tamamen meta verileri yayımlama özelliği devre dışı bırakın. Güvenli bir WCF yapılandırma değil içerecek `<serviceMetadata>` etiketi. |
 
 ## <a id="exception"></a>ASP.NET Web API'de uygun özel durum işleme yapıldığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC 5, MVC 6 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [Özel durum işleme ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model ASP.NET Web API doğrulama](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Adımları** | Bir HTTP yanıtının durum koduyla içine çevrilen varsayılan olarak, ASP.NET Web API en Yakalanmayan Özel durumları`500, Internal Server Error`|
+| **Adımları** | Bir HTTP yanıtının durum koduyla içine çevrilen varsayılan olarak, ASP.NET Web API en Yakalanmayan Özel durumları `500, Internal Server Error`|
 
 ### <a name="example"></a>Örnek
 API tarafından döndürülen durum kodu denetlemek için `HttpResponseException` aşağıda gösterildiği gibi kullanılabilir: 
@@ -183,7 +183,7 @@ Onay olağanüstü işleme hakkında ek bilgi için başvurular bölümündeki b
 
 ## <a id="messages"></a>Hata iletileri güvenlik ayrıntıları gösterme
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -194,7 +194,7 @@ Onay olağanüstü işleme hakkında ek bilgi için başvurular bölümündeki b
 
 ## <a id="default"></a>Varsayılan hata sayfası işleme uygulama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -205,7 +205,7 @@ Onay olağanüstü işleme hakkında ek bilgi için başvurular bölümündeki b
 
 ## <a id="deployment"></a>IIS'de perakende için dağıtım yöntemini ayarlayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Dağıtım |  
@@ -216,7 +216,7 @@ Onay olağanüstü işleme hakkında ek bilgi için başvurular bölümündeki b
 
 ## <a id="fail"></a>Özel durumlar güvenli bir şekilde başarısız olması
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  

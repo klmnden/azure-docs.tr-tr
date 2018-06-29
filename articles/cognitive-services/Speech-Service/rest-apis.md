@@ -9,12 +9,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e80c69657dfb7cbab7d29c94d3dd3c56574de7b7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321998"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044829"
 ---
 # <a name="speech-service-rest-apis"></a>Konuşma hizmeti REST API'leri
 
@@ -24,14 +24,7 @@ Birleştirilmiş konuşma hizmeti REST API'leri tarafından sağlanan API'lerine
 
 Konuşmaya metin API, yalnızca kullanılan uç noktalarını önceki konuşma hizmetinden konuşma tanıma API'si farklılık gösterir. Yeni uç nokta aşağıdaki tabloda gösterilmektedir. Abonelik bölgenizi eşleşen birini kullanın.
 
-Bölge| Konuşma metin uç noktası
--|-
-Batı ABD| `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Doğu Asya| `https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-Kuzey Avrupa| `https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1`
-
-> [!NOTE]
-> Bir http 401 hatası önlemek için URI gerekli dilde eklemeniz gerekir. Bu nedenle en-US için doğru URI olacaktır: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US
+[!include[](includes/endpoints-speech-to-text.md)]
 
 Konuşma metin API aksi benzer [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) önceki konuşma API'si.
 
@@ -62,14 +55,7 @@ tr-TR  | İngilizce (ABD) | Erkek   | "Microsoft Server Konuşma metin okuma ses
 
 Birleştirilmiş konuşma hizmet metin okuma API'si için REST uç noktalar şunlardır: Abonelik bölgenizi eşleşen uç noktası kullan.
 
-Bölge| Metin okuma uç noktası
--|-
-Batı ABD|    `https://westus.tts.speech.microsoft.com/cognitiveservices/v1`
-Doğu Asya|  `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1`
-Kuzey Avrupa|   `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1`
-
-> [!NOTE]
-> Bir özel sesli yazı tipi oluşturduysanız, bunun yerine özel uç noktanızı kullanın.
+[!include[](includes/endpoints-text-to-speech.md)]
 
 Başvuruda gibi bu farklılıklar aklınızda tutun [REST API belgeleri](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) önceki konuşma API'si.
 
@@ -77,11 +63,7 @@ Başvuruda gibi bu farklılıklar aklınızda tutun [REST API belgeleri](https:/
 
 Konuşma hizmetin REST API için istek gönderilirken bir erişim belirteci gerektirir. Bölgesel bir konuşma hizmeti için abonelik anahtarınızı sağlayarak bir belirteç elde `issueToken` uç noktası, aşağıdaki tabloda gösterilen. Abonelik bölgenizi eşleşen uç noktası kullan.
 
-Bölge| Belirteci Hizmeti uç noktası
--|-
-Batı ABD|    `https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Doğu Asya|  `https://eastasia.api.cognitive.microsoft.com/sts/v1.0/issueToken`
-Kuzey Avrupa|   `https://northeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken`
+[!include[](includes/endpoints-token-service.md)]
 
 Her erişim belirteci 10 dakika için geçerlidir. Herhangi bir zamanda yeni bir belirteci edinebilirsiniz — dahil olmak üzere, isterseniz, önce her konuşma REST API isteği yalnızca. Ağ trafiği ve gecikme süresi en aza indirmek için ancak, aynı belirteci dokuz dakika kullanmanızı öneririz.
 

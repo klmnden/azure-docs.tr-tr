@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618931"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054363"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Bir işlem hattı bir zamanlamaya göre çalışan bir Tetikleyici oluşturma
 Bu makalede zamanlama tetikleyici ve oluşturma, başlatma ve zamanlama tetikleyici izlemek için gereken adımlar hakkında bilgi sağlar. Tetikleyiciler diğer türleri için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
 
 Bir zamanlama tetikleyici oluştururken, bir zamanlama belirtin (başlangıç tarihi, yineleme, bitiş tarihi vb.) tetikleyici ve bir ardışık düzen ilişkilendirmek için. İşlem hatları ve tetikleyiciler çoka çok ilişkisine sahiptir. Birden çok tetikleyici tek bir işlem hattını başlatabilir. Tek bir tetikleyici birden fazla işlem hattını başlatabilir.
-
-> [!NOTE]
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Azure Data Factory genel olarak kullanılabilir (GA) olan sürüm 1, kullanıyorsanız, bkz: [sürüm 1 Azure Data Factory ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Aşağıdaki bölümlerde farklı şekillerde zamanlama tetikleyici oluşturmak için adımlar sağlar. 
 
@@ -249,7 +246,7 @@ Tetikleyici izlemek için çalışır ve ardışık düzen çalışır Azure Por
 Bir tetikleyici oluşturmak için bir Azure Resource Manager şablonu kullanabilirsiniz. Adım adım yönergeler için bkz: [Resource Manager şablonu kullanarak bir Azure data factory oluşturma](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Tetikleyici başlangıç saati bir ardışık düzene geçirin
-Azure Data Factory sürüm 1 okuma veya sistem değişkenleri kullanılarak bölümlenmiş veri yazmayı destekler: **SliceStart**, **SliceEnd**, **WindowStart**ve **WindowEnd**. Azure Data Factory sürüm 2, ardışık düzen parametresini kullanarak bu davranışı elde edebilirsiniz. Tetikleyici için zamanlanan saat ve başlangıç saati, ardışık düzen parametresinin değeri olarak ayarlanır. Aşağıdaki örnekte, ardışık düzene bir değer olarak tetikleyici için zamanlanan süreden geçirilen **scheduledRunTime** parametre:
+Azure Data Factory sürüm 1 okuma veya sistem değişkenleri kullanılarak bölümlenmiş veri yazmayı destekler: **SliceStart**, **SliceEnd**, **WindowStart**ve **WindowEnd**. Azure Data Factory geçerli sürümde bir ardışık düzen parametresini kullanarak bu davranışı elde edebilirsiniz. Tetikleyici için zamanlanan saat ve başlangıç saati, ardışık düzen parametresinin değeri olarak ayarlanır. Aşağıdaki örnekte, ardışık düzene bir değer olarak tetikleyici için zamanlanan süreden geçirilen **scheduledRunTime** parametre:
 
 ```json
 "parameters": {

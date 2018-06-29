@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7003e68fcbceb4e45477f4f13dfa75b920405ace
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df45613105c8fb005fc8ba0c796ef768e293c57e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617663"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052441"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>SAP bulut müşteri (C4C) için Azure Data Factory kullanarak verilerden kopyalama
 
 Bu makalede kopya etkinliği Azure Data Factory'de (C4C) müşteri için başlangıç/bitiş SAP bulut veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -188,7 +185,7 @@ Müşteri için SAP buluta verileri kopyalamak için kopyalama etkinliği Havuz 
                 "writeBatchSize": 30
             },
             "parallelCopies": 10,
-            "cloudDataMovementUnits": 4,
+            "dataIntegrationUnits": 4,
             "enableSkipIncompatibleRow": true,
             "redirectIncompatibleRowSettings": {
                 "linkedServiceName": {
@@ -213,7 +210,7 @@ Veriler müşteri için SAP Buluttan kopyalarken, aşağıdaki eşlemelerini SAP
 | Edm.Byte | Byte] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Ondalık |
-| Edm.Double | Çift |
+| Edm.Double | çift |
 | Edm.Single | Tek |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |

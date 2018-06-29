@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622287"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046477"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory işlem hatlarını Spark programlardan çağırma
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622287"
 > * [.NET özel etkinliği](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Bu makale, Azure Data Factory’nin genel kullanıma açık olan 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [Data Factory sürüm 2 Apache Spark etkinliğini kullanarak veri dönüştürme](../transform-data-using-spark.md).
+> Bu makale, Azure Data Factory’nin genel kullanıma açık olan 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri fabrikasında Apache Spark etkinliğini kullanarak veri dönüştürme](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Giriş
 Spark etkinlik biri [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) Data Factory ile desteklenen. Bu etkinlik, Azure Hdınsight Spark kümesinde belirtilen Spark programı çalıştırır. 
@@ -268,8 +268,7 @@ Bu adımda, bir HDInsightSpark etkinliği ile işlem hattı oluşturun. Şu anda
 
     ![Jupyter sorgu sonuçları](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-Ayrıntılı yönergeler için bkz [bir Spark SQL sorgusu çalıştırmanız](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article --> Ayrıntılı yönergeler için bkz [bir Spark SQL sorgusu çalıştırmanız](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). 
 
 ### <a name="troubleshooting"></a>Sorun giderme
 Getdebugınfo kümesine çünkü **her zaman**, blob kapsayıcınızdaki pyFiles klasöründe bir günlük alt bakın. Günlük klasöründeki günlük dosyası ek bilgiler sağlar. Bu günlük dosyası bir hata olduğunda özellikle yararlıdır. Bir üretim ortamında ayarlamak isteyebilirsiniz **hatası**.
@@ -337,7 +336,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 | rootPath | Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harfe duyarlıdır. | Evet |
 | entryFilePath | Spark kod/paketi kök klasörüne göreli yolu. | Evet |
 | className | Uygulamanın Java/Spark ana sınıfı. | Hayır |
-| Bağımsız değişkenler | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır |
+| bağımsız değişkenler | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır |
 | proxyUser | Spark program yürütülmeye kimliğine bürünmek için kullanıcı hesabı. | Hayır |
 | sparkConfig | Listelenen Spark yapılandırma özellikleri için değerleri belirtin [Spark yapılandırma: uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır |
 | Getdebugınfo | Hdınsight küme tarafından kullanılan depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService tarafından belirtilen. İzin verilen değerler, her zaman veya hata yok. Varsayılan değer Yok'tur. | Hayır |

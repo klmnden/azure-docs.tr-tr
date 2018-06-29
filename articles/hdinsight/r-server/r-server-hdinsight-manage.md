@@ -1,6 +1,6 @@
 ---
-title: R Server küme hdınsight'ta - Azure yönetme | Microsoft Docs
-description: Azure Hdınsight R Server kümesinde yönetmeyi öğrenin.
+title: Hdınsight - Azure ML Hizmetleri kümede yönetme | Microsoft Docs
+description: Azure Hdınsight ML Hizmetleri kümede yönetmeyi öğrenin.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,42 +10,42 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 827bcb7bb20f1def9acec8cb2043ea295801583a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bb3af3b1614c8afc98d2dcf12ecb53fb80b6037a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414934"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049753"
 ---
-# <a name="manage-r-server-cluster-on-azure-hdinsight"></a>Azure hdınsight'ta R Server küme yönetme
+# <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Azure Hdınsight kümesinde ML Hizmetleri yönetme
 
-Bu makalede, Azure Hdınsight'ın bir R Server (Microsoft ML Server) veya istemci uzaktan bağlanma birden çok eşzamanlı kullanıcı ekleme, değiştirme işlem bağlamı, vb. gibi görevleri gerçekleştirmek için varolan bir R Server kümede yönetmeyi öğrenin.
+Bu makalede, var olan bir ML hizmetleri kümesine uzaktan bir ML hizmetleri kümesine bağlanma birden çok eşzamanlı kullanıcı ekleme, değiştirme işlem bağlamı, vb. gibi görevleri gerçekleştirmek için Azure hdınsight'ta yönetmeyi öğrenin.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Hdınsight R Server kümesinde**: yönergeler için bkz: [hdınsight'ta R Server kullanmaya başlama](r-server-get-started.md).
+* **Hdınsight ML Hizmetleri kümede**: yönergeler için bkz: [hdınsight'ta ML hizmetleri kullanmaya başlama](r-server-get-started.md).
 
 * **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz: [Hdınsight ile SSH kullanma.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 ## <a name="enable-multiple-concurrent-users"></a>Birden çok eş zamanlı kullanıcı etkinleştirme
 
-Daha fazla kullanıcı için Rstudio'dan topluluğu sürümü çalıştığı kenar düğümüne ekleyerek hdınsight'ta R Server kümesi için birden çok eşzamanlı kullanıcı etkinleştirebilirsiniz. Bir HDInsight kümesi oluşturduğunuzda bir HTTP kullanıcısı ve bir SSH kullanıcısı olmak üzere iki kullanıcı sağlamanız gerekir:
+Daha fazla kullanıcı için Rstudio'dan topluluğu sürümü çalıştığı kenar düğümüne ekleyerek, Hdınsight kümesinde ML Hizmetleri için birden çok eşzamanlı kullanıcı etkinleştirebilirsiniz. Bir HDInsight kümesi oluşturduğunuzda bir HTTP kullanıcısı ve bir SSH kullanıcısı olmak üzere iki kullanıcı sağlamanız gerekir:
 
 ![Eşzamanlı kullanıcı 1](./media/r-server-hdinsight-manage/concurrent-users-1.png)
 
 - **Küme oturum açma kullanıcı adı**: Oluşturduğunuz HDInsight kümelerini korumak için kullanılan HDInsight ağ geçidinden kimlik doğrulaması yapmak için kullanılan HTTP kullanıcısı. Bu HTTP kullanıcısı Ambari UI, YARN UI ve diğer UI bileşenlerine erişmek için kullanılır.
 - **Secure Shell (SSH) kullanıcı adı**: Kümeye Secure Shell üzerinden erişmek için kullanılan SSH kullanıcısı. Bu kullanıcı Linux sisteminde tüm baş düğümler, çalışan düğümleri ve kenar düğümler için kullanılan kullanıcıdır. Bu sayede uzak kümedeki düğümlere erişmek için Secure Shell kullanabilirsiniz.
 
-Hdınsight'ta R Server kümesinde kullanılan R Studio Server Community sürümü yalnızca Linux kullanıcı adı ve parola oturum açma mekanizması olarak kabul eder. Belirteç iletmeyi desteklemez. Bu nedenle, ilk kez bir R Server kümede R Studio erişmeyi denediğinde, iki kez oturum açmak gerekir.
+Hdınsight üzerinde ML Hizmetleri kümedeki kullanılan R Studio Server Community sürümü yalnızca Linux kullanıcı adı ve parola bir oturum açma mekanizması olarak kabul eder. Belirteç iletmeyi desteklemez. Bu nedenle, ilk kez bir ML Hizmetleri kümede R Studio erişmeyi denediğinde, iki kez oturum açmanız gerekir.
 
 - İlk Hdınsight ağ geçidi üzerinden HTTP kullanıcı kimlik bilgilerini kullanarak oturum açın. 
 
 - Ardından Rstudio'dan için oturum açmak için SSH kullanıcı kimlik bilgilerini kullanın.
   
-Şu anda bir HDInsight kümesi sağlanırken yalnızca bir SSH kullanıcı hesabı oluşturulabilir. Bu nedenle Hdınsight R Server kümesinde birden çok erişmelerini sağlamak için ek kullanıcılar Linux sistemde oluşturmanız gerekir.
+Şu anda bir HDInsight kümesi sağlanırken yalnızca bir SSH kullanıcı hesabı oluşturulabilir. Bu nedenle ML Hizmetleri Hdınsight kümesinde birden çok erişmelerini sağlamak için ek kullanıcılar Linux sistemde oluşturmanız gerekir.
 
 Rstudio'dan kümenin kenar düğümüne üzerinde çalıştığı için burada birkaç adım vardır:
 
@@ -53,9 +53,9 @@ Rstudio'dan kümenin kenar düğümüne üzerinde çalıştığı için burada b
 2. Kenar düğümüne daha fazla Linux kullanıcısı ekleme
 3. RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
 
-### <a name="step-1-use-the-created-ssh-user-to-log-in-to-the-edge-node"></a>1. Adım: Kenar düğümde oturum açmak için oluşturulan SSH kullanıcısını kullanma
+### <a name="step-1-use-the-created-ssh-user-to-sign-in-to-the-edge-node"></a>1. adım: kenar düğümüne oturum açmak için oluşturulan SSH kullanıcı kullanın.
 
-Bölümündeki yönergeleri izleyin [SSH kullanarak Hdınsight (Hadoop) Bağlan](../hdinsight-hadoop-linux-use-ssh-unix.md) kenar düğümüne erişmek için. Hdınsight'ta R Server küme edge düğüm adresi `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
+Bölümündeki yönergeleri izleyin [SSH kullanarak Hdınsight (Hadoop) Bağlan](../hdinsight-hadoop-linux-use-ssh-unix.md) kenar düğümüne erişmek için. Hdınsight kümesinde ML Hizmetleri için edge düğüm adresi `CLUSTERNAME-ed-ssh.azurehdinsight.net`.
 
 ### <a name="step-2-add-more-linux-users-in-edge-node"></a>2. Adım: Kenar düğümüne daha fazla Linux kullanıcısı ekleme
 
@@ -64,7 +64,7 @@ Kenar düğümüne bir kullanıcı eklemek için şu komutları çalıştırın:
     # Add a user 
     sudo useradd <yournewusername> -m
 
-    # Set password for the new user 
+    # Set password for the new user
     sudo passwd <yournewusername>
 
 Aşağıdaki ekran görüntüsünde çıkışları gösterir.
@@ -75,21 +75,21 @@ Aşağıdaki ekran görüntüsünde çıkışları gösterir.
 
 ### <a name="step-3-use-rstudio-community-version-with-the-user-created"></a>3. Adım: RStudio Topluluk sürümünü oluşturulan kullanıcıyla kullanma
 
-Erişim Rstudio'dan gelen https://CLUSTERNAME.azurehdinsight.net/rstudio/. Kümeyi oluşturduktan sonra ilk kez oturum açmayı, az önce oluşturduğunuz SSH kullanıcı kimlik bilgileri tarafından izlenen küme yönetici kimlik bilgilerini girin. Yalnızca bu ilk oturum açma değilse, oluşturduğunuz SSH kullanıcı için kimlik bilgilerini girin.
+Erişim Rstudio'dan gelen https://CLUSTERNAME.azurehdinsight.net/rstudio/. Kümeyi oluşturduktan sonra ilk kez oturum açmayı, oluşturduğunuz SSH kullanıcı kimlik bilgileri tarafından izlenen küme yönetici kimlik bilgilerini girin. Yalnızca bu ilk oturum açma değilse, oluşturduğunuz SSH kullanıcı için kimlik bilgilerini girin.
 
-Dilerseniz eşzamanlı olarak başka bir tarayıcı penceresinden özgün kimlik bilgilerini (varsayılan olarak *sshuser* şeklindedir) kullanarak da oturum açabilirsiniz.
+Özgün kimlik bilgilerini kullanarak da oturum açabilirsiniz (varsayılan olarak, olmasından *sshuser*) aynı anda başka bir tarayıcı penceresi öğesinden.
 
 Ayrıca yeni eklenen kullanıcıların Linux sisteminde kök ayrıcalıklarına sahip olmadığına ancak uzak HDFS ve WASB depolama alanındaki tüm dosyalara aynı düzeyde erişime sahip olduğuna dikkat edin.
 
-## <a name="connect-remotely-to-microsoft-ml-server-or-client"></a>Microsoft ML Server veya istemci uzaktan bağlanın
+## <a name="connect-remotely-to-microsoft-ml-services"></a>Uzaktan Microsoft ML hizmetlerine bağlanmak
 
-Microsoft ML Server ya da Microsoft ML masaüstünde çalışan Client uzak bir örnekten Hdınsight Hadoop Spark işlem bağlamına erişimi ayarlayabilirsiniz. Bunu yapmak için (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript) seçenekleri belirtin zaman RxSpark tanımlama izin ver işlem bağlamı masaüstünüzde: Örneğin:
+Masaüstünüzde çalıştıran uzak bir örneğini ML istemci erişimi Hdınsight Hadoop Spark işlem bağlamına ayarlayabilirsiniz. Bunu yapmak için (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches ve sshProfileScript) seçenekleri belirtin zaman RxSpark tanımlama izin ver işlem bağlamı masaüstünüzde: Örneğin:
 
     myNameNode <- "default"
     myPort <- 0
 
-    mySshHostname  <- 'rkrrehdi1-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
-    mySshUsername  <- 'remoteuser'# HDI SSH username
+    mySshHostname  <- '<clustername>-ed-ssh.azurehdinsight.net'  # HDI secure shell hostname
+    mySshUsername  <- '<sshuser>'# HDI SSH username
     mySshSwitches  <- '-i /cygdrive/c/Data/R/davec'   # HDI SSH private key
 
     myhdfsShareDir <- paste("/user/RevoShare", mySshUsername, sep="/")
@@ -107,7 +107,7 @@ Microsoft ML Server ya da Microsoft ML masaüstünde çalışan Client uzak bir 
       consoleOutput= TRUE
     )
 
-Daha fazla bilgi için "Kullanarak Microsoft R Server olarak bir Hadoop istemcisi" bölümüne bakın [bir işlem bağlamı için Spark oluşturma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
+Daha fazla bilgi için "Kullanarak Microsoft Machine Learning sunucu olarak bir Hadoop istemcisi" bölümüne bakın [RevoScaleR bir Spark işlem bağlamında kullanma](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-spark#more-spark-scenarios)
 
 ## <a name="use-a-compute-context"></a>İşlem bağlamı kullanma
 
@@ -146,7 +146,7 @@ Bir işlem bağlamı, hesaplamanın kenar düğümünde yerel olarak yapılması
         # Copy the data from source to input
         rxHadoopCopyFromLocal(source, bigDataDirRoot)
 
-2. Ardından, bazı veri bilgisi oluşturun ve biz verilerle çalışabilmeniz için iki veri kaynaklarını tanımlayın.
+2. Ardından, bazı veri bilgisi oluşturun ve iki veri kaynağını tanımlayın.
 
         # Define the HDFS (WASB) file system
         hdfsFS <- RxHdfsFileSystem()
@@ -184,7 +184,7 @@ Bir işlem bağlamı, hesaplamanın kenar düğümünde yerel olarak yapılması
         # Display a summary
         summary(modelLocal)
 
-    Aşağıdakilere benzer satırlarla sona eren bir çıktı görmeniz gerekir:
+    Aşağıdaki kod parçacığını benzer satırları ile biten bir çıktı görmeniz gerekir:
 
         Data: airOnTimeDataLocal (RxTextData Data Source)
         File name: /tmp/AirOnTimeCSV2012
@@ -224,43 +224,41 @@ Bir işlem bağlamı, hesaplamanın kenar düğümünde yerel olarak yapılması
         system.time(  
            modelSpark <- rxLogit(formula, data = airOnTimeData)
         )
-        
+
         # Display a summary
         summary(modelSpark)
 
 
    > [!NOTE]
-   > Ayrıca, MapReduce kullanarak hesaplamayı küme düğümleri arasında dağıtabilirsiniz. İşlem bağlamı hakkında daha fazla bilgi için bkz. [HDInsight üzerinde R Server için işlem bağlamı seçenekleri](r-server-compute-contexts.md).
-
+   > Ayrıca, MapReduce kullanarak hesaplamayı küme düğümleri arasında dağıtabilirsiniz. İşlem bağlamı hakkında daha fazla bilgi için bkz: [ML Hizmetleri için içerik seçeneklerini küme Hdınsight üzerinde işlem](r-server-compute-contexts.md).
 
 ## <a name="distribute-r-code-to-multiple-nodes"></a>R kodunu birden fazla düğüme dağıtma
 
-Hdınsight'ta R Server ile var olan R kodu alabilir ve çalıştırın kümedeki birden çok düğüm arasında kullanarak `rxExec`. Bu işlev bir parametre tarama veya benzetme işlemi sırasında yararlıdır. `rxExec` kullanımını gösteren bir kod örneği aşağıda verilmiştir:
+Hdınsight üzerinde ML Hizmetleri ile var olan R kodu alabilir ve çalıştırın kümedeki birden çok düğüm arasında kullanarak `rxExec`. Bu işlev bir parametre tarama veya benzetme işlemi sırasında yararlıdır. `rxExec` kullanımını gösteren bir kod örneği aşağıda verilmiştir:
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Hala Spark veya MapReduce bağlamını kullanıyorsanız bu komut, üzerinde `(Sys.info()["nodename"])` kodunun çalıştığı çalışan düğümleri için nodename değerini döndürür. Örneğin, dört düğümlü bir kümede aşağıdakine benzer bir çıktı beklenir:
+Hala Spark veya MapReduce bağlamını kullanıyorsanız bu komut, üzerinde `(Sys.info()["nodename"])` kodunun çalıştığı çalışan düğümleri için nodename değerini döndürür. Örneğin, dört düğümlü bir küme üzerinde aşağıdaki kod parçacığını benzer bir çıktı almayı beklediğiniz:
 
     $rxElem1
         nodename
-    "wn3-myrser"
+    "wn3-mymlser"
 
     $rxElem2
         nodename
-    "wn0-myrser"
+    "wn0-mymlser"
 
     $rxElem3
         nodename
-    "wn3-myrser"
+    "wn3-mymlser"
 
     $rxElem4
         nodename
-    "wn3-myrser"
-
+    "wn3-mymlser"
 
 ## <a name="access-data-in-hive-and-parquet"></a>Hive ve Parquet verilerine erişim
 
-R Server 9.1 sürümünde sunulan bir özellik, Spark işlem bağlamındaki ScaleR işlevleri tarafından kullanım için Hive ve Parquet içindeki verilere doğrudan erişime olanak tanır. Bu özellikler, ScaleR tarafından analiz edilmek üzere bir Spart DataFrame’e doğrudan veri yüklemek için Spark SQL kullanarak çalışan RxHiveData ve RxParquetData adlı yeni ScaleR veri kaynağı işlevleriyle kullanılabilir.  
+Hdınsight ML Hizmetleri Spark işlem bağlamında ScaleR işlevler tarafından doğrudan Hive ve Parquet veri erişimi kullanmak için izin verir. Bu özellikler, ScaleR tarafından analiz edilmek üzere bir Spart DataFrame’e doğrudan veri yüklemek için Spark SQL kullanarak çalışan RxHiveData ve RxParquetData adlı yeni ScaleR veri kaynağı işlevleriyle kullanılabilir.
 
 Yeni işlevlerin kullanımına ilişkin bazı örnek kodlar aşağıdaki kod ile verilmiştir:
 
@@ -295,7 +293,7 @@ Yeni işlevlerin kullanımına ilişkin bazı örnek kodlar aşağıdaki kod ile
     rxSparkDisconnect(myHadoopCluster)
 
 
-Bu yeni işlevler kullanımı ile ilgili ek bilgi için çevrimiçi Yardım'a ML Server'daki aracılığıyla bakın `?RxHivedata` ve `?RxParquetData` komutları.  
+Bu yeni işlevler kullanımı ile ilgili ek bilgi için ML Hizmetleri aracılığıyla çevrimiçi yardıma bakın `?RxHivedata` ve `?RxParquetData` komutları.  
 
 ## <a name="install-additional-r-packages-on-the-cluster"></a>Kümede ek R paketleri yüklemek
 
@@ -308,7 +306,7 @@ Kenar düğümüne ek R paketleri yüklemek istiyorsanız, kullanabileceğiniz `
 R paketleri kümesinin çalışan düğümlerine yüklemek için bir betik eylemi kullanmanız gerekir. Betik Eylemleri, HDInsight kümesinde yapılandırma değişiklikleri yapmak veya ek R paketleri gibi ek yazılımlar yüklemek için kullanılan Bash betikleridir. 
 
 > [!IMPORTANT]
-> Ek R paketleri yüklemek için Betik Eylemleri yalnızca küme oluşturulduktan sonra kullanılabilir. Betik R Server'ın tamamen yüklü ve yapılandırılmış olmasına bağlı olduğundan, bu yordamı küme oluşturma sırasında kullanmayın.
+> Ek R paketleri yüklemek için Betik Eylemleri yalnızca küme oluşturulduktan sonra kullanılabilir. Komut dosyası ML tamamen yapılandırılmakta Services'de alacağından küme oluşturma sırasında bu yordamı kullanmayın.
 >
 >
 
@@ -329,8 +327,8 @@ R paketleri kümesinin çalışan düğümlerine yüklemek için bir betik eylem
    * İçin bu onay kutusunu işaretleyin **bu betik eylemini Sürdür**.  
 
    > [!NOTE]
-   > 1. Varsayılan olarak, tüm R paketleri Microsoft MRAN deposunun yüklü olan R Server sürümüyle tutarlı bir anlık görüntüsünden yüklenir. Paketlerin daha yeni sürümlerini yüklemek istiyorsanız uyumsuzluk riskiyle karşı karşıya kalabilirsiniz. Ancak bu tür yüklemeleri paket listesinin ilk öğesi olarak `useCRAN` belirleyerek mümkün kılabilirsiniz, örneğin `useCRAN bitops, stringr, arules`.  
-   > 2. Bazı R paketleri için ek Linux sistem kitaplıkları gerekir. Kolaylık olması için en popüler 100 R paketi için gerekli olan bağımlılıklar önceden yüklenmiştir. Ancak, yüklediğiniz R paketleri bunların dışında kitaplıklar gerektirirse, burada kullanılan temel betiği indirmeniz ve adımları ekleyerek sistem kitaplıklarını yüklemeniz gerekir. Ardından, değiştirilmiş betiği Azure depolama hizmetindeki ortak bir blob kapsayıcıya yüklemeniz ve değiştirilmiş betiği kullanarak paketleri yüklemeniz gerekir.
+   > 1. Varsayılan olarak, Microsoft MRAN depo yüklendi ML sunucu sürümü ile tutarlı bir anlık tüm R paketleri yüklenir. Paketlerin daha yeni sürümlerini yüklemek istiyorsanız uyumsuzluk riskiyle karşı karşıya kalabilirsiniz. Ancak bu tür yüklemeleri paket listesinin ilk öğesi olarak `useCRAN` belirleyerek mümkün kılabilirsiniz, örneğin `useCRAN bitops, stringr, arules`.  
+   > 2. Bazı R paketleri için ek Linux sistem kitaplıkları gerekir. Kolaylık olması için Hdınsight ML Hizmetleri ilk 100 en popüler R paketi tarafından gerekli bağımlılıkları ile önceden yüklenmiş olarak gelir. Ancak, yüklediğiniz R paketleri bunların dışında kitaplıklar gerektirirse, burada kullanılan temel betiği indirmeniz ve adımları ekleyerek sistem kitaplıklarını yüklemeniz gerekir. Ardından, değiştirilmiş betiği Azure depolama hizmetindeki ortak bir blob kapsayıcıya yüklemeniz ve değiştirilmiş betiği kullanarak paketleri yüklemeniz gerekir.
    >    Betik Eylemleri geliştirme hakkında bilgi için bkz. [Betik Eylemi geliştirme](../hdinsight-hadoop-script-actions-linux.md).  
    >
    >
@@ -341,6 +339,6 @@ R paketleri kümesinin çalışan düğümlerine yüklemek için bir betik eylem
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde R Server kümesini kullanıma hazır hale getirme](r-server-operationalize.md)
-* [HDInsight üzerinde R Server kümesi için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
-* [HDInsight üzerinde R Server kümesi için Azure Depolama seçenekleri](r-server-storage.md)
+* [ML Hizmetleri Hdınsight kümesinde faaliyete](r-server-operationalize.md)
+* [Hdınsight üzerinde ML Service kümesi için içerik seçeneklerini işlem](r-server-compute-contexts.md)
+* [Hdınsight kümesinde ML Hizmetleri için Azure depolama seçenekleri](r-server-storage.md)

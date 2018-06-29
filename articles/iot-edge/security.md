@@ -8,23 +8,20 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631437"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030589"
 ---
-# <a name="securing-azure-iot-edge---preview"></a>Azure IOT kenar - güvenli hale getirme Önizleme
+# <a name="securing-azure-iot-edge"></a>Azure IOT kenar güvenliğini sağlama
 
 Akıllı kenar güvenli hale getirme işlemi bir uçtan uca IOT çözümünün güveni confer gereklidir. Azure IOT kenar farklı risk profilleri, dağıtım senaryoları, genişletilebilir ve tüm Azure hizmetlerinden beklediğiniz aynı koruma sunar güvenlik için tasarlanmıştır.
 
 Azure IOT kenar farklı donanımda çalışan, Linux ve Windows destekler ve farklı dağıtım senaryoları için geçerlidir.  Biçilen risk çözüm sahipliği, dağıtım Coğrafya, veri duyarlılık, gizlilik, uygulamanızın dikey ve yasal gereksinimleri dahil olmak üzere birçok etmenlere bağlıdır.  Belirli senaryolar için somut çözümleri sunarak yerine, Ölçek için tasarlanmış iyi grounded ilkeleri temel bir genişletilebilir güvenlik framework tasarlamak için mantıklıdır. 
  
 Bu makalede güvenlik framework genel bir bakış sağlar. Daha fazla bilgi için bkz: [akıllı kenar güvenli hale getirme][lnk-edge-blog].
-
->[!NOTE]
->Aşağıda açıklanan güvenlik framework eklemek için ürün şimdi olduğundan ve Azure IOT ucunun genel kullanılabilirlik sürümde kullanılabilir olacaktır. Ürün şu anda genel önizlemede, bir yayın geliştirme ve kenar çözümlerinin tam güvenlik framework ihtiyacınız olmayan tam üretim dağıtımları prototipi oluşturulurken izin verecek şekilde tasarlanmıştır.   
 
 ## <a name="standards"></a>Standartları
 

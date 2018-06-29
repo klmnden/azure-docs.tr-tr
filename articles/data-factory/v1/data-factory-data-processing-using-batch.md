@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621947"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050582"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Veri Fabrikası ve toplu kullanarak işlem büyük ölçekli veri kümeleri
 > [!NOTE]
-> Bu makale, Azure Data Factory’nin genel kullanıma açık olan 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [özel etkinlikleri sürüm 2 veri fabrikasında](../transform-data-using-dotnet-custom-activity.md).
+> Bu makale, Azure Data Factory’nin genel kullanıma açık olan 1. sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri fabrikası'nda özel etkinlikleri](../transform-data-using-dotnet-custom-activity.md).
 
 Bu makalede bir taşır ve büyük ölçekli veri kümeleri otomatik ve zamanlanmış bir şekilde işleyen örnek bir çözüm mimarisini açıklar. Ayrıca, veri fabrikası ve Azure Batch kullanarak çözümü uygulamak için bir uçtan uca izlenecek yol da sağlar.
 
@@ -877,7 +877,7 @@ Toplu işlem ve dilimleri ile ilişkili görevleri görüntülemek üzere portal
 
 ![Toplu iş görevleri](media/data-factory-data-processing-using-batch/data-factory-batch-job-tasks.png)
 
-### <a name="debug-the-pipeline"></a>Ardışık Düzen hata ayıklama
+### <a name="debug-the-pipeline"></a>İşlem hattında hata ayıklama
 Hata ayıklama birkaç temel teknikleri oluşur.
 
 1. Girdi dilimi ayarlanmamışsa **hazır**, giriş klasör yapısı doğru olduğunu ve bu dosya.txt'yi giriş klasörlerde var olduğunu doğrulayın.

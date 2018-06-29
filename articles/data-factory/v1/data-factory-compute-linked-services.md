@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621760"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053675"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory ile desteklenen ortamlar işlem
 > [!NOTE]
-> Bu makale, Azure Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [işlem bağlı Hizmetleri sürüm 2](../compute-linked-services.md).
+> Bu makalede Azure Data Factory 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [bağlantılı Hizmetleri'nde işlem](../compute-linked-services.md).
 
 Bu makalede kullanabileceğiniz bilgi işlem ortamları için işlem veya dönüştürme veri açıklanmaktadır. Ayrıca, bu bağlantı bağlı hizmetler yapılandırdığınızda, veri fabrikası destekler ortamları için bir Azure data factory işlem farklı yapılandırmaları (isteğe bağlı Getir kendi karşı) ilgili ayrıntıları da sağlar.
 
@@ -66,7 +66,7 @@ Microsoft en son Hadoop ekosistemi bileşenlerini ve düzeltmeler ile Desteklene
 - Veri Fabrikası sürüm 1 yürütmek için bir isteğe bağlı Hdınsight bağlı hizmeti kullanıyorsanız DotNet özel etkinlik, bunun yerine bir Azure Batch kullanılacak DotNet özel etkinlik JSON tanımını bağlantılı güncelleştirme hizmeti. Daha fazla bilgi için bkz: [bir Data Factory işlem hattı özel etkinlikleri kullanmak](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 > [!Note]
-> Var olan kullanırsanız, veri fabrikası sürüm 1 aygıtı Getir kendi küme Hdınsight bağlantılı veya Getir kendi ve isteğe bağlı Hdınsight bağlı hizmeti Azure Data factory'de sürüm 2, hiçbir eylem gerekli değildir. Bu senaryolarda, Hdınsight kümeleri, en son sürüm destek ilkesi zaten uygulanır. 
+> Var olan kullanırsanız, veri fabrikası sürüm 1 aygıtı Getir kendi küme Hdınsight bağlantılı veya Getir kendi ve isteğe bağlı Hdınsight bağlı hizmeti Azure Data factory'de, hiçbir eylem gerekli değildir. Bu senaryolarda, Hdınsight kümeleri, en son sürüm destek ilkesi zaten uygulanır. 
 >
 > 
 

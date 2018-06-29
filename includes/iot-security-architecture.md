@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 62856d4743d853d5685503b5c21faedc46575e55
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6f28df6f2faa78af90fb4b5e62f218e3b391000b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33814807"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066093"
 ---
 # <a name="internet-of-things-security-architecture"></a>Nesnelerin interneti güvenlik mimarisi
 
@@ -29,7 +29,7 @@ Birçok geliştirme ekiplerinin müşteriler yararlanan işlevsel sistemi gereks
 
 ### <a name="when-to-threat-model"></a>Model tehdit zamanı
 
-[Tehdit modelleme](http://www.microsoft.com/security/sdl/adopt/threatmodeling.aspx) tasarım aşaması bünyesine aldığınızda büyük değer sunar. Tasarlarken, tehditleri ortadan kaldırmak için değişiklik yapmak için en büyük esnekliği sahip. Tehditler tasarım gereği ortadan istenen sonuca olur. Azaltıcı Etkenler ekleme, bunları test etme ve geçerli kalır ve ayrıca, bu tür eleme her zaman mümkün değildir sağlayarak daha çok daha kolay olur. Bir ürünün daha da olgun olur ve sırayla sonuçta daha fazla iş ve önceden geliştirme modelleme tehdit daha çok daha zor dengelemeden gerektirir olarak tehditleri ortadan kaldırmak daha zor hale gelir.
+[Tehdit modelleme](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) tasarım aşaması bünyesine aldığınızda büyük değer sunar. Tasarlarken, tehditleri ortadan kaldırmak için değişiklik yapmak için en büyük esnekliği sahip. Tehditler tasarım gereği ortadan istenen sonuca olur. Azaltıcı Etkenler ekleme, bunları test etme ve geçerli kalır ve ayrıca, bu tür eleme her zaman mümkün değildir sağlayarak daha çok daha kolay olur. Bir ürünün daha da olgun olur ve sırayla sonuçta daha fazla iş ve önceden geliştirme modelleme tehdit daha çok daha zor dengelemeden gerektirir olarak tehditleri ortadan kaldırmak daha zor hale gelir.
 
 ### <a name="what-to-threat-model"></a>Tehdit modeli gerekenler
 

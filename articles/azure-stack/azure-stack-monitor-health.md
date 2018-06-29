@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640387"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047250"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Sistem durumu ve Uyarıları Azure yığınında izleme
 
@@ -32,6 +32,17 @@ Azure yığın altyapı izleme durumunu ve bir Azure yığın bölge için uyar�
  ## <a name="understand-health-in-azure-stack"></a>Sistem durumu Azure yığınında anlama
 
  Sistem durumu ve Uyarıları sistem durumu kaynak sağlayıcısı tarafından yönetilir. Azure yığın altyapı bileşenlerini Azure yığın dağıtım ve yapılandırma sırasında sistem kaynak sağlayıcısı ile kaydedin. Bu kayıt durumu ve her bileşen için uyarılar görünümünü sağlar. Sistem durumu Azure yığınında basit bir kavramdır. Bir bileşenin kayıtlı bir örneği için uyarıları varsa, bu bileşenin sistem durumu kötü etkin uyarı önem derecesini yansıtır; Uyarı veya kritik.
+
+## <a name="alert-severity-definition"></a>Uyarı önem derecesi tanımı
+
+Azure yığınında yalnızca iki önem derecelerine Uyarı: **uyarı** ve **kritik**.
+
+**Uyarı**  
+Bir işleç uyarı zamanlanmış bir biçimde karşılayabilir. Uyarı genellikle kullanıcı iş yüklerini olumsuz etkilemez.
+
+**Kritik**  
+Bir operatör ile aciliyet kritik uyarı giderilmelidir. Bunlar şu anda etkileyen veya yakında Azure yığın kullanıcıları etkiler sorunlardır. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>Görüntüleme ve bileşenin sağlık durumunu yönetme
  

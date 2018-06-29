@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: db7f1f85601cfcf4531bb11176a21126625ce7f0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c5819d39bf3ab7c0f4af32171aadea56e4f6a241
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31422020"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063553"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>İş akışları tanımlamak ve işleri koordine etmek için hdınsight'ta Hadoop ile zamana dayalı Oozie düzenleyicisi kullanın
 Bu makalede, iş akışları ve düzenleyiciler nasıl tanımlanacağı ve zamana dayalı Düzenleyicisi işleri tetiklemek nasıl öğreneceksiniz. Geçtikleri faydalıdır [Hdınsight ile kullanım Oozie] [ hdinsight-use-oozie] önce bu makaleyi okuyun. Oozie ek olarak, Azure Data Factory kullanarak işleri de zamanlayabilirsiniz. Azure Data Factory öğrenmek için bkz: [kullanım Pig ve Hive Data Factory ile](../data-factory/transform-data.md).
@@ -718,7 +718,7 @@ Bu öğreticide, Oozie iş akışı ve Oozie Düzenleyicisi nasıl tanımlanaca�
 * [Hdınsight ile Azure Blob storage kullanma][hdinsight-storage]
 * [Hdınsight Azure PowerShell kullanarak yönetme][hdinsight-admin-powershell]
 * [HDInsight'a veri yükleme][hdinsight-upload-data]
-* [Hdınsight ile Sqoop kullanma][hdinsight-use-sqoop]
+* [HDInsight ile Sqoop kullanma][hdinsight-use-sqoop]
 * [HDInsight ile Hive kullanma][hdinsight-use-hive]
 * [HDInsight ile Pig kullanma][hdinsight-use-pig]
 * [Hdınsight için Java MapReduce programlar geliştirmek][hdinsight-develop-java-mapreduce]
@@ -752,7 +752,7 @@ Bu öğreticide, Oozie iş akışı ve Oozie Düzenleyicisi nasıl tanımlanaca�
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://docs.microsoft.com/en-us/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

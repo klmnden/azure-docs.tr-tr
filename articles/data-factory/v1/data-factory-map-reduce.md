@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6bddb3d5beca57852ef62361b278ec1fa8961f45
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: edbef08eaa100248368d7f0b23171f15b52ec56a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621267"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050956"
 ---
 # <a name="invoke-mapreduce-programs-from-data-factory"></a>Veri Fabrikası MapReduce programlardan çağırma
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34621267"
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [dönüştürme Data Factory sürüm 2 MapReduce etkinliği kullanarak verileri](../transform-data-using-hadoop-map-reduce.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [dönüştürme veri fabrikasında MapReduce etkinliği kullanarak verileri](../transform-data-using-hadoop-map-reduce.md).
 
 
 Veri Fabrikası'nda Hdınsight MapReduce etkinliği [ardışık düzen](data-factory-create-pipelines.md) üzerinde MapReduce programları yürütür [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
@@ -189,7 +189,7 @@ Bu örnekte ardışık türünde yalnızca bir etkinlik vardır: HDInsightMapRed
 | className |Sınıf adıdır: **wordcount** |
 | jarFilePath |Sınıf içeren jar dosyasının yolu. Kopyala/yapıştır aşağıdaki kod, kümenin adını değiştirmeyi unutmayın. |
 | jarLinkedService |Jar dosyasını içeren azure depolama bağlı hizmeti. Bu bağlı hizmetin Hdınsight kümesi ile ilişkili depolama ifade eder. |
-| Bağımsız değişkenler |Wordcount program iki bağımsız değişken, bir giriş ve çıkış alır. Giriş dosyası davinci.txt dosyasıdır. |
+| bağımsız değişkenler |Wordcount program iki bağımsız değişken, bir giriş ve çıkış alır. Giriş dosyası davinci.txt dosyasıdır. |
 | frequency/interval |Bu özelliklerin değerlerini çıktı veri kümesi eşleşmesi. |
 | linkedServiceName |daha önce oluşturmuştunuz Hdınsight bağlı hizmeti anlamına gelmektedir. |
 

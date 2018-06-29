@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 ms.author: douglasl
-ms.openlocfilehash: 2bcb0d4e6af00b56d083690439be45379ce4d175
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9c15b239ee0bd0dde0b1f11691565b2676e3d07
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752818"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062130"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Bir olaya yanıt olarak bir ardışık düzen çalışır bir Tetikleyici oluşturma
 
 Bu makalede, veri fabrikası hatlarınızı oluşturabilirsiniz olay tabanlı tetikleyiciler açıklanmaktadır.
 
-Olay kaynaklı (EDA) üretim, algılama, tüketim ve olaylarına tepki içeren ortak bir veri tümleştirme deseni mimarisidir. Veri tümleştirme senaryolarına genellikle olaylara dayanarak ardışık düzen tetiklemek Data Factory müşteriler gerektirir.
+Olay kaynaklı (EDA) üretim, algılama, tüketim ve olaylarına tepki içeren ortak bir veri tümleştirme deseni mimarisidir. Veri tümleştirme senaryolarına genellikle olaylara dayanarak ardışık düzen tetiklemek Data Factory müşteriler gerektirir. Veri Fabrikası diziniyle tümleştirilmiş durumdadır [Azure olay kılavuz](https://azure.microsoft.com/services/event-grid/), size tetiklemek olanak sağlayan bir olayda ardışık düzenleri.
 
 ## <a name="data-factory-ui"></a>Data Factory Kullanıcı Arabirimi (UI)
 
@@ -64,11 +64,20 @@ Aşağıdaki tabloda, olay tabanlı tetikleyiciler ilgili şema öğeleri genel 
 Bu bölümde, olay tabanlı tetikleyici ayarları örnekleri sağlar.
 
 -   **BLOB yolu başlıyorsa**('/ containername /') – olayları için herhangi bir blob kapsayıcısında alır.
--   **BLOB yolu başlıyorsa**('/ containername/KlasörAdı') – containername kapsayıcı ve KlasörAdı klasöründe BLOB olaylarını alır.
--   **BLOB yolu başlıyorsa**('/ containername/foldername/file.txt') – containername kapsayıcısı altında KlasörAdı klasöründeki dosya.txt'yi adlı bir blob için olayları alır.
+-   **BLOB yolu başlıyorsa**('/ BLOB'lar/containername/KlasörAdı') – containername kapsayıcı ve KlasörAdı klasöründe BLOB olaylarını alır.
+-   **BLOB yolu başlıyorsa**('/ containername/blobs/foldername/file.txt') – containername kapsayıcısı altında KlasörAdı klasöründeki dosya.txt'yi adlı bir blob için olayları alır.
 -   **BLOB yolu bitiyor ile**('dosya.txt'yi') – bir blob Receives olaylarını adlı dosya.txt'yi herhangi yolundaki.
--   **BLOB yolu bitiyor ile**('/ containername/file.txt') – kapsayıcı containername altında dosya.txt'yi adlı bir blob için olayları alır.
+-   **BLOB yolu bitiyor ile**('/ containername/blobs/file.txt') – kapsayıcı containername altında dosya.txt'yi adlı bir blob için olayları alır.
 -   **BLOB yolu bitiyor ile**('foldername/file.txt') – bir blob Receives olaylarını adlı dosya.txt'yi KlasörAdı klasöründeki tüm kapsayıcısı altında.
+
+> [!NOTE]
+> Dahil etmek zorunda `/blobs/` kapsayıcı ve klasöre, kapsayıcı ve dosya veya kapsayıcı, klasör belirtin ve dosya her yol kesimi.
+
+## <a name="using-blob-events-trigger-properties"></a>BLOB olayları tetikleyici özellikleri kullanma
+
+Blob olayların trigger başlatıldığında iki değişken hattınızı sağlar: *folderPath* ve *fileName*. Bu değişkenler erişmek için `@triggerBody().fileName` veya `@triggerBody().folderPath` ifadeler.
+
+Örneğin, bir blob oluşturulduğunda tetiklenecek şekilde yapılandırılmış bir tetikleyici göz önünde bulundurun `.csv` değeri olarak `blobPathEndsWith`. Bir .csv dosyası storage hesabınıza bırakıldığında *folderPath* ve *fileName* .csv dosyasının konumunu açıklar. Örneğin, *folderPath* değerine sahip `/containername/foldername/nestedfoldername` ve *fileName* değerine sahip `filename.csv`.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Tetikleyiciler hakkında ayrıntılı bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md#triggers).

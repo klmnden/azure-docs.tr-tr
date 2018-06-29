@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c6ec168332d8a655d78c3deffe89f51f7d75a840
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: MT
+ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751889"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063519"
 ---
 # <a name="update-management-solution-in-azure"></a>Güncelleştirme yönetimi çözümü Azure
 
@@ -505,39 +505,9 @@ Ancak, güncelleştirme yönetimi hala ilgili güncelleştirme hakkında ek bilg
 
 Güncelleştirme sınıflandırması güncelleştirmelerini dağıtma üzerinde CentOS kutu dışı çalışmaz. SUSE için seçme *yalnızca* sınıflandırma güvenliğe neden olabileceğinden ' diğer ' güvenlik güncelleştirmeleri, ayrıca yüklenen güncelleştirmeler zypper (Paket Yöneticisi) ilgili veya bağımlılıklarını ilk gereklidir. Bu, zypper kısıtlamasıdır. Bazı durumlarda, doğrulamak için Güncelleştirme dağıtımı yeniden çalıştırmak için gerekli olabilecek güncelleştirme günlüğü'nü denetleyin.
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorun giderme
 
-Bu bölümde, güncelleştirme yönetimi çözümle ilgili sorunları gidermenize yardımcı olacak bilgiler sağlar.
-
-### <a name="windows"></a>Windows
-
-Sizin için yerleşik çözümü veya bir sanal makine çalıştığınızda sorunlarla karşılaşırsanız, denetleme **uygulama ve Hizmetleri Logs\Operations Yöneticisi** yerel makineye olay kimliği 4502 ve olay olayları için olay günlüğü iletileri içeren **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**. Aşağıdaki tabloda özel hata iletileri ve olası bir çözüm her biri için önemli noktalar:
-
-| İleti | Neden | Çözüm |
-|----------|----------|----------|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br/>Kayıt Özel Durumla Başarısız Oldu<br/>System.InvalidOperationException: {"Message":"Makine zaten<br/>farklı bir hesaba kaydedildi. "} | Güncelleştirme yönetimi için başka bir çalışma sayede makine zaten var. | Tarafından eski yapılarının temizlenmesini [karma Runbook grubu silme](automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group).|
-| Düzeltme Eki Yönetimi için makine kaydedilemedi, kayıt özel durumu ile başarısız<br/>System.Net.Http.HttpRequestException: İstek gönderilirken bir hata oluştu. ---><br/>System.Net.WebException: Temel alınan bağlantı<br/>kapatıldı: Alma işlemi sırasında<br/>beklenmeyen bir hata oluştu. ---> System.ComponentModel.Win32Exception:<br/>İstemci ve sunucu iletişim kuramıyor,<br/>çünkü ortak bir algoritmaya sahip değiller | Proxy/ağ geçidi/güvenlik duvarı iletişimi engelliyor. | [Ağ gereksinimlerini gözden geçirme](automation-hybrid-runbook-worker.md#network-planning).|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br/>Kayıt Özel Durumla Başarısız Oldu<br/>Newtonsoft.Json.JsonReaderException: Pozitif sonsuz değer ayrıştırılırken hata oluştu. | Proxy/ağ geçidi/güvenlik duvarı iletişimi engelliyor. | [Ağ gereksinimlerini gözden geçirme](automation-hybrid-runbook-worker.md#network-planning).|
-| Hizmet tarafından sunulan sertifika \<wsid\>. oms.opinsights.azure.com<br/>Microsoft hizmetleri için kullanılan bir sertifika yetkilisi<br/>tarafından verilmemiş. İletişim<br/>ağ yöneticinize başvurarak<br/>TLS/SSL iletişimini engelleyen bir proxy çalıştırıp çalıştırmadıklarına bakın. |Proxy/ağ geçidi/güvenlik duvarı iletişimi engelliyor. | [Ağ gereksinimlerini gözden geçirme](automation-hybrid-runbook-worker.md#network-planning).|
-| Yama Yönetimi için Makine Kaydedilemiyor,<br/>Kayıt Özel Durumla Başarısız Oldu<br/>AgentService.HybridRegistration.<br/>PowerShell.Certificates.CertificateCreationException:<br/>Otomatik olarak imzalanan sertifika oluşturulamadı. ---><br/>System.UnauthorizedAccessException: Erişim reddedildi. | Otomatik olarak imzalanan sertifika oluşturma hatası. | Sistem hesabının<br/>klasöre okuma erişiminin olduğunu doğrulayın:<br/>**C:\ProgramData\Microsoft\**<br/>** Crypto\RSA **|
-
-### <a name="linux"></a>Linux
-
-Linux makinesinde başlatmak güncelleştirme çalıştırması başarısız olursa, aşağıdaki günlük dosyası bir kopyasını alın ve sorun giderme amacıyla Koru:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-Linux üzerinde başarıyla başlatıldıktan sonra Çalıştır'ün güncelleştirilmesi sırasında hatalar meydana gelirse, etkilenen makinenin çalıştırmada çıktısı işini denetleyin. Araştırma ve eylem gerçekleştiren makinenizin Paket Yöneticisi'nden özel hata iletileri bulabilirsiniz. Güncelleştirme yönetimi, Paket Yöneticisi'ni başarılı güncelleştirme dağıtımları için sağlıklı olmasını gerektirir.
-
-Bazı durumlarda, güncelleştirme bir güncelleştirme dağıtımı tamamlanmasını engelleyen yönetimiyle paket güncelleştirmesi etkileyebilir. Görürseniz, bu paketleri gelecekteki güncelleştirme dosyadan hariç veya bunları el ile yüklemeniz gerekir kendiniz.
-
-Bir düzeltme eki uygulama sorunu çözemezseniz, aşağıdaki günlük dosyasının bir kopyası ve onu korumak **önce** sorun giderme amacıyla sonraki güncelleştirme dağıtımı başlatır:
-
-```
-/var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
-```
+Güncelleştirme yönetimi sorunlarını giderme konusunda bilgi almak için bkz: [güncelleştirme yönetimi sorunlarını giderme](troubleshoot/update-management.md)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

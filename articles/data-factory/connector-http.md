@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: f7c82b3aa88e874328452aae46dc14972d63192f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a27d90006d31c83b5ebe6cfc4a8d97969743a91e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616952"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049867"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Azure Data Factory kullanarak HTTP uç noktasından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-http-connector.md)
-> * [Sürüm 2 - Önizleme](connector-http.md)
+> * [Sürüm 1](v1/data-factory-http-connector.md)
+> * [Geçerli sürüm](connector-http.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir HTTP uç noktasından verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 HTTP Bağlayıcısı](v1/data-factory-http-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -169,7 +166,7 @@ HTTP veri kopyalamak için veri kümesi için tür özelliği ayarlamak **HttpFi
 | relativeUrl | Verileri içeren kaynak için göreli bir URL. Bu özellik belirtilmemişse, bağlantılı hizmet tanımında belirtilen URL kullanılır. | Hayır |
 | requestMethod | HTTP yöntemi.<br/>İzin verilen değerler **almak** (varsayılan) veya **Post**. | Hayır |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
-| RequestBody | HTTP istek gövdesi. | Hayır |
+| requestBody | HTTP istek gövdesi. | Hayır |
 | Biçimi | İsterseniz **HTTP uç noktası olarak veri almak-olan** ve bir dosya tabanlı depolama alanına kopyalama ayrıştırma olmadan, her iki girdi ve çıktı veri kümesi tanımlarında Biçim bölümü atlayın.<br/><br/>HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki dosya biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ayarlama **türü** şu değerlerden biri biçimine altında özellik. Daha fazla bilgi için bkz: [Json biçimine](supported-file-formats-and-compression-codecs.md#json-format), [metin biçimi](supported-file-formats-and-compression-codecs.md#text-format), [Avro biçimi](supported-file-formats-and-compression-codecs.md#avro-format), [Orc biçimi](supported-file-formats-and-compression-codecs.md#orc-format), ve [Parquet biçimi](supported-file-formats-and-compression-codecs.md#parquet-format) bölümler. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Daha fazla bilgi için bkz: [desteklenen dosya biçimleri ve sıkıştırma codec](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**.<br/>Desteklenen düzeyler: **Optimal** ve **en hızlı**. |Hayır |
 

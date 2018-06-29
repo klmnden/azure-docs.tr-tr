@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: a5a81279726e5c221d9ae4734466a04ae5912af6
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936811"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050136"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server örneği geçiş yönetilen Azure SQL veritabanı örneğine
 
@@ -82,6 +82,8 @@ Yönetilen örneği (şu anda bunlar yalnızca desteklenen geçiş yöntemleridi
 ### <a name="azure-database-migration-service"></a>Azure Veritabanı Geçiş Hizmeti
 
 [Azure veritabanı geçiş hizmeti (DMS)](../dms/dms-overview.md) en az kapalı kalma süresi ile Azure veri platformlar için birden fazla veritabanı kaynaktan sorunsuz geçiş sağlamak için tasarlanmış tam olarak yönetilen bir hizmettir. Bu hizmet, var olan üçüncü taraf ve SQL Server veritabanlarınızı Azure'a taşımak için gereken görevleri kolaylaştırır. Dağıtım seçenekleri genel Önizleme sırasında Azure SQL veritabanını, örneği yönetilen ve SQL Server bir Azure sanal makinesine içerir. DMS geçiş önerilen yöntem, kurumsal iş yükleri için ' dir. 
+
+Şirket içi, SQL Server'da SQL Server Integration Services (SSIS) kullandığınız DMS henüz SSIS paketleri depolayan geçirme SSIS katalog (SSISDB) desteklemiyor, ancak Azure SSIS tümleştirmesi çalışma zamanı (IR) Azure veri fabrikası (ADF) sağlayabilirsiniz, olur Azure SQL veritabanı'nda yeni SSISDB Oluştur/yönetilen örneği ve daha sonra paketlerinizi ona yeniden dağıtın, bkz: [oluşturma Azure SSIS IR ADF içinde](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
 
 DMS için bu senaryo ve yapılandırma adımları hakkında daha fazla bilgi için bkz: [şirket içi veritabanı DMS kullanarak örneğini yönetilen geçirme](../dms/tutorial-sql-server-to-managed-instance.md).  
 

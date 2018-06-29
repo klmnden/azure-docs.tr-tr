@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5731e4249c94e77846f07870e4bba28aab70682e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7ece34809734478ddb52c12d5dbd92291231f439
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045696"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Veri öğesinden Amazon, Redshift Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-amazon-redshift-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-amazon-redshift.md)
+> * [Sürüm 1](data-factory-amazon-redshift-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-amazon-redshift.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 Amazon Redshift Bağlayıcısı](../connector-amazon-redshift.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Amazon Redshift Bağlayıcısı](../connector-amazon-redshift.md).
 
 Bu makalede kopya etkinliği Azure Data Factory'de Amazon Redshift verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Makaleyi derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi. 
 
@@ -65,7 +65,7 @@ Aşağıdaki tabloda bir Amazon bağlı Redshift hizmete özgü JSON öğeleri i
 | --- | --- | --- |
 | **type** |Bu özelliği ayarlamak **AmazonRedshift**. |Evet |
 | **Sunucu** |Amazon Redshift sunucusunun IP adresi veya ana bilgisayar adı. |Evet |
-| **Bağlantı noktası** |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır (varsayılan olarak 5439) |
+| **bağlantı noktası** |İstemci bağlantılarını dinlemek için Amazon Redshift sunucunun kullandığı TCP bağlantı noktası numarası. |Hayır (varsayılan olarak 5439) |
 | **Veritabanı** |Amazon Redshift veritabanının adı. |Evet |
 | **Kullanıcı adı** |Veritabanına erişimi olan kullanıcı adı. |Evet |
 | **Parola** |Kullanıcı hesabının parolası. |Evet |
@@ -78,7 +78,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilir özelliklerin 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **TableName** |Amazon Redshift veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
+| **tableName** |Amazon Redshift veritabanında bağlantılı hizmet başvurduğu tablonun adı. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
 
@@ -336,7 +336,7 @@ Kopya etkinliği bir Amazon Redshift türünden bir .NET türü veri dönüştü
 | BIGINT |Int64 |
 | ONDALIK |Ondalık |
 | GERÇEK |Tek |
-| ÇİFT DUYARLIKLI |Çift |
+| ÇİFT DUYARLIKLI |çift |
 | BOOLE DEĞERİ |Dize |
 | CHAR |Dize |
 | VARCHAR |Dize |

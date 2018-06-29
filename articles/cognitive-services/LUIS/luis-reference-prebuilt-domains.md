@@ -10,15 +10,17 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: v-geberr
-ms.openlocfilehash: 8e04853e0044e045158642fea51c225378eb3ad6
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319063"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061973"
 ---
-# <a name="prebuilt-domain-reference"></a>Önceden oluşturulmuş bir etki alanı başvurusu
-Bu başvuru amaçları ve HALUK sunar varlıklar, önceden oluşturulmuş koleksiyonlarıdır önceden oluşturulmuş etki hakkında bilgi sağlar.
+# <a name="prebuilt-domain-reference"></a>Önceden derlenmiş etki alanı başvurusu
+Bu başvuru hakkında bilgi sağlar. [önceden oluşturulmuş etki alanları](luis-how-to-use-prebuilt-domains.md), amaçları ve HALUK sunar varlıkları önceden oluşturulmuş koleksiyonları olduğu.
+
+[Özel etki alanlarını](create-new-app.md), buna karşın hiçbir hedefleri ve modelleri başlayın. Önceden oluşturulmuş bir etki alanı hedefleri ve varlıklar için özel bir model ekleyebilirsiniz.
 
 ## <a name="list-of-prebuilt-domains"></a>Önceden oluşturulmuş etki alanlarının listesi
 HALUK 20 önceden oluşturulmuş etki alanı sunar. 
@@ -41,7 +43,7 @@ HALUK 20 önceden oluşturulmuş etki alanı sunar.
 | Anımsatıcı | Oluşturma, düzenleme ve anımsatıcıları bulma ile ilgili istekleri işleme.| tr-TR<br/> zh-CN |
 | RestaurantReservation | Restoran ayırmaları yönetmek için istekleri işleme.| tr-TR<br/> zh-CN |
 | Ücreti | Bir ücreti kayıtları işleme.| tr-TR<br/> zh-CN |
-| Çevir | Metin bir hedef dile çevirme.| tr-TR<br/> zh-CN |
+| Çevirme | Metin bir hedef dile çevirme.| tr-TR<br/> zh-CN |
 | TV | TV denetleme.| tr-TR |
 | Altyapı Hizmetleri  | "Yardım" gibi birden çok etki alanı içinde ortak olan istekleri işleme "yineleyin", "yeniden başlatın."| tr-TR |
 | Hava durumu | Hava raporları ve tahminleri alınıyor.| tr-TR<br/> zh-CN |
@@ -442,7 +444,7 @@ restart|
 | RouteAvoidanceCriteria | KAZALARDAN dolayı RID'ler, kurulumlarını veya tolls önleme gibi belirli yollar önleme ölçütleri | Tolls <br/>Kurulumlarını<br/>Rota 11|
 | ServiceProvided | Bu bir iş veya yöneticinize gibi yer tarafından sağlanan hizmetidir plowing, peyzaj kar. | yöneticinize<br/>Teknisyenin<br/>plumber|
 | TransportationCompany | Aktarım sağlayıcısının adı.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Taşıma türü.|Veri yolu<br/>Eğitin<br/>Sürüş|
+| TransportationType | Taşıma türü.|Veri yolu<br/>Eğitim<br/>Sürüş|
 
 ## <a name="reminder"></a>Anımsatıcı 
 Hedefleri ve varlıkları oluşturma, düzenleme ve anımsatıcıları bulma için anımsatıcı etki alanı sağlar.
@@ -523,9 +525,9 @@ Cancel my Uber
 | PlaceName | Yerel iş, Restoran, ortak çekim veya kurum adı. |Orta Park<br/>Safeway<br/>Walmart|
 | PlaceType| Bir ücreti kitap isteği yerinde türü.|Restoran<br/>Opera<br/>sinema|
 | TransportationCompany | Aktarım sağlayıcısının adı.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | Taşıma türü.|Veri yolu<br/>Eğitin<br/>Sürüş|
+| TransportationType | Taşıma türü.|Veri yolu<br/>Eğitim<br/>Sürüş|
 
-## <a name="translate"></a>Çevir 
+## <a name="translate"></a>Çevirme 
 Çeviri etki alanı hedefleri ve metin hedef dile çevirme için ilgili varlıklar sağlar.
 
 ### <a name="examples"></a>Örnekler
@@ -538,7 +540,7 @@ Translate this sentence to English
 ### <a name="intents"></a>Hedefler
 | Hedefi adı | Açıklama | Örnekler |
 | ---------------- |-----------------------|----|
-| Çevir| Başka bir dilde metne çevir.|Fransızca Çevir<br/>Almanca Hello Çevir|
+| Çevirme| Başka bir dilde metne çevir.|Fransızca Çevir<br/>Almanca Hello Çevir|
 
 
 ### <a name="entities"></a>Varlıklar

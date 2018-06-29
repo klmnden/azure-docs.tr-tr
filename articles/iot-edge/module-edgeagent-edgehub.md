@@ -8,18 +8,18 @@ ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632916"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030572"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge aracısı ve kenar hub modülü çiftlerini özellikleri
 
 Edge aracısı ve kenar hub IOT kenar çalışma zamanı yapmak iki modüllerdir. Her modülü gerçekleştirir hangi görevleri hakkında daha fazla bilgi için bkz: [Azure IOT kenar çalışma zamanı ve mimarisini anlama](iot-edge-runtime.md). 
 
-Bu makalede, istenen özellikler ve Çalışma Zamanı Modülü çiftlerini bildirilen özelliklerini sağlar. Bkz: [dağıtım ve izleme] [ lnk-deploy] IOT sınır cihazları modülleri dağıtma hakkında daha fazla bilgi için.
+Bu makalede, istenen özellikler ve Çalışma Zamanı Modülü çiftlerini bildirilen özelliklerini sağlar. IOT sınır cihazları modülleri dağıtma hakkında daha fazla bilgi için bkz: [dağıtım ve izleme][lnk-deploy].
 
 ## <a name="edgeagent-desired-properties"></a>İstenen EdgeAgent özellikleri
 
@@ -31,22 +31,25 @@ Edge Aracısı modülü twin adlı `$edgeAgent` ve bir cihaz ve IOT hub'ı çal�
 | Runtime.Type | "Docker" olması gerekir | Evet |
 | runtime.settings.minDockerVersion | Bu dağıtım listesi tarafından gereken en düşük Docker sürüm için ayarlayın | Evet |
 | runtime.settings.loggingOptions | Edge Aracısı kapsayıcısı için günlüğe kaydetme seçeneklerini içeren stringified JSON. [Docker günlük seçenekleri][lnk-docker-logging-options] | Hayır |
+| runtime.settings.registryCredentials<br>. {registryId} .username | Kapsayıcı kayıt defteri kullanıcı adı. Azure kapsayıcı kayıt defteri için kullanıcı adı genellikle kayıt defteri adıdır.<br><br> Genel olmayan tüm modülü görüntüleri için gerekli kayıt defteri kimlik bilgileridir. | Hayır |
+| runtime.settings.registryCredentials<br>. {registryId} .password | Kapsayıcı kayıt defteri parolası. | Hayır |
+| runtime.settings.registryCredentials<br>. {registryId} .address | Kapsayıcı kayıt defteri adresi. Azure kapsayıcı kayıt defteri için genellikle adresidir *{registryname}.azurecr.io*. | Hayır |  
 | systemModules.edgeAgent.type | "Docker" olması gerekir | Evet |
 | systemModules.edgeAgent.settings.image | Edge Aracısı görüntüsü URI'si. Şu anda, kenar Aracısı kendisini güncelleştirmek mümkün değil. | Evet |
-| systemModules.edgeAgent.settings.createOptions | Edge Aracısı kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
-| systemModules.edgeAgent.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
+| systemModules.edgeAgent.settings<br>.createOptions | Edge Aracısı kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
+| systemModules.edgeAgent.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bu özellik, bir dağıtım kullanarak bu bildirimi uygulandığında IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 | systemModules.edgeHub.type | "Docker" olması gerekir | Evet |
 | systemModules.edgeHub.status | "Çalışıyor olması gerektiğini" | Evet |
 | systemModules.edgeHub.restartPolicy | "Her zaman" olması gerekir | Evet |
 | systemModules.edgeHub.settings.image | Edge hub görüntüsü URI'si. | Evet |
-| systemModules.edgeHub.settings.createOptions | Edge hub kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
-| systemModules.edgeHub.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
+| systemModules.edgeHub.settings<br>.createOptions | Edge hub kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
+| systemModules.edgeHub.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bu özellik, bir dağıtım kullanarak bu bildirimi uygulandığında IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 | modüller. {Moduleıd} .version | Bu modül sürümü temsil eden kullanıcı tanımlı bir dize. | Evet |
 | modules.{moduleId}.type | "Docker" olması gerekir | Evet |
 | modules.{moduleId}.restartPolicy | {"hiçbir zaman" \| "üzerinde başarısız oldu-" \| "üzerinde-sağlıksız" \| "her zaman"} | Evet |
 | modüller. {Moduleıd}.settings.image | Modül görüntü URI'si. | Evet |
 | modules.{moduleId}.settings.createOptions | Modül kapsayıcı oluşturma seçeneklerini içeren stringified JSON. [Docker oluşturma seçenekleri][lnk-docker-create-options] | Hayır |
-| modüller. {Moduleıd}.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bir dağıtım kullanarak bu bildirimi uygulandığında bu IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
+| modüller. {Moduleıd}.configuration.id | Bu modül dağıtılan dağıtım kimliği. | Bu özellik, bir dağıtım kullanarak bu bildirimi uygulandığında IOT Hub tarafından ayarlanır. Parçası olmayan bir dağıtım bildirimi. |
 
 ## <a name="edgeagent-reported-properties"></a>Özellikler EdgeAgent bildirdi
 
@@ -59,7 +62,7 @@ Edge Aracısı özellikleri üç ana parça bilgi dahil bildirdi:
 Bu son parça bilgi son istenen özellikler çalışma zamanı tarafından başarıyla uygulanmaz ve aygıt hala bir önceki dağıtım bildirimi çalışıyor durumda yararlıdır.
 
 > [!NOTE]
-> İle sorgulanabilir gibi kenar aracının bildirilen özelliklerini yararlı [IOT hub'ı sorgu dili] [ lnk-iothub-query] ölçekte dağıtımların durumunu incelemek için. Başvurmak [dağıtımları] [ lnk-deploy] bu özelliğinin nasıl kullanılacağı hakkında daha fazla bilgi için.
+> İle sorgulanabilir gibi kenar aracının bildirilen özelliklerini yararlı [IOT hub'ı sorgu dili] [ lnk-iothub-query] ölçekte dağıtımların durumunu incelemek için. Edge Aracısı özellikleri durumu kullanma hakkında daha fazla bilgi için bkz [anlamak IOT kenar dağıtımları tek cihazlar için veya ölçekte][lnk-deploy].
 
 Aşağıdaki tabloda, istenen özelliklerinden kopyalandığında bilgileri içermez.
 
@@ -68,7 +71,7 @@ Aşağıdaki tabloda, istenen özelliklerinden kopyalandığında bilgileri içe
 | lastDesiredVersion | Bu tamsayı son kenar aracı tarafından işlenen istenen özellik sürümünü gösterir. |
 | lastDesiredStatus.code | Bu sınır aracı tarafından görülen son istenen özelliklerine başvuran durum kodudur. İzin verilen değerler: `200` başarılı, `400` geçersiz yapılandırma `412` geçersiz şema sürümüne `417` İstenen özelliklerde boş `500` başarısız oldu |
 | lastDesiredStatus.description | Durum metin açıklaması |
-| DeviceHealth | `healthy` tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
+| deviceHealth | `healthy` tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
 | configurationHealth.{deploymentId}.health | `healthy` {Deploymentıd} dağıtımı tarafından ayarlanmış olan tüm modülleri çalışma zamanı durumunu ya da ise `running` veya `stopped`, `unhealthy` Aksi takdirde |
 | runtime.platform.OS | Aygıtta çalışan işletim sistemi raporlama |
 | Runtime.Platform.Architecture | Cihazda raporlama CPU mimarisi |

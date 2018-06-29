@@ -1,6 +1,6 @@
 ---
-title: Hdınsight'ta - Azure R Server faaliyete | Microsoft Docs
-description: Azure hdınsight'ta R Server faaliyete öğrenin.
+title: Hdınsight'ta - Azure ML Hizmetleri faaliyete | Microsoft Docs
+description: Azure hdınsight'ta ML Hizmetleri faaliyete öğrenin.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -10,28 +10,31 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 6de6e78d9b4ad68d268b59cff18c75fbdd7be757
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412850"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046148"
 ---
-# <a name="operationalize-r-server-cluster-on-azure-hdinsight"></a>Azure hdınsight'ta R Server küme faaliyete
+# <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Azure Hdınsight kümesinde ML Hizmetleri faaliyete
 
-Modelleme verilerinizi tamamlamak için Hdınsight'ta R Server küme kullandıktan sonra tahminlerde modelini faaliyete geçirebilirsiniz. Bu makalede, bu görevi gerçekleştirme hakkında yönergeler sağlar.
+Modelleme verilerinizi tamamlamak için Hdınsight'ta ML Hizmetleri küme kullandıktan sonra tahminlerde modelini faaliyete geçirebilirsiniz. Bu makalede, bu görevi gerçekleştirme hakkında yönergeler sağlar.
 
 ## <a name="prerequisites"></a>Önkoşullar
 
-* **Hdınsight R Server kümesinde**: yönergeler için bkz: [hdınsight'ta R Server kullanmaya başlama](r-server-get-started.md).
+* **Hdınsight ML Hizmetleri kümede**: yönergeler için bkz: [hdınsight'ta ML hizmetleri kullanmaya başlama](r-server-get-started.md).
 
 * **Güvenli Kabuk (SSH) istemcisi**: HDInsight kümesine uzaktan bağlanmak ve komutları doğrudan küme üzerinde çalıştırmak için bir SSH istemcisi kullanılır. Daha fazla bilgi için bkz. [HDInsight ile SSH kullanma](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-## <a name="operationalize-r-server-cluster-with-one-box-configuration"></a>R Server küme bir kutusunu yapılandırmasıyla faaliyete
+## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Bir çalıştırma yapılandırmaya sahip ML Hizmetleri kümeye faaliyete
 
-1. Kenar düğümüne SSH uygulayın.  
+> [!NOTE]
+> Aşağıdaki adımlar, R Server 9.0 ve ML sunucu 9.1 için geçerlidir. ML sunucu 9.3 için başvurmak [operationalization yapılandırmasını yönetmek için yönetim aracını kullanın](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+
+1. Kenar düğümüne SSH uygulayın.
 
         ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
@@ -39,7 +42,7 @@ Modelleme verilerinizi tamamlamak için Hdınsight'ta R Server küme kullandıkt
 
 2. Sudo dot net dll ve ilgili sürümü için dizini değiştirin: 
 
-    - Microsoft R Server 9.1 için:
+    - Microsoft ML Server 9.1:
 
             cd /usr/lib64/microsoft-r/rserver/o16n/9.1.0
             sudo dotnet Microsoft.RServer.Utils.AdminUtil/Microsoft.RServer.Utils.AdminUtil.dll
@@ -49,11 +52,11 @@ Modelleme verilerinizi tamamlamak için Hdınsight'ta R Server küme kullandıkt
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Aralarından seçim yapabileceğiniz seçeneklerle sunulur. İlk seçeneği için aşağıdaki ekran görüntüsünde gösterildiği gibi belirleyin **Operationalization için R Server'ı Yapılandır**.
+3. Aralarından seçim yapabileceğiniz seçeneklerle sunulur. İlk seçeneği için aşağıdaki ekran görüntüsünde gösterildiği gibi belirleyin **Operationalization için ML Server'ı Yapılandır**.
 
     ![one box işlemi](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. Şimdi nasıl R Server faaliyete istediğinizi seçmek için seçeneğiyle sunulur. Girerek birinci sunulan seçeneklerden birini **A**.
+4. Şimdi nasıl ML sunucu faaliyete istediğinizi seçmek için seçeneğiyle sunulur. Girerek birinci sunulan seçeneklerden birini **A**.
 
     ![one box işlemi](./media/r-server-operationalize/admin-util-one-box-2.png)
 
@@ -99,7 +102,7 @@ Bir Spark işlem bağlamında mrsdeploy ile oluşturulmuş bir web hizmetini tü
 
 Bu aşamada kullanıma hazır hale getirme yapılandırması tamamlanmıştır. Kullanabileceğiniz artık `mrsdeploy` edge düğüm üzerinde operationalization bağlanmak ve özellikleri gibi kullanmaya başlamak için RClient paketi [uzaktan yürütme](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) ve [web Hizmetleri](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Kümenizin bir sanal ağda ayarlanıp ayarlanmamasına bağlı olarak, SSH oturumu aracılığıyla bağlantı noktası iletme tüneli ayarlamanız gerekebilir. Aşağıdaki bölümlerde bu tüneli nasıl kuracağınız açıklanmaktadır.
 
-### <a name="r-server-cluster-on-virtual-network"></a>R Server kümede sanal ağ
+### <a name="ml-services-cluster-on-virtual-network"></a>ML Hizmetleri kümesi sanal ağ üzerinde
 
 12800 numaralı bağlantı noktası üzerinden kenar düğümüne trafik akışına izin verdiğinizden emin olun. Bu şekilde, Kullanıma Hazır Hale Getirme özelliğine bağlanmak için kenar düğümünü kullanabilirsiniz.
 
@@ -115,7 +118,7 @@ Bu aşamada kullanıma hazır hale getirme yapılandırması tamamlanmıştır. 
 
 `remoteLogin()` kenar düğümüne bağlanamadığı halde kenar düğümüne SSH uygulayabiliyorsanız, 12800 numaralı bağlantı noktası üzerinde trafiğe izin veren kuralın doğru şekilde ayarlanıp ayarlanmadığını doğrulamanız gerekir. Sorunla karşılaşmaya devam ederseniz, SSH üzerinden bağlantı noktası iletme tüneli oluşturarak bir geçici çözüm uygulayabilirsiniz. Yönergeler için aşağıdaki bölüme bakın:
 
-### <a name="r-server-cluster-not-set-up-on-virtual-network"></a>R Server küme sanal ağ üzerinde ayarlanmamış
+### <a name="ml-services-cluster-not-set-up-on-virtual-network"></a>ML Hizmetleri küme sanal ağ üzerinde ayarlanmamış
 
 Kümeniz sanal üzerinde ayarlanmamışsa veya sanal ağ üzerinden bağlantı kurma sorunları yaşıyorsanız, SSH bağlantı noktası iletme tünelini kullanabilirsiniz:
 
@@ -139,7 +142,7 @@ SSH oturumunuz etkin hale geldikten sonra, makinenizin 12800 numaralı bağlant�
 
 ### <a name="step-1-decommission-the-worker-nodes"></a>1. adım: çalışan düğümleri yetkisini alma
 
-R Server küme YARN yönetilmez. Çalışan düğümü yetkisi alınmış emin değilseniz, YARN Kaynak Yöneticisi, sunucu tarafından gerçekleştirilecek kaynakları farkında olmadığından beklendiği gibi çalışmaz. Bu durumu önlemek için, işlem düğümlerini ölçeklendirmeden önce çalışan düğümlerinin yetkisinin alınması önerilir.
+ML Hizmetleri küme YARN yönetilmez. Çalışan düğümü yetkisi alınmış emin değilseniz, YARN Kaynak Yöneticisi, sunucu tarafından gerçekleştirilecek kaynakları farkında olmadığından beklendiği gibi çalışmaz. Bu durumu önlemek için, işlem düğümlerini ölçeklendirmeden önce çalışan düğümlerinin yetkisinin alınması önerilir.
 
 Çalışan düğümleri yetkisini almak için aşağıdaki adımları izleyin:
 
@@ -163,11 +166,11 @@ R Server küme YARN yönetilmez. Çalışan düğümü yetkisi alınmış emin d
 
 1. Yetkisi alınan her çalışan düğümüne SSH uygulayın.
 
-2. Sahip olduğunuz R Server kümesi için ilgili DLL kullanarak yönetim yardımcı programını çalıştırın. R Server 9.1 için şu komutu çalıştırın:
+2. Sahip olduğunuz ML Hizmetleri kümesi için ilgili DLL kullanarak yönetim yardımcı programını çalıştırın. ML sunucu 9.1 için şu komutu çalıştırın:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Girin **1** seçeneğini **Operationalization için R Server'ı Yapılandır**.
+3. Girin **1** seçeneğini **Operationalization için ML Server'ı Yapılandır**.
 
 4. Girin **C** seçeneğini `C. Compute node`. Bu işlem çalışan düğümündeki işlem düğümünü yapılandırır.
 
@@ -175,7 +178,7 @@ R Server küme YARN yönetilmez. Çalışan düğümü yetkisi alınmış emin d
 
 ### <a name="step-3-add-compute-nodes-details-on-web-node"></a>3. adım: Ekleme düğümleri ayrıntıları web düğüm üzerinde işlem
 
-Tüm yetkisi alınmış çalışan düğümleri işlem düğümü çalışacak şekilde yapılandırıldıktan sonra kenar düğümüne geri dönün ve R Server web düğümün yapılandırmasında yetkisi alınmış çalışan düğümleri IP adreslerini ekleyin:
+Tüm yetkisi alınmış çalışan düğümleri işlem düğümü çalışacak şekilde yapılandırıldıktan sonra kenar düğümüne geri dönün ve ML sunucu web düğümün yapılandırmasında yetkisi alınmış çalışan düğümleri IP adreslerini ekleyin:
 
 1. Kenar düğümüne SSH uygulayın.
 
@@ -192,6 +195,6 @@ Tüm yetkisi alınmış çalışan düğümleri işlem düğümü çalışacak �
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde R Server kümesini yönetme](r-server-hdinsight-manage.md)
-* [HDInsight üzerinde R Server kümesi için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
-* [HDInsight üzerinde R Server kümesi için Azure Depolama seçenekleri](r-server-storage.md)
+* [Hdınsight kümesinde ML Hizmetleri yönetme](r-server-hdinsight-manage.md)
+* [Hdınsight üzerinde ML Hizmetleri kümesi için içerik seçeneklerini işlem](r-server-compute-contexts.md)
+* [Hdınsight kümesinde ML Hizmetleri için Azure depolama seçenekleri](r-server-storage.md)

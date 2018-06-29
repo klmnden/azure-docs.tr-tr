@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Önizleme) kullanarak PayPal veri kopyalama | Microsoft Docs
+title: Azure Data Factory kullanarak PayPal veri kopyalama | Microsoft Docs
 description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak PayPal desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: caac9666c932f6e22abc9f6619860742c79206d4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 844b9979ed3bb61850ff9448d065bc1300fe23d0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337670"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054407"
 ---
-# <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak PayPal verilerini
+# <a name="copy-data-from-paypal-using-azure-data-factory"></a>Azure Data Factory kullanarak PayPal verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de PayPal verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.

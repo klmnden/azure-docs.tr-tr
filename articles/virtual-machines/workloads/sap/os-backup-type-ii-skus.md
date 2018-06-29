@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657613"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063283"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>İşletim sistemi yedekleme ve geri yükleme türü II SKU'ları için
 
-Bu belgede bir işletim sistemi yedekleme ve geri yüklemek için gereken adımları açıklar **türü II SKU'ları** HANA büyük örneği. 
+Bu belgede bir işletim sistemi dosya düzeyinde yedekleme ve geri yüklemek için gereken adımları açıklar **türü II SKU'ları** HANA büyük örneği. 
 
 >[!NOTE]
 >İşletim sistemi yedekleme komut dosyalarını kullanan Server'da önceden yüklenmiş olan arka yazılımı.  
 
-Varsayılan olarak, Microsoft Hizmet Yönetimi ekibi tarafından tamamlandıktan sonra sunucunun tam işletim sistemini yedeklemek için iki yedekleme zamanlaması ile yapılandırılır. Aşağıdaki komutu kullanarak yedekleme işinin zamanlamasını denetleyebilirsiniz:
+Varsayılan olarak, Microsoft Hizmet Yönetimi ekibi tarafından tamamlandıktan sonra sunucu dosya sistemini yedeklemek için iki yedekleme zamanlaması yapılandırılmış işletim sisteminin düzeyi yedekleyin. Aşağıdaki komutu kullanarak yedekleme işinin zamanlamasını denetleyebilirsiniz:
 ```
 #crontab –l
 ```
@@ -38,14 +38,14 @@ Yedekleme zamanlamasını aşağıdaki komutu kullanarak dilediğiniz zaman değ
 ```
 ## <a name="how-to-take-a-manual-backup"></a>El ile yedek almak nasıl?
 
-İşletim sistemi Yedekleme kullanılarak zamanlanan bir **cron iş** zaten. Ancak, işletim sistemi yedekleme el ile de gerçekleştirebilirsiniz. El ile Yedekleme gerçekleştirmek için aşağıdaki komutu çalıştırın:
+İşletim sistemi dosya sistemi yedeği kullanılarak zamanlanan bir **cron iş** zaten. Ancak, işletim sistemi dosya düzeyinde yedekleme el ile de gerçekleştirebilirsiniz. El ile Yedekleme gerçekleştirmek için aşağıdaki komutu çalıştırın:
 
 ```
 #rear -v mkbackup
 ```
 Aşağıdaki ekran göster örnek el ile yedekleme gösterir:
 
-![Nasıl](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
+![nasıl](media/HowToHLI/OSBackupTypeIISKUs/HowtoTakeManualBackup.PNG)
 
 
 ## <a name="how-to-restore-a-backup"></a>Bir yedekleme geri yükleme mi?

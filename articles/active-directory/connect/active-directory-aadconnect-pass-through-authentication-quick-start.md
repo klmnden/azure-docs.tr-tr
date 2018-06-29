@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: da3d78880a3d389c2a247f9940b708c026c96e03
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 365d9cde29292b40847ec2a0ac6f7d4011222f2c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591339"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028940"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory doğrudan kimlik doğrulaması: Hızlı Başlangıç
 
@@ -152,7 +152,7 @@ Tek başına bir kimlik doğrulama Aracısı dağıtmak için iki yol vardır:
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Sonraki adımlar
-- [Akıllı kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme özelliği yapılandırmayı öğrenin.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme özelliği yapılandırmayı öğrenin.
 - [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): hangi senaryoları ile doğrudan kimlik doğrulama desteklenir ve hangilerinin olmayan öğrenin.
 - [Teknik derinlemesine](active-directory-aadconnect-pass-through-authentication-how-it-works.md): doğrudan kimlik doğrulaması özelliğinin nasıl çalıştığını anlayın.
 - [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md): Bul için sık sorulan sorulara yanıtlar.

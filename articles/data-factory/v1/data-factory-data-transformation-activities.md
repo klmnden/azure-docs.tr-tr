@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: aa51073395a1049cd78f13ba185119707a787b29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afa00a81738563ec3c5b4b168f533b732c263825
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622304"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045628"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory veri dönüştürme
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "34622304"
 
 ## <a name="overview"></a>Genel Bakış
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [sürüm 2 veri fabrikasında veri dönüştürme etkinlikleri](../transform-data.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [veri fabrikasında veri dönüştürme etkinlikleri](../transform-data.md).
 
 Bu makalede Azure Data factory'de dönüştürmek için kullanabilir ve ham verilerinizi Öngörüler ve öngörü işler veri dönüştürme etkinlikleri açıklar. Azure Hdınsight kümesini veya bir Azure Batch gibi bilgi işlem ortamında dönüştürme etkinliğine yürütür. Makalelerinin bağlantıları her dönüştürme etkinliği hakkında ayrıntılı bilgi sağlar.
 

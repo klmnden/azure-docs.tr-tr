@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 984971c24f2dfdd5d8eced45341737d1ce975033
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cb1a263c0a33a291a44e7c60b3c032d7f9dc16a3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619363"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054084"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Oluşturma ve Azure tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla bilgi için bkz: [tümleştirmesi çalışma zamanı](concepts-integration-runtime.md).
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
 
 Azure IR yerel işlem Hdınsight gibi hizmetleri için veri hareketlerini ve gönderme veri dönüştürme etkinlikleri gerçekleştirmek için tam olarak yönetilen bir işlem sağlar. Azure Ortamı'nda barındırılan ve ortak erişilebilir uç noktaları ortak ağ ortamında kaynaklara bağlanmayı destekler.
 

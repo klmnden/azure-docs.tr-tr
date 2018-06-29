@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619635"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059116"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake Store içine veri yükleme
 
@@ -35,9 +35,6 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 
 > [!NOTE]
 > Daha fazla bilgi için bkz: [veri kopyalama için veya Azure Data Lake Store Azure Data Factory kullanarak](connector-azure-data-lake-store.md).
->
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [kopya etkinliği Azure Data factory'de sürüm 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği: Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
@@ -56,7 +53,7 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
     * **Ad**: Azure data factory'nizi için genel benzersiz bir ad girin. Hata alırsanız, "veri fabrikası adı \"LoadADLSDemo\" kullanılamıyor" veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Data factory oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
     * **Abonelik**: data factory oluşturulacağı Azure aboneliğinizi seçin. 
     * **Kaynak grubu**: aşağı açılan listeden mevcut bir kaynak grubu seçin ya da seçin **Yeni Oluştur** seçeneği ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-    * **Sürüm**: seçin **V2 (Önizleme)**.
+    * **Sürüm**: seçin **V2**.
     * **Konum**: data factory konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depolarına diğer konumları ve bölgelerde olabilir. Bu veri depolarına Azure Data Lake Store, Azure Storage, Azure SQL Database vb. içerir.
 
 3. **Oluştur**’u seçin.
@@ -74,35 +71,45 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 2. İçinde **özellikleri** sayfasında, belirtin **CopyFromAmazonS3ToADLS** için **görev adı** alan ve select **sonraki**:
 
     ![Özellikler sayfası](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. İçinde **kaynak veri deposu** sayfasında, **Amazon S3**seçip **sonraki**:
+3. İçinde **kaynak veri deposu** sayfasında, **+ yeni bir bağlantı oluşturmak**:
 
     ![Kaynak veri deposu sayfası](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    
+    Seçin **Amazon S3**seçip **devam et**
+    
+    ![Kaynak veri deposu s3 sayfası](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    
 4. İçinde **belirtin Amazon S3 bağlantı** sayfasında, aşağıdaki adımları uygulayın: 
    1. Belirtin **erişim anahtarı kimliği** değeri.
    2. Belirtin **gizli erişim anahtar** değeri.
-   3. **İleri**’yi seçin.
+   3. **Son**’u seçin.
    
    ![Amazon S3 hesabı belirtin](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. Yeni bir bağlantı göreceksiniz. **İleri**’yi seçin.
+   
+   ![Amazon S3 hesabı belirtin](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. İçinde **girdi dosyası veya klasörü seçin** sayfasında, üzerinden kopyalamak istediğiniz dosya ve klasör gözatın. Klasör/dosya seçin, **Seç**ve ardından **sonraki**:
 
     ![Girdi dosyasını veya klasörünü seçin](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. İçinde **hedef veri deposu** sayfasında, **Azure Data Lake Store**seçip **sonraki**:
-
-    ![Hedef veri deposu sayfası](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. Kopyalama davranışını seçerek **kopyalama dosyaları yinelemeli olarak** ve **ikili kopyalama** (olarak dosyaları kopyalama-olduğu) seçenekleri. Seçin **sonraki**:
+6. Kopyalama davranışını seçerek **kopyalama dosyaları yinelemeli olarak** ve **ikili kopyalama** (olarak dosyaları kopyalama-olduğu) seçenekleri. Seçin **sonraki**:
 
     ![Çıkış klasörü belirtin](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    
+7. İçinde **hedef veri deposu** sayfasında, **+ yeni bir bağlantı oluşturmak**ve ardından **Azure Data Lake Store**seçip **devam**:
+
+    ![Hedef veri deposu sayfası](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. İçinde **belirt Data Lake Store bağlantısı** sayfasında, aşağıdaki adımları uygulayın: 
 
    1. Data Lake Store için seçin **Data Lake Store hesabı adı**.
-   2. Hizmet asıl bilgileri belirtin: **Kiracı**, **hizmet asıl kimlik**, ve **hizmet asıl anahtarı**.
+   2. Belirtin **Kiracı**ve Son'u seçin.
    3. **İleri**’yi seçin.
    
    > [!IMPORTANT]
-   > Bu kılavuzda, kullandığınız bir _hizmet sorumlusu_ Data Lake Store kimliğini doğrulamak için. Hizmet sorumlusu izleyerek Azure Data Lake Store'da uygun izinleri vermek mutlaka [bu yönergeleri](connector-azure-data-lake-store.md#using-service-principal-authentication).
+   > Bu kılavuzda, kullandığınız bir _yönetilen hizmet kimliği_ Data Lake Store kimliğini doğrulamak için. Hizmet sorumlusu izleyerek Azure Data Lake Store'da uygun izinleri vermek mutlaka [bu yönergeleri](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
    
    ![Azure Data Lake Store hesabını belirtin](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. İçinde **çıktı dosyası veya klasörü seçin** want **copyfroms3** çıkış klasörü adı ' nı seçip olarak **sonraki**: 

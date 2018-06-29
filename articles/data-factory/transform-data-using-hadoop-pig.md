@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c0286f8c21fd127068a3c94856e536accc49bab1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9e769cc436011defe89b12680150e6f9c3b3faf8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619890"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049330"
 ---
 # <a name="transform-data-using-hadoop-pig-activity-in-azure-data-factory"></a>Hadoop Pig etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-pig-activity.md)
-> * [Sürüm 2 - Önizleme](transform-data-using-hadoop-pig.md)
+> * [Sürüm 1](v1/data-factory-pig-activity.md)
+> * [Geçerli sürüm](transform-data-using-hadoop-pig.md)
 
 Veri Fabrikası Hdınsight Pig etkinliğinde [ardışık düzen](concepts-pipelines-activities.md) üzerinde Pig sorguları yürüten [kendi](compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Pig etkinliğinde](v1/data-factory-pig-activity.md).
 
 Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](introduction.md) ve [öğretici: verileri](tutorial-transform-data-spark-powershell.md) bu makaleyi okumadan önce. 
 
@@ -69,7 +66,7 @@ Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](introduction
 | scriptLinkedService | Bir Azure depolama bağlı hizmeti başvuru yürütülecek Pig betiği depolamak için kullanılır. Bu bağlı hizmetin belirtmezseniz, Azure depolama bağlı Hdınsight bağlı hizmeti tanımlanan hizmeti kullanılır. | Hayır       |
 | scriptPath          | ScriptLinkedService tarafından başvurulan Azure storage'da depolanan komut dosyası yolunu girin. Dosya adı büyük/küçük harf duyarlıdır. | Hayır       |
 | Getdebugınfo        | Günlük dosyaları için Azure Storage zaman kopyalanır belirtir Hdınsight kümesi tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır       |
-| Bağımsız değişkenler           | Bir Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenler, her görevin komut satırı bağımsız değişkenleri olarak geçirilir. | Hayır       |
+| bağımsız değişkenler           | Bir Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenler, her görevin komut satırı bağımsız değişkenleri olarak geçirilir. | Hayır       |
 | tanımlar             | Parametreler, Pig komut dosyası içinde başvurmak için anahtar/değer çiftleri olarak belirtin. | Hayır       |
 
 ## <a name="next-steps"></a>Sonraki adımlar

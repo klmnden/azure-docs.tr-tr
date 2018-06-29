@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0c115cce7659fe1f10e8d3d9c988748151916ce0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 951756d57441d175ccf8bab44bf00c3cb542f1b9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620750"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050055"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Öğretici: Verileri Hadoop kümesi kullanarak dönüştürmek için ilk işlem hattınızı oluşturma
 > [!div class="op_single_selector"]
 > * [Genel bakış ve önkoşullar](data-factory-build-your-first-pipeline.md)
-> * [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,7 +33,7 @@ ms.locfileid: "34620750"
 
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Data Factory hizmetinin önizleme aşamasında olan 2. sürümünü kullanıyorsanız [Hızlı Başlangıç: Azure Data Factory sürüm 2’yi kullanarak veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin.
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [hızlı başlangıç: Azure Data Factory kullanarak bir veri fabrikası oluşturma](../quickstart-create-data-factory-dot-net.md).
 
 Bu öğreticide, veri ardışık ile ilk Azure data factory'nizi derleme. Ardışık Düzen giriş verileri çıktı verileri üretemedi bir Azure Hdınsight (Hadoop) kümesinde Hive betiğini çalıştırarak dönüştürür.  
 
@@ -94,7 +94,7 @@ Bu öğreticiye başlamadan önce aşağıdaki önkoşullara sahip olmanız gere
 
 Önkoşulları tamamladıktan sonra aşağıdaki araçlar/öğretici yapmak için SDK'ları birini seçin: 
 
-- [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager Şablonu](data-factory-build-your-first-pipeline-using-arm.md)

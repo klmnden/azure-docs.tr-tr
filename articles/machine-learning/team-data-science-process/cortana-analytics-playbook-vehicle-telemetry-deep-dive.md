@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: a856c59191a1e35b78d1ab6c2c88ab5288ea1419
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836492"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059209"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>Araç Telemetri analiz çözümü playbook: ayrıntılı çözüme daha yakından inceleyin
 Bu playbook bölümlerini bu menü bağlantılar: 
@@ -35,7 +35,7 @@ Bu belge kümede ayrıntısına gider her çözüm mimarisinde gösterilen aşam
 * Benzetimli araç sinyalleri ve tanılama veri kümesi
 * Araç Kataloğu
 
-Aşağıdaki ekran görüntüsünde gösterildiği gibi bir araç telematik simulator Bu çözüm, bir parçası olarak dahil edilir. Tanılama bilgileri ve araç durumunu ve belirli bir noktada yönlendirmeli düzeni zamanında karşılık gelen sinyalleri yayar. Araç telematik Simulator Visual Studio çözümü gereksinimlerinize göre özelleştirmeler indirmek için Git [araç telematik simulator](http://go.microsoft.com/fwlink/?LinkId=717075) Web sayfası. Araç katalog araç tanımlama numaraları (VINs) modellerine eşleyen bir başvuru veri kümesi içerir.
+Aşağıdaki ekran görüntüsünde gösterildiği gibi bir araç telematik simulator Bu çözüm, bir parçası olarak dahil edilir. Tanılama bilgileri ve araç durumunu ve belirli bir noktada yönlendirmeli düzeni zamanında karşılık gelen sinyalleri yayar.  Araç katalog araç tanımlama numaraları (VINs) modellerine eşleyen bir başvuru veri kümesi içerir. Not: Araç telematik Simulator Visual Studio çözümü veri kümesi artık kullanılamıyor. 
 
 ![Araç telematik simulator](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -363,7 +363,7 @@ Bir uygulamayı gerçek zamanlı machine learning modelini faaliyete çözümün
 
 Bu deseni, ayrıca iş kolu satır uygulama gerçek zamanlı analiz akış ile tümleştirmek istediğiniz senaryolar için geçerlidir. Bu senaryolar, uyarılar, bildirimler ve mesajlaşma içerir.
 
-Özelleştirmeler RealtimeDashboardApp Visual Studio çözümü indirmek için bkz: [RealtimeDashboardApp indirme](http://go.microsoft.com/fwlink/?LinkId=717078) Web sayfası. 
+Not: RealtimeDashboardApp Visual Studio çözümü için verileri artık mevcut değil.
 
 #### <a name="execute-the-real-time-dashboard-application"></a>**Gerçek zamanlı Pano uygulamanın yürütme**
 1. RealtimeDashboardApp ayıklamak ve yerel olarak kaydedin.
@@ -669,10 +669,9 @@ Bu belgede ayrıntılı ayrıntıya araç Telemetri analizi çözümün içerir.
 
 ### <a name="references"></a>Başvurular
 
-* [Araç telematik Simulator Visual Studio çözümü](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [Akış alımı için Azure olay hub'ları SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Azure Data Factory veri taşıma özellikleri](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Azure veri fabrikası .NET etkinliği](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Azure Data Factory veri taşıma özellikleri](../../data-factory/copy-activity-overview.md)
+* [Azure veri fabrikası .NET etkinliği](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [Azure veri fabrikası .NET etkinlik örnek verileri hazırlamak için kullanılan Visual Studio çözümü](http://go.microsoft.com/fwlink/?LinkId=717077) 

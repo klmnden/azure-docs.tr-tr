@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: aca67ceff2650a5470b1c08b20c21d71f00bae62
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eae350f751788eb09271e70f71f79b12e27c4e16
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751539"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061410"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Bir Azure SSIS tümleştirmesi çalışma zamanı sanal bir ağa katılmasını sağlayın
 Azure sanal ağını aşağıdaki senaryolarda, Azure SSIS tümleştirmesi çalışma zamanı (IR) Katıl: 
@@ -27,10 +27,7 @@ Azure sanal ağını aşağıdaki senaryolarda, Azure SSIS tümleştirmesi çal�
 
 - Sanal ağ hizmet uç noktaları/yönetilen örneği (Önizleme) ile Azure SQL veritabanında SQL Server Integration Services (SSIS) Katalog veritabanı barındırır. 
 
- Azure Data Factory sürüm 2 (Önizleme), Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli oluşturulan sanal bir ağa, Azure SSIS tümleştirmesi çalışma zamanı katılma olanak tanır. 
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel kullanılabilirlik (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory sürüm 1 belgelerine](v1/data-factory-introduction.md). 
+ Azure Data Factory, Klasik dağıtım modeli veya Azure Resource Manager dağıtım modeli oluşturulan sanal bir ağa, Azure SSIS tümleştirmesi çalışma zamanı katılma olanak tanır. 
 
 ## <a name="access-to-on-premises-data-stores"></a>Şirket içi veri depolarına erişim
 SSIS paketleri yalnızca genel bulut veri depolarına erişirseniz, bir sanal ağa Azure SSIS IR katılma gerek yoktur. SSIS paketleri şirket içi veri depolarına erişirse, şirket içi ağı'na bağlı bir sanal ağ Azure SSIS IR katılması gerekir. 
@@ -114,7 +111,10 @@ Alt giden Internet trafiği incelemek için özelliğini kaybetme endişelisiniz
 Bkz: [bu PowerShell Betiği](https://gallery.technet.microsoft.com/scriptcenter/Adds-Azure-Datacenter-IP-dbeebe0c) bir örnek. Azure veri merkezi IP adres listesinde güncel tutmak üzere haftalık komut dosyasını çalıştırmanız gerekir. 
 
 ### <a name="resource-group"></a> Kaynak grubu için gereksinimler
-Azure SSIS IR Azure yük dengeleyici, Azure ortak IP adresi ve ağ iş güvenlik grubu dahil olmak üzere sanal ağ ile aynı kaynak grubunda belirli ağ kaynaklarınıza oluşturması gerekir. 
+-   Sanal ağ ile aynı kaynak grubunda belirli ağ kaynaklarınıza oluşturmak Azure SSIS IR gerekir. Bu kaynakları şunları içerir:
+    -   Ada sahip bir Azure yük dengeleyici  *<Guid>- azurebatch cloudserviceloadbalancer*.
+    -   Bir Azure genel IP adresi adıyla  *<Guid>- azurebatch cloudservicepublicip*.
+    -   Bir ağ iş güvenlik grubu adı ile  *<Guid>- azurebatch cloudservicenetworksecuritygroup*. 
 
 -   Kaynak grubuna veya aboneliğe ait olduğu sanal ağ üzerindeki tüm kaynak kilit yok emin olun. Salt okunur bir kilidi ya da delete kilit yapılandırırsanız, başlatma ve durdurma IR askıda veya başarısız. 
 

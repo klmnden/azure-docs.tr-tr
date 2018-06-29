@@ -10,12 +10,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 37228ca2f887f0993f707a2b10a2b5dcd888b1b9
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 0bcdc3c4357cb8985fad16c607957bffad4a2b8c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753686"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049239"
 ---
 # <a name="quickstart-for-c-and-windows"></a>C++ ve Windows için hızlı başlangıç
 

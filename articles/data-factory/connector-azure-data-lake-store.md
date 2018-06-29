@@ -12,22 +12,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 78d704bffdae50cefe577dee6fcef120dbde2d2a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf1ac441f695e5427e57f1a85bafd095777eed80
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332176"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049308"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Data Lake Store bilgisayardan veya veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-azure-datalake-connector.md)
-> * [Sürüm 2 - Önizleme](connector-azure-data-lake-store.md)
+> * [Sürüm 1](v1/data-factory-azure-datalake-connector.md)
+> * [Geçerli sürüm](connector-azure-data-lake-store.md)
 
 Bu makalede Azure Data Lake Store gelen ve verileri kopyalamak için kopyalama etkinliği Azure Data Factory'de kullanma özetlenmektedir. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Azure Data Lake Store Bağlayıcısı](v1/data-factory-azure-datalake-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

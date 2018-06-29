@@ -4,16 +4,16 @@ description: Azure IoT Edge için genel sorunları çözümleme ve sorun giderme
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad22b0cd1457c1d4146a75047ff18e916c0c7ccd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: efe3e31a1a92e21f2c3a3461deba248d2a8c97fa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633545"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029450"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge için genel sorunlar ve çözümler
 
@@ -23,36 +23,135 @@ Ortamınızda Azure IoT Edge’i kullanma konusunda sorun yaşarsanız, sorun gi
 
 Bir sorunla karşılaştığınızda, cihaza gelen ve cihazdan giden iletileri ve kapsayıcı günlüklerini gözden geçirerek IoT Edge cihazınızın durumu hakkında daha fazla bilgi edinin. Bilgi toplamak için bu bölümdeki komutları ve araçları kullanın. 
 
-* Sorunları algılamak için docker kapsayıcılarının günlüklerine bakın. Dağıttığınız kapsayıcılarla başlayın, sonra IoT Edge çalışma zamanını oluşturan şu kapsayıcılara bakın: Edge Aracısı ve Edge Hub’ı. Edge Aracısı günlükleri genellikle her bir kapsayıcının yaşam döngüsü hakkında bilgi sağlar. Edge Hub’ı günlükleri, mesajlaşma ve yönlendirme hakkında bilgi sağlar. 
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IOT kenar Güvenlik Yöneticisi'ni ve günlüklerinin durumunu kontrol edin:
 
-   ```cmd
-   docker logs <container name>
+Linux üzerinde:
+- IOT kenar Güvenlik Yöneticisi'nin durumunu görüntülemek için:
+
+   ```bash
+   sudo systemctl status iotedge
    ```
 
-* Edge Hub’ı aracılığıyla giden iletileri görüntüleyin ve çalışma zamanı kapsayıcılarındaki ayrıntılı günlüklerle cihaz özellikleri güncelleştirmelerine ilişkin öngörüler toplayın.
+- IOT kenar Güvenlik Yöneticisi'nin günlükleri görüntülemek için:
 
-   ```cmd
-   iotedgectl setup --connection-string "{device connection string}" --runtime-log-level debug
-   ```
+    ```bash
+    sudo journalctl -u iotedge -f
+    ```
+
+- Ayrıntılı günlükleri IOT kenar Güvenlik Yöneticisi'nin görüntülemek için:
+
+   - İotedge arka plan programı ayarlarını düzenleyin:
+
+      ```bash
+      sudo systemctl edit iotedge.service
+      ```
    
-* iotedgectl komutlarından ayrıntılı günlükleri görüntüleyin:
+   - Aşağıdaki satırları güncelleştirin:
+    
+      ```
+      [Service]
+      Environment=IOTEDGE_LOG=edgelet=debug
+      ```
+    
+   - IOT kenar güvenlik arka plan programı yeniden başlatın:
+    
+      ```bash
+      sudo systemctl cat iotedge.service
+      sudo systemctl daemon-reload
+      sudo systemctl restart iotedge
+      ```
 
-   ```cmd
-   iotedgectl --verbose DEBUG <command>
+Windows'da:
+- IOT kenar Güvenlik Yöneticisi'nin durumunu görüntülemek için:
+
+   ```powershell
+   Get-Service iotedge
    ```
 
-* Bağlantı sorunları yaşıyorsanız cihaz bağlantısı dizeniz gibi edge cihazı ortam değişkenlerinizi inceleyin:
+- IOT kenar Güvenlik Yöneticisi'nin günlükleri görüntülemek için:
+
+   ```powershell
+   # Displays logs from today, newest at the bottom.
+ 
+   Get-WinEvent -ea SilentlyContinue `
+   -FilterHashtable @{ProviderName= "iotedged";
+     LogName = "application"; StartTime = [datetime]::Today} |
+   select TimeCreated, Message |
+   sort-object @{Expression="TimeCreated";Descending=$false}
+   ```
+
+### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IOT kenar Güvenlik Yöneticisi çalışmıyor, yaml yapılandırma dosyanızı doğrulayın.
+
+> [!WARNING]
+> YAML dosyaları sekmeleri identation içeremez. 2 alanları kullanın.
+
+Linux üzerinde:
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
+
+Windows'da:
 
    ```cmd
-   docker exec edgeAgent printenv
+   notepad C:\ProgramData\iotedge\config.yaml
+   ```
+
+### <a name="check-container-logs-for-issues"></a>Sorunları için kapsayıcı günlükleri denetleyin
+
+IOT kenar güvenlik arka plan programı çalışıyor sonra sorunlarını algılayacak şekilde kapsayıcıların günlüklerine bakın. Dağıttığınız kapsayıcılarla başlayın, sonra IoT Edge çalışma zamanını oluşturan şu kapsayıcılara bakın: Edge Aracısı ve Edge Hub’ı. Edge Aracısı günlükleri genellikle her bir kapsayıcının yaşam döngüsü hakkında bilgi sağlar. Edge Hub’ı günlükleri, mesajlaşma ve yönlendirme hakkında bilgi sağlar. 
+
+   ```cmd
+   iotedge logs <container name>
+   ```
+
+### <a name="view-the-messages-going-through-the-edge-hub"></a>Edge hub'ı aracılığıyla giden iletiler görüntüleyin
+
+Edge hub'ı aracılığıyla giden iletiler görüntüleyin ve edgeAgent ve edgeHub çalışma zamanı kapsayıcılardan cihaz özellikleri güncelleştirmeleri ayrıntılı günlükleri ile ilişkin Öngörüler toplayabilir. Bu kapsayıcılara ayrıntılı günlükleri etkinleştirmek için ayarlanmış `RuntimeLogLevel` ortam değişkeni: 
+
+Linux üzerinde:
+    
+   ```cmd
+   export RuntimeLogLevel="debug"
+   ```
+    
+Windows'da:
+    
+   ```powershell
+   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
    ```
 
 IoT Hub ile IoT Edge cihazları arasında gönderilmekte olan iletileri de denetleyebilirsiniz. Visual Studio Code için [Azure IoT Araç Seti](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) uzantısını kullanarak bu iletileri görüntüleyin. Daha fazla yardım için bkz. [Azure IoT ile geliştirme sürecinde kullanışlı araç](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/).
 
-Bilgi için günlükleri ve iletileri araştırdıktan sonra, Azure IoT Edge çalışma zamanını yeniden başlatmayı da deneyebilirsiniz:
+### <a name="restart-containers"></a>Kapsayıcıları yeniden başlatın
+Bilgi iletilerini ve günlükleri araştırdıktan sonra kapsayıcıları yeniden başlatmayı deneyebilirsiniz:
+
+```
+iotedge restart <container name>
+```
+
+IOT kenar çalışma zamanı kapsayıcıları yeniden başlatın:
+
+```
+iotedge restart edgeAgent && iotedge restart edgeHub
+```
+
+### <a name="restart-the-iot-edge-security-manager"></a>IOT kenar Güvenlik Yöneticisi'ni yeniden başlatın
+
+Sorun hala kalıcı ise IOT kenar Güvenlik Yöneticisi'ni yeniden başlatmayı deneyebilirsiniz.
+
+Linux üzerinde:
 
    ```cmd
-   iotedgectl restart
+   sudo systemctl restart iotedge
+   ```
+
+Windows'da:
+
+   ```powershell
+   Stop-Service iotedge -NoWait
+   sleep 5
+   Start-Service iotedge
    ```
 
 ## <a name="edge-agent-stops-after-about-a-minute"></a>Edge Aracısı yaklaşık bir dakika sonra durdurulur
@@ -100,29 +199,11 @@ Bir kapsayıcı çalıştırılamıyor ve Edge Aracısı günlükleri, 403 hatas
 Edge Aracısı'nın bir modülün görüntüsüne erişme izinleri yoktur. 
 
 ### <a name="resolution"></a>Çözüm
-`iotedgectl login` komutunu tekrar çalıştırmayı deneyin.
+Kayıt defteri kimlik bilgilerinizi Dağıtım bildiriminizi doğru belirtildiğinden emin olun
 
-## <a name="iotedgectl-cant-find-docker"></a>iotedgectl Docker’ı bulamıyor
+## <a name="iot-edge-security-daemon-fails-with-an-invalid-hostname"></a>IOT kenar güvenlik arka plan programı geçersiz bir ana bilgisayar adı ile başarısız oluyor
 
-Komutları `iotedgectl setup` veya `iotedgectl start` başarısız ve günlükleri için aşağıdaki iletiyi yazdırma:
-```output
-File "/usr/local/lib/python2.7/dist-packages/edgectl/host/dockerclient.py", line 98, in get_os_type
-  info = self._client.info()
-File "/usr/local/lib/python2.7/dist-packages/docker/client.py", line 174, in info
-  return self.api.info(*args, **kwargs)
-File "/usr/local/lib/python2.7/dist-packages/docker/api/daemon.py", line 88, in info
-  return self._result(self._get(self._url("/info")), True)
-```
-
-### <a name="root-cause"></a>Kök neden
-Bir önkoşul olmasına rağmen iotedgectl Docker’ı bulamıyor.
-
-### <a name="resolution"></a>Çözüm
-Docker’ı yükleyin, çalıştığından emin olun ve yeniden deneyin.
-
-## <a name="iotedgectl-setup-fails-with-an-invalid-hostname"></a>Geçersiz bir ana bilgisayar adı ile iotedgectl kurulum başarısız olur
-
-Komut `iotedgectl setup` başarısız oluyor ve aşağıdaki iletiyi yazdırır: 
+Komut `sudo journalctl -u iotedge` başarısız oluyor ve aşağıdaki iletiyi yazdırır: 
 
 ```output
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
@@ -143,9 +224,17 @@ Bu hatayı gördüğünüzde, sanal makinenin DNS adı yapılandırarak ve Kurul
 4. Biçiminde olmalıdır yeni bir DNS adı kopyalamanız  **\<DNSnamelabel\>.\< vmlocation\>. cloudapp.azure.com**.
 5. Sanal makinenin içinde IOT kenar çalışma zamanı, DNS adı ile ayarlamak için aşağıdaki komutu kullanın:
 
-   ```input
-   iotedgectl setup --connection-string "<connection string>" --nopass --edge-hostname "<DNS name>"
-   ```
+   - Linux üzerinde:
+
+      ```bash
+      sudo nano /etc/iotedge/config.yaml
+      ```
+
+   - Windows'da:
+
+      ```cmd
+      notepad C:\ProgramData\iotedge\config.yaml
+      ```
 
 ## <a name="next-steps"></a>Sonraki adımlar
 IoT Edge platformunda bir hata bulduğunuzu düşünüyor musunuz? Lütfen gelişmeye devam edebilmemiz için [bir sorun gönderin](https://github.com/Azure/iot-edge/issues). 

@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/09/2018
 ms.author: rayne
-ms.openlocfilehash: 95a33c80b1aeef7fbf8bea0ab760bbd66babdac8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b16f495a21ff0b3da415390877777650a9fbb82
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31427238"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048212"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V Azure çoğaltma ve yük devretme için sorun giderme
 
@@ -58,7 +58,7 @@ Aşağıdaki gibi ilk ve devam eden çoğaltma sorunlarını giderme:
 5. Hyper-V konakları Azure storage blobu URL'sine bağlanabildiğinizi denetleyin. Bunu yapmak için seçin ve denetleme **cbengine.exe**. Görünüm **TCP bağlantılarını** Azure depolama blobunu konağa bağlantısını doğrulayın.
 6. Performans sorunları, aşağıda açıklandığı gibi denetleyin.
     
-### <a name="performance-issues"></a>performans sorunları
+### <a name="performance-issues"></a>Performans sorunları
 
 Ağ bant genişliği sınırlamaları çoğaltma etkileyebilir. Aşağıdaki gibi sorunlarını giderme:
 
@@ -116,7 +116,7 @@ Uygulama tutarlı bir anlık görüntü VM içinde uygulama verilerinin zaman i�
         - Sayaç: "Yazma Bayt / sn"</br>
         - Bu veri karmaşıklık oranı artırın veya VM veya kendi uygulamalarını ne kadar meşgul olduğunu bağlı olarak yüksek bir düzeyde kalır.
         - Site Recovery için standart depolama için 2 MB/sn ortalama kaynak disk veri dalgalanmasına olur. [Daha fazla bilgi](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
-    - Ayrıca şunları yapabilirsiniz [depolama ölçeklenebilirlik hedefleri doğrulamak](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets.md#scalability-targets-for-a-storage-account).
+    - Ayrıca şunları yapabilirsiniz [depolama ölçeklenebilirlik hedefleri doğrulamak](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
 8. Çalıştırma [dağıtım Planlayıcısı](hyper-v-deployment-planner-run.md).
 9. Önerileri gözden [ağ](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) ve [depolama](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 

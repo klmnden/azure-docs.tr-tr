@@ -7,14 +7,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 9021d0c3f650d64480f2881508d456ce98beab2a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961969"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053336"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Birimleri Azure Cosmos veritabanı isteği
 
@@ -41,7 +41,7 @@ Azure Cosmos DB hızlı, uygulamanızın verimlilik ihtiyaçlarını karşılama
 
 Azure Cosmos DB ile ayrılmış işleme saniyede işlediği istek birimi cinsinden belirtilir. İstek birimleri verimlilik para birimi olarak düşünebilirsiniz. Saniye başına temelinde uygulamanız için kullanılabilir olmasını garanti edilen isteği birim sayısını ayırın. Azure Cosmos DB, bir belge yazma dahil olmak üzere her bir işlemde bir sorgu gerçekleştirmek ve bir belge güncelleştirme, CPU, bellek ve IOPS kullanır. Diğer bir deyişle, her işlem istek birimleri cinsinden ifade edilen bir istek ücret doğurur. İstek birimi ücretleri ve uygulamanızın işleme gereksinimleri etkileyen faktörler anladığınızda, uygulamanızı maliyeti etkili bir şekilde olabildiğince olarak çalıştırabilirsiniz. 
 
-Başlamanıza yardımcı olmak için istek birimleri aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu ele alınmıştır: <br /><br />
+Başlamanıza yardımcı olmak için istek birimi (video istek birimleri örneği küçük bir yazım hatasından yoktur. aşağıdaki videoda Azure Cosmos DB Program Yöneticisi Barış Liu açıklanır 1 KB veri 100.000 kayıt ile kullanıldığında, toplam depolama 100 MB değil 100 GB ise): <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 

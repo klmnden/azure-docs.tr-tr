@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151017"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030062"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>İşletim sistemi ve Azure App Service'te çalışma zamanı düzeltme eki uygulama
 
@@ -74,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>Kullanım dışı sürümleri
+### <a name="deprecated-versions"></a>Kullanım dışı sürümleri  
 
 Eski bir sürümü kullanım dışıdır, böylece çalışma zamanı sürüm yükseltme uygun planı yapabilmesi kaldırma tarihi duyurdu. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Nasıl ı işletim sistemi ve çalışma zamanı güncelleştirme durumu my örneklerinde sorgulama yapabilirsiniz?
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>Nasıl ı işletim sistemi ve çalışma zamanı güncelleştirme durumu my örneklerinde sorgulama yapabilirsiniz?  
 
 Kritik işletim sistemi bilgileri aşağı erişimden kilitliyken (bkz [işletim sistemi işlevselliğini Azure App Service'te](web-sites-available-operating-system-functionality.md)), [Kudu konsol](https://github.com/projectkudu/kudu/wiki/Kudu-console) işletim sistemi ile ilgili uygulama hizmeti örneğinizi sorgu olanak tanır Sürüm ve çalışma zamanı sürümler. 
 
 Aşağıdaki tabloda, uygulamalarınızı çalıştırmakta olduğunuz Windows ve sürümleri dil çalışma zamanı nasıl:
 
-| Bilgi | Nerede bulacağını |
+| Bilgi | Nerede bulacağını | 
 |-|-|
 | Windows sürümü | Bkz: `https://<appname>.scm.azurewebsites.net/Env.cshtml` (altında sistem bilgisi) |
 | .NET sürüm | Konumundaki `https://<appname>.scm.azurewebsites.net/DebugConsole`, komut isteminde aşağıdaki komutu çalıştırın: <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | .NET core sürümü | Konumundaki `https://<appname>.scm.azurewebsites.net/DebugConsole`, komut isteminde aşağıdaki komutu çalıştırın: <br> `dotnet --version` |
 | PHP sürümü | Konumundaki `https://<appname>.scm.azurewebsites.net/DebugConsole`, komut isteminde aşağıdaki komutu çalıştırın: <br> `php --version` |
 | Varsayılan Node.js sürümü | İçinde [bulut Kabuk](../cloud-shell/overview.md), aşağıdaki komutu çalıştırın: <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python sürümü | Konumundaki `https://<appname>.scm.azurewebsites.net/DebugConsole`, komut isteminde aşağıdaki komutu çalıştırın: <br> `python --version` |
+| Python sürümü | Konumundaki `https://<appname>.scm.azurewebsites.net/DebugConsole`, komut isteminde aşağıdaki komutu çalıştırın: <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > Kayıt defteri konuma erişim `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, burada hakkında bilgi ["KB" düzeltme ekleri]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)) depolanır, kilitlenmiştir.
 >
 >
 
 ## <a name="more-resources"></a>Diğer kaynaklar
 
-[Güven Merkezi: güvenlik](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[Güven Merkezi: güvenlik](https://www.microsoft.com/en-us/trustcenter/security)  
 [Azure App Service ASP.NET Core 64 bit](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

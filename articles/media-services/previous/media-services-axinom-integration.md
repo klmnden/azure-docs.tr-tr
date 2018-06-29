@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 0aaf0eea0414d234c9a24f707df5eed491a61c08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81247863eb86752113989f6e48e79f5c8bc75505
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788798"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061163"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Azure Media Services’ta Widevine lisansları vermek için Axinom kullanma
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Bkz: [JWT belirteci oluşturma](media-services-axinom-integration.md#jwt-token-g
 
 ## <a name="azure-media-player-preparation"></a>Azure Media Player hazırlama
 AMP v1.4.0 dinamik olarak PlayReady ve Widevine DRM ile paketlenmiştir AMS içeriği kayıttan yürütmeyi destekler.
-Widevine lisans sunucusu belirteci kimlik doğrulaması gerektirmiyorsa, Widevine tarafından korunan bir tire içeriği test etmek için gerçekleştirmeniz gereken ek bir şey yoktur. Örneğin, basit bir AMP takım sağlar [örnek](http://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevine_notoken.html), bu sınır ve IE11 ile PlayReady ve Widevine ile Chrome çalışma burada görebilirsiniz.
+Widevine lisans sunucusu belirteci kimlik doğrulaması gerektirmiyorsa, Widevine tarafından korunan bir tire içeriği test etmek için gerçekleştirmeniz gereken ek bir şey yoktur. Örneğin, basit bir AMP takım sağlar [örnek](https://amp.azure.net/libs/amp/latest/samples/dynamic_multiDRM_PlayReadyWidevineFairPlay_notoken.html), bu sınır ve IE11 ile PlayReady ve Widevine ile Chrome çalışma burada görebilirsiniz.
 Axinom tarafından sağlanan Widevine lisans sunucusunu JWT belirteci kimlik doğrulaması gerektirir. JWT belirteci bir HTTP üstbilgisi "X-AxDRM-ileti" aracılığıyla lisans istekle gönderilmesi gerekiyor. Bu amaç için kaynak ayarlamadan önce AMP barındırma web sayfasında aşağıdaki javascript eklemeniz gerekir:
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
@@ -176,7 +176,7 @@ Elbette, anahtarın askıya almak için birden çok yolu vardır kimliği Örne�
     }
 
 ## <a name="summary"></a>Özet
-Hem Azure medya Hizmetleri içerik koruma, hem de Azure Media Player Widevine destek son eklenmesiyle biz AMS ve Widevine lisans sunucusundan Axinom aşağıdaki modern tarayıcılar için her iki PlayReady lisans hizmetiyle tire + çok-native DRM (PlayReady + Widevine) akış uygulayabilirsiniz:
+Hem Azure medya Hizmetleri içerik koruma, hem de Azure Media Player Widevine destek son eklenmesiyle biz AMS ve Widevine lisans hem PlayReady lisans hizmetiyle tire + çok-native DRM (PlayReady + Widevine) akış uygulayabilirsiniz Axinom bir sunucudan aşağıdaki modern tarayıcılar için:
 
 * Chrome
 * Windows 10 Microsoft Edge

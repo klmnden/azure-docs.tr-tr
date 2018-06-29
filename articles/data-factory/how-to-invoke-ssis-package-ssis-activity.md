@@ -13,18 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ffe65260e73aa2daa4ab63840a00076000f8e6a8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: 5ff397e8b13d56b3b034854c507f8bef05008812
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264914"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054730"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>SSIS paketi yürütme etkinliği Azure Data factory'de bir SSIS paketi çalıştırın
 Bu makalede, bir SSIS paketi yürütme etkinliğini kullanarak bir Azure Data Factory ardışık düzeninde bir SSIS paketi çalıştırmak açıklar. 
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. SSIS paketi yürütme etkinliği sürüm genel olarak kullanılabilir (GA) olan Data Factory hizmeti 1 kullanılabilir değil. Data Factory hizmetinin 1 sürümü ile bir SSIS paketi çalıştırmak alternatif bir yöntemi için bkz: [saklı yordam etkinliği sürüm 1 kullanılarak çalıştırmak SSIS paketleri](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -59,7 +56,7 @@ Azure Portalı'nı kullanarak data factory oluşturmak ilk adımdır.
       - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
          
     Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-4. **Sürüm** için **V2 (Önizleme)** öğesini seçin.
+4. Seçin **V2** için **sürüm**.
 5. Data factory için **konum** seçin. Açılan listede yalnızca Data Factory tarafından desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depoları (Azure Depolama, Azure SQL Veritabanı, vb.) ve işlemler (HDInsight, vb.) başka konumlarda olabilir.
 6. **Panoya sabitle**’yi seçin.     
 7. **Oluştur**’a tıklayın.
@@ -177,7 +174,7 @@ Aşağıdaki noktalara dikkat edin:
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory örnekleri oluşturmak için, Azure’da oturum açarken kullandığınız kullanıcı hesabı, **katkıda bulunan** veya **sahip** rollerinin üyesi ya da bir Azure aboneliğinin **yöneticisi** olmalıdır.
-* Şu anda, veri fabrikası sürüm 2, veri fabrikaları yalnızca Doğu ABD, Doğu US2, Batı Avrupa ve Güneydoğu Asya bölgeleri oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
+* Şu anda, Data Factory veri fabrikaları yalnızca Doğu ABD, Doğu US2, Batı Avrupa ve Güneydoğu Asya bölgeleri oluşturmanıza olanak sağlar. Veri fabrikası tarafından kullanılan verileri depoları (Azure Depolama, Azure SQL Veritabanı vb.) ve işlemler (HDInsight vb.) başka bölgelerde olabilir.
 
 ### <a name="create-a-pipeline-with-an-ssis-activity"></a>SSIS etkinliği ile işlem hattı oluşturma 
 Bu adımda, SSIS etkinliği ile işlem hattı oluşturun. Etkinlik, SSIS paketi çalıştırır. 

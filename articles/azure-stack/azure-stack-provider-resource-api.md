@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29877288"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052707"
 ---
 # <a name="provider-resource-usage-api"></a>Sağlayıcı kaynak kullanım API’si
 Terim *sağlayıcı* Hizmet Yöneticisi ve tüm yetkilendirilmiş sağlayıcılarını geçerlidir. Azure yığın işleçler ve temsilci sağlayıcıları sağlayıcısı kullanım API'si doğrudan kiracıları kullanımını görüntülemek için kullanabilirsiniz. Örneğin, aşağıdaki çizimde gösterildiği gibi P0 P1'ın ilgili kullanım bilgileri almak için API sağlayıcısı çağırabilir ve P2'ın doğrudan kullanımını ve P1 kullanım bilgileri P3 ve P4 çağırabilir.
@@ -34,22 +34,22 @@ Bu kullanım API'si sağlayıcısı API, olduğundan, çağıran bir sağlayıc�
 
 | **Yöntemi** | **İstek URI'si** |
 | --- | --- |
-| AL |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId {sub1.1} = & api-version = 2015-06-01-Önizleme & continuationToken = {değer belirteci} |
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
-| *armendpoint* |Azure yığın ortamınızın Azure Kaynak Yöneticisi uç noktası. Azure Resource Manager uç noktanın adı şu biçimdedir Azure yığın kuraldır `https://adminmanagement.{domain-name}`. Etki alanı adı ise, örneğin, Geliştirme Seti için *local.azurestack.external*, kaynak yöneticisi uç noktası ise `https://adminmanagement.local.azurestack.external`. |
+| *Armendpoint* |Azure yığın ortamınızın Azure Kaynak Yöneticisi uç noktası. Azure Resource Manager uç noktanın adı şu biçimdedir Azure yığın kuraldır `https://adminmanagement.{domain-name}`. Etki alanı adı ise, örneğin, Geliştirme Seti için *local.azurestack.external*, kaynak yöneticisi uç noktası ise `https://adminmanagement.local.azurestack.external`. |
 | *subId* |Çağrıyı yapan kullanıcının abonelik kimliği. |
 | *reportedStartTime* |Sorgunun başlarsınız. Değeri *DateTime* Eşgüdümlü Evrensel Saat (UTC) ve saat, örneğin, 13:00 başında olması gerekir. Günlük toplama için bu değer UTC gece yarısına ayarlanmış. Biçim *kaçışlı* ISO 8601. Örneğin, *2015 06 %16T18 %3a53 %3a11 %2b00 3a00Z*, iki nokta üst üste için kaçışlı burada *% 3a* ve artı için kaçışlı *% 2b* URI kolay olmasını sağlayın. |
 | *reportedEndTime* |Sorgunun bitiş saati. Geçerli kısıtlamaları *reportedStartTime* bu bağımsız değişken için de geçerlidir. Değeri *reportedEndTime* ya da geçerli tarihi gelecekte olamaz. İse, sonuç "tam işlenmiyor." ayarlanır |
 | *aggregationGranularity* |İki ayrı olası değerlere sahip isteğe bağlı bir parametre: günlük ve saatlik. Değerleri önermek gibi veri yer günlük ayrıntı düzeyi döndürür ve diğeri saatlik bir çözüm. Günlük varsayılan seçenektir. |
 | *subscriberId* |Abonelik kimliği Filtrelenmiş veri almak için sağlayıcının doğrudan Kiracı abonelik kimliği gereklidir. Hiç abonelik kimliği parametresi belirtilirse, çağrı Sağlayıcısı'nın doğrudan kiracılar için kullanım verilerini döndürür. |
-| *api-version* |Bu isteği yapmak için kullanılan protokol sürümü. Bu değer ayarlanırsa *2015-06-01-Önizleme*. |
+| *API sürümü* |Bu isteği yapmak için kullanılan protokol sürümü. Bu değer ayarlanırsa *2015-06-01-Önizleme*. |
 | *continuationToken* |Belirteci son çağrı kullanım API'si sağlayıcısına alınır. Bu belirteç yanıt 1.000 satırları büyüktür ve ilerleme durumu için bir yer işareti gibi davranır gereklidir. Belirteç mevcut değilse, veriler gün baştan alınır veya saat üzerinde ayrıntı göre geçirilen. |
 
 ### <a name="response"></a>Yanıt
-/Subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime Al 2015-06-%01T00 %3a00 %3a00 %2b00 3a00 = & aggregationGranularity = günlük & subscriberId = sub1.1 & API sürümü 1.0 =
+/Subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime Al 2015-06-%01T00 %3a00 %3a00 %2b00 3a00 = & aggregationGranularity = günlük & subscriberId = sub1.1 & API sürümü 1.0 =
 
 ```json
 {
@@ -57,11 +57,11 @@ Bu kullanım API'si sağlayıcısı API, olduğundan, çağıran bir sağlayıc�
 {
 
 "id":
-"/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
+"/subscriptions/sub1.1/providers/Microsoft.Commerce.Admin/UsageAggregate/sub1.1-
 
 meterID1",
 "name": "sub1.1-meterID1",
-"type": "Microsoft.Commerce/UsageAggregate",
+"type": "Microsoft.Commerce.Admin/UsageAggregate",
 
 "properties": {
 "subscriptionId":"sub1.1",
@@ -80,10 +80,10 @@ meterID1",
 ### <a name="response-details"></a>Yanıt Ayrıntıları
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
-| *id* |Kullanım toplama benzersiz kimliği. |
+| *Kimliği* |Kullanım toplama benzersiz kimliği. |
 | *Adı* |Kullanım toplama adı. |
-| *Türü* |Kaynak tanımı. |
-| *subscriptionId* |Azure yığın kullanıcı abonelik tanımlayıcısı. |
+| *type* |Kaynak tanımı. |
+| *Subscriptionıd* |Azure yığın kullanıcı abonelik tanımlayıcısı. |
 | *usageStartTime* |UTC bu kullanım toplama ait olduğu kullanım demet süresini başlatın.|
 | *usageEndTime* |Bu kullanım toplama ait olduğu kullanım demet UTC bitiş saati. |
 | *instanceData* |Örnek ayrıntıları (yeni biçimde) anahtar-değer çiftleri:<br> *resourceUri*: tam olarak kaynak grupları ve örnek adını içeren kaynak kimliği. <br> *Konum*: bölge bu hizmet çalıştırıldı. <br> *Etiketler*: kullanıcı tarafından belirtilen kaynak etiketleri. <br> *additionalınfo alanına*: daha fazla bilgi için örneğin, kullanılan kaynak hakkında işletim sistemi sürümü veya görüntü türü. |

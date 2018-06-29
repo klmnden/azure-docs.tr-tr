@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory cihaz temelli koşullu erişim ilkelerini yapılandırma | Microsoft Docs
-description: Azure Active Directory cihaz temelli koşullu erişim ilkeleri yapılandırma hakkında bilgi edinin.
+title: -Nasıl gerektiren yönetilen cihazlar Azure Active Directory koşullu erişimle bulut uygulama erişimi için | Microsoft Docs
+description: Bulut uygulama erişimi için yönetilen cihazlara gerektiren Azure Active Directory (Azure AD) cihaz temelli koşullu erişim ilkeleri yapılandırma hakkında bilgi edinin.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,38 +13,48 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1c21c915bc0a83cdafb221a2cd592890577437ee
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
-ms.translationtype: HT
+ms.openlocfilehash: 066d25e8953a2be4bd64cdd1af79b7f2a25dd5f9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849534"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036361"
 ---
-# <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory cihaz temelli koşullu erişim ilkelerini yapılandırma
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Nasıl yapılır: Gerektiren yönetilen cihazlar için koşullu erişimle bulut uygulama erişimi
 
-İle [Azure Active Directory (Azure AD) koşullu erişim](active-directory-conditional-access-azure-portal.md), nasıl yetkili kullanıcılar denetleyebilir, kaynaklara erişebilir. Örneğin, yönetilen cihazlar için belirli kaynaklara erişimi sınırlayabilirsiniz. Yönetilen bir cihazı gerektiren bir koşullu erişim ilkesi cihaz temelli koşullu erişim ilkesi de denir.
+Bir mobil ilk olarak, bulut ilk dünyasında, Azure Active Directory (Azure AD) çoklu oturum açma uygulamalara ve hizmetlere her yerden sağlar. Yetkili kullanıcıların geniş kapsamlı bir dizi cihazı mobil ve aynı zamanda kişisel aygıtlar dahil olmak üzere, bulut uygulamalarınızı erişebilir. Bununla birlikte, çoğu ortam yalnızca, güvenlik ve uyumluluk standartlarına uygun cihazlar tarafından erişilmesi gereken en az birkaç uygulama var. Bu cihazlar olarak da bilinen yönetilen cihazlardır. 
 
-Bu konuda, Azure AD bağlı uygulamalar için cihaz temelli koşullu erişim ilkelerini nasıl yapılandırabileceğiniz açıklanmaktadır. 
+Bu makalede, ortamınızda belirli bulut uygulamalara erişmek için yönetilen cihazları gerektirir koşullu erişim ilkelerini nasıl yapılandırabilirsiniz açıklanmaktadır. 
 
 
-## <a name="before-you-begin"></a>Başlamadan önce
+## <a name="prerequisites"></a>Önkoşullar
 
-Cihaz temelli koşullu erişim TIES **Azure AD koşullu erişimi** ve **Azure AD cihaz Yönetimi birlikte**. Bu alanlardan biri ile tanıdık değilse, aşağıdaki konularda ilk şöyle olmalıdır:
+Yönetilen cihazlar için bulut uygulama erişimi TIES gerektiren **Azure AD koşullu erişimi** ve **Azure AD cihaz Yönetimi** birlikte. Bu alanlardan biri ile tanıdık değilse, aşağıdaki konularda ilk şöyle olmalıdır:
 
-- **[Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md)**  -Bu konu ile kavramsal bir genel bakış koşullu erişim ve ilgili terminolojiyi sağlar.
+- **[Azure Active Directory'de koşullu erişim](active-directory-conditional-access-azure-portal.md)**  -bu makalede bir kavramsal genel bakış koşullu erişim ve ilgili terminolojiyi sağlar.
 
-- **[Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md)**  -Bu konu, sahip Azure AD ile cihazları bağlamak için çeşitli seçenekler genel bir bakış sunar. 
+- **[Azure Active Directory'de cihaz yönetimine giriş](device-management-introduction.md)**  -bu makalede sahip aygıtlar kuruluş denetimindeki almak için çeşitli seçenekler genel bir bakış sağlar. 
 
+
+## <a name="scenario-description"></a>Senaryo açıklaması
+
+Güvenlik ve üretkenlik arasındaki dengeyi yönetimine uygun bir sorundur. Bulut kaynaklarınıza erişmek için desteklenen aygıtların artışı kullanıcılarınızın verimliliğini artırmaya yardımcı olur. Çevir tarafında bilinmeyen koruma düzeyi ile cihazları tarafından erişilmek üzere ortamınızdaki belirli kaynaklara büyük olasılıkla istemezsiniz. Etkilenen kaynaklar için kullanıcılar yalnızca yönetilen bir cihazı kullanarak bunları erişebilmesini istemeniz gerekir. 
+
+Azure AD koşullu erişimi ile erişim veren tek bir ilke ile bu gereksinim karşılayabilirsiniz:
+
+- Seçilen bulut uygulamaları için
+
+- Seçili kullanıcılar ve gruplar için
+
+- Yönetilen bir cihazı gerektirme
 
 
 ## <a name="managed-devices"></a>Yönetilen cihazlar  
 
-Bir mobil ilk olarak, bulut ilk dünyasında, Azure Active Directory çoklu oturum açma cihazları, uygulamaları ve Hizmetleri için yerden sağlar. Belirli sağ kullanıcılara erişim izni verme ortamınızdaki kaynakların iyi yeterli olmayabilir. Doğru kullanıcılar yanı sıra erişim denemesi yalnızca yönetilen bir cihazla gerçekleştirilebileceğini gerektirebilir.
-
-Güvenlik ve uyumluluğa yönelik standartlarınızı karşılayan bir cihazla bir yönetilen aygıttır. Basitçe, yönetilen cihazlar misiniz cihazlar altında *bazı sıralama* kuruluş denetimi. Azure AD'de yönetilen bir cihaz için Azure AD ile kaydedildi önkoşuldur. Bir cihaz kaydetme aygıtı için bir kimlik bir cihaz nesnesi formunda oluşturur. Bu nesne, bir cihaz hakkındaki durum bilgilerini izlemek için Azure tarafından kullanılır. Azure AD yönetici olarak, bu nesneye geçiş (etkinleştir/devre dışı bırak) aygıtın durumunu zaten kullanabilirsiniz.
+Basitçe, yönetilen cihazlar misiniz cihazlar altında *bazı sıralama* kuruluş denetimi. Azure AD'de yönetilen bir cihaz için Azure AD ile kaydedildi önkoşuldur. Bir cihaz kaydetme aygıtı için bir kimlik bir cihaz nesnesi formunda oluşturur. Bu nesne, bir cihaz hakkındaki durum bilgilerini izlemek için Azure tarafından kullanılır. Azure AD yönetici olarak, bu nesneye geçiş (etkinleştir/devre dışı bırak) aygıtın durumunu zaten kullanabilirsiniz.
   
 ![Cihaz tabanlı koşulları](./media/active-directory-conditional-access-policy-connected-applications/32.png)
 
@@ -56,10 +66,9 @@ Azure AD ile kayıtlı bir cihaz almak için üç seçeneğiniz vardır:
 
 - **[Karma Azure AD alanına katılmış aygıtlar](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - bir şirket içi birleşik bir Windows 10 cihaz almak için AD, Azure AD ile kayıtlı.
 
-Yönetilen bir aygıt için kayıtlı bir cihazla Azure AD alanına katılmış veya uyumlu olarak işaretlenen aygıtı karma olabilir.  
+Yönetilen bir aygıt için kayıtlı bir cihaza ya da olmalıdır bir **karma Azure AD alanına cihaz** veya **uyumlu olarak işaretlenmiş aygıt**.  
 
 ![Cihaz tabanlı koşulları](./media/active-directory-conditional-access-policy-connected-applications/47.png)
-
 
  
 ## <a name="require-hybrid-azure-ad-joined-devices"></a>Karma Azure gerektiren AD alanına katılmış aygıtlar
@@ -83,8 +92,8 @@ Seçeneğini *uyumlu olarak işaretlenecek bir aygıt gerektirir* yönetilen cih
 
 Bu seçenek, Azure AD ile kayıtlı olması ve uyumlu olarak işaretlenecek bir aygıt gerektirir:
          
-- Intune 
-- Azure AD tümleştirme yoluyla Windows 10 cihazları yöneten sistem üçüncü taraf bir mobil cihaz yönetilen 
+- Intune.
+- Azure AD tümleştirme yoluyla Windows 10 cihazları yöneten bir üçüncü taraf mobil cihaz Yönetimi (MDM) sistemi. Üçüncü taraf MDM sistemler için Windows 10 dışında aygıt işletim sistemi türleri desteklenmez.
  
 ![Cihaz tabanlı koşulları](./media/active-directory-conditional-access-policy-connected-applications/46.png)
 

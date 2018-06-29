@@ -1,5 +1,5 @@
 ---
-title: Azure için faturanızı anlamak
+title: Azure için faturanızı anlamak | Microsoft Docs
 description: Okuma ve kullanım ve fatura Azure aboneliğiniz için anlama hakkında bilgi edinin
 services: ''
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204900"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064119"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure faturanızı anlama
 Azure faturasını anlama faturanızı ayrıntılı günlük kullanım dosyasını ve Azure portalında maliyet yönetim raporları ile karşılaştırın.
@@ -101,6 +101,40 @@ Varsa, [faturalama tarafından ödeme](billing-how-to-pay-by-invoice.md), ödeme
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Kredi kartı ile yapılan bir ödeme durumunu nasıl kontrol?
 
 [Destek bileti oluşturma](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ödemenizi durumunun isteyebilir. 
+
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Farklı Azure müşteri türlerini var mı? Ben hangi müşteri türü nasıl biliyor musunuz?
+Farklı Azure müşteri türleri vardır. Fiyatlandırma ve fatura daha iyi anlamak için aşağıdaki müşteri türü açıklamaları bakın.
+
+- **Kurumsal**: Kurumsal müşteriler, üzerinde anlaşılan parasal taahhüt yapmak ve özel fiyatlandırma için Azure kaynakları için erişim kazanmak için Azure ile bir Kurumsal Anlaşma Öğrenilir.
+- **Web doğrudan**: Web doğrudan müşteriler imzalanmamış Azure ile herhangi bir özel anlaşması. Bu müşteriler için Azure azure.com Kaydolduktan ve tüm Azure kaynakları için genel kullanıma yönelik fiyatlar alabilirsiniz.
+- **Bulut hizmeti sağlayıcısı**: Bulut hizmeti sağlayıcıları olan genellikle son müşteri tarafından Azure üstünde çözümleri oluşturmak üzere işe şirketler.
+
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Maliyet faturamı içinde oluşturmuş olduğunuz kaynak neden göremiyorum?
+Değil fatura doğrudan maliyet kaynağını temel azure yapar. Faturalama kaynağın kullanım ömrü boyunca izlemek için kullanılan bir veya daha fazla ölçümler kapalı göre yapılır. Bu ölçümler sonra Fatura hesaplamak için kullanılır. Aşağıda Azure ölçümü hakkında daha fazla bakın.
+
+## <a name="how-does-azure-charge-metering-work"></a>Nasıl Azure ölçüm iş Ücretli mi?
+Bir sanal makine gibi tek bir Azure kaynağı Yukarı Döndür gerçekleştirirken de oluşturulan bir veya birden çok ölçer örneği sahip olur. Bu ölçümler, zaman içinde kaynak kullanımını izlemek için kullanılır. Her ölçer sonra Azure tarafından sistem ölçümü bizim maliyet fatura hesaplamak için kullanılan kullanım kayıtlarının yayar. 
+
+Örneğin, tek bir sanal makine Azure'da oluşturulan kullanımını izlemek için oluşturulan aşağıdaki ölçümler sahip olabilir:
+
+- İşlem Saatleri
+- IP adres saatleri
+- Veri Aktarımı Girişi
+- Giden Veri Aktarımı
+- Standart yönetilen Disk
+- Standart yönetilen Disk işlemleri
+- Standart GÇ-Disk
+- Standart GÇ-blok blobu okuma
+- Standart GÇ-blok blobu yazma
+- Standart GÇ-blok blobu silme
+
+VM oluşturulduktan sonra her biri için yukarıdaki ölçümler kullanım kayıtlarının yayma işlemini başlatacak. Bu kullanım sonra Azure'nın ölçüm sisteminde ölçer 's fiyat birlikte ne kadar bir müşteri ücret belirlemek için kullanılır.
+
+> [!Note]
+> Yukarıdaki örnek ölçümler yalnızca bir alt kümesini oluşturulan VM oluşturulan ölçümler olabilir.
+
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Azure arasındaki fark nedir 1 taraf ücretleri ve Azure Marketi ücretleri?
+Azure doğrudan geliştirilen ve Azure tarafından sunulan kaynakları 1 taraf ücretleri içindir. Azure Market üzerinden kullanılabilir üçüncü taraf yazılım satıcıları tarafından oluşturulan kaynakları Azure Market ücretleri içindir. Örneğin, bir Barracuda Güvenlik Duvarı'nı bir üçüncü taraf tarafından sunulan bir Azure Market kaynaktır. Güvenlik Duvarı'nı ve onun karşılık gelen ölçümler için tüm ücretleri Market giderleri olarak görünür. 
 
 ## <a name="tips-for-cost-management"></a>Maliyet yönetimi için ipuçları
 - Kullanarak maliyetleri tahmin [fiyatlandırma hesaplayıcısı](https://azure.microsoft.com/pricing/calculator/) ve [toplam sahip olma hesaplayıcı maliyeti](https://aka.ms/azure-tco-calculator)ve alma [ayrıntılı fiyatlandırma bilgileri her hizmet için](https://azure.microsoft.com/pricing/).

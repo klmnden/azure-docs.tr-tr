@@ -1,5 +1,5 @@
 ---
-title: Azure ayırma örnekleri Windows yazılım maliyetleri - Azure faturalama | Microsoft Docs
+title: Azure ayrılmış örnekler Windows yazılım maliyetleri | Microsoft Docs
 description: Hangi Windows yazılım ölçümler Azure ayrılmış VM örnek maliyetleri de dahil edilmeyen öğrenin.
 services: billing
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: b526ca578a72d7d35fb4198affeb02db4d308b20
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6602424e2b2e4a4c2c3c51b5cb4bb1024a39d2e0
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064042"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-instances"></a>Windows yazılım maliyetleri ile Azure ayrılmış örnekler dahil değil
 
@@ -54,9 +55,9 @@ Bu ölçümler her maliyeti Azure RateCard API aracılığıyla elde edebilirsin
 ## <a name="next-steps"></a>Sonraki adımlar
 Azure ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayrılmış örnekler sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
-- [Ayrılmış örnekler ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure ayrılmış VM örnekleri nelerdir?](billing-save-compute-costs-reservations.md)
+- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure'da ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayrılmış örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](billing-understand-reserved-instance-usage.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036314"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure İzleyici’de Azure Depolama ölçümleri
 
@@ -38,7 +39,7 @@ Azure portalında zamanla ölçümleri izleyebilirsiniz. Aşağıdaki örnekte n
 
 ![Azure portalında ölçümleri erişme ekran görüntüsü](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-Boyutlar destekleyen ölçümleri için istenen boyut değeriyle filtre gerekir. Aşağıdaki örnekte nasıl görüntüleneceğini gösterir **işlemleri** ile hesap düzeyinde **başarı** yanıt türü.
+Boyutlar destekleyen ölçümleri için istenen boyut değerine sahip ölçüm filtreleyebilirsiniz. Aşağıdaki örnekte nasıl görüntüleneceğini gösterir **işlemleri** değerlerini seçerek belirli bir işlemle ilgili hesap düzeyinde **API adı** boyut.
 
 ![Azure portalında boyutla ölçümleri erişme ekran görüntüsü](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ Her Depolama Hizmetleri için kaynak Kimliğini belirtme biçimi gösterir.
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * Dosya hizmeti kaynak kimliği `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>REST API Azure izleyicisinde kaynak kimliği
@@ -395,13 +396,19 @@ Azure Storage ölçümleri Azure İzleyicisi'nde boyutlarını aşağıdaki dest
 | BlobType | Blob ölçümünün yalnızca blob türü. Desteklenen değerler **BlockBlob** ve **PageBlob**. Append Blob BlockBlob içinde bulunur. |
 | ResponseType | İşlem yanıt türü. Kullanılabilir değerler şunlardır: <br/><br/> <li>ServerOtherError: Diğer tüm sunucu tarafı hataları açıklanan olanlar dışındaki </li> <li> ServerBusyError: bir HTTP 503 durum kodunu döndürdü isteğin kimliği. </li> <li> ServerTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. Zaman aşımı nedeniyle bir sunucu hatası oluştu. </li> <li> AuthorizationError: veriler veya bir Yetkilendirme hatası yetkisiz erişim nedeniyle başarısız oldu kimliği doğrulanmış isteği. </li> <li> NetworkError: ağ hataları nedeniyle başarısız kimliği doğrulanmış isteği. Bir istemci zamanından önce bir bağlantı zaman aşımı geçerliliği sona ermeden önce kapandığında en yaygın olarak gerçekleşir. </li> <li>    ClientThrottlingError: İstemci-tarafı azaltma hata oluştu. </li> <li> ClientTimeoutError: bir HTTP 500 durum kodunu döndürdü zaman aşımına uğradı kimliği doğrulanmış istek. İstemcinin ağ zaman aşımı veya isteği zaman aşımı depolama hizmeti tarafından beklenenden daha düşük bir değere ayarlanırsa, beklenen bir zaman aşımı var. Aksi takdirde, ServerTimeoutError bildirilir. </li> <li> ClientOtherError: Diğer tüm istemci-tarafı hataları açıklanan olanlar dışındaki. </li> <li> BAŞARI: Başarılı İstek|
 | GeoType | Birincil veya ikincil kümeden işlem. Kullanılabilir değerler, birincil ve ikincil içerir. Nesneleri ikincil kiracısı okunurken okuma erişimi coğrafi olarak yedekli Storage(RA-GRS) için geçerlidir. |
-| apiName | İşlemin adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz: [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
+| ApiName | İşlemin adı. Örneğin: <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Tüm işlem adları için bkz: [belge](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md). |
 
 Ölçümleri destekleyen boyutlar için karşılık gelen ölçüm değerleri görmek için boyut değerini belirtmeniz gerekir. Örneğin, bakarsanız **işlemleri** değeri başarılı yanıtlar için filtre uygulamak gereken **ResponseType** ile Boyut **başarı**. Veya bakarsanız **BLOB sayısı** değeri blok blobu için filtre uygulamak gereken **BlobType** ile Boyut **BlockBlob**.
 
 ## <a name="service-continuity-of-legacy-metrics"></a>Hizmet sürekliliğini eski ölçümleri
 
 Eski ölçümleri Azure yönetilen İzleyici ölçümleri ile paralel olarak kullanılabilir. Azure Storage eski ölçümleri hizmette sonlanana kadar destek aynı tutar.
+
+## <a name="faq"></a>SSS
+
+**Diskler yönetilen veya yönetilmeyen diskler için Azure Storage ölçümleri destekliyor mu?**
+
+Hayır, Azure işlem ölçümleri disklerde destekler. Bkz: [makale](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) daha fazla ayrıntı için.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

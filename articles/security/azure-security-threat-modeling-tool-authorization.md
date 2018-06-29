@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: b9ad3ceeb77a4adc2c47b262aa40a48c14423198
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 9ab106a78aa56b8308207bcadb3db0b5a9714a9d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019526"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029501"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Güvenlik çerçevesi: Yetkilendirme | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -28,12 +28,12 @@ ms.locfileid: "28019526"
 | **Web uygulaması** | <ul><li>[İş mantığı akışları işlerken sıralı adım sipariş zorla](#sequential-logic)</li><li>[Numaralandırma önlemek için bir mekanizma hız sınırı uygulama](#rate-enumeration)</li><li>[Uygun yetkilendirme yerinde olduğundan ve en düşük ayrıcalık ilkesini ardından emin olun](#principle-least-privilege)</li><li>[İş mantığı ve kaynak erişim yetkilendirme kararları gelen isteği parametrelere dayanmalıdır değil](#logic-request-parameters)</li><li>[Bu içerik sağlamak ve kaynakları numaralandırılabilir veya zorlama gözatma yoluyla erişilebilir değil](#enumerable-browsing)</li></ul> |
 | **Veritabanı** | <ul><li>[En az ayrıcalıklı hesapları veritabanı sunucusuna bağlanmak için kullanıldığından emin olun](#privileged-server)</li><li>[Kiracıların diğer kişilerin veri erişimini engellemek için satır düzeyi güvenlik RLS uygulama](#rls-tenants)</li><li>[Sysadmin rolünün yalnızca geçerli gerekli kullanıcıların olmalıdır](#sysadmin-users)</li></ul> |
 | **IOT bulut ağ geçidi** | <ul><li>[Bulut en az ayrıcalıklı belirteçleri kullanarak ağ geçidine bağlanmak](#cloud-least-privileged)</li></ul> |
-| **Azure Event Hub** | <ul><li>[Cihaz belirteçleri oluşturmak için bir yalnızca gönderme izinleri SAS anahtarı kullan](#sendonly-sas)</li><li>[Olay Hub'ına doğrudan erişim sağlayan erişim belirteçleri kullanmayın](#access-tokens-hub)</li><li>[Olay gerekli en az izinlere sahip SAS anahtarları kullanarak Hub'ına bağlanın](#sas-minimum-permissions)</li></ul> |
+| **Azure Event hub'ı** | <ul><li>[Cihaz belirteçleri oluşturmak için bir yalnızca gönderme izinleri SAS anahtarı kullan](#sendonly-sas)</li><li>[Olay Hub'ına doğrudan erişim sağlayan erişim belirteçleri kullanmayın](#access-tokens-hub)</li><li>[Olay gerekli en az izinlere sahip SAS anahtarları kullanarak Hub'ına bağlanın](#sas-minimum-permissions)</li></ul> |
 | **Azure belge DB** | <ul><li>[Azure Cosmos DB mümkün olduğunca bağlanmak için kaynak belirteçleri kullanın](#resource-docdb)</li></ul> |
 | **Azure güven sınırı** | <ul><li>[Azure RBAC kullanarak abonelik için ayrıntılı erişim yönetimini etkinleştirme](#grained-rbac)</li></ul> |
 | **Service Fabric güven sınırı** | <ul><li>[RBAC kullanarak küme işlemleri için istemci erişimi kısıtlama](#cluster-rbac)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Güvenlik modelleme gerçekleştirmek ve alan düzeyinde güvenliğin kullanmanız gerektiğinde](#modeling-field)</li></ul> |
-| **Dynamics CRM Portal** | <ul><li>[Portal için güvenlik modeli CRM geri kalanından farklı olduğunu unutmayın tutma portal hesaplarının güvenlik modelleme gerçekleştirin](#portal-security)</li></ul> |
+| **Dynamics CRM portalı** | <ul><li>[Portal için güvenlik modeli CRM geri kalanından farklı olduğunu unutmayın tutma portal hesaplarının güvenlik modelleme gerçekleştirin](#portal-security)</li></ul> |
 | **Azure Depolama** | <ul><li>[Azure Table Storage varlıklarda bir dizi hassas izin ver](#permission-entities)</li><li>[Rol tabanlı erişim denetimi (RBAC) Azure Resource Manager kullanarak Azure depolama hesabı etkinleştir](#rbac-azure-manager)</li></ul> |
 | **Mobil istemci** | <ul><li>[Örtük kaçış veya algılama kök dizini değiştirme uygulanması](#rooting-detection)</li></ul> |
 | **WCF** | <ul><li>[WCF'de zayıf sınıf başvurusu](#weak-class-wcf)</li><li>[WCF uygulayan yetkilendirme denetimi](#wcf-authz)</li></ul> |
@@ -43,7 +43,7 @@ ms.locfileid: "28019526"
 
 ## <a id="acl-restricted-access"></a>Uygun ACL'ler aygıttaki verilere yetkisiz erişimi kısıtlamak için yapılandırıldığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -54,7 +54,7 @@ ms.locfileid: "28019526"
 
 ## <a id="sensitive-directory"></a>Hassas kullanıcıya özgü uygulama içeriği kullanıcı profili dizininde depolanır emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -65,7 +65,7 @@ ms.locfileid: "28019526"
 
 ## <a id="deployed-privileges"></a>Dağıtılan uygulamaları en az ayrıcalıkla çalıştırdığınızdan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -76,18 +76,18 @@ ms.locfileid: "28019526"
 
 ## <a id="sequential-logic"></a>İş mantığı akışları işlerken sıralı adım sipariş zorla
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | Bu aşamada yalnızca gerçekçi İnsan zamanında işlenmekte olan tüm adımda iş mantığı akışları sıralı adım sırayla işlemek ve bozuk, işlemek için uygulama uygulamak istediğinize gerçek bir kullanıcı tarafından çalıştırıldığı olduğunu doğrulamak için adımlar, başka bir kullanıcı ya da çok hızlı bir şekilde gönderildi işlemleri işlenen adımları atlandı.|
+| **Adımları** | Bu aşama gerçekçi İnsan zamanında işlenmekte olan tüm adımda yalnızca işlem iş mantığı akışları sıralı adım sırayla uygulamaya uygulamak istediğinize gerçek bir kullanıcı tarafından çalıştırıldığı olduğunu doğrulayın ve bozuk, işlemek için adımları atlandı. , işlenen adımları başka bir kullanıcı ya da işlemleri'çok hızlı bir şekilde gönderildi.|
 
 ## <a id="rate-enumeration"></a>Numaralandırma önlemek için bir mekanizma hız sınırı uygulama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -98,7 +98,7 @@ ms.locfileid: "28019526"
 
 ## <a id="principle-least-privilege"></a>Uygun yetkilendirme yerinde olduğundan ve en düşük ayrıcalık ilkesini ardından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -109,7 +109,7 @@ ms.locfileid: "28019526"
 
 ## <a id="logic-request-parameters"></a>İş mantığı ve kaynak erişim yetkilendirme kararları gelen isteği parametrelere dayanmalıdır değil
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -128,7 +128,7 @@ Olası bir saldırganın değiştirmesine ve değiştirebileceğini değil artı
 
 ## <a id="enumerable-browsing"></a>Bu içerik sağlamak ve kaynakları numaralandırılabilir veya zorlama gözatma yoluyla erişilebilir değil
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -139,7 +139,7 @@ Olası bir saldırganın değiştirmesine ve değiştirebileceğini değil artı
 
 ## <a id="privileged-server"></a>En az ayrıcalıklı hesapları veritabanı sunucusuna bağlanmak için kullanıldığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -150,11 +150,11 @@ Olası bir saldırganın değiştirmesine ve değiştirebileceğini değil artı
 
 ## <a id="rls-tenants"></a>Kiracıların diğer kişilerin veri erişimini engellemek için satır düzeyi güvenlik RLS uygulama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | Sql Azure, OnPrem |
+| **İlgili teknolojiler** | SQL Azure, OnPrem |
 | **Öznitelikleri**              | SQL sürüm - V12, SQL sürümü - MsSQL2016 |
 | **Başvuruları**              | [SQL Server satır düzeyi güvenlik (RLS)](https://msdn.microsoft.com/library/azure/dn765131.aspx) |
 | **Adımları** | <p>Satır Düzeyi Güvenlik, müşterilerin bir veritabanı tablosundaki satırlara erişimi, sorguyu yürüten kullanıcının özelliklerine göre (grup üyeliği veya yürütme bağlamı) denetlemesini sağlar.</p><p>Satır düzeyi güvenlik (RLS) tasarımı ve uygulamanızda güvenlik kodlama basitleştirir. RLS, veri satırı erişiminde kısıtlama uygulamanızı sağlar. Örneğin çalışanlar yalnızca kendi bölümleriyle ilgili veri satırlarına erişmesi veya müşterilerin yalnızca kendi şirketleriyle ilgili verilere ulaşması sağlanabilir.</p><p>Veritabanı katmanı bulunur yerine başka bir uygulama katmanındaki veriler koymadan erişim kısıtlama mantığı. Veri erişimini herhangi bir katmanı denenir her zaman veritabanı sistem erişim kısıtlamalarını uygular. Bu bir güvenlik sistemi daha güvenli ve sağlam bir güvenlik sistemi'nın yüzey alanını azaltarak hale getirir.</p><p>|
@@ -163,7 +163,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="sysadmin-users"></a>Sysadmin rolünün yalnızca geçerli gerekli kullanıcıların olmalıdır
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -174,7 +174,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="cloud-least-privileged"></a>Bulut en az ayrıcalıklı belirteçleri kullanarak ağ geçidine bağlanmak
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi | 
 | **SDL aşaması**               | Dağıtım |  
@@ -185,9 +185,9 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="sendonly-sas"></a>Cihaz belirteçleri oluşturmak için bir yalnızca gönderme izinleri SAS anahtarı kullan
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event Hub | 
+| **Bileşen**               | Azure Olay Hub'ı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -196,9 +196,9 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="access-tokens-hub"></a>Olay Hub'ına doğrudan erişim sağlayan erişim belirteçleri kullanmayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event Hub | 
+| **Bileşen**               | Azure Olay Hub'ı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -207,9 +207,9 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="sas-minimum-permissions"></a>Olay gerekli en az izinlere sahip SAS anahtarları kullanarak Hub'ına bağlanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event Hub | 
+| **Bileşen**               | Azure Olay Hub'ı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -218,7 +218,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="resource-docdb"></a>Cosmos DB mümkün olduğunca bağlanmak için kaynak belirteçleri kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure belge DB | 
 | **SDL aşaması**               | Oluşturma |  
@@ -229,7 +229,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="grained-rbac"></a>Azure RBAC kullanarak abonelik için ayrıntılı erişim yönetimini etkinleştirme
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure güven sınırı | 
 | **SDL aşaması**               | Oluşturma |  
@@ -240,7 +240,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="cluster-rbac"></a>RBAC kullanarak küme işlemleri için istemci erişimi kısıtlama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -251,7 +251,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="modeling-field"></a>Güvenlik modelleme gerçekleştirmek ve alan düzeyinde güvenliğin kullanmanız gerektiğinde
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Dynamics CRM | 
 | **SDL aşaması**               | Oluşturma |  
@@ -262,9 +262,9 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="portal-security"></a>Portal için güvenlik modeli CRM geri kalanından farklı olduğunu unutmayın tutma portal hesaplarının güvenlik modelleme gerçekleştirin
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Dynamics CRM Portal | 
+| **Bileşen**               | Dynamics CRM portalı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -273,7 +273,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="permission-entities"></a>Azure Table Storage varlıklarda bir dizi hassas izin ver
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
@@ -284,7 +284,7 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="rbac-azure-manager"></a>Rol tabanlı erişim denetimi (RBAC) Azure Resource Manager kullanarak Azure depolama hesabı etkinleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
@@ -295,24 +295,24 @@ Lütfen unutmayın, RLS Giden kutusu veritabanı özellik olarak yalnızca SQL S
 
 ## <a id="rooting-detection"></a>Örtük kaçış veya algılama kök dizini değiştirme uygulanması
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Mobil istemci | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Uygulama kendi yapılandırması ve kullanıcı verilerini telefon kökü varsa durum ya da işletim sistemi engellemeleri korunması. Kök dizini değiştirme/çiğnemekten kısıtlamaları yetkisiz erişim, normal hangi kullanıcıların kendi telefonlarda olmaz anlamına gelir. Bu nedenle uygulama örtük algılama mantığı uygulama başlangıcında telefon kökü algılamak için sahip olmalıdır.</p><p>Algılama mantığı yalnızca normal olarak, yalnızca kök kullanıcı, örneğin erişebilir dosyalara erişme:</p><ul><li>/system/app/Superuser.apk</li><li>/sbin/su</li><li>/System/bin/su</li><li>/System/xbin/su</li><li>/data/local/xbin/su</li><li>/data/local/bin/su</li><li>/system/sd/xbin/su</li><li>/System/bin/failsafe/su</li><li>/Data/Local/su</li></ul><p>Uygulama bu dosyalar erişebiliyorsanız, uygulama kök kullanıcı olarak çalıştığını gösterir.</p>|
+| **Adımları** | <p>Uygulama kendi yapılandırması ve kullanıcı verilerini telefon kökü varsa durum ya da işletim sistemi engellemeleri korunması. Kök dizini değiştirme/çiğnemekten kısıtlamaları yetkisiz erişim, normal hangi kullanıcıların kendi telefonlarda olmaz anlamına gelir. Bu nedenle uygulama örtük algılama mantığı uygulama başlangıcında telefon kökü algılamak için sahip olmalıdır.</p><p>Algılama mantığı yalnızca normal olarak, yalnızca kök kullanıcı, örneğin erişebilir dosyalara erişme:</p><ul><li>/System/App/Superuser.apk</li><li>/ sbin/su</li><li>/System/bin/su</li><li>/System/xbin/su</li><li>/Data/Local/xbin/su</li><li>/Data/local/bin/su</li><li>/System/SD/xbin/su</li><li>/System/bin/failsafe/su</li><li>/Data/Local/su</li></ul><p>Uygulama bu dosyalar erişebiliyorsanız, uygulama kök kullanıcı olarak çalıştığını gösterir.</p>|
 
 ## <a id="weak-class-wcf"></a>WCF'de zayıf sınıf başvurusu
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **Adımları** | <p>Sistem, bir saldırganın yetkisiz kod yürütmesine izin verebilir zayıf sınıf başvurusu kullanır. Program benzersiz olarak tanımlanmadığı kullanıcı tanımlı bir sınıf başvurur. Zayıf tanımlanan bu sınıf .NET yüklediğinde, CLR türü yükleyicisi sınıfı belirtilen sırayla aşağıdaki konumlarda arar:</p><ol><li>Yükleyici türü derleme biliniyorsa yapılandırma dosyanın yeniden yönlendirme konumları, GAC, yapılandırma bilgilerini ve uygulamanın ana dizin kullanılarak geçerli derleme arar.</li><li>Derleme bilinmiyorsa, yükleyici geçerli derleme, mscorlib ve TypeResolve olay işleyicisi tarafından döndürülen konumu arar.</li><li>Bu CLR arama sırası, tür iletme mekanizması ve AppDomain.TypeResolve olay gibi kancaları kullanılarak değiştirilebilir.</li></ol><p>Aynı ada sahip başka bir sınıf oluşturarak CLR arama sırası bir saldırganın yararlanan ve CLR ilk olarak, CLR Yükleme farklı bir konumda yerleştirme istemeden saldırgan tarafından sağlanan kodu yürütme</p>|
 
 ### <a name="example"></a>Örnek
@@ -343,13 +343,13 @@ Tam (tanımlayıcı) adlarının benzersiz olarak kullanarak bir türü tanımla
 
 ## <a id="wcf-authz"></a>WCF uygulayan yetkilendirme denetimi
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, NET Framework 3 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
 | **Adımları** | <p>Bu hizmet bir yetkilendirme denetimini kullanmaz. Bir istemci belirli bir WCF Hizmeti aradığında, WCF çağıranın sunucuda hizmet yöntemi yürütme izni olduğunu doğrulayın çeşitli Yetkilendirme düzeni sağlar. Kimliği doğrulanmış bir kullanıcı, yetkilendirme denetimleri için WCF hizmetleri etkinleştirilmezse ayrıcalık yükseltme elde edebilirsiniz.</p>|
 
 ### <a name="example"></a>Örnek
@@ -391,7 +391,7 @@ return result;
 
 ## <a id="authz-aspnet"></a>ASP.NET Web API'de uygun yetkilendirme mekanizması uygulayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
@@ -442,7 +442,7 @@ public class CustomController : ApiController
 
 ## <a id="device-permission"></a>Farklı izin düzeyleri gereken çeşitli eylemler destekliyorsa, cihaz yetkilendirme denetimleri gerçekleştirin
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Oluşturma |  
@@ -453,7 +453,7 @@ public class CustomController : ApiController
 
 ## <a id="field-permission"></a>Farklı izin düzeyleri gereken çeşitli eylemler destekliyorsa, alan ağ geçidi yetkilendirme denetimleri gerçekleştirin
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT alan ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  

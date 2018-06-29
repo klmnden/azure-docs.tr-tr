@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 90089c009d3515df3df2453c710bac143ee7d90f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 23471a4ae912ee4947a91f0aef7fb2557e6ebba3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619757"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050977"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory veri dönüştürme
 > [!div class="op_single_selector"]
@@ -35,10 +35,6 @@ ms.locfileid: "34619757"
 Bu makalede Azure Data factory'de dönüştürmek için kullanabilir ve ham verilerinizi Öngörüler ve öngörü işler veri dönüştürme etkinlikleri açıklar. Azure Hdınsight kümesini veya bir Azure Batch gibi bilgi işlem ortamında dönüştürme etkinliğine yürütür. Makalelerinin bağlantıları her dönüştürme etkinliği hakkında ayrıntılı bilgi sağlar.
 
 Veri Fabrikası destekleyen eklenebilir aşağıdaki veri dönüştürme etkinlikleri [ardışık düzen](concepts-pipelines-activities.md) ya da ayrı ayrı veya başka bir etkinlikle zincirleme.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [dönüştürme etkinlikleri sürüm 1 veri fabrikasında](v1/data-factory-data-transformation-activities.md).
- 
 
 ## <a name="hdinsight-hive-activity"></a>Hdınsight Hive etkinliği
 Data Factory işlem hattı Hdınsight Hive etkinliğinde, Hive sorguları kendi veya isteğe bağlı Windows/Linux tabanlı Hdınsight kümesi yürütür. Bkz: [Hive etkinliğini](transform-data-using-hadoop-hive.md) bu etkinliği hakkında ayrıntılı bilgi için makalenin. 

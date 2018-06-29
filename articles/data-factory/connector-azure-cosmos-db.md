@@ -10,25 +10,23 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052775"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Veri ya da Azure Cosmos Azure Data Factory kullanarak DB'den kopyalayın
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-azure-documentdb-connector.md)
-> * [Sürüm 2 - Önizleme](connector-azure-cosmos-db.md)
+> * [Sürüm 1](v1/data-factory-azure-documentdb-connector.md)
+> * [Geçerli sürüm](connector-azure-cosmos-db.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de ilk ve son Azure Cosmos DB (SQL API) verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 içinde Azure Cosmos DB connnector](v1/data-factory-azure-documentdb-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -111,8 +109,8 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilen özellikleri t
 
 Azure Cosmos DB gibi şemasız veri depoları için kopyalama etkinliği şema aşağıdaki yollardan biriyle oluşturur. Bu nedenle, istediğiniz sürece [JSON belgeleri olarak içeri/dışarı aktarma-olan](#importexport-json-documents), veri yapılarını belirtmek için en iyi uygulamadır **yapısı** bölümü.
 
-1. Verilerin yapısını kullanarak belirtirseniz **yapısı** özelliği veri kümesi tanımında Data Factory hizmetinin bu yapısı şema olarak geliştirir. Bir satır bir sütun için bir değer içermiyorsa, bu durumda, boş bir değer için sağlanır.
-2. Verilerin yapısını kullanarak belirtmezseniz **yapısı** özelliği veri kümesi tanımında Data Factory hizmetinin oluşturur şema verileri ilk satırını kullanarak. Bu durumda, ilk satırın tam şema içermiyorsa, bazı sütunları kopyalama işlemi sonucunda eksik olacaktır.
+*. Verilerin yapısını kullanarak belirtirseniz **yapısı** özelliği veri kümesi tanımında Data Factory hizmetinin bu yapısı şema olarak geliştirir. Bir satır bir sütun için bir değer içermiyorsa, bu durumda, boş bir değer için sağlanır.
+*. Verilerin yapısını kullanarak belirtmezseniz **yapısı** özelliği veri kümesi tanımında Data Factory hizmetinin oluşturur şema verileri ilk satırını kullanarak. Bu durumda, ilk satırın tam şema içermiyorsa, bazı sütunları kopyalama işlemi sonucunda eksik olacaktır.
 
 ## <a name="copy-activity-properties"></a>Kopyalama etkinliğinin özellikleri
 
@@ -210,8 +208,8 @@ Bu Cosmos DB Bağlayıcısı'nı kullanarak kolayca yapabilecekleriniz
 
 Bu tür şema belirsiz kopya elde etmek için:
 
-- Cosmos DB veri kümeleri içinde "yapısı" bölümü belirtmeyin; ve kopyalama etkinliği Cosmos DB kaynak/havuz, "nestingSeparator" özelliği belirtmeyin.
-- Alma / kümesindeki karşılık gelen dosya deposu, JSON dosyaları dışarı aktarma belirttiğinizde biçim türü "JsonFormat" ve yapılandırma "filePattern" düzgün (bkz [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format) Ayrıntılar için bölümüne), ardından "yapısı belirtmeyin "bölümünde ve rest biçimi ayarları atlayın.
+* Kopya veri aracını kullanırken, denetleyin **"dışa-JSON dosyaları ya da Cosmos DB koleksiyonu"** seçeneği.
+* Ne zaman etkinlik yazma, kullanarak belirtme "yapısı" (diğer adıyla şema) bölümü Cosmos DB veri kümeleri içinde ya da "nestingSeparator" özelliği Cosmos DB kaynak/havuz kopyalama etkinliği. Alma / kümesindeki karşılık gelen dosya deposu, JSON dosyaları dışarı aktarma belirttiğinizde biçim türü "JsonFormat" ve yapılandırma "filePattern" düzgün (bkz [JSON biçimine](supported-file-formats-and-compression-codecs.md#json-format) Ayrıntılar için bölümüne), ardından "yapısı belirtmeyin "(diğer adıyla şema) bölümünde ve rest biçimi ayarları atlayın.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Kaynakları ve havuzlarını Azure Data Factory kopyalama etkinliği tarafından desteklenen veri depoları listesi için bkz: [desteklenen veri depoları](copy-activity-overview.md##supported-data-stores-and-formats).

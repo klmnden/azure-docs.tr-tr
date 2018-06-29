@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6a3401f620f7dfe8b42bad9ed1a3981325b2ce1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f33ff3f588dac49e295a5aa96d71557d32407e46
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620488"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046995"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory'deki veri kümelerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-create-datasets.md)
-> * [Sürüm 2 - Önizleme](../concepts-datasets-linked-services.md)
+> * [Sürüm 1](data-factory-create-datasets.md)
+> * [Sürüm 2 (geçerli sürüm)](../concepts-datasets-linked-services.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 kümelerinde](../concepts-datasets-linked-services.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 kümelerinde](../concepts-datasets-linked-services.md).
 
 Bu makalede hangi veri kümeleri, JSON biçiminde nasıl tanımlanan açıklanmıştır ve Azure Data Factory içinde kullanılan nasıl ardışık düzenleri. Bu veri kümesi JSON tanımında her bölüm (örneğin, yapısı, kullanılabilirlik ve ilke) hakkında ayrıntılar sağlar. Ayrıca makale kullanmaya ilişkin örnekler verilmektedir **uzaklık**, **anchorDateTime**, ve **stili** dataset JSON tanımında özellikleri.
 
@@ -197,7 +197,7 @@ Her sütun yapısı içinde aşağıdaki özellikleri içerir:
 | --- | --- | --- |
 | ad |Sütunun adı. |Evet |
 | type |Sütunun veri türü.  |Hayır |
-| Kültür |. Tür .NET türü olduğunda kullanılacak NET tabanlı kültürü: `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. |Hayır |
+| kültür |. Tür .NET türü olduğunda kullanılacak NET tabanlı kültürü: `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. |Hayır |
 | Biçimi |Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. |Hayır |
 
 Aşağıdaki yönergeleri yapısı bilgileri içerecek şekilde ne zaman ve ne eklenecek belirlemenize yardımcı **yapısı** bölümü.
@@ -240,7 +240,7 @@ Aşağıdaki tabloda kullanılabilirlik bölümünde kullanabileceğiniz özelli
 | --- | --- | --- | --- |
 | frequency |Veri kümesi dilim üretim için zaman birimini belirtir.<br/><br/><b>Sıklık desteklenen</b>: dakika, saat, gün, hafta, ay |Evet |NA |
 | interval |Sıklığı çarpanı belirtir.<br/><br/>"X sıklığı aralığını" ne sıklıkta dilim üretilen belirler. Örneğin, veri kümesinin saatlik olarak başka bir dilimlenebilir gerekiyorsa, ayarladığınız <b>sıklığı</b> için <b>saat</b>, ve <b>aralığı</b> için <b>1</b>.<br/><br/>Belirtirseniz unutmayın **sıklığı** olarak **Minute**, aralık en az 15 olarak ayarlamanız gerekir. |Evet |NA |
-| stili |Dilim başlangıç veya Bitiş aralığı olarak üretilen belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Varsa **sıklığı** ayarlanır **ay**, ve **stili** ayarlanır **EndOfInterval**, dilim ayın son gününde üretilir. Varsa **stili** ayarlanır **StartOfInterval**, dilim ayın ilk günü üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **gün**, ve **stili** ayarlanır **EndOfInterval**, dilim günün son bir saat içinde oluşturulur.<br/><br/>Varsa **sıklığı** ayarlanır **saat**, ve **stili** ayarlanır **EndOfInterval**, dilim saat sonunda üretilir. Örneğin, 1 PM - 2 PM dönem için bir dilim için 2 saat dilimi oluşturulur. |Hayır |EndOfInterval |
+| Stili |Dilim başlangıç veya Bitiş aralığı olarak üretilen belirtir.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Varsa **sıklığı** ayarlanır **ay**, ve **stili** ayarlanır **EndOfInterval**, dilim ayın son gününde üretilir. Varsa **stili** ayarlanır **StartOfInterval**, dilim ayın ilk günü üretilir.<br/><br/>Varsa **sıklığı** ayarlanır **gün**, ve **stili** ayarlanır **EndOfInterval**, dilim günün son bir saat içinde oluşturulur.<br/><br/>Varsa **sıklığı** ayarlanır **saat**, ve **stili** ayarlanır **EndOfInterval**, dilim saat sonunda üretilir. Örneğin, 1 PM - 2 PM dönem için bir dilim için 2 saat dilimi oluşturulur. |Hayır |EndOfInterval |
 | anchorDateTime |Veri kümesi dilim sınırlarını işlem için Zamanlayıcı tarafından kullanılan zaman içinde mutlak konum tanımlar. <br/><br/>Bu propoerty belirtilen sıklığından daha ayrıntılı tarih kısımlarını varsa, daha ayrıntılı bölümleri göz ardı edilir unutmayın. Örneğin, varsa **aralığı** olan **saatlik** (sıklığı: saat ve aralığı: 1) ve **anchorDateTime** içeren **dakika ve saniyeleri**, sonra dakika ve saniyeleri bölümlerini **anchorDateTime** göz ardı edilir. |Hayır |01/01/0001 |
 | uzaklık |Tarafından başlangıç ve bitiş tüm veri kümesi dilim gölgeye Timespan. <br/><br/>Her iki unutmayın **anchorDateTime** ve **uzaklık** belirtilirse, sonucudur birleşik shift. |Hayır |NA |
 

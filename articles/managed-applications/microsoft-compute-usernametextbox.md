@@ -4,21 +4,20 @@ description: Azure portalı için Microsoft.Compute.UserNameTextBox kullanıcı 
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/12/2017
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: b65b62389fbb66c9461430d1dd2df42e71bf6cff
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9f07c5bf9ba1f1880fa142beb52455522425e68d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260731"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063310"
 ---
 # <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI öğesi
 Bir metin kutusu denetiminin Windows ve Linux kullanıcı adları için yerleşik doğrulama.
@@ -45,16 +44,15 @@ Bir metin kutusu denetiminin Windows ve Linux kullanıcı adları için yerleşi
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Varsa `constraints.required` ayarlanır **doğru**, metin kutusunun başarıyla doğrulamak için bir değer içermesi gerekir. Varsayılan değer **doğru**.
+- Varsa `constraints.required` ayarlanır **doğru**, sonra da metin kutusunda başarıyla doğrulamak için bir değer olmalıdır. Varsayılan değer **doğru**.
 - `osPlatform` belirtilmeli ve birini kullanabilir **Windows** veya **Linux**.
 - `constraints.regex` JavaScript normal ifade deseni olur. Belirtilmişse, metin kutusunun değerini başarıyla doğrulamak için desen eşleşmesi gerekir. Varsayılan değer **null**.
 - `constraints.validationMessage` metin kutusunun değeri tarafından belirtilen doğrulama başarısız olduğunda görüntülemek için bir dizedir `constraints.regex`. Belirtilmezse, metin kutusunun yerleşik doğrulama iletileri kullanılır. Varsayılan değer **null**.
-- Bu öğe için belirtilen değeri temel alan yerleşik doğrulama sahip `osPlatform`. Yerleşik doğrulama bir özel normal ifade ile birlikte kullanılabilir.
-İçin bir değer `constraints.regex` belirtildiğinden, yerleşik ve özel doğrulama tetiklenen sonra.
+- Bu öğe için belirtilen değeri temel alan yerleşik doğrulama sahip `osPlatform`. Yerleşik doğrulama bir özel normal ifade ile birlikte kullanılabilir. İçin bir değer `constraints.regex` belirtildiğinden, yerleşik ve özel doğrulama tetiklenen sonra.
 
 ## <a name="sample-output"></a>Örnek çıktı
 ```json
-"tabrezm"
+"Example name"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 56128a7fe28f1599b74ba9f1475ef636e0e8718c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617989"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049375"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Meta veri etkinliği Azure Data Factory'de Al
-GetMetadata etkinlik almak için kullanılabilir **meta veri** tüm verilerin Azure veri fabrikası'nda. Bu etkinlik yalnızca sürüm 2, veri oluşturucuları için desteklenir. Aşağıdaki senaryolarda kullanılabilir:
+GetMetadata etkinlik almak için kullanılabilir **meta veri** tüm verilerin Azure veri fabrikası'nda. Bu etkinlik aşağıdaki senaryolarda kullanılabilir:
 
 - Herhangi bir veri meta veri bilgilerini doğrula
 - Veriler hazır / kullanılabilir olduğunda bir ardışık düzen Tetikle
@@ -31,9 +31,6 @@ Aşağıdaki işlevselliği denetim akışında kullanılabilir:
 
 - GetMetadata etkinlik çıkışı koşullu ifadelerle doğrulama gerçekleştirmek için kullanılabilir.
 - Koşul yapmak yerine getirdiğinizde bir ardışık düzen tetiklenebilir-döngü kadar
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -46,18 +43,22 @@ GetMetadata etkinlik gerekli giriş olarak bir veri kümesini alır ve etkinlik 
 
 **Dosya depolama:**
 
-| Connector/meta veri | ItemName<br>(dosya/klasör) | itemType<br>(dosya/klasör) | boyut<br>(dosya) | oluşturuldu<br>(dosya/klasör) | LastModified<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | yapısı<br/>(dosya) | ColumnCount<br>(dosya) | var<br>(dosya/klasör) |
+| Connector/meta veri | ItemName<br>(dosya/klasör) | itemType<br>(dosya/klasör) | boyut<br>(dosya) | oluşturuldu<br>(dosya/klasör) | lastModified<br>(dosya/klasör) |childItems<br>(klasör) |contentMD5<br>(dosya) | yapısı<br/>(dosya) | columnCount<br>(dosya) | var<br>(dosya/klasör) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Azure Blob | √/√ | √/√ | √ | x/x | √/√ | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
+| Azure Blob | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure Dosya Depolama | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Dosya Sistemi | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
+- Amazon S3 için `lastModified` demet ve anahtar ancak sanal klasör; için geçerlidir; ve `exists` öneki veya sanal klasör değil, sepet ve anahtarı için geçerlidir.
+- Azure Blob için `lastModified` kapsayıcı ve blob ancak sanal klasör için uygulanır.
+
 **İlişkisel veritabanı:**
 
-| Connector/meta veri | yapısı | ColumnCount | var |
+| Connector/meta veri | yapısı | columnCount | var |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
 | Azure SQL Veri Ambarı | √ | √ | √ |
@@ -73,11 +74,11 @@ Aşağıdaki meta veri türleri almak için GetMetadata etkinlik alan listesinde
 | itemType | Dosya veya klasör türü. Çıktı değeri `File` veya `Folder`. |
 | boyut | Dosyanın bayt olarak boyutu. Yalnızca dosya için geçerli. |
 | oluşturuldu | Oluşturulan datetime dosya veya klasör. |
-| LastModified | Dosya veya klasörün son değiştirilen datetime. |
+| lastModified | Dosya veya klasörün son değiştirilen datetime. |
 | childItems | Alt klasörleri ve dosyaları belirtilen klasörün içindeki listesi. Yalnızca klasör için geçerli. Çıkış değeri, adını ve her bir alt öğe türünü listesidir. |
 | contentMD5 | MD5 dosyasının. Yalnızca dosya için geçerli. |
 | yapısı | Dosya veya ilişkisel veritabanı tablosu içindeki veri yapısı. Çıkış değeri, sütun adını ve sütun türü listesidir. |
-| ColumnCount | Dosya veya ilişkisel tablo içindeki sütun sayısı. |
+| columnCount | Dosya veya ilişkisel tablo içindeki sütun sayısı. |
 | var| Bir dosya/klasör/tablosu veya varolup. "Var" GetaMetadata alan listesindeki belirtilirse, bile değil (dosya/klasör/tablosu) öğe varsa, etkinlik başarısız olmaz unutmayın; Bunun yerine, döndürür `exists: false` çıkışı. |
 
 >[!TIP]

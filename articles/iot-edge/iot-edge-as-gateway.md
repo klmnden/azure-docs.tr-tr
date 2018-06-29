@@ -8,14 +8,14 @@ ms.date: 11/27/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028974"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>Bir IOT sınır cihazı bir ağ geçidi olarak - kullanılabilir nasıl Önizleme
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Bir IOT sınır cihazı bir ağ geçidi olarak nasıl kullanılabileceğini
 
 Ağ geçitleri IOT çözümlerinde amacı çözüme özeldir ve cihaz bağlantısı kenar analytics ile birleştirin. Azure IOT kenar bağlantısı, kimlik veya edge analytics ilgili bağımsız olarak bir IOT ağ geçidi için tüm gereksinimlerini karşılamak için kullanılabilir. Bu makalede ağ geçidi desenleri nasıl aygıt verilerini ağ geçidinde işlenmez özellikleri aşağı akış cihaz bağlantısı ve cihaz kimliği için yalnızca bakın.
 
@@ -54,7 +54,7 @@ Donuk ağ geçidi (Protokol çevirisi) deseni kullanılırken, bu ağ geçidi ü
 ## <a name="next-steps"></a>Sonraki adımlar
 Bir IOT sınır cihazı olarak kullanın bir [saydam ağ geçidi][lnk-iot-edge-as-transparent-gateway] 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

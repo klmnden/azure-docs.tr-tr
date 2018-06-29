@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9075c774d0b56b6609616205e30b5a7d484fa031
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 34de57188dffb7375889ed9ed89a759238b035ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808103"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046893"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Veri öğesinden MySQL Azure Data Factory kullanarak Taşı
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-onprem-mysql-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-mysql.md)
+> * [Sürüm 1](data-factory-onprem-mysql-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-mysql.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 MySQL Bağlayıcısı](../connector-mysql.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 MySQL Bağlayıcısı](../connector-mysql.md).
 
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi MySQL veritabanından veri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
@@ -52,7 +52,7 @@ Veri Yönetimi MySQL veritabanına bağlanmak ağ geçidi için yüklemeniz gere
 Farklı araçlar/API'lerini kullanarak bir şirket içi Cassandra veri deposundan verileri taşır kopyalama etkinliği ile işlem hattı oluşturun. 
 
 - Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz. 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -311,12 +311,12 @@ MySQL için veri taşırken, aşağıdaki eşlemelerini MySQL türlerinden .NET 
 | tarih |Tarih saat |
 | datetime |Tarih saat |
 | Ondalık |Ondalık |
-| çift duyarlıklı |Çift |
-| double |Çift |
+| çift duyarlıklı |çift |
+| double |çift |
 | Enum |Dize |
 | float |Tek |
 | İmzasız int |Int64 |
-| Int |Int32 |
+| int |Int32 |
 | işaretsiz tamsayı |Int64 |
 | integer |Int32 |
 | uzun varbinary |Byte] |
@@ -328,8 +328,8 @@ MySQL için veri taşırken, aşağıdaki eşlemelerini MySQL türlerinden .NET 
 | mediumint |Int32 |
 | mediumtext |Dize |
 | sayısal |Ondalık |
-| Gerçek |Çift |
-| ayarlama |Dize |
+| Gerçek |çift |
+| Ayarlama |Dize |
 | işaretsiz tamsayı |Int32 |
 | tamsayı |Int16 |
 | metin |Dize |

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d1d4c847916b76785cbee40a12b59387498fb5c5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3eb9f765b5ffe1118b3b25aff8ecdde327021a54
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621226"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046488"
 ---
 # <a name="updating-azure-machine-learning-models-using-update-resource-activity"></a>Azure Machine Learning modellerini kaynak güncelleştirme etkinliği kullanarak güncelleştirme
 
@@ -36,7 +36,7 @@ ms.locfileid: "34621226"
 
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [makine öğrenimi modellerini veri fabrikasında sürüm 2 güncelleştirme](../update-machine-learning-models.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [makine öğrenimi modellerini veri fabrikasında güncelleştirme](../update-machine-learning-models.md).
 
 Bu makalede ana Azure Data Factory - Azure Machine Learning tümleştirme makale tamamlar: [Azure Machine Learning ve Azure Data Factory kullanarak Tahmine dayalı işlem hatlarını oluşturmak](data-factory-azure-ml-batch-execution-activity.md). Zaten yapmadıysanız, bu makalede okumadan önce ana makalesini gözden geçirin. 
 

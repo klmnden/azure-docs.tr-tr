@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404969"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046688"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight'ta Hadoop kümelerinin kullanılabilirliği ve güvenilirliği
 
@@ -63,9 +63,9 @@ Bir işi kümeye gönderildiğinde çalışan düğümleri gerçek veri çözüm
 
 Bir kenar düğümüne, veri analizi kümedeki etkin olarak katılmıyor. Hadoop ile çalışırken, geliştiriciler veya veri bilimcilerine tarafından kullanılır. Kenar düğümüne kümedeki diğer düğümlere aynı Azure sanal ağ içinde yaşar ve diğer tüm düğümlere doğrudan erişebilirsiniz. Kenar düğümüne kritik Hadoop Hizmetleri veya analiz işleri çıktığınızda kaynakları bırakmadan kullanılabilir.
 
-Şu anda, hdınsight'ta R Server varsayılan olarak bir kenar düğümüne sağlayan yalnızca küme türüdür. Kenar düğümüne hdınsight'ta R Server için kullanılan düğümde dağıtılan işleme için kümeye göndermeden önce yerel olarak test R kodu.
+Şu anda, ML Hizmetleri Hdınsight üzerinde varsayılan olarak bir kenar düğümüne sağlayan yalnızca küme türüdür. Kenar düğümüne hdınsight'ta ML Hizmetleri için kullanılan düğümde dağıtılan işleme için kümeye göndermeden önce yerel olarak test R kodu.
 
-R Server dışındaki küme türleriyle bir kenar düğümüne kullanma hakkında daha fazla bilgi için bkz: [Hdınsight'ta kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md) belge.
+Diğer küme türü ile bir kenar düğümüne kullanma hakkında daha fazla bilgi için bkz: [Hdınsight'ta kenar düğümünü kullanmak](hdinsight-apps-use-edge-node.md) belge.
 
 ## <a name="accessing-the-nodes"></a>Düğümlere erişme
 

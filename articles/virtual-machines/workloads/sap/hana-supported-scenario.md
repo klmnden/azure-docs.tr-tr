@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/25/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b703f6d141005cf3cf29531a0586eebb61693a2
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 8927b2a32956f73e75ac7b157ebad6bf6596ea88
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754574"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063638"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>HANA büyük örnekleri için desteklenen senaryolar
 Bu belgede HANA büyük örnekleri (HLI) için Mimari ayrıntılarını birlikte desteklenen senaryolar açıklanmaktadır.
@@ -78,6 +78,22 @@ Gerekirse, Ek NIC kartları, kendi tanımlayabilirsiniz. Ancak, var olan Nic'ler
 
 >[!NOTE]
 >Fiziksel arabirimleri veya bağlama olan ek arabirimleri hala bulabilirsiniz. Kullanılan durumunuz için yukarıda belirtilen arabirimleri dikkate almanız gereken, rest dikkate / veya ile tempered değil.
+
+İki IP adresi atanmış birimleriyle dağıtımı gibi görünmelidir:
+
+Ethernet "A", Microsoft'a gönderilen sunucu IP havuzu adres aralığı dışında atanmış bir IP adresi olmalıdır. Bu IP adresi/etc/hosts işletim sisteminin içinde sürdürmek için kullanılır.
+
+Ethernet "B" NFS iletişimi için kullanılan bir IP adresi olmalıdır. Bu nedenle, bu adresleri yapmak **değil** etc/hosts örneği, örnek trafiği Kiracı içinde izin vermek üzere saklanması gerekir.
+
+Dağıtım durumlarda HANA sistem çoğaltma veya HANA genişleme, dikey yapılandırması atanan iki IP adreslerine sahip uygun değil. Yalnızca atanan iki IP adreslerine sahip olmasına ve isteyen bu tür bir yapılandırma dağıtmanız, SAP HANA üçüncü üçüncü bir IP adresi almak için Azure Hizmet Yönetimi başvurun VLAN atanmışsa. Üç NIC noktalarına atanan üç IP adreslerine sahip olmasına HANA büyük örneği birimleri için aşağıdaki kullanım kurallar geçerlidir:
+
+- Ethernet "A", Microsoft'a gönderilen sunucu IP havuzu adres aralığı dışında atanmış bir IP adresi olmalıdır. Bu nedenle bu IP adresi/etc/hosts işletim sisteminin içinde sürdürmek için kullanılacak işaretçi yok.
+
+- Ethernet "B" iletişim NFS depolama için kullanılan bir IP adresi olmalıdır. Bu nedenle bu tür adresleri etc/hosts saklanması gereken değil.
+
+- Ethernet "C", etc/hosts farklı örnekleri arasında iletişim için sürdürülebilmesi için özel olarak kullanılmalıdır. Bu adresler ayrıca genişleme HANA yapılandırmalarında HANA düğümler arası yapılandırmasını kullanan IP adresleri olarak güncelleştirilmesi gereken IP adresleri olacaktır.
+
+- Ethernet "D", pacemaker STONITH cihaza erişmek için özel olarak kullanılmalıdır. HANA sistemi çoğaltma (HSR) yapılandırmak ve bir temel SBD aygıtı kullanarak işletim sistemi otomatik yük devretme elde etmek istediğinizde, bu gereklidir.
 
 
 ### <a name="storage"></a>Depolama
@@ -221,6 +237,7 @@ Aşağıdaki bağlama yapılandırılmış:
 - MCOS için: Birim boyutu dağıtım veritabanı boyutu bellekte kapalı temel alır. Başvuru [genel bakış ve mimari](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) bellekte hangi veritabanı boyutları öğrenmek için bölüm multisid ortamıyla desteklenir.
 - DR sırasında: bağlama ve birimler ("HANA yükleme için gerekli"olarak işaretlenen) yapılandırılmış HANA örneği yükleme DR HLI biriminde üretim için. 
 - DR sırasında: veri, logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenen) üretim sitesinden anlık görüntü aracılığıyla çoğaltılır. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Başvuru [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için.
+- Önyükleme birimi için **SKU ı sınıf türü** DR düğüme çoğaltılır.
 
 
 ## <a name="4-single-node-with-dr-multipurpose"></a>4. DR (çok amaçlı) ile tek düğüm
@@ -270,6 +287,7 @@ Aşağıdaki bağlama yapılandırılmış:
 - DR sırasında: bağlama ve birimler ("HANA yükleme için gerekli"olarak işaretlenen) yapılandırılmış HANA örneği yükleme DR HLI biriminde üretim için. 
 - DR sırasında: veri, logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenen) üretim sitesinden anlık görüntü aracılığıyla çoğaltılır. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Başvuru [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
 - DR sırasında: verileri, logbackups, günlük, paylaşılan birimler ("QA örneği yükleme" olarak işaretlenen) QA için QA örneği yükleme için yapılandırılır.
+- Önyükleme birimi için **SKU ı sınıf türü** DR düğüme çoğaltılır.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR STONITH ile
  
@@ -378,6 +396,7 @@ Aşağıdaki bağlama yapılandırılmış:
 - DR sırasında: bağlama ve birimler ("HANA yükleme için gerekli"olarak işaretlenen) yapılandırılmış HANA örneği yükleme DR HLI biriminde üretim için. 
 - DR sırasında: veri, logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenen) üretim sitesinden anlık görüntü aracılığıyla çoğaltılır. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Başvuru [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
 - DR sırasında: verileri, logbackups, günlük, paylaşılan birimler ("QA örneği yükleme" olarak işaretlenen) QA için QA örneği yükleme için yapılandırılır.
+- Önyükleme birimi için **SKU ı sınıf türü** DR düğüme çoğaltılır.
 
 
 ## <a name="7-host-auto-failover-11"></a>7. Konak otomatik yük devretme (1 + 1)
@@ -540,6 +559,7 @@ Aşağıdaki bağlama yapılandırılmış:
 - /usr/SAP/SID /hana/shared/SID sembolik bağlantısıdır.
 -  DR sırasında: bağlama ve birimler ("HANA yükleme için gerekli"olarak işaretlenen) yapılandırılmış HANA örneği yükleme DR HLI biriminde üretim için. 
 - DR sırasında: veri, logbackups ve paylaşılan birimler ("Depolama çoğaltma" işaretlenen) üretim sitesinden anlık görüntü aracılığıyla çoğaltılır. Bu birimleri, yalnızca yük devretme süre boyunca bağlanır. Başvuru [olağanüstü durum kurtarma yük devretme yordamı](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) daha fazla ayrıntı için. 
+- Önyükleme birimi için **SKU ı sınıf türü** DR düğüme çoğaltılır.
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

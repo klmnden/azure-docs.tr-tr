@@ -8,29 +8,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2018
+ms.date: 06/27/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f33b24544373bc778f27ef3da18da8d62407a639
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
-ms.translationtype: MT
+ms.openlocfilehash: 85450119b9ab25b6f812cbf8c6c64174dd6f322c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751646"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061735"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory'de Azure SSIS tümleştirmesi çalışma zamanı oluşturma
 Bu makalede Azure Data Factory bir Azure SSIS tümleştirmesi çalışma zamanı sağlamak için adımları sağlar. Daha sonra, SQL Server Veri Araçları (SSDT) veya SQL Server Management Studio'yu (SSMS) kullanarak Azure'da bu çalışma zamanında SQL Server Integration Services (SSIS) paketleri dağıtabilir ve çalıştırabilirsiniz. 
 
 Öğretici [Öğreticisi: SQL Server Integration Services (SSIS) Azure'a dağıtabilmeniz](tutorial-create-azure-ssis-runtime-portal.md) SSIS katalog barındırmak için Azure SQL veritabanı kullanarak Azure SSIS tümleştirmesi çalışma zamanı (IR) oluşturulacağını gösterir. Bu makalede öğreticiyi genişletir ve aşağıdaki işlemleri gösterilmektedir: 
 
-- İsteğe bağlı olarak Azure SQL veritabanı SSIS kataloğunuzu (SSISDB veritabanı) barındırmak için veritabanı sunucusu olarak sanal ağ hizmet uç noktaları/yönetilen ile örneği (Önizleme) kullanın. Bir sanal ağa Azure SSIS IR katılmasını ve gerekirse, bkz: sanal ağ izinlerini ve ayarlarını yapılandırmak gerekir bir önkoşul olarak [birleştirme Azure SSIS IR sanal bir ağa](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- İsteğe bağlı olarak Azure SQL veritabanı SSIS kataloğunuzu (SSISDB veritabanı) barındırmak için veritabanı sunucusu olarak sanal ağ hizmet uç noktaları/yönetilen ile örneği (Önizleme) kullanın. Konak SSISDB için veritabanı sunucu türünü seçmek için şu konularda rehberlik için bkz: [karşılaştırmak SQL veritabanını ve örneği (Önizleme) yönetilen](create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview). Bir önkoşul olarak Azure SSIS IR sanal bir ağa katılmasını sağlayın ve sanal ağ izinlerini ve ayarları gerektiği şekilde yapılandırmanız gerekir. Bkz: [katılma Azure SSIS IR sanal bir ağa](https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - İsteğe bağlı olarak Azure Active Directory (AAD) kimlik doğrulaması ile Azure veri fabrikası yönetilen hizmet kimliği (MSI) Azure SSIS IR için veritabanı sunucusuna bağlanmak için kullanın. Bir önkoşul olarak ihtiyacınız olacak, veri fabrikası MSI veritabanı sunucusuna erişim izinlerine sahip bir AAD gruba eklemek için bkz: [etkinleştirmek AAD kimlik doğrulaması Azure SSIS IR için](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md) konusunu inceleyin. 
 
 ## <a name="overview"></a>Genel Bakış
 Bu makalede Azure SSIS IR sağlama farklı yolu gösterilmektedir: 
@@ -100,7 +97,7 @@ Bu bölümde, bir Azure SSIS IR oluşturmak için Azure portal, veri fabrikası 
 
    Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md). 
 
-7. **Sürüm** için **V2 (Önizleme)** öğesini seçin. 
+7. Seçin **V2** için **sürüm**. 
 8. Data factory için **konum** seçin. Listede yalnızca veri fabrikası oluşturma için desteklenen konumlar gösterilir. 
 9. **Panoya sabitle**’yi seçin. 
 10. **Oluştur**’a tıklayın. 
@@ -218,12 +215,12 @@ Bu bölümde, bir Azure SSIS IR oluşturmak için Azure PowerShell kullanma
 Bu öğreticideki betiklerde kullanılacak değişkenleri tanımlayın:
 
 ```powershell
-### Azure Data Factory version 2 information 
+### Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
@@ -231,9 +228,9 @@ $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
 # You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+# Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"
-# In public preview, only 1-10 nodes are supported.
+# Only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
 $AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
@@ -390,12 +387,12 @@ Bu komutun tamamlanması **20-30 dakika** sürer.
 Burada, Azure SSIS tümleştirmesi çalışma zamanı oluşturur tam komut verilmiştir. 
 
 ```powershell
-### Azure Data Factory version 2 information 
+### Azure Data Factory information 
 # If your input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$".
 $SubscriptionName = "[your Azure subscription name]"
 $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
-# You can create a data factory of version 2 in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
+# You can create a data factory in the following regions: East US, East US 2, Southeast Asia, and West Europe. 
 $DataFactoryLocation = "EastUS" 
 
 ### Azure-SSIS integration runtime information - This is the Data Factory compute resource for running SSIS packages
@@ -403,9 +400,9 @@ $AzureSSISName = "[specify a name for your Azure-SSIS IR]"
 $AzureSSISDescription = "[specify a description for your Azure-SSIS IR]"
 # You can create an Azure-SSIS IR in the following regions: East US, East US 2, Central US, West US 2, North Europe, West Europe, UK South, and Australia East.
 $AzureSSISLocation = "EastUS" 
-# In public preview, only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
+# Only Standard_A4_v2|Standard_A8_v2|Standard_D1_v2|Standard_D2_v2|Standard_D3_v2|Standard_D4_v2 are supported.
 $AzureSSISNodeSize = "Standard_D4_v2"
-# In public preview, only 1-10 nodes are supported.
+# Only 1-10 nodes are supported.
 $AzureSSISNodeNumber = 2 
 # Azure-SSIS IR edition/license info: Standard or Enterprise 
 $AzureSSISEdition = "" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR

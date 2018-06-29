@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: shlo
-ms.openlocfilehash: 61d53e0d5f32f40b67f5b2d4ce888b047f8c4cea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 02f84047d0e1d3e73fac991250da814176f3995d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619720"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049933"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Bir işlem hattı atlayan pencere üzerinde çalışan bir Tetikleyici oluşturma
 Bu makalede oluşturma, başlatma ve dönen pencere tetikleyici izlemek için adımları sağlar. Tetikleyiciler ve desteklenen türlerden hakkında genel bilgi için bkz: [kanal yürütme ve Tetikleyicileri](concepts-pipeline-execution-triggers.md).
-
-> [!NOTE]
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Azure Data Factory genel olarak kullanılabilir (GA) olan sürüm 1, kullanıyorsanız, bkz: [sürüm 1 Azure Data Factory ile çalışmaya başlama](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Atlayan pencere tetikleyicileri, durumu korurken belirtilen bir başlangıç zamanından itibaren periyodik bir zaman aralığında başlatılan bir tetikleyici türüdür. Atlayan pencereler sabit boyutlu, çakışmayan ve bitişik zaman aralıkları dizisidir. Dönen pencere tetikleyici bir ardışık düzen ile bire bir ilişkisi vardır ve yalnızca tekil bir ardışık düzen başvuruda bulunabilir.
 

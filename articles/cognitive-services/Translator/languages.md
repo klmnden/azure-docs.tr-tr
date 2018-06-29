@@ -6,18 +6,19 @@ author: Jann-Skotdal
 manager: chriswendt1
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
-ms.date: 10/30/2017
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f388e9e39809774f307c0d1752e29f34b041ed13
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 5542c1c0eee5e4c7c85c566908dc8999b118f06e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35356402"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37032457"
 ---
-# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Microsoft Çeviricisi metin API'sindeki desteklenen diller 
-Microsoft Çeviricisi metin API metni çevirisi şu dilleri destekler. Sinir makine çevirisi (NMT) yüksek kaliteli AI destekli makine çevirisi için yeni standarttır ve sinir sistem kullanılabilir duruma gelince Çeviricisi metin API V3 kullanarak varsayılan olarak kullanılabilir. Sinir makine çevirisi "generalnn" kategorisi kullanarak V2 içinde kullanılabilir. 
+# <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Microsoft Çeviricisi metin API'sindeki desteklenen diller
+
+Microsoft Çeviricisi metin API metni çevirisi şu dilleri destekler. Sinir makine çevirisi (NMT) yüksek kaliteli AI destekli makine çevirisi için yeni standarttır ve sinir sistem kullanılabilir duruma gelince Çeviricisi metin API V3 kullanarak varsayılan olarak kullanılabilir. Sinir makine çevirisi "generalnn" kategorisi kullanarak V2 içinde kullanılabilir.
 
 [Makine çevirisi nasıl çalıştığı hakkında daha fazla bilgi edinin](https://www.microsoft.com/translator/mt.aspx)
 
@@ -25,6 +26,7 @@ Microsoft Çeviricisi metin API metni çevirisi şu dilleri destekler. Sinir mak
 |:----------- |:-------:|:-------------:|
 | Afrikaner dili      | İstatistiksel |`af`          |
 | Arapça      | Sinir | `ar`          |
+| Arapça, Levantine    | Sinir | `apc`
 | Bangla      | Sinir |`bn`          |
 | Boşnakça (Latin)      | İstatistiksel |`bs`          |
 | Bulgarca     |  Sinir |`bg`          |
@@ -116,7 +118,7 @@ Transliterate yöntemi şu dilleri destekler. İçindeki "/ listesinden", "<> �
 
 ## <a name="dictionary"></a>Sözlük
 
-Sözlük için veya arama ve örnekler yöntemlerini kullanarak İngilizce şu dilleri destekler. 
+Sözlük için veya arama ve örnekler yöntemlerini kullanarak İngilizce şu dilleri destekler.
 
 | Dil    | Dil kodu |
 |:----------- |:-------------:|
@@ -173,12 +175,12 @@ Sözlük için veya arama ve örnekler yöntemlerini kullanarak İngilizce şu d
 
 ## <a name="languages-detected-by-the-detect-method"></a>Algıla yöntemi tarafından algılanan dilleri
 
-Aşağıdaki dilleri Algıla yöntemi tarafından algılanabilir. Mayıs algılamak Microsoft Translator çeviremez dilleri algılanır. 
+Aşağıdaki dilleri Algıla yöntemi tarafından algılanabilir. Mayıs algılamak Microsoft Translator çeviremez dilleri algılanır.
 
-| Dil    | 
+| Dil    |
 |:----------- |
 | Afrikaner dili |
-| Arnavutça | 
+| Arnavutça |
 | Arapça |
 | Bask dili |
 | Belarusça |
@@ -248,7 +250,7 @@ Aşağıdaki dilleri Algıla yöntemi tarafından algılanabilir. Mayıs algıla
 
 Program aracılığıyla dilleri işlemi V3.0 metin API kullanarak desteklenen dillerin listesi erişebilir. İngilizce veya desteklenen başka bir dilde dil adının yanı sıra özelliği, dil kodu listeyi görüntüleyebilirsiniz. Yeni diller kullanılabilir olduğunda bu liste Microsoft Translator hizmeti tarafından otomatik olarak güncelleştirilir.
 
-[Dilleri işlemi başvuru belgelerini görüntüleyin](/reference/languages.md)
+[Dilleri işlemi başvuru belgelerini görüntüleyin](reference/v3-0-languages.md)
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Microsoft Translator Web sitesinde listeye erişme
 

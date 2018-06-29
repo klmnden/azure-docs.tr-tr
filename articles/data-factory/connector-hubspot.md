@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Önizleme) kullanarak HubSpot veri kopyalama | Microsoft Docs
+title: Azure Data Factory kullanarak HubSpot veri kopyalama | Microsoft Docs
 description: Desteklenen havuz veri depolarına HubSpot bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: cb0eb612f76f6673a919d9d5c92f0f524129f9fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ca989dece43df56b648820accb0610b3b27a6b13
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337663"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045577"
 ---
-# <a name="copy-data-from-hubspot-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak HubSpot verilerini
+# <a name="copy-data-from-hubspot-using-azure-data-factory"></a>Azure Data Factory kullanarak HubSpot verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de HubSpot verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.

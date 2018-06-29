@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 05abd943d85fcdd709143bf7fce221dcdfb86011
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215108"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030718"
 ---
-# <a name="service-endpoint-monitor"></a>Hizmet uç noktası İzleyicisi
+# <a name="service-connectivity-monitor"></a>Hizmet Bağlantısı İzleyicisi
 
-Hizmet uç noktası izleme özelliği kullanabileceğiniz [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) açık bir TCP bağlantı noktasına sahip herhangi bir uç nokta için ağ bağlantısını izlemeniz. Web siteleri, SaaS uygulamaları, PaaS uygulamaları ve SQL veritabanları gibi uç noktaları içerir. 
+Hizmet Bağlantı İzleyicisi özelliği kullanabileceğiniz [Ağ Performansı İzleyicisi](log-analytics-network-performance-monitor.md) açık bir TCP bağlantı noktasına sahip herhangi bir uç nokta için ağ bağlantısını izlemeniz. Web siteleri, SaaS uygulamaları, PaaS uygulamaları ve SQL veritabanları gibi uç noktaları içerir. 
 
-Hizmet uç noktası İzleyicisi ile aşağıdaki işlevleri gerçekleştirebilirsiniz: 
+Hizmet Bağlantı İzleyicisi ile aşağıdaki işlevleri gerçekleştirebilirsiniz: 
 
 - Uygulamalar ve Ağ Hizmetleri Ağ bağlantısını birden çok şube ofisleri veya konumları izleyin. Uygulamalar ve ağ hizmetlerini Office 365, Dynamics CRM, iç iş kolu satır uygulama ve SQL veritabanlarını içerir.
 - Office 365 ve Dynamics 365 uç noktaları için ağ bağlantısını izlemeniz yerleşik testleri kullanın. 
@@ -34,7 +34,7 @@ Hizmet uç noktası İzleyicisi ile aşağıdaki işlevleri gerçekleştirebilir
 - Her bir topoloji Haritası atlamada katkıda bulunan gecikme görüntüleyerek zayıf uygulama performans neden olabilecek ağ üzerinde etkin noktalar tanımlayın.
 
 
-![Hizmet uç noktası İzleyicisi](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Hizmet Bağlantısı İzleyicisi](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Yapılandırma 
@@ -55,11 +55,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV4TimeExceeded" protocol="icmp
 netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmpv6:3,any" dir=in action=allow 
 ```
 
-### <a name="create-service-endpoint-monitor-tests"></a>Hizmet uç noktası İzleyicisi testleri oluşturma 
+### <a name="create-service-connectivity-monitor-tests"></a>Hizmet Bağlantı İzleyicisi testleri oluşturma 
 
 Hizmet uç noktaları için ağ bağlantısını izlemeniz testlerinizi oluşturmaya başlayın.
 
-1. Seçin **hizmet uç noktası İzleyicisi** sekmesi.
+1. Seçin **Hizmet Bağlantı İzleyicisi** sekmesi.
 2. Seçin **Test Ekle**, test ad ve açıklama girin. 
 3. Test türü seçin:<br>
 
@@ -84,7 +84,7 @@ Hizmet uç noktaları için ağ bağlantısını izlemeniz testlerinizi oluştur
 
 ## <a name="walkthrough"></a>Kılavuz 
 
-Ağ Performansı İzleyicisi Pano görünümüne gidin. Oluşturduğunuz farklı testleri sistem durumu özetini almak için bakmak **hizmet uç noktası İzleyicisi** sayfası. 
+Ağ Performansı İzleyicisi Pano görünümüne gidin. Oluşturduğunuz farklı testleri sistem durumu özetini almak için bakmak **Hizmet Bağlantı İzleyicisi** sayfası. 
 
 ![Hizmet uç noktası izleme sayfası](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 

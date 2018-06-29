@@ -9,16 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: e33fe5a30d154e8396c17d01487ef4420313527d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35354736"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050395"
 ---
 # <a name="supported-language-list-and-status"></a>Desteklenen dil listesi ve durumu
 
-Bu diller Bing yazım denetleme API'si tarafından desteklenir.
+Bu diller Bing yazım denetleme API'si tarafından desteklenir (yalnızca `spell` modu). 
+
+' Den başka bir dilde çalışmak için lütfen unutmayın `en-US`, `mkt` ayarlamanız gerekir ve her iki `Accept-Language` veya `setLang` , açıklandığı ayarlanmalıdır [yazım denetleme API v7 başvurusu](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Dil    | Dil kodu |
 |:----------- |:-------------:|

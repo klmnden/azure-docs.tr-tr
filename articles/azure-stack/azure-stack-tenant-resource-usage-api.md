@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/26/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: bc0b9993119342f07c28ed0384c11ae0f15bc439
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 8472d8ce733c07641a7fa6d53aeb6909cd709990
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29873496"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048399"
 ---
 # <a name="tenant-resource-usage-api"></a>Kiracı kaynak kullanım API'si
 
@@ -34,17 +34,17 @@ Windows PowerShell cmdlet'ini kullanabilirsiniz **Get-UsageAggregates** Azure'da
 
 | **Yöntemi** | **İstek URI'si** |
 | --- | --- |
-| AL |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-Önizleme & continuationToken = {değer belirteci} |
 
 ### <a name="arguments"></a>Bağımsız Değişkenler
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
-| *armendpoint* |Azure yığın ortamınızın Azure Kaynak Yöneticisi uç noktası. Azure Resource Manager uç noktanın adı şu biçimdedir Azure yığın kuraldır `https://management.{domain-name}`. Örneğin, Geliştirme Seti için local.azurestack.external etki alanı adıdır ve ardından kaynak yöneticisi uç noktası `https://management.local.azurestack.external`. |
+| *Armendpoint* |Azure yığın ortamınızın Azure Kaynak Yöneticisi uç noktası. Azure Resource Manager uç noktanın adı şu biçimdedir Azure yığın kuraldır `https://management.{domain-name}`. Örneğin, Geliştirme Seti için local.azurestack.external etki alanı adıdır ve ardından kaynak yöneticisi uç noktası `https://management.local.azurestack.external`. |
 | *subId* |Çağrıyı yapan kullanıcının abonelik kimliği. Bu API sorgu için yalnızca tek bir aboneliğin kullanım için kullanabilirsiniz. Sağlayıcıları sağlayıcısı kaynak kullanım API sorgu kullanım için tüm kiracılar için kullanabilirsiniz. |
 | *reportedStartTime* |Sorgunun başlarsınız. Değeri *DateTime* UTC ve saat, örneğin, 13:00 başında olması gerekir. Günlük toplama için bu değer UTC gece yarısına ayarlanmış. Biçim *kaçışlı* ISO 8601, burada iki nokta üst üste kaçış karakteri içermediği için % 3a Örneğin, 2015 06 %16T18 %3a53 %3a11 %2b00 3a00Z, ve artı URI kolay olmasını sağlamak için % 2b kaçışlı. |
 | *reportedEndTime* |Sorgunun bitiş saati. Geçerli kısıtlamaları *reportedStartTime* bu bağımsız değişken için de geçerlidir. Değeri *reportedEndTime* gelecekte olamaz. |
 | *aggregationGranularity* |İki ayrı olası değerlere sahip isteğe bağlı bir parametre: günlük ve saatlik. Değerleri önermek gibi veri yer günlük ayrıntı düzeyi döndürür ve diğeri saatlik bir çözüm. Günlük varsayılan seçenektir. |
-| *api-version* |Bu isteği yapmak için kullanılan protokol sürümü. 2015-06-01-Önizleme kullanmanız gerekir. |
+| *API sürümü* |Bu isteği yapmak için kullanılan protokol sürümü. 2015-06-01-Önizleme kullanmanız gerekir. |
 | *continuationToken* |Belirteci son çağrı kullanım API'si sağlayıcısına alınır. Bu belirteç yanıt 1.000 satırları büyüktür ve ilerleme durumu için bir yer işareti gibi davranır gereklidir. Yoksa, veriler gün baştan alınır veya saat üzerinde ayrıntı göre geçirilen. |
 
 ### <a name="response"></a>Yanıt
@@ -77,10 +77,10 @@ Windows PowerShell cmdlet'ini kullanabilirsiniz **Get-UsageAggregates** Azure'da
 ### <a name="response-details"></a>Yanıt Ayrıntıları
 | **Bağımsız değişken** | **Açıklama** |
 | --- | --- |
-| *id* |Kullanım toplama benzersiz kimliği |
+| *Kimliği* |Kullanım toplama benzersiz kimliği |
 | *Adı* |Kullanım toplama adı |
-| *Türü* |Kaynak tanımı |
-| *subscriptionId* |Azure kullanıcının abonelik tanımlayıcısı |
+| *type* |Kaynak tanımı |
+| *Subscriptionıd* |Azure kullanıcının abonelik tanımlayıcısı |
 | *usageStartTime* |UTC başlangıç saatini bu kullanım toplama ait olduğu kullanım demet |
 | *usageEndTime* |Bu kullanım toplama ait olduğu kullanım demet UTC bitiş saati |
 | *instanceData* |Örnek ayrıntıları (yeni biçimde) anahtar-değer çiftleri:<br>  *resourceUri*: kaynak kimliği, kaynak grupları ve örnek adı dahil olmak üzere tam <br>  *Konum*: Bu hizmet çalıştırıldı bölge <br>  *Etiketler*: kullanıcının belirttiği kaynak etiketleri <br>  *additionalınfo alanına*: işletim sistemi sürümü veya görüntü türü ayrıntıları, örneğin, kullanılan kaynak hakkında daha fazla |

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e9ed70de6d72026b8e3469417c53d6923a8a85e
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021483"
+ms.locfileid: "37046722"
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Öğesine/öğesinden Azure Data Factory kullanarak şirket içi Oracle veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-onprem-oracle-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-oracle.md)
+> * [Sürüm 1](data-factory-onprem-oracle-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-oracle.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 Oracle Bağlayıcısı](../connector-oracle.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Oracle Bağlayıcısı](../connector-oracle.md).
 
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi Oracle veritabanından/gelen verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.

@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory veri okumak veya yazmak nasıl bölümlenmiş | Microsoft Docs
-description: Azure Data Factory sürüm 2 bölümlenmiş veri okunamıyor veya yazılamıyor öğrenin.
+description: Azure Data Factory'de bölümlenmiş veri okunamıyor veya yazılamıyor öğrenin.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: cdf305e3607d7483186185a014883cff5458b89f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619091"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053719"
 ---
-# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory-version-2"></a>Azure Data Factory sürüm 2 verileri okumak veya yazmak nasıl bölümlenmiş
-Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Sürüm 2'de, ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat parametresinin değeri kullanarak bu davranışı elde edebilirsiniz. 
+# <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Azure Data Factory veri okumak veya yazmak nasıl bölümlenmiş
+Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Veri Fabrikası geçerli sürümde parametresinin değeri bir ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat'ı kullanarak bu davranışı elde edebilirsiniz. 
 
 ## <a name="use-a-pipeline-parameter"></a>Ardışık Düzen parametresini kullanın 
 Sürüm 1'de, aşağıdaki örnekte gösterildiği gibi SliceStart sistem değişkeni ve partitionedBy özelliği kullanabilirsiniz: 
@@ -37,7 +37,7 @@ Sürüm 1'de, aşağıdaki örnekte gösterildiği gibi SliceStart sistem deği�
 
 PartitonedBy özelliği hakkında daha fazla bilgi için bkz: [sürüm 1 Azure Blob bağlayıcı](v1/data-factory-azure-blob-connector.md#dataset-properties) makalesi. 
 
-Sürüm 2'de, bu davranışı elde etmenin bir yolu aşağıdaki eylemleri yapmaktır: 
+Veri Fabrikası geçerli sürümünde bu davranışı elde etmenin bir yolu aşağıdaki eylemleri yapmaktır: 
 
 1. Tanımlayan bir **parametresi kanal** dize türünde. Aşağıdaki örnekte, ardışık düzen parametre adıdır **windowStartTime**. 
 2. Ayarlama **folderPath** ardışık düzen parametresinin değeri başvurmak için veri kümesi tanımında. 

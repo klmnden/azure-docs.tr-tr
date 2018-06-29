@@ -3,18 +3,18 @@ title: Derleme ve tahmin için Azure Machine Learning paketi kullanarak bir tahm
 description: Oluşturma, eğitme, test ve tahmin için Azure Machine Learning paketi kullanarak bir tahmin modeli dağıtma hakkında bilgi edinin.
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833538"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036803"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Derleme ve Azure Machine Learning ile tahmin modelleri dağıtma
 
@@ -336,7 +336,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 Veri yaklaşık 250 farklı birleşimlerini deposu ve marka veri çerçevesinde içerir. Her birleşimin kendi zaman serisi satış tanımlar. 
 
-Kullanabileceğiniz [TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) rahat bir tek veri yapısı kullanarak birden fazla seri modellemek için sınıf _çizgisi_. Çizgisi tarafından belirtilen `store` ve `brand` sütun.
+Kullanabileceğiniz [TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) rahat bir tek veri yapısı kullanarak birden fazla seri modellemek için sınıf _çizgisi_. Çizgisi tarafından belirtilen `store` ve `brand` sütun.
 
 Arasındaki farkı _çizgisi_ ve _grup_ Grup olmak zorunda değildir ancak çizgisi her zaman gerçek hayatta, fiziksel olarak anlamlı olmasıdır. İç paket işlevleri grup kullanıcı bu gruplandırma modeli performansının artırılmasına yardımcı olur. inanırsa birden çok zaman serisinde listeden tek bir model oluşturmak için kullanın. Varsayılan olarak, Grup çizgisi için eşit olarak ayarlandığından ve tek bir model her birimi için oluşturulmuştur. 
 
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) işlevi zaman serisi veri çerçevesi kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik zaman serisi veri belirli içerir. 
+[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) işlevi zaman serisi veri çerçevesi kapsamlı bir rapor oluşturur. Rapor, hem bir genel veri açıklaması hem de istatistik zaman serisi veri belirli içerir. 
 
 
 ```python
@@ -887,14 +887,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>Verileri ön işlemek ve eksik değerleri impute
 
-Başlangıç verileri Eğitim kümesi ve bir sınama kümesi ayırarak [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils) yardımcı program işlevi. Sonuç kümesi sınama her zaman serisi son 40 gözlemleri içerir. 
+Başlangıç verileri Eğitim kümesi ve bir sınama kümesi ayırarak [ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) yardımcı program işlevi. Sonuç kümesi sınama her zaman serisi son 40 gözlemleri içerir. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-Temel zaman serisi modelleri ardışık zaman serisi gerektirir. Seri kullanarak düzenli aralıklarla örneklenen süre dizininin sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) işlevi.
+Temel zaman serisi modelleri ardışık zaman serisi gerektirir. Seri kullanarak düzenli aralıklarla örneklenen süre dizininin sahip oldukları anlamına gelir, normal olup olmadığını görmek için onay [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) işlevi.
 
 
 ```python
@@ -969,7 +969,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-Seri (213 dışı 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer) satış miktarı değerleri eksik doldurmak için gereklidir. Birçok imputation seçenekleri olsa da, aşağıdaki örnek kod doğrusal ilişkilendirme kullanır.
+Seri (213 dışı 249) çoğunu düzensiz görebilirsiniz. Bir [imputation dönüştürme](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest) satış miktarı değerleri eksik doldurmak için gereklidir. Birçok imputation seçenekleri olsa da, aşağıdaki örnek kod doğrusal ilişkilendirme kullanır.
 
 
 ```python
@@ -1035,7 +1035,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>Birden fazla modeli birleştirin
 
-[ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) tahmin, birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak sağlar.
+[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) tahmin, birden çok estimators birleştirmek ve bunlara bir kod satırı kullanarak uygun/tahmin olanak sağlar.
 
 
 ```python
@@ -1108,7 +1108,7 @@ univariate_model_errors
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>modelName</th>
+      <th>ModelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>
@@ -1249,7 +1249,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-[RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) TimeSeriesDataFrame üzerinde eğitilmiş böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster ayrıca her grubu bu servis talebi deposunda aynı modeline koyar. Forecaster benzer olarak kabul ve birlikte havuza seri grubu için bir model öğrenebilirsiniz. Seri grubu için bir model, uzun serisindeki veri genellikle kısa serisinin tahminleri geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için değiştirebilirsiniz. 
+[RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) TimeSeriesDataFrame üzerinde eğitilmiş böylece sklearn regresyon estimators işlevi sarmalar. Sarmalanan forecaster ayrıca her grubu bu servis talebi deposunda aynı modeline koyar. Forecaster benzer olarak kabul ve birlikte havuza seri grubu için bir model öğrenebilirsiniz. Seri grubu için bir model, uzun serisindeki veri genellikle kısa serisinin tahminleri geliştirmek için kullanır. Bu modeller Kitaplığı'nda regresyon destekleyen diğer modelleri için değiştirebilirsiniz. 
 
 
 ```python
@@ -1298,7 +1298,7 @@ all_errors.sort_values('MedianAPE')
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>modelName</th>
+      <th>ModelName</th>
       <th>MAPE</th>
       <th>MedianAPE</th>
     </tr>

@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: ee4321b905396f78e7dad9248b9e377dad250a13
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 1a516c890441c3b703d43f31816b7c37cac364fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010984"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054390"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure yığınında profilleri tarafından desteklenen kaynak sağlayıcısı API sürümleri
 
@@ -26,7 +26,7 @@ Bu makalede Azure yığını tarafından kullanılan her bir API profil için ka
 
 API profili üç adlandırma kuralları kullanır:
  - en son
- - Yyyy-aa-gg-karma
+ - yyyy-aa-gg-karma
  - yyyy-aa-gg-profili
 
 Bir açıklaması API profilleri ve sürüm yayın tempoyla için Azure yığınının bkz [yönetmek API sürümü profilleri Azure yığınında](azure-stack-version-profiles.md).
@@ -144,11 +144,14 @@ Azure işlem API'leri sanal makineleri ve destekleyici kaynaklarına programlı 
 
 | Kaynak Türleri | API sürümü |
 |--------------------|--------------------|
-| Uyarı Kuralları | 2016-03-01 |
-| Olay kategorisi | 2017-03-01-Önizleme |
-| Etkinlik Türleri | 2017-03-01-Önizleme |
-| Ölçüm Tanımları | 2016-03-01 |
 | İşlemler | 2015-04-01 |
+| Etkinlik Türleri | 2015-04-01 |
+| Olay kategorisi | 2015-04-01 |
+| Ölçüm Tanımları | 2018-01-01 |
+| Ölçümler | 2018-01-01 |
+| Tanılama ayarları | 2017-05-01-Önizleme |
+| Tanılama ayarları kategorileri | 2017-05-01-Önizleme |
+
 
 ### <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 

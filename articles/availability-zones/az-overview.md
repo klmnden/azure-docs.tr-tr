@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 7a67d65621da129640d3bb551cb0976ec1912050
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284813"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063672"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Azure kullanılabilirlik bölgeleri nelerdir?
 Kullanılabilirlik bölgeleri, uygulamaları ve verileri datacenter hatalarından korur sunan bir yüksek kullanılabilirlik ' dir. Kullanılabilirlik bölgeleri bir Azure bölgesine benzersiz fiziksel konumlara ' dir. Her bölge soğutma ve ağ bağımsız güç ile donatılmış bir veya daha fazla veri merkezleri oluşur. Dayanıklılık sağlamak için en az üç ayrı bölgelere etkinleştirilmiş tüm bölgelerde yoktur. Kullanılabilirlik bölgeleri fiziksel ayrımı bir bölge içinde uygulamaları ve verileri datacenter hatalarından korur. Bölge olarak yedekli Hizmetleri, uygulamaları ve verileri tek-noktaları-in-arızasına karşı korumak için kullanılabilirlik bölgeler arasında çoğaltılır. Kullanılabilirlik bölgeleri ile sektör en iyi % 99,99 VM çalışma süresi SLA Azure sunar. [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) şartları, Azure’un tamamının kullanılabilirlik garantisini açıklamaktadır.
@@ -42,7 +42,7 @@ Azure ile ilgili kapsamlı iş sürekliliği elde etmek için uygulama Mimariniz
 - Orta ABD
 - Fransa Orta
 - Doğu ABD 2 (Önizleme)
-- Batı Avrupa (Önizleme)
+- Batı Avrupa
 - Güneydoğu Asya (Önizleme)
 
 
@@ -59,6 +59,8 @@ Kullanılabilirlik bölgeleri destekler Azure hizmetler şunlardır:
 - SQL Veritabanı
 - Event Hubs
 - Service Bus
+- VPN Gateway
+- ExpressRoute
 
 
 ## <a name="pricing"></a>Fiyatlandırma
@@ -73,6 +75,9 @@ Bir kullanılabilirlik bölgesinde dağıtılan sanal makineleri için ek bir ma
 - [Standart bir yük dengeleyici zonal bir ön uç ile kullanarak bir bölgedeki Yük Dengeleme VM'ler](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Bölgesel olarak yedekli depolama](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
+- [Olay hub'ları coğrafi olağanüstü durum kurtarma](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+- [Hizmet veri yolu coğrafi olağanüstü durum kurtarma](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Bölge olarak yedekli sanal ağ geçidi oluşturma](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -1,6 +1,6 @@
 ---
-title: R Server için içerik seçeneklerini hdınsight'ta - Azure işlem | Microsoft Docs
-description: Farklı işlem bağlamı kullanılabilir seçenekler R Server kullanıcılarla hdınsight'ta hakkında bilgi edinin
+title: Hdınsight'ta - Azure ML Hizmetleri için içerik seçeneklerini işlem | Microsoft Docs
+description: Farklı işlem bağlamı kullanılabilir seçenekler ML Hizmetleri ile kullanıcılar için hdınsight'ta hakkında bilgi edinin
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,26 +11,26 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 2aa10e1eab6cabe058062519ecc023b88361d742
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 57480cef48182a56b315d7d6932883c485f5a7c8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409078"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050117"
 ---
-# <a name="compute-context-options-for-r-server-on-hdinsight"></a>Hdınsight'ta R Server için içerik seçeneklerini işlem
+# <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Hdınsight üzerinde ML Hizmetleri için içerik seçeneklerini işlem
 
-Microsoft Azure hdınsight'ta R Server işlem bağlamı ayarlayarak çağrıları nasıl yürütülür denetler. Bu makalede olup olmadığını ve nasıl yürütme kenar düğümüne veya Hdınsight küme çekirdeği arasında paralel birkaç ölçeklendirin belirtmek için kullanılabilir olan seçenekler özetlenmektedir.
+ML Hizmetleri Azure Hdınsight üzerinde işlem bağlamı ayarlayarak çağrıları nasıl yürütülür denetler. Bu makalede olup olmadığını ve nasıl yürütme kenar düğümüne veya Hdınsight küme çekirdeği arasında paralel birkaç ölçeklendirin belirtmek için kullanılabilir olan seçenekler özetlenmektedir.
 
 Kümenin kenar düğümü kümeye bağlanın ve R komut dosyalarını çalıştırmak için uygun bir yer sağlar. Bir kenar düğümüne ile RevoScaleR parallelized dağıtılmış işlevleri kenar düğümü sunucu Çekirdeğinde çalıştırırken seçeneğiniz vardır. Ayrıca bunları küme düğümleri arasında RevoScaleR'ın eşlemesi Hadoop azaltmak kullanarak çalıştırabilirsiniz veya Spark işlem bağlamı.
 
-## <a name="microsoft-r-server-on-azure-hdinsight"></a>Azure hdınsight'ta Microsoft R Server
-[Microsoft Azure hdınsight'ta R Server](r-server-overview.md) R tabanlı analytics için en son özellikleri sağlar. HDFS kapsayıcısında depolanan verileri kullanabilir, [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Depolama") depolama hesabı, bir Data Lake deposu veya yerel Linux dosya sistemi. R Server açık kaynak R kurulu olduğundan, yapı R tabanlı uygulamalar 8000 + R açık kaynak paketlerinden birini uygulayabilirsiniz. Yordamları de kullanabilir [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), R Server'ın içerdiği Microsoft'un büyük veri analizi paket.  
+## <a name="ml-services-on-azure-hdinsight"></a>Azure hdınsight'ta ML Hizmetleri
+[Azure hdınsight'ta ML Hizmetleri](r-server-overview.md) R tabanlı analytics için en son özellikleri sağlar. HDFS kapsayıcısında depolanan verileri kullanabilir, [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob Depolama") depolama hesabı, bir Data Lake deposu veya yerel Linux dosya sistemi. ML Hizmetleri açık kaynak R kurulu olduğundan, yapı R tabanlı uygulamalar 8000 + R açık kaynak paketlerinden birini uygulayabilirsiniz. Yordamları de kullanabilir [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler), ML Services'da bulunan Microsoft'un büyük veri analizi paket.  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>Bir kenar düğümüne bağlamları işlem
-Genel olarak, R Server edge düğümde çalışan bir R betiği içinde R yorumlayıcı bu düğüm üzerinde çalışır. Özel durumlar RevoScaleR işlevini çağırın bu adımlardır. RevoScaleR işlem bağlamı nasıl ayarlanacağını belirlenen bir işlem ortamında RevoScaleR çağrıları çalıştırın.  R betiği bir kenar düğümden çalıştırdığınızda, işlem bağlamının olası değerler şunlardır:
+Genel olarak, ML Hizmetleri kümede kenar düğümü üzerinde çalışacak bir R betiği içinde R yorumlayıcı bu düğüm üzerinde çalışır. Özel durumlar RevoScaleR işlevini çağırın bu adımlardır. RevoScaleR işlem bağlamı nasıl ayarlanacağını belirlenen bir işlem ortamında RevoScaleR çağrıları çalıştırın.  R betiği bir kenar düğümden çalıştırdığınızda, işlem bağlamının olası değerler şunlardır:
 
 - Yerel sıralı (*yerel*)
 - yerel paralel (*localpar*)
@@ -78,9 +78,9 @@ Daha fazla bilgi ve örnekler RevoScaleR işlem bağlamı için R rxSetComputeCo
 Ayrıca başvurabilirsiniz [dağıtılmış bilgi işlem genel bakış](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-distributed-computing) içinde [Machine Learning sunucusu belgelerine](https://docs.microsoft.com/machine-learning-server/).
 
 ## <a name="next-steps"></a>Sonraki adımlar
-Bu makalede ve bunun nasıl yürütme kenar düğümüne veya Hdınsight küme çekirdeği arasında paralel birkaç ölçeklendirin belirtmek için kullanılabilir seçenekler hakkında öğrendiniz. R Server Hdınsight kümeleri ile kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:
+Bu makalede ve bunun nasıl yürütme kenar düğümüne veya Hdınsight küme çekirdeği arasında paralel birkaç ölçeklendirin belirtmek için kullanılabilir seçenekler hakkında öğrendiniz. ML Hizmetleri Hdınsight kümeleri ile kullanma hakkında daha fazla bilgi için aşağıdaki konulara bakın:
 
-* [R Server Hadoop için genel bakış](r-server-overview.md)
-* [R Server ile için Hadoop kullanmaya başlama](r-server-get-started.md)
-* [HDInsight üzerinde R Server için Azure Depolama seçenekleri](r-server-storage.md)
+* [Hadoop için ML hizmetlerine genel bakış](r-server-overview.md)
+* [ML Hizmetleri için Hadoop kullanmaya başlama](r-server-get-started.md)
+* [Hdınsight üzerinde ML Hizmetleri için Azure depolama seçenekleri](r-server-storage.md)
 

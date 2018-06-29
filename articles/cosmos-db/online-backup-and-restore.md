@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 19f61893eb9250fbd5bbf930e98aa89ac74fd0c3
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615045"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028745"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Otomatik çevrimiçi yedekleme ve geri yükleme ile Azure Cosmos DB
 Azure Cosmos DB tüm verilerinizi yedeklerini düzenli aralıklarla otomatik olarak alır. Otomatik yedekleme performansı veya veritabanı işlemlerinizin kullanılabilirliğini etkilemeden alınır. Tüm yedeklemeler ayrı olarak başka bir depolama hizmetinde depolanır ve bu yedekleri bölgesel afetler karşı dayanıklılık için genel olarak çoğaltılır. Yanlışlıkla Cosmos DB kapsayıcı sildiğinizde ve daha sonra veri kurtarma veya bir olağanüstü durum kurtarma çözümü gerektiren otomatik yedekleme senaryoları için tasarlanmıştır.  
@@ -23,7 +23,7 @@ Azure Cosmos DB tüm verilerinizi yedeklerini düzenli aralıklarla otomatik ola
 Bu makalede hızlı bir özeti veri artıklık ve kullanılabilirlik Cosmos DB'de ile başlayan ve yedeklemeleri ele alınmaktadır. 
 
 ## <a name="high-availability-with-cosmos-db---a-recap"></a>Cosmos DB - bir özeti ile yüksek kullanılabilirlik
-Cosmos DB olacak şekilde tasarlanmıştır [Genel dağıtılmış](distribute-data-globally.md) – yük devretme ve saydam çok girişli API'leri güdümlü İlkesi ile birlikte birden çok Azure bölgeler arasında verimliliği ölçeklendirmenizi sağlar. Azure Cosmos DB sunar [% 99,99 kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) tüm tek bölge ve tüm bölgeli hesapları ile rahat tutarlılık ve %99.999 kullanılabilirlik tüm bölgeli veritabanı hesaplarda okuyun. Azure Cosmos DB tüm yazma işlemlerini istemciye bildirmeden önce yerel disklere işlemi, bir yerel veri merkezi içinde çoğaltmalarının bir çekirdek tarafından uygulanır. Cosmos DB yüksek kullanılabilirliğini yerel depolama biriminde bulunan güvenir ve hiçbir harici depolama teknolojileri bağlı değildir unutmayın. Ayrıca, veritabanı hesabınızı birden fazla Azure bölgesiyle ilişkiliyse, yazma diğer bölgeler arasında çoğaltılır. Birçok dilediğiniz şekilde veritabanı hesabınızla ilişkili bölgeler salt okunur düşük gecikme, üretilen iş ve erişim verilerinizi ölçeklendirmek için olabilir. Okuma her bölgede (çoğaltılmış) veri çoğaltma kümesi boyunca işlemi kalıcıdır.  
+Cosmos DB olacak şekilde tasarlanmıştır [Genel dağıtılmış](distribute-data-globally.md) – yük devretme ve saydam çok girişli API'leri güdümlü İlkesi ile birlikte birden çok Azure bölgeler arasında verimliliği ölçeklendirmenizi sağlar. Azure Cosmos DB sunar [% 99,99 kullanılabilirlik SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) tüm tek bölge ve tüm bölgeli hesapları ile rahat tutarlılık ve %99.999 kullanılabilirlik tüm bölgeli veritabanı hesaplarda okuyun. Azure Cosmos DB tüm yazma işlemlerini istemciye bildirmeden önce yerel disklere işlemi, bir yerel veri merkezi içinde çoğaltmalarının bir çekirdek tarafından uygulanır. Cosmos DB yüksek kullanılabilirliğini yerel depolama biriminde bulunan güvenir ve hiçbir harici depolama teknolojileri bağlı değildir. Ayrıca, veritabanı hesabınızı birden fazla Azure bölgesiyle ilişkiliyse, yazma diğer bölgeler arasında çoğaltılır. Birçok dilediğiniz şekilde veritabanı hesabınızla ilişkili bölgeler salt okunur düşük gecikme, üretilen iş ve erişim verilerinizi ölçeklendirmek için olabilir. Okuma her bölgede (çoğaltılmış) veri çoğaltma kümesi boyunca işlemi kalıcıdır.  
 
 Aşağıdaki çizimde gösterildiği gibi bir tek Cosmos DB kapsayıcıdır [yatay olarak bölümlenmiş](partition-data.md). "Bölüm" Aşağıdaki diyagramda bir daire gösterilir ve her bölüm bir çoğaltma kümesi yüksek oranda kullanılabilir hale gelir. Yerel dağıtım (X ekseni tarafından gösterilen) tek bir Azure bölgesi içinde budur. Ayrıca, her bölüm (karşılık gelen çoğaltma kümesi) sonra genel veritabanı hesabınızı (örneğin, bölgelerde Bu çizim üç – Doğu ABD, Batı ABD ve orta Hindistan) ile ilişkili birden çok bölgeye dağıtılır. "Bölüm kümesi" Genel dağıtılmış olduğu varlık verilerinizi (Y ekseni tarafından gösterilen) her bölgede birden çok kopyasını kapsayan. Veritabanı hesabınızla ilişkili bölgeler için öncelik atayın ve Cosmos DB saydam üzerinden olağanüstü durum halinde sonraki bölgeye başarısız olur. El ile de uygulamanız uçtan uca kullanılabilirliğini test etmek için yük devretme benzetimini de yapabilirsiniz.  
 
@@ -45,19 +45,31 @@ Aşağıdaki resimde GRS Azure depolama birimindeki tüm Cosmos DB varlıkların
 ![Tüm Cosmos DB varlıkların GRS Azure storage'da düzenli tam yedeklemeler](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="backup-retention-period"></a>Yedekleme saklama süresi
-Yukarıda açıklandığı gibi Azure Cosmos DB verilerinizin anlık görüntüleri dört saatte bir bölüm düzeyinde alır. Belirli bir zamanda, yalnızca son iki anlık görüntüleri korunur. Koleksiyon/veritabanı silinirse, ancak biz tüm verilen koleksiyon/veritabanı içinde silinen bölümlerinin için var olan anlık görüntü 30 gün boyunca korur.
+Yukarıda açıklandığı gibi Azure Cosmos DB verilerinizin anlık görüntüleri dört saatte bir bölüm düzeyinde alır. Belirli bir zamanda, yalnızca son iki anlık görüntüleri korunur. Ancak, koleksiyon/veritabanı silinirse, Azure Cosmos DB tüm verilen koleksiyon/veritabanı içinde silinen bölümlerinin için var olan anlık görüntü 30 gün boyunca korur.
 
 Kendi anlık görüntülerini korumak istiyorsanız, SQL API'yi JSON seçeneği ver Azure Cosmos DB'de kullanabileceğiniz [veri geçiş aracı](import-data.md#export-to-json-file) ek yedeklemeleri zamanlamak için.
 
 > [!NOTE]
-> Geri yükleme tam veritabanı hesap düzeyinde olur, "Veritabanı düzeyinde kapsayıcıları kümesi için işleme sağlama –" Lütfen unutmayın. Ayrıca bizim desteği 8 saat içinde bu yeni özellik kullanırsanız, yanlışlıkla, kapsayıcı - tablo/koleksiyonu/grafik sildiyseniz ulaşmak için emin olmak gerekir. 
+> Geri yükleme tam veritabanı hesap düzeyinde olur, "Veritabanı düzeyinde kapsayıcıları kümesi için işleme sağlama –" Lütfen unutmayın. Destek ekibi 8 saat içinde bu yeni özellik kullanırsanız, yanlışlıkla, kapsayıcı - tablo/koleksiyonu/grafik sildiyseniz ulaşmak için emin olmak gerekir. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Bir veritabanı çevrimiçi bir yedekten geri yükleme
-Veritabanı veya koleksiyon yanlışlıkla silerseniz, şunları yapabilirsiniz [bir destek bileti dosya](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) veya [Azure destek çağrısı](https://azure.microsoft.com/support/options/) verileri son otomatik yedeklemeden geri yüklemek için. Azure destek standart, geliştirici gibi yalnızca seçilen planlar için kullanılabilir ve Destek temel plan ile kullanılamaz. Farklı destek planları hakkında bilgi edinmek için [Azure destek planları](https://azure.microsoft.com/en-us/support/plans/) sayfası. (İçeren bir koleksiyon içindeki belgelerde silindi olduğu durumlarda) veri bozulması sorunları nedeniyle veritabanınızı geri gerekiyorsa bkz [veri bozulması işleme](#handling-data-corruption) bozuk verilerin engellemek için ek adımlar atmanız gereken şekilde var olan yedekleri üzerine yazılmasını. Belirli bir anlık görüntüye geri yüklenecek yedekleme için verileri bu anlık görüntü için yedekleme döngüsü boyunca kullanılabilir olduğunu Cosmos DB gerektirir.
+
+Veritabanı veya koleksiyon yanlışlıkla silerseniz, şunları yapabilirsiniz [bir destek bileti dosya](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) veya [Azure destek çağrısı](https://azure.microsoft.com/support/options/) verileri son otomatik yedeklemeden geri yüklemek için. Azure destek standart, geliştirici gibi yalnızca seçilen planlar için kullanılabilir ve Destek temel plan ile kullanılamaz. Farklı destek planları hakkında bilgi edinmek için [Azure destek planları](https://azure.microsoft.com/support/plans/) sayfası. 
+
+(İçeren bir koleksiyon içindeki belgelerde silindi olduğu durumlarda) veri bozulması sorunları nedeniyle veritabanınızı geri gerekiyorsa bkz [veri bozulması işleme](#handling-data-corruption) bozuk verilerin engellemek için ek adımlar atmanız gereken şekilde var olan yedekleri üzerine yazılmasını. Belirli bir anlık görüntüye geri yüklenecek yedekleme için verileri bu anlık görüntü için yedekleme döngüsü boyunca kullanılabilir olduğunu Cosmos DB gerektirir.
 
 ## <a name="handling-data-corruption"></a>Veri bozulması işleme
-Azure Cosmos DB veritabanı hesabı her bölümün son iki yedeklerini korur. Bu model (belgeler, grafik, tablo koleksiyonu) iyi bir kapsayıcı çalışır veya son sürümlerinden birini geri bu yana bir veritabanı yanlışlıkla silinmiş. Ancak, durumda kullanıcıların bir veri bozulması sorunu çıkarabilir, Azure Cosmos DB veri bozulmasını farkında ve bozulmayı var olan yedekleri üzerine mümkündür. Bozulması algıladı hemen bozuk verilerle üzerine yedeklemeleri korunan böylece kullanıcı bozuk kapsayıcı (grafik/koleksiyonu/tablosu) silmeniz gerekir.
+
+Azure Cosmos DB veritabanı hesabı her bölümün son iki yedeklerini korur. Bu model (belgeler, grafik, tablo koleksiyonu) iyi bir kapsayıcı çalışır veya son sürümlerinden birini geri bu yana bir veritabanı yanlışlıkla silinmiş. Ancak, durumda kullanıcıların bir veri bozulması sorunu çıkarabilir, Azure Cosmos DB veri bozulmasını farkında ve bozulmayı var olan yedekleri üzerine mümkündür. 
+
+Bozulması algıladı hemen Bozulması yaklaşık süresi olan hesap ve koleksiyon bilgileriyle müşteri desteğine ulaşın. Başka bir eylem durumunda, kullanıcı yapabilir (verileri silme/updation) bozuk bozuk verilerle üzerine yedeklemeleri korunan böylece kullanıcı bozuk kapsayıcı (grafik/koleksiyonu/tablosu) silmeniz gerekir.  
+
+Aşağıdaki resimde container(collection/graph/table) geri yanlışlıkla silinmesi veya bir kapsayıcı içindeki verilerin güncelleştirmek için Azure portalı üzerinden destek isteği oluşturma gösterir
+
+![Hatalı güncelleştirme için bir koleksiyon geri yükleyin veya veri Cosmos DB'de Sil](./media/online-backup-and-restore/backup-restore-support.png)
+
+Geri yükleme senaryoları - bu tür için yapıldığında verileri başka bir hesaba geri (soneki "-geri") ve koleksiyonu. Bu geri yükleme, Müşteri verilerinin doğrulama yapmak ve verileri gereken şekilde taşımak için bir fırsat sağlamak için yerinde yapılmamaktadır. Geri yüklenen aynı RUs ve dizin oluşturma ilkeleri ile aynı bölgede koleksiyonudur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

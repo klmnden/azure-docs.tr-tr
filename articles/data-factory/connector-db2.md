@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 808405de3391912433919d21b59214831b024866
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11647c231db3ff7beb2fed641dc72ff339b2b45a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616405"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046250"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory kullanarak DB2'den veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-onprem-db2-connector.md)
-> * [Sürüm 2 - Önizleme](connector-db2.md)
+> * [Sürüm 1](v1/data-factory-onprem-db2-connector.md)
+> * [Geçerli sürüm](connector-db2.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de DB2 veritabanından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 DB2 Bağlayıcısı](v1/data-factory-onprem-db2-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -46,7 +43,7 @@ Tüm desteklenen havuz veri deposuna DB2 veritabanından veri kopyalayabilirsini
 
 > [!TIP]
 > "Bir SQL deyimi yürütme isteğine karşılık gelen paket bulunamadı. bildiren bir hata iletisi alırsanız SQLSTATE 51002 SQLCODE =-805 = ", gerekli paket oluşturulmadı, bu tür işletim sistemine normal bir kullanıcı için nedenidir. DB2 Sunucu türünüz göre aşağıdaki yönergeleri izleyin:
-> - DB2 için i (AS400): güç kullanıcı oturum açma kullanıcısı için kopyalama etkinliği kullanmadan önce Koleksiyonu Oluştur olanak tanır. komut: `create collection <username>`
+> - DB2 için i (AS400): güç kullanıcı oturum açma kullanıcısı için kopyalama etkinliği kullanmadan önce Koleksiyonu Oluştur olanak tanır. Komut: `create collection <username>`
 > - DB2 için z/OS veya LUW: kopyalama etkinliği çalışmak üzere yüksek ayrıcalıklı bir hesap - power user veya Yönetim Paketi yetkilileri ve bağlama, BINDADD, GRANT YÜRÜTMEK için genel izinleri - kullanın ve sonra gerekli paket kopyalama sırasında otomatik olarak oluşturulur. Daha sonra geri normal bir kullanıcı için sonraki kopyalama çalışmalarınız için geçiş yapabilirsiniz.
 
 ## <a name="prerequisites"></a>Önkoşullar
@@ -187,8 +184,8 @@ DB2'den veri kopyalama işlemi sırasında aşağıdaki eşlemelerini DB2 veri t
 | DbClob |Dize |
 | Ondalık |Ondalık |
 | DecimalFloat |Ondalık |
-| Çift |Çift |
-| Kayan |Çift |
+| çift |çift |
+| Kayan |çift |
 | Grafiği |Dize |
 | Tamsayı |Int32 |
 | LONGVARBINARY |Byte] |

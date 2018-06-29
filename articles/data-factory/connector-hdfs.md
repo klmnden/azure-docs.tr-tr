@@ -13,23 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 2c25bff60adc1f3d462cc6a437eab0d46f9fa413
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 034c9a321f402bada87290f6aa72fc7e416ef2c6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287880"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054553"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Azure Data Factory kullanarak HDFS verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-hdfs-connector.md)
-> * [Sürüm 2 - Önizleme](connector-hdfs.md)
+> * [Sürüm 1](v1/data-factory-hdfs-connector.md)
+> * [Geçerli sürüm](connector-hdfs.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de HDFS verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 HDFS Bağlayıcısı](v1/data-factory-hdfs-connector.md).
-
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -164,7 +160,7 @@ HDFS verileri kopyalamak için kopyalama etkinliği için kaynak türünü ayarl
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Kopyalama etkinliği kaynağı tür özelliği ayarlamak: **HdfsSource** |Evet |
-| Özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. Özyinelemeli true ve havuz için ayarlandığında Not dosya tabanlı depolama, boş klasör/alt-folder havuz kopyalanır ve oluşturulan olmaz.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
+| özyinelemeli | Belirtilen klasörün alt klasörleri ya da yalnızca verileri özyinelemeli olarak okunur olup olmadığını gösterir. Özyinelemeli true ve havuz için ayarlandığında Not dosya tabanlı depolama, boş klasör/alt-folder havuz kopyalanır ve oluşturulan olmaz.<br/>İzin verilen değerler: **true** (varsayılan), **false** | Hayır |
 | distcpSettings | HDFS Distcp'yi kullanırken özellik grubu. | Hayır |
 | resourceManagerEndpoint | Yarn ResourceManager uç noktası | Evet Distcp'yi kullanıyorsanız |
 | tempScriptPath | Geçici Distcp'yi komut dosyasını depolamak için kullanılan bir klasör yolu. Komut dosyası veri fabrikası tarafından oluşturulur ve kopyalama işini tamamladıktan sonra kaldırılır. | Evet Distcp'yi kullanıyorsanız |
@@ -354,7 +350,7 @@ HDFS Bağlayıcısı Kerberos kimlik doğrulamasını kullanmak amacıyla şirke
 
     1. Sunucu Yöneticisi gidin > Grup İlkesi Yönetimi > etki alanı > Grup İlkesi nesneleri > Varsayılan veya etkin etki alanı ilkesi ve düzenleyin.
 
-    2. İçinde **Grup İlkesi Yönetimi Düzenleyicisi** açılan pencerede, bilgisayar yapılandırması gidin > ilkeler > Windows Ayarları > Güvenlik Ayarları > yerel ilkeler > güvenlik seçenekleri ve yapılandırma **ağ güvenliği: yapılandırma şifreleme türleri için Kerberos izin**.
+    2. İçinde **Grup İlkesi Yönetimi Düzenleyicisi** açılan pencerede, bilgisayar yapılandırması gidin > ilkeler > Windows Ayarları > Güvenlik Ayarları > yerel ilkeler > güvenlik seçenekleri ve yapılandırma **ağ Güvenlik: Kerberos için izin verilen şifreleme türleri yapılandırma**.
 
     3. Seçin, kullanmak istediğiniz şifreleme algoritması için KDC bağlayın. Genellikle, yalnızca tüm seçeneklerini belirleyebilirsiniz.
 

@@ -6,16 +6,16 @@ manager: timlt
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: d6e831cdd7cd18305beb617693ee1026bb6429e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9e69faf1b07af0e60cfd21cd6eb9f00e211ab91e
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631483"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031762"
 ---
-# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway---preview"></a>IoT Edge ağ geçidi cihazı aracılığıyla Modbus TCP cihazlarını bağlama - önizleme
+# <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Bir IOT kenar aygıt ağ geçidi üzerinden Modbus TCP aygıtları bağlayın
 
 Modbus TCP veya RTU protokollerini kullanan IoT cihazlarını bir Azure IoT hub’ına bağlamak istiyorsanız ağ geçidi olarak bir IoT Edge cihazı kullanın. Ağ geçidi cihazı Modbus cihazlarınızdan verileri okur, sonra desteklenen bir protokolü kullanarak bu verileri buluta iletir. 
 
@@ -26,7 +26,7 @@ Bu makalede, bir Modbus modülü için kendi kapsayıcı görüntünüzü oluşt
 Bu makalede Modbus TCP protokolünü kullandığınız varsayılır. Modülün Modbus RTU’yu destekleyecek şekilde yapılandırılması hakkında daha fazla bilgi edinmek için Github’daki [Azure IoT Edge Modbus modülü](https://github.com/Azure/iot-edge-modbus) projesine başvurun. 
 
 ## <a name="prerequisites"></a>Önkoşullar
-* Bir Azure IoT Edge cihazı. Edge cihazı ayarlama konusunda adım adım bir kılavuz için bkz. [Linux](tutorial-simulate-device-linux.md) veya [Windows’da bir sanal cihaza Azure IoT Edge dağıtma](tutorial-simulate-device-windows.md). 
+* Bir Azure IoT Edge cihazı. Edge cihazı ayarlama konusunda adım adım bir kılavuz için bkz. [Linux](quickstart-linux.md) veya [Windows’da bir sanal cihaza Azure IoT Edge dağıtma](quickstart.md). 
 * IoT Edge cihazı için birincil anahtar bağlantı dizesi.
 * Modbus TCP’yi destekleyen fiziksel veya sanal bir cihaz.
 
@@ -43,10 +43,10 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
 
 ## <a name="run-the-solution"></a>Çözümü çalıştırın
 1. [Azure portalında](https://portal.azure.com/) IoT hub'ınıza gidin.
-2. **IoT Edge (önizleme)** sayfasına gidip IoT Edge cihazınızı seçin.
+2. Git **IOT kenar** ve IOT kenar Cihazınızda'ı tıklatın.
 3. **Modül ayarla**’yı seçin.
 4. Modbus modülünü ekleyin:
-   1. **IoT Edge modülü ekle**’yi seçin.
+   1. Tıklatın **Ekle** seçip **IOT kenar Modülü**.
    2. **Ad** alanına "modbus" yazın.
    3. **Resim** alanına örnek kapsayıcının resim URI’sini girin: `microsoft/azureiotedge-modbus-tcp:1.0-preview`.
    4. Modül ikizinin istenen özelliklerini güncelleştirmek için **Etkinleştir** kutusunu işaretleyin.
@@ -87,8 +87,8 @@ Kendi modülünüzü oluşturmak ve ortamınız için özelleştirmek istiyorsan
    ```
 
 8. **İleri**’yi seçin. 
-9. **Şablonu Gözden Geçirin** adımında **Gönder**’i seçin. 
-10. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin. Yeni **modbus**’un IoT Edge çalışma zamanıyla birlikte çalıştığını görmelisiniz.
+9. İçinde **gözden geçirme dağıtım** adım, select **gönderme**. 
+10. Cihaz ayrıntıları sayfasına dönüp **Yenile**’yi seçin. Yeni görmelisiniz **modbus** IOT kenar çalışma zamanı ile birlikte çalışan modülü.
 
 ## <a name="view-data"></a>Verileri görüntüleme
 Modbus modülü üzerinden gelen verileri görüntüleyin:
@@ -100,5 +100,8 @@ Ayrıca, [IoT Hub Gezgini aracını](https://github.com/azure/iothub-explorer) k
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- IoT Edge cihazlarının nasıl ağ geçidi olarak kullanılabildiği hakkında daha fazla bilgi edinmek için bkz. [Saydam bir ağ geçidi olarak kullanılabilen bir IoT Edge cihazı oluşturma](how-to-create-transparent-gateway.md)
+- IOT sınır cihazları ağ geçitleri olarak davranıp nasıl hakkında daha fazla bilgi için bkz: [saydam bir ağ geçidi olarak davranan bir IOT sınır cihazı oluşturma][lnk-transparent-gateway-linux]
 - IoT Edge modüllerinin nasıl çalıştığı hakkında daha fazla bilgi edinmek için bkz. [Azure IoT Edge modüllerini anlama](iot-edge-modules.md)
+
+<!-- Links -->
+[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

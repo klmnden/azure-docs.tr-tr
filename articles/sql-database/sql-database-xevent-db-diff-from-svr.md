@@ -10,12 +10,12 @@ ms.workload: On Demand
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 446c1f3af3f00fb70a230dfec5f5c533b45a285f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c0115254fc3368868584e76ead8da812656e4d1
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650052"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028855"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL veritabanında genişletilmiş olaylar
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -190,7 +190,7 @@ En fazla bellek zorlanmış bildiren bir hata iletisi alırsanız, bazı düzelt
 ## <a name="related-links"></a>İlgili bağlantılar
 
 - [Azure Storage ile Azure PowerShell'i kullanma](../storage/common/storage-powershell-guide-full.md).
-- [Azure depolama cmdlet'leri](http://msdn.microsoft.com/library/dn806401.aspx)
+- [Azure depolama cmdlet'leri](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Azure Storage ile Azure PowerShell'i kullanarak](../storage/common/storage-powershell-guide-full.md) -PowerShell ve Azure depolama hizmeti hakkında kapsamlı bilgi sağlar.
 - [BLOB depolama alanından .NET kullanma](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)

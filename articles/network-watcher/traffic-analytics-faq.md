@@ -13,204 +13,259 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: de85e4295a59c54cb68306bf0cbc516bf5e1f8e2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a4b87d92751c84d96bc70915d16adae7943c145e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313300"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062886"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Trafik analytics sık sorulan sorular
 
-1.  Trafik analytics kullanmak için ön koşullar nelerdir?
+Bu makalede tek bir yerde birçok Azure Ağ İzleyicisi içinde trafiği analytics hakkında sık sorulan soruların toplar.
 
-    Trafik Analytics aşağıdaki önkoşulları gerektirir:
+## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Trafik analytics kullanmak için Önkoşullar nelerdir?
 
-    - Ağ İzleyicisi'ni etkin abonelik
-    - İzlemek istediğiniz Nsg'ler için etkin NSG akış günlükleri
-    - Ham akış günlükleri depolamak için bir Azure Storage hesabı
-    - Okuma ve yazma erişimi olan bir günlük analizi (OMS) çalışma alanı
-    - Kullanıcıya abonelik düzeyinde aşağıdaki rolleri birini ile atanmalıdır:
-    
-    1.  Şu Klasik yönetici herhangi biri olması gerekir
-    
-        - Hesap yöneticisi
-        - Hizmet yöneticisi 
-        - Ortak yönetici
-        
-    2.  Hesabınızda herhangi biri şu RBAC rolleri aboneliği kapsamında olması gerekir.
-    
-        - Sahip
-        - Katılımcı
-        - Okuyucu
-        - Ağ Katılımcısı
+Trafik analytics aşağıdaki önkoşulları gerektirir:
 
-    3. Hesabınızda herhangi bir özel RBAC rolü tüm aşağıdaki sözü edilen eylemler için izne sahip abonelik düzeyinde olması gerekir.
+- Ağ İzleyicisi abonelik etkin.
+- Ağ güvenlik grubu (NSG) akış günlükleri, izlemek istediğiniz Nsg'ler için etkinleştirilmiş.
+- Ham depolamak için bir Azure depolama hesabınızın günlükleri flog.
+- Okuma ve yazma erişimi olan bir Azure günlük analizi çalışma.
+
+Hesabınızı trafiği analytics etkinleştirmek için aşağıdakilerden birini karşılaması gerekir:
+
+- Bir abonelik düzeyinde aşağıdaki rollerin hesabınızı atanmalıdır: Hesap Yöneticisi, Hizmet Yöneticisi veya ortak yönetici.
+- Hesabınızda herhangi biri aşağıdaki rol tabanlı erişim denetimi (RBAC) rolleri aboneliği kapsamında olması gerekir: sahibi, katkıda bulunan, okuyucu veya ağ Katılımcısı.
+- Hesabınızı daha önce listelenen rollerinden birini atanmamışsa, aşağıdaki eylemler, abonelik düzeyinde atanan özel bir rol atanması gerekir.
             
-        - Microsoft.Network/applicationGateways/read
-        - Microsoft.Network/connections/read
-        - Microsoft.Network/loadBalancers/read 
-        - Microsoft.Network/localNetworkGateways/read 
-        - Microsoft.Network/networkInterfaces/read 
-        - Microsoft.Network/networkSecurityGroups/read 
-        - Microsoft.Network/publicIPAddresses/read
-        - Microsoft.Network/routeTables/read
-        - Microsoft.Network/virtualNetworkGateways/read 
-        - Microsoft.Network/virtualNetworks/read
+    - Microsoft.Network/applicationGateways/read
+    - Microsoft.Network/connections/read
+    - Microsoft.Network/loadBalancers/read 
+    - Microsoft.Network/localNetworkGateways/read 
+    - Microsoft.Network/networkInterfaces/read 
+    - Microsoft.Network/networkSecurityGroups/read 
+    - Microsoft.Network/publicIPAddresses/read
+    - Microsoft.Network/routeTables/read
+    - Microsoft.Network/virtualNetworkGateways/read 
+    - Microsoft.Network/virtualNetworks/read
         
-    Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için lütfen aşağıdaki adımları izleyin:
+Bir abonelik için bir kullanıcıya atanan rollerin denetlemek için:
 
-    Azure kullanarak oturum açma **Login-AzureRmAccount** 
+1. Azure'a kullanarak oturum **Login-AzureRmAccount**. 
 
-    Gerekli olan abonelik kullanarak seçin **Select-AzureRmSubscription** 
+2. Gerekli olan abonelik kullanarak seçme **Select-AzureRmSubscription**. 
 
-    Belirtilen bir kullanıcıya atanmış olan tüm rolleri listelemek için artık kullanmak **Get-AzureRmRoleAssignment - SignInName <user email> - IncludeClassicAdministrators** 
+3. Belirtilen bir kullanıcıya atanmış olan tüm rolleri listelemek için kullanın **Get-AzureRmRoleAssignment - SignInName [kullanıcı e-postası] - IncludeClassicAdministrators**. 
 
-    Yürütme commends sonra herhangi bir çıktı görmüyorsanız sonra lütfen ilgili abonelik Yönetici'ye komutları yürütmek için erişim sağlamak için ulaşın.  
-
-    Daha fazla ayrıntı Lütfen başvurun [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)
+Herhangi bir çıktı görmüyorsanız, komutları çalıştırmak için erişim sağlamak için ilgili aboneliği yöneticisine başvurun. Daha fazla ayrıntı için bkz: [rol tabanlı erişim denetimini Azure PowerShell ile yönetme](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
 
 
-2.  Hangi Azure bölgeleri trafiği analytics kullanılabilir?
+## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Hangi Azure trafiğini analiz bölgelerde kullanılabilir?
 
-    Önizleme sürümde karşın, trafik analizi için Nsg'ler herhangi birini kullanabilirsiniz **bölgeler desteklenen**: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Kuzey Orta ABD, Orta Güney ABD, Orta ABD, Batı ABD, Batı ABD 2, Batı Avrupa, Kuzey Avrupa Birleşik Krallık Batı, Birleşik Krallık Güney, Avustralya Doğu, Avustralya Güneydoğu ve Güneydoğu Asya. Günlük analizi çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, Birleşik Krallık Güney, Avustralya Güneydoğu veya Güneydoğu Asya bölge içinde bulunmalıdır.
+Nsg'ler aşağıdaki desteklenen bölgeler hiçbirinde trafiği analytics kullanabilirsiniz: Batı Orta ABD, Doğu ABD, Doğu ABD 2, Kuzey Orta ABD, Orta Güney ABD, Orta ABD, Batı ABD, Batı ABD 2, Batı Avrupa, Kuzey Avrupa, Birleşik Krallık Batı, Birleşik Krallık Güney, Avustralya Doğu, Avustralya Güneydoğu ve Güneydoğu Asya. Günlük analizi çalışma alanı, Batı Orta ABD, Doğu ABD, Batı Avrupa, Birleşik Krallık Güney, Avustralya Güneydoğu veya Güneydoğu Asya bölge içinde bulunmalıdır.
 
-3.  Akış etkinleştirebilirim Nsg'ler olabilir günlüklerini olması OMS çalışma Alanım'den farklı bölgelerdeki?
+## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Akış etkinleştirebilirim Nsg'ler olabilir günlüklerini olması çalışma Alanım'den farklı bölgelerdeki?
 
-    Evet
+Evet, bu Nsg'ler günlük analizi çalışma alanınızı daha farklı bölgelerdeki olabilir.
 
-4.  Birden çok Nsg'ler tek bir çalışma alanı içinde yapılandırılabilir mi?
+## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Birden çok Nsg'ler tek bir çalışma alanı içinde yapılandırılabilir mi?
 
-    Evet
+Evet.
 
-5.  Var olan bir OMS çalışma kullanabilir miyim?
+## <a name="can-i-use-an-existing-workspace"></a>Varolan bir çalışma alanı kullanabilir miyim?
 
-    Evet, var olan bir çalışma öğesini seçerseniz, yeni sorgu dili geçirildiğinden emin olun. Çalışma alanına yükseltmeye istemiyorsanız; Yeni bir tane oluşturmanız gerekir. Yeni sorgu dili hakkında daha fazla bilgi için bkz: [Azure günlük analizi yükseltmek için yeni günlük arama](../log-analytics/log-analytics-log-search-upgrade.md).
+Evet. Var olan bir çalışma öğesini seçerseniz, yeni sorgu dili geçirildiğinden emin olun. Çalışma alanına yükseltmeye istemiyorsanız, yeni bir tane oluşturmanız gerekir. Yeni sorgu dili hakkında daha fazla bilgi için bkz: [Azure günlük analizi yükseltmek için yeni günlük arama](../log-analytics/log-analytics-log-search-upgrade.md).
 
-6.  Azure depolama Hesabımı bir abonelikte kullanılabilir ve farklı bir abonelikte OMS çalışma Alanım olabilir?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Azure depolama Hesabımı bir abonelikte kullanılabilir ve farklı bir abonelikte Operations Management Suite çalışma Alanım olabilir?
 
-    Evet
+Evet, Azure depolama hesabınıza bir abonelikte olabilir ve farklı bir abonelikte Operations Management Suite çalışma alanınız olabilir.
 
-7.  Farklı bir abonelik farklı depolama hesabında ham günlükleri depolayabilirsiniz?
+## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Farklı bir abonelikte ham günlükleri depolayabilir miyim?
 
-    Hayır. Ham günlükleri depolamak bir NSG akış günlükleri için etkin olduğu tüm depolama hesabında ancak, depolama hesabı ve raw günlükleri aynı abonelikte ve bölgede olması gerekir.
+Hayır. Bir NSG'yi akış günlükleri için etkinleştirdiğiniz herhangi bir depolama hesabı ham günlükleri depolayabilirsiniz. Ancak, depolama hesabı ve raw günlükleri aynı abonelikte ve bölgede olması gerekir.
 
-8.  I trafiğini analiz için bir NSG yapılandırırken "Bulunamadı" hatasını alırsanız, nasıl ı çözebilmek?
+## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>Bir NSG'yi bir "Bulunamadı" hatası nedeniyle trafiğini analiz için yapılandırma olamaz
 
-    Soru 2 listelenen desteklenen bir bölge seçin. Desteklenmeyen bir bölge seçerseniz, "Bulunamadı" hatasını alıyorsunuz.
+Desteklenen bir bölge seçin. Desteklenmeyen bir bölge seçerseniz, "Bulunamadı" hatasını alıyorsunuz. Desteklenen bölgeleri bu makalenin önceki bölümlerinde listelenir.
 
-9.  NSG akış günlükleri altında NSG durumu "yüklemek için başarısız", alıyorum ne yapılacağına?
+## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>Ne durum aldığımı "yükleyemedi," NSG akış günlükleri sayfanın altında?
 
-    Microsoft.ınsights sağlayıcısı için düzgün çalışması için günlük akışı kayıtlı olması gerekir. Aboneliğiniz için değil veya Microsoft.ınsights sağlayıcısı kayıtlı olup olmadığından emin değilseniz, Değiştir *xxxxx-xxxxx-xxxxxx-xxxx* aşağıdaki komutu ve aşağıdaki komutları çalıştırın powershell'den:
+Microsoft.ınsights sağlayıcısı için düzgün çalışması için günlük akışı kayıtlı olması gerekir. Microsoft.ınsights sağlayıcısı, aboneliğiniz için kayıtlı olup olmadığından emin değilseniz, yerini *xxxxx-xxxxx-xxxxxx-xxxx* aşağıdaki komutu yazın ve PowerShell aşağıdaki komutları çalıştırın:
 
-    ```powershell-interactive
-    **Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-    **Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
-    ```
+```powershell-interactive
+**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+```
 
-10. Çözüm yapılandırmış olduğunuz. Neden bir şey Panoda görüyorum değil mi?
+## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Çözüm yapılandırmış olduğunuz. Neden bir şey Panoda görüyorum değil mi?
 
-    Panoyu ilk kez görünmesi 30 dakika kadar sürebilir. Çözümü ilk herhangi bir raporu oluşturulmadan önce anlamlı bilgiler çıkarmanıza kendisine için yeterli veri toplaması gerekir. 
+Panoyu ilk kez görünmesi 30 dakika sürebilir. Çözümü ilk anlamlı bilgiler türetilen kendisine için yeterli veri toplaması gerekir. Ardından raporlar oluşturur. 
 
-11.  Aşağıdaki ileti alırsanız: "hiçbir veri bu çalışma alanında seçilen zaman aralığı için bulamadık. Zaman aralığını değiştirmeyi deneyin veya farklı bir çalışma alanı seçin"nasıl onu giderebilirim?
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>Bu ileti alırsam ne olur: "hiçbir veri bu çalışma alanında seçilen zaman aralığı için bulamadık. Zaman aralığını değiştirmeyi deneyin veya farklı bir çalışma alanı seçin. "?
 
-        Aşağıdaki seçenekleri deneyin:
-        - Zaman aralığı üst çubuğunda değiştirmeyi deneyin.
-        - Üst araç çubuğunda farklı bir günlük analizi çalışma alanı seçin
-        - Yakın zamanda etkinleştirildiyse trafiği Analytics 30 dakika sonra erişmeyi deneyin
+Aşağıdaki seçenekleri deneyin:
+- Üst çubuğunda zaman aralığını değiştirebilirsiniz.
+- Farklı bir günlük analizi çalışma alanı, üst araç çubuğunda seçin.
+- Yakın zamanda etkinleştirildiyse trafiği analytics 30 dakika sonra erişmeyi deneyin.
     
-        Sorun devam ederse, sorunları Yükselt [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Sorun devam ederse, sorunları Yükselt [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-12.  Aşağıdaki ileti alırsanız: "1), NSG çözümleme akış günlükleri ilk kez. Bu işlemin tamamlanması 20-30 dakika sürebilir. Bir süre sonra yeniden denetleyin. 2) yukarıdaki adım çalışmaz ve çalışma alanınızı ücretsiz SKU ardından bir kotanın üzerinde doğrulamak için çalışma alanı kullanımınızı denetleyin, aksi takdirde sık sorulan sorular için daha fazla bilgi için başvurun", nasıl onu giderebilirim?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Bu ileti alırsam ne olur: ", NSG çözümleme akış günlükleri ilk kez. Bu işlemin tamamlanması 20-30 dakika sürebilir. Bir süre sonra yeniden denetleyin. 2) yukarıdaki adım çalışmaz ve çalışma alanınızı ücretsiz SKU ise, kota doğrulamak için çalışma alanı kullanımınızı denetleyin, aksi takdirde, daha fazla bilgi için SSS için başvurun. "?
 
-        Aşağıdaki nedenlerle hata iletisini alabilirsiniz:
-        - Trafiğini analiz son etkinleştirilmiş ve henüz yeterli daha anlamlı bilgiler çıkarmaya toplanmış verilerine değil.
-        - Ücretsiz SKU OMS çalışma alanınız olduğundan ve kota sınırlarının ihlal. Bu durumda, bir çalışma alanında bir SKU daha büyük kapasitede kullanmanız gerekebilir.
+Çünkü bu iletiyi görebilirsiniz:
+- Trafik analytics son etkinleştirildi ve henüz yeterli daha anlamlı bilgiler çıkarmaya toplanmış verilerine değil.
+- Operations Management Suite çalışma ücretsiz sürümünü kullanıyorsanız ve kota sınırlarını aştı. Daha büyük bir kapasiteye sahip bir çalışma alanı kullanmanız gerekebilir.
     
-        Sorun devam ederse, sorunları Yükselt [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Sorun devam ederse, sorunları Yükselt [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
-13.  Aşağıdaki ileti alırsanız: "sahip olduğumuz kaynakları verileri (topoloji) ve akış bilgisi yok gibi görünüyor. Bu sırada, buraya tıklayın ve sık sorulan sorular için daha fazla bilgi için bkz kaynakları verileri görmek için", nasıl giderebilirim onu?
+## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>Bu ileti alırsam ne olur: "sahip olduğumuz kaynakları verileri (topoloji) ve akış bilgisi yok gibi görünüyor. Bu sırada, kaynak verileri görebilir ve sık sorulan sorular için daha fazla bilgi için bkz için burayı tıklatın. "?
 
-        Panoda kaynak bilgileri görüyorsunuz; Ancak, hiçbir akışıyla ilgili istatistikleri mevcut değildir. Veri kaynakları arasında hiçbir iletişim akışını nedeniyle bulunmuyor olabilir. İçin 60 dakika bekleyin ve durum yeniden denetleyin. Kaynaklar arasında iletişimi akışları mevcut sonra içindeki sorunları Yükselt emin olduğunuzda [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
+Panoda kaynak bilgileri görüyorsunuz; Ancak, hiçbir akışıyla ilgili istatistikleri mevcut değildir. Veri kaynakları arasında hiçbir iletişim akışını nedeniyle mevcut olmayabilir. 60 dakika bekleyin ve durum yeniden denetleyin. Sorun devam ederse ve kaynaklar arasında iletişimi akışları var olduğundan emin olarak sorunları Oluştur [kullanıcı ses Forumu](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-14. PowerShell veya Azure Resource Manager şablonu kullanarak trafiği analytics yapılandırabilir miyim?
+## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>PowerShell kullanarak trafiği analytics yapılandırabilmeniz için veya bir Azure Resource Manager şablonu ya da istemci?
 
-        Yes, traffic analytics configuration using windows powershell is supported from version 6.2.1 onwards, however Azure Resource Manager template support is not available at present. To learn more, how PowerShell can be used to configure traffic analytics please refer following [documentation](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0). 
+Trafik analytics sürümünden 6.2.1 başlayarak Windows PowerShell kullanarak yapılandırabilirsiniz. Akış günlüğü ve trafik analizi için belirli bir NSG kümesi cmdlet'ini kullanarak yapılandırmak için bkz [kümesi AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). Akış günlüğe kaydetme ve trafik analytics durumu için belirli bir NSG almak için bkz: [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
 
-15.  Trafik analytics nasıl fiyatlandırılır?
+Şu anda, trafiği analytics yapılandırmak için bir Azure Resource Manager şablonunu kullanamazsınız.
 
-        Hizmet tarafından işlenir ve günlük analizi çalışma alanında sonuçlandı Gelişmiş günlüklerini depolamak akışı günlük verileri için trafiği analytics ölçülen. Plan fiyatlandırması hakkında daha fazla Lütfen bilmeniz [burayı tıklatın](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) 
+Bir Azure Resource Manager istemcisi kullanarak trafiği analytics yapılandırmak için aşağıdaki örneklere bakın.
 
-16.  Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
+**Cmdlet örnek ayarlayın:**
+```
+#Requestbody parameters
+$TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
+$TAstorageId = "/subscriptions/<storage subscription id>/resourcegroups/<storage resource group name> /providers/microsoft.storage/storageaccounts/<storage account name>"
+$networkWatcherResourceGroupName = "<network watcher resource group name>"
+$networkWatcherName = "<network watcher name>"
 
-        Coğrafi harita sayfa iki ana bölümleri içerir:
-    
-        - **Başlık**: coğrafi harita üst yerleştirilen başlık Deployment/No dağıtım/etkin/devre dışı/trafik Analytics etkin/trafik Analytics değil/trafiği etkin gibi düğmeleri üzerinden trafik dağıtım filtreleri seçin yeteneği sağlar Ülke/Benign/kötü amaçlı/izin verilen kötü amaçlı trafiği ve gösterge bilgileri. Tanımlı düğmeleri seçimde harita dağıtımınızı "Active" Veri merkezlerindeki vurgular sonra gibi bir kullanıcı başlığı altında "Active" filtre düğmesini seçerse bu haritada ilgili filtre uygulanır.
-        - **Harita**: Başlık yerleştirilen eşlemesi bölümü Azure veri merkezleri ile ülkelerde arasında trafik dağılımı gösterir.
-    
-        **Başlık çubuğunda klavye gezinme**
-    
-        - Varsayılan olarak, başlık coğrafi harita sayfasında "Azure DC'leri" düğmesine filtre seçimdir.
-        - Başka bir filtre düğmesine gitmek için kullanabilir `Tab` veya `Right arrow` sonraki taşımak için anahtar. Geriye doğru gidin, kullanın ya da `Shift+Tab` veya `Left arrow` anahtarı. İleri gezinti yönü öncelik sağa sol alta üst tarafından izlenen.
-        - Tuşuna `Enter` veya `Down` seçilen filtre uygulamak için ok tuşu. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğüm eşlemesi bölümü altında vurgulanır.
-            - Arasında geçiş yapmak için **başlık** ve **harita**, basın `Ctrl+F6`.
+$requestBody = 
+@"
+{
+    'targetResourceId': '${TAtargetUri}',
+    'properties': 
+    {
+        'storageId': '${TAstorageId}',
+        'enabled': '<true to enable flow log or false to disable flow log>',
+        'retentionPolicy' : 
+        {
+            days: <enter number of days like to retail flow logs in storage account>,
+            enabled: <true to enable retention or false to disable retention>
+        }
+    },
+    'flowAnalyticsConfiguration':
+    {
+                'networkWatcherFlowAnalyticsConfiguration':
+      {
+        'enabled':,<true to enable traffic analytics or false to disable traffic analytics>
+        'workspaceId':'bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb',
+        'workspaceRegion':'<workspace region>',
+        'workspaceResourceId':'/subscriptions/<workspace subscription id>/resourcegroups/<workspace resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
         
-        **Klavye gezinti haritaya**
+      }
+
+    }
+}
+"@
+$apiversion = "2016-09-01"
+
+armclient login
+armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
+```
+**Cmdlet örnek alın:**
+```
+#Requestbody parameters
+$TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
+
+
+$requestBody = 
+@"
+{
+    'targetResourceId': '${TAtargetUri}'
+}
+“@
+
+
+armclient login
+armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/queryFlowLogStatus?api-version=${apiversion}" $requestBody
+```
+
+
+
+## <a name="how-is-traffic-analytics-priced"></a>Trafik analytics nasıl fiyatlandırılır?
+
+Trafik analytics ölçülen. Ölçüm üzerindeki akış günlük verileri işleme hizmeti tarafından temel alır ve elde edilen depolama günlükleri günlük analizi çalışma alanındaki Gelişmiş. Daha fazla ayrıntı için bkz: [planı fiyatlandırma](https://azure.microsoft.com/en-us/pricing/details/network-watcher/). 
+
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Coğrafi harita görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
+
+Coğrafi harita sayfa iki ana bölümleri içerir:
     
-        - Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**Azure veri merkezi** veya **ülke/bölge**) eşlemesi görünümünde.
-        - Vurgulanan diğer düğümlere eşlemesindeki gitmek için kullanabilir `Tab` veya `Right arrow` anahtarları İleri hareketi için ve `Shift+Tab` veya `Left arrow` geriye dönük taşıma için anahtar.
-        - Vurgulanan düğümlerinden eşlemesinde seçmek için kullanın `Enter` veya `Down arrow` anahtarı.
-        - Bu tür bir düğüm seçimde odağı taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak kapalı düğmesi odağı taşır **bilgileri araç kutusu**. Daha fazla içinde gezinmek için **kutusunu** görüntülemek için kullanmak `Right` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
-        - Tuşuna basarak `Tab` odağı açıkken **bilgileri araç kutusu**, Seçili düğümün olarak aynı kıtada uç noktaları odağı taşır. Kullanabileceğiniz `Right` ve `Left arrow` Bu uç noktalar arasında gezinmek için anahtarları.
-        - Diğer akış uç noktalar/Kıtalar kümeye gidin `Tab` İleri hareketi için ve `Shift+Tab` geriye dönük taşıma için.
-        - Odağı sonra `Continent clusters`, kullanın `Enter` veya `Down` kıtadan geçmeden küme içindeki uç noktaları vurgulamak için ok tuşlarını. Uç noktaları ve kıtadan geçmeden kümesinin bilgileri kutusunu Kapat düğmesine gezinmek için kullanın ya da `Right` veya `Left arrow` ileriye ve geriye doğru taşıma için sırasıyla anahtar. Herhangi bir noktadaki kullandığınız `Shift+L` seçili düğümden uç noktası için bağlantı hattı geçmek için. Tuşuna basarak `Shift+L` yeniden seçili uç noktasına gider.
+- **Başlık**: coğrafi harita üstündeki başlık trafik dağıtım filtreleri (örneğin, dağıtım, trafiği ülkelerinden ve kötü amaçlı) seçmek için düğmeler sağlar. Bir düğme seçtiğinizde, ilgili filtre haritada uygulanır. Örneğin, etkin düğmesini seçerseniz, harita, dağıtımınızı active Veri merkezlerindeki vurgular.
+- **Harita**: başlığı altında Azure veri merkezleri ile ülkelerde arasında trafik dağılımı harita bölümünde gösterilir.
+    
+### <a name="keyboard-navigation-on-the-banner"></a>Başlıktaki klavye gezinme
+    
+- Varsayılan olarak, başlık coğrafi harita sayfasında "Azure DC'leri" filtre seçimdir.
+- Başka bir filtre taşımak için kullanın ya da `Tab` veya `Right arrow` anahtarı. Geri gitmek için kullanın ya da `Shift+Tab` veya `Left arrow` anahtarı. İleri gezinti sağa sol alta üst tarafından izlenen.
+- Tuşuna `Enter` veya `Down` seçilen filtre uygulamak için ok tuşu. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğüm eşlemesi bölümü altında vurgulanır.
+- Harita başlığı arasında geçiş yapmak için basın `Ctrl+F6`.
         
-        Her aşamada:
+### <a name="keyboard-navigation-on-the-map"></a>Harita üzerinde klavye gezinme
     
-        - `ESC` Genişletilmiş seçimi daraltır.
-        - `UP Arrow` Anahtar ile aynı eylemi gerçekleştirir `ESC`. `Down arrow` Anahtar ile aynı eylemi gerçekleştirir `Enter`.
-        - Kullanım `Shift+Plus` , yakınlaştırma ve `Shift+Minus` uzaklaştırmak için.
-
-17. Klavyeyi kullanarak VNet topoloji görünümünde nasıl gidebilirsiniz?
-
-    Sanal ağ topolojisi sayfasında, iki ana bölümleri içerir:
-    
-    - **Başlık**: sanal ağlar topolojisinin üst yerleştirilen başlık bağlı sanal ağlar/bağlantı kesildi sanal ağlar/etkin/devre dışı/üzerinde-şirket içi/Azure bölgesi/genel IP'ler gibi düğmeleri üzerinden trafik dağıtım filtreleri seçin yeteneği sağlar / Ağır/Orta/düşük/izin verilen/engellenen ve gösterge bilgileri. Tanımlı düğmeleri seçimde topoloji dağıtımınızda bulunan "Active" sanal ağlar vurgular sonra gibi bir kullanıcı başlığı altında "Active" filtre düğmesini seçerse topoloji, ilgili filtre uygulanır.
-    - **Topoloji**: topolojisi Bölümü başlık yerleştirilen sanal ağlar arasındaki trafik dağılımı gösterir.
-    
-    **Başlık çubuğunda klavye gezinme**
-    
-    - Varsayılan olarak, başlık sanal ağ topolojisi sayfasında "Bağlı sanal ağlar" düğmesine filtre seçimdir.
-    - Başka bir filtre düğmesine gitmek için kullanabileceğiniz `Tab` sonraki taşımak için anahtar. Geriye doğru gidin, `Shift+Tab` anahtarı. İleri gezinti yönü öncelik sağa sol alta üst tarafından izlenen.
-    - Tuşuna `Enter` seçilen filtre uygulamak için ok tuşu. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğüm (VNet) topolojisi bölümü altında vurgulanır.
-        - Arasında geçiş yapmak için **başlık** ve **topoloji**, basın `Ctrl+F6`.
+- Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**Azure veri merkezi** veya **ülke/bölge**) eşlemesi görünümünde.
+- Vurgulanan diğer düğümlere eşlemesindeki taşımak için kullanın ya da `Tab` veya `Right arrow` İleri hareketi için anahtar. Kullanım `Shift+Tab` veya `Left arrow` geriye dönük taşıma için anahtar.
+- Vurgulanan düğümlerinden eşlemesinde seçmek için kullanın `Enter` veya `Down arrow` anahtarı.
+- Bu tür bir düğüm seçimde odağı taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak kapalı düğmesi odağı taşır **bilgileri araç kutusu**. Daha fazla içinde taşımak için **kutusunu** görüntülemek için kullanmak `Right arrow` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
+- Bastığınızda `Tab` odağı açıkken **bilgileri araç kutusu**, Seçili düğümün olarak aynı kıtada uç noktaları odağı taşır. Kullanım `Right arrow` ve `Left arrow` Bu uç noktaları yoluyla taşımak için anahtarları.
+- Diğer akış uç noktaları veya kıtadan geçmeden kümelere taşıma için kullanmak `Tab` İleri hareketi için ve `Shift+Tab` geriye dönük taşıma için.
+- Odağı olduğunda üzerinde **Kıtada kümeleri**, kullanın `Enter` veya `Down` kıtadan geçmeden küme içindeki uç noktaları vurgulamak için ok tuşlarını. Uç noktaları ve Kapat düğmesini kıtadan geçmeden küme bilgi kutusunu taşımak için kullanın ya da `Right arrow` veya `Left arrow` ileriye ve geriye doğru taşıma için sırasıyla anahtar. Herhangi bir noktadaki kullandığınız `Shift+L` seçili düğümden uç noktası için bağlantı hattı geçmek için. Basabilirsiniz `Shift+L` yeniden seçili uç noktasına taşımak için.
         
-    **Klavye gezinti topolojisi hakkında**
+### <a name="keyboard-navigation-at-any-stage"></a>Herhangi bir aşamada klavye gezinme
     
-    - Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**VNet**) topoloji görünümünde.
-    - Diğer gitmek için kullanabileceğiniz topoloji görünümü düğümler vurgulanmış `Shift+Right arrow` İleri hareketi için anahtar. 
-    - Odağı vurgulanan düğümlerinde taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak, odak "Ayrıntılar" düğmesine taşır **bilgileri araç kutusu**. Daha fazla içinde gezinmek için **kutusunu** görüntülemek için kullanmak `Right` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
-    - Bu tür bir düğüm, buna ait tüm bağlantıları ziyaret, tek tek, basarak seçimini `Shift+Left arrow` anahtarı. Odağı taşır **bilgileri araç kutusu** o bağlantı. Herhangi bir noktada odağı düğüme geri tuşlarına basarak gölgeye `Shift+Right arrow` yeniden.
-    
+- `Esc` Genişletilmiş seçimi daraltır.
+- `Up arrow` Anahtar ile aynı eylemi gerçekleştirir `Esc`. `Down arrow` Anahtar ile aynı eylemi gerçekleştirir `Enter`.
+- Kullanım `Shift+Plus` , yakınlaştırma ve `Shift+Minus` uzaklaştırmak için.
 
-18. Alt ağ topolojisi görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Sanal ağ topolojisi görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
 
-    Sanal ağlarla topolojisi sayfasında, iki ana bölümleri içerir:
+Sanal ağ topolojisi sayfasında, iki ana bölümleri içerir:
     
-    - **Başlık**: sanal ağlarla topolojisinin üst yerleştirilen başlık trafik dağıtım filtreleri etkin/devre dışı/dış bağlantıları/üzerinde-şirket içi/Azure bölgesi/genel IP'ler gibi düğmeleri aracılığıyla seçmek için yeteneği sağlar/etkin akar / Ağır/Orta/düşük/kötü amaçlı trafiği/izin verilen/engellenen, ağ geçidi alt ağları/arka uç alt ağları ve ön uç alt ağları. Tanımlı düğmeleri seçimde dağıtımınızda bulunan "Active" sanal alt ağ topolojisi vurgular sonra gibi bir kullanıcı başlığı altında "Active" filtre düğmesini seçerse topoloji, ilgili filtre uygulanır.
-    - **Topoloji**: topolojisi Bölümü başlık yerleştirilen sanal alt ağlar arasındaki trafik dağılımı gösterir.
+- **Başlık**: sanal ağ topolojisi üstündeki başlık trafik dağıtım filtreleri (örneğin, bağlı sanal ağlar, bağlantısı kesilmiş sanal ağları ve genel IP'ler) seçmek için düğmeler sağlar. Bir düğme seçtiğinizde, ilgili filtre topolojisine uygulanır. Örneğin, etkin düğmesini seçerseniz, dağıtımınızdaki etkin sanal ağlar topoloji vurgular.
+- **Topoloji**: başlığı altında sanal ağlar arasında trafiği dağıtım topolojisi bölümü gösterir.
     
-    **Başlık çubuğunda klavye gezinme**
+### <a name="keyboard-navigation-on-the-banner"></a>Başlıktaki klavye gezinme
     
-    - Varsayılan olarak, başlık sanal ağlarla topolojisi sayfasında "Alt" düğmesine filtre seçimdir.
-    - Başka bir filtre düğmesine gitmek için kullanabileceğiniz `Tab` sonraki taşımak için anahtar. Geriye doğru gidin, `Shift+Tab` anahtarı. İleri gezinti yönü öncelik sağa sol alta üst tarafından izlenen.
-    - Tuşuna `Enter` seçilen filtre uygulamak için ok tuşu. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğüm (alt ağ) topolojisi bölümü altında vurgulanır.
-        - Arasında geçiş yapmak için **başlık** ve **topoloji**, basın `Ctrl+F6`.
+- Varsayılan olarak, başlık sanal ağ topolojisi sayfasında "Bağlı sanal ağlar" filtre seçimdir.
+- Başka bir filtre taşımak için kullanın `Tab` ilerlemek için anahtar. Geri gitmek için kullanmak `Shift+Tab` anahtarı. İleri gezinti sağa sol alta üst tarafından izlenen.
+- Tuşuna `Enter` seçilen filtre uygulamak için. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğümler (sanal ağ) topolojisi bölümü altında vurgulanır.
+- Başlık ve topoloji arasında geçiş yapmak için basın `Ctrl+F6`.
         
-    **Klavye gezinti topolojisi hakkında**
+### <a name="keyboard-navigation-on-the-topology"></a>Klavye gezinti topolojisi hakkında
     
-    - Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**alt**) topoloji görünümünde.
-    - Diğer gitmek için kullanabileceğiniz topoloji görünümü düğümler vurgulanmış `Shift+Right arrow` İleri hareketi için anahtar. 
-    - Odağı vurgulanan düğümlerinde taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak, odak "Ayrıntılar" düğmesine taşır **bilgileri araç kutusu**. Daha fazla içinde gezinmek için **kutusunu** görüntülemek için kullanmak `Right` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
-    - Bu tür bir düğüm, buna ait tüm bağlantıları ziyaret, tek tek, basarak seçimini `Shift+Left arrow` anahtarı. Odağı taşır **bilgileri araç kutusu** o bağlantı. Herhangi bir noktada odağı düğüme geri tuşlarına basarak gölgeye `Shift+Right arrow` yeniden.    
+- Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**VNet**) topoloji görünümünde.
+- Vurgulanan diğer düğümlere topoloji görünümünde taşımak için kullanın `Shift+Right arrow` İleri hareketi için anahtar. 
+- Odağı vurgulanan düğümlerinde taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak, odağı taşır **daha fazla ayrıntı** düğmesini **bilgileri araç kutusu**. Daha fazla içinde taşımak için **kutusunu** görüntülemek için kullanmak `Right arrow` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
+- Bu tür bir düğüm seçimde kendi bağlantıları ziyaret edebilirsiniz basarak bir `Shift+Left arrow` anahtarı. Odağı taşır **bilgileri araç kutusu** o bağlantı. Herhangi bir noktada odağı düğüme geri tuşlarına basarak gölgeye `Shift+Right arrow` yeniden.
+    
+
+## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Alt ağ topolojisi görünümünde klavyeyi kullanarak nasıl gidebilirsiniz?
+
+Sanal ağlarla topolojisi sayfasında, iki ana bölümleri içerir:
+    
+- **Başlık**: sanal ağlarla topoloji üstündeki başlık trafik dağıtım filtreleri (örneğin, etkin, Orta ve ağ geçidi alt ağlar) seçmek için düğmeler sağlar. Bir düğme seçtiğinizde, ilgili filtre topolojisine uygulanır. Örneğin, etkin düğmesini seçerseniz, dağıtımınızdaki etkin sanal alt ağ topolojisi vurgular.
+- **Topoloji**: başlığı altında sanal alt ağlar arasında trafiği dağıtım topolojisi bölümü gösterir.
+    
+### <a name="keyboard-navigation-on-the-banner"></a>Başlıktaki klavye gezinme
+    
+- Varsayılan olarak, başlık sanal ağlarla topolojisi sayfasında "Alt" filtre seçimdir.
+- Başka bir filtre taşımak için kullanın `Tab` ilerlemek için anahtar. Geri gitmek için kullanmak `Shift+Tab` anahtarı. İleri gezinti sağa sol alta üst tarafından izlenen.
+- Tuşuna `Enter` seçilen filtre uygulamak için. Filtre seçimini ve dağıtım bağlı olarak, bir veya birden çok düğüm (alt ağ) topolojisi bölümü altında vurgulanır.
+- Başlık ve topoloji arasında geçiş yapmak için basın `Ctrl+F6`.
+        
+### <a name="keyboard-navigation-on-the-topology"></a>Klavye gezinti topolojisi hakkında
+    
+- Başlıktaki herhangi bir filtre seçili ve basılı sonra `Ctrl+F6`, odağı vurgulanan düğümlerinden biri için taşır (**alt**) topoloji görünümünde.
+- Vurgulanan diğer düğümlere topoloji görünümünde taşımak için kullanın `Shift+Right arrow` İleri hareketi için anahtar. 
+- Odağı vurgulanan düğümlerinde taşır **bilgileri araç kutusu** düğümü için. Varsayılan olarak, odağı taşır **daha fazla ayrıntı** düğmesini **bilgileri araç kutusu**. Daha fazla içinde taşımak için **kutusunu** görüntülemek için kullanmak `Right arrow` ve `Left arrow` ileriye ve geriye doğru sırasıyla taşımak için anahtarları. Tuşuna basarak `Enter` odaklanmış düğmesini seçerek aynı etkiye sahiptir **bilgileri araç kutusu**.
+- Bu tür bir düğüm seçimde kendi bağlantıları ziyaret edebilirsiniz basarak bir `Shift+Left arrow` anahtarı. Odağı taşır **bilgileri araç kutusu** o bağlantı. Herhangi bir noktada odağı düğüme geri tuşlarına basarak gölgeye `Shift+Right arrow` yeniden.    
 

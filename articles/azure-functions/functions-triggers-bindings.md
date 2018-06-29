@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
-ms.translationtype: MT
+ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725352"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061362"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure işlevleri Tetikleyicileri ve bağlamaları kavramları
 
@@ -46,48 +46,53 @@ Bağlamaları önizlemede veya üretim kullanımı için onaylanan olduğu hakk�
 
 ## <a name="register-binding-extensions"></a>Bağlama uzantılarını kaydetme
 
-Sürümünde 2.x Azure işlevleri çalışma zamanına sahip açıkça işlevi uygulamanızda kullandığınız bağlama uzantılar (bağlama türleri) kaydetmek. 
+Bazı geliştirme ortamlarında, açıkça zorunda *kaydetmek* kullanmak istediğiniz bir bağlama. Bağlama uzantıları NuGet paketlerini sağlanır ve uzantı kaydetmek için bir paket yükleyin. Aşağıdaki tabloda, ne zaman ve nasıl bağlama uzantıları kaydetmek gösterir.
 
-Sürüm 2.x işlevleri çalışma zamanı şu anda önizlemede. Bir işlev uygulaması sürümü kullanmak için ayarlama hakkında bilgi için işlevleri çalışma zamanı 2.x bkz [Azure işlevleri çalışma zamanı sürümlerini hedefleyen nasıl](set-runtime-version.md).
+|Geliştirme ortamı |Kayıt<br/> işlevlerinde 1.x  |Kayıt<br/> işlevlerinde 2.x  |
+|---------|---------|---------|
+|Azure portalına|Automatic|[Otomatik istemiyle](#azure-portal-development)|
+|Yerel Azure işlevleri çekirdek araçlarını kullanma|Automatic|[Çekirdek araçları CLI komutları kullanın](#local-development-azure-functions-core-tools)|
+|Visual Studio 2017 kullanarak C# sınıf kitaplığı|[NuGet araçlarını kullanma](#c-class-library-with-visual-studio-2017)|[NuGet araçlarını kullanma](#c-class-library-with-visual-studio-2017)|
+|Visual Studio kodu kullanarak C# sınıf kitaplığı|Yok|[.NET Core CLI kullanın](#c-class-library-with-visual-studio-code)|
 
-Sürümünde bağlamaları çekirdek kümesini yoktur açıkça kaydetmek zorunda kalmamak için otomatik olarak kaydedilir 2.x: HTTP, Zamanlayıcı ve Azure Storage (BLOB, kuyruklar ve tablolar). 
+Bunlar otomatik olarak tüm sürümleri ve ortamlara kayıtlı olduğundan, açık kayıt gerektirmeyen özel durumlar aşağıdaki bağlama türleri şunlardır: HTTP, Zamanlayıcı ve Azure Storage (BLOB, kuyruklar ve tablolar). 
 
-Uzantıları NuGet paketleri, paket adı genellikle başladığı ile olarak teslim edilir [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions).  Bağlama uzantıları kaydetme yöntemini işlevlerinizi nasıl geliştirmek bağlıdır: 
+### <a name="azure-portal-development"></a>Azure portal geliştirme
 
-+ [Yerel olarak Visual Studio veya VS kodu kullanarak C# içinde](#local-c-development-using-visual-studio-or-vs-code)
-+ [Yerel olarak Azure işlevleri çekirdek araçlarını kullanma](#local-development-azure-functions-core-tools)
-+ [Azure portalında](#azure-portal-development) 
+Bir işlev oluşturun veya bir bağlama eklemek, tetikleyici veya bağlama uzantısı kayıt gerektirdiğinde istenir. Tıklayarak komutuna yanıt **yükleme** uzantısını kaydetmek için. Yüklemesi tüketim plan üzerinde 10 dakikaya kadar sürebilir.
 
-Bu bölümde gösterilen paket sürümlerinin yalnızca örnektir. Denetleme [NuGet.org site](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions) verilen bir uzantı hangi sürümünün işlevi uygulamanızda başka bir bağımlılık gerekli belirlemek için.    
-
-### <a name="local-csharp"></a>Visual Studio veya VS Code kullanılarak olan yerel C# geliştirme
-
-Yerel olarak C# işlevleri geliştirmek için Visual Studio veya Visual Studio Code kullandığınızda, uzantı için NuGet paketini yükleyin. 
-
-+ **Visual Studio**: NuGet Paket Yöneticisi araçları kullanın. Aşağıdaki [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) komut Paket Yöneticisi Konsolu'ndan Azure Cosmos DB uzantısı yükler:
-
-    ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
-    ```
-
-+ **Visual Studio Code**: komut istemi kullanımından paketlerini yükleyebilirsiniz [dotnet eklemek paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) .NET CLI gibi komutu:
-
-    ```terminal
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
-    ```
+Yalnızca bir kez verilen işlev uygulaması için her bir uzantı yüklemeniz gerekir. 
 
 ### <a name="local-development-azure-functions-core-tools"></a>Yerel geliştirme Azure işlevleri çekirdek araçları
 
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
-### <a name="azure-portal-development"></a>Azure portal geliştirme
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>C# sınıf kitaplığı Visual Studio 2017 ile
 
-Bir işlev oluşturun veya varolan bir işlev bağlama eklemek, tetikleyici veya eklenmekte olan bağlama uzantısı kayıt gerektirdiğinde istenir.   
+İçinde **Visual Studio 2017**, Paket Yöneticisi konsolunu kullanarak paketlerini yükleyebilirsiniz [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) aşağıdaki örnekte gösterildiği gibi komut:
 
-Yüklenmesini istediğiniz uzantıyı için bir uyarı görünür sonra tıklayın **yükleme** uzantısını kaydetmek için. Yalnızca bir kez verilen işlev uygulaması için her bir uzantı yüklemeniz gerekir. 
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
 
->[!Note] 
->Portal yükleme işlemi tüketim plan üzerinde 10 dakikaya kadar sürebilir.
+Belirtilen bağlama için kullanılacak paketi adını başvurusu makalesinde Bu bağlama için sağlanır. Bir örnek için bkz: [paketleri hizmet veri yolu bağlama başvurusu makalesinde bölümüne](functions-bindings-service-bus.md#packages---functions-1x).
+
+Değiştir `<target_version>` paketin belirli bir sürümle örnekteki gibi `3.0.0-beta5`. Geçerli sürümler tek tek Paket sayfalarında listelenen [NuGet.org](https://nuget.org). İşlevler çalışma zamanına karşılık gelen ana sürüm 1.x veya 2.x bağlama için başvuru makaledeki belirtilir.
+
+### <a name="c-class-library-with-visual-studio-code"></a>C# sınıf kitaplığı Visual Studio Code ile
+
+İçinde **Visual Studio Code**, komut istemini kullanarak gelen paketlerini yükleyebilirsiniz [dotnet eklemek paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) aşağıdaki örnekte gösterildiği gibi .NET Core CLI komutu:
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+.NET Core CLI yalnızca Azure işlevleri 2.x geliştirme için kullanılabilir.
+
+Belirtilen bağlama için kullanılacak paketi adını başvurusu makalesinde Bu bağlama için sağlanır. Bir örnek için bkz: [paketleri hizmet veri yolu bağlama başvurusu makalesinde bölümüne](functions-bindings-service-bus.md#packages---functions-1x).
+
+Değiştir `<target_version>` paketin belirli bir sürümle örnekteki gibi `3.0.0-beta5`. Geçerli sürümler tek tek Paket sayfalarında listelenen [NuGet.org](https://nuget.org). İşlevler çalışma zamanına karşılık gelen ana sürüm 1.x veya 2.x bağlama için başvuru makaledeki belirtilir.
 
 ## <a name="example-trigger-and-binding"></a>Örnek tetikleyici ve bağlama
 

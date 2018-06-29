@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234850"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030164"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure yığın ortak anahtar altyapısı sertifika gereksinimleri
 
@@ -76,20 +76,6 @@ Dağıtımınız, [Bölge] ve [externalfqdn] değerleri bölge ve Azure yığın
 | ACSQueue | * .queue. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Kuyruk Depolama | sıra. &lt;bölge >. &lt;fqdn > |
 | KeyVault | * .vault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) | Key Vault | Kasa. &lt;bölge >. &lt;fqdn > |
 | KeyVaultInternal | *.adminvault. &lt;bölge >. &lt;fqdn ><br>(Joker SSL sertifikası) |  İç Keyvault |  adminvault. &lt;bölge >. &lt;fqdn > |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Öncesi 1803 sürümlerinde Azure yığın ortamı için
-
-|Dağıtım klasörü|Gerekli sertifika konusu ve konu alternatif adları (SAN)|Kapsam (her bölge)|Alt etki alanı ad alanı|
-|-----|-----|-----|-----|
-|Ortak portalı|Portal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;bölge >. &lt;fqdn >*|
-|Yönetim Portalı|adminportal.  *&lt;bölge >.&lt; FQDN >*|Portallar|*&lt;bölge >. &lt;fqdn >*|
-|Azure Resource Manager genel|yönetimi.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;bölge >. &lt;fqdn >*|
-|Azure Kaynak Yöneticisi'ni yönetici|adminmanagement.  *&lt;bölge >.&lt; FQDN >*|Azure Resource Manager|*&lt;bölge >. &lt;fqdn >*|
-|ACS<sup>1</sup>|Konu alternatif adlarını içeren bir çoklu alt etki alanı joker sertifikası:<br>&#42;.BLOB.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Queue.  *&lt;bölge >.&lt; FQDN >*<br>&#42;.Table.  *&lt;bölge >.&lt; FQDN >*|Depolama|BLOB.  *&lt;bölge >.&lt; FQDN >*<br>Tablo.  *&lt;bölge >.&lt; FQDN >*<br>sıra.  *&lt;bölge >.&lt; FQDN >*|
-|KeyVault|&#42;.Vault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|Key Vault|Kasa.  *&lt;bölge >.&lt; FQDN >*|
-|KeyVaultInternal|&#42;.adminvault.  *&lt;bölge >.&lt; FQDN >*<br>(Joker SSL sertifikası)|İç Keyvault|adminvault.  *&lt;bölge >.&lt; FQDN >*|
-|
-<sup>1</sup> ACS sertifikası üç joker SAN'ları üzerinde tek bir sertifika gerektirir. Tek bir sertifika üzerinde birden fazla joker karakter SANs tüm ortak sertifika yetkilisi tarafından desteklenmiyor olabilir. 
 
 Azure yığını Azure AD dağıtım modunu kullanarak dağıtırsanız, yalnızca önceki tabloda listelenen sertifikaları istemeniz gerekir. Ancak, Azure AD FS dağıtım modunu kullanarak yığın dağıtırsanız, aşağıdaki tabloda açıklanan sertifikaları da isteğinde gerekir:
 

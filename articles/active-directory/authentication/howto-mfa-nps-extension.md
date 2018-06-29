@@ -1,6 +1,6 @@
 ---
-title: Azure MFA yetenekleri sağlamak için mevcut NPS sunucuları kullanın | Microsoft Docs
-description: Varolan kimlik doğrulama altyapınız için bulut tabanlı iki aşamalı vericiation yetenekleri ekleme
+title: Azure MFA yetenekleri sağlamak için var olan NPS sunucularını kullanın
+description: Varolan kimlik doğrulama altyapınız için bulut tabanlı iki aşamalı doğrulama yetenekleri ekleme
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 2b08c3adb0c638cdfa0ccd9ae4c5beacac822eb4
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018315"
+ms.locfileid: "37031150"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Varolan NPS altyapınızı Azure multi-Factor Authentication ile tümleştirme
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 veya üstü.
 
 Bu kitaplıklar uzantısı ile otomatik olarak yüklenir.
 
--   [Visual Studio 2013 (X64) için Visual C++ yeniden dağıtılabilir paketleri](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Microsoft Azure Active Directory için Windows PowerShell modülü sürümü 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual Studio 2013 (X64) için Visual C++ yeniden dağıtılabilir paketleri](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Active Directory için Windows PowerShell modülü sürümü 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Microsoft Azure Active Directory için Windows PowerShell modülü, zaten var, Kurulum işleminin bir parçası olarak çalışan bir yapılandırma komut dosyası aracılığıyla değilse yüklenir. Zaten yüklü değilse bu modül önceden yüklemeye gerek yoktur.
 
@@ -70,6 +70,13 @@ Herkes NPS uzantısı kullanılarak Azure Active Azure AD Connect'i kullanarak d
 Uzantı yüklediğinizde, Azure AD kiracınız için dizin kimliği ve yönetici kimlik bilgileri gerekir. Dizin Kimliğinizi bulabilirsiniz [Azure portal](https://portal.azure.com). Bir yönetici olarak oturum açın, select **Azure Active Directory** Simge solda, ardından **özellikleri**. GUID kopyalama **dizin kimliği** kutusunda ve kaydedin. NPS uzantısını yüklediğinizde bu GUID Kiracı kimliği olarak kullanın.
 
 ![Azure Active Directory özellikleri'nin altında dizin kimliği bulunamıyor](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>Ağ gereksinimleri
+
+NPS sunucusu aşağıdaki URL'ler ile 80 ve 443 numaralı bağlantı noktaları üzerinden iletişim kurabilmesi gerekir.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>Ortamınızı hazırlama
 
@@ -131,19 +138,19 @@ Kullanıcılarınızın, ayrıca NPS uzantısı ile kimlik doğrulama gerçekle�
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Karşıdan yükleyip NPS uzantısı için Azure MFA
 
-1.  [NPS uzantısını indirin](https://aka.ms/npsmfa) Microsoft İndirme Merkezi'nden.
-2.  İkili yapılandırmak istediğiniz ağ ilkesi sunucusuna kopyalayın.
-3.  Çalıştırma *setup.exe* ve yükleme yönergelerini izleyin. Hatalarla karşılaşırsanız, önkoşul bölümüne iki kitaplıklarından başarıyla yüklendiğini denetleyin.
+1. [NPS uzantısını indirin](https://aka.ms/npsmfa) Microsoft İndirme Merkezi'nden.
+2. İkili yapılandırmak istediğiniz ağ ilkesi sunucusuna kopyalayın.
+3. Çalıştırma *setup.exe* ve yükleme yönergelerini izleyin. Hatalarla karşılaşırsanız, önkoşul bölümüne iki kitaplıklarından başarıyla yüklendiğini denetleyin.
 
 ### <a name="run-the-powershell-script"></a>PowerShell betiğini çalıştırma
 
-Yükleyici, bu konumda bir PowerShell Betiği oluşturur: `C:\Program Files\Microsoft\AzureMfa\Config` (C:\ olduğu yükleme sürücüsü). Bu PowerShell Betiği aşağıdaki eylemleri gerçekleştirir:
+Yükleyici, bu konumda bir PowerShell Betiği oluşturur: `C:\Program Files\Microsoft\AzureMfa\Config` (C:\ olduğu yükleme sürücüsü). Bu PowerShell Betiği her çalıştırıldığında aşağıdaki eylemleri gerçekleştirir:
 
--   Kendinden imzalı bir sertifika oluşturun.
--   Üzerinde Azure AD asıl hizmet sertifikasının ortak anahtarı ilişkilendirin.
--   Sertifika yerel makine sertifika deposunda saklar.
--   Sertifikanın özel anahtarı ağ kullanıcı izni verin.
--   NPS yeniden başlatın.
+- Kendinden imzalı bir sertifika oluşturun.
+- Üzerinde Azure AD asıl hizmet sertifikasının ortak anahtarı ilişkilendirin.
+- Sertifika yerel makine sertifika deposunda saklar.
+- Sertifikanın özel anahtarı ağ kullanıcı izni verin.
+- NPS yeniden başlatın.
 
 (Yerine PowerShell Betiği oluşturur otomatik olarak imzalanan sertifikalar) kendi sertifikaları kullanmak istemiyorsanız, yüklemeyi tamamlamak için PowerShell betiğini çalıştırın. Birden çok sunucu üzerinde uzantısı yüklerseniz, her biri kendi sertifikanın olması gerekir.
 
@@ -162,8 +169,8 @@ Yükleyici, bu konumda bir PowerShell Betiği oluşturur: `C:\Program Files\Micr
 
 Yük Dengeleme için ayarlamak istediğiniz herhangi bir ek NPS sunucularında bu adımları yineleyin.
 
->[!NOTE]
->PowerShell Betiği sertifikalarla üretmek yerine kendi sertifikaları kullanıyorsanız, NPS adlandırma kuralı Hizala emin olun. Konu adı olmalıdır **CN =\<Tenantıd\>, OU = Microsoft NPS uzantı**. 
+> [!NOTE]
+> PowerShell Betiği sertifikalarla üretmek yerine kendi sertifikaları kullanıyorsanız, NPS adlandırma kuralı Hizala emin olun. Konu adı olmalıdır **CN =\<Tenantıd\>, OU = Microsoft NPS uzantı**. 
 
 ## <a name="configure-your-nps-extension"></a>NPS uzantınızı yapılandırın
 
@@ -172,7 +179,7 @@ Bu bölümde, tasarım konuları ve başarılı NPS uzantısı dağıtımlar iç
 ### <a name="configuration-limitations"></a>Yapılandırma sınırlamaları
 
 - Azure MFA için NPS uzantısı kullanıcılar ve ayarlarını MFA sunucusundan buluta geçirmek için araçları içermez. Bu nedenle, varolan dağıtım yerine yeni dağıtımlar için uzantısını kullanarak öneririz. Uzantı üzerinde var olan bir dağıtıma kullanırsanız, kullanıcılarınızın bulutta MFA ayrıntılarını yeniden doldurmak için kanıt Yukarı yapmanız gerekir.  
-- NPS uzantısı şirket içi Active Directory'den ikincil kimlik doğrulaması gerçekleştirmek için Azure MFA kullanıcı tanımlamak için kullanır Uzantı alternatif oturum açma kimliği veya özel Active Directory alan UPN dışında gibi farklı bir kimlik kullanacak şekilde yapılandırılabilir. Bkz: [Gelişmiş çok faktörlü kimlik doğrulaması için NPS uzantısı için yapılandırma seçenekleri](howto-mfa-nps-extension-advanced.md) daha fazla bilgi için.
+- NPS uzantısı şirket içi Active Directory'den ikincil kimlik doğrulaması gerçekleştirmek için Azure MFA kullanıcı tanımlamak için kullanır Uzantı alternatif oturum açma kimliği veya özel Active Directory alan UPN dışında gibi farklı bir kimlik kullanacak şekilde yapılandırılabilir. Daha fazla bilgi için, bkz: [Gelişmiş çok faktörlü kimlik doğrulaması için NPS uzantısı için yapılandırma seçenekleri](howto-mfa-nps-extension-advanced.md).
 - Tüm şifreleme protokolleri tüm doğrulama yöntemlerini destekler.
    - **PAP** telefon araması, tek yönlü SMS mesajı, mobil uygulama bildirimi ve mobil uygulama doğrulama kodu destekler
    - **CHAPV2** ve **EAP** telefon araması ve mobil uygulama bildirimi desteği
@@ -232,12 +239,15 @@ Bu hata çeşitli nedenlerden biri olabilir. Gidermenize yardımcı olması içi
 
 AD Connect çalışır durumda olduğunu ve kullanıcının Windows Active Directory ve Azure Active Directory içinde mevcut olduğunu doğrulayın.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>HTTP hataları günlüklerinde başarısız olan tüm my kimlik doğrulamaları ile bağlanmak neden görüyor musunuz?
 
 Doğrulayın https://adnotifications.windowsazure.com NPS uzantısı çalıştıran sunucudan erişilebilir.
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL protokolleri ve şifre paketleri yönetme
+
+Eski ve zayıf şifre paketleri devre dışı bırakılamadı veya kuruluşunuz tarafından gerekli kılınmadıkça hiçbir kaldırılan önerilir. Nasıl için tam bu görevi makalesinde bulunabilir bilgi [yönetme SSL/TLS protokolleri ve AD FS için şifre paketleri](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

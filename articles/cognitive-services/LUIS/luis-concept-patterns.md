@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: 58bfae51fda10d14d9b1c4ea34cc10345d9a90ac
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318067"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046267"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Desenler tahmin doğruluğunu artırmak
 Desenler birkaç utterances çok benzer olduğunda doğruluğunu artırmak için tasarlanmıştır. Utterance için bir desen sağlayarak HALUK yüksek güvenilirlik tahmin sahip olabilir. 
@@ -42,6 +42,9 @@ Desenler tahmin teknolojileri bir karışımını kullanın. Amacına şablonu u
 
 ## <a name="patterns-do-not-improve-entity-detection"></a>Desenler varlık algılama artırmak değil
 Desenler varlıklar gerektirirken, bir desen varlık algılamak korumaz. Bir desen yalnızca amaçları ve roller ile tahmin yardımcı olmak için tasarlanmıştır.  
+
+## <a name="patterns-use-entity-roles"></a>Varlık rolleri modelleri kullanın
+İki veya daha çok varlık desende bağlam ilişkiliyse desenleri varlığı kullanmak [rolleri](luis-concept-roles.md) varlıklar ilgili bağlamsal bilgi ayıklamak için. Bu alt öğelerini hiyerarşik varlık eşdeğer olan, ancak **yalnızca** desenleri de kullanılabilir. 
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Tahmin puanları ile ve desenler olmadan
 Yeterli örnek utterances verildiğinde, HALUK tahmin güvenirlik desenleri olmadan artırmak gerçekleştirebilir. Desenler sayıda utterances sağlamasına gerek kalmadan güvenirlik puan artırın.  
@@ -92,7 +95,7 @@ Desen bir Pattern.any içeriyorsa ve desen sözdizimi için olasılığı verir 
 
 Desen '[Bul] e-posta {konuda} [kişiden {}]'. Aşağıdaki utterances içinde **konu** ve **kişi** doğru ve yanlış varlık ayıklanır:
 
-|utterance|Varlık|Doğru ayıklama|
+|Konuşma|Varlık|Doğru ayıklama|
 |--|--|:--:|
 |Chris köpekler hakkında e-posta|Konu köpekler =<br>kişi Chris =|✔|
 |ADAM La Mancha gelen e-posta|Konu adam =<br>kişi La Mancha =|X|

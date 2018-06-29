@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: v-geberr;
-ms.openlocfilehash: b8a2c0dbadb0124b9250849a0260f5b34d38a5c3
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b681598f953d217ca636fb5c0adc3de4ddbebd60
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021672"
+ms.locfileid: "37031796"
 ---
 # <a name="integrate-speech-service"></a>Konuşma hizmeti tümleştirmek
 [Konuşma hizmet](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) ses almak ve JSON nesnelerinin HALUK tahmin dönmek için tek bir istek kullanmanıza olanak sağlar.
@@ -53,7 +53,9 @@ Uygulama aldıktan sonra Seç **varlıklar**, ardından **önceden oluşturulmu�
 
   Üzerinde **Yayımla** sayfasında, uygulama kimliği toplamak, bölgeye ve abonelik kimliği oluşturulan HALUK anahtarının yayımlama [oluşturma HALUK uç noktası anahtarı](#create-luis-endpoint-key) bölümü. Bu makalenin sonraki bölümlerinde bu değerleri kullanmak için kodu değiştirmeniz gerekir. 
 
-  Bu değerler tüm alt kısmındaki uç nokta URL'si dahil edilen **Yayımla** oluşturduğunuz anahtarı için sayfa. Yapmak **değil** bu alıştırma için ücretsiz başlangıç anahtarı kullanın. 
+  Bu değerler tüm alt kısmındaki uç nokta URL'si dahil edilen **Yayımla** oluşturduğunuz anahtarı için sayfa. 
+  
+  Yapmak **değil** bu alıştırma için ücretsiz başlangıç anahtarı kullanın. Yalnızca bir **dil anlama** Azure Portal'da oluşturulan anahtarı bu alıştırma için çalışır. 
 
   https://**bölge**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**? abonelik anahtarı =**LUISKEY**& q =
 
@@ -84,22 +86,13 @@ Eşlenen İnsan Kaynakları hedefleri dosya zaten var.
 
 Derleme ve uygulamayı çalıştırın. 
 
-![Komut satırı programı ekran görüntüsü](./media/luis-tutorial-speech-to-intent/cmdline-1.png)
-
 ## <a name="test-code-with-utterance"></a>Kodu utterance ile test
-Seçin **8** ve mikrofon konuşun "Kim Hasan Aydın Yöneticisi".
+Seçin **1** ve mikrofon konuşun "Kim Hasan Aydın Yöneticisi".
 
 ```cmd
-1. Speech recognition with microphone input.
-2. Speech recognition in the specified language.
-3. Speech recognition with file input.
-4. Speech recognition using customized model.
-5. Speech continuous recognition using events.
-6. Translation with microphone input.
-7. Translation with file input.
-8. Speech recognition of LUIS intent.
+1. Speech recognition of LUIS intent.
 0. Stop.
-Your choice: 8
+Your choice: 1
 LUIS...
 Say something...
 ResultId:cc83cebc9d6040d5956880bcdc5f5a98 Status:Recognized IntentId:<GetEmployeeOrgChart> Recognized text:<Who is the manager of John Smith?> Recognized Json:{"DisplayText":"Who is the manager of John Smith?","Duration":25700000,"Offset":9200000,"RecognitionStatus":"Success"}. LanguageUnderstandingJson:{
@@ -127,7 +120,7 @@ Doğru hedefi **GetEmployeeOrgChart**, % 61'i güvenle bulundu. Anahtar cümlesi
 Konuşma SDK'sı tüm HALUK yanıtı döndürür. 
 
 ## <a name="clean-up-resources"></a>Kaynakları temizleme
-Artık gerektiğinde HALUK İnsanKaynakları uygulamayı silin. Bunu yapmak için uygulama adının sağ tarafındaki üç nokta menüsüne (...) uygulama listesinde seçin **silmek**. Açılan iletişim kutusunda **Delete uygulama?** seçin **Tamam**.
+Artık gerektiğinde HALUK İnsanKaynakları uygulamayı silin. Bunu yapmak için uygulama listesinde uygulama adının yanındaki üç nokta menüsüne (...) tıklayıp **Delete** (Sil) öğesini seçin. Açılan **Delete app?** (Uygulama silinsin mi?) iletişim kutusunda **Ok** (Tamam) öğesini seçin.
 
 İşiniz bittiğinde HALUK örnekleri dizinini silmeye unutmayın örnek kodu kullanarak.
 

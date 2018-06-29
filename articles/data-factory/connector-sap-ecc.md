@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
-ms.openlocfilehash: 95b0440dbec1a13096928bdefd31383d07a1f86d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f9f6d2e43fff9a3e57145f39863f66eed64869b2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618581"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048592"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Azure Data Factory kullanarak SAP ECC veri kopyalama
 
 Bu makalede kopya etkinliği Azure Data Factory'de SAP ECC (SAP Kurumsal merkezi bileşeni) verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -170,7 +167,7 @@ SAP ECC veri kopyalama işlemi sırasında aşağıdaki eşlemelerini OData veri
 | Edm.Byte | Dize |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Ondalık |
-| Edm.Double | Çift |
+| Edm.Double | çift |
 | Edm.Single | Tek |
 | Edm.Guid | Dize |
 | Edm.Int16 | Int16 |

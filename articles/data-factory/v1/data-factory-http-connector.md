@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29281843dc1b375182eb3dafe95ad86c89217671
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621633"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052282"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Azure Data Factory kullanarak bir HTTP kaynağından veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-http-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-http.md)
+> * [Sürüm 1](data-factory-http-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-http.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 HTTP Bağlayıcısı](../connector-http.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 HTTP Bağlayıcısı](../connector-http.md).
 
 
 Bu makalede kopya etkinliği Azure Data Factory'de verileri bir şirket içi/bulut HTTP uç noktasından bir desteklenen havuz veri deposuna taşımak için nasıl kullanılacağı açıklanmaktadır. Bu makalede derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) makale kopyalama etkinliği ve kaynakları/havuzlarını desteklenen veri depoları listesi ile veri taşıma için genel bir bakış sunar.
@@ -34,7 +34,7 @@ Bu makalede kopya etkinliği Azure Data Factory'de verileri bir şirket içi/bul
 Veri Fabrikası şu anda taşıma veriler yalnızca bir HTTP kaynaktan diğer veri depolarına destekler, ancak verileri diğer veriler taşıma olmayan bir HTTP hedefe depolar.
 
 ## <a name="supported-scenarios-and-authentication-types"></a>Desteklenen senaryolar ve kimlik doğrulama türleri
-Bu HTTP bağlayıcı verileri almak için kullanabileceğiniz **Bulut ve şirket içi HTTP/s uç nokta** HTTP kullanarak **almak** veya **POST** yöntemi. Aşağıdaki kimlik doğrulama türleri desteklenir: **anonim**, **temel**, **Özet**, **Windows**, ve **ClientCertificate**. Bu bağlayıcı arasındaki farkı unutmayın ve [Web tablo Bağlayıcısı](data-factory-web-table-connector.md) olduğu: ikinci web HTML sayfasından tablo içeriği ayıklamak için kullanılır.
+Bu HTTP bağlayıcı verileri almak için kullanabileceğiniz **Bulut ve şirket içi HTTP/s uç nokta** HTTP kullanarak **almak** veya **POST** yöntemi. Aşağıdaki kimlik doğrulama türleri desteklenir: **anonim**, **temel**, **Özet**, **Windows**, ve  **ClientCertificate**. Bu bağlayıcı arasındaki farkı unutmayın ve [Web tablo Bağlayıcısı](data-factory-web-table-connector.md) olduğu: ikinci web HTML sayfasından tablo içeriği ayıklamak için kullanılır.
 
 Bir şirket içi HTTP uç noktasından veri kopyalama işlemi sırasında şirket içi ortamına/Azure VM veri yönetimi ağ geçidi yüklemeniz gerekir. Bkz: [Bulut ve şirket içi konumlara arasında veri taşıma](data-factory-move-data-between-onprem-and-cloud.md) makale veri yönetimi ağ geçidi ve ağ geçidi kurun ayarlama hakkında adım adım yönergeleri hakkında bilgi edinin.
 
@@ -43,7 +43,7 @@ Farklı araçlar/API'lerini kullanarak bir HTTP kaynaktan verileri taşır kopya
 
 - Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. JSON örnekleri verileri Azure Blob depolama alanına HTTP kaynağından kopyalamak, bkz: [JSON örnekler](#json-examples) Bu makaleler bölümü.
+- Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. JSON örnekleri verileri Azure Blob depolama alanına HTTP kaynağından kopyalamak, bkz: [JSON örnekler](#json-examples) Bu makaleler bölümü.
 
 ## <a name="linked-service-properties"></a>Bağlantılı hizmet özellikleri
 Aşağıdaki tabloda, JSON öğeleri için HTTP belirli açıklamasını bağlantılı hizmetinin sağlar.
@@ -156,8 +156,8 @@ Bölümler & özellikleri veri kümeleri tanımlamak için kullanılabilir tam l
 | relativeUrl | Verileri içeren kaynak için göreli bir URL. Bağlantılı hizmet tanımında belirtilen URL yolu belirtilmediğinde kullanılır. <br><br> Dinamik URL oluşturmak için kullanabileceğiniz [Data Factory işlevler ve sistem değişkenleri](data-factory-functions-variables.md), örneğin "relativeUrl": "$$Text.Format ('/ my/rapor? ay = {0:yyyy}-{0:MM} & fmt csv =', SliceStart)". | Hayır |
 | requestMethod | HTTP yöntemi. İzin verilen değerler **almak** veya **POST**. | Hayır. `GET` varsayılan değerdir. |
 | additionalHeaders | Ek HTTP isteği üstbilgileri. | Hayır |
-| RequestBody | HTTP istek gövdesi. | Hayır |
-| Biçimi | Yalnızca istiyorsanız, **HTTP uç noktası olarak veri almak-olduğu** ayrıştırma olmadan, bu biçim ayarlarını atla. <br><br> HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
+| requestBody | HTTP istek gövdesi. | Hayır |
+| Biçimi | Yalnızca istiyorsanız, **HTTP uç noktası olarak veri almak-olduğu** ayrıştırma olmadan, bu biçim ayarlarını atla. <br><br> HTTP yanıt içeriği kopyalama sırasında ayrıştırma istiyorsanız, aşağıdaki biçimi türleri desteklenir: **TextFormat**, **JsonFormat**, **AvroFormat**,  **OrcFormat**, **ParquetFormat**. Daha fazla bilgi için bkz: [metin biçimi](data-factory-supported-file-and-compression-formats.md#text-format), [Json biçimine](data-factory-supported-file-and-compression-formats.md#json-format), [Avro biçimi](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc biçimi](data-factory-supported-file-and-compression-formats.md#orc-format), ve [Parquet biçimi](data-factory-supported-file-and-compression-formats.md#parquet-format) bölümler. |Hayır |
 | Sıkıştırma | Veri sıkıştırma düzeyini ve türünü belirtin. Desteklenen türler: **GZip**, **Deflate**, **Bzıp2**, ve **ZipDeflate**. Desteklenen düzeyler: **Optimal** ve **en hızlı**. Daha fazla bilgi için bkz: [Azure Data Factory dosya ve sıkıştırma biçimlerde](data-factory-supported-file-and-compression-formats.md#compression-support). |Hayır |
 
 ### <a name="example-using-the-get-default-method"></a>Örnek: (varsayılan) GET yöntemini kullanma

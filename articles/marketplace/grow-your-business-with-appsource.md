@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 11a4fe4cd7b4b08b4468e08bba754518d27abb99
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309547"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054188"
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource ile işinizi Büyüt  
 İş müşteriler bulmak için deneyin ve iş yazılım (SaaS) hizmet olarak alma devreye AppSource kullanın uygulamaları ve sürücü iş sonuçları yardımcı değerine süresini azaltmak için uygulama hizmetleri.  
@@ -67,7 +67,7 @@ Uygulama yayın ve isteğe bağlı müşteri merkezli oluşturma ve iş ortağı
 Aşağıdaki denetim listesinde, pazarlama en iyi yöntemler ve AppSource üzerinde yayımlanmasını teklifleri oluştururken dikkate alınması gereken kaynakları sağlar:  
 *   **Microsoft Trademark & Brand yönergeleri unutmayın.**  
     Ne zaman uygulamanızı adlandırma ve Microsoft ticari markaları ve Microsoft yazılım, ürünler ve hizmetler, adlarını başvurarak Microsoft Trademark ve marka yönergeleri yanı sıra ilgili ürüne özgü yönergeleri izleyin.  
-    *   Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergeleri sayfasında bulunan [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).  
+    *   Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergeleri sayfasında bulunan [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).  
 *   **Şimdi deneyimi, bir get ücretsiz deneme teklifi etkinleştirin veya sürücüyü deneyimini uygulamanız için test edin.**  
     İş kullanıcıları, uygulamanızın ilk elle deneyimi istiyorsunuz.  
 *   **Güçlü değer teklifinde oluşturun.**  
@@ -104,7 +104,7 @@ Aşağıdaki tablolarda teklif listenizi çıkışı doldurma her adım ayrınt�
 
 | Teklif ayarı | En iyi uygulamalar | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Ad** | **Teklifiniz adlandırma**<br />Uygulamanız için bir ad seçme anahtar bir karardır. Avantajı tabanlı adları açıklayıcı adlar daha etkilidir. Uygulama adınız Çekirdek değer müşteriler alma iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlığı dahil olmak üzere, uygulamanızın arama motoru sonuçlarında yüksek derece yardımcı olabilir. Microsoft ticari markaları ve Microsoft, yazılımı, ürünleri ve Hizmetleri adlarını başvururken Microsoft Trademark ve marka yönergeleri yanı sıra ilgili ürüne özgü yönergeleri izleyin.<ul> <li>Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergeleri sayfasında bulunan [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
+| **Ad** | **Teklifiniz adlandırma**<br />Uygulamanız için bir ad seçme anahtar bir karardır. Avantajı tabanlı adları açıklayıcı adlar daha etkilidir. Uygulama adınız Çekirdek değer müşteriler alma iletişim kurmanız gerekir. Arama anahtar sözcükleri, uygulama başlığı dahil olmak üzere, uygulamanızın arama motoru sonuçlarında yüksek derece yardımcı olabilir. Microsoft ticari markaları ve Microsoft, yazılımı, ürünleri ve Hizmetleri adlarını başvururken Microsoft Trademark ve marka yönergeleri yanı sıra ilgili ürüne özgü yönergeleri izleyin.<ul> <li>Microsoft ticari markaları ve markalama hakkında daha fazla bilgi için Microsoft Trademark ziyaret edin ve marka yönergeleri sayfasında bulunan [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx).</li> </ul> |
 
 **StoreFront ayrıntıları - Teklif Ayrıntıları**  
 

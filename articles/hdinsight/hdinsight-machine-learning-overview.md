@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392179"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048514"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Machine learning Hdınsight'ta
 
@@ -33,13 +33,13 @@ Apache Spark için Microsoft Machine Learning Kitaplığı [MMLSpark](https://gi
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/) şu anda dünyanın en popüler istatistiksel programlama dilinde olduğu. Bu bir açık kaynak veri görselleştirme 2.5 milyondan kullanıcıları ve büyüyen topluluğuyla aracıdır. Temel thriving kullanıcı ve üzerinde 8.000 revizyonlarınız paketleri ile R machine learning isteyen birçok şirket için büyük olasılıkla bir seçimdir. R Server büyük veri kümelerine ve modelleri ile kullanılmaya hazır olan bir Hdınsight kümesi oluşturabilirsiniz. Bu özellik veri bilimcileri ve istatistikçiler ölçeklendirebilirsiniz bilinen bir R arabirimi sağlar-isteğe bağlı Hdınsight, aracılığıyla küme kurulum ve Bakım yükü olmadan.
+[R](https://www.r-project.org/) şu anda dünyanın en popüler istatistiksel programlama dilinde olduğu. Bu bir açık kaynak veri görselleştirme 2.5 milyondan kullanıcıları ve büyüyen topluluğuyla aracıdır. Temel thriving kullanıcı ve üzerinde 8.000 revizyonlarınız paketleri ile R machine learning isteyen birçok şirket için büyük olasılıkla bir seçimdir. ML Hizmetleri büyük veri kümelerine ve modelleri ile kullanılmaya hazır olan bir Hdınsight kümesi oluşturabilirsiniz. Bu özellik veri bilimcileri ve istatistikçiler ölçeklendirebilirsiniz bilinen bir R arabirimi sağlar-isteğe bağlı Hdınsight, aracılığıyla küme kurulum ve Bakım yükü olmadan.
 
 ![R server ile tahmin için eğitim](./media/hdinsight-machine-learning-overview/r-training.png)
 
 Kümenin kenar düğümü kümeye bağlanın ve R komut dosyalarını çalıştırmak için uygun bir yer sağlar.  Ayrıca ScaleR'ın eşlemesi Hadoop azaltmak kullanarak küme düğümleri arasında R betiklerini çalıştırmak seçeneğiniz vardır veya Spark işlem bağlamı.
 
-Spark ile hdınsight'ta R Server ile eğitim küme düğümleri arasında bir Spark işlem bağlamını kullanarak paralel hale. Tüm kullanılabilir çekirdekler paralel olarak gerektiği gibi kullanarak doğrudan kenar düğümde R betiklerini çalıştırabilirsiniz. Alternatif olarak, kümedeki tüm düğümler arasında dağıtılmış işlem dışı kazandırın için sınır düğümünden kodunuzu çalıştırabilirsiniz. Spark ile hdınsight'ta R Server parallelizing işlevleri açık kaynak R paketlerinden, isterseniz de sağlar.
+Hdınsight'ta Spark ile ML Hizmetleri ile eğitim küme düğümleri arasında bir Spark işlem bağlamını kullanarak paralel hale. Tüm kullanılabilir çekirdekler paralel olarak gerektiği gibi kullanarak doğrudan kenar düğümde R betiklerini çalıştırabilirsiniz. Alternatif olarak, kümedeki tüm düğümler arasında dağıtılmış işlem dışı kazandırın için sınır düğümünden kodunuzu çalıştırabilirsiniz. Hdınsight Spark ile ML Services'de parallelizing işlevleri açık kaynak R paketlerinden, isterseniz de sağlar.
 
 ## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning ve Hive
 

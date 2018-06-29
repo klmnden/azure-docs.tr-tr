@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: crdun
-ms.openlocfilehash: 10ce9058fca0ec56640e9bedabcc82683046fe9f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f0f28d4b6573e4e6fecf0e6dd84814d4fc66cd60
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598462"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050507"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps için yönetilen istemci kullanma
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 ## <a name="overview"></a>Genel Bakış
-Bu kılavuz gerçekleştirmek için Azure App Service Mobile uygulamaları Windows ve Xamarin uygulamaları için yönetilen istemci kitaplığı kullanılarak yaygın senaryolar gösterilmektedir. Mobile Apps yeniyseniz, ilk Tamamlanıyor düşünmelisiniz [Azure Mobile Apps quickstart] [ 1] Öğreticisi. Bu kılavuzda, istemci-tarafı yönetilen SDK odaklanın. Mobil uygulamaları için sunucu tarafı SDK'ları hakkında daha fazla bilgi edinmek için belgelerine bakın [.NET Server SDK] [ 2] veya [Node.js sunucusu SDK][3].
+Bu kılavuz gerçekleştirmek için Azure App Service Mobile uygulamaları Windows ve Xamarin uygulamaları için yönetilen istemci kitaplığı kullanılarak yaygın senaryolar gösterilmektedir. Mobile Apps yeniyseniz, ilk Tamamlanıyor düşünmelisiniz [Azure Mobile Apps quickstart] [ 1] Öğreticisi. Bu kılavuzda, istemci-tarafı yönetilen SDK odaklanın. Mobil uygulamaları için sunucu tarafı SDK'ları hakkında daha fazla bilgi edinmek için belgelerine bakın [.NET Server SDK] [ 2] veya [Node.js sunucusu SDK] [ 3].
 
 ## <a name="reference-documentation"></a>Başvuru belgeleri
 İstemci SDK'sı için başvuru belgeleri burada bulunur: [Azure Mobile Apps .NET istemci başvurusu][4].
@@ -36,7 +36,7 @@ Bu kılavuz gerçekleştirmek için Azure App Service Mobile uygulamaları Windo
 
 * Xamarin Android API 19 için 24 (KitKat Nougat aracılığıyla) aracılığıyla yayımlar.
 * Xamarin iOS iOS 8.0 ve sonraki sürümler için serbest bırakır
-* Evrensel Windows platformu
+* Evrensel Windows Platformu
 * Windows Phone 8.1
 * Windows Phone 8.0 Silverlight uygulamalarının dışında
 
@@ -520,7 +520,7 @@ Yapmış olduğunuz varsayılarak `PageSize` eşit veya 100 sunucu içindeki dah
    * **Windows 8.1 çalışma zamanı:** yükleme [Windows 8.1 için SQLite][3].
    * **Windows Phone 8.1:** yükleme [Windows Phone 8.1 için SQLite][4].
    * **Evrensel Windows platformu** yükleme [Evrensel Windows SQLite][5].
-3. (İsteğe bağlı). Windows cihazlar için tıklatın **başvuruları** > **Başvuru Ekle...** , genişletin **Windows** klasörü > **uzantıları**, uygun etkinleştirmek **SQLite for Windows** SDK ile birlikte **için Visual C++ 2013 çalışma zamanı Windows** SDK.
+3. (İsteğe bağlı). Windows cihazlar için tıklatın **başvuruları** > **Başvuru Ekle...** , genişletin **Windows** klasörü > **uzantıları**, uygun etkinleştirmek **SQLite for Windows** SDK ile birlikte **Windows için visual C++ 2013 çalışma zamanı** SDK.
     SQLite SDK adları, her Windows platformuyla biraz farklılık gösterir.
 
 Yerel depodan bir tablo başvurusu oluşturulabilmesi için hazırlanması gerekir:
@@ -1122,11 +1122,11 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [Kullanıcı Kimliği]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Burada]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure Portal]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: http://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
-[Windows Geliştirici Merkezi]: https://dev.windows.com/en-us/overview
+[Windows Geliştirici Merkezi]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [Windows Live SDK]: https://msdn.microsoft.com/library/bb404787.aspx
 [PasswordVault]: http://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx

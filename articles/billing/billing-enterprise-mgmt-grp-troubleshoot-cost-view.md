@@ -1,5 +1,5 @@
 ---
-title: Görünümleri - Azure maliyeti Kurumsal sorunlarını giderme | Microsoft Docs
+title: Azure enterprise maliyet Görünümlerle ilgili sorunları giderme | Microsoft Docs
 description: Azure portalındaki kuruluş maliyet görünümlerle sahip olabileceğiniz sorunları çözmeyi öğrenin.
 author: rthorn17
 manager: rithorn
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/22/2017
 ms.author: rithorn
-ms.openlocfilehash: 193e4691d2e10dd1c5ad16c26ad25534e3156745
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 2a9639103b494e3af54a6a21ed769cf4f7bd6259
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770364"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063201"
 ---
 # <a name="troubleshoot-enterprise-cost-views"></a>Görünümleri maliyet Kurumsal sorun giderme 
 

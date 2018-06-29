@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23926749"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029990"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Güvenlik çerçevesi: Denetim ve günlük | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -35,7 +35,7 @@ ms.locfileid: "23926749"
 
 ## <a id="sensitive-entities"></a>Çözümünüzdeki hassas varlıkları tanımlamak ve değişiklik denetimi uygulama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Dynamics CRM | 
 | **SDL aşaması**               | Oluşturma |  
@@ -46,7 +46,7 @@ ms.locfileid: "23926749"
 
 ## <a id="auditing"></a>Denetim ve günlük uygulamada zorlanan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -57,7 +57,7 @@ ms.locfileid: "23926749"
 
 ## <a id="log-rotation"></a>Günlük rotasyonunun ve ayırma yerinde olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -68,18 +68,18 @@ ms.locfileid: "23926749"
 
 ## <a id="log-sensitive-data"></a>Uygulama hassas kullanıcı verilerini günlüğe kaydetmez emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları**                   | <p>Siteniz için bir kullanıcının gönderdiğini herhangi bir duyarlı veri günlük tutma denetleyin. Tasarım sorunları neden yan etkileri yanı sıra kasıtlı günlüğünü denetleyin. Gizli verilerin örnekleri şunlardır:</p><ul><li>Kullanıcı kimlik bilgileri</li><li>Sosyal Güvenlik numarası veya başka tanımlayıcı bilgiler</li><li>Kredi kartı numaraları veya diğer finansal bilgileri</li><li>Sistem durumu bilgileri</li><li>Özel anahtarlar veya şifrelenmiş bilgilerin şifresini çözmek için kullanılabilecek diğer veri</li><li>Uygulama daha etkili bir şekilde saldırmak için kullanılan sistem veya uygulama bilgileri</li></ul>|
+| **Adımları**                   | <p>Siteniz için bir kullanıcının gönderdiğini herhangi bir duyarlı veri günlük tutma denetleyin. Tasarım sorunları neden yan etkileri yanı sıra kasıtlı günlüğünü denetleyin. Gizli verilerin örnekleri şunlardır:</p><ul><li>Kullanıcı Kimlik Bilgileri</li><li>Sosyal Güvenlik numarası veya başka tanımlayıcı bilgiler</li><li>Kredi kartı numaraları veya diğer finansal bilgileri</li><li>Sistem durumu bilgileri</li><li>Özel anahtarlar veya şifrelenmiş bilgilerin şifresini çözmek için kullanılabilecek diğer veri</li><li>Uygulama daha etkili bir şekilde saldırmak için kullanılan sistem veya uygulama bilgileri</li></ul>|
 
 ## <a id="log-restricted-access"></a>Denetim ve günlük dosyalarını sınırlı erişimi olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -90,7 +90,7 @@ ms.locfileid: "23926749"
 
 ## <a id="user-management"></a>Kullanıcı Yönetimi olayları oturum açtığınızdan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -101,7 +101,7 @@ ms.locfileid: "23926749"
 
 ## <a id="inbuilt-defenses"></a>Sistemi olduğundan emin olun kötüye karşı yerleşik savunma
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -112,18 +112,18 @@ ms.locfileid: "23926749"
 
 ## <a id="diagnostics-logging"></a>Azure App Service'te web uygulamalarını için tanılama günlüğünü etkinleştirme
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | EnvironmentType - Azure |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Azure uygulama hizmeti hata ayıklamaya yardımcı olması için yerleşik tanılama web uygulaması sağlar. Ayrıca, API uygulamaları ve mobil uygulamalar için de geçerlidir. App Service web uygulamalarının web sunucusu ve web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevsellik sağlar.</p><p>Bu web sunucusu tanılama ve uygulama tanılama mantıksal olarak ayrılır</p>|
+| **Adımları** | <p>Azure, bir App Service web uygulamasının hatalarını ayıklamaya yardımcı olmak üzere yerleşik tanılama sağlar. Ayrıca, API uygulamaları ve mobil uygulamalar için de geçerlidir. App Service web uygulamalarının web sunucusu ve web uygulamasının içinden bilgileri günlüğe kaydetme için tanılama işlevsellik sağlar.</p><p>Bu web sunucusu tanılama ve uygulama tanılama mantıksal olarak ayrılır</p>|
 
 ## <a id="identify-sensitive-entities"></a>SQL Server'da oturum açma denetimi etkin olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -134,7 +134,7 @@ ms.locfileid: "23926749"
 
 ## <a id="threat-detection"></a>Azure SQL tehdit algılamayı etkinleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -145,7 +145,7 @@ ms.locfileid: "23926749"
 
 ## <a id="analytics"></a>Azure Storage erişimi denetlemek için Azure Storage Analytics kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Dağıtım |  
@@ -156,13 +156,13 @@ ms.locfileid: "23926749"
 
 ## <a id="sufficient-logging"></a>Yeterli günlük kaydı uygulayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | .NET framework |
+| **İlgili teknolojiler** | .NET Framework |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Adımları** | <p>Bir güvenlik olayı sonra uygun denetim izi eksikliği adli çaba engel olabilir. Windows Communication Foundation (WCF) başarılı ve/veya başarısız kimlik doğrulama girişimlerini oturum olanağı sunar.</p><p>Başarısız kimlik doğrulama girişimlerini günlüğe olası kaba kuvvet saldırıları yöneticileri uyarır. Yasal bir hesap güvenliği aşıldığında benzer şekilde, başarılı kimlik doğrulama olaylarını günlüğe yararlı denetim izi sağlayabilir. WCF'ın hizmeti güvenlik denetim özelliğini etkinleştir |
 
 ### <a name="example"></a>Örnek
@@ -185,13 +185,13 @@ Denetim etkin olan bir örnek yapılandırma aşağıda verilmiştir
 
 ## <a id="audit-failure-handling"></a>Uygulama yeterli denetim hata işleme
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | .NET framework |
+| **İlgili teknolojiler** | .NET Framework |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Adımları** | <p>Geliştirilmiş çözüm bir denetim günlüğüne yazılması başarısız olduğunda bir özel durum oluşturmak değil üzere yapılandırılmıştır. WCF bir denetim günlüğüne yazamadığını olduğunda bir özel durum değil için yapılandırılmışsa, program hatasını bildirilmez ve kritik güvenlik olaylarının denetlenmesi gerçekleşmeyebilir.</p>|
 
 ### <a name="example"></a>Örnek
@@ -212,7 +212,7 @@ Bir denetim günlüğüne yazamadığını olduğunda program bildirmek için WC
 
 ## <a id="logging-web-api"></a>Denetim ve günlük, Web API uygulanmasını sağlamak
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
@@ -223,7 +223,7 @@ Bir denetim günlüğüne yazamadığını olduğunda program bildirmek için WC
 
 ## <a id="logging-field-gateway"></a>Uygun denetim ve günlük alan ağ geçidinde zorlanır emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT alan ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  
@@ -234,7 +234,7 @@ Bir denetim günlüğüne yazamadığını olduğunda program bildirmek için WC
 
 ## <a id="logging-cloud-gateway"></a>Uygun denetim ve günlük bulut ağ geçidinde zorlanır emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  

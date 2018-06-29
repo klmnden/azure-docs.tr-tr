@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798589"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061752"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>Gözat ve Sunucu Gezgini kullanarak depolama kaynaklarını yönetmek
 
@@ -157,7 +157,7 @@ Aşağıdaki görüntü iki ileti içeren bir kuyruk göstermektedir:
 
 ![Bir kuyruğu görüntüleme](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-Kuyruklar Hizmetleri depolama hakkında daha fazla bilgi için bkz: [.NET kullanarak Azure kuyruk depolamaya başlayın](http://go.microsoft.com/fwlink/?LinkID=264702). Kuyruklar depolama hizmetleri için web hizmeti hakkında bilgi için bkz [kuyruk hizmeti kavramları](http://go.microsoft.com/fwlink/?LinkId=264788). Visual Studio kullanarak bir depolama hizmetleri sıraya ileti gönderme hakkında daha fazla bilgi için bkz: [depolama hizmetleri kuyruğuna iletiler gönderme](https://msdn.microsoft.com/library/azure/jj649344.aspx).
+Kuyruklar Hizmetleri depolama hakkında daha fazla bilgi için bkz: [.NET kullanarak Azure kuyruk depolamaya başlayın](http://go.microsoft.com/fwlink/?LinkID=264702). Kuyruklar depolama hizmetleri için web hizmeti hakkında bilgi için bkz [kuyruk hizmeti kavramları](http://go.microsoft.com/fwlink/?LinkId=264788). Visual Studio kullanarak bir depolama hizmetleri sıraya ileti gönderme hakkında daha fazla bilgi için bkz: [depolama hizmetleri kuyruğuna iletiler gönderme](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues).
 
 > [!NOTE]
 > Depolama Hizmetleri sıraları Azure Service Bus sıralarından farklıdır. Service Bus kuyruklarını hakkında daha fazla bilgi için bkz: [Service Bus kuyrukları, konu başlıkları ve abonelikler](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions).
@@ -215,7 +215,7 @@ Sorgu Oluşturucusu'nu kullanırsanız, bir tabloda görünen varlıkları küme
 
     **Sorgu Oluşturucusu** iletişim kutusu görüntülenir. Aşağıdaki çizimde oluşturulmakta olan bir sorgu Sorgu Oluşturucu'da gösterir.
 
-    ![Sorgu Oluşturucusu](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
+    ![Sorgu tasarımcısı](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC652231.png)
 1. Bitirdiğinizde, sorgu oluşturma iletişim kutusunu kapatın. Sorgu sonuç metin biçiminde bir metin kutusuna bir WCF Veri Hizmetleri filtre olarak görünür.
 1. Sorguyu çalıştırmak için yeşil üçgenle simgesini seçin.
 

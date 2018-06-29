@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: xiaoyzhu
-ms.openlocfilehash: 95fd9efdcd7f93d8011808af943f52d4db13de8b
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 646d6e4b8980b780d4691fa258aa0d36ff309fd6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808630"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054335"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Caffe Azure Hdınsight Spark üzerinde dağıtılmış derin learning için kullanın.
 
@@ -30,7 +30,7 @@ Derin öğrenme, her şeyi üretim taşıma sağlık ve daha fazlasını etkiley
 
 Vardır [birçok popüler uygulamayı](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)dahil [Microsoft Bilişsel Araç Seti](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, vs. Caffe En ünlü simgesel olmayan (kesinlik temelli) sinir ağı çerçeveleri biridir ve bilgisayar görme dahil birçok alanda yaygın olarak kullanılır. Ayrıca, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) birleştirir; bu durumda derin öğrenme Apache Spark Caffe var olan bir Hadoop kümesine üzerinde kolayca da kullanılabilir. Eksiksiz bir çözüm learning için derin öğrenme Spark ETL ardışık düzen, azalan sistem karmaşıklık ve gecikme süresi ile birlikte kullanabilirsiniz.
 
-[Hdınsight](https://azure.microsoft.com/services/hdinsight/) olan bir bulutta Hadoop sunumu Spark, Hive, Hadoop, HBase, Storm, Kafka ve R Server için en iyi duruma getirilmiş açık kaynak analitik kümeleri sağlar. Hdınsight % 99,9 SLA ile yedeklenir. Bu büyük veri teknolojileri ve ISV uygulamaların her güvenlik ve kuruluşlar için izleme yönetilen kümeleriyle kolayca dağıtılabilir.
+[Hdınsight](https://azure.microsoft.com/services/hdinsight/) olan bir bulut Hadoop sunumu Spark, Hive, Hadoop, HBase, Storm, Kafka ve ML Hizmetleri için en iyi duruma getirilmiş açık kaynak analitik kümeleri sağlar. Hdınsight % 99,9 SLA ile yedeklenir. Bu büyük veri teknolojileri ve ISV uygulamaların her güvenlik ve kuruluşlar için izleme yönetilen kümeleriyle kolayca dağıtılabilir.
 
 Bu makalede nasıl yükleneceği gösterilmektedir [Spark üzerinde Caffe](https://github.com/yahoo/CaffeOnSpark) Hdınsight kümesi için. Bu makalede yerleşik MNIST demo nasıl derin CPU'larda Hdınsight Spark kullanarak öğrenme dağıtılmış kullanılacağını göstermek için de kullanır.
 
@@ -293,7 +293,7 @@ SampleID MNIST kümesindeki Kimliğini temsil eder ve etiket modeli tanımlayan 
 
 ## <a name="conclusion"></a>Sonuç
 
-Bu belgede, basit bir örnek çalıştırmaya CaffeOnSpark yüklemeye çalıştınız. Hdınsight tam yönetilen bir bulut dağıtılmış bir işlem platformudur ve makine öğrenme ve Gelişmiş analitik iş yükleri, büyük veri kümesi üzerinde çalıştırmak için en iyi yerdir ve dağıtılmış derin öğrenme için Caffe Hdınsight Spark üzerinde derin öğrenme görevleri gerçekleştirmek için kullanabilirsiniz.
+Bu belgede, basit bir örnek çalıştırmaya CaffeOnSpark yüklemeye çalıştınız. Hdınsight tam yönetilen bir bulut dağıtılmış bir işlem platformudur ve makine öğrenme ve Gelişmiş analitik iş yükleri, büyük veri kümesi üzerinde çalıştırmak için en iyi yerdir ve dağıtılmış derin öğrenme için Caffe Hdınsight Spark üzerinde derin öğrenme gerçekleştirmek için kullanabilirsiniz görevler.
 
 
 ## <a name="seealso"></a>Ayrıca bkz.

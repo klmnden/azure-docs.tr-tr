@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cea96234083abd01cdf280129e6f75a1f69af9c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019832"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028993"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Güvenlik çerçevesi: Yapılandırma yönetimi | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
@@ -36,13 +36,13 @@ ms.locfileid: "28019832"
 
 ## <a id="csp-js"></a>İçerik güvenlik ilkesi (CSP) uygulamak ve satır içi javascript devre dışı bırak
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [İçerik güvenlik ilkesi giriş](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [içerik güvenlik ilkesi başvurusu](http://content-security-policy.com/), [güvenlik özellikleri](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [içerik Güvenlik İlkesiGiriş](https://docs.webplatform.org/wiki/tutorials/content-security-policy), [CSP kullanabilir miyim?](http://caniuse.com/#feat=contentsecuritypolicy) |
+| **Başvuruları**              | [İçerik güvenlik ilkesi giriş](http://www.html5rocks.com/en/tutorials/security/content-security-policy/), [içerik güvenlik ilkesi başvurusu](http://content-security-policy.com/), [güvenlik özellikleri](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/), [içerik güvenlik ilkesi giriş](https://docs.webplatform.org/wiki/tutorials/content-security-policy) , [CSP kullanabilir miyim?](http://caniuse.com/#feat=contentsecuritypolicy) |
 | **Adımları** | <p>İçerik güvenlik ilkesi (CSP), web uygulama sahipleri sitelerinde katıştırılmış içerik üzerinde denetime sahip olmasını sağlayan bir savunma güvenlik, standart, bir W3C mekanizmadır. CSP web sunucusundaki bir HTTP yanıt üst bilgisi olarak eklenir ve istemci tarafında tarayıcılar tarafından zorlanır. Beyaz liste tabanlı bir ilke olduğunu - JavaScript yüklenebilir gibi bir Web sitesi hangi etkin içerik güvenilir etki alanlarından kümesi bildirebilirsiniz.</p><p>CSP aşağıdaki güvenlik avantajları sağlar:</p><ul><li>**XSS karşı koruma:** bir saldırgan, bir sayfa için XSS saldırılara açık olduğunda 2 yollarla yararlanabilir:<ul><li>Eklenmeye `<script>malicious code</script>`. Bu yararlanma CSP'ın temel kısıtlama-1 nedeniyle çalışmaz</li><li>Eklenmeye `<script src=”http://attacker.com/maliciousCode.js”/>`. Denetlenen saldırgan etki alanlarının CSP'ın beyaz olmayacaktır bu yana bu yararlanma çalışmaz</li></ul></li><li>**Veri exfiltration üzerinde denetim:** bir Web sayfasındaki kötü amaçlı içerik bir dış Web sitesine bağlanmak ve verileri çalmaya çalışırsa, CSP tarafından bağlantı iptal edilecek. Hedef etki alanına CSP'ın beyaz olmayacaktır Bunun nedeni</li><li>**Tıklatın jacking karşı savunma:** tıklatın jacking olduğundan, bir saldırganın, kullanıcı Arabirimi öğeleri tıklattığınızdan orijinal bir Web sitesi ve zorla kullanıcılar çerçeve kullanarak bir saldırı teknik. Şu anda tıklatın jacking korunmanın bir yanıt üstbilgisi-X-Frame-Options yapılandırılarak elde edilir. Tüm tarayıcılar bu başlığı dikkate alır ve iletme CSP giderek tıklatın jacking karşı korumak için standart bir biçimde olacaktır</li><li>**Gerçek zamanlı saldırı raporlama:** tarayıcılar ekleme saldırının CSP özellikli bir Web sitesi varsa, otomatik olarak Web sunucusu üzerinde yapılandırılmış bir uç nokta için bir bildirim tetikler. Bu şekilde, CSP gerçek zamanlı bir uyarı sistem olarak görev yapar.</li></ul> |
 
 ### <a name="example"></a>Örnek
@@ -68,18 +68,18 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="xss-filter"></a>Tarayıcının XSS filtresi etkinleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [XSS koruma filtresi](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
-| **Adımları** | <p>X XSS koruma yanıt üstbilgisi yapılandırma tarayıcının siteler arası komut dosyası filtresi denetler. Bu yanıt üstbilgisi değerleri aşağıdaki sahip olabilir:</p><ul><li>`0:`Bu filtreyi devre dışı bırakır</li><li>`1: Filter enabled`Siteler arası komut dosyası saldırı algılanırsa, saldırı durdurmak için tarayıcı sayfa temizlenmeye</li><li>`1: mode=block : Filter enabled`. Bunun yerine XSS saldırısı algılandığında sayfa temizlenmeye küçük, tarayıcı sayfanın işlenmesi engeller.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Tarayıcı sayfa temizlenmeye ve ihlalin rapor.</li></ul><p>Bu tercih ettiğiniz bir URI ayrıntıları göndermek için CSP ihlali raporları kullanılarak Chromium işlevdir. Son 2 seçenekleri güvenli değerleri olarak kabul edilir.</p>|
+| **Adımları** | <p>X XSS koruma yanıt üstbilgisi yapılandırma tarayıcının siteler arası komut dosyası filtresi denetler. Bu yanıt üstbilgisi değerleri aşağıdaki sahip olabilir:</p><ul><li>`0:` Bu filtreyi devre dışı bırakır</li><li>`1: Filter enabled` Siteler arası komut dosyası saldırı algılanırsa, saldırı durdurmak için tarayıcı sayfa temizlenmeye</li><li>`1: mode=block : Filter enabled`. Bunun yerine XSS saldırısı algılandığında sayfa temizlenmeye küçük, tarayıcı sayfanın işlenmesi engeller.</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`. Tarayıcı sayfa temizlenmeye ve ihlalin rapor.</li></ul><p>Bu tercih ettiğiniz bir URI ayrıntıları göndermek için CSP ihlali raporları kullanılarak Chromium işlevdir. Son 2 seçenekleri güvenli değerleri olarak kabul edilir.</p>|
 
 ## <a id="trace-deploy"></a>ASP.NET uygulamaları izleme ve dağıtımdan önce hata ayıklama devre dışı bırakmanız gerekir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -90,7 +90,7 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="js-trusted"></a>Yalnızca güvenilir kaynaklardan gelen erişim üçüncü taraf JavaScript'ler
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -101,13 +101,13 @@ Example: var str="alert(1)"; eval(str);
 
 ## <a id="ui-defenses"></a>Kimliği doğrulanmış ASP.NET sayfaları UI Redressing veya savunma tıklatın jacking dahil emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Savunma kopya sayfası tıklatın jacking OWASP](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [tıklatın jacking ile X-Frame-Options mücadele IE iç-Ayrıntılar](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) |
+| **Başvuruları**              | [Savunma kopya sayfası tıklatın jacking OWASP](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [tıklatın jacking ile X-Frame-Options mücadele IE iç-Ayrıntılar](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **Adımları** | <p>tıklatın jacking olarak da bilinen bir "UI redress", saldırısıdır bir saldırganın bir kullanıcı bir düğmesini tıklatarak içine kandırarak veya üst düzey sayfasında tıklatın amaçlama zaman başka bir sayfada bağlamak için birden çok saydam veya donuk Katmanlar kullandığında.</p><p>Katmanlama, kötü amaçlı bir sayfa kurbanın sayfasını yükler IFRAME ile hazırlayın tarafından sağlanır. Bu nedenle, saldırgan "için kendi sayfası anlamına gelir ve onları başka bir sayfaya, büyük olasılıkla başka bir uygulama, etki alanı veya her ikisi tarafından sahip olunan yönlendirme tıklama ele". Tıklatın jacking saldırılarını önlemek için diğer etki alanlarından çerçeveleme izin vermeyecek şekilde tarayıcısına uygun X-Frame-Options HTTP yanıt üstbilgilerini Ayarla</p>|
 
 ### <a name="example"></a>Örnek
@@ -136,14 +136,14 @@ Web.config kod sayfaları aynı etki alanında yalnızca Çerçeveli siteler iç
 
 ## <a id="cors-aspnet"></a>ASP.NET Web uygulamalarını CORS etkinse, yalnızca güvenilir kaynaklara izin verildiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Web Forms, MVC5 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>Tarayıcı güvenlik bir web sayfası AJAX istekleri başka bir etki alanına yapmasını engeller. Bu kısıtlama aynı kaynak ilkesi adı verilir ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, diğer siteleri tüketebileceği API'leri güvenli bir şekilde kullanıma sunmak için gerekli olabilir. Çapraz kaynak kaynak paylaşımı (CORS), aynı kaynak İlkesi hafifletin sunucusunun sağlar W3C standardıdır. CORS kullanarak, bir sunucu açıkça bazı cross-origin istekleri başkalarının reddetme çalışırken izin verebilirsiniz.</p><p>CORS daha güvenli ve JSONP gibi önceki teknikler daha esnektir. Özünde, birkaç HTTP yanıt üstbilgilerini eklemek için CORS etkinleştirme çevirir (Access - Control-*) için web uygulaması ve bu yolla birkaç içinde yapılabilir.</p>|
+| **Adımları** | <p>Tarayıcı güvenliği, bir web sitesinin başka bir etki alanına AJAX istekleri göndermesini engeller. Bu kısıtlama aynı kaynak ilkesi adı verilir ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, diğer siteleri tüketebileceği API'leri güvenli bir şekilde kullanıma sunmak için gerekli olabilir. Çapraz kaynak kaynak paylaşımı (CORS), aynı kaynak İlkesi hafifletin sunucusunun sağlar W3C standardıdır. CORS kullanarak, bir sunucu açıkça bazı cross-origin istekleri başkalarının reddetme çalışırken izin verebilirsiniz.</p><p>CORS daha güvenli ve JSONP gibi önceki teknikler daha esnektir. Özünde, birkaç HTTP yanıt üstbilgilerini eklemek için CORS etkinleştirme çevirir (Access - Control-*) için web uygulaması ve bu yolla birkaç içinde yapılabilir.</p>|
 
 ### <a name="example"></a>Örnek
 Web.config erişimi varsa, CORS aşağıdaki kodu eklenebilir: 
@@ -167,7 +167,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 
 ## <a id="validate-aspnet"></a>ASP.NET sayfaları ValidateRequest özniteliği etkinleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -193,18 +193,18 @@ veya uygulama düzeyinde
 
 ## <a id="local-js"></a>JavaScript kitaplıklarını en son sürümlerini yerel olarak barındırılan kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | Yok  |
-| **Adımları** | <p>JQuery kullanmalısınız gibi standart JavaScript kitaplıklarını kullanarak geliştiriciler bilinen güvenlik açıkları içermeyen ortak JavaScript kitaplıklarını sürümleri onaylanmış. Eski sürümlerine bilinen güvenlik açıkları için güvenlik düzeltmelerini içeren bu yana kitaplıkları en son sürümünü kullanmak iyi bir uygulamadır.</p><p>En son sürüm uyumluluğu nedenlerden ötürü kullandıysanız en düşük sürümlerle kullanılmalıdır.</p><p>Kabul edilebilir en düşük sürümler:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery 1.9 doğrula</li><li>JQuery Mobile 1.0.1</li><li>JQuery döngüsü 2.99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**Ajax Control Toolkit**<ul><li>Ajax Control Toolkit 40412</li></ul></li><li>**ASP.NET Web formları ve Ajax**<ul><li>ASP.NET Web formları ve Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Hiçbir zaman genel CDN'ler gibi dış sitelerden herhangi bir JavaScript kitaplığı yüklenemiyor</p>|
+| **Adımları** | <p>JQuery kullanmalısınız gibi standart JavaScript kitaplıklarını kullanarak geliştiriciler bilinen güvenlik açıkları içermeyen ortak JavaScript kitaplıklarını sürümleri onaylanmış. Eski sürümlerine bilinen güvenlik açıkları için güvenlik düzeltmelerini içeren bu yana kitaplıkları en son sürümünü kullanmak iyi bir uygulamadır.</p><p>En son sürüm uyumluluğu nedenlerden ötürü kullandıysanız en düşük sürümlerle kullanılmalıdır.</p><p>Kabul edilebilir en düşük sürümler:</p><ul><li>**JQuery**<ul><li>JQuery 1.7.1</li><li>JQueryUI 1.10.0</li><li>JQuery 1.9 doğrula</li><li>JQuery Mobile 1.0.1</li><li>JQuery döngüsü 2.99</li><li>JQuery DataTables 1.9.0</li></ul></li><li>**AJAX Denetim Araç Seti**<ul><li>AJAX Denetim Araç Seti 40412</li></ul></li><li>**ASP.NET Web formları ve Ajax**<ul><li>ASP.NET Web formları ve Ajax 4</li><li>ASP.NET Ajax 3.5</li></ul></li><li>**ASP.NET MVC**<ul><li>ASP.NET MVC 3.0</li></ul></li></ul><p>Hiçbir zaman genel CDN'ler gibi dış sitelerden herhangi bir JavaScript kitaplığı yüklenemiyor</p>|
 
 ## <a id="mime-sniff"></a>Otomatik MIME algılaması devre dışı bırak
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -269,7 +269,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="standard-finger"></a>Standart sunucu başlıkları Windows Azure Web sağlayan önlemek için sitelerindeki Kaldır
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -280,7 +280,7 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="firewall-db"></a>Veritabanı altyapısı erişimi için bir Windows Güvenlik Duvarı'nı yapılandırma
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -291,14 +291,14 @@ this.Response.Headers["X-Content-Type-Options"] = "nosniff";
 
 ## <a id="cors-api"></a>ASP.NET Web API CORS etkinse, yalnızca güvenilir kaynaklara izin verildiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | MVC 5 |
 | **Öznitelikleri**              | Yok  |
 | **Başvuruları**              | [ASP.NET Web API 2 çıkış noktaları arası istekleri etkinleştirme](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api), [ASP.NET Web API - ASP.NET Web API 2 CORS desteği](https://msdn.microsoft.com/magazine/dn532203.aspx) |
-| **Adımları** | <p>Tarayıcı güvenlik bir web sayfası AJAX istekleri başka bir etki alanına yapmasını engeller. Bu kısıtlama aynı kaynak ilkesi adı verilir ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, diğer siteleri tüketebileceği API'leri güvenli bir şekilde kullanıma sunmak için gerekli olabilir. Çapraz kaynak kaynak paylaşımı (CORS), aynı kaynak İlkesi hafifletin sunucusunun sağlar W3C standardıdır.</p><p>CORS kullanarak, bir sunucu açıkça bazı cross-origin istekleri başkalarının reddetme çalışırken izin verebilirsiniz. CORS daha güvenli ve JSONP gibi önceki teknikler daha esnektir.</p>|
+| **Adımları** | <p>Tarayıcı güvenliği, bir web sitesinin başka bir etki alanına AJAX istekleri göndermesini engeller. Bu kısıtlama aynı kaynak ilkesi adı verilir ve kötü amaçlı bir siteyi başka bir siteden hassas verileri okumasını önler. Ancak, bazen, diğer siteleri tüketebileceği API'leri güvenli bir şekilde kullanıma sunmak için gerekli olabilir. Çapraz kaynak kaynak paylaşımı (CORS), aynı kaynak İlkesi hafifletin sunucusunun sağlar W3C standardıdır.</p><p>CORS kullanarak, bir sunucu açıkça bazı cross-origin istekleri başkalarının reddetme çalışırken izin verebilirsiniz. CORS daha güvenli ve JSONP gibi önceki teknikler daha esnektir.</p>|
 
 ### <a name="example"></a>Örnek
 App_Start/WebApiConfig.cs içinde WebApiConfig.Register yöntemine aşağıdaki kodu ekleyin 
@@ -387,7 +387,7 @@ public class ResourcesController : ApiController
 }
 ```
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
@@ -479,7 +479,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="config-sensitive"></a>Hassas verileri içeren Web API'nin yapılandırma dosyalarını bölümlerini şifrele
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Dağıtım |  
@@ -490,7 +490,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="admin-strong"></a>Tüm yönetim arabirimleri güçlü kimlik bilgileriyle güvenli olduğundan emin olmak
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Dağıtım |  
@@ -501,7 +501,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="unknown-exe"></a>Bilinmeyen kod cihazlarda yürütülemiyor emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Oluşturma |  
@@ -512,7 +512,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="partition-iot"></a>İşletim sistemi ve ek IOT cihaz bölümlerle bit kilidi şifrele
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Oluşturma |  
@@ -523,7 +523,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="min-enable"></a>Yalnızca en az Hizmetleri/özellikleri aygıtlarda etkin olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT cihaz | 
 | **SDL aşaması**               | Dağıtım |  
@@ -534,7 +534,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="field-bit-locker"></a>İşletim sistemi ve ek IOT alan ağ geçidi bölümlerle bit kilidi şifrele
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT alan ağ geçidi | 
 | **SDL aşaması**               | Dağıtım |  
@@ -545,7 +545,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="default-change"></a>Alan ağ geçidi varsayılan oturum açma kimlik bilgilerini yükleme sırasında değiştirilir emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT alan ağ geçidi | 
 | **SDL aşaması**               | Dağıtım |  
@@ -556,7 +556,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="cloud-firmware"></a>Bulut ağ geçidi bağlı aygıtlar üretici yazılımı güncel tutmak için bir işlem gerçekleştirdiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  
@@ -567,7 +567,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="controls-policies"></a>Aygıtları son nokta güvenlik denetimleri kuruluş ilkelerini uygun şekilde yapılandırılmış olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -578,7 +578,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="secure-keys"></a>Azure depolama erişim anahtarlarını güvenli yönetim emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Dağıtım |  
@@ -589,7 +589,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="cors-storage"></a>CORS'yi Azure depolama alanında etkinse, yalnızca güvenilir kaynaklara izin verildiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
@@ -600,7 +600,7 @@ Denetleyici veya eylem için CORS devre dışı bırakmak için [DisableCors] ö
 
 ## <a id="throttling"></a>WCF'ın hizmeti özellik azaltma etkinleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
@@ -623,7 +623,7 @@ Azaltma etkinleştirildi ile örnek bir yapılandırma verilmiştir:
 
 ## <a id="info-metadata"></a>Meta veri aracılığıyla WCF bilginin açığa çıkması
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  

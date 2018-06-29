@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: jroth
-ms.openlocfilehash: 1da89bbf88e9f1f2105e7afab5c3fdabcecdbc64
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4bb13ec9d835959273801c2f53c8d736491080a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852719"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061344"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Otomatik Azure sanal makinelerde (Klasik) SQL Server için düzeltme eki uygulama
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ Aşağıdaki tabloda, bu örneği temel alarak, hedef Azure VM pratik etkisi aç
 | --- | --- |
 | **DayOfWeek** |Her Perşembe düzeltme ekleri yüklenmemiş. |
 | **MaintenanceWindowStartingHour** |Begin 11: 00'da güncelleştirir. |
-| **MaintenanceWindowsDuration** |Düzeltme ekleri 120 dakika içinde yüklü olması gerekir. Başlangıç zamanı temel alınarak, 1:00 pm tarafından tamamlamalıdır. |
+| **MaintenanceWindowDuration** |Düzeltme ekleri 120 dakika içinde yüklü olması gerekir. Başlangıç zamanı temel alınarak, 1:00 pm tarafından tamamlamalıdır. |
 | **PatchCategory** |Bu parametre için yalnızca olası ayar "Önemli" dir. |
 
 Yüklemek ve SQL Server Iaas aracısı yapılandırmak için birkaç dakika sürebilir.

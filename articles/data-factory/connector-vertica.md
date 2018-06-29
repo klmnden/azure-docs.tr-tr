@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Beta) kullanarak dikey veri kopyalama | Microsoft Docs
+title: Azure Data Factory kullanarak dikey veri kopyalama | Microsoft Docs
 description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak dikey desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 56be714224ccdaf9af1afcb18e24a85bed7522b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d4399fd26c4c536f89bb15e16bfc67fb1d0940fa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617860"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059107"
 ---
-# <a name="copy-data-from-vertica-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak dikey verilerini
+# <a name="copy-data-from-vertica-using-azure-data-factory"></a>Azure Data Factory kullanarak dikey verilerini 
 
 Bu makalede kopya etkinliği Azure Data Factory dikey verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve bize geri bildirimde bulunun. Üretim ortamında kullanmayın.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/19/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18b6aaf7396c16714370435d2ee6d3a4960ecf21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337978"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063689"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>SAP HANA (büyük örnekler) genel bakış ve Azure üzerinde mimarisi
 
@@ -393,6 +393,8 @@ Bu boyutlar biraz dağıtım ve birimlerinin aramak için kullanılan araçlar g
 Daha fazla depolama alanı gerekebilir. 1 TB birimler ek depolama alanı satın alarak depolama ekleyebilirsiniz. Bu ek depolama alanı ek bir birim eklenebilir. Ayrıca, bir veya daha fazla var olan birimler genişletmek için de kullanılabilir. İlk olarak dağıtılan ve genellikle önceki tabloları tarafından belirtildiği gibi birimlerin boyutunu azaltmak mümkün değildir. Birimleri adlarını değiştirmek veya adları bağlama mümkün değildir. Daha önce açıklanan depolama birimleri HANA büyük örneği birimleri NFS4 birimler olarak eklenir.
 
 Depolama anlık görüntüleri yedekleme ve geri yükleme ve olağanüstü durum kurtarma amacıyla kullanabilirsiniz. Daha fazla bilgi için bkz: [SAP HANA (büyük örnekler) Azure üzerinde yüksek kullanılabilirlik ve olağanüstü durum kurtarma](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+Başvuru [HLI desteklenen senaryoları](hana-supported-scenario.md) depolama düzeni ayrıntıları senaryonuz için.
 
 ### <a name="encryption-of-data-at-rest"></a>Bekleyen verilerin şifrelenmesi
 Disklerde depolanan gibi HANA büyük örnek için kullanılan depolama, veri saydam bir şifreleme sağlar. HANA büyük örneği birim dağıtıldığında, bu tür bir şifreleme etkinleştirebilirsiniz. Dağıtım gerçekleştikten sonra şifrelenmiş birimlere de değiştirebilirsiniz. Şifrelenmemiş taşımak şifrelenmiş birimler için saydamdır ve kapalı kalma süresi gerektirmez. 

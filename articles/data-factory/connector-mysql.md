@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 44cab4b5fcdf47b8b7ad958a9377c2919ea56472
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: bb3179f1db077aacc7e36acf16486ee77a7f36e7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753021"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051272"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory kullanarak MySQL verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-onprem-mysql-connector.md)
-> * [Sürüm 2 - Önizleme](connector-mysql.md)
+> * [Sürüm 1](v1/data-factory-onprem-mysql-connector.md)
+> * [Geçerli sürüm](connector-mysql.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir MySQL veritabanından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 MySQL Bağlayıcısı](v1/data-factory-onprem-mysql-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

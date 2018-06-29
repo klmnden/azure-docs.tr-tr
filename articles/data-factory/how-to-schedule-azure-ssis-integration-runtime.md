@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 84d81dd9e1ef51a2a1705210cd7002a685bdf8fb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3758b04fc9b5ecd5dc69c82a8bd07999a9f1074a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266830"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050616"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>Bir zamanlamaya göre Azure SSIS tümleştirmesi çalışma zamanı durdurmak ve başlatmak nasıl
 Bu makalede, başlatma ve Azure Otomasyonu ve Azure Data Factory kullanarak bir Azure SSIS tümleştirmesi çalışma zamanı (IR) durdurma zamanlama açıklar. Çalıştıran bir Azure SSIS (SQL Server Integration Services) Tümleştirmesi çalışma zamanı (IR) ilişkili bir maliyeti vardır. Bu nedenle, genellikle yalnızca Azure'da SSIS paketleri çalışması ve onu gerekmediğinde IR durdurmak gerektiğinde IR çalıştırmak isteyebilirsiniz. Veri Fabrikası UI veya Azure PowerShell kullanabileceğiniz [el ile başlatma veya bir Azure SSIS IR durdurma](manage-azure-ssis-integration-runtime.md)).
@@ -34,10 +34,6 @@ Bu makalede açıklanan üst düzey adımlar şunlardır:
 3. **Runbook için iki Web kancası oluşturma**, bir başlangıç işlemi diğeri durdurma işlemi. Bu Web kancalarını URL'lerini web etkinlikleri bir Data Factory işlem hattı yapılandırırken kullanın. 
 4. **Data Factory işlem hattı oluşturma**. Oluşturduğunuz işlem hattını üç etkinliklerini oluşur. İlk **Web** etkinlik Azure SSIS IR başlatmak için ilk Web kancası çağırır **Saklı yordam** etkinlik SSIS paketi çalıştırır SQL komut dosyasını çalıştırır. İkinci **Web** etkinlik Azure SSIS IR durdurur Saklı yordam etkinliği kullanarak Data Factory işlem hattı SSIS paketinden çağırma hakkında daha fazla bilgi için bkz: [SSIS paketi çağırma](how-to-invoke-ssis-package-stored-procedure-activity.md). Ardından, belirttiğiniz tempoyla çalıştırmak için ardışık düzen zamanlamak için bir zamanlama tetikleyici oluşturun.
 
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [saklı yordam etkinliği sürüm 1 kullanılarak çağırma SSIS paketleri](v1/how-to-invoke-ssis-package-stored-procedure-activity.md).
-
- 
 ## <a name="prerequisites"></a>Önkoşullar
 Bir Azure SSIS tümleştirmesi çalışma zamanı zaten sağlanan yapmadıysanız, aşağıdaki yönergeleri tarafından sağlama [Öğreticisi](tutorial-create-azure-ssis-runtime-portal.md). 
 
@@ -254,7 +250,7 @@ Oluşturun ve ardışık düzen test sonra zamanlama tetikleyici oluşturmak ve 
       - **Yeni oluştur**’u seçin ve bir kaynak grubunun adını girin.   
          
       Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-4. **Sürüm** için **V2 (Önizleme)** öğesini seçin.
+4. Seçin **V2** için **sürüm**.
 5. Data factory için **konum** seçin. Listede yalnızca veri fabrikası oluşturma için desteklenen konumlar gösterilir.
 6. **Panoya sabitle**’yi seçin.     
 7. **Oluştur**’a tıklayın.

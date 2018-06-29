@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 8ceecdefe644cb5dd1b6038636960cbb5dd9167e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cd4b58dea43e497a2d7a5b977379d95f7004af45
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618972"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052316"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory kadar etkinliğinde
 Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama dillerinde sağlayana kadar. Etkinlikle ilişkilendirilmiş olan koşul doğru sonucunu verene kadar bir dizi etkinliği döngüsel olarak yürütür. Data Factory'de bitiş etkinliği için bir zaman aşımı değeri belirtebilirsiniz. 
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -60,7 +57,7 @@ Until etkinliği aynı işlevselliği sağlayan bir-yapısı döngü programlama
 -------- | ----------- | -------------- | --------
 ad | Adını `Until` etkinlik. | Dize | Evet
 type | Ayarlanmalıdır **kadar**. | Dize | Evet
-ifade | True veya false olarak değerlendirilmelidir ifade | İfade.  | Evet
+İfade | True veya false olarak değerlendirilmelidir ifade | ifade.  | Evet
 timeout | Do-burada belirtilen saat sonra zaman aşımına döngü kadar. | Dize. `d.hh:mm:ss` (veya) `hh:mm:ss`. Varsayılan değer 7 gündür. Maksimum değer: 90 gün. | Hayır
 Etkinlikler | İçin ifadeyi hesaplar kadar çalıştırılan etkinlikleri kümesi `true`. | Etkinlikler dizisi. |  Evet
 

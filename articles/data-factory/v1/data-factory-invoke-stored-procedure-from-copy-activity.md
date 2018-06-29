@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c06e8c1a64f6f784f106c9b925f698b33c196320
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e75573513f107977e1d5fe62fbae89cb4439e0e9
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621845"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048960"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data Factory içinde depolanan yordamı çağırma
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [dönüştürme saklı yordam etkinliği Data Factory sürüm 2 kullanarak verileri](../transform-data-using-stored-procedure.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [dönüştürme veri fabrikasında saklı yordam etkinliği kullanarak verileri](../transform-data-using-stored-procedure.md).
 
 
 Veri kopyalama işlemi sırasında [SQL Server](data-factory-sqlserver-connector.md) veya [Azure SQL veritabanı](data-factory-azure-sql-connector.md), yapılandırabileceğiniz **SqlSink** bir saklı yordam çağrılacak kopyalama etkinliğinde. Saklı kullanmak isteyebilirsiniz (sütun değerleri, birden çok tablo, vb. ekleme bakarak, birleştirme) herhangi bir ek işlem gerçekleştirmek için yordamı verileri hedef tabloyla eklemeden önce gereklidir. Bu özellik yararlandığı [tablo değerli parametreleri](https://msdn.microsoft.com/library/bb675163.aspx). 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293169"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036477"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory'de özellik eşlemeleri için ifade yazma
 Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznitelik eşlemelerini tür bir ifade eşlemesi biridir. Bunlar için kullanıcılarınızın veri SaaS uygulaması için daha kabul edilebilir biçimlere dönüştürme olanak sağlayan bir betik benzeri ifadesi yazmanız gerekir.
@@ -37,7 +37,7 @@ Bir SaaS uygulaması sağlama yapılandırdığınızda belirtebilirsiniz öznit
 * Bir ters eğik çizgi (\) ya da dizisinde tırnak işareti (") gerekiyorsa dize sabitleri için onu ters eğik çizgi (\) simgesiyle kaçış uygulanmalıdır. Örneğin: "şirket adı: \"Contoso\""
 
 ## <a name="list-of-functions"></a>İşlevlerin listesi
-[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılma](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Değiştir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [anahtarı](#switch)
+[Append](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [katılma](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [değil](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Değiştir](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Anahtarı](#switch)
 
 - - -
 ### <a name="append"></a>Ekle
@@ -78,7 +78,7 @@ Kaynak değerlerden biri birden çok değerli özniteliği, her değer ise bu ö
 
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
-| **ayırıcı** |Gerekli |Dize |Bir dizeye birleşir, kaynak değerleri ayırmak için kullanılan dize. Olabilir "" ayırıcı gerekiyorsa. |
+| **Ayırıcı** |Gerekli |Dize |Bir dizeye birleşir, kaynak değerleri ayırmak için kullanılan dize. Olabilir "" ayırıcı gerekiyorsa. |
 | ** kaynak1... kaynakN ** |Gerekli, değişken-sayısı |Dize |Birlikte birleştirilecek değerleri dize. |
 
 - - -
@@ -96,7 +96,19 @@ Kaynak değerlerden biri birden çok değerli özniteliği, her değer ise bu ö
 | **uzunluğu** |Gerekli |integer |Dizenin uzunluğu. Uzunluk dışında ererse **kaynak** dize işlevi alt dizeyi döndürecektir **Başlat** dizin sonuna kadar **kaynak** dize. |
 
 - - -
-### <a name="not"></a>değil
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**İşlev:**<br> NormalizeDiacritics(source)
+
+**Açıklama:**<br> Bir dize bağımsız değişkeni gerektirir. Dize verir, ancak eşdeğer aksanlı olmayan karakterlerle yerini herhangi aksanlı karakterler. Genellikle kullanıcı asıl adları, SAM hesap adlarını ve e-posta adresleri gibi çeşitli kullanıcı tanımlayıcıları kullanılabilir yasal değerlerinden ilk adları ve soyadları aksanlı karakterler (vurgu işaretleri) dönüştürmek için kullanılır.
+
+**Parametreler:**<br> 
+
+| Ad | Gerekli / yinelenen | Tür | Notlar |
+| --- | --- | --- | --- |
+| **Kaynak** |Gerekli |Dize | Genellikle bir ad veya son name özniteliği |
+
+- - -
+### <a name="not"></a>Değil
 **İşlev:**<br> Not(Source)
 
 **Açıklama:**<br> Boole değeri döndürür **kaynak**. Varsa **kaynak** değer "*True*", döndürür "*False*". Aksi takdirde, döndürür "*True*".
@@ -129,7 +141,6 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
   * Varsa **kaynak** değerine sahip, kullanan **regexPattern** ve **regexGroupName** özelliğiyle değiştirme değeri ayıklamak için **replacementPropertyName** . Sonuç olarak değiştirme değeri döndürülür
 
 **Parametreler:**<br> 
-
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |Genellikle kaynak nesneden özniteliğinin adı. |
@@ -144,7 +155,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **İşlev:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**Açıklama:**<br> Belirli bir uygulamada bir kullanıcıya atanan tüm appRoleAssignments listesinden tek bir appRoleAssignment döndürür. Bu işlev, appRoleAssignments nesneyi bir tek bir rol adı dizeye dönüştürmek için gereklidir. Yalnızca bir appRoleAssignment emin olmak için en iyisi olduğuna dikkat edin tek bir kullanıcıya aynı anda atanır ve birden çok rol döndürülen rol dizesini atanmışsa tahmin edilebilir olmayabilir.
+**Açıklama:**<br> Bir dize bağımsız değişkeni gerektirir. Bir dize döndürür ancak tüm aksanlı karakter repalced eşdeğer aksanlı olmayan karakterlerle ile.
 
 **Parametreler:**<br> 
 
@@ -175,7 +186,7 @@ Bir dize içindeki değerleri değiştirir. Sağlanan parametre bağlı olarak f
 | Ad | Gerekli / yinelenen | Tür | Notlar |
 | --- | --- | --- | --- |
 | **Kaynak** |Gerekli |Dize |**Kaynak** güncelleştirmek için değer. |
-| **defaultValue** |İsteğe bağlı |Dize |Kaynak herhangi bir anahtarı eşleşmediğinde kullanılacak varsayılan değeri. Boş bir dize olabilir (""). |
+| **DefaultValue** |İsteğe bağlı |Dize |Kaynak herhangi bir anahtarı eşleşmediğinde kullanılacak varsayılan değeri. Boş bir dize olabilir (""). |
 | **anahtar** |Gerekli |Dize |**Anahtar** karşılaştırmak için **kaynak** ile değer. |
 | **value** |Gerekli |Dize |Değiştirme değeri için **kaynak** eşleşen. |
 
@@ -215,16 +226,16 @@ Kullanıcının ilk adını, ilk 3 harf ve kullanıcının soyadını ilk 5 harf
 * **Giriş** (Soyadı): "Doe"
 * **Çıktı**: "JohDoe"
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>Bir dizeden Aksan kaldırın ve küçük harfe Dönüştür
-Bir dizeden özel karakterleri kaldırın ve büyük harfler küçük harfe dönüştürmek gerekir.
+### <a name="remove-diacritics-from-a-string"></a>Bir dizeden Aksan Kaldır
+Vurgu işaretleri vurgu işaretleri içermeyen eşdeğer karakter içeren karakter değiştirmeniz gerekiyor.
 
 **İfade:** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **Giriş/Çıkış örneği:** <br>
 
 * **Giriş** (givenName): "Zoë"
-* **Çıktı**: "zoe"
+* **Çıktı**: "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Çıkış tarihi belirli biçiminde bir dize olarak
 Belirli bir biçimde SaaS uygulamasına tarihleri göndermek istiyor. <br>
@@ -259,5 +270,5 @@ Durum kodu önceden tanımlanmış seçeneklerinden herhangi birini eşleşmiyor
 * [Kapsam belirleme filtreleri kullanıcı sağlama](active-directory-saas-scoping-filters.md)
 * [Kullanıcıların ve grupların Azure Active Directory'den uygulamalara otomatik olarak hazırlanmasını etkinleştirmek için SCIM'yi kullanma](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Hesap sağlama bildirimleri](active-directory-saas-account-provisioning-notifications.md)
-* [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](active-directory-saas-tutorial-list.md)
+* [SaaS uygulamalarını tümleştirme ile nasıl öğreticiler listesi](saas-apps/tutorial-list.md)
 

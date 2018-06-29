@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: ea83701e834895b09faf8eb6602bd342b648ec37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4c2bf83fec3d8f961a84523365e4a98fe3bf7603
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620213"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052376"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Hadoop akış etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-hadoop-streaming-activity.md)
-> * [Sürüm 2 - Önizleme](transform-data-using-hadoop-streaming.md)
+> * [Sürüm 1](v1/data-factory-hadoop-streaming-activity.md)
+> * [Geçerli sürüm](transform-data-using-hadoop-streaming.md)
 
 Hdınsight akış etkinliğinde Data Factory [ardışık düzen](concepts-pipelines-activities.md) üzerinde Hadoop akış programları yürütür [kendi](compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Hadoop akış etkinliğinde V1](v1/data-factory-hadoop-streaming-activity.md).
 
 Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](introduction.md) ve [öğretici: verileri](tutorial-transform-data-spark-powershell.md) bu makaleyi okumadan önce. 
 
@@ -86,7 +83,7 @@ Azure Data Factory yeniyseniz okuyun [Azure Data Factory'ye giriş](introduction
 | input             | Giriş dosyası WASB yolunu Eşleştiricisi belirtir. | Evet      |
 | çıkış            | Çıktı dosyası WASB yolunu için Reducer belirtir. | Evet      |
 | Getdebugınfo      | Günlük dosyaları için Azure Storage zaman kopyalanır belirtir Hdınsight kümesi tarafından kullanılan (veya) scriptLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır       |
-| Bağımsız değişkenler         | Bir Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenler, her görevin komut satırı bağımsız değişkenleri olarak geçirilir. | Hayır       |
+| bağımsız değişkenler         | Bir Hadoop işi için bağımsız değişkenleri dizisini belirtir. Bağımsız değişkenler, her görevin komut satırı bağımsız değişkenleri olarak geçirilir. | Hayır       |
 | tanımlar           | Parametreler, Hive betiğini içinde başvurmak için anahtar/değer çiftleri olarak belirtin. | Hayır       | 
 
 ## <a name="next-steps"></a>Sonraki adımlar

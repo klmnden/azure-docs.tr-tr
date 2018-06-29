@@ -4,8 +4,6 @@ description: Bir Azure Search iyileştirmesini ardışık görüntü dosyaları 
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640379"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059194"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR bilişsel nitelik
 
@@ -38,14 +36,14 @@ Parametreleri büyük/küçük harfe duyarlıdır.
 | Parametre adı     | Açıklama |
 |--------------------|-------------|
 | detectOrientation | Görüntü Yönü algılama sağlar. <br/> Geçerli değerler: true / false.|
-|defaultLanguageCode |  Giriş metni dil kodu. Desteklenen diller şunlardır: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`.  Dil kodu belirtilmemiş veya null ise, autodetected dilidir.|
+|defaultLanguageCode | <p>  Giriş metni dil kodu. Desteklenen diller: <br/> zh-atanır (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>cs (Çekçe) <br/>da (Danimarka) <br/>NL (Hollanda dili) <br/>tr (İngilizce) <br/>Fi (Fince)  <br/>FR (Fransızca) <br/>  de (Almanca) <br/>el (Yunanca) <br/> hu (Macarca) <br/> Bunu (İtalyanca) <br/>  ja (Japonca) <br/> Ko (Korece) <br/> NB (Norveççe) <br/>   PL (Lehçe) <br/> PT (Portekiz) <br/>  RU (Rusça) <br/>  ES (İspanyolca) <br/>  sv (İsveççe) <br/>  tr (Türkçe) <br/> ar (Arapça) <br/> Ro (Rumence) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Slovakça). <br/>  UNK (bilinmiyor) <br/><br/> Dil kodu belirtilmemiş veya null ise, autodetected dilidir. </p> |
 | textExtractionAlgorithm | "yazdırılan" veya "el yazısı". "El yazısı" metin tanıma OCR algoritması şu anda önizlemede ve yalnızca İngilizce olarak desteklenir. |
 
 ## <a name="skill-inputs"></a>Yetenek girişleri
 
 | Giriş adı      | Açıklama                                          |
 |---------------|------------------------------------------------------|
-| görüntü         | Karmaşık türü. "/ Belge/normalized_images" alan şu anda yalnızca çalışır Azure Blob Oluşturucu tarafından üretilen zaman ```imageAction``` ayarlanır ```generateNormalizedImages```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
+| image         | Karmaşık türü. "/ Belge/normalized_images" alan şu anda yalnızca çalışır Azure Blob Oluşturucu tarafından üretilen zaman ```imageAction``` ayarlanır ```generateNormalizedImages```. Bkz: [örnek](#sample-output) daha fazla bilgi için.|
 
 
 ## <a name="skill-outputs"></a>Yetenek çıkışları

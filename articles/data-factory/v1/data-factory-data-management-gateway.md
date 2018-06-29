@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d28d25b74ce46c0323b01670bfdb639c02b92d8a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 67b8e35f0ddafd0a39bf29757927f4ace6230547
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335814"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048926"
 ---
 # <a name="data-management-gateway"></a>Veri Yönetimi Ağ Geçidi
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [tümleştirmesi çalışma zamanı sürüm 2'kendi kendini barındıran](../create-self-hosted-integration-runtime.md). 
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [tümleştirmesi çalışma zamanı'kendi kendini barındıran](../create-self-hosted-integration-runtime.md). 
 
 > [!NOTE]
 > Veri Yönetimi ağ geçidi Self-hosted tümleştirmesi çalışma zamanı şimdi rebranded.  
@@ -288,12 +288,12 @@ Devre dışı bırak/otomatik güncelleştirme özelliği aşağıdakileri yapar
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on  
     ```
-[Birden çok düğümlü yüksek oranda kullanılabilir ve ölçeklenebilir için ağ geçidi (Önizleme)](data-factory-data-management-gateway-high-availability-scalability.md)
+[Birden çok düğümlü yüksek oranda kullanılabilir ve ölçeklenebilir ağ geçidi için](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Ağ geçidi bilgisayarında Windows PowerShell'i başlatın.
 2. C:\Program Files\Microsoft tümleştirme Runtime\3.0\PowerShellScript\ klasörüne geçin.
 3. (Devre dışı bırakın) özelliğini otomatik güncelleştirme etkinleştirmek için aşağıdaki komutu çalıştırın.   
 
-    Yüksek kullanılabilirlik özelliği (Önizleme) ile ağ geçidi için fazladan bir AuthKey param gereklidir.
+    Yüksek kullanılabilirlik özelliği ile ağ geçidi için fazladan bir AuthKey param gereklidir.
     ```PowerShell
     .\IntegrationRuntimeAutoUpdateToggle.ps1  -off -AuthKey <your auth key>
     ```

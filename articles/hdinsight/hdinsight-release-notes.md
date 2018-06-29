@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 17ba4af006587dd1d34f61a0f5f77cbcd768fcf8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a53bc6459e431d855ba09cda59680c5d8698c488
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410099"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063266"
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure hdınsight'ta Hadoop bileşenleri için sürüm notları
 
@@ -28,6 +28,17 @@ Bu makalede, hakkında bilgi sağlar. **en son** Azure Hdınsight sürüm günce
 > [!IMPORTANT]
 > Linux, HDInsight sürüm 3.4 ve üzerinde kullanılan tek işletim sistemidir. Daha fazla bilgi için bkz: [Hdınsight sürüm makale](hdinsight-component-versioning.md).
 
+## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Notları 06/27/2018 - yeni açık kaynak sürümleri sürümü, Hdınsight 3.6 üzerinde ADLS Gen2 vb.
+Hdınsight Haziran 2018 sürümü kadar aşağıda özetlendiği gibi müşterilerimiz için yeni güncelleştirmeler ve özellikleri ile çok önemli bir sürüm olması şekillendirme. Lütfen bu okuyun [sonrası](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/) daha fazla ayrıntı için.
+
+Öne çıkan özellikleri aşağıda verilmiştir. Ayrıntılı sürüm notları, düzeltilen, bilinen sorunlar vb., lütfen bu okumak için [belge](https://aka.ms/hdirelnotes).
+
+- **Hadoop ve diğer açık kaynaklı proje güncelleştirme** – ek olarak, 1000 + hata düzeltmeleri 20 + açık kaynak projelerde, bu güncelleştirme Spark (2.3) ve Kafka (1.0) yeni bir sürümünü içerir.
+- **R Server 9.1 Machine Learning Hizmetleri 9.3 için güncelleştirme** – bu sürümle birlikte, biz veri bilimcileri ve mühendisleri açık kaynaklı algoritmik yenilikleri ve operationalization, kullanılabilir tüm kolaylığı sayesinde geliştirilmiş en iyi ile sağlayan kendi tercih edilen dili Apache Spark hızına sahip. Bu sürüm, R Server ML Hizmetleri R sunucusundan küme adı değişikliği baştaki Python desteği eklendi ile sunulan yetenekleri bağlı genişletir. 
+- **Azure Data Lake Storage Gen2 için destek** – Hdınsight Azure Data Lake Storage Gen2 önizleme sürümünü destekler. Kullanılabilir bölgelerde, müşterilerin kendi Hdınsight kümeleri için deposu olarak bir ADLS Gen2 hesabı seçebilir olacaktır.
+- **Hdınsight Kurumsal güvenlik paket Güncelleştirmesi (Önizleme)** – (Önizleme) sanal ağ hizmet uç desteği için Azure blob depolama, ADLS Gen1, Cosmos DB ve Azure DB. 
+
+
 ## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>Notları 03/20/2018 - 2.2 Hdınsight'ta Spark, 3.6 sürümü
 
 - Spark 2.2.0 Spark Core, SQL, ML arasında kararlılığını artırır ve yapılandırılmış akış GA duruma getirir. Spark 2.2.0 üzerinde Hdınsight 3.6 kullanıma sunulmuştur.
@@ -35,7 +46,7 @@ Bu makalede, hakkında bilgi sağlar. **en son** Azure Hdınsight sürüm günce
 
 ## <a name="notes-for-08012017-release-of-hdinsight"></a>Hdınsight 08/01/2017 sürümünün notları
 
-| Başlık | Açıklama | Etkilenen alan  | Küme Türü  | 
+| Unvan | Açıklama | Etkilenen alan  | Küme Türü  | 
 | --- | --- | --- | --- | --- |
 | Hdınsight üzerinde Microsoft R Server 9.1 sürümü |Hdınsight, Hdınsight'ta sağlama R Server 9.1 kümeleri artık destekler. Microsoft R Server 9.1 sürüm hakkında daha fazla bilgi için bkz: [bu blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Hizmet |R Server |
 | Hdınsight 3.6 şimdi Hadoop yığını daha yeni sürümlerini içerir|<ul><li>Güncelleştirilmiş sürümleri ayrıntılı bir listesi için bkz [kullanılabilir Hdınsight'ta Hadoop bileşen sürümlerini](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>En son sürümlerini Hadoop yığını düzeltilen listesi için bkz: [Apache düzeltme eki bilgileri](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>Yeni değişiklikler HDP (şimdi Hdınsight 3.6 kullanılabilir olan) 2.6.1 arasında bir listesi için bkz: [ https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html ](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>HDP 2.6.1 bilinen sorunların listesi için bkz: [bilinen sorunlar](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Hizmet |Tümü |Yok |

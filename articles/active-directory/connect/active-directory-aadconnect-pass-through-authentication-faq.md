@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8363c49c4a52785fb5deacb3ac4998d38aca1430
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee467769b9653a9952b6e41e66a8777a4bac5e56
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593889"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028889"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory doğrudan kimlik doğrulaması: Sık sorulan sorular
 
@@ -66,7 +66,7 @@ Belirli bir kullanıcı için parola geri yazma özelliğini yapılandırmadıys
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Nasıl doğrudan kimlik doğrulama yanılma parola saldırılara karşı koruma sağlar mı?
 
-Okuma [Azure Active Directory doğrudan kimlik doğrulaması: Akıllı kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) daha fazla bilgi için.
+Okuma [Azure Active Directory doğrudan kimlik doğrulaması: Akıllı kilitleme](../authentication/howto-password-smart-lockout.md) daha fazla bilgi için.
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Ne doğrudan kimlik doğrulama Aracısı 80 ve 443 numaralı bağlantı noktaları üzerinden iletişim?
 
@@ -133,7 +133,7 @@ Bir sunucudan doğrudan kimlik doğrulama aracısını kaldırırsanız, sunucun
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): hangi senaryoları desteklenir ve hangilerinin olmayan öğrenin.
 - [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD doğrudan kimlik doğrulamasını başlamak ve çalıştırmak.
-- [Akıllı kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme özelliği yapılandırmayı öğrenin.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme özelliği yapılandırmayı öğrenin.
 - [Teknik derinlemesine](active-directory-aadconnect-pass-through-authentication-how-it-works.md): doğrudan kimlik doğrulaması özelliğinin nasıl çalıştığını anlayın.
 - [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): doğrudan kimlik doğrulama özelliği ile ortak sorunları çözmeyi öğrenin.
 - [Güvenlik derinlemesine](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): doğrudan kimlik doğrulama özelliği hakkında ayrıntılı teknik bilgi alın.

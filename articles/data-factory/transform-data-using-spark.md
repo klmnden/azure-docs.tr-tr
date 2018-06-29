@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 525ad1c83a1982ae5b954b900c5a6c7086544c66
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: abe2fabc505f94f19d4b15a406fc59bf6d6e7ac1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700545"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050344"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Spark etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-spark.md)
-> * [Sürüm 2 - Önizleme](transform-data-using-spark.md)
+> * [Sürüm 1](v1/data-factory-spark.md)
+> * [Geçerli sürüm](transform-data-using-spark.md)
 
 Veri Fabrikası Spark etkinliğinde [ardışık düzen](concepts-pipelines-activities.md) üzerinde bir Spark programı yürütür [kendi](compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](transform-data.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar. Bir isteğe bağlı Spark hizmeti kullandığınızda, veri fabrikası bir Spark kümesi, yalnızca verileri işlemek zaman için otomatik olarak oluşturur ve işlem tamamlandıktan sonra kümeyi siler. 
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Spark etkinliğinde](v1/data-factory-spark.md).
 
 > [!IMPORTANT]
 > Spark etkinliği Azure Data Lake Store birincil depolama alanı olarak kullanın Hdınsight Spark kümeleri desteklemez.
@@ -74,7 +71,7 @@ Aşağıdaki tabloda JSON tanımında kullanılan JSON özellikleri açıklanmak
 | rootPath              | Azure Blob kapsayıcısı ve Spark dosyasını içeren klasör. Dosya adı büyük/küçük harf duyarlıdır. Klasör yapısı bakın (sonraki bölümde) Bu klasör yapısı hakkında ayrıntılar için bölüm. | Evet      |
 | entryFilePath         | Spark kod/paketi kök klasörüne göreli yolu. Girdi dosyası Python dosyası veya .jar dosyası olmalıdır. | Evet      |
 | className             | Uygulamanın Java/Spark ana sınıfı      | Hayır       |
-| Bağımsız değişkenler             | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır       |
+| bağımsız değişkenler             | Spark programın komut satırı bağımsız değişkenleri listesi. | Hayır       |
 | proxyUser             | Spark program yürütülmeye kimliğine bürünmek için kullanıcı hesabı | Hayır       |
 | sparkConfig           | Konu başlığı altında listelenen Spark yapılandırma özellikleri için değerleri belirtin: [Spark yapılandırması - uygulama özellikleri](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Hayır       |
 | Getdebugınfo          | Hdınsight küme tarafından kullanılan Azure depolama Spark günlük dosyalarının ne zaman kopyalanır belirtir (veya) sparkJobLinkedService tarafından belirtilen. İzin verilen değerler: None, her zaman veya hata. Varsayılan değer: yok. | Hayır       |

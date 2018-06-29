@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2e0b448b5ab48e7be3429d3d3b5b898b6bf22115
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e51061dc781e4ec6e822cde9cc450887ff3b1368
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261857"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061194"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Microsoft.Common.OptionsGroup UI öğesi
 Seçim denetim kullanılabilir seçeneklerden bir satır.
@@ -44,7 +44,8 @@ Seçim denetim kullanılabilir seçeneklerden bir satır.
         "label": "Value two",
         "value": "two"
       }
-    ]
+    ],
+    "required": true
   },
   "visible": true
 }
@@ -53,8 +54,7 @@ Seçim denetim kullanılabilir seçeneklerden bir satır.
 ## <a name="remarks"></a>Açıklamalar
 - Etiketi `constraints.allowedValues` öğenin görünen metindir ve değerini öğesi seçildiğinde çıktı değeri.
 - Belirtilmişse, varsayılan değer mevcut bir etiketi olmalıdır `constraints.allowedValues`. Belirtilmezse, listedeki ilk öğe `constraints.allowedValues` varsayılan olarak seçilidir. Varsayılan değer **null**.
-- `constraints.allowedValues` en az bir öğe içermesi gerekir.
-- Bu öğe desteklemiyor `constraints.required` özellik; başarıyla doğrulamak için bir öğe seçilmelidir.
+- `constraints.allowedValues` en az bir öğe olmalıdır.
 
 ## <a name="sample-output"></a>Örnek çıktı
 ```json

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714944"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031007"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Bir Azure uygulamasında ölçeklendirin
 
@@ -98,7 +98,7 @@ Hizmet sınırları, kotaları ve kısıtlamaları ve her katmanındaki destekle
   
     [Sanal makine ve bulut hizmeti boyutları Microsoft Azure][vmsizes]
   
-* En iyi yöntemler, ölçeklenebilir ve esnek bir mimari oluşturmak gibi Azure App Service hakkında bilgi için bkz: [en iyi uygulamalar: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+* En iyi yöntemler, ölçeklenebilir ve esnek bir mimari oluşturmak gibi Azure App Service hakkında bilgi için bkz: [en iyi uygulamalar: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/).
 * Uygulama hizmeti uygulamaları ölçeklendirme hakkında daha fazla videolar için aşağıdaki kaynaklara bakın:
   
   * [Azure ile Web siteleri - Stefan Schackow ölçeklendirmek ne zaman](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

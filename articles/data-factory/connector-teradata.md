@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 4360ff12a435afc4347fa97bba4506ccd81618aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a2928b202f56674c69e6431201db6d846a9feb9a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618989"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045764"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Azure Data Factory kullanarak Teradata verilerini
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-onprem-teradata-connector.md)
-> * [Sürüm 2 - Önizleme](connector-teradata.md)
+> * [Sürüm 1](v1/data-factory-onprem-teradata-connector.md)
+> * [Geçerli sürüm](connector-teradata.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir Teradata veritabanından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Teradata Bağlayıcısı](v1/data-factory-onprem-teradata-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -175,7 +172,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata 
 | CLOB |Dize |
 | Tarih |DateTime |
 | Ondalık |Ondalık |
-| Çift |Çift |
+| çift |çift |
 | Grafiği |Dize |
 | Tamsayı |Int32 |
 | Aralık gün |TimeSpan |
@@ -191,7 +188,7 @@ Teradata veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Teradata 
 | Aralığı ikinci |TimeSpan |
 | Aralığı yıl |Dize |
 | Aralığı yıl ay için |Dize |
-| Sayı |Çift |
+| Sayı |çift |
 | Period(Date) |Dize |
 | Period(Time) |Dize |
 | Süresi (saat dilimi ile) |Dize |

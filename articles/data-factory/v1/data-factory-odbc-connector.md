@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4db720b2140a5208acc582b01b0b9613a7fd827a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 200b3c36c28cd61ca34e57875d030bf308c387ec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621386"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049290"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory kullanarak veri öğesinden ODBC veri depolarını taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-odbc-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-odbc.md)
+> * [Sürüm 1](data-factory-odbc-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-odbc.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 ODBC Bağlayıcısı](../connector-odbc.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 ODBC Bağlayıcısı](../connector-odbc.md).
 
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi ODBC veri deposundan verileri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
@@ -49,7 +49,7 @@ Farklı araçlar/API'lerini kullanarak bir ODBC veri deposundan verileri taşır
 
 Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin: 
 
@@ -94,7 +94,7 @@ Aşağıdaki tabloda, JSON öğeleri için ODBC belirli açıklamasını bağlan
 }
 ```
 ### <a name="using-basic-authentication-with-encrypted-credentials"></a>Temel kimlik doğrulaması ile şifrelenmiş kimlik bilgileri kullanma
-Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (Azure PowerShell 0,9 veya önceki sürüm).  
+Kullanarak kimlik bilgilerini şifrelemek [yeni AzureRMDataFactoryEncryptValue](https://msdn.microsoft.com/library/mt603802.aspx) (Azure PowerShell 1.0 sürümü) cmdlet'ini veya [yeni AzureDataFactoryEncryptValue](https://msdn.microsoft.com/library/dn834940.aspx) (0,9 veya önceki bir sürümü Azure PowerShell).  
 
 ```json
 {
@@ -386,7 +386,7 @@ ODBC veri kullanarak makale ayrıntılı bir genel bakış için en başından b
 ## <a name="troubleshoot-connectivity-issues"></a>Bağlantı sorunlarını giderme
 Bağlantı sorunlarını gidermek için kullanmak **tanılama** sekmesinde **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**.
 
-1. Başlatma **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**. İçin "C:\Program Files\Microsoft veri yönetimi Gateway\1.0\Shared\ConfigManager.exe" doğrudan (veya) arama ya da çalıştırabilirsiniz **ağ geçidi** bağlantı bulmak için **Microsoft Veri Yönetimi ağ geçidi** aşağıdaki görüntüde gösterildiği gibi uygulama.
+1. Başlatma **veri yönetimi ağ geçidi Yapılandırma Yöneticisi**. İçin "C:\Program Files\Microsoft veri yönetimi Gateway\1.0\Shared\ConfigManager.exe" doğrudan (veya) arama ya da çalıştırabilirsiniz **ağ geçidi** bağlantı bulmak için **Microsoft Veri Yönetimi ağ geçidi** Aşağıdaki görüntüde gösterildiği gibi uygulama.
 
     ![Arama ağ geçidi](./media/data-factory-odbc-connector/search-gateway.png)
 2. Geçiş **tanılama** sekmesi.

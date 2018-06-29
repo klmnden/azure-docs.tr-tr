@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: faa28a6b28c721e4088ccfbb00514be7f605f3e2
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: ff5c76ca0a164d09e45488cb7abf7f2c2ee50a95
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943755"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064110"
 ---
 # <a name="prepare-an-existing-linux-azure-vm-image-for-use-with-cloud-init"></a>Bulut init ile kullanılmak üzere var olan bir Linux Azure VM görüntüsünü hazırlama
 Bu makale mevcut bir Azure sanal makine alın ve yeniden dağıtılan ve bulut init kullanıma hazır olması için hazırlama gösterilmektedir. Elde edilen görüntü, yeni bir sanal makine veya sanal makine ölçek kümeleri biri ya da sonra daha fazla bulut-Init dağıtım sırasında özelleştirilebilecek - dağıtmak için kullanılabilir.  Kaynakları Azure tarafından sağlanan sonra bu bulut başlatma komut dosyaları ilk önyükleme çalıştırın. Bulut init yerel olarak Azure ve desteklenen Linux distro'lar işleyişi hakkında daha fazla bilgi için bkz: [bulut init genel bakış](using-cloud-init.md)
@@ -97,7 +97,7 @@ EOF
 
 Var olan Azure görüntünüzü yapılandırılmış takas dosyası varsa ve bulut init kullanarak yeni görüntüleri takas dosyası yapılandırmasını değiştirmek istediğiniz varolan takas dosyası kaldırmanız gerekir.
 
-RedHat görüntüleri - tabanlı için belge aşağıdaki RedHat açıklayan içindeki yönergeleri izleyin nasıl [takas dosyası kaldırmak](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/5/html/Deployment_Guide/s2-swap-removing-file.html).
+Red Hat görüntüleri - tabanlı için belge aşağıdaki Red Hat açıklayan içindeki yönergeleri izleyin nasıl [takas dosyası kaldırmak](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/swap-removing-file).
 
 Etkin swapfile ile CentOS görüntüleri için devre dışı Takas dosyasını etkinleştirmek için aşağıdaki komutu çalıştırabilirsiniz:
 ```bash

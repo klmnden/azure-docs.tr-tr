@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e30cffa836beb2086e3bc4e94bf60be94136d3a0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f68e1077ebc26245b25eae3b0310db74b6d1357e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620631"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046454"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Search dizini veri göndermek
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-azure-search-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-azure-search.md)
+> * [Sürüm 1](data-factory-azure-search-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-azure-search.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 Azure Search Bağlayıcısı](../connector-azure-search.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Azure Search Bağlayıcısı](../connector-azure-search.md).
 
 Bu makalede, Azure Search dizini için desteklenen kaynak veri deposundan veri göndermek için kopyalama etkinliği kullanmayı açıklar. Desteklenen kaynak veri depoları, kaynağı sütununda listelenen [desteklenen kaynakları ve havuzlarını](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Bu makalede derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) desteklenen veri deposu birleşimleri kopyalama etkinliği ile veri taşıma için genel bir bakış sunan makalesi.
 
@@ -41,7 +41,7 @@ Veri kaynağı veri deposundan farklı araçlar/API'lerini kullanarak Azure Sear
 
 Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin: 
 
@@ -80,7 +80,7 @@ Kopyalama Havuz türü olduğunda etkinliği için **AzureSearchIndexSink**, typ
 
 | Özellik | Açıklama | İzin verilen değerler | Gerekli |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).| Merge (varsayılan)<br/>Karşıya Yükle| Hayır |
+| WriteBehavior | Birleştir veya bir belge dizinde zaten mevcut olduğunda Değiştir belirtir. Bkz: [WriteBehavior özelliği](#writebehavior-property).| (Varsayılan) birleştirme<br/>Karşıya Yükle| Hayır |
 | WriteBatchSize | Arabellek boyutu writeBatchSize ulaştığında Azure Search dizinine veri yükler. Bkz: [WriteBatchSize özelliği](#writebatchsize-property) Ayrıntılar için. | 1 için 1.000. Varsayılan değer 1000'dir. | Hayır |
 
 ### <a name="writebehavior-property"></a>WriteBehavior özelliği
@@ -104,7 +104,7 @@ Aşağıdaki tabloda, bir Azure Search veri türü veya desteklenip desteklenmed
 | Dize | E |
 | Int32 | E |
 | Int64 | E |
-| Çift | E |
+| çift | E |
 | Boole | E |
 | DataTimeOffset | E |
 | Dize dizisi | N |

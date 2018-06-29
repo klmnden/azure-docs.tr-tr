@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 1f4afbe1849210c55c392d014449224f2fe97b04
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655467"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062215"
 ---
-# <a name="integrate-cloud-foundry-with-azure"></a>Bulut Foundry Azure ile tümleştirme
+# <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry ile Azure’ı tümleştirme
 
 [Bulut Foundry](https://docs.cloudfoundry.org/) bulut sağlayıcılarının Iaas platformu üzerinde çalışan bir PaaS platformudur. Bulut sağlayıcıları arasında tutarlı uygulama dağıtım deneyimi sunar. Ayrıca, bu ayrıca ile Kurumsal düzeyde HA, çeşitli Azure hizmetleriyle ölçeklenebilirlik, tümleştirme ve maliyet tasarrufu.
 Vardır [bulut Foundry 6 alt](https://docs.cloudfoundry.org/concepts/architecture/), olabilir esnek ölçek çevrimiçi dahil olmak üzere: yönlendirme, Mesajlaşma ve izleme kimlik doğrulaması, uygulama yaşam döngüsü yönetimi, hizmet yönetimi. Her alt sistemleri için bulut correspondent Azure hizmeti kullanmaya Foundry yapılandırabilirsiniz. 
@@ -81,7 +81,7 @@ F-D VM seri sık Bileşendirler bulut Foundry üretim ortamı için önerilen ed
 #### <a name="managed-standard-disk"></a>Standart yönetilen Disk: 
 Premium diskleri üretimde güvenilir performans için önerilen.  İle [yönetilen Disk](https://azure.microsoft.com/services/managed-disks/), standart depolama da benzer bir güvenilirlik, farklı performans teslim etmek. Performans duyarlı değil iş yükü için geliştirme ve Test veya kritik olmayan ortamı gibi yönetilen standart diskler daha düşük maliyetli alternatif bir seçenek sunar.  
 ### <a name="cost-saving-in-general"></a>Maliyet tasarrufu genel 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Önemli VM maliyeti ile ayrılmış örnekler kaydetme: 
+#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Önemli VM maliyet kaydetme ile ayrılmış örnekler: 
 Bugün tüm CF VM'ler "isteğe bağlı" fiyatlandırma, ortamlar genellikle süresiz olarak kalması olsa bile kullanarak faturalandırılır. Şimdi yedek 1 ya da 3 yıllık dönem üzerinde VM kapasite ve indirim 45 %65 geçirmesine. Fatura sistemiyle ortamınızı herhangi bir değişiklik indirim uygulanır. Ayrıntılar için bkz [nasıl ayrılmış örnekleri works](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Premium Disk küçük boyutlarıyla yönetilen: 
 Diskleri destek daha küçük disk boyutlarına, örneğin P4(32 GB) ve P6(64 GB) premium ve standart diskler için yönetilen. Küçük iş yükleri varsa, standart premium diskleri yönetilen premium diskleri geçirilirken maliyet kaydedebilirsiniz.

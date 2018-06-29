@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 591fe2222c54aad50acc378be7f3399518a8087e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266927"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059898"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI öğesi
 Karşıya yüklemek için bir veya daha fazla belirtmesine imkan tanıyan bir denetimi.
@@ -50,19 +50,19 @@ Karşıya yüklemek için bir veya daha fazla belirtmesine imkan tanıyan bir de
 ## <a name="remarks"></a>Açıklamalar
 - `constraints.accept` Tarayıcının dosyası iletişim kutusunda gösterilen dosya türlerini belirtir. Bkz: [HTML5 belirtimi](http://www.w3.org/TR/html5/forms.html#attr-input-accept) için izin verilen değerler. Varsayılan değer **null**.
 - Varsa `options.multiple` ayarlanır **doğru**, kullanıcının tarayıcısının dosyası iletişim kutusunda birden fazla dosya seçmesine izin verilen. Varsayılan değer **false**.
-- Bu öğe değerine göre iki modda karşıya yükleme dosyalarını destekler `options.uploadMode`. Varsa **dosya** belirtildi, çıktıyı bir BLOB dosyanın içeriğini içerir. Varsa **url** belirtilmişse dosyanın geçici bir konuma yüklenir ve çıktı blob URL'sini içerir. Geçici BLOB'lar 24 saat sonra temizlenecek. Varsayılan değer **dosya**.
+- Bu öğe değerine göre iki modda karşıya yükleme dosyalarını destekler `options.uploadMode`. Varsa **dosya** belirtilirse, çıktıyı bir BLOB dosyanın içeriğini içerir. Varsa **url** belirtilmişse dosyanın geçici bir konuma yüklenir ve çıktıyı blob URL'sini içerir. Geçici BLOB'lar 24 saat sonra temizlenecek. Varsayılan değer **dosya**.
 - Değeri `options.openMode` nasıl dosyayı okuma belirler. Dosya düz metin olması bekleniyor, belirtin **metin**; başka belirtin **ikili**. Varsayılan değer **metin**.
 - Varsa `options.uploadMode` ayarlanır **dosya** ve `options.openMode` ayarlanır **ikili**, base64 ile kodlanmış çıktı.
 - `options.encoding` Dosya okunurken kullanılacak kodlama belirtir. Varsayılan değer **UTF-8**ve kullanılan yalnızca `options.openMode` ayarlanır **metin**.
 
 ## <a name="sample-output"></a>Örnek çıktı
-Options.Multiple false ise ve options.uploadMode dosyadır, çıktı JSON dizesi olarak dosyanın içeriğini içerir:
+Options.Multiple false ise ve options.uploadMode dosyadır, çıkış dosyasının içeriğini JSON dizesi olarak sahiptir:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Options.Multiple true ise and'options.uploadMode dosyasıdır ve çıktı dosyaların içeriğini bir JSON dizisi olarak içerir:
+Options.Multiple true ise and'options.uploadMode dosyasıdır ve çıkış dosyalarının içeriğini bir JSON dizisi olarak sahiptir:
 
 ```json
 [
@@ -73,13 +73,13 @@ Options.Multiple true ise and'options.uploadMode dosyasıdır ve çıktı dosyal
 ]
 ```
 
-Options.Multiple false ise ve options.uploadMode URL'dir çıktıyı JSON dizesi olarak bir URL içerir:
+Options.Multiple false ise ve options.uploadMode URL'dir çıktıyı JSON dizesi olarak bir URL'ye sahip:
 
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
-Options.Multiple geçerlidir ve url options.uploadMode ise, çıktı bir JSON dizisi olarak URL'lerin bir listesini içerir:
+Options.Multiple true olarak ayarlandığında ve options.uploadMode URL'dir çıkış URL'lerin bir listesini bir JSON dizisi olarak sahiptir:
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",

@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 4c77c8a7209825477929ddc0997b75ace5fe04a1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30910535"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030623"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure Stream Analytics gerçek zamanlı Twitter düşünceleri analizi
 
@@ -69,7 +69,7 @@ Bu yordamda, önce bir olay hub'ad alanı oluşturun ve ardından bir event hub 
 
 ### <a name="grant-access-to-the-event-hub"></a>Olay hub'ına erişim izni ver
 
-Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim veren bir ilke olması gerekir. Erişim İlkesi yetkilendirme bilgilerini içeren bir bağlantı dizesi oluşturur.
+Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim veren bir ilke olması gerekir. Erişim ilkesi, yetkilendirme bilgilerini içeren bir bağlantı dizesi oluşturur.
 
 1.  Olay ad alanı dikey tıklayın **olay hub'ları** ve ardından yeni olay hub'ınızın adını tıklatın.
 
@@ -90,7 +90,7 @@ Olay hub'ı, bir işlem olay hub'ına veri göndermeden önce uygun erişim vere
     
     ![Erişim ilkesinden birincil bağlantı dizesi anahtarını kopyalama](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-shared-access-policy-copy-connection-string.png)
  
-7.  Bağlantı dizesi, bir metin düzenleyicisine yapıştırın. Bazı küçük Düzenlemeleri yaptıktan sonra bir sonraki bölüm için bu bağlantı dizesi gerekir.
+7.  Bağlantı dizesini bir metin düzenleyicisine yapıştırın. Bazı küçük Düzenlemeleri yaptıktan sonra bir sonraki bölüm için bu bağlantı dizesi gerekir.
 
     Bağlantı dizesi şu şekildedir:
 
@@ -251,7 +251,7 @@ Konular arasında belirtilenlerden sayısı karşılaştırmak için kullanabile
 
     Azure Giriş akışı verilerden 3 dakika eşitleyeceğini örnekleri ve örnek verileri hazır olduğunda size bildirir. (Bu kısa biraz uzun sürebilir.) 
 
-    Örnek verileri geçici olarak depolanır ve açık sorgu penceresi açıkken kullanılabilir. Sorgu penceresini kapattığınızda, örnek veriler atılır ve yeni bir örnek veri kümesi oluşturmanız gerekir. 
+    Örnek veriler geçici olarak depolanır ve sorgu penceresi açıkken kullanılabilir. Sorgu penceresini kapattığınızda, örnek veriler atılır ve yeni bir örnek veri kümesi oluşturmanız gerekir. 
 
 5. Kod düzenleyicisinde sorgu aşağıdaki gibi değiştirin:
 
@@ -281,7 +281,7 @@ Aşağıdaki tablo veri akışı JSON parçası olan alanları listeler. Sorgu D
 |CreatedAt | Tweet oluşturulduğu zaman|
 |Konu | Belirtilen anahtar sözcük eşleşmeleri konu|
 |SentimentScore | Sentiment140 düşünceleri puan|
-|Yazar | Tweet gönderilen Twitter tanıtıcısı|
+|Yazma | Tweet gönderilen Twitter tanıtıcısı|
 |Metin | Tweet tam gövdesi|
 
 
@@ -316,7 +316,7 @@ Bu öğreticide, toplanan tweet olayları Azure Blob depolama alanına sorgu iş
 5. Kapat **çıkışları** dikey. 
 
 
-## <a name="start-the-job"></a>İşi Başlat
+## <a name="start-the-job"></a>İşi başlatma
 
 İş Girişi, sorgu ve çıktı belirtilir. Stream Analytics işini başlatmak hazır olursunuz.
 
@@ -338,7 +338,7 @@ Bu öğreticide, toplanan tweet olayları Azure Blob depolama alanına sorgu iş
 
 İşinizi çalışmaya başladıktan ve gerçek zamanlı Twitter akışı işleme sonra düşünceleri analiz için çıktıyı görüntüleyebilirsiniz.
 
-Gibi bir araç kullanabilirsiniz [Azure Storage Gezgini](https://http://storageexplorer.com/) veya [Azure Gezgini](http://www.cerebrata.com/products/azure-explorer/introduction) gerçek zamanlı olarak, iş çıkışı görüntülemek için. Buradan, kullandığınız [Power BI](https://powerbi.com/) aşağıdaki ekran görüntüsünde gösterildiği gibi özelleştirilmiş bir pano eklemek için uygulamanızın genişletmek için:
+Gibi bir araç kullanabilirsiniz [Azure Storage Gezgini](https://storageexplorer.com/) veya [Azure Gezgini](http://www.cerebrata.com/products/azure-explorer/introduction) gerçek zamanlı olarak, iş çıkışı görüntülemek için. Buradan, kullandığınız [Power BI](https://powerbi.com/) aşağıdaki ekran görüntüsünde gösterildiği gibi özelleştirilmiş bir pano eklemek için uygulamanızın genişletmek için:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

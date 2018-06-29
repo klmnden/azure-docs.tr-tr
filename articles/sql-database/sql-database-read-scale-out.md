@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 06/27/2018
 ms.author: sashan
-ms.openlocfilehash: fb6e8f4420b739b5ac84f1d5c185fddc740c551a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7b504306e32f97a0392239f9e6adc6c460848580
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
 ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018522"
+ms.locfileid: "37060017"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Salt okunur çoğaltmaların salt okunur sorgu dengelemeye (Önizleme) yüklemek için kullanın
 
@@ -22,7 +22,7 @@ ms.locfileid: "37018522"
 
 ## <a name="overview-of-read-scale-out"></a>Okuma genişleme genel bakış
 
-Her veritabanı Premium katmanındaki ([DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)) veya iş kritik katmanındaki ([vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md)) birkaç Always ON ile otomatik olarak sağlanır Kullanılabilirlik SLA'sı desteklemek için çoğaltmalar. Bu çoğaltmalar normal veritabanı bağlantılar tarafından kullanılan okuma-yazma çoğaltma aynı performans düzeyiyle sağlanır. **Okuma genişleme** özelliği okuma-yazma çoğaltma Paylaşımı yerine salt okunur çoğaltmaları kapasitesini kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Mantıksal olarak içeren uygulamaları salt okunur gibi iş yükleri analytics, ayrılmış ve bu ek kapasite Hayır kullanarak performans avantajı dolayısıyla geçirebilir özellik öngörülmüştür ekstra maliyet.
+Her veritabanı Premium katmanındaki ([DTU tabanlı satın alma modeli](sql-database-service-tiers-dtu.md)) veya iş kritik katmanındaki ([vCore tabanlı satın alma modeli (Önizleme)](sql-database-service-tiers-vcore.md)) birkaç AlwaysON ile otomatik olarak sağlanır Kullanılabilirlik SLA'sı desteklemek için çoğaltmalar. Bu çoğaltmalar normal veritabanı bağlantılar tarafından kullanılan okuma-yazma çoğaltma aynı performans düzeyiyle sağlanır. **Okuma genişleme** özelliği okuma-yazma çoğaltma Paylaşımı yerine salt okunur çoğaltmaları birinin kapasite kullanarak SQL veritabanı salt okunur dengelemeye yüklemenizi sağlar. Bu şekilde salt okunur iş yükü ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Mantıksal olarak içeren uygulamaları salt okunur gibi iş yükleri analytics, ayrılmış ve bu ek kapasite Hayır kullanarak performans avantajı dolayısıyla geçirebilir özellik öngörülmüştür ekstra maliyet.
 
 Belirli bir veritabanıyla okuma genişleme özelliği kullanmak için açık bir şekilde veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [ AzureRmSqlDatabase yeni](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri kullanarak Azure Resource Manager REST API'si aracılığıyla veya [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate) yöntemi. 
 
@@ -61,10 +61,12 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 Aşağıdaki sorguyu çalıştırarak salt okunur bir kopyasına bağlanan olup olmadığını doğrulayabilirsiniz. Salt okunur bir kopyasına bağlıyken READ_ONLY döndürür.
 
+
 ```SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
-
+> [!NOTE]
+> Belirli bir zamanda tek AlwaysON çoğaltmalarının salt okunur oturumları tarafından erişilebilir.
 
 ## <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>Etkinleştirme ve Azure PowerShell kullanarak okunur genişleme devre dışı
 
@@ -110,7 +112,7 @@ Daha fazla bilgi için bkz: [veritabanları - oluştur veya Güncelleştir](/res
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>Coğrafi olarak çoğaltılmış veritabanlarıyla okuma genişleme kullanma
 
-Varsa olduğunuz okuma genişleme kullanarak salt okunur dengelemeye (örneğin bir bir yük devretme grubunun üyesi olarak), coğrafi olarak çoğaltılmış bir veritabanı üzerinde yükleme bu okuma genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkinleştirildiğinden emin olun. Uygulamanız için yeni birincil yük devretme sonrasında bağlandığında, bu aynı Yük Dengeleme etkisi güvence altına alır. Coğrafi olarak çoğaltılmış ikincil veritabanını okuma-etkinse, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` birincil veritabanında biz rota bağlantıları aynı şekilde çoğaltmaları birine yönlendirilir.  Oturumları olmadan `ApplicationIntent=ReadOnly` de salt okunur olduğu coğrafi olarak çoğaltılmış ikincil birincil çoğaltmadan yönlendirilir. 
+Varsa olduğunuz okuma genişleme kullanarak salt okunur dengelemeye (örneğin bir bir yük devretme grubunun üyesi olarak), coğrafi olarak çoğaltılmış bir veritabanı üzerinde yükleme bu okuma genişleme hem birincil hem de coğrafi olarak çoğaltılmış ikincil veritabanlarıyla etkinleştirildiğinden emin olun. Uygulamanız için yeni birincil yük devretme sonrasında bağlandığında, bu aynı Yük Dengeleme etkisi güvence altına alır. Coğrafi olarak çoğaltılmış ikincil veritabanını okuma-etkinse, Ölçek ile bağlanıyorsanız, oturumları `ApplicationIntent=ReadOnly` birincil veritabanında biz rota bağlantıları aynı şekilde çoğaltmaları birine yönlendirilir.  Oturumları olmadan `ApplicationIntent=ReadOnly` de salt okunur olduğu coğrafi olarak çoğaltılmış ikincil birincil çoğaltmadan yönlendirilir. Coğrafi olarak çoğaltılmış ikincil veritabanının birincil veritabanından farklı bir uç noktası olduğundan, geçmişte ikincil erişmek için bunu ayarlamak için gerekli değildi `ApplicationIntent=ReadOnly`. Geriye dönük uyumluluğundan emin olmak için `sys.geo_replication_links` DMV gösterir `secondary_allow_connections=2` (tüm istemci bağlantısına izin verilir).
 
 > [!NOTE]
 > Önizleme sırasında hepsini gerçekleştirmez veya ikincil veritabanını yerel yinelemeler arasında yönlendirme başka bir yük dengeli. 

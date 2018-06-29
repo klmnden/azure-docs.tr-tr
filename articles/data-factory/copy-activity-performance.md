@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6de6331b4d829f183c8b5dc03d6a29095a47479
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619261"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049341"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performans ve ayarlama Kılavuzu kopyalayın
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-copy-activity-performance.md)
-> * [Sürüm 2 - Önizleme](copy-activity-performance.md)
+> * [Sürüm 1](v1/data-factory-copy-activity-performance.md)
+> * [Geçerli sürüm](copy-activity-performance.md)
 
 
 Azure Data Factory kopyalama etkinliği çözümü bir birinci sınıf güvenli, güvenilir ve yüksek performanslı veri yükleme sunar. Zengin bulut çeşitli her gün terabayt veri onlarca kopyaya sağlar ve şirket içi veri depolarına. Üstün hızlı veri performans yükleme anahtarıdır odaklanmak çekirdek "büyük veri" sorunu emin olmak için: Gelişmiş analiz çözümleri oluşturmak ve tüm bu verilerden ayrıntılı Öngörüler alma.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [kopyalama etkinliği performans veri fabrikası sürüm 1](v1/data-factory-copy-activity-performance.md).
 
 Azure veri depolama ve veri ambarı çözümleri Kurumsal düzeyde bir dizi sağlar ve yüksek oranda iyileştirilmiş bir veri yapılandırmak ve ayarlamak kolay deneyimi yükleme kopyalama etkinliği sunar. Yalnızca tek kopyalama etkinliği ile elde edebilirsiniz:
 
@@ -40,7 +37,7 @@ Azure veri depolama ve veri ambarı çözümleri Kurumsal düzeyde bir dizi sağ
 Bu makalede açıklanır:
 
 * [Performans referans numaraları](#performance-reference) desteklenen projenizi; planlamanıza yardımcı olması için kaynak ve havuz veri depoları
-* Kopya işleme dahil olmak üzere farklı senaryolarda artırabilir özellikleri [veri taşıma birimleri bulut](#cloud-data-movement-units), [paralel kopyalama](#parallel-copy), ve [kopyalama hazırlanan](#staged-copy);
+* Kopya işleme dahil olmak üzere farklı senaryolarda artırabilir özellikleri [veri tümleştirme birimleri](#data-integration-units), [paralel kopyalama](#parallel-copy), ve [kopyalama hazırlanan](#staged-copy);
 * [Performans ayarlama yönergeleri](#performance-tuning-steps) performans ve kopyalama performansını etkileyebilir anahtar Etkenler ayarlama konusunda.
 
 > [!NOTE]
@@ -49,12 +46,12 @@ Bu makalede açıklanır:
 
 ## <a name="performance-reference"></a>Performans başvurusu
 
-Bir başvuru olarak aşağıdaki tabloyu kopyalama üretilen iş sayısını gösterir. **MB/sn cinsinden** verilen kaynak ve havuz çiftleri için **çalıştırmak tek kopyalama etkinliğinde** şirket içi testlere dayanmaktadır. Karşılaştırma için ayrıca farklı ayarlarını gösterir [bulut veri taşıma birimleri](#cloud-data-movement-units) veya [Self-hosted tümleştirmesi çalışma zamanı ölçeklenebilirlik](concepts-integration-runtime.md#self-hosted-integration-runtime) (birden çok düğümler) kopyalama performansına yardımcı olabilir.
+Bir başvuru olarak aşağıdaki tabloyu kopyalama üretilen iş sayısını gösterir. **MB/sn cinsinden** verilen kaynak ve havuz çiftleri için **çalıştırmak tek kopyalama etkinliğinde** şirket içi testlere dayanmaktadır. Karşılaştırma için ayrıca farklı ayarlarını gösterir [veri tümleştirme birimleri](#data-integration-units) veya [Self-hosted tümleştirmesi çalışma zamanı ölçeklenebilirlik](concepts-integration-runtime.md#self-hosted-integration-runtime) (birden çok düğümler) kopyalama performansına yardımcı olabilir.
 
 ![Performans Matrisi](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->Azure Data Factory sürüm 2, kopya etkinliği Azure bir tümleştirme Çalışma Zamanı Modülü üzerinde çalıştırıldığında en az izin verilen bulut veri taşıma birimidir iki. Belirtilmezse, varsayılan veri taşıma birimleri kullanıldığına bakın [bulut veri taşıma birimleri](#cloud-data-movement-units).
+> [!IMPORTANT]
+> Kopya etkinliği bir Azure tümleştirmesi çalışma zamanı yürütüldüğünde, en az izin verilen veri tümleştirme (önceden veri taşıma birimleri biliniyordu) iki birimidir. Belirtilmezse, varsayılan veri tümleştirme kullanılmasını birimleri bkz [veri tümleştirme birimleri](#data-integration-units).
 
 Dikkat edilecek noktalar:
 
@@ -79,25 +76,25 @@ Dikkat edilecek noktalar:
 
 
 > [!TIP]
-> Bulut Bulut kopyalama etkinliği çalıştırmak için 32 olan maksimum DMUs izin varsayılandan daha fazla veri taşıma birimleri (DMUs) kullanarak yüksek verimlilik elde edebilirsiniz. Örneğin, 100 DMUs ile Azure Blob kopyalama verileri Azure Data Lake Store içine elde edebilirsiniz **1.0GBps**. Bkz: [bulut veri taşıma birimleri](#cloud-data-movement-units) bu özellik ve desteklenen senaryo hakkındaki ayrıntılar için bölüm. Kişi [Azure Destek](https://azure.microsoft.com/support/) daha fazla DMUs istemek için.
+> Daha fazla veri tümleştirme birimler (DIU) Bulut Bulut kopyalama etkinliği çalıştırmak için 32 olan maksimum DIUs izin varsayılandan kullanarak daha yüksek verimlilik elde edebilirsiniz. Örneğin, 100 DIUs ile Azure Blob kopyalama verileri Azure Data Lake Store içine elde edebilirsiniz **1.0GBps**. Bkz: [veri tümleştirme birimleri](#data-integration-units) bu özellik ve desteklenen senaryo hakkındaki ayrıntılar için bölüm. Kişi [Azure Destek](https://azure.microsoft.com/support/) daha fazla DIUs istemek için.
 
-## <a name="cloud-data-movement-units"></a>Bulut veri taşıma birimleri
+## <a name="data-integration-units"></a>Veri tümleştirme birimleri
 
-A **bulut veri taşıma birimi (DMU)** veri fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. **DMU yalnızca uygulanır [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-integration-runtime)**, ama [Self-hosted tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#self-hosted-integration-runtime).
+A **veri tümleştirme birim (DIU)** (önceki adıyla bulut veri taşıma birimi veya DMU olarak bilinir) veri fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüdür. **DIU yalnızca uygulanır [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#azure-integration-runtime)**, ama [Self-hosted tümleştirmesi çalışma zamanı](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**Kopyalama etkinliği çalıştırmak güçlendirmeniz en az bulut veri taşıma birimleri iki olur.** Belirtilmezse, aşağıdaki tabloda farklı kopyalama senaryosunda kullanılan varsayılan DMUs listelenmektedir:
+**En az veri tümleştirme kopyalama Çalıştır etkinliği güçlendirmeniz iki birimidir.** Belirtilmezse, aşağıdaki tabloda farklı kopyalama senaryosunda kullanılan varsayılan DIUs listelenmektedir:
 
-| Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan DMUs |
+| Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan DIUs |
 |:--- |:--- |
 | Dosya tabanlı depoları arasında veri kopyalama | 4 ile sayısı ve dosya boyutuna bağlı olarak 32 arasında. |
 | Diğer tüm kopyalama senaryoları | 4 |
 
-Bu varsayılanı geçersiz kılmak için için bir değer belirtin **cloudDataMovementUnits** şekilde özelliği. **İzin verilen değerler** için **cloudDataMovementUnits** özelliği **en fazla 256**. **Bulut DMUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
+Bu varsayılanı geçersiz kılmak için için bir değer belirtin **dataIntegrationUnits** şekilde özelliği. **İzin verilen değerler** için **dataIntegrationUnits** özelliği **en fazla 256**. **DIUs gerçek sayısını** eşit veya bu değerden azsa yapılandırılan, veri deseni bağlı olarak, kopyalama işlemini çalışma zamanında kullanır. Daha fazla birimi belirli kopya kaynak ve havuz için yapılandırdığınızda alabilirsiniz performans kazancı düzeyi hakkında bilgi için bkz [Performans başvurusu](#performance-reference).
 
-Bir etkinlik izlerken çıktı kopyalama etkinliğinde çalıştırın her kopya için gerçekten kullanılan bulut veri taşıma birimleri görebilirsiniz. Ayrıntıları öğrenmek [etkinliğini izleme kopyalama](copy-activity-overview.md#monitoring).
+Bir etkinlik izlerken çıktı kopyalama etkinliğinde çalıştırın her kopya için gerçekten kullanılan veri tümleştirme birimleri görebilirsiniz. Ayrıntıları öğrenmek [etkinliğini izleme kopyalama](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Daha fazla bulut DMUs için daha yüksek işleme gerekiyorsa başvurun [Azure Destek](https://azure.microsoft.com/support/). 8 ayarlama ve yukarıdaki şu anda yalnızca çalışır, **birden çok Blob Depolama/Data Lake Store/Amazon S3/bulut FTP/bulut SFTP için başka bir bulut veri depolarına kopyalayın**.
+> Daha fazla DIUs için daha yüksek işleme gerekiyorsa başvurun [Azure Destek](https://azure.microsoft.com/support/). 8 ayarlama ve yukarıdaki şu anda yalnızca çalışır, **birden çok Blob Depolama/Data Lake Store/Amazon S3/bulut FTP/bulut SFTP için başka bir bulut veri depolarına kopyalayın**.
 >
 
 **Örnek:**
@@ -116,15 +113,15 @@ Bir etkinlik izlerken çıktı kopyalama etkinliğinde çalıştırın her kopya
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
 ```
 
-### <a name="cloud-data-movement-units-billing-impact"></a>Bulut veri taşıma birimleri faturalama etkisi
+### <a name="data-integration-units-billing-impact"></a>Veri tümleştirme birimleri faturalama etkisi
 
-Bunun **önemli** tabanlı kopyalama işlemi toplam zamanında ücretlendirilen unutmayın. Veri taşıma için toplam süreyi, faturalandırılır DMUs süresi toplamıdır. Bir kopyalama işi bir saat iki bulut birimleriyle çekmek için kullanılan ve şimdi sekiz bulut birimleri ile 15 dakika sürer, genel fatura neredeyse aynı kalır.
+Bunun **önemli** tabanlı kopyalama işlemi toplam zamanında ücretlendirilen unutmayın. Veri taşıma için toplam süreyi, faturalandırılır DIUs süresi toplamıdır. Bir kopyalama işi bir saat iki bulut birimleriyle çekmek için kullanılan ve şimdi sekiz bulut birimleri ile 15 dakika sürer, genel fatura neredeyse aynı kalır.
 
 ## <a name="parallel-copy"></a>Paralel kopyalama
 
@@ -134,7 +131,7 @@ Her kopya Çalıştır etkinliği için veri fabrikası veri depolamak ve hedef 
 
 | Kopyalama senaryosu | Hizmeti tarafından belirlenen varsayılan paralel kopya sayısı |
 | --- | --- |
-| Dosya tabanlı depoları arasında veri kopyalama |Dosyaları ve iki bulut veri depolarını veya Self-hosted tümleştirmesi çalışma zamanı makinenin fiziksel yapılandırması arasında veri kopyalamak için kullanılan bulut veri taşıma birimleri (DMUs) sayıda boyutuna bağlıdır. |
+| Dosya tabanlı depoları arasında veri kopyalama |İki bulut veri depolarını veya Self-hosted tümleştirmesi çalışma zamanı makinenin fiziksel yapılandırması arasında veri kopyalamak için kullanılan dosyalarının boyutunu ve veri tümleştirme birimlerinin (DIUs) bağlıdır. |
 | Tüm kaynak veri deposundan Azure Table depolama alanına veri kopyalama |4 |
 | Diğer tüm kopyalama senaryoları |1 |
 
@@ -168,7 +165,7 @@ Dikkat edilecek noktalar:
 * Veri depoları, dosya tabanlı arasında kopyaladığınızda **parallelCopies** dosya düzeyinde paralellik belirleyin. Tek bir dosyada Öbekleme altında otomatik ve şeffaf şekilde olacağını ve verileri paralel ve parallelCopies resme yüklemek için belirtilen kaynak veri deposu türü için en iyi uygun öbek boyutu kullanmak için tasarlanmıştır. Gerçek çalışma zamanında kopyalama işlemi için veri taşıma hizmeti kullanan paralel kopyaları sahip dosyaların sayısı en çok sayısıdır. Kopyalama davranışını ise **mergeFile**, kopyalama etkinliği, dosya düzeyinde paralellik avantajlarından alamaz.
 * İçin bir değer belirtirseniz **parallelCopies** özelliği, kopyalama etkinliği tarafından Örneğin, karma kopyalama için yetkilendirilmiş yük arttıkça, kaynak ve havuz veri depoları ve Self-Hosted tümleştirmesi çalışma zamanı için göz önünde bulundurun. Bu, özellikle birden çok etkinlikleri veya aynı veri deposu karşı çalıştırmak aynı etkinliklerin eşzamanlı çalışır olduğunda gerçekleşir. Veri deposu ya da Self-hosted tümleştirmesi çalışma zamanı yük ile doludur fark ederseniz, azaltma **parallelCopies** yük hafifletmek için değer.
 * Dosya tabanlı depoları için dosya tabanlı olmayan depoları veri kopyalama, veri taşıma Hizmeti'nde yoksayar **parallelCopies** özelliği. Paralellik belirtilmiş olsa bile, bu durumda uygulanmıyor.
-* **parallelCopies** için resme olan **cloudDataMovementUnits**. Önceki tüm bulut verilerini taşıma birimler arasında sayılır.
+* **parallelCopies** için resme olan **dataIntegrationUnits**. Eski tüm veri tümleştirme birimleri sayılır.
 
 ## <a name="staged-copy"></a>Hazırlanan kopyalama
 
@@ -184,7 +181,7 @@ Hazırlama özelliği etkinleştirdiğinizde, ilk veri kaynağı veri deposundan
 
 ![Hazırlanan kopyalama](media/copy-activity-performance/staged-copy.png)
 
-Hazırlama depolama kullanarak veri taşıma etkinleştirdiğinizde, verileri veri kaynağına veri deposundan bir geçiş veya hazırlama veri deposuna taşımadan önce sıkıştırılır ve bir geçiş verilerini taşıma veya veri deposu havuz veri deposuna hazırlama önce sıkıştırması açılmış isteyip istemediğinizi belirtebilirsiniz.
+Hazırlama depolama kullanarak veri taşıma etkinleştirdiğinizde, verileri veri kaynağına veri deposundan bir geçiş veya hazırlama veri deposuna taşımadan önce sıkıştırılır ve bir geçiş verilerini taşıma veya verileri hazırlama önce sıkıştırması isteyip istemediğinizi belirtebilirsiniz Havuz veri deposuna depolar.
 
 Şu anda, bir hazırlama deposu kullanarak iki şirket içi veri depoları arasında veri kopyalanamıyor.
 
@@ -246,7 +243,7 @@ Veri Fabrikası hizmetiniz kopyalama etkinliği ile performansı ayarlamak için
 
    * Performans özellikleri:
      * [Paralel kopyalama](#parallel-copy)
-     * [Bulut veri taşıma birimleri](#cloud-data-movement-units)
+     * [Veri tümleştirme birimleri](#data-integration-units)
      * [Hazırlanan kopyalama](#staged-copy)
      * [Kendini barındıran tümleştirmesi çalışma zamanı ölçeklenebilirlik](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Kendini barındıran tümleştirmesi çalışma zamanı](#considerations-for-self-hosted-integration-runtime)

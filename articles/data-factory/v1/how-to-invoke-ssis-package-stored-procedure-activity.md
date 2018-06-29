@@ -13,26 +13,26 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 9608af734d39627435a81e1d853c2546eabcdb0f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bf91b1cb1e764c1350cead0c5dfb109b73e9dad3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623443"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052724"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Saklı yordam etkinliği Azure Data Factory kullanarak bir SSIS paketi çağırma
 Bu makalede, bir saklı yordam etkinliğini kullanarak bir Azure Data Factory işlem hattı SSIS paketinden çağrılacak açıklar. 
 
 > [!NOTE]
-> Bu makale, genel olarak kullanılabilir olduğu veri fabrikası 1 sürümü için geçerlidir. Genel önizlemede olan Data Factory hizmeti 2 sürümünü kullanıyorsanız bkz [sürüm 2 saklı yordam etkinliği kullanarak çağırma SSIS paketleri](../how-to-invoke-ssis-package-stored-procedure-activity.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [saklı yordam etkinliği kullanarak çağırma SSIS paketleri](../how-to-invoke-ssis-package-stored-procedure-activity.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kullanır. Bir Azure SQL yönetilen örneği (Önizleme) de kullanabilirsiniz.
+Bu makaledeki Kılavuzu SSIS katalog barındıran Azure SQL veritabanını kullanır. Bir Azure SQL veritabanı yönetilen örneği'nı (Önizleme) de kullanabilirsiniz.
 
 ### <a name="create-an-azure-ssis-integration-runtime"></a>Azure SSIS tümleştirme çalışma zamanı oluşturma
-Adım adım yönergeleri izleyerek yoksa, bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma [Öğreticisi: dağıtmak SSIS paketleri](../tutorial-create-azure-ssis-runtime-portal.md). Veri Fabrikası Azure SSIS tümleştirmesi çalışma zamanı oluşturmak için 2 sürümünün oluşturmanız gerekir. 
+Adım adım yönergeleri izleyerek yoksa, bir Azure SSIS tümleştirmesi çalışma zamanı oluşturma [Öğreticisi: dağıtmak SSIS paketleri](../tutorial-create-azure-ssis-runtime-portal.md). Bir Azure SSIS tümleştirmesi çalışma zamanı oluşturmak için veri fabrikası sürüm 1 kullanamazsınız. 
 
 ## <a name="azure-portal"></a>Azure portalına
 Bu bölümde bir SSIS paketi çağıran bir saklı yordam etkinliği ile bir Data Factory işlem hattı oluşturmak için Azure Portalı'nı kullanın.

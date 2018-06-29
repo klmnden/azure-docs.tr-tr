@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792557"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062788"
 ---
 # <a name="data-sources-in-log-analytics"></a>Günlük analizi veri kaynaklarında
 Günlük analizi bağlı kaynaklarınızdan verilerini toplar ve günlük analizi çalışma alanınızda depolar.  Her birinden toplanan verileri yapılandırdığınız veri kaynakları tarafından tanımlanır.  Günlük analizi veri bir kayıt kümesi depolanır.  Her veri kaynağı kendi özellikler kümesini sahip her türüyle belirli bir türdeki kayıtları oluşturur.
@@ -37,9 +37,9 @@ Aşağıdaki tabloda günlük analizi şu anda kullanılabilir veri kaynakların
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Özel günlükler](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | geldiğinde |
 | [Özel günlükler](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | geldiğinde |
-| [IIS günlükleri](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5 dakika |
-| [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |Zamanlandığı gibi en az 10 saniye |
-| [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |Zamanlandığı gibi en az 10 saniye |
+| [IIS günlükleri](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |Günlük dosyası aktarma ayarına bağlıdır |
+| [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |zamanlandığı gibi en az 10 saniye |
+| [Performans sayaçları](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |zamanlandığı gibi en az 10 saniye |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure depolama biriminden: 10 dakika; aracısından: işle |
 | [Windows olay günlükleri](log-analytics-data-sources-windows-events.md) |Windows |&#8226; |&#8226; |&#8226; |  |&#8226; | geldiğinde |
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 967184d9a7590dc0b8c88a49cf178bbd9eb83267
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595045"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063604"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory doğrudan kimlik doğrulaması güvenlik derinlemesine bakış
 
@@ -132,20 +132,21 @@ Doğrudan kimlik doğrulaması oturum açma kullanıcı isteği şu şekilde yap
 1. Bir kullanıcı bir uygulama, örneğin, erişmeyi dener [Outlook Web App](https://outlook.office365.com/owa).
 2. Kullanıcı zaten oturum açmışsa değil, uygulama tarayıcı Azure AD oturum açma sayfasına yönlendirir.
 3. İle Azure AD STS hizmet yanıt geri **kullanıcı oturum açma** sayfası.
-4. Kullanıcı, kullanıcı adını ve parolayı girer **kullanıcı oturum açma** sayfası ve seçer **oturum açma** düğmesi.
-5. Kullanıcı adı ve parola Azure AD STS HTTPS POST isteği gönderilir.
-6. Azure AD STS kiracınızın Azure SQL veritabanından kayıtlı tüm kimlik doğrulama aracıları için ortak anahtarları alır ve bunları kullanarak parola şifreler. 
+4. Kullanıcı adlarını içine kullanıcının girdiği **kullanıcı oturum açma** sayfası ve seçer **sonraki** düğmesi.
+5. Kullanıcı parolasını içine girer **kullanıcı oturum açma** sayfası ve seçer **oturum açma** düğmesi.
+6. Kullanıcı adı ve parola Azure AD STS HTTPS POST isteği gönderilir.
+7. Azure AD STS kiracınızın Azure SQL veritabanından kayıtlı tüm kimlik doğrulama aracıları için ortak anahtarları alır ve bunları kullanarak parola şifreler. 
     - Üzerinde kiracınızın kayıtlı "N" kimlik doğrulaması aracılar için "N" şifrelenmiş parola değerlerini üretir.
-7. Azure AD STS, kullanıcı adı ve Service Bus kuyruğuna kiracınız için belirli üzerine şifrelenmiş parola değerlerini oluşan parola doğrulama isteği yerleştirir.
-8. Başlatılmış kimlik doğrulaması aracılarını kalıcı olarak Service Bus kuyruğuna bağlandığından, kullanılabilen kimlik doğrulama aracıları birini parola doğrulama isteği alır.
-9. Kimlik Doğrulama Aracısı, ortak anahtarı için belirli bir tanımlayıcıyı kullanarak ve özel anahtarını kullanarak çözer şifrelenmiş parola değeri bulur.
-10. Kimlik doğrulama aracısını kullanarak kullanıcı adı ve parola şirket içi Active Directory karşı doğrulama girişiminde [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) ile **dwLogonType** parametre için **LOGON32_LOGON_NETWORK**. 
+8. Azure AD STS, kullanıcı adı ve Service Bus kuyruğuna kiracınız için belirli üzerine şifrelenmiş parola değerlerini oluşan parola doğrulama isteği yerleştirir.
+9. Başlatılmış kimlik doğrulaması aracılarını kalıcı olarak Service Bus kuyruğuna bağlandığından, kullanılabilen kimlik doğrulama aracıları birini parola doğrulama isteği alır.
+10. Kimlik Doğrulama Aracısı, ortak anahtarı için belirli bir tanımlayıcıyı kullanarak ve özel anahtarını kullanarak çözer şifrelenmiş parola değeri bulur.
+11. Kimlik doğrulama aracısını kullanarak kullanıcı adı ve parola şirket içi Active Directory karşı doğrulama girişiminde [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) ile **dwLogonType** parametre için **LOGON32_LOGON_NETWORK**. 
     - Bu API, Active Directory Federasyon Hizmetleri (AD FS) federe oturum açma senaryosunda kullanıcılar imzalamak için kullanılan aynı bir API'dir.
     - Bu API standart çözümleme işlemi Windows Server'ın etki alanı denetleyicisi bulmak için kullanır.
-11. Sonuç Active Directory'den başarı, kullanıcı adı veya hatalı parola gibi kimlik doğrulama Aracısı alır veya parolanın süresi doldu.
-12. Kimlik Doğrulama Aracısı bağlantı noktası 443 üzerinden giden bir karşılıklı kimlik doğrulaması HTTPS kanalı üzerinden Azure AD STS sonucu iletir. Karşılıklı kimlik doğrulaması için kimlik doğrulama Aracısı kaydı sırasında daha önce verilen sertifikayı kullanır.
-13. Azure AD STS bu sonucu belirli oturum açma isteği kiracınız karşılık gelen doğrular.
-14. Azure AD STS ile oturum açma yordamı yapılandırıldığı şekilde devam eder. Örneğin, parola doğrulama başarılı olursa, kullanıcı için çok faktörlü kimlik doğrulaması yüküyle veya yeniden uygulamaya yönlendirilir.
+12. Sonuç Active Directory'den başarı, kullanıcı adı veya hatalı parola gibi kimlik doğrulama Aracısı alır veya parolanın süresi doldu.
+13. Kimlik Doğrulama Aracısı bağlantı noktası 443 üzerinden giden bir karşılıklı kimlik doğrulaması HTTPS kanalı üzerinden Azure AD STS sonucu iletir. Karşılıklı kimlik doğrulaması için kimlik doğrulama Aracısı kaydı sırasında daha önce verilen sertifikayı kullanır.
+14. Azure AD STS bu sonucu belirli oturum açma isteği kiracınız karşılık gelen doğrular.
+15. Azure AD STS ile oturum açma yordamı yapılandırıldığı şekilde devam eder. Örneğin, parola doğrulama başarılı olursa, kullanıcı için çok faktörlü kimlik doğrulaması yüküyle veya yeniden uygulamaya yönlendirilir.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>Kimlik doğrulama aracıların işlem güvenliği
 
@@ -208,7 +209,7 @@ Bir kimlik doğrulama Aracısı otomatik güncelleştirme için:
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): hangi senaryoları desteklenir ve hangilerinin olmayan öğrenin.
 - [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD doğrudan kimlik doğrulamasını başlamak ve çalıştırmak.
-- [Akıllı kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme yeteneği yapılandırın.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme yeteneği yapılandırın.
 - [Nasıl çalışır](active-directory-aadconnect-pass-through-authentication-how-it-works.md): Azure AD doğrudan kimlik doğrulama nasıl çalıştığını temellerini öğrenin.
 - [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md): Bul için sık sorulan sorulara yanıtlar.
 - [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): doğrudan kimlik doğrulama özelliği ile ortak sorunları çözmeyi öğrenin.

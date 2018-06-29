@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5787f944211c5dd6c0c83e7dc10170d8a0cd9a23
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d36733b63645fd86580ccdc5af756739f77338c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616619"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048154"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Amazon Azure Data Factory kullanarak Redshift veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-amazon-redshift-connector.md)
-> * [Sürüm 2 - Önizleme](connector-amazon-redshift.md)
+> * [Sürüm 1](v1/data-factory-amazon-redshift-connector.md)
+> * [Geçerli sürüm](connector-amazon-redshift.md)
 
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir Amazon Redshift verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1, Amazon Redshift connnector](v1/data-factory-amazon-redshift-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 
@@ -201,7 +198,7 @@ Bu örnek için kullanım örneği, etkinlik bellekten verilerini Amazon Redshif
                 "linkedServiceName": "AzureStorageLinkedService",
                 "path": "adfstagingcopydata"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
@@ -218,7 +215,7 @@ Amazon Redshift veri kopyalama işlemi sırasında aşağıdaki eşlemelerini Am
 | CHAR |Dize |
 | DATE |DateTime |
 | ONDALIK |Ondalık |
-| ÇİFT DUYARLIKLI |Çift |
+| ÇİFT DUYARLIKLI |çift |
 | TAMSAYI |Int32 |
 | GERÇEK |Tek |
 | TAMSAYI |Int16 |

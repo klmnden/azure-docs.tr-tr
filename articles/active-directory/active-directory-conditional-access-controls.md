@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 924c41b060f56b4a21e4d29e059eb2968fa19330
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232575"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028957"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory koşullu erişim erişim denetimleri nelerdir? 
 
@@ -77,7 +77,7 @@ Belirtilen bulut uygulamasında erişmek için çok faktörlü kimlik doğrulama
 
 ### <a name="compliant-device"></a>Uyumlu cihaz
 
-Cihaz temelli koşullu erişim ilkeleri yapılandırabilirsiniz. Yapılandırılmış kaynaklardan yalnızca erişim vermek için bir cihaz temelli koşullu erişim ilkesi amacı olan [yönetilen cihazlara](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Uyumlu bir cihaz gerektirmektir sahip tanımlamak için bir seçenek yönetilen aygıt. Bu seçenek belirlenirse, koşullu erişim ilkenizi cihazlar ile yapılan erişim için erişim denemesi verir [kayıtlı](device-management-introduction.md) için Azure Active Directory ve bu işaretlenmiş uyumlu olarak MDM çözümü tarafından.
+Cihaz temelli koşullu erişim ilkeleri yapılandırabilirsiniz. Yapılandırılmış kaynaklardan yalnızca erişim vermek için bir cihaz temelli koşullu erişim ilkesi amacı olan [yönetilen cihazlara](active-directory-conditional-access-policy-connected-applications.md#managed-devices). Uyumlu bir cihaz gerektirmektir sahip tanımlamak için bir seçenek yönetilen aygıt. Bu seçenek belirlenirse, koşullu erişim ilkenizi cihazlar ile yapılan erişim için erişim denemesi verir [kayıtlı](device-management-introduction.md) için Azure Active Directory ve bu işaretlenmiş uyumlu olarak veya Intune (herhangi bir cihaz için işletim sistemi) tarafından Windows 10 cihazları için üçüncü taraf MDM Sistemi. Üçüncü taraf MDM sistemler için Windows 10 dışında aygıt işletim sistemi türleri desteklenmez.
 
 Daha fazla bilgi için bkz: [Azure Active Directory cihaz temelli koşullu erişim ilkeleri Ayarla](active-directory-conditional-access-policy-connected-applications.md).
 

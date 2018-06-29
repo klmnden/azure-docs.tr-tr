@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: e60f368115e91cbd8972af8dfa7f0f3d6ea8765b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337600"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046556"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Uyarı ve İzleyici veri fabrikaları Azure İzleyicisi'ni kullanma
 Bulut uygulamalarını birçok taşıma bölümleriyle karmaşıktır. İzleme, uygulamanızı kurma kalmasını sağlamak için veri ve sağlıklı bir durumda çalışmasını sağlar. Ayrıca olası sorunları stave veya olanları sorun gidermeye yardımcı olur. Ayrıca, uygulamanız hakkında ayrıntılı Öngörüler elde etmek için izleme verilerini kullanabilirsiniz. Bu bilgi, uygulama performansı veya devamlılığını iyileştirmek için yardımcı veya aksi halde el ile müdahale gerektiren Eylemler otomatikleştirmek.
 
 Azure İzleyicisi, çoğu Microsoft Azure hizmetlerini taban düzeyi altyapı ölçümleri ve günlükleri sağlar. Ayrıntılar için bkz [izlemeye genel bakış](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Azure tanılama günlüklerini bu kaynakla ilgili zengin, sık sık veri sağlayan bir kaynak tarafından gösterilen günlüklerin. Veri Fabrikası Azure İzleyicisi'nde tanılama günlüklerini çıkarır.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [İzleyici ve ardışık düzenlerinde Data Factory version1 yönetmek](v1/data-factory-monitor-manage-pipelines.md).
 
 ## <a name="persist-data-factory-data"></a>Veri Fabrikası veri Sürdür
 Veri Fabrikası yalnızca ardışık düzen veri 45 gün çalıştırmak depolar. Azure İzleyicisi'ni kullanarak birden fazla 45 gün için veri çalıştırmak ardışık düzen kalıcı hale getirmek istiyorsanız, size yalnızca çözümleme için tanılama günlükleri yönlendirebilir değil, sizin chossing süresi için Fabrika bilgilerine sahip olması için bunları bir depolama hesabına sürdürebilirsiniz.

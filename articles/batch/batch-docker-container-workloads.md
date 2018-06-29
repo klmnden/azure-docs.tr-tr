@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 4ee8425bb5c3830b029b766aad464df0ffb15f41
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801124"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060526"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch kapsayıcı uygulamaları çalıştırma
 
@@ -229,7 +229,13 @@ Kullanım `ContainerSettings` kapsayıcı özgü ayarları yapılandırmak için
 
 Kapsayıcı görüntülerinde görevleri çalıştırırsanız [bulut görev](/dotnet/api/microsoft.azure.batch.cloudtask) ve [iş yöneticisi görevi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) kapsayıcı ayarları gerektirir. Ancak, [başlangıç görevi](/dotnet/api/microsoft.azure.batch.starttask), [iş hazırlama görevi](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask), ve [iş bırakma görevi](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) kapsayıcı ayarları gerektirmez (diğer bir deyişle, bir kapsayıcı bağlamı içinde ya da doğrudan çalıştırabilirler düğümde).
 
-Kapsayıcı ayarları, tüm dizinler yinelemeli olarak aşağıdaki yapılandırırken `AZ_BATCH_NODE_ROOT_DIR` (kök düğümde Azure Batch dizinlerin) kapsayıcı, tüm görev ortam değişkenleri, kapsayıcı ve görevin komut satırı eşlendi içine eşlenmiş kapsayıcıda yürütülür.
+Normal (kapsayıcı olmayan) görev için toplu ayarlayan ortamı için çok benzer kapsayıcı çalışma dizininde bir Azure Batch kapsayıcı görevi için komut satırını çalıştırır:
+
+* Tüm dizinleri yinelemeli olarak aşağıdaki `AZ_BATCH_NODE_ROOT_DIR` (kök düğümde Azure Batch dizinlerin) kapsayıcıya eşlendi
+* Tüm görev ortam değişkenlerini kapsayıcıya eşlendi
+* Uygulama paketleri ve kaynak dosyaları gibi özelliklerini kullanabilmeniz için uygulama çalışma dizini normal bir görev aynı ayarlanır
+
+Batch, kapsayıcı varsayılan çalışma dizinini değiştiğinden, tipik kapsayıcı giriş noktasından farklı bir konumda görev çalışır (örneğin, `c:\` varsayılan bir Windows kapsayıcı olarak veya `/` Linux'ta). Zaten bu şekilde yapılandırılmazsa, görev komut satırı veya kapsayıcı giriş noktası mutlak bir yol belirtir emin olun.
 
 Aşağıdaki Python parçacığını Docker hub'dan çekilen bir Ubuntu kapsayıcısındaki çalıştıran temel bir komut satırı gösterir. Kapsayıcı çalıştırma seçenekleri için ek bağımsız değişkenler `docker create` görev çalışır komutu. Burada, `--rm` seçenek, görev tamamlandıktan sonra kapsayıcı kaldırır.
 
@@ -240,7 +246,7 @@ task_container_settings = batch.models.TaskContainerSettings(
     container_run_options='--rm')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='echo hello',
+    command_line='/bin/echo hello',
     container_settings=task_container_settings
 )
 
@@ -251,7 +257,7 @@ Aşağıdaki C# örnek bir bulut görevin temel kapsayıcı ayarlarını göster
 ```csharp
 // Simple container task command
 
-string cmdLine = "<my-command-line>";
+string cmdLine = "c:\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "tensorflow/tensorflow:latest-gpu",

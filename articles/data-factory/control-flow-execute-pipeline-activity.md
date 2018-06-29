@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 3a858e3e901f300ce5f0dbc44437106905078375
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617724"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051772"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory'de işlem hattı etkinliği yürütmek
 Ardışık Düzen yürütme etkinliği başka bir işlem hattı çağırmak Data Factory işlem hattı sağlar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sözdizimi
 

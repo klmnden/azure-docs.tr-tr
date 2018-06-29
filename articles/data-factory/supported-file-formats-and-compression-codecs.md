@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c96d8b273a0e74ced5b121d19e1c3e5343a754b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621828"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052299"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Desteklenen dosya biçimleri ve Azure veri fabrikası'nda sıkıştırma codec bileşenleri
 
@@ -27,9 +27,6 @@ ms.locfileid: "34621828"
 * [Avro biçimi](#avro-format)
 * [ORC biçimi](#orc-format)
 * [Parquet biçimi](#parquet-format)
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory version1 desteklenen dosya ve sıkıştırma biçimleri](v1//data-factory-supported-file-and-compression-formats.md).
 
 > [!TIP]
 > Kopyalama etkinliği gelen havuz için kaynak verilerinizi nasıl eşlendiğini öğrenin [şema eşleme kopyalama etkinliğinde](copy-activity-schema-and-type-mapping.md)nasıl meta veri dosyasının biçimi ayarlarınıza göre belirlendiği ve etkin olduğunda belirtmek ipuçları dahil olmak üzere [dataset `structure` ](concepts-datasets-linked-services.md#dataset-structure) bölümü.
@@ -459,7 +456,7 @@ Aşağıdaki noktalara dikkat edin:
 | Int64 | Uzun |
 | UInt64 | Dize |
 | Tek | Kayan |
-| Çift | Çift |
+| çift | çift |
 | Ondalık | Ondalık |
 | Dize | Dize |
 | DateTime | Zaman damgası |
@@ -494,7 +491,7 @@ Aşağıdaki noktalara dikkat edin:
 | Veri Fabrikası geçici veri türü | Parquet basit türü | Parquet özgün türü (seri durumdan) | Parquet özgün türü (seri) |
 |:--- |:--- |:--- |:--- |
 | Boole | Boole | Yok | Yok |
-| SByte | Int32 | int8 | int8 |
+| SByte | Int32 | Int8 | Int8 |
 | Bayt | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
 | UInt16 | Int32 | UInt16 | Int32 |
@@ -503,7 +500,7 @@ Aşağıdaki noktalara dikkat edin:
 | Int64 | Int64 | Int64 | Int64 |
 | UInt64 | Int64/ikili | UInt64 | Ondalık |
 | Tek | Kayan | Yok | Yok |
-| Çift | Çift | Yok | Yok |
+| çift | çift | Yok | Yok |
 | Ondalık | İkili | Ondalık | Ondalık |
 | Dize | İkili | Utf8 | Utf8 |
 | DateTime | Int96 | Yok | Yok |

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622032"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046539"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory kopyalama etkinliği kullanarak DB2 taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-onprem-db2-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-db2.md)
+> * [Sürüm 1](data-factory-onprem-db2-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-db2.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 DB2 Bağlayıcısı](../connector-db2.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 DB2 Bağlayıcısı](../connector-db2.md).
 
 
 Bu makalede kopya etkinliği Azure Data Factory'de veri bir şirket içi DB2 veritabanından veri deposuna kopyalamak için nasıl kullanabileceğinizi açıklar. Desteklenen bir havuz olarak listelenen tüm depolama, veri kopyalayabilirsiniz [Data Factory veri taşıma etkinlikleri](data-factory-data-movement-activities.md#supported-data-stores-and-formats) makalesi. Bu konu, kopyalama etkinliği kullanarak veri taşıma genel bir bakış sunar ve desteklenen veri deposu birleşimlerini listeler Data Factory makale oluşturur. 
@@ -98,7 +98,7 @@ Bölümleri ve veri kümelerini tanımlamak için kullanılabilir özelliklerin 
 
 | Özellik | Açıklama | Gerekli |
 | --- | --- | --- |
-| **TableName** |DB2 veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
+| **tableName** |DB2 veritabanı örneğinde bağlantılı hizmet başvurduğu tablonun adı. Bu özellik, büyük/küçük harf duyarlıdır. |Hayır (varsa **sorgu** türü kopyalama etkinliği özelliğinin **RelationalSource** belirtilir) |
 
 ## <a name="copy-activity-properties"></a>Etkinlik özellikleri Kopyala
 Bölümleri ve kopyalama etkinlikleri tanımlamak için kullanılabilir olan özelliklerin listesi için bkz [oluşturma ardışık düzen](data-factory-create-pipelines.md) makalesi. Etkinlik özellikleri gibi kopyalamak **adı**, **açıklama**, **girişleri** tablo **çıkarır** tablo ve **İlkesi**, tüm etkinlikler türleri için kullanılabilir. Kullanılabilir özellikler **typeProperties** etkinlik bölümünü farklılık her etkinlik türü için. Kopya etkinliği için özellikleri, veri kaynaklarının ve havuzlarını türlerine bağlı olarak farklılık gösterir.
@@ -313,8 +313,8 @@ Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde 
 | Tamsayı |Int32 |
 | BigInt |Int64 |
 | Real |Tek |
-| Çift |Çift |
-| Kayan |Çift |
+| çift |çift |
+| Kayan |çift |
 | Ondalık |Ondalık |
 | DecimalFloat |Ondalık |
 | Sayısal |Ondalık |
@@ -339,8 +339,8 @@ Kopya etkinliği bir DB2 türünden bir .NET türü veri dönüştürdüğünde 
 | Tamsayı |Int32 |
 | BigInt |Int64 |
 | Real |Tek |
-| Çift |Çift |
-| Kayan |Çift |
+| çift |çift |
+| Kayan |çift |
 | Ondalık |Ondalık |
 | DecimalFloat |Ondalık |
 | Sayısal |Ondalık |

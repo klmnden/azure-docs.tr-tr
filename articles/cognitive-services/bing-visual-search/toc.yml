@@ -20,6 +20,10 @@
   items:
     - name: SDK örneklerine genel bakış
       href: sdk.md
+    - name: 'C#’da SDK'
+      href: visual-search-sdk-c-sharp.md
+    - name: Node’da SDK
+      href: visual-search-sdk-node.md
     - name: Python’da SDK
       href: visual-search-sdk-python.md
 - name: Öğreticiler

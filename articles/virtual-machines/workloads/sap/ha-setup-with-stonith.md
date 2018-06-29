@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656372"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062029"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Yüksek kullanılabilirlik STONITH kullanarak SUSE içinde ayarlama
 Bu belge, yüksek kullanılabilirlik SUSE işletim sisteminde STONITH cihazı kullanarak ayarlamak için ayrıntılı adım adım yönergeler sağlar.
@@ -372,7 +372,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Senaryo 2: grafik görünümü yast2 göstermez
 Yast2 grafik ekran bu belgeyi yüksek kullanılabilirlik kümesinde ayarlamak için kullanılır. Yast2 değil gösterildiği gibi grafik penceresi açın ve Qt hata throw, aşağıdaki adımları gerçekleştirin. Grafik penceresiyle açarsa, adımları atlayabilirsiniz.
 
-**Hata**
+**hata**
 
 ![qt GUI error.png yast2](media/HowToHLI/HASetupWithStonith/yast2-qt-gui-error.png)
 
@@ -538,6 +538,6 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 Aşağıdaki makalelerde SUSE HA kurulumu hakkında daha fazla bilgi bulabilirsiniz: 
 
 - [Senaryo SAP HANA SR performansı en iyi duruma getirilmiş](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
-- [Depolama tabanlı yalıtma](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [Depolama tabanlı yalıtma](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [SAP HANA - bölüm 1 Pacemaker küme kullanarak Blog-](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [SAP HANA - bölüm 2 Pacemaker küme kullanarak Blog-](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

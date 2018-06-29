@@ -12,21 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: jingwang
-ms.openlocfilehash: f12c3a2a1193adc08c408292a4e0eca2e2458085
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620675"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052424"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure anahtar kasası kimlik bilgisi deposu
 
 Veri depoları ve içinde hesaplar için kimlik bilgilerini depolamak bir [Azure anahtar kasası](../key-vault/key-vault-whatis.md). Azure Data Factory veri deposu/işlem kullanan bir etkinliği yürütülürken kimlik bilgilerini alır.
 
 Şu anda bu özelliği özel etkinlik dışındaki tüm etkinlik türlerini destekler. Bağlayıcı yapılandırması için özellikle "bağlantılı hizmet özellikleri" bölümüne bakın [her bağlayıcı konu](copy-activity-overview.md#supported-data-stores-and-formats) Ayrıntılar için.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory version1 belgelerine](v1/data-factory-introduction.md).
 
 ## <a name="prerequisites"></a>Önkoşullar
 
@@ -51,7 +48,7 @@ Aşağıdaki özellikler, Azure anahtar kasası bağlantılı hizmeti için dest
 | Özellik | Açıklama | Gerekli |
 |:--- |:--- |:--- |
 | type | Type özelliği ayarlanmalıdır: **AzureKeyVault**. | Evet |
-| BaseUrl | Azure anahtar kasası URL'si belirtin. | Evet |
+| baseUrl | Azure anahtar kasası URL'si belirtin. | Evet |
 
 **UI yazma kullanma:**
 

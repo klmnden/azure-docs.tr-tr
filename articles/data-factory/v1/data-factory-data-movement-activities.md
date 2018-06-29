@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cdea020ad4c9c9e828d62fff8639acec2e3d6c74
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621930"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054267"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Kopyalama etkinliği kullanarak veri taşıma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-data-movement-activities.md)
-> * [Sürüm 2 - Önizleme](../copy-activity-overview.md)
+> * [Sürüm 1](data-factory-data-movement-activities.md)
+> * [Sürüm 2 (geçerli sürüm)](../copy-activity-overview.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 kopyalama etkinliği](../copy-activity-overview.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 kopyalama etkinliği](../copy-activity-overview.md).
 
 ## <a name="overview"></a>Genel Bakış
 Azure Data Factory'de şirket içi ve bulut arasında veri kopyalamak için kopyalama etkinliği kullanabilirsiniz verileri depolar. Verileri kopyaladıktan sonra daha fazla dönüştürülen ve analiz edilebilir. Kopyalama etkinliği, dönüştürme ve iş zekası (BI) ve uygulama tüketimi için çözümleme sonuçlarını yayımlamak için de kullanabilirsiniz.

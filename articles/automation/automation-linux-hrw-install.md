@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8507cf99ea22b24aa3026565cb7c4139e4c3742d
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: MT
+ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268125"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060247"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Bir Linux karma Runbook çalışanı dağıtma
 
@@ -109,41 +109,9 @@ Aşağıdaki runbook türleri Linux karma çalışanı üzerinde çalışmıyor:
 * Grafik
 * Grafik PowerShell iş akışı
 
-## <a name="troubleshooting"></a>Sorun giderme
+## <a name="troubleshoot"></a>Sorun giderme
 
-Linux karma Runbook çalışanı OMS çalışan kaydetmek, runbook işlerini almak ve durum raporu için aracı üzerinde Automation hesabınız ile iletişim kurmak Linux için bağlıdır. Çalışan kaydı başarısız olursa hata bazı olası nedenleri şunlardır.
-
-### <a name="the-oms-agent-for-linux-isnt-running"></a>Linux için OMS Aracısı çalışmıyor
-
-Linux için OMS Aracısı çalışıyor durumda değilse, Linux karma Runbook çalışanı Azure Automation ile iletişim kuramıyor. Aracı komutunu girerek çalıştığını doğrulayın `ps -ef | grep python`. 
-
-Aşağıdakine benzer bir çıktı görmeniz gerekir (Python işler ile **nxautomation** kullanıcı hesabı). Güncelleştirme yönetimi ya da Azure Otomasyonu çözümü etkin değilse, aşağıdaki işlemler hiçbiri çalıştırırsınız.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-Aşağıdaki işlemler için Linux karma Runbook çalışanı başlatıldı. Tüm içinde bulundukları `/var/opt/microsoft/omsagent/state/automationworker/` dizin.
-
-* **OMS.conf**: Çalışan Yöneticisi işlem budur. Doğrudan istenen durum yapılandırması (DSC'den) başlatıldı.
-
-* **Worker.conf**: Bu otomatik kaydedilmiş karma çalışanı işlemidir. Çalışan yöneticisi tarafından başlatılır. Bu işlem, güncelleştirme yönetimi tarafından kullanılır ve kullanıcı için saydamdır. Bu işlem, yalnızca güncelleştirme yönetimi çözümü makinede etkinse mevcuttur.
-
-* **Diy/Worker.conf**: Dıy karma çalışan işlemi budur. Dıy karma çalışan işlemi, kullanıcı runbook'ları karma Runbook çalışanını yürütmek için kullanılır. Yalnızca farklı bir yapılandırma kullandığından otomatik kayıtlı karma çalışanı işleminden farklıdır. Bu işlem yalnızca Azure Otomasyon çözümünü etkinleştirilmişse ve Dıy Linux karma çalışanı kayıtlı mevcuttur.
-
-Linux çalışmadığı için OMS Aracısı hizmetini başlatmak için aşağıdaki komutu çalıştırırsanız: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-
-### <a name="the-specified-class-doesnt-exist"></a>Belirtilen sınıf yok
-
-Hata görürseniz "Belirtilen sınıf yok" `/var/opt/microsoft/omsconfig/omsconfig.log`, Linux için OMS aracısının güncelleştirilmesi gerekiyor. OMS Aracısı'nı yeniden yüklemek için aşağıdaki komutu çalıştırın:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
-```
-
-Güncelleştirme yönetimi ile ilgili sorunları giderme konusunda ek adımlar için bkz: [güncelleştirme yönetimi: sorun giderme](automation-update-management.md#troubleshooting).
+Karma Runbook çalışanları sorunlarını giderme konusunda bilgi almak için bkz: [Linux karma Runbook çalışanları sorunlarını giderme](troubleshoot/hybrid-runbook-worker.md#linux)
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

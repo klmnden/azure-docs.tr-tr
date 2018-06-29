@@ -1,6 +1,6 @@
 ---
 title: Azure Hdınsight ile ScaleR ve SparkR kullanma | Microsoft Docs
-description: R Server ve Hdınsight ile ScaleR ve SparkR kullanma
+description: Hdınsight üzerinde ML hizmetleriyle ScaleR ve SparkR kullanın
 services: hdinsight
 documentationcenter: ''
 author: bradsev
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 4306f265bf7f52f9bc307def2256dd62e94e004f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 34d923cdf2dd96412996c766632ae42aac576e8c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399975"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061487"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>ScaleR ve hdınsight'ta SparkR birleştirin
 
 Bu belge, uçuş varış gecikmeler kullanarak tahmin etmek gösterilmiştir bir **ScaleR** Lojistik regresyon modeli. Örnek kullanan katılmış uçuş gecikmesi ve hava durumu verilerini kullanan **SparkR**.
 
-Her iki paket Hadoop'ın Spark yürütme altyapısı üzerinde çalışsa da bunlar her kendi ilgili Spark oturumları gerektiği paylaşımı bellek içi verilerden engellenir. R Server gelecek bir sürümünde bu sorun giderilinceye kadar geçici bir çözüm çakışmayan Spark oturumlar kullanan ve Ara dosyalar ile veri değişimi için değildir. Buradaki yönergeleri Bu gereksinimleri elde etmek kolay olduğunu gösterir.
+Her iki paket Hadoop'ın Spark yürütme altyapısı üzerinde çalışsa da bunlar her kendi ilgili Spark oturumları gerektiği paylaşımı bellek içi verilerden engellenir. ML Server gelecek bir sürümünde bu sorun giderilinceye kadar geçici bir çözüm çakışmayan Spark oturumlar kullanan ve Ara dosyalar ile veri değişimi için değildir. Buradaki yönergeleri Bu gereksinimleri elde etmek kolay olduğunu gösterir.
 
 Bu örnek başlangıçta Strata 2016 konumundaki konuşma içinde Mario Inchiosa ve Roni Burd tarafından paylaşıldı. Bu konuşma konumunda bulabilirsiniz [R ölçeklenebilir bir veri bilimi platformuyla derleme](http://event.on24.com/eventRegistration/console/EventConsoleNG.jsp?uimode=nextgeneration&eventid=1160288&sessionid=1&key=8F8FB9E2EB1AEE867287CD6757D5BD40&contenttype=A&eventuserid=305999&playerwidth=1000&playerheight=650&caller=previewLobby&text_language_id=en&format=fhaudio).
 
-Kodu, Spark Azure Hdınsight kümesinde çalışan R Server için ilk olarak yazılmıştır. Ancak, bir komut dosyası kullanımda SparkR ve ScaleR karıştırma ayrıca şirket içi ortamları bağlamında geçerli kavramdır. 
+Kodu, Spark Azure Hdınsight kümesinde çalışan ML sunucusu için ilk olarak yazılmıştır. Ancak, bir komut dosyası kullanımda SparkR ve ScaleR karıştırma ayrıca şirket içi ortamları bağlamında geçerli kavramdır.
 
-Bu belgede yer alan adımlar bir ara R ve misiniz bilgisi düzeyini sahip olduğunuzu varsaymaktadır [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) R Server kitaplığı. İçin sunulan [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) bu senaryo taramasını oluştu.
+Bu belgede yer alan adımlar bir ara R ve misiniz bilgisi düzeyini sahip olduğunuzu varsaymaktadır [ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-user-guide-introduction) ML sunucusunun kitaplığı. İçin sunulan [SparkR](https://spark.apache.org/docs/2.1.0/sparkr.html) bu senaryo taramasını oluştu.
 
 ## <a name="the-airline-and-weather-datasets"></a>Uçak ve hava durumu veri kümeleri
 
@@ -200,7 +200,7 @@ rxDataStep(weatherDF, outFile = weatherDF1, rowsPerRead = 50000, overwrite = T,
 
 ## <a name="importing-the-airline-and-weather-data-to-spark-dataframes"></a>Spark DataFrames uçak ve hava durumu verileri alma
 
-SparkR kullanırız artık [read.df()](https://docs.databricks.com/spark/latest/sparkr/functions/read.df.html) işlevi için Spark DataFrames hava durumu ve uçak veri alın. Bu işlev, diğer birçok Spark yöntemi gibi yürütüldüğünde gevşek, bunlar yürütülmek üzere sıraya ancak gerekli kadar yürütülmedi olduğunu anlamına gelir.
+SparkR kullanırız artık [read.df()](https://docs.databricks.com/spark/1.6/sparkr/functions/read.df.html#read-df) işlevi için Spark DataFrames hava durumu ve uçak veri alın. Bu işlev, diğer birçok Spark yöntemi gibi yürütüldüğünde gevşek, bunlar yürütülmek üzere sıraya ancak gerekli kadar yürütülmedi olduğunu anlamına gelir.
 
 ```
 airPath     <- file.path(inputDataDir, "AirOnTime08to12CSV")
@@ -360,7 +360,7 @@ CSV dosyası birleştirilmiş uçak ve hava durumu verileri olarak kullanırız-
 ```
 logmsg('Import the CSV to compressed, binary XDF format') 
 
-# set the Spark compute context for R Server 
+# set the Spark compute context for ML Services 
 rxSetComputeContext(sparkCC)
 rxGetComputeContext()
 
@@ -537,15 +537,15 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 
 ## <a name="summary"></a>Özet
 
-Bu makalede, biz nasıl SparkR kullanım modeli geliştirme Hadoop Spark ScaleR ile veri işleme için birleştirmek mümkündür gösterilen. Bu senaryo, bir kerede yalnızca bir oturum çalışan ayrı Spark oturumlar kullanan ve CSV dosyaları aracılığıyla veri değişimi gerektirir. SparkR ve ScaleR bir Spark oturumu paylaşabilir ve bu nedenle Spark DataFrames paylaşmak basit olsa da bu işlem yaklaşan bir R Server sürümde daha kolay olması gerekir.
+Bu makalede, biz nasıl SparkR kullanım modeli geliştirme Hadoop Spark ScaleR ile veri işleme için birleştirmek mümkündür gösterilen. Bu senaryo, bir kerede yalnızca bir oturum çalışan ayrı Spark oturumlar kullanan ve CSV dosyaları aracılığıyla veri değişimi gerektirir. SparkR ve ScaleR bir Spark oturumu paylaşabilir ve bu nedenle Spark DataFrames paylaşmak basit olsa da bu işlem yaklaşan bir ML Hizmetleri sürümde daha kolay olması gerekir.
 
 ## <a name="next-steps-and-more-information"></a>Sonraki adımlar ve daha fazla bilgi
 
-- R Server Spark üzerinde kullanımı hakkında daha fazla bilgi için bkz: [MSDN'de Başlarken Kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
+- Spark ML sunucuda kullanımı hakkında daha fazla bilgi için bkz: [Başlarken Kılavuzu](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)
 
-- R Server hakkında genel bilgi için bkz: [R ile çalışmaya başlama](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) makalesi.
+- ML Server hakkında genel bilgi için bkz: [R ile çalışmaya başlama](https://msdn.microsoft.com/microsoft-r/microsoft-r-get-started-node) makalesi.
 
-- Hdınsight'ta R Server hakkında daha fazla bilgi için bkz: [Azure Hdınsight genel bakış R Server'a](r-server/r-server-overview.md) ve [Azure hdınsight'ta R Server](r-server/r-server-get-started.md).
+- Hdınsight üzerinde ML hizmetleri hakkında daha fazla bilgi için bkz: [hdınsight'ta ML hizmetleri genel bakış](r-server/r-server-overview.md) ve [ML Hizmetleri Azure hdınsight kullanmaya başlama](r-server/r-server-get-started.md).
 
 SparkR kullanımı hakkında daha fazla bilgi için bkz:
 

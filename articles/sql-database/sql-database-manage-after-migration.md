@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: 2a0a411d5f2b19eda844cba160429ecfe958c45e
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309622"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061653"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Yeni DBA bulutta – Azure SQL veritabanı, veritabanınızı yönetme
 
@@ -170,7 +170,7 @@ Hızlı rota 2 için ek ücret ödemeden satın bant genişliği sınırı x ver
 - [İş akışları](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL veritabanı Yasal gereksinimlere ile uyumlu olan ve, kendi kuruluşunuzun uyumluluğun nasıl yardımcı olur?
-SQL veritabanı yasal compliances aralığı ile uyumludur. Karşılandığından compliances son kümesini görüntülemek için ziyaret [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings) ve detaya gitme SQL veritabanı uyumlu Azure Hizmetleri altında dahil edilmiş olup olmadığını görmek için kuruluşunuz için önemli olan compliances üzerinde. SQL veritabanı uyumlu bir hizmet sertifikalı ancak kuruluşunuzun hizmet uyumlu yardımları ancak otomatik olarak bunu garanti etmez dikkate almak önemlidir.
+SQL veritabanı yasal compliances aralığı ile uyumludur. Karşılandığından compliances son kümesini görüntülemek için ziyaret [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings) ve detaya gitme SQL veritabanı uyumlu Azure Hizmetleri altında dahil edilmiş olup olmadığını görmek için kuruluşunuz için önemli olan compliances üzerinde. SQL veritabanı uyumlu bir hizmet sertifikalı ancak kuruluşunuzun hizmet uyumlu yardımları ancak otomatik olarak bunu garanti etmez dikkate almak önemlidir.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Akıllı veritabanı izleme ve Bakım geçişten sonra
 
@@ -249,7 +249,7 @@ SQL veritabanı otomatik olarak ve herhangi bir veri kaybı olmadan veri bozulma
 
 - **Alma**: da veri bir BACPAC dosyası olarak Azure Portalı'nı kullanarak veritabanına aktarabilirsiniz.
 
-   ![Veritabanını içeri aktarma](./media/sql-database-import/import.png)
+   ![veritabanını içeri aktarma](./media/sql-database-import/import.png)
 
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>SQL Database ve SQL Server arasında veri eşitlemek nasıl?
 Bunu başarmak için birkaç yolu vardır: 

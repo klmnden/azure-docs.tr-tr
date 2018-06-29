@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e405f99388f699b3f1e88b9e84f52f9a4380228c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3d5832f63a3ebe7583d18fcd863c8cc60b9b045d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621981"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048773"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Hadoop akış etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34621981"
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [Hadoop akış etkinliğinde Data Factory sürüm 2 kullanarak verileri](../transform-data-using-hadoop-streaming.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [Hadoop akış etkinliğinde Data Factory kullanarak verileri](../transform-data-using-hadoop-streaming.md).
 
 
 HDInsightStreamingActivity etkinlik kullanabileceğiniz bir Azure Data Factory işlem hattı Hadoop akış işten çağırma. Aşağıdaki JSON parçacığı HDInsightStreamingActivity bir ardışık düzen JSON dosyası kullanarak sözdizimi gösterilmektedir. 

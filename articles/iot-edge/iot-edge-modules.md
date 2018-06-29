@@ -8,14 +8,14 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60c2c17d7a5cca66a6323f43e1ab2662afff54ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630845"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029107"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>Azure IOT kenar modülleri anlamak - Önizleme
+# <a name="understand-azure-iot-edge-modules"></a>Azure IOT kenar modülleri anlama
 
 Azure IOT kenar dağıtmanıza ve yönetmenize olanak sağlar biçiminde kenar iş mantığına *modülleri*. Azure IOT kenar modülleri IOT kenar tarafından yönetilen hesaplamanın en küçük birim olduğunuz ve Azure Hizmetleri (örneğin, Azure akış analizi) veya kendi çözüm özgü kod içerebilir. Anlamak için nasıl modülleri geliştirilen, dağıtılan ve korunan bir modül yapmak dört kavramsal parça düşünmek yardımcı olur:
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>Çevrimdışı özellikleri
+
+Azure IOT kenar IOT kenar cihazlarınızda çevrimdışı işlemleri destekler. Bu özellikleri şu an için sınırlıdır ve ilave senaryolar geliştirilir. 
+
+Aşağıdaki gereksinimlerin karşılandığından sürece IOT kenar modülleri uzun süreler çevrimdışı olabilir: 
+
+* **İleti yaşam süresi (TTL) süresi sona**. İki saat ileti TTL için varsayılan değer olan ancak Mağazası'nda değişen daha yüksek veya düşük ve IOT kenar yapılandırmasında hub'ı ayarlarını iletebilir. 
+* **Modülleri IOT kenar hub ile çevrimdışı iken kimlik doğrulamaya gerekmez**. Modüller yalnızca bir IOT hub ile etkin bir bağlantınız kenar hubs ile kimlik doğrulaması yapabilir. Modüller için herhangi bir nedenle yeniden başlatıldığında yeniden kimlik doğrulaması gerekir. SAS belirtecinin süresi dolduktan sonra modülleri iletileri kenar hub'ına göndermeye devam edebilir. Bağlantı çıktığında kenar hub'ı yeni bir belirteç modülünden ister ve IOT hub ile doğrular. Başarılı olursa, kenar hub depoladığı, modülü iletileri modülün belirtecinin süresi olsa bile gönderilen iletileri iletir. 
+* **Gönderilen iletileri sırasında modülü bağlantı çıktığında çevrimdışı hala çalıştığından**. IOT Hub'ına bağlandıklarında kenar hub'ı (eskisinin süresi) modülü iletileri iletebilir önce yeni bir modül belirteci doğrulamak gerekir. Modülü yeni bir belirteç sağlamak kullanılabilir durumda değilse, kenar hub'ı modülün saklı iletilerde davranamaz. 
+* **Edge hub iletileri depolamak için disk alanına sahip**. Varsayılan olarak, iletileri kenar hub kapsayıcının dosya sistemi içinde depolanır. Bunun yerine iletileri depolamak için takılan birimin belirtmek için bir yapılandırma seçeneği yoktur. Her iki durumda da var. ertelenmiş teslim IOT Hub'ına iletileri depolamak kullanılabilir alanı olması gerekir.  
 
 ## <a name="next-steps"></a>Sonraki adımlar
  - [Azure IOT kenar çalışma zamanı ve mimarisini anlama][lnk-runtime]

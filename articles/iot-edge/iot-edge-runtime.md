@@ -4,18 +4,18 @@ description: Azure IOT kenar çalışma zamanı ve nasıl kenar aygıtlarınız�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632083"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030388"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Azure IOT kenar çalışma zamanı ve mimarisini anlama - Önizleme
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IOT kenar çalışma zamanı ve mimarisini anlama
 
 IOT kenar çalışma zamanı cihazı IOT sınır cihazı kabul edilebilmesi için için yüklenmesi gereken programlar koleksiyonudur. Topluca IOT kenar çalışma zamanı bileşenleri sınırında çalıştırmak için kod almak IOT sınır cihazları etkinleştirin ve sonuçları iletişim. 
 
@@ -90,9 +90,9 @@ Edge Aracısı yürütülmesi başlamak için azure-IOT-edge-çalışma zamanı-
 
 Modülleri sözlükteki her öğe bir modül hakkında belirli bilgiler içerir ve kenar aracı tarafından modülün yaşam döngüsü denetlemek için kullanılır. Daha ilginç özelliklerden bazıları şunlardır: 
 
-* **Settings.image** – kapsayıcı görüntünün modülü başlatmak için sınır Aracısı'nı kullanır. Görüntünün bir parolayla korunuyorsa kenar Aracısı kapsayıcı kayıt defteri için kimlik bilgileri ile yapılandırılması gerekir. Edge aracısını yapılandırmak için aşağıdaki komutu kullanın: `azure-iot-edge-runtime-ctl.py –configure`
+* **Settings.image** – kapsayıcı görüntünün modülü başlatmak için sınır Aracısı'nı kullanır. Görüntünün bir parolayla korunuyorsa kenar Aracısı kapsayıcı kayıt defteri için kimlik bilgileri ile yapılandırılması gerekir. Edge aracısını yapılandırmak için güncelleştirme `config.yaml` dosya. Linux içinde aşağıdaki komutu kullanın: `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions** – doğrudan Docker daemon bir modülün kapsayıcısı başlatılırken geçirilen bir dize. Bu özellik Docker seçenekleri ekleme iletme veya bir modülün kapsayıcıya birimleri bağlama bağlantı noktası gibi gelişmiş seçenekler sağlar.  
-* **Durum** – kenar Aracısı Modülü yerleştirir durumu. Bu değer genellikle ayarlamak *çalıştıran* tüm modülleri cihazda hemen başlatmak için sınır Aracısı çoğu kişi istediğiniz şekilde. Ancak, bir modül başlatmak için sınır Aracısı bildirmek gelecekteki bir süre bekleyin ve durdurulması bir modül ilk durumunu belirtebilirsiniz. Edge Aracısı her modül durumunu bildirilen özelliklerinde buluta geri raporlar. İstenen özelliği ve bildirilen özelliği arasında bir fark bir gösterge veya hatalı davranan bir aygıtı değil. Desteklenen durumlar şunlardır:
+* **Durum** – kenar Aracısı Modülü yerleştirir durumu. Bu değer genellikle ayarlamak *çalıştıran* tüm modülleri cihazda hemen başlatmak için sınır Aracısı çoğu kişi istediğiniz şekilde. Ancak, bir modül başlatmak için sınır Aracısı bildirmek gelecekteki bir süre bekleyin ve durdurulması bir modül ilk durumunu belirtebilirsiniz. Edge Aracısı her modül durumunu bildirilen özelliklerinde buluta geri raporlar. İstenen özelliği ve bildirilen özelliği arasında bir fark davranan bir aygıt bir göstergesidir. Desteklenen durumlar şunlardır:
    * İndiriliyor
    * Çalışıyor
    * İyi durumda değil
@@ -104,7 +104,7 @@ Modülleri sözlükteki her öğe bir modül hakkında belirli bilgiler içerir 
    * Modül çöküyor veya sağlıksız - sağlıksız kabul edilip kenar aracıyı yeniden başlatır.
    * Modül kilitlenmeler, sağlıksız kabul edilir veya herhangi bir şekilde kapanır, her zaman - Edge Aracısı'nı yeniden başlatır. 
 
-IOT kenar aracısı çalışma zamanı yanıt IOT Hub'ına gönderir. Olası yanıt listesi aşağıdadır:
+IOT kenar aracı çalışma zamanı yanıt IOT Hub'ına gönderir. Olası yanıt listesi aşağıdadır:
   * 200 - TAMAM
   * 400 - dağıtım yapılandırması hatalı biçimlendirilmiş veya geçersiz olur.
   * 417 - aygıtın bir dağıtım yapılandırma kümesi yok.
@@ -114,7 +114,7 @@ IOT kenar aracısı çalışma zamanı yanıt IOT Hub'ına gönderir. Olası yan
 
 ### <a name="security"></a>Güvenlik
 
-IOT kenar Aracısı'nı bir IOT uç cihazın güvenliği kritik rol oynar. Örneğin, bir modülün görüntü başlatmadan önce doğrulama gibi işlemleri gerçekleştirir. Bu özellikler V2 özellikleri genel kullanılabilirliğine eklenir. 
+IOT kenar Aracısı'nı bir IOT uç cihazın güvenliği kritik rol oynar. Örneğin, bir modülün görüntü başlatmadan önce doğrulama gibi işlemleri gerçekleştirir. Bu özellikler genel kullanılabilirliğine eklenir. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

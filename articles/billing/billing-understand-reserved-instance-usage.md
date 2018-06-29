@@ -1,5 +1,5 @@
 ---
-title: Aboneliğinizin Kullandıkça Öde - Azure faturalama Azure ayrılmış örnek kullanımını anlamak | Microsoft Docs
+title: Kullandıkça Öde aboneliğiniz için Azure ayrılmış örnek kullanımını anlamak | Microsoft Docs
 description: Kullandıkça Öde aboneliğiniz için Azure ayrılmış VM örneğine nasıl uygulandığını anlamak için kullanımınızı okuma öğrenin.
 services: billing
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: manshuk
-ms.openlocfilehash: 7bf4aea86d4d430c15d60a8d73365705ace18b5a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7e303f3e5ce0e618d941be4190f6fadb40f2e09d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064054"
 ---
 # <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak
 
@@ -28,7 +29,7 @@ Reservationıd gelen kullanarak Azure ayrılmış VM örneği kullanımını anl
 >[!NOTE]
 >Bu makalede EA müşteriler için geçerli değildir. EA müşteri olup olmadığını görmek [olduğunuz Kurumsal kayıt için ayrılmış örnek anlamak kullanımı.](billing-understand-reserved-instance-usage-ea.md) Bu makalede ayrıca ayrılmış örnek için tek bir abonelik uygulandığını varsayar. Ayrılmış örnek için birden fazla abonelik uyguladıysanız, ayrılmış örnek avantajı birden çok kullanım csv dosyalarını yayılabilir. 
 
-Aşağıdaki bölümde için Standard_DS1_v2 Windows VM Doğu ABD bölgesi ve ayrılmış bilgileri gibi aşağıdaki tablo görünür örnek çalıştığını varsayın:
+İçin aşağıdaki bölümde, Doğu ABD bölgesi ve aşağıdaki tabloda, ayrılmış örnek bilgi görülüyor Standard_DS1_v2 Windows VM çalıştığını varsayın:
 
 | Alan | Değer |
 |---| :---: |
@@ -37,7 +38,7 @@ Aşağıdaki bölümde için Standard_DS1_v2 Windows VM Doğu ABD bölgesi ve ay
 |SKU | Standard_DS1_v2|
 |Bölge | eastus |
 
-## <a name="reserved-instance-application"></a>Ayrılmış örnek uygulaması
+## <a name="reserved-instance-application"></a>Ayrılmış örnek uygulama
 
 Dağıtılan VM ayrılmış örnek öznitelikleri eşleştiğinden VM donanım bölümünü ele alınmıştır. Hangi Windows yazılım tarafından ayrılmış örnek kapsamında değil görmek için Git [Azure ayırma VM örnekleri Windows yazılım maliyetleri.](billing-reserved-instance-windows-software-costs.md)
 
@@ -60,9 +61,9 @@ Filtre hakkında ek bilgiler ve yazın, **ayırma kimliği**. Aşağıdaki ekran
 ## <a name="next-steps"></a>Sonraki adımlar
 Ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Azure ayrılmış örnekler sahip sanal makinelerde paradan tasarruf](billing-save-compute-costs-reservations.md)
-- [Ayrılmış örnekler ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
+- [Azure ayrılmış VM örnekleri nelerdir?](billing-save-compute-costs-reservations.md)
+- [Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Azure'da ayrılmış örnekler yönetme](billing-manage-reserved-vm-instance.md)
 - [Ayrılmış örnek indirim nasıl uygulandığını anlama](billing-understand-vm-reservation-charges.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](billing-understand-reserved-instance-usage-ea.md)
 - [Windows yazılım maliyetleri ile ayrılmış örnekler dahil değil](billing-reserved-instance-windows-software-costs.md)

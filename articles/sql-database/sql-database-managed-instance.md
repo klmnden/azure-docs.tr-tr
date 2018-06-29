@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: f07ce542c176f4038378d54497d7114109ac5bd3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
-ms.translationtype: MT
+ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054662"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Bir yönetilen örneği (Önizleme) nedir?
 
@@ -210,7 +210,8 @@ Aşağıdaki diyagramda yüzey alanını uyumluluk yönetilen örneğinde özetl
 - Yönetilen örneği izin vermiyor farklı desteklenmesi tüm ilgili senaryoları alacak şekilde tam fiziksel yolunu belirtme: geri DB WITH MOVE desteklemez, BULK INSERT çalışır ile Azure BLOB'ları yalnızca, vb. oluşturmak DB fiziksel yollar izin vermez. 
 - Örnek destekleyen yönetilen [Azure AD kimlik doğrulaması](sql-database-aad-authentication.md) bulut alternatif olarak Windows kimlik doğrulaması. 
 - Yönetilen örneği XTP dosya ve bellek içi OLTP nesnelerini içeren veritabanları için dosyaları otomatik olarak yönetir
- 
+- Yönetilen örneği SQL Server Integration Services (SSIS) destekler ve konak SSIS paketleri depolar SSIS katalog (SSISDB) olabilir, ancak bunlar üzerinde bir yönetilen Azure SSIS tümleştirmesi çalışma zamanı (IR) Azure veri fabrikası (ADF) yürütülür, bkz: [oluştur Azure SSIS IR ADF içinde](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+
 ### <a name="managed-instance-administration-features"></a>Yönetilen örnek yönetim özellikleri  
 
 İş için en önemli noktalara odaklanmasına örneği etkinleştir Sistem Yöneticisi yönetilen. Birçok sistem yöneticisi/DBA etkinlik gerekli değildir veya basit. Örneğin, işletim sistemi / RDBMS yükleme ve düzeltme eki, dinamik örnek yeniden boyutlandırma ve yapılandırma, yedeklemeler, veritabanı çoğaltması (sistem veritabanları dahil), yüksek kullanılabilirlik yapılandırması ve sağlık ve performans verilerini izleme yapılandırması Akışlar. 

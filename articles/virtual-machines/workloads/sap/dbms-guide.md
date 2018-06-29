@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 79e77aa067cbb7262a945d94ce8ac1750e80b2d5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656202"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054798"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver için Azure sanal makineleri DBMS dağıtımı
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,7 +288,7 @@ ms.locfileid: "34656202"
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/en-us/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -554,7 +554,7 @@ VM dağıtmak üzere Microsoft veya üçüncü taraf Azure Market görüntüsün
 #### <a name="deploying-a-vm-with-a-customer-specific-generalized-image"></a>VM genelleştirilmiş bir müşteriye özgü yansıma ile dağıtma
 İşletim sistemi veya DBMS sürümünüz ile ilgili belirli düzeltme eki gereksinimleri nedeniyle Azure Marketi sağlanan görüntüleri gereksinimlerinize değil. Bu nedenle, daha sonra birkaç kez dağıtılabilir kendi 'özel' işletim sistemi/DBMS VM görüntüsü kullanarak bir VM oluşturma gerekebilir. 'Özel' bir görüntüsü çoğaltma için hazırlamak üzere işletim sistemi şirket içi VM genelleştirilmiş gerekir. Başvurmak [Dağıtım Kılavuzu'na] [ deployment-guide] VM generalize hakkında ayrıntılar için.
 
-(Özellikle 2 katmanlı sistemler için), şirket içi VM'deki SAP içerik zaten yüklediyseniz, örnek aracılığıyla Azure VM dağıtımı yeniden adlandırdıktan sonra SAP yazılım sağlama Yöneticisi tarafından desteklenen yordamı SAP sistem ayarlarını uyarlayabilirsiniz (SAP Not [1619720]). Aksi takdirde, daha sonra Azure VM Dağıtım sonrasında SAP yazılım yükleyebilirsiniz.
+(Özellikle 2 katmanlı sistemler için), şirket içi VM'deki SAP içerik zaten yüklediyseniz, örnek aracılığıyla Azure VM dağıtımı yeniden adlandırdıktan sonra SAP yazılım sağlama Yöneticisi (SAP tarafından desteklenen yordamı SAP sistem ayarlarını uyarlayabilirsiniz Not [1619720]). Aksi takdirde, daha sonra Azure VM Dağıtım sonrasında SAP yazılım yükleyebilirsiniz.
 
 SAP uygulama tarafından kullanılan veritabanı içerik, ya da içerik yeni bir SAP yüklemesiyle oluşturabileceğiniz veya içeriğinizi VHD bir DBMS veritabanı yedeğini kullanarak veya içine doğrudan yedeklemek için DBMS özelliklerini yararlanarak Azure aktarabilirsiniz  Microsoft Azure depolama. Bu durumda, ayrıca VHD'ler DBMS veri ve günlük dosyaları ile şirket içi hazırlamak ve bu diskleri olarak Azure'a aktarabilir. Ancak şirket içinden Azure'a yüklendiğinden DBMS veri aktarımını şirket içi hazırlıklı olmak için gereken VHD diskler üzerinde çalışır.
 
@@ -931,7 +931,7 @@ ve işlem içinde oluşturulan bağlantılar DBACockpit şuna benzer:
 > 
 > 
 
-Bağlı olarak varsa ve SAP sistem barındırma Azure sanal makine için siteden, bağlı nasıl çok siteli veya ExpressRoute bu ICM emin olmanız gerekir (şirket içi dağıtım) çözülebilir tam bir ana bilgisayar makinesinde, gelen DBACockpit açmaya çalıştığınız kullanıyor. SAP nota bakın [773830] nasıl ICM profili parametreleri ve kümesi parametre ICM/host_name_full bağlı olarak tam ana bilgisayar adı açıkça gerekirse belirler anlamak için.
+Bağlı olarak varsa ve SAP sistem barındırma Azure sanal makine için siteden, bağlı nasıl çok siteli veya bu ICM emin olmak için gereken ExpressRoute (şirket içi dağıtım) çözülebilir tam bir ana bilgisayar makinesinde kullanıyor nerede gelen DBACockpit açmaya çalışıyorsunuz. SAP nota bakın [773830] nasıl ICM profili parametreleri ve kümesi parametre ICM/host_name_full bağlı olarak tam ana bilgisayar adı açıkça gerekirse belirler anlamak için.
 
 Şirket içi bağlantılar şirket içi ve Azure arasında olmadan yalnızca bulut senaryosunda VM dağıtılmışsa, bir ortak IP adresi ve bir domainlabel tanımlamanız gerekir. VM ortak DNS adının biçimi şöyle görünür:
 
@@ -1084,7 +1084,7 @@ ve işlem içinde oluşturulan bağlantılar DBACockpit için şuna benzer:
 > 
 > 
 
-Bağlı olarak varsa ve SAP sistem barındırma Azure sanal makine için siteden, bağlı nasıl çok siteli veya ExpressRoute bu ICM emin olmanız gerekir (şirket içi dağıtım) çözülebilir tam bir ana bilgisayar makinesinde, gelen DBACockpit açmaya çalıştığınız kullanıyor. SAP nota bakın [773830] nasıl ICM profili parametreleri ve kümesi parametre ICM/host_name_full bağlı olarak tam ana bilgisayar adı açıkça gerekirse belirler anlamak için.
+Bağlı olarak varsa ve SAP sistem barındırma Azure sanal makine için siteden, bağlı nasıl çok siteli veya bu ICM emin olmak için gereken ExpressRoute (şirket içi dağıtım) çözülebilir tam bir ana bilgisayar makinesinde kullanıyor nerede gelen DBACockpit açmaya çalışıyorsunuz. SAP nota bakın [773830] nasıl ICM profili parametreleri ve kümesi parametre ICM/host_name_full bağlı olarak tam ana bilgisayar adı açıkça gerekirse belirler anlamak için.
 
 Şirket içi bağlantılar şirket içi ve Azure arasında olmadan yalnızca bulut senaryosunda VM dağıtılmışsa, bir ortak IP adresi ve bir domainlabel tanımlamanız gerekir. VM ortak DNS adının biçimi şöyle görünür:
 
@@ -1305,7 +1305,7 @@ Diğer SAP MaxDB özgü ayarları Azure VM'ler için saydamdır ve SAP notta lis
 
 ## <a name="specifics-for-sap-livecache-on-windows"></a>SAP liveCache Windows özellikleri
 ### <a name="sap-livecache-version-support"></a>SAP liveCache sürüm desteği
-SAP liveCache Azure sanal makinelerinde desteklenen en düşük sürümü **SAP LC/LCAPPS 10.0 SP 25** dahil olmak üzere **liveCache 7.9.08.31** ve **LCA yapı 25**, yayımlanan için **EhP 2 SAP SCM 7.0** ve daha yüksek.
+SAP liveCache Azure sanal makinelerinde desteklenen en düşük sürümü **SAP LC/LCAPPS 10.0 SP 25** dahil olmak üzere **liveCache 7.9.08.31** ve **LCA yapı 25**, için serbest bırakıldı **EhP 2 SAP SCM 7.0** ve daha yüksek.
 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-livecache-dbms"></a>SAP liveCache DBMS desteklenen Microsoft Windows sürümleri ve Azure VM türleri
 Azure üzerinde SAP liveCache için desteklenen Microsoft Windows sürümünü bulmak için bkz:
@@ -1363,7 +1363,7 @@ Microsoft Windows Server'ın en yeni sürümü kullanmak için önerilir.
 
 ### <a name="sap-content-server-configuration-guidelines-for-sap-installations-in-azure-vms"></a>SAP yüklemelerde Azure VM'ler için SAP içerik sunucusu yapılandırma yönergeleri
 #### <a name="storage-configuration"></a>Depolama Yapılandırması
-SAP MaxDB veritabanında dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, SAP MaxDB bölümde belirtildiği öneri tüm Azure depolama en iyi yöntemler [depolama yapılandırması] [ dbms-guide-8.4.1] da SAP içerik sunucusu senaryo için geçerlidir. 
+SAP MaxDB veritabanında dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, SAP MaxDB bölümde belirtildiği öneri tüm Azure depolama en iyi yöntemler [depolama yapılandırması] [ dbms-guide-8.4.1] da geçerlidir SAP içerik sunucusu senaryosu için. 
 
 Dosya sistemindeki dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, adanmış bir mantıksal sürücü kullanmak için önerilir. Windows depolama alanları'nı kullanarak sağlar, ayrıca mantıksal disk boyutu ve IOPS verimliliği artırmak bölümde açıklandığı gibi [yazılım RAID][dbms-guide-2.2]. 
 
@@ -1386,7 +1386,7 @@ Burada, iki seçeneğiniz vardır:
 <a name="642f746c-e4d4-489d-bf63-73e80177a0a8"></a>
 
 #### <a name="backup--restore"></a>Yedekleme / Geri Yükleme
-SAP MaxDB veritabanında dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, yedekleme/geri yükleme yordamı ve performans konuları zaten SAP MaxDB bölümde açıklanan [yedekleme ve geri yükleme] [ dbms-guide-8.4.2] ve bölüm [yedekleme ve geri yükleme için başarım düşünceleri][dbms-guide-8.4.3]. 
+SAP MaxDB veritabanında dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, yedekleme/geri yükleme yordamı ve performans konuları zaten SAP MaxDB bölümde açıklanan [yedekleme ve geri yükleme] [ dbms-guide-8.4.2]ve bölüm [yedekleme ve geri yükleme için başarım düşünceleri][dbms-guide-8.4.3]. 
 
 Dosya sistemindeki dosyaları depolamak için SAP içerik sunucusu yapılandırırsanız, bir el ile yedekleme/geri yükleme dosyanın tamamı yapısının yürütmek için belgeleri bulunduğu seçenektir. Benzer şekilde SAP MaxDB yedekleme/geri yükleme, yedekleme amaç için ayrılmış disk birimi sağlamak için önerilir. 
 

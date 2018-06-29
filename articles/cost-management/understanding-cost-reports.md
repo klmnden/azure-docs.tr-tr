@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167909"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064122"
 ---
 # <a name="understanding-cost-management-reports"></a>Anlama maliyet yönetim raporları
 
@@ -121,7 +121,7 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
     -   **Kullanım türü**
           - Kullanım türü tek seferlik ücretlerinin ya da yinelenen ücretleri olabilir.
 
-5. **filtreleri**
+5. **Filtreleri**
 
     Aralıkları seçili değerlere ayarlamak için tek veya çoklu seçim filtreleri kullanın. Bir filtre ayarlamak için tıklatın **Ekle** ve ardından filtre kategorisi ve değerleri seçin.
 
@@ -147,7 +147,7 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
     - Günlük
     - Haftalık
     - Aylık
-    - Üç aylık
+    - Üç Aylık
     - Yıllık
 
 9. **Ayırma kuralları**
@@ -162,7 +162,7 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
 
     Göster/Gizle seçeneği herhangi bir etkisi raporlarda sahip değil.
 
-12.   **görüntü biçimleri**
+12.   **Görüntü biçimleri**
 
     Görüntü biçimleri çeşitli grafik veya tablo görünümleri seçmek için kullanın.
 
@@ -175,6 +175,10 @@ Burada, zaman içinde maliyeti raporu örneği göz verilmiştir. Çoğu Cloudyn
 14. **Eylemler**
 
     Kaydet, dışarı veya raporu zamanlama için eylemlerini kullanın.
+
+15. **İlke**
+
+    Gösterilmediğini rağmen bazı raporlar tahmini maliyeti hesaplama ilke içerir. Bu raporlarda **birleştirilmiş** ilke tüm hesaplar ve abonelikler altında Microsoft kayıt veya AWS ödeyen gibi geçerli varlık için öneriler gösterir. **Tek başına** İlkesi başka bir aboneliği varsa gibi bir hesap veya abonelik için öneriler gösterir. Kuruluşunuz tarafından kullanılan en iyi duruma getirme stratejisi üzerinde seçtiğiniz ilke değişir. Maliyet tahminleri kullanımı son 30 gün üzerinde temel alır.
 
 ## <a name="save-and-schedule-reports"></a>Kaydet ve raporları zamanlama
 
@@ -199,4 +203,5 @@ Herhangi bir raporu görüntülerken tıklatın **Eylemler** ve ardından **tüm
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-- İlk öğreticide maliyet yönetimi için zaten tamamlanmış yapmadıysanız, hem okuma [gözden kullanım ve maliyetleri](tutorial-review-usage.md).
+- Cloudyn yer alan raporlar hakkında bilgi edinmek [maliyet yönetimini kullanma raporları](use-reports.md).
+- Raporları oluşturmak için nasıl kullanılacağı hakkında bilgi edinin [panolar](dashboards.md).

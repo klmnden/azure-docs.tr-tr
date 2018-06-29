@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658324"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062250"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>SAP HANA büyük örnekleri azure'da yüksek kullanılabilirlik ve olağanüstü durum kurtarma 
 
@@ -44,10 +44,12 @@ Aşağıdaki tabloda şu anda desteklenen yüksek kullanılabilirlik ve olağan�
 | HANA büyük durumlarda desteklenen senaryosu | Yüksek kullanılabilirlik seçeneği | Olağanüstü durum kurtarma seçeneği | Yorumlar |
 | --- | --- | --- | --- |
 | Tek düğüm | Mevcut değil. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu. | |
-| Konak otomatik yük devretme: N + m<br /> 1 + 1 dahil | Etkin rolü alma bekleme ile mümkün.<br /> HANA rol anahtarı denetler. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu.<br /> Depolama çoğaltma kullanarak DR eşitleme. | HANA birim kümeleri tüm düğümlere (n + m) bağlanmış.<br /> DR sitesi düğümleri aynı sayıda olmalıdır. |
+| Konak otomatik yük devretme: genişletme (ile veya bekleme olmadan)<br /> 1 + 1 dahil | Etkin rolü alma bekleme ile mümkün.<br /> HANA rol anahtarı denetler. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu.<br /> Depolama çoğaltma kullanarak DR eşitleme. | HANA birim kümeleri tüm düğümlere bağlı.<br /> DR sitesi düğümleri aynı sayıda olmalıdır. |
 | HANA sistem çoğaltma | Birincil veya ikincil kurulumu ile mümkün.<br /> İkincil bir yük devretme durumunda birincil rolü taşır.<br /> Yük devretme denetim HANA sistem çoğaltma ve işletim sistemi. | Ayrılmış DR kurulumu.<br /> Çok amaçlı DR kurulumu.<br /> Depolama çoğaltma kullanarak DR eşitleme.<br /> HANA sistem çoğaltma kullanarak DR henüz olmayan üçüncü taraf bileşenler mümkün değildir. | Disk birimleri ayrı kümesi her düğüme bağlı.<br /> Yalnızca disk birimleri üretim sitedeki ikincil çoğaltmasının DR konuma çoğaltılan.<br /> Bir dizi birimleri DR sitede gereklidir. | 
 
 Ayrılmış bir DR Kurulum burada DR sitesi HANA büyük örneği biriminde herhangi bir iş yükü veya üretim dışı sistem çalıştırmak için kullanılmayan ' dir. Birim pasif ve yalnızca bir olağanüstü durum yük devretme yürütülürse dağıtılır. Ancak, bu kurulum birçok müşteri için tercih edilen bir seçenek değil.
+
+Başvuran [HLI desteklenen senaryoları](hana-supported-scenario.md) Mimarinizi için depolama düzeni ve ethernet ayrıntıları öğrenin.
 
 > [!NOTE]
 > [SAP HANA MCOD dağıtımları](https://launchpad.support.sap.com/#/notes/1681092) (birden çok HANA örnekleri tek bir birim üzerinde) senaryoları iş HA ve DR yöntemleri üst üste getirme tabloda listelendiği gibi. Bir özel durum HANA sistem çoğaltma üzerinde Pacemaker dayalı bir otomatik yük devretme kümesi ile kullanılır. Böyle bir durumda, yalnızca birim başına bir HANA örneği destekler. İçin [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) dağıtımları, yalnızca depolama tabanlı olmayan HA ve DR yöntemleri iş birden fazla Kiracı dağıtılırsa. Dağıtılan bir kiracı ile listelenen tüm yöntemleri geçerli değil.  
@@ -60,7 +62,7 @@ Aşağıdaki SAP makalelerinde SAP HANA yüksek kullanılabilirlik hakkında dah
 - [SAP HANA yüksek kullanılabilirlik Teknik İnceleme](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA Yönetim Kılavuzu](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP HANA sistem çoğaltma SAP HANA Akademi Video](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP destek Not #1999880 – SAP HANA sistem çoğaltma hakkında SSS](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP destek Not #1999880 – SAP HANA sistem çoğaltma hakkında SSS](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [Yukarı destek Not #2165547 – SAP HANA geri SAP ve SAP HANA sistem çoğaltma ortamında geri yükleme](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [En az/sıfır kapalı kalma süresi ile donanım Exchange için destek Not #1984882 – kullanarak SAP HANA sistem çoğaltma SAP](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

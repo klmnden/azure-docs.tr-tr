@@ -14,21 +14,21 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 27d74ce2cf8fdc4434c48c36dd0c0751dbbab232
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505f7345af6224b767d6d3719c123d91f54e48f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622321"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054301"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Etkinlik performans ve ayarlama Kılavuzu kopyalayın
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-copy-activity-performance.md)
-> * [Sürüm 2 - Önizleme](../copy-activity-performance.md)
+> * [Sürüm 1](data-factory-copy-activity-performance.md)
+> * [Sürüm 2 (geçerli sürüm)](../copy-activity-performance.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [kopyalama etkinliği performansı ve veri fabrikası sürüm 2 için ayarlama Kılavuzu](../copy-activity-performance.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [kopyalama etkinliği performansı ve veri fabrikası için ayarlama Kılavuzu](../copy-activity-performance.md).
 
 Azure Data Factory kopyalama etkinliği çözümü bir birinci sınıf güvenli, güvenilir ve yüksek performanslı veri yükleme sunar. Zengin bulut çeşitli her gün terabayt veri onlarca kopyaya sağlar ve şirket içi veri depolarına. Üstün hızlı veri performans yükleme anahtarıdır odaklanmak çekirdek "büyük veri" sorunu emin olmak için: Gelişmiş analiz çözümleri oluşturmak ve tüm bu verilerden ayrıntılı Öngörüler alma.
 
@@ -200,7 +200,7 @@ Karma kopyalama senaryoda (şirket içi bir kaynaktır ve havuz olduğu bulutta)
 
 ![Kopya hazırlanan: karma senaryo](media/data-factory-copy-activity-performance/staged-copy-hybrid-scenario.png)
 
-Hazırlama depolama kullanarak veri taşıma etkinleştirdiğinizde, verileri veri kaynağına veri deposundan bir geçiş veya hazırlama veri deposuna taşımadan önce sıkıştırılır ve bir geçiş verilerini taşıma veya veri deposu havuz veri deposuna hazırlama önce sıkıştırması açılmış isteyip istemediğinizi belirtebilirsiniz.
+Hazırlama depolama kullanarak veri taşıma etkinleştirdiğinizde, verileri veri kaynağına veri deposundan bir geçiş veya hazırlama veri deposuna taşımadan önce sıkıştırılır ve bir geçiş verilerini taşıma veya verileri hazırlama önce sıkıştırması isteyip istemediğinizi belirtebilirsiniz Havuz veri deposuna depolar.
 
 Şu anda, bir hazırlama deposu kullanarak iki şirket içi veri depoları arasında veri kopyalanamıyor. Hemen kullanılabilir olması için bu seçeneği bekliyoruz.
 
@@ -276,7 +276,7 @@ Veri Fabrikası hizmetiniz kopyalama etkinliği ile performansı ayarlamak için
 ## <a name="considerations-for-data-management-gateway"></a>Veri Yönetimi ağ geçidi için ilgili önemli noktalar
 **Ağ geçidi Kurulum**: ana bilgisayar veri yönetimi ağ geçidi için ayrılmış bir makine kullanmanızı öneririz. Bkz: [veri yönetimi ağ geçidi kullanarak dikkat edilmesi gereken noktalar](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
 
-**Ağ geçidi izleme ve yukarı/genişleme**: tek bir mantıksal ağ geçidi ile bir veya daha fazla ağ geçidi düğümleri aynı anda aynı anda birden çok kopya etkinliği çalıştırır hizmet verebilir. Bir ağ geçidi makinesi sınırı Azure portalında karşı çalışan eşzamanlı iş sayısını görmek olarak iyi kaynak kullanımı (CPU, bellek, network(in/out), vb.) neredeyse gerçek zamanlı görüntüsünü görüntüleyebilirsiniz [İzleyici ağ geçidi portalında](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). İçin çok sayıda eş zamanlı kopyalama etkinliği çalışır veya büyük miktarda veri kopyalamak için karma veri taşıma üzerinde ağır gereksiniminiz varsa göz önünde bulundurun [ölçeği veya ağ geçidi ölçeklendirmek](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) kopyalama güçlendirmeniz daha fazla kaynak sağlamak için ya da daha iyi kaynağınız kullanmalarını amacıyla. 
+**Ağ geçidi izleme ve yukarı/genişleme**: tek bir mantıksal ağ geçidi ile bir veya daha fazla ağ geçidi düğümleri aynı anda aynı anda birden çok kopya etkinliği çalıştırır hizmet verebilir. Bir ağ geçidi makinesi sınırı Azure portalında karşı çalışan eşzamanlı iş sayısını görmek olarak iyi kaynak kullanımı (CPU, bellek, network(in/out), vb.) neredeyse gerçek zamanlı görüntüsünü görüntüleyebilirsiniz [İzleyici ağ geçidiportalında](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). İçin çok sayıda eş zamanlı kopyalama etkinliği çalışır veya büyük miktarda veri kopyalamak için karma veri taşıma üzerinde ağır gereksiniminiz varsa göz önünde bulundurun [ölçeği veya ağ geçidi ölçeklendirmek](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) sağlamak için ya da daha iyi kaynağınız kullanmalarını amacıyla kopya güçlendirmeniz daha fazla kaynak. 
 
 ## <a name="considerations-for-the-source"></a>Kaynak için ilgili önemli noktalar
 ### <a name="general"></a>Genel
@@ -298,7 +298,7 @@ SQL veri ambarı için Blob depolama alanından verileri kopyalarsanız, kullanm
 
 * **Veri deseni**: Tablo şemanızı kopyalama verimlilik etkiler. Büyük satır boyutu küçük satır boyutu, aynı miktarda veri kopyalamak için daha iyi performans sağlar. Veritabanında daha az sayıda satır içeren veri daha az toplu daha verimli bir şekilde alabilir nedenidir.
 * **Sorgu veya saklı yordam**: sorgu veya saklı yordam verileri daha verimli bir şekilde getirmek için kopyalama etkinliği kaynağında belirttiğiniz mantığını en iyi duruma getirme.
-* İçin **içi ilişkisel veritabanları**, SQL Server ve kullanılmasını Oracle gibi **veri yönetimi ağ geçidi**, bkz: [veri yönetimi ağ geçidi için ilgili önemli noktalar](#considerations-on-data-management-gateway) bölümü.
+* İçin **içi ilişkisel veritabanları**, SQL Server ve kullanılmasını Oracle gibi **veri yönetimi ağ geçidi**, bkz: [veri yönetimi ağ geçididikkatealınacaknoktalar](#considerations-on-data-management-gateway) bölümü.
 
 ## <a name="considerations-for-the-sink"></a>Havuz için ilgili önemli noktalar
 ### <a name="general"></a>Genel
@@ -326,7 +326,7 @@ Verileri kopyalıyorsanız **Blob storage** için **SQL veri ambarı**, kullanma
 * **Veri düzeni ve toplu işlem boyutu**:
   * Tablo şemasını kopyalama verimlilik etkiler. Veritabanı daha verimli bir şekilde daha az veri toplu yürütme çünkü aynı miktarda veri kopyalayın, bir büyük satır boyutu, küçük satır boyutu daha iyi performans sağlar.
   * Kopyalama etkinliği, toplu bir dizi veri ekler. Kullanarak bir toplu işlemde satır sayısını ayarlayabilirsiniz **writeBatchSize** özelliği. Verilerinizi küçük satırları varsa, ayarlayabileceğiniz **writeBatchSize** daha az toplu iş yükü ve daha yüksek verimlilik yararlanmak için daha yüksek bir değere sahip özelliği. Verilerinizin satır boyutu büyükse, artırmanız dikkatli olun **writeBatchSize**. Yüksek bir değer veritabanı aşırı yüklemesi nedeniyle bir kopyalama hatası neden.
-* İçin **içi ilişkisel veritabanları** SQL Server ve kullanılmasını Oracle gibi **veri yönetimi ağ geçidi**, bkz: [veri yönetimi ağ geçidi için ilgili önemli noktalar](#considerations-for-data-management-gateway) bölümü.
+* İçin **içi ilişkisel veritabanları** SQL Server ve kullanılmasını Oracle gibi **veri yönetimi ağ geçidi**, bkz: [veri yönetimi ağ geçidideğerlendirmeleri](#considerations-for-data-management-gateway)bölümü.
 
 ### <a name="nosql-stores"></a>NoSQL depoları
 *(Tablo depolama ve Azure Cosmos DB içerir)*

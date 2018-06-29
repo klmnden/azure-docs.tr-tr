@@ -1,26 +1,26 @@
 ---
-title: Azure Data Lake Store'a genel bakış | Microsoft Belgeleri
-description: Azure Data Lake Store'un ve diğer veri depolarına kıyasla sağladığı değeri anlama
+title: Azure Data Lake Storage Gen1 genel bakış | Microsoft Docs
+description: Hangi veri Gölü depolama Gen1'ni (daha önce Azure Data Lake Store bilinir) ve diğer veri depolarına kıyasla sağladığı değeri anlama
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: b3475057-9427-4492-a3af-25a802a23a79
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: 4dff8f4ff9fc324d48391c0399677b64824493c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036454"
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Azure Data Lake Store'a genel bakış
+# <a name="overview-of-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 genel bakış
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Azure Data Lake Store, büyük veri analitik iş yükleri için kuruluş çapında hiper ölçekli bir depodur. Azure Data Lake, işletimsel ve keşifsel analiz için herhangi bir boyuta, türe ve alım hızına sahip olan verileri tek bir konumda yakalamanıza olanak sağlar.
 
 > [!TIP]
@@ -81,24 +81,8 @@ Data Lake Store'a, Hadoop ortamlarında (HDInsight kümesinde kullanılabilir) y
 
 Data Lake Store'daki verilerinize `adl://<data_lake_store_name>.azuredatalakestore.net` kullanarak erişebilirsiniz. Data Lake Store'daki verilere nasıl erişileceği konusunda daha fazla bilgi için bkz. [Depolanan verilerin özelliklerini görüntüleme](data-lake-store-get-started-portal.md#properties)
 
-## <a name="how-do-i-start-using-azure-data-lake-store"></a>Azure Data Lake Store'u kullanmaya nasıl başlarım?
-Azure Portal'ı kullanarak Data Lake Store sağlamaya yönelik bilgiler için bkz. [Azure Portal'ı kullanarak Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md). Azure Data Lake'i sağladıktan sonra,Azure Data Lake Analytics veya Azure HDInsight gibi büyük veri olanaklarının Data Lake Store ile nasıl kullanılacağını öğrenebilirsiniz. Ayrıca, Azure Data Lake Store hesabı oluşturmak ve veri yükleme, veri indirme vb. işlemleri gerçekleştirmek için bir .NET uygulaması oluşturabilirsiniz.
+## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure Data Lake Analytics ile Çalışmaya Başlama](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Portalı'nı kullanarak Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-portal.md)
 * [.NET SDK'yı kullanarak Azure Data Lake Store ile çalışmaya başlama](data-lake-store-get-started-net-sdk.md)
-
-## <a name="data-lake-store-videos"></a>Data Lake Store videoları
-Öğrenmek için video izlemeyi tercih ediyorsanız Data Lake Store'un çeşitli özellikler için sağladığı videoları izleyebilirsiniz.
-
-* [Azure Data Lake Store hesabı oluşturma](https://mix.office.com/watch/1k1cycy4l4gen)
-* [Azure Data Lake Store'da Verileri Yönetmek için Veri Gezgini'ni Kullanma](https://mix.office.com/watch/icletrxrh6pc)
-* [Azure Data Lake Analytics'i Azure Data Lake Store'a bağlama](https://mix.office.com/watch/qwji0dc9rx9k)
-* [Azure Data Lake Store'a Data Lake Analytics üzerinden erişme](https://mix.office.com/watch/1n0s45up381a8)
-* [Azure HDInsight'ı Azure Data Lake Store'a bağlama](https://mix.office.com/watch/l93xri2yhtp2)
-* [Azure Data Lake Store'a Hive veya Pig üzerinden erişme](https://mix.office.com/watch/1n9g5w0fiqv1q)
-* [Azure Data Lake Store'dan ve Azure Data Lake Store'a veri kopyalamak için DistCp'yi (Hadoop Dağıtılmış Kopya) kullanma](https://mix.office.com/watch/1liuojvdx6sie)
-* [İlişkisel kaynaklar ile Azure Data Lake Store arasında veri taşımak için Apache Sqoop'u kullanma](https://mix.office.com/watch/1butcdjxmu114)
-* [Azure Data Lake Store için Azure Data Factory'yi kullanarak Veri Düzenlemesi](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Azure Data Lake Store'da Verilerin Güvenliğini Sağlama](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
+* [Azure HDInsight'ı Data Lake Store ile kullanma](data-lake-store-hdinsight-hadoop-use-portal.md)

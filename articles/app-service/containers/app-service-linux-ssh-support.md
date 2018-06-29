@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: c2beb67a27b667d31402b903f38dbf116e9425d0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bace90021d5a786f0b014e617bd0ae8e6043bb36
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301084"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060136"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Azure uygulama hizmeti Linux üzerinde SSH desteği
 
@@ -113,13 +113,13 @@ Başlamak için yüklemeniz gerekir [Azure CLI](/cli/azure/install-azure-cli?vie
 Çalıştırarak en son uygulama hizmeti uzantısı Ekle [az uzantısı Ekle](/cli/azure/extension?view=azure-cli-latest#az-extension-add):
 
 ```azurecli-interactive
-az extension add -–name webapp
+az extension add --name webapp
 ```
 
 Zaten çalıştırırsanız, `az extension add` çalıştırmadan önce [az uzantısı güncelleştirmesinin](/cli/azure/extension?view=azure-cli-latest#az-extension-update) bunun yerine:
 
 ```azurecli-interactive
-az extension update -–name webapp
+az extension update --name webapp
 ```
 
 Uygulama kullanarak uzak bir bağlantı açmak [az webapp uzaktan bağlantı oluşturma](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) komutu. Belirtin  _\<grup\_adı >_ ve \_< app\_adı > _ uygulama ve değiştirme için \<bağlantı noktası > yerel bağlantı noktası numarası.

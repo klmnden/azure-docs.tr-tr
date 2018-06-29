@@ -1,37 +1,37 @@
 ---
 title: Azure IOT kenar modül bileşimi | Microsoft Docs
-description: Azure IOT kenar modüllerine unsurları ve bunların nasıl kullanılabilme öğrenin
+description: Dağıtım bildirimi dağıtmak için hangi modüllerin nasıl bildirir, bunları dağıtma ve aralarındaki ileti yollarını oluşturma öğrenin.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c886d1d9dea120a243693c12ae861a58126daadc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: MT
+ms.openlocfilehash: 84a0698a61e68c141cc79dbc779f352aab528afa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631692"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031490"
 ---
-# <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IOT kenar modülleri nasıl kullanılabileceğini, yapılandırılmış, anlamak ve yeniden - önizleme
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Modülleri dağıtmak ve yollar oluşturmak için dağıtım bildirimleri kullanmayı öğrenin
 
-Her IOT sınır cihazı en az iki modüllerini çalıştırır: IOT kenar çalışma zamanı yapmak $edgeAgent ve $edgeHub,. Bu standart iki ek olarak, tüm IOT sınır cihazı herhangi bir sayıda işlemleri gerçekleştirmek için birden fazla modülü çalıştırabilirsiniz. Bu modüller bir cihaza aynı anda dağıttığınızda, hangi modüller birbirleri ile nasıl etkileşim kurduklarını dahil edilen bildirmek için bir yönteme ihtiyacınız vardır. 
+Her IOT sınır cihazı en az iki modüllerini çalıştırır: IOT kenar çalışma zamanı yapmak $edgeAgent ve $edgeHub,. Bu standart iki ek olarak, tüm IOT sınır cihazı herhangi bir sayıda işlemleri gerçekleştirmek için birden fazla modülü çalıştırabilirsiniz. Bir cihaza aynı anda bu modülleri dağıttığınızda modüllerine dahil edilir ve birbirleri ile nasıl etkileşim kurduklarını bildirmek için bir yönteme ihtiyacınız vardır. 
 
 *Dağıtım bildirimi* açıklayan bir JSON belgesi:
 
-* IOT kenar modüllerine yanı sıra bunların oluşturulması ve yönetimi seçenekleri dağıtılması gerekir.
+* Kapsayıcı görüntünün her modül, erişim özel kapsayıcı kayıt defterleri için kimlik bilgilerini ve nasıl her modül oluşturulabilir ve yönetilebilir yönergeleri içerir kenar Aracısı yapılandırması.
 * Nasıl akışı modülleri arasında ve sonunda IOT Hub'ına iletileri içeren kenar hub yapılandırması.
-* Tek tek modülü uygulamalarını yapılandırmak için modülü çiftlerini istenen özelliklerinde ayarlamak için isteğe bağlı olarak, değerleri.
+* İsteğe bağlı olarak, istenen özelliklerini modülü çiftlerini.
 
 Tüm IOT sınır cihazları dağıtım bildirimi ile yapılandırılması gerekir. Yeni yüklenen bir IOT kenar çalışma zamanı hata kodu ile geçerli bir bildirim yapılandırılana kadar bildirir. 
 
-Azure IOT kenar eğitimlerine Azure IOT kenar portalında Sihirbazı aracılığıyla giderek bir dağıtım bildirimi oluşturun. Program aracılığıyla REST veya IOT Hub hizmeti SDK'sını kullanarak dağıtım bildirimi de uygulayabilirsiniz. Başvurmak [dağıtma ve izleme] [ lnk-deploy] IOT kenar dağıtımları hakkında daha fazla bilgi için.
+Azure IOT kenar eğitimlerine Azure IOT kenar portalında Sihirbazı aracılığıyla giderek bir dağıtım bildirimi oluşturun. Program aracılığıyla REST veya IOT Hub hizmeti SDK'sını kullanarak dağıtım bildirimi de uygulayabilirsiniz. Daha fazla bilgi için bkz: [anlamak IOT kenar dağıtımları][lnk-deploy].
 
 ## <a name="create-a-deployment-manifest"></a>Bir dağıtım bildirimi oluşturma
 
-Yüksek bir düzeyde dağıtım bildirimi IOT kenar cihazda dağıtılan IOT kenar modülleri için bir modül twin'ın istenen özelliklerini yapılandırır. İki bu modüllerin her zaman mevcut: kenar Aracısı'nı ve kenar hub'ı.
+Yüksek bir düzeyde dağıtım bildirimi IOT kenar cihazda dağıtılan IOT kenar modülleri için bir modül twin'ın istenen özelliklerini yapılandırır. İki bu modüllerin her zaman mevcut: `$edgeAgent`, ve `$edgeHub`.
 
 Yalnızca IOT kenar çalışma (aracı ve hub) içeren bir dağıtım bildirimi geçerlidir.
 
@@ -44,6 +44,7 @@ Bildirim bu yapı aşağıdaki gibidir:
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
+                // includes container registry credentials
             }
         },
         "$edgeHub": {
@@ -67,7 +68,7 @@ Bildirim bu yapı aşağıdaki gibidir:
 
 ## <a name="configure-modules"></a>Modüllerini yapılandırın
 
-Dağıtmak istediğiniz herhangi bir modül istenen özelliklerini oluşturma yanı sıra bunları yüklemek nasıl IOT kenar çalışma zamanı bildirmeniz gerekir. İçindeki tüm modülleri için yapılandırma ve yönetim bilgisi gider **$edgeAgent** özellikleri istenen. Bu bilgiler kenar aracının kendisi için yapılandırma parametrelerini içerir. 
+IOT kenar çalışma zamanı modülleri dağıtımınızda yükleme bildirmeniz gerekir. İçindeki tüm modülleri için yapılandırma ve yönetim bilgisi gider **$edgeAgent** özellikleri istenen. Bu bilgiler kenar aracının kendisi için yapılandırma parametrelerini içerir. 
 
 Veya dahil edilmelidir özelliklerinin tam listesi için bkz: [özelliklerini kenar aracısı ve kenar hub](module-edgeagent-edgehub.md).
 
@@ -78,6 +79,11 @@ Bu yapı $edgeAgent özellikleri izleyin:
     "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
+            "settings":{
+                "registryCredentials":{ // give the edge agent access to container images that aren't public
+                    }
+                }
+            }
         },
         "systemModules": {
             "edgeAgent": {
@@ -88,7 +94,7 @@ Bu yapı $edgeAgent özellikleri izleyin:
             }
         },
         "modules": {
-            "{module1}": { //optional
+            "{module1}": { // optional
                 // configuration and management details
             },
             "{module2}": { // optional
@@ -158,7 +164,7 @@ Havuz iletileri gönderildiği tanımlar. Aşağıdaki değerlerden herhangi bir
 | `$upstream` | IOT Hub'ına ileti gönderme |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Giriş için ileti gönderilirken `{input}` Modülü `{moduleId}` |
 
-Kenar hub en az bir kere garanti iletileri bir yol, havuz için ileti teslim edilemez, örneğin, kenar hub'ın IOT Hub'ına bağlanamıyor veya hedef modülü bağlı olmayan olasılığına yerel olarak depolanan anlamı sağladığını dikkate almak önemlidir.
+IOT kenar en az bir kere garantileri sağlar. Yerel bir yol iletiyi, havuz için teslim durumda kenar hub iletileri depolar. Edge hub'ın IOT hub'ını veya hedef modülü bağlanamazsa, örneğin, bağlı değil.
 
 Edge hub belirtilen süre kadar iletileri depolayan `storeAndForwardConfiguration.timeToLiveSecs` özelliği [kenar hub istenen özellikleri](module-edgeagent-edgehub.md).
 
@@ -168,7 +174,7 @@ Dağıtım bildirimi IOT kenar cihaza dağıtılan her modülün modül çifti i
 
 Dağıtım bildiriminde bir modül twin'ın istenen özellikleri belirtmezseniz, IOT hub'ı herhangi bir şekilde modülü twin değiştirmez ve istenen özellikleri programlı olarak ayarlamak mümkün olacaktır.
 
-Cihaz çiftlerini değiştirmenize izin mekanizmalarının aynısını modülü çiftlerini değiştirmek için kullanılır. Başvurmak [cihaz çifti Geliştirici Kılavuzu](../iot-hub/iot-hub-devguide-device-twins.md) daha fazla bilgi için.   
+Cihaz çiftlerini değiştirmenize izin mekanizmalarının aynısını modülü çiftlerini değiştirmek için kullanılır. Daha fazla bilgi için bkz: [cihaz çifti Geliştirici Kılavuzu](../iot-hub/iot-hub-devguide-device-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Dağıtım bildirim örneği
 
@@ -176,72 +182,79 @@ Bu dağıtım bildirim JSON belgesini örneği.
 
 ```json
 {
-"moduleContent": {
+  "moduleContent": {
     "$edgeAgent": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "runtime": {
-                "type": "docker",
-                "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": ""
-                }
-            },
-            "systemModules": {
-                "edgeAgent": {
-                    "type": "docker",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-agent:1.0-preview",
-                    "createOptions": ""
-                    }
-                },
-                "edgeHub": {
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-hub:1.0-preview",
-                    "createOptions": ""
-                    }
-                }
-            },
-            "modules": {
-                "tempSensor": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                    "createOptions": "{}"
-                    }
-                },
-                "filtermodule": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "myacr.azurecr.io/filtermodule:latest",
-                    "createOptions": "{}"
-                    }
-                }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "{password}",
+                "address": "myacr.azurecr.io"
+              }
             }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "microsoft/azureiotedge-agent:1.0-preview",
+              "createOptions": ""
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "microsoft/azureiotedge-hub:1.0-preview",
+              "createOptions": ""
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
         }
+      }
     },
     "$edgeHub": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "routes": {
-                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-            },
-            "storeAndForwardConfiguration": {
-                "timeToLiveSecs": 10
-            }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
         }
+      }
     }
-}
+  }
 }
 ```
 

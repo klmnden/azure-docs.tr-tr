@@ -9,23 +9,24 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: af6ce22d1b41ebfe9b64ea5fc1a2cf99478af925
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae5644a62b794dc8d6ace52f21a452fa70027d39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630043"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029569"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IOT Core üzerinde IOT kenar çalışma zamanı yükleme - Önizleme
 
 Azure IOT kenarı ve [Windows IOT Core](https://docs.microsoft.com/windows/iot-core/) birlikte bile küçük cihazlarda computing kenar etkinleştirmek için çalışır. Azure IOT kenar çalışma zamanı bile IOT sektördeki çok yaygın küçük tek Panosu bilgisayar (SBC) aygıtları çalıştırabilirsiniz. 
 
-Bu makalede çalışma zamanı sağlama aracılığıyla anlatılmaktadır bir [MinnowBoard Turbot] [ lnk-minnow] Windows IOT Core çalıştıran geliştirme Panosu. Windows IOT Core yalnızca Intel x64 tabanlı işlemciler üzerinde Azure IOT kenar destekler. 
+Bu makalede Windows IOT Core çalıştıran bir geliştirme panosunda çalışma zamanı sağlama aracılığıyla anlatılmaktadır. 
 
-## <a name="install-the-runtime"></a>Çalışma zamanı yükleme
+**Şu anda Windows IOT Core yalnızca Intel x64 tabanlı işlemciler üzerinde Azure IOT kenar destekler.**
 
-1. Yükleme [Windows 10 IOT Core Panosu] [ lnk-core] bir konak sisteminde.
-1. Adımları [Cihazınızı ayarlamak] [ lnk-board] MinnowBoard Turbot/MAX yapı 16299 görüntüsüyle panonuzu yapılandırmak için. 
+## <a name="install-the-container-runtime"></a>Kapsayıcı çalışma zamanı yükleme
+
+1. Panonuzu ile yapılandırma **yapı 17134 (RS4)** IOT Core görüntü. 
 1. Cihazda sonra kapatma [PowerShell ile uzaktan oturum açma][lnk-powershell].
 1. PowerShell konsolunda kapsayıcı yükleyin: 
 
@@ -42,26 +43,16 @@ Bu makalede çalışma zamanı sağlama aracılığıyla anlatılmaktadır bir [
    >[!NOTE]
    >Bu kapsayıcı çalışma zamanı Moby proje Yapı sunucusundan olduğu ve yalnızca değerlendirme amacıyla tasarlanmıştır. Bu değil test, Destekli veya Docker tarafından desteklenir.
 
-1. IOT kenar çalışma zamanı yükleme ve yapılandırmanızı doğrulayın:
+## <a name="finish-installing"></a>Yüklemeyi tamamlamak
 
-   ```powershell
-   Invoke-Expression (Invoke-WebRequest -useb https://aka.ms/iotedgewin)
-   ```
-
-   Bu komut dosyası aşağıdakileri sağlar: 
-   * Python 3.6
-   * IOT kenar denetim komut dosyası (iotedgectl.exe)
-
-Uzak PowerShell penceresinde yeşil iotedgectl.exe aracında bilgilendirme çıktısını görebilirsiniz. Bu, hataları mutlaka göstermez. 
+IOT kenar güvenlik arka plan programı yükleme ve yönergeleri kullanarak yapılandırma [bu makalede][lnk-install-windows-on-windows]
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 IOT kenar çalışma zamanı çalıştıran bir cihaza sahip olduğunuza göre bilgi nasıl [dağıtma ve izleme IOT kenar modülleri ölçekte][lnk-deploy].
 
 <!--Links-->
-[lnk-minnow]: https://minnowboard.org/ 
-[lnk-core]: https://docs.microsoft.com/windows/iot-core/connect-your-device/iotdashboard
-[lnk-board]: https://developer.microsoft.com/windows/iot/Docs/GetStarted/mbm/sdcard/stable/getstartedstep2
+[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md#download-the-edge-daemon-package-and-install
 [lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
 [lnk-deploy]: how-to-deploy-monitor.md
 [lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows

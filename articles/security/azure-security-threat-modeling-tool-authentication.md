@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d53ade1e5c31ca25636b95d4f8b9e0fe29f9d081
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019679"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031116"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Güvenlik çerçevesi: Kimlik doğrulaması | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Web uygulaması**    | <ul><li>[Web uygulaması için kimlik doğrulaması için bir standart kimlik doğrulama mekanizması kullanmayı düşünün](#standard-authn-web-app)</li><li>[Uygulamalar başarısız kimlik doğrulama senaryoları güvenli bir şekilde işlemesi gerekir](#handle-failed-authn)</li><li>[Etkinleştirme adım veya uyarlamalı kimlik doğrulaması](#step-up-adaptive-authn)</li><li>[Yönetim arabirimleri uygun şekilde kilitlendiğini emin olun](#admin-interface-lockdown)</li><li>[Uygulama parolası işlevler güvenli bir şekilde unuttum](#forgot-pword-fxn)</li><li>[Parola ve hesap ilkesi uygulanır emin olun](#pword-account-policy)</li><li>[Kullanıcı adı numaralandırması önlemek için denetimleri uygulayın](#controls-username-enum)</li></ul> |
 | **Veritabanı** | <ul><li>[Mümkün olduğunda, SQL Server'a bağlanmak için Windows kimlik doğrulaması kullanın](#win-authn-sql)</li><li>[Mümkün olduğunda SQL veritabanına bağlanma için Azure Active Directory kimlik doğrulaması kullanın](#aad-authn-sql)</li><li>[SQL kimlik doğrulama modu kullanıldığında, hesap ve parola ilke SQL Server'da zorunlu emin olun](#authn-account-pword)</li><li>[SQL kimlik doğrulaması kapsanan veritabanlarında kullanmayın](#autn-contained-db)</li></ul> |
-| **Azure Event Hub** | <ul><li>[SaS belirteci kullanarak cihaz kimlik doğrulaması kimlik bilgilerini kullanın](#authn-sas-tokens)</li></ul> |
+| **Azure Event hub'ı** | <ul><li>[SaS belirteci kullanarak cihaz kimlik doğrulaması kimlik bilgilerini kullanın](#authn-sas-tokens)</li></ul> |
 | **Azure güven sınırı** | <ul><li>[Azure yöneticileri Azure çok faktörlü kimlik doğrulamasını etkinleştir](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric güven sınırı** | <ul><li>[Service Fabric kümesi için anonim erişimi kısıtlama](#anon-access-cluster)</li><li>[Service Fabric istemcisi düğümü sertifikanın düğümü düğümü sertifikadan farklı olduğundan emin olun](#fabric-cn-nn)</li><li>[Service fabric kümeleri istemcilerin kimliğini doğrulamak için AAD kullanın](#aad-client-fabric)</li><li>[Service fabric sertifikaları bir onaylanmış sertifika yetkilisinden (CA) aldığınız emin olun](#fabric-cert-ca)</li></ul> |
-| **Identity Server** | <ul><li>[Kimlik sunucusu tarafından desteklenen standart kimlik doğrulama senaryoları kullanın](#standard-authn-id)</li><li>[Varsayılan kimlik sunucusunu belirteç önbelleği ile ölçeklenebilir bir alternatif geçersiz kıl](#override-token)</li></ul> |
+| **Kimlik sunucusu** | <ul><li>[Kimlik sunucusu tarafından desteklenen standart kimlik doğrulama senaryoları kullanın](#standard-authn-id)</li><li>[Varsayılan kimlik sunucusunu belirteç önbelleği ile ölçeklenebilir bir alternatif geçersiz kıl](#override-token)</li></ul> |
 | **Makine güven sınırı** | <ul><li>[Dağıtılan uygulamanın ikili dosyaları dijital olarak imzalandığından emin olun](#binaries-signed)</li></ul> |
 | **WCF** | <ul><li>[WCF MSMQ sıraları bağlanırken kimlik doğrulamasını etkinleştirin](#msmq-queues)</li><li>[WCF ileti clientCredentialType none olarak ayarlı değil](#message-none)</li><li>[WCF aktarım clientCredentialType none olarak ayarlı değil](#transport-none)</li></ul> |
 | **Web API** | <ul><li>[Bu standart kimlik doğrulama teknikleri Web API güvenliğini sağlamak için kullanılan emin olun](#authn-secure-api)</li></ul> |
@@ -40,7 +40,7 @@ ms.locfileid: "28019679"
 
 ## <a id="standard-authn-web-app"></a>Web uygulaması için kimlik doğrulaması için bir standart kimlik doğrulama mekanizması kullanmayı düşünün
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -51,7 +51,7 @@ ms.locfileid: "28019679"
 
 ## <a id="handle-failed-authn"></a>Uygulamalar başarısız kimlik doğrulama senaryoları güvenli bir şekilde işlemesi gerekir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -62,7 +62,7 @@ ms.locfileid: "28019679"
 
 ## <a id="step-up-adaptive-authn"></a>Etkinleştirme adım veya uyarlamalı kimlik doğrulaması
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -73,7 +73,7 @@ ms.locfileid: "28019679"
 
 ## <a id="admin-interface-lockdown"></a>Yönetim arabirimleri uygun şekilde kilitlendiğini emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -84,7 +84,7 @@ ms.locfileid: "28019679"
 
 ## <a id="forgot-pword-fxn"></a>Uygulama parolası işlevler güvenli bir şekilde unuttum
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -95,7 +95,7 @@ ms.locfileid: "28019679"
 
 ## <a id="pword-account-policy"></a>Parola ve hesap ilkesi uygulanır emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -106,7 +106,7 @@ ms.locfileid: "28019679"
 
 ## <a id="controls-username-enum"></a>Kullanıcı adı numaralandırması önlemek için denetimleri uygulayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -117,7 +117,7 @@ ms.locfileid: "28019679"
 
 ## <a id="win-authn-sql"></a>Mümkün olduğunda, SQL Server'a bağlanmak için Windows kimlik doğrulaması kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -128,18 +128,18 @@ ms.locfileid: "28019679"
 
 ## <a id="aad-authn-sql"></a>Mümkün olduğunda SQL veritabanına bağlanma için Azure Active Directory kimlik doğrulaması kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | SQL Azure |
-| **Öznitelikleri**              | SQL Version - V12 |
+| **Öznitelikleri**              | SQL sürümü - V12 |
 | **Başvuruları**              | [Azure Active Directory kimlik doğrulamasını kullanarak SQL veritabanına bağlanma](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
 | **Adımları** | **En düşük sürüm:** Azure SQL Database V12 gereken Microsoft Directory AAD kimlik doğrulamasını kullanmak Azure SQL veritabanı izin vermek için |
 
 ## <a id="authn-account-pword"></a>SQL kimlik doğrulama modu kullanıldığında, hesap ve parola ilke SQL Server'da zorunlu emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -150,7 +150,7 @@ ms.locfileid: "28019679"
 
 ## <a id="autn-contained-db"></a>SQL kimlik doğrulaması kapsanan veritabanlarında kullanmayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -161,9 +161,9 @@ ms.locfileid: "28019679"
 
 ## <a id="authn-sas-tokens"></a>SaS belirteci kullanarak cihaz kimlik doğrulaması kimlik bilgilerini kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
-| **Bileşen**               | Azure Event Hub | 
+| **Bileşen**               | Azure Olay Hub'ı | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | Yok  |
@@ -172,7 +172,7 @@ ms.locfileid: "28019679"
 
 ## <a id="multi-factor-azure-admin"></a>Azure yöneticileri Azure çok faktörlü kimlik doğrulamasını etkinleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -183,7 +183,7 @@ ms.locfileid: "28019679"
 
 ## <a id="anon-access-cluster"></a>Service Fabric kümesi için anonim erişimi kısıtlama
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -194,7 +194,7 @@ ms.locfileid: "28019679"
 
 ## <a id="fabric-cn-nn"></a>Service Fabric istemcisi düğümü sertifikanın düğümü düğümü sertifikadan farklı olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -205,7 +205,7 @@ ms.locfileid: "28019679"
 
 ## <a id="aad-client-fabric"></a>Service fabric kümeleri istemcilerin kimliğini doğrulamak için AAD kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -216,7 +216,7 @@ ms.locfileid: "28019679"
 
 ## <a id="fabric-cert-ca"></a>Service fabric sertifikaları bir onaylanmış sertifika yetkilisinden (CA) aldığınız emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -227,7 +227,7 @@ ms.locfileid: "28019679"
 
 ## <a id="standard-authn-id"></a>Kimlik sunucusu tarafından desteklenen standart kimlik doğrulama senaryoları kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Kimlik sunucusu | 
 | **SDL aşaması**               | Oluşturma |  
@@ -238,7 +238,7 @@ ms.locfileid: "28019679"
 
 ## <a id="override-token"></a>Varsayılan kimlik sunucusunu belirteç önbelleği ile ölçeklenebilir bir alternatif geçersiz kıl
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Kimlik sunucusu | 
 | **SDL aşaması**               | Dağıtım |  
@@ -249,7 +249,7 @@ ms.locfileid: "28019679"
 
 ## <a id="binaries-signed"></a>Dağıtılan uygulamanın ikili dosyaları dijital olarak imzalandığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -260,7 +260,7 @@ ms.locfileid: "28019679"
 
 ## <a id="msmq-queues"></a>WCF MSMQ sıraları bağlanırken kimlik doğrulamasını etkinleştirin
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
@@ -300,13 +300,13 @@ MSMQ gelen veya Giden iletileriniz için her zaman Windows etki alanı veya sert
 
 ## <a id="message-none"></a>WCF ileti clientCredentialType none olarak ayarlı değil
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | .NET framework 3 |
 | **Öznitelikleri**              | İstemci kimlik bilgisi türü - yok |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **Adımları** | Kimlik doğrulama yokluğu herkes bu hizmete erişebilmesi için anlamına gelir. İstemcilerinden kimlik doğrulama kullanmaz bir hizmetin tüm kullanıcılara erişim izni verir. İstemci kimlik bilgilerine karşı kimlik doğrulaması için uygulamayı yapılandırma. Bu, Windows ya da sertifika ileti clientCredentialType ayarlayarak yapılabilir. |
 
 ### <a name="example"></a>Örnek
@@ -316,13 +316,13 @@ MSMQ gelen veya Giden iletileriniz için her zaman Windows etki alanı veya sert
 
 ## <a id="transport-none"></a>WCF aktarım clientCredentialType none olarak ayarlı değil
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, .NET Framework 3 |
 | **Öznitelikleri**              | İstemci kimlik bilgisi türü - yok |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **Adımları** | Kimlik doğrulama yokluğu herkes bu hizmete erişebilmesi için anlamına gelir. İstemcilerinden kimlik doğrulama kullanmaz bir hizmetin tüm kullanıcılara işlevselliğini erişim sağlar. İstemci kimlik bilgilerine karşı kimlik doğrulaması için uygulamayı yapılandırma. Bu, Windows ya da sertifika aktarım clientCredentialType ayarlayarak yapılabilir. |
 
 ### <a name="example"></a>Örnek
@@ -332,7 +332,7 @@ MSMQ gelen veya Giden iletileriniz için her zaman Windows etki alanı veya sert
 
 ## <a id="authn-secure-api"></a>Bu standart kimlik doğrulama teknikleri Web API güvenliğini sağlamak için kullanılan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
@@ -343,7 +343,7 @@ MSMQ gelen veya Giden iletileriniz için her zaman Windows etki alanı veya sert
 
 ## <a id="authn-aad"></a>Azure Active Directory tarafından desteklenen standart kimlik doğrulama senaryoları kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
@@ -354,7 +354,7 @@ MSMQ gelen veya Giden iletileriniz için her zaman Windows etki alanı veya sert
 
 ## <a id="adal-scalable"></a>Varsayılan ADAL belirteç önbelleği ile ölçeklenebilir bir alternatif geçersiz kıl
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
@@ -365,7 +365,7 @@ MSMQ gelen veya Giden iletileriniz için her zaman Windows etki alanı veya sert
 
 ## <a id="tokenreplaycache-adal"></a>TokenReplayCache ADAL kimlik doğrulaması belirteçlerinin yeniden yürütme önlemek için kullanıldığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
@@ -422,11 +422,11 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 }
 ```
 
-Lütfen bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı verimliliğini test ve isteği yakalamak için unutmayın `"/signin-oidc"` fiddler'da uç noktası. Koruma yerinde olmadığı durumlarda, bu istek fiddler'da yeniden oynatmak yeni bir oturum tanımlama ayarlayın. TokenReplayCache koruma eklendikten sonra isteği tekrarlanır, uygulama gibi bir özel durum oluşturur:`SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
+Lütfen bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı verimliliğini test ve isteği yakalamak için unutmayın `"/signin-oidc"` fiddler'da uç noktası. Koruma yerinde olmadığı durumlarda, bu istek fiddler'da yeniden oynatmak yeni bir oturum tanımlama ayarlayın. TokenReplayCache koruma eklendikten sonra isteği tekrarlanır, uygulama gibi bir özel durum oluşturur: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
 ## <a id="adal-oauth2"></a>AAD'ye OAuth2 istemcilerden belirteç isteklerini yönetmek için ADAL kitaplıklarını kullanın (veya şirket içi AD)
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure AD | 
 | **SDL aşaması**               | Oluşturma |  
@@ -437,7 +437,7 @@ Lütfen bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı verim
 
 ## <a id="authn-devices-field"></a>Alan ağ geçidi için bağlanan cihazları kimlik doğrulaması
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT alan ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  
@@ -448,7 +448,7 @@ Lütfen bu yapılandırma, oturum açma uygulamanıza yerel OIDC korumalı verim
 
 ## <a id="authn-devices-cloud"></a>Bulut ağ geçidi bağlanan cihazları doğrulanır emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi | 
 | **SDL aşaması**               | Oluşturma |  
@@ -491,7 +491,7 @@ await deviceClient.SendEventAsync(message);
     ```
 #### <a name="sas-token"></a>SAS Belirteci
 * Kullanırken, simetrik anahtar ancak dahili olarak oluşturulan oluşturabilir ve açıkça de kullanın
-* Bir protokol tanımlayın:`var Http = require('azure-iot-device-http').Http;`
+* Bir protokol tanımlayın: `var Http = require('azure-iot-device-http').Http;`
 * Bir sas belirteci oluşturun:
     ```javascript
     resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
@@ -548,7 +548,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="authn-cred"></a>Cihaz başına kimlik doğrulama kimlik bilgilerini kullan
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | IOT bulut ağ geçidi  | 
 | **SDL aşaması**               | Oluşturma |  
@@ -559,7 +559,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="req-containers-anon"></a>Yalnızca gerekli kapsayıcılar ve bloblar anonim okuma erişimini verildiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
@@ -570,7 +570,7 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="limited-access-sas"></a>SAS veya SAP kullanarak Azure depolama alanında nesnelere sınırlı erişim
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  

@@ -13,19 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f30b749d40cd2628ca6539d962d5a1153cd3e7c2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618533"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046175"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Varsa Azure Data Factory etkinliğinde koşul
 If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği sağlar. Koşul `true` sonucunu verdiğinde bir dizi etkinliği, `false` sonucu verdiğinde ise başka bir dizi etkinliği değerlendirmeye alır. 
-
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -73,7 +69,7 @@ If Koşulu etkinliği, programlama dilerindeki If deyimiyle aynı işlevselliği
 -------- | ----------- | -------------- | --------
 ad | IF-koşul etkinlik adı. | Dize | Evet
 type | Ayarlanmalıdır **IfCondition** | Dize | Evet
-ifade | True veya false olarak değerlendirilmelidir ifade | Evet
+İfade | True veya false olarak değerlendirilmelidir ifade | Evet
 ifTrueActivities | İfade olarak değerlendirildiğinde yürütülen etkinlikleri kümesi `true`. | Evet
 ifFalseActivities | İfade olarak değerlendirildiğinde yürütülen etkinlikleri kümesi `false`. | Evet
 

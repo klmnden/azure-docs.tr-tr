@@ -1,5 +1,5 @@
 ---
-title: Oracle Azure Data Factory (Beta) kullanarak Responsys veri kopyalama | Microsoft Docs
+title: Oracle Azure Data Factory kullanarak Responsys veri kopyalama | Microsoft Docs
 description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak Oracle Responsys desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d4c36578402d5a31464bc8a1c77f60cba9104c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1368a75fb8ae44949ef25def19589ab164e25d8b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617411"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059108"
 ---
-# <a name="copy-data-from-oracle-responsys-using-azure-data-factory-beta"></a>Oracle Azure Data Factory (Beta) kullanarak Responsys verilerini
+# <a name="copy-data-from-oracle-responsys-using-azure-data-factory"></a>Oracle Azure Data Factory kullanarak Responsys verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de Oracle Responsys verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
 
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
-
 > [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve bize geri bildirimde bulunun. Üretim ortamında kullanmayın.
+> Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

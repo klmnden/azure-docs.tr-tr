@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622508"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047398"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server saklı yordam etkinliği
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622508"
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Bu makale, Azure Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [dönüştürme saklı yordam etkinliği Data Factory sürüm 2 kullanarak verileri](../transform-data-using-stored-procedure.md).
+> Bu makalede Azure Data Factory 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [dönüştürme veri fabrikasında saklı yordam etkinliği kullanarak verileri](../transform-data-using-stored-procedure.md).
 
 ## <a name="overview"></a>Genel Bakış
 Veri fabrikasında veri dönüştürme etkinlikleri kullanma [ardışık düzen](data-factory-create-pipelines.md) dönüştürmek ve Öngörüler ve öngörü ham verileri işlemek için. Saklı yordam etkinliği Data Factory destekleyen dönüştürme etkinlikleri biridir. Bu makalede derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve veri fabrikası'nda desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
@@ -153,7 +153,7 @@ Saklı yordam herhangi bir veri üretmez olsa bile bir çıkış veri kümesi i�
     ```
 3. Veri kümesi dağıtmak için **dağıtma** komut çubuğunda. Veri kümesi ağaç görünümünde gördüğünüzü onaylayın.
 
-    ![Bağlı hizmetlerin bulunduğu ağaç görünümü](media/data-factory-stored-proc-activity/tree-view-2.png)
+    ![bağlı hizmetlerin bulunduğu ağaç görünümü](media/data-factory-stored-proc-activity/tree-view-2.png)
 
 ### <a name="create-a-pipeline-with-sqlserverstoredprocedure-activity"></a>SqlServerStoredProcedure etkinliği ile işlem hattı oluşturma
 Şimdi, saklı yordam etkinliği ile işlem hattı oluşturalım. 

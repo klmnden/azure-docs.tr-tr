@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Önizleme) kullanarak Concur veri kopyalama | Microsoft Docs
+title: Azure Data Factory kullanarak Concur veri kopyalama | Microsoft Docs
 description: Desteklenen havuz veri depolarına Concur bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 080a4d7ea6bf8ca08426138279390422cb4d069f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9414107e92bfb48bbf28348aa45c8ec6795dbd3f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337789"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045417"
 ---
-# <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Concur verilerini
+# <a name="copy-data-from-concur-using-azure-data-factory"></a>Azure Data Factory kullanarak Concur verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de Concur verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.

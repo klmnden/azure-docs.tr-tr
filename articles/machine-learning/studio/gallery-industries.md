@@ -15,28 +15,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: b2b55c550a75be977b040070926953308c387639
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834575"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062106"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI galerideki sektöre özgü çözümleri Bul
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>Sektöre özgü Cortana Intelligence çözümleri
-**[Sektörlerde](https://gallery.cortanaintelligence.com/industries)** Bölümü Galerisi getirir birlikte böyle sektörlerde özgü çeşitli kaynaklar
+**[Sektörlerde](https://gallery.azure.ai/industries)** Bölümü Galerisi getirir birlikte böyle sektörlerde özgü çeşitli kaynaklar
 
-* [Perakende](https://gallery.cortanaintelligence-int.com/industries/retail) -tahmin, müşteri karmaşası tahmin etmeye ve fiyatlandırma modelleriyle geliştirme satış gibi perakende çözümleri bulun.
-* [Üretim](https://gallery.cortanaintelligence-int.com/industries/manufacturing) - ekipman bakım bekleme ve enerji fiyatları tahmin gibi çözümleri üretim bulun.
-* [Bankacılık](https://gallery.cortanaintelligence-int.com/industries/banking) - kredi tahmin etmeye gibi çözümleri bankacılık Bul risk ve Çevrimiçi sahtekarlık için izleme.
-* [Sağlık](https://gallery.cortanaintelligence-int.com/industries/healthcare) -Hastalık algılama ve tahmin etmeye Hastanenin readmissions gibi sağlık çözümleri bulun.
+* [Perakende](https://gallery.azure.ai/industries/retail) -tahmin, müşteri karmaşası tahmin etmeye ve fiyatlandırma modelleriyle geliştirme satış gibi perakende çözümleri bulun.
+* [Üretim](https://gallery.azure.ai/industries/manufacturing) - ekipman bakım bekleme ve enerji fiyatları tahmin gibi çözümleri üretim bulun.
+* [Bankacılık](https://gallery.azure.ai/industries/banking) - kredi tahmin etmeye gibi çözümleri bankacılık Bul risk ve Çevrimiçi sahtekarlık için izleme.
+* [Sağlık](https://gallery.azure.ai/industries/healthcare) -Hastalık algılama ve tahmin etmeye Hastanenin readmissions gibi sağlık çözümleri bulun.
 
 Bu kaynaklar denemeler, özel modüller, API'leri, koleksiyonlar ve çözümleri çalıştığınız sektör belirli geliştirmenize yardımcı olabilir herhangi bir galeri öğesini içerir.
 
 ## <a name="discover"></a>Keşif
- Galerideki sektöre özgü çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com), farenizi adresindeki noktası **endüstriler** galeri giriş sayfasının üstündeki belirli endüstri kesimi seçin ya da seçin **tümünü görüntüle** bir genel bakış sayfasında tüm endüstriler görmek için.
+ Galerideki sektöre özgü çözümleri göz atmak için açık [galeri](http://gallery.cortanaintelligence.com), farenizi adresindeki noktası **sektörlerde** galeri giriş sayfasının üstündeki belirli endüstri kesimi seçin ya da seçin **Tümünü görüntüle** bir genel bakış sayfasında tüm endüstriler görmek için.
 
  Her endüstri sayfası, endüstri ile ilişkili en popüler galeri öğeleri listesini görüntüler.
 Tıklatın **tümünü görmek** galeride tüm sektöre özgü kaynakları görüntülemek için.

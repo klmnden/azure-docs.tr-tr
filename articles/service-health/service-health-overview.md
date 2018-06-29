@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: f0efe96684d77fb83b69a4da12d312872da2f768
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: f7fd27dc9be161059dc62071fee33374106e18ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262883"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061290"
 ---
 # <a name="service-health"></a>Hizmet Durumu
-Hizmet durumu kullandığınız burada bölgelerdeki Azure hizmetlerinizi durumunu izleyen özelleştirilebilir bir Pano sağlar. Bu Panoda, devam eden hizmet sorunları, gelecek planlı maintence veya ilgili sistem durumu danışma gibi etkin olayları izleyebilirsiniz. Olayları etkin olmayan duruma geldiğinde sistem durumu geçmişinizde 90 gün boyunca yerleştirilen. Son olarak, hizmet sorunlarını etkileyen bağlandığınızda proaktif olarak sizi uyarır hizmet durumu uyarıları oluşturma ve yönetme için hizmet sistem durumu Panosu'nu kullanabilirsiniz.
+Hizmet durumu kullandığınız burada bölgelerdeki Azure hizmetlerinizi durumunu izleyen özelleştirilebilir bir Pano sağlar. Bu Panoda, devam eden hizmet sorunları, gelecek planlı Bakım veya ilgili sistem durumu danışma gibi etkin olayları izleyebilirsiniz. Olayları etkin olmayan duruma geldiğinde sistem durumu geçmişinizde 90 gün boyunca yerleştirilen. Son olarak, hizmet sorunlarını etkileyen bağlandığınızda proaktif olarak sizi uyarır hizmet durumu uyarıları oluşturma ve yönetme için hizmet sistem durumu Panosu'nu kullanabilirsiniz.
 
 ## <a name="service-health-events"></a>Hizmet sistem durumu olayları
 Hizmet durumu üç tür kaynaklarınızı etkileyebilir sistem durumu olayları izler:

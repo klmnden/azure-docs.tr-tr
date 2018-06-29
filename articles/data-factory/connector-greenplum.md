@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 1775cf94cf0bbcf7469a7d76cda31c9032060a10
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 12a8fb714d398db50258e2cf256379c9a3fccc55
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337628"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051034"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Azure Data Factory kullanarak Greenplum verilerini 
 
 Bu makalede kopya etkinliği Azure Data Factory'de Greenplum verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

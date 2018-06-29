@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfc1e8dd6acf2cba5b4622785aa3714a7ff037c9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019424"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031813"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Güvenlik çerçeve: Hassas verileri | Azaltıcı Etkenler 
 | Ürün/hizmet | Makale |
 | --------------- | ------- |
 | **Makine güven sınırı** | <ul><li>[Hassas bilgiler içeriyorsa, ikili dosyaları gizlenmiş emin olun](#binaries-info)</li><li>[Şifrelenmiş dosya sistemi (EFS) kullanarak gizli kullanıcıya özgü verileri korumak için kullanılan göz önünde bulundurun](#efs-user)</li><li>[Dosya sistemindeki uygulama tarafından depolanan hassas verilerin şifrelendiğinden emin olun](#filesystem)</li></ul> | 
 | **Web uygulaması** | <ul><li>[Hassas içerikleri tarayıcıda önbelleğe alınmamış emin olun](#cache-browser)</li><li>[Hassas verileri içeren Web uygulamanızın yapılandırma dosyalarını bölümlerini şifrele](#encrypt-data)</li><li>[Otomatik Tamamlama HTML öznitelik hassas formlar ve girişleri açıkça devre dışı](#autocomplete-input)</li><li>[Kullanıcının ekranda görüntülenen hassas verileri maskelenir emin olun](#data-mask)</li></ul> | 
-| **Veritabanı** | <ul><li>[Gizli verilerin açığa olmayan ayrıcalıklı kullanıcıları sınırlamak için dinamik veri maskeleme gerçekleştir](#dynamic-users)</li><li>[Parolaları karma güvenlik biçiminde depolandığından emin olun](#salted-hash)</li><li>[Veritabanı sütunlarını postalardaki hassas verilerin şifrelendiğinden emin olun](#db-encrypted)</li><li>[Bu veritabanı düzeyi şifreleme (TDE) etkin olduğundan emin olun](#tde-enabled)</li><li>[Veritabanı Yedeklemeleri şifrelendiğinden emin olun](#backup)</li></ul> | 
+| **Veritabanı** | <ul><li>[Gizli verilerin açığa olmayan ayrıcalıklı kullanıcıları sınırlamak için dinamik veri maskeleme gerçekleştir](#dynamic-users)</li><li>[Parolaları karma güvenlik biçiminde depolandığından emin olun](#salted-hash)</li><li>[ Veritabanı sütunlarını postalardaki hassas verilerin şifrelendiğinden emin olun](#db-encrypted)</li><li>[Bu veritabanı düzeyi şifreleme (TDE) etkin olduğundan emin olun](#tde-enabled)</li><li>[Veritabanı Yedeklemeleri şifrelendiğinden emin olun](#backup)</li></ul> | 
 | **Web API** | <ul><li>[Hassas verileri Web API'sine ilgili tarayıcının depoda depolanmaz emin olun](#api-browser)</li></ul> | 
 | Azure belge DB | <ul><li>[Azure Cosmos DB içinde depolanan hassas verileri şifrele](#encrypt-docdb)</li></ul> | 
 | **Azure Iaas VM güven sınırı** | <ul><li>[Sanal makineler tarafından kullanılan diskler şifrelemek için Azure Disk şifrelemesi kullanın](#disk-vm)</li></ul> | 
@@ -34,11 +34,11 @@ ms.locfileid: "28019424"
 | **Dynamics CRM** | <ul><li>[Güvenlik modelleme gerçekleştirebilir ve iş birimleri/takımlar kullanmak gerektiğinde](#modeling-teams)</li><li>[Kritik varlıkları özelliğini paylaşmak için erişim simge durumuna küçült](#entities)</li><li>[Dynamics CRM paylaşım özelliğini ve iyi güvenlik uygulamaları ile ilişkili riskleri kullanıcıları eğitme](#good-practices)</li><li>[Özel Durum Yönetimi'nde yapılandırma ayrıntıları gösteren proscribing geliştirme standartları Kuralı Ekle](#exception-mgmt)</li></ul> | 
 | **Azure Depolama** | <ul><li>[Rest (Önizleme) verileri için Azure Storage hizmeti şifreleme (SSE) kullanın](#sse-preview)</li><li>[Azure depolama alanında hassas verileri depolamak için istemci tarafı şifreleme kullanın](#client-storage)</li></ul> | 
 | **Mobil istemci** | <ul><li>[Duyarlı veya telefonları yerel depolama alanına yazılan PII veri şifreleme](#pii-phones)</li><li>[Son kullanıcılara dağıtmadan önce oluşturulan ikili dosyaları belirsizleştirirseniz](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[Sertifika veya Windows clientCredentialType ayarlayın](#cert)</li><li>[WCF güvenlik modu etkin değil](#security)</li></ul> | 
+| **WCF** | <ul><li>[ Sertifika veya Windows clientCredentialType ayarlayın](#cert)</li><li>[WCF güvenlik modu etkin değil](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>Hassas bilgiler içeriyorsa, ikili dosyaları gizlenmiş emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -49,7 +49,7 @@ ms.locfileid: "28019424"
 
 ## <a id="efs-user"></a>Şifrelenmiş dosya sistemi (EFS) kullanarak gizli kullanıcıya özgü verileri korumak için kullanılan göz önünde bulundurun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Oluşturma |  
@@ -60,7 +60,7 @@ ms.locfileid: "28019424"
 
 ## <a id="filesystem"></a>Dosya sistemindeki uygulama tarafından depolanan hassas verilerin şifrelendiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Makine güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -71,7 +71,7 @@ ms.locfileid: "28019424"
 
 ## <a id="cache-browser"></a>Hassas içerikleri tarayıcıda önbelleğe alınmamış emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -124,7 +124,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="encrypt-data"></a>Hassas verileri içeren Web uygulamanızın yapılandırma dosyalarını bölümlerini şifrele
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -135,7 +135,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="autocomplete-input"></a>Otomatik Tamamlama HTML öznitelik hassas formlar ve girişleri açıkça devre dışı
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -154,7 +154,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="data-mask"></a>Kullanıcının ekranda görüntülenen hassas verileri maskelenir emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web Uygulaması | 
 | **SDL aşaması**               | Oluşturma |  
@@ -165,18 +165,18 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="dynamic-users"></a>Gizli verilerin açığa olmayan ayrıcalıklı kullanıcıları sınırlamak için dinamik veri maskeleme gerçekleştir
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
-| **İlgili teknolojiler** | Sql Azure, OnPrem |
+| **İlgili teknolojiler** | SQL Azure, OnPrem |
 | **Öznitelikleri**              | SQL sürüm - V12, SQL sürümü - MsSQL2016 |
 | **Başvuruları**              | [Dinamik veri maskeleme](https://msdn.microsoft.com/library/mt130841) |
 | **Adımları** | Verileri görüntüleme gelen erişimi olmaması kullanıcılar önleme gizli verilerin açığa sınırlamak için dinamik veri maskeleme amacı budur. Dinamik veri maskeleme veritabanı kullanıcıların veritabanına doğrudan bağlanarak ve parça gizli verilerin açığa kapsamlı sorgular önlemek için hedeflenir değil. Dinamik veri maskeleme (Denetim, şifreleme, satır düzeyi güvenlik...) diğer SQL Server güvenlik özellikleri için tamamlayıcı ve bu özelliği bunları birlikte ayrıca daha iyi hassas verileri korumak için kullanmak için önerilir Veritabanı. Bu özellik yalnızca SQL Server 2016 ile başlayan ve Azure SQL veritabanı tarafından desteklenip desteklenmediğini unutmayın. |
 
 ## <a id="salted-hash"></a>Parolaları karma güvenlik biçiminde depolandığından emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -187,7 +187,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="db-encrypted"></a>Veritabanı sütunlarını postalardaki hassas verilerin şifrelendiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -198,7 +198,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="tde-enabled"></a>Bu veritabanı düzeyi şifreleme (TDE) etkin olduğundan emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -209,7 +209,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="backup"></a>Veritabanı Yedeklemeleri şifrelendiğinden emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Database | 
 | **SDL aşaması**               | Oluşturma |  
@@ -220,7 +220,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 
 ## <a id="api-browser"></a>Hassas verileri Web API'sine ilgili tarayıcının depoda depolanmaz emin olun
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Web API | 
 | **SDL aşaması**               | Oluşturma |  
@@ -244,7 +244,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="encrypt-docdb"></a>Cosmos DB içinde depolanan hassas verileri şifrele
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure belge DB | 
 | **SDL aşaması**               | Oluşturma |  
@@ -255,7 +255,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="disk-vm"></a>Sanal makineler tarafından kullanılan diskler şifrelemek için Azure Disk şifrelemesi kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Iaas VM güven sınırı | 
 | **SDL aşaması**               | Dağıtım |  
@@ -266,7 +266,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="fabric-apps"></a>Service Fabric uygulamaları parolaları şifrelemek
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Service Fabric güven sınırı | 
 | **SDL aşaması**               | Oluşturma |  
@@ -277,7 +277,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="modeling-teams"></a>Güvenlik modelleme gerçekleştirebilir ve iş birimleri/takımlar kullanmak gerektiğinde
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Dynamics CRM | 
 | **SDL aşaması**               | Oluşturma |  
@@ -288,7 +288,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="entities"></a>Kritik varlıkları özelliğini paylaşmak için erişim simge durumuna küçült
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Dynamics CRM | 
 | **SDL aşaması**               | Dağıtım |  
@@ -299,7 +299,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="good-practices"></a>Dynamics CRM paylaşım özelliğini ve iyi güvenlik uygulamaları ile ilişkili riskleri kullanıcıları eğitme
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Dynamics CRM | 
 | **SDL aşaması**               | Dağıtım |  
@@ -310,7 +310,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="exception-mgmt"></a>Özel Durum Yönetimi'nde yapılandırma ayrıntıları gösteren proscribing geliştirme standartları Kuralı Ekle
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Dynamics CRM | 
 | **SDL aşaması**               | Dağıtım |  
@@ -321,18 +321,18 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="sse-preview"></a>Rest (Önizleme) verileri için Azure Storage hizmeti şifreleme (SSE) kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel |
 | **Öznitelikleri**              | StorageType - Blob |
 | **Başvuruları**              | [Azure Storage hizmeti şifreleme (Önizleme) bekleyen veri için](https://azure.microsoft.com/documentation/articles/storage-service-encryption/) |
-| **Adımları** | <p>Azure Storage hizmeti şifreleme (SSE) bekleyen veri için korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olur. Bu özellik ile Azure depolama otomatik olarak depolama birimine devam ettirmeden önce verilerinizi şifreler ve alma önce şifresini çözer. Şifreleme, şifre çözme ve anahtar yönetimi kullanıcılara tamamen saydam. SSE yalnızca, sayfa blobları blok ve ilave blobları için geçerlidir. Veri tabloları, kuyrukları ve dosyaları da dahil olmak üzere, başka türlerde şifrelenmez.</p><p>Şifreleme ve şifre çözme iş akışı:</p><ul><li>Müşterinin depolama hesabı üzerinde şifrelemeyi etkinleştirir</li><li>Müşteri (PUT Blob, PUT bloğu, PUT sayfası, vb.) yeni verileri Blob depolama alanına yazdığında; Her yazma 256 bit AES şifreleme, güçlü blok şifrelemeler biri kullanılarak şifrelenir</li><li>Müşteri verilerini (Blob alma, vb.) erişim gerektiğinde veriler kullanıcıya geri dönmeden önce otomatik olarak çözülür</li><li>Şifreleme devre dışı bırakılırsa, yeni yazma artık şifrelenir ve kullanıcı tarafından yeniden yazılmıştır kadar mevcut şifrelenmiş veriler şifrelenmiş kalır. Şifreleme etkinken Blob depolama alanına yazma şifrelenir. Etkinleştirme/depolama hesabı için şifrelemeyi devre dışı bırakma arasında geçiş kullanıcıyla veri durumunu değiştirmez</li><li>Tüm şifreleme anahtarları depolanan, şifrelenmiş ve Microsoft tarafından yönetilen</li></ul><p>Lütfen şu anda unutmayın, şifreleme için kullanılan anahtarları Microsoft tarafından yönetilir. Microsoft anahtarları başlangıçta oluşturur ve iç Microsoft İlkesi tarafından tanımlanan normal döndürme yanı sıra anahtarları Güvenli Depolama yönetin. Gelecekte, müşterilerin yönetme olanağı kendi alacağı > şifreleme anahtarlarını ve müşteri tarafından yönetilen anahtarları anahtarlardan Microsoft tarafından yönetilen bir geçiş yolunu girin.</p>| 
+| **Adımları** | <p>Azure Storage hizmeti şifreleme (SSE) bekleyen veri için korumak ve Kuruluş güvenliği ve uyumluluk taahhüt karşılamak için verilerinizi korumaya yardımcı olur. Bu özellik ile Azure Depolama, verilerinizi depolama alanında kalıcı hale gelmeden önce otomatik olarak şifreler ve alınmadan önce bunların şifresini çözer. Şifreleme, şifre çözme ve anahtar yönetimi kullanıcılara tamamen saydam. SSE yalnızca, sayfa blobları blok ve ilave blobları için geçerlidir. Veri tabloları, kuyrukları ve dosyaları da dahil olmak üzere, başka türlerde şifrelenmez.</p><p>Şifreleme ve şifre çözme iş akışı:</p><ul><li>Müşterinin depolama hesabı üzerinde şifrelemeyi etkinleştirir</li><li>Müşteri (PUT Blob, PUT bloğu, PUT sayfası, vb.) yeni verileri Blob depolama alanına yazdığında; Her yazma 256 bit AES şifreleme, güçlü blok şifrelemeler biri kullanılarak şifrelenir</li><li>Müşteri verilerini (Blob alma, vb.) erişim gerektiğinde veriler kullanıcıya geri dönmeden önce otomatik olarak çözülür</li><li>Şifreleme devre dışı bırakılırsa, yeni yazma artık şifrelenir ve kullanıcı tarafından yeniden yazılmıştır kadar mevcut şifrelenmiş veriler şifrelenmiş kalır. Şifreleme etkinken Blob depolama alanına yazma şifrelenir. Etkinleştirme/depolama hesabı için şifrelemeyi devre dışı bırakma arasında geçiş kullanıcıyla veri durumunu değiştirmez</li><li>Tüm şifreleme anahtarları depolanan, şifrelenmiş ve Microsoft tarafından yönetilen</li></ul><p>Lütfen şu anda unutmayın, şifreleme için kullanılan anahtarları Microsoft tarafından yönetilir. Microsoft anahtarları başlangıçta oluşturur ve iç Microsoft İlkesi tarafından tanımlanan normal döndürme yanı sıra anahtarları Güvenli Depolama yönetin. Gelecekte, müşterilerin yönetme olanağı kendi alacağı > şifreleme anahtarlarını ve müşteri tarafından yönetilen anahtarları anahtarlardan Microsoft tarafından yönetilen bir geçiş yolunu girin.</p>| 
 
 ## <a id="client-storage"></a>Azure depolama alanında hassas verileri depolamak için istemci tarafı şifreleme kullanın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Azure Storage | 
 | **SDL aşaması**               | Oluşturma |  
@@ -343,7 +343,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 
 ## <a id="pii-phones"></a>Duyarlı veya telefonları yerel depolama alanına yazılan PII veri şifreleme
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Mobil istemci | 
 | **SDL aşaması**               | Oluşturma |  
@@ -393,7 +393,7 @@ Uygulama Kurumsal uygulama değilse, sağlanan platformu anahtar deposu kullanı
 
 ## <a id="binaries-end"></a>Son kullanıcılara dağıtmadan önce oluşturulan ikili dosyaları belirsizleştirirseniz
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | Mobil istemci | 
 | **SDL aşaması**               | Oluşturma |  
@@ -404,13 +404,13 @@ Uygulama Kurumsal uygulama değilse, sağlanan platformu anahtar deposu kullanı
 
 ## <a id="cert"></a>Sertifika veya Windows clientCredentialType ayarlayın
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | .NET framework 3 |
 | **Öznitelikleri**              | Yok  |
-| **Başvuruları**              | [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Başvuruları**              | [Fortify](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **Adımları** | Şifrelenmemiş bir kanal üzerinden düz metin parola ile bir UsernameToken kullanarak parola SOAP iletilerini bulmak saldırganlara kullanıma sunar. UsernameToken kullanan hizmet sağlayıcılar, parolaları düz metin olarak gönderilen kabul edebilir. Düz metin parolalarını şifrelenmemiş bir kanal üzerinden gönderme SOAP iletisi bulmak saldırganlar için kimlik bilgileri getirebilir. | 
 
 ### <a name="example"></a>Örnek
@@ -423,13 +423,13 @@ Sertifika veya Windows clientCredentialType ayarlayın.
 
 ## <a id="security"></a>WCF güvenlik modu etkin değil
 
-| Başlık                   | Ayrıntılar      |
+| Unvan                   | Ayrıntılar      |
 | ----------------------- | ------------ |
 | **Bileşen**               | WCF | 
 | **SDL aşaması**               | Oluşturma |  
 | **İlgili teknolojiler** | Genel, .NET Framework 3 |
 | **Öznitelikleri**              | Güvenlik modu - taşıma, güvenlik modu - iletisi |
-| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.fortify.com/en/vulncat/index.html), [WCF güvenlik temel ilkeleri dergisi kod](http://www.codemag.com/article/0611051) |
+| **Başvuruları**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Krallık Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [WCF güvenlik temel ilkeleri dergisi kod](http://www.codemag.com/article/0611051) |
 | **Adımları** | Taşıma veya ileti güvenlik tanımlandı. İletileri aktarım olmadan veya güvenlik bütünlüğü veya gizliliği iletilerin garanti edemez ileti iletme uygulamalar. WCF güvenlik bağlama None olarak ayarlandığında, taşıma ve ileti güvenliği devre dışı bırakılır. |
 
 ### <a name="example"></a>Örnek

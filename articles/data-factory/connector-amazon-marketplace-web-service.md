@@ -1,5 +1,5 @@
 ---
-title: Amazon Market Web Azure Data Factory (Önizleme) kullanarak hizmetinden veri kopyalama | Microsoft Docs
+title: Amazon Market Web Azure Data Factory kullanarak hizmetinden veri kopyalama | Microsoft Docs
 description: Verileri Amazon Market Web hizmetinden desteklenen havuz veri depoları için kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: add0f9185ac94a8b673e0c05de9de919286ffa3a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c456f87b451c5876653d704ec367629c2856a1f6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337957"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052479"
 ---
-# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Amazon Market Web hizmetinden veri Kopyala
+# <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Azure Data Factory kullanarak Amazon Market Web hizmetinden veri Kopyala
 
 Bu makalede kopya etkinliği Azure Data Factory'de Amazon Market Web hizmetinden veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.

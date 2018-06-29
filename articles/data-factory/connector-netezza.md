@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Beta) kullanarak Netezza veri kopyalama | Microsoft Docs
+title: Azure Data Factory kullanarak Netezza veri kopyalama | Microsoft Docs
 description: Desteklenen havuz veri depolarına Netezza bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 85a79cbbe53393bc02178cd827453508b043692e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617901"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059179"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory-beta"></a>Azure Data Factory (Beta) kullanarak Netezza verilerini
+# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Azure Data Factory kullanarak Netezza verilerini 
 
 Bu makalede kopya etkinliği Azure Data Factory'de Netezza verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
-
-> [!IMPORTANT]
-> Bu şu anda Beta Bağlayıcıdır. Deneyin ve bize geri bildirimde bulunun. Üretim ortamında kullanmayın.
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

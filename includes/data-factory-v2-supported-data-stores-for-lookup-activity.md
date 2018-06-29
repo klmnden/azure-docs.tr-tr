@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/05/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: ffba2c1dbb2e4b9d4694fe2a289a37289ce8902a
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: df4765fc92e78dbb5ee43be3cc09c2b96d834080
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33903526"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683160"
 ---
 | Kategori | Veri deposu |
 |:--- |:--- |
@@ -28,30 +28,30 @@ ms.locfileid: "33903526"
 | &nbsp; |[Azure Tablo Depolama](../articles/data-factory/connector-azure-table-storage.md) |
 | **Veritabanı** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
-| &nbsp; |[Drill (Beta)](../articles/data-factory/connector-drill.md) |
+| &nbsp; |[Drill (Önizleme)](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
-| &nbsp; |[Greenplum (Beta)](../articles/data-factory/connector-greenplum.md) |
+| &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
-| &nbsp; |[Apache Impala (Beta)](../articles/data-factory/connector-impala.md) |
+| &nbsp; |[Apache Impala (Önizleme)](../articles/data-factory/connector-impala.md) |
 | &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) 
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-odbc.md#microsoft-access-source) |
 | &nbsp; |[MySQL](../articles/data-factory/connector-mysql.md) |
-| &nbsp; |[Netezza (Beta)](../articles/data-factory/connector-netezza.md) |
+| &nbsp; |[Netezza](../articles/data-factory/connector-netezza.md) |
 | &nbsp; |[Oracle](../articles/data-factory/connector-oracle.md) |
 | &nbsp; |[Phoenix](../articles/data-factory/connector-phoenix.md) |
 | &nbsp; |[PostgreSQL](../articles/data-factory/connector-postgresql.md) 
-| &nbsp; |[Presto (Beta)](../articles/data-factory/connector-presto.md) |
+| &nbsp; |[Presto (Önizleme)](../articles/data-factory/connector-presto.md) |
 | &nbsp; |[SAP Business Warehouse](../articles/data-factory/connector-sap-business-warehouse.md) |
 | &nbsp; |[SAP HANA](../articles/data-factory/connector-sap-hana.md) |
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |
 | &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |
-| &nbsp; |[Vertica (Beta)](../articles/data-factory/connector-vertica.md) |
+| &nbsp; |[Vertica](../articles/data-factory/connector-vertica.md) |
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |
-| &nbsp; |[Couchbase (Beta)](../articles/data-factory/connector-couchbase.md) |
+| &nbsp; |[Couchbase (Önizleme)](../articles/data-factory/connector-couchbase.md) |
 | &nbsp; |[MongoDB](../articles/data-factory/connector-mongodb.md) |
 | **Dosya** |[Amazon S3](../articles/data-factory/connector-amazon-simple-storage-service.md) |
 | &nbsp; |[Dosya Sistemi](../articles/data-factory/connector-file-system.md) |
@@ -61,31 +61,31 @@ ms.locfileid: "33903526"
 | **Genel protokol** |[Genel HTTP](../articles/data-factory/connector-http.md) |
 | &nbsp; |[Genel OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[Genel ODBC](../articles/data-factory/connector-odbc.md) |
-| **Hizmetler ve uygulamalar** |[Amazon Marketplace Web Service (Beta)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
+| **Hizmetler ve uygulamalar** |[Amazon Marketplace Web Service (Önizleme)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Uygulamalar için Common Data Service](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
-| &nbsp; |[Concur (Beta)](../articles/data-factory/connector-concur.md) |
+| &nbsp; |[Concur (Önizleme)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) 
-| &nbsp; |[HubSpot (Beta)](../articles/data-factory/connector-hubspot.md) |
-| &nbsp; |[Jira (Beta)](../articles/data-factory/connector-jira.md) |
-| &nbsp; |[Magento (Beta)](../articles/data-factory/connector-magento.md) |
-| &nbsp; |[Marketo (Beta)](../articles/data-factory/connector-marketo.md) |
-| &nbsp; |[Oracle Eloqua (Beta)](../articles/data-factory/connector-oracle-eloqua.md) |
-| &nbsp; |[Oracle Responsys (Beta)](../articles/data-factory/connector-oracle-responsys.md) |
-| &nbsp; |[PayPal (Beta)](../articles/data-factory/connector-paypal.md) |
-| &nbsp; |[QuickBooks (Beta)](../articles/data-factory/connector-quickbooks.md) |
+| &nbsp; |[HubSpot (Önizleme)](../articles/data-factory/connector-hubspot.md) |
+| &nbsp; |[Jira (Önizleme)](../articles/data-factory/connector-jira.md) |
+| &nbsp; |[Magento (Önizleme)](../articles/data-factory/connector-magento.md) |
+| &nbsp; |[Marketo (Önizleme)](../articles/data-factory/connector-marketo.md) |
+| &nbsp; |[Oracle Eloqua (Önizleme)](../articles/data-factory/connector-oracle-eloqua.md) |
+| &nbsp; |[Oracle Responsys (Önizleme)](../articles/data-factory/connector-oracle-responsys.md) |
+| &nbsp; |[PayPal (Önizleme)](../articles/data-factory/connector-paypal.md) |
+| &nbsp; |[QuickBooks (Önizleme)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce.md) |
-| &nbsp; |[Salesforce pazarlama bulut (Beta)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
+| &nbsp; |[Salesforce Marketing Cloud (Önizleme)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[Müşteri için SAP Cloud (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
-| &nbsp; |[Shopify (Beta)](../articles/data-factory/connector-shopify.md) |
-| &nbsp; |[Square (Beta)](../articles/data-factory/connector-square.md) |
+| &nbsp; |[Shopify (Önizleme)](../articles/data-factory/connector-shopify.md) |
+| &nbsp; |[Square (Önizleme)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[Web Tablosu (HTML tablosu)](../articles/data-factory/connector-web-table.md) 
-| &nbsp; |[Xero (Beta)](../articles/data-factory/connector-xero.md) |
-| &nbsp; |[Zoho (Beta)](../articles/data-factory/connector-zoho.md) |
+| &nbsp; |[Xero (Önizleme)](../articles/data-factory/connector-xero.md) |
+| &nbsp; |[Zoho (Önizleme)](../articles/data-factory/connector-zoho.md) |
 
 > [!NOTE]
-> *Beta* olarak işaretlenmiş bağlayıcıları deneyebilir ve bunlar hakkındaki görüşlerinizi bize bildirebilirsiniz. Çözümünüzde bir Beta bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.
+> *Önizleme* olarak işaretlenmiş bağlayıcıları deneyebilir ve bunlar hakkındaki görüşlerinizi bize bildirebilirsiniz. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.

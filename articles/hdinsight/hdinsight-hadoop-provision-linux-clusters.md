@@ -1,6 +1,6 @@
 ---
-title: Kurulum Hadoop, Spark, Kafka, HBase veya R Server - Azure Hdınsight küme | Microsoft Docs
-description: Hadoop, Kafka, Spark, HBase, R Server veya Storm kümeleri Hdınsight için bir tarayıcı, Azure CLI, Azure PowerShell, REST veya SDK ayarlayın.
+title: Kurulum Hadoop, Spark, Kafka, HBase veya ML Hizmetleri - Azure Hdınsight küme | Microsoft Docs
+description: Hadoop, Kafka, Spark, HBase, ML Hizmetleri veya Storm kümeleri Hdınsight için bir tarayıcı, Azure CLI, Azure PowerShell, REST veya SDK ayarlayın.
 keywords: hadoop kümesi kurulumu, kafka Küme kurulumu, spark Küme kurulumu, hadoop kümesinde nedir
 services: hdinsight
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 2afe1e91465c92c6f6cba00c4383456ef78d225c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eddbd3f171cee9df9ff306368df47501ff9dcfca
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200206"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051602"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hdınsight Hadoop, Spark, Kafka ve daha fazla ile kümelerde ayarlama
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Ayarlama ve hdınsight'ta Hadoop, Spark, Kafka, etkileşimli sorgusu, HBase, R Server veya Storm kümelerini yapılandırma konusunda bilgi edinin. Ayrıca, kümelerini özelleştirme ve bir etki alanına katılarak güvenlik ekleme hakkında bilgi edinin.
+Ayarlama ve hdınsight'ta Hadoop, Spark, Kafka, etkileşimli sorgusu, HBase, ML Hizmetleri veya Storm kümelerini yapılandırma konusunda bilgi edinin. Ayrıca, kümelerini özelleştirme ve bir etki alanına katılarak güvenlik ekleme hakkında bilgi edinin.
 
 Hadoop kümesi birkaç sanal makinelerin görevleri dağıtılmış işlem için kullanılan (düğümler) oluşur. Yalnızca genel yapılandırma bilgileri girmeniz gerekir böylece azure Hdınsight uygulama ayrıntılarını yükleme ve yapılandırma bireysel düğümleri, işler. 
 
@@ -39,7 +39,7 @@ Aşağıdaki tabloda bir Hdınsight kümesini ayarlamak için kullanabileceğini
 
 | Oluşturulan kümeleri | Web tarayıcısı | Komut satırı | REST API | SDK | 
 | --- |:---:|:---:|:---:|:---:|
-| [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI (ver 1.0)](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -81,7 +81,7 @@ Azure Hdınsight şu anda aşağıdaki küme türü, her biri belirli işlevleri
 | [HBase](hbase/apache-hbase-overview.md) |Büyük miktarlarda şemasız, NoSQL veri işleme |
 | [Etkileşimli sorgu](./interactive-query/apache-interactive-query-get-started.md) |Etkileşimli ve daha hızlı Hive sorguları için bellek içi önbelleğe alma |
 | [Kafka](kafka/apache-kafka-introduction.md) | Gerçek Zamanlı Akış veri ardışık düzen ve uygulamaları oluşturmak için kullanılan dağıtılmış bir akış platformu |
-| [R Server](r-server/r-server-overview.md) |Çeşitli büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi özellikleri |
+| [ML Hizmetleri](r-server/r-server-overview.md) |Çeşitli büyük veri istatistikleri, Tahmine dayalı modelleme ve makine öğrenimi özellikleri |
 | [Spark](spark/apache-spark-overview.md) |Bellek içi işleme, etkileşimli sorgular mikro toplu iş akışı işleme |
 | [Storm](storm/apache-storm-overview.md) |Gerçek zamanlı olay işleme |
 
@@ -153,7 +153,7 @@ Kümenin mevcut olduğu sürece için düğüm kullanım için faturalandırıl�
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Her küme türü için düğüm sayısı
 Her küme türü düğümleri, düğümleri ve varsayılan VM boyutu terminolojisi kendi sayısına sahip. Aşağıdaki tabloda, her düğüm türü için düğümleri parantez içinde sayısıdır.
 
-| Tür | Düğüm | Diyagram |
+| Tür | Düğümler | Diyagram |
 | --- | --- | --- |
 | Hadoop |Baş düğümü (2) veri düğümü (1 +) |![Hdınsight Hadoop küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |HEAD sunucusu (2), bölge (1 +), ana/ZooKeeper düğümü (3) |![Hdınsight HBase küme düğümleri](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |

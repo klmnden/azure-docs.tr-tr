@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f4ce76385897c24bd5259d5a39aa1756769fe2aa
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284489"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050874"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory hizmet kimliği
 
 Bu makalede, veri fabrikası hizmet Kimliği nedir ve nasıl çalıştığını anlamanıza yardımcı olur.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory version1 belgelerine](v1/data-factory-introduction.md).
 
 ## <a name="overview"></a>Genel Bakış
 
@@ -39,7 +36,7 @@ Veri Fabrikası hizmet kimliği aşağıdaki iki özellik avantajlar:
 
 Veri Fabrikası hizmet kimliği şu şekilde oluşturulur:
 
-- Veri Fabrikası aracılığıyla oluştururken **Azure portal veya PowerShell**, hizmet kimliği her zaman otomatik olarak oluşturulur ADF V2 genel Önizleme itibaren.
+- Veri Fabrikası aracılığıyla oluştururken **Azure portal veya PowerShell**, hizmet kimliği her zaman otomatik olarak oluşturulur.
 - Veri Fabrikası aracılığıyla oluştururken **SDK**, yalnızca belirtirseniz, hizmet kimliği oluşturulacak "kimlik yeni FactoryIdentity() =" oluşturma için Fabrika nesnesinde. Örnekte bkz [.NET hızlı başlangıç - veri fabrikası oluşturma](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
 - Veri Fabrikası aracılığıyla oluştururken **REST API**, istek gövdesinde "kimlik" bölümü belirtirseniz, hizmet kimliği oluşturulur. Örnekte bkz [REST hızlı başlangıç - veri fabrikası oluşturma](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 

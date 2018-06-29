@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 774d678c00b830f3932455c5b79fb44bde284d91
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895653"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061550"
 ---
 # <a name="azure-network-security"></a>Azure ağ güvenliği
 
@@ -27,7 +27,7 @@ Güvenlik bulutta iş ve nasıl önemli Azure güvenliği hakkında doğru ve g�
 
 Microsoft Azure gizlilik, bütünlük ve müşteri verilerini, kullanılabilirliğini de saydam sorumluluk etkinleştirirken sağlar. Müşteri'nin açısından Microsoft Azure içinde uygulanan ağ güvenlik denetimleri koleksiyonunu daha iyi anlamanıza yardımcı olması için bu makalede, "Azure ağ güvenliği" güvenlik denetimleri ağ kapsamlı bir bakış sağlar yazılır Microsoft Azure ile kullanılabilir.
 
-Bu yazı, çeşitli Azure'da dağıtmak çözümleri güvenliğini yapılandırdığınız ağ denetimleri hakkında bilgilendirmek için tasarlanmıştır. Microsoft Azure platformu ağ dokusu güvenli hale getirmek için yaptığı ilgileniyorsanız, Azure güvenlik bölümüne bakın [Microsoft Trust Center](https://www.microsoft.com/trustcenter/security/azure-security).
+Bu yazı, çeşitli Azure'da dağıtmak çözümleri güvenliğini yapılandırdığınız ağ denetimleri hakkında bilgilendirmek için tasarlanmıştır. Microsoft Azure platformu ağ dokusu güvenli hale getirmek için yaptığı ilgileniyorsanız, Azure güvenlik bölümüne bakın [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure).
 
 ## <a name="azure-platform"></a>Azure platformu
 
@@ -37,7 +37,7 @@ Oluşturmanıza veya BT varlıklarına geçirmek, genel bulut hizmeti sağlayıc
 
 Azure'nın altyapı tesis aynı anda milyonlarca müşteri barındırmak için uygulamalar için tasarlanmıştır ve güvenlik gereksinimlerine bağlı işletmeler karşılayabilecek güvenilir bir temel sağlar. Ayrıca, Azure ile yapılandırılabilir güvenlik seçenekleri ve kuruluşunuzun dağıtımları benzersiz gereksinimlerini karşılamak için güvenlik özelleştirebilirsiniz böylece bunları denetleme olanağı kapsamlı bir koleksiyon sağlar.
 
-## <a name="abstract"></a>Soyut
+## <a name="abstract"></a>Özet
 
 Microsoft Genel bulut Hizmetleri hiper ölçekli hizmetler ve altyapı, Kurumsal düzeydeki özellikleri ve karma bağlantı için birçok seçenek sunar. Internet üzerinden veya özel ağ bağlantısı sağlayan Azure ExpressRoute ile bu hizmetlere erişmek seçebilirsiniz. Microsoft Azure platformu, çok katmanlı mimarileri oluşturmak ve sorunsuz bir şekilde altyapınızı buluta genişletmek olanak sağlar. Ayrıca, üçüncü tarafların güvenlik hizmetleri ve sanal gereçler sunarak Gelişmiş özellikleri etkinleştirebilirsiniz.
 
@@ -537,7 +537,7 @@ Ağ İzleyicisi [değişken paket yakalama](https://docs.microsoft.com/azure/net
 
 Paket yakalama Ağ İzleyicisi uzaktan başlatılan bir sanal makine uzantısıdır. Bu özellik, bir paket yakalama değerli zaman kazandırır istenen sanal makinesinin üzerinde el ile çalıştırmayı yükünü kolaylaştırır. Paket yakalama portal, PowerShell'i, CLI veya REST API tetiklenebilir. Paket yakalama nasıl tetiklenebilir bir sanal makine uyarılara örnektir.
 
-#### <a name="ip-flow-verify"></a>IP akış doğrulayın
+#### <a name="ip-flow-verify"></a>IP akışı doğrulama
 
 [IP akışları doğrulayın](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) bir paket izin verilen veya için veya 5-tanımlama bilgilerine dayalı bir sanal makineden reddedildi olup olmadığını denetler. Bu bilgiler yönü, protokol, yerel IP, uzak IP, yerel bağlantı noktası ve uzak bağlantı noktası oluşur. Paket bir güvenlik grubu tarafından engellenirse Paket reddedildi kuralının adı döndürülür. Kaynak veya hedef IP seçilebilir olsa da, bu özellik hızla gelen veya Internet ve gelen veya şirket içi ortamına bağlantı sorunları tanılamak yöneticilerin yardımcı olur.
 

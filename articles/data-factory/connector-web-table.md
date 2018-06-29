@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: jingwang
-ms.openlocfilehash: b48bfcd5057dcdcce921a56e664d5bc3506585c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 995bf4586b88671c65077d965b0588de8de74e5c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335916"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048943"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Web tablodan veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-web-table-connector.md)
-> * [Sürüm 2 - Önizleme](connector-web-table.md)
+> * [Sürüm 1](v1/data-factory-web-table-connector.md)
+> * [Geçerli sürüm](connector-web-table.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de Web tablo veritabanından veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Web tablo Bağlayıcısı](v1/data-factory-web-table-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

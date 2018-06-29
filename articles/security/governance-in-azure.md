@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895287"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061505"
 ---
 # <a name="governance-in-azure"></a>Azure’da idare
 
@@ -37,7 +37,7 @@ Azure'nın altyapı tesis aynı anda milyonlarca müşteri barındırmak için u
 
 Bu belge, Azure idare özellikleri bu gereksinimleri karşılamak nasıl yardımcı olabileceğini anlamanıza yardımcı olur.
 
-## <a name="abstract"></a>Soyut
+## <a name="abstract"></a>Özet
 
 Microsoft Azure bulut idare bir tümleşik denetim ve gözden geçirmek ve Azure platformu kullanıcıların kullanımına kuruluşlar bildiren için danışmanlık yaklaşımı sağlar. Microsoft Azure bulut idare başvurduğu işlerinizdeki karar verme işlemlerini, ölçüt ve ilkeleri planlama mimarisi, edinme, dağıtım, işlem ve bir bulutun yönetim ilgili bilgi işlem.
 
@@ -128,7 +128,7 @@ Bu hiyerarşide aşağıdaki yönetir:
 
 - Sınırları/sınırları
 
-- Sınırları
+- Sınırlar
 
   - Kullanım ve fatura (teklif sayılara göre oranı kartı)
 
@@ -178,21 +178,21 @@ Her abonelikte en fazla 2000 rol ataması verebilirsiniz.
 
 ## <a name="resource-management"></a>Kaynak yönetimi
 
-Azure başlangıçta yalnızca klasik dağıtım modeli sağlanan. Bu modelde, bağımsız olarak her bir kaynağın var; İlgili kaynaklar gruplamak için hiçbir yolu yoktu. Bunun yerine, el ile çözüm ya da uygulama yapılan hangi kaynaklara izlemek ve eşgüdümlü bir yaklaşım yönetmeyi unutmayın zorunda kaldı.
+Azure başlangıçta yalnızca klasik dağıtım modelini sağlamıştır. Bu modelde her kaynak bağımsız bir şekilde mevcuttu ve ilgili kaynakları gruplandırmanın bir yolu yoktu. Bunun yerine, çözümünüzü ya da uygulamanızı oluşturan kaynakları el ile izlemeniz ve eşgüdümlü bir şekilde yönetmeyi unutmamanız gerekiyordu.
 
-Bir çözümü dağıtmak için Azure portalı üzerinden ayrı ayrı her bir kaynak oluşturmak veya tüm kaynakların doğru sırada dağıtılan bir komut dosyası oluşturmak zorunda kalındı. Bir çözümü silmek için ayrı ayrı her bir kaynağın silme gerekiyordu. Kolayca uygulanır ve ilgili kaynaklar için erişim denetimi ilkeleri güncelleştirin. Son olarak, geçerli yardımcı şartlarını etiket kaynaklarına etiketleri kaynaklarınızı izleme ve faturalama yönetme.
+Bir çözümü dağıtmak için Azure portalı üzerinden ayrı ayrı her bir kaynak oluşturmak veya tüm kaynakların doğru sırada dağıtılan bir komut dosyası oluşturmak zorunda kalındı. Çözümü silmek için her bir kaynağı ayrı ayrı silmeniz gerekiyordu. İlgili kaynaklar için erişim denetimi ilkelerini kolayca uygulayamaz ve güncelleştiremezdiniz. Son olarak, kaynaklarınızı izlemenize ve faturalandırmayı yönetmenize yardımcı olacak terimlerle kaynaklara etiket uygulayamazdınız.
 
-2014'te Azure Kaynak Yöneticisi, bir kaynak grubu kavramı eklenen kullanıma sunuldu. Bir kaynak grubu, ortak bir yaşam döngüsü paylaşmak kaynaklar için bir kapsayıcıdır. Resource Manager dağıtım modeli çeşitli avantajlar sunar:
+Azure, kaynak grubu kavramını ortaya çıkaran Resource Manager’ı 2014 yılında kullanıma sundu. Kaynak grubu, ortak bir yaşam döngüsünü paylaşan kaynaklara yönelik bir kapsayıcıdır. Resource Manager dağıtım modeli çeşitli avantajlar sunar:
 
-- Dağıtmak, yönetmek ve bu işleme ayrı ayrı hizmetleri yerine, çözümünüz için tüm Hizmetleri Grup olarak izleme.
+- Çözümünüze yönelik tüm hizmetleri ayrı ayrı ele almak yerine grup halinde dağıtabilir, yönetebilir ve izleyebilirsiniz.
 
-- Art arda çözümünüzü yaşam döngüsü dağıtmak ve kaynaklarınızın tutarlı bir durumda dağıtılması da size güven verir.
+- Çözümünüzü yaşam döngüsü boyunca defalarca dağıtabilir ve kaynaklarınızın tutarlı bir durumda dağıtıldığından emin olabilirsiniz.
 
-- Kaynak grubunuzdaki tüm kaynaklara erişim denetimini uygulayabilirsiniz ve yeni kaynaklar kaynak grubuna eklendiğinde bu ilkeleri otomatik olarak uygulanır.
+- Kaynak grubunuzdaki tüm kaynaklara erişim denetimi uygulayabilirsiniz. Kaynak grubuna yeni kaynaklar eklendiğinde bu ilkeler otomatik olarak uygulanır.
 
 - Aboneliğinizdeki tüm kaynakları mantıksal olarak düzenlemek için kaynaklarınıza etiketler ekleyebilirsiniz.
 
-- Çözümünüz için altyapıyı tanımlamak için JavaScript nesne gösterimi (JSON) kullanabilirsiniz. JSON dosyasının bir Resource Manager şablonu olarak bilinir.
+- Çözümünüzün altyapısını tanımlamak için JavaScript Nesne Gösterimi (JSON) kullanabilirsiniz. JSON dosyası bir Resource Manager şablonu olarak bilinir.
 
 - Doğru sırayla dağıtılmalarını sağlamak için kaynaklarınız arasındaki bağımlılıkları tanımlayabilirsiniz.
 
@@ -276,7 +276,7 @@ Rol tabanlı erişim denetimi farklı olarak, tüm kullanıcılar ve roller bir 
 
 Bir üst kapsamda kilit uyguladığınızda, kapsamı içindeki tüm kaynakların aynı kilit devralır. Daha sonra eklediğiniz bile kaynakları kilidi üst devralır. Devralmada en kısıtlayıcı kilidi önceliklidir.
 
-Oluşturmak veya yönetim kilitleri silmek için Microsoft.Authorization/ erişimi olmalıdır _veya Microsoft.Authorization/locks/_ eylemler. Yerleşik roller, yalnızca **sahibi** ve **kullanıcı erişimi Yöneticisi** bu eylemleri verilir.
+Oluşturmak veya yönetim kilitleri silmek için Microsoft.Authorization/ erişimi olmalıdır _veya Microsoft.Authorization/locks/_ eylemler. Yerleşik rollerden yalnızca **Sahip** ve **Kullanııcı Erişiimi Yöneticisi** bu eylemleri kullanabilir.
 
 ## <a name="api-access-to-billing-information"></a>Faturalandırma bilgileri API erişimi
 
@@ -413,7 +413,7 @@ Azure Güvenlik Merkezi aşağıdaki Azure kaynakları izler:
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Günlük analizi yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve [idare program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını ve kendi iş gereksinimlerini destekleyen [Microsoft Azure güven Merkezi](https://azure.microsoft.com/support/trust-center/) ve [Microsoft Güven Merkezi Uyumluluk](https://www.microsoft.com/TrustCenter/Compliance/default.aspx). Nasıl günlük analizi güvenlik gereksinimlerini belirlemek, güvenlik denetimleri tanımlar, yönetir ve riskleri izleyen de açıklanmaktadır vardır. Yıllık, biz gözden geçirme ilkeler, standartlar, yordamlar ve yönergeleri.
+Günlük analizi yazılım geliştirme ve hizmet ekibin bilgi güvenliği ve [idare program](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md) yasalarına ve düzenlemelerine konusunda açıklandığı gibi aynılarını ve kendi iş gereksinimlerini destekleyen [Microsoft Azure güven Merkezi](https://azure.microsoft.com/support/trust-center/) ve [Microsoft Güven Merkezi Uyumluluk](https://microsoft.com/en-us/trustcenter/compliance). Nasıl günlük analizi güvenlik gereksinimlerini belirlemek, güvenlik denetimleri tanımlar, yönetir ve riskleri izleyen de açıklanmaktadır vardır. Yıllık, biz gözden geçirme ilkeler, standartlar, yordamlar ve yönergeleri.
 
 Her günlük analizi geliştirme ekibi üyesi resmi uygulama güvenlik eğitimi alır. Dahili olarak, sürüm denetimi sistemi yazılım geliştirme için kullanırız. Her yazılım projesi sürüm denetimi sistemi tarafından korunur.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16cc7c5841708b8b27cff4fcc7c93cdbb2fe0fa4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7754fccdfe8a2c4fad24f61fc22c722d2640ffa6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838342"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064116"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Senaryoları tanımlama ve gelişmiş analiz verileri işlemeyi planlama
 Hangi kaynaklara Gelişmiş analitik veri kümesi üzerinde işleme yapmak için bir ortamını ayarlama yaparken dikkate alınacak planlama yapmalıyım? Bu makalede bir dizi yardımcı sorulacak sorular öneren görevler ve kaynaklarla ilgili senaryonuz tanımlayın. Tahmine dayalı analiz için üst düzey adımlar dizisi kısmında özetlenen [takım veri bilimi işlem (TDSP) nedir?](overview.md). Bu adımların her biri, belirli bir senaryo ile ilgili görevleri için belirli kaynaklar gerektirir. Senaryonuz tanımlamak için önemli sorular veri Lojistik, özellikleri, veri kümeleri ve araçları ve analiz yapmayı tercih dilleri kalitesini ilgilendiren.
@@ -48,7 +48,7 @@ Lojistik soruları konumunu ilgilendiren **veri kaynağı**, **hedef** Azure ve 
    
    * [Analiz için depolama ortamlara veri yükleme](ingest-data.md)
    * [Çeşitli veri kaynaklarından Azure Machine Learning Studio'da eğitim verilerinizi almak](../studio/import-data.md).
-4. **Verileri düzenli bir zamanlamaya göre taşınamaz veya geçiş sırasında değiştirilmiş gerekiyor mu?** Veri sürekli geçirilmesi, hem şirket içi erişir ve bulut kaynaklarına eklendiyse veya veri işlem yapılan işlem ya da değiştirilmiş veya iş mantığı kendisine geçirilen esnasında eklenmiş olması gerekiyor özellikle karma bir senaryoda, gerektiğinde Azure veri fabrikası (ADF) kullanmayı düşünün. Daha fazla bilgi için bkz: [veri taşıma bir şirket içi SQL Server'dan Azure Data Factory ile SQL Azure](move-sql-azure-adf.md)
+4. **Verileri düzenli bir zamanlamaya göre taşınamaz veya geçiş sırasında değiştirilmiş gerekiyor mu?** Veri sürekli geçirilmesi, hem şirket içi erişir ve bulut kaynaklarına eklendiyse veya veri işlem yapılan işlem ya da değiştirilmiş veya eklenen iş mantığı olması gerekiyor özellikle karma bir senaryoda, gerektiğinde Azure veri fabrikası (ADF) kullanmayı düşünün Bu geçiş aşamasında. Daha fazla bilgi için bkz: [veri taşıma bir şirket içi SQL Server'dan Azure Data Factory ile SQL Azure](move-sql-azure-adf.md)
 5. **Verilerin ne kadar Azure'a taşınacak mi?** Son derece büyük veri kümeleri belirli ortamları depolama kapasitesini aşabilir. Bir örnek için boyutu sınırları hakkında bilgi için Machine Learning Studio'da sonraki bölüme bakın. Bu gibi durumlarda bir örnek veri çözümleme sırasında kullanılabilir. Aşağı örnek bir veri kümesi çeşitli Azure ortamlarda konusunda ayrıntılı bilgi için bkz [örnek veri takım veri bilimi işleminde](sample-data.md).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Veri özellikleri soruları: türünü, biçimi ve boyutu
@@ -97,9 +97,9 @@ Analytics işleminde kullanılan diğer Azure hizmetleriyle sınırlamaları hak
    
    * [Microsoft Azure Powershell](/powershell/azure/overview) -komut dosyası dili Azure kaynaklarınızı yönetmek için kullanılan bir komut dosyası dili.
    * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-   * [Devir analizi](http://www.revolutionanalytics.com/revolution-r-open)
+   * [Devir analizi](https://www.microsoft.com/sql-server/machinelearningserver)
    * [Rstudio'dan](http://www.rstudio.com)
-   * [Visual Studio için Python Araçları](http://microsoft.github.io/PTVS/)
+   * [Visual Studio için Python Araçları](http://aka.ms/ptvsdocs)
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter Not Defterleri](http://jupyter.org/)
    * [Microsoft Power BI](http://powerbi.microsoft.com)

@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2240ebc7fb4fd39ea063240987fec64f26608a8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a029cb815f7765e6fe4e2fdbf81d437d5ac4ebe3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619057"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047590"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory ForEach etkinlik
 ForEach etkinliği, yinelenen bir denetim akışı ardışık düzeninde tanımlar. Bu etkinlik bir koleksiyon üzerinde yinelemek için kullanılır ve bir döngüde belirtilen etkinlikleri yürütür. Bu etkinliğin döngü uygulaması, programlama dillerindeki Foreach döngü yapısına benzer.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 belgelerine](v1/data-factory-introduction.md).
 
 ## <a name="syntax"></a>Sözdizimi
 Özellikler, bu makalenin sonraki bölümlerinde açıklanmıştır. Koleksiyon öğeleri özelliktir ve koleksiyondaki her öğe kullanarak adlandırılır `@item()` aşağıdaki sözdiziminde gösterildiği gibi:  

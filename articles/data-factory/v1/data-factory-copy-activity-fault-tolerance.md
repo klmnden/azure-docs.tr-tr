@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d0826db686b7fdea8389944b4b56f549ea03f751
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5cfab02fc248139c76bd6123ac942832f8e1a21a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621056"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052520"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Hataya dayanıklılık uyumsuz satır atlayarak kopyalama etkinliği ekleyin.
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-copy-activity-fault-tolerance.md)
-> * [Sürüm 2 - Önizleme](../copy-activity-fault-tolerance.md)
+> * [Sürüm 1](data-factory-copy-activity-fault-tolerance.md)
+> * [Sürüm 2 (geçerli sürüm)](../copy-activity-fault-tolerance.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [hataya dayanıklılık Data Factory sürüm 2 kopyalama etkinliğinde](../copy-activity-fault-tolerance.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [hataya dayanıklılık Data Factory kopyalama etkinliğinde](../copy-activity-fault-tolerance.md).
 
 Azure Data Factory [kopyalama etkinliği](data-factory-data-movement-activities.md) uyumsuz satırları kaynak ve havuz veri depoları arasında veri kopyalama işlemi sırasında işleme için iki yol sunar:
 

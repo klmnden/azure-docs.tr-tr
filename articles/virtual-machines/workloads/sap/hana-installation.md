@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763465"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064062"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Yükleme ve Azure üzerinde SAP HANA (büyük örnekler) yapılandırma
 
@@ -44,7 +44,7 @@ Yeniden, özellikle HANA 2.0 yüklemek planlama yaparken denetlemek [SAP destek 
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>HANA büyük örneği birimlerinin aldıktan sonra ilk adımlar
 
-**İlk adım** HANA büyük örnek alma ve kurulan erişim ve bağlantı örneklerine sahip sonra işletim sistemi örneği OS sağlayıcınız ile kaydetmek için sağlanır. Bu adım, Azure VM'deki dağıtmış olan gerek SUSE SMT örneğindeki SUSE Linux OS kaydetme dahildir. HANA büyük örneği birim bu SMT örneği (Bu belgede daha sonra bakın) bağlanabilir. Veya, RedHat OS Red Hat abonelik bağlanmak için gereken Yöneticisi ile kayıtlı olması gerekir. Bkz: de açıklamalar bu [belge](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Bu adım ayrıca OS düzeltme yapabilmek gereklidir. Sorumluluğundadır müşteri bir görev. SUSE için yükleme ve yapılandırma SMT belgeleri bulmak [burada](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+**İlk adım** HANA büyük örnek alma ve kurulan erişim ve bağlantı örneklerine sahip sonra işletim sistemi örneği OS sağlayıcınız ile kaydetmek için sağlanır. Bu adım, Azure VM'deki dağıtmış olan gerek SUSE SMT örneğindeki SUSE Linux OS kaydetme dahildir. HANA büyük örneği birim bu SMT örneği (Bu belgede daha sonra bakın) bağlanabilir. Veya, Red Hat OS Red Hat abonelik bağlanmak için gereken Yöneticisi ile kayıtlı olması gerekir. Bkz: de açıklamalar bu [belge](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Bu adım ayrıca OS düzeltme yapabilmek gereklidir. Sorumluluğundadır müşteri bir görev. SUSE için yükleme ve yapılandırma SMT belgeleri bulmak [burada](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
 **İkinci adım** yeni düzeltme ekleri ve belirli işletim sistemi sürüm/sürümü düzeltmelerini denetlemek için. Düzeltme eki düzeyine HANA büyük örneğinin son durumuna olup olmadığını denetleyin. İşletim sistemi düzeltme eki/sürümleri ve Microsoft dağıtabilirsiniz görüntü değişiklikleri zamanlamaya bağlı olarak, burada en son düzeltme eklerini dahil edilmemiş olabilir durumlar olabilir. Bu nedenle, zorunlu düzeltme ekleri güvenlik, işlevselliği, kullanılabilirlik ve performans için ilgili bu arada belirli Linux satıcı tarafından yayımlanan olup olmadığını denetleyin ve uygulanması gerekir bir HANA büyük örneği birim üzerinde aldıktan sonra bir adımdır.
 
@@ -80,18 +80,7 @@ Azure Vnet'ler tasarlanması ve bu belgelerinde açıklandığı gibi bu sanal a
 
 Tek birimleri ağ hakkında belirtmeyi bazı ayrıntılar değer vardır. Her HANA büyük örneği birim iki veya üç NIC bağlantı noktası birimi için atanmış olan iki veya üç IP adresleri ile birlikte gelir. Üç IP adresi HANA genişleme yapılandırmaları ve HANA sistem çoğaltma senaryosuna kullanılır. Birim NIC'ye atanan IP adreslerini biri içinde açıklanan sunucu IP havuzu dışında [SAP HANA (büyük örneği) genel bakış ve Azure ile ilgili mimari](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
-İki IP adresi atanmış birimleriyle dağıtımı gibi görünmelidir:
-
-- eth0.xx Microsoft'a gönderilen sunucu IP havuzu adres aralığı dışında atanmış bir IP adresi olmalıdır. Bu IP adresi/etc/hosts işletim sisteminin içinde sürdürmek için kullanılır.
-- eth1.xx NFS iletişimi için kullanılan bir IP adresi olmalıdır. Bu nedenle, bu adresleri yapmak **değil** etc/hosts örneği, örnek trafiği Kiracı içinde izin vermek üzere saklanması gerekir.
-
-Dağıtım durumlarda HANA sistem çoğaltma veya HANA genişleme, dikey yapılandırması atanan iki IP adreslerine sahip uygun değil. Yalnızca atanan iki IP adreslerine sahip olmasına ve isteyen bu tür bir yapılandırma dağıtmanız, SAP HANA üçüncü üçüncü bir IP adresi almak için Azure Hizmet Yönetimi başvurun VLAN atanmışsa. Üç NIC noktalarına atanan üç IP adreslerine sahip olmasına HANA büyük örneği birimleri için aşağıdaki kullanım kurallar geçerlidir:
-
-- eth0.xx Microsoft'a gönderilen sunucu IP havuzu adres aralığı dışında atanmış bir IP adresi olmalıdır. Bu nedenle bu IP adresi/etc/hosts işletim sisteminin içinde sürdürmek için kullanılacak işaretçi yok.
-- eth1.xx NFS depolama iletişimi için kullanılan bir IP adresi olmalıdır. Bu nedenle bu tür adresleri etc/hosts saklanması gereken değil.
-- eth2.xx etc/hosts farklı örnekleri arasında iletişim için sürdürülebilmesi için özel olarak kullanılmalıdır. Bu adresler ayrıca genişleme HANA yapılandırmalarında HANA düğümler arası yapılandırmasını kullanan IP adresleri olarak güncelleştirilmesi gereken IP adresleri olacaktır.
-
-
+Başvuru [HLI desteklenen senaryoları](hana-supported-scenario.md) Mimarinizi ethernet ayrıntılarını öğrenin.
 
 ## <a name="storage"></a>Depolama
 
@@ -111,7 +100,7 @@ Burada SID HANA örneğinin sistem kimliği =
 
 Ve Kiracı işlemlerinin iç numaralandırması Kiracı dağıtırken =.
 
-Gördüğünüz gibi paylaşılan HANA ve usr/sap aynı birimi paylaşan. Bağlama terminolojisi bağlama numarası yanı sıra HANA örneklerinin sistem Kimliğini içerir. Büyütme dağıtımlarında yalnızca var. mnt00001 gibi bir bağlama Genişleme dağıtımı'nda farklı sayıda başlatmalar görür ancak çalışan ve ana düğümlerin vardır. Genişleme ortam, veri, günlük için günlük yedekleme birimleri paylaşılan ve genişletme yapılandırma her düğüme bağlı. Birden çok SAP örneği çalıştıran yapılandırmaları için farklı bir birim kümesi oluşturulur ve HAN büyük örneği birimine bağlı.
+Gördüğünüz gibi paylaşılan HANA ve usr/sap aynı birimi paylaşan. Bağlama terminolojisi bağlama numarası yanı sıra HANA örneklerinin sistem Kimliğini içerir. Büyütme dağıtımlarında yalnızca var. mnt00001 gibi bir bağlama Genişleme dağıtımı'nda farklı sayıda başlatmalar görür ancak çalışan ve ana düğümlerin vardır. Genişleme ortam, veri, günlük için günlük yedekleme birimleri paylaşılan ve genişletme yapılandırma her düğüme bağlı. Birden çok SAP örneği çalıştıran yapılandırmaları için farklı bir birim kümesi oluşturulur ve HAN büyük örneği birimine bağlı. Başvuru [HLI desteklenen senaryoları](hana-supported-scenario.md) depolama düzeni ayrıntıları senaryonuz için.
 
 Kağıt okuyun ve HANA büyük örneği birim arayın gibi birimleri HANA/verileri yerine geniştir disk birimi ile gelir ve toplu günlük/HANA/yedekleme sahibiz unutmayın. Neden biz HANA/veri çok büyük boyutta bir müşteri olarak sunuyoruz sizin için depolama anlık görüntüler aynı disk birimi kullanıyorsanız nedenidir. Daha fazla depolama alanı anlamına gelir gerçekleştirdiğiniz anlık görüntüler, daha fazla alan atanan depolama birimlerinizi anlık görüntülerini tarafından kullanılır. Günlük/HANA/yedekleme birim, veritabanı yedeklemeleri yerleştirmek için birimi olmasını zorlayıcı değil. HANA işlem günlüğü yedeklemeleri için yedekleme birimi olarak kullanılacak boyutlandırılır. Gelecekte depolama sürümleri self service, biz daha sık anlık görüntüleri sağlamak için bu özel birim hedeflediğini anlık görüntü. Ve seçeneği HANA büyük örneği altyapısı tarafından sağlanan olağanüstü durum kurtarma işlevi için üzerinde isterse ile daha fazla çoğaltma olağanüstü durum kurtarma sitesine sık. Ayrıntıları görmek [SAP HANA (büyük örnekler) yüksek kullanılabilirlik ve olağanüstü durum kurtarma Azure ile ilgili](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
@@ -150,6 +139,7 @@ Parametreleri SAP HANA veritabanına yüklendikten sonra hdbparam framework kull
 
 SAP HANA 2.0 ile hdbparam framework kullanım dışıdır. Sonuç olarak parametreleri SQL komutlarını kullanarak ayarlamalısınız. Ayrıntılar için bkz [SAP Not #2399079: HANA 2'deki hdbparam ortadan kaldırılması](https://launchpad.support.sap.com/#/notes/2399079).
 
+Başvuru [HLI desteklenen senaryoları](hana-supported-scenario.md) Mimarinizi için depolama düzeni öğrenin.
 
 ## <a name="operating-system"></a>İşletim sistemi
 

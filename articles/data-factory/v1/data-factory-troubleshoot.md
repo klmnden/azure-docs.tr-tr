@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: a9a4f7b19d6ef08562d17474e252ce72fd0977dc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: cbd51c48ec5b1801062e7aaf0b77e7b347018b31
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051874"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Data Factory'de sorun giderme
 > [!NOTE]
-> Bu makale, Azure Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. 
+> Bu makalede Azure Data Factory 1 sürümü için geçerlidir. 
 
 Bu makalede Azure Data Factory kullanırken sorunlarıyla ilgili sorun giderme ipuçları sağlar. Bu makalede tüm olası sorunları hizmetini kullanırken listelenmez, ancak bazı sorunlar ve genel sorun giderme ipuçları kapsar.   
 
@@ -67,7 +68,7 @@ Dilimler olabilir **bekleyen** durum çeşitli nedenlerden dolayı. En yaygın n
 
 **External** özelliğinin kullanımı ile ilgili olarak aşağıdaki örneğe bakın. İsteğe bağlı olarak belirtebilirsiniz **externalData*** dış true olarak ayarlandığında.
 
-Bkz: [veri kümeleri](data-factory-create-datasets.md) bu özellik hakkında daha fazla ayrıntı için makale.
+Bu özellikle ilgili daha ayrıntılı bilgi için [Veri kümeleri](data-factory-create-datasets.md) makalesine bakın.
 
 ```json
 {

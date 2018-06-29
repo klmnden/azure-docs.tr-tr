@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157399"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048848"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Kiracı kullanımı için ekleyin ve Azure yığınına faturalama
 
@@ -64,7 +64,7 @@ Kaydınızı yeni müşteri aboneliğe güncelleştirin. Azure ortak merkezi mü
 3. PowerShell oturumunda çalıştırın:
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>AzureRmResource yeni PowerShell parametreleri
 | Parametre | Açıklama |
@@ -73,6 +73,7 @@ Kaydınızı yeni müşteri aboneliğe güncelleştirin. Azure ortak merkezi mü
 | customerSubscriptionID | Kaydedilecek müşteriye ait Azure aboneliği (Azure yığını değil). Olmalıdır CSP teklif; oluşturulmuş uygulamada, bu iş ortağı Merkezi'nden anlamına gelir. Bir müşteri birden fazla Azure Active Directory Kiracı varsa, bu abonelik Azure yığın halinde günlüğe kaydetmek için kullanılan Kiracı oluşturulmuş olması gerekir.
 | kaynak grubu | Kaydınızı depolandığı Azure kaynak grubunda. 
 | registrationName | Azure yığın kayıt adı. Azure'da depolanan nesne değildir. | 
+| Özellikler | Kaynağın özelliklerini belirtir. Kaynak türü için belirli özelliklerinin değerlerini belirtmek için bu parametreyi kullanın.
 
 
 > [!Note]  

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2018
+ms.date: 06/27/2018
 ms.author: maheshu
-ms.openlocfilehash: 4263034408de059880b91e8106f6832ccacc6085
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 5838dbefab9f7100ed4776eebef7a1d07d2db1a6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300977"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061054"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Güvenli LDAP (LDAPS) Azure AD etki alanı Hizmetleri yönetilen etki alanı için yapılandırma
 
@@ -48,7 +48,7 @@ Güvenli LDAP etkinleştirmek için aşağıdaki yapılandırma adımlarını ge
 4. Varsayılan olarak, yönetilen etki alanınız için güvenli LDAP erişim devre dışıdır. İki durumlu **güvenli LDAP** için **etkinleştirmek**.
 
     ![Güvenli LDAP etkinleştir](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
-5. Varsayılan olarak, internet üzerinden yönetilen etki alanınız için güvenli LDAP erişim devre dışıdır. İki durumlu **Internet üzerinden güvenli LDAP erişim izni** için **etkinleştirmek**istenirse. 
+5. Varsayılan olarak, internet üzerinden yönetilen etki alanınız için güvenli LDAP erişim devre dışıdır. İki durumlu **Internet üzerinden güvenli LDAP erişim izni** için **etkinleştirmek**istenirse.
 
     > [!WARNING]
     > Etki alanınızı Internet üzerinden güvenli LDAP erişimi etkinleştirdiğinizde, Internet üzerinden parola deneme yanılma saldırılarına açıktır. Bu nedenle, bir NSG gerekli kaynak IP adresi aralıklarını erişimi kilitleme ayarlama öneririz. Yönergeler için bkz: [LDAPS erişim internet üzerinden yönetilen etki alanınız için kilitleme](#task-5---lock-down-secure-ldap-access-to-your-managed-domain-over-the-internet).
@@ -111,6 +111,23 @@ Aşağıdaki tabloda bir örnek, internet üzerinden güvenli LDAP erişim kilit
 
 <br>
 
+## <a name="bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Ldp.exe'yi kullanarak LDAP yönetilen etki alanına bağlama
+Bağlama ve üzerinden LDAP arama yapmak için Uzak sunucu yönetim araçları paketini dahil LDP.exe aracını kullanabilirsiniz.
+
+İlk olarak, LDP'yi açmak ve yönetilen bir etki alanına bağlanın. Tıklatın **bağlantı** tıklatıp **Bağlan...**  menüde. Yönetilen etki alanının DNS etki alanı adını belirtin. Bağlantılar için kullanılacak bağlantı noktasını belirtin. LDAP bağlantıları için bağlantı noktası 389 kullanın. LDAPS bağlantıları için bağlantı noktası 636 kullanın. Tıklatın **Tamam** düğmesi yönetilen etki alanına bağlayın.
+
+Ardından, yönetilen etki alanına bağlayın. Tıklatın **bağlantı** tıklatıp **Bağla...**  menüde. 'AAD DC Yöneticiler' grubuna ait olan bir kullanıcı hesabının kimlik bilgilerini sağlayın.
+
+Seçin **Görünüm**ve ardından **ağaç** menüde. Temel DN alanı boş bırakın ve Tamam'ı tıklatın. Arama, kapsayıcıya sağ tıklayın ve Ara'yı seçin istediğiniz kapsayıcıya gidin.
+
+> [!TIP]
+> - Kullanıcılar ve Azure AD'den eşitlenen gruplara depolanır **AADDC kullanıcılar** kapsayıcı. Bu kapsayıcı için arama yolu benzer ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
+> - Yönetilen etki alanına katılmış bilgisayarlar için bilgisayar hesaplarını depolanır **AADDC bilgisayarlar** kapsayıcı. Bu kapsayıcı için arama yolu benzer ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+>
+>
+
+Daha fazla bilgi - [LDAP sorgu temelleri](https://technet.microsoft.com/library/aa996205.aspx)
+
 
 ## <a name="troubleshooting"></a>Sorun giderme
 Güvenli LDAP kullanarak yönetilen etki alanına bağlanma konusunda sorun yaşıyorsanız, aşağıdaki sorun giderme adımları gerçekleştirin:
@@ -129,6 +146,7 @@ Güvenli LDAP kullanarak yönetilen etki alanına bağlanırken sorun yaşamaya 
 ## <a name="related-content"></a>İlgili içerik
 * [Azure AD etki alanı Hizmetleri - başlangıç kılavuzu](active-directory-ds-getting-started.md)
 * [Azure AD Domain Services tarafından yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-domain.md)
+* [LDAP sorgu temelleri](https://technet.microsoft.com/library/aa996205.aspx)
 * [Grup İlkesi, bir Azure AD etki alanı Hizmetleri yönetilen etki alanını yönetme](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Ağ güvenlik grupları](../virtual-network/security-overview.md)
 * [Bir ağ güvenlik grubu oluşturun](../virtual-network/tutorial-filter-network-traffic.md)

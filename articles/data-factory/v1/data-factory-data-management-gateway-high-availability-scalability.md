@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053845"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Veri Yönetimi ağ geçidi - yüksek kullanılabilirlik ve ölçeklenebilirlik (Önizleme)
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [tümleştirmesi çalışma zamanı sürüm 2'kendi kendini barındıran](../create-self-hosted-integration-runtime.md). 
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [tümleştirmesi çalışma zamanı'kendi kendini barındıran](../create-self-hosted-integration-runtime.md). 
 
 
 Bu makalede, veri yönetimi ağ geçidi ile yüksek kullanılabilirlik ve ölçeklenebilirlik çözümü yapılandırmanıza yardımcı olur / tümleştirme.    
@@ -189,7 +190,7 @@ Etkinleştirebilirsiniz **Gelişmiş ayarları** içinde **ağ geçidi** gibi ge
 Ad | Ağ geçidi ile ilişkili düğümleri ve mantıksal ağ geçidi adı.  
 Durum | Mantıksal ağ geçidi ve ağ geçidi düğümleri durumu. Örnek: Çevrimiçi/çevrimdışı/sınırlı/vs. Bu durumlar hakkında daha fazla bilgi için bkz: [ağ geçidi durumu](#gateway-status) bölümü. 
 Sürüm | Mantıksal ağ geçidi ve her ağ geçidi düğümü sürümünü gösterir. Mantıksal ağ geçidi sürümü grubu düğüm çoğunluğu sürümüne göre belirlenir. Varsa düğümleri mantıksal ağ geçidi kurulumunda yalnızca mantıksal ağ geçidi işlevi aynı sürüm numarasına sahip farklı sürümleriyle düzgün. Başkalarının sınırlı modda ve (yalnızca otomatik güncelleştirmeler başarısız olursa) el ile güncelleştirilmesi gerekir. 
-Kullanılabilir bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. 
+Uygun bellek | Bir ağ geçidi düğümü kullanılabilir bellek. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. 
 CPU kullanımı | Bir ağ geçidi düğümünün CPU kullanımı. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. 
 Ağ (çıkış) | Bir ağ geçidi düğümünün ağ kullanımı. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. 
 (Çalışan / sınırlamak) eşzamanlı işleri | İşlerini veya her bir düğümde çalışan görevlerin sayısıdır. Bu değer yakın gerçek zamanlı anlık görüntüsüdür. Her düğüm için en fazla eşzamanlı iş sınırı belirtir. Bu değeri makine boyutuna göre tanımlanır. Gelişmiş senaryolarda eşzamanlı iş yürütme ölçeklendirin sınırı artırabilirsiniz burada CPU / bellek / ağ altında kullanılan ancak etkinlik zaman aşımı. Bu özellik, tek bir düğüm ile ağ geçidi (ölçeklenebilirlik ve kullanılabilirlik özelliği etkin değilse bile) de kullanılabilir. Daha fazla bilgi için bkz: [ölçeklendirme konuları](#scale-considerations) bölümü. 

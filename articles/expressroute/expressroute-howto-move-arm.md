@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/03/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 37db218010288912bf75d00fd5868aab171aef71
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
-ms.translationtype: MT
+ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592914"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060095"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>ExpressRoute bağlantı hatları Klasikten Resource Manager dağıtım modeline PowerShell kullanarak Taşı
 
@@ -96,6 +96,10 @@ Bağlantı hattınız taşımak için değiştirin ve aşağıdaki kod parçacı
 ```powershell
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
+
+> [!NOTE]
+> Klasik modda bir expressroute bağlantı hattı bir bölgeye bağlı kavramına sahip değil. Resource Manager (ARM içinde), her kaynak için bir Azure bölgesi eşlenmesi gerekir. Taşıma AzureRmExpressRouteCircuit cmdlet belirtilen bölgeyi teknik olarak herhangi bir bölgeyi olabilir. Kuruluş amacıyla yakından eşleme konumunuzu temsil eden bir bölge seçmek isteyebilirsiniz.
+> 
 
 > [!NOTE]
 > Taşıma tamamlandıktan sonra önceki cmdlet'te listelenen yeni adı kaynak adres için kullanılır. Bağlantı hattı temelde yeniden adlandırılacak.

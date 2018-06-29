@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 57ae7c3cab6c0084bb43585f65d79ae6cc265356
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 11e98117a93f541f6f88b213f59dcf4aba3e7f36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400461"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045220"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>Azure PowerShell kullanarak Hdınsight'ta Linux tabanlı kümeleri oluşturma
 
@@ -63,7 +63,7 @@ SSH kullanıcı için belirlediğiniz değerler, küme için SSH kullanıcı olu
 > [!IMPORTANT]
 > 32'den fazla alt düğüm (ya da küme oluşturma veya Küme oluşturulduktan sonra ölçeklendirme tarafından) kullanmayı planlıyorsanız, ayrıca bir baş düğüm boyutu, en az 8 çekirdek ve 14 GB RAM belirtmeniz gerekir.
 >
-> Düğümü boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz: [Hdınsight fiyatlandırma](https://azure.microsoft.com/pricing/details/hdinsight/).
+> Düğüm boyutları ve ilişkili maliyetler hakkında daha fazla bilgi için bkz. [HDInsight fiyatlandırması](https://azure.microsoft.com/pricing/details/hdinsight/).
 
 Bir küme oluşturmak için 20 dakika sürebilir.
 
@@ -71,7 +71,7 @@ Bir küme oluşturmak için 20 dakika sürebilir.
 
 Ayrıca bir Hdınsight yapılandırma nesnesi kullanarak oluşturabileceğiniz `New-AzureRmHDInsightClusterConfig` cmdlet'i. Kümeniz için ek yapılandırma seçeneklerini etkinleştirmek için bu yapılandırma nesnesi daha sonra değiştirebilirsiniz. Son olarak, `-Config` parametresinin `New-AzureRmHDInsightCluster` yapılandırmasını kullanmak için cmdlet.
 
-Aşağıdaki betiği Hdınsight küme türü üzerinde bir R Server yapılandırmak için bir yapılandırma nesnesi oluşturur. Yapılandırma, bir edge düğümünü, Rstudio'dan ve ek depolama alanı hesabı etkinleştirir.
+Aşağıdaki betiği Hdınsight küme türünde bir ML hizmetleri yapılandırmak için bir yapılandırma nesnesi oluşturur. Yapılandırma, bir edge düğümünü, Rstudio'dan ve ek depolama alanı hesabı etkinleştirir.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 

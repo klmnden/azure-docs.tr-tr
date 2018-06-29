@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c5f47379072f4e5d15ffd96c5e45a23d10fff187
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f53c9e2b21e4758bccb6b0f89eb69501df2a6009
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620257"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051408"
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API değişiklik günlüğü
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. 
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. 
 
 Bu makale, belirli bir sürümü için Azure Data Factory SDK değişiklikler hakkında bilgi sağlar. Azure Data Factory için en son NuGet paketini bulabilirsiniz [burada](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
@@ -44,7 +44,7 @@ Bu makale, belirli bir sürümü için Azure Data Factory SDK değişiklikler ha
 ## <a name="version-4100"></a>Sürüm 4.10.0
 * Aşağıdaki isteğe bağlı özellikler için TextFormat eklenmiştir:
   * [skipLineCount](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.skiplinecount.aspx)
-  * [FirstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
+  * [firstRowAsHeader](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.firstrowasheader.aspx)
   * [treatEmptyAsNull](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.textformat.treatemptyasnull.aspx)
 * Aşağıdaki bağlantılı hizmet türleri eklenmiştir:
   * [OnPremisesCassandraLinkedService](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.onpremisescassandralinkedservice.aspx)
@@ -184,5 +184,5 @@ Aşağıdaki sınıflar yeniden adlandırılmıştır. 4.0.0 bırakmadan önce y
 * **Liste** ardışık düzen API yalnızca tam Ayrıntılar yerine bir ardışık düzen özetini döndürür. Örneği için bir ardışık düzen Özet etkinlikleri yalnızca adını ve türünü içerir.
 
 ### <a name="feature-additions"></a>Özellik ekleme
-* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) sınıfı, iki yeni özellikleri destekler **Sliceıdentifiercolumnname** ve **SqlWriterCleanupScript**, Azure SQL Data Warehouse ıdempotent kopyaya desteklemek için. Bkz: [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) bu özellikleri hakkında ayrıntılı bilgi için makalenin.
+* [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) sınıfı, iki yeni özellikleri destekler **Sliceıdentifiercolumnname** ve **SqlWriterCleanupScript**, Azure SQL veri ıdempotent kopyaya desteklemek için Ambar. Bkz: [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md) bu özellikleri hakkında ayrıntılı bilgi için makalenin.
 * Saklı yordam Azure SQL Database ve Azure SQL Data Warehouse kaynaklarına karşı kopyalama etkinliği bir parçası olarak çalışan artık destekler. [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) ve [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) sınıfları, aşağıdaki özelliklere sahiptir: **SqlReaderStoredProcedureName** ve **StoredProcedureParameters**. Bkz: [Azure SQL veritabanı](data-factory-azure-sql-connector.md#sqlsource) ve [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource) Azure.com üzerindeki makaleler için bu özellikleri hakkında ayrıntılı bilgi.  

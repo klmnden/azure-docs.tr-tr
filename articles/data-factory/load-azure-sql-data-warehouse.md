@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b035141c443c3dad18c3e9bfbc53581a7d180e5a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b96483232a1da5ae21e6ba8cbe873d876d38ed11
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333836"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050310"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure SQL Data Warehouse'a veri yükleme
 
@@ -35,9 +35,6 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
 
 > [!NOTE]
 > Daha fazla bilgi için bkz: [veri kopyalama ya da Azure SQL veri ambarından Azure Data Factory kullanarak](connector-azure-sql-data-warehouse.md).
->
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [kopya etkinliği Azure Data factory'de sürüm 1](v1/data-factory-data-movement-activities.md).
-
 ## <a name="prerequisites"></a>Önkoşullar
 
 * Azure aboneliği: Azure aboneliğiniz yoksa, oluşturma bir [ücretsiz bir hesap](https://azure.microsoft.com/free/) başlamadan önce.
@@ -57,7 +54,7 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
     * **Ad**: Azure data factory'nizi için genel benzersiz bir ad girin. Hata alırsanız, "veri fabrikası adı \"LoadSQLDWDemo\" kullanılamıyor" veri fabrikası için farklı bir ad girin. Örneğin, adı kullanabilirsiniz  _**adınız**_**ADFTutorialDataFactory**. Data factory oluşturmayı yeniden deneyin. Data Factory yapıtlarını adlandırma kuralları için bkz. [Data Factory adlandırma kuralları](naming-rules.md).
     * **Abonelik**: data factory oluşturulacağı Azure aboneliğinizi seçin. 
     * **Kaynak grubu**: aşağı açılan listeden mevcut bir kaynak grubu seçin ya da seçin **Yeni Oluştur** seçeneği ve bir kaynak grubu adını girin. Kaynak grupları hakkında daha fazla bilgi için bkz. [Azure kaynaklarınızı yönetmek için kaynak gruplarını kullanma](../azure-resource-manager/resource-group-overview.md).  
-    * **Sürüm**: seçin **V2 (Önizleme)**.
+    * **Sürüm**: seçin **V2**.
     * **Konum**: data factory konumunu seçin. Açılan listede yalnızca desteklenen konumlar görüntülenir. Veri fabrikası tarafından kullanılan veri depolarına diğer konumları ve bölgelerde olabilir. Bu veri depolarına Azure Data Lake Store, Azure Storage, Azure SQL Database vb. içerir.
 
 3. **Oluştur**’u seçin.
@@ -90,9 +87,9 @@ Bu makalede, veri fabrikası kopya veri aracının nasıl kullanılacağı göst
    
     ![Azure SQL DB yapılandırın](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. Kaynak olarak yeni oluşturulan bağlı hizmeti seçin ve ardından **sonraki**.
+    d. Kaynak olarak yeni oluşturulan bağlantılı hizmeti seçin ve **İleri**'ye tıklayın.
 
-    ![Select kaynak bağlı hizmeti](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
+    ![Kaynak olarak bağlantılı hizmeti seçin](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
 4. İçinde **veri kopyalama veya özel bir sorgu kullanmak üzere tabloları seçme** want **SalesLT** tabloları filtre uygulamak için. Seçin **(Tümünü Seç)** tüm tablolar için kopya kullanmayı kutusuna ve ardından **sonraki**: 
 

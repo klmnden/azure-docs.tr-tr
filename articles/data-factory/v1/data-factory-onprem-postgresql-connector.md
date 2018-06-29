@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1d566a719abaf09146965a677868d363d33d10e5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 189adf27795172bb08b52af1a9e3428d854a50a0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622773"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046739"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Azure Data Factory kullanarak PostgreSQL taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-onprem-postgresql-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-postgresql.md)
+> * [Sürüm 1](data-factory-onprem-postgresql-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-postgresql.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 PostgreSQL Bağlayıcısı](../connector-postgresql.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 PostgreSQL Bağlayıcısı](../connector-postgresql.md).
 
 
 Bu makalede kopya etkinliği Azure Data Factory'de bir şirket içi PostgreSQL veritabanından veri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.
@@ -308,7 +308,7 @@ Veri PostgreSQL için taşırken, aşağıdaki eşlemelerini PostgreSQL türünd
 | Bir PostgreSQL veritabanı türü | PostgresSQL diğer adlar | .NET framework türü |
 | --- | --- | --- |
 | abstime | |Tarih saat | &nbsp;
-| bigint |int8 |Int64 |
+| bigint |Int8 |Int64 |
 | bigserial |serial8 |Int64 |
 | bit [(n)] | |Byte [], dize | &nbsp;
 | değişen [(n)] bit |varbit |Byte [], dize |
@@ -322,7 +322,7 @@ Veri PostgreSQL için taşırken, aşağıdaki eşlemelerini PostgreSQL türünd
 | Daire | |Byte [], dize |&nbsp;
 | tarih | |Tarih saat |&nbsp;
 | daterange | |Dize |&nbsp;
-| çift duyarlıklı |FLOAT8 |Çift |
+| çift duyarlıklı |FLOAT8 |çift |
 | INet | |Byte [], dize |&nbsp;
 | intarry | |Dize |&nbsp;
 | int4range | |Dize |&nbsp;
@@ -340,7 +340,7 @@ Veri PostgreSQL için taşırken, aşağıdaki eşlemelerini PostgreSQL türünd
 | OID | |Int32 |&nbsp;
 | yol | |Byte [], dize |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| noktası | |Byte [], dize |&nbsp;
+| Noktası | |Byte [], dize |&nbsp;
 | Çokgen | |Byte [], dize |&nbsp;
 | Gerçek |float4 |Tek |
 | tamsayı |int2 |Int16 |

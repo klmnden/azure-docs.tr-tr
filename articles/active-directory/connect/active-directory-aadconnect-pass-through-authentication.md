@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 37239a45cffe18478b8302ccf1ee95c8edd0423a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b36014057eb1713b2b056cd203a099c59d9b5d4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592169"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031779"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Kullanıcı oturum açma ile Azure Active Directory doğrudan kimlik doğrulaması
 
@@ -49,7 +49,7 @@ Doğrudan kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 - *Güvenlik*
   - Şirket içi parolaları hiçbir zaman bulut herhangi bir biçimde depolanır.
   - Aracı yalnızca ağınıza giden bağlantılar sağlar. Bu nedenle, aracıyı DMZ olarak da bilinen bir çevre ağında yükleme gereksinimi yoktur.
-  - Kullanıcı hesapları ile sorunsuz çalışarak korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md), çok faktörlü kimlik doğrulama (MFA) de dahil olmak üzere ve göre [deneme yanılma parola saldırıları filtreleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md).
+  - Kullanıcı hesapları ile sorunsuz çalışarak korur [Azure AD koşullu erişim ilkeleri](../active-directory-conditional-access-azure-portal.md), çok faktörlü kimlik doğrulama (MFA) de dahil olmak üzere ve göre [deneme yanılma parola saldırıları filtreleme](../authentication/howto-password-smart-lockout.md).
 - *Yüksek oranda kullanılabilir*
   - Ek aracıların, oturum açma isteklerinin yüksek kullanılabilirlik sağlamak için birden çok şirket içi sunucularda yüklenebilir.
 
@@ -64,12 +64,12 @@ Doğrudan kimlik doğrulaması ile birleştirebilirsiniz [sorunsuz çoklu oturum
 - Aracılığıyla etkinleştirilebilir [Azure AD Connect](active-directory-aadconnect.md).
 - Dinler ve parola doğrulaması isteklerine yanıt verdiğini bir basit şirket içi Aracısı kullanır.
 - Birden çok aracı yükleme, oturum açma isteklerinin yüksek kullanılabilirlik sağlar.
-- Bu [korur](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) parola saldırılarını bulutta şirket içi hesaplarınızı karşı deneme yanılma yoluyla yapılan zorla.
+- Bu [korur](../authentication/howto-password-smart-lockout.md) parola saldırılarını bulutta şirket içi hesaplarınızı karşı deneme yanılma yoluyla yapılan zorla.
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
 - [**Hızlı Başlangıç** ](active-directory-aadconnect-pass-through-authentication-quick-start.md) - hale getirmek ve Azure AD doğrudan kimlik doğrulama çalıştıran.
-- [**Akıllı kilitleme** ](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) -Kiracı üzerinde yapılandırma akıllı kilitleme özelliğini kullanıcı hesaplarını korumak için.
+- [**Akıllı kilitleme** ](../authentication/howto-password-smart-lockout.md) -Kiracı üzerinde yapılandırma akıllı kilitleme özelliğini kullanıcı hesaplarını korumak için.
 - [**Geçerli sınırlamalar** ](active-directory-aadconnect-pass-through-authentication-current-limitations.md) -hangi senaryoları desteklenir ve hangilerinin olmayan öğrenin.
 - [**Teknik derinlemesine** ](active-directory-aadconnect-pass-through-authentication-how-it-works.md) -bu özellik nasıl çalıştığını anlayın.
 - [**Sık sorulan sorular** ](active-directory-aadconnect-pass-through-authentication-faq.md) -sık sorulan sorulara yanıtlar.

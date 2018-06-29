@@ -11,14 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 06/27/2018
 ms.author: maxluk
-ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb7b538737e54b2c3d8a32e2ba65f7e0762a302c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409331"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047165"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio için R Araçları’ndan iş gönderme
 
@@ -37,7 +37,7 @@ RTVS araçları gibi sunarak R akışınızı geliştirir [R etkileşimli pencer
 3. SSH kimlik doğrulaması için ortak ve özel anahtarları olması gerekir.
 <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. Yükleme [R Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) makinenizde. R Server sağlar [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) ve `RxSpark` işlevleri.
+4. Yükleme [ML sunucu](https://msdn.microsoft.com/microsoft-r/rserver-install-windows) makinenizde. ML sunucusu sağlar [ `RevoScaleR` ](https://msdn.microsoft.com/microsoft-r/scaler/scaler) ve `RxSpark` işlevleri.
 
 5. Yükleme [PuTTY](http://www.putty.org/) çalıştırmak için bir işlem bağlamı sağlamak için `RevoScaleR` Hdınsight kümenize yerel istemcinizden işlevleri.
 
@@ -53,7 +53,7 @@ RTVS araçları gibi sunarak R akışınızı geliştirir [R etkileşimli pencer
 
 ## <a name="execute-local-r-methods"></a>Yerel bir R yöntem yürütülemez
 
-1. Oluştur, [R Server Hdınsight kümesi](r-server-get-started.md).
+1. Oluştur, [Hdınsight ML Hizmetleri küme](r-server-get-started.md).
 2. Yükleme [RTVS uzantısı](https://docs.microsoft.com/visualstudio/rtvs/installation).
 3. Karşıdan [samples ZIP dosyası](https://github.com/Microsoft/RTVS-docs/archive/master.zip).
 4. Açık `examples/Examples.sln` Visual Studio'da Çözüm başlatmak için.
@@ -66,11 +66,11 @@ RTVS araçları gibi sunarak R akışınızı geliştirir [R etkileşimli pencer
 
     ![Veri bilimi ayarları...](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
 
-## <a name="submit-jobs-to-an-hdinsight-r-cluster"></a>Bir Hdınsight R kümeye iş göndermek
+## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>Bir Hdınsight ML Hizmetleri kümeye iş göndermek
 
-Bir Microsoft R Server/Microsoft R istemciden PuTTY ile donatılmış bir Windows bilgisayar kullanarak, dağıtılmış çalışacak bir işlem bağlamı oluşturabilirsiniz `RevoScaleR` Hdınsight kümenize yerel istemcinizden işlevleri. Kullanım `RxSpark` , kullanıcı adı, Hadoop küme kenar düğümünü, SSH anahtarları ve benzeri belirtme işlem içeriği oluşturulamadı.
+Bir Microsoft ML Server/Microsoft R istemciden PuTTY ile donatılmış bir Windows bilgisayar kullanarak, dağıtılmış çalışacak bir işlem bağlamı oluşturabilirsiniz `RevoScaleR` Hdınsight kümenize yerel istemcinizden işlevleri. Kullanım `RxSpark` , kullanıcı adı, Hadoop küme kenar düğümünü, SSH anahtarları ve benzeri belirtme işlem içeriği oluşturulamadı.
 
-1. Edge düğümün ana bilgisayar adını bulun, Azure üzerinde Hdınsight R küme bölmesini açın ve ardından seçin için **güvenli Kabuk (SSH)** genel bakış bölmesinde üst menüsünde.
+1. Edge düğümün ana bilgisayar adını bulmak için Azure üzerinde Hdınsight ML Hizmetleri küme bölmesini açın ve sonra seçin **güvenli Kabuk (SSH)** genel bakış bölmesinde üst menüsünde.
 
     ![Secure Shell (SSH)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 
@@ -122,7 +122,7 @@ Bir Microsoft R Server/Microsoft R istemciden PuTTY ile donatılmış bir Window
 
 5. Doğrulayın `rxHadoopCopy` başarıyla kopyalanan `people.json` dosyasına örnek veri klasöründen yeni oluşturulan `/user/RevoShare/newUser` klasörü:
 
-    1. Azure'da, Hdınsight R küme bölmesinden seçin **depolama hesapları** sol taraftaki menüden.
+    1. Azure'da, Hdınsight ML Hizmetleri küme bölmesinden seçin **depolama hesapları** sol taraftaki menüden.
 
         ![Depolama hesapları](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
@@ -144,6 +144,6 @@ Bir Microsoft R Server/Microsoft R istemciden PuTTY ile donatılmış bir Window
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [HDInsight üzerinde R Server için işlem bağlamı seçenekleri](r-server-compute-contexts.md)
+* [Hdınsight üzerinde ML Hizmetleri için içerik seçeneklerini işlem](r-server-compute-contexts.md)
 * [ScaleR ve SparkR birleştirme](../hdinsight-hadoop-r-scaler-sparkr.md) uçak uçuş gecikme tahminleri ilişkin bir örnek sağlar.
 <!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->

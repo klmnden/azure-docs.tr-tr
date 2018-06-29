@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ca501bb3ad37353f00ffe5d46f72822c7c5487bf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fde0ea00aacbb791836fc1076b88dafd3728454
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591404"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063485"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory doğrudan kimlik doğrulaması: Teknik derinlemesine bakış
 Bu makalede hakkında genel bakış olan Azure Active directory (Azure AD) doğrudan kimlik doğrulama çalışıyor. Ayrıntılı teknik ve güvenlik bilgileri için bkz: [güvenlik derinlemesine](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) makalesi.
@@ -31,15 +31,16 @@ Bir kullanıcı Azure AD tarafından güvenli hale getirilmiş bir uygulamaya ot
 
 1. Kullanıcı bir uygulama, örneğin, erişmeyi dener [Outlook Web App](https://outlook.office365.com/owa/).
 2. Kullanıcı zaten oturum açmamış, Azure AD ile kullanıcının yönlendirildiği **kullanıcı oturum açma** sayfası.
-3. Kullanıcı Azure AD oturum açma sayfası, kullanıcı adı ve parolasını girer ve ardından seçer **oturum** düğmesi.
-4. Oturum açma, isteği alırken azure AD kullanıcı adı ve parola (bir ortak anahtar kullanılarak şifrelenmiş) sıraya koyar.
-5. Bir şirket içi kimlik doğrulama Aracısı sıradan şifrelenmiş parola ve kullanıcı adını alır. Aracı sıra gelen istekleri için sık yoklamak değil ancak istekleri önceden belirlenen kalıcı bir bağlantı alır unutmayın.
-6. Aracı, özel anahtarı kullanarak parola şifresini çözer.
-7. Kullanıcı Aracısı doğrular ve hangi Active Directory Federasyon Hizmetleri (AD FS) için benzer bir mekanizmadır standart Windows API'leri kullanarak parolası Active Directory karşı kullanır. Kullanıcı adı ya da şirket içi varsayılan kullanıcı adı, genellikle olabilir `userPrincipalName`, ya da Azure AD Connect içinde yapılandırılmış başka bir öznitelik (olarak bilinen `Alternate ID`).
-8. Şirket içi Active Directory etki alanı denetleyicisi (DC) isteği değerlendirir ve uygun yanıtı döndürür (başarılı, başarısız, parolanın süresi doldu veya kullanıcı kilitli) aracısı.
-9. Kimlik Doğrulama Aracısı, buna karşılık, Azure AD geri bu yanıt döndürür.
-10. Azure AD yanıt değerlendirir ve kullanıcının uygun şekilde yanıt verir. Kullanıcı oturum açtıktan hemen veya için Azure çok faktörlü kimlik doğrulama isteklerini, örneğin, Azure AD.
-11. Kullanıcı oturum açma başarılı olursa, kullanıcı uygulamasına erişebilir.
+3. Kullanıcı Azure AD oturum açma sayfası kullanıcı adlarını girer ve ardından seçer **sonraki** düğmesi.
+4. Kullanıcı Azure AD oturum açma sayfası parolasını girer ve ardından seçer **oturum** düğmesi.
+5. Oturum açma, isteği alırken azure AD kullanıcı adı ve parola (kimlik doğrulaması aracıların ortak anahtar kullanılarak şifrelenmiş) sıraya koyar.
+6. Bir şirket içi kimlik doğrulama Aracısı sıradan şifrelenmiş parola ve kullanıcı adını alır. Aracı sıra gelen istekleri için sık yoklamak değil ancak istekleri önceden belirlenen kalıcı bir bağlantı alır unutmayın.
+7. Aracı, özel anahtarı kullanarak parola şifresini çözer.
+8. Kullanıcı Aracısı doğrular ve hangi Active Directory Federasyon Hizmetleri (AD FS) için benzer bir mekanizmadır standart Windows API'leri kullanarak parolası Active Directory karşı kullanır. Kullanıcı adı ya da şirket içi varsayılan kullanıcı adı, genellikle olabilir `userPrincipalName`, ya da Azure AD Connect içinde yapılandırılmış başka bir öznitelik (olarak bilinen `Alternate ID`).
+9. Şirket içi Active Directory etki alanı denetleyicisi (DC) isteği değerlendirir ve uygun yanıtı döndürür (başarılı, başarısız, parolanın süresi doldu veya kullanıcı kilitli) aracısı.
+10. Kimlik Doğrulama Aracısı, buna karşılık, Azure AD geri bu yanıt döndürür.
+11. Azure AD yanıt değerlendirir ve kullanıcının uygun şekilde yanıt verir. Kullanıcı oturum açtıktan hemen veya için Azure çok faktörlü kimlik doğrulama isteklerini, örneğin, Azure AD.
+12. Kullanıcı oturum açma başarılı olursa, kullanıcı uygulamasına erişebilir.
 
 Aşağıdaki diyagramda, tüm bileşenler ve adımlar gösterilmektedir:
 
@@ -48,7 +49,7 @@ Aşağıdaki diyagramda, tüm bileşenler ve adımlar gösterilmektedir:
 ## <a name="next-steps"></a>Sonraki adımlar
 - [Geçerli sınırlamalar](active-directory-aadconnect-pass-through-authentication-current-limitations.md): hangi senaryoları desteklenir ve hangilerinin olmayan öğrenin.
 - [Hızlı Başlangıç](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD doğrudan kimlik doğrulamasını başlamak ve çalıştırmak.
-- [Akıllı kilitleme](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme yeteneği yapılandırın.
+- [Akıllı kilitleme](../authentication/howto-password-smart-lockout.md): kullanıcı hesapları korumak için Kiracı akıllı kilitleme yeteneği yapılandırın.
 - [Sık sorulan sorular](active-directory-aadconnect-pass-through-authentication-faq.md): Bul için sık sorulan sorulara yanıtlar.
 - [Sorun giderme](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): doğrudan kimlik doğrulama özelliği ile ortak sorunları çözmeyi öğrenin.
 - [Güvenlik derinlemesine](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md): doğrudan kimlik doğrulama özelliği hakkında ayrıntılı teknik bilgi alın.

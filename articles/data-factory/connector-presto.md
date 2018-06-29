@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory (Önizleme) kullanarak Presto veri kopyalama | Microsoft Docs
+title: Azure Data Factory kullanarak Presto veri kopyalama | Microsoft Docs
 description: Desteklenen havuz veri depolarına Presto bir Azure Data Factory ardışık düzeninde kopyalama etkinliği kullanarak verileri kopyalamak öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: jingwang
-ms.openlocfilehash: 1609a3e6be884f56137b1d7579b3aaa2a94c78fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4b3e022bd22242bdc246e1dd30aa6cc3e00134e0
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052632"
 ---
-# <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Azure Data Factory (Önizleme) kullanarak Presto verilerini
+# <a name="copy-data-from-presto-using-azure-data-factory"></a>Azure Data Factory kullanarak Presto verilerini
 
 Bu makalede kopya etkinliği Azure Data Factory'de Presto verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve bize geri bildirimde bulunun. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.

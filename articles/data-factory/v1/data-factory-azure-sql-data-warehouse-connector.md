@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: df8fe611c762421f3a963340b24df74a80a20160
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 678913796edafe86e19d8907e3a2e29ec15ffa90
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621743"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047086"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>İçin ve Azure Data Factory kullanarak Azure SQL veri ambarından veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-azure-sql-data-warehouse-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-azure-sql-data-warehouse.md)
+> * [Sürüm 1](data-factory-azure-sql-data-warehouse-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-azure-sql-data-warehouse.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 Azure SQL Data Warehouse Bağlayıcısı](../connector-azure-sql-data-warehouse.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Azure SQL Data Warehouse Bağlayıcısı](../connector-azure-sql-data-warehouse.md).
 
 Bu makalede kopya etkinliği Azure Data Factory'de Azure SQL Data Warehouse grafikten veri taşımak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) kopyalama etkinliği ile veri taşıma için genel bir bakış sunar makalesi.  
 
@@ -54,7 +54,7 @@ Verileri farklı araçlar/API'lerini kullanarak Azure SQL Data Warehouse denetle
 
 Öğesine/öğesinden Azure SQL veri ambarı verileri kopyalayan bir işlem hattı oluşturmak için en kolay yolu, veri kopyalama Sihirbazı'nı kullanmaktır. Bkz: [öğretici: Data Factory ile SQL veri ambarına veri yükleme](../../sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
+Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için.
 
 Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin:
 
@@ -356,9 +356,9 @@ Eşleme aynı [ADO.NET için SQL Server veri türü eşlemesi](https://msdn.micr
 | Datetimeoffset |DateTimeOffset |
 | Ondalık |Ondalık |
 | FILESTREAM özniteliği (varbinary(max)) |Byte] |
-| Kayan |Çift |
-| görüntü |Byte] |
-| Int |Int32 |
+| Kayan |çift |
+| image |Byte] |
+| int |Int32 |
 | para |Ondalık |
 | nchar |Dize, Char] |
 | ntext |Dize, Char] |

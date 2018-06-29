@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8b74a431664faa95e8be9c9ff90970fd6e7c0ec7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621301"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048729"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Kopyalama veya Azure Data Factory Kopyalama Sihirbazı ile kolayca veri taşıma
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Data Factory hizmetinin önizleme aşamasında olan 2. sürümünü kullanıyorsanız [sürüm 2’de kopyalama etkinliği öğreticisi belgeleri](../quickstart-create-data-factory-dot-net.md) konusunu inceleyin. 
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [kopyalama etkinliği Öğreticisi](../quickstart-create-data-factory-dot-net.md). 
 
 
 Azure Data Factory Kopyalama Sihirbazı'nı, genellikle bir uçtan uca veri tümleştirme senaryosunun ilk adımda veri alma sürecini kolaylaştırmak için ' dir. Azure veri fabrikası Kopyalama Sihirbazı'nı geçerken bağlı hizmetler, veri kümeleri ve işlem hatları için herhangi bir JSON tanımları anlayın gerekmez. Ancak, Sihirbazı'ndaki tüm adımları tamamladıktan sonra sihirbaz otomatik olarak seçilen hedef seçilen veri kaynağından verileri kopyalamak için bir işlem hattı oluşturur. Ayrıca, kopyalama Sihirbazı'nı zamanınızın çoğunu kaydeder, yazma, aynı anda alınan veri doğrulama yardımcı olacak özellikle zaman, alma veri ilk kez veri kaynağından. Kopyalama Sihirbazı'nı başlatmak için tıklatın **veri kopyalama** döşeme veri fabrikanızın giriş sayfasında.
@@ -34,7 +34,7 @@ Azure Data Factory Kopyalama Sihirbazı'nı, genellikle bir uçtan uca veri tüm
 ## <a name="an-intuitive-wizard-for-copying-data"></a>Veri kopyalama için sezgisel bir Sihirbazı
 Bu sihirbaz kolayca veriler çeşitli kaynaklardan hedeflere dakika cinsinden taşımanızı sağlar. Sihirbazı kullanarak geçtikten sonra kopyalama etkinliği ile işlem hattı otomatik olarak bağımlı Data Factory varlıklarını birlikte (bağlı hizmetler ve veri kümeleri) oluşturulur. Ardışık düzen oluşturmak için hiçbir ek adımlar gereklidir.   
 
-![Veri kaynağı seç](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Veri kaynağı seçme](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Bkz: [Kopyalama Sihirbazı'nı öğretici](data-factory-copy-data-wizard-tutorial.md) kopyalamak için örnek bir işlem hattı oluşturmak adım adım yönergeler için makalenin verileri Azure blob için bir Azure SQL veritabanı tablosu. 
@@ -64,7 +64,7 @@ Sihirbaz, yalnızca hedef/havuz veri deposuna kopyalanması gereken verileri se�
 ![İfadeler doğrula](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Bir Azure blob klasöründe veri filtreleme
-Temel çalışma zamanında belirlenir bir klasörden veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz [sistem değişkenleri](data-factory-functions-variables.md#data-factory-system-variables). Değişkenleri desteklenir: **{year}**, **{month}**, **{day}**, **{saat}**, **{dakika}**, ve **{özel}**. Örnek: inputfolder / {year} / {month} / {day}.
+Temel çalışma zamanında belirlenir bir klasörden veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz [sistem değişkenleri](data-factory-functions-variables.md#data-factory-system-variables). Değişkenleri desteklenir: **{year}**, **{month}**, **{day}**, **{saat}**, **{dakika}** ve **{Özel}**. Örnek: inputfolder / {year} / {month} / {day}.
 
 Klasörleri aşağıdaki biçimde giriş varsayın:
 
@@ -73,7 +73,7 @@ Klasörleri aşağıdaki biçimde giriş varsayın:
     2016/03/01/03
     ...
 
-Tıklatın **Gözat** için düğmesini **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 02 ->), tıklatıp **Seç**. Görmeniz gerekir `2016/03/01/02` metin kutusuna. Şimdi değiştir **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}**, ve **02** ile **{saat}**, SEKME tuşuna basın. Bu dört değişkenleri biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
+Tıklatın **Gözat** için düğmesini **dosya veya klasör**, bu klasörlerden birine göz atın (örneğin, 2016 03 -> -> 01 02 ->), tıklatıp **Seç**. Görmeniz gerekir `2016/03/01/02` metin kutusuna. Şimdi değiştir **2016** ile **{year}**, **03** ile **{month}**, **01** ile **{day}** , ve **02** ile **{saat}**, SEKME tuşuna basın. Bu dört değişkenleri biçimini seçmek için aşağı açılır listeler görmeniz gerekir:
 
 ![Sistem değişkenleri kullanma](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 

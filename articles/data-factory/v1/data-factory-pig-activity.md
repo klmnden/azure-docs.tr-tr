@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d65851f73ca3cc0bc85caff39b3a322900b78843
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5abd0b07037559b14158a3c314b6ca6ce30ab655
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622525"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045125"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Pig etkinliği Azure Data Factory kullanarak veri dönüştürme
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622525"
 > * [.NET özel etkinlik](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [dönüştürme Data Factory sürüm 2 Pig etkinliğini kullanarak verileri](../transform-data-using-hadoop-pig.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [dönüştürme veri fabrikasında Pig etkinliğini kullanarak verileri](../transform-data-using-hadoop-pig.md).
 
 
 Veri Fabrikası Hdınsight Pig etkinliğinde [ardışık düzen](data-factory-create-pipelines.md) üzerinde Pig sorguları yürüten [kendi](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) veya [isteğe bağlı](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux tabanlı Hdınsight kümesi. Bu makalede derlemeler [veri dönüştürme etkinlikleri](data-factory-data-transformation-activities.md) makalesi, veri dönüştürme ve desteklenen dönüştürme etkinliklerinin genel bir bakış sunar.
@@ -90,7 +90,7 @@ Veri Fabrikası Hdınsight Pig etkinliğinde [ardışık düzen](data-factory-cr
 | girişler |Pig etkinlik tarafından kullanılan bir veya daha fazla giriş |Hayır |
 | çıkışlar |Pig etkinlik tarafından oluşturulan bir veya daha fazla çıkışları |Evet |
 | linkedServiceName |Veri fabrikasında bağlı hizmet olarak kayıtlı bir Hdınsight kümesine başvuru |Evet |
-| Komut dosyası |Pig betiği satır içi belirtin |Hayır |
+| komut dosyası |Pig betiği satır içi belirtin |Hayır |
 | komut dosyası yolu |Pig betiği bir Azure blob storage'da depolamak ve dosyanın yolunu belirtin. 'Komut dosyası' veya 'scriptPath' özelliğini kullanın. Her ikisi birlikte kullanılamaz. Dosya adı büyük/küçük harf duyarlıdır. |Hayır |
 | tanımlar |Pig betiği içinde başvurmak için anahtar/değer çiftleri olarak parametrelerini belirtin |Hayır |
 

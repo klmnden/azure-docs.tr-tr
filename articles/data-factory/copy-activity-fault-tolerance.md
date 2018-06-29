@@ -13,28 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 8754e550f396c90504ed0fdaf1131173a10923ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6c76820b39f31d92362295d54984069393fa0dec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619108"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059115"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Kopya etkinliği Azure Data factory'de hataya dayanıklılık
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [Sürüm 2 - Önizleme](copy-activity-fault-tolerance.md)
+> * [Sürüm 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [Geçerli sürüm](copy-activity-fault-tolerance.md)
 
 Azure Data Factory kopyalama etkinliğinde uyumsuz satırları kaynak ve havuz veri depoları arasında veri kopyalama işlemi sırasında işleme için iki yol sunar:
 
 - İptal etmek ve kopyalama başarısız uyumsuz veriler olduğunda etkinliği karşılaştı (varsayılan davranıştır).
 - Tüm verileri hata toleransı ekleme ve uyumsuz veri satırları atlanıyor kopyalama devam edebilirsiniz. Ayrıca, Azure Blob storage veya Azure Data Lake Store uyumsuz satırları oturum açabilir. Ardından, hatanın nedenini öğrenmek, veri kaynağındaki verileri düzeltin ve kopyalama etkinliği yeniden deneme için günlüğünü de inceleyebilirsiniz.
 
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [kopyalama etkinliği hata toleransı V1](v1/data-factory-copy-activity-fault-tolerance.md).
-
-
- ## <a name="supported-scenarios"></a>Desteklenen senaryolar
+## <a name="supported-scenarios"></a>Desteklenen senaryolar
 Kopyalama etkinliği algılama, atlanıyor ve uyumsuz verilerini günlüğe kaydetme için üç senaryoları destekler:
 
 - **Kaynak veri türü ve havuz yerel türü arasındaki uyumsuzluk**. 

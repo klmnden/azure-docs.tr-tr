@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50ae4d6e8c275db16f811a2a1a063eda441f150b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 524293f9a1ded73ee7cb6ba4f53208a9f9c54ffa
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525548"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048235"
 ---
 # <a name="create-a-vm-with-a-static-public-ip-address-using-the-azure-portal"></a>Azure Portalı'nı kullanarak bir statik genel IP adresiyle bir VM oluşturma
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
+> * [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
 > * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
 > * [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
 > * [PowerShell (Klasik)](virtual-networks-reserved-public-ip.md)
@@ -51,7 +51,7 @@ Azure portalında bir statik genel IP adresine sahip bir VM oluşturmak için a�
 5. İçinde **bir boyutu seçin** bölmesinde tıklatın **A1 standart** aşağıdaki ve ardından olarak **seçin**.
    
     ![Azure portal - bir boyutu seçin](./media/virtual-network-deploy-static-pip-arm-portal/figure2.png)
-6. İçinde **ayarları** bölmesinde, tıklatın **genel IP adresi**, sonra **ortak IP adresi oluştur** bölmesi altında **atama**, 'ıtıklatın **Statik** olarak gibi. Ve ardından **Tamam**.
+6. İçinde **ayarları** bölmesinde, tıklatın **genel IP adresi**, sonra **ortak IP adresi oluştur** bölmesi altında **atama**, 'ıtıklatın **Statik** gibi. Ve ardından **Tamam**.
    
     ![Azure portal - ortak IP adresi oluştur](./media/virtual-network-deploy-static-pip-arm-portal/figure3.png)
 7. İçinde **ayarları** bölmesinde tıklatın **Tamam**.

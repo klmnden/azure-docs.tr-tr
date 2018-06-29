@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 4e1963e97a7458db8badb63e28dbc3d215ad88b2
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309639"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060393"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Yüksek kullanılabilirlik ve Azure SQL veritabanı
 
@@ -60,7 +60,7 @@ Yüksek kullanılabilirlik mimarisi bölge olarak yedekli sürümü tarafından 
 ![yüksek kullanılabilirlik mimarisi bölge olarak yedekli](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Genişleme okuma
-Açıklandığı gibi Premium ve iş kritik (Önizleme) katmanları Dengeleme çekirdek-ayarlar ve her zaman açık teknoloji hem de tek bir bölge ve bölge olarak yedekli yapılandırmalarını yüksek kullanılabilirlik için hizmet. AlwasyON yararları çoğaltmaların her zaman işlemsel olarak tutarlı durumda olduğundan biridir. Çoğaltmaları birincil olarak aynı performans düzeyine sahip olduğundan, uygulama, salt okunur iş yüklerini hiçbir ek de bakım bu ek kapasite yararlanabilir maliyeti (okuma genişleme). Bu şekilde salt okunur sorguları ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Ölçeklendirme özelliği kullanılmaya okuma mantıksal olarak içeren uygulamalar için salt okunur iş yükleri çözümlemeleri gibi ayrılmış ve bu nedenle bu ek kapasite için birincil bağlanmadan yararlanan. 
+Açıklandığı gibi Premium ve iş kritik (Önizleme) katmanları Dengeleme çekirdek-ayarlar ve her zaman açık teknoloji hem de tek bir bölge ve bölge olarak yedekli yapılandırmalarını yüksek kullanılabilirlik için hizmet. AlwaysOn yararları çoğaltmaların her zaman işlemsel olarak tutarlı durumda olduğundan biridir. Çoğaltmaları birincil olarak aynı performans düzeyine sahip olduğundan, uygulama, salt okunur iş yüklerini hiçbir ek de bakım bu ek kapasite yararlanabilir maliyeti (okuma genişleme). Bu şekilde salt okunur sorguları ana okuma-yazma yükünden yalıtılması ve kendi performansını etkilemez. Ölçeklendirme özelliği kullanılmaya okuma mantıksal olarak içeren uygulamalar için salt okunur iş yükleri çözümlemeleri gibi ayrılmış ve bu nedenle bu ek kapasite için birincil bağlanmadan yararlanan. 
 
 Belirli bir veritabanıyla okuma genişleme özelliği kullanmak için açıkça veritabanı oluşturulurken veya daha sonra çağırarak PowerShell kullanarak yapılandırmasını değiştirmeyi etkinleştirmeniz gerekir [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) veya [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet'leri kullanarak Azure Resource Manager REST API'si aracılığıyla veya [veritabanları - oluştur veya Güncelleştir](/rest/api/sql/databases/createorupdate) yöntemi.
 

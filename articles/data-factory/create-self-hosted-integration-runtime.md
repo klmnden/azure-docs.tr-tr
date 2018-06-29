@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 6f3259170a1b3fe0bbd33899a74863f5e71a49f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 832e4672a15368768977feedade83707a26b9965
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618462"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048797"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Oluşturma ve Self-hosted tümleştirmesi çalışma zamanı yapılandırma
 Tümleştirme çalışma zamanı (IR), farklı ağ ortamlar genelinde veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan işlem altyapısıdır. IR hakkında daha fazla ayrıntı için bkz: [tümleştirme çalışma zamanına genel bakış](concepts-integration-runtime.md).
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md).
 
 Kendini barındıran tümleştirmesi çalışma zamanı kopyalama etkinlikler arasında bulut veri çalıştırabilen depoları ve özel ağ ve dönüştürme etkinlikleri göndermeyi veri deposunda işlem kaynaklarını bir şirket içi veya Azure sanal ağı. Bir şirket içi makinede veya özel bir ağ içindeki bir sanal makine kendini barındıran tümleştirme çalışma zamanı gereksinimlerini yükleyin.  
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195718"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062583"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Bir karma Runbook çalışanı üzerinde çalışan runbook'ları
 
@@ -157,13 +157,9 @@ Kaydet *verme RunAsCertificateToHybridWorker* runbook bilgisayarınıza bir `.ps
 
 İşlerini biraz farklı karma Runbook çalışanları üzerinde Azure sanal çalıştırdığınızda olduklarından işlenir. Bir anahtar karma Runbook çalışanları üzerinde iş süreye göre bir sınır yoktur farktır. Uzun süre çalışan runbook'unuz varsa, örneğin, karma çalışanı barındıran makine yeniden başlatıldıktan için olası yeniden, esnek sağlamak istiyorsunuz. Karma çalışanı ana makine yeniden başlatılırsa, sonra çalışan bir runbook işi en başından veya PowerShell iş akışı runbook'ları için son denetim noktasından yeniden başlatır. Bir runbook işi birden fazla 3 kez yeniden başlatılırsa, ardından askıya alınmış.
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Karma Runbook çalışanı runbook'larda sorun giderme
+## <a name="troubleshoot"></a>Sorun giderme
 
-Günlükleri yerel olarak her karma çalışanı C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes konumunda depolanır. Karma çalışanları de kayıt hatalarını ve olaylarını Windows olay günlüğünde altında **uygulama ve Hizmetleri Logs\Microsoft-SMA\Operational**. Çalışan üzerinde yürütülen runbook'ları ilgili olayları için yazılır **uygulama ve Hizmetleri Logs\Microsoft-Automation\Operational**. **Microsoft SMA** günlük çalışan ve runbook işleme gönderilen runbook işi ilgili pek çok daha fazla olay içerir. Sırada **Microsoft Otomasyon** olay günlüğü yok birçok olay runbook yürütülmesi gidermeye yardımcı ayrıntılarla, runbook işi sonuçlarını içeren.
-
-[Runbook çıkışı ve iletileri](automation-runbook-output-and-messages.md) Azure Otomasyon karma gönderilen bulutta çalışan runbook işleri gibi çalıştırın. Bu gibi durumlarda, ayrıntılı ve ilerleme akışları ayrıca diğer runbook'lar için olduğu gibi etkinleştirebilirsiniz.
-
-Runbook'larınızın başarıyla tamamlanamamasının ve Özet iş durumunu gösterir **askıya**, sorun giderme makalesi gözden [karma Runbook çalışanı: bir runbook işi askıya alındıdurumuilesonaerer](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended).
+Runbook'larınızın başarıyla tamamlanamamasının ve Özet iş durumunu gösterir **askıya**, gözden geçirin sorun giderme Kılavuzu ' [runbook yürütme hataları](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

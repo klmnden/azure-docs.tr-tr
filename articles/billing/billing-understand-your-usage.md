@@ -1,5 +1,5 @@
 ---
-title: Azure ayrıntılı kullanımınızı anlamak
+title: Azure ayrıntılı kullanımınızı anlamak | Microsoft Docs
 description: Okuma ve ayrıntılı kullanımınızı CSV Azure aboneliğiniz için bölümlerini anlama hakkında bilgi edinin
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 0f698bff1506484e1dd4afe22f7c14e0a710937c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771147"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060809"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure ayrıntılı kullanım ücretlerini koşullarınızda anlama 
 
@@ -59,7 +59,7 @@ Ayrıntılı kullanım CSV dosyasının üst kısmında ayın fatura döneminde 
 |Fiyat |Faturalanabilir birim başına ücret ödersiniz oranı |
 |Değer |Fazla kullanım miktarı sütun oranı sütuna göre çarparak sonucunu gösterir. Tüketilen Miktar dahil edilen miktar aşmadığından, bu sütunda hiçbir ücret yoktur. |
 
-### <a name="daily-usage"></a>Günlük kullanımı
+### <a name="daily-usage"></a>Günlük kullanım
 
 CSV dosyasının günlük kullanım bölümü fatura oranları etkileyen kullanım ayrıntılarını gösterir. Aşağıdaki tabloda terimleri ve bu bölümde gösterilen açıklamaları listeler.
 

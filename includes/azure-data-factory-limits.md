@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: d65c75a9b4f308ddd1bb6a6bff28c52c946e4f05
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 43408ebc65d4acf581b612e8ecfb9d00679cc078
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320041"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37066110"
 ---
 Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak için yerinde aşağıdaki varsayılan sınırları sahip çok kiracılı bir hizmettir. Birçok sınırları kolayca sınırına kadar aboneliğiniz için desteğe başvurarak yükseltilebilir.
 
@@ -35,7 +35,7 @@ Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak i
 | Ardışık Düzen etkinlik çalışması için en büyük zaman aşımı | 7 gün | 7 gün |
 | Ardışık Düzen nesneleri için nesne başına bayt <sup>1</sup> | 200 KB | 200 KB |
 | Veri kümesi için nesne ve bağlantılı hizmet nesneleri başına bayt <sup>1</sup> | 100 KB | 2000 KB |
-| Bulut veri taşıma birimleri Etkinlik başına <sup>3</sup> | 256 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Kopyalama etkinliği çalıştırmak başına veri tümleştirme birim <sup>3</sup> | 256 | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | API çağrıları yazma | 2500/İK<br/><br/> Bu sınır, Azure Resource Manager Azure Data Factory sınırlamasıdır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Okuma API çağrıları | 12.500/İK<br/><br/> Bu sınır, Azure Resource Manager Azure Data Factory sınırlamasıdır. | [Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
@@ -51,14 +51,14 @@ Veri Fabrikası aboneliklerini birbirlerinin iş yüklerini korunan emin olmak i
 | Ardışık Düzen nesneleri için nesne başına bayt <sup>1</sup> |200 KB |200 KB |
 | Veri kümesi için nesne ve bağlantılı hizmet nesneleri başına bayt <sup>1</sup> |100 KB |2000 KB |
 | Bir abonelik içindeki Hdınsight isteğe bağlı küme çekirdeği <sup>2</sup> |60 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
-| Bulut veri taşıma birimleri Etkinlik başına <sup>3</sup> |32 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Bulut kopyalama etkinliği çalıştırmak başına veri taşıma birim <sup>3</sup> |32 |[Desteğe başvurun](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Yeniden deneme sayısı ardışık düzen etkinlik çalışması |1000 |MAXINT (32 bit) |
 
 <sup>1</sup> ardışık düzeni, veri kümesi ve bağlantılı hizmet nesneleri temsil eden İş yükünüzün mantıksal bir gruplandırması. Bu nesneler için sınırları taşıyın ve Azure Data Factory hizmetiyle işlem veri miktarı ile ilgili değildir. Veri Fabrikası petabaytlarca verileri işlemek için ölçeklendirmek için tasarlanmıştır.
 
 <sup>2</sup> isteğe bağlı Hdınsight çekirdek, veri fabrikası içeren abonelik dışında ayrılır. Sonuç olarak, yukarıdaki Data Factory isteğe bağlı Hdınsight çekirdek çekirdek sınırını zorunlu ve Azure aboneliğinizle ilişkili çekirdek sınırına farklıdır sınırlıdır.
 
-<sup>3</sup> bulut veri taşıma birimi (DMU) bir Bulut Bulut kopyalama işleminde kullanılıyor. Veri Fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüsüdür. Bazı senaryolar için daha fazla DMUs kullanarak daha yüksek kopyalama verimlilik elde edebilirsiniz. Başvurmak [bulut veri taşıma birimleri (V2)](../articles/data-factory/copy-activity-performance.md#cloud-data-movement-units) ve [bulut veri taşıma birimleri (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) ayrıntıları bölümü.
+<sup>3</sup> bir Bulut Bulut kopyalama işleminde v2 veri tümleştirme birim (DIU) veya Bulut veri taşıma birim (DMU) V1 kullanılıyor. Veri Fabrikası'nda tek bir birimi (CPU, bellek ve ağ kaynağı ayırma birleşimi) gücünü temsil eden bir ölçüsüdür. Bazı senaryolar için daha fazla DMUs kullanarak daha yüksek kopyalama verimlilik elde edebilirsiniz. Başvurmak [veri tümleştirme birimleri (V2)](../articles/data-factory/copy-activity-performance.md#data-integration-units) ve [bulut veri taşıma birimleri (V1)](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units) ayrıntıları, bölüm ve [Azure Data Factory fiyatlandırma sayfası](https://azure.microsoft.com/pricing/details/data-factory/) uygulanır faturalama için.
 
 <sup>4</sup> tümleştirmesi çalışma zamanı (IR) olan farklı ağ ortamlar genelinde aşağıdaki veri tümleştirme özellikleri sağlamak için Azure Data Factory tarafından kullanılan bilgi işlem altyapısı: veri taşıma etkinlikleri işlem Hizmetleri, gönderme SSIS paketleri yürütme. Daha fazla bilgi için bkz: [tümleştirme çalışma zamanına genel bakış](../articles/data-factory/concepts-integration-runtime.md).
 

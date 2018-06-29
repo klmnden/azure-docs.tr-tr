@@ -10,16 +10,16 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: v-jerkin
-ms.openlocfilehash: ff5b004aaa863dbdfc460a774a5dfd658ce52537
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 53354c0f78419a37e8896bb4d00e0d7aebf32203
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35351430"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060001"
 ---
 # <a name="using-ranking-to-display-results"></a>Sıralama sonuçları görüntülemek için kullanma  
 
-Her varlığın arama yanıtı içeren bir [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-entities-v7-reference#rankingresponse) yanıt, benzer bir Bing Web araması yanıt, arama sonuçlarının nasıl görüntülemelidir belirtir. Derecelendirme yanıt kutbu'na, mainline, içine sonuçları ve kenar çubuğu içeriğini gruplandırır. Kutbu'na sonucu en önemli veya belirgin sonuç ve ilk görüntülenmesi gerekir. Kalan sonuçlarında geleneksel mainline ve kenar biçimi görüntülenmiyorsa kenar çubuğu içeriğini daha mainline içerik daha yüksek görünürlük sağlamanız gerekir. 
+Her varlığın arama yanıtı içeren bir [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse) yanıt, benzer bir Bing Web araması yanıt, arama sonuçlarının nasıl görüntülemelidir belirtir. Derecelendirme yanıt kutbu'na, mainline, içine sonuçları ve kenar çubuğu içeriğini gruplandırır. Kutbu'na sonucu en önemli veya belirgin sonuç ve ilk görüntülenmesi gerekir. Kalan sonuçlarında geleneksel mainline ve kenar biçimi görüntülenmiyorsa kenar çubuğu içeriğini daha mainline içerik daha yüksek görünürlük sağlamanız gerekir. 
   
 Her grup içindeki [öğeleri](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) dizi içeriği görünmelidir sırasını tanımlar. Her öğe içinde bir yanıt sonucu tanımlamak için iki yöntem sunar.  
   

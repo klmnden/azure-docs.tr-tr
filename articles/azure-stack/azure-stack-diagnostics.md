@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: b966ed4f1a9a8e659fbce185a807573d5321b251
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801662"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064047"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure yığın tanılama araçları
 
@@ -46,9 +46,38 @@ Toplanan bazı örnek günlük türleri şunlardır:
 *   **ETW günlükleri**
 
 Bu dosyalar toplanır ve bir paylaşımına izleme toplayıcısı tarafından kaydedilir. **Get-AzureStackLog** PowerShell cmdlet'ini ardından bunları gerekli olduğunda toplamak için kullanılabilir.
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Tümleşik sistemleri Azure yığında Get-AzureStackLog çalıştırmak için 
+Tümleşik bir sistemde oturum koleksiyonu aracını çalıştırmak için erişim için ayrıcalıklı uç noktası (CESARETLENDİRİCİ) olması gerekir. Tümleşik bir sistemde günlükleri toplamak için CESARETLENDİRİCİ kullanarak çalıştırabilirsiniz bir örnek komut dosyası şöyledir:
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- Parametreleri **OutputSharePath** ve **OutputShareCredential** günlükleri harici bir paylaşılan klasöre yüklemek için kullanılır.
+- Önceki örnekte gösterildiği gibi **FromDate** ve **ToDate** parametreleri, belirli bir süre için günlükleri toplamak için kullanılabilir. Bu tümleşik bir sistemde bir güncelleştirme paketini uygulamadan sonra günlükleri toplamayı gibi senaryolar için kullanışlı gelebilir.
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog bir Azure yığın Geliştirme Seti (ASDK) sistemde çalıştırmak için
-1. Olarak oturum **AzureStack\CloudAdmin** ana bilgisayarda.
+1. Olarak oturum açın **AzureStack\CloudAdmin** ana bilgisayarda.
 2. Bir yönetici olarak bir PowerShell penceresi açın.
 3. Çalıştırma **Get-AzureStackLog** PowerShell cmdlet'i.
 
@@ -77,65 +106,6 @@ Bu dosyalar toplanır ve bir paylaşımına izleme toplayıcısı tarafından ka
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>Get-AzureStackLog Azure yığında çalıştırmak için 1804 ve üzeri sistemleri sürüm tümleşik
-
-Tümleşik bir sistemde oturum koleksiyonu aracını çalıştırmak için erişim için ayrıcalıklı uç noktası (CESARETLENDİRİCİ) olması gerekir. Tümleşik bir sistemde günlükleri toplamak için CESARETLENDİRİCİ kullanarak çalıştırabilirsiniz bir örnek komut dosyası şöyledir:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- Parametreleri **OutputSharePath** ve **OutputShareCredential** günlükleri harici bir paylaşılan klasöre yüklemek için kullanılır.
-- Önceki örnekte gösterildiği gibi **FromDate** ve **ToDate** parametreleri, belirli bir süre için günlükleri toplamak için kullanılabilir. Bu tümleşik bir sistemde bir güncelleştirme paketini uygulamadan sonra günlükleri toplamayı gibi senaryolar için kullanışlı gelebilir.
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>Get-AzureStackLog Azure yığında çalıştırmak için sistemleri sürüm 1803 ve önceki tümleşik
-
-Tümleşik bir sistemde oturum koleksiyonu aracını çalıştırmak için erişim için ayrıcalıklı uç noktası (CESARETLENDİRİCİ) olması gerekir. Tümleşik bir sistemde günlükleri toplamak için CESARETLENDİRİCİ kullanarak çalıştırabilirsiniz bir örnek komut dosyası şöyledir:
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- CESARETLENDİRİCİ günlükleri toplamak, belirtmeniz **OutputPath** donanım yaşam döngüsü ana bilgisayar (HLH) makine üzerinde bir konum parametresi. Ayrıca konumu şifrelendiğinden emin olun.
-- Parametreleri **OutputSharePath** ve **OutputShareCredential** isteğe bağlıdır ve harici bir paylaşılan klasöre günlükleri karşıya yükleme sırasında kullanılır. Şu parametreleri kullan *ayrıca* için **OutputPath**. Varsa **OutputPath** belirtilmezse, günlük toplama Aracı'nı CESARETLENDİRİCİ VM sistem sürücüsünde depolama için kullanır. Bu betik sürücü alanı sınırlı olduğu için başarısız olmasına neden olabilir.
-- Önceki örnekte gösterildiği gibi **FromDate** ve **ToDate** parametreleri, belirli bir süre için günlükleri toplamak için kullanılabilir. Bu tümleşik bir sistemde bir güncelleştirme paketini uygulamadan sonra günlükleri toplamayı gibi senaryolar için kullanışlı gelebilir.
-
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK ve tümleşik sistemleri için parametre konuları
 

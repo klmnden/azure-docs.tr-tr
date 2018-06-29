@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dddb29d2a796449d6a2c9b68e01e94f32d3022e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 98f7494c87683eda858da5970e12073ce2204303
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621998"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048296"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory kullanarak Salesforce taşıma verileri
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-salesforce-connector.md)
-> * [Sürüm 2 - Önizleme](../connector-salesforce.md)
+> * [Sürüm 1](data-factory-salesforce-connector.md)
+> * [Sürüm 2 (geçerli sürüm)](../connector-salesforce.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 Salesforce Bağlayıcısı](../connector-salesforce.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 Salesforce Bağlayıcısı](../connector-salesforce.md).
 
 
 Bu makalede kopyalama etkinliği bir Azure data factory havuz sütunu altında listelenen herhangi bir veri deposuna Salesforce verileri kopyalamak için nasıl kullanacağınızı özetlenmektedir [desteklenen kaynakları ve havuzlarını](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tablo. Bu makalede derlemeler [veri taşıma etkinlikleri](data-factory-data-movement-activities.md) desteklenen veri deposu birleşimleri kopyalama etkinliği ile veri taşıma için genel bir bakış sunan makalesi.
@@ -54,7 +54,7 @@ Farklı araçlar/API'lerini kullanarak Salesforce verileri taşır kopyalama etk
 
 Bir işlem hattı oluşturmak için en kolay yolu kullanmaktır **Kopyalama Sihirbazı'nı**. Bkz: [öğretici: Kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma](data-factory-copy-data-wizard-tutorial.md) veri kopyalama Sihirbazı'nı kullanarak bir işlem hattı oluşturma Hızlı Kılavuz.
 
-Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu**, **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
+Bir işlem hattı oluşturmak için aşağıdaki araçları kullanabilirsiniz: **Azure portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager şablonu** , **.NET API**, ve **REST API**. Bkz: [kopyalama etkinliği öğretici](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) kopyalama etkinliği ile işlem hattı oluşturmak adım adım yönergeler için. 
 
 Araçlar ya da API'leri kullanıp bir havuz veri deposu için bir kaynak veri deposundan verileri taşır bir ardışık düzen oluşturmak için aşağıdaki adımları gerçekleştirin: 
 
@@ -288,16 +288,16 @@ Bkz: [RelationalSource türü özellikleri](#copy-activity-properties) Relationa
 | Salesforce türü | . NET tabanlı türü |
 | --- | --- |
 | Otomatik numara |Dize |
-| Onay kutusu |Boole |
-| Para birimi |Çift |
+| onay kutusu |Boole |
+| Para birimi |çift |
 | Tarih |DateTime |
 | Tarih/Saat |DateTime |
 | Email |Dize |
 | Kimlik |Dize |
 | Arama ilişkisi |Dize |
 | Çoklu seçim seçim listesi |Dize |
-| Sayı |Çift |
-| Yüzde |Çift |
+| Sayı |çift |
+| Yüzde |çift |
 | Telefon |Dize |
 | Seçim listesi |Dize |
 | Metin |Dize |

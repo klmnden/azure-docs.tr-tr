@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 67603c04cf7b5f45517d16620e5b79241aaae94d
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7810027e4ab9df6742b4431d12daf9ba2b678bf6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057970"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061818"
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>1.2 sürüm notları, StorSimple 8000 serisi cihazınız için güncelleştirme
 
@@ -54,7 +54,7 @@ Bu özellikler, güncelleştirme 1'de sınırlı sayıda kullanıcılar için ku
   * **İş sürekliliği**, 5000-7000 Serisi uygulamalarıyla 8000 serisi cihazları üzerinde mevcut verilerin geçişini etkinleştirerek.
   * **8000 serisi cihazları özelliği teklifler geliştirilmiş**, verimli Merkezi Yönetimi StorSimple Yöneticisi hizmeti aracılığıyla birden çok Gereçleri gibi daha iyi donanım sınıfı ve güncelleştirilmiş üretici yazılımı, sanal gereçler, veri mobility ve gelecekteki yol haritası özellikleri.
     
-    Başvurmak [Geçiş Kılavuzu](http://www.microsoft.com/download/details.aspx?id=47322) için bir StorSimple geçirmek nasıl 5000-7000 Serisi 8000 serisi aygıtına ayrıntıları. 
+    Başvurmak [Geçiş Kılavuzu](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b) için bir StorSimple geçirmek nasıl 5000-7000 Serisi 8000 serisi aygıtına ayrıntıları. 
 * **Azure kamu portalındaki kullanılabilirlik** – StorSimple artık Azure kamu Portalı'nda kullanılabilir durumdadır. Bkz: nasıl yapılır [Azure kamu portalındaki StorSimple Cihazınızı dağıtma](storsimple-deployment-walkthrough-gov.md).
 * **Diğer bulut hizmeti sağlayıcıları için destek** – Amazon S3, Amazon S3 RRS, HP ve OpenStack (beta) ile desteklenen diğer bulut hizmeti sağlayıcıları şunlardır.
 * **En son depolama API'leri güncelleştirmeye** – bu sürümle birlikte, en son Azure depolama hizmeti API StorSimple güncelleştirildi. Güncelleştirme 1 yazılımı sürümlerini çalıştıran StorSimple 8000 serisi cihazlar (sürüm, 0.1, 0.2 ve 0.3) Azure depolama hizmeti API'leri 17 Temmuz 2009'dan eski sürümlerini kullanan. Güncelleştirilmiş belirtildiği gibi [depolama hizmeti sürümleri kaldırma hakkında bildiri](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx), bu API'leri 1 Ağustos 2016'da kullanım dışı kalacaktır. StorSimple 8000 serisi güncelleştirme 1 ' 1 Ağustos 2016 önce uyguladığınız zorunludur. Bunu yapmak başarısız olursa, StorSimple cihazları düzgün durdurur.

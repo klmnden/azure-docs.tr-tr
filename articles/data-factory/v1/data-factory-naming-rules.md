@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 882b9cbb3cdcba0b574385e6a7ae2c31c24f27a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eb4579c2d94ae610d21b7221c0b410b07268d419
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622433"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051812"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - adlandırma kuralları
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [adlandırma kurallarını sürüm 2 veri fabrikasında](../naming-rules.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [adlandırma kurallarını veri fabrikasında](../naming-rules.md).
 
 Aşağıdaki tabloda için Data Factory yapıtlarının adlandırma kuralları sağlar.
 

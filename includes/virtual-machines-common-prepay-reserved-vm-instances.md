@@ -1,15 +1,15 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 32fdc23aded78ca491fbde2ef5c76247c56d0c4c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313753"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063706"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure ayrılmış VM örnekleri ile sanal makineler için ön ödeme
 
-Sanal makineler için ön ödeme ve Azure ayrılmış sanal makine (VM) örnekleriyle paradan tasarruf. Daha fazla bilgi için bkz: [Azure ayrılmış örnekler teklifi](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+Sanal makineler için ön ödeme ve Azure ayrılmış sanal makine (VM) örnekleriyle paradan tasarruf. Daha fazla bilgi için bkz: [Azure ayrılmış VM örnekleri teklifi](https://azure.microsoft.com/pricing/reserved-vm-instances/).
 
 Azure ayrılmış örnekler satın alabileceğiniz [Azure portal](https://portal.azure.com). Ayrılmış örnek satın almak için:
 -   En az bir kuruluş veya Kullandıkça Öde aboneliğine sahip rolünde olması gerekir.
@@ -50,12 +50,12 @@ Tanımlamak için aşağıda açıklanan yöntemlerden birini kullanmalıdır do
 ## <a name="next-steps"></a>Sonraki adımlar 
 Ayrılmış örnek indirim öznitelikleri ve ayrılmış örnek kapsamını eşleşen sanal makinelerde çalışan sayısı için otomatik olarak uygulanır. Ayrılmış örnek kapsamını güncelleştirebilirsiniz [Azure portal](https://portal.azure.com), PowerShell'i, CLI veya API'si aracılığıyla. 
 
-Ayrılmış örnek yönetme konusunda bilgi almak için bkz: [Azure ayrılmış örnekler yönetmek](../articles/billing/billing-manage-reserved-vm-instance.md).
+Ayrılmış örnek yönetme konusunda bilgi almak için bkz: [yönetmek azure'da ayrılmış örnekler](../articles/billing/billing-manage-reserved-vm-instance.md).
 
 Azure ayrılmış örnekler hakkında daha fazla bilgi edinmek için aşağıdaki makalelere bakın:
 
-- [Ayrılmış örnekler sahip sanal makinelerde paradan tasarruf](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Azure ayrılmış örnekler yönetme](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [Azure ayrılmış VM örnekleri nelerdir?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Azure'da ayrılmış örnekler yönetme](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Ayrılmış örnek indirim nasıl uygulandığını anlama](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Kullandıkça Öde aboneliğiniz için ayrılmış örnek kullanımını anlamak](../articles/billing/billing-understand-reserved-instance-usage.md)
 - [İşletme kaydı için ayrılmış örnek kullanım anlama](../articles/billing/billing-understand-reserved-instance-usage-ea.md)

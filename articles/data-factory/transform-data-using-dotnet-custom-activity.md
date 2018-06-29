@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 345ea6f91593e14ff19616f5512916ee77f38486
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619958"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059112"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-use-custom-activities.md)
-> * [Sürüm 2 - Önizleme](transform-data-using-dotnet-custom-activity.md)
+> * [Sürüm 1](v1/data-factory-use-custom-activities.md)
+> * [Geçerli sürüm](transform-data-using-dotnet-custom-activity.md)
 
 İki tür kullanabileceğiniz bir Azure Data Factory ardışık düzeninde etkinlik yok.
 
@@ -30,10 +30,6 @@ ms.locfileid: "34619958"
 - [Veri dönüştürme etkinlikleri](transform-data.md) verileri dönüştürmek için kullanarak işlem hizmetlerini Azure Hdınsight, Azure Batch ve Azure Machine Learning gibi. 
 
 Taşımak için veri/verileri Data Factory desteklemiyor veya veri fabrikası tarafından desteklenmeyen bir şekilde veri dönüştürme/işlemi için oluşturabileceğiniz depolamak bir **özel etkinlik** kendi veri taşıma veya dönüştürme mantığı ve kullanımı ardışık düzeninde etkinlik. Özel Etkinlik özelleştirilmiş kodu mantığınızı üzerinde çalıştığı bir **Azure Batch** sanal makinelerin havuzu.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [Data Factory sürüm 1 (özel) DotNet etkinliğinde](v1/data-factory-use-custom-activities.md).
- 
 
 Azure Batch hizmetine yeniyseniz makaleleri aşağıdaki bakın:
 
@@ -107,7 +103,7 @@ Aşağıdaki tabloda, adları ve açıklamaları bu etkinliğe özgü özellikle
 | açıklama           | Etkinlik yaptığı açıklayan metin.  | Hayır       |
 | type                  | Özel Etkinlik için etkinlik türüdür **özel**. | Evet      |
 | linkedServiceName     | Azure toplu işlem için bağlı hizmeti. Bu bağlantılı hizmeti hakkında bilgi edinmek için [işlem bağlı Hizmetleri](compute-linked-services.md) makalesi.  | Evet      |
-| komutu               | Yürütülecek özel uygulama komutu. Uygulama zaten Azure Batch havuzu düğüm üzerinde kullanılabilir haldeyse, folderPath ve resourceLinkedService atlanabilir. Örneğin, olması için komutu belirtebilirsiniz `cmd /c dir`, yerel olarak desteklendiği Windows Batch havuzu düğümün. | Evet      |
+| command               | Yürütülecek özel uygulama komutu. Uygulama zaten Azure Batch havuzu düğüm üzerinde kullanılabilir haldeyse, folderPath ve resourceLinkedService atlanabilir. Örneğin, olması için komutu belirtebilirsiniz `cmd /c dir`, yerel olarak desteklendiği Windows Batch havuzu düğümün. | Evet      |
 | resourceLinkedService | Özel uygulama depolandığı depolama hesabı Azure Storage bağlı hizmeti | Hayır       |
 | folderPath            | Özel uygulama ve onun bağımlılıklarını klasör yolu | Hayır       |
 | referenceObjects      | Varolan bağlı hizmetleri ve veri kümeleri dizisi. Özel kod kaynakları Data Factory başvurabilir şekilde başvurulan bağlı hizmetler ve veri kümelerini JSON biçiminde özel uygulama geçirilecek | Hayır       |
@@ -288,7 +284,7 @@ namespace SampleApp
   "failureType": ""
   "target": "MyCustomActivity"
   ```
-Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifadede stdout.txt dosyasının yolunu alabilirsiniz "@activity('MyCustomActivity').output.outputs [0]". 
+Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifadede stdout.txt dosyasının yolunu alabilirsiniz "\@activity('MyCustomActivity').output.outputs [0]". 
 
   > [!IMPORTANT]
   > - Activity.json, linkedServices.json ve datasets.json toplu görev çalışma zamanı klasöründe depolanır. Bu örnekte, activity.json, linkedServices.json ve datasets.json depolanmış "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" yolu. Gerekirse, ayrı ayrı temizlenmesi gerekir. 
@@ -307,7 +303,7 @@ Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifade
   Veri Fabrikası V2 özel etkinliği ve Data Factory sürüm 1 arasındaki farklar (özel) aşağıdaki tabloda açıklanmaktadır DotNet etkinlik: 
 
 
-|Farkları      |sürüm 2 özel etkinlik      | Sürüm 1 (özel) DotNet etkinliği      |
+|Farkları      | Özel Etkinlik      | Sürüm 1 (özel) DotNet etkinliği      |
 | ---- | ---- | ---- |
 |Nasıl özel mantık tanımlanır      |Yürütülebilir bir dosya sağlayarak      |Bir .net DLL uygulayarak      |
 |Özel mantık yürütme ortamı      |Windows veya Linux      |Windows (.Net Framework 4.5.2)      |
@@ -318,7 +314,7 @@ Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifade
 |Günlüğe kaydetme      |STDOUT doğrudan Yazar      |Günlükçü .net DLL uygulama      |
 
 
-  Var olan .net kodu için bir sürüm 1 (özel) DotNet etkinlik yazılmış varsa, kodunuz için 2 özel etkinlik bir sürümüyle çalışacak şekilde değiştirmeniz gerekir. Bu üst düzey yönergeleri izleyerek kodunuzu güncelleştirin:  
+  Var olan .net kodu için bir sürüm 1 (özel) DotNet etkinlik yazılmış varsa, kodunuz için Özel Etkinlik geçerli sürümü ile çalışacak şekilde değiştirmeniz gerekir. Bu üst düzey yönergeleri izleyerek kodunuzu güncelleştirin:  
 
    - Bir .net projesini değiştirebilir Sınıf Kitaplığı'na bir konsol uygulaması. 
    - Uygulamanızla Başlat `Main` yöntemi. `Execute` Yöntemi `IDotNetActivity` arabirimidir artık gerekli. 
@@ -327,7 +323,7 @@ Aşağı Akış etkinlikleri stdout.txt içeriği kullanmak istiyorsanız, ifade
    - Microsoft.Azure.Management.DataFactories NuGet paketi artık gerekli değildir. 
    - Kodunuzu derleyin, Azure depolama alanına yürütülebilir ve bağımlılıklarını yükleme ve yolunda tanımlamak `folderPath` özelliği. 
 
-Nasıl uçtan uca DLL ve ardışık örnek veri fabrikası sürümünde 1 makalede açıklanan tam bir örnek için [bir Azure Data Factory ardışık düzeninde özel etkinlikleri kullanmak](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) Data Factory v2 özel bir etkinlik yazılabilir, bakın[ Veri Fabrikası sürüm 2 özel etkinlik örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Nasıl uçtan uca DLL ve ardışık örnek veri fabrikası sürümünde 1 makalede açıklanan tam bir örnek için [bir Azure Data Factory ardışık düzeninde özel etkinlikleri kullanmak](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) veri fabrikası özel bir etkinlik yazılabilir, bakın[ Veri Fabrikası özel etkinlik örneği](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure batch otomatik olarak ölçeklendirme
 Bir Azure Batch havuzuyla oluşturabilirsiniz **otomatik ölçeklendirme** özelliği. Örneğin, 0 özel VM'ler ve beklemedeki görevlerin sayısına dayalı bir otomatik ölçeklendirme formülü ile bir azure batch havuzu oluşturabilirsiniz. 

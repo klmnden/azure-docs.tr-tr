@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: fa25f16d3ef7ee8c7ec4c0c9ee17ccc89e8c52a2
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
-ms.translationtype: MT
+ms.openlocfilehash: 64e505889ef9472603471d67a961985c1290663a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: HT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321858"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045852"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Özel konuşma hizmet sık sorulan sorular
 
@@ -88,7 +88,7 @@ Daha yüksek ölçek gerekiyorsa bizimle iletişime geçin.
 
 **Soru**: başarısız utterances vardı veri raporu söyler. Sorun nedir?
 
-**Yanıt**: % 100'dosyasında utterences karşıya yüklemek başarısız olan bir sorun değildir.
+**Yanıt**: % 100'dosyasında utterances karşıya yüklemek başarısız olan bir sorun değildir.
 Bir kullanım veya dil veri utterances çoğunluğu ayarlarsanız (örneğin, > % 95) başarıyla içeri veri kümesi kullanışlı olabilir. Ancak, utterances neden geçemediğini anlamak ve sorunları düzeltmek deneyin önerilir. Hataları, biçimlendirme gibi en sık karşılaşılan sorunları düzeltmek kolaydır. 
 
 ## <a name="creating-am"></a>AM oluşturma
@@ -148,7 +148,7 @@ Bu nedenle, bir saat beş veri kümesinden oluşturulan özelleştirilmiş bir a
 **Soru**: yalnızca sözcüklerin listesini karşıya yükleyebilir?
 
 **Yanıt**: sözcüklerin listesini karşıya sözcüklere sözlük için alma ancak sistem nasıl sözcükler genellikle kullanılan öğretmek değildir.
-Tam veya kısmi utterances (cümleleri veya kullanıcıların söylemek büyük olasılıkla şeyleri tümceleri) sağlayarak dil modeli yeni sözcükleri öğrenebilirsiniz ve nasıl kullanılır. Özel dil modeli sistemindeki yeni sözcükleri almak için yalnızca aynı zamanda, uygulamanız için bilinen sözcükler olasılığını ayarlamak için uygundur. Tam utterances sağlama ebtter öğrenin sistemi yardımcı olur. 
+Tam veya kısmi utterances (cümleleri veya kullanıcıların söylemek büyük olasılıkla şeyleri tümceleri) sağlayarak dil modeli yeni sözcükleri öğrenebilirsiniz ve nasıl kullanılır. Özel dil modeli sistemindeki yeni sözcükleri almak için yalnızca aynı zamanda, uygulamanız için bilinen sözcükler olasılığını ayarlamak için uygundur. Tam utterances sağlayarak daha iyi bilgi sistemi yardımcı olur. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 

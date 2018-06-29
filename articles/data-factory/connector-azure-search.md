@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 85c854e697e7178bbdb3429c5384d67731770117
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d31859a2af0402789b03447510d510a9658961de
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335521"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051017"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory kullanarak Azure Search dizini için veri kopyalama
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-azure-search-connector.md)
-> * [Sürüm 2 - Önizleme](connector-azure-search.md)
+> * [Sürüm 1](v1/data-factory-azure-search-connector.md)
+> * [Geçerli sürüm](connector-azure-search.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de Azure Search dizinine verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 Azure Search Bağlayıcısı](v1/data-factory-azure-search-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

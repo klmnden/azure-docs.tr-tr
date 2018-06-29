@@ -1,25 +1,26 @@
 ---
-title: Büyük veri uygulamaları Data Lake Store ile uyumlu | Microsoft Docs
-description: Azure Data Lake Store ile çalışma açık kaynak uygulamaların listesi
+title: Büyük veri uygulamaları Data Lake Storage Gen1 ile uyumlu | Microsoft Docs
+description: Azure Data Lake Storage (daha önce Azure Data Lake deposu da bilinir) Gen1 çalışmak açık kaynak uygulamaların listesi
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fdeaf4d1d25d1669002b696219adfb6eaff4fd40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 61187a26190e8d449a572e00d5abe8338d9060c2
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624713"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029647"
 ---
-# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Azure Data Lake Store ile çalışma açık kaynak büyük veri uygulamaları
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 ile iş açık kaynak büyük veri uygulamaları
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Bu makalede Azure Data Lake Store ile çalışma açık kaynak büyük veri uygulamaları listeler. Aşağıdaki tabloda uygulamaları için yalnızca listelenen dağıtım ile kullanılabilir sürümleri desteklenir. Bu uygulamaların hangi sürümlerinin Hdınsight ile kullanılabilir olduğunu hakkında daha fazla bilgi için bkz: [Hdınsight bileşen sürümü oluşturma](../hdinsight/hdinsight-component-versioning.md).
 
 | Açık kaynak yazılım | Dağıtım |
@@ -38,5 +39,5 @@ Bu makalede Azure Data Lake Store ile çalışma açık kaynak büyük veri uygu
 
 
 ## <a name="see-also"></a>Ayrıca bkz.
-* [Azure Data Lake Store'a Genel Bakış](data-lake-store-overview.md)
+* [Azure Data Lake Storage Gen1 genel bakış](data-lake-store-overview.md)
 

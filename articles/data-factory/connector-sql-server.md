@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: cca35d75f6d5560a621d377ae544eeba41434962
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 7fc4fc42893ec839f3ffbe667e9fcfad944115f5
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316388"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053566"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Azure Data Factory kullanarak SQL Server gelen ve giden veri kopyalama
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-sqlserver-connector.md)
-> * [Sürüm 2 - Önizleme](connector-sql-server.md)
+> * [Sürüm 1](v1/data-factory-sqlserver-connector.md)
+> * [Geçerli sürüm](connector-sql-server.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de gelen ve bir SQL Server veritabanına veri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 SQL Server connector](v1/data-factory-sqlserver-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

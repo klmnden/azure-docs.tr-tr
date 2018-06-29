@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 408f9759262d6ae2193df3193ee1c306d384afe6
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308797"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049120"
 ---
 # <a name="getting-started-with-face-api-in-python-tutorial"></a>Python öğreticide API yüzeyi ile çalışmaya başlama
 
@@ -95,7 +95,7 @@ img.show()
 
 ## <a name='further'></a> Daha fazla araştırması
 
-Daha fazla yüz API keşfetmenize yardımcı olmak için Bu öğretici bir GUI örneğini sağlar. Çalıştırmak için ilk yükleme [wxPython](https://wxpython.org/) ardından aşağıdaki komutları çalıştırın.
+Daha fazla yüz API keşfetmenize yardımcı olmak için Bu öğretici bir GUI örneğini sağlar. Çalıştırmak için ilk yükleme [wxPython](https://wxpython.org/pages/downloads/) ardından aşağıdaki komutları çalıştırın.
 
 ```bash
 git clone https://github.com/Microsoft/Cognitive-Face-Python.git

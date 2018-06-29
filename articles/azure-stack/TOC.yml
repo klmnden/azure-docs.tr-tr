@@ -294,15 +294,15 @@
             - name: Kubernetes küme sunma
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: Kullanım ve faturalandırma
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: Genel Bakış
-              href: azure-stack-billing-and-chargeback.md
             - name: Kullanım yönetmek ve bir CSP faturalama
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: Kiracılar için kullanım ve fatura ekleme
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: Kiracı kayıt yönetme
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: Kiracılar için kullanım ve fatura ekleme
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: Kiracı kayıt yönetme
+                  href: azure-stack-csp-ref-operations.md
             - name: Kullanım ve fatura başvurusu
               items:
                 - name: Kullanım verilerini raporlama

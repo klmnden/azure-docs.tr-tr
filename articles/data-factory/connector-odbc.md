@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f1ab981247191db0abebd67701b07bf48b934292
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 26a1448ddf3f7ffb08ab581b1dad1abfd3ca8e12
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617119"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045152"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>İlk ve son Azure Data Factory kullanarak ODBC veri depolarını veri Kopyala
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-odbc-connector.md)
-> * [Sürüm 2 - Önizleme](connector-odbc.md)
+> * [Sürüm 1](v1/data-factory-odbc-connector.md)
+> * [Geçerli sürüm](connector-odbc.md)
 
 Bu makalede kopya etkinliği Azure Data Factory'de verileri ilk ve son bir ODBC veri deposuna kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 ODBC Bağlayıcısı](v1/data-factory-odata-connector.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

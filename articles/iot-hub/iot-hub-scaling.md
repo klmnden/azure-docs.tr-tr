@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: b7751bd1b309333d5ef40530b0fa499a42a57cd1
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: d77953100bb7007553cf1c5ab00b9cdafea281e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752257"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030446"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Çözümünüz için doğru IOT hub'ı katmanı seçin
 
@@ -43,7 +43,7 @@ IOT hub'ınızı oluşturduğunuzda mevcut işlemlerinizin kesintiye uğratmadan
 | [İzleme ve tanılama](iot-hub-monitor-resource-health.md) | Evet | Evet |
 | [Bulut cihaz Mesajlaşma](iot-hub-devguide-c2d-guidance.md) |   | Evet |
 | [Cihaz çiftlerini](iot-hub-devguide-device-twins.md), [modülü çiftlerini](iot-hub-devguide-module-twins.md) ve [Aygıt Yönetimi](iot-hub-device-management-overview.md) |   | Evet |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Evet |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Evet |
 
 IOT hub'ı aynı zamanda sınama ve değerlendirme için tasarlanmıştır ücretsiz bir katman sağlar. Standart katmanı, ancak sınırlı Mesajlaşma kesintileri tüm özelliklerine sahiptir. Temel veya standart için ücretsiz katmanından yükseltemezsiniz. 
 
@@ -59,9 +59,9 @@ Desteklenen yeteneklerin IOT Hub'ın temel ve standart katmanları arasındaki f
 | Modülü Al | Evet | Evet |
 | [Kayıt defteri istatistiklerini alın](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getdeviceregistrystatistics) | Evet | Evet |
 | [Hizmetleri istatistiklerini alın](https://docs.microsoft.com/en-us/rest/api/iothub/service/service/getservicestatistics) | Evet | Evet |
-| [PUT cihaz](https://docs.microsoft.com/rest/api/iothub/deviceapi/putdevice) | Evet | Evet |
+| [Cihaz güncelle](https://docs.microsoft.com/rest/api/iothub/service/service/createorupdatedevice) | Evet | Evet |
 | PUT Modülü | Evet | Evet |
-| [Sorgu cihazları](https://docs.microsoft.com/rest/api/iothub/deviceapi/querydevices) | Evet | Evet |
+| [IOT hub'ı sorgulama](https://docs.microsoft.com/rest/api/iothub/service/service/queryiothub) | Evet | Evet |
 | Sorgu modülleri | Evet | Evet |
 | [Karşıya dosya yükleme SAS URI'sini oluşturma](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/createfileuploadsasuri) | Evet | Evet |
 | [Bağlı cihaz bildirim alma](https://docs.microsoft.com/en-us/rest/api/iothub/device/device/receivedeviceboundnotification) | Evet | Evet |

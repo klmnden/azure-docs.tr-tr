@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153753"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028906"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Azure Data Lake Store'a erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanın
 
@@ -190,7 +190,7 @@ Tebrikler!  Bir VM MSI kullanarak Data Lake Store dosya sistemi doğruladınız.
 - MSI genel bakış için bkz: [yönetilen hizmet Kimliği'ne genel bakış](msi-overview.md).
 - Yönetimi için Azure Resource Manager operations Data Lake Store kullanır.  Resource Manager kimliğini doğrulamak için bir VM MSI kullanma hakkında daha fazla bilgi için okuma [Resource Manager erişmek için bir Linux VM yönetilen hizmet kimliği (MSI) kullanan](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md).
 - Daha fazla bilgi edinmek [Data Lake Store ile Azure Active Directory'yi kullanarak kimlik doğrulaması](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
-- Daha fazla bilgi edinmek [REST API kullanarak Azure Data Lake Store dosya sistemi işlemleri](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) veya [WebHDFS dosya sistemi API'lerini](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md).
+- Daha fazla bilgi edinmek [REST API kullanarak Azure Data Lake Store dosya sistemi işlemleri](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) veya [WebHDFS dosya sistemi API'lerini](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis).
 - Daha fazla bilgi edinmek [Data Lake Store'da erişim denetimi](~/articles/data-lake-store/data-lake-store-access-control.md).
 
 Geri bildirim sağlamak ve iyileştirmek ve içeriği şekil yardımcı olmak için aşağıdaki açıklamaları bölümü kullanın.

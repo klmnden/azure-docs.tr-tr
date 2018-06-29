@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622822"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053142"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Bir Azure Data Factory işlem hattında özel etkinlikler kullanma
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](data-factory-use-custom-activities.md)
-> * [Sürüm 2 - Önizleme](../transform-data-using-dotnet-custom-activity.md)
+> * [Sürüm 1](data-factory-use-custom-activities.md)
+> * [Sürüm 2 (geçerli sürüm)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [V2 özel etkinlikler](../transform-data-using-dotnet-custom-activity.md).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [V2 özel etkinlikler](../transform-data-using-dotnet-custom-activity.md).
 
 İki tür kullanabileceğiniz bir Azure Data Factory ardışık düzeninde etkinlik yok.
 
@@ -387,7 +387,7 @@ Bu yöntem, özel etkinlikler gelecekte zincir için kullanılan bir sözlüğü
 15. Bir BLOB customactivitycontainer olarak MyDotNetActivity.zip karşıya bir **genel amaçlı** AzureStorageLinkedService tarafından başvurulan Azure blob storage (değil seyrek/cool Blob Depolama).  
 
 > [!IMPORTANT]
-> Visual Studio'da bir Data Factory projesi içeren bir çözüm için bu .NET etkinliği proje ekleyin ve .NET etkinliği projesine bir başvuru veri fabrikası uygulama projesi eklerseniz, el ile zip dosyası oluşturma ve genel amaçlı Azure blob depolama alanına yüklemek son iki adımı gerçekleştirin gerekmez. Visual Studio kullanarak Data Factory varlıklarını yayımladığınızda, yayımlama işlemi tarafından adımları otomatik olarak yapılır. Daha fazla bilgi için bkz: [Visual Studio Data Factory projesindeki](#data-factory-project-in-visual-studio) bölümü.
+> Visual Studio'da bir Data Factory projesi içeren bir çözüm için bu .NET etkinliği proje ekleyin ve .NET etkinliği projesine bir başvuru veri fabrikası uygulama projesi eklerseniz, el ile zip oluşturma son iki adımı gerçekleştirin gerekmez Dosya ve genel amaçlı Azure blob depolama alanına yüklemek. Visual Studio kullanarak Data Factory varlıklarını yayımladığınızda, yayımlama işlemi tarafından adımları otomatik olarak yapılır. Daha fazla bilgi için bkz: [Visual Studio Data Factory projesindeki](#data-factory-project-in-visual-studio) bölümü.
 
 ## <a name="create-a-pipeline-with-custom-activity"></a>Özel etkinliği ile işlem hattı oluşturma
 Özel bir aktivite oluşturulur ve bir blob kapsayıcısını ikililerini zip dosyası karşıya bir **genel amaçlı** Azure depolama hesabı. Bu bölümde, bir Azure data factory özel etkinlik kullanan sahip işlem hattı oluşturun.
@@ -653,7 +653,7 @@ Bu adımda, girdi ve çıktı verilerini temsil edecek veri kümeleri oluşturma
 Bkz: [izleme ve yönetme ardışık düzen](data-factory-monitor-manage-pipelines.md) veri kümelerini ve işlem hatlarını izleme için ayrıntılı adımlar için.      
 
 ## <a name="data-factory-project-in-visual-studio"></a>Visual Studio Data Factory projesi  
-Oluşturma ve Azure portalını kullanarak yerine Visual Studio kullanarak Data Factory varlıklarını yayımlama. Visual Studio kullanarak Data Factory varlıklarını yayımlama, bakın ve ayrıntılı oluşturma hakkında daha fazla bilgi için [Visual Studio kullanarak ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline-using-vs.md) ve [kopyalama verileri Azure Blob'tan Azure SQL'e](data-factory-copy-activity-tutorial-using-visual-studio.md) makaleleri.
+Oluşturma ve Azure portalını kullanarak yerine Visual Studio kullanarak Data Factory varlıklarını yayımlama. Visual Studio kullanarak Data Factory varlıklarını yayımlama, bakın ve ayrıntılı oluşturma hakkında daha fazla bilgi için [Visual Studio kullanarak ilk işlem hattınızı oluşturma](data-factory-build-your-first-pipeline-using-vs.md) ve [kopyalama verileri Azure Blob'tan Azure SQL'e](data-factory-copy-activity-tutorial-using-visual-studio.md) makaleler.
 
 Visual Studio'da veri fabrikası proje oluşturuyorsanız, aşağıdaki ek adımları uygulayın:
  
@@ -706,7 +706,7 @@ Sorun giderme birkaç temel teknikleri oluşur:
    Ayrıca, denetleme **sistem 0.log** sistem hata iletileri ve özel durumlar için.
 4. Dahil **PDB** hata ayrıntılarını bilgileri gibi böylece zip dosyasında dosya **çağrı yığını** bir hata oluştuğunda.
 5. Özel etkinliğin zip dosyasındaki tüm dosyalar alt klasör olmadan **en üst düzeyde** olmalıdır.
-6. Emin **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer/MyDotNetActivity.zip) ve **packageLinkedService** (işaret etmelidir **genel amaçlı**zip dosyasını içeren Azure blob depolama) için doğru değerleri ayarlayın.
+6. Emin **assemblyName** (MyDotNetActivity.dll) **entryPoint**(MyDotNetActivityNS.MyDotNetActivity) **packageFile** (customactivitycontainer / MyDotNetActivity.zip) ve **packageLinkedService** (işaret etmelidir **genel amaçlı**zip dosyasını içeren Azure blob depolama) için doğru değerleri ayarlayın.
 7. Bir hatayı düzelttiyseniz ve dilimi yeniden işlemek istiyorsanız **OutputDataset** dikey penceresindeki dilime sağ tıklayın ve **Çalıştır**’a tıklayın.
 8. Aşağıdaki hata görürseniz, Azure Storage paketi sürümü > 4.3.0 kullanıyor. Veri Fabrikası Başlatıcı WindowsAzure.Storage 4.3 sürümünü gerektirir. Bkz: [Appdomain yalıtım](#appdomain-isolation) bölümünde bir iş-geçici bir çözüm bulmak için Azure Storage derlemenin sonraki bir sürümünü kullanmanız gerekiyorsa. 
 
@@ -721,9 +721,9 @@ Sorun giderme birkaç temel teknikleri oluşur:
     ```
 
     Projeyi derleyin. Sürüm > 4.3.0 Azure.Storage bütünleştirilmiş klasörüne silin. İkili dosyaları ve PDB dosya ile bir zip dosyası oluşturun. Bu bir blob kapsayıcısında (customactivitycontainer) eski zip dosyasını değiştirin. Başarısız olan dilimler yeniden (dilim sağ tıklatın ve Çalıştır'ı tıklatın).   
-8. Özel Etkinlik kullanmayan **app.config** paketinizi dosyasından. Bu nedenle, kodunuzu yapılandırma dosyasından bağlantı dizelerini yazıyorsa, çalışma zamanında çalışmıyor. Azure Batch kullanarak tüm gizli tutmak için olduğunda en iyi uygulama bir **Azure KeyVault**, korumak için bir sertifika tabanlı hizmet asıl adı kullanmasını **keyvault**ve Azure Batch havuzu sertifikaya dağıtın. Böylece .NET özel etkinliği çalıştırma sırasında KeyVault’tan parolalara erişebilir. Bu çözüm genel bir çözümdür ve gizli anahtarı, yalnızca bağlantı dizesi herhangi bir türde ölçeklendirebilirsiniz.
+8. Özel Etkinlik kullanmayan **app.config** paketinizi dosyasından. Bu nedenle, kodunuzu yapılandırma dosyasından bağlantı dizelerini yazıyorsa, çalışma zamanında çalışmıyor. Azure Batch kullanarak tüm gizli tutmak için olduğunda en iyi uygulama bir **Azure KeyVault**, korumak için bir sertifika tabanlı hizmet asıl adı kullanmasını **keyvault**ve Azure Batch sertifikaya dağıtın havuzu. Böylece .NET özel etkinliği çalıştırma sırasında KeyVault’tan parolalara erişebilir. Bu çözüm genel bir çözümdür ve gizli anahtarı, yalnızca bağlantı dizesi herhangi bir türde ölçeklendirebilirsiniz.
 
-   Daha kolay bir çözüm (ancak en iyi yöntem değildir): oluşturabileceğiniz bir **Azure SQL bağlı hizmeti** bağlantı dizesi ayarlarıyla bağlantılı hizmet kullanan bir veri kümesi oluşturma ve sahte bir giriş veri kümesi için özel .NET etkinlik olarak dataset zincir. Özel Etkinlik kodu bağlantılı hizmetin bağlantı dizesinde daha sonra erişebilirsiniz.  
+   Daha kolay bir çözüm (ancak en iyi yöntem değildir): oluşturabileceğiniz bir **Azure SQL bağlı hizmeti** bağlantı dizesi ayarlarıyla bağlantılı hizmet kullanan bir veri kümesi oluşturma ve sahte bir giriş veri kümesi olarak dataset zincir Özel .NET etkinliği. Özel Etkinlik kodu bağlantılı hizmetin bağlantı dizesinde daha sonra erişebilirsiniz.  
 
 ## <a name="update-custom-activity"></a>Özel Etkinlik güncelleştirme
 Özel Etkinlik için kod güncelleştirirseniz, onu oluşturmak ve blob depolama birimine yeni ikili dosyaları içeren zip dosyasını karşıya yükleyin.

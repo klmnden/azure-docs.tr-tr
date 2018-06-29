@@ -11,29 +11,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: c5ec07603088edd3f95f08f12b6982022b396d05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e34b0823b7f10455ac0b66fb0614d3946f2382e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618496"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059176"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory kopyalama etkinliği
 
 ## <a name="overview"></a>Genel Bakış
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-data-movement-activities.md)
-> * [Sürüm 2 - Önizleme](copy-activity-overview.md)
+> * [Sürüm 1](v1/data-factory-data-movement-activities.md)
+> * [Geçerli sürüm](copy-activity-overview.md)
 
 Azure Data Factory'de veri arasında veri depoları şirket içinde ve bulutta kopyalamak için kopyalama etkinliği kullanabilirsiniz. Verileri kopyaladıktan sonra daha fazla dönüştürülen ve analiz edilebilir. Kopyalama etkinliği, dönüştürme ve iş zekası (BI) ve uygulama tüketimi için çözümleme sonuçlarını yayımlamak için de kullanabilirsiniz.
 
 ![Kopyalama etkinliği rolü](media/copy-activity-overview/copy-activity.png)
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 Kopyalama Etkinliği yürütüldüğünde bir [tümleştirmesi çalışma zamanı](concepts-integration-runtime.md). Farklı veri kopyalama senaryosu için Integration zamanının farklı özellik de kullanılabilir:
 
@@ -114,7 +111,7 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
                 "type": "TabularTranslator",
                 "columnMappings": "<column mapping>"
             },
-            "cloudDataMovementUnits": <number>,
+            "dataIntegrationUnits": <number>,
             "parallelCopies": <number>,
             "enableStaging": true/false,
             "stagingSettings": {
@@ -140,7 +137,7 @@ Aşağıdaki şablonu kopyalama etkinliği, desteklenen özelliklerin kapsamlı 
 | source | Kopya kaynak türü ve karşılık gelen özelliklere verileri nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
 | Havuz | Kopya Havuz türü ve karşılık gelen özelliklere veri yazma nasıl belirtin.<br/><br/>Bağlayıcı makalesinde listelenen "etkinlik özellikleri Kopyala" bölümünden daha ayrıntılı bilgi [desteklenen veri depoları ve biçimleri](#supported-data-stores-and-formats). | Evet |
 | Translator | Kaynak havuzu için açıkça bir sütun eşlemelerini belirtin. Varsayılan kopyalama davranışını gereksiniminizi gerçekleştirilemiyor uygulanır.<br/><br/>Ayrıntıları öğrenmek [şema ve veri türü eşlemesi](copy-activity-schema-and-type-mapping.md). | Hayır |
-| cloudDataMovementUnits | Powerfulness belirtin [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri kopyalama güçlendirmeniz.<br/><br/>Ayrıntıları öğrenmek [bulut veri taşıma birimleri](copy-activity-performance.md). | Hayır |
+| dataIntegrationUnits | Powerfulness belirtin [Azure tümleştirmesi çalışma zamanı](concepts-integration-runtime.md) veri kopyalama güçlendirmeniz. Eski veri taşıma birimler (DMU) bulut olarak bilinir. <br/><br/>Ayrıntıları öğrenmek [veri tümleştirme birimleri](copy-activity-performance.md#data-integration-units). | Hayır |
 | parallelCopies | Havuz için veri kaynağı ve veri yazma ait okurken kullanılacak kopyalama etkinliği istediğiniz paralellik belirtin.<br/><br/>Ayrıntıları öğrenmek [paralel kopyalama](copy-activity-performance.md#parallel-copy). | Hayır |
 | enableStaging<br/>stagingSettings | Geçici verileri doğrudan kopyalama veri havuzu kaynağından yerine aa blob storage'da hazırlamak bu seçeneği seçin.<br/><br/>Yararlı senaryoları ve yapılandırma ayrıntılarını öğrenmek [kopyalama hazırlanan](copy-activity-performance.md#staged-copy). | Hayır |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Uyumsuz satır veri havuzu kaynağından kopyalarken ne yapılacağını seçin.<br/><br/>Ayrıntıları öğrenmek [hataya dayanıklılık](copy-activity-fault-tolerance.md). | Hayır |
@@ -173,8 +170,8 @@ Kopya etkinliği yürütme ayrıntıları ve performans özellikleri de döndür
 
 | Özellik adı  | Açıklama | Birim |
 |:--- |:--- |:--- |
-| DataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
-| DataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
+| dataRead | Kaynaktan okunan veri boyutu | Int64 değeri **bayt** |
+| dataWritten | Havuz için yazılan veri boyutu | Int64 değeri **bayt** |
 | filesRead | Dosya depolama biriminden veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | filesWritten | Dosya depolama alanına veri kopyalama işlemi sırasında kopyalanan dosyaların sayısıdır. | Int64 değeri (birim) |
 | rowsCopied | (İkili kopyası için geçerli değil) kopyalanmasını satır sayısını belirtir. | Int64 değeri (birim) |
@@ -185,7 +182,7 @@ Kopya etkinliği yürütme ayrıntıları ve performans özellikleri de döndür
 | redshiftUnload | UNLOAD Redshift veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
 | hdfsDistcp | Distcp'yi HDFS veri kopyalama işlemi sırasında kullanılıyorsa. | Boole |
 | effectiveIntegrationRuntime | Etkinliğin çalışma, biçiminde güçlendirmeniz tümleştirme Runtime(s) kullanılan Göster `<IR name> (<region if it's Azure IR>)`. | Metin (dize) |
-| usedCloudDataMovementUnits | Kopyalama sırasında etkili bulut veri taşıma birimleri. | Int32 değeri |
+| usedDataIntegrationUnits | Kopyalama sırasında etkili veri tümleştirme birimleri. | Int32 değeri |
 | usedParallelCopies | Kopyalama sırasında etkin parallelCopies. | Int32 değeri|
 | redirectRowPath | Blob depolama Atlanan uyumsuz satır günlük yolu "redirectIncompatibleRowSettings" altında yapılandırın. Örneğe bakın. | Metin (dize) |
 | executionDetails | Kopyalama etkinliği, geçer aşamaları ve ilgili adımlarda, süre, kullanılan yapılandırmaları, vb. hakkında daha ayrıntılı bilgi. Bu, değişiklik gösterebileceği için bu bölümde ayrıştırmak için önerilmez. | Dizi |
@@ -200,7 +197,7 @@ Kopya etkinliği yürütme ayrıntıları ve performans özellikleri de döndür
     "throughput": 467707.344,
     "errors": [],
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedCloudDataMovementUnits": 32,
+    "usedDataIntegrationUnits": 32,
     "usedParallelCopies": 8,
     "executionDetails": [
         {
@@ -213,7 +210,7 @@ Kopya etkinliği yürütme ayrıntıları ve performans özellikleri de döndür
             "status": "Succeeded",
             "start": "2018-01-17T15:13:00.3515165Z",
             "duration": 221,
-            "usedCloudDataMovementUnits": 32,
+            "usedDataIntegrationUnits": 32,
             "usedParallelCopies": 8,
             "detailedDurations": {
                 "queuingDuration": 2,
@@ -237,10 +234,10 @@ Varsayılan olarak, kopyalama etkinliği veri kopyalama durdurur ve kaynak ve ha
 Bkz: [kopyalama etkinliği performans ve ayarlama Kılavuzu](copy-activity-performance.md), Azure Data factory'de veri taşımayı (kopyalama etkinliği) performansını etkileyen önemli faktör açıklar. Ayrıca, iç test sırasında gözlemlenen performans listeler ve kopyalama etkinliği performansını iyileştirmek için çeşitli yollar ele alınmaktadır.
 
 ## <a name="incremental-copy"></a>Artımlı kopya 
-Veri Fabrikası sürüm 2, artımlı olarak delta veri kaynağına veri deposundan hedef veri deposuna kopyalamak için senaryolarını destekler. Bkz: [Öğreticisi: artımlı olarak veri kopyalama](tutorial-incremental-copy-overview.md). 
+Veri Fabrikası artımlı olarak delta veri kaynağına veri deposundan hedef veri deposuna kopyalamak için senaryolarını destekler. Bkz: [Öğreticisi: artımlı olarak veri kopyalama](tutorial-incremental-copy-overview.md). 
 
 ## <a name="read-and-write-partitioned-data"></a>Bölümlenmiş verilerini okuma ve yazma
-Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Sürüm 2'de, ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat parametresinin değeri kullanarak bu davranışı elde edebilirsiniz. Daha fazla bilgi için bkz: [veri okumak veya yazmak nasıl bölümlenmiş](how-to-read-write-partitioned-data.md).
+Sürüm 1'de, Azure Data Factory veri okunurken veya bölümlenmiş SliceStart/SliceEnd/WindowStart/WindowEnd sistem değişkenleri kullanılarak yazılırken desteklenir. Geçerli sürümde parametresinin değeri bir ardışık düzen parametre ve tetikleyici başlangıç saati ve zamanlanan saat'ı kullanarak bu davranışı elde edebilirsiniz. Daha fazla bilgi için bkz: [veri okumak veya yazmak nasıl bölümlenmiş](how-to-read-write-partitioned-data.md).
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Aşağıdaki quickstarts, öğreticiler ve örnekleri bakın:

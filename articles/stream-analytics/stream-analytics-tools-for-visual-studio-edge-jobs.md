@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/13/2018
-ms.openlocfilehash: ec916ea2104df9d694aad2462df7ca5a487017f2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cfdfa1493857a1731da74c52a616293b482f811a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907767"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030701"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Visual Studio Araçları'nı kullanarak Stream Analytics kenar işleri geliştirin
 
@@ -61,15 +61,15 @@ Proje oluşturulduğunu sonra gidin **Çözüm Gezgini** klasör hiyerarşisini 
 2. Havuz seçmek için ayarlandığından emin olun **kenar Hub** > olayı seri hale getirme biçimi kümesine **Json** > ve kodlama ayarlanmış **UTF8** > ve biçim ayarlanmış  **Dizi**. İsteğe bağlı olarak adlandırabilirsiniz **çıkış diğer adları**, şimdi bu örnekte olduğu gibi bırakın. Çıkış diğer yeniden adlandırmak durumda sorgu tanımlarken, belirtilen adı kullanın. Ayarları kaydetmek için **Kaydet**’i seçin. 
    ![Çıktı yapılandırma](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
-## <a name="define-the-transformation-query"></a>Dönüştürme sorgusunu tanımlayın
+## <a name="define-the-transformation-query"></a>Dönüşüm sorgusunu tanımlama
 
 Akış analizi işleri kenar ortamlarında destek çoğunu [Stream Analytics sorgu dili başvurusu](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396), ancak aşağıdaki işlemleri kenar işleri henüz desteklenmiyor: 
 
 
 |**Kategori**  | **Komut**  |
 |---------|---------|
-|Jeo-uzamsal işleçleri |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
-|Diğer işleçleri | <ul><li>BÖLÜM</li><li>ÜZERİNDEN ZAMAN DAMGASI</li><li>DISTINCT</li><li>COUNT işleci ifade parametresi</li><li>Tarih ve saat işlevleri milisaniyeye</li><li>JavaScript UDA'yı (hala bulutta dağıtılan işleri için Önizleme'de bu özellik kullanılabilir)</li></ul>   |
+|Jeo-uzamsal işleçler |<ul><li>CreatePoint</li><li>CreatePolygon</li><li>CreateLineString</li><li>ST_DISTANCE</li><li>ST_WITHIN</li><li>ST_OVERLAPS</li><li>ST_INTERSECTS</li></ul> |
+|Diğer işleçleri | <ul><li>BÖLÜM</li><li>ÜZERİNDEN ZAMAN DAMGASI</li><li>FARKLI</li><li>COUNT işleci ifade parametresi</li><li>Tarih ve saat işlevleri milisaniyeye</li><li>JavaScript UDA'yı (hala bulutta dağıtılan işleri için Önizleme'de bu özellik kullanılabilir)</li></ul>   |
 
 Portalda bir kenar işi oluşturduğunuzda, derleyici otomatik olarak desteklenen bir işleç kullanmıyorsanız sizi uyarır.
 
@@ -123,6 +123,6 @@ Proje Görünümü penceresi Azure portal vb. işi açma işini silme işi, yeni
 
 ## <a name="next-steps"></a>Sonraki adımlar
 
-* [Azure IOT kenar hakkında daha fazla bilgi](../iot-edge/how-iot-edge-works.md)
+* [Azure IOT kenar hakkında daha fazla bilgi](../iot-edge/about-iot-edge.md)
 * [ASA IOT kenar öğretici hakkında](../iot-edge/tutorial-deploy-stream-analytics.md)
 * [Bu Anketi kullanılarak ekibine geri bildirim gönderin](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 

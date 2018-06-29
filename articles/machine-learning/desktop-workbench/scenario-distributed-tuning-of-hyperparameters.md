@@ -4,19 +4,19 @@ description: Bu senaryo Azure Machine Learning çalışma ekranı kullanarak hyp
 services: machine-learning
 author: pechyony
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: c6eccda4329572a181b6a7e7e3870ace4bfac13b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6347500b8968394a922969dd3dd2f00dd51cb6dd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832756"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036430"
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Azure Machine Learning çalışma ekranı kullanarak hyperparameters ayarlama dağıtılmış
 
@@ -157,9 +157,9 @@ Bundan sonra dataset kapsayıcı listeden seçin ve karşıya yükleme düğmesi
 
 Dosyaları karşıya yükleme Internet bağlantınızın bağlı olarak birkaç dakika sürer. 
 
-Bizim kodda kullanırız [Azure depolama SDK'sı](https://azure-storage.readthedocs.io/en/latest/) dataset geçerli yürütme ortamı için blob depolama alanından indirmek için. Karşıdan yükleme gerçekleştirilen\_load_data.py dosyasından data() işlevi. Bu kodu kullanmak için < ACCOUNT_NAME > değiştirmeniz gerekiyor ve < ACCOUNT_KEY > adı ile dataset barındıran depolama hesabınızın birincil anahtar. Depolama hesabınızın Azure sayfasının sol üst köşesinde hesap adında görebilirsiniz. Hesap almak için depolama Azure sayfasındaki anahtar, select erişim tuşları (veri alımı bölümündeki ilk ekran görüntüsüne bakın) hesap ve ardından uzun bir dize anahtar sütunun ilk satırında kopyalayın:
+Bizim kodda kullanırız [Azure depolama SDK'sı](https://docs.microsoft.com/en-us/python/azure/) dataset geçerli yürütme ortamı için blob depolama alanından indirmek için. Karşıdan yükleme gerçekleştirilen\_load_data.py dosyasından data() işlevi. Bu kodu kullanmak için < ACCOUNT_NAME > değiştirmeniz gerekiyor ve < ACCOUNT_KEY > adı ile dataset barındıran depolama hesabınızın birincil anahtar. Depolama hesabınızın Azure sayfasının sol üst köşesinde hesap adında görebilirsiniz. Hesap almak için depolama Azure sayfasındaki anahtar, select erişim tuşları (veri alımı bölümündeki ilk ekran görüntüsüne bakın) hesap ve ardından uzun bir dize anahtar sütunun ilk satırında kopyalayın:
  
-![Erişim anahtarı](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
+![erişim anahtarı](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 
 Aşağıdaki kod load_data() işlevden tek bir dosya yükler:
 
@@ -213,7 +213,7 @@ Xgboost sahip açıklanan sekiz hyperparameters [burada](https://github.com/dmlc
 * learning_rate
 * colsample\_by_level
 * subsample
-* Hedefi  
+* hedefi  
  
 Başlangıçta, uzak DSVM kullanır ve küçük bir kılavuz adayı değerlerin gelen hyperparameters ince ayar:
 

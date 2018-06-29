@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 44abf7a4fc24893146179b34d3357f54450decab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365153"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051534"
 ---
 # <a name="azure-database-security-overview"></a>Azure veritabanı güvenliğine genel bakış
 
@@ -69,7 +69,7 @@ Veritabanını güvenli hale getirmek için bazı önlemler alabilir. Örneğin,
 
 Bir veritabanındaki hassas verileri şifrelemek ve bir sertifika ile verileri şifrelemek için kullanılan anahtarları korumak için bir çözümdür. Bu çözüm herkes anahtarları olmadan verileri kullanmasını engeller, ancak bu tür bir koruma planlanmalıdır.
 
-Bu sorun, SQL Server ve SQL veritabanı desteği çözmek için [saydam veri şifreleme](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde). Saydam veri şifreleme rest şifreleme verileri olarak bilinen SQL Server ve SQL veritabanı veri dosyalarını şifreler.
+Bu sorun, SQL Server ve SQL veritabanı desteği çözmek için [saydam veri şifreleme](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017). Saydam veri şifreleme rest şifreleme verileri olarak bilinen SQL Server ve SQL veritabanı veri dosyalarını şifreler.
 
 Saydam veri şifreleme, kötü amaçlı etkinliği tehdide karşı korunmasına yardımcı olur. Gerçek zamanlı şifreleme ve şifre çözme veritabanının, ilişkili yedeklemelerinizi ve geri kalan işlem günlüğü dosyalarını uygulamasında yapılacak değişiklikler gerek kalmadan gerçekleştirir.  
 

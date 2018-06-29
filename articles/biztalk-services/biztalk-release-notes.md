@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633824"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063551"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services için sürüm notları
 
@@ -42,7 +42,7 @@ Microsoft Azure BizTalk Services için sürüm notları bu sürümdeki bilinen s
     Bkz: [kaydetme ve BizTalk hizmeti dağıtımını BizTalk Güncelleştirme Hizmetleri portalı](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
 
 ### <a name="august-14-update"></a>14 Ağustos güncelleştirme
-* Şimdi sözleşmesi ve ayırma – ticari ortak sözleşmeleri ve köprüleri köprüsü BizTalk Services Portalı'nda birbirinden ayrılır. Şimdi anlaşmalar ve köprüleri ayrı ayrı oluşturduğunuzda ve çalışma zamanında köprüleri EDI ileti değerlere dayalı olarak bir anlaşması çözümlenemiyor. Bkz: [Azure BizTalk Services oluşturma sözleşmelerde](https://msdn.microsoft.com/library/azure/hh689908.aspx), [BizTalk Services Portalı'nı kullanarak bir EDI köprüsü oluşturma](https://msdn.microsoft.com/library/azure/dn793986.aspx), [BizTalk Services Portalı'nı kullanarak bir AS2 köprüsü oluşturma](https://msdn.microsoft.com/library/azure/dn793993.aspx), ve [nasıl köprüleri çözümlemek çalışma zamanında anlaşmaları?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Şimdi sözleşmesi ve ayırma – ticari ortak sözleşmeleri ve köprüleri köprüsü BizTalk Services Portalı'nda birbirinden ayrılır. Şimdi anlaşmalar ve köprüleri ayrı ayrı oluşturduğunuzda ve çalışma zamanında köprüleri EDI ileti değerlere dayalı olarak bir anlaşması çözümlenemiyor. Bkz: [Azure BizTalk Services oluşturma sözleşmelerde](https://msdn.microsoft.com/library/azure/hh689908.aspx), [BizTalk Services Portalı'nı kullanarak bir EDI köprüsü oluşturma](https://msdn.microsoft.com/library/azure/dn793986.aspx), [BizTalk Services Portalı'nı kullanarak bir AS2 köprüsü oluşturma](https://msdn.microsoft.com/library/azure/dn793993.aspx)ve [ Köprüleri anlaşmaları çalışma zamanında nasıl çözmek?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
 * Anlaşmaları için şablonlar oluşturma seçeneğini kesilir.  
 * Gönderme tarafı anlaşma için farklı sınırlayıcı kümeleri her şema için artık belirtebilirsiniz. Bu yapılandırma, gönderme tarafı anlaşması Protokolü Ayarları altında belirtilir. Daha fazla bilgi için bkz: [oluşturma X12 bir Azure BizTalk Services anlaşmasında](https://msdn.microsoft.com/library/azure/hh689847.aspx) ve [Azure BizTalk Services ' bir EDIFACT sözleşmesi oluşturun](https://msdn.microsoft.com/library/azure/dn606267.aspx). İki yeni varlıklar, aynı amaçla TPM OM API'sine de eklenir. Bkz: [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) ve [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
 * Türetilmiş türler dahil olmak üzere standart XSD yapıları artık desteklenmektedir. Bkz: [kullanım standart XSD oluşturur, maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) ve [kullanım türetilmiş türlerini eşleme senaryoları ve örnekler](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
@@ -66,17 +66,17 @@ BizTalk Services proje bir Visual Studio çözümüne ile aşağıdaki durumlar 
   Dosya kopyalanamıyor <Path to DLL> "bin\Debug\FileName.dll" için. Başka bir işlem tarafından kullanıldığından işlem 'bin\Debug\FileName.dll' dosyasına erişemiyor.  
 
 #### <a name="workaround"></a>Geçici çözüm
-* Varsa [Visual Studio 2012 güncelleştirme 3'ü](https://www.microsoft.com/download/details.aspx?id=39305) olan yüklü, aşağıdaki iki seçeneğiniz vardır:
+* Varsa [Visual Studio 2012 güncelleştirme 3'ü](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) olan yüklü, aşağıdaki iki seçeneğiniz vardır:
   
   * Visual Studio'yu yeniden başlatın veya
   * Çözümü yeniden başlatın. Sonra yalnızca bir yapı çözümü gerçekleştirin.  
-* Varsa [Visual Studio 2012 güncelleştirme 3'ü](https://www.microsoft.com/download/details.aspx?id=39305) yüklenen, açık Görev Yöneticisi, İşlemler sekmesinde MSBuild.exe işlemi'ı tıklatın ve işlemi Sonlandır düğmesini tıklatın.  
+* Varsa [Visual Studio 2012 güncelleştirme 3'ü](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) yüklenen, açık Görev Yöneticisi, İşlemler sekmesinde MSBuild.exe işlemi'ı tıklatın ve işlemi Sonlandır düğmesini tıklatın.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>Yazdırılamayan karakterler HTTP üst bilgileri olarak yükselttiyseniz BasicHttpRelay Uç noktalara yönlendirme köprüleri ve BizTalk Services portalı desteklenmiyor
 İletiler için yükseltilen özelliklerinin bir parçası yazdırılamayan karakterleri kullanırsanız, bu iletiler BasicHttpRelay bağlamayı kullanan geçiş hedeflere yönlendirilemez. İzleme bir parçası olarak BLOB'lar için URL olarak kodlanmış ve beklemediğiniz kodlanmış hedefler için de, yükseltilen özellikleri, kullanılabilir.  
 
 ### <a name="mdn-is-sent-asynchronously-even-if-the-send-asynchronous-mdn-option-is-unchecked"></a>Gönderme zaman uyumsuz MDN seçeneği işaretli olsa bile MDN zaman uyumsuz olarak gönderilir
-Seçerseniz bu senaryoyu – göz önünde bulundurun **gönderme zaman uyumsuz MDN** onay kutusunu ve zaman uyumsuz MDN göndermek için bir URL belirtin ve ardından işaretini **gönderme zaman uyumsuz MDN** onay kutusunu yeniden MDN hala gönderilir belirtilen URL'ye zaman uyumsuz MDNs gönderme seçeneği seçilmemiş olsa da.  
+Seçerseniz bu senaryoyu – göz önünde bulundurun **gönderme zaman uyumsuz MDN** onay kutusunu ve zaman uyumsuz MDN göndermek için bir URL belirtin ve ardından onay kutusunu temizleyin **gönderme zaman uyumsuz MDN** onay kutusunu yeniden MDN hala gönderildi zaman uyumsuz MDNs gönderme seçeneği seçilmemiş olsa da URL belirtildi.  
 Geçici bir çözüm olarak, belirtilen URL işaretleyerek önce temizlemeniz gerekir **gönderme zaman uyumsuz MDN** onay kutusunu ve ardından AS2 sözleşmesi dağıtın.  
 
 ### <a name="whitespace-characters-beyond-a-valid-interchange-cause-an-empty-message-to-be-sent-to-the-suspend-endpoint"></a>Geçerli bir değişim ötesinde boşluk karakterleri askıya alma uç noktasına gönderilecek boş bir iletiyi neden
@@ -108,7 +108,7 @@ Aşağıdaki sırayla bir senaryoyu düşünün:
 * .Bcs dosyasını (Visual Studio sekmede kapatarak) değişiklikleri kaydetmeden kapatın.  
 * .Bcs dosyasını yeniden Çözüm Gezgini'nden açın.  
   İlişkili .bridgeconfig dosyanın belirtilen yeni ad sahipken, varlık adı tasarım yüzeyine hala eski adı olduğunu fark edeceksiniz. Köprü yapılandırması köprüsü bileşen çift tıklayarak dosyayı açmaya çalışırsanız aşağıdaki hatayı alıyorsunuz:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`Bu senaryo içine çalışmasını önlemek için BizTalk hizmeti projesini varlıklarda yeniden adlandırdıktan sonra değişiklikleri kaydetmek emin olun.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Bu senaryo içine çalışmasını önlemek için BizTalk hizmeti projesini varlıklarda yeniden adlandırdıktan sonra değişiklikleri kaydetmek emin olun.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>Bir yapı bir Visual Studio Proje dışlanan olsa bile BizTalk hizmeti projesini başarıyla derlemeler
 Visual Studio projesinden hariç tutmak ve (örneğin, bir istek iletisi türü belirterek) köprü yapılandırmasında, yapı içerir veya bir BizTalk hizmeti projesine bir yapı (örneğin, bir XSD dosyası) eklediğiniz bir senaryoyu düşünün. Silinen yapı konumundaki burada Visual Studio projeye eklendi aynı diskteki kullanılabilir olduğu sürece böyle bir durumda projeyi oluşturmayı herhangi bir hata veremezsiniz.

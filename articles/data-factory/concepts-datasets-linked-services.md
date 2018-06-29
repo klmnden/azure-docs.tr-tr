@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616014"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044985"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Veri kümelerini ve Azure Data Factory öğesinde bağlantılı hizmet 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Sürüm 1 - Genel Kullanım](v1/data-factory-create-datasets.md)
-> * [Sürüm 2 - Önizleme](concepts-datasets-linked-services.md)
+> * [Sürüm 1](v1/data-factory-create-datasets.md)
+> * [Geçerli sürüm](concepts-datasets-linked-services.md)
 
-Bu makalede hangi veri kümeleri, JSON biçiminde nasıl tanımlanan açıklanmıştır ve içinde kullanılan nasıl Azure veri fabrikası V2 ardışık düzenleri. 
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [veri fabrikası V1 kümelerinde](v1/data-factory-create-datasets.md).
+Bu makalede hangi veri kümeleri, JSON biçiminde nasıl tanımlanan açıklanmıştır ve Azure Data Factory içinde kullanılan nasıl ardışık düzenleri. 
 
 Data factory'yi yeni istiyorsanız bkz [Azure Data Factory'ye giriş](introduction.md) bir genel bakış. 
 
@@ -193,7 +190,7 @@ Her sütun yapısı içinde aşağıdaki özellikleri içerir:
 -------- | ----------- | --------
 ad | Sütunun adı. | Evet
 type | Sütunun veri türü. Veri Fabrikası izin verilen değerler olarak aşağıdaki geçici veri türlerini destekler: **Int16, Int32, Int64, tek, Double, Decimal, bayt [], Boolean, dize, GUID, Datetime, Datetimeoffset ve Timespan** | Hayır
-Kültür | . Tür .NET türü olduğunda kullanılacak NET tabanlı kültürü: `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. | Hayır
+kültür | . Tür .NET türü olduğunda kullanılacak NET tabanlı kültürü: `Datetime` veya `Datetimeoffset`. Varsayılan değer `en-us`. | Hayır
 Biçimi | Biçim türü .NET türü olduğunda kullanılacak dize: `Datetime` veya `Datetimeoffset`. Başvurmak [özel tarih ve saat biçim dizeleri](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) datetime biçimine üzerinde. | Hayır
 
 ### <a name="example"></a>Örnek
@@ -220,13 +217,13 @@ Aşağıdaki yönergeleri yapısı bilgileri içerecek şekilde ne zaman ve ne e
 ## <a name="create-datasets"></a>Veri kümeleri oluşturma
 Bu araçları veya Sdk'lardan birini kullanarak veri kümeleri oluşturabilirsiniz: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager şablonu ve Azure portalı
 
-## <a name="v1-vs-v2-datasets"></a>V1 vs. V2 veri kümeleri
+## <a name="current-version-vs-version-1-datasets"></a>Sürüm 1 veri kümeleri ve geçerli sürüm
 
-Veri Fabrikası v1 ve v2 veri kümeleri arasındaki bazı farklar aşağıda verilmiştir: 
+Data Factory ile veri fabrikası sürüm 1 veri kümeleri arasında bazı farklar aşağıda verilmiştir: 
 
-- Dış özellik v2'desteklenmiyor. Tarafından değiştirilen bir [tetikleyici](concepts-pipeline-execution-triggers.md).
-- İlke ve kullanılabilirlik özellikler V2'desteklenmiyor. Bir ardışık düzeni için başlangıç saatini bağlıdır [Tetikleyicileri](concepts-pipeline-execution-triggers.md).
-- Kapsamlı veri kümeleri (ardışık düzeninde tanımlanan veri kümeleri) V2'desteklenmez. 
+- Dış özellik geçerli sürümde desteklenmiyor. Tarafından değiştirilen bir [tetikleyici](concepts-pipeline-execution-triggers.md).
+- İlke ve kullanılabilirlik özellikleri geçerli sürümde desteklenmez. Bir ardışık düzeni için başlangıç saatini bağlıdır [Tetikleyicileri](concepts-pipeline-execution-triggers.md).
+- Kapsamlı veri kümeleri (ardışık düzeninde tanımlanan veri kümeleri), geçerli sürümde desteklenmez. 
 
 ## <a name="next-steps"></a>Sonraki adımlar
 Bu araçlar ya da SDK'ları birini kullanarak ardışık düzen ve veri kümeleri oluşturmak için aşağıdaki Öğreticisi Adım adım yönergeler için bkz. 

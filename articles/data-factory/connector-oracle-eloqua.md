@@ -1,5 +1,5 @@
 ---
-title: Oracle Azure Data Factory (Önizleme) kullanarak Eloqua veri kopyalama | Microsoft Docs
+title: Oracle Azure Data Factory kullanarak Eloqua veri kopyalama | Microsoft Docs
 description: Veri kopyalama etkinliği Azure Data Factory ardışık düzeninde kullanarak Oracle Eloqua desteklenen havuz veri depolarına kopyalama öğrenin.
 services: data-factory
 documentationcenter: ''
@@ -13,19 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8edab4a27966a0bdb278007c0d030fe43a126a35
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 821e345933ba52ed2c71251bab3ba159e5412568
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36320607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048382"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Oracle Azure Data Factory (Önizleme) kullanarak Eloqua verilerini
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Oracle Azure Data Factory kullanarak Eloqua veri kopyalama
 
 Bu makalede kopya etkinliği Azure Data Factory'de Oracle Eloqua verileri kopyalamak için nasıl kullanılacağı açıklanmaktadır. Derlemeler [etkinlik genel bakış kopyalama](copy-activity-overview.md) makale kopyalama etkinliği genel bir bakış sunar.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Genel olarak kullanılabilir (GA) Data Factory Hizmeti'ne 1 sürümünü kullanıyorsanız bkz [V1 kopyalama etkinliği](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
 > Bu bağlayıcı, şu anda önizlemede değil. Deneyin ve geri bildirim sağlayın. Çözümünüzde bir önizleme bağlayıcısı bağımlılığı olmasını istiyorsanız lütfen [Azure desteğine](https://azure.microsoft.com/support/) başvurun.

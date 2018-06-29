@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194678"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036429"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux'ta AzCopy ile veri aktarımı
 
@@ -35,7 +35,9 @@ AzCopy, en iyi performans için tasarlanmış basit komutlarını kullanarak den
 ### <a name="installation-on-linux"></a>Linux üzerinde yükleme
 
 > [!NOTE]
-> Bu konuda vurgulanmış .NET Core 2.1 bağımlılıkları yüklemeniz gerekebilir [.NET Core ön koşullar makale](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) dağıtımınız bağlı olarak. Ubuntu 16.04 ve RHEL 7 gibi temel dağıtımları için bu genellikle gerekli değildir.
+> Bu konuda vurgulanmış .NET Core 2.1 bağımlılıkları yüklemeniz gerekebilir [.NET Core ön koşullar makale](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) dağıtımınız bağlı olarak. 
+>
+> RHEL 7 dağıtımları için ICU ve libunwind bağımlılıkları yükleyin: ```yum install -y libunwind icu```
 
 Linux'ta AzCopy yükleme (v7.2 veya sonrası) tar paketi ayıklanıyor ve yükleme komut dosyası çalıştırma olarak kadar kolaydır. 
 
@@ -723,4 +725,3 @@ Azure Depolama ve AzCopy hakkında daha fazla bilgi için aşağıdaki kaynaklar
 * [AzCopy: yeniden başlatılabilir modu ve SAS belirteci ile veri aktarımı](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: arası hesap kopyalama Blob kullanma](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Azure BLOB'ları karşıya yükleme ve indirme dosyaları](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-

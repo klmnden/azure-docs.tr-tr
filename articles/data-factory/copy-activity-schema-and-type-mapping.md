@@ -13,19 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e3c4ec0062b6a155d0f4b11da1c699a0906c442
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 338df0e258f66b6639e59a4fe31b6cfb6c283dd3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318237"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045536"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Şema eşleme kopyalama etkinliğinde
 Şema eşleme ve veri türü eşlemesi veri kaynağı verilerden Azure Data Factory kopyalama etkinliği nasıl yapar bu makalede veri kopyalamayı yapılırken.
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md).
-
 
 ## <a name="column-mapping"></a>Sütun eşlemesi
 

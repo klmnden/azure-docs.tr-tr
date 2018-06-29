@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 7d31a434d4ead6dd8f8a13a08d368389904b5b4a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5ffba386ae6b1e1e5d18f92803bc8cb74b2ff89e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364242"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061308"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure sanal makineleri güvenliğine genel bakış
 Azure sanal makineler, çok çeşitli bilgi işlem çözümleri Çevik bir şekilde dağıtmak için kullanabilirsiniz. Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP ve Azure BizTalk Services hizmeti destekler. Bu nedenle herhangi bir iş yükünü ve neredeyse tüm işletim sisteminde herhangi bir dil dağıtabilirsiniz.
@@ -142,5 +142,5 @@ Azure sanal makineleri FISMA, FedRAMP, HIPAA, PCI DSS düzey 1 ve diğer anahtar
 
 Daha fazla bilgi edinin:
 
-* [Microsoft Güven Merkezi: uyumluluk](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
+* [Microsoft Güven Merkezi: uyumluluk](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [Güvenilir bulut: Microsoft Azure güvenlik, gizlilik ve uyumluluk](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)

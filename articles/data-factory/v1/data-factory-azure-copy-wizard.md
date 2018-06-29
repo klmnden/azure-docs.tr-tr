@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ebd8abf8c34be1fa6fcd282c9bfbc63d81a56239
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6330854f4ee9b2db1597d916c815bb6646da6a29
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621141"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052758"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory Kopyalama Sihirbazı
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. 
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. 
 
 Azure Data Factory Kopyalama Sihirbazı'nı, genellikle bir uçtan uca veri tümleştirme senaryosunun ilk adımda veri alma işlemini kolaylaştırır. Azure veri fabrikası Kopyalama Sihirbazı'nı geçerken bağlı hizmetler, veri kümeleri ve işlem hatları için herhangi bir JSON tanımları anlayın gerekmez. Sihirbaz otomatik olarak seçilen hedef seçilen veri kaynağından verileri kopyalamak için bir işlem hattı oluşturur. Ayrıca, kopyalama Sihirbazı, geliştirme sırasında alınan verileri doğrulamak için yardımcı olur. Bu süre, tasarruf özellikle zaman, alma veri ilk kez veri kaynağından. Kopyalama Sihirbazı'nı başlatmak için tıklatın **veri kopyalama** döşeme veri fabrikanızın giriş sayfasında.
 
@@ -33,7 +33,7 @@ Azure Data Factory Kopyalama Sihirbazı'nı, genellikle bir uçtan uca veri tüm
 ## <a name="designed-for-big-data"></a>Büyük veriler için tasarlanmış
 Bu sihirbaz kolayca veriler çeşitli kaynaklardan hedeflere dakika cinsinden taşımanızı sağlar. Sihirbazı kullanarak olduktan sonra kopyalama etkinliği ile işlem hattı otomatik olarak sizin için bağımlı Data Factory varlıklarını birlikte (bağlı hizmetler ve veri kümeleri) oluşturulur. Ardışık düzen oluşturmak için hiçbir ek adımlar gereklidir.   
 
-![Veri kaynağı seç](./media/data-factory-copy-wizard/select-data-source-page.png)
+![Veri kaynağı seçme](./media/data-factory-copy-wizard/select-data-source-page.png)
 
 > [!NOTE]
 > Bir Azure SQL veritabanı tablosuna blob Azure verileri kopyalamak için örnek bir işlem hattı oluşturmak adım adım yönergeler için bkz: [Kopyalama Sihirbazı'nı Öğreticisi](data-factory-copy-data-wizard-tutorial.md).
@@ -67,7 +67,7 @@ Aşağıdaki ekran görüntüsü, bir SQL sorgusunu kullanarak gösterir `Text.F
 ![İfadeler doğrula](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Bir Azure blob klasöründe veri filtreleme
-Temel çalışma zamanında belirlenir bir klasörden veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz [sistem değişkenleri](data-factory-functions-variables.md#data-factory-system-variables). Değişkenleri desteklenir: **{year}**, **{month}**, **{day}**, **{saat}**, **{dakika}**, ve **{özel}**. Örneğin: inputfolder / {year} / {month} / {day}.
+Temel çalışma zamanında belirlenir bir klasörden veri kopyalamak için klasör yoluna değişkenleri kullanabilirsiniz [sistem değişkenleri](data-factory-functions-variables.md#data-factory-system-variables). Değişkenleri desteklenir: **{year}**, **{month}**, **{day}**, **{saat}**, **{dakika}** ve **{Özel}**. Örneğin: inputfolder / {year} / {month} / {day}.
 
 Klasörleri aşağıdaki biçimde giriş varsayın:
 

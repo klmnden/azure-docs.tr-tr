@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823314"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35762006"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Uzak Masaüstü bağlantısı üzerinden pig işleri çalıştırma
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -78,6 +78,7 @@ Hdınsight kümesi için Uzak Masaüstü'nü etkinleştirin ve ardından yönerg
     <td>Sonuç order SIKLIĞI sayısı desc tarafından; =</td><td>Günlük düzeyleri (Azalan) sayısına göre sıralar ve sonucu depolar</td>
     </tr>
 </table>
+
 6. Kullanarak bir dönüşüm sonuçları kaydedebilirsiniz `STORE` deyimi. Örneğin, aşağıdaki kaydeder komut `RESULT` için **/example/data/pigout** kümeniz için varsayılan depolama kapsayıcısında dizin:
 
         STORE RESULT into 'wasb:///example/data/pigout'
@@ -86,6 +87,7 @@ Hdınsight kümesi için Uzak Masaüstü'nü etkinleştirin ve ardından yönerg
    > Veri adlı dosyaları belirtilen dizinde depolanır **bölümü nnnnn**. Dizini zaten varsa, bir hata iletisi alırsınız.
    >
    >
+   
 7. Grunt istemi çıkmak için şu deyimi girin.
 
         QUIT;

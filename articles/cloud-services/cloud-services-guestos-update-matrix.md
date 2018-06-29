@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 6/1/2018
 ms.author: raiye
-ms.openlocfilehash: 73771aaff59c3db46907ffd9f74c03f0ac0830cb
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: dd6a9b3e8777c6efa4d6db07d4d65c86463f6cfe
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736788"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063621"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure konuk işletim sistemi sürümleri ve SDK uyumluluk matrisi
 En son Azure konuk işletim sistemi hakkında güncel bilgiler için bulut hizmetlerini yayımları sağlar. Bu bilgiler, bir konuk işletim sistemi devre dışı önce yükseltme yolunuza planlamanıza yardımcı olur. Rollerinizi kullanacak şekilde yapılandırırsanız, *otomatik* konuk işletim sistemi güncelleştirmeleri açıklandığı gibi [Azure konuk işletim sistemi güncelleştirme ayarları][Azure Guest OS Update Settings], bu sayfayı okuyun önemli değildir.
@@ -75,7 +75,7 @@ Eylül konuk işletim sistemi yayımladı. Windows Server 2016 Eylül sürüm i�
 
 
 
-## <a name="releases"></a>Sürümleri
+## <a name="releases"></a>serbest bırakır
 ## <a name="family-5-releases"></a>Aile 5 sürümleri
 **Windows Server 2016**
 
@@ -222,7 +222,7 @@ Microsoft Azure sürekli güncelleştirmeleri yayımladı. Konuk işletim sistem
 
 Konuk işletim sisteminin yeni bir sürüm yayımlandığında, tam olarak Azure yayılması zaman alabilir. Hizmetleri, yeni konuk işletim sistemine güncelleştirilir gibi bunlar güncelleştirme etki alanları uygularken yeniden başlatılır. "Otomatik" güncelleştirmeleri kullanacak şekilde Hizmetleri bir yayın ilk alır. Güncelleştirme tamamlandıktan sonra Azure portalında hizmetiniz için listelenen yeni konuk işletim sistemi sürümü görürsünüz. Yeniden yayımlama, bu süre zarfında ortaya çıkabilir. Bazı sürümler uzun süreler boyunca dağıtılabilir ve Otomatik yükseltme yeniden başlatmalar için birçok hafta sonra resmi yayın tarihi gerçekleşmeyebilir. Bir konuk işletim sistemi kullanılabilir olduğunda, daha sonra açıkça sürümünün portalından veya yapılandırma dosyanızda seçebilirsiniz.
 
-Yeniden başlatılır ve daha fazla bilgi teknik ayrıntılar Konuk ve ana bilgisayar işletim sistemi güncelleştirmelerinin işaretçiler hakkında değerli bilgiler içeren büyük bir bölümünü post başlıklı MSDN Web günlüğü postasına bakın [rol örneği yeniden son işletim sistemi yükseltmeleri için][restarts].
+Yeniden başlatılır ve daha fazla bilgi teknik ayrıntılar Konuk ve ana bilgisayar işletim sistemi güncelleştirmelerinin işaretçiler hakkında değerli bilgiler içeren büyük bir bölümünü post başlıklı MSDN Web günlüğü postasına bakın [rol örneği yeniden son işletim sistemi yükseltmeleri için] [ restarts].
 
 Konuk işletim sistemi el ile güncelleştirirseniz bkz [konuk işletim sistemi devre dışı bırakma İlkesi] [ retirepolicy] ek bilgi için.
 
@@ -242,7 +242,7 @@ Konuk işletim sistemi desteklenebilirlik ve kullanımdan kaldırma İlkesi aç�
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: http://www.microsoft.com/security/msrc/default.aspx
+[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx

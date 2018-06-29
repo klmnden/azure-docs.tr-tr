@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: c56501deaf4d30374690a112b1ba11eaa9344cdb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 417425a6982ca92e486ccfb578131ebc898a0466
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622372"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046097"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - örnekleri
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. Önizlemede değil, Data Factory hizmetinin 2 sürümünü kullanıyorsanız bkz [PowerShell örnekleri sürüm 2 veri fabrikasında](../samples-powershell.md) ve [kod örnekleri Azure Kod örnekleri galerisinde](https://azure.microsoft.com/resources/samples/?service=data-factory).
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. Data Factory hizmetinin geçerli sürümünü kullanıyorsanız bkz [PowerShell örnekleri veri fabrikasında](../samples-powershell.md) ve [kod örnekleri Azure Kod örnekleri galerisinde](https://azure.microsoft.com/resources/samples/?service=data-factory).
 
 
-## <a name="samples-on-github"></a>Github'da örnekleri
+## <a name="samples-on-github"></a>GitHub’daki örnekler
 [GitHub Azure-DataFactory depo](https://github.com/azure/azure-datafactory) yardımcı birkaç örnekleri kolayca artırma Azure Data Factory hizmetiyle içerir (veya) komut dosyaları değiştirebilirsiniz ve kendi uygulamada kullanabilirsiniz. Samples\JSON klasörü ortak senaryolar için JSON parçacıklarını içerir.
 
 | Örnek | Açıklama |

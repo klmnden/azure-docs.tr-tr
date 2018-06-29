@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: a5046a5e3771e95d76bb6edc7987a1e3176abeb0
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: aca03452ff5655d3a7180009f42df14c9459a9ff
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309425"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061567"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric kümesi kapasite planlama konuları
 Her üretim dağıtımı için kapasite planlamasının önemli bir adımdır. Bu işlemin bir parçası olarak göz önünde bulundurmanız gereken öğelerin bazıları aşağıda verilmiştir.
@@ -27,6 +27,10 @@ Her üretim dağıtımı için kapasite planlamasının önemli bir adımdır. B
 * Düğüm sayısı ile başlatmak için küme gereksinimlerinizi türleri
 * Her bir düğüm türü (boyutu, birincil, internet'e yönelik, sanal makineleri, vb. sayısı) özellikleri
 * Kümenin güvenilirlik ve dayanıklılık özellikleri
+
+> [!NOTE]
+> En düşük düzeyde tüm gözden geçirmeniz gereken **izin** planlama sırasında ilke değerleri yükseltin. Değerleri uygun şekilde ayarlanmış sağlamak ve kümenizi daha sonra değiştirilemez sistemi yapılandırma ayarları nedeniyle yazma azaltmak için budur. 
+> 
 
 Bize kısaca bu öğelerin her birini gözden geçirin.
 

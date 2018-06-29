@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0a03bb836f789a2a1cb58705a6758000c07036d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3419f8718396bfb4ec894310e545f6a8a5b8f718
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621318"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049273"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Azure Data Factory varlıklarını oluşturmak için şablon kullanın
 > [!NOTE]
-> Bu makale, Data Factory’nin genel kullanıma açık olan (GA) 1. sürümü için geçerlidir. 
+> Bu makale, veri fabrikası 1 sürümü için geçerlidir. 
 
 ## <a name="overview"></a>Genel Bakış
 Kendinizi bulabilirsiniz veri tümleştirme ihtiyaçlarınız için Azure Data Factory kullanırken farklı ortamlar veya aynı çözüm içinde art arda aynı görevi uygulama arasında aynı düzeni yeniden kullanma. Şablonları uygulamak ve bu senaryolar kolay bir şekilde yönetmenize yardımcı olur. Azure Data Factory şablonlarında yeniden kullanılırlığı ve yineleme gerektiren senaryolar için idealdir.
@@ -33,7 +33,7 @@ Bir kuruluş dünya genelindeki 10 üretim bitkilerin sahip olduğu durum göz �
 
 Bu durumda, bir görev aynı ortamda ancak farklı değerleri olan her üretim tesis için 10 veri fabrikaları arasında yinelenmesi gerekir. Uygulamada **yineleme** mevcuttur. Şablon bu genel akış (diğer bir deyişle, her veri fabrikası aynı etkinlikleri sahip ardışık) soyutlaması sağlar, ancak her üretim tesis için ayrı bir parametre dosyası kullanır.
 
-Bu 10 veri fabrikaları farklı ortamlar genelinde birden çok kez dağıtmak kuruluş istediği gibi Ayrıca, şablonları bu kullanabilirsiniz **yeniden kullanılırlığı** geliştirme, test ve üretim ortamları için ayrı parametre dosyaları aynı kullanarak.
+Bu 10 veri fabrikaları farklı ortamlar genelinde birden çok kez dağıtmak kuruluş istediği gibi Ayrıca, şablonları bu kullanabilirsiniz **yeniden kullanılırlığı** geliştirme için ayrı parametre dosyaları aynı kullanarak test, ve üretim ortamlarında.
 
 ## <a name="templating-with-azure-resource-manager"></a>Azure Resource Manager ile şablonu oluşturma
 [Azure Resource Manager şablonları](../../azure-resource-manager/resource-group-overview.md#template-deployment) Azure veri fabrikası'nda şablon elde etmek için kullanışlı bir yoludur. Resource Manager şablonları bir JSON dosyası aracılığıyla altyapısı ve Azure çözümünüzü yapılandırmasını tanımlayın. Azure Resource Manager şablonları tüm/çoğu Azure hizmetler ile çalışmak için bu yaygın olarak kolayca Azure varlıklarınızın tüm kaynakları yönetmek için kullanılabilir. Bkz: [Azure Resource Manager şablonları yazma](../../azure-resource-manager/resource-group-authoring-templates.md) Resource Manager şablonları hakkında daha fazla genel bilgi edinmek için.
@@ -237,7 +237,7 @@ Kümesini parametreleştirme en iyi uygulamalar için bkz: [en iyi uygulamalar A
 * Ayarlar ortamı tarafından değişir (örnek: geliştirme, test ve üretim)
 * Gizli (parolalar gibi)
 
-Gizli gelen çekme gerekiyorsa [Azure anahtar kasası](../../key-vault/key-vault-get-started.md) şablonları kullanarak Azure Data Factory varlıklarını dağıtırken belirtin **anahtar kasası** ve **gizli anahtar adı** aşağıdaki örnekte gösterildiği gibi:
+Gizli gelen çekme gerekiyorsa [Azure anahtar kasası](../../key-vault/key-vault-get-started.md) şablonları kullanarak Azure Data Factory varlıklarını dağıtırken belirtin **anahtar kasası** ve **gizli anahtar adı** gösterildiği gibi Aşağıdaki örnek:
 
 ```JSON
 "parameters": {

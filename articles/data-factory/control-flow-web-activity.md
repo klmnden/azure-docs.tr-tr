@@ -11,20 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/14/2018
 ms.author: shlo
-ms.openlocfilehash: 6d14d84610d97e487e3bf4286267623681c4eb75
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 71e89828645cadbbbf60527fca9968fd8ed568ff
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619244"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059221"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure Data Factory Web etkinlik
 Web Etkinliği bir Data Factory işlem hattından özel bir REST uç noktasını çağırmak için kullanılabilir. Etkinlik tarafından kullanılacak ve erişilecek veri kümelerini ve bağlı hizmetleri geçirebilirsiniz. 
-
-> [!NOTE]
-> Bu makale şu anda önizleme sürümünde olan Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık (GA) 1. sürümünü kullanıyorsanız [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md) konusunu inceleyin.
 
 ## <a name="syntax"></a>Sözdizimi
 
@@ -72,7 +69,7 @@ type | Ayarlanmalıdır **WebActivity**. | Dize | Evet
 method | Hedef uç nokta için REST API yöntemi. | Dize. <br/><br/>Desteklenen türleri: "GET", "POST", "PUT" | Evet
 url | Hedef uç noktası ve yol | Dize (veya dize Resulttype'a sahip ifadesi). Etkinlik olacak zaman aşımı hatasıyla 1 dakika, uç noktasından bir yanıt alamazsa. | Evet
 headers | İsteği gönderilir üstbilgileri. Örneğin, bir isteği dil ve türünü ayarlamak için: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }`. | Dize (veya dize Resulttype'a sahip ifade) | Evet, Content-type üstbilgisi gereklidir. `"headers":{ "Content-Type":"application/json"}`
-body | Uç noktasına gönderilen yükünü temsil eder. POST/PUT yöntemleri için gereklidir.  | Dize (veya dize Resulttype'a sahip ifadesi). <br/><br/>İstek yükünde şeması bkz [istek yükü şeması](#request-payload-schema) bölümü. | Hayır
+body | Uç noktasına gönderilen yükünü temsil eder.  | Dize (veya dize Resulttype'a sahip ifadesi). <br/><br/>İstek yükünde şeması bkz [istek yükü şeması](#request-payload-schema) bölümü. | POST/PUT yöntemleri için gereklidir.
 kimlik doğrulaması | Uç nokta çağırmak için kullanılan kimlik doğrulama yöntemi. Desteklenen türler şunlardır: "Basic ya ClientCertificate." Daha fazla bilgi için bkz: [kimlik doğrulaması](#authentication) bölümü. Kimlik doğrulama gerekli değilse, bu özellik dışlayın. | Dize (veya dize Resulttype'a sahip ifade) | Hayır
 Veri kümeleri | Veri kümeleri listesini uç noktasına geçirildi. | Veri kümesi başvuruları dizisi. Boş bir dizi olabilir. | Evet
 linkedServices | Bağlı hizmetler listesi uç noktasına geçirildi. | Bağlantılı hizmeti başvuruları dizisi. Boş bir dizi olabilir. | Evet

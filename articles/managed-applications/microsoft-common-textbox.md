@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: f11098f4af2e85df16e00ce6dac6e7c4b5b34e2b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fa3e5fff8080acb9e824ffe27f6c149054804830
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260927"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063655"
 ---
 # <a name="microsoftcommontextbox-ui-element"></a>Microsoft.Common.TextBox UI öğesi
 Biçimlendirilmemiş metin düzenlemek için kullanılan bir denetimi.
@@ -31,8 +31,8 @@ Biçimlendirilmemiş metin düzenlemek için kullanılan bir denetimi.
 {
   "name": "element1",
   "type": "Microsoft.Common.TextBox",
-  "label": "Some text box",
-  "defaultValue": "my value",
+  "label": "Example text box 1",
+  "defaultValue": "my text value",
   "toolTip": "Use only allowed characters",
   "constraints": {
     "required": true,
@@ -44,7 +44,7 @@ Biçimlendirilmemiş metin düzenlemek için kullanılan bir denetimi.
 ```
 
 ## <a name="remarks"></a>Açıklamalar
-- Varsa `constraints.required` ayarlanır **doğru**, metin kutusunun başarıyla doğrulamak için bir değer içermesi gerekir. Varsayılan değer **false**.
+- Varsa `constraints.required` ayarlanır **doğru**, sonra da metin kutusunda başarıyla doğrulamak için bir değer olmalıdır. Varsayılan değer **false**.
 - `constraints.regex` JavaScript normal ifade deseni olur. Belirtilmişse, metin kutusunun değerini başarıyla doğrulamak için desen eşleşmesi gerekir. Varsayılan değer **null**.
 - `constraints.validationMessage` metin kutusunun değerini doğrulanamadığında görüntülenecek bir dizedir. Belirtilmezse, metin kutusunun yerleşik doğrulama iletileri kullanılır. Varsayılan değer **null**.
 - İçin bir değer belirtin mümkündür `constraints.regex` zaman `constraints.required` ayarlanır **false**. Bu senaryoda, bir değer başarıyla doğrulamak metin kutusu için gerekli değildir. Belirtilmişse, normal ifade deseni eşleşmesi gerekir.
@@ -52,7 +52,7 @@ Biçimlendirilmemiş metin düzenlemek için kullanılan bir denetimi.
 ## <a name="sample-output"></a>Örnek çıktı
 
 ```json
-"my value"
+"my text value"
 ```
 
 ## <a name="next-steps"></a>Sonraki adımlar

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618666"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059175"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure veri fabrikası'nda arama etkinliği
 
@@ -26,9 +26,6 @@ Arama etkinliği, bir veri kümesi herhangi ADF desteklenen veri kaynağını al
 - (Dosyalar, tablolar vb.) üzerinde nesne adını sabit kodlama yerine bir sonraki etkinlik çalışması için hangi nesnelerin dinamik olarak belirleme
 
 Arama etkinliği okuyun ve içeriği bir yapılandırma dosyası, bir yapılandırma tablo veya bir sorgu veya saklı yordam yürütmenin sonucu döndürür.  Arama etkinlik çıkışı bir tek değer ise bir sonraki kopyalama veya dönüştürme etkinliğine kullanılan veya bir dizi öznitelikleri ise ForEach etkinliğinde kullanılan.
-
-> [!NOTE]
-> Bu makale, şu anda önizleme sürümünde olan Azure Data Factory sürüm 2 için geçerlidir. Data Factory hizmetinin genel kullanıma açık 1. sürümünü kullanıyorsanız bkz. [Data Factory sürüm 1 belgeleri](v1/data-factory-introduction.md).
 
 ## <a name="supported-capabilities"></a>Desteklenen özellikler
 

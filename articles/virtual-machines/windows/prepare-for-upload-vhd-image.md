@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 038a9be813367d130dd8bb02b24879d1e2e573b5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d7ee7050f430efea64d9988adf4f5a603128de2
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072258"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053458"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Bir Windows VHD veya VHDX Azure'a karşıya yüklemek için hazırlama
 Bir Windows sanal makineler (VM) şirket içi Microsoft Azure karşıya yüklemeden önce sanal sabit disk (VHD veya VHDX) hazırlamanız gerekir. Azure, sabit boyutlu disk VHD dosyası biçiminde olan ve 1. nesil VM destekler. VHD için izin verilen maksimum boyutu 1,023 GB'dir. 1 sanal makineden VHDX dosya sistemi VHD ve sabit boyutlu için dinamik olarak genişleyen bir diskten nesil dönüştürebilirsiniz. Ancak, bir sanal makinenin oluşturma değiştiremezsiniz. Daha fazla bilgi için bkz: [kuşak 1 veya 2 oluşturmanız gerekir Hyper-V'de VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -119,7 +119,7 @@ Set-Service -Name RemoteRegistry -StartupType Auto
 Aşağıdaki ayarlar için Uzak Masaüstü Bağlantısı doğru şekilde yapılandırıldığından emin olun:
 
 >[!Note] 
->Programını çalıştırdığınızda, bir hata iletisi alabilirsiniz **kümesi ItemProperty-yolu ' HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Hizmetleri - adı &lt;nesne adı&gt; &lt;değeri&gt;**  aşağıdaki adımları. Hata iletisi güvenle yoksayılabilir. Bu, yalnızca etki alanı Grup İlkesi nesnesi aracılığıyla bu yapılandırma Ftp'den değil anlamına gelir.
+>Programını çalıştırdığınızda, bir hata iletisi alabilirsiniz **kümesi ItemProperty-yolu ' HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Hizmetleri - adı &lt;nesne adı&gt; &lt;değeri&gt;** aşağıdaki adımları. Hata iletisi güvenle yoksayılabilir. Bu, yalnızca etki alanı Grup İlkesi nesnesi aracılığıyla bu yapılandırma Ftp'den değil anlamına gelir.
 >
 >
 
@@ -367,7 +367,7 @@ Bunun yerine, yalnızca bir disk, bir VM oluşturmak istiyorsanız sysprep kulla
 Özelleştirilmiş bir diskten VM oluşturma hakkında daha fazla bilgi için bkz:
 
 - [Özelleştirilmiş bir diskten VM oluşturma](create-vm-specialized.md)
-- [Özel bir VHD diskten bir VM oluşturma](https://azure.microsoft.com/resources/templates/201-vm-specialized-vhd/)
+- [Özel bir VHD diskten bir VM oluşturma](https://review.docs.microsoft.com/en-us/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
 Genelleştirilmiş bir yansıma oluşturmak istiyorsanız, sysprep çalıştırmanız gerekir. Sysprep hakkında daha fazla bilgi için bkz: [kullanım Sysprep nasıl: Giriş](http://technet.microsoft.com/library/bb457073.aspx). 
 
@@ -381,7 +381,7 @@ Her rol ya da Windows tabanlı bir bilgisayarda yüklü uygulamayı bu Genelleş
 1. Windows VM oturum açın.
 2. Çalıştırma **komut istemi** yönetici olarak. 
 3. Dizine geçin: **%windir%\system32\sysprep**ve ardından çalıştırın **sysprep.exe**.
-3. İçinde **Sistem Hazırlama aracı** iletişim kutusunda **girin sistem Out-of-Box deneyimi (OOBE)**, emin olun **Generalize** onay kutusu seçilidir.
+3. **Sistem Hazırlama Aracı** iletişim kutusunda  **Sistem İlk Çalıştırma Deneyimi (OOBE) Moduna Gir**'i seçin ve **Genelleştir** onay kutusunun seçili olduğundan emin olun.
 
     ![Sistem Hazırlama Aracı](media/prepare-for-upload-vhd-image/syspre.png)
 4. İçinde **kapatma seçenekleri**seçin **kapatma**.

@@ -1,24 +1,26 @@
 ---
-title: En iyi uygulamalar Azure Data Lake Store kullanma | Microsoft Docs
-description: En iyi yöntemleri veri alımı, tarih güvenlik ve Azure Data Lake Store kullanımıyla ilgili performans hakkında bilgi edinin
+title: En iyi uygulamalar Azure Data Lake Storage Gen1 kullanma | Microsoft Docs
+description: En iyi yöntemleri veri alımı, tarih güvenlik ve Azure Data Lake Storage Gen1 (daha önce Azure Data Lake deposu da bilinir) kullanımıyla ilgili performans hakkında bilgi edinin
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 00eb2b6b60aa6c3224b58556f6dad64d4294c308
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625347"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37036373"
 ---
-# <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store kullanmak için en iyi uygulamalar
+# <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 kullanmak için en iyi uygulamalar
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Bu makalede, en iyi yöntemler ve Azure Data Lake Store ile çalışma konuları hakkında bilgi edinin. Bu makale, güvenlik, performans, dayanıklılık ve Data Lake Store için izleme bilgileri sağlar. Data Lake Store önce Azure Hdınsight gibi hizmetler gerçekten büyük verilerle çalışmak karmaşıktı. Böylece Petabayt depolama ve bu ölçekte en iyi performansı elde edilebilir birden çok Blob Depolama hesapları arasında parça veri içeriyor. Data Lake Store ile boyutu ve performans için sabit sınırları çoğunu kaldırılır. Ancak, yine bu makalede yer almaktadır ve böylece Data Lake Store ile en iyi performansı elde edebilirsiniz bazı noktalar vardır. 
 
 ## <a name="security-considerations"></a>Güvenlikle ilgili dikkat edilmesi gerekenler
@@ -114,7 +116,7 @@ Kopyası işleri sıklığı veya veri tetikleyicileri yanı sıra, Linux cron i
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Azure Data Factory kopyalama işlerini zamanlamak için kullanın 
 
-Azure Data Factory de kullanılabilir kullanarak kopyalama işlerini zamanlamak için bir **kopyalama etkinliği**ve hatta frekansına ayarlanabilir **Kopyalama Sihirbazı'nı**. Azure Data Factory bulut veri taşıma birimleri (DMUs) bir sınırı vardır ve büyük veri iş yükleri için işleme/işlem sonunda caps aklınızda bulundurun. Ayrıca, Azure Data Factory klasörleri Hive tablolarını gibi çoğaltmak için tam bir kopyasını gerektirecek şekilde Data Lake Store hesapları arasında delta güncelleştirmeleri şu anda sağlamaz. Başvurmak [kopyalama etkinliği ayarlama Kılavuzu](../data-factory/v1/data-factory-copy-activity-performance.md) Data Factory kopyalama hakkında daha fazla bilgi için. 
+Azure Data Factory de kullanılabilir kullanarak kopyalama işlerini zamanlamak için bir **kopyalama etkinliği**ve hatta frekansına ayarlanabilir **Kopyalama Sihirbazı'nı**. Azure Data Factory bulut veri taşıma birimleri (DMUs) bir sınırı vardır ve büyük veri iş yükleri için işleme/işlem sonunda caps aklınızda bulundurun. Ayrıca, Azure Data Factory klasörleri Hive tablolarını gibi çoğaltmak için tam bir kopyasını gerektirecek şekilde Data Lake Store hesapları arasında delta güncelleştirmeleri şu anda sağlamaz. Başvurmak [kopyalama etkinliği ayarlama Kılavuzu](../data-factory/copy-activity-performance.md) Data Factory kopyalama hakkında daha fazla bilgi için. 
 
 ### <a name="adlcopy"></a>AdlCopy
 
