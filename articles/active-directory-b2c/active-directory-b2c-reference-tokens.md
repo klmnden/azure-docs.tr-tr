@@ -1,21 +1,21 @@
 ---
-title: Başvuru - Azure AD B2C belirteç | Microsoft Docs
+title: Simge Azure Active Directory B2C başvurusu | Microsoft Docs
 description: Azure Active Directory B2C'de yayınlanan belirteçleri türleri
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 09d776b54941e33979d7969b25c35e67a53cf8f0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: e2ca582c9ec767e9b810c574e3efddc6485bb6a0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: tr-TR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34709317"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Belirteç başvurusu
 
@@ -73,7 +73,7 @@ Talep Kimliği belirteçlerinde belirli bir sırada döndürülmez unutmayın. A
 | Ad | İste | Örnek değer | Açıklama |
 | --- | --- | --- | --- |
 | Hedef kitle |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Bir izleyici talep belirtecinin hedeflenen alıcı tanımlar. Azure AD B2C için hedef kitle, uygulamanızın uygulama kimliği, uygulama kayıt portalında uygulamanıza atanan aynıdır. Uygulamanız bu değeri doğrulamak ve onu eşleşmiyorsa belirteci reddetme gerekir. |
-| Veren: |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Bu talep oluşturur ve belirteci döndüren güvenlik belirteci hizmeti (STS) tanımlar. Ayrıca, kullanıcı kimlik doğrulamasının yapıldığı Azure AD dizini tanımlar. Uygulamanız Azure Active Directory v2.0 uç noktasından belirteç geldiğini emin olmak için verenin talep doğrulamalıdır. |
+| Sertifikayı Veren |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Bu talep oluşturur ve belirteci döndüren güvenlik belirteci hizmeti (STS) tanımlar. Ayrıca, kullanıcı kimlik doğrulamasının yapıldığı Azure AD dizini tanımlar. Uygulamanız Azure Active Directory v2.0 uç noktasından belirteç geldiğini emin olmak için verenin talep doğrulamalıdır. |
 | çıkışı |`iat` |`1438535543` |Bu talep belirteci, dönem saatle gösterilir düzenlendiği zamandır. |
 | Sona erme zamanı |`exp` |`1438539443` |Dönem zaman temsil hangi belirteci geçersiz hale geldiği tarih talep sona erme saati. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
 | önce değil |`nbf` |`1438535543` |Bu talep aktarılma belirteç olur geçerli, dönem zaman gösterilen saattir. Bu genellikle belirtecin verilmiş süresiyle aynıdır. Uygulamanızı belirteç ömrü geçerliliğini doğrulamak için bu talep kullanmanız gerekir. |
@@ -145,7 +145,7 @@ Uygulamanızı veya API kimliği belirteci aldığında bunu talep karşı bazı
 
 Uygulamanızı gerçekleştirmesi gerektiğini doğrulamaları tam bir listesi için başvurmak [Openıd Connect belirtimi](https://openid.net). Bu talep beklenen değerler ayrıntılarını yer alan önceki [belirteci bölüm](#types-of-tokens).  
 
-## <a name="token-lifetimes"></a>Belirteç ömürleri
+## <a name="token-lifetimes"></a>Belirteç kullanım ömrü
 Aşağıdaki belirteci yaşam süreleri bilginiz ilerletmek için sağlanır. Geliştirme ve hata ayıklama uygulamaları bunlar yardımcı olabilir. Uygulamalarınızı sabit kalması için bu yaşam süreleri hiçbirini beklenir yazılmamalıysa unutmayın. Bunlar olabilir ve değiştirir. Daha fazla bilgi edinin [belirteci yaşam süreleri özelleştirmesini](active-directory-b2c-token-session-sso.md) Azure AD B2C'de.
 
 | Belirteç | Yaşam süresi | Açıklama |
